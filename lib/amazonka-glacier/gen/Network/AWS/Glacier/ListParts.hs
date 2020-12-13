@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,10 +26,10 @@ module Network.AWS.Glacier.ListParts
     mkListParts,
 
     -- ** Request lenses
+    lpVaultName,
+    lpAccountId,
     lpMarker,
     lpLimit,
-    lpAccountId,
-    lpVaultName,
     lpUploadId,
 
     -- * Destructuring the response
@@ -58,44 +59,57 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListParts' smart constructor.
 data ListParts = ListParts'
-  { marker :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Text,
-    accountId :: Lude.Text,
+  { -- | The name of the vault.
     vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text,
+    -- | An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
+    limit :: Lude.Maybe Lude.Text,
+    -- | The upload ID of the multipart upload.
     uploadId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListParts' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'limit' - The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
--- * 'marker' - An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
--- * 'uploadId' - The upload ID of the multipart upload.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'marker' - An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
+-- * 'limit' - The maximum number of parts to be returned. The default limit is 50. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
+-- * 'uploadId' - The upload ID of the multipart upload.
 mkListParts ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
+  Lude.Text ->
+  -- | 'accountId'
   Lude.Text ->
   -- | 'uploadId'
   Lude.Text ->
   ListParts
-mkListParts pAccountId_ pVaultName_ pUploadId_ =
+mkListParts pVaultName_ pAccountId_ pUploadId_ =
   ListParts'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
+    { vaultName = pVaultName_,
       accountId = pAccountId_,
-      vaultName = pVaultName_,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing,
       uploadId = pUploadId_
     }
+
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpVaultName :: Lens.Lens' ListParts Lude.Text
+lpVaultName = Lens.lens (vaultName :: ListParts -> Lude.Text) (\s a -> s {vaultName = a} :: ListParts)
+{-# DEPRECATED lpVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpAccountId :: Lens.Lens' ListParts Lude.Text
+lpAccountId = Lens.lens (accountId :: ListParts -> Lude.Text) (\s a -> s {accountId = a} :: ListParts)
+{-# DEPRECATED lpAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
 --
@@ -110,20 +124,6 @@ lpMarker = Lens.lens (marker :: ListParts -> Lude.Maybe Lude.Text) (\s a -> s {m
 lpLimit :: Lens.Lens' ListParts (Lude.Maybe Lude.Text)
 lpLimit = Lens.lens (limit :: ListParts -> Lude.Maybe Lude.Text) (\s a -> s {limit = a} :: ListParts)
 {-# DEPRECATED lpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpAccountId :: Lens.Lens' ListParts Lude.Text
-lpAccountId = Lens.lens (accountId :: ListParts -> Lude.Text) (\s a -> s {accountId = a} :: ListParts)
-{-# DEPRECATED lpAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpVaultName :: Lens.Lens' ListParts Lude.Text
-lpVaultName = Lens.lens (vaultName :: ListParts -> Lude.Text) (\s a -> s {vaultName = a} :: ListParts)
-{-# DEPRECATED lpVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The upload ID of the multipart upload.
 --
@@ -178,35 +178,36 @@ instance Lude.ToQuery ListParts where
 --
 -- /See:/ 'mkListPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-  { parts ::
-      Lude.Maybe [PartListElement],
+  { -- | A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
+    parts :: Lude.Maybe [PartListElement],
+    -- | The ID of the upload to which the parts are associated.
     multipartUploadId :: Lude.Maybe Lude.Text,
+    -- | The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
     partSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The description of the archive that was specified in the Initiate Multipart Upload request.
     archiveDescription :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.
     vaultARN :: Lude.Maybe Lude.Text,
+    -- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The UTC time at which the multipart upload was initiated.
     creationDate :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPartsResponse' with the minimum fields required to make a request.
 --
--- * 'archiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
--- * 'creationDate' - The UTC time at which the multipart upload was initiated.
--- * 'marker' - An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
+-- * 'parts' - A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
 -- * 'multipartUploadId' - The ID of the upload to which the parts are associated.
 -- * 'partSizeInBytes' - The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
--- * 'parts' - A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
--- * 'responseStatus' - The response status code.
+-- * 'archiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
 -- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault to which the multipart upload was initiated.
+-- * 'marker' - An opaque string that represents where to continue pagination of the results. You use the marker in a new List Parts request to obtain more jobs in the list. If there are no more parts, this value is @null@ .
+-- * 'creationDate' - The UTC time at which the multipart upload was initiated.
+-- * 'responseStatus' - The response status code.
 mkListPartsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

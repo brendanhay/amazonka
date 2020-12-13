@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,22 +48,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSchemaVersion' smart constructor.
 data GetSchemaVersion = GetSchemaVersion'
-  { schemaVersionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The @SchemaVersionId@ of the schema version. This field is required for fetching by schema ID. Either this or the @SchemaId@ wrapper has to be provided.
+    schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | This is a wrapper structure to contain schema identity fields. The structure contains:
+    --
+    --
+    --     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+    --
+    --
+    --     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
     schemaId :: Lude.Maybe SchemaId,
+    -- | The version number of the schema.
     schemaVersionNumber :: Lude.Maybe SchemaVersionNumber
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaVersion' with the minimum fields required to make a request.
 --
+-- * 'schemaVersionId' - The @SchemaVersionId@ of the schema version. This field is required for fetching by schema ID. Either this or the @SchemaId@ wrapper has to be provided.
 -- * 'schemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:
 --
 --
@@ -72,7 +76,6 @@ data GetSchemaVersion = GetSchemaVersion'
 --     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
 --
 --
--- * 'schemaVersionId' - The @SchemaVersionId@ of the schema version. This field is required for fetching by schema ID. Either this or the @SchemaId@ wrapper has to be provided.
 -- * 'schemaVersionNumber' - The version number of the schema.
 mkGetSchemaVersion ::
   GetSchemaVersion
@@ -158,35 +161,36 @@ instance Lude.ToQuery GetSchemaVersion where
 
 -- | /See:/ 'mkGetSchemaVersionResponse' smart constructor.
 data GetSchemaVersionResponse = GetSchemaVersionResponse'
-  { status ::
-      Lude.Maybe SchemaVersionStatus,
+  { -- | The status of the schema version.
+    status :: Lude.Maybe SchemaVersionStatus,
+    -- | The schema definition for the schema ID.
     schemaDefinition :: Lude.Maybe Lude.Text,
+    -- | The date and time the schema version was created.
     createdTime :: Lude.Maybe Lude.Text,
+    -- | The data format of the schema definition. Currently only @AVRO@ is supported.
     dataFormat :: Lude.Maybe DataFormat,
+    -- | The @SchemaVersionId@ of the schema version.
     schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | The version number of the schema.
     versionNumber :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) of the schema.
     schemaARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaVersionResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the schema version.
+-- * 'schemaDefinition' - The schema definition for the schema ID.
 -- * 'createdTime' - The date and time the schema version was created.
 -- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
--- * 'responseStatus' - The response status code.
--- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
--- * 'schemaDefinition' - The schema definition for the schema ID.
 -- * 'schemaVersionId' - The @SchemaVersionId@ of the schema version.
--- * 'status' - The status of the schema version.
 -- * 'versionNumber' - The version number of the schema.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
+-- * 'responseStatus' - The response status code.
 mkGetSchemaVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

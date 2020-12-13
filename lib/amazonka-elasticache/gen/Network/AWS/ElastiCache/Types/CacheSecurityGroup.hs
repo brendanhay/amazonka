@@ -44,29 +44,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheSecurityGroup' smart constructor.
 data CacheSecurityGroup = CacheSecurityGroup'
-  { cacheSecurityGroupName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the cache security group.
+    cacheSecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the cache security group,
     arn :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID of the cache security group owner.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | A list of Amazon EC2 security groups that are associated with this cache security group.
     ec2SecurityGroups :: Lude.Maybe [EC2SecurityGroup],
+    -- | The description of the cache security group.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheSecurityGroup' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the cache security group,
 -- * 'cacheSecurityGroupName' - The name of the cache security group.
--- * 'description' - The description of the cache security group.
--- * 'ec2SecurityGroups' - A list of Amazon EC2 security groups that are associated with this cache security group.
+-- * 'arn' - The ARN of the cache security group,
 -- * 'ownerId' - The AWS account ID of the cache security group owner.
+-- * 'ec2SecurityGroups' - A list of Amazon EC2 security groups that are associated with this cache security group.
+-- * 'description' - The description of the cache security group.
 mkCacheSecurityGroup ::
   CacheSecurityGroup
 mkCacheSecurityGroup =

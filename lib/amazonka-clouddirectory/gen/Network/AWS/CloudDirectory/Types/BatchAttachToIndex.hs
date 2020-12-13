@@ -17,8 +17,8 @@ module Network.AWS.CloudDirectory.Types.BatchAttachToIndex
     mkBatchAttachToIndex,
 
     -- * Lenses
-    batiIndexReference,
     batiTargetReference,
+    batiIndexReference,
   )
 where
 
@@ -30,41 +30,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchAttachToIndex' smart constructor.
 data BatchAttachToIndex = BatchAttachToIndex'
-  { indexReference ::
-      ObjectReference,
-    targetReference :: ObjectReference
+  { -- | A reference to the object that you are attaching to the index.
+    targetReference :: ObjectReference,
+    -- | A reference to the index that you are attaching the object to.
+    indexReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachToIndex' with the minimum fields required to make a request.
 --
--- * 'indexReference' - A reference to the index that you are attaching the object to.
 -- * 'targetReference' - A reference to the object that you are attaching to the index.
+-- * 'indexReference' - A reference to the index that you are attaching the object to.
 mkBatchAttachToIndex ::
-  -- | 'indexReference'
-  ObjectReference ->
   -- | 'targetReference'
   ObjectReference ->
+  -- | 'indexReference'
+  ObjectReference ->
   BatchAttachToIndex
-mkBatchAttachToIndex pIndexReference_ pTargetReference_ =
+mkBatchAttachToIndex pTargetReference_ pIndexReference_ =
   BatchAttachToIndex'
-    { indexReference = pIndexReference_,
-      targetReference = pTargetReference_
+    { targetReference = pTargetReference_,
+      indexReference = pIndexReference_
     }
-
--- | A reference to the index that you are attaching the object to.
---
--- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batiIndexReference :: Lens.Lens' BatchAttachToIndex ObjectReference
-batiIndexReference = Lens.lens (indexReference :: BatchAttachToIndex -> ObjectReference) (\s a -> s {indexReference = a} :: BatchAttachToIndex)
-{-# DEPRECATED batiIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
 
 -- | A reference to the object that you are attaching to the index.
 --
@@ -73,11 +61,18 @@ batiTargetReference :: Lens.Lens' BatchAttachToIndex ObjectReference
 batiTargetReference = Lens.lens (targetReference :: BatchAttachToIndex -> ObjectReference) (\s a -> s {targetReference = a} :: BatchAttachToIndex)
 {-# DEPRECATED batiTargetReference "Use generic-lens or generic-optics with 'targetReference' instead." #-}
 
+-- | A reference to the index that you are attaching the object to.
+--
+-- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+batiIndexReference :: Lens.Lens' BatchAttachToIndex ObjectReference
+batiIndexReference = Lens.lens (indexReference :: BatchAttachToIndex -> ObjectReference) (\s a -> s {indexReference = a} :: BatchAttachToIndex)
+{-# DEPRECATED batiIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
+
 instance Lude.ToJSON BatchAttachToIndex where
   toJSON BatchAttachToIndex' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("IndexReference" Lude..= indexReference),
-            Lude.Just ("TargetReference" Lude..= targetReference)
+          [ Lude.Just ("TargetReference" Lude..= targetReference),
+            Lude.Just ("IndexReference" Lude..= indexReference)
           ]
       )

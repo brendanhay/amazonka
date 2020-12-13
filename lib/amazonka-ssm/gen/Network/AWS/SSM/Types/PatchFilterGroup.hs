@@ -29,16 +29,10 @@ import Network.AWS.SSM.Types.PatchFilter
 --
 -- /See:/ 'mkPatchFilterGroup' smart constructor.
 newtype PatchFilterGroup = PatchFilterGroup'
-  { patchFilters ::
-      [PatchFilter]
+  { -- | The set of patch filters that make up the group.
+    patchFilters :: [PatchFilter]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchFilterGroup' with the minimum fields required to make a request.

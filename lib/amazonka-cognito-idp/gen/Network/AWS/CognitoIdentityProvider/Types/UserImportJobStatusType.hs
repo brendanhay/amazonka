@@ -14,12 +14,12 @@ module Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType
   ( UserImportJobStatusType
       ( UserImportJobStatusType',
         Created,
-        Expired,
-        Failed,
-        InProgress,
         Pending,
-        Stopped,
+        InProgress,
         Stopping,
+        Expired,
+        Stopped,
+        Failed,
         Succeeded
       ),
   )
@@ -54,35 +54,35 @@ newtype UserImportJobStatusType = UserImportJobStatusType' Lude.Text
 pattern Created :: UserImportJobStatusType
 pattern Created = UserImportJobStatusType' "Created"
 
-pattern Expired :: UserImportJobStatusType
-pattern Expired = UserImportJobStatusType' "Expired"
-
-pattern Failed :: UserImportJobStatusType
-pattern Failed = UserImportJobStatusType' "Failed"
+pattern Pending :: UserImportJobStatusType
+pattern Pending = UserImportJobStatusType' "Pending"
 
 pattern InProgress :: UserImportJobStatusType
 pattern InProgress = UserImportJobStatusType' "InProgress"
 
-pattern Pending :: UserImportJobStatusType
-pattern Pending = UserImportJobStatusType' "Pending"
+pattern Stopping :: UserImportJobStatusType
+pattern Stopping = UserImportJobStatusType' "Stopping"
+
+pattern Expired :: UserImportJobStatusType
+pattern Expired = UserImportJobStatusType' "Expired"
 
 pattern Stopped :: UserImportJobStatusType
 pattern Stopped = UserImportJobStatusType' "Stopped"
 
-pattern Stopping :: UserImportJobStatusType
-pattern Stopping = UserImportJobStatusType' "Stopping"
+pattern Failed :: UserImportJobStatusType
+pattern Failed = UserImportJobStatusType' "Failed"
 
 pattern Succeeded :: UserImportJobStatusType
 pattern Succeeded = UserImportJobStatusType' "Succeeded"
 
 {-# COMPLETE
   Created,
-  Expired,
-  Failed,
-  InProgress,
   Pending,
-  Stopped,
+  InProgress,
   Stopping,
+  Expired,
+  Stopped,
+  Failed,
   Succeeded,
   UserImportJobStatusType'
   #-}

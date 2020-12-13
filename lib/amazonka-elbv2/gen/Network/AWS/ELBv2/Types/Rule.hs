@@ -34,28 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRule' smart constructor.
 data Rule = Rule'
-  { priority :: Lude.Maybe Lude.Text,
+  { -- | The priority.
+    priority :: Lude.Maybe Lude.Text,
+    -- | The actions. Each rule must include exactly one of the following types of actions: @forward@ , @redirect@ , or @fixed-response@ , and it must be the last action to be performed.
     actions :: Lude.Maybe [Action],
+    -- | The conditions. Each rule can include zero or one of the following conditions: @http-request-method@ , @host-header@ , @path-pattern@ , and @source-ip@ , and zero or more of the following conditions: @http-header@ and @query-string@ .
     conditions :: Lude.Maybe [RuleCondition],
+    -- | The Amazon Resource Name (ARN) of the rule.
     ruleARN :: Lude.Maybe Lude.Text,
+    -- | Indicates whether this is the default rule.
     isDefault :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Rule' with the minimum fields required to make a request.
 --
+-- * 'priority' - The priority.
 -- * 'actions' - The actions. Each rule must include exactly one of the following types of actions: @forward@ , @redirect@ , or @fixed-response@ , and it must be the last action to be performed.
 -- * 'conditions' - The conditions. Each rule can include zero or one of the following conditions: @http-request-method@ , @host-header@ , @path-pattern@ , and @source-ip@ , and zero or more of the following conditions: @http-header@ and @query-string@ .
--- * 'isDefault' - Indicates whether this is the default rule.
--- * 'priority' - The priority.
 -- * 'ruleARN' - The Amazon Resource Name (ARN) of the rule.
+-- * 'isDefault' - Indicates whether this is the default rule.
 mkRule ::
   Rule
 mkRule =

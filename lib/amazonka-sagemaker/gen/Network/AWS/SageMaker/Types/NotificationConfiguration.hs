@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotificationConfiguration' smart constructor.
 newtype NotificationConfiguration = NotificationConfiguration'
-  { notificationTopicARN ::
-      Lude.Maybe Lude.Text
+  { -- | The ARN for the SNS topic to which notifications should be published.
+    notificationTopicARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.

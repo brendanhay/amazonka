@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Inspector.ListTagsForResource
     mkListTagsForResourceResponse,
 
     -- ** Response lenses
-    ltfrrsResponseStatus,
     ltfrrsTags,
+    ltfrrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-  { resourceARN ::
-      Lude.Text
+  { -- | The ARN that specifies the assessment template whose tags you want to list.
+    resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
@@ -75,8 +70,8 @@ instance Lude.AWSRequest ListTagsForResource where
     Res.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListTagsForResource where
@@ -103,39 +98,27 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { responseStatus ::
-      Lude.Int,
-    tags :: [Tag]
+  { -- | A collection of key and value pairs.
+    tags :: [Tag],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A collection of key and value pairs.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   ListTagsForResourceResponse
 mkListTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-    { responseStatus = pResponseStatus_,
-      tags = Lude.mempty
+    { tags = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
-ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A collection of key and value pairs.
 --
@@ -143,3 +126,10 @@ ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse 
 ltfrrsTags :: Lens.Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTags = Lens.lens (tags :: ListTagsForResourceResponse -> [Tag]) (\s a -> s {tags = a} :: ListTagsForResourceResponse)
 {-# DEPRECATED ltfrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
+ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

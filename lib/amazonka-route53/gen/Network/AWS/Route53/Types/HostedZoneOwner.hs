@@ -30,17 +30,12 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'mkHostedZoneOwner' smart constructor.
 data HostedZoneOwner = HostedZoneOwner'
-  { owningAccount ::
-      Lude.Maybe Lude.Text,
+  { -- | If the hosted zone was created by an AWS account, or was created by an AWS service that creates hosted zones using the current account, @OwningAccount@ contains the account ID of that account. For example, when you use AWS Cloud Map to create a hosted zone, Cloud Map creates the hosted zone using the current AWS account.
+    owningAccount :: Lude.Maybe Lude.Text,
+    -- | If an AWS service uses its own account to create a hosted zone and associate the specified VPC with that hosted zone, @OwningService@ contains an abbreviation that identifies the service. For example, if Amazon Elastic File System (Amazon EFS) created a hosted zone and associated a VPC with the hosted zone, the value of @OwningService@ is @efs.amazonaws.com@ .
     owningService :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostedZoneOwner' with the minimum fields required to make a request.

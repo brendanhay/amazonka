@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStatusCodes' smart constructor.
 data StatusCodes = StatusCodes'
-  { quantity :: Lude.Int,
+  { -- | The number of status codes.
+    quantity :: Lude.Int,
+    -- | The items (status codes) for an origin group.
     items :: Lude.NonEmpty Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatusCodes' with the minimum fields required to make a request.
 --
--- * 'items' - The items (status codes) for an origin group.
 -- * 'quantity' - The number of status codes.
+-- * 'items' - The items (status codes) for an origin group.
 mkStatusCodes ::
   -- | 'quantity'
   Lude.Int ->

@@ -32,29 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSnapshotDiskContainer' smart constructor.
 data SnapshotDiskContainer = SnapshotDiskContainer'
-  { format ::
-      Lude.Maybe Lude.Text,
+  { -- | The format of the disk image being imported.
+    --
+    -- Valid values: @VHD@ | @VMDK@
+    format :: Lude.Maybe Lude.Text,
+    -- | The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).
     url :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 bucket for the disk image.
     userBucket :: Lude.Maybe UserBucket,
+    -- | The description of the disk image being imported.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotDiskContainer' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the disk image being imported.
 -- * 'format' - The format of the disk image being imported.
 --
 -- Valid values: @VHD@ | @VMDK@
 -- * 'url' - The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).
 -- * 'userBucket' - The Amazon S3 bucket for the disk image.
+-- * 'description' - The description of the disk image being imported.
 mkSnapshotDiskContainer ::
   SnapshotDiskContainer
 mkSnapshotDiskContainer =

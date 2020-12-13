@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.WorkDocs.UpdateFolder
     -- ** Request lenses
     ufParentFolderId,
     ufAuthenticationToken,
+    ufFolderId,
     ufName,
     ufResourceState,
-    ufFolderId,
 
     -- * Destructuring the response
     UpdateFolderResponse (..),
@@ -39,22 +40,26 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkUpdateFolder' smart constructor.
 data UpdateFolder = UpdateFolder'
-  { parentFolderId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the parent folder.
+    parentFolderId :: Lude.Maybe Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
     authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the folder.
+    folderId :: Lude.Text,
+    -- | The name of the folder.
     name :: Lude.Maybe Lude.Text,
-    resourceState :: Lude.Maybe ResourceStateType,
-    folderId :: Lude.Text
+    -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.
+    resourceState :: Lude.Maybe ResourceStateType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFolder' with the minimum fields required to make a request.
 --
+-- * 'parentFolderId' - The ID of the parent folder.
 -- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'folderId' - The ID of the folder.
 -- * 'name' - The name of the folder.
--- * 'parentFolderId' - The ID of the parent folder.
 -- * 'resourceState' - The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.
 mkUpdateFolder ::
   -- | 'folderId'
@@ -64,9 +69,9 @@ mkUpdateFolder pFolderId_ =
   UpdateFolder'
     { parentFolderId = Lude.Nothing,
       authenticationToken = Lude.Nothing,
+      folderId = pFolderId_,
       name = Lude.Nothing,
-      resourceState = Lude.Nothing,
-      folderId = pFolderId_
+      resourceState = Lude.Nothing
     }
 
 -- | The ID of the parent folder.
@@ -83,6 +88,13 @@ ufAuthenticationToken :: Lens.Lens' UpdateFolder (Lude.Maybe (Lude.Sensitive Lud
 ufAuthenticationToken = Lens.lens (authenticationToken :: UpdateFolder -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: UpdateFolder)
 {-# DEPRECATED ufAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
+-- | The ID of the folder.
+--
+-- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufFolderId :: Lens.Lens' UpdateFolder Lude.Text
+ufFolderId = Lens.lens (folderId :: UpdateFolder -> Lude.Text) (\s a -> s {folderId = a} :: UpdateFolder)
+{-# DEPRECATED ufFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
+
 -- | The name of the folder.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -96,13 +108,6 @@ ufName = Lens.lens (name :: UpdateFolder -> Lude.Maybe Lude.Text) (\s a -> s {na
 ufResourceState :: Lens.Lens' UpdateFolder (Lude.Maybe ResourceStateType)
 ufResourceState = Lens.lens (resourceState :: UpdateFolder -> Lude.Maybe ResourceStateType) (\s a -> s {resourceState = a} :: UpdateFolder)
 {-# DEPRECATED ufResourceState "Use generic-lens or generic-optics with 'resourceState' instead." #-}
-
--- | The ID of the folder.
---
--- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufFolderId :: Lens.Lens' UpdateFolder Lude.Text
-ufFolderId = Lens.lens (folderId :: UpdateFolder -> Lude.Text) (\s a -> s {folderId = a} :: UpdateFolder)
-{-# DEPRECATED ufFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
 
 instance Lude.AWSRequest UpdateFolder where
   type Rs UpdateFolder = UpdateFolderResponse
@@ -136,13 +141,7 @@ instance Lude.ToQuery UpdateFolder where
 
 -- | /See:/ 'mkUpdateFolderResponse' smart constructor.
 data UpdateFolderResponse = UpdateFolderResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFolderResponse' with the minimum fields required to make a request.

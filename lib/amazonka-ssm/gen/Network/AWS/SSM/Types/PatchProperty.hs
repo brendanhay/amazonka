@@ -13,11 +13,11 @@
 module Network.AWS.SSM.Types.PatchProperty
   ( PatchProperty
       ( PatchProperty',
+        PPProduct,
+        PPProductFamily,
         PPClassification,
         PPMsrcSeverity,
         PPPriority,
-        PPProduct,
-        PPProductFamily,
         PPSeverity
       ),
   )
@@ -49,6 +49,12 @@ newtype PatchProperty = PatchProperty' Lude.Text
       Lude.ToHeader
     )
 
+pattern PPProduct :: PatchProperty
+pattern PPProduct = PatchProperty' "PRODUCT"
+
+pattern PPProductFamily :: PatchProperty
+pattern PPProductFamily = PatchProperty' "PRODUCT_FAMILY"
+
 pattern PPClassification :: PatchProperty
 pattern PPClassification = PatchProperty' "CLASSIFICATION"
 
@@ -58,21 +64,15 @@ pattern PPMsrcSeverity = PatchProperty' "MSRC_SEVERITY"
 pattern PPPriority :: PatchProperty
 pattern PPPriority = PatchProperty' "PRIORITY"
 
-pattern PPProduct :: PatchProperty
-pattern PPProduct = PatchProperty' "PRODUCT"
-
-pattern PPProductFamily :: PatchProperty
-pattern PPProductFamily = PatchProperty' "PRODUCT_FAMILY"
-
 pattern PPSeverity :: PatchProperty
 pattern PPSeverity = PatchProperty' "SEVERITY"
 
 {-# COMPLETE
+  PPProduct,
+  PPProductFamily,
   PPClassification,
   PPMsrcSeverity,
   PPPriority,
-  PPProduct,
-  PPProductFamily,
   PPSeverity,
   PatchProperty'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.Rekognition.GetSegmentDetection
     mkGetSegmentDetection,
 
     -- ** Request lenses
+    gsdJobId,
     gsdNextToken,
     gsdMaxResults,
-    gsdJobId,
 
     -- * Destructuring the response
     GetSegmentDetectionResponse (..),
@@ -53,35 +54,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSegmentDetection' smart constructor.
 data GetSegmentDetection = GetSegmentDetection'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    jobId :: Lude.Text
+  { -- | Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartSegmentDetection@ .
+    jobId :: Lude.Text,
+    -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentDetection' with the minimum fields required to make a request.
 --
 -- * 'jobId' - Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartSegmentDetection@ .
--- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000.
 -- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.
+-- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000.
 mkGetSegmentDetection ::
   -- | 'jobId'
   Lude.Text ->
   GetSegmentDetection
 mkGetSegmentDetection pJobId_ =
   GetSegmentDetection'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      jobId = pJobId_
+    { jobId = pJobId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartSegmentDetection@ .
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdJobId :: Lens.Lens' GetSegmentDetection Lude.Text
+gsdJobId = Lens.lens (jobId :: GetSegmentDetection -> Lude.Text) (\s a -> s {jobId = a} :: GetSegmentDetection)
+{-# DEPRECATED gsdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.
 --
@@ -96,13 +100,6 @@ gsdNextToken = Lens.lens (nextToken :: GetSegmentDetection -> Lude.Maybe Lude.Te
 gsdMaxResults :: Lens.Lens' GetSegmentDetection (Lude.Maybe Lude.Natural)
 gsdMaxResults = Lens.lens (maxResults :: GetSegmentDetection -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetSegmentDetection)
 {-# DEPRECATED gsdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartSegmentDetection@ .
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsdJobId :: Lens.Lens' GetSegmentDetection Lude.Text
-gsdJobId = Lens.lens (jobId :: GetSegmentDetection -> Lude.Text) (\s a -> s {jobId = a} :: GetSegmentDetection)
-{-# DEPRECATED gsdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Lude.AWSRequest GetSegmentDetection where
   type Rs GetSegmentDetection = GetSegmentDetectionResponse
@@ -136,9 +133,9 @@ instance Lude.ToJSON GetSegmentDetection where
   toJSON GetSegmentDetection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("JobId" Lude..= jobId)
+          [ Lude.Just ("JobId" Lude..= jobId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -150,40 +147,36 @@ instance Lude.ToQuery GetSegmentDetection where
 
 -- | /See:/ 'mkGetSegmentDetectionResponse' smart constructor.
 data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
-  { selectedSegmentTypes ::
-      Lude.Maybe [SegmentTypeInfo],
+  { -- | An array containing the segment types requested in the call to @StartSegmentDetection@ .
+    selectedSegmentTypes :: Lude.Maybe [SegmentTypeInfo],
+    -- | If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.
     nextToken :: Lude.Maybe Lude.Text,
-    videoMetadata ::
-      Lude.Maybe [VideoMetadata],
-    statusMessage ::
-      Lude.Maybe Lude.Text,
-    segments ::
-      Lude.Maybe [SegmentDetection],
-    jobStatus ::
-      Lude.Maybe VideoJobStatus,
-    audioMetadata ::
-      Lude.Maybe [AudioMetadata],
+    -- | Currently, Amazon Rekognition Video returns a single object in the @VideoMetadata@ array. The object contains information about the video stream in the input file that Amazon Rekognition Video chose to analyze. The @VideoMetadata@ object includes the video codec, video format and other information. Video metadata is returned in each page of information returned by @GetSegmentDetection@ .
+    videoMetadata :: Lude.Maybe [VideoMetadata],
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Lude.Maybe Lude.Text,
+    -- | An array of segments detected in a video. The array is sorted by the segment types (TECHNICAL_CUE or SHOT) specified in the @SegmentTypes@ input parameter of @StartSegmentDetection@ . Within each segment type the array is sorted by timestamp values.
+    segments :: Lude.Maybe [SegmentDetection],
+    -- | Current status of the segment detection job.
+    jobStatus :: Lude.Maybe VideoJobStatus,
+    -- | An array of objects. There can be multiple audio streams. Each @AudioMetadata@ object contains metadata for a single audio stream. Audio information in an @AudioMetadata@ objects includes the audio codec, the number of audio channels, the duration of the audio stream, and the sample rate. Audio metadata is returned in each page of information returned by @GetSegmentDetection@ .
+    audioMetadata :: Lude.Maybe [AudioMetadata],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentDetectionResponse' with the minimum fields required to make a request.
 --
--- * 'audioMetadata' - An array of objects. There can be multiple audio streams. Each @AudioMetadata@ object contains metadata for a single audio stream. Audio information in an @AudioMetadata@ objects includes the audio codec, the number of audio channels, the duration of the audio stream, and the sample rate. Audio metadata is returned in each page of information returned by @GetSegmentDetection@ .
--- * 'jobStatus' - Current status of the segment detection job.
--- * 'nextToken' - If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.
--- * 'responseStatus' - The response status code.
--- * 'segments' - An array of segments detected in a video. The array is sorted by the segment types (TECHNICAL_CUE or SHOT) specified in the @SegmentTypes@ input parameter of @StartSegmentDetection@ . Within each segment type the array is sorted by timestamp values.
 -- * 'selectedSegmentTypes' - An array containing the segment types requested in the call to @StartSegmentDetection@ .
--- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- * 'nextToken' - If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.
 -- * 'videoMetadata' - Currently, Amazon Rekognition Video returns a single object in the @VideoMetadata@ array. The object contains information about the video stream in the input file that Amazon Rekognition Video chose to analyze. The @VideoMetadata@ object includes the video codec, video format and other information. Video metadata is returned in each page of information returned by @GetSegmentDetection@ .
+-- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- * 'segments' - An array of segments detected in a video. The array is sorted by the segment types (TECHNICAL_CUE or SHOT) specified in the @SegmentTypes@ input parameter of @StartSegmentDetection@ . Within each segment type the array is sorted by timestamp values.
+-- * 'jobStatus' - Current status of the segment detection job.
+-- * 'audioMetadata' - An array of objects. There can be multiple audio streams. Each @AudioMetadata@ object contains metadata for a single audio stream. Audio information in an @AudioMetadata@ objects includes the audio codec, the number of audio channels, the duration of the audio stream, and the sample rate. Audio metadata is returned in each page of information returned by @GetSegmentDetection@ .
+-- * 'responseStatus' - The response status code.
 mkGetSegmentDetectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

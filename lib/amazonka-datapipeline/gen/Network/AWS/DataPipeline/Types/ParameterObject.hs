@@ -17,8 +17,8 @@ module Network.AWS.DataPipeline.Types.ParameterObject
     mkParameterObject,
 
     -- * Lenses
-    poId,
     poAttributes,
+    poId,
   )
 where
 
@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameterObject' smart constructor.
 data ParameterObject = ParameterObject'
-  { id :: Lude.Text,
-    attributes :: [ParameterAttribute]
+  { -- | The attributes of the parameter object.
+    attributes :: [ParameterAttribute],
+    -- | The ID of the parameter object.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterObject' with the minimum fields required to make a request.
@@ -51,14 +47,7 @@ mkParameterObject ::
   Lude.Text ->
   ParameterObject
 mkParameterObject pId_ =
-  ParameterObject' {id = pId_, attributes = Lude.mempty}
-
--- | The ID of the parameter object.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poId :: Lens.Lens' ParameterObject Lude.Text
-poId = Lens.lens (id :: ParameterObject -> Lude.Text) (\s a -> s {id = a} :: ParameterObject)
-{-# DEPRECATED poId "Use generic-lens or generic-optics with 'id' instead." #-}
+  ParameterObject' {attributes = Lude.mempty, id = pId_}
 
 -- | The attributes of the parameter object.
 --
@@ -67,21 +56,28 @@ poAttributes :: Lens.Lens' ParameterObject [ParameterAttribute]
 poAttributes = Lens.lens (attributes :: ParameterObject -> [ParameterAttribute]) (\s a -> s {attributes = a} :: ParameterObject)
 {-# DEPRECATED poAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
+-- | The ID of the parameter object.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poId :: Lens.Lens' ParameterObject Lude.Text
+poId = Lens.lens (id :: ParameterObject -> Lude.Text) (\s a -> s {id = a} :: ParameterObject)
+{-# DEPRECATED poId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 instance Lude.FromJSON ParameterObject where
   parseJSON =
     Lude.withObject
       "ParameterObject"
       ( \x ->
           ParameterObject'
-            Lude.<$> (x Lude..: "id")
-            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
+            Lude.<$> (x Lude..:? "attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "id")
       )
 
 instance Lude.ToJSON ParameterObject where
   toJSON ParameterObject' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("id" Lude..= id),
-            Lude.Just ("attributes" Lude..= attributes)
+          [ Lude.Just ("attributes" Lude..= attributes),
+            Lude.Just ("id" Lude..= id)
           ]
       )

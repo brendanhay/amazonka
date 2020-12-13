@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,18 +46,18 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkListOperations' smart constructor.
 data ListOperations = ListOperations'
-  { filters ::
-      Lude.Maybe [OperationFilter],
+  { -- | A complex type that contains specifications for the operations that you want to list, for example, operations that you started between a specified start date and end date.
+    --
+    -- If you specify more than one filter, an operation must match all filters to be returned by @ListOperations@ .
+    filters :: Lude.Maybe [OperationFilter],
+    -- | For the first @ListOperations@ request, omit this value.
+    --
+    -- If the response contains @NextToken@ , submit another @ListOperations@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items that you want AWS Cloud Map to return in the response to a @ListOperations@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 operations.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOperations' with the minimum fields required to make a request.
@@ -64,10 +65,10 @@ data ListOperations = ListOperations'
 -- * 'filters' - A complex type that contains specifications for the operations that you want to list, for example, operations that you started between a specified start date and end date.
 --
 -- If you specify more than one filter, an operation must match all filters to be returned by @ListOperations@ .
--- * 'maxResults' - The maximum number of items that you want AWS Cloud Map to return in the response to a @ListOperations@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 operations.
 -- * 'nextToken' - For the first @ListOperations@ request, omit this value.
 --
 -- If the response contains @NextToken@ , submit another @ListOperations@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- * 'maxResults' - The maximum number of items that you want AWS Cloud Map to return in the response to a @ListOperations@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 operations.
 mkListOperations ::
   ListOperations
 mkListOperations =
@@ -152,18 +153,14 @@ instance Lude.ToQuery ListOperations where
 
 -- | /See:/ 'mkListOperationsResponse' smart constructor.
 data ListOperationsResponse = ListOperationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the response contains @NextToken@ , submit another @ListOperations@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Summary information about the operations that match the specified criteria.
     operations :: Lude.Maybe [OperationSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOperationsResponse' with the minimum fields required to make a request.

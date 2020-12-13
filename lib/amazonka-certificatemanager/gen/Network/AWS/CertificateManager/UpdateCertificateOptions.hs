@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,17 +37,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateCertificateOptions' smart constructor.
 data UpdateCertificateOptions = UpdateCertificateOptions'
-  { certificateARN ::
-      Lude.Text,
+  { -- | ARN of the requested certificate to update. This must be of the form:
+    --
+    -- @arn:aws:acm:us-east-1:/account/ :certificate//12345678-1234-1234-1234-123456789012/ @
+    certificateARN :: Lude.Text,
+    -- | Use to update the options for your certificate. Currently, you can specify whether to add your certificate to a transparency log. Certificate transparency makes it possible to detect SSL/TLS certificates that have been mistakenly or maliciously issued. Certificates that have not been logged typically produce an error message in a browser.
     options :: CertificateOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCertificateOptions' with the minimum fields required to make a request.
@@ -116,13 +114,7 @@ instance Lude.ToQuery UpdateCertificateOptions where
 
 -- | /See:/ 'mkUpdateCertificateOptionsResponse' smart constructor.
 data UpdateCertificateOptionsResponse = UpdateCertificateOptionsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCertificateOptionsResponse' with the minimum fields required to make a request.

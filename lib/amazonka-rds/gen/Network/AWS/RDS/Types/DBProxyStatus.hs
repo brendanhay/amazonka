@@ -14,14 +14,14 @@ module Network.AWS.RDS.Types.DBProxyStatus
   ( DBProxyStatus
       ( DBProxyStatus',
         Available,
-        Creating,
-        Deleting,
+        Modifying,
         IncompatibleNetwork,
         InsufficientResourceLimits,
-        Modifying,
-        Reactivating,
+        Creating,
+        Deleting,
         Suspended,
-        Suspending
+        Suspending,
+        Reactivating
       ),
   )
 where
@@ -55,11 +55,8 @@ newtype DBProxyStatus = DBProxyStatus' Lude.Text
 pattern Available :: DBProxyStatus
 pattern Available = DBProxyStatus' "available"
 
-pattern Creating :: DBProxyStatus
-pattern Creating = DBProxyStatus' "creating"
-
-pattern Deleting :: DBProxyStatus
-pattern Deleting = DBProxyStatus' "deleting"
+pattern Modifying :: DBProxyStatus
+pattern Modifying = DBProxyStatus' "modifying"
 
 pattern IncompatibleNetwork :: DBProxyStatus
 pattern IncompatibleNetwork = DBProxyStatus' "incompatible-network"
@@ -67,11 +64,11 @@ pattern IncompatibleNetwork = DBProxyStatus' "incompatible-network"
 pattern InsufficientResourceLimits :: DBProxyStatus
 pattern InsufficientResourceLimits = DBProxyStatus' "insufficient-resource-limits"
 
-pattern Modifying :: DBProxyStatus
-pattern Modifying = DBProxyStatus' "modifying"
+pattern Creating :: DBProxyStatus
+pattern Creating = DBProxyStatus' "creating"
 
-pattern Reactivating :: DBProxyStatus
-pattern Reactivating = DBProxyStatus' "reactivating"
+pattern Deleting :: DBProxyStatus
+pattern Deleting = DBProxyStatus' "deleting"
 
 pattern Suspended :: DBProxyStatus
 pattern Suspended = DBProxyStatus' "suspended"
@@ -79,15 +76,18 @@ pattern Suspended = DBProxyStatus' "suspended"
 pattern Suspending :: DBProxyStatus
 pattern Suspending = DBProxyStatus' "suspending"
 
+pattern Reactivating :: DBProxyStatus
+pattern Reactivating = DBProxyStatus' "reactivating"
+
 {-# COMPLETE
   Available,
-  Creating,
-  Deleting,
+  Modifying,
   IncompatibleNetwork,
   InsufficientResourceLimits,
-  Modifying,
-  Reactivating,
+  Creating,
+  Deleting,
   Suspended,
   Suspending,
+  Reactivating,
   DBProxyStatus'
   #-}

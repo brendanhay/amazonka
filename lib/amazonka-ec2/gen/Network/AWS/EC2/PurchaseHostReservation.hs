@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.EC2.PurchaseHostReservation
     phrCurrencyCode,
     phrClientToken,
     phrTagSpecifications,
-    phrLimitPrice,
     phrHostIdSet,
     phrOfferingId,
+    phrLimitPrice,
 
     -- * Destructuring the response
     PurchaseHostReservationResponse (..),
@@ -48,32 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPurchaseHostReservation' smart constructor.
 data PurchaseHostReservation = PurchaseHostReservation'
-  { currencyCode ::
-      Lude.Maybe CurrencyCodeValues,
+  { -- | The currency in which the @totalUpfrontPrice@ , @LimitPrice@ , and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
+    currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
     clientToken :: Lude.Maybe Lude.Text,
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
-    limitPrice :: Lude.Maybe Lude.Text,
+    -- | The tags to apply to the Dedicated Host Reservation during purchase.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The IDs of the Dedicated Hosts with which the reservation will be associated.
     hostIdSet :: [Lude.Text],
-    offeringId :: Lude.Text
+    -- | The ID of the offering.
+    offeringId :: Lude.Text,
+    -- | The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
+    limitPrice :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseHostReservation' with the minimum fields required to make a request.
 --
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 -- * 'currencyCode' - The currency in which the @totalUpfrontPrice@ , @LimitPrice@ , and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
--- * 'hostIdSet' - The IDs of the Dedicated Hosts with which the reservation will be associated.
--- * 'limitPrice' - The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
--- * 'offeringId' - The ID of the offering.
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 -- * 'tagSpecifications' - The tags to apply to the Dedicated Host Reservation during purchase.
+-- * 'hostIdSet' - The IDs of the Dedicated Hosts with which the reservation will be associated.
+-- * 'offeringId' - The ID of the offering.
+-- * 'limitPrice' - The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
 mkPurchaseHostReservation ::
   -- | 'offeringId'
   Lude.Text ->
@@ -83,9 +82,9 @@ mkPurchaseHostReservation pOfferingId_ =
     { currencyCode = Lude.Nothing,
       clientToken = Lude.Nothing,
       tagSpecifications = Lude.Nothing,
-      limitPrice = Lude.Nothing,
       hostIdSet = Lude.mempty,
-      offeringId = pOfferingId_
+      offeringId = pOfferingId_,
+      limitPrice = Lude.Nothing
     }
 
 -- | The currency in which the @totalUpfrontPrice@ , @LimitPrice@ , and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
@@ -109,13 +108,6 @@ phrTagSpecifications :: Lens.Lens' PurchaseHostReservation (Lude.Maybe [TagSpeci
 phrTagSpecifications = Lens.lens (tagSpecifications :: PurchaseHostReservation -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: PurchaseHostReservation)
 {-# DEPRECATED phrTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
--- | The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
---
--- /Note:/ Consider using 'limitPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-phrLimitPrice :: Lens.Lens' PurchaseHostReservation (Lude.Maybe Lude.Text)
-phrLimitPrice = Lens.lens (limitPrice :: PurchaseHostReservation -> Lude.Maybe Lude.Text) (\s a -> s {limitPrice = a} :: PurchaseHostReservation)
-{-# DEPRECATED phrLimitPrice "Use generic-lens or generic-optics with 'limitPrice' instead." #-}
-
 -- | The IDs of the Dedicated Hosts with which the reservation will be associated.
 --
 -- /Note:/ Consider using 'hostIdSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -129,6 +121,13 @@ phrHostIdSet = Lens.lens (hostIdSet :: PurchaseHostReservation -> [Lude.Text]) (
 phrOfferingId :: Lens.Lens' PurchaseHostReservation Lude.Text
 phrOfferingId = Lens.lens (offeringId :: PurchaseHostReservation -> Lude.Text) (\s a -> s {offeringId = a} :: PurchaseHostReservation)
 {-# DEPRECATED phrOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
+
+-- | The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request fails. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
+--
+-- /Note:/ Consider using 'limitPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phrLimitPrice :: Lens.Lens' PurchaseHostReservation (Lude.Maybe Lude.Text)
+phrLimitPrice = Lens.lens (limitPrice :: PurchaseHostReservation -> Lude.Maybe Lude.Text) (\s a -> s {limitPrice = a} :: PurchaseHostReservation)
+{-# DEPRECATED phrLimitPrice "Use generic-lens or generic-optics with 'limitPrice' instead." #-}
 
 instance Lude.AWSRequest PurchaseHostReservation where
   type Rs PurchaseHostReservation = PurchaseHostReservationResponse
@@ -162,43 +161,37 @@ instance Lude.ToQuery PurchaseHostReservation where
         "ClientToken" Lude.=: clientToken,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "LimitPrice" Lude.=: limitPrice,
         Lude.toQueryList "HostIdSet" hostIdSet,
-        "OfferingId" Lude.=: offeringId
+        "OfferingId" Lude.=: offeringId,
+        "LimitPrice" Lude.=: limitPrice
       ]
 
 -- | /See:/ 'mkPurchaseHostReservationResponse' smart constructor.
 data PurchaseHostReservationResponse = PurchaseHostReservationResponse'
-  { currencyCode ::
-      Lude.Maybe
-        CurrencyCodeValues,
-    clientToken ::
-      Lude.Maybe Lude.Text,
-    totalHourlyPrice ::
-      Lude.Maybe Lude.Text,
-    totalUpfrontPrice ::
-      Lude.Maybe Lude.Text,
-    purchase ::
-      Lude.Maybe [Purchase],
+  { -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
+    currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The total hourly price of the reservation calculated per hour.
+    totalHourlyPrice :: Lude.Maybe Lude.Text,
+    -- | The total amount charged to your account when you purchase the reservation.
+    totalUpfrontPrice :: Lude.Maybe Lude.Text,
+    -- | Describes the details of the purchase.
+    purchase :: Lude.Maybe [Purchase],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseHostReservationResponse' with the minimum fields required to make a request.
 --
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 -- * 'currencyCode' - The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
--- * 'purchase' - Describes the details of the purchase.
--- * 'responseStatus' - The response status code.
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 -- * 'totalHourlyPrice' - The total hourly price of the reservation calculated per hour.
 -- * 'totalUpfrontPrice' - The total amount charged to your account when you purchase the reservation.
+-- * 'purchase' - Describes the details of the purchase.
+-- * 'responseStatus' - The response status code.
 mkPurchaseHostReservationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

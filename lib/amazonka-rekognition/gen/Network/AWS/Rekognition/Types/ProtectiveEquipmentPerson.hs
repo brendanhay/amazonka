@@ -33,20 +33,16 @@ import Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart
 --
 -- /See:/ 'mkProtectiveEquipmentPerson' smart constructor.
 data ProtectiveEquipmentPerson = ProtectiveEquipmentPerson'
-  { bodyParts ::
-      Lude.Maybe
-        [ProtectiveEquipmentBodyPart],
+  { -- | An array of body parts detected on a person's body (including body parts without PPE).
+    bodyParts :: Lude.Maybe [ProtectiveEquipmentBodyPart],
+    -- | A bounding box around the detected person.
     boundingBox :: Lude.Maybe BoundingBox,
+    -- | The confidence that Amazon Rekognition has that the bounding box contains a person.
     confidence :: Lude.Maybe Lude.Double,
+    -- | The identifier for the detected person. The identifier is only unique for a single call to @DetectProtectiveEquipment@ .
     id :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectiveEquipmentPerson' with the minimum fields required to make a request.

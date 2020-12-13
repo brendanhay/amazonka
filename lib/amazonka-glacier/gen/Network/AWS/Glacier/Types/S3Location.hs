@@ -39,34 +39,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
-  { cannedACL :: Lude.Maybe CannedACL,
+  { -- | The canned access control list (ACL) to apply to the job results.
+    cannedACL :: Lude.Maybe CannedACL,
+    -- | The prefix that is prepended to the results for this request.
     prefix :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon S3 bucket where the job results are stored.
     bucketName :: Lude.Maybe Lude.Text,
+    -- | A list of grants that control access to the staged results.
     accessControlList :: Lude.Maybe [Grant],
+    -- | A map of metadata to store with the job results in Amazon S3.
     userMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Contains information about the encryption used to store the job results in Amazon S3.
     encryption :: Lude.Maybe Encryption,
+    -- | The storage class used to store the job results.
     storageClass :: Lude.Maybe StorageClass,
+    -- | The tag-set that is applied to the job results.
     tagging :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.
 --
--- * 'accessControlList' - A list of grants that control access to the staged results.
--- * 'bucketName' - The name of the Amazon S3 bucket where the job results are stored.
 -- * 'cannedACL' - The canned access control list (ACL) to apply to the job results.
--- * 'encryption' - Contains information about the encryption used to store the job results in Amazon S3.
 -- * 'prefix' - The prefix that is prepended to the results for this request.
+-- * 'bucketName' - The name of the Amazon S3 bucket where the job results are stored.
+-- * 'accessControlList' - A list of grants that control access to the staged results.
+-- * 'userMetadata' - A map of metadata to store with the job results in Amazon S3.
+-- * 'encryption' - Contains information about the encryption used to store the job results in Amazon S3.
 -- * 'storageClass' - The storage class used to store the job results.
 -- * 'tagging' - The tag-set that is applied to the job results.
--- * 'userMetadata' - A map of metadata to store with the job results in Amazon S3.
 mkS3Location ::
   S3Location
 mkS3Location =

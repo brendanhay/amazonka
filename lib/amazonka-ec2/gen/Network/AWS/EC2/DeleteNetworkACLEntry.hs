@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.EC2.DeleteNetworkACLEntry
     mkDeleteNetworkACLEntry,
 
     -- ** Request lenses
-    dnaeDryRun,
-    dnaeEgress,
     dnaeNetworkACLId,
     dnaeRuleNumber,
+    dnaeEgress,
+    dnaeDryRun,
 
     -- * Destructuring the response
     DeleteNetworkACLEntryResponse (..),
@@ -38,56 +39,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteNetworkACLEntry' smart constructor.
 data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    egress :: Lude.Bool,
+  { -- | The ID of the network ACL.
     networkACLId :: Lude.Text,
-    ruleNumber :: Lude.Int
+    -- | The rule number of the entry to delete.
+    ruleNumber :: Lude.Int,
+    -- | Indicates whether the rule is an egress rule.
+    egress :: Lude.Bool,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNetworkACLEntry' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'egress' - Indicates whether the rule is an egress rule.
 -- * 'networkACLId' - The ID of the network ACL.
 -- * 'ruleNumber' - The rule number of the entry to delete.
+-- * 'egress' - Indicates whether the rule is an egress rule.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteNetworkACLEntry ::
-  -- | 'egress'
-  Lude.Bool ->
   -- | 'networkACLId'
   Lude.Text ->
   -- | 'ruleNumber'
   Lude.Int ->
+  -- | 'egress'
+  Lude.Bool ->
   DeleteNetworkACLEntry
-mkDeleteNetworkACLEntry pEgress_ pNetworkACLId_ pRuleNumber_ =
+mkDeleteNetworkACLEntry pNetworkACLId_ pRuleNumber_ pEgress_ =
   DeleteNetworkACLEntry'
-    { dryRun = Lude.Nothing,
+    { networkACLId = pNetworkACLId_,
+      ruleNumber = pRuleNumber_,
       egress = pEgress_,
-      networkACLId = pNetworkACLId_,
-      ruleNumber = pRuleNumber_
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnaeDryRun :: Lens.Lens' DeleteNetworkACLEntry (Lude.Maybe Lude.Bool)
-dnaeDryRun = Lens.lens (dryRun :: DeleteNetworkACLEntry -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteNetworkACLEntry)
-{-# DEPRECATED dnaeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | Indicates whether the rule is an egress rule.
---
--- /Note:/ Consider using 'egress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnaeEgress :: Lens.Lens' DeleteNetworkACLEntry Lude.Bool
-dnaeEgress = Lens.lens (egress :: DeleteNetworkACLEntry -> Lude.Bool) (\s a -> s {egress = a} :: DeleteNetworkACLEntry)
-{-# DEPRECATED dnaeEgress "Use generic-lens or generic-optics with 'egress' instead." #-}
 
 -- | The ID of the network ACL.
 --
@@ -102,6 +86,20 @@ dnaeNetworkACLId = Lens.lens (networkACLId :: DeleteNetworkACLEntry -> Lude.Text
 dnaeRuleNumber :: Lens.Lens' DeleteNetworkACLEntry Lude.Int
 dnaeRuleNumber = Lens.lens (ruleNumber :: DeleteNetworkACLEntry -> Lude.Int) (\s a -> s {ruleNumber = a} :: DeleteNetworkACLEntry)
 {-# DEPRECATED dnaeRuleNumber "Use generic-lens or generic-optics with 'ruleNumber' instead." #-}
+
+-- | Indicates whether the rule is an egress rule.
+--
+-- /Note:/ Consider using 'egress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnaeEgress :: Lens.Lens' DeleteNetworkACLEntry Lude.Bool
+dnaeEgress = Lens.lens (egress :: DeleteNetworkACLEntry -> Lude.Bool) (\s a -> s {egress = a} :: DeleteNetworkACLEntry)
+{-# DEPRECATED dnaeEgress "Use generic-lens or generic-optics with 'egress' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnaeDryRun :: Lens.Lens' DeleteNetworkACLEntry (Lude.Maybe Lude.Bool)
+dnaeDryRun = Lens.lens (dryRun :: DeleteNetworkACLEntry -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteNetworkACLEntry)
+{-# DEPRECATED dnaeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteNetworkACLEntry where
   type Rs DeleteNetworkACLEntry = DeleteNetworkACLEntryResponse
@@ -119,21 +117,15 @@ instance Lude.ToQuery DeleteNetworkACLEntry where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteNetworkAclEntry" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "Egress" Lude.=: egress,
         "NetworkAclId" Lude.=: networkACLId,
-        "RuleNumber" Lude.=: ruleNumber
+        "RuleNumber" Lude.=: ruleNumber,
+        "Egress" Lude.=: egress,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteNetworkACLEntryResponse' smart constructor.
 data DeleteNetworkACLEntryResponse = DeleteNetworkACLEntryResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNetworkACLEntryResponse' with the minimum fields required to make a request.

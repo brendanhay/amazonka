@@ -17,6 +17,7 @@ module Network.AWS.Pinpoint.Types.EmailChannelResponse
     mkEmailChannelResponse,
 
     -- * Lenses
+    ecPlatform,
     ecMessagesPerSecond,
     ecLastModifiedDate,
     ecEnabled,
@@ -31,7 +32,6 @@ module Network.AWS.Pinpoint.Types.EmailChannelResponse
     ecIdentity,
     ecHasCredential,
     ecRoleARN,
-    ecPlatform,
   )
 where
 
@@ -42,56 +42,65 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEmailChannelResponse' smart constructor.
 data EmailChannelResponse = EmailChannelResponse'
-  { messagesPerSecond ::
-      Lude.Maybe Lude.Int,
+  { -- | The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.
+    platform :: Lude.Text,
+    -- | The maximum number of emails that can be sent through the channel each second.
+    messagesPerSecond :: Lude.Maybe Lude.Int,
+    -- | The date and time, in ISO 8601 format, when the email channel was last modified.
     lastModifiedDate :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the email channel is enabled for the application.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The verified email address that email is sent from when you send email through the channel.
     fromAddress :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the email channel is archived.
     isArchived :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier for the application that the email channel applies to.
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The current version of the email channel.
     version :: Lude.Maybe Lude.Int,
+    -- | The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that's applied to messages that are sent through the channel.
     configurationSet :: Lude.Maybe Lude.Text,
+    -- | (Deprecated) An identifier for the email channel. This property is retained only for backward compatibility.
     id :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO 8601 format, when the email channel was enabled.
     creationDate :: Lude.Maybe Lude.Text,
+    -- | The user who last modified the email channel.
     lastModifiedBy :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that's used when you send email through the channel.
     identity :: Lude.Maybe Lude.Text,
+    -- | (Not used) This property is retained only for backward compatibility.
     hasCredential :: Lude.Maybe Lude.Bool,
-    roleARN :: Lude.Maybe Lude.Text,
-    platform :: Lude.Text
+    -- | The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmailChannelResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that the email channel applies to.
--- * 'configurationSet' - The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that's applied to messages that are sent through the channel.
--- * 'creationDate' - The date and time, in ISO 8601 format, when the email channel was enabled.
+-- * 'platform' - The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.
+-- * 'messagesPerSecond' - The maximum number of emails that can be sent through the channel each second.
+-- * 'lastModifiedDate' - The date and time, in ISO 8601 format, when the email channel was last modified.
 -- * 'enabled' - Specifies whether the email channel is enabled for the application.
 -- * 'fromAddress' - The verified email address that email is sent from when you send email through the channel.
--- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
--- * 'id' - (Deprecated) An identifier for the email channel. This property is retained only for backward compatibility.
--- * 'identity' - The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that's used when you send email through the channel.
 -- * 'isArchived' - Specifies whether the email channel is archived.
--- * 'lastModifiedBy' - The user who last modified the email channel.
--- * 'lastModifiedDate' - The date and time, in ISO 8601 format, when the email channel was last modified.
--- * 'messagesPerSecond' - The maximum number of emails that can be sent through the channel each second.
--- * 'platform' - The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.
--- * 'roleARN' - The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.
+-- * 'applicationId' - The unique identifier for the application that the email channel applies to.
 -- * 'version' - The current version of the email channel.
+-- * 'configurationSet' - The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that's applied to messages that are sent through the channel.
+-- * 'id' - (Deprecated) An identifier for the email channel. This property is retained only for backward compatibility.
+-- * 'creationDate' - The date and time, in ISO 8601 format, when the email channel was enabled.
+-- * 'lastModifiedBy' - The user who last modified the email channel.
+-- * 'identity' - The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that's used when you send email through the channel.
+-- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
+-- * 'roleARN' - The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.
 mkEmailChannelResponse ::
   -- | 'platform'
   Lude.Text ->
   EmailChannelResponse
 mkEmailChannelResponse pPlatform_ =
   EmailChannelResponse'
-    { messagesPerSecond = Lude.Nothing,
+    { platform = pPlatform_,
+      messagesPerSecond = Lude.Nothing,
       lastModifiedDate = Lude.Nothing,
       enabled = Lude.Nothing,
       fromAddress = Lude.Nothing,
@@ -104,9 +113,15 @@ mkEmailChannelResponse pPlatform_ =
       lastModifiedBy = Lude.Nothing,
       identity = Lude.Nothing,
       hasCredential = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      platform = pPlatform_
+      roleARN = Lude.Nothing
     }
+
+-- | The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecPlatform :: Lens.Lens' EmailChannelResponse Lude.Text
+ecPlatform = Lens.lens (platform :: EmailChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: EmailChannelResponse)
+{-# DEPRECATED ecPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The maximum number of emails that can be sent through the channel each second.
 --
@@ -206,20 +221,14 @@ ecRoleARN :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
 ecRoleARN = Lens.lens (roleARN :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: EmailChannelResponse)
 {-# DEPRECATED ecRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecPlatform :: Lens.Lens' EmailChannelResponse Lude.Text
-ecPlatform = Lens.lens (platform :: EmailChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: EmailChannelResponse)
-{-# DEPRECATED ecPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
 instance Lude.FromJSON EmailChannelResponse where
   parseJSON =
     Lude.withObject
       "EmailChannelResponse"
       ( \x ->
           EmailChannelResponse'
-            Lude.<$> (x Lude..:? "MessagesPerSecond")
+            Lude.<$> (x Lude..: "Platform")
+            Lude.<*> (x Lude..:? "MessagesPerSecond")
             Lude.<*> (x Lude..:? "LastModifiedDate")
             Lude.<*> (x Lude..:? "Enabled")
             Lude.<*> (x Lude..:? "FromAddress")
@@ -233,5 +242,4 @@ instance Lude.FromJSON EmailChannelResponse where
             Lude.<*> (x Lude..:? "Identity")
             Lude.<*> (x Lude..:? "HasCredential")
             Lude.<*> (x Lude..:? "RoleArn")
-            Lude.<*> (x Lude..: "Platform")
       )

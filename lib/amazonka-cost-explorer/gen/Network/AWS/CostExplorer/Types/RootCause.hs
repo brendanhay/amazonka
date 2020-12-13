@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRootCause' smart constructor.
 data RootCause = RootCause'
-  { service :: Lude.Maybe Lude.Text,
+  { -- | The AWS service name associated with the cost anomaly.
+    service :: Lude.Maybe Lude.Text,
+    -- | The @UsageType@ value associated with the cost anomaly.
     usageType :: Lude.Maybe Lude.Text,
+    -- | The linked account value associated with the cost anomaly.
     linkedAccount :: Lude.Maybe Lude.Text,
+    -- | The AWS Region associated with the cost anomaly.
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RootCause' with the minimum fields required to make a request.
 --
--- * 'linkedAccount' - The linked account value associated with the cost anomaly.
--- * 'region' - The AWS Region associated with the cost anomaly.
 -- * 'service' - The AWS service name associated with the cost anomaly.
 -- * 'usageType' - The @UsageType@ value associated with the cost anomaly.
+-- * 'linkedAccount' - The linked account value associated with the cost anomaly.
+-- * 'region' - The AWS Region associated with the cost anomaly.
 mkRootCause ::
   RootCause
 mkRootCause =

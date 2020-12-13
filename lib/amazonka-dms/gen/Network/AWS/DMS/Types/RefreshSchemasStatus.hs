@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRefreshSchemasStatus' smart constructor.
 data RefreshSchemasStatus = RefreshSchemasStatus'
-  { status ::
-      Lude.Maybe RefreshSchemasStatusTypeValue,
+  { -- | The status of the schema.
+    status :: Lude.Maybe RefreshSchemasStatusTypeValue,
+    -- | The date the schema was last refreshed.
     lastRefreshDate :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the replication instance.
     replicationInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
     endpointARN :: Lude.Maybe Lude.Text,
+    -- | The last failure message for the schema.
     lastFailureMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RefreshSchemasStatus' with the minimum fields required to make a request.
 --
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
--- * 'lastFailureMessage' - The last failure message for the schema.
+-- * 'status' - The status of the schema.
 -- * 'lastRefreshDate' - The date the schema was last refreshed.
 -- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
--- * 'status' - The status of the schema.
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+-- * 'lastFailureMessage' - The last failure message for the schema.
 mkRefreshSchemasStatus ::
   RefreshSchemasStatus
 mkRefreshSchemasStatus =

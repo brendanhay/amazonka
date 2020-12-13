@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.OpsWorksCM.ExportServerEngineAttribute
     mkExportServerEngineAttribute,
 
     -- ** Request lenses
+    eseaServerName,
     eseaInputAttributes,
     eseaExportAttributeName,
-    eseaServerName,
 
     -- * Destructuring the response
     ExportServerEngineAttributeResponse (..),
@@ -45,17 +46,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkExportServerEngineAttribute' smart constructor.
 data ExportServerEngineAttribute = ExportServerEngineAttribute'
-  { inputAttributes ::
-      Lude.Maybe [EngineAttribute],
-    exportAttributeName :: Lude.Text,
-    serverName :: Lude.Text
+  { -- | The name of the server from which you are exporting the attribute.
+    serverName :: Lude.Text,
+    -- | The list of engine attributes. The list type is @EngineAttribute@ . An @EngineAttribute@ list item is a pair that includes an attribute name and its value. For the @Userdata@ ExportAttributeName, the following are supported engine attribute names.
+    --
+    --
+    --     * __RunList__ In Chef, a list of roles or recipes that are run in the specified order. In Puppet, this parameter is ignored.
+    --
+    --
+    --     * __OrganizationName__ In Chef, an organization name. AWS OpsWorks for Chef Automate always creates the organization @default@ . In Puppet, this parameter is ignored.
+    --
+    --
+    --     * __NodeEnvironment__ In Chef, a node environment (for example, development, staging, or one-box). In Puppet, this parameter is ignored.
+    --
+    --
+    --     * __NodeClientVersion__ In Chef, the version of the Chef engine (three numbers separated by dots, such as 13.8.5). If this attribute is empty, OpsWorks for Chef Automate uses the most current version. In Puppet, this parameter is ignored.
+    inputAttributes :: Lude.Maybe [EngineAttribute],
+    -- | The name of the export attribute. Currently, the supported export attribute is @Userdata@ . This exports a user data script that includes parameters and values provided in the @InputAttributes@ list.
+    exportAttributeName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportServerEngineAttribute' with the minimum fields required to make a request.
 --
--- * 'exportAttributeName' - The name of the export attribute. Currently, the supported export attribute is @Userdata@ . This exports a user data script that includes parameters and values provided in the @InputAttributes@ list.
+-- * 'serverName' - The name of the server from which you are exporting the attribute.
 -- * 'inputAttributes' - The list of engine attributes. The list type is @EngineAttribute@ . An @EngineAttribute@ list item is a pair that includes an attribute name and its value. For the @Userdata@ ExportAttributeName, the following are supported engine attribute names.
 --
 --
@@ -71,19 +86,26 @@ data ExportServerEngineAttribute = ExportServerEngineAttribute'
 --     * __NodeClientVersion__ In Chef, the version of the Chef engine (three numbers separated by dots, such as 13.8.5). If this attribute is empty, OpsWorks for Chef Automate uses the most current version. In Puppet, this parameter is ignored.
 --
 --
--- * 'serverName' - The name of the server from which you are exporting the attribute.
+-- * 'exportAttributeName' - The name of the export attribute. Currently, the supported export attribute is @Userdata@ . This exports a user data script that includes parameters and values provided in the @InputAttributes@ list.
 mkExportServerEngineAttribute ::
-  -- | 'exportAttributeName'
-  Lude.Text ->
   -- | 'serverName'
   Lude.Text ->
+  -- | 'exportAttributeName'
+  Lude.Text ->
   ExportServerEngineAttribute
-mkExportServerEngineAttribute pExportAttributeName_ pServerName_ =
+mkExportServerEngineAttribute pServerName_ pExportAttributeName_ =
   ExportServerEngineAttribute'
-    { inputAttributes = Lude.Nothing,
-      exportAttributeName = pExportAttributeName_,
-      serverName = pServerName_
+    { serverName = pServerName_,
+      inputAttributes = Lude.Nothing,
+      exportAttributeName = pExportAttributeName_
     }
+
+-- | The name of the server from which you are exporting the attribute.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eseaServerName :: Lens.Lens' ExportServerEngineAttribute Lude.Text
+eseaServerName = Lens.lens (serverName :: ExportServerEngineAttribute -> Lude.Text) (\s a -> s {serverName = a} :: ExportServerEngineAttribute)
+{-# DEPRECATED eseaServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | The list of engine attributes. The list type is @EngineAttribute@ . An @EngineAttribute@ list item is a pair that includes an attribute name and its value. For the @Userdata@ ExportAttributeName, the following are supported engine attribute names.
 --
@@ -112,13 +134,6 @@ eseaInputAttributes = Lens.lens (inputAttributes :: ExportServerEngineAttribute 
 eseaExportAttributeName :: Lens.Lens' ExportServerEngineAttribute Lude.Text
 eseaExportAttributeName = Lens.lens (exportAttributeName :: ExportServerEngineAttribute -> Lude.Text) (\s a -> s {exportAttributeName = a} :: ExportServerEngineAttribute)
 {-# DEPRECATED eseaExportAttributeName "Use generic-lens or generic-optics with 'exportAttributeName' instead." #-}
-
--- | The name of the server from which you are exporting the attribute.
---
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eseaServerName :: Lens.Lens' ExportServerEngineAttribute Lude.Text
-eseaServerName = Lens.lens (serverName :: ExportServerEngineAttribute -> Lude.Text) (\s a -> s {serverName = a} :: ExportServerEngineAttribute)
-{-# DEPRECATED eseaServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 instance Lude.AWSRequest ExportServerEngineAttribute where
   type
@@ -151,9 +166,9 @@ instance Lude.ToJSON ExportServerEngineAttribute where
   toJSON ExportServerEngineAttribute' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("InputAttributes" Lude..=) Lude.<$> inputAttributes,
-            Lude.Just ("ExportAttributeName" Lude..= exportAttributeName),
-            Lude.Just ("ServerName" Lude..= serverName)
+          [ Lude.Just ("ServerName" Lude..= serverName),
+            ("InputAttributes" Lude..=) Lude.<$> inputAttributes,
+            Lude.Just ("ExportAttributeName" Lude..= exportAttributeName)
           ]
       )
 
@@ -165,28 +180,21 @@ instance Lude.ToQuery ExportServerEngineAttribute where
 
 -- | /See:/ 'mkExportServerEngineAttributeResponse' smart constructor.
 data ExportServerEngineAttributeResponse = ExportServerEngineAttributeResponse'
-  { serverName ::
-      Lude.Maybe
-        Lude.Text,
-    engineAttribute ::
-      Lude.Maybe
-        EngineAttribute,
-    responseStatus ::
-      Lude.Int
+  { -- | The server name used in the request.
+    serverName :: Lude.Maybe Lude.Text,
+    -- | The requested engine attribute pair with attribute name and value.
+    engineAttribute :: Lude.Maybe EngineAttribute,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportServerEngineAttributeResponse' with the minimum fields required to make a request.
 --
+-- * 'serverName' - The server name used in the request.
 -- * 'engineAttribute' - The requested engine attribute pair with attribute name and value.
 -- * 'responseStatus' - The response status code.
--- * 'serverName' - The server name used in the request.
 mkExportServerEngineAttributeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

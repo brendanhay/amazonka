@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ModifyAvailabilityZoneOptInStatus
   ( ModifyAvailabilityZoneOptInStatus
       ( ModifyAvailabilityZoneOptInStatus',
-        NotOptedIn,
-        OptedIn
+        OptedIn,
+        NotOptedIn
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ModifyAvailabilityZoneOptInStatus = ModifyAvailabilityZoneOptInStatus' L
       Lude.ToHeader
     )
 
-pattern NotOptedIn :: ModifyAvailabilityZoneOptInStatus
-pattern NotOptedIn = ModifyAvailabilityZoneOptInStatus' "not-opted-in"
-
 pattern OptedIn :: ModifyAvailabilityZoneOptInStatus
 pattern OptedIn = ModifyAvailabilityZoneOptInStatus' "opted-in"
 
+pattern NotOptedIn :: ModifyAvailabilityZoneOptInStatus
+pattern NotOptedIn = ModifyAvailabilityZoneOptInStatus' "not-opted-in"
+
 {-# COMPLETE
-  NotOptedIn,
   OptedIn,
+  NotOptedIn,
   ModifyAvailabilityZoneOptInStatus'
   #-}

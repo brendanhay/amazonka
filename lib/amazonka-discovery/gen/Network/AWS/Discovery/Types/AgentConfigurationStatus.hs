@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAgentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
-  { agentId ::
-      Lude.Maybe Lude.Text,
-    operationSucceeded ::
-      Lude.Maybe Lude.Bool,
+  { -- | The agent/connector ID.
+    agentId :: Lude.Maybe Lude.Text,
+    -- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
+    operationSucceeded :: Lude.Maybe Lude.Bool,
+    -- | A description of the operation performed.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AgentConfigurationStatus' with the minimum fields required to make a request.
 --
 -- * 'agentId' - The agent/connector ID.
--- * 'description' - A description of the operation performed.
 -- * 'operationSucceeded' - Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
+-- * 'description' - A description of the operation performed.
 mkAgentConfigurationStatus ::
   AgentConfigurationStatus
 mkAgentConfigurationStatus =

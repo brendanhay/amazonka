@@ -128,8 +128,8 @@ module Network.AWS.LexModels.Types
     -- * ConversationLogsRequest
     ConversationLogsRequest (..),
     mkConversationLogsRequest,
-    clrLogSettings,
     clrIamRoleARN,
+    clrLogSettings,
 
     -- * ConversationLogsResponse
     ConversationLogsResponse (..),
@@ -140,8 +140,8 @@ module Network.AWS.LexModels.Types
     -- * EnumerationValue
     EnumerationValue (..),
     mkEnumerationValue,
-    evSynonyms,
     evValue,
+    evSynonyms,
 
     -- * FollowUpPrompt
     FollowUpPrompt (..),
@@ -185,9 +185,9 @@ module Network.AWS.LexModels.Types
     -- * LogSettingsRequest
     LogSettingsRequest (..),
     mkLogSettingsRequest,
+    lsrDestination,
     lsrKmsKeyARN,
     lsrLogType,
-    lsrDestination,
     lsrResourceARN,
 
     -- * LogSettingsResponse
@@ -202,23 +202,23 @@ module Network.AWS.LexModels.Types
     -- * Message
     Message (..),
     mkMessage,
+    mContent,
     mGroupNumber,
     mContentType,
-    mContent,
 
     -- * OutputContext
     OutputContext (..),
     mkOutputContext,
-    ocName,
-    ocTimeToLiveInSeconds,
     ocTurnsToLive,
+    ocTimeToLiveInSeconds,
+    ocName,
 
     -- * Prompt
     Prompt (..),
     mkPrompt,
     pResponseCard,
-    pMessages,
     pMaxAttempts,
+    pMessages,
 
     -- * Slot
     Slot (..),
@@ -231,9 +231,9 @@ module Network.AWS.LexModels.Types
     sDefaultValueSpec,
     sSlotTypeVersion,
     sSampleUtterances,
-    sDescription,
-    sName,
     sSlotConstraint,
+    sName,
+    sDescription,
 
     -- * SlotDefaultValue
     SlotDefaultValue (..),
@@ -267,14 +267,14 @@ module Network.AWS.LexModels.Types
     -- * Statement
     Statement (..),
     mkStatement,
-    staResponseCard,
-    staMessages,
+    sfResponseCard,
+    sfMessages,
 
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * UtteranceData
     UtteranceData (..),

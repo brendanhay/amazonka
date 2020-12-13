@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
     mkDescribeElasticsearchInstanceTypeLimits,
 
     -- ** Request lenses
-    deitlDomainName,
     deitlInstanceType,
+    deitlDomainName,
     deitlElasticsearchVersion,
 
     -- * Destructuring the response
@@ -43,28 +44,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeElasticsearchInstanceTypeLimits' smart constructor.
 data DescribeElasticsearchInstanceTypeLimits = DescribeElasticsearchInstanceTypeLimits'
-  { domainName ::
-      Lude.Maybe
-        Lude.Text,
-    instanceType ::
-      ESPartitionInstanceType,
-    elasticsearchVersion ::
-      Lude.Text
+  { -- | The instance type for an Elasticsearch cluster for which Elasticsearch @'Limits' @ are needed.
+    instanceType :: ESPartitionInstanceType,
+    -- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
+    domainName :: Lude.Maybe Lude.Text,
+    -- | Version of Elasticsearch for which @'Limits' @ are needed.
+    elasticsearchVersion :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticsearchInstanceTypeLimits' with the minimum fields required to make a request.
 --
+-- * 'instanceType' - The instance type for an Elasticsearch cluster for which Elasticsearch @'Limits' @ are needed.
 -- * 'domainName' - DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
 -- * 'elasticsearchVersion' - Version of Elasticsearch for which @'Limits' @ are needed.
--- * 'instanceType' - The instance type for an Elasticsearch cluster for which Elasticsearch @'Limits' @ are needed.
 mkDescribeElasticsearchInstanceTypeLimits ::
   -- | 'instanceType'
   ESPartitionInstanceType ->
@@ -75,18 +69,11 @@ mkDescribeElasticsearchInstanceTypeLimits
   pInstanceType_
   pElasticsearchVersion_ =
     DescribeElasticsearchInstanceTypeLimits'
-      { domainName =
-          Lude.Nothing,
-        instanceType = pInstanceType_,
+      { instanceType =
+          pInstanceType_,
+        domainName = Lude.Nothing,
         elasticsearchVersion = pElasticsearchVersion_
       }
-
--- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitlDomainName :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits (Lude.Maybe Lude.Text)
-deitlDomainName = Lens.lens (domainName :: DescribeElasticsearchInstanceTypeLimits -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DescribeElasticsearchInstanceTypeLimits)
-{-# DEPRECATED deitlDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The instance type for an Elasticsearch cluster for which Elasticsearch @'Limits' @ are needed.
 --
@@ -94,6 +81,13 @@ deitlDomainName = Lens.lens (domainName :: DescribeElasticsearchInstanceTypeLimi
 deitlInstanceType :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits ESPartitionInstanceType
 deitlInstanceType = Lens.lens (instanceType :: DescribeElasticsearchInstanceTypeLimits -> ESPartitionInstanceType) (\s a -> s {instanceType = a} :: DescribeElasticsearchInstanceTypeLimits)
 {-# DEPRECATED deitlInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for Elasticsearch @'Limits' @ for existing domain.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deitlDomainName :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits (Lude.Maybe Lude.Text)
+deitlDomainName = Lens.lens (domainName :: DescribeElasticsearchInstanceTypeLimits -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DescribeElasticsearchInstanceTypeLimits)
+{-# DEPRECATED deitlDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Version of Elasticsearch for which @'Limits' @ are needed.
 --
@@ -135,30 +129,16 @@ instance Lude.ToQuery DescribeElasticsearchInstanceTypeLimits where
 --
 -- /See:/ 'mkDescribeElasticsearchInstanceTypeLimitsResponse' smart constructor.
 data DescribeElasticsearchInstanceTypeLimitsResponse = DescribeElasticsearchInstanceTypeLimitsResponse'
-  { limitsByRole ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Limits)
-        ),
-    responseStatus ::
-      Lude.Int
+  { limitsByRole :: Lude.Maybe (Lude.HashMap Lude.Text (Limits)),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticsearchInstanceTypeLimitsResponse' with the minimum fields required to make a request.
 --
--- * 'limitsByRole' - Undocumented field.
+-- * 'limitsByRole' -
 -- * 'responseStatus' - The response status code.
 mkDescribeElasticsearchInstanceTypeLimitsResponse ::
   -- | 'responseStatus'

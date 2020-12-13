@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,24 +48,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTestGridSession' smart constructor.
 data GetTestGridSession = GetTestGridSession'
-  { sessionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | An ARN that uniquely identifies a 'TestGridSession' .
+    sessionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN for the project that this session belongs to. See 'CreateTestGridProject' and 'ListTestGridProjects' .
     projectARN :: Lude.Maybe Lude.Text,
+    -- | An ID associated with this session.
     sessionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTestGridSession' with the minimum fields required to make a request.
 --
--- * 'projectARN' - The ARN for the project that this session belongs to. See 'CreateTestGridProject' and 'ListTestGridProjects' .
 -- * 'sessionARN' - An ARN that uniquely identifies a 'TestGridSession' .
+-- * 'projectARN' - The ARN for the project that this session belongs to. See 'CreateTestGridProject' and 'ListTestGridProjects' .
 -- * 'sessionId' - An ID associated with this session.
 mkGetTestGridSession ::
   GetTestGridSession
@@ -136,23 +133,18 @@ instance Lude.ToQuery GetTestGridSession where
 
 -- | /See:/ 'mkGetTestGridSessionResponse' smart constructor.
 data GetTestGridSessionResponse = GetTestGridSessionResponse'
-  { testGridSession ::
-      Lude.Maybe TestGridSession,
+  { -- | The 'TestGridSession' that was requested.
+    testGridSession :: Lude.Maybe TestGridSession,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTestGridSessionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'testGridSession' - The 'TestGridSession' that was requested.
+-- * 'responseStatus' - The response status code.
 mkGetTestGridSessionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

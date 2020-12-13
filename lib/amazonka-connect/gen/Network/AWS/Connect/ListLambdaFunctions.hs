@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Connect.ListLambdaFunctions
     mkListLambdaFunctions,
 
     -- ** Request lenses
+    llfInstanceId,
     llfNextToken,
     llfMaxResults,
-    llfInstanceId,
 
     -- * Destructuring the response
     ListLambdaFunctionsResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListLambdaFunctions' smart constructor.
 data ListLambdaFunctions = ListLambdaFunctions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximimum number of results to return per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLambdaFunctions' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'maxResults' - The maximimum number of results to return per page.
 -- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'maxResults' - The maximimum number of results to return per page.
 mkListLambdaFunctions ::
   -- | 'instanceId'
   Lude.Text ->
   ListLambdaFunctions
 mkListLambdaFunctions pInstanceId_ =
   ListLambdaFunctions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llfInstanceId :: Lens.Lens' ListLambdaFunctions Lude.Text
+llfInstanceId = Lens.lens (instanceId :: ListLambdaFunctions -> Lude.Text) (\s a -> s {instanceId = a} :: ListLambdaFunctions)
+{-# DEPRECATED llfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 --
@@ -88,13 +92,6 @@ llfNextToken = Lens.lens (nextToken :: ListLambdaFunctions -> Lude.Maybe Lude.Te
 llfMaxResults :: Lens.Lens' ListLambdaFunctions (Lude.Maybe Lude.Natural)
 llfMaxResults = Lens.lens (maxResults :: ListLambdaFunctions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListLambdaFunctions)
 {-# DEPRECATED llfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llfInstanceId :: Lens.Lens' ListLambdaFunctions Lude.Text
-llfInstanceId = Lens.lens (instanceId :: ListLambdaFunctions -> Lude.Text) (\s a -> s {instanceId = a} :: ListLambdaFunctions)
-{-# DEPRECATED llfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager ListLambdaFunctions where
   page rq rs
@@ -138,18 +135,14 @@ instance Lude.ToQuery ListLambdaFunctions where
 
 -- | /See:/ 'mkListLambdaFunctionsResponse' smart constructor.
 data ListLambdaFunctionsResponse = ListLambdaFunctionsResponse'
-  { lambdaFunctions ::
-      Lude.Maybe [Lude.Text],
+  { -- | The Lambdafunction ARNs associated with the specified instance.
+    lambdaFunctions :: Lude.Maybe [Lude.Text],
+    -- | If there are additional results, this is the token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLambdaFunctionsResponse' with the minimum fields required to make a request.

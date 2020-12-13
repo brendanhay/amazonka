@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,14 +52,11 @@ import qualified Network.AWS.Response as Res
 -- | The GET request to list an existing 'RestApi' defined for your collection.
 --
 -- /See:/ 'mkGetRestAPI' smart constructor.
-newtype GetRestAPI = GetRestAPI' {restAPIId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetRestAPI = GetRestAPI'
+  { -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRestAPI' with the minimum fields required to make a request.

@@ -17,8 +17,8 @@ module Network.AWS.SageMaker.Types.ModelPackageValidationProfile
     mkModelPackageValidationProfile,
 
     -- * Lenses
-    mpvpProfileName,
     mpvpTransformJobDefinition,
+    mpvpProfileName,
   )
 where
 
@@ -32,44 +32,32 @@ import Network.AWS.SageMaker.Types.TransformJobDefinition
 --
 -- /See:/ 'mkModelPackageValidationProfile' smart constructor.
 data ModelPackageValidationProfile = ModelPackageValidationProfile'
-  { profileName ::
-      Lude.Text,
-    transformJobDefinition ::
-      TransformJobDefinition
+  { -- | The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
+    transformJobDefinition :: TransformJobDefinition,
+    -- | The name of the profile for the model package.
+    profileName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelPackageValidationProfile' with the minimum fields required to make a request.
 --
--- * 'profileName' - The name of the profile for the model package.
 -- * 'transformJobDefinition' - The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
+-- * 'profileName' - The name of the profile for the model package.
 mkModelPackageValidationProfile ::
-  -- | 'profileName'
-  Lude.Text ->
   -- | 'transformJobDefinition'
   TransformJobDefinition ->
+  -- | 'profileName'
+  Lude.Text ->
   ModelPackageValidationProfile
 mkModelPackageValidationProfile
-  pProfileName_
-  pTransformJobDefinition_ =
+  pTransformJobDefinition_
+  pProfileName_ =
     ModelPackageValidationProfile'
-      { profileName = pProfileName_,
-        transformJobDefinition = pTransformJobDefinition_
+      { transformJobDefinition =
+          pTransformJobDefinition_,
+        profileName = pProfileName_
       }
-
--- | The name of the profile for the model package.
---
--- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpvpProfileName :: Lens.Lens' ModelPackageValidationProfile Lude.Text
-mpvpProfileName = Lens.lens (profileName :: ModelPackageValidationProfile -> Lude.Text) (\s a -> s {profileName = a} :: ModelPackageValidationProfile)
-{-# DEPRECATED mpvpProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
 
 -- | The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
 --
@@ -78,22 +66,29 @@ mpvpTransformJobDefinition :: Lens.Lens' ModelPackageValidationProfile Transform
 mpvpTransformJobDefinition = Lens.lens (transformJobDefinition :: ModelPackageValidationProfile -> TransformJobDefinition) (\s a -> s {transformJobDefinition = a} :: ModelPackageValidationProfile)
 {-# DEPRECATED mpvpTransformJobDefinition "Use generic-lens or generic-optics with 'transformJobDefinition' instead." #-}
 
+-- | The name of the profile for the model package.
+--
+-- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpvpProfileName :: Lens.Lens' ModelPackageValidationProfile Lude.Text
+mpvpProfileName = Lens.lens (profileName :: ModelPackageValidationProfile -> Lude.Text) (\s a -> s {profileName = a} :: ModelPackageValidationProfile)
+{-# DEPRECATED mpvpProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
+
 instance Lude.FromJSON ModelPackageValidationProfile where
   parseJSON =
     Lude.withObject
       "ModelPackageValidationProfile"
       ( \x ->
           ModelPackageValidationProfile'
-            Lude.<$> (x Lude..: "ProfileName")
-            Lude.<*> (x Lude..: "TransformJobDefinition")
+            Lude.<$> (x Lude..: "TransformJobDefinition")
+            Lude.<*> (x Lude..: "ProfileName")
       )
 
 instance Lude.ToJSON ModelPackageValidationProfile where
   toJSON ModelPackageValidationProfile' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ProfileName" Lude..= profileName),
-            Lude.Just
-              ("TransformJobDefinition" Lude..= transformJobDefinition)
+          [ Lude.Just
+              ("TransformJobDefinition" Lude..= transformJobDefinition),
+            Lude.Just ("ProfileName" Lude..= profileName)
           ]
       )

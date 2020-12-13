@@ -18,8 +18,8 @@ module Network.AWS.SSM.Types.ParameterStringFilter
 
     -- * Lenses
     psfValues,
-    psfOption,
     psfKey,
+    psfOption,
   )
 where
 
@@ -30,27 +30,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameterStringFilter' smart constructor.
 data ParameterStringFilter = ParameterStringFilter'
-  { values ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    option :: Lude.Maybe Lude.Text,
-    key :: Lude.Text
+  { -- | The value you want to search for.
+    values :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The name of the filter.
+    key :: Lude.Text,
+    -- | For all filters used with 'DescribeParameters' , valid options include @Equals@ and @BeginsWith@ . The @Name@ filter additionally supports the @Contains@ option. (Exception: For filters using the key @Path@ , valid options include @Recursive@ and @OneLevel@ .)
+    --
+    -- For filters used with 'GetParametersByPath' , valid options include @Equals@ and @BeginsWith@ . (Exception: For filters using @Label@ as the Key name, the only valid option is @Equals@ .)
+    option :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterStringFilter' with the minimum fields required to make a request.
 --
+-- * 'values' - The value you want to search for.
 -- * 'key' - The name of the filter.
 -- * 'option' - For all filters used with 'DescribeParameters' , valid options include @Equals@ and @BeginsWith@ . The @Name@ filter additionally supports the @Contains@ option. (Exception: For filters using the key @Path@ , valid options include @Recursive@ and @OneLevel@ .)
 --
 -- For filters used with 'GetParametersByPath' , valid options include @Equals@ and @BeginsWith@ . (Exception: For filters using @Label@ as the Key name, the only valid option is @Equals@ .)
--- * 'values' - The value you want to search for.
 mkParameterStringFilter ::
   -- | 'key'
   Lude.Text ->
@@ -58,8 +56,8 @@ mkParameterStringFilter ::
 mkParameterStringFilter pKey_ =
   ParameterStringFilter'
     { values = Lude.Nothing,
-      option = Lude.Nothing,
-      key = pKey_
+      key = pKey_,
+      option = Lude.Nothing
     }
 
 -- | The value you want to search for.
@@ -68,6 +66,13 @@ mkParameterStringFilter pKey_ =
 psfValues :: Lens.Lens' ParameterStringFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
 psfValues = Lens.lens (values :: ParameterStringFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {values = a} :: ParameterStringFilter)
 {-# DEPRECATED psfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psfKey :: Lens.Lens' ParameterStringFilter Lude.Text
+psfKey = Lens.lens (key :: ParameterStringFilter -> Lude.Text) (\s a -> s {key = a} :: ParameterStringFilter)
+{-# DEPRECATED psfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | For all filters used with 'DescribeParameters' , valid options include @Equals@ and @BeginsWith@ . The @Name@ filter additionally supports the @Contains@ option. (Exception: For filters using the key @Path@ , valid options include @Recursive@ and @OneLevel@ .)
 --
@@ -78,19 +83,12 @@ psfOption :: Lens.Lens' ParameterStringFilter (Lude.Maybe Lude.Text)
 psfOption = Lens.lens (option :: ParameterStringFilter -> Lude.Maybe Lude.Text) (\s a -> s {option = a} :: ParameterStringFilter)
 {-# DEPRECATED psfOption "Use generic-lens or generic-optics with 'option' instead." #-}
 
--- | The name of the filter.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psfKey :: Lens.Lens' ParameterStringFilter Lude.Text
-psfKey = Lens.lens (key :: ParameterStringFilter -> Lude.Text) (\s a -> s {key = a} :: ParameterStringFilter)
-{-# DEPRECATED psfKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
 instance Lude.ToJSON ParameterStringFilter where
   toJSON ParameterStringFilter' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("Values" Lude..=) Lude.<$> values,
-            ("Option" Lude..=) Lude.<$> option,
-            Lude.Just ("Key" Lude..= key)
+            Lude.Just ("Key" Lude..= key),
+            ("Option" Lude..=) Lude.<$> option
           ]
       )

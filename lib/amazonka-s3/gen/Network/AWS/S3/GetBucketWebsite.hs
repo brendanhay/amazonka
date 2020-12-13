@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.S3.GetBucketWebsite
     mkGetBucketWebsite,
 
     -- ** Request lenses
-    gbwExpectedBucketOwner,
     gbwBucket,
+    gbwExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketWebsiteResponse (..),
@@ -51,17 +52,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketWebsite' smart constructor.
 data GetBucketWebsite = GetBucketWebsite'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The bucket name for which to get the website configuration.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketWebsite' with the minimum fields required to make a request.
@@ -74,16 +70,9 @@ mkGetBucketWebsite ::
   GetBucketWebsite
 mkGetBucketWebsite pBucket_ =
   GetBucketWebsite'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbwExpectedBucketOwner :: Lens.Lens' GetBucketWebsite (Lude.Maybe Lude.Text)
-gbwExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketWebsite -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketWebsite)
-{-# DEPRECATED gbwExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name for which to get the website configuration.
 --
@@ -91,6 +80,13 @@ gbwExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketWebsite -> L
 gbwBucket :: Lens.Lens' GetBucketWebsite BucketName
 gbwBucket = Lens.lens (bucket :: GetBucketWebsite -> BucketName) (\s a -> s {bucket = a} :: GetBucketWebsite)
 {-# DEPRECATED gbwBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbwExpectedBucketOwner :: Lens.Lens' GetBucketWebsite (Lude.Maybe Lude.Text)
+gbwExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketWebsite -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketWebsite)
+{-# DEPRECATED gbwExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetBucketWebsite where
   type Rs GetBucketWebsite = GetBucketWebsiteResponse
@@ -121,29 +117,27 @@ instance Lude.ToQuery GetBucketWebsite where
 
 -- | /See:/ 'mkGetBucketWebsiteResponse' smart constructor.
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
-  { redirectAllRequestsTo ::
-      Lude.Maybe RedirectAllRequestsTo,
+  { -- | Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+    redirectAllRequestsTo :: Lude.Maybe RedirectAllRequestsTo,
+    -- | The object key name of the website error document to use for 4XX class errors.
     errorDocument :: Lude.Maybe ErrorDocument,
+    -- | The name of the index document for the website (for example @index.html@ ).
     indexDocument :: Lude.Maybe IndexDocument,
+    -- | Rules that define when a redirect is applied and the redirect behavior.
     routingRules :: Lude.Maybe [RoutingRule],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketWebsiteResponse' with the minimum fields required to make a request.
 --
+-- * 'redirectAllRequestsTo' - Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
 -- * 'errorDocument' - The object key name of the website error document to use for 4XX class errors.
 -- * 'indexDocument' - The name of the index document for the website (for example @index.html@ ).
--- * 'redirectAllRequestsTo' - Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
--- * 'responseStatus' - The response status code.
 -- * 'routingRules' - Rules that define when a redirect is applied and the redirect behavior.
+-- * 'responseStatus' - The response status code.
 mkGetBucketWebsiteResponse ::
   -- | 'responseStatus'
   Lude.Int ->

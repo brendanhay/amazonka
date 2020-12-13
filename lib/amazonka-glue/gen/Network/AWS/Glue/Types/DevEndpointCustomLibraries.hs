@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDevEndpointCustomLibraries' smart constructor.
 data DevEndpointCustomLibraries = DevEndpointCustomLibraries'
-  { extraPythonLibsS3Path ::
-      Lude.Maybe Lude.Text,
-    extraJARsS3Path ::
-      Lude.Maybe Lude.Text
+  { -- | The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3) bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
+    extraPythonLibsS3Path :: Lude.Maybe Lude.Text,
+    -- | The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
+    extraJARsS3Path :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DevEndpointCustomLibraries' with the minimum fields required to make a request.
 --
--- * 'extraJARsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
 -- * 'extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3) bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
+-- * 'extraJARsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
 mkDevEndpointCustomLibraries ::
   DevEndpointCustomLibraries
 mkDevEndpointCustomLibraries =

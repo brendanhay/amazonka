@@ -31,23 +31,18 @@ import Network.AWS.SageMaker.Types.ResourceSpec
 --
 -- /See:/ 'mkKernelGatewayAppSettings' smart constructor.
 data KernelGatewayAppSettings = KernelGatewayAppSettings'
-  { defaultResourceSpec ::
-      Lude.Maybe ResourceSpec,
+  { -- | The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+    defaultResourceSpec :: Lude.Maybe ResourceSpec,
+    -- | A list of custom SageMaker images that are configured to run as a KernelGateway app.
     customImages :: Lude.Maybe [CustomImage]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KernelGatewayAppSettings' with the minimum fields required to make a request.
 --
--- * 'customImages' - A list of custom SageMaker images that are configured to run as a KernelGateway app.
 -- * 'defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
+-- * 'customImages' - A list of custom SageMaker images that are configured to run as a KernelGateway app.
 mkKernelGatewayAppSettings ::
   KernelGatewayAppSettings
 mkKernelGatewayAppSettings =

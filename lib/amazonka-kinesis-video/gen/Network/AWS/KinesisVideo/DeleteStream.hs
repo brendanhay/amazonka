@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.KinesisVideo.DeleteStream
     mkDeleteStream,
 
     -- ** Request lenses
-    dsCurrentVersion,
-    dsStreamARN,
+    dCurrentVersion,
+    dStreamARN,
 
     -- * Destructuring the response
     DeleteStreamResponse (..),
@@ -44,17 +45,15 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteStream' smart constructor.
 data DeleteStream = DeleteStream'
-  { currentVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | Optional: The version of the stream that you want to delete.
+    --
+    -- Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the @DescribeStream@ API.
+    -- If not specified, only the @CreationTime@ is checked before deleting the stream.
+    currentVersion :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the stream that you want to delete.
     streamARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
@@ -80,16 +79,16 @@ mkDeleteStream pStreamARN_ =
 -- If not specified, only the @CreationTime@ is checked before deleting the stream.
 --
 -- /Note:/ Consider using 'currentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsCurrentVersion :: Lens.Lens' DeleteStream (Lude.Maybe Lude.Text)
-dsCurrentVersion = Lens.lens (currentVersion :: DeleteStream -> Lude.Maybe Lude.Text) (\s a -> s {currentVersion = a} :: DeleteStream)
-{-# DEPRECATED dsCurrentVersion "Use generic-lens or generic-optics with 'currentVersion' instead." #-}
+dCurrentVersion :: Lens.Lens' DeleteStream (Lude.Maybe Lude.Text)
+dCurrentVersion = Lens.lens (currentVersion :: DeleteStream -> Lude.Maybe Lude.Text) (\s a -> s {currentVersion = a} :: DeleteStream)
+{-# DEPRECATED dCurrentVersion "Use generic-lens or generic-optics with 'currentVersion' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to delete.
 --
 -- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsStreamARN :: Lens.Lens' DeleteStream Lude.Text
-dsStreamARN = Lens.lens (streamARN :: DeleteStream -> Lude.Text) (\s a -> s {streamARN = a} :: DeleteStream)
-{-# DEPRECATED dsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+dStreamARN :: Lens.Lens' DeleteStream Lude.Text
+dStreamARN = Lens.lens (streamARN :: DeleteStream -> Lude.Text) (\s a -> s {streamARN = a} :: DeleteStream)
+{-# DEPRECATED dStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 instance Lude.AWSRequest DeleteStream where
   type Rs DeleteStream = DeleteStreamResponse
@@ -120,16 +119,10 @@ instance Lude.ToQuery DeleteStream where
 
 -- | /See:/ 'mkDeleteStreamResponse' smart constructor.
 newtype DeleteStreamResponse = DeleteStreamResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.

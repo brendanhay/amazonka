@@ -33,42 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectoryConnectSettingsDescription' smart constructor.
 data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
-  { customerUserName ::
-      Lude.Maybe
-        Lude.Text,
-    subnetIds ::
-      Lude.Maybe
-        [Lude.Text],
-    vpcId ::
-      Lude.Maybe
-        Lude.Text,
-    securityGroupId ::
-      Lude.Maybe
-        Lude.Text,
-    connectIPs ::
-      Lude.Maybe
-        [Lude.Text],
-    availabilityZones ::
-      Lude.Maybe
-        [Lude.Text]
+  { -- | The user name of the service account in the on-premises directory.
+    customerUserName :: Lude.Maybe Lude.Text,
+    -- | A list of subnet identifiers in the VPC that the AD Connector is in.
+    subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The identifier of the VPC that the AD Connector is in.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | The security group identifier for the AD Connector directory.
+    securityGroupId :: Lude.Maybe Lude.Text,
+    -- | The IP addresses of the AD Connector servers.
+    connectIPs :: Lude.Maybe [Lude.Text],
+    -- | A list of the Availability Zones that the directory is in.
+    availabilityZones :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectoryConnectSettingsDescription' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - A list of the Availability Zones that the directory is in.
--- * 'connectIPs' - The IP addresses of the AD Connector servers.
 -- * 'customerUserName' - The user name of the service account in the on-premises directory.
--- * 'securityGroupId' - The security group identifier for the AD Connector directory.
 -- * 'subnetIds' - A list of subnet identifiers in the VPC that the AD Connector is in.
 -- * 'vpcId' - The identifier of the VPC that the AD Connector is in.
+-- * 'securityGroupId' - The security group identifier for the AD Connector directory.
+-- * 'connectIPs' - The IP addresses of the AD Connector servers.
+-- * 'availabilityZones' - A list of the Availability Zones that the directory is in.
 mkDirectoryConnectSettingsDescription ::
   DirectoryConnectSettingsDescription
 mkDirectoryConnectSettingsDescription =

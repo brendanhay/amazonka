@@ -32,30 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSamplingTargetDocument' smart constructor.
 data SamplingTargetDocument = SamplingTargetDocument'
-  { reservoirQuota ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of requests per second that X-Ray allocated for this service.
+    reservoirQuota :: Lude.Maybe Lude.Int,
+    -- | The name of the sampling rule.
     ruleName :: Lude.Maybe Lude.Text,
+    -- | The percentage of matching requests to instrument, after the reservoir is exhausted.
     fixedRate :: Lude.Maybe Lude.Double,
+    -- | The number of seconds for the service to wait before getting sampling targets again.
     interval :: Lude.Maybe Lude.Int,
-    reservoirQuotaTTL ::
-      Lude.Maybe Lude.Timestamp
+    -- | When the reservoir quota expires.
+    reservoirQuotaTTL :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SamplingTargetDocument' with the minimum fields required to make a request.
 --
+-- * 'reservoirQuota' - The number of requests per second that X-Ray allocated for this service.
+-- * 'ruleName' - The name of the sampling rule.
 -- * 'fixedRate' - The percentage of matching requests to instrument, after the reservoir is exhausted.
 -- * 'interval' - The number of seconds for the service to wait before getting sampling targets again.
--- * 'reservoirQuota' - The number of requests per second that X-Ray allocated for this service.
 -- * 'reservoirQuotaTTL' - When the reservoir quota expires.
--- * 'ruleName' - The name of the sampling rule.
 mkSamplingTargetDocument ::
   SamplingTargetDocument
 mkSamplingTargetDocument =

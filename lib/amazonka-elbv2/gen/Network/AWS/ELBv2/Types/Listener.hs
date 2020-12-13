@@ -38,34 +38,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkListener' smart constructor.
 data Listener = Listener'
-  { sslPolicy :: Lude.Maybe Lude.Text,
+  { -- | [HTTPS or TLS listener] The security policy that defines which protocols and ciphers are supported.
+    sslPolicy :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the listener.
     listenerARN :: Lude.Maybe Lude.Text,
+    -- | The protocol for connections from clients to the load balancer.
     protocol :: Lude.Maybe ProtocolEnum,
+    -- | The default actions for the listener.
     defaultActions :: Lude.Maybe [Action],
+    -- | [HTTPS or TLS listener] The default certificate for the listener.
     certificates :: Lude.Maybe [Certificate],
+    -- | The Amazon Resource Name (ARN) of the load balancer.
     loadBalancerARN :: Lude.Maybe Lude.Text,
+    -- | [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
     alpnPolicy :: Lude.Maybe [Lude.Text],
+    -- | The port on which the load balancer is listening.
     port :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Listener' with the minimum fields required to make a request.
 --
--- * 'alpnPolicy' - [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
--- * 'certificates' - [HTTPS or TLS listener] The default certificate for the listener.
--- * 'defaultActions' - The default actions for the listener.
--- * 'listenerARN' - The Amazon Resource Name (ARN) of the listener.
--- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
--- * 'port' - The port on which the load balancer is listening.
--- * 'protocol' - The protocol for connections from clients to the load balancer.
 -- * 'sslPolicy' - [HTTPS or TLS listener] The security policy that defines which protocols and ciphers are supported.
+-- * 'listenerARN' - The Amazon Resource Name (ARN) of the listener.
+-- * 'protocol' - The protocol for connections from clients to the load balancer.
+-- * 'defaultActions' - The default actions for the listener.
+-- * 'certificates' - [HTTPS or TLS listener] The default certificate for the listener.
+-- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
+-- * 'alpnPolicy' - [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+-- * 'port' - The port on which the load balancer is listening.
 mkListener ::
   Listener
 mkListener =

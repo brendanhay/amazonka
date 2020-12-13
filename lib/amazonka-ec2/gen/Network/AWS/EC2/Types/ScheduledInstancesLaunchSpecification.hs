@@ -28,9 +28,9 @@ module Network.AWS.EC2.Types.ScheduledInstancesLaunchSpecification
     silsUserData,
     silsMonitoring,
     silsIAMInstanceProfile,
+    silsImageId,
     silsBlockDeviceMappings,
     silsPlacement,
-    silsImageId,
   )
 where
 
@@ -48,75 +48,58 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledInstancesLaunchSpecification' smart constructor.
 data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecification'
-  { securityGroupIds ::
-      Lude.Maybe
-        [Lude.Text],
-    keyName ::
-      Lude.Maybe
-        Lude.Text,
-    networkInterfaces ::
-      Lude.Maybe
-        [ScheduledInstancesNetworkInterface],
-    ramdiskId ::
-      Lude.Maybe
-        Lude.Text,
-    subnetId ::
-      Lude.Maybe
-        Lude.Text,
-    kernelId ::
-      Lude.Maybe
-        Lude.Text,
-    instanceType ::
-      Lude.Maybe
-        Lude.Text,
-    ebsOptimized ::
-      Lude.Maybe
-        Lude.Bool,
-    userData ::
-      Lude.Maybe
-        Lude.Text,
-    monitoring ::
-      Lude.Maybe
-        ScheduledInstancesMonitoring,
-    iamInstanceProfile ::
-      Lude.Maybe
-        ScheduledInstancesIAMInstanceProfile,
-    blockDeviceMappings ::
-      Lude.Maybe
-        [ScheduledInstancesBlockDeviceMapping],
-    placement ::
-      Lude.Maybe
-        ScheduledInstancesPlacement,
-    imageId ::
-      Lude.Text
+  { -- | The IDs of the security groups.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The name of the key pair.
+    keyName :: Lude.Maybe Lude.Text,
+    -- | The network interfaces.
+    networkInterfaces :: Lude.Maybe [ScheduledInstancesNetworkInterface],
+    -- | The ID of the RAM disk.
+    ramdiskId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet in which to launch the instances.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the kernel.
+    kernelId :: Lude.Maybe Lude.Text,
+    -- | The instance type.
+    instanceType :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
+    --
+    -- Default: @false@
+    ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The base64-encoded MIME user data.
+    userData :: Lude.Maybe Lude.Text,
+    -- | Enable or disable monitoring for the instances.
+    monitoring :: Lude.Maybe ScheduledInstancesMonitoring,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: Lude.Maybe ScheduledInstancesIAMInstanceProfile,
+    -- | The ID of the Amazon Machine Image (AMI).
+    imageId :: Lude.Text,
+    -- | The block device mapping entries.
+    blockDeviceMappings :: Lude.Maybe [ScheduledInstancesBlockDeviceMapping],
+    -- | The placement information.
+    placement :: Lude.Maybe ScheduledInstancesPlacement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstancesLaunchSpecification' with the minimum fields required to make a request.
 --
--- * 'blockDeviceMappings' - The block device mapping entries.
+-- * 'securityGroupIds' - The IDs of the security groups.
+-- * 'keyName' - The name of the key pair.
+-- * 'networkInterfaces' - The network interfaces.
+-- * 'ramdiskId' - The ID of the RAM disk.
+-- * 'subnetId' - The ID of the subnet in which to launch the instances.
+-- * 'kernelId' - The ID of the kernel.
+-- * 'instanceType' - The instance type.
 -- * 'ebsOptimized' - Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 --
 -- Default: @false@
+-- * 'userData' - The base64-encoded MIME user data.
+-- * 'monitoring' - Enable or disable monitoring for the instances.
 -- * 'iamInstanceProfile' - The IAM instance profile.
 -- * 'imageId' - The ID of the Amazon Machine Image (AMI).
--- * 'instanceType' - The instance type.
--- * 'kernelId' - The ID of the kernel.
--- * 'keyName' - The name of the key pair.
--- * 'monitoring' - Enable or disable monitoring for the instances.
--- * 'networkInterfaces' - The network interfaces.
+-- * 'blockDeviceMappings' - The block device mapping entries.
 -- * 'placement' - The placement information.
--- * 'ramdiskId' - The ID of the RAM disk.
--- * 'securityGroupIds' - The IDs of the security groups.
--- * 'subnetId' - The ID of the subnet in which to launch the instances.
--- * 'userData' - The base64-encoded MIME user data.
 mkScheduledInstancesLaunchSpecification ::
   -- | 'imageId'
   Lude.Text ->
@@ -135,9 +118,9 @@ mkScheduledInstancesLaunchSpecification pImageId_ =
       userData = Lude.Nothing,
       monitoring = Lude.Nothing,
       iamInstanceProfile = Lude.Nothing,
+      imageId = pImageId_,
       blockDeviceMappings = Lude.Nothing,
-      placement = Lude.Nothing,
-      imageId = pImageId_
+      placement = Lude.Nothing
     }
 
 -- | The IDs of the security groups.
@@ -219,6 +202,13 @@ silsIAMInstanceProfile :: Lens.Lens' ScheduledInstancesLaunchSpecification (Lude
 silsIAMInstanceProfile = Lens.lens (iamInstanceProfile :: ScheduledInstancesLaunchSpecification -> Lude.Maybe ScheduledInstancesIAMInstanceProfile) (\s a -> s {iamInstanceProfile = a} :: ScheduledInstancesLaunchSpecification)
 {-# DEPRECATED silsIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
+-- | The ID of the Amazon Machine Image (AMI).
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+silsImageId :: Lens.Lens' ScheduledInstancesLaunchSpecification Lude.Text
+silsImageId = Lens.lens (imageId :: ScheduledInstancesLaunchSpecification -> Lude.Text) (\s a -> s {imageId = a} :: ScheduledInstancesLaunchSpecification)
+{-# DEPRECATED silsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
 -- | The block device mapping entries.
 --
 -- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -232,13 +222,6 @@ silsBlockDeviceMappings = Lens.lens (blockDeviceMappings :: ScheduledInstancesLa
 silsPlacement :: Lens.Lens' ScheduledInstancesLaunchSpecification (Lude.Maybe ScheduledInstancesPlacement)
 silsPlacement = Lens.lens (placement :: ScheduledInstancesLaunchSpecification -> Lude.Maybe ScheduledInstancesPlacement) (\s a -> s {placement = a} :: ScheduledInstancesLaunchSpecification)
 {-# DEPRECATED silsPlacement "Use generic-lens or generic-optics with 'placement' instead." #-}
-
--- | The ID of the Amazon Machine Image (AMI).
---
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-silsImageId :: Lens.Lens' ScheduledInstancesLaunchSpecification Lude.Text
-silsImageId = Lens.lens (imageId :: ScheduledInstancesLaunchSpecification -> Lude.Text) (\s a -> s {imageId = a} :: ScheduledInstancesLaunchSpecification)
-{-# DEPRECATED silsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 instance Lude.ToQuery ScheduledInstancesLaunchSpecification where
   toQuery ScheduledInstancesLaunchSpecification' {..} =
@@ -256,10 +239,10 @@ instance Lude.ToQuery ScheduledInstancesLaunchSpecification where
         "UserData" Lude.=: userData,
         "Monitoring" Lude.=: monitoring,
         "IamInstanceProfile" Lude.=: iamInstanceProfile,
+        "ImageId" Lude.=: imageId,
         Lude.toQuery
           ( Lude.toQueryList "BlockDeviceMapping"
               Lude.<$> blockDeviceMappings
           ),
-        "Placement" Lude.=: placement,
-        "ImageId" Lude.=: imageId
+        "Placement" Lude.=: placement
       ]

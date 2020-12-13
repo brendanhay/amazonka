@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -56,7 +57,7 @@ module Network.AWS.GameLift.DeleteMatchmakingRuleSet
     mkDeleteMatchmakingRuleSetResponse,
 
     -- ** Response lenses
-    dmrsrsResponseStatus,
+    dmrsfrsResponseStatus,
   )
 where
 
@@ -70,16 +71,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteMatchmakingRuleSet' smart constructor.
 newtype DeleteMatchmakingRuleSet = DeleteMatchmakingRuleSet'
-  { name ::
-      Lude.Text
+  { -- | A unique identifier for a matchmaking rule set to be deleted. (Note: The rule set name is different from the optional "name" field in the rule set body.) You can use either the rule set name or ARN value.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMatchmakingRuleSet' with the minimum fields required to make a request.
@@ -134,16 +129,10 @@ instance Lude.ToQuery DeleteMatchmakingRuleSet where
 --
 -- /See:/ 'mkDeleteMatchmakingRuleSetResponse' smart constructor.
 newtype DeleteMatchmakingRuleSetResponse = DeleteMatchmakingRuleSetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMatchmakingRuleSetResponse' with the minimum fields required to make a request.
@@ -162,6 +151,6 @@ mkDeleteMatchmakingRuleSetResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsrsResponseStatus :: Lens.Lens' DeleteMatchmakingRuleSetResponse Lude.Int
-dmrsrsResponseStatus = Lens.lens (responseStatus :: DeleteMatchmakingRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMatchmakingRuleSetResponse)
-{-# DEPRECATED dmrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmrsfrsResponseStatus :: Lens.Lens' DeleteMatchmakingRuleSetResponse Lude.Int
+dmrsfrsResponseStatus = Lens.lens (responseStatus :: DeleteMatchmakingRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMatchmakingRuleSetResponse)
+{-# DEPRECATED dmrsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

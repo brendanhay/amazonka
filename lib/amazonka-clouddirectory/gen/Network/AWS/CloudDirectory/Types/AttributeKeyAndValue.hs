@@ -17,8 +17,8 @@ module Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
     mkAttributeKeyAndValue,
 
     -- * Lenses
-    akavKey,
     akavValue,
+    akavKey,
   )
 where
 
@@ -31,38 +31,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttributeKeyAndValue' smart constructor.
 data AttributeKeyAndValue = AttributeKeyAndValue'
-  { key ::
-      AttributeKey,
-    value :: TypedAttributeValue
+  { -- | The value of the attribute.
+    value :: TypedAttributeValue,
+    -- | The key of the attribute.
+    key :: AttributeKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeKeyAndValue' with the minimum fields required to make a request.
 --
--- * 'key' - The key of the attribute.
 -- * 'value' - The value of the attribute.
+-- * 'key' - The key of the attribute.
 mkAttributeKeyAndValue ::
-  -- | 'key'
-  AttributeKey ->
   -- | 'value'
   TypedAttributeValue ->
+  -- | 'key'
+  AttributeKey ->
   AttributeKeyAndValue
-mkAttributeKeyAndValue pKey_ pValue_ =
-  AttributeKeyAndValue' {key = pKey_, value = pValue_}
-
--- | The key of the attribute.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akavKey :: Lens.Lens' AttributeKeyAndValue AttributeKey
-akavKey = Lens.lens (key :: AttributeKeyAndValue -> AttributeKey) (\s a -> s {key = a} :: AttributeKeyAndValue)
-{-# DEPRECATED akavKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkAttributeKeyAndValue pValue_ pKey_ =
+  AttributeKeyAndValue' {value = pValue_, key = pKey_}
 
 -- | The value of the attribute.
 --
@@ -71,18 +59,25 @@ akavValue :: Lens.Lens' AttributeKeyAndValue TypedAttributeValue
 akavValue = Lens.lens (value :: AttributeKeyAndValue -> TypedAttributeValue) (\s a -> s {value = a} :: AttributeKeyAndValue)
 {-# DEPRECATED akavValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The key of the attribute.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akavKey :: Lens.Lens' AttributeKeyAndValue AttributeKey
+akavKey = Lens.lens (key :: AttributeKeyAndValue -> AttributeKey) (\s a -> s {key = a} :: AttributeKeyAndValue)
+{-# DEPRECATED akavKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromJSON AttributeKeyAndValue where
   parseJSON =
     Lude.withObject
       "AttributeKeyAndValue"
       ( \x ->
           AttributeKeyAndValue'
-            Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Value")
+            Lude.<$> (x Lude..: "Value") Lude.<*> (x Lude..: "Key")
       )
 
 instance Lude.ToJSON AttributeKeyAndValue where
   toJSON AttributeKeyAndValue' {..} =
     Lude.object
       ( Lude.catMaybes
-          [Lude.Just ("Key" Lude..= key), Lude.Just ("Value" Lude..= value)]
+          [Lude.Just ("Value" Lude..= value), Lude.Just ("Key" Lude..= key)]
       )

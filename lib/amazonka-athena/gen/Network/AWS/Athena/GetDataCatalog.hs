@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDataCatalog' smart constructor.
-newtype GetDataCatalog = GetDataCatalog' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDataCatalog = GetDataCatalog'
+  { -- | The name of the data catalog to return.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataCatalog' with the minimum fields required to make a request.
@@ -97,17 +95,12 @@ instance Lude.ToQuery GetDataCatalog where
 
 -- | /See:/ 'mkGetDataCatalogResponse' smart constructor.
 data GetDataCatalogResponse = GetDataCatalogResponse'
-  { dataCatalog ::
-      Lude.Maybe DataCatalog,
+  { -- | The data catalog returned.
+    dataCatalog :: Lude.Maybe DataCatalog,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataCatalogResponse' with the minimum fields required to make a request.

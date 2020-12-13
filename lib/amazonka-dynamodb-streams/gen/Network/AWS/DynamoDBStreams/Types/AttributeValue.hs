@@ -40,65 +40,86 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-  { l ::
-      Lude.Maybe [AttributeValue],
+  { -- | An attribute of type List. For example:
+    --
+    -- @"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]@
+    l :: Lude.Maybe [AttributeValue],
+    -- | An attribute of type Number Set. For example:
+    --
+    -- @"NS": ["42.2", "-19", "7.5", "3.14"]@
+    -- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
     nS :: Lude.Maybe [Lude.Text],
+    -- | An attribute of type Map. For example:
+    --
+    -- @"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}@
     m :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | An attribute of type Null. For example:
+    --
+    -- @"NULL": true@
     nULL :: Lude.Maybe Lude.Bool,
+    -- | An attribute of type Number. For example:
+    --
+    -- @"N": "123.45"@
+    -- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
     n :: Lude.Maybe Lude.Text,
+    -- | An attribute of type Binary Set. For example:
+    --
+    -- @"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]@
     bS :: Lude.Maybe [Lude.Base64],
+    -- | An attribute of type Binary. For example:
+    --
+    -- @"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"@
     b :: Lude.Maybe Lude.Base64,
+    -- | An attribute of type String Set. For example:
+    --
+    -- @"SS": ["Giraffe", "Hippo" ,"Zebra"]@
     sS :: Lude.Maybe [Lude.Text],
+    -- | An attribute of type String. For example:
+    --
+    -- @"S": "Hello"@
     s :: Lude.Maybe Lude.Text,
+    -- | An attribute of type Boolean. For example:
+    --
+    -- @"BOOL": true@
     bOOL :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
--- * 'b' - An attribute of type Binary. For example:
---
--- @"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"@ --
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'bOOL' - An attribute of type Boolean. For example:
---
--- @"BOOL": true@
--- * 'bS' - An attribute of type Binary Set. For example:
---
--- @"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]@
 -- * 'l' - An attribute of type List. For example:
 --
 -- @"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]@
--- * 'm' - An attribute of type Map. For example:
---
--- @"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}@
--- * 'n' - An attribute of type Number. For example:
---
--- @"N": "123.45"@
--- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
 -- * 'nS' - An attribute of type Number Set. For example:
 --
 -- @"NS": ["42.2", "-19", "7.5", "3.14"]@
 -- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
+-- * 'm' - An attribute of type Map. For example:
+--
+-- @"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}@
 -- * 'nULL' - An attribute of type Null. For example:
 --
 -- @"NULL": true@
--- * 's' - An attribute of type String. For example:
+-- * 'n' - An attribute of type Number. For example:
 --
--- @"S": "Hello"@
+-- @"N": "123.45"@
+-- Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
+-- * 'bS' - An attribute of type Binary Set. For example:
+--
+-- @"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]@
+-- * 'b' - An attribute of type Binary. For example:
+--
+-- @"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"@
 -- * 'sS' - An attribute of type String Set. For example:
 --
 -- @"SS": ["Giraffe", "Hippo" ,"Zebra"]@
+-- * 's' - An attribute of type String. For example:
+--
+-- @"S": "Hello"@
+-- * 'bOOL' - An attribute of type Boolean. For example:
+--
+-- @"BOOL": true@
 mkAttributeValue ::
   AttributeValue
 mkAttributeValue =

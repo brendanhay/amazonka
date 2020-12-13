@@ -13,15 +13,15 @@
 module Network.AWS.Rekognition.Types.EmotionName
   ( EmotionName
       ( EmotionName',
-        Angry,
-        Calm,
-        Confused,
-        Disgusted,
-        Fear,
         Happy,
         Sad,
+        Angry,
+        Confused,
+        Disgusted,
         Surprised,
-        Unknown
+        Calm,
+        Unknown,
+        Fear
       ),
   )
 where
@@ -52,11 +52,14 @@ newtype EmotionName = EmotionName' Lude.Text
       Lude.ToHeader
     )
 
+pattern Happy :: EmotionName
+pattern Happy = EmotionName' "HAPPY"
+
+pattern Sad :: EmotionName
+pattern Sad = EmotionName' "SAD"
+
 pattern Angry :: EmotionName
 pattern Angry = EmotionName' "ANGRY"
-
-pattern Calm :: EmotionName
-pattern Calm = EmotionName' "CALM"
 
 pattern Confused :: EmotionName
 pattern Confused = EmotionName' "CONFUSED"
@@ -64,30 +67,27 @@ pattern Confused = EmotionName' "CONFUSED"
 pattern Disgusted :: EmotionName
 pattern Disgusted = EmotionName' "DISGUSTED"
 
-pattern Fear :: EmotionName
-pattern Fear = EmotionName' "FEAR"
-
-pattern Happy :: EmotionName
-pattern Happy = EmotionName' "HAPPY"
-
-pattern Sad :: EmotionName
-pattern Sad = EmotionName' "SAD"
-
 pattern Surprised :: EmotionName
 pattern Surprised = EmotionName' "SURPRISED"
+
+pattern Calm :: EmotionName
+pattern Calm = EmotionName' "CALM"
 
 pattern Unknown :: EmotionName
 pattern Unknown = EmotionName' "UNKNOWN"
 
+pattern Fear :: EmotionName
+pattern Fear = EmotionName' "FEAR"
+
 {-# COMPLETE
-  Angry,
-  Calm,
-  Confused,
-  Disgusted,
-  Fear,
   Happy,
   Sad,
+  Angry,
+  Confused,
+  Disgusted,
   Surprised,
+  Calm,
   Unknown,
+  Fear,
   EmotionName'
   #-}

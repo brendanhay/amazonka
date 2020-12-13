@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMaintenanceWindowFilter' smart constructor.
 data MaintenanceWindowFilter = MaintenanceWindowFilter'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The filter values.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The name of the filter.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowFilter' with the minimum fields required to make a request.
 --
--- * 'key' - The name of the filter.
 -- * 'values' - The filter values.
+-- * 'key' - The name of the filter.
 mkMaintenanceWindowFilter ::
   MaintenanceWindowFilter
 mkMaintenanceWindowFilter =

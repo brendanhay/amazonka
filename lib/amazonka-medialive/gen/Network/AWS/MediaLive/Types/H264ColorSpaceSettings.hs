@@ -33,26 +33,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkH264ColorSpaceSettings' smart constructor.
 data H264ColorSpaceSettings = H264ColorSpaceSettings'
-  { rec709Settings ::
-      Lude.Maybe Rec709Settings,
+  { rec709Settings :: Lude.Maybe Rec709Settings,
     rec601Settings :: Lude.Maybe Rec601Settings,
-    colorSpacePassthroughSettings ::
-      Lude.Maybe ColorSpacePassthroughSettings
+    colorSpacePassthroughSettings :: Lude.Maybe ColorSpacePassthroughSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'H264ColorSpaceSettings' with the minimum fields required to make a request.
 --
--- * 'colorSpacePassthroughSettings' - Undocumented field.
--- * 'rec601Settings' - Undocumented field.
--- * 'rec709Settings' - Undocumented field.
+-- * 'rec709Settings' -
+-- * 'rec601Settings' -
+-- * 'colorSpacePassthroughSettings' -
 mkH264ColorSpaceSettings ::
   H264ColorSpaceSettings
 mkH264ColorSpaceSettings =

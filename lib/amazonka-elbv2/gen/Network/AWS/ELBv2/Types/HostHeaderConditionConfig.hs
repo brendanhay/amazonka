@@ -28,16 +28,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHostHeaderConditionConfig' smart constructor.
 newtype HostHeaderConditionConfig = HostHeaderConditionConfig'
-  { values ::
-      Lude.Maybe [Lude.Text]
+  { -- | One or more host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+    --
+    -- If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
+    values :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostHeaderConditionConfig' with the minimum fields required to make a request.

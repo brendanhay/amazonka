@@ -80,78 +80,216 @@ import Network.AWS.SageMaker.Types.VPCConfig
 --
 -- /See:/ 'mkTrainingJob' smart constructor.
 data TrainingJob = TrainingJob'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A timestamp that indicates when the training job was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the labeling job.
     labelingJobARN :: Lude.Maybe Lude.Text,
+    -- | If the training job failed, the reason it failed.
     failureReason :: Lude.Maybe Lude.Text,
-    secondaryStatusTransitions ::
-      Lude.Maybe [SecondaryStatusTransition],
+    -- | A history of all of the secondary statuses that the training job has transitioned through.
+    secondaryStatusTransitions :: Lude.Maybe [SecondaryStatusTransition],
+    -- | Information about the Amazon S3 location that is configured for storing model artifacts.
     modelArtifacts :: Lude.Maybe ModelArtifacts,
+    -- | Indicates the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
     trainingEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | The billable time in seconds.
     billableTimeInSeconds :: Lude.Maybe Lude.Natural,
     debugHookConfig :: Lude.Maybe DebugHookConfig,
     checkpointConfig :: Lude.Maybe CheckpointConfig,
+    -- | Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
+    --
+    -- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
     stoppingCondition :: Lude.Maybe StoppingCondition,
-    debugRuleEvaluationStatuses ::
-      Lude.Maybe [DebugRuleEvaluationStatus],
+    -- | Information about the evaluation status of the rules for the training job.
+    debugRuleEvaluationStatuses :: Lude.Maybe [DebugRuleEvaluationStatus],
+    -- | The status of the training job.
+    --
+    -- Training job statuses are:
+    --
+    --     * @InProgress@ - The training is in progress.
+    --
+    --
+    --     * @Completed@ - The training job has completed.
+    --
+    --
+    --     * @Failed@ - The training job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTrainingJobResponse@ call.
+    --
+    --
+    --     * @Stopping@ - The training job is stopping.
+    --
+    --
+    --     * @Stopped@ - The training job has stopped.
+    --
+    --
+    -- For more detailed information, see @SecondaryStatus@ .
     trainingJobStatus :: Lude.Maybe TrainingJobStatus,
+    -- | If the @TrainingJob@ was created with network isolation, the value is set to @true@ . If network isolation is enabled, nodes can't communicate beyond the VPC they run in.
     enableNetworkIsolation :: Lude.Maybe Lude.Bool,
     experimentConfig :: Lude.Maybe ExperimentConfig,
+    -- | A timestamp that indicates when the status of the training job was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | Information about the debug rule configuration.
     debugRuleConfigurations :: Lude.Maybe [DebugRuleConfiguration],
+    -- | When true, enables managed spot training using Amazon EC2 Spot instances to run training jobs instead of on-demand instances. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html Managed Spot Training> .
     enableManagedSpotTraining :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the job.
     autoMLJobARN :: Lude.Maybe Lude.Text,
+    -- | Algorithm-specific parameters.
     hyperParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | An array of @Channel@ objects that describes each data input channel.
     inputDataConfig :: Lude.Maybe (Lude.NonEmpty Channel),
+    -- | A 'VpcConfig' object that specifies the VPC that this training job has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
     vpcConfig :: Lude.Maybe VPCConfig,
+    -- | The Amazon Resource Name (ARN) of the training job.
     trainingJobARN :: Lude.Maybe Lude.Text,
+    -- | Information about the algorithm used for training, and algorithm metadata.
     algorithmSpecification :: Lude.Maybe AlgorithmSpecification,
+    -- | A list of final metric values that are set when the training job completes. Used only if the training job was configured to use metrics.
     finalMetricDataList :: Lude.Maybe [MetricData],
+    -- | The S3 path where model artifacts that you configured when creating the job are stored. Amazon SageMaker creates subfolders for model artifacts.
     outputDataConfig :: Lude.Maybe OutputDataConfig,
+    -- | Indicates the time when the training job starts on training instances. You are billed for the time interval between this time and the value of @TrainingEndTime@ . The start time in CloudWatch Logs might be later than this time. The difference is due to the time it takes to download the training data and to the size of the training container.
     trainingStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a hyperparameter tuning job.
     tuningJobARN :: Lude.Maybe Lude.Text,
+    -- | The name of the training job.
     trainingJobName :: Lude.Maybe Lude.Text,
+    -- | Resources, including ML compute instances and ML storage volumes, that are configured for model training.
     resourceConfig :: Lude.Maybe ResourceConfig,
+    -- | To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
     enableInterContainerTrafficEncryption :: Lude.Maybe Lude.Bool,
     tensorBoardOutputConfig :: Lude.Maybe TensorBoardOutputConfig,
+    -- | Provides detailed information about the state of the training job. For detailed information about the secondary status of the training job, see @StatusMessage@ under 'SecondaryStatusTransition' .
+    --
+    -- Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
+    --
+    --     * InProgress
+    --
+    --     *
+    --     * @Starting@ - Starting the training job.
+    --
+    --
+    --     * @Downloading@ - An optional stage for algorithms that support @File@ training input mode. It indicates that data is being downloaded to the ML storage volumes.
+    --
+    --
+    --     * @Training@ - Training is in progress.
+    --
+    --
+    --     * @Uploading@ - Training is complete and the model artifacts are being uploaded to the S3 location.
+    --
+    --
+    --
+    --
+    --     * Completed
+    --
+    --     *
+    --     * @Completed@ - The training job has completed.
+    --
+    --
+    --
+    --
+    --     * Failed
+    --
+    --     *
+    --     * @Failed@ - The training job has failed. The reason for the failure is returned in the @FailureReason@ field of @DescribeTrainingJobResponse@ .
+    --
+    --
+    --
+    --
+    --     * Stopped
+    --
+    --     *
+    --     * @MaxRuntimeExceeded@ - The job stopped because it exceeded the maximum allowed runtime.
+    --
+    --
+    --     * @Stopped@ - The training job has stopped.
+    --
+    --
+    --
+    --
+    --     * Stopping
+    --
+    --     *
+    --     * @Stopping@ - Stopping the training job.
+    --
+    --
+    --
+    --
+    -- /Important:/ Valid values for @SecondaryStatus@ are subject to change.
+    -- We no longer support the following secondary statuses:
+    --
+    --     * @LaunchingMLInstances@
+    --
+    --
+    --     * @PreparingTrainingStack@
+    --
+    --
+    --     * @DownloadingTrainingImage@
     secondaryStatus :: Lude.Maybe SecondaryStatus,
+    -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
     tags :: Lude.Maybe [Tag],
+    -- | The training time in seconds.
     trainingTimeInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The AWS Identity and Access Management (IAM) role configured for the training job.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrainingJob' with the minimum fields required to make a request.
 --
--- * 'algorithmSpecification' - Information about the algorithm used for training, and algorithm metadata.
--- * 'autoMLJobARN' - The Amazon Resource Name (ARN) of the job.
--- * 'billableTimeInSeconds' - The billable time in seconds.
--- * 'checkpointConfig' - Undocumented field.
 -- * 'creationTime' - A timestamp that indicates when the training job was created.
--- * 'debugHookConfig' - Undocumented field.
--- * 'debugRuleConfigurations' - Information about the debug rule configuration.
--- * 'debugRuleEvaluationStatuses' - Information about the evaluation status of the rules for the training job.
--- * 'enableInterContainerTrafficEncryption' - To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
--- * 'enableManagedSpotTraining' - When true, enables managed spot training using Amazon EC2 Spot instances to run training jobs instead of on-demand instances. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html Managed Spot Training> .
--- * 'enableNetworkIsolation' - If the @TrainingJob@ was created with network isolation, the value is set to @true@ . If network isolation is enabled, nodes can't communicate beyond the VPC they run in.
--- * 'experimentConfig' - Undocumented field.
+-- * 'labelingJobARN' - The Amazon Resource Name (ARN) of the labeling job.
 -- * 'failureReason' - If the training job failed, the reason it failed.
--- * 'finalMetricDataList' - A list of final metric values that are set when the training job completes. Used only if the training job was configured to use metrics.
+-- * 'secondaryStatusTransitions' - A history of all of the secondary statuses that the training job has transitioned through.
+-- * 'modelArtifacts' - Information about the Amazon S3 location that is configured for storing model artifacts.
+-- * 'trainingEndTime' - Indicates the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
+-- * 'billableTimeInSeconds' - The billable time in seconds.
+-- * 'debugHookConfig' -
+-- * 'checkpointConfig' -
+-- * 'stoppingCondition' - Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
+--
+-- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+-- * 'debugRuleEvaluationStatuses' - Information about the evaluation status of the rules for the training job.
+-- * 'trainingJobStatus' - The status of the training job.
+--
+-- Training job statuses are:
+--
+--     * @InProgress@ - The training is in progress.
+--
+--
+--     * @Completed@ - The training job has completed.
+--
+--
+--     * @Failed@ - The training job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTrainingJobResponse@ call.
+--
+--
+--     * @Stopping@ - The training job is stopping.
+--
+--
+--     * @Stopped@ - The training job has stopped.
+--
+--
+-- For more detailed information, see @SecondaryStatus@ .
+-- * 'enableNetworkIsolation' - If the @TrainingJob@ was created with network isolation, the value is set to @true@ . If network isolation is enabled, nodes can't communicate beyond the VPC they run in.
+-- * 'experimentConfig' -
+-- * 'lastModifiedTime' - A timestamp that indicates when the status of the training job was last modified.
+-- * 'debugRuleConfigurations' - Information about the debug rule configuration.
+-- * 'enableManagedSpotTraining' - When true, enables managed spot training using Amazon EC2 Spot instances to run training jobs instead of on-demand instances. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html Managed Spot Training> .
+-- * 'autoMLJobARN' - The Amazon Resource Name (ARN) of the job.
 -- * 'hyperParameters' - Algorithm-specific parameters.
 -- * 'inputDataConfig' - An array of @Channel@ objects that describes each data input channel.
--- * 'labelingJobARN' - The Amazon Resource Name (ARN) of the labeling job.
--- * 'lastModifiedTime' - A timestamp that indicates when the status of the training job was last modified.
--- * 'modelArtifacts' - Information about the Amazon S3 location that is configured for storing model artifacts.
+-- * 'vpcConfig' - A 'VpcConfig' object that specifies the VPC that this training job has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
+-- * 'trainingJobARN' - The Amazon Resource Name (ARN) of the training job.
+-- * 'algorithmSpecification' - Information about the algorithm used for training, and algorithm metadata.
+-- * 'finalMetricDataList' - A list of final metric values that are set when the training job completes. Used only if the training job was configured to use metrics.
 -- * 'outputDataConfig' - The S3 path where model artifacts that you configured when creating the job are stored. Amazon SageMaker creates subfolders for model artifacts.
+-- * 'trainingStartTime' - Indicates the time when the training job starts on training instances. You are billed for the time interval between this time and the value of @TrainingEndTime@ . The start time in CloudWatch Logs might be later than this time. The difference is due to the time it takes to download the training data and to the size of the training container.
+-- * 'tuningJobARN' - The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a hyperparameter tuning job.
+-- * 'trainingJobName' - The name of the training job.
 -- * 'resourceConfig' - Resources, including ML compute instances and ML storage volumes, that are configured for model training.
--- * 'roleARN' - The AWS Identity and Access Management (IAM) role configured for the training job.
+-- * 'enableInterContainerTrafficEncryption' - To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training.
+-- * 'tensorBoardOutputConfig' -
 -- * 'secondaryStatus' - Provides detailed information about the state of the training job. For detailed information about the secondary status of the training job, see @StatusMessage@ under 'SecondaryStatusTransition' .
 --
 -- Amazon SageMaker provides primary statuses and secondary statuses that apply to each of them:
@@ -220,39 +358,9 @@ data TrainingJob = TrainingJob'
 --     * @DownloadingTrainingImage@
 --
 --
--- * 'secondaryStatusTransitions' - A history of all of the secondary statuses that the training job has transitioned through.
--- * 'stoppingCondition' - Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
---
--- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
 -- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
--- * 'tensorBoardOutputConfig' - Undocumented field.
--- * 'trainingEndTime' - Indicates the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
--- * 'trainingJobARN' - The Amazon Resource Name (ARN) of the training job.
--- * 'trainingJobName' - The name of the training job.
--- * 'trainingJobStatus' - The status of the training job.
---
--- Training job statuses are:
---
---     * @InProgress@ - The training is in progress.
---
---
---     * @Completed@ - The training job has completed.
---
---
---     * @Failed@ - The training job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTrainingJobResponse@ call.
---
---
---     * @Stopping@ - The training job is stopping.
---
---
---     * @Stopped@ - The training job has stopped.
---
---
--- For more detailed information, see @SecondaryStatus@ .
--- * 'trainingStartTime' - Indicates the time when the training job starts on training instances. You are billed for the time interval between this time and the value of @TrainingEndTime@ . The start time in CloudWatch Logs might be later than this time. The difference is due to the time it takes to download the training data and to the size of the training container.
 -- * 'trainingTimeInSeconds' - The training time in seconds.
--- * 'tuningJobARN' - The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the training job was launched by a hyperparameter tuning job.
--- * 'vpcConfig' - A 'VpcConfig' object that specifies the VPC that this training job has access to. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
+-- * 'roleARN' - The AWS Identity and Access Management (IAM) role configured for the training job.
 mkTrainingJob ::
   TrainingJob
 mkTrainingJob =

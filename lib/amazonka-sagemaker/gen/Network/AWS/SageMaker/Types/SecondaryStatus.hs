@@ -13,20 +13,20 @@
 module Network.AWS.SageMaker.Types.SecondaryStatus
   ( SecondaryStatus
       ( SecondaryStatus',
-        SCompleted,
+        SStarting,
+        SLaunchingMLInstances,
+        SPreparingTrainingStack,
         SDownloading,
         SDownloadingTrainingImage,
+        STraining,
+        SUploading,
+        SStopping,
+        SStopped,
+        SMaxRuntimeExceeded,
+        SCompleted,
         SFailed,
         SInterrupted,
-        SLaunchingMLInstances,
-        SMaxRuntimeExceeded,
-        SMaxWaitTimeExceeded,
-        SPreparingTrainingStack,
-        SStarting,
-        SStopped,
-        SStopping,
-        STraining,
-        SUploading
+        SMaxWaitTimeExceeded
       ),
   )
 where
@@ -57,8 +57,14 @@ newtype SecondaryStatus = SecondaryStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SCompleted :: SecondaryStatus
-pattern SCompleted = SecondaryStatus' "Completed"
+pattern SStarting :: SecondaryStatus
+pattern SStarting = SecondaryStatus' "Starting"
+
+pattern SLaunchingMLInstances :: SecondaryStatus
+pattern SLaunchingMLInstances = SecondaryStatus' "LaunchingMLInstances"
+
+pattern SPreparingTrainingStack :: SecondaryStatus
+pattern SPreparingTrainingStack = SecondaryStatus' "PreparingTrainingStack"
 
 pattern SDownloading :: SecondaryStatus
 pattern SDownloading = SecondaryStatus' "Downloading"
@@ -66,53 +72,47 @@ pattern SDownloading = SecondaryStatus' "Downloading"
 pattern SDownloadingTrainingImage :: SecondaryStatus
 pattern SDownloadingTrainingImage = SecondaryStatus' "DownloadingTrainingImage"
 
-pattern SFailed :: SecondaryStatus
-pattern SFailed = SecondaryStatus' "Failed"
-
-pattern SInterrupted :: SecondaryStatus
-pattern SInterrupted = SecondaryStatus' "Interrupted"
-
-pattern SLaunchingMLInstances :: SecondaryStatus
-pattern SLaunchingMLInstances = SecondaryStatus' "LaunchingMLInstances"
-
-pattern SMaxRuntimeExceeded :: SecondaryStatus
-pattern SMaxRuntimeExceeded = SecondaryStatus' "MaxRuntimeExceeded"
-
-pattern SMaxWaitTimeExceeded :: SecondaryStatus
-pattern SMaxWaitTimeExceeded = SecondaryStatus' "MaxWaitTimeExceeded"
-
-pattern SPreparingTrainingStack :: SecondaryStatus
-pattern SPreparingTrainingStack = SecondaryStatus' "PreparingTrainingStack"
-
-pattern SStarting :: SecondaryStatus
-pattern SStarting = SecondaryStatus' "Starting"
-
-pattern SStopped :: SecondaryStatus
-pattern SStopped = SecondaryStatus' "Stopped"
-
-pattern SStopping :: SecondaryStatus
-pattern SStopping = SecondaryStatus' "Stopping"
-
 pattern STraining :: SecondaryStatus
 pattern STraining = SecondaryStatus' "Training"
 
 pattern SUploading :: SecondaryStatus
 pattern SUploading = SecondaryStatus' "Uploading"
 
+pattern SStopping :: SecondaryStatus
+pattern SStopping = SecondaryStatus' "Stopping"
+
+pattern SStopped :: SecondaryStatus
+pattern SStopped = SecondaryStatus' "Stopped"
+
+pattern SMaxRuntimeExceeded :: SecondaryStatus
+pattern SMaxRuntimeExceeded = SecondaryStatus' "MaxRuntimeExceeded"
+
+pattern SCompleted :: SecondaryStatus
+pattern SCompleted = SecondaryStatus' "Completed"
+
+pattern SFailed :: SecondaryStatus
+pattern SFailed = SecondaryStatus' "Failed"
+
+pattern SInterrupted :: SecondaryStatus
+pattern SInterrupted = SecondaryStatus' "Interrupted"
+
+pattern SMaxWaitTimeExceeded :: SecondaryStatus
+pattern SMaxWaitTimeExceeded = SecondaryStatus' "MaxWaitTimeExceeded"
+
 {-# COMPLETE
-  SCompleted,
+  SStarting,
+  SLaunchingMLInstances,
+  SPreparingTrainingStack,
   SDownloading,
   SDownloadingTrainingImage,
-  SFailed,
-  SInterrupted,
-  SLaunchingMLInstances,
-  SMaxRuntimeExceeded,
-  SMaxWaitTimeExceeded,
-  SPreparingTrainingStack,
-  SStarting,
-  SStopped,
-  SStopping,
   STraining,
   SUploading,
+  SStopping,
+  SStopped,
+  SMaxRuntimeExceeded,
+  SCompleted,
+  SFailed,
+  SInterrupted,
+  SMaxWaitTimeExceeded,
   SecondaryStatus'
   #-}

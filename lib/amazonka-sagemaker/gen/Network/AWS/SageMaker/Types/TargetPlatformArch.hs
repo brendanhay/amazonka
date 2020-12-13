@@ -13,11 +13,11 @@
 module Network.AWS.SageMaker.Types.TargetPlatformArch
   ( TargetPlatformArch
       ( TargetPlatformArch',
+        X86_64,
+        X86,
         ARM64,
         ArmEabi,
-        ArmEabihf,
-        X86,
-        X86_64
+        ArmEabihf
       ),
   )
 where
@@ -48,6 +48,12 @@ newtype TargetPlatformArch = TargetPlatformArch' Lude.Text
       Lude.ToHeader
     )
 
+pattern X86_64 :: TargetPlatformArch
+pattern X86_64 = TargetPlatformArch' "X86_64"
+
+pattern X86 :: TargetPlatformArch
+pattern X86 = TargetPlatformArch' "X86"
+
 pattern ARM64 :: TargetPlatformArch
 pattern ARM64 = TargetPlatformArch' "ARM64"
 
@@ -57,17 +63,11 @@ pattern ArmEabi = TargetPlatformArch' "ARM_EABI"
 pattern ArmEabihf :: TargetPlatformArch
 pattern ArmEabihf = TargetPlatformArch' "ARM_EABIHF"
 
-pattern X86 :: TargetPlatformArch
-pattern X86 = TargetPlatformArch' "X86"
-
-pattern X86_64 :: TargetPlatformArch
-pattern X86_64 = TargetPlatformArch' "X86_64"
-
 {-# COMPLETE
+  X86_64,
+  X86,
   ARM64,
   ArmEabi,
   ArmEabihf,
-  X86,
-  X86_64,
   TargetPlatformArch'
   #-}

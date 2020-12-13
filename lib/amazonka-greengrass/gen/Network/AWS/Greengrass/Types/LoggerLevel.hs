@@ -13,11 +13,11 @@
 module Network.AWS.Greengrass.Types.LoggerLevel
   ( LoggerLevel
       ( LoggerLevel',
-        Debug,
-        Error,
-        Fatal,
-        Info,
-        Warn
+        LLDebug,
+        LLInfo,
+        LLWarn,
+        LLError,
+        LLFatal
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype LoggerLevel = LoggerLevel' Lude.Text
       Lude.ToHeader
     )
 
-pattern Debug :: LoggerLevel
-pattern Debug = LoggerLevel' "DEBUG"
+pattern LLDebug :: LoggerLevel
+pattern LLDebug = LoggerLevel' "DEBUG"
 
-pattern Error :: LoggerLevel
-pattern Error = LoggerLevel' "ERROR"
+pattern LLInfo :: LoggerLevel
+pattern LLInfo = LoggerLevel' "INFO"
 
-pattern Fatal :: LoggerLevel
-pattern Fatal = LoggerLevel' "FATAL"
+pattern LLWarn :: LoggerLevel
+pattern LLWarn = LoggerLevel' "WARN"
 
-pattern Info :: LoggerLevel
-pattern Info = LoggerLevel' "INFO"
+pattern LLError :: LoggerLevel
+pattern LLError = LoggerLevel' "ERROR"
 
-pattern Warn :: LoggerLevel
-pattern Warn = LoggerLevel' "WARN"
+pattern LLFatal :: LoggerLevel
+pattern LLFatal = LoggerLevel' "FATAL"
 
 {-# COMPLETE
-  Debug,
-  Error,
-  Fatal,
-  Info,
-  Warn,
+  LLDebug,
+  LLInfo,
+  LLWarn,
+  LLError,
+  LLFatal,
   LoggerLevel'
   #-}

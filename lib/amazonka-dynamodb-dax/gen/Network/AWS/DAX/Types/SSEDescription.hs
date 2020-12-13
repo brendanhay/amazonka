@@ -29,16 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSSEDescription' smart constructor.
 newtype SSEDescription = SSEDescription'
-  { status ::
-      Lude.Maybe SSEStatus
+  { -- | The current state of server-side encryption:
+    --
+    --
+    --     * @ENABLING@ - Server-side encryption is being enabled.
+    --
+    --
+    --     * @ENABLED@ - Server-side encryption is enabled.
+    --
+    --
+    --     * @DISABLING@ - Server-side encryption is being disabled.
+    --
+    --
+    --     * @DISABLED@ - Server-side encryption is disabled.
+    status :: Lude.Maybe SSEStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSEDescription' with the minimum fields required to make a request.

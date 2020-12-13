@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.H264FramerateConversionAlgorithm
   ( H264FramerateConversionAlgorithm
       ( H264FramerateConversionAlgorithm',
         HDuplicateDrop,
-        HFrameformer,
-        HInterpolate
+        HInterpolate,
+        HFrameformer
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype H264FramerateConversionAlgorithm = H264FramerateConversionAlgorithm' Lud
 pattern HDuplicateDrop :: H264FramerateConversionAlgorithm
 pattern HDuplicateDrop = H264FramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern HFrameformer :: H264FramerateConversionAlgorithm
-pattern HFrameformer = H264FramerateConversionAlgorithm' "FRAMEFORMER"
-
 pattern HInterpolate :: H264FramerateConversionAlgorithm
 pattern HInterpolate = H264FramerateConversionAlgorithm' "INTERPOLATE"
 
+pattern HFrameformer :: H264FramerateConversionAlgorithm
+pattern HFrameformer = H264FramerateConversionAlgorithm' "FRAMEFORMER"
+
 {-# COMPLETE
   HDuplicateDrop,
-  HFrameformer,
   HInterpolate,
+  HFrameformer,
   H264FramerateConversionAlgorithm'
   #-}

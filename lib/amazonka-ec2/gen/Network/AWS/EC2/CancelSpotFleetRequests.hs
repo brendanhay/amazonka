@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.CancelSpotFleetRequests
     mkCancelSpotFleetRequests,
 
     -- ** Request lenses
-    csfrDryRun,
     csfrSpotFleetRequestIds,
     csfrTerminateInstances,
+    csfrDryRun,
 
     -- * Destructuring the response
     CancelSpotFleetRequestsResponse (..),
@@ -46,42 +47,31 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCancelSpotFleetRequests' smart constructor.
 data CancelSpotFleetRequests = CancelSpotFleetRequests'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The IDs of the Spot Fleet requests.
     spotFleetRequestIds :: [Lude.Text],
-    terminateInstances :: Lude.Bool
+    -- | Indicates whether to terminate instances for a Spot Fleet request if it is canceled successfully.
+    terminateInstances :: Lude.Bool,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSpotFleetRequests' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'spotFleetRequestIds' - The IDs of the Spot Fleet requests.
 -- * 'terminateInstances' - Indicates whether to terminate instances for a Spot Fleet request if it is canceled successfully.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCancelSpotFleetRequests ::
   -- | 'terminateInstances'
   Lude.Bool ->
   CancelSpotFleetRequests
 mkCancelSpotFleetRequests pTerminateInstances_ =
   CancelSpotFleetRequests'
-    { dryRun = Lude.Nothing,
-      spotFleetRequestIds = Lude.mempty,
-      terminateInstances = pTerminateInstances_
+    { spotFleetRequestIds = Lude.mempty,
+      terminateInstances = pTerminateInstances_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfrDryRun :: Lens.Lens' CancelSpotFleetRequests (Lude.Maybe Lude.Bool)
-csfrDryRun = Lens.lens (dryRun :: CancelSpotFleetRequests -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelSpotFleetRequests)
-{-# DEPRECATED csfrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the Spot Fleet requests.
 --
@@ -96,6 +86,13 @@ csfrSpotFleetRequestIds = Lens.lens (spotFleetRequestIds :: CancelSpotFleetReque
 csfrTerminateInstances :: Lens.Lens' CancelSpotFleetRequests Lude.Bool
 csfrTerminateInstances = Lens.lens (terminateInstances :: CancelSpotFleetRequests -> Lude.Bool) (\s a -> s {terminateInstances = a} :: CancelSpotFleetRequests)
 {-# DEPRECATED csfrTerminateInstances "Use generic-lens or generic-optics with 'terminateInstances' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfrDryRun :: Lens.Lens' CancelSpotFleetRequests (Lude.Maybe Lude.Bool)
+csfrDryRun = Lens.lens (dryRun :: CancelSpotFleetRequests -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelSpotFleetRequests)
+{-# DEPRECATED csfrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CancelSpotFleetRequests where
   type Rs CancelSpotFleetRequests = CancelSpotFleetRequestsResponse
@@ -124,37 +121,30 @@ instance Lude.ToQuery CancelSpotFleetRequests where
     Lude.mconcat
       [ "Action" Lude.=: ("CancelSpotFleetRequests" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         Lude.toQueryList "SpotFleetRequestId" spotFleetRequestIds,
-        "TerminateInstances" Lude.=: terminateInstances
+        "TerminateInstances" Lude.=: terminateInstances,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of CancelSpotFleetRequests.
 --
 -- /See:/ 'mkCancelSpotFleetRequestsResponse' smart constructor.
 data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
-  { successfulFleetRequests ::
-      Lude.Maybe
-        [CancelSpotFleetRequestsSuccessItem],
-    unsuccessfulFleetRequests ::
-      Lude.Maybe
-        [CancelSpotFleetRequestsErrorItem],
+  { -- | Information about the Spot Fleet requests that are successfully canceled.
+    successfulFleetRequests :: Lude.Maybe [CancelSpotFleetRequestsSuccessItem],
+    -- | Information about the Spot Fleet requests that are not successfully canceled.
+    unsuccessfulFleetRequests :: Lude.Maybe [CancelSpotFleetRequestsErrorItem],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSpotFleetRequestsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'successfulFleetRequests' - Information about the Spot Fleet requests that are successfully canceled.
 -- * 'unsuccessfulFleetRequests' - Information about the Spot Fleet requests that are not successfully canceled.
+-- * 'responseStatus' - The response status code.
 mkCancelSpotFleetRequestsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

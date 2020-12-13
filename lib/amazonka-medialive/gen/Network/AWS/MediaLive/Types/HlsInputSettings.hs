@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsInputSettings' smart constructor.
 data HlsInputSettings = HlsInputSettings'
-  { bufferSegments ::
-      Lude.Maybe Lude.Natural,
+  { -- | When specified, reading of the HLS input will begin this many buffer segments from the end (most recently written segment).  When not specified, the HLS input will begin with the first segment specified in the m3u8.
+    bufferSegments :: Lude.Maybe Lude.Natural,
+    -- | The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
     retries :: Lude.Maybe Lude.Natural,
+    -- | The number of seconds between retries when an attempt to read a manifest or segment fails.
     retryInterval :: Lude.Maybe Lude.Natural,
+    -- | When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest.
     bandwidth :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsInputSettings' with the minimum fields required to make a request.
 --
--- * 'bandwidth' - When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest.
 -- * 'bufferSegments' - When specified, reading of the HLS input will begin this many buffer segments from the end (most recently written segment).  When not specified, the HLS input will begin with the first segment specified in the m3u8.
 -- * 'retries' - The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
 -- * 'retryInterval' - The number of seconds between retries when an attempt to read a manifest or segment fails.
+-- * 'bandwidth' - When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen.  The bitrate is specified in bits per second, as in an HLS manifest.
 mkHlsInputSettings ::
   HlsInputSettings
 mkHlsInputSettings =

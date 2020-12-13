@@ -17,8 +17,8 @@ module Network.AWS.SageMaker.Types.KernelGatewayImageConfig
     mkKernelGatewayImageConfig,
 
     -- * Lenses
-    kgicFileSystemConfig,
     kgicKernelSpecs,
+    kgicFileSystemConfig,
   )
 where
 
@@ -31,39 +31,27 @@ import Network.AWS.SageMaker.Types.KernelSpec
 --
 -- /See:/ 'mkKernelGatewayImageConfig' smart constructor.
 data KernelGatewayImageConfig = KernelGatewayImageConfig'
-  { fileSystemConfig ::
-      Lude.Maybe FileSystemConfig,
-    kernelSpecs :: Lude.NonEmpty KernelSpec
+  { -- | The specification of the Jupyter kernels in the image.
+    kernelSpecs :: Lude.NonEmpty KernelSpec,
+    -- | The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
+    fileSystemConfig :: Lude.Maybe FileSystemConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KernelGatewayImageConfig' with the minimum fields required to make a request.
 --
--- * 'fileSystemConfig' - The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 -- * 'kernelSpecs' - The specification of the Jupyter kernels in the image.
+-- * 'fileSystemConfig' - The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 mkKernelGatewayImageConfig ::
   -- | 'kernelSpecs'
   Lude.NonEmpty KernelSpec ->
   KernelGatewayImageConfig
 mkKernelGatewayImageConfig pKernelSpecs_ =
   KernelGatewayImageConfig'
-    { fileSystemConfig = Lude.Nothing,
-      kernelSpecs = pKernelSpecs_
+    { kernelSpecs = pKernelSpecs_,
+      fileSystemConfig = Lude.Nothing
     }
-
--- | The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
---
--- /Note:/ Consider using 'fileSystemConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kgicFileSystemConfig :: Lens.Lens' KernelGatewayImageConfig (Lude.Maybe FileSystemConfig)
-kgicFileSystemConfig = Lens.lens (fileSystemConfig :: KernelGatewayImageConfig -> Lude.Maybe FileSystemConfig) (\s a -> s {fileSystemConfig = a} :: KernelGatewayImageConfig)
-{-# DEPRECATED kgicFileSystemConfig "Use generic-lens or generic-optics with 'fileSystemConfig' instead." #-}
 
 -- | The specification of the Jupyter kernels in the image.
 --
@@ -72,20 +60,27 @@ kgicKernelSpecs :: Lens.Lens' KernelGatewayImageConfig (Lude.NonEmpty KernelSpec
 kgicKernelSpecs = Lens.lens (kernelSpecs :: KernelGatewayImageConfig -> Lude.NonEmpty KernelSpec) (\s a -> s {kernelSpecs = a} :: KernelGatewayImageConfig)
 {-# DEPRECATED kgicKernelSpecs "Use generic-lens or generic-optics with 'kernelSpecs' instead." #-}
 
+-- | The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
+--
+-- /Note:/ Consider using 'fileSystemConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgicFileSystemConfig :: Lens.Lens' KernelGatewayImageConfig (Lude.Maybe FileSystemConfig)
+kgicFileSystemConfig = Lens.lens (fileSystemConfig :: KernelGatewayImageConfig -> Lude.Maybe FileSystemConfig) (\s a -> s {fileSystemConfig = a} :: KernelGatewayImageConfig)
+{-# DEPRECATED kgicFileSystemConfig "Use generic-lens or generic-optics with 'fileSystemConfig' instead." #-}
+
 instance Lude.FromJSON KernelGatewayImageConfig where
   parseJSON =
     Lude.withObject
       "KernelGatewayImageConfig"
       ( \x ->
           KernelGatewayImageConfig'
-            Lude.<$> (x Lude..:? "FileSystemConfig") Lude.<*> (x Lude..: "KernelSpecs")
+            Lude.<$> (x Lude..: "KernelSpecs") Lude.<*> (x Lude..:? "FileSystemConfig")
       )
 
 instance Lude.ToJSON KernelGatewayImageConfig where
   toJSON KernelGatewayImageConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("FileSystemConfig" Lude..=) Lude.<$> fileSystemConfig,
-            Lude.Just ("KernelSpecs" Lude..= kernelSpecs)
+          [ Lude.Just ("KernelSpecs" Lude..= kernelSpecs),
+            ("FileSystemConfig" Lude..=) Lude.<$> fileSystemConfig
           ]
       )

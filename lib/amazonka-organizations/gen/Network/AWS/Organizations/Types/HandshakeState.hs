@@ -13,12 +13,12 @@
 module Network.AWS.Organizations.Types.HandshakeState
   ( HandshakeState
       ( HandshakeState',
-        Accepted,
-        Canceled,
-        Declined,
-        Expired,
+        Requested,
         Open,
-        Requested
+        Canceled,
+        Accepted,
+        Declined,
+        Expired
       ),
   )
 where
@@ -49,11 +49,17 @@ newtype HandshakeState = HandshakeState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Accepted :: HandshakeState
-pattern Accepted = HandshakeState' "ACCEPTED"
+pattern Requested :: HandshakeState
+pattern Requested = HandshakeState' "REQUESTED"
+
+pattern Open :: HandshakeState
+pattern Open = HandshakeState' "OPEN"
 
 pattern Canceled :: HandshakeState
 pattern Canceled = HandshakeState' "CANCELED"
+
+pattern Accepted :: HandshakeState
+pattern Accepted = HandshakeState' "ACCEPTED"
 
 pattern Declined :: HandshakeState
 pattern Declined = HandshakeState' "DECLINED"
@@ -61,18 +67,12 @@ pattern Declined = HandshakeState' "DECLINED"
 pattern Expired :: HandshakeState
 pattern Expired = HandshakeState' "EXPIRED"
 
-pattern Open :: HandshakeState
-pattern Open = HandshakeState' "OPEN"
-
-pattern Requested :: HandshakeState
-pattern Requested = HandshakeState' "REQUESTED"
-
 {-# COMPLETE
-  Accepted,
+  Requested,
+  Open,
   Canceled,
+  Accepted,
   Declined,
   Expired,
-  Open,
-  Requested,
   HandshakeState'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.HlsSegmentControl
   ( HlsSegmentControl
       ( HlsSegmentControl',
-        HSCSegmentedFiles,
-        HSCSingleFile
+        HSCSingleFile,
+        HSCSegmentedFiles
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype HlsSegmentControl = HlsSegmentControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern HSCSegmentedFiles :: HlsSegmentControl
-pattern HSCSegmentedFiles = HlsSegmentControl' "SEGMENTED_FILES"
-
 pattern HSCSingleFile :: HlsSegmentControl
 pattern HSCSingleFile = HlsSegmentControl' "SINGLE_FILE"
 
+pattern HSCSegmentedFiles :: HlsSegmentControl
+pattern HSCSegmentedFiles = HlsSegmentControl' "SEGMENTED_FILES"
+
 {-# COMPLETE
-  HSCSegmentedFiles,
   HSCSingleFile,
+  HSCSegmentedFiles,
   HlsSegmentControl'
   #-}

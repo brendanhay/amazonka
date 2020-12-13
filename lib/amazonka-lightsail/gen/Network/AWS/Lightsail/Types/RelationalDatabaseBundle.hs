@@ -36,38 +36,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelationalDatabaseBundle' smart constructor.
 data RelationalDatabaseBundle = RelationalDatabaseBundle'
-  { isEncrypted ::
-      Lude.Maybe Lude.Bool,
+  { -- | A Boolean value indicating whether the database bundle is encrypted.
+    isEncrypted :: Lude.Maybe Lude.Bool,
+    -- | The number of virtual CPUs (vCPUs) for the database bundle.
     cpuCount :: Lude.Maybe Lude.Int,
-    transferPerMonthInGb ::
-      Lude.Maybe Lude.Int,
+    -- | The data transfer rate per month in GB for the database bundle.
+    transferPerMonthInGb :: Lude.Maybe Lude.Int,
+    -- | The ID for the database bundle.
     bundleId :: Lude.Maybe Lude.Text,
+    -- | The name for the database bundle.
     name :: Lude.Maybe Lude.Text,
+    -- | The size of the disk for the database bundle.
     diskSizeInGb :: Lude.Maybe Lude.Int,
+    -- | The cost of the database bundle in US currency.
     price :: Lude.Maybe Lude.Double,
+    -- | A Boolean value indicating whether the database bundle is active.
     isActive :: Lude.Maybe Lude.Bool,
+    -- | The amount of RAM in GB (for example, @2.0@ ) for the database bundle.
     ramSizeInGb :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseBundle' with the minimum fields required to make a request.
 --
--- * 'bundleId' - The ID for the database bundle.
--- * 'cpuCount' - The number of virtual CPUs (vCPUs) for the database bundle.
--- * 'diskSizeInGb' - The size of the disk for the database bundle.
--- * 'isActive' - A Boolean value indicating whether the database bundle is active.
 -- * 'isEncrypted' - A Boolean value indicating whether the database bundle is encrypted.
--- * 'name' - The name for the database bundle.
--- * 'price' - The cost of the database bundle in US currency.
--- * 'ramSizeInGb' - The amount of RAM in GB (for example, @2.0@ ) for the database bundle.
+-- * 'cpuCount' - The number of virtual CPUs (vCPUs) for the database bundle.
 -- * 'transferPerMonthInGb' - The data transfer rate per month in GB for the database bundle.
+-- * 'bundleId' - The ID for the database bundle.
+-- * 'name' - The name for the database bundle.
+-- * 'diskSizeInGb' - The size of the disk for the database bundle.
+-- * 'price' - The cost of the database bundle in US currency.
+-- * 'isActive' - A Boolean value indicating whether the database bundle is active.
+-- * 'ramSizeInGb' - The amount of RAM in GB (for example, @2.0@ ) for the database bundle.
 mkRelationalDatabaseBundle ::
   RelationalDatabaseBundle
 mkRelationalDatabaseBundle =

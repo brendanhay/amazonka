@@ -14,8 +14,8 @@ module Network.AWS.CostExplorer.Types.Granularity
   ( Granularity
       ( Granularity',
         Daily,
-        Hourly,
-        Monthly
+        Monthly,
+        Hourly
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype Granularity = Granularity' Lude.Text
 pattern Daily :: Granularity
 pattern Daily = Granularity' "DAILY"
 
-pattern Hourly :: Granularity
-pattern Hourly = Granularity' "HOURLY"
-
 pattern Monthly :: Granularity
 pattern Monthly = Granularity' "MONTHLY"
 
+pattern Hourly :: Granularity
+pattern Hourly = Granularity' "HOURLY"
+
 {-# COMPLETE
   Daily,
-  Hourly,
   Monthly,
+  Hourly,
   Granularity'
   #-}

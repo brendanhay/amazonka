@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrincipalIdFormat' smart constructor.
 data PrincipalIdFormat = PrincipalIdFormat'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | PrincipalIdFormatARN description
+    arn :: Lude.Maybe Lude.Text,
+    -- | PrincipalIdFormatStatuses description
     statuses :: Lude.Maybe [IdFormat]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrincipalIdFormat' with the minimum fields required to make a request.

@@ -32,30 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSMSTemplateRequest' smart constructor.
 data SMSTemplateRequest = SMSTemplateRequest'
-  { body ::
-      Lude.Maybe Lude.Text,
+  { -- | The message body to use in text messages that are based on the message template.
+    body :: Lude.Maybe Lude.Text,
+    -- | A custom description of the message template.
     templateDescription :: Lude.Maybe Lude.Text,
+    -- | A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
     defaultSubstitutions :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
     recommenderId :: Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    -- | A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SMSTemplateRequest' with the minimum fields required to make a request.
 --
 -- * 'body' - The message body to use in text messages that are based on the message template.
+-- * 'templateDescription' - A custom description of the message template.
 -- * 'defaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
 -- * 'recommenderId' - The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
 -- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
--- * 'templateDescription' - A custom description of the message template.
 mkSMSTemplateRequest ::
   SMSTemplateRequest
 mkSMSTemplateRequest =

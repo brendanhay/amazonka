@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.InstanceMetadataOptionsState
   ( InstanceMetadataOptionsState
       ( InstanceMetadataOptionsState',
-        IMOSApplied,
-        IMOSPending
+        IMOSPending,
+        IMOSApplied
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype InstanceMetadataOptionsState = InstanceMetadataOptionsState' Lude.Text
       Lude.ToHeader
     )
 
-pattern IMOSApplied :: InstanceMetadataOptionsState
-pattern IMOSApplied = InstanceMetadataOptionsState' "applied"
-
 pattern IMOSPending :: InstanceMetadataOptionsState
 pattern IMOSPending = InstanceMetadataOptionsState' "pending"
 
+pattern IMOSApplied :: InstanceMetadataOptionsState
+pattern IMOSApplied = InstanceMetadataOptionsState' "applied"
+
 {-# COMPLETE
-  IMOSApplied,
   IMOSPending,
+  IMOSApplied,
   InstanceMetadataOptionsState'
   #-}

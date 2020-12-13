@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPartListElement' smart constructor.
 data PartListElement = PartListElement'
-  { sHA256TreeHash ::
-      Lude.Maybe Lude.Text,
+  { -- | The SHA256 tree hash value that Amazon S3 Glacier calculated for the part. This field is never @null@ .
+    sHA256TreeHash :: Lude.Maybe Lude.Text,
+    -- | The byte range of a part, inclusive of the upper value of the range.
     rangeInBytes :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartListElement' with the minimum fields required to make a request.
 --
--- * 'rangeInBytes' - The byte range of a part, inclusive of the upper value of the range.
 -- * 'sHA256TreeHash' - The SHA256 tree hash value that Amazon S3 Glacier calculated for the part. This field is never @null@ .
+-- * 'rangeInBytes' - The byte range of a part, inclusive of the upper value of the range.
 mkPartListElement ::
   PartListElement
 mkPartListElement =

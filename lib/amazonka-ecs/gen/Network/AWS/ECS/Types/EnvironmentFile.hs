@@ -33,22 +33,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentFile' smart constructor.
 data EnvironmentFile = EnvironmentFile'
-  { value :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+    value :: Lude.Text,
+    -- | The file type to use. The only supported value is @s3@ .
     type' :: EnvironmentFileType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentFile' with the minimum fields required to make a request.
 --
--- * 'type'' - The file type to use. The only supported value is @s3@ .
 -- * 'value' - The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+-- * 'type'' - The file type to use. The only supported value is @s3@ .
 mkEnvironmentFile ::
   -- | 'value'
   Lude.Text ->

@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | A file that is deleted as part of a commit.
 --
 -- /See:/ 'mkDeleteFileEntry' smart constructor.
-newtype DeleteFileEntry = DeleteFileEntry' {filePath :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteFileEntry = DeleteFileEntry'
+  { -- | The full path of the file to be deleted, including the name of the file.
+    filePath :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFileEntry' with the minimum fields required to make a request.

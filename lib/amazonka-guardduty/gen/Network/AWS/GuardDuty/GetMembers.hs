@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.GuardDuty.GetMembers
     mkGetMembers,
 
     -- ** Request lenses
-    gmDetectorId,
     gmAccountIds,
+    gmDetectorId,
 
     -- * Destructuring the response
     GetMembersResponse (..),
     mkGetMembersResponse,
 
     -- ** Response lenses
-    gmrsResponseStatus,
     gmrsMembers,
     gmrsUnprocessedAccounts,
+    gmrsResponseStatus,
   )
 where
 
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMembers' smart constructor.
 data GetMembers = GetMembers'
-  { detectorId :: Lude.Text,
-    accountIds :: Lude.NonEmpty Lude.Text
+  { -- | A list of account IDs of the GuardDuty member accounts that you want to describe.
+    accountIds :: Lude.NonEmpty Lude.Text,
+    -- | The unique ID of the detector of the GuardDuty account whose members you want to retrieve.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMembers' with the minimum fields required to make a request.
@@ -58,20 +55,13 @@ data GetMembers = GetMembers'
 -- * 'accountIds' - A list of account IDs of the GuardDuty member accounts that you want to describe.
 -- * 'detectorId' - The unique ID of the detector of the GuardDuty account whose members you want to retrieve.
 mkGetMembers ::
-  -- | 'detectorId'
-  Lude.Text ->
   -- | 'accountIds'
   Lude.NonEmpty Lude.Text ->
+  -- | 'detectorId'
+  Lude.Text ->
   GetMembers
-mkGetMembers pDetectorId_ pAccountIds_ =
-  GetMembers' {detectorId = pDetectorId_, accountIds = pAccountIds_}
-
--- | The unique ID of the detector of the GuardDuty account whose members you want to retrieve.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmDetectorId :: Lens.Lens' GetMembers Lude.Text
-gmDetectorId = Lens.lens (detectorId :: GetMembers -> Lude.Text) (\s a -> s {detectorId = a} :: GetMembers)
-{-# DEPRECATED gmDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+mkGetMembers pAccountIds_ pDetectorId_ =
+  GetMembers' {accountIds = pAccountIds_, detectorId = pDetectorId_}
 
 -- | A list of account IDs of the GuardDuty member accounts that you want to describe.
 --
@@ -80,6 +70,13 @@ gmAccountIds :: Lens.Lens' GetMembers (Lude.NonEmpty Lude.Text)
 gmAccountIds = Lens.lens (accountIds :: GetMembers -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: GetMembers)
 {-# DEPRECATED gmAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
+-- | The unique ID of the detector of the GuardDuty account whose members you want to retrieve.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmDetectorId :: Lens.Lens' GetMembers Lude.Text
+gmDetectorId = Lens.lens (detectorId :: GetMembers -> Lude.Text) (\s a -> s {detectorId = a} :: GetMembers)
+{-# DEPRECATED gmDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
 instance Lude.AWSRequest GetMembers where
   type Rs GetMembers = GetMembersResponse
   request = Req.postJSON guardDutyService
@@ -87,9 +84,9 @@ instance Lude.AWSRequest GetMembers where
     Res.receiveJSON
       ( \s h x ->
           GetMembersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "members" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "members" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetMembers where
@@ -115,42 +112,31 @@ instance Lude.ToQuery GetMembers where
 
 -- | /See:/ 'mkGetMembersResponse' smart constructor.
 data GetMembersResponse = GetMembersResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | A list of members.
     members :: [Member],
-    unprocessedAccounts :: [UnprocessedAccount]
+    -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+    unprocessedAccounts :: [UnprocessedAccount],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMembersResponse' with the minimum fields required to make a request.
 --
 -- * 'members' - A list of members.
--- * 'responseStatus' - The response status code.
 -- * 'unprocessedAccounts' - A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+-- * 'responseStatus' - The response status code.
 mkGetMembersResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   GetMembersResponse
 mkGetMembersResponse pResponseStatus_ =
   GetMembersResponse'
-    { responseStatus = pResponseStatus_,
-      members = Lude.mempty,
-      unprocessedAccounts = Lude.mempty
+    { members = Lude.mempty,
+      unprocessedAccounts = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmrsResponseStatus :: Lens.Lens' GetMembersResponse Lude.Int
-gmrsResponseStatus = Lens.lens (responseStatus :: GetMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMembersResponse)
-{-# DEPRECATED gmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of members.
 --
@@ -165,3 +151,10 @@ gmrsMembers = Lens.lens (members :: GetMembersResponse -> [Member]) (\s a -> s {
 gmrsUnprocessedAccounts :: Lens.Lens' GetMembersResponse [UnprocessedAccount]
 gmrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: GetMembersResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: GetMembersResponse)
 {-# DEPRECATED gmrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmrsResponseStatus :: Lens.Lens' GetMembersResponse Lude.Int
+gmrsResponseStatus = Lens.lens (responseStatus :: GetMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMembersResponse)
+{-# DEPRECATED gmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

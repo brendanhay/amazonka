@@ -30,17 +30,12 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkResizeInfo' smart constructor.
 data ResizeInfo = ResizeInfo'
-  { allowCancelResize ::
-      Lude.Maybe Lude.Bool,
+  { -- | A boolean value indicating if the resize operation can be cancelled.
+    allowCancelResize :: Lude.Maybe Lude.Bool,
+    -- | Returns the value @ClassicResize@ .
     resizeType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResizeInfo' with the minimum fields required to make a request.

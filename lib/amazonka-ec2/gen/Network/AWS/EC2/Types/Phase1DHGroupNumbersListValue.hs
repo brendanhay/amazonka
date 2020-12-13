@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhase1DHGroupNumbersListValue' smart constructor.
 newtype Phase1DHGroupNumbersListValue = Phase1DHGroupNumbersListValue'
-  { value ::
-      Lude.Maybe Lude.Int
+  { -- | The Diffie-Hellmann group number.
+    value :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase1DHGroupNumbersListValue' with the minimum fields required to make a request.

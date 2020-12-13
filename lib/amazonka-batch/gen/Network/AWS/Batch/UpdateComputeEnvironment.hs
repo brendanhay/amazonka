@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Batch.UpdateComputeEnvironment
     -- ** Request lenses
     uceState,
     uceComputeResources,
-    uceServiceRole,
     uceComputeEnvironment,
+    uceServiceRole,
 
     -- * Destructuring the response
     UpdateComputeEnvironmentResponse (..),
@@ -43,30 +44,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateComputeEnvironment' smart constructor.
 data UpdateComputeEnvironment = UpdateComputeEnvironment'
-  { state ::
-      Lude.Maybe CEState,
-    computeResources ::
-      Lude.Maybe ComputeResourceUpdate,
-    serviceRole :: Lude.Maybe Lude.Text,
-    computeEnvironment :: Lude.Text
+  { -- | The state of the compute environment. Compute environments in the @ENABLED@ state can accept jobs from a queue and scale in or out automatically based on the workload demand of its associated queues.
+    state :: Lude.Maybe CEState,
+    -- | Details of the compute resources managed by the compute environment. Required for a managed compute environment.
+    computeResources :: Lude.Maybe ComputeResourceUpdate,
+    -- | The name or full Amazon Resource Name (ARN) of the compute environment to update.
+    computeEnvironment :: Lude.Text,
+    -- | The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+    --
+    -- If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.
+    serviceRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateComputeEnvironment' with the minimum fields required to make a request.
 --
--- * 'computeEnvironment' - The name or full Amazon Resource Name (ARN) of the compute environment to update.
+-- * 'state' - The state of the compute environment. Compute environments in the @ENABLED@ state can accept jobs from a queue and scale in or out automatically based on the workload demand of its associated queues.
 -- * 'computeResources' - Details of the compute resources managed by the compute environment. Required for a managed compute environment.
+-- * 'computeEnvironment' - The name or full Amazon Resource Name (ARN) of the compute environment to update.
 -- * 'serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 --
 -- If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.
--- * 'state' - The state of the compute environment. Compute environments in the @ENABLED@ state can accept jobs from a queue and scale in or out automatically based on the workload demand of its associated queues.
 mkUpdateComputeEnvironment ::
   -- | 'computeEnvironment'
   Lude.Text ->
@@ -75,8 +74,8 @@ mkUpdateComputeEnvironment pComputeEnvironment_ =
   UpdateComputeEnvironment'
     { state = Lude.Nothing,
       computeResources = Lude.Nothing,
-      serviceRole = Lude.Nothing,
-      computeEnvironment = pComputeEnvironment_
+      computeEnvironment = pComputeEnvironment_,
+      serviceRole = Lude.Nothing
     }
 
 -- | The state of the compute environment. Compute environments in the @ENABLED@ state can accept jobs from a queue and scale in or out automatically based on the workload demand of its associated queues.
@@ -93,6 +92,13 @@ uceComputeResources :: Lens.Lens' UpdateComputeEnvironment (Lude.Maybe ComputeRe
 uceComputeResources = Lens.lens (computeResources :: UpdateComputeEnvironment -> Lude.Maybe ComputeResourceUpdate) (\s a -> s {computeResources = a} :: UpdateComputeEnvironment)
 {-# DEPRECATED uceComputeResources "Use generic-lens or generic-optics with 'computeResources' instead." #-}
 
+-- | The name or full Amazon Resource Name (ARN) of the compute environment to update.
+--
+-- /Note:/ Consider using 'computeEnvironment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uceComputeEnvironment :: Lens.Lens' UpdateComputeEnvironment Lude.Text
+uceComputeEnvironment = Lens.lens (computeEnvironment :: UpdateComputeEnvironment -> Lude.Text) (\s a -> s {computeEnvironment = a} :: UpdateComputeEnvironment)
+{-# DEPRECATED uceComputeEnvironment "Use generic-lens or generic-optics with 'computeEnvironment' instead." #-}
+
 -- | The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
 --
 -- If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.
@@ -101,13 +107,6 @@ uceComputeResources = Lens.lens (computeResources :: UpdateComputeEnvironment ->
 uceServiceRole :: Lens.Lens' UpdateComputeEnvironment (Lude.Maybe Lude.Text)
 uceServiceRole = Lens.lens (serviceRole :: UpdateComputeEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: UpdateComputeEnvironment)
 {-# DEPRECATED uceServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
-
--- | The name or full Amazon Resource Name (ARN) of the compute environment to update.
---
--- /Note:/ Consider using 'computeEnvironment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uceComputeEnvironment :: Lens.Lens' UpdateComputeEnvironment Lude.Text
-uceComputeEnvironment = Lens.lens (computeEnvironment :: UpdateComputeEnvironment -> Lude.Text) (\s a -> s {computeEnvironment = a} :: UpdateComputeEnvironment)
-{-# DEPRECATED uceComputeEnvironment "Use generic-lens or generic-optics with 'computeEnvironment' instead." #-}
 
 instance Lude.AWSRequest UpdateComputeEnvironment where
   type Rs UpdateComputeEnvironment = UpdateComputeEnvironmentResponse
@@ -136,8 +135,8 @@ instance Lude.ToJSON UpdateComputeEnvironment where
       ( Lude.catMaybes
           [ ("state" Lude..=) Lude.<$> state,
             ("computeResources" Lude..=) Lude.<$> computeResources,
-            ("serviceRole" Lude..=) Lude.<$> serviceRole,
-            Lude.Just ("computeEnvironment" Lude..= computeEnvironment)
+            Lude.Just ("computeEnvironment" Lude..= computeEnvironment),
+            ("serviceRole" Lude..=) Lude.<$> serviceRole
           ]
       )
 
@@ -149,26 +148,20 @@ instance Lude.ToQuery UpdateComputeEnvironment where
 
 -- | /See:/ 'mkUpdateComputeEnvironmentResponse' smart constructor.
 data UpdateComputeEnvironmentResponse = UpdateComputeEnvironmentResponse'
-  { computeEnvironmentName ::
-      Lude.Maybe Lude.Text,
-    computeEnvironmentARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the compute environment.
+    computeEnvironmentName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the compute environment.
+    computeEnvironmentARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateComputeEnvironmentResponse' with the minimum fields required to make a request.
 --
--- * 'computeEnvironmentARN' - The Amazon Resource Name (ARN) of the compute environment.
 -- * 'computeEnvironmentName' - The name of the compute environment.
+-- * 'computeEnvironmentARN' - The Amazon Resource Name (ARN) of the compute environment.
 -- * 'responseStatus' - The response status code.
 mkUpdateComputeEnvironmentResponse ::
   -- | 'responseStatus'

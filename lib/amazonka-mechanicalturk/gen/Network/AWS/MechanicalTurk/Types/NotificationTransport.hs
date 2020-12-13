@@ -14,8 +14,8 @@ module Network.AWS.MechanicalTurk.Types.NotificationTransport
   ( NotificationTransport
       ( NotificationTransport',
         Email,
-        SNS,
-        Sqs
+        Sqs,
+        SNS
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype NotificationTransport = NotificationTransport' Lude.Text
 pattern Email :: NotificationTransport
 pattern Email = NotificationTransport' "Email"
 
-pattern SNS :: NotificationTransport
-pattern SNS = NotificationTransport' "SNS"
-
 pattern Sqs :: NotificationTransport
 pattern Sqs = NotificationTransport' "SQS"
 
+pattern SNS :: NotificationTransport
+pattern SNS = NotificationTransport' "SNS"
+
 {-# COMPLETE
   Email,
-  SNS,
   Sqs,
+  SNS,
   NotificationTransport'
   #-}

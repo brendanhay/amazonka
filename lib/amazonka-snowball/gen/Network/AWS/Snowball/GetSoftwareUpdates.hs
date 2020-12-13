@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Snowball.GetSoftwareUpdates
     mkGetSoftwareUpdatesResponse,
 
     -- ** Response lenses
-    gsursUpdatesURI,
-    gsursResponseStatus,
+    grsUpdatesURI,
+    grsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkGetSoftwareUpdates' smart constructor.
 newtype GetSoftwareUpdates = GetSoftwareUpdates'
-  { jobId ::
-      Lude.Text
+  { -- | The ID for a job that you want to get the software update file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSoftwareUpdates' with the minimum fields required to make a request.
@@ -102,23 +97,18 @@ instance Lude.ToQuery GetSoftwareUpdates where
 
 -- | /See:/ 'mkGetSoftwareUpdatesResponse' smart constructor.
 data GetSoftwareUpdatesResponse = GetSoftwareUpdatesResponse'
-  { updatesURI ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon S3 presigned URL for the update file associated with the specified @JobId@ value. The software update will be available for 2 days after this request is made. To access an update after the 2 days have passed, you'll have to make another call to @GetSoftwareUpdates@ .
+    updatesURI :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSoftwareUpdatesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'updatesURI' - The Amazon S3 presigned URL for the update file associated with the specified @JobId@ value. The software update will be available for 2 days after this request is made. To access an update after the 2 days have passed, you'll have to make another call to @GetSoftwareUpdates@ .
+-- * 'responseStatus' - The response status code.
 mkGetSoftwareUpdatesResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -132,13 +122,13 @@ mkGetSoftwareUpdatesResponse pResponseStatus_ =
 -- | The Amazon S3 presigned URL for the update file associated with the specified @JobId@ value. The software update will be available for 2 days after this request is made. To access an update after the 2 days have passed, you'll have to make another call to @GetSoftwareUpdates@ .
 --
 -- /Note:/ Consider using 'updatesURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsursUpdatesURI :: Lens.Lens' GetSoftwareUpdatesResponse (Lude.Maybe Lude.Text)
-gsursUpdatesURI = Lens.lens (updatesURI :: GetSoftwareUpdatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {updatesURI = a} :: GetSoftwareUpdatesResponse)
-{-# DEPRECATED gsursUpdatesURI "Use generic-lens or generic-optics with 'updatesURI' instead." #-}
+grsUpdatesURI :: Lens.Lens' GetSoftwareUpdatesResponse (Lude.Maybe Lude.Text)
+grsUpdatesURI = Lens.lens (updatesURI :: GetSoftwareUpdatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {updatesURI = a} :: GetSoftwareUpdatesResponse)
+{-# DEPRECATED grsUpdatesURI "Use generic-lens or generic-optics with 'updatesURI' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsursResponseStatus :: Lens.Lens' GetSoftwareUpdatesResponse Lude.Int
-gsursResponseStatus = Lens.lens (responseStatus :: GetSoftwareUpdatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSoftwareUpdatesResponse)
-{-# DEPRECATED gsursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grsResponseStatus :: Lens.Lens' GetSoftwareUpdatesResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetSoftwareUpdatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSoftwareUpdatesResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

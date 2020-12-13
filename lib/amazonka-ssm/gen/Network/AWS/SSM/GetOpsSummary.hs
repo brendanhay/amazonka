@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,32 +49,30 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetOpsSummary' smart constructor.
 data GetOpsSummary = GetOpsSummary'
-  { aggregators ::
-      Lude.Maybe (Lude.NonEmpty OpsAggregator),
+  { -- | Optional aggregators that return counts of OpsItems based on one or more expressions.
+    aggregators :: Lude.Maybe (Lude.NonEmpty OpsAggregator),
+    -- | Specify the name of a resource data sync to get.
     syncName :: Lude.Maybe Lude.Text,
+    -- | Optional filters used to scope down the returned OpsItems.
     filters :: Lude.Maybe (Lude.NonEmpty OpsFilter),
-    resultAttributes ::
-      Lude.Maybe (Lude.NonEmpty OpsResultAttribute),
+    -- | The OpsItem data type to return.
+    resultAttributes :: Lude.Maybe (Lude.NonEmpty OpsResultAttribute),
+    -- | A token to start the list. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpsSummary' with the minimum fields required to make a request.
 --
 -- * 'aggregators' - Optional aggregators that return counts of OpsItems based on one or more expressions.
--- * 'filters' - Optional filters used to scope down the returned OpsItems.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
--- * 'resultAttributes' - The OpsItem data type to return.
 -- * 'syncName' - Specify the name of a resource data sync to get.
+-- * 'filters' - Optional filters used to scope down the returned OpsItems.
+-- * 'resultAttributes' - The OpsItem data type to return.
+-- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkGetOpsSummary ::
   GetOpsSummary
 mkGetOpsSummary =
@@ -181,18 +180,14 @@ instance Lude.ToQuery GetOpsSummary where
 
 -- | /See:/ 'mkGetOpsSummaryResponse' smart constructor.
 data GetOpsSummaryResponse = GetOpsSummaryResponse'
-  { entities ::
-      Lude.Maybe [OpsEntity],
+  { -- | The list of aggregated and filtered OpsItems.
+    entities :: Lude.Maybe [OpsEntity],
+    -- | The token for the next set of items to return. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpsSummaryResponse' with the minimum fields required to make a request.

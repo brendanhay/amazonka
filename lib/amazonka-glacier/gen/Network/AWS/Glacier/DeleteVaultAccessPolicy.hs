@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Glacier.DeleteVaultAccessPolicy
     mkDeleteVaultAccessPolicy,
 
     -- ** Request lenses
-    dvapAccountId,
     dvapVaultName,
+    dvapAccountId,
 
     -- * Destructuring the response
     DeleteVaultAccessPolicyResponse (..),
@@ -40,41 +41,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteVaultAccessPolicy' smart constructor.
 data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
-  { accountId ::
-      Lude.Text,
-    vaultName :: Lude.Text
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVaultAccessPolicy' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 mkDeleteVaultAccessPolicy ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   DeleteVaultAccessPolicy
-mkDeleteVaultAccessPolicy pAccountId_ pVaultName_ =
+mkDeleteVaultAccessPolicy pVaultName_ pAccountId_ =
   DeleteVaultAccessPolicy'
-    { accountId = pAccountId_,
-      vaultName = pVaultName_
+    { vaultName = pVaultName_,
+      accountId = pAccountId_
     }
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvapAccountId :: Lens.Lens' DeleteVaultAccessPolicy Lude.Text
-dvapAccountId = Lens.lens (accountId :: DeleteVaultAccessPolicy -> Lude.Text) (\s a -> s {accountId = a} :: DeleteVaultAccessPolicy)
-{-# DEPRECATED dvapAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
 --
@@ -82,6 +71,13 @@ dvapAccountId = Lens.lens (accountId :: DeleteVaultAccessPolicy -> Lude.Text) (\
 dvapVaultName :: Lens.Lens' DeleteVaultAccessPolicy Lude.Text
 dvapVaultName = Lens.lens (vaultName :: DeleteVaultAccessPolicy -> Lude.Text) (\s a -> s {vaultName = a} :: DeleteVaultAccessPolicy)
 {-# DEPRECATED dvapVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvapAccountId :: Lens.Lens' DeleteVaultAccessPolicy Lude.Text
+dvapAccountId = Lens.lens (accountId :: DeleteVaultAccessPolicy -> Lude.Text) (\s a -> s {accountId = a} :: DeleteVaultAccessPolicy)
+{-# DEPRECATED dvapAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Lude.AWSRequest DeleteVaultAccessPolicy where
   type Rs DeleteVaultAccessPolicy = DeleteVaultAccessPolicyResponse
@@ -106,13 +102,7 @@ instance Lude.ToQuery DeleteVaultAccessPolicy where
 
 -- | /See:/ 'mkDeleteVaultAccessPolicyResponse' smart constructor.
 data DeleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVaultAccessPolicyResponse' with the minimum fields required to make a request.

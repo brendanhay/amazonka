@@ -36,31 +36,30 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkClusterSubnetGroup' smart constructor.
 data ClusterSubnetGroup = ClusterSubnetGroup'
-  { vpcId ::
-      Lude.Maybe Lude.Text,
+  { -- | The VPC ID of the cluster subnet group.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | A list of the VPC 'Subnet' elements.
     subnets :: Lude.Maybe [Subnet],
+    -- | The name of the cluster subnet group.
     clusterSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
     subnetGroupStatus :: Lude.Maybe Lude.Text,
+    -- | The description of the cluster subnet group.
     description :: Lude.Maybe Lude.Text,
+    -- | The list of tags for the cluster subnet group.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterSubnetGroup' with the minimum fields required to make a request.
 --
--- * 'clusterSubnetGroupName' - The name of the cluster subnet group.
--- * 'description' - The description of the cluster subnet group.
--- * 'subnetGroupStatus' - The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
--- * 'subnets' - A list of the VPC 'Subnet' elements.
--- * 'tags' - The list of tags for the cluster subnet group.
 -- * 'vpcId' - The VPC ID of the cluster subnet group.
+-- * 'subnets' - A list of the VPC 'Subnet' elements.
+-- * 'clusterSubnetGroupName' - The name of the cluster subnet group.
+-- * 'subnetGroupStatus' - The status of the cluster subnet group. Possible values are @Complete@ , @Incomplete@ and @Invalid@ .
+-- * 'description' - The description of the cluster subnet group.
+-- * 'tags' - The list of tags for the cluster subnet group.
 mkClusterSubnetGroup ::
   ClusterSubnetGroup
 mkClusterSubnetGroup =

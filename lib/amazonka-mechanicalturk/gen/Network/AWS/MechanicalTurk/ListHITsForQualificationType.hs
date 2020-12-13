@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.MechanicalTurk.ListHITsForQualificationType
 
     -- ** Request lenses
     lhitfqtNextToken,
-    lhitfqtMaxResults,
     lhitfqtQualificationTypeId,
+    lhitfqtMaxResults,
 
     -- * Destructuring the response
     ListHITsForQualificationTypeResponse (..),
@@ -46,26 +47,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListHITsForQualificationType' smart constructor.
 data ListHITsForQualificationType = ListHITsForQualificationType'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    qualificationTypeId :: Lude.Text
+  { -- | Pagination Token
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the Qualification type to use when querying HITs.
+    qualificationTypeId :: Lude.Text,
+    -- | Limit the number of results returned.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHITsForQualificationType' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Limit the number of results returned.
 -- * 'nextToken' - Pagination Token
 -- * 'qualificationTypeId' - The ID of the Qualification type to use when querying HITs.
+-- * 'maxResults' - Limit the number of results returned.
 mkListHITsForQualificationType ::
   -- | 'qualificationTypeId'
   Lude.Text ->
@@ -73,8 +69,8 @@ mkListHITsForQualificationType ::
 mkListHITsForQualificationType pQualificationTypeId_ =
   ListHITsForQualificationType'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      qualificationTypeId = pQualificationTypeId_
+      qualificationTypeId = pQualificationTypeId_,
+      maxResults = Lude.Nothing
     }
 
 -- | Pagination Token
@@ -84,19 +80,19 @@ lhitfqtNextToken :: Lens.Lens' ListHITsForQualificationType (Lude.Maybe Lude.Tex
 lhitfqtNextToken = Lens.lens (nextToken :: ListHITsForQualificationType -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHITsForQualificationType)
 {-# DEPRECATED lhitfqtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Limit the number of results returned.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhitfqtMaxResults :: Lens.Lens' ListHITsForQualificationType (Lude.Maybe Lude.Natural)
-lhitfqtMaxResults = Lens.lens (maxResults :: ListHITsForQualificationType -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListHITsForQualificationType)
-{-# DEPRECATED lhitfqtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the Qualification type to use when querying HITs.
 --
 -- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lhitfqtQualificationTypeId :: Lens.Lens' ListHITsForQualificationType Lude.Text
 lhitfqtQualificationTypeId = Lens.lens (qualificationTypeId :: ListHITsForQualificationType -> Lude.Text) (\s a -> s {qualificationTypeId = a} :: ListHITsForQualificationType)
 {-# DEPRECATED lhitfqtQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
+
+-- | Limit the number of results returned.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhitfqtMaxResults :: Lens.Lens' ListHITsForQualificationType (Lude.Maybe Lude.Natural)
+lhitfqtMaxResults = Lens.lens (maxResults :: ListHITsForQualificationType -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListHITsForQualificationType)
+{-# DEPRECATED lhitfqtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListHITsForQualificationType where
   page rq rs
@@ -140,8 +136,8 @@ instance Lude.ToJSON ListHITsForQualificationType where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId)
+            Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -153,31 +149,22 @@ instance Lude.ToQuery ListHITsForQualificationType where
 
 -- | /See:/ 'mkListHITsForQualificationTypeResponse' smart constructor.
 data ListHITsForQualificationTypeResponse = ListHITsForQualificationTypeResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    numResults ::
-      Lude.Maybe
-        Lude.Int,
-    hITs ::
-      Lude.Maybe [HIT],
-    responseStatus ::
-      Lude.Int
+  { nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
+    numResults :: Lude.Maybe Lude.Int,
+    -- | The list of HIT elements returned by the query.
+    hITs :: Lude.Maybe [HIT],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHITsForQualificationTypeResponse' with the minimum fields required to make a request.
 --
--- * 'hITs' - The list of HIT elements returned by the query.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'numResults' - The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
+-- * 'hITs' - The list of HIT elements returned by the query.
 -- * 'responseStatus' - The response status code.
 mkListHITsForQualificationTypeResponse ::
   -- | 'responseStatus'

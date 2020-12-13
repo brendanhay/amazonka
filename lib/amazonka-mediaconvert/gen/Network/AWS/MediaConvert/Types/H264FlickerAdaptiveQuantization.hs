@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization
   ( H264FlickerAdaptiveQuantization
       ( H264FlickerAdaptiveQuantization',
-        HFAQFDisabled,
-        HFAQFEnabled
+        HFAQfDisabled,
+        HFAQfEnabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H264FlickerAdaptiveQuantization = H264FlickerAdaptiveQuantization' Lude.
       Lude.ToHeader
     )
 
-pattern HFAQFDisabled :: H264FlickerAdaptiveQuantization
-pattern HFAQFDisabled = H264FlickerAdaptiveQuantization' "DISABLED"
+pattern HFAQfDisabled :: H264FlickerAdaptiveQuantization
+pattern HFAQfDisabled = H264FlickerAdaptiveQuantization' "DISABLED"
 
-pattern HFAQFEnabled :: H264FlickerAdaptiveQuantization
-pattern HFAQFEnabled = H264FlickerAdaptiveQuantization' "ENABLED"
+pattern HFAQfEnabled :: H264FlickerAdaptiveQuantization
+pattern HFAQfEnabled = H264FlickerAdaptiveQuantization' "ENABLED"
 
 {-# COMPLETE
-  HFAQFDisabled,
-  HFAQFEnabled,
+  HFAQfDisabled,
+  HFAQfEnabled,
   H264FlickerAdaptiveQuantization'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -66,23 +67,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDistribution' smart constructor.
 data DeleteDistribution = DeleteDistribution'
-  { ifMatch ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Lude.Maybe Lude.Text,
+    -- | The distribution ID.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDistribution' with the minimum fields required to make a request.
 --
--- * 'id' - The distribution ID.
 -- * 'ifMatch' - The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
+-- * 'id' - The distribution ID.
 mkDeleteDistribution ::
   -- | 'id'
   Lude.Text ->
@@ -122,13 +118,7 @@ instance Lude.ToQuery DeleteDistribution where
 
 -- | /See:/ 'mkDeleteDistributionResponse' smart constructor.
 data DeleteDistributionResponse = DeleteDistributionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDistributionResponse' with the minimum fields required to make a request.

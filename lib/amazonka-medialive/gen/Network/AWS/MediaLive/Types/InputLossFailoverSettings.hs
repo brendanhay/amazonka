@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputLossFailoverSettings' smart constructor.
 newtype InputLossFailoverSettings = InputLossFailoverSettings'
-  { inputLossThresholdMsec ::
-      Lude.Maybe Lude.Natural
+  { -- | The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+    inputLossThresholdMsec :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputLossFailoverSettings' with the minimum fields required to make a request.

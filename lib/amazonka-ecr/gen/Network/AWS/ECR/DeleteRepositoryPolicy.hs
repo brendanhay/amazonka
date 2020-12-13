@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteRepositoryPolicy' smart constructor.
 data DeleteRepositoryPolicy = DeleteRepositoryPolicy'
-  { registryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the registry that contains the repository policy to delete. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository that is associated with the repository policy to delete.
     repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRepositoryPolicy' with the minimum fields required to make a request.
@@ -126,28 +122,23 @@ instance Lude.ToQuery DeleteRepositoryPolicy where
 
 -- | /See:/ 'mkDeleteRepositoryPolicyResponse' smart constructor.
 data DeleteRepositoryPolicyResponse = DeleteRepositoryPolicyResponse'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    repositoryName ::
-      Lude.Maybe Lude.Text,
-    policyText ::
-      Lude.Maybe Lude.Text,
+  { -- | The registry ID associated with the request.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The JSON repository policy that was deleted from the repository.
+    policyText :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRepositoryPolicyResponse' with the minimum fields required to make a request.
 --
--- * 'policyText' - The JSON repository policy that was deleted from the repository.
 -- * 'registryId' - The registry ID associated with the request.
 -- * 'repositoryName' - The repository name associated with the request.
+-- * 'policyText' - The JSON repository policy that was deleted from the repository.
 -- * 'responseStatus' - The response status code.
 mkDeleteRepositoryPolicyResponse ::
   -- | 'responseStatus'

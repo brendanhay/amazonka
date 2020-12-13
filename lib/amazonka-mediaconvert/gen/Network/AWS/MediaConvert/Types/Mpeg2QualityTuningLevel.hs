@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Mpeg2QualityTuningLevel
   ( Mpeg2QualityTuningLevel
       ( Mpeg2QualityTuningLevel',
-        MQTLMultiPass,
-        MQTLSinglePass
+        MQTLSinglePass,
+        MQTLMultiPass
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Mpeg2QualityTuningLevel = Mpeg2QualityTuningLevel' Lude.Text
       Lude.ToHeader
     )
 
-pattern MQTLMultiPass :: Mpeg2QualityTuningLevel
-pattern MQTLMultiPass = Mpeg2QualityTuningLevel' "MULTI_PASS"
-
 pattern MQTLSinglePass :: Mpeg2QualityTuningLevel
 pattern MQTLSinglePass = Mpeg2QualityTuningLevel' "SINGLE_PASS"
 
+pattern MQTLMultiPass :: Mpeg2QualityTuningLevel
+pattern MQTLMultiPass = Mpeg2QualityTuningLevel' "MULTI_PASS"
+
 {-# COMPLETE
-  MQTLMultiPass,
   MQTLSinglePass,
+  MQTLMultiPass,
   Mpeg2QualityTuningLevel'
   #-}

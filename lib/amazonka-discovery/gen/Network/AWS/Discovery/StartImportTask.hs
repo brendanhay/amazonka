@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,8 +36,8 @@ module Network.AWS.Discovery.StartImportTask
     mkStartImportTask,
 
     -- ** Request lenses
-    sitClientRequestToken,
     sitName,
+    sitClientRequestToken,
     sitImportURL,
 
     -- * Destructuring the response
@@ -57,27 +58,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartImportTask' smart constructor.
 data StartImportTask = StartImportTask'
-  { clientRequestToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A descriptive name for this request. You can use this name to filter future requests related to this import task, such as identifying applications and servers that were included in this import task. We recommend that you use a meaningful name for each import task.
     name :: Lude.Text,
+    -- | Optional. A unique token that you can provide to prevent the same import request from occurring more than once. If you don't provide a token, a token is automatically generated.
+    --
+    -- Sending more than one @StartImportTask@ request with the same client request token will return information about the original import task with that client request token.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The URL for your import file that you've uploaded to Amazon S3.
     importURL :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImportTask' with the minimum fields required to make a request.
 --
+-- * 'name' - A descriptive name for this request. You can use this name to filter future requests related to this import task, such as identifying applications and servers that were included in this import task. We recommend that you use a meaningful name for each import task.
 -- * 'clientRequestToken' - Optional. A unique token that you can provide to prevent the same import request from occurring more than once. If you don't provide a token, a token is automatically generated.
 --
 -- Sending more than one @StartImportTask@ request with the same client request token will return information about the original import task with that client request token.
 -- * 'importURL' - The URL for your import file that you've uploaded to Amazon S3.
--- * 'name' - A descriptive name for this request. You can use this name to filter future requests related to this import task, such as identifying applications and servers that were included in this import task. We recommend that you use a meaningful name for each import task.
 mkStartImportTask ::
   -- | 'name'
   Lude.Text ->
@@ -86,10 +85,17 @@ mkStartImportTask ::
   StartImportTask
 mkStartImportTask pName_ pImportURL_ =
   StartImportTask'
-    { clientRequestToken = Lude.Nothing,
-      name = pName_,
+    { name = pName_,
+      clientRequestToken = Lude.Nothing,
       importURL = pImportURL_
     }
+
+-- | A descriptive name for this request. You can use this name to filter future requests related to this import task, such as identifying applications and servers that were included in this import task. We recommend that you use a meaningful name for each import task.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sitName :: Lens.Lens' StartImportTask Lude.Text
+sitName = Lens.lens (name :: StartImportTask -> Lude.Text) (\s a -> s {name = a} :: StartImportTask)
+{-# DEPRECATED sitName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Optional. A unique token that you can provide to prevent the same import request from occurring more than once. If you don't provide a token, a token is automatically generated.
 --
@@ -99,13 +105,6 @@ mkStartImportTask pName_ pImportURL_ =
 sitClientRequestToken :: Lens.Lens' StartImportTask (Lude.Maybe Lude.Text)
 sitClientRequestToken = Lens.lens (clientRequestToken :: StartImportTask -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartImportTask)
 {-# DEPRECATED sitClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
--- | A descriptive name for this request. You can use this name to filter future requests related to this import task, such as identifying applications and servers that were included in this import task. We recommend that you use a meaningful name for each import task.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sitName :: Lens.Lens' StartImportTask Lude.Text
-sitName = Lens.lens (name :: StartImportTask -> Lude.Text) (\s a -> s {name = a} :: StartImportTask)
-{-# DEPRECATED sitName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The URL for your import file that you've uploaded to Amazon S3.
 --
@@ -141,8 +140,8 @@ instance Lude.ToJSON StartImportTask where
   toJSON StartImportTask' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("name" Lude..= name),
+          [ Lude.Just ("name" Lude..= name),
+            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
             Lude.Just ("importUrl" Lude..= importURL)
           ]
       )
@@ -155,23 +154,18 @@ instance Lude.ToQuery StartImportTask where
 
 -- | /See:/ 'mkStartImportTaskResponse' smart constructor.
 data StartImportTaskResponse = StartImportTaskResponse'
-  { task ::
-      Lude.Maybe ImportTask,
+  { -- | An array of information related to the import task request including status information, times, IDs, the Amazon S3 Object URL for the import file, and more.
+    task :: Lude.Maybe ImportTask,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImportTaskResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'task' - An array of information related to the import task request including status information, times, IDs, the Amazon S3 Object URL for the import file, and more.
+-- * 'responseStatus' - The response status code.
 mkStartImportTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

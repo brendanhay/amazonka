@@ -17,8 +17,8 @@ module Network.AWS.IoT.Types.DynamoDBv2Action
     mkDynamoDBv2Action,
 
     -- * Lenses
-    ddaRoleARN,
     ddaPutItem,
+    ddaRoleARN,
   )
 where
 
@@ -32,16 +32,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDynamoDBv2Action' smart constructor.
 data DynamoDBv2Action = DynamoDBv2Action'
-  { roleARN :: Lude.Text,
-    putItem :: PutItemInput
+  { -- | Specifies the DynamoDB table to which the message data will be written. For example:
+    --
+    -- @{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }@
+    -- Each attribute in the message payload will be written to a separate column in the DynamoDB database.
+    putItem :: PutItemInput,
+    -- | The ARN of the IAM role that grants access to the DynamoDB table.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DynamoDBv2Action' with the minimum fields required to make a request.
@@ -52,20 +51,13 @@ data DynamoDBv2Action = DynamoDBv2Action'
 -- Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 -- * 'roleARN' - The ARN of the IAM role that grants access to the DynamoDB table.
 mkDynamoDBv2Action ::
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'putItem'
   PutItemInput ->
+  -- | 'roleARN'
+  Lude.Text ->
   DynamoDBv2Action
-mkDynamoDBv2Action pRoleARN_ pPutItem_ =
-  DynamoDBv2Action' {roleARN = pRoleARN_, putItem = pPutItem_}
-
--- | The ARN of the IAM role that grants access to the DynamoDB table.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddaRoleARN :: Lens.Lens' DynamoDBv2Action Lude.Text
-ddaRoleARN = Lens.lens (roleARN :: DynamoDBv2Action -> Lude.Text) (\s a -> s {roleARN = a} :: DynamoDBv2Action)
-{-# DEPRECATED ddaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+mkDynamoDBv2Action pPutItem_ pRoleARN_ =
+  DynamoDBv2Action' {putItem = pPutItem_, roleARN = pRoleARN_}
 
 -- | Specifies the DynamoDB table to which the message data will be written. For example:
 --
@@ -77,20 +69,27 @@ ddaPutItem :: Lens.Lens' DynamoDBv2Action PutItemInput
 ddaPutItem = Lens.lens (putItem :: DynamoDBv2Action -> PutItemInput) (\s a -> s {putItem = a} :: DynamoDBv2Action)
 {-# DEPRECATED ddaPutItem "Use generic-lens or generic-optics with 'putItem' instead." #-}
 
+-- | The ARN of the IAM role that grants access to the DynamoDB table.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddaRoleARN :: Lens.Lens' DynamoDBv2Action Lude.Text
+ddaRoleARN = Lens.lens (roleARN :: DynamoDBv2Action -> Lude.Text) (\s a -> s {roleARN = a} :: DynamoDBv2Action)
+{-# DEPRECATED ddaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+
 instance Lude.FromJSON DynamoDBv2Action where
   parseJSON =
     Lude.withObject
       "DynamoDBv2Action"
       ( \x ->
           DynamoDBv2Action'
-            Lude.<$> (x Lude..: "roleArn") Lude.<*> (x Lude..: "putItem")
+            Lude.<$> (x Lude..: "putItem") Lude.<*> (x Lude..: "roleArn")
       )
 
 instance Lude.ToJSON DynamoDBv2Action where
   toJSON DynamoDBv2Action' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("roleArn" Lude..= roleARN),
-            Lude.Just ("putItem" Lude..= putItem)
+          [ Lude.Just ("putItem" Lude..= putItem),
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

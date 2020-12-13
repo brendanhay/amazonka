@@ -17,8 +17,8 @@ module Network.AWS.CloudSearch.Types.Suggester
     mkSuggester,
 
     -- * Lenses
-    sSuggesterName,
     sDocumentSuggesterOptions,
+    sSuggesterName,
   )
 where
 
@@ -30,40 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSuggester' smart constructor.
 data Suggester = Suggester'
-  { suggesterName :: Lude.Text,
-    documentSuggesterOptions :: DocumentSuggesterOptions
+  { documentSuggesterOptions :: DocumentSuggesterOptions,
+    suggesterName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Suggester' with the minimum fields required to make a request.
 --
--- * 'documentSuggesterOptions' - Undocumented field.
--- * 'suggesterName' - Undocumented field.
+-- * 'documentSuggesterOptions' -
+-- * 'suggesterName' -
 mkSuggester ::
-  -- | 'suggesterName'
-  Lude.Text ->
   -- | 'documentSuggesterOptions'
   DocumentSuggesterOptions ->
+  -- | 'suggesterName'
+  Lude.Text ->
   Suggester
-mkSuggester pSuggesterName_ pDocumentSuggesterOptions_ =
+mkSuggester pDocumentSuggesterOptions_ pSuggesterName_ =
   Suggester'
-    { suggesterName = pSuggesterName_,
-      documentSuggesterOptions = pDocumentSuggesterOptions_
+    { documentSuggesterOptions = pDocumentSuggesterOptions_,
+      suggesterName = pSuggesterName_
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'suggesterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSuggesterName :: Lens.Lens' Suggester Lude.Text
-sSuggesterName = Lens.lens (suggesterName :: Suggester -> Lude.Text) (\s a -> s {suggesterName = a} :: Suggester)
-{-# DEPRECATED sSuggesterName "Use generic-lens or generic-optics with 'suggesterName' instead." #-}
 
 -- | Undocumented field.
 --
@@ -72,15 +59,22 @@ sDocumentSuggesterOptions :: Lens.Lens' Suggester DocumentSuggesterOptions
 sDocumentSuggesterOptions = Lens.lens (documentSuggesterOptions :: Suggester -> DocumentSuggesterOptions) (\s a -> s {documentSuggesterOptions = a} :: Suggester)
 {-# DEPRECATED sDocumentSuggesterOptions "Use generic-lens or generic-optics with 'documentSuggesterOptions' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'suggesterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSuggesterName :: Lens.Lens' Suggester Lude.Text
+sSuggesterName = Lens.lens (suggesterName :: Suggester -> Lude.Text) (\s a -> s {suggesterName = a} :: Suggester)
+{-# DEPRECATED sSuggesterName "Use generic-lens or generic-optics with 'suggesterName' instead." #-}
+
 instance Lude.FromXML Suggester where
   parseXML x =
     Suggester'
-      Lude.<$> (x Lude..@ "SuggesterName")
-      Lude.<*> (x Lude..@ "DocumentSuggesterOptions")
+      Lude.<$> (x Lude..@ "DocumentSuggesterOptions")
+      Lude.<*> (x Lude..@ "SuggesterName")
 
 instance Lude.ToQuery Suggester where
   toQuery Suggester' {..} =
     Lude.mconcat
-      [ "SuggesterName" Lude.=: suggesterName,
-        "DocumentSuggesterOptions" Lude.=: documentSuggesterOptions
+      [ "DocumentSuggesterOptions" Lude.=: documentSuggesterOptions,
+        "SuggesterName" Lude.=: suggesterName
       ]

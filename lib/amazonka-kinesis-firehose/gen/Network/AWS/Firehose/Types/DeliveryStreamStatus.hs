@@ -13,11 +13,11 @@
 module Network.AWS.Firehose.Types.DeliveryStreamStatus
   ( DeliveryStreamStatus
       ( DeliveryStreamStatus',
-        Active,
         Creating,
         CreatingFailed,
         Deleting,
-        DeletingFailed
+        DeletingFailed,
+        Active
       ),
   )
 where
@@ -48,9 +48,6 @@ newtype DeliveryStreamStatus = DeliveryStreamStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: DeliveryStreamStatus
-pattern Active = DeliveryStreamStatus' "ACTIVE"
-
 pattern Creating :: DeliveryStreamStatus
 pattern Creating = DeliveryStreamStatus' "CREATING"
 
@@ -63,11 +60,14 @@ pattern Deleting = DeliveryStreamStatus' "DELETING"
 pattern DeletingFailed :: DeliveryStreamStatus
 pattern DeletingFailed = DeliveryStreamStatus' "DELETING_FAILED"
 
+pattern Active :: DeliveryStreamStatus
+pattern Active = DeliveryStreamStatus' "ACTIVE"
+
 {-# COMPLETE
-  Active,
   Creating,
   CreatingFailed,
   Deleting,
   DeletingFailed,
+  Active,
   DeliveryStreamStatus'
   #-}

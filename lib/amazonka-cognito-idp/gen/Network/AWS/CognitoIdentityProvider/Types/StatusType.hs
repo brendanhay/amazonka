@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.StatusType
   ( StatusType
       ( StatusType',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype StatusType = StatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: StatusType
-pattern Disabled = StatusType' "Disabled"
-
 pattern Enabled :: StatusType
 pattern Enabled = StatusType' "Enabled"
 
+pattern Disabled :: StatusType
+pattern Disabled = StatusType' "Disabled"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   StatusType'
   #-}

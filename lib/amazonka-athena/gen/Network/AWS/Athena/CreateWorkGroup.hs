@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Athena.CreateWorkGroup
     mkCreateWorkGroup,
 
     -- ** Request lenses
+    cwgName,
     cwgConfiguration,
     cwgDescription,
     cwgTags,
-    cwgName,
 
     -- * Destructuring the response
     CreateWorkGroupResponse (..),
@@ -41,26 +42,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateWorkGroup' smart constructor.
 data CreateWorkGroup = CreateWorkGroup'
-  { configuration ::
-      Lude.Maybe WorkGroupConfiguration,
+  { -- | The workgroup name.
+    name :: Lude.Text,
+    -- | The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for encrypting query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, the limit for the amount of bytes scanned (cutoff) per query, if it is specified, and whether workgroup's settings (specified with EnforceWorkGroupConfiguration) in the WorkGroupConfiguration override client-side settings. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+    configuration :: Lude.Maybe WorkGroupConfiguration,
+    -- | The workgroup description.
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    name :: Lude.Text
+    -- | A list of comma separated tags to add to the workgroup that is created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkGroup' with the minimum fields required to make a request.
 --
+-- * 'name' - The workgroup name.
 -- * 'configuration' - The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for encrypting query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, the limit for the amount of bytes scanned (cutoff) per query, if it is specified, and whether workgroup's settings (specified with EnforceWorkGroupConfiguration) in the WorkGroupConfiguration override client-side settings. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
 -- * 'description' - The workgroup description.
--- * 'name' - The workgroup name.
 -- * 'tags' - A list of comma separated tags to add to the workgroup that is created.
 mkCreateWorkGroup ::
   -- | 'name'
@@ -68,11 +66,18 @@ mkCreateWorkGroup ::
   CreateWorkGroup
 mkCreateWorkGroup pName_ =
   CreateWorkGroup'
-    { configuration = Lude.Nothing,
+    { name = pName_,
+      configuration = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      tags = Lude.Nothing
     }
+
+-- | The workgroup name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwgName :: Lens.Lens' CreateWorkGroup Lude.Text
+cwgName = Lens.lens (name :: CreateWorkGroup -> Lude.Text) (\s a -> s {name = a} :: CreateWorkGroup)
+{-# DEPRECATED cwgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for encrypting query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, the limit for the amount of bytes scanned (cutoff) per query, if it is specified, and whether workgroup's settings (specified with EnforceWorkGroupConfiguration) in the WorkGroupConfiguration override client-side settings. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
 --
@@ -94,13 +99,6 @@ cwgDescription = Lens.lens (description :: CreateWorkGroup -> Lude.Maybe Lude.Te
 cwgTags :: Lens.Lens' CreateWorkGroup (Lude.Maybe [Tag])
 cwgTags = Lens.lens (tags :: CreateWorkGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateWorkGroup)
 {-# DEPRECATED cwgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The workgroup name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwgName :: Lens.Lens' CreateWorkGroup Lude.Text
-cwgName = Lens.lens (name :: CreateWorkGroup -> Lude.Text) (\s a -> s {name = a} :: CreateWorkGroup)
-{-# DEPRECATED cwgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateWorkGroup where
   type Rs CreateWorkGroup = CreateWorkGroupResponse
@@ -126,10 +124,10 @@ instance Lude.ToJSON CreateWorkGroup where
   toJSON CreateWorkGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Configuration" Lude..=) Lude.<$> configuration,
+          [ Lude.Just ("Name" Lude..= name),
+            ("Configuration" Lude..=) Lude.<$> configuration,
             ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -141,16 +139,10 @@ instance Lude.ToQuery CreateWorkGroup where
 
 -- | /See:/ 'mkCreateWorkGroupResponse' smart constructor.
 newtype CreateWorkGroupResponse = CreateWorkGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkGroupResponse' with the minimum fields required to make a request.

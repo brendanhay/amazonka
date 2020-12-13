@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.ExportClientVPNClientCertificateRevocationList
     mkExportClientVPNClientCertificateRevocationList,
 
     -- ** Request lenses
-    ecvccrlDryRun,
     ecvccrlClientVPNEndpointId,
+    ecvccrlDryRun,
 
     -- * Destructuring the response
     ExportClientVPNClientCertificateRevocationListResponse (..),
@@ -41,23 +42,13 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkExportClientVPNClientCertificateRevocationList' smart constructor.
 data ExportClientVPNClientCertificateRevocationList = ExportClientVPNClientCertificateRevocationList'
-  { dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    clientVPNEndpointId ::
-      Lude.Text
+  { -- | The ID of the Client VPN endpoint.
+    clientVPNEndpointId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportClientVPNClientCertificateRevocationList' with the minimum fields required to make a request.
 --
@@ -70,17 +61,10 @@ mkExportClientVPNClientCertificateRevocationList ::
 mkExportClientVPNClientCertificateRevocationList
   pClientVPNEndpointId_ =
     ExportClientVPNClientCertificateRevocationList'
-      { dryRun =
-          Lude.Nothing,
-        clientVPNEndpointId = pClientVPNEndpointId_
+      { clientVPNEndpointId =
+          pClientVPNEndpointId_,
+        dryRun = Lude.Nothing
       }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecvccrlDryRun :: Lens.Lens' ExportClientVPNClientCertificateRevocationList (Lude.Maybe Lude.Bool)
-ecvccrlDryRun = Lens.lens (dryRun :: ExportClientVPNClientCertificateRevocationList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ExportClientVPNClientCertificateRevocationList)
-{-# DEPRECATED ecvccrlDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Client VPN endpoint.
 --
@@ -88,6 +72,13 @@ ecvccrlDryRun = Lens.lens (dryRun :: ExportClientVPNClientCertificateRevocationL
 ecvccrlClientVPNEndpointId :: Lens.Lens' ExportClientVPNClientCertificateRevocationList Lude.Text
 ecvccrlClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: ExportClientVPNClientCertificateRevocationList -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: ExportClientVPNClientCertificateRevocationList)
 {-# DEPRECATED ecvccrlClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecvccrlDryRun :: Lens.Lens' ExportClientVPNClientCertificateRevocationList (Lude.Maybe Lude.Bool)
+ecvccrlDryRun = Lens.lens (dryRun :: ExportClientVPNClientCertificateRevocationList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ExportClientVPNClientCertificateRevocationList)
+{-# DEPRECATED ecvccrlDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -126,38 +117,27 @@ instance
                       Lude.ByteString
                   ),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkExportClientVPNClientCertificateRevocationListResponse' smart constructor.
 data ExportClientVPNClientCertificateRevocationListResponse = ExportClientVPNClientCertificateRevocationListResponse'
-  { status ::
-      Lude.Maybe
-        ClientCertificateRevocationListStatus,
-    certificateRevocationList ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The current state of the client certificate revocation list.
+    status :: Lude.Maybe ClientCertificateRevocationListStatus,
+    -- | Information about the client certificate revocation list.
+    certificateRevocationList :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportClientVPNClientCertificateRevocationListResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The current state of the client certificate revocation list.
 -- * 'certificateRevocationList' - Information about the client certificate revocation list.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The current state of the client certificate revocation list.
 mkExportClientVPNClientCertificateRevocationListResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization
     mkDescribeAffectedAccountsForOrganization,
 
     -- ** Request lenses
+    daafoEventARN,
     daafoNextToken,
     daafoMaxResults,
-    daafoEventARN,
 
     -- * Destructuring the response
     DescribeAffectedAccountsForOrganizationResponse (..),
@@ -48,40 +49,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAffectedAccountsForOrganization' smart constructor.
 data DescribeAffectedAccountsForOrganization = DescribeAffectedAccountsForOrganization'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    eventARN ::
-      Lude.Text
+  { -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+    eventARN :: Lude.Text,
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAffectedAccountsForOrganization' with the minimum fields required to make a request.
 --
 -- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
--- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 -- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 mkDescribeAffectedAccountsForOrganization ::
   -- | 'eventARN'
   Lude.Text ->
   DescribeAffectedAccountsForOrganization
 mkDescribeAffectedAccountsForOrganization pEventARN_ =
   DescribeAffectedAccountsForOrganization'
-    { nextToken =
-        Lude.Nothing,
-      maxResults = Lude.Nothing,
-      eventARN = pEventARN_
+    { eventARN = pEventARN_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+--
+-- /Note:/ Consider using 'eventARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daafoEventARN :: Lens.Lens' DescribeAffectedAccountsForOrganization Lude.Text
+daafoEventARN = Lens.lens (eventARN :: DescribeAffectedAccountsForOrganization -> Lude.Text) (\s a -> s {eventARN = a} :: DescribeAffectedAccountsForOrganization)
+{-# DEPRECATED daafoEventARN "Use generic-lens or generic-optics with 'eventARN' instead." #-}
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 --
@@ -96,13 +95,6 @@ daafoNextToken = Lens.lens (nextToken :: DescribeAffectedAccountsForOrganization
 daafoMaxResults :: Lens.Lens' DescribeAffectedAccountsForOrganization (Lude.Maybe Lude.Natural)
 daafoMaxResults = Lens.lens (maxResults :: DescribeAffectedAccountsForOrganization -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAffectedAccountsForOrganization)
 {-# DEPRECATED daafoMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
---
--- /Note:/ Consider using 'eventARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daafoEventARN :: Lens.Lens' DescribeAffectedAccountsForOrganization Lude.Text
-daafoEventARN = Lens.lens (eventARN :: DescribeAffectedAccountsForOrganization -> Lude.Text) (\s a -> s {eventARN = a} :: DescribeAffectedAccountsForOrganization)
-{-# DEPRECATED daafoEventARN "Use generic-lens or generic-optics with 'eventARN' instead." #-}
 
 instance Page.AWSPager DescribeAffectedAccountsForOrganization where
   page rq rs
@@ -145,9 +137,9 @@ instance Lude.ToJSON DescribeAffectedAccountsForOrganization where
   toJSON DescribeAffectedAccountsForOrganization' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("eventArn" Lude..= eventARN)
+          [ Lude.Just ("eventArn" Lude..= eventARN),
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -159,29 +151,26 @@ instance Lude.ToQuery DescribeAffectedAccountsForOrganization where
 
 -- | /See:/ 'mkDescribeAffectedAccountsForOrganizationResponse' smart constructor.
 data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsForOrganizationResponse'
-  { affectedAccounts ::
-      Lude.Maybe
-        [Lude.Text],
-    eventScopeCode ::
-      Lude.Maybe
-        EventScopeCode,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A JSON set of elements of the affected accounts.
+    affectedAccounts :: Lude.Maybe [Lude.Text],
+    -- | This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.
+    --
+    --
+    --     * If the @eventScopeCode@ value is @PUBLIC@ , then the @affectedAccounts@ value is always empty.
+    --
+    --
+    --     * If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@ , then the @affectedAccounts@ value lists the affected AWS accounts in your organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you have AWS accounts that use that service, those account IDs appear in the response.
+    --
+    --
+    --     * If the @eventScopeCode@ value is @NONE@ , then the @eventArn@ that you specified in the request is invalid or doesn't exist.
+    eventScopeCode :: Lude.Maybe EventScopeCode,
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAffectedAccountsForOrganizationResponse' with the minimum fields required to make a request.
 --

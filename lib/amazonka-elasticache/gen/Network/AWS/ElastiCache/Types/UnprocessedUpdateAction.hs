@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUnprocessedUpdateAction' smart constructor.
 data UnprocessedUpdateAction = UnprocessedUpdateAction'
-  { cacheClusterId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the cache cluster
+    cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the service update
     serviceUpdateName :: Lude.Maybe Lude.Text,
+    -- | The error type for requests that are not processed
     errorType :: Lude.Maybe Lude.Text,
+    -- | The error message that describes the reason the request was not processed
     errorMessage :: Lude.Maybe Lude.Text,
+    -- | The replication group ID
     replicationGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnprocessedUpdateAction' with the minimum fields required to make a request.
 --
 -- * 'cacheClusterId' - The ID of the cache cluster
--- * 'errorMessage' - The error message that describes the reason the request was not processed
--- * 'errorType' - The error type for requests that are not processed
--- * 'replicationGroupId' - The replication group ID
 -- * 'serviceUpdateName' - The unique ID of the service update
+-- * 'errorType' - The error type for requests that are not processed
+-- * 'errorMessage' - The error message that describes the reason the request was not processed
+-- * 'replicationGroupId' - The replication group ID
 mkUnprocessedUpdateAction ::
   UnprocessedUpdateAction
 mkUnprocessedUpdateAction =

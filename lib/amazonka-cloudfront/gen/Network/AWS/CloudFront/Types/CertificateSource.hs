@@ -13,9 +13,9 @@
 module Network.AWS.CloudFront.Types.CertificateSource
   ( CertificateSource
       ( CertificateSource',
-        Acm,
         Cloudfront,
-        IAM
+        IAM,
+        Acm
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CertificateSource = CertificateSource' Lude.Text
       Lude.ToHeader
     )
 
-pattern Acm :: CertificateSource
-pattern Acm = CertificateSource' "acm"
-
 pattern Cloudfront :: CertificateSource
 pattern Cloudfront = CertificateSource' "cloudfront"
 
 pattern IAM :: CertificateSource
 pattern IAM = CertificateSource' "iam"
 
+pattern Acm :: CertificateSource
+pattern Acm = CertificateSource' "acm"
+
 {-# COMPLETE
-  Acm,
   Cloudfront,
   IAM,
+  Acm,
   CertificateSource'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
 
     -- ** Request lenses
     sdcHonorCooldown,
-    sdcAutoScalingGroupName,
     sdcDesiredCapacity,
+    sdcAutoScalingGroupName,
 
     -- * Destructuring the response
     SetDesiredCapacityResponse (..),
@@ -40,36 +41,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetDesiredCapacity' smart constructor.
 data SetDesiredCapacity = SetDesiredCapacity'
-  { honorCooldown ::
-      Lude.Maybe Lude.Bool,
-    autoScalingGroupName :: Lude.Text,
-    desiredCapacity :: Lude.Int
+  { -- | Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling does not honor the cooldown period during manual scaling activities.
+    honorCooldown :: Lude.Maybe Lude.Bool,
+    -- | The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain.
+    desiredCapacity :: Lude.Int,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDesiredCapacity' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain.
 -- * 'honorCooldown' - Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling does not honor the cooldown period during manual scaling activities.
+-- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkSetDesiredCapacity ::
-  -- | 'autoScalingGroupName'
-  Lude.Text ->
   -- | 'desiredCapacity'
   Lude.Int ->
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   SetDesiredCapacity
-mkSetDesiredCapacity pAutoScalingGroupName_ pDesiredCapacity_ =
+mkSetDesiredCapacity pDesiredCapacity_ pAutoScalingGroupName_ =
   SetDesiredCapacity'
     { honorCooldown = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_,
-      desiredCapacity = pDesiredCapacity_
+      desiredCapacity = pDesiredCapacity_,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before initiating a scaling activity to set your Auto Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling does not honor the cooldown period during manual scaling activities.
@@ -79,19 +76,19 @@ sdcHonorCooldown :: Lens.Lens' SetDesiredCapacity (Lude.Maybe Lude.Bool)
 sdcHonorCooldown = Lens.lens (honorCooldown :: SetDesiredCapacity -> Lude.Maybe Lude.Bool) (\s a -> s {honorCooldown = a} :: SetDesiredCapacity)
 {-# DEPRECATED sdcHonorCooldown "Use generic-lens or generic-optics with 'honorCooldown' instead." #-}
 
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcAutoScalingGroupName :: Lens.Lens' SetDesiredCapacity Lude.Text
-sdcAutoScalingGroupName = Lens.lens (autoScalingGroupName :: SetDesiredCapacity -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: SetDesiredCapacity)
-{-# DEPRECATED sdcAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
 -- | The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain.
 --
 -- /Note:/ Consider using 'desiredCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sdcDesiredCapacity :: Lens.Lens' SetDesiredCapacity Lude.Int
 sdcDesiredCapacity = Lens.lens (desiredCapacity :: SetDesiredCapacity -> Lude.Int) (\s a -> s {desiredCapacity = a} :: SetDesiredCapacity)
 {-# DEPRECATED sdcDesiredCapacity "Use generic-lens or generic-optics with 'desiredCapacity' instead." #-}
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcAutoScalingGroupName :: Lens.Lens' SetDesiredCapacity Lude.Text
+sdcAutoScalingGroupName = Lens.lens (autoScalingGroupName :: SetDesiredCapacity -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: SetDesiredCapacity)
+{-# DEPRECATED sdcAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 instance Lude.AWSRequest SetDesiredCapacity where
   type Rs SetDesiredCapacity = SetDesiredCapacityResponse
@@ -110,19 +107,13 @@ instance Lude.ToQuery SetDesiredCapacity where
       [ "Action" Lude.=: ("SetDesiredCapacity" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "HonorCooldown" Lude.=: honorCooldown,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "DesiredCapacity" Lude.=: desiredCapacity
+        "DesiredCapacity" Lude.=: desiredCapacity,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'mkSetDesiredCapacityResponse' smart constructor.
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDesiredCapacityResponse' with the minimum fields required to make a request.

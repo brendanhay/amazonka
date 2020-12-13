@@ -13,13 +13,13 @@
 module Network.AWS.KMS.Types.CustomerMasterKeySpec
   ( CustomerMasterKeySpec
       ( CustomerMasterKeySpec',
+        CMKSRsa2048,
+        CMKSRsa3072,
+        CMKSRsa4096,
         CMKSEccNistP256,
         CMKSEccNistP384,
         CMKSEccNistP521,
         CMKSEccSecgP256K1,
-        CMKSRsa2048,
-        CMKSRsa3072,
-        CMKSRsa4096,
         CMKSSymmetricDefault
       ),
   )
@@ -51,6 +51,15 @@ newtype CustomerMasterKeySpec = CustomerMasterKeySpec' Lude.Text
       Lude.ToHeader
     )
 
+pattern CMKSRsa2048 :: CustomerMasterKeySpec
+pattern CMKSRsa2048 = CustomerMasterKeySpec' "RSA_2048"
+
+pattern CMKSRsa3072 :: CustomerMasterKeySpec
+pattern CMKSRsa3072 = CustomerMasterKeySpec' "RSA_3072"
+
+pattern CMKSRsa4096 :: CustomerMasterKeySpec
+pattern CMKSRsa4096 = CustomerMasterKeySpec' "RSA_4096"
+
 pattern CMKSEccNistP256 :: CustomerMasterKeySpec
 pattern CMKSEccNistP256 = CustomerMasterKeySpec' "ECC_NIST_P256"
 
@@ -63,26 +72,17 @@ pattern CMKSEccNistP521 = CustomerMasterKeySpec' "ECC_NIST_P521"
 pattern CMKSEccSecgP256K1 :: CustomerMasterKeySpec
 pattern CMKSEccSecgP256K1 = CustomerMasterKeySpec' "ECC_SECG_P256K1"
 
-pattern CMKSRsa2048 :: CustomerMasterKeySpec
-pattern CMKSRsa2048 = CustomerMasterKeySpec' "RSA_2048"
-
-pattern CMKSRsa3072 :: CustomerMasterKeySpec
-pattern CMKSRsa3072 = CustomerMasterKeySpec' "RSA_3072"
-
-pattern CMKSRsa4096 :: CustomerMasterKeySpec
-pattern CMKSRsa4096 = CustomerMasterKeySpec' "RSA_4096"
-
 pattern CMKSSymmetricDefault :: CustomerMasterKeySpec
 pattern CMKSSymmetricDefault = CustomerMasterKeySpec' "SYMMETRIC_DEFAULT"
 
 {-# COMPLETE
+  CMKSRsa2048,
+  CMKSRsa3072,
+  CMKSRsa4096,
   CMKSEccNistP256,
   CMKSEccNistP384,
   CMKSEccNistP521,
   CMKSEccSecgP256K1,
-  CMKSRsa2048,
-  CMKSRsa3072,
-  CMKSRsa4096,
   CMKSSymmetricDefault,
   CustomerMasterKeySpec'
   #-}

@@ -44,25 +44,31 @@ import Network.AWS.SSM.Types.Target
 --
 -- /See:/ 'mkMaintenanceWindowTask' smart constructor.
 data MaintenanceWindowTask = MaintenanceWindowTask'
-  { serviceRoleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | The task ID.
     windowTaskId :: Lude.Maybe Lude.Text,
-    taskParameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (MaintenanceWindowTaskParameterValueExpression)
-        ),
+    -- | The parameters that should be passed to the task when it is run.
+    taskParameters :: Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)),
+    -- | The priority of the task in the maintenance window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
     priority :: Lude.Maybe Lude.Natural,
+    -- | The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, @TaskArn@ is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name or ARN. For STEP_FUNCTIONS tasks, it's the state machine ARN.
     taskARN :: Lude.Maybe Lude.Text,
+    -- | The maximum number of errors allowed before this task stops being scheduled.
     maxErrors :: Lude.Maybe Lude.Text,
+    -- | The task name.
     name :: Lude.Maybe Lude.Text,
+    -- | The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
     targets :: Lude.Maybe [Target],
+    -- | Information about an S3 bucket to write task-level logs to.
     loggingInfo :: Lude.Maybe LoggingInfo,
+    -- | The type of task. The type can be one of the following: RUN_COMMAND, AUTOMATION, LAMBDA, or STEP_FUNCTIONS.
     type' :: Lude.Maybe MaintenanceWindowTaskType,
-    description ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A description of the task.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The maximum number of targets this task can be run for, in parallel.
     maxConcurrency :: Lude.Maybe Lude.Text,
+    -- | The ID of the maintenance window where the task is registered.
     windowId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -70,19 +76,19 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
 
 -- | Creates a value of 'MaintenanceWindowTask' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the task.
--- * 'loggingInfo' - Information about an S3 bucket to write task-level logs to.
--- * 'maxConcurrency' - The maximum number of targets this task can be run for, in parallel.
+-- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+-- * 'windowTaskId' - The task ID.
+-- * 'taskParameters' - The parameters that should be passed to the task when it is run.
+-- * 'priority' - The priority of the task in the maintenance window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
+-- * 'taskARN' - The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, @TaskArn@ is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name or ARN. For STEP_FUNCTIONS tasks, it's the state machine ARN.
 -- * 'maxErrors' - The maximum number of errors allowed before this task stops being scheduled.
 -- * 'name' - The task name.
--- * 'priority' - The priority of the task in the maintenance window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
--- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 -- * 'targets' - The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
--- * 'taskARN' - The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, @TaskArn@ is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name or ARN. For STEP_FUNCTIONS tasks, it's the state machine ARN.
--- * 'taskParameters' - The parameters that should be passed to the task when it is run.
+-- * 'loggingInfo' - Information about an S3 bucket to write task-level logs to.
 -- * 'type'' - The type of task. The type can be one of the following: RUN_COMMAND, AUTOMATION, LAMBDA, or STEP_FUNCTIONS.
+-- * 'description' - A description of the task.
+-- * 'maxConcurrency' - The maximum number of targets this task can be run for, in parallel.
 -- * 'windowId' - The ID of the maintenance window where the task is registered.
--- * 'windowTaskId' - The task ID.
 mkMaintenanceWindowTask ::
   MaintenanceWindowTask
 mkMaintenanceWindowTask =

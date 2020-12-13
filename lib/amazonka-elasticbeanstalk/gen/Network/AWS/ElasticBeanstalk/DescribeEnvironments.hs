@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,14 +22,14 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     mkDescribeEnvironments,
 
     -- ** Request lenses
-    desEnvironmentIds,
-    desEnvironmentNames,
-    desNextToken,
-    desVersionLabel,
-    desMaxRecords,
-    desApplicationName,
-    desIncludedDeletedBackTo,
-    desIncludeDeleted,
+    deEnvironmentIds,
+    deEnvironmentNames,
+    deNextToken,
+    deVersionLabel,
+    deMaxRecords,
+    deApplicationName,
+    deIncludedDeletedBackTo,
+    deIncludeDeleted,
 
     -- * Destructuring the response
     EnvironmentDescriptionsMessage (..),
@@ -51,42 +52,50 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEnvironments' smart constructor.
 data DescribeEnvironments = DescribeEnvironments'
-  { environmentIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.
+    environmentIds :: Lude.Maybe [Lude.Text],
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.
     environmentNames :: Lude.Maybe [Lude.Text],
+    -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
+    --
+    -- If no @NextToken@ is specified, the first page is retrieved.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.
     versionLabel :: Lude.Maybe Lude.Text,
+    -- | For a paginated request. Specify a maximum number of environments to include in each response.
+    --
+    -- If no @MaxRecords@ is specified, all available environments are retrieved in a single response.
     maxRecords :: Lude.Maybe Lude.Natural,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
     applicationName :: Lude.Maybe Lude.Text,
+    -- | If specified when @IncludeDeleted@ is set to @true@ , then environments deleted after this date are displayed.
     includedDeletedBackTo :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether to include deleted environments:
+    --
+    -- @true@ : Environments that have been deleted after @IncludedDeletedBackTo@ are displayed.
+    -- @false@ : Do not include deleted environments.
     includeDeleted :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironments' with the minimum fields required to make a request.
 --
--- * 'applicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
 -- * 'environmentIds' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.
 -- * 'environmentNames' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.
--- * 'includeDeleted' - Indicates whether to include deleted environments:
---
--- @true@ : Environments that have been deleted after @IncludedDeletedBackTo@ are displayed.
--- @false@ : Do not include deleted environments.
--- * 'includedDeletedBackTo' - If specified when @IncludeDeleted@ is set to @true@ , then environments deleted after this date are displayed.
--- * 'maxRecords' - For a paginated request. Specify a maximum number of environments to include in each response.
---
--- If no @MaxRecords@ is specified, all available environments are retrieved in a single response.
 -- * 'nextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
 -- * 'versionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.
+-- * 'maxRecords' - For a paginated request. Specify a maximum number of environments to include in each response.
+--
+-- If no @MaxRecords@ is specified, all available environments are retrieved in a single response.
+-- * 'applicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
+-- * 'includedDeletedBackTo' - If specified when @IncludeDeleted@ is set to @true@ , then environments deleted after this date are displayed.
+-- * 'includeDeleted' - Indicates whether to include deleted environments:
+--
+-- @true@ : Environments that have been deleted after @IncludedDeletedBackTo@ are displayed.
+-- @false@ : Do not include deleted environments.
 mkDescribeEnvironments ::
   DescribeEnvironments
 mkDescribeEnvironments =
@@ -104,55 +113,55 @@ mkDescribeEnvironments =
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.
 --
 -- /Note:/ Consider using 'environmentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desEnvironmentIds :: Lens.Lens' DescribeEnvironments (Lude.Maybe [Lude.Text])
-desEnvironmentIds = Lens.lens (environmentIds :: DescribeEnvironments -> Lude.Maybe [Lude.Text]) (\s a -> s {environmentIds = a} :: DescribeEnvironments)
-{-# DEPRECATED desEnvironmentIds "Use generic-lens or generic-optics with 'environmentIds' instead." #-}
+deEnvironmentIds :: Lens.Lens' DescribeEnvironments (Lude.Maybe [Lude.Text])
+deEnvironmentIds = Lens.lens (environmentIds :: DescribeEnvironments -> Lude.Maybe [Lude.Text]) (\s a -> s {environmentIds = a} :: DescribeEnvironments)
+{-# DEPRECATED deEnvironmentIds "Use generic-lens or generic-optics with 'environmentIds' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.
 --
 -- /Note:/ Consider using 'environmentNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desEnvironmentNames :: Lens.Lens' DescribeEnvironments (Lude.Maybe [Lude.Text])
-desEnvironmentNames = Lens.lens (environmentNames :: DescribeEnvironments -> Lude.Maybe [Lude.Text]) (\s a -> s {environmentNames = a} :: DescribeEnvironments)
-{-# DEPRECATED desEnvironmentNames "Use generic-lens or generic-optics with 'environmentNames' instead." #-}
+deEnvironmentNames :: Lens.Lens' DescribeEnvironments (Lude.Maybe [Lude.Text])
+deEnvironmentNames = Lens.lens (environmentNames :: DescribeEnvironments -> Lude.Maybe [Lude.Text]) (\s a -> s {environmentNames = a} :: DescribeEnvironments)
+{-# DEPRECATED deEnvironmentNames "Use generic-lens or generic-optics with 'environmentNames' instead." #-}
 
 -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desNextToken :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Text)
-desNextToken = Lens.lens (nextToken :: DescribeEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEnvironments)
-{-# DEPRECATED desNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+deNextToken :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Text)
+deNextToken = Lens.lens (nextToken :: DescribeEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEnvironments)
+{-# DEPRECATED deNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.
 --
 -- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desVersionLabel :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Text)
-desVersionLabel = Lens.lens (versionLabel :: DescribeEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: DescribeEnvironments)
-{-# DEPRECATED desVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
+deVersionLabel :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Text)
+deVersionLabel = Lens.lens (versionLabel :: DescribeEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: DescribeEnvironments)
+{-# DEPRECATED deVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
 -- | For a paginated request. Specify a maximum number of environments to include in each response.
 --
 -- If no @MaxRecords@ is specified, all available environments are retrieved in a single response.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desMaxRecords :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Natural)
-desMaxRecords = Lens.lens (maxRecords :: DescribeEnvironments -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: DescribeEnvironments)
-{-# DEPRECATED desMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+deMaxRecords :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Natural)
+deMaxRecords = Lens.lens (maxRecords :: DescribeEnvironments -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: DescribeEnvironments)
+{-# DEPRECATED deMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desApplicationName :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Text)
-desApplicationName = Lens.lens (applicationName :: DescribeEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: DescribeEnvironments)
-{-# DEPRECATED desApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+deApplicationName :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Text)
+deApplicationName = Lens.lens (applicationName :: DescribeEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: DescribeEnvironments)
+{-# DEPRECATED deApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | If specified when @IncludeDeleted@ is set to @true@ , then environments deleted after this date are displayed.
 --
 -- /Note:/ Consider using 'includedDeletedBackTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desIncludedDeletedBackTo :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.DateTime)
-desIncludedDeletedBackTo = Lens.lens (includedDeletedBackTo :: DescribeEnvironments -> Lude.Maybe Lude.DateTime) (\s a -> s {includedDeletedBackTo = a} :: DescribeEnvironments)
-{-# DEPRECATED desIncludedDeletedBackTo "Use generic-lens or generic-optics with 'includedDeletedBackTo' instead." #-}
+deIncludedDeletedBackTo :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.DateTime)
+deIncludedDeletedBackTo = Lens.lens (includedDeletedBackTo :: DescribeEnvironments -> Lude.Maybe Lude.DateTime) (\s a -> s {includedDeletedBackTo = a} :: DescribeEnvironments)
+{-# DEPRECATED deIncludedDeletedBackTo "Use generic-lens or generic-optics with 'includedDeletedBackTo' instead." #-}
 
 -- | Indicates whether to include deleted environments:
 --
@@ -160,9 +169,9 @@ desIncludedDeletedBackTo = Lens.lens (includedDeletedBackTo :: DescribeEnvironme
 -- @false@ : Do not include deleted environments.
 --
 -- /Note:/ Consider using 'includeDeleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desIncludeDeleted :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Bool)
-desIncludeDeleted = Lens.lens (includeDeleted :: DescribeEnvironments -> Lude.Maybe Lude.Bool) (\s a -> s {includeDeleted = a} :: DescribeEnvironments)
-{-# DEPRECATED desIncludeDeleted "Use generic-lens or generic-optics with 'includeDeleted' instead." #-}
+deIncludeDeleted :: Lens.Lens' DescribeEnvironments (Lude.Maybe Lude.Bool)
+deIncludeDeleted = Lens.lens (includeDeleted :: DescribeEnvironments -> Lude.Maybe Lude.Bool) (\s a -> s {includeDeleted = a} :: DescribeEnvironments)
+{-# DEPRECATED deIncludeDeleted "Use generic-lens or generic-optics with 'includeDeleted' instead." #-}
 
 instance Page.AWSPager DescribeEnvironments where
   page rq rs
@@ -171,7 +180,7 @@ instance Page.AWSPager DescribeEnvironments where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& desNextToken Lens..~ rs Lens.^. edmNextToken
+          Lude.& deNextToken Lens..~ rs Lens.^. edmNextToken
 
 instance Lude.AWSRequest DescribeEnvironments where
   type Rs DescribeEnvironments = EnvironmentDescriptionsMessage

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Connect.DescribeUser
     mkDescribeUser,
 
     -- ** Request lenses
-    duUserId,
     duInstanceId,
+    duUserId,
 
     -- * Destructuring the response
     DescribeUserResponse (..),
@@ -40,16 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeUser' smart constructor.
 data DescribeUser = DescribeUser'
-  { userId :: Lude.Text,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the user account.
+    userId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUser' with the minimum fields required to make a request.
@@ -57,20 +54,13 @@ data DescribeUser = DescribeUser'
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
 -- * 'userId' - The identifier of the user account.
 mkDescribeUser ::
-  -- | 'userId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'userId'
+  Lude.Text ->
   DescribeUser
-mkDescribeUser pUserId_ pInstanceId_ =
-  DescribeUser' {userId = pUserId_, instanceId = pInstanceId_}
-
--- | The identifier of the user account.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duUserId :: Lens.Lens' DescribeUser Lude.Text
-duUserId = Lens.lens (userId :: DescribeUser -> Lude.Text) (\s a -> s {userId = a} :: DescribeUser)
-{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+mkDescribeUser pInstanceId_ pUserId_ =
+  DescribeUser' {instanceId = pInstanceId_, userId = pUserId_}
 
 -- | The identifier of the Amazon Connect instance.
 --
@@ -78,6 +68,13 @@ duUserId = Lens.lens (userId :: DescribeUser -> Lude.Text) (\s a -> s {userId = 
 duInstanceId :: Lens.Lens' DescribeUser Lude.Text
 duInstanceId = Lens.lens (instanceId :: DescribeUser -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeUser)
 {-# DEPRECATED duInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The identifier of the user account.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duUserId :: Lens.Lens' DescribeUser Lude.Text
+duUserId = Lens.lens (userId :: DescribeUser -> Lude.Text) (\s a -> s {userId = a} :: DescribeUser)
+{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 instance Lude.AWSRequest DescribeUser where
   type Rs DescribeUser = DescribeUserResponse
@@ -108,23 +105,18 @@ instance Lude.ToQuery DescribeUser where
 
 -- | /See:/ 'mkDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
-  { user ::
-      Lude.Maybe User,
+  { -- | Information about the user account and configuration settings.
+    user :: Lude.Maybe User,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'user' - Information about the user account and configuration settings.
+-- * 'responseStatus' - The response status code.
 mkDescribeUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRegisterEventTopic' smart constructor.
 data RegisterEventTopic = RegisterEventTopic'
-  { directoryId ::
-      Lude.Text,
+  { -- | The Directory ID that will publish status messages to the SNS topic.
+    directoryId :: Lude.Text,
+    -- | The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.
     topicName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterEventTopic' with the minimum fields required to make a request.
@@ -125,16 +121,10 @@ instance Lude.ToQuery RegisterEventTopic where
 --
 -- /See:/ 'mkRegisterEventTopicResponse' smart constructor.
 newtype RegisterEventTopicResponse = RegisterEventTopicResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterEventTopicResponse' with the minimum fields required to make a request.

@@ -30,17 +30,12 @@ import Network.AWS.XRay.Types.FaultRootCauseService
 --
 -- /See:/ 'mkFaultRootCause' smart constructor.
 data FaultRootCause = FaultRootCause'
-  { clientImpacting ::
-      Lude.Maybe Lude.Bool,
+  { -- | A flag that denotes that the root cause impacts the trace client.
+    clientImpacting :: Lude.Maybe Lude.Bool,
+    -- | A list of corresponding services. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
     services :: Lude.Maybe [FaultRootCauseService]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaultRootCause' with the minimum fields required to make a request.

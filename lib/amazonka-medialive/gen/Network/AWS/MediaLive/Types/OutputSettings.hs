@@ -43,37 +43,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputSettings' smart constructor.
 data OutputSettings = OutputSettings'
-  { multiplexOutputSettings ::
-      Lude.Maybe MultiplexOutputSettings,
+  { multiplexOutputSettings :: Lude.Maybe MultiplexOutputSettings,
     archiveOutputSettings :: Lude.Maybe ArchiveOutputSettings,
     rtmpOutputSettings :: Lude.Maybe RtmpOutputSettings,
-    mediaPackageOutputSettings ::
-      Lude.Maybe MediaPackageOutputSettings,
+    mediaPackageOutputSettings :: Lude.Maybe MediaPackageOutputSettings,
     hlsOutputSettings :: Lude.Maybe HlsOutputSettings,
-    frameCaptureOutputSettings ::
-      Lude.Maybe FrameCaptureOutputSettings,
+    frameCaptureOutputSettings :: Lude.Maybe FrameCaptureOutputSettings,
     udpOutputSettings :: Lude.Maybe UdpOutputSettings,
     msSmoothOutputSettings :: Lude.Maybe MsSmoothOutputSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputSettings' with the minimum fields required to make a request.
 --
--- * 'archiveOutputSettings' - Undocumented field.
--- * 'frameCaptureOutputSettings' - Undocumented field.
--- * 'hlsOutputSettings' - Undocumented field.
--- * 'mediaPackageOutputSettings' - Undocumented field.
--- * 'msSmoothOutputSettings' - Undocumented field.
--- * 'multiplexOutputSettings' - Undocumented field.
--- * 'rtmpOutputSettings' - Undocumented field.
--- * 'udpOutputSettings' - Undocumented field.
+-- * 'multiplexOutputSettings' -
+-- * 'archiveOutputSettings' -
+-- * 'rtmpOutputSettings' -
+-- * 'mediaPackageOutputSettings' -
+-- * 'hlsOutputSettings' -
+-- * 'frameCaptureOutputSettings' -
+-- * 'udpOutputSettings' -
+-- * 'msSmoothOutputSettings' -
 mkOutputSettings ::
   OutputSettings
 mkOutputSettings =

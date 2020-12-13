@@ -35,34 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLatency' smart constructor.
 data Latency = Latency'
-  { p75 :: Lude.Maybe Lude.Double,
+  { -- | The average latency for the slowest 25 percent of requests over the last 10 seconds.
+    p75 :: Lude.Maybe Lude.Double,
+    -- | The average latency for the slowest 50 percent of requests over the last 10 seconds.
     p50 :: Lude.Maybe Lude.Double,
+    -- | The average latency for the slowest 15 percent of requests over the last 10 seconds.
     p85 :: Lude.Maybe Lude.Double,
+    -- | The average latency for the slowest 0.1 percent of requests over the last 10 seconds.
     p999 :: Lude.Maybe Lude.Double,
+    -- | The average latency for the slowest 10 percent of requests over the last 10 seconds.
     p90 :: Lude.Maybe Lude.Double,
+    -- | The average latency for the slowest 5 percent of requests over the last 10 seconds.
     p95 :: Lude.Maybe Lude.Double,
+    -- | The average latency for the slowest 1 percent of requests over the last 10 seconds.
     p99 :: Lude.Maybe Lude.Double,
+    -- | The average latency for the slowest 90 percent of requests over the last 10 seconds.
     p10 :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Latency' with the minimum fields required to make a request.
 --
--- * 'p10' - The average latency for the slowest 90 percent of requests over the last 10 seconds.
--- * 'p50' - The average latency for the slowest 50 percent of requests over the last 10 seconds.
 -- * 'p75' - The average latency for the slowest 25 percent of requests over the last 10 seconds.
+-- * 'p50' - The average latency for the slowest 50 percent of requests over the last 10 seconds.
 -- * 'p85' - The average latency for the slowest 15 percent of requests over the last 10 seconds.
+-- * 'p999' - The average latency for the slowest 0.1 percent of requests over the last 10 seconds.
 -- * 'p90' - The average latency for the slowest 10 percent of requests over the last 10 seconds.
 -- * 'p95' - The average latency for the slowest 5 percent of requests over the last 10 seconds.
 -- * 'p99' - The average latency for the slowest 1 percent of requests over the last 10 seconds.
--- * 'p999' - The average latency for the slowest 0.1 percent of requests over the last 10 seconds.
+-- * 'p10' - The average latency for the slowest 90 percent of requests over the last 10 seconds.
 mkLatency ::
   Latency
 mkLatency =

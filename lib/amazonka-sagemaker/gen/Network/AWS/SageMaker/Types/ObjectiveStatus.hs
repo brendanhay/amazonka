@@ -13,9 +13,9 @@
 module Network.AWS.SageMaker.Types.ObjectiveStatus
   ( ObjectiveStatus
       ( ObjectiveStatus',
-        OSFailed,
+        OSSucceeded,
         OSPending,
-        OSSucceeded
+        OSFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ObjectiveStatus = ObjectiveStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern OSFailed :: ObjectiveStatus
-pattern OSFailed = ObjectiveStatus' "Failed"
+pattern OSSucceeded :: ObjectiveStatus
+pattern OSSucceeded = ObjectiveStatus' "Succeeded"
 
 pattern OSPending :: ObjectiveStatus
 pattern OSPending = ObjectiveStatus' "Pending"
 
-pattern OSSucceeded :: ObjectiveStatus
-pattern OSSucceeded = ObjectiveStatus' "Succeeded"
+pattern OSFailed :: ObjectiveStatus
+pattern OSFailed = ObjectiveStatus' "Failed"
 
 {-# COMPLETE
-  OSFailed,
-  OSPending,
   OSSucceeded,
+  OSPending,
+  OSFailed,
   ObjectiveStatus'
   #-}

@@ -38,36 +38,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkManagedActionHistoryItem' smart constructor.
 data ManagedActionHistoryItem = ManagedActionHistoryItem'
-  { status ::
-      Lude.Maybe ActionHistoryStatus,
+  { -- | The status of the action.
+    status :: Lude.Maybe ActionHistoryStatus,
+    -- | If the action failed, the type of failure.
     failureType :: Lude.Maybe FailureType,
+    -- | A unique identifier for the managed action.
     actionId :: Lude.Maybe Lude.Text,
-    failureDescription ::
-      Lude.Maybe Lude.Text,
+    -- | If the action failed, a description of the failure.
+    failureDescription :: Lude.Maybe Lude.Text,
+    -- | The date and time that the action finished executing.
     finishedTime :: Lude.Maybe Lude.DateTime,
+    -- | A description of the managed action.
     actionDescription :: Lude.Maybe Lude.Text,
+    -- | The date and time that the action started executing.
     executedTime :: Lude.Maybe Lude.DateTime,
+    -- | The type of the managed action.
     actionType :: Lude.Maybe ActionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ManagedActionHistoryItem' with the minimum fields required to make a request.
 --
--- * 'actionDescription' - A description of the managed action.
--- * 'actionId' - A unique identifier for the managed action.
--- * 'actionType' - The type of the managed action.
--- * 'executedTime' - The date and time that the action started executing.
--- * 'failureDescription' - If the action failed, a description of the failure.
--- * 'failureType' - If the action failed, the type of failure.
--- * 'finishedTime' - The date and time that the action finished executing.
 -- * 'status' - The status of the action.
+-- * 'failureType' - If the action failed, the type of failure.
+-- * 'actionId' - A unique identifier for the managed action.
+-- * 'failureDescription' - If the action failed, a description of the failure.
+-- * 'finishedTime' - The date and time that the action finished executing.
+-- * 'actionDescription' - A description of the managed action.
+-- * 'executedTime' - The date and time that the action started executing.
+-- * 'actionType' - The type of the managed action.
 mkManagedActionHistoryItem ::
   ManagedActionHistoryItem
 mkManagedActionHistoryItem =

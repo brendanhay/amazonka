@@ -42,41 +42,42 @@ import Network.AWS.SageMaker.Types.UserContext
 --
 -- /See:/ 'mkTrial' smart constructor.
 data Trial = Trial'
-  { creationTime :: Lude.Maybe Lude.Timestamp,
-    trialComponentSummaries ::
-      Lude.Maybe [TrialComponentSimpleSummary],
+  { -- | When the trial was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | A list of the components associated with the trial. For each component, a summary of the component's properties is included.
+    trialComponentSummaries :: Lude.Maybe [TrialComponentSimpleSummary],
+    -- | The Amazon Resource Name (ARN) of the trial.
     trialARN :: Lude.Maybe Lude.Text,
     createdBy :: Lude.Maybe UserContext,
+    -- | Who last modified the trial.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the experiment the trial is part of.
     experimentName :: Lude.Maybe Lude.Text,
     source :: Lude.Maybe TrialSource,
+    -- | The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The name of the trial.
     trialName :: Lude.Maybe Lude.Text,
     lastModifiedBy :: Lude.Maybe UserContext,
+    -- | The list of tags that are associated with the trial. You can use 'Search' API to search on the tags.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Trial' with the minimum fields required to make a request.
 --
--- * 'createdBy' - Undocumented field.
 -- * 'creationTime' - When the trial was created.
--- * 'displayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
--- * 'experimentName' - The name of the experiment the trial is part of.
--- * 'lastModifiedBy' - Undocumented field.
--- * 'lastModifiedTime' - Who last modified the trial.
--- * 'source' - Undocumented field.
--- * 'tags' - The list of tags that are associated with the trial. You can use 'Search' API to search on the tags.
--- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
 -- * 'trialComponentSummaries' - A list of the components associated with the trial. For each component, a summary of the component's properties is included.
+-- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
+-- * 'createdBy' -
+-- * 'lastModifiedTime' - Who last modified the trial.
+-- * 'experimentName' - The name of the experiment the trial is part of.
+-- * 'source' -
+-- * 'displayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
 -- * 'trialName' - The name of the trial.
+-- * 'lastModifiedBy' -
+-- * 'tags' - The list of tags that are associated with the trial. You can use 'Search' API to search on the tags.
 mkTrial ::
   Trial
 mkTrial =

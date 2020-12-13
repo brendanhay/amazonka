@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,12 +34,12 @@ module Network.AWS.CloudFormation.RegisterType
     mkRegisterType,
 
     -- ** Request lenses
+    rTypeName,
+    rSchemaHandlerPackage,
     rExecutionRoleARN,
     rType,
     rClientRequestToken,
     rLoggingConfig,
-    rTypeName,
-    rSchemaHandlerPackage,
 
     -- * Destructuring the response
     RegisterTypeResponse (..),
@@ -58,37 +59,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterType' smart constructor.
 data RegisterType = RegisterType'
-  { executionRoleARN ::
-      Lude.Maybe Lude.Text,
-    type' :: Lude.Maybe RegistryType,
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    loggingConfig :: Lude.Maybe LoggingConfig,
+  { -- | The name of the type being registered.
+    --
+    -- We recommend that type names adhere to the following pattern: /company_or_organization/ ::/service/ ::/type/ .
     typeName :: Lude.Text,
-    schemaHandlerPackage :: Lude.Text
+    -- | A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+    --
+    -- For information on generating a schema handler package for the type you want to register, see <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html submit> in the /CloudFormation CLI User Guide/ .
+    schemaHandlerPackage :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource provider. If your resource type calls AWS APIs in any of its handlers, you must create an /<https:\/\/docs.aws.amazon.com\/IAM\/latest\/UserGuide\/id_roles.html IAM execution role> / that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource provider handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource provider handler, thereby supplying your resource provider with the appropriate credentials.
+    executionRoleARN :: Lude.Maybe Lude.Text,
+    -- | The kind of type.
+    --
+    -- Currently, the only valid value is @RESOURCE@ .
+    type' :: Lude.Maybe RegistryType,
+    -- | A unique identifier that acts as an idempotency key for this registration request. Specifying a client request token prevents CloudFormation from generating more than one version of a type from the same registeration request, even if the request is submitted multiple times.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | Specifies logging configuration information for a type.
+    loggingConfig :: Lude.Maybe LoggingConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterType' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - A unique identifier that acts as an idempotency key for this registration request. Specifying a client request token prevents CloudFormation from generating more than one version of a type from the same registeration request, even if the request is submitted multiple times.
--- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource provider. If your resource type calls AWS APIs in any of its handlers, you must create an /<https:\/\/docs.aws.amazon.com\/IAM\/latest\/UserGuide\/id_roles.html IAM execution role> / that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource provider handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource provider handler, thereby supplying your resource provider with the appropriate credentials.
--- * 'loggingConfig' - Specifies logging configuration information for a type.
--- * 'schemaHandlerPackage' - A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
---
--- For information on generating a schema handler package for the type you want to register, see <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html submit> in the /CloudFormation CLI User Guide/ .
--- * 'type'' - The kind of type.
---
--- Currently, the only valid value is @RESOURCE@ .
 -- * 'typeName' - The name of the type being registered.
 --
 -- We recommend that type names adhere to the following pattern: /company_or_organization/ ::/service/ ::/type/ .
+-- * 'schemaHandlerPackage' - A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+--
+-- For information on generating a schema handler package for the type you want to register, see <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html submit> in the /CloudFormation CLI User Guide/ .
+-- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource provider. If your resource type calls AWS APIs in any of its handlers, you must create an /<https:\/\/docs.aws.amazon.com\/IAM\/latest\/UserGuide\/id_roles.html IAM execution role> / that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource provider handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource provider handler, thereby supplying your resource provider with the appropriate credentials.
+-- * 'type'' - The kind of type.
+--
+-- Currently, the only valid value is @RESOURCE@ .
+-- * 'clientRequestToken' - A unique identifier that acts as an idempotency key for this registration request. Specifying a client request token prevents CloudFormation from generating more than one version of a type from the same registeration request, even if the request is submitted multiple times.
+-- * 'loggingConfig' - Specifies logging configuration information for a type.
 mkRegisterType ::
   -- | 'typeName'
   Lude.Text ->
@@ -97,13 +103,31 @@ mkRegisterType ::
   RegisterType
 mkRegisterType pTypeName_ pSchemaHandlerPackage_ =
   RegisterType'
-    { executionRoleARN = Lude.Nothing,
+    { typeName = pTypeName_,
+      schemaHandlerPackage = pSchemaHandlerPackage_,
+      executionRoleARN = Lude.Nothing,
       type' = Lude.Nothing,
       clientRequestToken = Lude.Nothing,
-      loggingConfig = Lude.Nothing,
-      typeName = pTypeName_,
-      schemaHandlerPackage = pSchemaHandlerPackage_
+      loggingConfig = Lude.Nothing
     }
+
+-- | The name of the type being registered.
+--
+-- We recommend that type names adhere to the following pattern: /company_or_organization/ ::/service/ ::/type/ .
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rTypeName :: Lens.Lens' RegisterType Lude.Text
+rTypeName = Lens.lens (typeName :: RegisterType -> Lude.Text) (\s a -> s {typeName = a} :: RegisterType)
+{-# DEPRECATED rTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+-- | A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+--
+-- For information on generating a schema handler package for the type you want to register, see <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html submit> in the /CloudFormation CLI User Guide/ .
+--
+-- /Note:/ Consider using 'schemaHandlerPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSchemaHandlerPackage :: Lens.Lens' RegisterType Lude.Text
+rSchemaHandlerPackage = Lens.lens (schemaHandlerPackage :: RegisterType -> Lude.Text) (\s a -> s {schemaHandlerPackage = a} :: RegisterType)
+{-# DEPRECATED rSchemaHandlerPackage "Use generic-lens or generic-optics with 'schemaHandlerPackage' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource provider. If your resource type calls AWS APIs in any of its handlers, you must create an /<https:\/\/docs.aws.amazon.com\/IAM\/latest\/UserGuide\/id_roles.html IAM execution role> / that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource provider handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource provider handler, thereby supplying your resource provider with the appropriate credentials.
 --
@@ -135,24 +159,6 @@ rLoggingConfig :: Lens.Lens' RegisterType (Lude.Maybe LoggingConfig)
 rLoggingConfig = Lens.lens (loggingConfig :: RegisterType -> Lude.Maybe LoggingConfig) (\s a -> s {loggingConfig = a} :: RegisterType)
 {-# DEPRECATED rLoggingConfig "Use generic-lens or generic-optics with 'loggingConfig' instead." #-}
 
--- | The name of the type being registered.
---
--- We recommend that type names adhere to the following pattern: /company_or_organization/ ::/service/ ::/type/ .
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rTypeName :: Lens.Lens' RegisterType Lude.Text
-rTypeName = Lens.lens (typeName :: RegisterType -> Lude.Text) (\s a -> s {typeName = a} :: RegisterType)
-{-# DEPRECATED rTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
-
--- | A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
---
--- For information on generating a schema handler package for the type you want to register, see <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html submit> in the /CloudFormation CLI User Guide/ .
---
--- /Note:/ Consider using 'schemaHandlerPackage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rSchemaHandlerPackage :: Lens.Lens' RegisterType Lude.Text
-rSchemaHandlerPackage = Lens.lens (schemaHandlerPackage :: RegisterType -> Lude.Text) (\s a -> s {schemaHandlerPackage = a} :: RegisterType)
-{-# DEPRECATED rSchemaHandlerPackage "Use generic-lens or generic-optics with 'schemaHandlerPackage' instead." #-}
-
 instance Lude.AWSRequest RegisterType where
   type Rs RegisterType = RegisterTypeResponse
   request = Req.postQuery cloudFormationService
@@ -176,27 +182,24 @@ instance Lude.ToQuery RegisterType where
     Lude.mconcat
       [ "Action" Lude.=: ("RegisterType" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "TypeName" Lude.=: typeName,
+        "SchemaHandlerPackage" Lude.=: schemaHandlerPackage,
         "ExecutionRoleArn" Lude.=: executionRoleARN,
         "Type" Lude.=: type',
         "ClientRequestToken" Lude.=: clientRequestToken,
-        "LoggingConfig" Lude.=: loggingConfig,
-        "TypeName" Lude.=: typeName,
-        "SchemaHandlerPackage" Lude.=: schemaHandlerPackage
+        "LoggingConfig" Lude.=: loggingConfig
       ]
 
 -- | /See:/ 'mkRegisterTypeResponse' smart constructor.
 data RegisterTypeResponse = RegisterTypeResponse'
-  { registrationToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for this registration request.
+    --
+    -- Use this registration token when calling @'DescribeTypeRegistration' @ , which returns information about the status and IDs of the type registration.
+    registrationToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterTypeResponse' with the minimum fields required to make a request.

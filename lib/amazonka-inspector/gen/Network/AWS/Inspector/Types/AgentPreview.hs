@@ -22,9 +22,9 @@ module Network.AWS.Inspector.Types.AgentPreview
     apOperatingSystem,
     apAgentVersion,
     apKernelVersion,
+    apAgentId,
     apAgentHealth,
     apIpv4Address,
-    apAgentId,
   )
 where
 
@@ -36,34 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAgentPreview' smart constructor.
 data AgentPreview = AgentPreview'
-  { hostname :: Lude.Maybe Lude.Text,
+  { -- | The hostname of the EC2 instance on which the Amazon Inspector Agent is installed.
+    hostname :: Lude.Maybe Lude.Text,
+    -- | The Auto Scaling group for the EC2 instance where the agent is installed.
     autoScalingGroup :: Lude.Maybe Lude.Text,
+    -- | The operating system running on the EC2 instance on which the Amazon Inspector Agent is installed.
     operatingSystem :: Lude.Maybe Lude.Text,
+    -- | The version of the Amazon Inspector Agent.
     agentVersion :: Lude.Maybe Lude.Text,
+    -- | The kernel version of the operating system running on the EC2 instance on which the Amazon Inspector Agent is installed.
     kernelVersion :: Lude.Maybe Lude.Text,
+    -- | The ID of the EC2 instance where the agent is installed.
+    agentId :: Lude.Text,
+    -- | The health status of the Amazon Inspector Agent.
     agentHealth :: Lude.Maybe AgentHealth,
-    ipv4Address :: Lude.Maybe Lude.Text,
-    agentId :: Lude.Text
+    -- | The IP address of the EC2 instance on which the Amazon Inspector Agent is installed.
+    ipv4Address :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AgentPreview' with the minimum fields required to make a request.
 --
--- * 'agentHealth' - The health status of the Amazon Inspector Agent.
--- * 'agentId' - The ID of the EC2 instance where the agent is installed.
--- * 'agentVersion' - The version of the Amazon Inspector Agent.
--- * 'autoScalingGroup' - The Auto Scaling group for the EC2 instance where the agent is installed.
 -- * 'hostname' - The hostname of the EC2 instance on which the Amazon Inspector Agent is installed.
--- * 'ipv4Address' - The IP address of the EC2 instance on which the Amazon Inspector Agent is installed.
--- * 'kernelVersion' - The kernel version of the operating system running on the EC2 instance on which the Amazon Inspector Agent is installed.
+-- * 'autoScalingGroup' - The Auto Scaling group for the EC2 instance where the agent is installed.
 -- * 'operatingSystem' - The operating system running on the EC2 instance on which the Amazon Inspector Agent is installed.
+-- * 'agentVersion' - The version of the Amazon Inspector Agent.
+-- * 'kernelVersion' - The kernel version of the operating system running on the EC2 instance on which the Amazon Inspector Agent is installed.
+-- * 'agentId' - The ID of the EC2 instance where the agent is installed.
+-- * 'agentHealth' - The health status of the Amazon Inspector Agent.
+-- * 'ipv4Address' - The IP address of the EC2 instance on which the Amazon Inspector Agent is installed.
 mkAgentPreview ::
   -- | 'agentId'
   Lude.Text ->
@@ -75,9 +77,9 @@ mkAgentPreview pAgentId_ =
       operatingSystem = Lude.Nothing,
       agentVersion = Lude.Nothing,
       kernelVersion = Lude.Nothing,
+      agentId = pAgentId_,
       agentHealth = Lude.Nothing,
-      ipv4Address = Lude.Nothing,
-      agentId = pAgentId_
+      ipv4Address = Lude.Nothing
     }
 
 -- | The hostname of the EC2 instance on which the Amazon Inspector Agent is installed.
@@ -115,6 +117,13 @@ apKernelVersion :: Lens.Lens' AgentPreview (Lude.Maybe Lude.Text)
 apKernelVersion = Lens.lens (kernelVersion :: AgentPreview -> Lude.Maybe Lude.Text) (\s a -> s {kernelVersion = a} :: AgentPreview)
 {-# DEPRECATED apKernelVersion "Use generic-lens or generic-optics with 'kernelVersion' instead." #-}
 
+-- | The ID of the EC2 instance where the agent is installed.
+--
+-- /Note:/ Consider using 'agentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apAgentId :: Lens.Lens' AgentPreview Lude.Text
+apAgentId = Lens.lens (agentId :: AgentPreview -> Lude.Text) (\s a -> s {agentId = a} :: AgentPreview)
+{-# DEPRECATED apAgentId "Use generic-lens or generic-optics with 'agentId' instead." #-}
+
 -- | The health status of the Amazon Inspector Agent.
 --
 -- /Note:/ Consider using 'agentHealth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -129,13 +138,6 @@ apIpv4Address :: Lens.Lens' AgentPreview (Lude.Maybe Lude.Text)
 apIpv4Address = Lens.lens (ipv4Address :: AgentPreview -> Lude.Maybe Lude.Text) (\s a -> s {ipv4Address = a} :: AgentPreview)
 {-# DEPRECATED apIpv4Address "Use generic-lens or generic-optics with 'ipv4Address' instead." #-}
 
--- | The ID of the EC2 instance where the agent is installed.
---
--- /Note:/ Consider using 'agentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apAgentId :: Lens.Lens' AgentPreview Lude.Text
-apAgentId = Lens.lens (agentId :: AgentPreview -> Lude.Text) (\s a -> s {agentId = a} :: AgentPreview)
-{-# DEPRECATED apAgentId "Use generic-lens or generic-optics with 'agentId' instead." #-}
-
 instance Lude.FromJSON AgentPreview where
   parseJSON =
     Lude.withObject
@@ -147,7 +149,7 @@ instance Lude.FromJSON AgentPreview where
             Lude.<*> (x Lude..:? "operatingSystem")
             Lude.<*> (x Lude..:? "agentVersion")
             Lude.<*> (x Lude..:? "kernelVersion")
+            Lude.<*> (x Lude..: "agentId")
             Lude.<*> (x Lude..:? "agentHealth")
             Lude.<*> (x Lude..:? "ipv4Address")
-            Lude.<*> (x Lude..: "agentId")
       )

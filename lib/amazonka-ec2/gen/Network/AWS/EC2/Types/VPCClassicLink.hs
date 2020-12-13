@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCClassicLink' smart constructor.
 data VPCClassicLink = VPCClassicLink'
-  { vpcId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the VPC.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the VPC.
     tags :: Lude.Maybe [Tag],
+    -- | Indicates whether the VPC is enabled for ClassicLink.
     classicLinkEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCClassicLink' with the minimum fields required to make a request.
 --
--- * 'classicLinkEnabled' - Indicates whether the VPC is enabled for ClassicLink.
--- * 'tags' - Any tags assigned to the VPC.
 -- * 'vpcId' - The ID of the VPC.
+-- * 'tags' - Any tags assigned to the VPC.
+-- * 'classicLinkEnabled' - Indicates whether the VPC is enabled for ClassicLink.
 mkVPCClassicLink ::
   VPCClassicLink
 mkVPCClassicLink =

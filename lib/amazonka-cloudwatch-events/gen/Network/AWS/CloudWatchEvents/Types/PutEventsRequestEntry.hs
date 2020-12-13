@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPutEventsRequestEntry' smart constructor.
 data PutEventsRequestEntry = PutEventsRequestEntry'
-  { time ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time stamp of the event, per <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339> . If no time stamp is provided, the time stamp of the 'PutEvents' call is used.
+    time :: Lude.Maybe Lude.Timestamp,
+    -- | Free-form string used to decide what fields to expect in the event detail.
     detailType :: Lude.Maybe Lude.Text,
+    -- | AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
     resources :: Lude.Maybe [Lude.Text],
+    -- | The name or ARN of the event bus to receive the event. Only the rules that are associated with this event bus are used to match the event. If you omit this, the default event bus is used.
     eventBusName :: Lude.Maybe Lude.Text,
+    -- | The source of the event.
     source :: Lude.Maybe Lude.Text,
+    -- | A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
     detail :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEventsRequestEntry' with the minimum fields required to make a request.
 --
--- * 'detail' - A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
--- * 'detailType' - Free-form string used to decide what fields to expect in the event detail.
--- * 'eventBusName' - The name or ARN of the event bus to receive the event. Only the rules that are associated with this event bus are used to match the event. If you omit this, the default event bus is used.
--- * 'resources' - AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
--- * 'source' - The source of the event.
 -- * 'time' - The time stamp of the event, per <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339> . If no time stamp is provided, the time stamp of the 'PutEvents' call is used.
+-- * 'detailType' - Free-form string used to decide what fields to expect in the event detail.
+-- * 'resources' - AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+-- * 'eventBusName' - The name or ARN of the event bus to receive the event. Only the rules that are associated with this event bus are used to match the event. If you omit this, the default event bus is used.
+-- * 'source' - The source of the event.
+-- * 'detail' - A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
 mkPutEventsRequestEntry ::
   PutEventsRequestEntry
 mkPutEventsRequestEntry =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.EMR.DescribeCluster
     mkDescribeClusterResponse,
 
     -- ** Response lenses
-    dcrsResponseStatus,
     dcrsCluster,
+    dcrsResponseStatus,
   )
 where
 
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | This input determines which cluster to describe.
 --
 -- /See:/ 'mkDescribeCluster' smart constructor.
-newtype DescribeCluster = DescribeCluster' {clusterId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeCluster = DescribeCluster'
+  { -- | The identifier of the cluster to describe.
+    clusterId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCluster' with the minimum fields required to make a request.
@@ -74,7 +72,7 @@ instance Lude.AWSRequest DescribeCluster where
     Res.receiveJSON
       ( \s h x ->
           DescribeClusterResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Cluster")
+            Lude.<$> (x Lude..:> "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeCluster where
@@ -103,17 +101,12 @@ instance Lude.ToQuery DescribeCluster where
 --
 -- /See:/ 'mkDescribeClusterResponse' smart constructor.
 data DescribeClusterResponse = DescribeClusterResponse'
-  { responseStatus ::
-      Lude.Int,
-    cluster :: Cluster
+  { -- | This output contains the details for the requested cluster.
+    cluster :: Cluster,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusterResponse' with the minimum fields required to make a request.
@@ -121,23 +114,16 @@ data DescribeClusterResponse = DescribeClusterResponse'
 -- * 'cluster' - This output contains the details for the requested cluster.
 -- * 'responseStatus' - The response status code.
 mkDescribeClusterResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'cluster'
   Cluster ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeClusterResponse
-mkDescribeClusterResponse pResponseStatus_ pCluster_ =
+mkDescribeClusterResponse pCluster_ pResponseStatus_ =
   DescribeClusterResponse'
-    { responseStatus = pResponseStatus_,
-      cluster = pCluster_
+    { cluster = pCluster_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DescribeClusterResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DescribeClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClusterResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | This output contains the details for the requested cluster.
 --
@@ -145,3 +131,10 @@ dcrsResponseStatus = Lens.lens (responseStatus :: DescribeClusterResponse -> Lud
 dcrsCluster :: Lens.Lens' DescribeClusterResponse Cluster
 dcrsCluster = Lens.lens (cluster :: DescribeClusterResponse -> Cluster) (\s a -> s {cluster = a} :: DescribeClusterResponse)
 {-# DEPRECATED dcrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DescribeClusterResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClusterResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

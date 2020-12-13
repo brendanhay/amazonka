@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.AppStream.UntagResource
     mkUntagResource,
 
     -- ** Request lenses
-    urResourceARN,
     urTagKeys,
+    urResourceARN,
 
     -- * Destructuring the response
     UntagResourceResponse (..),
@@ -42,37 +43,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { resourceARN :: Lude.Text,
-    tagKeys :: Lude.NonEmpty Lude.Text
+  { -- | The tag keys for the tags to disassociate.
+    tagKeys :: Lude.NonEmpty Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the resource.
+    resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource.
 -- * 'tagKeys' - The tag keys for the tags to disassociate.
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource.
 mkUntagResource ::
-  -- | 'resourceARN'
-  Lude.Text ->
   -- | 'tagKeys'
   Lude.NonEmpty Lude.Text ->
+  -- | 'resourceARN'
+  Lude.Text ->
   UntagResource
-mkUntagResource pResourceARN_ pTagKeys_ =
-  UntagResource' {resourceARN = pResourceARN_, tagKeys = pTagKeys_}
-
--- | The Amazon Resource Name (ARN) of the resource.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceARN :: Lens.Lens' UntagResource Lude.Text
-urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
-{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+mkUntagResource pTagKeys_ pResourceARN_ =
+  UntagResource' {tagKeys = pTagKeys_, resourceARN = pResourceARN_}
 
 -- | The tag keys for the tags to disassociate.
 --
@@ -80,6 +70,13 @@ urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s
 urTagKeys :: Lens.Lens' UntagResource (Lude.NonEmpty Lude.Text)
 urTagKeys = Lens.lens (tagKeys :: UntagResource -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeys = a} :: UntagResource)
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the resource.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceARN :: Lens.Lens' UntagResource Lude.Text
+urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
+{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Lude.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
@@ -105,8 +102,8 @@ instance Lude.ToJSON UntagResource where
   toJSON UntagResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
-            Lude.Just ("TagKeys" Lude..= tagKeys)
+          [ Lude.Just ("TagKeys" Lude..= tagKeys),
+            Lude.Just ("ResourceArn" Lude..= resourceARN)
           ]
       )
 
@@ -118,16 +115,10 @@ instance Lude.ToQuery UntagResource where
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 newtype UntagResourceResponse = UntagResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.

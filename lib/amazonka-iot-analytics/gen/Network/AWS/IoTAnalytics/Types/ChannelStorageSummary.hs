@@ -31,26 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChannelStorageSummary' smart constructor.
 data ChannelStorageSummary = ChannelStorageSummary'
-  { serviceManagedS3 ::
-      Lude.Maybe
-        ServiceManagedChannelS3StorageSummary,
-    customerManagedS3 ::
-      Lude.Maybe
-        CustomerManagedChannelS3StorageSummary
+  { -- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
+    serviceManagedS3 :: Lude.Maybe ServiceManagedChannelS3StorageSummary,
+    -- | Used to store channel data in an S3 bucket that you manage.
+    customerManagedS3 :: Lude.Maybe CustomerManagedChannelS3StorageSummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelStorageSummary' with the minimum fields required to make a request.
 --
--- * 'customerManagedS3' - Used to store channel data in an S3 bucket that you manage.
 -- * 'serviceManagedS3' - Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
+-- * 'customerManagedS3' - Used to store channel data in an S3 bucket that you manage.
 mkChannelStorageSummary ::
   ChannelStorageSummary
 mkChannelStorageSummary =

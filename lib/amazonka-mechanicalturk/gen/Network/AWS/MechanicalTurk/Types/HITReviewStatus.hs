@@ -13,8 +13,8 @@
 module Network.AWS.MechanicalTurk.Types.HITReviewStatus
   ( HITReviewStatus
       ( HITReviewStatus',
-        MarkedForReview,
         NotReviewed,
+        MarkedForReview,
         ReviewedAppropriate,
         ReviewedInappropriate
       ),
@@ -47,11 +47,11 @@ newtype HITReviewStatus = HITReviewStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern MarkedForReview :: HITReviewStatus
-pattern MarkedForReview = HITReviewStatus' "MarkedForReview"
-
 pattern NotReviewed :: HITReviewStatus
 pattern NotReviewed = HITReviewStatus' "NotReviewed"
+
+pattern MarkedForReview :: HITReviewStatus
+pattern MarkedForReview = HITReviewStatus' "MarkedForReview"
 
 pattern ReviewedAppropriate :: HITReviewStatus
 pattern ReviewedAppropriate = HITReviewStatus' "ReviewedAppropriate"
@@ -60,8 +60,8 @@ pattern ReviewedInappropriate :: HITReviewStatus
 pattern ReviewedInappropriate = HITReviewStatus' "ReviewedInappropriate"
 
 {-# COMPLETE
-  MarkedForReview,
   NotReviewed,
+  MarkedForReview,
   ReviewedAppropriate,
   ReviewedInappropriate,
   HITReviewStatus'

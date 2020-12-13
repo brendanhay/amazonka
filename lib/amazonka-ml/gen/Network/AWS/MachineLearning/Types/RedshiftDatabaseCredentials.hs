@@ -17,8 +17,8 @@ module Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials
     mkRedshiftDatabaseCredentials,
 
     -- * Lenses
-    rdcUsername,
-    rdcPassword,
+    rUsername,
+    rPassword,
   )
 where
 
@@ -29,23 +29,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRedshiftDatabaseCredentials' smart constructor.
 data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
-  { username ::
-      Lude.Text,
+  { username :: Lude.Text,
     password :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RedshiftDatabaseCredentials' with the minimum fields required to make a request.
 --
--- * 'password' - Undocumented field.
--- * 'username' - Undocumented field.
+-- * 'username' -
+-- * 'password' -
 mkRedshiftDatabaseCredentials ::
   -- | 'username'
   Lude.Text ->
@@ -61,16 +54,16 @@ mkRedshiftDatabaseCredentials pUsername_ pPassword_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdcUsername :: Lens.Lens' RedshiftDatabaseCredentials Lude.Text
-rdcUsername = Lens.lens (username :: RedshiftDatabaseCredentials -> Lude.Text) (\s a -> s {username = a} :: RedshiftDatabaseCredentials)
-{-# DEPRECATED rdcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+rUsername :: Lens.Lens' RedshiftDatabaseCredentials Lude.Text
+rUsername = Lens.lens (username :: RedshiftDatabaseCredentials -> Lude.Text) (\s a -> s {username = a} :: RedshiftDatabaseCredentials)
+{-# DEPRECATED rUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdcPassword :: Lens.Lens' RedshiftDatabaseCredentials Lude.Text
-rdcPassword = Lens.lens (password :: RedshiftDatabaseCredentials -> Lude.Text) (\s a -> s {password = a} :: RedshiftDatabaseCredentials)
-{-# DEPRECATED rdcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+rPassword :: Lens.Lens' RedshiftDatabaseCredentials Lude.Text
+rPassword = Lens.lens (password :: RedshiftDatabaseCredentials -> Lude.Text) (\s a -> s {password = a} :: RedshiftDatabaseCredentials)
+{-# DEPRECATED rPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 instance Lude.ToJSON RedshiftDatabaseCredentials where
   toJSON RedshiftDatabaseCredentials' {..} =

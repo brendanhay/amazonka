@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoutingProfileSummary' smart constructor.
 data RoutingProfileSummary = RoutingProfileSummary'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the routing profile.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the routing profile.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the routing profile.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoutingProfileSummary' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the routing profile.
--- * 'id' - The identifier of the routing profile.
 -- * 'name' - The name of the routing profile.
+-- * 'id' - The identifier of the routing profile.
 mkRoutingProfileSummary ::
   RoutingProfileSummary
 mkRoutingProfileSummary =

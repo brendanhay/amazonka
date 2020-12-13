@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceImages
     mkDescribeWorkspaceImagesResponse,
 
     -- ** Response lenses
-    dwirsImages,
-    dwirsNextToken,
-    dwirsResponseStatus,
+    drsImages,
+    drsNextToken,
+    drsResponseStatus,
   )
 where
 
@@ -46,27 +47,24 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeWorkspaceImages' smart constructor.
 data DescribeWorkspaceImages = DescribeWorkspaceImages'
-  { imageIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The identifier of the image.
+    imageIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The type (owned or shared) of the image.
     imageType :: Lude.Maybe ImageType,
+    -- | The maximum number of items to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceImages' with the minimum fields required to make a request.
 --
 -- * 'imageIds' - The identifier of the image.
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 -- * 'imageType' - The type (owned or shared) of the image.
 -- * 'maxResults' - The maximum number of items to return.
--- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 mkDescribeWorkspaceImages ::
   DescribeWorkspaceImages
 mkDescribeWorkspaceImages =
@@ -107,12 +105,12 @@ dwiMaxResults = Lens.lens (maxResults :: DescribeWorkspaceImages -> Lude.Maybe L
 
 instance Page.AWSPager DescribeWorkspaceImages where
   page rq rs
-    | Page.stop (rs Lens.^. dwirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dwirsImages) = Lude.Nothing
+    | Page.stop (rs Lens.^. drsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. drsImages) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dwiNextToken Lens..~ rs Lens.^. dwirsNextToken
+          Lude.& dwiNextToken Lens..~ rs Lens.^. drsNextToken
 
 instance Lude.AWSRequest DescribeWorkspaceImages where
   type Rs DescribeWorkspaceImages = DescribeWorkspaceImagesResponse
@@ -156,19 +154,14 @@ instance Lude.ToQuery DescribeWorkspaceImages where
 
 -- | /See:/ 'mkDescribeWorkspaceImagesResponse' smart constructor.
 data DescribeWorkspaceImagesResponse = DescribeWorkspaceImagesResponse'
-  { images ::
-      Lude.Maybe [WorkspaceImage],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about the images.
+    images :: Lude.Maybe [WorkspaceImage],
+    -- | The token to use to retrieve the next set of results, or null if no more results are available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceImagesResponse' with the minimum fields required to make a request.
@@ -190,20 +183,20 @@ mkDescribeWorkspaceImagesResponse pResponseStatus_ =
 -- | Information about the images.
 --
 -- /Note:/ Consider using 'images' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwirsImages :: Lens.Lens' DescribeWorkspaceImagesResponse (Lude.Maybe [WorkspaceImage])
-dwirsImages = Lens.lens (images :: DescribeWorkspaceImagesResponse -> Lude.Maybe [WorkspaceImage]) (\s a -> s {images = a} :: DescribeWorkspaceImagesResponse)
-{-# DEPRECATED dwirsImages "Use generic-lens or generic-optics with 'images' instead." #-}
+drsImages :: Lens.Lens' DescribeWorkspaceImagesResponse (Lude.Maybe [WorkspaceImage])
+drsImages = Lens.lens (images :: DescribeWorkspaceImagesResponse -> Lude.Maybe [WorkspaceImage]) (\s a -> s {images = a} :: DescribeWorkspaceImagesResponse)
+{-# DEPRECATED drsImages "Use generic-lens or generic-optics with 'images' instead." #-}
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwirsNextToken :: Lens.Lens' DescribeWorkspaceImagesResponse (Lude.Maybe Lude.Text)
-dwirsNextToken = Lens.lens (nextToken :: DescribeWorkspaceImagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspaceImagesResponse)
-{-# DEPRECATED dwirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+drsNextToken :: Lens.Lens' DescribeWorkspaceImagesResponse (Lude.Maybe Lude.Text)
+drsNextToken = Lens.lens (nextToken :: DescribeWorkspaceImagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspaceImagesResponse)
+{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwirsResponseStatus :: Lens.Lens' DescribeWorkspaceImagesResponse Lude.Int
-dwirsResponseStatus = Lens.lens (responseStatus :: DescribeWorkspaceImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkspaceImagesResponse)
-{-# DEPRECATED dwirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeWorkspaceImagesResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeWorkspaceImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkspaceImagesResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.Pinpoint.UpdateAPNSVoipSandboxChannel
     mkUpdateAPNSVoipSandboxChannel,
 
     -- ** Request lenses
-    uavscApplicationId,
     uavscAPNSVoipSandboxChannelRequest,
+    uavscApplicationId,
 
     -- * Destructuring the response
     UpdateAPNSVoipSandboxChannelResponse (..),
     mkUpdateAPNSVoipSandboxChannelResponse,
 
     -- ** Response lenses
-    uavscrsResponseStatus,
     uavscrsAPNSVoipSandboxChannelResponse,
+    uavscrsResponseStatus,
   )
 where
 
@@ -40,44 +41,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateAPNSVoipSandboxChannel' smart constructor.
 data UpdateAPNSVoipSandboxChannel = UpdateAPNSVoipSandboxChannel'
-  { applicationId ::
-      Lude.Text,
-    apnsVoipSandboxChannelRequest ::
-      APNSVoipSandboxChannelRequest
+  { apnsVoipSandboxChannelRequest :: APNSVoipSandboxChannelRequest,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPNSVoipSandboxChannel' with the minimum fields required to make a request.
 --
--- * 'apnsVoipSandboxChannelRequest' - Undocumented field.
+-- * 'apnsVoipSandboxChannelRequest' -
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 mkUpdateAPNSVoipSandboxChannel ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'apnsVoipSandboxChannelRequest'
   APNSVoipSandboxChannelRequest ->
+  -- | 'applicationId'
+  Lude.Text ->
   UpdateAPNSVoipSandboxChannel
 mkUpdateAPNSVoipSandboxChannel
-  pApplicationId_
-  pAPNSVoipSandboxChannelRequest_ =
+  pAPNSVoipSandboxChannelRequest_
+  pApplicationId_ =
     UpdateAPNSVoipSandboxChannel'
-      { applicationId = pApplicationId_,
-        apnsVoipSandboxChannelRequest = pAPNSVoipSandboxChannelRequest_
+      { apnsVoipSandboxChannelRequest =
+          pAPNSVoipSandboxChannelRequest_,
+        applicationId = pApplicationId_
       }
-
--- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uavscApplicationId :: Lens.Lens' UpdateAPNSVoipSandboxChannel Lude.Text
-uavscApplicationId = Lens.lens (applicationId :: UpdateAPNSVoipSandboxChannel -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateAPNSVoipSandboxChannel)
-{-# DEPRECATED uavscApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -85,6 +73,13 @@ uavscApplicationId = Lens.lens (applicationId :: UpdateAPNSVoipSandboxChannel ->
 uavscAPNSVoipSandboxChannelRequest :: Lens.Lens' UpdateAPNSVoipSandboxChannel APNSVoipSandboxChannelRequest
 uavscAPNSVoipSandboxChannelRequest = Lens.lens (apnsVoipSandboxChannelRequest :: UpdateAPNSVoipSandboxChannel -> APNSVoipSandboxChannelRequest) (\s a -> s {apnsVoipSandboxChannelRequest = a} :: UpdateAPNSVoipSandboxChannel)
 {-# DEPRECATED uavscAPNSVoipSandboxChannelRequest "Use generic-lens or generic-optics with 'apnsVoipSandboxChannelRequest' instead." #-}
+
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uavscApplicationId :: Lens.Lens' UpdateAPNSVoipSandboxChannel Lude.Text
+uavscApplicationId = Lens.lens (applicationId :: UpdateAPNSVoipSandboxChannel -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateAPNSVoipSandboxChannel)
+{-# DEPRECATED uavscApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 instance Lude.AWSRequest UpdateAPNSVoipSandboxChannel where
   type
@@ -95,7 +90,7 @@ instance Lude.AWSRequest UpdateAPNSVoipSandboxChannel where
     Res.receiveJSON
       ( \s h x ->
           UpdateAPNSVoipSandboxChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateAPNSVoipSandboxChannel where
@@ -131,46 +126,31 @@ instance Lude.ToQuery UpdateAPNSVoipSandboxChannel where
 
 -- | /See:/ 'mkUpdateAPNSVoipSandboxChannelResponse' smart constructor.
 data UpdateAPNSVoipSandboxChannelResponse = UpdateAPNSVoipSandboxChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    apnsVoipSandboxChannelResponse ::
-      APNSVoipSandboxChannelResponse
+  { apnsVoipSandboxChannelResponse :: APNSVoipSandboxChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPNSVoipSandboxChannelResponse' with the minimum fields required to make a request.
 --
--- * 'apnsVoipSandboxChannelResponse' - Undocumented field.
+-- * 'apnsVoipSandboxChannelResponse' -
 -- * 'responseStatus' - The response status code.
 mkUpdateAPNSVoipSandboxChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'apnsVoipSandboxChannelResponse'
   APNSVoipSandboxChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateAPNSVoipSandboxChannelResponse
 mkUpdateAPNSVoipSandboxChannelResponse
-  pResponseStatus_
-  pAPNSVoipSandboxChannelResponse_ =
+  pAPNSVoipSandboxChannelResponse_
+  pResponseStatus_ =
     UpdateAPNSVoipSandboxChannelResponse'
-      { responseStatus =
-          pResponseStatus_,
-        apnsVoipSandboxChannelResponse =
-          pAPNSVoipSandboxChannelResponse_
+      { apnsVoipSandboxChannelResponse =
+          pAPNSVoipSandboxChannelResponse_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uavscrsResponseStatus :: Lens.Lens' UpdateAPNSVoipSandboxChannelResponse Lude.Int
-uavscrsResponseStatus = Lens.lens (responseStatus :: UpdateAPNSVoipSandboxChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAPNSVoipSandboxChannelResponse)
-{-# DEPRECATED uavscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -178,3 +158,10 @@ uavscrsResponseStatus = Lens.lens (responseStatus :: UpdateAPNSVoipSandboxChanne
 uavscrsAPNSVoipSandboxChannelResponse :: Lens.Lens' UpdateAPNSVoipSandboxChannelResponse APNSVoipSandboxChannelResponse
 uavscrsAPNSVoipSandboxChannelResponse = Lens.lens (apnsVoipSandboxChannelResponse :: UpdateAPNSVoipSandboxChannelResponse -> APNSVoipSandboxChannelResponse) (\s a -> s {apnsVoipSandboxChannelResponse = a} :: UpdateAPNSVoipSandboxChannelResponse)
 {-# DEPRECATED uavscrsAPNSVoipSandboxChannelResponse "Use generic-lens or generic-optics with 'apnsVoipSandboxChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uavscrsResponseStatus :: Lens.Lens' UpdateAPNSVoipSandboxChannelResponse Lude.Int
+uavscrsResponseStatus = Lens.lens (responseStatus :: UpdateAPNSVoipSandboxChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAPNSVoipSandboxChannelResponse)
+{-# DEPRECATED uavscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -38,35 +38,38 @@ import Network.AWS.SSM.Types.SessionStatus
 --
 -- /See:/ 'mkSession' smart constructor.
 data Session = Session'
-  { status :: Lude.Maybe SessionStatus,
+  { -- | The status of the session. For example, "Connected" or "Terminated".
+    status :: Lude.Maybe SessionStatus,
+    -- | Reserved for future use.
     outputURL :: Lude.Maybe SessionManagerOutputURL,
+    -- | The name of the Session Manager SSM document used to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ .
     documentName :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO-8601 Extended format, when the session was terminated.
     endDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the AWS user account that started the session.
     owner :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO-8601 Extended format, when the session began.
     startDate :: Lude.Maybe Lude.Timestamp,
+    -- | Reserved for future use.
     details :: Lude.Maybe Lude.Text,
+    -- | The ID of the session.
     sessionId :: Lude.Maybe Lude.Text,
+    -- | The instance that the Session Manager session connected to.
     target :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Session' with the minimum fields required to make a request.
 --
--- * 'details' - Reserved for future use.
+-- * 'status' - The status of the session. For example, "Connected" or "Terminated".
+-- * 'outputURL' - Reserved for future use.
 -- * 'documentName' - The name of the Session Manager SSM document used to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ .
 -- * 'endDate' - The date and time, in ISO-8601 Extended format, when the session was terminated.
--- * 'outputURL' - Reserved for future use.
 -- * 'owner' - The ID of the AWS user account that started the session.
--- * 'sessionId' - The ID of the session.
 -- * 'startDate' - The date and time, in ISO-8601 Extended format, when the session began.
--- * 'status' - The status of the session. For example, "Connected" or "Terminated".
+-- * 'details' - Reserved for future use.
+-- * 'sessionId' - The ID of the session.
 -- * 'target' - The instance that the Session Manager session connected to.
 mkSession ::
   Session

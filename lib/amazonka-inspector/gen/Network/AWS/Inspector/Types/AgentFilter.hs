@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAgentFilter' smart constructor.
 data AgentFilter = AgentFilter'
-  { agentHealths :: [AgentHealth],
+  { -- | The current health state of the agent. Values can be set to __HEALTHY__ or __UNHEALTHY__ .
+    agentHealths :: [AgentHealth],
+    -- | The detailed health state of the agent. Values can be set to __IDLE__ , __RUNNING__ , __SHUTDOWN__ , __UNHEALTHY__ , __THROTTLED__ , and __UNKNOWN__ .
     agentHealthCodes :: [AgentHealthCode]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AgentFilter' with the minimum fields required to make a request.
 --
--- * 'agentHealthCodes' - The detailed health state of the agent. Values can be set to __IDLE__ , __RUNNING__ , __SHUTDOWN__ , __UNHEALTHY__ , __THROTTLED__ , and __UNKNOWN__ .
 -- * 'agentHealths' - The current health state of the agent. Values can be set to __HEALTHY__ or __UNHEALTHY__ .
+-- * 'agentHealthCodes' - The detailed health state of the agent. Values can be set to __IDLE__ , __RUNNING__ , __SHUTDOWN__ , __UNHEALTHY__ , __THROTTLED__ , and __UNKNOWN__ .
 mkAgentFilter ::
   AgentFilter
 mkAgentFilter =

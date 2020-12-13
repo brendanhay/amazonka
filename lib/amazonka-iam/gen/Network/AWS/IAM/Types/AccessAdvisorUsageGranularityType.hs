@@ -13,8 +13,8 @@
 module Network.AWS.IAM.Types.AccessAdvisorUsageGranularityType
   ( AccessAdvisorUsageGranularityType
       ( AccessAdvisorUsageGranularityType',
-        ActionLevel,
-        ServiceLevel
+        ServiceLevel,
+        ActionLevel
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AccessAdvisorUsageGranularityType = AccessAdvisorUsageGranularityType' L
       Lude.ToHeader
     )
 
-pattern ActionLevel :: AccessAdvisorUsageGranularityType
-pattern ActionLevel = AccessAdvisorUsageGranularityType' "ACTION_LEVEL"
-
 pattern ServiceLevel :: AccessAdvisorUsageGranularityType
 pattern ServiceLevel = AccessAdvisorUsageGranularityType' "SERVICE_LEVEL"
 
+pattern ActionLevel :: AccessAdvisorUsageGranularityType
+pattern ActionLevel = AccessAdvisorUsageGranularityType' "ACTION_LEVEL"
+
 {-# COMPLETE
-  ActionLevel,
   ServiceLevel,
+  ActionLevel,
   AccessAdvisorUsageGranularityType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,25 +45,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListDatastores' smart constructor.
 data ListDatastores = ListDatastores'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in this request.
+    --
+    -- The default value is 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDatastores' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of results.
 -- * 'maxResults' - The maximum number of results to return in this request.
 --
 -- The default value is 100.
--- * 'nextToken' - The token for the next set of results.
 mkListDatastores ::
   ListDatastores
 mkListDatastores =
@@ -121,25 +119,20 @@ instance Lude.ToQuery ListDatastores where
 
 -- | /See:/ 'mkListDatastoresResponse' smart constructor.
 data ListDatastoresResponse = ListDatastoresResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    datastoreSummaries ::
-      Lude.Maybe [DatastoreSummary],
+  { -- | The token to retrieve the next set of results, or @null@ if there are no more results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @DatastoreSummary@ objects.
+    datastoreSummaries :: Lude.Maybe [DatastoreSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDatastoresResponse' with the minimum fields required to make a request.
 --
--- * 'datastoreSummaries' - A list of @DatastoreSummary@ objects.
 -- * 'nextToken' - The token to retrieve the next set of results, or @null@ if there are no more results.
+-- * 'datastoreSummaries' - A list of @DatastoreSummary@ objects.
 -- * 'responseStatus' - The response status code.
 mkListDatastoresResponse ::
   -- | 'responseStatus'

@@ -40,38 +40,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeCoverage' smart constructor.
 data CodeCoverage = CodeCoverage'
-  { expired ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time that the tests were run.
+    expired :: Lude.Maybe Lude.Timestamp,
+    -- | The number of conditional branches that are not covered by your tests.
     branchesMissed :: Lude.Maybe Lude.Natural,
+    -- | The number of lines that are not covered by your tests.
     linesMissed :: Lude.Maybe Lude.Natural,
+    -- | The path of the test report file.
     filePath :: Lude.Maybe Lude.Text,
+    -- | The number of conditional branches that are covered by your tests.
     branchesCovered :: Lude.Maybe Lude.Natural,
+    -- | The number of lines that are covered by your tests.
     linesCovered :: Lude.Maybe Lude.Natural,
+    -- | The percentage of branches that are covered by your tests.
     branchCoveragePercentage :: Lude.Maybe Lude.Double,
+    -- | The identifier of the code coverage report.
     id :: Lude.Maybe Lude.Text,
+    -- | The percentage of lines that are covered by your tests.
     lineCoveragePercentage :: Lude.Maybe Lude.Double,
+    -- | The ARN of the report.
     reportARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeCoverage' with the minimum fields required to make a request.
 --
--- * 'branchCoveragePercentage' - The percentage of branches that are covered by your tests.
--- * 'branchesCovered' - The number of conditional branches that are covered by your tests.
--- * 'branchesMissed' - The number of conditional branches that are not covered by your tests.
 -- * 'expired' - The date and time that the tests were run.
+-- * 'branchesMissed' - The number of conditional branches that are not covered by your tests.
+-- * 'linesMissed' - The number of lines that are not covered by your tests.
 -- * 'filePath' - The path of the test report file.
+-- * 'branchesCovered' - The number of conditional branches that are covered by your tests.
+-- * 'linesCovered' - The number of lines that are covered by your tests.
+-- * 'branchCoveragePercentage' - The percentage of branches that are covered by your tests.
 -- * 'id' - The identifier of the code coverage report.
 -- * 'lineCoveragePercentage' - The percentage of lines that are covered by your tests.
--- * 'linesCovered' - The number of lines that are covered by your tests.
--- * 'linesMissed' - The number of lines that are not covered by your tests.
 -- * 'reportARN' - The ARN of the report.
 mkCodeCoverage ::
   CodeCoverage

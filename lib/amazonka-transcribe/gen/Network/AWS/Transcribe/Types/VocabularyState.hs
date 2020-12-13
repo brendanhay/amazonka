@@ -13,9 +13,9 @@
 module Network.AWS.Transcribe.Types.VocabularyState
   ( VocabularyState
       ( VocabularyState',
-        Failed,
         Pending,
-        Ready
+        Ready,
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype VocabularyState = VocabularyState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: VocabularyState
-pattern Failed = VocabularyState' "FAILED"
-
 pattern Pending :: VocabularyState
 pattern Pending = VocabularyState' "PENDING"
 
 pattern Ready :: VocabularyState
 pattern Ready = VocabularyState' "READY"
 
+pattern Failed :: VocabularyState
+pattern Failed = VocabularyState' "FAILED"
+
 {-# COMPLETE
-  Failed,
   Pending,
   Ready,
+  Failed,
   VocabularyState'
   #-}

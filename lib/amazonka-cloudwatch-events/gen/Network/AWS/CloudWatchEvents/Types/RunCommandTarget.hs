@@ -17,8 +17,8 @@ module Network.AWS.CloudWatchEvents.Types.RunCommandTarget
     mkRunCommandTarget,
 
     -- * Lenses
-    rctKey,
     rctValues,
+    rctKey,
   )
 where
 
@@ -29,37 +29,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRunCommandTarget' smart constructor.
 data RunCommandTarget = RunCommandTarget'
-  { key :: Lude.Text,
-    values :: Lude.NonEmpty Lude.Text
+  { -- | If @Key@ is @tag:@ /tag-key/ , @Values@ is a list of tag values. If @Key@ is @InstanceIds@ , @Values@ is a list of Amazon EC2 instance IDs.
+    values :: Lude.NonEmpty Lude.Text,
+    -- | Can be either @tag:@ /tag-key/ or @InstanceIds@ .
+    key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RunCommandTarget' with the minimum fields required to make a request.
 --
--- * 'key' - Can be either @tag:@ /tag-key/ or @InstanceIds@ .
 -- * 'values' - If @Key@ is @tag:@ /tag-key/ , @Values@ is a list of tag values. If @Key@ is @InstanceIds@ , @Values@ is a list of Amazon EC2 instance IDs.
+-- * 'key' - Can be either @tag:@ /tag-key/ or @InstanceIds@ .
 mkRunCommandTarget ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'values'
   Lude.NonEmpty Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   RunCommandTarget
-mkRunCommandTarget pKey_ pValues_ =
-  RunCommandTarget' {key = pKey_, values = pValues_}
-
--- | Can be either @tag:@ /tag-key/ or @InstanceIds@ .
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rctKey :: Lens.Lens' RunCommandTarget Lude.Text
-rctKey = Lens.lens (key :: RunCommandTarget -> Lude.Text) (\s a -> s {key = a} :: RunCommandTarget)
-{-# DEPRECATED rctKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkRunCommandTarget pValues_ pKey_ =
+  RunCommandTarget' {values = pValues_, key = pKey_}
 
 -- | If @Key@ is @tag:@ /tag-key/ , @Values@ is a list of tag values. If @Key@ is @InstanceIds@ , @Values@ is a list of Amazon EC2 instance IDs.
 --
@@ -68,20 +57,27 @@ rctValues :: Lens.Lens' RunCommandTarget (Lude.NonEmpty Lude.Text)
 rctValues = Lens.lens (values :: RunCommandTarget -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: RunCommandTarget)
 {-# DEPRECATED rctValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
+-- | Can be either @tag:@ /tag-key/ or @InstanceIds@ .
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rctKey :: Lens.Lens' RunCommandTarget Lude.Text
+rctKey = Lens.lens (key :: RunCommandTarget -> Lude.Text) (\s a -> s {key = a} :: RunCommandTarget)
+{-# DEPRECATED rctKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromJSON RunCommandTarget where
   parseJSON =
     Lude.withObject
       "RunCommandTarget"
       ( \x ->
           RunCommandTarget'
-            Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Values")
+            Lude.<$> (x Lude..: "Values") Lude.<*> (x Lude..: "Key")
       )
 
 instance Lude.ToJSON RunCommandTarget where
   toJSON RunCommandTarget' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Key" Lude..= key),
-            Lude.Just ("Values" Lude..= values)
+          [ Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Key" Lude..= key)
           ]
       )

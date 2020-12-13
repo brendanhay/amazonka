@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.TrafficMirrorFilterRuleField
   ( TrafficMirrorFilterRuleField
       ( TrafficMirrorFilterRuleField',
-        TMFRFDescription,
         TMFRFDestinationPortRange,
+        TMFRFSourcePortRange,
         TMFRFProtocol,
-        TMFRFSourcePortRange
+        TMFRFDescription
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TrafficMirrorFilterRuleField = TrafficMirrorFilterRuleField' Lude.Text
       Lude.ToHeader
     )
 
-pattern TMFRFDescription :: TrafficMirrorFilterRuleField
-pattern TMFRFDescription = TrafficMirrorFilterRuleField' "description"
-
 pattern TMFRFDestinationPortRange :: TrafficMirrorFilterRuleField
 pattern TMFRFDestinationPortRange = TrafficMirrorFilterRuleField' "destination-port-range"
-
-pattern TMFRFProtocol :: TrafficMirrorFilterRuleField
-pattern TMFRFProtocol = TrafficMirrorFilterRuleField' "protocol"
 
 pattern TMFRFSourcePortRange :: TrafficMirrorFilterRuleField
 pattern TMFRFSourcePortRange = TrafficMirrorFilterRuleField' "source-port-range"
 
+pattern TMFRFProtocol :: TrafficMirrorFilterRuleField
+pattern TMFRFProtocol = TrafficMirrorFilterRuleField' "protocol"
+
+pattern TMFRFDescription :: TrafficMirrorFilterRuleField
+pattern TMFRFDescription = TrafficMirrorFilterRuleField' "description"
+
 {-# COMPLETE
-  TMFRFDescription,
   TMFRFDestinationPortRange,
-  TMFRFProtocol,
   TMFRFSourcePortRange,
+  TMFRFProtocol,
+  TMFRFDescription,
   TrafficMirrorFilterRuleField'
   #-}

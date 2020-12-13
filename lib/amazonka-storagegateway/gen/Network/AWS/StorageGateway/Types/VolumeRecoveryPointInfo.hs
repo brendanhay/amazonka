@@ -31,27 +31,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeRecoveryPointInfo' smart constructor.
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
-  { volumeRecoveryPointTime ::
-      Lude.Maybe Lude.Text,
+  { -- | The time the recovery point was taken.
+    volumeRecoveryPointTime :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the volume target.
     volumeARN :: Lude.Maybe Lude.Text,
-    volumeSizeInBytes ::
-      Lude.Maybe Lude.Integer,
-    volumeUsageInBytes ::
-      Lude.Maybe Lude.Integer
+    -- | The size of the volume in bytes.
+    volumeSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The size of the data stored on the volume in bytes.
+    volumeUsageInBytes :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeRecoveryPointInfo' with the minimum fields required to make a request.
 --
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume target.
 -- * 'volumeRecoveryPointTime' - The time the recovery point was taken.
+-- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume target.
 -- * 'volumeSizeInBytes' - The size of the volume in bytes.
 -- * 'volumeUsageInBytes' - The size of the data stored on the volume in bytes.
 mkVolumeRecoveryPointInfo ::

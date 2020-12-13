@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,18 +48,17 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeCacheParameterGroups' smart constructor.
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
-  { cacheParameterGroupName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of a specific cache parameter group to return details for.
+    cacheParameterGroupName :: Lude.Maybe Lude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: minimum 20; maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheParameterGroups' with the minimum fields required to make a request.
@@ -150,22 +150,14 @@ instance Lude.ToQuery DescribeCacheParameterGroups where
 --
 -- /See:/ 'mkDescribeCacheParameterGroupsResponse' smart constructor.
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'
-  { cacheParameterGroups ::
-      Lude.Maybe
-        [CacheParameterGroup],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of cache parameter groups. Each element in the list contains detailed information about one cache parameter group.
+    cacheParameterGroups :: Lude.Maybe [CacheParameterGroup],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheParameterGroupsResponse' with the minimum fields required to make a request.

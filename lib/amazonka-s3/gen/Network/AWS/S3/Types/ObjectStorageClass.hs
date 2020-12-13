@@ -13,11 +13,11 @@
 module Network.AWS.S3.Types.ObjectStorageClass
   ( ObjectStorageClass
       ( ObjectStorageClass',
-        OSCGlacier,
-        OSCIntelligentTiering,
-        OSCReducedRedundancy,
         OSCStandard,
-        OSCStandardIA
+        OSCStandardIA,
+        OSCReducedRedundancy,
+        OSCGlacier,
+        OSCIntelligentTiering
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype ObjectStorageClass = ObjectStorageClass' Lude.Text
       Lude.ToHeader
     )
 
-pattern OSCGlacier :: ObjectStorageClass
-pattern OSCGlacier = ObjectStorageClass' "GLACIER"
-
-pattern OSCIntelligentTiering :: ObjectStorageClass
-pattern OSCIntelligentTiering = ObjectStorageClass' "INTELLIGENT_TIERING"
-
-pattern OSCReducedRedundancy :: ObjectStorageClass
-pattern OSCReducedRedundancy = ObjectStorageClass' "REDUCED_REDUNDANCY"
-
 pattern OSCStandard :: ObjectStorageClass
 pattern OSCStandard = ObjectStorageClass' "STANDARD"
 
 pattern OSCStandardIA :: ObjectStorageClass
 pattern OSCStandardIA = ObjectStorageClass' "STANDARD_IA"
 
+pattern OSCReducedRedundancy :: ObjectStorageClass
+pattern OSCReducedRedundancy = ObjectStorageClass' "REDUCED_REDUNDANCY"
+
+pattern OSCGlacier :: ObjectStorageClass
+pattern OSCGlacier = ObjectStorageClass' "GLACIER"
+
+pattern OSCIntelligentTiering :: ObjectStorageClass
+pattern OSCIntelligentTiering = ObjectStorageClass' "INTELLIGENT_TIERING"
+
 {-# COMPLETE
-  OSCGlacier,
-  OSCIntelligentTiering,
-  OSCReducedRedundancy,
   OSCStandard,
   OSCStandardIA,
+  OSCReducedRedundancy,
+  OSCGlacier,
+  OSCIntelligentTiering,
   ObjectStorageClass'
   #-}

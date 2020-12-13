@@ -14,9 +14,9 @@ module Network.AWS.EC2.Types.ListingStatus
   ( ListingStatus
       ( ListingStatus',
         LSActive,
+        LSPending,
         LSCancelled,
-        LSClosed,
-        LSPending
+        LSClosed
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype ListingStatus = ListingStatus' Lude.Text
 pattern LSActive :: ListingStatus
 pattern LSActive = ListingStatus' "active"
 
+pattern LSPending :: ListingStatus
+pattern LSPending = ListingStatus' "pending"
+
 pattern LSCancelled :: ListingStatus
 pattern LSCancelled = ListingStatus' "cancelled"
 
 pattern LSClosed :: ListingStatus
 pattern LSClosed = ListingStatus' "closed"
 
-pattern LSPending :: ListingStatus
-pattern LSPending = ListingStatus' "pending"
-
 {-# COMPLETE
   LSActive,
+  LSPending,
   LSCancelled,
   LSClosed,
-  LSPending,
   ListingStatus'
   #-}

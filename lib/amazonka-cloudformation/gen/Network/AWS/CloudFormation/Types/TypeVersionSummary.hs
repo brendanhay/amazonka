@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTypeVersionSummary' smart constructor.
 data TypeVersionSummary = TypeVersionSummary'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The name of the type.
     typeName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the type version.
     arn :: Lude.Maybe Lude.Text,
+    -- | When the version was registered.
     timeCreated :: Lude.Maybe Lude.DateTime,
+    -- | The kind of type.
     type' :: Lude.Maybe RegistryType,
+    -- | Whether the specified type version is set as the default version.
     isDefaultVersion :: Lude.Maybe Lude.Bool,
+    -- | The description of the type version.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypeVersionSummary' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
+-- * 'typeName' - The name of the type.
 -- * 'arn' - The Amazon Resource Name (ARN) of the type version.
--- * 'description' - The description of the type version.
--- * 'isDefaultVersion' - Whether the specified type version is set as the default version.
 -- * 'timeCreated' - When the version was registered.
 -- * 'type'' - The kind of type.
--- * 'typeName' - The name of the type.
--- * 'versionId' - The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
+-- * 'isDefaultVersion' - Whether the specified type version is set as the default version.
+-- * 'description' - The description of the type version.
 mkTypeVersionSummary ::
   TypeVersionSummary
 mkTypeVersionSummary =

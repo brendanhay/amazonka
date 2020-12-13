@@ -17,16 +17,16 @@ module Network.AWS.IoT.Types.DynamoDBAction
     mkDynamoDBAction,
 
     -- * Lenses
+    ddbaHashKeyField,
     ddbaHashKeyType,
     ddbaOperation,
     ddbaRangeKeyType,
     ddbaPayloadField,
     ddbaRangeKeyField,
     ddbaRangeKeyValue,
+    ddbaHashKeyValue,
     ddbaTableName,
     ddbaRoleARN,
-    ddbaHashKeyField,
-    ddbaHashKeyValue,
   )
 where
 
@@ -45,66 +45,76 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDynamoDBAction' smart constructor.
 data DynamoDBAction = DynamoDBAction'
-  { hashKeyType ::
-      Lude.Maybe DynamoKeyType,
-    operation :: Lude.Maybe Lude.Text,
-    rangeKeyType :: Lude.Maybe DynamoKeyType,
-    payloadField :: Lude.Maybe Lude.Text,
-    rangeKeyField :: Lude.Maybe Lude.Text,
-    rangeKeyValue :: Lude.Maybe Lude.Text,
-    tableName :: Lude.Text,
-    roleARN :: Lude.Text,
+  { -- | The hash key name.
     hashKeyField :: Lude.Text,
-    hashKeyValue :: Lude.Text
+    -- | The hash key type. Valid values are "STRING" or "NUMBER"
+    hashKeyType :: Lude.Maybe DynamoKeyType,
+    -- | The type of operation to be performed. This follows the substitution template, so it can be @> {operation}@ , but the substitution must result in one of the following: @INSERT@ , @UPDATE@ , or @DELETE@ .
+    operation :: Lude.Maybe Lude.Text,
+    -- | The range key type. Valid values are "STRING" or "NUMBER"
+    rangeKeyType :: Lude.Maybe DynamoKeyType,
+    -- | The action payload. This name can be customized.
+    payloadField :: Lude.Maybe Lude.Text,
+    -- | The range key name.
+    rangeKeyField :: Lude.Maybe Lude.Text,
+    -- | The range key value.
+    rangeKeyValue :: Lude.Maybe Lude.Text,
+    -- | The hash key value.
+    hashKeyValue :: Lude.Text,
+    -- | The name of the DynamoDB table.
+    tableName :: Lude.Text,
+    -- | The ARN of the IAM role that grants access to the DynamoDB table.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DynamoDBAction' with the minimum fields required to make a request.
 --
 -- * 'hashKeyField' - The hash key name.
 -- * 'hashKeyType' - The hash key type. Valid values are "STRING" or "NUMBER"
--- * 'hashKeyValue' - The hash key value.
 -- * 'operation' - The type of operation to be performed. This follows the substitution template, so it can be @> {operation}@ , but the substitution must result in one of the following: @INSERT@ , @UPDATE@ , or @DELETE@ .
+-- * 'rangeKeyType' - The range key type. Valid values are "STRING" or "NUMBER"
 -- * 'payloadField' - The action payload. This name can be customized.
 -- * 'rangeKeyField' - The range key name.
--- * 'rangeKeyType' - The range key type. Valid values are "STRING" or "NUMBER"
 -- * 'rangeKeyValue' - The range key value.
--- * 'roleARN' - The ARN of the IAM role that grants access to the DynamoDB table.
+-- * 'hashKeyValue' - The hash key value.
 -- * 'tableName' - The name of the DynamoDB table.
+-- * 'roleARN' - The ARN of the IAM role that grants access to the DynamoDB table.
 mkDynamoDBAction ::
-  -- | 'tableName'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'hashKeyField'
   Lude.Text ->
   -- | 'hashKeyValue'
   Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   DynamoDBAction
 mkDynamoDBAction
-  pTableName_
-  pRoleARN_
   pHashKeyField_
-  pHashKeyValue_ =
+  pHashKeyValue_
+  pTableName_
+  pRoleARN_ =
     DynamoDBAction'
-      { hashKeyType = Lude.Nothing,
+      { hashKeyField = pHashKeyField_,
+        hashKeyType = Lude.Nothing,
         operation = Lude.Nothing,
         rangeKeyType = Lude.Nothing,
         payloadField = Lude.Nothing,
         rangeKeyField = Lude.Nothing,
         rangeKeyValue = Lude.Nothing,
+        hashKeyValue = pHashKeyValue_,
         tableName = pTableName_,
-        roleARN = pRoleARN_,
-        hashKeyField = pHashKeyField_,
-        hashKeyValue = pHashKeyValue_
+        roleARN = pRoleARN_
       }
+
+-- | The hash key name.
+--
+-- /Note:/ Consider using 'hashKeyField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbaHashKeyField :: Lens.Lens' DynamoDBAction Lude.Text
+ddbaHashKeyField = Lens.lens (hashKeyField :: DynamoDBAction -> Lude.Text) (\s a -> s {hashKeyField = a} :: DynamoDBAction)
+{-# DEPRECATED ddbaHashKeyField "Use generic-lens or generic-optics with 'hashKeyField' instead." #-}
 
 -- | The hash key type. Valid values are "STRING" or "NUMBER"
 --
@@ -148,6 +158,13 @@ ddbaRangeKeyValue :: Lens.Lens' DynamoDBAction (Lude.Maybe Lude.Text)
 ddbaRangeKeyValue = Lens.lens (rangeKeyValue :: DynamoDBAction -> Lude.Maybe Lude.Text) (\s a -> s {rangeKeyValue = a} :: DynamoDBAction)
 {-# DEPRECATED ddbaRangeKeyValue "Use generic-lens or generic-optics with 'rangeKeyValue' instead." #-}
 
+-- | The hash key value.
+--
+-- /Note:/ Consider using 'hashKeyValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbaHashKeyValue :: Lens.Lens' DynamoDBAction Lude.Text
+ddbaHashKeyValue = Lens.lens (hashKeyValue :: DynamoDBAction -> Lude.Text) (\s a -> s {hashKeyValue = a} :: DynamoDBAction)
+{-# DEPRECATED ddbaHashKeyValue "Use generic-lens or generic-optics with 'hashKeyValue' instead." #-}
+
 -- | The name of the DynamoDB table.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -162,51 +179,37 @@ ddbaRoleARN :: Lens.Lens' DynamoDBAction Lude.Text
 ddbaRoleARN = Lens.lens (roleARN :: DynamoDBAction -> Lude.Text) (\s a -> s {roleARN = a} :: DynamoDBAction)
 {-# DEPRECATED ddbaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | The hash key name.
---
--- /Note:/ Consider using 'hashKeyField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbaHashKeyField :: Lens.Lens' DynamoDBAction Lude.Text
-ddbaHashKeyField = Lens.lens (hashKeyField :: DynamoDBAction -> Lude.Text) (\s a -> s {hashKeyField = a} :: DynamoDBAction)
-{-# DEPRECATED ddbaHashKeyField "Use generic-lens or generic-optics with 'hashKeyField' instead." #-}
-
--- | The hash key value.
---
--- /Note:/ Consider using 'hashKeyValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbaHashKeyValue :: Lens.Lens' DynamoDBAction Lude.Text
-ddbaHashKeyValue = Lens.lens (hashKeyValue :: DynamoDBAction -> Lude.Text) (\s a -> s {hashKeyValue = a} :: DynamoDBAction)
-{-# DEPRECATED ddbaHashKeyValue "Use generic-lens or generic-optics with 'hashKeyValue' instead." #-}
-
 instance Lude.FromJSON DynamoDBAction where
   parseJSON =
     Lude.withObject
       "DynamoDBAction"
       ( \x ->
           DynamoDBAction'
-            Lude.<$> (x Lude..:? "hashKeyType")
+            Lude.<$> (x Lude..: "hashKeyField")
+            Lude.<*> (x Lude..:? "hashKeyType")
             Lude.<*> (x Lude..:? "operation")
             Lude.<*> (x Lude..:? "rangeKeyType")
             Lude.<*> (x Lude..:? "payloadField")
             Lude.<*> (x Lude..:? "rangeKeyField")
             Lude.<*> (x Lude..:? "rangeKeyValue")
+            Lude.<*> (x Lude..: "hashKeyValue")
             Lude.<*> (x Lude..: "tableName")
             Lude.<*> (x Lude..: "roleArn")
-            Lude.<*> (x Lude..: "hashKeyField")
-            Lude.<*> (x Lude..: "hashKeyValue")
       )
 
 instance Lude.ToJSON DynamoDBAction where
   toJSON DynamoDBAction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("hashKeyType" Lude..=) Lude.<$> hashKeyType,
+          [ Lude.Just ("hashKeyField" Lude..= hashKeyField),
+            ("hashKeyType" Lude..=) Lude.<$> hashKeyType,
             ("operation" Lude..=) Lude.<$> operation,
             ("rangeKeyType" Lude..=) Lude.<$> rangeKeyType,
             ("payloadField" Lude..=) Lude.<$> payloadField,
             ("rangeKeyField" Lude..=) Lude.<$> rangeKeyField,
             ("rangeKeyValue" Lude..=) Lude.<$> rangeKeyValue,
+            Lude.Just ("hashKeyValue" Lude..= hashKeyValue),
             Lude.Just ("tableName" Lude..= tableName),
-            Lude.Just ("roleArn" Lude..= roleARN),
-            Lude.Just ("hashKeyField" Lude..= hashKeyField),
-            Lude.Just ("hashKeyValue" Lude..= hashKeyValue)
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

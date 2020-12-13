@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,23 +28,23 @@ module Network.AWS.Lambda.CreateFunction
 
     -- ** Request lenses
     cfMemorySize,
+    cfRuntime,
     cfKMSKeyARN,
     cfFileSystemConfigs,
     cfEnvironment,
     cfDeadLetterConfig,
     cfCodeSigningConfigARN,
+    cfRole,
     cfVPCConfig,
+    cfFunctionName,
+    cfCode,
     cfLayers,
+    cfHandler,
     cfTimeout,
     cfTracingConfig,
     cfDescription,
     cfTags,
     cfPublish,
-    cfFunctionName,
-    cfRuntime,
-    cfRole,
-    cfHandler,
-    cfCode,
 
     -- * Destructuring the response
     FunctionConfiguration (..),
@@ -90,37 +91,70 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateFunction' smart constructor.
 data CreateFunction = CreateFunction'
-  { memorySize ::
-      Lude.Maybe Lude.Natural,
-    kmsKeyARN :: Lude.Maybe Lude.Text,
-    fileSystemConfigs :: Lude.Maybe [FileSystemConfig],
-    environment :: Lude.Maybe Environment,
-    deadLetterConfig :: Lude.Maybe DeadLetterConfig,
-    codeSigningConfigARN :: Lude.Maybe Lude.Text,
-    vpcConfig :: Lude.Maybe VPCConfig,
-    layers :: Lude.Maybe [Lude.Text],
-    timeout :: Lude.Maybe Lude.Natural,
-    tracingConfig :: Lude.Maybe TracingConfig,
-    description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    publish :: Lude.Maybe Lude.Bool,
-    functionName :: Lude.Text,
+  { -- | The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+    memorySize :: Lude.Maybe Lude.Natural,
+    -- | The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
     runtime :: Runtime,
+    -- | The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+    kmsKeyARN :: Lude.Maybe Lude.Text,
+    -- | Connection settings for an Amazon EFS file system.
+    fileSystemConfigs :: Lude.Maybe [FileSystemConfig],
+    -- | Environment variables that are accessible from function code during execution.
+    environment :: Lude.Maybe Environment,
+    -- | A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
+    deadLetterConfig :: Lude.Maybe DeadLetterConfig,
+    -- | To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.
+    codeSigningConfigARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the function's execution role.
     role' :: Lude.Text,
+    -- | For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
+    vpcConfig :: Lude.Maybe VPCConfig,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | The code for the function.
+    code :: FunctionCode,
+    -- | A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
+    layers :: Lude.Maybe [Lude.Text],
+    -- | The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
     handler :: Lude.Text,
-    code :: FunctionCode
+    -- | The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+    timeout :: Lude.Maybe Lude.Natural,
+    -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
+    tracingConfig :: Lude.Maybe TracingConfig,
+    -- | A description of the function.
+    description :: Lude.Maybe Lude.Text,
+    -- | A list of <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to apply to the function.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Set to true to publish the first version of the function during creation.
+    publish :: Lude.Maybe Lude.Bool
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFunction' with the minimum fields required to make a request.
 --
--- * 'code' - The code for the function.
--- * 'codeSigningConfigARN' - To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.
--- * 'deadLetterConfig' - A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
--- * 'description' - A description of the function.
--- * 'environment' - Environment variables that are accessible from function code during execution.
+-- * 'memorySize' - The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+-- * 'runtime' - The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
+-- * 'kmsKeyARN' - The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 -- * 'fileSystemConfigs' - Connection settings for an Amazon EFS file system.
+-- * 'environment' - Environment variables that are accessible from function code during execution.
+-- * 'deadLetterConfig' - A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
+-- * 'codeSigningConfigARN' - To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.
+-- * 'role'' - The Amazon Resource Name (ARN) of the function's execution role.
+-- * 'vpcConfig' - For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -135,49 +169,46 @@ data CreateFunction = CreateFunction'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'handler' - The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
--- * 'kmsKeyARN' - The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+-- * 'code' - The code for the function.
 -- * 'layers' - A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
--- * 'memorySize' - The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
--- * 'publish' - Set to true to publish the first version of the function during creation.
--- * 'role'' - The Amazon Resource Name (ARN) of the function's execution role.
--- * 'runtime' - The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
--- * 'tags' - A list of <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to apply to the function.
+-- * 'handler' - The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
 -- * 'timeout' - The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
 -- * 'tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
--- * 'vpcConfig' - For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
+-- * 'description' - A description of the function.
+-- * 'tags' - A list of <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to apply to the function.
+-- * 'publish' - Set to true to publish the first version of the function during creation.
 mkCreateFunction ::
-  -- | 'functionName'
-  Lude.Text ->
   -- | 'runtime'
   Runtime ->
   -- | 'role''
   Lude.Text ->
-  -- | 'handler'
+  -- | 'functionName'
   Lude.Text ->
   -- | 'code'
   FunctionCode ->
+  -- | 'handler'
+  Lude.Text ->
   CreateFunction
-mkCreateFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
+mkCreateFunction pRuntime_ pRole_ pFunctionName_ pCode_ pHandler_ =
   CreateFunction'
     { memorySize = Lude.Nothing,
+      runtime = pRuntime_,
       kmsKeyARN = Lude.Nothing,
       fileSystemConfigs = Lude.Nothing,
       environment = Lude.Nothing,
       deadLetterConfig = Lude.Nothing,
       codeSigningConfigARN = Lude.Nothing,
+      role' = pRole_,
       vpcConfig = Lude.Nothing,
+      functionName = pFunctionName_,
+      code = pCode_,
       layers = Lude.Nothing,
+      handler = pHandler_,
       timeout = Lude.Nothing,
       tracingConfig = Lude.Nothing,
       description = Lude.Nothing,
       tags = Lude.Nothing,
-      publish = Lude.Nothing,
-      functionName = pFunctionName_,
-      runtime = pRuntime_,
-      role' = pRole_,
-      handler = pHandler_,
-      code = pCode_
+      publish = Lude.Nothing
     }
 
 -- | The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
@@ -186,6 +217,13 @@ mkCreateFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
 cfMemorySize :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Natural)
 cfMemorySize = Lens.lens (memorySize :: CreateFunction -> Lude.Maybe Lude.Natural) (\s a -> s {memorySize = a} :: CreateFunction)
 {-# DEPRECATED cfMemorySize "Use generic-lens or generic-optics with 'memorySize' instead." #-}
+
+-- | The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
+--
+-- /Note:/ Consider using 'runtime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfRuntime :: Lens.Lens' CreateFunction Runtime
+cfRuntime = Lens.lens (runtime :: CreateFunction -> Runtime) (\s a -> s {runtime = a} :: CreateFunction)
+{-# DEPRECATED cfRuntime "Use generic-lens or generic-optics with 'runtime' instead." #-}
 
 -- | The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 --
@@ -222,6 +260,13 @@ cfCodeSigningConfigARN :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Text)
 cfCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: CreateFunction -> Lude.Maybe Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: CreateFunction)
 {-# DEPRECATED cfCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
+-- | The Amazon Resource Name (ARN) of the function's execution role.
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfRole :: Lens.Lens' CreateFunction Lude.Text
+cfRole = Lens.lens (role' :: CreateFunction -> Lude.Text) (\s a -> s {role' = a} :: CreateFunction)
+{-# DEPRECATED cfRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+
 -- | For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
 --
 -- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -229,12 +274,46 @@ cfVPCConfig :: Lens.Lens' CreateFunction (Lude.Maybe VPCConfig)
 cfVPCConfig = Lens.lens (vpcConfig :: CreateFunction -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: CreateFunction)
 {-# DEPRECATED cfVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfFunctionName :: Lens.Lens' CreateFunction Lude.Text
+cfFunctionName = Lens.lens (functionName :: CreateFunction -> Lude.Text) (\s a -> s {functionName = a} :: CreateFunction)
+{-# DEPRECATED cfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+
+-- | The code for the function.
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfCode :: Lens.Lens' CreateFunction FunctionCode
+cfCode = Lens.lens (code :: CreateFunction -> FunctionCode) (\s a -> s {code = a} :: CreateFunction)
+{-# DEPRECATED cfCode "Use generic-lens or generic-optics with 'code' instead." #-}
+
 -- | A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
 --
 -- /Note:/ Consider using 'layers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cfLayers :: Lens.Lens' CreateFunction (Lude.Maybe [Lude.Text])
 cfLayers = Lens.lens (layers :: CreateFunction -> Lude.Maybe [Lude.Text]) (\s a -> s {layers = a} :: CreateFunction)
 {-# DEPRECATED cfLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
+
+-- | The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
+--
+-- /Note:/ Consider using 'handler' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfHandler :: Lens.Lens' CreateFunction Lude.Text
+cfHandler = Lens.lens (handler :: CreateFunction -> Lude.Text) (\s a -> s {handler = a} :: CreateFunction)
+{-# DEPRECATED cfHandler "Use generic-lens or generic-optics with 'handler' instead." #-}
 
 -- | The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
 --
@@ -271,54 +350,6 @@ cfPublish :: Lens.Lens' CreateFunction (Lude.Maybe Lude.Bool)
 cfPublish = Lens.lens (publish :: CreateFunction -> Lude.Maybe Lude.Bool) (\s a -> s {publish = a} :: CreateFunction)
 {-# DEPRECATED cfPublish "Use generic-lens or generic-optics with 'publish' instead." #-}
 
--- | The name of the Lambda function.
---
--- __Name formats__
---
---     * __Function name__ - @my-function@ .
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
---
---
---     * __Partial ARN__ - @123456789012:function:my-function@ .
---
---
--- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
---
--- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfFunctionName :: Lens.Lens' CreateFunction Lude.Text
-cfFunctionName = Lens.lens (functionName :: CreateFunction -> Lude.Text) (\s a -> s {functionName = a} :: CreateFunction)
-{-# DEPRECATED cfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
-
--- | The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
---
--- /Note:/ Consider using 'runtime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfRuntime :: Lens.Lens' CreateFunction Runtime
-cfRuntime = Lens.lens (runtime :: CreateFunction -> Runtime) (\s a -> s {runtime = a} :: CreateFunction)
-{-# DEPRECATED cfRuntime "Use generic-lens or generic-optics with 'runtime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the function's execution role.
---
--- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfRole :: Lens.Lens' CreateFunction Lude.Text
-cfRole = Lens.lens (role' :: CreateFunction -> Lude.Text) (\s a -> s {role' = a} :: CreateFunction)
-{-# DEPRECATED cfRole "Use generic-lens or generic-optics with 'role'' instead." #-}
-
--- | The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
---
--- /Note:/ Consider using 'handler' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfHandler :: Lens.Lens' CreateFunction Lude.Text
-cfHandler = Lens.lens (handler :: CreateFunction -> Lude.Text) (\s a -> s {handler = a} :: CreateFunction)
-{-# DEPRECATED cfHandler "Use generic-lens or generic-optics with 'handler' instead." #-}
-
--- | The code for the function.
---
--- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfCode :: Lens.Lens' CreateFunction FunctionCode
-cfCode = Lens.lens (code :: CreateFunction -> FunctionCode) (\s a -> s {code = a} :: CreateFunction)
-{-# DEPRECATED cfCode "Use generic-lens or generic-optics with 'code' instead." #-}
-
 instance Lude.AWSRequest CreateFunction where
   type Rs CreateFunction = FunctionConfiguration
   request = Req.postJSON lambdaService
@@ -332,23 +363,23 @@ instance Lude.ToJSON CreateFunction where
     Lude.object
       ( Lude.catMaybes
           [ ("MemorySize" Lude..=) Lude.<$> memorySize,
+            Lude.Just ("Runtime" Lude..= runtime),
             ("KMSKeyArn" Lude..=) Lude.<$> kmsKeyARN,
             ("FileSystemConfigs" Lude..=) Lude.<$> fileSystemConfigs,
             ("Environment" Lude..=) Lude.<$> environment,
             ("DeadLetterConfig" Lude..=) Lude.<$> deadLetterConfig,
             ("CodeSigningConfigArn" Lude..=) Lude.<$> codeSigningConfigARN,
+            Lude.Just ("Role" Lude..= role'),
             ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+            Lude.Just ("FunctionName" Lude..= functionName),
+            Lude.Just ("Code" Lude..= code),
             ("Layers" Lude..=) Lude.<$> layers,
+            Lude.Just ("Handler" Lude..= handler),
             ("Timeout" Lude..=) Lude.<$> timeout,
             ("TracingConfig" Lude..=) Lude.<$> tracingConfig,
             ("Description" Lude..=) Lude.<$> description,
             ("Tags" Lude..=) Lude.<$> tags,
-            ("Publish" Lude..=) Lude.<$> publish,
-            Lude.Just ("FunctionName" Lude..= functionName),
-            Lude.Just ("Runtime" Lude..= runtime),
-            Lude.Just ("Role" Lude..= role'),
-            Lude.Just ("Handler" Lude..= handler),
-            Lude.Just ("Code" Lude..= code)
+            ("Publish" Lude..=) Lude.<$> publish
           ]
       )
 

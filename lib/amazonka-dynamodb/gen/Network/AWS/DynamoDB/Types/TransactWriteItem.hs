@@ -35,26 +35,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransactWriteItem' smart constructor.
 data TransactWriteItem = TransactWriteItem'
-  { conditionCheck ::
-      Lude.Maybe ConditionCheck,
+  { -- | A request to perform a check item operation.
+    conditionCheck :: Lude.Maybe ConditionCheck,
+    -- | A request to perform a @PutItem@ operation.
     put :: Lude.Maybe Put,
+    -- | A request to perform a @DeleteItem@ operation.
     delete :: Lude.Maybe Delete,
+    -- | A request to perform an @UpdateItem@ operation.
     update :: Lude.Maybe Update
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransactWriteItem' with the minimum fields required to make a request.
 --
 -- * 'conditionCheck' - A request to perform a check item operation.
--- * 'delete' - A request to perform a @DeleteItem@ operation.
 -- * 'put' - A request to perform a @PutItem@ operation.
+-- * 'delete' - A request to perform a @DeleteItem@ operation.
 -- * 'update' - A request to perform an @UpdateItem@ operation.
 mkTransactWriteItem ::
   TransactWriteItem

@@ -32,11 +32,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSybaseSettings' smart constructor.
 data SybaseSettings = SybaseSettings'
-  { serverName ::
-      Lude.Maybe Lude.Text,
+  { -- | Fully qualified domain name of the endpoint.
+    serverName :: Lude.Maybe Lude.Text,
+    -- | Endpoint connection user name.
     username :: Lude.Maybe Lude.Text,
+    -- | Endpoint connection password.
     password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Database name for the endpoint.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | Endpoint TCP port.
     port :: Lude.Maybe Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -44,11 +48,11 @@ data SybaseSettings = SybaseSettings'
 
 -- | Creates a value of 'SybaseSettings' with the minimum fields required to make a request.
 --
--- * 'databaseName' - Database name for the endpoint.
--- * 'password' - Endpoint connection password.
--- * 'port' - Endpoint TCP port.
 -- * 'serverName' - Fully qualified domain name of the endpoint.
 -- * 'username' - Endpoint connection user name.
+-- * 'password' - Endpoint connection password.
+-- * 'databaseName' - Database name for the endpoint.
+-- * 'port' - Endpoint TCP port.
 mkSybaseSettings ::
   SybaseSettings
 mkSybaseSettings =

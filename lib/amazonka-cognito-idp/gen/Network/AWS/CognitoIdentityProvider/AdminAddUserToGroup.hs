@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,9 +40,11 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAdminAddUserToGroup' smart constructor.
 data AdminAddUserToGroup = AdminAddUserToGroup'
-  { userPoolId ::
-      Lude.Text,
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Lude.Text,
+    -- | The username for the user.
     username :: Lude.Sensitive Lude.Text,
+    -- | The group name.
     groupName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -49,9 +52,9 @@ data AdminAddUserToGroup = AdminAddUserToGroup'
 
 -- | Creates a value of 'AdminAddUserToGroup' with the minimum fields required to make a request.
 --
--- * 'groupName' - The group name.
 -- * 'userPoolId' - The user pool ID for the user pool.
 -- * 'username' - The username for the user.
+-- * 'groupName' - The group name.
 mkAdminAddUserToGroup ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -124,13 +127,7 @@ instance Lude.ToQuery AdminAddUserToGroup where
 
 -- | /See:/ 'mkAdminAddUserToGroupResponse' smart constructor.
 data AdminAddUserToGroupResponse = AdminAddUserToGroupResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminAddUserToGroupResponse' with the minimum fields required to make a request.

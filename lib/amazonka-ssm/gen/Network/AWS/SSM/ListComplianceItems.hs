@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,26 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListComplianceItems' smart constructor.
 data ListComplianceItems = ListComplianceItems'
-  { resourceIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
+    resourceIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | One or more compliance filters. Use a filter to return a more specific list of results.
     filters :: Lude.Maybe [ComplianceStringFilter],
+    -- | A token to start the list. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural,
-    resourceTypes ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text)
+    -- | The type of resource from which to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
+    resourceTypes :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListComplianceItems' with the minimum fields required to make a request.
 --
--- * 'filters' - One or more compliance filters. Use a filter to return a more specific list of results.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
 -- * 'resourceIds' - The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
+-- * 'filters' - One or more compliance filters. Use a filter to return a more specific list of results.
+-- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'resourceTypes' - The type of resource from which to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
 mkListComplianceItems ::
   ListComplianceItems
@@ -169,18 +167,14 @@ instance Lude.ToQuery ListComplianceItems where
 
 -- | /See:/ 'mkListComplianceItemsResponse' smart constructor.
 data ListComplianceItemsResponse = ListComplianceItemsResponse'
-  { complianceItems ::
-      Lude.Maybe [ComplianceItem],
+  { -- | A list of compliance information for the specified resource ID.
+    complianceItems :: Lude.Maybe [ComplianceItem],
+    -- | The token for the next set of items to return. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListComplianceItemsResponse' with the minimum fields required to make a request.

@@ -14,8 +14,8 @@ module Network.AWS.SageMaker.Types.ImageSortBy
   ( ImageSortBy
       ( ImageSortBy',
         ISBCreationTime,
-        ISBImageName,
-        ISBLastModifiedTime
+        ISBLastModifiedTime,
+        ISBImageName
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ImageSortBy = ImageSortBy' Lude.Text
 pattern ISBCreationTime :: ImageSortBy
 pattern ISBCreationTime = ImageSortBy' "CREATION_TIME"
 
-pattern ISBImageName :: ImageSortBy
-pattern ISBImageName = ImageSortBy' "IMAGE_NAME"
-
 pattern ISBLastModifiedTime :: ImageSortBy
 pattern ISBLastModifiedTime = ImageSortBy' "LAST_MODIFIED_TIME"
 
+pattern ISBImageName :: ImageSortBy
+pattern ISBImageName = ImageSortBy' "IMAGE_NAME"
+
 {-# COMPLETE
   ISBCreationTime,
-  ISBImageName,
   ISBLastModifiedTime,
+  ISBImageName,
   ImageSortBy'
   #-}

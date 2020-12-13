@@ -31,12 +31,11 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'mkExecutionStartedEventDetails' smart constructor.
 data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
-  { inputDetails ::
-      Lude.Maybe
-        HistoryEventExecutionDataDetails,
-    input ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
+  { -- | Contains details about the input for an execution history event.
+    inputDetails :: Lude.Maybe HistoryEventExecutionDataDetails,
+    -- | The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.
     roleARN :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -44,8 +43,8 @@ data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
 
 -- | Creates a value of 'ExecutionStartedEventDetails' with the minimum fields required to make a request.
 --
--- * 'input' - The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 -- * 'inputDetails' - Contains details about the input for an execution history event.
+-- * 'input' - The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 -- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.
 mkExecutionStartedEventDetails ::
   ExecutionStartedEventDetails

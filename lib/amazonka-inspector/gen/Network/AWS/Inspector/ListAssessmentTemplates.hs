@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Inspector.ListAssessmentTemplates
     mkListAssessmentTemplates,
 
     -- ** Request lenses
-    latNextToken,
-    latFilter,
-    latMaxResults,
-    latAssessmentTargetARNs,
+    lNextToken,
+    lFilter,
+    lMaxResults,
+    lAssessmentTargetARNs,
 
     -- * Destructuring the response
     ListAssessmentTemplatesResponse (..),
@@ -32,8 +33,8 @@ module Network.AWS.Inspector.ListAssessmentTemplates
 
     -- ** Response lenses
     latrsNextToken,
-    latrsResponseStatus,
     latrsAssessmentTemplateARNs,
+    latrsResponseStatus,
   )
 where
 
@@ -46,31 +47,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAssessmentTemplates' smart constructor.
 data ListAssessmentTemplates = ListAssessmentTemplates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    filter ::
-      Lude.Maybe AssessmentTemplateFilter,
+  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTemplates__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | You can use this parameter to specify a subset of data to be included in the action's response.
+    --
+    -- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
+    filter :: Lude.Maybe AssessmentTemplateFilter,
+    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
     maxResults :: Lude.Maybe Lude.Int,
-    assessmentTargetARNs ::
-      Lude.Maybe [Lude.Text]
+    -- | A list of ARNs that specifies the assessment targets whose assessment templates you want to list.
+    assessmentTargetARNs :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssessmentTemplates' with the minimum fields required to make a request.
 --
--- * 'assessmentTargetARNs' - A list of ARNs that specifies the assessment targets whose assessment templates you want to list.
+-- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTemplates__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 -- * 'filter' - You can use this parameter to specify a subset of data to be included in the action's response.
 --
 -- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
 -- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTemplates__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+-- * 'assessmentTargetARNs' - A list of ARNs that specifies the assessment targets whose assessment templates you want to list.
 mkListAssessmentTemplates ::
   ListAssessmentTemplates
 mkListAssessmentTemplates =
@@ -84,32 +82,32 @@ mkListAssessmentTemplates =
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTemplates__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-latNextToken :: Lens.Lens' ListAssessmentTemplates (Lude.Maybe Lude.Text)
-latNextToken = Lens.lens (nextToken :: ListAssessmentTemplates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssessmentTemplates)
-{-# DEPRECATED latNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lNextToken :: Lens.Lens' ListAssessmentTemplates (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListAssessmentTemplates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssessmentTemplates)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | You can use this parameter to specify a subset of data to be included in the action's response.
 --
 -- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-latFilter :: Lens.Lens' ListAssessmentTemplates (Lude.Maybe AssessmentTemplateFilter)
-latFilter = Lens.lens (filter :: ListAssessmentTemplates -> Lude.Maybe AssessmentTemplateFilter) (\s a -> s {filter = a} :: ListAssessmentTemplates)
-{-# DEPRECATED latFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+lFilter :: Lens.Lens' ListAssessmentTemplates (Lude.Maybe AssessmentTemplateFilter)
+lFilter = Lens.lens (filter :: ListAssessmentTemplates -> Lude.Maybe AssessmentTemplateFilter) (\s a -> s {filter = a} :: ListAssessmentTemplates)
+{-# DEPRECATED lFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-latMaxResults :: Lens.Lens' ListAssessmentTemplates (Lude.Maybe Lude.Int)
-latMaxResults = Lens.lens (maxResults :: ListAssessmentTemplates -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListAssessmentTemplates)
-{-# DEPRECATED latMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lMaxResults :: Lens.Lens' ListAssessmentTemplates (Lude.Maybe Lude.Int)
+lMaxResults = Lens.lens (maxResults :: ListAssessmentTemplates -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListAssessmentTemplates)
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A list of ARNs that specifies the assessment targets whose assessment templates you want to list.
 --
 -- /Note:/ Consider using 'assessmentTargetARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-latAssessmentTargetARNs :: Lens.Lens' ListAssessmentTemplates (Lude.Maybe [Lude.Text])
-latAssessmentTargetARNs = Lens.lens (assessmentTargetARNs :: ListAssessmentTemplates -> Lude.Maybe [Lude.Text]) (\s a -> s {assessmentTargetARNs = a} :: ListAssessmentTemplates)
-{-# DEPRECATED latAssessmentTargetARNs "Use generic-lens or generic-optics with 'assessmentTargetARNs' instead." #-}
+lAssessmentTargetARNs :: Lens.Lens' ListAssessmentTemplates (Lude.Maybe [Lude.Text])
+lAssessmentTargetARNs = Lens.lens (assessmentTargetARNs :: ListAssessmentTemplates -> Lude.Maybe [Lude.Text]) (\s a -> s {assessmentTargetARNs = a} :: ListAssessmentTemplates)
+{-# DEPRECATED lAssessmentTargetARNs "Use generic-lens or generic-optics with 'assessmentTargetARNs' instead." #-}
 
 instance Page.AWSPager ListAssessmentTemplates where
   page rq rs
@@ -118,7 +116,7 @@ instance Page.AWSPager ListAssessmentTemplates where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& latNextToken Lens..~ rs Lens.^. latrsNextToken
+          Lude.& lNextToken Lens..~ rs Lens.^. latrsNextToken
 
 instance Lude.AWSRequest ListAssessmentTemplates where
   type Rs ListAssessmentTemplates = ListAssessmentTemplatesResponse
@@ -128,8 +126,8 @@ instance Lude.AWSRequest ListAssessmentTemplates where
       ( \s h x ->
           ListAssessmentTemplatesResponse'
             Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "assessmentTemplateArns" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListAssessmentTemplates where
@@ -162,25 +160,20 @@ instance Lude.ToQuery ListAssessmentTemplates where
 
 -- | /See:/ 'mkListAssessmentTemplatesResponse' smart constructor.
 data ListAssessmentTemplatesResponse = ListAssessmentTemplatesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    assessmentTemplateARNs ::
-      [Lude.Text]
+  { -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of ARNs that specifies the assessment templates returned by the action.
+    assessmentTemplateARNs :: [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssessmentTemplatesResponse' with the minimum fields required to make a request.
 --
--- * 'assessmentTemplateARNs' - A list of ARNs that specifies the assessment templates returned by the action.
 -- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+-- * 'assessmentTemplateARNs' - A list of ARNs that specifies the assessment templates returned by the action.
 -- * 'responseStatus' - The response status code.
 mkListAssessmentTemplatesResponse ::
   -- | 'responseStatus'
@@ -189,8 +182,8 @@ mkListAssessmentTemplatesResponse ::
 mkListAssessmentTemplatesResponse pResponseStatus_ =
   ListAssessmentTemplatesResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      assessmentTemplateARNs = Lude.mempty
+      assessmentTemplateARNs = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
@@ -200,16 +193,16 @@ latrsNextToken :: Lens.Lens' ListAssessmentTemplatesResponse (Lude.Maybe Lude.Te
 latrsNextToken = Lens.lens (nextToken :: ListAssessmentTemplatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssessmentTemplatesResponse)
 {-# DEPRECATED latrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-latrsResponseStatus :: Lens.Lens' ListAssessmentTemplatesResponse Lude.Int
-latrsResponseStatus = Lens.lens (responseStatus :: ListAssessmentTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssessmentTemplatesResponse)
-{-# DEPRECATED latrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of ARNs that specifies the assessment templates returned by the action.
 --
 -- /Note:/ Consider using 'assessmentTemplateARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 latrsAssessmentTemplateARNs :: Lens.Lens' ListAssessmentTemplatesResponse [Lude.Text]
 latrsAssessmentTemplateARNs = Lens.lens (assessmentTemplateARNs :: ListAssessmentTemplatesResponse -> [Lude.Text]) (\s a -> s {assessmentTemplateARNs = a} :: ListAssessmentTemplatesResponse)
 {-# DEPRECATED latrsAssessmentTemplateARNs "Use generic-lens or generic-optics with 'assessmentTemplateARNs' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latrsResponseStatus :: Lens.Lens' ListAssessmentTemplatesResponse Lude.Int
+latrsResponseStatus = Lens.lens (responseStatus :: ListAssessmentTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssessmentTemplatesResponse)
+{-# DEPRECATED latrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

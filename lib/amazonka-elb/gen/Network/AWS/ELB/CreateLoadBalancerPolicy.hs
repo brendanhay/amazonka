@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
 
     -- ** Request lenses
     clbpPolicyAttributes,
-    clbpLoadBalancerName,
     clbpPolicyName,
+    clbpLoadBalancerName,
     clbpPolicyTypeName,
 
     -- * Destructuring the response
@@ -45,43 +46,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateLoadBalancerPolicy' smart constructor.
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
-  { policyAttributes ::
-      Lude.Maybe [PolicyAttribute],
-    loadBalancerName :: Lude.Text,
+  { -- | The policy attributes.
+    policyAttributes :: Lude.Maybe [PolicyAttribute],
+    -- | The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.
     policyName :: Lude.Text,
+    -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text,
+    -- | The name of the base policy type. To get the list of policy types, use 'DescribeLoadBalancerPolicyTypes' .
     policyTypeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancerPolicy' with the minimum fields required to make a request.
 --
--- * 'loadBalancerName' - The name of the load balancer.
 -- * 'policyAttributes' - The policy attributes.
 -- * 'policyName' - The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.
+-- * 'loadBalancerName' - The name of the load balancer.
 -- * 'policyTypeName' - The name of the base policy type. To get the list of policy types, use 'DescribeLoadBalancerPolicyTypes' .
 mkCreateLoadBalancerPolicy ::
-  -- | 'loadBalancerName'
-  Lude.Text ->
   -- | 'policyName'
+  Lude.Text ->
+  -- | 'loadBalancerName'
   Lude.Text ->
   -- | 'policyTypeName'
   Lude.Text ->
   CreateLoadBalancerPolicy
 mkCreateLoadBalancerPolicy
-  pLoadBalancerName_
   pPolicyName_
+  pLoadBalancerName_
   pPolicyTypeName_ =
     CreateLoadBalancerPolicy'
       { policyAttributes = Lude.Nothing,
-        loadBalancerName = pLoadBalancerName_,
         policyName = pPolicyName_,
+        loadBalancerName = pLoadBalancerName_,
         policyTypeName = pPolicyTypeName_
       }
 
@@ -92,19 +90,19 @@ clbpPolicyAttributes :: Lens.Lens' CreateLoadBalancerPolicy (Lude.Maybe [PolicyA
 clbpPolicyAttributes = Lens.lens (policyAttributes :: CreateLoadBalancerPolicy -> Lude.Maybe [PolicyAttribute]) (\s a -> s {policyAttributes = a} :: CreateLoadBalancerPolicy)
 {-# DEPRECATED clbpPolicyAttributes "Use generic-lens or generic-optics with 'policyAttributes' instead." #-}
 
--- | The name of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbpLoadBalancerName :: Lens.Lens' CreateLoadBalancerPolicy Lude.Text
-clbpLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancerPolicy -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancerPolicy)
-{-# DEPRECATED clbpLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
-
 -- | The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 clbpPolicyName :: Lens.Lens' CreateLoadBalancerPolicy Lude.Text
 clbpPolicyName = Lens.lens (policyName :: CreateLoadBalancerPolicy -> Lude.Text) (\s a -> s {policyName = a} :: CreateLoadBalancerPolicy)
 {-# DEPRECATED clbpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | The name of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbpLoadBalancerName :: Lens.Lens' CreateLoadBalancerPolicy Lude.Text
+clbpLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancerPolicy -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancerPolicy)
+{-# DEPRECATED clbpLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The name of the base policy type. To get the list of policy types, use 'DescribeLoadBalancerPolicyTypes' .
 --
@@ -137,8 +135,8 @@ instance Lude.ToQuery CreateLoadBalancerPolicy where
         "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
         "PolicyAttributes"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> policyAttributes),
-        "LoadBalancerName" Lude.=: loadBalancerName,
         "PolicyName" Lude.=: policyName,
+        "LoadBalancerName" Lude.=: loadBalancerName,
         "PolicyTypeName" Lude.=: policyTypeName
       ]
 
@@ -146,16 +144,10 @@ instance Lude.ToQuery CreateLoadBalancerPolicy where
 --
 -- /See:/ 'mkCreateLoadBalancerPolicyResponse' smart constructor.
 newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancerPolicyResponse' with the minimum fields required to make a request.

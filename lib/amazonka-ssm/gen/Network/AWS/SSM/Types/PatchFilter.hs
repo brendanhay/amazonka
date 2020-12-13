@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.PatchFilter
     mkPatchFilter,
 
     -- * Lenses
-    pfKey,
     pfValues,
+    pfKey,
   )
 where
 
@@ -33,43 +33,34 @@ import Network.AWS.SSM.Types.PatchFilterKey
 --
 -- /See:/ 'mkPatchFilter' smart constructor.
 data PatchFilter = PatchFilter'
-  { key :: PatchFilterKey,
-    values :: Lude.NonEmpty Lude.Text
+  { -- | The value for the filter key.
+    --
+    -- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
+    values :: Lude.NonEmpty Lude.Text,
+    -- | The key for the filter.
+    --
+    -- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
+    key :: PatchFilterKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchFilter' with the minimum fields required to make a request.
 --
--- * 'key' - The key for the filter.
---
--- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
 -- * 'values' - The value for the filter key.
 --
 -- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
-mkPatchFilter ::
-  -- | 'key'
-  PatchFilterKey ->
-  -- | 'values'
-  Lude.NonEmpty Lude.Text ->
-  PatchFilter
-mkPatchFilter pKey_ pValues_ =
-  PatchFilter' {key = pKey_, values = pValues_}
-
--- | The key for the filter.
+-- * 'key' - The key for the filter.
 --
 -- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfKey :: Lens.Lens' PatchFilter PatchFilterKey
-pfKey = Lens.lens (key :: PatchFilter -> PatchFilterKey) (\s a -> s {key = a} :: PatchFilter)
-{-# DEPRECATED pfKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkPatchFilter ::
+  -- | 'values'
+  Lude.NonEmpty Lude.Text ->
+  -- | 'key'
+  PatchFilterKey ->
+  PatchFilter
+mkPatchFilter pValues_ pKey_ =
+  PatchFilter' {values = pValues_, key = pKey_}
 
 -- | The value for the filter key.
 --
@@ -80,20 +71,29 @@ pfValues :: Lens.Lens' PatchFilter (Lude.NonEmpty Lude.Text)
 pfValues = Lens.lens (values :: PatchFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: PatchFilter)
 {-# DEPRECATED pfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
+-- | The key for the filter.
+--
+-- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfKey :: Lens.Lens' PatchFilter PatchFilterKey
+pfKey = Lens.lens (key :: PatchFilter -> PatchFilterKey) (\s a -> s {key = a} :: PatchFilter)
+{-# DEPRECATED pfKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromJSON PatchFilter where
   parseJSON =
     Lude.withObject
       "PatchFilter"
       ( \x ->
           PatchFilter'
-            Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Values")
+            Lude.<$> (x Lude..: "Values") Lude.<*> (x Lude..: "Key")
       )
 
 instance Lude.ToJSON PatchFilter where
   toJSON PatchFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Key" Lude..= key),
-            Lude.Just ("Values" Lude..= values)
+          [ Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Key" Lude..= key)
           ]
       )

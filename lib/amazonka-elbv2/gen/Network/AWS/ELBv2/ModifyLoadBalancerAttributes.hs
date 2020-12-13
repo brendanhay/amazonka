@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,24 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-  { loadBalancerARN ::
-      Lude.Text,
-    attributes ::
-      [LoadBalancerAttribute]
+  { -- | The Amazon Resource Name (ARN) of the load balancer.
+    loadBalancerARN :: Lude.Text,
+    -- | The load balancer attributes.
+    attributes :: [LoadBalancerAttribute]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLoadBalancerAttributes' with the minimum fields required to make a request.
 --
--- * 'attributes' - The load balancer attributes.
 -- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
+-- * 'attributes' - The load balancer attributes.
 mkModifyLoadBalancerAttributes ::
   -- | 'loadBalancerARN'
   Lude.Text ->
@@ -119,19 +114,12 @@ instance Lude.ToQuery ModifyLoadBalancerAttributes where
 
 -- | /See:/ 'mkModifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-  { attributes ::
-      Lude.Maybe
-        [LoadBalancerAttribute],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the load balancer attributes.
+    attributes :: Lude.Maybe [LoadBalancerAttribute],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.

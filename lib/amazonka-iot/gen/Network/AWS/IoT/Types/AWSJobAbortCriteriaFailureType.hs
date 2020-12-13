@@ -13,10 +13,10 @@
 module Network.AWS.IoT.Types.AWSJobAbortCriteriaFailureType
   ( AWSJobAbortCriteriaFailureType
       ( AWSJobAbortCriteriaFailureType',
-        AJACFTAll,
         AJACFTFailed,
         AJACFTRejected,
-        AJACFTTimedOut
+        AJACFTTimedOut,
+        AJACFTAll
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype AWSJobAbortCriteriaFailureType = AWSJobAbortCriteriaFailureType' Lude.Te
       Lude.ToHeader
     )
 
-pattern AJACFTAll :: AWSJobAbortCriteriaFailureType
-pattern AJACFTAll = AWSJobAbortCriteriaFailureType' "ALL"
-
 pattern AJACFTFailed :: AWSJobAbortCriteriaFailureType
 pattern AJACFTFailed = AWSJobAbortCriteriaFailureType' "FAILED"
 
@@ -59,10 +56,13 @@ pattern AJACFTRejected = AWSJobAbortCriteriaFailureType' "REJECTED"
 pattern AJACFTTimedOut :: AWSJobAbortCriteriaFailureType
 pattern AJACFTTimedOut = AWSJobAbortCriteriaFailureType' "TIMED_OUT"
 
+pattern AJACFTAll :: AWSJobAbortCriteriaFailureType
+pattern AJACFTAll = AWSJobAbortCriteriaFailureType' "ALL"
+
 {-# COMPLETE
-  AJACFTAll,
   AJACFTFailed,
   AJACFTRejected,
   AJACFTTimedOut,
+  AJACFTAll,
   AWSJobAbortCriteriaFailureType'
   #-}

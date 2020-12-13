@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,31 +45,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPurchaseReservedElasticsearchInstanceOffering' smart constructor.
 data PurchaseReservedElasticsearchInstanceOffering = PurchaseReservedElasticsearchInstanceOffering'
-  { instanceCount ::
-      Lude.Maybe
-        Lude.Natural,
-    reservedElasticsearchInstanceOfferingId ::
-      Lude.Text,
-    reservationName ::
-      Lude.Text
+  { -- | The number of Elasticsearch instances to reserve.
+    instanceCount :: Lude.Maybe Lude.Natural,
+    -- | The ID of the reserved Elasticsearch instance offering to purchase.
+    reservedElasticsearchInstanceOfferingId :: Lude.Text,
+    -- | A customer-specified identifier to track this reservation.
+    reservationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseReservedElasticsearchInstanceOffering' with the minimum fields required to make a request.
 --
 -- * 'instanceCount' - The number of Elasticsearch instances to reserve.
--- * 'reservationName' - A customer-specified identifier to track this reservation.
 -- * 'reservedElasticsearchInstanceOfferingId' - The ID of the reserved Elasticsearch instance offering to purchase.
+-- * 'reservationName' - A customer-specified identifier to track this reservation.
 mkPurchaseReservedElasticsearchInstanceOffering ::
   -- | 'reservedElasticsearchInstanceOfferingId'
   Lude.Text ->
@@ -154,31 +145,20 @@ instance Lude.ToQuery PurchaseReservedElasticsearchInstanceOffering where
 --
 -- /See:/ 'mkPurchaseReservedElasticsearchInstanceOfferingResponse' smart constructor.
 data PurchaseReservedElasticsearchInstanceOfferingResponse = PurchaseReservedElasticsearchInstanceOfferingResponse'
-  { reservedElasticsearchInstanceId ::
-      Lude.Maybe
-        Lude.Text,
-    reservationName ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Details of the reserved Elasticsearch instance which was purchased.
+    reservedElasticsearchInstanceId :: Lude.Maybe Lude.Text,
+    -- | The customer-specified identifier used to track this reservation.
+    reservationName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseReservedElasticsearchInstanceOfferingResponse' with the minimum fields required to make a request.
 --
--- * 'reservationName' - The customer-specified identifier used to track this reservation.
 -- * 'reservedElasticsearchInstanceId' - Details of the reserved Elasticsearch instance which was purchased.
+-- * 'reservationName' - The customer-specified identifier used to track this reservation.
 -- * 'responseStatus' - The response status code.
 mkPurchaseReservedElasticsearchInstanceOfferingResponse ::
   -- | 'responseStatus'

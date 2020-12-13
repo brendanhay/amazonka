@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,12 +21,12 @@ module Network.AWS.MechanicalTurk.CreateHITType
 
     -- ** Request lenses
     chittAutoApprovalDelayInSeconds,
+    chittReward,
     chittKeywords,
     chittQualificationRequirements,
-    chittAssignmentDurationInSeconds,
-    chittReward,
     chittTitle,
     chittDescription,
+    chittAssignmentDurationInSeconds,
 
     -- * Destructuring the response
     CreateHITTypeResponse (..),
@@ -45,57 +46,56 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateHITType' smart constructor.
 data CreateHITType = CreateHITType'
-  { autoApprovalDelayInSeconds ::
-      Lude.Maybe Lude.Integer,
-    keywords :: Lude.Maybe Lude.Text,
-    qualificationRequirements ::
-      Lude.Maybe [QualificationRequirement],
-    assignmentDurationInSeconds :: Lude.Integer,
+  { -- | The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it.
+    autoApprovalDelayInSeconds :: Lude.Maybe Lude.Integer,
+    -- | The amount of money the Requester will pay a Worker for successfully completing the HIT.
     reward :: Lude.Text,
+    -- | One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs.
+    keywords :: Lude.Maybe Lude.Text,
+    -- | Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
+    qualificationRequirements :: Lude.Maybe [QualificationRequirement],
+    -- | The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned.
     title :: Lude.Text,
-    description :: Lude.Text
+    -- | A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it.
+    description :: Lude.Text,
+    -- | The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
+    assignmentDurationInSeconds :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHITType' with the minimum fields required to make a request.
 --
--- * 'assignmentDurationInSeconds' - The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
 -- * 'autoApprovalDelayInSeconds' - The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it.
--- * 'description' - A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it.
+-- * 'reward' - The amount of money the Requester will pay a Worker for successfully completing the HIT.
 -- * 'keywords' - One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs.
 -- * 'qualificationRequirements' - Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
--- * 'reward' - The amount of money the Requester will pay a Worker for successfully completing the HIT.
 -- * 'title' - The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned.
+-- * 'description' - A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it.
+-- * 'assignmentDurationInSeconds' - The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
 mkCreateHITType ::
-  -- | 'assignmentDurationInSeconds'
-  Lude.Integer ->
   -- | 'reward'
   Lude.Text ->
   -- | 'title'
   Lude.Text ->
   -- | 'description'
   Lude.Text ->
+  -- | 'assignmentDurationInSeconds'
+  Lude.Integer ->
   CreateHITType
 mkCreateHITType
-  pAssignmentDurationInSeconds_
   pReward_
   pTitle_
-  pDescription_ =
+  pDescription_
+  pAssignmentDurationInSeconds_ =
     CreateHITType'
       { autoApprovalDelayInSeconds = Lude.Nothing,
+        reward = pReward_,
         keywords = Lude.Nothing,
         qualificationRequirements = Lude.Nothing,
-        assignmentDurationInSeconds = pAssignmentDurationInSeconds_,
-        reward = pReward_,
         title = pTitle_,
-        description = pDescription_
+        description = pDescription_,
+        assignmentDurationInSeconds = pAssignmentDurationInSeconds_
       }
 
 -- | The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it.
@@ -104,6 +104,13 @@ mkCreateHITType
 chittAutoApprovalDelayInSeconds :: Lens.Lens' CreateHITType (Lude.Maybe Lude.Integer)
 chittAutoApprovalDelayInSeconds = Lens.lens (autoApprovalDelayInSeconds :: CreateHITType -> Lude.Maybe Lude.Integer) (\s a -> s {autoApprovalDelayInSeconds = a} :: CreateHITType)
 {-# DEPRECATED chittAutoApprovalDelayInSeconds "Use generic-lens or generic-optics with 'autoApprovalDelayInSeconds' instead." #-}
+
+-- | The amount of money the Requester will pay a Worker for successfully completing the HIT.
+--
+-- /Note:/ Consider using 'reward' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittReward :: Lens.Lens' CreateHITType Lude.Text
+chittReward = Lens.lens (reward :: CreateHITType -> Lude.Text) (\s a -> s {reward = a} :: CreateHITType)
+{-# DEPRECATED chittReward "Use generic-lens or generic-optics with 'reward' instead." #-}
 
 -- | One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs.
 --
@@ -119,20 +126,6 @@ chittQualificationRequirements :: Lens.Lens' CreateHITType (Lude.Maybe [Qualific
 chittQualificationRequirements = Lens.lens (qualificationRequirements :: CreateHITType -> Lude.Maybe [QualificationRequirement]) (\s a -> s {qualificationRequirements = a} :: CreateHITType)
 {-# DEPRECATED chittQualificationRequirements "Use generic-lens or generic-optics with 'qualificationRequirements' instead." #-}
 
--- | The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
---
--- /Note:/ Consider using 'assignmentDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chittAssignmentDurationInSeconds :: Lens.Lens' CreateHITType Lude.Integer
-chittAssignmentDurationInSeconds = Lens.lens (assignmentDurationInSeconds :: CreateHITType -> Lude.Integer) (\s a -> s {assignmentDurationInSeconds = a} :: CreateHITType)
-{-# DEPRECATED chittAssignmentDurationInSeconds "Use generic-lens or generic-optics with 'assignmentDurationInSeconds' instead." #-}
-
--- | The amount of money the Requester will pay a Worker for successfully completing the HIT.
---
--- /Note:/ Consider using 'reward' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chittReward :: Lens.Lens' CreateHITType Lude.Text
-chittReward = Lens.lens (reward :: CreateHITType -> Lude.Text) (\s a -> s {reward = a} :: CreateHITType)
-{-# DEPRECATED chittReward "Use generic-lens or generic-optics with 'reward' instead." #-}
-
 -- | The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned.
 --
 -- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -146,6 +139,13 @@ chittTitle = Lens.lens (title :: CreateHITType -> Lude.Text) (\s a -> s {title =
 chittDescription :: Lens.Lens' CreateHITType Lude.Text
 chittDescription = Lens.lens (description :: CreateHITType -> Lude.Text) (\s a -> s {description = a} :: CreateHITType)
 {-# DEPRECATED chittDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
+--
+-- /Note:/ Consider using 'assignmentDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittAssignmentDurationInSeconds :: Lens.Lens' CreateHITType Lude.Integer
+chittAssignmentDurationInSeconds = Lens.lens (assignmentDurationInSeconds :: CreateHITType -> Lude.Integer) (\s a -> s {assignmentDurationInSeconds = a} :: CreateHITType)
+{-# DEPRECATED chittAssignmentDurationInSeconds "Use generic-lens or generic-optics with 'assignmentDurationInSeconds' instead." #-}
 
 instance Lude.AWSRequest CreateHITType where
   type Rs CreateHITType = CreateHITTypeResponse
@@ -176,16 +176,16 @@ instance Lude.ToJSON CreateHITType where
       ( Lude.catMaybes
           [ ("AutoApprovalDelayInSeconds" Lude..=)
               Lude.<$> autoApprovalDelayInSeconds,
+            Lude.Just ("Reward" Lude..= reward),
             ("Keywords" Lude..=) Lude.<$> keywords,
             ("QualificationRequirements" Lude..=)
               Lude.<$> qualificationRequirements,
+            Lude.Just ("Title" Lude..= title),
+            Lude.Just ("Description" Lude..= description),
             Lude.Just
               ( "AssignmentDurationInSeconds"
                   Lude..= assignmentDurationInSeconds
-              ),
-            Lude.Just ("Reward" Lude..= reward),
-            Lude.Just ("Title" Lude..= title),
-            Lude.Just ("Description" Lude..= description)
+              )
           ]
       )
 
@@ -197,17 +197,12 @@ instance Lude.ToQuery CreateHITType where
 
 -- | /See:/ 'mkCreateHITTypeResponse' smart constructor.
 data CreateHITTypeResponse = CreateHITTypeResponse'
-  { hITTypeId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the newly registered HIT type.
+    hITTypeId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHITTypeResponse' with the minimum fields required to make a request.

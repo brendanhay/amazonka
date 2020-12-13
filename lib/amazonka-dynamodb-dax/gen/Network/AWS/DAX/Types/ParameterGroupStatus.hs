@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameterGroupStatus' smart constructor.
 data ParameterGroupStatus = ParameterGroupStatus'
-  { nodeIdsToReboot ::
-      Lude.Maybe [Lude.Text],
+  { -- | The node IDs of one or more nodes to be rebooted.
+    nodeIdsToReboot :: Lude.Maybe [Lude.Text],
+    -- | The status of parameter updates.
     parameterApplyStatus :: Lude.Maybe Lude.Text,
+    -- | The name of the parameter group.
     parameterGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterGroupStatus' with the minimum fields required to make a request.

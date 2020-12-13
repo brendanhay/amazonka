@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.EC2.ModifyInstanceMetadataOptions
     mkModifyInstanceMetadataOptions,
 
     -- ** Request lenses
+    mimoInstanceId,
     mimoHTTPEndpoint,
     mimoHTTPPutResponseHopLimit,
     mimoHTTPTokens,
     mimoDryRun,
-    mimoInstanceId,
 
     -- * Destructuring the response
     ModifyInstanceMetadataOptionsResponse (..),
@@ -44,28 +45,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyInstanceMetadataOptions' smart constructor.
 data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
-  { hTTPEndpoint ::
-      Lude.Maybe
-        InstanceMetadataEndpointState,
-    hTTPPutResponseHopLimit ::
-      Lude.Maybe Lude.Int,
-    hTTPTokens ::
-      Lude.Maybe HTTPTokensState,
-    dryRun :: Lude.Maybe Lude.Bool,
-    instanceId :: Lude.Text
+  { -- | The ID of the instance.
+    instanceId :: Lude.Text,
+    -- | This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the existing state is maintained.
+    hTTPEndpoint :: Lude.Maybe InstanceMetadataEndpointState,
+    -- | The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. If no parameter is specified, the existing state is maintained.
+    --
+    -- Possible values: Integers from 1 to 64
+    hTTPPutResponseHopLimit :: Lude.Maybe Lude.Int,
+    -- | The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is @optional@ .
+    --
+    -- If the state is @optional@ , you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.
+    -- If the state is @required@ , you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credential always returns the version 2.0 credentials; the version 1.0 credentials are not available.
+    hTTPTokens :: Lude.Maybe HTTPTokensState,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstanceMetadataOptions' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'instanceId' - The ID of the instance.
 -- * 'hTTPEndpoint' - This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the existing state is maintained.
 -- * 'hTTPPutResponseHopLimit' - The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. If no parameter is specified, the existing state is maintained.
 --
@@ -74,19 +75,26 @@ data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
 --
 -- If the state is @optional@ , you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.
 -- If the state is @required@ , you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credential always returns the version 2.0 credentials; the version 1.0 credentials are not available.
--- * 'instanceId' - The ID of the instance.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyInstanceMetadataOptions ::
   -- | 'instanceId'
   Lude.Text ->
   ModifyInstanceMetadataOptions
 mkModifyInstanceMetadataOptions pInstanceId_ =
   ModifyInstanceMetadataOptions'
-    { hTTPEndpoint = Lude.Nothing,
+    { instanceId = pInstanceId_,
+      hTTPEndpoint = Lude.Nothing,
       hTTPPutResponseHopLimit = Lude.Nothing,
       hTTPTokens = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      instanceId = pInstanceId_
+      dryRun = Lude.Nothing
     }
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mimoInstanceId :: Lens.Lens' ModifyInstanceMetadataOptions Lude.Text
+mimoInstanceId = Lens.lens (instanceId :: ModifyInstanceMetadataOptions -> Lude.Text) (\s a -> s {instanceId = a} :: ModifyInstanceMetadataOptions)
+{-# DEPRECATED mimoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the existing state is maintained.
 --
@@ -121,13 +129,6 @@ mimoDryRun :: Lens.Lens' ModifyInstanceMetadataOptions (Lude.Maybe Lude.Bool)
 mimoDryRun = Lens.lens (dryRun :: ModifyInstanceMetadataOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyInstanceMetadataOptions)
 {-# DEPRECATED mimoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mimoInstanceId :: Lens.Lens' ModifyInstanceMetadataOptions Lude.Text
-mimoInstanceId = Lens.lens (instanceId :: ModifyInstanceMetadataOptions -> Lude.Text) (\s a -> s {instanceId = a} :: ModifyInstanceMetadataOptions)
-{-# DEPRECATED mimoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
 instance Lude.AWSRequest ModifyInstanceMetadataOptions where
   type
     Rs ModifyInstanceMetadataOptions =
@@ -154,31 +155,23 @@ instance Lude.ToQuery ModifyInstanceMetadataOptions where
       [ "Action"
           Lude.=: ("ModifyInstanceMetadataOptions" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "InstanceId" Lude.=: instanceId,
         "HttpEndpoint" Lude.=: hTTPEndpoint,
         "HttpPutResponseHopLimit" Lude.=: hTTPPutResponseHopLimit,
         "HttpTokens" Lude.=: hTTPTokens,
-        "DryRun" Lude.=: dryRun,
-        "InstanceId" Lude.=: instanceId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyInstanceMetadataOptionsResponse' smart constructor.
 data ModifyInstanceMetadataOptionsResponse = ModifyInstanceMetadataOptionsResponse'
-  { instanceId ::
-      Lude.Maybe
-        Lude.Text,
-    instanceMetadataOptions ::
-      Lude.Maybe
-        InstanceMetadataOptionsResponse,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The metadata options for the instance.
+    instanceMetadataOptions :: Lude.Maybe InstanceMetadataOptionsResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstanceMetadataOptionsResponse' with the minimum fields required to make a request.

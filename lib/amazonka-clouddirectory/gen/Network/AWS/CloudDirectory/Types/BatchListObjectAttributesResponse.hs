@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListObjectAttributesResponse' smart constructor.
 data BatchListObjectAttributesResponse = BatchListObjectAttributesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe
-        [AttributeKeyAndValue]
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The attributes map that is associated with the object. @AttributeArn@ is the key; attribute value is the value.
+    attributes :: Lude.Maybe [AttributeKeyAndValue]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectAttributesResponse' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attributes map that is associated with the object. @AttributeArn@ is the key; attribute value is the value.
 -- * 'nextToken' - The pagination token.
+-- * 'attributes' - The attributes map that is associated with the object. @AttributeArn@ is the key; attribute value is the value.
 mkBatchListObjectAttributesResponse ::
   BatchListObjectAttributesResponse
 mkBatchListObjectAttributesResponse =

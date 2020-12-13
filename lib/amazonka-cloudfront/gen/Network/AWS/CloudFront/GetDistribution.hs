@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,14 +42,11 @@ import qualified Network.AWS.Response as Res
 -- | The request to get a distribution's information.
 --
 -- /See:/ 'mkGetDistribution' smart constructor.
-newtype GetDistribution = GetDistribution' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDistribution = GetDistribution'
+  { -- | The distribution's ID. If the ID is empty, an empty distribution configuration is returned.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistribution' with the minimum fields required to make a request.
@@ -93,9 +91,11 @@ instance Lude.ToQuery GetDistribution where
 --
 -- /See:/ 'mkGetDistributionResponse' smart constructor.
 data GetDistributionResponse = GetDistributionResponse'
-  { eTag ::
-      Lude.Maybe Lude.Text,
+  { -- | The current version of the distribution's information. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The distribution's information.
     distribution :: Lude.Maybe Distribution,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -103,8 +103,8 @@ data GetDistributionResponse = GetDistributionResponse'
 
 -- | Creates a value of 'GetDistributionResponse' with the minimum fields required to make a request.
 --
--- * 'distribution' - The distribution's information.
 -- * 'eTag' - The current version of the distribution's information. For example: @E2QWRUHAPOMQZL@ .
+-- * 'distribution' - The distribution's information.
 -- * 'responseStatus' - The response status code.
 mkGetDistributionResponse ::
   -- | 'responseStatus'

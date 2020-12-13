@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.CodeStar.ListResources
 
     -- ** Request lenses
     lrNextToken,
-    lrMaxResults,
     lrProjectId,
+    lrMaxResults,
 
     -- * Destructuring the response
     ListResourcesResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListResources' smart constructor.
 data ListResources = ListResources'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    projectId :: Lude.Text
+  { -- | The continuation token for the next set of results, if the results cannot be returned in one response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the project.
+    projectId :: Lude.Text,
+    -- | The maximum amount of data that can be contained in a single set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResources' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum amount of data that can be contained in a single set of results.
 -- * 'nextToken' - The continuation token for the next set of results, if the results cannot be returned in one response.
 -- * 'projectId' - The ID of the project.
+-- * 'maxResults' - The maximum amount of data that can be contained in a single set of results.
 mkListResources ::
   -- | 'projectId'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListResources ::
 mkListResources pProjectId_ =
   ListResources'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      projectId = pProjectId_
+      projectId = pProjectId_,
+      maxResults = Lude.Nothing
     }
 
 -- | The continuation token for the next set of results, if the results cannot be returned in one response.
@@ -82,19 +79,19 @@ lrNextToken :: Lens.Lens' ListResources (Lude.Maybe Lude.Text)
 lrNextToken = Lens.lens (nextToken :: ListResources -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResources)
 {-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum amount of data that can be contained in a single set of results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrMaxResults :: Lens.Lens' ListResources (Lude.Maybe Lude.Natural)
-lrMaxResults = Lens.lens (maxResults :: ListResources -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListResources)
-{-# DEPRECATED lrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the project.
 --
 -- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lrProjectId :: Lens.Lens' ListResources Lude.Text
 lrProjectId = Lens.lens (projectId :: ListResources -> Lude.Text) (\s a -> s {projectId = a} :: ListResources)
 {-# DEPRECATED lrProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
+
+-- | The maximum amount of data that can be contained in a single set of results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrMaxResults :: Lens.Lens' ListResources (Lude.Maybe Lude.Natural)
+lrMaxResults = Lens.lens (maxResults :: ListResources -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListResources)
+{-# DEPRECATED lrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListResources where
   page rq rs
@@ -133,8 +130,8 @@ instance Lude.ToJSON ListResources where
     Lude.object
       ( Lude.catMaybes
           [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("projectId" Lude..= projectId)
+            Lude.Just ("projectId" Lude..= projectId),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -146,24 +143,20 @@ instance Lude.ToQuery ListResources where
 
 -- | /See:/ 'mkListResourcesResponse' smart constructor.
 data ListResourcesResponse = ListResourcesResponse'
-  { resources ::
-      Lude.Maybe [Resource],
+  { -- | An array of resources associated with the project.
+    resources :: Lude.Maybe [Resource],
+    -- | The continuation token to use when requesting the next set of results, if there are more results to be returned.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The continuation token to use when requesting the next set of results, if there are more results to be returned.
 -- * 'resources' - An array of resources associated with the project.
+-- * 'nextToken' - The continuation token to use when requesting the next set of results, if there are more results to be returned.
 -- * 'responseStatus' - The response status code.
 mkListResourcesResponse ::
   -- | 'responseStatus'

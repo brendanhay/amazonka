@@ -47,94 +47,69 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservationPurchaseRecommendationDetail' smart constructor.
 data ReservationPurchaseRecommendationDetail = ReservationPurchaseRecommendationDetail'
-  { maximumNormalizedUnitsUsedPerHour ::
-      Lude.Maybe
-        Lude.Text,
-    recurringStandardMonthlyCost ::
-      Lude.Maybe
-        Lude.Text,
-    averageNormalizedUnitsUsedPerHour ::
-      Lude.Maybe
-        Lude.Text,
-    currencyCode ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedMonthlySavingsPercentage ::
-      Lude.Maybe
-        Lude.Text,
-    recommendedNormalizedUnitsToPurchase ::
-      Lude.Maybe
-        Lude.Text,
-    averageUtilization ::
-      Lude.Maybe
-        Lude.Text,
-    accountId ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedMonthlySavingsAmount ::
-      Lude.Maybe
-        Lude.Text,
-    upfrontCost ::
-      Lude.Maybe
-        Lude.Text,
-    minimumNormalizedUnitsUsedPerHour ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedMonthlyOnDemandCost ::
-      Lude.Maybe
-        Lude.Text,
-    recommendedNumberOfInstancesToPurchase ::
-      Lude.Maybe
-        Lude.Text,
-    maximumNumberOfInstancesUsedPerHour ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedReservationCostForLookbackPeriod ::
-      Lude.Maybe
-        Lude.Text,
-    instanceDetails ::
-      Lude.Maybe
-        InstanceDetails,
-    averageNumberOfInstancesUsedPerHour ::
-      Lude.Maybe
-        Lude.Text,
-    minimumNumberOfInstancesUsedPerHour ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedBreakEvenInMonths ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The maximum number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
+    maximumNormalizedUnitsUsedPerHour :: Lude.Maybe Lude.Text,
+    -- | How much purchasing this instance costs you on a monthly basis.
+    recurringStandardMonthlyCost :: Lude.Maybe Lude.Text,
+    -- | The average number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
+    averageNormalizedUnitsUsedPerHour :: Lude.Maybe Lude.Text,
+    -- | The currency code that AWS used to calculate the costs for this instance.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | How much AWS estimates that this specific recommendation could save you in a month, as a percentage of your overall costs.
+    estimatedMonthlySavingsPercentage :: Lude.Maybe Lude.Text,
+    -- | The number of normalized units that AWS recommends that you purchase.
+    recommendedNormalizedUnitsToPurchase :: Lude.Maybe Lude.Text,
+    -- | The average utilization of your instances. AWS uses this to calculate your recommended reservation purchases.
+    averageUtilization :: Lude.Maybe Lude.Text,
+    -- | The account that this RI recommendation is for.
+    accountId :: Lude.Maybe Lude.Text,
+    -- | How much AWS estimates that this specific recommendation could save you in a month.
+    estimatedMonthlySavingsAmount :: Lude.Maybe Lude.Text,
+    -- | How much purchasing this instance costs you upfront.
+    upfrontCost :: Lude.Maybe Lude.Text,
+    -- | The minimum number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
+    minimumNormalizedUnitsUsedPerHour :: Lude.Maybe Lude.Text,
+    -- | How much AWS estimates that you spend on On-Demand Instances in a month.
+    estimatedMonthlyOnDemandCost :: Lude.Maybe Lude.Text,
+    -- | The number of instances that AWS recommends that you purchase.
+    recommendedNumberOfInstancesToPurchase :: Lude.Maybe Lude.Text,
+    -- | The maximum number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
+    maximumNumberOfInstancesUsedPerHour :: Lude.Maybe Lude.Text,
+    -- | How much AWS estimates that you would have spent for all usage during the specified historical period if you had a reservation.
+    estimatedReservationCostForLookbackPeriod :: Lude.Maybe Lude.Text,
+    -- | Details about the instances that AWS recommends that you purchase.
+    instanceDetails :: Lude.Maybe InstanceDetails,
+    -- | The average number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
+    averageNumberOfInstancesUsedPerHour :: Lude.Maybe Lude.Text,
+    -- | The minimum number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
+    minimumNumberOfInstancesUsedPerHour :: Lude.Maybe Lude.Text,
+    -- | How long AWS estimates that it takes for this instance to start saving you money, in months.
+    estimatedBreakEvenInMonths :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationPurchaseRecommendationDetail' with the minimum fields required to make a request.
 --
--- * 'accountId' - The account that this RI recommendation is for.
+-- * 'maximumNormalizedUnitsUsedPerHour' - The maximum number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
+-- * 'recurringStandardMonthlyCost' - How much purchasing this instance costs you on a monthly basis.
 -- * 'averageNormalizedUnitsUsedPerHour' - The average number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
--- * 'averageNumberOfInstancesUsedPerHour' - The average number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
--- * 'averageUtilization' - The average utilization of your instances. AWS uses this to calculate your recommended reservation purchases.
 -- * 'currencyCode' - The currency code that AWS used to calculate the costs for this instance.
--- * 'estimatedBreakEvenInMonths' - How long AWS estimates that it takes for this instance to start saving you money, in months.
--- * 'estimatedMonthlyOnDemandCost' - How much AWS estimates that you spend on On-Demand Instances in a month.
--- * 'estimatedMonthlySavingsAmount' - How much AWS estimates that this specific recommendation could save you in a month.
 -- * 'estimatedMonthlySavingsPercentage' - How much AWS estimates that this specific recommendation could save you in a month, as a percentage of your overall costs.
+-- * 'recommendedNormalizedUnitsToPurchase' - The number of normalized units that AWS recommends that you purchase.
+-- * 'averageUtilization' - The average utilization of your instances. AWS uses this to calculate your recommended reservation purchases.
+-- * 'accountId' - The account that this RI recommendation is for.
+-- * 'estimatedMonthlySavingsAmount' - How much AWS estimates that this specific recommendation could save you in a month.
+-- * 'upfrontCost' - How much purchasing this instance costs you upfront.
+-- * 'minimumNormalizedUnitsUsedPerHour' - The minimum number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
+-- * 'estimatedMonthlyOnDemandCost' - How much AWS estimates that you spend on On-Demand Instances in a month.
+-- * 'recommendedNumberOfInstancesToPurchase' - The number of instances that AWS recommends that you purchase.
+-- * 'maximumNumberOfInstancesUsedPerHour' - The maximum number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
 -- * 'estimatedReservationCostForLookbackPeriod' - How much AWS estimates that you would have spent for all usage during the specified historical period if you had a reservation.
 -- * 'instanceDetails' - Details about the instances that AWS recommends that you purchase.
--- * 'maximumNormalizedUnitsUsedPerHour' - The maximum number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
--- * 'maximumNumberOfInstancesUsedPerHour' - The maximum number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
--- * 'minimumNormalizedUnitsUsedPerHour' - The minimum number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
+-- * 'averageNumberOfInstancesUsedPerHour' - The average number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
 -- * 'minimumNumberOfInstancesUsedPerHour' - The minimum number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases.
--- * 'recommendedNormalizedUnitsToPurchase' - The number of normalized units that AWS recommends that you purchase.
--- * 'recommendedNumberOfInstancesToPurchase' - The number of instances that AWS recommends that you purchase.
--- * 'recurringStandardMonthlyCost' - How much purchasing this instance costs you on a monthly basis.
--- * 'upfrontCost' - How much purchasing this instance costs you upfront.
+-- * 'estimatedBreakEvenInMonths' - How long AWS estimates that it takes for this instance to start saving you money, in months.
 mkReservationPurchaseRecommendationDetail ::
   ReservationPurchaseRecommendationDetail
 mkReservationPurchaseRecommendationDetail =

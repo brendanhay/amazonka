@@ -51,71 +51,79 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBurninDestinationSettings' smart constructor.
 data BurninDestinationSettings = BurninDestinationSettings'
-  { backgroundOpacity ::
-      Lude.Maybe Lude.Natural,
+  { -- | Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+    backgroundOpacity :: Lude.Maybe Lude.Natural,
+    -- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.
+    --
+    -- All burn-in and DVB-Sub font settings must match.
     fontOpacity :: Lude.Maybe Lude.Natural,
+    -- | Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
     shadowYOffset :: Lude.Maybe Lude.Int,
-    fontResolution ::
-      Lude.Maybe Lude.Natural,
+    -- | Font resolution in DPI (dots per inch); default is 96 dpi.
+    --
+    -- All burn-in and DVB-Sub font settings must match.
+    fontResolution :: Lude.Maybe Lude.Natural,
+    -- | Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
     yPosition :: Lude.Maybe Lude.Natural,
-    backgroundColor ::
-      Lude.Maybe
-        BurninSubtitleBackgroundColor,
+    -- | Specifies the color of the rectangle behind the captions.
+    --
+    -- All burn-in and DVB-Sub font settings must match.
+    backgroundColor :: Lude.Maybe BurninSubtitleBackgroundColor,
+    -- | Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
     shadowXOffset :: Lude.Maybe Lude.Int,
+    -- | A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match.
     fontSize :: Lude.Maybe Lude.Natural,
+    -- | Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
     xPosition :: Lude.Maybe Lude.Natural,
-    teletextSpacing ::
-      Lude.Maybe
-        BurninSubtitleTeletextSpacing,
+    -- | Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
+    teletextSpacing :: Lude.Maybe BurninSubtitleTeletextSpacing,
+    -- | Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is used to help determine the appropriate font for rendering burn-in captions.
     fontScript :: Lude.Maybe FontScript,
-    alignment ::
-      Lude.Maybe BurninSubtitleAlignment,
-    shadowOpacity ::
-      Lude.Maybe Lude.Natural,
-    outlineColor ::
-      Lude.Maybe BurninSubtitleOutlineColor,
+    -- | If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    alignment :: Lude.Maybe BurninSubtitleAlignment,
+    -- | Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+    shadowOpacity :: Lude.Maybe Lude.Natural,
+    -- | Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    outlineColor :: Lude.Maybe BurninSubtitleOutlineColor,
+    -- | Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
     outlineSize :: Lude.Maybe Lude.Natural,
-    shadowColor ::
-      Lude.Maybe BurninSubtitleShadowColor,
-    fontColor ::
-      Lude.Maybe BurninSubtitleFontColor
+    -- | Specifies the color of the shadow cast by the captions.
+    --
+    -- All burn-in and DVB-Sub font settings must match.
+    shadowColor :: Lude.Maybe BurninSubtitleShadowColor,
+    -- | Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+    fontColor :: Lude.Maybe BurninSubtitleFontColor
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BurninDestinationSettings' with the minimum fields required to make a request.
 --
--- * 'alignment' - If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
--- * 'backgroundColor' - Specifies the color of the rectangle behind the captions.
---
--- All burn-in and DVB-Sub font settings must match.
 -- * 'backgroundOpacity' - Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
--- * 'fontColor' - Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
 -- * 'fontOpacity' - Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.
 --
 -- All burn-in and DVB-Sub font settings must match.
+-- * 'shadowYOffset' - Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
 -- * 'fontResolution' - Font resolution in DPI (dots per inch); default is 96 dpi.
 --
 -- All burn-in and DVB-Sub font settings must match.
--- * 'fontScript' - Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is used to help determine the appropriate font for rendering burn-in captions.
+-- * 'yPosition' - Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+-- * 'backgroundColor' - Specifies the color of the rectangle behind the captions.
+--
+-- All burn-in and DVB-Sub font settings must match.
+-- * 'shadowXOffset' - Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
 -- * 'fontSize' - A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match.
+-- * 'xPosition' - Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+-- * 'teletextSpacing' - Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
+-- * 'fontScript' - Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is used to help determine the appropriate font for rendering burn-in captions.
+-- * 'alignment' - If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+-- * 'shadowOpacity' - Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
 -- * 'outlineColor' - Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
 -- * 'outlineSize' - Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
 -- * 'shadowColor' - Specifies the color of the shadow cast by the captions.
 --
 -- All burn-in and DVB-Sub font settings must match.
--- * 'shadowOpacity' - Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
--- * 'shadowXOffset' - Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
--- * 'shadowYOffset' - Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
--- * 'teletextSpacing' - Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
--- * 'xPosition' - Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
--- * 'yPosition' - Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+-- * 'fontColor' - Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
 mkBurninDestinationSettings ::
   BurninDestinationSettings
 mkBurninDestinationSettings =

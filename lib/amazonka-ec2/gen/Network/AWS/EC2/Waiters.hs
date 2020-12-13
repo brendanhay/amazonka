@@ -152,7 +152,7 @@ mkInstanceTerminated =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             ),
@@ -167,7 +167,7 @@ mkInstanceTerminated =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             ),
@@ -182,7 +182,7 @@ mkInstanceTerminated =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             )
@@ -202,7 +202,7 @@ mkVolumeInUse =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dvvrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dvsrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. vState
                 Lude.. Lens.to Lude.toText
@@ -212,7 +212,7 @@ mkVolumeInUse =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dvvrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dvsrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. vState
                 Lude.. Lens.to Lude.toText
@@ -233,7 +233,7 @@ mkImageExists =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (diirsImages Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dihrsImages Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
             ),
           Wait.matchError "InvalidAMIID.NotFound" Wait.AcceptRetry
@@ -311,7 +311,7 @@ mkSubnetAvailable =
                 ( Lens.concatOf
                     (dsrsSubnets Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. subState
+                Lude.. sState
                 Lude.. Lens.to Lude.toText
             )
         ]
@@ -404,11 +404,11 @@ mkCustomerGatewayAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( dcgcrsCustomerGateways Lude.. Lens._Just
+                    ( dcgfrsCustomerGateways Lude.. Lens._Just
                         Lude.. Lens.to Lude.toList
                     )
                 )
-                Lude.. cusState
+                Lude.. cgfState
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -416,11 +416,11 @@ mkCustomerGatewayAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( dcgcrsCustomerGateways Lude.. Lens._Just
+                    ( dcgfrsCustomerGateways Lude.. Lens._Just
                         Lude.. Lens.to Lude.toList
                     )
                 )
-                Lude.. cusState
+                Lude.. cgfState
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -428,11 +428,11 @@ mkCustomerGatewayAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( dcgcrsCustomerGateways Lude.. Lens._Just
+                    ( dcgfrsCustomerGateways Lude.. Lens._Just
                         Lude.. Lens.to Lude.toList
                     )
                 )
-                Lude.. cusState
+                Lude.. cgfState
                 Lude.. Lens.to Lude.toText
             )
         ]
@@ -455,7 +455,7 @@ mkConversionTaskCompleted =
                         Lude.. Lens.to Lude.toList
                     )
                 )
-                Lude.. ctState
+                Lude.. cState
                 Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             ),
@@ -468,7 +468,7 @@ mkConversionTaskCompleted =
                         Lude.. Lens.to Lude.toList
                     )
                 )
-                Lude.. ctState
+                Lude.. cState
                 Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             ),
@@ -481,7 +481,7 @@ mkConversionTaskCompleted =
                         Lude.. Lens.to Lude.toList
                     )
                 )
-                Lude.. ctState
+                Lude.. cState
                 Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             )
@@ -507,7 +507,7 @@ mkInstanceStopped =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             ),
@@ -522,7 +522,7 @@ mkInstanceStopped =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             ),
@@ -537,7 +537,7 @@ mkInstanceStopped =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             )
@@ -561,7 +561,7 @@ mkConversionTaskDeleted =
                         Lude.. Lens.to Lude.toList
                     )
                 )
-                Lude.. ctState
+                Lude.. cState
                 Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             )
@@ -602,7 +602,7 @@ mkInstanceRunning =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             ),
@@ -617,7 +617,7 @@ mkInstanceRunning =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             ),
@@ -632,7 +632,7 @@ mkInstanceRunning =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             ),
@@ -647,7 +647,7 @@ mkInstanceRunning =
                   ( Lens.concatOf
                       (rInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                   )
-                Lude.. insState
+                Lude.. ifState
                 Lude.. isName
                 Lude.. Lens.to Lude.toText
             ),
@@ -795,7 +795,7 @@ mkVPCAvailable =
                 ( Lens.concatOf
                     (dvrsVPCs Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. vpcState
+                Lude.. vfState
                 Lude.. Lens.to Lude.toText
             )
         ]
@@ -835,11 +835,11 @@ mkVPCPeeringConnectionDeleted =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( dvpcpcrsVPCPeeringConnections Lude.. Lens._Just
+                    ( dvpcrsVPCPeeringConnections Lude.. Lens._Just
                         Lude.. Lens.to Lude.toList
                     )
                 )
-                Lude.. vpcpcStatus
+                Lude.. vpcStatus
                 Lude.. Lens._Just
                 Lude.. vpcsrCode
                 Lude.. Lens._Just
@@ -926,7 +926,7 @@ mkVolumeDeleted =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dvvrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dvsrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. vState
                 Lude.. Lens.to Lude.toText
@@ -1027,7 +1027,7 @@ mkConversionTaskCancelled =
                         Lude.. Lens.to Lude.toList
                     )
                 )
-                Lude.. ctState
+                Lude.. cState
                 Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             )
@@ -1047,7 +1047,7 @@ mkImageAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (diirsImages Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dihrsImages Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. iState
                 Lude.. Lens.to Lude.toText
@@ -1057,7 +1057,7 @@ mkImageAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (diirsImages Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dihrsImages Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. iState
                 Lude.. Lens.to Lude.toText
@@ -1095,7 +1095,7 @@ mkSnapshotCompleted =
                 ( Lens.concatOf
                     (dssrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. sState
+                Lude.. sfState
                 Lude.. Lens.to Lude.toText
             )
         ]
@@ -1153,7 +1153,7 @@ mkVolumeAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dvvrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dvsrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. vState
                 Lude.. Lens.to Lude.toText
@@ -1163,7 +1163,7 @@ mkVolumeAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dvvrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dvsrsVolumes Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. vState
                 Lude.. Lens.to Lude.toText

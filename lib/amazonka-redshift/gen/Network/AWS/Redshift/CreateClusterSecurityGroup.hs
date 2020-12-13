@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     mkCreateClusterSecurityGroup,
 
     -- ** Request lenses
-    creTags,
-    creClusterSecurityGroupName,
-    creDescription,
+    ccsgClusterSecurityGroupName,
+    ccsgDescription,
+    ccsgTags,
 
     -- * Destructuring the response
     CreateClusterSecurityGroupResponse (..),
@@ -45,18 +46,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateClusterSecurityGroup' smart constructor.
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
-  { tags ::
-      Lude.Maybe [Tag],
+  { -- | The name for the security group. Amazon Redshift stores the value as a lowercase string.
+    --
+    -- Constraints:
+    --
+    --     * Must contain no more than 255 alphanumeric characters or hyphens.
+    --
+    --
+    --     * Must not be "Default".
+    --
+    --
+    --     * Must be unique for all security groups that are created by your AWS account.
+    --
+    --
+    -- Example: @examplesecuritygroup@
     clusterSecurityGroupName :: Lude.Text,
-    description :: Lude.Text
+    -- | A description for the security group.
+    description :: Lude.Text,
+    -- | A list of tag instances.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterSecurityGroup' with the minimum fields required to make a request.
@@ -87,17 +97,11 @@ mkCreateClusterSecurityGroup
   pClusterSecurityGroupName_
   pDescription_ =
     CreateClusterSecurityGroup'
-      { tags = Lude.Nothing,
-        clusterSecurityGroupName = pClusterSecurityGroupName_,
-        description = pDescription_
+      { clusterSecurityGroupName =
+          pClusterSecurityGroupName_,
+        description = pDescription_,
+        tags = Lude.Nothing
       }
-
--- | A list of tag instances.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creTags :: Lens.Lens' CreateClusterSecurityGroup (Lude.Maybe [Tag])
-creTags = Lens.lens (tags :: CreateClusterSecurityGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateClusterSecurityGroup)
-{-# DEPRECATED creTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name for the security group. Amazon Redshift stores the value as a lowercase string.
 --
@@ -115,16 +119,23 @@ creTags = Lens.lens (tags :: CreateClusterSecurityGroup -> Lude.Maybe [Tag]) (\s
 -- Example: @examplesecuritygroup@
 --
 -- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creClusterSecurityGroupName :: Lens.Lens' CreateClusterSecurityGroup Lude.Text
-creClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: CreateClusterSecurityGroup -> Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: CreateClusterSecurityGroup)
-{-# DEPRECATED creClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
+ccsgClusterSecurityGroupName :: Lens.Lens' CreateClusterSecurityGroup Lude.Text
+ccsgClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: CreateClusterSecurityGroup -> Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: CreateClusterSecurityGroup)
+{-# DEPRECATED ccsgClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
 
 -- | A description for the security group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creDescription :: Lens.Lens' CreateClusterSecurityGroup Lude.Text
-creDescription = Lens.lens (description :: CreateClusterSecurityGroup -> Lude.Text) (\s a -> s {description = a} :: CreateClusterSecurityGroup)
-{-# DEPRECATED creDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+ccsgDescription :: Lens.Lens' CreateClusterSecurityGroup Lude.Text
+ccsgDescription = Lens.lens (description :: CreateClusterSecurityGroup -> Lude.Text) (\s a -> s {description = a} :: CreateClusterSecurityGroup)
+{-# DEPRECATED ccsgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | A list of tag instances.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsgTags :: Lens.Lens' CreateClusterSecurityGroup (Lude.Maybe [Tag])
+ccsgTags = Lens.lens (tags :: CreateClusterSecurityGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateClusterSecurityGroup)
+{-# DEPRECATED ccsgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateClusterSecurityGroup where
   type
@@ -152,31 +163,23 @@ instance Lude.ToQuery CreateClusterSecurityGroup where
       [ "Action"
           Lude.=: ("CreateClusterSecurityGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
         "ClusterSecurityGroupName" Lude.=: clusterSecurityGroupName,
-        "Description" Lude.=: description
+        "Description" Lude.=: description,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
       ]
 
 -- | /See:/ 'mkCreateClusterSecurityGroupResponse' smart constructor.
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
-  { clusterSecurityGroup ::
-      Lude.Maybe
-        ClusterSecurityGroup,
-    responseStatus ::
-      Lude.Int
+  { clusterSecurityGroup :: Lude.Maybe ClusterSecurityGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterSecurityGroupResponse' with the minimum fields required to make a request.
 --
--- * 'clusterSecurityGroup' - Undocumented field.
+-- * 'clusterSecurityGroup' -
 -- * 'responseStatus' - The response status code.
 mkCreateClusterSecurityGroupResponse ::
   -- | 'responseStatus'

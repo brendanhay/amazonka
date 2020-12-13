@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.IAM.UpdateAccessKey
     mkUpdateAccessKey,
 
     -- ** Request lenses
+    uakStatus,
     uakUserName,
     uakAccessKeyId,
-    uakStatus,
 
     -- * Destructuring the response
     UpdateAccessKeyResponse (..),
@@ -40,41 +41,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateAccessKey' smart constructor.
 data UpdateAccessKey = UpdateAccessKey'
-  { userName ::
-      Lude.Maybe Lude.Text,
-    accessKeyId :: AccessKey,
-    status :: StatusType
+  { -- | The status you want to assign to the secret access key. @Active@ means that the key can be used for API calls to AWS, while @Inactive@ means that the key cannot be used.
+    status :: StatusType,
+    -- | The name of the user whose key you want to update.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Maybe Lude.Text,
+    -- | The access key ID of the secret access key you want to update.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+    accessKeyId :: AccessKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAccessKey' with the minimum fields required to make a request.
 --
--- * 'accessKeyId' - The access key ID of the secret access key you want to update.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 -- * 'status' - The status you want to assign to the secret access key. @Active@ means that the key can be used for API calls to AWS, while @Inactive@ means that the key cannot be used.
 -- * 'userName' - The name of the user whose key you want to update.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'accessKeyId' - The access key ID of the secret access key you want to update.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 mkUpdateAccessKey ::
-  -- | 'accessKeyId'
-  AccessKey ->
   -- | 'status'
   StatusType ->
+  -- | 'accessKeyId'
+  AccessKey ->
   UpdateAccessKey
-mkUpdateAccessKey pAccessKeyId_ pStatus_ =
+mkUpdateAccessKey pStatus_ pAccessKeyId_ =
   UpdateAccessKey'
-    { userName = Lude.Nothing,
-      accessKeyId = pAccessKeyId_,
-      status = pStatus_
+    { status = pStatus_,
+      userName = Lude.Nothing,
+      accessKeyId = pAccessKeyId_
     }
+
+-- | The status you want to assign to the secret access key. @Active@ means that the key can be used for API calls to AWS, while @Inactive@ means that the key cannot be used.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakStatus :: Lens.Lens' UpdateAccessKey StatusType
+uakStatus = Lens.lens (status :: UpdateAccessKey -> StatusType) (\s a -> s {status = a} :: UpdateAccessKey)
+{-# DEPRECATED uakStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the user whose key you want to update.
 --
@@ -94,13 +102,6 @@ uakAccessKeyId :: Lens.Lens' UpdateAccessKey AccessKey
 uakAccessKeyId = Lens.lens (accessKeyId :: UpdateAccessKey -> AccessKey) (\s a -> s {accessKeyId = a} :: UpdateAccessKey)
 {-# DEPRECATED uakAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
--- | The status you want to assign to the secret access key. @Active@ means that the key can be used for API calls to AWS, while @Inactive@ means that the key cannot be used.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uakStatus :: Lens.Lens' UpdateAccessKey StatusType
-uakStatus = Lens.lens (status :: UpdateAccessKey -> StatusType) (\s a -> s {status = a} :: UpdateAccessKey)
-{-# DEPRECATED uakStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
 instance Lude.AWSRequest UpdateAccessKey where
   type Rs UpdateAccessKey = UpdateAccessKeyResponse
   request = Req.postQuery iamService
@@ -117,20 +118,14 @@ instance Lude.ToQuery UpdateAccessKey where
     Lude.mconcat
       [ "Action" Lude.=: ("UpdateAccessKey" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "Status" Lude.=: status,
         "UserName" Lude.=: userName,
-        "AccessKeyId" Lude.=: accessKeyId,
-        "Status" Lude.=: status
+        "AccessKeyId" Lude.=: accessKeyId
       ]
 
 -- | /See:/ 'mkUpdateAccessKeyResponse' smart constructor.
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAccessKeyResponse' with the minimum fields required to make a request.

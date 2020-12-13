@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobExecutionSummaryForThing' smart constructor.
 data JobExecutionSummaryForThing = JobExecutionSummaryForThing'
-  { jobId ::
-      Lude.Maybe Lude.Text,
-    jobExecutionSummary ::
-      Lude.Maybe JobExecutionSummary
+  { -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | Contains a subset of information about a job execution.
+    jobExecutionSummary :: Lude.Maybe JobExecutionSummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecutionSummaryForThing' with the minimum fields required to make a request.
 --
--- * 'jobExecutionSummary' - Contains a subset of information about a job execution.
 -- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'jobExecutionSummary' - Contains a subset of information about a job execution.
 mkJobExecutionSummaryForThing ::
   JobExecutionSummaryForThing
 mkJobExecutionSummaryForThing =

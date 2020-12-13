@@ -13,13 +13,13 @@
 module Network.AWS.MQ.Types.DayOfWeek
   ( DayOfWeek
       ( DayOfWeek',
-        Friday,
         Monday,
-        Saturday,
-        Sunday,
-        Thursday,
         Tuesday,
-        Wednesday
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
       ),
   )
 where
@@ -50,20 +50,8 @@ newtype DayOfWeek = DayOfWeek' Lude.Text
       Lude.ToHeader
     )
 
-pattern Friday :: DayOfWeek
-pattern Friday = DayOfWeek' "FRIDAY"
-
 pattern Monday :: DayOfWeek
 pattern Monday = DayOfWeek' "MONDAY"
-
-pattern Saturday :: DayOfWeek
-pattern Saturday = DayOfWeek' "SATURDAY"
-
-pattern Sunday :: DayOfWeek
-pattern Sunday = DayOfWeek' "SUNDAY"
-
-pattern Thursday :: DayOfWeek
-pattern Thursday = DayOfWeek' "THURSDAY"
 
 pattern Tuesday :: DayOfWeek
 pattern Tuesday = DayOfWeek' "TUESDAY"
@@ -71,13 +59,25 @@ pattern Tuesday = DayOfWeek' "TUESDAY"
 pattern Wednesday :: DayOfWeek
 pattern Wednesday = DayOfWeek' "WEDNESDAY"
 
+pattern Thursday :: DayOfWeek
+pattern Thursday = DayOfWeek' "THURSDAY"
+
+pattern Friday :: DayOfWeek
+pattern Friday = DayOfWeek' "FRIDAY"
+
+pattern Saturday :: DayOfWeek
+pattern Saturday = DayOfWeek' "SATURDAY"
+
+pattern Sunday :: DayOfWeek
+pattern Sunday = DayOfWeek' "SUNDAY"
+
 {-# COMPLETE
-  Friday,
   Monday,
-  Saturday,
-  Sunday,
-  Thursday,
   Tuesday,
   Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
   DayOfWeek'
   #-}

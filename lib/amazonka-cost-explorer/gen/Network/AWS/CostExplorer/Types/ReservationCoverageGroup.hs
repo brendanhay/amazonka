@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservationCoverageGroup' smart constructor.
 data ReservationCoverageGroup = ReservationCoverageGroup'
-  { coverage ::
-      Lude.Maybe Coverage,
-    attributes ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | How much instance usage this group of reservations covered.
+    coverage :: Lude.Maybe Coverage,
+    -- | The attributes for this group of reservations.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationCoverageGroup' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attributes for this group of reservations.
 -- * 'coverage' - How much instance usage this group of reservations covered.
+-- * 'attributes' - The attributes for this group of reservations.
 mkReservationCoverageGroup ::
   ReservationCoverageGroup
 mkReservationCoverageGroup =

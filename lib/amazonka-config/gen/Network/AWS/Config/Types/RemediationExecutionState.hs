@@ -13,10 +13,10 @@
 module Network.AWS.Config.Types.RemediationExecutionState
   ( RemediationExecutionState
       ( RemediationExecutionState',
-        RESFailed,
-        RESInProgress,
         RESQueued,
-        RESSucceeded
+        RESInProgress,
+        RESSucceeded,
+        RESFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype RemediationExecutionState = RemediationExecutionState' Lude.Text
       Lude.ToHeader
     )
 
-pattern RESFailed :: RemediationExecutionState
-pattern RESFailed = RemediationExecutionState' "FAILED"
+pattern RESQueued :: RemediationExecutionState
+pattern RESQueued = RemediationExecutionState' "QUEUED"
 
 pattern RESInProgress :: RemediationExecutionState
 pattern RESInProgress = RemediationExecutionState' "IN_PROGRESS"
 
-pattern RESQueued :: RemediationExecutionState
-pattern RESQueued = RemediationExecutionState' "QUEUED"
-
 pattern RESSucceeded :: RemediationExecutionState
 pattern RESSucceeded = RemediationExecutionState' "SUCCEEDED"
 
+pattern RESFailed :: RemediationExecutionState
+pattern RESFailed = RemediationExecutionState' "FAILED"
+
 {-# COMPLETE
-  RESFailed,
-  RESInProgress,
   RESQueued,
+  RESInProgress,
   RESSucceeded,
+  RESFailed,
   RemediationExecutionState'
   #-}

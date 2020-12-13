@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBrokerEngineType' smart constructor.
 data BrokerEngineType = BrokerEngineType'
-  { engineVersions ::
-      Lude.Maybe [EngineVersion],
+  { -- | The list of engine versions.
+    engineVersions :: Lude.Maybe [EngineVersion],
+    -- | The type of broker engine.
     engineType :: Lude.Maybe EngineType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BrokerEngineType' with the minimum fields required to make a request.
 --
--- * 'engineType' - The type of broker engine.
 -- * 'engineVersions' - The list of engine versions.
+-- * 'engineType' - The type of broker engine.
 mkBrokerEngineType ::
   BrokerEngineType
 mkBrokerEngineType =

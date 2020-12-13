@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,10 +28,10 @@ module Network.AWS.Rekognition.GetCelebrityRecognition
     mkGetCelebrityRecognition,
 
     -- ** Request lenses
+    gcrJobId,
     gcrNextToken,
     gcrMaxResults,
     gcrSortBy,
-    gcrJobId,
 
     -- * Destructuring the response
     GetCelebrityRecognitionResponse (..),
@@ -54,27 +55,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCelebrityRecognition' smart constructor.
 data GetCelebrityRecognition = GetCelebrityRecognition'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to @StartCelebrityRecognition@ .
+    jobId :: Lude.Text,
+    -- | If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
     maxResults :: Lude.Maybe Lude.Natural,
-    sortBy ::
-      Lude.Maybe CelebrityRecognitionSortBy,
-    jobId :: Lude.Text
+    -- | Sort to use for celebrities returned in @Celebrities@ field. Specify @ID@ to sort by the celebrity identifier, specify @TIMESTAMP@ to sort by the time the celebrity was recognized.
+    sortBy :: Lude.Maybe CelebrityRecognitionSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCelebrityRecognition' with the minimum fields required to make a request.
 --
 -- * 'jobId' - Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to @StartCelebrityRecognition@ .
--- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 -- * 'nextToken' - If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
+-- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 -- * 'sortBy' - Sort to use for celebrities returned in @Celebrities@ field. Specify @ID@ to sort by the celebrity identifier, specify @TIMESTAMP@ to sort by the time the celebrity was recognized.
 mkGetCelebrityRecognition ::
   -- | 'jobId'
@@ -82,11 +79,18 @@ mkGetCelebrityRecognition ::
   GetCelebrityRecognition
 mkGetCelebrityRecognition pJobId_ =
   GetCelebrityRecognition'
-    { nextToken = Lude.Nothing,
+    { jobId = pJobId_,
+      nextToken = Lude.Nothing,
       maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing,
-      jobId = pJobId_
+      sortBy = Lude.Nothing
     }
+
+-- | Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to @StartCelebrityRecognition@ .
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrJobId :: Lens.Lens' GetCelebrityRecognition Lude.Text
+gcrJobId = Lens.lens (jobId :: GetCelebrityRecognition -> Lude.Text) (\s a -> s {jobId = a} :: GetCelebrityRecognition)
+{-# DEPRECATED gcrJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
 --
@@ -108,13 +112,6 @@ gcrMaxResults = Lens.lens (maxResults :: GetCelebrityRecognition -> Lude.Maybe L
 gcrSortBy :: Lens.Lens' GetCelebrityRecognition (Lude.Maybe CelebrityRecognitionSortBy)
 gcrSortBy = Lens.lens (sortBy :: GetCelebrityRecognition -> Lude.Maybe CelebrityRecognitionSortBy) (\s a -> s {sortBy = a} :: GetCelebrityRecognition)
 {-# DEPRECATED gcrSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
-
--- | Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to @StartCelebrityRecognition@ .
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrJobId :: Lens.Lens' GetCelebrityRecognition Lude.Text
-gcrJobId = Lens.lens (jobId :: GetCelebrityRecognition -> Lude.Text) (\s a -> s {jobId = a} :: GetCelebrityRecognition)
-{-# DEPRECATED gcrJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Lude.AWSRequest GetCelebrityRecognition where
   type Rs GetCelebrityRecognition = GetCelebrityRecognitionResponse
@@ -146,10 +143,10 @@ instance Lude.ToJSON GetCelebrityRecognition where
   toJSON GetCelebrityRecognition' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("JobId" Lude..= jobId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy,
-            Lude.Just ("JobId" Lude..= jobId)
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
@@ -161,36 +158,30 @@ instance Lude.ToQuery GetCelebrityRecognition where
 
 -- | /See:/ 'mkGetCelebrityRecognitionResponse' smart constructor.
 data GetCelebrityRecognitionResponse = GetCelebrityRecognitionResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    videoMetadata ::
-      Lude.Maybe VideoMetadata,
-    statusMessage ::
-      Lude.Maybe Lude.Text,
-    celebrities ::
-      Lude.Maybe
-        [CelebrityRecognition],
-    jobStatus ::
-      Lude.Maybe VideoJobStatus,
+  { -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
+    videoMetadata :: Lude.Maybe VideoMetadata,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Lude.Maybe Lude.Text,
+    -- | Array of celebrities recognized in the video.
+    celebrities :: Lude.Maybe [CelebrityRecognition],
+    -- | The current status of the celebrity recognition job.
+    jobStatus :: Lude.Maybe VideoJobStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCelebrityRecognitionResponse' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
+-- * 'videoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
+-- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 -- * 'celebrities' - Array of celebrities recognized in the video.
 -- * 'jobStatus' - The current status of the celebrity recognition job.
--- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
 -- * 'responseStatus' - The response status code.
--- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
--- * 'videoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
 mkGetCelebrityRecognitionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

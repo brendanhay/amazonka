@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
     mkUpdateConfigurationSetReputationMetricsEnabled,
 
     -- ** Request lenses
-    ucsrmeConfigurationSetName,
     ucsrmeEnabled,
+    ucsrmeConfigurationSetName,
 
     -- * Destructuring the response
     UpdateConfigurationSetReputationMetricsEnabledResponse (..),
@@ -40,48 +41,32 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkUpdateConfigurationSetReputationMetricsEnabled' smart constructor.
 data UpdateConfigurationSetReputationMetricsEnabled = UpdateConfigurationSetReputationMetricsEnabled'
-  { configurationSetName ::
-      Lude.Text,
-    enabled ::
-      Lude.Bool
+  { -- | Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
+    enabled :: Lude.Bool,
+    -- | The name of the configuration set that you want to update.
+    configurationSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConfigurationSetReputationMetricsEnabled' with the minimum fields required to make a request.
 --
--- * 'configurationSetName' - The name of the configuration set that you want to update.
 -- * 'enabled' - Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
+-- * 'configurationSetName' - The name of the configuration set that you want to update.
 mkUpdateConfigurationSetReputationMetricsEnabled ::
-  -- | 'configurationSetName'
-  Lude.Text ->
   -- | 'enabled'
   Lude.Bool ->
+  -- | 'configurationSetName'
+  Lude.Text ->
   UpdateConfigurationSetReputationMetricsEnabled
 mkUpdateConfigurationSetReputationMetricsEnabled
-  pConfigurationSetName_
-  pEnabled_ =
+  pEnabled_
+  pConfigurationSetName_ =
     UpdateConfigurationSetReputationMetricsEnabled'
-      { configurationSetName =
-          pConfigurationSetName_,
-        enabled = pEnabled_
+      { enabled =
+          pEnabled_,
+        configurationSetName = pConfigurationSetName_
       }
-
--- | The name of the configuration set that you want to update.
---
--- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsrmeConfigurationSetName :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Lude.Text
-ucsrmeConfigurationSetName = Lens.lens (configurationSetName :: UpdateConfigurationSetReputationMetricsEnabled -> Lude.Text) (\s a -> s {configurationSetName = a} :: UpdateConfigurationSetReputationMetricsEnabled)
-{-# DEPRECATED ucsrmeConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 -- | Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
 --
@@ -89,6 +74,13 @@ ucsrmeConfigurationSetName = Lens.lens (configurationSetName :: UpdateConfigurat
 ucsrmeEnabled :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Lude.Bool
 ucsrmeEnabled = Lens.lens (enabled :: UpdateConfigurationSetReputationMetricsEnabled -> Lude.Bool) (\s a -> s {enabled = a} :: UpdateConfigurationSetReputationMetricsEnabled)
 {-# DEPRECATED ucsrmeEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+-- | The name of the configuration set that you want to update.
+--
+-- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsrmeConfigurationSetName :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Lude.Text
+ucsrmeConfigurationSetName = Lens.lens (configurationSetName :: UpdateConfigurationSetReputationMetricsEnabled -> Lude.Text) (\s a -> s {configurationSetName = a} :: UpdateConfigurationSetReputationMetricsEnabled)
+{-# DEPRECATED ucsrmeConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -122,23 +114,14 @@ instance
                       Lude.ByteString
                   ),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ConfigurationSetName" Lude.=: configurationSetName,
-        "Enabled" Lude.=: enabled
+        "Enabled" Lude.=: enabled,
+        "ConfigurationSetName" Lude.=: configurationSetName
       ]
 
 -- | /See:/ 'mkUpdateConfigurationSetReputationMetricsEnabledResponse' smart constructor.
 data UpdateConfigurationSetReputationMetricsEnabledResponse = UpdateConfigurationSetReputationMetricsEnabledResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConfigurationSetReputationMetricsEnabledResponse' with the minimum fields required to make a request.
 mkUpdateConfigurationSetReputationMetricsEnabledResponse ::

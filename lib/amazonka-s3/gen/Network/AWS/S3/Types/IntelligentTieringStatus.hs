@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.IntelligentTieringStatus
   ( IntelligentTieringStatus
       ( IntelligentTieringStatus',
-        ITSDisabled,
-        ITSEnabled
+        ITSEnabled,
+        ITSDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype IntelligentTieringStatus = IntelligentTieringStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ITSDisabled :: IntelligentTieringStatus
-pattern ITSDisabled = IntelligentTieringStatus' "Disabled"
-
 pattern ITSEnabled :: IntelligentTieringStatus
 pattern ITSEnabled = IntelligentTieringStatus' "Enabled"
 
+pattern ITSDisabled :: IntelligentTieringStatus
+pattern ITSDisabled = IntelligentTieringStatus' "Disabled"
+
 {-# COMPLETE
-  ITSDisabled,
   ITSEnabled,
+  ITSDisabled,
   IntelligentTieringStatus'
   #-}

@@ -28,16 +28,49 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricCollectionType' smart constructor.
 newtype MetricCollectionType = MetricCollectionType'
-  { metric ::
-      Lude.Maybe Lude.Text
+  { -- | One of the following metrics:
+    --
+    --
+    --     * @GroupMinSize@
+    --
+    --
+    --     * @GroupMaxSize@
+    --
+    --
+    --     * @GroupDesiredCapacity@
+    --
+    --
+    --     * @GroupInServiceInstances@
+    --
+    --
+    --     * @GroupPendingInstances@
+    --
+    --
+    --     * @GroupStandbyInstances@
+    --
+    --
+    --     * @GroupTerminatingInstances@
+    --
+    --
+    --     * @GroupTotalInstances@
+    --
+    --
+    --     * @GroupInServiceCapacity@
+    --
+    --
+    --     * @GroupPendingCapacity@
+    --
+    --
+    --     * @GroupStandbyCapacity@
+    --
+    --
+    --     * @GroupTerminatingCapacity@
+    --
+    --
+    --     * @GroupTotalCapacity@
+    metric :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricCollectionType' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeKeyPhrasesDetectionJob' smart constructor.
 newtype DescribeKeyPhrasesDetectionJob = DescribeKeyPhrasesDetectionJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKeyPhrasesDetectionJob' with the minimum fields required to make a request.
@@ -106,19 +101,12 @@ instance Lude.ToQuery DescribeKeyPhrasesDetectionJob where
 
 -- | /See:/ 'mkDescribeKeyPhrasesDetectionJobResponse' smart constructor.
 data DescribeKeyPhrasesDetectionJobResponse = DescribeKeyPhrasesDetectionJobResponse'
-  { keyPhrasesDetectionJobProperties ::
-      Lude.Maybe
-        KeyPhrasesDetectionJobProperties,
-    responseStatus ::
-      Lude.Int
+  { -- | An object that contains the properties associated with a key phrases detection job.
+    keyPhrasesDetectionJobProperties :: Lude.Maybe KeyPhrasesDetectionJobProperties,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKeyPhrasesDetectionJobResponse' with the minimum fields required to make a request.

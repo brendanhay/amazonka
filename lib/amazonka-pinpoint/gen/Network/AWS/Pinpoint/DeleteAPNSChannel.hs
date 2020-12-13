@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.DeleteAPNSChannel
     mkDeleteAPNSChannelResponse,
 
     -- ** Response lenses
-    dacrsResponseStatus,
     dacrsAPNSChannelResponse,
+    dacrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteAPNSChannel' smart constructor.
 newtype DeleteAPNSChannel = DeleteAPNSChannel'
-  { applicationId ::
-      Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPNSChannel' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest DeleteAPNSChannel where
     Res.receiveJSON
       ( \s h x ->
           DeleteAPNSChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteAPNSChannel where
@@ -97,42 +92,29 @@ instance Lude.ToQuery DeleteAPNSChannel where
 
 -- | /See:/ 'mkDeleteAPNSChannelResponse' smart constructor.
 data DeleteAPNSChannelResponse = DeleteAPNSChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    apnsChannelResponse ::
-      APNSChannelResponse
+  { apnsChannelResponse :: APNSChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPNSChannelResponse' with the minimum fields required to make a request.
 --
--- * 'apnsChannelResponse' - Undocumented field.
+-- * 'apnsChannelResponse' -
 -- * 'responseStatus' - The response status code.
 mkDeleteAPNSChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'apnsChannelResponse'
   APNSChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAPNSChannelResponse
-mkDeleteAPNSChannelResponse pResponseStatus_ pAPNSChannelResponse_ =
+mkDeleteAPNSChannelResponse pAPNSChannelResponse_ pResponseStatus_ =
   DeleteAPNSChannelResponse'
-    { responseStatus = pResponseStatus_,
-      apnsChannelResponse = pAPNSChannelResponse_
+    { apnsChannelResponse =
+        pAPNSChannelResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dacrsResponseStatus :: Lens.Lens' DeleteAPNSChannelResponse Lude.Int
-dacrsResponseStatus = Lens.lens (responseStatus :: DeleteAPNSChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAPNSChannelResponse)
-{-# DEPRECATED dacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -140,3 +122,10 @@ dacrsResponseStatus = Lens.lens (responseStatus :: DeleteAPNSChannelResponse -> 
 dacrsAPNSChannelResponse :: Lens.Lens' DeleteAPNSChannelResponse APNSChannelResponse
 dacrsAPNSChannelResponse = Lens.lens (apnsChannelResponse :: DeleteAPNSChannelResponse -> APNSChannelResponse) (\s a -> s {apnsChannelResponse = a} :: DeleteAPNSChannelResponse)
 {-# DEPRECATED dacrsAPNSChannelResponse "Use generic-lens or generic-optics with 'apnsChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacrsResponseStatus :: Lens.Lens' DeleteAPNSChannelResponse Lude.Int
+dacrsResponseStatus = Lens.lens (responseStatus :: DeleteAPNSChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAPNSChannelResponse)
+{-# DEPRECATED dacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.QueryStringNames
     mkQueryStringNames,
 
     -- * Lenses
-    qsnItems,
     qsnQuantity,
+    qsnItems,
   )
 where
 
@@ -29,36 +29,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryStringNames' smart constructor.
 data QueryStringNames = QueryStringNames'
-  { items ::
-      Lude.Maybe [Lude.Text],
-    quantity :: Lude.Int
+  { -- | The number of query string names in the @Items@ list.
+    quantity :: Lude.Int,
+    -- | A list of query string names.
+    items :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryStringNames' with the minimum fields required to make a request.
 --
--- * 'items' - A list of query string names.
 -- * 'quantity' - The number of query string names in the @Items@ list.
+-- * 'items' - A list of query string names.
 mkQueryStringNames ::
   -- | 'quantity'
   Lude.Int ->
   QueryStringNames
 mkQueryStringNames pQuantity_ =
-  QueryStringNames' {items = Lude.Nothing, quantity = pQuantity_}
-
--- | A list of query string names.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsnItems :: Lens.Lens' QueryStringNames (Lude.Maybe [Lude.Text])
-qsnItems = Lens.lens (items :: QueryStringNames -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: QueryStringNames)
-{-# DEPRECATED qsnItems "Use generic-lens or generic-optics with 'items' instead." #-}
+  QueryStringNames' {quantity = pQuantity_, items = Lude.Nothing}
 
 -- | The number of query string names in the @Items@ list.
 --
@@ -67,17 +55,24 @@ qsnQuantity :: Lens.Lens' QueryStringNames Lude.Int
 qsnQuantity = Lens.lens (quantity :: QueryStringNames -> Lude.Int) (\s a -> s {quantity = a} :: QueryStringNames)
 {-# DEPRECATED qsnQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | A list of query string names.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsnItems :: Lens.Lens' QueryStringNames (Lude.Maybe [Lude.Text])
+qsnItems = Lens.lens (items :: QueryStringNames -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: QueryStringNames)
+{-# DEPRECATED qsnItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML QueryStringNames where
   parseXML x =
     QueryStringNames'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "Name")
                )
-      Lude.<*> (x Lude..@ "Quantity")
 
 instance Lude.ToXML QueryStringNames where
   toXML QueryStringNames' {..} =
     Lude.mconcat
-      [ "Items" Lude.@= Lude.toXML (Lude.toXMLList "Name" Lude.<$> items),
-        "Quantity" Lude.@= quantity
+      [ "Quantity" Lude.@= quantity,
+        "Items" Lude.@= Lude.toXML (Lude.toXMLList "Name" Lude.<$> items)
       ]

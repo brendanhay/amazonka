@@ -13,8 +13,8 @@
 module Network.AWS.IoT.Types.ThingGroupIndexingMode
   ( ThingGroupIndexingMode
       ( ThingGroupIndexingMode',
-        ON,
-        Off
+        Off,
+        ON
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ThingGroupIndexingMode = ThingGroupIndexingMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern ON :: ThingGroupIndexingMode
-pattern ON = ThingGroupIndexingMode' "ON"
-
 pattern Off :: ThingGroupIndexingMode
 pattern Off = ThingGroupIndexingMode' "OFF"
 
+pattern ON :: ThingGroupIndexingMode
+pattern ON = ThingGroupIndexingMode' "ON"
+
 {-# COMPLETE
-  ON,
   Off,
+  ON,
   ThingGroupIndexingMode'
   #-}

@@ -32,22 +32,18 @@ import Network.AWS.SES.Types.StopScope
 --
 -- /See:/ 'mkStopAction' smart constructor.
 data StopAction = StopAction'
-  { topicARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
+    topicARN :: Lude.Maybe Lude.Text,
+    -- | The scope of the StopAction. The only acceptable value is @RuleSet@ .
     scope :: StopScope
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAction' with the minimum fields required to make a request.
 --
--- * 'scope' - The scope of the StopAction. The only acceptable value is @RuleSet@ .
 -- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
+-- * 'scope' - The scope of the StopAction. The only acceptable value is @RuleSet@ .
 mkStopAction ::
   -- | 'scope'
   StopScope ->

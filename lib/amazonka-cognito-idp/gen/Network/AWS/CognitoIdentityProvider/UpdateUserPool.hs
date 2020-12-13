@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,6 +24,7 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPool
     -- ** Request lenses
     uupUserPoolTags,
     uupVerificationMessageTemplate,
+    uupUserPoolId,
     uupEmailVerificationMessage,
     uupSmsAuthenticationMessage,
     uupUserPoolAddOns,
@@ -37,7 +39,6 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPool
     uupDeviceConfiguration,
     uupAutoVerifiedAttributes,
     uupPolicies,
-    uupUserPoolId,
 
     -- * Destructuring the response
     UpdateUserPoolResponse (..),
@@ -58,46 +59,65 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateUserPool' smart constructor.
 data UpdateUserPool = UpdateUserPool'
-  { userPoolTags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    verificationMessageTemplate ::
-      Lude.Maybe VerificationMessageTemplateType,
+  { -- | The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+    userPoolTags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The template for verification messages.
+    verificationMessageTemplate :: Lude.Maybe VerificationMessageTemplateType,
+    -- | The user pool ID for the user pool you want to update.
+    userPoolId :: Lude.Text,
+    -- | The contents of the email verification message.
     emailVerificationMessage :: Lude.Maybe Lude.Text,
+    -- | The contents of the SMS authentication message.
     smsAuthenticationMessage :: Lude.Maybe Lude.Text,
+    -- | Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
     userPoolAddOns :: Lude.Maybe UserPoolAddOnsType,
+    -- | The subject of the email verification message.
     emailVerificationSubject :: Lude.Maybe Lude.Text,
-    accountRecoverySetting ::
-      Lude.Maybe AccountRecoverySettingType,
+    -- | Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+    accountRecoverySetting :: Lude.Maybe AccountRecoverySettingType,
+    -- | Email configuration.
     emailConfiguration :: Lude.Maybe EmailConfigurationType,
+    -- | A container with information about the SMS verification message.
     smsVerificationMessage :: Lude.Maybe Lude.Text,
+    -- | Can be one of the following values:
+    --
+    --
+    --     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.
+    --
+    --
+    --     * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.
+    --
+    --
+    --     * @OPTIONAL@ - Users have the option when registering to create an MFA token.
     mfaConfiguration :: Lude.Maybe UserPoolMFAType,
+    -- | The AWS Lambda configuration information from the request to update the user pool.
     lambdaConfig :: Lude.Maybe LambdaConfigType,
+    -- | SMS configuration.
     smsConfiguration :: Lude.Maybe SmsConfigurationType,
+    -- | The configuration for @AdminCreateUser@ requests.
     adminCreateUserConfig :: Lude.Maybe AdminCreateUserConfigType,
+    -- | Device configuration.
     deviceConfiguration :: Lude.Maybe DeviceConfigurationType,
+    -- | The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.
     autoVerifiedAttributes :: Lude.Maybe [VerifiedAttributeType],
-    policies :: Lude.Maybe UserPoolPolicyType,
-    userPoolId :: Lude.Text
+    -- | A container with the policies you wish to update in a user pool.
+    policies :: Lude.Maybe UserPoolPolicyType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserPool' with the minimum fields required to make a request.
 --
--- * 'accountRecoverySetting' - Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
--- * 'adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
--- * 'autoVerifiedAttributes' - The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.
--- * 'deviceConfiguration' - Device configuration.
--- * 'emailConfiguration' - Email configuration.
+-- * 'userPoolTags' - The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+-- * 'verificationMessageTemplate' - The template for verification messages.
+-- * 'userPoolId' - The user pool ID for the user pool you want to update.
 -- * 'emailVerificationMessage' - The contents of the email verification message.
+-- * 'smsAuthenticationMessage' - The contents of the SMS authentication message.
+-- * 'userPoolAddOns' - Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
 -- * 'emailVerificationSubject' - The subject of the email verification message.
--- * 'lambdaConfig' - The AWS Lambda configuration information from the request to update the user pool.
+-- * 'accountRecoverySetting' - Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+-- * 'emailConfiguration' - Email configuration.
+-- * 'smsVerificationMessage' - A container with information about the SMS verification message.
 -- * 'mfaConfiguration' - Can be one of the following values:
 --
 --
@@ -110,14 +130,12 @@ data UpdateUserPool = UpdateUserPool'
 --     * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 --
 --
--- * 'policies' - A container with the policies you wish to update in a user pool.
--- * 'smsAuthenticationMessage' - The contents of the SMS authentication message.
+-- * 'lambdaConfig' - The AWS Lambda configuration information from the request to update the user pool.
 -- * 'smsConfiguration' - SMS configuration.
--- * 'smsVerificationMessage' - A container with information about the SMS verification message.
--- * 'userPoolAddOns' - Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
--- * 'userPoolId' - The user pool ID for the user pool you want to update.
--- * 'userPoolTags' - The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
--- * 'verificationMessageTemplate' - The template for verification messages.
+-- * 'adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
+-- * 'deviceConfiguration' - Device configuration.
+-- * 'autoVerifiedAttributes' - The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.
+-- * 'policies' - A container with the policies you wish to update in a user pool.
 mkUpdateUserPool ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -126,6 +144,7 @@ mkUpdateUserPool pUserPoolId_ =
   UpdateUserPool'
     { userPoolTags = Lude.Nothing,
       verificationMessageTemplate = Lude.Nothing,
+      userPoolId = pUserPoolId_,
       emailVerificationMessage = Lude.Nothing,
       smsAuthenticationMessage = Lude.Nothing,
       userPoolAddOns = Lude.Nothing,
@@ -139,8 +158,7 @@ mkUpdateUserPool pUserPoolId_ =
       adminCreateUserConfig = Lude.Nothing,
       deviceConfiguration = Lude.Nothing,
       autoVerifiedAttributes = Lude.Nothing,
-      policies = Lude.Nothing,
-      userPoolId = pUserPoolId_
+      policies = Lude.Nothing
     }
 
 -- | The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
@@ -156,6 +174,13 @@ uupUserPoolTags = Lens.lens (userPoolTags :: UpdateUserPool -> Lude.Maybe (Lude.
 uupVerificationMessageTemplate :: Lens.Lens' UpdateUserPool (Lude.Maybe VerificationMessageTemplateType)
 uupVerificationMessageTemplate = Lens.lens (verificationMessageTemplate :: UpdateUserPool -> Lude.Maybe VerificationMessageTemplateType) (\s a -> s {verificationMessageTemplate = a} :: UpdateUserPool)
 {-# DEPRECATED uupVerificationMessageTemplate "Use generic-lens or generic-optics with 'verificationMessageTemplate' instead." #-}
+
+-- | The user pool ID for the user pool you want to update.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupUserPoolId :: Lens.Lens' UpdateUserPool Lude.Text
+uupUserPoolId = Lens.lens (userPoolId :: UpdateUserPool -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateUserPool)
+{-# DEPRECATED uupUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The contents of the email verification message.
 --
@@ -266,13 +291,6 @@ uupPolicies :: Lens.Lens' UpdateUserPool (Lude.Maybe UserPoolPolicyType)
 uupPolicies = Lens.lens (policies :: UpdateUserPool -> Lude.Maybe UserPoolPolicyType) (\s a -> s {policies = a} :: UpdateUserPool)
 {-# DEPRECATED uupPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
--- | The user pool ID for the user pool you want to update.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupUserPoolId :: Lens.Lens' UpdateUserPool Lude.Text
-uupUserPoolId = Lens.lens (userPoolId :: UpdateUserPool -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateUserPool)
-{-# DEPRECATED uupUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
-
 instance Lude.AWSRequest UpdateUserPool where
   type Rs UpdateUserPool = UpdateUserPoolResponse
   request = Req.postJSON cognitoIdentityProviderService
@@ -302,6 +320,7 @@ instance Lude.ToJSON UpdateUserPool where
           [ ("UserPoolTags" Lude..=) Lude.<$> userPoolTags,
             ("VerificationMessageTemplate" Lude..=)
               Lude.<$> verificationMessageTemplate,
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
             ("EmailVerificationMessage" Lude..=)
               Lude.<$> emailVerificationMessage,
             ("SmsAuthenticationMessage" Lude..=)
@@ -318,8 +337,7 @@ instance Lude.ToJSON UpdateUserPool where
             ("AdminCreateUserConfig" Lude..=) Lude.<$> adminCreateUserConfig,
             ("DeviceConfiguration" Lude..=) Lude.<$> deviceConfiguration,
             ("AutoVerifiedAttributes" Lude..=) Lude.<$> autoVerifiedAttributes,
-            ("Policies" Lude..=) Lude.<$> policies,
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+            ("Policies" Lude..=) Lude.<$> policies
           ]
       )
 
@@ -333,16 +351,10 @@ instance Lude.ToQuery UpdateUserPool where
 --
 -- /See:/ 'mkUpdateUserPoolResponse' smart constructor.
 newtype UpdateUserPoolResponse = UpdateUserPoolResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserPoolResponse' with the minimum fields required to make a request.

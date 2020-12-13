@@ -41,40 +41,45 @@ import Network.AWS.RDS.Types.ApplyMethod
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { applyType :: Lude.Maybe Lude.Text,
+  { -- | Specifies the engine specific parameters type.
+    applyType :: Lude.Maybe Lude.Text,
+    -- | Specifies the value of the parameter.
     parameterValue :: Lude.Maybe Lude.Text,
+    -- | The valid DB engine modes.
     supportedEngineModes :: Lude.Maybe [Lude.Text],
+    -- | Indicates when to apply parameter updates.
     applyMethod :: Lude.Maybe ApplyMethod,
+    -- | The earliest engine version to which the parameter can apply.
     minimumEngineVersion :: Lude.Maybe Lude.Text,
+    -- | Indicates the source of the parameter value.
     source :: Lude.Maybe Lude.Text,
+    -- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
     isModifiable :: Lude.Maybe Lude.Bool,
+    -- | Specifies the valid data type for the parameter.
     dataType :: Lude.Maybe Lude.Text,
+    -- | Specifies the valid range of values for the parameter.
     allowedValues :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the parameter.
     parameterName :: Lude.Maybe Lude.Text,
+    -- | Provides a description of the parameter.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- * 'allowedValues' - Specifies the valid range of values for the parameter.
--- * 'applyMethod' - Indicates when to apply parameter updates.
 -- * 'applyType' - Specifies the engine specific parameters type.
--- * 'dataType' - Specifies the valid data type for the parameter.
--- * 'description' - Provides a description of the parameter.
--- * 'isModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
--- * 'minimumEngineVersion' - The earliest engine version to which the parameter can apply.
--- * 'parameterName' - Specifies the name of the parameter.
 -- * 'parameterValue' - Specifies the value of the parameter.
--- * 'source' - Indicates the source of the parameter value.
 -- * 'supportedEngineModes' - The valid DB engine modes.
+-- * 'applyMethod' - Indicates when to apply parameter updates.
+-- * 'minimumEngineVersion' - The earliest engine version to which the parameter can apply.
+-- * 'source' - Indicates the source of the parameter value.
+-- * 'isModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+-- * 'dataType' - Specifies the valid data type for the parameter.
+-- * 'allowedValues' - Specifies the valid range of values for the parameter.
+-- * 'parameterName' - Specifies the name of the parameter.
+-- * 'description' - Provides a description of the parameter.
 mkParameter ::
   Parameter
 mkParameter =

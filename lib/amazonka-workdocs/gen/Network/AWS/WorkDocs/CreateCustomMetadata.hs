@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.WorkDocs.CreateCustomMetadata
 
     -- ** Request lenses
     ccmVersionId,
-    ccmAuthenticationToken,
     ccmResourceId,
+    ccmAuthenticationToken,
     ccmCustomMetadata,
 
     -- * Destructuring the response
@@ -41,23 +42,24 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkCreateCustomMetadata' smart constructor.
 data CreateCustomMetadata = CreateCustomMetadata'
-  { versionId ::
-      Lude.Maybe Lude.Text,
-    authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The ID of the version, if the custom metadata is being added to a document version.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The ID of the resource.
     resourceId :: Lude.Text,
-    customMetadata ::
-      Lude.HashMap Lude.Text (Lude.Text)
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Custom metadata in the form of name-value pairs.
+    customMetadata :: Lude.HashMap Lude.Text (Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomMetadata' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The ID of the version, if the custom metadata is being added to a document version.
+-- * 'resourceId' - The ID of the resource.
 -- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'customMetadata' - Custom metadata in the form of name-value pairs.
--- * 'resourceId' - The ID of the resource.
--- * 'versionId' - The ID of the version, if the custom metadata is being added to a document version.
 mkCreateCustomMetadata ::
   -- | 'resourceId'
   Lude.Text ->
@@ -65,8 +67,8 @@ mkCreateCustomMetadata ::
 mkCreateCustomMetadata pResourceId_ =
   CreateCustomMetadata'
     { versionId = Lude.Nothing,
-      authenticationToken = Lude.Nothing,
       resourceId = pResourceId_,
+      authenticationToken = Lude.Nothing,
       customMetadata = Lude.mempty
     }
 
@@ -77,19 +79,19 @@ ccmVersionId :: Lens.Lens' CreateCustomMetadata (Lude.Maybe Lude.Text)
 ccmVersionId = Lens.lens (versionId :: CreateCustomMetadata -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: CreateCustomMetadata)
 {-# DEPRECATED ccmVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccmAuthenticationToken :: Lens.Lens' CreateCustomMetadata (Lude.Maybe (Lude.Sensitive Lude.Text))
-ccmAuthenticationToken = Lens.lens (authenticationToken :: CreateCustomMetadata -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateCustomMetadata)
-{-# DEPRECATED ccmAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
-
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccmResourceId :: Lens.Lens' CreateCustomMetadata Lude.Text
 ccmResourceId = Lens.lens (resourceId :: CreateCustomMetadata -> Lude.Text) (\s a -> s {resourceId = a} :: CreateCustomMetadata)
 {-# DEPRECATED ccmResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccmAuthenticationToken :: Lens.Lens' CreateCustomMetadata (Lude.Maybe (Lude.Sensitive Lude.Text))
+ccmAuthenticationToken = Lens.lens (authenticationToken :: CreateCustomMetadata -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateCustomMetadata)
+{-# DEPRECATED ccmAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | Custom metadata in the form of name-value pairs.
 --
@@ -134,16 +136,10 @@ instance Lude.ToQuery CreateCustomMetadata where
 
 -- | /See:/ 'mkCreateCustomMetadataResponse' smart constructor.
 newtype CreateCustomMetadataResponse = CreateCustomMetadataResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomMetadataResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListHarvestJobs' smart constructor.
 data ListHarvestJobs = ListHarvestJobs'
-  { includeStatus ::
-      Lude.Maybe Lude.Text,
+  { -- | When specified, the request will return only HarvestJobs in the given status.
+    includeStatus :: Lude.Maybe Lude.Text,
+    -- | A token used to resume pagination from the end of a previous request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | When specified, the request will return only HarvestJobs associated with the given Channel ID.
     includeChannelId :: Lude.Maybe Lude.Text,
+    -- | The upper bound on the number of records to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHarvestJobs' with the minimum fields required to make a request.
 --
--- * 'includeChannelId' - When specified, the request will return only HarvestJobs associated with the given Channel ID.
 -- * 'includeStatus' - When specified, the request will return only HarvestJobs in the given status.
--- * 'maxResults' - The upper bound on the number of records to return.
 -- * 'nextToken' - A token used to resume pagination from the end of a previous request.
+-- * 'includeChannelId' - When specified, the request will return only HarvestJobs associated with the given Channel ID.
+-- * 'maxResults' - The upper bound on the number of records to return.
 mkListHarvestJobs ::
   ListHarvestJobs
 mkListHarvestJobs =
@@ -149,18 +147,14 @@ instance Lude.ToQuery ListHarvestJobs where
 
 -- | /See:/ 'mkListHarvestJobsResponse' smart constructor.
 data ListHarvestJobsResponse = ListHarvestJobsResponse'
-  { harvestJobs ::
-      Lude.Maybe [HarvestJob],
+  { -- | A list of HarvestJob records.
+    harvestJobs :: Lude.Maybe [HarvestJob],
+    -- | A token that can be used to resume pagination from the end of the collection.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHarvestJobsResponse' with the minimum fields required to make a request.

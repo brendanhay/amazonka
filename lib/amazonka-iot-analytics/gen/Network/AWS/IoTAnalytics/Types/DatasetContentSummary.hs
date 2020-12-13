@@ -33,28 +33,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatasetContentSummary' smart constructor.
 data DatasetContentSummary = DatasetContentSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The actual time the creation of the dataset contents was started.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the data set contents.
     status :: Lude.Maybe DatasetContentStatus,
+    -- | The time the creation of the dataset contents was scheduled to start.
     scheduleTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
     completionTime :: Lude.Maybe Lude.Timestamp,
+    -- | The version of the dataset contents.
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetContentSummary' with the minimum fields required to make a request.
 --
--- * 'completionTime' - The time the dataset content status was updated to SUCCEEDED or FAILED.
 -- * 'creationTime' - The actual time the creation of the dataset contents was started.
--- * 'scheduleTime' - The time the creation of the dataset contents was scheduled to start.
 -- * 'status' - The status of the data set contents.
+-- * 'scheduleTime' - The time the creation of the dataset contents was scheduled to start.
+-- * 'completionTime' - The time the dataset content status was updated to SUCCEEDED or FAILED.
 -- * 'version' - The version of the dataset contents.
 mkDatasetContentSummary ::
   DatasetContentSummary

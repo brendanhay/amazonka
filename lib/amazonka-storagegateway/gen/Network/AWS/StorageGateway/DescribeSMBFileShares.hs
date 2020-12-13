@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeSMBFileShares' smart constructor.
 newtype DescribeSMBFileShares = DescribeSMBFileShares'
-  { fileShareARNList ::
-      Lude.NonEmpty Lude.Text
+  { -- | An array containing the Amazon Resource Name (ARN) of each file share to be described.
+    fileShareARNList :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSMBFileShares' with the minimum fields required to make a request.
@@ -111,23 +106,18 @@ instance Lude.ToQuery DescribeSMBFileShares where
 --
 -- /See:/ 'mkDescribeSMBFileSharesResponse' smart constructor.
 data DescribeSMBFileSharesResponse = DescribeSMBFileSharesResponse'
-  { sMBFileShareInfoList ::
-      Lude.Maybe [SMBFileShareInfo],
+  { -- | An array containing a description for each requested file share.
+    sMBFileShareInfoList :: Lude.Maybe [SMBFileShareInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSMBFileSharesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sMBFileShareInfoList' - An array containing a description for each requested file share.
+-- * 'responseStatus' - The response status code.
 mkDescribeSMBFileSharesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

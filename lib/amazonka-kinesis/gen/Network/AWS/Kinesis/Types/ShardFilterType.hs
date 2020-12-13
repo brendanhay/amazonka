@@ -14,11 +14,11 @@ module Network.AWS.Kinesis.Types.ShardFilterType
   ( ShardFilterType
       ( ShardFilterType',
         AfterShardId,
+        AtTrimHorizon,
+        FromTrimHorizon,
         AtLatest,
         AtTimestamp,
-        AtTrimHorizon,
-        FromTimestamp,
-        FromTrimHorizon
+        FromTimestamp
       ),
   )
 where
@@ -52,27 +52,27 @@ newtype ShardFilterType = ShardFilterType' Lude.Text
 pattern AfterShardId :: ShardFilterType
 pattern AfterShardId = ShardFilterType' "AFTER_SHARD_ID"
 
+pattern AtTrimHorizon :: ShardFilterType
+pattern AtTrimHorizon = ShardFilterType' "AT_TRIM_HORIZON"
+
+pattern FromTrimHorizon :: ShardFilterType
+pattern FromTrimHorizon = ShardFilterType' "FROM_TRIM_HORIZON"
+
 pattern AtLatest :: ShardFilterType
 pattern AtLatest = ShardFilterType' "AT_LATEST"
 
 pattern AtTimestamp :: ShardFilterType
 pattern AtTimestamp = ShardFilterType' "AT_TIMESTAMP"
 
-pattern AtTrimHorizon :: ShardFilterType
-pattern AtTrimHorizon = ShardFilterType' "AT_TRIM_HORIZON"
-
 pattern FromTimestamp :: ShardFilterType
 pattern FromTimestamp = ShardFilterType' "FROM_TIMESTAMP"
 
-pattern FromTrimHorizon :: ShardFilterType
-pattern FromTrimHorizon = ShardFilterType' "FROM_TRIM_HORIZON"
-
 {-# COMPLETE
   AfterShardId,
+  AtTrimHorizon,
+  FromTrimHorizon,
   AtLatest,
   AtTimestamp,
-  AtTrimHorizon,
   FromTimestamp,
-  FromTrimHorizon,
   ShardFilterType'
   #-}

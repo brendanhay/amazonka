@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.ServiceCatalog.DescribeRecord
 
     -- ** Request lenses
     drAcceptLanguage,
+    drId,
     drPageToken,
     drPageSize,
-    drId,
 
     -- * Destructuring the response
     DescribeRecordResponse (..),
@@ -46,19 +47,25 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDescribeRecord' smart constructor.
 data DescribeRecord = DescribeRecord'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The record identifier of the provisioned product. This identifier is returned by the request operation.
+    id :: Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Natural,
-    id :: Lude.Text
+    -- | The maximum number of items to return with this call.
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRecord' with the minimum fields required to make a request.
@@ -76,8 +83,8 @@ data DescribeRecord = DescribeRecord'
 --
 --
 -- * 'id' - The record identifier of the provisioned product. This identifier is returned by the request operation.
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 mkDescribeRecord ::
   -- | 'id'
   Lude.Text ->
@@ -85,9 +92,9 @@ mkDescribeRecord ::
 mkDescribeRecord pId_ =
   DescribeRecord'
     { acceptLanguage = Lude.Nothing,
+      id = pId_,
       pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      id = pId_
+      pageSize = Lude.Nothing
     }
 
 -- | The language code.
@@ -108,6 +115,13 @@ drAcceptLanguage :: Lens.Lens' DescribeRecord (Lude.Maybe Lude.Text)
 drAcceptLanguage = Lens.lens (acceptLanguage :: DescribeRecord -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeRecord)
 {-# DEPRECATED drAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
+-- | The record identifier of the provisioned product. This identifier is returned by the request operation.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drId :: Lens.Lens' DescribeRecord Lude.Text
+drId = Lens.lens (id :: DescribeRecord -> Lude.Text) (\s a -> s {id = a} :: DescribeRecord)
+{-# DEPRECATED drId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -121,13 +135,6 @@ drPageToken = Lens.lens (pageToken :: DescribeRecord -> Lude.Maybe Lude.Text) (\
 drPageSize :: Lens.Lens' DescribeRecord (Lude.Maybe Lude.Natural)
 drPageSize = Lens.lens (pageSize :: DescribeRecord -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: DescribeRecord)
 {-# DEPRECATED drPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
--- | The record identifier of the provisioned product. This identifier is returned by the request operation.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drId :: Lens.Lens' DescribeRecord Lude.Text
-drId = Lens.lens (id :: DescribeRecord -> Lude.Text) (\s a -> s {id = a} :: DescribeRecord)
-{-# DEPRECATED drId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DescribeRecord where
   type Rs DescribeRecord = DescribeRecordResponse
@@ -158,9 +165,9 @@ instance Lude.ToJSON DescribeRecord where
     Lude.object
       ( Lude.catMaybes
           [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("Id" Lude..= id),
             ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize,
-            Lude.Just ("Id" Lude..= id)
+            ("PageSize" Lude..=) Lude.<$> pageSize
           ]
       )
 
@@ -172,25 +179,22 @@ instance Lude.ToQuery DescribeRecord where
 
 -- | /See:/ 'mkDescribeRecordResponse' smart constructor.
 data DescribeRecordResponse = DescribeRecordResponse'
-  { recordDetail ::
-      Lude.Maybe RecordDetail,
+  { -- | Information about the product.
+    recordDetail :: Lude.Maybe RecordDetail,
+    -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
     nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
     recordOutputs :: Lude.Maybe [RecordOutput],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRecordResponse' with the minimum fields required to make a request.
 --
--- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 -- * 'recordDetail' - Information about the product.
+-- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 -- * 'recordOutputs' - Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
 -- * 'responseStatus' - The response status code.
 mkDescribeRecordResponse ::

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,9 +48,9 @@ module Network.AWS.Redshift.DescribeTags
     mkDescribeTagsResponse,
 
     -- ** Response lenses
-    dtrsMarker,
-    dtrsTaggedResources,
-    dtrsResponseStatus,
+    dtsrsMarker,
+    dtsrsTaggedResources,
+    dtsrsResponseStatus,
   )
 where
 
@@ -64,28 +65,58 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { tagValues ::
-      Lude.Maybe [Lude.Text],
+  { -- | A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
+    tagValues :: Lude.Maybe [Lude.Text],
+    -- | The type of resource with which you want to view tags. Valid resource types are:
+    --
+    --
+    --     * Cluster
+    --
+    --
+    --     * CIDR/IP
+    --
+    --
+    --     * EC2 security group
+    --
+    --
+    --     * Snapshot
+    --
+    --
+    --     * Cluster security group
+    --
+    --
+    --     * Subnet group
+    --
+    --
+    --     * HSM connection
+    --
+    --
+    --     * HSM certificate
+    --
+    --
+    --     * Parameter group
+    --
+    --
+    --     * Snapshot copy grant
+    --
+    --
+    -- For more information about Amazon Redshift resource types and constructing ARNs, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals> in the Amazon Redshift Cluster Management Guide.
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
     resourceName :: Lude.Maybe Lude.Text,
+    -- | A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.
     tagKeys :: Lude.Maybe [Lude.Text],
+    -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned @marker@ value.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
--- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
--- * 'maxRecords' - The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned @marker@ value.
--- * 'resourceName' - The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
+-- * 'tagValues' - A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
 -- * 'resourceType' - The type of resource with which you want to view tags. Valid resource types are:
 --
 --
@@ -120,8 +151,10 @@ data DescribeTags = DescribeTags'
 --
 --
 -- For more information about Amazon Redshift resource types and constructing ARNs, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals> in the Amazon Redshift Cluster Management Guide.
+-- * 'resourceName' - The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
 -- * 'tagKeys' - A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.
--- * 'tagValues' - A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
+-- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @marker@ parameter and retrying the command. If the @marker@ field is empty, all response records have been retrieved for the request.
+-- * 'maxRecords' - The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned @marker@ value.
 mkDescribeTags ::
   DescribeTags
 mkDescribeTags =
@@ -211,10 +244,10 @@ dtMaxRecords = Lens.lens (maxRecords :: DescribeTags -> Lude.Maybe Lude.Int) (\s
 
 instance Page.AWSPager DescribeTags where
   page rq rs
-    | Page.stop (rs Lens.^. dtrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtrsTaggedResources) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtsrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtsrsTaggedResources) = Lude.Nothing
     | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dtMarker Lens..~ rs Lens.^. dtrsMarker
+      Lude.Just Lude.$ rq Lude.& dtMarker Lens..~ rs Lens.^. dtsrsMarker
 
 instance Lude.AWSRequest DescribeTags where
   type Rs DescribeTags = DescribeTagsResponse
@@ -256,25 +289,21 @@ instance Lude.ToQuery DescribeTags where
 --
 -- /See:/ 'mkDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A list of tags with their associated resources.
     taggedResources :: Lude.Maybe [TaggedResource],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
--- * 'responseStatus' - The response status code.
 -- * 'taggedResources' - A list of tags with their associated resources.
+-- * 'responseStatus' - The response status code.
 mkDescribeTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -289,20 +318,20 @@ mkDescribeTagsResponse pResponseStatus_ =
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsMarker :: Lens.Lens' DescribeTagsResponse (Lude.Maybe Lude.Text)
-dtrsMarker = Lens.lens (marker :: DescribeTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dtsrsMarker :: Lens.Lens' DescribeTagsResponse (Lude.Maybe Lude.Text)
+dtsrsMarker = Lens.lens (marker :: DescribeTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A list of tags with their associated resources.
 --
 -- /Note:/ Consider using 'taggedResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTaggedResources :: Lens.Lens' DescribeTagsResponse (Lude.Maybe [TaggedResource])
-dtrsTaggedResources = Lens.lens (taggedResources :: DescribeTagsResponse -> Lude.Maybe [TaggedResource]) (\s a -> s {taggedResources = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsTaggedResources "Use generic-lens or generic-optics with 'taggedResources' instead." #-}
+dtsrsTaggedResources :: Lens.Lens' DescribeTagsResponse (Lude.Maybe [TaggedResource])
+dtsrsTaggedResources = Lens.lens (taggedResources :: DescribeTagsResponse -> Lude.Maybe [TaggedResource]) (\s a -> s {taggedResources = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtsrsTaggedResources "Use generic-lens or generic-optics with 'taggedResources' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DescribeTagsResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtsrsResponseStatus :: Lens.Lens' DescribeTagsResponse Lude.Int
+dtsrsResponseStatus = Lens.lens (responseStatus :: DescribeTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

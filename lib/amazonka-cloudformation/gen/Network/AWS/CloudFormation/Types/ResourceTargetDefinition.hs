@@ -32,26 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceTargetDefinition' smart constructor.
 data ResourceTargetDefinition = ResourceTargetDefinition'
-  { attribute ::
-      Lude.Maybe ResourceAttribute,
-    requiresRecreation ::
-      Lude.Maybe RequiresRecreation,
+  { -- | Indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
+    attribute :: Lude.Maybe ResourceAttribute,
+    -- | If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
+    requiresRecreation :: Lude.Maybe RequiresRecreation,
+    -- | If the @Attribute@ value is @Properties@ , the name of the property. For all other attributes, the value is null.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceTargetDefinition' with the minimum fields required to make a request.
 --
 -- * 'attribute' - Indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
--- * 'name' - If the @Attribute@ value is @Properties@ , the name of the property. For all other attributes, the value is null.
 -- * 'requiresRecreation' - If the @Attribute@ value is @Properties@ , indicates whether a change to this property causes the resource to be recreated. The value can be @Never@ , @Always@ , or @Conditionally@ . To determine the conditions for a @Conditionally@ recreation, see the update behavior for that <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property> in the AWS CloudFormation User Guide.
+-- * 'name' - If the @Attribute@ value is @Properties@ , the name of the property. For all other attributes, the value is null.
 mkResourceTargetDefinition ::
   ResourceTargetDefinition
 mkResourceTargetDefinition =

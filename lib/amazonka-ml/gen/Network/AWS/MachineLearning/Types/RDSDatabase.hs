@@ -17,8 +17,8 @@ module Network.AWS.MachineLearning.Types.RDSDatabase
     mkRDSDatabase,
 
     -- * Lenses
-    rdsdInstanceIdentifier,
-    rdsdDatabaseName,
+    rdInstanceIdentifier,
+    rdDatabaseName,
   )
 where
 
@@ -29,22 +29,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRDSDatabase' smart constructor.
 data RDSDatabase = RDSDatabase'
-  { instanceIdentifier :: Lude.Text,
+  { -- | The ID of an RDS DB instance.
+    instanceIdentifier :: Lude.Text,
     databaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RDSDatabase' with the minimum fields required to make a request.
 --
--- * 'databaseName' - Undocumented field.
 -- * 'instanceIdentifier' - The ID of an RDS DB instance.
+-- * 'databaseName' -
 mkRDSDatabase ::
   -- | 'instanceIdentifier'
   Lude.Text ->
@@ -60,16 +55,16 @@ mkRDSDatabase pInstanceIdentifier_ pDatabaseName_ =
 -- | The ID of an RDS DB instance.
 --
 -- /Note:/ Consider using 'instanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsdInstanceIdentifier :: Lens.Lens' RDSDatabase Lude.Text
-rdsdInstanceIdentifier = Lens.lens (instanceIdentifier :: RDSDatabase -> Lude.Text) (\s a -> s {instanceIdentifier = a} :: RDSDatabase)
-{-# DEPRECATED rdsdInstanceIdentifier "Use generic-lens or generic-optics with 'instanceIdentifier' instead." #-}
+rdInstanceIdentifier :: Lens.Lens' RDSDatabase Lude.Text
+rdInstanceIdentifier = Lens.lens (instanceIdentifier :: RDSDatabase -> Lude.Text) (\s a -> s {instanceIdentifier = a} :: RDSDatabase)
+{-# DEPRECATED rdInstanceIdentifier "Use generic-lens or generic-optics with 'instanceIdentifier' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsdDatabaseName :: Lens.Lens' RDSDatabase Lude.Text
-rdsdDatabaseName = Lens.lens (databaseName :: RDSDatabase -> Lude.Text) (\s a -> s {databaseName = a} :: RDSDatabase)
-{-# DEPRECATED rdsdDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+rdDatabaseName :: Lens.Lens' RDSDatabase Lude.Text
+rdDatabaseName = Lens.lens (databaseName :: RDSDatabase -> Lude.Text) (\s a -> s {databaseName = a} :: RDSDatabase)
+{-# DEPRECATED rdDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 instance Lude.FromJSON RDSDatabase where
   parseJSON =

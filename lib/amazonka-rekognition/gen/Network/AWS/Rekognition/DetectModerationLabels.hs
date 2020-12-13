@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.Rekognition.DetectModerationLabels
     mkDetectModerationLabels,
 
     -- ** Request lenses
+    dmlImage,
     dmlHumanLoopConfig,
     dmlMinConfidence,
-    dmlImage,
 
     -- * Destructuring the response
     DetectModerationLabelsResponse (..),
@@ -47,26 +48,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectModerationLabels' smart constructor.
 data DetectModerationLabels = DetectModerationLabels'
-  { humanLoopConfig ::
-      Lude.Maybe HumanLoopConfig,
-    minConfidence :: Lude.Maybe Lude.Double,
-    image :: Image
+  { -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+    --
+    -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+    image :: Image,
+    -- | Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.
+    humanLoopConfig :: Lude.Maybe HumanLoopConfig,
+    -- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value.
+    --
+    -- If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
+    minConfidence :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectModerationLabels' with the minimum fields required to make a request.
 --
--- * 'humanLoopConfig' - Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.
 -- * 'image' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 --
 -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+-- * 'humanLoopConfig' - Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.
 -- * 'minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value.
 --
 -- If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
@@ -76,10 +77,19 @@ mkDetectModerationLabels ::
   DetectModerationLabels
 mkDetectModerationLabels pImage_ =
   DetectModerationLabels'
-    { humanLoopConfig = Lude.Nothing,
-      minConfidence = Lude.Nothing,
-      image = pImage_
+    { image = pImage_,
+      humanLoopConfig = Lude.Nothing,
+      minConfidence = Lude.Nothing
     }
+
+-- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+--
+-- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlImage :: Lens.Lens' DetectModerationLabels Image
+dmlImage = Lens.lens (image :: DetectModerationLabels -> Image) (\s a -> s {image = a} :: DetectModerationLabels)
+{-# DEPRECATED dmlImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.
 --
@@ -96,15 +106,6 @@ dmlHumanLoopConfig = Lens.lens (humanLoopConfig :: DetectModerationLabels -> Lud
 dmlMinConfidence :: Lens.Lens' DetectModerationLabels (Lude.Maybe Lude.Double)
 dmlMinConfidence = Lens.lens (minConfidence :: DetectModerationLabels -> Lude.Maybe Lude.Double) (\s a -> s {minConfidence = a} :: DetectModerationLabels)
 {-# DEPRECATED dmlMinConfidence "Use generic-lens or generic-optics with 'minConfidence' instead." #-}
-
--- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
---
--- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
---
--- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlImage :: Lens.Lens' DetectModerationLabels Image
-dmlImage = Lens.lens (image :: DetectModerationLabels -> Image) (\s a -> s {image = a} :: DetectModerationLabels)
-{-# DEPRECATED dmlImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 instance Lude.AWSRequest DetectModerationLabels where
   type Rs DetectModerationLabels = DetectModerationLabelsResponse
@@ -134,9 +135,9 @@ instance Lude.ToJSON DetectModerationLabels where
   toJSON DetectModerationLabels' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("HumanLoopConfig" Lude..=) Lude.<$> humanLoopConfig,
-            ("MinConfidence" Lude..=) Lude.<$> minConfidence,
-            Lude.Just ("Image" Lude..= image)
+          [ Lude.Just ("Image" Lude..= image),
+            ("HumanLoopConfig" Lude..=) Lude.<$> humanLoopConfig,
+            ("MinConfidence" Lude..=) Lude.<$> minConfidence
           ]
       )
 
@@ -148,29 +149,23 @@ instance Lude.ToQuery DetectModerationLabels where
 
 -- | /See:/ 'mkDetectModerationLabelsResponse' smart constructor.
 data DetectModerationLabelsResponse = DetectModerationLabelsResponse'
-  { humanLoopActivationOutput ::
-      Lude.Maybe
-        HumanLoopActivationOutput,
-    moderationModelVersion ::
-      Lude.Maybe Lude.Text,
-    moderationLabels ::
-      Lude.Maybe [ModerationLabel],
+  { -- | Shows the results of the human in the loop evaluation.
+    humanLoopActivationOutput :: Lude.Maybe HumanLoopActivationOutput,
+    -- | Version number of the moderation detection model that was used to detect unsafe content.
+    moderationModelVersion :: Lude.Maybe Lude.Text,
+    -- | Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.
+    moderationLabels :: Lude.Maybe [ModerationLabel],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectModerationLabelsResponse' with the minimum fields required to make a request.
 --
 -- * 'humanLoopActivationOutput' - Shows the results of the human in the loop evaluation.
--- * 'moderationLabels' - Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.
 -- * 'moderationModelVersion' - Version number of the moderation detection model that was used to detect unsafe content.
+-- * 'moderationLabels' - Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.
 -- * 'responseStatus' - The response status code.
 mkDetectModerationLabelsResponse ::
   -- | 'responseStatus'

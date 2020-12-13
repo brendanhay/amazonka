@@ -13,19 +13,19 @@
 module Network.AWS.FMS.Types.ViolationReason
   ( ViolationReason
       ( ViolationReason',
-        MissingExpectedRouteTable,
+        WebACLMissingRuleGroup,
+        ResourceMissingWebACL,
+        ResourceIncorrectWebACL,
+        ResourceMissingShieldProtection,
+        ResourceMissingWebACLOrShieldProtection,
+        ResourceMissingSecurityGroup,
+        ResourceViolatesAuditSecurityGroup,
+        SecurityGroupUnused,
+        SecurityGroupRedundant,
         MissingFirewall,
         MissingFirewallSubnetInAz,
-        NetworkFirewallPolicyModified,
-        ResourceIncorrectWebACL,
-        ResourceMissingSecurityGroup,
-        ResourceMissingShieldProtection,
-        ResourceMissingWebACL,
-        ResourceMissingWebACLOrShieldProtection,
-        ResourceViolatesAuditSecurityGroup,
-        SecurityGroupRedundant,
-        SecurityGroupUnused,
-        WebACLMissingRuleGroup
+        MissingExpectedRouteTable,
+        NetworkFirewallPolicyModified
       ),
   )
 where
@@ -56,8 +56,32 @@ newtype ViolationReason = ViolationReason' Lude.Text
       Lude.ToHeader
     )
 
-pattern MissingExpectedRouteTable :: ViolationReason
-pattern MissingExpectedRouteTable = ViolationReason' "MISSING_EXPECTED_ROUTE_TABLE"
+pattern WebACLMissingRuleGroup :: ViolationReason
+pattern WebACLMissingRuleGroup = ViolationReason' "WEB_ACL_MISSING_RULE_GROUP"
+
+pattern ResourceMissingWebACL :: ViolationReason
+pattern ResourceMissingWebACL = ViolationReason' "RESOURCE_MISSING_WEB_ACL"
+
+pattern ResourceIncorrectWebACL :: ViolationReason
+pattern ResourceIncorrectWebACL = ViolationReason' "RESOURCE_INCORRECT_WEB_ACL"
+
+pattern ResourceMissingShieldProtection :: ViolationReason
+pattern ResourceMissingShieldProtection = ViolationReason' "RESOURCE_MISSING_SHIELD_PROTECTION"
+
+pattern ResourceMissingWebACLOrShieldProtection :: ViolationReason
+pattern ResourceMissingWebACLOrShieldProtection = ViolationReason' "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION"
+
+pattern ResourceMissingSecurityGroup :: ViolationReason
+pattern ResourceMissingSecurityGroup = ViolationReason' "RESOURCE_MISSING_SECURITY_GROUP"
+
+pattern ResourceViolatesAuditSecurityGroup :: ViolationReason
+pattern ResourceViolatesAuditSecurityGroup = ViolationReason' "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP"
+
+pattern SecurityGroupUnused :: ViolationReason
+pattern SecurityGroupUnused = ViolationReason' "SECURITY_GROUP_UNUSED"
+
+pattern SecurityGroupRedundant :: ViolationReason
+pattern SecurityGroupRedundant = ViolationReason' "SECURITY_GROUP_REDUNDANT"
 
 pattern MissingFirewall :: ViolationReason
 pattern MissingFirewall = ViolationReason' "MISSING_FIREWALL"
@@ -65,49 +89,25 @@ pattern MissingFirewall = ViolationReason' "MISSING_FIREWALL"
 pattern MissingFirewallSubnetInAz :: ViolationReason
 pattern MissingFirewallSubnetInAz = ViolationReason' "MISSING_FIREWALL_SUBNET_IN_AZ"
 
+pattern MissingExpectedRouteTable :: ViolationReason
+pattern MissingExpectedRouteTable = ViolationReason' "MISSING_EXPECTED_ROUTE_TABLE"
+
 pattern NetworkFirewallPolicyModified :: ViolationReason
 pattern NetworkFirewallPolicyModified = ViolationReason' "NETWORK_FIREWALL_POLICY_MODIFIED"
 
-pattern ResourceIncorrectWebACL :: ViolationReason
-pattern ResourceIncorrectWebACL = ViolationReason' "RESOURCE_INCORRECT_WEB_ACL"
-
-pattern ResourceMissingSecurityGroup :: ViolationReason
-pattern ResourceMissingSecurityGroup = ViolationReason' "RESOURCE_MISSING_SECURITY_GROUP"
-
-pattern ResourceMissingShieldProtection :: ViolationReason
-pattern ResourceMissingShieldProtection = ViolationReason' "RESOURCE_MISSING_SHIELD_PROTECTION"
-
-pattern ResourceMissingWebACL :: ViolationReason
-pattern ResourceMissingWebACL = ViolationReason' "RESOURCE_MISSING_WEB_ACL"
-
-pattern ResourceMissingWebACLOrShieldProtection :: ViolationReason
-pattern ResourceMissingWebACLOrShieldProtection = ViolationReason' "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION"
-
-pattern ResourceViolatesAuditSecurityGroup :: ViolationReason
-pattern ResourceViolatesAuditSecurityGroup = ViolationReason' "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP"
-
-pattern SecurityGroupRedundant :: ViolationReason
-pattern SecurityGroupRedundant = ViolationReason' "SECURITY_GROUP_REDUNDANT"
-
-pattern SecurityGroupUnused :: ViolationReason
-pattern SecurityGroupUnused = ViolationReason' "SECURITY_GROUP_UNUSED"
-
-pattern WebACLMissingRuleGroup :: ViolationReason
-pattern WebACLMissingRuleGroup = ViolationReason' "WEB_ACL_MISSING_RULE_GROUP"
-
 {-# COMPLETE
-  MissingExpectedRouteTable,
+  WebACLMissingRuleGroup,
+  ResourceMissingWebACL,
+  ResourceIncorrectWebACL,
+  ResourceMissingShieldProtection,
+  ResourceMissingWebACLOrShieldProtection,
+  ResourceMissingSecurityGroup,
+  ResourceViolatesAuditSecurityGroup,
+  SecurityGroupUnused,
+  SecurityGroupRedundant,
   MissingFirewall,
   MissingFirewallSubnetInAz,
+  MissingExpectedRouteTable,
   NetworkFirewallPolicyModified,
-  ResourceIncorrectWebACL,
-  ResourceMissingSecurityGroup,
-  ResourceMissingShieldProtection,
-  ResourceMissingWebACL,
-  ResourceMissingWebACLOrShieldProtection,
-  ResourceViolatesAuditSecurityGroup,
-  SecurityGroupRedundant,
-  SecurityGroupUnused,
-  WebACLMissingRuleGroup,
   ViolationReason'
   #-}

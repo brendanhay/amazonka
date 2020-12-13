@@ -30,25 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProviderUserIdentifierType' smart constructor.
 data ProviderUserIdentifierType = ProviderUserIdentifierType'
-  { providerAttributeValue ::
-      Lude.Maybe Lude.Text,
-    providerAttributeName ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the provider attribute to link to, for example, @xxxxx_account@ .
+    providerAttributeValue :: Lude.Maybe Lude.Text,
+    -- | The name of the provider attribute to link to, for example, @NameID@ .
+    providerAttributeName :: Lude.Maybe Lude.Text,
+    -- | The name of the provider, for example, Facebook, Google, or Login with Amazon.
     providerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProviderUserIdentifierType' with the minimum fields required to make a request.
 --
--- * 'providerAttributeName' - The name of the provider attribute to link to, for example, @NameID@ .
 -- * 'providerAttributeValue' - The value of the provider attribute to link to, for example, @xxxxx_account@ .
+-- * 'providerAttributeName' - The name of the provider attribute to link to, for example, @NameID@ .
 -- * 'providerName' - The name of the provider, for example, Facebook, Google, or Login with Amazon.
 mkProviderUserIdentifierType ::
   ProviderUserIdentifierType

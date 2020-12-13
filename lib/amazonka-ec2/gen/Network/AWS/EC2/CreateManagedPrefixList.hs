@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.EC2.CreateManagedPrefixList
     -- ** Request lenses
     cmplClientToken,
     cmplEntries,
+    cmplAddressFamily,
     cmplTagSpecifications,
-    cmplDryRun,
     cmplPrefixListName,
     cmplMaxEntries,
-    cmplAddressFamily,
+    cmplDryRun,
 
     -- * Destructuring the response
     CreateManagedPrefixListResponse (..),
@@ -47,60 +48,65 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateManagedPrefixList' smart constructor.
 data CreateManagedPrefixList = CreateManagedPrefixList'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    --
+    -- Constraints: Up to 255 UTF-8 characters in length.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | One or more entries for the prefix list.
     entries :: Lude.Maybe [AddPrefixListEntry],
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
-    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The IP address type.
+    --
+    -- Valid Values: @IPv4@ | @IPv6@
+    addressFamily :: Lude.Text,
+    -- | The tags to apply to the prefix list during creation.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | A name for the prefix list.
+    --
+    -- Constraints: Up to 255 characters in length. The name cannot start with @com.amazonaws@ .
     prefixListName :: Lude.Text,
+    -- | The maximum number of entries for the prefix list.
     maxEntries :: Lude.Int,
-    addressFamily :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateManagedPrefixList' with the minimum fields required to make a request.
 --
--- * 'addressFamily' - The IP address type.
---
--- Valid Values: @IPv4@ | @IPv6@
 -- * 'clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- Constraints: Up to 255 UTF-8 characters in length.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'entries' - One or more entries for the prefix list.
--- * 'maxEntries' - The maximum number of entries for the prefix list.
+-- * 'addressFamily' - The IP address type.
+--
+-- Valid Values: @IPv4@ | @IPv6@
+-- * 'tagSpecifications' - The tags to apply to the prefix list during creation.
 -- * 'prefixListName' - A name for the prefix list.
 --
 -- Constraints: Up to 255 characters in length. The name cannot start with @com.amazonaws@ .
--- * 'tagSpecifications' - The tags to apply to the prefix list during creation.
+-- * 'maxEntries' - The maximum number of entries for the prefix list.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateManagedPrefixList ::
+  -- | 'addressFamily'
+  Lude.Text ->
   -- | 'prefixListName'
   Lude.Text ->
   -- | 'maxEntries'
   Lude.Int ->
-  -- | 'addressFamily'
-  Lude.Text ->
   CreateManagedPrefixList
 mkCreateManagedPrefixList
+  pAddressFamily_
   pPrefixListName_
-  pMaxEntries_
-  pAddressFamily_ =
+  pMaxEntries_ =
     CreateManagedPrefixList'
       { clientToken = Lude.Nothing,
         entries = Lude.Nothing,
+        addressFamily = pAddressFamily_,
         tagSpecifications = Lude.Nothing,
-        dryRun = Lude.Nothing,
         prefixListName = pPrefixListName_,
         maxEntries = pMaxEntries_,
-        addressFamily = pAddressFamily_
+        dryRun = Lude.Nothing
       }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
@@ -119,19 +125,21 @@ cmplEntries :: Lens.Lens' CreateManagedPrefixList (Lude.Maybe [AddPrefixListEntr
 cmplEntries = Lens.lens (entries :: CreateManagedPrefixList -> Lude.Maybe [AddPrefixListEntry]) (\s a -> s {entries = a} :: CreateManagedPrefixList)
 {-# DEPRECATED cmplEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
 
+-- | The IP address type.
+--
+-- Valid Values: @IPv4@ | @IPv6@
+--
+-- /Note:/ Consider using 'addressFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmplAddressFamily :: Lens.Lens' CreateManagedPrefixList Lude.Text
+cmplAddressFamily = Lens.lens (addressFamily :: CreateManagedPrefixList -> Lude.Text) (\s a -> s {addressFamily = a} :: CreateManagedPrefixList)
+{-# DEPRECATED cmplAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
+
 -- | The tags to apply to the prefix list during creation.
 --
 -- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cmplTagSpecifications :: Lens.Lens' CreateManagedPrefixList (Lude.Maybe [TagSpecification])
 cmplTagSpecifications = Lens.lens (tagSpecifications :: CreateManagedPrefixList -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateManagedPrefixList)
 {-# DEPRECATED cmplTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmplDryRun :: Lens.Lens' CreateManagedPrefixList (Lude.Maybe Lude.Bool)
-cmplDryRun = Lens.lens (dryRun :: CreateManagedPrefixList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateManagedPrefixList)
-{-# DEPRECATED cmplDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | A name for the prefix list.
 --
@@ -149,14 +157,12 @@ cmplMaxEntries :: Lens.Lens' CreateManagedPrefixList Lude.Int
 cmplMaxEntries = Lens.lens (maxEntries :: CreateManagedPrefixList -> Lude.Int) (\s a -> s {maxEntries = a} :: CreateManagedPrefixList)
 {-# DEPRECATED cmplMaxEntries "Use generic-lens or generic-optics with 'maxEntries' instead." #-}
 
--- | The IP address type.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- Valid Values: @IPv4@ | @IPv6@
---
--- /Note:/ Consider using 'addressFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmplAddressFamily :: Lens.Lens' CreateManagedPrefixList Lude.Text
-cmplAddressFamily = Lens.lens (addressFamily :: CreateManagedPrefixList -> Lude.Text) (\s a -> s {addressFamily = a} :: CreateManagedPrefixList)
-{-# DEPRECATED cmplAddressFamily "Use generic-lens or generic-optics with 'addressFamily' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmplDryRun :: Lens.Lens' CreateManagedPrefixList (Lude.Maybe Lude.Bool)
+cmplDryRun = Lens.lens (dryRun :: CreateManagedPrefixList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateManagedPrefixList)
+{-# DEPRECATED cmplDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateManagedPrefixList where
   type Rs CreateManagedPrefixList = CreateManagedPrefixListResponse
@@ -181,28 +187,22 @@ instance Lude.ToQuery CreateManagedPrefixList where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "ClientToken" Lude.=: clientToken,
         Lude.toQuery (Lude.toQueryList "Entry" Lude.<$> entries),
+        "AddressFamily" Lude.=: addressFamily,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
         "PrefixListName" Lude.=: prefixListName,
         "MaxEntries" Lude.=: maxEntries,
-        "AddressFamily" Lude.=: addressFamily
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateManagedPrefixListResponse' smart constructor.
 data CreateManagedPrefixListResponse = CreateManagedPrefixListResponse'
-  { prefixList ::
-      Lude.Maybe
-        ManagedPrefixList,
+  { -- | Information about the prefix list.
+    prefixList :: Lude.Maybe ManagedPrefixList,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateManagedPrefixListResponse' with the minimum fields required to make a request.

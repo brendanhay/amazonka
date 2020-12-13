@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.SES.PutIdentityPolicy
     mkPutIdentityPolicy,
 
     -- ** Request lenses
-    pipIdentity,
     pipPolicyName,
     pipPolicy,
+    pipIdentity,
 
     -- * Destructuring the response
     PutIdentityPolicyResponse (..),
@@ -45,53 +46,47 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkPutIdentityPolicy' smart constructor.
 data PutIdentityPolicy = PutIdentityPolicy'
-  { identity :: Lude.Text,
+  { -- | The name of the policy.
+    --
+    -- The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
     policyName :: Lude.Text,
-    policy :: Lude.Text
+    -- | The text of the policy in JSON format. The policy cannot exceed 4 KB.
+    --
+    -- For information about the syntax of sending authorization policies, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide> .
+    policy :: Lude.Text,
+    -- | The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+    --
+    -- To successfully call this API, you must own the identity.
+    identity :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutIdentityPolicy' with the minimum fields required to make a request.
 --
--- * 'identity' - The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
---
--- To successfully call this API, you must own the identity.
--- * 'policy' - The text of the policy in JSON format. The policy cannot exceed 4 KB.
---
--- For information about the syntax of sending authorization policies, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide> .
 -- * 'policyName' - The name of the policy.
 --
 -- The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
+-- * 'policy' - The text of the policy in JSON format. The policy cannot exceed 4 KB.
+--
+-- For information about the syntax of sending authorization policies, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide> .
+-- * 'identity' - The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+--
+-- To successfully call this API, you must own the identity.
 mkPutIdentityPolicy ::
-  -- | 'identity'
-  Lude.Text ->
   -- | 'policyName'
   Lude.Text ->
   -- | 'policy'
   Lude.Text ->
+  -- | 'identity'
+  Lude.Text ->
   PutIdentityPolicy
-mkPutIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
+mkPutIdentityPolicy pPolicyName_ pPolicy_ pIdentity_ =
   PutIdentityPolicy'
-    { identity = pIdentity_,
-      policyName = pPolicyName_,
-      policy = pPolicy_
+    { policyName = pPolicyName_,
+      policy = pPolicy_,
+      identity = pIdentity_
     }
-
--- | The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
---
--- To successfully call this API, you must own the identity.
---
--- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pipIdentity :: Lens.Lens' PutIdentityPolicy Lude.Text
-pipIdentity = Lens.lens (identity :: PutIdentityPolicy -> Lude.Text) (\s a -> s {identity = a} :: PutIdentityPolicy)
-{-# DEPRECATED pipIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
 -- | The name of the policy.
 --
@@ -110,6 +105,15 @@ pipPolicyName = Lens.lens (policyName :: PutIdentityPolicy -> Lude.Text) (\s a -
 pipPolicy :: Lens.Lens' PutIdentityPolicy Lude.Text
 pipPolicy = Lens.lens (policy :: PutIdentityPolicy -> Lude.Text) (\s a -> s {policy = a} :: PutIdentityPolicy)
 {-# DEPRECATED pipPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+
+-- | The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+--
+-- To successfully call this API, you must own the identity.
+--
+-- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pipIdentity :: Lens.Lens' PutIdentityPolicy Lude.Text
+pipIdentity = Lens.lens (identity :: PutIdentityPolicy -> Lude.Text) (\s a -> s {identity = a} :: PutIdentityPolicy)
+{-# DEPRECATED pipIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
 instance Lude.AWSRequest PutIdentityPolicy where
   type Rs PutIdentityPolicy = PutIdentityPolicyResponse
@@ -132,25 +136,19 @@ instance Lude.ToQuery PutIdentityPolicy where
     Lude.mconcat
       [ "Action" Lude.=: ("PutIdentityPolicy" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Identity" Lude.=: identity,
         "PolicyName" Lude.=: policyName,
-        "Policy" Lude.=: policy
+        "Policy" Lude.=: policy,
+        "Identity" Lude.=: identity
       ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkPutIdentityPolicyResponse' smart constructor.
 newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutIdentityPolicyResponse' with the minimum fields required to make a request.

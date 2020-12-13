@@ -13,8 +13,8 @@
 module Network.AWS.CodeDeploy.Types.TargetFilterName
   ( TargetFilterName
       ( TargetFilterName',
-        ServerInstanceLabel,
-        TargetStatus
+        TargetStatus,
+        ServerInstanceLabel
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TargetFilterName = TargetFilterName' Lude.Text
       Lude.ToHeader
     )
 
-pattern ServerInstanceLabel :: TargetFilterName
-pattern ServerInstanceLabel = TargetFilterName' "ServerInstanceLabel"
-
 pattern TargetStatus :: TargetFilterName
 pattern TargetStatus = TargetFilterName' "TargetStatus"
 
+pattern ServerInstanceLabel :: TargetFilterName
+pattern ServerInstanceLabel = TargetFilterName' "ServerInstanceLabel"
+
 {-# COMPLETE
-  ServerInstanceLabel,
   TargetStatus,
+  ServerInstanceLabel,
   TargetFilterName'
   #-}

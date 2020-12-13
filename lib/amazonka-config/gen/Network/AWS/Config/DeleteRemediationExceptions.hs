@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Config.DeleteRemediationExceptions
     mkDeleteRemediationExceptionsResponse,
 
     -- ** Response lenses
-    delrsFailedBatches,
-    delrsResponseStatus,
+    drefrsFailedBatches,
+    drefrsResponseStatus,
   )
 where
 
@@ -40,19 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteRemediationExceptions' smart constructor.
 data DeleteRemediationExceptions = DeleteRemediationExceptions'
-  { configRuleName ::
-      Lude.Text,
-    resourceKeys ::
-      Lude.NonEmpty
-        RemediationExceptionResourceKey
+  { -- | The name of the AWS Config rule for which you want to delete remediation exception configuration.
+    configRuleName :: Lude.Text,
+    -- | An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
+    resourceKeys :: Lude.NonEmpty RemediationExceptionResourceKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRemediationExceptions' with the minimum fields required to make a request.
@@ -128,19 +122,12 @@ instance Lude.ToQuery DeleteRemediationExceptions where
 
 -- | /See:/ 'mkDeleteRemediationExceptionsResponse' smart constructor.
 data DeleteRemediationExceptionsResponse = DeleteRemediationExceptionsResponse'
-  { failedBatches ::
-      Lude.Maybe
-        [FailedDeleteRemediationExceptionsBatch],
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
+    failedBatches :: Lude.Maybe [FailedDeleteRemediationExceptionsBatch],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRemediationExceptionsResponse' with the minimum fields required to make a request.
@@ -161,13 +148,13 @@ mkDeleteRemediationExceptionsResponse pResponseStatus_ =
 -- | Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
 --
 -- /Note:/ Consider using 'failedBatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsFailedBatches :: Lens.Lens' DeleteRemediationExceptionsResponse (Lude.Maybe [FailedDeleteRemediationExceptionsBatch])
-delrsFailedBatches = Lens.lens (failedBatches :: DeleteRemediationExceptionsResponse -> Lude.Maybe [FailedDeleteRemediationExceptionsBatch]) (\s a -> s {failedBatches = a} :: DeleteRemediationExceptionsResponse)
-{-# DEPRECATED delrsFailedBatches "Use generic-lens or generic-optics with 'failedBatches' instead." #-}
+drefrsFailedBatches :: Lens.Lens' DeleteRemediationExceptionsResponse (Lude.Maybe [FailedDeleteRemediationExceptionsBatch])
+drefrsFailedBatches = Lens.lens (failedBatches :: DeleteRemediationExceptionsResponse -> Lude.Maybe [FailedDeleteRemediationExceptionsBatch]) (\s a -> s {failedBatches = a} :: DeleteRemediationExceptionsResponse)
+{-# DEPRECATED drefrsFailedBatches "Use generic-lens or generic-optics with 'failedBatches' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteRemediationExceptionsResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteRemediationExceptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRemediationExceptionsResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drefrsResponseStatus :: Lens.Lens' DeleteRemediationExceptionsResponse Lude.Int
+drefrsResponseStatus = Lens.lens (responseStatus :: DeleteRemediationExceptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRemediationExceptionsResponse)
+{-# DEPRECATED drefrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

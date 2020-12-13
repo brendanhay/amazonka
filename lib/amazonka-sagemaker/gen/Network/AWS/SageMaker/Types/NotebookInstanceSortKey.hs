@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.NotebookInstanceSortKey
   ( NotebookInstanceSortKey
       ( NotebookInstanceSortKey',
-        NISKCreationTime,
         NISKName,
+        NISKCreationTime,
         NISKStatus
       ),
   )
@@ -46,18 +46,18 @@ newtype NotebookInstanceSortKey = NotebookInstanceSortKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern NISKCreationTime :: NotebookInstanceSortKey
-pattern NISKCreationTime = NotebookInstanceSortKey' "CreationTime"
-
 pattern NISKName :: NotebookInstanceSortKey
 pattern NISKName = NotebookInstanceSortKey' "Name"
+
+pattern NISKCreationTime :: NotebookInstanceSortKey
+pattern NISKCreationTime = NotebookInstanceSortKey' "CreationTime"
 
 pattern NISKStatus :: NotebookInstanceSortKey
 pattern NISKStatus = NotebookInstanceSortKey' "Status"
 
 {-# COMPLETE
-  NISKCreationTime,
   NISKName,
+  NISKCreationTime,
   NISKStatus,
   NotebookInstanceSortKey'
   #-}

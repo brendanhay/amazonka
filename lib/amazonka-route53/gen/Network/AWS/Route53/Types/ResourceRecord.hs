@@ -28,14 +28,13 @@ import Network.AWS.Route53.Internal
 -- | Information specific to the resource record.
 --
 -- /See:/ 'mkResourceRecord' smart constructor.
-newtype ResourceRecord = ResourceRecord' {value :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ResourceRecord = ResourceRecord'
+  { -- | The current or new DNS record value, not to exceed 4,000 characters. In the case of a @DELETE@ action, if the current value does not match the actual value, an error is returned. For descriptions about how to format @Value@ for different record types, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html Supported DNS Resource Record Types> in the /Amazon Route 53 Developer Guide/ .
+    --
+    -- You can specify more than one value for all record types except @CNAME@ and @SOA@ .
+    value :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceRecord' with the minimum fields required to make a request.

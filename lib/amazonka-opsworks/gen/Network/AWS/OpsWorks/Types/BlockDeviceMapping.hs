@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { virtualName ::
-      Lude.Maybe Lude.Text,
+  { -- | The virtual device name. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping> .
+    virtualName :: Lude.Maybe Lude.Text,
+    -- | Suppresses the specified device included in the AMI's block device mapping.
     noDevice :: Lude.Maybe Lude.Text,
+    -- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume when the instance is launched.
     ebs :: Lude.Maybe EBSBlockDevice,
+    -- | The device name that is exposed to the instance, such as @/dev/sdh@ . For the root device, you can use the explicit device name or you can set this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the correct device name.
     deviceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlockDeviceMapping' with the minimum fields required to make a request.
 --
--- * 'deviceName' - The device name that is exposed to the instance, such as @/dev/sdh@ . For the root device, you can use the explicit device name or you can set this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the correct device name.
--- * 'ebs' - An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume when the instance is launched.
--- * 'noDevice' - Suppresses the specified device included in the AMI's block device mapping.
 -- * 'virtualName' - The virtual device name. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping> .
+-- * 'noDevice' - Suppresses the specified device included in the AMI's block device mapping.
+-- * 'ebs' - An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume when the instance is launched.
+-- * 'deviceName' - The device name that is exposed to the instance, such as @/dev/sdh@ . For the root device, you can use the explicit device name or you can set this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the correct device name.
 mkBlockDeviceMapping ::
   BlockDeviceMapping
 mkBlockDeviceMapping =

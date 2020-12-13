@@ -33,22 +33,30 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'mkReplicationRuleFilter' smart constructor.
 data ReplicationRuleFilter = ReplicationRuleFilter'
-  { tag ::
-      Lude.Maybe Tag,
+  { -- | A container for specifying a tag key and value.
+    --
+    -- The rule applies only to objects that have the tag in their tag set.
+    tag :: Lude.Maybe Tag,
+    -- | An object key name prefix that identifies the subset of objects to which the rule applies.
     prefix :: Lude.Maybe Lude.Text,
+    -- | A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
+    --
+    --
+    --     * If you specify both a @Prefix@ and a @Tag@ filter, wrap these filters in an @And@ tag.
+    --
+    --
+    --     * If you specify a filter based on multiple tags, wrap the @Tag@ elements in an @And@ tag.
     and :: Lude.Maybe ReplicationRuleAndOperator
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationRuleFilter' with the minimum fields required to make a request.
 --
+-- * 'tag' - A container for specifying a tag key and value.
+--
+-- The rule applies only to objects that have the tag in their tag set.
+-- * 'prefix' - An object key name prefix that identifies the subset of objects to which the rule applies.
 -- * 'and' - A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
 --
 --
@@ -56,12 +64,6 @@ data ReplicationRuleFilter = ReplicationRuleFilter'
 --
 --
 --     * If you specify a filter based on multiple tags, wrap the @Tag@ elements in an @And@ tag.
---
---
--- * 'prefix' - An object key name prefix that identifies the subset of objects to which the rule applies.
--- * 'tag' - A container for specifying a tag key and value.
---
--- The rule applies only to objects that have the tag in their tag set.
 mkReplicationRuleFilter ::
   ReplicationRuleFilter
 mkReplicationRuleFilter =

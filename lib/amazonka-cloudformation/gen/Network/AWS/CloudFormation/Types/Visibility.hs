@@ -13,8 +13,8 @@
 module Network.AWS.CloudFormation.Types.Visibility
   ( Visibility
       ( Visibility',
-        Private,
-        Public
+        Public,
+        Private
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Visibility = Visibility' Lude.Text
       Lude.ToHeader
     )
 
-pattern Private :: Visibility
-pattern Private = Visibility' "PRIVATE"
-
 pattern Public :: Visibility
 pattern Public = Visibility' "PUBLIC"
 
+pattern Private :: Visibility
+pattern Private = Visibility' "PRIVATE"
+
 {-# COMPLETE
-  Private,
   Public,
+  Private,
   Visibility'
   #-}

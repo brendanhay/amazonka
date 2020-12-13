@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,26 +41,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { policyName ::
-      Lude.Maybe Lude.Text,
+  { -- | Name of the new policy. This parameter is required.
+    policyName :: Lude.Maybe Lude.Text,
+    -- | Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. This parameter is required.
+    --
+    -- The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace @"logArn"@ with the ARN of your CloudWatch Logs resource, such as a log group or log stream.
+    -- @{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": "logArn" } ] } @
     policyDocument :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourcePolicy' with the minimum fields required to make a request.
 --
+-- * 'policyName' - Name of the new policy. This parameter is required.
 -- * 'policyDocument' - Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. This parameter is required.
 --
 -- The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace @"logArn"@ with the ARN of your CloudWatch Logs resource, such as a log group or log stream.
 -- @{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": "logArn" } ] } @
--- * 'policyName' - Name of the new policy. This parameter is required.
 mkPutResourcePolicy ::
   PutResourcePolicy
 mkPutResourcePolicy =
@@ -124,17 +123,12 @@ instance Lude.ToQuery PutResourcePolicy where
 
 -- | /See:/ 'mkPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { resourcePolicy ::
-      Lude.Maybe ResourcePolicy,
+  { -- | The new policy.
+    resourcePolicy :: Lude.Maybe ResourcePolicy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourcePolicyResponse' with the minimum fields required to make a request.

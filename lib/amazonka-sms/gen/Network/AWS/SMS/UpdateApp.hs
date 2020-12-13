@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,28 +47,28 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkUpdateApp' smart constructor.
 data UpdateApp = UpdateApp'
-  { roleName :: Lude.Maybe Lude.Text,
+  { -- | The name of the service role in the customer's account used by AWS SMS.
+    roleName :: Lude.Maybe Lude.Text,
+    -- | The ID of the application.
     appId :: Lude.Maybe Lude.Text,
+    -- | The new name of the application.
     name :: Lude.Maybe Lude.Text,
+    -- | The new description of the application.
     description :: Lude.Maybe Lude.Text,
+    -- | The server groups in the application to update.
     serverGroups :: Lude.Maybe [ServerGroup],
+    -- | The tags to associate with the application.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApp' with the minimum fields required to make a request.
 --
--- * 'appId' - The ID of the application.
--- * 'description' - The new description of the application.
--- * 'name' - The new name of the application.
 -- * 'roleName' - The name of the service role in the customer's account used by AWS SMS.
+-- * 'appId' - The ID of the application.
+-- * 'name' - The new name of the application.
+-- * 'description' - The new description of the application.
 -- * 'serverGroups' - The server groups in the application to update.
 -- * 'tags' - The tags to associate with the application.
 mkUpdateApp ::
@@ -171,27 +172,24 @@ instance Lude.ToQuery UpdateApp where
 
 -- | /See:/ 'mkUpdateAppResponse' smart constructor.
 data UpdateAppResponse = UpdateAppResponse'
-  { appSummary ::
-      Lude.Maybe AppSummary,
+  { -- | A summary description of the application.
+    appSummary :: Lude.Maybe AppSummary,
+    -- | The updated server groups in the application.
     serverGroups :: Lude.Maybe [ServerGroup],
+    -- | The tags associated with the application.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAppResponse' with the minimum fields required to make a request.
 --
 -- * 'appSummary' - A summary description of the application.
--- * 'responseStatus' - The response status code.
 -- * 'serverGroups' - The updated server groups in the application.
 -- * 'tags' - The tags associated with the application.
+-- * 'responseStatus' - The response status code.
 mkUpdateAppResponse ::
   -- | 'responseStatus'
   Lude.Int ->

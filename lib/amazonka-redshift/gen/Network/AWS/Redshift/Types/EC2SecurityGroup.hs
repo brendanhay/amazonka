@@ -33,26 +33,23 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkEC2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the EC2 security group.
+    status :: Lude.Maybe Lude.Text,
+    -- | The AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
     ec2SecurityGroupOwnerId :: Lude.Maybe Lude.Text,
+    -- | The name of the EC2 Security Group.
     ec2SecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | The list of tags for the EC2 security group.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
--- * 'ec2SecurityGroupName' - The name of the EC2 Security Group.
--- * 'ec2SecurityGroupOwnerId' - The AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
 -- * 'status' - The status of the EC2 security group.
+-- * 'ec2SecurityGroupOwnerId' - The AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
+-- * 'ec2SecurityGroupName' - The name of the EC2 Security Group.
 -- * 'tags' - The list of tags for the EC2 security group.
 mkEC2SecurityGroup ::
   EC2SecurityGroup

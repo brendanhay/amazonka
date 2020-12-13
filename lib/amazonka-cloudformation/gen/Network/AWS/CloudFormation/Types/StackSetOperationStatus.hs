@@ -13,12 +13,12 @@
 module Network.AWS.CloudFormation.Types.StackSetOperationStatus
   ( StackSetOperationStatus
       ( StackSetOperationStatus',
-        SSOSFailed,
-        SSOSQueued,
         SSOSRunning,
-        SSOSStopped,
+        SSOSSucceeded,
+        SSOSFailed,
         SSOSStopping,
-        SSOSSucceeded
+        SSOSStopped,
+        SSOSQueued
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype StackSetOperationStatus = StackSetOperationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSOSFailed :: StackSetOperationStatus
-pattern SSOSFailed = StackSetOperationStatus' "FAILED"
-
-pattern SSOSQueued :: StackSetOperationStatus
-pattern SSOSQueued = StackSetOperationStatus' "QUEUED"
-
 pattern SSOSRunning :: StackSetOperationStatus
 pattern SSOSRunning = StackSetOperationStatus' "RUNNING"
-
-pattern SSOSStopped :: StackSetOperationStatus
-pattern SSOSStopped = StackSetOperationStatus' "STOPPED"
-
-pattern SSOSStopping :: StackSetOperationStatus
-pattern SSOSStopping = StackSetOperationStatus' "STOPPING"
 
 pattern SSOSSucceeded :: StackSetOperationStatus
 pattern SSOSSucceeded = StackSetOperationStatus' "SUCCEEDED"
 
+pattern SSOSFailed :: StackSetOperationStatus
+pattern SSOSFailed = StackSetOperationStatus' "FAILED"
+
+pattern SSOSStopping :: StackSetOperationStatus
+pattern SSOSStopping = StackSetOperationStatus' "STOPPING"
+
+pattern SSOSStopped :: StackSetOperationStatus
+pattern SSOSStopped = StackSetOperationStatus' "STOPPED"
+
+pattern SSOSQueued :: StackSetOperationStatus
+pattern SSOSQueued = StackSetOperationStatus' "QUEUED"
+
 {-# COMPLETE
-  SSOSFailed,
-  SSOSQueued,
   SSOSRunning,
-  SSOSStopped,
-  SSOSStopping,
   SSOSSucceeded,
+  SSOSFailed,
+  SSOSStopping,
+  SSOSStopped,
+  SSOSQueued,
   StackSetOperationStatus'
   #-}

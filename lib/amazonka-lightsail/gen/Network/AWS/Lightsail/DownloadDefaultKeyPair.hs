@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,13 +38,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDownloadDefaultKeyPair' smart constructor.
 data DownloadDefaultKeyPair = DownloadDefaultKeyPair'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DownloadDefaultKeyPair' with the minimum fields required to make a request.
@@ -85,25 +80,20 @@ instance Lude.ToQuery DownloadDefaultKeyPair where
 
 -- | /See:/ 'mkDownloadDefaultKeyPairResponse' smart constructor.
 data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
-  { publicKeyBase64 ::
-      Lude.Maybe Lude.Text,
-    privateKeyBase64 ::
-      Lude.Maybe Lude.Text,
+  { -- | A base64-encoded public key of the @ssh-rsa@ type.
+    publicKeyBase64 :: Lude.Maybe Lude.Text,
+    -- | A base64-encoded RSA private key.
+    privateKeyBase64 :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DownloadDefaultKeyPairResponse' with the minimum fields required to make a request.
 --
--- * 'privateKeyBase64' - A base64-encoded RSA private key.
 -- * 'publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
+-- * 'privateKeyBase64' - A base64-encoded RSA private key.
 -- * 'responseStatus' - The response status code.
 mkDownloadDefaultKeyPairResponse ::
   -- | 'responseStatus'

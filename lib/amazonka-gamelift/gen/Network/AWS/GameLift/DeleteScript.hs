@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,7 +39,7 @@ module Network.AWS.GameLift.DeleteScript
     mkDeleteScript,
 
     -- ** Request lenses
-    dsScriptId,
+    dScriptId,
 
     -- * Destructuring the response
     DeleteScriptResponse (..),
@@ -53,14 +54,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteScript' smart constructor.
-newtype DeleteScript = DeleteScript' {scriptId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteScript = DeleteScript'
+  { -- | A unique identifier for a Realtime script to delete. You can use either the script ID or ARN value.
+    scriptId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScript' with the minimum fields required to make a request.
@@ -75,9 +73,9 @@ mkDeleteScript pScriptId_ = DeleteScript' {scriptId = pScriptId_}
 -- | A unique identifier for a Realtime script to delete. You can use either the script ID or ARN value.
 --
 -- /Note:/ Consider using 'scriptId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsScriptId :: Lens.Lens' DeleteScript Lude.Text
-dsScriptId = Lens.lens (scriptId :: DeleteScript -> Lude.Text) (\s a -> s {scriptId = a} :: DeleteScript)
-{-# DEPRECATED dsScriptId "Use generic-lens or generic-optics with 'scriptId' instead." #-}
+dScriptId :: Lens.Lens' DeleteScript Lude.Text
+dScriptId = Lens.lens (scriptId :: DeleteScript -> Lude.Text) (\s a -> s {scriptId = a} :: DeleteScript)
+{-# DEPRECATED dScriptId "Use generic-lens or generic-optics with 'scriptId' instead." #-}
 
 instance Lude.AWSRequest DeleteScript where
   type Rs DeleteScript = DeleteScriptResponse
@@ -108,13 +106,7 @@ instance Lude.ToQuery DeleteScript where
 
 -- | /See:/ 'mkDeleteScriptResponse' smart constructor.
 data DeleteScriptResponse = DeleteScriptResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScriptResponse' with the minimum fields required to make a request.

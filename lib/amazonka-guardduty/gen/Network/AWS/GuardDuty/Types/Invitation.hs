@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInvitation' smart constructor.
 data Invitation = Invitation'
-  { invitedAt :: Lude.Maybe Lude.Text,
+  { -- | The timestamp when the invitation was sent.
+    invitedAt :: Lude.Maybe Lude.Text,
+    -- | The status of the relationship between the inviter and invitee accounts.
     relationshipStatus :: Lude.Maybe Lude.Text,
+    -- | The ID of the invitation. This value is used to validate the inviter account to the member account.
     invitationId :: Lude.Maybe Lude.Text,
+    -- | The ID of the account that the invitation was sent from.
     accountId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Invitation' with the minimum fields required to make a request.
 --
--- * 'accountId' - The ID of the account that the invitation was sent from.
--- * 'invitationId' - The ID of the invitation. This value is used to validate the inviter account to the member account.
 -- * 'invitedAt' - The timestamp when the invitation was sent.
 -- * 'relationshipStatus' - The status of the relationship between the inviter and invitee accounts.
+-- * 'invitationId' - The ID of the invitation. This value is used to validate the inviter account to the member account.
+-- * 'accountId' - The ID of the account that the invitation was sent from.
 mkInvitation ::
   Invitation
 mkInvitation =

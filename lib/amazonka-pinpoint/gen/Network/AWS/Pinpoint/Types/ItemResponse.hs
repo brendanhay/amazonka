@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkItemResponse' smart constructor.
 data ItemResponse = ItemResponse'
-  { endpointItemResponse ::
-      Lude.Maybe EndpointItemResponse,
-    eventsItemResponse ::
-      Lude.Maybe (Lude.HashMap Lude.Text (EventItemResponse))
+  { -- | The response that was received after the endpoint data was accepted.
+    endpointItemResponse :: Lude.Maybe EndpointItemResponse,
+    -- | A multipart response object that contains a key and a value for each event in the request. In each object, the event ID is the key and an EventItemResponse object is the value.
+    eventsItemResponse :: Lude.Maybe (Lude.HashMap Lude.Text (EventItemResponse))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ItemResponse' with the minimum fields required to make a request.

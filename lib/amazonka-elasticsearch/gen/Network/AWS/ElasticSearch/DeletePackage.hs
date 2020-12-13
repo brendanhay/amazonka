@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.ElasticSearch.DeletePackage
     mkDeletePackageResponse,
 
     -- ** Response lenses
-    delrsPackageDetails,
-    delrsResponseStatus,
+    dpfrsPackageDetails,
+    dpfrsResponseStatus,
   )
 where
 
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | Container for request parameters to @'DeletePackage' @ operation.
 --
 -- /See:/ 'mkDeletePackage' smart constructor.
-newtype DeletePackage = DeletePackage' {packageId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeletePackage = DeletePackage'
+  { -- | Internal ID of the package that you want to delete. Use @DescribePackages@ to find this value.
+    packageId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePackage' with the minimum fields required to make a request.
@@ -92,17 +90,12 @@ instance Lude.ToQuery DeletePackage where
 --
 -- /See:/ 'mkDeletePackageResponse' smart constructor.
 data DeletePackageResponse = DeletePackageResponse'
-  { packageDetails ::
-      Lude.Maybe PackageDetails,
+  { -- | @PackageDetails@
+    packageDetails :: Lude.Maybe PackageDetails,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePackageResponse' with the minimum fields required to make a request.
@@ -122,13 +115,13 @@ mkDeletePackageResponse pResponseStatus_ =
 -- | @PackageDetails@
 --
 -- /Note:/ Consider using 'packageDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsPackageDetails :: Lens.Lens' DeletePackageResponse (Lude.Maybe PackageDetails)
-delrsPackageDetails = Lens.lens (packageDetails :: DeletePackageResponse -> Lude.Maybe PackageDetails) (\s a -> s {packageDetails = a} :: DeletePackageResponse)
-{-# DEPRECATED delrsPackageDetails "Use generic-lens or generic-optics with 'packageDetails' instead." #-}
+dpfrsPackageDetails :: Lens.Lens' DeletePackageResponse (Lude.Maybe PackageDetails)
+dpfrsPackageDetails = Lens.lens (packageDetails :: DeletePackageResponse -> Lude.Maybe PackageDetails) (\s a -> s {packageDetails = a} :: DeletePackageResponse)
+{-# DEPRECATED dpfrsPackageDetails "Use generic-lens or generic-optics with 'packageDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeletePackageResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeletePackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePackageResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpfrsResponseStatus :: Lens.Lens' DeletePackageResponse Lude.Int
+dpfrsResponseStatus = Lens.lens (responseStatus :: DeletePackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePackageResponse)
+{-# DEPRECATED dpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,9 +17,9 @@ module Network.AWS.Inspector.Types.InspectorServiceAttributes
     mkInspectorServiceAttributes,
 
     -- * Lenses
+    isaSchemaVersion,
     isaRulesPackageARN,
     isaAssessmentRunARN,
-    isaSchemaVersion,
   )
 where
 
@@ -30,36 +30,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInspectorServiceAttributes' smart constructor.
 data InspectorServiceAttributes = InspectorServiceAttributes'
-  { rulesPackageARN ::
-      Lude.Maybe Lude.Text,
-    assessmentRunARN ::
-      Lude.Maybe Lude.Text,
-    schemaVersion :: Lude.Natural
+  { -- | The schema version of this data type.
+    schemaVersion :: Lude.Natural,
+    -- | The ARN of the rules package that is used to generate the finding.
+    rulesPackageARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the assessment run during which the finding is generated.
+    assessmentRunARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InspectorServiceAttributes' with the minimum fields required to make a request.
 --
--- * 'assessmentRunARN' - The ARN of the assessment run during which the finding is generated.
--- * 'rulesPackageARN' - The ARN of the rules package that is used to generate the finding.
 -- * 'schemaVersion' - The schema version of this data type.
+-- * 'rulesPackageARN' - The ARN of the rules package that is used to generate the finding.
+-- * 'assessmentRunARN' - The ARN of the assessment run during which the finding is generated.
 mkInspectorServiceAttributes ::
   -- | 'schemaVersion'
   Lude.Natural ->
   InspectorServiceAttributes
 mkInspectorServiceAttributes pSchemaVersion_ =
   InspectorServiceAttributes'
-    { rulesPackageARN = Lude.Nothing,
-      assessmentRunARN = Lude.Nothing,
-      schemaVersion = pSchemaVersion_
+    { schemaVersion = pSchemaVersion_,
+      rulesPackageARN = Lude.Nothing,
+      assessmentRunARN = Lude.Nothing
     }
+
+-- | The schema version of this data type.
+--
+-- /Note:/ Consider using 'schemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isaSchemaVersion :: Lens.Lens' InspectorServiceAttributes Lude.Natural
+isaSchemaVersion = Lens.lens (schemaVersion :: InspectorServiceAttributes -> Lude.Natural) (\s a -> s {schemaVersion = a} :: InspectorServiceAttributes)
+{-# DEPRECATED isaSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
 
 -- | The ARN of the rules package that is used to generate the finding.
 --
@@ -75,20 +77,13 @@ isaAssessmentRunARN :: Lens.Lens' InspectorServiceAttributes (Lude.Maybe Lude.Te
 isaAssessmentRunARN = Lens.lens (assessmentRunARN :: InspectorServiceAttributes -> Lude.Maybe Lude.Text) (\s a -> s {assessmentRunARN = a} :: InspectorServiceAttributes)
 {-# DEPRECATED isaAssessmentRunARN "Use generic-lens or generic-optics with 'assessmentRunARN' instead." #-}
 
--- | The schema version of this data type.
---
--- /Note:/ Consider using 'schemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isaSchemaVersion :: Lens.Lens' InspectorServiceAttributes Lude.Natural
-isaSchemaVersion = Lens.lens (schemaVersion :: InspectorServiceAttributes -> Lude.Natural) (\s a -> s {schemaVersion = a} :: InspectorServiceAttributes)
-{-# DEPRECATED isaSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
-
 instance Lude.FromJSON InspectorServiceAttributes where
   parseJSON =
     Lude.withObject
       "InspectorServiceAttributes"
       ( \x ->
           InspectorServiceAttributes'
-            Lude.<$> (x Lude..:? "rulesPackageArn")
+            Lude.<$> (x Lude..: "schemaVersion")
+            Lude.<*> (x Lude..:? "rulesPackageArn")
             Lude.<*> (x Lude..:? "assessmentRunArn")
-            Lude.<*> (x Lude..: "schemaVersion")
       )

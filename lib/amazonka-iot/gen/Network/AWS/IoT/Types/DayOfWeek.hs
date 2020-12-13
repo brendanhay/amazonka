@@ -13,13 +13,13 @@
 module Network.AWS.IoT.Types.DayOfWeek
   ( DayOfWeek
       ( DayOfWeek',
-        Fri,
-        Mon,
-        Sat,
         Sun,
-        Thu,
+        Mon,
         Tue,
-        Wed
+        Wed,
+        Thu,
+        Fri,
+        Sat
       ),
   )
 where
@@ -50,20 +50,11 @@ newtype DayOfWeek = DayOfWeek' Lude.Text
       Lude.ToHeader
     )
 
-pattern Fri :: DayOfWeek
-pattern Fri = DayOfWeek' "FRI"
-
-pattern Mon :: DayOfWeek
-pattern Mon = DayOfWeek' "MON"
-
-pattern Sat :: DayOfWeek
-pattern Sat = DayOfWeek' "SAT"
-
 pattern Sun :: DayOfWeek
 pattern Sun = DayOfWeek' "SUN"
 
-pattern Thu :: DayOfWeek
-pattern Thu = DayOfWeek' "THU"
+pattern Mon :: DayOfWeek
+pattern Mon = DayOfWeek' "MON"
 
 pattern Tue :: DayOfWeek
 pattern Tue = DayOfWeek' "TUE"
@@ -71,13 +62,22 @@ pattern Tue = DayOfWeek' "TUE"
 pattern Wed :: DayOfWeek
 pattern Wed = DayOfWeek' "WED"
 
+pattern Thu :: DayOfWeek
+pattern Thu = DayOfWeek' "THU"
+
+pattern Fri :: DayOfWeek
+pattern Fri = DayOfWeek' "FRI"
+
+pattern Sat :: DayOfWeek
+pattern Sat = DayOfWeek' "SAT"
+
 {-# COMPLETE
-  Fri,
-  Mon,
-  Sat,
   Sun,
-  Thu,
+  Mon,
   Tue,
   Wed,
+  Thu,
+  Fri,
+  Sat,
   DayOfWeek'
   #-}

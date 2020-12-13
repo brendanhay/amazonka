@@ -31,27 +31,20 @@ import Network.AWS.SMS.Types.ServerLaunchConfiguration
 --
 -- /See:/ 'mkServerGroupLaunchConfiguration' smart constructor.
 data ServerGroupLaunchConfiguration = ServerGroupLaunchConfiguration'
-  { serverGroupId ::
-      Lude.Maybe Lude.Text,
-    launchOrder ::
-      Lude.Maybe Lude.Int,
-    serverLaunchConfigurations ::
-      Lude.Maybe
-        [ServerLaunchConfiguration]
+  { -- | The ID of the server group with which the launch configuration is associated.
+    serverGroupId :: Lude.Maybe Lude.Text,
+    -- | The launch order of servers in the server group.
+    launchOrder :: Lude.Maybe Lude.Int,
+    -- | The launch configuration for servers in the server group.
+    serverLaunchConfigurations :: Lude.Maybe [ServerLaunchConfiguration]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerGroupLaunchConfiguration' with the minimum fields required to make a request.
 --
--- * 'launchOrder' - The launch order of servers in the server group.
 -- * 'serverGroupId' - The ID of the server group with which the launch configuration is associated.
+-- * 'launchOrder' - The launch order of servers in the server group.
 -- * 'serverLaunchConfigurations' - The launch configuration for servers in the server group.
 mkServerGroupLaunchConfiguration ::
   ServerGroupLaunchConfiguration

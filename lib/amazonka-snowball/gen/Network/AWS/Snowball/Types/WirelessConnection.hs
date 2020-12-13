@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWirelessConnection' smart constructor.
 newtype WirelessConnection = WirelessConnection'
-  { isWifiEnabled ::
-      Lude.Maybe Lude.Bool
+  { -- | Enables the Wi-Fi adapter on an AWS Snowcone device.
+    isWifiEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WirelessConnection' with the minimum fields required to make a request.

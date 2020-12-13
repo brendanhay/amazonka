@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.EC2.ModifyVPCEndpointConnectionNotification
 
     -- ** Request lenses
     mvecnConnectionEvents,
+    mvecnConnectionNotificationId,
     mvecnConnectionNotificationARN,
     mvecnDryRun,
-    mvecnConnectionNotificationId,
 
     -- * Destructuring the response
     ModifyVPCEndpointConnectionNotificationResponse (..),
@@ -42,32 +43,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyVPCEndpointConnectionNotification' smart constructor.
 data ModifyVPCEndpointConnectionNotification = ModifyVPCEndpointConnectionNotification'
-  { connectionEvents ::
-      Lude.Maybe
-        [Lude.Text],
-    connectionNotificationARN ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    connectionNotificationId ::
-      Lude.Text
+  { -- | One or more events for the endpoint. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
+    connectionEvents :: Lude.Maybe [Lude.Text],
+    -- | The ID of the notification.
+    connectionNotificationId :: Lude.Text,
+    -- | The ARN for the SNS topic for the notification.
+    connectionNotificationARN :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpointConnectionNotification' with the minimum fields required to make a request.
 --
 -- * 'connectionEvents' - One or more events for the endpoint. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
--- * 'connectionNotificationARN' - The ARN for the SNS topic for the notification.
 -- * 'connectionNotificationId' - The ID of the notification.
+-- * 'connectionNotificationARN' - The ARN for the SNS topic for the notification.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyVPCEndpointConnectionNotification ::
   -- | 'connectionNotificationId'
@@ -78,9 +70,9 @@ mkModifyVPCEndpointConnectionNotification
     ModifyVPCEndpointConnectionNotification'
       { connectionEvents =
           Lude.Nothing,
+        connectionNotificationId = pConnectionNotificationId_,
         connectionNotificationARN = Lude.Nothing,
-        dryRun = Lude.Nothing,
-        connectionNotificationId = pConnectionNotificationId_
+        dryRun = Lude.Nothing
       }
 
 -- | One or more events for the endpoint. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
@@ -89,6 +81,13 @@ mkModifyVPCEndpointConnectionNotification
 mvecnConnectionEvents :: Lens.Lens' ModifyVPCEndpointConnectionNotification (Lude.Maybe [Lude.Text])
 mvecnConnectionEvents = Lens.lens (connectionEvents :: ModifyVPCEndpointConnectionNotification -> Lude.Maybe [Lude.Text]) (\s a -> s {connectionEvents = a} :: ModifyVPCEndpointConnectionNotification)
 {-# DEPRECATED mvecnConnectionEvents "Use generic-lens or generic-optics with 'connectionEvents' instead." #-}
+
+-- | The ID of the notification.
+--
+-- /Note:/ Consider using 'connectionNotificationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvecnConnectionNotificationId :: Lens.Lens' ModifyVPCEndpointConnectionNotification Lude.Text
+mvecnConnectionNotificationId = Lens.lens (connectionNotificationId :: ModifyVPCEndpointConnectionNotification -> Lude.Text) (\s a -> s {connectionNotificationId = a} :: ModifyVPCEndpointConnectionNotification)
+{-# DEPRECATED mvecnConnectionNotificationId "Use generic-lens or generic-optics with 'connectionNotificationId' instead." #-}
 
 -- | The ARN for the SNS topic for the notification.
 --
@@ -103,13 +102,6 @@ mvecnConnectionNotificationARN = Lens.lens (connectionNotificationARN :: ModifyV
 mvecnDryRun :: Lens.Lens' ModifyVPCEndpointConnectionNotification (Lude.Maybe Lude.Bool)
 mvecnDryRun = Lens.lens (dryRun :: ModifyVPCEndpointConnectionNotification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPCEndpointConnectionNotification)
 {-# DEPRECATED mvecnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the notification.
---
--- /Note:/ Consider using 'connectionNotificationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvecnConnectionNotificationId :: Lens.Lens' ModifyVPCEndpointConnectionNotification Lude.Text
-mvecnConnectionNotificationId = Lens.lens (connectionNotificationId :: ModifyVPCEndpointConnectionNotification -> Lude.Text) (\s a -> s {connectionNotificationId = a} :: ModifyVPCEndpointConnectionNotification)
-{-# DEPRECATED mvecnConnectionNotificationId "Use generic-lens or generic-optics with 'connectionNotificationId' instead." #-}
 
 instance Lude.AWSRequest ModifyVPCEndpointConnectionNotification where
   type
@@ -137,35 +129,25 @@ instance Lude.ToQuery ModifyVPCEndpointConnectionNotification where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery
           (Lude.toQueryList "ConnectionEvents" Lude.<$> connectionEvents),
+        "ConnectionNotificationId" Lude.=: connectionNotificationId,
         "ConnectionNotificationArn" Lude.=: connectionNotificationARN,
-        "DryRun" Lude.=: dryRun,
-        "ConnectionNotificationId" Lude.=: connectionNotificationId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyVPCEndpointConnectionNotificationResponse' smart constructor.
 data ModifyVPCEndpointConnectionNotificationResponse = ModifyVPCEndpointConnectionNotificationResponse'
-  { returnValue ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    returnValue :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpointConnectionNotificationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'returnValue' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkModifyVPCEndpointConnectionNotificationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

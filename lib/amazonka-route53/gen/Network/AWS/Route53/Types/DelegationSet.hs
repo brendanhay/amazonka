@@ -31,23 +31,20 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'mkDelegationSet' smart constructor.
 data DelegationSet = DelegationSet'
-  { id :: Lude.Maybe ResourceId,
+  { -- | The ID that Amazon Route 53 assigns to a reusable delegation set.
+    id :: Lude.Maybe ResourceId,
+    -- | The value that you specified for @CallerReference@ when you created the reusable delegation set.
     callerReference :: Lude.Maybe Lude.Text,
+    -- | A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.
     nameServers :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DelegationSet' with the minimum fields required to make a request.
 --
--- * 'callerReference' - The value that you specified for @CallerReference@ when you created the reusable delegation set.
 -- * 'id' - The ID that Amazon Route 53 assigns to a reusable delegation set.
+-- * 'callerReference' - The value that you specified for @CallerReference@ when you created the reusable delegation set.
 -- * 'nameServers' - A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.
 mkDelegationSet ::
   -- | 'nameServers'

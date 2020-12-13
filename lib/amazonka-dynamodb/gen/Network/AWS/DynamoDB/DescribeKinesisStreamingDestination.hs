@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.DynamoDB.DescribeKinesisStreamingDestination
     mkDescribeKinesisStreamingDestination,
 
     -- ** Request lenses
-    dksdkTableName,
+    dksdTableName,
 
     -- * Destructuring the response
     DescribeKinesisStreamingDestinationResponse (..),
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeKinesisStreamingDestination' smart constructor.
 newtype DescribeKinesisStreamingDestination = DescribeKinesisStreamingDestination'
-  { tableName ::
-      Lude.Text
+  { -- | The name of the table being described.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKinesisStreamingDestination' with the minimum fields required to make a request.
@@ -65,9 +60,9 @@ mkDescribeKinesisStreamingDestination pTableName_ =
 -- | The name of the table being described.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dksdkTableName :: Lens.Lens' DescribeKinesisStreamingDestination Lude.Text
-dksdkTableName = Lens.lens (tableName :: DescribeKinesisStreamingDestination -> Lude.Text) (\s a -> s {tableName = a} :: DescribeKinesisStreamingDestination)
-{-# DEPRECATED dksdkTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+dksdTableName :: Lens.Lens' DescribeKinesisStreamingDestination Lude.Text
+dksdTableName = Lens.lens (tableName :: DescribeKinesisStreamingDestination -> Lude.Text) (\s a -> s {tableName = a} :: DescribeKinesisStreamingDestination)
+{-# DEPRECATED dksdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest DescribeKinesisStreamingDestination where
   type
@@ -109,29 +104,21 @@ instance Lude.ToQuery DescribeKinesisStreamingDestination where
 
 -- | /See:/ 'mkDescribeKinesisStreamingDestinationResponse' smart constructor.
 data DescribeKinesisStreamingDestinationResponse = DescribeKinesisStreamingDestinationResponse'
-  { kinesisDataStreamDestinations ::
-      Lude.Maybe
-        [KinesisDataStreamDestination],
-    tableName ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The list of replica structures for the table being described.
+    kinesisDataStreamDestinations :: Lude.Maybe [KinesisDataStreamDestination],
+    -- | The name of the table being described.
+    tableName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKinesisStreamingDestinationResponse' with the minimum fields required to make a request.
 --
 -- * 'kinesisDataStreamDestinations' - The list of replica structures for the table being described.
--- * 'responseStatus' - The response status code.
 -- * 'tableName' - The name of the table being described.
+-- * 'responseStatus' - The response status code.
 mkDescribeKinesisStreamingDestinationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

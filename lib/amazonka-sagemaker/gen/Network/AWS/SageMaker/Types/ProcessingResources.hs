@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.ProcessingClusterConfig
 --
 -- /See:/ 'mkProcessingResources' smart constructor.
 newtype ProcessingResources = ProcessingResources'
-  { clusterConfig ::
-      ProcessingClusterConfig
+  { -- | The configuration for the resources in a cluster used to run the processing job.
+    clusterConfig :: ProcessingClusterConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingResources' with the minimum fields required to make a request.

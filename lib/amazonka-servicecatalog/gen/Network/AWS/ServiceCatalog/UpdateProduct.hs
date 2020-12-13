@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,11 +26,11 @@ module Network.AWS.ServiceCatalog.UpdateProduct
     upDistributor,
     upName,
     upAcceptLanguage,
+    upId,
     upAddTags,
     upSupportEmail,
     upDescription,
     upSupportDescription,
-    upId,
 
     -- * Destructuring the response
     UpdateProductResponse (..),
@@ -50,30 +51,48 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkUpdateProduct' smart constructor.
 data UpdateProduct = UpdateProduct'
-  { removeTags ::
-      Lude.Maybe [Lude.Text],
+  { -- | The tags to remove from the product.
+    removeTags :: Lude.Maybe [Lude.Text],
+    -- | The updated owner of the product.
     owner :: Lude.Maybe Lude.Text,
+    -- | The updated support URL for the product.
     supportURL :: Lude.Maybe Lude.Text,
+    -- | The updated distributor of the product.
     distributor :: Lude.Maybe Lude.Text,
+    -- | The updated product name.
     name :: Lude.Maybe Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
     acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The product identifier.
+    id :: Lude.Text,
+    -- | The tags to add to the product.
     addTags :: Lude.Maybe [Tag],
+    -- | The updated support email for the product.
     supportEmail :: Lude.Maybe Lude.Text,
+    -- | The updated description of the product.
     description :: Lude.Maybe Lude.Text,
-    supportDescription :: Lude.Maybe Lude.Text,
-    id :: Lude.Text
+    -- | The updated support description for the product.
+    supportDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProduct' with the minimum fields required to make a request.
 --
+-- * 'removeTags' - The tags to remove from the product.
+-- * 'owner' - The updated owner of the product.
+-- * 'supportURL' - The updated support URL for the product.
+-- * 'distributor' - The updated distributor of the product.
+-- * 'name' - The updated product name.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -86,16 +105,11 @@ data UpdateProduct = UpdateProduct'
 --     * @zh@ - Chinese
 --
 --
--- * 'addTags' - The tags to add to the product.
--- * 'description' - The updated description of the product.
--- * 'distributor' - The updated distributor of the product.
 -- * 'id' - The product identifier.
--- * 'name' - The updated product name.
--- * 'owner' - The updated owner of the product.
--- * 'removeTags' - The tags to remove from the product.
--- * 'supportDescription' - The updated support description for the product.
+-- * 'addTags' - The tags to add to the product.
 -- * 'supportEmail' - The updated support email for the product.
--- * 'supportURL' - The updated support URL for the product.
+-- * 'description' - The updated description of the product.
+-- * 'supportDescription' - The updated support description for the product.
 mkUpdateProduct ::
   -- | 'id'
   Lude.Text ->
@@ -108,11 +122,11 @@ mkUpdateProduct pId_ =
       distributor = Lude.Nothing,
       name = Lude.Nothing,
       acceptLanguage = Lude.Nothing,
+      id = pId_,
       addTags = Lude.Nothing,
       supportEmail = Lude.Nothing,
       description = Lude.Nothing,
-      supportDescription = Lude.Nothing,
-      id = pId_
+      supportDescription = Lude.Nothing
     }
 
 -- | The tags to remove from the product.
@@ -168,6 +182,13 @@ upAcceptLanguage :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
 upAcceptLanguage = Lens.lens (acceptLanguage :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: UpdateProduct)
 {-# DEPRECATED upAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
+-- | The product identifier.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upId :: Lens.Lens' UpdateProduct Lude.Text
+upId = Lens.lens (id :: UpdateProduct -> Lude.Text) (\s a -> s {id = a} :: UpdateProduct)
+{-# DEPRECATED upId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 -- | The tags to add to the product.
 --
 -- /Note:/ Consider using 'addTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -195,13 +216,6 @@ upDescription = Lens.lens (description :: UpdateProduct -> Lude.Maybe Lude.Text)
 upSupportDescription :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
 upSupportDescription = Lens.lens (supportDescription :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {supportDescription = a} :: UpdateProduct)
 {-# DEPRECATED upSupportDescription "Use generic-lens or generic-optics with 'supportDescription' instead." #-}
-
--- | The product identifier.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upId :: Lens.Lens' UpdateProduct Lude.Text
-upId = Lens.lens (id :: UpdateProduct -> Lude.Text) (\s a -> s {id = a} :: UpdateProduct)
-{-# DEPRECATED upId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest UpdateProduct where
   type Rs UpdateProduct = UpdateProductResponse
@@ -236,11 +250,11 @@ instance Lude.ToJSON UpdateProduct where
             ("Distributor" Lude..=) Lude.<$> distributor,
             ("Name" Lude..=) Lude.<$> name,
             ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("Id" Lude..= id),
             ("AddTags" Lude..=) Lude.<$> addTags,
             ("SupportEmail" Lude..=) Lude.<$> supportEmail,
             ("Description" Lude..=) Lude.<$> description,
-            ("SupportDescription" Lude..=) Lude.<$> supportDescription,
-            Lude.Just ("Id" Lude..= id)
+            ("SupportDescription" Lude..=) Lude.<$> supportDescription
           ]
       )
 
@@ -252,25 +266,21 @@ instance Lude.ToQuery UpdateProduct where
 
 -- | /See:/ 'mkUpdateProductResponse' smart constructor.
 data UpdateProductResponse = UpdateProductResponse'
-  { productViewDetail ::
-      Lude.Maybe ProductViewDetail,
+  { -- | Information about the product view.
+    productViewDetail :: Lude.Maybe ProductViewDetail,
+    -- | Information about the tags associated with the product.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProductResponse' with the minimum fields required to make a request.
 --
 -- * 'productViewDetail' - Information about the product view.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - Information about the tags associated with the product.
+-- * 'responseStatus' - The response status code.
 mkUpdateProductResponse ::
   -- | 'responseStatus'
   Lude.Int ->

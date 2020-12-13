@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Comprehend.DescribeEndpoint
     mkDescribeEndpoint,
 
     -- ** Request lenses
-    desEndpointARN,
+    dEndpointARN,
 
     -- * Destructuring the response
     DescribeEndpointResponse (..),
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEndpoint' smart constructor.
 newtype DescribeEndpoint = DescribeEndpoint'
-  { endpointARN ::
-      Lude.Text
+  { -- | The Amazon Resource Number (ARN) of the endpoint being described.
+    endpointARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpoint' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDescribeEndpoint pEndpointARN_ =
 -- | The Amazon Resource Number (ARN) of the endpoint being described.
 --
 -- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desEndpointARN :: Lens.Lens' DescribeEndpoint Lude.Text
-desEndpointARN = Lens.lens (endpointARN :: DescribeEndpoint -> Lude.Text) (\s a -> s {endpointARN = a} :: DescribeEndpoint)
-{-# DEPRECATED desEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+dEndpointARN :: Lens.Lens' DescribeEndpoint Lude.Text
+dEndpointARN = Lens.lens (endpointARN :: DescribeEndpoint -> Lude.Text) (\s a -> s {endpointARN = a} :: DescribeEndpoint)
+{-# DEPRECATED dEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 instance Lude.AWSRequest DescribeEndpoint where
   type Rs DescribeEndpoint = DescribeEndpointResponse
@@ -103,17 +98,12 @@ instance Lude.ToQuery DescribeEndpoint where
 
 -- | /See:/ 'mkDescribeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
-  { endpointProperties ::
-      Lude.Maybe EndpointProperties,
+  { -- | Describes information associated with the specific endpoint.
+    endpointProperties :: Lude.Maybe EndpointProperties,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointResponse' with the minimum fields required to make a request.

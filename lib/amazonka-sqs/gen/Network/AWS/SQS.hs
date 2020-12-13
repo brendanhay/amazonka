@@ -137,10 +137,10 @@ module Network.AWS.SQS
     -- ** BatchResultErrorEntry
     BatchResultErrorEntry (..),
     mkBatchResultErrorEntry,
-    breeMessage,
-    breeId,
     breeSenderFault,
+    breeId,
     breeCode,
+    breeMessage,
 
     -- ** ChangeMessageVisibilityBatchRequestEntry
     ChangeMessageVisibilityBatchRequestEntry (..),
@@ -200,20 +200,20 @@ module Network.AWS.SQS
     sMessageAttributes,
     sDelaySeconds,
     sMessageSystemAttributes,
-    sMessageDeduplicationId,
-    sMessageGroupId,
     sId,
+    sMessageDeduplicationId,
     sMessageBody,
+    sMessageGroupId,
 
     -- ** SendMessageBatchResultEntry
     SendMessageBatchResultEntry (..),
     mkSendMessageBatchResultEntry,
     smbreSequenceNumber,
     smbreMD5OfMessageSystemAttributes,
-    smbreMD5OfMessageAttributes,
     smbreId,
     smbreMessageId,
     smbreMD5OfMessageBody,
+    smbreMD5OfMessageAttributes,
 
     -- * Serialization types
     Lude.Base64 (..),

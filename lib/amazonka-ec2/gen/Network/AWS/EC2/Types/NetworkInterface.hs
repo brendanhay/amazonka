@@ -56,62 +56,75 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { groups ::
-      Lude.Maybe [GroupIdentifier],
+  { -- | Any security groups for the network interface.
+    groups :: Lude.Maybe [GroupIdentifier],
+    -- | The status of the network interface.
     status :: Lude.Maybe NetworkInterfaceStatus,
-    privateIPAddresses ::
-      Lude.Maybe [NetworkInterfacePrivateIPAddress],
+    -- | The private IPv4 addresses associated with the network interface.
+    privateIPAddresses :: Lude.Maybe [NetworkInterfacePrivateIPAddress],
+    -- | Indicates whether traffic to or from the instance is validated.
     sourceDestCheck :: Lude.Maybe Lude.Bool,
+    -- | The type of network interface.
     interfaceType :: Lude.Maybe NetworkInterfaceType,
+    -- | The ID of the VPC.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the network interface.
     tagSet :: Lude.Maybe [Tag],
+    -- | Indicates whether the network interface is being managed by AWS.
     requesterManaged :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the Outpost.
     outpostARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The MAC address.
     mACAddress :: Lude.Maybe Lude.Text,
+    -- | The network interface attachment.
     attachment :: Lude.Maybe NetworkInterfaceAttachment,
+    -- | The AWS account ID of the owner of the network interface.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The IPv4 address of the network interface within the subnet.
     privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The private DNS name.
     privateDNSName :: Lude.Maybe Lude.Text,
+    -- | The ID of the entity that launched the instance on your behalf (for example, AWS Management Console or Auto Scaling).
     requesterId :: Lude.Maybe Lude.Text,
+    -- | A description.
     description :: Lude.Maybe Lude.Text,
+    -- | The association information for an Elastic IP address (IPv4) associated with the network interface.
     association :: Lude.Maybe NetworkInterfaceAssociation,
+    -- | The IPv6 addresses associated with the network interface.
     ipv6Addresses :: Lude.Maybe [NetworkInterfaceIPv6Address]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
 --
--- * 'association' - The association information for an Elastic IP address (IPv4) associated with the network interface.
--- * 'attachment' - The network interface attachment.
--- * 'availabilityZone' - The Availability Zone.
--- * 'description' - A description.
 -- * 'groups' - Any security groups for the network interface.
--- * 'interfaceType' - The type of network interface.
--- * 'ipv6Addresses' - The IPv6 addresses associated with the network interface.
--- * 'mACAddress' - The MAC address.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
--- * 'ownerId' - The AWS account ID of the owner of the network interface.
--- * 'privateDNSName' - The private DNS name.
--- * 'privateIPAddress' - The IPv4 address of the network interface within the subnet.
--- * 'privateIPAddresses' - The private IPv4 addresses associated with the network interface.
--- * 'requesterId' - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console or Auto Scaling).
--- * 'requesterManaged' - Indicates whether the network interface is being managed by AWS.
--- * 'sourceDestCheck' - Indicates whether traffic to or from the instance is validated.
 -- * 'status' - The status of the network interface.
--- * 'subnetId' - The ID of the subnet.
--- * 'tagSet' - Any tags assigned to the network interface.
+-- * 'privateIPAddresses' - The private IPv4 addresses associated with the network interface.
+-- * 'sourceDestCheck' - Indicates whether traffic to or from the instance is validated.
+-- * 'interfaceType' - The type of network interface.
 -- * 'vpcId' - The ID of the VPC.
+-- * 'tagSet' - Any tags assigned to the network interface.
+-- * 'requesterManaged' - Indicates whether the network interface is being managed by AWS.
+-- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'subnetId' - The ID of the subnet.
+-- * 'mACAddress' - The MAC address.
+-- * 'attachment' - The network interface attachment.
+-- * 'ownerId' - The AWS account ID of the owner of the network interface.
+-- * 'availabilityZone' - The Availability Zone.
+-- * 'privateIPAddress' - The IPv4 address of the network interface within the subnet.
+-- * 'privateDNSName' - The private DNS name.
+-- * 'requesterId' - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console or Auto Scaling).
+-- * 'description' - A description.
+-- * 'association' - The association information for an Elastic IP address (IPv4) associated with the network interface.
+-- * 'ipv6Addresses' - The IPv6 addresses associated with the network interface.
 mkNetworkInterface ::
   NetworkInterface
 mkNetworkInterface =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.AutoScalingPlans.DeleteScalingPlan
     mkDeleteScalingPlan,
 
     -- ** Request lenses
-    dspScalingPlanName,
     dspScalingPlanVersion,
+    dspScalingPlanName,
 
     -- * Destructuring the response
     DeleteScalingPlanResponse (..),
@@ -42,41 +43,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteScalingPlan' smart constructor.
 data DeleteScalingPlan = DeleteScalingPlan'
-  { scalingPlanName ::
-      Lude.Text,
-    scalingPlanVersion :: Lude.Integer
+  { -- | The version number of the scaling plan.
+    scalingPlanVersion :: Lude.Integer,
+    -- | The name of the scaling plan.
+    scalingPlanName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScalingPlan' with the minimum fields required to make a request.
 --
--- * 'scalingPlanName' - The name of the scaling plan.
 -- * 'scalingPlanVersion' - The version number of the scaling plan.
+-- * 'scalingPlanName' - The name of the scaling plan.
 mkDeleteScalingPlan ::
-  -- | 'scalingPlanName'
-  Lude.Text ->
   -- | 'scalingPlanVersion'
   Lude.Integer ->
+  -- | 'scalingPlanName'
+  Lude.Text ->
   DeleteScalingPlan
-mkDeleteScalingPlan pScalingPlanName_ pScalingPlanVersion_ =
+mkDeleteScalingPlan pScalingPlanVersion_ pScalingPlanName_ =
   DeleteScalingPlan'
-    { scalingPlanName = pScalingPlanName_,
-      scalingPlanVersion = pScalingPlanVersion_
+    { scalingPlanVersion = pScalingPlanVersion_,
+      scalingPlanName = pScalingPlanName_
     }
-
--- | The name of the scaling plan.
---
--- /Note:/ Consider using 'scalingPlanName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dspScalingPlanName :: Lens.Lens' DeleteScalingPlan Lude.Text
-dspScalingPlanName = Lens.lens (scalingPlanName :: DeleteScalingPlan -> Lude.Text) (\s a -> s {scalingPlanName = a} :: DeleteScalingPlan)
-{-# DEPRECATED dspScalingPlanName "Use generic-lens or generic-optics with 'scalingPlanName' instead." #-}
 
 -- | The version number of the scaling plan.
 --
@@ -84,6 +73,13 @@ dspScalingPlanName = Lens.lens (scalingPlanName :: DeleteScalingPlan -> Lude.Tex
 dspScalingPlanVersion :: Lens.Lens' DeleteScalingPlan Lude.Integer
 dspScalingPlanVersion = Lens.lens (scalingPlanVersion :: DeleteScalingPlan -> Lude.Integer) (\s a -> s {scalingPlanVersion = a} :: DeleteScalingPlan)
 {-# DEPRECATED dspScalingPlanVersion "Use generic-lens or generic-optics with 'scalingPlanVersion' instead." #-}
+
+-- | The name of the scaling plan.
+--
+-- /Note:/ Consider using 'scalingPlanName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspScalingPlanName :: Lens.Lens' DeleteScalingPlan Lude.Text
+dspScalingPlanName = Lens.lens (scalingPlanName :: DeleteScalingPlan -> Lude.Text) (\s a -> s {scalingPlanName = a} :: DeleteScalingPlan)
+{-# DEPRECATED dspScalingPlanName "Use generic-lens or generic-optics with 'scalingPlanName' instead." #-}
 
 instance Lude.AWSRequest DeleteScalingPlan where
   type Rs DeleteScalingPlan = DeleteScalingPlanResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON DeleteScalingPlan where
   toJSON DeleteScalingPlan' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ScalingPlanName" Lude..= scalingPlanName),
-            Lude.Just ("ScalingPlanVersion" Lude..= scalingPlanVersion)
+          [ Lude.Just ("ScalingPlanVersion" Lude..= scalingPlanVersion),
+            Lude.Just ("ScalingPlanName" Lude..= scalingPlanName)
           ]
       )
 
@@ -124,16 +120,10 @@ instance Lude.ToQuery DeleteScalingPlan where
 
 -- | /See:/ 'mkDeleteScalingPlanResponse' smart constructor.
 newtype DeleteScalingPlanResponse = DeleteScalingPlanResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScalingPlanResponse' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.DynamoDB.Types.ProjectionType
   ( ProjectionType
       ( ProjectionType',
-        PTAll,
-        PTInclude,
-        PTKeysOnly
+        All,
+        KeysOnly,
+        Include
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ProjectionType = ProjectionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PTAll :: ProjectionType
-pattern PTAll = ProjectionType' "ALL"
+pattern All :: ProjectionType
+pattern All = ProjectionType' "ALL"
 
-pattern PTInclude :: ProjectionType
-pattern PTInclude = ProjectionType' "INCLUDE"
+pattern KeysOnly :: ProjectionType
+pattern KeysOnly = ProjectionType' "KEYS_ONLY"
 
-pattern PTKeysOnly :: ProjectionType
-pattern PTKeysOnly = ProjectionType' "KEYS_ONLY"
+pattern Include :: ProjectionType
+pattern Include = ProjectionType' "INCLUDE"
 
 {-# COMPLETE
-  PTAll,
-  PTInclude,
-  PTKeysOnly,
+  All,
+  KeysOnly,
+  Include,
   ProjectionType'
   #-}

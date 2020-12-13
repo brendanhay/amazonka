@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,16 +50,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetPolicyVersion' smart constructor.
 data GetPolicyVersion = GetPolicyVersion'
-  { policyName :: Lude.Text,
+  { -- | The name of the policy.
+    policyName :: Lude.Text,
+    -- | The policy version ID.
     policyVersionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyVersion' with the minimum fields required to make a request.
@@ -128,36 +125,38 @@ instance Lude.ToQuery GetPolicyVersion where
 --
 -- /See:/ 'mkGetPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the policy was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The policy name.
     policyName :: Lude.Maybe Lude.Text,
+    -- | The JSON document that describes the policy.
     policyDocument :: Lude.Maybe Lude.Text,
+    -- | The policy version ID.
     policyVersionId :: Lude.Maybe Lude.Text,
+    -- | The policy ARN.
     policyARN :: Lude.Maybe Lude.Text,
+    -- | The date the policy was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The generation ID of the policy version.
     generationId :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the policy version is the default.
     isDefaultVersion :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyVersionResponse' with the minimum fields required to make a request.
 --
+-- * 'lastModifiedDate' - The date the policy was last modified.
+-- * 'policyName' - The policy name.
+-- * 'policyDocument' - The JSON document that describes the policy.
+-- * 'policyVersionId' - The policy version ID.
+-- * 'policyARN' - The policy ARN.
 -- * 'creationDate' - The date the policy was created.
 -- * 'generationId' - The generation ID of the policy version.
 -- * 'isDefaultVersion' - Specifies whether the policy version is the default.
--- * 'lastModifiedDate' - The date the policy was last modified.
--- * 'policyARN' - The policy ARN.
--- * 'policyDocument' - The JSON document that describes the policy.
--- * 'policyName' - The policy name.
--- * 'policyVersionId' - The policy version ID.
 -- * 'responseStatus' - The response status code.
 mkGetPolicyVersionResponse ::
   -- | 'responseStatus'

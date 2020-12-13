@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,14 +42,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the request to get the header information for the .csv file for the user import job.
 --
 -- /See:/ 'mkGetCSVHeader' smart constructor.
-newtype GetCSVHeader = GetCSVHeader' {userPoolId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetCSVHeader = GetCSVHeader'
+  { -- | The user pool ID for the user pool that the users are to be imported into.
+    userPoolId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCSVHeader' with the minimum fields required to make a request.
@@ -108,25 +106,21 @@ instance Lude.ToQuery GetCSVHeader where
 --
 -- /See:/ 'mkGetCSVHeaderResponse' smart constructor.
 data GetCSVHeaderResponse = GetCSVHeaderResponse'
-  { userPoolId ::
-      Lude.Maybe Lude.Text,
+  { -- | The user pool ID for the user pool that the users are to be imported into.
+    userPoolId :: Lude.Maybe Lude.Text,
+    -- | The header information for the .csv file for the user import job.
     csvHeader :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCSVHeaderResponse' with the minimum fields required to make a request.
 --
+-- * 'userPoolId' - The user pool ID for the user pool that the users are to be imported into.
 -- * 'csvHeader' - The header information for the .csv file for the user import job.
 -- * 'responseStatus' - The response status code.
--- * 'userPoolId' - The user pool ID for the user pool that the users are to be imported into.
 mkGetCSVHeaderResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.HlsAudioOnlyHeader
   ( HlsAudioOnlyHeader
       ( HlsAudioOnlyHeader',
-        HAOHExclude,
-        HAOHInclude
+        HAOHInclude,
+        HAOHExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype HlsAudioOnlyHeader = HlsAudioOnlyHeader' Lude.Text
       Lude.ToHeader
     )
 
-pattern HAOHExclude :: HlsAudioOnlyHeader
-pattern HAOHExclude = HlsAudioOnlyHeader' "EXCLUDE"
-
 pattern HAOHInclude :: HlsAudioOnlyHeader
 pattern HAOHInclude = HlsAudioOnlyHeader' "INCLUDE"
 
+pattern HAOHExclude :: HlsAudioOnlyHeader
+pattern HAOHExclude = HlsAudioOnlyHeader' "EXCLUDE"
+
 {-# COMPLETE
-  HAOHExclude,
   HAOHInclude,
+  HAOHExclude,
   HlsAudioOnlyHeader'
   #-}

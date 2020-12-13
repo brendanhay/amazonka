@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Information about a resource for a project.
 --
 -- /See:/ 'mkResource' smart constructor.
-newtype Resource = Resource' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Resource = Resource'
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,8 +43,9 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkSetSMBGuestPassword' smart constructor.
 data SetSMBGuestPassword = SetSMBGuestPassword'
-  { gatewayARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the file gateway the SMB file share is associated with.
+    gatewayARN :: Lude.Text,
+    -- | The password that you want to set for your SMB server.
     password :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -117,22 +119,16 @@ instance Lude.ToQuery SetSMBGuestPassword where
 
 -- | /See:/ 'mkSetSMBGuestPasswordResponse' smart constructor.
 data SetSMBGuestPasswordResponse = SetSMBGuestPasswordResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetSMBGuestPasswordResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 -- * 'responseStatus' - The response status code.
 mkSetSMBGuestPasswordResponse ::
   -- | 'responseStatus'

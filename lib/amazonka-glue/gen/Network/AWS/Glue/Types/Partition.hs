@@ -37,37 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPartition' smart constructor.
 data Partition = Partition'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time at which the partition was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The values of the partition.
     values :: Lude.Maybe [Lude.Text],
+    -- | The ID of the Data Catalog in which the partition resides.
     catalogId :: Lude.Maybe Lude.Text,
+    -- | The last time at which column statistics were computed for this partition.
     lastAnalyzedTime :: Lude.Maybe Lude.Timestamp,
+    -- | Provides information about the physical location where the partition is stored.
     storageDescriptor :: Lude.Maybe StorageDescriptor,
+    -- | The name of the catalog database in which to create the partition.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | These key-value pairs define partition parameters.
     parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The last time at which the partition was accessed.
     lastAccessTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the database table in which to create the partition.
     tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Partition' with the minimum fields required to make a request.
 --
--- * 'catalogId' - The ID of the Data Catalog in which the partition resides.
 -- * 'creationTime' - The time at which the partition was created.
--- * 'databaseName' - The name of the catalog database in which to create the partition.
--- * 'lastAccessTime' - The last time at which the partition was accessed.
--- * 'lastAnalyzedTime' - The last time at which column statistics were computed for this partition.
--- * 'parameters' - These key-value pairs define partition parameters.
--- * 'storageDescriptor' - Provides information about the physical location where the partition is stored.
--- * 'tableName' - The name of the database table in which to create the partition.
 -- * 'values' - The values of the partition.
+-- * 'catalogId' - The ID of the Data Catalog in which the partition resides.
+-- * 'lastAnalyzedTime' - The last time at which column statistics were computed for this partition.
+-- * 'storageDescriptor' - Provides information about the physical location where the partition is stored.
+-- * 'databaseName' - The name of the catalog database in which to create the partition.
+-- * 'parameters' - These key-value pairs define partition parameters.
+-- * 'lastAccessTime' - The last time at which the partition was accessed.
+-- * 'tableName' - The name of the database table in which to create the partition.
 mkPartition ::
   Partition
 mkPartition =

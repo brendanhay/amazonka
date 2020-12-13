@@ -31,25 +31,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnetMapping' smart constructor.
 data SubnetMapping = SubnetMapping'
-  { ipv6Address ::
-      Lude.Maybe Lude.Text,
+  { -- | [Network Load Balancers] The IPv6 address.
+    ipv6Address :: Lude.Maybe Lude.Text,
+    -- | [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
     allocationId :: Lude.Maybe Lude.Text,
+    -- | [Network Load Balancers] The private IPv4 address for an internal load balancer.
     privateIPv4Address :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet.
     subnetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetMapping' with the minimum fields required to make a request.
 --
--- * 'allocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
 -- * 'ipv6Address' - [Network Load Balancers] The IPv6 address.
+-- * 'allocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
 -- * 'privateIPv4Address' - [Network Load Balancers] The private IPv4 address for an internal load balancer.
 -- * 'subnetId' - The ID of the subnet.
 mkSubnetMapping ::

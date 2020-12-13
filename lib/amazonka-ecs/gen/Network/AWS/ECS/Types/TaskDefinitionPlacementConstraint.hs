@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskDefinitionPlacementConstraint' smart constructor.
 data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
-  { expression ::
-      Lude.Maybe Lude.Text,
-    type' ::
-      Lude.Maybe
-        TaskDefinitionPlacementConstraintType
+  { -- | A cluster query language expression to apply to the constraint. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon Elastic Container Service Developer Guide/ .
+    expression :: Lude.Maybe Lude.Text,
+    -- | The type of constraint. The @MemberOf@ constraint restricts selection to be from a group of valid candidates.
+    type' :: Lude.Maybe TaskDefinitionPlacementConstraintType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskDefinitionPlacementConstraint' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,22 +46,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListVersionsByFunction' smart constructor.
 data ListVersionsByFunction = ListVersionsByFunction'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of versions to return.
     maxItems :: Lude.Maybe Lude.Natural,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @MyFunction@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
     functionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVersionsByFunction' with the minimum fields required to make a request.
 --
+-- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+-- * 'maxItems' - The maximum number of versions to return.
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -75,8 +87,6 @@ data ListVersionsByFunction = ListVersionsByFunction'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
--- * 'maxItems' - The maximum number of versions to return.
 mkListVersionsByFunction ::
   -- | 'functionName'
   Lude.Text ->
@@ -158,11 +168,11 @@ instance Lude.ToQuery ListVersionsByFunction where
 
 -- | /See:/ 'mkListVersionsByFunctionResponse' smart constructor.
 data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
-  { versions ::
-      Lude.Maybe
-        [FunctionConfiguration],
-    nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of Lambda function versions.
+    versions :: Lude.Maybe [FunctionConfiguration],
+    -- | The pagination token that's included if more results are available.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -170,9 +180,9 @@ data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
 
 -- | Creates a value of 'ListVersionsByFunctionResponse' with the minimum fields required to make a request.
 --
+-- * 'versions' - A list of Lambda function versions.
 -- * 'nextMarker' - The pagination token that's included if more results are available.
 -- * 'responseStatus' - The response status code.
--- * 'versions' - A list of Lambda function versions.
 mkListVersionsByFunctionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

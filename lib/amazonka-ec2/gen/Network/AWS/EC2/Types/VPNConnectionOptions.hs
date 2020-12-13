@@ -37,35 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPNConnectionOptions' smart constructor.
 data VPNConnectionOptions = VPNConnectionOptions'
-  { tunnelInsideIPVersion ::
-      Lude.Maybe TunnelInsideIPVersion,
+  { -- | Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.
+    tunnelInsideIPVersion :: Lude.Maybe TunnelInsideIPVersion,
+    -- | The IPv4 CIDR on the AWS side of the VPN connection.
     remoteIPv4NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | Indicates whether acceleration is enabled for the VPN connection.
     enableAcceleration :: Lude.Maybe Lude.Bool,
+    -- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
     localIPv4NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | The IPv6 CIDR on the AWS side of the VPN connection.
     remoteIPv6NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | Indicates the VPN tunnel options.
     tunnelOptions :: Lude.Maybe [TunnelOption],
+    -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
     localIPv6NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
     staticRoutesOnly :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPNConnectionOptions' with the minimum fields required to make a request.
 --
+-- * 'tunnelInsideIPVersion' - Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.
+-- * 'remoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
 -- * 'enableAcceleration' - Indicates whether acceleration is enabled for the VPN connection.
 -- * 'localIPv4NetworkCidr' - The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
--- * 'localIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
--- * 'remoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
 -- * 'remoteIPv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection.
--- * 'staticRoutesOnly' - Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
--- * 'tunnelInsideIPVersion' - Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.
 -- * 'tunnelOptions' - Indicates the VPN tunnel options.
+-- * 'localIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+-- * 'staticRoutesOnly' - Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
 mkVPNConnectionOptions ::
   VPNConnectionOptions
 mkVPNConnectionOptions =

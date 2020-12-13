@@ -31,30 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRightsizingRecommendationSummary' smart constructor.
 data RightsizingRecommendationSummary = RightsizingRecommendationSummary'
-  { savingsPercentage ::
-      Lude.Maybe Lude.Text,
-    savingsCurrencyCode ::
-      Lude.Maybe Lude.Text,
-    totalRecommendationCount ::
-      Lude.Maybe Lude.Text,
-    estimatedTotalMonthlySavingsAmount ::
-      Lude.Maybe Lude.Text
+  { -- | Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
+    savingsPercentage :: Lude.Maybe Lude.Text,
+    -- | The currency code that AWS used to calculate the savings.
+    savingsCurrencyCode :: Lude.Maybe Lude.Text,
+    -- | Total number of instance recommendations.
+    totalRecommendationCount :: Lude.Maybe Lude.Text,
+    -- | Estimated total savings resulting from modifications, on a monthly basis.
+    estimatedTotalMonthlySavingsAmount :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RightsizingRecommendationSummary' with the minimum fields required to make a request.
 --
--- * 'estimatedTotalMonthlySavingsAmount' - Estimated total savings resulting from modifications, on a monthly basis.
--- * 'savingsCurrencyCode' - The currency code that AWS used to calculate the savings.
 -- * 'savingsPercentage' - Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances.
+-- * 'savingsCurrencyCode' - The currency code that AWS used to calculate the savings.
 -- * 'totalRecommendationCount' - Total number of instance recommendations.
+-- * 'estimatedTotalMonthlySavingsAmount' - Estimated total savings resulting from modifications, on a monthly basis.
 mkRightsizingRecommendationSummary ::
   RightsizingRecommendationSummary
 mkRightsizingRecommendationSummary =

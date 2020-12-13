@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuthorizationData' smart constructor.
 data AuthorizationData = AuthorizationData'
-  { expiresAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The Unix time in seconds and milliseconds when the authorization token expires. Authorization tokens are valid for 12 hours.
+    expiresAt :: Lude.Maybe Lude.Timestamp,
+    -- | The registry URL to use for this authorization token in a @docker login@ command. The Amazon ECR registry URL format is @https://aws_account_id.dkr.ecr.region.amazonaws.com@ . For example, @https://012345678910.dkr.ecr.us-east-1.amazonaws.com@ ..
     proxyEndpoint :: Lude.Maybe Lude.Text,
+    -- | A base64-encoded string that contains authorization data for the specified Amazon ECR registry. When the string is decoded, it is presented in the format @user:password@ for private registry authentication using @docker login@ .
     authorizationToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizationData' with the minimum fields required to make a request.
 --
--- * 'authorizationToken' - A base64-encoded string that contains authorization data for the specified Amazon ECR registry. When the string is decoded, it is presented in the format @user:password@ for private registry authentication using @docker login@ .
 -- * 'expiresAt' - The Unix time in seconds and milliseconds when the authorization token expires. Authorization tokens are valid for 12 hours.
 -- * 'proxyEndpoint' - The registry URL to use for this authorization token in a @docker login@ command. The Amazon ECR registry URL format is @https://aws_account_id.dkr.ecr.region.amazonaws.com@ . For example, @https://012345678910.dkr.ecr.us-east-1.amazonaws.com@ ..
+-- * 'authorizationToken' - A base64-encoded string that contains authorization data for the specified Amazon ECR registry. When the string is decoded, it is presented in the format @user:password@ for private registry authentication using @docker login@ .
 mkAuthorizationData ::
   AuthorizationData
 mkAuthorizationData =

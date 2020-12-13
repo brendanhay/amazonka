@@ -13,19 +13,19 @@
 module Network.AWS.AutoScalingPlans.Types.ScalingMetricType
   ( ScalingMetricType
       ( ScalingMetricType',
-        ALBRequestCountPerTarget,
         ASGAverageCPUUtilization,
         ASGAverageNetworkIn,
         ASGAverageNetworkOut,
         DynamoDBReadCapacityUtilization,
         DynamoDBWriteCapacityUtilization,
-        EC2SpotFleetRequestAverageCPUUtilization,
-        EC2SpotFleetRequestAverageNetworkIn,
-        EC2SpotFleetRequestAverageNetworkOut,
         ECSServiceAverageCPUUtilization,
         ECSServiceAverageMemoryUtilization,
+        ALBRequestCountPerTarget,
         RDSReaderAverageCPUUtilization,
-        RDSReaderAverageDatabaseConnections
+        RDSReaderAverageDatabaseConnections,
+        EC2SpotFleetRequestAverageCPUUtilization,
+        EC2SpotFleetRequestAverageNetworkIn,
+        EC2SpotFleetRequestAverageNetworkOut
       ),
   )
 where
@@ -56,9 +56,6 @@ newtype ScalingMetricType = ScalingMetricType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ALBRequestCountPerTarget :: ScalingMetricType
-pattern ALBRequestCountPerTarget = ScalingMetricType' "ALBRequestCountPerTarget"
-
 pattern ASGAverageCPUUtilization :: ScalingMetricType
 pattern ASGAverageCPUUtilization = ScalingMetricType' "ASGAverageCPUUtilization"
 
@@ -74,6 +71,21 @@ pattern DynamoDBReadCapacityUtilization = ScalingMetricType' "DynamoDBReadCapaci
 pattern DynamoDBWriteCapacityUtilization :: ScalingMetricType
 pattern DynamoDBWriteCapacityUtilization = ScalingMetricType' "DynamoDBWriteCapacityUtilization"
 
+pattern ECSServiceAverageCPUUtilization :: ScalingMetricType
+pattern ECSServiceAverageCPUUtilization = ScalingMetricType' "ECSServiceAverageCPUUtilization"
+
+pattern ECSServiceAverageMemoryUtilization :: ScalingMetricType
+pattern ECSServiceAverageMemoryUtilization = ScalingMetricType' "ECSServiceAverageMemoryUtilization"
+
+pattern ALBRequestCountPerTarget :: ScalingMetricType
+pattern ALBRequestCountPerTarget = ScalingMetricType' "ALBRequestCountPerTarget"
+
+pattern RDSReaderAverageCPUUtilization :: ScalingMetricType
+pattern RDSReaderAverageCPUUtilization = ScalingMetricType' "RDSReaderAverageCPUUtilization"
+
+pattern RDSReaderAverageDatabaseConnections :: ScalingMetricType
+pattern RDSReaderAverageDatabaseConnections = ScalingMetricType' "RDSReaderAverageDatabaseConnections"
+
 pattern EC2SpotFleetRequestAverageCPUUtilization :: ScalingMetricType
 pattern EC2SpotFleetRequestAverageCPUUtilization = ScalingMetricType' "EC2SpotFleetRequestAverageCPUUtilization"
 
@@ -83,31 +95,19 @@ pattern EC2SpotFleetRequestAverageNetworkIn = ScalingMetricType' "EC2SpotFleetRe
 pattern EC2SpotFleetRequestAverageNetworkOut :: ScalingMetricType
 pattern EC2SpotFleetRequestAverageNetworkOut = ScalingMetricType' "EC2SpotFleetRequestAverageNetworkOut"
 
-pattern ECSServiceAverageCPUUtilization :: ScalingMetricType
-pattern ECSServiceAverageCPUUtilization = ScalingMetricType' "ECSServiceAverageCPUUtilization"
-
-pattern ECSServiceAverageMemoryUtilization :: ScalingMetricType
-pattern ECSServiceAverageMemoryUtilization = ScalingMetricType' "ECSServiceAverageMemoryUtilization"
-
-pattern RDSReaderAverageCPUUtilization :: ScalingMetricType
-pattern RDSReaderAverageCPUUtilization = ScalingMetricType' "RDSReaderAverageCPUUtilization"
-
-pattern RDSReaderAverageDatabaseConnections :: ScalingMetricType
-pattern RDSReaderAverageDatabaseConnections = ScalingMetricType' "RDSReaderAverageDatabaseConnections"
-
 {-# COMPLETE
-  ALBRequestCountPerTarget,
   ASGAverageCPUUtilization,
   ASGAverageNetworkIn,
   ASGAverageNetworkOut,
   DynamoDBReadCapacityUtilization,
   DynamoDBWriteCapacityUtilization,
+  ECSServiceAverageCPUUtilization,
+  ECSServiceAverageMemoryUtilization,
+  ALBRequestCountPerTarget,
+  RDSReaderAverageCPUUtilization,
+  RDSReaderAverageDatabaseConnections,
   EC2SpotFleetRequestAverageCPUUtilization,
   EC2SpotFleetRequestAverageNetworkIn,
   EC2SpotFleetRequestAverageNetworkOut,
-  ECSServiceAverageCPUUtilization,
-  ECSServiceAverageMemoryUtilization,
-  RDSReaderAverageCPUUtilization,
-  RDSReaderAverageDatabaseConnections,
   ScalingMetricType'
   #-}

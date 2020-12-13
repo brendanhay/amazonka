@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Ac3LfeFilter
   ( Ac3LfeFilter
       ( Ac3LfeFilter',
-        ALFDisabled,
-        ALFEnabled
+        ALFEnabled,
+        ALFDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Ac3LfeFilter = Ac3LfeFilter' Lude.Text
       Lude.ToHeader
     )
 
-pattern ALFDisabled :: Ac3LfeFilter
-pattern ALFDisabled = Ac3LfeFilter' "DISABLED"
-
 pattern ALFEnabled :: Ac3LfeFilter
 pattern ALFEnabled = Ac3LfeFilter' "ENABLED"
 
+pattern ALFDisabled :: Ac3LfeFilter
+pattern ALFDisabled = Ac3LfeFilter' "DISABLED"
+
 {-# COMPLETE
-  ALFDisabled,
   ALFEnabled,
+  ALFDisabled,
   Ac3LfeFilter'
   #-}

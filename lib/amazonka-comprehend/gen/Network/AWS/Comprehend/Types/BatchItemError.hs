@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchItemError' smart constructor.
 data BatchItemError = BatchItemError'
-  { errorCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The numeric error code of the error.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | A text description of the error.
     errorMessage :: Lude.Maybe Lude.Text,
+    -- | The zero-based index of the document in the input list.
     index :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchItemError' with the minimum fields required to make a request.

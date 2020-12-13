@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrustedAdvisorCostOptimizingSummary' smart constructor.
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
-  { estimatedMonthlySavings ::
-      Lude.Double,
-    estimatedPercentMonthlySavings ::
-      Lude.Double
+  { -- | The estimated monthly savings that might be realized if the recommended operations are taken.
+    estimatedMonthlySavings :: Lude.Double,
+    -- | The estimated percentage of savings that might be realized if the recommended operations are taken.
+    estimatedPercentMonthlySavings :: Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrustedAdvisorCostOptimizingSummary' with the minimum fields required to make a request.

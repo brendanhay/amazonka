@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,15 +24,15 @@ module Network.AWS.MediaConvert.CreateJob
     cjAccelerationSettings,
     cjPriority,
     cjStatusUpdateInterval,
+    cjSettings,
     cjHopDestinations,
     cjSimulateReservedQueue,
     cjQueue,
     cjUserMetadata,
+    cjRole,
     cjBillingTagsSource,
     cjClientRequestToken,
     cjTags,
-    cjRole,
-    cjSettings,
 
     -- * Destructuring the response
     CreateJobResponse (..),
@@ -51,65 +52,72 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { jobTemplate :: Lude.Maybe Lude.Text,
+  { -- | Optional. When you create a job, you can either specify a job template or specify the transcoding settings individually.
+    jobTemplate :: Lude.Maybe Lude.Text,
+    -- | Optional. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
     accelerationSettings :: Lude.Maybe AccelerationSettings,
+    -- | Optional. Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
     priority :: Lude.Maybe Lude.Int,
+    -- | Optional. Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
     statusUpdateInterval :: Lude.Maybe StatusUpdateInterval,
+    -- | JobSettings contains all the transcode settings for a job.
+    settings :: JobSettings,
+    -- | Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
     hopDestinations :: Lude.Maybe [HopDestination],
+    -- | Optional. Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
     simulateReservedQueue :: Lude.Maybe SimulateReservedQueue,
+    -- | Optional. When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html.
     queue :: Lude.Maybe Lude.Text,
+    -- | Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
     userMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    billingTagsSource :: Lude.Maybe BillingTagsSource,
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Required. The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
     role' :: Lude.Text,
-    settings :: JobSettings
+    -- | Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.
+    billingTagsSource :: Lude.Maybe BillingTagsSource,
+    -- | Optional. Idempotency token for CreateJob operation.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
+-- * 'jobTemplate' - Optional. When you create a job, you can either specify a job template or specify the transcoding settings individually.
 -- * 'accelerationSettings' - Optional. Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
+-- * 'priority' - Optional. Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
+-- * 'statusUpdateInterval' - Optional. Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+-- * 'settings' - JobSettings contains all the transcode settings for a job.
+-- * 'hopDestinations' - Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
+-- * 'simulateReservedQueue' - Optional. Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
+-- * 'queue' - Optional. When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html.
+-- * 'userMetadata' - Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
+-- * 'role'' - Required. The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
 -- * 'billingTagsSource' - Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.
 -- * 'clientRequestToken' - Optional. Idempotency token for CreateJob operation.
--- * 'hopDestinations' - Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
--- * 'jobTemplate' - Optional. When you create a job, you can either specify a job template or specify the transcoding settings individually.
--- * 'priority' - Optional. Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
--- * 'queue' - Optional. When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html.
--- * 'role'' - Required. The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
--- * 'settings' - JobSettings contains all the transcode settings for a job.
--- * 'simulateReservedQueue' - Optional. Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
--- * 'statusUpdateInterval' - Optional. Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
 -- * 'tags' - Optional. The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.  Use standard AWS tags on your job for automatic integration with AWS services and for custom integrations and workflows.
--- * 'userMetadata' - Optional. User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.  Use only for existing integrations or workflows that rely on job metadata tags. Otherwise, we recommend that you use standard AWS tags.
 mkCreateJob ::
-  -- | 'role''
-  Lude.Text ->
   -- | 'settings'
   JobSettings ->
+  -- | 'role''
+  Lude.Text ->
   CreateJob
-mkCreateJob pRole_ pSettings_ =
+mkCreateJob pSettings_ pRole_ =
   CreateJob'
     { jobTemplate = Lude.Nothing,
       accelerationSettings = Lude.Nothing,
       priority = Lude.Nothing,
       statusUpdateInterval = Lude.Nothing,
+      settings = pSettings_,
       hopDestinations = Lude.Nothing,
       simulateReservedQueue = Lude.Nothing,
       queue = Lude.Nothing,
       userMetadata = Lude.Nothing,
+      role' = pRole_,
       billingTagsSource = Lude.Nothing,
       clientRequestToken = Lude.Nothing,
-      tags = Lude.Nothing,
-      role' = pRole_,
-      settings = pSettings_
+      tags = Lude.Nothing
     }
 
 -- | Optional. When you create a job, you can either specify a job template or specify the transcoding settings individually.
@@ -140,6 +148,13 @@ cjStatusUpdateInterval :: Lens.Lens' CreateJob (Lude.Maybe StatusUpdateInterval)
 cjStatusUpdateInterval = Lens.lens (statusUpdateInterval :: CreateJob -> Lude.Maybe StatusUpdateInterval) (\s a -> s {statusUpdateInterval = a} :: CreateJob)
 {-# DEPRECATED cjStatusUpdateInterval "Use generic-lens or generic-optics with 'statusUpdateInterval' instead." #-}
 
+-- | JobSettings contains all the transcode settings for a job.
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjSettings :: Lens.Lens' CreateJob JobSettings
+cjSettings = Lens.lens (settings :: CreateJob -> JobSettings) (\s a -> s {settings = a} :: CreateJob)
+{-# DEPRECATED cjSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
+
 -- | Optional. Use queue hopping to avoid overly long waits in the backlog of the queue that you submit your job to. Specify an alternate queue and the maximum time that your job will wait in the initial queue before hopping. For more information about this feature, see the AWS Elemental MediaConvert User Guide.
 --
 -- /Note:/ Consider using 'hopDestinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -168,6 +183,13 @@ cjUserMetadata :: Lens.Lens' CreateJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude
 cjUserMetadata = Lens.lens (userMetadata :: CreateJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {userMetadata = a} :: CreateJob)
 {-# DEPRECATED cjUserMetadata "Use generic-lens or generic-optics with 'userMetadata' instead." #-}
 
+-- | Required. The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjRole :: Lens.Lens' CreateJob Lude.Text
+cjRole = Lens.lens (role' :: CreateJob -> Lude.Text) (\s a -> s {role' = a} :: CreateJob)
+{-# DEPRECATED cjRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+
 -- | Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.
 --
 -- /Note:/ Consider using 'billingTagsSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -188,20 +210,6 @@ cjClientRequestToken = Lens.lens (clientRequestToken :: CreateJob -> Lude.Maybe 
 cjTags :: Lens.Lens' CreateJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 cjTags = Lens.lens (tags :: CreateJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateJob)
 {-# DEPRECATED cjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | Required. The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
---
--- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjRole :: Lens.Lens' CreateJob Lude.Text
-cjRole = Lens.lens (role' :: CreateJob -> Lude.Text) (\s a -> s {role' = a} :: CreateJob)
-{-# DEPRECATED cjRole "Use generic-lens or generic-optics with 'role'' instead." #-}
-
--- | JobSettings contains all the transcode settings for a job.
---
--- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjSettings :: Lens.Lens' CreateJob JobSettings
-cjSettings = Lens.lens (settings :: CreateJob -> JobSettings) (\s a -> s {settings = a} :: CreateJob)
-{-# DEPRECATED cjSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 instance Lude.AWSRequest CreateJob where
   type Rs CreateJob = CreateJobResponse
@@ -230,15 +238,15 @@ instance Lude.ToJSON CreateJob where
             ("accelerationSettings" Lude..=) Lude.<$> accelerationSettings,
             ("priority" Lude..=) Lude.<$> priority,
             ("statusUpdateInterval" Lude..=) Lude.<$> statusUpdateInterval,
+            Lude.Just ("settings" Lude..= settings),
             ("hopDestinations" Lude..=) Lude.<$> hopDestinations,
             ("simulateReservedQueue" Lude..=) Lude.<$> simulateReservedQueue,
             ("queue" Lude..=) Lude.<$> queue,
             ("userMetadata" Lude..=) Lude.<$> userMetadata,
+            Lude.Just ("role" Lude..= role'),
             ("billingTagsSource" Lude..=) Lude.<$> billingTagsSource,
             ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("role" Lude..= role'),
-            Lude.Just ("settings" Lude..= settings)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -250,16 +258,12 @@ instance Lude.ToQuery CreateJob where
 
 -- | /See:/ 'mkCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { job :: Lude.Maybe Job,
+  { -- | Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+    job :: Lude.Maybe Job,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.

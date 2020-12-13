@@ -13,13 +13,13 @@
 module Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
   ( CertificateAuthorityStatus
       ( CertificateAuthorityStatus',
-        Active,
         Creating,
+        PendingCertificate,
+        Active,
         Deleted,
         Disabled,
         Expired,
-        Failed,
-        PendingCertificate
+        Failed
       ),
   )
 where
@@ -50,11 +50,14 @@ newtype CertificateAuthorityStatus = CertificateAuthorityStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: CertificateAuthorityStatus
-pattern Active = CertificateAuthorityStatus' "ACTIVE"
-
 pattern Creating :: CertificateAuthorityStatus
 pattern Creating = CertificateAuthorityStatus' "CREATING"
+
+pattern PendingCertificate :: CertificateAuthorityStatus
+pattern PendingCertificate = CertificateAuthorityStatus' "PENDING_CERTIFICATE"
+
+pattern Active :: CertificateAuthorityStatus
+pattern Active = CertificateAuthorityStatus' "ACTIVE"
 
 pattern Deleted :: CertificateAuthorityStatus
 pattern Deleted = CertificateAuthorityStatus' "DELETED"
@@ -68,16 +71,13 @@ pattern Expired = CertificateAuthorityStatus' "EXPIRED"
 pattern Failed :: CertificateAuthorityStatus
 pattern Failed = CertificateAuthorityStatus' "FAILED"
 
-pattern PendingCertificate :: CertificateAuthorityStatus
-pattern PendingCertificate = CertificateAuthorityStatus' "PENDING_CERTIFICATE"
-
 {-# COMPLETE
-  Active,
   Creating,
+  PendingCertificate,
+  Active,
   Deleted,
   Disabled,
   Expired,
   Failed,
-  PendingCertificate,
   CertificateAuthorityStatus'
   #-}

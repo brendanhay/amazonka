@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,25 +47,35 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkSearchProducts' smart constructor.
 data SearchProducts = SearchProducts'
-  { filters ::
-      Lude.Maybe (Lude.HashMap ProductViewFilterBy ([Lude.Text])),
+  { -- | The search filters. If no search filters are specified, the output includes all products to which the caller has access.
+    filters :: Lude.Maybe (Lude.HashMap ProductViewFilterBy ([Lude.Text])),
+    -- | The sort order. If no value is specified, the results are not sorted.
     sortOrder :: Lude.Maybe SortOrder,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
     acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
     pageSize :: Lude.Maybe Lude.Natural,
+    -- | The sort field. If no value is specified, the results are not sorted.
     sortBy :: Lude.Maybe ProductViewSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchProducts' with the minimum fields required to make a request.
 --
+-- * 'filters' - The search filters. If no search filters are specified, the output includes all products to which the caller has access.
+-- * 'sortOrder' - The sort order. If no value is specified, the results are not sorted.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -77,11 +88,9 @@ data SearchProducts = SearchProducts'
 --     * @zh@ - Chinese
 --
 --
--- * 'filters' - The search filters. If no search filters are specified, the output includes all products to which the caller has access.
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'sortBy' - The sort field. If no value is specified, the results are not sorted.
--- * 'sortOrder' - The sort order. If no value is specified, the results are not sorted.
 mkSearchProducts ::
   SearchProducts
 mkSearchProducts =
@@ -192,25 +201,16 @@ instance Lude.ToQuery SearchProducts where
 
 -- | /See:/ 'mkSearchProductsResponse' smart constructor.
 data SearchProductsResponse = SearchProductsResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    productViewAggregations ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([ProductViewAggregationValue])
-        ),
-    productViewSummaries ::
-      Lude.Maybe [ProductViewSummary],
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The product view aggregations.
+    productViewAggregations :: Lude.Maybe (Lude.HashMap Lude.Text ([ProductViewAggregationValue])),
+    -- | Information about the product views.
+    productViewSummaries :: Lude.Maybe [ProductViewSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchProductsResponse' with the minimum fields required to make a request.

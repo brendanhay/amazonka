@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImageStateChangeReason' smart constructor.
 data ImageStateChangeReason = ImageStateChangeReason'
-  { code ::
-      Lude.Maybe ImageStateChangeReasonCode,
+  { -- | The state change reason code.
+    code :: Lude.Maybe ImageStateChangeReasonCode,
+    -- | The state change reason message.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageStateChangeReason' with the minimum fields required to make a request.

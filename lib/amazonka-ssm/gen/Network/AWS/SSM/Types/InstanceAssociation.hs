@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceAssociation' smart constructor.
 data InstanceAssociation = InstanceAssociation'
-  { associationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The association ID.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The instance ID.
     instanceId :: Lude.Maybe Lude.Text,
+    -- | The content of the association document for the instance(s).
     content :: Lude.Maybe Lude.Text,
+    -- | Version information for the association on the instance.
     associationVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceAssociation' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The association ID.
--- * 'associationVersion' - Version information for the association on the instance.
--- * 'content' - The content of the association document for the instance(s).
 -- * 'instanceId' - The instance ID.
+-- * 'content' - The content of the association document for the instance(s).
+-- * 'associationVersion' - Version information for the association on the instance.
 mkInstanceAssociation ::
   InstanceAssociation
 mkInstanceAssociation =

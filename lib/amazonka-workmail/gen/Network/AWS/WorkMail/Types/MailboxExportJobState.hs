@@ -13,10 +13,10 @@
 module Network.AWS.WorkMail.Types.MailboxExportJobState
   ( MailboxExportJobState
       ( MailboxExportJobState',
-        Cancelled,
+        Running,
         Completed,
         Failed,
-        Running
+        Cancelled
       ),
   )
 where
@@ -47,8 +47,8 @@ newtype MailboxExportJobState = MailboxExportJobState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cancelled :: MailboxExportJobState
-pattern Cancelled = MailboxExportJobState' "CANCELLED"
+pattern Running :: MailboxExportJobState
+pattern Running = MailboxExportJobState' "RUNNING"
 
 pattern Completed :: MailboxExportJobState
 pattern Completed = MailboxExportJobState' "COMPLETED"
@@ -56,13 +56,13 @@ pattern Completed = MailboxExportJobState' "COMPLETED"
 pattern Failed :: MailboxExportJobState
 pattern Failed = MailboxExportJobState' "FAILED"
 
-pattern Running :: MailboxExportJobState
-pattern Running = MailboxExportJobState' "RUNNING"
+pattern Cancelled :: MailboxExportJobState
+pattern Cancelled = MailboxExportJobState' "CANCELLED"
 
 {-# COMPLETE
-  Cancelled,
+  Running,
   Completed,
   Failed,
-  Running,
+  Cancelled,
   MailboxExportJobState'
   #-}

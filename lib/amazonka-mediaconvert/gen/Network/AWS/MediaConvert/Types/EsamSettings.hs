@@ -32,19 +32,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEsamSettings' smart constructor.
 data EsamSettings = EsamSettings'
-  { manifestConfirmConditionNotification ::
-      Lude.Maybe EsamManifestConfirmConditionNotification,
+  { -- | Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning instructions that you provide in the setting MCC XML (mccXml).
+    manifestConfirmConditionNotification :: Lude.Maybe EsamManifestConfirmConditionNotification,
+    -- | Specifies the stream distance, in milliseconds, between the SCTE 35 messages that the transcoder places and the splice points that they refer to. If the time between the start of the asset and the SCTE-35 message is less than this value, then the transcoder places the SCTE-35 marker at the beginning of the stream.
     responseSignalPreroll :: Lude.Maybe Lude.Natural,
-    signalProcessingNotification ::
-      Lude.Maybe EsamSignalProcessingNotification
+    -- | Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
+    signalProcessingNotification :: Lude.Maybe EsamSignalProcessingNotification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EsamSettings' with the minimum fields required to make a request.

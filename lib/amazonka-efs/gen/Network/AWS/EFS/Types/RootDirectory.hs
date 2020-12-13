@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRootDirectory' smart constructor.
 data RootDirectory = RootDirectory'
-  { creationInfo ::
-      Lude.Maybe CreationInfo,
+  { -- | (Optional) Specifies the POSIX IDs and permissions to apply to the access point's @RootDirectory@ . If the @RootDirectory@ > @Path@ specified does not exist, EFS creates the root directory using the @CreationInfo@ settings when a client connects to an access point. When specifying the @CreationInfo@ , you must provide values for all properties.
+    --
+    -- /Important:/ If you do not provide @CreationInfo@ and the specified @RootDirectory@ > @Path@ does not exist, attempts to mount the file system using the access point will fail.
+    creationInfo :: Lude.Maybe CreationInfo,
+    -- | Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the @CreationInfo@ .
     path :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RootDirectory' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IoT.GetCardinality
     -- ** Request lenses
     gcQueryVersion,
     gcAggregationField,
-    gcIndexName,
     gcQueryString,
+    gcIndexName,
 
     -- * Destructuring the response
     GetCardinalityResponse (..),
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCardinality' smart constructor.
 data GetCardinality = GetCardinality'
-  { queryVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The query version.
+    queryVersion :: Lude.Maybe Lude.Text,
+    -- | The field to aggregate.
     aggregationField :: Lude.Maybe Lude.Text,
-    indexName :: Lude.Maybe Lude.Text,
-    queryString :: Lude.Text
+    -- | The search query.
+    queryString :: Lude.Text,
+    -- | The name of the index to search.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCardinality' with the minimum fields required to make a request.
 --
--- * 'aggregationField' - The field to aggregate.
--- * 'indexName' - The name of the index to search.
--- * 'queryString' - The search query.
 -- * 'queryVersion' - The query version.
+-- * 'aggregationField' - The field to aggregate.
+-- * 'queryString' - The search query.
+-- * 'indexName' - The name of the index to search.
 mkGetCardinality ::
   -- | 'queryString'
   Lude.Text ->
@@ -71,8 +69,8 @@ mkGetCardinality pQueryString_ =
   GetCardinality'
     { queryVersion = Lude.Nothing,
       aggregationField = Lude.Nothing,
-      indexName = Lude.Nothing,
-      queryString = pQueryString_
+      queryString = pQueryString_,
+      indexName = Lude.Nothing
     }
 
 -- | The query version.
@@ -89,19 +87,19 @@ gcAggregationField :: Lens.Lens' GetCardinality (Lude.Maybe Lude.Text)
 gcAggregationField = Lens.lens (aggregationField :: GetCardinality -> Lude.Maybe Lude.Text) (\s a -> s {aggregationField = a} :: GetCardinality)
 {-# DEPRECATED gcAggregationField "Use generic-lens or generic-optics with 'aggregationField' instead." #-}
 
--- | The name of the index to search.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcIndexName :: Lens.Lens' GetCardinality (Lude.Maybe Lude.Text)
-gcIndexName = Lens.lens (indexName :: GetCardinality -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GetCardinality)
-{-# DEPRECATED gcIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
-
 -- | The search query.
 --
 -- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gcQueryString :: Lens.Lens' GetCardinality Lude.Text
 gcQueryString = Lens.lens (queryString :: GetCardinality -> Lude.Text) (\s a -> s {queryString = a} :: GetCardinality)
 {-# DEPRECATED gcQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
+
+-- | The name of the index to search.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcIndexName :: Lens.Lens' GetCardinality (Lude.Maybe Lude.Text)
+gcIndexName = Lens.lens (indexName :: GetCardinality -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GetCardinality)
+{-# DEPRECATED gcIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 instance Lude.AWSRequest GetCardinality where
   type Rs GetCardinality = GetCardinalityResponse
@@ -122,8 +120,8 @@ instance Lude.ToJSON GetCardinality where
       ( Lude.catMaybes
           [ ("queryVersion" Lude..=) Lude.<$> queryVersion,
             ("aggregationField" Lude..=) Lude.<$> aggregationField,
-            ("indexName" Lude..=) Lude.<$> indexName,
-            Lude.Just ("queryString" Lude..= queryString)
+            Lude.Just ("queryString" Lude..= queryString),
+            ("indexName" Lude..=) Lude.<$> indexName
           ]
       )
 
@@ -135,17 +133,12 @@ instance Lude.ToQuery GetCardinality where
 
 -- | /See:/ 'mkGetCardinalityResponse' smart constructor.
 data GetCardinalityResponse = GetCardinalityResponse'
-  { cardinality ::
-      Lude.Maybe Lude.Int,
+  { -- | The approximate count of unique values that match the query.
+    cardinality :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCardinalityResponse' with the minimum fields required to make a request.

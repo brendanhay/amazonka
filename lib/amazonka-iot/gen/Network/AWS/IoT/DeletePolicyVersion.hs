@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeletePolicyVersion' smart constructor.
 data DeletePolicyVersion = DeletePolicyVersion'
-  { policyName ::
-      Lude.Text,
+  { -- | The name of the policy.
+    policyName :: Lude.Text,
+    -- | The policy version ID.
     policyVersionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePolicyVersion' with the minimum fields required to make a request.
@@ -103,13 +99,7 @@ instance Lude.ToQuery DeletePolicyVersion where
 
 -- | /See:/ 'mkDeletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse = DeletePolicyVersionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePolicyVersionResponse' with the minimum fields required to make a request.

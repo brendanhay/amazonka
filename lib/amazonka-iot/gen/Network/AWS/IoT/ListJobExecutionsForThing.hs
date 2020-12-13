@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.IoT.ListJobExecutionsForThing
     ljeftStatus,
     ljeftNamespaceId,
     ljeftNextToken,
-    ljeftMaxResults,
     ljeftThingName,
+    ljeftMaxResults,
 
     -- * Destructuring the response
     ListJobExecutionsForThingResponse (..),
@@ -47,32 +48,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListJobExecutionsForThing' smart constructor.
 data ListJobExecutionsForThing = ListJobExecutionsForThing'
-  { status ::
-      Lude.Maybe JobExecutionStatus,
+  { -- | An optional filter that lets you search for jobs that have the specified status.
+    status :: Lude.Maybe JobExecutionStatus,
+    -- | The namespace used to indicate that a job is a customer-managed job.
+    --
+    -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+    -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
     namespaceId :: Lude.Maybe Lude.Text,
+    -- | The token to retrieve the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    thingName :: Lude.Text
+    -- | The thing name.
+    thingName :: Lude.Text,
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobExecutionsForThing' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'status' - An optional filter that lets you search for jobs that have the specified status.
 -- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
 -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
 -- * 'nextToken' - The token to retrieve the next set of results.
--- * 'status' - An optional filter that lets you search for jobs that have the specified status.
 -- * 'thingName' - The thing name.
+-- * 'maxResults' - The maximum number of results to be returned per request.
 mkListJobExecutionsForThing ::
   -- | 'thingName'
   Lude.Text ->
@@ -82,8 +84,8 @@ mkListJobExecutionsForThing pThingName_ =
     { status = Lude.Nothing,
       namespaceId = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      thingName = pThingName_
+      thingName = pThingName_,
+      maxResults = Lude.Nothing
     }
 
 -- | An optional filter that lets you search for jobs that have the specified status.
@@ -110,19 +112,19 @@ ljeftNextToken :: Lens.Lens' ListJobExecutionsForThing (Lude.Maybe Lude.Text)
 ljeftNextToken = Lens.lens (nextToken :: ListJobExecutionsForThing -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobExecutionsForThing)
 {-# DEPRECATED ljeftNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to be returned per request.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljeftMaxResults :: Lens.Lens' ListJobExecutionsForThing (Lude.Maybe Lude.Natural)
-ljeftMaxResults = Lens.lens (maxResults :: ListJobExecutionsForThing -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListJobExecutionsForThing)
-{-# DEPRECATED ljeftMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The thing name.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljeftThingName :: Lens.Lens' ListJobExecutionsForThing Lude.Text
 ljeftThingName = Lens.lens (thingName :: ListJobExecutionsForThing -> Lude.Text) (\s a -> s {thingName = a} :: ListJobExecutionsForThing)
 {-# DEPRECATED ljeftThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+
+-- | The maximum number of results to be returned per request.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljeftMaxResults :: Lens.Lens' ListJobExecutionsForThing (Lude.Maybe Lude.Natural)
+ljeftMaxResults = Lens.lens (maxResults :: ListJobExecutionsForThing -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListJobExecutionsForThing)
+{-# DEPRECATED ljeftMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListJobExecutionsForThing where
   page rq rs
@@ -165,21 +167,14 @@ instance Lude.ToQuery ListJobExecutionsForThing where
 
 -- | /See:/ 'mkListJobExecutionsForThingResponse' smart constructor.
 data ListJobExecutionsForThingResponse = ListJobExecutionsForThingResponse'
-  { executionSummaries ::
-      Lude.Maybe
-        [JobExecutionSummaryForThing],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of job execution summaries.
+    executionSummaries :: Lude.Maybe [JobExecutionSummaryForThing],
+    -- | The token for the next set of results, or __null__ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobExecutionsForThingResponse' with the minimum fields required to make a request.

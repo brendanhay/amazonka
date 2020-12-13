@@ -44,43 +44,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGraphqlAPI' smart constructor.
 data GraphqlAPI = GraphqlAPI'
-  { xrayEnabled :: Lude.Maybe Lude.Bool,
+  { -- | A flag representing whether X-Ray tracing is enabled for this @GraphqlApi@ .
+    xrayEnabled :: Lude.Maybe Lude.Bool,
+    -- | The ARN.
     arn :: Lude.Maybe Lude.Text,
+    -- | The API ID.
     apiId :: Lude.Maybe Lude.Text,
+    -- | The URIs.
     uris :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The OpenID Connect configuration.
     openIdConnectConfig :: Lude.Maybe OpenIdConnectConfig,
+    -- | The ARN of the AWS Web Application Firewall (WAF) ACL associated with this @GraphqlApi@ , if one exists.
     wafWebACLARN :: Lude.Maybe Lude.Text,
-    additionalAuthenticationProviders ::
-      Lude.Maybe [AdditionalAuthenticationProvider],
+    -- | A list of additional authentication providers for the @GraphqlApi@ API.
+    additionalAuthenticationProviders :: Lude.Maybe [AdditionalAuthenticationProvider],
+    -- | The API name.
     name :: Lude.Maybe Lude.Text,
+    -- | The Amazon Cognito user pool configuration.
     userPoolConfig :: Lude.Maybe UserPoolConfig,
+    -- | The authentication type.
     authenticationType :: Lude.Maybe AuthenticationType,
+    -- | The Amazon CloudWatch Logs configuration.
     logConfig :: Lude.Maybe LogConfig,
+    -- | The tags.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GraphqlAPI' with the minimum fields required to make a request.
 --
--- * 'additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
--- * 'apiId' - The API ID.
+-- * 'xrayEnabled' - A flag representing whether X-Ray tracing is enabled for this @GraphqlApi@ .
 -- * 'arn' - The ARN.
+-- * 'apiId' - The API ID.
+-- * 'uris' - The URIs.
+-- * 'openIdConnectConfig' - The OpenID Connect configuration.
+-- * 'wafWebACLARN' - The ARN of the AWS Web Application Firewall (WAF) ACL associated with this @GraphqlApi@ , if one exists.
+-- * 'additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
+-- * 'name' - The API name.
+-- * 'userPoolConfig' - The Amazon Cognito user pool configuration.
 -- * 'authenticationType' - The authentication type.
 -- * 'logConfig' - The Amazon CloudWatch Logs configuration.
--- * 'name' - The API name.
--- * 'openIdConnectConfig' - The OpenID Connect configuration.
 -- * 'tags' - The tags.
--- * 'uris' - The URIs.
--- * 'userPoolConfig' - The Amazon Cognito user pool configuration.
--- * 'wafWebACLARN' - The ARN of the AWS Web Application Firewall (WAF) ACL associated with this @GraphqlApi@ , if one exists.
--- * 'xrayEnabled' - A flag representing whether X-Ray tracing is enabled for this @GraphqlApi@ .
 mkGraphqlAPI ::
   GraphqlAPI
 mkGraphqlAPI =

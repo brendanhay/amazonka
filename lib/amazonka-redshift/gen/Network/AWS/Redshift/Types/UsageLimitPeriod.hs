@@ -14,8 +14,8 @@ module Network.AWS.Redshift.Types.UsageLimitPeriod
   ( UsageLimitPeriod
       ( UsageLimitPeriod',
         Daily,
-        Monthly,
-        Weekly
+        Weekly,
+        Monthly
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype UsageLimitPeriod = UsageLimitPeriod' Lude.Text
 pattern Daily :: UsageLimitPeriod
 pattern Daily = UsageLimitPeriod' "daily"
 
-pattern Monthly :: UsageLimitPeriod
-pattern Monthly = UsageLimitPeriod' "monthly"
-
 pattern Weekly :: UsageLimitPeriod
 pattern Weekly = UsageLimitPeriod' "weekly"
 
+pattern Monthly :: UsageLimitPeriod
+pattern Monthly = UsageLimitPeriod' "monthly"
+
 {-# COMPLETE
   Daily,
-  Monthly,
   Weekly,
+  Monthly,
   UsageLimitPeriod'
   #-}

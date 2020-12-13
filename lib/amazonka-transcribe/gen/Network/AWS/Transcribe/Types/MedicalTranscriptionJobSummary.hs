@@ -42,48 +42,44 @@ import Network.AWS.Transcribe.Types.Type
 --
 -- /See:/ 'mkMedicalTranscriptionJobSummary' smart constructor.
 data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
-    specialty ::
-      Lude.Maybe Specialty,
-    failureReason ::
-      Lude.Maybe Lude.Text,
-    languageCode ::
-      Lude.Maybe LanguageCode,
-    outputLocationType ::
-      Lude.Maybe OutputLocationType,
-    startTime ::
-      Lude.Maybe Lude.Timestamp,
-    completionTime ::
-      Lude.Maybe Lude.Timestamp,
-    medicalTranscriptionJobName ::
-      Lude.Maybe Lude.Text,
-    transcriptionJobStatus ::
-      Lude.Maybe
-        TranscriptionJobStatus,
+  { -- | A timestamp that shows when the medical transcription job was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The medical specialty of the transcription job. @Primary care@ is the only valid value.
+    specialty :: Lude.Maybe Specialty,
+    -- | If the @TranscriptionJobStatus@ field is @FAILED@ , a description of the error.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The language of the transcript in the source audio file.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | Indicates the location of the transcription job's output.
+    --
+    -- The @CUSTOMER_BUCKET@ is the S3 location provided in the @OutputBucketName@ field when the
+    outputLocationType :: Lude.Maybe OutputLocationType,
+    -- | A timestamp that shows when the job began processing.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | A timestamp that shows when the job was completed.
+    completionTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of a medical transcription job.
+    medicalTranscriptionJobName :: Lude.Maybe Lude.Text,
+    -- | The status of the medical transcription job.
+    transcriptionJobStatus :: Lude.Maybe TranscriptionJobStatus,
+    -- | The speech of the clinician in the input audio.
     type' :: Lude.Maybe Type
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MedicalTranscriptionJobSummary' with the minimum fields required to make a request.
 --
--- * 'completionTime' - A timestamp that shows when the job was completed.
 -- * 'creationTime' - A timestamp that shows when the medical transcription job was created.
+-- * 'specialty' - The medical specialty of the transcription job. @Primary care@ is the only valid value.
 -- * 'failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , a description of the error.
 -- * 'languageCode' - The language of the transcript in the source audio file.
--- * 'medicalTranscriptionJobName' - The name of a medical transcription job.
 -- * 'outputLocationType' - Indicates the location of the transcription job's output.
 --
 -- The @CUSTOMER_BUCKET@ is the S3 location provided in the @OutputBucketName@ field when the
--- * 'specialty' - The medical specialty of the transcription job. @Primary care@ is the only valid value.
 -- * 'startTime' - A timestamp that shows when the job began processing.
+-- * 'completionTime' - A timestamp that shows when the job was completed.
+-- * 'medicalTranscriptionJobName' - The name of a medical transcription job.
 -- * 'transcriptionJobStatus' - The status of the medical transcription job.
 -- * 'type'' - The speech of the clinician in the input audio.
 mkMedicalTranscriptionJobSummary ::

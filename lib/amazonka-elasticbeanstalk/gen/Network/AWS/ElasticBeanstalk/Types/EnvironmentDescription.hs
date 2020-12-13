@@ -54,79 +54,87 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentDescription' smart constructor.
 data EnvironmentDescription = EnvironmentDescription'
-  { status ::
-      Lude.Maybe EnvironmentStatus,
+  { -- | The current operational status of the environment:
+    --
+    --
+    --     * @Launching@ : Environment is in the process of initial deployment.
+    --
+    --
+    --     * @Updating@ : Environment is in the process of updating its configuration settings or application version.
+    --
+    --
+    --     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.
+    --
+    --
+    --     * @Terminating@ : Environment is in the shut-down process.
+    --
+    --
+    --     * @Terminated@ : Environment is not running.
+    status :: Lude.Maybe EnvironmentStatus,
+    -- | The URL to the CNAME for this environment.
     cNAME :: Lude.Maybe Lude.Text,
+    -- | The name of the configuration template used to originally launch this environment.
     templateName :: Lude.Maybe Lude.Text,
-    abortableOperationInProgress ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel.
+    --
+    -- @true:@ There is an update in progress.
+    -- @false:@ There are no updates currently in progress.
+    abortableOperationInProgress :: Lude.Maybe Lude.Bool,
+    -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance.
     endpointURL :: Lude.Maybe Lude.Text,
-    resources ::
-      Lude.Maybe EnvironmentResourcesDescription,
+    -- | The description of the AWS resources used by this environment.
+    resources :: Lude.Maybe EnvironmentResourcesDescription,
+    -- | The last modified date for this environment.
     dateUpdated :: Lude.Maybe Lude.DateTime,
+    -- | The creation date for this environment.
     dateCreated :: Lude.Maybe Lude.DateTime,
+    -- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:
+    --
+    --
+    --     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.
+    --
+    --
+    --     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.
+    --
+    --
+    --     * @Green@ : Indicates the environment is healthy and fully functional.
+    --
+    --
+    --     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironment@ request.
+    --
+    --
+    -- Default: @Grey@
     health :: Lude.Maybe EnvironmentHealth,
+    -- | The application version deployed in this environment.
     versionLabel :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the environment's operations role. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles> in the /AWS Elastic Beanstalk Developer Guide/ .
     operationsRole :: Lude.Maybe Lude.Text,
+    -- | The ARN of the platform version.
     platformARN :: Lude.Maybe Lude.Text,
+    -- | Describes the current tier of this environment.
     tier :: Lude.Maybe EnvironmentTier,
+    -- | The name of this environment.
     environmentName :: Lude.Maybe Lude.Text,
+    -- | The name of the application associated with this environment.
     applicationName :: Lude.Maybe Lude.Text,
+    -- | The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
     environmentARN :: Lude.Maybe Lude.Text,
+    -- | The name of the @SolutionStack@ deployed with this environment.
     solutionStackName :: Lude.Maybe Lude.Text,
+    -- | The ID of this environment.
     environmentId :: Lude.Maybe Lude.Text,
-    healthStatus ::
-      Lude.Maybe EnvironmentHealthStatus,
-    environmentLinks ::
-      Lude.Maybe [EnvironmentLink],
+    -- | Returns the health status of the application running in your environment. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+    healthStatus :: Lude.Maybe EnvironmentHealthStatus,
+    -- | A list of links to other environments in the same group.
+    environmentLinks :: Lude.Maybe [EnvironmentLink],
+    -- | Describes this environment.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentDescription' with the minimum fields required to make a request.
 --
--- * 'abortableOperationInProgress' - Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel.
---
--- @true:@ There is an update in progress.
--- @false:@ There are no updates currently in progress.
--- * 'applicationName' - The name of the application associated with this environment.
--- * 'cNAME' - The URL to the CNAME for this environment.
--- * 'dateCreated' - The creation date for this environment.
--- * 'dateUpdated' - The last modified date for this environment.
--- * 'description' - Describes this environment.
--- * 'endpointURL' - For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance.
--- * 'environmentARN' - The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
--- * 'environmentId' - The ID of this environment.
--- * 'environmentLinks' - A list of links to other environments in the same group.
--- * 'environmentName' - The name of this environment.
--- * 'health' - Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:
---
---
---     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.
---
---
---     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.
---
---
---     * @Green@ : Indicates the environment is healthy and fully functional.
---
---
---     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironment@ request.
---
---
--- Default: @Grey@
--- * 'healthStatus' - Returns the health status of the application running in your environment. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
--- * 'operationsRole' - The Amazon Resource Name (ARN) of the environment's operations role. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles> in the /AWS Elastic Beanstalk Developer Guide/ .
--- * 'platformARN' - The ARN of the platform version.
--- * 'resources' - The description of the AWS resources used by this environment.
--- * 'solutionStackName' - The name of the @SolutionStack@ deployed with this environment.
 -- * 'status' - The current operational status of the environment:
 --
 --
@@ -145,9 +153,44 @@ data EnvironmentDescription = EnvironmentDescription'
 --     * @Terminated@ : Environment is not running.
 --
 --
+-- * 'cNAME' - The URL to the CNAME for this environment.
 -- * 'templateName' - The name of the configuration template used to originally launch this environment.
--- * 'tier' - Describes the current tier of this environment.
+-- * 'abortableOperationInProgress' - Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel.
+--
+-- @true:@ There is an update in progress.
+-- @false:@ There are no updates currently in progress.
+-- * 'endpointURL' - For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance.
+-- * 'resources' - The description of the AWS resources used by this environment.
+-- * 'dateUpdated' - The last modified date for this environment.
+-- * 'dateCreated' - The creation date for this environment.
+-- * 'health' - Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:
+--
+--
+--     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.
+--
+--
+--     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.
+--
+--
+--     * @Green@ : Indicates the environment is healthy and fully functional.
+--
+--
+--     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironment@ request.
+--
+--
+-- Default: @Grey@
 -- * 'versionLabel' - The application version deployed in this environment.
+-- * 'operationsRole' - The Amazon Resource Name (ARN) of the environment's operations role. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles> in the /AWS Elastic Beanstalk Developer Guide/ .
+-- * 'platformARN' - The ARN of the platform version.
+-- * 'tier' - Describes the current tier of this environment.
+-- * 'environmentName' - The name of this environment.
+-- * 'applicationName' - The name of the application associated with this environment.
+-- * 'environmentARN' - The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
+-- * 'solutionStackName' - The name of the @SolutionStack@ deployed with this environment.
+-- * 'environmentId' - The ID of this environment.
+-- * 'healthStatus' - Returns the health status of the application running in your environment. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+-- * 'environmentLinks' - A list of links to other environments in the same group.
+-- * 'description' - Describes this environment.
 mkEnvironmentDescription ::
   EnvironmentDescription
 mkEnvironmentDescription =

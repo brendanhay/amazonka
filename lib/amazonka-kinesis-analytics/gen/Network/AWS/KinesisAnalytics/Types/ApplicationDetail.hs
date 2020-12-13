@@ -18,7 +18,9 @@ module Network.AWS.KinesisAnalytics.Types.ApplicationDetail
 
     -- * Lenses
     adApplicationDescription,
+    adApplicationARN,
     adOutputDescriptions,
+    adApplicationVersionId,
     adCloudWatchLoggingOptionDescriptions,
     adReferenceDataSourceDescriptions,
     adInputDescriptions,
@@ -26,9 +28,7 @@ module Network.AWS.KinesisAnalytics.Types.ApplicationDetail
     adCreateTimestamp,
     adLastUpdateTimestamp,
     adApplicationName,
-    adApplicationARN,
     adApplicationStatus,
-    adApplicationVersionId,
   )
 where
 
@@ -44,63 +44,68 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationDetail' smart constructor.
 data ApplicationDetail = ApplicationDetail'
-  { applicationDescription ::
-      Lude.Maybe Lude.Text,
-    outputDescriptions :: Lude.Maybe [OutputDescription],
-    cloudWatchLoggingOptionDescriptions ::
-      Lude.Maybe [CloudWatchLoggingOptionDescription],
-    referenceDataSourceDescriptions ::
-      Lude.Maybe [ReferenceDataSourceDescription],
-    inputDescriptions :: Lude.Maybe [InputDescription],
-    applicationCode :: Lude.Maybe Lude.Text,
-    createTimestamp :: Lude.Maybe Lude.Timestamp,
-    lastUpdateTimestamp :: Lude.Maybe Lude.Timestamp,
-    applicationName :: Lude.Text,
+  { -- | Description of the application.
+    applicationDescription :: Lude.Maybe Lude.Text,
+    -- | ARN of the application.
     applicationARN :: Lude.Text,
-    applicationStatus :: ApplicationStatus,
-    applicationVersionId :: Lude.Natural
+    -- | Describes the application output configuration. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
+    outputDescriptions :: Lude.Maybe [OutputDescription],
+    -- | Provides the current application version.
+    applicationVersionId :: Lude.Natural,
+    -- | Describes the CloudWatch log streams that are configured to receive application messages. For more information about using CloudWatch log streams with Amazon Kinesis Analytics applications, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
+    cloudWatchLoggingOptionDescriptions :: Lude.Maybe [CloudWatchLoggingOptionDescription],
+    -- | Describes reference data sources configured for the application. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
+    referenceDataSourceDescriptions :: Lude.Maybe [ReferenceDataSourceDescription],
+    -- | Describes the application input configuration. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
+    inputDescriptions :: Lude.Maybe [InputDescription],
+    -- | Returns the application code that you provided to perform data analysis on any of the in-application streams in your application.
+    applicationCode :: Lude.Maybe Lude.Text,
+    -- | Time stamp when the application version was created.
+    createTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | Time stamp when the application was last updated.
+    lastUpdateTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | Name of the application.
+    applicationName :: Lude.Text,
+    -- | Status of the application.
+    applicationStatus :: ApplicationStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationDetail' with the minimum fields required to make a request.
 --
--- * 'applicationARN' - ARN of the application.
--- * 'applicationCode' - Returns the application code that you provided to perform data analysis on any of the in-application streams in your application.
 -- * 'applicationDescription' - Description of the application.
--- * 'applicationName' - Name of the application.
--- * 'applicationStatus' - Status of the application.
+-- * 'applicationARN' - ARN of the application.
+-- * 'outputDescriptions' - Describes the application output configuration. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
 -- * 'applicationVersionId' - Provides the current application version.
 -- * 'cloudWatchLoggingOptionDescriptions' - Describes the CloudWatch log streams that are configured to receive application messages. For more information about using CloudWatch log streams with Amazon Kinesis Analytics applications, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
--- * 'createTimestamp' - Time stamp when the application version was created.
--- * 'inputDescriptions' - Describes the application input configuration. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
--- * 'lastUpdateTimestamp' - Time stamp when the application was last updated.
--- * 'outputDescriptions' - Describes the application output configuration. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
 -- * 'referenceDataSourceDescriptions' - Describes reference data sources configured for the application. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
+-- * 'inputDescriptions' - Describes the application input configuration. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
+-- * 'applicationCode' - Returns the application code that you provided to perform data analysis on any of the in-application streams in your application.
+-- * 'createTimestamp' - Time stamp when the application version was created.
+-- * 'lastUpdateTimestamp' - Time stamp when the application was last updated.
+-- * 'applicationName' - Name of the application.
+-- * 'applicationStatus' - Status of the application.
 mkApplicationDetail ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'applicationARN'
+  Lude.Text ->
+  -- | 'applicationVersionId'
+  Lude.Natural ->
+  -- | 'applicationName'
   Lude.Text ->
   -- | 'applicationStatus'
   ApplicationStatus ->
-  -- | 'applicationVersionId'
-  Lude.Natural ->
   ApplicationDetail
 mkApplicationDetail
-  pApplicationName_
   pApplicationARN_
-  pApplicationStatus_
-  pApplicationVersionId_ =
+  pApplicationVersionId_
+  pApplicationName_
+  pApplicationStatus_ =
     ApplicationDetail'
       { applicationDescription = Lude.Nothing,
+        applicationARN = pApplicationARN_,
         outputDescriptions = Lude.Nothing,
+        applicationVersionId = pApplicationVersionId_,
         cloudWatchLoggingOptionDescriptions = Lude.Nothing,
         referenceDataSourceDescriptions = Lude.Nothing,
         inputDescriptions = Lude.Nothing,
@@ -108,9 +113,7 @@ mkApplicationDetail
         createTimestamp = Lude.Nothing,
         lastUpdateTimestamp = Lude.Nothing,
         applicationName = pApplicationName_,
-        applicationARN = pApplicationARN_,
-        applicationStatus = pApplicationStatus_,
-        applicationVersionId = pApplicationVersionId_
+        applicationStatus = pApplicationStatus_
       }
 
 -- | Description of the application.
@@ -120,12 +123,26 @@ adApplicationDescription :: Lens.Lens' ApplicationDetail (Lude.Maybe Lude.Text)
 adApplicationDescription = Lens.lens (applicationDescription :: ApplicationDetail -> Lude.Maybe Lude.Text) (\s a -> s {applicationDescription = a} :: ApplicationDetail)
 {-# DEPRECATED adApplicationDescription "Use generic-lens or generic-optics with 'applicationDescription' instead." #-}
 
+-- | ARN of the application.
+--
+-- /Note:/ Consider using 'applicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adApplicationARN :: Lens.Lens' ApplicationDetail Lude.Text
+adApplicationARN = Lens.lens (applicationARN :: ApplicationDetail -> Lude.Text) (\s a -> s {applicationARN = a} :: ApplicationDetail)
+{-# DEPRECATED adApplicationARN "Use generic-lens or generic-optics with 'applicationARN' instead." #-}
+
 -- | Describes the application output configuration. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
 --
 -- /Note:/ Consider using 'outputDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 adOutputDescriptions :: Lens.Lens' ApplicationDetail (Lude.Maybe [OutputDescription])
 adOutputDescriptions = Lens.lens (outputDescriptions :: ApplicationDetail -> Lude.Maybe [OutputDescription]) (\s a -> s {outputDescriptions = a} :: ApplicationDetail)
 {-# DEPRECATED adOutputDescriptions "Use generic-lens or generic-optics with 'outputDescriptions' instead." #-}
+
+-- | Provides the current application version.
+--
+-- /Note:/ Consider using 'applicationVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adApplicationVersionId :: Lens.Lens' ApplicationDetail Lude.Natural
+adApplicationVersionId = Lens.lens (applicationVersionId :: ApplicationDetail -> Lude.Natural) (\s a -> s {applicationVersionId = a} :: ApplicationDetail)
+{-# DEPRECATED adApplicationVersionId "Use generic-lens or generic-optics with 'applicationVersionId' instead." #-}
 
 -- | Describes the CloudWatch log streams that are configured to receive application messages. For more information about using CloudWatch log streams with Amazon Kinesis Analytics applications, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
 --
@@ -176,26 +193,12 @@ adApplicationName :: Lens.Lens' ApplicationDetail Lude.Text
 adApplicationName = Lens.lens (applicationName :: ApplicationDetail -> Lude.Text) (\s a -> s {applicationName = a} :: ApplicationDetail)
 {-# DEPRECATED adApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
--- | ARN of the application.
---
--- /Note:/ Consider using 'applicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adApplicationARN :: Lens.Lens' ApplicationDetail Lude.Text
-adApplicationARN = Lens.lens (applicationARN :: ApplicationDetail -> Lude.Text) (\s a -> s {applicationARN = a} :: ApplicationDetail)
-{-# DEPRECATED adApplicationARN "Use generic-lens or generic-optics with 'applicationARN' instead." #-}
-
 -- | Status of the application.
 --
 -- /Note:/ Consider using 'applicationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 adApplicationStatus :: Lens.Lens' ApplicationDetail ApplicationStatus
 adApplicationStatus = Lens.lens (applicationStatus :: ApplicationDetail -> ApplicationStatus) (\s a -> s {applicationStatus = a} :: ApplicationDetail)
 {-# DEPRECATED adApplicationStatus "Use generic-lens or generic-optics with 'applicationStatus' instead." #-}
-
--- | Provides the current application version.
---
--- /Note:/ Consider using 'applicationVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adApplicationVersionId :: Lens.Lens' ApplicationDetail Lude.Natural
-adApplicationVersionId = Lens.lens (applicationVersionId :: ApplicationDetail -> Lude.Natural) (\s a -> s {applicationVersionId = a} :: ApplicationDetail)
-{-# DEPRECATED adApplicationVersionId "Use generic-lens or generic-optics with 'applicationVersionId' instead." #-}
 
 instance Lude.FromJSON ApplicationDetail where
   parseJSON =
@@ -204,7 +207,9 @@ instance Lude.FromJSON ApplicationDetail where
       ( \x ->
           ApplicationDetail'
             Lude.<$> (x Lude..:? "ApplicationDescription")
+            Lude.<*> (x Lude..: "ApplicationARN")
             Lude.<*> (x Lude..:? "OutputDescriptions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "ApplicationVersionId")
             Lude.<*> ( x Lude..:? "CloudWatchLoggingOptionDescriptions"
                          Lude..!= Lude.mempty
                      )
@@ -214,7 +219,5 @@ instance Lude.FromJSON ApplicationDetail where
             Lude.<*> (x Lude..:? "CreateTimestamp")
             Lude.<*> (x Lude..:? "LastUpdateTimestamp")
             Lude.<*> (x Lude..: "ApplicationName")
-            Lude.<*> (x Lude..: "ApplicationARN")
             Lude.<*> (x Lude..: "ApplicationStatus")
-            Lude.<*> (x Lude..: "ApplicationVersionId")
       )

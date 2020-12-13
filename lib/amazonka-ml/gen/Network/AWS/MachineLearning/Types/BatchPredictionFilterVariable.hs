@@ -14,13 +14,13 @@ module Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable
   ( BatchPredictionFilterVariable
       ( BatchPredictionFilterVariable',
         BatchCreatedAt,
-        BatchDataSourceId,
-        BatchDataURI,
-        BatchIAMUser,
         BatchLastUpdatedAt,
-        BatchMLModelId,
+        BatchStatus,
         BatchName,
-        BatchStatus
+        BatchIAMUser,
+        BatchMLModelId,
+        BatchDataSourceId,
+        BatchDataURI
       ),
   )
 where
@@ -70,35 +70,35 @@ newtype BatchPredictionFilterVariable = BatchPredictionFilterVariable' Lude.Text
 pattern BatchCreatedAt :: BatchPredictionFilterVariable
 pattern BatchCreatedAt = BatchPredictionFilterVariable' "CreatedAt"
 
+pattern BatchLastUpdatedAt :: BatchPredictionFilterVariable
+pattern BatchLastUpdatedAt = BatchPredictionFilterVariable' "LastUpdatedAt"
+
+pattern BatchStatus :: BatchPredictionFilterVariable
+pattern BatchStatus = BatchPredictionFilterVariable' "Status"
+
+pattern BatchName :: BatchPredictionFilterVariable
+pattern BatchName = BatchPredictionFilterVariable' "Name"
+
+pattern BatchIAMUser :: BatchPredictionFilterVariable
+pattern BatchIAMUser = BatchPredictionFilterVariable' "IAMUser"
+
+pattern BatchMLModelId :: BatchPredictionFilterVariable
+pattern BatchMLModelId = BatchPredictionFilterVariable' "MLModelId"
+
 pattern BatchDataSourceId :: BatchPredictionFilterVariable
 pattern BatchDataSourceId = BatchPredictionFilterVariable' "DataSourceId"
 
 pattern BatchDataURI :: BatchPredictionFilterVariable
 pattern BatchDataURI = BatchPredictionFilterVariable' "DataURI"
 
-pattern BatchIAMUser :: BatchPredictionFilterVariable
-pattern BatchIAMUser = BatchPredictionFilterVariable' "IAMUser"
-
-pattern BatchLastUpdatedAt :: BatchPredictionFilterVariable
-pattern BatchLastUpdatedAt = BatchPredictionFilterVariable' "LastUpdatedAt"
-
-pattern BatchMLModelId :: BatchPredictionFilterVariable
-pattern BatchMLModelId = BatchPredictionFilterVariable' "MLModelId"
-
-pattern BatchName :: BatchPredictionFilterVariable
-pattern BatchName = BatchPredictionFilterVariable' "Name"
-
-pattern BatchStatus :: BatchPredictionFilterVariable
-pattern BatchStatus = BatchPredictionFilterVariable' "Status"
-
 {-# COMPLETE
   BatchCreatedAt,
+  BatchLastUpdatedAt,
+  BatchStatus,
+  BatchName,
+  BatchIAMUser,
+  BatchMLModelId,
   BatchDataSourceId,
   BatchDataURI,
-  BatchIAMUser,
-  BatchLastUpdatedAt,
-  BatchMLModelId,
-  BatchName,
-  BatchStatus,
   BatchPredictionFilterVariable'
   #-}

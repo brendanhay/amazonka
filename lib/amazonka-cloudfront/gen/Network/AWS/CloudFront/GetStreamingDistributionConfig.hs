@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetStreamingDistributionConfig' smart constructor.
 newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig'
-  { id ::
-      Lude.Text
+  { -- | The streaming distribution's ID.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStreamingDistributionConfig' with the minimum fields required to make a request.
@@ -100,29 +95,21 @@ instance Lude.ToQuery GetStreamingDistributionConfig where
 --
 -- /See:/ 'mkGetStreamingDistributionConfigResponse' smart constructor.
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'
-  { streamingDistributionConfig ::
-      Lude.Maybe
-        StreamingDistributionConfig,
-    eTag ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The streaming distribution's configuration information.
+    streamingDistributionConfig :: Lude.Maybe StreamingDistributionConfig,
+    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStreamingDistributionConfigResponse' with the minimum fields required to make a request.
 --
+-- * 'streamingDistributionConfig' - The streaming distribution's configuration information.
 -- * 'eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 -- * 'responseStatus' - The response status code.
--- * 'streamingDistributionConfig' - The streaming distribution's configuration information.
 mkGetStreamingDistributionConfigResponse ::
   -- | 'responseStatus'
   Lude.Int ->

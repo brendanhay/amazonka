@@ -36,32 +36,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRightsizingRecommendation' smart constructor.
 data RightsizingRecommendation = RightsizingRecommendation'
-  { accountId ::
-      Lude.Maybe Lude.Text,
-    modifyRecommendationDetail ::
-      Lude.Maybe ModifyRecommendationDetail,
-    currentInstance ::
-      Lude.Maybe CurrentInstance,
-    rightsizingType ::
-      Lude.Maybe RightsizingType,
-    terminateRecommendationDetail ::
-      Lude.Maybe
-        TerminateRecommendationDetail
+  { -- | The account that this recommendation is for.
+    accountId :: Lude.Maybe Lude.Text,
+    -- | Details for modification recommendations.
+    modifyRecommendationDetail :: Lude.Maybe ModifyRecommendationDetail,
+    -- | Context regarding the current instance.
+    currentInstance :: Lude.Maybe CurrentInstance,
+    -- | Recommendation to either terminate or modify the resource.
+    rightsizingType :: Lude.Maybe RightsizingType,
+    -- | Details for termination recommendations.
+    terminateRecommendationDetail :: Lude.Maybe TerminateRecommendationDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RightsizingRecommendation' with the minimum fields required to make a request.
 --
 -- * 'accountId' - The account that this recommendation is for.
--- * 'currentInstance' - Context regarding the current instance.
 -- * 'modifyRecommendationDetail' - Details for modification recommendations.
+-- * 'currentInstance' - Context regarding the current instance.
 -- * 'rightsizingType' - Recommendation to either terminate or modify the resource.
 -- * 'terminateRecommendationDetail' - Details for termination recommendations.
 mkRightsizingRecommendation ::

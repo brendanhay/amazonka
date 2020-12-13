@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     mkDeleteConfigurationTemplate,
 
     -- ** Request lenses
-    dctApplicationName,
     dctTemplateName,
+    dctApplicationName,
 
     -- * Destructuring the response
     DeleteConfigurationTemplateResponse (..),
@@ -38,41 +39,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteConfigurationTemplate' smart constructor.
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
-  { applicationName ::
-      Lude.Text,
-    templateName :: Lude.Text
+  { -- | The name of the configuration template to delete.
+    templateName :: Lude.Text,
+    -- | The name of the application to delete the configuration template from.
+    applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationTemplate' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of the application to delete the configuration template from.
 -- * 'templateName' - The name of the configuration template to delete.
+-- * 'applicationName' - The name of the application to delete the configuration template from.
 mkDeleteConfigurationTemplate ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'templateName'
   Lude.Text ->
+  -- | 'applicationName'
+  Lude.Text ->
   DeleteConfigurationTemplate
-mkDeleteConfigurationTemplate pApplicationName_ pTemplateName_ =
+mkDeleteConfigurationTemplate pTemplateName_ pApplicationName_ =
   DeleteConfigurationTemplate'
-    { applicationName = pApplicationName_,
-      templateName = pTemplateName_
+    { templateName = pTemplateName_,
+      applicationName = pApplicationName_
     }
-
--- | The name of the application to delete the configuration template from.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dctApplicationName :: Lens.Lens' DeleteConfigurationTemplate Lude.Text
-dctApplicationName = Lens.lens (applicationName :: DeleteConfigurationTemplate -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteConfigurationTemplate)
-{-# DEPRECATED dctApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The name of the configuration template to delete.
 --
@@ -80,6 +69,13 @@ dctApplicationName = Lens.lens (applicationName :: DeleteConfigurationTemplate -
 dctTemplateName :: Lens.Lens' DeleteConfigurationTemplate Lude.Text
 dctTemplateName = Lens.lens (templateName :: DeleteConfigurationTemplate -> Lude.Text) (\s a -> s {templateName = a} :: DeleteConfigurationTemplate)
 {-# DEPRECATED dctTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+
+-- | The name of the application to delete the configuration template from.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dctApplicationName :: Lens.Lens' DeleteConfigurationTemplate Lude.Text
+dctApplicationName = Lens.lens (applicationName :: DeleteConfigurationTemplate -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteConfigurationTemplate)
+{-# DEPRECATED dctApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 instance Lude.AWSRequest DeleteConfigurationTemplate where
   type
@@ -100,19 +96,13 @@ instance Lude.ToQuery DeleteConfigurationTemplate where
       [ "Action"
           Lude.=: ("DeleteConfigurationTemplate" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ApplicationName" Lude.=: applicationName,
-        "TemplateName" Lude.=: templateName
+        "TemplateName" Lude.=: templateName,
+        "ApplicationName" Lude.=: applicationName
       ]
 
 -- | /See:/ 'mkDeleteConfigurationTemplateResponse' smart constructor.
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationTemplateResponse' with the minimum fields required to make a request.

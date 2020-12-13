@@ -14,16 +14,16 @@ module Network.AWS.EC2.Types.CapacityReservationInstancePlatform
   ( CapacityReservationInstancePlatform
       ( CapacityReservationInstancePlatform',
         CRIPLinuxUnix,
-        CRIPLinuxWithSqlServerEnterprise,
-        CRIPLinuxWithSqlServerStandard,
-        CRIPLinuxWithSqlServerWeb,
         CRIPRedHatEnterpriseLinux,
         CRIPSuseLinux,
         CRIPWindows,
         CRIPWindowsWithSqlServer,
         CRIPWindowsWithSqlServerEnterprise,
         CRIPWindowsWithSqlServerStandard,
-        CRIPWindowsWithSqlServerWeb
+        CRIPWindowsWithSqlServerWeb,
+        CRIPLinuxWithSqlServerStandard,
+        CRIPLinuxWithSqlServerWeb,
+        CRIPLinuxWithSqlServerEnterprise
       ),
   )
 where
@@ -57,15 +57,6 @@ newtype CapacityReservationInstancePlatform = CapacityReservationInstancePlatfor
 pattern CRIPLinuxUnix :: CapacityReservationInstancePlatform
 pattern CRIPLinuxUnix = CapacityReservationInstancePlatform' "Linux/UNIX"
 
-pattern CRIPLinuxWithSqlServerEnterprise :: CapacityReservationInstancePlatform
-pattern CRIPLinuxWithSqlServerEnterprise = CapacityReservationInstancePlatform' "Linux with SQL Server Enterprise"
-
-pattern CRIPLinuxWithSqlServerStandard :: CapacityReservationInstancePlatform
-pattern CRIPLinuxWithSqlServerStandard = CapacityReservationInstancePlatform' "Linux with SQL Server Standard"
-
-pattern CRIPLinuxWithSqlServerWeb :: CapacityReservationInstancePlatform
-pattern CRIPLinuxWithSqlServerWeb = CapacityReservationInstancePlatform' "Linux with SQL Server Web"
-
 pattern CRIPRedHatEnterpriseLinux :: CapacityReservationInstancePlatform
 pattern CRIPRedHatEnterpriseLinux = CapacityReservationInstancePlatform' "Red Hat Enterprise Linux"
 
@@ -87,11 +78,17 @@ pattern CRIPWindowsWithSqlServerStandard = CapacityReservationInstancePlatform' 
 pattern CRIPWindowsWithSqlServerWeb :: CapacityReservationInstancePlatform
 pattern CRIPWindowsWithSqlServerWeb = CapacityReservationInstancePlatform' "Windows with SQL Server Web"
 
+pattern CRIPLinuxWithSqlServerStandard :: CapacityReservationInstancePlatform
+pattern CRIPLinuxWithSqlServerStandard = CapacityReservationInstancePlatform' "Linux with SQL Server Standard"
+
+pattern CRIPLinuxWithSqlServerWeb :: CapacityReservationInstancePlatform
+pattern CRIPLinuxWithSqlServerWeb = CapacityReservationInstancePlatform' "Linux with SQL Server Web"
+
+pattern CRIPLinuxWithSqlServerEnterprise :: CapacityReservationInstancePlatform
+pattern CRIPLinuxWithSqlServerEnterprise = CapacityReservationInstancePlatform' "Linux with SQL Server Enterprise"
+
 {-# COMPLETE
   CRIPLinuxUnix,
-  CRIPLinuxWithSqlServerEnterprise,
-  CRIPLinuxWithSqlServerStandard,
-  CRIPLinuxWithSqlServerWeb,
   CRIPRedHatEnterpriseLinux,
   CRIPSuseLinux,
   CRIPWindows,
@@ -99,5 +96,8 @@ pattern CRIPWindowsWithSqlServerWeb = CapacityReservationInstancePlatform' "Wind
   CRIPWindowsWithSqlServerEnterprise,
   CRIPWindowsWithSqlServerStandard,
   CRIPWindowsWithSqlServerWeb,
+  CRIPLinuxWithSqlServerStandard,
+  CRIPLinuxWithSqlServerWeb,
+  CRIPLinuxWithSqlServerEnterprise,
   CapacityReservationInstancePlatform'
   #-}

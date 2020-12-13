@@ -33,30 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduleActionStartSettings' smart constructor.
 data ScheduleActionStartSettings = ScheduleActionStartSettings'
-  { immediateModeScheduleActionStartSettings ::
-      Lude.Maybe
-        ImmediateModeScheduleActionStartSettings,
-    followModeScheduleActionStartSettings ::
-      Lude.Maybe
-        FollowModeScheduleActionStartSettings,
-    fixedModeScheduleActionStartSettings ::
-      Lude.Maybe
-        FixedModeScheduleActionStartSettings
+  { -- | Option for specifying an action that should be applied immediately.
+    immediateModeScheduleActionStartSettings :: Lude.Maybe ImmediateModeScheduleActionStartSettings,
+    -- | Option for specifying an action as relative to another action.
+    followModeScheduleActionStartSettings :: Lude.Maybe FollowModeScheduleActionStartSettings,
+    -- | Option for specifying the start time for an action.
+    fixedModeScheduleActionStartSettings :: Lude.Maybe FixedModeScheduleActionStartSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduleActionStartSettings' with the minimum fields required to make a request.
 --
--- * 'fixedModeScheduleActionStartSettings' - Option for specifying the start time for an action.
--- * 'followModeScheduleActionStartSettings' - Option for specifying an action as relative to another action.
 -- * 'immediateModeScheduleActionStartSettings' - Option for specifying an action that should be applied immediately.
+-- * 'followModeScheduleActionStartSettings' - Option for specifying an action as relative to another action.
+-- * 'fixedModeScheduleActionStartSettings' - Option for specifying the start time for an action.
 mkScheduleActionStartSettings ::
   ScheduleActionStartSettings
 mkScheduleActionStartSettings =

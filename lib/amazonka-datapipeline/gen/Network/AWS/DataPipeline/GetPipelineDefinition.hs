@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     mkGetPipelineDefinition,
 
     -- ** Request lenses
-    gpdVersion,
     gpdPipelineId,
+    gpdVersion,
 
     -- * Destructuring the response
     GetPipelineDefinitionResponse (..),
@@ -44,17 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetPipelineDefinition' smart constructor.
 data GetPipelineDefinition = GetPipelineDefinition'
-  { version ::
-      Lude.Maybe Lude.Text,
-    pipelineId :: Lude.Text
+  { -- | The ID of the pipeline.
+    pipelineId :: Lude.Text,
+    -- | The version of the pipeline definition to retrieve. Set this parameter to @latest@ (default) to use the last definition saved to the pipeline or @active@ to use the last definition that was activated.
+    version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPipelineDefinition' with the minimum fields required to make a request.
@@ -67,16 +63,9 @@ mkGetPipelineDefinition ::
   GetPipelineDefinition
 mkGetPipelineDefinition pPipelineId_ =
   GetPipelineDefinition'
-    { version = Lude.Nothing,
-      pipelineId = pPipelineId_
+    { pipelineId = pPipelineId_,
+      version = Lude.Nothing
     }
-
--- | The version of the pipeline definition to retrieve. Set this parameter to @latest@ (default) to use the last definition saved to the pipeline or @active@ to use the last definition that was activated.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdVersion :: Lens.Lens' GetPipelineDefinition (Lude.Maybe Lude.Text)
-gpdVersion = Lens.lens (version :: GetPipelineDefinition -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetPipelineDefinition)
-{-# DEPRECATED gpdVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The ID of the pipeline.
 --
@@ -84,6 +73,13 @@ gpdVersion = Lens.lens (version :: GetPipelineDefinition -> Lude.Maybe Lude.Text
 gpdPipelineId :: Lens.Lens' GetPipelineDefinition Lude.Text
 gpdPipelineId = Lens.lens (pipelineId :: GetPipelineDefinition -> Lude.Text) (\s a -> s {pipelineId = a} :: GetPipelineDefinition)
 {-# DEPRECATED gpdPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
+
+-- | The version of the pipeline definition to retrieve. Set this parameter to @latest@ (default) to use the last definition saved to the pipeline or @active@ to use the last definition that was activated.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpdVersion :: Lens.Lens' GetPipelineDefinition (Lude.Maybe Lude.Text)
+gpdVersion = Lens.lens (version :: GetPipelineDefinition -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetPipelineDefinition)
+{-# DEPRECATED gpdVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 instance Lude.AWSRequest GetPipelineDefinition where
   type Rs GetPipelineDefinition = GetPipelineDefinitionResponse
@@ -113,8 +109,8 @@ instance Lude.ToJSON GetPipelineDefinition where
   toJSON GetPipelineDefinition' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("version" Lude..=) Lude.<$> version,
-            Lude.Just ("pipelineId" Lude..= pipelineId)
+          [ Lude.Just ("pipelineId" Lude..= pipelineId),
+            ("version" Lude..=) Lude.<$> version
           ]
       )
 
@@ -128,28 +124,23 @@ instance Lude.ToQuery GetPipelineDefinition where
 --
 -- /See:/ 'mkGetPipelineDefinitionResponse' smart constructor.
 data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
-  { pipelineObjects ::
-      Lude.Maybe [PipelineObject],
-    parameterObjects ::
-      Lude.Maybe [ParameterObject],
-    parameterValues ::
-      Lude.Maybe [ParameterValue],
+  { -- | The objects defined in the pipeline.
+    pipelineObjects :: Lude.Maybe [PipelineObject],
+    -- | The parameter objects used in the pipeline definition.
+    parameterObjects :: Lude.Maybe [ParameterObject],
+    -- | The parameter values used in the pipeline definition.
+    parameterValues :: Lude.Maybe [ParameterValue],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPipelineDefinitionResponse' with the minimum fields required to make a request.
 --
+-- * 'pipelineObjects' - The objects defined in the pipeline.
 -- * 'parameterObjects' - The parameter objects used in the pipeline definition.
 -- * 'parameterValues' - The parameter values used in the pipeline definition.
--- * 'pipelineObjects' - The objects defined in the pipeline.
 -- * 'responseStatus' - The response status code.
 mkGetPipelineDefinitionResponse ::
   -- | 'responseStatus'

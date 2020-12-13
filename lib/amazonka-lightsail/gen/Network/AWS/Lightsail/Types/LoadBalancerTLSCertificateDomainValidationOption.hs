@@ -30,24 +30,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancerTLSCertificateDomainValidationOption' smart constructor.
 data LoadBalancerTLSCertificateDomainValidationOption = LoadBalancerTLSCertificateDomainValidationOption'
-  { domainName ::
-      Lude.Maybe
-        Lude.Text,
-    validationStatus ::
-      Lude.Maybe
-        LoadBalancerTLSCertificateDomainStatus
+  { -- | The fully qualified domain name in the certificate request.
+    domainName :: Lude.Maybe Lude.Text,
+    -- | The status of the domain validation. Valid values are listed below.
+    validationStatus :: Lude.Maybe LoadBalancerTLSCertificateDomainStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerTLSCertificateDomainValidationOption' with the minimum fields required to make a request.
 --

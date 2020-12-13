@@ -13,15 +13,15 @@
 module Network.AWS.SSM.Types.DocumentType
   ( DocumentType
       ( DocumentType',
+        DTCommand,
+        DTPolicy,
+        DTAutomation,
+        DTSession,
+        DTPackage,
         DTApplicationConfiguration,
         DTApplicationConfigurationSchema,
-        DTAutomation,
-        DTChangeCalendar,
-        DTCommand,
         DTDeploymentStrategy,
-        DTPackage,
-        DTPolicy,
-        DTSession
+        DTChangeCalendar
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype DocumentType = DocumentType' Lude.Text
       Lude.ToHeader
     )
 
+pattern DTCommand :: DocumentType
+pattern DTCommand = DocumentType' "Command"
+
+pattern DTPolicy :: DocumentType
+pattern DTPolicy = DocumentType' "Policy"
+
+pattern DTAutomation :: DocumentType
+pattern DTAutomation = DocumentType' "Automation"
+
+pattern DTSession :: DocumentType
+pattern DTSession = DocumentType' "Session"
+
+pattern DTPackage :: DocumentType
+pattern DTPackage = DocumentType' "Package"
+
 pattern DTApplicationConfiguration :: DocumentType
 pattern DTApplicationConfiguration = DocumentType' "ApplicationConfiguration"
 
 pattern DTApplicationConfigurationSchema :: DocumentType
 pattern DTApplicationConfigurationSchema = DocumentType' "ApplicationConfigurationSchema"
 
-pattern DTAutomation :: DocumentType
-pattern DTAutomation = DocumentType' "Automation"
+pattern DTDeploymentStrategy :: DocumentType
+pattern DTDeploymentStrategy = DocumentType' "DeploymentStrategy"
 
 pattern DTChangeCalendar :: DocumentType
 pattern DTChangeCalendar = DocumentType' "ChangeCalendar"
 
-pattern DTCommand :: DocumentType
-pattern DTCommand = DocumentType' "Command"
-
-pattern DTDeploymentStrategy :: DocumentType
-pattern DTDeploymentStrategy = DocumentType' "DeploymentStrategy"
-
-pattern DTPackage :: DocumentType
-pattern DTPackage = DocumentType' "Package"
-
-pattern DTPolicy :: DocumentType
-pattern DTPolicy = DocumentType' "Policy"
-
-pattern DTSession :: DocumentType
-pattern DTSession = DocumentType' "Session"
-
 {-# COMPLETE
+  DTCommand,
+  DTPolicy,
+  DTAutomation,
+  DTSession,
+  DTPackage,
   DTApplicationConfiguration,
   DTApplicationConfigurationSchema,
-  DTAutomation,
-  DTChangeCalendar,
-  DTCommand,
   DTDeploymentStrategy,
-  DTPackage,
-  DTPolicy,
-  DTSession,
+  DTChangeCalendar,
   DocumentType'
   #-}

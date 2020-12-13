@@ -13,10 +13,10 @@
 module Network.AWS.IoT.Types.ActionType
   ( ActionType
       ( ActionType',
-        Connect,
         Publish,
+        Subscribe,
         Receive,
-        Subscribe
+        Connect
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ActionType = ActionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Connect :: ActionType
-pattern Connect = ActionType' "CONNECT"
-
 pattern Publish :: ActionType
 pattern Publish = ActionType' "PUBLISH"
-
-pattern Receive :: ActionType
-pattern Receive = ActionType' "RECEIVE"
 
 pattern Subscribe :: ActionType
 pattern Subscribe = ActionType' "SUBSCRIBE"
 
+pattern Receive :: ActionType
+pattern Receive = ActionType' "RECEIVE"
+
+pattern Connect :: ActionType
+pattern Connect = ActionType' "CONNECT"
+
 {-# COMPLETE
-  Connect,
   Publish,
-  Receive,
   Subscribe,
+  Receive,
+  Connect,
   ActionType'
   #-}

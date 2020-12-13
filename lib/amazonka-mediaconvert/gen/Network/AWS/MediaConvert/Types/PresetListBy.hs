@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.PresetListBy
   ( PresetListBy
       ( PresetListBy',
-        PLBCreationDate,
         PLBName,
+        PLBCreationDate,
         PLBSystem
       ),
   )
@@ -47,18 +47,18 @@ newtype PresetListBy = PresetListBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern PLBCreationDate :: PresetListBy
-pattern PLBCreationDate = PresetListBy' "CREATION_DATE"
-
 pattern PLBName :: PresetListBy
 pattern PLBName = PresetListBy' "NAME"
+
+pattern PLBCreationDate :: PresetListBy
+pattern PLBCreationDate = PresetListBy' "CREATION_DATE"
 
 pattern PLBSystem :: PresetListBy
 pattern PLBSystem = PresetListBy' "SYSTEM"
 
 {-# COMPLETE
-  PLBCreationDate,
   PLBName,
+  PLBCreationDate,
   PLBSystem,
   PresetListBy'
   #-}

@@ -13,9 +13,9 @@
 module Network.AWS.Lightsail.Types.InstanceSnapshotState
   ( InstanceSnapshotState
       ( InstanceSnapshotState',
-        ISSAvailable,
+        ISSPending,
         ISSError,
-        ISSPending
+        ISSAvailable
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype InstanceSnapshotState = InstanceSnapshotState' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISSAvailable :: InstanceSnapshotState
-pattern ISSAvailable = InstanceSnapshotState' "available"
+pattern ISSPending :: InstanceSnapshotState
+pattern ISSPending = InstanceSnapshotState' "pending"
 
 pattern ISSError :: InstanceSnapshotState
 pattern ISSError = InstanceSnapshotState' "error"
 
-pattern ISSPending :: InstanceSnapshotState
-pattern ISSPending = InstanceSnapshotState' "pending"
+pattern ISSAvailable :: InstanceSnapshotState
+pattern ISSAvailable = InstanceSnapshotState' "available"
 
 {-# COMPLETE
-  ISSAvailable,
-  ISSError,
   ISSPending,
+  ISSError,
+  ISSAvailable,
   InstanceSnapshotState'
   #-}

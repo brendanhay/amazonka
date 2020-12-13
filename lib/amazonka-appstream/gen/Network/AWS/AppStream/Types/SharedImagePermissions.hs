@@ -17,8 +17,8 @@ module Network.AWS.AppStream.Types.SharedImagePermissions
     mkSharedImagePermissions,
 
     -- * Lenses
-    sipSharedAccountId,
     sipImagePermissions,
+    sipSharedAccountId,
   )
 where
 
@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSharedImagePermissions' smart constructor.
 data SharedImagePermissions = SharedImagePermissions'
-  { sharedAccountId ::
-      Lude.Text,
-    imagePermissions :: ImagePermissions
+  { -- | Describes the permissions for a shared image.
+    imagePermissions :: ImagePermissions,
+    -- | The 12-digit identifier of the AWS account with which the image is shared.
+    sharedAccountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SharedImagePermissions' with the minimum fields required to make a request.
@@ -48,23 +43,16 @@ data SharedImagePermissions = SharedImagePermissions'
 -- * 'imagePermissions' - Describes the permissions for a shared image.
 -- * 'sharedAccountId' - The 12-digit identifier of the AWS account with which the image is shared.
 mkSharedImagePermissions ::
-  -- | 'sharedAccountId'
-  Lude.Text ->
   -- | 'imagePermissions'
   ImagePermissions ->
+  -- | 'sharedAccountId'
+  Lude.Text ->
   SharedImagePermissions
-mkSharedImagePermissions pSharedAccountId_ pImagePermissions_ =
+mkSharedImagePermissions pImagePermissions_ pSharedAccountId_ =
   SharedImagePermissions'
-    { sharedAccountId = pSharedAccountId_,
-      imagePermissions = pImagePermissions_
+    { imagePermissions = pImagePermissions_,
+      sharedAccountId = pSharedAccountId_
     }
-
--- | The 12-digit identifier of the AWS account with which the image is shared.
---
--- /Note:/ Consider using 'sharedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sipSharedAccountId :: Lens.Lens' SharedImagePermissions Lude.Text
-sipSharedAccountId = Lens.lens (sharedAccountId :: SharedImagePermissions -> Lude.Text) (\s a -> s {sharedAccountId = a} :: SharedImagePermissions)
-{-# DEPRECATED sipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
 
 -- | Describes the permissions for a shared image.
 --
@@ -73,12 +61,19 @@ sipImagePermissions :: Lens.Lens' SharedImagePermissions ImagePermissions
 sipImagePermissions = Lens.lens (imagePermissions :: SharedImagePermissions -> ImagePermissions) (\s a -> s {imagePermissions = a} :: SharedImagePermissions)
 {-# DEPRECATED sipImagePermissions "Use generic-lens or generic-optics with 'imagePermissions' instead." #-}
 
+-- | The 12-digit identifier of the AWS account with which the image is shared.
+--
+-- /Note:/ Consider using 'sharedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sipSharedAccountId :: Lens.Lens' SharedImagePermissions Lude.Text
+sipSharedAccountId = Lens.lens (sharedAccountId :: SharedImagePermissions -> Lude.Text) (\s a -> s {sharedAccountId = a} :: SharedImagePermissions)
+{-# DEPRECATED sipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
+
 instance Lude.FromJSON SharedImagePermissions where
   parseJSON =
     Lude.withObject
       "SharedImagePermissions"
       ( \x ->
           SharedImagePermissions'
-            Lude.<$> (x Lude..: "sharedAccountId")
-            Lude.<*> (x Lude..: "imagePermissions")
+            Lude.<$> (x Lude..: "imagePermissions")
+            Lude.<*> (x Lude..: "sharedAccountId")
       )

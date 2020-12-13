@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTemplatesResponse' smart constructor.
 data TemplatesResponse = TemplatesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
     item :: [TemplateResponse]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemplatesResponse' with the minimum fields required to make a request.
 --
--- * 'item' - An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
 -- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+-- * 'item' - An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
 mkTemplatesResponse ::
   TemplatesResponse
 mkTemplatesResponse =

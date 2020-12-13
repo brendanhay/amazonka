@@ -29,21 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceLimits' smart constructor.
 newtype InstanceLimits = InstanceLimits'
-  { instanceCountLimits ::
-      Lude.Maybe InstanceCountLimits
+  { instanceCountLimits :: Lude.Maybe InstanceCountLimits
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceLimits' with the minimum fields required to make a request.
 --
--- * 'instanceCountLimits' - Undocumented field.
+-- * 'instanceCountLimits' -
 mkInstanceLimits ::
   InstanceLimits
 mkInstanceLimits =

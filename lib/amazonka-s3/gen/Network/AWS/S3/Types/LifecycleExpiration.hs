@@ -31,24 +31,20 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkLifecycleExpiration' smart constructor.
 data LifecycleExpiration = LifecycleExpiration'
-  { days ::
-      Lude.Maybe Lude.Int,
+  { -- | Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+    days :: Lude.Maybe Lude.Int,
+    -- | Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
     date :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
     expiredObjectDeleteMarker :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecycleExpiration' with the minimum fields required to make a request.
 --
--- * 'date' - Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
 -- * 'days' - Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+-- * 'date' - Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.
 -- * 'expiredObjectDeleteMarker' - Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
 mkLifecycleExpiration ::
   LifecycleExpiration

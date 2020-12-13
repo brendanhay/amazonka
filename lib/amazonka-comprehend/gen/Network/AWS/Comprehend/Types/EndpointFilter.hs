@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointFilter' smart constructor.
 data EndpointFilter = EndpointFilter'
-  { status ::
-      Lude.Maybe EndpointStatus,
+  { -- | Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.
+    status :: Lude.Maybe EndpointStatus,
+    -- | The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
     modelARN :: Lude.Maybe Lude.Text,
+    -- | Specifies a date after which the returned endpoint or endpoints were created.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies a date before which the returned endpoint or endpoints were created.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointFilter' with the minimum fields required to make a request.
 --
+-- * 'status' - Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.
+-- * 'modelARN' - The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
 -- * 'creationTimeAfter' - Specifies a date after which the returned endpoint or endpoints were created.
 -- * 'creationTimeBefore' - Specifies a date before which the returned endpoint or endpoints were created.
--- * 'modelARN' - The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
--- * 'status' - Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.
 mkEndpointFilter ::
   EndpointFilter
 mkEndpointFilter =

@@ -13,12 +13,12 @@
 module Network.AWS.Lightsail.Types.ContainerServiceState
   ( ContainerServiceState
       ( ContainerServiceState',
-        Deleting,
-        Disabled,
-        Pending,
-        Ready,
-        Running,
-        Updating
+        CSSPending,
+        CSSReady,
+        CSSRunning,
+        CSSUpdating,
+        CSSDeleting,
+        CSSDisabled
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype ContainerServiceState = ContainerServiceState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deleting :: ContainerServiceState
-pattern Deleting = ContainerServiceState' "DELETING"
+pattern CSSPending :: ContainerServiceState
+pattern CSSPending = ContainerServiceState' "PENDING"
 
-pattern Disabled :: ContainerServiceState
-pattern Disabled = ContainerServiceState' "DISABLED"
+pattern CSSReady :: ContainerServiceState
+pattern CSSReady = ContainerServiceState' "READY"
 
-pattern Pending :: ContainerServiceState
-pattern Pending = ContainerServiceState' "PENDING"
+pattern CSSRunning :: ContainerServiceState
+pattern CSSRunning = ContainerServiceState' "RUNNING"
 
-pattern Ready :: ContainerServiceState
-pattern Ready = ContainerServiceState' "READY"
+pattern CSSUpdating :: ContainerServiceState
+pattern CSSUpdating = ContainerServiceState' "UPDATING"
 
-pattern Running :: ContainerServiceState
-pattern Running = ContainerServiceState' "RUNNING"
+pattern CSSDeleting :: ContainerServiceState
+pattern CSSDeleting = ContainerServiceState' "DELETING"
 
-pattern Updating :: ContainerServiceState
-pattern Updating = ContainerServiceState' "UPDATING"
+pattern CSSDisabled :: ContainerServiceState
+pattern CSSDisabled = ContainerServiceState' "DISABLED"
 
 {-# COMPLETE
-  Deleting,
-  Disabled,
-  Pending,
-  Ready,
-  Running,
-  Updating,
+  CSSPending,
+  CSSReady,
+  CSSRunning,
+  CSSUpdating,
+  CSSDeleting,
+  CSSDisabled,
   ContainerServiceState'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.RDS.StopDBCluster
     mkStopDBCluster,
 
     -- ** Request lenses
-    sdbcDBClusterIdentifier,
+    sdcDBClusterIdentifier,
 
     -- * Destructuring the response
     StopDBClusterResponse (..),
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopDBCluster' smart constructor.
 newtype StopDBCluster = StopDBCluster'
-  { dbClusterIdentifier ::
-      Lude.Text
+  { -- | The DB cluster identifier of the Amazon Aurora DB cluster to be stopped. This parameter is stored as a lowercase string.
+    dbClusterIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDBCluster' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkStopDBCluster pDBClusterIdentifier_ =
 -- | The DB cluster identifier of the Amazon Aurora DB cluster to be stopped. This parameter is stored as a lowercase string.
 --
 -- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdbcDBClusterIdentifier :: Lens.Lens' StopDBCluster Lude.Text
-sdbcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: StopDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: StopDBCluster)
-{-# DEPRECATED sdbcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+sdcDBClusterIdentifier :: Lens.Lens' StopDBCluster Lude.Text
+sdcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: StopDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: StopDBCluster)
+{-# DEPRECATED sdcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 instance Lude.AWSRequest StopDBCluster where
   type Rs StopDBCluster = StopDBClusterResponse
@@ -97,22 +92,16 @@ instance Lude.ToQuery StopDBCluster where
 
 -- | /See:/ 'mkStopDBClusterResponse' smart constructor.
 data StopDBClusterResponse = StopDBClusterResponse'
-  { dbCluster ::
-      Lude.Maybe DBCluster,
+  { dbCluster :: Lude.Maybe DBCluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDBClusterResponse' with the minimum fields required to make a request.
 --
--- * 'dbCluster' - Undocumented field.
+-- * 'dbCluster' -
 -- * 'responseStatus' - The response status code.
 mkStopDBClusterResponse ::
   -- | 'responseStatus'

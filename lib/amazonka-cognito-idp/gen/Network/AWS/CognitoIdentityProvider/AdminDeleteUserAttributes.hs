@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,9 +45,13 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAdminDeleteUserAttributes' smart constructor.
 data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
-  { userPoolId ::
-      Lude.Text,
+  { -- | The user pool ID for the user pool where you want to delete user attributes.
+    userPoolId :: Lude.Text,
+    -- | The user name of the user from which you would like to delete attributes.
     username :: Lude.Sensitive Lude.Text,
+    -- | An array of strings representing the user attribute names you wish to delete.
+    --
+    -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
     userAttributeNames :: [Lude.Text]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -54,11 +59,11 @@ data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
 
 -- | Creates a value of 'AdminDeleteUserAttributes' with the minimum fields required to make a request.
 --
+-- * 'userPoolId' - The user pool ID for the user pool where you want to delete user attributes.
+-- * 'username' - The user name of the user from which you would like to delete attributes.
 -- * 'userAttributeNames' - An array of strings representing the user attribute names you wish to delete.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
--- * 'userPoolId' - The user pool ID for the user pool where you want to delete user attributes.
--- * 'username' - The user name of the user from which you would like to delete attributes.
 mkAdminDeleteUserAttributes ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -140,16 +145,10 @@ instance Lude.ToQuery AdminDeleteUserAttributes where
 --
 -- /See:/ 'mkAdminDeleteUserAttributesResponse' smart constructor.
 newtype AdminDeleteUserAttributesResponse = AdminDeleteUserAttributesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminDeleteUserAttributesResponse' with the minimum fields required to make a request.

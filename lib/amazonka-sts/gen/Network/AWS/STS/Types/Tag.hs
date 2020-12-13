@@ -17,8 +17,8 @@ module Network.AWS.STS.Types.Tag
     mkTag,
 
     -- * Lenses
-    tKey,
     tValue,
+    tKey,
   )
 where
 
@@ -28,40 +28,34 @@ import qualified Network.AWS.Prelude as Lude
 -- | You can pass custom key-value pair attributes when you assume a role or federate a user. These are called session tags. You can then use the session tags to control access to resources. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging AWS STS Sessions> in the /IAM User Guide/ .
 --
 -- /See:/ 'mkTag' smart constructor.
-data Tag = Tag' {key :: Lude.Text, value :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Tag = Tag'
+  { -- | The value for a session tag.
+    --
+    -- You can pass up to 50 session tags. The plain text session tag values can’t exceed 256 characters. For these and additional limits, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits> in the /IAM User Guide/ .
+    value :: Lude.Text,
+    -- | The key for a session tag.
+    --
+    -- You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128 characters. For these and additional limits, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits> in the /IAM User Guide/ .
+    key :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- * 'key' - The key for a session tag.
---
--- You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128 characters. For these and additional limits, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits> in the /IAM User Guide/ .
 -- * 'value' - The value for a session tag.
 --
 -- You can pass up to 50 session tags. The plain text session tag values can’t exceed 256 characters. For these and additional limits, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits> in the /IAM User Guide/ .
-mkTag ::
-  -- | 'key'
-  Lude.Text ->
-  -- | 'value'
-  Lude.Text ->
-  Tag
-mkTag pKey_ pValue_ = Tag' {key = pKey_, value = pValue_}
-
--- | The key for a session tag.
+-- * 'key' - The key for a session tag.
 --
 -- You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128 characters. For these and additional limits, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits> in the /IAM User Guide/ .
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
-{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkTag ::
+  -- | 'value'
+  Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
+  Tag
+mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
 
 -- | The value for a session tag.
 --
@@ -72,6 +66,15 @@ tValue :: Lens.Lens' Tag Lude.Text
 tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
 {-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The key for a session tag.
+--
+-- You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128 characters. For these and additional limits, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tKey :: Lens.Lens' Tag Lude.Text
+tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.ToQuery Tag where
   toQuery Tag' {..} =
-    Lude.mconcat ["Key" Lude.=: key, "Value" Lude.=: value]
+    Lude.mconcat ["Value" Lude.=: value, "Key" Lude.=: key]

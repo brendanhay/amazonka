@@ -17,8 +17,8 @@ module Network.AWS.CloudTrail.Types.ResourceTag
     mkResourceTag,
 
     -- * Lenses
-    rResourceId,
-    rTagsList,
+    rtResourceId,
+    rtTagsList,
   )
 where
 
@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
-  { resourceId :: Lude.Maybe Lude.Text,
+  { -- | Specifies the ARN of the resource.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | A list of tags.
     tagsList :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceTag' with the minimum fields required to make a request.
@@ -54,16 +50,16 @@ mkResourceTag =
 -- | Specifies the ARN of the resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rResourceId :: Lens.Lens' ResourceTag (Lude.Maybe Lude.Text)
-rResourceId = Lens.lens (resourceId :: ResourceTag -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ResourceTag)
-{-# DEPRECATED rResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+rtResourceId :: Lens.Lens' ResourceTag (Lude.Maybe Lude.Text)
+rtResourceId = Lens.lens (resourceId :: ResourceTag -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ResourceTag)
+{-# DEPRECATED rtResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | A list of tags.
 --
 -- /Note:/ Consider using 'tagsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rTagsList :: Lens.Lens' ResourceTag (Lude.Maybe [Tag])
-rTagsList = Lens.lens (tagsList :: ResourceTag -> Lude.Maybe [Tag]) (\s a -> s {tagsList = a} :: ResourceTag)
-{-# DEPRECATED rTagsList "Use generic-lens or generic-optics with 'tagsList' instead." #-}
+rtTagsList :: Lens.Lens' ResourceTag (Lude.Maybe [Tag])
+rtTagsList = Lens.lens (tagsList :: ResourceTag -> Lude.Maybe [Tag]) (\s a -> s {tagsList = a} :: ResourceTag)
+{-# DEPRECATED rtTagsList "Use generic-lens or generic-optics with 'tagsList' instead." #-}
 
 instance Lude.FromJSON ResourceTag where
   parseJSON =

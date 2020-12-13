@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,27 +45,24 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkListTranscriptionJobs' smart constructor.
 data ListTranscriptionJobs = ListTranscriptionJobs'
-  { status ::
-      Lude.Maybe TranscriptionJobStatus,
+  { -- | When specified, returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
+    status :: Lude.Maybe TranscriptionJobStatus,
+    -- | If the result of the previous request to @ListTranscriptionJobs@ was truncated, include the @NextToken@ to fetch the next set of jobs.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
     jobNameContains :: Lude.Maybe Lude.Text,
+    -- | The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTranscriptionJobs' with the minimum fields required to make a request.
 --
+-- * 'status' - When specified, returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
+-- * 'nextToken' - If the result of the previous request to @ListTranscriptionJobs@ was truncated, include the @NextToken@ to fetch the next set of jobs.
 -- * 'jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
 -- * 'maxResults' - The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.
--- * 'nextToken' - If the result of the previous request to @ListTranscriptionJobs@ was truncated, include the @NextToken@ to fetch the next set of jobs.
--- * 'status' - When specified, returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
 mkListTranscriptionJobs ::
   ListTranscriptionJobs
 mkListTranscriptionJobs =
@@ -146,31 +144,24 @@ instance Lude.ToQuery ListTranscriptionJobs where
 
 -- | /See:/ 'mkListTranscriptionJobsResponse' smart constructor.
 data ListTranscriptionJobsResponse = ListTranscriptionJobsResponse'
-  { status ::
-      Lude.Maybe
-        TranscriptionJobStatus,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    transcriptionJobSummaries ::
-      Lude.Maybe
-        [TranscriptionJobSummary],
+  { -- | The requested status of the jobs returned.
+    status :: Lude.Maybe TranscriptionJobStatus,
+    -- | The @ListTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListTranscriptionJobs@ operation to return in the next page of jobs.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of objects containing summary information for a transcription job.
+    transcriptionJobSummaries :: Lude.Maybe [TranscriptionJobSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTranscriptionJobsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The @ListTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListTranscriptionJobs@ operation to return in the next page of jobs.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The requested status of the jobs returned.
+-- * 'nextToken' - The @ListTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListTranscriptionJobs@ operation to return in the next page of jobs.
 -- * 'transcriptionJobSummaries' - A list of objects containing summary information for a transcription job.
+-- * 'responseStatus' - The response status code.
 mkListTranscriptionJobsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

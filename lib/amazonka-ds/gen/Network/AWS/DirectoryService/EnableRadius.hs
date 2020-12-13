@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,7 +42,9 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkEnableRadius' smart constructor.
 data EnableRadius = EnableRadius'
-  { directoryId :: Lude.Text,
+  { -- | The identifier of the directory for which to enable MFA.
+    directoryId :: Lude.Text,
+    -- | A 'RadiusSettings' object that contains information about the RADIUS server.
     radiusSettings :: RadiusSettings
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -116,16 +119,10 @@ instance Lude.ToQuery EnableRadius where
 --
 -- /See:/ 'mkEnableRadiusResponse' smart constructor.
 newtype EnableRadiusResponse = EnableRadiusResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableRadiusResponse' with the minimum fields required to make a request.

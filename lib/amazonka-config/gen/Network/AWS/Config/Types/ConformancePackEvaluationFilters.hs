@@ -32,33 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConformancePackEvaluationFilters' smart constructor.
 data ConformancePackEvaluationFilters = ConformancePackEvaluationFilters'
-  { resourceIds ::
-      Lude.Maybe [Lude.Text],
-    resourceType ::
-      Lude.Maybe Lude.Text,
-    configRuleNames ::
-      Lude.Maybe [Lude.Text],
-    complianceType ::
-      Lude.Maybe
-        ConformancePackComplianceType
+  { -- | Filters the results by resource IDs.
+    resourceIds :: Lude.Maybe [Lude.Text],
+    -- | Filters the results by the resource type (for example, @"AWS::EC2::Instance"@ ).
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | Filters the results by AWS Config rule names.
+    configRuleNames :: Lude.Maybe [Lude.Text],
+    -- | Filters the results by compliance.
+    --
+    -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
+    complianceType :: Lude.Maybe ConformancePackComplianceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConformancePackEvaluationFilters' with the minimum fields required to make a request.
 --
+-- * 'resourceIds' - Filters the results by resource IDs.
+-- * 'resourceType' - Filters the results by the resource type (for example, @"AWS::EC2::Instance"@ ).
+-- * 'configRuleNames' - Filters the results by AWS Config rule names.
 -- * 'complianceType' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
--- * 'configRuleNames' - Filters the results by AWS Config rule names.
--- * 'resourceIds' - Filters the results by resource IDs.
--- * 'resourceType' - Filters the results by the resource type (for example, @"AWS::EC2::Instance"@ ).
 mkConformancePackEvaluationFilters ::
   ConformancePackEvaluationFilters
 mkConformancePackEvaluationFilters =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,22 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachStaticIP' smart constructor.
 data AttachStaticIP = AttachStaticIP'
-  { staticIPName :: Lude.Text,
+  { -- | The name of the static IP.
+    staticIPName :: Lude.Text,
+    -- | The instance name to which you want to attach the static IP address.
     instanceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachStaticIP' with the minimum fields required to make a request.
 --
--- * 'instanceName' - The instance name to which you want to attach the static IP address.
 -- * 'staticIPName' - The name of the static IP.
+-- * 'instanceName' - The instance name to which you want to attach the static IP address.
 mkAttachStaticIP ::
   -- | 'staticIPName'
   Lude.Text ->
@@ -121,17 +118,12 @@ instance Lude.ToQuery AttachStaticIP where
 
 -- | /See:/ 'mkAttachStaticIPResponse' smart constructor.
 data AttachStaticIPResponse = AttachStaticIPResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachStaticIPResponse' with the minimum fields required to make a request.

@@ -18,8 +18,8 @@ module Network.AWS.SDB.Types.Item
 
     -- * Lenses
     iAlternateNameEncoding,
-    iName,
     iAttributes,
+    iName,
   )
 where
 
@@ -31,17 +31,14 @@ import Network.AWS.SDB.Types.Attribute
 --
 -- /See:/ 'mkItem' smart constructor.
 data Item = Item'
-  { alternateNameEncoding :: Lude.Maybe Lude.Text,
-    name :: Lude.Text,
-    attributes :: [Attribute]
+  { -- |
+    alternateNameEncoding :: Lude.Maybe Lude.Text,
+    -- | A list of attributes.
+    attributes :: [Attribute],
+    -- | The name of the item.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Item' with the minimum fields required to make a request.
@@ -56,8 +53,8 @@ mkItem ::
 mkItem pName_ =
   Item'
     { alternateNameEncoding = Lude.Nothing,
-      name = pName_,
-      attributes = Lude.mempty
+      attributes = Lude.mempty,
+      name = pName_
     }
 
 -- |
@@ -67,13 +64,6 @@ iAlternateNameEncoding :: Lens.Lens' Item (Lude.Maybe Lude.Text)
 iAlternateNameEncoding = Lens.lens (alternateNameEncoding :: Item -> Lude.Maybe Lude.Text) (\s a -> s {alternateNameEncoding = a} :: Item)
 {-# DEPRECATED iAlternateNameEncoding "Use generic-lens or generic-optics with 'alternateNameEncoding' instead." #-}
 
--- | The name of the item.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iName :: Lens.Lens' Item Lude.Text
-iName = Lens.lens (name :: Item -> Lude.Text) (\s a -> s {name = a} :: Item)
-{-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 -- | A list of attributes.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -81,9 +71,16 @@ iAttributes :: Lens.Lens' Item [Attribute]
 iAttributes = Lens.lens (attributes :: Item -> [Attribute]) (\s a -> s {attributes = a} :: Item)
 {-# DEPRECATED iAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
+-- | The name of the item.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iName :: Lens.Lens' Item Lude.Text
+iName = Lens.lens (name :: Item -> Lude.Text) (\s a -> s {name = a} :: Item)
+{-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.FromXML Item where
   parseXML x =
     Item'
       Lude.<$> (x Lude..@? "AlternateNameEncoding")
-      Lude.<*> (x Lude..@ "Name")
       Lude.<*> (Lude.parseXMLList "Attribute" x)
+      Lude.<*> (x Lude..@ "Name")

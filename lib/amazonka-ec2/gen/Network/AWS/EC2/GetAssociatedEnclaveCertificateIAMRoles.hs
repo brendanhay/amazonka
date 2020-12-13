@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,20 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAssociatedEnclaveCertificateIAMRoles' smart constructor.
 data GetAssociatedEnclaveCertificateIAMRoles = GetAssociatedEnclaveCertificateIAMRoles'
-  { certificateARN ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon S3 object information.
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssociatedEnclaveCertificateIAMRoles' with the minimum fields required to make a request.
@@ -116,23 +109,13 @@ instance Lude.ToQuery GetAssociatedEnclaveCertificateIAMRoles where
 
 -- | /See:/ 'mkGetAssociatedEnclaveCertificateIAMRolesResponse' smart constructor.
 data GetAssociatedEnclaveCertificateIAMRolesResponse = GetAssociatedEnclaveCertificateIAMRolesResponse'
-  { associatedRoles ::
-      Lude.Maybe
-        [AssociatedRole],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the associated IAM roles.
+    associatedRoles :: Lude.Maybe [AssociatedRole],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssociatedEnclaveCertificateIAMRolesResponse' with the minimum fields required to make a request.
 --

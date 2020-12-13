@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProcessorInfo' smart constructor.
 data ProcessorInfo = ProcessorInfo'
-  { supportedArchitectures ::
-      Lude.Maybe [ArchitectureType],
+  { -- | The architectures supported by the instance type.
+    supportedArchitectures :: Lude.Maybe [ArchitectureType],
+    -- | The speed of the processor, in GHz.
     sustainedClockSpeedInGhz :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessorInfo' with the minimum fields required to make a request.

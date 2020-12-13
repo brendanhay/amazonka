@@ -62,8 +62,8 @@ module Network.AWS.Cloud9.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
   )
 where
 

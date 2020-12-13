@@ -13,9 +13,9 @@
 module Network.AWS.Glue.Types.WorkerType
   ( WorkerType
       ( WorkerType',
+        Standard,
         G_1X,
-        G_2X,
-        Standard
+        G_2X
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype WorkerType = WorkerType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Standard :: WorkerType
+pattern Standard = WorkerType' "Standard"
+
 pattern G_1X :: WorkerType
 pattern G_1X = WorkerType' "G.1X"
 
 pattern G_2X :: WorkerType
 pattern G_2X = WorkerType' "G.2X"
 
-pattern Standard :: WorkerType
-pattern Standard = WorkerType' "Standard"
-
 {-# COMPLETE
+  Standard,
   G_1X,
   G_2X,
-  Standard,
   WorkerType'
   #-}

@@ -13,12 +13,12 @@
 module Network.AWS.DirectConnect.Types.LagState
   ( LagState
       ( LagState',
-        LSAvailable,
-        LSDeleted,
-        LSDeleting,
-        LSDown,
-        LSPending,
         LSRequested,
+        LSPending,
+        LSAvailable,
+        LSDown,
+        LSDeleting,
+        LSDeleted,
         LSUnknown
       ),
   )
@@ -50,34 +50,34 @@ newtype LagState = LagState' Lude.Text
       Lude.ToHeader
     )
 
-pattern LSAvailable :: LagState
-pattern LSAvailable = LagState' "available"
-
-pattern LSDeleted :: LagState
-pattern LSDeleted = LagState' "deleted"
-
-pattern LSDeleting :: LagState
-pattern LSDeleting = LagState' "deleting"
-
-pattern LSDown :: LagState
-pattern LSDown = LagState' "down"
+pattern LSRequested :: LagState
+pattern LSRequested = LagState' "requested"
 
 pattern LSPending :: LagState
 pattern LSPending = LagState' "pending"
 
-pattern LSRequested :: LagState
-pattern LSRequested = LagState' "requested"
+pattern LSAvailable :: LagState
+pattern LSAvailable = LagState' "available"
+
+pattern LSDown :: LagState
+pattern LSDown = LagState' "down"
+
+pattern LSDeleting :: LagState
+pattern LSDeleting = LagState' "deleting"
+
+pattern LSDeleted :: LagState
+pattern LSDeleted = LagState' "deleted"
 
 pattern LSUnknown :: LagState
 pattern LSUnknown = LagState' "unknown"
 
 {-# COMPLETE
-  LSAvailable,
-  LSDeleted,
-  LSDeleting,
-  LSDown,
-  LSPending,
   LSRequested,
+  LSPending,
+  LSAvailable,
+  LSDown,
+  LSDeleting,
+  LSDeleted,
   LSUnknown,
   LagState'
   #-}

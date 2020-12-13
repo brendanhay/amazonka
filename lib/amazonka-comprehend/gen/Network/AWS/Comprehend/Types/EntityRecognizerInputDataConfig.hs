@@ -19,10 +19,10 @@ module Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig
     -- * Lenses
     eridcAugmentedManifests,
     eridcAnnotations,
+    eridcEntityTypes,
     eridcDataFormat,
     eridcDocuments,
     eridcEntityList,
-    eridcEntityTypes,
   )
 where
 
@@ -39,39 +39,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntityRecognizerInputDataConfig' smart constructor.
 data EntityRecognizerInputDataConfig = EntityRecognizerInputDataConfig'
-  { augmentedManifests ::
-      Lude.Maybe
-        [AugmentedManifestsListItem],
-    annotations ::
-      Lude.Maybe
-        EntityRecognizerAnnotations,
-    dataFormat ::
-      Lude.Maybe
-        EntityRecognizerDataFormat,
-    documents ::
-      Lude.Maybe
-        EntityRecognizerDocuments,
-    entityList ::
-      Lude.Maybe
-        EntityRecognizerEntityList,
-    entityTypes ::
-      [EntityTypesListItem]
+  { -- | A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+    --
+    -- This parameter is required if you set @DataFormat@ to @AUGMENTED_MANIFEST@ .
+    augmentedManifests :: Lude.Maybe [AugmentedManifestsListItem],
+    -- | The S3 location of the CSV file that annotates your training documents.
+    annotations :: Lude.Maybe EntityRecognizerAnnotations,
+    -- | The entity types in the labeled training data that Amazon Comprehend uses to train the custom entity recognizer. Any entity types that you don't specify are ignored.
+    --
+    -- A maximum of 25 entity types can be used at one time to train an entity recognizer. Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break), \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
+    entityTypes :: [EntityTypesListItem],
+    -- | The format of your training data:
+    --
+    --
+    --     * @COMPREHEND_CSV@ : A CSV file that supplements your training documents. The CSV file contains information about the custom entities that your trained model will detect. The required format of the file depends on whether you are providing annotations or an entity list.
+    -- If you use this value, you must provide your CSV file by using either the @Annotations@ or @EntityList@ parameters. You must provide your training documents by using the @Documents@ parameter.
+    --
+    --
+    --     * @AUGMENTED_MANIFEST@ : A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its labels. Each label annotates a named entity in the training document.
+    -- If you use this value, you must provide the @AugmentedManifests@ parameter in your request.
+    --
+    --
+    -- If you don't specify a value, Amazon Comprehend uses @COMPREHEND_CSV@ as the default.
+    dataFormat :: Lude.Maybe EntityRecognizerDataFormat,
+    -- | The S3 location of the folder that contains the training documents for your custom entity recognizer.
+    --
+    -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@ .
+    documents :: Lude.Maybe EntityRecognizerDocuments,
+    -- | The S3 location of the CSV file that has the entity list for your custom entity recognizer.
+    entityList :: Lude.Maybe EntityRecognizerEntityList
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerInputDataConfig' with the minimum fields required to make a request.
 --
--- * 'annotations' - The S3 location of the CSV file that annotates your training documents.
 -- * 'augmentedManifests' - A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
 --
 -- This parameter is required if you set @DataFormat@ to @AUGMENTED_MANIFEST@ .
+-- * 'annotations' - The S3 location of the CSV file that annotates your training documents.
+-- * 'entityTypes' - The entity types in the labeled training data that Amazon Comprehend uses to train the custom entity recognizer. Any entity types that you don't specify are ignored.
+--
+-- A maximum of 25 entity types can be used at one time to train an entity recognizer. Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break), \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
 -- * 'dataFormat' - The format of your training data:
 --
 --
@@ -88,9 +97,6 @@ data EntityRecognizerInputDataConfig = EntityRecognizerInputDataConfig'
 --
 -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@ .
 -- * 'entityList' - The S3 location of the CSV file that has the entity list for your custom entity recognizer.
--- * 'entityTypes' - The entity types in the labeled training data that Amazon Comprehend uses to train the custom entity recognizer. Any entity types that you don't specify are ignored.
---
--- A maximum of 25 entity types can be used at one time to train an entity recognizer. Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break), \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
 mkEntityRecognizerInputDataConfig ::
   EntityRecognizerInputDataConfig
 mkEntityRecognizerInputDataConfig =
@@ -98,10 +104,10 @@ mkEntityRecognizerInputDataConfig =
     { augmentedManifests =
         Lude.Nothing,
       annotations = Lude.Nothing,
+      entityTypes = Lude.mempty,
       dataFormat = Lude.Nothing,
       documents = Lude.Nothing,
-      entityList = Lude.Nothing,
-      entityTypes = Lude.mempty
+      entityList = Lude.Nothing
     }
 
 -- | A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
@@ -119,6 +125,15 @@ eridcAugmentedManifests = Lens.lens (augmentedManifests :: EntityRecognizerInput
 eridcAnnotations :: Lens.Lens' EntityRecognizerInputDataConfig (Lude.Maybe EntityRecognizerAnnotations)
 eridcAnnotations = Lens.lens (annotations :: EntityRecognizerInputDataConfig -> Lude.Maybe EntityRecognizerAnnotations) (\s a -> s {annotations = a} :: EntityRecognizerInputDataConfig)
 {-# DEPRECATED eridcAnnotations "Use generic-lens or generic-optics with 'annotations' instead." #-}
+
+-- | The entity types in the labeled training data that Amazon Comprehend uses to train the custom entity recognizer. Any entity types that you don't specify are ignored.
+--
+-- A maximum of 25 entity types can be used at one time to train an entity recognizer. Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break), \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
+--
+-- /Note:/ Consider using 'entityTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eridcEntityTypes :: Lens.Lens' EntityRecognizerInputDataConfig [EntityTypesListItem]
+eridcEntityTypes = Lens.lens (entityTypes :: EntityRecognizerInputDataConfig -> [EntityTypesListItem]) (\s a -> s {entityTypes = a} :: EntityRecognizerInputDataConfig)
+{-# DEPRECATED eridcEntityTypes "Use generic-lens or generic-optics with 'entityTypes' instead." #-}
 
 -- | The format of your training data:
 --
@@ -154,15 +169,6 @@ eridcEntityList :: Lens.Lens' EntityRecognizerInputDataConfig (Lude.Maybe Entity
 eridcEntityList = Lens.lens (entityList :: EntityRecognizerInputDataConfig -> Lude.Maybe EntityRecognizerEntityList) (\s a -> s {entityList = a} :: EntityRecognizerInputDataConfig)
 {-# DEPRECATED eridcEntityList "Use generic-lens or generic-optics with 'entityList' instead." #-}
 
--- | The entity types in the labeled training data that Amazon Comprehend uses to train the custom entity recognizer. Any entity types that you don't specify are ignored.
---
--- A maximum of 25 entity types can be used at one time to train an entity recognizer. Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break), \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).
---
--- /Note:/ Consider using 'entityTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eridcEntityTypes :: Lens.Lens' EntityRecognizerInputDataConfig [EntityTypesListItem]
-eridcEntityTypes = Lens.lens (entityTypes :: EntityRecognizerInputDataConfig -> [EntityTypesListItem]) (\s a -> s {entityTypes = a} :: EntityRecognizerInputDataConfig)
-{-# DEPRECATED eridcEntityTypes "Use generic-lens or generic-optics with 'entityTypes' instead." #-}
-
 instance Lude.FromJSON EntityRecognizerInputDataConfig where
   parseJSON =
     Lude.withObject
@@ -171,10 +177,10 @@ instance Lude.FromJSON EntityRecognizerInputDataConfig where
           EntityRecognizerInputDataConfig'
             Lude.<$> (x Lude..:? "AugmentedManifests" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "Annotations")
+            Lude.<*> (x Lude..:? "EntityTypes" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "DataFormat")
             Lude.<*> (x Lude..:? "Documents")
             Lude.<*> (x Lude..:? "EntityList")
-            Lude.<*> (x Lude..:? "EntityTypes" Lude..!= Lude.mempty)
       )
 
 instance Lude.ToJSON EntityRecognizerInputDataConfig where
@@ -183,9 +189,9 @@ instance Lude.ToJSON EntityRecognizerInputDataConfig where
       ( Lude.catMaybes
           [ ("AugmentedManifests" Lude..=) Lude.<$> augmentedManifests,
             ("Annotations" Lude..=) Lude.<$> annotations,
+            Lude.Just ("EntityTypes" Lude..= entityTypes),
             ("DataFormat" Lude..=) Lude.<$> dataFormat,
             ("Documents" Lude..=) Lude.<$> documents,
-            ("EntityList" Lude..=) Lude.<$> entityList,
-            Lude.Just ("EntityTypes" Lude..= entityTypes)
+            ("EntityList" Lude..=) Lude.<$> entityList
           ]
       )

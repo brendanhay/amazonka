@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourcePathComponent' smart constructor.
 data ResourcePathComponent = ResourcePathComponent'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the resource path.
+    name :: Lude.Maybe Lude.Text,
+    -- | The ID of the resource path.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourcePathComponent' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the resource path.
 -- * 'name' - The name of the resource path.
+-- * 'id' - The ID of the resource path.
 mkResourcePathComponent ::
   ResourcePathComponent
 mkResourcePathComponent =

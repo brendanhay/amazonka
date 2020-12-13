@@ -45,52 +45,59 @@ import Network.AWS.RDS.Types.OptionVersion
 --
 -- /See:/ 'mkOptionGroupOption' smart constructor.
 data OptionGroupOption = OptionGroupOption'
-  { minimumRequiredMinorEngineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The minimum required engine version for the option to be applied.
+    minimumRequiredMinorEngineVersion :: Lude.Maybe Lude.Text,
+    -- | The options that conflict with this option.
     optionsConflictsWith :: Lude.Maybe [Lude.Text],
+    -- | Permanent options can never be removed from an option group. An option group containing a permanent option can't be removed from a DB instance.
     permanent :: Lude.Maybe Lude.Bool,
+    -- | Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.
     persistent :: Lude.Maybe Lude.Bool,
+    -- | The versions that are available for the option.
     optionGroupOptionVersions :: Lude.Maybe [OptionVersion],
+    -- | The name of the engine that this option can be applied to.
     engineName :: Lude.Maybe Lude.Text,
+    -- | Indicates the major engine version that the option is available for.
     majorEngineVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the option.
     name :: Lude.Maybe Lude.Text,
+    -- | If true, you can change the option to an earlier version of the option. This only applies to options that have different versions available.
     supportsOptionVersionDowngrade :: Lude.Maybe Lude.Bool,
+    -- | If the option requires a port, specifies the default port for the option.
     defaultPort :: Lude.Maybe Lude.Int,
-    optionGroupOptionSettings ::
-      Lude.Maybe [OptionGroupOptionSetting],
-    requiresAutoMinorEngineVersionUpgrade ::
-      Lude.Maybe Lude.Bool,
+    -- | The option settings that are available (and the default value) for each option in an option group.
+    optionGroupOptionSettings :: Lude.Maybe [OptionGroupOptionSetting],
+    -- | If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
+    requiresAutoMinorEngineVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the option requires a port.
     portRequired :: Lude.Maybe Lude.Bool,
+    -- | The description of the option.
     description :: Lude.Maybe Lude.Text,
+    -- | The options that are prerequisites for this option.
     optionsDependedOn :: Lude.Maybe [Lude.Text],
+    -- | If true, you can only use this option with a DB instance that is in a VPC.
     vpcOnly :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionGroupOption' with the minimum fields required to make a request.
 --
--- * 'defaultPort' - If the option requires a port, specifies the default port for the option.
--- * 'description' - The description of the option.
--- * 'engineName' - The name of the engine that this option can be applied to.
--- * 'majorEngineVersion' - Indicates the major engine version that the option is available for.
 -- * 'minimumRequiredMinorEngineVersion' - The minimum required engine version for the option to be applied.
--- * 'name' - The name of the option.
--- * 'optionGroupOptionSettings' - The option settings that are available (and the default value) for each option in an option group.
--- * 'optionGroupOptionVersions' - The versions that are available for the option.
 -- * 'optionsConflictsWith' - The options that conflict with this option.
--- * 'optionsDependedOn' - The options that are prerequisites for this option.
 -- * 'permanent' - Permanent options can never be removed from an option group. An option group containing a permanent option can't be removed from a DB instance.
 -- * 'persistent' - Persistent options can't be removed from an option group while DB instances are associated with the option group. If you disassociate all DB instances from the option group, your can remove the persistent option from the option group.
--- * 'portRequired' - Specifies whether the option requires a port.
--- * 'requiresAutoMinorEngineVersionUpgrade' - If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
+-- * 'optionGroupOptionVersions' - The versions that are available for the option.
+-- * 'engineName' - The name of the engine that this option can be applied to.
+-- * 'majorEngineVersion' - Indicates the major engine version that the option is available for.
+-- * 'name' - The name of the option.
 -- * 'supportsOptionVersionDowngrade' - If true, you can change the option to an earlier version of the option. This only applies to options that have different versions available.
+-- * 'defaultPort' - If the option requires a port, specifies the default port for the option.
+-- * 'optionGroupOptionSettings' - The option settings that are available (and the default value) for each option in an option group.
+-- * 'requiresAutoMinorEngineVersionUpgrade' - If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
+-- * 'portRequired' - Specifies whether the option requires a port.
+-- * 'description' - The description of the option.
+-- * 'optionsDependedOn' - The options that are prerequisites for this option.
 -- * 'vpcOnly' - If true, you can only use this option with a DB instance that is in a VPC.
 mkOptionGroupOption ::
   OptionGroupOption

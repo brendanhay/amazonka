@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Inspector.RemoveAttributesFromFindings
     mkRemoveAttributesFromFindingsResponse,
 
     -- ** Response lenses
-    raffrsResponseStatus,
     raffrsFailedItems,
+    raffrsResponseStatus,
   )
 where
 
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveAttributesFromFindings' smart constructor.
 data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
-  { findingARNs ::
-      Lude.NonEmpty Lude.Text,
+  { -- | The ARNs that specify the findings that you want to remove attributes from.
+    findingARNs :: Lude.NonEmpty Lude.Text,
+    -- | The array of attribute keys that you want to remove from specified findings.
     attributeKeys :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAttributesFromFindings' with the minimum fields required to make a request.
 --
--- * 'attributeKeys' - The array of attribute keys that you want to remove from specified findings.
 -- * 'findingARNs' - The ARNs that specify the findings that you want to remove attributes from.
+-- * 'attributeKeys' - The array of attribute keys that you want to remove from specified findings.
 mkRemoveAttributesFromFindings ::
   -- | 'findingARNs'
   Lude.NonEmpty Lude.Text ->
@@ -90,8 +86,8 @@ instance Lude.AWSRequest RemoveAttributesFromFindings where
     Res.receiveJSON
       ( \s h x ->
           RemoveAttributesFromFindingsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders RemoveAttributesFromFindings where
@@ -124,20 +120,12 @@ instance Lude.ToQuery RemoveAttributesFromFindings where
 
 -- | /See:/ 'mkRemoveAttributesFromFindingsResponse' smart constructor.
 data RemoveAttributesFromFindingsResponse = RemoveAttributesFromFindingsResponse'
-  { responseStatus ::
-      Lude.Int,
-    failedItems ::
-      Lude.HashMap
-        Lude.Text
-        (FailedItemDetails)
+  { -- | Attributes details that cannot be described. An error code is provided for each failed item.
+    failedItems :: Lude.HashMap Lude.Text (FailedItemDetails),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAttributesFromFindingsResponse' with the minimum fields required to make a request.
@@ -150,17 +138,9 @@ mkRemoveAttributesFromFindingsResponse ::
   RemoveAttributesFromFindingsResponse
 mkRemoveAttributesFromFindingsResponse pResponseStatus_ =
   RemoveAttributesFromFindingsResponse'
-    { responseStatus =
-        pResponseStatus_,
-      failedItems = Lude.mempty
+    { failedItems = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raffrsResponseStatus :: Lens.Lens' RemoveAttributesFromFindingsResponse Lude.Int
-raffrsResponseStatus = Lens.lens (responseStatus :: RemoveAttributesFromFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveAttributesFromFindingsResponse)
-{-# DEPRECATED raffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Attributes details that cannot be described. An error code is provided for each failed item.
 --
@@ -168,3 +148,10 @@ raffrsResponseStatus = Lens.lens (responseStatus :: RemoveAttributesFromFindings
 raffrsFailedItems :: Lens.Lens' RemoveAttributesFromFindingsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
 raffrsFailedItems = Lens.lens (failedItems :: RemoveAttributesFromFindingsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: RemoveAttributesFromFindingsResponse)
 {-# DEPRECATED raffrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raffrsResponseStatus :: Lens.Lens' RemoveAttributesFromFindingsResponse Lude.Int
+raffrsResponseStatus = Lens.lens (responseStatus :: RemoveAttributesFromFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveAttributesFromFindingsResponse)
+{-# DEPRECATED raffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

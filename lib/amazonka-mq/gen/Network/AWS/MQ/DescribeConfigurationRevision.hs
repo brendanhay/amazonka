@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MQ.DescribeConfigurationRevision
     mkDescribeConfigurationRevision,
 
     -- ** Request lenses
-    dcrConfigurationRevision,
     dcrConfigurationId,
+    dcrConfigurationRevision,
 
     -- * Destructuring the response
     DescribeConfigurationRevisionResponse (..),
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeConfigurationRevision' smart constructor.
 data DescribeConfigurationRevision = DescribeConfigurationRevision'
-  { configurationRevision ::
-      Lude.Text,
-    configurationId :: Lude.Text
+  { -- | The unique ID that Amazon MQ generates for the configuration.
+    configurationId :: Lude.Text,
+    -- | The revision of the configuration.
+    configurationRevision :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationRevision' with the minimum fields required to make a request.
@@ -61,26 +57,19 @@ data DescribeConfigurationRevision = DescribeConfigurationRevision'
 -- * 'configurationId' - The unique ID that Amazon MQ generates for the configuration.
 -- * 'configurationRevision' - The revision of the configuration.
 mkDescribeConfigurationRevision ::
-  -- | 'configurationRevision'
-  Lude.Text ->
   -- | 'configurationId'
+  Lude.Text ->
+  -- | 'configurationRevision'
   Lude.Text ->
   DescribeConfigurationRevision
 mkDescribeConfigurationRevision
-  pConfigurationRevision_
-  pConfigurationId_ =
+  pConfigurationId_
+  pConfigurationRevision_ =
     DescribeConfigurationRevision'
-      { configurationRevision =
-          pConfigurationRevision_,
-        configurationId = pConfigurationId_
+      { configurationId =
+          pConfigurationId_,
+        configurationRevision = pConfigurationRevision_
       }
-
--- | The revision of the configuration.
---
--- /Note:/ Consider using 'configurationRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrConfigurationRevision :: Lens.Lens' DescribeConfigurationRevision Lude.Text
-dcrConfigurationRevision = Lens.lens (configurationRevision :: DescribeConfigurationRevision -> Lude.Text) (\s a -> s {configurationRevision = a} :: DescribeConfigurationRevision)
-{-# DEPRECATED dcrConfigurationRevision "Use generic-lens or generic-optics with 'configurationRevision' instead." #-}
 
 -- | The unique ID that Amazon MQ generates for the configuration.
 --
@@ -88,6 +77,13 @@ dcrConfigurationRevision = Lens.lens (configurationRevision :: DescribeConfigura
 dcrConfigurationId :: Lens.Lens' DescribeConfigurationRevision Lude.Text
 dcrConfigurationId = Lens.lens (configurationId :: DescribeConfigurationRevision -> Lude.Text) (\s a -> s {configurationId = a} :: DescribeConfigurationRevision)
 {-# DEPRECATED dcrConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
+
+-- | The revision of the configuration.
+--
+-- /Note:/ Consider using 'configurationRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrConfigurationRevision :: Lens.Lens' DescribeConfigurationRevision Lude.Text
+dcrConfigurationRevision = Lens.lens (configurationRevision :: DescribeConfigurationRevision -> Lude.Text) (\s a -> s {configurationRevision = a} :: DescribeConfigurationRevision)
+{-# DEPRECATED dcrConfigurationRevision "Use generic-lens or generic-optics with 'configurationRevision' instead." #-}
 
 instance Lude.AWSRequest DescribeConfigurationRevision where
   type
@@ -128,35 +124,25 @@ instance Lude.ToQuery DescribeConfigurationRevision where
 
 -- | /See:/ 'mkDescribeConfigurationRevisionResponse' smart constructor.
 data DescribeConfigurationRevisionResponse = DescribeConfigurationRevisionResponse'
-  { configurationId ::
-      Lude.Maybe
-        Lude.Text,
-    data' ::
-      Lude.Maybe
-        Lude.Text,
-    created ::
-      Lude.Maybe
-        Lude.Timestamp,
-    description ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Required. The unique ID that Amazon MQ generates for the configuration.
+    configurationId :: Lude.Maybe Lude.Text,
+    -- | Required. The base64-encoded XML configuration.
+    data' :: Lude.Maybe Lude.Text,
+    -- | Required. The date and time of the configuration.
+    created :: Lude.Maybe Lude.Timestamp,
+    -- | The description of the configuration.
+    description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationRevisionResponse' with the minimum fields required to make a request.
 --
 -- * 'configurationId' - Required. The unique ID that Amazon MQ generates for the configuration.
--- * 'created' - Required. The date and time of the configuration.
 -- * 'data'' - Required. The base64-encoded XML configuration.
+-- * 'created' - Required. The date and time of the configuration.
 -- * 'description' - The description of the configuration.
 -- * 'responseStatus' - The response status code.
 mkDescribeConfigurationRevisionResponse ::

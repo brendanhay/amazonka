@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.MQ.UpdateBroker
     ubLdapServerMetadata,
     ubLogs,
     ubConfiguration,
-    ubHostInstanceType,
     ubBrokerId,
+    ubHostInstanceType,
 
     -- * Destructuring the response
     UpdateBrokerResponse (..),
@@ -57,37 +58,39 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateBroker' smart constructor.
 data UpdateBroker = UpdateBroker'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
     autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The authentication strategy used to secure the broker.
     authenticationStrategy :: Lude.Maybe AuthenticationStrategy,
+    -- | The metadata of the LDAP server used to authenticate and authorize connections to the broker.
     ldapServerMetadata :: Lude.Maybe LdapServerMetadataInput,
+    -- | Enables Amazon CloudWatch logging for brokers.
     logs :: Lude.Maybe Logs,
+    -- | A list of information about the configuration.
     configuration :: Lude.Maybe ConfigurationId,
-    hostInstanceType :: Lude.Maybe Lude.Text,
-    brokerId :: Lude.Text
+    -- | The unique ID that Amazon MQ generates for the broker.
+    brokerId :: Lude.Text,
+    -- | The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+    hostInstanceType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBroker' with the minimum fields required to make a request.
 --
--- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
--- * 'autoMinorVersionUpgrade' - Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
--- * 'configuration' - A list of information about the configuration.
 -- * 'engineVersion' - The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
--- * 'hostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+-- * 'autoMinorVersionUpgrade' - Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+-- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
+-- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
 -- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
 -- * 'logs' - Enables Amazon CloudWatch logging for brokers.
--- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
+-- * 'configuration' - A list of information about the configuration.
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'hostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
 mkUpdateBroker ::
   -- | 'brokerId'
   Lude.Text ->
@@ -101,8 +104,8 @@ mkUpdateBroker pBrokerId_ =
       ldapServerMetadata = Lude.Nothing,
       logs = Lude.Nothing,
       configuration = Lude.Nothing,
-      hostInstanceType = Lude.Nothing,
-      brokerId = pBrokerId_
+      brokerId = pBrokerId_,
+      hostInstanceType = Lude.Nothing
     }
 
 -- | The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
@@ -154,19 +157,19 @@ ubConfiguration :: Lens.Lens' UpdateBroker (Lude.Maybe ConfigurationId)
 ubConfiguration = Lens.lens (configuration :: UpdateBroker -> Lude.Maybe ConfigurationId) (\s a -> s {configuration = a} :: UpdateBroker)
 {-# DEPRECATED ubConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
--- | The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
---
--- /Note:/ Consider using 'hostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubHostInstanceType :: Lens.Lens' UpdateBroker (Lude.Maybe Lude.Text)
-ubHostInstanceType = Lens.lens (hostInstanceType :: UpdateBroker -> Lude.Maybe Lude.Text) (\s a -> s {hostInstanceType = a} :: UpdateBroker)
-{-# DEPRECATED ubHostInstanceType "Use generic-lens or generic-optics with 'hostInstanceType' instead." #-}
-
 -- | The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ubBrokerId :: Lens.Lens' UpdateBroker Lude.Text
 ubBrokerId = Lens.lens (brokerId :: UpdateBroker -> Lude.Text) (\s a -> s {brokerId = a} :: UpdateBroker)
 {-# DEPRECATED ubBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
+
+-- | The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+--
+-- /Note:/ Consider using 'hostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubHostInstanceType :: Lens.Lens' UpdateBroker (Lude.Maybe Lude.Text)
+ubHostInstanceType = Lens.lens (hostInstanceType :: UpdateBroker -> Lude.Maybe Lude.Text) (\s a -> s {hostInstanceType = a} :: UpdateBroker)
+{-# DEPRECATED ubHostInstanceType "Use generic-lens or generic-optics with 'hostInstanceType' instead." #-}
 
 instance Lude.AWSRequest UpdateBroker where
   type Rs UpdateBroker = UpdateBrokerResponse
@@ -221,41 +224,42 @@ instance Lude.ToQuery UpdateBroker where
 
 -- | /See:/ 'mkUpdateBrokerResponse' smart constructor.
 data UpdateBrokerResponse = UpdateBrokerResponse'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The new value of automatic upgrades to new minor version for brokers.
     autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
     securityGroups :: Lude.Maybe [Lude.Text],
-    authenticationStrategy ::
-      Lude.Maybe AuthenticationStrategy,
-    ldapServerMetadata ::
-      Lude.Maybe LdapServerMetadataOutput,
+    -- | The authentication strategy used to secure the broker.
+    authenticationStrategy :: Lude.Maybe AuthenticationStrategy,
+    -- | The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+    ldapServerMetadata :: Lude.Maybe LdapServerMetadataOutput,
+    -- | The list of information about logs to be enabled for the specified broker.
     logs :: Lude.Maybe Logs,
+    -- | The ID of the updated configuration.
     configuration :: Lude.Maybe ConfigurationId,
+    -- | Required. The unique ID that Amazon MQ generates for the broker.
     brokerId :: Lude.Maybe Lude.Text,
+    -- | The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
     hostInstanceType :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBrokerResponse' with the minimum fields required to make a request.
 --
--- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
--- * 'autoMinorVersionUpgrade' - The new value of automatic upgrades to new minor version for brokers.
--- * 'brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
--- * 'configuration' - The ID of the updated configuration.
 -- * 'engineVersion' - The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
--- * 'hostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+-- * 'autoMinorVersionUpgrade' - The new value of automatic upgrades to new minor version for brokers.
+-- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
+-- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
 -- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
 -- * 'logs' - The list of information about logs to be enabled for the specified broker.
+-- * 'configuration' - The ID of the updated configuration.
+-- * 'brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
+-- * 'hostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
 -- * 'responseStatus' - The response status code.
--- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
 mkUpdateBrokerResponse ::
   -- | 'responseStatus'
   Lude.Int ->

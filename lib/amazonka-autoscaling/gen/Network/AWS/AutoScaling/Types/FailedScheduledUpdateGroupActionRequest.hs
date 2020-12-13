@@ -17,9 +17,9 @@ module Network.AWS.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest
     mkFailedScheduledUpdateGroupActionRequest,
 
     -- * Lenses
+    fsugarScheduledActionName,
     fsugarErrorCode,
     fsugarErrorMessage,
-    fsugarScheduledActionName,
   )
 where
 
@@ -30,40 +30,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailedScheduledUpdateGroupActionRequest' smart constructor.
 data FailedScheduledUpdateGroupActionRequest = FailedScheduledUpdateGroupActionRequest'
-  { errorCode ::
-      Lude.Maybe
-        Lude.Text,
-    errorMessage ::
-      Lude.Maybe
-        Lude.Text,
-    scheduledActionName ::
-      Lude.Text
+  { -- | The name of the scheduled action.
+    scheduledActionName :: Lude.Text,
+    -- | The error code.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message accompanying the error code.
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedScheduledUpdateGroupActionRequest' with the minimum fields required to make a request.
 --
+-- * 'scheduledActionName' - The name of the scheduled action.
 -- * 'errorCode' - The error code.
 -- * 'errorMessage' - The error message accompanying the error code.
--- * 'scheduledActionName' - The name of the scheduled action.
 mkFailedScheduledUpdateGroupActionRequest ::
   -- | 'scheduledActionName'
   Lude.Text ->
   FailedScheduledUpdateGroupActionRequest
 mkFailedScheduledUpdateGroupActionRequest pScheduledActionName_ =
   FailedScheduledUpdateGroupActionRequest'
-    { errorCode =
-        Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      scheduledActionName = pScheduledActionName_
+    { scheduledActionName =
+        pScheduledActionName_,
+      errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
+
+-- | The name of the scheduled action.
+--
+-- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsugarScheduledActionName :: Lens.Lens' FailedScheduledUpdateGroupActionRequest Lude.Text
+fsugarScheduledActionName = Lens.lens (scheduledActionName :: FailedScheduledUpdateGroupActionRequest -> Lude.Text) (\s a -> s {scheduledActionName = a} :: FailedScheduledUpdateGroupActionRequest)
+{-# DEPRECATED fsugarScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
 -- | The error code.
 --
@@ -79,16 +78,9 @@ fsugarErrorMessage :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Lude.M
 fsugarErrorMessage = Lens.lens (errorMessage :: FailedScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: FailedScheduledUpdateGroupActionRequest)
 {-# DEPRECATED fsugarErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
--- | The name of the scheduled action.
---
--- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsugarScheduledActionName :: Lens.Lens' FailedScheduledUpdateGroupActionRequest Lude.Text
-fsugarScheduledActionName = Lens.lens (scheduledActionName :: FailedScheduledUpdateGroupActionRequest -> Lude.Text) (\s a -> s {scheduledActionName = a} :: FailedScheduledUpdateGroupActionRequest)
-{-# DEPRECATED fsugarScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
-
 instance Lude.FromXML FailedScheduledUpdateGroupActionRequest where
   parseXML x =
     FailedScheduledUpdateGroupActionRequest'
-      Lude.<$> (x Lude..@? "ErrorCode")
+      Lude.<$> (x Lude..@ "ScheduledActionName")
+      Lude.<*> (x Lude..@? "ErrorCode")
       Lude.<*> (x Lude..@? "ErrorMessage")
-      Lude.<*> (x Lude..@ "ScheduledActionName")

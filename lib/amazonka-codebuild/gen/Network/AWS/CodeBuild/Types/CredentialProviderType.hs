@@ -13,7 +13,7 @@
 module Network.AWS.CodeBuild.Types.CredentialProviderType
   ( CredentialProviderType
       ( CredentialProviderType',
-        SecretsManager
+        CPTSecretsManager
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype CredentialProviderType = CredentialProviderType' Lude.Text
       Lude.ToHeader
     )
 
-pattern SecretsManager :: CredentialProviderType
-pattern SecretsManager = CredentialProviderType' "SECRETS_MANAGER"
+pattern CPTSecretsManager :: CredentialProviderType
+pattern CPTSecretsManager = CredentialProviderType' "SECRETS_MANAGER"
 
 {-# COMPLETE
-  SecretsManager,
+  CPTSecretsManager,
   CredentialProviderType'
   #-}

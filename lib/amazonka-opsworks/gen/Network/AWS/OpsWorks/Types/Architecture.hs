@@ -13,8 +13,8 @@
 module Network.AWS.OpsWorks.Types.Architecture
   ( Architecture
       ( Architecture',
-        I386,
-        X86_64
+        X86_64,
+        I386
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Architecture = Architecture' Lude.Text
       Lude.ToHeader
     )
 
-pattern I386 :: Architecture
-pattern I386 = Architecture' "i386"
-
 pattern X86_64 :: Architecture
 pattern X86_64 = Architecture' "x86_64"
 
+pattern I386 :: Architecture
+pattern I386 = Architecture' "i386"
+
 {-# COMPLETE
-  I386,
   X86_64,
+  I386,
   Architecture'
   #-}

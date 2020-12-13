@@ -13,12 +13,12 @@
 module Network.AWS.SSM.Types.OpsFilterOperatorType
   ( OpsFilterOperatorType
       ( OpsFilterOperatorType',
-        BeginWith,
         Equal,
-        Exists,
-        GreaterThan,
+        NotEqual,
+        BeginWith,
         LessThan,
-        NotEqual
+        GreaterThan,
+        Exists
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype OpsFilterOperatorType = OpsFilterOperatorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern BeginWith :: OpsFilterOperatorType
-pattern BeginWith = OpsFilterOperatorType' "BeginWith"
-
 pattern Equal :: OpsFilterOperatorType
 pattern Equal = OpsFilterOperatorType' "Equal"
-
-pattern Exists :: OpsFilterOperatorType
-pattern Exists = OpsFilterOperatorType' "Exists"
-
-pattern GreaterThan :: OpsFilterOperatorType
-pattern GreaterThan = OpsFilterOperatorType' "GreaterThan"
-
-pattern LessThan :: OpsFilterOperatorType
-pattern LessThan = OpsFilterOperatorType' "LessThan"
 
 pattern NotEqual :: OpsFilterOperatorType
 pattern NotEqual = OpsFilterOperatorType' "NotEqual"
 
+pattern BeginWith :: OpsFilterOperatorType
+pattern BeginWith = OpsFilterOperatorType' "BeginWith"
+
+pattern LessThan :: OpsFilterOperatorType
+pattern LessThan = OpsFilterOperatorType' "LessThan"
+
+pattern GreaterThan :: OpsFilterOperatorType
+pattern GreaterThan = OpsFilterOperatorType' "GreaterThan"
+
+pattern Exists :: OpsFilterOperatorType
+pattern Exists = OpsFilterOperatorType' "Exists"
+
 {-# COMPLETE
-  BeginWith,
   Equal,
-  Exists,
-  GreaterThan,
-  LessThan,
   NotEqual,
+  BeginWith,
+  LessThan,
+  GreaterThan,
+  Exists,
   OpsFilterOperatorType'
   #-}

@@ -34,33 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskStatistics' smart constructor.
 data TaskStatistics = TaskStatistics'
-  { nonCompliantChecks ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of checks that found noncompliant resources.
+    nonCompliantChecks :: Lude.Maybe Lude.Int,
+    -- | The number of checks waiting for data collection.
     waitingForDataCollectionChecks :: Lude.Maybe Lude.Int,
+    -- | The number of checks.
     failedChecks :: Lude.Maybe Lude.Int,
+    -- | The number of checks in this audit.
     totalChecks :: Lude.Maybe Lude.Int,
+    -- | The number of checks in progress.
     inProgressChecks :: Lude.Maybe Lude.Int,
+    -- | The number of checks that found compliant resources.
     compliantChecks :: Lude.Maybe Lude.Int,
+    -- | The number of checks that did not run because the audit was canceled.
     canceledChecks :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskStatistics' with the minimum fields required to make a request.
 --
--- * 'canceledChecks' - The number of checks that did not run because the audit was canceled.
--- * 'compliantChecks' - The number of checks that found compliant resources.
--- * 'failedChecks' - The number of checks.
--- * 'inProgressChecks' - The number of checks in progress.
 -- * 'nonCompliantChecks' - The number of checks that found noncompliant resources.
--- * 'totalChecks' - The number of checks in this audit.
 -- * 'waitingForDataCollectionChecks' - The number of checks waiting for data collection.
+-- * 'failedChecks' - The number of checks.
+-- * 'totalChecks' - The number of checks in this audit.
+-- * 'inProgressChecks' - The number of checks in progress.
+-- * 'compliantChecks' - The number of checks that found compliant resources.
+-- * 'canceledChecks' - The number of checks that did not run because the audit was canceled.
 mkTaskStatistics ::
   TaskStatistics
 mkTaskStatistics =

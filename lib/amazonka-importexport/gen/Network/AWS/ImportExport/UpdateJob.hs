@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.ImportExport.UpdateJob
     mkUpdateJob,
 
     -- ** Request lenses
+    ujJobType,
+    ujValidateOnly,
     ujAPIVersion,
     ujJobId,
     ujManifest,
-    ujJobType,
-    ujValidateOnly,
 
     -- * Destructuring the response
     UpdateJobResponse (..),
@@ -47,46 +48,54 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { apiVersion :: Lude.Maybe Lude.Text,
+  { jobType :: JobType,
+    validateOnly :: Lude.Bool,
+    apiVersion :: Lude.Maybe Lude.Text,
     jobId :: Lude.Text,
-    manifest :: Lude.Text,
-    jobType :: JobType,
-    validateOnly :: Lude.Bool
+    manifest :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
--- * 'apiVersion' - Undocumented field.
--- * 'jobId' - Undocumented field.
--- * 'jobType' - Undocumented field.
--- * 'manifest' - Undocumented field.
--- * 'validateOnly' - Undocumented field.
+-- * 'jobType' -
+-- * 'validateOnly' -
+-- * 'apiVersion' -
+-- * 'jobId' -
+-- * 'manifest' -
 mkUpdateJob ::
-  -- | 'jobId'
-  Lude.Text ->
-  -- | 'manifest'
-  Lude.Text ->
   -- | 'jobType'
   JobType ->
   -- | 'validateOnly'
   Lude.Bool ->
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'manifest'
+  Lude.Text ->
   UpdateJob
-mkUpdateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
+mkUpdateJob pJobType_ pValidateOnly_ pJobId_ pManifest_ =
   UpdateJob'
-    { apiVersion = Lude.Nothing,
+    { jobType = pJobType_,
+      validateOnly = pValidateOnly_,
+      apiVersion = Lude.Nothing,
       jobId = pJobId_,
-      manifest = pManifest_,
-      jobType = pJobType_,
-      validateOnly = pValidateOnly_
+      manifest = pManifest_
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujJobType :: Lens.Lens' UpdateJob JobType
+ujJobType = Lens.lens (jobType :: UpdateJob -> JobType) (\s a -> s {jobType = a} :: UpdateJob)
+{-# DEPRECATED ujJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'validateOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujValidateOnly :: Lens.Lens' UpdateJob Lude.Bool
+ujValidateOnly = Lens.lens (validateOnly :: UpdateJob -> Lude.Bool) (\s a -> s {validateOnly = a} :: UpdateJob)
+{-# DEPRECATED ujValidateOnly "Use generic-lens or generic-optics with 'validateOnly' instead." #-}
 
 -- | Undocumented field.
 --
@@ -108,20 +117,6 @@ ujJobId = Lens.lens (jobId :: UpdateJob -> Lude.Text) (\s a -> s {jobId = a} :: 
 ujManifest :: Lens.Lens' UpdateJob Lude.Text
 ujManifest = Lens.lens (manifest :: UpdateJob -> Lude.Text) (\s a -> s {manifest = a} :: UpdateJob)
 {-# DEPRECATED ujManifest "Use generic-lens or generic-optics with 'manifest' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujJobType :: Lens.Lens' UpdateJob JobType
-ujJobType = Lens.lens (jobType :: UpdateJob -> JobType) (\s a -> s {jobType = a} :: UpdateJob)
-{-# DEPRECATED ujJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'validateOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujValidateOnly :: Lens.Lens' UpdateJob Lude.Bool
-ujValidateOnly = Lens.lens (validateOnly :: UpdateJob -> Lude.Bool) (\s a -> s {validateOnly = a} :: UpdateJob)
-{-# DEPRECATED ujValidateOnly "Use generic-lens or generic-optics with 'validateOnly' instead." #-}
 
 instance Lude.AWSRequest UpdateJob where
   type Rs UpdateJob = UpdateJobResponse
@@ -151,38 +146,32 @@ instance Lude.ToQuery UpdateJob where
       [ "Operation=UpdateJob",
         "Action" Lude.=: ("UpdateJob" :: Lude.ByteString),
         "Version" Lude.=: ("2010-06-01" :: Lude.ByteString),
+        "JobType" Lude.=: jobType,
+        "ValidateOnly" Lude.=: validateOnly,
         "APIVersion" Lude.=: apiVersion,
         "JobId" Lude.=: jobId,
-        "Manifest" Lude.=: manifest,
-        "JobType" Lude.=: jobType,
-        "ValidateOnly" Lude.=: validateOnly
+        "Manifest" Lude.=: manifest
       ]
 
 -- | Output structure for the UpateJob operation.
 --
 -- /See:/ 'mkUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  { success ::
-      Lude.Maybe Lude.Bool,
+  { success :: Lude.Maybe Lude.Bool,
     warningMessage :: Lude.Maybe Lude.Text,
     artifactList :: Lude.Maybe [Artifact],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
 --
--- * 'artifactList' - Undocumented field.
+-- * 'success' -
+-- * 'warningMessage' -
+-- * 'artifactList' -
 -- * 'responseStatus' - The response status code.
--- * 'success' - Undocumented field.
--- * 'warningMessage' - Undocumented field.
 mkUpdateJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

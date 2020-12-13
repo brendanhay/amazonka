@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFileSystemConfig' smart constructor.
 data FileSystemConfig = FileSystemConfig'
-  { defaultGid ::
-      Lude.Maybe Lude.Natural,
+  { -- | The default POSIX group ID (GID). If not specified, defaults to @100@ .
+    defaultGid :: Lude.Maybe Lude.Natural,
+    -- | The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
     mountPath :: Lude.Maybe Lude.Text,
+    -- | The default POSIX user ID (UID). If not specified, defaults to @1000@ .
     defaultUid :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileSystemConfig' with the minimum fields required to make a request.
 --
 -- * 'defaultGid' - The default POSIX group ID (GID). If not specified, defaults to @100@ .
--- * 'defaultUid' - The default POSIX user ID (UID). If not specified, defaults to @1000@ .
 -- * 'mountPath' - The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
+-- * 'defaultUid' - The default POSIX user ID (UID). If not specified, defaults to @1000@ .
 mkFileSystemConfig ::
   FileSystemConfig
 mkFileSystemConfig =

@@ -17,8 +17,8 @@ module Network.AWS.ElasticSearch.Types.Tag
     mkTag,
 
     -- * Lenses
-    tKey,
     tValue,
+    tKey,
   )
 where
 
@@ -28,34 +28,26 @@ import qualified Network.AWS.Prelude as Lude
 -- | Specifies a key value pair for a resource tag.
 --
 -- /See:/ 'mkTag' smart constructor.
-data Tag = Tag' {key :: Lude.Text, value :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Tag = Tag'
+  { -- | Specifies the @TagValue@ , the value assigned to the corresponding tag key. Tag values can be null and do not have to be unique in a tag set. For example, you can have a key value pair in a tag set of @project : Trinity@ and @cost-center : Trinity@
+    value :: Lude.Text,
+    -- | Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
+    key :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- * 'key' - Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
 -- * 'value' - Specifies the @TagValue@ , the value assigned to the corresponding tag key. Tag values can be null and do not have to be unique in a tag set. For example, you can have a key value pair in a tag set of @project : Trinity@ and @cost-center : Trinity@
+-- * 'key' - Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
 mkTag ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   Tag
-mkTag pKey_ pValue_ = Tag' {key = pKey_, value = pValue_}
-
--- | Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
-{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
 
 -- | Specifies the @TagValue@ , the value assigned to the corresponding tag key. Tag values can be null and do not have to be unique in a tag set. For example, you can have a key value pair in a tag set of @project : Trinity@ and @cost-center : Trinity@
 --
@@ -64,17 +56,24 @@ tValue :: Lens.Lens' Tag Lude.Text
 tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
 {-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | Specifies the @TagKey@ , the name of the tag. Tag keys must be unique for the Elasticsearch domain to which they are attached.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tKey :: Lens.Lens' Tag Lude.Text
+tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromJSON Tag where
   parseJSON =
     Lude.withObject
       "Tag"
       ( \x ->
-          Tag' Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Value")
+          Tag' Lude.<$> (x Lude..: "Value") Lude.<*> (x Lude..: "Key")
       )
 
 instance Lude.ToJSON Tag where
   toJSON Tag' {..} =
     Lude.object
       ( Lude.catMaybes
-          [Lude.Just ("Key" Lude..= key), Lude.Just ("Value" Lude..= value)]
+          [Lude.Just ("Value" Lude..= value), Lude.Just ("Key" Lude..= key)]
       )

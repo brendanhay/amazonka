@@ -50,60 +50,70 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
-  { sourceSecurityGroup ::
-      Lude.Maybe SourceSecurityGroup,
-    canonicalHostedZoneName ::
-      Lude.Maybe Lude.Text,
+  { -- | The security group for the load balancer, which you can use as part of your inbound rules for your registered instances. To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.
+    sourceSecurityGroup :: Lude.Maybe SourceSecurityGroup,
+    -- | The DNS name of the load balancer.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancers Guide/ .
+    canonicalHostedZoneName :: Lude.Maybe Lude.Text,
+    -- | The security groups for the load balancer. Valid only for load balancers in a VPC.
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | Information about the health checks conducted on the load balancer.
     healthCheck :: Lude.Maybe HealthCheck,
+    -- | The name of the load balancer.
     loadBalancerName :: Lude.Maybe Lude.Text,
+    -- | The date and time the load balancer was created.
     createdTime :: Lude.Maybe Lude.DateTime,
+    -- | The ID of the VPC for the load balancer.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The IDs of the subnets for the load balancer.
     subnets :: Lude.Maybe [Lude.Text],
+    -- | The Availability Zones for the load balancer.
     availabilityZones :: Lude.Maybe [Lude.Text],
-    backendServerDescriptions ::
-      Lude.Maybe [BackendServerDescription],
-    canonicalHostedZoneNameId ::
-      Lude.Maybe Lude.Text,
+    -- | Information about your EC2 instances.
+    backendServerDescriptions :: Lude.Maybe [BackendServerDescription],
+    -- | The ID of the Amazon Route 53 hosted zone for the load balancer.
+    canonicalHostedZoneNameId :: Lude.Maybe Lude.Text,
+    -- | The IDs of the instances for the load balancer.
     instances :: Lude.Maybe [Instance],
+    -- | The type of load balancer. Valid only for load balancers in a VPC.
+    --
+    -- If @Scheme@ is @internet-facing@ , the load balancer has a public DNS name that resolves to a public IP address.
+    -- If @Scheme@ is @internal@ , the load balancer has a public DNS name that resolves to a private IP address.
     scheme :: Lude.Maybe Lude.Text,
-    listenerDescriptions ::
-      Lude.Maybe [ListenerDescription],
+    -- | The listeners for the load balancer.
+    listenerDescriptions :: Lude.Maybe [ListenerDescription],
+    -- | The DNS name of the load balancer.
     dnsName :: Lude.Maybe Lude.Text,
+    -- | The policies defined for the load balancer.
     policies :: Lude.Maybe Policies
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerDescription' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - The Availability Zones for the load balancer.
--- * 'backendServerDescriptions' - Information about your EC2 instances.
+-- * 'sourceSecurityGroup' - The security group for the load balancer, which you can use as part of your inbound rules for your registered instances. To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.
 -- * 'canonicalHostedZoneName' - The DNS name of the load balancer.
 --
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancers Guide/ .
--- * 'canonicalHostedZoneNameId' - The ID of the Amazon Route 53 hosted zone for the load balancer.
--- * 'createdTime' - The date and time the load balancer was created.
--- * 'dnsName' - The DNS name of the load balancer.
+-- * 'securityGroups' - The security groups for the load balancer. Valid only for load balancers in a VPC.
 -- * 'healthCheck' - Information about the health checks conducted on the load balancer.
--- * 'instances' - The IDs of the instances for the load balancer.
--- * 'listenerDescriptions' - The listeners for the load balancer.
 -- * 'loadBalancerName' - The name of the load balancer.
--- * 'policies' - The policies defined for the load balancer.
+-- * 'createdTime' - The date and time the load balancer was created.
+-- * 'vpcId' - The ID of the VPC for the load balancer.
+-- * 'subnets' - The IDs of the subnets for the load balancer.
+-- * 'availabilityZones' - The Availability Zones for the load balancer.
+-- * 'backendServerDescriptions' - Information about your EC2 instances.
+-- * 'canonicalHostedZoneNameId' - The ID of the Amazon Route 53 hosted zone for the load balancer.
+-- * 'instances' - The IDs of the instances for the load balancer.
 -- * 'scheme' - The type of load balancer. Valid only for load balancers in a VPC.
 --
 -- If @Scheme@ is @internet-facing@ , the load balancer has a public DNS name that resolves to a public IP address.
 -- If @Scheme@ is @internal@ , the load balancer has a public DNS name that resolves to a private IP address.
--- * 'securityGroups' - The security groups for the load balancer. Valid only for load balancers in a VPC.
--- * 'sourceSecurityGroup' - The security group for the load balancer, which you can use as part of your inbound rules for your registered instances. To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.
--- * 'subnets' - The IDs of the subnets for the load balancer.
--- * 'vpcId' - The ID of the VPC for the load balancer.
+-- * 'listenerDescriptions' - The listeners for the load balancer.
+-- * 'dnsName' - The DNS name of the load balancer.
+-- * 'policies' - The policies defined for the load balancer.
 mkLoadBalancerDescription ::
   LoadBalancerDescription
 mkLoadBalancerDescription =

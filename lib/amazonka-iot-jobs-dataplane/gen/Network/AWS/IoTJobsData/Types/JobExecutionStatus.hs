@@ -13,14 +13,14 @@
 module Network.AWS.IoTJobsData.Types.JobExecutionStatus
   ( JobExecutionStatus
       ( JobExecutionStatus',
-        Canceled,
-        Failed,
-        InProgress,
         Queued,
+        InProgress,
+        Succeeded,
+        Failed,
+        TimedOut,
         Rejected,
         Removed,
-        Succeeded,
-        TimedOut
+        Canceled
       ),
   )
 where
@@ -51,17 +51,20 @@ newtype JobExecutionStatus = JobExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Canceled :: JobExecutionStatus
-pattern Canceled = JobExecutionStatus' "CANCELED"
-
-pattern Failed :: JobExecutionStatus
-pattern Failed = JobExecutionStatus' "FAILED"
+pattern Queued :: JobExecutionStatus
+pattern Queued = JobExecutionStatus' "QUEUED"
 
 pattern InProgress :: JobExecutionStatus
 pattern InProgress = JobExecutionStatus' "IN_PROGRESS"
 
-pattern Queued :: JobExecutionStatus
-pattern Queued = JobExecutionStatus' "QUEUED"
+pattern Succeeded :: JobExecutionStatus
+pattern Succeeded = JobExecutionStatus' "SUCCEEDED"
+
+pattern Failed :: JobExecutionStatus
+pattern Failed = JobExecutionStatus' "FAILED"
+
+pattern TimedOut :: JobExecutionStatus
+pattern TimedOut = JobExecutionStatus' "TIMED_OUT"
 
 pattern Rejected :: JobExecutionStatus
 pattern Rejected = JobExecutionStatus' "REJECTED"
@@ -69,20 +72,17 @@ pattern Rejected = JobExecutionStatus' "REJECTED"
 pattern Removed :: JobExecutionStatus
 pattern Removed = JobExecutionStatus' "REMOVED"
 
-pattern Succeeded :: JobExecutionStatus
-pattern Succeeded = JobExecutionStatus' "SUCCEEDED"
-
-pattern TimedOut :: JobExecutionStatus
-pattern TimedOut = JobExecutionStatus' "TIMED_OUT"
+pattern Canceled :: JobExecutionStatus
+pattern Canceled = JobExecutionStatus' "CANCELED"
 
 {-# COMPLETE
-  Canceled,
-  Failed,
-  InProgress,
   Queued,
+  InProgress,
+  Succeeded,
+  Failed,
+  TimedOut,
   Rejected,
   Removed,
-  Succeeded,
-  TimedOut,
+  Canceled,
   JobExecutionStatus'
   #-}

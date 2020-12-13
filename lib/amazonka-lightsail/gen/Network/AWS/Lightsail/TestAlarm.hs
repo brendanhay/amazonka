@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTestAlarm' smart constructor.
 data TestAlarm = TestAlarm'
-  { alarmName :: Lude.Text,
+  { -- | The name of the alarm to test.
+    alarmName :: Lude.Text,
+    -- | The alarm state to test.
+    --
+    -- An alarm has the following possible states that can be tested:
+    --
+    --     * @ALARM@ - The metric is outside of the defined threshold.
+    --
+    --
+    --     * @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.
+    --
+    --
+    --     * @OK@ - The metric is within the defined threshold.
     state :: AlarmState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestAlarm' with the minimum fields required to make a request.
@@ -142,17 +149,12 @@ instance Lude.ToQuery TestAlarm where
 
 -- | /See:/ 'mkTestAlarmResponse' smart constructor.
 data TestAlarmResponse = TestAlarmResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestAlarmResponse' with the minimum fields required to make a request.

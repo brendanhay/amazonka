@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndPoint' smart constructor.
 data EndPoint = EndPoint'
-  { kinesisStreamConfig ::
-      Lude.Maybe KinesisStreamConfig,
+  { -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+    kinesisStreamConfig :: Lude.Maybe KinesisStreamConfig,
+    -- | The type of data stream where you are sending real-time log data. The only valid value is @Kinesis@ .
     streamType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndPoint' with the minimum fields required to make a request.

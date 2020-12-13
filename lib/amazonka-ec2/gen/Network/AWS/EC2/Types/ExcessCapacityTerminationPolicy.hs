@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ExcessCapacityTerminationPolicy
   ( ExcessCapacityTerminationPolicy
       ( ExcessCapacityTerminationPolicy',
-        ECTPDefault,
-        ECTPNoTermination
+        ECTPNoTermination,
+        ECTPDefault
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ExcessCapacityTerminationPolicy = ExcessCapacityTerminationPolicy' Lude.
       Lude.ToHeader
     )
 
-pattern ECTPDefault :: ExcessCapacityTerminationPolicy
-pattern ECTPDefault = ExcessCapacityTerminationPolicy' "default"
-
 pattern ECTPNoTermination :: ExcessCapacityTerminationPolicy
 pattern ECTPNoTermination = ExcessCapacityTerminationPolicy' "noTermination"
 
+pattern ECTPDefault :: ExcessCapacityTerminationPolicy
+pattern ECTPDefault = ExcessCapacityTerminationPolicy' "default"
+
 {-# COMPLETE
-  ECTPDefault,
   ECTPNoTermination,
+  ECTPDefault,
   ExcessCapacityTerminationPolicy'
   #-}

@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueueTransition' smart constructor.
 data QueueTransition = QueueTransition'
-  { sourceQueue ::
-      Lude.Maybe Lude.Text,
+  { -- | The queue that the job was on before the transition.
+    sourceQueue :: Lude.Maybe Lude.Text,
+    -- | The queue that the job was on after the transition.
     destinationQueue :: Lude.Maybe Lude.Text,
+    -- | The time, in Unix epoch format, that the job moved from the source queue to the destination queue.
     timestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueueTransition' with the minimum fields required to make a request.
 --
--- * 'destinationQueue' - The queue that the job was on after the transition.
 -- * 'sourceQueue' - The queue that the job was on before the transition.
+-- * 'destinationQueue' - The queue that the job was on after the transition.
 -- * 'timestamp' - The time, in Unix epoch format, that the job moved from the source queue to the destination queue.
 mkQueueTransition ::
   QueueTransition

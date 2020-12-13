@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.DeleteModel
     mkDeleteModel,
 
     -- ** Request lenses
-    dRestAPIId,
     dModelName,
+    dRestAPIId,
 
     -- * Destructuring the response
     DeleteModelResponse (..),
@@ -38,16 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteModel' smart constructor.
 data DeleteModel = DeleteModel'
-  { restAPIId :: Lude.Text,
-    modelName :: Lude.Text
+  { -- | [Required] The name of the model to delete.
+    modelName :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModel' with the minimum fields required to make a request.
@@ -55,20 +52,13 @@ data DeleteModel = DeleteModel'
 -- * 'modelName' - [Required] The name of the model to delete.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkDeleteModel ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'modelName'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   DeleteModel
-mkDeleteModel pRestAPIId_ pModelName_ =
-  DeleteModel' {restAPIId = pRestAPIId_, modelName = pModelName_}
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRestAPIId :: Lens.Lens' DeleteModel Lude.Text
-dRestAPIId = Lens.lens (restAPIId :: DeleteModel -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteModel)
-{-# DEPRECATED dRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+mkDeleteModel pModelName_ pRestAPIId_ =
+  DeleteModel' {modelName = pModelName_, restAPIId = pRestAPIId_}
 
 -- | [Required] The name of the model to delete.
 --
@@ -76,6 +66,13 @@ dRestAPIId = Lens.lens (restAPIId :: DeleteModel -> Lude.Text) (\s a -> s {restA
 dModelName :: Lens.Lens' DeleteModel Lude.Text
 dModelName = Lens.lens (modelName :: DeleteModel -> Lude.Text) (\s a -> s {modelName = a} :: DeleteModel)
 {-# DEPRECATED dModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRestAPIId :: Lens.Lens' DeleteModel Lude.Text
+dRestAPIId = Lens.lens (restAPIId :: DeleteModel -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteModel)
+{-# DEPRECATED dRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest DeleteModel where
   type Rs DeleteModel = DeleteModelResponse
@@ -103,13 +100,7 @@ instance Lude.ToQuery DeleteModel where
 
 -- | /See:/ 'mkDeleteModelResponse' smart constructor.
 data DeleteModelResponse = DeleteModelResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModelResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.OpsItemFilterOperator
   ( OpsItemFilterOperator
       ( OpsItemFilterOperator',
-        OIFOContains,
         OIFOEqual,
+        OIFOContains,
         OIFOGreaterThan,
         OIFOLessThan
       ),
@@ -47,11 +47,11 @@ newtype OpsItemFilterOperator = OpsItemFilterOperator' Lude.Text
       Lude.ToHeader
     )
 
-pattern OIFOContains :: OpsItemFilterOperator
-pattern OIFOContains = OpsItemFilterOperator' "Contains"
-
 pattern OIFOEqual :: OpsItemFilterOperator
 pattern OIFOEqual = OpsItemFilterOperator' "Equal"
+
+pattern OIFOContains :: OpsItemFilterOperator
+pattern OIFOContains = OpsItemFilterOperator' "Contains"
 
 pattern OIFOGreaterThan :: OpsItemFilterOperator
 pattern OIFOGreaterThan = OpsItemFilterOperator' "GreaterThan"
@@ -60,8 +60,8 @@ pattern OIFOLessThan :: OpsItemFilterOperator
 pattern OIFOLessThan = OpsItemFilterOperator' "LessThan"
 
 {-# COMPLETE
-  OIFOContains,
   OIFOEqual,
+  OIFOContains,
   OIFOGreaterThan,
   OIFOLessThan,
   OpsItemFilterOperator'

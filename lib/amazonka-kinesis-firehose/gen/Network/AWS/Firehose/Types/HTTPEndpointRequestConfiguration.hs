@@ -31,19 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPEndpointRequestConfiguration' smart constructor.
 data HTTPEndpointRequestConfiguration = HTTPEndpointRequestConfiguration'
-  { commonAttributes ::
-      Lude.Maybe
-        [HTTPEndpointCommonAttribute],
-    contentEncoding ::
-      Lude.Maybe
-        ContentEncoding
+  { -- | Describes the metadata sent to the HTTP endpoint destination.
+    commonAttributes :: Lude.Maybe [HTTPEndpointCommonAttribute],
+    -- | Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding Content-Encoding> in MDN Web Docs, the official Mozilla documentation.
+    contentEncoding :: Lude.Maybe ContentEncoding
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPEndpointRequestConfiguration' with the minimum fields required to make a request.

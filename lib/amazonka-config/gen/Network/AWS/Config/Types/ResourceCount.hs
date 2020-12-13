@@ -17,8 +17,8 @@ module Network.AWS.Config.Types.ResourceCount
     mkResourceCount,
 
     -- * Lenses
-    resResourceType,
-    resCount,
+    rcgResourceType,
+    rcgCount,
   )
 where
 
@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceCount' smart constructor.
 data ResourceCount = ResourceCount'
-  { resourceType ::
-      Lude.Maybe ResourceType,
+  { -- | The resource type (for example, @"AWS::EC2::Instance"@ ).
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The number of resources.
     count :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceCount' with the minimum fields required to make a request.
 --
--- * 'count' - The number of resources.
 -- * 'resourceType' - The resource type (for example, @"AWS::EC2::Instance"@ ).
+-- * 'count' - The number of resources.
 mkResourceCount ::
   ResourceCount
 mkResourceCount =
@@ -55,16 +50,16 @@ mkResourceCount =
 -- | The resource type (for example, @"AWS::EC2::Instance"@ ).
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resResourceType :: Lens.Lens' ResourceCount (Lude.Maybe ResourceType)
-resResourceType = Lens.lens (resourceType :: ResourceCount -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: ResourceCount)
-{-# DEPRECATED resResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+rcgResourceType :: Lens.Lens' ResourceCount (Lude.Maybe ResourceType)
+rcgResourceType = Lens.lens (resourceType :: ResourceCount -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: ResourceCount)
+{-# DEPRECATED rcgResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The number of resources.
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resCount :: Lens.Lens' ResourceCount (Lude.Maybe Lude.Integer)
-resCount = Lens.lens (count :: ResourceCount -> Lude.Maybe Lude.Integer) (\s a -> s {count = a} :: ResourceCount)
-{-# DEPRECATED resCount "Use generic-lens or generic-optics with 'count' instead." #-}
+rcgCount :: Lens.Lens' ResourceCount (Lude.Maybe Lude.Integer)
+rcgCount = Lens.lens (count :: ResourceCount -> Lude.Maybe Lude.Integer) (\s a -> s {count = a} :: ResourceCount)
+{-# DEPRECATED rcgCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 instance Lude.FromJSON ResourceCount where
   parseJSON =

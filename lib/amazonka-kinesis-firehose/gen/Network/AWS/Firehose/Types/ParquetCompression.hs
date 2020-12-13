@@ -13,9 +13,9 @@
 module Network.AWS.Firehose.Types.ParquetCompression
   ( ParquetCompression
       ( ParquetCompression',
+        PCUncompressed,
         PCGzip,
-        PCSnappy,
-        PCUncompressed
+        PCSnappy
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ParquetCompression = ParquetCompression' Lude.Text
       Lude.ToHeader
     )
 
+pattern PCUncompressed :: ParquetCompression
+pattern PCUncompressed = ParquetCompression' "UNCOMPRESSED"
+
 pattern PCGzip :: ParquetCompression
 pattern PCGzip = ParquetCompression' "GZIP"
 
 pattern PCSnappy :: ParquetCompression
 pattern PCSnappy = ParquetCompression' "SNAPPY"
 
-pattern PCUncompressed :: ParquetCompression
-pattern PCUncompressed = ParquetCompression' "UNCOMPRESSED"
-
 {-# COMPLETE
+  PCUncompressed,
   PCGzip,
   PCSnappy,
-  PCUncompressed,
   ParquetCompression'
   #-}

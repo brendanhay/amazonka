@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.SSM.DescribeDocument
     mkDescribeDocument,
 
     -- ** Request lenses
-    ddVersionName,
-    ddDocumentVersion,
-    ddName,
+    ddgVersionName,
+    ddgName,
+    ddgDocumentVersion,
 
     -- * Destructuring the response
     DescribeDocumentResponse (..),
     mkDescribeDocumentResponse,
 
     -- ** Response lenses
-    desrsDocument,
-    desrsResponseStatus,
+    drsDocument,
+    drsResponseStatus,
   )
 where
 
@@ -41,25 +42,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeDocument' smart constructor.
 data DescribeDocument = DescribeDocument'
-  { versionName ::
-      Lude.Maybe Lude.Text,
-    documentVersion :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+  { -- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+    versionName :: Lude.Maybe Lude.Text,
+    -- | The name of the Systems Manager document.
+    name :: Lude.Text,
+    -- | The document version for which you want information. Can be a specific version or the default version.
+    documentVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocument' with the minimum fields required to make a request.
 --
--- * 'documentVersion' - The document version for which you want information. Can be a specific version or the default version.
--- * 'name' - The name of the Systems Manager document.
 -- * 'versionName' - An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+-- * 'name' - The name of the Systems Manager document.
+-- * 'documentVersion' - The document version for which you want information. Can be a specific version or the default version.
 mkDescribeDocument ::
   -- | 'name'
   Lude.Text ->
@@ -67,30 +64,30 @@ mkDescribeDocument ::
 mkDescribeDocument pName_ =
   DescribeDocument'
     { versionName = Lude.Nothing,
-      documentVersion = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      documentVersion = Lude.Nothing
     }
 
 -- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 --
 -- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddVersionName :: Lens.Lens' DescribeDocument (Lude.Maybe Lude.Text)
-ddVersionName = Lens.lens (versionName :: DescribeDocument -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: DescribeDocument)
-{-# DEPRECATED ddVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
-
--- | The document version for which you want information. Can be a specific version or the default version.
---
--- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDocumentVersion :: Lens.Lens' DescribeDocument (Lude.Maybe Lude.Text)
-ddDocumentVersion = Lens.lens (documentVersion :: DescribeDocument -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: DescribeDocument)
-{-# DEPRECATED ddDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
+ddgVersionName :: Lens.Lens' DescribeDocument (Lude.Maybe Lude.Text)
+ddgVersionName = Lens.lens (versionName :: DescribeDocument -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: DescribeDocument)
+{-# DEPRECATED ddgVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
 
 -- | The name of the Systems Manager document.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddName :: Lens.Lens' DescribeDocument Lude.Text
-ddName = Lens.lens (name :: DescribeDocument -> Lude.Text) (\s a -> s {name = a} :: DescribeDocument)
-{-# DEPRECATED ddName "Use generic-lens or generic-optics with 'name' instead." #-}
+ddgName :: Lens.Lens' DescribeDocument Lude.Text
+ddgName = Lens.lens (name :: DescribeDocument -> Lude.Text) (\s a -> s {name = a} :: DescribeDocument)
+{-# DEPRECATED ddgName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The document version for which you want information. Can be a specific version or the default version.
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddgDocumentVersion :: Lens.Lens' DescribeDocument (Lude.Maybe Lude.Text)
+ddgDocumentVersion = Lens.lens (documentVersion :: DescribeDocument -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: DescribeDocument)
+{-# DEPRECATED ddgDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
 instance Lude.AWSRequest DescribeDocument where
   type Rs DescribeDocument = DescribeDocumentResponse
@@ -118,8 +115,8 @@ instance Lude.ToJSON DescribeDocument where
     Lude.object
       ( Lude.catMaybes
           [ ("VersionName" Lude..=) Lude.<$> versionName,
-            ("DocumentVersion" Lude..=) Lude.<$> documentVersion,
-            Lude.Just ("Name" Lude..= name)
+            Lude.Just ("Name" Lude..= name),
+            ("DocumentVersion" Lude..=) Lude.<$> documentVersion
           ]
       )
 
@@ -131,17 +128,12 @@ instance Lude.ToQuery DescribeDocument where
 
 -- | /See:/ 'mkDescribeDocumentResponse' smart constructor.
 data DescribeDocumentResponse = DescribeDocumentResponse'
-  { document ::
-      Lude.Maybe DocumentDescription,
+  { -- | Information about the Systems Manager document.
+    document :: Lude.Maybe DocumentDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentResponse' with the minimum fields required to make a request.
@@ -161,13 +153,13 @@ mkDescribeDocumentResponse pResponseStatus_ =
 -- | Information about the Systems Manager document.
 --
 -- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsDocument :: Lens.Lens' DescribeDocumentResponse (Lude.Maybe DocumentDescription)
-desrsDocument = Lens.lens (document :: DescribeDocumentResponse -> Lude.Maybe DocumentDescription) (\s a -> s {document = a} :: DescribeDocumentResponse)
-{-# DEPRECATED desrsDocument "Use generic-lens or generic-optics with 'document' instead." #-}
+drsDocument :: Lens.Lens' DescribeDocumentResponse (Lude.Maybe DocumentDescription)
+drsDocument = Lens.lens (document :: DescribeDocumentResponse -> Lude.Maybe DocumentDescription) (\s a -> s {document = a} :: DescribeDocumentResponse)
+{-# DEPRECATED drsDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeDocumentResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeDocumentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDocumentResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeDocumentResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeDocumentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDocumentResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

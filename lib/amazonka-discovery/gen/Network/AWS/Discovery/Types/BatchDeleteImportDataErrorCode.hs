@@ -13,8 +13,8 @@
 module Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
   ( BatchDeleteImportDataErrorCode
       ( BatchDeleteImportDataErrorCode',
-        InternalServerError,
         NotFound,
+        InternalServerError,
         OverLimit
       ),
   )
@@ -46,18 +46,18 @@ newtype BatchDeleteImportDataErrorCode = BatchDeleteImportDataErrorCode' Lude.Te
       Lude.ToHeader
     )
 
-pattern InternalServerError :: BatchDeleteImportDataErrorCode
-pattern InternalServerError = BatchDeleteImportDataErrorCode' "INTERNAL_SERVER_ERROR"
-
 pattern NotFound :: BatchDeleteImportDataErrorCode
 pattern NotFound = BatchDeleteImportDataErrorCode' "NOT_FOUND"
+
+pattern InternalServerError :: BatchDeleteImportDataErrorCode
+pattern InternalServerError = BatchDeleteImportDataErrorCode' "INTERNAL_SERVER_ERROR"
 
 pattern OverLimit :: BatchDeleteImportDataErrorCode
 pattern OverLimit = BatchDeleteImportDataErrorCode' "OVER_LIMIT"
 
 {-# COMPLETE
-  InternalServerError,
   NotFound,
+  InternalServerError,
   OverLimit,
   BatchDeleteImportDataErrorCode'
   #-}

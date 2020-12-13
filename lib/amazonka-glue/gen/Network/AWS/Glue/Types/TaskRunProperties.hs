@@ -37,33 +37,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskRunProperties' smart constructor.
 data TaskRunProperties = TaskRunProperties'
-  { taskType ::
-      Lude.Maybe TaskType,
-    exportLabelsTaskRunProperties ::
-      Lude.Maybe ExportLabelsTaskRunProperties,
-    labelingSetGenerationTaskRunProperties ::
-      Lude.Maybe LabelingSetGenerationTaskRunProperties,
-    findMatchesTaskRunProperties ::
-      Lude.Maybe FindMatchesTaskRunProperties,
-    importLabelsTaskRunProperties ::
-      Lude.Maybe ImportLabelsTaskRunProperties
+  { -- | The type of task run.
+    taskType :: Lude.Maybe TaskType,
+    -- | The configuration properties for an exporting labels task run.
+    exportLabelsTaskRunProperties :: Lude.Maybe ExportLabelsTaskRunProperties,
+    -- | The configuration properties for a labeling set generation task run.
+    labelingSetGenerationTaskRunProperties :: Lude.Maybe LabelingSetGenerationTaskRunProperties,
+    -- | The configuration properties for a find matches task run.
+    findMatchesTaskRunProperties :: Lude.Maybe FindMatchesTaskRunProperties,
+    -- | The configuration properties for an importing labels task run.
+    importLabelsTaskRunProperties :: Lude.Maybe ImportLabelsTaskRunProperties
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskRunProperties' with the minimum fields required to make a request.
 --
+-- * 'taskType' - The type of task run.
 -- * 'exportLabelsTaskRunProperties' - The configuration properties for an exporting labels task run.
+-- * 'labelingSetGenerationTaskRunProperties' - The configuration properties for a labeling set generation task run.
 -- * 'findMatchesTaskRunProperties' - The configuration properties for a find matches task run.
 -- * 'importLabelsTaskRunProperties' - The configuration properties for an importing labels task run.
--- * 'labelingSetGenerationTaskRunProperties' - The configuration properties for a labeling set generation task run.
--- * 'taskType' - The type of task run.
 mkTaskRunProperties ::
   TaskRunProperties
 mkTaskRunProperties =

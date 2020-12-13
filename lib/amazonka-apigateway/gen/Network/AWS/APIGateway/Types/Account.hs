@@ -50,18 +50,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccount' smart constructor.
 data Account = Account'
-  { apiKeyVersion :: Lude.Maybe Lude.Text,
+  { -- | The version of the API keys used for the account.
+    apiKeyVersion :: Lude.Maybe Lude.Text,
+    -- | The ARN of an Amazon CloudWatch role for the current 'Account' .
     cloudwatchRoleARN :: Lude.Maybe Lude.Text,
+    -- | A list of features supported for the account. When usage plans are enabled, the features list will include an entry of @"UsagePlans"@ .
     features :: Lude.Maybe [Lude.Text],
+    -- | Specifies the API request limits configured for the current 'Account' .
     throttleSettings :: Lude.Maybe ThrottleSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Account' with the minimum fields required to make a request.

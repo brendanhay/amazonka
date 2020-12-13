@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.EC2.StartVPCEndpointServicePrivateDNSVerification
     mkStartVPCEndpointServicePrivateDNSVerification,
 
     -- ** Request lenses
-    svespdvDryRun,
     svespdvServiceId,
+    svespdvDryRun,
 
     -- * Destructuring the response
     StartVPCEndpointServicePrivateDNSVerificationResponse (..),
@@ -43,45 +44,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartVPCEndpointServicePrivateDNSVerification' smart constructor.
 data StartVPCEndpointServicePrivateDNSVerification = StartVPCEndpointServicePrivateDNSVerification'
-  { dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    serviceId ::
-      Lude.Text
+  { -- | The ID of the endpoint service.
+    serviceId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartVPCEndpointServicePrivateDNSVerification' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'serviceId' - The ID of the endpoint service.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkStartVPCEndpointServicePrivateDNSVerification ::
   -- | 'serviceId'
   Lude.Text ->
   StartVPCEndpointServicePrivateDNSVerification
 mkStartVPCEndpointServicePrivateDNSVerification pServiceId_ =
   StartVPCEndpointServicePrivateDNSVerification'
-    { dryRun =
-        Lude.Nothing,
-      serviceId = pServiceId_
+    { serviceId =
+        pServiceId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svespdvDryRun :: Lens.Lens' StartVPCEndpointServicePrivateDNSVerification (Lude.Maybe Lude.Bool)
-svespdvDryRun = Lens.lens (dryRun :: StartVPCEndpointServicePrivateDNSVerification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: StartVPCEndpointServicePrivateDNSVerification)
-{-# DEPRECATED svespdvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the endpoint service.
 --
@@ -89,6 +73,13 @@ svespdvDryRun = Lens.lens (dryRun :: StartVPCEndpointServicePrivateDNSVerificati
 svespdvServiceId :: Lens.Lens' StartVPCEndpointServicePrivateDNSVerification Lude.Text
 svespdvServiceId = Lens.lens (serviceId :: StartVPCEndpointServicePrivateDNSVerification -> Lude.Text) (\s a -> s {serviceId = a} :: StartVPCEndpointServicePrivateDNSVerification)
 {-# DEPRECATED svespdvServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svespdvDryRun :: Lens.Lens' StartVPCEndpointServicePrivateDNSVerification (Lude.Maybe Lude.Bool)
+svespdvDryRun = Lens.lens (dryRun :: StartVPCEndpointServicePrivateDNSVerification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: StartVPCEndpointServicePrivateDNSVerification)
+{-# DEPRECATED svespdvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -122,34 +113,24 @@ instance Lude.ToQuery StartVPCEndpointServicePrivateDNSVerification where
                       Lude.ByteString
                   ),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "ServiceId" Lude.=: serviceId
+        "ServiceId" Lude.=: serviceId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkStartVPCEndpointServicePrivateDNSVerificationResponse' smart constructor.
 data StartVPCEndpointServicePrivateDNSVerificationResponse = StartVPCEndpointServicePrivateDNSVerificationResponse'
-  { returnValue ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    returnValue :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartVPCEndpointServicePrivateDNSVerificationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'returnValue' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkStartVPCEndpointServicePrivateDNSVerificationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

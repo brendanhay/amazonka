@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.Lambda.PutFunctionEventInvokeConfig
     -- ** Request lenses
     pfeicMaximumEventAgeInSeconds,
     pfeicMaximumRetryAttempts,
+    pfeicFunctionName,
     pfeicQualifier,
     pfeicDestinationConfig,
-    pfeicFunctionName,
 
     -- * Destructuring the response
     FunctionEventInvokeConfig (..),
@@ -49,42 +50,50 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutFunctionEventInvokeConfig' smart constructor.
 data PutFunctionEventInvokeConfig = PutFunctionEventInvokeConfig'
-  { maximumEventAgeInSeconds ::
-      Lude.Maybe Lude.Natural,
-    maximumRetryAttempts ::
-      Lude.Maybe Lude.Natural,
+  { -- | The maximum age of a request that Lambda sends to a function for processing.
+    maximumEventAgeInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of times to retry when the function returns an error.
+    maximumRetryAttempts :: Lude.Maybe Lude.Natural,
+    -- | The name of the Lambda function, version, or alias.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | A version number or alias name.
     qualifier :: Lude.Maybe Lude.Text,
-    destinationConfig ::
-      Lude.Maybe DestinationConfig,
-    functionName :: Lude.Text
+    -- | A destination for events after they have been sent to a function for processing.
+    --
+    -- __Destinations__
+    --
+    --     * __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
+    --
+    --
+    --     * __Queue__ - The ARN of an SQS queue.
+    --
+    --
+    --     * __Topic__ - The ARN of an SNS topic.
+    --
+    --
+    --     * __Event Bus__ - The ARN of an Amazon EventBridge event bus.
+    destinationConfig :: Lude.Maybe DestinationConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutFunctionEventInvokeConfig' with the minimum fields required to make a request.
 --
--- * 'destinationConfig' - A destination for events after they have been sent to a function for processing.
---
--- __Destinations__
---
---     * __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
---
---
---     * __Queue__ - The ARN of an SQS queue.
---
---
---     * __Topic__ - The ARN of an SNS topic.
---
---
---     * __Event Bus__ - The ARN of an Amazon EventBridge event bus.
---
---
+-- * 'maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for processing.
+-- * 'maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.
 -- * 'functionName' - The name of the Lambda function, version, or alias.
 --
 -- __Name formats__
@@ -99,9 +108,21 @@ data PutFunctionEventInvokeConfig = PutFunctionEventInvokeConfig'
 --
 --
 -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for processing.
--- * 'maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.
 -- * 'qualifier' - A version number or alias name.
+-- * 'destinationConfig' - A destination for events after they have been sent to a function for processing.
+--
+-- __Destinations__
+--
+--     * __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
+--
+--
+--     * __Queue__ - The ARN of an SQS queue.
+--
+--
+--     * __Topic__ - The ARN of an SNS topic.
+--
+--
+--     * __Event Bus__ - The ARN of an Amazon EventBridge event bus.
 mkPutFunctionEventInvokeConfig ::
   -- | 'functionName'
   Lude.Text ->
@@ -111,9 +132,9 @@ mkPutFunctionEventInvokeConfig pFunctionName_ =
     { maximumEventAgeInSeconds =
         Lude.Nothing,
       maximumRetryAttempts = Lude.Nothing,
+      functionName = pFunctionName_,
       qualifier = Lude.Nothing,
-      destinationConfig = Lude.Nothing,
-      functionName = pFunctionName_
+      destinationConfig = Lude.Nothing
     }
 
 -- | The maximum age of a request that Lambda sends to a function for processing.
@@ -129,6 +150,26 @@ pfeicMaximumEventAgeInSeconds = Lens.lens (maximumEventAgeInSeconds :: PutFuncti
 pfeicMaximumRetryAttempts :: Lens.Lens' PutFunctionEventInvokeConfig (Lude.Maybe Lude.Natural)
 pfeicMaximumRetryAttempts = Lens.lens (maximumRetryAttempts :: PutFunctionEventInvokeConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maximumRetryAttempts = a} :: PutFunctionEventInvokeConfig)
 {-# DEPRECATED pfeicMaximumRetryAttempts "Use generic-lens or generic-optics with 'maximumRetryAttempts' instead." #-}
+
+-- | The name of the Lambda function, version, or alias.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfeicFunctionName :: Lens.Lens' PutFunctionEventInvokeConfig Lude.Text
+pfeicFunctionName = Lens.lens (functionName :: PutFunctionEventInvokeConfig -> Lude.Text) (\s a -> s {functionName = a} :: PutFunctionEventInvokeConfig)
+{-# DEPRECATED pfeicFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | A version number or alias name.
 --
@@ -158,26 +199,6 @@ pfeicQualifier = Lens.lens (qualifier :: PutFunctionEventInvokeConfig -> Lude.Ma
 pfeicDestinationConfig :: Lens.Lens' PutFunctionEventInvokeConfig (Lude.Maybe DestinationConfig)
 pfeicDestinationConfig = Lens.lens (destinationConfig :: PutFunctionEventInvokeConfig -> Lude.Maybe DestinationConfig) (\s a -> s {destinationConfig = a} :: PutFunctionEventInvokeConfig)
 {-# DEPRECATED pfeicDestinationConfig "Use generic-lens or generic-optics with 'destinationConfig' instead." #-}
-
--- | The name of the Lambda function, version, or alias.
---
--- __Name formats__
---
---     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
---
---
---     * __Partial ARN__ - @123456789012:function:my-function@ .
---
---
--- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
---
--- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfeicFunctionName :: Lens.Lens' PutFunctionEventInvokeConfig Lude.Text
-pfeicFunctionName = Lens.lens (functionName :: PutFunctionEventInvokeConfig -> Lude.Text) (\s a -> s {functionName = a} :: PutFunctionEventInvokeConfig)
-{-# DEPRECATED pfeicFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 instance Lude.AWSRequest PutFunctionEventInvokeConfig where
   type Rs PutFunctionEventInvokeConfig = FunctionEventInvokeConfig

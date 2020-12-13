@@ -29,17 +29,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAppSpecContent' smart constructor.
 data AppSpecContent = AppSpecContent'
-  { content ::
-      Lude.Maybe Lude.Text,
+  { -- | The YAML-formatted or JSON-formatted revision string.
+    --
+    -- For an AWS Lambda deployment, the content includes a Lambda function name, the alias for its original version, and the alias for its replacement version. The deployment shifts traffic from the original version of the Lambda function to the replacement version.
+    -- For an Amazon ECS deployment, the content includes the task name, information about the load balancer that serves traffic to the container, and more.
+    -- For both types of deployments, the content can specify Lambda functions that run at specified hooks, such as @BeforeInstall@ , during a deployment.
+    content :: Lude.Maybe Lude.Text,
+    -- | The SHA256 hash value of the revision content.
     sha256 :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppSpecContent' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.F4vMoovPlacement
   ( F4vMoovPlacement
       ( F4vMoovPlacement',
-        FMPNormal,
-        FMPProgressiveDownload
+        FMPProgressiveDownload,
+        FMPNormal
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype F4vMoovPlacement = F4vMoovPlacement' Lude.Text
       Lude.ToHeader
     )
 
-pattern FMPNormal :: F4vMoovPlacement
-pattern FMPNormal = F4vMoovPlacement' "NORMAL"
-
 pattern FMPProgressiveDownload :: F4vMoovPlacement
 pattern FMPProgressiveDownload = F4vMoovPlacement' "PROGRESSIVE_DOWNLOAD"
 
+pattern FMPNormal :: F4vMoovPlacement
+pattern FMPNormal = F4vMoovPlacement' "NORMAL"
+
 {-# COMPLETE
-  FMPNormal,
   FMPProgressiveDownload,
+  FMPNormal,
   F4vMoovPlacement'
   #-}

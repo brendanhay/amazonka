@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.WorkSpaces.DeleteWorkspaceImage
     mkDeleteWorkspaceImageResponse,
 
     -- ** Response lenses
-    delrsResponseStatus,
+    dwirsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDeleteWorkspaceImage' smart constructor.
 newtype DeleteWorkspaceImage = DeleteWorkspaceImage'
-  { imageId ::
-      Lude.Text
+  { -- | The identifier of the image.
+    imageId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkspaceImage' with the minimum fields required to make a request.
@@ -101,16 +96,10 @@ instance Lude.ToQuery DeleteWorkspaceImage where
 
 -- | /See:/ 'mkDeleteWorkspaceImageResponse' smart constructor.
 newtype DeleteWorkspaceImageResponse = DeleteWorkspaceImageResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkspaceImageResponse' with the minimum fields required to make a request.
@@ -126,6 +115,6 @@ mkDeleteWorkspaceImageResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteWorkspaceImageResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkspaceImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkspaceImageResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwirsResponseStatus :: Lens.Lens' DeleteWorkspaceImageResponse Lude.Int
+dwirsResponseStatus = Lens.lens (responseStatus :: DeleteWorkspaceImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkspaceImageResponse)
+{-# DEPRECATED dwirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

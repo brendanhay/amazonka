@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
     mkAddApplicationReferenceDataSource,
 
     -- ** Request lenses
-    aardsApplicationName,
     aardsCurrentApplicationVersionId,
     aardsReferenceDataSource,
+    aardsApplicationName,
 
     -- * Destructuring the response
     AddApplicationReferenceDataSourceResponse (..),
@@ -46,52 +47,39 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAddApplicationReferenceDataSource' smart constructor.
 data AddApplicationReferenceDataSource = AddApplicationReferenceDataSource'
-  { applicationName ::
-      Lude.Text,
-    currentApplicationVersionId ::
-      Lude.Natural,
-    referenceDataSource ::
-      ReferenceDataSource
+  { -- | Version of the application for which you are adding the reference data source. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
+    currentApplicationVersionId :: Lude.Natural,
+    -- | The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.
+    referenceDataSource :: ReferenceDataSource,
+    -- | Name of an existing application.
+    applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddApplicationReferenceDataSource' with the minimum fields required to make a request.
 --
--- * 'applicationName' - Name of an existing application.
 -- * 'currentApplicationVersionId' - Version of the application for which you are adding the reference data source. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 -- * 'referenceDataSource' - The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.
+-- * 'applicationName' - Name of an existing application.
 mkAddApplicationReferenceDataSource ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'currentApplicationVersionId'
   Lude.Natural ->
   -- | 'referenceDataSource'
   ReferenceDataSource ->
+  -- | 'applicationName'
+  Lude.Text ->
   AddApplicationReferenceDataSource
 mkAddApplicationReferenceDataSource
-  pApplicationName_
   pCurrentApplicationVersionId_
-  pReferenceDataSource_ =
+  pReferenceDataSource_
+  pApplicationName_ =
     AddApplicationReferenceDataSource'
-      { applicationName =
-          pApplicationName_,
-        currentApplicationVersionId = pCurrentApplicationVersionId_,
-        referenceDataSource = pReferenceDataSource_
+      { currentApplicationVersionId =
+          pCurrentApplicationVersionId_,
+        referenceDataSource = pReferenceDataSource_,
+        applicationName = pApplicationName_
       }
-
--- | Name of an existing application.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aardsApplicationName :: Lens.Lens' AddApplicationReferenceDataSource Lude.Text
-aardsApplicationName = Lens.lens (applicationName :: AddApplicationReferenceDataSource -> Lude.Text) (\s a -> s {applicationName = a} :: AddApplicationReferenceDataSource)
-{-# DEPRECATED aardsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Version of the application for which you are adding the reference data source. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 --
@@ -106,6 +94,13 @@ aardsCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: Add
 aardsReferenceDataSource :: Lens.Lens' AddApplicationReferenceDataSource ReferenceDataSource
 aardsReferenceDataSource = Lens.lens (referenceDataSource :: AddApplicationReferenceDataSource -> ReferenceDataSource) (\s a -> s {referenceDataSource = a} :: AddApplicationReferenceDataSource)
 {-# DEPRECATED aardsReferenceDataSource "Use generic-lens or generic-optics with 'referenceDataSource' instead." #-}
+
+-- | Name of an existing application.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aardsApplicationName :: Lens.Lens' AddApplicationReferenceDataSource Lude.Text
+aardsApplicationName = Lens.lens (applicationName :: AddApplicationReferenceDataSource -> Lude.Text) (\s a -> s {applicationName = a} :: AddApplicationReferenceDataSource)
+{-# DEPRECATED aardsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 instance Lude.AWSRequest AddApplicationReferenceDataSource where
   type
@@ -136,12 +131,12 @@ instance Lude.ToJSON AddApplicationReferenceDataSource where
   toJSON AddApplicationReferenceDataSource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ApplicationName" Lude..= applicationName),
-            Lude.Just
+          [ Lude.Just
               ( "CurrentApplicationVersionId"
                   Lude..= currentApplicationVersionId
               ),
-            Lude.Just ("ReferenceDataSource" Lude..= referenceDataSource)
+            Lude.Just ("ReferenceDataSource" Lude..= referenceDataSource),
+            Lude.Just ("ApplicationName" Lude..= applicationName)
           ]
       )
 
@@ -155,16 +150,10 @@ instance Lude.ToQuery AddApplicationReferenceDataSource where
 --
 -- /See:/ 'mkAddApplicationReferenceDataSourceResponse' smart constructor.
 newtype AddApplicationReferenceDataSourceResponse = AddApplicationReferenceDataSourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddApplicationReferenceDataSourceResponse' with the minimum fields required to make a request.

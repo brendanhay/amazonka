@@ -14,8 +14,8 @@ module Network.AWS.Firehose.Types.OrcCompression
   ( OrcCompression
       ( OrcCompression',
         OCNone,
-        OCSnappy,
-        OCZlib
+        OCZlib,
+        OCSnappy
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype OrcCompression = OrcCompression' Lude.Text
 pattern OCNone :: OrcCompression
 pattern OCNone = OrcCompression' "NONE"
 
-pattern OCSnappy :: OrcCompression
-pattern OCSnappy = OrcCompression' "SNAPPY"
-
 pattern OCZlib :: OrcCompression
 pattern OCZlib = OrcCompression' "ZLIB"
 
+pattern OCSnappy :: OrcCompression
+pattern OCSnappy = OrcCompression' "SNAPPY"
+
 {-# COMPLETE
   OCNone,
-  OCSnappy,
   OCZlib,
+  OCSnappy,
   OrcCompression'
   #-}

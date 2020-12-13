@@ -43,42 +43,45 @@ import Network.AWS.SSM.Types.Tag
 --
 -- /See:/ 'mkDocumentIdentifier' smart constructor.
 data DocumentIdentifier = DocumentIdentifier'
-  { documentType ::
-      Lude.Maybe DocumentType,
+  { -- | The document type.
+    documentType :: Lude.Maybe DocumentType,
+    -- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
     versionName :: Lude.Maybe Lude.Text,
+    -- | The schema version.
     schemaVersion :: Lude.Maybe Lude.Text,
+    -- | The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
     targetType :: Lude.Maybe Lude.Text,
+    -- | The AWS user account that created the document.
     owner :: Lude.Maybe Lude.Text,
+    -- | The operating system platform.
     platformTypes :: Lude.Maybe [PlatformType],
+    -- | The document format, either JSON or YAML.
     documentFormat :: Lude.Maybe DocumentFormat,
+    -- | The name of the Systems Manager document.
     name :: Lude.Maybe Lude.Text,
+    -- | The document version.
     documentVersion :: Lude.Maybe Lude.Text,
-    requires ::
-      Lude.Maybe (Lude.NonEmpty DocumentRequires),
+    -- | A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
+    requires :: Lude.Maybe (Lude.NonEmpty DocumentRequires),
+    -- | The tags, or metadata, that have been applied to the document.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentIdentifier' with the minimum fields required to make a request.
 --
--- * 'documentFormat' - The document format, either JSON or YAML.
 -- * 'documentType' - The document type.
--- * 'documentVersion' - The document version.
--- * 'name' - The name of the Systems Manager document.
+-- * 'versionName' - An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+-- * 'schemaVersion' - The schema version.
+-- * 'targetType' - The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
 -- * 'owner' - The AWS user account that created the document.
 -- * 'platformTypes' - The operating system platform.
+-- * 'documentFormat' - The document format, either JSON or YAML.
+-- * 'name' - The name of the Systems Manager document.
+-- * 'documentVersion' - The document version.
 -- * 'requires' - A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
--- * 'schemaVersion' - The schema version.
 -- * 'tags' - The tags, or metadata, that have been applied to the document.
--- * 'targetType' - The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
--- * 'versionName' - An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 mkDocumentIdentifier ::
   DocumentIdentifier
 mkDocumentIdentifier =

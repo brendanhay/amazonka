@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.MediaPackage.ConfigureLogs
 
     -- ** Request lenses
     clIngressAccessLogs,
-    clEgressAccessLogs,
     clId,
+    clEgressAccessLogs,
 
     -- * Destructuring the response
     ConfigureLogsResponse (..),
@@ -49,25 +50,19 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkConfigureLogs' smart constructor.
 data ConfigureLogs = ConfigureLogs'
-  { ingressAccessLogs ::
-      Lude.Maybe IngressAccessLogs,
-    egressAccessLogs :: Lude.Maybe EgressAccessLogs,
-    id :: Lude.Text
+  { ingressAccessLogs :: Lude.Maybe IngressAccessLogs,
+    -- | The ID of the channel to log subscription.
+    id :: Lude.Text,
+    egressAccessLogs :: Lude.Maybe EgressAccessLogs
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigureLogs' with the minimum fields required to make a request.
 --
--- * 'egressAccessLogs' - Undocumented field.
+-- * 'ingressAccessLogs' -
 -- * 'id' - The ID of the channel to log subscription.
--- * 'ingressAccessLogs' - Undocumented field.
+-- * 'egressAccessLogs' -
 mkConfigureLogs ::
   -- | 'id'
   Lude.Text ->
@@ -75,8 +70,8 @@ mkConfigureLogs ::
 mkConfigureLogs pId_ =
   ConfigureLogs'
     { ingressAccessLogs = Lude.Nothing,
-      egressAccessLogs = Lude.Nothing,
-      id = pId_
+      id = pId_,
+      egressAccessLogs = Lude.Nothing
     }
 
 -- | Undocumented field.
@@ -86,19 +81,19 @@ clIngressAccessLogs :: Lens.Lens' ConfigureLogs (Lude.Maybe IngressAccessLogs)
 clIngressAccessLogs = Lens.lens (ingressAccessLogs :: ConfigureLogs -> Lude.Maybe IngressAccessLogs) (\s a -> s {ingressAccessLogs = a} :: ConfigureLogs)
 {-# DEPRECATED clIngressAccessLogs "Use generic-lens or generic-optics with 'ingressAccessLogs' instead." #-}
 
--- | Undocumented field.
---
--- /Note:/ Consider using 'egressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clEgressAccessLogs :: Lens.Lens' ConfigureLogs (Lude.Maybe EgressAccessLogs)
-clEgressAccessLogs = Lens.lens (egressAccessLogs :: ConfigureLogs -> Lude.Maybe EgressAccessLogs) (\s a -> s {egressAccessLogs = a} :: ConfigureLogs)
-{-# DEPRECATED clEgressAccessLogs "Use generic-lens or generic-optics with 'egressAccessLogs' instead." #-}
-
 -- | The ID of the channel to log subscription.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 clId :: Lens.Lens' ConfigureLogs Lude.Text
 clId = Lens.lens (id :: ConfigureLogs -> Lude.Text) (\s a -> s {id = a} :: ConfigureLogs)
 {-# DEPRECATED clId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'egressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clEgressAccessLogs :: Lens.Lens' ConfigureLogs (Lude.Maybe EgressAccessLogs)
+clEgressAccessLogs = Lens.lens (egressAccessLogs :: ConfigureLogs -> Lude.Maybe EgressAccessLogs) (\s a -> s {egressAccessLogs = a} :: ConfigureLogs)
+{-# DEPRECATED clEgressAccessLogs "Use generic-lens or generic-optics with 'egressAccessLogs' instead." #-}
 
 instance Lude.AWSRequest ConfigureLogs where
   type Rs ConfigureLogs = ConfigureLogsResponse
@@ -144,36 +139,32 @@ instance Lude.ToQuery ConfigureLogs where
 
 -- | /See:/ 'mkConfigureLogsResponse' smart constructor.
 data ConfigureLogsResponse = ConfigureLogsResponse'
-  { ingressAccessLogs ::
-      Lude.Maybe IngressAccessLogs,
+  { ingressAccessLogs :: Lude.Maybe IngressAccessLogs,
     hlsIngest :: Lude.Maybe HlsIngest,
+    -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ID of the Channel.
     id :: Lude.Maybe Lude.Text,
+    -- | A short text description of the Channel.
     description :: Lude.Maybe Lude.Text,
     egressAccessLogs :: Lude.Maybe EgressAccessLogs,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigureLogsResponse' with the minimum fields required to make a request.
 --
+-- * 'ingressAccessLogs' -
+-- * 'hlsIngest' -
 -- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
--- * 'description' - A short text description of the Channel.
--- * 'egressAccessLogs' - Undocumented field.
--- * 'hlsIngest' - Undocumented field.
 -- * 'id' - The ID of the Channel.
--- * 'ingressAccessLogs' - Undocumented field.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' -
+-- * 'tags' -
 -- * 'responseStatus' - The response status code.
--- * 'tags' - Undocumented field.
 mkConfigureLogsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

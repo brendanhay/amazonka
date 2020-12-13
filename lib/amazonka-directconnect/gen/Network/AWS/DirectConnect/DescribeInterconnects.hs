@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     mkDescribeInterconnects,
 
     -- ** Request lenses
-    diInterconnectId,
+    dInterconnectId,
 
     -- * Destructuring the response
     DescribeInterconnectsResponse (..),
     mkDescribeInterconnectsResponse,
 
     -- ** Response lenses
-    dirsInterconnects,
-    dirsResponseStatus,
+    disrsInterconnects,
+    disrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInterconnects' smart constructor.
 newtype DescribeInterconnects = DescribeInterconnects'
-  { interconnectId ::
-      Lude.Maybe Lude.Text
+  { -- | The ID of the interconnect.
+    interconnectId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInterconnects' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkDescribeInterconnects =
 -- | The ID of the interconnect.
 --
 -- /Note:/ Consider using 'interconnectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diInterconnectId :: Lens.Lens' DescribeInterconnects (Lude.Maybe Lude.Text)
-diInterconnectId = Lens.lens (interconnectId :: DescribeInterconnects -> Lude.Maybe Lude.Text) (\s a -> s {interconnectId = a} :: DescribeInterconnects)
-{-# DEPRECATED diInterconnectId "Use generic-lens or generic-optics with 'interconnectId' instead." #-}
+dInterconnectId :: Lens.Lens' DescribeInterconnects (Lude.Maybe Lude.Text)
+dInterconnectId = Lens.lens (interconnectId :: DescribeInterconnects -> Lude.Maybe Lude.Text) (\s a -> s {interconnectId = a} :: DescribeInterconnects)
+{-# DEPRECATED dInterconnectId "Use generic-lens or generic-optics with 'interconnectId' instead." #-}
 
 instance Lude.AWSRequest DescribeInterconnects where
   type Rs DescribeInterconnects = DescribeInterconnectsResponse
@@ -103,17 +98,12 @@ instance Lude.ToQuery DescribeInterconnects where
 
 -- | /See:/ 'mkDescribeInterconnectsResponse' smart constructor.
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
-  { interconnects ::
-      Lude.Maybe [Interconnect],
+  { -- | The interconnects.
+    interconnects :: Lude.Maybe [Interconnect],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInterconnectsResponse' with the minimum fields required to make a request.
@@ -133,13 +123,13 @@ mkDescribeInterconnectsResponse pResponseStatus_ =
 -- | The interconnects.
 --
 -- /Note:/ Consider using 'interconnects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsInterconnects :: Lens.Lens' DescribeInterconnectsResponse (Lude.Maybe [Interconnect])
-dirsInterconnects = Lens.lens (interconnects :: DescribeInterconnectsResponse -> Lude.Maybe [Interconnect]) (\s a -> s {interconnects = a} :: DescribeInterconnectsResponse)
-{-# DEPRECATED dirsInterconnects "Use generic-lens or generic-optics with 'interconnects' instead." #-}
+disrsInterconnects :: Lens.Lens' DescribeInterconnectsResponse (Lude.Maybe [Interconnect])
+disrsInterconnects = Lens.lens (interconnects :: DescribeInterconnectsResponse -> Lude.Maybe [Interconnect]) (\s a -> s {interconnects = a} :: DescribeInterconnectsResponse)
+{-# DEPRECATED disrsInterconnects "Use generic-lens or generic-optics with 'interconnects' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsResponseStatus :: Lens.Lens' DescribeInterconnectsResponse Lude.Int
-dirsResponseStatus = Lens.lens (responseStatus :: DescribeInterconnectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInterconnectsResponse)
-{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+disrsResponseStatus :: Lens.Lens' DescribeInterconnectsResponse Lude.Int
+disrsResponseStatus = Lens.lens (responseStatus :: DescribeInterconnectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInterconnectsResponse)
+{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

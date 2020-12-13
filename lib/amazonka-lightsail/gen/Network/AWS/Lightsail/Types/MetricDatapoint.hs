@@ -35,30 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricDatapoint' smart constructor.
 data MetricDatapoint = MetricDatapoint'
-  { sampleCount ::
-      Lude.Maybe Lude.Double,
+  { -- | The sample count.
+    sampleCount :: Lude.Maybe Lude.Double,
+    -- | The maximum.
     maximum :: Lude.Maybe Lude.Double,
+    -- | The average.
     average :: Lude.Maybe Lude.Double,
+    -- | The minimum.
     minimum :: Lude.Maybe Lude.Double,
+    -- | The sum.
     sum :: Lude.Maybe Lude.Double,
+    -- | The timestamp (e.g., @1479816991.349@ ).
     timestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The unit.
     unit :: Lude.Maybe MetricUnit
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricDatapoint' with the minimum fields required to make a request.
 --
--- * 'average' - The average.
--- * 'maximum' - The maximum.
--- * 'minimum' - The minimum.
 -- * 'sampleCount' - The sample count.
+-- * 'maximum' - The maximum.
+-- * 'average' - The average.
+-- * 'minimum' - The minimum.
 -- * 'sum' - The sum.
 -- * 'timestamp' - The timestamp (e.g., @1479816991.349@ ).
 -- * 'unit' - The unit.

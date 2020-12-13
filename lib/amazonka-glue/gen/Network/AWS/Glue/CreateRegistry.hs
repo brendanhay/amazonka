@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Glue.CreateRegistry
     mkCreateRegistry,
 
     -- ** Request lenses
+    crRegistryName,
     crDescription,
     crTags,
-    crRegistryName,
 
     -- * Destructuring the response
     CreateRegistryResponse (..),
@@ -44,24 +45,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRegistry' smart constructor.
 data CreateRegistry = CreateRegistry'
-  { description ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    registryName :: Lude.Text
+  { -- | Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
+    registryName :: Lude.Text,
+    -- | A description of the registry. If description is not provided, there will not be any default value for this.
+    description :: Lude.Maybe Lude.Text,
+    -- | AWS tags that contain a key value pair and may be searched by console, command line, or API.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRegistry' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the registry. If description is not provided, there will not be any default value for this.
 -- * 'registryName' - Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
+-- * 'description' - A description of the registry. If description is not provided, there will not be any default value for this.
 -- * 'tags' - AWS tags that contain a key value pair and may be searched by console, command line, or API.
 mkCreateRegistry ::
   -- | 'registryName'
@@ -69,10 +66,17 @@ mkCreateRegistry ::
   CreateRegistry
 mkCreateRegistry pRegistryName_ =
   CreateRegistry'
-    { description = Lude.Nothing,
-      tags = Lude.Nothing,
-      registryName = pRegistryName_
+    { registryName = pRegistryName_,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRegistryName :: Lens.Lens' CreateRegistry Lude.Text
+crRegistryName = Lens.lens (registryName :: CreateRegistry -> Lude.Text) (\s a -> s {registryName = a} :: CreateRegistry)
+{-# DEPRECATED crRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | A description of the registry. If description is not provided, there will not be any default value for this.
 --
@@ -87,13 +91,6 @@ crDescription = Lens.lens (description :: CreateRegistry -> Lude.Maybe Lude.Text
 crTags :: Lens.Lens' CreateRegistry (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 crTags = Lens.lens (tags :: CreateRegistry -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRegistry)
 {-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
---
--- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crRegistryName :: Lens.Lens' CreateRegistry Lude.Text
-crRegistryName = Lens.lens (registryName :: CreateRegistry -> Lude.Text) (\s a -> s {registryName = a} :: CreateRegistry)
-{-# DEPRECATED crRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 instance Lude.AWSRequest CreateRegistry where
   type Rs CreateRegistry = CreateRegistryResponse
@@ -124,9 +121,9 @@ instance Lude.ToJSON CreateRegistry where
   toJSON CreateRegistry' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("RegistryName" Lude..= registryName)
+          [ Lude.Just ("RegistryName" Lude..= registryName),
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -138,31 +135,27 @@ instance Lude.ToQuery CreateRegistry where
 
 -- | /See:/ 'mkCreateRegistryResponse' smart constructor.
 data CreateRegistryResponse = CreateRegistryResponse'
-  { registryName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the registry.
+    registryName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the newly created registry.
     registryARN :: Lude.Maybe Lude.Text,
+    -- | A description of the registry.
     description :: Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The tags for the registry.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRegistryResponse' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the registry.
--- * 'registryARN' - The Amazon Resource Name (ARN) of the newly created registry.
 -- * 'registryName' - The name of the registry.
--- * 'responseStatus' - The response status code.
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the newly created registry.
+-- * 'description' - A description of the registry.
 -- * 'tags' - The tags for the registry.
+-- * 'responseStatus' - The response status code.
 mkCreateRegistryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

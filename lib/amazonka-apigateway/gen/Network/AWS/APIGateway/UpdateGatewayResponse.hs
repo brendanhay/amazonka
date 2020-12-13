@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.UpdateGatewayResponse
     mkUpdateGatewayResponse,
 
     -- ** Request lenses
-    ugPatchOperations,
     ugRestAPIId,
+    ugPatchOperations,
     ugResponseType,
 
     -- * Destructuring the response
@@ -46,22 +47,59 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateGatewayResponse' smart constructor.
 data UpdateGatewayResponse = UpdateGatewayResponse'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation],
+    -- | [Required] The response type of the associated 'GatewayResponse' . Valid values are
+    --
+    --     * ACCESS_DENIED
+    --
+    --     * API_CONFIGURATION_ERROR
+    --
+    --     * AUTHORIZER_FAILURE
+    --
+    --     * AUTHORIZER_CONFIGURATION_ERROR
+    --
+    --     * BAD_REQUEST_PARAMETERS
+    --
+    --     * BAD_REQUEST_BODY
+    --
+    --     * DEFAULT_4XX
+    --
+    --     * DEFAULT_5XX
+    --
+    --     * EXPIRED_TOKEN
+    --
+    --     * INVALID_SIGNATURE
+    --
+    --     * INTEGRATION_FAILURE
+    --
+    --     * INTEGRATION_TIMEOUT
+    --
+    --     * INVALID_API_KEY
+    --
+    --     * MISSING_AUTHENTICATION_TOKEN
+    --
+    --     * QUOTA_EXCEEDED
+    --
+    --     * REQUEST_TOO_LARGE
+    --
+    --     * RESOURCE_NOT_FOUND
+    --
+    --     * THROTTLED
+    --
+    --     * UNAUTHORIZED
+    --
+    --     * UNSUPPORTED_MEDIA_TYPE
     responseType :: GatewayResponseType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewayResponse' with the minimum fields required to make a request.
 --
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'responseType' - [Required] The response type of the associated 'GatewayResponse' . Valid values are
 --
@@ -104,10 +142,6 @@ data UpdateGatewayResponse = UpdateGatewayResponse'
 --     * UNAUTHORIZED
 --
 --     * UNSUPPORTED_MEDIA_TYPE
---
---
---
--- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkUpdateGatewayResponse ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -116,17 +150,10 @@ mkUpdateGatewayResponse ::
   UpdateGatewayResponse
 mkUpdateGatewayResponse pRestAPIId_ pResponseType_ =
   UpdateGatewayResponse'
-    { patchOperations = Lude.Nothing,
-      restAPIId = pRestAPIId_,
+    { restAPIId = pRestAPIId_,
+      patchOperations = Lude.Nothing,
       responseType = pResponseType_
     }
-
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugPatchOperations :: Lens.Lens' UpdateGatewayResponse (Lude.Maybe [PatchOperation])
-ugPatchOperations = Lens.lens (patchOperations :: UpdateGatewayResponse -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateGatewayResponse)
-{-# DEPRECATED ugPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
@@ -134,6 +161,13 @@ ugPatchOperations = Lens.lens (patchOperations :: UpdateGatewayResponse -> Lude.
 ugRestAPIId :: Lens.Lens' UpdateGatewayResponse Lude.Text
 ugRestAPIId = Lens.lens (restAPIId :: UpdateGatewayResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateGatewayResponse)
 {-# DEPRECATED ugRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugPatchOperations :: Lens.Lens' UpdateGatewayResponse (Lude.Maybe [PatchOperation])
+ugPatchOperations = Lens.lens (patchOperations :: UpdateGatewayResponse -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateGatewayResponse)
+{-# DEPRECATED ugPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The response type of the associated 'GatewayResponse' . Valid values are
 --

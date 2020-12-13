@@ -17,8 +17,8 @@ module Network.AWS.MediaLive.Types.InputChannelLevel
     mkInputChannelLevel,
 
     -- * Lenses
-    iclInputChannel,
     iclGain,
+    iclInputChannel,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputChannelLevel' smart constructor.
 data InputChannelLevel = InputChannelLevel'
-  { inputChannel ::
-      Lude.Natural,
-    gain :: Lude.Int
+  { -- | Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
+    gain :: Lude.Int,
+    -- | The index of the input channel used as a source.
+    inputChannel :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputChannelLevel' with the minimum fields required to make a request.
@@ -47,20 +42,13 @@ data InputChannelLevel = InputChannelLevel'
 -- * 'gain' - Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
 -- * 'inputChannel' - The index of the input channel used as a source.
 mkInputChannelLevel ::
-  -- | 'inputChannel'
-  Lude.Natural ->
   -- | 'gain'
   Lude.Int ->
+  -- | 'inputChannel'
+  Lude.Natural ->
   InputChannelLevel
-mkInputChannelLevel pInputChannel_ pGain_ =
-  InputChannelLevel' {inputChannel = pInputChannel_, gain = pGain_}
-
--- | The index of the input channel used as a source.
---
--- /Note:/ Consider using 'inputChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iclInputChannel :: Lens.Lens' InputChannelLevel Lude.Natural
-iclInputChannel = Lens.lens (inputChannel :: InputChannelLevel -> Lude.Natural) (\s a -> s {inputChannel = a} :: InputChannelLevel)
-{-# DEPRECATED iclInputChannel "Use generic-lens or generic-optics with 'inputChannel' instead." #-}
+mkInputChannelLevel pGain_ pInputChannel_ =
+  InputChannelLevel' {gain = pGain_, inputChannel = pInputChannel_}
 
 -- | Remixing value. Units are in dB and acceptable values are within the range from -60 (mute) and 6 dB.
 --
@@ -69,20 +57,27 @@ iclGain :: Lens.Lens' InputChannelLevel Lude.Int
 iclGain = Lens.lens (gain :: InputChannelLevel -> Lude.Int) (\s a -> s {gain = a} :: InputChannelLevel)
 {-# DEPRECATED iclGain "Use generic-lens or generic-optics with 'gain' instead." #-}
 
+-- | The index of the input channel used as a source.
+--
+-- /Note:/ Consider using 'inputChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iclInputChannel :: Lens.Lens' InputChannelLevel Lude.Natural
+iclInputChannel = Lens.lens (inputChannel :: InputChannelLevel -> Lude.Natural) (\s a -> s {inputChannel = a} :: InputChannelLevel)
+{-# DEPRECATED iclInputChannel "Use generic-lens or generic-optics with 'inputChannel' instead." #-}
+
 instance Lude.FromJSON InputChannelLevel where
   parseJSON =
     Lude.withObject
       "InputChannelLevel"
       ( \x ->
           InputChannelLevel'
-            Lude.<$> (x Lude..: "inputChannel") Lude.<*> (x Lude..: "gain")
+            Lude.<$> (x Lude..: "gain") Lude.<*> (x Lude..: "inputChannel")
       )
 
 instance Lude.ToJSON InputChannelLevel where
   toJSON InputChannelLevel' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("inputChannel" Lude..= inputChannel),
-            Lude.Just ("gain" Lude..= gain)
+          [ Lude.Just ("gain" Lude..= gain),
+            Lude.Just ("inputChannel" Lude..= inputChannel)
           ]
       )

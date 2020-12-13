@@ -47,45 +47,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoleDetail' smart constructor.
 data RoleDetail = RoleDetail'
-  { assumeRolePolicyDocument ::
-      Lude.Maybe Lude.Text,
+  { -- | The trust policy that grants permission to assume the role.
+    assumeRolePolicyDocument :: Lude.Maybe Lude.Text,
     arn :: Lude.Maybe Lude.Text,
+    -- | The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     path :: Lude.Maybe Lude.Text,
+    -- | A list of instance profiles that contain this role.
     instanceProfileList :: Lude.Maybe [InstanceProfile],
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | The friendly name that identifies the role.
     roleName :: Lude.Maybe Lude.Text,
+    -- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     roleId :: Lude.Maybe Lude.Text,
+    -- | Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
     roleLastUsed :: Lude.Maybe RoleLastUsed,
+    -- | The ARN of the policy used to set the permissions boundary for the role.
+    --
+    -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
     permissionsBoundary :: Lude.Maybe AttachedPermissionsBoundary,
+    -- | A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
     rolePolicyList :: Lude.Maybe [PolicyDetail],
+    -- | A list of tags that are attached to the specified role. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
     tags :: Lude.Maybe [Tag],
+    -- | A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
     attachedManagedPolicies :: Lude.Maybe [AttachedPolicy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoleDetail' with the minimum fields required to make a request.
 --
--- * 'arn' - Undocumented field.
 -- * 'assumeRolePolicyDocument' - The trust policy that grants permission to assume the role.
--- * 'attachedManagedPolicies' - A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
--- * 'instanceProfileList' - A list of instance profiles that contain this role.
+-- * 'arn' -
 -- * 'path' - The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'instanceProfileList' - A list of instance profiles that contain this role.
+-- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
+-- * 'roleName' - The friendly name that identifies the role.
+-- * 'roleId' - The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'roleLastUsed' - Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
 -- * 'permissionsBoundary' - The ARN of the policy used to set the permissions boundary for the role.
 --
 -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
--- * 'roleId' - The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'roleLastUsed' - Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
--- * 'roleName' - The friendly name that identifies the role.
 -- * 'rolePolicyList' - A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
 -- * 'tags' - A list of tags that are attached to the specified role. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
+-- * 'attachedManagedPolicies' - A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
 mkRoleDetail ::
   RoleDetail
 mkRoleDetail =

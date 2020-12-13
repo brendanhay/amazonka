@@ -39,38 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { count :: Lude.Maybe Lude.Int,
+  { -- | The total count of the occurrences of this finding type.
+    count :: Lude.Maybe Lude.Int,
+    -- | The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.
     eventFirstSeen :: Lude.Maybe Lude.Text,
+    -- | Information about the activity that is described in a finding.
     action :: Lude.Maybe Action,
+    -- | The detector ID for the GuardDuty service.
     detectorId :: Lude.Maybe Lude.Text,
+    -- | The name of the AWS service (GuardDuty) that generated a finding.
     serviceName :: Lude.Maybe Lude.Text,
+    -- | Feedback that was submitted about the finding.
     userFeedback :: Lude.Maybe Lude.Text,
+    -- | An evidence object associated with the service.
     evidence :: Lude.Maybe Evidence,
+    -- | The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.
     eventLastSeen :: Lude.Maybe Lude.Text,
+    -- | The resource role information for this finding.
     resourceRole :: Lude.Maybe Lude.Text,
+    -- | Indicates whether this finding is archived.
     archived :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceInfo' with the minimum fields required to make a request.
 --
--- * 'action' - Information about the activity that is described in a finding.
--- * 'archived' - Indicates whether this finding is archived.
 -- * 'count' - The total count of the occurrences of this finding type.
--- * 'detectorId' - The detector ID for the GuardDuty service.
 -- * 'eventFirstSeen' - The first-seen timestamp of the activity that prompted GuardDuty to generate this finding.
--- * 'eventLastSeen' - The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.
--- * 'evidence' - An evidence object associated with the service.
--- * 'resourceRole' - The resource role information for this finding.
+-- * 'action' - Information about the activity that is described in a finding.
+-- * 'detectorId' - The detector ID for the GuardDuty service.
 -- * 'serviceName' - The name of the AWS service (GuardDuty) that generated a finding.
 -- * 'userFeedback' - Feedback that was submitted about the finding.
+-- * 'evidence' - An evidence object associated with the service.
+-- * 'eventLastSeen' - The last-seen timestamp of the activity that prompted GuardDuty to generate this finding.
+-- * 'resourceRole' - The resource role information for this finding.
+-- * 'archived' - Indicates whether this finding is archived.
 mkServiceInfo ::
   ServiceInfo
 mkServiceInfo =

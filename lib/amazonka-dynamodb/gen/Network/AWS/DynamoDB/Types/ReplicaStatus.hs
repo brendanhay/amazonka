@@ -13,13 +13,13 @@
 module Network.AWS.DynamoDB.Types.ReplicaStatus
   ( ReplicaStatus
       ( ReplicaStatus',
-        RSActive,
         RSCreating,
         RSCreationFailed,
+        RSUpdating,
         RSDeleting,
-        RSInaccessibleEncryptionCredentials,
+        RSActive,
         RSRegionDisabled,
-        RSUpdating
+        RSInaccessibleEncryptionCredentials
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype ReplicaStatus = ReplicaStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSActive :: ReplicaStatus
-pattern RSActive = ReplicaStatus' "ACTIVE"
-
 pattern RSCreating :: ReplicaStatus
 pattern RSCreating = ReplicaStatus' "CREATING"
 
 pattern RSCreationFailed :: ReplicaStatus
 pattern RSCreationFailed = ReplicaStatus' "CREATION_FAILED"
 
+pattern RSUpdating :: ReplicaStatus
+pattern RSUpdating = ReplicaStatus' "UPDATING"
+
 pattern RSDeleting :: ReplicaStatus
 pattern RSDeleting = ReplicaStatus' "DELETING"
 
-pattern RSInaccessibleEncryptionCredentials :: ReplicaStatus
-pattern RSInaccessibleEncryptionCredentials = ReplicaStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
+pattern RSActive :: ReplicaStatus
+pattern RSActive = ReplicaStatus' "ACTIVE"
 
 pattern RSRegionDisabled :: ReplicaStatus
 pattern RSRegionDisabled = ReplicaStatus' "REGION_DISABLED"
 
-pattern RSUpdating :: ReplicaStatus
-pattern RSUpdating = ReplicaStatus' "UPDATING"
+pattern RSInaccessibleEncryptionCredentials :: ReplicaStatus
+pattern RSInaccessibleEncryptionCredentials = ReplicaStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
 
 {-# COMPLETE
-  RSActive,
   RSCreating,
   RSCreationFailed,
-  RSDeleting,
-  RSInaccessibleEncryptionCredentials,
-  RSRegionDisabled,
   RSUpdating,
+  RSDeleting,
+  RSActive,
+  RSRegionDisabled,
+  RSInaccessibleEncryptionCredentials,
   ReplicaStatus'
   #-}

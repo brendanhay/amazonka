@@ -28,16 +28,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSlotTypeRegexConfiguration' smart constructor.
 newtype SlotTypeRegexConfiguration = SlotTypeRegexConfiguration'
-  { pattern' ::
-      Lude.Text
+  { -- | A regular expression used to validate the value of a slot.
+    --
+    -- Use a standard regular expression. Amazon Lex supports the following characters in the regular expression:
+    --
+    --     * A-Z, a-z
+    --
+    --
+    --     * 0-9
+    --
+    --
+    --     * Unicode characters ("\ u<Unicode>")
+    --
+    --
+    -- Represent Unicode characters with four digits, for example "\u0041" or "\u005A".
+    -- The following regular expression operators are not supported:
+    --
+    --     * Infinite repeaters: *, +, or {x,} with no upper bound.
+    --
+    --
+    --     * Wild card (.)
+    pattern' :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SlotTypeRegexConfiguration' with the minimum fields required to make a request.

@@ -13,20 +13,20 @@
 module Network.AWS.SES.Types.BulkEmailStatus
   ( BulkEmailStatus
       ( BulkEmailStatus',
-        AccountDailyQuotaExceeded,
-        AccountSendingPaused,
+        Success,
+        MessageRejected,
+        MailFromDomainNotVerified,
+        ConfigurationSetDoesNotExist,
+        TemplateDoesNotExist,
         AccountSuspended,
         AccountThrottled,
-        ConfigurationSetDoesNotExist,
-        ConfigurationSetSendingPaused,
-        Failed,
-        InvalidParameterValue,
+        AccountDailyQuotaExceeded,
         InvalidSendingPoolName,
-        MailFromDomainNotVerified,
-        MessageRejected,
-        Success,
-        TemplateDoesNotExist,
-        TransientFailure
+        AccountSendingPaused,
+        ConfigurationSetSendingPaused,
+        InvalidParameterValue,
+        TransientFailure,
+        Failed
       ),
   )
 where
@@ -57,11 +57,20 @@ newtype BulkEmailStatus = BulkEmailStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern AccountDailyQuotaExceeded :: BulkEmailStatus
-pattern AccountDailyQuotaExceeded = BulkEmailStatus' "AccountDailyQuotaExceeded"
+pattern Success :: BulkEmailStatus
+pattern Success = BulkEmailStatus' "Success"
 
-pattern AccountSendingPaused :: BulkEmailStatus
-pattern AccountSendingPaused = BulkEmailStatus' "AccountSendingPaused"
+pattern MessageRejected :: BulkEmailStatus
+pattern MessageRejected = BulkEmailStatus' "MessageRejected"
+
+pattern MailFromDomainNotVerified :: BulkEmailStatus
+pattern MailFromDomainNotVerified = BulkEmailStatus' "MailFromDomainNotVerified"
+
+pattern ConfigurationSetDoesNotExist :: BulkEmailStatus
+pattern ConfigurationSetDoesNotExist = BulkEmailStatus' "ConfigurationSetDoesNotExist"
+
+pattern TemplateDoesNotExist :: BulkEmailStatus
+pattern TemplateDoesNotExist = BulkEmailStatus' "TemplateDoesNotExist"
 
 pattern AccountSuspended :: BulkEmailStatus
 pattern AccountSuspended = BulkEmailStatus' "AccountSuspended"
@@ -69,50 +78,41 @@ pattern AccountSuspended = BulkEmailStatus' "AccountSuspended"
 pattern AccountThrottled :: BulkEmailStatus
 pattern AccountThrottled = BulkEmailStatus' "AccountThrottled"
 
-pattern ConfigurationSetDoesNotExist :: BulkEmailStatus
-pattern ConfigurationSetDoesNotExist = BulkEmailStatus' "ConfigurationSetDoesNotExist"
-
-pattern ConfigurationSetSendingPaused :: BulkEmailStatus
-pattern ConfigurationSetSendingPaused = BulkEmailStatus' "ConfigurationSetSendingPaused"
-
-pattern Failed :: BulkEmailStatus
-pattern Failed = BulkEmailStatus' "Failed"
-
-pattern InvalidParameterValue :: BulkEmailStatus
-pattern InvalidParameterValue = BulkEmailStatus' "InvalidParameterValue"
+pattern AccountDailyQuotaExceeded :: BulkEmailStatus
+pattern AccountDailyQuotaExceeded = BulkEmailStatus' "AccountDailyQuotaExceeded"
 
 pattern InvalidSendingPoolName :: BulkEmailStatus
 pattern InvalidSendingPoolName = BulkEmailStatus' "InvalidSendingPoolName"
 
-pattern MailFromDomainNotVerified :: BulkEmailStatus
-pattern MailFromDomainNotVerified = BulkEmailStatus' "MailFromDomainNotVerified"
+pattern AccountSendingPaused :: BulkEmailStatus
+pattern AccountSendingPaused = BulkEmailStatus' "AccountSendingPaused"
 
-pattern MessageRejected :: BulkEmailStatus
-pattern MessageRejected = BulkEmailStatus' "MessageRejected"
+pattern ConfigurationSetSendingPaused :: BulkEmailStatus
+pattern ConfigurationSetSendingPaused = BulkEmailStatus' "ConfigurationSetSendingPaused"
 
-pattern Success :: BulkEmailStatus
-pattern Success = BulkEmailStatus' "Success"
-
-pattern TemplateDoesNotExist :: BulkEmailStatus
-pattern TemplateDoesNotExist = BulkEmailStatus' "TemplateDoesNotExist"
+pattern InvalidParameterValue :: BulkEmailStatus
+pattern InvalidParameterValue = BulkEmailStatus' "InvalidParameterValue"
 
 pattern TransientFailure :: BulkEmailStatus
 pattern TransientFailure = BulkEmailStatus' "TransientFailure"
 
+pattern Failed :: BulkEmailStatus
+pattern Failed = BulkEmailStatus' "Failed"
+
 {-# COMPLETE
-  AccountDailyQuotaExceeded,
-  AccountSendingPaused,
+  Success,
+  MessageRejected,
+  MailFromDomainNotVerified,
+  ConfigurationSetDoesNotExist,
+  TemplateDoesNotExist,
   AccountSuspended,
   AccountThrottled,
-  ConfigurationSetDoesNotExist,
-  ConfigurationSetSendingPaused,
-  Failed,
-  InvalidParameterValue,
+  AccountDailyQuotaExceeded,
   InvalidSendingPoolName,
-  MailFromDomainNotVerified,
-  MessageRejected,
-  Success,
-  TemplateDoesNotExist,
+  AccountSendingPaused,
+  ConfigurationSetSendingPaused,
+  InvalidParameterValue,
   TransientFailure,
+  Failed,
   BulkEmailStatus'
   #-}

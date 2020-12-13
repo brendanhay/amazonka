@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateOverrides' smart constructor.
 data LaunchTemplateOverrides = LaunchTemplateOverrides'
-  { priority ::
-      Lude.Maybe Lude.Double,
+  { -- | The priority for the launch template override. If __OnDemandAllocationStrategy__ is set to @prioritized@ , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+    priority :: Lude.Maybe Lude.Double,
+    -- | The maximum price per unit hour that you are willing to pay for a Spot Instance.
     spotPrice :: Lude.Maybe Lude.Text,
+    -- | The number of units provided by the specified instance type.
     weightedCapacity :: Lude.Maybe Lude.Double,
+    -- | The ID of the subnet in which to launch the instances.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The instance type.
     instanceType :: Lude.Maybe InstanceType,
+    -- | The Availability Zone in which to launch the instances.
     availabilityZone :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateOverrides' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone in which to launch the instances.
--- * 'instanceType' - The instance type.
 -- * 'priority' - The priority for the launch template override. If __OnDemandAllocationStrategy__ is set to @prioritized@ , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
 -- * 'spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance.
--- * 'subnetId' - The ID of the subnet in which to launch the instances.
 -- * 'weightedCapacity' - The number of units provided by the specified instance type.
+-- * 'subnetId' - The ID of the subnet in which to launch the instances.
+-- * 'instanceType' - The instance type.
+-- * 'availabilityZone' - The Availability Zone in which to launch the instances.
 mkLaunchTemplateOverrides ::
   LaunchTemplateOverrides
 mkLaunchTemplateOverrides =

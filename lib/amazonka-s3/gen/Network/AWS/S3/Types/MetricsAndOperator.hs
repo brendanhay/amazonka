@@ -31,17 +31,12 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'mkMetricsAndOperator' smart constructor.
 data MetricsAndOperator = MetricsAndOperator'
-  { prefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix used when evaluating an AND predicate.
+    prefix :: Lude.Maybe Lude.Text,
+    -- | The list of tags used when evaluating an AND predicate.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricsAndOperator' with the minimum fields required to make a request.

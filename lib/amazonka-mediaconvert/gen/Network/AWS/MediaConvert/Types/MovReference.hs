@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.MovReference
   ( MovReference
       ( MovReference',
-        External,
-        SelfContained
+        SelfContained,
+        External
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MovReference = MovReference' Lude.Text
       Lude.ToHeader
     )
 
-pattern External :: MovReference
-pattern External = MovReference' "EXTERNAL"
-
 pattern SelfContained :: MovReference
 pattern SelfContained = MovReference' "SELF_CONTAINED"
 
+pattern External :: MovReference
+pattern External = MovReference' "EXTERNAL"
+
 {-# COMPLETE
-  External,
   SelfContained,
+  External,
   MovReference'
   #-}

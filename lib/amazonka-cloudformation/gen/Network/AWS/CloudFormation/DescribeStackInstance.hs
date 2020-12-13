@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,17 +22,17 @@ module Network.AWS.CloudFormation.DescribeStackInstance
     mkDescribeStackInstance,
 
     -- ** Request lenses
-    dStackSetName,
-    dStackInstanceAccount,
-    dStackInstanceRegion,
+    dsiStackInstanceRegion,
+    dsiStackSetName,
+    dsiStackInstanceAccount,
 
     -- * Destructuring the response
     DescribeStackInstanceResponse (..),
     mkDescribeStackInstanceResponse,
 
     -- ** Response lenses
-    dsisrsStackInstance,
-    dsisrsResponseStatus,
+    dsirsStackInstance,
+    dsirsResponseStatus,
   )
 where
 
@@ -43,63 +44,60 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStackInstance' smart constructor.
 data DescribeStackInstance = DescribeStackInstance'
-  { stackSetName ::
-      Lude.Text,
-    stackInstanceAccount :: Lude.Text,
-    stackInstanceRegion :: Lude.Text
+  { -- | The name of a Region that's associated with this stack instance.
+    stackInstanceRegion :: Lude.Text,
+    -- | The name or the unique stack ID of the stack set that you want to get stack instance information for.
+    stackSetName :: Lude.Text,
+    -- | The ID of an AWS account that's associated with this stack instance.
+    stackInstanceAccount :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackInstance' with the minimum fields required to make a request.
 --
--- * 'stackInstanceAccount' - The ID of an AWS account that's associated with this stack instance.
 -- * 'stackInstanceRegion' - The name of a Region that's associated with this stack instance.
 -- * 'stackSetName' - The name or the unique stack ID of the stack set that you want to get stack instance information for.
+-- * 'stackInstanceAccount' - The ID of an AWS account that's associated with this stack instance.
 mkDescribeStackInstance ::
+  -- | 'stackInstanceRegion'
+  Lude.Text ->
   -- | 'stackSetName'
   Lude.Text ->
   -- | 'stackInstanceAccount'
   Lude.Text ->
-  -- | 'stackInstanceRegion'
-  Lude.Text ->
   DescribeStackInstance
 mkDescribeStackInstance
+  pStackInstanceRegion_
   pStackSetName_
-  pStackInstanceAccount_
-  pStackInstanceRegion_ =
+  pStackInstanceAccount_ =
     DescribeStackInstance'
-      { stackSetName = pStackSetName_,
-        stackInstanceAccount = pStackInstanceAccount_,
-        stackInstanceRegion = pStackInstanceRegion_
+      { stackInstanceRegion =
+          pStackInstanceRegion_,
+        stackSetName = pStackSetName_,
+        stackInstanceAccount = pStackInstanceAccount_
       }
-
--- | The name or the unique stack ID of the stack set that you want to get stack instance information for.
---
--- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStackSetName :: Lens.Lens' DescribeStackInstance Lude.Text
-dStackSetName = Lens.lens (stackSetName :: DescribeStackInstance -> Lude.Text) (\s a -> s {stackSetName = a} :: DescribeStackInstance)
-{-# DEPRECATED dStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
-
--- | The ID of an AWS account that's associated with this stack instance.
---
--- /Note:/ Consider using 'stackInstanceAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStackInstanceAccount :: Lens.Lens' DescribeStackInstance Lude.Text
-dStackInstanceAccount = Lens.lens (stackInstanceAccount :: DescribeStackInstance -> Lude.Text) (\s a -> s {stackInstanceAccount = a} :: DescribeStackInstance)
-{-# DEPRECATED dStackInstanceAccount "Use generic-lens or generic-optics with 'stackInstanceAccount' instead." #-}
 
 -- | The name of a Region that's associated with this stack instance.
 --
 -- /Note:/ Consider using 'stackInstanceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStackInstanceRegion :: Lens.Lens' DescribeStackInstance Lude.Text
-dStackInstanceRegion = Lens.lens (stackInstanceRegion :: DescribeStackInstance -> Lude.Text) (\s a -> s {stackInstanceRegion = a} :: DescribeStackInstance)
-{-# DEPRECATED dStackInstanceRegion "Use generic-lens or generic-optics with 'stackInstanceRegion' instead." #-}
+dsiStackInstanceRegion :: Lens.Lens' DescribeStackInstance Lude.Text
+dsiStackInstanceRegion = Lens.lens (stackInstanceRegion :: DescribeStackInstance -> Lude.Text) (\s a -> s {stackInstanceRegion = a} :: DescribeStackInstance)
+{-# DEPRECATED dsiStackInstanceRegion "Use generic-lens or generic-optics with 'stackInstanceRegion' instead." #-}
+
+-- | The name or the unique stack ID of the stack set that you want to get stack instance information for.
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiStackSetName :: Lens.Lens' DescribeStackInstance Lude.Text
+dsiStackSetName = Lens.lens (stackSetName :: DescribeStackInstance -> Lude.Text) (\s a -> s {stackSetName = a} :: DescribeStackInstance)
+{-# DEPRECATED dsiStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+
+-- | The ID of an AWS account that's associated with this stack instance.
+--
+-- /Note:/ Consider using 'stackInstanceAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiStackInstanceAccount :: Lens.Lens' DescribeStackInstance Lude.Text
+dsiStackInstanceAccount = Lens.lens (stackInstanceAccount :: DescribeStackInstance -> Lude.Text) (\s a -> s {stackInstanceAccount = a} :: DescribeStackInstance)
+{-# DEPRECATED dsiStackInstanceAccount "Use generic-lens or generic-optics with 'stackInstanceAccount' instead." #-}
 
 instance Lude.AWSRequest DescribeStackInstance where
   type Rs DescribeStackInstance = DescribeStackInstanceResponse
@@ -124,30 +122,25 @@ instance Lude.ToQuery DescribeStackInstance where
     Lude.mconcat
       [ "Action" Lude.=: ("DescribeStackInstance" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "StackInstanceRegion" Lude.=: stackInstanceRegion,
         "StackSetName" Lude.=: stackSetName,
-        "StackInstanceAccount" Lude.=: stackInstanceAccount,
-        "StackInstanceRegion" Lude.=: stackInstanceRegion
+        "StackInstanceAccount" Lude.=: stackInstanceAccount
       ]
 
 -- | /See:/ 'mkDescribeStackInstanceResponse' smart constructor.
 data DescribeStackInstanceResponse = DescribeStackInstanceResponse'
-  { stackInstance ::
-      Lude.Maybe StackInstance,
+  { -- | The stack instance that matches the specified request parameters.
+    stackInstance :: Lude.Maybe StackInstance,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackInstanceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stackInstance' - The stack instance that matches the specified request parameters.
+-- * 'responseStatus' - The response status code.
 mkDescribeStackInstanceResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -161,13 +154,13 @@ mkDescribeStackInstanceResponse pResponseStatus_ =
 -- | The stack instance that matches the specified request parameters.
 --
 -- /Note:/ Consider using 'stackInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsisrsStackInstance :: Lens.Lens' DescribeStackInstanceResponse (Lude.Maybe StackInstance)
-dsisrsStackInstance = Lens.lens (stackInstance :: DescribeStackInstanceResponse -> Lude.Maybe StackInstance) (\s a -> s {stackInstance = a} :: DescribeStackInstanceResponse)
-{-# DEPRECATED dsisrsStackInstance "Use generic-lens or generic-optics with 'stackInstance' instead." #-}
+dsirsStackInstance :: Lens.Lens' DescribeStackInstanceResponse (Lude.Maybe StackInstance)
+dsirsStackInstance = Lens.lens (stackInstance :: DescribeStackInstanceResponse -> Lude.Maybe StackInstance) (\s a -> s {stackInstance = a} :: DescribeStackInstanceResponse)
+{-# DEPRECATED dsirsStackInstance "Use generic-lens or generic-optics with 'stackInstance' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsisrsResponseStatus :: Lens.Lens' DescribeStackInstanceResponse Lude.Int
-dsisrsResponseStatus = Lens.lens (responseStatus :: DescribeStackInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackInstanceResponse)
-{-# DEPRECATED dsisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsirsResponseStatus :: Lens.Lens' DescribeStackInstanceResponse Lude.Int
+dsirsResponseStatus = Lens.lens (responseStatus :: DescribeStackInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackInstanceResponse)
+{-# DEPRECATED dsirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

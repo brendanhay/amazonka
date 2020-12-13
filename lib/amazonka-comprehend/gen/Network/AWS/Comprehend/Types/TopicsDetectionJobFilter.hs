@@ -32,28 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTopicsDetectionJobFilter' smart constructor.
 data TopicsDetectionJobFilter = TopicsDetectionJobFilter'
-  { submitTimeAfter ::
-      Lude.Maybe Lude.Timestamp,
-    submitTimeBefore ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.
+    submitTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.
+    submitTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- |
     jobName :: Lude.Maybe Lude.Text,
+    -- | Filters the list of topic detection jobs based on job status. Returns only jobs with the specified status.
     jobStatus :: Lude.Maybe JobStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TopicsDetectionJobFilter' with the minimum fields required to make a request.
 --
--- * 'jobName' -
--- * 'jobStatus' - Filters the list of topic detection jobs based on job status. Returns only jobs with the specified status.
 -- * 'submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.
 -- * 'submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.
+-- * 'jobName' -
+-- * 'jobStatus' - Filters the list of topic detection jobs based on job status. Returns only jobs with the specified status.
 mkTopicsDetectionJobFilter ::
   TopicsDetectionJobFilter
 mkTopicsDetectionJobFilter =

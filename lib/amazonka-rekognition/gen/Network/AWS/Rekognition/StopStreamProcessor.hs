@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Rekognition.StopStreamProcessor
     mkStopStreamProcessor,
 
     -- ** Request lenses
-    sspName,
+    sName,
 
     -- * Destructuring the response
     StopStreamProcessorResponse (..),
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopStreamProcessor' smart constructor.
 newtype StopStreamProcessor = StopStreamProcessor'
-  { name ::
-      Lude.Text
+  { -- | The name of a stream processor created by 'CreateStreamProcessor' .
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStreamProcessor' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkStopStreamProcessor pName_ = StopStreamProcessor' {name = pName_}
 -- | The name of a stream processor created by 'CreateStreamProcessor' .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sspName :: Lens.Lens' StopStreamProcessor Lude.Text
-sspName = Lens.lens (name :: StopStreamProcessor -> Lude.Text) (\s a -> s {name = a} :: StopStreamProcessor)
-{-# DEPRECATED sspName "Use generic-lens or generic-optics with 'name' instead." #-}
+sName :: Lens.Lens' StopStreamProcessor Lude.Text
+sName = Lens.lens (name :: StopStreamProcessor -> Lude.Text) (\s a -> s {name = a} :: StopStreamProcessor)
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest StopStreamProcessor where
   type Rs StopStreamProcessor = StopStreamProcessorResponse
@@ -99,16 +94,10 @@ instance Lude.ToQuery StopStreamProcessor where
 
 -- | /See:/ 'mkStopStreamProcessorResponse' smart constructor.
 newtype StopStreamProcessorResponse = StopStreamProcessorResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStreamProcessorResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.DeviceFarm.DeleteProject
     mkDeleteProject,
 
     -- ** Request lenses
-    dpArn,
+    dpfArn,
 
     -- * Destructuring the response
     DeleteProjectResponse (..),
@@ -41,14 +42,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents a request to the delete project operation.
 --
 -- /See:/ 'mkDeleteProject' smart constructor.
-newtype DeleteProject = DeleteProject' {arn :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteProject = DeleteProject'
+  { -- | Represents the Amazon Resource Name (ARN) of the Device Farm project to delete.
+    arn :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProject' with the minimum fields required to make a request.
@@ -63,9 +61,9 @@ mkDeleteProject pArn_ = DeleteProject' {arn = pArn_}
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm project to delete.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpArn :: Lens.Lens' DeleteProject Lude.Text
-dpArn = Lens.lens (arn :: DeleteProject -> Lude.Text) (\s a -> s {arn = a} :: DeleteProject)
-{-# DEPRECATED dpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+dpfArn :: Lens.Lens' DeleteProject Lude.Text
+dpfArn = Lens.lens (arn :: DeleteProject -> Lude.Text) (\s a -> s {arn = a} :: DeleteProject)
+{-# DEPRECATED dpfArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 instance Lude.AWSRequest DeleteProject where
   type Rs DeleteProject = DeleteProjectResponse
@@ -101,16 +99,10 @@ instance Lude.ToQuery DeleteProject where
 --
 -- /See:/ 'mkDeleteProjectResponse' smart constructor.
 newtype DeleteProjectResponse = DeleteProjectResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProjectResponse' with the minimum fields required to make a request.

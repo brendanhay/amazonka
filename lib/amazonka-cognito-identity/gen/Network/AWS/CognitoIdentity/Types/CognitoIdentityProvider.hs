@@ -30,29 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCognitoIdentityProvider' smart constructor.
 data CognitoIdentityProvider = CognitoIdentityProvider'
-  { clientId ::
-      Lude.Maybe Lude.Text,
-    serverSideTokenCheck ::
-      Lude.Maybe Lude.Bool,
+  { -- | The client ID for the Amazon Cognito user pool.
+    clientId :: Lude.Maybe Lude.Text,
+    -- | TRUE if server-side token validation is enabled for the identity provider’s token.
+    --
+    -- Once you set @ServerSideTokenCheck@ to TRUE for an identity pool, that identity pool will check with the integrated user pools to make sure that the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
+    -- If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
+    serverSideTokenCheck :: Lude.Maybe Lude.Bool,
+    -- | The provider name for an Amazon Cognito user pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
     providerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CognitoIdentityProvider' with the minimum fields required to make a request.
 --
 -- * 'clientId' - The client ID for the Amazon Cognito user pool.
--- * 'providerName' - The provider name for an Amazon Cognito user pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
 -- * 'serverSideTokenCheck' - TRUE if server-side token validation is enabled for the identity provider’s token.
 --
 -- Once you set @ServerSideTokenCheck@ to TRUE for an identity pool, that identity pool will check with the integrated user pools to make sure that the user has not been globally signed out or deleted before the identity pool provides an OIDC token or AWS credentials for the user.
 -- If the user is signed out or deleted, the identity pool will return a 400 Not Authorized error.
+-- * 'providerName' - The provider name for an Amazon Cognito user pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
 mkCognitoIdentityProvider ::
   CognitoIdentityProvider
 mkCognitoIdentityProvider =

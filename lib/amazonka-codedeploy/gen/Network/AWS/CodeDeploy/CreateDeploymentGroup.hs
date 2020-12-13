@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,6 +20,7 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     mkCreateDeploymentGroup,
 
     -- ** Request lenses
+    cdgServiceRoleARN,
     cdgEc2TagSet,
     cdgDeploymentConfigName,
     cdgOnPremisesTagSet,
@@ -27,15 +29,14 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     cdgBlueGreenDeploymentConfiguration,
     cdgLoadBalancerInfo,
     cdgOnPremisesInstanceTagFilters,
+    cdgApplicationName,
     cdgAlarmConfiguration,
     cdgTriggerConfigurations,
     cdgAutoScalingGroups,
     cdgDeploymentStyle,
     cdgAutoRollbackConfiguration,
-    cdgTags,
-    cdgApplicationName,
     cdgDeploymentGroupName,
-    cdgServiceRoleARN,
+    cdgTags,
 
     -- * Destructuring the response
     CreateDeploymentGroupResponse (..),
@@ -57,75 +58,84 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateDeploymentGroup' smart constructor.
 data CreateDeploymentGroup = CreateDeploymentGroup'
-  { ec2TagSet ::
-      Lude.Maybe EC2TagSet,
+  { -- | A service role Amazon Resource Name (ARN) that allows AWS CodeDeploy to act on the user's behalf when interacting with AWS services.
+    serviceRoleARN :: Lude.Text,
+    -- | Information about groups of tags applied to EC2 instances. The deployment group includes only EC2 instances identified by all the tag groups. Cannot be used in the same call as @ec2TagFilters@ .
+    ec2TagSet :: Lude.Maybe EC2TagSet,
+    -- | If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation.
+    --
+    -- @CodeDeployDefault.OneAtATime@ is the default deployment configuration. It is used if a configuration isn't specified for the deployment or deployment group.
+    -- For more information about the predefined deployment configurations in AWS CodeDeploy, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html Working with Deployment Configurations in CodeDeploy> in the /AWS CodeDeploy User Guide/ .
     deploymentConfigName :: Lude.Maybe Lude.Text,
+    -- | Information about groups of tags applied to on-premises instances. The deployment group includes only on-premises instances identified by all of the tag groups. Cannot be used in the same call as @onPremisesInstanceTagFilters@ .
     onPremisesTagSet :: Lude.Maybe OnPremisesTagSet,
+    -- | The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags. Cannot be used in the same call as ec2TagSet.
     ec2TagFilters :: Lude.Maybe [EC2TagFilter],
+    -- | The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
     ecsServices :: Lude.Maybe [ECSService],
-    blueGreenDeploymentConfiguration ::
-      Lude.Maybe BlueGreenDeploymentConfiguration,
+    -- | Information about blue/green deployment options for a deployment group.
+    blueGreenDeploymentConfiguration :: Lude.Maybe BlueGreenDeploymentConfiguration,
+    -- | Information about the load balancer used in a deployment.
     loadBalancerInfo :: Lude.Maybe LoadBalancerInfo,
-    onPremisesInstanceTagFilters ::
-      Lude.Maybe [TagFilter],
-    alarmConfiguration ::
-      Lude.Maybe AlarmConfiguration,
-    triggerConfigurations ::
-      Lude.Maybe [TriggerConfig],
-    autoScalingGroups :: Lude.Maybe [Lude.Text],
-    deploymentStyle :: Lude.Maybe DeploymentStyle,
-    autoRollbackConfiguration ::
-      Lude.Maybe AutoRollbackConfiguration,
-    tags :: Lude.Maybe [Tag],
+    -- | The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags. Cannot be used in the same call as @OnPremisesTagSet@ .
+    onPremisesInstanceTagFilters :: Lude.Maybe [TagFilter],
+    -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
     applicationName :: Lude.Text,
+    -- | Information to add about Amazon CloudWatch alarms when the deployment group is created.
+    alarmConfiguration :: Lude.Maybe AlarmConfiguration,
+    -- | Information about triggers to create when the deployment group is created. For examples, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html Create a Trigger for an AWS CodeDeploy Event> in the /AWS CodeDeploy User Guide/ .
+    triggerConfigurations :: Lude.Maybe [TriggerConfig],
+    -- | A list of associated Amazon EC2 Auto Scaling groups.
+    autoScalingGroups :: Lude.Maybe [Lude.Text],
+    -- | Information about the type of deployment, in-place or blue/green, that you want to run and whether to route deployment traffic behind a load balancer.
+    deploymentStyle :: Lude.Maybe DeploymentStyle,
+    -- | Configuration information for an automatic rollback that is added when a deployment group is created.
+    autoRollbackConfiguration :: Lude.Maybe AutoRollbackConfiguration,
+    -- | The name of a new deployment group for the specified application.
     deploymentGroupName :: Lude.Text,
-    serviceRoleARN :: Lude.Text
+    -- | The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeploymentGroup' with the minimum fields required to make a request.
 --
--- * 'alarmConfiguration' - Information to add about Amazon CloudWatch alarms when the deployment group is created.
--- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
--- * 'autoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a deployment group is created.
--- * 'autoScalingGroups' - A list of associated Amazon EC2 Auto Scaling groups.
--- * 'blueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
+-- * 'serviceRoleARN' - A service role Amazon Resource Name (ARN) that allows AWS CodeDeploy to act on the user's behalf when interacting with AWS services.
+-- * 'ec2TagSet' - Information about groups of tags applied to EC2 instances. The deployment group includes only EC2 instances identified by all the tag groups. Cannot be used in the same call as @ec2TagFilters@ .
 -- * 'deploymentConfigName' - If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation.
 --
 -- @CodeDeployDefault.OneAtATime@ is the default deployment configuration. It is used if a configuration isn't specified for the deployment or deployment group.
 -- For more information about the predefined deployment configurations in AWS CodeDeploy, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html Working with Deployment Configurations in CodeDeploy> in the /AWS CodeDeploy User Guide/ .
--- * 'deploymentGroupName' - The name of a new deployment group for the specified application.
--- * 'deploymentStyle' - Information about the type of deployment, in-place or blue/green, that you want to run and whether to route deployment traffic behind a load balancer.
+-- * 'onPremisesTagSet' - Information about groups of tags applied to on-premises instances. The deployment group includes only on-premises instances identified by all of the tag groups. Cannot be used in the same call as @onPremisesInstanceTagFilters@ .
 -- * 'ec2TagFilters' - The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags. Cannot be used in the same call as ec2TagSet.
--- * 'ec2TagSet' - Information about groups of tags applied to EC2 instances. The deployment group includes only EC2 instances identified by all the tag groups. Cannot be used in the same call as @ec2TagFilters@ .
 -- * 'ecsServices' - The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
+-- * 'blueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
 -- * 'loadBalancerInfo' - Information about the load balancer used in a deployment.
 -- * 'onPremisesInstanceTagFilters' - The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags. Cannot be used in the same call as @OnPremisesTagSet@ .
--- * 'onPremisesTagSet' - Information about groups of tags applied to on-premises instances. The deployment group includes only on-premises instances identified by all of the tag groups. Cannot be used in the same call as @onPremisesInstanceTagFilters@ .
--- * 'serviceRoleARN' - A service role Amazon Resource Name (ARN) that allows AWS CodeDeploy to act on the user's behalf when interacting with AWS services.
--- * 'tags' - The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+-- * 'alarmConfiguration' - Information to add about Amazon CloudWatch alarms when the deployment group is created.
 -- * 'triggerConfigurations' - Information about triggers to create when the deployment group is created. For examples, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html Create a Trigger for an AWS CodeDeploy Event> in the /AWS CodeDeploy User Guide/ .
+-- * 'autoScalingGroups' - A list of associated Amazon EC2 Auto Scaling groups.
+-- * 'deploymentStyle' - Information about the type of deployment, in-place or blue/green, that you want to run and whether to route deployment traffic behind a load balancer.
+-- * 'autoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a deployment group is created.
+-- * 'deploymentGroupName' - The name of a new deployment group for the specified application.
+-- * 'tags' - The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
 mkCreateDeploymentGroup ::
+  -- | 'serviceRoleARN'
+  Lude.Text ->
   -- | 'applicationName'
   Lude.Text ->
   -- | 'deploymentGroupName'
   Lude.Text ->
-  -- | 'serviceRoleARN'
-  Lude.Text ->
   CreateDeploymentGroup
 mkCreateDeploymentGroup
+  pServiceRoleARN_
   pApplicationName_
-  pDeploymentGroupName_
-  pServiceRoleARN_ =
+  pDeploymentGroupName_ =
     CreateDeploymentGroup'
-      { ec2TagSet = Lude.Nothing,
+      { serviceRoleARN = pServiceRoleARN_,
+        ec2TagSet = Lude.Nothing,
         deploymentConfigName = Lude.Nothing,
         onPremisesTagSet = Lude.Nothing,
         ec2TagFilters = Lude.Nothing,
@@ -133,16 +143,22 @@ mkCreateDeploymentGroup
         blueGreenDeploymentConfiguration = Lude.Nothing,
         loadBalancerInfo = Lude.Nothing,
         onPremisesInstanceTagFilters = Lude.Nothing,
+        applicationName = pApplicationName_,
         alarmConfiguration = Lude.Nothing,
         triggerConfigurations = Lude.Nothing,
         autoScalingGroups = Lude.Nothing,
         deploymentStyle = Lude.Nothing,
         autoRollbackConfiguration = Lude.Nothing,
-        tags = Lude.Nothing,
-        applicationName = pApplicationName_,
         deploymentGroupName = pDeploymentGroupName_,
-        serviceRoleARN = pServiceRoleARN_
+        tags = Lude.Nothing
       }
+
+-- | A service role Amazon Resource Name (ARN) that allows AWS CodeDeploy to act on the user's behalf when interacting with AWS services.
+--
+-- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdgServiceRoleARN :: Lens.Lens' CreateDeploymentGroup Lude.Text
+cdgServiceRoleARN = Lens.lens (serviceRoleARN :: CreateDeploymentGroup -> Lude.Text) (\s a -> s {serviceRoleARN = a} :: CreateDeploymentGroup)
+{-# DEPRECATED cdgServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
 
 -- | Information about groups of tags applied to EC2 instances. The deployment group includes only EC2 instances identified by all the tag groups. Cannot be used in the same call as @ec2TagFilters@ .
 --
@@ -203,6 +219,13 @@ cdgOnPremisesInstanceTagFilters :: Lens.Lens' CreateDeploymentGroup (Lude.Maybe 
 cdgOnPremisesInstanceTagFilters = Lens.lens (onPremisesInstanceTagFilters :: CreateDeploymentGroup -> Lude.Maybe [TagFilter]) (\s a -> s {onPremisesInstanceTagFilters = a} :: CreateDeploymentGroup)
 {-# DEPRECATED cdgOnPremisesInstanceTagFilters "Use generic-lens or generic-optics with 'onPremisesInstanceTagFilters' instead." #-}
 
+-- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdgApplicationName :: Lens.Lens' CreateDeploymentGroup Lude.Text
+cdgApplicationName = Lens.lens (applicationName :: CreateDeploymentGroup -> Lude.Text) (\s a -> s {applicationName = a} :: CreateDeploymentGroup)
+{-# DEPRECATED cdgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+
 -- | Information to add about Amazon CloudWatch alarms when the deployment group is created.
 --
 -- /Note:/ Consider using 'alarmConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -238,20 +261,6 @@ cdgAutoRollbackConfiguration :: Lens.Lens' CreateDeploymentGroup (Lude.Maybe Aut
 cdgAutoRollbackConfiguration = Lens.lens (autoRollbackConfiguration :: CreateDeploymentGroup -> Lude.Maybe AutoRollbackConfiguration) (\s a -> s {autoRollbackConfiguration = a} :: CreateDeploymentGroup)
 {-# DEPRECATED cdgAutoRollbackConfiguration "Use generic-lens or generic-optics with 'autoRollbackConfiguration' instead." #-}
 
--- | The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdgTags :: Lens.Lens' CreateDeploymentGroup (Lude.Maybe [Tag])
-cdgTags = Lens.lens (tags :: CreateDeploymentGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDeploymentGroup)
-{-# DEPRECATED cdgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdgApplicationName :: Lens.Lens' CreateDeploymentGroup Lude.Text
-cdgApplicationName = Lens.lens (applicationName :: CreateDeploymentGroup -> Lude.Text) (\s a -> s {applicationName = a} :: CreateDeploymentGroup)
-{-# DEPRECATED cdgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
-
 -- | The name of a new deployment group for the specified application.
 --
 -- /Note:/ Consider using 'deploymentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -259,12 +268,12 @@ cdgDeploymentGroupName :: Lens.Lens' CreateDeploymentGroup Lude.Text
 cdgDeploymentGroupName = Lens.lens (deploymentGroupName :: CreateDeploymentGroup -> Lude.Text) (\s a -> s {deploymentGroupName = a} :: CreateDeploymentGroup)
 {-# DEPRECATED cdgDeploymentGroupName "Use generic-lens or generic-optics with 'deploymentGroupName' instead." #-}
 
--- | A service role Amazon Resource Name (ARN) that allows AWS CodeDeploy to act on the user's behalf when interacting with AWS services.
+-- | The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
 --
--- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdgServiceRoleARN :: Lens.Lens' CreateDeploymentGroup Lude.Text
-cdgServiceRoleARN = Lens.lens (serviceRoleARN :: CreateDeploymentGroup -> Lude.Text) (\s a -> s {serviceRoleARN = a} :: CreateDeploymentGroup)
-{-# DEPRECATED cdgServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdgTags :: Lens.Lens' CreateDeploymentGroup (Lude.Maybe [Tag])
+cdgTags = Lens.lens (tags :: CreateDeploymentGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDeploymentGroup)
+{-# DEPRECATED cdgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateDeploymentGroup where
   type Rs CreateDeploymentGroup = CreateDeploymentGroupResponse
@@ -292,7 +301,8 @@ instance Lude.ToJSON CreateDeploymentGroup where
   toJSON CreateDeploymentGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ec2TagSet" Lude..=) Lude.<$> ec2TagSet,
+          [ Lude.Just ("serviceRoleArn" Lude..= serviceRoleARN),
+            ("ec2TagSet" Lude..=) Lude.<$> ec2TagSet,
             ("deploymentConfigName" Lude..=) Lude.<$> deploymentConfigName,
             ("onPremisesTagSet" Lude..=) Lude.<$> onPremisesTagSet,
             ("ec2TagFilters" Lude..=) Lude.<$> ec2TagFilters,
@@ -302,16 +312,15 @@ instance Lude.ToJSON CreateDeploymentGroup where
             ("loadBalancerInfo" Lude..=) Lude.<$> loadBalancerInfo,
             ("onPremisesInstanceTagFilters" Lude..=)
               Lude.<$> onPremisesInstanceTagFilters,
+            Lude.Just ("applicationName" Lude..= applicationName),
             ("alarmConfiguration" Lude..=) Lude.<$> alarmConfiguration,
             ("triggerConfigurations" Lude..=) Lude.<$> triggerConfigurations,
             ("autoScalingGroups" Lude..=) Lude.<$> autoScalingGroups,
             ("deploymentStyle" Lude..=) Lude.<$> deploymentStyle,
             ("autoRollbackConfiguration" Lude..=)
               Lude.<$> autoRollbackConfiguration,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("applicationName" Lude..= applicationName),
             Lude.Just ("deploymentGroupName" Lude..= deploymentGroupName),
-            Lude.Just ("serviceRoleArn" Lude..= serviceRoleARN)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -325,17 +334,12 @@ instance Lude.ToQuery CreateDeploymentGroup where
 --
 -- /See:/ 'mkCreateDeploymentGroupResponse' smart constructor.
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
-  { deploymentGroupId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique deployment group ID.
+    deploymentGroupId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeploymentGroupResponse' with the minimum fields required to make a request.

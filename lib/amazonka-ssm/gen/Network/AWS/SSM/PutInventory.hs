@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,12 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkPutInventory' smart constructor.
 data PutInventory = PutInventory'
-  { instanceId :: Lude.Text,
+  { -- | An instance ID where you want to add or update inventory items.
+    instanceId :: Lude.Text,
+    -- | The inventory items that you want to add or update on instances.
     items :: Lude.NonEmpty InventoryItem
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInventory' with the minimum fields required to make a request.
@@ -117,17 +114,12 @@ instance Lude.ToQuery PutInventory where
 
 -- | /See:/ 'mkPutInventoryResponse' smart constructor.
 data PutInventoryResponse = PutInventoryResponse'
-  { message ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about the request.
+    message :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInventoryResponse' with the minimum fields required to make a request.

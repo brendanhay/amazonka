@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,18 +45,12 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkCreateConfigurationSetEventDestination' smart constructor.
 data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestination'
-  { configurationSetName ::
-      Lude.Text,
-    eventDestination ::
-      EventDestination
+  { -- | The name of the configuration set that the event destination should be associated with.
+    configurationSetName :: Lude.Text,
+    -- | An object that describes the AWS service that email sending event information will be published to.
+    eventDestination :: EventDestination
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConfigurationSetEventDestination' with the minimum fields required to make a request.
@@ -124,20 +119,11 @@ instance Lude.ToQuery CreateConfigurationSetEventDestination where
 --
 -- /See:/ 'mkCreateConfigurationSetEventDestinationResponse' smart constructor.
 newtype CreateConfigurationSetEventDestinationResponse = CreateConfigurationSetEventDestinationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConfigurationSetEventDestinationResponse' with the minimum fields required to make a request.
 --

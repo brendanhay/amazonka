@@ -13,8 +13,8 @@
 module Network.AWS.XRay.Types.TimeRangeType
   ( TimeRangeType
       ( TimeRangeType',
-        Event,
-        TraceId
+        TraceId,
+        Event
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TimeRangeType = TimeRangeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Event :: TimeRangeType
-pattern Event = TimeRangeType' "Event"
-
 pattern TraceId :: TimeRangeType
 pattern TraceId = TimeRangeType' "TraceId"
 
+pattern Event :: TimeRangeType
+pattern Event = TimeRangeType' "Event"
+
 {-# COMPLETE
-  Event,
   TraceId,
+  Event,
   TimeRangeType'
   #-}

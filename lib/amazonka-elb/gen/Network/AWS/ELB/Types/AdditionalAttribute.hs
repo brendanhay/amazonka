@@ -30,29 +30,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAdditionalAttribute' smart constructor.
 data AdditionalAttribute = AdditionalAttribute'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | This value of the attribute.
+    value :: Lude.Maybe Lude.Text,
+    -- | The name of the attribute.
+    --
+    -- The following attribute is supported.
+    --
+    --     * @elb.http.desyncmitigationmode@ - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are @monitor@ , @defensive@ , and @strictest@ . The default is @defensive@ .
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdditionalAttribute' with the minimum fields required to make a request.
 --
+-- * 'value' - This value of the attribute.
 -- * 'key' - The name of the attribute.
 --
 -- The following attribute is supported.
 --
 --     * @elb.http.desyncmitigationmode@ - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are @monitor@ , @defensive@ , and @strictest@ . The default is @defensive@ .
---
---
--- * 'value' - This value of the attribute.
 mkAdditionalAttribute ::
   AdditionalAttribute
 mkAdditionalAttribute =

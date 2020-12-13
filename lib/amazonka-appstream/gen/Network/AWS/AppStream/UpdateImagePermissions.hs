@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AppStream.UpdateImagePermissions
     mkUpdateImagePermissions,
 
     -- ** Request lenses
-    uipName,
-    uipSharedAccountId,
     uipImagePermissions,
+    uipSharedAccountId,
+    uipName,
 
     -- * Destructuring the response
     UpdateImagePermissionsResponse (..),
@@ -40,49 +41,45 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateImagePermissions' smart constructor.
 data UpdateImagePermissions = UpdateImagePermissions'
-  { name ::
-      Lude.Text,
+  { -- | The permissions for the image.
+    imagePermissions :: ImagePermissions,
+    -- | The 12-digit identifier of the AWS account for which you want add or update image permissions.
     sharedAccountId :: Lude.Text,
-    imagePermissions :: ImagePermissions
+    -- | The name of the private image.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateImagePermissions' with the minimum fields required to make a request.
 --
 -- * 'imagePermissions' - The permissions for the image.
--- * 'name' - The name of the private image.
 -- * 'sharedAccountId' - The 12-digit identifier of the AWS account for which you want add or update image permissions.
+-- * 'name' - The name of the private image.
 mkUpdateImagePermissions ::
-  -- | 'name'
-  Lude.Text ->
-  -- | 'sharedAccountId'
-  Lude.Text ->
   -- | 'imagePermissions'
   ImagePermissions ->
+  -- | 'sharedAccountId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   UpdateImagePermissions
 mkUpdateImagePermissions
-  pName_
+  pImagePermissions_
   pSharedAccountId_
-  pImagePermissions_ =
+  pName_ =
     UpdateImagePermissions'
-      { name = pName_,
+      { imagePermissions = pImagePermissions_,
         sharedAccountId = pSharedAccountId_,
-        imagePermissions = pImagePermissions_
+        name = pName_
       }
 
--- | The name of the private image.
+-- | The permissions for the image.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipName :: Lens.Lens' UpdateImagePermissions Lude.Text
-uipName = Lens.lens (name :: UpdateImagePermissions -> Lude.Text) (\s a -> s {name = a} :: UpdateImagePermissions)
-{-# DEPRECATED uipName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'imagePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipImagePermissions :: Lens.Lens' UpdateImagePermissions ImagePermissions
+uipImagePermissions = Lens.lens (imagePermissions :: UpdateImagePermissions -> ImagePermissions) (\s a -> s {imagePermissions = a} :: UpdateImagePermissions)
+{-# DEPRECATED uipImagePermissions "Use generic-lens or generic-optics with 'imagePermissions' instead." #-}
 
 -- | The 12-digit identifier of the AWS account for which you want add or update image permissions.
 --
@@ -91,12 +88,12 @@ uipSharedAccountId :: Lens.Lens' UpdateImagePermissions Lude.Text
 uipSharedAccountId = Lens.lens (sharedAccountId :: UpdateImagePermissions -> Lude.Text) (\s a -> s {sharedAccountId = a} :: UpdateImagePermissions)
 {-# DEPRECATED uipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
 
--- | The permissions for the image.
+-- | The name of the private image.
 --
--- /Note:/ Consider using 'imagePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uipImagePermissions :: Lens.Lens' UpdateImagePermissions ImagePermissions
-uipImagePermissions = Lens.lens (imagePermissions :: UpdateImagePermissions -> ImagePermissions) (\s a -> s {imagePermissions = a} :: UpdateImagePermissions)
-{-# DEPRECATED uipImagePermissions "Use generic-lens or generic-optics with 'imagePermissions' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipName :: Lens.Lens' UpdateImagePermissions Lude.Text
+uipName = Lens.lens (name :: UpdateImagePermissions -> Lude.Text) (\s a -> s {name = a} :: UpdateImagePermissions)
+{-# DEPRECATED uipName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest UpdateImagePermissions where
   type Rs UpdateImagePermissions = UpdateImagePermissionsResponse
@@ -125,9 +122,9 @@ instance Lude.ToJSON UpdateImagePermissions where
   toJSON UpdateImagePermissions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
+          [ Lude.Just ("ImagePermissions" Lude..= imagePermissions),
             Lude.Just ("SharedAccountId" Lude..= sharedAccountId),
-            Lude.Just ("ImagePermissions" Lude..= imagePermissions)
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -139,16 +136,10 @@ instance Lude.ToQuery UpdateImagePermissions where
 
 -- | /See:/ 'mkUpdateImagePermissionsResponse' smart constructor.
 newtype UpdateImagePermissionsResponse = UpdateImagePermissionsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateImagePermissionsResponse' with the minimum fields required to make a request.

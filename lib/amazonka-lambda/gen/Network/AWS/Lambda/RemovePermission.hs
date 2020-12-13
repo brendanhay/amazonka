@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Lambda.RemovePermission
     mkRemovePermission,
 
     -- ** Request lenses
-    rpQualifier,
-    rpRevisionId,
     rpFunctionName,
+    rpQualifier,
     rpStatementId,
+    rpRevisionId,
 
     -- * Destructuring the response
     RemovePermissionResponse (..),
@@ -38,19 +39,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { qualifier ::
-      Lude.Maybe Lude.Text,
-    revisionId :: Lude.Maybe Lude.Text,
+  { -- | The name of the Lambda function, version, or alias.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
     functionName :: Lude.Text,
-    statementId :: Lude.Text
+    -- | Specify a version or alias to remove permissions from a published version of the function.
+    qualifier :: Lude.Maybe Lude.Text,
+    -- | Statement ID of the permission to remove.
+    statementId :: Lude.Text,
+    -- | Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
+    revisionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
@@ -70,8 +81,8 @@ data RemovePermission = RemovePermission'
 --
 -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 -- * 'qualifier' - Specify a version or alias to remove permissions from a published version of the function.
--- * 'revisionId' - Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
 -- * 'statementId' - Statement ID of the permission to remove.
+-- * 'revisionId' - Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
 mkRemovePermission ::
   -- | 'functionName'
   Lude.Text ->
@@ -80,25 +91,11 @@ mkRemovePermission ::
   RemovePermission
 mkRemovePermission pFunctionName_ pStatementId_ =
   RemovePermission'
-    { qualifier = Lude.Nothing,
-      revisionId = Lude.Nothing,
-      functionName = pFunctionName_,
-      statementId = pStatementId_
+    { functionName = pFunctionName_,
+      qualifier = Lude.Nothing,
+      statementId = pStatementId_,
+      revisionId = Lude.Nothing
     }
-
--- | Specify a version or alias to remove permissions from a published version of the function.
---
--- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpQualifier :: Lens.Lens' RemovePermission (Lude.Maybe Lude.Text)
-rpQualifier = Lens.lens (qualifier :: RemovePermission -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: RemovePermission)
-{-# DEPRECATED rpQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
-
--- | Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
---
--- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpRevisionId :: Lens.Lens' RemovePermission (Lude.Maybe Lude.Text)
-rpRevisionId = Lens.lens (revisionId :: RemovePermission -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: RemovePermission)
-{-# DEPRECATED rpRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
 -- | The name of the Lambda function, version, or alias.
 --
@@ -120,12 +117,26 @@ rpFunctionName :: Lens.Lens' RemovePermission Lude.Text
 rpFunctionName = Lens.lens (functionName :: RemovePermission -> Lude.Text) (\s a -> s {functionName = a} :: RemovePermission)
 {-# DEPRECATED rpFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
+-- | Specify a version or alias to remove permissions from a published version of the function.
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpQualifier :: Lens.Lens' RemovePermission (Lude.Maybe Lude.Text)
+rpQualifier = Lens.lens (qualifier :: RemovePermission -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: RemovePermission)
+{-# DEPRECATED rpQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
+
 -- | Statement ID of the permission to remove.
 --
 -- /Note:/ Consider using 'statementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rpStatementId :: Lens.Lens' RemovePermission Lude.Text
 rpStatementId = Lens.lens (statementId :: RemovePermission -> Lude.Text) (\s a -> s {statementId = a} :: RemovePermission)
 {-# DEPRECATED rpStatementId "Use generic-lens or generic-optics with 'statementId' instead." #-}
+
+-- | Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpRevisionId :: Lens.Lens' RemovePermission (Lude.Maybe Lude.Text)
+rpRevisionId = Lens.lens (revisionId :: RemovePermission -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: RemovePermission)
+{-# DEPRECATED rpRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
 instance Lude.AWSRequest RemovePermission where
   type Rs RemovePermission = RemovePermissionResponse
@@ -151,13 +162,7 @@ instance Lude.ToQuery RemovePermission where
 
 -- | /See:/ 'mkRemovePermissionResponse' smart constructor.
 data RemovePermissionResponse = RemovePermissionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.

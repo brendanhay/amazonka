@@ -13,13 +13,13 @@
 module Network.AWS.ElasticBeanstalk.Types.FailureType
   ( FailureType
       ( FailureType',
+        UpdateCancelled,
         CancellationFailed,
-        InternalFailure,
-        InvalidEnvironmentState,
-        PermissionsError,
         RollbackFailed,
         RollbackSuccessful,
-        UpdateCancelled
+        InternalFailure,
+        InvalidEnvironmentState,
+        PermissionsError
       ),
   )
 where
@@ -50,8 +50,17 @@ newtype FailureType = FailureType' Lude.Text
       Lude.ToHeader
     )
 
+pattern UpdateCancelled :: FailureType
+pattern UpdateCancelled = FailureType' "UpdateCancelled"
+
 pattern CancellationFailed :: FailureType
 pattern CancellationFailed = FailureType' "CancellationFailed"
+
+pattern RollbackFailed :: FailureType
+pattern RollbackFailed = FailureType' "RollbackFailed"
+
+pattern RollbackSuccessful :: FailureType
+pattern RollbackSuccessful = FailureType' "RollbackSuccessful"
 
 pattern InternalFailure :: FailureType
 pattern InternalFailure = FailureType' "InternalFailure"
@@ -62,22 +71,13 @@ pattern InvalidEnvironmentState = FailureType' "InvalidEnvironmentState"
 pattern PermissionsError :: FailureType
 pattern PermissionsError = FailureType' "PermissionsError"
 
-pattern RollbackFailed :: FailureType
-pattern RollbackFailed = FailureType' "RollbackFailed"
-
-pattern RollbackSuccessful :: FailureType
-pattern RollbackSuccessful = FailureType' "RollbackSuccessful"
-
-pattern UpdateCancelled :: FailureType
-pattern UpdateCancelled = FailureType' "UpdateCancelled"
-
 {-# COMPLETE
+  UpdateCancelled,
   CancellationFailed,
+  RollbackFailed,
+  RollbackSuccessful,
   InternalFailure,
   InvalidEnvironmentState,
   PermissionsError,
-  RollbackFailed,
-  RollbackSuccessful,
-  UpdateCancelled,
   FailureType'
   #-}

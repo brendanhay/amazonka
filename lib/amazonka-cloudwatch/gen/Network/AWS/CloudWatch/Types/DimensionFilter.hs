@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDimensionFilter' smart constructor.
 data DimensionFilter = DimensionFilter'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the dimension to be matched.
+    value :: Lude.Maybe Lude.Text,
+    -- | The dimension name to be matched.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DimensionFilter' with the minimum fields required to make a request.
 --
--- * 'name' - The dimension name to be matched.
 -- * 'value' - The value of the dimension to be matched.
+-- * 'name' - The dimension name to be matched.
 mkDimensionFilter ::
   -- | 'name'
   Lude.Text ->

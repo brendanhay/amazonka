@@ -34,25 +34,22 @@ import Network.AWS.Shield.Types.SummarizedCounter
 --
 -- /See:/ 'mkSubResourceSummary' smart constructor.
 data SubResourceSummary = SubResourceSummary'
-  { counters ::
-      Lude.Maybe [SummarizedCounter],
+  { -- | The counters that describe the details of the attack.
+    counters :: Lude.Maybe [SummarizedCounter],
+    -- | The list of attack types and associated counters.
     attackVectors :: Lude.Maybe [SummarizedAttackVector],
+    -- | The unique identifier (ID) of the @SubResource@ .
     id :: Lude.Maybe Lude.Text,
+    -- | The @SubResource@ type.
     type' :: Lude.Maybe SubResourceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubResourceSummary' with the minimum fields required to make a request.
 --
--- * 'attackVectors' - The list of attack types and associated counters.
 -- * 'counters' - The counters that describe the details of the attack.
+-- * 'attackVectors' - The list of attack types and associated counters.
 -- * 'id' - The unique identifier (ID) of the @SubResource@ .
 -- * 'type'' - The @SubResource@ type.
 mkSubResourceSummary ::

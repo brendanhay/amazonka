@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Greengrass.TagResource
     mkTagResource,
 
     -- ** Request lenses
-    trTags,
     trResourceARN,
+    trTags,
 
     -- * Destructuring the response
     TagResourceResponse (..),
@@ -38,36 +39,23 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    resourceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    resourceARN :: Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
 -- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource.
--- * 'tags' - Undocumented field.
+-- * 'tags' -
 mkTagResource ::
   -- | 'resourceARN'
   Lude.Text ->
   TagResource
 mkTagResource pResourceARN_ =
-  TagResource' {tags = Lude.Nothing, resourceARN = pResourceARN_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTags :: Lens.Lens' TagResource (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-trTags = Lens.lens (tags :: TagResource -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: TagResource)
-{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+  TagResource' {resourceARN = pResourceARN_, tags = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the resource.
 --
@@ -75,6 +63,13 @@ trTags = Lens.lens (tags :: TagResource -> Lude.Maybe (Lude.HashMap Lude.Text (L
 trResourceARN :: Lens.Lens' TagResource Lude.Text
 trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
 {-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTags :: Lens.Lens' TagResource (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+trTags = Lens.lens (tags :: TagResource -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: TagResource)
+{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
@@ -103,13 +98,7 @@ instance Lude.ToQuery TagResource where
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.

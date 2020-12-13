@@ -13,8 +13,8 @@
 module Network.AWS.DirectoryService.Types.RegionType
   ( RegionType
       ( RegionType',
-        Additional,
-        Primary
+        Primary,
+        Additional
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RegionType = RegionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Additional :: RegionType
-pattern Additional = RegionType' "Additional"
-
 pattern Primary :: RegionType
 pattern Primary = RegionType' "Primary"
 
+pattern Additional :: RegionType
+pattern Additional = RegionType' "Additional"
+
 {-# COMPLETE
-  Additional,
   Primary,
+  Additional,
   RegionType'
   #-}

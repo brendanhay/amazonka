@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSegmentGroupList' smart constructor.
 data SegmentGroupList = SegmentGroupList'
-  { include ::
-      Lude.Maybe Include,
+  { -- | Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.
+    include :: Lude.Maybe Include,
+    -- | An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
     groups :: Lude.Maybe [SegmentGroup]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentGroupList' with the minimum fields required to make a request.
 --
--- * 'groups' - An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 -- * 'include' - Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.
+-- * 'groups' - An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 mkSegmentGroupList ::
   SegmentGroupList
 mkSegmentGroupList =

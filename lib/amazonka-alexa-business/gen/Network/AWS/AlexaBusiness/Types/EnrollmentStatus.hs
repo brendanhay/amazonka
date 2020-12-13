@@ -13,11 +13,11 @@
 module Network.AWS.AlexaBusiness.Types.EnrollmentStatus
   ( EnrollmentStatus
       ( EnrollmentStatus',
-        ESDeregistering,
-        ESDisassociating,
         ESInitialized,
         ESPending,
-        ESRegistered
+        ESRegistered,
+        ESDisassociating,
+        ESDeregistering
       ),
   )
 where
@@ -48,12 +48,6 @@ newtype EnrollmentStatus = EnrollmentStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESDeregistering :: EnrollmentStatus
-pattern ESDeregistering = EnrollmentStatus' "DEREGISTERING"
-
-pattern ESDisassociating :: EnrollmentStatus
-pattern ESDisassociating = EnrollmentStatus' "DISASSOCIATING"
-
 pattern ESInitialized :: EnrollmentStatus
 pattern ESInitialized = EnrollmentStatus' "INITIALIZED"
 
@@ -63,11 +57,17 @@ pattern ESPending = EnrollmentStatus' "PENDING"
 pattern ESRegistered :: EnrollmentStatus
 pattern ESRegistered = EnrollmentStatus' "REGISTERED"
 
+pattern ESDisassociating :: EnrollmentStatus
+pattern ESDisassociating = EnrollmentStatus' "DISASSOCIATING"
+
+pattern ESDeregistering :: EnrollmentStatus
+pattern ESDeregistering = EnrollmentStatus' "DEREGISTERING"
+
 {-# COMPLETE
-  ESDeregistering,
-  ESDisassociating,
   ESInitialized,
   ESPending,
   ESRegistered,
+  ESDisassociating,
+  ESDeregistering,
   EnrollmentStatus'
   #-}

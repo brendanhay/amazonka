@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { subnetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the subnet.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
     networkInterfaceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
 --
--- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'subnetId' - The ID of the subnet.
+-- * 'networkInterfaceId' - The ID of the network interface.
 mkNetworkInterface ::
   NetworkInterface
 mkNetworkInterface =

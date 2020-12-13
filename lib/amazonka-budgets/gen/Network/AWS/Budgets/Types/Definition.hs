@@ -33,24 +33,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDefinition' smart constructor.
 data Definition = Definition'
-  { scpActionDefinition ::
-      Lude.Maybe ScpActionDefinition,
+  { -- | The service control policies (SCPs) action definition details.
+    scpActionDefinition :: Lude.Maybe ScpActionDefinition,
+    -- | The AWS Identity and Access Management (IAM) action definition details.
     iamActionDefinition :: Lude.Maybe IAMActionDefinition,
+    -- | The AWS Systems Manager (SSM) action definition details.
     ssmActionDefinition :: Lude.Maybe SsmActionDefinition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Definition' with the minimum fields required to make a request.
 --
--- * 'iamActionDefinition' - The AWS Identity and Access Management (IAM) action definition details.
 -- * 'scpActionDefinition' - The service control policies (SCPs) action definition details.
+-- * 'iamActionDefinition' - The AWS Identity and Access Management (IAM) action definition details.
 -- * 'ssmActionDefinition' - The AWS Systems Manager (SSM) action definition details.
 mkDefinition ::
   Definition

@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ElasticGpuStatus
   ( ElasticGpuStatus
       ( ElasticGpuStatus',
-        EGSImpaired,
-        EGSOK
+        EGSOK,
+        EGSImpaired
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ElasticGpuStatus = ElasticGpuStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern EGSImpaired :: ElasticGpuStatus
-pattern EGSImpaired = ElasticGpuStatus' "IMPAIRED"
-
 pattern EGSOK :: ElasticGpuStatus
 pattern EGSOK = ElasticGpuStatus' "OK"
 
+pattern EGSImpaired :: ElasticGpuStatus
+pattern EGSImpaired = ElasticGpuStatus' "IMPAIRED"
+
 {-# COMPLETE
-  EGSImpaired,
   EGSOK,
+  EGSImpaired,
   ElasticGpuStatus'
   #-}

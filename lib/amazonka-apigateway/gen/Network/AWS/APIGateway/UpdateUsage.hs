@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.UpdateUsage
     mkUpdateUsage,
 
     -- ** Request lenses
-    uuPatchOperations,
-    uuUsagePlanId,
     uuKeyId,
+    uuUsagePlanId,
+    uuPatchOperations,
 
     -- * Destructuring the response
     Usage (..),
@@ -46,44 +47,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateUsage' smart constructor.
 data UpdateUsage = UpdateUsage'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | [Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
+    keyId :: Lude.Text,
+    -- | [Required] The Id of the usage plan associated with the usage data.
     usagePlanId :: Lude.Text,
-    keyId :: Lude.Text
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUsage' with the minimum fields required to make a request.
 --
 -- * 'keyId' - [Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'usagePlanId' - [Required] The Id of the usage plan associated with the usage data.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateUsage ::
-  -- | 'usagePlanId'
-  Lude.Text ->
   -- | 'keyId'
   Lude.Text ->
+  -- | 'usagePlanId'
+  Lude.Text ->
   UpdateUsage
-mkUpdateUsage pUsagePlanId_ pKeyId_ =
+mkUpdateUsage pKeyId_ pUsagePlanId_ =
   UpdateUsage'
-    { patchOperations = Lude.Nothing,
+    { keyId = pKeyId_,
       usagePlanId = pUsagePlanId_,
-      keyId = pKeyId_
+      patchOperations = Lude.Nothing
     }
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- | [Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
 --
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuPatchOperations :: Lens.Lens' UpdateUsage (Lude.Maybe [PatchOperation])
-uuPatchOperations = Lens.lens (patchOperations :: UpdateUsage -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateUsage)
-{-# DEPRECATED uuPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuKeyId :: Lens.Lens' UpdateUsage Lude.Text
+uuKeyId = Lens.lens (keyId :: UpdateUsage -> Lude.Text) (\s a -> s {keyId = a} :: UpdateUsage)
+{-# DEPRECATED uuKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | [Required] The Id of the usage plan associated with the usage data.
 --
@@ -92,12 +89,12 @@ uuUsagePlanId :: Lens.Lens' UpdateUsage Lude.Text
 uuUsagePlanId = Lens.lens (usagePlanId :: UpdateUsage -> Lude.Text) (\s a -> s {usagePlanId = a} :: UpdateUsage)
 {-# DEPRECATED uuUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
 
--- | [Required] The identifier of the API key associated with the usage plan in which a temporary extension is granted to the remaining quota.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuKeyId :: Lens.Lens' UpdateUsage Lude.Text
-uuKeyId = Lens.lens (keyId :: UpdateUsage -> Lude.Text) (\s a -> s {keyId = a} :: UpdateUsage)
-{-# DEPRECATED uuKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuPatchOperations :: Lens.Lens' UpdateUsage (Lude.Maybe [PatchOperation])
+uuPatchOperations = Lens.lens (patchOperations :: UpdateUsage -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateUsage)
+{-# DEPRECATED uuPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateUsage where
   type Rs UpdateUsage = Usage

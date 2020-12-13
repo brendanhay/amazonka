@@ -29,14 +29,11 @@ import Network.AWS.S3.Types.JSONType
 -- | Specifies JSON as object's input serialization format.
 --
 -- /See:/ 'mkJSONInput' smart constructor.
-newtype JSONInput = JSONInput' {type' :: Lude.Maybe JSONType}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype JSONInput = JSONInput'
+  { -- | The type of JSON. Valid values: Document, Lines.
+    type' :: Lude.Maybe JSONType
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JSONInput' with the minimum fields required to make a request.

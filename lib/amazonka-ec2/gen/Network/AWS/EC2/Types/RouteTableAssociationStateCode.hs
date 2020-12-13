@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.RouteTableAssociationStateCode
   ( RouteTableAssociationStateCode
       ( RouteTableAssociationStateCode',
-        RTASCAssociated,
         RTASCAssociating,
-        RTASCDisassociated,
+        RTASCAssociated,
         RTASCDisassociating,
+        RTASCDisassociated,
         RTASCFailed
       ),
   )
@@ -48,26 +48,26 @@ newtype RouteTableAssociationStateCode = RouteTableAssociationStateCode' Lude.Te
       Lude.ToHeader
     )
 
-pattern RTASCAssociated :: RouteTableAssociationStateCode
-pattern RTASCAssociated = RouteTableAssociationStateCode' "associated"
-
 pattern RTASCAssociating :: RouteTableAssociationStateCode
 pattern RTASCAssociating = RouteTableAssociationStateCode' "associating"
 
-pattern RTASCDisassociated :: RouteTableAssociationStateCode
-pattern RTASCDisassociated = RouteTableAssociationStateCode' "disassociated"
+pattern RTASCAssociated :: RouteTableAssociationStateCode
+pattern RTASCAssociated = RouteTableAssociationStateCode' "associated"
 
 pattern RTASCDisassociating :: RouteTableAssociationStateCode
 pattern RTASCDisassociating = RouteTableAssociationStateCode' "disassociating"
+
+pattern RTASCDisassociated :: RouteTableAssociationStateCode
+pattern RTASCDisassociated = RouteTableAssociationStateCode' "disassociated"
 
 pattern RTASCFailed :: RouteTableAssociationStateCode
 pattern RTASCFailed = RouteTableAssociationStateCode' "failed"
 
 {-# COMPLETE
-  RTASCAssociated,
   RTASCAssociating,
-  RTASCDisassociated,
+  RTASCAssociated,
   RTASCDisassociating,
+  RTASCDisassociated,
   RTASCFailed,
   RouteTableAssociationStateCode'
   #-}

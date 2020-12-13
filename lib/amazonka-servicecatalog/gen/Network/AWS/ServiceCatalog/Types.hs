@@ -342,12 +342,12 @@ module Network.AWS.ServiceCatalog.Types
     -- * ProvisioningArtifactParameter
     ProvisioningArtifactParameter (..),
     mkProvisioningArtifactParameter,
-    pIsNoEcho,
-    pParameterKey,
-    pParameterType,
-    pParameterConstraints,
-    pDefaultValue,
-    pDescription,
+    papIsNoEcho,
+    papParameterKey,
+    papParameterType,
+    papParameterConstraints,
+    papDefaultValue,
+    papDescription,
 
     -- * ProvisioningArtifactPreferences
     ProvisioningArtifactPreferences (..),
@@ -358,11 +358,11 @@ module Network.AWS.ServiceCatalog.Types
     -- * ProvisioningArtifactProperties
     ProvisioningArtifactProperties (..),
     mkProvisioningArtifactProperties,
-    papDisableTemplateValidation,
-    papName,
-    papType,
-    papDescription,
-    papInfo,
+    pDisableTemplateValidation,
+    pName,
+    pType,
+    pDescription,
+    pInfo,
 
     -- * ProvisioningArtifactSummary
     ProvisioningArtifactSummary (..),
@@ -469,9 +469,9 @@ module Network.AWS.ServiceCatalog.Types
     -- * ServiceActionAssociation
     ServiceActionAssociation (..),
     mkServiceActionAssociation,
+    saaProvisioningArtifactId,
     saaServiceActionId,
     saaProductId,
-    saaProvisioningArtifactId,
 
     -- * ServiceActionDetail
     ServiceActionDetail (..),
@@ -510,8 +510,8 @@ module Network.AWS.ServiceCatalog.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * TagOptionDetail
     TagOptionDetail (..),

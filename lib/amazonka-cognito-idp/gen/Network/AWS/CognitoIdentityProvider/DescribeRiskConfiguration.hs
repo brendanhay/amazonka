@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.CognitoIdentityProvider.DescribeRiskConfiguration
     mkDescribeRiskConfigurationResponse,
 
     -- ** Response lenses
-    drcrsResponseStatus,
     drcrsRiskConfiguration,
+    drcrsResponseStatus,
   )
 where
 
@@ -40,8 +41,9 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeRiskConfiguration' smart constructor.
 data DescribeRiskConfiguration = DescribeRiskConfiguration'
-  { clientId ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The app client ID.
+    clientId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The user pool ID.
     userPoolId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -84,8 +86,8 @@ instance Lude.AWSRequest DescribeRiskConfiguration where
     Res.receiveJSON
       ( \s h x ->
           DescribeRiskConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "RiskConfiguration")
+            Lude.<$> (x Lude..:> "RiskConfiguration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeRiskConfiguration where
@@ -118,44 +120,32 @@ instance Lude.ToQuery DescribeRiskConfiguration where
 
 -- | /See:/ 'mkDescribeRiskConfigurationResponse' smart constructor.
 data DescribeRiskConfigurationResponse = DescribeRiskConfigurationResponse'
-  { responseStatus ::
-      Lude.Int,
-    riskConfiguration ::
-      RiskConfigurationType
+  { -- | The risk configuration.
+    riskConfiguration :: RiskConfigurationType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRiskConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'riskConfiguration' - The risk configuration.
+-- * 'responseStatus' - The response status code.
 mkDescribeRiskConfigurationResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'riskConfiguration'
   RiskConfigurationType ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRiskConfigurationResponse
 mkDescribeRiskConfigurationResponse
-  pResponseStatus_
-  pRiskConfiguration_ =
+  pRiskConfiguration_
+  pResponseStatus_ =
     DescribeRiskConfigurationResponse'
-      { responseStatus =
-          pResponseStatus_,
-        riskConfiguration = pRiskConfiguration_
+      { riskConfiguration =
+          pRiskConfiguration_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsResponseStatus :: Lens.Lens' DescribeRiskConfigurationResponse Lude.Int
-drcrsResponseStatus = Lens.lens (responseStatus :: DescribeRiskConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRiskConfigurationResponse)
-{-# DEPRECATED drcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The risk configuration.
 --
@@ -163,3 +153,10 @@ drcrsResponseStatus = Lens.lens (responseStatus :: DescribeRiskConfigurationResp
 drcrsRiskConfiguration :: Lens.Lens' DescribeRiskConfigurationResponse RiskConfigurationType
 drcrsRiskConfiguration = Lens.lens (riskConfiguration :: DescribeRiskConfigurationResponse -> RiskConfigurationType) (\s a -> s {riskConfiguration = a} :: DescribeRiskConfigurationResponse)
 {-# DEPRECATED drcrsRiskConfiguration "Use generic-lens or generic-optics with 'riskConfiguration' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcrsResponseStatus :: Lens.Lens' DescribeRiskConfigurationResponse Lude.Int
+drcrsResponseStatus = Lens.lens (responseStatus :: DescribeRiskConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRiskConfigurationResponse)
+{-# DEPRECATED drcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

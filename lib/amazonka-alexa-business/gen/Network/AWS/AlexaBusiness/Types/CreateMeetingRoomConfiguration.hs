@@ -34,31 +34,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreateMeetingRoomConfiguration' smart constructor.
 data CreateMeetingRoomConfiguration = CreateMeetingRoomConfiguration'
-  { instantBooking ::
-      Lude.Maybe
-        CreateInstantBooking,
-    endOfMeetingReminder ::
-      Lude.Maybe
-        CreateEndOfMeetingReminder,
-    requireCheckIn ::
-      Lude.Maybe
-        CreateRequireCheckIn,
-    roomUtilizationMetricsEnabled ::
-      Lude.Maybe Lude.Bool
+  { -- | Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.
+    instantBooking :: Lude.Maybe CreateInstantBooking,
+    endOfMeetingReminder :: Lude.Maybe CreateEndOfMeetingReminder,
+    -- | Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”
+    requireCheckIn :: Lude.Maybe CreateRequireCheckIn,
+    -- | Whether room utilization metrics are enabled or not.
+    roomUtilizationMetricsEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMeetingRoomConfiguration' with the minimum fields required to make a request.
 --
--- * 'endOfMeetingReminder' - Undocumented field.
 -- * 'instantBooking' - Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.
+-- * 'endOfMeetingReminder' -
 -- * 'requireCheckIn' - Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”
 -- * 'roomUtilizationMetricsEnabled' - Whether room utilization metrics are enabled or not.
 mkCreateMeetingRoomConfiguration ::

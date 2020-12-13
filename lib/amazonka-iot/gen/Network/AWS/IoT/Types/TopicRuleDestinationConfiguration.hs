@@ -29,17 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTopicRuleDestinationConfiguration' smart constructor.
 newtype TopicRuleDestinationConfiguration = TopicRuleDestinationConfiguration'
-  { httpURLConfiguration ::
-      Lude.Maybe
-        HTTPURLDestinationConfiguration
+  { -- | Configuration of the HTTP URL.
+    httpURLConfiguration :: Lude.Maybe HTTPURLDestinationConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TopicRuleDestinationConfiguration' with the minimum fields required to make a request.

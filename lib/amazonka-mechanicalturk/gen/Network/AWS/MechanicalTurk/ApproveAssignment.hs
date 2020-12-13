@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,25 +52,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkApproveAssignment' smart constructor.
 data ApproveAssignment = ApproveAssignment'
-  { overrideRejection ::
-      Lude.Maybe Lude.Bool,
+  { -- | A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to @False@ .
+    overrideRejection :: Lude.Maybe Lude.Bool,
+    -- | A message for the Worker, which the Worker can see in the Status section of the web site.
     requesterFeedback :: Lude.Maybe Lude.Text,
+    -- | The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
     assignmentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApproveAssignment' with the minimum fields required to make a request.
 --
--- * 'assignmentId' - The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
 -- * 'overrideRejection' - A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to @False@ .
 -- * 'requesterFeedback' - A message for the Worker, which the Worker can see in the Status section of the web site.
+-- * 'assignmentId' - The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
 mkApproveAssignment ::
   -- | 'assignmentId'
   Lude.Text ->
@@ -142,16 +139,10 @@ instance Lude.ToQuery ApproveAssignment where
 
 -- | /See:/ 'mkApproveAssignmentResponse' smart constructor.
 newtype ApproveAssignmentResponse = ApproveAssignmentResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApproveAssignmentResponse' with the minimum fields required to make a request.

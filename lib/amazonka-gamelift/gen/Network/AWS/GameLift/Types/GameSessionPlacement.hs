@@ -61,65 +61,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameSessionPlacement' smart constructor.
 data GameSessionPlacement = GameSessionPlacement'
-  { status ::
-      Lude.Maybe GameSessionPlacementState,
+  { -- | Current status of the game session placement request.
+    --
+    --
+    --     * __PENDING__ -- The placement request is currently in the queue waiting to be processed.
+    --
+    --
+    --     * __FULFILLED__ -- A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.
+    --
+    --
+    --     * __CANCELLED__ -- The placement request was canceled with a call to 'StopGameSessionPlacement' .
+    --
+    --
+    --     * __TIMED_OUT__ -- A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
+    --
+    --
+    --     * __FAILED__ -- GameLift is not able to complete the process of placing the game session. Common reasons are the game session terminated before the placement process was completed, or an unexpected internal error.
+    status :: Lude.Maybe GameSessionPlacementState,
+    -- | A unique identifier for a game session placement.
     placementId :: Lude.Maybe Lude.Text,
+    -- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
     gameProperties :: Lude.Maybe [GameProperty],
+    -- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | A descriptive label that is associated with a game session. Session names do not need to be unique.
     gameSessionName :: Lude.Maybe Lude.Text,
+    -- | Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | A unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
     gameSessionId :: Lude.Maybe Lude.Text,
+    -- | Name of the Region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
     gameSessionRegion :: Lude.Maybe Lude.Text,
+    -- | Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> .
     matchmakerData :: Lude.Maybe Lude.Text,
-    maximumPlayerSessionCount ::
-      Lude.Maybe Lude.Natural,
+    -- | The maximum number of players that can be connected simultaneously to the game session.
+    maximumPlayerSessionCount :: Lude.Maybe Lude.Natural,
+    -- | Time stamp indicating when this request was completed, canceled, or timed out.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all Regions. You can use this value as a @GameSessionId@ value as needed.
     gameSessionARN :: Lude.Maybe Lude.Text,
+    -- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.
     playerLatencies :: Lude.Maybe [PlayerLatency],
+    -- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
     gameSessionData :: Lude.Maybe Lude.Text,
+    -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
+    --
+    --
+    --     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+    --
+    --
+    --     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+    --
+    --
+    -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
     dnsName :: Lude.Maybe Lude.Text,
+    -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
     gameSessionQueueName :: Lude.Maybe Lude.Text,
-    placedPlayerSessions ::
-      Lude.Maybe [PlacedPlayerSession],
+    -- | A collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
+    placedPlayerSessions :: Lude.Maybe [PlacedPlayerSession],
+    -- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
     port :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameSessionPlacement' with the minimum fields required to make a request.
 --
--- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
---
---
---     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
---
---
---     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
---
---
--- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
--- * 'endTime' - Time stamp indicating when this request was completed, canceled, or timed out.
--- * 'gameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
--- * 'gameSessionARN' - Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all Regions. You can use this value as a @GameSessionId@ value as needed.
--- * 'gameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
--- * 'gameSessionId' - A unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
--- * 'gameSessionName' - A descriptive label that is associated with a game session. Session names do not need to be unique.
--- * 'gameSessionQueueName' - A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
--- * 'gameSessionRegion' - Name of the Region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
--- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
--- * 'matchmakerData' - Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> .
--- * 'maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
--- * 'placedPlayerSessions' - A collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
--- * 'placementId' - A unique identifier for a game session placement.
--- * 'playerLatencies' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.
--- * 'port' - Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
--- * 'startTime' - Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 -- * 'status' - Current status of the game session placement request.
 --
 --
@@ -136,6 +143,34 @@ data GameSessionPlacement = GameSessionPlacement'
 --
 --
 --     * __FAILED__ -- GameLift is not able to complete the process of placing the game session. Common reasons are the game session terminated before the placement process was completed, or an unexpected internal error.
+--
+--
+-- * 'placementId' - A unique identifier for a game session placement.
+-- * 'gameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+-- * 'gameSessionName' - A descriptive label that is associated with a game session. Session names do not need to be unique.
+-- * 'startTime' - Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'gameSessionId' - A unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+-- * 'gameSessionRegion' - Name of the Region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+-- * 'matchmakerData' - Information on the matchmaking process for this game. Data is in JSON syntax, formatted as a string. It identifies the matchmaking configuration used to create the match, and contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> .
+-- * 'maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
+-- * 'endTime' - Time stamp indicating when this request was completed, canceled, or timed out.
+-- * 'gameSessionARN' - Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all Regions. You can use this value as a @GameSessionId@ value as needed.
+-- * 'playerLatencies' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions.
+-- * 'gameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
+--
+--
+--     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+--
+--
+--     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+--
+--
+-- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
+-- * 'gameSessionQueueName' - A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+-- * 'placedPlayerSessions' - A collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
+-- * 'port' - Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
 mkGameSessionPlacement ::
   GameSessionPlacement
 mkGameSessionPlacement =

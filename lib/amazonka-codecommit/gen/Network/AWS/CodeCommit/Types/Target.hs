@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTarget' smart constructor.
 data Target = Target'
-  { destinationReference :: Lude.Maybe Lude.Text,
+  { -- | The branch of the repository where the pull request changes are merged. Also known as the destination branch.
+    destinationReference :: Lude.Maybe Lude.Text,
+    -- | The name of the repository that contains the pull request.
     repositoryName :: Lude.Text,
+    -- | The branch of the repository that contains the changes for the pull request. Also known as the source branch.
     sourceReference :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Target' with the minimum fields required to make a request.

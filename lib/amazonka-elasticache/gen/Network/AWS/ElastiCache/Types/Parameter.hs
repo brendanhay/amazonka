@@ -37,36 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { parameterValue :: Lude.Maybe Lude.Text,
+  { -- | The value of the parameter.
+    parameterValue :: Lude.Maybe Lude.Text,
+    -- | The earliest cache engine version to which the parameter can apply.
     minimumEngineVersion :: Lude.Maybe Lude.Text,
+    -- | The source of the parameter.
     source :: Lude.Maybe Lude.Text,
+    -- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
     isModifiable :: Lude.Maybe Lude.Bool,
+    -- | The valid data type for the parameter.
     dataType :: Lude.Maybe Lude.Text,
+    -- | The valid range of values for the parameter.
     allowedValues :: Lude.Maybe Lude.Text,
+    -- | The name of the parameter.
     parameterName :: Lude.Maybe Lude.Text,
+    -- | A description of the parameter.
     description :: Lude.Maybe Lude.Text,
+    -- | Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
     changeType :: Lude.Maybe ChangeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- * 'allowedValues' - The valid range of values for the parameter.
--- * 'changeType' - Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
--- * 'dataType' - The valid data type for the parameter.
--- * 'description' - A description of the parameter.
--- * 'isModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
--- * 'minimumEngineVersion' - The earliest cache engine version to which the parameter can apply.
--- * 'parameterName' - The name of the parameter.
 -- * 'parameterValue' - The value of the parameter.
+-- * 'minimumEngineVersion' - The earliest cache engine version to which the parameter can apply.
 -- * 'source' - The source of the parameter.
+-- * 'isModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+-- * 'dataType' - The valid data type for the parameter.
+-- * 'allowedValues' - The valid range of values for the parameter.
+-- * 'parameterName' - The name of the parameter.
+-- * 'description' - A description of the parameter.
+-- * 'changeType' - Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
 mkParameter ::
   Parameter
 mkParameter =

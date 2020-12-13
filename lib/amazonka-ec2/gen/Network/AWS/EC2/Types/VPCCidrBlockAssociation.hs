@@ -31,26 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCCidrBlockAssociation' smart constructor.
 data VPCCidrBlockAssociation = VPCCidrBlockAssociation'
-  { associationId ::
-      Lude.Maybe Lude.Text,
-    cidrBlockState ::
-      Lude.Maybe VPCCidrBlockState,
+  { -- | The association ID for the IPv4 CIDR block.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | Information about the state of the CIDR block.
+    cidrBlockState :: Lude.Maybe VPCCidrBlockState,
+    -- | The IPv4 CIDR block.
     cidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCCidrBlockAssociation' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The association ID for the IPv4 CIDR block.
--- * 'cidrBlock' - The IPv4 CIDR block.
 -- * 'cidrBlockState' - Information about the state of the CIDR block.
+-- * 'cidrBlock' - The IPv4 CIDR block.
 mkVPCCidrBlockAssociation ::
   VPCCidrBlockAssociation
 mkVPCCidrBlockAssociation =

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimedMetadataInsertion' smart constructor.
 newtype TimedMetadataInsertion = TimedMetadataInsertion'
-  { id3Insertions ::
-      Lude.Maybe [Id3Insertion]
+  { -- | Id3Insertions contains the array of Id3Insertion instances.
+    id3Insertions :: Lude.Maybe [Id3Insertion]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimedMetadataInsertion' with the minimum fields required to make a request.

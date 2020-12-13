@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhysicalConnectionRequirements' smart constructor.
 data PhysicalConnectionRequirements = PhysicalConnectionRequirements'
-  { securityGroupIdList ::
-      Lude.Maybe [Lude.Text],
-    subnetId ::
-      Lude.Maybe Lude.Text,
-    availabilityZone ::
-      Lude.Maybe Lude.Text
+  { -- | The security group ID list used by the connection.
+    securityGroupIdList :: Lude.Maybe [Lude.Text],
+    -- | The subnet ID used by the connection.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
+    availabilityZone :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhysicalConnectionRequirements' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
 -- * 'securityGroupIdList' - The security group ID list used by the connection.
 -- * 'subnetId' - The subnet ID used by the connection.
+-- * 'availabilityZone' - The connection's Availability Zone. This field is redundant because the specified subnet implies the Availability Zone to be used. Currently the field must be populated, but it will be deprecated in the future.
 mkPhysicalConnectionRequirements ::
   PhysicalConnectionRequirements
 mkPhysicalConnectionRequirements =

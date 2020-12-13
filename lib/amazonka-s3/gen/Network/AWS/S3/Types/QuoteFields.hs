@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.QuoteFields
   ( QuoteFields
       ( QuoteFields',
-        ASNeeded,
-        Always
+        Always,
+        ASNeeded
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype QuoteFields = QuoteFields' Lude.Text
       Lude.ToHeader
     )
 
-pattern ASNeeded :: QuoteFields
-pattern ASNeeded = QuoteFields' "ASNEEDED"
-
 pattern Always :: QuoteFields
 pattern Always = QuoteFields' "ALWAYS"
 
+pattern ASNeeded :: QuoteFields
+pattern ASNeeded = QuoteFields' "ASNEEDED"
+
 {-# COMPLETE
-  ASNeeded,
   Always,
+  ASNeeded,
   QuoteFields'
   #-}

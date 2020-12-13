@@ -37,8 +37,8 @@ module Network.AWS.CloudSearch.Types
     -- * AccessPoliciesStatus
     AccessPoliciesStatus (..),
     mkAccessPoliciesStatus,
-    apsOptions,
     apsStatus,
+    apsOptions,
 
     -- * AnalysisOptions
     AnalysisOptions (..),
@@ -53,20 +53,20 @@ module Network.AWS.CloudSearch.Types
     AnalysisScheme (..),
     mkAnalysisScheme,
     asAnalysisOptions,
-    asAnalysisSchemeName,
     asAnalysisSchemeLanguage,
+    asAnalysisSchemeName,
 
     -- * AnalysisSchemeStatus
     AnalysisSchemeStatus (..),
     mkAnalysisSchemeStatus,
-    assOptions,
     assStatus,
+    assOptions,
 
     -- * AvailabilityOptionsStatus
     AvailabilityOptionsStatus (..),
     mkAvailabilityOptionsStatus,
-    aosOptions,
     aosStatus,
+    aosOptions,
 
     -- * DateArrayOptions
     DateArrayOptions (..),
@@ -90,9 +90,9 @@ module Network.AWS.CloudSearch.Types
     -- * DocumentSuggesterOptions
     DocumentSuggesterOptions (..),
     mkDocumentSuggesterOptions,
+    dsoSourceField,
     dsoSortExpression,
     dsoFuzzyMatching,
-    dsoSourceField,
 
     -- * DomainEndpointOptions
     DomainEndpointOptions (..),
@@ -103,8 +103,8 @@ module Network.AWS.CloudSearch.Types
     -- * DomainEndpointOptionsStatus
     DomainEndpointOptionsStatus (..),
     mkDomainEndpointOptionsStatus,
-    deosOptions,
     deosStatus,
+    deosOptions,
 
     -- * DomainStatus
     DomainStatus (..),
@@ -116,12 +116,12 @@ module Network.AWS.CloudSearch.Types
     dsCreated,
     dsSearchService,
     dsLimits,
+    dsRequiresIndexDocuments,
+    dsDomainName,
     dsSearchPartitionCount,
     dsDeleted,
-    dsProcessing,
     dsDomainId,
-    dsDomainName,
-    dsRequiresIndexDocuments,
+    dsProcessing,
 
     -- * DoubleArrayOptions
     DoubleArrayOptions (..),
@@ -151,8 +151,8 @@ module Network.AWS.CloudSearch.Types
     -- * ExpressionStatus
     ExpressionStatus (..),
     mkExpressionStatus,
-    esOptions,
     esStatus,
+    esOptions,
 
     -- * IndexField
     IndexField (..),
@@ -162,6 +162,7 @@ module Network.AWS.CloudSearch.Types
     ifTextArrayOptions,
     ifDoubleOptions,
     ifTextOptions,
+    ifIndexFieldType,
     ifLatLonOptions,
     ifLiteralArrayOptions,
     ifIntArrayOptions,
@@ -169,13 +170,12 @@ module Network.AWS.CloudSearch.Types
     ifIntOptions,
     ifLiteralOptions,
     ifIndexFieldName,
-    ifIndexFieldType,
 
     -- * IndexFieldStatus
     IndexFieldStatus (..),
     mkIndexFieldStatus,
-    ifsOptions,
     ifsStatus,
+    ifsOptions,
 
     -- * IntArrayOptions
     IntArrayOptions (..),
@@ -234,11 +234,11 @@ module Network.AWS.CloudSearch.Types
     -- * OptionStatus
     OptionStatus (..),
     mkOptionStatus,
-    osPendingDeletion,
-    osUpdateVersion,
-    osCreationDate,
-    osUpdateDate,
     osState,
+    osUpdateDate,
+    osPendingDeletion,
+    osCreationDate,
+    osUpdateVersion,
 
     -- * ScalingParameters
     ScalingParameters (..),
@@ -250,8 +250,8 @@ module Network.AWS.CloudSearch.Types
     -- * ScalingParametersStatus
     ScalingParametersStatus (..),
     mkScalingParametersStatus,
-    spsOptions,
     spsStatus,
+    spsOptions,
 
     -- * ServiceEndpoint
     ServiceEndpoint (..),
@@ -261,14 +261,14 @@ module Network.AWS.CloudSearch.Types
     -- * Suggester
     Suggester (..),
     mkSuggester,
-    sSuggesterName,
     sDocumentSuggesterOptions,
+    sSuggesterName,
 
     -- * SuggesterStatus
     SuggesterStatus (..),
     mkSuggesterStatus,
-    ssOptions,
     ssStatus,
+    ssOptions,
 
     -- * TextArrayOptions
     TextArrayOptions (..),
@@ -360,10 +360,6 @@ cloudSearchService =
           (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
         Lude.Just "throttled_exception"
-      | Lens.has
-          (Lude.hasCode "BandwidthLimitExceeded" Lude.. Lude.hasStatus 509)
-          e =
-        Lude.Just "request_limit_exceeded"
       | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
       | Lens.has
           (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
@@ -389,4 +385,8 @@ cloudSearchService =
       | Lens.has (Lude.hasStatus 500) e =
         Lude.Just "general_server_error"
       | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lens.has
+          (Lude.hasCode "BandwidthLimitExceeded" Lude.. Lude.hasStatus 509)
+          e =
+        Lude.Just "request_limit_exceeded"
       | Lude.otherwise = Lude.Nothing

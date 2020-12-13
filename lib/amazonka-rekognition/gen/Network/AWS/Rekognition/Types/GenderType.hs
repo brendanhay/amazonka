@@ -13,8 +13,8 @@
 module Network.AWS.Rekognition.Types.GenderType
   ( GenderType
       ( GenderType',
-        Female,
-        Male
+        Male,
+        Female
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype GenderType = GenderType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Female :: GenderType
-pattern Female = GenderType' "Female"
-
 pattern Male :: GenderType
 pattern Male = GenderType' "Male"
 
+pattern Female :: GenderType
+pattern Female = GenderType' "Female"
+
 {-# COMPLETE
-  Female,
   Male,
+  Female,
   GenderType'
   #-}

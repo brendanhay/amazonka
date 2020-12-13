@@ -31,19 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOpenIdConnectConfig' smart constructor.
 data OpenIdConnectConfig = OpenIdConnectConfig'
-  { authTTL ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of milliseconds a token is valid after being authenticated.
+    authTTL :: Lude.Maybe Lude.Integer,
+    -- | The client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
     clientId :: Lude.Maybe Lude.Text,
+    -- | The number of milliseconds a token is valid after being issued to a user.
     iatTTL :: Lude.Maybe Lude.Integer,
+    -- | The issuer for the OpenID Connect configuration. The issuer returned by discovery must exactly match the value of @iss@ in the ID token.
     issuer :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpenIdConnectConfig' with the minimum fields required to make a request.

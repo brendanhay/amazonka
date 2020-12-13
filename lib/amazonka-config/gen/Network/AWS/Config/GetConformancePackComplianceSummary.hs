@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Config.GetConformancePackComplianceSummary
     mkGetConformancePackComplianceSummary,
 
     -- ** Request lenses
+    gcpcsConformancePackNames,
     gcpcsNextToken,
     gcpcsLimit,
-    gcpcsConformancePackNames,
 
     -- * Destructuring the response
     GetConformancePackComplianceSummaryResponse (..),
@@ -42,40 +43,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetConformancePackComplianceSummary' smart constructor.
 data GetConformancePackComplianceSummary = GetConformancePackComplianceSummary'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural,
-    conformancePackNames ::
-      Lude.NonEmpty
-        Lude.Text
+  { -- | Names of conformance packs.
+    conformancePackNames :: Lude.NonEmpty Lude.Text,
+    -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of conformance packs returned on each page.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConformancePackComplianceSummary' with the minimum fields required to make a request.
 --
 -- * 'conformancePackNames' - Names of conformance packs.
--- * 'limit' - The maximum number of conformance packs returned on each page.
 -- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of conformance packs returned on each page.
 mkGetConformancePackComplianceSummary ::
   -- | 'conformancePackNames'
   Lude.NonEmpty Lude.Text ->
   GetConformancePackComplianceSummary
 mkGetConformancePackComplianceSummary pConformancePackNames_ =
   GetConformancePackComplianceSummary'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      conformancePackNames = pConformancePackNames_
+    { conformancePackNames =
+        pConformancePackNames_,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | Names of conformance packs.
+--
+-- /Note:/ Consider using 'conformancePackNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpcsConformancePackNames :: Lens.Lens' GetConformancePackComplianceSummary (Lude.NonEmpty Lude.Text)
+gcpcsConformancePackNames = Lens.lens (conformancePackNames :: GetConformancePackComplianceSummary -> Lude.NonEmpty Lude.Text) (\s a -> s {conformancePackNames = a} :: GetConformancePackComplianceSummary)
+{-# DEPRECATED gcpcsConformancePackNames "Use generic-lens or generic-optics with 'conformancePackNames' instead." #-}
 
 -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
@@ -90,13 +90,6 @@ gcpcsNextToken = Lens.lens (nextToken :: GetConformancePackComplianceSummary -> 
 gcpcsLimit :: Lens.Lens' GetConformancePackComplianceSummary (Lude.Maybe Lude.Natural)
 gcpcsLimit = Lens.lens (limit :: GetConformancePackComplianceSummary -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetConformancePackComplianceSummary)
 {-# DEPRECATED gcpcsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | Names of conformance packs.
---
--- /Note:/ Consider using 'conformancePackNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpcsConformancePackNames :: Lens.Lens' GetConformancePackComplianceSummary (Lude.NonEmpty Lude.Text)
-gcpcsConformancePackNames = Lens.lens (conformancePackNames :: GetConformancePackComplianceSummary -> Lude.NonEmpty Lude.Text) (\s a -> s {conformancePackNames = a} :: GetConformancePackComplianceSummary)
-{-# DEPRECATED gcpcsConformancePackNames "Use generic-lens or generic-optics with 'conformancePackNames' instead." #-}
 
 instance Lude.AWSRequest GetConformancePackComplianceSummary where
   type
@@ -129,9 +122,9 @@ instance Lude.ToJSON GetConformancePackComplianceSummary where
   toJSON GetConformancePackComplianceSummary' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("ConformancePackNames" Lude..= conformancePackNames)
+          [ Lude.Just ("ConformancePackNames" Lude..= conformancePackNames),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -143,24 +136,14 @@ instance Lude.ToQuery GetConformancePackComplianceSummary where
 
 -- | /See:/ 'mkGetConformancePackComplianceSummaryResponse' smart constructor.
 data GetConformancePackComplianceSummaryResponse = GetConformancePackComplianceSummaryResponse'
-  { conformancePackComplianceSummaryList ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ConformancePackComplianceSummary
-        ),
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of @ConformancePackComplianceSummary@ objects.
+    conformancePackComplianceSummaryList :: Lude.Maybe (Lude.NonEmpty ConformancePackComplianceSummary),
+    -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConformancePackComplianceSummaryResponse' with the minimum fields required to make a request.

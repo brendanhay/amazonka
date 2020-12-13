@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.Rekognition.StartFaceDetection
     -- ** Request lenses
     sfdJobTag,
     sfdNotificationChannel,
+    sfdVideo,
     sfdClientRequestToken,
     sfdFaceAttributes,
-    sfdVideo,
 
     -- * Destructuring the response
     StartFaceDetectionResponse (..),
@@ -46,32 +47,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartFaceDetection' smart constructor.
 data StartFaceDetection = StartFaceDetection'
-  { jobTag ::
-      Lude.Maybe Lude.Text,
+  { -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+    jobTag :: Lude.Maybe Lude.Text,
+    -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the face detection operation.
     notificationChannel :: Lude.Maybe NotificationChannel,
+    -- | The video in which you want to detect faces. The video must be stored in an Amazon S3 bucket.
+    video :: Video,
+    -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
     clientRequestToken :: Lude.Maybe Lude.Text,
-    faceAttributes :: Lude.Maybe FaceAttributes,
-    video :: Video
+    -- | The face attributes you want returned.
+    --
+    -- @DEFAULT@ - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks.
+    -- @ALL@ - All facial attributes are returned.
+    faceAttributes :: Lude.Maybe FaceAttributes
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartFaceDetection' with the minimum fields required to make a request.
 --
+-- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+-- * 'notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the face detection operation.
+-- * 'video' - The video in which you want to detect faces. The video must be stored in an Amazon S3 bucket.
 -- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 -- * 'faceAttributes' - The face attributes you want returned.
 --
 -- @DEFAULT@ - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks.
 -- @ALL@ - All facial attributes are returned.
--- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
--- * 'notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the face detection operation.
--- * 'video' - The video in which you want to detect faces. The video must be stored in an Amazon S3 bucket.
 mkStartFaceDetection ::
   -- | 'video'
   Video ->
@@ -80,9 +82,9 @@ mkStartFaceDetection pVideo_ =
   StartFaceDetection'
     { jobTag = Lude.Nothing,
       notificationChannel = Lude.Nothing,
+      video = pVideo_,
       clientRequestToken = Lude.Nothing,
-      faceAttributes = Lude.Nothing,
-      video = pVideo_
+      faceAttributes = Lude.Nothing
     }
 
 -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
@@ -98,6 +100,13 @@ sfdJobTag = Lens.lens (jobTag :: StartFaceDetection -> Lude.Maybe Lude.Text) (\s
 sfdNotificationChannel :: Lens.Lens' StartFaceDetection (Lude.Maybe NotificationChannel)
 sfdNotificationChannel = Lens.lens (notificationChannel :: StartFaceDetection -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartFaceDetection)
 {-# DEPRECATED sfdNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
+
+-- | The video in which you want to detect faces. The video must be stored in an Amazon S3 bucket.
+--
+-- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfdVideo :: Lens.Lens' StartFaceDetection Video
+sfdVideo = Lens.lens (video :: StartFaceDetection -> Video) (\s a -> s {video = a} :: StartFaceDetection)
+{-# DEPRECATED sfdVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
 -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
@@ -115,13 +124,6 @@ sfdClientRequestToken = Lens.lens (clientRequestToken :: StartFaceDetection -> L
 sfdFaceAttributes :: Lens.Lens' StartFaceDetection (Lude.Maybe FaceAttributes)
 sfdFaceAttributes = Lens.lens (faceAttributes :: StartFaceDetection -> Lude.Maybe FaceAttributes) (\s a -> s {faceAttributes = a} :: StartFaceDetection)
 {-# DEPRECATED sfdFaceAttributes "Use generic-lens or generic-optics with 'faceAttributes' instead." #-}
-
--- | The video in which you want to detect faces. The video must be stored in an Amazon S3 bucket.
---
--- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfdVideo :: Lens.Lens' StartFaceDetection Video
-sfdVideo = Lens.lens (video :: StartFaceDetection -> Video) (\s a -> s {video = a} :: StartFaceDetection)
-{-# DEPRECATED sfdVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
 instance Lude.AWSRequest StartFaceDetection where
   type Rs StartFaceDetection = StartFaceDetectionResponse
@@ -150,9 +152,9 @@ instance Lude.ToJSON StartFaceDetection where
       ( Lude.catMaybes
           [ ("JobTag" Lude..=) Lude.<$> jobTag,
             ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
+            Lude.Just ("Video" Lude..= video),
             ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("FaceAttributes" Lude..=) Lude.<$> faceAttributes,
-            Lude.Just ("Video" Lude..= video)
+            ("FaceAttributes" Lude..=) Lude.<$> faceAttributes
           ]
       )
 
@@ -164,17 +166,12 @@ instance Lude.ToQuery StartFaceDetection where
 
 -- | /See:/ 'mkStartFaceDetectionResponse' smart constructor.
 data StartFaceDetectionResponse = StartFaceDetectionResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the face detection job. Use @JobId@ to identify the job in a subsequent call to @GetFaceDetection@ .
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartFaceDetectionResponse' with the minimum fields required to make a request.

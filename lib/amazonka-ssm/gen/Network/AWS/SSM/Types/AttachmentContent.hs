@@ -33,29 +33,27 @@ import Network.AWS.SSM.Types.AttachmentHashType
 --
 -- /See:/ 'mkAttachmentContent' smart constructor.
 data AttachmentContent = AttachmentContent'
-  { hash ::
-      Lude.Maybe Lude.Text,
+  { -- | The cryptographic hash value of the document content.
+    hash :: Lude.Maybe Lude.Text,
+    -- | The size of an attachment in bytes.
     size :: Lude.Maybe Lude.Integer,
+    -- | The URL location of the attachment content.
     url :: Lude.Maybe Lude.Text,
+    -- | The name of an attachment.
     name :: Lude.Maybe Lude.Text,
+    -- | The hash algorithm used to calculate the hash value.
     hashType :: Lude.Maybe AttachmentHashType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachmentContent' with the minimum fields required to make a request.
 --
 -- * 'hash' - The cryptographic hash value of the document content.
--- * 'hashType' - The hash algorithm used to calculate the hash value.
--- * 'name' - The name of an attachment.
 -- * 'size' - The size of an attachment in bytes.
 -- * 'url' - The URL location of the attachment content.
+-- * 'name' - The name of an attachment.
+-- * 'hashType' - The hash algorithm used to calculate the hash value.
 mkAttachmentContent ::
   AttachmentContent
 mkAttachmentContent =

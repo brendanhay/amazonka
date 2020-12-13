@@ -16,10 +16,10 @@ module Network.AWS.Rekognition.Types.Reason
         ExceedsMaxFaces,
         ExtremePose,
         LowBrightness,
-        LowConfidence,
-        LowFaceQuality,
         LowSharpness,
-        SmallBoundingBox
+        LowConfidence,
+        SmallBoundingBox,
+        LowFaceQuality
       ),
   )
 where
@@ -59,25 +59,25 @@ pattern ExtremePose = Reason' "EXTREME_POSE"
 pattern LowBrightness :: Reason
 pattern LowBrightness = Reason' "LOW_BRIGHTNESS"
 
-pattern LowConfidence :: Reason
-pattern LowConfidence = Reason' "LOW_CONFIDENCE"
-
-pattern LowFaceQuality :: Reason
-pattern LowFaceQuality = Reason' "LOW_FACE_QUALITY"
-
 pattern LowSharpness :: Reason
 pattern LowSharpness = Reason' "LOW_SHARPNESS"
 
+pattern LowConfidence :: Reason
+pattern LowConfidence = Reason' "LOW_CONFIDENCE"
+
 pattern SmallBoundingBox :: Reason
 pattern SmallBoundingBox = Reason' "SMALL_BOUNDING_BOX"
+
+pattern LowFaceQuality :: Reason
+pattern LowFaceQuality = Reason' "LOW_FACE_QUALITY"
 
 {-# COMPLETE
   ExceedsMaxFaces,
   ExtremePose,
   LowBrightness,
-  LowConfidence,
-  LowFaceQuality,
   LowSharpness,
+  LowConfidence,
   SmallBoundingBox,
+  LowFaceQuality,
   Reason'
   #-}

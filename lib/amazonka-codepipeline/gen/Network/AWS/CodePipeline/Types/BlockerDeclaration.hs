@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlockerDeclaration' smart constructor.
 data BlockerDeclaration = BlockerDeclaration'
-  { name :: Lude.Text,
+  { -- | Reserved for future use.
+    name :: Lude.Text,
+    -- | Reserved for future use.
     type' :: BlockerType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlockerDeclaration' with the minimum fields required to make a request.

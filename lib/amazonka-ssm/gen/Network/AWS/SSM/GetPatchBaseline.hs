@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -53,16 +54,10 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetPatchBaseline' smart constructor.
 newtype GetPatchBaseline = GetPatchBaseline'
-  { baselineId ::
-      Lude.Text
+  { -- | The ID of the patch baseline to retrieve.
+    baselineId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPatchBaseline' with the minimum fields required to make a request.
@@ -131,27 +126,37 @@ instance Lude.ToQuery GetPatchBaseline where
 
 -- | /See:/ 'mkGetPatchBaselineResponse' smart constructor.
 data GetPatchBaselineResponse = GetPatchBaselineResponse'
-  { approvalRules ::
-      Lude.Maybe PatchRuleGroup,
-    operatingSystem ::
-      Lude.Maybe OperatingSystem,
-    globalFilters ::
-      Lude.Maybe PatchFilterGroup,
-    approvedPatchesComplianceLevel ::
-      Lude.Maybe PatchComplianceLevel,
-    rejectedPatchesAction ::
-      Lude.Maybe PatchAction,
+  { -- | A set of rules used to include patches in the baseline.
+    approvalRules :: Lude.Maybe PatchRuleGroup,
+    -- | Returns the operating system specified for the patch baseline.
+    operatingSystem :: Lude.Maybe OperatingSystem,
+    -- | A set of global filters used to exclude patches from the baseline.
+    globalFilters :: Lude.Maybe PatchFilterGroup,
+    -- | Returns the specified compliance severity level for approved patches in the patch baseline.
+    approvedPatchesComplianceLevel :: Lude.Maybe PatchComplianceLevel,
+    -- | The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
+    rejectedPatchesAction :: Lude.Maybe PatchAction,
+    -- | A list of explicitly approved patches for the baseline.
     approvedPatches :: Lude.Maybe [Lude.Text],
-    approvedPatchesEnableNonSecurity ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+    approvedPatchesEnableNonSecurity :: Lude.Maybe Lude.Bool,
+    -- | A list of explicitly rejected patches for the baseline.
     rejectedPatches :: Lude.Maybe [Lude.Text],
+    -- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
     sources :: Lude.Maybe [PatchSource],
+    -- | The date the patch baseline was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the patch baseline.
     name :: Lude.Maybe Lude.Text,
+    -- | Patch groups included in the patch baseline.
     patchGroups :: Lude.Maybe [Lude.Text],
+    -- | The date the patch baseline was last modified.
     modifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the patch baseline.
     description :: Lude.Maybe Lude.Text,
+    -- | The ID of the retrieved patch baseline.
     baselineId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -160,21 +165,21 @@ data GetPatchBaselineResponse = GetPatchBaselineResponse'
 -- | Creates a value of 'GetPatchBaselineResponse' with the minimum fields required to make a request.
 --
 -- * 'approvalRules' - A set of rules used to include patches in the baseline.
--- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
--- * 'approvedPatchesComplianceLevel' - Returns the specified compliance severity level for approved patches in the patch baseline.
--- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
--- * 'baselineId' - The ID of the retrieved patch baseline.
--- * 'createdDate' - The date the patch baseline was created.
--- * 'description' - A description of the patch baseline.
--- * 'globalFilters' - A set of global filters used to exclude patches from the baseline.
--- * 'modifiedDate' - The date the patch baseline was last modified.
--- * 'name' - The name of the patch baseline.
 -- * 'operatingSystem' - Returns the operating system specified for the patch baseline.
--- * 'patchGroups' - Patch groups included in the patch baseline.
--- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
+-- * 'globalFilters' - A set of global filters used to exclude patches from the baseline.
+-- * 'approvedPatchesComplianceLevel' - Returns the specified compliance severity level for approved patches in the patch baseline.
 -- * 'rejectedPatchesAction' - The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
--- * 'responseStatus' - The response status code.
+-- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
+-- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+-- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
 -- * 'sources' - Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+-- * 'createdDate' - The date the patch baseline was created.
+-- * 'name' - The name of the patch baseline.
+-- * 'patchGroups' - Patch groups included in the patch baseline.
+-- * 'modifiedDate' - The date the patch baseline was last modified.
+-- * 'description' - A description of the patch baseline.
+-- * 'baselineId' - The ID of the retrieved patch baseline.
+-- * 'responseStatus' - The response status code.
 mkGetPatchBaselineResponse ::
   -- | 'responseStatus'
   Lude.Int ->

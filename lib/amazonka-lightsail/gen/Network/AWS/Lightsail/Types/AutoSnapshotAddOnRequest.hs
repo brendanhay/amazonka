@@ -43,16 +43,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoSnapshotAddOnRequest' smart constructor.
 newtype AutoSnapshotAddOnRequest = AutoSnapshotAddOnRequest'
-  { snapshotTimeOfDay ::
-      Lude.Maybe Lude.Text
+  { -- | The daily time when an automatic snapshot will be created.
+    --
+    -- Constraints:
+    --
+    --     * Must be in @HH:00@ format, and in an hourly increment.
+    --
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * The snapshot will be automatically created between the time specified and up to 45 minutes after.
+    snapshotTimeOfDay :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoSnapshotAddOnRequest' with the minimum fields required to make a request.

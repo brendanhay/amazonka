@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,23 +42,18 @@ import Network.AWS.Translate.Types
 
 -- | /See:/ 'mkListParallelData' smart constructor.
 data ListParallelData = ListParallelData'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that specifies the next page of results to return in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of parallel data resources returned for each request.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListParallelData' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of parallel data resources returned for each request.
 -- * 'nextToken' - A string that specifies the next page of results to return in a paginated response.
+-- * 'maxResults' - The maximum number of parallel data resources returned for each request.
 mkListParallelData ::
   ListParallelData
 mkListParallelData =
@@ -122,24 +118,20 @@ instance Lude.ToQuery ListParallelData where
 
 -- | /See:/ 'mkListParallelDataResponse' smart constructor.
 data ListParallelDataResponse = ListParallelDataResponse'
-  { parallelDataPropertiesList ::
-      Lude.Maybe [ParallelDataProperties],
+  { -- | The properties of the parallel data resources returned by this request.
+    parallelDataPropertiesList :: Lude.Maybe [ParallelDataProperties],
+    -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListParallelDataResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
 -- * 'parallelDataPropertiesList' - The properties of the parallel data resources returned by this request.
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
 -- * 'responseStatus' - The response status code.
 mkListParallelDataResponse ::
   -- | 'responseStatus'

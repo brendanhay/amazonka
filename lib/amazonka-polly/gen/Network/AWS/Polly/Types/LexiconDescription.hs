@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLexiconDescription' smart constructor.
 data LexiconDescription = LexiconDescription'
-  { attributes ::
-      Lude.Maybe LexiconAttributes,
+  { -- | Provides lexicon metadata.
+    attributes :: Lude.Maybe LexiconAttributes,
+    -- | Name of the lexicon.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LexiconDescription' with the minimum fields required to make a request.

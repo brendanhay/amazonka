@@ -34,32 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCounters' smart constructor.
 data Counters = Counters'
-  { passed :: Lude.Maybe Lude.Int,
+  { -- | The number of passed entities.
+    passed :: Lude.Maybe Lude.Int,
+    -- | The number of skipped entities.
     skipped :: Lude.Maybe Lude.Int,
+    -- | The number of warned entities.
     warned :: Lude.Maybe Lude.Int,
+    -- | The number of stopped entities.
     stopped :: Lude.Maybe Lude.Int,
+    -- | The total number of entities.
     total :: Lude.Maybe Lude.Int,
+    -- | The number of failed entities.
     failed :: Lude.Maybe Lude.Int,
+    -- | The number of errored entities.
     errored :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Counters' with the minimum fields required to make a request.
 --
--- * 'errored' - The number of errored entities.
--- * 'failed' - The number of failed entities.
 -- * 'passed' - The number of passed entities.
 -- * 'skipped' - The number of skipped entities.
+-- * 'warned' - The number of warned entities.
 -- * 'stopped' - The number of stopped entities.
 -- * 'total' - The total number of entities.
--- * 'warned' - The number of warned entities.
+-- * 'failed' - The number of failed entities.
+-- * 'errored' - The number of errored entities.
 mkCounters ::
   Counters
 mkCounters =

@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.ExistingObjectReplicationStatus
   ( ExistingObjectReplicationStatus
       ( ExistingObjectReplicationStatus',
-        EORSDisabled,
-        EORSEnabled
+        EORSEnabled,
+        EORSDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ExistingObjectReplicationStatus = ExistingObjectReplicationStatus' Lude.
       Lude.ToHeader
     )
 
-pattern EORSDisabled :: ExistingObjectReplicationStatus
-pattern EORSDisabled = ExistingObjectReplicationStatus' "Disabled"
-
 pattern EORSEnabled :: ExistingObjectReplicationStatus
 pattern EORSEnabled = ExistingObjectReplicationStatus' "Enabled"
 
+pattern EORSDisabled :: ExistingObjectReplicationStatus
+pattern EORSDisabled = ExistingObjectReplicationStatus' "Disabled"
+
 {-# COMPLETE
-  EORSDisabled,
   EORSEnabled,
+  EORSDisabled,
   ExistingObjectReplicationStatus'
   #-}

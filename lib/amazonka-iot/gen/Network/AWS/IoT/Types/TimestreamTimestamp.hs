@@ -29,24 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimestreamTimestamp' smart constructor.
 data TimestreamTimestamp = TimestreamTimestamp'
-  { value :: Lude.Text,
+  { -- | An expression that returns a long epoch time value.
+    value :: Lude.Text,
+    -- | The precision of the timestamp value that results from the expression described in @value@ .
+    --
+    -- Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ | @NANOSECONDS@ . The default is @MILLISECONDS@ .
     unit :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimestreamTimestamp' with the minimum fields required to make a request.
 --
+-- * 'value' - An expression that returns a long epoch time value.
 -- * 'unit' - The precision of the timestamp value that results from the expression described in @value@ .
 --
 -- Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ | @NANOSECONDS@ . The default is @MILLISECONDS@ .
--- * 'value' - An expression that returns a long epoch time value.
 mkTimestreamTimestamp ::
   -- | 'value'
   Lude.Text ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,13 +20,13 @@ module Network.AWS.IoT.CreateProvisioningTemplate
     mkCreateProvisioningTemplate,
 
     -- ** Request lenses
+    cptTemplateName,
     cptPreProvisioningHook,
     cptEnabled,
+    cptProvisioningRoleARN,
+    cptTemplateBody,
     cptDescription,
     cptTags,
-    cptTemplateName,
-    cptTemplateBody,
-    cptProvisioningRoleARN,
 
     -- * Destructuring the response
     CreateProvisioningTemplateResponse (..),
@@ -47,54 +48,61 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateProvisioningTemplate' smart constructor.
 data CreateProvisioningTemplate = CreateProvisioningTemplate'
-  { preProvisioningHook ::
-      Lude.Maybe ProvisioningHook,
-    enabled :: Lude.Maybe Lude.Bool,
-    description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | The name of the fleet provisioning template.
     templateName :: Lude.Text,
+    -- | Creates a pre-provisioning hook template.
+    preProvisioningHook :: Lude.Maybe ProvisioningHook,
+    -- | True to enable the fleet provisioning template, otherwise false.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+    provisioningRoleARN :: Lude.Text,
+    -- | The JSON formatted contents of the fleet provisioning template.
     templateBody :: Lude.Text,
-    provisioningRoleARN :: Lude.Text
+    -- | The description of the fleet provisioning template.
+    description :: Lude.Maybe Lude.Text,
+    -- | Metadata which can be used to manage the fleet provisioning template.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisioningTemplate' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the fleet provisioning template.
--- * 'enabled' - True to enable the fleet provisioning template, otherwise false.
--- * 'preProvisioningHook' - Creates a pre-provisioning hook template.
--- * 'provisioningRoleARN' - The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
--- * 'tags' - Metadata which can be used to manage the fleet provisioning template.
--- * 'templateBody' - The JSON formatted contents of the fleet provisioning template.
 -- * 'templateName' - The name of the fleet provisioning template.
+-- * 'preProvisioningHook' - Creates a pre-provisioning hook template.
+-- * 'enabled' - True to enable the fleet provisioning template, otherwise false.
+-- * 'provisioningRoleARN' - The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+-- * 'templateBody' - The JSON formatted contents of the fleet provisioning template.
+-- * 'description' - The description of the fleet provisioning template.
+-- * 'tags' - Metadata which can be used to manage the fleet provisioning template.
 mkCreateProvisioningTemplate ::
   -- | 'templateName'
   Lude.Text ->
-  -- | 'templateBody'
-  Lude.Text ->
   -- | 'provisioningRoleARN'
+  Lude.Text ->
+  -- | 'templateBody'
   Lude.Text ->
   CreateProvisioningTemplate
 mkCreateProvisioningTemplate
   pTemplateName_
-  pTemplateBody_
-  pProvisioningRoleARN_ =
+  pProvisioningRoleARN_
+  pTemplateBody_ =
     CreateProvisioningTemplate'
-      { preProvisioningHook = Lude.Nothing,
+      { templateName = pTemplateName_,
+        preProvisioningHook = Lude.Nothing,
         enabled = Lude.Nothing,
-        description = Lude.Nothing,
-        tags = Lude.Nothing,
-        templateName = pTemplateName_,
+        provisioningRoleARN = pProvisioningRoleARN_,
         templateBody = pTemplateBody_,
-        provisioningRoleARN = pProvisioningRoleARN_
+        description = Lude.Nothing,
+        tags = Lude.Nothing
       }
+
+-- | The name of the fleet provisioning template.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptTemplateName :: Lens.Lens' CreateProvisioningTemplate Lude.Text
+cptTemplateName = Lens.lens (templateName :: CreateProvisioningTemplate -> Lude.Text) (\s a -> s {templateName = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | Creates a pre-provisioning hook template.
 --
@@ -110,6 +118,20 @@ cptEnabled :: Lens.Lens' CreateProvisioningTemplate (Lude.Maybe Lude.Bool)
 cptEnabled = Lens.lens (enabled :: CreateProvisioningTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: CreateProvisioningTemplate)
 {-# DEPRECATED cptEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
+-- | The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+--
+-- /Note:/ Consider using 'provisioningRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptProvisioningRoleARN :: Lens.Lens' CreateProvisioningTemplate Lude.Text
+cptProvisioningRoleARN = Lens.lens (provisioningRoleARN :: CreateProvisioningTemplate -> Lude.Text) (\s a -> s {provisioningRoleARN = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptProvisioningRoleARN "Use generic-lens or generic-optics with 'provisioningRoleARN' instead." #-}
+
+-- | The JSON formatted contents of the fleet provisioning template.
+--
+-- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptTemplateBody :: Lens.Lens' CreateProvisioningTemplate Lude.Text
+cptTemplateBody = Lens.lens (templateBody :: CreateProvisioningTemplate -> Lude.Text) (\s a -> s {templateBody = a} :: CreateProvisioningTemplate)
+{-# DEPRECATED cptTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
+
 -- | The description of the fleet provisioning template.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -123,27 +145,6 @@ cptDescription = Lens.lens (description :: CreateProvisioningTemplate -> Lude.Ma
 cptTags :: Lens.Lens' CreateProvisioningTemplate (Lude.Maybe [Tag])
 cptTags = Lens.lens (tags :: CreateProvisioningTemplate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateProvisioningTemplate)
 {-# DEPRECATED cptTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the fleet provisioning template.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cptTemplateName :: Lens.Lens' CreateProvisioningTemplate Lude.Text
-cptTemplateName = Lens.lens (templateName :: CreateProvisioningTemplate -> Lude.Text) (\s a -> s {templateName = a} :: CreateProvisioningTemplate)
-{-# DEPRECATED cptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
--- | The JSON formatted contents of the fleet provisioning template.
---
--- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cptTemplateBody :: Lens.Lens' CreateProvisioningTemplate Lude.Text
-cptTemplateBody = Lens.lens (templateBody :: CreateProvisioningTemplate -> Lude.Text) (\s a -> s {templateBody = a} :: CreateProvisioningTemplate)
-{-# DEPRECATED cptTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
-
--- | The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
---
--- /Note:/ Consider using 'provisioningRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cptProvisioningRoleARN :: Lens.Lens' CreateProvisioningTemplate Lude.Text
-cptProvisioningRoleARN = Lens.lens (provisioningRoleARN :: CreateProvisioningTemplate -> Lude.Text) (\s a -> s {provisioningRoleARN = a} :: CreateProvisioningTemplate)
-{-# DEPRECATED cptProvisioningRoleARN "Use generic-lens or generic-optics with 'provisioningRoleARN' instead." #-}
 
 instance Lude.AWSRequest CreateProvisioningTemplate where
   type
@@ -167,13 +168,13 @@ instance Lude.ToJSON CreateProvisioningTemplate where
   toJSON CreateProvisioningTemplate' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("preProvisioningHook" Lude..=) Lude.<$> preProvisioningHook,
+          [ Lude.Just ("templateName" Lude..= templateName),
+            ("preProvisioningHook" Lude..=) Lude.<$> preProvisioningHook,
             ("enabled" Lude..=) Lude.<$> enabled,
-            ("description" Lude..=) Lude.<$> description,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("templateName" Lude..= templateName),
+            Lude.Just ("provisioningRoleArn" Lude..= provisioningRoleARN),
             Lude.Just ("templateBody" Lude..= templateBody),
-            Lude.Just ("provisioningRoleArn" Lude..= provisioningRoleARN)
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -185,30 +186,24 @@ instance Lude.ToQuery CreateProvisioningTemplate where
 
 -- | /See:/ 'mkCreateProvisioningTemplateResponse' smart constructor.
 data CreateProvisioningTemplateResponse = CreateProvisioningTemplateResponse'
-  { templateName ::
-      Lude.Maybe Lude.Text,
-    defaultVersionId ::
-      Lude.Maybe Lude.Int,
-    templateARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the fleet provisioning template.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | The default version of the fleet provisioning template.
+    defaultVersionId :: Lude.Maybe Lude.Int,
+    -- | The ARN that identifies the provisioning template.
+    templateARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisioningTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'defaultVersionId' - The default version of the fleet provisioning template.
--- * 'responseStatus' - The response status code.
--- * 'templateARN' - The ARN that identifies the provisioning template.
 -- * 'templateName' - The name of the fleet provisioning template.
+-- * 'defaultVersionId' - The default version of the fleet provisioning template.
+-- * 'templateARN' - The ARN that identifies the provisioning template.
+-- * 'responseStatus' - The response status code.
 mkCreateProvisioningTemplateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

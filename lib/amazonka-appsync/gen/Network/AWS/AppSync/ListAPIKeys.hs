@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.AppSync.ListAPIKeys
     mkListAPIKeys,
 
     -- ** Request lenses
+    lakApiId,
     lakNextToken,
     lakMaxResults,
-    lakApiId,
 
     -- * Destructuring the response
     ListAPIKeysResponse (..),
@@ -45,34 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAPIKeys' smart constructor.
 data ListAPIKeys = ListAPIKeys'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    apiId :: Lude.Text
+  { -- | The API ID.
+    apiId :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results you want the request to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAPIKeys' with the minimum fields required to make a request.
 --
 -- * 'apiId' - The API ID.
--- * 'maxResults' - The maximum number of results you want the request to return.
 -- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'maxResults' - The maximum number of results you want the request to return.
 mkListAPIKeys ::
   -- | 'apiId'
   Lude.Text ->
   ListAPIKeys
 mkListAPIKeys pApiId_ =
   ListAPIKeys'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      apiId = pApiId_
+    { apiId = pApiId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The API ID.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lakApiId :: Lens.Lens' ListAPIKeys Lude.Text
+lakApiId = Lens.lens (apiId :: ListAPIKeys -> Lude.Text) (\s a -> s {apiId = a} :: ListAPIKeys)
+{-# DEPRECATED lakApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
@@ -87,13 +92,6 @@ lakNextToken = Lens.lens (nextToken :: ListAPIKeys -> Lude.Maybe Lude.Text) (\s 
 lakMaxResults :: Lens.Lens' ListAPIKeys (Lude.Maybe Lude.Natural)
 lakMaxResults = Lens.lens (maxResults :: ListAPIKeys -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAPIKeys)
 {-# DEPRECATED lakMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The API ID.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lakApiId :: Lens.Lens' ListAPIKeys Lude.Text
-lakApiId = Lens.lens (apiId :: ListAPIKeys -> Lude.Text) (\s a -> s {apiId = a} :: ListAPIKeys)
-{-# DEPRECATED lakApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 instance Page.AWSPager ListAPIKeys where
   page rq rs
@@ -136,18 +134,14 @@ instance Lude.ToQuery ListAPIKeys where
 
 -- | /See:/ 'mkListAPIKeysResponse' smart constructor.
 data ListAPIKeysResponse = ListAPIKeysResponse'
-  { apiKeys ::
-      Lude.Maybe [APIKey],
+  { -- | The @ApiKey@ objects.
+    apiKeys :: Lude.Maybe [APIKey],
+    -- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAPIKeysResponse' with the minimum fields required to make a request.

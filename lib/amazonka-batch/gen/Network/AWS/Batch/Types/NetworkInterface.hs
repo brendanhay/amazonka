@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { ipv6Address ::
-      Lude.Maybe Lude.Text,
+  { -- | The private IPv6 address for the network interface.
+    ipv6Address :: Lude.Maybe Lude.Text,
+    -- | The private IPv4 address for the network interface.
     privateIPv4Address :: Lude.Maybe Lude.Text,
+    -- | The attachment ID for the network interface.
     attachmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
 --
--- * 'attachmentId' - The attachment ID for the network interface.
 -- * 'ipv6Address' - The private IPv6 address for the network interface.
 -- * 'privateIPv4Address' - The private IPv4 address for the network interface.
+-- * 'attachmentId' - The attachment ID for the network interface.
 mkNetworkInterface ::
   NetworkInterface
 mkNetworkInterface =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.GuardDuty.UpdatePublishingDestination
     mkUpdatePublishingDestination,
 
     -- ** Request lenses
-    updDestinationProperties,
     updDetectorId,
+    updDestinationProperties,
     updDestinationId,
 
     -- * Destructuring the response
@@ -40,25 +41,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdatePublishingDestination' smart constructor.
 data UpdatePublishingDestination = UpdatePublishingDestination'
-  { destinationProperties ::
-      Lude.Maybe DestinationProperties,
+  { -- | The ID of the detector associated with the publishing destinations to update.
     detectorId :: Lude.Text,
+    -- | A @DestinationProperties@ object that includes the @DestinationArn@ and @KmsKeyArn@ of the publishing destination.
+    destinationProperties :: Lude.Maybe DestinationProperties,
+    -- | The ID of the publishing destination to update.
     destinationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePublishingDestination' with the minimum fields required to make a request.
 --
--- * 'destinationId' - The ID of the publishing destination to update.
--- * 'destinationProperties' - A @DestinationProperties@ object that includes the @DestinationArn@ and @KmsKeyArn@ of the publishing destination.
 -- * 'detectorId' - The ID of the detector associated with the publishing destinations to update.
+-- * 'destinationProperties' - A @DestinationProperties@ object that includes the @DestinationArn@ and @KmsKeyArn@ of the publishing destination.
+-- * 'destinationId' - The ID of the publishing destination to update.
 mkUpdatePublishingDestination ::
   -- | 'detectorId'
   Lude.Text ->
@@ -67,18 +64,10 @@ mkUpdatePublishingDestination ::
   UpdatePublishingDestination
 mkUpdatePublishingDestination pDetectorId_ pDestinationId_ =
   UpdatePublishingDestination'
-    { destinationProperties =
-        Lude.Nothing,
-      detectorId = pDetectorId_,
+    { detectorId = pDetectorId_,
+      destinationProperties = Lude.Nothing,
       destinationId = pDestinationId_
     }
-
--- | A @DestinationProperties@ object that includes the @DestinationArn@ and @KmsKeyArn@ of the publishing destination.
---
--- /Note:/ Consider using 'destinationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-updDestinationProperties :: Lens.Lens' UpdatePublishingDestination (Lude.Maybe DestinationProperties)
-updDestinationProperties = Lens.lens (destinationProperties :: UpdatePublishingDestination -> Lude.Maybe DestinationProperties) (\s a -> s {destinationProperties = a} :: UpdatePublishingDestination)
-{-# DEPRECATED updDestinationProperties "Use generic-lens or generic-optics with 'destinationProperties' instead." #-}
 
 -- | The ID of the detector associated with the publishing destinations to update.
 --
@@ -86,6 +75,13 @@ updDestinationProperties = Lens.lens (destinationProperties :: UpdatePublishingD
 updDetectorId :: Lens.Lens' UpdatePublishingDestination Lude.Text
 updDetectorId = Lens.lens (detectorId :: UpdatePublishingDestination -> Lude.Text) (\s a -> s {detectorId = a} :: UpdatePublishingDestination)
 {-# DEPRECATED updDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
+-- | A @DestinationProperties@ object that includes the @DestinationArn@ and @KmsKeyArn@ of the publishing destination.
+--
+-- /Note:/ Consider using 'destinationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updDestinationProperties :: Lens.Lens' UpdatePublishingDestination (Lude.Maybe DestinationProperties)
+updDestinationProperties = Lens.lens (destinationProperties :: UpdatePublishingDestination -> Lude.Maybe DestinationProperties) (\s a -> s {destinationProperties = a} :: UpdatePublishingDestination)
+{-# DEPRECATED updDestinationProperties "Use generic-lens or generic-optics with 'destinationProperties' instead." #-}
 
 -- | The ID of the publishing destination to update.
 --
@@ -136,16 +132,10 @@ instance Lude.ToQuery UpdatePublishingDestination where
 
 -- | /See:/ 'mkUpdatePublishingDestinationResponse' smart constructor.
 newtype UpdatePublishingDestinationResponse = UpdatePublishingDestinationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePublishingDestinationResponse' with the minimum fields required to make a request.

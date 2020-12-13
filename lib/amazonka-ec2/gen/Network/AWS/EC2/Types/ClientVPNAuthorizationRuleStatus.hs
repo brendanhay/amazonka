@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientVPNAuthorizationRuleStatus' smart constructor.
 data ClientVPNAuthorizationRuleStatus = ClientVPNAuthorizationRuleStatus'
-  { code ::
-      Lude.Maybe
-        ClientVPNAuthorizationRuleStatusCode,
-    message ::
-      Lude.Maybe Lude.Text
+  { -- | The state of the authorization rule.
+    code :: Lude.Maybe ClientVPNAuthorizationRuleStatusCode,
+    -- | A message about the status of the authorization rule, if applicable.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNAuthorizationRuleStatus' with the minimum fields required to make a request.

@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackConfigurationManager' smart constructor.
 data StackConfigurationManager = StackConfigurationManager'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name. This parameter must be set to "Chef".
+    name :: Lude.Maybe Lude.Text,
+    -- | The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks, and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackConfigurationManager' with the minimum fields required to make a request.

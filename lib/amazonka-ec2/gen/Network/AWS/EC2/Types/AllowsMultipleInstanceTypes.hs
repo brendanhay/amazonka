@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.AllowsMultipleInstanceTypes
   ( AllowsMultipleInstanceTypes
       ( AllowsMultipleInstanceTypes',
-        ON,
-        Off
+        AMITON,
+        AMITOff
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AllowsMultipleInstanceTypes = AllowsMultipleInstanceTypes' Lude.Text
       Lude.ToHeader
     )
 
-pattern ON :: AllowsMultipleInstanceTypes
-pattern ON = AllowsMultipleInstanceTypes' "on"
+pattern AMITON :: AllowsMultipleInstanceTypes
+pattern AMITON = AllowsMultipleInstanceTypes' "on"
 
-pattern Off :: AllowsMultipleInstanceTypes
-pattern Off = AllowsMultipleInstanceTypes' "off"
+pattern AMITOff :: AllowsMultipleInstanceTypes
+pattern AMITOff = AllowsMultipleInstanceTypes' "off"
 
 {-# COMPLETE
-  ON,
-  Off,
+  AMITON,
+  AMITOff,
   AllowsMultipleInstanceTypes'
   #-}

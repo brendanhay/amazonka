@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Lightsail.DeleteContainerImage
     mkDeleteContainerImage,
 
     -- ** Request lenses
-    dciServiceName,
     dciImage,
+    dciServiceName,
 
     -- * Destructuring the response
     DeleteContainerImageResponse (..),
@@ -39,17 +40,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteContainerImage' smart constructor.
 data DeleteContainerImage = DeleteContainerImage'
-  { serviceName ::
-      Lude.Text,
-    image :: Lude.Text
+  { -- | The name of the container image to delete from the container service.
+    --
+    -- Use the @GetContainerImages@ action to get the name of the container images that are registered to a container service.
+    image :: Lude.Text,
+    -- | The name of the container service for which to delete a registered container image.
+    serviceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteContainerImage' with the minimum fields required to make a request.
@@ -59,23 +57,16 @@ data DeleteContainerImage = DeleteContainerImage'
 -- Use the @GetContainerImages@ action to get the name of the container images that are registered to a container service.
 -- * 'serviceName' - The name of the container service for which to delete a registered container image.
 mkDeleteContainerImage ::
-  -- | 'serviceName'
-  Lude.Text ->
   -- | 'image'
   Lude.Text ->
+  -- | 'serviceName'
+  Lude.Text ->
   DeleteContainerImage
-mkDeleteContainerImage pServiceName_ pImage_ =
+mkDeleteContainerImage pImage_ pServiceName_ =
   DeleteContainerImage'
-    { serviceName = pServiceName_,
-      image = pImage_
+    { image = pImage_,
+      serviceName = pServiceName_
     }
-
--- | The name of the container service for which to delete a registered container image.
---
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dciServiceName :: Lens.Lens' DeleteContainerImage Lude.Text
-dciServiceName = Lens.lens (serviceName :: DeleteContainerImage -> Lude.Text) (\s a -> s {serviceName = a} :: DeleteContainerImage)
-{-# DEPRECATED dciServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The name of the container image to delete from the container service.
 --
@@ -85,6 +76,13 @@ dciServiceName = Lens.lens (serviceName :: DeleteContainerImage -> Lude.Text) (\
 dciImage :: Lens.Lens' DeleteContainerImage Lude.Text
 dciImage = Lens.lens (image :: DeleteContainerImage -> Lude.Text) (\s a -> s {image = a} :: DeleteContainerImage)
 {-# DEPRECATED dciImage "Use generic-lens or generic-optics with 'image' instead." #-}
+
+-- | The name of the container service for which to delete a registered container image.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dciServiceName :: Lens.Lens' DeleteContainerImage Lude.Text
+dciServiceName = Lens.lens (serviceName :: DeleteContainerImage -> Lude.Text) (\s a -> s {serviceName = a} :: DeleteContainerImage)
+{-# DEPRECATED dciServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 instance Lude.AWSRequest DeleteContainerImage where
   type Rs DeleteContainerImage = DeleteContainerImageResponse
@@ -111,8 +109,8 @@ instance Lude.ToJSON DeleteContainerImage where
   toJSON DeleteContainerImage' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("serviceName" Lude..= serviceName),
-            Lude.Just ("image" Lude..= image)
+          [ Lude.Just ("image" Lude..= image),
+            Lude.Just ("serviceName" Lude..= serviceName)
           ]
       )
 
@@ -124,16 +122,10 @@ instance Lude.ToQuery DeleteContainerImage where
 
 -- | /See:/ 'mkDeleteContainerImageResponse' smart constructor.
 newtype DeleteContainerImageResponse = DeleteContainerImageResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteContainerImageResponse' with the minimum fields required to make a request.

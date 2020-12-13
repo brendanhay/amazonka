@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.CodeBuild.ListReportsForReportGroup
     mkListReportsForReportGroup,
 
     -- ** Request lenses
+    lrfrgReportGroupARN,
     lrfrgSortOrder,
     lrfrgNextToken,
     lrfrgFilter,
     lrfrgMaxResults,
-    lrfrgReportGroupARN,
 
     -- * Destructuring the response
     ListReportsForReportGroupResponse (..),
@@ -47,41 +48,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListReportsForReportGroup' smart constructor.
 data ListReportsForReportGroup = ListReportsForReportGroup'
-  { sortOrder ::
-      Lude.Maybe SortOrderType,
+  { -- | The ARN of the report group for which you want to return report ARNs.
+    reportGroupARN :: Lude.Text,
+    -- | Use to specify whether the results are returned in ascending or descending order.
+    sortOrder :: Lude.Maybe SortOrderType,
+    -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A @ReportFilter@ object used to filter the returned reports.
     filter :: Lude.Maybe ReportFilter,
-    maxResults :: Lude.Maybe Lude.Natural,
-    reportGroupARN :: Lude.Text
+    -- | The maximum number of paginated reports in this report group returned per response. Use @nextToken@ to iterate pages in the list of returned @Report@ objects. The default value is 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReportsForReportGroup' with the minimum fields required to make a request.
 --
--- * 'filter' - A @ReportFilter@ object used to filter the returned reports.
--- * 'maxResults' - The maximum number of paginated reports in this report group returned per response. Use @nextToken@ to iterate pages in the list of returned @Report@ objects. The default value is 100.
--- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 -- * 'reportGroupARN' - The ARN of the report group for which you want to return report ARNs.
 -- * 'sortOrder' - Use to specify whether the results are returned in ascending or descending order.
+-- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'filter' - A @ReportFilter@ object used to filter the returned reports.
+-- * 'maxResults' - The maximum number of paginated reports in this report group returned per response. Use @nextToken@ to iterate pages in the list of returned @Report@ objects. The default value is 100.
 mkListReportsForReportGroup ::
   -- | 'reportGroupARN'
   Lude.Text ->
   ListReportsForReportGroup
 mkListReportsForReportGroup pReportGroupARN_ =
   ListReportsForReportGroup'
-    { sortOrder = Lude.Nothing,
+    { reportGroupARN = pReportGroupARN_,
+      sortOrder = Lude.Nothing,
       nextToken = Lude.Nothing,
       filter = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      reportGroupARN = pReportGroupARN_
+      maxResults = Lude.Nothing
     }
+
+-- | The ARN of the report group for which you want to return report ARNs.
+--
+-- /Note:/ Consider using 'reportGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfrgReportGroupARN :: Lens.Lens' ListReportsForReportGroup Lude.Text
+lrfrgReportGroupARN = Lens.lens (reportGroupARN :: ListReportsForReportGroup -> Lude.Text) (\s a -> s {reportGroupARN = a} :: ListReportsForReportGroup)
+{-# DEPRECATED lrfrgReportGroupARN "Use generic-lens or generic-optics with 'reportGroupARN' instead." #-}
 
 -- | Use to specify whether the results are returned in ascending or descending order.
 --
@@ -110,13 +116,6 @@ lrfrgFilter = Lens.lens (filter :: ListReportsForReportGroup -> Lude.Maybe Repor
 lrfrgMaxResults :: Lens.Lens' ListReportsForReportGroup (Lude.Maybe Lude.Natural)
 lrfrgMaxResults = Lens.lens (maxResults :: ListReportsForReportGroup -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListReportsForReportGroup)
 {-# DEPRECATED lrfrgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ARN of the report group for which you want to return report ARNs.
---
--- /Note:/ Consider using 'reportGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrfrgReportGroupARN :: Lens.Lens' ListReportsForReportGroup Lude.Text
-lrfrgReportGroupARN = Lens.lens (reportGroupARN :: ListReportsForReportGroup -> Lude.Text) (\s a -> s {reportGroupARN = a} :: ListReportsForReportGroup)
-{-# DEPRECATED lrfrgReportGroupARN "Use generic-lens or generic-optics with 'reportGroupARN' instead." #-}
 
 instance Page.AWSPager ListReportsForReportGroup where
   page rq rs
@@ -158,11 +157,11 @@ instance Lude.ToJSON ListReportsForReportGroup where
   toJSON ListReportsForReportGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("sortOrder" Lude..=) Lude.<$> sortOrder,
+          [ Lude.Just ("reportGroupArn" Lude..= reportGroupARN),
+            ("sortOrder" Lude..=) Lude.<$> sortOrder,
             ("nextToken" Lude..=) Lude.<$> nextToken,
             ("filter" Lude..=) Lude.<$> filter,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("reportGroupArn" Lude..= reportGroupARN)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -174,29 +173,20 @@ instance Lude.ToQuery ListReportsForReportGroup where
 
 -- | /See:/ 'mkListReportsForReportGroupResponse' smart constructor.
 data ListReportsForReportGroupResponse = ListReportsForReportGroupResponse'
-  { reports ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            Lude.Text
-        ),
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The list of report ARNs.
+    reports :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReportsForReportGroupResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 -- * 'reports' - The list of report ARNs.
+-- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 -- * 'responseStatus' - The response status code.
 mkListReportsForReportGroupResponse ::
   -- | 'responseStatus'

@@ -32,27 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProtectiveEquipmentSummary' smart constructor.
 data ProtectiveEquipmentSummary = ProtectiveEquipmentSummary'
-  { personsWithRequiredEquipment ::
-      Lude.Maybe [Lude.Natural],
-    personsWithoutRequiredEquipment ::
-      Lude.Maybe [Lude.Natural],
-    personsIndeterminate ::
-      Lude.Maybe [Lude.Natural]
+  { -- | An array of IDs for persons who are wearing detected personal protective equipment.
+    personsWithRequiredEquipment :: Lude.Maybe [Lude.Natural],
+    -- | An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment.
+    personsWithoutRequiredEquipment :: Lude.Maybe [Lude.Natural],
+    -- | An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
+    personsIndeterminate :: Lude.Maybe [Lude.Natural]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectiveEquipmentSummary' with the minimum fields required to make a request.
 --
--- * 'personsIndeterminate' - An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
 -- * 'personsWithRequiredEquipment' - An array of IDs for persons who are wearing detected personal protective equipment.
 -- * 'personsWithoutRequiredEquipment' - An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment.
+-- * 'personsIndeterminate' - An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
 mkProtectiveEquipmentSummary ::
   ProtectiveEquipmentSummary
 mkProtectiveEquipmentSummary =

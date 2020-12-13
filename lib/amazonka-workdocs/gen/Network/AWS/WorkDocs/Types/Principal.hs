@@ -32,23 +32,20 @@ import Network.AWS.WorkDocs.Types.PrincipalType
 --
 -- /See:/ 'mkPrincipal' smart constructor.
 data Principal = Principal'
-  { roles :: Lude.Maybe [PermissionInfo],
+  { -- | The permission information for the resource.
+    roles :: Lude.Maybe [PermissionInfo],
+    -- | The ID of the resource.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of resource.
     type' :: Lude.Maybe PrincipalType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Principal' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the resource.
 -- * 'roles' - The permission information for the resource.
+-- * 'id' - The ID of the resource.
 -- * 'type'' - The type of resource.
 mkPrincipal ::
   Principal

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,14 +40,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetLexicon' smart constructor.
-newtype GetLexicon = GetLexicon' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetLexicon = GetLexicon'
+  { -- | Name of the lexicon.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLexicon' with the minimum fields required to make a request.
@@ -89,9 +87,11 @@ instance Lude.ToQuery GetLexicon where
 
 -- | /See:/ 'mkGetLexiconResponse' smart constructor.
 data GetLexiconResponse = GetLexiconResponse'
-  { lexiconAttributes ::
-      Lude.Maybe LexiconAttributes,
+  { -- | Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.
+    lexiconAttributes :: Lude.Maybe LexiconAttributes,
+    -- | Lexicon object that provides name and the string content of the lexicon.
     lexicon :: Lude.Maybe Lexicon,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -99,8 +99,8 @@ data GetLexiconResponse = GetLexiconResponse'
 
 -- | Creates a value of 'GetLexiconResponse' with the minimum fields required to make a request.
 --
--- * 'lexicon' - Lexicon object that provides name and the string content of the lexicon.
 -- * 'lexiconAttributes' - Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.
+-- * 'lexicon' - Lexicon object that provides name and the string content of the lexicon.
 -- * 'responseStatus' - The response status code.
 mkGetLexiconResponse ::
   -- | 'responseStatus'

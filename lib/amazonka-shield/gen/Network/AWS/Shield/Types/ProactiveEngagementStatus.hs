@@ -13,8 +13,8 @@
 module Network.AWS.Shield.Types.ProactiveEngagementStatus
   ( ProactiveEngagementStatus
       ( ProactiveEngagementStatus',
-        PESDisabled,
         PESEnabled,
+        PESDisabled,
         PESPending
       ),
   )
@@ -46,18 +46,18 @@ newtype ProactiveEngagementStatus = ProactiveEngagementStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern PESDisabled :: ProactiveEngagementStatus
-pattern PESDisabled = ProactiveEngagementStatus' "DISABLED"
-
 pattern PESEnabled :: ProactiveEngagementStatus
 pattern PESEnabled = ProactiveEngagementStatus' "ENABLED"
+
+pattern PESDisabled :: ProactiveEngagementStatus
+pattern PESDisabled = ProactiveEngagementStatus' "DISABLED"
 
 pattern PESPending :: ProactiveEngagementStatus
 pattern PESPending = ProactiveEngagementStatus' "PENDING"
 
 {-# COMPLETE
-  PESDisabled,
   PESEnabled,
+  PESDisabled,
   PESPending,
   ProactiveEngagementStatus'
   #-}

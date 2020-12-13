@@ -17,9 +17,9 @@ module Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity
     mkDeviceShadowEnrichActivity,
 
     -- * Lenses
+    dseaAttribute,
     dseaNext,
     dseaName,
-    dseaAttribute,
     dseaThingName,
     dseaRoleARN,
   )
@@ -32,33 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceShadowEnrichActivity' smart constructor.
 data DeviceShadowEnrichActivity = DeviceShadowEnrichActivity'
-  { next ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text,
+  { -- | The name of the attribute that is added to the message.
     attribute :: Lude.Text,
+    -- | The next activity in the pipeline.
+    next :: Lude.Maybe Lude.Text,
+    -- | The name of the @deviceShadowEnrich@ activity.
+    name :: Lude.Text,
+    -- | The name of the IoT device whose shadow information is added to the message.
     thingName :: Lude.Text,
+    -- | The ARN of the role that allows access to the device's shadow.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceShadowEnrichActivity' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The name of the attribute that is added to the message.
--- * 'name' - The name of the @deviceShadowEnrich@ activity.
 -- * 'next' - The next activity in the pipeline.
--- * 'roleARN' - The ARN of the role that allows access to the device's shadow.
+-- * 'name' - The name of the @deviceShadowEnrich@ activity.
 -- * 'thingName' - The name of the IoT device whose shadow information is added to the message.
+-- * 'roleARN' - The ARN of the role that allows access to the device's shadow.
 mkDeviceShadowEnrichActivity ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'attribute'
+  Lude.Text ->
+  -- | 'name'
   Lude.Text ->
   -- | 'thingName'
   Lude.Text ->
@@ -66,17 +64,24 @@ mkDeviceShadowEnrichActivity ::
   Lude.Text ->
   DeviceShadowEnrichActivity
 mkDeviceShadowEnrichActivity
-  pName_
   pAttribute_
+  pName_
   pThingName_
   pRoleARN_ =
     DeviceShadowEnrichActivity'
-      { next = Lude.Nothing,
+      { attribute = pAttribute_,
+        next = Lude.Nothing,
         name = pName_,
-        attribute = pAttribute_,
         thingName = pThingName_,
         roleARN = pRoleARN_
       }
+
+-- | The name of the attribute that is added to the message.
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dseaAttribute :: Lens.Lens' DeviceShadowEnrichActivity Lude.Text
+dseaAttribute = Lens.lens (attribute :: DeviceShadowEnrichActivity -> Lude.Text) (\s a -> s {attribute = a} :: DeviceShadowEnrichActivity)
+{-# DEPRECATED dseaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The next activity in the pipeline.
 --
@@ -91,13 +96,6 @@ dseaNext = Lens.lens (next :: DeviceShadowEnrichActivity -> Lude.Maybe Lude.Text
 dseaName :: Lens.Lens' DeviceShadowEnrichActivity Lude.Text
 dseaName = Lens.lens (name :: DeviceShadowEnrichActivity -> Lude.Text) (\s a -> s {name = a} :: DeviceShadowEnrichActivity)
 {-# DEPRECATED dseaName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The name of the attribute that is added to the message.
---
--- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dseaAttribute :: Lens.Lens' DeviceShadowEnrichActivity Lude.Text
-dseaAttribute = Lens.lens (attribute :: DeviceShadowEnrichActivity -> Lude.Text) (\s a -> s {attribute = a} :: DeviceShadowEnrichActivity)
-{-# DEPRECATED dseaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The name of the IoT device whose shadow information is added to the message.
 --
@@ -119,9 +117,9 @@ instance Lude.FromJSON DeviceShadowEnrichActivity where
       "DeviceShadowEnrichActivity"
       ( \x ->
           DeviceShadowEnrichActivity'
-            Lude.<$> (x Lude..:? "next")
+            Lude.<$> (x Lude..: "attribute")
+            Lude.<*> (x Lude..:? "next")
             Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "attribute")
             Lude.<*> (x Lude..: "thingName")
             Lude.<*> (x Lude..: "roleArn")
       )
@@ -130,9 +128,9 @@ instance Lude.ToJSON DeviceShadowEnrichActivity where
   toJSON DeviceShadowEnrichActivity' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("next" Lude..=) Lude.<$> next,
+          [ Lude.Just ("attribute" Lude..= attribute),
+            ("next" Lude..=) Lude.<$> next,
             Lude.Just ("name" Lude..= name),
-            Lude.Just ("attribute" Lude..= attribute),
             Lude.Just ("thingName" Lude..= thingName),
             Lude.Just ("roleArn" Lude..= roleARN)
           ]

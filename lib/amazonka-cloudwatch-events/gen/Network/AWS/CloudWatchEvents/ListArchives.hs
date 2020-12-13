@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,29 +45,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListArchives' smart constructor.
 data ListArchives = ListArchives'
-  { eventSourceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the event source associated with the archive.
+    eventSourceARN :: Lude.Maybe Lude.Text,
+    -- | The state of the archive.
     state :: Lude.Maybe ArchiveState,
+    -- | The token returned by a previous call to retrieve the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.
     namePrefix :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListArchives' with the minimum fields required to make a request.
 --
 -- * 'eventSourceARN' - The ARN of the event source associated with the archive.
--- * 'limit' - The maximum number of results to return.
--- * 'namePrefix' - A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.
--- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
 -- * 'state' - The state of the archive.
+-- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
+-- * 'namePrefix' - A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.
+-- * 'limit' - The maximum number of results to return.
 mkListArchives ::
   ListArchives
 mkListArchives =
@@ -156,18 +155,14 @@ instance Lude.ToQuery ListArchives where
 
 -- | /See:/ 'mkListArchivesResponse' smart constructor.
 data ListArchivesResponse = ListArchivesResponse'
-  { archives ::
-      Lude.Maybe [Archive],
+  { -- | An array of @Archive@ objects that include details about an archive.
+    archives :: Lude.Maybe [Archive],
+    -- | The token returned by a previous call to retrieve the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListArchivesResponse' with the minimum fields required to make a request.

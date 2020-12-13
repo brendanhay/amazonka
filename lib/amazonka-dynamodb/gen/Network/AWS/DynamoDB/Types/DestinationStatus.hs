@@ -13,11 +13,11 @@
 module Network.AWS.DynamoDB.Types.DestinationStatus
   ( DestinationStatus
       ( DestinationStatus',
+        DSEnabling,
         DSActive,
-        DSDisabled,
         DSDisabling,
-        DSEnableFailed,
-        DSEnabling
+        DSDisabled,
+        DSEnableFailed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype DestinationStatus = DestinationStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern DSEnabling :: DestinationStatus
+pattern DSEnabling = DestinationStatus' "ENABLING"
+
 pattern DSActive :: DestinationStatus
 pattern DSActive = DestinationStatus' "ACTIVE"
-
-pattern DSDisabled :: DestinationStatus
-pattern DSDisabled = DestinationStatus' "DISABLED"
 
 pattern DSDisabling :: DestinationStatus
 pattern DSDisabling = DestinationStatus' "DISABLING"
 
+pattern DSDisabled :: DestinationStatus
+pattern DSDisabled = DestinationStatus' "DISABLED"
+
 pattern DSEnableFailed :: DestinationStatus
 pattern DSEnableFailed = DestinationStatus' "ENABLE_FAILED"
 
-pattern DSEnabling :: DestinationStatus
-pattern DSEnabling = DestinationStatus' "ENABLING"
-
 {-# COMPLETE
-  DSActive,
-  DSDisabled,
-  DSDisabling,
-  DSEnableFailed,
   DSEnabling,
+  DSActive,
+  DSDisabling,
+  DSDisabled,
+  DSEnableFailed,
   DestinationStatus'
   #-}

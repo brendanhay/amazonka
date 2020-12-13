@@ -29,8 +29,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
-  { errorCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The error code.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message.
     message :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

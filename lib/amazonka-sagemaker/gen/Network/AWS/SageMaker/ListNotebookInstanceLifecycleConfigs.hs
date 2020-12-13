@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,54 +52,39 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListNotebookInstanceLifecycleConfigs' smart constructor.
 data ListNotebookInstanceLifecycleConfigs = ListNotebookInstanceLifecycleConfigs'
-  { nameContains ::
-      Lude.Maybe
-        Lude.Text,
-    lastModifiedTimeBefore ::
-      Lude.Maybe
-        Lude.Timestamp,
-    creationTimeAfter ::
-      Lude.Maybe
-        Lude.Timestamp,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    sortOrder ::
-      Lude.Maybe
-        NotebookInstanceLifecycleConfigSortOrder,
-    lastModifiedTimeAfter ::
-      Lude.Maybe
-        Lude.Timestamp,
-    creationTimeBefore ::
-      Lude.Maybe
-        Lude.Timestamp,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    sortBy ::
-      Lude.Maybe
-        NotebookInstanceLifecycleConfigSortKey
+  { -- | A string in the lifecycle configuration name. This filter returns only lifecycle configurations whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only lifecycle configurations that were modified before the specified time (timestamp).
+    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only lifecycle configurations that were created after the specified time (timestamp).
+    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the result of a @ListNotebookInstanceLifecycleConfigs@ request was truncated, the response includes a @NextToken@ . To get the next set of lifecycle configurations, use the token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for results.
+    sortOrder :: Lude.Maybe NotebookInstanceLifecycleConfigSortOrder,
+    -- | A filter that returns only lifecycle configurations that were modified after the specified time (timestamp).
+    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only lifecycle configurations that were created before the specified time (timestamp).
+    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of lifecycle configurations to return in the response.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | Sorts the list of results. The default is @CreationTime@ .
+    sortBy :: Lude.Maybe NotebookInstanceLifecycleConfigSortKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNotebookInstanceLifecycleConfigs' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - A filter that returns only lifecycle configurations that were created after the specified time (timestamp).
--- * 'creationTimeBefore' - A filter that returns only lifecycle configurations that were created before the specified time (timestamp).
--- * 'lastModifiedTimeAfter' - A filter that returns only lifecycle configurations that were modified after the specified time (timestamp).
--- * 'lastModifiedTimeBefore' - A filter that returns only lifecycle configurations that were modified before the specified time (timestamp).
--- * 'maxResults' - The maximum number of lifecycle configurations to return in the response.
 -- * 'nameContains' - A string in the lifecycle configuration name. This filter returns only lifecycle configurations whose name contains the specified string.
+-- * 'lastModifiedTimeBefore' - A filter that returns only lifecycle configurations that were modified before the specified time (timestamp).
+-- * 'creationTimeAfter' - A filter that returns only lifecycle configurations that were created after the specified time (timestamp).
 -- * 'nextToken' - If the result of a @ListNotebookInstanceLifecycleConfigs@ request was truncated, the response includes a @NextToken@ . To get the next set of lifecycle configurations, use the token in the next request.
--- * 'sortBy' - Sorts the list of results. The default is @CreationTime@ .
 -- * 'sortOrder' - The sort order for results.
+-- * 'lastModifiedTimeAfter' - A filter that returns only lifecycle configurations that were modified after the specified time (timestamp).
+-- * 'creationTimeBefore' - A filter that returns only lifecycle configurations that were created before the specified time (timestamp).
+-- * 'maxResults' - The maximum number of lifecycle configurations to return in the response.
+-- * 'sortBy' - Sorts the list of results. The default is @CreationTime@ .
 mkListNotebookInstanceLifecycleConfigs ::
   ListNotebookInstanceLifecycleConfigs
 mkListNotebookInstanceLifecycleConfigs =
@@ -241,22 +227,14 @@ instance Lude.ToQuery ListNotebookInstanceLifecycleConfigs where
 
 -- | /See:/ 'mkListNotebookInstanceLifecycleConfigsResponse' smart constructor.
 data ListNotebookInstanceLifecycleConfigsResponse = ListNotebookInstanceLifecycleConfigsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    notebookInstanceLifecycleConfigs ::
-      Lude.Maybe
-        [NotebookInstanceLifecycleConfigSummary],
-    responseStatus ::
-      Lude.Int
+  { -- | If the response is truncated, Amazon SageMaker returns this token. To get the next set of lifecycle configurations, use it in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @NotebookInstanceLifecycleConfiguration@ objects, each listing a lifecycle configuration.
+    notebookInstanceLifecycleConfigs :: Lude.Maybe [NotebookInstanceLifecycleConfigSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNotebookInstanceLifecycleConfigsResponse' with the minimum fields required to make a request.

@@ -13,10 +13,10 @@
 module Network.AWS.CloudSearch.Types.OptionState
   ( OptionState
       ( OptionState',
-        Active,
-        FailedToValidate,
+        RequiresIndexDocuments,
         Processing,
-        RequiresIndexDocuments
+        Active,
+        FailedToValidate
       ),
   )
 where
@@ -57,22 +57,22 @@ newtype OptionState = OptionState' Lude.Text
       Lude.ToHeader
     )
 
+pattern RequiresIndexDocuments :: OptionState
+pattern RequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
+
+pattern Processing :: OptionState
+pattern Processing = OptionState' "Processing"
+
 pattern Active :: OptionState
 pattern Active = OptionState' "Active"
 
 pattern FailedToValidate :: OptionState
 pattern FailedToValidate = OptionState' "FailedToValidate"
 
-pattern Processing :: OptionState
-pattern Processing = OptionState' "Processing"
-
-pattern RequiresIndexDocuments :: OptionState
-pattern RequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
-
 {-# COMPLETE
+  RequiresIndexDocuments,
+  Processing,
   Active,
   FailedToValidate,
-  Processing,
-  RequiresIndexDocuments,
   OptionState'
   #-}

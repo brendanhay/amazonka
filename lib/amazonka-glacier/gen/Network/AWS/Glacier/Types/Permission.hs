@@ -14,10 +14,10 @@ module Network.AWS.Glacier.Types.Permission
   ( Permission
       ( Permission',
         FullControl,
-        Read,
-        ReadAcp,
         Write,
-        WriteAcp
+        WriteAcp,
+        Read,
+        ReadAcp
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype Permission = Permission' Lude.Text
 pattern FullControl :: Permission
 pattern FullControl = Permission' "FULL_CONTROL"
 
-pattern Read :: Permission
-pattern Read = Permission' "READ"
-
-pattern ReadAcp :: Permission
-pattern ReadAcp = Permission' "READ_ACP"
-
 pattern Write :: Permission
 pattern Write = Permission' "WRITE"
 
 pattern WriteAcp :: Permission
 pattern WriteAcp = Permission' "WRITE_ACP"
 
+pattern Read :: Permission
+pattern Read = Permission' "READ"
+
+pattern ReadAcp :: Permission
+pattern ReadAcp = Permission' "READ_ACP"
+
 {-# COMPLETE
   FullControl,
-  Read,
-  ReadAcp,
   Write,
   WriteAcp,
+  Read,
+  ReadAcp,
   Permission'
   #-}

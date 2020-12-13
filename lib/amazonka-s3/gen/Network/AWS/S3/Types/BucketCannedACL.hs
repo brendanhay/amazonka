@@ -13,10 +13,10 @@
 module Network.AWS.S3.Types.BucketCannedACL
   ( BucketCannedACL
       ( BucketCannedACL',
-        BAuthenticatedRead,
         BPrivate,
         BPublicRead,
-        BPublicReadWrite
+        BPublicReadWrite,
+        BAuthenticatedRead
       ),
   )
 where
@@ -48,9 +48,6 @@ newtype BucketCannedACL = BucketCannedACL' Lude.Text
       Lude.ToHeader
     )
 
-pattern BAuthenticatedRead :: BucketCannedACL
-pattern BAuthenticatedRead = BucketCannedACL' "authenticated-read"
-
 pattern BPrivate :: BucketCannedACL
 pattern BPrivate = BucketCannedACL' "private"
 
@@ -60,10 +57,13 @@ pattern BPublicRead = BucketCannedACL' "public-read"
 pattern BPublicReadWrite :: BucketCannedACL
 pattern BPublicReadWrite = BucketCannedACL' "public-read-write"
 
+pattern BAuthenticatedRead :: BucketCannedACL
+pattern BAuthenticatedRead = BucketCannedACL' "authenticated-read"
+
 {-# COMPLETE
-  BAuthenticatedRead,
   BPrivate,
   BPublicRead,
   BPublicReadWrite,
+  BAuthenticatedRead,
   BucketCannedACL'
   #-}

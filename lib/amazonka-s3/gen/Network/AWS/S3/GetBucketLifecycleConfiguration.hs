@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,8 +46,8 @@ module Network.AWS.S3.GetBucketLifecycleConfiguration
     mkGetBucketLifecycleConfiguration,
 
     -- ** Request lenses
-    gblcExpectedBucketOwner,
     gblcBucket,
+    gblcExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketLifecycleConfigurationResponse (..),
@@ -66,17 +67,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketLifecycleConfiguration' smart constructor.
 data GetBucketLifecycleConfiguration = GetBucketLifecycleConfiguration'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The name of the bucket for which to get the lifecycle information.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketLifecycleConfiguration' with the minimum fields required to make a request.
@@ -89,17 +85,9 @@ mkGetBucketLifecycleConfiguration ::
   GetBucketLifecycleConfiguration
 mkGetBucketLifecycleConfiguration pBucket_ =
   GetBucketLifecycleConfiguration'
-    { expectedBucketOwner =
-        Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gblcExpectedBucketOwner :: Lens.Lens' GetBucketLifecycleConfiguration (Lude.Maybe Lude.Text)
-gblcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketLifecycleConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketLifecycleConfiguration)
-{-# DEPRECATED gblcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket for which to get the lifecycle information.
 --
@@ -107,6 +95,13 @@ gblcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketLifecycleCo
 gblcBucket :: Lens.Lens' GetBucketLifecycleConfiguration BucketName
 gblcBucket = Lens.lens (bucket :: GetBucketLifecycleConfiguration -> BucketName) (\s a -> s {bucket = a} :: GetBucketLifecycleConfiguration)
 {-# DEPRECATED gblcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gblcExpectedBucketOwner :: Lens.Lens' GetBucketLifecycleConfiguration (Lude.Maybe Lude.Text)
+gblcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketLifecycleConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketLifecycleConfiguration)
+{-# DEPRECATED gblcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetBucketLifecycleConfiguration where
   type
@@ -135,25 +130,18 @@ instance Lude.ToQuery GetBucketLifecycleConfiguration where
 
 -- | /See:/ 'mkGetBucketLifecycleConfigurationResponse' smart constructor.
 data GetBucketLifecycleConfigurationResponse = GetBucketLifecycleConfigurationResponse'
-  { rules ::
-      Lude.Maybe
-        [LifecycleRule],
-    responseStatus ::
-      Lude.Int
+  { -- | Container for a lifecycle rule.
+    rules :: Lude.Maybe [LifecycleRule],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketLifecycleConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'rules' - Container for a lifecycle rule.
+-- * 'responseStatus' - The response status code.
 mkGetBucketLifecycleConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

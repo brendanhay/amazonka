@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLinkAttributeAction' smart constructor.
 data LinkAttributeAction = LinkAttributeAction'
-  { attributeActionType ::
-      Lude.Maybe UpdateActionType,
-    attributeUpdateValue ::
-      Lude.Maybe TypedAttributeValue
+  { -- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@ .
+    attributeActionType :: Lude.Maybe UpdateActionType,
+    -- | The value that you want to update to.
+    attributeUpdateValue :: Lude.Maybe TypedAttributeValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LinkAttributeAction' with the minimum fields required to make a request.

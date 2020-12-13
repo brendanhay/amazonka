@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Information about an alarm.
 --
 -- /See:/ 'mkAlarm' smart constructor.
-newtype Alarm = Alarm' {name :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Alarm = Alarm'
+  { -- | The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+    name :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Alarm' with the minimum fields required to make a request.

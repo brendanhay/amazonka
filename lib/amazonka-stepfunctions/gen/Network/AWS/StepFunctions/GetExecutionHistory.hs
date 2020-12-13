@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.StepFunctions.GetExecutionHistory
     gehReverseOrder,
     gehIncludeExecutionData,
     gehNextToken,
-    gehMaxResults,
     gehExecutionARN,
+    gehMaxResults,
 
     -- * Destructuring the response
     GetExecutionHistoryResponse (..),
@@ -36,8 +37,8 @@ module Network.AWS.StepFunctions.GetExecutionHistory
 
     -- ** Response lenses
     gehrsNextToken,
-    gehrsResponseStatus,
     gehrsEvents,
+    gehrsResponseStatus,
   )
 where
 
@@ -50,31 +51,31 @@ import Network.AWS.StepFunctions.Types
 
 -- | /See:/ 'mkGetExecutionHistory' smart constructor.
 data GetExecutionHistory = GetExecutionHistory'
-  { reverseOrder ::
-      Lude.Maybe Lude.Bool,
+  { -- | Lists events in descending order of their @timeStamp@ .
+    reverseOrder :: Lude.Maybe Lude.Bool,
+    -- | You can select whether execution data (input or output of a history event) is returned. The default is @true@ .
     includeExecutionData :: Lude.Maybe Lude.Bool,
+    -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    executionARN :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the execution.
+    executionARN :: Lude.Text,
+    -- | The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.
+    --
+    -- This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExecutionHistory' with the minimum fields required to make a request.
 --
--- * 'executionARN' - The Amazon Resource Name (ARN) of the execution.
+-- * 'reverseOrder' - Lists events in descending order of their @timeStamp@ .
 -- * 'includeExecutionData' - You can select whether execution data (input or output of a history event) is returned. The default is @true@ .
+-- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
+-- * 'executionARN' - The Amazon Resource Name (ARN) of the execution.
 -- * 'maxResults' - The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.
 --
 -- This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
--- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
--- * 'reverseOrder' - Lists events in descending order of their @timeStamp@ .
 mkGetExecutionHistory ::
   -- | 'executionARN'
   Lude.Text ->
@@ -84,8 +85,8 @@ mkGetExecutionHistory pExecutionARN_ =
     { reverseOrder = Lude.Nothing,
       includeExecutionData = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      executionARN = pExecutionARN_
+      executionARN = pExecutionARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | Lists events in descending order of their @timeStamp@ .
@@ -109,6 +110,13 @@ gehNextToken :: Lens.Lens' GetExecutionHistory (Lude.Maybe Lude.Text)
 gehNextToken = Lens.lens (nextToken :: GetExecutionHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetExecutionHistory)
 {-# DEPRECATED gehNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
+-- | The Amazon Resource Name (ARN) of the execution.
+--
+-- /Note:/ Consider using 'executionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gehExecutionARN :: Lens.Lens' GetExecutionHistory Lude.Text
+gehExecutionARN = Lens.lens (executionARN :: GetExecutionHistory -> Lude.Text) (\s a -> s {executionARN = a} :: GetExecutionHistory)
+{-# DEPRECATED gehExecutionARN "Use generic-lens or generic-optics with 'executionARN' instead." #-}
+
 -- | The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.
 --
 -- This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
@@ -117,13 +125,6 @@ gehNextToken = Lens.lens (nextToken :: GetExecutionHistory -> Lude.Maybe Lude.Te
 gehMaxResults :: Lens.Lens' GetExecutionHistory (Lude.Maybe Lude.Natural)
 gehMaxResults = Lens.lens (maxResults :: GetExecutionHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetExecutionHistory)
 {-# DEPRECATED gehMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the execution.
---
--- /Note:/ Consider using 'executionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gehExecutionARN :: Lens.Lens' GetExecutionHistory Lude.Text
-gehExecutionARN = Lens.lens (executionARN :: GetExecutionHistory -> Lude.Text) (\s a -> s {executionARN = a} :: GetExecutionHistory)
-{-# DEPRECATED gehExecutionARN "Use generic-lens or generic-optics with 'executionARN' instead." #-}
 
 instance Page.AWSPager GetExecutionHistory where
   page rq rs
@@ -142,8 +143,8 @@ instance Lude.AWSRequest GetExecutionHistory where
       ( \s h x ->
           GetExecutionHistoryResponse'
             Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "events" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetExecutionHistory where
@@ -164,8 +165,8 @@ instance Lude.ToJSON GetExecutionHistory where
           [ ("reverseOrder" Lude..=) Lude.<$> reverseOrder,
             ("includeExecutionData" Lude..=) Lude.<$> includeExecutionData,
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("executionArn" Lude..= executionARN)
+            Lude.Just ("executionArn" Lude..= executionARN),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -177,18 +178,20 @@ instance Lude.ToQuery GetExecutionHistory where
 
 -- | /See:/ 'mkGetExecutionHistoryResponse' smart constructor.
 data GetExecutionHistoryResponse = GetExecutionHistoryResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    events :: [HistoryEvent]
+  { -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of events that occurred in the execution.
+    events :: [HistoryEvent],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExecutionHistoryResponse' with the minimum fields required to make a request.
 --
--- * 'events' - The list of events that occurred in the execution.
 -- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
+-- * 'events' - The list of events that occurred in the execution.
 -- * 'responseStatus' - The response status code.
 mkGetExecutionHistoryResponse ::
   -- | 'responseStatus'
@@ -197,8 +200,8 @@ mkGetExecutionHistoryResponse ::
 mkGetExecutionHistoryResponse pResponseStatus_ =
   GetExecutionHistoryResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      events = Lude.mempty
+      events = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
@@ -208,16 +211,16 @@ gehrsNextToken :: Lens.Lens' GetExecutionHistoryResponse (Lude.Maybe Lude.Text)
 gehrsNextToken = Lens.lens (nextToken :: GetExecutionHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetExecutionHistoryResponse)
 {-# DEPRECATED gehrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gehrsResponseStatus :: Lens.Lens' GetExecutionHistoryResponse Lude.Int
-gehrsResponseStatus = Lens.lens (responseStatus :: GetExecutionHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetExecutionHistoryResponse)
-{-# DEPRECATED gehrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The list of events that occurred in the execution.
 --
 -- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gehrsEvents :: Lens.Lens' GetExecutionHistoryResponse [HistoryEvent]
 gehrsEvents = Lens.lens (events :: GetExecutionHistoryResponse -> [HistoryEvent]) (\s a -> s {events = a} :: GetExecutionHistoryResponse)
 {-# DEPRECATED gehrsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gehrsResponseStatus :: Lens.Lens' GetExecutionHistoryResponse Lude.Int
+gehrsResponseStatus = Lens.lens (responseStatus :: GetExecutionHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetExecutionHistoryResponse)
+{-# DEPRECATED gehrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -31,26 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeleteFleetSuccessItem' smart constructor.
 data DeleteFleetSuccessItem = DeleteFleetSuccessItem'
-  { currentFleetState ::
-      Lude.Maybe FleetStateCode,
-    previousFleetState ::
-      Lude.Maybe FleetStateCode,
+  { -- | The current state of the EC2 Fleet.
+    currentFleetState :: Lude.Maybe FleetStateCode,
+    -- | The previous state of the EC2 Fleet.
+    previousFleetState :: Lude.Maybe FleetStateCode,
+    -- | The ID of the EC2 Fleet.
     fleetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFleetSuccessItem' with the minimum fields required to make a request.
 --
 -- * 'currentFleetState' - The current state of the EC2 Fleet.
--- * 'fleetId' - The ID of the EC2 Fleet.
 -- * 'previousFleetState' - The previous state of the EC2 Fleet.
+-- * 'fleetId' - The ID of the EC2 Fleet.
 mkDeleteFleetSuccessItem ::
   DeleteFleetSuccessItem
 mkDeleteFleetSuccessItem =

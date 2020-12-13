@@ -17,8 +17,8 @@ module Network.AWS.CloudDirectory.Types.TypedLinkAttributeRange
     mkTypedLinkAttributeRange,
 
     -- * Lenses
-    tlarAttributeName,
     tlarRange,
+    tlarAttributeName,
   )
 where
 
@@ -30,39 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTypedLinkAttributeRange' smart constructor.
 data TypedLinkAttributeRange = TypedLinkAttributeRange'
-  { attributeName ::
-      Lude.Maybe Lude.Text,
-    range :: TypedAttributeValueRange
+  { -- | The range of attribute values that are being selected.
+    range :: TypedAttributeValueRange,
+    -- | The unique name of the typed link attribute.
+    attributeName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypedLinkAttributeRange' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The unique name of the typed link attribute.
 -- * 'range' - The range of attribute values that are being selected.
+-- * 'attributeName' - The unique name of the typed link attribute.
 mkTypedLinkAttributeRange ::
   -- | 'range'
   TypedAttributeValueRange ->
   TypedLinkAttributeRange
 mkTypedLinkAttributeRange pRange_ =
   TypedLinkAttributeRange'
-    { attributeName = Lude.Nothing,
-      range = pRange_
+    { range = pRange_,
+      attributeName = Lude.Nothing
     }
-
--- | The unique name of the typed link attribute.
---
--- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlarAttributeName :: Lens.Lens' TypedLinkAttributeRange (Lude.Maybe Lude.Text)
-tlarAttributeName = Lens.lens (attributeName :: TypedLinkAttributeRange -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: TypedLinkAttributeRange)
-{-# DEPRECATED tlarAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The range of attribute values that are being selected.
 --
@@ -71,11 +59,18 @@ tlarRange :: Lens.Lens' TypedLinkAttributeRange TypedAttributeValueRange
 tlarRange = Lens.lens (range :: TypedLinkAttributeRange -> TypedAttributeValueRange) (\s a -> s {range = a} :: TypedLinkAttributeRange)
 {-# DEPRECATED tlarRange "Use generic-lens or generic-optics with 'range' instead." #-}
 
+-- | The unique name of the typed link attribute.
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlarAttributeName :: Lens.Lens' TypedLinkAttributeRange (Lude.Maybe Lude.Text)
+tlarAttributeName = Lens.lens (attributeName :: TypedLinkAttributeRange -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: TypedLinkAttributeRange)
+{-# DEPRECATED tlarAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
+
 instance Lude.ToJSON TypedLinkAttributeRange where
   toJSON TypedLinkAttributeRange' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AttributeName" Lude..=) Lude.<$> attributeName,
-            Lude.Just ("Range" Lude..= range)
+          [ Lude.Just ("Range" Lude..= range),
+            ("AttributeName" Lude..=) Lude.<$> attributeName
           ]
       )

@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNewBGPPeer' smart constructor.
 data NewBGPPeer = NewBGPPeer'
-  { customerAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | The IP address assigned to the customer interface.
+    customerAddress :: Lude.Maybe Lude.Text,
+    -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Lude.Maybe Lude.Text,
+    -- | The address family for the BGP peer.
     addressFamily :: Lude.Maybe AddressFamily,
+    -- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
     asn :: Lude.Maybe Lude.Int,
+    -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
     authKey :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NewBGPPeer' with the minimum fields required to make a request.
 --
--- * 'addressFamily' - The address family for the BGP peer.
+-- * 'customerAddress' - The IP address assigned to the customer interface.
 -- * 'amazonAddress' - The IP address assigned to the Amazon interface.
+-- * 'addressFamily' - The address family for the BGP peer.
 -- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 -- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
--- * 'customerAddress' - The IP address assigned to the customer interface.
 mkNewBGPPeer ::
   NewBGPPeer
 mkNewBGPPeer =

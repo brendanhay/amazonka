@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExecutionDetails' smart constructor.
 data ExecutionDetails = ExecutionDetails'
-  { summary ::
-      Lude.Maybe Lude.Text,
+  { -- | The summary of the current status of the actions.
+    summary :: Lude.Maybe Lude.Text,
+    -- | The system-generated unique ID of this action used to identify this job worker in any external systems, such as AWS CodeDeploy.
     externalExecutionId :: Lude.Maybe Lude.Text,
+    -- | The percentage of work completed on the action, represented on a scale of 0 to 100 percent.
     percentComplete :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionDetails' with the minimum fields required to make a request.
 --
+-- * 'summary' - The summary of the current status of the actions.
 -- * 'externalExecutionId' - The system-generated unique ID of this action used to identify this job worker in any external systems, such as AWS CodeDeploy.
 -- * 'percentComplete' - The percentage of work completed on the action, represented on a scale of 0 to 100 percent.
--- * 'summary' - The summary of the current status of the actions.
 mkExecutionDetails ::
   ExecutionDetails
 mkExecutionDetails =

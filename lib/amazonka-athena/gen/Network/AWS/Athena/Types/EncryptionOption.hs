@@ -13,9 +13,9 @@
 module Network.AWS.Athena.Types.EncryptionOption
   ( EncryptionOption
       ( EncryptionOption',
-        CseKMS,
+        SseS3,
         SseKMS,
-        SseS3
+        CseKMS
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EncryptionOption = EncryptionOption' Lude.Text
       Lude.ToHeader
     )
 
-pattern CseKMS :: EncryptionOption
-pattern CseKMS = EncryptionOption' "CSE_KMS"
+pattern SseS3 :: EncryptionOption
+pattern SseS3 = EncryptionOption' "SSE_S3"
 
 pattern SseKMS :: EncryptionOption
 pattern SseKMS = EncryptionOption' "SSE_KMS"
 
-pattern SseS3 :: EncryptionOption
-pattern SseS3 = EncryptionOption' "SSE_S3"
+pattern CseKMS :: EncryptionOption
+pattern CseKMS = EncryptionOption' "CSE_KMS"
 
 {-# COMPLETE
-  CseKMS,
-  SseKMS,
   SseS3,
+  SseKMS,
+  CseKMS,
   EncryptionOption'
   #-}

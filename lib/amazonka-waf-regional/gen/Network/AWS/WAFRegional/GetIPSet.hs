@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,14 +39,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkGetIPSet' smart constructor.
-newtype GetIPSet = GetIPSet' {ipSetId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetIPSet = GetIPSet'
+  { -- | The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
+    ipSetId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIPSet' with the minimum fields required to make a request.
@@ -98,17 +96,18 @@ instance Lude.ToQuery GetIPSet where
 
 -- | /See:/ 'mkGetIPSetResponse' smart constructor.
 data GetIPSetResponse = GetIPSetResponse'
-  { ipSet ::
-      Lude.Maybe IPSet,
+  { -- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:
+    --
+    --
+    --     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@
+    --
+    --
+    --     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
+    ipSet :: Lude.Maybe IPSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIPSetResponse' with the minimum fields required to make a request.

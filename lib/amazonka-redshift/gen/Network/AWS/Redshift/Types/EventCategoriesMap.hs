@@ -31,23 +31,18 @@ import Network.AWS.Redshift.Types.EventInfoMap
 --
 -- /See:/ 'mkEventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-  { sourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
+    sourceType :: Lude.Maybe Lude.Text,
+    -- | The events in the event category.
     events :: Lude.Maybe [EventInfoMap]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventCategoriesMap' with the minimum fields required to make a request.
 --
--- * 'events' - The events in the event category.
 -- * 'sourceType' - The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
+-- * 'events' - The events in the event category.
 mkEventCategoriesMap ::
   EventCategoriesMap
 mkEventCategoriesMap =

@@ -43,61 +43,139 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSuite' smart constructor.
 data Suite = Suite'
-  { status :: Lude.Maybe ExecutionStatus,
+  { -- | The suite's status.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PENDING_CONCURRENCY
+    --
+    --
+    --     * PENDING_DEVICE
+    --
+    --
+    --     * PROCESSING
+    --
+    --
+    --     * SCHEDULING
+    --
+    --
+    --     * PREPARING
+    --
+    --
+    --     * RUNNING
+    --
+    --
+    --     * COMPLETED
+    --
+    --
+    --     * STOPPING
+    status :: Lude.Maybe ExecutionStatus,
+    -- | The suite's result counters.
     counters :: Lude.Maybe Counters,
+    -- | The suite's ARN.
     arn :: Lude.Maybe Lude.Text,
+    -- | When the suite was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The suite's stop time.
     stopped :: Lude.Maybe Lude.Timestamp,
+    -- | The suite's result.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PASSED
+    --
+    --
+    --     * WARNED
+    --
+    --
+    --     * FAILED
+    --
+    --
+    --     * SKIPPED
+    --
+    --
+    --     * ERRORED
+    --
+    --
+    --     * STOPPED
     result :: Lude.Maybe ExecutionResult,
+    -- | The suite's name.
     name :: Lude.Maybe Lude.Text,
+    -- | Represents the total (metered or unmetered) minutes used by the test suite.
     deviceMinutes :: Lude.Maybe DeviceMinutes,
+    -- | The suite's type.
+    --
+    -- Must be one of the following values:
+    --
+    --     * BUILTIN_FUZZ
+    --
+    --
+    --     * BUILTIN_EXPLORER
+    --
+    --
+    --     * APPIUM_JAVA_JUNIT
+    --
+    --
+    --     * APPIUM_JAVA_TESTNG
+    --
+    --
+    --     * APPIUM_PYTHON
+    --
+    --
+    --     * APPIUM_NODE
+    --
+    --
+    --     * APPIUM_RUBY
+    --
+    --
+    --     * APPIUM_WEB_JAVA_JUNIT
+    --
+    --
+    --     * APPIUM_WEB_JAVA_TESTNG
+    --
+    --
+    --     * APPIUM_WEB_PYTHON
+    --
+    --
+    --     * APPIUM_WEB_NODE
+    --
+    --
+    --     * APPIUM_WEB_RUBY
+    --
+    --
+    --     * CALABASH
+    --
+    --
+    --     * INSTRUMENTATION
+    --
+    --
+    --     * UIAUTOMATION
+    --
+    --
+    --     * UIAUTOMATOR
+    --
+    --
+    --     * XCTEST
+    --
+    --
+    --     * XCTEST_UI
     type' :: Lude.Maybe TestType,
+    -- | A message about the suite's result.
     message :: Lude.Maybe Lude.Text,
+    -- | The suite's start time.
     started :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Suite' with the minimum fields required to make a request.
 --
--- * 'arn' - The suite's ARN.
--- * 'counters' - The suite's result counters.
--- * 'created' - When the suite was created.
--- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test suite.
--- * 'message' - A message about the suite's result.
--- * 'name' - The suite's name.
--- * 'result' - The suite's result.
---
--- Allowed values include:
---
---     * PENDING
---
---
---     * PASSED
---
---
---     * WARNED
---
---
---     * FAILED
---
---
---     * SKIPPED
---
---
---     * ERRORED
---
---
---     * STOPPED
---
---
--- * 'started' - The suite's start time.
 -- * 'status' - The suite's status.
 --
 -- Allowed values include:
@@ -129,7 +207,37 @@ data Suite = Suite'
 --     * STOPPING
 --
 --
+-- * 'counters' - The suite's result counters.
+-- * 'arn' - The suite's ARN.
+-- * 'created' - When the suite was created.
 -- * 'stopped' - The suite's stop time.
+-- * 'result' - The suite's result.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PASSED
+--
+--
+--     * WARNED
+--
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+-- * 'name' - The suite's name.
+-- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test suite.
 -- * 'type'' - The suite's type.
 --
 -- Must be one of the following values:
@@ -186,6 +294,10 @@ data Suite = Suite'
 --
 --
 --     * XCTEST_UI
+--
+--
+-- * 'message' - A message about the suite's result.
+-- * 'started' - The suite's start time.
 mkSuite ::
   Suite
 mkSuite =

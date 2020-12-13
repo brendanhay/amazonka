@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.S3.DeleteBucket
     mkDeleteBucket,
 
     -- ** Request lenses
-    dbExpectedBucketOwner,
     dbBucket,
+    dbExpectedBucketOwner,
 
     -- * Destructuring the response
     DeleteBucketResponse (..),
@@ -43,17 +44,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkDeleteBucket' smart constructor.
 data DeleteBucket = DeleteBucket'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | Specifies the bucket being deleted.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucket' with the minimum fields required to make a request.
@@ -66,16 +62,9 @@ mkDeleteBucket ::
   DeleteBucket
 mkDeleteBucket pBucket_ =
   DeleteBucket'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbExpectedBucketOwner :: Lens.Lens' DeleteBucket (Lude.Maybe Lude.Text)
-dbExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucket -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucket)
-{-# DEPRECATED dbExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | Specifies the bucket being deleted.
 --
@@ -83,6 +72,13 @@ dbExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucket -> Lude.M
 dbBucket :: Lens.Lens' DeleteBucket BucketName
 dbBucket = Lens.lens (bucket :: DeleteBucket -> BucketName) (\s a -> s {bucket = a} :: DeleteBucket)
 {-# DEPRECATED dbBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbExpectedBucketOwner :: Lens.Lens' DeleteBucket (Lude.Maybe Lude.Text)
+dbExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucket -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucket)
+{-# DEPRECATED dbExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest DeleteBucket where
   type Rs DeleteBucket = DeleteBucketResponse
@@ -102,13 +98,7 @@ instance Lude.ToQuery DeleteBucket where
 
 -- | /See:/ 'mkDeleteBucketResponse' smart constructor.
 data DeleteBucketResponse = DeleteBucketResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketResponse' with the minimum fields required to make a request.

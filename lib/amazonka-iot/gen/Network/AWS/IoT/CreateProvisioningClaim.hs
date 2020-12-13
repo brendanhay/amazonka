@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateProvisioningClaim' smart constructor.
 newtype CreateProvisioningClaim = CreateProvisioningClaim'
-  { templateName ::
-      Lude.Text
+  { -- | The name of the provisioning template to use.
+    templateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisioningClaim' with the minimum fields required to make a request.
@@ -104,14 +99,15 @@ instance Lude.ToQuery CreateProvisioningClaim where
 
 -- | /See:/ 'mkCreateProvisioningClaimResponse' smart constructor.
 data CreateProvisioningClaimResponse = CreateProvisioningClaimResponse'
-  { keyPair ::
-      Lude.Maybe KeyPair,
-    certificatePem ::
-      Lude.Maybe Lude.Text,
-    certificateId ::
-      Lude.Maybe Lude.Text,
-    expiration ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The provisioning claim key pair.
+    keyPair :: Lude.Maybe KeyPair,
+    -- | The provisioning claim certificate.
+    certificatePem :: Lude.Maybe Lude.Text,
+    -- | The ID of the certificate.
+    certificateId :: Lude.Maybe Lude.Text,
+    -- | The provisioning claim expiration time.
+    expiration :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -119,10 +115,10 @@ data CreateProvisioningClaimResponse = CreateProvisioningClaimResponse'
 
 -- | Creates a value of 'CreateProvisioningClaimResponse' with the minimum fields required to make a request.
 --
--- * 'certificateId' - The ID of the certificate.
--- * 'certificatePem' - The provisioning claim certificate.
--- * 'expiration' - The provisioning claim expiration time.
 -- * 'keyPair' - The provisioning claim key pair.
+-- * 'certificatePem' - The provisioning claim certificate.
+-- * 'certificateId' - The ID of the certificate.
+-- * 'expiration' - The provisioning claim expiration time.
 -- * 'responseStatus' - The response status code.
 mkCreateProvisioningClaimResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.SSM.AddTagsToResource
     mkAddTagsToResource,
 
     -- ** Request lenses
-    attrResourceType,
     attrResourceId,
+    attrResourceType,
     attrTags,
 
     -- * Destructuring the response
@@ -44,18 +45,22 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { resourceType ::
-      ResourceTypeForTagging,
+  { -- | The resource ID you want to tag.
+    --
+    -- Use the ID of the resource. Here are some examples:
+    -- ManagedInstance: mi-012345abcde
+    -- MaintenanceWindow: mw-012345abcde
+    -- PatchBaseline: pb-012345abcde
+    -- For the Document and Parameter values, use the name of the resource.
     resourceId :: Lude.Text,
+    -- | Specifies the type of resource you are tagging.
+    resourceType :: ResourceTypeForTagging,
+    -- | One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+    --
+    -- /Important:/ Do not enter personally identifiable information in this field.
     tags :: [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
@@ -72,24 +77,17 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- /Important:/ Do not enter personally identifiable information in this field.
 mkAddTagsToResource ::
-  -- | 'resourceType'
-  ResourceTypeForTagging ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'resourceType'
+  ResourceTypeForTagging ->
   AddTagsToResource
-mkAddTagsToResource pResourceType_ pResourceId_ =
+mkAddTagsToResource pResourceId_ pResourceType_ =
   AddTagsToResource'
-    { resourceType = pResourceType_,
-      resourceId = pResourceId_,
+    { resourceId = pResourceId_,
+      resourceType = pResourceType_,
       tags = Lude.mempty
     }
-
--- | Specifies the type of resource you are tagging.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attrResourceType :: Lens.Lens' AddTagsToResource ResourceTypeForTagging
-attrResourceType = Lens.lens (resourceType :: AddTagsToResource -> ResourceTypeForTagging) (\s a -> s {resourceType = a} :: AddTagsToResource)
-{-# DEPRECATED attrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The resource ID you want to tag.
 --
@@ -103,6 +101,13 @@ attrResourceType = Lens.lens (resourceType :: AddTagsToResource -> ResourceTypeF
 attrResourceId :: Lens.Lens' AddTagsToResource Lude.Text
 attrResourceId = Lens.lens (resourceId :: AddTagsToResource -> Lude.Text) (\s a -> s {resourceId = a} :: AddTagsToResource)
 {-# DEPRECATED attrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | Specifies the type of resource you are tagging.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrResourceType :: Lens.Lens' AddTagsToResource ResourceTypeForTagging
+attrResourceType = Lens.lens (resourceType :: AddTagsToResource -> ResourceTypeForTagging) (\s a -> s {resourceType = a} :: AddTagsToResource)
+{-# DEPRECATED attrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
 --
@@ -137,8 +142,8 @@ instance Lude.ToJSON AddTagsToResource where
   toJSON AddTagsToResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceType" Lude..= resourceType),
-            Lude.Just ("ResourceId" Lude..= resourceId),
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("ResourceType" Lude..= resourceType),
             Lude.Just ("Tags" Lude..= tags)
           ]
       )
@@ -151,16 +156,10 @@ instance Lude.ToQuery AddTagsToResource where
 
 -- | /See:/ 'mkAddTagsToResourceResponse' smart constructor.
 newtype AddTagsToResourceResponse = AddTagsToResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToResourceResponse' with the minimum fields required to make a request.

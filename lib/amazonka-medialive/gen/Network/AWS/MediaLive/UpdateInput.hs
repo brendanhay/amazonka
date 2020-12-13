@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,13 +21,13 @@ module Network.AWS.MediaLive.UpdateInput
 
     -- ** Request lenses
     uiInputDevices,
+    uiInputId,
     uiSources,
     uiInputSecurityGroups,
     uiDestinations,
     uiName,
     uiMediaConnectFlows,
     uiRoleARN,
-    uiInputId,
 
     -- * Destructuring the response
     UpdateInputResponse (..),
@@ -48,41 +49,48 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateInput' smart constructor.
 data UpdateInput = UpdateInput'
-  { inputDevices ::
-      Lude.Maybe [InputDeviceRequest],
+  { -- | Settings for the devices.
+    inputDevices :: Lude.Maybe [InputDeviceRequest],
+    -- | Unique ID of the input.
+    inputId :: Lude.Text,
+    -- | The source URLs for a PULL-type input. Every PULL type input needs
+    --
+    -- exactly two source URLs for redundancy.
+    -- Only specify sources for PULL type Inputs. Leave Destinations empty.
     sources :: Lude.Maybe [InputSourceRequest],
+    -- | A list of security groups referenced by IDs to attach to the input.
     inputSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | Destination settings for PUSH type inputs.
     destinations :: Lude.Maybe [InputDestinationRequest],
+    -- | Name of the input.
     name :: Lude.Maybe Lude.Text,
+    -- | A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
+    --
+    -- Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+    -- separate Availability Zone as this ensures your EML input is redundant to AZ issues.
     mediaConnectFlows :: Lude.Maybe [MediaConnectFlowRequest],
-    roleARN :: Lude.Maybe Lude.Text,
-    inputId :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInput' with the minimum fields required to make a request.
 --
--- * 'destinations' - Destination settings for PUSH type inputs.
 -- * 'inputDevices' - Settings for the devices.
 -- * 'inputId' - Unique ID of the input.
--- * 'inputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
--- * 'mediaConnectFlows' - A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
---
--- Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
--- separate Availability Zone as this ensures your EML input is redundant to AZ issues.
--- * 'name' - Name of the input.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
 -- * 'sources' - The source URLs for a PULL-type input. Every PULL type input needs
 --
 -- exactly two source URLs for redundancy.
 -- Only specify sources for PULL type Inputs. Leave Destinations empty.
+-- * 'inputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
+-- * 'destinations' - Destination settings for PUSH type inputs.
+-- * 'name' - Name of the input.
+-- * 'mediaConnectFlows' - A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
+--
+-- Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+-- separate Availability Zone as this ensures your EML input is redundant to AZ issues.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
 mkUpdateInput ::
   -- | 'inputId'
   Lude.Text ->
@@ -90,13 +98,13 @@ mkUpdateInput ::
 mkUpdateInput pInputId_ =
   UpdateInput'
     { inputDevices = Lude.Nothing,
+      inputId = pInputId_,
       sources = Lude.Nothing,
       inputSecurityGroups = Lude.Nothing,
       destinations = Lude.Nothing,
       name = Lude.Nothing,
       mediaConnectFlows = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      inputId = pInputId_
+      roleARN = Lude.Nothing
     }
 
 -- | Settings for the devices.
@@ -105,6 +113,13 @@ mkUpdateInput pInputId_ =
 uiInputDevices :: Lens.Lens' UpdateInput (Lude.Maybe [InputDeviceRequest])
 uiInputDevices = Lens.lens (inputDevices :: UpdateInput -> Lude.Maybe [InputDeviceRequest]) (\s a -> s {inputDevices = a} :: UpdateInput)
 {-# DEPRECATED uiInputDevices "Use generic-lens or generic-optics with 'inputDevices' instead." #-}
+
+-- | Unique ID of the input.
+--
+-- /Note:/ Consider using 'inputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiInputId :: Lens.Lens' UpdateInput Lude.Text
+uiInputId = Lens.lens (inputId :: UpdateInput -> Lude.Text) (\s a -> s {inputId = a} :: UpdateInput)
+{-# DEPRECATED uiInputId "Use generic-lens or generic-optics with 'inputId' instead." #-}
 
 -- | The source URLs for a PULL-type input. Every PULL type input needs
 --
@@ -154,13 +169,6 @@ uiRoleARN :: Lens.Lens' UpdateInput (Lude.Maybe Lude.Text)
 uiRoleARN = Lens.lens (roleARN :: UpdateInput -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateInput)
 {-# DEPRECATED uiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | Unique ID of the input.
---
--- /Note:/ Consider using 'inputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiInputId :: Lens.Lens' UpdateInput Lude.Text
-uiInputId = Lens.lens (inputId :: UpdateInput -> Lude.Text) (\s a -> s {inputId = a} :: UpdateInput)
-{-# DEPRECATED uiInputId "Use generic-lens or generic-optics with 'inputId' instead." #-}
-
 instance Lude.AWSRequest UpdateInput where
   type Rs UpdateInput = UpdateInputResponse
   request = Req.putJSON mediaLiveService
@@ -205,22 +213,16 @@ instance Lude.ToQuery UpdateInput where
 --
 -- /See:/ 'mkUpdateInputResponse' smart constructor.
 data UpdateInputResponse = UpdateInputResponse'
-  { input ::
-      Lude.Maybe Input,
+  { input :: Lude.Maybe Input,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInputResponse' with the minimum fields required to make a request.
 --
--- * 'input' - Undocumented field.
+-- * 'input' -
 -- * 'responseStatus' - The response status code.
 mkUpdateInputResponse ::
   -- | 'responseStatus'

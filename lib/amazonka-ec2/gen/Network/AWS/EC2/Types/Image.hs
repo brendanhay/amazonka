@@ -17,7 +17,11 @@ module Network.AWS.EC2.Types.Image
     mkImage,
 
     -- * Lenses
+    iState,
+    iVirtualizationType,
+    iHypervisor,
     iPlatform,
+    iImageLocation,
     iPlatformDetails,
     iEnaSupport,
     iImageOwnerAlias,
@@ -26,23 +30,19 @@ module Network.AWS.EC2.Types.Image
     iKernelId,
     iRootDeviceName,
     iSRIOVNetSupport,
+    iOwnerId,
+    iImageType,
     iName,
+    iImageId,
+    iArchitecture,
     iCreationDate,
     iProductCodes,
     iStateReason,
+    iRootDeviceType,
     iDescription,
     iBlockDeviceMappings,
     iTags,
-    iImageId,
-    iImageLocation,
-    iState,
-    iOwnerId,
     iPublic,
-    iArchitecture,
-    iImageType,
-    iRootDeviceType,
-    iVirtualizationType,
-    iHypervisor,
   )
 where
 
@@ -64,105 +64,129 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImage' smart constructor.
 data Image = Image'
-  { platform :: Lude.Maybe PlatformValues,
-    platformDetails :: Lude.Maybe Lude.Text,
-    enaSupport :: Lude.Maybe Lude.Bool,
-    imageOwnerAlias :: Lude.Maybe Lude.Text,
-    usageOperation :: Lude.Maybe Lude.Text,
-    ramdiskId :: Lude.Maybe Lude.Text,
-    kernelId :: Lude.Maybe Lude.Text,
-    rootDeviceName :: Lude.Maybe Lude.Text,
-    sriovNetSupport :: Lude.Maybe Lude.Text,
-    name :: Lude.Maybe Lude.Text,
-    creationDate :: Lude.Maybe Lude.Text,
-    productCodes :: Lude.Maybe [ProductCode],
-    stateReason :: Lude.Maybe StateReason,
-    description :: Lude.Maybe Lude.Text,
-    blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping],
-    tags :: Lude.Maybe [Tag],
-    imageId :: Lude.Text,
-    imageLocation :: Lude.Text,
+  { -- | The current state of the AMI. If the state is @available@ , the image is successfully registered and can be used to launch an instance.
     state :: ImageState,
-    ownerId :: Lude.Text,
-    public :: Lude.Bool,
-    architecture :: ArchitectureValues,
-    imageType :: ImageTypeValues,
-    rootDeviceType :: DeviceType,
+    -- | The type of virtualization of the AMI.
     virtualizationType :: VirtualizationType,
-    hypervisor :: HypervisorType
+    -- | The hypervisor type of the image.
+    hypervisor :: HypervisorType,
+    -- | This value is set to @windows@ for Windows AMIs; otherwise, it is blank.
+    platform :: Lude.Maybe PlatformValues,
+    -- | The location of the AMI.
+    imageLocation :: Lude.Text,
+    -- | The platform details associated with the billing code of the AMI. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Obtaining Billing Information> in the /Amazon Elastic Compute Cloud User Guide/ .
+    platformDetails :: Lude.Maybe Lude.Text,
+    -- | Specifies whether enhanced networking with ENA is enabled.
+    enaSupport :: Lude.Maybe Lude.Bool,
+    -- | The AWS account alias (for example, @amazon@ , @self@ ) or the AWS account ID of the AMI owner.
+    imageOwnerAlias :: Lude.Maybe Lude.Text,
+    -- | The operation of the Amazon EC2 instance and the billing code that is associated with the AMI. @usageOperation@ corresponds to the <https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation lineitem/Operation> column on your AWS Cost and Usage Report and in the <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html AWS Price List API> . For the list of @UsageOperation@ codes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html#billing-info Platform Details and Usage Operation Billing Codes> in the /Amazon Elastic Compute Cloud User Guide/ .
+    usageOperation :: Lude.Maybe Lude.Text,
+    -- | The RAM disk associated with the image, if any. Only applicable for machine images.
+    ramdiskId :: Lude.Maybe Lude.Text,
+    -- | The kernel associated with the image, if any. Only applicable for machine images.
+    kernelId :: Lude.Maybe Lude.Text,
+    -- | The device name of the root device volume (for example, @/dev/sda1@ ).
+    rootDeviceName :: Lude.Maybe Lude.Text,
+    -- | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
+    sriovNetSupport :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID of the image owner.
+    ownerId :: Lude.Text,
+    -- | The type of image.
+    imageType :: ImageTypeValues,
+    -- | The name of the AMI that was provided during image creation.
+    name :: Lude.Maybe Lude.Text,
+    -- | The ID of the AMI.
+    imageId :: Lude.Text,
+    -- | The architecture of the image.
+    architecture :: ArchitectureValues,
+    -- | The date and time the image was created.
+    creationDate :: Lude.Maybe Lude.Text,
+    -- | Any product codes associated with the AMI.
+    productCodes :: Lude.Maybe [ProductCode],
+    -- | The reason for the state change.
+    stateReason :: Lude.Maybe StateReason,
+    -- | The type of root device used by the AMI. The AMI can use an EBS volume or an instance store volume.
+    rootDeviceType :: DeviceType,
+    -- | The description of the AMI that was provided during image creation.
+    description :: Lude.Maybe Lude.Text,
+    -- | Any block device mapping entries.
+    blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping],
+    -- | Any tags assigned to the image.
+    tags :: Lude.Maybe [Tag],
+    -- | Indicates whether the image has public launch permissions. The value is @true@ if this image has public launch permissions or @false@ if it has only implicit and explicit launch permissions.
+    public :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
--- * 'architecture' - The architecture of the image.
--- * 'blockDeviceMappings' - Any block device mapping entries.
--- * 'creationDate' - The date and time the image was created.
--- * 'description' - The description of the AMI that was provided during image creation.
--- * 'enaSupport' - Specifies whether enhanced networking with ENA is enabled.
--- * 'hypervisor' - The hypervisor type of the image.
--- * 'imageId' - The ID of the AMI.
--- * 'imageLocation' - The location of the AMI.
--- * 'imageOwnerAlias' - The AWS account alias (for example, @amazon@ , @self@ ) or the AWS account ID of the AMI owner.
--- * 'imageType' - The type of image.
--- * 'kernelId' - The kernel associated with the image, if any. Only applicable for machine images.
--- * 'name' - The name of the AMI that was provided during image creation.
--- * 'ownerId' - The AWS account ID of the image owner.
--- * 'platform' - This value is set to @windows@ for Windows AMIs; otherwise, it is blank.
--- * 'platformDetails' - The platform details associated with the billing code of the AMI. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Obtaining Billing Information> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'productCodes' - Any product codes associated with the AMI.
--- * 'public' - Indicates whether the image has public launch permissions. The value is @true@ if this image has public launch permissions or @false@ if it has only implicit and explicit launch permissions.
--- * 'ramdiskId' - The RAM disk associated with the image, if any. Only applicable for machine images.
--- * 'rootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
--- * 'rootDeviceType' - The type of root device used by the AMI. The AMI can use an EBS volume or an instance store volume.
--- * 'sriovNetSupport' - Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 -- * 'state' - The current state of the AMI. If the state is @available@ , the image is successfully registered and can be used to launch an instance.
--- * 'stateReason' - The reason for the state change.
--- * 'tags' - Any tags assigned to the image.
--- * 'usageOperation' - The operation of the Amazon EC2 instance and the billing code that is associated with the AMI. @usageOperation@ corresponds to the <https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation lineitem/Operation> column on your AWS Cost and Usage Report and in the <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html AWS Price List API> . For the list of @UsageOperation@ codes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html#billing-info Platform Details and Usage Operation Billing Codes> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- * 'virtualizationType' - The type of virtualization of the AMI.
+-- * 'hypervisor' - The hypervisor type of the image.
+-- * 'platform' - This value is set to @windows@ for Windows AMIs; otherwise, it is blank.
+-- * 'imageLocation' - The location of the AMI.
+-- * 'platformDetails' - The platform details associated with the billing code of the AMI. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Obtaining Billing Information> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'enaSupport' - Specifies whether enhanced networking with ENA is enabled.
+-- * 'imageOwnerAlias' - The AWS account alias (for example, @amazon@ , @self@ ) or the AWS account ID of the AMI owner.
+-- * 'usageOperation' - The operation of the Amazon EC2 instance and the billing code that is associated with the AMI. @usageOperation@ corresponds to the <https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation lineitem/Operation> column on your AWS Cost and Usage Report and in the <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html AWS Price List API> . For the list of @UsageOperation@ codes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html#billing-info Platform Details and Usage Operation Billing Codes> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'ramdiskId' - The RAM disk associated with the image, if any. Only applicable for machine images.
+-- * 'kernelId' - The kernel associated with the image, if any. Only applicable for machine images.
+-- * 'rootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
+-- * 'sriovNetSupport' - Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
+-- * 'ownerId' - The AWS account ID of the image owner.
+-- * 'imageType' - The type of image.
+-- * 'name' - The name of the AMI that was provided during image creation.
+-- * 'imageId' - The ID of the AMI.
+-- * 'architecture' - The architecture of the image.
+-- * 'creationDate' - The date and time the image was created.
+-- * 'productCodes' - Any product codes associated with the AMI.
+-- * 'stateReason' - The reason for the state change.
+-- * 'rootDeviceType' - The type of root device used by the AMI. The AMI can use an EBS volume or an instance store volume.
+-- * 'description' - The description of the AMI that was provided during image creation.
+-- * 'blockDeviceMappings' - Any block device mapping entries.
+-- * 'tags' - Any tags assigned to the image.
+-- * 'public' - Indicates whether the image has public launch permissions. The value is @true@ if this image has public launch permissions or @false@ if it has only implicit and explicit launch permissions.
 mkImage ::
-  -- | 'imageId'
-  Lude.Text ->
-  -- | 'imageLocation'
-  Lude.Text ->
   -- | 'state'
   ImageState ->
-  -- | 'ownerId'
-  Lude.Text ->
-  -- | 'public'
-  Lude.Bool ->
-  -- | 'architecture'
-  ArchitectureValues ->
-  -- | 'imageType'
-  ImageTypeValues ->
-  -- | 'rootDeviceType'
-  DeviceType ->
   -- | 'virtualizationType'
   VirtualizationType ->
   -- | 'hypervisor'
   HypervisorType ->
+  -- | 'imageLocation'
+  Lude.Text ->
+  -- | 'ownerId'
+  Lude.Text ->
+  -- | 'imageType'
+  ImageTypeValues ->
+  -- | 'imageId'
+  Lude.Text ->
+  -- | 'architecture'
+  ArchitectureValues ->
+  -- | 'rootDeviceType'
+  DeviceType ->
+  -- | 'public'
+  Lude.Bool ->
   Image
 mkImage
-  pImageId_
-  pImageLocation_
   pState_
-  pOwnerId_
-  pPublic_
-  pArchitecture_
-  pImageType_
-  pRootDeviceType_
   pVirtualizationType_
-  pHypervisor_ =
+  pHypervisor_
+  pImageLocation_
+  pOwnerId_
+  pImageType_
+  pImageId_
+  pArchitecture_
+  pRootDeviceType_
+  pPublic_ =
     Image'
-      { platform = Lude.Nothing,
+      { state = pState_,
+        virtualizationType = pVirtualizationType_,
+        hypervisor = pHypervisor_,
+        platform = Lude.Nothing,
+        imageLocation = pImageLocation_,
         platformDetails = Lude.Nothing,
         enaSupport = Lude.Nothing,
         imageOwnerAlias = Lude.Nothing,
@@ -171,24 +195,41 @@ mkImage
         kernelId = Lude.Nothing,
         rootDeviceName = Lude.Nothing,
         sriovNetSupport = Lude.Nothing,
+        ownerId = pOwnerId_,
+        imageType = pImageType_,
         name = Lude.Nothing,
+        imageId = pImageId_,
+        architecture = pArchitecture_,
         creationDate = Lude.Nothing,
         productCodes = Lude.Nothing,
         stateReason = Lude.Nothing,
+        rootDeviceType = pRootDeviceType_,
         description = Lude.Nothing,
         blockDeviceMappings = Lude.Nothing,
         tags = Lude.Nothing,
-        imageId = pImageId_,
-        imageLocation = pImageLocation_,
-        state = pState_,
-        ownerId = pOwnerId_,
-        public = pPublic_,
-        architecture = pArchitecture_,
-        imageType = pImageType_,
-        rootDeviceType = pRootDeviceType_,
-        virtualizationType = pVirtualizationType_,
-        hypervisor = pHypervisor_
+        public = pPublic_
       }
+
+-- | The current state of the AMI. If the state is @available@ , the image is successfully registered and can be used to launch an instance.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iState :: Lens.Lens' Image ImageState
+iState = Lens.lens (state :: Image -> ImageState) (\s a -> s {state = a} :: Image)
+{-# DEPRECATED iState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The type of virtualization of the AMI.
+--
+-- /Note:/ Consider using 'virtualizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iVirtualizationType :: Lens.Lens' Image VirtualizationType
+iVirtualizationType = Lens.lens (virtualizationType :: Image -> VirtualizationType) (\s a -> s {virtualizationType = a} :: Image)
+{-# DEPRECATED iVirtualizationType "Use generic-lens or generic-optics with 'virtualizationType' instead." #-}
+
+-- | The hypervisor type of the image.
+--
+-- /Note:/ Consider using 'hypervisor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iHypervisor :: Lens.Lens' Image HypervisorType
+iHypervisor = Lens.lens (hypervisor :: Image -> HypervisorType) (\s a -> s {hypervisor = a} :: Image)
+{-# DEPRECATED iHypervisor "Use generic-lens or generic-optics with 'hypervisor' instead." #-}
 
 -- | This value is set to @windows@ for Windows AMIs; otherwise, it is blank.
 --
@@ -196,6 +237,13 @@ mkImage
 iPlatform :: Lens.Lens' Image (Lude.Maybe PlatformValues)
 iPlatform = Lens.lens (platform :: Image -> Lude.Maybe PlatformValues) (\s a -> s {platform = a} :: Image)
 {-# DEPRECATED iPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+
+-- | The location of the AMI.
+--
+-- /Note:/ Consider using 'imageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImageLocation :: Lens.Lens' Image Lude.Text
+iImageLocation = Lens.lens (imageLocation :: Image -> Lude.Text) (\s a -> s {imageLocation = a} :: Image)
+{-# DEPRECATED iImageLocation "Use generic-lens or generic-optics with 'imageLocation' instead." #-}
 
 -- | The platform details associated with the billing code of the AMI. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Obtaining Billing Information> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
@@ -253,12 +301,40 @@ iSRIOVNetSupport :: Lens.Lens' Image (Lude.Maybe Lude.Text)
 iSRIOVNetSupport = Lens.lens (sriovNetSupport :: Image -> Lude.Maybe Lude.Text) (\s a -> s {sriovNetSupport = a} :: Image)
 {-# DEPRECATED iSRIOVNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
 
+-- | The AWS account ID of the image owner.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iOwnerId :: Lens.Lens' Image Lude.Text
+iOwnerId = Lens.lens (ownerId :: Image -> Lude.Text) (\s a -> s {ownerId = a} :: Image)
+{-# DEPRECATED iOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+-- | The type of image.
+--
+-- /Note:/ Consider using 'imageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImageType :: Lens.Lens' Image ImageTypeValues
+iImageType = Lens.lens (imageType :: Image -> ImageTypeValues) (\s a -> s {imageType = a} :: Image)
+{-# DEPRECATED iImageType "Use generic-lens or generic-optics with 'imageType' instead." #-}
+
 -- | The name of the AMI that was provided during image creation.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 iName :: Lens.Lens' Image (Lude.Maybe Lude.Text)
 iName = Lens.lens (name :: Image -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Image)
 {-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The ID of the AMI.
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImageId :: Lens.Lens' Image Lude.Text
+iImageId = Lens.lens (imageId :: Image -> Lude.Text) (\s a -> s {imageId = a} :: Image)
+{-# DEPRECATED iImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | The architecture of the image.
+--
+-- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iArchitecture :: Lens.Lens' Image ArchitectureValues
+iArchitecture = Lens.lens (architecture :: Image -> ArchitectureValues) (\s a -> s {architecture = a} :: Image)
+{-# DEPRECATED iArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
 
 -- | The date and time the image was created.
 --
@@ -281,6 +357,13 @@ iStateReason :: Lens.Lens' Image (Lude.Maybe StateReason)
 iStateReason = Lens.lens (stateReason :: Image -> Lude.Maybe StateReason) (\s a -> s {stateReason = a} :: Image)
 {-# DEPRECATED iStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
+-- | The type of root device used by the AMI. The AMI can use an EBS volume or an instance store volume.
+--
+-- /Note:/ Consider using 'rootDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRootDeviceType :: Lens.Lens' Image DeviceType
+iRootDeviceType = Lens.lens (rootDeviceType :: Image -> DeviceType) (\s a -> s {rootDeviceType = a} :: Image)
+{-# DEPRECATED iRootDeviceType "Use generic-lens or generic-optics with 'rootDeviceType' instead." #-}
+
 -- | The description of the AMI that was provided during image creation.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -302,34 +385,6 @@ iTags :: Lens.Lens' Image (Lude.Maybe [Tag])
 iTags = Lens.lens (tags :: Image -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Image)
 {-# DEPRECATED iTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The ID of the AMI.
---
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iImageId :: Lens.Lens' Image Lude.Text
-iImageId = Lens.lens (imageId :: Image -> Lude.Text) (\s a -> s {imageId = a} :: Image)
-{-# DEPRECATED iImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
-
--- | The location of the AMI.
---
--- /Note:/ Consider using 'imageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iImageLocation :: Lens.Lens' Image Lude.Text
-iImageLocation = Lens.lens (imageLocation :: Image -> Lude.Text) (\s a -> s {imageLocation = a} :: Image)
-{-# DEPRECATED iImageLocation "Use generic-lens or generic-optics with 'imageLocation' instead." #-}
-
--- | The current state of the AMI. If the state is @available@ , the image is successfully registered and can be used to launch an instance.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iState :: Lens.Lens' Image ImageState
-iState = Lens.lens (state :: Image -> ImageState) (\s a -> s {state = a} :: Image)
-{-# DEPRECATED iState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The AWS account ID of the image owner.
---
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iOwnerId :: Lens.Lens' Image Lude.Text
-iOwnerId = Lens.lens (ownerId :: Image -> Lude.Text) (\s a -> s {ownerId = a} :: Image)
-{-# DEPRECATED iOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
-
 -- | Indicates whether the image has public launch permissions. The value is @true@ if this image has public launch permissions or @false@ if it has only implicit and explicit launch permissions.
 --
 -- /Note:/ Consider using 'public' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -337,45 +392,14 @@ iPublic :: Lens.Lens' Image Lude.Bool
 iPublic = Lens.lens (public :: Image -> Lude.Bool) (\s a -> s {public = a} :: Image)
 {-# DEPRECATED iPublic "Use generic-lens or generic-optics with 'public' instead." #-}
 
--- | The architecture of the image.
---
--- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iArchitecture :: Lens.Lens' Image ArchitectureValues
-iArchitecture = Lens.lens (architecture :: Image -> ArchitectureValues) (\s a -> s {architecture = a} :: Image)
-{-# DEPRECATED iArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
-
--- | The type of image.
---
--- /Note:/ Consider using 'imageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iImageType :: Lens.Lens' Image ImageTypeValues
-iImageType = Lens.lens (imageType :: Image -> ImageTypeValues) (\s a -> s {imageType = a} :: Image)
-{-# DEPRECATED iImageType "Use generic-lens or generic-optics with 'imageType' instead." #-}
-
--- | The type of root device used by the AMI. The AMI can use an EBS volume or an instance store volume.
---
--- /Note:/ Consider using 'rootDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iRootDeviceType :: Lens.Lens' Image DeviceType
-iRootDeviceType = Lens.lens (rootDeviceType :: Image -> DeviceType) (\s a -> s {rootDeviceType = a} :: Image)
-{-# DEPRECATED iRootDeviceType "Use generic-lens or generic-optics with 'rootDeviceType' instead." #-}
-
--- | The type of virtualization of the AMI.
---
--- /Note:/ Consider using 'virtualizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iVirtualizationType :: Lens.Lens' Image VirtualizationType
-iVirtualizationType = Lens.lens (virtualizationType :: Image -> VirtualizationType) (\s a -> s {virtualizationType = a} :: Image)
-{-# DEPRECATED iVirtualizationType "Use generic-lens or generic-optics with 'virtualizationType' instead." #-}
-
--- | The hypervisor type of the image.
---
--- /Note:/ Consider using 'hypervisor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iHypervisor :: Lens.Lens' Image HypervisorType
-iHypervisor = Lens.lens (hypervisor :: Image -> HypervisorType) (\s a -> s {hypervisor = a} :: Image)
-{-# DEPRECATED iHypervisor "Use generic-lens or generic-optics with 'hypervisor' instead." #-}
-
 instance Lude.FromXML Image where
   parseXML x =
     Image'
-      Lude.<$> (x Lude..@? "platform")
+      Lude.<$> (x Lude..@ "imageState")
+      Lude.<*> (x Lude..@ "virtualizationType")
+      Lude.<*> (x Lude..@ "hypervisor")
+      Lude.<*> (x Lude..@? "platform")
+      Lude.<*> (x Lude..@ "imageLocation")
       Lude.<*> (x Lude..@? "platformDetails")
       Lude.<*> (x Lude..@? "enaSupport")
       Lude.<*> (x Lude..@? "imageOwnerAlias")
@@ -384,12 +408,17 @@ instance Lude.FromXML Image where
       Lude.<*> (x Lude..@? "kernelId")
       Lude.<*> (x Lude..@? "rootDeviceName")
       Lude.<*> (x Lude..@? "sriovNetSupport")
+      Lude.<*> (x Lude..@ "imageOwnerId")
+      Lude.<*> (x Lude..@ "imageType")
       Lude.<*> (x Lude..@? "name")
+      Lude.<*> (x Lude..@ "imageId")
+      Lude.<*> (x Lude..@ "architecture")
       Lude.<*> (x Lude..@? "creationDate")
       Lude.<*> ( x Lude..@? "productCodes" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
                )
       Lude.<*> (x Lude..@? "stateReason")
+      Lude.<*> (x Lude..@ "rootDeviceType")
       Lude.<*> (x Lude..@? "description")
       Lude.<*> ( x Lude..@? "blockDeviceMapping" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
@@ -397,13 +426,4 @@ instance Lude.FromXML Image where
       Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
                )
-      Lude.<*> (x Lude..@ "imageId")
-      Lude.<*> (x Lude..@ "imageLocation")
-      Lude.<*> (x Lude..@ "imageState")
-      Lude.<*> (x Lude..@ "imageOwnerId")
       Lude.<*> (x Lude..@ "isPublic")
-      Lude.<*> (x Lude..@ "architecture")
-      Lude.<*> (x Lude..@ "imageType")
-      Lude.<*> (x Lude..@ "rootDeviceType")
-      Lude.<*> (x Lude..@ "virtualizationType")
-      Lude.<*> (x Lude..@ "hypervisor")

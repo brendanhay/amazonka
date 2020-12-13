@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventRiskType' smart constructor.
 data EventRiskType = EventRiskType'
-  { compromisedCredentialsDetected ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether compromised credentials were detected during an authentication event.
+    compromisedCredentialsDetected :: Lude.Maybe Lude.Bool,
+    -- | The risk level.
     riskLevel :: Lude.Maybe RiskLevelType,
+    -- | The risk decision.
     riskDecision :: Lude.Maybe RiskDecisionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventRiskType' with the minimum fields required to make a request.
 --
 -- * 'compromisedCredentialsDetected' - Indicates whether compromised credentials were detected during an authentication event.
--- * 'riskDecision' - The risk decision.
 -- * 'riskLevel' - The risk level.
+-- * 'riskDecision' - The risk decision.
 mkEventRiskType ::
   EventRiskType
 mkEventRiskType =

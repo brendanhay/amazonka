@@ -54,33 +54,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2InstanceCounts' smart constructor.
 data EC2InstanceCounts = EC2InstanceCounts'
-  { idLE ::
-      Lude.Maybe Lude.Natural,
+  { -- | Number of active instances in the fleet that are not currently hosting a game session.
+    idLE :: Lude.Maybe Lude.Natural,
+    -- | Number of instances in the fleet that are no longer active but haven't yet been terminated.
     tERMINATING :: Lude.Maybe Lude.Natural,
+    -- | Number of instances in the fleet that are starting but not yet active.
     pENDING :: Lude.Maybe Lude.Natural,
+    -- | The maximum value allowed for the fleet's instance count.
     mAXIMUM :: Lude.Maybe Lude.Natural,
+    -- | Ideal number of active instances in the fleet.
     dESIRED :: Lude.Maybe Lude.Natural,
+    -- | The minimum value allowed for the fleet's instance count.
     mINIMUM :: Lude.Maybe Lude.Natural,
+    -- | Actual number of active instances in the fleet.
     aCTIVE :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2InstanceCounts' with the minimum fields required to make a request.
 --
--- * 'aCTIVE' - Actual number of active instances in the fleet.
--- * 'dESIRED' - Ideal number of active instances in the fleet.
 -- * 'idLE' - Number of active instances in the fleet that are not currently hosting a game session.
--- * 'mAXIMUM' - The maximum value allowed for the fleet's instance count.
--- * 'mINIMUM' - The minimum value allowed for the fleet's instance count.
--- * 'pENDING' - Number of instances in the fleet that are starting but not yet active.
 -- * 'tERMINATING' - Number of instances in the fleet that are no longer active but haven't yet been terminated.
+-- * 'pENDING' - Number of instances in the fleet that are starting but not yet active.
+-- * 'mAXIMUM' - The maximum value allowed for the fleet's instance count.
+-- * 'dESIRED' - Ideal number of active instances in the fleet.
+-- * 'mINIMUM' - The minimum value allowed for the fleet's instance count.
+-- * 'aCTIVE' - Actual number of active instances in the fleet.
 mkEC2InstanceCounts ::
   EC2InstanceCounts
 mkEC2InstanceCounts =

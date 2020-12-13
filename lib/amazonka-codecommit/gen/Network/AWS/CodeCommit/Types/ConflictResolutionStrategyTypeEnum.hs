@@ -13,10 +13,10 @@
 module Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum
   ( ConflictResolutionStrategyTypeEnum
       ( ConflictResolutionStrategyTypeEnum',
-        AcceptDestination,
+        None,
         AcceptSource,
-        Automerge,
-        None
+        AcceptDestination,
+        Automerge
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ConflictResolutionStrategyTypeEnum = ConflictResolutionStrategyTypeEnum'
       Lude.ToHeader
     )
 
-pattern AcceptDestination :: ConflictResolutionStrategyTypeEnum
-pattern AcceptDestination = ConflictResolutionStrategyTypeEnum' "ACCEPT_DESTINATION"
+pattern None :: ConflictResolutionStrategyTypeEnum
+pattern None = ConflictResolutionStrategyTypeEnum' "NONE"
 
 pattern AcceptSource :: ConflictResolutionStrategyTypeEnum
 pattern AcceptSource = ConflictResolutionStrategyTypeEnum' "ACCEPT_SOURCE"
 
+pattern AcceptDestination :: ConflictResolutionStrategyTypeEnum
+pattern AcceptDestination = ConflictResolutionStrategyTypeEnum' "ACCEPT_DESTINATION"
+
 pattern Automerge :: ConflictResolutionStrategyTypeEnum
 pattern Automerge = ConflictResolutionStrategyTypeEnum' "AUTOMERGE"
 
-pattern None :: ConflictResolutionStrategyTypeEnum
-pattern None = ConflictResolutionStrategyTypeEnum' "NONE"
-
 {-# COMPLETE
-  AcceptDestination,
-  AcceptSource,
-  Automerge,
   None,
+  AcceptSource,
+  AcceptDestination,
+  Automerge,
   ConflictResolutionStrategyTypeEnum'
   #-}

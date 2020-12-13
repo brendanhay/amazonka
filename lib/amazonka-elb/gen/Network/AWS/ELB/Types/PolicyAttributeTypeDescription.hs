@@ -33,29 +33,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyAttributeTypeDescription' smart constructor.
 data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
-  { attributeType ::
-      Lude.Maybe Lude.Text,
-    cardinality ::
-      Lude.Maybe Lude.Text,
-    defaultValue ::
-      Lude.Maybe Lude.Text,
-    attributeName ::
-      Lude.Maybe Lude.Text,
-    description ::
-      Lude.Maybe Lude.Text
+  { -- | The type of the attribute. For example, @Boolean@ or @Integer@ .
+    attributeType :: Lude.Maybe Lude.Text,
+    -- | The cardinality of the attribute.
+    --
+    -- Valid values:
+    --
+    --     * ONE(1) : Single value required
+    --
+    --
+    --     * ZERO_OR_ONE(0..1) : Up to one value is allowed
+    --
+    --
+    --     * ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
+    --
+    --
+    --     * ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
+    cardinality :: Lude.Maybe Lude.Text,
+    -- | The default value of the attribute, if applicable.
+    defaultValue :: Lude.Maybe Lude.Text,
+    -- | The name of the attribute.
+    attributeName :: Lude.Maybe Lude.Text,
+    -- | A description of the attribute.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyAttributeTypeDescription' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of the attribute.
 -- * 'attributeType' - The type of the attribute. For example, @Boolean@ or @Integer@ .
 -- * 'cardinality' - The cardinality of the attribute.
 --
@@ -74,6 +80,7 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
 --
 --
 -- * 'defaultValue' - The default value of the attribute, if applicable.
+-- * 'attributeName' - The name of the attribute.
 -- * 'description' - A description of the attribute.
 mkPolicyAttributeTypeDescription ::
   PolicyAttributeTypeDescription

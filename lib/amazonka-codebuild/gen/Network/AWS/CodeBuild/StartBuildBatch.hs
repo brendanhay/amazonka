@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,6 +42,7 @@ module Network.AWS.CodeBuild.StartBuildBatch
     sbbPrivilegedModeOverride,
     sbbSourceVersion,
     sbbBuildspecOverride,
+    sbbProjectName,
     sbbSecondarySourcesVersionOverride,
     sbbInsecureSSLOverride,
     sbbImageOverride,
@@ -48,15 +50,14 @@ module Network.AWS.CodeBuild.StartBuildBatch
     sbbBuildTimeoutInMinutesOverride,
     sbbArtifactsOverride,
     sbbSourceTypeOverride,
-    sbbProjectName,
 
     -- * Destructuring the response
     StartBuildBatchResponse (..),
     mkStartBuildBatchResponse,
 
     -- ** Response lenses
-    starsBuildBatch,
-    starsResponseStatus,
+    sbbrsBuildBatch,
+    sbbrsResponseStatus,
   )
 where
 
@@ -68,72 +69,126 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartBuildBatch' smart constructor.
 data StartBuildBatch = StartBuildBatch'
-  { encryptionKeyOverride ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the batch build project. The CMK key encrypts the build output artifacts.
+    --
+    -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+    encryptionKeyOverride :: Lude.Maybe Lude.Text,
+    -- | A location that overrides, for this batch build, the source location defined in the batch build project.
     sourceLocationOverride :: Lude.Maybe Lude.Text,
-    buildBatchConfigOverride ::
-      Lude.Maybe ProjectBuildBatchConfig,
-    environmentVariablesOverride ::
-      Lude.Maybe [EnvironmentVariable],
+    -- | A @BuildBatchConfigOverride@ object that contains batch build configuration overrides.
+    buildBatchConfigOverride :: Lude.Maybe ProjectBuildBatchConfig,
+    -- | An array of @EnvironmentVariable@ objects that override, or add to, the environment variables defined in the batch build project.
+    environmentVariablesOverride :: Lude.Maybe [EnvironmentVariable],
+    -- | A unique, case sensitive identifier you provide to ensure the idempotency of the @StartBuildBatch@ request. The token is included in the @StartBuildBatch@ request and is valid for five minutes. If you repeat the @StartBuildBatch@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
     idempotencyToken :: Lude.Maybe Lude.Text,
+    -- | A @RegistryCredential@ object that overrides credentials for access to a private registry.
     registryCredentialOverride :: Lude.Maybe RegistryCredential,
+    -- | The name of a service role for this batch build that overrides the one specified in the batch build project.
     serviceRoleOverride :: Lude.Maybe Lude.Text,
+    -- | A @ProjectCache@ object that specifies cache overrides.
     cacheOverride :: Lude.Maybe ProjectCache,
+    -- | The number of minutes a batch build is allowed to be queued before it times out.
     queuedTimeoutInMinutesOverride :: Lude.Maybe Lude.Natural,
+    -- | An array of @ProjectSource@ objects that override the secondary sources defined in the batch build project.
     secondarySourcesOverride :: Lude.Maybe [ProjectSource],
+    -- | The user-defined depth of history, with a minimum value of 0, that overrides, for this batch build only, any previous depth of history defined in the batch build project.
     gitCloneDepthOverride :: Lude.Maybe Lude.Natural,
-    imagePullCredentialsTypeOverride ::
-      Lude.Maybe ImagePullCredentialsType,
+    -- | The type of credentials AWS CodeBuild uses to pull images in your batch build. There are two valid values:
+    --
+    --
+    --     * CODEBUILD
+    --
+    --     * Specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild's service principal.
+    --
+    --
+    --     * SERVICE_ROLE
+    --
+    --     * Specifies that AWS CodeBuild uses your build project's service role.
+    --
+    --
+    -- When using a cross-account or private registry image, you must use @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image, you must use @CODEBUILD@ credentials.
+    imagePullCredentialsTypeOverride :: Lude.Maybe ImagePullCredentialsType,
+    -- | A @LogsConfig@ object that override the log settings defined in the batch build project.
     logsConfigOverride :: Lude.Maybe LogsConfig,
+    -- | A @SourceAuth@ object that overrides the one defined in the batch build project. This override applies only if the build project's source is BitBucket or GitHub.
     sourceAuthOverride :: Lude.Maybe SourceAuth,
-    gitSubmodulesConfigOverride ::
-      Lude.Maybe GitSubmodulesConfig,
+    -- | A @GitSubmodulesConfig@ object that overrides the Git submodules configuration for this batch build.
+    gitSubmodulesConfigOverride :: Lude.Maybe GitSubmodulesConfig,
+    -- | A container type for this batch build that overrides the one specified in the batch build project.
     environmentTypeOverride :: Lude.Maybe EnvironmentType,
+    -- | The name of a certificate for this batch build that overrides the one specified in the batch build project.
     certificateOverride :: Lude.Maybe Lude.Text,
+    -- | The name of a compute type for this batch build that overrides the one specified in the batch build project.
     computeTypeOverride :: Lude.Maybe ComputeType,
+    -- | Set to @true@ to report to your source provider the status of a batch build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an @invalidInputException@ is thrown.
     reportBuildBatchStatusOverride :: Lude.Maybe Lude.Bool,
+    -- | Enable this flag to override privileged mode in the batch build project.
     privilegedModeOverride :: Lude.Maybe Lude.Bool,
+    -- | The version of the batch build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:
+    --
+    --
+    --     * AWS CodeCommit
+    --
+    --     * The commit ID, branch, or Git tag to use.
+    --
+    --
+    --     * GitHub
+    --
+    --     * The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+    --
+    --
+    --     * Bitbucket
+    --
+    --     * The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+    --
+    --
+    --     * Amazon Simple Storage Service (Amazon S3)
+    --
+    --     * The version ID of the object that represents the build input ZIP file to use.
+    --
+    --
+    -- If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.
+    -- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
     sourceVersion :: Lude.Maybe Lude.Text,
+    -- | A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.
+    --
+    -- If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
     buildspecOverride :: Lude.Maybe Lude.Text,
-    secondarySourcesVersionOverride ::
-      Lude.Maybe [ProjectSourceVersion],
+    -- | The name of the project.
+    projectName :: Lude.Text,
+    -- | An array of @ProjectSourceVersion@ objects that override the secondary source versions in the batch build project.
+    secondarySourcesVersionOverride :: Lude.Maybe [ProjectSourceVersion],
+    -- | Enable this flag to override the insecure SSL setting that is specified in the batch build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
     insecureSSLOverride :: Lude.Maybe Lude.Bool,
+    -- | The name of an image for this batch build that overrides the one specified in the batch build project.
     imageOverride :: Lude.Maybe Lude.Text,
+    -- | An array of @ProjectArtifacts@ objects that override the secondary artifacts defined in the batch build project.
     secondaryArtifactsOverride :: Lude.Maybe [ProjectArtifacts],
+    -- | Overrides the build timeout specified in the batch build project.
     buildTimeoutInMinutesOverride :: Lude.Maybe Lude.Natural,
+    -- | An array of @ProjectArtifacts@ objects that contains information about the build output artifact overrides for the build project.
     artifactsOverride :: Lude.Maybe ProjectArtifacts,
-    sourceTypeOverride :: Lude.Maybe SourceType,
-    projectName :: Lude.Text
+    -- | The source input type that overrides the source input defined in the batch build project.
+    sourceTypeOverride :: Lude.Maybe SourceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBuildBatch' with the minimum fields required to make a request.
 --
--- * 'artifactsOverride' - An array of @ProjectArtifacts@ objects that contains information about the build output artifact overrides for the build project.
--- * 'buildBatchConfigOverride' - A @BuildBatchConfigOverride@ object that contains batch build configuration overrides.
--- * 'buildTimeoutInMinutesOverride' - Overrides the build timeout specified in the batch build project.
--- * 'buildspecOverride' - A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.
---
--- If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
--- * 'cacheOverride' - A @ProjectCache@ object that specifies cache overrides.
--- * 'certificateOverride' - The name of a certificate for this batch build that overrides the one specified in the batch build project.
--- * 'computeTypeOverride' - The name of a compute type for this batch build that overrides the one specified in the batch build project.
 -- * 'encryptionKeyOverride' - The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the batch build project. The CMK key encrypts the build output artifacts.
 --
 -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
--- * 'environmentTypeOverride' - A container type for this batch build that overrides the one specified in the batch build project.
+-- * 'sourceLocationOverride' - A location that overrides, for this batch build, the source location defined in the batch build project.
+-- * 'buildBatchConfigOverride' - A @BuildBatchConfigOverride@ object that contains batch build configuration overrides.
 -- * 'environmentVariablesOverride' - An array of @EnvironmentVariable@ objects that override, or add to, the environment variables defined in the batch build project.
--- * 'gitCloneDepthOverride' - The user-defined depth of history, with a minimum value of 0, that overrides, for this batch build only, any previous depth of history defined in the batch build project.
--- * 'gitSubmodulesConfigOverride' - A @GitSubmodulesConfig@ object that overrides the Git submodules configuration for this batch build.
 -- * 'idempotencyToken' - A unique, case sensitive identifier you provide to ensure the idempotency of the @StartBuildBatch@ request. The token is included in the @StartBuildBatch@ request and is valid for five minutes. If you repeat the @StartBuildBatch@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
--- * 'imageOverride' - The name of an image for this batch build that overrides the one specified in the batch build project.
+-- * 'registryCredentialOverride' - A @RegistryCredential@ object that overrides credentials for access to a private registry.
+-- * 'serviceRoleOverride' - The name of a service role for this batch build that overrides the one specified in the batch build project.
+-- * 'cacheOverride' - A @ProjectCache@ object that specifies cache overrides.
+-- * 'queuedTimeoutInMinutesOverride' - The number of minutes a batch build is allowed to be queued before it times out.
+-- * 'secondarySourcesOverride' - An array of @ProjectSource@ objects that override the secondary sources defined in the batch build project.
+-- * 'gitCloneDepthOverride' - The user-defined depth of history, with a minimum value of 0, that overrides, for this batch build only, any previous depth of history defined in the batch build project.
 -- * 'imagePullCredentialsTypeOverride' - The type of credentials AWS CodeBuild uses to pull images in your batch build. There are two valid values:
 --
 --
@@ -148,20 +203,14 @@ data StartBuildBatch = StartBuildBatch'
 --
 --
 -- When using a cross-account or private registry image, you must use @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image, you must use @CODEBUILD@ credentials.
--- * 'insecureSSLOverride' - Enable this flag to override the insecure SSL setting that is specified in the batch build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
 -- * 'logsConfigOverride' - A @LogsConfig@ object that override the log settings defined in the batch build project.
--- * 'privilegedModeOverride' - Enable this flag to override privileged mode in the batch build project.
--- * 'projectName' - The name of the project.
--- * 'queuedTimeoutInMinutesOverride' - The number of minutes a batch build is allowed to be queued before it times out.
--- * 'registryCredentialOverride' - A @RegistryCredential@ object that overrides credentials for access to a private registry.
--- * 'reportBuildBatchStatusOverride' - Set to @true@ to report to your source provider the status of a batch build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an @invalidInputException@ is thrown.
--- * 'secondaryArtifactsOverride' - An array of @ProjectArtifacts@ objects that override the secondary artifacts defined in the batch build project.
--- * 'secondarySourcesOverride' - An array of @ProjectSource@ objects that override the secondary sources defined in the batch build project.
--- * 'secondarySourcesVersionOverride' - An array of @ProjectSourceVersion@ objects that override the secondary source versions in the batch build project.
--- * 'serviceRoleOverride' - The name of a service role for this batch build that overrides the one specified in the batch build project.
 -- * 'sourceAuthOverride' - A @SourceAuth@ object that overrides the one defined in the batch build project. This override applies only if the build project's source is BitBucket or GitHub.
--- * 'sourceLocationOverride' - A location that overrides, for this batch build, the source location defined in the batch build project.
--- * 'sourceTypeOverride' - The source input type that overrides the source input defined in the batch build project.
+-- * 'gitSubmodulesConfigOverride' - A @GitSubmodulesConfig@ object that overrides the Git submodules configuration for this batch build.
+-- * 'environmentTypeOverride' - A container type for this batch build that overrides the one specified in the batch build project.
+-- * 'certificateOverride' - The name of a certificate for this batch build that overrides the one specified in the batch build project.
+-- * 'computeTypeOverride' - The name of a compute type for this batch build that overrides the one specified in the batch build project.
+-- * 'reportBuildBatchStatusOverride' - Set to @true@ to report to your source provider the status of a batch build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an @invalidInputException@ is thrown.
+-- * 'privilegedModeOverride' - Enable this flag to override privileged mode in the batch build project.
 -- * 'sourceVersion' - The version of the batch build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:
 --
 --
@@ -187,6 +236,17 @@ data StartBuildBatch = StartBuildBatch'
 --
 -- If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.
 -- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+-- * 'buildspecOverride' - A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.
+--
+-- If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
+-- * 'projectName' - The name of the project.
+-- * 'secondarySourcesVersionOverride' - An array of @ProjectSourceVersion@ objects that override the secondary source versions in the batch build project.
+-- * 'insecureSSLOverride' - Enable this flag to override the insecure SSL setting that is specified in the batch build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
+-- * 'imageOverride' - The name of an image for this batch build that overrides the one specified in the batch build project.
+-- * 'secondaryArtifactsOverride' - An array of @ProjectArtifacts@ objects that override the secondary artifacts defined in the batch build project.
+-- * 'buildTimeoutInMinutesOverride' - Overrides the build timeout specified in the batch build project.
+-- * 'artifactsOverride' - An array of @ProjectArtifacts@ objects that contains information about the build output artifact overrides for the build project.
+-- * 'sourceTypeOverride' - The source input type that overrides the source input defined in the batch build project.
 mkStartBuildBatch ::
   -- | 'projectName'
   Lude.Text ->
@@ -215,14 +275,14 @@ mkStartBuildBatch pProjectName_ =
       privilegedModeOverride = Lude.Nothing,
       sourceVersion = Lude.Nothing,
       buildspecOverride = Lude.Nothing,
+      projectName = pProjectName_,
       secondarySourcesVersionOverride = Lude.Nothing,
       insecureSSLOverride = Lude.Nothing,
       imageOverride = Lude.Nothing,
       secondaryArtifactsOverride = Lude.Nothing,
       buildTimeoutInMinutesOverride = Lude.Nothing,
       artifactsOverride = Lude.Nothing,
-      sourceTypeOverride = Lude.Nothing,
-      projectName = pProjectName_
+      sourceTypeOverride = Lude.Nothing
     }
 
 -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the batch build project. The CMK key encrypts the build output artifacts.
@@ -420,6 +480,13 @@ sbbBuildspecOverride :: Lens.Lens' StartBuildBatch (Lude.Maybe Lude.Text)
 sbbBuildspecOverride = Lens.lens (buildspecOverride :: StartBuildBatch -> Lude.Maybe Lude.Text) (\s a -> s {buildspecOverride = a} :: StartBuildBatch)
 {-# DEPRECATED sbbBuildspecOverride "Use generic-lens or generic-optics with 'buildspecOverride' instead." #-}
 
+-- | The name of the project.
+--
+-- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbbProjectName :: Lens.Lens' StartBuildBatch Lude.Text
+sbbProjectName = Lens.lens (projectName :: StartBuildBatch -> Lude.Text) (\s a -> s {projectName = a} :: StartBuildBatch)
+{-# DEPRECATED sbbProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
+
 -- | An array of @ProjectSourceVersion@ objects that override the secondary source versions in the batch build project.
 --
 -- /Note:/ Consider using 'secondarySourcesVersionOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -468,13 +535,6 @@ sbbArtifactsOverride = Lens.lens (artifactsOverride :: StartBuildBatch -> Lude.M
 sbbSourceTypeOverride :: Lens.Lens' StartBuildBatch (Lude.Maybe SourceType)
 sbbSourceTypeOverride = Lens.lens (sourceTypeOverride :: StartBuildBatch -> Lude.Maybe SourceType) (\s a -> s {sourceTypeOverride = a} :: StartBuildBatch)
 {-# DEPRECATED sbbSourceTypeOverride "Use generic-lens or generic-optics with 'sourceTypeOverride' instead." #-}
-
--- | The name of the project.
---
--- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbbProjectName :: Lens.Lens' StartBuildBatch Lude.Text
-sbbProjectName = Lens.lens (projectName :: StartBuildBatch -> Lude.Text) (\s a -> s {projectName = a} :: StartBuildBatch)
-{-# DEPRECATED sbbProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
 
 instance Lude.AWSRequest StartBuildBatch where
   type Rs StartBuildBatch = StartBuildBatchResponse
@@ -532,6 +592,7 @@ instance Lude.ToJSON StartBuildBatch where
             ("privilegedModeOverride" Lude..=) Lude.<$> privilegedModeOverride,
             ("sourceVersion" Lude..=) Lude.<$> sourceVersion,
             ("buildspecOverride" Lude..=) Lude.<$> buildspecOverride,
+            Lude.Just ("projectName" Lude..= projectName),
             ("secondarySourcesVersionOverride" Lude..=)
               Lude.<$> secondarySourcesVersionOverride,
             ("insecureSslOverride" Lude..=) Lude.<$> insecureSSLOverride,
@@ -541,8 +602,7 @@ instance Lude.ToJSON StartBuildBatch where
             ("buildTimeoutInMinutesOverride" Lude..=)
               Lude.<$> buildTimeoutInMinutesOverride,
             ("artifactsOverride" Lude..=) Lude.<$> artifactsOverride,
-            ("sourceTypeOverride" Lude..=) Lude.<$> sourceTypeOverride,
-            Lude.Just ("projectName" Lude..= projectName)
+            ("sourceTypeOverride" Lude..=) Lude.<$> sourceTypeOverride
           ]
       )
 
@@ -554,17 +614,12 @@ instance Lude.ToQuery StartBuildBatch where
 
 -- | /See:/ 'mkStartBuildBatchResponse' smart constructor.
 data StartBuildBatchResponse = StartBuildBatchResponse'
-  { buildBatch ::
-      Lude.Maybe BuildBatch,
+  { -- | A @BuildBatch@ object that contains information about the batch build.
+    buildBatch :: Lude.Maybe BuildBatch,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBuildBatchResponse' with the minimum fields required to make a request.
@@ -584,13 +639,13 @@ mkStartBuildBatchResponse pResponseStatus_ =
 -- | A @BuildBatch@ object that contains information about the batch build.
 --
 -- /Note:/ Consider using 'buildBatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-starsBuildBatch :: Lens.Lens' StartBuildBatchResponse (Lude.Maybe BuildBatch)
-starsBuildBatch = Lens.lens (buildBatch :: StartBuildBatchResponse -> Lude.Maybe BuildBatch) (\s a -> s {buildBatch = a} :: StartBuildBatchResponse)
-{-# DEPRECATED starsBuildBatch "Use generic-lens or generic-optics with 'buildBatch' instead." #-}
+sbbrsBuildBatch :: Lens.Lens' StartBuildBatchResponse (Lude.Maybe BuildBatch)
+sbbrsBuildBatch = Lens.lens (buildBatch :: StartBuildBatchResponse -> Lude.Maybe BuildBatch) (\s a -> s {buildBatch = a} :: StartBuildBatchResponse)
+{-# DEPRECATED sbbrsBuildBatch "Use generic-lens or generic-optics with 'buildBatch' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-starsResponseStatus :: Lens.Lens' StartBuildBatchResponse Lude.Int
-starsResponseStatus = Lens.lens (responseStatus :: StartBuildBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartBuildBatchResponse)
-{-# DEPRECATED starsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sbbrsResponseStatus :: Lens.Lens' StartBuildBatchResponse Lude.Int
+sbbrsResponseStatus = Lens.lens (responseStatus :: StartBuildBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartBuildBatchResponse)
+{-# DEPRECATED sbbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

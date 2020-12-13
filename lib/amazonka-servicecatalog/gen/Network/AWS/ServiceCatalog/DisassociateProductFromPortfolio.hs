@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
     mkDisassociateProductFromPortfolio,
 
     -- ** Request lenses
-    dpfpAcceptLanguage,
-    dpfpProductId,
-    dpfpPortfolioId,
+    dpfpfPortfolioId,
+    dpfpfAcceptLanguage,
+    dpfpfProductId,
 
     -- * Destructuring the response
     DisassociateProductFromPortfolioResponse (..),
     mkDisassociateProductFromPortfolioResponse,
 
     -- ** Response lenses
-    disrsResponseStatus,
+    dpfpfrsResponseStatus,
   )
 where
 
@@ -42,22 +43,28 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDisassociateProductFromPortfolio' smart constructor.
 data DisassociateProductFromPortfolio = DisassociateProductFromPortfolio'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    productId :: Lude.Text,
-    portfolioId :: Lude.Text
+  { -- | The portfolio identifier.
+    portfolioId :: Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The product identifier.
+    productId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateProductFromPortfolio' with the minimum fields required to make a request.
 --
+-- * 'portfolioId' - The portfolio identifier.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -70,20 +77,26 @@ data DisassociateProductFromPortfolio = DisassociateProductFromPortfolio'
 --     * @zh@ - Chinese
 --
 --
--- * 'portfolioId' - The portfolio identifier.
 -- * 'productId' - The product identifier.
 mkDisassociateProductFromPortfolio ::
-  -- | 'productId'
-  Lude.Text ->
   -- | 'portfolioId'
   Lude.Text ->
+  -- | 'productId'
+  Lude.Text ->
   DisassociateProductFromPortfolio
-mkDisassociateProductFromPortfolio pProductId_ pPortfolioId_ =
+mkDisassociateProductFromPortfolio pPortfolioId_ pProductId_ =
   DisassociateProductFromPortfolio'
-    { acceptLanguage = Lude.Nothing,
-      productId = pProductId_,
-      portfolioId = pPortfolioId_
+    { portfolioId = pPortfolioId_,
+      acceptLanguage = Lude.Nothing,
+      productId = pProductId_
     }
+
+-- | The portfolio identifier.
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpfpfPortfolioId :: Lens.Lens' DisassociateProductFromPortfolio Lude.Text
+dpfpfPortfolioId = Lens.lens (portfolioId :: DisassociateProductFromPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: DisassociateProductFromPortfolio)
+{-# DEPRECATED dpfpfPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The language code.
 --
@@ -99,23 +112,16 @@ mkDisassociateProductFromPortfolio pProductId_ pPortfolioId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfpAcceptLanguage :: Lens.Lens' DisassociateProductFromPortfolio (Lude.Maybe Lude.Text)
-dpfpAcceptLanguage = Lens.lens (acceptLanguage :: DisassociateProductFromPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DisassociateProductFromPortfolio)
-{-# DEPRECATED dpfpAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dpfpfAcceptLanguage :: Lens.Lens' DisassociateProductFromPortfolio (Lude.Maybe Lude.Text)
+dpfpfAcceptLanguage = Lens.lens (acceptLanguage :: DisassociateProductFromPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DisassociateProductFromPortfolio)
+{-# DEPRECATED dpfpfAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The product identifier.
 --
 -- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfpProductId :: Lens.Lens' DisassociateProductFromPortfolio Lude.Text
-dpfpProductId = Lens.lens (productId :: DisassociateProductFromPortfolio -> Lude.Text) (\s a -> s {productId = a} :: DisassociateProductFromPortfolio)
-{-# DEPRECATED dpfpProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
-
--- | The portfolio identifier.
---
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfpPortfolioId :: Lens.Lens' DisassociateProductFromPortfolio Lude.Text
-dpfpPortfolioId = Lens.lens (portfolioId :: DisassociateProductFromPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: DisassociateProductFromPortfolio)
-{-# DEPRECATED dpfpPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
+dpfpfProductId :: Lens.Lens' DisassociateProductFromPortfolio Lude.Text
+dpfpfProductId = Lens.lens (productId :: DisassociateProductFromPortfolio -> Lude.Text) (\s a -> s {productId = a} :: DisassociateProductFromPortfolio)
+{-# DEPRECATED dpfpfProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 instance Lude.AWSRequest DisassociateProductFromPortfolio where
   type
@@ -146,9 +152,9 @@ instance Lude.ToJSON DisassociateProductFromPortfolio where
   toJSON DisassociateProductFromPortfolio' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("ProductId" Lude..= productId),
-            Lude.Just ("PortfolioId" Lude..= portfolioId)
+          [ Lude.Just ("PortfolioId" Lude..= portfolioId),
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("ProductId" Lude..= productId)
           ]
       )
 
@@ -160,16 +166,10 @@ instance Lude.ToQuery DisassociateProductFromPortfolio where
 
 -- | /See:/ 'mkDisassociateProductFromPortfolioResponse' smart constructor.
 newtype DisassociateProductFromPortfolioResponse = DisassociateProductFromPortfolioResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateProductFromPortfolioResponse' with the minimum fields required to make a request.
@@ -188,6 +188,6 @@ mkDisassociateProductFromPortfolioResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsResponseStatus :: Lens.Lens' DisassociateProductFromPortfolioResponse Lude.Int
-disrsResponseStatus = Lens.lens (responseStatus :: DisassociateProductFromPortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateProductFromPortfolioResponse)
-{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpfpfrsResponseStatus :: Lens.Lens' DisassociateProductFromPortfolioResponse Lude.Int
+dpfpfrsResponseStatus = Lens.lens (responseStatus :: DisassociateProductFromPortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateProductFromPortfolioResponse)
+{-# DEPRECATED dpfpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

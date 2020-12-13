@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.Lightsail.GetContainerServiceMetricData
     mkGetContainerServiceMetricData,
 
     -- ** Request lenses
-    gcsmdServiceName,
-    gcsmdMetricName,
     gcsmdStartTime,
-    gcsmdEndTime,
     gcsmdPeriod,
+    gcsmdMetricName,
+    gcsmdEndTime,
+    gcsmdServiceName,
     gcsmdStatistics,
 
     -- * Destructuring the response
@@ -47,27 +48,57 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetContainerServiceMetricData' smart constructor.
 data GetContainerServiceMetricData = GetContainerServiceMetricData'
-  { serviceName ::
-      Lude.Text,
-    metricName ::
-      ContainerServiceMetricName,
+  { -- | The start time of the time period.
     startTime :: Lude.Timestamp,
-    endTime :: Lude.Timestamp,
+    -- | The granularity, in seconds, of the returned data points.
+    --
+    -- All container service metric data is available in 5-minute (300 seconds) granularity.
     period :: Lude.Natural,
+    -- | The metric for which you want to return information.
+    --
+    -- Valid container service metric names are listed below, along with the most useful statistics to include in your request, and the published unit value.
+    --
+    --     * @CPUUtilization@ - The average percentage of compute units that are currently in use across all nodes of the container service. This metric identifies the processing power required to run containers on each node of the container service.
+    -- Statistics: The most useful statistics are @Maximum@ and @Average@ .
+    -- Unit: The published unit is @Percent@ .
+    --
+    --
+    --     * @MemoryUtilization@ - The average percentage of available memory that is currently in use across all nodes of the container service. This metric identifies the memory required to run containers on each node of the container service.
+    -- Statistics: The most useful statistics are @Maximum@ and @Average@ .
+    -- Unit: The published unit is @Percent@ .
+    metricName :: ContainerServiceMetricName,
+    -- | The end time of the time period.
+    endTime :: Lude.Timestamp,
+    -- | The name of the container service for which to get metric data.
+    serviceName :: Lude.Text,
+    -- | The statistic for the metric.
+    --
+    -- The following statistics are available:
+    --
+    --     * @Minimum@ - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.
+    --
+    --
+    --     * @Maximum@ - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.
+    --
+    --
+    --     * @Sum@ - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.
+    --
+    --
+    --     * @Average@ - The value of @Sum@ / @SampleCount@ during the specified period. By comparing this statistic with the @Minimum@ and @Maximum@ values, you can determine the full scope of a metric and how close the average use is to the @Minimum@ and @Maximum@ values. This comparison helps you to know when to increase or decrease your resources.
+    --
+    --
+    --     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
     statistics :: [MetricStatistic]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerServiceMetricData' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end time of the time period.
+-- * 'startTime' - The start time of the time period.
+-- * 'period' - The granularity, in seconds, of the returned data points.
+--
+-- All container service metric data is available in 5-minute (300 seconds) granularity.
 -- * 'metricName' - The metric for which you want to return information.
 --
 -- Valid container service metric names are listed below, along with the most useful statistics to include in your request, and the published unit value.
@@ -82,11 +113,8 @@ data GetContainerServiceMetricData = GetContainerServiceMetricData'
 -- Unit: The published unit is @Percent@ .
 --
 --
--- * 'period' - The granularity, in seconds, of the returned data points.
---
--- All container service metric data is available in 5-minute (300 seconds) granularity.
+-- * 'endTime' - The end time of the time period.
 -- * 'serviceName' - The name of the container service for which to get metric data.
--- * 'startTime' - The start time of the time period.
 -- * 'statistics' - The statistic for the metric.
 --
 -- The following statistics are available:
@@ -105,38 +133,47 @@ data GetContainerServiceMetricData = GetContainerServiceMetricData'
 --
 --     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
 mkGetContainerServiceMetricData ::
-  -- | 'serviceName'
-  Lude.Text ->
-  -- | 'metricName'
-  ContainerServiceMetricName ->
   -- | 'startTime'
-  Lude.Timestamp ->
-  -- | 'endTime'
   Lude.Timestamp ->
   -- | 'period'
   Lude.Natural ->
+  -- | 'metricName'
+  ContainerServiceMetricName ->
+  -- | 'endTime'
+  Lude.Timestamp ->
+  -- | 'serviceName'
+  Lude.Text ->
   GetContainerServiceMetricData
 mkGetContainerServiceMetricData
-  pServiceName_
-  pMetricName_
   pStartTime_
+  pPeriod_
+  pMetricName_
   pEndTime_
-  pPeriod_ =
+  pServiceName_ =
     GetContainerServiceMetricData'
-      { serviceName = pServiceName_,
-        metricName = pMetricName_,
-        startTime = pStartTime_,
-        endTime = pEndTime_,
+      { startTime = pStartTime_,
         period = pPeriod_,
+        metricName = pMetricName_,
+        endTime = pEndTime_,
+        serviceName = pServiceName_,
         statistics = Lude.mempty
       }
 
--- | The name of the container service for which to get metric data.
+-- | The start time of the time period.
 --
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsmdServiceName :: Lens.Lens' GetContainerServiceMetricData Lude.Text
-gcsmdServiceName = Lens.lens (serviceName :: GetContainerServiceMetricData -> Lude.Text) (\s a -> s {serviceName = a} :: GetContainerServiceMetricData)
-{-# DEPRECATED gcsmdServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsmdStartTime :: Lens.Lens' GetContainerServiceMetricData Lude.Timestamp
+gcsmdStartTime = Lens.lens (startTime :: GetContainerServiceMetricData -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetContainerServiceMetricData)
+{-# DEPRECATED gcsmdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The granularity, in seconds, of the returned data points.
+--
+-- All container service metric data is available in 5-minute (300 seconds) granularity.
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsmdPeriod :: Lens.Lens' GetContainerServiceMetricData Lude.Natural
+gcsmdPeriod = Lens.lens (period :: GetContainerServiceMetricData -> Lude.Natural) (\s a -> s {period = a} :: GetContainerServiceMetricData)
+{-# DEPRECATED gcsmdPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The metric for which you want to return information.
 --
@@ -158,13 +195,6 @@ gcsmdMetricName :: Lens.Lens' GetContainerServiceMetricData ContainerServiceMetr
 gcsmdMetricName = Lens.lens (metricName :: GetContainerServiceMetricData -> ContainerServiceMetricName) (\s a -> s {metricName = a} :: GetContainerServiceMetricData)
 {-# DEPRECATED gcsmdMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
--- | The start time of the time period.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsmdStartTime :: Lens.Lens' GetContainerServiceMetricData Lude.Timestamp
-gcsmdStartTime = Lens.lens (startTime :: GetContainerServiceMetricData -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetContainerServiceMetricData)
-{-# DEPRECATED gcsmdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
 -- | The end time of the time period.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -172,14 +202,12 @@ gcsmdEndTime :: Lens.Lens' GetContainerServiceMetricData Lude.Timestamp
 gcsmdEndTime = Lens.lens (endTime :: GetContainerServiceMetricData -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetContainerServiceMetricData)
 {-# DEPRECATED gcsmdEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
--- | The granularity, in seconds, of the returned data points.
+-- | The name of the container service for which to get metric data.
 --
--- All container service metric data is available in 5-minute (300 seconds) granularity.
---
--- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsmdPeriod :: Lens.Lens' GetContainerServiceMetricData Lude.Natural
-gcsmdPeriod = Lens.lens (period :: GetContainerServiceMetricData -> Lude.Natural) (\s a -> s {period = a} :: GetContainerServiceMetricData)
-{-# DEPRECATED gcsmdPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsmdServiceName :: Lens.Lens' GetContainerServiceMetricData Lude.Text
+gcsmdServiceName = Lens.lens (serviceName :: GetContainerServiceMetricData -> Lude.Text) (\s a -> s {serviceName = a} :: GetContainerServiceMetricData)
+{-# DEPRECATED gcsmdServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The statistic for the metric.
 --
@@ -237,11 +265,11 @@ instance Lude.ToJSON GetContainerServiceMetricData where
   toJSON GetContainerServiceMetricData' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("serviceName" Lude..= serviceName),
-            Lude.Just ("metricName" Lude..= metricName),
-            Lude.Just ("startTime" Lude..= startTime),
-            Lude.Just ("endTime" Lude..= endTime),
+          [ Lude.Just ("startTime" Lude..= startTime),
             Lude.Just ("period" Lude..= period),
+            Lude.Just ("metricName" Lude..= metricName),
+            Lude.Just ("endTime" Lude..= endTime),
+            Lude.Just ("serviceName" Lude..= serviceName),
             Lude.Just ("statistics" Lude..= statistics)
           ]
       )
@@ -254,28 +282,20 @@ instance Lude.ToQuery GetContainerServiceMetricData where
 
 -- | /See:/ 'mkGetContainerServiceMetricDataResponse' smart constructor.
 data GetContainerServiceMetricDataResponse = GetContainerServiceMetricDataResponse'
-  { metricName ::
-      Lude.Maybe
-        ContainerServiceMetricName,
-    metricData ::
-      Lude.Maybe
-        [MetricDatapoint],
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the metric returned.
+    metricName :: Lude.Maybe ContainerServiceMetricName,
+    -- | An array of objects that describe the metric data returned.
+    metricData :: Lude.Maybe [MetricDatapoint],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerServiceMetricDataResponse' with the minimum fields required to make a request.
 --
--- * 'metricData' - An array of objects that describe the metric data returned.
 -- * 'metricName' - The name of the metric returned.
+-- * 'metricData' - An array of objects that describe the metric data returned.
 -- * 'responseStatus' - The response status code.
 mkGetContainerServiceMetricDataResponse ::
   -- | 'responseStatus'

@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobExecutionSummary' smart constructor.
 data JobExecutionSummary = JobExecutionSummary'
-  { status ::
-      Lude.Maybe JobExecutionStatus,
+  { -- | The status of the job execution.
+    status :: Lude.Maybe JobExecutionStatus,
+    -- | The time, in seconds since the epoch, when the job execution was last updated.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time, in seconds since the epoch, when the job execution was queued.
     queuedAt :: Lude.Maybe Lude.Timestamp,
+    -- | A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
     executionNumber :: Lude.Maybe Lude.Integer,
+    -- | The time, in seconds since the epoch, when the job execution started.
     startedAt :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecutionSummary' with the minimum fields required to make a request.
 --
--- * 'executionNumber' - A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
+-- * 'status' - The status of the job execution.
 -- * 'lastUpdatedAt' - The time, in seconds since the epoch, when the job execution was last updated.
 -- * 'queuedAt' - The time, in seconds since the epoch, when the job execution was queued.
+-- * 'executionNumber' - A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.
 -- * 'startedAt' - The time, in seconds since the epoch, when the job execution started.
--- * 'status' - The status of the job execution.
 mkJobExecutionSummary ::
   JobExecutionSummary
 mkJobExecutionSummary =

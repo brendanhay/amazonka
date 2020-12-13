@@ -13,13 +13,13 @@
 module Network.AWS.SSM.Types.CommandStatus
   ( CommandStatus
       ( CommandStatus',
-        CSCancelled,
-        CSCancelling,
-        CSFailed,
-        CSInProgress,
         CSPending,
+        CSInProgress,
         CSSuccess,
-        CSTimedOut
+        CSCancelled,
+        CSFailed,
+        CSTimedOut,
+        CSCancelling
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype CommandStatus = CommandStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSCancelled :: CommandStatus
-pattern CSCancelled = CommandStatus' "Cancelled"
-
-pattern CSCancelling :: CommandStatus
-pattern CSCancelling = CommandStatus' "Cancelling"
-
-pattern CSFailed :: CommandStatus
-pattern CSFailed = CommandStatus' "Failed"
+pattern CSPending :: CommandStatus
+pattern CSPending = CommandStatus' "Pending"
 
 pattern CSInProgress :: CommandStatus
 pattern CSInProgress = CommandStatus' "InProgress"
 
-pattern CSPending :: CommandStatus
-pattern CSPending = CommandStatus' "Pending"
-
 pattern CSSuccess :: CommandStatus
 pattern CSSuccess = CommandStatus' "Success"
+
+pattern CSCancelled :: CommandStatus
+pattern CSCancelled = CommandStatus' "Cancelled"
+
+pattern CSFailed :: CommandStatus
+pattern CSFailed = CommandStatus' "Failed"
 
 pattern CSTimedOut :: CommandStatus
 pattern CSTimedOut = CommandStatus' "TimedOut"
 
+pattern CSCancelling :: CommandStatus
+pattern CSCancelling = CommandStatus' "Cancelling"
+
 {-# COMPLETE
-  CSCancelled,
-  CSCancelling,
-  CSFailed,
-  CSInProgress,
   CSPending,
+  CSInProgress,
   CSSuccess,
+  CSCancelled,
+  CSFailed,
   CSTimedOut,
+  CSCancelling,
   CommandStatus'
   #-}

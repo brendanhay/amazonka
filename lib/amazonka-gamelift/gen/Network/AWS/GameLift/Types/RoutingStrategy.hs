@@ -51,24 +51,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoutingStrategy' smart constructor.
 data RoutingStrategy = RoutingStrategy'
-  { type' ::
-      Lude.Maybe RoutingStrategyType,
+  { -- | The type of routing strategy for the alias.
+    --
+    -- Possible routing types include the following:
+    --
+    --     * __SIMPLE__ - The alias resolves to one specific fleet. Use this type when routing to active fleets.
+    --
+    --
+    --     * __TERMINAL__ - The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
+    type' :: Lude.Maybe RoutingStrategyType,
+    -- | The message text to be used with a terminal routing strategy.
     message :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for a fleet that the alias points to. This value is the fleet ID, not the fleet ARN.
     fleetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoutingStrategy' with the minimum fields required to make a request.
 --
--- * 'fleetId' - The unique identifier for a fleet that the alias points to. This value is the fleet ID, not the fleet ARN.
--- * 'message' - The message text to be used with a terminal routing strategy.
 -- * 'type'' - The type of routing strategy for the alias.
 --
 -- Possible routing types include the following:
@@ -77,6 +78,10 @@ data RoutingStrategy = RoutingStrategy'
 --
 --
 --     * __TERMINAL__ - The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
+--
+--
+-- * 'message' - The message text to be used with a terminal routing strategy.
+-- * 'fleetId' - The unique identifier for a fleet that the alias points to. This value is the fleet ID, not the fleet ARN.
 mkRoutingStrategy ::
   RoutingStrategy
 mkRoutingStrategy =

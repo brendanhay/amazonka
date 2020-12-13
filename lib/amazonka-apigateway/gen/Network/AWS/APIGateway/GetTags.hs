@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.GetTags
     mkGetTags,
 
     -- ** Request lenses
+    gtResourceARN,
     gtLimit,
     gtPosition,
-    gtResourceARN,
 
     -- * Destructuring the response
     GetTagsResponse (..),
@@ -43,34 +44,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetTags' smart constructor.
 data GetTags = GetTags'
-  { limit :: Lude.Maybe Lude.Int,
-    position :: Lude.Maybe Lude.Text,
-    resourceARN :: Lude.Text
+  { -- | [Required] The ARN of a resource that can be tagged.
+    resourceARN :: Lude.Text,
+    -- | (Not currently supported) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+    limit :: Lude.Maybe Lude.Int,
+    -- | (Not currently supported) The current pagination position in the paged result set.
+    position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTags' with the minimum fields required to make a request.
 --
+-- * 'resourceARN' - [Required] The ARN of a resource that can be tagged.
 -- * 'limit' - (Not currently supported) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 -- * 'position' - (Not currently supported) The current pagination position in the paged result set.
--- * 'resourceARN' - [Required] The ARN of a resource that can be tagged.
 mkGetTags ::
   -- | 'resourceARN'
   Lude.Text ->
   GetTags
 mkGetTags pResourceARN_ =
   GetTags'
-    { limit = Lude.Nothing,
-      position = Lude.Nothing,
-      resourceARN = pResourceARN_
+    { resourceARN = pResourceARN_,
+      limit = Lude.Nothing,
+      position = Lude.Nothing
     }
+
+-- | [Required] The ARN of a resource that can be tagged.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtResourceARN :: Lens.Lens' GetTags Lude.Text
+gtResourceARN = Lens.lens (resourceARN :: GetTags -> Lude.Text) (\s a -> s {resourceARN = a} :: GetTags)
+{-# DEPRECATED gtResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | (Not currently supported) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
@@ -85,13 +90,6 @@ gtLimit = Lens.lens (limit :: GetTags -> Lude.Maybe Lude.Int) (\s a -> s {limit 
 gtPosition :: Lens.Lens' GetTags (Lude.Maybe Lude.Text)
 gtPosition = Lens.lens (position :: GetTags -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetTags)
 {-# DEPRECATED gtPosition "Use generic-lens or generic-optics with 'position' instead." #-}
-
--- | [Required] The ARN of a resource that can be tagged.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtResourceARN :: Lens.Lens' GetTags Lude.Text
-gtResourceARN = Lens.lens (resourceARN :: GetTags -> Lude.Text) (\s a -> s {resourceARN = a} :: GetTags)
-{-# DEPRECATED gtResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Lude.AWSRequest GetTags where
   type Rs GetTags = GetTagsResponse
@@ -123,23 +121,18 @@ instance Lude.ToQuery GetTags where
 --
 -- /See:/ 'mkGetTagsResponse' smart constructor.
 data GetTagsResponse = GetTagsResponse'
-  { tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The collection of tags. Each tag element is associated with a given resource.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTagsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
+-- * 'responseStatus' - The response status code.
 mkGetTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobExecutionSummary' smart constructor.
 data JobExecutionSummary = JobExecutionSummary'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the job execution was last updated.
     lastUpdatedAt :: Lude.Maybe Lude.Integer,
+    -- | The time, in milliseconds since the epoch, when the job execution was enqueued.
     queuedAt :: Lude.Maybe Lude.Integer,
+    -- | A number that identifies a particular job execution on a particular device.
     executionNumber :: Lude.Maybe Lude.Integer,
+    -- | The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device.
     versionNumber :: Lude.Maybe Lude.Integer,
+    -- | The time, in milliseconds since the epoch, when the job execution started.
     startedAt :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecutionSummary' with the minimum fields required to make a request.
 --
--- * 'executionNumber' - A number that identifies a particular job execution on a particular device.
 -- * 'jobId' - The unique identifier you assigned to this job when it was created.
 -- * 'lastUpdatedAt' - The time, in milliseconds since the epoch, when the job execution was last updated.
 -- * 'queuedAt' - The time, in milliseconds since the epoch, when the job execution was enqueued.
--- * 'startedAt' - The time, in milliseconds since the epoch, when the job execution started.
+-- * 'executionNumber' - A number that identifies a particular job execution on a particular device.
 -- * 'versionNumber' - The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device.
+-- * 'startedAt' - The time, in milliseconds since the epoch, when the job execution started.
 mkJobExecutionSummary ::
   JobExecutionSummary
 mkJobExecutionSummary =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,10 +50,10 @@ module Network.AWS.Route53AutoNaming.CreateService
     csCreatorRequestId,
     csHealthCheckCustomConfig,
     csNamespaceId,
+    csName,
     csDNSConfig,
     csDescription,
     csTags,
-    csName,
 
     -- * Destructuring the response
     CreateServiceResponse (..),
@@ -72,38 +73,55 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkCreateService' smart constructor.
 data CreateService = CreateService'
-  { healthCheckConfig ::
-      Lude.Maybe HealthCheckConfig,
+  { -- | /Public DNS and HTTP namespaces only./ A complex type that contains settings for an optional Route 53 health check. If you specify settings for a health check, AWS Cloud Map associates the health check with all the Route 53 DNS records that you specify in @DnsConfig@ .
+    --
+    -- /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
+    -- For information about the charges for health checks, see <http://aws.amazon.com/cloud-map/pricing/ AWS Cloud Map Pricing> .
+    healthCheckConfig :: Lude.Maybe HealthCheckConfig,
+    -- | A unique string that identifies the request and that allows failed @CreateService@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
     creatorRequestId :: Lude.Maybe Lude.Text,
+    -- | A complex type that contains information about an optional custom health check.
+    --
+    -- /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
+    -- You can't add, update, or delete a @HealthCheckCustomConfig@ configuration from an existing service.
     healthCheckCustomConfig :: Lude.Maybe HealthCheckCustomConfig,
+    -- | The ID of the namespace that you want to use to create the service.
     namespaceId :: Lude.Maybe Lude.Text,
+    -- | The name that you want to assign to the service.
+    --
+    -- If you want AWS Cloud Map to create an @SRV@ record when you register an instance, and if you're using a system that requires a specific @SRV@ format, such as <http://www.haproxy.org/ HAProxy> , specify the following for @Name@ :
+    --
+    --     * Start the name with an underscore (_), such as @_exampleservice@
+    --
+    --
+    --     * End the name with /._protocol/ , such as @._tcp@
+    --
+    --
+    -- When you register an instance, AWS Cloud Map creates an @SRV@ record and assigns a name to the record by concatenating the service name and the namespace name, for example:
+    -- @_exampleservice._tcp.example.com@
+    name :: Lude.Text,
+    -- | A complex type that contains information about the Amazon Route 53 records that you want AWS Cloud Map to create when you register an instance.
     dnsConfig :: Lude.Maybe DNSConfig,
+    -- | A description for the service.
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    name :: Lude.Text
+    -- | The tags to add to the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateService' with the minimum fields required to make a request.
 --
--- * 'creatorRequestId' - A unique string that identifies the request and that allows failed @CreateService@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
--- * 'description' - A description for the service.
--- * 'dnsConfig' - A complex type that contains information about the Amazon Route 53 records that you want AWS Cloud Map to create when you register an instance.
 -- * 'healthCheckConfig' - /Public DNS and HTTP namespaces only./ A complex type that contains settings for an optional Route 53 health check. If you specify settings for a health check, AWS Cloud Map associates the health check with all the Route 53 DNS records that you specify in @DnsConfig@ .
 --
 -- /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
 -- For information about the charges for health checks, see <http://aws.amazon.com/cloud-map/pricing/ AWS Cloud Map Pricing> .
+-- * 'creatorRequestId' - A unique string that identifies the request and that allows failed @CreateService@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
 -- * 'healthCheckCustomConfig' - A complex type that contains information about an optional custom health check.
 --
 -- /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
 -- You can't add, update, or delete a @HealthCheckCustomConfig@ configuration from an existing service.
+-- * 'namespaceId' - The ID of the namespace that you want to use to create the service.
 -- * 'name' - The name that you want to assign to the service.
 --
 -- If you want AWS Cloud Map to create an @SRV@ record when you register an instance, and if you're using a system that requires a specific @SRV@ format, such as <http://www.haproxy.org/ HAProxy> , specify the following for @Name@ :
@@ -116,7 +134,8 @@ data CreateService = CreateService'
 --
 -- When you register an instance, AWS Cloud Map creates an @SRV@ record and assigns a name to the record by concatenating the service name and the namespace name, for example:
 -- @_exampleservice._tcp.example.com@
--- * 'namespaceId' - The ID of the namespace that you want to use to create the service.
+-- * 'dnsConfig' - A complex type that contains information about the Amazon Route 53 records that you want AWS Cloud Map to create when you register an instance.
+-- * 'description' - A description for the service.
 -- * 'tags' - The tags to add to the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 mkCreateService ::
   -- | 'name'
@@ -128,10 +147,10 @@ mkCreateService pName_ =
       creatorRequestId = Lude.Nothing,
       healthCheckCustomConfig = Lude.Nothing,
       namespaceId = Lude.Nothing,
+      name = pName_,
       dnsConfig = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      tags = Lude.Nothing
     }
 
 -- | /Public DNS and HTTP namespaces only./ A complex type that contains settings for an optional Route 53 health check. If you specify settings for a health check, AWS Cloud Map associates the health check with all the Route 53 DNS records that you specify in @DnsConfig@ .
@@ -168,6 +187,24 @@ csNamespaceId :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
 csNamespaceId = Lens.lens (namespaceId :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {namespaceId = a} :: CreateService)
 {-# DEPRECATED csNamespaceId "Use generic-lens or generic-optics with 'namespaceId' instead." #-}
 
+-- | The name that you want to assign to the service.
+--
+-- If you want AWS Cloud Map to create an @SRV@ record when you register an instance, and if you're using a system that requires a specific @SRV@ format, such as <http://www.haproxy.org/ HAProxy> , specify the following for @Name@ :
+--
+--     * Start the name with an underscore (_), such as @_exampleservice@
+--
+--
+--     * End the name with /._protocol/ , such as @._tcp@
+--
+--
+-- When you register an instance, AWS Cloud Map creates an @SRV@ record and assigns a name to the record by concatenating the service name and the namespace name, for example:
+-- @_exampleservice._tcp.example.com@
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csName :: Lens.Lens' CreateService Lude.Text
+csName = Lens.lens (name :: CreateService -> Lude.Text) (\s a -> s {name = a} :: CreateService)
+{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | A complex type that contains information about the Amazon Route 53 records that you want AWS Cloud Map to create when you register an instance.
 --
 -- /Note:/ Consider using 'dnsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -188,24 +225,6 @@ csDescription = Lens.lens (description :: CreateService -> Lude.Maybe Lude.Text)
 csTags :: Lens.Lens' CreateService (Lude.Maybe [Tag])
 csTags = Lens.lens (tags :: CreateService -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateService)
 {-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name that you want to assign to the service.
---
--- If you want AWS Cloud Map to create an @SRV@ record when you register an instance, and if you're using a system that requires a specific @SRV@ format, such as <http://www.haproxy.org/ HAProxy> , specify the following for @Name@ :
---
---     * Start the name with an underscore (_), such as @_exampleservice@
---
---
---     * End the name with /._protocol/ , such as @._tcp@
---
---
--- When you register an instance, AWS Cloud Map creates an @SRV@ record and assigns a name to the record by concatenating the service name and the namespace name, for example:
--- @_exampleservice._tcp.example.com@
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csName :: Lens.Lens' CreateService Lude.Text
-csName = Lens.lens (name :: CreateService -> Lude.Text) (\s a -> s {name = a} :: CreateService)
-{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateService where
   type Rs CreateService = CreateServiceResponse
@@ -237,10 +256,10 @@ instance Lude.ToJSON CreateService where
             ("HealthCheckCustomConfig" Lude..=)
               Lude.<$> healthCheckCustomConfig,
             ("NamespaceId" Lude..=) Lude.<$> namespaceId,
+            Lude.Just ("Name" Lude..= name),
             ("DnsConfig" Lude..=) Lude.<$> dnsConfig,
             ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -252,23 +271,18 @@ instance Lude.ToQuery CreateService where
 
 -- | /See:/ 'mkCreateServiceResponse' smart constructor.
 data CreateServiceResponse = CreateServiceResponse'
-  { service ::
-      Lude.Maybe ServiceInfo,
+  { -- | A complex type that contains information about the new service.
+    service :: Lude.Maybe ServiceInfo,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateServiceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'service' - A complex type that contains information about the new service.
+-- * 'responseStatus' - The response status code.
 mkCreateServiceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

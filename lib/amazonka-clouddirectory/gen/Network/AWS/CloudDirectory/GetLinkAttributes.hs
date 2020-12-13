@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.CloudDirectory.GetLinkAttributes
     mkGetLinkAttributes,
 
     -- ** Request lenses
-    glaConsistencyLevel,
     glaDirectoryARN,
-    glaTypedLinkSpecifier,
+    glaConsistencyLevel,
     glaAttributeNames,
+    glaTypedLinkSpecifier,
 
     -- * Destructuring the response
     GetLinkAttributesResponse (..),
@@ -42,26 +43,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetLinkAttributes' smart constructor.
 data GetLinkAttributes = GetLinkAttributes'
-  { consistencyLevel ::
-      Lude.Maybe ConsistencyLevel,
+  { -- | The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
     directoryARN :: Lude.Text,
-    typedLinkSpecifier :: TypedLinkSpecifier,
-    attributeNames :: [Lude.Text]
+    -- | The consistency level at which to retrieve the attributes on a typed link.
+    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    -- | A list of attribute names whose values will be retrieved.
+    attributeNames :: [Lude.Text],
+    -- | Allows a typed link specifier to be accepted as input.
+    typedLinkSpecifier :: TypedLinkSpecifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLinkAttributes' with the minimum fields required to make a request.
 --
--- * 'attributeNames' - A list of attribute names whose values will be retrieved.
--- * 'consistencyLevel' - The consistency level at which to retrieve the attributes on a typed link.
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'consistencyLevel' - The consistency level at which to retrieve the attributes on a typed link.
+-- * 'attributeNames' - A list of attribute names whose values will be retrieved.
 -- * 'typedLinkSpecifier' - Allows a typed link specifier to be accepted as input.
 mkGetLinkAttributes ::
   -- | 'directoryARN'
@@ -71,18 +69,11 @@ mkGetLinkAttributes ::
   GetLinkAttributes
 mkGetLinkAttributes pDirectoryARN_ pTypedLinkSpecifier_ =
   GetLinkAttributes'
-    { consistencyLevel = Lude.Nothing,
-      directoryARN = pDirectoryARN_,
-      typedLinkSpecifier = pTypedLinkSpecifier_,
-      attributeNames = Lude.mempty
+    { directoryARN = pDirectoryARN_,
+      consistencyLevel = Lude.Nothing,
+      attributeNames = Lude.mempty,
+      typedLinkSpecifier = pTypedLinkSpecifier_
     }
-
--- | The consistency level at which to retrieve the attributes on a typed link.
---
--- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glaConsistencyLevel :: Lens.Lens' GetLinkAttributes (Lude.Maybe ConsistencyLevel)
-glaConsistencyLevel = Lens.lens (consistencyLevel :: GetLinkAttributes -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: GetLinkAttributes)
-{-# DEPRECATED glaConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory where the typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
 --
@@ -91,12 +82,12 @@ glaDirectoryARN :: Lens.Lens' GetLinkAttributes Lude.Text
 glaDirectoryARN = Lens.lens (directoryARN :: GetLinkAttributes -> Lude.Text) (\s a -> s {directoryARN = a} :: GetLinkAttributes)
 {-# DEPRECATED glaDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
--- | Allows a typed link specifier to be accepted as input.
+-- | The consistency level at which to retrieve the attributes on a typed link.
 --
--- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glaTypedLinkSpecifier :: Lens.Lens' GetLinkAttributes TypedLinkSpecifier
-glaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: GetLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: GetLinkAttributes)
-{-# DEPRECATED glaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glaConsistencyLevel :: Lens.Lens' GetLinkAttributes (Lude.Maybe ConsistencyLevel)
+glaConsistencyLevel = Lens.lens (consistencyLevel :: GetLinkAttributes -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: GetLinkAttributes)
+{-# DEPRECATED glaConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | A list of attribute names whose values will be retrieved.
 --
@@ -104,6 +95,13 @@ glaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: GetLinkAttributes -> Ty
 glaAttributeNames :: Lens.Lens' GetLinkAttributes [Lude.Text]
 glaAttributeNames = Lens.lens (attributeNames :: GetLinkAttributes -> [Lude.Text]) (\s a -> s {attributeNames = a} :: GetLinkAttributes)
 {-# DEPRECATED glaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
+
+-- | Allows a typed link specifier to be accepted as input.
+--
+-- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glaTypedLinkSpecifier :: Lens.Lens' GetLinkAttributes TypedLinkSpecifier
+glaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: GetLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: GetLinkAttributes)
+{-# DEPRECATED glaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
 instance Lude.AWSRequest GetLinkAttributes where
   type Rs GetLinkAttributes = GetLinkAttributesResponse
@@ -125,8 +123,8 @@ instance Lude.ToJSON GetLinkAttributes where
     Lude.object
       ( Lude.catMaybes
           [ ("ConsistencyLevel" Lude..=) Lude.<$> consistencyLevel,
-            Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier),
-            Lude.Just ("AttributeNames" Lude..= attributeNames)
+            Lude.Just ("AttributeNames" Lude..= attributeNames),
+            Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier)
           ]
       )
 
@@ -140,17 +138,12 @@ instance Lude.ToQuery GetLinkAttributes where
 
 -- | /See:/ 'mkGetLinkAttributesResponse' smart constructor.
 data GetLinkAttributesResponse = GetLinkAttributesResponse'
-  { attributes ::
-      Lude.Maybe [AttributeKeyAndValue],
+  { -- | The attributes that are associated with the typed link.
+    attributes :: Lude.Maybe [AttributeKeyAndValue],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLinkAttributesResponse' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus
   ( UsageRecordResultStatus
       ( UsageRecordResultStatus',
+        Success,
         CustomerNotSubscribed,
-        DuplicateRecord,
-        Success
+        DuplicateRecord
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype UsageRecordResultStatus = UsageRecordResultStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Success :: UsageRecordResultStatus
+pattern Success = UsageRecordResultStatus' "Success"
+
 pattern CustomerNotSubscribed :: UsageRecordResultStatus
 pattern CustomerNotSubscribed = UsageRecordResultStatus' "CustomerNotSubscribed"
 
 pattern DuplicateRecord :: UsageRecordResultStatus
 pattern DuplicateRecord = UsageRecordResultStatus' "DuplicateRecord"
 
-pattern Success :: UsageRecordResultStatus
-pattern Success = UsageRecordResultStatus' "Success"
-
 {-# COMPLETE
+  Success,
   CustomerNotSubscribed,
   DuplicateRecord,
-  Success,
   UsageRecordResultStatus'
   #-}

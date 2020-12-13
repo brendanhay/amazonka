@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,12 +24,12 @@ module Network.AWS.ServiceCatalog.ImportAsProvisionedProduct
     mkImportAsProvisionedProduct,
 
     -- ** Request lenses
-    iappAcceptLanguage,
-    iappProductId,
-    iappProvisioningArtifactId,
-    iappProvisionedProductName,
-    iappPhysicalId,
     iappIdempotencyToken,
+    iappProvisionedProductName,
+    iappProvisioningArtifactId,
+    iappAcceptLanguage,
+    iappPhysicalId,
+    iappProductId,
 
     -- * Destructuring the response
     ImportAsProvisionedProductResponse (..),
@@ -48,25 +49,36 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkImportAsProvisionedProduct' smart constructor.
 data ImportAsProvisionedProduct = ImportAsProvisionedProduct'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    productId :: Lude.Text,
-    provisioningArtifactId :: Lude.Text,
+  { -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+    idempotencyToken :: Lude.Text,
+    -- | The user-friendly name of the provisioned product. The value must be unique for the AWS account. The name cannot be updated after the product is provisioned.
     provisionedProductName :: Lude.Text,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the resource to be imported. It only currently supports CloudFormation stack IDs.
     physicalId :: Lude.Text,
-    idempotencyToken :: Lude.Text
+    -- | The product identifier.
+    productId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportAsProvisionedProduct' with the minimum fields required to make a request.
 --
+-- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- * 'provisionedProductName' - The user-friendly name of the provisioned product. The value must be unique for the AWS account. The name cannot be updated after the product is provisioned.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -79,37 +91,56 @@ data ImportAsProvisionedProduct = ImportAsProvisionedProduct'
 --     * @zh@ - Chinese
 --
 --
--- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 -- * 'physicalId' - The unique identifier of the resource to be imported. It only currently supports CloudFormation stack IDs.
 -- * 'productId' - The product identifier.
--- * 'provisionedProductName' - The user-friendly name of the provisioned product. The value must be unique for the AWS account. The name cannot be updated after the product is provisioned.
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
 mkImportAsProvisionedProduct ::
-  -- | 'productId'
-  Lude.Text ->
-  -- | 'provisioningArtifactId'
+  -- | 'idempotencyToken'
   Lude.Text ->
   -- | 'provisionedProductName'
   Lude.Text ->
+  -- | 'provisioningArtifactId'
+  Lude.Text ->
   -- | 'physicalId'
   Lude.Text ->
-  -- | 'idempotencyToken'
+  -- | 'productId'
   Lude.Text ->
   ImportAsProvisionedProduct
 mkImportAsProvisionedProduct
-  pProductId_
-  pProvisioningArtifactId_
+  pIdempotencyToken_
   pProvisionedProductName_
+  pProvisioningArtifactId_
   pPhysicalId_
-  pIdempotencyToken_ =
+  pProductId_ =
     ImportAsProvisionedProduct'
-      { acceptLanguage = Lude.Nothing,
-        productId = pProductId_,
-        provisioningArtifactId = pProvisioningArtifactId_,
+      { idempotencyToken =
+          pIdempotencyToken_,
         provisionedProductName = pProvisionedProductName_,
+        provisioningArtifactId = pProvisioningArtifactId_,
+        acceptLanguage = Lude.Nothing,
         physicalId = pPhysicalId_,
-        idempotencyToken = pIdempotencyToken_
+        productId = pProductId_
       }
+
+-- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iappIdempotencyToken :: Lens.Lens' ImportAsProvisionedProduct Lude.Text
+iappIdempotencyToken = Lens.lens (idempotencyToken :: ImportAsProvisionedProduct -> Lude.Text) (\s a -> s {idempotencyToken = a} :: ImportAsProvisionedProduct)
+{-# DEPRECATED iappIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
+
+-- | The user-friendly name of the provisioned product. The value must be unique for the AWS account. The name cannot be updated after the product is provisioned.
+--
+-- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iappProvisionedProductName :: Lens.Lens' ImportAsProvisionedProduct Lude.Text
+iappProvisionedProductName = Lens.lens (provisionedProductName :: ImportAsProvisionedProduct -> Lude.Text) (\s a -> s {provisionedProductName = a} :: ImportAsProvisionedProduct)
+{-# DEPRECATED iappProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
+
+-- | The identifier of the provisioning artifact.
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iappProvisioningArtifactId :: Lens.Lens' ImportAsProvisionedProduct Lude.Text
+iappProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ImportAsProvisionedProduct -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ImportAsProvisionedProduct)
+{-# DEPRECATED iappProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The language code.
 --
@@ -129,27 +160,6 @@ iappAcceptLanguage :: Lens.Lens' ImportAsProvisionedProduct (Lude.Maybe Lude.Tex
 iappAcceptLanguage = Lens.lens (acceptLanguage :: ImportAsProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ImportAsProvisionedProduct)
 {-# DEPRECATED iappAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
--- | The product identifier.
---
--- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iappProductId :: Lens.Lens' ImportAsProvisionedProduct Lude.Text
-iappProductId = Lens.lens (productId :: ImportAsProvisionedProduct -> Lude.Text) (\s a -> s {productId = a} :: ImportAsProvisionedProduct)
-{-# DEPRECATED iappProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
-
--- | The identifier of the provisioning artifact.
---
--- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iappProvisioningArtifactId :: Lens.Lens' ImportAsProvisionedProduct Lude.Text
-iappProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ImportAsProvisionedProduct -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ImportAsProvisionedProduct)
-{-# DEPRECATED iappProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
-
--- | The user-friendly name of the provisioned product. The value must be unique for the AWS account. The name cannot be updated after the product is provisioned.
---
--- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iappProvisionedProductName :: Lens.Lens' ImportAsProvisionedProduct Lude.Text
-iappProvisionedProductName = Lens.lens (provisionedProductName :: ImportAsProvisionedProduct -> Lude.Text) (\s a -> s {provisionedProductName = a} :: ImportAsProvisionedProduct)
-{-# DEPRECATED iappProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
-
 -- | The unique identifier of the resource to be imported. It only currently supports CloudFormation stack IDs.
 --
 -- /Note:/ Consider using 'physicalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -157,12 +167,12 @@ iappPhysicalId :: Lens.Lens' ImportAsProvisionedProduct Lude.Text
 iappPhysicalId = Lens.lens (physicalId :: ImportAsProvisionedProduct -> Lude.Text) (\s a -> s {physicalId = a} :: ImportAsProvisionedProduct)
 {-# DEPRECATED iappPhysicalId "Use generic-lens or generic-optics with 'physicalId' instead." #-}
 
--- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- | The product identifier.
 --
--- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iappIdempotencyToken :: Lens.Lens' ImportAsProvisionedProduct Lude.Text
-iappIdempotencyToken = Lens.lens (idempotencyToken :: ImportAsProvisionedProduct -> Lude.Text) (\s a -> s {idempotencyToken = a} :: ImportAsProvisionedProduct)
-{-# DEPRECATED iappIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iappProductId :: Lens.Lens' ImportAsProvisionedProduct Lude.Text
+iappProductId = Lens.lens (productId :: ImportAsProvisionedProduct -> Lude.Text) (\s a -> s {productId = a} :: ImportAsProvisionedProduct)
+{-# DEPRECATED iappProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 instance Lude.AWSRequest ImportAsProvisionedProduct where
   type
@@ -193,14 +203,14 @@ instance Lude.ToJSON ImportAsProvisionedProduct where
   toJSON ImportAsProvisionedProduct' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("ProductId" Lude..= productId),
-            Lude.Just
-              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
+          [ Lude.Just ("IdempotencyToken" Lude..= idempotencyToken),
             Lude.Just
               ("ProvisionedProductName" Lude..= provisionedProductName),
+            Lude.Just
+              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
             Lude.Just ("PhysicalId" Lude..= physicalId),
-            Lude.Just ("IdempotencyToken" Lude..= idempotencyToken)
+            Lude.Just ("ProductId" Lude..= productId)
           ]
       )
 
@@ -212,24 +222,16 @@ instance Lude.ToQuery ImportAsProvisionedProduct where
 
 -- | /See:/ 'mkImportAsProvisionedProductResponse' smart constructor.
 data ImportAsProvisionedProductResponse = ImportAsProvisionedProductResponse'
-  { recordDetail ::
-      Lude.Maybe
-        RecordDetail,
-    responseStatus ::
-      Lude.Int
+  { recordDetail :: Lude.Maybe RecordDetail,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportAsProvisionedProductResponse' with the minimum fields required to make a request.
 --
--- * 'recordDetail' - Undocumented field.
+-- * 'recordDetail' -
 -- * 'responseStatus' - The response status code.
 mkImportAsProvisionedProductResponse ::
   -- | 'responseStatus'

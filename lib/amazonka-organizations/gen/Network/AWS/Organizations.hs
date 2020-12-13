@@ -363,10 +363,10 @@ module Network.AWS.Organizations
     -- ** PolicyTargetSummary
     PolicyTargetSummary (..),
     mkPolicyTargetSummary,
-    polTargetId,
-    polARN,
-    polName,
-    polType,
+    ptsfTargetId,
+    ptsfARN,
+    ptsfName,
+    ptsfType,
 
     -- ** PolicyTypeSummary
     PolicyTypeSummary (..),
@@ -385,8 +385,8 @@ module Network.AWS.Organizations
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * Serialization types
     Lude.Base64 (..),

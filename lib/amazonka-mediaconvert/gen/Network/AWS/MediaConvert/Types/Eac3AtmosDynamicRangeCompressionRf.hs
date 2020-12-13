@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionRf
   ( Eac3AtmosDynamicRangeCompressionRf
       ( Eac3AtmosDynamicRangeCompressionRf',
-        EADRCRFilmLight,
-        EADRCRFilmStandard,
-        EADRCRMusicLight,
-        EADRCRMusicStandard,
         EADRCRNone,
+        EADRCRFilmStandard,
+        EADRCRFilmLight,
+        EADRCRMusicStandard,
+        EADRCRMusicLight,
         EADRCRSpeech
       ),
   )
@@ -50,30 +50,30 @@ newtype Eac3AtmosDynamicRangeCompressionRf = Eac3AtmosDynamicRangeCompressionRf'
       Lude.ToHeader
     )
 
-pattern EADRCRFilmLight :: Eac3AtmosDynamicRangeCompressionRf
-pattern EADRCRFilmLight = Eac3AtmosDynamicRangeCompressionRf' "FILM_LIGHT"
+pattern EADRCRNone :: Eac3AtmosDynamicRangeCompressionRf
+pattern EADRCRNone = Eac3AtmosDynamicRangeCompressionRf' "NONE"
 
 pattern EADRCRFilmStandard :: Eac3AtmosDynamicRangeCompressionRf
 pattern EADRCRFilmStandard = Eac3AtmosDynamicRangeCompressionRf' "FILM_STANDARD"
 
-pattern EADRCRMusicLight :: Eac3AtmosDynamicRangeCompressionRf
-pattern EADRCRMusicLight = Eac3AtmosDynamicRangeCompressionRf' "MUSIC_LIGHT"
+pattern EADRCRFilmLight :: Eac3AtmosDynamicRangeCompressionRf
+pattern EADRCRFilmLight = Eac3AtmosDynamicRangeCompressionRf' "FILM_LIGHT"
 
 pattern EADRCRMusicStandard :: Eac3AtmosDynamicRangeCompressionRf
 pattern EADRCRMusicStandard = Eac3AtmosDynamicRangeCompressionRf' "MUSIC_STANDARD"
 
-pattern EADRCRNone :: Eac3AtmosDynamicRangeCompressionRf
-pattern EADRCRNone = Eac3AtmosDynamicRangeCompressionRf' "NONE"
+pattern EADRCRMusicLight :: Eac3AtmosDynamicRangeCompressionRf
+pattern EADRCRMusicLight = Eac3AtmosDynamicRangeCompressionRf' "MUSIC_LIGHT"
 
 pattern EADRCRSpeech :: Eac3AtmosDynamicRangeCompressionRf
 pattern EADRCRSpeech = Eac3AtmosDynamicRangeCompressionRf' "SPEECH"
 
 {-# COMPLETE
-  EADRCRFilmLight,
-  EADRCRFilmStandard,
-  EADRCRMusicLight,
-  EADRCRMusicStandard,
   EADRCRNone,
+  EADRCRFilmStandard,
+  EADRCRFilmLight,
+  EADRCRMusicStandard,
+  EADRCRMusicLight,
   EADRCRSpeech,
   Eac3AtmosDynamicRangeCompressionRf'
   #-}

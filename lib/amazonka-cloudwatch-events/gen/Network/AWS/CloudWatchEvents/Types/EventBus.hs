@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventBus' smart constructor.
 data EventBus = EventBus'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the event bus.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the event bus.
     name :: Lude.Maybe Lude.Text,
+    -- | The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
     policy :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventBus' with the minimum fields required to make a request.

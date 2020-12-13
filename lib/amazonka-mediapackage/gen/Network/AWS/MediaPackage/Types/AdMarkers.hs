@@ -13,10 +13,10 @@
 module Network.AWS.MediaPackage.Types.AdMarkers
   ( AdMarkers
       ( AdMarkers',
-        AMDaterange,
         AMNone,
+        AMSCTE35Enhanced,
         AMPassthrough,
-        AMSCTE35Enhanced
+        AMDaterange
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype AdMarkers = AdMarkers' Lude.Text
       Lude.ToHeader
     )
 
-pattern AMDaterange :: AdMarkers
-pattern AMDaterange = AdMarkers' "DATERANGE"
-
 pattern AMNone :: AdMarkers
 pattern AMNone = AdMarkers' "NONE"
-
-pattern AMPassthrough :: AdMarkers
-pattern AMPassthrough = AdMarkers' "PASSTHROUGH"
 
 pattern AMSCTE35Enhanced :: AdMarkers
 pattern AMSCTE35Enhanced = AdMarkers' "SCTE35_ENHANCED"
 
+pattern AMPassthrough :: AdMarkers
+pattern AMPassthrough = AdMarkers' "PASSTHROUGH"
+
+pattern AMDaterange :: AdMarkers
+pattern AMDaterange = AdMarkers' "DATERANGE"
+
 {-# COMPLETE
-  AMDaterange,
   AMNone,
-  AMPassthrough,
   AMSCTE35Enhanced,
+  AMPassthrough,
+  AMDaterange,
   AdMarkers'
   #-}

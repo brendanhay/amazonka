@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetHealthDescription' smart constructor.
 data TargetHealthDescription = TargetHealthDescription'
-  { targetHealth ::
-      Lude.Maybe TargetHealth,
+  { -- | The health information for the target.
+    targetHealth :: Lude.Maybe TargetHealth,
+    -- | The port to use to connect with the target.
     healthCheckPort :: Lude.Maybe Lude.Text,
+    -- | The description of the target.
     target :: Lude.Maybe TargetDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetHealthDescription' with the minimum fields required to make a request.
 --
+-- * 'targetHealth' - The health information for the target.
 -- * 'healthCheckPort' - The port to use to connect with the target.
 -- * 'target' - The description of the target.
--- * 'targetHealth' - The health information for the target.
 mkTargetHealthDescription ::
   TargetHealthDescription
 mkTargetHealthDescription =

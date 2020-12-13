@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,8 +41,8 @@ module Network.AWS.SWF.DeprecateWorkflowType
     mkDeprecateWorkflowType,
 
     -- ** Request lenses
-    dDomain,
-    dWorkflowType,
+    dwtDomain,
+    dwtWorkflowType,
 
     -- * Destructuring the response
     DeprecateWorkflowTypeResponse (..),
@@ -57,17 +58,12 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkDeprecateWorkflowType' smart constructor.
 data DeprecateWorkflowType = DeprecateWorkflowType'
-  { domain ::
-      Lude.Text,
+  { -- | The name of the domain in which the workflow type is registered.
+    domain :: Lude.Text,
+    -- | The workflow type to deprecate.
     workflowType :: WorkflowType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeprecateWorkflowType' with the minimum fields required to make a request.
@@ -89,16 +85,16 @@ mkDeprecateWorkflowType pDomain_ pWorkflowType_ =
 -- | The name of the domain in which the workflow type is registered.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDomain :: Lens.Lens' DeprecateWorkflowType Lude.Text
-dDomain = Lens.lens (domain :: DeprecateWorkflowType -> Lude.Text) (\s a -> s {domain = a} :: DeprecateWorkflowType)
-{-# DEPRECATED dDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+dwtDomain :: Lens.Lens' DeprecateWorkflowType Lude.Text
+dwtDomain = Lens.lens (domain :: DeprecateWorkflowType -> Lude.Text) (\s a -> s {domain = a} :: DeprecateWorkflowType)
+{-# DEPRECATED dwtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The workflow type to deprecate.
 --
 -- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dWorkflowType :: Lens.Lens' DeprecateWorkflowType WorkflowType
-dWorkflowType = Lens.lens (workflowType :: DeprecateWorkflowType -> WorkflowType) (\s a -> s {workflowType = a} :: DeprecateWorkflowType)
-{-# DEPRECATED dWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
+dwtWorkflowType :: Lens.Lens' DeprecateWorkflowType WorkflowType
+dwtWorkflowType = Lens.lens (workflowType :: DeprecateWorkflowType -> WorkflowType) (\s a -> s {workflowType = a} :: DeprecateWorkflowType)
+{-# DEPRECATED dwtWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
 instance Lude.AWSRequest DeprecateWorkflowType where
   type Rs DeprecateWorkflowType = DeprecateWorkflowTypeResponse
@@ -133,13 +129,7 @@ instance Lude.ToQuery DeprecateWorkflowType where
 
 -- | /See:/ 'mkDeprecateWorkflowTypeResponse' smart constructor.
 data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeprecateWorkflowTypeResponse' with the minimum fields required to make a request.

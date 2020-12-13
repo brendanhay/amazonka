@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,30 +52,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListMetrics' smart constructor.
 data ListMetrics = ListMetrics'
-  { metricName :: Lude.Maybe Lude.Text,
+  { -- | The name of the metric to filter against. Only the metrics with names that match exactly will be returned.
+    metricName :: Lude.Maybe Lude.Text,
+    -- | The metric namespace to filter against. Only the namespace that matches exactly will be returned.
     namespace :: Lude.Maybe Lude.Text,
+    -- | The token returned by a previous call to indicate that there is more data available.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | To filter the results to show only metrics that have had data points published in the past three hours, specify this parameter with a value of @PT3H@ . This is the only valid value for this parameter.
+    --
+    -- The results that are returned are an approximation of the value you specify. There is a low probability that the returned results include metrics with last published data as much as 40 minutes more than the specified time interval.
     recentlyActive :: Lude.Maybe RecentlyActive,
+    -- | The dimensions to filter against. Only the dimensions that match exactly will be returned.
     dimensions :: Lude.Maybe [DimensionFilter]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMetrics' with the minimum fields required to make a request.
 --
--- * 'dimensions' - The dimensions to filter against. Only the dimensions that match exactly will be returned.
 -- * 'metricName' - The name of the metric to filter against. Only the metrics with names that match exactly will be returned.
 -- * 'namespace' - The metric namespace to filter against. Only the namespace that matches exactly will be returned.
 -- * 'nextToken' - The token returned by a previous call to indicate that there is more data available.
 -- * 'recentlyActive' - To filter the results to show only metrics that have had data points published in the past three hours, specify this parameter with a value of @PT3H@ . This is the only valid value for this parameter.
 --
 -- The results that are returned are an approximation of the value you specify. There is a low probability that the returned results include metrics with last published data as much as 40 minutes more than the specified time interval.
+-- * 'dimensions' - The dimensions to filter against. Only the dimensions that match exactly will be returned.
 mkListMetrics ::
   ListMetrics
 mkListMetrics =
@@ -168,18 +170,14 @@ instance Lude.ToQuery ListMetrics where
 
 -- | /See:/ 'mkListMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'
-  { metrics ::
-      Lude.Maybe [Metric],
+  { -- | The metrics that match your request.
+    metrics :: Lude.Maybe [Metric],
+    -- | The token that marks the start of the next batch of returned results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMetricsResponse' with the minimum fields required to make a request.

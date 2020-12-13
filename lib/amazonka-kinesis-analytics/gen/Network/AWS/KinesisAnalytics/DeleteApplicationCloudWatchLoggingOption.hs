@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
     mkDeleteApplicationCloudWatchLoggingOption,
 
     -- ** Request lenses
-    dacwloApplicationName,
     dacwloCurrentApplicationVersionId,
     dacwloCloudWatchLoggingOptionId,
+    dacwloApplicationName,
 
     -- * Destructuring the response
     DeleteApplicationCloudWatchLoggingOptionResponse (..),
@@ -40,54 +41,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteApplicationCloudWatchLoggingOption' smart constructor.
 data DeleteApplicationCloudWatchLoggingOption = DeleteApplicationCloudWatchLoggingOption'
-  { applicationName ::
-      Lude.Text,
-    currentApplicationVersionId ::
-      Lude.Natural,
-    cloudWatchLoggingOptionId ::
-      Lude.Text
+  { -- | The version ID of the Kinesis Analytics application.
+    currentApplicationVersionId :: Lude.Natural,
+    -- | The @CloudWatchLoggingOptionId@ of the CloudWatch logging option to delete. You can get the @CloudWatchLoggingOptionId@ by using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
+    cloudWatchLoggingOptionId :: Lude.Text,
+    -- | The Kinesis Analytics application name.
+    applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationCloudWatchLoggingOption' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The Kinesis Analytics application name.
--- * 'cloudWatchLoggingOptionId' - The @CloudWatchLoggingOptionId@ of the CloudWatch logging option to delete. You can get the @CloudWatchLoggingOptionId@ by using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
 -- * 'currentApplicationVersionId' - The version ID of the Kinesis Analytics application.
+-- * 'cloudWatchLoggingOptionId' - The @CloudWatchLoggingOptionId@ of the CloudWatch logging option to delete. You can get the @CloudWatchLoggingOptionId@ by using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
+-- * 'applicationName' - The Kinesis Analytics application name.
 mkDeleteApplicationCloudWatchLoggingOption ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'currentApplicationVersionId'
   Lude.Natural ->
   -- | 'cloudWatchLoggingOptionId'
   Lude.Text ->
+  -- | 'applicationName'
+  Lude.Text ->
   DeleteApplicationCloudWatchLoggingOption
 mkDeleteApplicationCloudWatchLoggingOption
-  pApplicationName_
   pCurrentApplicationVersionId_
-  pCloudWatchLoggingOptionId_ =
+  pCloudWatchLoggingOptionId_
+  pApplicationName_ =
     DeleteApplicationCloudWatchLoggingOption'
-      { applicationName =
-          pApplicationName_,
-        currentApplicationVersionId =
+      { currentApplicationVersionId =
           pCurrentApplicationVersionId_,
         cloudWatchLoggingOptionId =
-          pCloudWatchLoggingOptionId_
+          pCloudWatchLoggingOptionId_,
+        applicationName = pApplicationName_
       }
-
--- | The Kinesis Analytics application name.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dacwloApplicationName :: Lens.Lens' DeleteApplicationCloudWatchLoggingOption Lude.Text
-dacwloApplicationName = Lens.lens (applicationName :: DeleteApplicationCloudWatchLoggingOption -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteApplicationCloudWatchLoggingOption)
-{-# DEPRECATED dacwloApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The version ID of the Kinesis Analytics application.
 --
@@ -102,6 +89,13 @@ dacwloCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: De
 dacwloCloudWatchLoggingOptionId :: Lens.Lens' DeleteApplicationCloudWatchLoggingOption Lude.Text
 dacwloCloudWatchLoggingOptionId = Lens.lens (cloudWatchLoggingOptionId :: DeleteApplicationCloudWatchLoggingOption -> Lude.Text) (\s a -> s {cloudWatchLoggingOptionId = a} :: DeleteApplicationCloudWatchLoggingOption)
 {-# DEPRECATED dacwloCloudWatchLoggingOptionId "Use generic-lens or generic-optics with 'cloudWatchLoggingOptionId' instead." #-}
+
+-- | The Kinesis Analytics application name.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacwloApplicationName :: Lens.Lens' DeleteApplicationCloudWatchLoggingOption Lude.Text
+dacwloApplicationName = Lens.lens (applicationName :: DeleteApplicationCloudWatchLoggingOption -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteApplicationCloudWatchLoggingOption)
+{-# DEPRECATED dacwloApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 instance Lude.AWSRequest DeleteApplicationCloudWatchLoggingOption where
   type
@@ -132,13 +126,13 @@ instance Lude.ToJSON DeleteApplicationCloudWatchLoggingOption where
   toJSON DeleteApplicationCloudWatchLoggingOption' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ApplicationName" Lude..= applicationName),
-            Lude.Just
+          [ Lude.Just
               ( "CurrentApplicationVersionId"
                   Lude..= currentApplicationVersionId
               ),
             Lude.Just
-              ("CloudWatchLoggingOptionId" Lude..= cloudWatchLoggingOptionId)
+              ("CloudWatchLoggingOptionId" Lude..= cloudWatchLoggingOptionId),
+            Lude.Just ("ApplicationName" Lude..= applicationName)
           ]
       )
 
@@ -150,20 +144,11 @@ instance Lude.ToQuery DeleteApplicationCloudWatchLoggingOption where
 
 -- | /See:/ 'mkDeleteApplicationCloudWatchLoggingOptionResponse' smart constructor.
 newtype DeleteApplicationCloudWatchLoggingOptionResponse = DeleteApplicationCloudWatchLoggingOptionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationCloudWatchLoggingOptionResponse' with the minimum fields required to make a request.
 --

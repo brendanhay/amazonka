@@ -53,23 +53,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlacedPlayerSession' smart constructor.
 data PlacedPlayerSession = PlacedPlayerSession'
-  { playerSessionId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for a player session.
+    playerSessionId :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a player that is associated with this player session.
     playerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlacedPlayerSession' with the minimum fields required to make a request.
 --
--- * 'playerId' - A unique identifier for a player that is associated with this player session.
 -- * 'playerSessionId' - A unique identifier for a player session.
+-- * 'playerId' - A unique identifier for a player that is associated with this player session.
 mkPlacedPlayerSession ::
   PlacedPlayerSession
 mkPlacedPlayerSession =

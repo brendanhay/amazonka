@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTopicsDetectionJob' smart constructor.
 newtype DescribeTopicsDetectionJob = DescribeTopicsDetectionJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier assigned by the user to the detection job.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTopicsDetectionJob' with the minimum fields required to make a request.
@@ -106,25 +101,18 @@ instance Lude.ToQuery DescribeTopicsDetectionJob where
 
 -- | /See:/ 'mkDescribeTopicsDetectionJobResponse' smart constructor.
 data DescribeTopicsDetectionJobResponse = DescribeTopicsDetectionJobResponse'
-  { topicsDetectionJobProperties ::
-      Lude.Maybe
-        TopicsDetectionJobProperties,
-    responseStatus ::
-      Lude.Int
+  { -- | The list of properties for the requested job.
+    topicsDetectionJobProperties :: Lude.Maybe TopicsDetectionJobProperties,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTopicsDetectionJobResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'topicsDetectionJobProperties' - The list of properties for the requested job.
+-- * 'responseStatus' - The response status code.
 mkDescribeTopicsDetectionJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

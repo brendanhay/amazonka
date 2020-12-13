@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,14 +45,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
 -- | /See:/ 'mkListTopics' smart constructor.
-newtype ListTopics = ListTopics' {nextToken :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ListTopics = ListTopics'
+  { -- | Token returned by the previous @ListTopics@ request.
+    nextToken :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopics' with the minimum fields required to make a request.
@@ -110,25 +108,21 @@ instance Lude.ToQuery ListTopics where
 --
 -- /See:/ 'mkListTopicsResponse' smart constructor.
 data ListTopicsResponse = ListTopicsResponse'
-  { topics ::
-      Lude.Maybe [Topic],
+  { -- | A list of topic ARNs.
+    topics :: Lude.Maybe [Topic],
+    -- | Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicsResponse' with the minimum fields required to make a request.
 --
+-- * 'topics' - A list of topic ARNs.
 -- * 'nextToken' - Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
 -- * 'responseStatus' - The response status code.
--- * 'topics' - A list of topic ARNs.
 mkListTopicsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

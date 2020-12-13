@@ -13,19 +13,19 @@
 module Network.AWS.AutoScaling.Types.LifecycleState
   ( LifecycleState
       ( LifecycleState',
-        Detached,
-        Detaching,
-        EnteringStandby,
-        InService,
-        Pending,
-        PendingProceed,
-        PendingWait,
-        Quarantined,
-        Standby,
-        Terminated,
-        Terminating,
-        TerminatingProceed,
-        TerminatingWait
+        LSPending,
+        LSPendingWait,
+        LSPendingProceed,
+        LSQuarantined,
+        LSInService,
+        LSTerminating,
+        LSTerminatingWait,
+        LSTerminatingProceed,
+        LSTerminated,
+        LSDetaching,
+        LSDetached,
+        LSEnteringStandby,
+        LSStandby
       ),
   )
 where
@@ -56,58 +56,58 @@ newtype LifecycleState = LifecycleState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Detached :: LifecycleState
-pattern Detached = LifecycleState' "Detached"
+pattern LSPending :: LifecycleState
+pattern LSPending = LifecycleState' "Pending"
 
-pattern Detaching :: LifecycleState
-pattern Detaching = LifecycleState' "Detaching"
+pattern LSPendingWait :: LifecycleState
+pattern LSPendingWait = LifecycleState' "Pending:Wait"
 
-pattern EnteringStandby :: LifecycleState
-pattern EnteringStandby = LifecycleState' "EnteringStandby"
+pattern LSPendingProceed :: LifecycleState
+pattern LSPendingProceed = LifecycleState' "Pending:Proceed"
 
-pattern InService :: LifecycleState
-pattern InService = LifecycleState' "InService"
+pattern LSQuarantined :: LifecycleState
+pattern LSQuarantined = LifecycleState' "Quarantined"
 
-pattern Pending :: LifecycleState
-pattern Pending = LifecycleState' "Pending"
+pattern LSInService :: LifecycleState
+pattern LSInService = LifecycleState' "InService"
 
-pattern PendingProceed :: LifecycleState
-pattern PendingProceed = LifecycleState' "Pending:Proceed"
+pattern LSTerminating :: LifecycleState
+pattern LSTerminating = LifecycleState' "Terminating"
 
-pattern PendingWait :: LifecycleState
-pattern PendingWait = LifecycleState' "Pending:Wait"
+pattern LSTerminatingWait :: LifecycleState
+pattern LSTerminatingWait = LifecycleState' "Terminating:Wait"
 
-pattern Quarantined :: LifecycleState
-pattern Quarantined = LifecycleState' "Quarantined"
+pattern LSTerminatingProceed :: LifecycleState
+pattern LSTerminatingProceed = LifecycleState' "Terminating:Proceed"
 
-pattern Standby :: LifecycleState
-pattern Standby = LifecycleState' "Standby"
+pattern LSTerminated :: LifecycleState
+pattern LSTerminated = LifecycleState' "Terminated"
 
-pattern Terminated :: LifecycleState
-pattern Terminated = LifecycleState' "Terminated"
+pattern LSDetaching :: LifecycleState
+pattern LSDetaching = LifecycleState' "Detaching"
 
-pattern Terminating :: LifecycleState
-pattern Terminating = LifecycleState' "Terminating"
+pattern LSDetached :: LifecycleState
+pattern LSDetached = LifecycleState' "Detached"
 
-pattern TerminatingProceed :: LifecycleState
-pattern TerminatingProceed = LifecycleState' "Terminating:Proceed"
+pattern LSEnteringStandby :: LifecycleState
+pattern LSEnteringStandby = LifecycleState' "EnteringStandby"
 
-pattern TerminatingWait :: LifecycleState
-pattern TerminatingWait = LifecycleState' "Terminating:Wait"
+pattern LSStandby :: LifecycleState
+pattern LSStandby = LifecycleState' "Standby"
 
 {-# COMPLETE
-  Detached,
-  Detaching,
-  EnteringStandby,
-  InService,
-  Pending,
-  PendingProceed,
-  PendingWait,
-  Quarantined,
-  Standby,
-  Terminated,
-  Terminating,
-  TerminatingProceed,
-  TerminatingWait,
+  LSPending,
+  LSPendingWait,
+  LSPendingProceed,
+  LSQuarantined,
+  LSInService,
+  LSTerminating,
+  LSTerminatingWait,
+  LSTerminatingProceed,
+  LSTerminated,
+  LSDetaching,
+  LSDetached,
+  LSEnteringStandby,
+  LSStandby,
   LifecycleState'
   #-}

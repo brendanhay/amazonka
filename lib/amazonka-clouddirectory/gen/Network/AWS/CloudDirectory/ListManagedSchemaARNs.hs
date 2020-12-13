@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListManagedSchemaARNs' smart constructor.
 data ListManagedSchemaARNs = ListManagedSchemaARNs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response for ListManagedSchemaArns. When this parameter is used, all minor version ARNs for a major version are listed.
     schemaARN :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to retrieve.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListManagedSchemaARNs' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to retrieve.
 -- * 'nextToken' - The pagination token.
 -- * 'schemaARN' - The response for ListManagedSchemaArns. When this parameter is used, all minor version ARNs for a major version are listed.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkListManagedSchemaARNs ::
   ListManagedSchemaARNs
 mkListManagedSchemaARNs =
@@ -137,26 +134,21 @@ instance Lude.ToQuery ListManagedSchemaARNs where
 
 -- | /See:/ 'mkListManagedSchemaARNsResponse' smart constructor.
 data ListManagedSchemaARNsResponse = ListManagedSchemaARNsResponse'
-  { schemaARNs ::
-      Lude.Maybe [Lude.Text],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARNs for all AWS managed schemas.
+    schemaARNs :: Lude.Maybe [Lude.Text],
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListManagedSchemaARNsResponse' with the minimum fields required to make a request.
 --
+-- * 'schemaARNs' - The ARNs for all AWS managed schemas.
 -- * 'nextToken' - The pagination token.
 -- * 'responseStatus' - The response status code.
--- * 'schemaARNs' - The ARNs for all AWS managed schemas.
 mkListManagedSchemaARNsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Represents a task list.
 --
 -- /See:/ 'mkTaskList' smart constructor.
-newtype TaskList = TaskList' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype TaskList = TaskList'
+  { -- | The name of the task list.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskList' with the minimum fields required to make a request.

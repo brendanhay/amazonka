@@ -13,8 +13,8 @@
 module Network.AWS.DynamoDB.Types.ContinuousBackupsStatus
   ( ContinuousBackupsStatus
       ( ContinuousBackupsStatus',
-        CBSDisabled,
-        CBSEnabled
+        CBSEnabled,
+        CBSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ContinuousBackupsStatus = ContinuousBackupsStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CBSDisabled :: ContinuousBackupsStatus
-pattern CBSDisabled = ContinuousBackupsStatus' "DISABLED"
-
 pattern CBSEnabled :: ContinuousBackupsStatus
 pattern CBSEnabled = ContinuousBackupsStatus' "ENABLED"
 
+pattern CBSDisabled :: ContinuousBackupsStatus
+pattern CBSDisabled = ContinuousBackupsStatus' "DISABLED"
+
 {-# COMPLETE
-  CBSDisabled,
   CBSEnabled,
+  CBSDisabled,
   ContinuousBackupsStatus'
   #-}

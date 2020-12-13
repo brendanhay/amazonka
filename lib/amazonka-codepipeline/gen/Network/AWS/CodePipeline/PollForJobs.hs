@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPollForJobs' smart constructor.
 data PollForJobs = PollForJobs'
-  { maxBatchSize ::
-      Lude.Maybe Lude.Natural,
+  { -- | The maximum number of jobs to return in a poll for jobs call.
+    maxBatchSize :: Lude.Maybe Lude.Natural,
+    -- | A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value are returned.
     queryParam :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Represents information about an action type.
     actionTypeId :: ActionTypeId
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForJobs' with the minimum fields required to make a request.
 --
--- * 'actionTypeId' - Represents information about an action type.
 -- * 'maxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
 -- * 'queryParam' - A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value are returned.
+-- * 'actionTypeId' - Represents information about an action type.
 mkPollForJobs ::
   -- | 'actionTypeId'
   ActionTypeId ->
@@ -138,17 +135,12 @@ instance Lude.ToQuery PollForJobs where
 --
 -- /See:/ 'mkPollForJobsResponse' smart constructor.
 data PollForJobsResponse = PollForJobsResponse'
-  { jobs ::
-      Lude.Maybe [Job],
+  { -- | Information about the jobs to take action on.
+    jobs :: Lude.Maybe [Job],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForJobsResponse' with the minimum fields required to make a request.

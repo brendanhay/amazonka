@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Connect.UpdateUserIdentityInfo
     mkUpdateUserIdentityInfo,
 
     -- ** Request lenses
+    uuiiInstanceId,
     uuiiIdentityInfo,
     uuiiUserId,
-    uuiiInstanceId,
 
     -- * Destructuring the response
     UpdateUserIdentityInfoResponse (..),
@@ -39,39 +40,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateUserIdentityInfo' smart constructor.
 data UpdateUserIdentityInfo = UpdateUserIdentityInfo'
-  { identityInfo ::
-      UserIdentityInfo,
-    userId :: Lude.Text,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identity information for the user.
+    identityInfo :: UserIdentityInfo,
+    -- | The identifier of the user account.
+    userId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserIdentityInfo' with the minimum fields required to make a request.
 --
--- * 'identityInfo' - The identity information for the user.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'identityInfo' - The identity information for the user.
 -- * 'userId' - The identifier of the user account.
 mkUpdateUserIdentityInfo ::
+  -- | 'instanceId'
+  Lude.Text ->
   -- | 'identityInfo'
   UserIdentityInfo ->
   -- | 'userId'
   Lude.Text ->
-  -- | 'instanceId'
-  Lude.Text ->
   UpdateUserIdentityInfo
-mkUpdateUserIdentityInfo pIdentityInfo_ pUserId_ pInstanceId_ =
+mkUpdateUserIdentityInfo pInstanceId_ pIdentityInfo_ pUserId_ =
   UpdateUserIdentityInfo'
-    { identityInfo = pIdentityInfo_,
-      userId = pUserId_,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      identityInfo = pIdentityInfo_,
+      userId = pUserId_
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuiiInstanceId :: Lens.Lens' UpdateUserIdentityInfo Lude.Text
+uuiiInstanceId = Lens.lens (instanceId :: UpdateUserIdentityInfo -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserIdentityInfo)
+{-# DEPRECATED uuiiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identity information for the user.
 --
@@ -86,13 +90,6 @@ uuiiIdentityInfo = Lens.lens (identityInfo :: UpdateUserIdentityInfo -> UserIden
 uuiiUserId :: Lens.Lens' UpdateUserIdentityInfo Lude.Text
 uuiiUserId = Lens.lens (userId :: UpdateUserIdentityInfo -> Lude.Text) (\s a -> s {userId = a} :: UpdateUserIdentityInfo)
 {-# DEPRECATED uuiiUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuiiInstanceId :: Lens.Lens' UpdateUserIdentityInfo Lude.Text
-uuiiInstanceId = Lens.lens (instanceId :: UpdateUserIdentityInfo -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserIdentityInfo)
-{-# DEPRECATED uuiiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest UpdateUserIdentityInfo where
   type Rs UpdateUserIdentityInfo = UpdateUserIdentityInfoResponse
@@ -128,13 +125,7 @@ instance Lude.ToQuery UpdateUserIdentityInfo where
 
 -- | /See:/ 'mkUpdateUserIdentityInfoResponse' smart constructor.
 data UpdateUserIdentityInfoResponse = UpdateUserIdentityInfoResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserIdentityInfoResponse' with the minimum fields required to make a request.

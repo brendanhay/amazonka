@@ -13,15 +13,15 @@
 module Network.AWS.MediaConvert.Types.TimecodeBurninPosition
   ( TimecodeBurninPosition
       ( TimecodeBurninPosition',
-        BottomCenter,
-        BottomLeft,
-        BottomRight,
-        MiddleCenter,
-        MiddleLeft,
-        MiddleRight,
         TopCenter,
         TopLeft,
-        TopRight
+        TopRight,
+        MiddleLeft,
+        MiddleCenter,
+        MiddleRight,
+        BottomLeft,
+        BottomCenter,
+        BottomRight
       ),
   )
 where
@@ -53,24 +53,6 @@ newtype TimecodeBurninPosition = TimecodeBurninPosition' Lude.Text
       Lude.ToHeader
     )
 
-pattern BottomCenter :: TimecodeBurninPosition
-pattern BottomCenter = TimecodeBurninPosition' "BOTTOM_CENTER"
-
-pattern BottomLeft :: TimecodeBurninPosition
-pattern BottomLeft = TimecodeBurninPosition' "BOTTOM_LEFT"
-
-pattern BottomRight :: TimecodeBurninPosition
-pattern BottomRight = TimecodeBurninPosition' "BOTTOM_RIGHT"
-
-pattern MiddleCenter :: TimecodeBurninPosition
-pattern MiddleCenter = TimecodeBurninPosition' "MIDDLE_CENTER"
-
-pattern MiddleLeft :: TimecodeBurninPosition
-pattern MiddleLeft = TimecodeBurninPosition' "MIDDLE_LEFT"
-
-pattern MiddleRight :: TimecodeBurninPosition
-pattern MiddleRight = TimecodeBurninPosition' "MIDDLE_RIGHT"
-
 pattern TopCenter :: TimecodeBurninPosition
 pattern TopCenter = TimecodeBurninPosition' "TOP_CENTER"
 
@@ -80,15 +62,33 @@ pattern TopLeft = TimecodeBurninPosition' "TOP_LEFT"
 pattern TopRight :: TimecodeBurninPosition
 pattern TopRight = TimecodeBurninPosition' "TOP_RIGHT"
 
+pattern MiddleLeft :: TimecodeBurninPosition
+pattern MiddleLeft = TimecodeBurninPosition' "MIDDLE_LEFT"
+
+pattern MiddleCenter :: TimecodeBurninPosition
+pattern MiddleCenter = TimecodeBurninPosition' "MIDDLE_CENTER"
+
+pattern MiddleRight :: TimecodeBurninPosition
+pattern MiddleRight = TimecodeBurninPosition' "MIDDLE_RIGHT"
+
+pattern BottomLeft :: TimecodeBurninPosition
+pattern BottomLeft = TimecodeBurninPosition' "BOTTOM_LEFT"
+
+pattern BottomCenter :: TimecodeBurninPosition
+pattern BottomCenter = TimecodeBurninPosition' "BOTTOM_CENTER"
+
+pattern BottomRight :: TimecodeBurninPosition
+pattern BottomRight = TimecodeBurninPosition' "BOTTOM_RIGHT"
+
 {-# COMPLETE
-  BottomCenter,
-  BottomLeft,
-  BottomRight,
-  MiddleCenter,
-  MiddleLeft,
-  MiddleRight,
   TopCenter,
   TopLeft,
   TopRight,
+  MiddleLeft,
+  MiddleCenter,
+  MiddleRight,
+  BottomLeft,
+  BottomCenter,
+  BottomRight,
   TimecodeBurninPosition'
   #-}

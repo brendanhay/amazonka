@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuildNotDeleted' smart constructor.
 data BuildNotDeleted = BuildNotDeleted'
-  { id :: Lude.Maybe Lude.Text,
+  { -- | The ID of the build that could not be successfully deleted.
+    id :: Lude.Maybe Lude.Text,
+    -- | Additional information about the build that could not be successfully deleted.
     statusCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildNotDeleted' with the minimum fields required to make a request.

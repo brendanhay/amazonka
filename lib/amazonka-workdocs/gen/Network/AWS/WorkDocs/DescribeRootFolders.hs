@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.WorkDocs.DescribeRootFolders
     mkDescribeRootFolders,
 
     -- ** Request lenses
+    drfAuthenticationToken,
     drfMarker,
     drfLimit,
-    drfAuthenticationToken,
 
     -- * Destructuring the response
     DescribeRootFoldersResponse (..),
@@ -47,10 +48,12 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDescribeRootFolders' smart constructor.
 data DescribeRootFolders = DescribeRootFolders'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    authenticationToken :: Lude.Sensitive Lude.Text
+  { -- | Amazon WorkDocs authentication token.
+    authenticationToken :: Lude.Sensitive Lude.Text,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return.
+    limit :: Lude.Maybe Lude.Natural
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -58,18 +61,25 @@ data DescribeRootFolders = DescribeRootFolders'
 -- | Creates a value of 'DescribeRootFolders' with the minimum fields required to make a request.
 --
 -- * 'authenticationToken' - Amazon WorkDocs authentication token.
--- * 'limit' - The maximum number of items to return.
 -- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
+-- * 'limit' - The maximum number of items to return.
 mkDescribeRootFolders ::
   -- | 'authenticationToken'
   Lude.Sensitive Lude.Text ->
   DescribeRootFolders
 mkDescribeRootFolders pAuthenticationToken_ =
   DescribeRootFolders'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      authenticationToken = pAuthenticationToken_
+    { authenticationToken = pAuthenticationToken_,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | Amazon WorkDocs authentication token.
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfAuthenticationToken :: Lens.Lens' DescribeRootFolders (Lude.Sensitive Lude.Text)
+drfAuthenticationToken = Lens.lens (authenticationToken :: DescribeRootFolders -> Lude.Sensitive Lude.Text) (\s a -> s {authenticationToken = a} :: DescribeRootFolders)
+{-# DEPRECATED drfAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 --
@@ -84,13 +94,6 @@ drfMarker = Lens.lens (marker :: DescribeRootFolders -> Lude.Maybe Lude.Text) (\
 drfLimit :: Lens.Lens' DescribeRootFolders (Lude.Maybe Lude.Natural)
 drfLimit = Lens.lens (limit :: DescribeRootFolders -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeRootFolders)
 {-# DEPRECATED drfLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | Amazon WorkDocs authentication token.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfAuthenticationToken :: Lens.Lens' DescribeRootFolders (Lude.Sensitive Lude.Text)
-drfAuthenticationToken = Lens.lens (authenticationToken :: DescribeRootFolders -> Lude.Sensitive Lude.Text) (\s a -> s {authenticationToken = a} :: DescribeRootFolders)
-{-# DEPRECATED drfAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 instance Page.AWSPager DescribeRootFolders where
   page rq rs
@@ -128,18 +131,14 @@ instance Lude.ToQuery DescribeRootFolders where
 
 -- | /See:/ 'mkDescribeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
-  { folders ::
-      Lude.Maybe [FolderMetadata],
+  { -- | The user's special folders.
+    folders :: Lude.Maybe [FolderMetadata],
+    -- | The marker for the next set of results.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRootFoldersResponse' with the minimum fields required to make a request.

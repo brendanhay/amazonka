@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.VolumeModificationState
   ( VolumeModificationState
       ( VolumeModificationState',
-        Completed,
-        Failed,
         Modifying,
-        Optimizing
+        Optimizing,
+        Completed,
+        Failed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype VolumeModificationState = VolumeModificationState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Completed :: VolumeModificationState
-pattern Completed = VolumeModificationState' "completed"
-
-pattern Failed :: VolumeModificationState
-pattern Failed = VolumeModificationState' "failed"
-
 pattern Modifying :: VolumeModificationState
 pattern Modifying = VolumeModificationState' "modifying"
 
 pattern Optimizing :: VolumeModificationState
 pattern Optimizing = VolumeModificationState' "optimizing"
 
+pattern Completed :: VolumeModificationState
+pattern Completed = VolumeModificationState' "completed"
+
+pattern Failed :: VolumeModificationState
+pattern Failed = VolumeModificationState' "failed"
+
 {-# COMPLETE
-  Completed,
-  Failed,
   Modifying,
   Optimizing,
+  Completed,
+  Failed,
   VolumeModificationState'
   #-}

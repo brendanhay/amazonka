@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecordFormat' smart constructor.
 data RecordFormat = RecordFormat'
-  { mappingParameters ::
-      Lude.Maybe MappingParameters,
+  { -- | When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+    mappingParameters :: Lude.Maybe MappingParameters,
+    -- | The type of record format.
     recordFormatType :: RecordFormatType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordFormat' with the minimum fields required to make a request.

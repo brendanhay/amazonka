@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,22 +44,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListDistributionsByOriginRequestPolicyId' smart constructor.
 data ListDistributionsByOriginRequestPolicyId = ListDistributionsByOriginRequestPolicyId'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    maxItems ::
-      Lude.Maybe
-        Lude.Text,
-    originRequestPolicyId ::
-      Lude.Text
+  { -- | Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of distribution IDs that you want in the response.
+    maxItems :: Lude.Maybe Lude.Text,
+    -- | The ID of the origin request policy whose associated distribution IDs you want to list.
+    originRequestPolicyId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDistributionsByOriginRequestPolicyId' with the minimum fields required to make a request.
@@ -127,23 +120,13 @@ instance Lude.ToQuery ListDistributionsByOriginRequestPolicyId where
 
 -- | /See:/ 'mkListDistributionsByOriginRequestPolicyIdResponse' smart constructor.
 data ListDistributionsByOriginRequestPolicyIdResponse = ListDistributionsByOriginRequestPolicyIdResponse'
-  { distributionIdList ::
-      Lude.Maybe
-        DistributionIdList,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of distribution IDs.
+    distributionIdList :: Lude.Maybe DistributionIdList,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDistributionsByOriginRequestPolicyIdResponse' with the minimum fields required to make a request.
 --

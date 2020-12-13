@@ -46,46 +46,58 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeployment' smart constructor.
 data Deployment = Deployment'
-  { rolloutState ::
-      Lude.Maybe DeploymentRolloutState,
+  { -- | The rollout state of the deployment. When a service deployment is started, it begins in an @IN_PROGRESS@ state. When the service reaches a steady state, the deployment will transition to a @COMPLETED@ state. If the service fails to reach a steady state and circuit breaker is enabled, the deployment will transition to a @FAILED@ state. A deployment in @FAILED@ state will launch no new tasks. For more information, see 'DeploymentCircuitBreaker' .
+    rolloutState :: Lude.Maybe DeploymentRolloutState,
+    -- | The number of tasks in the deployment that are in the @RUNNING@ status.
     runningCount :: Lude.Maybe Lude.Int,
+    -- | The status of the deployment. The following describes each state:
+    --
+    --
+    --     * PRIMARY
+    --
+    --     * The most recent deployment of a service.
+    --
+    --
+    --     * ACTIVE
+    --
+    --     * A service deployment that still has running tasks, but are in the process of being replaced with a new @PRIMARY@ deployment.
+    --
+    --
+    --     * INACTIVE
+    --
+    --     * A deployment that has been completely replaced.
     status :: Lude.Maybe Lude.Text,
+    -- | The Unix timestamp for when the service deployment was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
     platformVersion :: Lude.Maybe Lude.Text,
+    -- | The most recent desired count of tasks that was specified for the service to deploy or maintain.
     desiredCount :: Lude.Maybe Lude.Int,
+    -- | The number of tasks in the deployment that are in the @PENDING@ status.
     pendingCount :: Lude.Maybe Lude.Int,
+    -- | The ID of the deployment.
     id :: Lude.Maybe Lude.Text,
+    -- | The number of consecutively failed tasks in the deployment. A task is considered a failure if the service scheduler can't launch the task, the task doesn't transition to a @RUNNING@ state, or if it fails any of its defined health checks and is stopped.
     failedTasks :: Lude.Maybe Lude.Int,
+    -- | The launch type the tasks in the service are using. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
     launchType :: Lude.Maybe LaunchType,
+    -- | The Unix timestamp for when the service deployment was last updated.
     updatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The most recent task definition that was specified for the tasks in the service to use.
     taskDefinition :: Lude.Maybe Lude.Text,
+    -- | A description of the rollout state of a deployment.
     rolloutStateReason :: Lude.Maybe Lude.Text,
+    -- | The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
     networkConfiguration :: Lude.Maybe NetworkConfiguration,
-    capacityProviderStrategy ::
-      Lude.Maybe [CapacityProviderStrategyItem]
+    -- | The capacity provider strategy that the deployment is using.
+    capacityProviderStrategy :: Lude.Maybe [CapacityProviderStrategyItem]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
--- * 'capacityProviderStrategy' - The capacity provider strategy that the deployment is using.
--- * 'createdAt' - The Unix timestamp for when the service deployment was created.
--- * 'desiredCount' - The most recent desired count of tasks that was specified for the service to deploy or maintain.
--- * 'failedTasks' - The number of consecutively failed tasks in the deployment. A task is considered a failure if the service scheduler can't launch the task, the task doesn't transition to a @RUNNING@ state, or if it fails any of its defined health checks and is stopped.
--- * 'id' - The ID of the deployment.
--- * 'launchType' - The launch type the tasks in the service are using. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'networkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
--- * 'pendingCount' - The number of tasks in the deployment that are in the @PENDING@ status.
--- * 'platformVersion' - The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
 -- * 'rolloutState' - The rollout state of the deployment. When a service deployment is started, it begins in an @IN_PROGRESS@ state. When the service reaches a steady state, the deployment will transition to a @COMPLETED@ state. If the service fails to reach a steady state and circuit breaker is enabled, the deployment will transition to a @FAILED@ state. A deployment in @FAILED@ state will launch no new tasks. For more information, see 'DeploymentCircuitBreaker' .
--- * 'rolloutStateReason' - A description of the rollout state of a deployment.
 -- * 'runningCount' - The number of tasks in the deployment that are in the @RUNNING@ status.
 -- * 'status' - The status of the deployment. The following describes each state:
 --
@@ -105,8 +117,18 @@ data Deployment = Deployment'
 --     * A deployment that has been completely replaced.
 --
 --
--- * 'taskDefinition' - The most recent task definition that was specified for the tasks in the service to use.
+-- * 'createdAt' - The Unix timestamp for when the service deployment was created.
+-- * 'platformVersion' - The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'desiredCount' - The most recent desired count of tasks that was specified for the service to deploy or maintain.
+-- * 'pendingCount' - The number of tasks in the deployment that are in the @PENDING@ status.
+-- * 'id' - The ID of the deployment.
+-- * 'failedTasks' - The number of consecutively failed tasks in the deployment. A task is considered a failure if the service scheduler can't launch the task, the task doesn't transition to a @RUNNING@ state, or if it fails any of its defined health checks and is stopped.
+-- * 'launchType' - The launch type the tasks in the service are using. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
 -- * 'updatedAt' - The Unix timestamp for when the service deployment was last updated.
+-- * 'taskDefinition' - The most recent task definition that was specified for the tasks in the service to use.
+-- * 'rolloutStateReason' - A description of the rollout state of a deployment.
+-- * 'networkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
+-- * 'capacityProviderStrategy' - The capacity provider strategy that the deployment is using.
 mkDeployment ::
   Deployment
 mkDeployment =

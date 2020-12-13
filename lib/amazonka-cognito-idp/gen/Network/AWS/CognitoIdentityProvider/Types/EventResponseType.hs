@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.EventResponseType
   ( EventResponseType
       ( EventResponseType',
-        Failure,
-        Success
+        Success,
+        Failure
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EventResponseType = EventResponseType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failure :: EventResponseType
-pattern Failure = EventResponseType' "Failure"
-
 pattern Success :: EventResponseType
 pattern Success = EventResponseType' "Success"
 
+pattern Failure :: EventResponseType
+pattern Failure = EventResponseType' "Failure"
+
 {-# COMPLETE
-  Failure,
   Success,
+  Failure,
   EventResponseType'
   #-}

@@ -32,20 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTestGridSessionAction' smart constructor.
 data TestGridSessionAction = TestGridSessionAction'
-  { action ::
-      Lude.Maybe Lude.Text,
+  { -- | The action taken by the session.
+    action :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds, that the action took to complete in the browser.
     duration :: Lude.Maybe Lude.Integer,
+    -- | HTTP method that the browser used to make the request.
     requestMethod :: Lude.Maybe Lude.Text,
+    -- | The time that the session invoked the action.
     started :: Lude.Maybe Lude.Timestamp,
+    -- | HTTP status code returned to the browser when the action was taken.
     statusCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestGridSessionAction' with the minimum fields required to make a request.

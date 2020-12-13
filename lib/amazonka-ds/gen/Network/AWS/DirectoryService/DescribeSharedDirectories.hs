@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSharedDirectories' smart constructor.
 data DescribeSharedDirectories = DescribeSharedDirectories'
-  { sharedDirectoryIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of identifiers of all shared directories in your account.
+    sharedDirectoryIds :: Lude.Maybe [Lude.Text],
+    -- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous call to 'DescribeSharedDirectories' . Pass null if this is the first call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of shared directories to return in the response object.
     limit :: Lude.Maybe Lude.Natural,
+    -- | Returns the identifier of the directory in the directory owner account.
     ownerDirectoryId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSharedDirectories' with the minimum fields required to make a request.
 --
--- * 'limit' - The number of shared directories to return in the response object.
--- * 'nextToken' - The @DescribeSharedDirectoriesResult.NextToken@ value from a previous call to 'DescribeSharedDirectories' . Pass null if this is the first call.
--- * 'ownerDirectoryId' - Returns the identifier of the directory in the directory owner account.
 -- * 'sharedDirectoryIds' - A list of identifiers of all shared directories in your account.
+-- * 'nextToken' - The @DescribeSharedDirectoriesResult.NextToken@ value from a previous call to 'DescribeSharedDirectories' . Pass null if this is the first call.
+-- * 'limit' - The number of shared directories to return in the response object.
+-- * 'ownerDirectoryId' - Returns the identifier of the directory in the directory owner account.
 mkDescribeSharedDirectories ::
   -- | 'ownerDirectoryId'
   Lude.Text ->
@@ -162,27 +160,21 @@ instance Lude.ToQuery DescribeSharedDirectories where
 
 -- | /See:/ 'mkDescribeSharedDirectoriesResponse' smart constructor.
 data DescribeSharedDirectoriesResponse = DescribeSharedDirectoriesResponse'
-  { sharedDirectories ::
-      Lude.Maybe
-        [SharedDirectory],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of all shared directories in your account.
+    sharedDirectories :: Lude.Maybe [SharedDirectory],
+    -- | If not null, token that indicates that more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeSharedDirectories' to retrieve the next set of items.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSharedDirectoriesResponse' with the minimum fields required to make a request.
 --
+-- * 'sharedDirectories' - A list of all shared directories in your account.
 -- * 'nextToken' - If not null, token that indicates that more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeSharedDirectories' to retrieve the next set of items.
 -- * 'responseStatus' - The response status code.
--- * 'sharedDirectories' - A list of all shared directories in your account.
 mkDescribeSharedDirectoriesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

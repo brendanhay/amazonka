@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSingleMasterConfiguration' smart constructor.
 newtype SingleMasterConfiguration = SingleMasterConfiguration'
-  { messageTtlSeconds ::
-      Lude.Maybe Lude.Natural
+  { -- | The period of time a signaling channel retains underlivered messages before they are discarded.
+    messageTtlSeconds :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SingleMasterConfiguration' with the minimum fields required to make a request.

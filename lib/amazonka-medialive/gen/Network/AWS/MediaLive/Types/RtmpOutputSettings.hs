@@ -17,10 +17,10 @@ module Network.AWS.MediaLive.Types.RtmpOutputSettings
     mkRtmpOutputSettings,
 
     -- * Lenses
+    rosDestination,
     rosNumRetries,
     rosCertificateMode,
     rosConnectionRetryInterval,
-    rosDestination,
   )
 where
 
@@ -33,39 +33,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRtmpOutputSettings' smart constructor.
 data RtmpOutputSettings = RtmpOutputSettings'
-  { numRetries ::
-      Lude.Maybe Lude.Natural,
-    certificateMode ::
-      Lude.Maybe RtmpOutputCertificateMode,
-    connectionRetryInterval :: Lude.Maybe Lude.Natural,
-    destination :: OutputLocationRef
+  { -- | The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
+    destination :: OutputLocationRef,
+    -- | Number of retry attempts.
+    numRetries :: Lude.Maybe Lude.Natural,
+    -- | If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
+    certificateMode :: Lude.Maybe RtmpOutputCertificateMode,
+    -- | Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
+    connectionRetryInterval :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RtmpOutputSettings' with the minimum fields required to make a request.
 --
--- * 'certificateMode' - If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
--- * 'connectionRetryInterval' - Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
 -- * 'destination' - The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
 -- * 'numRetries' - Number of retry attempts.
+-- * 'certificateMode' - If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
+-- * 'connectionRetryInterval' - Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
 mkRtmpOutputSettings ::
   -- | 'destination'
   OutputLocationRef ->
   RtmpOutputSettings
 mkRtmpOutputSettings pDestination_ =
   RtmpOutputSettings'
-    { numRetries = Lude.Nothing,
+    { destination = pDestination_,
+      numRetries = Lude.Nothing,
       certificateMode = Lude.Nothing,
-      connectionRetryInterval = Lude.Nothing,
-      destination = pDestination_
+      connectionRetryInterval = Lude.Nothing
     }
+
+-- | The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rosDestination :: Lens.Lens' RtmpOutputSettings OutputLocationRef
+rosDestination = Lens.lens (destination :: RtmpOutputSettings -> OutputLocationRef) (\s a -> s {destination = a} :: RtmpOutputSettings)
+{-# DEPRECATED rosDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | Number of retry attempts.
 --
@@ -88,33 +91,26 @@ rosConnectionRetryInterval :: Lens.Lens' RtmpOutputSettings (Lude.Maybe Lude.Nat
 rosConnectionRetryInterval = Lens.lens (connectionRetryInterval :: RtmpOutputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {connectionRetryInterval = a} :: RtmpOutputSettings)
 {-# DEPRECATED rosConnectionRetryInterval "Use generic-lens or generic-optics with 'connectionRetryInterval' instead." #-}
 
--- | The RTMP endpoint excluding the stream name (eg. rtmp://host/appname). For connection to Akamai, a username and password must be supplied. URI fields accept format identifiers.
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rosDestination :: Lens.Lens' RtmpOutputSettings OutputLocationRef
-rosDestination = Lens.lens (destination :: RtmpOutputSettings -> OutputLocationRef) (\s a -> s {destination = a} :: RtmpOutputSettings)
-{-# DEPRECATED rosDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
 instance Lude.FromJSON RtmpOutputSettings where
   parseJSON =
     Lude.withObject
       "RtmpOutputSettings"
       ( \x ->
           RtmpOutputSettings'
-            Lude.<$> (x Lude..:? "numRetries")
+            Lude.<$> (x Lude..: "destination")
+            Lude.<*> (x Lude..:? "numRetries")
             Lude.<*> (x Lude..:? "certificateMode")
             Lude.<*> (x Lude..:? "connectionRetryInterval")
-            Lude.<*> (x Lude..: "destination")
       )
 
 instance Lude.ToJSON RtmpOutputSettings where
   toJSON RtmpOutputSettings' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("numRetries" Lude..=) Lude.<$> numRetries,
+          [ Lude.Just ("destination" Lude..= destination),
+            ("numRetries" Lude..=) Lude.<$> numRetries,
             ("certificateMode" Lude..=) Lude.<$> certificateMode,
             ("connectionRetryInterval" Lude..=)
-              Lude.<$> connectionRetryInterval,
-            Lude.Just ("destination" Lude..= destination)
+              Lude.<$> connectionRetryInterval
           ]
       )

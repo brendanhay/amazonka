@@ -31,24 +31,18 @@ import Network.AWS.SageMaker.Types.AutoMLSecurityConfig
 --
 -- /See:/ 'mkAutoMLJobConfig' smart constructor.
 data AutoMLJobConfig = AutoMLJobConfig'
-  { securityConfig ::
-      Lude.Maybe AutoMLSecurityConfig,
-    completionCriteria ::
-      Lude.Maybe AutoMLJobCompletionCriteria
+  { -- | Security configuration for traffic encryption or Amazon VPC settings.
+    securityConfig :: Lude.Maybe AutoMLSecurityConfig,
+    -- | How long a job is allowed to run, or how many candidates a job is allowed to generate.
+    completionCriteria :: Lude.Maybe AutoMLJobCompletionCriteria
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLJobConfig' with the minimum fields required to make a request.
 --
--- * 'completionCriteria' - How long a job is allowed to run, or how many candidates a job is allowed to generate.
 -- * 'securityConfig' - Security configuration for traffic encryption or Amazon VPC settings.
+-- * 'completionCriteria' - How long a job is allowed to run, or how many candidates a job is allowed to generate.
 mkAutoMLJobConfig ::
   AutoMLJobConfig
 mkAutoMLJobConfig =

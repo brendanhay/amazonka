@@ -13,10 +13,10 @@
 module Network.AWS.IoTAnalytics.Types.ReprocessingStatus
   ( ReprocessingStatus
       ( ReprocessingStatus',
-        Cancelled,
-        Failed,
         Running,
-        Succeeded
+        Succeeded,
+        Cancelled,
+        Failed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ReprocessingStatus = ReprocessingStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cancelled :: ReprocessingStatus
-pattern Cancelled = ReprocessingStatus' "CANCELLED"
-
-pattern Failed :: ReprocessingStatus
-pattern Failed = ReprocessingStatus' "FAILED"
-
 pattern Running :: ReprocessingStatus
 pattern Running = ReprocessingStatus' "RUNNING"
 
 pattern Succeeded :: ReprocessingStatus
 pattern Succeeded = ReprocessingStatus' "SUCCEEDED"
 
+pattern Cancelled :: ReprocessingStatus
+pattern Cancelled = ReprocessingStatus' "CANCELLED"
+
+pattern Failed :: ReprocessingStatus
+pattern Failed = ReprocessingStatus' "FAILED"
+
 {-# COMPLETE
-  Cancelled,
-  Failed,
   Running,
   Succeeded,
+  Cancelled,
+  Failed,
   ReprocessingStatus'
   #-}

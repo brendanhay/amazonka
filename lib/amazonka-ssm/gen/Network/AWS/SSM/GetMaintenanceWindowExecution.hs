@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,16 +45,10 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetMaintenanceWindowExecution' smart constructor.
 newtype GetMaintenanceWindowExecution = GetMaintenanceWindowExecution'
-  { windowExecutionId ::
-      Lude.Text
+  { -- | The ID of the maintenance window execution that includes the task.
+    windowExecutionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowExecution' with the minimum fields required to make a request.
@@ -120,45 +115,33 @@ instance Lude.ToQuery GetMaintenanceWindowExecution where
 
 -- | /See:/ 'mkGetMaintenanceWindowExecutionResponse' smart constructor.
 data GetMaintenanceWindowExecutionResponse = GetMaintenanceWindowExecutionResponse'
-  { status ::
-      Lude.Maybe
-        MaintenanceWindowExecutionStatus,
-    startTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    windowExecutionId ::
-      Lude.Maybe
-        Lude.Text,
-    statusDetails ::
-      Lude.Maybe
-        Lude.Text,
-    endTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    taskIds ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the maintenance window execution.
+    status :: Lude.Maybe MaintenanceWindowExecutionStatus,
+    -- | The time the maintenance window started running.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the maintenance window execution.
+    windowExecutionId :: Lude.Maybe Lude.Text,
+    -- | The details explaining the Status. Only available for certain status values.
+    statusDetails :: Lude.Maybe Lude.Text,
+    -- | The time the maintenance window finished running.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the task executions from the maintenance window execution.
+    taskIds :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionResponse' with the minimum fields required to make a request.
 --
--- * 'endTime' - The time the maintenance window finished running.
--- * 'responseStatus' - The response status code.
--- * 'startTime' - The time the maintenance window started running.
 -- * 'status' - The status of the maintenance window execution.
--- * 'statusDetails' - The details explaining the Status. Only available for certain status values.
--- * 'taskIds' - The ID of the task executions from the maintenance window execution.
+-- * 'startTime' - The time the maintenance window started running.
 -- * 'windowExecutionId' - The ID of the maintenance window execution.
+-- * 'statusDetails' - The details explaining the Status. Only available for certain status values.
+-- * 'endTime' - The time the maintenance window finished running.
+-- * 'taskIds' - The ID of the task executions from the maintenance window execution.
+-- * 'responseStatus' - The response status code.
 mkGetMaintenanceWindowExecutionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

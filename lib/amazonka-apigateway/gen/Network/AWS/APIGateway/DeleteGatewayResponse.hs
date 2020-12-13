@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,21 +39,57 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-  { restAPIId ::
-      Lude.Text,
+  { -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | [Required] The response type of the associated 'GatewayResponse' . Valid values are
+    --
+    --     * ACCESS_DENIED
+    --
+    --     * API_CONFIGURATION_ERROR
+    --
+    --     * AUTHORIZER_FAILURE
+    --
+    --     * AUTHORIZER_CONFIGURATION_ERROR
+    --
+    --     * BAD_REQUEST_PARAMETERS
+    --
+    --     * BAD_REQUEST_BODY
+    --
+    --     * DEFAULT_4XX
+    --
+    --     * DEFAULT_5XX
+    --
+    --     * EXPIRED_TOKEN
+    --
+    --     * INVALID_SIGNATURE
+    --
+    --     * INTEGRATION_FAILURE
+    --
+    --     * INTEGRATION_TIMEOUT
+    --
+    --     * INVALID_API_KEY
+    --
+    --     * MISSING_AUTHENTICATION_TOKEN
+    --
+    --     * QUOTA_EXCEEDED
+    --
+    --     * REQUEST_TOO_LARGE
+    --
+    --     * RESOURCE_NOT_FOUND
+    --
+    --     * THROTTLED
+    --
+    --     * UNAUTHORIZED
+    --
+    --     * UNSUPPORTED_MEDIA_TYPE
     responseType :: GatewayResponseType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGatewayResponse' with the minimum fields required to make a request.
 --
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'responseType' - [Required] The response type of the associated 'GatewayResponse' . Valid values are
 --
 --     * ACCESS_DENIED
@@ -94,10 +131,6 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
 --     * UNAUTHORIZED
 --
 --     * UNSUPPORTED_MEDIA_TYPE
---
---
---
--- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkDeleteGatewayResponse ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -193,13 +226,7 @@ instance Lude.ToQuery DeleteGatewayResponse where
 
 -- | /See:/ 'mkDeleteGatewayResponseResponse' smart constructor.
 data DeleteGatewayResponseResponse = DeleteGatewayResponseResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGatewayResponseResponse' with the minimum fields required to make a request.

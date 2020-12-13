@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,53 +50,60 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAuthorizeSecurityGroupIngress' smart constructor.
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
-  { fromPort ::
-      Lude.Maybe Lude.Int,
-    ipPermissions ::
-      Lude.Maybe [IPPermission],
-    ipProtocol ::
-      Lude.Maybe Lude.Text,
+  { -- | The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all types. If you specify all ICMP types, you must specify all codes.
+    --
+    -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
+    fromPort :: Lude.Maybe Lude.Int,
+    -- | The sets of IP permissions.
+    ipPermissions :: Lude.Maybe [IPPermission],
+    -- | The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). To specify @icmpv6@ , use a set of IP permissions.
+    --
+    -- [VPC only] Use @-1@ to specify all protocols. If you specify @-1@ or a protocol other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports you specify.
+    -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
+    ipProtocol :: Lude.Maybe Lude.Text,
+    -- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
     groupId :: Lude.Maybe Lude.Text,
+    -- | The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all codes. If you specify all ICMP types, you must specify all codes.
+    --
+    -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
     toPort :: Lude.Maybe Lude.Int,
+    -- | The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
+    --
+    -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
     cidrIP :: Lude.Maybe Lude.Text,
-    sourceSecurityGroupOwnerId ::
-      Lude.Maybe Lude.Text,
-    groupName ::
-      Lude.Maybe Lude.Text,
-    sourceSecurityGroupName ::
-      Lude.Maybe Lude.Text,
+    -- | [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+    sourceSecurityGroupOwnerId :: Lude.Maybe Lude.Text,
+    -- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
+    groupName :: Lude.Maybe Lude.Text,
+    -- | [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
+    sourceSecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeSecurityGroupIngress' with the minimum fields required to make a request.
 --
--- * 'cidrIP' - The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
---
--- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'fromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all types. If you specify all ICMP types, you must specify all codes.
 --
 -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
--- * 'groupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
--- * 'groupName' - [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
 -- * 'ipPermissions' - The sets of IP permissions.
 -- * 'ipProtocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). To specify @icmpv6@ , use a set of IP permissions.
 --
 -- [VPC only] Use @-1@ to specify all protocols. If you specify @-1@ or a protocol other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports you specify.
 -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
--- * 'sourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
--- * 'sourceSecurityGroupOwnerId' - [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+-- * 'groupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 -- * 'toPort' - The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all codes. If you specify all ICMP types, you must specify all codes.
 --
 -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
+-- * 'cidrIP' - The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
+--
+-- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
+-- * 'sourceSecurityGroupOwnerId' - [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+-- * 'groupName' - [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
+-- * 'sourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkAuthorizeSecurityGroupIngress ::
   AuthorizeSecurityGroupIngress
 mkAuthorizeSecurityGroupIngress =
@@ -225,13 +233,7 @@ instance Lude.ToQuery AuthorizeSecurityGroupIngress where
 
 -- | /See:/ 'mkAuthorizeSecurityGroupIngressResponse' smart constructor.
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeSecurityGroupIngressResponse' with the minimum fields required to make a request.

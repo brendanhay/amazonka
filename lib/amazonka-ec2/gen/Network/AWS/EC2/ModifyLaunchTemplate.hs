@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,31 +44,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyLaunchTemplate' smart constructor.
 data ModifyLaunchTemplate = ModifyLaunchTemplate'
-  { launchTemplateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    --
+    -- Constraint: Maximum 128 ASCII characters.
     clientToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
     launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | The version number of the launch template to set as the default version.
     defaultVersion :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLaunchTemplate' with the minimum fields required to make a request.
 --
+-- * 'launchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
 -- * 'clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- Constraint: Maximum 128 ASCII characters.
+-- * 'launchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
 -- * 'defaultVersion' - The version number of the launch template to set as the default version.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'launchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
--- * 'launchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
 mkModifyLaunchTemplate ::
   ModifyLaunchTemplate
 mkModifyLaunchTemplate =
@@ -147,17 +148,12 @@ instance Lude.ToQuery ModifyLaunchTemplate where
 
 -- | /See:/ 'mkModifyLaunchTemplateResponse' smart constructor.
 data ModifyLaunchTemplateResponse = ModifyLaunchTemplateResponse'
-  { launchTemplate ::
-      Lude.Maybe LaunchTemplate,
+  { -- | Information about the launch template.
+    launchTemplate :: Lude.Maybe LaunchTemplate,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLaunchTemplateResponse' with the minimum fields required to make a request.

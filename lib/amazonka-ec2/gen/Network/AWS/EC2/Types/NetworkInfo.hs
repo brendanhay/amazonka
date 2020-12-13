@@ -39,39 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInfo' smart constructor.
 data NetworkInfo = NetworkInfo'
-  { efaSupported ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether Elastic Fabric Adapter (EFA) is supported.
+    efaSupported :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether IPv6 is supported.
     ipv6Supported :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether Elastic Network Adapter (ENA) is supported.
     enaSupport :: Lude.Maybe EnaSupport,
+    -- | The maximum number of network interfaces for the instance type.
     maximumNetworkInterfaces :: Lude.Maybe Lude.Int,
+    -- | The maximum number of IPv6 addresses per network interface.
     ipv6AddressesPerInterface :: Lude.Maybe Lude.Int,
+    -- | The network performance.
     networkPerformance :: Lude.Maybe Lude.Text,
+    -- | The maximum number of physical network cards that can be allocated to the instance.
     maximumNetworkCards :: Lude.Maybe Lude.Int,
+    -- | Describes the network cards for the instance type.
     networkCards :: Lude.Maybe [NetworkCardInfo],
+    -- | The index of the default network card, starting at 0.
     defaultNetworkCardIndex :: Lude.Maybe Lude.Int,
+    -- | The maximum number of IPv4 addresses per network interface.
     ipv4AddressesPerInterface :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInfo' with the minimum fields required to make a request.
 --
--- * 'defaultNetworkCardIndex' - The index of the default network card, starting at 0.
 -- * 'efaSupported' - Indicates whether Elastic Fabric Adapter (EFA) is supported.
--- * 'enaSupport' - Indicates whether Elastic Network Adapter (ENA) is supported.
--- * 'ipv4AddressesPerInterface' - The maximum number of IPv4 addresses per network interface.
--- * 'ipv6AddressesPerInterface' - The maximum number of IPv6 addresses per network interface.
 -- * 'ipv6Supported' - Indicates whether IPv6 is supported.
--- * 'maximumNetworkCards' - The maximum number of physical network cards that can be allocated to the instance.
+-- * 'enaSupport' - Indicates whether Elastic Network Adapter (ENA) is supported.
 -- * 'maximumNetworkInterfaces' - The maximum number of network interfaces for the instance type.
--- * 'networkCards' - Describes the network cards for the instance type.
+-- * 'ipv6AddressesPerInterface' - The maximum number of IPv6 addresses per network interface.
 -- * 'networkPerformance' - The network performance.
+-- * 'maximumNetworkCards' - The maximum number of physical network cards that can be allocated to the instance.
+-- * 'networkCards' - Describes the network cards for the instance type.
+-- * 'defaultNetworkCardIndex' - The index of the default network card, starting at 0.
+-- * 'ipv4AddressesPerInterface' - The maximum number of IPv4 addresses per network interface.
 mkNetworkInfo ::
   NetworkInfo
 mkNetworkInfo =

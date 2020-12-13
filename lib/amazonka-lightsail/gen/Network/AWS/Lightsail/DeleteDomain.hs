@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.Lightsail.DeleteDomain
     mkDeleteDomainResponse,
 
     -- ** Response lenses
-    delrsOperation,
-    delrsResponseStatus,
+    ddgrsOperation,
+    ddgrsResponseStatus,
   )
 where
 
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDomain' smart constructor.
-newtype DeleteDomain = DeleteDomain' {domainName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteDomain = DeleteDomain'
+  { -- | The specific domain name to delete.
+    domainName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
@@ -101,17 +99,12 @@ instance Lude.ToQuery DeleteDomain where
 
 -- | /See:/ 'mkDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  { operation ::
-      Lude.Maybe Operation,
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operation :: Lude.Maybe Operation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
@@ -131,13 +124,13 @@ mkDeleteDomainResponse pResponseStatus_ =
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsOperation :: Lens.Lens' DeleteDomainResponse (Lude.Maybe Operation)
-delrsOperation = Lens.lens (operation :: DeleteDomainResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: DeleteDomainResponse)
-{-# DEPRECATED delrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+ddgrsOperation :: Lens.Lens' DeleteDomainResponse (Lude.Maybe Operation)
+ddgrsOperation = Lens.lens (operation :: DeleteDomainResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: DeleteDomainResponse)
+{-# DEPRECATED ddgrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteDomainResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDomainResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddgrsResponseStatus :: Lens.Lens' DeleteDomainResponse Lude.Int
+ddgrsResponseStatus = Lens.lens (responseStatus :: DeleteDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDomainResponse)
+{-# DEPRECATED ddgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

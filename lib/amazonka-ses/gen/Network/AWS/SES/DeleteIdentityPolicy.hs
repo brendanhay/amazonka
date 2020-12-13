@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.SES.DeleteIdentityPolicy
     mkDeleteIdentityPolicy,
 
     -- ** Request lenses
-    dipIdentity,
     dipPolicyName,
+    dipIdentity,
 
     -- * Destructuring the response
     DeleteIdentityPolicyResponse (..),
@@ -44,36 +45,40 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkDeleteIdentityPolicy' smart constructor.
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
-  { identity ::
-      Lude.Text,
-    policyName :: Lude.Text
+  { -- | The name of the policy to be deleted.
+    policyName :: Lude.Text,
+    -- | The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+    --
+    -- To successfully call this API, you must own the identity.
+    identity :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentityPolicy' with the minimum fields required to make a request.
 --
+-- * 'policyName' - The name of the policy to be deleted.
 -- * 'identity' - The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
 -- To successfully call this API, you must own the identity.
--- * 'policyName' - The name of the policy to be deleted.
 mkDeleteIdentityPolicy ::
-  -- | 'identity'
-  Lude.Text ->
   -- | 'policyName'
   Lude.Text ->
+  -- | 'identity'
+  Lude.Text ->
   DeleteIdentityPolicy
-mkDeleteIdentityPolicy pIdentity_ pPolicyName_ =
+mkDeleteIdentityPolicy pPolicyName_ pIdentity_ =
   DeleteIdentityPolicy'
-    { identity = pIdentity_,
-      policyName = pPolicyName_
+    { policyName = pPolicyName_,
+      identity = pIdentity_
     }
+
+-- | The name of the policy to be deleted.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipPolicyName :: Lens.Lens' DeleteIdentityPolicy Lude.Text
+dipPolicyName = Lens.lens (policyName :: DeleteIdentityPolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteIdentityPolicy)
+{-# DEPRECATED dipPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
@@ -83,13 +88,6 @@ mkDeleteIdentityPolicy pIdentity_ pPolicyName_ =
 dipIdentity :: Lens.Lens' DeleteIdentityPolicy Lude.Text
 dipIdentity = Lens.lens (identity :: DeleteIdentityPolicy -> Lude.Text) (\s a -> s {identity = a} :: DeleteIdentityPolicy)
 {-# DEPRECATED dipIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
-
--- | The name of the policy to be deleted.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipPolicyName :: Lens.Lens' DeleteIdentityPolicy Lude.Text
-dipPolicyName = Lens.lens (policyName :: DeleteIdentityPolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteIdentityPolicy)
-{-# DEPRECATED dipPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 instance Lude.AWSRequest DeleteIdentityPolicy where
   type Rs DeleteIdentityPolicy = DeleteIdentityPolicyResponse
@@ -113,24 +111,18 @@ instance Lude.ToQuery DeleteIdentityPolicy where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteIdentityPolicy" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Identity" Lude.=: identity,
-        "PolicyName" Lude.=: policyName
+        "PolicyName" Lude.=: policyName,
+        "Identity" Lude.=: identity
       ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkDeleteIdentityPolicyResponse' smart constructor.
 newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentityPolicyResponse' with the minimum fields required to make a request.

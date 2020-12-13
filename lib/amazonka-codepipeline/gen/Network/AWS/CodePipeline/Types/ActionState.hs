@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionState' smart constructor.
 data ActionState = ActionState'
-  { revisionURL ::
-      Lude.Maybe Lude.Text,
+  { -- | A URL link for more information about the revision, such as a commit details page.
+    revisionURL :: Lude.Maybe Lude.Text,
+    -- | A URL link for more information about the state of the action, such as a deployment group details page.
     entityURL :: Lude.Maybe Lude.Text,
+    -- | The name of the action.
     actionName :: Lude.Maybe Lude.Text,
+    -- | Represents information about the version (or revision) of an action.
     currentRevision :: Lude.Maybe ActionRevision,
+    -- | Represents information about the run of an action.
     latestExecution :: Lude.Maybe ActionExecution
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionState' with the minimum fields required to make a request.
 --
+-- * 'revisionURL' - A URL link for more information about the revision, such as a commit details page.
+-- * 'entityURL' - A URL link for more information about the state of the action, such as a deployment group details page.
 -- * 'actionName' - The name of the action.
 -- * 'currentRevision' - Represents information about the version (or revision) of an action.
--- * 'entityURL' - A URL link for more information about the state of the action, such as a deployment group details page.
 -- * 'latestExecution' - Represents information about the run of an action.
--- * 'revisionURL' - A URL link for more information about the revision, such as a commit details page.
 mkActionState ::
   ActionState
 mkActionState =

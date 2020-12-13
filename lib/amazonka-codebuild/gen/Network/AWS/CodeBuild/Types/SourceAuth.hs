@@ -32,16 +32,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceAuth' smart constructor.
 data SourceAuth = SourceAuth'
-  { resource :: Lude.Maybe Lude.Text,
+  { -- | The resource value that applies to the specified authorization type.
+    resource :: Lude.Maybe Lude.Text,
+    -- | The authorization type to use. The only valid value is @OAUTH@ , which represents the OAuth authorization type.
     type' :: SourceAuthType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceAuth' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,17 +45,25 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdatePipelineNotifications' smart constructor.
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
-  { id ::
-      Lude.Text,
+  { -- | The identifier of the pipeline for which you want to change notification settings.
+    id :: Lude.Text,
+    -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.
+    --
+    -- /Important:/ To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.
+    --
+    --     * __Progressing__ : The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.
+    --
+    --
+    --     * __Complete__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.
+    --
+    --
+    --     * __Warning__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.
+    --
+    --
+    --     * __Error__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.
     notifications :: Notifications
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipelineNotifications' with the minimum fields required to make a request.
@@ -149,18 +158,12 @@ instance Lude.ToQuery UpdatePipelineNotifications where
 --
 -- /See:/ 'mkUpdatePipelineNotificationsResponse' smart constructor.
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
-  { pipeline ::
-      Lude.Maybe Pipeline,
-    responseStatus ::
-      Lude.Int
+  { -- | A section of the response body that provides information about the pipeline associated with this notification.
+    pipeline :: Lude.Maybe Pipeline,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipelineNotificationsResponse' with the minimum fields required to make a request.

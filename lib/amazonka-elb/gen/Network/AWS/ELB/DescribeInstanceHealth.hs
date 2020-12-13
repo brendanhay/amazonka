@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ELB.DescribeInstanceHealth
     mkDescribeInstanceHealth,
 
     -- ** Request lenses
-    dihInstances,
     dihLoadBalancerName,
+    dihInstances,
 
     -- * Destructuring the response
     DescribeInstanceHealthResponse (..),
@@ -42,39 +43,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeInstanceHealth' smart constructor.
 data DescribeInstanceHealth = DescribeInstanceHealth'
-  { instances ::
-      Lude.Maybe [Instance],
-    loadBalancerName :: Lude.Text
+  { -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text,
+    -- | The IDs of the instances.
+    instances :: Lude.Maybe [Instance]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceHealth' with the minimum fields required to make a request.
 --
--- * 'instances' - The IDs of the instances.
 -- * 'loadBalancerName' - The name of the load balancer.
+-- * 'instances' - The IDs of the instances.
 mkDescribeInstanceHealth ::
   -- | 'loadBalancerName'
   Lude.Text ->
   DescribeInstanceHealth
 mkDescribeInstanceHealth pLoadBalancerName_ =
   DescribeInstanceHealth'
-    { instances = Lude.Nothing,
-      loadBalancerName = pLoadBalancerName_
+    { loadBalancerName = pLoadBalancerName_,
+      instances = Lude.Nothing
     }
-
--- | The IDs of the instances.
---
--- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dihInstances :: Lens.Lens' DescribeInstanceHealth (Lude.Maybe [Instance])
-dihInstances = Lens.lens (instances :: DescribeInstanceHealth -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: DescribeInstanceHealth)
-{-# DEPRECATED dihInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
 -- | The name of the load balancer.
 --
@@ -82,6 +71,13 @@ dihInstances = Lens.lens (instances :: DescribeInstanceHealth -> Lude.Maybe [Ins
 dihLoadBalancerName :: Lens.Lens' DescribeInstanceHealth Lude.Text
 dihLoadBalancerName = Lens.lens (loadBalancerName :: DescribeInstanceHealth -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DescribeInstanceHealth)
 {-# DEPRECATED dihLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
+
+-- | The IDs of the instances.
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dihInstances :: Lens.Lens' DescribeInstanceHealth (Lude.Maybe [Instance])
+dihInstances = Lens.lens (instances :: DescribeInstanceHealth -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: DescribeInstanceHealth)
+{-# DEPRECATED dihInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
 instance Lude.AWSRequest DescribeInstanceHealth where
   type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
@@ -108,26 +104,21 @@ instance Lude.ToQuery DescribeInstanceHealth where
     Lude.mconcat
       [ "Action" Lude.=: ("DescribeInstanceHealth" :: Lude.ByteString),
         "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
         "Instances"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> instances),
-        "LoadBalancerName" Lude.=: loadBalancerName
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> instances)
       ]
 
 -- | Contains the output for DescribeInstanceHealth.
 --
 -- /See:/ 'mkDescribeInstanceHealthResponse' smart constructor.
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
-  { instanceStates ::
-      Lude.Maybe [InstanceState],
+  { -- | Information about the health of the instances.
+    instanceStates :: Lude.Maybe [InstanceState],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceHealthResponse' with the minimum fields required to make a request.

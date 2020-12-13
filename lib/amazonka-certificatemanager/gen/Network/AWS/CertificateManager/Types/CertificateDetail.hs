@@ -64,75 +64,94 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificateDetail' smart constructor.
 data CertificateDetail = CertificateDetail'
-  { subject ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the entity that is associated with the public key contained in the certificate.
+    subject :: Lude.Maybe Lude.Text,
+    -- | The status of the certificate.
     status :: Lude.Maybe CertificateStatus,
+    -- | The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
     failureReason :: Lude.Maybe FailureReason,
-    subjectAlternativeNames ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+    subjectAlternativeNames :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
     inUseBy :: Lude.Maybe [Lude.Text],
+    -- | The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The serial number of the certificate.
     serial :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the 'RenewCertificate' command.
     renewalEligibility :: Lude.Maybe RenewalEligibility,
+    -- | Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
     extendedKeyUsages :: Lude.Maybe [ExtendedKeyUsage],
+    -- | The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
     importedAt :: Lude.Maybe Lude.Timestamp,
+    -- | A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
     keyUsages :: Lude.Maybe [KeyUsage],
+    -- | The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
     revokedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time before which the certificate is not valid.
     notBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
     revocationReason :: Lude.Maybe RevocationReason,
+    -- | The fully qualified domain name for the certificate, such as www.example.com or example.com.
     domainName :: Lude.Maybe Lude.Text,
+    -- | Contains information about the status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
     renewalSummary :: Lude.Maybe RenewalSummary,
+    -- | The algorithm that was used to generate the public-private key pair.
     keyAlgorithm :: Lude.Maybe KeyAlgorithm,
+    -- | The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
     type' :: Lude.Maybe CertificateType,
+    -- | Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.
     options :: Lude.Maybe CertificateOptions,
+    -- | The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
     issuedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The algorithm that was used to sign the certificate.
     signatureAlgorithm :: Lude.Maybe Lude.Text,
-    domainValidationOptions ::
-      Lude.Maybe (Lude.NonEmpty DomainValidation),
+    -- | Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+    domainValidationOptions :: Lude.Maybe (Lude.NonEmpty DomainValidation),
+    -- | The name of the certificate authority that issued and signed the certificate.
     issuer :: Lude.Maybe Lude.Text,
+    -- | The time after which the certificate is not valid.
     notAfter :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:
+    --
+    -- @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
     certificateAuthorityARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateDetail' with the minimum fields required to make a request.
 --
+-- * 'subject' - The name of the entity that is associated with the public key contained in the certificate.
+-- * 'status' - The status of the certificate.
+-- * 'failureReason' - The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
+-- * 'subjectAlternativeNames' - One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+-- * 'inUseBy' - A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
+-- * 'createdAt' - The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
 -- * 'certificateARN' - The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'serial' - The serial number of the certificate.
+-- * 'renewalEligibility' - Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the 'RenewCertificate' command.
+-- * 'extendedKeyUsages' - Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
+-- * 'importedAt' - The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
+-- * 'keyUsages' - A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
+-- * 'revokedAt' - The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
+-- * 'notBefore' - The time before which the certificate is not valid.
+-- * 'revocationReason' - The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
+-- * 'domainName' - The fully qualified domain name for the certificate, such as www.example.com or example.com.
+-- * 'renewalSummary' - Contains information about the status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'keyAlgorithm' - The algorithm that was used to generate the public-private key pair.
+-- * 'type'' - The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
+-- * 'options' - Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.
+-- * 'issuedAt' - The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'signatureAlgorithm' - The algorithm that was used to sign the certificate.
+-- * 'domainValidationOptions' - Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'issuer' - The name of the certificate authority that issued and signed the certificate.
+-- * 'notAfter' - The time after which the certificate is not valid.
 -- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
--- * 'createdAt' - The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
--- * 'domainName' - The fully qualified domain name for the certificate, such as www.example.com or example.com.
--- * 'domainValidationOptions' - Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
--- * 'extendedKeyUsages' - Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
--- * 'failureReason' - The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
--- * 'importedAt' - The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
--- * 'inUseBy' - A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
--- * 'issuedAt' - The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
--- * 'issuer' - The name of the certificate authority that issued and signed the certificate.
--- * 'keyAlgorithm' - The algorithm that was used to generate the public-private key pair.
--- * 'keyUsages' - A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
--- * 'notAfter' - The time after which the certificate is not valid.
--- * 'notBefore' - The time before which the certificate is not valid.
--- * 'options' - Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.
--- * 'renewalEligibility' - Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the 'RenewCertificate' command.
--- * 'renewalSummary' - Contains information about the status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
--- * 'revocationReason' - The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
--- * 'revokedAt' - The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
--- * 'serial' - The serial number of the certificate.
--- * 'signatureAlgorithm' - The algorithm that was used to sign the certificate.
--- * 'status' - The status of the certificate.
--- * 'subject' - The name of the entity that is associated with the public key contained in the certificate.
--- * 'subjectAlternativeNames' - One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
--- * 'type'' - The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
 mkCertificateDetail ::
   CertificateDetail
 mkCertificateDetail =

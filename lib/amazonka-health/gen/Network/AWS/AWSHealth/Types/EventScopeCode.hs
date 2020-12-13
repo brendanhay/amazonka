@@ -13,9 +13,9 @@
 module Network.AWS.AWSHealth.Types.EventScopeCode
   ( EventScopeCode
       ( EventScopeCode',
+        Public,
         AccountSpecific,
-        None,
-        Public
+        None
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EventScopeCode = EventScopeCode' Lude.Text
       Lude.ToHeader
     )
 
+pattern Public :: EventScopeCode
+pattern Public = EventScopeCode' "PUBLIC"
+
 pattern AccountSpecific :: EventScopeCode
 pattern AccountSpecific = EventScopeCode' "ACCOUNT_SPECIFIC"
 
 pattern None :: EventScopeCode
 pattern None = EventScopeCode' "NONE"
 
-pattern Public :: EventScopeCode
-pattern Public = EventScopeCode' "PUBLIC"
-
 {-# COMPLETE
+  Public,
   AccountSpecific,
   None,
-  Public,
   EventScopeCode'
   #-}

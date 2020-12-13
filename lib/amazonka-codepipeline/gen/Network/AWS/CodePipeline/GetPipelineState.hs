@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,14 +45,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the input of a @GetPipelineState@ action.
 --
 -- /See:/ 'mkGetPipelineState' smart constructor.
-newtype GetPipelineState = GetPipelineState' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetPipelineState = GetPipelineState'
+  { -- | The name of the pipeline about which you want to get information.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPipelineState' with the minimum fields required to make a request.
@@ -110,32 +108,30 @@ instance Lude.ToQuery GetPipelineState where
 --
 -- /See:/ 'mkGetPipelineStateResponse' smart constructor.
 data GetPipelineStateResponse = GetPipelineStateResponse'
-  { pipelineName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the pipeline for which you want to get the state.
+    pipelineName :: Lude.Maybe Lude.Text,
+    -- | The date and time the pipeline was created, in timestamp format.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
     stageStates :: Lude.Maybe [StageState],
-    pipelineVersion ::
-      Lude.Maybe Lude.Natural,
+    -- | The version number of the pipeline.
+    pipelineVersion :: Lude.Maybe Lude.Natural,
+    -- | The date and time the pipeline was last updated, in timestamp format.
     updated :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPipelineStateResponse' with the minimum fields required to make a request.
 --
--- * 'created' - The date and time the pipeline was created, in timestamp format.
 -- * 'pipelineName' - The name of the pipeline for which you want to get the state.
--- * 'pipelineVersion' - The version number of the pipeline.
--- * 'responseStatus' - The response status code.
+-- * 'created' - The date and time the pipeline was created, in timestamp format.
 -- * 'stageStates' - A list of the pipeline stage output information, including stage name, state, most recent run details, whether the stage is disabled, and other data.
+-- * 'pipelineVersion' - The version number of the pipeline.
 -- * 'updated' - The date and time the pipeline was last updated, in timestamp format.
+-- * 'responseStatus' - The response status code.
 mkGetPipelineStateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

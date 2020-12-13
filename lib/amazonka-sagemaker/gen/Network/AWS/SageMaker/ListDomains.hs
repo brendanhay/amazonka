@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,22 +45,18 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Returns a list up to a specified limit.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Returns a list up to a specified limit.
 -- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+-- * 'maxResults' - Returns a list up to a specified limit.
 mkListDomains ::
   ListDomains
 mkListDomains =
@@ -128,24 +125,20 @@ instance Lude.ToQuery ListDomains where
 
 -- | /See:/ 'mkListDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of domains.
     domains :: Lude.Maybe [DomainDetails],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
 --
--- * 'domains' - The list of domains.
 -- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+-- * 'domains' - The list of domains.
 -- * 'responseStatus' - The response status code.
 mkListDomainsResponse ::
   -- | 'responseStatus'

@@ -39,39 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSnapshotInfo' smart constructor.
 data SnapshotInfo = SnapshotInfo'
-  { state ::
-      Lude.Maybe SnapshotState,
+  { -- | Current state of the snapshot.
+    state :: Lude.Maybe SnapshotState,
+    -- | Progress this snapshot has made towards completing.
     progress :: Lude.Maybe Lude.Text,
+    -- | Time this snapshot was started. This is the same for all snapshots initiated by the same request.
     startTime :: Lude.Maybe Lude.DateTime,
+    -- | Size of the volume from which this snapshot was created.
     volumeSize :: Lude.Maybe Lude.Int,
+    -- | Indicates whether the snapshot is encrypted.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | Account id used when creating this snapshot.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | Source volume from which this snapshot was created.
     volumeId :: Lude.Maybe Lude.Text,
+    -- | Description specified by the CreateSnapshotRequest that has been applied to all snapshots.
     description :: Lude.Maybe Lude.Text,
+    -- | Tags associated with this snapshot.
     tags :: Lude.Maybe [Tag],
+    -- | Snapshot id that can be used to describe this snapshot.
     snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotInfo' with the minimum fields required to make a request.
 --
--- * 'description' - Description specified by the CreateSnapshotRequest that has been applied to all snapshots.
+-- * 'state' - Current state of the snapshot.
+-- * 'progress' - Progress this snapshot has made towards completing.
+-- * 'startTime' - Time this snapshot was started. This is the same for all snapshots initiated by the same request.
+-- * 'volumeSize' - Size of the volume from which this snapshot was created.
 -- * 'encrypted' - Indicates whether the snapshot is encrypted.
 -- * 'ownerId' - Account id used when creating this snapshot.
--- * 'progress' - Progress this snapshot has made towards completing.
--- * 'snapshotId' - Snapshot id that can be used to describe this snapshot.
--- * 'startTime' - Time this snapshot was started. This is the same for all snapshots initiated by the same request.
--- * 'state' - Current state of the snapshot.
--- * 'tags' - Tags associated with this snapshot.
 -- * 'volumeId' - Source volume from which this snapshot was created.
--- * 'volumeSize' - Size of the volume from which this snapshot was created.
+-- * 'description' - Description specified by the CreateSnapshotRequest that has been applied to all snapshots.
+-- * 'tags' - Tags associated with this snapshot.
+-- * 'snapshotId' - Snapshot id that can be used to describe this snapshot.
 mkSnapshotInfo ::
   SnapshotInfo
 mkSnapshotInfo =

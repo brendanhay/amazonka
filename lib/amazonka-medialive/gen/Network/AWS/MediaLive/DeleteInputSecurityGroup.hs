@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.MediaLive.DeleteInputSecurityGroup
     mkDeleteInputSecurityGroup,
 
     -- ** Request lenses
-    dInputSecurityGroupId,
+    disgInputSecurityGroupId,
 
     -- * Destructuring the response
     DeleteInputSecurityGroupResponse (..),
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteInputSecurityGroup' smart constructor.
 newtype DeleteInputSecurityGroup = DeleteInputSecurityGroup'
-  { inputSecurityGroupId ::
-      Lude.Text
+  { -- | The Input Security Group to delete
+    inputSecurityGroupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInputSecurityGroup' with the minimum fields required to make a request.
@@ -68,9 +63,9 @@ mkDeleteInputSecurityGroup pInputSecurityGroupId_ =
 -- | The Input Security Group to delete
 --
 -- /Note:/ Consider using 'inputSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInputSecurityGroupId :: Lens.Lens' DeleteInputSecurityGroup Lude.Text
-dInputSecurityGroupId = Lens.lens (inputSecurityGroupId :: DeleteInputSecurityGroup -> Lude.Text) (\s a -> s {inputSecurityGroupId = a} :: DeleteInputSecurityGroup)
-{-# DEPRECATED dInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
+disgInputSecurityGroupId :: Lens.Lens' DeleteInputSecurityGroup Lude.Text
+disgInputSecurityGroupId = Lens.lens (inputSecurityGroupId :: DeleteInputSecurityGroup -> Lude.Text) (\s a -> s {inputSecurityGroupId = a} :: DeleteInputSecurityGroup)
+{-# DEPRECATED disgInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
 
 instance Lude.AWSRequest DeleteInputSecurityGroup where
   type Rs DeleteInputSecurityGroup = DeleteInputSecurityGroupResponse
@@ -103,16 +98,10 @@ instance Lude.ToQuery DeleteInputSecurityGroup where
 --
 -- /See:/ 'mkDeleteInputSecurityGroupResponse' smart constructor.
 newtype DeleteInputSecurityGroupResponse = DeleteInputSecurityGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInputSecurityGroupResponse' with the minimum fields required to make a request.

@@ -17,8 +17,8 @@ module Network.AWS.Translate.Types.ParallelDataConfig
     mkParallelDataConfig,
 
     -- * Lenses
-    pdcS3URI,
     pdcFormat,
+    pdcS3URI,
   )
 where
 
@@ -30,16 +30,12 @@ import Network.AWS.Translate.Types.ParallelDataFormat
 --
 -- /See:/ 'mkParallelDataConfig' smart constructor.
 data ParallelDataConfig = ParallelDataConfig'
-  { s3URI :: Lude.Text,
-    format :: ParallelDataFormat
+  { -- | The format of the parallel data input file.
+    format :: ParallelDataFormat,
+    -- | The URI of the Amazon S3 folder that contains the parallel data input file. The folder must be in the same Region as the API endpoint you are calling.
+    s3URI :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParallelDataConfig' with the minimum fields required to make a request.
@@ -47,20 +43,13 @@ data ParallelDataConfig = ParallelDataConfig'
 -- * 'format' - The format of the parallel data input file.
 -- * 's3URI' - The URI of the Amazon S3 folder that contains the parallel data input file. The folder must be in the same Region as the API endpoint you are calling.
 mkParallelDataConfig ::
-  -- | 's3URI'
-  Lude.Text ->
   -- | 'format'
   ParallelDataFormat ->
+  -- | 's3URI'
+  Lude.Text ->
   ParallelDataConfig
-mkParallelDataConfig pS3URI_ pFormat_ =
-  ParallelDataConfig' {s3URI = pS3URI_, format = pFormat_}
-
--- | The URI of the Amazon S3 folder that contains the parallel data input file. The folder must be in the same Region as the API endpoint you are calling.
---
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdcS3URI :: Lens.Lens' ParallelDataConfig Lude.Text
-pdcS3URI = Lens.lens (s3URI :: ParallelDataConfig -> Lude.Text) (\s a -> s {s3URI = a} :: ParallelDataConfig)
-{-# DEPRECATED pdcS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
+mkParallelDataConfig pFormat_ pS3URI_ =
+  ParallelDataConfig' {format = pFormat_, s3URI = pS3URI_}
 
 -- | The format of the parallel data input file.
 --
@@ -69,20 +58,27 @@ pdcFormat :: Lens.Lens' ParallelDataConfig ParallelDataFormat
 pdcFormat = Lens.lens (format :: ParallelDataConfig -> ParallelDataFormat) (\s a -> s {format = a} :: ParallelDataConfig)
 {-# DEPRECATED pdcFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
+-- | The URI of the Amazon S3 folder that contains the parallel data input file. The folder must be in the same Region as the API endpoint you are calling.
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdcS3URI :: Lens.Lens' ParallelDataConfig Lude.Text
+pdcS3URI = Lens.lens (s3URI :: ParallelDataConfig -> Lude.Text) (\s a -> s {s3URI = a} :: ParallelDataConfig)
+{-# DEPRECATED pdcS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
+
 instance Lude.FromJSON ParallelDataConfig where
   parseJSON =
     Lude.withObject
       "ParallelDataConfig"
       ( \x ->
           ParallelDataConfig'
-            Lude.<$> (x Lude..: "S3Uri") Lude.<*> (x Lude..: "Format")
+            Lude.<$> (x Lude..: "Format") Lude.<*> (x Lude..: "S3Uri")
       )
 
 instance Lude.ToJSON ParallelDataConfig where
   toJSON ParallelDataConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("S3Uri" Lude..= s3URI),
-            Lude.Just ("Format" Lude..= format)
+          [ Lude.Just ("Format" Lude..= format),
+            Lude.Just ("S3Uri" Lude..= s3URI)
           ]
       )

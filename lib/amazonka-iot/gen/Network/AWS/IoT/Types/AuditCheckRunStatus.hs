@@ -13,12 +13,12 @@
 module Network.AWS.IoT.Types.AuditCheckRunStatus
   ( AuditCheckRunStatus
       ( AuditCheckRunStatus',
+        ACRSInProgress,
+        ACRSWaitingForDataCollection,
         ACRSCanceled,
         ACRSCompletedCompliant,
         ACRSCompletedNonCompliant,
-        ACRSFailed,
-        ACRSInProgress,
-        ACRSWaitingForDataCollection
+        ACRSFailed
       ),
   )
 where
@@ -49,6 +49,12 @@ newtype AuditCheckRunStatus = AuditCheckRunStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern ACRSInProgress :: AuditCheckRunStatus
+pattern ACRSInProgress = AuditCheckRunStatus' "IN_PROGRESS"
+
+pattern ACRSWaitingForDataCollection :: AuditCheckRunStatus
+pattern ACRSWaitingForDataCollection = AuditCheckRunStatus' "WAITING_FOR_DATA_COLLECTION"
+
 pattern ACRSCanceled :: AuditCheckRunStatus
 pattern ACRSCanceled = AuditCheckRunStatus' "CANCELED"
 
@@ -61,18 +67,12 @@ pattern ACRSCompletedNonCompliant = AuditCheckRunStatus' "COMPLETED_NON_COMPLIAN
 pattern ACRSFailed :: AuditCheckRunStatus
 pattern ACRSFailed = AuditCheckRunStatus' "FAILED"
 
-pattern ACRSInProgress :: AuditCheckRunStatus
-pattern ACRSInProgress = AuditCheckRunStatus' "IN_PROGRESS"
-
-pattern ACRSWaitingForDataCollection :: AuditCheckRunStatus
-pattern ACRSWaitingForDataCollection = AuditCheckRunStatus' "WAITING_FOR_DATA_COLLECTION"
-
 {-# COMPLETE
+  ACRSInProgress,
+  ACRSWaitingForDataCollection,
   ACRSCanceled,
   ACRSCompletedCompliant,
   ACRSCompletedNonCompliant,
   ACRSFailed,
-  ACRSInProgress,
-  ACRSWaitingForDataCollection,
   AuditCheckRunStatus'
   #-}

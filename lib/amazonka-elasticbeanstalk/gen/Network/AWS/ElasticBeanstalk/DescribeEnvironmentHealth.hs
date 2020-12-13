@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,28 +51,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEnvironmentHealth' smart constructor.
 data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
-  { environmentName ::
-      Lude.Maybe Lude.Text,
-    attributeNames ::
-      Lude.Maybe [EnvironmentHealthAttribute],
+  { -- | Specify the environment by name.
+    --
+    -- You must specify either this or an EnvironmentName, or both.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
+    attributeNames :: Lude.Maybe [EnvironmentHealthAttribute],
+    -- | Specify the environment by ID.
+    --
+    -- You must specify either this or an EnvironmentName, or both.
     environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentHealth' with the minimum fields required to make a request.
 --
--- * 'attributeNames' - Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
--- * 'environmentId' - Specify the environment by ID.
+-- * 'environmentName' - Specify the environment by name.
 --
 -- You must specify either this or an EnvironmentName, or both.
--- * 'environmentName' - Specify the environment by name.
+-- * 'attributeNames' - Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
+-- * 'environmentId' - Specify the environment by ID.
 --
 -- You must specify either this or an EnvironmentName, or both.
 mkDescribeEnvironmentHealth ::
@@ -152,49 +152,39 @@ instance Lude.ToQuery DescribeEnvironmentHealth where
 --
 -- /See:/ 'mkDescribeEnvironmentHealthResponse' smart constructor.
 data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
-  { status ::
-      Lude.Maybe
-        EnvironmentHealth,
-    causes ::
-      Lude.Maybe [Lude.Text],
-    applicationMetrics ::
-      Lude.Maybe
-        ApplicationMetrics,
-    color ::
-      Lude.Maybe Lude.Text,
-    environmentName ::
-      Lude.Maybe Lude.Text,
-    healthStatus ::
-      Lude.Maybe Lude.Text,
-    instancesHealth ::
-      Lude.Maybe
-        InstanceHealthSummary,
-    refreshedAt ::
-      Lude.Maybe
-        Lude.DateTime,
-    responseStatus ::
-      Lude.Int
+  { -- | The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
+    status :: Lude.Maybe EnvironmentHealth,
+    -- | Descriptions of the data that contributed to the environment's current health status.
+    causes :: Lude.Maybe [Lude.Text],
+    -- | Application request metrics for the environment.
+    applicationMetrics :: Lude.Maybe ApplicationMetrics,
+    -- | The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
+    color :: Lude.Maybe Lude.Text,
+    -- | The environment's name.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
+    healthStatus :: Lude.Maybe Lude.Text,
+    -- | Summary health information for the instances in the environment.
+    instancesHealth :: Lude.Maybe InstanceHealthSummary,
+    -- | The date and time that the health information was retrieved.
+    refreshedAt :: Lude.Maybe Lude.DateTime,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentHealthResponse' with the minimum fields required to make a request.
 --
--- * 'applicationMetrics' - Application request metrics for the environment.
+-- * 'status' - The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
 -- * 'causes' - Descriptions of the data that contributed to the environment's current health status.
+-- * 'applicationMetrics' - Application request metrics for the environment.
 -- * 'color' - The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
 -- * 'environmentName' - The environment's name.
 -- * 'healthStatus' - The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
 -- * 'instancesHealth' - Summary health information for the instances in the environment.
 -- * 'refreshedAt' - The date and time that the health information was retrieved.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
 mkDescribeEnvironmentHealthResponse ::
   -- | 'responseStatus'
   Lude.Int ->

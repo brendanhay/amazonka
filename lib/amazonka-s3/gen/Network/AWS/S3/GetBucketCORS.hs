@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.S3.GetBucketCORS
     mkGetBucketCORS,
 
     -- ** Request lenses
-    gbcExpectedBucketOwner,
     gbcBucket,
+    gbcExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketCORSResponse (..),
@@ -49,17 +50,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketCORS' smart constructor.
 data GetBucketCORS = GetBucketCORS'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The bucket name for which to get the cors configuration.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketCORS' with the minimum fields required to make a request.
@@ -72,16 +68,9 @@ mkGetBucketCORS ::
   GetBucketCORS
 mkGetBucketCORS pBucket_ =
   GetBucketCORS'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbcExpectedBucketOwner :: Lens.Lens' GetBucketCORS (Lude.Maybe Lude.Text)
-gbcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketCORS -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketCORS)
-{-# DEPRECATED gbcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name for which to get the cors configuration.
 --
@@ -89,6 +78,13 @@ gbcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketCORS -> Lude
 gbcBucket :: Lens.Lens' GetBucketCORS BucketName
 gbcBucket = Lens.lens (bucket :: GetBucketCORS -> BucketName) (\s a -> s {bucket = a} :: GetBucketCORS)
 {-# DEPRECATED gbcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcExpectedBucketOwner :: Lens.Lens' GetBucketCORS (Lude.Maybe Lude.Text)
+gbcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketCORS -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketCORS)
+{-# DEPRECATED gbcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetBucketCORS where
   type Rs GetBucketCORS = GetBucketCORSResponse
@@ -114,17 +110,12 @@ instance Lude.ToQuery GetBucketCORS where
 
 -- | /See:/ 'mkGetBucketCORSResponse' smart constructor.
 data GetBucketCORSResponse = GetBucketCORSResponse'
-  { corsRules ::
-      Lude.Maybe [CORSRule],
+  { -- | A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+    corsRules :: Lude.Maybe [CORSRule],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketCORSResponse' with the minimum fields required to make a request.

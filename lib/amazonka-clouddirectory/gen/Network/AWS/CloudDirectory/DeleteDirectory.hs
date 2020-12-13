@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.CloudDirectory.DeleteDirectory
     mkDeleteDirectory,
 
     -- ** Request lenses
-    delDirectoryARN,
+    ddfDirectoryARN,
 
     -- * Destructuring the response
     DeleteDirectoryResponse (..),
     mkDeleteDirectoryResponse,
 
     -- ** Response lenses
-    ddrsResponseStatus,
     ddrsDirectoryARN,
+    ddrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDirectory' smart constructor.
 newtype DeleteDirectory = DeleteDirectory'
-  { directoryARN ::
-      Lude.Text
+  { -- | The ARN of the directory to delete.
+    directoryARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectory' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDeleteDirectory pDirectoryARN_ =
 -- | The ARN of the directory to delete.
 --
 -- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delDirectoryARN :: Lens.Lens' DeleteDirectory Lude.Text
-delDirectoryARN = Lens.lens (directoryARN :: DeleteDirectory -> Lude.Text) (\s a -> s {directoryARN = a} :: DeleteDirectory)
-{-# DEPRECATED delDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+ddfDirectoryARN :: Lens.Lens' DeleteDirectory Lude.Text
+ddfDirectoryARN = Lens.lens (directoryARN :: DeleteDirectory -> Lude.Text) (\s a -> s {directoryARN = a} :: DeleteDirectory)
+{-# DEPRECATED ddfDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 instance Lude.AWSRequest DeleteDirectory where
   type Rs DeleteDirectory = DeleteDirectoryResponse
@@ -75,7 +70,7 @@ instance Lude.AWSRequest DeleteDirectory where
     Res.receiveJSON
       ( \s h x ->
           DeleteDirectoryResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "DirectoryArn")
+            Lude.<$> (x Lude..:> "DirectoryArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteDirectory where
@@ -93,17 +88,12 @@ instance Lude.ToQuery DeleteDirectory where
 
 -- | /See:/ 'mkDeleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-  { responseStatus ::
-      Lude.Int,
-    directoryARN :: Lude.Text
+  { -- | The ARN of the deleted directory.
+    directoryARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectoryResponse' with the minimum fields required to make a request.
@@ -111,23 +101,16 @@ data DeleteDirectoryResponse = DeleteDirectoryResponse'
 -- * 'directoryARN' - The ARN of the deleted directory.
 -- * 'responseStatus' - The response status code.
 mkDeleteDirectoryResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'directoryARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDirectoryResponse
-mkDeleteDirectoryResponse pResponseStatus_ pDirectoryARN_ =
+mkDeleteDirectoryResponse pDirectoryARN_ pResponseStatus_ =
   DeleteDirectoryResponse'
-    { responseStatus = pResponseStatus_,
-      directoryARN = pDirectoryARN_
+    { directoryARN = pDirectoryARN_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DeleteDirectoryResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectoryResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ARN of the deleted directory.
 --
@@ -135,3 +118,10 @@ ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectoryResponse -> Lud
 ddrsDirectoryARN :: Lens.Lens' DeleteDirectoryResponse Lude.Text
 ddrsDirectoryARN = Lens.lens (directoryARN :: DeleteDirectoryResponse -> Lude.Text) (\s a -> s {directoryARN = a} :: DeleteDirectoryResponse)
 {-# DEPRECATED ddrsDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsResponseStatus :: Lens.Lens' DeleteDirectoryResponse Lude.Int
+ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectoryResponse)
+{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

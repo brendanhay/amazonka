@@ -33,26 +33,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDHCPOptions' smart constructor.
 data DHCPOptions = DHCPOptions'
-  { dhcpConfigurations ::
-      Lude.Maybe [DHCPConfiguration],
+  { -- | One or more DHCP options in the set.
+    dhcpConfigurations :: Lude.Maybe [DHCPConfiguration],
+    -- | The ID of the AWS account that owns the DHCP options set.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the set of DHCP options.
     dhcpOptionsId :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the DHCP options set.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DHCPOptions' with the minimum fields required to make a request.
 --
 -- * 'dhcpConfigurations' - One or more DHCP options in the set.
--- * 'dhcpOptionsId' - The ID of the set of DHCP options.
 -- * 'ownerId' - The ID of the AWS account that owns the DHCP options set.
+-- * 'dhcpOptionsId' - The ID of the set of DHCP options.
 -- * 'tags' - Any tags assigned to the DHCP options set.
 mkDHCPOptions ::
   DHCPOptions

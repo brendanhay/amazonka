@@ -19,10 +19,10 @@ module Network.AWS.CloudFront.Types.CachePolicyConfig
     -- * Lenses
     cpcMaxTTL,
     cpcParametersInCacheKeyAndForwardedToOrigin,
+    cpcMinTTL,
+    cpcName,
     cpcDefaultTTL,
     cpcComment,
-    cpcName,
-    cpcMinTTL,
   )
 where
 
@@ -44,50 +44,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCachePolicyConfig' smart constructor.
 data CachePolicyConfig = CachePolicyConfig'
-  { maxTTL ::
-      Lude.Maybe Lude.Integer,
-    parametersInCacheKeyAndForwardedToOrigin ::
-      Lude.Maybe ParametersInCacheKeyAndForwardedToOrigin,
-    defaultTTL :: Lude.Maybe Lude.Integer,
-    comment :: Lude.Maybe Lude.Text,
+  { -- | The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends @Cache-Control@ or @Expires@ headers with the object. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
+    --
+    -- The default value for this field is 31536000 seconds (one year). If the value of @MinTTL@ or @DefaultTTL@ is more than 31536000 seconds, then the default value for this field is the same as the value of @DefaultTTL@ .
+    maxTTL :: Lude.Maybe Lude.Integer,
+    -- | The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are automatically included in requests that CloudFront sends to the origin.
+    parametersInCacheKeyAndForwardedToOrigin :: Lude.Maybe ParametersInCacheKeyAndForwardedToOrigin,
+    -- | The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
+    minTTL :: Lude.Integer,
+    -- | A unique name to identify the cache policy.
     name :: Lude.Text,
-    minTTL :: Lude.Integer
+    -- | The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object’s time to live (TTL) only when the origin does /not/ send @Cache-Control@ or @Expires@ headers with the object. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
+    --
+    -- The default value for this field is 86400 seconds (one day). If the value of @MinTTL@ is more than 86400 seconds, then the default value for this field is the same as the value of @MinTTL@ .
+    defaultTTL :: Lude.Maybe Lude.Integer,
+    -- | A comment to describe the cache policy.
+    comment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachePolicyConfig' with the minimum fields required to make a request.
 --
--- * 'comment' - A comment to describe the cache policy.
--- * 'defaultTTL' - The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object’s time to live (TTL) only when the origin does /not/ send @Cache-Control@ or @Expires@ headers with the object. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
---
--- The default value for this field is 86400 seconds (one day). If the value of @MinTTL@ is more than 86400 seconds, then the default value for this field is the same as the value of @MinTTL@ .
 -- * 'maxTTL' - The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends @Cache-Control@ or @Expires@ headers with the object. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
 --
 -- The default value for this field is 31536000 seconds (one year). If the value of @MinTTL@ or @DefaultTTL@ is more than 31536000 seconds, then the default value for this field is the same as the value of @DefaultTTL@ .
+-- * 'parametersInCacheKeyAndForwardedToOrigin' - The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are automatically included in requests that CloudFront sends to the origin.
 -- * 'minTTL' - The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
 -- * 'name' - A unique name to identify the cache policy.
--- * 'parametersInCacheKeyAndForwardedToOrigin' - The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are automatically included in requests that CloudFront sends to the origin.
+-- * 'defaultTTL' - The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object’s time to live (TTL) only when the origin does /not/ send @Cache-Control@ or @Expires@ headers with the object. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
+--
+-- The default value for this field is 86400 seconds (one day). If the value of @MinTTL@ is more than 86400 seconds, then the default value for this field is the same as the value of @MinTTL@ .
+-- * 'comment' - A comment to describe the cache policy.
 mkCachePolicyConfig ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'minTTL'
   Lude.Integer ->
+  -- | 'name'
+  Lude.Text ->
   CachePolicyConfig
-mkCachePolicyConfig pName_ pMinTTL_ =
+mkCachePolicyConfig pMinTTL_ pName_ =
   CachePolicyConfig'
     { maxTTL = Lude.Nothing,
       parametersInCacheKeyAndForwardedToOrigin = Lude.Nothing,
-      defaultTTL = Lude.Nothing,
-      comment = Lude.Nothing,
+      minTTL = pMinTTL_,
       name = pName_,
-      minTTL = pMinTTL_
+      defaultTTL = Lude.Nothing,
+      comment = Lude.Nothing
     }
 
 -- | The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends @Cache-Control@ or @Expires@ headers with the object. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
@@ -106,6 +108,20 @@ cpcParametersInCacheKeyAndForwardedToOrigin :: Lens.Lens' CachePolicyConfig (Lud
 cpcParametersInCacheKeyAndForwardedToOrigin = Lens.lens (parametersInCacheKeyAndForwardedToOrigin :: CachePolicyConfig -> Lude.Maybe ParametersInCacheKeyAndForwardedToOrigin) (\s a -> s {parametersInCacheKeyAndForwardedToOrigin = a} :: CachePolicyConfig)
 {-# DEPRECATED cpcParametersInCacheKeyAndForwardedToOrigin "Use generic-lens or generic-optics with 'parametersInCacheKeyAndForwardedToOrigin' instead." #-}
 
+-- | The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
+--
+-- /Note:/ Consider using 'minTTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcMinTTL :: Lens.Lens' CachePolicyConfig Lude.Integer
+cpcMinTTL = Lens.lens (minTTL :: CachePolicyConfig -> Lude.Integer) (\s a -> s {minTTL = a} :: CachePolicyConfig)
+{-# DEPRECATED cpcMinTTL "Use generic-lens or generic-optics with 'minTTL' instead." #-}
+
+-- | A unique name to identify the cache policy.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcName :: Lens.Lens' CachePolicyConfig Lude.Text
+cpcName = Lens.lens (name :: CachePolicyConfig -> Lude.Text) (\s a -> s {name = a} :: CachePolicyConfig)
+{-# DEPRECATED cpcName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object’s time to live (TTL) only when the origin does /not/ send @Cache-Control@ or @Expires@ headers with the object. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
 --
 -- The default value for this field is 86400 seconds (one day). If the value of @MinTTL@ is more than 86400 seconds, then the default value for this field is the same as the value of @MinTTL@ .
@@ -122,29 +138,15 @@ cpcComment :: Lens.Lens' CachePolicyConfig (Lude.Maybe Lude.Text)
 cpcComment = Lens.lens (comment :: CachePolicyConfig -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: CachePolicyConfig)
 {-# DEPRECATED cpcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
--- | A unique name to identify the cache policy.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcName :: Lens.Lens' CachePolicyConfig Lude.Text
-cpcName = Lens.lens (name :: CachePolicyConfig -> Lude.Text) (\s a -> s {name = a} :: CachePolicyConfig)
-{-# DEPRECATED cpcName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Managing How Long Content Stays in an Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
---
--- /Note:/ Consider using 'minTTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcMinTTL :: Lens.Lens' CachePolicyConfig Lude.Integer
-cpcMinTTL = Lens.lens (minTTL :: CachePolicyConfig -> Lude.Integer) (\s a -> s {minTTL = a} :: CachePolicyConfig)
-{-# DEPRECATED cpcMinTTL "Use generic-lens or generic-optics with 'minTTL' instead." #-}
-
 instance Lude.FromXML CachePolicyConfig where
   parseXML x =
     CachePolicyConfig'
       Lude.<$> (x Lude..@? "MaxTTL")
       Lude.<*> (x Lude..@? "ParametersInCacheKeyAndForwardedToOrigin")
+      Lude.<*> (x Lude..@ "MinTTL")
+      Lude.<*> (x Lude..@ "Name")
       Lude.<*> (x Lude..@? "DefaultTTL")
       Lude.<*> (x Lude..@? "Comment")
-      Lude.<*> (x Lude..@ "Name")
-      Lude.<*> (x Lude..@ "MinTTL")
 
 instance Lude.ToXML CachePolicyConfig where
   toXML CachePolicyConfig' {..} =
@@ -152,8 +154,8 @@ instance Lude.ToXML CachePolicyConfig where
       [ "MaxTTL" Lude.@= maxTTL,
         "ParametersInCacheKeyAndForwardedToOrigin"
           Lude.@= parametersInCacheKeyAndForwardedToOrigin,
-        "DefaultTTL" Lude.@= defaultTTL,
-        "Comment" Lude.@= comment,
+        "MinTTL" Lude.@= minTTL,
         "Name" Lude.@= name,
-        "MinTTL" Lude.@= minTTL
+        "DefaultTTL" Lude.@= defaultTTL,
+        "Comment" Lude.@= comment
       ]

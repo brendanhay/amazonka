@@ -44,24 +44,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRedshiftDestinationUpdate' smart constructor.
 data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
-  { s3BackupMode ::
-      Lude.Maybe RedshiftS3BackupMode,
-    cloudWatchLoggingOptions ::
-      Lude.Maybe CloudWatchLoggingOptions,
-    username ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    s3Update ::
-      Lude.Maybe S3DestinationUpdate,
-    password ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    s3BackupUpdate ::
-      Lude.Maybe S3DestinationUpdate,
+  { -- | You can update a delivery stream to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+    s3BackupMode :: Lude.Maybe RedshiftS3BackupMode,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
+    -- | The name of the user.
+    username :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The Amazon S3 destination.
+    --
+    -- The compression formats @SNAPPY@ or @ZIP@ cannot be specified in @RedshiftDestinationUpdate.S3Update@ because the Amazon Redshift @COPY@ operation that reads from the S3 bucket doesn't support these compression formats.
+    s3Update :: Lude.Maybe S3DestinationUpdate,
+    -- | The user password.
+    password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The Amazon S3 destination for backup.
+    s3BackupUpdate :: Lude.Maybe S3DestinationUpdate,
+    -- | The @COPY@ command.
     copyCommand :: Lude.Maybe CopyCommand,
-    retryOptions ::
-      Lude.Maybe RedshiftRetryOptions,
-    processingConfiguration ::
-      Lude.Maybe ProcessingConfiguration,
+    -- | The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+    retryOptions :: Lude.Maybe RedshiftRetryOptions,
+    -- | The data processing configuration.
+    processingConfiguration :: Lude.Maybe ProcessingConfiguration,
+    -- | The database connection string.
     clusterJDBCURL :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
     roleARN :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -69,19 +74,19 @@ data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
 
 -- | Creates a value of 'RedshiftDestinationUpdate' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
--- * 'clusterJDBCURL' - The database connection string.
--- * 'copyCommand' - The @COPY@ command.
--- * 'password' - The user password.
--- * 'processingConfiguration' - The data processing configuration.
--- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
--- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 -- * 's3BackupMode' - You can update a delivery stream to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
--- * 's3BackupUpdate' - The Amazon S3 destination for backup.
+-- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
+-- * 'username' - The name of the user.
 -- * 's3Update' - The Amazon S3 destination.
 --
 -- The compression formats @SNAPPY@ or @ZIP@ cannot be specified in @RedshiftDestinationUpdate.S3Update@ because the Amazon Redshift @COPY@ operation that reads from the S3 bucket doesn't support these compression formats.
--- * 'username' - The name of the user.
+-- * 'password' - The user password.
+-- * 's3BackupUpdate' - The Amazon S3 destination for backup.
+-- * 'copyCommand' - The @COPY@ command.
+-- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+-- * 'processingConfiguration' - The data processing configuration.
+-- * 'clusterJDBCURL' - The database connection string.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 mkRedshiftDestinationUpdate ::
   RedshiftDestinationUpdate
 mkRedshiftDestinationUpdate =

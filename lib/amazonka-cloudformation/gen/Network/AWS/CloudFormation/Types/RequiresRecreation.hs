@@ -13,9 +13,9 @@
 module Network.AWS.CloudFormation.Types.RequiresRecreation
   ( RequiresRecreation
       ( RequiresRecreation',
-        Always,
+        Never,
         Conditionally,
-        Never
+        Always
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RequiresRecreation = RequiresRecreation' Lude.Text
       Lude.ToHeader
     )
 
-pattern Always :: RequiresRecreation
-pattern Always = RequiresRecreation' "Always"
+pattern Never :: RequiresRecreation
+pattern Never = RequiresRecreation' "Never"
 
 pattern Conditionally :: RequiresRecreation
 pattern Conditionally = RequiresRecreation' "Conditionally"
 
-pattern Never :: RequiresRecreation
-pattern Never = RequiresRecreation' "Never"
+pattern Always :: RequiresRecreation
+pattern Always = RequiresRecreation' "Always"
 
 {-# COMPLETE
-  Always,
-  Conditionally,
   Never,
+  Conditionally,
+  Always,
   RequiresRecreation'
   #-}

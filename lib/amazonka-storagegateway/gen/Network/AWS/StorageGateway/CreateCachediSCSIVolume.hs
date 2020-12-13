@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,15 +24,15 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
 
     -- ** Request lenses
     ccscsivKMSKey,
+    ccscsivClientToken,
+    ccscsivGatewayARN,
     ccscsivSourceVolumeARN,
     ccscsivKMSEncrypted,
+    ccscsivVolumeSizeInBytes,
+    ccscsivNetworkInterfaceId,
+    ccscsivTargetName,
     ccscsivTags,
     ccscsivSnapshotId,
-    ccscsivGatewayARN,
-    ccscsivVolumeSizeInBytes,
-    ccscsivTargetName,
-    ccscsivNetworkInterfaceId,
-    ccscsivClientToken,
 
     -- * Destructuring the response
     CreateCachediSCSIVolumeResponse (..),
@@ -52,74 +53,82 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkCreateCachediSCSIVolume' smart constructor.
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
-  { kmsKey ::
-      Lude.Maybe Lude.Text,
-    sourceVolumeARN :: Lude.Maybe Lude.Text,
-    kmsEncrypted :: Lude.Maybe Lude.Bool,
-    tags :: Lude.Maybe [Tag],
-    snapshotId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+    kmsKey :: Lude.Maybe Lude.Text,
+    -- | A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
+    clientToken :: Lude.Text,
     gatewayARN :: Lude.Text,
+    -- | The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The @VolumeSizeInBytes@ value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+    sourceVolumeARN :: Lude.Maybe Lude.Text,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
+    kmsEncrypted :: Lude.Maybe Lude.Bool,
+    -- | The size of the volume in bytes.
     volumeSizeInBytes :: Lude.Integer,
-    targetName :: Lude.Text,
+    -- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
+    --
+    -- Valid Values: A valid IP address.
     networkInterfaceId :: Lude.Text,
-    clientToken :: Lude.Text
+    -- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
+    --
+    -- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
+    targetName :: Lude.Text,
+    -- | A list of up to 50 tags that you can assign to a cached volume. Each tag is a key-value pair.
+    tags :: Lude.Maybe [Tag],
+    -- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
+    snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCachediSCSIVolume' with the minimum fields required to make a request.
 --
+-- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
 -- * 'clientToken' - A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
+-- * 'sourceVolumeARN' - The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The @VolumeSizeInBytes@ value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 -- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
--- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+-- * 'volumeSizeInBytes' - The size of the volume in bytes.
 -- * 'networkInterfaceId' - The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
 --
 -- Valid Values: A valid IP address.
--- * 'snapshotId' - The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
--- * 'sourceVolumeARN' - The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The @VolumeSizeInBytes@ value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
--- * 'tags' - A list of up to 50 tags that you can assign to a cached volume. Each tag is a key-value pair.
 -- * 'targetName' - The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
 --
 -- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
--- * 'volumeSizeInBytes' - The size of the volume in bytes.
+-- * 'tags' - A list of up to 50 tags that you can assign to a cached volume. Each tag is a key-value pair.
+-- * 'snapshotId' - The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
 mkCreateCachediSCSIVolume ::
+  -- | 'clientToken'
+  Lude.Text ->
   -- | 'gatewayARN'
   Lude.Text ->
   -- | 'volumeSizeInBytes'
   Lude.Integer ->
-  -- | 'targetName'
-  Lude.Text ->
   -- | 'networkInterfaceId'
   Lude.Text ->
-  -- | 'clientToken'
+  -- | 'targetName'
   Lude.Text ->
   CreateCachediSCSIVolume
 mkCreateCachediSCSIVolume
+  pClientToken_
   pGatewayARN_
   pVolumeSizeInBytes_
-  pTargetName_
   pNetworkInterfaceId_
-  pClientToken_ =
+  pTargetName_ =
     CreateCachediSCSIVolume'
       { kmsKey = Lude.Nothing,
+        clientToken = pClientToken_,
+        gatewayARN = pGatewayARN_,
         sourceVolumeARN = Lude.Nothing,
         kmsEncrypted = Lude.Nothing,
-        tags = Lude.Nothing,
-        snapshotId = Lude.Nothing,
-        gatewayARN = pGatewayARN_,
         volumeSizeInBytes = pVolumeSizeInBytes_,
-        targetName = pTargetName_,
         networkInterfaceId = pNetworkInterfaceId_,
-        clientToken = pClientToken_
+        targetName = pTargetName_,
+        tags = Lude.Nothing,
+        snapshotId = Lude.Nothing
       }
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
@@ -128,6 +137,20 @@ mkCreateCachediSCSIVolume
 ccscsivKMSKey :: Lens.Lens' CreateCachediSCSIVolume (Lude.Maybe Lude.Text)
 ccscsivKMSKey = Lens.lens (kmsKey :: CreateCachediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: CreateCachediSCSIVolume)
 {-# DEPRECATED ccscsivKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
+
+-- | A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscsivClientToken :: Lens.Lens' CreateCachediSCSIVolume Lude.Text
+ccscsivClientToken = Lens.lens (clientToken :: CreateCachediSCSIVolume -> Lude.Text) (\s a -> s {clientToken = a} :: CreateCachediSCSIVolume)
+{-# DEPRECATED ccscsivClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscsivGatewayARN :: Lens.Lens' CreateCachediSCSIVolume Lude.Text
+ccscsivGatewayARN = Lens.lens (gatewayARN :: CreateCachediSCSIVolume -> Lude.Text) (\s a -> s {gatewayARN = a} :: CreateCachediSCSIVolume)
+{-# DEPRECATED ccscsivGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The @VolumeSizeInBytes@ value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 --
@@ -145,6 +168,31 @@ ccscsivKMSEncrypted :: Lens.Lens' CreateCachediSCSIVolume (Lude.Maybe Lude.Bool)
 ccscsivKMSEncrypted = Lens.lens (kmsEncrypted :: CreateCachediSCSIVolume -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: CreateCachediSCSIVolume)
 {-# DEPRECATED ccscsivKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
 
+-- | The size of the volume in bytes.
+--
+-- /Note:/ Consider using 'volumeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscsivVolumeSizeInBytes :: Lens.Lens' CreateCachediSCSIVolume Lude.Integer
+ccscsivVolumeSizeInBytes = Lens.lens (volumeSizeInBytes :: CreateCachediSCSIVolume -> Lude.Integer) (\s a -> s {volumeSizeInBytes = a} :: CreateCachediSCSIVolume)
+{-# DEPRECATED ccscsivVolumeSizeInBytes "Use generic-lens or generic-optics with 'volumeSizeInBytes' instead." #-}
+
+-- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
+--
+-- Valid Values: A valid IP address.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscsivNetworkInterfaceId :: Lens.Lens' CreateCachediSCSIVolume Lude.Text
+ccscsivNetworkInterfaceId = Lens.lens (networkInterfaceId :: CreateCachediSCSIVolume -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: CreateCachediSCSIVolume)
+{-# DEPRECATED ccscsivNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
+--
+-- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
+--
+-- /Note:/ Consider using 'targetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccscsivTargetName :: Lens.Lens' CreateCachediSCSIVolume Lude.Text
+ccscsivTargetName = Lens.lens (targetName :: CreateCachediSCSIVolume -> Lude.Text) (\s a -> s {targetName = a} :: CreateCachediSCSIVolume)
+{-# DEPRECATED ccscsivTargetName "Use generic-lens or generic-optics with 'targetName' instead." #-}
+
 -- | A list of up to 50 tags that you can assign to a cached volume. Each tag is a key-value pair.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -158,45 +206,6 @@ ccscsivTags = Lens.lens (tags :: CreateCachediSCSIVolume -> Lude.Maybe [Tag]) (\
 ccscsivSnapshotId :: Lens.Lens' CreateCachediSCSIVolume (Lude.Maybe Lude.Text)
 ccscsivSnapshotId = Lens.lens (snapshotId :: CreateCachediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CreateCachediSCSIVolume)
 {-# DEPRECATED ccscsivSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccscsivGatewayARN :: Lens.Lens' CreateCachediSCSIVolume Lude.Text
-ccscsivGatewayARN = Lens.lens (gatewayARN :: CreateCachediSCSIVolume -> Lude.Text) (\s a -> s {gatewayARN = a} :: CreateCachediSCSIVolume)
-{-# DEPRECATED ccscsivGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
-
--- | The size of the volume in bytes.
---
--- /Note:/ Consider using 'volumeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccscsivVolumeSizeInBytes :: Lens.Lens' CreateCachediSCSIVolume Lude.Integer
-ccscsivVolumeSizeInBytes = Lens.lens (volumeSizeInBytes :: CreateCachediSCSIVolume -> Lude.Integer) (\s a -> s {volumeSizeInBytes = a} :: CreateCachediSCSIVolume)
-{-# DEPRECATED ccscsivVolumeSizeInBytes "Use generic-lens or generic-optics with 'volumeSizeInBytes' instead." #-}
-
--- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
---
--- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
---
--- /Note:/ Consider using 'targetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccscsivTargetName :: Lens.Lens' CreateCachediSCSIVolume Lude.Text
-ccscsivTargetName = Lens.lens (targetName :: CreateCachediSCSIVolume -> Lude.Text) (\s a -> s {targetName = a} :: CreateCachediSCSIVolume)
-{-# DEPRECATED ccscsivTargetName "Use generic-lens or generic-optics with 'targetName' instead." #-}
-
--- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
---
--- Valid Values: A valid IP address.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccscsivNetworkInterfaceId :: Lens.Lens' CreateCachediSCSIVolume Lude.Text
-ccscsivNetworkInterfaceId = Lens.lens (networkInterfaceId :: CreateCachediSCSIVolume -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: CreateCachediSCSIVolume)
-{-# DEPRECATED ccscsivNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
-
--- | A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccscsivClientToken :: Lens.Lens' CreateCachediSCSIVolume Lude.Text
-ccscsivClientToken = Lens.lens (clientToken :: CreateCachediSCSIVolume -> Lude.Text) (\s a -> s {clientToken = a} :: CreateCachediSCSIVolume)
-{-# DEPRECATED ccscsivClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 instance Lude.AWSRequest CreateCachediSCSIVolume where
   type Rs CreateCachediSCSIVolume = CreateCachediSCSIVolumeResponse
@@ -228,15 +237,15 @@ instance Lude.ToJSON CreateCachediSCSIVolume where
     Lude.object
       ( Lude.catMaybes
           [ ("KMSKey" Lude..=) Lude.<$> kmsKey,
+            Lude.Just ("ClientToken" Lude..= clientToken),
+            Lude.Just ("GatewayARN" Lude..= gatewayARN),
             ("SourceVolumeARN" Lude..=) Lude.<$> sourceVolumeARN,
             ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
-            ("Tags" Lude..=) Lude.<$> tags,
-            ("SnapshotId" Lude..=) Lude.<$> snapshotId,
-            Lude.Just ("GatewayARN" Lude..= gatewayARN),
             Lude.Just ("VolumeSizeInBytes" Lude..= volumeSizeInBytes),
-            Lude.Just ("TargetName" Lude..= targetName),
             Lude.Just ("NetworkInterfaceId" Lude..= networkInterfaceId),
-            Lude.Just ("ClientToken" Lude..= clientToken)
+            Lude.Just ("TargetName" Lude..= targetName),
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("SnapshotId" Lude..=) Lude.<$> snapshotId
           ]
       )
 
@@ -248,26 +257,21 @@ instance Lude.ToQuery CreateCachediSCSIVolume where
 
 -- | /See:/ 'mkCreateCachediSCSIVolumeResponse' smart constructor.
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
-  { targetARN ::
-      Lude.Maybe Lude.Text,
-    volumeARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the configured volume.
+    volumeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCachediSCSIVolumeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'targetARN' - The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.
 -- * 'volumeARN' - The Amazon Resource Name (ARN) of the configured volume.
+-- * 'responseStatus' - The response status code.
 mkCreateCachediSCSIVolumeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

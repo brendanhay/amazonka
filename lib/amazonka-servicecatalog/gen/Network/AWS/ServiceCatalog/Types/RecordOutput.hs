@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecordOutput' smart constructor.
 data RecordOutput = RecordOutput'
-  { outputValue ::
-      Lude.Maybe Lude.Text,
+  { -- | The output value.
+    outputValue :: Lude.Maybe Lude.Text,
+    -- | The output key.
     outputKey :: Lude.Maybe Lude.Text,
+    -- | The description of the output.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordOutput' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the output.
--- * 'outputKey' - The output key.
 -- * 'outputValue' - The output value.
+-- * 'outputKey' - The output key.
+-- * 'description' - The description of the output.
 mkRecordOutput ::
   RecordOutput
 mkRecordOutput =

@@ -38,37 +38,39 @@ import Network.AWS.Redshift.Types.ParameterApplyType
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { applyType ::
-      Lude.Maybe ParameterApplyType,
+  { -- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
+    applyType :: Lude.Maybe ParameterApplyType,
+    -- | The value of the parameter.
     parameterValue :: Lude.Maybe Lude.Text,
+    -- | The earliest engine version to which the parameter can apply.
     minimumEngineVersion :: Lude.Maybe Lude.Text,
+    -- | The source of the parameter value, such as "engine-default" or "user".
     source :: Lude.Maybe Lude.Text,
+    -- | If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
     isModifiable :: Lude.Maybe Lude.Bool,
+    -- | The data type of the parameter.
     dataType :: Lude.Maybe Lude.Text,
+    -- | The valid range of values for the parameter.
     allowedValues :: Lude.Maybe Lude.Text,
+    -- | The name of the parameter.
     parameterName :: Lude.Maybe Lude.Text,
+    -- | A description of the parameter.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- * 'allowedValues' - The valid range of values for the parameter.
 -- * 'applyType' - Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
--- * 'dataType' - The data type of the parameter.
--- * 'description' - A description of the parameter.
--- * 'isModifiable' - If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
--- * 'minimumEngineVersion' - The earliest engine version to which the parameter can apply.
--- * 'parameterName' - The name of the parameter.
 -- * 'parameterValue' - The value of the parameter.
+-- * 'minimumEngineVersion' - The earliest engine version to which the parameter can apply.
 -- * 'source' - The source of the parameter value, such as "engine-default" or "user".
+-- * 'isModifiable' - If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+-- * 'dataType' - The data type of the parameter.
+-- * 'allowedValues' - The valid range of values for the parameter.
+-- * 'parameterName' - The name of the parameter.
+-- * 'description' - A description of the parameter.
 mkParameter ::
   Parameter
 mkParameter =

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.M2tsEsRateInPes
   ( M2tsEsRateInPes
       ( M2tsEsRateInPes',
-        Exclude,
-        Include
+        MERIPInclude,
+        MERIPExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype M2tsEsRateInPes = M2tsEsRateInPes' Lude.Text
       Lude.ToHeader
     )
 
-pattern Exclude :: M2tsEsRateInPes
-pattern Exclude = M2tsEsRateInPes' "EXCLUDE"
+pattern MERIPInclude :: M2tsEsRateInPes
+pattern MERIPInclude = M2tsEsRateInPes' "INCLUDE"
 
-pattern Include :: M2tsEsRateInPes
-pattern Include = M2tsEsRateInPes' "INCLUDE"
+pattern MERIPExclude :: M2tsEsRateInPes
+pattern MERIPExclude = M2tsEsRateInPes' "EXCLUDE"
 
 {-# COMPLETE
-  Exclude,
-  Include,
+  MERIPInclude,
+  MERIPExclude,
   M2tsEsRateInPes'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,19 +45,15 @@ import Network.AWS.StorageGateway.Types
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway to shut down.
 --
 -- /See:/ 'mkShutdownGateway' smart constructor.
-newtype ShutdownGateway = ShutdownGateway' {gatewayARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ShutdownGateway = ShutdownGateway'
+  { gatewayARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShutdownGateway' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkShutdownGateway ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -107,22 +104,16 @@ instance Lude.ToQuery ShutdownGateway where
 --
 -- /See:/ 'mkShutdownGatewayResponse' smart constructor.
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShutdownGatewayResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 -- * 'responseStatus' - The response status code.
 mkShutdownGatewayResponse ::
   -- | 'responseStatus'

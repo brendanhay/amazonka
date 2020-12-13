@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImplicitDeny' smart constructor.
 newtype ImplicitDeny = ImplicitDeny'
-  { policies ::
-      Lude.Maybe [Policy]
+  { -- | Policies that don't contain a matching allow or deny statement for the specified action on the specified resource.
+    policies :: Lude.Maybe [Policy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImplicitDeny' with the minimum fields required to make a request.

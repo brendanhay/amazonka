@@ -32,28 +32,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkListPoliciesGrantingServiceAccessEntry' smart constructor.
 data ListPoliciesGrantingServiceAccessEntry = ListPoliciesGrantingServiceAccessEntry'
-  { serviceNamespace ::
-      Lude.Maybe
-        Lude.Text,
-    policies ::
-      Lude.Maybe
-        [PolicyGrantingServiceAccess]
+  { -- | The namespace of the service that was accessed.
+    --
+    -- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+    serviceNamespace :: Lude.Maybe Lude.Text,
+    -- | The @PoliciesGrantingServiceAccess@ object that contains details about the policy.
+    policies :: Lude.Maybe [PolicyGrantingServiceAccess]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPoliciesGrantingServiceAccessEntry' with the minimum fields required to make a request.
 --
--- * 'policies' - The @PoliciesGrantingServiceAccess@ object that contains details about the policy.
 -- * 'serviceNamespace' - The namespace of the service that was accessed.
 --
 -- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'policies' - The @PoliciesGrantingServiceAccess@ object that contains details about the policy.
 mkListPoliciesGrantingServiceAccessEntry ::
   ListPoliciesGrantingServiceAccessEntry
 mkListPoliciesGrantingServiceAccessEntry =

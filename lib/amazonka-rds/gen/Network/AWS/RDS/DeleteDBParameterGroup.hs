@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,16 +38,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDBParameterGroup' smart constructor.
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
-  { dbParameterGroupName ::
-      Lude.Text
+  { -- | The name of the DB parameter group.
+    --
+    -- Constraints:
+    --
+    --     * Must be the name of an existing DB parameter group
+    --
+    --
+    --     * You can't delete a default DB parameter group
+    --
+    --
+    --     * Can't be associated with any DB instances
+    dbParameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBParameterGroup' with the minimum fields required to make a request.
@@ -112,13 +117,7 @@ instance Lude.ToQuery DeleteDBParameterGroup where
 
 -- | /See:/ 'mkDeleteDBParameterGroupResponse' smart constructor.
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBParameterGroupResponse' with the minimum fields required to make a request.

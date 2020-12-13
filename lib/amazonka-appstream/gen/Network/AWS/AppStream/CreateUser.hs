@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.AppStream.CreateUser
     -- ** Request lenses
     cuLastName,
     cuMessageAction,
-    cuFirstName,
     cuUserName,
+    cuFirstName,
     cuAuthenticationType,
 
     -- * Destructuring the response
@@ -42,11 +43,15 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { lastName ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The last name, or surname, of the user.
+    lastName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
     messageAction :: Lude.Maybe MessageAction,
-    firstName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The email address of the user.
     userName :: Lude.Sensitive Lude.Text,
+    -- | The first name, or given name, of the user.
+    firstName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -54,11 +59,11 @@ data CreateUser = CreateUser'
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
 --
--- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
--- * 'firstName' - The first name, or given name, of the user.
 -- * 'lastName' - The last name, or surname, of the user.
 -- * 'messageAction' - The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
 -- * 'userName' - The email address of the user.
+-- * 'firstName' - The first name, or given name, of the user.
+-- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
 mkCreateUser ::
   -- | 'userName'
   Lude.Sensitive Lude.Text ->
@@ -69,8 +74,8 @@ mkCreateUser pUserName_ pAuthenticationType_ =
   CreateUser'
     { lastName = Lude.Nothing,
       messageAction = Lude.Nothing,
-      firstName = Lude.Nothing,
       userName = pUserName_,
+      firstName = Lude.Nothing,
       authenticationType = pAuthenticationType_
     }
 
@@ -88,19 +93,19 @@ cuMessageAction :: Lens.Lens' CreateUser (Lude.Maybe MessageAction)
 cuMessageAction = Lens.lens (messageAction :: CreateUser -> Lude.Maybe MessageAction) (\s a -> s {messageAction = a} :: CreateUser)
 {-# DEPRECATED cuMessageAction "Use generic-lens or generic-optics with 'messageAction' instead." #-}
 
--- | The first name, or given name, of the user.
---
--- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuFirstName :: Lens.Lens' CreateUser (Lude.Maybe (Lude.Sensitive Lude.Text))
-cuFirstName = Lens.lens (firstName :: CreateUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {firstName = a} :: CreateUser)
-{-# DEPRECATED cuFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
-
 -- | The email address of the user.
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cuUserName :: Lens.Lens' CreateUser (Lude.Sensitive Lude.Text)
 cuUserName = Lens.lens (userName :: CreateUser -> Lude.Sensitive Lude.Text) (\s a -> s {userName = a} :: CreateUser)
 {-# DEPRECATED cuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+-- | The first name, or given name, of the user.
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuFirstName :: Lens.Lens' CreateUser (Lude.Maybe (Lude.Sensitive Lude.Text))
+cuFirstName = Lens.lens (firstName :: CreateUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {firstName = a} :: CreateUser)
+{-# DEPRECATED cuFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
 -- | The authentication type for the user. You must specify USERPOOL.
 --
@@ -135,8 +140,8 @@ instance Lude.ToJSON CreateUser where
       ( Lude.catMaybes
           [ ("LastName" Lude..=) Lude.<$> lastName,
             ("MessageAction" Lude..=) Lude.<$> messageAction,
-            ("FirstName" Lude..=) Lude.<$> firstName,
             Lude.Just ("UserName" Lude..= userName),
+            ("FirstName" Lude..=) Lude.<$> firstName,
             Lude.Just ("AuthenticationType" Lude..= authenticationType)
           ]
       )
@@ -149,16 +154,10 @@ instance Lude.ToQuery CreateUser where
 
 -- | /See:/ 'mkCreateUserResponse' smart constructor.
 newtype CreateUserResponse = CreateUserResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.

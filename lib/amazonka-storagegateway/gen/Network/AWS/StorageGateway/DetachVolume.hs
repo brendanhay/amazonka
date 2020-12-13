@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,14 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDetachVolume' smart constructor.
 data DetachVolume = DetachVolume'
-  { forceDetach ::
-      Lude.Maybe Lude.Bool,
+  { -- | Set to @true@ to forcibly remove the iSCSI connection of the target volume and detach the volume. The default is @false@ . If this value is set to @false@ , you must manually disconnect the iSCSI connection from the target volume.
+    --
+    -- Valid Values: @true@ | @false@
+    forceDetach :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the volume to detach from the gateway.
     volumeARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachVolume' with the minimum fields required to make a request.
@@ -127,23 +125,18 @@ instance Lude.ToQuery DetachVolume where
 --
 -- /See:/ 'mkDetachVolumeResponse' smart constructor.
 data DetachVolumeResponse = DetachVolumeResponse'
-  { volumeARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the volume that was detached.
+    volumeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachVolumeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume that was detached.
+-- * 'responseStatus' - The response status code.
 mkDetachVolumeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

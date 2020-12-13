@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDocumentServiceWarning' smart constructor.
 newtype DocumentServiceWarning = DocumentServiceWarning'
-  { message ::
-      Lude.Maybe Lude.Text
+  { -- | The description for a warning returned by the document service.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentServiceWarning' with the minimum fields required to make a request.

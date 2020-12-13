@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTemplateMetadata' smart constructor.
 data TemplateMetadata = TemplateMetadata'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the template.
+    name :: Lude.Maybe Lude.Text,
+    -- | The time and date the template was created.
     createdTimestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemplateMetadata' with the minimum fields required to make a request.
 --
--- * 'createdTimestamp' - The time and date the template was created.
 -- * 'name' - The name of the template.
+-- * 'createdTimestamp' - The time and date the template was created.
 mkTemplateMetadata ::
   TemplateMetadata
 mkTemplateMetadata =

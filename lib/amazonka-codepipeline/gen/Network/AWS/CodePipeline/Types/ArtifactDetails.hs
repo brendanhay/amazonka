@@ -17,8 +17,8 @@ module Network.AWS.CodePipeline.Types.ArtifactDetails
     mkArtifactDetails,
 
     -- * Lenses
-    adMinimumCount,
     adMaximumCount,
+    adMinimumCount,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArtifactDetails' smart constructor.
 data ArtifactDetails = ArtifactDetails'
-  { minimumCount ::
-      Lude.Natural,
-    maximumCount :: Lude.Natural
+  { -- | The maximum number of artifacts allowed for the action type.
+    maximumCount :: Lude.Natural,
+    -- | The minimum number of artifacts allowed for the action type.
+    minimumCount :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArtifactDetails' with the minimum fields required to make a request.
@@ -47,23 +42,16 @@ data ArtifactDetails = ArtifactDetails'
 -- * 'maximumCount' - The maximum number of artifacts allowed for the action type.
 -- * 'minimumCount' - The minimum number of artifacts allowed for the action type.
 mkArtifactDetails ::
-  -- | 'minimumCount'
-  Lude.Natural ->
   -- | 'maximumCount'
   Lude.Natural ->
+  -- | 'minimumCount'
+  Lude.Natural ->
   ArtifactDetails
-mkArtifactDetails pMinimumCount_ pMaximumCount_ =
+mkArtifactDetails pMaximumCount_ pMinimumCount_ =
   ArtifactDetails'
-    { minimumCount = pMinimumCount_,
-      maximumCount = pMaximumCount_
+    { maximumCount = pMaximumCount_,
+      minimumCount = pMinimumCount_
     }
-
--- | The minimum number of artifacts allowed for the action type.
---
--- /Note:/ Consider using 'minimumCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adMinimumCount :: Lens.Lens' ArtifactDetails Lude.Natural
-adMinimumCount = Lens.lens (minimumCount :: ArtifactDetails -> Lude.Natural) (\s a -> s {minimumCount = a} :: ArtifactDetails)
-{-# DEPRECATED adMinimumCount "Use generic-lens or generic-optics with 'minimumCount' instead." #-}
 
 -- | The maximum number of artifacts allowed for the action type.
 --
@@ -72,20 +60,27 @@ adMaximumCount :: Lens.Lens' ArtifactDetails Lude.Natural
 adMaximumCount = Lens.lens (maximumCount :: ArtifactDetails -> Lude.Natural) (\s a -> s {maximumCount = a} :: ArtifactDetails)
 {-# DEPRECATED adMaximumCount "Use generic-lens or generic-optics with 'maximumCount' instead." #-}
 
+-- | The minimum number of artifacts allowed for the action type.
+--
+-- /Note:/ Consider using 'minimumCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adMinimumCount :: Lens.Lens' ArtifactDetails Lude.Natural
+adMinimumCount = Lens.lens (minimumCount :: ArtifactDetails -> Lude.Natural) (\s a -> s {minimumCount = a} :: ArtifactDetails)
+{-# DEPRECATED adMinimumCount "Use generic-lens or generic-optics with 'minimumCount' instead." #-}
+
 instance Lude.FromJSON ArtifactDetails where
   parseJSON =
     Lude.withObject
       "ArtifactDetails"
       ( \x ->
           ArtifactDetails'
-            Lude.<$> (x Lude..: "minimumCount") Lude.<*> (x Lude..: "maximumCount")
+            Lude.<$> (x Lude..: "maximumCount") Lude.<*> (x Lude..: "minimumCount")
       )
 
 instance Lude.ToJSON ArtifactDetails where
   toJSON ArtifactDetails' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("minimumCount" Lude..= minimumCount),
-            Lude.Just ("maximumCount" Lude..= maximumCount)
+          [ Lude.Just ("maximumCount" Lude..= maximumCount),
+            Lude.Just ("minimumCount" Lude..= minimumCount)
           ]
       )

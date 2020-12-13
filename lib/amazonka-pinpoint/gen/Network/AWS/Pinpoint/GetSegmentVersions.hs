@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,17 +21,17 @@ module Network.AWS.Pinpoint.GetSegmentVersions
 
     -- ** Request lenses
     gsvToken,
+    gsvApplicationId,
     gsvPageSize,
     gsvSegmentId,
-    gsvApplicationId,
 
     -- * Destructuring the response
     GetSegmentVersionsResponse (..),
     mkGetSegmentVersionsResponse,
 
     -- ** Response lenses
-    grsResponseStatus,
     grsSegmentsResponse,
+    grsResponseStatus,
   )
 where
 
@@ -42,39 +43,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSegmentVersions' smart constructor.
 data GetSegmentVersions = GetSegmentVersions'
-  { token ::
-      Lude.Maybe Lude.Text,
+  { -- | The NextToken string that specifies which page of results to return in a paginated response.
+    token :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
+    -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
     pageSize :: Lude.Maybe Lude.Text,
-    segmentId :: Lude.Text,
-    applicationId :: Lude.Text
+    -- | The unique identifier for the segment.
+    segmentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentVersions' with the minimum fields required to make a request.
 --
+-- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 -- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 -- * 'segmentId' - The unique identifier for the segment.
--- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
 mkGetSegmentVersions ::
-  -- | 'segmentId'
-  Lude.Text ->
   -- | 'applicationId'
   Lude.Text ->
+  -- | 'segmentId'
+  Lude.Text ->
   GetSegmentVersions
-mkGetSegmentVersions pSegmentId_ pApplicationId_ =
+mkGetSegmentVersions pApplicationId_ pSegmentId_ =
   GetSegmentVersions'
     { token = Lude.Nothing,
+      applicationId = pApplicationId_,
       pageSize = Lude.Nothing,
-      segmentId = pSegmentId_,
-      applicationId = pApplicationId_
+      segmentId = pSegmentId_
     }
 
 -- | The NextToken string that specifies which page of results to return in a paginated response.
@@ -83,6 +81,13 @@ mkGetSegmentVersions pSegmentId_ pApplicationId_ =
 gsvToken :: Lens.Lens' GetSegmentVersions (Lude.Maybe Lude.Text)
 gsvToken = Lens.lens (token :: GetSegmentVersions -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetSegmentVersions)
 {-# DEPRECATED gsvToken "Use generic-lens or generic-optics with 'token' instead." #-}
+
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvApplicationId :: Lens.Lens' GetSegmentVersions Lude.Text
+gsvApplicationId = Lens.lens (applicationId :: GetSegmentVersions -> Lude.Text) (\s a -> s {applicationId = a} :: GetSegmentVersions)
+{-# DEPRECATED gsvApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 --
@@ -98,13 +103,6 @@ gsvSegmentId :: Lens.Lens' GetSegmentVersions Lude.Text
 gsvSegmentId = Lens.lens (segmentId :: GetSegmentVersions -> Lude.Text) (\s a -> s {segmentId = a} :: GetSegmentVersions)
 {-# DEPRECATED gsvSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
--- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvApplicationId :: Lens.Lens' GetSegmentVersions Lude.Text
-gsvApplicationId = Lens.lens (applicationId :: GetSegmentVersions -> Lude.Text) (\s a -> s {applicationId = a} :: GetSegmentVersions)
-{-# DEPRECATED gsvApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
 instance Lude.AWSRequest GetSegmentVersions where
   type Rs GetSegmentVersions = GetSegmentVersionsResponse
   request = Req.get pinpointService
@@ -112,7 +110,7 @@ instance Lude.AWSRequest GetSegmentVersions where
     Res.receiveJSON
       ( \s h x ->
           GetSegmentVersionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetSegmentVersions where
@@ -141,41 +139,29 @@ instance Lude.ToQuery GetSegmentVersions where
 
 -- | /See:/ 'mkGetSegmentVersionsResponse' smart constructor.
 data GetSegmentVersionsResponse = GetSegmentVersionsResponse'
-  { responseStatus ::
-      Lude.Int,
-    segmentsResponse :: SegmentsResponse
+  { segmentsResponse :: SegmentsResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentVersionsResponse' with the minimum fields required to make a request.
 --
+-- * 'segmentsResponse' -
 -- * 'responseStatus' - The response status code.
--- * 'segmentsResponse' - Undocumented field.
 mkGetSegmentVersionsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'segmentsResponse'
   SegmentsResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSegmentVersionsResponse
-mkGetSegmentVersionsResponse pResponseStatus_ pSegmentsResponse_ =
+mkGetSegmentVersionsResponse pSegmentsResponse_ pResponseStatus_ =
   GetSegmentVersionsResponse'
-    { responseStatus = pResponseStatus_,
-      segmentsResponse = pSegmentsResponse_
+    { segmentsResponse =
+        pSegmentsResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsResponseStatus :: Lens.Lens' GetSegmentVersionsResponse Lude.Int
-grsResponseStatus = Lens.lens (responseStatus :: GetSegmentVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSegmentVersionsResponse)
-{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -183,3 +169,10 @@ grsResponseStatus = Lens.lens (responseStatus :: GetSegmentVersionsResponse -> L
 grsSegmentsResponse :: Lens.Lens' GetSegmentVersionsResponse SegmentsResponse
 grsSegmentsResponse = Lens.lens (segmentsResponse :: GetSegmentVersionsResponse -> SegmentsResponse) (\s a -> s {segmentsResponse = a} :: GetSegmentVersionsResponse)
 {-# DEPRECATED grsSegmentsResponse "Use generic-lens or generic-optics with 'segmentsResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetSegmentVersionsResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetSegmentVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSegmentVersionsResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.SourceAlgorithm
 --
 -- /See:/ 'mkSourceAlgorithmSpecification' smart constructor.
 newtype SourceAlgorithmSpecification = SourceAlgorithmSpecification'
-  { sourceAlgorithms ::
-      Lude.NonEmpty SourceAlgorithm
+  { -- | A list of the algorithms that were used to create a model package.
+    sourceAlgorithms :: Lude.NonEmpty SourceAlgorithm
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceAlgorithmSpecification' with the minimum fields required to make a request.

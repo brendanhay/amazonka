@@ -35,34 +35,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointDemographic' smart constructor.
 data EndpointDemographic = EndpointDemographic'
-  { platform ::
-      Lude.Maybe Lude.Text,
+  { -- | The platform of the endpoint device, such as ios.
+    platform :: Lude.Maybe Lude.Text,
+    -- | The platform version of the endpoint device.
     platformVersion :: Lude.Maybe Lude.Text,
+    -- | The locale of the endpoint, in the following format: the ISO 639-1 alpha-2 code, followed by an underscore (_), followed by an ISO 3166-1 alpha-2 value.
     locale :: Lude.Maybe Lude.Text,
+    -- | The version of the app that's associated with the endpoint.
     appVersion :: Lude.Maybe Lude.Text,
+    -- | The model name or number of the endpoint device, such as iPhone or SM-G900F.
     model :: Lude.Maybe Lude.Text,
+    -- | The manufacturer of the endpoint device, such as apple or samsung.
     make :: Lude.Maybe Lude.Text,
+    -- | The model version of the endpoint device.
     modelVersion :: Lude.Maybe Lude.Text,
+    -- | The time zone of the endpoint, specified as a tz database name value, such as America/Los_Angeles.
     timezone :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointDemographic' with the minimum fields required to make a request.
 --
--- * 'appVersion' - The version of the app that's associated with the endpoint.
--- * 'locale' - The locale of the endpoint, in the following format: the ISO 639-1 alpha-2 code, followed by an underscore (_), followed by an ISO 3166-1 alpha-2 value.
--- * 'make' - The manufacturer of the endpoint device, such as apple or samsung.
--- * 'model' - The model name or number of the endpoint device, such as iPhone or SM-G900F.
--- * 'modelVersion' - The model version of the endpoint device.
 -- * 'platform' - The platform of the endpoint device, such as ios.
 -- * 'platformVersion' - The platform version of the endpoint device.
+-- * 'locale' - The locale of the endpoint, in the following format: the ISO 639-1 alpha-2 code, followed by an underscore (_), followed by an ISO 3166-1 alpha-2 value.
+-- * 'appVersion' - The version of the app that's associated with the endpoint.
+-- * 'model' - The model name or number of the endpoint device, such as iPhone or SM-G900F.
+-- * 'make' - The manufacturer of the endpoint device, such as apple or samsung.
+-- * 'modelVersion' - The model version of the endpoint device.
 -- * 'timezone' - The time zone of the endpoint, specified as a tz database name value, such as America/Los_Angeles.
 mkEndpointDemographic ::
   EndpointDemographic

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.ReplaceNetworkACLAssociation
     mkReplaceNetworkACLAssociation,
 
     -- ** Request lenses
-    rnaaDryRun,
     rnaaAssociationId,
     rnaaNetworkACLId,
+    rnaaDryRun,
 
     -- * Destructuring the response
     ReplaceNetworkACLAssociationResponse (..),
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkReplaceNetworkACLAssociation' smart constructor.
 data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the current association between the original network ACL and the subnet.
     associationId :: Lude.Text,
-    networkACLId :: Lude.Text
+    -- | The ID of the new network ACL to associate with the subnet.
+    networkACLId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceNetworkACLAssociation' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The ID of the current association between the original network ACL and the subnet.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'networkACLId' - The ID of the new network ACL to associate with the subnet.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkReplaceNetworkACLAssociation ::
   -- | 'associationId'
   Lude.Text ->
@@ -70,17 +67,10 @@ mkReplaceNetworkACLAssociation ::
   ReplaceNetworkACLAssociation
 mkReplaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ =
   ReplaceNetworkACLAssociation'
-    { dryRun = Lude.Nothing,
-      associationId = pAssociationId_,
-      networkACLId = pNetworkACLId_
+    { associationId = pAssociationId_,
+      networkACLId = pNetworkACLId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rnaaDryRun :: Lens.Lens' ReplaceNetworkACLAssociation (Lude.Maybe Lude.Bool)
-rnaaDryRun = Lens.lens (dryRun :: ReplaceNetworkACLAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ReplaceNetworkACLAssociation)
-{-# DEPRECATED rnaaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the current association between the original network ACL and the subnet.
 --
@@ -95,6 +85,13 @@ rnaaAssociationId = Lens.lens (associationId :: ReplaceNetworkACLAssociation -> 
 rnaaNetworkACLId :: Lens.Lens' ReplaceNetworkACLAssociation Lude.Text
 rnaaNetworkACLId = Lens.lens (networkACLId :: ReplaceNetworkACLAssociation -> Lude.Text) (\s a -> s {networkACLId = a} :: ReplaceNetworkACLAssociation)
 {-# DEPRECATED rnaaNetworkACLId "Use generic-lens or generic-optics with 'networkACLId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnaaDryRun :: Lens.Lens' ReplaceNetworkACLAssociation (Lude.Maybe Lude.Bool)
+rnaaDryRun = Lens.lens (dryRun :: ReplaceNetworkACLAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ReplaceNetworkACLAssociation)
+{-# DEPRECATED rnaaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ReplaceNetworkACLAssociation where
   type
@@ -121,26 +118,19 @@ instance Lude.ToQuery ReplaceNetworkACLAssociation where
       [ "Action"
           Lude.=: ("ReplaceNetworkAclAssociation" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "AssociationId" Lude.=: associationId,
-        "NetworkAclId" Lude.=: networkACLId
+        "NetworkAclId" Lude.=: networkACLId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkReplaceNetworkACLAssociationResponse' smart constructor.
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
-  { newAssociationId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the new association.
+    newAssociationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceNetworkACLAssociationResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.Greengrass.StartBulkDeployment
 
     -- ** Request lenses
     sbdAmznClientToken,
-    sbdTags,
     sbdExecutionRoleARN,
     sbdInputFileURI,
+    sbdTags,
 
     -- * Destructuring the response
     StartBulkDeploymentResponse (..),
@@ -43,20 +44,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartBulkDeployment' smart constructor.
 data StartBulkDeployment = StartBulkDeployment'
-  { amznClientToken ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text,
+    -- | The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
     executionRoleARN :: Lude.Text,
-    inputFileURI :: Lude.Text
+    -- | The URI of the input file contained in the S3 bucket. The execution role must have ''getObject'' permissions on this bucket to access the input file. The input file is a JSON-serialized, line delimited file with UTF-8 encoding that provides a list of group and version IDs and the deployment type. This file must be less than 100 MB. Currently, AWS IoT Greengrass supports only ''NewDeployment'' deployment types.
+    inputFileURI :: Lude.Text,
+    -- | Tag(s) to add to the new resource.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBulkDeployment' with the minimum fields required to make a request.
@@ -74,9 +71,9 @@ mkStartBulkDeployment ::
 mkStartBulkDeployment pExecutionRoleARN_ pInputFileURI_ =
   StartBulkDeployment'
     { amznClientToken = Lude.Nothing,
-      tags = Lude.Nothing,
       executionRoleARN = pExecutionRoleARN_,
-      inputFileURI = pInputFileURI_
+      inputFileURI = pInputFileURI_,
+      tags = Lude.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
@@ -85,13 +82,6 @@ mkStartBulkDeployment pExecutionRoleARN_ pInputFileURI_ =
 sbdAmznClientToken :: Lens.Lens' StartBulkDeployment (Lude.Maybe Lude.Text)
 sbdAmznClientToken = Lens.lens (amznClientToken :: StartBulkDeployment -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: StartBulkDeployment)
 {-# DEPRECATED sbdAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
-
--- | Tag(s) to add to the new resource.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbdTags :: Lens.Lens' StartBulkDeployment (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-sbdTags = Lens.lens (tags :: StartBulkDeployment -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: StartBulkDeployment)
-{-# DEPRECATED sbdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ARN of the execution role to associate with the bulk deployment operation. This IAM role must allow the ''greengrass:CreateDeployment'' action for all group versions that are listed in the input file. This IAM role must have access to the S3 bucket containing the input file.
 --
@@ -106,6 +96,13 @@ sbdExecutionRoleARN = Lens.lens (executionRoleARN :: StartBulkDeployment -> Lude
 sbdInputFileURI :: Lens.Lens' StartBulkDeployment Lude.Text
 sbdInputFileURI = Lens.lens (inputFileURI :: StartBulkDeployment -> Lude.Text) (\s a -> s {inputFileURI = a} :: StartBulkDeployment)
 {-# DEPRECATED sbdInputFileURI "Use generic-lens or generic-optics with 'inputFileURI' instead." #-}
+
+-- | Tag(s) to add to the new resource.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdTags :: Lens.Lens' StartBulkDeployment (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+sbdTags = Lens.lens (tags :: StartBulkDeployment -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: StartBulkDeployment)
+{-# DEPRECATED sbdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest StartBulkDeployment where
   type Rs StartBulkDeployment = StartBulkDeploymentResponse
@@ -131,9 +128,9 @@ instance Lude.ToJSON StartBulkDeployment where
   toJSON StartBulkDeployment' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("ExecutionRoleArn" Lude..= executionRoleARN),
-            Lude.Just ("InputFileUri" Lude..= inputFileURI)
+          [ Lude.Just ("ExecutionRoleArn" Lude..= executionRoleARN),
+            Lude.Just ("InputFileUri" Lude..= inputFileURI),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -145,19 +142,14 @@ instance Lude.ToQuery StartBulkDeployment where
 
 -- | /See:/ 'mkStartBulkDeploymentResponse' smart constructor.
 data StartBulkDeploymentResponse = StartBulkDeploymentResponse'
-  { bulkDeploymentARN ::
-      Lude.Maybe Lude.Text,
-    bulkDeploymentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the bulk deployment.
+    bulkDeploymentARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the bulk deployment.
+    bulkDeploymentId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBulkDeploymentResponse' with the minimum fields required to make a request.

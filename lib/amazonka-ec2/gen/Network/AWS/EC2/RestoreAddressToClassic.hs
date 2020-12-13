@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.RestoreAddressToClassic
     mkRestoreAddressToClassic,
 
     -- ** Request lenses
-    ratcDryRun,
     ratcPublicIP,
+    ratcDryRun,
 
     -- * Destructuring the response
     RestoreAddressToClassicResponse (..),
@@ -41,39 +42,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRestoreAddressToClassic' smart constructor.
 data RestoreAddressToClassic = RestoreAddressToClassic'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    publicIP :: Lude.Text
+  { -- | The Elastic IP address.
+    publicIP :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreAddressToClassic' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'publicIP' - The Elastic IP address.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkRestoreAddressToClassic ::
   -- | 'publicIP'
   Lude.Text ->
   RestoreAddressToClassic
 mkRestoreAddressToClassic pPublicIP_ =
   RestoreAddressToClassic'
-    { dryRun = Lude.Nothing,
-      publicIP = pPublicIP_
+    { publicIP = pPublicIP_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratcDryRun :: Lens.Lens' RestoreAddressToClassic (Lude.Maybe Lude.Bool)
-ratcDryRun = Lens.lens (dryRun :: RestoreAddressToClassic -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RestoreAddressToClassic)
-{-# DEPRECATED ratcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The Elastic IP address.
 --
@@ -81,6 +70,13 @@ ratcDryRun = Lens.lens (dryRun :: RestoreAddressToClassic -> Lude.Maybe Lude.Boo
 ratcPublicIP :: Lens.Lens' RestoreAddressToClassic Lude.Text
 ratcPublicIP = Lens.lens (publicIP :: RestoreAddressToClassic -> Lude.Text) (\s a -> s {publicIP = a} :: RestoreAddressToClassic)
 {-# DEPRECATED ratcPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ratcDryRun :: Lens.Lens' RestoreAddressToClassic (Lude.Maybe Lude.Bool)
+ratcDryRun = Lens.lens (dryRun :: RestoreAddressToClassic -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RestoreAddressToClassic)
+{-# DEPRECATED ratcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest RestoreAddressToClassic where
   type Rs RestoreAddressToClassic = RestoreAddressToClassicResponse
@@ -105,32 +101,27 @@ instance Lude.ToQuery RestoreAddressToClassic where
     Lude.mconcat
       [ "Action" Lude.=: ("RestoreAddressToClassic" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "PublicIp" Lude.=: publicIP
+        "PublicIp" Lude.=: publicIP,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkRestoreAddressToClassicResponse' smart constructor.
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
-  { status ::
-      Lude.Maybe AddressStatus,
-    publicIP ::
-      Lude.Maybe Lude.Text,
+  { -- | The move status for the IP address.
+    status :: Lude.Maybe AddressStatus,
+    -- | The Elastic IP address.
+    publicIP :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreAddressToClassicResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The move status for the IP address.
 -- * 'publicIP' - The Elastic IP address.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The move status for the IP address.
 mkRestoreAddressToClassicResponse ::
   -- | 'responseStatus'
   Lude.Int ->

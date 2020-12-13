@@ -31,30 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImageScanFindingsSummary' smart constructor.
 data ImageScanFindingsSummary = ImageScanFindingsSummary'
-  { imageScanCompletedAt ::
-      Lude.Maybe Lude.Timestamp,
-    findingSeverityCounts ::
-      Lude.Maybe
-        ( Lude.HashMap
-            FindingSeverity
-            (Lude.Natural)
-        ),
-    vulnerabilitySourceUpdatedAt ::
-      Lude.Maybe Lude.Timestamp
+  { -- | The time of the last completed image scan.
+    imageScanCompletedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The image vulnerability counts, sorted by severity.
+    findingSeverityCounts :: Lude.Maybe (Lude.HashMap FindingSeverity (Lude.Natural)),
+    -- | The time when the vulnerability data was last scanned.
+    vulnerabilitySourceUpdatedAt :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageScanFindingsSummary' with the minimum fields required to make a request.
 --
--- * 'findingSeverityCounts' - The image vulnerability counts, sorted by severity.
 -- * 'imageScanCompletedAt' - The time of the last completed image scan.
+-- * 'findingSeverityCounts' - The image vulnerability counts, sorted by severity.
 -- * 'vulnerabilitySourceUpdatedAt' - The time when the vulnerability data was last scanned.
 mkImageScanFindingsSummary ::
   ImageScanFindingsSummary

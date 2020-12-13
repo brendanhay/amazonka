@@ -13,8 +13,8 @@
 module Network.AWS.Rekognition.Types.ProjectStatus
   ( ProjectStatus
       ( ProjectStatus',
-        PSCreated,
         PSCreating,
+        PSCreated,
         PSDeleting
       ),
   )
@@ -46,18 +46,18 @@ newtype ProjectStatus = ProjectStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern PSCreated :: ProjectStatus
-pattern PSCreated = ProjectStatus' "CREATED"
-
 pattern PSCreating :: ProjectStatus
 pattern PSCreating = ProjectStatus' "CREATING"
+
+pattern PSCreated :: ProjectStatus
+pattern PSCreated = ProjectStatus' "CREATED"
 
 pattern PSDeleting :: ProjectStatus
 pattern PSDeleting = ProjectStatus' "DELETING"
 
 {-# COMPLETE
-  PSCreated,
   PSCreating,
+  PSCreated,
   PSDeleting,
   ProjectStatus'
   #-}

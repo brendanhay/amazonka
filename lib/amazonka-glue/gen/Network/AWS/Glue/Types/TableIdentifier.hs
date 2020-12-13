@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTableIdentifier' smart constructor.
 data TableIdentifier = TableIdentifier'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog in which the table resides.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the target table.
     name :: Lude.Maybe Lude.Text,
+    -- | The name of the catalog database that contains the target table.
     databaseName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableIdentifier' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The ID of the Data Catalog in which the table resides.
--- * 'databaseName' - The name of the catalog database that contains the target table.
 -- * 'name' - The name of the target table.
+-- * 'databaseName' - The name of the catalog database that contains the target table.
 mkTableIdentifier ::
   TableIdentifier
 mkTableIdentifier =

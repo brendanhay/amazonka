@@ -38,41 +38,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationTaskStats' smart constructor.
 data ReplicationTaskStats = ReplicationTaskStats'
-  { stopDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the replication task was stopped.
+    stopDate :: Lude.Maybe Lude.Timestamp,
+    -- | The percent complete for the full load migration task.
     fullLoadProgressPercent :: Lude.Maybe Lude.Int,
+    -- | The date the replication task full load was started.
     fullLoadStartDate :: Lude.Maybe Lude.Timestamp,
+    -- | The elapsed time of the task, in milliseconds.
     elapsedTimeMillis :: Lude.Maybe Lude.Integer,
+    -- | The date the replication task was started either with a fresh start or a resume. For more information, see <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType> .
     startDate :: Lude.Maybe Lude.Timestamp,
+    -- | The number of errors that have occurred during this task.
     tablesErrored :: Lude.Maybe Lude.Int,
+    -- | The date the replication task full load was completed.
     fullLoadFinishDate :: Lude.Maybe Lude.Timestamp,
+    -- | The number of tables loaded for this task.
     tablesLoaded :: Lude.Maybe Lude.Int,
+    -- | The number of tables queued for this task.
     tablesQueued :: Lude.Maybe Lude.Int,
+    -- | The number of tables currently loading for this task.
     tablesLoading :: Lude.Maybe Lude.Int,
+    -- | The date the replication task was started either with a fresh start or a target reload.
     freshStartDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationTaskStats' with the minimum fields required to make a request.
 --
--- * 'elapsedTimeMillis' - The elapsed time of the task, in milliseconds.
--- * 'freshStartDate' - The date the replication task was started either with a fresh start or a target reload.
--- * 'fullLoadFinishDate' - The date the replication task full load was completed.
+-- * 'stopDate' - The date the replication task was stopped.
 -- * 'fullLoadProgressPercent' - The percent complete for the full load migration task.
 -- * 'fullLoadStartDate' - The date the replication task full load was started.
+-- * 'elapsedTimeMillis' - The elapsed time of the task, in milliseconds.
 -- * 'startDate' - The date the replication task was started either with a fresh start or a resume. For more information, see <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType> .
--- * 'stopDate' - The date the replication task was stopped.
 -- * 'tablesErrored' - The number of errors that have occurred during this task.
+-- * 'fullLoadFinishDate' - The date the replication task full load was completed.
 -- * 'tablesLoaded' - The number of tables loaded for this task.
--- * 'tablesLoading' - The number of tables currently loading for this task.
 -- * 'tablesQueued' - The number of tables queued for this task.
+-- * 'tablesLoading' - The number of tables currently loading for this task.
+-- * 'freshStartDate' - The date the replication task was started either with a fresh start or a target reload.
 mkReplicationTaskStats ::
   ReplicationTaskStats
 mkReplicationTaskStats =

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailoverConditionSettings' smart constructor.
 newtype FailoverConditionSettings = FailoverConditionSettings'
-  { inputLossSettings ::
-      Lude.Maybe InputLossFailoverSettings
+  { -- | MediaLive will perform a failover if content is not detected in this input for the specified period.
+    inputLossSettings :: Lude.Maybe InputLossFailoverSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailoverConditionSettings' with the minimum fields required to make a request.

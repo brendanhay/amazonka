@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,24 +46,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListRoleAliases' smart constructor.
 data ListRoleAliases = ListRoleAliases'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | A marker used to get the next set of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Return the list of role aliases in ascending alphabetical order.
     ascendingOrder :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return at one time.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRoleAliases' with the minimum fields required to make a request.
 --
--- * 'ascendingOrder' - Return the list of role aliases in ascending alphabetical order.
 -- * 'marker' - A marker used to get the next set of results.
+-- * 'ascendingOrder' - Return the list of role aliases in ascending alphabetical order.
 -- * 'pageSize' - The maximum number of results to return at one time.
 mkListRoleAliases ::
   ListRoleAliases
@@ -131,25 +128,21 @@ instance Lude.ToQuery ListRoleAliases where
 
 -- | /See:/ 'mkListRoleAliasesResponse' smart constructor.
 data ListRoleAliasesResponse = ListRoleAliasesResponse'
-  { roleAliases ::
-      Lude.Maybe [Lude.Text],
+  { -- | The role aliases.
+    roleAliases :: Lude.Maybe [Lude.Text],
+    -- | A marker used to get the next set of results.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRoleAliasesResponse' with the minimum fields required to make a request.
 --
+-- * 'roleAliases' - The role aliases.
 -- * 'nextMarker' - A marker used to get the next set of results.
 -- * 'responseStatus' - The response status code.
--- * 'roleAliases' - The role aliases.
 mkListRoleAliasesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

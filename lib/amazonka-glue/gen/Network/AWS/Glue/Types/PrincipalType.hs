@@ -13,9 +13,9 @@
 module Network.AWS.Glue.Types.PrincipalType
   ( PrincipalType
       ( PrincipalType',
-        Group,
+        User,
         Role,
-        User
+        Group
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype PrincipalType = PrincipalType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Group :: PrincipalType
-pattern Group = PrincipalType' "GROUP"
+pattern User :: PrincipalType
+pattern User = PrincipalType' "USER"
 
 pattern Role :: PrincipalType
 pattern Role = PrincipalType' "ROLE"
 
-pattern User :: PrincipalType
-pattern User = PrincipalType' "USER"
+pattern Group :: PrincipalType
+pattern Group = PrincipalType' "GROUP"
 
 {-# COMPLETE
-  Group,
-  Role,
   User,
+  Role,
+  Group,
   PrincipalType'
   #-}

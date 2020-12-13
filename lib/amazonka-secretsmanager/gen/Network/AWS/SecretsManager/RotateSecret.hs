@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,10 +53,10 @@ module Network.AWS.SecretsManager.RotateSecret
     mkRotateSecret,
 
     -- ** Request lenses
-    rsRotationRules,
-    rsClientRequestToken,
-    rsRotationLambdaARN,
-    rsSecretId,
+    rSecretId,
+    rRotationRules,
+    rClientRequestToken,
+    rRotationLambdaARN,
 
     -- * Destructuring the response
     RotateSecretResponse (..),
@@ -77,49 +78,57 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkRotateSecret' smart constructor.
 data RotateSecret = RotateSecret'
-  { rotationRules ::
-      Lude.Maybe RotationRulesType,
+  { -- | Specifies the secret that you want to rotate. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    secretId :: Lude.Text,
+    -- | A structure that defines the rotation configuration for this secret.
+    rotationRules :: Lude.Maybe RotationRulesType,
+    -- | (Optional) Specifies a unique identifier for the new version of the secret that helps ensure idempotency.
+    --
+    -- If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request for this parameter. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a @ClientRequestToken@ yourself for new versions and include that value in the request.
+    -- You only need to specify your own value if you implement your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.
+    -- Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the function's processing. This value becomes the @VersionId@ of the new version.
     clientRequestToken :: Lude.Maybe Lude.Text,
-    rotationLambdaARN :: Lude.Maybe Lude.Text,
-    secretId :: Lude.Text
+    -- | (Optional) Specifies the ARN of the Lambda function that can rotate the secret.
+    rotationLambdaARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RotateSecret' with the minimum fields required to make a request.
 --
+-- * 'secretId' - Specifies the secret that you want to rotate. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+-- * 'rotationRules' - A structure that defines the rotation configuration for this secret.
 -- * 'clientRequestToken' - (Optional) Specifies a unique identifier for the new version of the secret that helps ensure idempotency.
 --
 -- If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request for this parameter. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a @ClientRequestToken@ yourself for new versions and include that value in the request.
 -- You only need to specify your own value if you implement your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.
 -- Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the function's processing. This value becomes the @VersionId@ of the new version.
 -- * 'rotationLambdaARN' - (Optional) Specifies the ARN of the Lambda function that can rotate the secret.
--- * 'rotationRules' - A structure that defines the rotation configuration for this secret.
--- * 'secretId' - Specifies the secret that you want to rotate. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 mkRotateSecret ::
   -- | 'secretId'
   Lude.Text ->
   RotateSecret
 mkRotateSecret pSecretId_ =
   RotateSecret'
-    { rotationRules = Lude.Nothing,
+    { secretId = pSecretId_,
+      rotationRules = Lude.Nothing,
       clientRequestToken = Lude.Nothing,
-      rotationLambdaARN = Lude.Nothing,
-      secretId = pSecretId_
+      rotationLambdaARN = Lude.Nothing
     }
+
+-- | Specifies the secret that you want to rotate. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSecretId :: Lens.Lens' RotateSecret Lude.Text
+rSecretId = Lens.lens (secretId :: RotateSecret -> Lude.Text) (\s a -> s {secretId = a} :: RotateSecret)
+{-# DEPRECATED rSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 -- | A structure that defines the rotation configuration for this secret.
 --
 -- /Note:/ Consider using 'rotationRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsRotationRules :: Lens.Lens' RotateSecret (Lude.Maybe RotationRulesType)
-rsRotationRules = Lens.lens (rotationRules :: RotateSecret -> Lude.Maybe RotationRulesType) (\s a -> s {rotationRules = a} :: RotateSecret)
-{-# DEPRECATED rsRotationRules "Use generic-lens or generic-optics with 'rotationRules' instead." #-}
+rRotationRules :: Lens.Lens' RotateSecret (Lude.Maybe RotationRulesType)
+rRotationRules = Lens.lens (rotationRules :: RotateSecret -> Lude.Maybe RotationRulesType) (\s a -> s {rotationRules = a} :: RotateSecret)
+{-# DEPRECATED rRotationRules "Use generic-lens or generic-optics with 'rotationRules' instead." #-}
 
 -- | (Optional) Specifies a unique identifier for the new version of the secret that helps ensure idempotency.
 --
@@ -128,23 +137,16 @@ rsRotationRules = Lens.lens (rotationRules :: RotateSecret -> Lude.Maybe Rotatio
 -- Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the function's processing. This value becomes the @VersionId@ of the new version.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsClientRequestToken :: Lens.Lens' RotateSecret (Lude.Maybe Lude.Text)
-rsClientRequestToken = Lens.lens (clientRequestToken :: RotateSecret -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: RotateSecret)
-{-# DEPRECATED rsClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+rClientRequestToken :: Lens.Lens' RotateSecret (Lude.Maybe Lude.Text)
+rClientRequestToken = Lens.lens (clientRequestToken :: RotateSecret -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: RotateSecret)
+{-# DEPRECATED rClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | (Optional) Specifies the ARN of the Lambda function that can rotate the secret.
 --
 -- /Note:/ Consider using 'rotationLambdaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsRotationLambdaARN :: Lens.Lens' RotateSecret (Lude.Maybe Lude.Text)
-rsRotationLambdaARN = Lens.lens (rotationLambdaARN :: RotateSecret -> Lude.Maybe Lude.Text) (\s a -> s {rotationLambdaARN = a} :: RotateSecret)
-{-# DEPRECATED rsRotationLambdaARN "Use generic-lens or generic-optics with 'rotationLambdaARN' instead." #-}
-
--- | Specifies the secret that you want to rotate. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
---
--- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsSecretId :: Lens.Lens' RotateSecret Lude.Text
-rsSecretId = Lens.lens (secretId :: RotateSecret -> Lude.Text) (\s a -> s {secretId = a} :: RotateSecret)
-{-# DEPRECATED rsSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
+rRotationLambdaARN :: Lens.Lens' RotateSecret (Lude.Maybe Lude.Text)
+rRotationLambdaARN = Lens.lens (rotationLambdaARN :: RotateSecret -> Lude.Maybe Lude.Text) (\s a -> s {rotationLambdaARN = a} :: RotateSecret)
+{-# DEPRECATED rRotationLambdaARN "Use generic-lens or generic-optics with 'rotationLambdaARN' instead." #-}
 
 instance Lude.AWSRequest RotateSecret where
   type Rs RotateSecret = RotateSecretResponse
@@ -174,10 +176,10 @@ instance Lude.ToJSON RotateSecret where
   toJSON RotateSecret' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RotationRules" Lude..=) Lude.<$> rotationRules,
+          [ Lude.Just ("SecretId" Lude..= secretId),
+            ("RotationRules" Lude..=) Lude.<$> rotationRules,
             ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("RotationLambdaARN" Lude..=) Lude.<$> rotationLambdaARN,
-            Lude.Just ("SecretId" Lude..= secretId)
+            ("RotationLambdaARN" Lude..=) Lude.<$> rotationLambdaARN
           ]
       )
 
@@ -189,27 +191,24 @@ instance Lude.ToQuery RotateSecret where
 
 -- | /See:/ 'mkRotateSecretResponse' smart constructor.
 data RotateSecretResponse = RotateSecretResponse'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the new version of the secret created by the rotation started by this request.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the secret.
     arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RotateSecretResponse' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The ID of the new version of the secret created by the rotation started by this request.
 -- * 'arn' - The ARN of the secret.
 -- * 'name' - The friendly name of the secret.
 -- * 'responseStatus' - The response status code.
--- * 'versionId' - The ID of the new version of the secret created by the rotation started by this request.
 mkRotateSecretResponse ::
   -- | 'responseStatus'
   Lude.Int ->

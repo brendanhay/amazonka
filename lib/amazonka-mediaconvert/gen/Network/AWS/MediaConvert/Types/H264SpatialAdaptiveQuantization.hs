@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H264SpatialAdaptiveQuantization
   ( H264SpatialAdaptiveQuantization
       ( H264SpatialAdaptiveQuantization',
-        HSAQSDisabled,
-        HSAQSEnabled
+        HSAQfDisabled,
+        HSAQfEnabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H264SpatialAdaptiveQuantization = H264SpatialAdaptiveQuantization' Lude.
       Lude.ToHeader
     )
 
-pattern HSAQSDisabled :: H264SpatialAdaptiveQuantization
-pattern HSAQSDisabled = H264SpatialAdaptiveQuantization' "DISABLED"
+pattern HSAQfDisabled :: H264SpatialAdaptiveQuantization
+pattern HSAQfDisabled = H264SpatialAdaptiveQuantization' "DISABLED"
 
-pattern HSAQSEnabled :: H264SpatialAdaptiveQuantization
-pattern HSAQSEnabled = H264SpatialAdaptiveQuantization' "ENABLED"
+pattern HSAQfEnabled :: H264SpatialAdaptiveQuantization
+pattern HSAQfEnabled = H264SpatialAdaptiveQuantization' "ENABLED"
 
 {-# COMPLETE
-  HSAQSDisabled,
-  HSAQSEnabled,
+  HSAQfDisabled,
+  HSAQfEnabled,
   H264SpatialAdaptiveQuantization'
   #-}

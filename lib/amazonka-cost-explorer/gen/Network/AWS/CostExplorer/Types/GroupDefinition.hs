@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroupDefinition' smart constructor.
 data GroupDefinition = GroupDefinition'
-  { key ::
-      Lude.Maybe Lude.Text,
+  { -- | The string that represents a key for a specified group.
+    key :: Lude.Maybe Lude.Text,
+    -- | The string that represents the type of group.
     type' :: Lude.Maybe GroupDefinitionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupDefinition' with the minimum fields required to make a request.

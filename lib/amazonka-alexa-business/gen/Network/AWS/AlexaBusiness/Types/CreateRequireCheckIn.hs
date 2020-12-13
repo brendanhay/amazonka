@@ -17,8 +17,8 @@ module Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn
     mkCreateRequireCheckIn,
 
     -- * Lenses
-    crciReleaseAfterMinutes,
     crciEnabled,
+    crciReleaseAfterMinutes,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreateRequireCheckIn' smart constructor.
 data CreateRequireCheckIn = CreateRequireCheckIn'
-  { releaseAfterMinutes ::
-      Lude.Int,
-    enabled :: Lude.Bool
+  { -- | Whether require check in is enabled or not.
+    enabled :: Lude.Bool,
+    -- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
+    releaseAfterMinutes :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRequireCheckIn' with the minimum fields required to make a request.
@@ -47,24 +42,16 @@ data CreateRequireCheckIn = CreateRequireCheckIn'
 -- * 'enabled' - Whether require check in is enabled or not.
 -- * 'releaseAfterMinutes' - Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
 mkCreateRequireCheckIn ::
-  -- | 'releaseAfterMinutes'
-  Lude.Int ->
   -- | 'enabled'
   Lude.Bool ->
+  -- | 'releaseAfterMinutes'
+  Lude.Int ->
   CreateRequireCheckIn
-mkCreateRequireCheckIn pReleaseAfterMinutes_ pEnabled_ =
+mkCreateRequireCheckIn pEnabled_ pReleaseAfterMinutes_ =
   CreateRequireCheckIn'
-    { releaseAfterMinutes =
-        pReleaseAfterMinutes_,
-      enabled = pEnabled_
+    { enabled = pEnabled_,
+      releaseAfterMinutes = pReleaseAfterMinutes_
     }
-
--- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
---
--- /Note:/ Consider using 'releaseAfterMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crciReleaseAfterMinutes :: Lens.Lens' CreateRequireCheckIn Lude.Int
-crciReleaseAfterMinutes = Lens.lens (releaseAfterMinutes :: CreateRequireCheckIn -> Lude.Int) (\s a -> s {releaseAfterMinutes = a} :: CreateRequireCheckIn)
-{-# DEPRECATED crciReleaseAfterMinutes "Use generic-lens or generic-optics with 'releaseAfterMinutes' instead." #-}
 
 -- | Whether require check in is enabled or not.
 --
@@ -73,11 +60,18 @@ crciEnabled :: Lens.Lens' CreateRequireCheckIn Lude.Bool
 crciEnabled = Lens.lens (enabled :: CreateRequireCheckIn -> Lude.Bool) (\s a -> s {enabled = a} :: CreateRequireCheckIn)
 {-# DEPRECATED crciEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
+-- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
+--
+-- /Note:/ Consider using 'releaseAfterMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crciReleaseAfterMinutes :: Lens.Lens' CreateRequireCheckIn Lude.Int
+crciReleaseAfterMinutes = Lens.lens (releaseAfterMinutes :: CreateRequireCheckIn -> Lude.Int) (\s a -> s {releaseAfterMinutes = a} :: CreateRequireCheckIn)
+{-# DEPRECATED crciReleaseAfterMinutes "Use generic-lens or generic-optics with 'releaseAfterMinutes' instead." #-}
+
 instance Lude.ToJSON CreateRequireCheckIn where
   toJSON CreateRequireCheckIn' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ReleaseAfterMinutes" Lude..= releaseAfterMinutes),
-            Lude.Just ("Enabled" Lude..= enabled)
+          [ Lude.Just ("Enabled" Lude..= enabled),
+            Lude.Just ("ReleaseAfterMinutes" Lude..= releaseAfterMinutes)
           ]
       )

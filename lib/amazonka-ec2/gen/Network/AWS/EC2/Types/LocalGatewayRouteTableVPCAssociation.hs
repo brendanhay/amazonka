@@ -36,49 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalGatewayRouteTableVPCAssociation' smart constructor.
 data LocalGatewayRouteTableVPCAssociation = LocalGatewayRouteTableVPCAssociation'
-  { state ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayRouteTableARN ::
-      Lude.Maybe
-        Lude.Text,
-    vpcId ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayId ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayRouteTableVPCAssociationId ::
-      Lude.Maybe
-        Lude.Text,
-    ownerId ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayRouteTableId ::
-      Lude.Maybe
-        Lude.Text,
-    tags ::
-      Lude.Maybe [Tag]
+  { -- | The state of the association.
+    state :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the local gateway route table for the association.
+    localGatewayRouteTableARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway.
+    localGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the association.
+    localGatewayRouteTableVPCAssociationId :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID that owns the local gateway route table for the association.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway route table.
+    localGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the association.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalGatewayRouteTableVPCAssociation' with the minimum fields required to make a request.
 --
--- * 'localGatewayId' - The ID of the local gateway.
+-- * 'state' - The state of the association.
 -- * 'localGatewayRouteTableARN' - The Amazon Resource Name (ARN) of the local gateway route table for the association.
--- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
+-- * 'vpcId' - The ID of the VPC.
+-- * 'localGatewayId' - The ID of the local gateway.
 -- * 'localGatewayRouteTableVPCAssociationId' - The ID of the association.
 -- * 'ownerId' - The AWS account ID that owns the local gateway route table for the association.
--- * 'state' - The state of the association.
+-- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
 -- * 'tags' - The tags assigned to the association.
--- * 'vpcId' - The ID of the VPC.
 mkLocalGatewayRouteTableVPCAssociation ::
   LocalGatewayRouteTableVPCAssociation
 mkLocalGatewayRouteTableVPCAssociation =

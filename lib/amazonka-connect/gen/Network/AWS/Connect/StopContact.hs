@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Connect.StopContact
     mkStopContact,
 
     -- ** Request lenses
-    scContactId,
     scInstanceId,
+    scContactId,
 
     -- * Destructuring the response
     StopContactResponse (..),
@@ -39,37 +40,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopContact' smart constructor.
 data StopContact = StopContact'
-  { contactId :: Lude.Text,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The ID of the contact.
+    contactId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopContact' with the minimum fields required to make a request.
 --
--- * 'contactId' - The ID of the contact.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'contactId' - The ID of the contact.
 mkStopContact ::
-  -- | 'contactId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'contactId'
+  Lude.Text ->
   StopContact
-mkStopContact pContactId_ pInstanceId_ =
-  StopContact' {contactId = pContactId_, instanceId = pInstanceId_}
-
--- | The ID of the contact.
---
--- /Note:/ Consider using 'contactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scContactId :: Lens.Lens' StopContact Lude.Text
-scContactId = Lens.lens (contactId :: StopContact -> Lude.Text) (\s a -> s {contactId = a} :: StopContact)
-{-# DEPRECATED scContactId "Use generic-lens or generic-optics with 'contactId' instead." #-}
+mkStopContact pInstanceId_ pContactId_ =
+  StopContact' {instanceId = pInstanceId_, contactId = pContactId_}
 
 -- | The identifier of the Amazon Connect instance.
 --
@@ -77,6 +67,13 @@ scContactId = Lens.lens (contactId :: StopContact -> Lude.Text) (\s a -> s {cont
 scInstanceId :: Lens.Lens' StopContact Lude.Text
 scInstanceId = Lens.lens (instanceId :: StopContact -> Lude.Text) (\s a -> s {instanceId = a} :: StopContact)
 {-# DEPRECATED scInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The ID of the contact.
+--
+-- /Note:/ Consider using 'contactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scContactId :: Lens.Lens' StopContact Lude.Text
+scContactId = Lens.lens (contactId :: StopContact -> Lude.Text) (\s a -> s {contactId = a} :: StopContact)
+{-# DEPRECATED scContactId "Use generic-lens or generic-optics with 'contactId' instead." #-}
 
 instance Lude.AWSRequest StopContact where
   type Rs StopContact = StopContactResponse
@@ -100,8 +97,8 @@ instance Lude.ToJSON StopContact where
   toJSON StopContact' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ContactId" Lude..= contactId),
-            Lude.Just ("InstanceId" Lude..= instanceId)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("ContactId" Lude..= contactId)
           ]
       )
 
@@ -113,16 +110,10 @@ instance Lude.ToQuery StopContact where
 
 -- | /See:/ 'mkStopContactResponse' smart constructor.
 newtype StopContactResponse = StopContactResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopContactResponse' with the minimum fields required to make a request.

@@ -39,45 +39,51 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkPendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { encryptionType ::
-      Lude.Maybe Lude.Text,
+  { -- | The encryption type for a cluster. Possible values are: KMS and None.
+    encryptionType :: Lude.Maybe Lude.Text,
+    -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+    --
+    -- If this option is @true@ , enhanced VPC routing is enabled.
+    -- Default: false
     enhancedVPCRouting :: Lude.Maybe Lude.Bool,
+    -- | The pending or in-progress change of the master user password for the cluster.
     masterUserPassword :: Lude.Maybe Lude.Text,
+    -- | The pending or in-progress change of the ability to connect to the cluster from the public network.
     publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | The name of the maintenance track that the cluster will change to during the next maintenance window.
     maintenanceTrackName :: Lude.Maybe Lude.Text,
-    automatedSnapshotRetentionPeriod ::
-      Lude.Maybe Lude.Int,
+    -- | The pending or in-progress change of the automated snapshot retention period.
+    automatedSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | The pending or in-progress change of the new identifier for the cluster.
     clusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The pending or in-progress change of the number of nodes in the cluster.
     numberOfNodes :: Lude.Maybe Lude.Int,
+    -- | The pending or in-progress change of the cluster type.
     clusterType :: Lude.Maybe Lude.Text,
+    -- | The pending or in-progress change of the service version.
     clusterVersion :: Lude.Maybe Lude.Text,
+    -- | The pending or in-progress change of the cluster's node type.
     nodeType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
--- * 'automatedSnapshotRetentionPeriod' - The pending or in-progress change of the automated snapshot retention period.
--- * 'clusterIdentifier' - The pending or in-progress change of the new identifier for the cluster.
--- * 'clusterType' - The pending or in-progress change of the cluster type.
--- * 'clusterVersion' - The pending or in-progress change of the service version.
 -- * 'encryptionType' - The encryption type for a cluster. Possible values are: KMS and None.
 -- * 'enhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
 --
 -- If this option is @true@ , enhanced VPC routing is enabled.
 -- Default: false
--- * 'maintenanceTrackName' - The name of the maintenance track that the cluster will change to during the next maintenance window.
 -- * 'masterUserPassword' - The pending or in-progress change of the master user password for the cluster.
--- * 'nodeType' - The pending or in-progress change of the cluster's node type.
--- * 'numberOfNodes' - The pending or in-progress change of the number of nodes in the cluster.
 -- * 'publiclyAccessible' - The pending or in-progress change of the ability to connect to the cluster from the public network.
+-- * 'maintenanceTrackName' - The name of the maintenance track that the cluster will change to during the next maintenance window.
+-- * 'automatedSnapshotRetentionPeriod' - The pending or in-progress change of the automated snapshot retention period.
+-- * 'clusterIdentifier' - The pending or in-progress change of the new identifier for the cluster.
+-- * 'numberOfNodes' - The pending or in-progress change of the number of nodes in the cluster.
+-- * 'clusterType' - The pending or in-progress change of the cluster type.
+-- * 'clusterVersion' - The pending or in-progress change of the service version.
+-- * 'nodeType' - The pending or in-progress change of the cluster's node type.
 mkPendingModifiedValues ::
   PendingModifiedValues
 mkPendingModifiedValues =

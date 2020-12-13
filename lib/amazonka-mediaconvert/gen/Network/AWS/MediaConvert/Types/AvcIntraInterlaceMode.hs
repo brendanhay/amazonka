@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.AvcIntraInterlaceMode
   ( AvcIntraInterlaceMode
       ( AvcIntraInterlaceMode',
-        AIIMBottomField,
-        AIIMFollowBottomField,
-        AIIMFollowTopField,
         AIIMProgressive,
-        AIIMTopField
+        AIIMTopField,
+        AIIMBottomField,
+        AIIMFollowTopField,
+        AIIMFollowBottomField
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype AvcIntraInterlaceMode = AvcIntraInterlaceMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern AIIMBottomField :: AvcIntraInterlaceMode
-pattern AIIMBottomField = AvcIntraInterlaceMode' "BOTTOM_FIELD"
-
-pattern AIIMFollowBottomField :: AvcIntraInterlaceMode
-pattern AIIMFollowBottomField = AvcIntraInterlaceMode' "FOLLOW_BOTTOM_FIELD"
-
-pattern AIIMFollowTopField :: AvcIntraInterlaceMode
-pattern AIIMFollowTopField = AvcIntraInterlaceMode' "FOLLOW_TOP_FIELD"
-
 pattern AIIMProgressive :: AvcIntraInterlaceMode
 pattern AIIMProgressive = AvcIntraInterlaceMode' "PROGRESSIVE"
 
 pattern AIIMTopField :: AvcIntraInterlaceMode
 pattern AIIMTopField = AvcIntraInterlaceMode' "TOP_FIELD"
 
+pattern AIIMBottomField :: AvcIntraInterlaceMode
+pattern AIIMBottomField = AvcIntraInterlaceMode' "BOTTOM_FIELD"
+
+pattern AIIMFollowTopField :: AvcIntraInterlaceMode
+pattern AIIMFollowTopField = AvcIntraInterlaceMode' "FOLLOW_TOP_FIELD"
+
+pattern AIIMFollowBottomField :: AvcIntraInterlaceMode
+pattern AIIMFollowBottomField = AvcIntraInterlaceMode' "FOLLOW_BOTTOM_FIELD"
+
 {-# COMPLETE
-  AIIMBottomField,
-  AIIMFollowBottomField,
-  AIIMFollowTopField,
   AIIMProgressive,
   AIIMTopField,
+  AIIMBottomField,
+  AIIMFollowTopField,
+  AIIMFollowBottomField,
   AvcIntraInterlaceMode'
   #-}

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPAuthorization' smart constructor.
 newtype HTTPAuthorization = HTTPAuthorization'
-  { sigv4 ::
-      Lude.Maybe SigV4Authorization
+  { -- | Use Sig V4 authorization. For more information, see <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
+    sigv4 :: Lude.Maybe SigV4Authorization
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPAuthorization' with the minimum fields required to make a request.

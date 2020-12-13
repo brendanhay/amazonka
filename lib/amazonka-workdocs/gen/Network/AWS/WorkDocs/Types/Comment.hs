@@ -22,10 +22,10 @@ module Network.AWS.WorkDocs.Types.Comment
     cVisibility,
     cThreadId,
     cContributor,
+    cCommentId,
     cCreatedTimestamp,
     cRecipientId,
     cParentId,
-    cCommentId,
   )
 where
 
@@ -39,30 +39,39 @@ import Network.AWS.WorkDocs.Types.User
 --
 -- /See:/ 'mkComment' smart constructor.
 data Comment = Comment'
-  { status :: Lude.Maybe CommentStatusType,
+  { -- | The status of the comment.
+    status :: Lude.Maybe CommentStatusType,
+    -- | The text of the comment.
     text :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
     visibility :: Lude.Maybe CommentVisibilityType,
+    -- | The ID of the root comment in the thread.
     threadId :: Lude.Maybe Lude.Text,
+    -- | The details of the user who made the comment.
     contributor :: Lude.Maybe User,
+    -- | The ID of the comment.
+    commentId :: Lude.Text,
+    -- | The time that the comment was created.
     createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to.
     recipientId :: Lude.Maybe Lude.Text,
-    parentId :: Lude.Maybe Lude.Text,
-    commentId :: Lude.Text
+    -- | The ID of the parent comment.
+    parentId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Comment' with the minimum fields required to make a request.
 --
--- * 'commentId' - The ID of the comment.
--- * 'contributor' - The details of the user who made the comment.
--- * 'createdTimestamp' - The time that the comment was created.
--- * 'parentId' - The ID of the parent comment.
--- * 'recipientId' - If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to.
 -- * 'status' - The status of the comment.
 -- * 'text' - The text of the comment.
--- * 'threadId' - The ID of the root comment in the thread.
 -- * 'visibility' - The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
+-- * 'threadId' - The ID of the root comment in the thread.
+-- * 'contributor' - The details of the user who made the comment.
+-- * 'commentId' - The ID of the comment.
+-- * 'createdTimestamp' - The time that the comment was created.
+-- * 'recipientId' - If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to.
+-- * 'parentId' - The ID of the parent comment.
 mkComment ::
   -- | 'commentId'
   Lude.Text ->
@@ -74,10 +83,10 @@ mkComment pCommentId_ =
       visibility = Lude.Nothing,
       threadId = Lude.Nothing,
       contributor = Lude.Nothing,
+      commentId = pCommentId_,
       createdTimestamp = Lude.Nothing,
       recipientId = Lude.Nothing,
-      parentId = Lude.Nothing,
-      commentId = pCommentId_
+      parentId = Lude.Nothing
     }
 
 -- | The status of the comment.
@@ -115,6 +124,13 @@ cContributor :: Lens.Lens' Comment (Lude.Maybe User)
 cContributor = Lens.lens (contributor :: Comment -> Lude.Maybe User) (\s a -> s {contributor = a} :: Comment)
 {-# DEPRECATED cContributor "Use generic-lens or generic-optics with 'contributor' instead." #-}
 
+-- | The ID of the comment.
+--
+-- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCommentId :: Lens.Lens' Comment Lude.Text
+cCommentId = Lens.lens (commentId :: Comment -> Lude.Text) (\s a -> s {commentId = a} :: Comment)
+{-# DEPRECATED cCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
+
 -- | The time that the comment was created.
 --
 -- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -136,13 +152,6 @@ cParentId :: Lens.Lens' Comment (Lude.Maybe Lude.Text)
 cParentId = Lens.lens (parentId :: Comment -> Lude.Maybe Lude.Text) (\s a -> s {parentId = a} :: Comment)
 {-# DEPRECATED cParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
--- | The ID of the comment.
---
--- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCommentId :: Lens.Lens' Comment Lude.Text
-cCommentId = Lens.lens (commentId :: Comment -> Lude.Text) (\s a -> s {commentId = a} :: Comment)
-{-# DEPRECATED cCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
-
 instance Lude.FromJSON Comment where
   parseJSON =
     Lude.withObject
@@ -154,8 +163,8 @@ instance Lude.FromJSON Comment where
             Lude.<*> (x Lude..:? "Visibility")
             Lude.<*> (x Lude..:? "ThreadId")
             Lude.<*> (x Lude..:? "Contributor")
+            Lude.<*> (x Lude..: "CommentId")
             Lude.<*> (x Lude..:? "CreatedTimestamp")
             Lude.<*> (x Lude..:? "RecipientId")
             Lude.<*> (x Lude..:? "ParentId")
-            Lude.<*> (x Lude..: "CommentId")
       )

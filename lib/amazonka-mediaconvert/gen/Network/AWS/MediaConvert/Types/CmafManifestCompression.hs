@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.CmafManifestCompression
   ( CmafManifestCompression
       ( CmafManifestCompression',
-        CMCGzip,
-        CMCNone
+        Gzip,
+        None
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype CmafManifestCompression = CmafManifestCompression' Lude.Text
       Lude.ToHeader
     )
 
-pattern CMCGzip :: CmafManifestCompression
-pattern CMCGzip = CmafManifestCompression' "GZIP"
+pattern Gzip :: CmafManifestCompression
+pattern Gzip = CmafManifestCompression' "GZIP"
 
-pattern CMCNone :: CmafManifestCompression
-pattern CMCNone = CmafManifestCompression' "NONE"
+pattern None :: CmafManifestCompression
+pattern None = CmafManifestCompression' "NONE"
 
 {-# COMPLETE
-  CMCGzip,
-  CMCNone,
+  Gzip,
+  None,
   CmafManifestCompression'
   #-}

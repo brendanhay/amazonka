@@ -38,35 +38,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCmafEncryptionSettings' smart constructor.
 data CmafEncryptionSettings = CmafEncryptionSettings'
-  { encryptionMethod ::
-      Lude.Maybe CmafEncryptionType,
-    constantInitializationVector ::
-      Lude.Maybe Lude.Text,
+  { -- | Specify the encryption scheme that you want the service to use when encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or AES_CTR (AES-CTR).
+    encryptionMethod :: Lude.Maybe CmafEncryptionType,
+    -- | This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
+    constantInitializationVector :: Lude.Maybe Lude.Text,
+    -- | Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
     type' :: Lude.Maybe CmafKeyProviderType,
-    staticKeyProvider ::
-      Lude.Maybe StaticKeyProvider,
-    spekeKeyProvider ::
-      Lude.Maybe SpekeKeyProviderCmaf,
-    initializationVectorInManifest ::
-      Lude.Maybe CmafInitializationVectorInManifest
+    -- | Use these settings to set up encryption with a static key provider.
+    staticKeyProvider :: Lude.Maybe StaticKeyProvider,
+    -- | If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
+    spekeKeyProvider :: Lude.Maybe SpekeKeyProviderCmaf,
+    -- | When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
+    initializationVectorInManifest :: Lude.Maybe CmafInitializationVectorInManifest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CmafEncryptionSettings' with the minimum fields required to make a request.
 --
--- * 'constantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
 -- * 'encryptionMethod' - Specify the encryption scheme that you want the service to use when encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or AES_CTR (AES-CTR).
--- * 'initializationVectorInManifest' - When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
--- * 'spekeKeyProvider' - If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
--- * 'staticKeyProvider' - Use these settings to set up encryption with a static key provider.
+-- * 'constantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
 -- * 'type'' - Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
+-- * 'staticKeyProvider' - Use these settings to set up encryption with a static key provider.
+-- * 'spekeKeyProvider' - If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
+-- * 'initializationVectorInManifest' - When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
 mkCmafEncryptionSettings ::
   CmafEncryptionSettings
 mkCmafEncryptionSettings =

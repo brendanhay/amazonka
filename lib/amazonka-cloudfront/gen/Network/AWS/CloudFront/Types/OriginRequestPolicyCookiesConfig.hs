@@ -31,22 +31,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOriginRequestPolicyCookiesConfig' smart constructor.
 data OriginRequestPolicyCookiesConfig = OriginRequestPolicyCookiesConfig'
-  { cookies ::
-      Lude.Maybe CookieNames,
-    cookieBehavior ::
-      OriginRequestPolicyCookieBehavior
+  { cookies :: Lude.Maybe CookieNames,
+    -- | Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+    --
+    --
+    --     * @none@ – Cookies in viewer requests are not included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any cookies that are listed in a @CachePolicy@ /are/ included in origin requests.
+    --
+    --
+    --     * @whitelist@ – The cookies in viewer requests that are listed in the @CookieNames@ type are included in requests that CloudFront sends to the origin.
+    --
+    --
+    --     * @all@ – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+    cookieBehavior :: OriginRequestPolicyCookieBehavior
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginRequestPolicyCookiesConfig' with the minimum fields required to make a request.
 --
+-- * 'cookies' -
 -- * 'cookieBehavior' - Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
 --
 --
@@ -57,9 +60,6 @@ data OriginRequestPolicyCookiesConfig = OriginRequestPolicyCookiesConfig'
 --
 --
 --     * @all@ – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
---
---
--- * 'cookies' - Undocumented field.
 mkOriginRequestPolicyCookiesConfig ::
   -- | 'cookieBehavior'
   OriginRequestPolicyCookieBehavior ->

@@ -18,10 +18,10 @@ module Network.AWS.IAM.Types.PolicyGrantingServiceAccess
 
     -- * Lenses
     pgsaEntityName,
-    pgsaEntityType,
-    pgsaPolicyARN,
     pgsaPolicyName,
     pgsaPolicyType,
+    pgsaEntityType,
+    pgsaPolicyARN,
   )
 where
 
@@ -36,21 +36,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyGrantingServiceAccess' smart constructor.
 data PolicyGrantingServiceAccess = PolicyGrantingServiceAccess'
-  { entityName ::
-      Lude.Maybe Lude.Text,
-    entityType ::
-      Lude.Maybe PolicyOwnerEntityType,
-    policyARN :: Lude.Maybe Lude.Text,
+  { -- | The name of the entity (user or role) to which the inline policy is attached.
+    --
+    -- This field is null for managed policies. For more information about these policy types, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+    entityName :: Lude.Maybe Lude.Text,
+    -- | The policy name.
     policyName :: Lude.Text,
-    policyType :: PolicyType
+    -- | The policy type. For more information about these policy types, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+    policyType :: PolicyType,
+    -- | The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.
+    --
+    -- This field is null for managed policies. For more information about these policy types, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+    entityType :: Lude.Maybe PolicyOwnerEntityType,
+    policyARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyGrantingServiceAccess' with the minimum fields required to make a request.
@@ -58,12 +58,12 @@ data PolicyGrantingServiceAccess = PolicyGrantingServiceAccess'
 -- * 'entityName' - The name of the entity (user or role) to which the inline policy is attached.
 --
 -- This field is null for managed policies. For more information about these policy types, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+-- * 'policyName' - The policy name.
+-- * 'policyType' - The policy type. For more information about these policy types, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 -- * 'entityType' - The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.
 --
 -- This field is null for managed policies. For more information about these policy types, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
--- * 'policyARN' - Undocumented field.
--- * 'policyName' - The policy name.
--- * 'policyType' - The policy type. For more information about these policy types, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+-- * 'policyARN' -
 mkPolicyGrantingServiceAccess ::
   -- | 'policyName'
   Lude.Text ->
@@ -73,10 +73,10 @@ mkPolicyGrantingServiceAccess ::
 mkPolicyGrantingServiceAccess pPolicyName_ pPolicyType_ =
   PolicyGrantingServiceAccess'
     { entityName = Lude.Nothing,
-      entityType = Lude.Nothing,
-      policyARN = Lude.Nothing,
       policyName = pPolicyName_,
-      policyType = pPolicyType_
+      policyType = pPolicyType_,
+      entityType = Lude.Nothing,
+      policyARN = Lude.Nothing
     }
 
 -- | The name of the entity (user or role) to which the inline policy is attached.
@@ -87,6 +87,20 @@ mkPolicyGrantingServiceAccess pPolicyName_ pPolicyType_ =
 pgsaEntityName :: Lens.Lens' PolicyGrantingServiceAccess (Lude.Maybe Lude.Text)
 pgsaEntityName = Lens.lens (entityName :: PolicyGrantingServiceAccess -> Lude.Maybe Lude.Text) (\s a -> s {entityName = a} :: PolicyGrantingServiceAccess)
 {-# DEPRECATED pgsaEntityName "Use generic-lens or generic-optics with 'entityName' instead." #-}
+
+-- | The policy name.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgsaPolicyName :: Lens.Lens' PolicyGrantingServiceAccess Lude.Text
+pgsaPolicyName = Lens.lens (policyName :: PolicyGrantingServiceAccess -> Lude.Text) (\s a -> s {policyName = a} :: PolicyGrantingServiceAccess)
+{-# DEPRECATED pgsaPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | The policy type. For more information about these policy types, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgsaPolicyType :: Lens.Lens' PolicyGrantingServiceAccess PolicyType
+pgsaPolicyType = Lens.lens (policyType :: PolicyGrantingServiceAccess -> PolicyType) (\s a -> s {policyType = a} :: PolicyGrantingServiceAccess)
+{-# DEPRECATED pgsaPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
 
 -- | The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.
 --
@@ -104,25 +118,11 @@ pgsaPolicyARN :: Lens.Lens' PolicyGrantingServiceAccess (Lude.Maybe Lude.Text)
 pgsaPolicyARN = Lens.lens (policyARN :: PolicyGrantingServiceAccess -> Lude.Maybe Lude.Text) (\s a -> s {policyARN = a} :: PolicyGrantingServiceAccess)
 {-# DEPRECATED pgsaPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
--- | The policy name.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgsaPolicyName :: Lens.Lens' PolicyGrantingServiceAccess Lude.Text
-pgsaPolicyName = Lens.lens (policyName :: PolicyGrantingServiceAccess -> Lude.Text) (\s a -> s {policyName = a} :: PolicyGrantingServiceAccess)
-{-# DEPRECATED pgsaPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
-
--- | The policy type. For more information about these policy types, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
---
--- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgsaPolicyType :: Lens.Lens' PolicyGrantingServiceAccess PolicyType
-pgsaPolicyType = Lens.lens (policyType :: PolicyGrantingServiceAccess -> PolicyType) (\s a -> s {policyType = a} :: PolicyGrantingServiceAccess)
-{-# DEPRECATED pgsaPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
-
 instance Lude.FromXML PolicyGrantingServiceAccess where
   parseXML x =
     PolicyGrantingServiceAccess'
       Lude.<$> (x Lude..@? "EntityName")
-      Lude.<*> (x Lude..@? "EntityType")
-      Lude.<*> (x Lude..@? "PolicyArn")
       Lude.<*> (x Lude..@ "PolicyName")
       Lude.<*> (x Lude..@ "PolicyType")
+      Lude.<*> (x Lude..@? "EntityType")
+      Lude.<*> (x Lude..@? "PolicyArn")

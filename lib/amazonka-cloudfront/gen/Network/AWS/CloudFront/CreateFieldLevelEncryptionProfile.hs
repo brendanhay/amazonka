@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateFieldLevelEncryptionProfile' smart constructor.
 newtype CreateFieldLevelEncryptionProfile = CreateFieldLevelEncryptionProfile'
-  { fieldLevelEncryptionProfileConfig ::
-      FieldLevelEncryptionProfileConfig
+  { -- | The request to create a field-level encryption profile.
+    fieldLevelEncryptionProfileConfig :: FieldLevelEncryptionProfileConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFieldLevelEncryptionProfile' with the minimum fields required to make a request.
@@ -106,32 +101,23 @@ instance Lude.ToQuery CreateFieldLevelEncryptionProfile where
 
 -- | /See:/ 'mkCreateFieldLevelEncryptionProfileResponse' smart constructor.
 data CreateFieldLevelEncryptionProfileResponse = CreateFieldLevelEncryptionProfileResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    location ::
-      Lude.Maybe
-        Lude.Text,
-    fieldLevelEncryptionProfile ::
-      Lude.Maybe
-        FieldLevelEncryptionProfile,
-    responseStatus ::
-      Lude.Int
+  { -- | The current version of the field level encryption profile. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The fully qualified URI of the new profile resource just created.
+    location :: Lude.Maybe Lude.Text,
+    -- | Returned when you create a new field-level encryption profile.
+    fieldLevelEncryptionProfile :: Lude.Maybe FieldLevelEncryptionProfile,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFieldLevelEncryptionProfileResponse' with the minimum fields required to make a request.
 --
 -- * 'eTag' - The current version of the field level encryption profile. For example: @E2QWRUHAPOMQZL@ .
--- * 'fieldLevelEncryptionProfile' - Returned when you create a new field-level encryption profile.
 -- * 'location' - The fully qualified URI of the new profile resource just created.
+-- * 'fieldLevelEncryptionProfile' - Returned when you create a new field-level encryption profile.
 -- * 'responseStatus' - The response status code.
 mkCreateFieldLevelEncryptionProfileResponse ::
   -- | 'responseStatus'

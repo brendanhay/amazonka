@@ -30,19 +30,15 @@ import Network.AWS.Rekognition.Types.S3Object
 -- You get the training summary S3 bucket location by calling 'DescribeProjectVersions' .
 --
 -- /See:/ 'mkSummary' smart constructor.
-newtype Summary = Summary' {s3Object :: Lude.Maybe S3Object}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Summary = Summary'
+  { s3Object :: Lude.Maybe S3Object
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Summary' with the minimum fields required to make a request.
 --
--- * 's3Object' - Undocumented field.
+-- * 's3Object' -
 mkSummary ::
   Summary
 mkSummary = Summary' {s3Object = Lude.Nothing}

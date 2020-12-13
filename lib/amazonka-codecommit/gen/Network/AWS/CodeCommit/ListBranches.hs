@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListBranches' smart constructor.
 data ListBranches = ListBranches'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An enumeration token that allows the operation to batch the results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the repository that contains the branches.
     repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBranches' with the minimum fields required to make a request.
@@ -138,18 +134,14 @@ instance Lude.ToQuery ListBranches where
 --
 -- /See:/ 'mkListBranchesResponse' smart constructor.
 data ListBranchesResponse = ListBranchesResponse'
-  { branches ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of branch names.
+    branches :: Lude.Maybe [Lude.Text],
+    -- | An enumeration token that returns the batch of the results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBranchesResponse' with the minimum fields required to make a request.

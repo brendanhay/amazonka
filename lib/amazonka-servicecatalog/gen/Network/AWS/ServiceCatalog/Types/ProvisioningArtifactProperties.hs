@@ -17,11 +17,11 @@ module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties
     mkProvisioningArtifactProperties,
 
     -- * Lenses
-    papDisableTemplateValidation,
-    papName,
-    papType,
-    papDescription,
-    papInfo,
+    pDisableTemplateValidation,
+    pName,
+    pType,
+    pDescription,
+    pInfo,
   )
 where
 
@@ -33,35 +33,34 @@ import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
 --
 -- /See:/ 'mkProvisioningArtifactProperties' smart constructor.
 data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
-  { disableTemplateValidation ::
-      Lude.Maybe Lude.Bool,
+  { -- | If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
+    disableTemplateValidation :: Lude.Maybe Lude.Bool,
+    -- | The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
     name :: Lude.Maybe Lude.Text,
-    type' ::
-      Lude.Maybe
-        ProvisioningArtifactType,
-    description ::
-      Lude.Maybe Lude.Text,
-    info ::
-      Lude.HashMap
-        Lude.Text
-        (Lude.Text)
+    -- | The type of provisioning artifact.
+    --
+    --
+    --     * @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
+    --
+    --
+    --     * @MARKETPLACE_AMI@ - AWS Marketplace AMI
+    --
+    --
+    --     * @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+    type' :: Lude.Maybe ProvisioningArtifactType,
+    -- | The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
+    description :: Lude.Maybe Lude.Text,
+    -- | The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:
+    --
+    -- @"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."@
+    info :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifactProperties' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
 -- * 'disableTemplateValidation' - If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
--- * 'info' - The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:
---
--- @"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."@
 -- * 'name' - The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
 -- * 'type'' - The type of provisioning artifact.
 --
@@ -73,6 +72,12 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 --
 --
 --     * @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+--
+--
+-- * 'description' - The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
+-- * 'info' - The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:
+--
+-- @"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."@
 mkProvisioningArtifactProperties ::
   ProvisioningArtifactProperties
 mkProvisioningArtifactProperties =
@@ -88,16 +93,16 @@ mkProvisioningArtifactProperties =
 -- | If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
 --
 -- /Note:/ Consider using 'disableTemplateValidation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-papDisableTemplateValidation :: Lens.Lens' ProvisioningArtifactProperties (Lude.Maybe Lude.Bool)
-papDisableTemplateValidation = Lens.lens (disableTemplateValidation :: ProvisioningArtifactProperties -> Lude.Maybe Lude.Bool) (\s a -> s {disableTemplateValidation = a} :: ProvisioningArtifactProperties)
-{-# DEPRECATED papDisableTemplateValidation "Use generic-lens or generic-optics with 'disableTemplateValidation' instead." #-}
+pDisableTemplateValidation :: Lens.Lens' ProvisioningArtifactProperties (Lude.Maybe Lude.Bool)
+pDisableTemplateValidation = Lens.lens (disableTemplateValidation :: ProvisioningArtifactProperties -> Lude.Maybe Lude.Bool) (\s a -> s {disableTemplateValidation = a} :: ProvisioningArtifactProperties)
+{-# DEPRECATED pDisableTemplateValidation "Use generic-lens or generic-optics with 'disableTemplateValidation' instead." #-}
 
 -- | The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-papName :: Lens.Lens' ProvisioningArtifactProperties (Lude.Maybe Lude.Text)
-papName = Lens.lens (name :: ProvisioningArtifactProperties -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProvisioningArtifactProperties)
-{-# DEPRECATED papName "Use generic-lens or generic-optics with 'name' instead." #-}
+pName :: Lens.Lens' ProvisioningArtifactProperties (Lude.Maybe Lude.Text)
+pName = Lens.lens (name :: ProvisioningArtifactProperties -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProvisioningArtifactProperties)
+{-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of provisioning artifact.
 --
@@ -113,25 +118,25 @@ papName = Lens.lens (name :: ProvisioningArtifactProperties -> Lude.Maybe Lude.T
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-papType :: Lens.Lens' ProvisioningArtifactProperties (Lude.Maybe ProvisioningArtifactType)
-papType = Lens.lens (type' :: ProvisioningArtifactProperties -> Lude.Maybe ProvisioningArtifactType) (\s a -> s {type' = a} :: ProvisioningArtifactProperties)
-{-# DEPRECATED papType "Use generic-lens or generic-optics with 'type'' instead." #-}
+pType :: Lens.Lens' ProvisioningArtifactProperties (Lude.Maybe ProvisioningArtifactType)
+pType = Lens.lens (type' :: ProvisioningArtifactProperties -> Lude.Maybe ProvisioningArtifactType) (\s a -> s {type' = a} :: ProvisioningArtifactProperties)
+{-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-papDescription :: Lens.Lens' ProvisioningArtifactProperties (Lude.Maybe Lude.Text)
-papDescription = Lens.lens (description :: ProvisioningArtifactProperties -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ProvisioningArtifactProperties)
-{-# DEPRECATED papDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+pDescription :: Lens.Lens' ProvisioningArtifactProperties (Lude.Maybe Lude.Text)
+pDescription = Lens.lens (description :: ProvisioningArtifactProperties -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ProvisioningArtifactProperties)
+{-# DEPRECATED pDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:
 --
 -- @"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."@
 --
 -- /Note:/ Consider using 'info' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-papInfo :: Lens.Lens' ProvisioningArtifactProperties (Lude.HashMap Lude.Text (Lude.Text))
-papInfo = Lens.lens (info :: ProvisioningArtifactProperties -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {info = a} :: ProvisioningArtifactProperties)
-{-# DEPRECATED papInfo "Use generic-lens or generic-optics with 'info' instead." #-}
+pInfo :: Lens.Lens' ProvisioningArtifactProperties (Lude.HashMap Lude.Text (Lude.Text))
+pInfo = Lens.lens (info :: ProvisioningArtifactProperties -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {info = a} :: ProvisioningArtifactProperties)
+{-# DEPRECATED pInfo "Use generic-lens or generic-optics with 'info' instead." #-}
 
 instance Lude.ToJSON ProvisioningArtifactProperties where
   toJSON ProvisioningArtifactProperties' {..} =

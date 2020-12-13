@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,24 +42,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAddCustomAttributes' smart constructor.
 data AddCustomAttributes = AddCustomAttributes'
-  { userPoolId ::
-      Lude.Text,
-    customAttributes ::
-      Lude.NonEmpty SchemaAttributeType
+  { -- | The user pool ID for the user pool where you want to add custom attributes.
+    userPoolId :: Lude.Text,
+    -- | An array of custom attributes, such as Mutable and Name.
+    customAttributes :: Lude.NonEmpty SchemaAttributeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddCustomAttributes' with the minimum fields required to make a request.
 --
--- * 'customAttributes' - An array of custom attributes, such as Mutable and Name.
 -- * 'userPoolId' - The user pool ID for the user pool where you want to add custom attributes.
+-- * 'customAttributes' - An array of custom attributes, such as Mutable and Name.
 mkAddCustomAttributes ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -127,16 +122,10 @@ instance Lude.ToQuery AddCustomAttributes where
 --
 -- /See:/ 'mkAddCustomAttributesResponse' smart constructor.
 newtype AddCustomAttributesResponse = AddCustomAttributesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddCustomAttributesResponse' with the minimum fields required to make a request.

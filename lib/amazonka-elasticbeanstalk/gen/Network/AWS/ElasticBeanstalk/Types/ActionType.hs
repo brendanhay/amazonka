@@ -13,9 +13,9 @@
 module Network.AWS.ElasticBeanstalk.Types.ActionType
   ( ActionType
       ( ActionType',
-        InstanceRefresh,
-        PlatformUpdate,
-        Unknown
+        ATInstanceRefresh,
+        ATPlatformUpdate,
+        ATUnknown
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ActionType = ActionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern InstanceRefresh :: ActionType
-pattern InstanceRefresh = ActionType' "InstanceRefresh"
+pattern ATInstanceRefresh :: ActionType
+pattern ATInstanceRefresh = ActionType' "InstanceRefresh"
 
-pattern PlatformUpdate :: ActionType
-pattern PlatformUpdate = ActionType' "PlatformUpdate"
+pattern ATPlatformUpdate :: ActionType
+pattern ATPlatformUpdate = ActionType' "PlatformUpdate"
 
-pattern Unknown :: ActionType
-pattern Unknown = ActionType' "Unknown"
+pattern ATUnknown :: ActionType
+pattern ATUnknown = ActionType' "Unknown"
 
 {-# COMPLETE
-  InstanceRefresh,
-  PlatformUpdate,
-  Unknown,
+  ATInstanceRefresh,
+  ATPlatformUpdate,
+  ATUnknown,
   ActionType'
   #-}

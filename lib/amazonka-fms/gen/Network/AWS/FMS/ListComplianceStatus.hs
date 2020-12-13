@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.FMS.ListComplianceStatus
     mkListComplianceStatus,
 
     -- ** Request lenses
+    lcsPolicyId,
     lcsNextToken,
     lcsMaxResults,
-    lcsPolicyId,
 
     -- * Destructuring the response
     ListComplianceStatusResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListComplianceStatus' smart constructor.
 data ListComplianceStatus = ListComplianceStatus'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    policyId :: Lude.Text
+  { -- | The ID of the AWS Firewall Manager policy that you want the details for.
+    policyId :: Lude.Text,
+    -- | If you specify a value for @MaxResults@ and you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of @PolicyComplianceStatus@ objects. For the second and subsequent @ListComplianceStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of @PolicyComplianceStatus@ objects.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of @PolicyComplianceStatus@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicyComplianceStatus@ objects.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListComplianceStatus' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Specifies the number of @PolicyComplianceStatus@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicyComplianceStatus@ objects.
--- * 'nextToken' - If you specify a value for @MaxResults@ and you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of @PolicyComplianceStatus@ objects. For the second and subsequent @ListComplianceStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of @PolicyComplianceStatus@ objects.
 -- * 'policyId' - The ID of the AWS Firewall Manager policy that you want the details for.
+-- * 'nextToken' - If you specify a value for @MaxResults@ and you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of @PolicyComplianceStatus@ objects. For the second and subsequent @ListComplianceStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of @PolicyComplianceStatus@ objects.
+-- * 'maxResults' - Specifies the number of @PolicyComplianceStatus@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicyComplianceStatus@ objects.
 mkListComplianceStatus ::
   -- | 'policyId'
   Lude.Text ->
   ListComplianceStatus
 mkListComplianceStatus pPolicyId_ =
   ListComplianceStatus'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      policyId = pPolicyId_
+    { policyId = pPolicyId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The ID of the AWS Firewall Manager policy that you want the details for.
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcsPolicyId :: Lens.Lens' ListComplianceStatus Lude.Text
+lcsPolicyId = Lens.lens (policyId :: ListComplianceStatus -> Lude.Text) (\s a -> s {policyId = a} :: ListComplianceStatus)
+{-# DEPRECATED lcsPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | If you specify a value for @MaxResults@ and you have more @PolicyComplianceStatus@ objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of @PolicyComplianceStatus@ objects. For the second and subsequent @ListComplianceStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of @PolicyComplianceStatus@ objects.
 --
@@ -88,13 +92,6 @@ lcsNextToken = Lens.lens (nextToken :: ListComplianceStatus -> Lude.Maybe Lude.T
 lcsMaxResults :: Lens.Lens' ListComplianceStatus (Lude.Maybe Lude.Natural)
 lcsMaxResults = Lens.lens (maxResults :: ListComplianceStatus -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListComplianceStatus)
 {-# DEPRECATED lcsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the AWS Firewall Manager policy that you want the details for.
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsPolicyId :: Lens.Lens' ListComplianceStatus Lude.Text
-lcsPolicyId = Lens.lens (policyId :: ListComplianceStatus -> Lude.Text) (\s a -> s {policyId = a} :: ListComplianceStatus)
-{-# DEPRECATED lcsPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 instance Page.AWSPager ListComplianceStatus where
   page rq rs
@@ -133,9 +130,9 @@ instance Lude.ToJSON ListComplianceStatus where
   toJSON ListComplianceStatus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("PolicyId" Lude..= policyId)
+          [ Lude.Just ("PolicyId" Lude..= policyId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -147,20 +144,14 @@ instance Lude.ToQuery ListComplianceStatus where
 
 -- | /See:/ 'mkListComplianceStatusResponse' smart constructor.
 data ListComplianceStatusResponse = ListComplianceStatusResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    policyComplianceStatusList ::
-      Lude.Maybe
-        [PolicyComplianceStatus],
+  { -- | If you have more @PolicyComplianceStatus@ objects than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more @PolicyComplianceStatus@ objects, submit another @ListComplianceStatus@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @PolicyComplianceStatus@ objects.
+    policyComplianceStatusList :: Lude.Maybe [PolicyComplianceStatus],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListComplianceStatusResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeStorediSCSIVolumes' smart constructor.
 newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'
-  { volumeARNs ::
-      [Lude.Text]
+  { -- | An array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must be from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
+    volumeARNs :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStorediSCSIVolumes' with the minimum fields required to make a request.
@@ -107,24 +102,64 @@ instance Lude.ToQuery DescribeStorediSCSIVolumes where
 
 -- | /See:/ 'mkDescribeStorediSCSIVolumesResponse' smart constructor.
 data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
-  { storediSCSIVolumes ::
-      Lude.Maybe
-        [StorediSCSIVolume],
-    responseStatus ::
-      Lude.Int
+  { -- | Describes a single unit of output from 'DescribeStorediSCSIVolumes' . The following fields are returned:
+    --
+    --
+    --     * @ChapEnabled@ : Indicates whether mutual CHAP is enabled for the iSCSI target.
+    --
+    --
+    --     * @LunNumber@ : The logical disk number.
+    --
+    --
+    --     * @NetworkInterfaceId@ : The network interface ID of the stored volume that initiator use to map the stored volume as an iSCSI target.
+    --
+    --
+    --     * @NetworkInterfacePort@ : The port used to communicate with iSCSI targets.
+    --
+    --
+    --     * @PreservedExistingData@ : Indicates when the stored volume was created, existing data on the underlying local disk was preserved.
+    --
+    --
+    --     * @SourceSnapshotId@ : If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. @snap-1122aabb@ . Otherwise, this field is not included.
+    --
+    --
+    --     * @StorediSCSIVolumes@ : An array of StorediSCSIVolume objects where each object contains metadata about one stored volume.
+    --
+    --
+    --     * @TargetARN@ : The Amazon Resource Name (ARN) of the volume target.
+    --
+    --
+    --     * @VolumeARN@ : The Amazon Resource Name (ARN) of the stored volume.
+    --
+    --
+    --     * @VolumeDiskId@ : The disk ID of the local disk that was specified in the 'CreateStorediSCSIVolume' operation.
+    --
+    --
+    --     * @VolumeId@ : The unique identifier of the storage volume, e.g. @vol-1122AABB@ .
+    --
+    --
+    --     * @VolumeiSCSIAttributes@ : An 'VolumeiSCSIAttributes' object that represents a collection of iSCSI attributes for one stored volume.
+    --
+    --
+    --     * @VolumeProgress@ : Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping.
+    --
+    --
+    --     * @VolumeSizeInBytes@ : The size of the volume in bytes.
+    --
+    --
+    --     * @VolumeStatus@ : One of the @VolumeStatus@ values that indicates the state of the volume.
+    --
+    --
+    --     * @VolumeType@ : One of the enumeration values describing the type of the volume. Currently, only @STORED@ volumes are supported.
+    storediSCSIVolumes :: Lude.Maybe [StorediSCSIVolume],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStorediSCSIVolumesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'storediSCSIVolumes' - Describes a single unit of output from 'DescribeStorediSCSIVolumes' . The following fields are returned:
 --
 --
@@ -174,6 +209,9 @@ data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
 --
 --
 --     * @VolumeType@ : One of the enumeration values describing the type of the volume. Currently, only @STORED@ volumes are supported.
+--
+--
+-- * 'responseStatus' - The response status code.
 mkDescribeStorediSCSIVolumesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

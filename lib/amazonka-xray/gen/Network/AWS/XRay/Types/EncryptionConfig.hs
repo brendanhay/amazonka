@@ -32,24 +32,20 @@ import Network.AWS.XRay.Types.EncryptionType
 --
 -- /See:/ 'mkEncryptionConfig' smart constructor.
 data EncryptionConfig = EncryptionConfig'
-  { status ::
-      Lude.Maybe EncryptionStatus,
+  { -- | The encryption status. While the status is @UPDATING@ , X-Ray may encrypt data with a combination of the new and old settings.
+    status :: Lude.Maybe EncryptionStatus,
+    -- | The ID of the customer master key (CMK) used for encryption, if applicable.
     keyId :: Lude.Maybe Lude.Text,
+    -- | The type of encryption. Set to @KMS@ for encryption with CMKs. Set to @NONE@ for default encryption.
     type' :: Lude.Maybe EncryptionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionConfig' with the minimum fields required to make a request.
 --
--- * 'keyId' - The ID of the customer master key (CMK) used for encryption, if applicable.
 -- * 'status' - The encryption status. While the status is @UPDATING@ , X-Ray may encrypt data with a combination of the new and old settings.
+-- * 'keyId' - The ID of the customer master key (CMK) used for encryption, if applicable.
 -- * 'type'' - The type of encryption. Set to @KMS@ for encryption with CMKs. Set to @NONE@ for default encryption.
 mkEncryptionConfig ::
   EncryptionConfig

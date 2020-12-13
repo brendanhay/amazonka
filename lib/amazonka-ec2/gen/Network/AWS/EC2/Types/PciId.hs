@@ -31,24 +31,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPciId' smart constructor.
 data PciId = PciId'
-  { subsystemId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the subsystem.
+    subsystemId :: Lude.Maybe Lude.Text,
+    -- | The ID of the device.
     deviceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the vendor for the subsystem.
     subsystemVendorId :: Lude.Maybe Lude.Text,
+    -- | The ID of the vendor.
     vendorId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PciId' with the minimum fields required to make a request.
 --
--- * 'deviceId' - The ID of the device.
 -- * 'subsystemId' - The ID of the subsystem.
+-- * 'deviceId' - The ID of the device.
 -- * 'subsystemVendorId' - The ID of the vendor for the subsystem.
 -- * 'vendorId' - The ID of the vendor.
 mkPciId ::

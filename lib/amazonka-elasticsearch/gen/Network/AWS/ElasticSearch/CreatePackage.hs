@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.ElasticSearch.CreatePackage
     mkCreatePackage,
 
     -- ** Request lenses
-    cpPackageDescription,
-    cpPackageName,
-    cpPackageType,
     cpPackageSource,
+    cpPackageType,
+    cpPackageName,
+    cpPackageDescription,
 
     -- * Destructuring the response
     CreatePackageResponse (..),
@@ -44,56 +45,46 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreatePackage' smart constructor.
 data CreatePackage = CreatePackage'
-  { packageDescription ::
-      Lude.Maybe Lude.Text,
-    packageName :: Lude.Text,
+  { -- | The customer S3 location @PackageSource@ for importing the package.
+    packageSource :: PackageSource,
+    -- | Type of package. Currently supports only TXT-DICTIONARY.
     packageType :: PackageType,
-    packageSource :: PackageSource
+    -- | Unique identifier for the package.
+    packageName :: Lude.Text,
+    -- | Description of the package.
+    packageDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePackage' with the minimum fields required to make a request.
 --
--- * 'packageDescription' - Description of the package.
--- * 'packageName' - Unique identifier for the package.
 -- * 'packageSource' - The customer S3 location @PackageSource@ for importing the package.
 -- * 'packageType' - Type of package. Currently supports only TXT-DICTIONARY.
+-- * 'packageName' - Unique identifier for the package.
+-- * 'packageDescription' - Description of the package.
 mkCreatePackage ::
-  -- | 'packageName'
-  Lude.Text ->
-  -- | 'packageType'
-  PackageType ->
   -- | 'packageSource'
   PackageSource ->
+  -- | 'packageType'
+  PackageType ->
+  -- | 'packageName'
+  Lude.Text ->
   CreatePackage
-mkCreatePackage pPackageName_ pPackageType_ pPackageSource_ =
+mkCreatePackage pPackageSource_ pPackageType_ pPackageName_ =
   CreatePackage'
-    { packageDescription = Lude.Nothing,
-      packageName = pPackageName_,
+    { packageSource = pPackageSource_,
       packageType = pPackageType_,
-      packageSource = pPackageSource_
+      packageName = pPackageName_,
+      packageDescription = Lude.Nothing
     }
 
--- | Description of the package.
+-- | The customer S3 location @PackageSource@ for importing the package.
 --
--- /Note:/ Consider using 'packageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPackageDescription :: Lens.Lens' CreatePackage (Lude.Maybe Lude.Text)
-cpPackageDescription = Lens.lens (packageDescription :: CreatePackage -> Lude.Maybe Lude.Text) (\s a -> s {packageDescription = a} :: CreatePackage)
-{-# DEPRECATED cpPackageDescription "Use generic-lens or generic-optics with 'packageDescription' instead." #-}
-
--- | Unique identifier for the package.
---
--- /Note:/ Consider using 'packageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPackageName :: Lens.Lens' CreatePackage Lude.Text
-cpPackageName = Lens.lens (packageName :: CreatePackage -> Lude.Text) (\s a -> s {packageName = a} :: CreatePackage)
-{-# DEPRECATED cpPackageName "Use generic-lens or generic-optics with 'packageName' instead." #-}
+-- /Note:/ Consider using 'packageSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPackageSource :: Lens.Lens' CreatePackage PackageSource
+cpPackageSource = Lens.lens (packageSource :: CreatePackage -> PackageSource) (\s a -> s {packageSource = a} :: CreatePackage)
+{-# DEPRECATED cpPackageSource "Use generic-lens or generic-optics with 'packageSource' instead." #-}
 
 -- | Type of package. Currently supports only TXT-DICTIONARY.
 --
@@ -102,12 +93,19 @@ cpPackageType :: Lens.Lens' CreatePackage PackageType
 cpPackageType = Lens.lens (packageType :: CreatePackage -> PackageType) (\s a -> s {packageType = a} :: CreatePackage)
 {-# DEPRECATED cpPackageType "Use generic-lens or generic-optics with 'packageType' instead." #-}
 
--- | The customer S3 location @PackageSource@ for importing the package.
+-- | Unique identifier for the package.
 --
--- /Note:/ Consider using 'packageSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPackageSource :: Lens.Lens' CreatePackage PackageSource
-cpPackageSource = Lens.lens (packageSource :: CreatePackage -> PackageSource) (\s a -> s {packageSource = a} :: CreatePackage)
-{-# DEPRECATED cpPackageSource "Use generic-lens or generic-optics with 'packageSource' instead." #-}
+-- /Note:/ Consider using 'packageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPackageName :: Lens.Lens' CreatePackage Lude.Text
+cpPackageName = Lens.lens (packageName :: CreatePackage -> Lude.Text) (\s a -> s {packageName = a} :: CreatePackage)
+{-# DEPRECATED cpPackageName "Use generic-lens or generic-optics with 'packageName' instead." #-}
+
+-- | Description of the package.
+--
+-- /Note:/ Consider using 'packageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPackageDescription :: Lens.Lens' CreatePackage (Lude.Maybe Lude.Text)
+cpPackageDescription = Lens.lens (packageDescription :: CreatePackage -> Lude.Maybe Lude.Text) (\s a -> s {packageDescription = a} :: CreatePackage)
+{-# DEPRECATED cpPackageDescription "Use generic-lens or generic-optics with 'packageDescription' instead." #-}
 
 instance Lude.AWSRequest CreatePackage where
   type Rs CreatePackage = CreatePackageResponse
@@ -127,10 +125,10 @@ instance Lude.ToJSON CreatePackage where
   toJSON CreatePackage' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PackageDescription" Lude..=) Lude.<$> packageDescription,
-            Lude.Just ("PackageName" Lude..= packageName),
+          [ Lude.Just ("PackageSource" Lude..= packageSource),
             Lude.Just ("PackageType" Lude..= packageType),
-            Lude.Just ("PackageSource" Lude..= packageSource)
+            Lude.Just ("PackageName" Lude..= packageName),
+            ("PackageDescription" Lude..=) Lude.<$> packageDescription
           ]
       )
 
@@ -144,17 +142,12 @@ instance Lude.ToQuery CreatePackage where
 --
 -- /See:/ 'mkCreatePackageResponse' smart constructor.
 data CreatePackageResponse = CreatePackageResponse'
-  { packageDetails ::
-      Lude.Maybe PackageDetails,
+  { -- | Information about the package @PackageDetails@ .
+    packageDetails :: Lude.Maybe PackageDetails,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePackageResponse' with the minimum fields required to make a request.

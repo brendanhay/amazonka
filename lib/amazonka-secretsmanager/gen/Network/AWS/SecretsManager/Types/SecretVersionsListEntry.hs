@@ -31,29 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecretVersionsListEntry' smart constructor.
 data SecretVersionsListEntry = SecretVersionsListEntry'
-  { versionId ::
-      Lude.Maybe Lude.Text,
-    versionStages ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The unique version identifier of this version of the secret.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | An array of staging labels that are currently associated with this version of the secret.
+    versionStages :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The date and time this version of the secret was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
-    lastAccessedDate ::
-      Lude.Maybe Lude.Timestamp
+    -- | The date that this version of the secret was last accessed. Note that the resolution of this field is at the date level and does not include the time.
+    lastAccessedDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecretVersionsListEntry' with the minimum fields required to make a request.
 --
--- * 'createdDate' - The date and time this version of the secret was created.
--- * 'lastAccessedDate' - The date that this version of the secret was last accessed. Note that the resolution of this field is at the date level and does not include the time.
 -- * 'versionId' - The unique version identifier of this version of the secret.
 -- * 'versionStages' - An array of staging labels that are currently associated with this version of the secret.
+-- * 'createdDate' - The date and time this version of the secret was created.
+-- * 'lastAccessedDate' - The date that this version of the secret was last accessed. Note that the resolution of this field is at the date level and does not include the time.
 mkSecretVersionsListEntry ::
   SecretVersionsListEntry
 mkSecretVersionsListEntry =

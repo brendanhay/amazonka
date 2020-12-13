@@ -30,24 +30,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOpenXJSONSerDe' smart constructor.
 data OpenXJSONSerDe = OpenXJSONSerDe'
-  { columnToJSONKeyMappings ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | Maps column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, @timestamp@ is a Hive keyword. If you have a JSON key named @timestamp@ , set this parameter to @{"ts": "timestamp"}@ to map this key to a column named @ts@ .
+    columnToJSONKeyMappings :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | When set to @true@ , which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
     caseInsensitive :: Lude.Maybe Lude.Bool,
+    -- | When set to @true@ , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option.
+    --
+    -- The default is @false@ .
     convertDotsInJSONKeysToUnderscores :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpenXJSONSerDe' with the minimum fields required to make a request.
 --
--- * 'caseInsensitive' - When set to @true@ , which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
 -- * 'columnToJSONKeyMappings' - Maps column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, @timestamp@ is a Hive keyword. If you have a JSON key named @timestamp@ , set this parameter to @{"ts": "timestamp"}@ to map this key to a column named @ts@ .
+-- * 'caseInsensitive' - When set to @true@ , which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
 -- * 'convertDotsInJSONKeysToUnderscores' - When set to @true@ , specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option.
 --
 -- The default is @false@ .

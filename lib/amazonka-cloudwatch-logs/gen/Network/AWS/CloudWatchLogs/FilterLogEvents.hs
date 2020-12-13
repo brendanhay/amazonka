@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,6 +26,7 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
 
     -- ** Request lenses
     fleStartTime,
+    fleLogGroupName,
     fleNextToken,
     fleLogStreamNames,
     fleLogStreamNamePrefix,
@@ -32,7 +34,6 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     fleLimit,
     fleFilterPattern,
     fleInterleaved,
-    fleLogGroupName,
 
     -- * Destructuring the response
     FilterLogEventsResponse (..),
@@ -55,47 +56,59 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkFilterLogEvents' smart constructor.
 data FilterLogEvents = FilterLogEvents'
-  { startTime ::
-      Lude.Maybe Lude.Natural,
+  { -- | The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.
+    --
+    -- If you omit @startTime@ and @endTime@ the most recent log events are retrieved, to up 1 MB or 10,000 log events.
+    startTime :: Lude.Maybe Lude.Natural,
+    -- | The name of the log group to search.
+    logGroupName :: Lude.Text,
+    -- | The token for the next set of events to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters the results to only logs from the log streams in this list.
+    --
+    -- If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , the action returns an @InvalidParameterException@ error.
     logStreamNames :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Filters the results to include only events from log streams that have names starting with this prefix.
+    --
+    -- If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , but the value for @logStreamNamePrefix@ does not match any log stream names specified in @logStreamNames@ , the action returns an @InvalidParameterException@ error.
     logStreamNamePrefix :: Lude.Maybe Lude.Text,
+    -- | The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
     endTime :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of events to return. The default is 10,000 events.
     limit :: Lude.Maybe Lude.Natural,
+    -- | The filter pattern to use. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html Filter and Pattern Syntax> .
+    --
+    -- If not provided, all the events are matched.
     filterPattern :: Lude.Maybe Lude.Text,
-    interleaved :: Lude.Maybe Lude.Bool,
-    logGroupName :: Lude.Text
+    -- | If the value is true, the operation makes a best effort to provide responses that contain events from multiple log streams within the log group, interleaved in a single response. If the value is false, all the matched log events in the first log stream are searched first, then those in the next log stream, and so on. The default is false.
+    --
+    -- __Important:__ Starting on June 17, 2019, this parameter is ignored and the value is assumed to be true. The response from this operation always interleaves events from multiple log streams within a log group.
+    interleaved :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FilterLogEvents' with the minimum fields required to make a request.
 --
+-- * 'startTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.
+--
+-- If you omit @startTime@ and @endTime@ the most recent log events are retrieved, to up 1 MB or 10,000 log events.
+-- * 'logGroupName' - The name of the log group to search.
+-- * 'nextToken' - The token for the next set of events to return. (You received this token from a previous call.)
+-- * 'logStreamNames' - Filters the results to only logs from the log streams in this list.
+--
+-- If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , the action returns an @InvalidParameterException@ error.
+-- * 'logStreamNamePrefix' - Filters the results to include only events from log streams that have names starting with this prefix.
+--
+-- If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , but the value for @logStreamNamePrefix@ does not match any log stream names specified in @logStreamNames@ , the action returns an @InvalidParameterException@ error.
 -- * 'endTime' - The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
+-- * 'limit' - The maximum number of events to return. The default is 10,000 events.
 -- * 'filterPattern' - The filter pattern to use. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html Filter and Pattern Syntax> .
 --
 -- If not provided, all the events are matched.
 -- * 'interleaved' - If the value is true, the operation makes a best effort to provide responses that contain events from multiple log streams within the log group, interleaved in a single response. If the value is false, all the matched log events in the first log stream are searched first, then those in the next log stream, and so on. The default is false.
 --
 -- __Important:__ Starting on June 17, 2019, this parameter is ignored and the value is assumed to be true. The response from this operation always interleaves events from multiple log streams within a log group.
--- * 'limit' - The maximum number of events to return. The default is 10,000 events.
--- * 'logGroupName' - The name of the log group to search.
--- * 'logStreamNamePrefix' - Filters the results to include only events from log streams that have names starting with this prefix.
---
--- If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , but the value for @logStreamNamePrefix@ does not match any log stream names specified in @logStreamNames@ , the action returns an @InvalidParameterException@ error.
--- * 'logStreamNames' - Filters the results to only logs from the log streams in this list.
---
--- If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , the action returns an @InvalidParameterException@ error.
--- * 'nextToken' - The token for the next set of events to return. (You received this token from a previous call.)
--- * 'startTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.
---
--- If you omit @startTime@ and @endTime@ the most recent log events are retrieved, to up 1 MB or 10,000 log events.
 mkFilterLogEvents ::
   -- | 'logGroupName'
   Lude.Text ->
@@ -103,14 +116,14 @@ mkFilterLogEvents ::
 mkFilterLogEvents pLogGroupName_ =
   FilterLogEvents'
     { startTime = Lude.Nothing,
+      logGroupName = pLogGroupName_,
       nextToken = Lude.Nothing,
       logStreamNames = Lude.Nothing,
       logStreamNamePrefix = Lude.Nothing,
       endTime = Lude.Nothing,
       limit = Lude.Nothing,
       filterPattern = Lude.Nothing,
-      interleaved = Lude.Nothing,
-      logGroupName = pLogGroupName_
+      interleaved = Lude.Nothing
     }
 
 -- | The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.
@@ -121,6 +134,13 @@ mkFilterLogEvents pLogGroupName_ =
 fleStartTime :: Lens.Lens' FilterLogEvents (Lude.Maybe Lude.Natural)
 fleStartTime = Lens.lens (startTime :: FilterLogEvents -> Lude.Maybe Lude.Natural) (\s a -> s {startTime = a} :: FilterLogEvents)
 {-# DEPRECATED fleStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The name of the log group to search.
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fleLogGroupName :: Lens.Lens' FilterLogEvents Lude.Text
+fleLogGroupName = Lens.lens (logGroupName :: FilterLogEvents -> Lude.Text) (\s a -> s {logGroupName = a} :: FilterLogEvents)
+{-# DEPRECATED fleLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The token for the next set of events to return. (You received this token from a previous call.)
 --
@@ -179,13 +199,6 @@ fleInterleaved :: Lens.Lens' FilterLogEvents (Lude.Maybe Lude.Bool)
 fleInterleaved = Lens.lens (interleaved :: FilterLogEvents -> Lude.Maybe Lude.Bool) (\s a -> s {interleaved = a} :: FilterLogEvents)
 {-# DEPRECATED fleInterleaved "Use generic-lens or generic-optics with 'interleaved' instead." #-}
 
--- | The name of the log group to search.
---
--- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fleLogGroupName :: Lens.Lens' FilterLogEvents Lude.Text
-fleLogGroupName = Lens.lens (logGroupName :: FilterLogEvents -> Lude.Text) (\s a -> s {logGroupName = a} :: FilterLogEvents)
-{-# DEPRECATED fleLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
-
 instance Page.AWSPager FilterLogEvents where
   page rq rs
     | Page.stop (rs Lens.^. flersNextToken) = Lude.Nothing
@@ -223,14 +236,14 @@ instance Lude.ToJSON FilterLogEvents where
     Lude.object
       ( Lude.catMaybes
           [ ("startTime" Lude..=) Lude.<$> startTime,
+            Lude.Just ("logGroupName" Lude..= logGroupName),
             ("nextToken" Lude..=) Lude.<$> nextToken,
             ("logStreamNames" Lude..=) Lude.<$> logStreamNames,
             ("logStreamNamePrefix" Lude..=) Lude.<$> logStreamNamePrefix,
             ("endTime" Lude..=) Lude.<$> endTime,
             ("limit" Lude..=) Lude.<$> limit,
             ("filterPattern" Lude..=) Lude.<$> filterPattern,
-            ("interleaved" Lude..=) Lude.<$> interleaved,
-            Lude.Just ("logGroupName" Lude..= logGroupName)
+            ("interleaved" Lude..=) Lude.<$> interleaved
           ]
       )
 
@@ -242,29 +255,28 @@ instance Lude.ToQuery FilterLogEvents where
 
 -- | /See:/ 'mkFilterLogEventsResponse' smart constructor.
 data FilterLogEventsResponse = FilterLogEventsResponse'
-  { searchedLogStreams ::
-      Lude.Maybe [SearchedLogStream],
+  { -- | __IMPORTANT__ Starting on May 15, 2020, this parameter will be deprecated. This parameter will be an empty list after the deprecation occurs.
+    --
+    -- Indicates which log streams have been searched and whether each has been searched completely.
+    searchedLogStreams :: Lude.Maybe [SearchedLogStream],
+    -- | The token to use when requesting the next set of items. The token expires after 24 hours.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The matched events.
     events :: Lude.Maybe [FilteredLogEvent],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FilterLogEventsResponse' with the minimum fields required to make a request.
 --
--- * 'events' - The matched events.
--- * 'nextToken' - The token to use when requesting the next set of items. The token expires after 24 hours.
--- * 'responseStatus' - The response status code.
 -- * 'searchedLogStreams' - __IMPORTANT__ Starting on May 15, 2020, this parameter will be deprecated. This parameter will be an empty list after the deprecation occurs.
 --
 -- Indicates which log streams have been searched and whether each has been searched completely.
+-- * 'nextToken' - The token to use when requesting the next set of items. The token expires after 24 hours.
+-- * 'events' - The matched events.
+-- * 'responseStatus' - The response status code.
 mkFilterLogEventsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

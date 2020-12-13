@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkManagedScalingPolicy' smart constructor.
 newtype ManagedScalingPolicy = ManagedScalingPolicy'
-  { computeLimits ::
-      Lude.Maybe ComputeLimits
+  { -- | The EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+    computeLimits :: Lude.Maybe ComputeLimits
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ManagedScalingPolicy' with the minimum fields required to make a request.

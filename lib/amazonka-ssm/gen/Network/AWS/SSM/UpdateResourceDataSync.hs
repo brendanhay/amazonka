@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.SSM.UpdateResourceDataSync
     mkUpdateResourceDataSync,
 
     -- ** Request lenses
-    urdsSyncName,
     urdsSyncType,
     urdsSyncSource,
+    urdsSyncName,
 
     -- * Destructuring the response
     UpdateResourceDataSyncResponse (..),
@@ -40,46 +41,35 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkUpdateResourceDataSync' smart constructor.
 data UpdateResourceDataSync = UpdateResourceDataSync'
-  { syncName ::
-      Lude.Text,
+  { -- | The type of resource data sync. The supported @SyncType@ is SyncFromSource.
     syncType :: Lude.Text,
-    syncSource :: ResourceDataSyncSource
+    -- | Specify information about the data sources to synchronize.
+    syncSource :: ResourceDataSyncSource,
+    -- | The name of the resource data sync you want to update.
+    syncName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceDataSync' with the minimum fields required to make a request.
 --
--- * 'syncName' - The name of the resource data sync you want to update.
--- * 'syncSource' - Specify information about the data sources to synchronize.
 -- * 'syncType' - The type of resource data sync. The supported @SyncType@ is SyncFromSource.
+-- * 'syncSource' - Specify information about the data sources to synchronize.
+-- * 'syncName' - The name of the resource data sync you want to update.
 mkUpdateResourceDataSync ::
-  -- | 'syncName'
-  Lude.Text ->
   -- | 'syncType'
   Lude.Text ->
   -- | 'syncSource'
   ResourceDataSyncSource ->
+  -- | 'syncName'
+  Lude.Text ->
   UpdateResourceDataSync
-mkUpdateResourceDataSync pSyncName_ pSyncType_ pSyncSource_ =
+mkUpdateResourceDataSync pSyncType_ pSyncSource_ pSyncName_ =
   UpdateResourceDataSync'
-    { syncName = pSyncName_,
-      syncType = pSyncType_,
-      syncSource = pSyncSource_
+    { syncType = pSyncType_,
+      syncSource = pSyncSource_,
+      syncName = pSyncName_
     }
-
--- | The name of the resource data sync you want to update.
---
--- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdsSyncName :: Lens.Lens' UpdateResourceDataSync Lude.Text
-urdsSyncName = Lens.lens (syncName :: UpdateResourceDataSync -> Lude.Text) (\s a -> s {syncName = a} :: UpdateResourceDataSync)
-{-# DEPRECATED urdsSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
 
 -- | The type of resource data sync. The supported @SyncType@ is SyncFromSource.
 --
@@ -94,6 +84,13 @@ urdsSyncType = Lens.lens (syncType :: UpdateResourceDataSync -> Lude.Text) (\s a
 urdsSyncSource :: Lens.Lens' UpdateResourceDataSync ResourceDataSyncSource
 urdsSyncSource = Lens.lens (syncSource :: UpdateResourceDataSync -> ResourceDataSyncSource) (\s a -> s {syncSource = a} :: UpdateResourceDataSync)
 {-# DEPRECATED urdsSyncSource "Use generic-lens or generic-optics with 'syncSource' instead." #-}
+
+-- | The name of the resource data sync you want to update.
+--
+-- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdsSyncName :: Lens.Lens' UpdateResourceDataSync Lude.Text
+urdsSyncName = Lens.lens (syncName :: UpdateResourceDataSync -> Lude.Text) (\s a -> s {syncName = a} :: UpdateResourceDataSync)
+{-# DEPRECATED urdsSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
 
 instance Lude.AWSRequest UpdateResourceDataSync where
   type Rs UpdateResourceDataSync = UpdateResourceDataSyncResponse
@@ -120,9 +117,9 @@ instance Lude.ToJSON UpdateResourceDataSync where
   toJSON UpdateResourceDataSync' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SyncName" Lude..= syncName),
-            Lude.Just ("SyncType" Lude..= syncType),
-            Lude.Just ("SyncSource" Lude..= syncSource)
+          [ Lude.Just ("SyncType" Lude..= syncType),
+            Lude.Just ("SyncSource" Lude..= syncSource),
+            Lude.Just ("SyncName" Lude..= syncName)
           ]
       )
 
@@ -134,16 +131,10 @@ instance Lude.ToQuery UpdateResourceDataSync where
 
 -- | /See:/ 'mkUpdateResourceDataSyncResponse' smart constructor.
 newtype UpdateResourceDataSyncResponse = UpdateResourceDataSyncResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceDataSyncResponse' with the minimum fields required to make a request.

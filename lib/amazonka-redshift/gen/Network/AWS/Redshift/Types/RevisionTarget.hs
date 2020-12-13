@@ -31,24 +31,20 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkRevisionTarget' smart constructor.
 data RevisionTarget = RevisionTarget'
-  { databaseRevisionReleaseDate ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The date on which the database revision was released.
+    databaseRevisionReleaseDate :: Lude.Maybe Lude.DateTime,
+    -- | A unique string that identifies the version to update the cluster to. You can use this value in 'ModifyClusterDbRevision' .
     databaseRevision :: Lude.Maybe Lude.Text,
+    -- | A string that describes the changes and features that will be applied to the cluster when it is updated to the corresponding 'ClusterDbRevision' .
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevisionTarget' with the minimum fields required to make a request.
 --
--- * 'databaseRevision' - A unique string that identifies the version to update the cluster to. You can use this value in 'ModifyClusterDbRevision' .
 -- * 'databaseRevisionReleaseDate' - The date on which the database revision was released.
+-- * 'databaseRevision' - A unique string that identifies the version to update the cluster to. You can use this value in 'ModifyClusterDbRevision' .
 -- * 'description' - A string that describes the changes and features that will be applied to the cluster when it is updated to the corresponding 'ClusterDbRevision' .
 mkRevisionTarget ::
   RevisionTarget

@@ -29,16 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTemplate' smart constructor.
 data Template = Template'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | The name of the message template to use for the message. If specified, this value must match the name of an existing message template.
+    name :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource.
+    --
+    -- If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Template' with the minimum fields required to make a request.

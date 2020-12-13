@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,18 +28,18 @@ module Network.AWS.KinesisVideoMedia.GetMedia
     mkGetMedia,
 
     -- ** Request lenses
+    gmStartSelector,
     gmStreamARN,
     gmStreamName,
-    gmStartSelector,
 
     -- * Destructuring the response
     GetMediaResponse (..),
     mkGetMediaResponse,
 
     -- ** Response lenses
+    gmrsPayload,
     gmrsContentType,
     gmrsResponseStatus,
-    gmrsPayload,
   )
 where
 
@@ -50,17 +51,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMedia' smart constructor.
 data GetMedia = GetMedia'
-  { streamARN :: Lude.Maybe Lude.Text,
-    streamName :: Lude.Maybe Lude.Text,
-    startSelector :: StartSelector
+  { -- | Identifies the starting chunk to get from the specified stream.
+    startSelector :: StartSelector,
+    -- | The ARN of the stream from where you want to get the media content. If you don't specify the @streamARN@ , you must specify the @streamName@ .
+    streamARN :: Lude.Maybe Lude.Text,
+    -- | The Kinesis video stream name from where you want to get the media content. If you don't specify the @streamName@ , you must specify the @streamARN@ .
+    streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMedia' with the minimum fields required to make a request.
@@ -74,10 +72,17 @@ mkGetMedia ::
   GetMedia
 mkGetMedia pStartSelector_ =
   GetMedia'
-    { streamARN = Lude.Nothing,
-      streamName = Lude.Nothing,
-      startSelector = pStartSelector_
+    { startSelector = pStartSelector_,
+      streamARN = Lude.Nothing,
+      streamName = Lude.Nothing
     }
+
+-- | Identifies the starting chunk to get from the specified stream.
+--
+-- /Note:/ Consider using 'startSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmStartSelector :: Lens.Lens' GetMedia StartSelector
+gmStartSelector = Lens.lens (startSelector :: GetMedia -> StartSelector) (\s a -> s {startSelector = a} :: GetMedia)
+{-# DEPRECATED gmStartSelector "Use generic-lens or generic-optics with 'startSelector' instead." #-}
 
 -- | The ARN of the stream from where you want to get the media content. If you don't specify the @streamARN@ , you must specify the @streamName@ .
 --
@@ -93,13 +98,6 @@ gmStreamName :: Lens.Lens' GetMedia (Lude.Maybe Lude.Text)
 gmStreamName = Lens.lens (streamName :: GetMedia -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: GetMedia)
 {-# DEPRECATED gmStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
--- | Identifies the starting chunk to get from the specified stream.
---
--- /Note:/ Consider using 'startSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmStartSelector :: Lens.Lens' GetMedia StartSelector
-gmStartSelector = Lens.lens (startSelector :: GetMedia -> StartSelector) (\s a -> s {startSelector = a} :: GetMedia)
-{-# DEPRECATED gmStartSelector "Use generic-lens or generic-optics with 'startSelector' instead." #-}
-
 instance Lude.AWSRequest GetMedia where
   type Rs GetMedia = GetMediaResponse
   request = Req.postJSON kinesisVideoMediaService
@@ -107,9 +105,9 @@ instance Lude.AWSRequest GetMedia where
     Res.receiveBody
       ( \s h x ->
           GetMediaResponse'
-            Lude.<$> (h Lude..#? "Content-Type")
+            Lude.<$> (Lude.pure x)
+            Lude.<*> (h Lude..#? "Content-Type")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (Lude.pure x)
       )
 
 instance Lude.ToHeaders GetMedia where
@@ -119,9 +117,9 @@ instance Lude.ToJSON GetMedia where
   toJSON GetMedia' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("StreamARN" Lude..=) Lude.<$> streamARN,
-            ("StreamName" Lude..=) Lude.<$> streamName,
-            Lude.Just ("StartSelector" Lude..= startSelector)
+          [ Lude.Just ("StartSelector" Lude..= startSelector),
+            ("StreamARN" Lude..=) Lude.<$> streamARN,
+            ("StreamName" Lude..=) Lude.<$> streamName
           ]
       )
 
@@ -133,16 +131,72 @@ instance Lude.ToQuery GetMedia where
 
 -- | /See:/ 'mkGetMediaResponse' smart constructor.
 data GetMediaResponse = GetMediaResponse'
-  { contentType ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    payload :: Lude.RsBody
+  { -- | The payload Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see . The chunks that Kinesis Video Streams returns in the @GetMedia@ call also include the following additional Matroska (MKV) tags:
+    --
+    --
+    --     * AWS_KINESISVIDEO_CONTINUATION_TOKEN (UTF-8 string) - In the event your @GetMedia@ call terminates, you can use this continuation token in your next request to get the next chunk where the last request terminated.
+    --
+    --
+    --     * AWS_KINESISVIDEO_MILLIS_BEHIND_NOW (UTF-8 string) - Client applications can use this tag value to determine how far behind the chunk returned in the response is from the latest chunk on the stream.
+    --
+    --
+    --     * AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.
+    --
+    --
+    --     * AWS_KINESISVIDEO_SERVER_TIMESTAMP - Server timestamp of the fragment.
+    --
+    --
+    --     * AWS_KINESISVIDEO_PRODUCER_TIMESTAMP - Producer timestamp of the fragment.
+    --
+    --
+    -- The following tags will be present if an error occurs:
+    --
+    --     * AWS_KINESISVIDEO_ERROR_CODE - String description of an error that caused GetMedia to stop.
+    --
+    --
+    --     * AWS_KINESISVIDEO_ERROR_ID: Integer code of the error.
+    --
+    --
+    -- The error codes are as follows:
+    --
+    --     * 3002 - Error writing to the stream
+    --
+    --
+    --     * 4000 - Requested fragment is not found
+    --
+    --
+    --     * 4500 - Access denied for the stream's KMS key
+    --
+    --
+    --     * 4501 - Stream's KMS key is disabled
+    --
+    --
+    --     * 4502 - Validation error on the stream's KMS key
+    --
+    --
+    --     * 4503 - KMS key specified in the stream is unavailable
+    --
+    --
+    --     * 4504 - Invalid usage of the KMS key specified in the stream
+    --
+    --
+    --     * 4505 - Invalid state of the KMS key specified in the stream
+    --
+    --
+    --     * 4506 - Unable to find the KMS key specified in the stream
+    --
+    --
+    --     * 5000 - Internal error
+    payload :: Lude.RsBody,
+    -- | The content type of the requested media.
+    contentType :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'GetMediaResponse' with the minimum fields required to make a request.
 --
--- * 'contentType' - The content type of the requested media.
 -- * 'payload' - The payload Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see . The chunks that Kinesis Video Streams returns in the @GetMedia@ call also include the following additional Matroska (MKV) tags:
 --
 --
@@ -201,33 +255,20 @@ data GetMediaResponse = GetMediaResponse'
 --     * 5000 - Internal error
 --
 --
+-- * 'contentType' - The content type of the requested media.
 -- * 'responseStatus' - The response status code.
 mkGetMediaResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'payload'
   Lude.RsBody ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMediaResponse
-mkGetMediaResponse pResponseStatus_ pPayload_ =
+mkGetMediaResponse pPayload_ pResponseStatus_ =
   GetMediaResponse'
-    { contentType = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      payload = pPayload_
+    { payload = pPayload_,
+      contentType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
-
--- | The content type of the requested media.
---
--- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmrsContentType :: Lens.Lens' GetMediaResponse (Lude.Maybe Lude.Text)
-gmrsContentType = Lens.lens (contentType :: GetMediaResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: GetMediaResponse)
-{-# DEPRECATED gmrsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmrsResponseStatus :: Lens.Lens' GetMediaResponse Lude.Int
-gmrsResponseStatus = Lens.lens (responseStatus :: GetMediaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMediaResponse)
-{-# DEPRECATED gmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The payload Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see . The chunks that Kinesis Video Streams returns in the @GetMedia@ call also include the following additional Matroska (MKV) tags:
 --
@@ -292,3 +333,17 @@ gmrsResponseStatus = Lens.lens (responseStatus :: GetMediaResponse -> Lude.Int) 
 gmrsPayload :: Lens.Lens' GetMediaResponse Lude.RsBody
 gmrsPayload = Lens.lens (payload :: GetMediaResponse -> Lude.RsBody) (\s a -> s {payload = a} :: GetMediaResponse)
 {-# DEPRECATED gmrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+
+-- | The content type of the requested media.
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmrsContentType :: Lens.Lens' GetMediaResponse (Lude.Maybe Lude.Text)
+gmrsContentType = Lens.lens (contentType :: GetMediaResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: GetMediaResponse)
+{-# DEPRECATED gmrsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmrsResponseStatus :: Lens.Lens' GetMediaResponse Lude.Int
+gmrsResponseStatus = Lens.lens (responseStatus :: GetMediaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMediaResponse)
+{-# DEPRECATED gmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -34,34 +34,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGatewayInfo' smart constructor.
 data GatewayInfo = GatewayInfo'
-  { ec2InstanceRegion ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS Region where the Amazon EC2 instance is located.
+    ec2InstanceRegion :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the gateway. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
     gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
     ec2InstanceId :: Lude.Maybe Lude.Text,
+    -- | The state of the gateway.
+    --
+    -- Valid Values: @DISABLED@ | @ACTIVE@
     gatewayOperationalState :: Lude.Maybe Lude.Text,
+    -- | The name of the gateway.
     gatewayName :: Lude.Maybe Lude.Text,
+    -- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
     gatewayId :: Lude.Maybe Lude.Text,
+    -- | The type of the gateway.
     gatewayType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GatewayInfo' with the minimum fields required to make a request.
 --
--- * 'ec2InstanceId' - The ID of the Amazon EC2 instance that was used to launch the gateway.
 -- * 'ec2InstanceRegion' - The AWS Region where the Amazon EC2 instance is located.
 -- * 'gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
--- * 'gatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
--- * 'gatewayName' - The name of the gateway.
+-- * 'ec2InstanceId' - The ID of the Amazon EC2 instance that was used to launch the gateway.
 -- * 'gatewayOperationalState' - The state of the gateway.
 --
 -- Valid Values: @DISABLED@ | @ACTIVE@
+-- * 'gatewayName' - The name of the gateway.
+-- * 'gatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
 -- * 'gatewayType' - The type of the gateway.
 mkGatewayInfo ::
   GatewayInfo

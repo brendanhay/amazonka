@@ -31,21 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2TagFilter' smart constructor.
 data EC2TagFilter = EC2TagFilter'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The tag filter value.
+    value :: Lude.Maybe Lude.Text,
+    -- | The tag filter key.
     key :: Lude.Maybe Lude.Text,
+    -- | The tag filter type:
+    --
+    --
+    --     * @KEY_ONLY@ : Key only.
+    --
+    --
+    --     * @VALUE_ONLY@ : Value only.
+    --
+    --
+    --     * @KEY_AND_VALUE@ : Key and value.
     type' :: Lude.Maybe EC2TagFilterType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2TagFilter' with the minimum fields required to make a request.
 --
+-- * 'value' - The tag filter value.
 -- * 'key' - The tag filter key.
 -- * 'type'' - The tag filter type:
 --
@@ -57,9 +64,6 @@ data EC2TagFilter = EC2TagFilter'
 --
 --
 --     * @KEY_AND_VALUE@ : Key and value.
---
---
--- * 'value' - The tag filter value.
 mkEC2TagFilter ::
   EC2TagFilter
 mkEC2TagFilter =

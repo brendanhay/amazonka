@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,17 +44,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopTask' smart constructor.
 data StopTask = StopTask'
-  { cluster :: Lude.Maybe Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Lude.Maybe Lude.Text,
+    -- | An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message appears in subsequent 'DescribeTasks' API operations on this task. Up to 255 characters are allowed in this message.
     reason :: Lude.Maybe Lude.Text,
+    -- | The task ID or full Amazon Resource Name (ARN) of the task to stop.
     task :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTask' with the minimum fields required to make a request.
@@ -132,22 +130,18 @@ instance Lude.ToQuery StopTask where
 
 -- | /See:/ 'mkStopTaskResponse' smart constructor.
 data StopTaskResponse = StopTaskResponse'
-  { task :: Lude.Maybe Task,
+  { -- | The task that was stopped.
+    task :: Lude.Maybe Task,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTaskResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'task' - The task that was stopped.
+-- * 'responseStatus' - The response status code.
 mkStopTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

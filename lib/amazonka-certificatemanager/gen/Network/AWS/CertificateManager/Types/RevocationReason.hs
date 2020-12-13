@@ -13,16 +13,16 @@
 module Network.AWS.CertificateManager.Types.RevocationReason
   ( RevocationReason
       ( RevocationReason',
-        AACompromise,
-        AffiliationChanged,
-        CaCompromise,
-        CertificateHold,
-        CessationOfOperation,
+        Unspecified,
         KeyCompromise,
-        PrivilegeWithdrawn,
-        RemoveFromCrl,
+        CaCompromise,
+        AffiliationChanged,
         Superceded,
-        Unspecified
+        CessationOfOperation,
+        CertificateHold,
+        RemoveFromCrl,
+        PrivilegeWithdrawn,
+        AACompromise
       ),
   )
 where
@@ -53,46 +53,46 @@ newtype RevocationReason = RevocationReason' Lude.Text
       Lude.ToHeader
     )
 
-pattern AACompromise :: RevocationReason
-pattern AACompromise = RevocationReason' "A_A_COMPROMISE"
-
-pattern AffiliationChanged :: RevocationReason
-pattern AffiliationChanged = RevocationReason' "AFFILIATION_CHANGED"
-
-pattern CaCompromise :: RevocationReason
-pattern CaCompromise = RevocationReason' "CA_COMPROMISE"
-
-pattern CertificateHold :: RevocationReason
-pattern CertificateHold = RevocationReason' "CERTIFICATE_HOLD"
-
-pattern CessationOfOperation :: RevocationReason
-pattern CessationOfOperation = RevocationReason' "CESSATION_OF_OPERATION"
+pattern Unspecified :: RevocationReason
+pattern Unspecified = RevocationReason' "UNSPECIFIED"
 
 pattern KeyCompromise :: RevocationReason
 pattern KeyCompromise = RevocationReason' "KEY_COMPROMISE"
 
-pattern PrivilegeWithdrawn :: RevocationReason
-pattern PrivilegeWithdrawn = RevocationReason' "PRIVILEGE_WITHDRAWN"
+pattern CaCompromise :: RevocationReason
+pattern CaCompromise = RevocationReason' "CA_COMPROMISE"
 
-pattern RemoveFromCrl :: RevocationReason
-pattern RemoveFromCrl = RevocationReason' "REMOVE_FROM_CRL"
+pattern AffiliationChanged :: RevocationReason
+pattern AffiliationChanged = RevocationReason' "AFFILIATION_CHANGED"
 
 pattern Superceded :: RevocationReason
 pattern Superceded = RevocationReason' "SUPERCEDED"
 
-pattern Unspecified :: RevocationReason
-pattern Unspecified = RevocationReason' "UNSPECIFIED"
+pattern CessationOfOperation :: RevocationReason
+pattern CessationOfOperation = RevocationReason' "CESSATION_OF_OPERATION"
+
+pattern CertificateHold :: RevocationReason
+pattern CertificateHold = RevocationReason' "CERTIFICATE_HOLD"
+
+pattern RemoveFromCrl :: RevocationReason
+pattern RemoveFromCrl = RevocationReason' "REMOVE_FROM_CRL"
+
+pattern PrivilegeWithdrawn :: RevocationReason
+pattern PrivilegeWithdrawn = RevocationReason' "PRIVILEGE_WITHDRAWN"
+
+pattern AACompromise :: RevocationReason
+pattern AACompromise = RevocationReason' "A_A_COMPROMISE"
 
 {-# COMPLETE
-  AACompromise,
-  AffiliationChanged,
-  CaCompromise,
-  CertificateHold,
-  CessationOfOperation,
-  KeyCompromise,
-  PrivilegeWithdrawn,
-  RemoveFromCrl,
-  Superceded,
   Unspecified,
+  KeyCompromise,
+  CaCompromise,
+  AffiliationChanged,
+  Superceded,
+  CessationOfOperation,
+  CertificateHold,
+  RemoveFromCrl,
+  PrivilegeWithdrawn,
+  AACompromise,
   RevocationReason'
   #-}

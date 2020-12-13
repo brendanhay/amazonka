@@ -13,9 +13,9 @@
 module Network.AWS.Route53Domains.Types.ContactType
   ( ContactType
       ( ContactType',
-        Association,
-        Company,
         Person,
+        Company,
+        Association,
         PublicBody,
         Reseller
       ),
@@ -48,14 +48,14 @@ newtype ContactType = ContactType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Association :: ContactType
-pattern Association = ContactType' "ASSOCIATION"
+pattern Person :: ContactType
+pattern Person = ContactType' "PERSON"
 
 pattern Company :: ContactType
 pattern Company = ContactType' "COMPANY"
 
-pattern Person :: ContactType
-pattern Person = ContactType' "PERSON"
+pattern Association :: ContactType
+pattern Association = ContactType' "ASSOCIATION"
 
 pattern PublicBody :: ContactType
 pattern PublicBody = ContactType' "PUBLIC_BODY"
@@ -64,9 +64,9 @@ pattern Reseller :: ContactType
 pattern Reseller = ContactType' "RESELLER"
 
 {-# COMPLETE
-  Association,
-  Company,
   Person,
+  Company,
+  Association,
   PublicBody,
   Reseller,
   ContactType'

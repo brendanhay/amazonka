@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,28 +47,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeInstancesHealth' smart constructor.
 data DescribeInstancesHealth = DescribeInstancesHealth'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Specify the pagination token returned by a previous call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Specify the AWS Elastic Beanstalk environment by name.
     environmentName :: Lude.Maybe Lude.Text,
-    attributeNames ::
-      Lude.Maybe [InstancesHealthAttribute],
+    -- | Specifies the response elements you wish to receive. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns a list of instances.
+    attributeNames :: Lude.Maybe [InstancesHealthAttribute],
+    -- | Specify the AWS Elastic Beanstalk environment by ID.
     environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancesHealth' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - Specify the pagination token returned by a previous call.
+-- * 'environmentName' - Specify the AWS Elastic Beanstalk environment by name.
 -- * 'attributeNames' - Specifies the response elements you wish to receive. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns a list of instances.
 -- * 'environmentId' - Specify the AWS Elastic Beanstalk environment by ID.
--- * 'environmentName' - Specify the AWS Elastic Beanstalk environment by name.
--- * 'nextToken' - Specify the pagination token returned by a previous call.
 mkDescribeInstancesHealth ::
   DescribeInstancesHealth
 mkDescribeInstancesHealth =
@@ -144,22 +141,18 @@ instance Lude.ToQuery DescribeInstancesHealth where
 --
 -- /See:/ 'mkDescribeInstancesHealthResponse' smart constructor.
 data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
-  { instanceHealthList ::
-      Lude.Maybe
-        [SingleInstanceHealth],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    refreshedAt ::
-      Lude.Maybe Lude.DateTime,
+  { -- | Detailed health information about each instance.
+    --
+    -- The output differs slightly between Linux and Windows environments. There is a difference in the members that are supported under the @<CPUUtilization>@ type.
+    instanceHealthList :: Lude.Maybe [SingleInstanceHealth],
+    -- | Pagination token for the next page of results, if available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The date and time that the health information was retrieved.
+    refreshedAt :: Lude.Maybe Lude.DateTime,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancesHealthResponse' with the minimum fields required to make a request.

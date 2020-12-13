@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,16 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListStacks' smart constructor.
 data ListStacks = ListStacks'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | A string that identifies the next page of stacks that you want to retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Stack status to use as a filter. Specify one or more stack status codes to list only stacks with the specified status codes. For a complete list of stack status codes, see the @StackStatus@ parameter of the 'Stack' data type.
     stackStatusFilter :: Lude.Maybe [StackStatus]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStacks' with the minimum fields required to make a request.
@@ -129,25 +126,21 @@ instance Lude.ToQuery ListStacks where
 --
 -- /See:/ 'mkListStacksResponse' smart constructor.
 data ListStacksResponse = ListStacksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @StackSummary@ structures containing information about the specified stacks.
     stackSummaries :: Lude.Maybe [StackSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStacksResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
--- * 'responseStatus' - The response status code.
 -- * 'stackSummaries' - A list of @StackSummary@ structures containing information about the specified stacks.
+-- * 'responseStatus' - The response status code.
 mkListStacksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

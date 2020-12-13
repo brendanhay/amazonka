@@ -19,8 +19,8 @@ module Network.AWS.KinesisVideoMedia.Types.StartSelector
     -- * Lenses
     ssContinuationToken,
     ssAfterFragmentNumber,
-    ssStartTimestamp,
     ssStartSelectorType,
+    ssStartTimestamp,
   )
 where
 
@@ -43,25 +43,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStartSelector' smart constructor.
 data StartSelector = StartSelector'
-  { continuationToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Continuation token that Kinesis Video Streams returned in the previous @GetMedia@ response. The @GetMedia@ API then starts with the chunk identified by the continuation token.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | Specifies the fragment number from where you want the @GetMedia@ API to start returning the fragments.
     afterFragmentNumber :: Lude.Maybe Lude.Text,
-    startTimestamp :: Lude.Maybe Lude.Timestamp,
-    startSelectorType :: StartSelectorType
+    -- | Identifies the fragment on the Kinesis video stream where you want to start getting the data from.
+    --
+    --
+    --     * NOW - Start with the latest chunk on the stream.
+    --
+    --
+    --     * EARLIEST - Start with earliest available chunk on the stream.
+    --
+    --
+    --     * FRAGMENT_NUMBER - Start with the chunk after a specific fragment. You must also specify the @AfterFragmentNumber@ parameter.
+    --
+    --
+    --     * PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk containing a fragment with the specified producer or server timestamp. You specify the timestamp by adding @StartTimestamp@ .
+    --
+    --
+    --     * CONTINUATION_TOKEN - Read using the specified continuation token.
+    startSelectorType :: StartSelectorType,
+    -- | A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@ . The @GetMedia@ API then starts with the chunk containing the fragment that has the specified timestamp.
+    startTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSelector' with the minimum fields required to make a request.
 --
--- * 'afterFragmentNumber' - Specifies the fragment number from where you want the @GetMedia@ API to start returning the fragments.
 -- * 'continuationToken' - Continuation token that Kinesis Video Streams returned in the previous @GetMedia@ response. The @GetMedia@ API then starts with the chunk identified by the continuation token.
+-- * 'afterFragmentNumber' - Specifies the fragment number from where you want the @GetMedia@ API to start returning the fragments.
 -- * 'startSelectorType' - Identifies the fragment on the Kinesis video stream where you want to start getting the data from.
 --
 --
@@ -89,8 +101,8 @@ mkStartSelector pStartSelectorType_ =
   StartSelector'
     { continuationToken = Lude.Nothing,
       afterFragmentNumber = Lude.Nothing,
-      startTimestamp = Lude.Nothing,
-      startSelectorType = pStartSelectorType_
+      startSelectorType = pStartSelectorType_,
+      startTimestamp = Lude.Nothing
     }
 
 -- | Continuation token that Kinesis Video Streams returned in the previous @GetMedia@ response. The @GetMedia@ API then starts with the chunk identified by the continuation token.
@@ -106,13 +118,6 @@ ssContinuationToken = Lens.lens (continuationToken :: StartSelector -> Lude.Mayb
 ssAfterFragmentNumber :: Lens.Lens' StartSelector (Lude.Maybe Lude.Text)
 ssAfterFragmentNumber = Lens.lens (afterFragmentNumber :: StartSelector -> Lude.Maybe Lude.Text) (\s a -> s {afterFragmentNumber = a} :: StartSelector)
 {-# DEPRECATED ssAfterFragmentNumber "Use generic-lens or generic-optics with 'afterFragmentNumber' instead." #-}
-
--- | A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@ . The @GetMedia@ API then starts with the chunk containing the fragment that has the specified timestamp.
---
--- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStartTimestamp :: Lens.Lens' StartSelector (Lude.Maybe Lude.Timestamp)
-ssStartTimestamp = Lens.lens (startTimestamp :: StartSelector -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTimestamp = a} :: StartSelector)
-{-# DEPRECATED ssStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
 
 -- | Identifies the fragment on the Kinesis video stream where you want to start getting the data from.
 --
@@ -138,13 +143,20 @@ ssStartSelectorType :: Lens.Lens' StartSelector StartSelectorType
 ssStartSelectorType = Lens.lens (startSelectorType :: StartSelector -> StartSelectorType) (\s a -> s {startSelectorType = a} :: StartSelector)
 {-# DEPRECATED ssStartSelectorType "Use generic-lens or generic-optics with 'startSelectorType' instead." #-}
 
+-- | A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@ . The @GetMedia@ API then starts with the chunk containing the fragment that has the specified timestamp.
+--
+-- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStartTimestamp :: Lens.Lens' StartSelector (Lude.Maybe Lude.Timestamp)
+ssStartTimestamp = Lens.lens (startTimestamp :: StartSelector -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTimestamp = a} :: StartSelector)
+{-# DEPRECATED ssStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
+
 instance Lude.ToJSON StartSelector where
   toJSON StartSelector' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("ContinuationToken" Lude..=) Lude.<$> continuationToken,
             ("AfterFragmentNumber" Lude..=) Lude.<$> afterFragmentNumber,
-            ("StartTimestamp" Lude..=) Lude.<$> startTimestamp,
-            Lude.Just ("StartSelectorType" Lude..= startSelectorType)
+            Lude.Just ("StartSelectorType" Lude..= startSelectorType),
+            ("StartTimestamp" Lude..=) Lude.<$> startTimestamp
           ]
       )

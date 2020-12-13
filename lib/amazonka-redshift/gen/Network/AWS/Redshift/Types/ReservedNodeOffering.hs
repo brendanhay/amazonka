@@ -39,37 +39,39 @@ import Network.AWS.Redshift.Types.ReservedNodeOfferingType
 --
 -- /See:/ 'mkReservedNodeOffering' smart constructor.
 data ReservedNodeOffering = ReservedNodeOffering'
-  { reservedNodeOfferingType ::
-      Lude.Maybe ReservedNodeOfferingType,
+  { -- |
+    reservedNodeOfferingType :: Lude.Maybe ReservedNodeOfferingType,
+    -- | The currency code for the compute nodes offering.
     currencyCode :: Lude.Maybe Lude.Text,
+    -- | The offering identifier.
     reservedNodeOfferingId :: Lude.Maybe Lude.Text,
+    -- | The charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes.
     recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The anticipated utilization of the reserved node, as defined in the reserved node offering.
     offeringType :: Lude.Maybe Lude.Text,
+    -- | The rate you are charged for each hour the cluster that is using the offering is running.
     usagePrice :: Lude.Maybe Lude.Double,
+    -- | The node type offered by the reserved node offering.
     nodeType :: Lude.Maybe Lude.Text,
+    -- | The upfront fixed charge you will pay to purchase the specific reserved node offering.
     fixedPrice :: Lude.Maybe Lude.Double,
+    -- | The duration, in seconds, for which the offering will reserve the node.
     duration :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedNodeOffering' with the minimum fields required to make a request.
 --
--- * 'currencyCode' - The currency code for the compute nodes offering.
--- * 'duration' - The duration, in seconds, for which the offering will reserve the node.
--- * 'fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved node offering.
--- * 'nodeType' - The node type offered by the reserved node offering.
--- * 'offeringType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
--- * 'recurringCharges' - The charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes.
--- * 'reservedNodeOfferingId' - The offering identifier.
 -- * 'reservedNodeOfferingType' -
+-- * 'currencyCode' - The currency code for the compute nodes offering.
+-- * 'reservedNodeOfferingId' - The offering identifier.
+-- * 'recurringCharges' - The charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes.
+-- * 'offeringType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
 -- * 'usagePrice' - The rate you are charged for each hour the cluster that is using the offering is running.
+-- * 'nodeType' - The node type offered by the reserved node offering.
+-- * 'fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved node offering.
+-- * 'duration' - The duration, in seconds, for which the offering will reserve the node.
 mkReservedNodeOffering ::
   ReservedNodeOffering
 mkReservedNodeOffering =

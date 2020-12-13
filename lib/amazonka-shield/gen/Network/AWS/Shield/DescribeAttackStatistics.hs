@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.Shield.DescribeAttackStatistics
     mkDescribeAttackStatisticsResponse,
 
     -- ** Response lenses
-    dasrsResponseStatus,
     dasrsTimeRange,
     dasrsDataItems,
+    dasrsResponseStatus,
   )
 where
 
@@ -40,13 +41,7 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkDescribeAttackStatistics' smart constructor.
 data DescribeAttackStatistics = DescribeAttackStatistics'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAttackStatistics' with the minimum fields required to make a request.
@@ -61,9 +56,9 @@ instance Lude.AWSRequest DescribeAttackStatistics where
     Res.receiveJSON
       ( \s h x ->
           DescribeAttackStatisticsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "TimeRange")
+            Lude.<$> (x Lude..:> "TimeRange")
             Lude.<*> (x Lude..?> "DataItems" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeAttackStatistics where
@@ -88,46 +83,32 @@ instance Lude.ToQuery DescribeAttackStatistics where
 
 -- | /See:/ 'mkDescribeAttackStatisticsResponse' smart constructor.
 data DescribeAttackStatisticsResponse = DescribeAttackStatisticsResponse'
-  { responseStatus ::
-      Lude.Int,
-    timeRange :: TimeRange,
-    dataItems ::
-      [AttackStatisticsDataItem]
+  { timeRange :: TimeRange,
+    -- | The data that describes the attacks detected during the time period.
+    dataItems :: [AttackStatisticsDataItem],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAttackStatisticsResponse' with the minimum fields required to make a request.
 --
+-- * 'timeRange' -
 -- * 'dataItems' - The data that describes the attacks detected during the time period.
 -- * 'responseStatus' - The response status code.
--- * 'timeRange' - Undocumented field.
 mkDescribeAttackStatisticsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'timeRange'
   TimeRange ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAttackStatisticsResponse
-mkDescribeAttackStatisticsResponse pResponseStatus_ pTimeRange_ =
+mkDescribeAttackStatisticsResponse pTimeRange_ pResponseStatus_ =
   DescribeAttackStatisticsResponse'
-    { responseStatus =
-        pResponseStatus_,
-      timeRange = pTimeRange_,
-      dataItems = Lude.mempty
+    { timeRange = pTimeRange_,
+      dataItems = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasrsResponseStatus :: Lens.Lens' DescribeAttackStatisticsResponse Lude.Int
-dasrsResponseStatus = Lens.lens (responseStatus :: DescribeAttackStatisticsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAttackStatisticsResponse)
-{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -142,3 +123,10 @@ dasrsTimeRange = Lens.lens (timeRange :: DescribeAttackStatisticsResponse -> Tim
 dasrsDataItems :: Lens.Lens' DescribeAttackStatisticsResponse [AttackStatisticsDataItem]
 dasrsDataItems = Lens.lens (dataItems :: DescribeAttackStatisticsResponse -> [AttackStatisticsDataItem]) (\s a -> s {dataItems = a} :: DescribeAttackStatisticsResponse)
 {-# DEPRECATED dasrsDataItems "Use generic-lens or generic-optics with 'dataItems' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasrsResponseStatus :: Lens.Lens' DescribeAttackStatisticsResponse Lude.Int
+dasrsResponseStatus = Lens.lens (responseStatus :: DescribeAttackStatisticsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAttackStatisticsResponse)
+{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

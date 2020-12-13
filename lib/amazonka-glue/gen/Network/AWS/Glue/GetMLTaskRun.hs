@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,22 +50,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMLTaskRun' smart constructor.
 data GetMLTaskRun = GetMLTaskRun'
-  { transformId :: Lude.Text,
+  { -- | The unique identifier of the machine learning transform.
+    transformId :: Lude.Text,
+    -- | The unique identifier of the task run.
     taskRunId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMLTaskRun' with the minimum fields required to make a request.
 --
--- * 'taskRunId' - The unique identifier of the task run.
 -- * 'transformId' - The unique identifier of the machine learning transform.
+-- * 'taskRunId' - The unique identifier of the task run.
 mkGetMLTaskRun ::
   -- | 'transformId'
   Lude.Text ->
@@ -139,41 +136,45 @@ instance Lude.ToQuery GetMLTaskRun where
 
 -- | /See:/ 'mkGetMLTaskRunResponse' smart constructor.
 data GetMLTaskRunResponse = GetMLTaskRunResponse'
-  { completedOn ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time when this task run was completed.
+    completedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The status for this task run.
     status :: Lude.Maybe TaskStatusType,
+    -- | The date and time when this task run was last modified.
     lastModifiedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The error strings that are associated with the task run.
     errorString :: Lude.Maybe Lude.Text,
+    -- | The date and time when this task run started.
     startedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The names of the log groups that are associated with the task run.
     logGroupName :: Lude.Maybe Lude.Text,
+    -- | The amount of time (in seconds) that the task run consumed resources.
     executionTime :: Lude.Maybe Lude.Int,
+    -- | The list of properties that are associated with the task run.
     properties :: Lude.Maybe TaskRunProperties,
+    -- | The unique identifier of the task run.
     transformId :: Lude.Maybe Lude.Text,
+    -- | The unique run identifier associated with this run.
     taskRunId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMLTaskRunResponse' with the minimum fields required to make a request.
 --
 -- * 'completedOn' - The date and time when this task run was completed.
--- * 'errorString' - The error strings that are associated with the task run.
--- * 'executionTime' - The amount of time (in seconds) that the task run consumed resources.
--- * 'lastModifiedOn' - The date and time when this task run was last modified.
--- * 'logGroupName' - The names of the log groups that are associated with the task run.
--- * 'properties' - The list of properties that are associated with the task run.
--- * 'responseStatus' - The response status code.
--- * 'startedOn' - The date and time when this task run started.
 -- * 'status' - The status for this task run.
--- * 'taskRunId' - The unique run identifier associated with this run.
+-- * 'lastModifiedOn' - The date and time when this task run was last modified.
+-- * 'errorString' - The error strings that are associated with the task run.
+-- * 'startedOn' - The date and time when this task run started.
+-- * 'logGroupName' - The names of the log groups that are associated with the task run.
+-- * 'executionTime' - The amount of time (in seconds) that the task run consumed resources.
+-- * 'properties' - The list of properties that are associated with the task run.
 -- * 'transformId' - The unique identifier of the task run.
+-- * 'taskRunId' - The unique run identifier associated with this run.
+-- * 'responseStatus' - The response status code.
 mkGetMLTaskRunResponse ::
   -- | 'responseStatus'
   Lude.Int ->

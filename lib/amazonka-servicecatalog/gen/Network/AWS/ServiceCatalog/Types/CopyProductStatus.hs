@@ -13,9 +13,9 @@
 module Network.AWS.ServiceCatalog.Types.CopyProductStatus
   ( CopyProductStatus
       ( CopyProductStatus',
-        CPSFailed,
+        CPSSucceeded,
         CPSInProgress,
-        CPSSucceeded
+        CPSFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CopyProductStatus = CopyProductStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CPSFailed :: CopyProductStatus
-pattern CPSFailed = CopyProductStatus' "FAILED"
+pattern CPSSucceeded :: CopyProductStatus
+pattern CPSSucceeded = CopyProductStatus' "SUCCEEDED"
 
 pattern CPSInProgress :: CopyProductStatus
 pattern CPSInProgress = CopyProductStatus' "IN_PROGRESS"
 
-pattern CPSSucceeded :: CopyProductStatus
-pattern CPSSucceeded = CopyProductStatus' "SUCCEEDED"
+pattern CPSFailed :: CopyProductStatus
+pattern CPSFailed = CopyProductStatus' "FAILED"
 
 {-# COMPLETE
-  CPSFailed,
-  CPSInProgress,
   CPSSucceeded,
+  CPSInProgress,
+  CPSFailed,
   CopyProductStatus'
   #-}

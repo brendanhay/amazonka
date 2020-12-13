@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.WorkSpaces.AuthorizeIPRules
     mkAuthorizeIPRules,
 
     -- ** Request lenses
-    airGroupId,
     airUserRules,
+    airGroupId,
 
     -- * Destructuring the response
     AuthorizeIPRulesResponse (..),
@@ -41,35 +42,24 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkAuthorizeIPRules' smart constructor.
 data AuthorizeIPRules = AuthorizeIPRules'
-  { groupId :: Lude.Text,
-    userRules :: [IPRuleItem]
+  { -- | The rules to add to the group.
+    userRules :: [IPRuleItem],
+    -- | The identifier of the group.
+    groupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeIPRules' with the minimum fields required to make a request.
 --
--- * 'groupId' - The identifier of the group.
 -- * 'userRules' - The rules to add to the group.
+-- * 'groupId' - The identifier of the group.
 mkAuthorizeIPRules ::
   -- | 'groupId'
   Lude.Text ->
   AuthorizeIPRules
 mkAuthorizeIPRules pGroupId_ =
-  AuthorizeIPRules' {groupId = pGroupId_, userRules = Lude.mempty}
-
--- | The identifier of the group.
---
--- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-airGroupId :: Lens.Lens' AuthorizeIPRules Lude.Text
-airGroupId = Lens.lens (groupId :: AuthorizeIPRules -> Lude.Text) (\s a -> s {groupId = a} :: AuthorizeIPRules)
-{-# DEPRECATED airGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+  AuthorizeIPRules' {userRules = Lude.mempty, groupId = pGroupId_}
 
 -- | The rules to add to the group.
 --
@@ -77,6 +67,13 @@ airGroupId = Lens.lens (groupId :: AuthorizeIPRules -> Lude.Text) (\s a -> s {gr
 airUserRules :: Lens.Lens' AuthorizeIPRules [IPRuleItem]
 airUserRules = Lens.lens (userRules :: AuthorizeIPRules -> [IPRuleItem]) (\s a -> s {userRules = a} :: AuthorizeIPRules)
 {-# DEPRECATED airUserRules "Use generic-lens or generic-optics with 'userRules' instead." #-}
+
+-- | The identifier of the group.
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+airGroupId :: Lens.Lens' AuthorizeIPRules Lude.Text
+airGroupId = Lens.lens (groupId :: AuthorizeIPRules -> Lude.Text) (\s a -> s {groupId = a} :: AuthorizeIPRules)
+{-# DEPRECATED airGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 instance Lude.AWSRequest AuthorizeIPRules where
   type Rs AuthorizeIPRules = AuthorizeIPRulesResponse
@@ -102,8 +99,8 @@ instance Lude.ToJSON AuthorizeIPRules where
   toJSON AuthorizeIPRules' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("GroupId" Lude..= groupId),
-            Lude.Just ("UserRules" Lude..= userRules)
+          [ Lude.Just ("UserRules" Lude..= userRules),
+            Lude.Just ("GroupId" Lude..= groupId)
           ]
       )
 
@@ -115,16 +112,10 @@ instance Lude.ToQuery AuthorizeIPRules where
 
 -- | /See:/ 'mkAuthorizeIPRulesResponse' smart constructor.
 newtype AuthorizeIPRulesResponse = AuthorizeIPRulesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeIPRulesResponse' with the minimum fields required to make a request.

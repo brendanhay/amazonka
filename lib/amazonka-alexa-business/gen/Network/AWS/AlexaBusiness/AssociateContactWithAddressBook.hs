@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AlexaBusiness.AssociateContactWithAddressBook
     mkAssociateContactWithAddressBook,
 
     -- ** Request lenses
-    acwabContactARN,
     acwabAddressBookARN,
+    acwabContactARN,
 
     -- * Destructuring the response
     AssociateContactWithAddressBookResponse (..),
@@ -39,17 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateContactWithAddressBook' smart constructor.
 data AssociateContactWithAddressBook = AssociateContactWithAddressBook'
-  { contactARN ::
-      Lude.Text,
-    addressBookARN :: Lude.Text
+  { -- | The ARN of the address book with which to associate the contact.
+    addressBookARN :: Lude.Text,
+    -- | The ARN of the contact to associate with an address book.
+    contactARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateContactWithAddressBook' with the minimum fields required to make a request.
@@ -57,23 +53,17 @@ data AssociateContactWithAddressBook = AssociateContactWithAddressBook'
 -- * 'addressBookARN' - The ARN of the address book with which to associate the contact.
 -- * 'contactARN' - The ARN of the contact to associate with an address book.
 mkAssociateContactWithAddressBook ::
-  -- | 'contactARN'
-  Lude.Text ->
   -- | 'addressBookARN'
   Lude.Text ->
+  -- | 'contactARN'
+  Lude.Text ->
   AssociateContactWithAddressBook
-mkAssociateContactWithAddressBook pContactARN_ pAddressBookARN_ =
+mkAssociateContactWithAddressBook pAddressBookARN_ pContactARN_ =
   AssociateContactWithAddressBook'
-    { contactARN = pContactARN_,
-      addressBookARN = pAddressBookARN_
+    { addressBookARN =
+        pAddressBookARN_,
+      contactARN = pContactARN_
     }
-
--- | The ARN of the contact to associate with an address book.
---
--- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acwabContactARN :: Lens.Lens' AssociateContactWithAddressBook Lude.Text
-acwabContactARN = Lens.lens (contactARN :: AssociateContactWithAddressBook -> Lude.Text) (\s a -> s {contactARN = a} :: AssociateContactWithAddressBook)
-{-# DEPRECATED acwabContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
 
 -- | The ARN of the address book with which to associate the contact.
 --
@@ -81,6 +71,13 @@ acwabContactARN = Lens.lens (contactARN :: AssociateContactWithAddressBook -> Lu
 acwabAddressBookARN :: Lens.Lens' AssociateContactWithAddressBook Lude.Text
 acwabAddressBookARN = Lens.lens (addressBookARN :: AssociateContactWithAddressBook -> Lude.Text) (\s a -> s {addressBookARN = a} :: AssociateContactWithAddressBook)
 {-# DEPRECATED acwabAddressBookARN "Use generic-lens or generic-optics with 'addressBookARN' instead." #-}
+
+-- | The ARN of the contact to associate with an address book.
+--
+-- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acwabContactARN :: Lens.Lens' AssociateContactWithAddressBook Lude.Text
+acwabContactARN = Lens.lens (contactARN :: AssociateContactWithAddressBook -> Lude.Text) (\s a -> s {contactARN = a} :: AssociateContactWithAddressBook)
+{-# DEPRECATED acwabContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
 
 instance Lude.AWSRequest AssociateContactWithAddressBook where
   type
@@ -111,8 +108,8 @@ instance Lude.ToJSON AssociateContactWithAddressBook where
   toJSON AssociateContactWithAddressBook' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ContactArn" Lude..= contactARN),
-            Lude.Just ("AddressBookArn" Lude..= addressBookARN)
+          [ Lude.Just ("AddressBookArn" Lude..= addressBookARN),
+            Lude.Just ("ContactArn" Lude..= contactARN)
           ]
       )
 
@@ -124,16 +121,10 @@ instance Lude.ToQuery AssociateContactWithAddressBook where
 
 -- | /See:/ 'mkAssociateContactWithAddressBookResponse' smart constructor.
 newtype AssociateContactWithAddressBookResponse = AssociateContactWithAddressBookResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateContactWithAddressBookResponse' with the minimum fields required to make a request.

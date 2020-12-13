@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { arn :: Lude.Text,
+  { -- | The ARN of the resource group to which to add tags.
+    arn :: Lude.Text,
+    -- | The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.
     tags :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
@@ -107,24 +104,21 @@ instance Lude.ToQuery Tag where
 
 -- | /See:/ 'mkTagResponse' smart constructor.
 data TagResponse = TagResponse'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the tagged resource.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The tags that have been added to the specified resource group.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the tagged resource.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags that have been added to the specified resource group.
+-- * 'responseStatus' - The response status code.
 mkTagResponse ::
   -- | 'responseStatus'
   Lude.Int ->

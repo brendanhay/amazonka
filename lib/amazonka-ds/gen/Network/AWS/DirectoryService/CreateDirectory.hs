@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,21 +22,21 @@ module Network.AWS.DirectoryService.CreateDirectory
     mkCreateDirectory,
 
     -- ** Request lenses
-    cShortName,
-    cVPCSettings,
-    cDescription,
-    cTags,
-    cName,
-    cPassword,
-    cSize,
+    cdShortName,
+    cdSize,
+    cdName,
+    cdPassword,
+    cdVPCSettings,
+    cdDescription,
+    cdTags,
 
     -- * Destructuring the response
     CreateDirectoryResponse (..),
     mkCreateDirectoryResponse,
 
     -- ** Response lenses
-    crsDirectoryId,
-    crsResponseStatus,
+    cdrsDirectoryId,
+    cdrsResponseStatus,
   )
 where
 
@@ -49,21 +50,50 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
-  { shortName ::
-      Lude.Maybe Lude.Text,
-    vpcSettings :: Lude.Maybe DirectoryVPCSettings,
-    description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | The NetBIOS name of the directory, such as @CORP@ .
+    shortName :: Lude.Maybe Lude.Text,
+    -- | The size of the directory.
+    size :: DirectorySize,
+    -- | The fully qualified name for the directory, such as @corp.example.com@ .
     name :: Lude.Text,
+    -- | The password for the directory administrator. The directory creation process creates a directory administrator account with the user name @Administrator@ and this password.
+    --
+    -- If you need to change the password for the administrator account, you can use the 'ResetUserPassword' API call.
+    -- The regex pattern for this string is made up of the following conditions:
+    --
+    --     * Length (?=^.{8,64}$) – Must be between 8 and 64 characters
+    --
+    --
+    -- AND any 3 of the following password complexity rules required by Active Directory:
+    --
+    --     * Numbers and upper case and lowercase (?=.*\d)(?=.*[A-Z])(?=.*[a-z])
+    --
+    --
+    --     * Numbers and special characters and lower case (?=.*\d)(?=.*[^A-Za-z0-9\s])(?=.*[a-z])
+    --
+    --
+    --     * Special characters and upper case and lower case (?=.*[^A-Za-z0-9\s])(?=.*[A-Z])(?=.*[a-z])
+    --
+    --
+    --     * Numbers and upper case and special characters (?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\s])
+    --
+    --
+    -- For additional information about how Active Directory passwords are enforced, see <https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements Password must meet complexity requirements> on the Microsoft website.
     password :: Lude.Sensitive Lude.Text,
-    size :: DirectorySize
+    -- | A 'DirectoryVpcSettings' object that contains additional information for the operation.
+    vpcSettings :: Lude.Maybe DirectoryVPCSettings,
+    -- | A description for the directory.
+    description :: Lude.Maybe Lude.Text,
+    -- | The tags to be assigned to the Simple AD directory.
+    tags :: Lude.Maybe [Tag]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectory' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the directory.
+-- * 'shortName' - The NetBIOS name of the directory, such as @CORP@ .
+-- * 'size' - The size of the directory.
 -- * 'name' - The fully qualified name for the directory, such as @corp.example.com@ .
 -- * 'password' - The password for the directory administrator. The directory creation process creates a directory administrator account with the user name @Administrator@ and this password.
 --
@@ -88,63 +118,48 @@ data CreateDirectory = CreateDirectory'
 --
 --
 -- For additional information about how Active Directory passwords are enforced, see <https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements Password must meet complexity requirements> on the Microsoft website.
--- * 'shortName' - The NetBIOS name of the directory, such as @CORP@ .
--- * 'size' - The size of the directory.
--- * 'tags' - The tags to be assigned to the Simple AD directory.
 -- * 'vpcSettings' - A 'DirectoryVpcSettings' object that contains additional information for the operation.
+-- * 'description' - A description for the directory.
+-- * 'tags' - The tags to be assigned to the Simple AD directory.
 mkCreateDirectory ::
+  -- | 'size'
+  DirectorySize ->
   -- | 'name'
   Lude.Text ->
   -- | 'password'
   Lude.Sensitive Lude.Text ->
-  -- | 'size'
-  DirectorySize ->
   CreateDirectory
-mkCreateDirectory pName_ pPassword_ pSize_ =
+mkCreateDirectory pSize_ pName_ pPassword_ =
   CreateDirectory'
     { shortName = Lude.Nothing,
-      vpcSettings = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing,
+      size = pSize_,
       name = pName_,
       password = pPassword_,
-      size = pSize_
+      vpcSettings = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The NetBIOS name of the directory, such as @CORP@ .
 --
 -- /Note:/ Consider using 'shortName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cShortName :: Lens.Lens' CreateDirectory (Lude.Maybe Lude.Text)
-cShortName = Lens.lens (shortName :: CreateDirectory -> Lude.Maybe Lude.Text) (\s a -> s {shortName = a} :: CreateDirectory)
-{-# DEPRECATED cShortName "Use generic-lens or generic-optics with 'shortName' instead." #-}
+cdShortName :: Lens.Lens' CreateDirectory (Lude.Maybe Lude.Text)
+cdShortName = Lens.lens (shortName :: CreateDirectory -> Lude.Maybe Lude.Text) (\s a -> s {shortName = a} :: CreateDirectory)
+{-# DEPRECATED cdShortName "Use generic-lens or generic-optics with 'shortName' instead." #-}
 
--- | A 'DirectoryVpcSettings' object that contains additional information for the operation.
+-- | The size of the directory.
 --
--- /Note:/ Consider using 'vpcSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cVPCSettings :: Lens.Lens' CreateDirectory (Lude.Maybe DirectoryVPCSettings)
-cVPCSettings = Lens.lens (vpcSettings :: CreateDirectory -> Lude.Maybe DirectoryVPCSettings) (\s a -> s {vpcSettings = a} :: CreateDirectory)
-{-# DEPRECATED cVPCSettings "Use generic-lens or generic-optics with 'vpcSettings' instead." #-}
-
--- | A description for the directory.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDescription :: Lens.Lens' CreateDirectory (Lude.Maybe Lude.Text)
-cDescription = Lens.lens (description :: CreateDirectory -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateDirectory)
-{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The tags to be assigned to the Simple AD directory.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTags :: Lens.Lens' CreateDirectory (Lude.Maybe [Tag])
-cTags = Lens.lens (tags :: CreateDirectory -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDirectory)
-{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSize :: Lens.Lens' CreateDirectory DirectorySize
+cdSize = Lens.lens (size :: CreateDirectory -> DirectorySize) (\s a -> s {size = a} :: CreateDirectory)
+{-# DEPRECATED cdSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The fully qualified name for the directory, such as @corp.example.com@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cName :: Lens.Lens' CreateDirectory Lude.Text
-cName = Lens.lens (name :: CreateDirectory -> Lude.Text) (\s a -> s {name = a} :: CreateDirectory)
-{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
+cdName :: Lens.Lens' CreateDirectory Lude.Text
+cdName = Lens.lens (name :: CreateDirectory -> Lude.Text) (\s a -> s {name = a} :: CreateDirectory)
+{-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The password for the directory administrator. The directory creation process creates a directory administrator account with the user name @Administrator@ and this password.
 --
@@ -171,16 +186,30 @@ cName = Lens.lens (name :: CreateDirectory -> Lude.Text) (\s a -> s {name = a} :
 -- For additional information about how Active Directory passwords are enforced, see <https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements Password must meet complexity requirements> on the Microsoft website.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cPassword :: Lens.Lens' CreateDirectory (Lude.Sensitive Lude.Text)
-cPassword = Lens.lens (password :: CreateDirectory -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateDirectory)
-{-# DEPRECATED cPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+cdPassword :: Lens.Lens' CreateDirectory (Lude.Sensitive Lude.Text)
+cdPassword = Lens.lens (password :: CreateDirectory -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateDirectory)
+{-# DEPRECATED cdPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
--- | The size of the directory.
+-- | A 'DirectoryVpcSettings' object that contains additional information for the operation.
 --
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSize :: Lens.Lens' CreateDirectory DirectorySize
-cSize = Lens.lens (size :: CreateDirectory -> DirectorySize) (\s a -> s {size = a} :: CreateDirectory)
-{-# DEPRECATED cSize "Use generic-lens or generic-optics with 'size' instead." #-}
+-- /Note:/ Consider using 'vpcSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdVPCSettings :: Lens.Lens' CreateDirectory (Lude.Maybe DirectoryVPCSettings)
+cdVPCSettings = Lens.lens (vpcSettings :: CreateDirectory -> Lude.Maybe DirectoryVPCSettings) (\s a -> s {vpcSettings = a} :: CreateDirectory)
+{-# DEPRECATED cdVPCSettings "Use generic-lens or generic-optics with 'vpcSettings' instead." #-}
+
+-- | A description for the directory.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDescription :: Lens.Lens' CreateDirectory (Lude.Maybe Lude.Text)
+cdDescription = Lens.lens (description :: CreateDirectory -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateDirectory)
+{-# DEPRECATED cdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The tags to be assigned to the Simple AD directory.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdTags :: Lens.Lens' CreateDirectory (Lude.Maybe [Tag])
+cdTags = Lens.lens (tags :: CreateDirectory -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDirectory)
+{-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateDirectory where
   type Rs CreateDirectory = CreateDirectoryResponse
@@ -208,12 +237,12 @@ instance Lude.ToJSON CreateDirectory where
     Lude.object
       ( Lude.catMaybes
           [ ("ShortName" Lude..=) Lude.<$> shortName,
-            ("VpcSettings" Lude..=) Lude.<$> vpcSettings,
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Size" Lude..= size),
             Lude.Just ("Name" Lude..= name),
             Lude.Just ("Password" Lude..= password),
-            Lude.Just ("Size" Lude..= size)
+            ("VpcSettings" Lude..=) Lude.<$> vpcSettings,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -227,17 +256,12 @@ instance Lude.ToQuery CreateDirectory where
 --
 -- /See:/ 'mkCreateDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the directory that was created.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectoryResponse' with the minimum fields required to make a request.
@@ -257,13 +281,13 @@ mkCreateDirectoryResponse pResponseStatus_ =
 -- | The identifier of the directory that was created.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsDirectoryId :: Lens.Lens' CreateDirectoryResponse (Lude.Maybe Lude.Text)
-crsDirectoryId = Lens.lens (directoryId :: CreateDirectoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: CreateDirectoryResponse)
-{-# DEPRECATED crsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+cdrsDirectoryId :: Lens.Lens' CreateDirectoryResponse (Lude.Maybe Lude.Text)
+cdrsDirectoryId = Lens.lens (directoryId :: CreateDirectoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: CreateDirectoryResponse)
+{-# DEPRECATED cdrsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CreateDirectoryResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CreateDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDirectoryResponse)
-{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdrsResponseStatus :: Lens.Lens' CreateDirectoryResponse Lude.Int
+cdrsResponseStatus = Lens.lens (responseStatus :: CreateDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDirectoryResponse)
+{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,23 +43,18 @@ import Network.AWS.SES.Types
 
 -- | /See:/ 'mkTestRenderTemplate' smart constructor.
 data TestRenderTemplate = TestRenderTemplate'
-  { templateName ::
-      Lude.Text,
+  { -- | The name of the template that you want to render.
+    templateName :: Lude.Text,
+    -- | A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
     templateData :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestRenderTemplate' with the minimum fields required to make a request.
 --
--- * 'templateData' - A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
 -- * 'templateName' - The name of the template that you want to render.
+-- * 'templateData' - A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
 mkTestRenderTemplate ::
   -- | 'templateName'
   Lude.Text ->
@@ -114,17 +110,12 @@ instance Lude.ToQuery TestRenderTemplate where
 
 -- | /See:/ 'mkTestRenderTemplateResponse' smart constructor.
 data TestRenderTemplateResponse = TestRenderTemplateResponse'
-  { renderedTemplate ::
-      Lude.Maybe Lude.Text,
+  { -- | The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter.
+    renderedTemplate :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestRenderTemplateResponse' with the minimum fields required to make a request.

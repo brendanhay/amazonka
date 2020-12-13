@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,34 +48,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTransitGatewayMulticastDomains' smart constructor.
 data DescribeTransitGatewayMulticastDomains = DescribeTransitGatewayMulticastDomains'
-  { transitGatewayMulticastDomainIds ::
-      Lude.Maybe
-        [Lude.Text],
-    filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainIds :: Lude.Maybe [Lude.Text],
+    -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @state@ - The state of the transit gateway multicast domain. Valid values are @pending@ | @available@ | @deleting@ | @deleted@ .
+    --
+    --
+    --     * @transit-gateway-id@ - The ID of the transit gateway.
+    --
+    --
+    --     * @transit-gateway-multicast-domain-id@ - The ID of the transit gateway multicast domain.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGatewayMulticastDomains' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'transitGatewayMulticastDomainIds' - The ID of the transit gateway multicast domain.
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
@@ -87,9 +86,9 @@ data DescribeTransitGatewayMulticastDomains = DescribeTransitGatewayMulticastDom
 --     * @transit-gateway-multicast-domain-id@ - The ID of the transit gateway multicast domain.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
--- * 'transitGatewayMulticastDomainIds' - The ID of the transit gateway multicast domain.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeTransitGatewayMulticastDomains ::
   DescribeTransitGatewayMulticastDomains
 mkDescribeTransitGatewayMulticastDomains =
@@ -198,32 +197,21 @@ instance Lude.ToQuery DescribeTransitGatewayMulticastDomains where
 
 -- | /See:/ 'mkDescribeTransitGatewayMulticastDomainsResponse' smart constructor.
 data DescribeTransitGatewayMulticastDomainsResponse = DescribeTransitGatewayMulticastDomainsResponse'
-  { transitGatewayMulticastDomains ::
-      Lude.Maybe
-        [TransitGatewayMulticastDomain],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the transit gateway multicast domains.
+    transitGatewayMulticastDomains :: Lude.Maybe [TransitGatewayMulticastDomain],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGatewayMulticastDomainsResponse' with the minimum fields required to make a request.
 --
+-- * 'transitGatewayMulticastDomains' - Information about the transit gateway multicast domains.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'transitGatewayMulticastDomains' - Information about the transit gateway multicast domains.
 mkDescribeTransitGatewayMulticastDomainsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

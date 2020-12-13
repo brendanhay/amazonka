@@ -36,38 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyComplianceStatus' smart constructor.
 data PolicyComplianceStatus = PolicyComplianceStatus'
-  { evaluationResults ::
-      Lude.Maybe [EvaluationResult],
+  { -- | An array of @EvaluationResult@ objects.
+    evaluationResults :: Lude.Maybe [EvaluationResult],
+    -- | Timestamp of the last update to the @EvaluationResult@ objects.
     lastUpdated :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the AWS Firewall Manager policy.
     policyName :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS Firewall Manager policy.
     policyId :: Lude.Maybe Lude.Text,
-    issueInfoMap ::
-      Lude.Maybe
-        ( Lude.HashMap
-            DependentServiceName
-            (Lude.Text)
-        ),
+    -- | Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.
+    issueInfoMap :: Lude.Maybe (Lude.HashMap DependentServiceName (Lude.Text)),
+    -- | The AWS account that created the AWS Firewall Manager policy.
     policyOwner :: Lude.Maybe Lude.Text,
+    -- | The member account ID.
     memberAccount :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyComplianceStatus' with the minimum fields required to make a request.
 --
 -- * 'evaluationResults' - An array of @EvaluationResult@ objects.
--- * 'issueInfoMap' - Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.
 -- * 'lastUpdated' - Timestamp of the last update to the @EvaluationResult@ objects.
--- * 'memberAccount' - The member account ID.
--- * 'policyId' - The ID of the AWS Firewall Manager policy.
 -- * 'policyName' - The name of the AWS Firewall Manager policy.
+-- * 'policyId' - The ID of the AWS Firewall Manager policy.
+-- * 'issueInfoMap' - Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.
 -- * 'policyOwner' - The AWS account that created the AWS Firewall Manager policy.
+-- * 'memberAccount' - The member account ID.
 mkPolicyComplianceStatus ::
   PolicyComplianceStatus
 mkPolicyComplianceStatus =

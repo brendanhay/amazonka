@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     mkModifyClusterParameterGroup,
 
     -- ** Request lenses
-    mcpgParameterGroupName,
     mcpgParameters,
+    mcpgParameterGroupName,
 
     -- * Destructuring the response
     ClusterParameterGroupNameMessage (..),
@@ -44,43 +45,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyClusterParameterGroup' smart constructor.
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
-  { parameterGroupName ::
-      Lude.Text,
-    parameters :: [Parameter]
+  { -- | An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+    --
+    -- For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional.
+    -- For the workload management (WLM) configuration, you must supply all the name-value pairs in the wlm_json_configuration parameter.
+    parameters :: [Parameter],
+    -- | The name of the parameter group to be modified.
+    parameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterParameterGroup' with the minimum fields required to make a request.
 --
--- * 'parameterGroupName' - The name of the parameter group to be modified.
 -- * 'parameters' - An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 --
 -- For each parameter to be modified, you must supply at least the parameter name and parameter value; other name-value pairs of the parameter are optional.
 -- For the workload management (WLM) configuration, you must supply all the name-value pairs in the wlm_json_configuration parameter.
+-- * 'parameterGroupName' - The name of the parameter group to be modified.
 mkModifyClusterParameterGroup ::
   -- | 'parameterGroupName'
   Lude.Text ->
   ModifyClusterParameterGroup
 mkModifyClusterParameterGroup pParameterGroupName_ =
   ModifyClusterParameterGroup'
-    { parameterGroupName =
-        pParameterGroupName_,
-      parameters = Lude.mempty
+    { parameters = Lude.mempty,
+      parameterGroupName = pParameterGroupName_
     }
-
--- | The name of the parameter group to be modified.
---
--- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcpgParameterGroupName :: Lens.Lens' ModifyClusterParameterGroup Lude.Text
-mcpgParameterGroupName = Lens.lens (parameterGroupName :: ModifyClusterParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: ModifyClusterParameterGroup)
-{-# DEPRECATED mcpgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
 -- | An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
 --
@@ -91,6 +82,13 @@ mcpgParameterGroupName = Lens.lens (parameterGroupName :: ModifyClusterParameter
 mcpgParameters :: Lens.Lens' ModifyClusterParameterGroup [Parameter]
 mcpgParameters = Lens.lens (parameters :: ModifyClusterParameterGroup -> [Parameter]) (\s a -> s {parameters = a} :: ModifyClusterParameterGroup)
 {-# DEPRECATED mcpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+-- | The name of the parameter group to be modified.
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcpgParameterGroupName :: Lens.Lens' ModifyClusterParameterGroup Lude.Text
+mcpgParameterGroupName = Lens.lens (parameterGroupName :: ModifyClusterParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: ModifyClusterParameterGroup)
+{-# DEPRECATED mcpgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
 instance Lude.AWSRequest ModifyClusterParameterGroup where
   type
@@ -114,6 +112,6 @@ instance Lude.ToQuery ModifyClusterParameterGroup where
       [ "Action"
           Lude.=: ("ModifyClusterParameterGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ParameterGroupName" Lude.=: parameterGroupName,
-        "Parameters" Lude.=: Lude.toQueryList "Parameter" parameters
+        "Parameters" Lude.=: Lude.toQueryList "Parameter" parameters,
+        "ParameterGroupName" Lude.=: parameterGroupName
       ]

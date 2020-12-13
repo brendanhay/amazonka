@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.ArchitectureType
   ( ArchitectureType
       ( ArchitectureType',
-        ATARM64,
         ATI386,
-        ATX86_64
+        ATX86_64,
+        ATARM64
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ArchitectureType = ArchitectureType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ATARM64 :: ArchitectureType
-pattern ATARM64 = ArchitectureType' "arm64"
-
 pattern ATI386 :: ArchitectureType
 pattern ATI386 = ArchitectureType' "i386"
 
 pattern ATX86_64 :: ArchitectureType
 pattern ATX86_64 = ArchitectureType' "x86_64"
 
+pattern ATARM64 :: ArchitectureType
+pattern ATARM64 = ArchitectureType' "arm64"
+
 {-# COMPLETE
-  ATARM64,
   ATI386,
   ATX86_64,
+  ATARM64,
   ArchitectureType'
   #-}

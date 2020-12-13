@@ -52,25 +52,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetCapacity' smart constructor.
 data FleetCapacity = FleetCapacity'
-  { instanceType ::
-      Lude.Maybe EC2InstanceType,
+  { -- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+    instanceType :: Lude.Maybe EC2InstanceType,
+    -- | A unique identifier for a fleet.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | Current status of fleet capacity.
     instanceCounts :: Lude.Maybe EC2InstanceCounts
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetCapacity' with the minimum fields required to make a request.
 --
+-- * 'instanceType' - Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
 -- * 'fleetId' - A unique identifier for a fleet.
 -- * 'instanceCounts' - Current status of fleet capacity.
--- * 'instanceType' - Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
 mkFleetCapacity ::
   FleetCapacity
 mkFleetCapacity =

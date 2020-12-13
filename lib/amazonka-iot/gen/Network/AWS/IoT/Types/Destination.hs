@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDestination' smart constructor.
 newtype Destination = Destination'
-  { s3Destination ::
-      Lude.Maybe S3Destination
+  { -- | Describes the location in S3 of the updated firmware.
+    s3Destination :: Lude.Maybe S3Destination
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.

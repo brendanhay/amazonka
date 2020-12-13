@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetReservationValue' smart constructor.
 data TargetReservationValue = TargetReservationValue'
-  { reservationValue ::
-      Lude.Maybe ReservationValue,
-    targetConfiguration ::
-      Lude.Maybe TargetConfiguration
+  { -- | The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of the list value, remaining upfront price, and additional upfront cost of the exchange.
+    reservationValue :: Lude.Maybe ReservationValue,
+    -- | The configuration of the Convertible Reserved Instances that make up the exchange.
+    targetConfiguration :: Lude.Maybe TargetConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetReservationValue' with the minimum fields required to make a request.

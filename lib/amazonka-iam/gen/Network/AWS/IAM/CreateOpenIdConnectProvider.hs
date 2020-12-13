@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,9 +34,9 @@ module Network.AWS.IAM.CreateOpenIdConnectProvider
     mkCreateOpenIdConnectProvider,
 
     -- ** Request lenses
-    coicpClientIdList,
     coicpURL,
     coicpThumbprintList,
+    coicpClientIdList,
 
     -- * Destructuring the response
     CreateOpenIdConnectProviderResponse (..),
@@ -55,54 +56,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateOpenIdConnectProvider' smart constructor.
 data CreateOpenIdConnectProvider = CreateOpenIdConnectProvider'
-  { clientIdList ::
-      Lude.Maybe [Lude.Text],
+  { -- | The URL of the identity provider. The URL must begin with @https://@ and should correspond to the @iss@ claim in the provider's OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like @https://server.example.org@ or @https://example.com@ .
+    --
+    -- You cannot register the same provider multiple times in a single AWS account. If you try to submit a URL that has already been used for an OpenID Connect provider in the AWS account, you will get an error.
     url :: Lude.Text,
-    thumbprintList :: [Lude.Text]
+    -- | A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates. Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.
+    --
+    -- The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
+    -- You must provide at least one thumbprint when creating an IAM OIDC provider. For example, assume that the OIDC provider is @server.example.com@ and the provider stores its keys at https://keys.server.example.com/openid-connect. In that case, the thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used by https://keys.server.example.com.
+    -- For more information about obtaining the OIDC provider's thumbprint, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider> in the /IAM User Guide/ .
+    thumbprintList :: [Lude.Text],
+    -- | A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the @client_id@ parameter on OAuth requests.)
+    --
+    -- You can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider.
+    -- There is no defined format for a client ID. The @CreateOpenIDConnectProviderRequest@ operation accepts client IDs up to 255 characters long.
+    clientIdList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOpenIdConnectProvider' with the minimum fields required to make a request.
 --
--- * 'clientIdList' - A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the @client_id@ parameter on OAuth requests.)
+-- * 'url' - The URL of the identity provider. The URL must begin with @https://@ and should correspond to the @iss@ claim in the provider's OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like @https://server.example.org@ or @https://example.com@ .
 --
--- You can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider.
--- There is no defined format for a client ID. The @CreateOpenIDConnectProviderRequest@ operation accepts client IDs up to 255 characters long.
+-- You cannot register the same provider multiple times in a single AWS account. If you try to submit a URL that has already been used for an OpenID Connect provider in the AWS account, you will get an error.
 -- * 'thumbprintList' - A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificates. Typically this list includes only one entry. However, IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain multiple thumbprints if the identity provider is rotating certificates.
 --
 -- The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509 certificate used by the domain where the OpenID Connect provider makes its keys available. It is always a 40-character string.
 -- You must provide at least one thumbprint when creating an IAM OIDC provider. For example, assume that the OIDC provider is @server.example.com@ and the provider stores its keys at https://keys.server.example.com/openid-connect. In that case, the thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used by https://keys.server.example.com.
 -- For more information about obtaining the OIDC provider's thumbprint, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider> in the /IAM User Guide/ .
--- * 'url' - The URL of the identity provider. The URL must begin with @https://@ and should correspond to the @iss@ claim in the provider's OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like @https://server.example.org@ or @https://example.com@ .
+-- * 'clientIdList' - A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the @client_id@ parameter on OAuth requests.)
 --
--- You cannot register the same provider multiple times in a single AWS account. If you try to submit a URL that has already been used for an OpenID Connect provider in the AWS account, you will get an error.
+-- You can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider.
+-- There is no defined format for a client ID. The @CreateOpenIDConnectProviderRequest@ operation accepts client IDs up to 255 characters long.
 mkCreateOpenIdConnectProvider ::
   -- | 'url'
   Lude.Text ->
   CreateOpenIdConnectProvider
 mkCreateOpenIdConnectProvider pURL_ =
   CreateOpenIdConnectProvider'
-    { clientIdList = Lude.Nothing,
-      url = pURL_,
-      thumbprintList = Lude.mempty
+    { url = pURL_,
+      thumbprintList = Lude.mempty,
+      clientIdList = Lude.Nothing
     }
-
--- | A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the @client_id@ parameter on OAuth requests.)
---
--- You can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider.
--- There is no defined format for a client ID. The @CreateOpenIDConnectProviderRequest@ operation accepts client IDs up to 255 characters long.
---
--- /Note:/ Consider using 'clientIdList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coicpClientIdList :: Lens.Lens' CreateOpenIdConnectProvider (Lude.Maybe [Lude.Text])
-coicpClientIdList = Lens.lens (clientIdList :: CreateOpenIdConnectProvider -> Lude.Maybe [Lude.Text]) (\s a -> s {clientIdList = a} :: CreateOpenIdConnectProvider)
-{-# DEPRECATED coicpClientIdList "Use generic-lens or generic-optics with 'clientIdList' instead." #-}
 
 -- | The URL of the identity provider. The URL must begin with @https://@ and should correspond to the @iss@ claim in the provider's OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like @https://server.example.org@ or @https://example.com@ .
 --
@@ -123,6 +119,16 @@ coicpURL = Lens.lens (url :: CreateOpenIdConnectProvider -> Lude.Text) (\s a -> 
 coicpThumbprintList :: Lens.Lens' CreateOpenIdConnectProvider [Lude.Text]
 coicpThumbprintList = Lens.lens (thumbprintList :: CreateOpenIdConnectProvider -> [Lude.Text]) (\s a -> s {thumbprintList = a} :: CreateOpenIdConnectProvider)
 {-# DEPRECATED coicpThumbprintList "Use generic-lens or generic-optics with 'thumbprintList' instead." #-}
+
+-- | A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the @client_id@ parameter on OAuth requests.)
+--
+-- You can register multiple client IDs with the same provider. For example, you might have multiple applications that use the same OIDC provider. You cannot register more than 100 client IDs with a single IAM OIDC provider.
+-- There is no defined format for a client ID. The @CreateOpenIDConnectProviderRequest@ operation accepts client IDs up to 255 characters long.
+--
+-- /Note:/ Consider using 'clientIdList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coicpClientIdList :: Lens.Lens' CreateOpenIdConnectProvider (Lude.Maybe [Lude.Text])
+coicpClientIdList = Lens.lens (clientIdList :: CreateOpenIdConnectProvider -> Lude.Maybe [Lude.Text]) (\s a -> s {clientIdList = a} :: CreateOpenIdConnectProvider)
+{-# DEPRECATED coicpClientIdList "Use generic-lens or generic-optics with 'clientIdList' instead." #-}
 
 instance Lude.AWSRequest CreateOpenIdConnectProvider where
   type
@@ -150,29 +156,22 @@ instance Lude.ToQuery CreateOpenIdConnectProvider where
       [ "Action"
           Lude.=: ("CreateOpenIDConnectProvider" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "ClientIDList"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> clientIdList),
         "Url" Lude.=: url,
-        "ThumbprintList" Lude.=: Lude.toQueryList "member" thumbprintList
+        "ThumbprintList" Lude.=: Lude.toQueryList "member" thumbprintList,
+        "ClientIDList"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> clientIdList)
       ]
 
 -- | Contains the response to a successful 'CreateOpenIDConnectProvider' request.
 --
 -- /See:/ 'mkCreateOpenIdConnectProviderResponse' smart constructor.
 data CreateOpenIdConnectProviderResponse = CreateOpenIdConnectProviderResponse'
-  { openIdConnectProviderARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is created. For more information, see 'OpenIDConnectProviderListEntry' .
+    openIdConnectProviderARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOpenIdConnectProviderResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,20 +50,20 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     lcweExecutionFilter,
     lcweCloseStatusFilter,
     lcweTypeFilter,
+    lcweDomain,
     lcweCloseTimeFilter,
     lcweReverseOrder,
     lcweTagFilter,
     lcweStartTimeFilter,
     lcweMaximumPageSize,
-    lcweDomain,
 
     -- * Destructuring the response
     WorkflowExecutionInfos (..),
     mkWorkflowExecutionInfos,
 
     -- ** Response lenses
-    weiNextPageToken,
     weiExecutionInfos,
+    weiNextPageToken,
   )
 where
 
@@ -75,49 +76,46 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkListClosedWorkflowExecutions' smart constructor.
 data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    executionFilter ::
-      Lude.Maybe
-        WorkflowExecutionFilter,
-    closeStatusFilter ::
-      Lude.Maybe CloseStatusFilter,
-    typeFilter ::
-      Lude.Maybe WorkflowTypeFilter,
-    closeTimeFilter ::
-      Lude.Maybe ExecutionTimeFilter,
-    reverseOrder ::
-      Lude.Maybe Lude.Bool,
+  { -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
+    --
+    -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | If specified, only workflow executions matching the workflow ID specified in the filter are returned.
+    executionFilter :: Lude.Maybe WorkflowExecutionFilter,
+    -- | If specified, only workflow executions that match this /close status/ are listed. For example, if TERMINATED is specified, then only TERMINATED workflow executions are listed.
+    closeStatusFilter :: Lude.Maybe CloseStatusFilter,
+    -- | If specified, only executions of the type specified in the filter are returned.
+    typeFilter :: Lude.Maybe WorkflowTypeFilter,
+    -- | The name of the domain that contains the workflow executions to list.
+    domain :: Lude.Text,
+    -- | If specified, the workflow executions are included in the returned results based on whether their close times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their close times.
+    closeTimeFilter :: Lude.Maybe ExecutionTimeFilter,
+    -- | When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start or the close time of the executions.
+    reverseOrder :: Lude.Maybe Lude.Bool,
+    -- | If specified, only executions that have the matching tag are listed.
     tagFilter :: Lude.Maybe TagFilter,
-    startTimeFilter ::
-      Lude.Maybe ExecutionTimeFilter,
-    maximumPageSize ::
-      Lude.Maybe Lude.Natural,
-    domain :: Lude.Text
+    -- | If specified, the workflow executions are included in the returned results based on whether their start times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their start times.
+    startTimeFilter :: Lude.Maybe ExecutionTimeFilter,
+    -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+    maximumPageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListClosedWorkflowExecutions' with the minimum fields required to make a request.
 --
--- * 'closeStatusFilter' - If specified, only workflow executions that match this /close status/ are listed. For example, if TERMINATED is specified, then only TERMINATED workflow executions are listed.
--- * 'closeTimeFilter' - If specified, the workflow executions are included in the returned results based on whether their close times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their close times.
--- * 'domain' - The name of the domain that contains the workflow executions to list.
--- * 'executionFilter' - If specified, only workflow executions matching the workflow ID specified in the filter are returned.
--- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
 -- * 'nextPageToken' - If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
--- * 'reverseOrder' - When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start or the close time of the executions.
--- * 'startTimeFilter' - If specified, the workflow executions are included in the returned results based on whether their start times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their start times.
--- * 'tagFilter' - If specified, only executions that have the matching tag are listed.
+-- * 'executionFilter' - If specified, only workflow executions matching the workflow ID specified in the filter are returned.
+-- * 'closeStatusFilter' - If specified, only workflow executions that match this /close status/ are listed. For example, if TERMINATED is specified, then only TERMINATED workflow executions are listed.
 -- * 'typeFilter' - If specified, only executions of the type specified in the filter are returned.
+-- * 'domain' - The name of the domain that contains the workflow executions to list.
+-- * 'closeTimeFilter' - If specified, the workflow executions are included in the returned results based on whether their close times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their close times.
+-- * 'reverseOrder' - When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start or the close time of the executions.
+-- * 'tagFilter' - If specified, only executions that have the matching tag are listed.
+-- * 'startTimeFilter' - If specified, the workflow executions are included in the returned results based on whether their start times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their start times.
+-- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
 mkListClosedWorkflowExecutions ::
   -- | 'domain'
   Lude.Text ->
@@ -128,12 +126,12 @@ mkListClosedWorkflowExecutions pDomain_ =
       executionFilter = Lude.Nothing,
       closeStatusFilter = Lude.Nothing,
       typeFilter = Lude.Nothing,
+      domain = pDomain_,
       closeTimeFilter = Lude.Nothing,
       reverseOrder = Lude.Nothing,
       tagFilter = Lude.Nothing,
       startTimeFilter = Lude.Nothing,
-      maximumPageSize = Lude.Nothing,
-      domain = pDomain_
+      maximumPageSize = Lude.Nothing
     }
 
 -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
@@ -165,6 +163,13 @@ lcweCloseStatusFilter = Lens.lens (closeStatusFilter :: ListClosedWorkflowExecut
 lcweTypeFilter :: Lens.Lens' ListClosedWorkflowExecutions (Lude.Maybe WorkflowTypeFilter)
 lcweTypeFilter = Lens.lens (typeFilter :: ListClosedWorkflowExecutions -> Lude.Maybe WorkflowTypeFilter) (\s a -> s {typeFilter = a} :: ListClosedWorkflowExecutions)
 {-# DEPRECATED lcweTypeFilter "Use generic-lens or generic-optics with 'typeFilter' instead." #-}
+
+-- | The name of the domain that contains the workflow executions to list.
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcweDomain :: Lens.Lens' ListClosedWorkflowExecutions Lude.Text
+lcweDomain = Lens.lens (domain :: ListClosedWorkflowExecutions -> Lude.Text) (\s a -> s {domain = a} :: ListClosedWorkflowExecutions)
+{-# DEPRECATED lcweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | If specified, the workflow executions are included in the returned results based on whether their close times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their close times.
 --
@@ -201,13 +206,6 @@ lcweMaximumPageSize :: Lens.Lens' ListClosedWorkflowExecutions (Lude.Maybe Lude.
 lcweMaximumPageSize = Lens.lens (maximumPageSize :: ListClosedWorkflowExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPageSize = a} :: ListClosedWorkflowExecutions)
 {-# DEPRECATED lcweMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
 
--- | The name of the domain that contains the workflow executions to list.
---
--- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcweDomain :: Lens.Lens' ListClosedWorkflowExecutions Lude.Text
-lcweDomain = Lens.lens (domain :: ListClosedWorkflowExecutions -> Lude.Text) (\s a -> s {domain = a} :: ListClosedWorkflowExecutions)
-{-# DEPRECATED lcweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
-
 instance Page.AWSPager ListClosedWorkflowExecutions where
   page rq rs
     | Page.stop (rs Lens.^. weiNextPageToken) = Lude.Nothing
@@ -243,12 +241,12 @@ instance Lude.ToJSON ListClosedWorkflowExecutions where
             ("executionFilter" Lude..=) Lude.<$> executionFilter,
             ("closeStatusFilter" Lude..=) Lude.<$> closeStatusFilter,
             ("typeFilter" Lude..=) Lude.<$> typeFilter,
+            Lude.Just ("domain" Lude..= domain),
             ("closeTimeFilter" Lude..=) Lude.<$> closeTimeFilter,
             ("reverseOrder" Lude..=) Lude.<$> reverseOrder,
             ("tagFilter" Lude..=) Lude.<$> tagFilter,
             ("startTimeFilter" Lude..=) Lude.<$> startTimeFilter,
-            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize,
-            Lude.Just ("domain" Lude..= domain)
+            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize
           ]
       )
 

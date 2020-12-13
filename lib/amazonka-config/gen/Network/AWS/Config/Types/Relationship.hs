@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelationship' smart constructor.
 data Relationship = Relationship'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the related resource (for example, @sg-xxxxxx@ ).
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The resource type of the related resource.
     resourceType :: Lude.Maybe ResourceType,
+    -- | The custom name of the related resource, if available.
     resourceName :: Lude.Maybe Lude.Text,
+    -- | The type of relationship with the related resource.
     relationshipName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Relationship' with the minimum fields required to make a request.
 --
--- * 'relationshipName' - The type of relationship with the related resource.
 -- * 'resourceId' - The ID of the related resource (for example, @sg-xxxxxx@ ).
--- * 'resourceName' - The custom name of the related resource, if available.
 -- * 'resourceType' - The resource type of the related resource.
+-- * 'resourceName' - The custom name of the related resource, if available.
+-- * 'relationshipName' - The type of relationship with the related resource.
 mkRelationship ::
   Relationship
 mkRelationship =

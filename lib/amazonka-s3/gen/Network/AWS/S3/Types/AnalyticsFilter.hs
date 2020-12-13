@@ -33,24 +33,21 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'mkAnalyticsFilter' smart constructor.
 data AnalyticsFilter = AnalyticsFilter'
-  { tag :: Lude.Maybe Tag,
+  { -- | The tag to use when evaluating an analytics filter.
+    tag :: Lude.Maybe Tag,
+    -- | The prefix to use when evaluating an analytics filter.
     prefix :: Lude.Maybe Lude.Text,
+    -- | A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
     and :: Lude.Maybe AnalyticsAndOperator
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnalyticsFilter' with the minimum fields required to make a request.
 --
--- * 'and' - A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
--- * 'prefix' - The prefix to use when evaluating an analytics filter.
 -- * 'tag' - The tag to use when evaluating an analytics filter.
+-- * 'prefix' - The prefix to use when evaluating an analytics filter.
+-- * 'and' - A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
 mkAnalyticsFilter ::
   AnalyticsFilter
 mkAnalyticsFilter =

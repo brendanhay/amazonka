@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComplianceExecutionSummary' smart constructor.
 data ComplianceExecutionSummary = ComplianceExecutionSummary'
-  { executionId ::
-      Lude.Maybe Lude.Text,
+  { -- | An ID created by the system when @PutComplianceItems@ was called. For example, @CommandID@ is a valid execution ID. You can use this ID in subsequent calls.
+    executionId :: Lude.Maybe Lude.Text,
+    -- | The type of execution. For example, @Command@ is a valid execution type.
     executionType :: Lude.Maybe Lude.Text,
+    -- | The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
     executionTime :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceExecutionSummary' with the minimum fields required to make a request.
 --
 -- * 'executionId' - An ID created by the system when @PutComplianceItems@ was called. For example, @CommandID@ is a valid execution ID. You can use this ID in subsequent calls.
--- * 'executionTime' - The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
 -- * 'executionType' - The type of execution. For example, @Command@ is a valid execution type.
+-- * 'executionTime' - The time the execution ran as a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
 mkComplianceExecutionSummary ::
   -- | 'executionTime'
   Lude.Timestamp ->

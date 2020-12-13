@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCancelledSpotInstanceRequest' smart constructor.
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'
-  { state ::
-      Lude.Maybe
-        CancelSpotInstanceRequestState,
-    spotInstanceRequestId ::
-      Lude.Maybe Lude.Text
+  { -- | The state of the Spot Instance request.
+    state :: Lude.Maybe CancelSpotInstanceRequestState,
+    -- | The ID of the Spot Instance request.
+    spotInstanceRequestId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelledSpotInstanceRequest' with the minimum fields required to make a request.
 --
--- * 'spotInstanceRequestId' - The ID of the Spot Instance request.
 -- * 'state' - The state of the Spot Instance request.
+-- * 'spotInstanceRequestId' - The ID of the Spot Instance request.
 mkCancelledSpotInstanceRequest ::
   CancelledSpotInstanceRequest
 mkCancelledSpotInstanceRequest =

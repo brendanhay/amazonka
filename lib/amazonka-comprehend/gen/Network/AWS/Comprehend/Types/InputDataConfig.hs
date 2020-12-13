@@ -30,17 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputDataConfig' smart constructor.
 data InputDataConfig = InputDataConfig'
-  { inputFormat ::
-      Lude.Maybe InputFormat,
+  { -- | Specifies how the text in an input file should be processed:
+    --
+    --
+    --     * @ONE_DOC_PER_FILE@ - Each file is considered a separate document. Use this option when you are processing large documents, such as newspaper articles or scientific papers.
+    --
+    --
+    --     * @ONE_DOC_PER_LINE@ - Each line in a file is considered a separate document. Use this option when you are processing many short documents, such as text messages.
+    inputFormat :: Lude.Maybe InputFormat,
+    -- | The Amazon S3 URI for the input data. The URI must be in same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of data files.
+    --
+    -- For example, if you use the URI @S3://bucketName/prefix@ , if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.
     s3URI :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDataConfig' with the minimum fields required to make a request.

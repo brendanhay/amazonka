@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLBCookieStickinessPolicy' smart constructor.
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
-  { policyName ::
-      Lude.Maybe Lude.Text,
-    cookieExpirationPeriod ::
-      Lude.Maybe Lude.Integer
+  { -- | The name of the policy. This name must be unique within the set of policies for this load balancer.
+    policyName :: Lude.Maybe Lude.Text,
+    -- | The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
+    cookieExpirationPeriod :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LBCookieStickinessPolicy' with the minimum fields required to make a request.
 --
--- * 'cookieExpirationPeriod' - The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
 -- * 'policyName' - The name of the policy. This name must be unique within the set of policies for this load balancer.
+-- * 'cookieExpirationPeriod' - The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
 mkLBCookieStickinessPolicy ::
   LBCookieStickinessPolicy
 mkLBCookieStickinessPolicy =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Lightsail.GetInstanceState
     mkGetInstanceStateResponse,
 
     -- ** Response lenses
-    gisirsState,
-    gisirsResponseStatus,
+    gisfrsState,
+    gisfrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetInstanceState' smart constructor.
 newtype GetInstanceState = GetInstanceState'
-  { instanceName ::
-      Lude.Text
+  { -- | The name of the instance to get state information about.
+    instanceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceState' with the minimum fields required to make a request.
@@ -102,23 +97,18 @@ instance Lude.ToQuery GetInstanceState where
 
 -- | /See:/ 'mkGetInstanceStateResponse' smart constructor.
 data GetInstanceStateResponse = GetInstanceStateResponse'
-  { state ::
-      Lude.Maybe InstanceState,
+  { -- | The state of the instance.
+    state :: Lude.Maybe InstanceState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceStateResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'state' - The state of the instance.
+-- * 'responseStatus' - The response status code.
 mkGetInstanceStateResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -132,13 +122,13 @@ mkGetInstanceStateResponse pResponseStatus_ =
 -- | The state of the instance.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisirsState :: Lens.Lens' GetInstanceStateResponse (Lude.Maybe InstanceState)
-gisirsState = Lens.lens (state :: GetInstanceStateResponse -> Lude.Maybe InstanceState) (\s a -> s {state = a} :: GetInstanceStateResponse)
-{-# DEPRECATED gisirsState "Use generic-lens or generic-optics with 'state' instead." #-}
+gisfrsState :: Lens.Lens' GetInstanceStateResponse (Lude.Maybe InstanceState)
+gisfrsState = Lens.lens (state :: GetInstanceStateResponse -> Lude.Maybe InstanceState) (\s a -> s {state = a} :: GetInstanceStateResponse)
+{-# DEPRECATED gisfrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisirsResponseStatus :: Lens.Lens' GetInstanceStateResponse Lude.Int
-gisirsResponseStatus = Lens.lens (responseStatus :: GetInstanceStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceStateResponse)
-{-# DEPRECATED gisirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gisfrsResponseStatus :: Lens.Lens' GetInstanceStateResponse Lude.Int
+gisfrsResponseStatus = Lens.lens (responseStatus :: GetInstanceStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceStateResponse)
+{-# DEPRECATED gisfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

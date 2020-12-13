@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,11 +21,11 @@ module Network.AWS.IoT.TestInvokeAuthorizer
 
     -- ** Request lenses
     tiaToken,
+    tiaAuthorizerName,
     tiaTlsContext,
     tiaTokenSignature,
     tiaHttpContext,
     tiaMqttContext,
-    tiaAuthorizerName,
 
     -- * Destructuring the response
     TestInvokeAuthorizerResponse (..),
@@ -48,31 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTestInvokeAuthorizer' smart constructor.
 data TestInvokeAuthorizer = TestInvokeAuthorizer'
-  { token ::
-      Lude.Maybe Lude.Text,
+  { -- | The token returned by your custom authentication service.
+    token :: Lude.Maybe Lude.Text,
+    -- | The custom authorizer name.
+    authorizerName :: Lude.Text,
+    -- | Specifies a test TLS authorization request.
     tlsContext :: Lude.Maybe TLSContext,
+    -- | The signature made with the token and your custom authentication service's private key. This value must be Base-64-encoded.
     tokenSignature :: Lude.Maybe Lude.Text,
+    -- | Specifies a test HTTP authorization request.
     httpContext :: Lude.Maybe HTTPContext,
-    mqttContext :: Lude.Maybe MqttContext,
-    authorizerName :: Lude.Text
+    -- | Specifies a test MQTT authorization request.
+    mqttContext :: Lude.Maybe MqttContext
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestInvokeAuthorizer' with the minimum fields required to make a request.
 --
+-- * 'token' - The token returned by your custom authentication service.
 -- * 'authorizerName' - The custom authorizer name.
+-- * 'tlsContext' - Specifies a test TLS authorization request.
+-- * 'tokenSignature' - The signature made with the token and your custom authentication service's private key. This value must be Base-64-encoded.
 -- * 'httpContext' - Specifies a test HTTP authorization request.
 -- * 'mqttContext' - Specifies a test MQTT authorization request.
--- * 'tlsContext' - Specifies a test TLS authorization request.
--- * 'token' - The token returned by your custom authentication service.
--- * 'tokenSignature' - The signature made with the token and your custom authentication service's private key. This value must be Base-64-encoded.
 mkTestInvokeAuthorizer ::
   -- | 'authorizerName'
   Lude.Text ->
@@ -80,11 +80,11 @@ mkTestInvokeAuthorizer ::
 mkTestInvokeAuthorizer pAuthorizerName_ =
   TestInvokeAuthorizer'
     { token = Lude.Nothing,
+      authorizerName = pAuthorizerName_,
       tlsContext = Lude.Nothing,
       tokenSignature = Lude.Nothing,
       httpContext = Lude.Nothing,
-      mqttContext = Lude.Nothing,
-      authorizerName = pAuthorizerName_
+      mqttContext = Lude.Nothing
     }
 
 -- | The token returned by your custom authentication service.
@@ -93,6 +93,13 @@ mkTestInvokeAuthorizer pAuthorizerName_ =
 tiaToken :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe Lude.Text)
 tiaToken = Lens.lens (token :: TestInvokeAuthorizer -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: TestInvokeAuthorizer)
 {-# DEPRECATED tiaToken "Use generic-lens or generic-optics with 'token' instead." #-}
+
+-- | The custom authorizer name.
+--
+-- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiaAuthorizerName :: Lens.Lens' TestInvokeAuthorizer Lude.Text
+tiaAuthorizerName = Lens.lens (authorizerName :: TestInvokeAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: TestInvokeAuthorizer)
+{-# DEPRECATED tiaAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
 -- | Specifies a test TLS authorization request.
 --
@@ -121,13 +128,6 @@ tiaHttpContext = Lens.lens (httpContext :: TestInvokeAuthorizer -> Lude.Maybe HT
 tiaMqttContext :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe MqttContext)
 tiaMqttContext = Lens.lens (mqttContext :: TestInvokeAuthorizer -> Lude.Maybe MqttContext) (\s a -> s {mqttContext = a} :: TestInvokeAuthorizer)
 {-# DEPRECATED tiaMqttContext "Use generic-lens or generic-optics with 'mqttContext' instead." #-}
-
--- | The custom authorizer name.
---
--- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiaAuthorizerName :: Lens.Lens' TestInvokeAuthorizer Lude.Text
-tiaAuthorizerName = Lens.lens (authorizerName :: TestInvokeAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: TestInvokeAuthorizer)
-{-# DEPRECATED tiaAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
 instance Lude.AWSRequest TestInvokeAuthorizer where
   type Rs TestInvokeAuthorizer = TestInvokeAuthorizerResponse
@@ -168,33 +168,28 @@ instance Lude.ToQuery TestInvokeAuthorizer where
 
 -- | /See:/ 'mkTestInvokeAuthorizerResponse' smart constructor.
 data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
-  { policyDocuments ::
-      Lude.Maybe [Lude.Text],
-    principalId ::
-      Lude.Maybe Lude.Text,
-    disconnectAfterInSeconds ::
-      Lude.Maybe Lude.Int,
-    isAuthenticated ::
-      Lude.Maybe Lude.Bool,
-    refreshAfterInSeconds ::
-      Lude.Maybe Lude.Int,
+  { -- | IAM policy documents.
+    policyDocuments :: Lude.Maybe [Lude.Text],
+    -- | The principal ID.
+    principalId :: Lude.Maybe Lude.Text,
+    -- | The number of seconds after which the connection is terminated.
+    disconnectAfterInSeconds :: Lude.Maybe Lude.Int,
+    -- | True if the token is authenticated, otherwise false.
+    isAuthenticated :: Lude.Maybe Lude.Bool,
+    -- | The number of seconds after which the temporary credentials are refreshed.
+    refreshAfterInSeconds :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestInvokeAuthorizerResponse' with the minimum fields required to make a request.
 --
--- * 'disconnectAfterInSeconds' - The number of seconds after which the connection is terminated.
--- * 'isAuthenticated' - True if the token is authenticated, otherwise false.
 -- * 'policyDocuments' - IAM policy documents.
 -- * 'principalId' - The principal ID.
+-- * 'disconnectAfterInSeconds' - The number of seconds after which the connection is terminated.
+-- * 'isAuthenticated' - True if the token is authenticated, otherwise false.
 -- * 'refreshAfterInSeconds' - The number of seconds after which the temporary credentials are refreshed.
 -- * 'responseStatus' - The response status code.
 mkTestInvokeAuthorizerResponse ::

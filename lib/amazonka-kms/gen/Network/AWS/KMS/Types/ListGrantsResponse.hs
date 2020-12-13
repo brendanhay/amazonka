@@ -29,25 +29,21 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkListGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
-  { truncated ::
-      Lude.Maybe Lude.Bool,
+  { -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+    truncated :: Lude.Maybe Lude.Bool,
+    -- | A list of grants.
     grants :: Lude.Maybe [GrantListEntry],
+    -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
     nextMarker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGrantsResponse' with the minimum fields required to make a request.
 --
+-- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
 -- * 'grants' - A list of grants.
 -- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
--- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
 mkListGrantsResponse ::
   ListGrantsResponse
 mkListGrantsResponse =

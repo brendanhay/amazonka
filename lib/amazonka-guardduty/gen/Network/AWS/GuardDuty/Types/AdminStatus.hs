@@ -13,8 +13,8 @@
 module Network.AWS.GuardDuty.Types.AdminStatus
   ( AdminStatus
       ( AdminStatus',
-        DisableInProgress,
-        Enabled
+        Enabled,
+        DisableInProgress
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AdminStatus = AdminStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DisableInProgress :: AdminStatus
-pattern DisableInProgress = AdminStatus' "DISABLE_IN_PROGRESS"
-
 pattern Enabled :: AdminStatus
 pattern Enabled = AdminStatus' "ENABLED"
 
+pattern DisableInProgress :: AdminStatus
+pattern DisableInProgress = AdminStatus' "DISABLE_IN_PROGRESS"
+
 {-# COMPLETE
-  DisableInProgress,
   Enabled,
+  DisableInProgress,
   AdminStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,27 +46,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkBatchDelete' smart constructor.
 data BatchDelete = BatchDelete'
-  { channelIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | List of channel IDs
+    channelIds :: Lude.Maybe [Lude.Text],
+    -- | List of input IDs
     inputIds :: Lude.Maybe [Lude.Text],
+    -- | List of multiplex IDs
     multiplexIds :: Lude.Maybe [Lude.Text],
+    -- | List of input security group IDs
     inputSecurityGroupIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDelete' with the minimum fields required to make a request.
 --
 -- * 'channelIds' - List of channel IDs
 -- * 'inputIds' - List of input IDs
--- * 'inputSecurityGroupIds' - List of input security group IDs
 -- * 'multiplexIds' - List of multiplex IDs
+-- * 'inputSecurityGroupIds' - List of input security group IDs
 mkBatchDelete ::
   BatchDelete
 mkBatchDelete =
@@ -146,25 +144,21 @@ instance Lude.ToQuery BatchDelete where
 --
 -- /See:/ 'mkBatchDeleteResponse' smart constructor.
 data BatchDeleteResponse = BatchDeleteResponse'
-  { successful ::
-      Lude.Maybe [BatchSuccessfulResultModel],
+  { -- | List of successful operations
+    successful :: Lude.Maybe [BatchSuccessfulResultModel],
+    -- | List of failed operations
     failed :: Lude.Maybe [BatchFailedResultModel],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteResponse' with the minimum fields required to make a request.
 --
+-- * 'successful' - List of successful operations
 -- * 'failed' - List of failed operations
 -- * 'responseStatus' - The response status code.
--- * 'successful' - List of successful operations
 mkBatchDeleteResponse ::
   -- | 'responseStatus'
   Lude.Int ->

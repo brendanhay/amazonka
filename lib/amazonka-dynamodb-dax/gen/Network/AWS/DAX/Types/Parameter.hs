@@ -41,38 +41,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { parameterValue :: Lude.Maybe Lude.Text,
+  { -- | The value for the parameter.
+    parameterValue :: Lude.Maybe Lude.Text,
+    -- | Determines whether the parameter can be applied to any nodes, or only nodes of a particular type.
     parameterType :: Lude.Maybe ParameterType,
+    -- | How the parameter is defined. For example, @system@ denotes a system-defined parameter.
     source :: Lude.Maybe Lude.Text,
+    -- | Whether the customer is allowed to modify the parameter.
     isModifiable :: Lude.Maybe IsModifiable,
+    -- | The data type of the parameter. For example, @integer@ :
     dataType :: Lude.Maybe Lude.Text,
+    -- | A list of node types, and specific parameter values for each node.
     nodeTypeSpecificValues :: Lude.Maybe [NodeTypeSpecificValue],
+    -- | A range of values within which the parameter can be set.
     allowedValues :: Lude.Maybe Lude.Text,
+    -- | The name of the parameter.
     parameterName :: Lude.Maybe Lude.Text,
+    -- | A description of the parameter
     description :: Lude.Maybe Lude.Text,
+    -- | The conditions under which changes to this parameter can be applied. For example, @requires-reboot@ indicates that a new value for this parameter will only take effect if a node is rebooted.
     changeType :: Lude.Maybe ChangeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- * 'allowedValues' - A range of values within which the parameter can be set.
--- * 'changeType' - The conditions under which changes to this parameter can be applied. For example, @requires-reboot@ indicates that a new value for this parameter will only take effect if a node is rebooted.
--- * 'dataType' - The data type of the parameter. For example, @integer@ :
--- * 'description' - A description of the parameter
--- * 'isModifiable' - Whether the customer is allowed to modify the parameter.
--- * 'nodeTypeSpecificValues' - A list of node types, and specific parameter values for each node.
--- * 'parameterName' - The name of the parameter.
--- * 'parameterType' - Determines whether the parameter can be applied to any nodes, or only nodes of a particular type.
 -- * 'parameterValue' - The value for the parameter.
+-- * 'parameterType' - Determines whether the parameter can be applied to any nodes, or only nodes of a particular type.
 -- * 'source' - How the parameter is defined. For example, @system@ denotes a system-defined parameter.
+-- * 'isModifiable' - Whether the customer is allowed to modify the parameter.
+-- * 'dataType' - The data type of the parameter. For example, @integer@ :
+-- * 'nodeTypeSpecificValues' - A list of node types, and specific parameter values for each node.
+-- * 'allowedValues' - A range of values within which the parameter can be set.
+-- * 'parameterName' - The name of the parameter.
+-- * 'description' - A description of the parameter
+-- * 'changeType' - The conditions under which changes to this parameter can be applied. For example, @requires-reboot@ indicates that a new value for this parameter will only take effect if a node is rebooted.
 mkParameter ::
   Parameter
 mkParameter =

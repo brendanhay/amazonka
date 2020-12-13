@@ -34,27 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRequestValidator' smart constructor.
 data RequestValidator = RequestValidator'
-  { validateRequestParameters ::
-      Lude.Maybe Lude.Bool,
+  { -- | A Boolean flag to indicate whether to validate request parameters (@true@ ) or not (@false@ ).
+    validateRequestParameters :: Lude.Maybe Lude.Bool,
+    -- | The name of this 'RequestValidator'
     name :: Lude.Maybe Lude.Text,
+    -- | A Boolean flag to indicate whether to validate a request body according to the configured 'Model' schema.
     validateRequestBody :: Lude.Maybe Lude.Bool,
+    -- | The identifier of this 'RequestValidator' .
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestValidator' with the minimum fields required to make a request.
 --
--- * 'id' - The identifier of this 'RequestValidator' .
+-- * 'validateRequestParameters' - A Boolean flag to indicate whether to validate request parameters (@true@ ) or not (@false@ ).
 -- * 'name' - The name of this 'RequestValidator'
 -- * 'validateRequestBody' - A Boolean flag to indicate whether to validate a request body according to the configured 'Model' schema.
--- * 'validateRequestParameters' - A Boolean flag to indicate whether to validate request parameters (@true@ ) or not (@false@ ).
+-- * 'id' - The identifier of this 'RequestValidator' .
 mkRequestValidator ::
   RequestValidator
 mkRequestValidator =

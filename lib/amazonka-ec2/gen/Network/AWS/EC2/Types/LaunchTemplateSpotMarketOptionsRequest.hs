@@ -34,38 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateSpotMarketOptionsRequest' smart constructor.
 data LaunchTemplateSpotMarketOptionsRequest = LaunchTemplateSpotMarketOptionsRequest'
-  { blockDurationMinutes ::
-      Lude.Maybe
-        Lude.Int,
-    instanceInterruptionBehavior ::
-      Lude.Maybe
-        InstanceInterruptionBehavior,
-    validUntil ::
-      Lude.Maybe
-        Lude.DateTime,
-    spotInstanceType ::
-      Lude.Maybe
-        SpotInstanceType,
-    maxPrice ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+    blockDurationMinutes :: Lude.Maybe Lude.Int,
+    -- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
+    instanceInterruptionBehavior :: Lude.Maybe InstanceInterruptionBehavior,
+    -- | The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.
+    validUntil :: Lude.Maybe Lude.DateTime,
+    -- | The Spot Instance request type.
+    spotInstanceType :: Lude.Maybe SpotInstanceType,
+    -- | The maximum hourly price you're willing to pay for the Spot Instances.
+    maxPrice :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateSpotMarketOptionsRequest' with the minimum fields required to make a request.
 --
 -- * 'blockDurationMinutes' - The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
 -- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
--- * 'maxPrice' - The maximum hourly price you're willing to pay for the Spot Instances.
--- * 'spotInstanceType' - The Spot Instance request type.
 -- * 'validUntil' - The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.
+-- * 'spotInstanceType' - The Spot Instance request type.
+-- * 'maxPrice' - The maximum hourly price you're willing to pay for the Spot Instances.
 mkLaunchTemplateSpotMarketOptionsRequest ::
   LaunchTemplateSpotMarketOptionsRequest
 mkLaunchTemplateSpotMarketOptionsRequest =

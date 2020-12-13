@@ -13,13 +13,13 @@
 module Network.AWS.EMR.Types.InstanceFleetState
   ( InstanceFleetState
       ( InstanceFleetState',
-        IFSBootstrapping,
         IFSProvisioning,
-        IFSResizing,
+        IFSBootstrapping,
         IFSRunning,
+        IFSResizing,
         IFSSuspended,
-        IFSTerminated,
-        IFSTerminating
+        IFSTerminating,
+        IFSTerminated
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype InstanceFleetState = InstanceFleetState' Lude.Text
       Lude.ToHeader
     )
 
-pattern IFSBootstrapping :: InstanceFleetState
-pattern IFSBootstrapping = InstanceFleetState' "BOOTSTRAPPING"
-
 pattern IFSProvisioning :: InstanceFleetState
 pattern IFSProvisioning = InstanceFleetState' "PROVISIONING"
 
-pattern IFSResizing :: InstanceFleetState
-pattern IFSResizing = InstanceFleetState' "RESIZING"
+pattern IFSBootstrapping :: InstanceFleetState
+pattern IFSBootstrapping = InstanceFleetState' "BOOTSTRAPPING"
 
 pattern IFSRunning :: InstanceFleetState
 pattern IFSRunning = InstanceFleetState' "RUNNING"
 
+pattern IFSResizing :: InstanceFleetState
+pattern IFSResizing = InstanceFleetState' "RESIZING"
+
 pattern IFSSuspended :: InstanceFleetState
 pattern IFSSuspended = InstanceFleetState' "SUSPENDED"
-
-pattern IFSTerminated :: InstanceFleetState
-pattern IFSTerminated = InstanceFleetState' "TERMINATED"
 
 pattern IFSTerminating :: InstanceFleetState
 pattern IFSTerminating = InstanceFleetState' "TERMINATING"
 
+pattern IFSTerminated :: InstanceFleetState
+pattern IFSTerminated = InstanceFleetState' "TERMINATED"
+
 {-# COMPLETE
-  IFSBootstrapping,
   IFSProvisioning,
-  IFSResizing,
+  IFSBootstrapping,
   IFSRunning,
+  IFSResizing,
   IFSSuspended,
-  IFSTerminated,
   IFSTerminating,
+  IFSTerminated,
   InstanceFleetState'
   #-}

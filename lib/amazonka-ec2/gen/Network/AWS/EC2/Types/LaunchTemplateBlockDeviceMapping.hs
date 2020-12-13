@@ -32,31 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateBlockDeviceMapping' smart constructor.
 data LaunchTemplateBlockDeviceMapping = LaunchTemplateBlockDeviceMapping'
-  { virtualName ::
-      Lude.Maybe Lude.Text,
-    noDevice ::
-      Lude.Maybe Lude.Text,
-    ebs ::
-      Lude.Maybe
-        LaunchTemplateEBSBlockDevice,
-    deviceName ::
-      Lude.Maybe Lude.Text
+  { -- | The virtual device name (ephemeralN).
+    virtualName :: Lude.Maybe Lude.Text,
+    -- | Suppresses the specified device included in the block device mapping of the AMI.
+    noDevice :: Lude.Maybe Lude.Text,
+    -- | Information about the block device for an EBS volume.
+    ebs :: Lude.Maybe LaunchTemplateEBSBlockDevice,
+    -- | The device name.
+    deviceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateBlockDeviceMapping' with the minimum fields required to make a request.
 --
--- * 'deviceName' - The device name.
--- * 'ebs' - Information about the block device for an EBS volume.
--- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
 -- * 'virtualName' - The virtual device name (ephemeralN).
+-- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
+-- * 'ebs' - Information about the block device for an EBS volume.
+-- * 'deviceName' - The device name.
 mkLaunchTemplateBlockDeviceMapping ::
   LaunchTemplateBlockDeviceMapping
 mkLaunchTemplateBlockDeviceMapping =

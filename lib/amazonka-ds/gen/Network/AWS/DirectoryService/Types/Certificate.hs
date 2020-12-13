@@ -34,30 +34,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificate' smart constructor.
 data Certificate = Certificate'
-  { state ::
-      Lude.Maybe CertificateState,
+  { -- | The state of the certificate.
+    state :: Lude.Maybe CertificateState,
+    -- | The common name for the certificate.
     commonName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the certificate.
     certificateId :: Lude.Maybe Lude.Text,
+    -- | The date and time when the certificate will expire.
     expiryDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time that the certificate was registered.
     registeredDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Describes a state change for the certificate.
     stateReason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Certificate' with the minimum fields required to make a request.
 --
--- * 'certificateId' - The identifier of the certificate.
+-- * 'state' - The state of the certificate.
 -- * 'commonName' - The common name for the certificate.
+-- * 'certificateId' - The identifier of the certificate.
 -- * 'expiryDateTime' - The date and time when the certificate will expire.
 -- * 'registeredDateTime' - The date and time that the certificate was registered.
--- * 'state' - The state of the certificate.
 -- * 'stateReason' - Describes a state change for the certificate.
 mkCertificate ::
   Certificate

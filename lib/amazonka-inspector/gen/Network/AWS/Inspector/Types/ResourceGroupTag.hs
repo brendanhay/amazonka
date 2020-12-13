@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceGroupTag' smart constructor.
 data ResourceGroupTag = ResourceGroupTag'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The value assigned to a tag key.
+    value :: Lude.Maybe Lude.Text,
+    -- | A tag key.
     key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceGroupTag' with the minimum fields required to make a request.
 --
--- * 'key' - A tag key.
 -- * 'value' - The value assigned to a tag key.
+-- * 'key' - A tag key.
 mkResourceGroupTag ::
   -- | 'key'
   Lude.Text ->

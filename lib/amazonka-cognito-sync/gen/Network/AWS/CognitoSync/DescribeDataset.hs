@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CognitoSync.DescribeDataset
     mkDescribeDataset,
 
     -- ** Request lenses
-    ddIdentityPoolId,
-    ddIdentityId,
-    ddDatasetName,
+    ddfIdentityPoolId,
+    ddfDatasetName,
+    ddfIdentityId,
 
     -- * Destructuring the response
     DescribeDatasetResponse (..),
@@ -45,60 +46,56 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDataset' smart constructor.
 data DescribeDataset = DescribeDataset'
-  { identityPoolId ::
-      Lude.Text,
-    identityId :: Lude.Text,
-    datasetName :: Lude.Text
+  { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+    identityPoolId :: Lude.Text,
+    -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+    datasetName :: Lude.Text,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+    identityId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDataset' with the minimum fields required to make a request.
 --
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 -- * 'datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 -- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
--- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 mkDescribeDataset ::
   -- | 'identityPoolId'
   Lude.Text ->
-  -- | 'identityId'
-  Lude.Text ->
   -- | 'datasetName'
   Lude.Text ->
+  -- | 'identityId'
+  Lude.Text ->
   DescribeDataset
-mkDescribeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
+mkDescribeDataset pIdentityPoolId_ pDatasetName_ pIdentityId_ =
   DescribeDataset'
     { identityPoolId = pIdentityPoolId_,
-      identityId = pIdentityId_,
-      datasetName = pDatasetName_
+      datasetName = pDatasetName_,
+      identityId = pIdentityId_
     }
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddIdentityPoolId :: Lens.Lens' DescribeDataset Lude.Text
-ddIdentityPoolId = Lens.lens (identityPoolId :: DescribeDataset -> Lude.Text) (\s a -> s {identityPoolId = a} :: DescribeDataset)
-{-# DEPRECATED ddIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
-
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddIdentityId :: Lens.Lens' DescribeDataset Lude.Text
-ddIdentityId = Lens.lens (identityId :: DescribeDataset -> Lude.Text) (\s a -> s {identityId = a} :: DescribeDataset)
-{-# DEPRECATED ddIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
+ddfIdentityPoolId :: Lens.Lens' DescribeDataset Lude.Text
+ddfIdentityPoolId = Lens.lens (identityPoolId :: DescribeDataset -> Lude.Text) (\s a -> s {identityPoolId = a} :: DescribeDataset)
+{-# DEPRECATED ddfIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 --
 -- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDatasetName :: Lens.Lens' DescribeDataset Lude.Text
-ddDatasetName = Lens.lens (datasetName :: DescribeDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DescribeDataset)
-{-# DEPRECATED ddDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+ddfDatasetName :: Lens.Lens' DescribeDataset Lude.Text
+ddfDatasetName = Lens.lens (datasetName :: DescribeDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DescribeDataset)
+{-# DEPRECATED ddfDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddfIdentityId :: Lens.Lens' DescribeDataset Lude.Text
+ddfIdentityId = Lens.lens (identityId :: DescribeDataset -> Lude.Text) (\s a -> s {identityId = a} :: DescribeDataset)
+{-# DEPRECATED ddfIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 instance Lude.AWSRequest DescribeDataset where
   type Rs DescribeDataset = DescribeDatasetResponse
@@ -137,17 +134,12 @@ instance Lude.ToQuery DescribeDataset where
 --
 -- /See:/ 'mkDescribeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
-  { dataset ::
-      Lude.Maybe Dataset,
+  { -- | Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+    dataset :: Lude.Maybe Dataset,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDatasetResponse' with the minimum fields required to make a request.

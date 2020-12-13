@@ -685,8 +685,8 @@ module Network.AWS.Glue
     -- ** BatchUpdatePartitionRequestEntry
     BatchUpdatePartitionRequestEntry (..),
     mkBatchUpdatePartitionRequestEntry,
-    buprePartitionValueList,
     buprePartitionInput,
+    buprePartitionValueList,
 
     -- ** BinaryColumnStatisticsData
     BinaryColumnStatisticsData (..),
@@ -698,23 +698,23 @@ module Network.AWS.Glue
     -- ** BooleanColumnStatisticsData
     BooleanColumnStatisticsData (..),
     mkBooleanColumnStatisticsData,
-    bNumberOfTrues,
     bNumberOfFalses,
+    bNumberOfTrues,
     bNumberOfNulls,
 
     -- ** CSVClassifier
     CSVClassifier (..),
     mkCSVClassifier,
-    csvcCreationTime,
-    csvcQuoteSymbol,
-    csvcContainsHeader,
-    csvcLastUpdated,
-    csvcDisableValueTrimming,
-    csvcHeader,
-    csvcVersion,
-    csvcAllowSingleColumn,
-    csvcDelimiter,
-    csvcName,
+    ccCreationTime,
+    ccQuoteSymbol,
+    ccContainsHeader,
+    ccLastUpdated,
+    ccDisableValueTrimming,
+    ccName,
+    ccHeader,
+    ccVersion,
+    ccAllowSingleColumn,
+    ccDelimiter,
 
     -- ** CatalogEntry
     CatalogEntry (..),
@@ -752,32 +752,32 @@ module Network.AWS.Glue
     -- ** CodeGenEdge
     CodeGenEdge (..),
     mkCodeGenEdge,
-    cgeTargetParameter,
     cgeSource,
+    cgeTargetParameter,
     cgeTarget,
 
     -- ** CodeGenNode
     CodeGenNode (..),
     mkCodeGenNode,
+    cgnArgs,
     cgnLineNumber,
     cgnId,
     cgnNodeType,
-    cgnArgs,
 
     -- ** CodeGenNodeArg
     CodeGenNodeArg (..),
     mkCodeGenNodeArg,
-    cgnaParam,
-    cgnaName,
     cgnaValue,
+    cgnaName,
+    cgnaParam,
 
     -- ** Column
     Column (..),
     mkColumn,
+    cName,
     cParameters,
     cType,
     cComment,
-    cName,
 
     -- ** ColumnError
     ColumnError (..),
@@ -788,10 +788,10 @@ module Network.AWS.Glue
     -- ** ColumnStatistics
     ColumnStatistics (..),
     mkColumnStatistics,
-    csColumnName,
-    csColumnType,
     csAnalyzedTime,
+    csColumnType,
     csStatisticsData,
+    csColumnName,
 
     -- ** ColumnStatisticsData
     ColumnStatisticsData (..),
@@ -802,8 +802,8 @@ module Network.AWS.Glue
     csdDecimalColumnStatisticsData,
     csdDoubleColumnStatisticsData,
     csdStringColumnStatisticsData,
-    csdLongColumnStatisticsData,
     csdType,
+    csdLongColumnStatisticsData,
 
     -- ** ColumnStatisticsError
     ColumnStatisticsError (..),
@@ -831,31 +831,31 @@ module Network.AWS.Glue
     -- ** Connection
     Connection (..),
     mkConnection,
-    conCreationTime,
-    conLastUpdatedBy,
-    conConnectionProperties,
-    conLastUpdatedTime,
-    conMatchCriteria,
-    conPhysicalConnectionRequirements,
-    conName,
-    conDescription,
-    conConnectionType,
+    cfCreationTime,
+    cfLastUpdatedBy,
+    cfConnectionProperties,
+    cfLastUpdatedTime,
+    cfMatchCriteria,
+    cfPhysicalConnectionRequirements,
+    cfName,
+    cfDescription,
+    cfConnectionType,
 
     -- ** ConnectionInput
     ConnectionInput (..),
     mkConnectionInput,
+    ciConnectionProperties,
     ciMatchCriteria,
     ciPhysicalConnectionRequirements,
-    ciDescription,
     ciName,
+    ciDescription,
     ciConnectionType,
-    ciConnectionProperties,
 
     -- ** ConnectionPasswordEncryption
     ConnectionPasswordEncryption (..),
     mkConnectionPasswordEncryption,
-    cpeAWSKMSKeyId,
     cpeReturnConnectionPasswordEncrypted,
+    cpeAWSKMSKeyId,
 
     -- ** ConnectionsList
     ConnectionsList (..),
@@ -865,35 +865,35 @@ module Network.AWS.Glue
     -- ** Crawl
     Crawl (..),
     mkCrawl,
-    craCompletedOn,
-    craState,
-    craStartedOn,
-    craLogStream,
-    craLogGroup,
-    craErrorMessage,
+    cfCompletedOn,
+    cfState,
+    cfStartedOn,
+    cfLogStream,
+    cfLogGroup,
+    cfErrorMessage,
 
     -- ** Crawler
     Crawler (..),
     mkCrawler,
-    ccCreationTime,
-    ccState,
-    ccSchemaChangePolicy,
-    ccLastUpdated,
-    ccSchedule,
-    ccLastCrawl,
-    ccCrawlElapsedTime,
-    ccRecrawlPolicy,
-    ccClassifiers,
-    ccRole,
-    ccName,
-    ccTargets,
-    ccVersion,
-    ccDatabaseName,
-    ccCrawlerSecurityConfiguration,
-    ccLineageConfiguration,
-    ccConfiguration,
-    ccTablePrefix,
-    ccDescription,
+    cgCreationTime,
+    cgState,
+    cgSchemaChangePolicy,
+    cgLastUpdated,
+    cgSchedule,
+    cgLastCrawl,
+    cgCrawlElapsedTime,
+    cgRecrawlPolicy,
+    cgClassifiers,
+    cgRole,
+    cgName,
+    cgTargets,
+    cgVersion,
+    cgDatabaseName,
+    cgCrawlerSecurityConfiguration,
+    cgLineageConfiguration,
+    cgConfiguration,
+    cgTablePrefix,
+    cgDescription,
 
     -- ** CrawlerMetrics
     CrawlerMetrics (..),
@@ -927,31 +927,31 @@ module Network.AWS.Glue
     cccrQuoteSymbol,
     cccrContainsHeader,
     cccrDisableValueTrimming,
+    cccrName,
     cccrHeader,
     cccrAllowSingleColumn,
     cccrDelimiter,
-    cccrName,
 
     -- ** CreateGrokClassifierRequest
     CreateGrokClassifierRequest (..),
     mkCreateGrokClassifierRequest,
-    cgcrCustomPatterns,
     cgcrClassification,
     cgcrName,
+    cgcrCustomPatterns,
     cgcrGrokPattern,
 
     -- ** CreateJSONClassifierRequest
     CreateJSONClassifierRequest (..),
     mkCreateJSONClassifierRequest,
-    cjcrName,
     cjcrJSONPath,
+    cjcrName,
 
     -- ** CreateXMLClassifierRequest
     CreateXMLClassifierRequest (..),
     mkCreateXMLClassifierRequest,
-    cxcrRowTag,
     cxcrClassification,
     cxcrName,
+    cxcrRowTag,
 
     -- ** DataCatalogEncryptionSettings
     DataCatalogEncryptionSettings (..),
@@ -970,11 +970,11 @@ module Network.AWS.Glue
     dLocationURI,
     dCatalogId,
     dTargetDatabase,
+    dName,
     dParameters,
     dDescription,
     dCreateTime,
     dCreateTableDefaultPermissions,
-    dName,
 
     -- ** DatabaseIdentifier
     DatabaseIdentifier (..),
@@ -987,32 +987,32 @@ module Network.AWS.Glue
     mkDatabaseInput,
     diLocationURI,
     diTargetDatabase,
+    diName,
     diParameters,
     diDescription,
     diCreateTableDefaultPermissions,
-    diName,
 
     -- ** DateColumnStatisticsData
     DateColumnStatisticsData (..),
     mkDateColumnStatisticsData,
-    dcsdMaximumValue,
-    dcsdMinimumValue,
-    dcsdNumberOfNulls,
     dcsdNumberOfDistinctValues,
+    dcsdMaximumValue,
+    dcsdNumberOfNulls,
+    dcsdMinimumValue,
 
     -- ** DecimalColumnStatisticsData
     DecimalColumnStatisticsData (..),
     mkDecimalColumnStatisticsData,
-    dMaximumValue,
-    dMinimumValue,
-    dNumberOfNulls,
     dNumberOfDistinctValues,
+    dMaximumValue,
+    dNumberOfNulls,
+    dMinimumValue,
 
     -- ** DecimalNumber
     DecimalNumber (..),
     mkDecimalNumber,
-    dnUnscaledValue,
     dnScale,
+    dnUnscaledValue,
 
     -- ** DevEndpoint
     DevEndpoint (..),
@@ -1052,10 +1052,10 @@ module Network.AWS.Glue
     -- ** DoubleColumnStatisticsData
     DoubleColumnStatisticsData (..),
     mkDoubleColumnStatisticsData,
-    douMaximumValue,
-    douMinimumValue,
-    douNumberOfNulls,
-    douNumberOfDistinctValues,
+    dcsdfNumberOfDistinctValues,
+    dcsdfMaximumValue,
+    dcsdfNumberOfNulls,
+    dcsdfMinimumValue,
 
     -- ** DynamoDBTarget
     DynamoDBTarget (..),
@@ -1152,20 +1152,20 @@ module Network.AWS.Glue
     -- ** GlueTable
     GlueTable (..),
     mkGlueTable,
-    gtCatalogId,
-    gtConnectionName,
-    gtDatabaseName,
-    gtTableName,
+    gCatalogId,
+    gConnectionName,
+    gDatabaseName,
+    gTableName,
 
     -- ** GrokClassifier
     GrokClassifier (..),
     mkGrokClassifier,
     gcCreationTime,
     gcLastUpdated,
+    gcClassification,
+    gcName,
     gcVersion,
     gcCustomPatterns,
-    gcName,
-    gcClassification,
     gcGrokPattern,
 
     -- ** ImportLabelsTaskRunProperties
@@ -1177,11 +1177,11 @@ module Network.AWS.Glue
     -- ** JSONClassifier
     JSONClassifier (..),
     mkJSONClassifier,
-    jcCreationTime,
-    jcLastUpdated,
-    jcVersion,
-    jcName,
-    jcJSONPath,
+    jsoncCreationTime,
+    jsoncLastUpdated,
+    jsoncJSONPath,
+    jsoncName,
+    jsoncVersion,
 
     -- ** JdbcTarget
     JdbcTarget (..),
@@ -1234,9 +1234,9 @@ module Network.AWS.Glue
     -- ** JobCommand
     JobCommand (..),
     mkJobCommand,
-    jobScriptLocation,
-    jobPythonVersion,
-    jobName,
+    jcScriptLocation,
+    jcPythonVersion,
+    jcName,
 
     -- ** JobNodeDetails
     JobNodeDetails (..),
@@ -1326,10 +1326,10 @@ module Network.AWS.Glue
     -- ** LongColumnStatisticsData
     LongColumnStatisticsData (..),
     mkLongColumnStatisticsData,
-    lcsdMaximumValue,
-    lcsdMinimumValue,
-    lcsdNumberOfNulls,
     lcsdNumberOfDistinctValues,
+    lcsdMaximumValue,
+    lcsdNumberOfNulls,
+    lcsdMinimumValue,
 
     -- ** MLTransform
     MLTransform (..),
@@ -1357,8 +1357,8 @@ module Network.AWS.Glue
     -- ** MLUserDataEncryption
     MLUserDataEncryption (..),
     mkMLUserDataEncryption,
-    mludeKMSKeyId,
     mludeMlUserDataEncryptionMode,
+    mludeKMSKeyId,
 
     -- ** MappingEntry
     MappingEntry (..),
@@ -1407,8 +1407,8 @@ module Network.AWS.Glue
     -- ** Order
     Order (..),
     mkOrder,
-    oColumn,
     oSortOrder,
+    oColumn,
 
     -- ** Partition
     Partition (..),
@@ -1438,10 +1438,10 @@ module Network.AWS.Glue
     -- ** PartitionIndexDescriptor
     PartitionIndexDescriptor (..),
     mkPartitionIndexDescriptor,
+    pidIndexStatus,
+    pidKeys,
     pidBackfillErrors,
     pidIndexName,
-    pidKeys,
-    pidIndexStatus,
 
     -- ** PartitionInput
     PartitionInput (..),
@@ -1544,8 +1544,8 @@ module Network.AWS.Glue
     -- ** SchemaColumn
     SchemaColumn (..),
     mkSchemaColumn,
-    sName,
-    sDataType,
+    scName,
+    scDataType,
 
     -- ** SchemaId
     SchemaId (..),
@@ -1596,15 +1596,15 @@ module Network.AWS.Glue
     -- ** SecurityConfiguration
     SecurityConfiguration (..),
     mkSecurityConfiguration,
-    secName,
-    secEncryptionConfiguration,
-    secCreatedTimeStamp,
+    scfName,
+    scfEncryptionConfiguration,
+    scfCreatedTimeStamp,
 
     -- ** Segment
     Segment (..),
     mkSegment,
-    sSegmentNumber,
     sTotalSegments,
+    sSegmentNumber,
 
     -- ** SerDeInfo
     SerDeInfo (..),
@@ -1648,8 +1648,8 @@ module Network.AWS.Glue
     mkStringColumnStatisticsData,
     scsdMaximumLength,
     scsdAverageLength,
-    scsdNumberOfNulls,
     scsdNumberOfDistinctValues,
+    scsdNumberOfNulls,
 
     -- ** Table
     Table (..),
@@ -1665,6 +1665,7 @@ module Network.AWS.Glue
     tUpdateTime,
     tViewExpandedText,
     tLastAnalyzedTime,
+    tName,
     tStorageDescriptor,
     tDatabaseName,
     tParameters,
@@ -1672,7 +1673,6 @@ module Network.AWS.Glue
     tDescription,
     tPartitionKeys,
     tCreateTime,
-    tName,
 
     -- ** TableError
     TableError (..),
@@ -1690,19 +1690,19 @@ module Network.AWS.Glue
     -- ** TableInput
     TableInput (..),
     mkTableInput,
-    tabRetention,
-    tabTargetTable,
-    tabTableType,
-    tabOwner,
-    tabViewOriginalText,
-    tabViewExpandedText,
-    tabLastAnalyzedTime,
-    tabStorageDescriptor,
-    tabParameters,
-    tabLastAccessTime,
-    tabDescription,
-    tabPartitionKeys,
-    tabName,
+    tifRetention,
+    tifTargetTable,
+    tifTableType,
+    tifOwner,
+    tifViewOriginalText,
+    tifViewExpandedText,
+    tifLastAnalyzedTime,
+    tifName,
+    tifStorageDescriptor,
+    tifParameters,
+    tifLastAccessTime,
+    tifDescription,
+    tifPartitionKeys,
 
     -- ** TableVersion
     TableVersion (..),
@@ -1751,8 +1751,8 @@ module Network.AWS.Glue
     -- ** TaskRunSortCriteria
     TaskRunSortCriteria (..),
     mkTaskRunSortCriteria,
-    trscColumn,
     trscSortDirection,
+    trscColumn,
 
     -- ** TransformEncryption
     TransformEncryption (..),
@@ -1776,27 +1776,27 @@ module Network.AWS.Glue
     -- ** TransformParameters
     TransformParameters (..),
     mkTransformParameters,
-    tpFindMatchesParameters,
     tpTransformType,
+    tpFindMatchesParameters,
 
     -- ** TransformSortCriteria
     TransformSortCriteria (..),
     mkTransformSortCriteria,
-    tscColumn,
     tscSortDirection,
+    tscColumn,
 
     -- ** Trigger
     Trigger (..),
     mkTrigger,
-    triWorkflowName,
-    triState,
-    triActions,
-    triSchedule,
-    triPredicate,
-    triName,
-    triId,
-    triType,
-    triDescription,
+    tfWorkflowName,
+    tfState,
+    tfActions,
+    tfSchedule,
+    tfPredicate,
+    tfName,
+    tfId,
+    tfType,
+    tfDescription,
 
     -- ** TriggerNodeDetails
     TriggerNodeDetails (..),
@@ -1818,18 +1818,18 @@ module Network.AWS.Glue
     uccrQuoteSymbol,
     uccrContainsHeader,
     uccrDisableValueTrimming,
+    uccrName,
     uccrHeader,
     uccrAllowSingleColumn,
     uccrDelimiter,
-    uccrName,
 
     -- ** UpdateGrokClassifierRequest
     UpdateGrokClassifierRequest (..),
     mkUpdateGrokClassifierRequest,
     ugcrClassification,
+    ugcrName,
     ugcrCustomPatterns,
     ugcrGrokPattern,
-    ugcrName,
 
     -- ** UpdateJSONClassifierRequest
     UpdateJSONClassifierRequest (..),
@@ -1841,8 +1841,8 @@ module Network.AWS.Glue
     UpdateXMLClassifierRequest (..),
     mkUpdateXMLClassifierRequest,
     uxcrClassification,
-    uxcrRowTag,
     uxcrName,
+    uxcrRowTag,
 
     -- ** UserDefinedFunction
     UserDefinedFunction (..),
@@ -1912,10 +1912,10 @@ module Network.AWS.Glue
     mkXMLClassifier,
     xcCreationTime,
     xcLastUpdated,
+    xcClassification,
+    xcName,
     xcVersion,
     xcRowTag,
-    xcName,
-    xcClassification,
 
     -- * Serialization types
     Lude.Base64 (..),

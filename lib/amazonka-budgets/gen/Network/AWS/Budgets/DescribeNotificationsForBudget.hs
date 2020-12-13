@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Budgets.DescribeNotificationsForBudget
     mkDescribeNotificationsForBudget,
 
     -- ** Request lenses
-    dnfbNextToken,
-    dnfbMaxResults,
     dnfbAccountId,
+    dnfbNextToken,
     dnfbBudgetName,
+    dnfbMaxResults,
 
     -- * Destructuring the response
     DescribeNotificationsForBudgetResponse (..),
@@ -48,28 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeNotificationsForBudget' smart constructor.
 data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
+  { -- | The @accountId@ that is associated with the budget whose notifications you want descriptions of.
     accountId :: Lude.Text,
-    budgetName :: Lude.Text
+    -- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the budget whose notifications you want descriptions of.
+    budgetName :: Lude.Text,
+    -- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotificationsForBudget' with the minimum fields required to make a request.
 --
 -- * 'accountId' - The @accountId@ that is associated with the budget whose notifications you want descriptions of.
+-- * 'nextToken' - The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
 -- * 'budgetName' - The name of the budget whose notifications you want descriptions of.
 -- * 'maxResults' - An optional integer that represents how many entries a paginated response contains. The maximum is 100.
--- * 'nextToken' - The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
 mkDescribeNotificationsForBudget ::
   -- | 'accountId'
   Lude.Text ->
@@ -78,25 +75,11 @@ mkDescribeNotificationsForBudget ::
   DescribeNotificationsForBudget
 mkDescribeNotificationsForBudget pAccountId_ pBudgetName_ =
   DescribeNotificationsForBudget'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      accountId = pAccountId_,
-      budgetName = pBudgetName_
+    { accountId = pAccountId_,
+      nextToken = Lude.Nothing,
+      budgetName = pBudgetName_,
+      maxResults = Lude.Nothing
     }
-
--- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnfbNextToken :: Lens.Lens' DescribeNotificationsForBudget (Lude.Maybe Lude.Text)
-dnfbNextToken = Lens.lens (nextToken :: DescribeNotificationsForBudget -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNotificationsForBudget)
-{-# DEPRECATED dnfbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnfbMaxResults :: Lens.Lens' DescribeNotificationsForBudget (Lude.Maybe Lude.Natural)
-dnfbMaxResults = Lens.lens (maxResults :: DescribeNotificationsForBudget -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeNotificationsForBudget)
-{-# DEPRECATED dnfbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The @accountId@ that is associated with the budget whose notifications you want descriptions of.
 --
@@ -105,12 +88,26 @@ dnfbAccountId :: Lens.Lens' DescribeNotificationsForBudget Lude.Text
 dnfbAccountId = Lens.lens (accountId :: DescribeNotificationsForBudget -> Lude.Text) (\s a -> s {accountId = a} :: DescribeNotificationsForBudget)
 {-# DEPRECATED dnfbAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
+-- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfbNextToken :: Lens.Lens' DescribeNotificationsForBudget (Lude.Maybe Lude.Text)
+dnfbNextToken = Lens.lens (nextToken :: DescribeNotificationsForBudget -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNotificationsForBudget)
+{-# DEPRECATED dnfbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
 -- | The name of the budget whose notifications you want descriptions of.
 --
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dnfbBudgetName :: Lens.Lens' DescribeNotificationsForBudget Lude.Text
 dnfbBudgetName = Lens.lens (budgetName :: DescribeNotificationsForBudget -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeNotificationsForBudget)
 {-# DEPRECATED dnfbBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
+
+-- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnfbMaxResults :: Lens.Lens' DescribeNotificationsForBudget (Lude.Maybe Lude.Natural)
+dnfbMaxResults = Lens.lens (maxResults :: DescribeNotificationsForBudget -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeNotificationsForBudget)
+{-# DEPRECATED dnfbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeNotificationsForBudget where
   page rq rs
@@ -152,10 +149,10 @@ instance Lude.ToJSON DescribeNotificationsForBudget where
   toJSON DescribeNotificationsForBudget' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("BudgetName" Lude..= budgetName)
+          [ Lude.Just ("AccountId" Lude..= accountId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("BudgetName" Lude..= budgetName),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -169,22 +166,14 @@ instance Lude.ToQuery DescribeNotificationsForBudget where
 --
 -- /See:/ 'mkDescribeNotificationsForBudgetResponse' smart constructor.
 data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    notifications ::
-      Lude.Maybe
-        [Notification],
-    responseStatus ::
-      Lude.Int
+  { -- | The pagination token in the service response that indicates the next set of results that you can retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of notifications that are associated with a budget.
+    notifications :: Lude.Maybe [Notification],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotificationsForBudgetResponse' with the minimum fields required to make a request.

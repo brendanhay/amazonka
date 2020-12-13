@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlayerLatency' smart constructor.
 data PlayerLatency = PlayerLatency'
-  { latencyInMilliseconds ::
-      Lude.Maybe Lude.Double,
+  { -- | Amount of time that represents the time lag experienced by the player when connected to the specified Region.
+    latencyInMilliseconds :: Lude.Maybe Lude.Double,
+    -- | Name of the Region that is associated with the latency value.
     regionIdentifier :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a player associated with the latency data.
     playerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlayerLatency' with the minimum fields required to make a request.
 --
 -- * 'latencyInMilliseconds' - Amount of time that represents the time lag experienced by the player when connected to the specified Region.
--- * 'playerId' - A unique identifier for a player associated with the latency data.
 -- * 'regionIdentifier' - Name of the Region that is associated with the latency value.
+-- * 'playerId' - A unique identifier for a player associated with the latency data.
 mkPlayerLatency ::
   PlayerLatency
 mkPlayerLatency =

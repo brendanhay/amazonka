@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The inventory item result attribute.
 --
 -- /See:/ 'mkResultAttribute' smart constructor.
-newtype ResultAttribute = ResultAttribute' {typeName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ResultAttribute = ResultAttribute'
+  { -- | Name of the inventory item type. Valid value: AWS:InstanceInformation. Default Value: AWS:InstanceInformation.
+    typeName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResultAttribute' with the minimum fields required to make a request.

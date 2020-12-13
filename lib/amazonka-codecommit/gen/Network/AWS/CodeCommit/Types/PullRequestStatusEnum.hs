@@ -13,8 +13,8 @@
 module Network.AWS.CodeCommit.Types.PullRequestStatusEnum
   ( PullRequestStatusEnum
       ( PullRequestStatusEnum',
-        Closed,
-        Open
+        Open,
+        Closed
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PullRequestStatusEnum = PullRequestStatusEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern Closed :: PullRequestStatusEnum
-pattern Closed = PullRequestStatusEnum' "CLOSED"
-
 pattern Open :: PullRequestStatusEnum
 pattern Open = PullRequestStatusEnum' "OPEN"
 
+pattern Closed :: PullRequestStatusEnum
+pattern Closed = PullRequestStatusEnum' "CLOSED"
+
 {-# COMPLETE
-  Closed,
   Open,
+  Closed,
   PullRequestStatusEnum'
   #-}

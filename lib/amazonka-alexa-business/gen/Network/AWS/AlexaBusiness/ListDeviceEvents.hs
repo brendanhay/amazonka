@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.AlexaBusiness.ListDeviceEvents
     mkListDeviceEvents,
 
     -- ** Request lenses
+    ldeDeviceARN,
     ldeNextToken,
     ldeEventType,
     ldeMaxResults,
-    ldeDeviceARN,
 
     -- * Destructuring the response
     ListDeviceEventsResponse (..),
@@ -46,38 +47,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListDeviceEvents' smart constructor.
 data ListDeviceEvents = ListDeviceEvents'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of a device.
+    deviceARN :: Lude.Text,
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults. When the end of results is reached, the response has a value of null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The event type to filter device events. If EventType isn't specified, this returns a list of all device events in reverse chronological order. If EventType is specified, this returns a list of device events for that EventType in reverse chronological order.
     eventType :: Lude.Maybe DeviceEventType,
-    maxResults :: Lude.Maybe Lude.Natural,
-    deviceARN :: Lude.Text
+    -- | The maximum number of results to include in the response. The default value is 50. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeviceEvents' with the minimum fields required to make a request.
 --
 -- * 'deviceARN' - The ARN of a device.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults. When the end of results is reached, the response has a value of null.
 -- * 'eventType' - The event type to filter device events. If EventType isn't specified, this returns a list of all device events in reverse chronological order. If EventType is specified, this returns a list of device events for that EventType in reverse chronological order.
 -- * 'maxResults' - The maximum number of results to include in the response. The default value is 50. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults. When the end of results is reached, the response has a value of null.
 mkListDeviceEvents ::
   -- | 'deviceARN'
   Lude.Text ->
   ListDeviceEvents
 mkListDeviceEvents pDeviceARN_ =
   ListDeviceEvents'
-    { nextToken = Lude.Nothing,
+    { deviceARN = pDeviceARN_,
+      nextToken = Lude.Nothing,
       eventType = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      deviceARN = pDeviceARN_
+      maxResults = Lude.Nothing
     }
+
+-- | The ARN of a device.
+--
+-- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldeDeviceARN :: Lens.Lens' ListDeviceEvents Lude.Text
+ldeDeviceARN = Lens.lens (deviceARN :: ListDeviceEvents -> Lude.Text) (\s a -> s {deviceARN = a} :: ListDeviceEvents)
+{-# DEPRECATED ldeDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults. When the end of results is reached, the response has a value of null.
 --
@@ -99,13 +104,6 @@ ldeEventType = Lens.lens (eventType :: ListDeviceEvents -> Lude.Maybe DeviceEven
 ldeMaxResults :: Lens.Lens' ListDeviceEvents (Lude.Maybe Lude.Natural)
 ldeMaxResults = Lens.lens (maxResults :: ListDeviceEvents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDeviceEvents)
 {-# DEPRECATED ldeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ARN of a device.
---
--- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldeDeviceARN :: Lens.Lens' ListDeviceEvents Lude.Text
-ldeDeviceARN = Lens.lens (deviceARN :: ListDeviceEvents -> Lude.Text) (\s a -> s {deviceARN = a} :: ListDeviceEvents)
-{-# DEPRECATED ldeDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
 
 instance Page.AWSPager ListDeviceEvents where
   page rq rs
@@ -143,10 +141,10 @@ instance Lude.ToJSON ListDeviceEvents where
   toJSON ListDeviceEvents' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("DeviceArn" Lude..= deviceARN),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("EventType" Lude..=) Lude.<$> eventType,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("DeviceArn" Lude..= deviceARN)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -158,24 +156,20 @@ instance Lude.ToQuery ListDeviceEvents where
 
 -- | /See:/ 'mkListDeviceEventsResponse' smart constructor.
 data ListDeviceEventsResponse = ListDeviceEventsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token returned to indicate that there is more data available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The device events requested for the device ARN.
     deviceEvents :: Lude.Maybe [DeviceEvent],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeviceEventsResponse' with the minimum fields required to make a request.
 --
--- * 'deviceEvents' - The device events requested for the device ARN.
 -- * 'nextToken' - The token returned to indicate that there is more data available.
+-- * 'deviceEvents' - The device events requested for the device ARN.
 -- * 'responseStatus' - The response status code.
 mkListDeviceEventsResponse ::
   -- | 'responseStatus'

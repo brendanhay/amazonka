@@ -13,8 +13,8 @@
 module Network.AWS.MQ.Types.AuthenticationStrategy
   ( AuthenticationStrategy
       ( AuthenticationStrategy',
-        Ldap,
-        Simple
+        Simple,
+        Ldap
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype AuthenticationStrategy = AuthenticationStrategy' Lude.Text
       Lude.ToHeader
     )
 
-pattern Ldap :: AuthenticationStrategy
-pattern Ldap = AuthenticationStrategy' "LDAP"
-
 pattern Simple :: AuthenticationStrategy
 pattern Simple = AuthenticationStrategy' "SIMPLE"
 
+pattern Ldap :: AuthenticationStrategy
+pattern Ldap = AuthenticationStrategy' "LDAP"
+
 {-# COMPLETE
-  Ldap,
   Simple,
+  Ldap,
   AuthenticationStrategy'
   #-}

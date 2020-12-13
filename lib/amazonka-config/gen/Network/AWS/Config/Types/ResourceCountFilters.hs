@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceCountFilters' smart constructor.
 data ResourceCountFilters = ResourceCountFilters'
-  { resourceType ::
-      Lude.Maybe ResourceType,
+  { -- | The type of the AWS resource.
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The 12-digit ID of the account.
     accountId :: Lude.Maybe Lude.Text,
+    -- | The region where the account is located.
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceCountFilters' with the minimum fields required to make a request.
 --
+-- * 'resourceType' - The type of the AWS resource.
 -- * 'accountId' - The 12-digit ID of the account.
 -- * 'region' - The region where the account is located.
--- * 'resourceType' - The type of the AWS resource.
 mkResourceCountFilters ::
   ResourceCountFilters
 mkResourceCountFilters =

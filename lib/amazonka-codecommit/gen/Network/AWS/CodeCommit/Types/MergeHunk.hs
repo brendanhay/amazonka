@@ -32,25 +32,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMergeHunk' smart constructor.
 data MergeHunk = MergeHunk'
-  { destination ::
-      Lude.Maybe MergeHunkDetail,
+  { -- | Information about the merge hunk in the destination of a merge or pull request.
+    destination :: Lude.Maybe MergeHunkDetail,
+    -- | Information about the merge hunk in the base of a merge or pull request.
     base :: Lude.Maybe MergeHunkDetail,
+    -- | A Boolean value indicating whether a combination of hunks contains a conflict. Conflicts occur when the same file or the same lines in a file were modified in both the source and destination of a merge or pull request. Valid values include true, false, and null. True when the hunk represents a conflict and one or more files contains a line conflict. File mode conflicts in a merge do not set this to true.
     isConflict :: Lude.Maybe Lude.Bool,
+    -- | Information about the merge hunk in the source of a merge or pull request.
     source :: Lude.Maybe MergeHunkDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeHunk' with the minimum fields required to make a request.
 --
--- * 'base' - Information about the merge hunk in the base of a merge or pull request.
 -- * 'destination' - Information about the merge hunk in the destination of a merge or pull request.
+-- * 'base' - Information about the merge hunk in the base of a merge or pull request.
 -- * 'isConflict' - A Boolean value indicating whether a combination of hunks contains a conflict. Conflicts occur when the same file or the same lines in a file were modified in both the source and destination of a merge or pull request. Valid values include true, false, and null. True when the hunk represents a conflict and one or more files contains a line conflict. File mode conflicts in a merge do not set this to true.
 -- * 'source' - Information about the merge hunk in the source of a merge or pull request.
 mkMergeHunk ::

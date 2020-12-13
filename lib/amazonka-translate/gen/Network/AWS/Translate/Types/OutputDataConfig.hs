@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The output configuration properties for a batch translation job.
 --
 -- /See:/ 'mkOutputDataConfig' smart constructor.
-newtype OutputDataConfig = OutputDataConfig' {s3URI :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype OutputDataConfig = OutputDataConfig'
+  { -- | The URI of the S3 folder that contains a translation job's output file. The folder must be in the same Region as the API endpoint that you are calling.
+    s3URI :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputDataConfig' with the minimum fields required to make a request.

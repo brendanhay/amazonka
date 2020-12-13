@@ -14,10 +14,10 @@ module Network.AWS.MediaConvert.Types.Mpeg2IntraDcPrecision
   ( Mpeg2IntraDcPrecision
       ( Mpeg2IntraDcPrecision',
         MIDPAuto,
-        MIDPIntraDcPrecision10,
-        MIDPIntraDcPrecision11,
         MIDPIntraDcPrecision8,
-        MIDPIntraDcPrecision9
+        MIDPIntraDcPrecision9,
+        MIDPIntraDcPrecision10,
+        MIDPIntraDcPrecision11
       ),
   )
 where
@@ -52,23 +52,23 @@ newtype Mpeg2IntraDcPrecision = Mpeg2IntraDcPrecision' Lude.Text
 pattern MIDPAuto :: Mpeg2IntraDcPrecision
 pattern MIDPAuto = Mpeg2IntraDcPrecision' "AUTO"
 
-pattern MIDPIntraDcPrecision10 :: Mpeg2IntraDcPrecision
-pattern MIDPIntraDcPrecision10 = Mpeg2IntraDcPrecision' "INTRA_DC_PRECISION_10"
-
-pattern MIDPIntraDcPrecision11 :: Mpeg2IntraDcPrecision
-pattern MIDPIntraDcPrecision11 = Mpeg2IntraDcPrecision' "INTRA_DC_PRECISION_11"
-
 pattern MIDPIntraDcPrecision8 :: Mpeg2IntraDcPrecision
 pattern MIDPIntraDcPrecision8 = Mpeg2IntraDcPrecision' "INTRA_DC_PRECISION_8"
 
 pattern MIDPIntraDcPrecision9 :: Mpeg2IntraDcPrecision
 pattern MIDPIntraDcPrecision9 = Mpeg2IntraDcPrecision' "INTRA_DC_PRECISION_9"
 
+pattern MIDPIntraDcPrecision10 :: Mpeg2IntraDcPrecision
+pattern MIDPIntraDcPrecision10 = Mpeg2IntraDcPrecision' "INTRA_DC_PRECISION_10"
+
+pattern MIDPIntraDcPrecision11 :: Mpeg2IntraDcPrecision
+pattern MIDPIntraDcPrecision11 = Mpeg2IntraDcPrecision' "INTRA_DC_PRECISION_11"
+
 {-# COMPLETE
   MIDPAuto,
-  MIDPIntraDcPrecision10,
-  MIDPIntraDcPrecision11,
   MIDPIntraDcPrecision8,
   MIDPIntraDcPrecision9,
+  MIDPIntraDcPrecision10,
+  MIDPIntraDcPrecision11,
   Mpeg2IntraDcPrecision'
   #-}

@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingGroupMetadata' smart constructor.
 data ThingGroupMetadata = ThingGroupMetadata'
-  { rootToParentThingGroups ::
-      Lude.Maybe [GroupNameAndARN],
+  { -- | The root parent thing group.
+    rootToParentThingGroups :: Lude.Maybe [GroupNameAndARN],
+    -- | The parent thing group name.
     parentGroupName :: Lude.Maybe Lude.Text,
+    -- | The UNIX timestamp of when the thing group was created.
     creationDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingGroupMetadata' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The UNIX timestamp of when the thing group was created.
--- * 'parentGroupName' - The parent thing group name.
 -- * 'rootToParentThingGroups' - The root parent thing group.
+-- * 'parentGroupName' - The parent thing group name.
+-- * 'creationDate' - The UNIX timestamp of when the thing group was created.
 mkThingGroupMetadata ::
   ThingGroupMetadata
 mkThingGroupMetadata =

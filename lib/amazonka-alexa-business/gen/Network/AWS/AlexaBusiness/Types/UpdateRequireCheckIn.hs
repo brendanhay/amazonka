@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpdateRequireCheckIn' smart constructor.
 data UpdateRequireCheckIn = UpdateRequireCheckIn'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether require check in is enabled or not.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | Duration between 5 and 20 minutes to determine when to release the room if it's not checked into.
     releaseAfterMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRequireCheckIn' with the minimum fields required to make a request.

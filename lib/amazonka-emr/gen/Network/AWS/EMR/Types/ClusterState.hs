@@ -13,13 +13,13 @@
 module Network.AWS.EMR.Types.ClusterState
   ( ClusterState
       ( ClusterState',
+        CSStarting,
         CSBootstrapping,
         CSRunning,
-        CSStarting,
-        CSTerminated,
-        CSTerminatedWithErrors,
+        CSWaiting,
         CSTerminating,
-        CSWaiting
+        CSTerminated,
+        CSTerminatedWithErrors
       ),
   )
 where
@@ -50,14 +50,20 @@ newtype ClusterState = ClusterState' Lude.Text
       Lude.ToHeader
     )
 
+pattern CSStarting :: ClusterState
+pattern CSStarting = ClusterState' "STARTING"
+
 pattern CSBootstrapping :: ClusterState
 pattern CSBootstrapping = ClusterState' "BOOTSTRAPPING"
 
 pattern CSRunning :: ClusterState
 pattern CSRunning = ClusterState' "RUNNING"
 
-pattern CSStarting :: ClusterState
-pattern CSStarting = ClusterState' "STARTING"
+pattern CSWaiting :: ClusterState
+pattern CSWaiting = ClusterState' "WAITING"
+
+pattern CSTerminating :: ClusterState
+pattern CSTerminating = ClusterState' "TERMINATING"
 
 pattern CSTerminated :: ClusterState
 pattern CSTerminated = ClusterState' "TERMINATED"
@@ -65,19 +71,13 @@ pattern CSTerminated = ClusterState' "TERMINATED"
 pattern CSTerminatedWithErrors :: ClusterState
 pattern CSTerminatedWithErrors = ClusterState' "TERMINATED_WITH_ERRORS"
 
-pattern CSTerminating :: ClusterState
-pattern CSTerminating = ClusterState' "TERMINATING"
-
-pattern CSWaiting :: ClusterState
-pattern CSWaiting = ClusterState' "WAITING"
-
 {-# COMPLETE
+  CSStarting,
   CSBootstrapping,
   CSRunning,
-  CSStarting,
+  CSWaiting,
+  CSTerminating,
   CSTerminated,
   CSTerminatedWithErrors,
-  CSTerminating,
-  CSWaiting,
   ClusterState'
   #-}

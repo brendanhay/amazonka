@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogGroupField' smart constructor.
 data LogGroupField = LogGroupField'
-  { percent ::
-      Lude.Maybe Lude.Natural,
+  { -- | The percentage of log events queried that contained the field.
+    percent :: Lude.Maybe Lude.Natural,
+    -- | The name of a log field.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogGroupField' with the minimum fields required to make a request.
 --
--- * 'name' - The name of a log field.
 -- * 'percent' - The percentage of log events queried that contained the field.
+-- * 'name' - The name of a log field.
 mkLogGroupField ::
   LogGroupField
 mkLogGroupField =

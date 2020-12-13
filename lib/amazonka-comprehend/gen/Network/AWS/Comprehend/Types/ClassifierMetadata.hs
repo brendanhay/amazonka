@@ -32,28 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClassifierMetadata' smart constructor.
 data ClassifierMetadata = ClassifierMetadata'
-  { numberOfLabels ::
-      Lude.Maybe Lude.Int,
-    evaluationMetrics ::
-      Lude.Maybe ClassifierEvaluationMetrics,
+  { -- | The number of labels in the input data.
+    numberOfLabels :: Lude.Maybe Lude.Int,
+    -- | Describes the result metrics for the test data associated with an documentation classifier.
+    evaluationMetrics :: Lude.Maybe ClassifierEvaluationMetrics,
+    -- | The number of documents in the input data that were used to train the classifier. Typically this is 80 to 90 percent of the input documents.
     numberOfTrainedDocuments :: Lude.Maybe Lude.Int,
+    -- | The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents, up to 10,000 documents.
     numberOfTestDocuments :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassifierMetadata' with the minimum fields required to make a request.
 --
--- * 'evaluationMetrics' - Describes the result metrics for the test data associated with an documentation classifier.
 -- * 'numberOfLabels' - The number of labels in the input data.
--- * 'numberOfTestDocuments' - The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents, up to 10,000 documents.
+-- * 'evaluationMetrics' - Describes the result metrics for the test data associated with an documentation classifier.
 -- * 'numberOfTrainedDocuments' - The number of documents in the input data that were used to train the classifier. Typically this is 80 to 90 percent of the input documents.
+-- * 'numberOfTestDocuments' - The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents, up to 10,000 documents.
 mkClassifierMetadata ::
   ClassifierMetadata
 mkClassifierMetadata =

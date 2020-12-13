@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBudgetedAndActualAmounts' smart constructor.
 data BudgetedAndActualAmounts = BudgetedAndActualAmounts'
-  { timePeriod ::
-      Lude.Maybe TimePeriod,
+  { -- | The time period covered by this budget comparison.
+    timePeriod :: Lude.Maybe TimePeriod,
+    -- | Your actual costs or usage for a budget period.
     actualAmount :: Lude.Maybe Spend,
+    -- | The amount of cost or usage that you created the budget for.
     budgetedAmount :: Lude.Maybe Spend
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BudgetedAndActualAmounts' with the minimum fields required to make a request.
 --
+-- * 'timePeriod' - The time period covered by this budget comparison.
 -- * 'actualAmount' - Your actual costs or usage for a budget period.
 -- * 'budgetedAmount' - The amount of cost or usage that you created the budget for.
--- * 'timePeriod' - The time period covered by this budget comparison.
 mkBudgetedAndActualAmounts ::
   BudgetedAndActualAmounts
 mkBudgetedAndActualAmounts =

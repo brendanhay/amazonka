@@ -13,14 +13,14 @@
 module Network.AWS.SSM.Types.AutomationExecutionStatus
   ( AutomationExecutionStatus
       ( AutomationExecutionStatus',
-        AESCancelled,
-        AESCancelling,
-        AESFailed,
-        AESInProgress,
         AESPending,
+        AESInProgress,
+        AESWaiting,
         AESSuccess,
         AESTimedOut,
-        AESWaiting
+        AESCancelling,
+        AESCancelled,
+        AESFailed
       ),
   )
 where
@@ -51,20 +51,14 @@ newtype AutomationExecutionStatus = AutomationExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern AESCancelled :: AutomationExecutionStatus
-pattern AESCancelled = AutomationExecutionStatus' "Cancelled"
-
-pattern AESCancelling :: AutomationExecutionStatus
-pattern AESCancelling = AutomationExecutionStatus' "Cancelling"
-
-pattern AESFailed :: AutomationExecutionStatus
-pattern AESFailed = AutomationExecutionStatus' "Failed"
+pattern AESPending :: AutomationExecutionStatus
+pattern AESPending = AutomationExecutionStatus' "Pending"
 
 pattern AESInProgress :: AutomationExecutionStatus
 pattern AESInProgress = AutomationExecutionStatus' "InProgress"
 
-pattern AESPending :: AutomationExecutionStatus
-pattern AESPending = AutomationExecutionStatus' "Pending"
+pattern AESWaiting :: AutomationExecutionStatus
+pattern AESWaiting = AutomationExecutionStatus' "Waiting"
 
 pattern AESSuccess :: AutomationExecutionStatus
 pattern AESSuccess = AutomationExecutionStatus' "Success"
@@ -72,17 +66,23 @@ pattern AESSuccess = AutomationExecutionStatus' "Success"
 pattern AESTimedOut :: AutomationExecutionStatus
 pattern AESTimedOut = AutomationExecutionStatus' "TimedOut"
 
-pattern AESWaiting :: AutomationExecutionStatus
-pattern AESWaiting = AutomationExecutionStatus' "Waiting"
+pattern AESCancelling :: AutomationExecutionStatus
+pattern AESCancelling = AutomationExecutionStatus' "Cancelling"
+
+pattern AESCancelled :: AutomationExecutionStatus
+pattern AESCancelled = AutomationExecutionStatus' "Cancelled"
+
+pattern AESFailed :: AutomationExecutionStatus
+pattern AESFailed = AutomationExecutionStatus' "Failed"
 
 {-# COMPLETE
-  AESCancelled,
-  AESCancelling,
-  AESFailed,
-  AESInProgress,
   AESPending,
+  AESInProgress,
+  AESWaiting,
   AESSuccess,
   AESTimedOut,
-  AESWaiting,
+  AESCancelling,
+  AESCancelled,
+  AESFailed,
   AutomationExecutionStatus'
   #-}

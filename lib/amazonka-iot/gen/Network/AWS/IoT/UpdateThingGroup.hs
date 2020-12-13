@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,18 +42,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateThingGroup' smart constructor.
 data UpdateThingGroup = UpdateThingGroup'
-  { expectedVersion ::
-      Lude.Maybe Lude.Integer,
+  { -- | The expected version of the thing group. If this does not match the version of the thing group being updated, the update will fail.
+    expectedVersion :: Lude.Maybe Lude.Integer,
+    -- | The thing group to update.
     thingGroupName :: Lude.Text,
+    -- | The thing group properties.
     thingGroupProperties :: ThingGroupProperties
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThingGroup' with the minimum fields required to make a request.
@@ -125,23 +122,18 @@ instance Lude.ToQuery UpdateThingGroup where
 
 -- | /See:/ 'mkUpdateThingGroupResponse' smart constructor.
 data UpdateThingGroupResponse = UpdateThingGroupResponse'
-  { version ::
-      Lude.Maybe Lude.Integer,
+  { -- | The version of the updated thing group.
+    version :: Lude.Maybe Lude.Integer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThingGroupResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'version' - The version of the updated thing group.
+-- * 'responseStatus' - The response status code.
 mkUpdateThingGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

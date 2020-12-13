@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.MechanicalTurk.ListAssignmentsForHIT
     -- ** Request lenses
     lafhitAssignmentStatuses,
     lafhitNextToken,
-    lafhitMaxResults,
     lafhitHITId,
+    lafhitMaxResults,
 
     -- * Destructuring the response
     ListAssignmentsForHITResponse (..),
@@ -52,27 +53,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAssignmentsForHIT' smart constructor.
 data ListAssignmentsForHIT = ListAssignmentsForHIT'
-  { assignmentStatuses ::
-      Lude.Maybe [AssignmentStatus],
+  { -- | The status of the assignments to return: Submitted | Approved | Rejected
+    assignmentStatuses :: Lude.Maybe [AssignmentStatus],
+    -- | Pagination token
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    hITId :: Lude.Text
+    -- | The ID of the HIT.
+    hITId :: Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssignmentsForHIT' with the minimum fields required to make a request.
 --
 -- * 'assignmentStatuses' - The status of the assignments to return: Submitted | Approved | Rejected
--- * 'hITId' - The ID of the HIT.
--- * 'maxResults' - Undocumented field.
 -- * 'nextToken' - Pagination token
+-- * 'hITId' - The ID of the HIT.
+-- * 'maxResults' -
 mkListAssignmentsForHIT ::
   -- | 'hITId'
   Lude.Text ->
@@ -81,8 +78,8 @@ mkListAssignmentsForHIT pHITId_ =
   ListAssignmentsForHIT'
     { assignmentStatuses = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      hITId = pHITId_
+      hITId = pHITId_,
+      maxResults = Lude.Nothing
     }
 
 -- | The status of the assignments to return: Submitted | Approved | Rejected
@@ -99,19 +96,19 @@ lafhitNextToken :: Lens.Lens' ListAssignmentsForHIT (Lude.Maybe Lude.Text)
 lafhitNextToken = Lens.lens (nextToken :: ListAssignmentsForHIT -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssignmentsForHIT)
 {-# DEPRECATED lafhitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Undocumented field.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafhitMaxResults :: Lens.Lens' ListAssignmentsForHIT (Lude.Maybe Lude.Natural)
-lafhitMaxResults = Lens.lens (maxResults :: ListAssignmentsForHIT -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAssignmentsForHIT)
-{-# DEPRECATED lafhitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the HIT.
 --
 -- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lafhitHITId :: Lens.Lens' ListAssignmentsForHIT Lude.Text
 lafhitHITId = Lens.lens (hITId :: ListAssignmentsForHIT -> Lude.Text) (\s a -> s {hITId = a} :: ListAssignmentsForHIT)
 {-# DEPRECATED lafhitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafhitMaxResults :: Lens.Lens' ListAssignmentsForHIT (Lude.Maybe Lude.Natural)
+lafhitMaxResults = Lens.lens (maxResults :: ListAssignmentsForHIT -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAssignmentsForHIT)
+{-# DEPRECATED lafhitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListAssignmentsForHIT where
   page rq rs
@@ -154,8 +151,8 @@ instance Lude.ToJSON ListAssignmentsForHIT where
       ( Lude.catMaybes
           [ ("AssignmentStatuses" Lude..=) Lude.<$> assignmentStatuses,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("HITId" Lude..= hITId)
+            Lude.Just ("HITId" Lude..= hITId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -167,28 +164,22 @@ instance Lude.ToQuery ListAssignmentsForHIT where
 
 -- | /See:/ 'mkListAssignmentsForHITResponse' smart constructor.
 data ListAssignmentsForHITResponse = ListAssignmentsForHITResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    numResults ::
-      Lude.Maybe Lude.Int,
-    assignments ::
-      Lude.Maybe [Assignment],
+  { nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
+    numResults :: Lude.Maybe Lude.Int,
+    -- | The collection of Assignment data structures returned by this call.
+    assignments :: Lude.Maybe [Assignment],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssignmentsForHITResponse' with the minimum fields required to make a request.
 --
--- * 'assignments' - The collection of Assignment data structures returned by this call.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'numResults' - The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
+-- * 'assignments' - The collection of Assignment data structures returned by this call.
 -- * 'responseStatus' - The response status code.
 mkListAssignmentsForHITResponse ::
   -- | 'responseStatus'

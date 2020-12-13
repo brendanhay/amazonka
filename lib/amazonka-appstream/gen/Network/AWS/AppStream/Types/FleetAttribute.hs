@@ -13,10 +13,10 @@
 module Network.AWS.AppStream.Types.FleetAttribute
   ( FleetAttribute
       ( FleetAttribute',
-        FADomainJoinInfo,
-        FAIAMRoleARN,
-        FAVPCConfiguration,
-        FAVPCConfigurationSecurityGroupIds
+        VPCConfiguration,
+        VPCConfigurationSecurityGroupIds,
+        DomainJoinInfo,
+        IAMRoleARN
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype FleetAttribute = FleetAttribute' Lude.Text
       Lude.ToHeader
     )
 
-pattern FADomainJoinInfo :: FleetAttribute
-pattern FADomainJoinInfo = FleetAttribute' "DOMAIN_JOIN_INFO"
+pattern VPCConfiguration :: FleetAttribute
+pattern VPCConfiguration = FleetAttribute' "VPC_CONFIGURATION"
 
-pattern FAIAMRoleARN :: FleetAttribute
-pattern FAIAMRoleARN = FleetAttribute' "IAM_ROLE_ARN"
+pattern VPCConfigurationSecurityGroupIds :: FleetAttribute
+pattern VPCConfigurationSecurityGroupIds = FleetAttribute' "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
 
-pattern FAVPCConfiguration :: FleetAttribute
-pattern FAVPCConfiguration = FleetAttribute' "VPC_CONFIGURATION"
+pattern DomainJoinInfo :: FleetAttribute
+pattern DomainJoinInfo = FleetAttribute' "DOMAIN_JOIN_INFO"
 
-pattern FAVPCConfigurationSecurityGroupIds :: FleetAttribute
-pattern FAVPCConfigurationSecurityGroupIds = FleetAttribute' "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
+pattern IAMRoleARN :: FleetAttribute
+pattern IAMRoleARN = FleetAttribute' "IAM_ROLE_ARN"
 
 {-# COMPLETE
-  FADomainJoinInfo,
-  FAIAMRoleARN,
-  FAVPCConfiguration,
-  FAVPCConfigurationSecurityGroupIds,
+  VPCConfiguration,
+  VPCConfigurationSecurityGroupIds,
+  DomainJoinInfo,
+  IAMRoleARN,
   FleetAttribute'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import Network.AWS.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'mkListApplications' smart constructor.
 data ListApplications = ListApplications'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token to specify where to start paginating.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The total number of items to return.
     maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplications' with the minimum fields required to make a request.
 --
--- * 'maxItems' - The total number of items to return.
 -- * 'nextToken' - A token to specify where to start paginating.
+-- * 'maxItems' - The total number of items to return.
 mkListApplications ::
   ListApplications
 mkListApplications =
@@ -123,25 +119,20 @@ instance Lude.ToQuery ListApplications where
 
 -- | /See:/ 'mkListApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    applications ::
-      Lude.Maybe [ApplicationSummary],
+  { -- | The token to request the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of application summaries.
+    applications :: Lude.Maybe [ApplicationSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationsResponse' with the minimum fields required to make a request.
 --
--- * 'applications' - An array of application summaries.
 -- * 'nextToken' - The token to request the next page of results.
+-- * 'applications' - An array of application summaries.
 -- * 'responseStatus' - The response status code.
 mkListApplicationsResponse ::
   -- | 'responseStatus'

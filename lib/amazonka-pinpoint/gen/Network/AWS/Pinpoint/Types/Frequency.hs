@@ -13,12 +13,12 @@
 module Network.AWS.Pinpoint.Types.Frequency
   ( Frequency
       ( Frequency',
-        Daily,
-        Event,
-        Hourly,
-        Monthly,
         Once,
-        Weekly
+        Hourly,
+        Daily,
+        Weekly,
+        Monthly,
+        Event
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype Frequency = Frequency' Lude.Text
       Lude.ToHeader
     )
 
-pattern Daily :: Frequency
-pattern Daily = Frequency' "DAILY"
-
-pattern Event :: Frequency
-pattern Event = Frequency' "EVENT"
+pattern Once :: Frequency
+pattern Once = Frequency' "ONCE"
 
 pattern Hourly :: Frequency
 pattern Hourly = Frequency' "HOURLY"
 
-pattern Monthly :: Frequency
-pattern Monthly = Frequency' "MONTHLY"
-
-pattern Once :: Frequency
-pattern Once = Frequency' "ONCE"
+pattern Daily :: Frequency
+pattern Daily = Frequency' "DAILY"
 
 pattern Weekly :: Frequency
 pattern Weekly = Frequency' "WEEKLY"
 
+pattern Monthly :: Frequency
+pattern Monthly = Frequency' "MONTHLY"
+
+pattern Event :: Frequency
+pattern Event = Frequency' "EVENT"
+
 {-# COMPLETE
-  Daily,
-  Event,
-  Hourly,
-  Monthly,
   Once,
+  Hourly,
+  Daily,
   Weekly,
+  Monthly,
+  Event,
   Frequency'
   #-}

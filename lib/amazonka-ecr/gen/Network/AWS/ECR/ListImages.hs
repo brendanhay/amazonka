@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.ECR.ListImages
     -- ** Request lenses
     liRegistryId,
     liNextToken,
+    liRepositoryName,
     liFilter,
     liMaxResults,
-    liRepositoryName,
 
     -- * Destructuring the response
     ListImagesResponse (..),
@@ -49,28 +50,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListImages' smart constructor.
 data ListImages = ListImages'
-  { registryId :: Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the registry that contains the repository in which to list images. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The @nextToken@ value returned from a previous paginated @ListImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The repository with image IDs to be listed.
+    repositoryName :: Lude.Text,
+    -- | The filter key and value with which to filter your @ListImages@ results.
     filter :: Lude.Maybe ListImagesFilter,
-    maxResults :: Lude.Maybe Lude.Natural,
-    repositoryName :: Lude.Text
+    -- | The maximum number of image results returned by @ListImages@ in paginated output. When this parameter is used, @ListImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListImages@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @ListImages@ returns up to 100 results and a @nextToken@ value, if applicable.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListImages' with the minimum fields required to make a request.
 --
+-- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to list images. If you do not specify a registry, the default registry is assumed.
+-- * 'nextToken' - The @nextToken@ value returned from a previous paginated @ListImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- * 'repositoryName' - The repository with image IDs to be listed.
 -- * 'filter' - The filter key and value with which to filter your @ListImages@ results.
 -- * 'maxResults' - The maximum number of image results returned by @ListImages@ in paginated output. When this parameter is used, @ListImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListImages@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @ListImages@ returns up to 100 results and a @nextToken@ value, if applicable.
--- * 'nextToken' - The @nextToken@ value returned from a previous paginated @ListImages@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
--- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to list images. If you do not specify a registry, the default registry is assumed.
--- * 'repositoryName' - The repository with image IDs to be listed.
 mkListImages ::
   -- | 'repositoryName'
   Lude.Text ->
@@ -79,9 +79,9 @@ mkListImages pRepositoryName_ =
   ListImages'
     { registryId = Lude.Nothing,
       nextToken = Lude.Nothing,
+      repositoryName = pRepositoryName_,
       filter = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      repositoryName = pRepositoryName_
+      maxResults = Lude.Nothing
     }
 
 -- | The AWS account ID associated with the registry that contains the repository in which to list images. If you do not specify a registry, the default registry is assumed.
@@ -98,6 +98,13 @@ liNextToken :: Lens.Lens' ListImages (Lude.Maybe Lude.Text)
 liNextToken = Lens.lens (nextToken :: ListImages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListImages)
 {-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
+-- | The repository with image IDs to be listed.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liRepositoryName :: Lens.Lens' ListImages Lude.Text
+liRepositoryName = Lens.lens (repositoryName :: ListImages -> Lude.Text) (\s a -> s {repositoryName = a} :: ListImages)
+{-# DEPRECATED liRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
 -- | The filter key and value with which to filter your @ListImages@ results.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -111,13 +118,6 @@ liFilter = Lens.lens (filter :: ListImages -> Lude.Maybe ListImagesFilter) (\s a
 liMaxResults :: Lens.Lens' ListImages (Lude.Maybe Lude.Natural)
 liMaxResults = Lens.lens (maxResults :: ListImages -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListImages)
 {-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The repository with image IDs to be listed.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liRepositoryName :: Lens.Lens' ListImages Lude.Text
-liRepositoryName = Lens.lens (repositoryName :: ListImages -> Lude.Text) (\s a -> s {repositoryName = a} :: ListImages)
-{-# DEPRECATED liRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Page.AWSPager ListImages where
   page rq rs
@@ -159,9 +159,9 @@ instance Lude.ToJSON ListImages where
       ( Lude.catMaybes
           [ ("registryId" Lude..=) Lude.<$> registryId,
             ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
             ("filter" Lude..=) Lude.<$> filter,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("repositoryName" Lude..= repositoryName)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -173,18 +173,14 @@ instance Lude.ToQuery ListImages where
 
 -- | /See:/ 'mkListImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
-  { imageIds ::
-      Lude.Maybe [ImageIdentifier],
+  { -- | The list of image IDs for the requested repository.
+    imageIds :: Lude.Maybe [ImageIdentifier],
+    -- | The @nextToken@ value to include in a future @ListImages@ request. When the results of a @ListImages@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListImagesResponse' with the minimum fields required to make a request.

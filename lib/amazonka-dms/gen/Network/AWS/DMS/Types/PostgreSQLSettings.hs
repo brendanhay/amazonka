@@ -39,18 +39,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPostgreSQLSettings' smart constructor.
 data PostgreSQLSettings = PostgreSQLSettings'
-  { executeTimeout ::
-      Lude.Maybe Lude.Int,
+  { -- | Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds.
+    --
+    -- Example: @executeTimeout=100;@
+    executeTimeout :: Lude.Maybe Lude.Int,
+    -- | Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
+    --
+    -- Example: @maxFileSize=512@
     maxFileSize :: Lude.Maybe Lude.Int,
+    -- | When set to @true@ , this value causes a task to fail if the actual size of a LOB column is greater than the specified @LobMaxSize@ .
+    --
+    -- If task is set to Limited LOB mode and this option is set to true, the task fails instead of truncating the LOB data.
     failTasksOnLobTruncation :: Lude.Maybe Lude.Bool,
+    -- | Fully qualified domain name of the endpoint.
     serverName :: Lude.Maybe Lude.Text,
+    -- | The schema in which the operational DDL database artifacts are created.
+    --
+    -- Example: @ddlArtifactsSchema=xyzddlschema;@
     ddlArtifactsSchema :: Lude.Maybe Lude.Text,
+    -- | Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+    --
+    -- When used with the AWS DMS API @CdcStartPosition@ request parameter, this attribute also enables using native CDC start points.
     slotName :: Lude.Maybe Lude.Text,
+    -- | Endpoint connection user name.
     username :: Lude.Maybe Lude.Text,
+    -- | Endpoint connection password.
     password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Database name for the endpoint.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+    --
+    -- Example: @afterConnectScript=SET session_replication_role='replica'@
     afterConnectScript :: Lude.Maybe Lude.Text,
+    -- | To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts. You can later remove these artifacts.
+    --
+    -- If this value is set to @N@ , you don't have to create tables or triggers on the source database.
     captureDdls :: Lude.Maybe Lude.Bool,
+    -- | Endpoint TCP port.
     port :: Lude.Maybe Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -58,32 +83,32 @@ data PostgreSQLSettings = PostgreSQLSettings'
 
 -- | Creates a value of 'PostgreSQLSettings' with the minimum fields required to make a request.
 --
+-- * 'executeTimeout' - Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds.
+--
+-- Example: @executeTimeout=100;@
+-- * 'maxFileSize' - Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
+--
+-- Example: @maxFileSize=512@
+-- * 'failTasksOnLobTruncation' - When set to @true@ , this value causes a task to fail if the actual size of a LOB column is greater than the specified @LobMaxSize@ .
+--
+-- If task is set to Limited LOB mode and this option is set to true, the task fails instead of truncating the LOB data.
+-- * 'serverName' - Fully qualified domain name of the endpoint.
+-- * 'ddlArtifactsSchema' - The schema in which the operational DDL database artifacts are created.
+--
+-- Example: @ddlArtifactsSchema=xyzddlschema;@
+-- * 'slotName' - Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+--
+-- When used with the AWS DMS API @CdcStartPosition@ request parameter, this attribute also enables using native CDC start points.
+-- * 'username' - Endpoint connection user name.
+-- * 'password' - Endpoint connection password.
+-- * 'databaseName' - Database name for the endpoint.
 -- * 'afterConnectScript' - For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
 --
 -- Example: @afterConnectScript=SET session_replication_role='replica'@
 -- * 'captureDdls' - To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts. You can later remove these artifacts.
 --
 -- If this value is set to @N@ , you don't have to create tables or triggers on the source database.
--- * 'databaseName' - Database name for the endpoint.
--- * 'ddlArtifactsSchema' - The schema in which the operational DDL database artifacts are created.
---
--- Example: @ddlArtifactsSchema=xyzddlschema;@
--- * 'executeTimeout' - Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds.
---
--- Example: @executeTimeout=100;@
--- * 'failTasksOnLobTruncation' - When set to @true@ , this value causes a task to fail if the actual size of a LOB column is greater than the specified @LobMaxSize@ .
---
--- If task is set to Limited LOB mode and this option is set to true, the task fails instead of truncating the LOB data.
--- * 'maxFileSize' - Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
---
--- Example: @maxFileSize=512@
--- * 'password' - Endpoint connection password.
 -- * 'port' - Endpoint TCP port.
--- * 'serverName' - Fully qualified domain name of the endpoint.
--- * 'slotName' - Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
---
--- When used with the AWS DMS API @CdcStartPosition@ request parameter, this attribute also enables using native CDC start points.
--- * 'username' - Endpoint connection user name.
 mkPostgreSQLSettings ::
   PostgreSQLSettings
 mkPostgreSQLSettings =

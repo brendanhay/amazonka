@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScriptBootstrapActionConfig' smart constructor.
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
-  { args ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of command line arguments to pass to the bootstrap action script.
+    args :: Lude.Maybe [Lude.Text],
+    -- | Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
     path :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScriptBootstrapActionConfig' with the minimum fields required to make a request.

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIngressAccessLogs' smart constructor.
 newtype IngressAccessLogs = IngressAccessLogs'
-  { logGroupName ::
-      Lude.Maybe Lude.Text
+  { -- | Customize the log group name.
+    logGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IngressAccessLogs' with the minimum fields required to make a request.

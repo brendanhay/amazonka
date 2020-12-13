@@ -30,16 +30,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChild' smart constructor.
 data Child = Child'
-  { id :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier (ID) of this child entity.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a child ID string requires one of the following:
+    --
+    --     * __Account__ - A string that consists of exactly 12 digits.
+    --
+    --
+    --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+    id :: Lude.Maybe Lude.Text,
+    -- | The type of this child entity.
     type' :: Lude.Maybe ChildType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Child' with the minimum fields required to make a request.

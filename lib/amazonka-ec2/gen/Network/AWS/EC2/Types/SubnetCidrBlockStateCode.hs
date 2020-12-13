@@ -13,12 +13,12 @@
 module Network.AWS.EC2.Types.SubnetCidrBlockStateCode
   ( SubnetCidrBlockStateCode
       ( SubnetCidrBlockStateCode',
-        SCBSCAssociated,
         SCBSCAssociating,
-        SCBSCDisassociated,
+        SCBSCAssociated,
         SCBSCDisassociating,
-        SCBSCFailed,
-        SCBSCFailing
+        SCBSCDisassociated,
+        SCBSCFailing,
+        SCBSCFailed
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype SubnetCidrBlockStateCode = SubnetCidrBlockStateCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern SCBSCAssociated :: SubnetCidrBlockStateCode
-pattern SCBSCAssociated = SubnetCidrBlockStateCode' "associated"
-
 pattern SCBSCAssociating :: SubnetCidrBlockStateCode
 pattern SCBSCAssociating = SubnetCidrBlockStateCode' "associating"
 
-pattern SCBSCDisassociated :: SubnetCidrBlockStateCode
-pattern SCBSCDisassociated = SubnetCidrBlockStateCode' "disassociated"
+pattern SCBSCAssociated :: SubnetCidrBlockStateCode
+pattern SCBSCAssociated = SubnetCidrBlockStateCode' "associated"
 
 pattern SCBSCDisassociating :: SubnetCidrBlockStateCode
 pattern SCBSCDisassociating = SubnetCidrBlockStateCode' "disassociating"
 
-pattern SCBSCFailed :: SubnetCidrBlockStateCode
-pattern SCBSCFailed = SubnetCidrBlockStateCode' "failed"
+pattern SCBSCDisassociated :: SubnetCidrBlockStateCode
+pattern SCBSCDisassociated = SubnetCidrBlockStateCode' "disassociated"
 
 pattern SCBSCFailing :: SubnetCidrBlockStateCode
 pattern SCBSCFailing = SubnetCidrBlockStateCode' "failing"
 
+pattern SCBSCFailed :: SubnetCidrBlockStateCode
+pattern SCBSCFailed = SubnetCidrBlockStateCode' "failed"
+
 {-# COMPLETE
-  SCBSCAssociated,
   SCBSCAssociating,
-  SCBSCDisassociated,
+  SCBSCAssociated,
   SCBSCDisassociating,
-  SCBSCFailed,
+  SCBSCDisassociated,
   SCBSCFailing,
+  SCBSCFailed,
   SubnetCidrBlockStateCode'
   #-}

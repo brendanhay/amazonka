@@ -13,8 +13,8 @@
 module Network.AWS.Glue.Types.EnableHybridValues
   ( EnableHybridValues
       ( EnableHybridValues',
-        False,
-        True
+        True,
+        False
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EnableHybridValues = EnableHybridValues' Lude.Text
       Lude.ToHeader
     )
 
-pattern False :: EnableHybridValues
-pattern False = EnableHybridValues' "FALSE"
-
 pattern True :: EnableHybridValues
 pattern True = EnableHybridValues' "TRUE"
 
+pattern False :: EnableHybridValues
+pattern False = EnableHybridValues' "FALSE"
+
 {-# COMPLETE
-  False,
   True,
+  False,
   EnableHybridValues'
   #-}

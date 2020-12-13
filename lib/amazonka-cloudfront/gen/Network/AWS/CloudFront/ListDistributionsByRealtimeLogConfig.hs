@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,34 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListDistributionsByRealtimeLogConfig' smart constructor.
 data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig'
-  { realtimeLogConfigName ::
-      Lude.Maybe
-        Lude.Text,
-    realtimeLogConfigARN ::
-      Lude.Maybe
-        Lude.Text,
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    maxItems ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The name of the real-time log configuration whose associated distributions you want to list.
+    realtimeLogConfigName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the real-time log configuration whose associated distributions you want to list.
+    realtimeLogConfigARN :: Lude.Maybe Lude.Text,
+    -- | Use this field when paginating results to indicate where to begin in your list of distributions. The response includes distributions in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of distributions that you want in the response.
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDistributionsByRealtimeLogConfig' with the minimum fields required to make a request.
 --
+-- * 'realtimeLogConfigName' - The name of the real-time log configuration whose associated distributions you want to list.
+-- * 'realtimeLogConfigARN' - The Amazon Resource Name (ARN) of the real-time log configuration whose associated distributions you want to list.
 -- * 'marker' - Use this field when paginating results to indicate where to begin in your list of distributions. The response includes distributions in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
 -- * 'maxItems' - The maximum number of distributions that you want in the response.
--- * 'realtimeLogConfigARN' - The Amazon Resource Name (ARN) of the real-time log configuration whose associated distributions you want to list.
--- * 'realtimeLogConfigName' - The name of the real-time log configuration whose associated distributions you want to list.
 mkListDistributionsByRealtimeLogConfig ::
   ListDistributionsByRealtimeLogConfig
 mkListDistributionsByRealtimeLogConfig =
@@ -149,24 +140,16 @@ instance Lude.ToXML ListDistributionsByRealtimeLogConfig where
 
 -- | /See:/ 'mkListDistributionsByRealtimeLogConfigResponse' smart constructor.
 data ListDistributionsByRealtimeLogConfigResponse = ListDistributionsByRealtimeLogConfigResponse'
-  { distributionList ::
-      Lude.Maybe
-        DistributionList,
-    responseStatus ::
-      Lude.Int
+  { distributionList :: Lude.Maybe DistributionList,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDistributionsByRealtimeLogConfigResponse' with the minimum fields required to make a request.
 --
--- * 'distributionList' - Undocumented field.
+-- * 'distributionList' -
 -- * 'responseStatus' - The response status code.
 mkListDistributionsByRealtimeLogConfigResponse ::
   -- | 'responseStatus'

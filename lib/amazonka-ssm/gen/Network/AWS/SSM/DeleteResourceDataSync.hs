@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,23 +40,18 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDeleteResourceDataSync' smart constructor.
 data DeleteResourceDataSync = DeleteResourceDataSync'
-  { syncType ::
-      Lude.Maybe Lude.Text,
+  { -- | Specify the type of resource data sync to delete.
+    syncType :: Lude.Maybe Lude.Text,
+    -- | The name of the configuration to delete.
     syncName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceDataSync' with the minimum fields required to make a request.
 --
--- * 'syncName' - The name of the configuration to delete.
 -- * 'syncType' - Specify the type of resource data sync to delete.
+-- * 'syncName' - The name of the configuration to delete.
 mkDeleteResourceDataSync ::
   -- | 'syncName'
   Lude.Text ->
@@ -118,16 +114,10 @@ instance Lude.ToQuery DeleteResourceDataSync where
 
 -- | /See:/ 'mkDeleteResourceDataSyncResponse' smart constructor.
 newtype DeleteResourceDataSyncResponse = DeleteResourceDataSyncResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceDataSyncResponse' with the minimum fields required to make a request.

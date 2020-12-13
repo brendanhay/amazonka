@@ -30,20 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListIncomingTypedLinksResponse' smart constructor.
 data BatchListIncomingTypedLinksResponse = BatchListIncomingTypedLinksResponse'
-  { linkSpecifiers ::
-      Lude.Maybe
-        [TypedLinkSpecifier],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text
+  { -- | Returns one or more typed link specifiers as output.
+    linkSpecifiers :: Lude.Maybe [TypedLinkSpecifier],
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListIncomingTypedLinksResponse' with the minimum fields required to make a request.

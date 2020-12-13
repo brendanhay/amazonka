@@ -20,11 +20,11 @@ module Network.AWS.SageMaker.Types.Workforce
     wSubDomain,
     wCreateDate,
     wSourceIPConfig,
+    wWorkforceARN,
     wCognitoConfig,
     wLastUpdatedDate,
     wOidcConfig,
     wWorkforceName,
-    wWorkforceARN,
   )
 where
 
@@ -38,50 +38,52 @@ import Network.AWS.SageMaker.Types.SourceIPConfig
 --
 -- /See:/ 'mkWorkforce' smart constructor.
 data Workforce = Workforce'
-  { subDomain :: Lude.Maybe Lude.Text,
+  { -- | The subdomain for your OIDC Identity Provider.
+    subDomain :: Lude.Maybe Lude.Text,
+    -- | The date that the workforce is created.
     createDate :: Lude.Maybe Lude.Timestamp,
+    -- | A list of one to ten IP address ranges (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs> ) to be added to the workforce allow list. By default, a workforce isn't restricted to specific IP addresses.
     sourceIPConfig :: Lude.Maybe SourceIPConfig,
+    -- | The Amazon Resource Name (ARN) of the private workforce.
+    workforceARN :: Lude.Text,
+    -- | The configuration of an Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool> .
     cognitoConfig :: Lude.Maybe CognitoConfig,
+    -- | The most recent date that was used to successfully add one or more IP address ranges (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs> ) to a private workforce's allow list.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The configuration of an OIDC Identity Provider (IdP) private workforce.
     oidcConfig :: Lude.Maybe OidcConfigForResponse,
-    workforceName :: Lude.Text,
-    workforceARN :: Lude.Text
+    -- | The name of the private workforce.
+    workforceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Workforce' with the minimum fields required to make a request.
 --
--- * 'cognitoConfig' - The configuration of an Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool> .
+-- * 'subDomain' - The subdomain for your OIDC Identity Provider.
 -- * 'createDate' - The date that the workforce is created.
+-- * 'sourceIPConfig' - A list of one to ten IP address ranges (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs> ) to be added to the workforce allow list. By default, a workforce isn't restricted to specific IP addresses.
+-- * 'workforceARN' - The Amazon Resource Name (ARN) of the private workforce.
+-- * 'cognitoConfig' - The configuration of an Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool> .
 -- * 'lastUpdatedDate' - The most recent date that was used to successfully add one or more IP address ranges (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs> ) to a private workforce's allow list.
 -- * 'oidcConfig' - The configuration of an OIDC Identity Provider (IdP) private workforce.
--- * 'sourceIPConfig' - A list of one to ten IP address ranges (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs> ) to be added to the workforce allow list. By default, a workforce isn't restricted to specific IP addresses.
--- * 'subDomain' - The subdomain for your OIDC Identity Provider.
--- * 'workforceARN' - The Amazon Resource Name (ARN) of the private workforce.
 -- * 'workforceName' - The name of the private workforce.
 mkWorkforce ::
-  -- | 'workforceName'
-  Lude.Text ->
   -- | 'workforceARN'
   Lude.Text ->
+  -- | 'workforceName'
+  Lude.Text ->
   Workforce
-mkWorkforce pWorkforceName_ pWorkforceARN_ =
+mkWorkforce pWorkforceARN_ pWorkforceName_ =
   Workforce'
     { subDomain = Lude.Nothing,
       createDate = Lude.Nothing,
       sourceIPConfig = Lude.Nothing,
+      workforceARN = pWorkforceARN_,
       cognitoConfig = Lude.Nothing,
       lastUpdatedDate = Lude.Nothing,
       oidcConfig = Lude.Nothing,
-      workforceName = pWorkforceName_,
-      workforceARN = pWorkforceARN_
+      workforceName = pWorkforceName_
     }
 
 -- | The subdomain for your OIDC Identity Provider.
@@ -104,6 +106,13 @@ wCreateDate = Lens.lens (createDate :: Workforce -> Lude.Maybe Lude.Timestamp) (
 wSourceIPConfig :: Lens.Lens' Workforce (Lude.Maybe SourceIPConfig)
 wSourceIPConfig = Lens.lens (sourceIPConfig :: Workforce -> Lude.Maybe SourceIPConfig) (\s a -> s {sourceIPConfig = a} :: Workforce)
 {-# DEPRECATED wSourceIPConfig "Use generic-lens or generic-optics with 'sourceIPConfig' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the private workforce.
+--
+-- /Note:/ Consider using 'workforceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wWorkforceARN :: Lens.Lens' Workforce Lude.Text
+wWorkforceARN = Lens.lens (workforceARN :: Workforce -> Lude.Text) (\s a -> s {workforceARN = a} :: Workforce)
+{-# DEPRECATED wWorkforceARN "Use generic-lens or generic-optics with 'workforceARN' instead." #-}
 
 -- | The configuration of an Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool> .
 --
@@ -133,13 +142,6 @@ wWorkforceName :: Lens.Lens' Workforce Lude.Text
 wWorkforceName = Lens.lens (workforceName :: Workforce -> Lude.Text) (\s a -> s {workforceName = a} :: Workforce)
 {-# DEPRECATED wWorkforceName "Use generic-lens or generic-optics with 'workforceName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the private workforce.
---
--- /Note:/ Consider using 'workforceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wWorkforceARN :: Lens.Lens' Workforce Lude.Text
-wWorkforceARN = Lens.lens (workforceARN :: Workforce -> Lude.Text) (\s a -> s {workforceARN = a} :: Workforce)
-{-# DEPRECATED wWorkforceARN "Use generic-lens or generic-optics with 'workforceARN' instead." #-}
-
 instance Lude.FromJSON Workforce where
   parseJSON =
     Lude.withObject
@@ -149,9 +151,9 @@ instance Lude.FromJSON Workforce where
             Lude.<$> (x Lude..:? "SubDomain")
             Lude.<*> (x Lude..:? "CreateDate")
             Lude.<*> (x Lude..:? "SourceIpConfig")
+            Lude.<*> (x Lude..: "WorkforceArn")
             Lude.<*> (x Lude..:? "CognitoConfig")
             Lude.<*> (x Lude..:? "LastUpdatedDate")
             Lude.<*> (x Lude..:? "OidcConfig")
             Lude.<*> (x Lude..: "WorkforceName")
-            Lude.<*> (x Lude..: "WorkforceArn")
       )

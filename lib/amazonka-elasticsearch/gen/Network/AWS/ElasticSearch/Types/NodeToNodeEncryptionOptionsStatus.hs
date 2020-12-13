@@ -17,8 +17,8 @@ module Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
     mkNodeToNodeEncryptionOptionsStatus,
 
     -- * Lenses
-    ntneosOptions,
     ntneosStatus,
+    ntneosOptions,
   )
 where
 
@@ -31,41 +31,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeToNodeEncryptionOptionsStatus' smart constructor.
 data NodeToNodeEncryptionOptionsStatus = NodeToNodeEncryptionOptionsStatus'
-  { options ::
-      NodeToNodeEncryptionOptions,
-    status :: OptionStatus
+  { -- | Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
+    status :: OptionStatus,
+    -- | Specifies the node-to-node encryption options for the specified Elasticsearch domain.
+    options :: NodeToNodeEncryptionOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeToNodeEncryptionOptionsStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Specifies the node-to-node encryption options for the specified Elasticsearch domain.
 -- * 'status' - Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
+-- * 'options' - Specifies the node-to-node encryption options for the specified Elasticsearch domain.
 mkNodeToNodeEncryptionOptionsStatus ::
-  -- | 'options'
-  NodeToNodeEncryptionOptions ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  NodeToNodeEncryptionOptions ->
   NodeToNodeEncryptionOptionsStatus
-mkNodeToNodeEncryptionOptionsStatus pOptions_ pStatus_ =
+mkNodeToNodeEncryptionOptionsStatus pStatus_ pOptions_ =
   NodeToNodeEncryptionOptionsStatus'
-    { options = pOptions_,
-      status = pStatus_
+    { status = pStatus_,
+      options = pOptions_
     }
-
--- | Specifies the node-to-node encryption options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ntneosOptions :: Lens.Lens' NodeToNodeEncryptionOptionsStatus NodeToNodeEncryptionOptions
-ntneosOptions = Lens.lens (options :: NodeToNodeEncryptionOptionsStatus -> NodeToNodeEncryptionOptions) (\s a -> s {options = a} :: NodeToNodeEncryptionOptionsStatus)
-{-# DEPRECATED ntneosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
 --
@@ -74,11 +62,18 @@ ntneosStatus :: Lens.Lens' NodeToNodeEncryptionOptionsStatus OptionStatus
 ntneosStatus = Lens.lens (status :: NodeToNodeEncryptionOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: NodeToNodeEncryptionOptionsStatus)
 {-# DEPRECATED ntneosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Specifies the node-to-node encryption options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntneosOptions :: Lens.Lens' NodeToNodeEncryptionOptionsStatus NodeToNodeEncryptionOptions
+ntneosOptions = Lens.lens (options :: NodeToNodeEncryptionOptionsStatus -> NodeToNodeEncryptionOptions) (\s a -> s {options = a} :: NodeToNodeEncryptionOptionsStatus)
+{-# DEPRECATED ntneosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromJSON NodeToNodeEncryptionOptionsStatus where
   parseJSON =
     Lude.withObject
       "NodeToNodeEncryptionOptionsStatus"
       ( \x ->
           NodeToNodeEncryptionOptionsStatus'
-            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
+            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
       )

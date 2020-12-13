@@ -17,15 +17,15 @@ module Network.AWS.CostExplorer.Types.AnomalyMonitor
     mkAnomalyMonitor,
 
     -- * Lenses
+    amMonitorType,
     amDimensionalValueCount,
+    amMonitorName,
     amMonitorSpecification,
     amMonitorDimension,
     amCreationDate,
     amLastUpdatedDate,
     amLastEvaluatedDate,
     amMonitorARN,
-    amMonitorName,
-    amMonitorType,
   )
 where
 
@@ -39,55 +39,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAnomalyMonitor' smart constructor.
 data AnomalyMonitor = AnomalyMonitor'
-  { dimensionalValueCount ::
-      Lude.Maybe Lude.Natural,
-    monitorSpecification :: Lude.Maybe Expression,
-    monitorDimension :: Lude.Maybe MonitorDimension,
-    creationDate :: Lude.Maybe Lude.Text,
-    lastUpdatedDate :: Lude.Maybe Lude.Text,
-    lastEvaluatedDate :: Lude.Maybe Lude.Text,
-    monitorARN :: Lude.Maybe Lude.Text,
+  { -- | The possible type values.
+    monitorType :: MonitorType,
+    -- | The value for evaluated dimensions.
+    dimensionalValueCount :: Lude.Maybe Lude.Natural,
+    -- | The name of the monitor.
     monitorName :: Lude.Text,
-    monitorType :: MonitorType
+    monitorSpecification :: Lude.Maybe Expression,
+    -- | The dimensions to evaluate.
+    monitorDimension :: Lude.Maybe MonitorDimension,
+    -- | The date when the monitor was created.
+    creationDate :: Lude.Maybe Lude.Text,
+    -- | The date when the monitor was last updated.
+    lastUpdatedDate :: Lude.Maybe Lude.Text,
+    -- | The date when the monitor last evaluated for anomalies.
+    lastEvaluatedDate :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) value.
+    monitorARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnomalyMonitor' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The date when the monitor was created.
--- * 'dimensionalValueCount' - The value for evaluated dimensions.
--- * 'lastEvaluatedDate' - The date when the monitor last evaluated for anomalies.
--- * 'lastUpdatedDate' - The date when the monitor was last updated.
--- * 'monitorARN' - The Amazon Resource Name (ARN) value.
--- * 'monitorDimension' - The dimensions to evaluate.
--- * 'monitorName' - The name of the monitor.
--- * 'monitorSpecification' - Undocumented field.
 -- * 'monitorType' - The possible type values.
+-- * 'dimensionalValueCount' - The value for evaluated dimensions.
+-- * 'monitorName' - The name of the monitor.
+-- * 'monitorSpecification' -
+-- * 'monitorDimension' - The dimensions to evaluate.
+-- * 'creationDate' - The date when the monitor was created.
+-- * 'lastUpdatedDate' - The date when the monitor was last updated.
+-- * 'lastEvaluatedDate' - The date when the monitor last evaluated for anomalies.
+-- * 'monitorARN' - The Amazon Resource Name (ARN) value.
 mkAnomalyMonitor ::
-  -- | 'monitorName'
-  Lude.Text ->
   -- | 'monitorType'
   MonitorType ->
+  -- | 'monitorName'
+  Lude.Text ->
   AnomalyMonitor
-mkAnomalyMonitor pMonitorName_ pMonitorType_ =
+mkAnomalyMonitor pMonitorType_ pMonitorName_ =
   AnomalyMonitor'
-    { dimensionalValueCount = Lude.Nothing,
+    { monitorType = pMonitorType_,
+      dimensionalValueCount = Lude.Nothing,
+      monitorName = pMonitorName_,
       monitorSpecification = Lude.Nothing,
       monitorDimension = Lude.Nothing,
       creationDate = Lude.Nothing,
       lastUpdatedDate = Lude.Nothing,
       lastEvaluatedDate = Lude.Nothing,
-      monitorARN = Lude.Nothing,
-      monitorName = pMonitorName_,
-      monitorType = pMonitorType_
+      monitorARN = Lude.Nothing
     }
+
+-- | The possible type values.
+--
+-- /Note:/ Consider using 'monitorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amMonitorType :: Lens.Lens' AnomalyMonitor MonitorType
+amMonitorType = Lens.lens (monitorType :: AnomalyMonitor -> MonitorType) (\s a -> s {monitorType = a} :: AnomalyMonitor)
+{-# DEPRECATED amMonitorType "Use generic-lens or generic-optics with 'monitorType' instead." #-}
 
 -- | The value for evaluated dimensions.
 --
@@ -95,6 +103,13 @@ mkAnomalyMonitor pMonitorName_ pMonitorType_ =
 amDimensionalValueCount :: Lens.Lens' AnomalyMonitor (Lude.Maybe Lude.Natural)
 amDimensionalValueCount = Lens.lens (dimensionalValueCount :: AnomalyMonitor -> Lude.Maybe Lude.Natural) (\s a -> s {dimensionalValueCount = a} :: AnomalyMonitor)
 {-# DEPRECATED amDimensionalValueCount "Use generic-lens or generic-optics with 'dimensionalValueCount' instead." #-}
+
+-- | The name of the monitor.
+--
+-- /Note:/ Consider using 'monitorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amMonitorName :: Lens.Lens' AnomalyMonitor Lude.Text
+amMonitorName = Lens.lens (monitorName :: AnomalyMonitor -> Lude.Text) (\s a -> s {monitorName = a} :: AnomalyMonitor)
+{-# DEPRECATED amMonitorName "Use generic-lens or generic-optics with 'monitorName' instead." #-}
 
 -- | Undocumented field.
 --
@@ -138,49 +153,35 @@ amMonitorARN :: Lens.Lens' AnomalyMonitor (Lude.Maybe Lude.Text)
 amMonitorARN = Lens.lens (monitorARN :: AnomalyMonitor -> Lude.Maybe Lude.Text) (\s a -> s {monitorARN = a} :: AnomalyMonitor)
 {-# DEPRECATED amMonitorARN "Use generic-lens or generic-optics with 'monitorARN' instead." #-}
 
--- | The name of the monitor.
---
--- /Note:/ Consider using 'monitorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amMonitorName :: Lens.Lens' AnomalyMonitor Lude.Text
-amMonitorName = Lens.lens (monitorName :: AnomalyMonitor -> Lude.Text) (\s a -> s {monitorName = a} :: AnomalyMonitor)
-{-# DEPRECATED amMonitorName "Use generic-lens or generic-optics with 'monitorName' instead." #-}
-
--- | The possible type values.
---
--- /Note:/ Consider using 'monitorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amMonitorType :: Lens.Lens' AnomalyMonitor MonitorType
-amMonitorType = Lens.lens (monitorType :: AnomalyMonitor -> MonitorType) (\s a -> s {monitorType = a} :: AnomalyMonitor)
-{-# DEPRECATED amMonitorType "Use generic-lens or generic-optics with 'monitorType' instead." #-}
-
 instance Lude.FromJSON AnomalyMonitor where
   parseJSON =
     Lude.withObject
       "AnomalyMonitor"
       ( \x ->
           AnomalyMonitor'
-            Lude.<$> (x Lude..:? "DimensionalValueCount")
+            Lude.<$> (x Lude..: "MonitorType")
+            Lude.<*> (x Lude..:? "DimensionalValueCount")
+            Lude.<*> (x Lude..: "MonitorName")
             Lude.<*> (x Lude..:? "MonitorSpecification")
             Lude.<*> (x Lude..:? "MonitorDimension")
             Lude.<*> (x Lude..:? "CreationDate")
             Lude.<*> (x Lude..:? "LastUpdatedDate")
             Lude.<*> (x Lude..:? "LastEvaluatedDate")
             Lude.<*> (x Lude..:? "MonitorArn")
-            Lude.<*> (x Lude..: "MonitorName")
-            Lude.<*> (x Lude..: "MonitorType")
       )
 
 instance Lude.ToJSON AnomalyMonitor where
   toJSON AnomalyMonitor' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DimensionalValueCount" Lude..=) Lude.<$> dimensionalValueCount,
+          [ Lude.Just ("MonitorType" Lude..= monitorType),
+            ("DimensionalValueCount" Lude..=) Lude.<$> dimensionalValueCount,
+            Lude.Just ("MonitorName" Lude..= monitorName),
             ("MonitorSpecification" Lude..=) Lude.<$> monitorSpecification,
             ("MonitorDimension" Lude..=) Lude.<$> monitorDimension,
             ("CreationDate" Lude..=) Lude.<$> creationDate,
             ("LastUpdatedDate" Lude..=) Lude.<$> lastUpdatedDate,
             ("LastEvaluatedDate" Lude..=) Lude.<$> lastEvaluatedDate,
-            ("MonitorArn" Lude..=) Lude.<$> monitorARN,
-            Lude.Just ("MonitorName" Lude..= monitorName),
-            Lude.Just ("MonitorType" Lude..= monitorType)
+            ("MonitorArn" Lude..=) Lude.<$> monitorARN
           ]
       )

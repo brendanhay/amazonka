@@ -13,8 +13,8 @@
 module Network.AWS.StorageGateway.Types.CaseSensitivity
   ( CaseSensitivity
       ( CaseSensitivity',
-        CaseSensitive,
-        ClientSpecified
+        ClientSpecified,
+        CaseSensitive
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CaseSensitivity = CaseSensitivity' Lude.Text
       Lude.ToHeader
     )
 
-pattern CaseSensitive :: CaseSensitivity
-pattern CaseSensitive = CaseSensitivity' "CaseSensitive"
-
 pattern ClientSpecified :: CaseSensitivity
 pattern ClientSpecified = CaseSensitivity' "ClientSpecified"
 
+pattern CaseSensitive :: CaseSensitivity
+pattern CaseSensitive = CaseSensitivity' "CaseSensitive"
+
 {-# COMPLETE
-  CaseSensitive,
   ClientSpecified,
+  CaseSensitive,
   CaseSensitivity'
   #-}

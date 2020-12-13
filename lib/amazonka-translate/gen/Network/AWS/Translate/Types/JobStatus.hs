@@ -13,13 +13,13 @@
 module Network.AWS.Translate.Types.JobStatus
   ( JobStatus
       ( JobStatus',
+        JSSubmitted,
+        JSInProgress,
         JSCompleted,
         JSCompletedWithError,
         JSFailed,
-        JSInProgress,
         JSStopRequested,
-        JSStopped,
-        JSSubmitted
+        JSStopped
       ),
   )
 where
@@ -50,6 +50,12 @@ newtype JobStatus = JobStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern JSSubmitted :: JobStatus
+pattern JSSubmitted = JobStatus' "SUBMITTED"
+
+pattern JSInProgress :: JobStatus
+pattern JSInProgress = JobStatus' "IN_PROGRESS"
+
 pattern JSCompleted :: JobStatus
 pattern JSCompleted = JobStatus' "COMPLETED"
 
@@ -59,25 +65,19 @@ pattern JSCompletedWithError = JobStatus' "COMPLETED_WITH_ERROR"
 pattern JSFailed :: JobStatus
 pattern JSFailed = JobStatus' "FAILED"
 
-pattern JSInProgress :: JobStatus
-pattern JSInProgress = JobStatus' "IN_PROGRESS"
-
 pattern JSStopRequested :: JobStatus
 pattern JSStopRequested = JobStatus' "STOP_REQUESTED"
 
 pattern JSStopped :: JobStatus
 pattern JSStopped = JobStatus' "STOPPED"
 
-pattern JSSubmitted :: JobStatus
-pattern JSSubmitted = JobStatus' "SUBMITTED"
-
 {-# COMPLETE
+  JSSubmitted,
+  JSInProgress,
   JSCompleted,
   JSCompletedWithError,
   JSFailed,
-  JSInProgress,
   JSStopRequested,
   JSStopped,
-  JSSubmitted,
   JobStatus'
   #-}

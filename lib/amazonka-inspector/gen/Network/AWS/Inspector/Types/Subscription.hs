@@ -17,9 +17,9 @@ module Network.AWS.Inspector.Types.Subscription
     mkSubscription,
 
     -- * Lenses
-    sResourceARN,
     sTopicARN,
     sEventSubscriptions,
+    sResourceARN,
   )
 where
 
@@ -31,45 +31,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubscription' smart constructor.
 data Subscription = Subscription'
-  { resourceARN :: Lude.Text,
+  { -- | The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent.
     topicARN :: Lude.Text,
-    eventSubscriptions :: Lude.NonEmpty EventSubscription
+    -- | The list of existing event subscriptions.
+    eventSubscriptions :: Lude.NonEmpty EventSubscription,
+    -- | The ARN of the assessment template that is used during the event for which the SNS notification is sent.
+    resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
+-- * 'topicARN' - The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent.
 -- * 'eventSubscriptions' - The list of existing event subscriptions.
 -- * 'resourceARN' - The ARN of the assessment template that is used during the event for which the SNS notification is sent.
--- * 'topicARN' - The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent.
 mkSubscription ::
-  -- | 'resourceARN'
-  Lude.Text ->
   -- | 'topicARN'
   Lude.Text ->
   -- | 'eventSubscriptions'
   Lude.NonEmpty EventSubscription ->
+  -- | 'resourceARN'
+  Lude.Text ->
   Subscription
-mkSubscription pResourceARN_ pTopicARN_ pEventSubscriptions_ =
+mkSubscription pTopicARN_ pEventSubscriptions_ pResourceARN_ =
   Subscription'
-    { resourceARN = pResourceARN_,
-      topicARN = pTopicARN_,
-      eventSubscriptions = pEventSubscriptions_
+    { topicARN = pTopicARN_,
+      eventSubscriptions = pEventSubscriptions_,
+      resourceARN = pResourceARN_
     }
-
--- | The ARN of the assessment template that is used during the event for which the SNS notification is sent.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sResourceARN :: Lens.Lens' Subscription Lude.Text
-sResourceARN = Lens.lens (resourceARN :: Subscription -> Lude.Text) (\s a -> s {resourceARN = a} :: Subscription)
-{-# DEPRECATED sResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent.
 --
@@ -85,13 +75,20 @@ sEventSubscriptions :: Lens.Lens' Subscription (Lude.NonEmpty EventSubscription)
 sEventSubscriptions = Lens.lens (eventSubscriptions :: Subscription -> Lude.NonEmpty EventSubscription) (\s a -> s {eventSubscriptions = a} :: Subscription)
 {-# DEPRECATED sEventSubscriptions "Use generic-lens or generic-optics with 'eventSubscriptions' instead." #-}
 
+-- | The ARN of the assessment template that is used during the event for which the SNS notification is sent.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sResourceARN :: Lens.Lens' Subscription Lude.Text
+sResourceARN = Lens.lens (resourceARN :: Subscription -> Lude.Text) (\s a -> s {resourceARN = a} :: Subscription)
+{-# DEPRECATED sResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
 instance Lude.FromJSON Subscription where
   parseJSON =
     Lude.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            Lude.<$> (x Lude..: "resourceArn")
-            Lude.<*> (x Lude..: "topicArn")
+            Lude.<$> (x Lude..: "topicArn")
             Lude.<*> (x Lude..: "eventSubscriptions")
+            Lude.<*> (x Lude..: "resourceArn")
       )

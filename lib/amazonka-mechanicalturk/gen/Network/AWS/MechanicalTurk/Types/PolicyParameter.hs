@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyParameter' smart constructor.
 data PolicyParameter = PolicyParameter'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of values of the Parameter
+    values :: Lude.Maybe [Lude.Text],
+    -- | List of ParameterMapEntry objects.
     mapEntries :: Lude.Maybe [ParameterMapEntry],
+    -- | Name of the parameter from the list of Review Polices.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyParameter' with the minimum fields required to make a request.
 --
--- * 'key' - Name of the parameter from the list of Review Polices.
--- * 'mapEntries' - List of ParameterMapEntry objects.
 -- * 'values' - The list of values of the Parameter
+-- * 'mapEntries' - List of ParameterMapEntry objects.
+-- * 'key' - Name of the parameter from the list of Review Polices.
 mkPolicyParameter ::
   PolicyParameter
 mkPolicyParameter =

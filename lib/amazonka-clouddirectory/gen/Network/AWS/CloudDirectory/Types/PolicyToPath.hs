@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyToPath' smart constructor.
 data PolicyToPath = PolicyToPath'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The path that is referenced from the root.
+    path :: Lude.Maybe Lude.Text,
+    -- | List of policy objects.
     policies :: Lude.Maybe [PolicyAttachment]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyToPath' with the minimum fields required to make a request.

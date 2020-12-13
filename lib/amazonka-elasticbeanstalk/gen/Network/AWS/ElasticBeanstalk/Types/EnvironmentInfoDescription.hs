@@ -32,30 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentInfoDescription' smart constructor.
 data EnvironmentInfoDescription = EnvironmentInfoDescription'
-  { sampleTimestamp ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The time stamp when this information was retrieved.
+    sampleTimestamp :: Lude.Maybe Lude.DateTime,
+    -- | The Amazon EC2 Instance ID for this information.
     ec2InstanceId :: Lude.Maybe Lude.Text,
-    infoType ::
-      Lude.Maybe EnvironmentInfoType,
+    -- | The type of information retrieved.
+    infoType :: Lude.Maybe EnvironmentInfoType,
+    -- | The retrieved information. Currently contains a presigned Amazon S3 URL. The files are deleted after 15 minutes.
+    --
+    -- Anyone in possession of this URL can access the files before they are deleted. Make the URL available only to trusted parties.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentInfoDescription' with the minimum fields required to make a request.
 --
+-- * 'sampleTimestamp' - The time stamp when this information was retrieved.
 -- * 'ec2InstanceId' - The Amazon EC2 Instance ID for this information.
 -- * 'infoType' - The type of information retrieved.
 -- * 'message' - The retrieved information. Currently contains a presigned Amazon S3 URL. The files are deleted after 15 minutes.
 --
 -- Anyone in possession of this URL can access the files before they are deleted. Make the URL available only to trusted parties.
--- * 'sampleTimestamp' - The time stamp when this information was retrieved.
 mkEnvironmentInfoDescription ::
   EnvironmentInfoDescription
 mkEnvironmentInfoDescription =

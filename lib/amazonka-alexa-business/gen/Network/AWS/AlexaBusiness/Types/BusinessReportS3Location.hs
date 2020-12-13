@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBusinessReportS3Location' smart constructor.
 data BusinessReportS3Location = BusinessReportS3Location'
-  { path ::
-      Lude.Maybe Lude.Text,
+  { -- | The path of the business report.
+    path :: Lude.Maybe Lude.Text,
+    -- | The S3 bucket name of the output reports.
     bucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BusinessReportS3Location' with the minimum fields required to make a request.
 --
--- * 'bucketName' - The S3 bucket name of the output reports.
 -- * 'path' - The path of the business report.
+-- * 'bucketName' - The S3 bucket name of the output reports.
 mkBusinessReportS3Location ::
   BusinessReportS3Location
 mkBusinessReportS3Location =

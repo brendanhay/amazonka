@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.CreateRouteTable
     mkCreateRouteTable,
 
     -- ** Request lenses
+    crtVPCId,
     crtTagSpecifications,
     crtDryRun,
-    crtVPCId,
 
     -- * Destructuring the response
     CreateRouteTableResponse (..),
@@ -43,35 +44,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRouteTable' smart constructor.
 data CreateRouteTable = CreateRouteTable'
-  { tagSpecifications ::
-      Lude.Maybe [TagSpecification],
-    dryRun :: Lude.Maybe Lude.Bool,
-    vpcId :: Lude.Text
+  { -- | The ID of the VPC.
+    vpcId :: Lude.Text,
+    -- | The tags to assign to the route table.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRouteTable' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'tagSpecifications' - The tags to assign to the route table.
 -- * 'vpcId' - The ID of the VPC.
+-- * 'tagSpecifications' - The tags to assign to the route table.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateRouteTable ::
   -- | 'vpcId'
   Lude.Text ->
   CreateRouteTable
 mkCreateRouteTable pVPCId_ =
   CreateRouteTable'
-    { tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      vpcId = pVPCId_
+    { vpcId = pVPCId_,
+      tagSpecifications = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
+
+-- | The ID of the VPC.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtVPCId :: Lens.Lens' CreateRouteTable Lude.Text
+crtVPCId = Lens.lens (vpcId :: CreateRouteTable -> Lude.Text) (\s a -> s {vpcId = a} :: CreateRouteTable)
+{-# DEPRECATED crtVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The tags to assign to the route table.
 --
@@ -86,13 +90,6 @@ crtTagSpecifications = Lens.lens (tagSpecifications :: CreateRouteTable -> Lude.
 crtDryRun :: Lens.Lens' CreateRouteTable (Lude.Maybe Lude.Bool)
 crtDryRun = Lens.lens (dryRun :: CreateRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateRouteTable)
 {-# DEPRECATED crtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the VPC.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crtVPCId :: Lens.Lens' CreateRouteTable Lude.Text
-crtVPCId = Lens.lens (vpcId :: CreateRouteTable -> Lude.Text) (\s a -> s {vpcId = a} :: CreateRouteTable)
-{-# DEPRECATED crtVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 instance Lude.AWSRequest CreateRouteTable where
   type Rs CreateRouteTable = CreateRouteTableResponse
@@ -115,31 +112,26 @@ instance Lude.ToQuery CreateRouteTable where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateRouteTable" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "VpcId" Lude.=: vpcId,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
-        "VpcId" Lude.=: vpcId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateRouteTableResponse' smart constructor.
 data CreateRouteTableResponse = CreateRouteTableResponse'
-  { routeTable ::
-      Lude.Maybe RouteTable,
+  { -- | Information about the route table.
+    routeTable :: Lude.Maybe RouteTable,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRouteTableResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'routeTable' - Information about the route table.
+-- * 'responseStatus' - The response status code.
 mkCreateRouteTableResponse ::
   -- | 'responseStatus'
   Lude.Int ->

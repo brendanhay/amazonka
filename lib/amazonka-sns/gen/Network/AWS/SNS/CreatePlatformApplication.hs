@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,9 +42,9 @@ module Network.AWS.SNS.CreatePlatformApplication
     mkCreatePlatformApplication,
 
     -- ** Request lenses
-    cpaName,
     cpaPlatform,
     cpaAttributes,
+    cpaName,
 
     -- * Destructuring the response
     CreatePlatformApplicationResponse (..),
@@ -65,45 +66,33 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkCreatePlatformApplication' smart constructor.
 data CreatePlatformApplication = CreatePlatformApplication'
-  { name ::
-      Lude.Text,
+  { -- | The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).
     platform :: Lude.Text,
-    attributes ::
-      Lude.HashMap Lude.Text (Lude.Text)
+    -- | For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
+    attributes :: Lude.HashMap Lude.Text (Lude.Text),
+    -- | Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlatformApplication' with the minimum fields required to make a request.
 --
+-- * 'platform' - The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).
 -- * 'attributes' - For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
 -- * 'name' - Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
--- * 'platform' - The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).
 mkCreatePlatformApplication ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'platform'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreatePlatformApplication
-mkCreatePlatformApplication pName_ pPlatform_ =
+mkCreatePlatformApplication pPlatform_ pName_ =
   CreatePlatformApplication'
-    { name = pName_,
-      platform = pPlatform_,
-      attributes = Lude.mempty
+    { platform = pPlatform_,
+      attributes = Lude.mempty,
+      name = pName_
     }
-
--- | Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpaName :: Lens.Lens' CreatePlatformApplication Lude.Text
-cpaName = Lens.lens (name :: CreatePlatformApplication -> Lude.Text) (\s a -> s {name = a} :: CreatePlatformApplication)
-{-# DEPRECATED cpaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).
 --
@@ -118,6 +107,13 @@ cpaPlatform = Lens.lens (platform :: CreatePlatformApplication -> Lude.Text) (\s
 cpaAttributes :: Lens.Lens' CreatePlatformApplication (Lude.HashMap Lude.Text (Lude.Text))
 cpaAttributes = Lens.lens (attributes :: CreatePlatformApplication -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {attributes = a} :: CreatePlatformApplication)
 {-# DEPRECATED cpaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpaName :: Lens.Lens' CreatePlatformApplication Lude.Text
+cpaName = Lens.lens (name :: CreatePlatformApplication -> Lude.Text) (\s a -> s {name = a} :: CreatePlatformApplication)
+{-# DEPRECATED cpaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreatePlatformApplication where
   type
@@ -144,28 +140,22 @@ instance Lude.ToQuery CreatePlatformApplication where
     Lude.mconcat
       [ "Action" Lude.=: ("CreatePlatformApplication" :: Lude.ByteString),
         "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "Name" Lude.=: name,
         "Platform" Lude.=: platform,
         "Attributes"
-          Lude.=: Lude.toQueryMap "entry" "key" "value" attributes
+          Lude.=: Lude.toQueryMap "entry" "key" "value" attributes,
+        "Name" Lude.=: name
       ]
 
 -- | Response from CreatePlatformApplication action.
 --
 -- /See:/ 'mkCreatePlatformApplicationResponse' smart constructor.
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
-  { platformApplicationARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | PlatformApplicationArn is returned.
+    platformApplicationARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlatformApplicationResponse' with the minimum fields required to make a request.

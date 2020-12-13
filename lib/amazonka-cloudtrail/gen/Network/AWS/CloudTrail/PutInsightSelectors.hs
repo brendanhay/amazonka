@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,23 +42,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutInsightSelectors' smart constructor.
 data PutInsightSelectors = PutInsightSelectors'
-  { trailName ::
-      Lude.Text,
+  { -- | The name of the CloudTrail trail for which you want to change or add Insights selectors.
+    trailName :: Lude.Text,
+    -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
     insightSelectors :: [InsightSelector]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInsightSelectors' with the minimum fields required to make a request.
 --
--- * 'insightSelectors' - A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
 -- * 'trailName' - The name of the CloudTrail trail for which you want to change or add Insights selectors.
+-- * 'insightSelectors' - A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
 mkPutInsightSelectors ::
   -- | 'trailName'
   Lude.Text ->
@@ -124,26 +120,21 @@ instance Lude.ToQuery PutInsightSelectors where
 
 -- | /See:/ 'mkPutInsightSelectorsResponse' smart constructor.
 data PutInsightSelectorsResponse = PutInsightSelectorsResponse'
-  { trailARN ::
-      Lude.Maybe Lude.Text,
-    insightSelectors ::
-      Lude.Maybe [InsightSelector],
+  { -- | The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.
+    trailARN :: Lude.Maybe Lude.Text,
+    -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
+    insightSelectors :: Lude.Maybe [InsightSelector],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInsightSelectorsResponse' with the minimum fields required to make a request.
 --
+-- * 'trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.
 -- * 'insightSelectors' - A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
 -- * 'responseStatus' - The response status code.
--- * 'trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.
 mkPutInsightSelectorsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

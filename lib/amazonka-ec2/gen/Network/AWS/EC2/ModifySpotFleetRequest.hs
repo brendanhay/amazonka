@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,31 +52,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifySpotFleetRequest' smart constructor.
 data ModifySpotFleetRequest = ModifySpotFleetRequest'
-  { targetCapacity ::
-      Lude.Maybe Lude.Int,
-    excessCapacityTerminationPolicy ::
-      Lude.Maybe ExcessCapacityTerminationPolicy,
+  { -- | The size of the fleet.
+    targetCapacity :: Lude.Maybe Lude.Int,
+    -- | Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.
+    excessCapacityTerminationPolicy :: Lude.Maybe ExcessCapacityTerminationPolicy,
+    -- | The number of On-Demand Instances in the fleet.
     onDemandTargetCapacity :: Lude.Maybe Lude.Int,
-    launchTemplateConfigs ::
-      Lude.Maybe [LaunchTemplateConfig],
+    -- | The launch template and overrides. You can only use this parameter if you specified a launch template (@LaunchTemplateConfigs@ ) in your Spot Fleet request. If you specified @LaunchSpecifications@ in your Spot Fleet request, then omit this parameter.
+    launchTemplateConfigs :: Lude.Maybe [LaunchTemplateConfig],
+    -- | The ID of the Spot Fleet request.
     spotFleetRequestId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifySpotFleetRequest' with the minimum fields required to make a request.
 --
--- * 'excessCapacityTerminationPolicy' - Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.
--- * 'launchTemplateConfigs' - The launch template and overrides. You can only use this parameter if you specified a launch template (@LaunchTemplateConfigs@ ) in your Spot Fleet request. If you specified @LaunchSpecifications@ in your Spot Fleet request, then omit this parameter.
--- * 'onDemandTargetCapacity' - The number of On-Demand Instances in the fleet.
--- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
 -- * 'targetCapacity' - The size of the fleet.
+-- * 'excessCapacityTerminationPolicy' - Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.
+-- * 'onDemandTargetCapacity' - The number of On-Demand Instances in the fleet.
+-- * 'launchTemplateConfigs' - The launch template and overrides. You can only use this parameter if you specified a launch template (@LaunchTemplateConfigs@ ) in your Spot Fleet request. If you specified @LaunchSpecifications@ in your Spot Fleet request, then omit this parameter.
+-- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
 mkModifySpotFleetRequest ::
   -- | 'spotFleetRequestId'
   Lude.Text ->
@@ -160,23 +157,18 @@ instance Lude.ToQuery ModifySpotFleetRequest where
 --
 -- /See:/ 'mkModifySpotFleetRequestResponse' smart constructor.
 data ModifySpotFleetRequestResponse = ModifySpotFleetRequestResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
+  { -- | Is @true@ if the request succeeds, and an error otherwise.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifySpotFleetRequestResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
+-- * 'responseStatus' - The response status code.
 mkModifySpotFleetRequestResponse ::
   -- | 'responseStatus'
   Lude.Int ->

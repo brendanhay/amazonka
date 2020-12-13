@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCoverage' smart constructor.
 data Coverage = Coverage'
-  { coverageNormalizedUnits ::
-      Lude.Maybe CoverageNormalizedUnits,
+  { -- | The amount of instance usage that the reservation covered, in normalized units.
+    coverageNormalizedUnits :: Lude.Maybe CoverageNormalizedUnits,
+    -- | The amount of instance usage that the reservation covered, in hours.
     coverageHours :: Lude.Maybe CoverageHours,
+    -- | The amount of cost that the reservation covered.
     coverageCost :: Lude.Maybe CoverageCost
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Coverage' with the minimum fields required to make a request.
 --
--- * 'coverageCost' - The amount of cost that the reservation covered.
--- * 'coverageHours' - The amount of instance usage that the reservation covered, in hours.
 -- * 'coverageNormalizedUnits' - The amount of instance usage that the reservation covered, in normalized units.
+-- * 'coverageHours' - The amount of instance usage that the reservation covered, in hours.
+-- * 'coverageCost' - The amount of cost that the reservation covered.
 mkCoverage ::
   Coverage
 mkCoverage =

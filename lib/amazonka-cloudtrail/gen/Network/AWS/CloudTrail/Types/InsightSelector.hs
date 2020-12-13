@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInsightSelector' smart constructor.
 newtype InsightSelector = InsightSelector'
-  { insightType ::
-      Lude.Maybe InsightType
+  { -- | The type of insights to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
+    insightType :: Lude.Maybe InsightType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightSelector' with the minimum fields required to make a request.

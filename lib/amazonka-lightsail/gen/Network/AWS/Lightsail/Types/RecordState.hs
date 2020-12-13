@@ -13,9 +13,9 @@
 module Network.AWS.Lightsail.Types.RecordState
   ( RecordState
       ( RecordState',
-        RFailed,
-        RStarted,
-        RSucceeded
+        RSStarted,
+        RSSucceeded,
+        RSFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RecordState = RecordState' Lude.Text
       Lude.ToHeader
     )
 
-pattern RFailed :: RecordState
-pattern RFailed = RecordState' "Failed"
+pattern RSStarted :: RecordState
+pattern RSStarted = RecordState' "Started"
 
-pattern RStarted :: RecordState
-pattern RStarted = RecordState' "Started"
+pattern RSSucceeded :: RecordState
+pattern RSSucceeded = RecordState' "Succeeded"
 
-pattern RSucceeded :: RecordState
-pattern RSucceeded = RecordState' "Succeeded"
+pattern RSFailed :: RecordState
+pattern RSFailed = RecordState' "Failed"
 
 {-# COMPLETE
-  RFailed,
-  RStarted,
-  RSucceeded,
+  RSStarted,
+  RSSucceeded,
+  RSFailed,
   RecordState'
   #-}

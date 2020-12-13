@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.EC2.GetTransitGatewayPrefixListReferences
     mkGetTransitGatewayPrefixListReferences,
 
     -- ** Request lenses
+    gtgplrTransitGatewayRouteTableId,
     gtgplrFilters,
     gtgplrNextToken,
     gtgplrDryRun,
     gtgplrMaxResults,
-    gtgplrTransitGatewayRouteTableId,
 
     -- * Destructuring the response
     GetTransitGatewayPrefixListReferencesResponse (..),
@@ -47,33 +48,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTransitGatewayPrefixListReferences' smart constructor.
 data GetTransitGatewayPrefixListReferences = GetTransitGatewayPrefixListReferences'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    transitGatewayRouteTableId ::
-      Lude.Text
+  { -- | The ID of the transit gateway route table.
+    transitGatewayRouteTableId :: Lude.Text,
+    -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @attachment.resource-id@ - The ID of the resource for the attachment.
+    --
+    --
+    --     * @attachment.resource-type@ - The type of resource for the attachment. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @peering@ .
+    --
+    --
+    --     * @attachment.transit-gateway-attachment-id@ - The ID of the attachment.
+    --
+    --
+    --     * @is-blackhole@ - Whether traffic matching the route is blocked (@true@ | @false@ ).
+    --
+    --
+    --     * @prefix-list-id@ - The ID of the prefix list.
+    --
+    --
+    --     * @prefix-list-owner-id@ - The ID of the owner of the prefix list.
+    --
+    --
+    --     * @state@ - The state of the prefix list reference (@pending@ | @available@ | @modifying@ | @deleting@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTransitGatewayPrefixListReferences' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
@@ -98,9 +110,9 @@ data GetTransitGatewayPrefixListReferences = GetTransitGatewayPrefixListReferenc
 --     * @state@ - The state of the prefix list reference (@pending@ | @available@ | @modifying@ | @deleting@ ).
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
--- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkGetTransitGatewayPrefixListReferences ::
   -- | 'transitGatewayRouteTableId'
   Lude.Text ->
@@ -108,13 +120,20 @@ mkGetTransitGatewayPrefixListReferences ::
 mkGetTransitGatewayPrefixListReferences
   pTransitGatewayRouteTableId_ =
     GetTransitGatewayPrefixListReferences'
-      { filters = Lude.Nothing,
+      { transitGatewayRouteTableId =
+          pTransitGatewayRouteTableId_,
+        filters = Lude.Nothing,
         nextToken = Lude.Nothing,
         dryRun = Lude.Nothing,
-        maxResults = Lude.Nothing,
-        transitGatewayRouteTableId =
-          pTransitGatewayRouteTableId_
+        maxResults = Lude.Nothing
       }
+
+-- | The ID of the transit gateway route table.
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgplrTransitGatewayRouteTableId :: Lens.Lens' GetTransitGatewayPrefixListReferences Lude.Text
+gtgplrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: GetTransitGatewayPrefixListReferences -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: GetTransitGatewayPrefixListReferences)
+{-# DEPRECATED gtgplrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
 -- | One or more filters. The possible values are:
 --
@@ -167,13 +186,6 @@ gtgplrMaxResults :: Lens.Lens' GetTransitGatewayPrefixListReferences (Lude.Maybe
 gtgplrMaxResults = Lens.lens (maxResults :: GetTransitGatewayPrefixListReferences -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTransitGatewayPrefixListReferences)
 {-# DEPRECATED gtgplrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The ID of the transit gateway route table.
---
--- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgplrTransitGatewayRouteTableId :: Lens.Lens' GetTransitGatewayPrefixListReferences Lude.Text
-gtgplrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: GetTransitGatewayPrefixListReferences -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: GetTransitGatewayPrefixListReferences)
-{-# DEPRECATED gtgplrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
-
 instance Page.AWSPager GetTransitGatewayPrefixListReferences where
   page rq rs
     | Page.stop (rs Lens.^. gtgplrrsNextToken) = Lude.Nothing
@@ -213,41 +225,30 @@ instance Lude.ToQuery GetTransitGatewayPrefixListReferences where
       [ "Action"
           Lude.=: ("GetTransitGatewayPrefixListReferences" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
         Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
         "NextToken" Lude.=: nextToken,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkGetTransitGatewayPrefixListReferencesResponse' smart constructor.
 data GetTransitGatewayPrefixListReferencesResponse = GetTransitGatewayPrefixListReferencesResponse'
-  { transitGatewayPrefixListReferences ::
-      Lude.Maybe
-        [TransitGatewayPrefixListReference],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the prefix list references.
+    transitGatewayPrefixListReferences :: Lude.Maybe [TransitGatewayPrefixListReference],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTransitGatewayPrefixListReferencesResponse' with the minimum fields required to make a request.
 --
+-- * 'transitGatewayPrefixListReferences' - Information about the prefix list references.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'transitGatewayPrefixListReferences' - Information about the prefix list references.
 mkGetTransitGatewayPrefixListReferencesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

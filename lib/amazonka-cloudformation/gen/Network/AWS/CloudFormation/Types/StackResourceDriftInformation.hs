@@ -30,18 +30,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackResourceDriftInformation' smart constructor.
 data StackResourceDriftInformation = StackResourceDriftInformation'
-  { lastCheckTimestamp ::
-      Lude.Maybe Lude.DateTime,
-    stackResourceDriftStatus ::
-      StackResourceDriftStatus
+  { -- | When AWS CloudFormation last checked if the resource had drifted from its expected configuration.
+    lastCheckTimestamp :: Lude.Maybe Lude.DateTime,
+    -- | Status of the resource's actual configuration compared to its expected configuration
+    --
+    --
+    --     * @DELETED@ : The resource differs from its expected configuration in that it has been deleted.
+    --
+    --
+    --     * @MODIFIED@ : The resource differs from its expected configuration.
+    --
+    --
+    --     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the resource differs from its expected configuration.
+    -- Any resources that do not currently support drift detection have a status of @NOT_CHECKED@ . For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection> .
+    --
+    --
+    --     * @IN_SYNC@ : The resources's actual configuration matches its expected configuration.
+    stackResourceDriftStatus :: StackResourceDriftStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackResourceDriftInformation' with the minimum fields required to make a request.

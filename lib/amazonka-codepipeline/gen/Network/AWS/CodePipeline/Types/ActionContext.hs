@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionContext' smart constructor.
 data ActionContext = ActionContext'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | The name of the action in the context of a job.
+    name :: Lude.Maybe Lude.Text,
+    -- | The system-generated unique ID that corresponds to an action's execution.
     actionExecutionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionContext' with the minimum fields required to make a request.
 --
--- * 'actionExecutionId' - The system-generated unique ID that corresponds to an action's execution.
 -- * 'name' - The name of the action in the context of a job.
+-- * 'actionExecutionId' - The system-generated unique ID that corresponds to an action's execution.
 mkActionContext ::
   ActionContext
 mkActionContext =

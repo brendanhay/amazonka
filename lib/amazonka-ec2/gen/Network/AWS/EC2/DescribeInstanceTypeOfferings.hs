@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,28 +48,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInstanceTypeOfferings' smart constructor.
 data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
-  { filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    locationType ::
-      Lude.Maybe LocationType,
+  { -- | One or more filters. Filter names and values are case-sensitive.
+    --
+    --
+    --     * @location@ - This depends on the location type. For example, if the location type is @region@ (default), the location is the Region code (for example, @us-east-2@ .)
+    --
+    --
+    --     * @instance-type@ - The instance type. For example, @c5.2xlarge@ .
+    filters :: Lude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The location type.
+    locationType :: Lude.Maybe LocationType,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+    -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the next token value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceTypeOfferings' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. Filter names and values are case-sensitive.
 --
 --
@@ -78,9 +79,10 @@ data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
 --     * @instance-type@ - The instance type. For example, @c5.2xlarge@ .
 --
 --
--- * 'locationType' - The location type.
--- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the next token value.
 -- * 'nextToken' - The token to retrieve the next page of results.
+-- * 'locationType' - The location type.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the next token value.
 mkDescribeInstanceTypeOfferings ::
   DescribeInstanceTypeOfferings
 mkDescribeInstanceTypeOfferings =
@@ -181,22 +183,14 @@ instance Lude.ToQuery DescribeInstanceTypeOfferings where
 
 -- | /See:/ 'mkDescribeInstanceTypeOfferingsResponse' smart constructor.
 data DescribeInstanceTypeOfferingsResponse = DescribeInstanceTypeOfferingsResponse'
-  { instanceTypeOfferings ::
-      Lude.Maybe
-        [InstanceTypeOffering],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The instance types offered.
+    instanceTypeOfferings :: Lude.Maybe [InstanceTypeOffering],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceTypeOfferingsResponse' with the minimum fields required to make a request.

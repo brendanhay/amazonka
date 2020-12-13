@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.SageMaker.DescribeNotebookInstanceLifecycleConfig
     mkDescribeNotebookInstanceLifecycleConfig,
 
     -- ** Request lenses
-    dNotebookInstanceLifecycleConfigName,
+    dnilcNotebookInstanceLifecycleConfigName,
 
     -- * Destructuring the response
     DescribeNotebookInstanceLifecycleConfigResponse (..),
@@ -46,16 +47,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeNotebookInstanceLifecycleConfig' smart constructor.
 newtype DescribeNotebookInstanceLifecycleConfig = DescribeNotebookInstanceLifecycleConfig'
-  { notebookInstanceLifecycleConfigName ::
-      Lude.Text
+  { -- | The name of the lifecycle configuration to describe.
+    notebookInstanceLifecycleConfigName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotebookInstanceLifecycleConfig' with the minimum fields required to make a request.
@@ -75,9 +70,9 @@ mkDescribeNotebookInstanceLifecycleConfig
 -- | The name of the lifecycle configuration to describe.
 --
 -- /Note:/ Consider using 'notebookInstanceLifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dNotebookInstanceLifecycleConfigName :: Lens.Lens' DescribeNotebookInstanceLifecycleConfig Lude.Text
-dNotebookInstanceLifecycleConfigName = Lens.lens (notebookInstanceLifecycleConfigName :: DescribeNotebookInstanceLifecycleConfig -> Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigName = a} :: DescribeNotebookInstanceLifecycleConfig)
-{-# DEPRECATED dNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
+dnilcNotebookInstanceLifecycleConfigName :: Lens.Lens' DescribeNotebookInstanceLifecycleConfig Lude.Text
+dnilcNotebookInstanceLifecycleConfigName = Lens.lens (notebookInstanceLifecycleConfigName :: DescribeNotebookInstanceLifecycleConfig -> Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigName = a} :: DescribeNotebookInstanceLifecycleConfig)
+{-# DEPRECATED dnilcNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
 
 instance Lude.AWSRequest DescribeNotebookInstanceLifecycleConfig where
   type
@@ -129,47 +124,32 @@ instance Lude.ToQuery DescribeNotebookInstanceLifecycleConfig where
 
 -- | /See:/ 'mkDescribeNotebookInstanceLifecycleConfigResponse' smart constructor.
 data DescribeNotebookInstanceLifecycleConfigResponse = DescribeNotebookInstanceLifecycleConfigResponse'
-  { creationTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    onCreate ::
-      Lude.Maybe
-        [NotebookInstanceLifecycleHook],
-    lastModifiedTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    notebookInstanceLifecycleConfigARN ::
-      Lude.Maybe
-        Lude.Text,
-    onStart ::
-      Lude.Maybe
-        [NotebookInstanceLifecycleHook],
-    notebookInstanceLifecycleConfigName ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A timestamp that tells when the lifecycle configuration was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The shell script that runs only once, when you create a notebook instance.
+    onCreate :: Lude.Maybe [NotebookInstanceLifecycleHook],
+    -- | A timestamp that tells when the lifecycle configuration was last modified.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
+    notebookInstanceLifecycleConfigARN :: Lude.Maybe Lude.Text,
+    -- | The shell script that runs every time you start a notebook instance, including when you create the notebook instance.
+    onStart :: Lude.Maybe [NotebookInstanceLifecycleHook],
+    -- | The name of the lifecycle configuration.
+    notebookInstanceLifecycleConfigName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotebookInstanceLifecycleConfigResponse' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - A timestamp that tells when the lifecycle configuration was created.
+-- * 'onCreate' - The shell script that runs only once, when you create a notebook instance.
 -- * 'lastModifiedTime' - A timestamp that tells when the lifecycle configuration was last modified.
 -- * 'notebookInstanceLifecycleConfigARN' - The Amazon Resource Name (ARN) of the lifecycle configuration.
--- * 'notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
--- * 'onCreate' - The shell script that runs only once, when you create a notebook instance.
 -- * 'onStart' - The shell script that runs every time you start a notebook instance, including when you create the notebook instance.
+-- * 'notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
 -- * 'responseStatus' - The response status code.
 mkDescribeNotebookInstanceLifecycleConfigResponse ::
   -- | 'responseStatus'

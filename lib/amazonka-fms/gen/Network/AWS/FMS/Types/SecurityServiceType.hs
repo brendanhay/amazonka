@@ -13,13 +13,13 @@
 module Network.AWS.FMS.Types.SecurityServiceType
   ( SecurityServiceType
       ( SecurityServiceType',
-        NetworkFirewall,
+        Waf,
+        WAFV2,
+        ShieldAdvanced,
         SecurityGroupsCommon,
         SecurityGroupsContentAudit,
         SecurityGroupsUsageAudit,
-        ShieldAdvanced,
-        WAFV2,
-        Waf
+        NetworkFirewall
       ),
   )
 where
@@ -50,8 +50,14 @@ newtype SecurityServiceType = SecurityServiceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern NetworkFirewall :: SecurityServiceType
-pattern NetworkFirewall = SecurityServiceType' "NETWORK_FIREWALL"
+pattern Waf :: SecurityServiceType
+pattern Waf = SecurityServiceType' "WAF"
+
+pattern WAFV2 :: SecurityServiceType
+pattern WAFV2 = SecurityServiceType' "WAFV2"
+
+pattern ShieldAdvanced :: SecurityServiceType
+pattern ShieldAdvanced = SecurityServiceType' "SHIELD_ADVANCED"
 
 pattern SecurityGroupsCommon :: SecurityServiceType
 pattern SecurityGroupsCommon = SecurityServiceType' "SECURITY_GROUPS_COMMON"
@@ -62,22 +68,16 @@ pattern SecurityGroupsContentAudit = SecurityServiceType' "SECURITY_GROUPS_CONTE
 pattern SecurityGroupsUsageAudit :: SecurityServiceType
 pattern SecurityGroupsUsageAudit = SecurityServiceType' "SECURITY_GROUPS_USAGE_AUDIT"
 
-pattern ShieldAdvanced :: SecurityServiceType
-pattern ShieldAdvanced = SecurityServiceType' "SHIELD_ADVANCED"
-
-pattern WAFV2 :: SecurityServiceType
-pattern WAFV2 = SecurityServiceType' "WAFV2"
-
-pattern Waf :: SecurityServiceType
-pattern Waf = SecurityServiceType' "WAF"
+pattern NetworkFirewall :: SecurityServiceType
+pattern NetworkFirewall = SecurityServiceType' "NETWORK_FIREWALL"
 
 {-# COMPLETE
-  NetworkFirewall,
+  Waf,
+  WAFV2,
+  ShieldAdvanced,
   SecurityGroupsCommon,
   SecurityGroupsContentAudit,
   SecurityGroupsUsageAudit,
-  ShieldAdvanced,
-  WAFV2,
-  Waf,
+  NetworkFirewall,
   SecurityServiceType'
   #-}

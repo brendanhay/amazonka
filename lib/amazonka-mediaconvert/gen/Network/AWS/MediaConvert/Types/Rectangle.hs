@@ -31,18 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRectangle' smart constructor.
 data Rectangle = Rectangle'
-  { height :: Lude.Maybe Lude.Natural,
+  { -- | Height of rectangle in pixels. Specify only even numbers.
+    height :: Lude.Maybe Lude.Natural,
+    -- | Width of rectangle in pixels. Specify only even numbers.
     width :: Lude.Maybe Lude.Natural,
+    -- | The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers.
     x :: Lude.Maybe Lude.Natural,
+    -- | The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
     y :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Rectangle' with the minimum fields required to make a request.

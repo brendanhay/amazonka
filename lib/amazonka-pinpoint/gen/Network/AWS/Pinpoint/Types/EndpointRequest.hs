@@ -42,47 +42,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointRequest' smart constructor.
 data EndpointRequest = EndpointRequest'
-  { requestId ::
-      Lude.Maybe Lude.Text,
-    metrics ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+  { -- | The unique identifier for the most recent request to update the endpoint.
+    requestId :: Lude.Maybe Lude.Text,
+    -- | One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
+    metrics :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+    -- | The geographic information for the endpoint.
     location :: Lude.Maybe EndpointLocation,
+    -- | The demographic information for the endpoint, such as the time zone and platform.
     demographic :: Lude.Maybe EndpointDemographic,
+    -- | The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For a push-notification channel, use the token provided by the push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.
     address :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO 8601 format, when the endpoint is updated.
     effectiveDate :: Lude.Maybe Lude.Text,
+    -- | One or more custom attributes that describe the user who's associated with the endpoint.
     user :: Lude.Maybe EndpointUser,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.
+    --
+    -- An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
+    --
+    -- Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.
     endpointStatus :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
     optOut :: Lude.Maybe Lude.Text,
+    -- | The channel to use when sending messages or push notifications to the endpoint.
     channelType :: Lude.Maybe ChannelType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointRequest' with the minimum fields required to make a request.
 --
+-- * 'requestId' - The unique identifier for the most recent request to update the endpoint.
+-- * 'metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
+-- * 'location' - The geographic information for the endpoint.
+-- * 'demographic' - The demographic information for the endpoint, such as the time zone and platform.
 -- * 'address' - The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For a push-notification channel, use the token provided by the push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.
+-- * 'effectiveDate' - The date and time, in ISO 8601 format, when the endpoint is updated.
+-- * 'user' - One or more custom attributes that describe the user who's associated with the endpoint.
 -- * 'attributes' - One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.
 --
 -- An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.
--- * 'channelType' - The channel to use when sending messages or push notifications to the endpoint.
--- * 'demographic' - The demographic information for the endpoint, such as the time zone and platform.
--- * 'effectiveDate' - The date and time, in ISO 8601 format, when the endpoint is updated.
 -- * 'endpointStatus' - Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
 --
 -- Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.
--- * 'location' - The geographic information for the endpoint.
--- * 'metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.
 -- * 'optOut' - Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.
--- * 'requestId' - The unique identifier for the most recent request to update the endpoint.
--- * 'user' - One or more custom attributes that describe the user who's associated with the endpoint.
+-- * 'channelType' - The channel to use when sending messages or push notifications to the endpoint.
 mkEndpointRequest ::
   EndpointRequest
 mkEndpointRequest =

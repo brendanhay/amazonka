@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackError' smart constructor.
 data StackError = StackError'
-  { errorCode ::
-      Lude.Maybe StackErrorCode,
+  { -- | The error code.
+    errorCode :: Lude.Maybe StackErrorCode,
+    -- | The error message.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackError' with the minimum fields required to make a request.

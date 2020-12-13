@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,9 +31,9 @@ module Network.AWS.KinesisAnalytics.ListApplications
     mkListApplicationsResponse,
 
     -- ** Response lenses
-    larsResponseStatus,
     larsApplicationSummaries,
     larsHasMoreApplications,
+    larsResponseStatus,
   )
 where
 
@@ -46,23 +47,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListApplications' smart constructor.
 data ListApplications = ListApplications'
-  { limit ::
-      Lude.Maybe Lude.Natural,
+  { -- | Maximum number of applications to list.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
     exclusiveStartApplicationName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplications' with the minimum fields required to make a request.
 --
--- * 'exclusiveStartApplicationName' - Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
 -- * 'limit' - Maximum number of applications to list.
+-- * 'exclusiveStartApplicationName' - Name of the application to start the list with. When using pagination to retrieve the list, you don't need to specify this parameter in the first request. However, in subsequent requests, you add the last application name from the previous response to get the next page of applications.
 mkListApplications ::
   ListApplications
 mkListApplications =
@@ -92,9 +88,9 @@ instance Lude.AWSRequest ListApplications where
     Res.receiveJSON
       ( \s h x ->
           ListApplicationsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "ApplicationSummaries" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "ApplicationSummaries" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..:> "HasMoreApplications")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListApplications where
@@ -128,19 +124,14 @@ instance Lude.ToQuery ListApplications where
 --
 -- /See:/ 'mkListApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
-  { responseStatus ::
-      Lude.Int,
-    applicationSummaries ::
-      [ApplicationSummary],
-    hasMoreApplications :: Lude.Bool
+  { -- | List of @ApplicationSummary@ objects.
+    applicationSummaries :: [ApplicationSummary],
+    -- | Returns true if there are more applications to retrieve.
+    hasMoreApplications :: Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationsResponse' with the minimum fields required to make a request.
@@ -149,24 +140,17 @@ data ListApplicationsResponse = ListApplicationsResponse'
 -- * 'hasMoreApplications' - Returns true if there are more applications to retrieve.
 -- * 'responseStatus' - The response status code.
 mkListApplicationsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'hasMoreApplications'
   Lude.Bool ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListApplicationsResponse
-mkListApplicationsResponse pResponseStatus_ pHasMoreApplications_ =
+mkListApplicationsResponse pHasMoreApplications_ pResponseStatus_ =
   ListApplicationsResponse'
-    { responseStatus = pResponseStatus_,
-      applicationSummaries = Lude.mempty,
-      hasMoreApplications = pHasMoreApplications_
+    { applicationSummaries = Lude.mempty,
+      hasMoreApplications = pHasMoreApplications_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsResponseStatus :: Lens.Lens' ListApplicationsResponse Lude.Int
-larsResponseStatus = Lens.lens (responseStatus :: ListApplicationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListApplicationsResponse)
-{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | List of @ApplicationSummary@ objects.
 --
@@ -181,3 +165,10 @@ larsApplicationSummaries = Lens.lens (applicationSummaries :: ListApplicationsRe
 larsHasMoreApplications :: Lens.Lens' ListApplicationsResponse Lude.Bool
 larsHasMoreApplications = Lens.lens (hasMoreApplications :: ListApplicationsResponse -> Lude.Bool) (\s a -> s {hasMoreApplications = a} :: ListApplicationsResponse)
 {-# DEPRECATED larsHasMoreApplications "Use generic-lens or generic-optics with 'hasMoreApplications' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsResponseStatus :: Lens.Lens' ListApplicationsResponse Lude.Int
+larsResponseStatus = Lens.lens (responseStatus :: ListApplicationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListApplicationsResponse)
+{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

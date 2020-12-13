@@ -14,11 +14,11 @@ module Network.AWS.EC2.Types.AllocationState
   ( AllocationState
       ( AllocationState',
         ASAvailable,
-        ASPending,
+        ASUnderAssessment,
         ASPermanentFailure,
         ASReleased,
         ASReleasedPermanentFailure,
-        ASUnderAssessment
+        ASPending
       ),
   )
 where
@@ -52,8 +52,8 @@ newtype AllocationState = AllocationState' Lude.Text
 pattern ASAvailable :: AllocationState
 pattern ASAvailable = AllocationState' "available"
 
-pattern ASPending :: AllocationState
-pattern ASPending = AllocationState' "pending"
+pattern ASUnderAssessment :: AllocationState
+pattern ASUnderAssessment = AllocationState' "under-assessment"
 
 pattern ASPermanentFailure :: AllocationState
 pattern ASPermanentFailure = AllocationState' "permanent-failure"
@@ -64,15 +64,15 @@ pattern ASReleased = AllocationState' "released"
 pattern ASReleasedPermanentFailure :: AllocationState
 pattern ASReleasedPermanentFailure = AllocationState' "released-permanent-failure"
 
-pattern ASUnderAssessment :: AllocationState
-pattern ASUnderAssessment = AllocationState' "under-assessment"
+pattern ASPending :: AllocationState
+pattern ASPending = AllocationState' "pending"
 
 {-# COMPLETE
   ASAvailable,
-  ASPending,
+  ASUnderAssessment,
   ASPermanentFailure,
   ASReleased,
   ASReleasedPermanentFailure,
-  ASUnderAssessment,
+  ASPending,
   AllocationState'
   #-}

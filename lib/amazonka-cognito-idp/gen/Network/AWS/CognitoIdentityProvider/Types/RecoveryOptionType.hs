@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecoveryOptionType' smart constructor.
 data RecoveryOptionType = RecoveryOptionType'
-  { priority ::
-      Lude.Natural,
+  { -- | A positive integer specifying priority of a method with 1 being the highest priority.
+    priority :: Lude.Natural,
+    -- | Specifies the recovery method for a user.
     name :: RecoveryOptionNameType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecoveryOptionType' with the minimum fields required to make a request.
 --
--- * 'name' - Specifies the recovery method for a user.
 -- * 'priority' - A positive integer specifying priority of a method with 1 being the highest priority.
+-- * 'name' - Specifies the recovery method for a user.
 mkRecoveryOptionType ::
   -- | 'priority'
   Lude.Natural ->

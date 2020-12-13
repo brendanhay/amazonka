@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,11 @@ module Network.AWS.EC2.CreateFleet
 
     -- ** Request lenses
     cfClientToken,
+    cfTargetCapacitySpecification,
     cfSpotOptions,
     cfExcessCapacityTerminationPolicy,
     cfOnDemandOptions,
+    cfLaunchTemplateConfigs,
     cfTagSpecifications,
     cfValidUntil,
     cfTerminateInstancesWithExpiration,
@@ -33,8 +36,6 @@ module Network.AWS.EC2.CreateFleet
     cfValidFrom,
     cfReplaceUnhealthyInstances,
     cfDryRun,
-    cfLaunchTemplateConfigs,
-    cfTargetCapacitySpecification,
 
     -- * Destructuring the response
     CreateFleetResponse (..),
@@ -56,42 +57,58 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateFleet' smart constructor.
 data CreateFleet = CreateFleet'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The number of units to request.
+    targetCapacitySpecification :: TargetCapacitySpecificationRequest,
+    -- | Describes the configuration of Spot Instances in an EC2 Fleet.
     spotOptions :: Lude.Maybe SpotOptionsRequest,
-    excessCapacityTerminationPolicy ::
-      Lude.Maybe FleetExcessCapacityTerminationPolicy,
+    -- | Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+    excessCapacityTerminationPolicy :: Lude.Maybe FleetExcessCapacityTerminationPolicy,
+    -- | Describes the configuration of On-Demand Instances in an EC2 Fleet.
     onDemandOptions :: Lude.Maybe OnDemandOptionsRequest,
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    validUntil :: Lude.Maybe Lude.DateTime,
-    terminateInstancesWithExpiration :: Lude.Maybe Lude.Bool,
-    type' :: Lude.Maybe FleetType,
-    validFrom :: Lude.Maybe Lude.DateTime,
-    replaceUnhealthyInstances :: Lude.Maybe Lude.Bool,
-    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The configuration for the EC2 Fleet.
     launchTemplateConfigs :: [FleetLaunchTemplateConfigRequest],
-    targetCapacitySpecification :: TargetCapacitySpecificationRequest
+    -- | The key-value pair for tagging the EC2 Fleet request on creation. The value for @ResourceType@ must be @fleet@ , otherwise the fleet request fails. To tag instances at launch, specify the tags in the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template> . For information about tagging after launch, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging your resources> .
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+    validUntil :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether running instances should be terminated when the EC2 Fleet expires.
+    terminateInstancesWithExpiration :: Lude.Maybe Lude.Bool,
+    -- | The type of request. The default value is @maintain@ .
+    --
+    --
+    --     * @maintain@ - The EC2 Fleet plaees an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.
+    --
+    --
+    --     * @request@ - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.
+    --
+    --
+    --     * @instant@ - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.
+    --
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type EC2 Fleet request types> in the /Amazon Elastic Compute Cloud User Guide/ .
+    type' :: Lude.Maybe FleetType,
+    -- | The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
+    validFrom :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether EC2 Fleet should replace unhealthy instances.
+    replaceUnhealthyInstances :: Lude.Maybe Lude.Bool,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFleet' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
--- * 'launchTemplateConfigs' - The configuration for the EC2 Fleet.
--- * 'onDemandOptions' - Describes the configuration of On-Demand Instances in an EC2 Fleet.
--- * 'replaceUnhealthyInstances' - Indicates whether EC2 Fleet should replace unhealthy instances.
--- * 'spotOptions' - Describes the configuration of Spot Instances in an EC2 Fleet.
--- * 'tagSpecifications' - The key-value pair for tagging the EC2 Fleet request on creation. The value for @ResourceType@ must be @fleet@ , otherwise the fleet request fails. To tag instances at launch, specify the tags in the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template> . For information about tagging after launch, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging your resources> .
 -- * 'targetCapacitySpecification' - The number of units to request.
+-- * 'spotOptions' - Describes the configuration of Spot Instances in an EC2 Fleet.
+-- * 'excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+-- * 'onDemandOptions' - Describes the configuration of On-Demand Instances in an EC2 Fleet.
+-- * 'launchTemplateConfigs' - The configuration for the EC2 Fleet.
+-- * 'tagSpecifications' - The key-value pair for tagging the EC2 Fleet request on creation. The value for @ResourceType@ must be @fleet@ , otherwise the fleet request fails. To tag instances at launch, specify the tags in the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template> . For information about tagging after launch, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging your resources> .
+-- * 'validUntil' - The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
 -- * 'terminateInstancesWithExpiration' - Indicates whether running instances should be terminated when the EC2 Fleet expires.
 -- * 'type'' - The type of request. The default value is @maintain@ .
 --
@@ -107,7 +124,8 @@ data CreateFleet = CreateFleet'
 --
 -- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type EC2 Fleet request types> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- * 'validFrom' - The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
--- * 'validUntil' - The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+-- * 'replaceUnhealthyInstances' - Indicates whether EC2 Fleet should replace unhealthy instances.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateFleet ::
   -- | 'targetCapacitySpecification'
   TargetCapacitySpecificationRequest ->
@@ -115,18 +133,18 @@ mkCreateFleet ::
 mkCreateFleet pTargetCapacitySpecification_ =
   CreateFleet'
     { clientToken = Lude.Nothing,
+      targetCapacitySpecification = pTargetCapacitySpecification_,
       spotOptions = Lude.Nothing,
       excessCapacityTerminationPolicy = Lude.Nothing,
       onDemandOptions = Lude.Nothing,
+      launchTemplateConfigs = Lude.mempty,
       tagSpecifications = Lude.Nothing,
       validUntil = Lude.Nothing,
       terminateInstancesWithExpiration = Lude.Nothing,
       type' = Lude.Nothing,
       validFrom = Lude.Nothing,
       replaceUnhealthyInstances = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      launchTemplateConfigs = Lude.mempty,
-      targetCapacitySpecification = pTargetCapacitySpecification_
+      dryRun = Lude.Nothing
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
@@ -135,6 +153,13 @@ mkCreateFleet pTargetCapacitySpecification_ =
 cfClientToken :: Lens.Lens' CreateFleet (Lude.Maybe Lude.Text)
 cfClientToken = Lens.lens (clientToken :: CreateFleet -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateFleet)
 {-# DEPRECATED cfClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The number of units to request.
+--
+-- /Note:/ Consider using 'targetCapacitySpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfTargetCapacitySpecification :: Lens.Lens' CreateFleet TargetCapacitySpecificationRequest
+cfTargetCapacitySpecification = Lens.lens (targetCapacitySpecification :: CreateFleet -> TargetCapacitySpecificationRequest) (\s a -> s {targetCapacitySpecification = a} :: CreateFleet)
+{-# DEPRECATED cfTargetCapacitySpecification "Use generic-lens or generic-optics with 'targetCapacitySpecification' instead." #-}
 
 -- | Describes the configuration of Spot Instances in an EC2 Fleet.
 --
@@ -156,6 +181,13 @@ cfExcessCapacityTerminationPolicy = Lens.lens (excessCapacityTerminationPolicy :
 cfOnDemandOptions :: Lens.Lens' CreateFleet (Lude.Maybe OnDemandOptionsRequest)
 cfOnDemandOptions = Lens.lens (onDemandOptions :: CreateFleet -> Lude.Maybe OnDemandOptionsRequest) (\s a -> s {onDemandOptions = a} :: CreateFleet)
 {-# DEPRECATED cfOnDemandOptions "Use generic-lens or generic-optics with 'onDemandOptions' instead." #-}
+
+-- | The configuration for the EC2 Fleet.
+--
+-- /Note:/ Consider using 'launchTemplateConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfLaunchTemplateConfigs :: Lens.Lens' CreateFleet [FleetLaunchTemplateConfigRequest]
+cfLaunchTemplateConfigs = Lens.lens (launchTemplateConfigs :: CreateFleet -> [FleetLaunchTemplateConfigRequest]) (\s a -> s {launchTemplateConfigs = a} :: CreateFleet)
+{-# DEPRECATED cfLaunchTemplateConfigs "Use generic-lens or generic-optics with 'launchTemplateConfigs' instead." #-}
 
 -- | The key-value pair for tagging the EC2 Fleet request on creation. The value for @ResourceType@ must be @fleet@ , otherwise the fleet request fails. To tag instances at launch, specify the tags in the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template> . For information about tagging after launch, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging your resources> .
 --
@@ -218,20 +250,6 @@ cfDryRun :: Lens.Lens' CreateFleet (Lude.Maybe Lude.Bool)
 cfDryRun = Lens.lens (dryRun :: CreateFleet -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateFleet)
 {-# DEPRECATED cfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The configuration for the EC2 Fleet.
---
--- /Note:/ Consider using 'launchTemplateConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfLaunchTemplateConfigs :: Lens.Lens' CreateFleet [FleetLaunchTemplateConfigRequest]
-cfLaunchTemplateConfigs = Lens.lens (launchTemplateConfigs :: CreateFleet -> [FleetLaunchTemplateConfigRequest]) (\s a -> s {launchTemplateConfigs = a} :: CreateFleet)
-{-# DEPRECATED cfLaunchTemplateConfigs "Use generic-lens or generic-optics with 'launchTemplateConfigs' instead." #-}
-
--- | The number of units to request.
---
--- /Note:/ Consider using 'targetCapacitySpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfTargetCapacitySpecification :: Lens.Lens' CreateFleet TargetCapacitySpecificationRequest
-cfTargetCapacitySpecification = Lens.lens (targetCapacitySpecification :: CreateFleet -> TargetCapacitySpecificationRequest) (\s a -> s {targetCapacitySpecification = a} :: CreateFleet)
-{-# DEPRECATED cfTargetCapacitySpecification "Use generic-lens or generic-optics with 'targetCapacitySpecification' instead." #-}
-
 instance Lude.AWSRequest CreateFleet where
   type Rs CreateFleet = CreateFleetResponse
   request = Req.postQuery ec2Service
@@ -261,10 +279,12 @@ instance Lude.ToQuery CreateFleet where
       [ "Action" Lude.=: ("CreateFleet" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "ClientToken" Lude.=: clientToken,
+        "TargetCapacitySpecification" Lude.=: targetCapacitySpecification,
         "SpotOptions" Lude.=: spotOptions,
         "ExcessCapacityTerminationPolicy"
           Lude.=: excessCapacityTerminationPolicy,
         "OnDemandOptions" Lude.=: onDemandOptions,
+        Lude.toQueryList "LaunchTemplateConfigs" launchTemplateConfigs,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
         "ValidUntil" Lude.=: validUntil,
@@ -273,33 +293,28 @@ instance Lude.ToQuery CreateFleet where
         "Type" Lude.=: type',
         "ValidFrom" Lude.=: validFrom,
         "ReplaceUnhealthyInstances" Lude.=: replaceUnhealthyInstances,
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "LaunchTemplateConfigs" launchTemplateConfigs,
-        "TargetCapacitySpecification" Lude.=: targetCapacitySpecification
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateFleetResponse' smart constructor.
 data CreateFleetResponse = CreateFleetResponse'
-  { instances ::
-      Lude.Maybe [CreateFleetInstance],
+  { -- | Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
+    instances :: Lude.Maybe [CreateFleetInstance],
+    -- | The ID of the EC2 Fleet.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
     errors :: Lude.Maybe [CreateFleetError],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFleetResponse' with the minimum fields required to make a request.
 --
--- * 'errors' - Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
--- * 'fleetId' - The ID of the EC2 Fleet.
 -- * 'instances' - Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
+-- * 'fleetId' - The ID of the EC2 Fleet.
+-- * 'errors' - Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
 -- * 'responseStatus' - The response status code.
 mkCreateFleetResponse ::
   -- | 'responseStatus'

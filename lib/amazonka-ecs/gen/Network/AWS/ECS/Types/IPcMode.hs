@@ -14,8 +14,8 @@ module Network.AWS.ECS.Types.IPcMode
   ( IPcMode
       ( IPcMode',
         IMHost,
-        IMNone,
-        IMTask
+        IMTask,
+        IMNone
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype IPcMode = IPcMode' Lude.Text
 pattern IMHost :: IPcMode
 pattern IMHost = IPcMode' "host"
 
-pattern IMNone :: IPcMode
-pattern IMNone = IPcMode' "none"
-
 pattern IMTask :: IPcMode
 pattern IMTask = IPcMode' "task"
 
+pattern IMNone :: IPcMode
+pattern IMNone = IPcMode' "none"
+
 {-# COMPLETE
   IMHost,
-  IMNone,
   IMTask,
+  IMNone,
   IPcMode'
   #-}

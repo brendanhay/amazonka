@@ -37,42 +37,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLdapServerMetadataOutput' smart constructor.
 data LdapServerMetadataOutput = LdapServerMetadataOutput'
-  { userBase ::
-      Lude.Maybe Lude.Text,
-    userSearchMatching ::
-      Lude.Maybe Lude.Text,
+  { -- | Fully qualified name of the directory where you want to search for users.
+    userBase :: Lude.Maybe Lude.Text,
+    -- | The search criteria for users.
+    userSearchMatching :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the LDAP attribute for the user group membership.
     userRoleName :: Lude.Maybe Lude.Text,
-    serviceAccountUsername ::
-      Lude.Maybe Lude.Text,
+    -- | Service account username.
+    serviceAccountUsername :: Lude.Maybe Lude.Text,
+    -- | The directory search scope for the user. If set to true, scope is to search the entire sub-tree.
     userSearchSubtree :: Lude.Maybe Lude.Bool,
+    -- | The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
     roleSearchSubtree :: Lude.Maybe Lude.Bool,
+    -- | Fully qualified domain name of the LDAP server. Optional failover server.
     hosts :: Lude.Maybe [Lude.Text],
+    -- | Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
     roleName :: Lude.Maybe Lude.Text,
-    roleSearchMatching ::
-      Lude.Maybe Lude.Text,
+    -- | The search criteria for groups.
+    roleSearchMatching :: Lude.Maybe Lude.Text,
+    -- | Fully qualified name of the directory to search for a user’s groups.
     roleBase :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LdapServerMetadataOutput' with the minimum fields required to make a request.
 --
+-- * 'userBase' - Fully qualified name of the directory where you want to search for users.
+-- * 'userSearchMatching' - The search criteria for users.
+-- * 'userRoleName' - Specifies the name of the LDAP attribute for the user group membership.
+-- * 'serviceAccountUsername' - Service account username.
+-- * 'userSearchSubtree' - The directory search scope for the user. If set to true, scope is to search the entire sub-tree.
+-- * 'roleSearchSubtree' - The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
 -- * 'hosts' - Fully qualified domain name of the LDAP server. Optional failover server.
--- * 'roleBase' - Fully qualified name of the directory to search for a user’s groups.
 -- * 'roleName' - Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
 -- * 'roleSearchMatching' - The search criteria for groups.
--- * 'roleSearchSubtree' - The directory search scope for the role. If set to true, scope is to search the entire sub-tree.
--- * 'serviceAccountUsername' - Service account username.
--- * 'userBase' - Fully qualified name of the directory where you want to search for users.
--- * 'userRoleName' - Specifies the name of the LDAP attribute for the user group membership.
--- * 'userSearchMatching' - The search criteria for users.
--- * 'userSearchSubtree' - The directory search scope for the user. If set to true, scope is to search the entire sub-tree.
+-- * 'roleBase' - Fully qualified name of the directory to search for a user’s groups.
 mkLdapServerMetadataOutput ::
   LdapServerMetadataOutput
 mkLdapServerMetadataOutput =

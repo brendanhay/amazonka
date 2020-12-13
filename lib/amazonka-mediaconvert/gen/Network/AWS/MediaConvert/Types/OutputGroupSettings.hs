@@ -39,33 +39,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputGroupSettings' smart constructor.
 data OutputGroupSettings = OutputGroupSettings'
-  { fileGroupSettings ::
-      Lude.Maybe FileGroupSettings,
+  { -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
+    fileGroupSettings :: Lude.Maybe FileGroupSettings,
+    -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to CMAF_GROUP_SETTINGS. Each output in a CMAF Output Group may only contain a single video, audio, or caption output.
     cmafGroupSettings :: Lude.Maybe CmafGroupSettings,
-    msSmoothGroupSettings ::
-      Lude.Maybe MsSmoothGroupSettings,
+    -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to MS_SMOOTH_GROUP_SETTINGS.
+    msSmoothGroupSettings :: Lude.Maybe MsSmoothGroupSettings,
+    -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
     hlsGroupSettings :: Lude.Maybe HlsGroupSettings,
+    -- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
     type' :: Lude.Maybe OutputGroupType,
-    dashIsoGroupSettings ::
-      Lude.Maybe DashIsoGroupSettings
+    -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to DASH_ISO_GROUP_SETTINGS.
+    dashIsoGroupSettings :: Lude.Maybe DashIsoGroupSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputGroupSettings' with the minimum fields required to make a request.
 --
--- * 'cmafGroupSettings' - Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to CMAF_GROUP_SETTINGS. Each output in a CMAF Output Group may only contain a single video, audio, or caption output.
--- * 'dashIsoGroupSettings' - Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to DASH_ISO_GROUP_SETTINGS.
 -- * 'fileGroupSettings' - Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
--- * 'hlsGroupSettings' - Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
+-- * 'cmafGroupSettings' - Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to CMAF_GROUP_SETTINGS. Each output in a CMAF Output Group may only contain a single video, audio, or caption output.
 -- * 'msSmoothGroupSettings' - Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to MS_SMOOTH_GROUP_SETTINGS.
+-- * 'hlsGroupSettings' - Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
 -- * 'type'' - Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
+-- * 'dashIsoGroupSettings' - Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to DASH_ISO_GROUP_SETTINGS.
 mkOutputGroupSettings ::
   OutputGroupSettings
 mkOutputGroupSettings =

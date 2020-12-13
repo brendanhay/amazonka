@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.AudioSelectorType
   ( AudioSelectorType
       ( AudioSelectorType',
-        LanguageCode,
         Pid,
-        Track
+        Track,
+        LanguageCode
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype AudioSelectorType = AudioSelectorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern LanguageCode :: AudioSelectorType
-pattern LanguageCode = AudioSelectorType' "LANGUAGE_CODE"
-
 pattern Pid :: AudioSelectorType
 pattern Pid = AudioSelectorType' "PID"
 
 pattern Track :: AudioSelectorType
 pattern Track = AudioSelectorType' "TRACK"
 
+pattern LanguageCode :: AudioSelectorType
+pattern LanguageCode = AudioSelectorType' "LANGUAGE_CODE"
+
 {-# COMPLETE
-  LanguageCode,
   Pid,
   Track,
+  LanguageCode,
   AudioSelectorType'
   #-}

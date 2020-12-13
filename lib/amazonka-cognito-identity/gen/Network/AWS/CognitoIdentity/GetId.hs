@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CognitoIdentity.GetId
     mkGetId,
 
     -- ** Request lenses
+    giIdentityPoolId,
     giAccountId,
     giLogins,
-    giIdentityPoolId,
 
     -- * Destructuring the response
     GetIdResponse (..),
@@ -45,23 +46,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetId' smart constructor.
 data GetId = GetId'
-  { accountId :: Lude.Maybe Lude.Text,
-    logins :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    identityPoolId :: Lude.Text
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Lude.Text,
+    -- | A standard AWS account ID (9+ digits).
+    accountId :: Lude.Maybe Lude.Text,
+    -- | A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:
+    --
+    --
+    --     * Facebook: @graph.facebook.com@
+    --
+    --
+    --     * Amazon Cognito user pool: @cognito-idp.<region>.amazonaws.com/<YOUR_USER_POOL_ID>@ , for example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
+    --
+    --
+    --     * Google: @accounts.google.com@
+    --
+    --
+    --     * Amazon: @www.amazon.com@
+    --
+    --
+    --     * Twitter: @api.twitter.com@
+    --
+    --
+    --     * Digits: @www.digits.com@
+    logins :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetId' with the minimum fields required to make a request.
 --
--- * 'accountId' - A standard AWS account ID (9+ digits).
 -- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+-- * 'accountId' - A standard AWS account ID (9+ digits).
 -- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:
 --
 --
@@ -87,10 +103,17 @@ mkGetId ::
   GetId
 mkGetId pIdentityPoolId_ =
   GetId'
-    { accountId = Lude.Nothing,
-      logins = Lude.Nothing,
-      identityPoolId = pIdentityPoolId_
+    { identityPoolId = pIdentityPoolId_,
+      accountId = Lude.Nothing,
+      logins = Lude.Nothing
     }
+
+-- | An identity pool ID in the format REGION:GUID.
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giIdentityPoolId :: Lens.Lens' GetId Lude.Text
+giIdentityPoolId = Lens.lens (identityPoolId :: GetId -> Lude.Text) (\s a -> s {identityPoolId = a} :: GetId)
+{-# DEPRECATED giIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A standard AWS account ID (9+ digits).
 --
@@ -126,13 +149,6 @@ giLogins :: Lens.Lens' GetId (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 giLogins = Lens.lens (logins :: GetId -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {logins = a} :: GetId)
 {-# DEPRECATED giLogins "Use generic-lens or generic-optics with 'logins' instead." #-}
 
--- | An identity pool ID in the format REGION:GUID.
---
--- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giIdentityPoolId :: Lens.Lens' GetId Lude.Text
-giIdentityPoolId = Lens.lens (identityPoolId :: GetId -> Lude.Text) (\s a -> s {identityPoolId = a} :: GetId)
-{-# DEPRECATED giIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
-
 instance Lude.AWSRequest GetId where
   type Rs GetId = GetIdResponse
   request = Req.postJSON cognitoIdentityService
@@ -158,9 +174,9 @@ instance Lude.ToJSON GetId where
   toJSON GetId' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AccountId" Lude..=) Lude.<$> accountId,
-            ("Logins" Lude..=) Lude.<$> logins,
-            Lude.Just ("IdentityPoolId" Lude..= identityPoolId)
+          [ Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
+            ("AccountId" Lude..=) Lude.<$> accountId,
+            ("Logins" Lude..=) Lude.<$> logins
           ]
       )
 
@@ -174,17 +190,12 @@ instance Lude.ToQuery GetId where
 --
 -- /See:/ 'mkGetIdResponse' smart constructor.
 data GetIdResponse = GetIdResponse'
-  { identityId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier in the format REGION:GUID.
+    identityId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdResponse' with the minimum fields required to make a request.

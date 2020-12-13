@@ -29,21 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionDefaultConfig' smart constructor.
 newtype FunctionDefaultConfig = FunctionDefaultConfig'
-  { execution ::
-      Lude.Maybe FunctionDefaultExecutionConfig
+  { execution :: Lude.Maybe FunctionDefaultExecutionConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionDefaultConfig' with the minimum fields required to make a request.
 --
--- * 'execution' - Undocumented field.
+-- * 'execution' -
 mkFunctionDefaultConfig ::
   FunctionDefaultConfig
 mkFunctionDefaultConfig =

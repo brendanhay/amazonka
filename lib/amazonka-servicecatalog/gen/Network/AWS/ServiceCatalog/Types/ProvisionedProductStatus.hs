@@ -14,10 +14,10 @@ module Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
   ( ProvisionedProductStatus
       ( ProvisionedProductStatus',
         PPSAvailable,
-        PPSError,
-        PPSPlanInProgress,
+        PPSUnderChange,
         PPSTainted,
-        PPSUnderChange
+        PPSError,
+        PPSPlanInProgress
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype ProvisionedProductStatus = ProvisionedProductStatus' Lude.Text
 pattern PPSAvailable :: ProvisionedProductStatus
 pattern PPSAvailable = ProvisionedProductStatus' "AVAILABLE"
 
+pattern PPSUnderChange :: ProvisionedProductStatus
+pattern PPSUnderChange = ProvisionedProductStatus' "UNDER_CHANGE"
+
+pattern PPSTainted :: ProvisionedProductStatus
+pattern PPSTainted = ProvisionedProductStatus' "TAINTED"
+
 pattern PPSError :: ProvisionedProductStatus
 pattern PPSError = ProvisionedProductStatus' "ERROR"
 
 pattern PPSPlanInProgress :: ProvisionedProductStatus
 pattern PPSPlanInProgress = ProvisionedProductStatus' "PLAN_IN_PROGRESS"
 
-pattern PPSTainted :: ProvisionedProductStatus
-pattern PPSTainted = ProvisionedProductStatus' "TAINTED"
-
-pattern PPSUnderChange :: ProvisionedProductStatus
-pattern PPSUnderChange = ProvisionedProductStatus' "UNDER_CHANGE"
-
 {-# COMPLETE
   PPSAvailable,
+  PPSUnderChange,
+  PPSTainted,
   PPSError,
   PPSPlanInProgress,
-  PPSTainted,
-  PPSUnderChange,
   ProvisionedProductStatus'
   #-}

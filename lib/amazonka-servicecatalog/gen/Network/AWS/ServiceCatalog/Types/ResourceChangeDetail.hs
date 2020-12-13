@@ -32,18 +32,14 @@ import Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition
 --
 -- /See:/ 'mkResourceChangeDetail' smart constructor.
 data ResourceChangeDetail = ResourceChangeDetail'
-  { causingEntity ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the entity that caused the change.
+    causingEntity :: Lude.Maybe Lude.Text,
+    -- | For static evaluations, the value of the resource attribute will change and the new value is known. For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.
     evaluation :: Lude.Maybe EvaluationType,
+    -- | Information about the resource attribute to be modified.
     target :: Lude.Maybe ResourceTargetDefinition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceChangeDetail' with the minimum fields required to make a request.

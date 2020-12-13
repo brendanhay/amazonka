@@ -13,12 +13,12 @@
 module Network.AWS.ECS.Types.CapacityProviderUpdateStatus
   ( CapacityProviderUpdateStatus
       ( CapacityProviderUpdateStatus',
+        DeleteInProgress,
         DeleteComplete,
         DeleteFailed,
-        DeleteInProgress,
+        UpdateInProgress,
         UpdateComplete,
-        UpdateFailed,
-        UpdateInProgress
+        UpdateFailed
       ),
   )
 where
@@ -49,14 +49,17 @@ newtype CapacityProviderUpdateStatus = CapacityProviderUpdateStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern DeleteInProgress :: CapacityProviderUpdateStatus
+pattern DeleteInProgress = CapacityProviderUpdateStatus' "DELETE_IN_PROGRESS"
+
 pattern DeleteComplete :: CapacityProviderUpdateStatus
 pattern DeleteComplete = CapacityProviderUpdateStatus' "DELETE_COMPLETE"
 
 pattern DeleteFailed :: CapacityProviderUpdateStatus
 pattern DeleteFailed = CapacityProviderUpdateStatus' "DELETE_FAILED"
 
-pattern DeleteInProgress :: CapacityProviderUpdateStatus
-pattern DeleteInProgress = CapacityProviderUpdateStatus' "DELETE_IN_PROGRESS"
+pattern UpdateInProgress :: CapacityProviderUpdateStatus
+pattern UpdateInProgress = CapacityProviderUpdateStatus' "UPDATE_IN_PROGRESS"
 
 pattern UpdateComplete :: CapacityProviderUpdateStatus
 pattern UpdateComplete = CapacityProviderUpdateStatus' "UPDATE_COMPLETE"
@@ -64,15 +67,12 @@ pattern UpdateComplete = CapacityProviderUpdateStatus' "UPDATE_COMPLETE"
 pattern UpdateFailed :: CapacityProviderUpdateStatus
 pattern UpdateFailed = CapacityProviderUpdateStatus' "UPDATE_FAILED"
 
-pattern UpdateInProgress :: CapacityProviderUpdateStatus
-pattern UpdateInProgress = CapacityProviderUpdateStatus' "UPDATE_IN_PROGRESS"
-
 {-# COMPLETE
+  DeleteInProgress,
   DeleteComplete,
   DeleteFailed,
-  DeleteInProgress,
+  UpdateInProgress,
   UpdateComplete,
   UpdateFailed,
-  UpdateInProgress,
   CapacityProviderUpdateStatus'
   #-}

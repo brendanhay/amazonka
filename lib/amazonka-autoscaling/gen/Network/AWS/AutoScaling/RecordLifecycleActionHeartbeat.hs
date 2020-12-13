@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,8 +40,8 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 
     -- ** Request lenses
     rlahInstanceId,
-    rlahLifecycleActionToken,
     rlahLifecycleHookName,
+    rlahLifecycleActionToken,
     rlahAutoScalingGroupName,
 
     -- * Destructuring the response
@@ -60,30 +61,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRecordLifecycleActionHeartbeat' smart constructor.
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
-    lifecycleActionToken ::
-      Lude.Maybe Lude.Text,
-    lifecycleHookName ::
-      Lude.Text,
-    autoScalingGroupName ::
-      Lude.Text
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The name of the lifecycle hook.
+    lifecycleHookName :: Lude.Text,
+    -- | A token that uniquely identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target that you specified when you created the lifecycle hook.
+    lifecycleActionToken :: Lude.Maybe Lude.Text,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordLifecycleActionHeartbeat' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'instanceId' - The ID of the instance.
--- * 'lifecycleActionToken' - A token that uniquely identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target that you specified when you created the lifecycle hook.
 -- * 'lifecycleHookName' - The name of the lifecycle hook.
+-- * 'lifecycleActionToken' - A token that uniquely identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target that you specified when you created the lifecycle hook.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkRecordLifecycleActionHeartbeat ::
   -- | 'lifecycleHookName'
   Lude.Text ->
@@ -95,8 +90,8 @@ mkRecordLifecycleActionHeartbeat
   pAutoScalingGroupName_ =
     RecordLifecycleActionHeartbeat'
       { instanceId = Lude.Nothing,
-        lifecycleActionToken = Lude.Nothing,
         lifecycleHookName = pLifecycleHookName_,
+        lifecycleActionToken = Lude.Nothing,
         autoScalingGroupName = pAutoScalingGroupName_
       }
 
@@ -107,19 +102,19 @@ rlahInstanceId :: Lens.Lens' RecordLifecycleActionHeartbeat (Lude.Maybe Lude.Tex
 rlahInstanceId = Lens.lens (instanceId :: RecordLifecycleActionHeartbeat -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: RecordLifecycleActionHeartbeat)
 {-# DEPRECATED rlahInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
--- | A token that uniquely identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target that you specified when you created the lifecycle hook.
---
--- /Note:/ Consider using 'lifecycleActionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlahLifecycleActionToken :: Lens.Lens' RecordLifecycleActionHeartbeat (Lude.Maybe Lude.Text)
-rlahLifecycleActionToken = Lens.lens (lifecycleActionToken :: RecordLifecycleActionHeartbeat -> Lude.Maybe Lude.Text) (\s a -> s {lifecycleActionToken = a} :: RecordLifecycleActionHeartbeat)
-{-# DEPRECATED rlahLifecycleActionToken "Use generic-lens or generic-optics with 'lifecycleActionToken' instead." #-}
-
 -- | The name of the lifecycle hook.
 --
 -- /Note:/ Consider using 'lifecycleHookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rlahLifecycleHookName :: Lens.Lens' RecordLifecycleActionHeartbeat Lude.Text
 rlahLifecycleHookName = Lens.lens (lifecycleHookName :: RecordLifecycleActionHeartbeat -> Lude.Text) (\s a -> s {lifecycleHookName = a} :: RecordLifecycleActionHeartbeat)
 {-# DEPRECATED rlahLifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead." #-}
+
+-- | A token that uniquely identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target that you specified when you created the lifecycle hook.
+--
+-- /Note:/ Consider using 'lifecycleActionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rlahLifecycleActionToken :: Lens.Lens' RecordLifecycleActionHeartbeat (Lude.Maybe Lude.Text)
+rlahLifecycleActionToken = Lens.lens (lifecycleActionToken :: RecordLifecycleActionHeartbeat -> Lude.Maybe Lude.Text) (\s a -> s {lifecycleActionToken = a} :: RecordLifecycleActionHeartbeat)
+{-# DEPRECATED rlahLifecycleActionToken "Use generic-lens or generic-optics with 'lifecycleActionToken' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
@@ -154,23 +149,17 @@ instance Lude.ToQuery RecordLifecycleActionHeartbeat where
           Lude.=: ("RecordLifecycleActionHeartbeat" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "InstanceId" Lude.=: instanceId,
-        "LifecycleActionToken" Lude.=: lifecycleActionToken,
         "LifecycleHookName" Lude.=: lifecycleHookName,
+        "LifecycleActionToken" Lude.=: lifecycleActionToken,
         "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'mkRecordLifecycleActionHeartbeatResponse' smart constructor.
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordLifecycleActionHeartbeatResponse' with the minimum fields required to make a request.

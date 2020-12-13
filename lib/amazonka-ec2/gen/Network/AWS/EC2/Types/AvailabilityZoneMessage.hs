@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAvailabilityZoneMessage' smart constructor.
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage'
-  { message ::
-      Lude.Maybe Lude.Text
+  { -- | The message about the Availability Zone, Local Zone, or Wavelength Zone.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityZoneMessage' with the minimum fields required to make a request.

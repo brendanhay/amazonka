@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,13 +20,13 @@ module Network.AWS.ServerlessApplicationRepository.UpdateApplication
     mkUpdateApplication,
 
     -- ** Request lenses
-    uHomePageURL,
-    uReadmeBody,
-    uReadmeURL,
-    uAuthor,
-    uLabels,
-    uDescription,
-    uApplicationId,
+    uaHomePageURL,
+    uaReadmeBody,
+    uaReadmeURL,
+    uaApplicationId,
+    uaAuthor,
+    uaLabels,
+    uaDescription,
 
     -- * Destructuring the response
     UpdateApplicationResponse (..),
@@ -57,45 +58,57 @@ import Network.AWS.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { homePageURL ::
-      Lude.Maybe Lude.Text,
+  { -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
+    homePageURL :: Lude.Maybe Lude.Text,
+    -- | A text readme file in Markdown language that contains a more detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
     readmeBody :: Lude.Maybe Lude.Text,
+    -- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
     readmeURL :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the application.
+    applicationId :: Lude.Text,
+    -- | The name of the author publishing the app.
+    --
+    -- Minimum length=1. Maximum length=127.
+    -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
     author :: Lude.Maybe Lude.Text,
+    -- | Labels to improve discovery of apps in search results.
+    --
+    -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+    -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
     labels :: Lude.Maybe [Lude.Text],
-    description :: Lude.Maybe Lude.Text,
-    applicationId :: Lude.Text
+    -- | The description of the application.
+    --
+    -- Minimum length=1. Maximum length=256
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
--- * 'author' - The name of the author publishing the app.
---
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
--- * 'description' - The description of the application.
---
--- Minimum length=1. Maximum length=256
 -- * 'homePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
--- * 'labels' - Labels to improve discovery of apps in search results.
---
--- Minimum length=1. Maximum length=127. Maximum number of labels: 10
--- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 -- * 'readmeBody' - A text readme file in Markdown language that contains a more detailed description of the application and how it works.
 --
 -- Maximum size 5 MB
 -- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
 --
 -- Maximum size 5 MB
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- * 'author' - The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+-- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- * 'labels' - Labels to improve discovery of apps in search results.
+--
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+-- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- * 'description' - The description of the application.
+--
+-- Minimum length=1. Maximum length=256
 mkUpdateApplication ::
   -- | 'applicationId'
   Lude.Text ->
@@ -105,36 +118,43 @@ mkUpdateApplication pApplicationId_ =
     { homePageURL = Lude.Nothing,
       readmeBody = Lude.Nothing,
       readmeURL = Lude.Nothing,
+      applicationId = pApplicationId_,
       author = Lude.Nothing,
       labels = Lude.Nothing,
-      description = Lude.Nothing,
-      applicationId = pApplicationId_
+      description = Lude.Nothing
     }
 
 -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
 --
 -- /Note:/ Consider using 'homePageURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uHomePageURL :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uHomePageURL = Lens.lens (homePageURL :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {homePageURL = a} :: UpdateApplication)
-{-# DEPRECATED uHomePageURL "Use generic-lens or generic-optics with 'homePageURL' instead." #-}
+uaHomePageURL :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
+uaHomePageURL = Lens.lens (homePageURL :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {homePageURL = a} :: UpdateApplication)
+{-# DEPRECATED uaHomePageURL "Use generic-lens or generic-optics with 'homePageURL' instead." #-}
 
 -- | A text readme file in Markdown language that contains a more detailed description of the application and how it works.
 --
 -- Maximum size 5 MB
 --
 -- /Note:/ Consider using 'readmeBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uReadmeBody :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uReadmeBody = Lens.lens (readmeBody :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {readmeBody = a} :: UpdateApplication)
-{-# DEPRECATED uReadmeBody "Use generic-lens or generic-optics with 'readmeBody' instead." #-}
+uaReadmeBody :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
+uaReadmeBody = Lens.lens (readmeBody :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {readmeBody = a} :: UpdateApplication)
+{-# DEPRECATED uaReadmeBody "Use generic-lens or generic-optics with 'readmeBody' instead." #-}
 
 -- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
 --
 -- Maximum size 5 MB
 --
 -- /Note:/ Consider using 'readmeURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uReadmeURL :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uReadmeURL = Lens.lens (readmeURL :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {readmeURL = a} :: UpdateApplication)
-{-# DEPRECATED uReadmeURL "Use generic-lens or generic-optics with 'readmeURL' instead." #-}
+uaReadmeURL :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
+uaReadmeURL = Lens.lens (readmeURL :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {readmeURL = a} :: UpdateApplication)
+{-# DEPRECATED uaReadmeURL "Use generic-lens or generic-optics with 'readmeURL' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the application.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaApplicationId :: Lens.Lens' UpdateApplication Lude.Text
+uaApplicationId = Lens.lens (applicationId :: UpdateApplication -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateApplication)
+{-# DEPRECATED uaApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The name of the author publishing the app.
 --
@@ -142,9 +162,9 @@ uReadmeURL = Lens.lens (readmeURL :: UpdateApplication -> Lude.Maybe Lude.Text) 
 -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 --
 -- /Note:/ Consider using 'author' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uAuthor :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uAuthor = Lens.lens (author :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {author = a} :: UpdateApplication)
-{-# DEPRECATED uAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
+uaAuthor :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
+uaAuthor = Lens.lens (author :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {author = a} :: UpdateApplication)
+{-# DEPRECATED uaAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
 
 -- | Labels to improve discovery of apps in search results.
 --
@@ -152,25 +172,18 @@ uAuthor = Lens.lens (author :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a 
 -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 --
 -- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uLabels :: Lens.Lens' UpdateApplication (Lude.Maybe [Lude.Text])
-uLabels = Lens.lens (labels :: UpdateApplication -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: UpdateApplication)
-{-# DEPRECATED uLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
+uaLabels :: Lens.Lens' UpdateApplication (Lude.Maybe [Lude.Text])
+uaLabels = Lens.lens (labels :: UpdateApplication -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: UpdateApplication)
+{-# DEPRECATED uaLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
 -- | The description of the application.
 --
 -- Minimum length=1. Maximum length=256
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uDescription :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
-uDescription = Lens.lens (description :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApplication)
-{-# DEPRECATED uDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the application.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uApplicationId :: Lens.Lens' UpdateApplication Lude.Text
-uApplicationId = Lens.lens (applicationId :: UpdateApplication -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateApplication)
-{-# DEPRECATED uApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+uaDescription :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
+uaDescription = Lens.lens (description :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApplication)
+{-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateApplication where
   type Rs UpdateApplication = UpdateApplicationResponse
@@ -226,64 +239,84 @@ instance Lude.ToQuery UpdateApplication where
 
 -- | /See:/ 'mkUpdateApplicationResponse' smart constructor.
 data UpdateApplicationResponse = UpdateApplicationResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Text,
+  { -- | The date and time this resource was created.
+    creationTime :: Lude.Maybe Lude.Text,
+    -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
     homePageURL :: Lude.Maybe Lude.Text,
+    -- | A link to a license file of the app that matches the spdxLicenseID value of your application.
+    --
+    -- Maximum size 5 MB
     licenseURL :: Lude.Maybe Lude.Text,
+    -- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
     readmeURL :: Lude.Maybe Lude.Text,
+    -- | The application Amazon Resource Name (ARN).
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The name of the application.
+    --
+    -- Minimum length=1. Maximum length=140
+    -- Pattern: "[a-zA-Z0-9\\-]+";
     name :: Lude.Maybe Lude.Text,
+    -- | Version information about the application.
     version :: Lude.Maybe Version,
+    -- | The name of the author publishing the app.
+    --
+    -- Minimum length=1. Maximum length=127.
+    -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
     author :: Lude.Maybe Lude.Text,
+    -- | Labels to improve discovery of apps in search results.
+    --
+    -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+    -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
     labels :: Lude.Maybe [Lude.Text],
-    verifiedAuthorURL ::
-      Lude.Maybe Lude.Text,
+    -- | The URL to the public profile of a verified author. This URL is submitted by the author.
+    verifiedAuthorURL :: Lude.Maybe Lude.Text,
+    -- | The description of the application.
+    --
+    -- Minimum length=1. Maximum length=256
     description :: Lude.Maybe Lude.Text,
+    -- | A valid identifier from https://spdx.org/licenses/.
     spdxLicenseId :: Lude.Maybe Lude.Text,
-    isVerifiedAuthor ::
-      Lude.Maybe Lude.Bool,
+    -- | Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+    isVerifiedAuthor :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The application Amazon Resource Name (ARN).
--- * 'author' - The name of the author publishing the app.
---
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 -- * 'creationTime' - The date and time this resource was created.
--- * 'description' - The description of the application.
---
--- Minimum length=1. Maximum length=256
 -- * 'homePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
--- * 'isVerifiedAuthor' - Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
--- * 'labels' - Labels to improve discovery of apps in search results.
---
--- Minimum length=1. Maximum length=127. Maximum number of labels: 10
--- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 -- * 'licenseURL' - A link to a license file of the app that matches the spdxLicenseID value of your application.
 --
 -- Maximum size 5 MB
+-- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+-- * 'applicationId' - The application Amazon Resource Name (ARN).
 -- * 'name' - The name of the application.
 --
 -- Minimum length=1. Maximum length=140
 -- Pattern: "[a-zA-Z0-9\\-]+";
--- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
---
--- Maximum size 5 MB
--- * 'responseStatus' - The response status code.
--- * 'spdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
--- * 'verifiedAuthorURL' - The URL to the public profile of a verified author. This URL is submitted by the author.
 -- * 'version' - Version information about the application.
+-- * 'author' - The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+-- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- * 'labels' - Labels to improve discovery of apps in search results.
+--
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+-- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- * 'verifiedAuthorURL' - The URL to the public profile of a verified author. This URL is submitted by the author.
+-- * 'description' - The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+-- * 'spdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
+-- * 'isVerifiedAuthor' - Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+-- * 'responseStatus' - The response status code.
 mkUpdateApplicationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

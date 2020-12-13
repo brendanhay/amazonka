@@ -40,41 +40,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobExecution' smart constructor.
 data JobExecution = JobExecution'
-  { status ::
-      Lude.Maybe JobExecutionStatus,
+  { -- | The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or REJECTED).
+    status :: Lude.Maybe JobExecutionStatus,
+    -- | The unique identifier you assigned to the job when it was created.
     jobId :: Lude.Maybe Lude.Text,
+    -- | The time, in seconds since the epoch, when the job execution was last updated.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ . The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The actual job execution timeout can occur up to 60 seconds later than the estimated duration. This value will not be included if the job execution has reached a terminal status.
     approximateSecondsBeforeTimedOut :: Lude.Maybe Lude.Integer,
+    -- | The time, in seconds since the epoch, when the job execution was queued.
     queuedAt :: Lude.Maybe Lude.Timestamp,
+    -- | A collection of name/value pairs that describe the status of the job execution.
     statusDetails :: Lude.Maybe JobExecutionStatusDetails,
+    -- | The ARN of the thing on which the job execution is running.
     thingARN :: Lude.Maybe Lude.Text,
+    -- | A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information.
     executionNumber :: Lude.Maybe Lude.Integer,
+    -- | The version of the job execution. Job execution versions are incremented each time they are updated by a device.
     versionNumber :: Lude.Maybe Lude.Integer,
+    -- | The time, in seconds since the epoch, when the job execution started.
     startedAt :: Lude.Maybe Lude.Timestamp,
+    -- | Will be @true@ if the job execution was canceled with the optional @force@ parameter set to @true@ .
     forceCanceled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecution' with the minimum fields required to make a request.
 --
--- * 'approximateSecondsBeforeTimedOut' - The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ . The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The actual job execution timeout can occur up to 60 seconds later than the estimated duration. This value will not be included if the job execution has reached a terminal status.
--- * 'executionNumber' - A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information.
--- * 'forceCanceled' - Will be @true@ if the job execution was canceled with the optional @force@ parameter set to @true@ .
+-- * 'status' - The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or REJECTED).
 -- * 'jobId' - The unique identifier you assigned to the job when it was created.
 -- * 'lastUpdatedAt' - The time, in seconds since the epoch, when the job execution was last updated.
+-- * 'approximateSecondsBeforeTimedOut' - The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ . The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The actual job execution timeout can occur up to 60 seconds later than the estimated duration. This value will not be included if the job execution has reached a terminal status.
 -- * 'queuedAt' - The time, in seconds since the epoch, when the job execution was queued.
--- * 'startedAt' - The time, in seconds since the epoch, when the job execution started.
--- * 'status' - The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT, CANCELED, or REJECTED).
 -- * 'statusDetails' - A collection of name/value pairs that describe the status of the job execution.
 -- * 'thingARN' - The ARN of the thing on which the job execution is running.
+-- * 'executionNumber' - A string (consisting of the digits "0" through "9") which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information.
 -- * 'versionNumber' - The version of the job execution. Job execution versions are incremented each time they are updated by a device.
+-- * 'startedAt' - The time, in seconds since the epoch, when the job execution started.
+-- * 'forceCanceled' - Will be @true@ if the job execution was canceled with the optional @force@ parameter set to @true@ .
 mkJobExecution ::
   JobExecution
 mkJobExecution =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,12 +22,12 @@ module Network.AWS.Connect.CreateContactFlow
     mkCreateContactFlow,
 
     -- ** Request lenses
-    ccfDescription,
-    ccfTags,
     ccfInstanceId,
+    ccfContent,
     ccfName,
     ccfType,
-    ccfContent,
+    ccfDescription,
+    ccfTags,
 
     -- * Destructuring the response
     CreateContactFlowResponse (..),
@@ -47,64 +48,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateContactFlow' smart constructor.
 data CreateContactFlow = CreateContactFlow'
-  { description ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The identifier of the Amazon Connect instance.
     instanceId :: Lude.Text,
+    -- | The content of the contact flow.
+    content :: Lude.Text,
+    -- | The name of the contact flow.
     name :: Lude.Text,
+    -- | The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
     type' :: ContactFlowType,
-    content :: Lude.Text
+    -- | The description of the contact flow.
+    description :: Lude.Maybe Lude.Text,
+    -- | One or more tags.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContactFlow' with the minimum fields required to make a request.
 --
--- * 'content' - The content of the contact flow.
--- * 'description' - The description of the contact flow.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'content' - The content of the contact flow.
 -- * 'name' - The name of the contact flow.
--- * 'tags' - One or more tags.
 -- * 'type'' - The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
+-- * 'description' - The description of the contact flow.
+-- * 'tags' - One or more tags.
 mkCreateContactFlow ::
   -- | 'instanceId'
+  Lude.Text ->
+  -- | 'content'
   Lude.Text ->
   -- | 'name'
   Lude.Text ->
   -- | 'type''
   ContactFlowType ->
-  -- | 'content'
-  Lude.Text ->
   CreateContactFlow
-mkCreateContactFlow pInstanceId_ pName_ pType_ pContent_ =
+mkCreateContactFlow pInstanceId_ pContent_ pName_ pType_ =
   CreateContactFlow'
-    { description = Lude.Nothing,
-      tags = Lude.Nothing,
-      instanceId = pInstanceId_,
+    { instanceId = pInstanceId_,
+      content = pContent_,
       name = pName_,
       type' = pType_,
-      content = pContent_
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
-
--- | The description of the contact flow.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfDescription :: Lens.Lens' CreateContactFlow (Lude.Maybe Lude.Text)
-ccfDescription = Lens.lens (description :: CreateContactFlow -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateContactFlow)
-{-# DEPRECATED ccfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | One or more tags.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfTags :: Lens.Lens' CreateContactFlow (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ccfTags = Lens.lens (tags :: CreateContactFlow -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateContactFlow)
-{-# DEPRECATED ccfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
 --
@@ -112,6 +98,13 @@ ccfTags = Lens.lens (tags :: CreateContactFlow -> Lude.Maybe (Lude.HashMap Lude.
 ccfInstanceId :: Lens.Lens' CreateContactFlow Lude.Text
 ccfInstanceId = Lens.lens (instanceId :: CreateContactFlow -> Lude.Text) (\s a -> s {instanceId = a} :: CreateContactFlow)
 {-# DEPRECATED ccfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The content of the contact flow.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfContent :: Lens.Lens' CreateContactFlow Lude.Text
+ccfContent = Lens.lens (content :: CreateContactFlow -> Lude.Text) (\s a -> s {content = a} :: CreateContactFlow)
+{-# DEPRECATED ccfContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The name of the contact flow.
 --
@@ -127,12 +120,19 @@ ccfType :: Lens.Lens' CreateContactFlow ContactFlowType
 ccfType = Lens.lens (type' :: CreateContactFlow -> ContactFlowType) (\s a -> s {type' = a} :: CreateContactFlow)
 {-# DEPRECATED ccfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The content of the contact flow.
+-- | The description of the contact flow.
 --
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfContent :: Lens.Lens' CreateContactFlow Lude.Text
-ccfContent = Lens.lens (content :: CreateContactFlow -> Lude.Text) (\s a -> s {content = a} :: CreateContactFlow)
-{-# DEPRECATED ccfContent "Use generic-lens or generic-optics with 'content' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfDescription :: Lens.Lens' CreateContactFlow (Lude.Maybe Lude.Text)
+ccfDescription = Lens.lens (description :: CreateContactFlow -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateContactFlow)
+{-# DEPRECATED ccfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | One or more tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfTags :: Lens.Lens' CreateContactFlow (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ccfTags = Lens.lens (tags :: CreateContactFlow -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateContactFlow)
+{-# DEPRECATED ccfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateContactFlow where
   type Rs CreateContactFlow = CreateContactFlowResponse
@@ -159,11 +159,11 @@ instance Lude.ToJSON CreateContactFlow where
   toJSON CreateContactFlow' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("Content" Lude..= content),
             Lude.Just ("Name" Lude..= name),
             Lude.Just ("Type" Lude..= type'),
-            Lude.Just ("Content" Lude..= content)
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -176,18 +176,14 @@ instance Lude.ToQuery CreateContactFlow where
 
 -- | /See:/ 'mkCreateContactFlowResponse' smart constructor.
 data CreateContactFlowResponse = CreateContactFlowResponse'
-  { contactFlowARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the contact flow.
+    contactFlowARN :: Lude.Maybe Lude.Text,
+    -- | The identifier of the contact flow.
     contactFlowId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContactFlowResponse' with the minimum fields required to make a request.

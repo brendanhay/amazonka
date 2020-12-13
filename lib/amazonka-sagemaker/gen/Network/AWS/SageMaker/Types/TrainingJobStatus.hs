@@ -13,11 +13,11 @@
 module Network.AWS.SageMaker.Types.TrainingJobStatus
   ( TrainingJobStatus
       ( TrainingJobStatus',
+        TJSInProgress,
         TJSCompleted,
         TJSFailed,
-        TJSInProgress,
-        TJSStopped,
-        TJSStopping
+        TJSStopping,
+        TJSStopped
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype TrainingJobStatus = TrainingJobStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern TJSInProgress :: TrainingJobStatus
+pattern TJSInProgress = TrainingJobStatus' "InProgress"
+
 pattern TJSCompleted :: TrainingJobStatus
 pattern TJSCompleted = TrainingJobStatus' "Completed"
 
 pattern TJSFailed :: TrainingJobStatus
 pattern TJSFailed = TrainingJobStatus' "Failed"
 
-pattern TJSInProgress :: TrainingJobStatus
-pattern TJSInProgress = TrainingJobStatus' "InProgress"
+pattern TJSStopping :: TrainingJobStatus
+pattern TJSStopping = TrainingJobStatus' "Stopping"
 
 pattern TJSStopped :: TrainingJobStatus
 pattern TJSStopped = TrainingJobStatus' "Stopped"
 
-pattern TJSStopping :: TrainingJobStatus
-pattern TJSStopping = TrainingJobStatus' "Stopping"
-
 {-# COMPLETE
+  TJSInProgress,
   TJSCompleted,
   TJSFailed,
-  TJSInProgress,
-  TJSStopped,
   TJSStopping,
+  TJSStopped,
   TrainingJobStatus'
   #-}

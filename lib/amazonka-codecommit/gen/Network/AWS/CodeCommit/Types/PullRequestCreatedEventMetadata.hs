@@ -31,22 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPullRequestCreatedEventMetadata' smart constructor.
 data PullRequestCreatedEventMetadata = PullRequestCreatedEventMetadata'
-  { destinationCommitId ::
-      Lude.Maybe Lude.Text,
-    mergeBase ::
-      Lude.Maybe Lude.Text,
-    repositoryName ::
-      Lude.Maybe Lude.Text,
-    sourceCommitId ::
-      Lude.Maybe Lude.Text
+  { -- | The commit ID of the tip of the branch specified as the destination branch when the pull request was created.
+    destinationCommitId :: Lude.Maybe Lude.Text,
+    -- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
+    mergeBase :: Lude.Maybe Lude.Text,
+    -- | The name of the repository where the pull request was created.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The commit ID on the source branch used when the pull request was created.
+    sourceCommitId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PullRequestCreatedEventMetadata' with the minimum fields required to make a request.

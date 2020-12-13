@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportLabelsTaskRunProperties' smart constructor.
 data ImportLabelsTaskRunProperties = ImportLabelsTaskRunProperties'
-  { replace ::
-      Lude.Maybe Lude.Bool,
-    inputS3Path ::
-      Lude.Maybe Lude.Text
+  { -- | Indicates whether to overwrite your existing labels.
+    replace :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Simple Storage Service (Amazon S3) path from where you will import the labels.
+    inputS3Path :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportLabelsTaskRunProperties' with the minimum fields required to make a request.
 --
--- * 'inputS3Path' - The Amazon Simple Storage Service (Amazon S3) path from where you will import the labels.
 -- * 'replace' - Indicates whether to overwrite your existing labels.
+-- * 'inputS3Path' - The Amazon Simple Storage Service (Amazon S3) path from where you will import the labels.
 mkImportLabelsTaskRunProperties ::
   ImportLabelsTaskRunProperties
 mkImportLabelsTaskRunProperties =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MediaLive.BatchStop
     mkBatchStop,
 
     -- ** Request lenses
-    bChannelIds,
-    bMultiplexIds,
+    bsChannelIds,
+    bsMultiplexIds,
 
     -- * Destructuring the response
     BatchStopResponse (..),
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkBatchStop' smart constructor.
 data BatchStop = BatchStop'
-  { channelIds :: Lude.Maybe [Lude.Text],
+  { -- | List of channel IDs
+    channelIds :: Lude.Maybe [Lude.Text],
+    -- | List of multiplex IDs
     multiplexIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStop' with the minimum fields required to make a request.
@@ -70,16 +67,16 @@ mkBatchStop =
 -- | List of channel IDs
 --
 -- /Note:/ Consider using 'channelIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bChannelIds :: Lens.Lens' BatchStop (Lude.Maybe [Lude.Text])
-bChannelIds = Lens.lens (channelIds :: BatchStop -> Lude.Maybe [Lude.Text]) (\s a -> s {channelIds = a} :: BatchStop)
-{-# DEPRECATED bChannelIds "Use generic-lens or generic-optics with 'channelIds' instead." #-}
+bsChannelIds :: Lens.Lens' BatchStop (Lude.Maybe [Lude.Text])
+bsChannelIds = Lens.lens (channelIds :: BatchStop -> Lude.Maybe [Lude.Text]) (\s a -> s {channelIds = a} :: BatchStop)
+{-# DEPRECATED bsChannelIds "Use generic-lens or generic-optics with 'channelIds' instead." #-}
 
 -- | List of multiplex IDs
 --
 -- /Note:/ Consider using 'multiplexIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bMultiplexIds :: Lens.Lens' BatchStop (Lude.Maybe [Lude.Text])
-bMultiplexIds = Lens.lens (multiplexIds :: BatchStop -> Lude.Maybe [Lude.Text]) (\s a -> s {multiplexIds = a} :: BatchStop)
-{-# DEPRECATED bMultiplexIds "Use generic-lens or generic-optics with 'multiplexIds' instead." #-}
+bsMultiplexIds :: Lens.Lens' BatchStop (Lude.Maybe [Lude.Text])
+bsMultiplexIds = Lens.lens (multiplexIds :: BatchStop -> Lude.Maybe [Lude.Text]) (\s a -> s {multiplexIds = a} :: BatchStop)
+{-# DEPRECATED bsMultiplexIds "Use generic-lens or generic-optics with 'multiplexIds' instead." #-}
 
 instance Lude.AWSRequest BatchStop where
   type Rs BatchStop = BatchStopResponse
@@ -121,25 +118,21 @@ instance Lude.ToQuery BatchStop where
 --
 -- /See:/ 'mkBatchStopResponse' smart constructor.
 data BatchStopResponse = BatchStopResponse'
-  { successful ::
-      Lude.Maybe [BatchSuccessfulResultModel],
+  { -- | List of successful operations
+    successful :: Lude.Maybe [BatchSuccessfulResultModel],
+    -- | List of failed operations
     failed :: Lude.Maybe [BatchFailedResultModel],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStopResponse' with the minimum fields required to make a request.
 --
+-- * 'successful' - List of successful operations
 -- * 'failed' - List of failed operations
 -- * 'responseStatus' - The response status code.
--- * 'successful' - List of successful operations
 mkBatchStopResponse ::
   -- | 'responseStatus'
   Lude.Int ->

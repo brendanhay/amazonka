@@ -37,36 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRule' smart constructor.
 data Rule = Rule'
-  { eventPattern :: Lude.Maybe Lude.Text,
+  { -- | The event pattern of the rule. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
+    eventPattern :: Lude.Maybe Lude.Text,
+    -- | The state of the rule.
     state :: Lude.Maybe RuleState,
+    -- | The Amazon Resource Name (ARN) of the rule.
     arn :: Lude.Maybe Lude.Text,
+    -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
     eventBusName :: Lude.Maybe Lude.Text,
+    -- | The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
     scheduleExpression :: Lude.Maybe Lude.Text,
+    -- | The name of the rule.
     name :: Lude.Maybe Lude.Text,
+    -- | The description of the rule.
     description :: Lude.Maybe Lude.Text,
+    -- | If the rule was created on behalf of your account by an AWS service, this field displays the principal name of the service that created the rule.
     managedBy :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the role that is used for target invocation.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Rule' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the rule.
--- * 'description' - The description of the rule.
--- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 -- * 'eventPattern' - The event pattern of the rule. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
--- * 'managedBy' - If the rule was created on behalf of your account by an AWS service, this field displays the principal name of the service that created the rule.
--- * 'name' - The name of the rule.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role that is used for target invocation.
--- * 'scheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
 -- * 'state' - The state of the rule.
+-- * 'arn' - The Amazon Resource Name (ARN) of the rule.
+-- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+-- * 'scheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
+-- * 'name' - The name of the rule.
+-- * 'description' - The description of the rule.
+-- * 'managedBy' - If the rule was created on behalf of your account by an AWS service, this field displays the principal name of the service that created the rule.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role that is used for target invocation.
 mkRule ::
   Rule
 mkRule =

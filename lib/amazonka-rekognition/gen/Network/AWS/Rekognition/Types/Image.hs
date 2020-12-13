@@ -37,26 +37,18 @@ import Network.AWS.Rekognition.Types.S3Object
 --
 -- /See:/ 'mkImage' smart constructor.
 data Image = Image'
-  { s3Object :: Lude.Maybe S3Object,
+  { -- | Identifies an S3 object as the image source.
+    s3Object :: Lude.Maybe S3Object,
+    -- | Blob of image bytes up to 5 MBs.
     bytes :: Lude.Maybe Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
--- * 'bytes' - Blob of image bytes up to 5 MBs.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 -- * 's3Object' - Identifies an S3 object as the image source.
+-- * 'bytes' - Blob of image bytes up to 5 MBs.
 mkImage ::
   Image
 mkImage = Image' {s3Object = Lude.Nothing, bytes = Lude.Nothing}

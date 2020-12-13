@@ -39,37 +39,39 @@ import Network.AWS.Rekognition.Types.TechnicalCueSegment
 --
 -- /See:/ 'mkSegmentDetection' smart constructor.
 data SegmentDetection = SegmentDetection'
-  { technicalCueSegment ::
-      Lude.Maybe TechnicalCueSegment,
+  { -- | If the segment is a technical cue, contains information about the technical cue.
+    technicalCueSegment :: Lude.Maybe TechnicalCueSegment,
+    -- | The duration of the timecode for the detected segment in SMPTE format.
     durationSMPTE :: Lude.Maybe Lude.Text,
+    -- | The end time of the detected segment, in milliseconds, from the start of the video. This value is rounded down.
     endTimestampMillis :: Lude.Maybe Lude.Integer,
+    -- | The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. @StartTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
     startTimecodeSMPTE :: Lude.Maybe Lude.Text,
+    -- | The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
     endTimecodeSMPTE :: Lude.Maybe Lude.Text,
+    -- | The duration of the detected segment in milliseconds.
     durationMillis :: Lude.Maybe Lude.Natural,
+    -- | The start time of the detected segment in milliseconds from the start of the video. This value is rounded down. For example, if the actual timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a value of 100 millis.
     startTimestampMillis :: Lude.Maybe Lude.Integer,
+    -- | The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@ .
     type' :: Lude.Maybe SegmentType,
+    -- | If the segment is a shot detection, contains information about the shot detection.
     shotSegment :: Lude.Maybe ShotSegment
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentDetection' with the minimum fields required to make a request.
 --
--- * 'durationMillis' - The duration of the detected segment in milliseconds.
--- * 'durationSMPTE' - The duration of the timecode for the detected segment in SMPTE format.
--- * 'endTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
--- * 'endTimestampMillis' - The end time of the detected segment, in milliseconds, from the start of the video. This value is rounded down.
--- * 'shotSegment' - If the segment is a shot detection, contains information about the shot detection.
--- * 'startTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. @StartTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
--- * 'startTimestampMillis' - The start time of the detected segment in milliseconds from the start of the video. This value is rounded down. For example, if the actual timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a value of 100 millis.
 -- * 'technicalCueSegment' - If the segment is a technical cue, contains information about the technical cue.
+-- * 'durationSMPTE' - The duration of the timecode for the detected segment in SMPTE format.
+-- * 'endTimestampMillis' - The end time of the detected segment, in milliseconds, from the start of the video. This value is rounded down.
+-- * 'startTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. @StartTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
+-- * 'endTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
+-- * 'durationMillis' - The duration of the detected segment in milliseconds.
+-- * 'startTimestampMillis' - The start time of the detected segment in milliseconds from the start of the video. This value is rounded down. For example, if the actual timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a value of 100 millis.
 -- * 'type'' - The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@ .
+-- * 'shotSegment' - If the segment is a shot detection, contains information about the shot detection.
 mkSegmentDetection ::
   SegmentDetection
 mkSegmentDetection =

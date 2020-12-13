@@ -36,33 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrafficMirrorTarget' smart constructor.
 data TrafficMirrorTarget = TrafficMirrorTarget'
-  { trafficMirrorTargetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Traffic Mirror target.
+    trafficMirrorTargetId :: Lude.Maybe Lude.Text,
+    -- | The network interface ID that is attached to the target.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Network Load Balancer.
     networkLoadBalancerARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the account that owns the Traffic Mirror target.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The type of Traffic Mirror target.
     type' :: Lude.Maybe TrafficMirrorTargetType,
+    -- | Information about the Traffic Mirror target.
     description :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the Traffic Mirror target.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrafficMirrorTarget' with the minimum fields required to make a request.
 --
--- * 'description' - Information about the Traffic Mirror target.
+-- * 'trafficMirrorTargetId' - The ID of the Traffic Mirror target.
 -- * 'networkInterfaceId' - The network interface ID that is attached to the target.
 -- * 'networkLoadBalancerARN' - The Amazon Resource Name (ARN) of the Network Load Balancer.
 -- * 'ownerId' - The ID of the account that owns the Traffic Mirror target.
--- * 'tags' - The tags assigned to the Traffic Mirror target.
--- * 'trafficMirrorTargetId' - The ID of the Traffic Mirror target.
 -- * 'type'' - The type of Traffic Mirror target.
+-- * 'description' - Information about the Traffic Mirror target.
+-- * 'tags' - The tags assigned to the Traffic Mirror target.
 mkTrafficMirrorTarget ::
   TrafficMirrorTarget
 mkTrafficMirrorTarget =

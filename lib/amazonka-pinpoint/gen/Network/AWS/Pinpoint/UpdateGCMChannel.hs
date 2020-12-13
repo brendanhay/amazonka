@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.Pinpoint.UpdateGCMChannel
     mkUpdateGCMChannel,
 
     -- ** Request lenses
-    ugcApplicationId,
     ugcGCMChannelRequest,
+    ugcApplicationId,
 
     -- * Destructuring the response
     UpdateGCMChannelResponse (..),
     mkUpdateGCMChannelResponse,
 
     -- ** Response lenses
-    ugcrsResponseStatus,
     ugcrsGCMChannelResponse,
+    ugcrsResponseStatus,
   )
 where
 
@@ -40,41 +41,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateGCMChannel' smart constructor.
 data UpdateGCMChannel = UpdateGCMChannel'
-  { applicationId ::
-      Lude.Text,
-    gcmChannelRequest :: GCMChannelRequest
+  { gcmChannelRequest :: GCMChannelRequest,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGCMChannel' with the minimum fields required to make a request.
 --
+-- * 'gcmChannelRequest' -
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'gcmChannelRequest' - Undocumented field.
 mkUpdateGCMChannel ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'gcmChannelRequest'
   GCMChannelRequest ->
+  -- | 'applicationId'
+  Lude.Text ->
   UpdateGCMChannel
-mkUpdateGCMChannel pApplicationId_ pGCMChannelRequest_ =
+mkUpdateGCMChannel pGCMChannelRequest_ pApplicationId_ =
   UpdateGCMChannel'
-    { applicationId = pApplicationId_,
-      gcmChannelRequest = pGCMChannelRequest_
+    { gcmChannelRequest = pGCMChannelRequest_,
+      applicationId = pApplicationId_
     }
-
--- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugcApplicationId :: Lens.Lens' UpdateGCMChannel Lude.Text
-ugcApplicationId = Lens.lens (applicationId :: UpdateGCMChannel -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateGCMChannel)
-{-# DEPRECATED ugcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -83,6 +71,13 @@ ugcGCMChannelRequest :: Lens.Lens' UpdateGCMChannel GCMChannelRequest
 ugcGCMChannelRequest = Lens.lens (gcmChannelRequest :: UpdateGCMChannel -> GCMChannelRequest) (\s a -> s {gcmChannelRequest = a} :: UpdateGCMChannel)
 {-# DEPRECATED ugcGCMChannelRequest "Use generic-lens or generic-optics with 'gcmChannelRequest' instead." #-}
 
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugcApplicationId :: Lens.Lens' UpdateGCMChannel Lude.Text
+ugcApplicationId = Lens.lens (applicationId :: UpdateGCMChannel -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateGCMChannel)
+{-# DEPRECATED ugcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
 instance Lude.AWSRequest UpdateGCMChannel where
   type Rs UpdateGCMChannel = UpdateGCMChannelResponse
   request = Req.putJSON pinpointService
@@ -90,7 +85,7 @@ instance Lude.AWSRequest UpdateGCMChannel where
     Res.receiveJSON
       ( \s h x ->
           UpdateGCMChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateGCMChannel where
@@ -119,41 +114,29 @@ instance Lude.ToQuery UpdateGCMChannel where
 
 -- | /See:/ 'mkUpdateGCMChannelResponse' smart constructor.
 data UpdateGCMChannelResponse = UpdateGCMChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    gcmChannelResponse :: GCMChannelResponse
+  { gcmChannelResponse :: GCMChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGCMChannelResponse' with the minimum fields required to make a request.
 --
--- * 'gcmChannelResponse' - Undocumented field.
+-- * 'gcmChannelResponse' -
 -- * 'responseStatus' - The response status code.
 mkUpdateGCMChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'gcmChannelResponse'
   GCMChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGCMChannelResponse
-mkUpdateGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
+mkUpdateGCMChannelResponse pGCMChannelResponse_ pResponseStatus_ =
   UpdateGCMChannelResponse'
-    { responseStatus = pResponseStatus_,
-      gcmChannelResponse = pGCMChannelResponse_
+    { gcmChannelResponse =
+        pGCMChannelResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugcrsResponseStatus :: Lens.Lens' UpdateGCMChannelResponse Lude.Int
-ugcrsResponseStatus = Lens.lens (responseStatus :: UpdateGCMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGCMChannelResponse)
-{-# DEPRECATED ugcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -161,3 +144,10 @@ ugcrsResponseStatus = Lens.lens (responseStatus :: UpdateGCMChannelResponse -> L
 ugcrsGCMChannelResponse :: Lens.Lens' UpdateGCMChannelResponse GCMChannelResponse
 ugcrsGCMChannelResponse = Lens.lens (gcmChannelResponse :: UpdateGCMChannelResponse -> GCMChannelResponse) (\s a -> s {gcmChannelResponse = a} :: UpdateGCMChannelResponse)
 {-# DEPRECATED ugcrsGCMChannelResponse "Use generic-lens or generic-optics with 'gcmChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugcrsResponseStatus :: Lens.Lens' UpdateGCMChannelResponse Lude.Int
+ugcrsResponseStatus = Lens.lens (responseStatus :: UpdateGCMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGCMChannelResponse)
+{-# DEPRECATED ugcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

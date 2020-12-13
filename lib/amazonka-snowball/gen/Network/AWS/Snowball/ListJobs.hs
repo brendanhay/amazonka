@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,22 +45,18 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of @JobListEntry@ objects to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The number of @JobListEntry@ objects to return.
 -- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
+-- * 'maxResults' - The number of @JobListEntry@ objects to return.
 mkListJobs ::
   ListJobs
 mkListJobs =
@@ -128,18 +125,14 @@ instance Lude.ToQuery ListJobs where
 
 -- | /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { jobListEntries ::
-      Lude.Maybe [JobListEntry],
+  { -- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
+    jobListEntries :: Lude.Maybe [JobListEntry],
+    -- | HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.

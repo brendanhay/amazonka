@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataSource' smart constructor.
 data DataSource = DataSource'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The data source's ARN.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The database name.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | The data source's type, @AutoSelectOpsworksMysqlInstance@ , @OpsworksMysqlInstance@ , @RdsDbInstance@ , or @None@ .
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataSource' with the minimum fields required to make a request.

@@ -36,36 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnectionNotification' smart constructor.
 data ConnectionNotification = ConnectionNotification'
-  { connectionNotificationState ::
-      Lude.Maybe ConnectionNotificationState,
-    connectionNotificationType ::
-      Lude.Maybe ConnectionNotificationType,
+  { -- | The state of the notification.
+    connectionNotificationState :: Lude.Maybe ConnectionNotificationState,
+    -- | The type of notification.
+    connectionNotificationType :: Lude.Maybe ConnectionNotificationType,
+    -- | The events for the notification. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
     connectionEvents :: Lude.Maybe [Lude.Text],
+    -- | The ID of the endpoint service.
     serviceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC endpoint.
     vpcEndpointId :: Lude.Maybe Lude.Text,
-    connectionNotificationId ::
-      Lude.Maybe Lude.Text,
-    connectionNotificationARN ::
-      Lude.Maybe Lude.Text
+    -- | The ID of the notification.
+    connectionNotificationId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the SNS topic for the notification.
+    connectionNotificationARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionNotification' with the minimum fields required to make a request.
 --
--- * 'connectionEvents' - The events for the notification. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
--- * 'connectionNotificationARN' - The ARN of the SNS topic for the notification.
--- * 'connectionNotificationId' - The ID of the notification.
 -- * 'connectionNotificationState' - The state of the notification.
 -- * 'connectionNotificationType' - The type of notification.
+-- * 'connectionEvents' - The events for the notification. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
 -- * 'serviceId' - The ID of the endpoint service.
 -- * 'vpcEndpointId' - The ID of the VPC endpoint.
+-- * 'connectionNotificationId' - The ID of the notification.
+-- * 'connectionNotificationARN' - The ARN of the SNS topic for the notification.
 mkConnectionNotification ::
   ConnectionNotification
 mkConnectionNotification =

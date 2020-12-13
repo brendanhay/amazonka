@@ -52,67 +52,84 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlatformDescription' smart constructor.
 data PlatformDescription = PlatformDescription'
-  { platformBranchName ::
-      Lude.Maybe Lude.Text,
+  { -- | The platform branch to which the platform version belongs.
+    platformBranchName :: Lude.Maybe Lude.Text,
+    -- | The additions supported by the platform version.
     supportedAddonList :: Lude.Maybe [Lude.Text],
+    -- | The category of the platform version.
     platformCategory :: Lude.Maybe Lude.Text,
-    platformBranchLifecycleState ::
-      Lude.Maybe Lude.Text,
+    -- | The state of the platform version's branch in its lifecycle.
+    --
+    -- Possible values: @Beta@ | @Supported@ | @Deprecated@ | @Retired@
+    platformBranchLifecycleState :: Lude.Maybe Lude.Text,
+    -- | The version of the platform version.
     platformVersion :: Lude.Maybe Lude.Text,
+    -- | The status of the platform version.
     platformStatus :: Lude.Maybe PlatformStatus,
+    -- | Information about the maintainer of the platform version.
     maintainer :: Lude.Maybe Lude.Text,
+    -- | The state of the platform version in its lifecycle.
+    --
+    -- Possible values: @Recommended@ | @null@
+    -- If a null value is returned, the platform version isn't the recommended one for its branch. Each platform branch has a single recommended platform version, typically the most recent one.
     platformLifecycleState :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID of the person who created the platform version.
     platformOwner :: Lude.Maybe Lude.Text,
+    -- | The date when the platform version was last updated.
     dateUpdated :: Lude.Maybe Lude.DateTime,
+    -- | The custom AMIs supported by the platform version.
     customAMIList :: Lude.Maybe [CustomAMI],
+    -- | The date when the platform version was created.
     dateCreated :: Lude.Maybe Lude.DateTime,
+    -- | The operating system used by the platform version.
     operatingSystemName :: Lude.Maybe Lude.Text,
+    -- | The frameworks supported by the platform version.
     frameworks :: Lude.Maybe [PlatformFramework],
+    -- | The ARN of the platform version.
     platformARN :: Lude.Maybe Lude.Text,
+    -- | The version of the operating system used by the platform version.
     operatingSystemVersion :: Lude.Maybe Lude.Text,
-    programmingLanguages ::
-      Lude.Maybe [PlatformProgrammingLanguage],
+    -- | The programming languages supported by the platform version.
+    programmingLanguages :: Lude.Maybe [PlatformProgrammingLanguage],
+    -- | The name of the solution stack used by the platform version.
     solutionStackName :: Lude.Maybe Lude.Text,
+    -- | The name of the platform version.
     platformName :: Lude.Maybe Lude.Text,
+    -- | The description of the platform version.
     description :: Lude.Maybe Lude.Text,
+    -- | The tiers supported by the platform version.
     supportedTierList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformDescription' with the minimum fields required to make a request.
 --
--- * 'customAMIList' - The custom AMIs supported by the platform version.
--- * 'dateCreated' - The date when the platform version was created.
--- * 'dateUpdated' - The date when the platform version was last updated.
--- * 'description' - The description of the platform version.
--- * 'frameworks' - The frameworks supported by the platform version.
--- * 'maintainer' - Information about the maintainer of the platform version.
--- * 'operatingSystemName' - The operating system used by the platform version.
--- * 'operatingSystemVersion' - The version of the operating system used by the platform version.
--- * 'platformARN' - The ARN of the platform version.
+-- * 'platformBranchName' - The platform branch to which the platform version belongs.
+-- * 'supportedAddonList' - The additions supported by the platform version.
+-- * 'platformCategory' - The category of the platform version.
 -- * 'platformBranchLifecycleState' - The state of the platform version's branch in its lifecycle.
 --
 -- Possible values: @Beta@ | @Supported@ | @Deprecated@ | @Retired@
--- * 'platformBranchName' - The platform branch to which the platform version belongs.
--- * 'platformCategory' - The category of the platform version.
+-- * 'platformVersion' - The version of the platform version.
+-- * 'platformStatus' - The status of the platform version.
+-- * 'maintainer' - Information about the maintainer of the platform version.
 -- * 'platformLifecycleState' - The state of the platform version in its lifecycle.
 --
 -- Possible values: @Recommended@ | @null@
 -- If a null value is returned, the platform version isn't the recommended one for its branch. Each platform branch has a single recommended platform version, typically the most recent one.
--- * 'platformName' - The name of the platform version.
 -- * 'platformOwner' - The AWS account ID of the person who created the platform version.
--- * 'platformStatus' - The status of the platform version.
--- * 'platformVersion' - The version of the platform version.
+-- * 'dateUpdated' - The date when the platform version was last updated.
+-- * 'customAMIList' - The custom AMIs supported by the platform version.
+-- * 'dateCreated' - The date when the platform version was created.
+-- * 'operatingSystemName' - The operating system used by the platform version.
+-- * 'frameworks' - The frameworks supported by the platform version.
+-- * 'platformARN' - The ARN of the platform version.
+-- * 'operatingSystemVersion' - The version of the operating system used by the platform version.
 -- * 'programmingLanguages' - The programming languages supported by the platform version.
 -- * 'solutionStackName' - The name of the solution stack used by the platform version.
--- * 'supportedAddonList' - The additions supported by the platform version.
+-- * 'platformName' - The name of the platform version.
+-- * 'description' - The description of the platform version.
 -- * 'supportedTierList' - The tiers supported by the platform version.
 mkPlatformDescription ::
   PlatformDescription

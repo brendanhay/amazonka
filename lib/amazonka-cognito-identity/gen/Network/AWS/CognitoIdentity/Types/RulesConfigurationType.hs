@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRulesConfigurationType' smart constructor.
 newtype RulesConfigurationType = RulesConfigurationType'
-  { rules ::
-      Lude.NonEmpty MappingRule
+  { -- | An array of rules. You can specify up to 25 rules per identity provider.
+    --
+    -- Rules are evaluated in order. The first one to match specifies the role.
+    rules :: Lude.NonEmpty MappingRule
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RulesConfigurationType' with the minimum fields required to make a request.

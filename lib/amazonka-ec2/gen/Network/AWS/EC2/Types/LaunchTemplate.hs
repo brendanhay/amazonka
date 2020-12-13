@@ -35,32 +35,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplate' smart constructor.
 data LaunchTemplate = LaunchTemplate'
-  { launchTemplateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the launch template.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | The version number of the latest version of the launch template.
     latestVersionNumber :: Lude.Maybe Lude.Integer,
+    -- | The ID of the launch template.
     launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | The principal that created the launch template.
     createdBy :: Lude.Maybe Lude.Text,
+    -- | The version number of the default version of the launch template.
     defaultVersionNumber :: Lude.Maybe Lude.Integer,
+    -- | The time launch template was created.
     createTime :: Lude.Maybe Lude.DateTime,
+    -- | The tags for the launch template.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplate' with the minimum fields required to make a request.
 --
--- * 'createTime' - The time launch template was created.
--- * 'createdBy' - The principal that created the launch template.
--- * 'defaultVersionNumber' - The version number of the default version of the launch template.
+-- * 'launchTemplateName' - The name of the launch template.
 -- * 'latestVersionNumber' - The version number of the latest version of the launch template.
 -- * 'launchTemplateId' - The ID of the launch template.
--- * 'launchTemplateName' - The name of the launch template.
+-- * 'createdBy' - The principal that created the launch template.
+-- * 'defaultVersionNumber' - The version number of the default version of the launch template.
+-- * 'createTime' - The time launch template was created.
 -- * 'tags' - The tags for the launch template.
 mkLaunchTemplate ::
   LaunchTemplate

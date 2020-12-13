@@ -30,22 +30,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeOverrides' smart constructor.
 data NodeOverrides = NodeOverrides'
-  { numNodes ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of nodes to use with a multi-node parallel job. This value overrides the number of nodes that are specified in the job definition. To use this override:
+    --
+    --
+    --     * There must be at least one node range in your job definition that has an open upper boundary (such as @:@ or @n:@ ).
+    --
+    --
+    --     * The lower boundary of the node range specified in the job definition must be fewer than the number of nodes specified in the override.
+    --
+    --
+    --     * The main node index specified in the job definition must be fewer than the number of nodes specified in the override.
+    numNodes :: Lude.Maybe Lude.Int,
+    -- | The node property overrides for the job.
     nodePropertyOverrides :: Lude.Maybe [NodePropertyOverride]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeOverrides' with the minimum fields required to make a request.
 --
--- * 'nodePropertyOverrides' - The node property overrides for the job.
 -- * 'numNodes' - The number of nodes to use with a multi-node parallel job. This value overrides the number of nodes that are specified in the job definition. To use this override:
 --
 --
@@ -56,6 +59,9 @@ data NodeOverrides = NodeOverrides'
 --
 --
 --     * The main node index specified in the job definition must be fewer than the number of nodes specified in the override.
+--
+--
+-- * 'nodePropertyOverrides' - The node property overrides for the job.
 mkNodeOverrides ::
   NodeOverrides
 mkNodeOverrides =

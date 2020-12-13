@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeSigningCertificateChain' smart constructor.
 data CodeSigningCertificateChain = CodeSigningCertificateChain'
-  { certificateName ::
-      Lude.Maybe Lude.Text,
-    inlineDocument ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the certificate.
+    certificateName :: Lude.Maybe Lude.Text,
+    -- | A base64 encoded binary representation of the code signing certificate chain.
+    inlineDocument :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSigningCertificateChain' with the minimum fields required to make a request.

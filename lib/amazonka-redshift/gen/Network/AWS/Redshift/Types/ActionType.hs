@@ -13,9 +13,9 @@
 module Network.AWS.Redshift.Types.ActionType
   ( ActionType
       ( ActionType',
+        ATRestoreCluster,
         ATRecommendNodeConfig,
-        ATResizeCluster,
-        ATRestoreCluster
+        ATResizeCluster
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype ActionType = ActionType' Lude.Text
       Lude.ToHeader
     )
 
+pattern ATRestoreCluster :: ActionType
+pattern ATRestoreCluster = ActionType' "restore-cluster"
+
 pattern ATRecommendNodeConfig :: ActionType
 pattern ATRecommendNodeConfig = ActionType' "recommend-node-config"
 
 pattern ATResizeCluster :: ActionType
 pattern ATResizeCluster = ActionType' "resize-cluster"
 
-pattern ATRestoreCluster :: ActionType
-pattern ATRestoreCluster = ActionType' "restore-cluster"
-
 {-# COMPLETE
+  ATRestoreCluster,
   ATRecommendNodeConfig,
   ATResizeCluster,
-  ATRestoreCluster,
   ActionType'
   #-}

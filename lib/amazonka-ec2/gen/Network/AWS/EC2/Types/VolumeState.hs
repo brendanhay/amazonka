@@ -13,12 +13,12 @@
 module Network.AWS.EC2.Types.VolumeState
   ( VolumeState
       ( VolumeState',
-        VAvailable,
         VCreating,
-        VDeleted,
+        VAvailable,
+        VInUse,
         VDeleting,
-        VError,
-        VInUse
+        VDeleted,
+        VError
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype VolumeState = VolumeState' Lude.Text
       Lude.ToHeader
     )
 
-pattern VAvailable :: VolumeState
-pattern VAvailable = VolumeState' "available"
-
 pattern VCreating :: VolumeState
 pattern VCreating = VolumeState' "creating"
 
-pattern VDeleted :: VolumeState
-pattern VDeleted = VolumeState' "deleted"
-
-pattern VDeleting :: VolumeState
-pattern VDeleting = VolumeState' "deleting"
-
-pattern VError :: VolumeState
-pattern VError = VolumeState' "error"
+pattern VAvailable :: VolumeState
+pattern VAvailable = VolumeState' "available"
 
 pattern VInUse :: VolumeState
 pattern VInUse = VolumeState' "in-use"
 
+pattern VDeleting :: VolumeState
+pattern VDeleting = VolumeState' "deleting"
+
+pattern VDeleted :: VolumeState
+pattern VDeleted = VolumeState' "deleted"
+
+pattern VError :: VolumeState
+pattern VError = VolumeState' "error"
+
 {-# COMPLETE
-  VAvailable,
   VCreating,
-  VDeleted,
-  VDeleting,
-  VError,
+  VAvailable,
   VInUse,
+  VDeleting,
+  VDeleted,
+  VError,
   VolumeState'
   #-}

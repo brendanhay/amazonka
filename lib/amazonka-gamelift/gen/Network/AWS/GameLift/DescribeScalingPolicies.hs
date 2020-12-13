@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,10 +58,10 @@ module Network.AWS.GameLift.DescribeScalingPolicies
     mkDescribeScalingPolicies,
 
     -- ** Request lenses
-    dNextToken,
-    dStatusFilter,
-    dLimit,
-    dFleetId,
+    dspNextToken,
+    dspStatusFilter,
+    dspLimit,
+    dspFleetId,
 
     -- * Destructuring the response
     DescribeScalingPoliciesResponse (..),
@@ -84,26 +85,41 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeScalingPolicies' smart constructor.
 data DescribeScalingPolicies = DescribeScalingPolicies'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    statusFilter ::
-      Lude.Maybe ScalingStatusType,
+  { -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.
+    --
+    --
+    --     * __ACTIVE__ -- The scaling policy is currently in force.
+    --
+    --
+    --     * __UPDATEREQUESTED__ -- A request to update the scaling policy has been received.
+    --
+    --
+    --     * __UPDATING__ -- A change is being made to the scaling policy.
+    --
+    --
+    --     * __DELETEREQUESTED__ -- A request to delete the scaling policy has been received.
+    --
+    --
+    --     * __DELETING__ -- The scaling policy is being deleted.
+    --
+    --
+    --     * __DELETED__ -- The scaling policy has been deleted.
+    --
+    --
+    --     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
+    statusFilter :: Lude.Maybe ScalingStatusType,
+    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
     limit :: Lude.Maybe Lude.Natural,
+    -- | A unique identifier for a fleet to retrieve scaling policies for. You can use either the fleet ID or ARN value.
     fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScalingPolicies' with the minimum fields required to make a request.
 --
--- * 'fleetId' - A unique identifier for a fleet to retrieve scaling policies for. You can use either the fleet ID or ARN value.
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 -- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 -- * 'statusFilter' - Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.
 --
@@ -127,6 +143,10 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 --
 --
 --     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
+--
+--
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
+-- * 'fleetId' - A unique identifier for a fleet to retrieve scaling policies for. You can use either the fleet ID or ARN value.
 mkDescribeScalingPolicies ::
   -- | 'fleetId'
   Lude.Text ->
@@ -142,9 +162,9 @@ mkDescribeScalingPolicies pFleetId_ =
 -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dNextToken :: Lens.Lens' DescribeScalingPolicies (Lude.Maybe Lude.Text)
-dNextToken = Lens.lens (nextToken :: DescribeScalingPolicies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeScalingPolicies)
-{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dspNextToken :: Lens.Lens' DescribeScalingPolicies (Lude.Maybe Lude.Text)
+dspNextToken = Lens.lens (nextToken :: DescribeScalingPolicies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeScalingPolicies)
+{-# DEPRECATED dspNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.
 --
@@ -172,23 +192,23 @@ dNextToken = Lens.lens (nextToken :: DescribeScalingPolicies -> Lude.Maybe Lude.
 --
 --
 -- /Note:/ Consider using 'statusFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStatusFilter :: Lens.Lens' DescribeScalingPolicies (Lude.Maybe ScalingStatusType)
-dStatusFilter = Lens.lens (statusFilter :: DescribeScalingPolicies -> Lude.Maybe ScalingStatusType) (\s a -> s {statusFilter = a} :: DescribeScalingPolicies)
-{-# DEPRECATED dStatusFilter "Use generic-lens or generic-optics with 'statusFilter' instead." #-}
+dspStatusFilter :: Lens.Lens' DescribeScalingPolicies (Lude.Maybe ScalingStatusType)
+dspStatusFilter = Lens.lens (statusFilter :: DescribeScalingPolicies -> Lude.Maybe ScalingStatusType) (\s a -> s {statusFilter = a} :: DescribeScalingPolicies)
+{-# DEPRECATED dspStatusFilter "Use generic-lens or generic-optics with 'statusFilter' instead." #-}
 
 -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLimit :: Lens.Lens' DescribeScalingPolicies (Lude.Maybe Lude.Natural)
-dLimit = Lens.lens (limit :: DescribeScalingPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeScalingPolicies)
-{-# DEPRECATED dLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+dspLimit :: Lens.Lens' DescribeScalingPolicies (Lude.Maybe Lude.Natural)
+dspLimit = Lens.lens (limit :: DescribeScalingPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeScalingPolicies)
+{-# DEPRECATED dspLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | A unique identifier for a fleet to retrieve scaling policies for. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFleetId :: Lens.Lens' DescribeScalingPolicies Lude.Text
-dFleetId = Lens.lens (fleetId :: DescribeScalingPolicies -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeScalingPolicies)
-{-# DEPRECATED dFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+dspFleetId :: Lens.Lens' DescribeScalingPolicies Lude.Text
+dspFleetId = Lens.lens (fleetId :: DescribeScalingPolicies -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeScalingPolicies)
+{-# DEPRECATED dspFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 instance Page.AWSPager DescribeScalingPolicies where
   page rq rs
@@ -197,7 +217,7 @@ instance Page.AWSPager DescribeScalingPolicies where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dNextToken Lens..~ rs Lens.^. dsprsNextToken
+          Lude.& dspNextToken Lens..~ rs Lens.^. dsprsNextToken
 
 instance Lude.AWSRequest DescribeScalingPolicies where
   type Rs DescribeScalingPolicies = DescribeScalingPoliciesResponse
@@ -243,26 +263,21 @@ instance Lude.ToQuery DescribeScalingPolicies where
 --
 -- /See:/ 'mkDescribeScalingPoliciesResponse' smart constructor.
 data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    scalingPolicies ::
-      Lude.Maybe [ScalingPolicy],
+  { -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A collection of objects containing the scaling policies matching the request.
+    scalingPolicies :: Lude.Maybe [ScalingPolicy],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScalingPoliciesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
--- * 'responseStatus' - The response status code.
 -- * 'scalingPolicies' - A collection of objects containing the scaling policies matching the request.
+-- * 'responseStatus' - The response status code.
 mkDescribeScalingPoliciesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

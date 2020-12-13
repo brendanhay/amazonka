@@ -30,17 +30,12 @@ import Network.AWS.WAFRegional.Types.ChangeAction
 --
 -- /See:/ 'mkRegexPatternSetUpdate' smart constructor.
 data RegexPatternSetUpdate = RegexPatternSetUpdate'
-  { action ::
-      ChangeAction,
+  { -- | Specifies whether to insert or delete a @RegexPatternString@ .
+    action :: ChangeAction,
+    -- | Specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as @B[a@]dB[o0]t@ .
     regexPatternString :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegexPatternSetUpdate' with the minimum fields required to make a request.

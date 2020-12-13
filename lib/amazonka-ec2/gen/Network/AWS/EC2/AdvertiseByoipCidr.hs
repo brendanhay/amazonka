@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.EC2.AdvertiseByoipCidr
     mkAdvertiseByoipCidr,
 
     -- ** Request lenses
-    abcDryRun,
     abcCidr,
+    abcDryRun,
 
     -- * Destructuring the response
     AdvertiseByoipCidrResponse (..),
@@ -45,17 +46,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAdvertiseByoipCidr' smart constructor.
 data AdvertiseByoipCidr = AdvertiseByoipCidr'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    cidr :: Lude.Text
+  { -- | The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.
+    cidr :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdvertiseByoipCidr' with the minimum fields required to make a request.
@@ -67,14 +63,7 @@ mkAdvertiseByoipCidr ::
   Lude.Text ->
   AdvertiseByoipCidr
 mkAdvertiseByoipCidr pCidr_ =
-  AdvertiseByoipCidr' {dryRun = Lude.Nothing, cidr = pCidr_}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abcDryRun :: Lens.Lens' AdvertiseByoipCidr (Lude.Maybe Lude.Bool)
-abcDryRun = Lens.lens (dryRun :: AdvertiseByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AdvertiseByoipCidr)
-{-# DEPRECATED abcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+  AdvertiseByoipCidr' {cidr = pCidr_, dryRun = Lude.Nothing}
 
 -- | The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.
 --
@@ -82,6 +71,13 @@ abcDryRun = Lens.lens (dryRun :: AdvertiseByoipCidr -> Lude.Maybe Lude.Bool) (\s
 abcCidr :: Lens.Lens' AdvertiseByoipCidr Lude.Text
 abcCidr = Lens.lens (cidr :: AdvertiseByoipCidr -> Lude.Text) (\s a -> s {cidr = a} :: AdvertiseByoipCidr)
 {-# DEPRECATED abcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+abcDryRun :: Lens.Lens' AdvertiseByoipCidr (Lude.Maybe Lude.Bool)
+abcDryRun = Lens.lens (dryRun :: AdvertiseByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AdvertiseByoipCidr)
+{-# DEPRECATED abcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest AdvertiseByoipCidr where
   type Rs AdvertiseByoipCidr = AdvertiseByoipCidrResponse
@@ -104,23 +100,18 @@ instance Lude.ToQuery AdvertiseByoipCidr where
     Lude.mconcat
       [ "Action" Lude.=: ("AdvertiseByoipCidr" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "Cidr" Lude.=: cidr
+        "Cidr" Lude.=: cidr,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkAdvertiseByoipCidrResponse' smart constructor.
 data AdvertiseByoipCidrResponse = AdvertiseByoipCidrResponse'
-  { byoipCidr ::
-      Lude.Maybe ByoipCidr,
+  { -- | Information about the address range.
+    byoipCidr :: Lude.Maybe ByoipCidr,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdvertiseByoipCidrResponse' with the minimum fields required to make a request.

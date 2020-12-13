@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetSpotCapacityRebalanceRequest' smart constructor.
 newtype FleetSpotCapacityRebalanceRequest = FleetSpotCapacityRebalanceRequest'
-  { replacementStrategy ::
-      Lude.Maybe
-        FleetReplacementStrategy
+  { -- | The replacement strategy to use. Only available for fleets of type @maintain@ .
+    --
+    -- To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for an existing Spot Instance in the fleet, specify @launch@ . You must specify a value, otherwise you get an error.
+    replacementStrategy :: Lude.Maybe FleetReplacementStrategy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetSpotCapacityRebalanceRequest' with the minimum fields required to make a request.

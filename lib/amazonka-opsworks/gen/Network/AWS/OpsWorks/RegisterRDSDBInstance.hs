@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.OpsWorks.RegisterRDSDBInstance
     mkRegisterRDSDBInstance,
 
     -- ** Request lenses
-    rrdiStackId,
     rrdiRDSDBInstanceARN,
     rrdiDBUser,
+    rrdiStackId,
     rrdiDBPassword,
 
     -- * Destructuring the response
@@ -40,55 +41,45 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterRDSDBInstance' smart constructor.
 data RegisterRDSDBInstance = RegisterRDSDBInstance'
-  { stackId ::
-      Lude.Text,
+  { -- | The Amazon RDS instance's ARN.
     rdsDBInstanceARN :: Lude.Text,
+    -- | The database's master user name.
     dbUser :: Lude.Text,
+    -- | The stack ID.
+    stackId :: Lude.Text,
+    -- | The database password.
     dbPassword :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterRDSDBInstance' with the minimum fields required to make a request.
 --
--- * 'dbPassword' - The database password.
--- * 'dbUser' - The database's master user name.
 -- * 'rdsDBInstanceARN' - The Amazon RDS instance's ARN.
+-- * 'dbUser' - The database's master user name.
 -- * 'stackId' - The stack ID.
+-- * 'dbPassword' - The database password.
 mkRegisterRDSDBInstance ::
-  -- | 'stackId'
-  Lude.Text ->
   -- | 'rdsDBInstanceARN'
   Lude.Text ->
   -- | 'dbUser'
+  Lude.Text ->
+  -- | 'stackId'
   Lude.Text ->
   -- | 'dbPassword'
   Lude.Text ->
   RegisterRDSDBInstance
 mkRegisterRDSDBInstance
-  pStackId_
   pRDSDBInstanceARN_
   pDBUser_
+  pStackId_
   pDBPassword_ =
     RegisterRDSDBInstance'
-      { stackId = pStackId_,
-        rdsDBInstanceARN = pRDSDBInstanceARN_,
+      { rdsDBInstanceARN = pRDSDBInstanceARN_,
         dbUser = pDBUser_,
+        stackId = pStackId_,
         dbPassword = pDBPassword_
       }
-
--- | The stack ID.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrdiStackId :: Lens.Lens' RegisterRDSDBInstance Lude.Text
-rrdiStackId = Lens.lens (stackId :: RegisterRDSDBInstance -> Lude.Text) (\s a -> s {stackId = a} :: RegisterRDSDBInstance)
-{-# DEPRECATED rrdiStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The Amazon RDS instance's ARN.
 --
@@ -103,6 +94,13 @@ rrdiRDSDBInstanceARN = Lens.lens (rdsDBInstanceARN :: RegisterRDSDBInstance -> L
 rrdiDBUser :: Lens.Lens' RegisterRDSDBInstance Lude.Text
 rrdiDBUser = Lens.lens (dbUser :: RegisterRDSDBInstance -> Lude.Text) (\s a -> s {dbUser = a} :: RegisterRDSDBInstance)
 {-# DEPRECATED rrdiDBUser "Use generic-lens or generic-optics with 'dbUser' instead." #-}
+
+-- | The stack ID.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrdiStackId :: Lens.Lens' RegisterRDSDBInstance Lude.Text
+rrdiStackId = Lens.lens (stackId :: RegisterRDSDBInstance -> Lude.Text) (\s a -> s {stackId = a} :: RegisterRDSDBInstance)
+{-# DEPRECATED rrdiStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The database password.
 --
@@ -131,9 +129,9 @@ instance Lude.ToJSON RegisterRDSDBInstance where
   toJSON RegisterRDSDBInstance' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("StackId" Lude..= stackId),
-            Lude.Just ("RdsDbInstanceArn" Lude..= rdsDBInstanceARN),
+          [ Lude.Just ("RdsDbInstanceArn" Lude..= rdsDBInstanceARN),
             Lude.Just ("DbUser" Lude..= dbUser),
+            Lude.Just ("StackId" Lude..= stackId),
             Lude.Just ("DbPassword" Lude..= dbPassword)
           ]
       )
@@ -146,13 +144,7 @@ instance Lude.ToQuery RegisterRDSDBInstance where
 
 -- | /See:/ 'mkRegisterRDSDBInstanceResponse' smart constructor.
 data RegisterRDSDBInstanceResponse = RegisterRDSDBInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterRDSDBInstanceResponse' with the minimum fields required to make a request.

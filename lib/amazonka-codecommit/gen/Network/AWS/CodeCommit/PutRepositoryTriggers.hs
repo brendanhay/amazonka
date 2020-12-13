@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeCommit.PutRepositoryTriggers
     mkPutRepositoryTriggers,
 
     -- ** Request lenses
-    pRepositoryName,
     pTriggers,
+    pRepositoryName,
 
     -- * Destructuring the response
     PutRepositoryTriggersResponse (..),
@@ -42,39 +43,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPutRepositoryTriggers' smart constructor.
 data PutRepositoryTriggers = PutRepositoryTriggers'
-  { repositoryName ::
-      Lude.Text,
-    triggers :: [RepositoryTrigger]
+  { -- | The JSON block of configuration information for each trigger.
+    triggers :: [RepositoryTrigger],
+    -- | The name of the repository where you want to create or update the trigger.
+    repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRepositoryTriggers' with the minimum fields required to make a request.
 --
--- * 'repositoryName' - The name of the repository where you want to create or update the trigger.
 -- * 'triggers' - The JSON block of configuration information for each trigger.
+-- * 'repositoryName' - The name of the repository where you want to create or update the trigger.
 mkPutRepositoryTriggers ::
   -- | 'repositoryName'
   Lude.Text ->
   PutRepositoryTriggers
 mkPutRepositoryTriggers pRepositoryName_ =
   PutRepositoryTriggers'
-    { repositoryName = pRepositoryName_,
-      triggers = Lude.mempty
+    { triggers = Lude.mempty,
+      repositoryName = pRepositoryName_
     }
-
--- | The name of the repository where you want to create or update the trigger.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pRepositoryName :: Lens.Lens' PutRepositoryTriggers Lude.Text
-pRepositoryName = Lens.lens (repositoryName :: PutRepositoryTriggers -> Lude.Text) (\s a -> s {repositoryName = a} :: PutRepositoryTriggers)
-{-# DEPRECATED pRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The JSON block of configuration information for each trigger.
 --
@@ -82,6 +71,13 @@ pRepositoryName = Lens.lens (repositoryName :: PutRepositoryTriggers -> Lude.Tex
 pTriggers :: Lens.Lens' PutRepositoryTriggers [RepositoryTrigger]
 pTriggers = Lens.lens (triggers :: PutRepositoryTriggers -> [RepositoryTrigger]) (\s a -> s {triggers = a} :: PutRepositoryTriggers)
 {-# DEPRECATED pTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
+
+-- | The name of the repository where you want to create or update the trigger.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pRepositoryName :: Lens.Lens' PutRepositoryTriggers Lude.Text
+pRepositoryName = Lens.lens (repositoryName :: PutRepositoryTriggers -> Lude.Text) (\s a -> s {repositoryName = a} :: PutRepositoryTriggers)
+{-# DEPRECATED pRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Lude.AWSRequest PutRepositoryTriggers where
   type Rs PutRepositoryTriggers = PutRepositoryTriggersResponse
@@ -109,8 +105,8 @@ instance Lude.ToJSON PutRepositoryTriggers where
   toJSON PutRepositoryTriggers' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("triggers" Lude..= triggers)
+          [ Lude.Just ("triggers" Lude..= triggers),
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
@@ -124,17 +120,12 @@ instance Lude.ToQuery PutRepositoryTriggers where
 --
 -- /See:/ 'mkPutRepositoryTriggersResponse' smart constructor.
 data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
-  { configurationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The system-generated unique ID for the create or update operation.
+    configurationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRepositoryTriggersResponse' with the minimum fields required to make a request.

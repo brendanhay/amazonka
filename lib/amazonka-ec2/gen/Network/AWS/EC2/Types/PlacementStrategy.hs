@@ -14,8 +14,8 @@ module Network.AWS.EC2.Types.PlacementStrategy
   ( PlacementStrategy
       ( PlacementStrategy',
         Cluster,
-        Partition,
-        Spread
+        Spread,
+        Partition
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype PlacementStrategy = PlacementStrategy' Lude.Text
 pattern Cluster :: PlacementStrategy
 pattern Cluster = PlacementStrategy' "cluster"
 
-pattern Partition :: PlacementStrategy
-pattern Partition = PlacementStrategy' "partition"
-
 pattern Spread :: PlacementStrategy
 pattern Spread = PlacementStrategy' "spread"
 
+pattern Partition :: PlacementStrategy
+pattern Partition = PlacementStrategy' "partition"
+
 {-# COMPLETE
   Cluster,
-  Partition,
   Spread,
+  Partition,
   PlacementStrategy'
   #-}

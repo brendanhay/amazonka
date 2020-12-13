@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     mkCreateClusterParameterGroup,
 
     -- ** Request lenses
-    ccpgTags,
-    ccpgParameterGroupName,
     ccpgParameterGroupFamily,
     ccpgDescription,
+    ccpgTags,
+    ccpgParameterGroupName,
 
     -- * Destructuring the response
     CreateClusterParameterGroupResponse (..),
@@ -47,27 +48,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateClusterParameterGroup' smart constructor.
 data CreateClusterParameterGroup = CreateClusterParameterGroup'
-  { tags ::
-      Lude.Maybe [Tag],
-    parameterGroupName :: Lude.Text,
+  { -- | The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+    --
+    -- To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups' . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0".
     parameterGroupFamily :: Lude.Text,
-    description :: Lude.Text
+    -- | A description of the parameter group.
+    description :: Lude.Text,
+    -- | A list of tag instances.
+    tags :: Lude.Maybe [Tag],
+    -- | The name of the cluster parameter group.
+    --
+    -- Constraints:
+    --
+    --     * Must be 1 to 255 alphanumeric characters or hyphens
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Cannot end with a hyphen or contain two consecutive hyphens.
+    --
+    --
+    --     * Must be unique withing your AWS account.
+    parameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterParameterGroup' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the parameter group.
 -- * 'parameterGroupFamily' - The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
 --
 -- To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups' . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0".
+-- * 'description' - A description of the parameter group.
+-- * 'tags' - A list of tag instances.
 -- * 'parameterGroupName' - The name of the cluster parameter group.
 --
 -- Constraints:
@@ -82,27 +96,41 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup'
 --
 --
 --     * Must be unique withing your AWS account.
---
---
--- * 'tags' - A list of tag instances.
 mkCreateClusterParameterGroup ::
-  -- | 'parameterGroupName'
-  Lude.Text ->
   -- | 'parameterGroupFamily'
   Lude.Text ->
   -- | 'description'
   Lude.Text ->
+  -- | 'parameterGroupName'
+  Lude.Text ->
   CreateClusterParameterGroup
 mkCreateClusterParameterGroup
-  pParameterGroupName_
   pParameterGroupFamily_
-  pDescription_ =
+  pDescription_
+  pParameterGroupName_ =
     CreateClusterParameterGroup'
-      { tags = Lude.Nothing,
-        parameterGroupName = pParameterGroupName_,
-        parameterGroupFamily = pParameterGroupFamily_,
-        description = pDescription_
+      { parameterGroupFamily =
+          pParameterGroupFamily_,
+        description = pDescription_,
+        tags = Lude.Nothing,
+        parameterGroupName = pParameterGroupName_
       }
+
+-- | The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+--
+-- To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups' . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0".
+--
+-- /Note:/ Consider using 'parameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpgParameterGroupFamily :: Lens.Lens' CreateClusterParameterGroup Lude.Text
+ccpgParameterGroupFamily = Lens.lens (parameterGroupFamily :: CreateClusterParameterGroup -> Lude.Text) (\s a -> s {parameterGroupFamily = a} :: CreateClusterParameterGroup)
+{-# DEPRECATED ccpgParameterGroupFamily "Use generic-lens or generic-optics with 'parameterGroupFamily' instead." #-}
+
+-- | A description of the parameter group.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpgDescription :: Lens.Lens' CreateClusterParameterGroup Lude.Text
+ccpgDescription = Lens.lens (description :: CreateClusterParameterGroup -> Lude.Text) (\s a -> s {description = a} :: CreateClusterParameterGroup)
+{-# DEPRECATED ccpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of tag instances.
 --
@@ -133,22 +161,6 @@ ccpgParameterGroupName :: Lens.Lens' CreateClusterParameterGroup Lude.Text
 ccpgParameterGroupName = Lens.lens (parameterGroupName :: CreateClusterParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: CreateClusterParameterGroup)
 {-# DEPRECATED ccpgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
--- | The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
---
--- To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups' . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0".
---
--- /Note:/ Consider using 'parameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpgParameterGroupFamily :: Lens.Lens' CreateClusterParameterGroup Lude.Text
-ccpgParameterGroupFamily = Lens.lens (parameterGroupFamily :: CreateClusterParameterGroup -> Lude.Text) (\s a -> s {parameterGroupFamily = a} :: CreateClusterParameterGroup)
-{-# DEPRECATED ccpgParameterGroupFamily "Use generic-lens or generic-optics with 'parameterGroupFamily' instead." #-}
-
--- | A description of the parameter group.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpgDescription :: Lens.Lens' CreateClusterParameterGroup Lude.Text
-ccpgDescription = Lens.lens (description :: CreateClusterParameterGroup -> Lude.Text) (\s a -> s {description = a} :: CreateClusterParameterGroup)
-{-# DEPRECATED ccpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 instance Lude.AWSRequest CreateClusterParameterGroup where
   type
     Rs CreateClusterParameterGroup =
@@ -175,32 +187,24 @@ instance Lude.ToQuery CreateClusterParameterGroup where
       [ "Action"
           Lude.=: ("CreateClusterParameterGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
-        "ParameterGroupName" Lude.=: parameterGroupName,
         "ParameterGroupFamily" Lude.=: parameterGroupFamily,
-        "Description" Lude.=: description
+        "Description" Lude.=: description,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "ParameterGroupName" Lude.=: parameterGroupName
       ]
 
 -- | /See:/ 'mkCreateClusterParameterGroupResponse' smart constructor.
 data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
-  { clusterParameterGroup ::
-      Lude.Maybe
-        ClusterParameterGroup,
-    responseStatus ::
-      Lude.Int
+  { clusterParameterGroup :: Lude.Maybe ClusterParameterGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterParameterGroupResponse' with the minimum fields required to make a request.
 --
--- * 'clusterParameterGroup' - Undocumented field.
+-- * 'clusterParameterGroup' -
 -- * 'responseStatus' - The response status code.
 mkCreateClusterParameterGroupResponse ::
   -- | 'responseStatus'

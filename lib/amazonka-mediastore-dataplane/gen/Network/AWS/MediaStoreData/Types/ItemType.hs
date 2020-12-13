@@ -13,8 +13,8 @@
 module Network.AWS.MediaStoreData.Types.ItemType
   ( ItemType
       ( ItemType',
-        TypeFolder,
-        TypeObject
+        TypeObject,
+        TypeFolder
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ItemType = ItemType' Lude.Text
       Lude.ToHeader
     )
 
-pattern TypeFolder :: ItemType
-pattern TypeFolder = ItemType' "FOLDER"
-
 pattern TypeObject :: ItemType
 pattern TypeObject = ItemType' "OBJECT"
 
+pattern TypeFolder :: ItemType
+pattern TypeFolder = ItemType' "FOLDER"
+
 {-# COMPLETE
-  TypeFolder,
   TypeObject,
+  TypeFolder,
   ItemType'
   #-}

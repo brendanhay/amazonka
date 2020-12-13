@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,24 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeRetentionConfigurations' smart constructor.
 data DescribeRetentionConfigurations = DescribeRetentionConfigurations'
-  { retentionConfigurationNames ::
-      Lude.Maybe [Lude.Text],
-    nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | A list of names of retention configurations for which you want details. If you do not specify a name, AWS Config returns details for all the retention configurations for that account.
+    retentionConfigurationNames :: Lude.Maybe [Lude.Text],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRetentionConfigurations' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'retentionConfigurationNames' - A list of names of retention configurations for which you want details. If you do not specify a name, AWS Config returns details for all the retention configurations for that account.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 mkDescribeRetentionConfigurations ::
   DescribeRetentionConfigurations
 mkDescribeRetentionConfigurations =
@@ -139,29 +134,21 @@ instance Lude.ToQuery DescribeRetentionConfigurations where
 
 -- | /See:/ 'mkDescribeRetentionConfigurationsResponse' smart constructor.
 data DescribeRetentionConfigurationsResponse = DescribeRetentionConfigurationsResponse'
-  { retentionConfigurations ::
-      Lude.Maybe
-        [RetentionConfiguration],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a retention configuration object.
+    retentionConfigurations :: Lude.Maybe [RetentionConfiguration],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRetentionConfigurationsResponse' with the minimum fields required to make a request.
 --
+-- * 'retentionConfigurations' - Returns a retention configuration object.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'responseStatus' - The response status code.
--- * 'retentionConfigurations' - Returns a retention configuration object.
 mkDescribeRetentionConfigurationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -17,9 +17,9 @@ module Network.AWS.MediaLive.Types.UdpOutputSettings
     mkUdpOutputSettings,
 
     -- * Lenses
+    uosDestination,
     uosFecOutputSettings,
     uosBufferMsec,
-    uosDestination,
     uosContainerSettings,
   )
 where
@@ -34,27 +34,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUdpOutputSettings' smart constructor.
 data UdpOutputSettings = UdpOutputSettings'
-  { fecOutputSettings ::
-      Lude.Maybe FecOutputSettings,
-    bufferMsec :: Lude.Maybe Lude.Natural,
+  { -- | Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
     destination :: OutputLocationRef,
+    -- | Settings for enabling and adjusting Forward Error Correction on UDP outputs.
+    fecOutputSettings :: Lude.Maybe FecOutputSettings,
+    -- | UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
+    bufferMsec :: Lude.Maybe Lude.Natural,
     containerSettings :: UdpContainerSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UdpOutputSettings' with the minimum fields required to make a request.
 --
--- * 'bufferMsec' - UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
--- * 'containerSettings' - Undocumented field.
 -- * 'destination' - Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
 -- * 'fecOutputSettings' - Settings for enabling and adjusting Forward Error Correction on UDP outputs.
+-- * 'bufferMsec' - UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
+-- * 'containerSettings' -
 mkUdpOutputSettings ::
   -- | 'destination'
   OutputLocationRef ->
@@ -63,11 +59,18 @@ mkUdpOutputSettings ::
   UdpOutputSettings
 mkUdpOutputSettings pDestination_ pContainerSettings_ =
   UdpOutputSettings'
-    { fecOutputSettings = Lude.Nothing,
+    { destination = pDestination_,
+      fecOutputSettings = Lude.Nothing,
       bufferMsec = Lude.Nothing,
-      destination = pDestination_,
       containerSettings = pContainerSettings_
     }
+
+-- | Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uosDestination :: Lens.Lens' UdpOutputSettings OutputLocationRef
+uosDestination = Lens.lens (destination :: UdpOutputSettings -> OutputLocationRef) (\s a -> s {destination = a} :: UdpOutputSettings)
+{-# DEPRECATED uosDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | Settings for enabling and adjusting Forward Error Correction on UDP outputs.
 --
@@ -83,13 +86,6 @@ uosBufferMsec :: Lens.Lens' UdpOutputSettings (Lude.Maybe Lude.Natural)
 uosBufferMsec = Lens.lens (bufferMsec :: UdpOutputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {bufferMsec = a} :: UdpOutputSettings)
 {-# DEPRECATED uosBufferMsec "Use generic-lens or generic-optics with 'bufferMsec' instead." #-}
 
--- | Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uosDestination :: Lens.Lens' UdpOutputSettings OutputLocationRef
-uosDestination = Lens.lens (destination :: UdpOutputSettings -> OutputLocationRef) (\s a -> s {destination = a} :: UdpOutputSettings)
-{-# DEPRECATED uosDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'containerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -103,9 +99,9 @@ instance Lude.FromJSON UdpOutputSettings where
       "UdpOutputSettings"
       ( \x ->
           UdpOutputSettings'
-            Lude.<$> (x Lude..:? "fecOutputSettings")
+            Lude.<$> (x Lude..: "destination")
+            Lude.<*> (x Lude..:? "fecOutputSettings")
             Lude.<*> (x Lude..:? "bufferMsec")
-            Lude.<*> (x Lude..: "destination")
             Lude.<*> (x Lude..: "containerSettings")
       )
 
@@ -113,9 +109,9 @@ instance Lude.ToJSON UdpOutputSettings where
   toJSON UdpOutputSettings' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("fecOutputSettings" Lude..=) Lude.<$> fecOutputSettings,
+          [ Lude.Just ("destination" Lude..= destination),
+            ("fecOutputSettings" Lude..=) Lude.<$> fecOutputSettings,
             ("bufferMsec" Lude..=) Lude.<$> bufferMsec,
-            Lude.Just ("destination" Lude..= destination),
             Lude.Just ("containerSettings" Lude..= containerSettings)
           ]
       )

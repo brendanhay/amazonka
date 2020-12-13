@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDocumentLabel' smart constructor.
 data DocumentLabel = DocumentLabel'
-  { score ::
-      Lude.Maybe Lude.Double,
+  { -- | The confidence score that Amazon Comprehend has this label correctly attributed.
+    score :: Lude.Maybe Lude.Double,
+    -- | The name of the label.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentLabel' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the label.
 -- * 'score' - The confidence score that Amazon Comprehend has this label correctly attributed.
+-- * 'name' - The name of the label.
 mkDocumentLabel ::
   DocumentLabel
 mkDocumentLabel =

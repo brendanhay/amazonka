@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,11 +36,11 @@ module Network.AWS.KMS.Sign
     mkSign,
 
     -- ** Request lenses
+    sSigningAlgorithm,
+    sKeyId,
     sMessageType,
     sGrantTokens,
-    sKeyId,
     sMessage,
-    sSigningAlgorithm,
 
     -- * Destructuring the response
     SignResponse (..),
@@ -61,20 +62,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSign' smart constructor.
 data Sign = Sign'
-  { messageType :: Lude.Maybe MessageType,
-    grantTokens :: Lude.Maybe [Lude.Text],
+  { -- | Specifies the signing algorithm to use when signing the message.
+    --
+    -- Choose an algorithm that is compatible with the type and size of the specified asymmetric CMK.
+    signingAlgorithm :: SigningAlgorithmSpec,
+    -- | Identifies an asymmetric CMK. AWS KMS uses the private key in the asymmetric CMK to sign the message. The @KeyUsage@ type of the CMK must be @SIGN_VERIFY@ . To find the @KeyUsage@ of a CMK, use the 'DescribeKey' operation.
+    --
+    -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Alias name: @alias/ExampleAlias@
+    --
+    --
+    --     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
     keyId :: Lude.Text,
-    message :: Lude.Sensitive Lude.Base64,
-    signingAlgorithm :: SigningAlgorithmSpec
+    -- | Tells AWS KMS whether the value of the @Message@ parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter @DIGEST@ .
+    messageType :: Lude.Maybe MessageType,
+    -- | A list of grant tokens.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+    grantTokens :: Lude.Maybe [Lude.Text],
+    -- | Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide the message digest.
+    --
+    -- If you provide a message, AWS KMS generates a hash digest of the message and then signs it.
+    message :: Lude.Sensitive Lude.Base64
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Sign' with the minimum fields required to make a request.
 --
--- * 'grantTokens' - A list of grant tokens.
+-- * 'signingAlgorithm' - Specifies the signing algorithm to use when signing the message.
 --
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+-- Choose an algorithm that is compatible with the type and size of the specified asymmetric CMK.
 -- * 'keyId' - Identifies an asymmetric CMK. AWS KMS uses the private key in the asymmetric CMK to sign the message. The @KeyUsage@ type of the CMK must be @SIGN_VERIFY@ . To find the @KeyUsage@ of a CMK, use the 'DescribeKey' operation.
 --
 -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
@@ -93,49 +122,38 @@ data Sign = Sign'
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
+-- * 'messageType' - Tells AWS KMS whether the value of the @Message@ parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter @DIGEST@ .
+-- * 'grantTokens' - A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 -- * 'message' - Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide the message digest.
 --
--- If you provide a message, AWS KMS generates a hash digest of the message and then signs it.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'messageType' - Tells AWS KMS whether the value of the @Message@ parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter @DIGEST@ .
--- * 'signingAlgorithm' - Specifies the signing algorithm to use when signing the message.
---
--- Choose an algorithm that is compatible with the type and size of the specified asymmetric CMK.
+-- If you provide a message, AWS KMS generates a hash digest of the message and then signs it.
 mkSign ::
+  -- | 'signingAlgorithm'
+  SigningAlgorithmSpec ->
   -- | 'keyId'
   Lude.Text ->
   -- | 'message'
   Lude.Sensitive Lude.Base64 ->
-  -- | 'signingAlgorithm'
-  SigningAlgorithmSpec ->
   Sign
-mkSign pKeyId_ pMessage_ pSigningAlgorithm_ =
+mkSign pSigningAlgorithm_ pKeyId_ pMessage_ =
   Sign'
-    { messageType = Lude.Nothing,
-      grantTokens = Lude.Nothing,
+    { signingAlgorithm = pSigningAlgorithm_,
       keyId = pKeyId_,
-      message = pMessage_,
-      signingAlgorithm = pSigningAlgorithm_
+      messageType = Lude.Nothing,
+      grantTokens = Lude.Nothing,
+      message = pMessage_
     }
 
--- | Tells AWS KMS whether the value of the @Message@ parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter @DIGEST@ .
+-- | Specifies the signing algorithm to use when signing the message.
 --
--- /Note:/ Consider using 'messageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sMessageType :: Lens.Lens' Sign (Lude.Maybe MessageType)
-sMessageType = Lens.lens (messageType :: Sign -> Lude.Maybe MessageType) (\s a -> s {messageType = a} :: Sign)
-{-# DEPRECATED sMessageType "Use generic-lens or generic-optics with 'messageType' instead." #-}
-
--- | A list of grant tokens.
+-- Choose an algorithm that is compatible with the type and size of the specified asymmetric CMK.
 --
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
---
--- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sGrantTokens :: Lens.Lens' Sign (Lude.Maybe [Lude.Text])
-sGrantTokens = Lens.lens (grantTokens :: Sign -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: Sign)
-{-# DEPRECATED sGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
+-- /Note:/ Consider using 'signingAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSigningAlgorithm :: Lens.Lens' Sign SigningAlgorithmSpec
+sSigningAlgorithm = Lens.lens (signingAlgorithm :: Sign -> SigningAlgorithmSpec) (\s a -> s {signingAlgorithm = a} :: Sign)
+{-# DEPRECATED sSigningAlgorithm "Use generic-lens or generic-optics with 'signingAlgorithm' instead." #-}
 
 -- | Identifies an asymmetric CMK. AWS KMS uses the private key in the asymmetric CMK to sign the message. The @KeyUsage@ type of the CMK must be @SIGN_VERIFY@ . To find the @KeyUsage@ of a CMK, use the 'DescribeKey' operation.
 --
@@ -161,6 +179,22 @@ sKeyId :: Lens.Lens' Sign Lude.Text
 sKeyId = Lens.lens (keyId :: Sign -> Lude.Text) (\s a -> s {keyId = a} :: Sign)
 {-# DEPRECATED sKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
+-- | Tells AWS KMS whether the value of the @Message@ parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter @DIGEST@ .
+--
+-- /Note:/ Consider using 'messageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMessageType :: Lens.Lens' Sign (Lude.Maybe MessageType)
+sMessageType = Lens.lens (messageType :: Sign -> Lude.Maybe MessageType) (\s a -> s {messageType = a} :: Sign)
+{-# DEPRECATED sMessageType "Use generic-lens or generic-optics with 'messageType' instead." #-}
+
+-- | A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sGrantTokens :: Lens.Lens' Sign (Lude.Maybe [Lude.Text])
+sGrantTokens = Lens.lens (grantTokens :: Sign -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: Sign)
+{-# DEPRECATED sGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
+
 -- | Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide the message digest.
 --
 -- If you provide a message, AWS KMS generates a hash digest of the message and then signs it.--
@@ -173,15 +207,6 @@ sKeyId = Lens.lens (keyId :: Sign -> Lude.Text) (\s a -> s {keyId = a} :: Sign)
 sMessage :: Lens.Lens' Sign (Lude.Sensitive Lude.Base64)
 sMessage = Lens.lens (message :: Sign -> Lude.Sensitive Lude.Base64) (\s a -> s {message = a} :: Sign)
 {-# DEPRECATED sMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | Specifies the signing algorithm to use when signing the message.
---
--- Choose an algorithm that is compatible with the type and size of the specified asymmetric CMK.
---
--- /Note:/ Consider using 'signingAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSigningAlgorithm :: Lens.Lens' Sign SigningAlgorithmSpec
-sSigningAlgorithm = Lens.lens (signingAlgorithm :: Sign -> SigningAlgorithmSpec) (\s a -> s {signingAlgorithm = a} :: Sign)
-{-# DEPRECATED sSigningAlgorithm "Use generic-lens or generic-optics with 'signingAlgorithm' instead." #-}
 
 instance Lude.AWSRequest Sign where
   type Rs Sign = SignResponse
@@ -210,11 +235,11 @@ instance Lude.ToJSON Sign where
   toJSON Sign' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("MessageType" Lude..=) Lude.<$> messageType,
-            ("GrantTokens" Lude..=) Lude.<$> grantTokens,
+          [ Lude.Just ("SigningAlgorithm" Lude..= signingAlgorithm),
             Lude.Just ("KeyId" Lude..= keyId),
-            Lude.Just ("Message" Lude..= message),
-            Lude.Just ("SigningAlgorithm" Lude..= signingAlgorithm)
+            ("MessageType" Lude..=) Lude.<$> messageType,
+            ("GrantTokens" Lude..=) Lude.<$> grantTokens,
+            Lude.Just ("Message" Lude..= message)
           ]
       )
 
@@ -226,25 +251,30 @@ instance Lude.ToQuery Sign where
 
 -- | /See:/ 'mkSignResponse' smart constructor.
 data SignResponse = SignResponse'
-  { signingAlgorithm ::
-      Lude.Maybe SigningAlgorithmSpec,
+  { -- | The signing algorithm that was used to sign the message.
+    signingAlgorithm :: Lude.Maybe SigningAlgorithmSpec,
+    -- | The cryptographic signature that was generated for the message.
+    --
+    --
+    --     * When used with the supported RSA signing algorithms, the encoding of this value is defined by <https://tools.ietf.org/html/rfc8017 PKCS #1 in RFC 8017> .
+    --
+    --
+    --     * When used with the @ECDSA_SHA_256@ , @ECDSA_SHA_384@ , or @ECDSA_SHA_512@ signing algorithms, this value is a DER-encoded object as defined by ANS X9.62–2005 and <https://tools.ietf.org/html/rfc3279#section-2.2.3 RFC 3279 Section 2.2.3> . This is the most commonly used signature format and is appropriate for most uses.
+    --
+    --
+    -- When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
     signature :: Lude.Maybe Lude.Base64,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK that was used to sign the message.
     keyId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SignResponse' with the minimum fields required to make a request.
 --
--- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK that was used to sign the message.
--- * 'responseStatus' - The response status code.
+-- * 'signingAlgorithm' - The signing algorithm that was used to sign the message.
 -- * 'signature' - The cryptographic signature that was generated for the message.
 --
 --
@@ -254,12 +284,9 @@ data SignResponse = SignResponse'
 --     * When used with the @ECDSA_SHA_256@ , @ECDSA_SHA_384@ , or @ECDSA_SHA_512@ signing algorithms, this value is a DER-encoded object as defined by ANS X9.62–2005 and <https://tools.ietf.org/html/rfc3279#section-2.2.3 RFC 3279 Section 2.2.3> . This is the most commonly used signature format and is appropriate for most uses.
 --
 --
--- When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'signingAlgorithm' - The signing algorithm that was used to sign the message.
+-- When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
+-- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK that was used to sign the message.
+-- * 'responseStatus' - The response status code.
 mkSignResponse ::
   -- | 'responseStatus'
   Lude.Int ->

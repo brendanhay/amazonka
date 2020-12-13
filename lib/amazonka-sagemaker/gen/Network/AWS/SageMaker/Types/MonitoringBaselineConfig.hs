@@ -31,18 +31,12 @@ import Network.AWS.SageMaker.Types.MonitoringStatisticsResource
 --
 -- /See:/ 'mkMonitoringBaselineConfig' smart constructor.
 data MonitoringBaselineConfig = MonitoringBaselineConfig'
-  { constraintsResource ::
-      Lude.Maybe MonitoringConstraintsResource,
-    statisticsResource ::
-      Lude.Maybe MonitoringStatisticsResource
+  { -- | The baseline constraint file in Amazon S3 that the current monitoring job should validated against.
+    constraintsResource :: Lude.Maybe MonitoringConstraintsResource,
+    -- | The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
+    statisticsResource :: Lude.Maybe MonitoringStatisticsResource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringBaselineConfig' with the minimum fields required to make a request.

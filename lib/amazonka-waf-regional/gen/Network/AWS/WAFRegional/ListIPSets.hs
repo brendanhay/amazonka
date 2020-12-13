@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,22 +42,18 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkListIPSets' smart constructor.
 data ListIPSets = ListIPSets'
-  { nextMarker :: Lude.Maybe Lude.Text,
+  { -- | AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @IPSets@ . For the second and subsequent @ListIPSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @IPSets@ .
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIPSets' with the minimum fields required to make a request.
 --
--- * 'limit' - Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
 -- * 'nextMarker' - AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @IPSets@ . For the second and subsequent @ListIPSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @IPSets@ .
+-- * 'limit' - Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
 mkListIPSets ::
   ListIPSets
 mkListIPSets =
@@ -116,24 +113,20 @@ instance Lude.ToQuery ListIPSets where
 
 -- | /See:/ 'mkListIPSetsResponse' smart constructor.
 data ListIPSetsResponse = ListIPSetsResponse'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | To list more @IPSet@ objects, submit another @ListIPSets@ request, and in the next request use the @NextMarker@ response value as the @NextMarker@ value.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | An array of 'IPSetSummary' objects.
     ipSets :: Lude.Maybe [IPSetSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIPSetsResponse' with the minimum fields required to make a request.
 --
--- * 'ipSets' - An array of 'IPSetSummary' objects.
 -- * 'nextMarker' - To list more @IPSet@ objects, submit another @ListIPSets@ request, and in the next request use the @NextMarker@ response value as the @NextMarker@ value.
+-- * 'ipSets' - An array of 'IPSetSummary' objects.
 -- * 'responseStatus' - The response status code.
 mkListIPSetsResponse ::
   -- | 'responseStatus'

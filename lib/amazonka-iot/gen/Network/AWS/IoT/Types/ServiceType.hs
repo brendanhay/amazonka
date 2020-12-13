@@ -13,8 +13,8 @@
 module Network.AWS.IoT.Types.ServiceType
   ( ServiceType
       ( ServiceType',
-        CredentialProvider,
         Data,
+        CredentialProvider,
         Jobs
       ),
   )
@@ -46,18 +46,18 @@ newtype ServiceType = ServiceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CredentialProvider :: ServiceType
-pattern CredentialProvider = ServiceType' "CREDENTIAL_PROVIDER"
-
 pattern Data :: ServiceType
 pattern Data = ServiceType' "DATA"
+
+pattern CredentialProvider :: ServiceType
+pattern CredentialProvider = ServiceType' "CREDENTIAL_PROVIDER"
 
 pattern Jobs :: ServiceType
 pattern Jobs = ServiceType' "JOBS"
 
 {-# COMPLETE
-  CredentialProvider,
   Data,
+  CredentialProvider,
   Jobs,
   ServiceType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.CodePipeline.RetryStageExecution
 
     -- ** Request lenses
     rsePipelineName,
-    rseStageName,
-    rsePipelineExecutionId,
     rseRetryMode,
+    rsePipelineExecutionId,
+    rseStageName,
 
     -- * Destructuring the response
     RetryStageExecutionResponse (..),
@@ -44,47 +45,44 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRetryStageExecution' smart constructor.
 data RetryStageExecution = RetryStageExecution'
-  { pipelineName ::
-      Lude.Text,
-    stageName :: Lude.Text,
+  { -- | The name of the pipeline that contains the failed stage.
+    pipelineName :: Lude.Text,
+    -- | The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.
+    retryMode :: StageRetryMode,
+    -- | The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
     pipelineExecutionId :: Lude.Text,
-    retryMode :: StageRetryMode
+    -- | The name of the failed stage to be retried.
+    stageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryStageExecution' with the minimum fields required to make a request.
 --
--- * 'pipelineExecutionId' - The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
 -- * 'pipelineName' - The name of the pipeline that contains the failed stage.
 -- * 'retryMode' - The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.
+-- * 'pipelineExecutionId' - The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
 -- * 'stageName' - The name of the failed stage to be retried.
 mkRetryStageExecution ::
   -- | 'pipelineName'
   Lude.Text ->
-  -- | 'stageName'
-  Lude.Text ->
-  -- | 'pipelineExecutionId'
-  Lude.Text ->
   -- | 'retryMode'
   StageRetryMode ->
+  -- | 'pipelineExecutionId'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
   RetryStageExecution
 mkRetryStageExecution
   pPipelineName_
-  pStageName_
+  pRetryMode_
   pPipelineExecutionId_
-  pRetryMode_ =
+  pStageName_ =
     RetryStageExecution'
       { pipelineName = pPipelineName_,
-        stageName = pStageName_,
+        retryMode = pRetryMode_,
         pipelineExecutionId = pPipelineExecutionId_,
-        retryMode = pRetryMode_
+        stageName = pStageName_
       }
 
 -- | The name of the pipeline that contains the failed stage.
@@ -94,12 +92,12 @@ rsePipelineName :: Lens.Lens' RetryStageExecution Lude.Text
 rsePipelineName = Lens.lens (pipelineName :: RetryStageExecution -> Lude.Text) (\s a -> s {pipelineName = a} :: RetryStageExecution)
 {-# DEPRECATED rsePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
--- | The name of the failed stage to be retried.
+-- | The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.
 --
--- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rseStageName :: Lens.Lens' RetryStageExecution Lude.Text
-rseStageName = Lens.lens (stageName :: RetryStageExecution -> Lude.Text) (\s a -> s {stageName = a} :: RetryStageExecution)
-{-# DEPRECATED rseStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
+-- /Note:/ Consider using 'retryMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rseRetryMode :: Lens.Lens' RetryStageExecution StageRetryMode
+rseRetryMode = Lens.lens (retryMode :: RetryStageExecution -> StageRetryMode) (\s a -> s {retryMode = a} :: RetryStageExecution)
+{-# DEPRECATED rseRetryMode "Use generic-lens or generic-optics with 'retryMode' instead." #-}
 
 -- | The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
 --
@@ -108,12 +106,12 @@ rsePipelineExecutionId :: Lens.Lens' RetryStageExecution Lude.Text
 rsePipelineExecutionId = Lens.lens (pipelineExecutionId :: RetryStageExecution -> Lude.Text) (\s a -> s {pipelineExecutionId = a} :: RetryStageExecution)
 {-# DEPRECATED rsePipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
--- | The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.
+-- | The name of the failed stage to be retried.
 --
--- /Note:/ Consider using 'retryMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rseRetryMode :: Lens.Lens' RetryStageExecution StageRetryMode
-rseRetryMode = Lens.lens (retryMode :: RetryStageExecution -> StageRetryMode) (\s a -> s {retryMode = a} :: RetryStageExecution)
-{-# DEPRECATED rseRetryMode "Use generic-lens or generic-optics with 'retryMode' instead." #-}
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rseStageName :: Lens.Lens' RetryStageExecution Lude.Text
+rseStageName = Lens.lens (stageName :: RetryStageExecution -> Lude.Text) (\s a -> s {stageName = a} :: RetryStageExecution)
+{-# DEPRECATED rseStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 instance Lude.AWSRequest RetryStageExecution where
   type Rs RetryStageExecution = RetryStageExecutionResponse
@@ -142,9 +140,9 @@ instance Lude.ToJSON RetryStageExecution where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("pipelineName" Lude..= pipelineName),
-            Lude.Just ("stageName" Lude..= stageName),
+            Lude.Just ("retryMode" Lude..= retryMode),
             Lude.Just ("pipelineExecutionId" Lude..= pipelineExecutionId),
-            Lude.Just ("retryMode" Lude..= retryMode)
+            Lude.Just ("stageName" Lude..= stageName)
           ]
       )
 
@@ -158,17 +156,12 @@ instance Lude.ToQuery RetryStageExecution where
 --
 -- /See:/ 'mkRetryStageExecutionResponse' smart constructor.
 data RetryStageExecutionResponse = RetryStageExecutionResponse'
-  { pipelineExecutionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the current workflow execution in the failed stage.
+    pipelineExecutionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryStageExecutionResponse' with the minimum fields required to make a request.

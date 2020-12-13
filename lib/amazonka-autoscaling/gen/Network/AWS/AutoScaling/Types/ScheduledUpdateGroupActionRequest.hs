@@ -18,12 +18,12 @@ module Network.AWS.AutoScaling.Types.ScheduledUpdateGroupActionRequest
 
     -- * Lenses
     sugarStartTime,
+    sugarScheduledActionName,
     sugarMaxSize,
     sugarRecurrence,
     sugarDesiredCapacity,
     sugarMinSize,
     sugarEndTime,
-    sugarScheduledActionName,
   )
 where
 
@@ -36,46 +36,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledUpdateGroupActionRequest' smart constructor.
 data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
-  { startTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    maxSize ::
-      Lude.Maybe Lude.Int,
-    recurrence ::
-      Lude.Maybe Lude.Text,
-    desiredCapacity ::
-      Lude.Maybe Lude.Int,
-    minSize ::
-      Lude.Maybe Lude.Int,
-    endTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    scheduledActionName ::
-      Lude.Text
+  { -- | The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only and in quotes (for example, @"2019-06-01T00:00:00Z"@ ).
+    --
+    -- If you specify @Recurrence@ and @StartTime@ , Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence.
+    -- If you try to schedule the action in the past, Amazon EC2 Auto Scaling returns an error message.
+    startTime :: Lude.Maybe Lude.DateTime,
+    -- | The name of the scaling action.
+    scheduledActionName :: Lude.Text,
+    -- | The maximum size of the Auto Scaling group.
+    maxSize :: Lude.Maybe Lude.Int,
+    -- | The recurring schedule for the action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, @"30 0 1 1,6,12 *"@ ). For more information about this format, see <http://crontab.org Crontab> .
+    --
+    -- When @StartTime@ and @EndTime@ are specified with @Recurrence@ , they form the boundaries of when the recurring action starts and stops.
+    recurrence :: Lude.Maybe Lude.Text,
+    -- | The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+    desiredCapacity :: Lude.Maybe Lude.Int,
+    -- | The minimum size of the Auto Scaling group.
+    minSize :: Lude.Maybe Lude.Int,
+    -- | The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time.
+    endTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledUpdateGroupActionRequest' with the minimum fields required to make a request.
 --
--- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
--- * 'endTime' - The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time.
--- * 'maxSize' - The maximum size of the Auto Scaling group.
--- * 'minSize' - The minimum size of the Auto Scaling group.
--- * 'recurrence' - The recurring schedule for the action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, @"30 0 1 1,6,12 *"@ ). For more information about this format, see <http://crontab.org Crontab> .
---
--- When @StartTime@ and @EndTime@ are specified with @Recurrence@ , they form the boundaries of when the recurring action starts and stops.
--- * 'scheduledActionName' - The name of the scaling action.
 -- * 'startTime' - The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only and in quotes (for example, @"2019-06-01T00:00:00Z"@ ).
 --
 -- If you specify @Recurrence@ and @StartTime@ , Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence.
 -- If you try to schedule the action in the past, Amazon EC2 Auto Scaling returns an error message.
+-- * 'scheduledActionName' - The name of the scaling action.
+-- * 'maxSize' - The maximum size of the Auto Scaling group.
+-- * 'recurrence' - The recurring schedule for the action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, @"30 0 1 1,6,12 *"@ ). For more information about this format, see <http://crontab.org Crontab> .
+--
+-- When @StartTime@ and @EndTime@ are specified with @Recurrence@ , they form the boundaries of when the recurring action starts and stops.
+-- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+-- * 'minSize' - The minimum size of the Auto Scaling group.
+-- * 'endTime' - The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time.
 mkScheduledUpdateGroupActionRequest ::
   -- | 'scheduledActionName'
   Lude.Text ->
@@ -83,12 +80,12 @@ mkScheduledUpdateGroupActionRequest ::
 mkScheduledUpdateGroupActionRequest pScheduledActionName_ =
   ScheduledUpdateGroupActionRequest'
     { startTime = Lude.Nothing,
+      scheduledActionName = pScheduledActionName_,
       maxSize = Lude.Nothing,
       recurrence = Lude.Nothing,
       desiredCapacity = Lude.Nothing,
       minSize = Lude.Nothing,
-      endTime = Lude.Nothing,
-      scheduledActionName = pScheduledActionName_
+      endTime = Lude.Nothing
     }
 
 -- | The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only and in quotes (for example, @"2019-06-01T00:00:00Z"@ ).
@@ -100,6 +97,13 @@ mkScheduledUpdateGroupActionRequest pScheduledActionName_ =
 sugarStartTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Lude.Maybe Lude.DateTime)
 sugarStartTime = Lens.lens (startTime :: ScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ScheduledUpdateGroupActionRequest)
 {-# DEPRECATED sugarStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The name of the scaling action.
+--
+-- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sugarScheduledActionName :: Lens.Lens' ScheduledUpdateGroupActionRequest Lude.Text
+sugarScheduledActionName = Lens.lens (scheduledActionName :: ScheduledUpdateGroupActionRequest -> Lude.Text) (\s a -> s {scheduledActionName = a} :: ScheduledUpdateGroupActionRequest)
+{-# DEPRECATED sugarScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
 -- | The maximum size of the Auto Scaling group.
 --
@@ -138,21 +142,14 @@ sugarEndTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Lude.Maybe Lude.Da
 sugarEndTime = Lens.lens (endTime :: ScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: ScheduledUpdateGroupActionRequest)
 {-# DEPRECATED sugarEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
--- | The name of the scaling action.
---
--- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sugarScheduledActionName :: Lens.Lens' ScheduledUpdateGroupActionRequest Lude.Text
-sugarScheduledActionName = Lens.lens (scheduledActionName :: ScheduledUpdateGroupActionRequest -> Lude.Text) (\s a -> s {scheduledActionName = a} :: ScheduledUpdateGroupActionRequest)
-{-# DEPRECATED sugarScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
-
 instance Lude.ToQuery ScheduledUpdateGroupActionRequest where
   toQuery ScheduledUpdateGroupActionRequest' {..} =
     Lude.mconcat
       [ "StartTime" Lude.=: startTime,
+        "ScheduledActionName" Lude.=: scheduledActionName,
         "MaxSize" Lude.=: maxSize,
         "Recurrence" Lude.=: recurrence,
         "DesiredCapacity" Lude.=: desiredCapacity,
         "MinSize" Lude.=: minSize,
-        "EndTime" Lude.=: endTime,
-        "ScheduledActionName" Lude.=: scheduledActionName
+        "EndTime" Lude.=: endTime
       ]

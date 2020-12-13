@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaVersionErrorItem' smart constructor.
 data SchemaVersionErrorItem = SchemaVersionErrorItem'
-  { versionNumber ::
-      Lude.Maybe Lude.Natural,
+  { -- | The version number of the schema.
+    versionNumber :: Lude.Maybe Lude.Natural,
+    -- | The details of the error for the schema version.
     errorDetails :: Lude.Maybe ErrorDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaVersionErrorItem' with the minimum fields required to make a request.
 --
--- * 'errorDetails' - The details of the error for the schema version.
 -- * 'versionNumber' - The version number of the schema.
+-- * 'errorDetails' - The details of the error for the schema version.
 mkSchemaVersionErrorItem ::
   SchemaVersionErrorItem
 mkSchemaVersionErrorItem =

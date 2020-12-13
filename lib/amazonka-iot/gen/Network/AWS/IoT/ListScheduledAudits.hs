@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListScheduledAudits' smart constructor.
 data ListScheduledAudits = ListScheduledAudits'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return at one time. The default is 25.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListScheduledAudits' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
 -- * 'nextToken' - The token for the next set of results.
+-- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
 mkListScheduledAudits ::
   ListScheduledAudits
 mkListScheduledAudits =
@@ -117,25 +113,21 @@ instance Lude.ToQuery ListScheduledAudits where
 
 -- | /See:/ 'mkListScheduledAuditsResponse' smart constructor.
 data ListScheduledAuditsResponse = ListScheduledAuditsResponse'
-  { scheduledAudits ::
-      Lude.Maybe [ScheduledAuditMetadata],
+  { -- | The list of scheduled audits.
+    scheduledAudits :: Lude.Maybe [ScheduledAuditMetadata],
+    -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListScheduledAuditsResponse' with the minimum fields required to make a request.
 --
+-- * 'scheduledAudits' - The list of scheduled audits.
 -- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
 -- * 'responseStatus' - The response status code.
--- * 'scheduledAudits' - The list of scheduled audits.
 mkListScheduledAuditsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

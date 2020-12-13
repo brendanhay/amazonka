@@ -13,8 +13,8 @@
 module Network.AWS.AppStream.Types.MessageAction
   ( MessageAction
       ( MessageAction',
-        Resend,
-        Suppress
+        Suppress,
+        Resend
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MessageAction = MessageAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern Resend :: MessageAction
-pattern Resend = MessageAction' "RESEND"
-
 pattern Suppress :: MessageAction
 pattern Suppress = MessageAction' "SUPPRESS"
 
+pattern Resend :: MessageAction
+pattern Resend = MessageAction' "RESEND"
+
 {-# COMPLETE
-  Resend,
   Suppress,
+  Resend,
   MessageAction'
   #-}

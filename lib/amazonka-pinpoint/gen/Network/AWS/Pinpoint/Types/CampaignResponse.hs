@@ -19,6 +19,8 @@ module Network.AWS.Pinpoint.Types.CampaignResponse
     -- * Lenses
     cCustomDeliveryConfiguration,
     cState,
+    cLastModifiedDate,
+    cARN,
     cSchedule,
     cTemplateConfiguration,
     cHook,
@@ -26,21 +28,19 @@ module Network.AWS.Pinpoint.Types.CampaignResponse
     cLimits,
     cIsPaused,
     cDefaultState,
+    cApplicationId,
     cName,
     cVersion,
     cHoldoutPercent,
     cTreatmentDescription,
+    cId,
+    cCreationDate,
     cMessageConfiguration,
     cDescription,
+    cSegmentId,
     cAdditionalTreatments,
     cTags,
-    cLastModifiedDate,
-    cCreationDate,
-    cSegmentId,
     cSegmentVersion,
-    cId,
-    cARN,
-    cApplicationId,
   )
 where
 
@@ -59,69 +59,92 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCampaignResponse' smart constructor.
 data CampaignResponse = CampaignResponse'
-  { customDeliveryConfiguration ::
-      Lude.Maybe CustomDeliveryConfiguration,
+  { -- | The delivery configuration settings for sending the campaign through a custom channel.
+    customDeliveryConfiguration :: Lude.Maybe CustomDeliveryConfiguration,
+    -- | The current status of the campaign.
     state :: Lude.Maybe CampaignState,
-    schedule :: Lude.Maybe Schedule,
-    templateConfiguration :: Lude.Maybe TemplateConfiguration,
-    hook :: Lude.Maybe CampaignHook,
-    treatmentName :: Lude.Maybe Lude.Text,
-    limits :: Lude.Maybe CampaignLimits,
-    isPaused :: Lude.Maybe Lude.Bool,
-    defaultState :: Lude.Maybe CampaignState,
-    name :: Lude.Maybe Lude.Text,
-    version :: Lude.Maybe Lude.Int,
-    holdoutPercent :: Lude.Maybe Lude.Int,
-    treatmentDescription :: Lude.Maybe Lude.Text,
-    messageConfiguration :: Lude.Maybe MessageConfiguration,
-    description :: Lude.Maybe Lude.Text,
-    additionalTreatments :: Lude.Maybe [TreatmentResource],
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The date, in ISO 8601 format, when the campaign was last modified.
     lastModifiedDate :: Lude.Text,
-    creationDate :: Lude.Text,
-    segmentId :: Lude.Text,
-    segmentVersion :: Lude.Int,
-    id :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the campaign.
     arn :: Lude.Text,
-    applicationId :: Lude.Text
+    -- | The schedule settings for the campaign.
+    schedule :: Lude.Maybe Schedule,
+    -- | The message template that’s used for the campaign.
+    templateConfiguration :: Lude.Maybe TemplateConfiguration,
+    -- | The settings for the AWS Lambda function to use as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
+    hook :: Lude.Maybe CampaignHook,
+    -- | The custom name of the default treatment for the campaign, if the campaign has multiple treatments. A /treatment/ is a variation of a campaign that's used for A/B testing.
+    treatmentName :: Lude.Maybe Lude.Text,
+    -- | The messaging limits for the campaign.
+    limits :: Lude.Maybe CampaignLimits,
+    -- | Specifies whether the campaign is paused. A paused campaign doesn't run unless you resume it by changing this value to false.
+    isPaused :: Lude.Maybe Lude.Bool,
+    -- | The current status of the campaign's default treatment. This value exists only for campaigns that have more than one treatment.
+    defaultState :: Lude.Maybe CampaignState,
+    -- | The unique identifier for the application that the campaign applies to.
+    applicationId :: Lude.Text,
+    -- | The name of the campaign.
+    name :: Lude.Maybe Lude.Text,
+    -- | The version number of the campaign.
+    version :: Lude.Maybe Lude.Int,
+    -- | The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
+    holdoutPercent :: Lude.Maybe Lude.Int,
+    -- | The custom description of the default treatment for the campaign.
+    treatmentDescription :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the campaign.
+    id :: Lude.Text,
+    -- | The date, in ISO 8601 format, when the campaign was created.
+    creationDate :: Lude.Text,
+    -- | The message configuration settings for the campaign.
+    messageConfiguration :: Lude.Maybe MessageConfiguration,
+    -- | The custom description of the campaign.
+    description :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the segment that's associated with the campaign.
+    segmentId :: Lude.Text,
+    -- | An array of responses, one for each treatment that you defined for the campaign, in addition to the default treatment.
+    additionalTreatments :: Lude.Maybe [TreatmentResource],
+    -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the campaign. Each tag consists of a required tag key and an associated tag value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The version number of the segment that's associated with the campaign.
+    segmentVersion :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CampaignResponse' with the minimum fields required to make a request.
 --
--- * 'additionalTreatments' - An array of responses, one for each treatment that you defined for the campaign, in addition to the default treatment.
--- * 'applicationId' - The unique identifier for the application that the campaign applies to.
--- * 'arn' - The Amazon Resource Name (ARN) of the campaign.
--- * 'creationDate' - The date, in ISO 8601 format, when the campaign was created.
 -- * 'customDeliveryConfiguration' - The delivery configuration settings for sending the campaign through a custom channel.
--- * 'defaultState' - The current status of the campaign's default treatment. This value exists only for campaigns that have more than one treatment.
--- * 'description' - The custom description of the campaign.
--- * 'holdoutPercent' - The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
--- * 'hook' - The settings for the AWS Lambda function to use as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
--- * 'id' - The unique identifier for the campaign.
--- * 'isPaused' - Specifies whether the campaign is paused. A paused campaign doesn't run unless you resume it by changing this value to false.
--- * 'lastModifiedDate' - The date, in ISO 8601 format, when the campaign was last modified.
--- * 'limits' - The messaging limits for the campaign.
--- * 'messageConfiguration' - The message configuration settings for the campaign.
--- * 'name' - The name of the campaign.
--- * 'schedule' - The schedule settings for the campaign.
--- * 'segmentId' - The unique identifier for the segment that's associated with the campaign.
--- * 'segmentVersion' - The version number of the segment that's associated with the campaign.
 -- * 'state' - The current status of the campaign.
--- * 'tags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the campaign. Each tag consists of a required tag key and an associated tag value.
+-- * 'lastModifiedDate' - The date, in ISO 8601 format, when the campaign was last modified.
+-- * 'arn' - The Amazon Resource Name (ARN) of the campaign.
+-- * 'schedule' - The schedule settings for the campaign.
 -- * 'templateConfiguration' - The message template that’s used for the campaign.
--- * 'treatmentDescription' - The custom description of the default treatment for the campaign.
+-- * 'hook' - The settings for the AWS Lambda function to use as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
 -- * 'treatmentName' - The custom name of the default treatment for the campaign, if the campaign has multiple treatments. A /treatment/ is a variation of a campaign that's used for A/B testing.
+-- * 'limits' - The messaging limits for the campaign.
+-- * 'isPaused' - Specifies whether the campaign is paused. A paused campaign doesn't run unless you resume it by changing this value to false.
+-- * 'defaultState' - The current status of the campaign's default treatment. This value exists only for campaigns that have more than one treatment.
+-- * 'applicationId' - The unique identifier for the application that the campaign applies to.
+-- * 'name' - The name of the campaign.
 -- * 'version' - The version number of the campaign.
+-- * 'holdoutPercent' - The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
+-- * 'treatmentDescription' - The custom description of the default treatment for the campaign.
+-- * 'id' - The unique identifier for the campaign.
+-- * 'creationDate' - The date, in ISO 8601 format, when the campaign was created.
+-- * 'messageConfiguration' - The message configuration settings for the campaign.
+-- * 'description' - The custom description of the campaign.
+-- * 'segmentId' - The unique identifier for the segment that's associated with the campaign.
+-- * 'additionalTreatments' - An array of responses, one for each treatment that you defined for the campaign, in addition to the default treatment.
+-- * 'tags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the campaign. Each tag consists of a required tag key and an associated tag value.
+-- * 'segmentVersion' - The version number of the segment that's associated with the campaign.
 mkCampaignResponse ::
   -- | 'lastModifiedDate'
+  Lude.Text ->
+  -- | 'arn'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'id'
   Lude.Text ->
   -- | 'creationDate'
   Lude.Text ->
@@ -129,24 +152,20 @@ mkCampaignResponse ::
   Lude.Text ->
   -- | 'segmentVersion'
   Lude.Int ->
-  -- | 'id'
-  Lude.Text ->
-  -- | 'arn'
-  Lude.Text ->
-  -- | 'applicationId'
-  Lude.Text ->
   CampaignResponse
 mkCampaignResponse
   pLastModifiedDate_
+  pARN_
+  pApplicationId_
+  pId_
   pCreationDate_
   pSegmentId_
-  pSegmentVersion_
-  pId_
-  pARN_
-  pApplicationId_ =
+  pSegmentVersion_ =
     CampaignResponse'
       { customDeliveryConfiguration = Lude.Nothing,
         state = Lude.Nothing,
+        lastModifiedDate = pLastModifiedDate_,
+        arn = pARN_,
         schedule = Lude.Nothing,
         templateConfiguration = Lude.Nothing,
         hook = Lude.Nothing,
@@ -154,21 +173,19 @@ mkCampaignResponse
         limits = Lude.Nothing,
         isPaused = Lude.Nothing,
         defaultState = Lude.Nothing,
+        applicationId = pApplicationId_,
         name = Lude.Nothing,
         version = Lude.Nothing,
         holdoutPercent = Lude.Nothing,
         treatmentDescription = Lude.Nothing,
+        id = pId_,
+        creationDate = pCreationDate_,
         messageConfiguration = Lude.Nothing,
         description = Lude.Nothing,
+        segmentId = pSegmentId_,
         additionalTreatments = Lude.Nothing,
         tags = Lude.Nothing,
-        lastModifiedDate = pLastModifiedDate_,
-        creationDate = pCreationDate_,
-        segmentId = pSegmentId_,
-        segmentVersion = pSegmentVersion_,
-        id = pId_,
-        arn = pARN_,
-        applicationId = pApplicationId_
+        segmentVersion = pSegmentVersion_
       }
 
 -- | The delivery configuration settings for sending the campaign through a custom channel.
@@ -184,6 +201,20 @@ cCustomDeliveryConfiguration = Lens.lens (customDeliveryConfiguration :: Campaig
 cState :: Lens.Lens' CampaignResponse (Lude.Maybe CampaignState)
 cState = Lens.lens (state :: CampaignResponse -> Lude.Maybe CampaignState) (\s a -> s {state = a} :: CampaignResponse)
 {-# DEPRECATED cState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The date, in ISO 8601 format, when the campaign was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLastModifiedDate :: Lens.Lens' CampaignResponse Lude.Text
+cLastModifiedDate = Lens.lens (lastModifiedDate :: CampaignResponse -> Lude.Text) (\s a -> s {lastModifiedDate = a} :: CampaignResponse)
+{-# DEPRECATED cLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the campaign.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cARN :: Lens.Lens' CampaignResponse Lude.Text
+cARN = Lens.lens (arn :: CampaignResponse -> Lude.Text) (\s a -> s {arn = a} :: CampaignResponse)
+{-# DEPRECATED cARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The schedule settings for the campaign.
 --
@@ -234,6 +265,13 @@ cDefaultState :: Lens.Lens' CampaignResponse (Lude.Maybe CampaignState)
 cDefaultState = Lens.lens (defaultState :: CampaignResponse -> Lude.Maybe CampaignState) (\s a -> s {defaultState = a} :: CampaignResponse)
 {-# DEPRECATED cDefaultState "Use generic-lens or generic-optics with 'defaultState' instead." #-}
 
+-- | The unique identifier for the application that the campaign applies to.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cApplicationId :: Lens.Lens' CampaignResponse Lude.Text
+cApplicationId = Lens.lens (applicationId :: CampaignResponse -> Lude.Text) (\s a -> s {applicationId = a} :: CampaignResponse)
+{-# DEPRECATED cApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
 -- | The name of the campaign.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -262,6 +300,20 @@ cTreatmentDescription :: Lens.Lens' CampaignResponse (Lude.Maybe Lude.Text)
 cTreatmentDescription = Lens.lens (treatmentDescription :: CampaignResponse -> Lude.Maybe Lude.Text) (\s a -> s {treatmentDescription = a} :: CampaignResponse)
 {-# DEPRECATED cTreatmentDescription "Use generic-lens or generic-optics with 'treatmentDescription' instead." #-}
 
+-- | The unique identifier for the campaign.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cId :: Lens.Lens' CampaignResponse Lude.Text
+cId = Lens.lens (id :: CampaignResponse -> Lude.Text) (\s a -> s {id = a} :: CampaignResponse)
+{-# DEPRECATED cId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The date, in ISO 8601 format, when the campaign was created.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCreationDate :: Lens.Lens' CampaignResponse Lude.Text
+cCreationDate = Lens.lens (creationDate :: CampaignResponse -> Lude.Text) (\s a -> s {creationDate = a} :: CampaignResponse)
+{-# DEPRECATED cCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
 -- | The message configuration settings for the campaign.
 --
 -- /Note:/ Consider using 'messageConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -275,6 +327,13 @@ cMessageConfiguration = Lens.lens (messageConfiguration :: CampaignResponse -> L
 cDescription :: Lens.Lens' CampaignResponse (Lude.Maybe Lude.Text)
 cDescription = Lens.lens (description :: CampaignResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CampaignResponse)
 {-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The unique identifier for the segment that's associated with the campaign.
+--
+-- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSegmentId :: Lens.Lens' CampaignResponse Lude.Text
+cSegmentId = Lens.lens (segmentId :: CampaignResponse -> Lude.Text) (\s a -> s {segmentId = a} :: CampaignResponse)
+{-# DEPRECATED cSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
 -- | An array of responses, one for each treatment that you defined for the campaign, in addition to the default treatment.
 --
@@ -290,54 +349,12 @@ cTags :: Lens.Lens' CampaignResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.T
 cTags = Lens.lens (tags :: CampaignResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CampaignResponse)
 {-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The date, in ISO 8601 format, when the campaign was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cLastModifiedDate :: Lens.Lens' CampaignResponse Lude.Text
-cLastModifiedDate = Lens.lens (lastModifiedDate :: CampaignResponse -> Lude.Text) (\s a -> s {lastModifiedDate = a} :: CampaignResponse)
-{-# DEPRECATED cLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The date, in ISO 8601 format, when the campaign was created.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCreationDate :: Lens.Lens' CampaignResponse Lude.Text
-cCreationDate = Lens.lens (creationDate :: CampaignResponse -> Lude.Text) (\s a -> s {creationDate = a} :: CampaignResponse)
-{-# DEPRECATED cCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
--- | The unique identifier for the segment that's associated with the campaign.
---
--- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSegmentId :: Lens.Lens' CampaignResponse Lude.Text
-cSegmentId = Lens.lens (segmentId :: CampaignResponse -> Lude.Text) (\s a -> s {segmentId = a} :: CampaignResponse)
-{-# DEPRECATED cSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
-
 -- | The version number of the segment that's associated with the campaign.
 --
 -- /Note:/ Consider using 'segmentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cSegmentVersion :: Lens.Lens' CampaignResponse Lude.Int
 cSegmentVersion = Lens.lens (segmentVersion :: CampaignResponse -> Lude.Int) (\s a -> s {segmentVersion = a} :: CampaignResponse)
 {-# DEPRECATED cSegmentVersion "Use generic-lens or generic-optics with 'segmentVersion' instead." #-}
-
--- | The unique identifier for the campaign.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cId :: Lens.Lens' CampaignResponse Lude.Text
-cId = Lens.lens (id :: CampaignResponse -> Lude.Text) (\s a -> s {id = a} :: CampaignResponse)
-{-# DEPRECATED cId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the campaign.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cARN :: Lens.Lens' CampaignResponse Lude.Text
-cARN = Lens.lens (arn :: CampaignResponse -> Lude.Text) (\s a -> s {arn = a} :: CampaignResponse)
-{-# DEPRECATED cARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The unique identifier for the application that the campaign applies to.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cApplicationId :: Lens.Lens' CampaignResponse Lude.Text
-cApplicationId = Lens.lens (applicationId :: CampaignResponse -> Lude.Text) (\s a -> s {applicationId = a} :: CampaignResponse)
-{-# DEPRECATED cApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 instance Lude.FromJSON CampaignResponse where
   parseJSON =
@@ -347,6 +364,8 @@ instance Lude.FromJSON CampaignResponse where
           CampaignResponse'
             Lude.<$> (x Lude..:? "CustomDeliveryConfiguration")
             Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..: "LastModifiedDate")
+            Lude.<*> (x Lude..: "Arn")
             Lude.<*> (x Lude..:? "Schedule")
             Lude.<*> (x Lude..:? "TemplateConfiguration")
             Lude.<*> (x Lude..:? "Hook")
@@ -354,19 +373,17 @@ instance Lude.FromJSON CampaignResponse where
             Lude.<*> (x Lude..:? "Limits")
             Lude.<*> (x Lude..:? "IsPaused")
             Lude.<*> (x Lude..:? "DefaultState")
+            Lude.<*> (x Lude..: "ApplicationId")
             Lude.<*> (x Lude..:? "Name")
             Lude.<*> (x Lude..:? "Version")
             Lude.<*> (x Lude..:? "HoldoutPercent")
             Lude.<*> (x Lude..:? "TreatmentDescription")
+            Lude.<*> (x Lude..: "Id")
+            Lude.<*> (x Lude..: "CreationDate")
             Lude.<*> (x Lude..:? "MessageConfiguration")
             Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..: "SegmentId")
             Lude.<*> (x Lude..:? "AdditionalTreatments" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "LastModifiedDate")
-            Lude.<*> (x Lude..: "CreationDate")
-            Lude.<*> (x Lude..: "SegmentId")
             Lude.<*> (x Lude..: "SegmentVersion")
-            Lude.<*> (x Lude..: "Id")
-            Lude.<*> (x Lude..: "Arn")
-            Lude.<*> (x Lude..: "ApplicationId")
       )

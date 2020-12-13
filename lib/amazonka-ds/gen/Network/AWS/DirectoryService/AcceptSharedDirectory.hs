@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAcceptSharedDirectory' smart constructor.
 newtype AcceptSharedDirectory = AcceptSharedDirectory'
-  { sharedDirectoryId ::
-      Lude.Text
+  { -- | Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.
+    sharedDirectoryId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptSharedDirectory' with the minimum fields required to make a request.
@@ -107,8 +102,9 @@ instance Lude.ToQuery AcceptSharedDirectory where
 
 -- | /See:/ 'mkAcceptSharedDirectoryResponse' smart constructor.
 data AcceptSharedDirectoryResponse = AcceptSharedDirectoryResponse'
-  { sharedDirectory ::
-      Lude.Maybe SharedDirectory,
+  { -- | The shared directory in the directory consumer account.
+    sharedDirectory :: Lude.Maybe SharedDirectory,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -116,8 +112,8 @@ data AcceptSharedDirectoryResponse = AcceptSharedDirectoryResponse'
 
 -- | Creates a value of 'AcceptSharedDirectoryResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sharedDirectory' - The shared directory in the directory consumer account.
+-- * 'responseStatus' - The response status code.
 mkAcceptSharedDirectoryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

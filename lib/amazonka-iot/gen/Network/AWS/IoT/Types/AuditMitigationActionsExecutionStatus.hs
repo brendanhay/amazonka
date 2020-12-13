@@ -13,12 +13,12 @@
 module Network.AWS.IoT.Types.AuditMitigationActionsExecutionStatus
   ( AuditMitigationActionsExecutionStatus
       ( AuditMitigationActionsExecutionStatus',
-        AMAESCanceled,
+        AMAESInProgress,
         AMAESCompleted,
         AMAESFailed,
-        AMAESInProgress,
-        AMAESPending,
-        AMAESSkipped
+        AMAESCanceled,
+        AMAESSkipped,
+        AMAESPending
       ),
   )
 where
@@ -49,8 +49,8 @@ newtype AuditMitigationActionsExecutionStatus = AuditMitigationActionsExecutionS
       Lude.ToHeader
     )
 
-pattern AMAESCanceled :: AuditMitigationActionsExecutionStatus
-pattern AMAESCanceled = AuditMitigationActionsExecutionStatus' "CANCELED"
+pattern AMAESInProgress :: AuditMitigationActionsExecutionStatus
+pattern AMAESInProgress = AuditMitigationActionsExecutionStatus' "IN_PROGRESS"
 
 pattern AMAESCompleted :: AuditMitigationActionsExecutionStatus
 pattern AMAESCompleted = AuditMitigationActionsExecutionStatus' "COMPLETED"
@@ -58,21 +58,21 @@ pattern AMAESCompleted = AuditMitigationActionsExecutionStatus' "COMPLETED"
 pattern AMAESFailed :: AuditMitigationActionsExecutionStatus
 pattern AMAESFailed = AuditMitigationActionsExecutionStatus' "FAILED"
 
-pattern AMAESInProgress :: AuditMitigationActionsExecutionStatus
-pattern AMAESInProgress = AuditMitigationActionsExecutionStatus' "IN_PROGRESS"
-
-pattern AMAESPending :: AuditMitigationActionsExecutionStatus
-pattern AMAESPending = AuditMitigationActionsExecutionStatus' "PENDING"
+pattern AMAESCanceled :: AuditMitigationActionsExecutionStatus
+pattern AMAESCanceled = AuditMitigationActionsExecutionStatus' "CANCELED"
 
 pattern AMAESSkipped :: AuditMitigationActionsExecutionStatus
 pattern AMAESSkipped = AuditMitigationActionsExecutionStatus' "SKIPPED"
 
+pattern AMAESPending :: AuditMitigationActionsExecutionStatus
+pattern AMAESPending = AuditMitigationActionsExecutionStatus' "PENDING"
+
 {-# COMPLETE
-  AMAESCanceled,
+  AMAESInProgress,
   AMAESCompleted,
   AMAESFailed,
-  AMAESInProgress,
-  AMAESPending,
+  AMAESCanceled,
   AMAESSkipped,
+  AMAESPending,
   AuditMitigationActionsExecutionStatus'
   #-}

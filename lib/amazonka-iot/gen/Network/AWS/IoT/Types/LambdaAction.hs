@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes an action to invoke a Lambda function.
 --
 -- /See:/ 'mkLambdaAction' smart constructor.
-newtype LambdaAction = LambdaAction' {functionARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype LambdaAction = LambdaAction'
+  { -- | The ARN of the Lambda function.
+    functionARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaAction' with the minimum fields required to make a request.

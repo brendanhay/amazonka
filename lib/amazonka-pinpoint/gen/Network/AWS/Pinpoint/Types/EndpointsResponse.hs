@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointsResponse' smart constructor.
 newtype EndpointsResponse = EndpointsResponse'
-  { item ::
-      [EndpointResponse]
+  { -- | An array of responses, one for each endpoint that's associated with the user ID.
+    item :: [EndpointResponse]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointsResponse' with the minimum fields required to make a request.

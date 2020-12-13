@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificates' smart constructor.
 data Certificates = Certificates'
-  { manufacturerHardwareCertificate ::
-      Lude.Maybe Lude.Text,
+  { -- | The HSM hardware certificate issued (signed) by the hardware manufacturer.
+    manufacturerHardwareCertificate :: Lude.Maybe Lude.Text,
+    -- | The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is @UNINITIALIZED@ .
     clusterCSR :: Lude.Maybe Lude.Text,
+    -- | The HSM certificate issued (signed) by the HSM hardware.
     hsmCertificate :: Lude.Maybe Lude.Text,
+    -- | The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
     clusterCertificate :: Lude.Maybe Lude.Text,
+    -- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
     awsHardwareCertificate :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Certificates' with the minimum fields required to make a request.
 --
--- * 'awsHardwareCertificate' - The HSM hardware certificate issued (signed) by AWS CloudHSM.
--- * 'clusterCSR' - The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is @UNINITIALIZED@ .
--- * 'clusterCertificate' - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
--- * 'hsmCertificate' - The HSM certificate issued (signed) by the HSM hardware.
 -- * 'manufacturerHardwareCertificate' - The HSM hardware certificate issued (signed) by the hardware manufacturer.
+-- * 'clusterCSR' - The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is @UNINITIALIZED@ .
+-- * 'hsmCertificate' - The HSM certificate issued (signed) by the HSM hardware.
+-- * 'clusterCertificate' - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+-- * 'awsHardwareCertificate' - The HSM hardware certificate issued (signed) by AWS CloudHSM.
 mkCertificates ::
   Certificates
 mkCertificates =

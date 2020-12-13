@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.ChannelClass
   ( ChannelClass
       ( ChannelClass',
-        CCSinglePipeline,
-        CCStandard
+        CCStandard,
+        CCSinglePipeline
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ChannelClass = ChannelClass' Lude.Text
       Lude.ToHeader
     )
 
-pattern CCSinglePipeline :: ChannelClass
-pattern CCSinglePipeline = ChannelClass' "SINGLE_PIPELINE"
-
 pattern CCStandard :: ChannelClass
 pattern CCStandard = ChannelClass' "STANDARD"
 
+pattern CCSinglePipeline :: ChannelClass
+pattern CCSinglePipeline = ChannelClass' "SINGLE_PIPELINE"
+
 {-# COMPLETE
-  CCSinglePipeline,
   CCStandard,
+  CCSinglePipeline,
   ChannelClass'
   #-}

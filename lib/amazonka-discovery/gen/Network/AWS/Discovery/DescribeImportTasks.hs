@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeImportTasks' smart constructor.
 data DescribeImportTasks = DescribeImportTasks'
-  { filters ::
-      Lude.Maybe [ImportTaskFilter],
+  { -- | An array of name-value pairs that you provide to filter the results for the @DescribeImportTask@ request to a specific subset of results. Currently, wildcard values aren't supported for filters.
+    filters :: Lude.Maybe [ImportTaskFilter],
+    -- | The token to request a specific page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results that you want this request to return, up to 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportTasks' with the minimum fields required to make a request.
 --
 -- * 'filters' - An array of name-value pairs that you provide to filter the results for the @DescribeImportTask@ request to a specific subset of results. Currently, wildcard values aren't supported for filters.
--- * 'maxResults' - The maximum number of results that you want this request to return, up to 100.
 -- * 'nextToken' - The token to request a specific page of results.
+-- * 'maxResults' - The maximum number of results that you want this request to return, up to 100.
 mkDescribeImportTasks ::
   DescribeImportTasks
 mkDescribeImportTasks =
@@ -134,25 +131,21 @@ instance Lude.ToQuery DescribeImportTasks where
 
 -- | /See:/ 'mkDescribeImportTasksResponse' smart constructor.
 data DescribeImportTasksResponse = DescribeImportTasksResponse'
-  { tasks ::
-      Lude.Maybe [ImportTask],
+  { -- | A returned array of import tasks that match any applied filters, up to the specified number of maximum results.
+    tasks :: Lude.Maybe [ImportTask],
+    -- | The token to request the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportTasksResponse' with the minimum fields required to make a request.
 --
+-- * 'tasks' - A returned array of import tasks that match any applied filters, up to the specified number of maximum results.
 -- * 'nextToken' - The token to request the next page of results.
 -- * 'responseStatus' - The response status code.
--- * 'tasks' - A returned array of import tasks that match any applied filters, up to the specified number of maximum results.
 mkDescribeImportTasksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -32,26 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionExecutionOutput' smart constructor.
 data ActionExecutionOutput = ActionExecutionOutput'
-  { outputVariables ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The outputVariables field shows the key-value pairs that were output as part of that execution.
+    outputVariables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Details of output artifacts of the action that correspond to the action execution.
     outputArtifacts :: Lude.Maybe [ArtifactDetail],
-    executionResult ::
-      Lude.Maybe ActionExecutionResult
+    -- | Execution result information listed in the output details for an action execution.
+    executionResult :: Lude.Maybe ActionExecutionResult
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionExecutionOutput' with the minimum fields required to make a request.
 --
--- * 'executionResult' - Execution result information listed in the output details for an action execution.
--- * 'outputArtifacts' - Details of output artifacts of the action that correspond to the action execution.
 -- * 'outputVariables' - The outputVariables field shows the key-value pairs that were output as part of that execution.
+-- * 'outputArtifacts' - Details of output artifacts of the action that correspond to the action execution.
+-- * 'executionResult' - Execution result information listed in the output details for an action execution.
 mkActionExecutionOutput ::
   ActionExecutionOutput
 mkActionExecutionOutput =

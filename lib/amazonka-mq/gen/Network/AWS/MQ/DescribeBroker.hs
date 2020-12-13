@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.MQ.DescribeBroker
     mkDescribeBroker,
 
     -- ** Request lenses
-    desBrokerId,
+    dbBrokerId,
 
     -- * Destructuring the response
     DescribeBrokerResponse (..),
@@ -65,14 +66,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBroker' smart constructor.
-newtype DescribeBroker = DescribeBroker' {brokerId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeBroker = DescribeBroker'
+  { -- | The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+    brokerId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBroker' with the minimum fields required to make a request.
@@ -88,9 +86,9 @@ mkDescribeBroker pBrokerId_ =
 -- | The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desBrokerId :: Lens.Lens' DescribeBroker Lude.Text
-desBrokerId = Lens.lens (brokerId :: DescribeBroker -> Lude.Text) (\s a -> s {brokerId = a} :: DescribeBroker)
-{-# DEPRECATED desBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
+dbBrokerId :: Lens.Lens' DescribeBroker Lude.Text
+dbBrokerId = Lens.lens (brokerId :: DescribeBroker -> Lude.Text) (\s a -> s {brokerId = a} :: DescribeBroker)
+{-# DEPRECATED dbBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
 instance Lude.AWSRequest DescribeBroker where
   type Rs DescribeBroker = DescribeBrokerResponse
@@ -148,89 +146,99 @@ instance Lude.ToQuery DescribeBroker where
 
 -- | /See:/ 'mkDescribeBrokerResponse' smart constructor.
 data DescribeBrokerResponse = DescribeBrokerResponse'
-  { brokerName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+    brokerName :: Lude.Maybe Lude.Text,
+    -- | The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
     engineVersion :: Lude.Maybe Lude.Text,
-    pendingAuthenticationStrategy ::
-      Lude.Maybe AuthenticationStrategy,
+    -- | The authentication strategy that will be applied when the broker is rebooted.
+    pendingAuthenticationStrategy :: Lude.Maybe AuthenticationStrategy,
+    -- | The status of the broker.
     brokerState :: Lude.Maybe BrokerState,
+    -- | Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
     publiclyAccessible :: Lude.Maybe Lude.Bool,
-    autoMinorVersionUpgrade ::
-      Lude.Maybe Lude.Bool,
+    -- | Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+    autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The list of all broker usernames for the specified broker.
     users :: Lude.Maybe [UserSummary],
-    pendingSecurityGroups ::
-      Lude.Maybe [Lude.Text],
+    -- | The list of pending security groups to authorize connections to brokers.
+    pendingSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
     subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The time when the broker was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The list of all revisions for the specified configuration.
     configurations :: Lude.Maybe Configurations,
-    authenticationStrategy ::
-      Lude.Maybe AuthenticationStrategy,
-    pendingHostInstanceType ::
-      Lude.Maybe Lude.Text,
-    ldapServerMetadata ::
-      Lude.Maybe LdapServerMetadataOutput,
-    maintenanceWindowStartTime ::
-      Lude.Maybe WeeklyStartTime,
+    -- | The authentication strategy used to secure the broker.
+    authenticationStrategy :: Lude.Maybe AuthenticationStrategy,
+    -- | The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+    pendingHostInstanceType :: Lude.Maybe Lude.Text,
+    -- | The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+    ldapServerMetadata :: Lude.Maybe LdapServerMetadataOutput,
+    -- | The parameters that determine the WeeklyStartTime.
+    maintenanceWindowStartTime :: Lude.Maybe WeeklyStartTime,
+    -- | The list of information about logs currently enabled and pending to be deployed for the specified broker.
     logs :: Lude.Maybe LogsSummary,
-    encryptionOptions ::
-      Lude.Maybe EncryptionOptions,
+    -- | Encryption options for the broker.
+    encryptionOptions :: Lude.Maybe EncryptionOptions,
+    -- | Required. The deployment mode of the broker.
     deploymentMode :: Lude.Maybe DeploymentMode,
+    -- | The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
     pendingEngineVersion :: Lude.Maybe Lude.Text,
+    -- | The unique ID that Amazon MQ generates for the broker.
     brokerId :: Lude.Maybe Lude.Text,
-    pendingLdapServerMetadata ::
-      Lude.Maybe LdapServerMetadataOutput,
+    -- | The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker once it is rebooted.
+    pendingLdapServerMetadata :: Lude.Maybe LdapServerMetadataOutput,
+    -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
     engineType :: Lude.Maybe EngineType,
+    -- | The Amazon Resource Name (ARN) of the broker.
     brokerARN :: Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    brokerInstances ::
-      Lude.Maybe [BrokerInstance],
+    -- | The list of all tags associated with this broker.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A list of information about allocated brokers.
+    brokerInstances :: Lude.Maybe [BrokerInstance],
+    -- | The broker's instance type.
     hostInstanceType :: Lude.Maybe Lude.Text,
+    -- | The broker's storage type.
     storageType :: Lude.Maybe BrokerStorageType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBrokerResponse' with the minimum fields required to make a request.
 --
--- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
--- * 'autoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
--- * 'brokerARN' - The Amazon Resource Name (ARN) of the broker.
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
--- * 'brokerInstances' - A list of information about allocated brokers.
 -- * 'brokerName' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
--- * 'brokerState' - The status of the broker.
--- * 'configurations' - The list of all revisions for the specified configuration.
--- * 'created' - The time when the broker was created.
--- * 'deploymentMode' - Required. The deployment mode of the broker.
--- * 'encryptionOptions' - Encryption options for the broker.
--- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
 -- * 'engineVersion' - The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
--- * 'hostInstanceType' - The broker's instance type.
--- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
--- * 'logs' - The list of information about logs currently enabled and pending to be deployed for the specified broker.
--- * 'maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
 -- * 'pendingAuthenticationStrategy' - The authentication strategy that will be applied when the broker is rebooted.
--- * 'pendingEngineVersion' - The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
--- * 'pendingHostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
--- * 'pendingLdapServerMetadata' - The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker once it is rebooted.
--- * 'pendingSecurityGroups' - The list of pending security groups to authorize connections to brokers.
+-- * 'brokerState' - The status of the broker.
 -- * 'publiclyAccessible' - Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
--- * 'responseStatus' - The response status code.
+-- * 'autoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
 -- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
--- * 'storageType' - The broker's storage type.
--- * 'subnetIds' - The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
--- * 'tags' - The list of all tags associated with this broker.
 -- * 'users' - The list of all broker usernames for the specified broker.
+-- * 'pendingSecurityGroups' - The list of pending security groups to authorize connections to brokers.
+-- * 'subnetIds' - The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+-- * 'created' - The time when the broker was created.
+-- * 'configurations' - The list of all revisions for the specified configuration.
+-- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
+-- * 'pendingHostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+-- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+-- * 'maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
+-- * 'logs' - The list of information about logs currently enabled and pending to be deployed for the specified broker.
+-- * 'encryptionOptions' - Encryption options for the broker.
+-- * 'deploymentMode' - Required. The deployment mode of the broker.
+-- * 'pendingEngineVersion' - The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'pendingLdapServerMetadata' - The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker once it is rebooted.
+-- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+-- * 'brokerARN' - The Amazon Resource Name (ARN) of the broker.
+-- * 'tags' - The list of all tags associated with this broker.
+-- * 'brokerInstances' - A list of information about allocated brokers.
+-- * 'hostInstanceType' - The broker's instance type.
+-- * 'storageType' - The broker's storage type.
+-- * 'responseStatus' - The response status code.
 mkDescribeBrokerResponse ::
   -- | 'responseStatus'
   Lude.Int ->

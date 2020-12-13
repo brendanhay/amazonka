@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutput' smart constructor.
 data Output = Output'
-  { captionDescriptionNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of the CaptionDescriptions used as caption sources for this output.
+    captionDescriptionNames :: Lude.Maybe [Lude.Text],
+    -- | The name of the VideoDescription used as the source for this output.
     videoDescriptionName :: Lude.Maybe Lude.Text,
+    -- | The name used to identify an output.
     outputName :: Lude.Maybe Lude.Text,
+    -- | The names of the AudioDescriptions used as audio sources for this output.
     audioDescriptionNames :: Lude.Maybe [Lude.Text],
+    -- | Output type-specific settings.
     outputSettings :: OutputSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Output' with the minimum fields required to make a request.
 --
--- * 'audioDescriptionNames' - The names of the AudioDescriptions used as audio sources for this output.
 -- * 'captionDescriptionNames' - The names of the CaptionDescriptions used as caption sources for this output.
--- * 'outputName' - The name used to identify an output.
--- * 'outputSettings' - Output type-specific settings.
 -- * 'videoDescriptionName' - The name of the VideoDescription used as the source for this output.
+-- * 'outputName' - The name used to identify an output.
+-- * 'audioDescriptionNames' - The names of the AudioDescriptions used as audio sources for this output.
+-- * 'outputSettings' - Output type-specific settings.
 mkOutput ::
   -- | 'outputSettings'
   OutputSettings ->

@@ -33,27 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClassicLinkInstance' smart constructor.
 data ClassicLinkInstance = ClassicLinkInstance'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | A list of security groups.
     groups :: Lude.Maybe [GroupIdentifier],
+    -- | The ID of the VPC.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the instance.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassicLinkInstance' with the minimum fields required to make a request.
 --
--- * 'groups' - A list of security groups.
 -- * 'instanceId' - The ID of the instance.
--- * 'tags' - Any tags assigned to the instance.
+-- * 'groups' - A list of security groups.
 -- * 'vpcId' - The ID of the VPC.
+-- * 'tags' - Any tags assigned to the instance.
 mkClassicLinkInstance ::
   ClassicLinkInstance
 mkClassicLinkInstance =

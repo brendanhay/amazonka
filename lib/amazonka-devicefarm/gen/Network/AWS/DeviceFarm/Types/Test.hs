@@ -43,61 +43,139 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTest' smart constructor.
 data Test = Test'
-  { status :: Lude.Maybe ExecutionStatus,
+  { -- | The test's status.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PENDING_CONCURRENCY
+    --
+    --
+    --     * PENDING_DEVICE
+    --
+    --
+    --     * PROCESSING
+    --
+    --
+    --     * SCHEDULING
+    --
+    --
+    --     * PREPARING
+    --
+    --
+    --     * RUNNING
+    --
+    --
+    --     * COMPLETED
+    --
+    --
+    --     * STOPPING
+    status :: Lude.Maybe ExecutionStatus,
+    -- | The test's result counters.
     counters :: Lude.Maybe Counters,
+    -- | The test's ARN.
     arn :: Lude.Maybe Lude.Text,
+    -- | When the test was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The test's stop time.
     stopped :: Lude.Maybe Lude.Timestamp,
+    -- | The test's result.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PASSED
+    --
+    --
+    --     * WARNED
+    --
+    --
+    --     * FAILED
+    --
+    --
+    --     * SKIPPED
+    --
+    --
+    --     * ERRORED
+    --
+    --
+    --     * STOPPED
     result :: Lude.Maybe ExecutionResult,
+    -- | The test's name.
     name :: Lude.Maybe Lude.Text,
+    -- | Represents the total (metered or unmetered) minutes used by the test.
     deviceMinutes :: Lude.Maybe DeviceMinutes,
+    -- | The test's type.
+    --
+    -- Must be one of the following values:
+    --
+    --     * BUILTIN_FUZZ
+    --
+    --
+    --     * BUILTIN_EXPLORER
+    --
+    --
+    --     * APPIUM_JAVA_JUNIT
+    --
+    --
+    --     * APPIUM_JAVA_TESTNG
+    --
+    --
+    --     * APPIUM_PYTHON
+    --
+    --
+    --     * APPIUM_NODE
+    --
+    --
+    --     * APPIUM_RUBY
+    --
+    --
+    --     * APPIUM_WEB_JAVA_JUNIT
+    --
+    --
+    --     * APPIUM_WEB_JAVA_TESTNG
+    --
+    --
+    --     * APPIUM_WEB_PYTHON
+    --
+    --
+    --     * APPIUM_WEB_NODE
+    --
+    --
+    --     * APPIUM_WEB_RUBY
+    --
+    --
+    --     * CALABASH
+    --
+    --
+    --     * INSTRUMENTATION
+    --
+    --
+    --     * UIAUTOMATION
+    --
+    --
+    --     * UIAUTOMATOR
+    --
+    --
+    --     * XCTEST
+    --
+    --
+    --     * XCTEST_UI
     type' :: Lude.Maybe TestType,
+    -- | A message about the test's result.
     message :: Lude.Maybe Lude.Text,
+    -- | The test's start time.
     started :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Test' with the minimum fields required to make a request.
 --
--- * 'arn' - The test's ARN.
--- * 'counters' - The test's result counters.
--- * 'created' - When the test was created.
--- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test.
--- * 'message' - A message about the test's result.
--- * 'name' - The test's name.
--- * 'result' - The test's result.
---
--- Allowed values include:
---
---     * PENDING
---
---
---     * PASSED
---
---
---     * WARNED
---
---
---     * FAILED
---
---
---     * SKIPPED
---
---
---     * ERRORED
---
---
---     * STOPPED
---
---
--- * 'started' - The test's start time.
 -- * 'status' - The test's status.
 --
 -- Allowed values include:
@@ -129,7 +207,37 @@ data Test = Test'
 --     * STOPPING
 --
 --
+-- * 'counters' - The test's result counters.
+-- * 'arn' - The test's ARN.
+-- * 'created' - When the test was created.
 -- * 'stopped' - The test's stop time.
+-- * 'result' - The test's result.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PASSED
+--
+--
+--     * WARNED
+--
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+-- * 'name' - The test's name.
+-- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test.
 -- * 'type'' - The test's type.
 --
 -- Must be one of the following values:
@@ -186,6 +294,10 @@ data Test = Test'
 --
 --
 --     * XCTEST_UI
+--
+--
+-- * 'message' - A message about the test's result.
+-- * 'started' - The test's start time.
 mkTest ::
   Test
 mkTest =

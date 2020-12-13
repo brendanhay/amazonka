@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReshardingConfiguration' smart constructor.
 data ReshardingConfiguration = ReshardingConfiguration'
-  { preferredAvailabilityZones ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of preferred availability zones for the nodes in this cluster.
+    preferredAvailabilityZones :: Lude.Maybe [Lude.Text],
+    -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
     nodeGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReshardingConfiguration' with the minimum fields required to make a request.
 --
--- * 'nodeGroupId' - Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
 -- * 'preferredAvailabilityZones' - A list of preferred availability zones for the nodes in this cluster.
+-- * 'nodeGroupId' - Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
 mkReshardingConfiguration ::
   ReshardingConfiguration
 mkReshardingConfiguration =

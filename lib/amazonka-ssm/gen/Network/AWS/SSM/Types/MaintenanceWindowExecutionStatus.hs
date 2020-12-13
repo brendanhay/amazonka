@@ -13,14 +13,14 @@
 module Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
   ( MaintenanceWindowExecutionStatus
       ( MaintenanceWindowExecutionStatus',
-        MWESCancelled,
-        MWESCancelling,
-        MWESFailed,
-        MWESInProgress,
         MWESPending,
-        MWESSkippedOverlapping,
+        MWESInProgress,
         MWESSuccess,
-        MWESTimedOut
+        MWESFailed,
+        MWESTimedOut,
+        MWESCancelling,
+        MWESCancelled,
+        MWESSkippedOverlapping
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype MaintenanceWindowExecutionStatus = MaintenanceWindowExecutionStatus' Lud
       Lude.ToHeader
     )
 
-pattern MWESCancelled :: MaintenanceWindowExecutionStatus
-pattern MWESCancelled = MaintenanceWindowExecutionStatus' "CANCELLED"
-
-pattern MWESCancelling :: MaintenanceWindowExecutionStatus
-pattern MWESCancelling = MaintenanceWindowExecutionStatus' "CANCELLING"
-
-pattern MWESFailed :: MaintenanceWindowExecutionStatus
-pattern MWESFailed = MaintenanceWindowExecutionStatus' "FAILED"
+pattern MWESPending :: MaintenanceWindowExecutionStatus
+pattern MWESPending = MaintenanceWindowExecutionStatus' "PENDING"
 
 pattern MWESInProgress :: MaintenanceWindowExecutionStatus
 pattern MWESInProgress = MaintenanceWindowExecutionStatus' "IN_PROGRESS"
 
-pattern MWESPending :: MaintenanceWindowExecutionStatus
-pattern MWESPending = MaintenanceWindowExecutionStatus' "PENDING"
-
-pattern MWESSkippedOverlapping :: MaintenanceWindowExecutionStatus
-pattern MWESSkippedOverlapping = MaintenanceWindowExecutionStatus' "SKIPPED_OVERLAPPING"
-
 pattern MWESSuccess :: MaintenanceWindowExecutionStatus
 pattern MWESSuccess = MaintenanceWindowExecutionStatus' "SUCCESS"
+
+pattern MWESFailed :: MaintenanceWindowExecutionStatus
+pattern MWESFailed = MaintenanceWindowExecutionStatus' "FAILED"
 
 pattern MWESTimedOut :: MaintenanceWindowExecutionStatus
 pattern MWESTimedOut = MaintenanceWindowExecutionStatus' "TIMED_OUT"
 
+pattern MWESCancelling :: MaintenanceWindowExecutionStatus
+pattern MWESCancelling = MaintenanceWindowExecutionStatus' "CANCELLING"
+
+pattern MWESCancelled :: MaintenanceWindowExecutionStatus
+pattern MWESCancelled = MaintenanceWindowExecutionStatus' "CANCELLED"
+
+pattern MWESSkippedOverlapping :: MaintenanceWindowExecutionStatus
+pattern MWESSkippedOverlapping = MaintenanceWindowExecutionStatus' "SKIPPED_OVERLAPPING"
+
 {-# COMPLETE
-  MWESCancelled,
-  MWESCancelling,
-  MWESFailed,
-  MWESInProgress,
   MWESPending,
-  MWESSkippedOverlapping,
+  MWESInProgress,
   MWESSuccess,
+  MWESFailed,
   MWESTimedOut,
+  MWESCancelling,
+  MWESCancelled,
+  MWESSkippedOverlapping,
   MaintenanceWindowExecutionStatus'
   #-}

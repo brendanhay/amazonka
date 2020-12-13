@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOptionSpecification' smart constructor.
 data OptionSpecification = OptionSpecification'
-  { optionName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the configuration option.
+    optionName :: Lude.Maybe Lude.Text,
+    -- | A unique resource name for a time-based scaling configuration option.
     resourceName :: Lude.Maybe Lude.Text,
+    -- | A unique namespace identifying the option's associated AWS resource.
     namespace :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionSpecification' with the minimum fields required to make a request.
 --
--- * 'namespace' - A unique namespace identifying the option's associated AWS resource.
 -- * 'optionName' - The name of the configuration option.
 -- * 'resourceName' - A unique resource name for a time-based scaling configuration option.
+-- * 'namespace' - A unique namespace identifying the option's associated AWS resource.
 mkOptionSpecification ::
   OptionSpecification
 mkOptionSpecification =

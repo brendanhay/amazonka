@@ -31,18 +31,23 @@ import Network.AWS.ServiceCatalog.Types.StackInstanceStatus
 --
 -- /See:/ 'mkStackInstance' smart constructor.
 data StackInstance = StackInstance'
-  { account ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the AWS account that the stack instance is associated with.
+    account :: Lude.Maybe Lude.Text,
+    -- | The name of the AWS region that the stack instance is associated with.
     region :: Lude.Maybe Lude.Text,
+    -- | The status of the stack instance, in terms of its synchronization with its associated stack set.
+    --
+    --
+    --     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to true, to delete the stack instance, and then delete the stack manually.
+    --
+    --
+    --     * @OUTDATED@ : The stack isn't currently up to date with the stack set because either the associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation, or the stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.
+    --
+    --
+    --     * @CURRENT@ : The stack is currently up to date with the stack set.
     stackInstanceStatus :: Lude.Maybe StackInstanceStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackInstance' with the minimum fields required to make a request.

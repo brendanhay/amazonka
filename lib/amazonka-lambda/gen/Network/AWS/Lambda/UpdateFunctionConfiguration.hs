@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,21 +24,21 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     mkUpdateFunctionConfiguration,
 
     -- ** Request lenses
-    ufcMemorySize,
-    ufcRuntime,
-    ufcKMSKeyARN,
-    ufcFileSystemConfigs,
-    ufcEnvironment,
-    ufcDeadLetterConfig,
-    ufcRole,
-    ufcVPCConfig,
-    ufcLayers,
-    ufcHandler,
-    ufcTimeout,
-    ufcTracingConfig,
-    ufcDescription,
-    ufcRevisionId,
-    ufcFunctionName,
+    uMemorySize,
+    uRuntime,
+    uKMSKeyARN,
+    uFileSystemConfigs,
+    uEnvironment,
+    uDeadLetterConfig,
+    uRole,
+    uVPCConfig,
+    uFunctionName,
+    uLayers,
+    uHandler,
+    uTimeout,
+    uTracingConfig,
+    uDescription,
+    uRevisionId,
 
     -- * Destructuring the response
     FunctionConfiguration (..),
@@ -84,36 +85,63 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateFunctionConfiguration' smart constructor.
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
-  { memorySize ::
-      Lude.Maybe Lude.Natural,
+  { -- | The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+    memorySize :: Lude.Maybe Lude.Natural,
+    -- | The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
     runtime :: Lude.Maybe Runtime,
+    -- | The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
     kmsKeyARN :: Lude.Maybe Lude.Text,
-    fileSystemConfigs ::
-      Lude.Maybe [FileSystemConfig],
-    environment ::
-      Lude.Maybe Environment,
-    deadLetterConfig ::
-      Lude.Maybe DeadLetterConfig,
+    -- | Connection settings for an Amazon EFS file system.
+    fileSystemConfigs :: Lude.Maybe [FileSystemConfig],
+    -- | Environment variables that are accessible from function code during execution.
+    environment :: Lude.Maybe Environment,
+    -- | A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
+    deadLetterConfig :: Lude.Maybe DeadLetterConfig,
+    -- | The Amazon Resource Name (ARN) of the function's execution role.
     role' :: Lude.Maybe Lude.Text,
+    -- | For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
     vpcConfig :: Lude.Maybe VPCConfig,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
     layers :: Lude.Maybe [Lude.Text],
+    -- | The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
     handler :: Lude.Maybe Lude.Text,
+    -- | The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
     timeout :: Lude.Maybe Lude.Natural,
-    tracingConfig ::
-      Lude.Maybe TracingConfig,
+    -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
+    tracingConfig :: Lude.Maybe TracingConfig,
+    -- | A description of the function.
     description :: Lude.Maybe Lude.Text,
-    revisionId :: Lude.Maybe Lude.Text,
-    functionName :: Lude.Text
+    -- | Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
+    revisionId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFunctionConfiguration' with the minimum fields required to make a request.
 --
--- * 'deadLetterConfig' - A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
--- * 'description' - A description of the function.
--- * 'environment' - Environment variables that are accessible from function code during execution.
+-- * 'memorySize' - The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+-- * 'runtime' - The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
+-- * 'kmsKeyARN' - The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 -- * 'fileSystemConfigs' - Connection settings for an Amazon EFS file system.
+-- * 'environment' - Environment variables that are accessible from function code during execution.
+-- * 'deadLetterConfig' - A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
+-- * 'role'' - The Amazon Resource Name (ARN) of the function's execution role.
+-- * 'vpcConfig' - For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -128,16 +156,12 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'handler' - The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
--- * 'kmsKeyARN' - The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 -- * 'layers' - A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
--- * 'memorySize' - The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
--- * 'revisionId' - Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
--- * 'role'' - The Amazon Resource Name (ARN) of the function's execution role.
--- * 'runtime' - The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
+-- * 'handler' - The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
 -- * 'timeout' - The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
 -- * 'tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
--- * 'vpcConfig' - For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
+-- * 'description' - A description of the function.
+-- * 'revisionId' - Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
 mkUpdateFunctionConfiguration ::
   -- | 'functionName'
   Lude.Text ->
@@ -152,112 +176,70 @@ mkUpdateFunctionConfiguration pFunctionName_ =
       deadLetterConfig = Lude.Nothing,
       role' = Lude.Nothing,
       vpcConfig = Lude.Nothing,
+      functionName = pFunctionName_,
       layers = Lude.Nothing,
       handler = Lude.Nothing,
       timeout = Lude.Nothing,
       tracingConfig = Lude.Nothing,
       description = Lude.Nothing,
-      revisionId = Lude.Nothing,
-      functionName = pFunctionName_
+      revisionId = Lude.Nothing
     }
 
 -- | The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 --
 -- /Note:/ Consider using 'memorySize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcMemorySize :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Natural)
-ufcMemorySize = Lens.lens (memorySize :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {memorySize = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcMemorySize "Use generic-lens or generic-optics with 'memorySize' instead." #-}
+uMemorySize :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Natural)
+uMemorySize = Lens.lens (memorySize :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {memorySize = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uMemorySize "Use generic-lens or generic-optics with 'memorySize' instead." #-}
 
 -- | The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
 --
 -- /Note:/ Consider using 'runtime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcRuntime :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Runtime)
-ufcRuntime = Lens.lens (runtime :: UpdateFunctionConfiguration -> Lude.Maybe Runtime) (\s a -> s {runtime = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcRuntime "Use generic-lens or generic-optics with 'runtime' instead." #-}
+uRuntime :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Runtime)
+uRuntime = Lens.lens (runtime :: UpdateFunctionConfiguration -> Lude.Maybe Runtime) (\s a -> s {runtime = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uRuntime "Use generic-lens or generic-optics with 'runtime' instead." #-}
 
 -- | The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 --
 -- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcKMSKeyARN :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
-ufcKMSKeyARN = Lens.lens (kmsKeyARN :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
+uKMSKeyARN :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
+uKMSKeyARN = Lens.lens (kmsKeyARN :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
 -- | Connection settings for an Amazon EFS file system.
 --
 -- /Note:/ Consider using 'fileSystemConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcFileSystemConfigs :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe [FileSystemConfig])
-ufcFileSystemConfigs = Lens.lens (fileSystemConfigs :: UpdateFunctionConfiguration -> Lude.Maybe [FileSystemConfig]) (\s a -> s {fileSystemConfigs = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcFileSystemConfigs "Use generic-lens or generic-optics with 'fileSystemConfigs' instead." #-}
+uFileSystemConfigs :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe [FileSystemConfig])
+uFileSystemConfigs = Lens.lens (fileSystemConfigs :: UpdateFunctionConfiguration -> Lude.Maybe [FileSystemConfig]) (\s a -> s {fileSystemConfigs = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uFileSystemConfigs "Use generic-lens or generic-optics with 'fileSystemConfigs' instead." #-}
 
 -- | Environment variables that are accessible from function code during execution.
 --
 -- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcEnvironment :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Environment)
-ufcEnvironment = Lens.lens (environment :: UpdateFunctionConfiguration -> Lude.Maybe Environment) (\s a -> s {environment = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
+uEnvironment :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Environment)
+uEnvironment = Lens.lens (environment :: UpdateFunctionConfiguration -> Lude.Maybe Environment) (\s a -> s {environment = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues> .
 --
 -- /Note:/ Consider using 'deadLetterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcDeadLetterConfig :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe DeadLetterConfig)
-ufcDeadLetterConfig = Lens.lens (deadLetterConfig :: UpdateFunctionConfiguration -> Lude.Maybe DeadLetterConfig) (\s a -> s {deadLetterConfig = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcDeadLetterConfig "Use generic-lens or generic-optics with 'deadLetterConfig' instead." #-}
+uDeadLetterConfig :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe DeadLetterConfig)
+uDeadLetterConfig = Lens.lens (deadLetterConfig :: UpdateFunctionConfiguration -> Lude.Maybe DeadLetterConfig) (\s a -> s {deadLetterConfig = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uDeadLetterConfig "Use generic-lens or generic-optics with 'deadLetterConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the function's execution role.
 --
 -- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcRole :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
-ufcRole = Lens.lens (role' :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+uRole :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
+uRole = Lens.lens (role' :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings> .
 --
 -- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcVPCConfig :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe VPCConfig)
-ufcVPCConfig = Lens.lens (vpcConfig :: UpdateFunctionConfiguration -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
-
--- | A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
---
--- /Note:/ Consider using 'layers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcLayers :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe [Lude.Text])
-ufcLayers = Lens.lens (layers :: UpdateFunctionConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {layers = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
-
--- | The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
---
--- /Note:/ Consider using 'handler' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcHandler :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
-ufcHandler = Lens.lens (handler :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {handler = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcHandler "Use generic-lens or generic-optics with 'handler' instead." #-}
-
--- | The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
---
--- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcTimeout :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Natural)
-ufcTimeout = Lens.lens (timeout :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {timeout = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
-
--- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
---
--- /Note:/ Consider using 'tracingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcTracingConfig :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe TracingConfig)
-ufcTracingConfig = Lens.lens (tracingConfig :: UpdateFunctionConfiguration -> Lude.Maybe TracingConfig) (\s a -> s {tracingConfig = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcTracingConfig "Use generic-lens or generic-optics with 'tracingConfig' instead." #-}
-
--- | A description of the function.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcDescription :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
-ufcDescription = Lens.lens (description :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
---
--- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcRevisionId :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
-ufcRevisionId = Lens.lens (revisionId :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
+uVPCConfig :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe VPCConfig)
+uVPCConfig = Lens.lens (vpcConfig :: UpdateFunctionConfiguration -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -275,9 +257,51 @@ ufcRevisionId = Lens.lens (revisionId :: UpdateFunctionConfiguration -> Lude.May
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufcFunctionName :: Lens.Lens' UpdateFunctionConfiguration Lude.Text
-ufcFunctionName = Lens.lens (functionName :: UpdateFunctionConfiguration -> Lude.Text) (\s a -> s {functionName = a} :: UpdateFunctionConfiguration)
-{-# DEPRECATED ufcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+uFunctionName :: Lens.Lens' UpdateFunctionConfiguration Lude.Text
+uFunctionName = Lens.lens (functionName :: UpdateFunctionConfiguration -> Lude.Text) (\s a -> s {functionName = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+
+-- | A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
+--
+-- /Note:/ Consider using 'layers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uLayers :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe [Lude.Text])
+uLayers = Lens.lens (layers :: UpdateFunctionConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {layers = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
+
+-- | The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
+--
+-- /Note:/ Consider using 'handler' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uHandler :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
+uHandler = Lens.lens (handler :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {handler = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uHandler "Use generic-lens or generic-optics with 'handler' instead." #-}
+
+-- | The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+--
+-- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uTimeout :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Natural)
+uTimeout = Lens.lens (timeout :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {timeout = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
+
+-- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
+--
+-- /Note:/ Consider using 'tracingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uTracingConfig :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe TracingConfig)
+uTracingConfig = Lens.lens (tracingConfig :: UpdateFunctionConfiguration -> Lude.Maybe TracingConfig) (\s a -> s {tracingConfig = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uTracingConfig "Use generic-lens or generic-optics with 'tracingConfig' instead." #-}
+
+-- | A description of the function.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDescription :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
+uDescription = Lens.lens (description :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uRevisionId :: Lens.Lens' UpdateFunctionConfiguration (Lude.Maybe Lude.Text)
+uRevisionId = Lens.lens (revisionId :: UpdateFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: UpdateFunctionConfiguration)
+{-# DEPRECATED uRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
 instance Lude.AWSRequest UpdateFunctionConfiguration where
   type Rs UpdateFunctionConfiguration = FunctionConfiguration

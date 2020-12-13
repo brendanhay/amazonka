@@ -41,34 +41,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsagePlan' smart constructor.
 data UsagePlan = UsagePlan'
-  { apiStages :: Lude.Maybe [APIStage],
+  { -- | The associated API stages of a usage plan.
+    apiStages :: Lude.Maybe [APIStage],
+    -- | The name of a usage plan.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of a 'UsagePlan' resource.
     id :: Lude.Maybe Lude.Text,
+    -- | The request throttle limits of a usage plan.
     throttle :: Lude.Maybe ThrottleSettings,
+    -- | The maximum number of permitted requests per a given unit time interval.
     quota :: Lude.Maybe QuotaSettings,
+    -- | The description of a usage plan.
     description :: Lude.Maybe Lude.Text,
+    -- | The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
     productCode :: Lude.Maybe Lude.Text,
+    -- | The collection of tags. Each tag element is associated with a given resource.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsagePlan' with the minimum fields required to make a request.
 --
 -- * 'apiStages' - The associated API stages of a usage plan.
--- * 'description' - The description of a usage plan.
--- * 'id' - The identifier of a 'UsagePlan' resource.
 -- * 'name' - The name of a usage plan.
--- * 'productCode' - The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
--- * 'quota' - The maximum number of permitted requests per a given unit time interval.
--- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
+-- * 'id' - The identifier of a 'UsagePlan' resource.
 -- * 'throttle' - The request throttle limits of a usage plan.
+-- * 'quota' - The maximum number of permitted requests per a given unit time interval.
+-- * 'description' - The description of a usage plan.
+-- * 'productCode' - The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+-- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
 mkUsagePlan ::
   UsagePlan
 mkUsagePlan =

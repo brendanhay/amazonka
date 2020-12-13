@@ -13,9 +13,9 @@
 module Network.AWS.Glue.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        Archive,
+        JAR,
         File,
-        JAR
+        Archive
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ResourceType = ResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Archive :: ResourceType
-pattern Archive = ResourceType' "ARCHIVE"
+pattern JAR :: ResourceType
+pattern JAR = ResourceType' "JAR"
 
 pattern File :: ResourceType
 pattern File = ResourceType' "FILE"
 
-pattern JAR :: ResourceType
-pattern JAR = ResourceType' "JAR"
+pattern Archive :: ResourceType
+pattern Archive = ResourceType' "ARCHIVE"
 
 {-# COMPLETE
-  Archive,
-  File,
   JAR,
+  File,
+  Archive,
   ResourceType'
   #-}

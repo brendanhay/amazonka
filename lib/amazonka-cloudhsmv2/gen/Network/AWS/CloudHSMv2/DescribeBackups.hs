@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,24 +49,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBackups' smart constructor.
 data DescribeBackups = DescribeBackups'
-  { sortAscending ::
-      Lude.Maybe Lude.Bool,
-    filters ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | Designates whether or not to sort the return backups by ascending chronological order of generation.
+    sortAscending :: Lude.Maybe Lude.Bool,
+    -- | One or more filters to limit the items returned in the response.
+    --
+    -- Use the @backupIds@ filter to return only the specified backups. Specify backups by their backup identifier (ID).
+    -- Use the @sourceBackupIds@ filter to return only the backups created from a source backup. The @sourceBackupID@ of a source backup is returned by the 'CopyBackupToRegion' operation.
+    -- Use the @clusterIds@ filter to return only the backups for the specified clusters. Specify clusters by their cluster identifier (ID).
+    -- Use the @states@ filter to return only backups that match the specified state.
+    -- Use the @neverExpires@ filter to return backups filtered by the value in the @neverExpires@ parameter. @True@ returns all backups exempt from the backup retention policy. @False@ returns all backups with a backup retention policy defined at the cluster.
+    filters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The @NextToken@ value that you received in the previous response. Use this value to get more backups.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of backups to return in the response. When there are more backups than the number you specify, the response contains a @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBackups' with the minimum fields required to make a request.
 --
+-- * 'sortAscending' - Designates whether or not to sort the return backups by ascending chronological order of generation.
 -- * 'filters' - One or more filters to limit the items returned in the response.
 --
 -- Use the @backupIds@ filter to return only the specified backups. Specify backups by their backup identifier (ID).
@@ -73,9 +77,8 @@ data DescribeBackups = DescribeBackups'
 -- Use the @clusterIds@ filter to return only the backups for the specified clusters. Specify clusters by their cluster identifier (ID).
 -- Use the @states@ filter to return only backups that match the specified state.
 -- Use the @neverExpires@ filter to return backups filtered by the value in the @neverExpires@ parameter. @True@ returns all backups exempt from the backup retention policy. @False@ returns all backups with a backup retention policy defined at the cluster.
--- * 'maxResults' - The maximum number of backups to return in the response. When there are more backups than the number you specify, the response contains a @NextToken@ value.
 -- * 'nextToken' - The @NextToken@ value that you received in the previous response. Use this value to get more backups.
--- * 'sortAscending' - Designates whether or not to sort the return backups by ascending chronological order of generation.
+-- * 'maxResults' - The maximum number of backups to return in the response. When there are more backups than the number you specify, the response contains a @NextToken@ value.
 mkDescribeBackups ::
   DescribeBackups
 mkDescribeBackups =
@@ -171,18 +174,14 @@ instance Lude.ToQuery DescribeBackups where
 
 -- | /See:/ 'mkDescribeBackupsResponse' smart constructor.
 data DescribeBackupsResponse = DescribeBackupsResponse'
-  { backups ::
-      Lude.Maybe [Backup],
+  { -- | A list of backups.
+    backups :: Lude.Maybe [Backup],
+    -- | An opaque string that indicates that the response contains only a subset of backups. Use this value in a subsequent @DescribeBackups@ request to get more backups.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBackupsResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.Type
   ( Type
       ( Type',
-        AmazonCustomerByEmail,
         CanonicalUser,
+        AmazonCustomerByEmail,
         Group
       ),
   )
@@ -47,18 +47,18 @@ newtype Type = Type' Lude.Text
       Lude.ToHeader
     )
 
-pattern AmazonCustomerByEmail :: Type
-pattern AmazonCustomerByEmail = Type' "AmazonCustomerByEmail"
-
 pattern CanonicalUser :: Type
 pattern CanonicalUser = Type' "CanonicalUser"
+
+pattern AmazonCustomerByEmail :: Type
+pattern AmazonCustomerByEmail = Type' "AmazonCustomerByEmail"
 
 pattern Group :: Type
 pattern Group = Type' "Group"
 
 {-# COMPLETE
-  AmazonCustomerByEmail,
   CanonicalUser,
+  AmazonCustomerByEmail,
   Group,
   Type'
   #-}

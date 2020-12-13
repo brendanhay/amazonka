@@ -30,12 +30,10 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'mkExecutionSucceededEventDetails' smart constructor.
 data ExecutionSucceededEventDetails = ExecutionSucceededEventDetails'
-  { output ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    outputDetails ::
-      Lude.Maybe
-        HistoryEventExecutionDataDetails
+  { -- | The JSON data output by the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    output :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Contains details about the output of an execution history event.
+    outputDetails :: Lude.Maybe HistoryEventExecutionDataDetails
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)

@@ -31,28 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCanarySettings' smart constructor.
 data CanarySettings = CanarySettings'
-  { deploymentId ::
-      Lude.Maybe Lude.Text,
-    stageVariableOverrides ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The ID of the canary deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
+    stageVariableOverrides :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
     useStageCache :: Lude.Maybe Lude.Bool,
+    -- | The percent (0-100) of traffic diverted to a canary deployment.
     percentTraffic :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CanarySettings' with the minimum fields required to make a request.
 --
 -- * 'deploymentId' - The ID of the canary deployment.
--- * 'percentTraffic' - The percent (0-100) of traffic diverted to a canary deployment.
 -- * 'stageVariableOverrides' - Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
 -- * 'useStageCache' - A Boolean flag to indicate whether the canary deployment uses the stage cache or not.
+-- * 'percentTraffic' - The percent (0-100) of traffic diverted to a canary deployment.
 mkCanarySettings ::
   CanarySettings
 mkCanarySettings =

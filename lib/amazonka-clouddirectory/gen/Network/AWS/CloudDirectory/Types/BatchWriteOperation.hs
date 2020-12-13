@@ -57,53 +57,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchWriteOperation' smart constructor.
 data BatchWriteOperation = BatchWriteOperation'
-  { deleteObject ::
-      Lude.Maybe BatchDeleteObject,
+  { -- | Deletes an object in a 'Directory' .
+    deleteObject :: Lude.Maybe BatchDeleteObject,
+    -- | Detaches the specified object from the specified index.
     detachFromIndex :: Lude.Maybe BatchDetachFromIndex,
-    removeFacetFromObject ::
-      Lude.Maybe BatchRemoveFacetFromObject,
+    -- | A batch operation that removes a facet from an object.
+    removeFacetFromObject :: Lude.Maybe BatchRemoveFacetFromObject,
+    -- | Attaches an object to a 'Directory' .
     attachObject :: Lude.Maybe BatchAttachObject,
+    -- | Creates an object.
     createObject :: Lude.Maybe BatchCreateObject,
+    -- | Attaches a typed link to a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
     attachTypedLink :: Lude.Maybe BatchAttachTypedLink,
+    -- | Detaches a policy from a 'Directory' .
     detachPolicy :: Lude.Maybe BatchDetachPolicy,
+    -- | Creates an index object. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search> for more information.
     createIndex :: Lude.Maybe BatchCreateIndex,
+    -- | Detaches an object from a 'Directory' .
     detachObject :: Lude.Maybe BatchDetachObject,
-    addFacetToObject ::
-      Lude.Maybe BatchAddFacetToObject,
+    -- | A batch operation that adds a facet to an object.
+    addFacetToObject :: Lude.Maybe BatchAddFacetToObject,
+    -- | Detaches a typed link from a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
     detachTypedLink :: Lude.Maybe BatchDetachTypedLink,
-    updateObjectAttributes ::
-      Lude.Maybe BatchUpdateObjectAttributes,
+    -- | Updates a given object's attributes.
+    updateObjectAttributes :: Lude.Maybe BatchUpdateObjectAttributes,
+    -- | Attaches a policy object to a regular object. An object can have a limited number of attached policies.
     attachPolicy :: Lude.Maybe BatchAttachPolicy,
-    updateLinkAttributes ::
-      Lude.Maybe BatchUpdateLinkAttributes,
+    -- | Updates a given object's attributes.
+    updateLinkAttributes :: Lude.Maybe BatchUpdateLinkAttributes,
+    -- | Attaches the specified object to the specified index.
     attachToIndex :: Lude.Maybe BatchAttachToIndex
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchWriteOperation' with the minimum fields required to make a request.
 --
--- * 'addFacetToObject' - A batch operation that adds a facet to an object.
--- * 'attachObject' - Attaches an object to a 'Directory' .
--- * 'attachPolicy' - Attaches a policy object to a regular object. An object can have a limited number of attached policies.
--- * 'attachToIndex' - Attaches the specified object to the specified index.
--- * 'attachTypedLink' - Attaches a typed link to a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
--- * 'createIndex' - Creates an index object. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search> for more information.
--- * 'createObject' - Creates an object.
 -- * 'deleteObject' - Deletes an object in a 'Directory' .
 -- * 'detachFromIndex' - Detaches the specified object from the specified index.
--- * 'detachObject' - Detaches an object from a 'Directory' .
--- * 'detachPolicy' - Detaches a policy from a 'Directory' .
--- * 'detachTypedLink' - Detaches a typed link from a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
 -- * 'removeFacetFromObject' - A batch operation that removes a facet from an object.
--- * 'updateLinkAttributes' - Updates a given object's attributes.
+-- * 'attachObject' - Attaches an object to a 'Directory' .
+-- * 'createObject' - Creates an object.
+-- * 'attachTypedLink' - Attaches a typed link to a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'detachPolicy' - Detaches a policy from a 'Directory' .
+-- * 'createIndex' - Creates an index object. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search> for more information.
+-- * 'detachObject' - Detaches an object from a 'Directory' .
+-- * 'addFacetToObject' - A batch operation that adds a facet to an object.
+-- * 'detachTypedLink' - Detaches a typed link from a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
 -- * 'updateObjectAttributes' - Updates a given object's attributes.
+-- * 'attachPolicy' - Attaches a policy object to a regular object. An object can have a limited number of attached policies.
+-- * 'updateLinkAttributes' - Updates a given object's attributes.
+-- * 'attachToIndex' - Attaches the specified object to the specified index.
 mkBatchWriteOperation ::
   BatchWriteOperation
 mkBatchWriteOperation =

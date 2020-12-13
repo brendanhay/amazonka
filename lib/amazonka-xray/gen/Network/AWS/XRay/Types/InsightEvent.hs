@@ -34,30 +34,27 @@ import Network.AWS.XRay.Types.RequestImpactStatistics
 --
 -- /See:/ 'mkInsightEvent' smart constructor.
 data InsightEvent = InsightEvent'
-  { summary :: Lude.Maybe Lude.Text,
+  { -- | A brief description of the event.
+    summary :: Lude.Maybe Lude.Text,
+    -- | The time, in Unix seconds, at which the event was recorded.
     eventTime :: Lude.Maybe Lude.Timestamp,
-    rootCauseServiceRequestImpactStatistics ::
-      Lude.Maybe RequestImpactStatistics,
+    -- | The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
+    rootCauseServiceRequestImpactStatistics :: Lude.Maybe RequestImpactStatistics,
+    -- | The service during the event that is most impacted by the incident.
     topAnomalousServices :: Lude.Maybe [AnomalousService],
-    clientRequestImpactStatistics ::
-      Lude.Maybe RequestImpactStatistics
+    -- | The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
+    clientRequestImpactStatistics :: Lude.Maybe RequestImpactStatistics
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightEvent' with the minimum fields required to make a request.
 --
--- * 'clientRequestImpactStatistics' - The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
+-- * 'summary' - A brief description of the event.
 -- * 'eventTime' - The time, in Unix seconds, at which the event was recorded.
 -- * 'rootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
--- * 'summary' - A brief description of the event.
 -- * 'topAnomalousServices' - The service during the event that is most impacted by the incident.
+-- * 'clientRequestImpactStatistics' - The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
 mkInsightEvent ::
   InsightEvent
 mkInsightEvent =

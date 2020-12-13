@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCdiInputSpecification' smart constructor.
 newtype CdiInputSpecification = CdiInputSpecification'
-  { resolution ::
-      Lude.Maybe CdiInputResolution
+  { -- | Maximum CDI input resolution
+    resolution :: Lude.Maybe CdiInputResolution
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CdiInputSpecification' with the minimum fields required to make a request.

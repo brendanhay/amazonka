@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.IAM.CreateGroup
     mkCreateGroupResponse,
 
     -- ** Response lenses
-    cgrsResponseStatus,
     cgrsGroup,
+    cgrsResponseStatus,
   )
 where
 
@@ -42,27 +43,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    --
+    -- This parameter is optional. If it is not included, it defaults to a slash (/).
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+    path :: Lude.Maybe Lude.Text,
+    -- | The name of the group to create. Do not include the path in this value.
+    --
+    -- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
     groupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
 --
--- * 'groupName' - The name of the group to create. Do not include the path in this value.
---
--- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
 -- * 'path' - The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
 -- This parameter is optional. If it is not included, it defaults to a slash (/).
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'groupName' - The name of the group to create. Do not include the path in this value.
+--
+-- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
 mkCreateGroup ::
   -- | 'groupName'
   Lude.Text ->
@@ -97,7 +99,7 @@ instance Lude.AWSRequest CreateGroup where
       "CreateGroupResult"
       ( \s h x ->
           CreateGroupResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "Group")
+            Lude.<$> (x Lude..@ "Group") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateGroup where
@@ -119,17 +121,12 @@ instance Lude.ToQuery CreateGroup where
 --
 -- /See:/ 'mkCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { responseStatus ::
-      Lude.Int,
-    group :: Group
+  { -- | A structure containing details about the new group.
+    group :: Group,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
@@ -137,23 +134,16 @@ data CreateGroupResponse = CreateGroupResponse'
 -- * 'group' - A structure containing details about the new group.
 -- * 'responseStatus' - The response status code.
 mkCreateGroupResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'group'
   Group ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateGroupResponse
-mkCreateGroupResponse pResponseStatus_ pGroup_ =
+mkCreateGroupResponse pGroup_ pResponseStatus_ =
   CreateGroupResponse'
-    { responseStatus = pResponseStatus_,
-      group = pGroup_
+    { group = pGroup_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsResponseStatus :: Lens.Lens' CreateGroupResponse Lude.Int
-cgrsResponseStatus = Lens.lens (responseStatus :: CreateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGroupResponse)
-{-# DEPRECATED cgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing details about the new group.
 --
@@ -161,3 +151,10 @@ cgrsResponseStatus = Lens.lens (responseStatus :: CreateGroupResponse -> Lude.In
 cgrsGroup :: Lens.Lens' CreateGroupResponse Group
 cgrsGroup = Lens.lens (group :: CreateGroupResponse -> Group) (\s a -> s {group = a} :: CreateGroupResponse)
 {-# DEPRECATED cgrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrsResponseStatus :: Lens.Lens' CreateGroupResponse Lude.Int
+cgrsResponseStatus = Lens.lens (responseStatus :: CreateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGroupResponse)
+{-# DEPRECATED cgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

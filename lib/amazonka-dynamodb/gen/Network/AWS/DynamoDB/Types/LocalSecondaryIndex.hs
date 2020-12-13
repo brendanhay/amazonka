@@ -17,9 +17,9 @@ module Network.AWS.DynamoDB.Types.LocalSecondaryIndex
     mkLocalSecondaryIndex,
 
     -- * Lenses
-    lsiIndexName,
     lsiKeySchema,
     lsiProjection,
+    lsiIndexName,
   )
 where
 
@@ -32,23 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalSecondaryIndex' smart constructor.
 data LocalSecondaryIndex = LocalSecondaryIndex'
-  { indexName ::
-      Lude.Text,
+  { -- | The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+    --
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
     keySchema :: Lude.NonEmpty KeySchemaElement,
-    projection :: Projection
+    -- | Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+    projection :: Projection,
+    -- | The name of the local secondary index. The name must be unique among all other indexes on this table.
+    indexName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalSecondaryIndex' with the minimum fields required to make a request.
 --
--- * 'indexName' - The name of the local secondary index. The name must be unique among all other indexes on this table.
 -- * 'keySchema' - The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
 --
 --
@@ -59,27 +60,21 @@ data LocalSecondaryIndex = LocalSecondaryIndex'
 --
 --
 -- * 'projection' - Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+-- * 'indexName' - The name of the local secondary index. The name must be unique among all other indexes on this table.
 mkLocalSecondaryIndex ::
-  -- | 'indexName'
-  Lude.Text ->
   -- | 'keySchema'
   Lude.NonEmpty KeySchemaElement ->
   -- | 'projection'
   Projection ->
+  -- | 'indexName'
+  Lude.Text ->
   LocalSecondaryIndex
-mkLocalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
+mkLocalSecondaryIndex pKeySchema_ pProjection_ pIndexName_ =
   LocalSecondaryIndex'
-    { indexName = pIndexName_,
-      keySchema = pKeySchema_,
-      projection = pProjection_
+    { keySchema = pKeySchema_,
+      projection = pProjection_,
+      indexName = pIndexName_
     }
-
--- | The name of the local secondary index. The name must be unique among all other indexes on this table.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsiIndexName :: Lens.Lens' LocalSecondaryIndex Lude.Text
-lsiIndexName = Lens.lens (indexName :: LocalSecondaryIndex -> Lude.Text) (\s a -> s {indexName = a} :: LocalSecondaryIndex)
-{-# DEPRECATED lsiIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
 --
@@ -103,12 +98,19 @@ lsiProjection :: Lens.Lens' LocalSecondaryIndex Projection
 lsiProjection = Lens.lens (projection :: LocalSecondaryIndex -> Projection) (\s a -> s {projection = a} :: LocalSecondaryIndex)
 {-# DEPRECATED lsiProjection "Use generic-lens or generic-optics with 'projection' instead." #-}
 
+-- | The name of the local secondary index. The name must be unique among all other indexes on this table.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiIndexName :: Lens.Lens' LocalSecondaryIndex Lude.Text
+lsiIndexName = Lens.lens (indexName :: LocalSecondaryIndex -> Lude.Text) (\s a -> s {indexName = a} :: LocalSecondaryIndex)
+{-# DEPRECATED lsiIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+
 instance Lude.ToJSON LocalSecondaryIndex where
   toJSON LocalSecondaryIndex' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("IndexName" Lude..= indexName),
-            Lude.Just ("KeySchema" Lude..= keySchema),
-            Lude.Just ("Projection" Lude..= projection)
+          [ Lude.Just ("KeySchema" Lude..= keySchema),
+            Lude.Just ("Projection" Lude..= projection),
+            Lude.Just ("IndexName" Lude..= indexName)
           ]
       )

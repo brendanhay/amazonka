@@ -38,36 +38,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerOverride' smart constructor.
 data ContainerOverride = ContainerOverride'
-  { command ::
-      Lude.Maybe [Lude.Text],
+  { -- | The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+    command :: Lude.Maybe [Lude.Text],
+    -- | The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.
     environment :: Lude.Maybe [KeyValuePair],
+    -- | A list of files containing the environment variables to pass to a container, instead of the value from the container definition.
     environmentFiles :: Lude.Maybe [EnvironmentFile],
-    resourceRequirements ::
-      Lude.Maybe [ResourceRequirement],
+    -- | The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU.
+    resourceRequirements :: Lude.Maybe [ResourceRequirement],
+    -- | The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
     memory :: Lude.Maybe Lude.Int,
+    -- | The name of the container that receives the override. This parameter is required if any override is specified.
     name :: Lude.Maybe Lude.Text,
+    -- | The number of @cpu@ units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
     cpu :: Lude.Maybe Lude.Int,
+    -- | The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
     memoryReservation :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerOverride' with the minimum fields required to make a request.
 --
 -- * 'command' - The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
--- * 'cpu' - The number of @cpu@ units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 -- * 'environment' - The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.
 -- * 'environmentFiles' - A list of files containing the environment variables to pass to a container, instead of the value from the container definition.
--- * 'memory' - The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
--- * 'memoryReservation' - The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
--- * 'name' - The name of the container that receives the override. This parameter is required if any override is specified.
 -- * 'resourceRequirements' - The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU.
+-- * 'memory' - The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+-- * 'name' - The name of the container that receives the override. This parameter is required if any override is specified.
+-- * 'cpu' - The number of @cpu@ units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+-- * 'memoryReservation' - The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
 mkContainerOverride ::
   ContainerOverride
 mkContainerOverride =

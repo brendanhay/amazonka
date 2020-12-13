@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,16 +45,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopKeyPhrasesDetectionJob' smart constructor.
 newtype StopKeyPhrasesDetectionJob = StopKeyPhrasesDetectionJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier of the key phrases detection job to stop.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopKeyPhrasesDetectionJob' with the minimum fields required to make a request.
@@ -112,20 +107,14 @@ instance Lude.ToQuery StopKeyPhrasesDetectionJob where
 
 -- | /See:/ 'mkStopKeyPhrasesDetectionJobResponse' smart constructor.
 data StopKeyPhrasesDetectionJobResponse = StopKeyPhrasesDetectionJobResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
-    jobStatus ::
-      Lude.Maybe JobStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier of the key phrases detection job to stop.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopKeyPhrasesDetectionJob@ operation.
+    jobStatus :: Lude.Maybe JobStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopKeyPhrasesDetectionJobResponse' with the minimum fields required to make a request.

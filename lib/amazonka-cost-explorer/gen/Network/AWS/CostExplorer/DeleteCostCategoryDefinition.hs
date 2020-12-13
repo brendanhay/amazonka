@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteCostCategoryDefinition' smart constructor.
 newtype DeleteCostCategoryDefinition = DeleteCostCategoryDefinition'
-  { costCategoryARN ::
-      Lude.Text
+  { -- | The unique identifier for your Cost Category.
+    costCategoryARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCostCategoryDefinition' with the minimum fields required to make a request.
@@ -114,22 +109,14 @@ instance Lude.ToQuery DeleteCostCategoryDefinition where
 
 -- | /See:/ 'mkDeleteCostCategoryDefinitionResponse' smart constructor.
 data DeleteCostCategoryDefinitionResponse = DeleteCostCategoryDefinitionResponse'
-  { costCategoryARN ::
-      Lude.Maybe
-        Lude.Text,
-    effectiveEnd ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The unique identifier for your Cost Category.
+    costCategoryARN :: Lude.Maybe Lude.Text,
+    -- | The effective end date of the Cost Category as a result of deleting it. No costs after this date will be categorized by the deleted Cost Category.
+    effectiveEnd :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCostCategoryDefinitionResponse' with the minimum fields required to make a request.

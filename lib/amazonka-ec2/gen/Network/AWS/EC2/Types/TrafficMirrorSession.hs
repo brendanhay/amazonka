@@ -38,41 +38,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrafficMirrorSession' smart constructor.
 data TrafficMirrorSession = TrafficMirrorSession'
-  { trafficMirrorTargetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Traffic Mirror target.
+    trafficMirrorTargetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Traffic Mirror session's network interface.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Traffic Mirror filter.
     trafficMirrorFilterId :: Lude.Maybe Lude.Text,
+    -- | The number of bytes in each packet to mirror. These are the bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet
     packetLength :: Lude.Maybe Lude.Int,
+    -- | The ID of the account that owns the Traffic Mirror session.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The ID for the Traffic Mirror session.
     trafficMirrorSessionId :: Lude.Maybe Lude.Text,
+    -- | The virtual network ID associated with the Traffic Mirror session.
     virtualNetworkId :: Lude.Maybe Lude.Int,
+    -- | The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+    --
+    -- Valid values are 1-32766.
     sessionNumber :: Lude.Maybe Lude.Int,
+    -- | The description of the Traffic Mirror session.
     description :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the Traffic Mirror session.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrafficMirrorSession' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the Traffic Mirror session.
+-- * 'trafficMirrorTargetId' - The ID of the Traffic Mirror target.
 -- * 'networkInterfaceId' - The ID of the Traffic Mirror session's network interface.
--- * 'ownerId' - The ID of the account that owns the Traffic Mirror session.
+-- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
 -- * 'packetLength' - The number of bytes in each packet to mirror. These are the bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet
+-- * 'ownerId' - The ID of the account that owns the Traffic Mirror session.
+-- * 'trafficMirrorSessionId' - The ID for the Traffic Mirror session.
+-- * 'virtualNetworkId' - The virtual network ID associated with the Traffic Mirror session.
 -- * 'sessionNumber' - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 --
 -- Valid values are 1-32766.
+-- * 'description' - The description of the Traffic Mirror session.
 -- * 'tags' - The tags assigned to the Traffic Mirror session.
--- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
--- * 'trafficMirrorSessionId' - The ID for the Traffic Mirror session.
--- * 'trafficMirrorTargetId' - The ID of the Traffic Mirror target.
--- * 'virtualNetworkId' - The virtual network ID associated with the Traffic Mirror session.
 mkTrafficMirrorSession ::
   TrafficMirrorSession
 mkTrafficMirrorSession =

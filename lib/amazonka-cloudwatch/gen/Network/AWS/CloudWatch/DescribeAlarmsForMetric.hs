@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
 
     -- ** Request lenses
     dafmPeriod,
+    dafmMetricName,
+    dafmNamespace,
     dafmDimensions,
     dafmUnit,
     dafmStatistic,
     dafmExtendedStatistic,
-    dafmMetricName,
-    dafmNamespace,
 
     -- * Destructuring the response
     DescribeAlarmsForMetricResponse (..),
@@ -47,33 +48,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAlarmsForMetric' smart constructor.
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
-  { period ::
-      Lude.Maybe Lude.Natural,
-    dimensions :: Lude.Maybe [Dimension],
-    unit :: Lude.Maybe StandardUnit,
-    statistic :: Lude.Maybe Statistic,
-    extendedStatistic :: Lude.Maybe Lude.Text,
+  { -- | The period, in seconds, over which the statistic is applied.
+    period :: Lude.Maybe Lude.Natural,
+    -- | The name of the metric.
     metricName :: Lude.Text,
-    namespace :: Lude.Text
+    -- | The namespace of the metric.
+    namespace :: Lude.Text,
+    -- | The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
+    dimensions :: Lude.Maybe [Dimension],
+    -- | The unit for the metric.
+    unit :: Lude.Maybe StandardUnit,
+    -- | The statistic for the metric, other than percentiles. For percentile statistics, use @ExtendedStatistics@ .
+    statistic :: Lude.Maybe Statistic,
+    -- | The percentile statistic for the metric. Specify a value between p0.0 and p100.
+    extendedStatistic :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlarmsForMetric' with the minimum fields required to make a request.
 --
--- * 'dimensions' - The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
--- * 'extendedStatistic' - The percentile statistic for the metric. Specify a value between p0.0 and p100.
+-- * 'period' - The period, in seconds, over which the statistic is applied.
 -- * 'metricName' - The name of the metric.
 -- * 'namespace' - The namespace of the metric.
--- * 'period' - The period, in seconds, over which the statistic is applied.
--- * 'statistic' - The statistic for the metric, other than percentiles. For percentile statistics, use @ExtendedStatistics@ .
+-- * 'dimensions' - The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
 -- * 'unit' - The unit for the metric.
+-- * 'statistic' - The statistic for the metric, other than percentiles. For percentile statistics, use @ExtendedStatistics@ .
+-- * 'extendedStatistic' - The percentile statistic for the metric. Specify a value between p0.0 and p100.
 mkDescribeAlarmsForMetric ::
   -- | 'metricName'
   Lude.Text ->
@@ -83,12 +84,12 @@ mkDescribeAlarmsForMetric ::
 mkDescribeAlarmsForMetric pMetricName_ pNamespace_ =
   DescribeAlarmsForMetric'
     { period = Lude.Nothing,
+      metricName = pMetricName_,
+      namespace = pNamespace_,
       dimensions = Lude.Nothing,
       unit = Lude.Nothing,
       statistic = Lude.Nothing,
-      extendedStatistic = Lude.Nothing,
-      metricName = pMetricName_,
-      namespace = pNamespace_
+      extendedStatistic = Lude.Nothing
     }
 
 -- | The period, in seconds, over which the statistic is applied.
@@ -97,6 +98,20 @@ mkDescribeAlarmsForMetric pMetricName_ pNamespace_ =
 dafmPeriod :: Lens.Lens' DescribeAlarmsForMetric (Lude.Maybe Lude.Natural)
 dafmPeriod = Lens.lens (period :: DescribeAlarmsForMetric -> Lude.Maybe Lude.Natural) (\s a -> s {period = a} :: DescribeAlarmsForMetric)
 {-# DEPRECATED dafmPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
+
+-- | The name of the metric.
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmMetricName :: Lens.Lens' DescribeAlarmsForMetric Lude.Text
+dafmMetricName = Lens.lens (metricName :: DescribeAlarmsForMetric -> Lude.Text) (\s a -> s {metricName = a} :: DescribeAlarmsForMetric)
+{-# DEPRECATED dafmMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
+
+-- | The namespace of the metric.
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmNamespace :: Lens.Lens' DescribeAlarmsForMetric Lude.Text
+dafmNamespace = Lens.lens (namespace :: DescribeAlarmsForMetric -> Lude.Text) (\s a -> s {namespace = a} :: DescribeAlarmsForMetric)
+{-# DEPRECATED dafmNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
 --
@@ -126,20 +141,6 @@ dafmExtendedStatistic :: Lens.Lens' DescribeAlarmsForMetric (Lude.Maybe Lude.Tex
 dafmExtendedStatistic = Lens.lens (extendedStatistic :: DescribeAlarmsForMetric -> Lude.Maybe Lude.Text) (\s a -> s {extendedStatistic = a} :: DescribeAlarmsForMetric)
 {-# DEPRECATED dafmExtendedStatistic "Use generic-lens or generic-optics with 'extendedStatistic' instead." #-}
 
--- | The name of the metric.
---
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dafmMetricName :: Lens.Lens' DescribeAlarmsForMetric Lude.Text
-dafmMetricName = Lens.lens (metricName :: DescribeAlarmsForMetric -> Lude.Text) (\s a -> s {metricName = a} :: DescribeAlarmsForMetric)
-{-# DEPRECATED dafmMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
-
--- | The namespace of the metric.
---
--- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dafmNamespace :: Lens.Lens' DescribeAlarmsForMetric Lude.Text
-dafmNamespace = Lens.lens (namespace :: DescribeAlarmsForMetric -> Lude.Text) (\s a -> s {namespace = a} :: DescribeAlarmsForMetric)
-{-# DEPRECATED dafmNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
-
 instance Lude.AWSRequest DescribeAlarmsForMetric where
   type Rs DescribeAlarmsForMetric = DescribeAlarmsForMetricResponse
   request = Req.postQuery cloudWatchService
@@ -166,28 +167,23 @@ instance Lude.ToQuery DescribeAlarmsForMetric where
       [ "Action" Lude.=: ("DescribeAlarmsForMetric" :: Lude.ByteString),
         "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
         "Period" Lude.=: period,
+        "MetricName" Lude.=: metricName,
+        "Namespace" Lude.=: namespace,
         "Dimensions"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions),
         "Unit" Lude.=: unit,
         "Statistic" Lude.=: statistic,
-        "ExtendedStatistic" Lude.=: extendedStatistic,
-        "MetricName" Lude.=: metricName,
-        "Namespace" Lude.=: namespace
+        "ExtendedStatistic" Lude.=: extendedStatistic
       ]
 
 -- | /See:/ 'mkDescribeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
-  { metricAlarms ::
-      Lude.Maybe [MetricAlarm],
+  { -- | The information for each alarm with the specified metric.
+    metricAlarms :: Lude.Maybe [MetricAlarm],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlarmsForMetricResponse' with the minimum fields required to make a request.

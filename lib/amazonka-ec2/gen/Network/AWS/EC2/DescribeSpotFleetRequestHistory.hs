@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,12 +22,12 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     mkDescribeSpotFleetRequestHistory,
 
     -- ** Request lenses
+    dsfrhStartTime,
     dsfrhNextToken,
     dsfrhEventType,
+    dsfrhSpotFleetRequestId,
     dsfrhDryRun,
     dsfrhMaxResults,
-    dsfrhSpotFleetRequestId,
-    dsfrhStartTime,
 
     -- * Destructuring the response
     DescribeSpotFleetRequestHistoryResponse (..),
@@ -52,50 +53,52 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeSpotFleetRequestHistory' smart constructor.
 data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    eventType ::
-      Lude.Maybe EventType,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    spotFleetRequestId ::
-      Lude.Text,
-    startTime :: Lude.DateTime
+  { -- | The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+    startTime :: Lude.DateTime,
+    -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The type of events to describe. By default, all events are described.
+    eventType :: Lude.Maybe EventType,
+    -- | The ID of the Spot Fleet request.
+    spotFleetRequestId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotFleetRequestHistory' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'eventType' - The type of events to describe. By default, all events are described.
--- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
--- * 'nextToken' - The token for the next set of results.
--- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
 -- * 'startTime' - The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- * 'nextToken' - The token for the next set of results.
+-- * 'eventType' - The type of events to describe. By default, all events are described.
+-- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkDescribeSpotFleetRequestHistory ::
-  -- | 'spotFleetRequestId'
-  Lude.Text ->
   -- | 'startTime'
   Lude.DateTime ->
+  -- | 'spotFleetRequestId'
+  Lude.Text ->
   DescribeSpotFleetRequestHistory
-mkDescribeSpotFleetRequestHistory pSpotFleetRequestId_ pStartTime_ =
+mkDescribeSpotFleetRequestHistory pStartTime_ pSpotFleetRequestId_ =
   DescribeSpotFleetRequestHistory'
-    { nextToken = Lude.Nothing,
+    { startTime = pStartTime_,
+      nextToken = Lude.Nothing,
       eventType = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
       spotFleetRequestId = pSpotFleetRequestId_,
-      startTime = pStartTime_
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfrhStartTime :: Lens.Lens' DescribeSpotFleetRequestHistory Lude.DateTime
+dsfrhStartTime = Lens.lens (startTime :: DescribeSpotFleetRequestHistory -> Lude.DateTime) (\s a -> s {startTime = a} :: DescribeSpotFleetRequestHistory)
+{-# DEPRECATED dsfrhStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The token for the next set of results.
 --
@@ -111,6 +114,13 @@ dsfrhEventType :: Lens.Lens' DescribeSpotFleetRequestHistory (Lude.Maybe EventTy
 dsfrhEventType = Lens.lens (eventType :: DescribeSpotFleetRequestHistory -> Lude.Maybe EventType) (\s a -> s {eventType = a} :: DescribeSpotFleetRequestHistory)
 {-# DEPRECATED dsfrhEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
 
+-- | The ID of the Spot Fleet request.
+--
+-- /Note:/ Consider using 'spotFleetRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfrhSpotFleetRequestId :: Lens.Lens' DescribeSpotFleetRequestHistory Lude.Text
+dsfrhSpotFleetRequestId = Lens.lens (spotFleetRequestId :: DescribeSpotFleetRequestHistory -> Lude.Text) (\s a -> s {spotFleetRequestId = a} :: DescribeSpotFleetRequestHistory)
+{-# DEPRECATED dsfrhSpotFleetRequestId "Use generic-lens or generic-optics with 'spotFleetRequestId' instead." #-}
+
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -124,20 +134,6 @@ dsfrhDryRun = Lens.lens (dryRun :: DescribeSpotFleetRequestHistory -> Lude.Maybe
 dsfrhMaxResults :: Lens.Lens' DescribeSpotFleetRequestHistory (Lude.Maybe Lude.Natural)
 dsfrhMaxResults = Lens.lens (maxResults :: DescribeSpotFleetRequestHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeSpotFleetRequestHistory)
 {-# DEPRECATED dsfrhMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the Spot Fleet request.
---
--- /Note:/ Consider using 'spotFleetRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrhSpotFleetRequestId :: Lens.Lens' DescribeSpotFleetRequestHistory Lude.Text
-dsfrhSpotFleetRequestId = Lens.lens (spotFleetRequestId :: DescribeSpotFleetRequestHistory -> Lude.Text) (\s a -> s {spotFleetRequestId = a} :: DescribeSpotFleetRequestHistory)
-{-# DEPRECATED dsfrhSpotFleetRequestId "Use generic-lens or generic-optics with 'spotFleetRequestId' instead." #-}
-
--- | The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrhStartTime :: Lens.Lens' DescribeSpotFleetRequestHistory Lude.DateTime
-dsfrhStartTime = Lens.lens (startTime :: DescribeSpotFleetRequestHistory -> Lude.DateTime) (\s a -> s {startTime = a} :: DescribeSpotFleetRequestHistory)
-{-# DEPRECATED dsfrhStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 instance Lude.AWSRequest DescribeSpotFleetRequestHistory where
   type
@@ -170,55 +166,46 @@ instance Lude.ToQuery DescribeSpotFleetRequestHistory where
       [ "Action"
           Lude.=: ("DescribeSpotFleetRequestHistory" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "StartTime" Lude.=: startTime,
         "NextToken" Lude.=: nextToken,
         "EventType" Lude.=: eventType,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
         "SpotFleetRequestId" Lude.=: spotFleetRequestId,
-        "StartTime" Lude.=: startTime
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | Contains the output of DescribeSpotFleetRequestHistory.
 --
 -- /See:/ 'mkDescribeSpotFleetRequestHistoryResponse' smart constructor.
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
-  { startTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    lastEvaluatedTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    historyRecords ::
-      Lude.Maybe
-        [HistoryRecord],
-    spotFleetRequestId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+    startTime :: Lude.Maybe Lude.DateTime,
+    -- | The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved.
+    --
+    -- If @nextToken@ indicates that there are more results, this value is not present.
+    lastEvaluatedTime :: Lude.Maybe Lude.DateTime,
+    -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the events in the history of the Spot Fleet request.
+    historyRecords :: Lude.Maybe [HistoryRecord],
+    -- | The ID of the Spot Fleet request.
+    spotFleetRequestId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotFleetRequestHistoryResponse' with the minimum fields required to make a request.
 --
--- * 'historyRecords' - Information about the events in the history of the Spot Fleet request.
+-- * 'startTime' - The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 -- * 'lastEvaluatedTime' - The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved.
 --
 -- If @nextToken@ indicates that there are more results, this value is not present.
 -- * 'nextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- * 'historyRecords' - Information about the events in the history of the Spot Fleet request.
 -- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
--- * 'startTime' - The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- * 'responseStatus' - The response status code.
 mkDescribeSpotFleetRequestHistoryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,8 +13,8 @@
 module Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType
   ( ConfigurationOptionValueType
       ( ConfigurationOptionValueType',
-        List,
-        Scalar
+        Scalar,
+        List
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ConfigurationOptionValueType = ConfigurationOptionValueType' Lude.Text
       Lude.ToHeader
     )
 
-pattern List :: ConfigurationOptionValueType
-pattern List = ConfigurationOptionValueType' "List"
-
 pattern Scalar :: ConfigurationOptionValueType
 pattern Scalar = ConfigurationOptionValueType' "Scalar"
 
+pattern List :: ConfigurationOptionValueType
+pattern List = ConfigurationOptionValueType' "List"
+
 {-# COMPLETE
-  List,
   Scalar,
+  List,
   ConfigurationOptionValueType'
   #-}

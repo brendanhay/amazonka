@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,9 +39,9 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     mkDescribeEvaluationsResponse,
 
     -- ** Response lenses
-    desrsResults,
-    desrsNextToken,
-    desrsResponseStatus,
+    dersResults,
+    dersNextToken,
+    dersResponseStatus,
   )
 where
 
@@ -53,32 +54,94 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEvaluations' smart constructor.
 data DescribeEvaluations = DescribeEvaluations'
-  { eQ ::
-      Lude.Maybe Lude.Text,
+  { -- | The equal to operator. The @Evaluation@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
+    eQ :: Lude.Maybe Lude.Text,
+    -- | The greater than or equal to operator. The @Evaluation@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
     gE :: Lude.Maybe Lude.Text,
+    -- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
+    --
+    -- For example, an @Evaluation@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @Evaluation@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
+    --
+    --     * 2014-09
+    --
+    --
+    --     * 2014-09-09
+    --
+    --
+    --     * 2014-09-09-Holiday
     prefix :: Lude.Maybe Lude.Text,
+    -- | The greater than operator. The @Evaluation@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
     gT :: Lude.Maybe Lude.Text,
+    -- | The not equal to operator. The @Evaluation@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
     nE :: Lude.Maybe Lude.Text,
+    -- | The ID of the page in the paginated results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A two-value parameter that determines the sequence of the resulting list of @Evaluation@ .
+    --
+    --
+    --     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    --     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@ .
     sortOrder :: Lude.Maybe SortOrder,
+    -- | The maximum number of @Evaluation@ to include in the result.
     limit :: Lude.Maybe Lude.Natural,
+    -- | The less than operator. The @Evaluation@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
     lT :: Lude.Maybe Lude.Text,
-    filterVariable ::
-      Lude.Maybe EvaluationFilterVariable,
+    -- | Use one of the following variable to filter a list of @Evaluation@ objects:
+    --
+    --
+    --     * @CreatedAt@ - Sets the search criteria to the @Evaluation@ creation date.
+    --
+    --     * @Status@ - Sets the search criteria to the @Evaluation@ status.
+    --
+    --     * @Name@ - Sets the search criteria to the contents of @Evaluation@ ____ @Name@ .
+    --
+    --     * @IAMUser@ - Sets the search criteria to the user account that invoked an @Evaluation@ .
+    --
+    --     * @MLModelId@ - Sets the search criteria to the @MLModel@ that was evaluated.
+    --
+    --     * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in @Evaluation@ .
+    --
+    --     * @DataUri@ - Sets the search criteria to the data file(s) used in @Evaluation@ . The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory.
+    filterVariable :: Lude.Maybe EvaluationFilterVariable,
+    -- | The less than or equal to operator. The @Evaluation@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
     lE :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEvaluations' with the minimum fields required to make a request.
 --
 -- * 'eQ' - The equal to operator. The @Evaluation@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
+-- * 'gE' - The greater than or equal to operator. The @Evaluation@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
+-- * 'prefix' - A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
+--
+-- For example, an @Evaluation@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @Evaluation@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
+--
+--     * 2014-09
+--
+--
+--     * 2014-09-09
+--
+--
+--     * 2014-09-09-Holiday
+--
+--
+-- * 'gT' - The greater than operator. The @Evaluation@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
+-- * 'nE' - The not equal to operator. The @Evaluation@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
+-- * 'nextToken' - The ID of the page in the paginated results.
+-- * 'sortOrder' - A two-value parameter that determines the sequence of the resulting list of @Evaluation@ .
+--
+--
+--     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+--     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@ .
+-- * 'limit' - The maximum number of @Evaluation@ to include in the result.
+-- * 'lT' - The less than operator. The @Evaluation@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
 -- * 'filterVariable' - Use one of the following variable to filter a list of @Evaluation@ objects:
 --
 --
@@ -96,34 +159,7 @@ data DescribeEvaluations = DescribeEvaluations'
 --
 --     * @DataUri@ - Sets the search criteria to the data file(s) used in @Evaluation@ . The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory.
 --
--- * 'gE' - The greater than or equal to operator. The @Evaluation@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
--- * 'gT' - The greater than operator. The @Evaluation@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
 -- * 'lE' - The less than or equal to operator. The @Evaluation@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
--- * 'lT' - The less than operator. The @Evaluation@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
--- * 'limit' - The maximum number of @Evaluation@ to include in the result.
--- * 'nE' - The not equal to operator. The @Evaluation@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
--- * 'nextToken' - The ID of the page in the paginated results.
--- * 'prefix' - A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
---
--- For example, an @Evaluation@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @Evaluation@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
---
---     * 2014-09
---
---
---     * 2014-09-09
---
---
---     * 2014-09-09-Holiday
---
---
--- * 'sortOrder' - A two-value parameter that determines the sequence of the resulting list of @Evaluation@ .
---
---
---     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
---
---     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@ .
 mkDescribeEvaluations ::
   DescribeEvaluations
 mkDescribeEvaluations =
@@ -255,12 +291,12 @@ deLE = Lens.lens (lE :: DescribeEvaluations -> Lude.Maybe Lude.Text) (\s a -> s 
 
 instance Page.AWSPager DescribeEvaluations where
   page rq rs
-    | Page.stop (rs Lens.^. desrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. desrsResults) = Lude.Nothing
+    | Page.stop (rs Lens.^. dersNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dersResults) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& deNextToken Lens..~ rs Lens.^. desrsNextToken
+          Lude.& deNextToken Lens..~ rs Lens.^. dersNextToken
 
 instance Lude.AWSRequest DescribeEvaluations where
   type Rs DescribeEvaluations = DescribeEvaluationsResponse
@@ -313,25 +349,21 @@ instance Lude.ToQuery DescribeEvaluations where
 --
 -- /See:/ 'mkDescribeEvaluationsResponse' smart constructor.
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
-  { results ::
-      Lude.Maybe [Evaluation],
+  { -- | A list of @Evaluation@ that meet the search criteria.
+    results :: Lude.Maybe [Evaluation],
+    -- | The ID of the next page in the paginated results that indicates at least one more page follows.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEvaluationsResponse' with the minimum fields required to make a request.
 --
+-- * 'results' - A list of @Evaluation@ that meet the search criteria.
 -- * 'nextToken' - The ID of the next page in the paginated results that indicates at least one more page follows.
 -- * 'responseStatus' - The response status code.
--- * 'results' - A list of @Evaluation@ that meet the search criteria.
 mkDescribeEvaluationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -346,20 +378,20 @@ mkDescribeEvaluationsResponse pResponseStatus_ =
 -- | A list of @Evaluation@ that meet the search criteria.
 --
 -- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResults :: Lens.Lens' DescribeEvaluationsResponse (Lude.Maybe [Evaluation])
-desrsResults = Lens.lens (results :: DescribeEvaluationsResponse -> Lude.Maybe [Evaluation]) (\s a -> s {results = a} :: DescribeEvaluationsResponse)
-{-# DEPRECATED desrsResults "Use generic-lens or generic-optics with 'results' instead." #-}
+dersResults :: Lens.Lens' DescribeEvaluationsResponse (Lude.Maybe [Evaluation])
+dersResults = Lens.lens (results :: DescribeEvaluationsResponse -> Lude.Maybe [Evaluation]) (\s a -> s {results = a} :: DescribeEvaluationsResponse)
+{-# DEPRECATED dersResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
 -- | The ID of the next page in the paginated results that indicates at least one more page follows.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsNextToken :: Lens.Lens' DescribeEvaluationsResponse (Lude.Maybe Lude.Text)
-desrsNextToken = Lens.lens (nextToken :: DescribeEvaluationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEvaluationsResponse)
-{-# DEPRECATED desrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dersNextToken :: Lens.Lens' DescribeEvaluationsResponse (Lude.Maybe Lude.Text)
+dersNextToken = Lens.lens (nextToken :: DescribeEvaluationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEvaluationsResponse)
+{-# DEPRECATED dersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeEvaluationsResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeEvaluationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEvaluationsResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dersResponseStatus :: Lens.Lens' DescribeEvaluationsResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DescribeEvaluationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEvaluationsResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

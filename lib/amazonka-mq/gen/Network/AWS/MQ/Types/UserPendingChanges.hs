@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserPendingChanges' smart constructor.
 data UserPendingChanges = UserPendingChanges'
-  { groups ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
     consoleAccess :: Lude.Maybe Lude.Bool,
+    -- | Required. The type of change pending for the ActiveMQ user.
     pendingChange :: Lude.Maybe ChangeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPendingChanges' with the minimum fields required to make a request.
 --
--- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 -- * 'groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 -- * 'pendingChange' - Required. The type of change pending for the ActiveMQ user.
 mkUserPendingChanges ::
   UserPendingChanges

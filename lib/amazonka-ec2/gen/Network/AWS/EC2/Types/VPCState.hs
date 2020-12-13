@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.VPCState
   ( VPCState
       ( VPCState',
-        VPCSAvailable,
-        VPCSPending
+        VPCSPending,
+        VPCSAvailable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype VPCState = VPCState' Lude.Text
       Lude.ToHeader
     )
 
-pattern VPCSAvailable :: VPCState
-pattern VPCSAvailable = VPCState' "available"
-
 pattern VPCSPending :: VPCState
 pattern VPCSPending = VPCState' "pending"
 
+pattern VPCSAvailable :: VPCState
+pattern VPCSAvailable = VPCState' "available"
+
 {-# COMPLETE
-  VPCSAvailable,
   VPCSPending,
+  VPCSAvailable,
   VPCState'
   #-}

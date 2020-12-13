@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,27 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAccessPoints' smart constructor.
 data DescribeAccessPoints = DescribeAccessPoints'
-  { accessPointId ::
-      Lude.Maybe Lude.Text,
+  { -- | (Optional) Specifies an EFS access point to describe in the response; mutually exclusive with @FileSystemId@ .
+    accessPointId :: Lude.Maybe Lude.Text,
+    -- | (Optional) If you provide a @FileSystemId@ , EFS returns all access points for that file system; mutually exclusive with @AccessPointId@ .
     fileSystemId :: Lude.Maybe Lude.Text,
+    -- | @NextToken@ is present if the response is paginated. You can use @NextMarker@ in the subsequent request to fetch the next page of access point descriptions.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | (Optional) When retrieving all access points for a file system, you can optionally specify the @MaxItems@ parameter to limit the number of objects returned in a response. The default value is 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccessPoints' with the minimum fields required to make a request.
 --
 -- * 'accessPointId' - (Optional) Specifies an EFS access point to describe in the response; mutually exclusive with @FileSystemId@ .
 -- * 'fileSystemId' - (Optional) If you provide a @FileSystemId@ , EFS returns all access points for that file system; mutually exclusive with @AccessPointId@ .
--- * 'maxResults' - (Optional) When retrieving all access points for a file system, you can optionally specify the @MaxItems@ parameter to limit the number of objects returned in a response. The default value is 100.
 -- * 'nextToken' - @NextToken@ is present if the response is paginated. You can use @NextMarker@ in the subsequent request to fetch the next page of access point descriptions.
+-- * 'maxResults' - (Optional) When retrieving all access points for a file system, you can optionally specify the @MaxItems@ parameter to limit the number of objects returned in a response. The default value is 100.
 mkDescribeAccessPoints ::
   DescribeAccessPoints
 mkDescribeAccessPoints =
@@ -133,19 +131,14 @@ instance Lude.ToQuery DescribeAccessPoints where
 
 -- | /See:/ 'mkDescribeAccessPointsResponse' smart constructor.
 data DescribeAccessPointsResponse = DescribeAccessPointsResponse'
-  { accessPoints ::
-      Lude.Maybe
-        [AccessPointDescription],
+  { -- | An array of access point descriptions.
+    accessPoints :: Lude.Maybe [AccessPointDescription],
+    -- | Present if there are more access points than returned in the response. You can use the NextMarker in the subsequent request to fetch the additional descriptions.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccessPointsResponse' with the minimum fields required to make a request.

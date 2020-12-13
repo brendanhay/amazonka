@@ -33,28 +33,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGenericAttachment' smart constructor.
 data GenericAttachment = GenericAttachment'
-  { buttons ::
-      Lude.Maybe [Button],
+  { -- | The list of options to show to the user.
+    buttons :: Lude.Maybe [Button],
+    -- | The subtitle shown below the title.
     subTitle :: Lude.Maybe Lude.Text,
+    -- | The URL of an image that is displayed to the user.
     imageURL :: Lude.Maybe Lude.Text,
+    -- | The URL of an attachment to the response card.
     attachmentLinkURL :: Lude.Maybe Lude.Text,
+    -- | The title of the option.
     title :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenericAttachment' with the minimum fields required to make a request.
 --
--- * 'attachmentLinkURL' - The URL of an attachment to the response card.
 -- * 'buttons' - The list of options to show to the user.
--- * 'imageURL' - The URL of an image that is displayed to the user.
 -- * 'subTitle' - The subtitle shown below the title.
+-- * 'imageURL' - The URL of an image that is displayed to the user.
+-- * 'attachmentLinkURL' - The URL of an attachment to the response card.
 -- * 'title' - The title of the option.
 mkGenericAttachment ::
   GenericAttachment

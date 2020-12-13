@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CodePipeline.StopPipelineExecution
     mkStopPipelineExecution,
 
     -- ** Request lenses
+    spePipelineName,
     speAbandon,
     speReason,
-    spePipelineName,
     spePipelineExecutionId,
 
     -- * Destructuring the response
@@ -29,8 +30,8 @@ module Network.AWS.CodePipeline.StopPipelineExecution
     mkStopPipelineExecutionResponse,
 
     -- ** Response lenses
-    srsPipelineExecutionId,
-    srsResponseStatus,
+    spersPipelineExecutionId,
+    spersResponseStatus,
   )
 where
 
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopPipelineExecution' smart constructor.
 data StopPipelineExecution = StopPipelineExecution'
-  { abandon ::
-      Lude.Maybe Lude.Bool,
-    reason :: Lude.Maybe Lude.Text,
+  { -- | The name of the pipeline to stop.
     pipelineName :: Lude.Text,
+    -- | Use this option to stop the pipeline execution by abandoning, rather than finishing, in-progress actions.
+    abandon :: Lude.Maybe Lude.Bool,
+    -- | Use this option to enter comments, such as the reason the pipeline was stopped.
+    reason :: Lude.Maybe Lude.Text,
+    -- | The ID of the pipeline execution to be stopped in the current stage. Use the @GetPipelineState@ action to retrieve the current pipelineExecutionId.
     pipelineExecutionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopPipelineExecution' with the minimum fields required to make a request.
 --
--- * 'abandon' - Use this option to stop the pipeline execution by abandoning, rather than finishing, in-progress actions.
--- * 'pipelineExecutionId' - The ID of the pipeline execution to be stopped in the current stage. Use the @GetPipelineState@ action to retrieve the current pipelineExecutionId.
 -- * 'pipelineName' - The name of the pipeline to stop.
+-- * 'abandon' - Use this option to stop the pipeline execution by abandoning, rather than finishing, in-progress actions.
 -- * 'reason' - Use this option to enter comments, such as the reason the pipeline was stopped.
+-- * 'pipelineExecutionId' - The ID of the pipeline execution to be stopped in the current stage. Use the @GetPipelineState@ action to retrieve the current pipelineExecutionId.
 mkStopPipelineExecution ::
   -- | 'pipelineName'
   Lude.Text ->
@@ -71,11 +69,18 @@ mkStopPipelineExecution ::
   StopPipelineExecution
 mkStopPipelineExecution pPipelineName_ pPipelineExecutionId_ =
   StopPipelineExecution'
-    { abandon = Lude.Nothing,
+    { pipelineName = pPipelineName_,
+      abandon = Lude.Nothing,
       reason = Lude.Nothing,
-      pipelineName = pPipelineName_,
       pipelineExecutionId = pPipelineExecutionId_
     }
+
+-- | The name of the pipeline to stop.
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spePipelineName :: Lens.Lens' StopPipelineExecution Lude.Text
+spePipelineName = Lens.lens (pipelineName :: StopPipelineExecution -> Lude.Text) (\s a -> s {pipelineName = a} :: StopPipelineExecution)
+{-# DEPRECATED spePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | Use this option to stop the pipeline execution by abandoning, rather than finishing, in-progress actions.
 --
@@ -90,13 +95,6 @@ speAbandon = Lens.lens (abandon :: StopPipelineExecution -> Lude.Maybe Lude.Bool
 speReason :: Lens.Lens' StopPipelineExecution (Lude.Maybe Lude.Text)
 speReason = Lens.lens (reason :: StopPipelineExecution -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: StopPipelineExecution)
 {-# DEPRECATED speReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
--- | The name of the pipeline to stop.
---
--- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spePipelineName :: Lens.Lens' StopPipelineExecution Lude.Text
-spePipelineName = Lens.lens (pipelineName :: StopPipelineExecution -> Lude.Text) (\s a -> s {pipelineName = a} :: StopPipelineExecution)
-{-# DEPRECATED spePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The ID of the pipeline execution to be stopped in the current stage. Use the @GetPipelineState@ action to retrieve the current pipelineExecutionId.
 --
@@ -131,9 +129,9 @@ instance Lude.ToJSON StopPipelineExecution where
   toJSON StopPipelineExecution' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("abandon" Lude..=) Lude.<$> abandon,
+          [ Lude.Just ("pipelineName" Lude..= pipelineName),
+            ("abandon" Lude..=) Lude.<$> abandon,
             ("reason" Lude..=) Lude.<$> reason,
-            Lude.Just ("pipelineName" Lude..= pipelineName),
             Lude.Just ("pipelineExecutionId" Lude..= pipelineExecutionId)
           ]
       )
@@ -146,17 +144,12 @@ instance Lude.ToQuery StopPipelineExecution where
 
 -- | /See:/ 'mkStopPipelineExecutionResponse' smart constructor.
 data StopPipelineExecutionResponse = StopPipelineExecutionResponse'
-  { pipelineExecutionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique system-generated ID of the pipeline execution that was stopped.
+    pipelineExecutionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopPipelineExecutionResponse' with the minimum fields required to make a request.
@@ -177,13 +170,13 @@ mkStopPipelineExecutionResponse pResponseStatus_ =
 -- | The unique system-generated ID of the pipeline execution that was stopped.
 --
 -- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsPipelineExecutionId :: Lens.Lens' StopPipelineExecutionResponse (Lude.Maybe Lude.Text)
-srsPipelineExecutionId = Lens.lens (pipelineExecutionId :: StopPipelineExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StopPipelineExecutionResponse)
-{-# DEPRECATED srsPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
+spersPipelineExecutionId :: Lens.Lens' StopPipelineExecutionResponse (Lude.Maybe Lude.Text)
+spersPipelineExecutionId = Lens.lens (pipelineExecutionId :: StopPipelineExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StopPipelineExecutionResponse)
+{-# DEPRECATED spersPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopPipelineExecutionResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopPipelineExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopPipelineExecutionResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+spersResponseStatus :: Lens.Lens' StopPipelineExecutionResponse Lude.Int
+spersResponseStatus = Lens.lens (responseStatus :: StopPipelineExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopPipelineExecutionResponse)
+{-# DEPRECATED spersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

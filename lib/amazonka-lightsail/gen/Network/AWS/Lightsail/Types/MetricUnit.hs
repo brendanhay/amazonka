@@ -13,33 +13,33 @@
 module Network.AWS.Lightsail.Types.MetricUnit
   ( MetricUnit
       ( MetricUnit',
-        Bits,
-        BitsSecond,
-        Bytes,
-        BytesSecond,
-        Count,
-        CountSecond,
-        Gigabits,
-        GigabitsSecond,
-        Gigabytes,
-        GigabytesSecond,
-        Kilobits,
-        KilobitsSecond,
-        Kilobytes,
-        KilobytesSecond,
-        Megabits,
-        MegabitsSecond,
-        Megabytes,
-        MegabytesSecond,
+        Seconds,
         Microseconds,
         Milliseconds,
-        None,
-        Percent,
-        Seconds,
-        Terabits,
-        TerabitsSecond,
+        Bytes,
+        Kilobytes,
+        Megabytes,
+        Gigabytes,
         Terabytes,
-        TerabytesSecond
+        Bits,
+        Kilobits,
+        Megabits,
+        Gigabits,
+        Terabits,
+        Percent,
+        Count,
+        BytesSecond,
+        KilobytesSecond,
+        MegabytesSecond,
+        GigabytesSecond,
+        TerabytesSecond,
+        BitsSecond,
+        KilobitsSecond,
+        MegabitsSecond,
+        GigabitsSecond,
+        TerabitsSecond,
+        CountSecond,
+        None
       ),
   )
 where
@@ -70,59 +70,8 @@ newtype MetricUnit = MetricUnit' Lude.Text
       Lude.ToHeader
     )
 
-pattern Bits :: MetricUnit
-pattern Bits = MetricUnit' "Bits"
-
-pattern BitsSecond :: MetricUnit
-pattern BitsSecond = MetricUnit' "Bits/Second"
-
-pattern Bytes :: MetricUnit
-pattern Bytes = MetricUnit' "Bytes"
-
-pattern BytesSecond :: MetricUnit
-pattern BytesSecond = MetricUnit' "Bytes/Second"
-
-pattern Count :: MetricUnit
-pattern Count = MetricUnit' "Count"
-
-pattern CountSecond :: MetricUnit
-pattern CountSecond = MetricUnit' "Count/Second"
-
-pattern Gigabits :: MetricUnit
-pattern Gigabits = MetricUnit' "Gigabits"
-
-pattern GigabitsSecond :: MetricUnit
-pattern GigabitsSecond = MetricUnit' "Gigabits/Second"
-
-pattern Gigabytes :: MetricUnit
-pattern Gigabytes = MetricUnit' "Gigabytes"
-
-pattern GigabytesSecond :: MetricUnit
-pattern GigabytesSecond = MetricUnit' "Gigabytes/Second"
-
-pattern Kilobits :: MetricUnit
-pattern Kilobits = MetricUnit' "Kilobits"
-
-pattern KilobitsSecond :: MetricUnit
-pattern KilobitsSecond = MetricUnit' "Kilobits/Second"
-
-pattern Kilobytes :: MetricUnit
-pattern Kilobytes = MetricUnit' "Kilobytes"
-
-pattern KilobytesSecond :: MetricUnit
-pattern KilobytesSecond = MetricUnit' "Kilobytes/Second"
-
-pattern Megabits :: MetricUnit
-pattern Megabits = MetricUnit' "Megabits"
-
-pattern MegabitsSecond :: MetricUnit
-pattern MegabitsSecond = MetricUnit' "Megabits/Second"
-
-pattern Megabytes :: MetricUnit
-pattern Megabytes = MetricUnit' "Megabytes"
-
-pattern MegabytesSecond :: MetricUnit
-pattern MegabytesSecond = MetricUnit' "Megabytes/Second"
+pattern Seconds :: MetricUnit
+pattern Seconds = MetricUnit' "Seconds"
 
 pattern Microseconds :: MetricUnit
 pattern Microseconds = MetricUnit' "Microseconds"
@@ -130,54 +79,105 @@ pattern Microseconds = MetricUnit' "Microseconds"
 pattern Milliseconds :: MetricUnit
 pattern Milliseconds = MetricUnit' "Milliseconds"
 
-pattern None :: MetricUnit
-pattern None = MetricUnit' "None"
+pattern Bytes :: MetricUnit
+pattern Bytes = MetricUnit' "Bytes"
 
-pattern Percent :: MetricUnit
-pattern Percent = MetricUnit' "Percent"
+pattern Kilobytes :: MetricUnit
+pattern Kilobytes = MetricUnit' "Kilobytes"
 
-pattern Seconds :: MetricUnit
-pattern Seconds = MetricUnit' "Seconds"
+pattern Megabytes :: MetricUnit
+pattern Megabytes = MetricUnit' "Megabytes"
 
-pattern Terabits :: MetricUnit
-pattern Terabits = MetricUnit' "Terabits"
-
-pattern TerabitsSecond :: MetricUnit
-pattern TerabitsSecond = MetricUnit' "Terabits/Second"
+pattern Gigabytes :: MetricUnit
+pattern Gigabytes = MetricUnit' "Gigabytes"
 
 pattern Terabytes :: MetricUnit
 pattern Terabytes = MetricUnit' "Terabytes"
 
+pattern Bits :: MetricUnit
+pattern Bits = MetricUnit' "Bits"
+
+pattern Kilobits :: MetricUnit
+pattern Kilobits = MetricUnit' "Kilobits"
+
+pattern Megabits :: MetricUnit
+pattern Megabits = MetricUnit' "Megabits"
+
+pattern Gigabits :: MetricUnit
+pattern Gigabits = MetricUnit' "Gigabits"
+
+pattern Terabits :: MetricUnit
+pattern Terabits = MetricUnit' "Terabits"
+
+pattern Percent :: MetricUnit
+pattern Percent = MetricUnit' "Percent"
+
+pattern Count :: MetricUnit
+pattern Count = MetricUnit' "Count"
+
+pattern BytesSecond :: MetricUnit
+pattern BytesSecond = MetricUnit' "Bytes/Second"
+
+pattern KilobytesSecond :: MetricUnit
+pattern KilobytesSecond = MetricUnit' "Kilobytes/Second"
+
+pattern MegabytesSecond :: MetricUnit
+pattern MegabytesSecond = MetricUnit' "Megabytes/Second"
+
+pattern GigabytesSecond :: MetricUnit
+pattern GigabytesSecond = MetricUnit' "Gigabytes/Second"
+
 pattern TerabytesSecond :: MetricUnit
 pattern TerabytesSecond = MetricUnit' "Terabytes/Second"
 
+pattern BitsSecond :: MetricUnit
+pattern BitsSecond = MetricUnit' "Bits/Second"
+
+pattern KilobitsSecond :: MetricUnit
+pattern KilobitsSecond = MetricUnit' "Kilobits/Second"
+
+pattern MegabitsSecond :: MetricUnit
+pattern MegabitsSecond = MetricUnit' "Megabits/Second"
+
+pattern GigabitsSecond :: MetricUnit
+pattern GigabitsSecond = MetricUnit' "Gigabits/Second"
+
+pattern TerabitsSecond :: MetricUnit
+pattern TerabitsSecond = MetricUnit' "Terabits/Second"
+
+pattern CountSecond :: MetricUnit
+pattern CountSecond = MetricUnit' "Count/Second"
+
+pattern None :: MetricUnit
+pattern None = MetricUnit' "None"
+
 {-# COMPLETE
-  Bits,
-  BitsSecond,
-  Bytes,
-  BytesSecond,
-  Count,
-  CountSecond,
-  Gigabits,
-  GigabitsSecond,
-  Gigabytes,
-  GigabytesSecond,
-  Kilobits,
-  KilobitsSecond,
-  Kilobytes,
-  KilobytesSecond,
-  Megabits,
-  MegabitsSecond,
-  Megabytes,
-  MegabytesSecond,
+  Seconds,
   Microseconds,
   Milliseconds,
-  None,
-  Percent,
-  Seconds,
-  Terabits,
-  TerabitsSecond,
+  Bytes,
+  Kilobytes,
+  Megabytes,
+  Gigabytes,
   Terabytes,
+  Bits,
+  Kilobits,
+  Megabits,
+  Gigabits,
+  Terabits,
+  Percent,
+  Count,
+  BytesSecond,
+  KilobytesSecond,
+  MegabytesSecond,
+  GigabytesSecond,
   TerabytesSecond,
+  BitsSecond,
+  KilobitsSecond,
+  MegabitsSecond,
+  GigabitsSecond,
+  TerabitsSecond,
+  CountSecond,
+  None,
   MetricUnit'
   #-}

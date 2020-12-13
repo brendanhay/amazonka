@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CognitoIdentityProvider.DeleteIdentityProvider
     mkDeleteIdentityProvider,
 
     -- ** Request lenses
-    delUserPoolId,
-    delProviderName,
+    dipUserPoolId,
+    dipProviderName,
 
     -- * Destructuring the response
     DeleteIdentityProviderResponse (..),
@@ -36,23 +37,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteIdentityProvider' smart constructor.
 data DeleteIdentityProvider = DeleteIdentityProvider'
-  { userPoolId ::
-      Lude.Text,
+  { -- | The user pool ID.
+    userPoolId :: Lude.Text,
+    -- | The identity provider name.
     providerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentityProvider' with the minimum fields required to make a request.
 --
--- * 'providerName' - The identity provider name.
 -- * 'userPoolId' - The user pool ID.
+-- * 'providerName' - The identity provider name.
 mkDeleteIdentityProvider ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -68,16 +64,16 @@ mkDeleteIdentityProvider pUserPoolId_ pProviderName_ =
 -- | The user pool ID.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delUserPoolId :: Lens.Lens' DeleteIdentityProvider Lude.Text
-delUserPoolId = Lens.lens (userPoolId :: DeleteIdentityProvider -> Lude.Text) (\s a -> s {userPoolId = a} :: DeleteIdentityProvider)
-{-# DEPRECATED delUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+dipUserPoolId :: Lens.Lens' DeleteIdentityProvider Lude.Text
+dipUserPoolId = Lens.lens (userPoolId :: DeleteIdentityProvider -> Lude.Text) (\s a -> s {userPoolId = a} :: DeleteIdentityProvider)
+{-# DEPRECATED dipUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identity provider name.
 --
 -- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delProviderName :: Lens.Lens' DeleteIdentityProvider Lude.Text
-delProviderName = Lens.lens (providerName :: DeleteIdentityProvider -> Lude.Text) (\s a -> s {providerName = a} :: DeleteIdentityProvider)
-{-# DEPRECATED delProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
+dipProviderName :: Lens.Lens' DeleteIdentityProvider Lude.Text
+dipProviderName = Lens.lens (providerName :: DeleteIdentityProvider -> Lude.Text) (\s a -> s {providerName = a} :: DeleteIdentityProvider)
+{-# DEPRECATED dipProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 instance Lude.AWSRequest DeleteIdentityProvider where
   type Rs DeleteIdentityProvider = DeleteIdentityProviderResponse
@@ -114,13 +110,7 @@ instance Lude.ToQuery DeleteIdentityProvider where
 
 -- | /See:/ 'mkDeleteIdentityProviderResponse' smart constructor.
 data DeleteIdentityProviderResponse = DeleteIdentityProviderResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentityProviderResponse' with the minimum fields required to make a request.

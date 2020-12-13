@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.InputResolution
   ( InputResolution
       ( InputResolution',
-        IRHD,
         IRSD,
+        IRHD,
         IRUhd
       ),
   )
@@ -47,18 +47,18 @@ newtype InputResolution = InputResolution' Lude.Text
       Lude.ToHeader
     )
 
-pattern IRHD :: InputResolution
-pattern IRHD = InputResolution' "HD"
-
 pattern IRSD :: InputResolution
 pattern IRSD = InputResolution' "SD"
+
+pattern IRHD :: InputResolution
+pattern IRHD = InputResolution' "HD"
 
 pattern IRUhd :: InputResolution
 pattern IRUhd = InputResolution' "UHD"
 
 {-# COMPLETE
-  IRHD,
   IRSD,
+  IRHD,
   IRUhd,
   InputResolution'
   #-}

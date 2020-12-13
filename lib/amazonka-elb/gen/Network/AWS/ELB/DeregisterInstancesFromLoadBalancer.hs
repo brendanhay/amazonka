@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,24 +46,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeregisterInstancesFromLoadBalancer' smart constructor.
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
-  { loadBalancerName ::
-      Lude.Text,
-    instances ::
-      [Instance]
+  { -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text,
+    -- | The IDs of the instances.
+    instances :: [Instance]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstancesFromLoadBalancer' with the minimum fields required to make a request.
 --
--- * 'instances' - The IDs of the instances.
 -- * 'loadBalancerName' - The name of the load balancer.
+-- * 'instances' - The IDs of the instances.
 mkDeregisterInstancesFromLoadBalancer ::
   -- | 'loadBalancerName'
   Lude.Text ->
@@ -124,19 +119,12 @@ instance Lude.ToQuery DeregisterInstancesFromLoadBalancer where
 --
 -- /See:/ 'mkDeregisterInstancesFromLoadBalancerResponse' smart constructor.
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
-  { instances ::
-      Lude.Maybe
-        [Instance],
-    responseStatus ::
-      Lude.Int
+  { -- | The remaining instances registered with the load balancer.
+    instances :: Lude.Maybe [Instance],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstancesFromLoadBalancerResponse' with the minimum fields required to make a request.

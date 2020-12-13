@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,20 +44,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPurchaseReservedCacheNodesOffering' smart constructor.
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
-  { cacheNodeCount ::
-      Lude.Maybe Lude.Int,
-    reservedCacheNodeId ::
-      Lude.Maybe Lude.Text,
-    reservedCacheNodesOfferingId ::
-      Lude.Text
+  { -- | The number of cache node instances to reserve.
+    --
+    -- Default: @1@
+    cacheNodeCount :: Lude.Maybe Lude.Int,
+    -- | A customer-specified identifier to track this reservation.
+    --
+    -- Example: myreservationID
+    reservedCacheNodeId :: Lude.Maybe Lude.Text,
+    -- | The ID of the reserved cache node offering to purchase.
+    --
+    -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
+    reservedCacheNodesOfferingId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseReservedCacheNodesOffering' with the minimum fields required to make a request.
@@ -144,24 +145,16 @@ instance Lude.ToQuery PurchaseReservedCacheNodesOffering where
 
 -- | /See:/ 'mkPurchaseReservedCacheNodesOfferingResponse' smart constructor.
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
-  { reservedCacheNode ::
-      Lude.Maybe
-        ReservedCacheNode,
-    responseStatus ::
-      Lude.Int
+  { reservedCacheNode :: Lude.Maybe ReservedCacheNode,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseReservedCacheNodesOfferingResponse' with the minimum fields required to make a request.
 --
--- * 'reservedCacheNode' - Undocumented field.
+-- * 'reservedCacheNode' -
 -- * 'responseStatus' - The response status code.
 mkPurchaseReservedCacheNodesOfferingResponse ::
   -- | 'responseStatus'

@@ -44,88 +44,77 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceNetworkInterfaceSpecification' smart constructor.
 data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'
-  { groups ::
-      Lude.Maybe
-        [Lude.Text],
-    privateIPAddresses ::
-      Lude.Maybe
-        [PrivateIPAddressSpecification],
-    deleteOnTermination ::
-      Lude.Maybe
-        Lude.Bool,
-    associateCarrierIPAddress ::
-      Lude.Maybe
-        Lude.Bool,
-    associatePublicIPAddress ::
-      Lude.Maybe
-        Lude.Bool,
-    interfaceType ::
-      Lude.Maybe
-        Lude.Text,
-    networkInterfaceId ::
-      Lude.Maybe
-        Lude.Text,
-    subnetId ::
-      Lude.Maybe
-        Lude.Text,
-    ipv6AddressCount ::
-      Lude.Maybe
-        Lude.Int,
-    networkCardIndex ::
-      Lude.Maybe
-        Lude.Int,
-    privateIPAddress ::
-      Lude.Maybe
-        Lude.Text,
-    secondaryPrivateIPAddressCount ::
-      Lude.Maybe
-        Lude.Int,
-    description ::
-      Lude.Maybe
-        Lude.Text,
-    deviceIndex ::
-      Lude.Maybe
-        Lude.Int,
-    ipv6Addresses ::
-      Lude.Maybe
-        [InstanceIPv6Address]
+  { -- | The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+    privateIPAddresses :: Lude.Maybe [PrivateIPAddressSpecification],
+    -- | If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether to assign a carrier IP address to the network interface.
+    --
+    -- You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.
+    associateCarrierIPAddress :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
+    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
+    -- | The type of network interface.
+    --
+    -- To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
+    -- If you are not creating an EFA, specify @interface@ or omit this parameter.
+    -- Valid values: @interface@ | @efa@
+    interfaceType :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
+    --
+    -- If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+    ipv6AddressCount :: Lude.Maybe Lude.Int,
+    -- | The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+    networkCardIndex :: Lude.Maybe Lude.Int,
+    -- | The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+    secondaryPrivateIPAddressCount :: Lude.Maybe Lude.Int,
+    -- | The description of the network interface. Applies only if creating a network interface when launching an instance.
+    description :: Lude.Maybe Lude.Text,
+    -- | The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+    --
+    -- If you specify a network interface when launching an instance, you must specify the device index.
+    deviceIndex :: Lude.Maybe Lude.Int,
+    -- | One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+    ipv6Addresses :: Lude.Maybe [InstanceIPv6Address]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceNetworkInterfaceSpecification' with the minimum fields required to make a request.
 --
+-- * 'groups' - The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
+-- * 'privateIPAddresses' - One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+-- * 'deleteOnTermination' - If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
 -- * 'associateCarrierIPAddress' - Indicates whether to assign a carrier IP address to the network interface.
 --
 -- You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.
 -- * 'associatePublicIPAddress' - Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
--- * 'deleteOnTermination' - If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
--- * 'description' - The description of the network interface. Applies only if creating a network interface when launching an instance.
--- * 'deviceIndex' - The position of the network interface in the attachment order. A primary network interface has a device index of 0.
---
--- If you specify a network interface when launching an instance, you must specify the device index.
--- * 'groups' - The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
 -- * 'interfaceType' - The type of network interface.
 --
 -- To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- If you are not creating an EFA, specify @interface@ or omit this parameter.
 -- Valid values: @interface@ | @efa@
--- * 'ipv6AddressCount' - A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
--- * 'ipv6Addresses' - One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
--- * 'networkCardIndex' - The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
 -- * 'networkInterfaceId' - The ID of the network interface.
 --
 -- If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
--- * 'privateIPAddress' - The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
--- * 'privateIPAddresses' - One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
--- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
 -- * 'subnetId' - The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.
+-- * 'ipv6AddressCount' - A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+-- * 'networkCardIndex' - The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+-- * 'privateIPAddress' - The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+-- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> request.
+-- * 'description' - The description of the network interface. Applies only if creating a network interface when launching an instance.
+-- * 'deviceIndex' - The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+--
+-- If you specify a network interface when launching an instance, you must specify the device index.
+-- * 'ipv6Addresses' - One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
 mkInstanceNetworkInterfaceSpecification ::
   InstanceNetworkInterfaceSpecification
 mkInstanceNetworkInterfaceSpecification =

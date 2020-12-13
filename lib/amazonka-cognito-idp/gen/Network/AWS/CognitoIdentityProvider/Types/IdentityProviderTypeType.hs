@@ -13,12 +13,12 @@
 module Network.AWS.CognitoIdentityProvider.Types.IdentityProviderTypeType
   ( IdentityProviderTypeType
       ( IdentityProviderTypeType',
+        Saml,
         Facebook,
         Google,
         LoginWithAmazon,
-        Oidc,
-        Saml,
-        SignInWithApple
+        SignInWithApple,
+        Oidc
       ),
   )
 where
@@ -49,6 +49,9 @@ newtype IdentityProviderTypeType = IdentityProviderTypeType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Saml :: IdentityProviderTypeType
+pattern Saml = IdentityProviderTypeType' "SAML"
+
 pattern Facebook :: IdentityProviderTypeType
 pattern Facebook = IdentityProviderTypeType' "Facebook"
 
@@ -58,21 +61,18 @@ pattern Google = IdentityProviderTypeType' "Google"
 pattern LoginWithAmazon :: IdentityProviderTypeType
 pattern LoginWithAmazon = IdentityProviderTypeType' "LoginWithAmazon"
 
-pattern Oidc :: IdentityProviderTypeType
-pattern Oidc = IdentityProviderTypeType' "OIDC"
-
-pattern Saml :: IdentityProviderTypeType
-pattern Saml = IdentityProviderTypeType' "SAML"
-
 pattern SignInWithApple :: IdentityProviderTypeType
 pattern SignInWithApple = IdentityProviderTypeType' "SignInWithApple"
 
+pattern Oidc :: IdentityProviderTypeType
+pattern Oidc = IdentityProviderTypeType' "OIDC"
+
 {-# COMPLETE
+  Saml,
   Facebook,
   Google,
   LoginWithAmazon,
-  Oidc,
-  Saml,
   SignInWithApple,
+  Oidc,
   IdentityProviderTypeType'
   #-}

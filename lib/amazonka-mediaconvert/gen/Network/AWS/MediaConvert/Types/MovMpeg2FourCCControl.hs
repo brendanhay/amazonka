@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.MovMpeg2FourCCControl
   ( MovMpeg2FourCCControl
       ( MovMpeg2FourCCControl',
-        Mpeg,
-        Xdcam
+        Xdcam,
+        Mpeg
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MovMpeg2FourCCControl = MovMpeg2FourCCControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern Mpeg :: MovMpeg2FourCCControl
-pattern Mpeg = MovMpeg2FourCCControl' "MPEG"
-
 pattern Xdcam :: MovMpeg2FourCCControl
 pattern Xdcam = MovMpeg2FourCCControl' "XDCAM"
 
+pattern Mpeg :: MovMpeg2FourCCControl
+pattern Mpeg = MovMpeg2FourCCControl' "MPEG"
+
 {-# COMPLETE
-  Mpeg,
   Xdcam,
+  Mpeg,
   MovMpeg2FourCCControl'
   #-}

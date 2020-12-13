@@ -38,32 +38,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCLink' smart constructor.
 data VPCLink = VPCLink'
-  { status :: Lude.Maybe VPCLinkStatus,
+  { -- | The status of the VPC link. The valid values are @AVAILABLE@ , @PENDING@ , @DELETING@ , or @FAILED@ . Deploying an API will wait if the status is @PENDING@ and will fail if the status is @DELETING@ .
+    status :: Lude.Maybe VPCLinkStatus,
+    -- | The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
     targetARNs :: Lude.Maybe [Lude.Text],
+    -- | The name used to label and identify the VPC link.
     name :: Lude.Maybe Lude.Text,
+    -- | A description about the VPC link status.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The identifier of the 'VpcLink' . It is used in an 'Integration' to reference this 'VpcLink' .
     id :: Lude.Maybe Lude.Text,
+    -- | The description of the VPC link.
     description :: Lude.Maybe Lude.Text,
+    -- | The collection of tags. Each tag element is associated with a given resource.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCLink' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the VPC link.
--- * 'id' - The identifier of the 'VpcLink' . It is used in an 'Integration' to reference this 'VpcLink' .
--- * 'name' - The name used to label and identify the VPC link.
 -- * 'status' - The status of the VPC link. The valid values are @AVAILABLE@ , @PENDING@ , @DELETING@ , or @FAILED@ . Deploying an API will wait if the status is @PENDING@ and will fail if the status is @DELETING@ .
--- * 'statusMessage' - A description about the VPC link status.
--- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
 -- * 'targetARNs' - The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+-- * 'name' - The name used to label and identify the VPC link.
+-- * 'statusMessage' - A description about the VPC link status.
+-- * 'id' - The identifier of the 'VpcLink' . It is used in an 'Integration' to reference this 'VpcLink' .
+-- * 'description' - The description of the VPC link.
+-- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
 mkVPCLink ::
   VPCLink
 mkVPCLink =

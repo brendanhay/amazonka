@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.MQ.UpdateUser
     -- ** Request lenses
     uuGroups,
     uuConsoleAccess,
-    uuPassword,
     uuUsername,
+    uuPassword,
     uuBrokerId,
 
     -- * Destructuring the response
@@ -44,28 +45,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { groups :: Lude.Maybe [Lude.Text],
+  { -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
     consoleAccess :: Lude.Maybe Lude.Bool,
-    password :: Lude.Maybe Lude.Text,
+    -- | Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
     username :: Lude.Text,
+    -- | The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
+    password :: Lude.Maybe Lude.Text,
+    -- | The unique ID that Amazon MQ generates for the broker.
     brokerId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
 --
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
--- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 -- * 'groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
--- * 'password' - The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
+-- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 -- * 'username' - Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'password' - The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
 mkUpdateUser ::
   -- | 'username'
   Lude.Text ->
@@ -76,8 +76,8 @@ mkUpdateUser pUsername_ pBrokerId_ =
   UpdateUser'
     { groups = Lude.Nothing,
       consoleAccess = Lude.Nothing,
-      password = Lude.Nothing,
       username = pUsername_,
+      password = Lude.Nothing,
       brokerId = pBrokerId_
     }
 
@@ -95,19 +95,19 @@ uuConsoleAccess :: Lens.Lens' UpdateUser (Lude.Maybe Lude.Bool)
 uuConsoleAccess = Lens.lens (consoleAccess :: UpdateUser -> Lude.Maybe Lude.Bool) (\s a -> s {consoleAccess = a} :: UpdateUser)
 {-# DEPRECATED uuConsoleAccess "Use generic-lens or generic-optics with 'consoleAccess' instead." #-}
 
--- | The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
---
--- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuPassword :: Lens.Lens' UpdateUser (Lude.Maybe Lude.Text)
-uuPassword = Lens.lens (password :: UpdateUser -> Lude.Maybe Lude.Text) (\s a -> s {password = a} :: UpdateUser)
-{-# DEPRECATED uuPassword "Use generic-lens or generic-optics with 'password' instead." #-}
-
 -- | Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uuUsername :: Lens.Lens' UpdateUser Lude.Text
 uuUsername = Lens.lens (username :: UpdateUser -> Lude.Text) (\s a -> s {username = a} :: UpdateUser)
 {-# DEPRECATED uuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+-- | The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuPassword :: Lens.Lens' UpdateUser (Lude.Maybe Lude.Text)
+uuPassword = Lens.lens (password :: UpdateUser -> Lude.Maybe Lude.Text) (\s a -> s {password = a} :: UpdateUser)
+{-# DEPRECATED uuPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | The unique ID that Amazon MQ generates for the broker.
 --
@@ -154,16 +154,10 @@ instance Lude.ToQuery UpdateUser where
 
 -- | /See:/ 'mkUpdateUserResponse' smart constructor.
 newtype UpdateUserResponse = UpdateUserResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserResponse' with the minimum fields required to make a request.

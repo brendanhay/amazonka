@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,13 +20,13 @@ module Network.AWS.Redshift.CreateScheduledAction
     mkCreateScheduledAction,
 
     -- ** Request lenses
+    csaTargetAction,
     csaStartTime,
+    csaSchedule,
+    csaScheduledActionName,
     csaScheduledActionDescription,
     csaEnable,
     csaEndTime,
-    csaScheduledActionName,
-    csaTargetAction,
-    csaSchedule,
     csaIAMRole,
 
     -- * Destructuring the response
@@ -53,61 +54,68 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateScheduledAction' smart constructor.
 data CreateScheduledAction = CreateScheduledAction'
-  { startTime ::
-      Lude.Maybe Lude.DateTime,
-    scheduledActionDescription ::
-      Lude.Maybe Lude.Text,
-    enable :: Lude.Maybe Lude.Bool,
-    endTime :: Lude.Maybe Lude.DateTime,
-    scheduledActionName :: Lude.Text,
+  { -- | A JSON format string of the Amazon Redshift API operation with input parameters. For more information about this parameter, see 'ScheduledAction' .
     targetAction :: ScheduledActionType,
+    -- | The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger. For more information about this parameter, see 'ScheduledAction' .
+    startTime :: Lude.Maybe Lude.DateTime,
+    -- | The schedule in @at( )@ or @cron( )@ format. For more information about this parameter, see 'ScheduledAction' .
     schedule :: Lude.Text,
+    -- | The name of the scheduled action. The name must be unique within an account. For more information about this parameter, see 'ScheduledAction' .
+    scheduledActionName :: Lude.Text,
+    -- | The description of the scheduled action.
+    scheduledActionDescription :: Lude.Maybe Lude.Text,
+    -- | If true, the schedule is enabled. If false, the scheduled action does not trigger. For more information about @state@ of the scheduled action, see 'ScheduledAction' .
+    enable :: Lude.Maybe Lude.Bool,
+    -- | The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger. For more information about this parameter, see 'ScheduledAction' .
+    endTime :: Lude.Maybe Lude.DateTime,
+    -- | The IAM role to assume to run the target action. For more information about this parameter, see 'ScheduledAction' .
     iamRole :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateScheduledAction' with the minimum fields required to make a request.
 --
+-- * 'targetAction' - A JSON format string of the Amazon Redshift API operation with input parameters. For more information about this parameter, see 'ScheduledAction' .
+-- * 'startTime' - The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger. For more information about this parameter, see 'ScheduledAction' .
+-- * 'schedule' - The schedule in @at( )@ or @cron( )@ format. For more information about this parameter, see 'ScheduledAction' .
+-- * 'scheduledActionName' - The name of the scheduled action. The name must be unique within an account. For more information about this parameter, see 'ScheduledAction' .
+-- * 'scheduledActionDescription' - The description of the scheduled action.
 -- * 'enable' - If true, the schedule is enabled. If false, the scheduled action does not trigger. For more information about @state@ of the scheduled action, see 'ScheduledAction' .
 -- * 'endTime' - The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger. For more information about this parameter, see 'ScheduledAction' .
 -- * 'iamRole' - The IAM role to assume to run the target action. For more information about this parameter, see 'ScheduledAction' .
--- * 'schedule' - The schedule in @at( )@ or @cron( )@ format. For more information about this parameter, see 'ScheduledAction' .
--- * 'scheduledActionDescription' - The description of the scheduled action.
--- * 'scheduledActionName' - The name of the scheduled action. The name must be unique within an account. For more information about this parameter, see 'ScheduledAction' .
--- * 'startTime' - The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger. For more information about this parameter, see 'ScheduledAction' .
--- * 'targetAction' - A JSON format string of the Amazon Redshift API operation with input parameters. For more information about this parameter, see 'ScheduledAction' .
 mkCreateScheduledAction ::
-  -- | 'scheduledActionName'
-  Lude.Text ->
   -- | 'targetAction'
   ScheduledActionType ->
   -- | 'schedule'
+  Lude.Text ->
+  -- | 'scheduledActionName'
   Lude.Text ->
   -- | 'iamRole'
   Lude.Text ->
   CreateScheduledAction
 mkCreateScheduledAction
-  pScheduledActionName_
   pTargetAction_
   pSchedule_
+  pScheduledActionName_
   pIAMRole_ =
     CreateScheduledAction'
-      { startTime = Lude.Nothing,
+      { targetAction = pTargetAction_,
+        startTime = Lude.Nothing,
+        schedule = pSchedule_,
+        scheduledActionName = pScheduledActionName_,
         scheduledActionDescription = Lude.Nothing,
         enable = Lude.Nothing,
         endTime = Lude.Nothing,
-        scheduledActionName = pScheduledActionName_,
-        targetAction = pTargetAction_,
-        schedule = pSchedule_,
         iamRole = pIAMRole_
       }
+
+-- | A JSON format string of the Amazon Redshift API operation with input parameters. For more information about this parameter, see 'ScheduledAction' .
+--
+-- /Note:/ Consider using 'targetAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaTargetAction :: Lens.Lens' CreateScheduledAction ScheduledActionType
+csaTargetAction = Lens.lens (targetAction :: CreateScheduledAction -> ScheduledActionType) (\s a -> s {targetAction = a} :: CreateScheduledAction)
+{-# DEPRECATED csaTargetAction "Use generic-lens or generic-optics with 'targetAction' instead." #-}
 
 -- | The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger. For more information about this parameter, see 'ScheduledAction' .
 --
@@ -115,6 +123,20 @@ mkCreateScheduledAction
 csaStartTime :: Lens.Lens' CreateScheduledAction (Lude.Maybe Lude.DateTime)
 csaStartTime = Lens.lens (startTime :: CreateScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: CreateScheduledAction)
 {-# DEPRECATED csaStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The schedule in @at( )@ or @cron( )@ format. For more information about this parameter, see 'ScheduledAction' .
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaSchedule :: Lens.Lens' CreateScheduledAction Lude.Text
+csaSchedule = Lens.lens (schedule :: CreateScheduledAction -> Lude.Text) (\s a -> s {schedule = a} :: CreateScheduledAction)
+{-# DEPRECATED csaSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
+
+-- | The name of the scheduled action. The name must be unique within an account. For more information about this parameter, see 'ScheduledAction' .
+--
+-- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaScheduledActionName :: Lens.Lens' CreateScheduledAction Lude.Text
+csaScheduledActionName = Lens.lens (scheduledActionName :: CreateScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: CreateScheduledAction)
+{-# DEPRECATED csaScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
 -- | The description of the scheduled action.
 --
@@ -136,27 +158,6 @@ csaEnable = Lens.lens (enable :: CreateScheduledAction -> Lude.Maybe Lude.Bool) 
 csaEndTime :: Lens.Lens' CreateScheduledAction (Lude.Maybe Lude.DateTime)
 csaEndTime = Lens.lens (endTime :: CreateScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: CreateScheduledAction)
 {-# DEPRECATED csaEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | The name of the scheduled action. The name must be unique within an account. For more information about this parameter, see 'ScheduledAction' .
---
--- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csaScheduledActionName :: Lens.Lens' CreateScheduledAction Lude.Text
-csaScheduledActionName = Lens.lens (scheduledActionName :: CreateScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: CreateScheduledAction)
-{-# DEPRECATED csaScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
-
--- | A JSON format string of the Amazon Redshift API operation with input parameters. For more information about this parameter, see 'ScheduledAction' .
---
--- /Note:/ Consider using 'targetAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csaTargetAction :: Lens.Lens' CreateScheduledAction ScheduledActionType
-csaTargetAction = Lens.lens (targetAction :: CreateScheduledAction -> ScheduledActionType) (\s a -> s {targetAction = a} :: CreateScheduledAction)
-{-# DEPRECATED csaTargetAction "Use generic-lens or generic-optics with 'targetAction' instead." #-}
-
--- | The schedule in @at( )@ or @cron( )@ format. For more information about this parameter, see 'ScheduledAction' .
---
--- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csaSchedule :: Lens.Lens' CreateScheduledAction Lude.Text
-csaSchedule = Lens.lens (schedule :: CreateScheduledAction -> Lude.Text) (\s a -> s {schedule = a} :: CreateScheduledAction)
-{-# DEPRECATED csaSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The IAM role to assume to run the target action. For more information about this parameter, see 'ScheduledAction' .
 --
@@ -184,12 +185,12 @@ instance Lude.ToQuery CreateScheduledAction where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateScheduledAction" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "TargetAction" Lude.=: targetAction,
         "StartTime" Lude.=: startTime,
+        "Schedule" Lude.=: schedule,
+        "ScheduledActionName" Lude.=: scheduledActionName,
         "ScheduledActionDescription" Lude.=: scheduledActionDescription,
         "Enable" Lude.=: enable,
         "EndTime" Lude.=: endTime,
-        "ScheduledActionName" Lude.=: scheduledActionName,
-        "TargetAction" Lude.=: targetAction,
-        "Schedule" Lude.=: schedule,
         "IamRole" Lude.=: iamRole
       ]

@@ -35,34 +35,30 @@ import Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
 --
 -- /See:/ 'mkAccountModification' smart constructor.
 data AccountModification = AccountModification'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
-    dedicatedTenancySupport ::
-      Lude.Maybe DedicatedTenancySupportResultEnum,
-    modificationState ::
-      Lude.Maybe DedicatedTenancyModificationStateEnum,
-    dedicatedTenancyManagementCidrRange ::
-      Lude.Maybe Lude.Text,
+  { -- | The timestamp when the modification of the BYOL configuration was started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of BYOL (whether BYOL is being enabled or disabled).
+    dedicatedTenancySupport :: Lude.Maybe DedicatedTenancySupportResultEnum,
+    -- | The state of the modification to the configuration of BYOL.
+    modificationState :: Lude.Maybe DedicatedTenancyModificationStateEnum,
+    -- | The IP address range, specified as an IPv4 CIDR block, for the management network interface used for the account.
+    dedicatedTenancyManagementCidrRange :: Lude.Maybe Lude.Text,
+    -- | The error code that is returned if the configuration of BYOL cannot be modified.
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The text of the error message that is returned if the configuration of BYOL cannot be modified.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountModification' with the minimum fields required to make a request.
 --
--- * 'dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the management network interface used for the account.
+-- * 'startTime' - The timestamp when the modification of the BYOL configuration was started.
 -- * 'dedicatedTenancySupport' - The status of BYOL (whether BYOL is being enabled or disabled).
+-- * 'modificationState' - The state of the modification to the configuration of BYOL.
+-- * 'dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the management network interface used for the account.
 -- * 'errorCode' - The error code that is returned if the configuration of BYOL cannot be modified.
 -- * 'errorMessage' - The text of the error message that is returned if the configuration of BYOL cannot be modified.
--- * 'modificationState' - The state of the modification to the configuration of BYOL.
--- * 'startTime' - The timestamp when the modification of the BYOL configuration was started.
 mkAccountModification ::
   AccountModification
 mkAccountModification =

@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProtection' smart constructor.
 data Protection = Protection'
-  { healthCheckIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The unique identifier (ID) for the Route 53 health check that's associated with the protection.
+    healthCheckIds :: Lude.Maybe [Lude.Text],
+    -- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
     resourceARN :: Lude.Maybe Lude.Text,
+    -- | The name of the protection. For example, @My CloudFront distributions@ .
     name :: Lude.Maybe Lude.Text,
+    -- | The unique identifier (ID) of the protection.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Protection' with the minimum fields required to make a request.
 --
 -- * 'healthCheckIds' - The unique identifier (ID) for the Route 53 health check that's associated with the protection.
--- * 'id' - The unique identifier (ID) of the protection.
--- * 'name' - The name of the protection. For example, @My CloudFront distributions@ .
 -- * 'resourceARN' - The ARN (Amazon Resource Name) of the AWS resource that is protected.
+-- * 'name' - The name of the protection. For example, @My CloudFront distributions@ .
+-- * 'id' - The unique identifier (ID) of the protection.
 mkProtection ::
   Protection
 mkProtection =

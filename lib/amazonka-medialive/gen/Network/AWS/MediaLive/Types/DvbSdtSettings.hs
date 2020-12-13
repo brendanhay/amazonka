@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDvbSdtSettings' smart constructor.
 data DvbSdtSettings = DvbSdtSettings'
-  { repInterval ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of milliseconds between instances of this table in the output transport stream.
+    repInterval :: Lude.Maybe Lude.Natural,
+    -- | The service provider name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters.
     serviceProviderName :: Lude.Maybe Lude.Text,
+    -- | Selects method of inserting SDT information into output stream. The sdtFollow setting copies SDT information from input stream to output stream. The sdtFollowIfPresent setting copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. The sdtManual setting means user will enter the SDT information. The sdtNone setting means output stream will not contain SDT information.
     outputSdt :: Lude.Maybe DvbSdtOutputSdt,
+    -- | The service name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters.
     serviceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DvbSdtSettings' with the minimum fields required to make a request.
 --
--- * 'outputSdt' - Selects method of inserting SDT information into output stream. The sdtFollow setting copies SDT information from input stream to output stream. The sdtFollowIfPresent setting copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. The sdtManual setting means user will enter the SDT information. The sdtNone setting means output stream will not contain SDT information.
 -- * 'repInterval' - The number of milliseconds between instances of this table in the output transport stream.
--- * 'serviceName' - The service name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters.
 -- * 'serviceProviderName' - The service provider name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters.
+-- * 'outputSdt' - Selects method of inserting SDT information into output stream. The sdtFollow setting copies SDT information from input stream to output stream. The sdtFollowIfPresent setting copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. The sdtManual setting means user will enter the SDT information. The sdtNone setting means output stream will not contain SDT information.
+-- * 'serviceName' - The service name placed in the serviceDescriptor in the Service Description Table. Maximum length is 256 characters.
 mkDvbSdtSettings ::
   DvbSdtSettings
 mkDvbSdtSettings =

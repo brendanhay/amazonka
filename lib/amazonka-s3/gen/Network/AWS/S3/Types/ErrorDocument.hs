@@ -28,14 +28,11 @@ import Network.AWS.S3.Internal
 -- | The error information.
 --
 -- /See:/ 'mkErrorDocument' smart constructor.
-newtype ErrorDocument = ErrorDocument' {key :: ObjectKey}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ErrorDocument = ErrorDocument'
+  { -- | The object key name to use when a 4XX class error occurs.
+    key :: ObjectKey
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ErrorDocument' with the minimum fields required to make a request.

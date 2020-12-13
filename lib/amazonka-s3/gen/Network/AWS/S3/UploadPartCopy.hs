@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -104,20 +105,20 @@ module Network.AWS.S3.UploadPartCopy
     upcCopySourceRange,
     upcCopySourceSSECustomerKeyMD5,
     upcCopySourceIfNoneMatch,
+    upcBucket,
     upcSSECustomerAlgorithm,
     upcSSECustomerKey,
     upcRequestPayer,
     upcCopySourceIfMatch,
+    upcPartNumber,
     upcExpectedSourceBucketOwner,
+    upcKey,
     upcSSECustomerKeyMD5,
+    upcCopySource,
     upcCopySourceSSECustomerKey,
+    upcUploadId,
     upcCopySourceSSECustomerAlgorithm,
     upcExpectedBucketOwner,
-    upcBucket,
-    upcCopySource,
-    upcKey,
-    upcPartNumber,
-    upcUploadId,
 
     -- * Destructuring the response
     UploadPartCopyResponse (..),
@@ -143,37 +144,79 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkUploadPartCopy' smart constructor.
 data UploadPartCopy = UploadPartCopy'
-  { copySourceIfModifiedSince ::
-      Lude.Maybe Lude.DateTime,
+  { -- | Copies the object if it has been modified since the specified time.
+    copySourceIfModifiedSince :: Lude.Maybe Lude.DateTime,
+    -- | Copies the object if it hasn't been modified since the specified time.
     copySourceIfUnmodifiedSince :: Lude.Maybe Lude.DateTime,
+    -- | The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first 10 bytes of the source. You can copy a range only if the source object is greater than 5 MB.
     copySourceRange :: Lude.Maybe Lude.Text,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
     copySourceSSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    -- | Copies the object if its entity tag (ETag) is different than the specified ETag.
     copySourceIfNoneMatch :: Lude.Maybe Lude.Text,
+    -- | The bucket name.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+    bucket :: BucketName,
+    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header. This must be the same encryption key specified in the initiate multipart upload request.
     sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
     requestPayer :: Lude.Maybe RequestPayer,
+    -- | Copies the object if its entity tag (ETag) matches the specified tag.
     copySourceIfMatch :: Lude.Maybe Lude.Text,
-    expectedSourceBucketOwner :: Lude.Maybe Lude.Text,
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    copySourceSSECustomerKey ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    copySourceSSECustomerAlgorithm :: Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    bucket :: BucketName,
-    copySource :: Lude.Text,
-    key :: ObjectKey,
+    -- | Part number of part being copied. This is a positive integer between 1 and 10,000.
     partNumber :: Lude.Int,
-    uploadId :: Lude.Text
+    -- | The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedSourceBucketOwner :: Lude.Maybe Lude.Text,
+    -- | Object key for which the multipart upload was initiated.
+    key :: ObjectKey,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    -- | Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :
+    --
+    --
+    --     * For objects not accessed through an access point, specify the name of the source bucket and key of the source object, separated by a slash (/). For example, to copy the object @reports/january.pdf@ from the bucket @awsexamplebucket@ , use @awsexamplebucket/reports/january.pdf@ . The value must be URL encoded.
+    --
+    --
+    --     * For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format @arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through access point @my-access-point@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf@ . The value must be URL encoded.
+    -- Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format @arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through outpost @my-outpost@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf@ . The value must be URL encoded.
+    --
+    --
+    -- To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
+    copySource :: Lude.Text,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+    copySourceSSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Upload ID identifying the multipart upload whose part is being copied.
+    uploadId :: Lude.Text,
+    -- | Specifies the algorithm to use when decrypting the source object (for example, AES256).
+    copySourceSSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadPartCopy' with the minimum fields required to make a request.
 --
+-- * 'copySourceIfModifiedSince' - Copies the object if it has been modified since the specified time.
+-- * 'copySourceIfUnmodifiedSince' - Copies the object if it hasn't been modified since the specified time.
+-- * 'copySourceRange' - The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first 10 bytes of the source. You can copy a range only if the source object is greater than 5 MB.
+-- * 'copySourceSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+-- * 'copySourceIfNoneMatch' - Copies the object if its entity tag (ETag) is different than the specified ETag.
 -- * 'bucket' - The bucket name.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
+-- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header. This must be the same encryption key specified in the initiate multipart upload request.
+-- * 'requestPayer' -
+-- * 'copySourceIfMatch' - Copies the object if its entity tag (ETag) matches the specified tag.
+-- * 'partNumber' - Part number of part being copied. This is a positive integer between 1 and 10,000.
+-- * 'expectedSourceBucketOwner' - The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'key' - Object key for which the multipart upload was initiated.
+-- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 -- * 'copySource' - Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :
 --
 --
@@ -185,40 +228,27 @@ data UploadPartCopy = UploadPartCopy'
 --
 --
 -- To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
--- * 'copySourceIfMatch' - Copies the object if its entity tag (ETag) matches the specified tag.
--- * 'copySourceIfModifiedSince' - Copies the object if it has been modified since the specified time.
--- * 'copySourceIfNoneMatch' - Copies the object if its entity tag (ETag) is different than the specified ETag.
--- * 'copySourceIfUnmodifiedSince' - Copies the object if it hasn't been modified since the specified time.
--- * 'copySourceRange' - The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first 10 bytes of the source. You can copy a range only if the source object is greater than 5 MB.
--- * 'copySourceSSECustomerAlgorithm' - Specifies the algorithm to use when decrypting the source object (for example, AES256).
 -- * 'copySourceSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
--- * 'copySourceSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
--- * 'expectedBucketOwner' - The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'expectedSourceBucketOwner' - The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'key' - Object key for which the multipart upload was initiated.
--- * 'partNumber' - Part number of part being copied. This is a positive integer between 1 and 10,000.
--- * 'requestPayer' - Undocumented field.
--- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
--- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header. This must be the same encryption key specified in the initiate multipart upload request.
--- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 -- * 'uploadId' - Upload ID identifying the multipart upload whose part is being copied.
+-- * 'copySourceSSECustomerAlgorithm' - Specifies the algorithm to use when decrypting the source object (for example, AES256).
+-- * 'expectedBucketOwner' - The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkUploadPartCopy ::
   -- | 'bucket'
   BucketName ->
-  -- | 'copySource'
-  Lude.Text ->
-  -- | 'key'
-  ObjectKey ->
   -- | 'partNumber'
   Lude.Int ->
+  -- | 'key'
+  ObjectKey ->
+  -- | 'copySource'
+  Lude.Text ->
   -- | 'uploadId'
   Lude.Text ->
   UploadPartCopy
 mkUploadPartCopy
   pBucket_
-  pCopySource_
-  pKey_
   pPartNumber_
+  pKey_
+  pCopySource_
   pUploadId_ =
     UploadPartCopy'
       { copySourceIfModifiedSince = Lude.Nothing,
@@ -226,20 +256,20 @@ mkUploadPartCopy
         copySourceRange = Lude.Nothing,
         copySourceSSECustomerKeyMD5 = Lude.Nothing,
         copySourceIfNoneMatch = Lude.Nothing,
+        bucket = pBucket_,
         sSECustomerAlgorithm = Lude.Nothing,
         sSECustomerKey = Lude.Nothing,
         requestPayer = Lude.Nothing,
         copySourceIfMatch = Lude.Nothing,
-        expectedSourceBucketOwner = Lude.Nothing,
-        sSECustomerKeyMD5 = Lude.Nothing,
-        copySourceSSECustomerKey = Lude.Nothing,
-        copySourceSSECustomerAlgorithm = Lude.Nothing,
-        expectedBucketOwner = Lude.Nothing,
-        bucket = pBucket_,
-        copySource = pCopySource_,
-        key = pKey_,
         partNumber = pPartNumber_,
-        uploadId = pUploadId_
+        expectedSourceBucketOwner = Lude.Nothing,
+        key = pKey_,
+        sSECustomerKeyMD5 = Lude.Nothing,
+        copySource = pCopySource_,
+        copySourceSSECustomerKey = Lude.Nothing,
+        uploadId = pUploadId_,
+        copySourceSSECustomerAlgorithm = Lude.Nothing,
+        expectedBucketOwner = Lude.Nothing
       }
 
 -- | Copies the object if it has been modified since the specified time.
@@ -277,6 +307,16 @@ upcCopySourceIfNoneMatch :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.Text)
 upcCopySourceIfNoneMatch = Lens.lens (copySourceIfNoneMatch :: UploadPartCopy -> Lude.Maybe Lude.Text) (\s a -> s {copySourceIfNoneMatch = a} :: UploadPartCopy)
 {-# DEPRECATED upcCopySourceIfNoneMatch "Use generic-lens or generic-optics with 'copySourceIfNoneMatch' instead." #-}
 
+-- | The bucket name.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcBucket :: Lens.Lens' UploadPartCopy BucketName
+upcBucket = Lens.lens (bucket :: UploadPartCopy -> BucketName) (\s a -> s {bucket = a} :: UploadPartCopy)
+{-# DEPRECATED upcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
 -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
 --
 -- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -305,6 +345,13 @@ upcCopySourceIfMatch :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.Text)
 upcCopySourceIfMatch = Lens.lens (copySourceIfMatch :: UploadPartCopy -> Lude.Maybe Lude.Text) (\s a -> s {copySourceIfMatch = a} :: UploadPartCopy)
 {-# DEPRECATED upcCopySourceIfMatch "Use generic-lens or generic-optics with 'copySourceIfMatch' instead." #-}
 
+-- | Part number of part being copied. This is a positive integer between 1 and 10,000.
+--
+-- /Note:/ Consider using 'partNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcPartNumber :: Lens.Lens' UploadPartCopy Lude.Int
+upcPartNumber = Lens.lens (partNumber :: UploadPartCopy -> Lude.Int) (\s a -> s {partNumber = a} :: UploadPartCopy)
+{-# DEPRECATED upcPartNumber "Use generic-lens or generic-optics with 'partNumber' instead." #-}
+
 -- | The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedSourceBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -312,43 +359,19 @@ upcExpectedSourceBucketOwner :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.Text)
 upcExpectedSourceBucketOwner = Lens.lens (expectedSourceBucketOwner :: UploadPartCopy -> Lude.Maybe Lude.Text) (\s a -> s {expectedSourceBucketOwner = a} :: UploadPartCopy)
 {-# DEPRECATED upcExpectedSourceBucketOwner "Use generic-lens or generic-optics with 'expectedSourceBucketOwner' instead." #-}
 
+-- | Object key for which the multipart upload was initiated.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcKey :: Lens.Lens' UploadPartCopy ObjectKey
+upcKey = Lens.lens (key :: UploadPartCopy -> ObjectKey) (\s a -> s {key = a} :: UploadPartCopy)
+{-# DEPRECATED upcKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 --
 -- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 upcSSECustomerKeyMD5 :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.Text)
 upcSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: UploadPartCopy -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: UploadPartCopy)
 {-# DEPRECATED upcSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
-
--- | Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
---
--- /Note:/ Consider using 'copySourceSSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upcCopySourceSSECustomerKey :: Lens.Lens' UploadPartCopy (Lude.Maybe (Lude.Sensitive Lude.Text))
-upcCopySourceSSECustomerKey = Lens.lens (copySourceSSECustomerKey :: UploadPartCopy -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {copySourceSSECustomerKey = a} :: UploadPartCopy)
-{-# DEPRECATED upcCopySourceSSECustomerKey "Use generic-lens or generic-optics with 'copySourceSSECustomerKey' instead." #-}
-
--- | Specifies the algorithm to use when decrypting the source object (for example, AES256).
---
--- /Note:/ Consider using 'copySourceSSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upcCopySourceSSECustomerAlgorithm :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.Text)
-upcCopySourceSSECustomerAlgorithm = Lens.lens (copySourceSSECustomerAlgorithm :: UploadPartCopy -> Lude.Maybe Lude.Text) (\s a -> s {copySourceSSECustomerAlgorithm = a} :: UploadPartCopy)
-{-# DEPRECATED upcCopySourceSSECustomerAlgorithm "Use generic-lens or generic-optics with 'copySourceSSECustomerAlgorithm' instead." #-}
-
--- | The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upcExpectedBucketOwner :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.Text)
-upcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: UploadPartCopy -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: UploadPartCopy)
-{-# DEPRECATED upcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The bucket name.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upcBucket :: Lens.Lens' UploadPartCopy BucketName
-upcBucket = Lens.lens (bucket :: UploadPartCopy -> BucketName) (\s a -> s {bucket = a} :: UploadPartCopy)
-{-# DEPRECATED upcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :
 --
@@ -367,19 +390,12 @@ upcCopySource :: Lens.Lens' UploadPartCopy Lude.Text
 upcCopySource = Lens.lens (copySource :: UploadPartCopy -> Lude.Text) (\s a -> s {copySource = a} :: UploadPartCopy)
 {-# DEPRECATED upcCopySource "Use generic-lens or generic-optics with 'copySource' instead." #-}
 
--- | Object key for which the multipart upload was initiated.
+-- | Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
 --
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upcKey :: Lens.Lens' UploadPartCopy ObjectKey
-upcKey = Lens.lens (key :: UploadPartCopy -> ObjectKey) (\s a -> s {key = a} :: UploadPartCopy)
-{-# DEPRECATED upcKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
--- | Part number of part being copied. This is a positive integer between 1 and 10,000.
---
--- /Note:/ Consider using 'partNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upcPartNumber :: Lens.Lens' UploadPartCopy Lude.Int
-upcPartNumber = Lens.lens (partNumber :: UploadPartCopy -> Lude.Int) (\s a -> s {partNumber = a} :: UploadPartCopy)
-{-# DEPRECATED upcPartNumber "Use generic-lens or generic-optics with 'partNumber' instead." #-}
+-- /Note:/ Consider using 'copySourceSSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcCopySourceSSECustomerKey :: Lens.Lens' UploadPartCopy (Lude.Maybe (Lude.Sensitive Lude.Text))
+upcCopySourceSSECustomerKey = Lens.lens (copySourceSSECustomerKey :: UploadPartCopy -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {copySourceSSECustomerKey = a} :: UploadPartCopy)
+{-# DEPRECATED upcCopySourceSSECustomerKey "Use generic-lens or generic-optics with 'copySourceSSECustomerKey' instead." #-}
 
 -- | Upload ID identifying the multipart upload whose part is being copied.
 --
@@ -387,6 +403,20 @@ upcPartNumber = Lens.lens (partNumber :: UploadPartCopy -> Lude.Int) (\s a -> s 
 upcUploadId :: Lens.Lens' UploadPartCopy Lude.Text
 upcUploadId = Lens.lens (uploadId :: UploadPartCopy -> Lude.Text) (\s a -> s {uploadId = a} :: UploadPartCopy)
 {-# DEPRECATED upcUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
+
+-- | Specifies the algorithm to use when decrypting the source object (for example, AES256).
+--
+-- /Note:/ Consider using 'copySourceSSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcCopySourceSSECustomerAlgorithm :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.Text)
+upcCopySourceSSECustomerAlgorithm = Lens.lens (copySourceSSECustomerAlgorithm :: UploadPartCopy -> Lude.Maybe Lude.Text) (\s a -> s {copySourceSSECustomerAlgorithm = a} :: UploadPartCopy)
+{-# DEPRECATED upcCopySourceSSECustomerAlgorithm "Use generic-lens or generic-optics with 'copySourceSSECustomerAlgorithm' instead." #-}
+
+-- | The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcExpectedBucketOwner :: Lens.Lens' UploadPartCopy (Lude.Maybe Lude.Text)
+upcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: UploadPartCopy -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: UploadPartCopy)
+{-# DEPRECATED upcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest UploadPartCopy where
   type Rs UploadPartCopy = UploadPartCopyResponse
@@ -425,12 +455,12 @@ instance Lude.ToHeaders UploadPartCopy where
           Lude.=# expectedSourceBucketOwner,
         "x-amz-server-side-encryption-customer-key-MD5"
           Lude.=# sSECustomerKeyMD5,
+        "x-amz-copy-source" Lude.=# copySource,
         "x-amz-copy-source-server-side-encryption-customer-key"
           Lude.=# copySourceSSECustomerKey,
         "x-amz-copy-source-server-side-encryption-customer-algorithm"
           Lude.=# copySourceSSECustomerAlgorithm,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner,
-        "x-amz-copy-source" Lude.=# copySource
+        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
       ]
 
 instance Lude.ToPath UploadPartCopy where
@@ -444,16 +474,20 @@ instance Lude.ToQuery UploadPartCopy where
 
 -- | /See:/ 'mkUploadPartCopyResponse' smart constructor.
 data UploadPartCopyResponse = UploadPartCopyResponse'
-  { requestCharged ::
-      Lude.Maybe RequestCharged,
+  { requestCharged :: Lude.Maybe RequestCharged,
+    -- | Container for all response elements.
     copyPartResult :: Lude.Maybe CopyPartResult,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | The version of the source object that was copied, if you have enabled versioning on the source bucket.
     copySourceVersionId :: Lude.Maybe Lude.Text,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    sSEKMSKeyId ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    serverSideEncryption ::
-      Lude.Maybe ServerSideEncryption,
+    -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -461,14 +495,14 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
 
 -- | Creates a value of 'UploadPartCopyResponse' with the minimum fields required to make a request.
 --
+-- * 'requestCharged' -
 -- * 'copyPartResult' - Container for all response elements.
--- * 'copySourceVersionId' - The version of the source object that was copied, if you have enabled versioning on the source bucket.
--- * 'requestCharged' - Undocumented field.
--- * 'responseStatus' - The response status code.
 -- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+-- * 'copySourceVersionId' - The version of the source object that was copied, if you have enabled versioning on the source bucket.
 -- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
 -- * 'sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
 -- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+-- * 'responseStatus' - The response status code.
 mkUploadPartCopyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -35,39 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansUtilizationDetail' smart constructor.
 data SavingsPlansUtilizationDetail = SavingsPlansUtilizationDetail'
-  { amortizedCommitment ::
-      Lude.Maybe
-        SavingsPlansAmortizedCommitment,
-    savings ::
-      Lude.Maybe SavingsPlansSavings,
-    attributes ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    utilization ::
-      Lude.Maybe
-        SavingsPlansUtilization,
-    savingsPlanARN ::
-      Lude.Maybe Lude.Text
+  { -- | The total amortized commitment for a Savings Plans. Includes the sum of the upfront and recurring Savings Plans fees.
+    amortizedCommitment :: Lude.Maybe SavingsPlansAmortizedCommitment,
+    -- | The amount saved by using existing Savings Plans. Savings returns both net savings from savings plans as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
+    savings :: Lude.Maybe SavingsPlansSavings,
+    -- | The attribute that applies to a specific @Dimension@ .
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
+    utilization :: Lude.Maybe SavingsPlansUtilization,
+    -- | The unique Amazon Resource Name (ARN) for a particular Savings Plan.
+    savingsPlanARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansUtilizationDetail' with the minimum fields required to make a request.
 --
 -- * 'amortizedCommitment' - The total amortized commitment for a Savings Plans. Includes the sum of the upfront and recurring Savings Plans fees.
--- * 'attributes' - The attribute that applies to a specific @Dimension@ .
 -- * 'savings' - The amount saved by using existing Savings Plans. Savings returns both net savings from savings plans as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
--- * 'savingsPlanARN' - The unique Amazon Resource Name (ARN) for a particular Savings Plan.
+-- * 'attributes' - The attribute that applies to a specific @Dimension@ .
 -- * 'utilization' - A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
+-- * 'savingsPlanARN' - The unique Amazon Resource Name (ARN) for a particular Savings Plan.
 mkSavingsPlansUtilizationDetail ::
   SavingsPlansUtilizationDetail
 mkSavingsPlansUtilizationDetail =

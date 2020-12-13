@@ -30,16 +30,10 @@ import Network.AWS.S3.Types.AnalyticsS3BucketDestination
 --
 -- /See:/ 'mkAnalyticsExportDestination' smart constructor.
 newtype AnalyticsExportDestination = AnalyticsExportDestination'
-  { s3BucketDestination ::
-      AnalyticsS3BucketDestination
+  { -- | A destination signifying output to an S3 bucket.
+    s3BucketDestination :: AnalyticsS3BucketDestination
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnalyticsExportDestination' with the minimum fields required to make a request.

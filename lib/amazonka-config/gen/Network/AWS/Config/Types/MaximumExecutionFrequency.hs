@@ -14,8 +14,8 @@ module Network.AWS.Config.Types.MaximumExecutionFrequency
   ( MaximumExecutionFrequency
       ( MaximumExecutionFrequency',
         OneHour,
-        SixHours,
         ThreeHours,
+        SixHours,
         TwelveHours,
         TwentyFourHours
       ),
@@ -51,11 +51,11 @@ newtype MaximumExecutionFrequency = MaximumExecutionFrequency' Lude.Text
 pattern OneHour :: MaximumExecutionFrequency
 pattern OneHour = MaximumExecutionFrequency' "One_Hour"
 
-pattern SixHours :: MaximumExecutionFrequency
-pattern SixHours = MaximumExecutionFrequency' "Six_Hours"
-
 pattern ThreeHours :: MaximumExecutionFrequency
 pattern ThreeHours = MaximumExecutionFrequency' "Three_Hours"
+
+pattern SixHours :: MaximumExecutionFrequency
+pattern SixHours = MaximumExecutionFrequency' "Six_Hours"
 
 pattern TwelveHours :: MaximumExecutionFrequency
 pattern TwelveHours = MaximumExecutionFrequency' "Twelve_Hours"
@@ -65,8 +65,8 @@ pattern TwentyFourHours = MaximumExecutionFrequency' "TwentyFour_Hours"
 
 {-# COMPLETE
   OneHour,
-  SixHours,
   ThreeHours,
+  SixHours,
   TwelveHours,
   TwentyFourHours,
   MaximumExecutionFrequency'

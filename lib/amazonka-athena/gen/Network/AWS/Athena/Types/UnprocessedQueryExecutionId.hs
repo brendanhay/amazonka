@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUnprocessedQueryExecutionId' smart constructor.
 data UnprocessedQueryExecutionId = UnprocessedQueryExecutionId'
-  { errorCode ::
-      Lude.Maybe Lude.Text,
-    queryExecutionId ::
-      Lude.Maybe Lude.Text,
-    errorMessage ::
-      Lude.Maybe Lude.Text
+  { -- | The error code returned when the query execution failed to process, if applicable.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the query execution.
+    queryExecutionId :: Lude.Maybe Lude.Text,
+    -- | The error message returned when the query execution failed to process, if applicable.
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnprocessedQueryExecutionId' with the minimum fields required to make a request.
 --
 -- * 'errorCode' - The error code returned when the query execution failed to process, if applicable.
--- * 'errorMessage' - The error message returned when the query execution failed to process, if applicable.
 -- * 'queryExecutionId' - The unique identifier of the query execution.
+-- * 'errorMessage' - The error message returned when the query execution failed to process, if applicable.
 mkUnprocessedQueryExecutionId ::
   UnprocessedQueryExecutionId
 mkUnprocessedQueryExecutionId =

@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSqlQueryDatasetAction' smart constructor.
 data SqlQueryDatasetAction = SqlQueryDatasetAction'
-  { filters ::
-      Lude.Maybe [QueryFilter],
+  { -- | Prefilters applied to message data.
+    filters :: Lude.Maybe [QueryFilter],
+    -- | A SQL query string.
     sqlQuery :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SqlQueryDatasetAction' with the minimum fields required to make a request.

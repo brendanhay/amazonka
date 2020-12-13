@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.DeviceFarm.ListArtifacts
     mkListArtifacts,
 
     -- ** Request lenses
-    laNextToken,
     laArn,
+    laNextToken,
     laType,
 
     -- * Destructuring the response
@@ -47,18 +48,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListArtifacts' smart constructor.
 data ListArtifacts = ListArtifacts'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The run, job, suite, or test ARN.
     arn :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The artifacts' type.
+    --
+    -- Allowed values include:
+    --
+    --     * FILE
+    --
+    --
+    --     * LOG
+    --
+    --
+    --     * SCREENSHOT
     type' :: ArtifactCategory
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListArtifacts' with the minimum fields required to make a request.
@@ -84,17 +91,10 @@ mkListArtifacts ::
   ListArtifacts
 mkListArtifacts pArn_ pType_ =
   ListArtifacts'
-    { nextToken = Lude.Nothing,
-      arn = pArn_,
+    { arn = pArn_,
+      nextToken = Lude.Nothing,
       type' = pType_
     }
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laNextToken :: Lens.Lens' ListArtifacts (Lude.Maybe Lude.Text)
-laNextToken = Lens.lens (nextToken :: ListArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListArtifacts)
-{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The run, job, suite, or test ARN.
 --
@@ -102,6 +102,13 @@ laNextToken = Lens.lens (nextToken :: ListArtifacts -> Lude.Maybe Lude.Text) (\s
 laArn :: Lens.Lens' ListArtifacts Lude.Text
 laArn = Lens.lens (arn :: ListArtifacts -> Lude.Text) (\s a -> s {arn = a} :: ListArtifacts)
 {-# DEPRECATED laArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListArtifacts (Lude.Maybe Lude.Text)
+laNextToken = Lens.lens (nextToken :: ListArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListArtifacts)
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The artifacts' type.
 --
@@ -158,8 +165,8 @@ instance Lude.ToJSON ListArtifacts where
   toJSON ListArtifacts' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("arn" Lude..= arn),
+          [ Lude.Just ("arn" Lude..= arn),
+            ("nextToken" Lude..=) Lude.<$> nextToken,
             Lude.Just ("type" Lude..= type')
           ]
       )
@@ -174,18 +181,14 @@ instance Lude.ToQuery ListArtifacts where
 --
 -- /See:/ 'mkListArtifactsResponse' smart constructor.
 data ListArtifactsResponse = ListArtifactsResponse'
-  { artifacts ::
-      Lude.Maybe [Artifact],
+  { -- | Information about the artifacts.
+    artifacts :: Lude.Maybe [Artifact],
+    -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListArtifactsResponse' with the minimum fields required to make a request.

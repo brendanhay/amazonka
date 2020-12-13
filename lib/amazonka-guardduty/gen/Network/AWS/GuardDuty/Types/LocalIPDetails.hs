@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalIPDetails' smart constructor.
 newtype LocalIPDetails = LocalIPDetails'
-  { ipAddressV4 ::
-      Lude.Maybe Lude.Text
+  { -- | The IPv4 local address of the connection.
+    ipAddressV4 :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalIPDetails' with the minimum fields required to make a request.

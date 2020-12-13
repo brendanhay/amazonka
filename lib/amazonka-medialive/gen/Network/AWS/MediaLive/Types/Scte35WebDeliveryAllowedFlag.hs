@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag
   ( Scte35WebDeliveryAllowedFlag
       ( Scte35WebDeliveryAllowedFlag',
-        WebDeliveryAllowed,
-        WebDeliveryNotAllowed
+        WebDeliveryNotAllowed,
+        WebDeliveryAllowed
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Scte35WebDeliveryAllowedFlag = Scte35WebDeliveryAllowedFlag' Lude.Text
       Lude.ToHeader
     )
 
-pattern WebDeliveryAllowed :: Scte35WebDeliveryAllowedFlag
-pattern WebDeliveryAllowed = Scte35WebDeliveryAllowedFlag' "WEB_DELIVERY_ALLOWED"
-
 pattern WebDeliveryNotAllowed :: Scte35WebDeliveryAllowedFlag
 pattern WebDeliveryNotAllowed = Scte35WebDeliveryAllowedFlag' "WEB_DELIVERY_NOT_ALLOWED"
 
+pattern WebDeliveryAllowed :: Scte35WebDeliveryAllowedFlag
+pattern WebDeliveryAllowed = Scte35WebDeliveryAllowedFlag' "WEB_DELIVERY_ALLOWED"
+
 {-# COMPLETE
-  WebDeliveryAllowed,
   WebDeliveryNotAllowed,
+  WebDeliveryAllowed,
   Scte35WebDeliveryAllowedFlag'
   #-}

@@ -17,8 +17,8 @@ module Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
     mkPhysicalResourceIdContextKeyValuePair,
 
     -- * Lenses
-    prickvpKey,
     prickvpValue,
+    prickvpKey,
   )
 where
 
@@ -29,42 +29,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhysicalResourceIdContextKeyValuePair' smart constructor.
 data PhysicalResourceIdContextKeyValuePair = PhysicalResourceIdContextKeyValuePair'
-  { key ::
-      Lude.Text,
-    value ::
-      Lude.Text
+  { -- | The resource context value.
+    value :: Lude.Text,
+    -- | The resource context key.
+    key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhysicalResourceIdContextKeyValuePair' with the minimum fields required to make a request.
 --
--- * 'key' - The resource context key.
 -- * 'value' - The resource context value.
+-- * 'key' - The resource context key.
 mkPhysicalResourceIdContextKeyValuePair ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   PhysicalResourceIdContextKeyValuePair
-mkPhysicalResourceIdContextKeyValuePair pKey_ pValue_ =
+mkPhysicalResourceIdContextKeyValuePair pValue_ pKey_ =
   PhysicalResourceIdContextKeyValuePair'
-    { key = pKey_,
-      value = pValue_
+    { value = pValue_,
+      key = pKey_
     }
-
--- | The resource context key.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prickvpKey :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Lude.Text
-prickvpKey = Lens.lens (key :: PhysicalResourceIdContextKeyValuePair -> Lude.Text) (\s a -> s {key = a} :: PhysicalResourceIdContextKeyValuePair)
-{-# DEPRECATED prickvpKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The resource context value.
 --
@@ -73,7 +60,14 @@ prickvpValue :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Lude.Text
 prickvpValue = Lens.lens (value :: PhysicalResourceIdContextKeyValuePair -> Lude.Text) (\s a -> s {value = a} :: PhysicalResourceIdContextKeyValuePair)
 {-# DEPRECATED prickvpValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The resource context key.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prickvpKey :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Lude.Text
+prickvpKey = Lens.lens (key :: PhysicalResourceIdContextKeyValuePair -> Lude.Text) (\s a -> s {key = a} :: PhysicalResourceIdContextKeyValuePair)
+{-# DEPRECATED prickvpKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromXML PhysicalResourceIdContextKeyValuePair where
   parseXML x =
     PhysicalResourceIdContextKeyValuePair'
-      Lude.<$> (x Lude..@ "Key") Lude.<*> (x Lude..@ "Value")
+      Lude.<$> (x Lude..@ "Value") Lude.<*> (x Lude..@ "Key")

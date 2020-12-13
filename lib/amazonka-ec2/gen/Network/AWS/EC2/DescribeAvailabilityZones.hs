@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,29 +46,62 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAvailabilityZones' smart constructor.
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
-  { zoneNames ::
-      Lude.Maybe [Lude.Text],
-    allAvailabilityZones ::
-      Lude.Maybe Lude.Bool,
+  { -- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
+    zoneNames :: Lude.Maybe [Lude.Text],
+    -- | Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.
+    --
+    -- If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.
+    allAvailabilityZones :: Lude.Maybe Lude.Bool,
+    -- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
     zoneIds :: Lude.Maybe [Lude.Text],
+    -- | The filters.
+    --
+    --
+    --     * @group-name@ - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, @us-west-2-lax-1@ ) For Wavelength Zones, use the name of the group associated with the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@ ).
+    --
+    --
+    --     * @message@ - The Zone message.
+    --
+    --
+    --     * @opt-in-status@ - The opt-in status (@opted-in@ , and @not-opted-in@ | @opt-in-not-required@ ).
+    --
+    --
+    --     * @parent-zoneID@ - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.
+    --
+    --
+    --     * @parent-zoneName@ - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.
+    --
+    --
+    --     * @region-name@ - The name of the Region for the Zone (for example, @us-east-1@ ).
+    --
+    --
+    --     * @state@ - The state of the Availability Zone, the Local Zone, or the Wavelength Zone (@available@ | @information@ | @impaired@ | @unavailable@ ).
+    --
+    --
+    --     * @zone-id@ - The ID of the Availability Zone (for example, @use1-az1@ ), the Local Zone (for example, @usw2-lax1-az1@ ), or the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@ ).
+    --
+    --
+    --     * @zone-type@ - The type of zone, for example, @local-zone@ .
+    --
+    --
+    --     * @zone-name@ - The name of the Availability Zone (for example, @us-east-1a@ ), the Local Zone (for example, @us-west-2-lax-1a@ ), or the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@ ).
+    --
+    --
+    --     * @zone-type@ - The type of zone, for example, @local-zone@ .
     filters :: Lude.Maybe [Filter],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAvailabilityZones' with the minimum fields required to make a request.
 --
+-- * 'zoneNames' - The names of the Availability Zones, Local Zones, and Wavelength Zones.
 -- * 'allAvailabilityZones' - Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.
 --
 -- If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'zoneIds' - The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
 -- * 'filters' - The filters.
 --
 --
@@ -104,8 +138,7 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
 --     * @zone-type@ - The type of zone, for example, @local-zone@ .
 --
 --
--- * 'zoneIds' - The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
--- * 'zoneNames' - The names of the Availability Zones, Local Zones, and Wavelength Zones.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDescribeAvailabilityZones ::
   DescribeAvailabilityZones
 mkDescribeAvailabilityZones =
@@ -224,19 +257,12 @@ instance Lude.ToQuery DescribeAvailabilityZones where
 
 -- | /See:/ 'mkDescribeAvailabilityZonesResponse' smart constructor.
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
-  { availabilityZones ::
-      Lude.Maybe
-        [AvailabilityZone],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the Availability Zones, Local Zones, and Wavelength Zones.
+    availabilityZones :: Lude.Maybe [AvailabilityZone],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAvailabilityZonesResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,14 +40,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.Translate.Types
 
 -- | /See:/ 'mkDeleteParallelData' smart constructor.
-newtype DeleteParallelData = DeleteParallelData' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteParallelData = DeleteParallelData'
+  { -- | The name of the parallel data resource that is being deleted.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteParallelData' with the minimum fields required to make a request.
@@ -102,25 +100,21 @@ instance Lude.ToQuery DeleteParallelData where
 
 -- | /See:/ 'mkDeleteParallelDataResponse' smart constructor.
 data DeleteParallelDataResponse = DeleteParallelDataResponse'
-  { status ::
-      Lude.Maybe ParallelDataStatus,
+  { -- | The status of the parallel data deletion.
+    status :: Lude.Maybe ParallelDataStatus,
+    -- | The name of the parallel data resource that is being deleted.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteParallelDataResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the parallel data deletion.
 -- * 'name' - The name of the parallel data resource that is being deleted.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the parallel data deletion.
 mkDeleteParallelDataResponse ::
   -- | 'responseStatus'
   Lude.Int ->

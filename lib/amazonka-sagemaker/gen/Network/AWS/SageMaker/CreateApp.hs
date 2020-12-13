@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,19 +21,19 @@ module Network.AWS.SageMaker.CreateApp
 
     -- ** Request lenses
     caResourceSpec,
-    caTags,
-    caDomainId,
     caUserProfileName,
-    caAppType,
     caAppName,
+    caDomainId,
+    caTags,
+    caAppType,
 
     -- * Destructuring the response
     CreateAppResponse (..),
     mkCreateAppResponse,
 
     -- ** Response lenses
-    crersAppARN,
-    crersResponseStatus,
+    carsAppARN,
+    carsResponseStatus,
   )
 where
 
@@ -44,49 +45,48 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { resourceSpec ::
-      Lude.Maybe ResourceSpec,
-    tags :: Lude.Maybe [Tag],
-    domainId :: Lude.Text,
+  { -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+    resourceSpec :: Lude.Maybe ResourceSpec,
+    -- | The user profile name.
     userProfileName :: Lude.Text,
-    appType :: AppType,
-    appName :: Lude.Text
+    -- | The name of the app.
+    appName :: Lude.Text,
+    -- | The domain ID.
+    domainId :: Lude.Text,
+    -- | Each tag consists of a key and an optional value. Tag keys must be unique per resource.
+    tags :: Lude.Maybe [Tag],
+    -- | The type of app.
+    appType :: AppType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
--- * 'appName' - The name of the app.
--- * 'appType' - The type of app.
--- * 'domainId' - The domain ID.
 -- * 'resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
--- * 'tags' - Each tag consists of a key and an optional value. Tag keys must be unique per resource.
 -- * 'userProfileName' - The user profile name.
+-- * 'appName' - The name of the app.
+-- * 'domainId' - The domain ID.
+-- * 'tags' - Each tag consists of a key and an optional value. Tag keys must be unique per resource.
+-- * 'appType' - The type of app.
 mkCreateApp ::
-  -- | 'domainId'
-  Lude.Text ->
   -- | 'userProfileName'
+  Lude.Text ->
+  -- | 'appName'
+  Lude.Text ->
+  -- | 'domainId'
   Lude.Text ->
   -- | 'appType'
   AppType ->
-  -- | 'appName'
-  Lude.Text ->
   CreateApp
-mkCreateApp pDomainId_ pUserProfileName_ pAppType_ pAppName_ =
+mkCreateApp pUserProfileName_ pAppName_ pDomainId_ pAppType_ =
   CreateApp'
     { resourceSpec = Lude.Nothing,
-      tags = Lude.Nothing,
-      domainId = pDomainId_,
       userProfileName = pUserProfileName_,
-      appType = pAppType_,
-      appName = pAppName_
+      appName = pAppName_,
+      domainId = pDomainId_,
+      tags = Lude.Nothing,
+      appType = pAppType_
     }
 
 -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
@@ -96,12 +96,19 @@ caResourceSpec :: Lens.Lens' CreateApp (Lude.Maybe ResourceSpec)
 caResourceSpec = Lens.lens (resourceSpec :: CreateApp -> Lude.Maybe ResourceSpec) (\s a -> s {resourceSpec = a} :: CreateApp)
 {-# DEPRECATED caResourceSpec "Use generic-lens or generic-optics with 'resourceSpec' instead." #-}
 
--- | Each tag consists of a key and an optional value. Tag keys must be unique per resource.
+-- | The user profile name.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caTags :: Lens.Lens' CreateApp (Lude.Maybe [Tag])
-caTags = Lens.lens (tags :: CreateApp -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApp)
-{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caUserProfileName :: Lens.Lens' CreateApp Lude.Text
+caUserProfileName = Lens.lens (userProfileName :: CreateApp -> Lude.Text) (\s a -> s {userProfileName = a} :: CreateApp)
+{-# DEPRECATED caUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+
+-- | The name of the app.
+--
+-- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAppName :: Lens.Lens' CreateApp Lude.Text
+caAppName = Lens.lens (appName :: CreateApp -> Lude.Text) (\s a -> s {appName = a} :: CreateApp)
+{-# DEPRECATED caAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
 
 -- | The domain ID.
 --
@@ -110,12 +117,12 @@ caDomainId :: Lens.Lens' CreateApp Lude.Text
 caDomainId = Lens.lens (domainId :: CreateApp -> Lude.Text) (\s a -> s {domainId = a} :: CreateApp)
 {-# DEPRECATED caDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
--- | The user profile name.
+-- | Each tag consists of a key and an optional value. Tag keys must be unique per resource.
 --
--- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caUserProfileName :: Lens.Lens' CreateApp Lude.Text
-caUserProfileName = Lens.lens (userProfileName :: CreateApp -> Lude.Text) (\s a -> s {userProfileName = a} :: CreateApp)
-{-# DEPRECATED caUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateApp (Lude.Maybe [Tag])
+caTags = Lens.lens (tags :: CreateApp -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApp)
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The type of app.
 --
@@ -123,13 +130,6 @@ caUserProfileName = Lens.lens (userProfileName :: CreateApp -> Lude.Text) (\s a 
 caAppType :: Lens.Lens' CreateApp AppType
 caAppType = Lens.lens (appType :: CreateApp -> AppType) (\s a -> s {appType = a} :: CreateApp)
 {-# DEPRECATED caAppType "Use generic-lens or generic-optics with 'appType' instead." #-}
-
--- | The name of the app.
---
--- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAppName :: Lens.Lens' CreateApp Lude.Text
-caAppName = Lens.lens (appName :: CreateApp -> Lude.Text) (\s a -> s {appName = a} :: CreateApp)
-{-# DEPRECATED caAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
 
 instance Lude.AWSRequest CreateApp where
   type Rs CreateApp = CreateAppResponse
@@ -156,11 +156,11 @@ instance Lude.ToJSON CreateApp where
     Lude.object
       ( Lude.catMaybes
           [ ("ResourceSpec" Lude..=) Lude.<$> resourceSpec,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("DomainId" Lude..= domainId),
             Lude.Just ("UserProfileName" Lude..= userProfileName),
-            Lude.Just ("AppType" Lude..= appType),
-            Lude.Just ("AppName" Lude..= appName)
+            Lude.Just ("AppName" Lude..= appName),
+            Lude.Just ("DomainId" Lude..= domainId),
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("AppType" Lude..= appType)
           ]
       )
 
@@ -172,17 +172,12 @@ instance Lude.ToQuery CreateApp where
 
 -- | /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { appARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the app.
+    appARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
@@ -202,13 +197,13 @@ mkCreateAppResponse pResponseStatus_ =
 -- | The Amazon Resource Name (ARN) of the app.
 --
 -- /Note:/ Consider using 'appARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersAppARN :: Lens.Lens' CreateAppResponse (Lude.Maybe Lude.Text)
-crersAppARN = Lens.lens (appARN :: CreateAppResponse -> Lude.Maybe Lude.Text) (\s a -> s {appARN = a} :: CreateAppResponse)
-{-# DEPRECATED crersAppARN "Use generic-lens or generic-optics with 'appARN' instead." #-}
+carsAppARN :: Lens.Lens' CreateAppResponse (Lude.Maybe Lude.Text)
+carsAppARN = Lens.lens (appARN :: CreateAppResponse -> Lude.Maybe Lude.Text) (\s a -> s {appARN = a} :: CreateAppResponse)
+{-# DEPRECATED carsAppARN "Use generic-lens or generic-optics with 'appARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersResponseStatus :: Lens.Lens' CreateAppResponse Lude.Int
-crersResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppResponse)
-{-# DEPRECATED crersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+carsResponseStatus :: Lens.Lens' CreateAppResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

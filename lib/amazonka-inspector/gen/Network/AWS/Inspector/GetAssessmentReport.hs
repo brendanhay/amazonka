@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,9 +29,9 @@ module Network.AWS.Inspector.GetAssessmentReport
     mkGetAssessmentReportResponse,
 
     -- ** Response lenses
+    garrsStatus,
     garrsUrl,
     garrsResponseStatus,
-    garrsStatus,
   )
 where
 
@@ -42,18 +43,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAssessmentReport' smart constructor.
 data GetAssessmentReport = GetAssessmentReport'
-  { assessmentRunARN ::
-      Lude.Text,
+  { -- | The ARN that specifies the assessment run for which you want to generate a report.
+    assessmentRunARN :: Lude.Text,
+    -- | Specifies the file format (html or pdf) of the assessment report that you want to generate.
     reportFileFormat :: ReportFileFormat,
+    -- | Specifies the type of the assessment report that you want to generate. There are two types of assessment reports: a finding report and a full report. For more information, see <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html Assessment Reports> .
     reportType :: ReportType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssessmentReport' with the minimum fields required to make a request.
@@ -107,9 +104,9 @@ instance Lude.AWSRequest GetAssessmentReport where
     Res.receiveJSON
       ( \s h x ->
           GetAssessmentReportResponse'
-            Lude.<$> (x Lude..?> "url")
+            Lude.<$> (x Lude..:> "status")
+            Lude.<*> (x Lude..?> "url")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "status")
       )
 
 instance Lude.ToHeaders GetAssessmentReport where
@@ -141,37 +138,40 @@ instance Lude.ToQuery GetAssessmentReport where
 
 -- | /See:/ 'mkGetAssessmentReportResponse' smart constructor.
 data GetAssessmentReportResponse = GetAssessmentReportResponse'
-  { url ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    status :: ReportStatus
+  { -- | Specifies the status of the request to generate an assessment report.
+    status :: ReportStatus,
+    -- | Specifies the URL where you can find the generated assessment report. This parameter is only returned if the report is successfully generated.
+    url :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssessmentReportResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - Specifies the status of the request to generate an assessment report.
 -- * 'url' - Specifies the URL where you can find the generated assessment report. This parameter is only returned if the report is successfully generated.
+-- * 'responseStatus' - The response status code.
 mkGetAssessmentReportResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'status'
   ReportStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAssessmentReportResponse
-mkGetAssessmentReportResponse pResponseStatus_ pStatus_ =
+mkGetAssessmentReportResponse pStatus_ pResponseStatus_ =
   GetAssessmentReportResponse'
-    { url = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      status = pStatus_
+    { status = pStatus_,
+      url = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | Specifies the status of the request to generate an assessment report.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garrsStatus :: Lens.Lens' GetAssessmentReportResponse ReportStatus
+garrsStatus = Lens.lens (status :: GetAssessmentReportResponse -> ReportStatus) (\s a -> s {status = a} :: GetAssessmentReportResponse)
+{-# DEPRECATED garrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies the URL where you can find the generated assessment report. This parameter is only returned if the report is successfully generated.
 --
@@ -186,10 +186,3 @@ garrsUrl = Lens.lens (url :: GetAssessmentReportResponse -> Lude.Maybe Lude.Text
 garrsResponseStatus :: Lens.Lens' GetAssessmentReportResponse Lude.Int
 garrsResponseStatus = Lens.lens (responseStatus :: GetAssessmentReportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAssessmentReportResponse)
 {-# DEPRECATED garrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Specifies the status of the request to generate an assessment report.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garrsStatus :: Lens.Lens' GetAssessmentReportResponse ReportStatus
-garrsStatus = Lens.lens (status :: GetAssessmentReportResponse -> ReportStatus) (\s a -> s {status = a} :: GetAssessmentReportResponse)
-{-# DEPRECATED garrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}

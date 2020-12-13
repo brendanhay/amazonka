@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.Discovery.ListConfigurations
 
     -- ** Request lenses
     lcOrderBy,
+    lcConfigurationType,
     lcFilters,
     lcNextToken,
     lcMaxResults,
-    lcConfigurationType,
 
     -- * Destructuring the response
     ListConfigurationsResponse (..),
@@ -47,32 +48,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListConfigurations' smart constructor.
 data ListConfigurations = ListConfigurations'
-  { orderBy ::
-      Lude.Maybe [OrderByElement],
+  { -- | Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action> in the /AWS Application Discovery Service User Guide/ .
+    orderBy :: Lude.Maybe [OrderByElement],
+    -- | A valid configuration identified by Application Discovery Service.
+    configurationType :: ConfigurationItemType,
+    -- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:
+    --
+    -- @{"key": "serverType", "value": "webServer"}@
+    -- For a complete list of filter options and guidance about using them with this action, see <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action> in the /AWS Application Discovery Service User Guide/ .
     filters :: Lude.Maybe [Filter],
+    -- | Token to retrieve the next set of results. For example, if a previous call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    configurationType :: ConfigurationItemType
+    -- | The total number of items to return. The maximum value is 100.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConfigurations' with the minimum fields required to make a request.
 --
+-- * 'orderBy' - Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action> in the /AWS Application Discovery Service User Guide/ .
 -- * 'configurationType' - A valid configuration identified by Application Discovery Service.
 -- * 'filters' - You can filter the request using various logical operators and a /key/ -/value/ format. For example:
 --
 -- @{"key": "serverType", "value": "webServer"}@
 -- For a complete list of filter options and guidance about using them with this action, see <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action> in the /AWS Application Discovery Service User Guide/ .
--- * 'maxResults' - The total number of items to return. The maximum value is 100.
 -- * 'nextToken' - Token to retrieve the next set of results. For example, if a previous call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
--- * 'orderBy' - Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action> in the /AWS Application Discovery Service User Guide/ .
+-- * 'maxResults' - The total number of items to return. The maximum value is 100.
 mkListConfigurations ::
   -- | 'configurationType'
   ConfigurationItemType ->
@@ -80,10 +82,10 @@ mkListConfigurations ::
 mkListConfigurations pConfigurationType_ =
   ListConfigurations'
     { orderBy = Lude.Nothing,
+      configurationType = pConfigurationType_,
       filters = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      configurationType = pConfigurationType_
+      maxResults = Lude.Nothing
     }
 
 -- | Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action> in the /AWS Application Discovery Service User Guide/ .
@@ -92,6 +94,13 @@ mkListConfigurations pConfigurationType_ =
 lcOrderBy :: Lens.Lens' ListConfigurations (Lude.Maybe [OrderByElement])
 lcOrderBy = Lens.lens (orderBy :: ListConfigurations -> Lude.Maybe [OrderByElement]) (\s a -> s {orderBy = a} :: ListConfigurations)
 {-# DEPRECATED lcOrderBy "Use generic-lens or generic-optics with 'orderBy' instead." #-}
+
+-- | A valid configuration identified by Application Discovery Service.
+--
+-- /Note:/ Consider using 'configurationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcConfigurationType :: Lens.Lens' ListConfigurations ConfigurationItemType
+lcConfigurationType = Lens.lens (configurationType :: ListConfigurations -> ConfigurationItemType) (\s a -> s {configurationType = a} :: ListConfigurations)
+{-# DEPRECATED lcConfigurationType "Use generic-lens or generic-optics with 'configurationType' instead." #-}
 
 -- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:
 --
@@ -116,13 +125,6 @@ lcNextToken = Lens.lens (nextToken :: ListConfigurations -> Lude.Maybe Lude.Text
 lcMaxResults :: Lens.Lens' ListConfigurations (Lude.Maybe Lude.Int)
 lcMaxResults = Lens.lens (maxResults :: ListConfigurations -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListConfigurations)
 {-# DEPRECATED lcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | A valid configuration identified by Application Discovery Service.
---
--- /Note:/ Consider using 'configurationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcConfigurationType :: Lens.Lens' ListConfigurations ConfigurationItemType
-lcConfigurationType = Lens.lens (configurationType :: ListConfigurations -> ConfigurationItemType) (\s a -> s {configurationType = a} :: ListConfigurations)
-{-# DEPRECATED lcConfigurationType "Use generic-lens or generic-optics with 'configurationType' instead." #-}
 
 instance Page.AWSPager ListConfigurations where
   page rq rs
@@ -163,10 +165,10 @@ instance Lude.ToJSON ListConfigurations where
     Lude.object
       ( Lude.catMaybes
           [ ("orderBy" Lude..=) Lude.<$> orderBy,
+            Lude.Just ("configurationType" Lude..= configurationType),
             ("filters" Lude..=) Lude.<$> filters,
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("configurationType" Lude..= configurationType)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -178,22 +180,14 @@ instance Lude.ToQuery ListConfigurations where
 
 -- | /See:/ 'mkListConfigurationsResponse' smart constructor.
 data ListConfigurationsResponse = ListConfigurationsResponse'
-  { configurations ::
-      Lude.Maybe
-        [ Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ],
+  { -- | Returns configuration details, including the configuration ID, attribute names, and attribute values.
+    configurations :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+    -- | Token to retrieve the next set of results. For example, if your call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConfigurationsResponse' with the minimum fields required to make a request.

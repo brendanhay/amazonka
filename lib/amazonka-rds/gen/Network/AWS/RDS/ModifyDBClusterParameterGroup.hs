@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.RDS.ModifyDBClusterParameterGroup
     mkModifyDBClusterParameterGroup,
 
     -- ** Request lenses
-    mdcpgDBClusterParameterGroupName,
     mdcpgParameters,
+    mdcpgDBClusterParameterGroupName,
 
     -- * Destructuring the response
     DBClusterParameterGroupNameMessage (..),
@@ -45,40 +46,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyDBClusterParameterGroup' smart constructor.
 data ModifyDBClusterParameterGroup = ModifyDBClusterParameterGroup'
-  { dbClusterParameterGroupName ::
-      Lude.Text,
-    parameters :: [Parameter]
+  { -- | A list of parameters in the DB cluster parameter group to modify.
+    parameters :: [Parameter],
+    -- | The name of the DB cluster parameter group to modify.
+    dbClusterParameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBClusterParameterGroup' with the minimum fields required to make a request.
 --
--- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group to modify.
 -- * 'parameters' - A list of parameters in the DB cluster parameter group to modify.
+-- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group to modify.
 mkModifyDBClusterParameterGroup ::
   -- | 'dbClusterParameterGroupName'
   Lude.Text ->
   ModifyDBClusterParameterGroup
 mkModifyDBClusterParameterGroup pDBClusterParameterGroupName_ =
   ModifyDBClusterParameterGroup'
-    { dbClusterParameterGroupName =
-        pDBClusterParameterGroupName_,
-      parameters = Lude.mempty
+    { parameters = Lude.mempty,
+      dbClusterParameterGroupName = pDBClusterParameterGroupName_
     }
-
--- | The name of the DB cluster parameter group to modify.
---
--- /Note:/ Consider using 'dbClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcpgDBClusterParameterGroupName :: Lens.Lens' ModifyDBClusterParameterGroup Lude.Text
-mdcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: ModifyDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: ModifyDBClusterParameterGroup)
-{-# DEPRECATED mdcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
 
 -- | A list of parameters in the DB cluster parameter group to modify.
 --
@@ -86,6 +74,13 @@ mdcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: Mod
 mdcpgParameters :: Lens.Lens' ModifyDBClusterParameterGroup [Parameter]
 mdcpgParameters = Lens.lens (parameters :: ModifyDBClusterParameterGroup -> [Parameter]) (\s a -> s {parameters = a} :: ModifyDBClusterParameterGroup)
 {-# DEPRECATED mdcpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+-- | The name of the DB cluster parameter group to modify.
+--
+-- /Note:/ Consider using 'dbClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdcpgDBClusterParameterGroupName :: Lens.Lens' ModifyDBClusterParameterGroup Lude.Text
+mdcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: ModifyDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: ModifyDBClusterParameterGroup)
+{-# DEPRECATED mdcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
 
 instance Lude.AWSRequest ModifyDBClusterParameterGroup where
   type
@@ -109,6 +104,6 @@ instance Lude.ToQuery ModifyDBClusterParameterGroup where
       [ "Action"
           Lude.=: ("ModifyDBClusterParameterGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBClusterParameterGroupName" Lude.=: dbClusterParameterGroupName,
-        "Parameters" Lude.=: Lude.toQueryList "Parameter" parameters
+        "Parameters" Lude.=: Lude.toQueryList "Parameter" parameters,
+        "DBClusterParameterGroupName" Lude.=: dbClusterParameterGroupName
       ]

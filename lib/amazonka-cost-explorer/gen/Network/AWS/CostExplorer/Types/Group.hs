@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroup' smart constructor.
 data Group = Group'
-  { metrics ::
-      Lude.Maybe (Lude.HashMap Lude.Text (MetricValue)),
+  { -- | The metrics that are included in this group.
+    metrics :: Lude.Maybe (Lude.HashMap Lude.Text (MetricValue)),
+    -- | The keys that are included in this group.
     keys :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Group' with the minimum fields required to make a request.
 --
--- * 'keys' - The keys that are included in this group.
 -- * 'metrics' - The metrics that are included in this group.
+-- * 'keys' - The keys that are included in this group.
 mkGroup ::
   Group
 mkGroup = Group' {metrics = Lude.Nothing, keys = Lude.Nothing}

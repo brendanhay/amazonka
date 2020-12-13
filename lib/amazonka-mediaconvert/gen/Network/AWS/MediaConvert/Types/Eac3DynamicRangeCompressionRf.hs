@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionRf
   ( Eac3DynamicRangeCompressionRf
       ( Eac3DynamicRangeCompressionRf',
-        EDRCRFilmLight,
-        EDRCRFilmStandard,
-        EDRCRMusicLight,
-        EDRCRMusicStandard,
         EDRCRNone,
+        EDRCRFilmStandard,
+        EDRCRFilmLight,
+        EDRCRMusicStandard,
+        EDRCRMusicLight,
         EDRCRSpeech
       ),
   )
@@ -50,30 +50,30 @@ newtype Eac3DynamicRangeCompressionRf = Eac3DynamicRangeCompressionRf' Lude.Text
       Lude.ToHeader
     )
 
-pattern EDRCRFilmLight :: Eac3DynamicRangeCompressionRf
-pattern EDRCRFilmLight = Eac3DynamicRangeCompressionRf' "FILM_LIGHT"
+pattern EDRCRNone :: Eac3DynamicRangeCompressionRf
+pattern EDRCRNone = Eac3DynamicRangeCompressionRf' "NONE"
 
 pattern EDRCRFilmStandard :: Eac3DynamicRangeCompressionRf
 pattern EDRCRFilmStandard = Eac3DynamicRangeCompressionRf' "FILM_STANDARD"
 
-pattern EDRCRMusicLight :: Eac3DynamicRangeCompressionRf
-pattern EDRCRMusicLight = Eac3DynamicRangeCompressionRf' "MUSIC_LIGHT"
+pattern EDRCRFilmLight :: Eac3DynamicRangeCompressionRf
+pattern EDRCRFilmLight = Eac3DynamicRangeCompressionRf' "FILM_LIGHT"
 
 pattern EDRCRMusicStandard :: Eac3DynamicRangeCompressionRf
 pattern EDRCRMusicStandard = Eac3DynamicRangeCompressionRf' "MUSIC_STANDARD"
 
-pattern EDRCRNone :: Eac3DynamicRangeCompressionRf
-pattern EDRCRNone = Eac3DynamicRangeCompressionRf' "NONE"
+pattern EDRCRMusicLight :: Eac3DynamicRangeCompressionRf
+pattern EDRCRMusicLight = Eac3DynamicRangeCompressionRf' "MUSIC_LIGHT"
 
 pattern EDRCRSpeech :: Eac3DynamicRangeCompressionRf
 pattern EDRCRSpeech = Eac3DynamicRangeCompressionRf' "SPEECH"
 
 {-# COMPLETE
-  EDRCRFilmLight,
-  EDRCRFilmStandard,
-  EDRCRMusicLight,
-  EDRCRMusicStandard,
   EDRCRNone,
+  EDRCRFilmStandard,
+  EDRCRFilmLight,
+  EDRCRMusicStandard,
+  EDRCRMusicLight,
   EDRCRSpeech,
   Eac3DynamicRangeCompressionRf'
   #-}

@@ -40,12 +40,21 @@ import Network.AWS.S3.Types.Tier
 --
 -- /See:/ 'mkRestoreRequest' smart constructor.
 data RestoreRequest = RestoreRequest'
-  { days :: Lude.Maybe Lude.Int,
+  { -- | Lifetime of the active copy in days. Do not use with restores that specify @OutputLocation@ .
+    --
+    -- The Days element is required for regular restores, and must not be provided for select requests.
+    days :: Lude.Maybe Lude.Int,
+    -- | Describes the parameters for Select job types.
     selectParameters :: Lude.Maybe SelectParameters,
+    -- | Describes the location where the restore job's output is stored.
     outputLocation :: Lude.Maybe OutputLocation,
+    -- | Retrieval tier at which the restore will be processed.
     tier :: Lude.Maybe Tier,
+    -- | S3 Glacier related parameters pertaining to this job. Do not use with restores that specify @OutputLocation@ .
     glacierJobParameters :: Lude.Maybe GlacierJobParameters,
+    -- | Type of restore request.
     type' :: Lude.Maybe RestoreRequestType,
+    -- | The optional description for the job.
     description :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -56,12 +65,12 @@ data RestoreRequest = RestoreRequest'
 -- * 'days' - Lifetime of the active copy in days. Do not use with restores that specify @OutputLocation@ .
 --
 -- The Days element is required for regular restores, and must not be provided for select requests.
--- * 'description' - The optional description for the job.
--- * 'glacierJobParameters' - S3 Glacier related parameters pertaining to this job. Do not use with restores that specify @OutputLocation@ .
--- * 'outputLocation' - Describes the location where the restore job's output is stored.
 -- * 'selectParameters' - Describes the parameters for Select job types.
+-- * 'outputLocation' - Describes the location where the restore job's output is stored.
 -- * 'tier' - Retrieval tier at which the restore will be processed.
+-- * 'glacierJobParameters' - S3 Glacier related parameters pertaining to this job. Do not use with restores that specify @OutputLocation@ .
 -- * 'type'' - Type of restore request.
+-- * 'description' - The optional description for the job.
 mkRestoreRequest ::
   RestoreRequest
 mkRestoreRequest =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.DeleteMethodResponse
     mkDeleteMethodResponse,
 
     -- ** Request lenses
-    dmRestAPIId,
     dmResourceId,
     dmHttpMethod,
+    dmRestAPIId,
     dmStatusCode,
 
     -- * Destructuring the response
@@ -40,55 +41,45 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteMethodResponse' smart constructor.
 data DeleteMethodResponse = DeleteMethodResponse'
-  { restAPIId ::
-      Lude.Text,
+  { -- | [Required] The 'Resource' identifier for the 'MethodResponse' resource.
     resourceId :: Lude.Text,
+    -- | [Required] The HTTP verb of the 'Method' resource.
     httpMethod :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | [Required] The status code identifier for the 'MethodResponse' resource.
     statusCode :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMethodResponse' with the minimum fields required to make a request.
 --
--- * 'httpMethod' - [Required] The HTTP verb of the 'Method' resource.
 -- * 'resourceId' - [Required] The 'Resource' identifier for the 'MethodResponse' resource.
+-- * 'httpMethod' - [Required] The HTTP verb of the 'Method' resource.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'statusCode' - [Required] The status code identifier for the 'MethodResponse' resource.
 mkDeleteMethodResponse ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
   -- | 'httpMethod'
+  Lude.Text ->
+  -- | 'restAPIId'
   Lude.Text ->
   -- | 'statusCode'
   Lude.Text ->
   DeleteMethodResponse
 mkDeleteMethodResponse
-  pRestAPIId_
   pResourceId_
   pHttpMethod_
+  pRestAPIId_
   pStatusCode_ =
     DeleteMethodResponse'
-      { restAPIId = pRestAPIId_,
-        resourceId = pResourceId_,
+      { resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
+        restAPIId = pRestAPIId_,
         statusCode = pStatusCode_
       }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmRestAPIId :: Lens.Lens' DeleteMethodResponse Lude.Text
-dmRestAPIId = Lens.lens (restAPIId :: DeleteMethodResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteMethodResponse)
-{-# DEPRECATED dmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The 'Resource' identifier for the 'MethodResponse' resource.
 --
@@ -103,6 +94,13 @@ dmResourceId = Lens.lens (resourceId :: DeleteMethodResponse -> Lude.Text) (\s a
 dmHttpMethod :: Lens.Lens' DeleteMethodResponse Lude.Text
 dmHttpMethod = Lens.lens (httpMethod :: DeleteMethodResponse -> Lude.Text) (\s a -> s {httpMethod = a} :: DeleteMethodResponse)
 {-# DEPRECATED dmHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmRestAPIId :: Lens.Lens' DeleteMethodResponse Lude.Text
+dmRestAPIId = Lens.lens (restAPIId :: DeleteMethodResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteMethodResponse)
+{-# DEPRECATED dmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The status code identifier for the 'MethodResponse' resource.
 --
@@ -141,13 +139,7 @@ instance Lude.ToQuery DeleteMethodResponse where
 
 -- | /See:/ 'mkDeleteMethodResponseResponse' smart constructor.
 data DeleteMethodResponseResponse = DeleteMethodResponseResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMethodResponseResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,6 +21,7 @@ module Network.AWS.DeviceFarm.UpdateNetworkProfile
 
     -- ** Request lenses
     unpUplinkJitterMs,
+    unpArn,
     unpUplinkLossPercent,
     unpDownlinkJitterMs,
     unpName,
@@ -30,7 +32,6 @@ module Network.AWS.DeviceFarm.UpdateNetworkProfile
     unpDescription,
     unpDownlinkDelayMs,
     unpDownlinkBandwidthBits,
-    unpArn,
 
     -- * Destructuring the response
     UpdateNetworkProfileResponse (..),
@@ -50,43 +51,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateNetworkProfile' smart constructor.
 data UpdateNetworkProfile = UpdateNetworkProfile'
-  { uplinkJitterMs ::
-      Lude.Maybe Lude.Integer,
+  { -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+    uplinkJitterMs :: Lude.Maybe Lude.Integer,
+    -- | The Amazon Resource Name (ARN) of the project for which you want to update network profile settings.
+    arn :: Lude.Text,
+    -- | Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
     uplinkLossPercent :: Lude.Maybe Lude.Natural,
+    -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
     downlinkJitterMs :: Lude.Maybe Lude.Integer,
+    -- | The name of the network profile about which you are returning information.
     name :: Lude.Maybe Lude.Text,
+    -- | Proportion of received packets that fail to arrive from 0 to 100 percent.
     downlinkLossPercent :: Lude.Maybe Lude.Natural,
+    -- | The type of network profile to return information about. Valid values are listed here.
     type' :: Lude.Maybe NetworkProfileType,
+    -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
     uplinkDelayMs :: Lude.Maybe Lude.Integer,
+    -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
     uplinkBandwidthBits :: Lude.Maybe Lude.Integer,
+    -- | The description of the network profile about which you are returning information.
     description :: Lude.Maybe Lude.Text,
+    -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
     downlinkDelayMs :: Lude.Maybe Lude.Integer,
-    downlinkBandwidthBits :: Lude.Maybe Lude.Integer,
-    arn :: Lude.Text
+    -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
+    downlinkBandwidthBits :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNetworkProfile' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the project for which you want to update network profile settings.
--- * 'description' - The description of the network profile about which you are returning information.
--- * 'downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
--- * 'downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
--- * 'downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
--- * 'downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
--- * 'name' - The name of the network profile about which you are returning information.
--- * 'type'' - The type of network profile to return information about. Valid values are listed here.
--- * 'uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
--- * 'uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 -- * 'uplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+-- * 'arn' - The Amazon Resource Name (ARN) of the project for which you want to update network profile settings.
 -- * 'uplinkLossPercent' - Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+-- * 'downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+-- * 'name' - The name of the network profile about which you are returning information.
+-- * 'downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
+-- * 'type'' - The type of network profile to return information about. Valid values are listed here.
+-- * 'uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
+-- * 'description' - The description of the network profile about which you are returning information.
+-- * 'downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
 mkUpdateNetworkProfile ::
   -- | 'arn'
   Lude.Text ->
@@ -94,6 +100,7 @@ mkUpdateNetworkProfile ::
 mkUpdateNetworkProfile pArn_ =
   UpdateNetworkProfile'
     { uplinkJitterMs = Lude.Nothing,
+      arn = pArn_,
       uplinkLossPercent = Lude.Nothing,
       downlinkJitterMs = Lude.Nothing,
       name = Lude.Nothing,
@@ -103,8 +110,7 @@ mkUpdateNetworkProfile pArn_ =
       uplinkBandwidthBits = Lude.Nothing,
       description = Lude.Nothing,
       downlinkDelayMs = Lude.Nothing,
-      downlinkBandwidthBits = Lude.Nothing,
-      arn = pArn_
+      downlinkBandwidthBits = Lude.Nothing
     }
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
@@ -113,6 +119,13 @@ mkUpdateNetworkProfile pArn_ =
 unpUplinkJitterMs :: Lens.Lens' UpdateNetworkProfile (Lude.Maybe Lude.Integer)
 unpUplinkJitterMs = Lens.lens (uplinkJitterMs :: UpdateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {uplinkJitterMs = a} :: UpdateNetworkProfile)
 {-# DEPRECATED unpUplinkJitterMs "Use generic-lens or generic-optics with 'uplinkJitterMs' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the project for which you want to update network profile settings.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unpArn :: Lens.Lens' UpdateNetworkProfile Lude.Text
+unpArn = Lens.lens (arn :: UpdateNetworkProfile -> Lude.Text) (\s a -> s {arn = a} :: UpdateNetworkProfile)
+{-# DEPRECATED unpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
 --
@@ -184,13 +197,6 @@ unpDownlinkBandwidthBits :: Lens.Lens' UpdateNetworkProfile (Lude.Maybe Lude.Int
 unpDownlinkBandwidthBits = Lens.lens (downlinkBandwidthBits :: UpdateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {downlinkBandwidthBits = a} :: UpdateNetworkProfile)
 {-# DEPRECATED unpDownlinkBandwidthBits "Use generic-lens or generic-optics with 'downlinkBandwidthBits' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the project for which you want to update network profile settings.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-unpArn :: Lens.Lens' UpdateNetworkProfile Lude.Text
-unpArn = Lens.lens (arn :: UpdateNetworkProfile -> Lude.Text) (\s a -> s {arn = a} :: UpdateNetworkProfile)
-{-# DEPRECATED unpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
 instance Lude.AWSRequest UpdateNetworkProfile where
   type Rs UpdateNetworkProfile = UpdateNetworkProfileResponse
   request = Req.postJSON deviceFarmService
@@ -218,6 +224,7 @@ instance Lude.ToJSON UpdateNetworkProfile where
     Lude.object
       ( Lude.catMaybes
           [ ("uplinkJitterMs" Lude..=) Lude.<$> uplinkJitterMs,
+            Lude.Just ("arn" Lude..= arn),
             ("uplinkLossPercent" Lude..=) Lude.<$> uplinkLossPercent,
             ("downlinkJitterMs" Lude..=) Lude.<$> downlinkJitterMs,
             ("name" Lude..=) Lude.<$> name,
@@ -227,8 +234,7 @@ instance Lude.ToJSON UpdateNetworkProfile where
             ("uplinkBandwidthBits" Lude..=) Lude.<$> uplinkBandwidthBits,
             ("description" Lude..=) Lude.<$> description,
             ("downlinkDelayMs" Lude..=) Lude.<$> downlinkDelayMs,
-            ("downlinkBandwidthBits" Lude..=) Lude.<$> downlinkBandwidthBits,
-            Lude.Just ("arn" Lude..= arn)
+            ("downlinkBandwidthBits" Lude..=) Lude.<$> downlinkBandwidthBits
           ]
       )
 
@@ -240,17 +246,12 @@ instance Lude.ToQuery UpdateNetworkProfile where
 
 -- | /See:/ 'mkUpdateNetworkProfileResponse' smart constructor.
 data UpdateNetworkProfileResponse = UpdateNetworkProfileResponse'
-  { networkProfile ::
-      Lude.Maybe NetworkProfile,
+  { -- | A list of the available network profiles.
+    networkProfile :: Lude.Maybe NetworkProfile,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNetworkProfileResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CloudTrail.ListTags
     mkListTags,
 
     -- ** Request lenses
-    ltNextToken,
-    ltResourceIdList,
+    lResourceIdList,
+    lNextToken,
 
     -- * Destructuring the response
     ListTagsResponse (..),
@@ -46,44 +47,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListTags' smart constructor.
 data ListTags = ListTags'
-  { nextToken :: Lude.Maybe Lude.Text,
-    resourceIdList :: [Lude.Text]
+  { -- | Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is:
+    --
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+    resourceIdList :: [Lude.Text],
+    -- | Reserved for future use.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Reserved for future use.
 -- * 'resourceIdList' - Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+-- * 'nextToken' - Reserved for future use.
 mkListTags ::
   ListTags
 mkListTags =
-  ListTags' {nextToken = Lude.Nothing, resourceIdList = Lude.mempty}
-
--- | Reserved for future use.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
-ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
-{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ListTags' {resourceIdList = Lude.mempty, nextToken = Lude.Nothing}
 
 -- | Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 --
 -- /Note:/ Consider using 'resourceIdList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltResourceIdList :: Lens.Lens' ListTags [Lude.Text]
-ltResourceIdList = Lens.lens (resourceIdList :: ListTags -> [Lude.Text]) (\s a -> s {resourceIdList = a} :: ListTags)
-{-# DEPRECATED ltResourceIdList "Use generic-lens or generic-optics with 'resourceIdList' instead." #-}
+lResourceIdList :: Lens.Lens' ListTags [Lude.Text]
+lResourceIdList = Lens.lens (resourceIdList :: ListTags -> [Lude.Text]) (\s a -> s {resourceIdList = a} :: ListTags)
+{-# DEPRECATED lResourceIdList "Use generic-lens or generic-optics with 'resourceIdList' instead." #-}
+
+-- | Reserved for future use.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListTags where
   page rq rs
@@ -92,7 +91,7 @@ instance Page.AWSPager ListTags where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
+          Lude.& lNextToken Lens..~ rs Lens.^. ltrsNextToken
 
 instance Lude.AWSRequest ListTags where
   type Rs ListTags = ListTagsResponse
@@ -123,8 +122,8 @@ instance Lude.ToJSON ListTags where
   toJSON ListTags' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("ResourceIdList" Lude..= resourceIdList)
+          [ Lude.Just ("ResourceIdList" Lude..= resourceIdList),
+            ("NextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
@@ -138,18 +137,14 @@ instance Lude.ToQuery ListTags where
 --
 -- /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Reserved for future use.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of resource tags.
     resourceTagList :: Lude.Maybe [ResourceTag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.

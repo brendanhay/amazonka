@@ -33,30 +33,27 @@ import Network.AWS.Route53AutoNaming.Types.HealthStatus
 --
 -- /See:/ 'mkHTTPInstanceSummary' smart constructor.
 data HTTPInstanceSummary = HTTPInstanceSummary'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of an instance that matches the values that you specified in the request.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The name of the namespace that you specified when you registered the instance.
     namespaceName :: Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | If you included any attributes when you registered the instance, the values of those attributes.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the service that you specified when you registered the instance.
     serviceName :: Lude.Maybe Lude.Text,
+    -- | If you configured health checking in the service, the current health status of the service instance.
     healthStatus :: Lude.Maybe HealthStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPInstanceSummary' with the minimum fields required to make a request.
 --
--- * 'attributes' - If you included any attributes when you registered the instance, the values of those attributes.
--- * 'healthStatus' - If you configured health checking in the service, the current health status of the service instance.
 -- * 'instanceId' - The ID of an instance that matches the values that you specified in the request.
 -- * 'namespaceName' - The name of the namespace that you specified when you registered the instance.
+-- * 'attributes' - If you included any attributes when you registered the instance, the values of those attributes.
 -- * 'serviceName' - The name of the service that you specified when you registered the instance.
+-- * 'healthStatus' - If you configured health checking in the service, the current health status of the service instance.
 mkHTTPInstanceSummary ::
   HTTPInstanceSummary
 mkHTTPInstanceSummary =

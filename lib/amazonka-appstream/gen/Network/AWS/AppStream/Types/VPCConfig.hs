@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCConfig' smart constructor.
 data VPCConfig = VPCConfig'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The identifiers of the security groups for the fleet or image builder.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
     subnetIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCConfig' with the minimum fields required to make a request.

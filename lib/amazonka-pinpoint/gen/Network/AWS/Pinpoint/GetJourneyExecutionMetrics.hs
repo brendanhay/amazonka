@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,17 +21,17 @@ module Network.AWS.Pinpoint.GetJourneyExecutionMetrics
 
     -- ** Request lenses
     gjemNextToken,
-    gjemPageSize,
     gjemApplicationId,
     gjemJourneyId,
+    gjemPageSize,
 
     -- * Destructuring the response
     GetJourneyExecutionMetricsResponse (..),
     mkGetJourneyExecutionMetricsResponse,
 
     -- ** Response lenses
-    gjemrsResponseStatus,
     gjemrsJourneyExecutionMetricsResponse,
+    gjemrsResponseStatus,
   )
 where
 
@@ -42,26 +43,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetJourneyExecutionMetrics' smart constructor.
 data GetJourneyExecutionMetrics = GetJourneyExecutionMetrics'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Text,
+  { -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Lude.Text,
-    journeyId :: Lude.Text
+    -- | The unique identifier for the journey.
+    journeyId :: Lude.Text,
+    -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+    pageSize :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJourneyExecutionMetrics' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 -- * 'journeyId' - The unique identifier for the journey.
--- * 'nextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 -- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 mkGetJourneyExecutionMetrics ::
   -- | 'applicationId'
@@ -72,9 +70,9 @@ mkGetJourneyExecutionMetrics ::
 mkGetJourneyExecutionMetrics pApplicationId_ pJourneyId_ =
   GetJourneyExecutionMetrics'
     { nextToken = Lude.Nothing,
-      pageSize = Lude.Nothing,
       applicationId = pApplicationId_,
-      journeyId = pJourneyId_
+      journeyId = pJourneyId_,
+      pageSize = Lude.Nothing
     }
 
 -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
@@ -83,13 +81,6 @@ mkGetJourneyExecutionMetrics pApplicationId_ pJourneyId_ =
 gjemNextToken :: Lens.Lens' GetJourneyExecutionMetrics (Lude.Maybe Lude.Text)
 gjemNextToken = Lens.lens (nextToken :: GetJourneyExecutionMetrics -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetJourneyExecutionMetrics)
 {-# DEPRECATED gjemNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjemPageSize :: Lens.Lens' GetJourneyExecutionMetrics (Lude.Maybe Lude.Text)
-gjemPageSize = Lens.lens (pageSize :: GetJourneyExecutionMetrics -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetJourneyExecutionMetrics)
-{-# DEPRECATED gjemPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
@@ -105,6 +96,13 @@ gjemJourneyId :: Lens.Lens' GetJourneyExecutionMetrics Lude.Text
 gjemJourneyId = Lens.lens (journeyId :: GetJourneyExecutionMetrics -> Lude.Text) (\s a -> s {journeyId = a} :: GetJourneyExecutionMetrics)
 {-# DEPRECATED gjemJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
+-- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjemPageSize :: Lens.Lens' GetJourneyExecutionMetrics (Lude.Maybe Lude.Text)
+gjemPageSize = Lens.lens (pageSize :: GetJourneyExecutionMetrics -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetJourneyExecutionMetrics)
+{-# DEPRECATED gjemPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
+
 instance Lude.AWSRequest GetJourneyExecutionMetrics where
   type
     Rs GetJourneyExecutionMetrics =
@@ -114,7 +112,7 @@ instance Lude.AWSRequest GetJourneyExecutionMetrics where
     Res.receiveJSON
       ( \s h x ->
           GetJourneyExecutionMetricsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetJourneyExecutionMetrics where
@@ -143,46 +141,31 @@ instance Lude.ToQuery GetJourneyExecutionMetrics where
 
 -- | /See:/ 'mkGetJourneyExecutionMetricsResponse' smart constructor.
 data GetJourneyExecutionMetricsResponse = GetJourneyExecutionMetricsResponse'
-  { responseStatus ::
-      Lude.Int,
-    journeyExecutionMetricsResponse ::
-      JourneyExecutionMetricsResponse
+  { journeyExecutionMetricsResponse :: JourneyExecutionMetricsResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJourneyExecutionMetricsResponse' with the minimum fields required to make a request.
 --
--- * 'journeyExecutionMetricsResponse' - Undocumented field.
+-- * 'journeyExecutionMetricsResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetJourneyExecutionMetricsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'journeyExecutionMetricsResponse'
   JourneyExecutionMetricsResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetJourneyExecutionMetricsResponse
 mkGetJourneyExecutionMetricsResponse
-  pResponseStatus_
-  pJourneyExecutionMetricsResponse_ =
+  pJourneyExecutionMetricsResponse_
+  pResponseStatus_ =
     GetJourneyExecutionMetricsResponse'
-      { responseStatus =
-          pResponseStatus_,
-        journeyExecutionMetricsResponse =
-          pJourneyExecutionMetricsResponse_
+      { journeyExecutionMetricsResponse =
+          pJourneyExecutionMetricsResponse_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjemrsResponseStatus :: Lens.Lens' GetJourneyExecutionMetricsResponse Lude.Int
-gjemrsResponseStatus = Lens.lens (responseStatus :: GetJourneyExecutionMetricsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJourneyExecutionMetricsResponse)
-{-# DEPRECATED gjemrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -190,3 +173,10 @@ gjemrsResponseStatus = Lens.lens (responseStatus :: GetJourneyExecutionMetricsRe
 gjemrsJourneyExecutionMetricsResponse :: Lens.Lens' GetJourneyExecutionMetricsResponse JourneyExecutionMetricsResponse
 gjemrsJourneyExecutionMetricsResponse = Lens.lens (journeyExecutionMetricsResponse :: GetJourneyExecutionMetricsResponse -> JourneyExecutionMetricsResponse) (\s a -> s {journeyExecutionMetricsResponse = a} :: GetJourneyExecutionMetricsResponse)
 {-# DEPRECATED gjemrsJourneyExecutionMetricsResponse "Use generic-lens or generic-optics with 'journeyExecutionMetricsResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjemrsResponseStatus :: Lens.Lens' GetJourneyExecutionMetricsResponse Lude.Int
+gjemrsResponseStatus = Lens.lens (responseStatus :: GetJourneyExecutionMetricsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJourneyExecutionMetricsResponse)
+{-# DEPRECATED gjemrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

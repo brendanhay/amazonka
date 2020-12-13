@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.Rekognition.StartPersonTracking
     -- ** Request lenses
     sptJobTag,
     sptNotificationChannel,
-    sptClientRequestToken,
     sptVideo,
+    sptClientRequestToken,
 
     -- * Destructuring the response
     StartPersonTrackingResponse (..),
@@ -45,28 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartPersonTracking' smart constructor.
 data StartPersonTracking = StartPersonTracking'
-  { jobTag ::
-      Lude.Maybe Lude.Text,
-    notificationChannel ::
-      Lude.Maybe NotificationChannel,
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    video :: Video
+  { -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+    jobTag :: Lude.Maybe Lude.Text,
+    -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection operation to.
+    notificationChannel :: Lude.Maybe NotificationChannel,
+    -- | The video in which you want to detect people. The video must be stored in an Amazon S3 bucket.
+    video :: Video,
+    -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartPersonTracking@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPersonTracking' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartPersonTracking@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 -- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
 -- * 'notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection operation to.
 -- * 'video' - The video in which you want to detect people. The video must be stored in an Amazon S3 bucket.
+-- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartPersonTracking@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 mkStartPersonTracking ::
   -- | 'video'
   Video ->
@@ -75,8 +72,8 @@ mkStartPersonTracking pVideo_ =
   StartPersonTracking'
     { jobTag = Lude.Nothing,
       notificationChannel = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
-      video = pVideo_
+      video = pVideo_,
+      clientRequestToken = Lude.Nothing
     }
 
 -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
@@ -93,19 +90,19 @@ sptNotificationChannel :: Lens.Lens' StartPersonTracking (Lude.Maybe Notificatio
 sptNotificationChannel = Lens.lens (notificationChannel :: StartPersonTracking -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartPersonTracking)
 {-# DEPRECATED sptNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
 
--- | Idempotent token used to identify the start request. If you use the same token with multiple @StartPersonTracking@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sptClientRequestToken :: Lens.Lens' StartPersonTracking (Lude.Maybe Lude.Text)
-sptClientRequestToken = Lens.lens (clientRequestToken :: StartPersonTracking -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartPersonTracking)
-{-# DEPRECATED sptClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
 -- | The video in which you want to detect people. The video must be stored in an Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sptVideo :: Lens.Lens' StartPersonTracking Video
 sptVideo = Lens.lens (video :: StartPersonTracking -> Video) (\s a -> s {video = a} :: StartPersonTracking)
 {-# DEPRECATED sptVideo "Use generic-lens or generic-optics with 'video' instead." #-}
+
+-- | Idempotent token used to identify the start request. If you use the same token with multiple @StartPersonTracking@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sptClientRequestToken :: Lens.Lens' StartPersonTracking (Lude.Maybe Lude.Text)
+sptClientRequestToken = Lens.lens (clientRequestToken :: StartPersonTracking -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartPersonTracking)
+{-# DEPRECATED sptClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest StartPersonTracking where
   type Rs StartPersonTracking = StartPersonTrackingResponse
@@ -134,8 +131,8 @@ instance Lude.ToJSON StartPersonTracking where
       ( Lude.catMaybes
           [ ("JobTag" Lude..=) Lude.<$> jobTag,
             ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("Video" Lude..= video)
+            Lude.Just ("Video" Lude..= video),
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -147,17 +144,12 @@ instance Lude.ToQuery StartPersonTracking where
 
 -- | /See:/ 'mkStartPersonTrackingResponse' smart constructor.
 data StartPersonTrackingResponse = StartPersonTrackingResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the person detection job. Use @JobId@ to identify the job in a subsequent call to @GetPersonTracking@ .
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPersonTrackingResponse' with the minimum fields required to make a request.

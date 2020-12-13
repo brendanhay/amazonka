@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkSpaces.DescribeConnectionAliasPermissions
     mkDescribeConnectionAliasPermissions,
 
     -- ** Request lenses
+    dcapAliasId,
     dcapNextToken,
     dcapMaxResults,
-    dcapAliasId,
 
     -- * Destructuring the response
     DescribeConnectionAliasPermissionsResponse (..),
@@ -43,37 +44,38 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeConnectionAliasPermissions' smart constructor.
 data DescribeConnectionAliasPermissions = DescribeConnectionAliasPermissions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    aliasId :: Lude.Text
+  { -- | The identifier of the connection alias.
+    aliasId :: Lude.Text,
+    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConnectionAliasPermissions' with the minimum fields required to make a request.
 --
 -- * 'aliasId' - The identifier of the connection alias.
--- * 'maxResults' - The maximum number of results to return.
 -- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+-- * 'maxResults' - The maximum number of results to return.
 mkDescribeConnectionAliasPermissions ::
   -- | 'aliasId'
   Lude.Text ->
   DescribeConnectionAliasPermissions
 mkDescribeConnectionAliasPermissions pAliasId_ =
   DescribeConnectionAliasPermissions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      aliasId = pAliasId_
+    { aliasId = pAliasId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier of the connection alias.
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcapAliasId :: Lens.Lens' DescribeConnectionAliasPermissions Lude.Text
+dcapAliasId = Lens.lens (aliasId :: DescribeConnectionAliasPermissions -> Lude.Text) (\s a -> s {aliasId = a} :: DescribeConnectionAliasPermissions)
+{-# DEPRECATED dcapAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 --
@@ -88,13 +90,6 @@ dcapNextToken = Lens.lens (nextToken :: DescribeConnectionAliasPermissions -> Lu
 dcapMaxResults :: Lens.Lens' DescribeConnectionAliasPermissions (Lude.Maybe Lude.Natural)
 dcapMaxResults = Lens.lens (maxResults :: DescribeConnectionAliasPermissions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeConnectionAliasPermissions)
 {-# DEPRECATED dcapMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier of the connection alias.
---
--- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcapAliasId :: Lens.Lens' DescribeConnectionAliasPermissions Lude.Text
-dcapAliasId = Lens.lens (aliasId :: DescribeConnectionAliasPermissions -> Lude.Text) (\s a -> s {aliasId = a} :: DescribeConnectionAliasPermissions)
-{-# DEPRECATED dcapAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 instance Lude.AWSRequest DescribeConnectionAliasPermissions where
   type
@@ -128,9 +123,9 @@ instance Lude.ToJSON DescribeConnectionAliasPermissions where
   toJSON DescribeConnectionAliasPermissions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("AliasId" Lude..= aliasId)
+          [ Lude.Just ("AliasId" Lude..= aliasId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -142,34 +137,23 @@ instance Lude.ToQuery DescribeConnectionAliasPermissions where
 
 -- | /See:/ 'mkDescribeConnectionAliasPermissionsResponse' smart constructor.
 data DescribeConnectionAliasPermissionsResponse = DescribeConnectionAliasPermissionsResponse'
-  { aliasId ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    connectionAliasPermissions ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ConnectionAliasPermission
-        ),
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier of the connection alias.
+    aliasId :: Lude.Maybe Lude.Text,
+    -- | The token to use to retrieve the next set of results, or null if no more results are available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The permissions associated with a connection alias.
+    connectionAliasPermissions :: Lude.Maybe (Lude.NonEmpty ConnectionAliasPermission),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConnectionAliasPermissionsResponse' with the minimum fields required to make a request.
 --
 -- * 'aliasId' - The identifier of the connection alias.
--- * 'connectionAliasPermissions' - The permissions associated with a connection alias.
 -- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
+-- * 'connectionAliasPermissions' - The permissions associated with a connection alias.
 -- * 'responseStatus' - The response status code.
 mkDescribeConnectionAliasPermissionsResponse ::
   -- | 'responseStatus'

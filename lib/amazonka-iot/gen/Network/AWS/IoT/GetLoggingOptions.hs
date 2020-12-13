@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,13 +42,7 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetLoggingOptions' smart constructor.
 data GetLoggingOptions = GetLoggingOptions'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoggingOptions' with the minimum fields required to make a request.
@@ -80,25 +75,21 @@ instance Lude.ToQuery GetLoggingOptions where
 --
 -- /See:/ 'mkGetLoggingOptionsResponse' smart constructor.
 data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
-  { logLevel ::
-      Lude.Maybe LogLevel,
+  { -- | The logging level.
+    logLevel :: Lude.Maybe LogLevel,
+    -- | The ARN of the IAM role that grants access.
     roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoggingOptionsResponse' with the minimum fields required to make a request.
 --
 -- * 'logLevel' - The logging level.
--- * 'responseStatus' - The response status code.
 -- * 'roleARN' - The ARN of the IAM role that grants access.
+-- * 'responseStatus' - The response status code.
 mkGetLoggingOptionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

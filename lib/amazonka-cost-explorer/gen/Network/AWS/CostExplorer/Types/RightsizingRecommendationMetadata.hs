@@ -31,28 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRightsizingRecommendationMetadata' smart constructor.
 data RightsizingRecommendationMetadata = RightsizingRecommendationMetadata'
-  { recommendationId ::
-      Lude.Maybe Lude.Text,
-    generationTimestamp ::
-      Lude.Maybe Lude.Text,
-    lookbackPeriodInDays ::
-      Lude.Maybe
-        LookbackPeriodInDays
+  { -- | The ID for this specific recommendation.
+    recommendationId :: Lude.Maybe Lude.Text,
+    -- | The timestamp for when AWS made this recommendation.
+    generationTimestamp :: Lude.Maybe Lude.Text,
+    -- | How many days of previous usage that AWS considers when making this recommendation.
+    lookbackPeriodInDays :: Lude.Maybe LookbackPeriodInDays
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RightsizingRecommendationMetadata' with the minimum fields required to make a request.
 --
+-- * 'recommendationId' - The ID for this specific recommendation.
 -- * 'generationTimestamp' - The timestamp for when AWS made this recommendation.
 -- * 'lookbackPeriodInDays' - How many days of previous usage that AWS considers when making this recommendation.
--- * 'recommendationId' - The ID for this specific recommendation.
 mkRightsizingRecommendationMetadata ::
   RightsizingRecommendationMetadata
 mkRightsizingRecommendationMetadata =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     mkModifyDBSubnetGroup,
 
     -- ** Request lenses
-    mdsgDBSubnetGroupDescription,
     mdsgDBSubnetGroupName,
     mdsgSubnetIds,
+    mdsgDBSubnetGroupDescription,
 
     -- * Destructuring the response
     ModifyDBSubnetGroupResponse (..),
@@ -43,45 +44,37 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyDBSubnetGroup' smart constructor.
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
-  { dbSubnetGroupDescription ::
-      Lude.Maybe Lude.Text,
+  { -- | The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.
+    --
+    -- Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.
+    -- Example: @mySubnetgroup@
     dbSubnetGroupName :: Lude.Text,
-    subnetIds :: [Lude.Text]
+    -- | The EC2 subnet IDs for the DB subnet group.
+    subnetIds :: [Lude.Text],
+    -- | The description for the DB subnet group.
+    dbSubnetGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBSubnetGroup' with the minimum fields required to make a request.
 --
--- * 'dbSubnetGroupDescription' - The description for the DB subnet group.
 -- * 'dbSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.
 --
 -- Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.
 -- Example: @mySubnetgroup@
 -- * 'subnetIds' - The EC2 subnet IDs for the DB subnet group.
+-- * 'dbSubnetGroupDescription' - The description for the DB subnet group.
 mkModifyDBSubnetGroup ::
   -- | 'dbSubnetGroupName'
   Lude.Text ->
   ModifyDBSubnetGroup
 mkModifyDBSubnetGroup pDBSubnetGroupName_ =
   ModifyDBSubnetGroup'
-    { dbSubnetGroupDescription = Lude.Nothing,
-      dbSubnetGroupName = pDBSubnetGroupName_,
-      subnetIds = Lude.mempty
+    { dbSubnetGroupName = pDBSubnetGroupName_,
+      subnetIds = Lude.mempty,
+      dbSubnetGroupDescription = Lude.Nothing
     }
-
--- | The description for the DB subnet group.
---
--- /Note:/ Consider using 'dbSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdsgDBSubnetGroupDescription :: Lens.Lens' ModifyDBSubnetGroup (Lude.Maybe Lude.Text)
-mdsgDBSubnetGroupDescription = Lens.lens (dbSubnetGroupDescription :: ModifyDBSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbSubnetGroupDescription = a} :: ModifyDBSubnetGroup)
-{-# DEPRECATED mdsgDBSubnetGroupDescription "Use generic-lens or generic-optics with 'dbSubnetGroupDescription' instead." #-}
 
 -- | The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.
 --
@@ -99,6 +92,13 @@ mdsgDBSubnetGroupName = Lens.lens (dbSubnetGroupName :: ModifyDBSubnetGroup -> L
 mdsgSubnetIds :: Lens.Lens' ModifyDBSubnetGroup [Lude.Text]
 mdsgSubnetIds = Lens.lens (subnetIds :: ModifyDBSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: ModifyDBSubnetGroup)
 {-# DEPRECATED mdsgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+
+-- | The description for the DB subnet group.
+--
+-- /Note:/ Consider using 'dbSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdsgDBSubnetGroupDescription :: Lens.Lens' ModifyDBSubnetGroup (Lude.Maybe Lude.Text)
+mdsgDBSubnetGroupDescription = Lens.lens (dbSubnetGroupDescription :: ModifyDBSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbSubnetGroupDescription = a} :: ModifyDBSubnetGroup)
+{-# DEPRECATED mdsgDBSubnetGroupDescription "Use generic-lens or generic-optics with 'dbSubnetGroupDescription' instead." #-}
 
 instance Lude.AWSRequest ModifyDBSubnetGroup where
   type Rs ModifyDBSubnetGroup = ModifyDBSubnetGroupResponse
@@ -123,29 +123,23 @@ instance Lude.ToQuery ModifyDBSubnetGroup where
     Lude.mconcat
       [ "Action" Lude.=: ("ModifyDBSubnetGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBSubnetGroupDescription" Lude.=: dbSubnetGroupDescription,
         "DBSubnetGroupName" Lude.=: dbSubnetGroupName,
-        "SubnetIds" Lude.=: Lude.toQueryList "SubnetIdentifier" subnetIds
+        "SubnetIds" Lude.=: Lude.toQueryList "SubnetIdentifier" subnetIds,
+        "DBSubnetGroupDescription" Lude.=: dbSubnetGroupDescription
       ]
 
 -- | /See:/ 'mkModifyDBSubnetGroupResponse' smart constructor.
 data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
-  { dbSubnetGroup ::
-      Lude.Maybe DBSubnetGroup,
+  { dbSubnetGroup :: Lude.Maybe DBSubnetGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- * 'dbSubnetGroup' - Undocumented field.
+-- * 'dbSubnetGroup' -
 -- * 'responseStatus' - The response status code.
 mkModifyDBSubnetGroupResponse ::
   -- | 'responseStatus'

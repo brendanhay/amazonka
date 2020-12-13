@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag
   ( Scte35NoRegionalBlackoutFlag
       ( Scte35NoRegionalBlackoutFlag',
-        NoRegionalBlackout,
-        RegionalBlackout
+        RegionalBlackout,
+        NoRegionalBlackout
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Scte35NoRegionalBlackoutFlag = Scte35NoRegionalBlackoutFlag' Lude.Text
       Lude.ToHeader
     )
 
-pattern NoRegionalBlackout :: Scte35NoRegionalBlackoutFlag
-pattern NoRegionalBlackout = Scte35NoRegionalBlackoutFlag' "NO_REGIONAL_BLACKOUT"
-
 pattern RegionalBlackout :: Scte35NoRegionalBlackoutFlag
 pattern RegionalBlackout = Scte35NoRegionalBlackoutFlag' "REGIONAL_BLACKOUT"
 
+pattern NoRegionalBlackout :: Scte35NoRegionalBlackoutFlag
+pattern NoRegionalBlackout = Scte35NoRegionalBlackoutFlag' "NO_REGIONAL_BLACKOUT"
+
 {-# COMPLETE
-  NoRegionalBlackout,
   RegionalBlackout,
+  NoRegionalBlackout,
   Scte35NoRegionalBlackoutFlag'
   #-}

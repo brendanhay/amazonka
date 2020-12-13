@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWebhookAuthConfiguration' smart constructor.
 data WebhookAuthConfiguration = WebhookAuthConfiguration'
-  { allowedIPRange ::
-      Lude.Maybe Lude.Text,
+  { -- | The property used to configure acceptance of webhooks in an IP address range. For IP, only the @AllowedIPRange@ property must be set. This property must be set to a valid CIDR range.
+    allowedIPRange :: Lude.Maybe Lude.Text,
+    -- | The property used to configure GitHub authentication. For GITHUB_HMAC, only the @SecretToken@ property must be set.
     secretToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WebhookAuthConfiguration' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.CloudSearch.DefineSuggester
     mkDefineSuggester,
 
     -- ** Request lenses
-    defDomainName,
-    defSuggester,
+    dsfDomainName,
+    dsfSuggester,
 
     -- * Destructuring the response
     DefineSuggesterResponse (..),
     mkDefineSuggesterResponse,
 
     -- ** Response lenses
-    dsrsResponseStatus,
     dsrsSuggester,
+    dsrsResponseStatus,
   )
 where
 
@@ -45,19 +46,13 @@ data DefineSuggester = DefineSuggester'
   { domainName :: Lude.Text,
     suggester :: Suggester
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefineSuggester' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
--- * 'suggester' - Undocumented field.
+-- * 'domainName' -
+-- * 'suggester' -
 mkDefineSuggester ::
   -- | 'domainName'
   Lude.Text ->
@@ -73,16 +68,16 @@ mkDefineSuggester pDomainName_ pSuggester_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defDomainName :: Lens.Lens' DefineSuggester Lude.Text
-defDomainName = Lens.lens (domainName :: DefineSuggester -> Lude.Text) (\s a -> s {domainName = a} :: DefineSuggester)
-{-# DEPRECATED defDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+dsfDomainName :: Lens.Lens' DefineSuggester Lude.Text
+dsfDomainName = Lens.lens (domainName :: DefineSuggester -> Lude.Text) (\s a -> s {domainName = a} :: DefineSuggester)
+{-# DEPRECATED dsfDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'suggester' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defSuggester :: Lens.Lens' DefineSuggester Suggester
-defSuggester = Lens.lens (suggester :: DefineSuggester -> Suggester) (\s a -> s {suggester = a} :: DefineSuggester)
-{-# DEPRECATED defSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
+dsfSuggester :: Lens.Lens' DefineSuggester Suggester
+dsfSuggester = Lens.lens (suggester :: DefineSuggester -> Suggester) (\s a -> s {suggester = a} :: DefineSuggester)
+{-# DEPRECATED dsfSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
 
 instance Lude.AWSRequest DefineSuggester where
   type Rs DefineSuggester = DefineSuggesterResponse
@@ -92,7 +87,7 @@ instance Lude.AWSRequest DefineSuggester where
       "DefineSuggesterResult"
       ( \s h x ->
           DefineSuggesterResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "Suggester")
+            Lude.<$> (x Lude..@ "Suggester") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DefineSuggester where
@@ -114,41 +109,28 @@ instance Lude.ToQuery DefineSuggester where
 --
 -- /See:/ 'mkDefineSuggesterResponse' smart constructor.
 data DefineSuggesterResponse = DefineSuggesterResponse'
-  { responseStatus ::
-      Lude.Int,
-    suggester :: SuggesterStatus
+  { suggester :: SuggesterStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefineSuggesterResponse' with the minimum fields required to make a request.
 --
+-- * 'suggester' -
 -- * 'responseStatus' - The response status code.
--- * 'suggester' - Undocumented field.
 mkDefineSuggesterResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'suggester'
   SuggesterStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DefineSuggesterResponse
-mkDefineSuggesterResponse pResponseStatus_ pSuggester_ =
+mkDefineSuggesterResponse pSuggester_ pResponseStatus_ =
   DefineSuggesterResponse'
-    { responseStatus = pResponseStatus_,
-      suggester = pSuggester_
+    { suggester = pSuggester_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DefineSuggesterResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DefineSuggesterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DefineSuggesterResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -156,3 +138,10 @@ dsrsResponseStatus = Lens.lens (responseStatus :: DefineSuggesterResponse -> Lud
 dsrsSuggester :: Lens.Lens' DefineSuggesterResponse SuggesterStatus
 dsrsSuggester = Lens.lens (suggester :: DefineSuggesterResponse -> SuggesterStatus) (\s a -> s {suggester = a} :: DefineSuggesterResponse)
 {-# DEPRECATED dsrsSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DefineSuggesterResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DefineSuggesterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DefineSuggesterResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,9 +13,9 @@
 module Network.AWS.Glue.Types.TriggerType
   ( TriggerType
       ( TriggerType',
+        Scheduled,
         Conditional,
-        OnDemand,
-        Scheduled
+        OnDemand
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype TriggerType = TriggerType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Scheduled :: TriggerType
+pattern Scheduled = TriggerType' "SCHEDULED"
+
 pattern Conditional :: TriggerType
 pattern Conditional = TriggerType' "CONDITIONAL"
 
 pattern OnDemand :: TriggerType
 pattern OnDemand = TriggerType' "ON_DEMAND"
 
-pattern Scheduled :: TriggerType
-pattern Scheduled = TriggerType' "SCHEDULED"
-
 {-# COMPLETE
+  Scheduled,
   Conditional,
   OnDemand,
-  Scheduled,
   TriggerType'
   #-}

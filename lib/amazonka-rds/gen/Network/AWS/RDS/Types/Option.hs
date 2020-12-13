@@ -39,38 +39,39 @@ import Network.AWS.RDS.Types.VPCSecurityGroupMembership
 --
 -- /See:/ 'mkOption' smart constructor.
 data Option = Option'
-  { optionName :: Lude.Maybe Lude.Text,
+  { -- | The name of the option.
+    optionName :: Lude.Maybe Lude.Text,
+    -- | Indicate if this option is permanent.
     permanent :: Lude.Maybe Lude.Bool,
+    -- | Indicate if this option is persistent.
     persistent :: Lude.Maybe Lude.Bool,
+    -- | The description of the option.
     optionDescription :: Lude.Maybe Lude.Text,
+    -- | The option settings for this option.
     optionSettings :: Lude.Maybe [OptionSetting],
-    vpcSecurityGroupMemberships ::
-      Lude.Maybe [VPCSecurityGroupMembership],
-    dbSecurityGroupMemberships ::
-      Lude.Maybe [DBSecurityGroupMembership],
+    -- | If the option requires access to a port, then this VPC security group allows access to the port.
+    vpcSecurityGroupMemberships :: Lude.Maybe [VPCSecurityGroupMembership],
+    -- | If the option requires access to a port, then this DB security group allows access to the port.
+    dbSecurityGroupMemberships :: Lude.Maybe [DBSecurityGroupMembership],
+    -- | The version of the option.
     optionVersion :: Lude.Maybe Lude.Text,
+    -- | If required, the port configured for this option to use.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Option' with the minimum fields required to make a request.
 --
--- * 'dbSecurityGroupMemberships' - If the option requires access to a port, then this DB security group allows access to the port.
--- * 'optionDescription' - The description of the option.
 -- * 'optionName' - The name of the option.
--- * 'optionSettings' - The option settings for this option.
--- * 'optionVersion' - The version of the option.
 -- * 'permanent' - Indicate if this option is permanent.
 -- * 'persistent' - Indicate if this option is persistent.
--- * 'port' - If required, the port configured for this option to use.
+-- * 'optionDescription' - The description of the option.
+-- * 'optionSettings' - The option settings for this option.
 -- * 'vpcSecurityGroupMemberships' - If the option requires access to a port, then this VPC security group allows access to the port.
+-- * 'dbSecurityGroupMemberships' - If the option requires access to a port, then this DB security group allows access to the port.
+-- * 'optionVersion' - The version of the option.
+-- * 'port' - If required, the port configured for this option to use.
 mkOption ::
   Option
 mkOption =

@@ -30,16 +30,10 @@ import Network.AWS.S3.Types.SseKMSEncryptedObjectsStatus
 --
 -- /See:/ 'mkSseKMSEncryptedObjects' smart constructor.
 newtype SseKMSEncryptedObjects = SseKMSEncryptedObjects'
-  { status ::
-      SseKMSEncryptedObjectsStatus
+  { -- | Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
+    status :: SseKMSEncryptedObjectsStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SseKMSEncryptedObjects' with the minimum fields required to make a request.

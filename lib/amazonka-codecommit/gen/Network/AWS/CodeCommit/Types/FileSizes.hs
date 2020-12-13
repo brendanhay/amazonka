@@ -30,23 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFileSizes' smart constructor.
 data FileSizes = FileSizes'
-  { destination :: Lude.Maybe Lude.Integer,
+  { -- | The size of a file in the destination of a merge or pull request.
+    destination :: Lude.Maybe Lude.Integer,
+    -- | The size of a file in the base of a merge or pull request.
     base :: Lude.Maybe Lude.Integer,
+    -- | The size of a file in the source of a merge or pull request.
     source :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileSizes' with the minimum fields required to make a request.
 --
--- * 'base' - The size of a file in the base of a merge or pull request.
 -- * 'destination' - The size of a file in the destination of a merge or pull request.
+-- * 'base' - The size of a file in the base of a merge or pull request.
 -- * 'source' - The size of a file in the source of a merge or pull request.
 mkFileSizes ::
   FileSizes

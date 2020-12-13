@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBackendServerDescription' smart constructor.
 data BackendServerDescription = BackendServerDescription'
-  { policyNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of the policies enabled for the EC2 instance.
+    policyNames :: Lude.Maybe [Lude.Text],
+    -- | The port on which the EC2 instance is listening.
     instancePort :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackendServerDescription' with the minimum fields required to make a request.
 --
--- * 'instancePort' - The port on which the EC2 instance is listening.
 -- * 'policyNames' - The names of the policies enabled for the EC2 instance.
+-- * 'instancePort' - The port on which the EC2 instance is listening.
 mkBackendServerDescription ::
   BackendServerDescription
 mkBackendServerDescription =

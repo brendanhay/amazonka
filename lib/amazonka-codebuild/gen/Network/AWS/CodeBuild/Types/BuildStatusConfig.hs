@@ -29,17 +29,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuildStatusConfig' smart constructor.
 data BuildStatusConfig = BuildStatusConfig'
-  { context ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+    --
+    --
+    --     * Bitbucket
+    --
+    --     * This parameter is used for the @name@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.
+    --
+    --
+    --     * GitHub/GitHub Enterprise Server
+    --
+    --     * This parameter is used for the @context@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
+    context :: Lude.Maybe Lude.Text,
+    -- | Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
+    --
+    --
+    --     * Bitbucket
+    --
+    --     * This parameter is used for the @url@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.
+    --
+    --
+    --     * GitHub/GitHub Enterprise Server
+    --
+    --     * This parameter is used for the @target_url@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
     targetURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildStatusConfig' with the minimum fields required to make a request.

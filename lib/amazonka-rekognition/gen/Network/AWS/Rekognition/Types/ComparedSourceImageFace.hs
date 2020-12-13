@@ -30,17 +30,12 @@ import Network.AWS.Rekognition.Types.BoundingBox
 --
 -- /See:/ 'mkComparedSourceImageFace' smart constructor.
 data ComparedSourceImageFace = ComparedSourceImageFace'
-  { boundingBox ::
-      Lude.Maybe BoundingBox,
+  { -- | Bounding box of the face.
+    boundingBox :: Lude.Maybe BoundingBox,
+    -- | Confidence level that the selected bounding box contains a face.
     confidence :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComparedSourceImageFace' with the minimum fields required to make a request.

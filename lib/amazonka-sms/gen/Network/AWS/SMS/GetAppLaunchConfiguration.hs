@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkGetAppLaunchConfiguration' smart constructor.
 newtype GetAppLaunchConfiguration = GetAppLaunchConfiguration'
-  { appId ::
-      Lude.Maybe Lude.Text
+  { -- | The ID of the application.
+    appId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppLaunchConfiguration' with the minimum fields required to make a request.
@@ -110,34 +105,27 @@ instance Lude.ToQuery GetAppLaunchConfiguration where
 
 -- | /See:/ 'mkGetAppLaunchConfigurationResponse' smart constructor.
 data GetAppLaunchConfigurationResponse = GetAppLaunchConfigurationResponse'
-  { serverGroupLaunchConfigurations ::
-      Lude.Maybe
-        [ServerGroupLaunchConfiguration],
-    autoLaunch ::
-      Lude.Maybe Lude.Bool,
-    roleName ::
-      Lude.Maybe Lude.Text,
-    appId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The launch configurations for server groups in this application.
+    serverGroupLaunchConfigurations :: Lude.Maybe [ServerGroupLaunchConfiguration],
+    -- | Indicates whether the application is configured to launch automatically after replication is complete.
+    autoLaunch :: Lude.Maybe Lude.Bool,
+    -- | The name of the service role in the customer's account that AWS CloudFormation uses to launch the application.
+    roleName :: Lude.Maybe Lude.Text,
+    -- | The ID of the application.
+    appId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppLaunchConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'appId' - The ID of the application.
--- * 'autoLaunch' - Indicates whether the application is configured to launch automatically after replication is complete.
--- * 'responseStatus' - The response status code.
--- * 'roleName' - The name of the service role in the customer's account that AWS CloudFormation uses to launch the application.
 -- * 'serverGroupLaunchConfigurations' - The launch configurations for server groups in this application.
+-- * 'autoLaunch' - Indicates whether the application is configured to launch automatically after replication is complete.
+-- * 'roleName' - The name of the service role in the customer's account that AWS CloudFormation uses to launch the application.
+-- * 'appId' - The ID of the application.
+-- * 'responseStatus' - The response status code.
 mkGetAppLaunchConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

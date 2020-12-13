@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Greengrass.CreateCoreDefinitionVersion
     mkCreateCoreDefinitionVersion,
 
     -- ** Request lenses
-    creAmznClientToken,
-    creCores,
-    creCoreDefinitionId,
+    ccdvAmznClientToken,
+    ccdvCoreDefinitionId,
+    ccdvCores,
 
     -- * Destructuring the response
     CreateCoreDefinitionVersionResponse (..),
@@ -44,18 +45,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCoreDefinitionVersion' smart constructor.
 data CreateCoreDefinitionVersion = CreateCoreDefinitionVersion'
-  { amznClientToken ::
-      Lude.Maybe Lude.Text,
-    cores :: Lude.Maybe [Core],
-    coreDefinitionId :: Lude.Text
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the core definition.
+    coreDefinitionId :: Lude.Text,
+    -- | A list of cores in the core definition version.
+    cores :: Lude.Maybe [Core]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCoreDefinitionVersion' with the minimum fields required to make a request.
@@ -70,30 +67,30 @@ mkCreateCoreDefinitionVersion ::
 mkCreateCoreDefinitionVersion pCoreDefinitionId_ =
   CreateCoreDefinitionVersion'
     { amznClientToken = Lude.Nothing,
-      cores = Lude.Nothing,
-      coreDefinitionId = pCoreDefinitionId_
+      coreDefinitionId = pCoreDefinitionId_,
+      cores = Lude.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
 --
 -- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creAmznClientToken :: Lens.Lens' CreateCoreDefinitionVersion (Lude.Maybe Lude.Text)
-creAmznClientToken = Lens.lens (amznClientToken :: CreateCoreDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateCoreDefinitionVersion)
-{-# DEPRECATED creAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
-
--- | A list of cores in the core definition version.
---
--- /Note:/ Consider using 'cores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creCores :: Lens.Lens' CreateCoreDefinitionVersion (Lude.Maybe [Core])
-creCores = Lens.lens (cores :: CreateCoreDefinitionVersion -> Lude.Maybe [Core]) (\s a -> s {cores = a} :: CreateCoreDefinitionVersion)
-{-# DEPRECATED creCores "Use generic-lens or generic-optics with 'cores' instead." #-}
+ccdvAmznClientToken :: Lens.Lens' CreateCoreDefinitionVersion (Lude.Maybe Lude.Text)
+ccdvAmznClientToken = Lens.lens (amznClientToken :: CreateCoreDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateCoreDefinitionVersion)
+{-# DEPRECATED ccdvAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | The ID of the core definition.
 --
 -- /Note:/ Consider using 'coreDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creCoreDefinitionId :: Lens.Lens' CreateCoreDefinitionVersion Lude.Text
-creCoreDefinitionId = Lens.lens (coreDefinitionId :: CreateCoreDefinitionVersion -> Lude.Text) (\s a -> s {coreDefinitionId = a} :: CreateCoreDefinitionVersion)
-{-# DEPRECATED creCoreDefinitionId "Use generic-lens or generic-optics with 'coreDefinitionId' instead." #-}
+ccdvCoreDefinitionId :: Lens.Lens' CreateCoreDefinitionVersion Lude.Text
+ccdvCoreDefinitionId = Lens.lens (coreDefinitionId :: CreateCoreDefinitionVersion -> Lude.Text) (\s a -> s {coreDefinitionId = a} :: CreateCoreDefinitionVersion)
+{-# DEPRECATED ccdvCoreDefinitionId "Use generic-lens or generic-optics with 'coreDefinitionId' instead." #-}
+
+-- | A list of cores in the core definition version.
+--
+-- /Note:/ Consider using 'cores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccdvCores :: Lens.Lens' CreateCoreDefinitionVersion (Lude.Maybe [Core])
+ccdvCores = Lens.lens (cores :: CreateCoreDefinitionVersion -> Lude.Maybe [Core]) (\s a -> s {cores = a} :: CreateCoreDefinitionVersion)
+{-# DEPRECATED ccdvCores "Use generic-lens or generic-optics with 'cores' instead." #-}
 
 instance Lude.AWSRequest CreateCoreDefinitionVersion where
   type
@@ -136,37 +133,27 @@ instance Lude.ToQuery CreateCoreDefinitionVersion where
 
 -- | /See:/ 'mkCreateCoreDefinitionVersionResponse' smart constructor.
 data CreateCoreDefinitionVersionResponse = CreateCoreDefinitionVersionResponse'
-  { arn ::
-      Lude.Maybe
-        Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCoreDefinitionVersionResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'version' - The ID of the version.
 -- * 'id' - The ID of the parent definition that the version is associated with.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The ID of the version.
 mkCreateCoreDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,16 +13,16 @@
 module Network.AWS.Discovery.Types.ImportStatus
   ( ImportStatus
       ( ImportStatus',
-        DeleteComplete,
-        DeleteFailed,
-        DeleteFailedLimitExceeded,
-        DeleteInProgress,
+        ImportInProgress,
         ImportComplete,
         ImportCompleteWithErrors,
         ImportFailed,
-        ImportFailedRecordLimitExceeded,
         ImportFailedServerLimitExceeded,
-        ImportInProgress,
+        ImportFailedRecordLimitExceeded,
+        DeleteInProgress,
+        DeleteComplete,
+        DeleteFailed,
+        DeleteFailedLimitExceeded,
         InternalError
       ),
   )
@@ -54,17 +54,8 @@ newtype ImportStatus = ImportStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeleteComplete :: ImportStatus
-pattern DeleteComplete = ImportStatus' "DELETE_COMPLETE"
-
-pattern DeleteFailed :: ImportStatus
-pattern DeleteFailed = ImportStatus' "DELETE_FAILED"
-
-pattern DeleteFailedLimitExceeded :: ImportStatus
-pattern DeleteFailedLimitExceeded = ImportStatus' "DELETE_FAILED_LIMIT_EXCEEDED"
-
-pattern DeleteInProgress :: ImportStatus
-pattern DeleteInProgress = ImportStatus' "DELETE_IN_PROGRESS"
+pattern ImportInProgress :: ImportStatus
+pattern ImportInProgress = ImportStatus' "IMPORT_IN_PROGRESS"
 
 pattern ImportComplete :: ImportStatus
 pattern ImportComplete = ImportStatus' "IMPORT_COMPLETE"
@@ -75,29 +66,38 @@ pattern ImportCompleteWithErrors = ImportStatus' "IMPORT_COMPLETE_WITH_ERRORS"
 pattern ImportFailed :: ImportStatus
 pattern ImportFailed = ImportStatus' "IMPORT_FAILED"
 
-pattern ImportFailedRecordLimitExceeded :: ImportStatus
-pattern ImportFailedRecordLimitExceeded = ImportStatus' "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED"
-
 pattern ImportFailedServerLimitExceeded :: ImportStatus
 pattern ImportFailedServerLimitExceeded = ImportStatus' "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED"
 
-pattern ImportInProgress :: ImportStatus
-pattern ImportInProgress = ImportStatus' "IMPORT_IN_PROGRESS"
+pattern ImportFailedRecordLimitExceeded :: ImportStatus
+pattern ImportFailedRecordLimitExceeded = ImportStatus' "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED"
+
+pattern DeleteInProgress :: ImportStatus
+pattern DeleteInProgress = ImportStatus' "DELETE_IN_PROGRESS"
+
+pattern DeleteComplete :: ImportStatus
+pattern DeleteComplete = ImportStatus' "DELETE_COMPLETE"
+
+pattern DeleteFailed :: ImportStatus
+pattern DeleteFailed = ImportStatus' "DELETE_FAILED"
+
+pattern DeleteFailedLimitExceeded :: ImportStatus
+pattern DeleteFailedLimitExceeded = ImportStatus' "DELETE_FAILED_LIMIT_EXCEEDED"
 
 pattern InternalError :: ImportStatus
 pattern InternalError = ImportStatus' "INTERNAL_ERROR"
 
 {-# COMPLETE
-  DeleteComplete,
-  DeleteFailed,
-  DeleteFailedLimitExceeded,
-  DeleteInProgress,
+  ImportInProgress,
   ImportComplete,
   ImportCompleteWithErrors,
   ImportFailed,
-  ImportFailedRecordLimitExceeded,
   ImportFailedServerLimitExceeded,
-  ImportInProgress,
+  ImportFailedRecordLimitExceeded,
+  DeleteInProgress,
+  DeleteComplete,
+  DeleteFailed,
+  DeleteFailedLimitExceeded,
   InternalError,
   ImportStatus'
   #-}

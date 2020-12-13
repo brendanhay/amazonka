@@ -13,8 +13,8 @@
 module Network.AWS.Cloud9.Types.MemberPermissions
   ( MemberPermissions
       ( MemberPermissions',
-        MPReadOnly,
-        MPReadWrite
+        MPReadWrite,
+        MPReadOnly
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MemberPermissions = MemberPermissions' Lude.Text
       Lude.ToHeader
     )
 
-pattern MPReadOnly :: MemberPermissions
-pattern MPReadOnly = MemberPermissions' "read-only"
-
 pattern MPReadWrite :: MemberPermissions
 pattern MPReadWrite = MemberPermissions' "read-write"
 
+pattern MPReadOnly :: MemberPermissions
+pattern MPReadOnly = MemberPermissions' "read-only"
+
 {-# COMPLETE
-  MPReadOnly,
   MPReadWrite,
+  MPReadOnly,
   MemberPermissions'
   #-}

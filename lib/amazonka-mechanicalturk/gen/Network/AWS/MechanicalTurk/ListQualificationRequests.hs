@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,26 +47,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListQualificationRequests' smart constructor.
 data ListQualificationRequests = ListQualificationRequests'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    qualificationTypeId ::
-      Lude.Maybe Lude.Text,
+  { nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the QualificationType.
+    qualificationTypeId :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQualificationRequests' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'qualificationTypeId' - The ID of the QualificationType.
+-- * 'maxResults' - The maximum number of results to return in a single call.
 mkListQualificationRequests ::
   ListQualificationRequests
 mkListQualificationRequests =
@@ -151,30 +146,22 @@ instance Lude.ToQuery ListQualificationRequests where
 
 -- | /See:/ 'mkListQualificationRequestsResponse' smart constructor.
 data ListQualificationRequestsResponse = ListQualificationRequestsResponse'
-  { qualificationRequests ::
-      Lude.Maybe
-        [QualificationRequest],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    numResults ::
-      Lude.Maybe Lude.Int,
-    responseStatus ::
-      Lude.Int
+  { -- | The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query.
+    qualificationRequests :: Lude.Maybe [QualificationRequest],
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of Qualification requests on this page in the filtered results list, equivalent to the number of Qualification requests being returned by this call.
+    numResults :: Lude.Maybe Lude.Int,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQualificationRequestsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
--- * 'numResults' - The number of Qualification requests on this page in the filtered results list, equivalent to the number of Qualification requests being returned by this call.
 -- * 'qualificationRequests' - The Qualification request. The response includes one QualificationRequest element for each Qualification request returned by the query.
+-- * 'nextToken' -
+-- * 'numResults' - The number of Qualification requests on this page in the filtered results list, equivalent to the number of Qualification requests being returned by this call.
 -- * 'responseStatus' - The response status code.
 mkListQualificationRequestsResponse ::
   -- | 'responseStatus'

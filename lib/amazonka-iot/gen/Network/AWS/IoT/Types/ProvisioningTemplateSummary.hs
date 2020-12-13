@@ -33,33 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProvisioningTemplateSummary' smart constructor.
 data ProvisioningTemplateSummary = ProvisioningTemplateSummary'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
-    templateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The date when the fleet provisioning template summary was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the fleet provisioning template.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | True if the fleet provision template is enabled, otherwise false.
     enabled :: Lude.Maybe Lude.Bool,
-    creationDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date when the fleet provisioning template summary was created.
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the fleet provisioning template.
     templateARN :: Lude.Maybe Lude.Text,
+    -- | The description of the fleet provisioning template.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningTemplateSummary' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The date when the fleet provisioning template summary was created.
--- * 'description' - The description of the fleet provisioning template.
--- * 'enabled' - True if the fleet provision template is enabled, otherwise false.
 -- * 'lastModifiedDate' - The date when the fleet provisioning template summary was last modified.
--- * 'templateARN' - The ARN of the fleet provisioning template.
 -- * 'templateName' - The name of the fleet provisioning template.
+-- * 'enabled' - True if the fleet provision template is enabled, otherwise false.
+-- * 'creationDate' - The date when the fleet provisioning template summary was created.
+-- * 'templateARN' - The ARN of the fleet provisioning template.
+-- * 'description' - The description of the fleet provisioning template.
 mkProvisioningTemplateSummary ::
   ProvisioningTemplateSummary
 mkProvisioningTemplateSummary =

@@ -33,30 +33,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVideoMetadata' smart constructor.
 data VideoMetadata = VideoMetadata'
-  { frameRate ::
-      Lude.Maybe Lude.Double,
+  { -- | Number of frames per second in the video.
+    frameRate :: Lude.Maybe Lude.Double,
+    -- | Format of the analyzed video. Possible values are MP4, MOV and AVI.
     format :: Lude.Maybe Lude.Text,
+    -- | Type of compression used in the analyzed video.
     codec :: Lude.Maybe Lude.Text,
+    -- | Vertical pixel dimension of the video.
     frameHeight :: Lude.Maybe Lude.Natural,
+    -- | Length of the video in milliseconds.
     durationMillis :: Lude.Maybe Lude.Natural,
+    -- | Horizontal pixel dimension of the video.
     frameWidth :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoMetadata' with the minimum fields required to make a request.
 --
--- * 'codec' - Type of compression used in the analyzed video.
--- * 'durationMillis' - Length of the video in milliseconds.
--- * 'format' - Format of the analyzed video. Possible values are MP4, MOV and AVI.
--- * 'frameHeight' - Vertical pixel dimension of the video.
 -- * 'frameRate' - Number of frames per second in the video.
+-- * 'format' - Format of the analyzed video. Possible values are MP4, MOV and AVI.
+-- * 'codec' - Type of compression used in the analyzed video.
+-- * 'frameHeight' - Vertical pixel dimension of the video.
+-- * 'durationMillis' - Length of the video in milliseconds.
 -- * 'frameWidth' - Horizontal pixel dimension of the video.
 mkVideoMetadata ::
   VideoMetadata

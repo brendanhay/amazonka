@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAnnotationValue' smart constructor.
 data AnnotationValue = AnnotationValue'
-  { numberValue ::
-      Lude.Maybe Lude.Double,
+  { -- | Value for a Number annotation.
+    numberValue :: Lude.Maybe Lude.Double,
+    -- | Value for a String annotation.
     stringValue :: Lude.Maybe Lude.Text,
+    -- | Value for a Boolean annotation.
     booleanValue :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnnotationValue' with the minimum fields required to make a request.
 --
--- * 'booleanValue' - Value for a Boolean annotation.
 -- * 'numberValue' - Value for a Number annotation.
 -- * 'stringValue' - Value for a String annotation.
+-- * 'booleanValue' - Value for a Boolean annotation.
 mkAnnotationValue ::
   AnnotationValue
 mkAnnotationValue =

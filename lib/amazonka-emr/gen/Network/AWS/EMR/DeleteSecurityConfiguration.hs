@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.EMR.DeleteSecurityConfiguration
     mkDeleteSecurityConfiguration,
 
     -- ** Request lenses
-    dscName,
+    dName,
 
     -- * Destructuring the response
     DeleteSecurityConfigurationResponse (..),
     mkDeleteSecurityConfigurationResponse,
 
     -- ** Response lenses
-    dscrsResponseStatus,
+    drsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSecurityConfiguration' smart constructor.
 newtype DeleteSecurityConfiguration = DeleteSecurityConfiguration'
-  { name ::
-      Lude.Text
+  { -- | The name of the security configuration.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecurityConfiguration' with the minimum fields required to make a request.
@@ -63,9 +58,9 @@ mkDeleteSecurityConfiguration pName_ =
 -- | The name of the security configuration.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscName :: Lens.Lens' DeleteSecurityConfiguration Lude.Text
-dscName = Lens.lens (name :: DeleteSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: DeleteSecurityConfiguration)
-{-# DEPRECATED dscName "Use generic-lens or generic-optics with 'name' instead." #-}
+dName :: Lens.Lens' DeleteSecurityConfiguration Lude.Text
+dName = Lens.lens (name :: DeleteSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: DeleteSecurityConfiguration)
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeleteSecurityConfiguration where
   type
@@ -104,16 +99,10 @@ instance Lude.ToQuery DeleteSecurityConfiguration where
 
 -- | /See:/ 'mkDeleteSecurityConfigurationResponse' smart constructor.
 newtype DeleteSecurityConfigurationResponse = DeleteSecurityConfigurationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecurityConfigurationResponse' with the minimum fields required to make a request.
@@ -132,6 +121,6 @@ mkDeleteSecurityConfigurationResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsResponseStatus :: Lens.Lens' DeleteSecurityConfigurationResponse Lude.Int
-dscrsResponseStatus = Lens.lens (responseStatus :: DeleteSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSecurityConfigurationResponse)
-{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DeleteSecurityConfigurationResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSecurityConfigurationResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

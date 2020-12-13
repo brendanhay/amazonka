@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +20,19 @@ module Network.AWS.ECS.CreateTaskSet
     mkCreateTaskSet,
 
     -- ** Request lenses
+    ctsCluster,
     ctsClientToken,
+    ctsService,
     ctsPlatformVersion,
     ctsScale,
     ctsLoadBalancers,
     ctsLaunchType,
+    ctsTaskDefinition,
     ctsExternalId,
     ctsNetworkConfiguration,
     ctsServiceRegistries,
     ctsCapacityProviderStrategy,
     ctsTags,
-    ctsService,
-    ctsCluster,
-    ctsTaskDefinition,
 
     -- * Destructuring the response
     CreateTaskSetResponse (..),
@@ -51,33 +52,79 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTaskSet' smart constructor.
 data CreateTaskSet = CreateTaskSet'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+    cluster :: Lude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+    service :: Lude.Text,
+    -- | The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the @LATEST@ platform version is used by default.
     platformVersion :: Lude.Maybe Lude.Text,
     scale :: Lude.Maybe Scale,
+    -- | A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
     loadBalancers :: Lude.Maybe [LoadBalancer],
+    -- | The launch type that new tasks in the task set will use. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+    --
+    -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter must be omitted.
     launchType :: Lude.Maybe LaunchType,
+    -- | The task definition for the tasks in the task set to use.
+    taskDefinition :: Lude.Text,
+    -- | An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute set to the provided value.
     externalId :: Lude.Maybe Lude.Text,
     networkConfiguration :: Lude.Maybe NetworkConfiguration,
+    -- | The details of the service discovery registries to assign to this task set. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
     serviceRegistries :: Lude.Maybe [ServiceRegistry],
-    capacityProviderStrategy ::
-      Lude.Maybe [CapacityProviderStrategyItem],
-    tags :: Lude.Maybe [Tag],
-    service :: Lude.Text,
-    cluster :: Lude.Text,
-    taskDefinition :: Lude.Text
+    -- | The capacity provider strategy to use for the task set.
+    --
+    -- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
+    -- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter must be omitted. If no @capacityProviderStrategy@ or @launchType@ is specified, the @defaultCapacityProviderStrategy@ for the cluster is used.
+    -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+    -- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+    capacityProviderStrategy :: Lude.Maybe [CapacityProviderStrategyItem],
+    -- | The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
+    --
+    -- The following basic restrictions apply to tags:
+    --
+    --     * Maximum number of tags per resource - 50
+    --
+    --
+    --     * For each resource, each tag key must be unique, and each tag key can have only one value.
+    --
+    --
+    --     * Maximum key length - 128 Unicode characters in UTF-8
+    --
+    --
+    --     * Maximum value length - 256 Unicode characters in UTF-8
+    --
+    --
+    --     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+    --
+    --
+    --     * Tag keys and values are case-sensitive.
+    --
+    --
+    --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTaskSet' with the minimum fields required to make a request.
 --
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
+-- * 'service' - The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+-- * 'platformVersion' - The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the @LATEST@ platform version is used by default.
+-- * 'scale' -
+-- * 'loadBalancers' - A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
+-- * 'launchType' - The launch type that new tasks in the task set will use. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+--
+-- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter must be omitted.
+-- * 'taskDefinition' - The task definition for the tasks in the task set to use.
+-- * 'externalId' - An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute set to the provided value.
+-- * 'networkConfiguration' -
+-- * 'serviceRegistries' - The details of the service discovery registries to assign to this task set. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
 -- * 'capacityProviderStrategy' - The capacity provider strategy to use for the task set.
 --
 -- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
@@ -85,18 +132,6 @@ data CreateTaskSet = CreateTaskSet'
 -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
 -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
 -- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
--- * 'externalId' - An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute set to the provided value.
--- * 'launchType' - The launch type that new tasks in the task set will use. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
---
--- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter must be omitted.
--- * 'loadBalancers' - A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
--- * 'networkConfiguration' - Undocumented field.
--- * 'platformVersion' - The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the @LATEST@ platform version is used by default.
--- * 'scale' - Undocumented field.
--- * 'service' - The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
--- * 'serviceRegistries' - The details of the service discovery registries to assign to this task set. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
 -- * 'tags' - The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
 --
 -- The following basic restrictions apply to tags:
@@ -120,33 +155,37 @@ data CreateTaskSet = CreateTaskSet'
 --
 --
 --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
---
---
--- * 'taskDefinition' - The task definition for the tasks in the task set to use.
 mkCreateTaskSet ::
-  -- | 'service'
-  Lude.Text ->
   -- | 'cluster'
+  Lude.Text ->
+  -- | 'service'
   Lude.Text ->
   -- | 'taskDefinition'
   Lude.Text ->
   CreateTaskSet
-mkCreateTaskSet pService_ pCluster_ pTaskDefinition_ =
+mkCreateTaskSet pCluster_ pService_ pTaskDefinition_ =
   CreateTaskSet'
-    { clientToken = Lude.Nothing,
+    { cluster = pCluster_,
+      clientToken = Lude.Nothing,
+      service = pService_,
       platformVersion = Lude.Nothing,
       scale = Lude.Nothing,
       loadBalancers = Lude.Nothing,
       launchType = Lude.Nothing,
+      taskDefinition = pTaskDefinition_,
       externalId = Lude.Nothing,
       networkConfiguration = Lude.Nothing,
       serviceRegistries = Lude.Nothing,
       capacityProviderStrategy = Lude.Nothing,
-      tags = Lude.Nothing,
-      service = pService_,
-      cluster = pCluster_,
-      taskDefinition = pTaskDefinition_
+      tags = Lude.Nothing
     }
+
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctsCluster :: Lens.Lens' CreateTaskSet Lude.Text
+ctsCluster = Lens.lens (cluster :: CreateTaskSet -> Lude.Text) (\s a -> s {cluster = a} :: CreateTaskSet)
+{-# DEPRECATED ctsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
 --
@@ -154,6 +193,13 @@ mkCreateTaskSet pService_ pCluster_ pTaskDefinition_ =
 ctsClientToken :: Lens.Lens' CreateTaskSet (Lude.Maybe Lude.Text)
 ctsClientToken = Lens.lens (clientToken :: CreateTaskSet -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateTaskSet)
 {-# DEPRECATED ctsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctsService :: Lens.Lens' CreateTaskSet Lude.Text
+ctsService = Lens.lens (service :: CreateTaskSet -> Lude.Text) (\s a -> s {service = a} :: CreateTaskSet)
+{-# DEPRECATED ctsService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the @LATEST@ platform version is used by default.
 --
@@ -184,6 +230,13 @@ ctsLoadBalancers = Lens.lens (loadBalancers :: CreateTaskSet -> Lude.Maybe [Load
 ctsLaunchType :: Lens.Lens' CreateTaskSet (Lude.Maybe LaunchType)
 ctsLaunchType = Lens.lens (launchType :: CreateTaskSet -> Lude.Maybe LaunchType) (\s a -> s {launchType = a} :: CreateTaskSet)
 {-# DEPRECATED ctsLaunchType "Use generic-lens or generic-optics with 'launchType' instead." #-}
+
+-- | The task definition for the tasks in the task set to use.
+--
+-- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctsTaskDefinition :: Lens.Lens' CreateTaskSet Lude.Text
+ctsTaskDefinition = Lens.lens (taskDefinition :: CreateTaskSet -> Lude.Text) (\s a -> s {taskDefinition = a} :: CreateTaskSet)
+{-# DEPRECATED ctsTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
 
 -- | An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute set to the provided value.
 --
@@ -250,27 +303,6 @@ ctsTags :: Lens.Lens' CreateTaskSet (Lude.Maybe [Tag])
 ctsTags = Lens.lens (tags :: CreateTaskSet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTaskSet)
 {-# DEPRECATED ctsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
---
--- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctsService :: Lens.Lens' CreateTaskSet Lude.Text
-ctsService = Lens.lens (service :: CreateTaskSet -> Lude.Text) (\s a -> s {service = a} :: CreateTaskSet)
-{-# DEPRECATED ctsService "Use generic-lens or generic-optics with 'service' instead." #-}
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
---
--- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctsCluster :: Lens.Lens' CreateTaskSet Lude.Text
-ctsCluster = Lens.lens (cluster :: CreateTaskSet -> Lude.Text) (\s a -> s {cluster = a} :: CreateTaskSet)
-{-# DEPRECATED ctsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
-
--- | The task definition for the tasks in the task set to use.
---
--- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctsTaskDefinition :: Lens.Lens' CreateTaskSet Lude.Text
-ctsTaskDefinition = Lens.lens (taskDefinition :: CreateTaskSet -> Lude.Text) (\s a -> s {taskDefinition = a} :: CreateTaskSet)
-{-# DEPRECATED ctsTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
-
 instance Lude.AWSRequest CreateTaskSet where
   type Rs CreateTaskSet = CreateTaskSetResponse
   request = Req.postJSON ecsService
@@ -298,20 +330,20 @@ instance Lude.ToJSON CreateTaskSet where
   toJSON CreateTaskSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("clientToken" Lude..=) Lude.<$> clientToken,
+          [ Lude.Just ("cluster" Lude..= cluster),
+            ("clientToken" Lude..=) Lude.<$> clientToken,
+            Lude.Just ("service" Lude..= service),
             ("platformVersion" Lude..=) Lude.<$> platformVersion,
             ("scale" Lude..=) Lude.<$> scale,
             ("loadBalancers" Lude..=) Lude.<$> loadBalancers,
             ("launchType" Lude..=) Lude.<$> launchType,
+            Lude.Just ("taskDefinition" Lude..= taskDefinition),
             ("externalId" Lude..=) Lude.<$> externalId,
             ("networkConfiguration" Lude..=) Lude.<$> networkConfiguration,
             ("serviceRegistries" Lude..=) Lude.<$> serviceRegistries,
             ("capacityProviderStrategy" Lude..=)
               Lude.<$> capacityProviderStrategy,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("service" Lude..= service),
-            Lude.Just ("cluster" Lude..= cluster),
-            Lude.Just ("taskDefinition" Lude..= taskDefinition)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -323,23 +355,17 @@ instance Lude.ToQuery CreateTaskSet where
 
 -- | /See:/ 'mkCreateTaskSetResponse' smart constructor.
 data CreateTaskSetResponse = CreateTaskSetResponse'
-  { taskSet ::
-      Lude.Maybe TaskSet,
+  { taskSet :: Lude.Maybe TaskSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTaskSetResponse' with the minimum fields required to make a request.
 --
+-- * 'taskSet' -
 -- * 'responseStatus' - The response status code.
--- * 'taskSet' - Undocumented field.
 mkCreateTaskSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

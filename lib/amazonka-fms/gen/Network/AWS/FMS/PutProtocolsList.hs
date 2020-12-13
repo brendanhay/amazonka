@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.FMS.PutProtocolsList
     mkPutProtocolsList,
 
     -- ** Request lenses
-    pplTagList,
     pplProtocolsList,
+    pplTagList,
 
     -- * Destructuring the response
     PutProtocolsListResponse (..),
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutProtocolsList' smart constructor.
 data PutProtocolsList = PutProtocolsList'
-  { tagList ::
-      Lude.Maybe [Tag],
-    protocolsList :: ProtocolsListData
+  { -- | The details of the AWS Firewall Manager protocols list to be created.
+    protocolsList :: ProtocolsListData,
+    -- | The tags associated with the resource.
+    tagList :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutProtocolsList' with the minimum fields required to make a request.
@@ -64,16 +60,9 @@ mkPutProtocolsList ::
   PutProtocolsList
 mkPutProtocolsList pProtocolsList_ =
   PutProtocolsList'
-    { tagList = Lude.Nothing,
-      protocolsList = pProtocolsList_
+    { protocolsList = pProtocolsList_,
+      tagList = Lude.Nothing
     }
-
--- | The tags associated with the resource.
---
--- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pplTagList :: Lens.Lens' PutProtocolsList (Lude.Maybe [Tag])
-pplTagList = Lens.lens (tagList :: PutProtocolsList -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: PutProtocolsList)
-{-# DEPRECATED pplTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 -- | The details of the AWS Firewall Manager protocols list to be created.
 --
@@ -81,6 +70,13 @@ pplTagList = Lens.lens (tagList :: PutProtocolsList -> Lude.Maybe [Tag]) (\s a -
 pplProtocolsList :: Lens.Lens' PutProtocolsList ProtocolsListData
 pplProtocolsList = Lens.lens (protocolsList :: PutProtocolsList -> ProtocolsListData) (\s a -> s {protocolsList = a} :: PutProtocolsList)
 {-# DEPRECATED pplProtocolsList "Use generic-lens or generic-optics with 'protocolsList' instead." #-}
+
+-- | The tags associated with the resource.
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pplTagList :: Lens.Lens' PutProtocolsList (Lude.Maybe [Tag])
+pplTagList = Lens.lens (tagList :: PutProtocolsList -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: PutProtocolsList)
+{-# DEPRECATED pplTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 instance Lude.AWSRequest PutProtocolsList where
   type Rs PutProtocolsList = PutProtocolsListResponse
@@ -109,8 +105,8 @@ instance Lude.ToJSON PutProtocolsList where
   toJSON PutProtocolsList' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TagList" Lude..=) Lude.<$> tagList,
-            Lude.Just ("ProtocolsList" Lude..= protocolsList)
+          [ Lude.Just ("ProtocolsList" Lude..= protocolsList),
+            ("TagList" Lude..=) Lude.<$> tagList
           ]
       )
 
@@ -122,18 +118,14 @@ instance Lude.ToQuery PutProtocolsList where
 
 -- | /See:/ 'mkPutProtocolsListResponse' smart constructor.
 data PutProtocolsListResponse = PutProtocolsListResponse'
-  { protocolsList ::
-      Lude.Maybe ProtocolsListData,
+  { -- | The details of the AWS Firewall Manager protocols list.
+    protocolsList :: Lude.Maybe ProtocolsListData,
+    -- | The Amazon Resource Name (ARN) of the protocols list.
     protocolsListARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutProtocolsListResponse' with the minimum fields required to make a request.

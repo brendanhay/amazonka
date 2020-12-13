@@ -13,10 +13,10 @@
 module Network.AWS.AutoScalingPlans.Types.LoadMetricType
   ( LoadMetricType
       ( LoadMetricType',
-        ALBTargetGroupRequestCount,
         ASGTotalCPUUtilization,
         ASGTotalNetworkIn,
-        ASGTotalNetworkOut
+        ASGTotalNetworkOut,
+        ALBTargetGroupRequestCount
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype LoadMetricType = LoadMetricType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ALBTargetGroupRequestCount :: LoadMetricType
-pattern ALBTargetGroupRequestCount = LoadMetricType' "ALBTargetGroupRequestCount"
-
 pattern ASGTotalCPUUtilization :: LoadMetricType
 pattern ASGTotalCPUUtilization = LoadMetricType' "ASGTotalCPUUtilization"
 
@@ -59,10 +56,13 @@ pattern ASGTotalNetworkIn = LoadMetricType' "ASGTotalNetworkIn"
 pattern ASGTotalNetworkOut :: LoadMetricType
 pattern ASGTotalNetworkOut = LoadMetricType' "ASGTotalNetworkOut"
 
+pattern ALBTargetGroupRequestCount :: LoadMetricType
+pattern ALBTargetGroupRequestCount = LoadMetricType' "ALBTargetGroupRequestCount"
+
 {-# COMPLETE
-  ALBTargetGroupRequestCount,
   ASGTotalCPUUtilization,
   ASGTotalNetworkIn,
   ASGTotalNetworkOut,
+  ALBTargetGroupRequestCount,
   LoadMetricType'
   #-}

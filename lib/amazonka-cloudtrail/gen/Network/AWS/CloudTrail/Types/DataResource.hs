@@ -55,21 +55,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataResource' smart constructor.
 data DataResource = DataResource'
-  { values :: Lude.Maybe [Lude.Text],
+  { -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
+    --
+    --
+    --     * To log data events for all objects in all S3 buckets in your AWS account, specify the prefix as @arn:aws:s3:::@ .
+    --
+    --
+    --     * To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as @arn:aws:s3:::bucket-1/@ . The trail logs data events for all objects in this S3 bucket.
+    --
+    --
+    --     * To log data events for specific objects, specify the S3 bucket and object prefix such as @arn:aws:s3:::bucket-1/example-images@ . The trail logs data events for objects in this S3 bucket that match the prefix.
+    --
+    --
+    --     * To log data events for all functions in your AWS account, specify the prefix as @arn:aws:lambda@ .
+    --
+    --
+    --     * To log data events for a specific Lambda function, specify the function ARN.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataResource' with the minimum fields required to make a request.
 --
--- * 'type'' - The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
 -- * 'values' - An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
 --
 --
@@ -86,6 +96,9 @@ data DataResource = DataResource'
 --
 --
 --     * To log data events for a specific Lambda function, specify the function ARN.
+--
+--
+-- * 'type'' - The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
 mkDataResource ::
   DataResource
 mkDataResource =

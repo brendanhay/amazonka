@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCheckDNSAvailability' smart constructor.
 newtype CheckDNSAvailability = CheckDNSAvailability'
-  { cNAMEPrefix ::
-      Lude.Text
+  { -- | The prefix used when this CNAME is reserved.
+    cNAMEPrefix :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckDNSAvailability' with the minimum fields required to make a request.
@@ -102,22 +97,25 @@ instance Lude.ToQuery CheckDNSAvailability where
 --
 -- /See:/ 'mkCheckDNSAvailabilityResponse' smart constructor.
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
-  { fullyQualifiedCNAME ::
-      Lude.Maybe Lude.Text,
+  { -- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
+    fullyQualifiedCNAME :: Lude.Maybe Lude.Text,
+    -- | Indicates if the specified CNAME is available:
+    --
+    --
+    --     * @true@ : The CNAME is available.
+    --
+    --
+    --     * @false@ : The CNAME is not available.
     available :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckDNSAvailabilityResponse' with the minimum fields required to make a request.
 --
+-- * 'fullyQualifiedCNAME' - The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
 -- * 'available' - Indicates if the specified CNAME is available:
 --
 --
@@ -127,7 +125,6 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
 --     * @false@ : The CNAME is not available.
 --
 --
--- * 'fullyQualifiedCNAME' - The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
 -- * 'responseStatus' - The response status code.
 mkCheckDNSAvailabilityResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAcceptQualificationRequest' smart constructor.
 data AcceptQualificationRequest = AcceptQualificationRequest'
-  { integerValue ::
-      Lude.Maybe Lude.Int,
+  { -- | The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement.
+    integerValue :: Lude.Maybe Lude.Int,
+    -- | The ID of the Qualification request, as returned by the @GetQualificationRequests@ operation.
     qualificationRequestId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptQualificationRequest' with the minimum fields required to make a request.
@@ -126,16 +122,10 @@ instance Lude.ToQuery AcceptQualificationRequest where
 
 -- | /See:/ 'mkAcceptQualificationRequestResponse' smart constructor.
 newtype AcceptQualificationRequestResponse = AcceptQualificationRequestResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptQualificationRequestResponse' with the minimum fields required to make a request.

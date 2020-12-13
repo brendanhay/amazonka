@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -61,22 +62,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutPolicy' smart constructor.
 data PutPolicy = PutPolicy'
-  { tagList :: Lude.Maybe [Tag],
+  { -- | The tags to add to the AWS resource.
+    tagList :: Lude.Maybe [Tag],
+    -- | The details of the AWS Firewall Manager policy to be created.
     policy :: Policy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPolicy' with the minimum fields required to make a request.
 --
--- * 'policy' - The details of the AWS Firewall Manager policy to be created.
 -- * 'tagList' - The tags to add to the AWS resource.
+-- * 'policy' - The details of the AWS Firewall Manager policy to be created.
 mkPutPolicy ::
   -- | 'policy'
   Policy ->
@@ -138,24 +135,20 @@ instance Lude.ToQuery PutPolicy where
 
 -- | /See:/ 'mkPutPolicyResponse' smart constructor.
 data PutPolicyResponse = PutPolicyResponse'
-  { policyARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the policy.
+    policyARN :: Lude.Maybe Lude.Text,
+    -- | The details of the AWS Firewall Manager policy.
     policy :: Lude.Maybe Policy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPolicyResponse' with the minimum fields required to make a request.
 --
--- * 'policy' - The details of the AWS Firewall Manager policy.
 -- * 'policyARN' - The Amazon Resource Name (ARN) of the policy.
+-- * 'policy' - The details of the AWS Firewall Manager policy.
 -- * 'responseStatus' - The response status code.
 mkPutPolicyResponse ::
   -- | 'responseStatus'

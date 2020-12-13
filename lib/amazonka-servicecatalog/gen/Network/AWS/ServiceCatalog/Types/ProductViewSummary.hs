@@ -39,41 +39,45 @@ import Network.AWS.ServiceCatalog.Types.ProductType
 --
 -- /See:/ 'mkProductViewSummary' smart constructor.
 data ProductViewSummary = ProductViewSummary'
-  { owner ::
-      Lude.Maybe Lude.Text,
+  { -- | The owner of the product. Contact the product administrator for the significance of this value.
+    owner :: Lude.Maybe Lude.Text,
+    -- | The URL information to obtain support for this Product.
     supportURL :: Lude.Maybe Lude.Text,
+    -- | Short description of the product.
     shortDescription :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the product has a default path. If the product does not have a default path, call 'ListLaunchPaths' to disambiguate between paths. Otherwise, 'ListLaunchPaths' is not required, and the output of 'ProductViewSummary' can be used directly with 'DescribeProvisioningParameters' .
     hasDefaultPath :: Lude.Maybe Lude.Bool,
+    -- | The distributor of the product. Contact the product administrator for the significance of this value.
     distributor :: Lude.Maybe Lude.Text,
+    -- | The name of the product.
     name :: Lude.Maybe Lude.Text,
+    -- | The product view identifier.
     id :: Lude.Maybe Lude.Text,
+    -- | The product type. Contact the product administrator for the significance of this value. If this value is @MARKETPLACE@ , the product was created by AWS Marketplace.
     type' :: Lude.Maybe ProductType,
+    -- | The email contact information to obtain support for this Product.
     supportEmail :: Lude.Maybe Lude.Text,
+    -- | The product identifier.
     productId :: Lude.Maybe Lude.Text,
+    -- | The description of the support for this Product.
     supportDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProductViewSummary' with the minimum fields required to make a request.
 --
--- * 'distributor' - The distributor of the product. Contact the product administrator for the significance of this value.
--- * 'hasDefaultPath' - Indicates whether the product has a default path. If the product does not have a default path, call 'ListLaunchPaths' to disambiguate between paths. Otherwise, 'ListLaunchPaths' is not required, and the output of 'ProductViewSummary' can be used directly with 'DescribeProvisioningParameters' .
--- * 'id' - The product view identifier.
--- * 'name' - The name of the product.
 -- * 'owner' - The owner of the product. Contact the product administrator for the significance of this value.
--- * 'productId' - The product identifier.
--- * 'shortDescription' - Short description of the product.
--- * 'supportDescription' - The description of the support for this Product.
--- * 'supportEmail' - The email contact information to obtain support for this Product.
 -- * 'supportURL' - The URL information to obtain support for this Product.
+-- * 'shortDescription' - Short description of the product.
+-- * 'hasDefaultPath' - Indicates whether the product has a default path. If the product does not have a default path, call 'ListLaunchPaths' to disambiguate between paths. Otherwise, 'ListLaunchPaths' is not required, and the output of 'ProductViewSummary' can be used directly with 'DescribeProvisioningParameters' .
+-- * 'distributor' - The distributor of the product. Contact the product administrator for the significance of this value.
+-- * 'name' - The name of the product.
+-- * 'id' - The product view identifier.
 -- * 'type'' - The product type. Contact the product administrator for the significance of this value. If this value is @MARKETPLACE@ , the product was created by AWS Marketplace.
+-- * 'supportEmail' - The email contact information to obtain support for this Product.
+-- * 'productId' - The product identifier.
+-- * 'supportDescription' - The description of the support for this Product.
 mkProductViewSummary ::
   ProductViewSummary
 mkProductViewSummary =

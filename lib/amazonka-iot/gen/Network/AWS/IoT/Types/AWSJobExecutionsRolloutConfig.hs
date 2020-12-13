@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSJobExecutionsRolloutConfig' smart constructor.
 data AWSJobExecutionsRolloutConfig = AWSJobExecutionsRolloutConfig'
-  { exponentialRate ::
-      Lude.Maybe
-        AWSJobExponentialRolloutRate,
-    maximumPerMinute ::
-      Lude.Maybe Lude.Natural
+  { -- | The rate of increase for a job rollout. This parameter allows you to define an exponential rate increase for a job rollout.
+    exponentialRate :: Lude.Maybe AWSJobExponentialRolloutRate,
+    -- | The maximum number of OTA update job executions started per minute.
+    maximumPerMinute :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSJobExecutionsRolloutConfig' with the minimum fields required to make a request.

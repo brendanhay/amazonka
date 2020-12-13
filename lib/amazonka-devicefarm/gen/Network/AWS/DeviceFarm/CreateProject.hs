@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DeviceFarm.CreateProject
     mkCreateProject,
 
     -- ** Request lenses
-    cpDefaultJobTimeoutMinutes,
     cpName,
+    cpDefaultJobTimeoutMinutes,
 
     -- * Destructuring the response
     CreateProjectResponse (..),
@@ -42,39 +43,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { defaultJobTimeoutMinutes ::
-      Lude.Maybe Lude.Int,
-    name :: Lude.Text
+  { -- | The project's name.
+    name :: Lude.Text,
+    -- | Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+    defaultJobTimeoutMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
 --
--- * 'defaultJobTimeoutMinutes' - Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 -- * 'name' - The project's name.
+-- * 'defaultJobTimeoutMinutes' - Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 mkCreateProject ::
   -- | 'name'
   Lude.Text ->
   CreateProject
 mkCreateProject pName_ =
   CreateProject'
-    { defaultJobTimeoutMinutes = Lude.Nothing,
-      name = pName_
+    { name = pName_,
+      defaultJobTimeoutMinutes = Lude.Nothing
     }
-
--- | Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
---
--- /Note:/ Consider using 'defaultJobTimeoutMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpDefaultJobTimeoutMinutes :: Lens.Lens' CreateProject (Lude.Maybe Lude.Int)
-cpDefaultJobTimeoutMinutes = Lens.lens (defaultJobTimeoutMinutes :: CreateProject -> Lude.Maybe Lude.Int) (\s a -> s {defaultJobTimeoutMinutes = a} :: CreateProject)
-{-# DEPRECATED cpDefaultJobTimeoutMinutes "Use generic-lens or generic-optics with 'defaultJobTimeoutMinutes' instead." #-}
 
 -- | The project's name.
 --
@@ -82,6 +71,13 @@ cpDefaultJobTimeoutMinutes = Lens.lens (defaultJobTimeoutMinutes :: CreateProjec
 cpName :: Lens.Lens' CreateProject Lude.Text
 cpName = Lens.lens (name :: CreateProject -> Lude.Text) (\s a -> s {name = a} :: CreateProject)
 {-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+--
+-- /Note:/ Consider using 'defaultJobTimeoutMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDefaultJobTimeoutMinutes :: Lens.Lens' CreateProject (Lude.Maybe Lude.Int)
+cpDefaultJobTimeoutMinutes = Lens.lens (defaultJobTimeoutMinutes :: CreateProject -> Lude.Maybe Lude.Int) (\s a -> s {defaultJobTimeoutMinutes = a} :: CreateProject)
+{-# DEPRECATED cpDefaultJobTimeoutMinutes "Use generic-lens or generic-optics with 'defaultJobTimeoutMinutes' instead." #-}
 
 instance Lude.AWSRequest CreateProject where
   type Rs CreateProject = CreateProjectResponse
@@ -108,9 +104,9 @@ instance Lude.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("defaultJobTimeoutMinutes" Lude..=)
-              Lude.<$> defaultJobTimeoutMinutes,
-            Lude.Just ("name" Lude..= name)
+          [ Lude.Just ("name" Lude..= name),
+            ("defaultJobTimeoutMinutes" Lude..=)
+              Lude.<$> defaultJobTimeoutMinutes
           ]
       )
 
@@ -124,17 +120,12 @@ instance Lude.ToQuery CreateProject where
 --
 -- /See:/ 'mkCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-  { project ::
-      Lude.Maybe Project,
+  { -- | The newly created project.
+    project :: Lude.Maybe Project,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.

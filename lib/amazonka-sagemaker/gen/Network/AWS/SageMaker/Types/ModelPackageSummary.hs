@@ -17,10 +17,10 @@ module Network.AWS.SageMaker.Types.ModelPackageSummary
     mkModelPackageSummary,
 
     -- * Lenses
-    mpsModelPackageDescription,
+    mpsCreationTime,
     mpsModelPackageName,
     mpsModelPackageARN,
-    mpsCreationTime,
+    mpsModelPackageDescription,
     mpsModelPackageStatus,
   )
 where
@@ -33,58 +33,56 @@ import Network.AWS.SageMaker.Types.ModelPackageStatus
 --
 -- /See:/ 'mkModelPackageSummary' smart constructor.
 data ModelPackageSummary = ModelPackageSummary'
-  { modelPackageDescription ::
-      Lude.Maybe Lude.Text,
-    modelPackageName :: Lude.Text,
-    modelPackageARN :: Lude.Text,
+  { -- | A timestamp that shows when the model package was created.
     creationTime :: Lude.Timestamp,
+    -- | The name of the model package.
+    modelPackageName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the model package.
+    modelPackageARN :: Lude.Text,
+    -- | A brief description of the model package.
+    modelPackageDescription :: Lude.Maybe Lude.Text,
+    -- | The overall status of the model package.
     modelPackageStatus :: ModelPackageStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelPackageSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - A timestamp that shows when the model package was created.
+-- * 'modelPackageName' - The name of the model package.
 -- * 'modelPackageARN' - The Amazon Resource Name (ARN) of the model package.
 -- * 'modelPackageDescription' - A brief description of the model package.
--- * 'modelPackageName' - The name of the model package.
 -- * 'modelPackageStatus' - The overall status of the model package.
 mkModelPackageSummary ::
+  -- | 'creationTime'
+  Lude.Timestamp ->
   -- | 'modelPackageName'
   Lude.Text ->
   -- | 'modelPackageARN'
   Lude.Text ->
-  -- | 'creationTime'
-  Lude.Timestamp ->
   -- | 'modelPackageStatus'
   ModelPackageStatus ->
   ModelPackageSummary
 mkModelPackageSummary
+  pCreationTime_
   pModelPackageName_
   pModelPackageARN_
-  pCreationTime_
   pModelPackageStatus_ =
     ModelPackageSummary'
-      { modelPackageDescription = Lude.Nothing,
+      { creationTime = pCreationTime_,
         modelPackageName = pModelPackageName_,
         modelPackageARN = pModelPackageARN_,
-        creationTime = pCreationTime_,
+        modelPackageDescription = Lude.Nothing,
         modelPackageStatus = pModelPackageStatus_
       }
 
--- | A brief description of the model package.
+-- | A timestamp that shows when the model package was created.
 --
--- /Note:/ Consider using 'modelPackageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsModelPackageDescription :: Lens.Lens' ModelPackageSummary (Lude.Maybe Lude.Text)
-mpsModelPackageDescription = Lens.lens (modelPackageDescription :: ModelPackageSummary -> Lude.Maybe Lude.Text) (\s a -> s {modelPackageDescription = a} :: ModelPackageSummary)
-{-# DEPRECATED mpsModelPackageDescription "Use generic-lens or generic-optics with 'modelPackageDescription' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsCreationTime :: Lens.Lens' ModelPackageSummary Lude.Timestamp
+mpsCreationTime = Lens.lens (creationTime :: ModelPackageSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: ModelPackageSummary)
+{-# DEPRECATED mpsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The name of the model package.
 --
@@ -100,12 +98,12 @@ mpsModelPackageARN :: Lens.Lens' ModelPackageSummary Lude.Text
 mpsModelPackageARN = Lens.lens (modelPackageARN :: ModelPackageSummary -> Lude.Text) (\s a -> s {modelPackageARN = a} :: ModelPackageSummary)
 {-# DEPRECATED mpsModelPackageARN "Use generic-lens or generic-optics with 'modelPackageARN' instead." #-}
 
--- | A timestamp that shows when the model package was created.
+-- | A brief description of the model package.
 --
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsCreationTime :: Lens.Lens' ModelPackageSummary Lude.Timestamp
-mpsCreationTime = Lens.lens (creationTime :: ModelPackageSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: ModelPackageSummary)
-{-# DEPRECATED mpsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+-- /Note:/ Consider using 'modelPackageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsModelPackageDescription :: Lens.Lens' ModelPackageSummary (Lude.Maybe Lude.Text)
+mpsModelPackageDescription = Lens.lens (modelPackageDescription :: ModelPackageSummary -> Lude.Maybe Lude.Text) (\s a -> s {modelPackageDescription = a} :: ModelPackageSummary)
+{-# DEPRECATED mpsModelPackageDescription "Use generic-lens or generic-optics with 'modelPackageDescription' instead." #-}
 
 -- | The overall status of the model package.
 --
@@ -120,9 +118,9 @@ instance Lude.FromJSON ModelPackageSummary where
       "ModelPackageSummary"
       ( \x ->
           ModelPackageSummary'
-            Lude.<$> (x Lude..:? "ModelPackageDescription")
+            Lude.<$> (x Lude..: "CreationTime")
             Lude.<*> (x Lude..: "ModelPackageName")
             Lude.<*> (x Lude..: "ModelPackageArn")
-            Lude.<*> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..:? "ModelPackageDescription")
             Lude.<*> (x Lude..: "ModelPackageStatus")
       )

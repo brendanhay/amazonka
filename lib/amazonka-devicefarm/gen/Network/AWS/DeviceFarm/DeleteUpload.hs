@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,14 +40,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents a request to the delete upload operation.
 --
 -- /See:/ 'mkDeleteUpload' smart constructor.
-newtype DeleteUpload = DeleteUpload' {arn :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteUpload = DeleteUpload'
+  { -- | Represents the Amazon Resource Name (ARN) of the Device Farm upload to delete.
+    arn :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUpload' with the minimum fields required to make a request.
@@ -99,16 +97,10 @@ instance Lude.ToQuery DeleteUpload where
 --
 -- /See:/ 'mkDeleteUploadResponse' smart constructor.
 newtype DeleteUploadResponse = DeleteUploadResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUploadResponse' with the minimum fields required to make a request.

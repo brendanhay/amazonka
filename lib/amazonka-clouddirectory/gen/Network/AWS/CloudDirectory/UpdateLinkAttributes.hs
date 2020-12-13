@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CloudDirectory.UpdateLinkAttributes
 
     -- ** Request lenses
     ulaDirectoryARN,
-    ulaTypedLinkSpecifier,
     ulaAttributeUpdates,
+    ulaTypedLinkSpecifier,
 
     -- * Destructuring the response
     UpdateLinkAttributesResponse (..),
@@ -40,24 +41,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateLinkAttributes' smart constructor.
 data UpdateLinkAttributes = UpdateLinkAttributes'
-  { directoryARN ::
-      Lude.Text,
-    typedLinkSpecifier :: TypedLinkSpecifier,
-    attributeUpdates :: [LinkAttributeUpdate]
+  { -- | The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+    directoryARN :: Lude.Text,
+    -- | The attributes update structure.
+    attributeUpdates :: [LinkAttributeUpdate],
+    -- | Allows a typed link specifier to be accepted as input.
+    typedLinkSpecifier :: TypedLinkSpecifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateLinkAttributes' with the minimum fields required to make a request.
 --
--- * 'attributeUpdates' - The attributes update structure.
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'attributeUpdates' - The attributes update structure.
 -- * 'typedLinkSpecifier' - Allows a typed link specifier to be accepted as input.
 mkUpdateLinkAttributes ::
   -- | 'directoryARN'
@@ -68,8 +65,8 @@ mkUpdateLinkAttributes ::
 mkUpdateLinkAttributes pDirectoryARN_ pTypedLinkSpecifier_ =
   UpdateLinkAttributes'
     { directoryARN = pDirectoryARN_,
-      typedLinkSpecifier = pTypedLinkSpecifier_,
-      attributeUpdates = Lude.mempty
+      attributeUpdates = Lude.mempty,
+      typedLinkSpecifier = pTypedLinkSpecifier_
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory where the updated typed link resides. For more information, see 'arns' or <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
@@ -79,19 +76,19 @@ ulaDirectoryARN :: Lens.Lens' UpdateLinkAttributes Lude.Text
 ulaDirectoryARN = Lens.lens (directoryARN :: UpdateLinkAttributes -> Lude.Text) (\s a -> s {directoryARN = a} :: UpdateLinkAttributes)
 {-# DEPRECATED ulaDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
--- | Allows a typed link specifier to be accepted as input.
---
--- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulaTypedLinkSpecifier :: Lens.Lens' UpdateLinkAttributes TypedLinkSpecifier
-ulaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: UpdateLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: UpdateLinkAttributes)
-{-# DEPRECATED ulaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
-
 -- | The attributes update structure.
 --
 -- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ulaAttributeUpdates :: Lens.Lens' UpdateLinkAttributes [LinkAttributeUpdate]
 ulaAttributeUpdates = Lens.lens (attributeUpdates :: UpdateLinkAttributes -> [LinkAttributeUpdate]) (\s a -> s {attributeUpdates = a} :: UpdateLinkAttributes)
 {-# DEPRECATED ulaAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
+
+-- | Allows a typed link specifier to be accepted as input.
+--
+-- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulaTypedLinkSpecifier :: Lens.Lens' UpdateLinkAttributes TypedLinkSpecifier
+ulaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: UpdateLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: UpdateLinkAttributes)
+{-# DEPRECATED ulaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
 instance Lude.AWSRequest UpdateLinkAttributes where
   type Rs UpdateLinkAttributes = UpdateLinkAttributesResponse
@@ -111,8 +108,8 @@ instance Lude.ToJSON UpdateLinkAttributes where
   toJSON UpdateLinkAttributes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier),
-            Lude.Just ("AttributeUpdates" Lude..= attributeUpdates)
+          [ Lude.Just ("AttributeUpdates" Lude..= attributeUpdates),
+            Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier)
           ]
       )
 
@@ -126,16 +123,10 @@ instance Lude.ToQuery UpdateLinkAttributes where
 
 -- | /See:/ 'mkUpdateLinkAttributesResponse' smart constructor.
 newtype UpdateLinkAttributesResponse = UpdateLinkAttributesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateLinkAttributesResponse' with the minimum fields required to make a request.

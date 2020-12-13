@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.SageMaker.DeleteExperiment
     mkDeleteExperimentResponse,
 
     -- ** Response lenses
-    delersExperimentARN,
-    delersResponseStatus,
+    defrsExperimentARN,
+    defrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteExperiment' smart constructor.
 newtype DeleteExperiment = DeleteExperiment'
-  { experimentName ::
-      Lude.Text
+  { -- | The name of the experiment to delete.
+    experimentName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteExperiment' with the minimum fields required to make a request.
@@ -105,17 +100,12 @@ instance Lude.ToQuery DeleteExperiment where
 
 -- | /See:/ 'mkDeleteExperimentResponse' smart constructor.
 data DeleteExperimentResponse = DeleteExperimentResponse'
-  { experimentARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the experiment that is being deleted.
+    experimentARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteExperimentResponse' with the minimum fields required to make a request.
@@ -135,13 +125,13 @@ mkDeleteExperimentResponse pResponseStatus_ =
 -- | The Amazon Resource Name (ARN) of the experiment that is being deleted.
 --
 -- /Note:/ Consider using 'experimentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delersExperimentARN :: Lens.Lens' DeleteExperimentResponse (Lude.Maybe Lude.Text)
-delersExperimentARN = Lens.lens (experimentARN :: DeleteExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {experimentARN = a} :: DeleteExperimentResponse)
-{-# DEPRECATED delersExperimentARN "Use generic-lens or generic-optics with 'experimentARN' instead." #-}
+defrsExperimentARN :: Lens.Lens' DeleteExperimentResponse (Lude.Maybe Lude.Text)
+defrsExperimentARN = Lens.lens (experimentARN :: DeleteExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {experimentARN = a} :: DeleteExperimentResponse)
+{-# DEPRECATED defrsExperimentARN "Use generic-lens or generic-optics with 'experimentARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delersResponseStatus :: Lens.Lens' DeleteExperimentResponse Lude.Int
-delersResponseStatus = Lens.lens (responseStatus :: DeleteExperimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteExperimentResponse)
-{-# DEPRECATED delersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+defrsResponseStatus :: Lens.Lens' DeleteExperimentResponse Lude.Int
+defrsResponseStatus = Lens.lens (responseStatus :: DeleteExperimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteExperimentResponse)
+{-# DEPRECATED defrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

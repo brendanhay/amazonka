@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,21 +47,14 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeWorkingStorage' smart constructor.
 newtype DescribeWorkingStorage = DescribeWorkingStorage'
-  { gatewayARN ::
-      Lude.Text
+  { gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkingStorage' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkDescribeWorkingStorage ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -117,32 +111,26 @@ instance Lude.ToQuery DescribeWorkingStorage where
 --
 -- /See:/ 'mkDescribeWorkingStorageResponse' smart constructor.
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
-    diskIds ::
-      Lude.Maybe [Lude.Text],
-    workingStorageAllocatedInBytes ::
-      Lude.Maybe Lude.Integer,
-    workingStorageUsedInBytes ::
-      Lude.Maybe Lude.Integer,
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
+    diskIds :: Lude.Maybe [Lude.Text],
+    -- | The total working storage in bytes allocated for the gateway. If no working storage is configured for the gateway, this field returns 0.
+    workingStorageAllocatedInBytes :: Lude.Maybe Lude.Integer,
+    -- | The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0.
+    workingStorageUsedInBytes :: Lude.Maybe Lude.Integer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkingStorageResponse' with the minimum fields required to make a request.
 --
+-- * 'gatewayARN' -
 -- * 'diskIds' - An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
--- * 'gatewayARN' - Undocumented field.
--- * 'responseStatus' - The response status code.
 -- * 'workingStorageAllocatedInBytes' - The total working storage in bytes allocated for the gateway. If no working storage is configured for the gateway, this field returns 0.
 -- * 'workingStorageUsedInBytes' - The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0.
+-- * 'responseStatus' - The response status code.
 mkDescribeWorkingStorageResponse ::
   -- | 'responseStatus'
   Lude.Int ->

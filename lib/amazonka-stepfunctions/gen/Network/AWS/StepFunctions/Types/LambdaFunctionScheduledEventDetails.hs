@@ -32,34 +32,24 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'mkLambdaFunctionScheduledEventDetails' smart constructor.
 data LambdaFunctionScheduledEventDetails = LambdaFunctionScheduledEventDetails'
-  { inputDetails ::
-      Lude.Maybe
-        HistoryEventExecutionDataDetails,
-    input ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    timeoutInSeconds ::
-      Lude.Maybe
-        Lude.Integer,
-    resource ::
-      Lude.Text
+  { -- | Contains details about input for an execution history event.
+    inputDetails :: Lude.Maybe HistoryEventExecutionDataDetails,
+    -- | The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The maximum allowed duration of the lambda function.
+    timeoutInSeconds :: Lude.Maybe Lude.Integer,
+    -- | The Amazon Resource Name (ARN) of the scheduled lambda function.
+    resource :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionScheduledEventDetails' with the minimum fields required to make a request.
 --
--- * 'input' - The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 -- * 'inputDetails' - Contains details about input for an execution history event.
--- * 'resource' - The Amazon Resource Name (ARN) of the scheduled lambda function.
+-- * 'input' - The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 -- * 'timeoutInSeconds' - The maximum allowed duration of the lambda function.
+-- * 'resource' - The Amazon Resource Name (ARN) of the scheduled lambda function.
 mkLambdaFunctionScheduledEventDetails ::
   -- | 'resource'
   Lude.Text ->

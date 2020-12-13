@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPredecessor' smart constructor.
 data Predecessor = Predecessor'
-  { jobName :: Lude.Maybe Lude.Text,
+  { -- | The name of the job definition used by the predecessor job run.
+    jobName :: Lude.Maybe Lude.Text,
+    -- | The job-run ID of the predecessor job run.
     runId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Predecessor' with the minimum fields required to make a request.

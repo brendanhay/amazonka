@@ -13,9 +13,9 @@
 module Network.AWS.ElasticSearch.Types.DomainPackageStatus
   ( DomainPackageStatus
       ( DomainPackageStatus',
-        DPSActive,
         DPSAssociating,
         DPSAssociationFailed,
+        DPSActive,
         DPSDissociating,
         DPSDissociationFailed
       ),
@@ -48,14 +48,14 @@ newtype DomainPackageStatus = DomainPackageStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DPSActive :: DomainPackageStatus
-pattern DPSActive = DomainPackageStatus' "ACTIVE"
-
 pattern DPSAssociating :: DomainPackageStatus
 pattern DPSAssociating = DomainPackageStatus' "ASSOCIATING"
 
 pattern DPSAssociationFailed :: DomainPackageStatus
 pattern DPSAssociationFailed = DomainPackageStatus' "ASSOCIATION_FAILED"
+
+pattern DPSActive :: DomainPackageStatus
+pattern DPSActive = DomainPackageStatus' "ACTIVE"
 
 pattern DPSDissociating :: DomainPackageStatus
 pattern DPSDissociating = DomainPackageStatus' "DISSOCIATING"
@@ -64,9 +64,9 @@ pattern DPSDissociationFailed :: DomainPackageStatus
 pattern DPSDissociationFailed = DomainPackageStatus' "DISSOCIATION_FAILED"
 
 {-# COMPLETE
-  DPSActive,
   DPSAssociating,
   DPSAssociationFailed,
+  DPSActive,
   DPSDissociating,
   DPSDissociationFailed,
   DomainPackageStatus'

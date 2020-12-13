@@ -54,17 +54,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigSnapshotDeliveryProperties' smart constructor.
 newtype ConfigSnapshotDeliveryProperties = ConfigSnapshotDeliveryProperties'
-  { deliveryFrequency ::
-      Lude.Maybe
-        MaximumExecutionFrequency
+  { -- | The frequency with which AWS Config delivers configuration snapshots.
+    deliveryFrequency :: Lude.Maybe MaximumExecutionFrequency
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigSnapshotDeliveryProperties' with the minimum fields required to make a request.

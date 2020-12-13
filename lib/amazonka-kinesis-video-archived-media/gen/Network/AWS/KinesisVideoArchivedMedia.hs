@@ -82,8 +82,8 @@ module Network.AWS.KinesisVideoArchivedMedia
     -- ** ClipTimestampRange
     ClipTimestampRange (..),
     mkClipTimestampRange,
-    ctrStartTimestamp,
     ctrEndTimestamp,
+    ctrStartTimestamp,
 
     -- ** DASHFragmentSelector
     DASHFragmentSelector (..),
@@ -127,8 +127,8 @@ module Network.AWS.KinesisVideoArchivedMedia
     -- ** TimestampRange
     TimestampRange (..),
     mkTimestampRange,
-    trStartTimestamp,
     trEndTimestamp,
+    trStartTimestamp,
 
     -- * Serialization types
     Lude.Base64 (..),

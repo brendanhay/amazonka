@@ -17,10 +17,10 @@ module Network.AWS.CertificateManagerPCA.Types.CrlConfiguration
     mkCrlConfiguration,
 
     -- * Lenses
+    ccEnabled,
     ccCustomCname,
     ccExpirationInDays,
     ccS3BucketName,
-    ccEnabled,
   )
 where
 
@@ -86,25 +86,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCrlConfiguration' smart constructor.
 data CrlConfiguration = CrlConfiguration'
-  { customCname ::
-      Lude.Maybe Lude.Text,
+  { -- | Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action or for an existing CA when you call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority> action.
+    enabled :: Lude.Bool,
+    -- | Name inserted into the certificate __CRL Distribution Points__ extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
+    customCname :: Lude.Maybe Lude.Text,
+    -- | Number of days until a certificate expires.
     expirationInDays :: Lude.Maybe Lude.Natural,
-    s3BucketName :: Lude.Maybe Lude.Text,
-    enabled :: Lude.Bool
+    -- | Name of the S3 bucket that contains the CRL. If you do not provide a value for the __CustomCname__ argument, the name of your S3 bucket is placed into the __CRL Distribution Points__ extension of the issued certificate. You can change the name of your bucket by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority> action. You must specify a bucket policy that allows ACM Private CA to write the CRL to your bucket.
+    s3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CrlConfiguration' with the minimum fields required to make a request.
 --
--- * 'customCname' - Name inserted into the certificate __CRL Distribution Points__ extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
 -- * 'enabled' - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action or for an existing CA when you call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority> action.
+-- * 'customCname' - Name inserted into the certificate __CRL Distribution Points__ extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
 -- * 'expirationInDays' - Number of days until a certificate expires.
 -- * 's3BucketName' - Name of the S3 bucket that contains the CRL. If you do not provide a value for the __CustomCname__ argument, the name of your S3 bucket is placed into the __CRL Distribution Points__ extension of the issued certificate. You can change the name of your bucket by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority> action. You must specify a bucket policy that allows ACM Private CA to write the CRL to your bucket.
 mkCrlConfiguration ::
@@ -113,11 +110,18 @@ mkCrlConfiguration ::
   CrlConfiguration
 mkCrlConfiguration pEnabled_ =
   CrlConfiguration'
-    { customCname = Lude.Nothing,
+    { enabled = pEnabled_,
+      customCname = Lude.Nothing,
       expirationInDays = Lude.Nothing,
-      s3BucketName = Lude.Nothing,
-      enabled = pEnabled_
+      s3BucketName = Lude.Nothing
     }
+
+-- | Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action or for an existing CA when you call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority> action.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccEnabled :: Lens.Lens' CrlConfiguration Lude.Bool
+ccEnabled = Lens.lens (enabled :: CrlConfiguration -> Lude.Bool) (\s a -> s {enabled = a} :: CrlConfiguration)
+{-# DEPRECATED ccEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Name inserted into the certificate __CRL Distribution Points__ extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
 --
@@ -140,32 +144,25 @@ ccS3BucketName :: Lens.Lens' CrlConfiguration (Lude.Maybe Lude.Text)
 ccS3BucketName = Lens.lens (s3BucketName :: CrlConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: CrlConfiguration)
 {-# DEPRECATED ccS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
--- | Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action or for an existing CA when you call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority> action.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccEnabled :: Lens.Lens' CrlConfiguration Lude.Bool
-ccEnabled = Lens.lens (enabled :: CrlConfiguration -> Lude.Bool) (\s a -> s {enabled = a} :: CrlConfiguration)
-{-# DEPRECATED ccEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
 instance Lude.FromJSON CrlConfiguration where
   parseJSON =
     Lude.withObject
       "CrlConfiguration"
       ( \x ->
           CrlConfiguration'
-            Lude.<$> (x Lude..:? "CustomCname")
+            Lude.<$> (x Lude..: "Enabled")
+            Lude.<*> (x Lude..:? "CustomCname")
             Lude.<*> (x Lude..:? "ExpirationInDays")
             Lude.<*> (x Lude..:? "S3BucketName")
-            Lude.<*> (x Lude..: "Enabled")
       )
 
 instance Lude.ToJSON CrlConfiguration where
   toJSON CrlConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CustomCname" Lude..=) Lude.<$> customCname,
+          [ Lude.Just ("Enabled" Lude..= enabled),
+            ("CustomCname" Lude..=) Lude.<$> customCname,
             ("ExpirationInDays" Lude..=) Lude.<$> expirationInDays,
-            ("S3BucketName" Lude..=) Lude.<$> s3BucketName,
-            Lude.Just ("Enabled" Lude..= enabled)
+            ("S3BucketName" Lude..=) Lude.<$> s3BucketName
           ]
       )

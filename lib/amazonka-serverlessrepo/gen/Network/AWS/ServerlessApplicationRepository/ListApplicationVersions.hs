@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
 
     -- ** Request lenses
     lavNextToken,
-    lavMaxItems,
     lavApplicationId,
+    lavMaxItems,
 
     -- * Destructuring the response
     ListApplicationVersionsResponse (..),
@@ -45,25 +46,21 @@ import Network.AWS.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'mkListApplicationVersions' smart constructor.
 data ListApplicationVersions = ListApplicationVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxItems :: Lude.Maybe Lude.Natural,
-    applicationId :: Lude.Text
+  { -- | A token to specify where to start paginating.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the application.
+    applicationId :: Lude.Text,
+    -- | The total number of items to return.
+    maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationVersions' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - A token to specify where to start paginating.
 -- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
 -- * 'maxItems' - The total number of items to return.
--- * 'nextToken' - A token to specify where to start paginating.
 mkListApplicationVersions ::
   -- | 'applicationId'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListApplicationVersions ::
 mkListApplicationVersions pApplicationId_ =
   ListApplicationVersions'
     { nextToken = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      applicationId = pApplicationId_
+      applicationId = pApplicationId_,
+      maxItems = Lude.Nothing
     }
 
 -- | A token to specify where to start paginating.
@@ -82,19 +79,19 @@ lavNextToken :: Lens.Lens' ListApplicationVersions (Lude.Maybe Lude.Text)
 lavNextToken = Lens.lens (nextToken :: ListApplicationVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplicationVersions)
 {-# DEPRECATED lavNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The total number of items to return.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavMaxItems :: Lens.Lens' ListApplicationVersions (Lude.Maybe Lude.Natural)
-lavMaxItems = Lens.lens (maxItems :: ListApplicationVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListApplicationVersions)
-{-# DEPRECATED lavMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
-
 -- | The Amazon Resource Name (ARN) of the application.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lavApplicationId :: Lens.Lens' ListApplicationVersions Lude.Text
 lavApplicationId = Lens.lens (applicationId :: ListApplicationVersions -> Lude.Text) (\s a -> s {applicationId = a} :: ListApplicationVersions)
 {-# DEPRECATED lavApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The total number of items to return.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavMaxItems :: Lens.Lens' ListApplicationVersions (Lude.Maybe Lude.Natural)
+lavMaxItems = Lens.lens (maxItems :: ListApplicationVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListApplicationVersions)
+{-# DEPRECATED lavMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 instance Page.AWSPager ListApplicationVersions where
   page rq rs
@@ -138,26 +135,21 @@ instance Lude.ToQuery ListApplicationVersions where
 
 -- | /See:/ 'mkListApplicationVersionsResponse' smart constructor.
 data ListApplicationVersionsResponse = ListApplicationVersionsResponse'
-  { versions ::
-      Lude.Maybe [VersionSummary],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An array of version summaries for the application.
+    versions :: Lude.Maybe [VersionSummary],
+    -- | The token to request the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationVersionsResponse' with the minimum fields required to make a request.
 --
+-- * 'versions' - An array of version summaries for the application.
 -- * 'nextToken' - The token to request the next page of results.
 -- * 'responseStatus' - The response status code.
--- * 'versions' - An array of version summaries for the application.
 mkListApplicationVersionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

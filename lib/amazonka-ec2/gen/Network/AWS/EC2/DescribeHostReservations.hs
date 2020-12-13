@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,24 +47,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeHostReservations' smart constructor.
 data DescribeHostReservations = DescribeHostReservations'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    hostReservationIdSet ::
-      Lude.Maybe [Lude.Text],
+  { -- | The token to use to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The host reservation IDs.
+    hostReservationIdSet :: Lude.Maybe [Lude.Text],
+    -- | The filters.
+    --
+    --
+    --     * @instance-family@ - The instance family (for example, @m4@ ).
+    --
+    --
+    --     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
+    --
+    --
+    --     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
     filter :: Lude.Maybe [Filter],
+    -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHostReservations' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token to use to retrieve the next page of results.
+-- * 'hostReservationIdSet' - The host reservation IDs.
 -- * 'filter' - The filters.
 --
 --
@@ -82,9 +96,7 @@ data DescribeHostReservations = DescribeHostReservations'
 --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
 --
--- * 'hostReservationIdSet' - The host reservation IDs.
 -- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
--- * 'nextToken' - The token to use to retrieve the next page of results.
 mkDescribeHostReservations ::
   DescribeHostReservations
 mkDescribeHostReservations =
@@ -185,27 +197,20 @@ instance Lude.ToQuery DescribeHostReservations where
 
 -- | /See:/ 'mkDescribeHostReservationsResponse' smart constructor.
 data DescribeHostReservationsResponse = DescribeHostReservationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    hostReservationSet ::
-      Lude.Maybe
-        [HostReservation],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Details about the reservation's configuration.
+    hostReservationSet :: Lude.Maybe [HostReservation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHostReservationsResponse' with the minimum fields required to make a request.
 --
--- * 'hostReservationSet' - Details about the reservation's configuration.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'hostReservationSet' - Details about the reservation's configuration.
 -- * 'responseStatus' - The response status code.
 mkDescribeHostReservationsResponse ::
   -- | 'responseStatus'

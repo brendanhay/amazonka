@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.HlsAudioTrackType
   ( HlsAudioTrackType
       ( HlsAudioTrackType',
-        AlternateAudioAutoSelect,
         AlternateAudioAutoSelectDefault,
+        AlternateAudioAutoSelect,
         AlternateAudioNotAutoSelect,
         AudioOnlyVariantStream
       ),
@@ -48,11 +48,11 @@ newtype HlsAudioTrackType = HlsAudioTrackType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AlternateAudioAutoSelect :: HlsAudioTrackType
-pattern AlternateAudioAutoSelect = HlsAudioTrackType' "ALTERNATE_AUDIO_AUTO_SELECT"
-
 pattern AlternateAudioAutoSelectDefault :: HlsAudioTrackType
 pattern AlternateAudioAutoSelectDefault = HlsAudioTrackType' "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
+
+pattern AlternateAudioAutoSelect :: HlsAudioTrackType
+pattern AlternateAudioAutoSelect = HlsAudioTrackType' "ALTERNATE_AUDIO_AUTO_SELECT"
 
 pattern AlternateAudioNotAutoSelect :: HlsAudioTrackType
 pattern AlternateAudioNotAutoSelect = HlsAudioTrackType' "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
@@ -61,8 +61,8 @@ pattern AudioOnlyVariantStream :: HlsAudioTrackType
 pattern AudioOnlyVariantStream = HlsAudioTrackType' "AUDIO_ONLY_VARIANT_STREAM"
 
 {-# COMPLETE
-  AlternateAudioAutoSelect,
   AlternateAudioAutoSelectDefault,
+  AlternateAudioAutoSelect,
   AlternateAudioNotAutoSelect,
   AudioOnlyVariantStream,
   HlsAudioTrackType'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.OpsWorksCM.AssociateNode
 
     -- ** Request lenses
     anServerName,
-    anNodeName,
     anEngineAttributes,
+    anNodeName,
 
     -- * Destructuring the response
     AssociateNodeResponse (..),
@@ -47,15 +48,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateNode' smart constructor.
 data AssociateNode = AssociateNode'
-  { serverName :: Lude.Text,
-    nodeName :: Lude.Text,
-    engineAttributes :: [EngineAttribute]
+  { -- | The name of the server with which to associate the node.
+    serverName :: Lude.Text,
+    -- | Engine attributes used for associating the node.
+    --
+    -- __Attributes accepted in a AssociateNode request for Chef__
+    --
+    --     * @CHEF_ORGANIZATION@ : The Chef organization with which the node is associated. By default only one organization named @default@ can exist.
+    --
+    --
+    --     * @CHEF_NODE_PUBLIC_KEY@ : A PEM-formatted public key. This key is required for the @chef-client@ agent to access the Chef API.
+    --
+    --
+    -- __Attributes accepted in a AssociateNode request for Puppet__
+    --
+    --     * @PUPPET_NODE_CSR@ : A PEM-formatted certificate-signing request (CSR) that is created by the node.
+    engineAttributes :: [EngineAttribute],
+    -- | The name of the node.
+    nodeName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateNode' with the minimum fields required to make a request.
 --
+-- * 'serverName' - The name of the server with which to associate the node.
 -- * 'engineAttributes' - Engine attributes used for associating the node.
 --
 -- __Attributes accepted in a AssociateNode request for Chef__
@@ -72,7 +89,6 @@ data AssociateNode = AssociateNode'
 --
 --
 -- * 'nodeName' - The name of the node.
--- * 'serverName' - The name of the server with which to associate the node.
 mkAssociateNode ::
   -- | 'serverName'
   Lude.Text ->
@@ -82,8 +98,8 @@ mkAssociateNode ::
 mkAssociateNode pServerName_ pNodeName_ =
   AssociateNode'
     { serverName = pServerName_,
-      nodeName = pNodeName_,
-      engineAttributes = Lude.mempty
+      engineAttributes = Lude.mempty,
+      nodeName = pNodeName_
     }
 
 -- | The name of the server with which to associate the node.
@@ -92,13 +108,6 @@ mkAssociateNode pServerName_ pNodeName_ =
 anServerName :: Lens.Lens' AssociateNode Lude.Text
 anServerName = Lens.lens (serverName :: AssociateNode -> Lude.Text) (\s a -> s {serverName = a} :: AssociateNode)
 {-# DEPRECATED anServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
-
--- | The name of the node.
---
--- /Note:/ Consider using 'nodeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-anNodeName :: Lens.Lens' AssociateNode Lude.Text
-anNodeName = Lens.lens (nodeName :: AssociateNode -> Lude.Text) (\s a -> s {nodeName = a} :: AssociateNode)
-{-# DEPRECATED anNodeName "Use generic-lens or generic-optics with 'nodeName' instead." #-}
 
 -- | Engine attributes used for associating the node.
 --
@@ -120,6 +129,13 @@ anNodeName = Lens.lens (nodeName :: AssociateNode -> Lude.Text) (\s a -> s {node
 anEngineAttributes :: Lens.Lens' AssociateNode [EngineAttribute]
 anEngineAttributes = Lens.lens (engineAttributes :: AssociateNode -> [EngineAttribute]) (\s a -> s {engineAttributes = a} :: AssociateNode)
 {-# DEPRECATED anEngineAttributes "Use generic-lens or generic-optics with 'engineAttributes' instead." #-}
+
+-- | The name of the node.
+--
+-- /Note:/ Consider using 'nodeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+anNodeName :: Lens.Lens' AssociateNode Lude.Text
+anNodeName = Lens.lens (nodeName :: AssociateNode -> Lude.Text) (\s a -> s {nodeName = a} :: AssociateNode)
+{-# DEPRECATED anNodeName "Use generic-lens or generic-optics with 'nodeName' instead." #-}
 
 instance Lude.AWSRequest AssociateNode where
   type Rs AssociateNode = AssociateNodeResponse
@@ -148,8 +164,8 @@ instance Lude.ToJSON AssociateNode where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("ServerName" Lude..= serverName),
-            Lude.Just ("NodeName" Lude..= nodeName),
-            Lude.Just ("EngineAttributes" Lude..= engineAttributes)
+            Lude.Just ("EngineAttributes" Lude..= engineAttributes),
+            Lude.Just ("NodeName" Lude..= nodeName)
           ]
       )
 
@@ -161,17 +177,12 @@ instance Lude.ToQuery AssociateNode where
 
 -- | /See:/ 'mkAssociateNodeResponse' smart constructor.
 data AssociateNodeResponse = AssociateNodeResponse'
-  { nodeAssociationStatusToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the association request.
+    nodeAssociationStatusToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateNodeResponse' with the minimum fields required to make a request.

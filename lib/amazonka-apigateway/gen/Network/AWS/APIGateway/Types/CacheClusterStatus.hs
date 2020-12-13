@@ -13,11 +13,11 @@
 module Network.AWS.APIGateway.Types.CacheClusterStatus
   ( CacheClusterStatus
       ( CacheClusterStatus',
-        Available,
         CreateInProgress,
+        Available,
         DeleteInProgress,
-        FlushInProgress,
-        NotAvailable
+        NotAvailable,
+        FlushInProgress
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype CacheClusterStatus = CacheClusterStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Available :: CacheClusterStatus
-pattern Available = CacheClusterStatus' "AVAILABLE"
-
 pattern CreateInProgress :: CacheClusterStatus
 pattern CreateInProgress = CacheClusterStatus' "CREATE_IN_PROGRESS"
+
+pattern Available :: CacheClusterStatus
+pattern Available = CacheClusterStatus' "AVAILABLE"
 
 pattern DeleteInProgress :: CacheClusterStatus
 pattern DeleteInProgress = CacheClusterStatus' "DELETE_IN_PROGRESS"
 
-pattern FlushInProgress :: CacheClusterStatus
-pattern FlushInProgress = CacheClusterStatus' "FLUSH_IN_PROGRESS"
-
 pattern NotAvailable :: CacheClusterStatus
 pattern NotAvailable = CacheClusterStatus' "NOT_AVAILABLE"
 
+pattern FlushInProgress :: CacheClusterStatus
+pattern FlushInProgress = CacheClusterStatus' "FLUSH_IN_PROGRESS"
+
 {-# COMPLETE
-  Available,
   CreateInProgress,
+  Available,
   DeleteInProgress,
-  FlushInProgress,
   NotAvailable,
+  FlushInProgress,
   CacheClusterStatus'
   #-}

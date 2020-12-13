@@ -13,10 +13,10 @@
 module Network.AWS.Lightsail.Types.ContainerServiceDeploymentState
   ( ContainerServiceDeploymentState
       ( ContainerServiceDeploymentState',
-        Activating,
-        Active,
-        Failed,
-        Inactive
+        CSDSActivating,
+        CSDSActive,
+        CSDSInactive,
+        CSDSFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ContainerServiceDeploymentState = ContainerServiceDeploymentState' Lude.
       Lude.ToHeader
     )
 
-pattern Activating :: ContainerServiceDeploymentState
-pattern Activating = ContainerServiceDeploymentState' "ACTIVATING"
+pattern CSDSActivating :: ContainerServiceDeploymentState
+pattern CSDSActivating = ContainerServiceDeploymentState' "ACTIVATING"
 
-pattern Active :: ContainerServiceDeploymentState
-pattern Active = ContainerServiceDeploymentState' "ACTIVE"
+pattern CSDSActive :: ContainerServiceDeploymentState
+pattern CSDSActive = ContainerServiceDeploymentState' "ACTIVE"
 
-pattern Failed :: ContainerServiceDeploymentState
-pattern Failed = ContainerServiceDeploymentState' "FAILED"
+pattern CSDSInactive :: ContainerServiceDeploymentState
+pattern CSDSInactive = ContainerServiceDeploymentState' "INACTIVE"
 
-pattern Inactive :: ContainerServiceDeploymentState
-pattern Inactive = ContainerServiceDeploymentState' "INACTIVE"
+pattern CSDSFailed :: ContainerServiceDeploymentState
+pattern CSDSFailed = ContainerServiceDeploymentState' "FAILED"
 
 {-# COMPLETE
-  Activating,
-  Active,
-  Failed,
-  Inactive,
+  CSDSActivating,
+  CSDSActive,
+  CSDSInactive,
+  CSDSFailed,
   ContainerServiceDeploymentState'
   #-}

@@ -31,8 +31,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeDestination' smart constructor.
 data CodeDestination = CodeDestination'
-  { codeCommit ::
-      Lude.Maybe CodeCommitCodeDestination,
+  { -- | Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+    codeCommit :: Lude.Maybe CodeCommitCodeDestination,
+    -- | Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
     gitHub :: Lude.Maybe GitHubCodeDestination
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

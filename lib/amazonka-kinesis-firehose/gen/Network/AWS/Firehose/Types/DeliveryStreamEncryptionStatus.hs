@@ -13,12 +13,12 @@
 module Network.AWS.Firehose.Types.DeliveryStreamEncryptionStatus
   ( DeliveryStreamEncryptionStatus
       ( DeliveryStreamEncryptionStatus',
-        DSESDisabled,
-        DSESDisabling,
-        DSESDisablingFailed,
         DSESEnabled,
         DSESEnabling,
-        DSESEnablingFailed
+        DSESEnablingFailed,
+        DSESDisabled,
+        DSESDisabling,
+        DSESDisablingFailed
       ),
   )
 where
@@ -49,15 +49,6 @@ newtype DeliveryStreamEncryptionStatus = DeliveryStreamEncryptionStatus' Lude.Te
       Lude.ToHeader
     )
 
-pattern DSESDisabled :: DeliveryStreamEncryptionStatus
-pattern DSESDisabled = DeliveryStreamEncryptionStatus' "DISABLED"
-
-pattern DSESDisabling :: DeliveryStreamEncryptionStatus
-pattern DSESDisabling = DeliveryStreamEncryptionStatus' "DISABLING"
-
-pattern DSESDisablingFailed :: DeliveryStreamEncryptionStatus
-pattern DSESDisablingFailed = DeliveryStreamEncryptionStatus' "DISABLING_FAILED"
-
 pattern DSESEnabled :: DeliveryStreamEncryptionStatus
 pattern DSESEnabled = DeliveryStreamEncryptionStatus' "ENABLED"
 
@@ -67,12 +58,21 @@ pattern DSESEnabling = DeliveryStreamEncryptionStatus' "ENABLING"
 pattern DSESEnablingFailed :: DeliveryStreamEncryptionStatus
 pattern DSESEnablingFailed = DeliveryStreamEncryptionStatus' "ENABLING_FAILED"
 
+pattern DSESDisabled :: DeliveryStreamEncryptionStatus
+pattern DSESDisabled = DeliveryStreamEncryptionStatus' "DISABLED"
+
+pattern DSESDisabling :: DeliveryStreamEncryptionStatus
+pattern DSESDisabling = DeliveryStreamEncryptionStatus' "DISABLING"
+
+pattern DSESDisablingFailed :: DeliveryStreamEncryptionStatus
+pattern DSESDisablingFailed = DeliveryStreamEncryptionStatus' "DISABLING_FAILED"
+
 {-# COMPLETE
-  DSESDisabled,
-  DSESDisabling,
-  DSESDisablingFailed,
   DSESEnabled,
   DSESEnabling,
   DSESEnablingFailed,
+  DSESDisabled,
+  DSESDisabling,
+  DSESDisablingFailed,
   DeliveryStreamEncryptionStatus'
   #-}

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrialComponentSource' smart constructor.
 data TrialComponentSource = TrialComponentSource'
-  { sourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | The source job type.
+    sourceType :: Lude.Maybe Lude.Text,
+    -- | The source ARN.
     sourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentSource' with the minimum fields required to make a request.
 --
--- * 'sourceARN' - The source ARN.
 -- * 'sourceType' - The source job type.
+-- * 'sourceARN' - The source ARN.
 mkTrialComponentSource ::
   -- | 'sourceARN'
   Lude.Text ->

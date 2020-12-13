@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.MulticastSupportValue
   ( MulticastSupportValue
       ( MulticastSupportValue',
-        MSVDisable,
-        MSVEnable
+        MSVEnable,
+        MSVDisable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MulticastSupportValue = MulticastSupportValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern MSVDisable :: MulticastSupportValue
-pattern MSVDisable = MulticastSupportValue' "disable"
-
 pattern MSVEnable :: MulticastSupportValue
 pattern MSVEnable = MulticastSupportValue' "enable"
 
+pattern MSVDisable :: MulticastSupportValue
+pattern MSVDisable = MulticastSupportValue' "disable"
+
 {-# COMPLETE
-  MSVDisable,
   MSVEnable,
+  MSVDisable,
   MulticastSupportValue'
   #-}

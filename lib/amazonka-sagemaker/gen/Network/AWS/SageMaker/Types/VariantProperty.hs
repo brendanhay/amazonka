@@ -31,16 +31,19 @@ import Network.AWS.SageMaker.Types.VariantPropertyType
 --
 -- /See:/ 'mkVariantProperty' smart constructor.
 newtype VariantProperty = VariantProperty'
-  { variantPropertyType ::
-      VariantPropertyType
+  { -- | The type of variant property. The supported values are:
+    --
+    --
+    --     * @DesiredInstanceCount@ : Overrides the existing variant instance counts using the 'ProductionVariant$InitialInstanceCount' values in the 'CreateEndpointConfigInput$ProductionVariants' .
+    --
+    --
+    --     * @DesiredWeight@ : Overrides the existing variant weights using the 'ProductionVariant$InitialVariantWeight' values in the 'CreateEndpointConfigInput$ProductionVariants' .
+    --
+    --
+    --     * @DataCaptureConfig@ : (Not currently supported.)
+    variantPropertyType :: VariantPropertyType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VariantProperty' with the minimum fields required to make a request.

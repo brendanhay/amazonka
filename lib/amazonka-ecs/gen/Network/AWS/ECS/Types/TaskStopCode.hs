@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.TaskStopCode
   ( TaskStopCode
       ( TaskStopCode',
-        EssentialContainerExited,
         TaskFailedToStart,
+        EssentialContainerExited,
         UserInitiated
       ),
   )
@@ -46,18 +46,18 @@ newtype TaskStopCode = TaskStopCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern EssentialContainerExited :: TaskStopCode
-pattern EssentialContainerExited = TaskStopCode' "EssentialContainerExited"
-
 pattern TaskFailedToStart :: TaskStopCode
 pattern TaskFailedToStart = TaskStopCode' "TaskFailedToStart"
+
+pattern EssentialContainerExited :: TaskStopCode
+pattern EssentialContainerExited = TaskStopCode' "EssentialContainerExited"
 
 pattern UserInitiated :: TaskStopCode
 pattern UserInitiated = TaskStopCode' "UserInitiated"
 
 {-# COMPLETE
-  EssentialContainerExited,
   TaskFailedToStart,
+  EssentialContainerExited,
   UserInitiated,
   TaskStopCode'
   #-}

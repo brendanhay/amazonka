@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.Kinesis.DescribeLimits
     mkDescribeLimitsResponse,
 
     -- ** Response lenses
-    dlrsResponseStatus,
-    dlrsShardLimit,
     dlrsOpenShardCount,
+    dlrsShardLimit,
+    dlrsResponseStatus,
   )
 where
 
@@ -40,13 +41,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLimits' smart constructor.
 data DescribeLimits = DescribeLimits'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLimits' with the minimum fields required to make a request.
@@ -61,9 +56,9 @@ instance Lude.AWSRequest DescribeLimits where
     Res.receiveJSON
       ( \s h x ->
           DescribeLimitsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..:> "OpenShardCount")
             Lude.<*> (x Lude..:> "ShardLimit")
-            Lude.<*> (x Lude..:> "OpenShardCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeLimits where
@@ -88,49 +83,45 @@ instance Lude.ToQuery DescribeLimits where
 
 -- | /See:/ 'mkDescribeLimitsResponse' smart constructor.
 data DescribeLimitsResponse = DescribeLimitsResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | The number of open shards.
+    openShardCount :: Lude.Natural,
+    -- | The maximum number of shards.
     shardLimit :: Lude.Natural,
-    openShardCount :: Lude.Natural
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLimitsResponse' with the minimum fields required to make a request.
 --
 -- * 'openShardCount' - The number of open shards.
--- * 'responseStatus' - The response status code.
 -- * 'shardLimit' - The maximum number of shards.
+-- * 'responseStatus' - The response status code.
 mkDescribeLimitsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'shardLimit'
-  Lude.Natural ->
   -- | 'openShardCount'
   Lude.Natural ->
+  -- | 'shardLimit'
+  Lude.Natural ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeLimitsResponse
 mkDescribeLimitsResponse
-  pResponseStatus_
+  pOpenShardCount_
   pShardLimit_
-  pOpenShardCount_ =
+  pResponseStatus_ =
     DescribeLimitsResponse'
-      { responseStatus = pResponseStatus_,
+      { openShardCount = pOpenShardCount_,
         shardLimit = pShardLimit_,
-        openShardCount = pOpenShardCount_
+        responseStatus = pResponseStatus_
       }
 
--- | The response status code.
+-- | The number of open shards.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsResponseStatus :: Lens.Lens' DescribeLimitsResponse Lude.Int
-dlrsResponseStatus = Lens.lens (responseStatus :: DescribeLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLimitsResponse)
-{-# DEPRECATED dlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'openShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlrsOpenShardCount :: Lens.Lens' DescribeLimitsResponse Lude.Natural
+dlrsOpenShardCount = Lens.lens (openShardCount :: DescribeLimitsResponse -> Lude.Natural) (\s a -> s {openShardCount = a} :: DescribeLimitsResponse)
+{-# DEPRECATED dlrsOpenShardCount "Use generic-lens or generic-optics with 'openShardCount' instead." #-}
 
 -- | The maximum number of shards.
 --
@@ -139,9 +130,9 @@ dlrsShardLimit :: Lens.Lens' DescribeLimitsResponse Lude.Natural
 dlrsShardLimit = Lens.lens (shardLimit :: DescribeLimitsResponse -> Lude.Natural) (\s a -> s {shardLimit = a} :: DescribeLimitsResponse)
 {-# DEPRECATED dlrsShardLimit "Use generic-lens or generic-optics with 'shardLimit' instead." #-}
 
--- | The number of open shards.
+-- | The response status code.
 --
--- /Note:/ Consider using 'openShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsOpenShardCount :: Lens.Lens' DescribeLimitsResponse Lude.Natural
-dlrsOpenShardCount = Lens.lens (openShardCount :: DescribeLimitsResponse -> Lude.Natural) (\s a -> s {openShardCount = a} :: DescribeLimitsResponse)
-{-# DEPRECATED dlrsOpenShardCount "Use generic-lens or generic-optics with 'openShardCount' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlrsResponseStatus :: Lens.Lens' DescribeLimitsResponse Lude.Int
+dlrsResponseStatus = Lens.lens (responseStatus :: DescribeLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLimitsResponse)
+{-# DEPRECATED dlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,8 +13,8 @@
 module Network.AWS.IoT.Types.DomainConfigurationStatus
   ( DomainConfigurationStatus
       ( DomainConfigurationStatus',
-        DCSDisabled,
-        DCSEnabled
+        DCSEnabled,
+        DCSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DomainConfigurationStatus = DomainConfigurationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DCSDisabled :: DomainConfigurationStatus
-pattern DCSDisabled = DomainConfigurationStatus' "DISABLED"
-
 pattern DCSEnabled :: DomainConfigurationStatus
 pattern DCSEnabled = DomainConfigurationStatus' "ENABLED"
 
+pattern DCSDisabled :: DomainConfigurationStatus
+pattern DCSDisabled = DomainConfigurationStatus' "DISABLED"
+
 {-# COMPLETE
-  DCSDisabled,
   DCSEnabled,
+  DCSDisabled,
   DomainConfigurationStatus'
   #-}

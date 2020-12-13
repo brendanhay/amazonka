@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,23 +40,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateDeviceDefinition' smart constructor.
 data UpdateDeviceDefinition = UpdateDeviceDefinition'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the definition.
+    name :: Lude.Maybe Lude.Text,
+    -- | The ID of the device definition.
     deviceDefinitionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeviceDefinition' with the minimum fields required to make a request.
 --
--- * 'deviceDefinitionId' - The ID of the device definition.
 -- * 'name' - The name of the definition.
+-- * 'deviceDefinitionId' - The ID of the device definition.
 mkUpdateDeviceDefinition ::
   -- | 'deviceDefinitionId'
   Lude.Text ->
@@ -113,16 +109,10 @@ instance Lude.ToQuery UpdateDeviceDefinition where
 
 -- | /See:/ 'mkUpdateDeviceDefinitionResponse' smart constructor.
 newtype UpdateDeviceDefinitionResponse = UpdateDeviceDefinitionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeviceDefinitionResponse' with the minimum fields required to make a request.

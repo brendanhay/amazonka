@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutEvents' smart constructor.
 newtype PutEvents = PutEvents'
-  { entries ::
-      Lude.NonEmpty PutEventsRequestEntry
+  { -- | The entry that defines an event in your system. You can specify several parameters for the entry such as the source and type of the event, resources associated with the event, and so on.
+    entries :: Lude.NonEmpty PutEventsRequestEntry
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEvents' with the minimum fields required to make a request.
@@ -103,24 +98,20 @@ instance Lude.ToQuery PutEvents where
 
 -- | /See:/ 'mkPutEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
-  { failedEntryCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of failed entries.
+    failedEntryCount :: Lude.Maybe Lude.Int,
+    -- | The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
     entries :: Lude.Maybe [PutEventsResultEntry],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEventsResponse' with the minimum fields required to make a request.
 --
--- * 'entries' - The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
 -- * 'failedEntryCount' - The number of failed entries.
+-- * 'entries' - The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
 -- * 'responseStatus' - The response status code.
 mkPutEventsResponse ::
   -- | 'responseStatus'

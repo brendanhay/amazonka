@@ -32,20 +32,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStartSigningJobParameter' smart constructor.
 data StartSigningJobParameter = StartSigningJobParameter'
-  { destination ::
-      Lude.Maybe Destination,
-    signingProfileName ::
-      Lude.Maybe Lude.Text,
-    signingProfileParameter ::
-      Lude.Maybe SigningProfileParameter
+  { -- | The location to write the code-signed file.
+    destination :: Lude.Maybe Destination,
+    -- | The code-signing profile name.
+    signingProfileName :: Lude.Maybe Lude.Text,
+    -- | Describes the code-signing profile.
+    signingProfileParameter :: Lude.Maybe SigningProfileParameter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSigningJobParameter' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,16 +46,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeAccountLimits' smart constructor.
 newtype DescribeAccountLimits = DescribeAccountLimits'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | A string that identifies the next page of limits that you want to retrieve.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimits' with the minimum fields required to make a request.
@@ -114,25 +109,20 @@ instance Lude.ToQuery DescribeAccountLimits where
 --
 -- /See:/ 'mkDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    accountLimits ::
-      Lude.Maybe [AccountLimit],
+  { -- | If the output exceeds 1 MB in size, a string that identifies the next page of limits. If no additional page exists, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An account limit structure that contain a list of AWS CloudFormation account limits and their values.
+    accountLimits :: Lude.Maybe [AccountLimit],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
 --
--- * 'accountLimits' - An account limit structure that contain a list of AWS CloudFormation account limits and their values.
 -- * 'nextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of limits. If no additional page exists, this value is null.
+-- * 'accountLimits' - An account limit structure that contain a list of AWS CloudFormation account limits and their values.
 -- * 'responseStatus' - The response status code.
 mkDescribeAccountLimitsResponse ::
   -- | 'responseStatus'

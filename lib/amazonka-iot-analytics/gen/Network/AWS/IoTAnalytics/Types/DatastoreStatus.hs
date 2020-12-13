@@ -13,8 +13,8 @@
 module Network.AWS.IoTAnalytics.Types.DatastoreStatus
   ( DatastoreStatus
       ( DatastoreStatus',
-        DSActive,
         DSCreating,
+        DSActive,
         DSDeleting
       ),
   )
@@ -46,18 +46,18 @@ newtype DatastoreStatus = DatastoreStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSActive :: DatastoreStatus
-pattern DSActive = DatastoreStatus' "ACTIVE"
-
 pattern DSCreating :: DatastoreStatus
 pattern DSCreating = DatastoreStatus' "CREATING"
+
+pattern DSActive :: DatastoreStatus
+pattern DSActive = DatastoreStatus' "ACTIVE"
 
 pattern DSDeleting :: DatastoreStatus
 pattern DSDeleting = DatastoreStatus' "DELETING"
 
 {-# COMPLETE
-  DSActive,
   DSCreating,
+  DSActive,
   DSDeleting,
   DatastoreStatus'
   #-}

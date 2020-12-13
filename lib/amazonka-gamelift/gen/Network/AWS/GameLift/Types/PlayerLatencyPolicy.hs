@@ -43,24 +43,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlayerLatencyPolicy' smart constructor.
 data PlayerLatencyPolicy = PlayerLatencyPolicy'
-  { policyDurationSeconds ::
-      Lude.Maybe Lude.Natural,
-    maximumIndividualPlayerLatencyMilliseconds ::
-      Lude.Maybe Lude.Natural
+  { -- | The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
+    policyDurationSeconds :: Lude.Maybe Lude.Natural,
+    -- | The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+    maximumIndividualPlayerLatencyMilliseconds :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlayerLatencyPolicy' with the minimum fields required to make a request.
 --
--- * 'maximumIndividualPlayerLatencyMilliseconds' - The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
 -- * 'policyDurationSeconds' - The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
+-- * 'maximumIndividualPlayerLatencyMilliseconds' - The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
 mkPlayerLatencyPolicy ::
   PlayerLatencyPolicy
 mkPlayerLatencyPolicy =

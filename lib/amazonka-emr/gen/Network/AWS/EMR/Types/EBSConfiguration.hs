@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSConfiguration' smart constructor.
 data EBSConfiguration = EBSConfiguration'
-  { ebsOptimized ::
-      Lude.Maybe Lude.Bool,
-    ebsBlockDeviceConfigs ::
-      Lude.Maybe [EBSBlockDeviceConfig]
+  { -- | Indicates whether an Amazon EBS volume is EBS-optimized.
+    ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | An array of Amazon EBS volume specifications attached to a cluster instance.
+    ebsBlockDeviceConfigs :: Lude.Maybe [EBSBlockDeviceConfig]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSConfiguration' with the minimum fields required to make a request.
 --
--- * 'ebsBlockDeviceConfigs' - An array of Amazon EBS volume specifications attached to a cluster instance.
 -- * 'ebsOptimized' - Indicates whether an Amazon EBS volume is EBS-optimized.
+-- * 'ebsBlockDeviceConfigs' - An array of Amazon EBS volume specifications attached to a cluster instance.
 mkEBSConfiguration ::
   EBSConfiguration
 mkEBSConfiguration =

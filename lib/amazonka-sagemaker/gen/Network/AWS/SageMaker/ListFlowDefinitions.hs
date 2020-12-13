@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.SageMaker.ListFlowDefinitions
     mkListFlowDefinitionsResponse,
 
     -- ** Response lenses
+    lfdrsFlowDefinitionSummaries,
     lfdrsNextToken,
     lfdrsResponseStatus,
-    lfdrsFlowDefinitionSummaries,
   )
 where
 
@@ -47,29 +48,27 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListFlowDefinitions' smart constructor.
 data ListFlowDefinitions = ListFlowDefinitions'
-  { creationTimeAfter ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.
+    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A token to resume pagination.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | An optional value that specifies whether you want the results sorted in @Ascending@ or @Descending@ order.
     sortOrder :: Lude.Maybe SortOrder,
+    -- | A filter that returns only flow definitions that were created before the specified timestamp.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The total number of items to return. If the total number of available items is more than the value specified in @MaxResults@ , then a @NextToken@ will be provided in the output that you can use to resume pagination.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFlowDefinitions' with the minimum fields required to make a request.
 --
 -- * 'creationTimeAfter' - A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.
--- * 'creationTimeBefore' - A filter that returns only flow definitions that were created before the specified timestamp.
--- * 'maxResults' - The total number of items to return. If the total number of available items is more than the value specified in @MaxResults@ , then a @NextToken@ will be provided in the output that you can use to resume pagination.
 -- * 'nextToken' - A token to resume pagination.
 -- * 'sortOrder' - An optional value that specifies whether you want the results sorted in @Ascending@ or @Descending@ order.
+-- * 'creationTimeBefore' - A filter that returns only flow definitions that were created before the specified timestamp.
+-- * 'maxResults' - The total number of items to return. If the total number of available items is more than the value specified in @MaxResults@ , then a @NextToken@ will be provided in the output that you can use to resume pagination.
 mkListFlowDefinitions ::
   ListFlowDefinitions
 mkListFlowDefinitions =
@@ -133,9 +132,9 @@ instance Lude.AWSRequest ListFlowDefinitions where
     Res.receiveJSON
       ( \s h x ->
           ListFlowDefinitionsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "FlowDefinitionSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "FlowDefinitionSummaries" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListFlowDefinitions where
@@ -169,19 +168,14 @@ instance Lude.ToQuery ListFlowDefinitions where
 
 -- | /See:/ 'mkListFlowDefinitionsResponse' smart constructor.
 data ListFlowDefinitionsResponse = ListFlowDefinitionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    flowDefinitionSummaries ::
-      [FlowDefinitionSummary]
+  { -- | An array of objects describing the flow definitions.
+    flowDefinitionSummaries :: [FlowDefinitionSummary],
+    -- | A token to resume pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFlowDefinitionsResponse' with the minimum fields required to make a request.
@@ -195,10 +189,18 @@ mkListFlowDefinitionsResponse ::
   ListFlowDefinitionsResponse
 mkListFlowDefinitionsResponse pResponseStatus_ =
   ListFlowDefinitionsResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      flowDefinitionSummaries = Lude.mempty
+    { flowDefinitionSummaries =
+        Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | An array of objects describing the flow definitions.
+--
+-- /Note:/ Consider using 'flowDefinitionSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfdrsFlowDefinitionSummaries :: Lens.Lens' ListFlowDefinitionsResponse [FlowDefinitionSummary]
+lfdrsFlowDefinitionSummaries = Lens.lens (flowDefinitionSummaries :: ListFlowDefinitionsResponse -> [FlowDefinitionSummary]) (\s a -> s {flowDefinitionSummaries = a} :: ListFlowDefinitionsResponse)
+{-# DEPRECATED lfdrsFlowDefinitionSummaries "Use generic-lens or generic-optics with 'flowDefinitionSummaries' instead." #-}
 
 -- | A token to resume pagination.
 --
@@ -213,10 +215,3 @@ lfdrsNextToken = Lens.lens (nextToken :: ListFlowDefinitionsResponse -> Lude.May
 lfdrsResponseStatus :: Lens.Lens' ListFlowDefinitionsResponse Lude.Int
 lfdrsResponseStatus = Lens.lens (responseStatus :: ListFlowDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFlowDefinitionsResponse)
 {-# DEPRECATED lfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | An array of objects describing the flow definitions.
---
--- /Note:/ Consider using 'flowDefinitionSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfdrsFlowDefinitionSummaries :: Lens.Lens' ListFlowDefinitionsResponse [FlowDefinitionSummary]
-lfdrsFlowDefinitionSummaries = Lens.lens (flowDefinitionSummaries :: ListFlowDefinitionsResponse -> [FlowDefinitionSummary]) (\s a -> s {flowDefinitionSummaries = a} :: ListFlowDefinitionsResponse)
-{-# DEPRECATED lfdrsFlowDefinitionSummaries "Use generic-lens or generic-optics with 'flowDefinitionSummaries' instead." #-}

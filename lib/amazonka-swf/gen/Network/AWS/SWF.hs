@@ -223,59 +223,59 @@ module Network.AWS.SWF
     -- ** ActivityTaskCancelRequestedEventAttributes
     ActivityTaskCancelRequestedEventAttributes (..),
     mkActivityTaskCancelRequestedEventAttributes,
-    atcreaDecisionTaskCompletedEventId,
     atcreaActivityId,
+    atcreaDecisionTaskCompletedEventId,
 
     -- ** ActivityTaskCanceledEventAttributes
     ActivityTaskCanceledEventAttributes (..),
     mkActivityTaskCanceledEventAttributes,
     aLatestCancelRequestedEventId,
-    aDetails,
     aScheduledEventId,
+    aDetails,
     aStartedEventId,
 
     -- ** ActivityTaskCompletedEventAttributes
     ActivityTaskCompletedEventAttributes (..),
     mkActivityTaskCompletedEventAttributes,
-    atceaResult,
     atceaScheduledEventId,
+    atceaResult,
     atceaStartedEventId,
 
     -- ** ActivityTaskFailedEventAttributes
     ActivityTaskFailedEventAttributes (..),
     mkActivityTaskFailedEventAttributes,
+    atfeaScheduledEventId,
     atfeaReason,
     atfeaDetails,
-    atfeaScheduledEventId,
     atfeaStartedEventId,
 
     -- ** ActivityTaskScheduledEventAttributes
     ActivityTaskScheduledEventAttributes (..),
     mkActivityTaskScheduledEventAttributes,
     atseaControl,
+    atseaActivityType,
+    atseaActivityId,
     atseaHeartbeatTimeout,
     atseaScheduleToCloseTimeout,
     atseaInput,
+    atseaTaskList,
     atseaTaskPriority,
     atseaScheduleToStartTimeout,
     atseaStartToCloseTimeout,
-    atseaActivityType,
-    atseaActivityId,
-    atseaTaskList,
     atseaDecisionTaskCompletedEventId,
 
     -- ** ActivityTaskStartedEventAttributes
     ActivityTaskStartedEventAttributes (..),
     mkActivityTaskStartedEventAttributes,
-    atseaIdentity,
     atseaScheduledEventId,
+    atseaIdentity,
 
     -- ** ActivityTaskTimedOutEventAttributes
     ActivityTaskTimedOutEventAttributes (..),
     mkActivityTaskTimedOutEventAttributes,
-    attoeaDetails,
-    attoeaTimeoutType,
     attoeaScheduledEventId,
+    attoeaTimeoutType,
+    attoeaDetails,
     attoeaStartedEventId,
 
     -- ** ActivityType
@@ -297,11 +297,11 @@ module Network.AWS.SWF
     -- ** ActivityTypeInfo
     ActivityTypeInfo (..),
     mkActivityTypeInfo,
-    atiDeprecationDate,
-    atiDescription,
-    atiActivityType,
     atiStatus,
+    atiActivityType,
+    atiDeprecationDate,
     atiCreationDate,
+    atiDescription,
 
     -- ** CancelTimerDecisionAttributes
     CancelTimerDecisionAttributes (..),
@@ -311,8 +311,8 @@ module Network.AWS.SWF
     -- ** CancelTimerFailedEventAttributes
     CancelTimerFailedEventAttributes (..),
     mkCancelTimerFailedEventAttributes,
-    ctfeaTimerId,
     ctfeaCause,
+    ctfeaTimerId,
     ctfeaDecisionTaskCompletedEventId,
 
     -- ** CancelWorkflowExecutionDecisionAttributes
@@ -329,54 +329,54 @@ module Network.AWS.SWF
     -- ** ChildWorkflowExecutionCanceledEventAttributes
     ChildWorkflowExecutionCanceledEventAttributes (..),
     mkChildWorkflowExecutionCanceledEventAttributes,
-    cDetails,
-    cWorkflowExecution,
     cWorkflowType,
-    cInitiatedEventId,
+    cDetails,
     cStartedEventId,
+    cInitiatedEventId,
+    cWorkflowExecution,
 
     -- ** ChildWorkflowExecutionCompletedEventAttributes
     ChildWorkflowExecutionCompletedEventAttributes (..),
     mkChildWorkflowExecutionCompletedEventAttributes,
-    cweceaResult,
-    cweceaWorkflowExecution,
     cweceaWorkflowType,
-    cweceaInitiatedEventId,
+    cweceaResult,
     cweceaStartedEventId,
+    cweceaInitiatedEventId,
+    cweceaWorkflowExecution,
 
     -- ** ChildWorkflowExecutionFailedEventAttributes
     ChildWorkflowExecutionFailedEventAttributes (..),
     mkChildWorkflowExecutionFailedEventAttributes,
+    cwefeaWorkflowType,
     cwefeaReason,
     cwefeaDetails,
-    cwefeaWorkflowExecution,
-    cwefeaWorkflowType,
-    cwefeaInitiatedEventId,
     cwefeaStartedEventId,
+    cwefeaInitiatedEventId,
+    cwefeaWorkflowExecution,
 
     -- ** ChildWorkflowExecutionStartedEventAttributes
     ChildWorkflowExecutionStartedEventAttributes (..),
     mkChildWorkflowExecutionStartedEventAttributes,
-    cweseaWorkflowExecution,
     cweseaWorkflowType,
     cweseaInitiatedEventId,
+    cweseaWorkflowExecution,
 
     -- ** ChildWorkflowExecutionTerminatedEventAttributes
     ChildWorkflowExecutionTerminatedEventAttributes (..),
     mkChildWorkflowExecutionTerminatedEventAttributes,
-    cweteaWorkflowExecution,
     cweteaWorkflowType,
-    cweteaInitiatedEventId,
     cweteaStartedEventId,
+    cweteaInitiatedEventId,
+    cweteaWorkflowExecution,
 
     -- ** ChildWorkflowExecutionTimedOutEventAttributes
     ChildWorkflowExecutionTimedOutEventAttributes (..),
     mkChildWorkflowExecutionTimedOutEventAttributes,
-    cwetoeaWorkflowExecution,
     cwetoeaWorkflowType,
     cwetoeaTimeoutType,
-    cwetoeaInitiatedEventId,
     cwetoeaStartedEventId,
+    cwetoeaInitiatedEventId,
+    cwetoeaWorkflowExecution,
 
     -- ** CloseStatusFilter
     CloseStatusFilter (..),
@@ -420,6 +420,7 @@ module Network.AWS.SWF
     dScheduleActivityTaskDecisionAttributes,
     dSignalExternalWorkflowExecutionDecisionAttributes,
     dStartTimerDecisionAttributes,
+    dDecisionType,
     dRecordMarkerDecisionAttributes,
     dFailWorkflowExecutionDecisionAttributes,
     dStartChildWorkflowExecutionDecisionAttributes,
@@ -429,33 +430,32 @@ module Network.AWS.SWF
     dCancelWorkflowExecutionDecisionAttributes,
     dCancelTimerDecisionAttributes,
     dContinueAsNewWorkflowExecutionDecisionAttributes,
-    dDecisionType,
 
     -- ** DecisionTaskCompletedEventAttributes
     DecisionTaskCompletedEventAttributes (..),
     mkDecisionTaskCompletedEventAttributes,
-    dtceaExecutionContext,
     dtceaScheduledEventId,
+    dtceaExecutionContext,
     dtceaStartedEventId,
 
     -- ** DecisionTaskScheduledEventAttributes
     DecisionTaskScheduledEventAttributes (..),
     mkDecisionTaskScheduledEventAttributes,
+    dtseaTaskList,
     dtseaTaskPriority,
     dtseaStartToCloseTimeout,
-    dtseaTaskList,
 
     -- ** DecisionTaskStartedEventAttributes
     DecisionTaskStartedEventAttributes (..),
     mkDecisionTaskStartedEventAttributes,
-    dtseaIdentity,
     dtseaScheduledEventId,
+    dtseaIdentity,
 
     -- ** DecisionTaskTimedOutEventAttributes
     DecisionTaskTimedOutEventAttributes (..),
     mkDecisionTaskTimedOutEventAttributes,
-    dttoeaTimeoutType,
     dttoeaScheduledEventId,
+    dttoeaTimeoutType,
     dttoeaStartedEventId,
 
     -- ** DomainConfiguration
@@ -466,10 +466,10 @@ module Network.AWS.SWF
     -- ** DomainInfo
     DomainInfo (..),
     mkDomainInfo,
-    diArn,
-    diDescription,
-    diName,
     diStatus,
+    diArn,
+    diName,
+    diDescription,
 
     -- ** ExecutionTimeFilter
     ExecutionTimeFilter (..),
@@ -480,14 +480,14 @@ module Network.AWS.SWF
     -- ** ExternalWorkflowExecutionCancelRequestedEventAttributes
     ExternalWorkflowExecutionCancelRequestedEventAttributes (..),
     mkExternalWorkflowExecutionCancelRequestedEventAttributes,
-    ewecreaWorkflowExecution,
     ewecreaInitiatedEventId,
+    ewecreaWorkflowExecution,
 
     -- ** ExternalWorkflowExecutionSignaledEventAttributes
     ExternalWorkflowExecutionSignaledEventAttributes (..),
     mkExternalWorkflowExecutionSignaledEventAttributes,
-    eweseaWorkflowExecution,
     eweseaInitiatedEventId,
+    eweseaWorkflowExecution,
 
     -- ** FailWorkflowExecutionDecisionAttributes
     FailWorkflowExecutionDecisionAttributes (..),
@@ -511,6 +511,7 @@ module Network.AWS.SWF
     heDecisionTaskScheduledEventAttributes,
     heWorkflowExecutionCompletedEventAttributes,
     heStartTimerFailedEventAttributes,
+    heEventTimestamp,
     heActivityTaskScheduledEventAttributes,
     heScheduleActivityTaskFailedEventAttributes,
     heChildWorkflowExecutionCompletedEventAttributes,
@@ -525,6 +526,7 @@ module Network.AWS.SWF
     heDecisionTaskTimedOutEventAttributes,
     heCancelTimerFailedEventAttributes,
     heChildWorkflowExecutionStartedEventAttributes,
+    heEventType,
     heActivityTaskCanceledEventAttributes,
     heActivityTaskTimedOutEventAttributes,
     heDecisionTaskStartedEventAttributes,
@@ -555,26 +557,24 @@ module Network.AWS.SWF
     heContinueAsNewWorkflowExecutionFailedEventAttributes,
     heSignalExternalWorkflowExecutionInitiatedEventAttributes,
     heLambdaFunctionTimedOutEventAttributes,
+    heEventId,
     heWorkflowExecutionFailedEventAttributes,
     heWorkflowExecutionContinuedAsNewEventAttributes,
     heExternalWorkflowExecutionCancelRequestedEventAttributes,
-    heEventTimestamp,
-    heEventType,
-    heEventId,
 
     -- ** LambdaFunctionCompletedEventAttributes
     LambdaFunctionCompletedEventAttributes (..),
     mkLambdaFunctionCompletedEventAttributes,
-    lfceaResult,
     lfceaScheduledEventId,
+    lfceaResult,
     lfceaStartedEventId,
 
     -- ** LambdaFunctionFailedEventAttributes
     LambdaFunctionFailedEventAttributes (..),
     mkLambdaFunctionFailedEventAttributes,
+    lffeaScheduledEventId,
     lffeaReason,
     lffeaDetails,
-    lffeaScheduledEventId,
     lffeaStartedEventId,
 
     -- ** LambdaFunctionScheduledEventAttributes
@@ -582,9 +582,9 @@ module Network.AWS.SWF
     mkLambdaFunctionScheduledEventAttributes,
     lfseaControl,
     lfseaInput,
-    lfseaStartToCloseTimeout,
-    lfseaId,
     lfseaName,
+    lfseaId,
+    lfseaStartToCloseTimeout,
     lfseaDecisionTaskCompletedEventId,
 
     -- ** LambdaFunctionStartedEventAttributes
@@ -595,15 +595,15 @@ module Network.AWS.SWF
     -- ** LambdaFunctionTimedOutEventAttributes
     LambdaFunctionTimedOutEventAttributes (..),
     mkLambdaFunctionTimedOutEventAttributes,
-    lftoeaTimeoutType,
     lftoeaScheduledEventId,
+    lftoeaTimeoutType,
     lftoeaStartedEventId,
 
     -- ** MarkerRecordedEventAttributes
     MarkerRecordedEventAttributes (..),
     mkMarkerRecordedEventAttributes,
-    mreaDetails,
     mreaMarkerName,
+    mreaDetails,
     mreaDecisionTaskCompletedEventId,
 
     -- ** PendingTaskCount
@@ -615,8 +615,8 @@ module Network.AWS.SWF
     -- ** RecordMarkerDecisionAttributes
     RecordMarkerDecisionAttributes (..),
     mkRecordMarkerDecisionAttributes,
-    rmdaDetails,
     rmdaMarkerName,
+    rmdaDetails,
 
     -- ** RecordMarkerFailedEventAttributes
     RecordMarkerFailedEventAttributes (..),
@@ -648,10 +648,10 @@ module Network.AWS.SWF
     RequestCancelExternalWorkflowExecutionFailedEventAttributes (..),
     mkRequestCancelExternalWorkflowExecutionFailedEventAttributes,
     rcewefeaControl,
-    rcewefeaRunId,
-    rcewefeaWorkflowId,
     rcewefeaCause,
+    rcewefeaRunId,
     rcewefeaInitiatedEventId,
+    rcewefeaWorkflowId,
     rcewefeaDecisionTaskCompletedEventId,
 
     -- ** RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
@@ -672,6 +672,8 @@ module Network.AWS.SWF
     ScheduleActivityTaskDecisionAttributes (..),
     mkScheduleActivityTaskDecisionAttributes,
     satdaControl,
+    satdaActivityType,
+    satdaActivityId,
     satdaHeartbeatTimeout,
     satdaScheduleToCloseTimeout,
     satdaInput,
@@ -679,8 +681,6 @@ module Network.AWS.SWF
     satdaTaskPriority,
     satdaScheduleToStartTimeout,
     satdaStartToCloseTimeout,
-    satdaActivityType,
-    satdaActivityId,
 
     -- ** ScheduleActivityTaskFailedEventAttributes
     ScheduleActivityTaskFailedEventAttributes (..),
@@ -695,16 +695,16 @@ module Network.AWS.SWF
     mkScheduleLambdaFunctionDecisionAttributes,
     slfdaControl,
     slfdaInput,
-    slfdaStartToCloseTimeout,
-    slfdaId,
     slfdaName,
+    slfdaId,
+    slfdaStartToCloseTimeout,
 
     -- ** ScheduleLambdaFunctionFailedEventAttributes
     ScheduleLambdaFunctionFailedEventAttributes (..),
     mkScheduleLambdaFunctionFailedEventAttributes,
-    slffeaId,
-    slffeaName,
     slffeaCause,
+    slffeaName,
+    slffeaId,
     slffeaDecisionTaskCompletedEventId,
 
     -- ** SignalExternalWorkflowExecutionDecisionAttributes
@@ -720,10 +720,10 @@ module Network.AWS.SWF
     SignalExternalWorkflowExecutionFailedEventAttributes (..),
     mkSignalExternalWorkflowExecutionFailedEventAttributes,
     sewefeaControl,
-    sewefeaRunId,
-    sewefeaWorkflowId,
     sewefeaCause,
+    sewefeaRunId,
     sewefeaInitiatedEventId,
+    sewefeaWorkflowId,
     sewefeaDecisionTaskCompletedEventId,
 
     -- ** SignalExternalWorkflowExecutionInitiatedEventAttributes
@@ -743,12 +743,12 @@ module Network.AWS.SWF
     scwedaTagList,
     scwedaTaskStartToCloseTimeout,
     scwedaLambdaRole,
+    scwedaWorkflowType,
     scwedaInput,
     scwedaExecutionStartToCloseTimeout,
     scwedaTaskList,
     scwedaTaskPriority,
     scwedaChildPolicy,
-    scwedaWorkflowType,
     scwedaWorkflowId,
 
     -- ** StartChildWorkflowExecutionFailedEventAttributes
@@ -757,8 +757,8 @@ module Network.AWS.SWF
     scwefeaControl,
     scwefeaWorkflowType,
     scwefeaCause,
-    scwefeaWorkflowId,
     scwefeaInitiatedEventId,
+    scwefeaWorkflowId,
     scwefeaDecisionTaskCompletedEventId,
 
     -- ** StartChildWorkflowExecutionInitiatedEventAttributes
@@ -768,14 +768,14 @@ module Network.AWS.SWF
     scweieaTagList,
     scweieaTaskStartToCloseTimeout,
     scweieaLambdaRole,
+    scweieaWorkflowType,
     scweieaInput,
     scweieaExecutionStartToCloseTimeout,
-    scweieaTaskPriority,
-    scweieaWorkflowId,
-    scweieaWorkflowType,
     scweieaTaskList,
-    scweieaDecisionTaskCompletedEventId,
+    scweieaTaskPriority,
     scweieaChildPolicy,
+    scweieaWorkflowId,
+    scweieaDecisionTaskCompletedEventId,
 
     -- ** StartLambdaFunctionFailedEventAttributes
     StartLambdaFunctionFailedEventAttributes (..),
@@ -794,8 +794,8 @@ module Network.AWS.SWF
     -- ** StartTimerFailedEventAttributes
     StartTimerFailedEventAttributes (..),
     mkStartTimerFailedEventAttributes,
-    stfeaTimerId,
     stfeaCause,
+    stfeaTimerId,
     stfeaDecisionTaskCompletedEventId,
 
     -- ** TagFilter
@@ -832,8 +832,8 @@ module Network.AWS.SWF
     -- ** WorkflowExecution
     WorkflowExecution (..),
     mkWorkflowExecution,
-    weWorkflowId,
     weRunId,
+    weWorkflowId,
 
     -- ** WorkflowExecutionCancelRequestedEventAttributes
     WorkflowExecutionCancelRequestedEventAttributes (..),
@@ -857,11 +857,11 @@ module Network.AWS.SWF
     -- ** WorkflowExecutionConfiguration
     WorkflowExecutionConfiguration (..),
     mkWorkflowExecutionConfiguration,
-    wecLambdaRole,
-    wecTaskPriority,
     wecTaskStartToCloseTimeout,
+    wecLambdaRole,
     wecExecutionStartToCloseTimeout,
     wecTaskList,
+    wecTaskPriority,
     wecChildPolicy,
 
     -- ** WorkflowExecutionContinuedAsNewEventAttributes
@@ -870,14 +870,14 @@ module Network.AWS.SWF
     wecaneaTagList,
     wecaneaTaskStartToCloseTimeout,
     wecaneaLambdaRole,
+    wecaneaWorkflowType,
     wecaneaInput,
     wecaneaExecutionStartToCloseTimeout,
-    wecaneaTaskPriority,
-    wecaneaDecisionTaskCompletedEventId,
-    wecaneaNewExecutionRunId,
     wecaneaTaskList,
+    wecaneaTaskPriority,
     wecaneaChildPolicy,
-    wecaneaWorkflowType,
+    wecaneaNewExecutionRunId,
+    wecaneaDecisionTaskCompletedEventId,
 
     -- ** WorkflowExecutionCount
     WorkflowExecutionCount (..),
@@ -902,28 +902,28 @@ module Network.AWS.SWF
     mkWorkflowExecutionInfo,
     weiParent,
     weiTagList,
+    weiWorkflowType,
+    weiExecutionStatus,
+    weiExecution,
     weiCloseStatus,
     weiCloseTimestamp,
-    weiCancelRequested,
-    weiExecution,
-    weiWorkflowType,
     weiStartTimestamp,
-    weiExecutionStatus,
+    weiCancelRequested,
 
     -- ** WorkflowExecutionInfos
     WorkflowExecutionInfos (..),
     mkWorkflowExecutionInfos,
-    weiNextPageToken,
     weiExecutionInfos,
+    weiNextPageToken,
 
     -- ** WorkflowExecutionOpenCounts
     WorkflowExecutionOpenCounts (..),
     mkWorkflowExecutionOpenCounts,
-    weocOpenLambdaFunctions,
+    weocOpenChildWorkflowExecutions,
     weocOpenActivityTasks,
+    weocOpenLambdaFunctions,
     weocOpenDecisionTasks,
     weocOpenTimers,
-    weocOpenChildWorkflowExecutions,
 
     -- ** WorkflowExecutionSignaledEventAttributes
     WorkflowExecutionSignaledEventAttributes (..),
@@ -940,22 +940,22 @@ module Network.AWS.SWF
     weseaTagList,
     weseaTaskStartToCloseTimeout,
     weseaLambdaRole,
+    weseaWorkflowType,
     weseaInput,
     weseaExecutionStartToCloseTimeout,
+    weseaTaskList,
     weseaTaskPriority,
+    weseaChildPolicy,
     weseaParentWorkflowExecution,
     weseaContinuedExecutionRunId,
-    weseaChildPolicy,
-    weseaTaskList,
-    weseaWorkflowType,
 
     -- ** WorkflowExecutionTerminatedEventAttributes
     WorkflowExecutionTerminatedEventAttributes (..),
     mkWorkflowExecutionTerminatedEventAttributes,
     weteaCause,
     weteaReason,
-    weteaDetails,
     weteaChildPolicy,
+    weteaDetails,
 
     -- ** WorkflowExecutionTimedOutEventAttributes
     WorkflowExecutionTimedOutEventAttributes (..),
@@ -982,17 +982,17 @@ module Network.AWS.SWF
     -- ** WorkflowTypeFilter
     WorkflowTypeFilter (..),
     mkWorkflowTypeFilter,
-    wtfVersion,
     wtfName,
+    wtfVersion,
 
     -- ** WorkflowTypeInfo
     WorkflowTypeInfo (..),
     mkWorkflowTypeInfo,
-    wtiDeprecationDate,
-    wtiDescription,
-    wtiWorkflowType,
     wtiStatus,
+    wtiWorkflowType,
+    wtiDeprecationDate,
     wtiCreationDate,
+    wtiDescription,
 
     -- * Serialization types
     Lude.Base64 (..),

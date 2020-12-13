@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the request to stop a specific run.
 --
 -- /See:/ 'mkStopRun' smart constructor.
-newtype StopRun = StopRun' {arn :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StopRun = StopRun'
+  { -- | Represents the Amazon Resource Name (ARN) of the Device Farm run to stop.
+    arn :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopRun' with the minimum fields required to make a request.
@@ -101,22 +99,18 @@ instance Lude.ToQuery StopRun where
 --
 -- /See:/ 'mkStopRunResponse' smart constructor.
 data StopRunResponse = StopRunResponse'
-  { run :: Lude.Maybe Run,
+  { -- | The run that was stopped.
+    run :: Lude.Maybe Run,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopRunResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'run' - The run that was stopped.
+-- * 'responseStatus' - The response status code.
 mkStopRunResponse ::
   -- | 'responseStatus'
   Lude.Int ->

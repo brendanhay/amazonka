@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkObjectiveStatusCounters' smart constructor.
 data ObjectiveStatusCounters = ObjectiveStatusCounters'
-  { pending ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of training jobs that are in progress and pending evaluation of their final objective metric.
+    pending :: Lude.Maybe Lude.Natural,
+    -- | The number of training jobs whose final objective metric was evaluated by the hyperparameter tuning job and used in the hyperparameter tuning process.
     succeeded :: Lude.Maybe Lude.Natural,
+    -- | The number of training jobs whose final objective metric was not evaluated and used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.
     failed :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectiveStatusCounters' with the minimum fields required to make a request.
 --
--- * 'failed' - The number of training jobs whose final objective metric was not evaluated and used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.
 -- * 'pending' - The number of training jobs that are in progress and pending evaluation of their final objective metric.
 -- * 'succeeded' - The number of training jobs whose final objective metric was evaluated by the hyperparameter tuning job and used in the hyperparameter tuning process.
+-- * 'failed' - The number of training jobs whose final objective metric was not evaluated and used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.
 mkObjectiveStatusCounters ::
   ObjectiveStatusCounters
 mkObjectiveStatusCounters =

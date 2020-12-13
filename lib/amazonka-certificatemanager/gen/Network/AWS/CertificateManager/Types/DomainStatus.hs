@@ -13,9 +13,9 @@
 module Network.AWS.CertificateManager.Types.DomainStatus
   ( DomainStatus
       ( DomainStatus',
-        Failed,
         PendingValidation,
-        Success
+        Success,
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DomainStatus = DomainStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: DomainStatus
-pattern Failed = DomainStatus' "FAILED"
-
 pattern PendingValidation :: DomainStatus
 pattern PendingValidation = DomainStatus' "PENDING_VALIDATION"
 
 pattern Success :: DomainStatus
 pattern Success = DomainStatus' "SUCCESS"
 
+pattern Failed :: DomainStatus
+pattern Failed = DomainStatus' "FAILED"
+
 {-# COMPLETE
-  Failed,
   PendingValidation,
   Success,
+  Failed,
   DomainStatus'
   #-}

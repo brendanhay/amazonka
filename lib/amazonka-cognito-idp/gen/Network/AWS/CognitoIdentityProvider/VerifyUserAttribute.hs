@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CognitoIdentityProvider.VerifyUserAttribute
 
     -- ** Request lenses
     vuaAccessToken,
-    vuaAttributeName,
     vuaCode,
+    vuaAttributeName,
 
     -- * Destructuring the response
     VerifyUserAttributeResponse (..),
@@ -42,10 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkVerifyUserAttribute' smart constructor.
 data VerifyUserAttribute = VerifyUserAttribute'
-  { accessToken ::
-      Lude.Sensitive Lude.Text,
-    attributeName :: Lude.Text,
-    code :: Lude.Text
+  { -- | Represents the access token of the request to verify user attributes.
+    accessToken :: Lude.Sensitive Lude.Text,
+    -- | The verification code in the request to verify user attributes.
+    code :: Lude.Text,
+    -- | The attribute name in the request to verify user attributes.
+    attributeName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -53,21 +56,21 @@ data VerifyUserAttribute = VerifyUserAttribute'
 -- | Creates a value of 'VerifyUserAttribute' with the minimum fields required to make a request.
 --
 -- * 'accessToken' - Represents the access token of the request to verify user attributes.
--- * 'attributeName' - The attribute name in the request to verify user attributes.
 -- * 'code' - The verification code in the request to verify user attributes.
+-- * 'attributeName' - The attribute name in the request to verify user attributes.
 mkVerifyUserAttribute ::
   -- | 'accessToken'
   Lude.Sensitive Lude.Text ->
-  -- | 'attributeName'
-  Lude.Text ->
   -- | 'code'
   Lude.Text ->
+  -- | 'attributeName'
+  Lude.Text ->
   VerifyUserAttribute
-mkVerifyUserAttribute pAccessToken_ pAttributeName_ pCode_ =
+mkVerifyUserAttribute pAccessToken_ pCode_ pAttributeName_ =
   VerifyUserAttribute'
     { accessToken = pAccessToken_,
-      attributeName = pAttributeName_,
-      code = pCode_
+      code = pCode_,
+      attributeName = pAttributeName_
     }
 
 -- | Represents the access token of the request to verify user attributes.
@@ -77,19 +80,19 @@ vuaAccessToken :: Lens.Lens' VerifyUserAttribute (Lude.Sensitive Lude.Text)
 vuaAccessToken = Lens.lens (accessToken :: VerifyUserAttribute -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: VerifyUserAttribute)
 {-# DEPRECATED vuaAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
--- | The attribute name in the request to verify user attributes.
---
--- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vuaAttributeName :: Lens.Lens' VerifyUserAttribute Lude.Text
-vuaAttributeName = Lens.lens (attributeName :: VerifyUserAttribute -> Lude.Text) (\s a -> s {attributeName = a} :: VerifyUserAttribute)
-{-# DEPRECATED vuaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
-
 -- | The verification code in the request to verify user attributes.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 vuaCode :: Lens.Lens' VerifyUserAttribute Lude.Text
 vuaCode = Lens.lens (code :: VerifyUserAttribute -> Lude.Text) (\s a -> s {code = a} :: VerifyUserAttribute)
 {-# DEPRECATED vuaCode "Use generic-lens or generic-optics with 'code' instead." #-}
+
+-- | The attribute name in the request to verify user attributes.
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vuaAttributeName :: Lens.Lens' VerifyUserAttribute Lude.Text
+vuaAttributeName = Lens.lens (attributeName :: VerifyUserAttribute -> Lude.Text) (\s a -> s {attributeName = a} :: VerifyUserAttribute)
+{-# DEPRECATED vuaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 instance Lude.AWSRequest VerifyUserAttribute where
   type Rs VerifyUserAttribute = VerifyUserAttributeResponse
@@ -119,8 +122,8 @@ instance Lude.ToJSON VerifyUserAttribute where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("AccessToken" Lude..= accessToken),
-            Lude.Just ("AttributeName" Lude..= attributeName),
-            Lude.Just ("Code" Lude..= code)
+            Lude.Just ("Code" Lude..= code),
+            Lude.Just ("AttributeName" Lude..= attributeName)
           ]
       )
 
@@ -134,16 +137,10 @@ instance Lude.ToQuery VerifyUserAttribute where
 --
 -- /See:/ 'mkVerifyUserAttributeResponse' smart constructor.
 newtype VerifyUserAttributeResponse = VerifyUserAttributeResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerifyUserAttributeResponse' with the minimum fields required to make a request.

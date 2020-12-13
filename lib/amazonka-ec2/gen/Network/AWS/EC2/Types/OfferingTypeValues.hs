@@ -13,12 +13,12 @@
 module Network.AWS.EC2.Types.OfferingTypeValues
   ( OfferingTypeValues
       ( OfferingTypeValues',
-        AllUpfront,
         HeavyUtilization,
-        LightUtilization,
         MediumUtilization,
+        LightUtilization,
         NoUpfront,
-        PartialUpfront
+        PartialUpfront,
+        AllUpfront
       ),
   )
 where
@@ -49,17 +49,14 @@ newtype OfferingTypeValues = OfferingTypeValues' Lude.Text
       Lude.ToHeader
     )
 
-pattern AllUpfront :: OfferingTypeValues
-pattern AllUpfront = OfferingTypeValues' "All Upfront"
-
 pattern HeavyUtilization :: OfferingTypeValues
 pattern HeavyUtilization = OfferingTypeValues' "Heavy Utilization"
 
-pattern LightUtilization :: OfferingTypeValues
-pattern LightUtilization = OfferingTypeValues' "Light Utilization"
-
 pattern MediumUtilization :: OfferingTypeValues
 pattern MediumUtilization = OfferingTypeValues' "Medium Utilization"
+
+pattern LightUtilization :: OfferingTypeValues
+pattern LightUtilization = OfferingTypeValues' "Light Utilization"
 
 pattern NoUpfront :: OfferingTypeValues
 pattern NoUpfront = OfferingTypeValues' "No Upfront"
@@ -67,12 +64,15 @@ pattern NoUpfront = OfferingTypeValues' "No Upfront"
 pattern PartialUpfront :: OfferingTypeValues
 pattern PartialUpfront = OfferingTypeValues' "Partial Upfront"
 
+pattern AllUpfront :: OfferingTypeValues
+pattern AllUpfront = OfferingTypeValues' "All Upfront"
+
 {-# COMPLETE
-  AllUpfront,
   HeavyUtilization,
-  LightUtilization,
   MediumUtilization,
+  LightUtilization,
   NoUpfront,
   PartialUpfront,
+  AllUpfront,
   OfferingTypeValues'
   #-}

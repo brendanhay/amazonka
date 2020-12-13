@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,10 +28,10 @@ module Network.AWS.Glacier.UploadArchive
 
     -- ** Request lenses
     uaChecksum,
-    uaArchiveDescription,
     uaVaultName,
-    uaAccountId,
     uaBody,
+    uaArchiveDescription,
+    uaAccountId,
 
     -- * Destructuring the response
     ArchiveCreationOutput (..),
@@ -53,37 +54,41 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUploadArchive' smart constructor.
 data UploadArchive = UploadArchive'
-  { checksum ::
-      Lude.Maybe Lude.Text,
-    archiveDescription :: Lude.Maybe Lude.Text,
+  { -- | The SHA256 tree hash of the data being uploaded.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The name of the vault.
     vaultName :: Lude.Text,
-    accountId :: Lude.Text,
-    body :: Lude.HashedBody
+    -- | The data to upload.
+    body :: Lude.HashedBody,
+    -- | The optional description of the archive you are uploading.
+    archiveDescription :: Lude.Maybe Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
   deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'UploadArchive' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'archiveDescription' - The optional description of the archive you are uploading.
--- * 'body' - The data to upload.
 -- * 'checksum' - The SHA256 tree hash of the data being uploaded.
 -- * 'vaultName' - The name of the vault.
+-- * 'body' - The data to upload.
+-- * 'archiveDescription' - The optional description of the archive you are uploading.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 mkUploadArchive ::
   -- | 'vaultName'
   Lude.Text ->
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'body'
   Lude.HashedBody ->
+  -- | 'accountId'
+  Lude.Text ->
   UploadArchive
-mkUploadArchive pVaultName_ pAccountId_ pBody_ =
+mkUploadArchive pVaultName_ pBody_ pAccountId_ =
   UploadArchive'
     { checksum = Lude.Nothing,
-      archiveDescription = Lude.Nothing,
       vaultName = pVaultName_,
-      accountId = pAccountId_,
-      body = pBody_
+      body = pBody_,
+      archiveDescription = Lude.Nothing,
+      accountId = pAccountId_
     }
 
 -- | The SHA256 tree hash of the data being uploaded.
@@ -93,13 +98,6 @@ uaChecksum :: Lens.Lens' UploadArchive (Lude.Maybe Lude.Text)
 uaChecksum = Lens.lens (checksum :: UploadArchive -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: UploadArchive)
 {-# DEPRECATED uaChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
--- | The optional description of the archive you are uploading.
---
--- /Note:/ Consider using 'archiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaArchiveDescription :: Lens.Lens' UploadArchive (Lude.Maybe Lude.Text)
-uaArchiveDescription = Lens.lens (archiveDescription :: UploadArchive -> Lude.Maybe Lude.Text) (\s a -> s {archiveDescription = a} :: UploadArchive)
-{-# DEPRECATED uaArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
-
 -- | The name of the vault.
 --
 -- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -107,19 +105,26 @@ uaVaultName :: Lens.Lens' UploadArchive Lude.Text
 uaVaultName = Lens.lens (vaultName :: UploadArchive -> Lude.Text) (\s a -> s {vaultName = a} :: UploadArchive)
 {-# DEPRECATED uaVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaAccountId :: Lens.Lens' UploadArchive Lude.Text
-uaAccountId = Lens.lens (accountId :: UploadArchive -> Lude.Text) (\s a -> s {accountId = a} :: UploadArchive)
-{-# DEPRECATED uaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
 -- | The data to upload.
 --
 -- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uaBody :: Lens.Lens' UploadArchive Lude.HashedBody
 uaBody = Lens.lens (body :: UploadArchive -> Lude.HashedBody) (\s a -> s {body = a} :: UploadArchive)
 {-# DEPRECATED uaBody "Use generic-lens or generic-optics with 'body' instead." #-}
+
+-- | The optional description of the archive you are uploading.
+--
+-- /Note:/ Consider using 'archiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaArchiveDescription :: Lens.Lens' UploadArchive (Lude.Maybe Lude.Text)
+uaArchiveDescription = Lens.lens (archiveDescription :: UploadArchive -> Lude.Maybe Lude.Text) (\s a -> s {archiveDescription = a} :: UploadArchive)
+{-# DEPRECATED uaArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAccountId :: Lens.Lens' UploadArchive Lude.Text
+uaAccountId = Lens.lens (accountId :: UploadArchive -> Lude.Text) (\s a -> s {accountId = a} :: UploadArchive)
+{-# DEPRECATED uaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Lude.AWSRequest UploadArchive where
   type Rs UploadArchive = ArchiveCreationOutput

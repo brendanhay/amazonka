@@ -13,11 +13,11 @@
 module Network.AWS.Lightsail.Types.OperationStatus
   ( OperationStatus
       ( OperationStatus',
-        OSCompleted,
-        OSFailed,
-        OSNotStarted,
-        OSStarted,
-        OSSucceeded
+        NotStarted,
+        Started,
+        Failed,
+        Completed,
+        Succeeded
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype OperationStatus = OperationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern OSCompleted :: OperationStatus
-pattern OSCompleted = OperationStatus' "Completed"
+pattern NotStarted :: OperationStatus
+pattern NotStarted = OperationStatus' "NotStarted"
 
-pattern OSFailed :: OperationStatus
-pattern OSFailed = OperationStatus' "Failed"
+pattern Started :: OperationStatus
+pattern Started = OperationStatus' "Started"
 
-pattern OSNotStarted :: OperationStatus
-pattern OSNotStarted = OperationStatus' "NotStarted"
+pattern Failed :: OperationStatus
+pattern Failed = OperationStatus' "Failed"
 
-pattern OSStarted :: OperationStatus
-pattern OSStarted = OperationStatus' "Started"
+pattern Completed :: OperationStatus
+pattern Completed = OperationStatus' "Completed"
 
-pattern OSSucceeded :: OperationStatus
-pattern OSSucceeded = OperationStatus' "Succeeded"
+pattern Succeeded :: OperationStatus
+pattern Succeeded = OperationStatus' "Succeeded"
 
 {-# COMPLETE
-  OSCompleted,
-  OSFailed,
-  OSNotStarted,
-  OSStarted,
-  OSSucceeded,
+  NotStarted,
+  Started,
+  Failed,
+  Completed,
+  Succeeded,
   OperationStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,13 +37,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetContainerAPIMetadata' smart constructor.
 data GetContainerAPIMetadata = GetContainerAPIMetadata'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerAPIMetadata' with the minimum fields required to make a request.
@@ -83,21 +78,12 @@ instance Lude.ToQuery GetContainerAPIMetadata where
 
 -- | /See:/ 'mkGetContainerAPIMetadataResponse' smart constructor.
 data GetContainerAPIMetadataResponse = GetContainerAPIMetadataResponse'
-  { metadata ::
-      Lude.Maybe
-        [ Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ],
+  { -- | Metadata about Lightsail containers, such as the current version of the Lightsail Control (lightsailctl) plugin.
+    metadata :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerAPIMetadataResponse' with the minimum fields required to make a request.

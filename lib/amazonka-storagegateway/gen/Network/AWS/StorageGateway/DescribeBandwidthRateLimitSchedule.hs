@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,21 +45,14 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkDescribeBandwidthRateLimitSchedule' smart constructor.
 newtype DescribeBandwidthRateLimitSchedule = DescribeBandwidthRateLimitSchedule'
-  { gatewayARN ::
-      Lude.Text
+  { gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBandwidthRateLimitSchedule' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkDescribeBandwidthRateLimitSchedule ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -113,28 +107,19 @@ instance Lude.ToQuery DescribeBandwidthRateLimitSchedule where
 
 -- | /See:/ 'mkDescribeBandwidthRateLimitScheduleResponse' smart constructor.
 data DescribeBandwidthRateLimitScheduleResponse = DescribeBandwidthRateLimitScheduleResponse'
-  { gatewayARN ::
-      Lude.Maybe
-        Lude.Text,
-    bandwidthRateLimitIntervals ::
-      Lude.Maybe
-        [BandwidthRateLimitInterval],
-    responseStatus ::
-      Lude.Int
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | An array that contains the bandwidth rate limit intervals for a tape or volume gateway.
+    bandwidthRateLimitIntervals :: Lude.Maybe [BandwidthRateLimitInterval],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBandwidthRateLimitScheduleResponse' with the minimum fields required to make a request.
 --
+-- * 'gatewayARN' -
 -- * 'bandwidthRateLimitIntervals' - An array that contains the bandwidth rate limit intervals for a tape or volume gateway.
--- * 'gatewayARN' - Undocumented field.
 -- * 'responseStatus' - The response status code.
 mkDescribeBandwidthRateLimitScheduleResponse ::
   -- | 'responseStatus'

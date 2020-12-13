@@ -34,38 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceNetworkInterfaceAttachment' smart constructor.
 data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
-  { status ::
-      Lude.Maybe
-        AttachmentStatus,
-    deleteOnTermination ::
-      Lude.Maybe Lude.Bool,
-    attachmentId ::
-      Lude.Maybe Lude.Text,
-    networkCardIndex ::
-      Lude.Maybe Lude.Int,
-    attachTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    deviceIndex ::
-      Lude.Maybe Lude.Int
+  { -- | The attachment state.
+    status :: Lude.Maybe AttachmentStatus,
+    -- | Indicates whether the network interface is deleted when the instance is terminated.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The ID of the network interface attachment.
+    attachmentId :: Lude.Maybe Lude.Text,
+    -- | The index of the network card.
+    networkCardIndex :: Lude.Maybe Lude.Int,
+    -- | The time stamp when the attachment initiated.
+    attachTime :: Lude.Maybe Lude.DateTime,
+    -- | The index of the device on the instance for the network interface attachment.
+    deviceIndex :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceNetworkInterfaceAttachment' with the minimum fields required to make a request.
 --
--- * 'attachTime' - The time stamp when the attachment initiated.
--- * 'attachmentId' - The ID of the network interface attachment.
--- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
--- * 'deviceIndex' - The index of the device on the instance for the network interface attachment.
--- * 'networkCardIndex' - The index of the network card.
 -- * 'status' - The attachment state.
+-- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
+-- * 'attachmentId' - The ID of the network interface attachment.
+-- * 'networkCardIndex' - The index of the network card.
+-- * 'attachTime' - The time stamp when the attachment initiated.
+-- * 'deviceIndex' - The index of the device on the instance for the network interface attachment.
 mkInstanceNetworkInterfaceAttachment ::
   InstanceNetworkInterfaceAttachment
 mkInstanceNetworkInterfaceAttachment =

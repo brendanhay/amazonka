@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInferenceAcceleratorOverride' smart constructor.
 data InferenceAcceleratorOverride = InferenceAcceleratorOverride'
-  { deviceName ::
-      Lude.Maybe Lude.Text,
-    deviceType ::
-      Lude.Maybe Lude.Text
+  { -- | The Elastic Inference accelerator device name to override for the task. This parameter must match a @deviceName@ specified in the task definition.
+    deviceName :: Lude.Maybe Lude.Text,
+    -- | The Elastic Inference accelerator type to use.
+    deviceType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InferenceAcceleratorOverride' with the minimum fields required to make a request.

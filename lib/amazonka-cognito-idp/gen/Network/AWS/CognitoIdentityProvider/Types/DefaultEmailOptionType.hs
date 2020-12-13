@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.DefaultEmailOptionType
   ( DefaultEmailOptionType
       ( DefaultEmailOptionType',
-        ConfirmWithCode,
-        ConfirmWithLink
+        ConfirmWithLink,
+        ConfirmWithCode
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DefaultEmailOptionType = DefaultEmailOptionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ConfirmWithCode :: DefaultEmailOptionType
-pattern ConfirmWithCode = DefaultEmailOptionType' "CONFIRM_WITH_CODE"
-
 pattern ConfirmWithLink :: DefaultEmailOptionType
 pattern ConfirmWithLink = DefaultEmailOptionType' "CONFIRM_WITH_LINK"
 
+pattern ConfirmWithCode :: DefaultEmailOptionType
+pattern ConfirmWithCode = DefaultEmailOptionType' "CONFIRM_WITH_CODE"
+
 {-# COMPLETE
-  ConfirmWithCode,
   ConfirmWithLink,
+  ConfirmWithCode,
   DefaultEmailOptionType'
   #-}

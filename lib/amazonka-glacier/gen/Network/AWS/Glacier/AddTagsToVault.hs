@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Glacier.AddTagsToVault
     mkAddTagsToVault,
 
     -- ** Request lenses
-    attvTags,
-    attvAccountId,
     attvVaultName,
+    attvAccountId,
+    attvTags,
 
     -- * Destructuring the response
     AddTagsToVaultResponse (..),
@@ -39,44 +40,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAddTagsToVault' smart constructor.
 data AddTagsToVault = AddTagsToVault'
-  { tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
     accountId :: Lude.Text,
-    vaultName :: Lude.Text
+    -- | The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToVault' with the minimum fields required to make a request.
 --
+-- * 'vaultName' - The name of the vault.
 -- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'tags' - The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
--- * 'vaultName' - The name of the vault.
 mkAddTagsToVault ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   AddTagsToVault
-mkAddTagsToVault pAccountId_ pVaultName_ =
+mkAddTagsToVault pVaultName_ pAccountId_ =
   AddTagsToVault'
-    { tags = Lude.Nothing,
+    { vaultName = pVaultName_,
       accountId = pAccountId_,
-      vaultName = pVaultName_
+      tags = Lude.Nothing
     }
 
--- | The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
+-- | The name of the vault.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attvTags :: Lens.Lens' AddTagsToVault (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-attvTags = Lens.lens (tags :: AddTagsToVault -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: AddTagsToVault)
-{-# DEPRECATED attvTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attvVaultName :: Lens.Lens' AddTagsToVault Lude.Text
+attvVaultName = Lens.lens (vaultName :: AddTagsToVault -> Lude.Text) (\s a -> s {vaultName = a} :: AddTagsToVault)
+{-# DEPRECATED attvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
@@ -85,12 +82,12 @@ attvAccountId :: Lens.Lens' AddTagsToVault Lude.Text
 attvAccountId = Lens.lens (accountId :: AddTagsToVault -> Lude.Text) (\s a -> s {accountId = a} :: AddTagsToVault)
 {-# DEPRECATED attvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | The name of the vault.
+-- | The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
 --
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attvVaultName :: Lens.Lens' AddTagsToVault Lude.Text
-attvVaultName = Lens.lens (vaultName :: AddTagsToVault -> Lude.Text) (\s a -> s {vaultName = a} :: AddTagsToVault)
-{-# DEPRECATED attvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attvTags :: Lens.Lens' AddTagsToVault (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+attvTags = Lens.lens (tags :: AddTagsToVault -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: AddTagsToVault)
+{-# DEPRECATED attvTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest AddTagsToVault where
   type Rs AddTagsToVault = AddTagsToVaultResponse
@@ -119,13 +116,7 @@ instance Lude.ToQuery AddTagsToVault where
 
 -- | /See:/ 'mkAddTagsToVaultResponse' smart constructor.
 data AddTagsToVaultResponse = AddTagsToVaultResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToVaultResponse' with the minimum fields required to make a request.

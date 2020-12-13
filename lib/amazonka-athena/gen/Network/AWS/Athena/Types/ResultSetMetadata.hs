@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResultSetMetadata' smart constructor.
 newtype ResultSetMetadata = ResultSetMetadata'
-  { columnInfo ::
-      Lude.Maybe [ColumnInfo]
+  { -- | Information about the columns returned in a query result metadata.
+    columnInfo :: Lude.Maybe [ColumnInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResultSetMetadata' with the minimum fields required to make a request.

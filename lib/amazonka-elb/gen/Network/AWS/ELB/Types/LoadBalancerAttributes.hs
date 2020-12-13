@@ -38,40 +38,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancerAttributes' smart constructor.
 data LoadBalancerAttributes = LoadBalancerAttributes'
-  { crossZoneLoadBalancing ::
-      Lude.Maybe CrossZoneLoadBalancing,
+  { -- | If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
+    crossZoneLoadBalancing :: Lude.Maybe CrossZoneLoadBalancing,
+    -- | If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
     accessLog :: Lude.Maybe AccessLog,
-    additionalAttributes ::
-      Lude.Maybe [AdditionalAttribute],
-    connectionSettings ::
-      Lude.Maybe ConnectionSettings,
-    connectionDraining ::
-      Lude.Maybe ConnectionDraining
+    -- | Any additional attributes.
+    additionalAttributes :: Lude.Maybe [AdditionalAttribute],
+    -- | If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
+    --
+    -- By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
+    connectionSettings :: Lude.Maybe ConnectionSettings,
+    -- | If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
+    connectionDraining :: Lude.Maybe ConnectionDraining
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerAttributes' with the minimum fields required to make a request.
 --
+-- * 'crossZoneLoadBalancing' - If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
+--
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
 -- * 'accessLog' - If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.
 --
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
 -- * 'additionalAttributes' - Any additional attributes.
--- * 'connectionDraining' - If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
---
--- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
 -- * 'connectionSettings' - If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
 --
 -- By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
--- * 'crossZoneLoadBalancing' - If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
+-- * 'connectionDraining' - If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
 --
--- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
 mkLoadBalancerAttributes ::
   LoadBalancerAttributes
 mkLoadBalancerAttributes =

@@ -13,9 +13,9 @@
 module Network.AWS.Config.Types.ResourceCountGroupKey
   ( ResourceCountGroupKey
       ( ResourceCountGroupKey',
-        RCGKAWSRegion,
+        RCGKResourceType,
         RCGKAccountId,
-        RCGKResourceType
+        RCGKAWSRegion
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ResourceCountGroupKey = ResourceCountGroupKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern RCGKAWSRegion :: ResourceCountGroupKey
-pattern RCGKAWSRegion = ResourceCountGroupKey' "AWS_REGION"
+pattern RCGKResourceType :: ResourceCountGroupKey
+pattern RCGKResourceType = ResourceCountGroupKey' "RESOURCE_TYPE"
 
 pattern RCGKAccountId :: ResourceCountGroupKey
 pattern RCGKAccountId = ResourceCountGroupKey' "ACCOUNT_ID"
 
-pattern RCGKResourceType :: ResourceCountGroupKey
-pattern RCGKResourceType = ResourceCountGroupKey' "RESOURCE_TYPE"
+pattern RCGKAWSRegion :: ResourceCountGroupKey
+pattern RCGKAWSRegion = ResourceCountGroupKey' "AWS_REGION"
 
 {-# COMPLETE
-  RCGKAWSRegion,
-  RCGKAccountId,
   RCGKResourceType,
+  RCGKAccountId,
+  RCGKAWSRegion,
   ResourceCountGroupKey'
   #-}

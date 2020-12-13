@@ -31,34 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticInferenceAcceleratorAssociation' smart constructor.
 data ElasticInferenceAcceleratorAssociation = ElasticInferenceAcceleratorAssociation'
-  { elasticInferenceAcceleratorAssociationState ::
-      Lude.Maybe
-        Lude.Text,
-    elasticInferenceAcceleratorAssociationTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    elasticInferenceAcceleratorARN ::
-      Lude.Maybe
-        Lude.Text,
-    elasticInferenceAcceleratorAssociationId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The state of the elastic inference accelerator.
+    elasticInferenceAcceleratorAssociationState :: Lude.Maybe Lude.Text,
+    -- | The time at which the elastic inference accelerator is associated with an instance.
+    elasticInferenceAcceleratorAssociationTime :: Lude.Maybe Lude.DateTime,
+    -- | The Amazon Resource Name (ARN) of the elastic inference accelerator.
+    elasticInferenceAcceleratorARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the association.
+    elasticInferenceAcceleratorAssociationId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticInferenceAcceleratorAssociation' with the minimum fields required to make a request.
 --
--- * 'elasticInferenceAcceleratorARN' - The Amazon Resource Name (ARN) of the elastic inference accelerator.
--- * 'elasticInferenceAcceleratorAssociationId' - The ID of the association.
 -- * 'elasticInferenceAcceleratorAssociationState' - The state of the elastic inference accelerator.
 -- * 'elasticInferenceAcceleratorAssociationTime' - The time at which the elastic inference accelerator is associated with an instance.
+-- * 'elasticInferenceAcceleratorARN' - The Amazon Resource Name (ARN) of the elastic inference accelerator.
+-- * 'elasticInferenceAcceleratorAssociationId' - The ID of the association.
 mkElasticInferenceAcceleratorAssociation ::
   ElasticInferenceAcceleratorAssociation
 mkElasticInferenceAcceleratorAssociation =

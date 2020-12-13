@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ServiceCatalog.CreateTagOption
     mkCreateTagOption,
 
     -- ** Request lenses
-    ctoKey,
     ctoValue,
+    ctoKey,
 
     -- * Destructuring the response
     CreateTagOptionResponse (..),
@@ -40,37 +41,26 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkCreateTagOption' smart constructor.
 data CreateTagOption = CreateTagOption'
-  { key :: Lude.Text,
-    value :: Lude.Text
+  { -- | The TagOption value.
+    value :: Lude.Text,
+    -- | The TagOption key.
+    key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTagOption' with the minimum fields required to make a request.
 --
--- * 'key' - The TagOption key.
 -- * 'value' - The TagOption value.
+-- * 'key' - The TagOption key.
 mkCreateTagOption ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   CreateTagOption
-mkCreateTagOption pKey_ pValue_ =
-  CreateTagOption' {key = pKey_, value = pValue_}
-
--- | The TagOption key.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctoKey :: Lens.Lens' CreateTagOption Lude.Text
-ctoKey = Lens.lens (key :: CreateTagOption -> Lude.Text) (\s a -> s {key = a} :: CreateTagOption)
-{-# DEPRECATED ctoKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkCreateTagOption pValue_ pKey_ =
+  CreateTagOption' {value = pValue_, key = pKey_}
 
 -- | The TagOption value.
 --
@@ -78,6 +68,13 @@ ctoKey = Lens.lens (key :: CreateTagOption -> Lude.Text) (\s a -> s {key = a} ::
 ctoValue :: Lens.Lens' CreateTagOption Lude.Text
 ctoValue = Lens.lens (value :: CreateTagOption -> Lude.Text) (\s a -> s {value = a} :: CreateTagOption)
 {-# DEPRECATED ctoValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+-- | The TagOption key.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctoKey :: Lens.Lens' CreateTagOption Lude.Text
+ctoKey = Lens.lens (key :: CreateTagOption -> Lude.Text) (\s a -> s {key = a} :: CreateTagOption)
+{-# DEPRECATED ctoKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 instance Lude.AWSRequest CreateTagOption where
   type Rs CreateTagOption = CreateTagOptionResponse
@@ -105,7 +102,7 @@ instance Lude.ToJSON CreateTagOption where
   toJSON CreateTagOption' {..} =
     Lude.object
       ( Lude.catMaybes
-          [Lude.Just ("Key" Lude..= key), Lude.Just ("Value" Lude..= value)]
+          [Lude.Just ("Value" Lude..= value), Lude.Just ("Key" Lude..= key)]
       )
 
 instance Lude.ToPath CreateTagOption where
@@ -116,23 +113,18 @@ instance Lude.ToQuery CreateTagOption where
 
 -- | /See:/ 'mkCreateTagOptionResponse' smart constructor.
 data CreateTagOptionResponse = CreateTagOptionResponse'
-  { tagOptionDetail ::
-      Lude.Maybe TagOptionDetail,
+  { -- | Information about the TagOption.
+    tagOptionDetail :: Lude.Maybe TagOptionDetail,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTagOptionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tagOptionDetail' - Information about the TagOption.
+-- * 'responseStatus' - The response status code.
 mkCreateTagOptionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

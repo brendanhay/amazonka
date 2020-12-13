@@ -13,8 +13,8 @@
 module Network.AWS.GameLift.Types.GameServerProtectionPolicy
   ( GameServerProtectionPolicy
       ( GameServerProtectionPolicy',
-        FullProtection,
-        NoProtection
+        GSPPNoProtection,
+        GSPPFullProtection
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype GameServerProtectionPolicy = GameServerProtectionPolicy' Lude.Text
       Lude.ToHeader
     )
 
-pattern FullProtection :: GameServerProtectionPolicy
-pattern FullProtection = GameServerProtectionPolicy' "FULL_PROTECTION"
+pattern GSPPNoProtection :: GameServerProtectionPolicy
+pattern GSPPNoProtection = GameServerProtectionPolicy' "NO_PROTECTION"
 
-pattern NoProtection :: GameServerProtectionPolicy
-pattern NoProtection = GameServerProtectionPolicy' "NO_PROTECTION"
+pattern GSPPFullProtection :: GameServerProtectionPolicy
+pattern GSPPFullProtection = GameServerProtectionPolicy' "FULL_PROTECTION"
 
 {-# COMPLETE
-  FullProtection,
-  NoProtection,
+  GSPPNoProtection,
+  GSPPFullProtection,
   GameServerProtectionPolicy'
   #-}

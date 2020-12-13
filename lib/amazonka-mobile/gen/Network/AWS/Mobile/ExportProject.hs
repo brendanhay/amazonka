@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,14 +43,11 @@ import qualified Network.AWS.Response as Res
 -- | Request structure used in requests to export project configuration details.
 --
 -- /See:/ 'mkExportProject' smart constructor.
-newtype ExportProject = ExportProject' {projectId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ExportProject = ExportProject'
+  { -- | Unique project identifier.
+    projectId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportProject' with the minimum fields required to make a request.
@@ -105,27 +103,24 @@ instance Lude.ToQuery ExportProject where
 --
 -- /See:/ 'mkExportProjectResponse' smart constructor.
 data ExportProjectResponse = ExportProjectResponse'
-  { shareURL ::
-      Lude.Maybe Lude.Text,
+  { -- | URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again.
+    shareURL :: Lude.Maybe Lude.Text,
+    -- | URL which can be used to download the exported project configuation file(s).
     downloadURL :: Lude.Maybe Lude.Text,
+    -- | Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL.
     snapshotId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportProjectResponse' with the minimum fields required to make a request.
 --
--- * 'downloadURL' - URL which can be used to download the exported project configuation file(s).
--- * 'responseStatus' - The response status code.
 -- * 'shareURL' - URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again.
+-- * 'downloadURL' - URL which can be used to download the exported project configuation file(s).
 -- * 'snapshotId' - Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL.
+-- * 'responseStatus' - The response status code.
 mkExportProjectResponse ::
   -- | 'responseStatus'
   Lude.Int ->

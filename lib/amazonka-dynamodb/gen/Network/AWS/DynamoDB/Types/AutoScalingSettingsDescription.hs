@@ -33,34 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoScalingSettingsDescription' smart constructor.
 data AutoScalingSettingsDescription = AutoScalingSettingsDescription'
-  { autoScalingDisabled ::
-      Lude.Maybe Lude.Bool,
-    minimumUnits ::
-      Lude.Maybe Lude.Natural,
-    maximumUnits ::
-      Lude.Maybe Lude.Natural,
-    scalingPolicies ::
-      Lude.Maybe
-        [AutoScalingPolicyDescription],
-    autoScalingRoleARN ::
-      Lude.Maybe Lude.Text
+  { -- | Disabled auto scaling for this global table or global secondary index.
+    autoScalingDisabled :: Lude.Maybe Lude.Bool,
+    -- | The minimum capacity units that a global table or global secondary index should be scaled down to.
+    minimumUnits :: Lude.Maybe Lude.Natural,
+    -- | The maximum capacity units that a global table or global secondary index should be scaled up to.
+    maximumUnits :: Lude.Maybe Lude.Natural,
+    -- | Information about the scaling policies.
+    scalingPolicies :: Lude.Maybe [AutoScalingPolicyDescription],
+    -- | Role ARN used for configuring the auto scaling policy.
+    autoScalingRoleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingSettingsDescription' with the minimum fields required to make a request.
 --
 -- * 'autoScalingDisabled' - Disabled auto scaling for this global table or global secondary index.
--- * 'autoScalingRoleARN' - Role ARN used for configuring the auto scaling policy.
--- * 'maximumUnits' - The maximum capacity units that a global table or global secondary index should be scaled up to.
 -- * 'minimumUnits' - The minimum capacity units that a global table or global secondary index should be scaled down to.
+-- * 'maximumUnits' - The maximum capacity units that a global table or global secondary index should be scaled up to.
 -- * 'scalingPolicies' - Information about the scaling policies.
+-- * 'autoScalingRoleARN' - Role ARN used for configuring the auto scaling policy.
 mkAutoScalingSettingsDescription ::
   AutoScalingSettingsDescription
 mkAutoScalingSettingsDescription =

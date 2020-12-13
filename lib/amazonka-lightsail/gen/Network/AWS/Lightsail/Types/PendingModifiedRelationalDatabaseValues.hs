@@ -30,30 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPendingModifiedRelationalDatabaseValues' smart constructor.
 data PendingModifiedRelationalDatabaseValues = PendingModifiedRelationalDatabaseValues'
-  { engineVersion ::
-      Lude.Maybe
-        Lude.Text,
-    masterUserPassword ::
-      Lude.Maybe
-        Lude.Text,
-    backupRetentionEnabled ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | The database engine version.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The password for the master user of the database.
+    masterUserPassword :: Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating whether automated backup retention is enabled.
+    backupRetentionEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingModifiedRelationalDatabaseValues' with the minimum fields required to make a request.
 --
--- * 'backupRetentionEnabled' - A Boolean value indicating whether automated backup retention is enabled.
 -- * 'engineVersion' - The database engine version.
 -- * 'masterUserPassword' - The password for the master user of the database.
+-- * 'backupRetentionEnabled' - A Boolean value indicating whether automated backup retention is enabled.
 mkPendingModifiedRelationalDatabaseValues ::
   PendingModifiedRelationalDatabaseValues
 mkPendingModifiedRelationalDatabaseValues =

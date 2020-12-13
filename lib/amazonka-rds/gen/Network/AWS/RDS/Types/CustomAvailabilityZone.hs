@@ -34,26 +34,28 @@ import Network.AWS.RDS.Types.VPNDetails
 --
 -- /See:/ 'mkCustomAvailabilityZone' smart constructor.
 data CustomAvailabilityZone = CustomAvailabilityZone'
-  { vpnDetails ::
-      Lude.Maybe VPNDetails,
-    customAvailabilityZoneName ::
-      Lude.Maybe Lude.Text,
-    customAvailabilityZoneId ::
-      Lude.Maybe Lude.Text,
-    customAvailabilityZoneStatus ::
-      Lude.Maybe Lude.Text
+  { -- | Information about the virtual private network (VPN) between the VMware vSphere cluster and the AWS website.
+    vpnDetails :: Lude.Maybe VPNDetails,
+    -- | The name of the custom AZ.
+    customAvailabilityZoneName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the custom AZ.
+    --
+    -- Amazon RDS generates a unique identifier when a custom AZ is created.
+    customAvailabilityZoneId :: Lude.Maybe Lude.Text,
+    -- | The status of the custom AZ.
+    customAvailabilityZoneStatus :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomAvailabilityZone' with the minimum fields required to make a request.
 --
+-- * 'vpnDetails' - Information about the virtual private network (VPN) between the VMware vSphere cluster and the AWS website.
+-- * 'customAvailabilityZoneName' - The name of the custom AZ.
 -- * 'customAvailabilityZoneId' - The identifier of the custom AZ.
 --
 -- Amazon RDS generates a unique identifier when a custom AZ is created.
--- * 'customAvailabilityZoneName' - The name of the custom AZ.
 -- * 'customAvailabilityZoneStatus' - The status of the custom AZ.
--- * 'vpnDetails' - Information about the virtual private network (VPN) between the VMware vSphere cluster and the AWS website.
 mkCustomAvailabilityZone ::
   CustomAvailabilityZone
 mkCustomAvailabilityZone =

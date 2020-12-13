@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,52 +56,51 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListNotebookInstances' smart constructor.
 data ListNotebookInstances = ListNotebookInstances'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
-    defaultCodeRepositoryContains ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTimeBefore ::
-      Lude.Maybe Lude.Timestamp,
-    notebookInstanceLifecycleConfigNameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A string in the name or URL of a Git repository associated with this notebook instance. This filter returns only notebook instances associated with a git repository with a name that contains the specified string.
+    defaultCodeRepositoryContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only notebook instances that were modified before the specified time (timestamp).
+    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A string in the name of a notebook instances lifecycle configuration associated with this notebook instance. This filter returns only notebook instances associated with a lifecycle configuration with a name that contains the specified string.
+    notebookInstanceLifecycleConfigNameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only notebook instances that were created after the specified time (timestamp).
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
-    additionalCodeRepositoryEquals ::
-      Lude.Maybe Lude.Text,
+    -- | A filter that returns only notebook instances with associated with the specified git repository.
+    additionalCodeRepositoryEquals :: Lude.Maybe Lude.Text,
+    -- | If the previous call to the @ListNotebookInstances@ is truncated, the response includes a @NextToken@ . You can use this token in your subsequent @ListNotebookInstances@ request to fetch the next set of notebook instances.
     nextToken :: Lude.Maybe Lude.Text,
-    sortOrder ::
-      Lude.Maybe NotebookInstanceSortOrder,
-    lastModifiedTimeAfter ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The sort order for results.
+    sortOrder :: Lude.Maybe NotebookInstanceSortOrder,
+    -- | A filter that returns only notebook instances that were modified after the specified time (timestamp).
+    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only notebook instances that were created before the specified time (timestamp).
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
-    statusEquals ::
-      Lude.Maybe NotebookInstanceStatus,
+    -- | A filter that returns only notebook instances with the specified status.
+    statusEquals :: Lude.Maybe NotebookInstanceStatus,
+    -- | The maximum number of notebook instances to return.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The field to sort results by. The default is @Name@ .
     sortBy :: Lude.Maybe NotebookInstanceSortKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNotebookInstances' with the minimum fields required to make a request.
 --
--- * 'additionalCodeRepositoryEquals' - A filter that returns only notebook instances with associated with the specified git repository.
--- * 'creationTimeAfter' - A filter that returns only notebook instances that were created after the specified time (timestamp).
--- * 'creationTimeBefore' - A filter that returns only notebook instances that were created before the specified time (timestamp).
--- * 'defaultCodeRepositoryContains' - A string in the name or URL of a Git repository associated with this notebook instance. This filter returns only notebook instances associated with a git repository with a name that contains the specified string.
--- * 'lastModifiedTimeAfter' - A filter that returns only notebook instances that were modified after the specified time (timestamp).
--- * 'lastModifiedTimeBefore' - A filter that returns only notebook instances that were modified before the specified time (timestamp).
--- * 'maxResults' - The maximum number of notebook instances to return.
 -- * 'nameContains' - A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string.
--- * 'nextToken' - If the previous call to the @ListNotebookInstances@ is truncated, the response includes a @NextToken@ . You can use this token in your subsequent @ListNotebookInstances@ request to fetch the next set of notebook instances.
+-- * 'defaultCodeRepositoryContains' - A string in the name or URL of a Git repository associated with this notebook instance. This filter returns only notebook instances associated with a git repository with a name that contains the specified string.
+-- * 'lastModifiedTimeBefore' - A filter that returns only notebook instances that were modified before the specified time (timestamp).
 -- * 'notebookInstanceLifecycleConfigNameContains' - A string in the name of a notebook instances lifecycle configuration associated with this notebook instance. This filter returns only notebook instances associated with a lifecycle configuration with a name that contains the specified string.
--- * 'sortBy' - The field to sort results by. The default is @Name@ .
+-- * 'creationTimeAfter' - A filter that returns only notebook instances that were created after the specified time (timestamp).
+-- * 'additionalCodeRepositoryEquals' - A filter that returns only notebook instances with associated with the specified git repository.
+-- * 'nextToken' - If the previous call to the @ListNotebookInstances@ is truncated, the response includes a @NextToken@ . You can use this token in your subsequent @ListNotebookInstances@ request to fetch the next set of notebook instances.
 -- * 'sortOrder' - The sort order for results.
+-- * 'lastModifiedTimeAfter' - A filter that returns only notebook instances that were modified after the specified time (timestamp).
+-- * 'creationTimeBefore' - A filter that returns only notebook instances that were created before the specified time (timestamp).
 -- * 'statusEquals' - A filter that returns only notebook instances with the specified status.
+-- * 'maxResults' - The maximum number of notebook instances to return.
+-- * 'sortBy' - The field to sort results by. The default is @Name@ .
 mkListNotebookInstances ::
   ListNotebookInstances
 mkListNotebookInstances =
@@ -274,26 +274,20 @@ instance Lude.ToQuery ListNotebookInstances where
 
 -- | /See:/ 'mkListNotebookInstancesResponse' smart constructor.
 data ListNotebookInstancesResponse = ListNotebookInstancesResponse'
-  { notebookInstances ::
-      Lude.Maybe
-        [NotebookInstanceSummary],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An array of @NotebookInstanceSummary@ objects, one for each notebook instance.
+    notebookInstances :: Lude.Maybe [NotebookInstanceSummary],
+    -- | If the response to the previous @ListNotebookInstances@ request was truncated, Amazon SageMaker returns this token. To retrieve the next set of notebook instances, use the token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNotebookInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - If the response to the previous @ListNotebookInstances@ request was truncated, Amazon SageMaker returns this token. To retrieve the next set of notebook instances, use the token in the next request.
 -- * 'notebookInstances' - An array of @NotebookInstanceSummary@ objects, one for each notebook instance.
+-- * 'nextToken' - If the response to the previous @ListNotebookInstances@ request was truncated, Amazon SageMaker returns this token. To retrieve the next set of notebook instances, use the token in the next request.
 -- * 'responseStatus' - The response status code.
 mkListNotebookInstancesResponse ::
   -- | 'responseStatus'

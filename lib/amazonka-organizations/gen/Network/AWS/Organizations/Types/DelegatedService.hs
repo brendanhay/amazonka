@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDelegatedService' smart constructor.
 data DelegatedService = DelegatedService'
-  { servicePrincipal ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of a service that can request an operation for the specified service. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
+    servicePrincipal :: Lude.Maybe Lude.Text,
+    -- | The date that the account became a delegated administrator for this service.
     delegationEnabledDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DelegatedService' with the minimum fields required to make a request.
 --
--- * 'delegationEnabledDate' - The date that the account became a delegated administrator for this service.
 -- * 'servicePrincipal' - The name of a service that can request an operation for the specified service. This is typically in the form of a URL, such as: @/servicename/ .amazonaws.com@ .
+-- * 'delegationEnabledDate' - The date that the account became a delegated administrator for this service.
 mkDelegatedService ::
   DelegatedService
 mkDelegatedService =

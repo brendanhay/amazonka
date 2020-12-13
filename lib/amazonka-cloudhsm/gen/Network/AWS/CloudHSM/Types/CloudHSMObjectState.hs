@@ -13,9 +13,9 @@
 module Network.AWS.CloudHSM.Types.CloudHSMObjectState
   ( CloudHSMObjectState
       ( CloudHSMObjectState',
-        Degraded,
         Ready,
-        Updating
+        Updating,
+        Degraded
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CloudHSMObjectState = CloudHSMObjectState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Degraded :: CloudHSMObjectState
-pattern Degraded = CloudHSMObjectState' "DEGRADED"
-
 pattern Ready :: CloudHSMObjectState
 pattern Ready = CloudHSMObjectState' "READY"
 
 pattern Updating :: CloudHSMObjectState
 pattern Updating = CloudHSMObjectState' "UPDATING"
 
+pattern Degraded :: CloudHSMObjectState
+pattern Degraded = CloudHSMObjectState' "DEGRADED"
+
 {-# COMPLETE
-  Degraded,
   Ready,
   Updating,
+  Degraded,
   CloudHSMObjectState'
   #-}

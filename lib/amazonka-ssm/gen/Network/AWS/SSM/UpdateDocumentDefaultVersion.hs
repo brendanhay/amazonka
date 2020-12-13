@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkUpdateDocumentDefaultVersion' smart constructor.
 data UpdateDocumentDefaultVersion = UpdateDocumentDefaultVersion'
-  { name ::
-      Lude.Text,
+  { -- | The name of a custom document that you want to set as the default version.
+    name :: Lude.Text,
+    -- | The version of a custom document that you want to set as the default version.
     documentVersion :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentDefaultVersion' with the minimum fields required to make a request.
 --
--- * 'documentVersion' - The version of a custom document that you want to set as the default version.
 -- * 'name' - The name of a custom document that you want to set as the default version.
+-- * 'documentVersion' - The version of a custom document that you want to set as the default version.
 mkUpdateDocumentDefaultVersion ::
   -- | 'name'
   Lude.Text ->
@@ -123,19 +119,12 @@ instance Lude.ToQuery UpdateDocumentDefaultVersion where
 
 -- | /See:/ 'mkUpdateDocumentDefaultVersionResponse' smart constructor.
 data UpdateDocumentDefaultVersionResponse = UpdateDocumentDefaultVersionResponse'
-  { description ::
-      Lude.Maybe
-        DocumentDefaultVersionDescription,
-    responseStatus ::
-      Lude.Int
+  { -- | The description of a custom document that you want to set as the default version.
+    description :: Lude.Maybe DocumentDefaultVersionDescription,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentDefaultVersionResponse' with the minimum fields required to make a request.

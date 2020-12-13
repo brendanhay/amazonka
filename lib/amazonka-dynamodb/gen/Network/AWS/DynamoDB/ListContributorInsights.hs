@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,24 +43,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListContributorInsights' smart constructor.
 data ListContributorInsights = ListContributorInsights'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token to for the desired page, if there is one.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of results to return per page.
     maxResults :: Lude.Maybe Lude.Int,
+    -- | The name of the table.
     tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListContributorInsights' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of results to return per page.
 -- * 'nextToken' - A token to for the desired page, if there is one.
+-- * 'maxResults' - Maximum number of results to return per page.
 -- * 'tableName' - The name of the table.
 mkListContributorInsights ::
   ListContributorInsights
@@ -132,20 +129,14 @@ instance Lude.ToQuery ListContributorInsights where
 
 -- | /See:/ 'mkListContributorInsightsResponse' smart constructor.
 data ListContributorInsightsResponse = ListContributorInsightsResponse'
-  { contributorInsightsSummaries ::
-      Lude.Maybe
-        [ContributorInsightsSummary],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of ContributorInsightsSummary.
+    contributorInsightsSummaries :: Lude.Maybe [ContributorInsightsSummary],
+    -- | A token to go to the next page if there is one.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListContributorInsightsResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,24 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyTargetGroupAttributes' smart constructor.
 data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
-  { targetGroupARN ::
-      Lude.Text,
-    attributes ::
-      [TargetGroupAttribute]
+  { -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupARN :: Lude.Text,
+    -- | The attributes.
+    attributes :: [TargetGroupAttribute]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTargetGroupAttributes' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attributes.
 -- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
+-- * 'attributes' - The attributes.
 mkModifyTargetGroupAttributes ::
   -- | 'targetGroupARN'
   Lude.Text ->
@@ -116,19 +111,12 @@ instance Lude.ToQuery ModifyTargetGroupAttributes where
 
 -- | /See:/ 'mkModifyTargetGroupAttributesResponse' smart constructor.
 data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
-  { attributes ::
-      Lude.Maybe
-        [TargetGroupAttribute],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the attributes.
+    attributes :: Lude.Maybe [TargetGroupAttribute],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTargetGroupAttributesResponse' with the minimum fields required to make a request.

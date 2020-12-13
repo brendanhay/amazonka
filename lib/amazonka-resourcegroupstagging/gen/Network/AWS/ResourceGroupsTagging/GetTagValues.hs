@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTagValues' smart constructor.
 data GetTagValues = GetTagValues'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | The key for which you want to list all existing values in the specified Region for the AWS account.
     key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTagValues' with the minimum fields required to make a request.
 --
--- * 'key' - The key for which you want to list all existing values in the specified Region for the AWS account.
 -- * 'paginationToken' - A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
+-- * 'key' - The key for which you want to list all existing values in the specified Region for the AWS account.
 mkGetTagValues ::
   -- | 'key'
   Lude.Text ->
@@ -133,25 +129,21 @@ instance Lude.ToQuery GetTagValues where
 
 -- | /See:/ 'mkGetTagValuesResponse' smart constructor.
 data GetTagValuesResponse = GetTagValuesResponse'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | A list of all tag values for the specified key in the AWS account.
     tagValues :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTagValuesResponse' with the minimum fields required to make a request.
 --
 -- * 'paginationToken' - A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
--- * 'responseStatus' - The response status code.
 -- * 'tagValues' - A list of all tag values for the specified key in the AWS account.
+-- * 'responseStatus' - The response status code.
 mkGetTagValuesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

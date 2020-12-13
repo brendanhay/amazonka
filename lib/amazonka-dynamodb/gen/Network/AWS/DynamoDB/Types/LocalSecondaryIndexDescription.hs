@@ -35,37 +35,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalSecondaryIndexDescription' smart constructor.
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
-  { indexSizeBytes ::
-      Lude.Maybe Lude.Integer,
-    indexARN ::
-      Lude.Maybe Lude.Text,
-    keySchema ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            KeySchemaElement
-        ),
-    projection ::
-      Lude.Maybe Projection,
-    itemCount ::
-      Lude.Maybe Lude.Integer,
-    indexName ::
-      Lude.Maybe Lude.Text
+  { -- | The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    indexSizeBytes :: Lude.Maybe Lude.Integer,
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
+    indexARN :: Lude.Maybe Lude.Text,
+    -- | The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+    --
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
+    keySchema :: Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+    projection :: Lude.Maybe Projection,
+    -- | The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    itemCount :: Lude.Maybe Lude.Integer,
+    -- | Represents the name of the local secondary index.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalSecondaryIndexDescription' with the minimum fields required to make a request.
 --
--- * 'indexARN' - The Amazon Resource Name (ARN) that uniquely identifies the index.
--- * 'indexName' - Represents the name of the local secondary index.
 -- * 'indexSizeBytes' - The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
--- * 'itemCount' - The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+-- * 'indexARN' - The Amazon Resource Name (ARN) that uniquely identifies the index.
 -- * 'keySchema' - The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
 --
 --
@@ -76,6 +71,8 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
 --
 --
 -- * 'projection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+-- * 'itemCount' - The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+-- * 'indexName' - Represents the name of the local secondary index.
 mkLocalSecondaryIndexDescription ::
   LocalSecondaryIndexDescription
 mkLocalSecondaryIndexDescription =

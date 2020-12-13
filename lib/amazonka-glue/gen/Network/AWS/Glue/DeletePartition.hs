@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Glue.DeletePartition
     -- ** Request lenses
     dpCatalogId,
     dpDatabaseName,
-    dpTableName,
     dpPartitionValues,
+    dpTableName,
 
     -- * Destructuring the response
     DeletePartitionResponse (..),
@@ -41,19 +42,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeletePartition' smart constructor.
 data DeletePartition = DeletePartition'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog where the partition to be deleted resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the catalog database in which the table in question resides.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    partitionValues :: [Lude.Text]
+    -- | The values that define the partition.
+    partitionValues :: [Lude.Text],
+    -- | The name of the table that contains the partition to be deleted.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePartition' with the minimum fields required to make a request.
@@ -72,8 +70,8 @@ mkDeletePartition pDatabaseName_ pTableName_ =
   DeletePartition'
     { catalogId = Lude.Nothing,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      partitionValues = Lude.mempty
+      partitionValues = Lude.mempty,
+      tableName = pTableName_
     }
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If none is provided, the AWS account ID is used by default.
@@ -90,19 +88,19 @@ dpDatabaseName :: Lens.Lens' DeletePartition Lude.Text
 dpDatabaseName = Lens.lens (databaseName :: DeletePartition -> Lude.Text) (\s a -> s {databaseName = a} :: DeletePartition)
 {-# DEPRECATED dpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
--- | The name of the table that contains the partition to be deleted.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpTableName :: Lens.Lens' DeletePartition Lude.Text
-dpTableName = Lens.lens (tableName :: DeletePartition -> Lude.Text) (\s a -> s {tableName = a} :: DeletePartition)
-{-# DEPRECATED dpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
 -- | The values that define the partition.
 --
 -- /Note:/ Consider using 'partitionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dpPartitionValues :: Lens.Lens' DeletePartition [Lude.Text]
 dpPartitionValues = Lens.lens (partitionValues :: DeletePartition -> [Lude.Text]) (\s a -> s {partitionValues = a} :: DeletePartition)
 {-# DEPRECATED dpPartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
+
+-- | The name of the table that contains the partition to be deleted.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpTableName :: Lens.Lens' DeletePartition Lude.Text
+dpTableName = Lens.lens (tableName :: DeletePartition -> Lude.Text) (\s a -> s {tableName = a} :: DeletePartition)
+{-# DEPRECATED dpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest DeletePartition where
   type Rs DeletePartition = DeletePartitionResponse
@@ -130,8 +128,8 @@ instance Lude.ToJSON DeletePartition where
       ( Lude.catMaybes
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("PartitionValues" Lude..= partitionValues)
+            Lude.Just ("PartitionValues" Lude..= partitionValues),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -143,16 +141,10 @@ instance Lude.ToQuery DeletePartition where
 
 -- | /See:/ 'mkDeletePartitionResponse' smart constructor.
 newtype DeletePartitionResponse = DeletePartitionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePartitionResponse' with the minimum fields required to make a request.

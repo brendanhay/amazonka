@@ -30,16 +30,12 @@ import Network.AWS.SageMaker.Types.ProcessingS3Input
 --
 -- /See:/ 'mkProcessingInput' smart constructor.
 data ProcessingInput = ProcessingInput'
-  { inputName :: Lude.Text,
+  { -- | The name of the inputs for the processing job.
+    inputName :: Lude.Text,
+    -- | The S3 inputs for the processing job.
     s3Input :: ProcessingS3Input
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingInput' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,23 +46,18 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkDescribeReceiptRule' smart constructor.
 data DescribeReceiptRule = DescribeReceiptRule'
-  { ruleSetName ::
-      Lude.Text,
+  { -- | The name of the receipt rule set that the receipt rule belongs to.
+    ruleSetName :: Lude.Text,
+    -- | The name of the receipt rule.
     ruleName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReceiptRule' with the minimum fields required to make a request.
 --
--- * 'ruleName' - The name of the receipt rule.
 -- * 'ruleSetName' - The name of the receipt rule set that the receipt rule belongs to.
+-- * 'ruleName' - The name of the receipt rule.
 mkDescribeReceiptRule ::
   -- | 'ruleSetName'
   Lude.Text ->
@@ -118,23 +114,18 @@ instance Lude.ToQuery DescribeReceiptRule where
 --
 -- /See:/ 'mkDescribeReceiptRuleResponse' smart constructor.
 data DescribeReceiptRuleResponse = DescribeReceiptRuleResponse'
-  { rule ::
-      Lude.Maybe ReceiptRule,
+  { -- | A data structure that contains the specified receipt rule's name, actions, recipients, domains, enabled status, scan status, and Transport Layer Security (TLS) policy.
+    rule :: Lude.Maybe ReceiptRule,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReceiptRuleResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'rule' - A data structure that contains the specified receipt rule's name, actions, recipients, domains, enabled status, scan status, and Transport Layer Security (TLS) policy.
+-- * 'responseStatus' - The response status code.
 mkDescribeReceiptRuleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

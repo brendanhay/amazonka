@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListActiveViolations' smart constructor.
 data ListActiveViolations = ListActiveViolations'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the Device Defender security profile for which violations are listed.
     securityProfileName :: Lude.Maybe Lude.Text,
+    -- | The name of the thing whose active violations are listed.
     thingName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return at one time.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActiveViolations' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return at one time.
 -- * 'nextToken' - The token for the next set of results.
 -- * 'securityProfileName' - The name of the Device Defender security profile for which violations are listed.
 -- * 'thingName' - The name of the thing whose active violations are listed.
+-- * 'maxResults' - The maximum number of results to return at one time.
 mkListActiveViolations ::
   ListActiveViolations
 mkListActiveViolations =
@@ -143,18 +141,14 @@ instance Lude.ToQuery ListActiveViolations where
 
 -- | /See:/ 'mkListActiveViolationsResponse' smart constructor.
 data ListActiveViolationsResponse = ListActiveViolationsResponse'
-  { activeViolations ::
-      Lude.Maybe [ActiveViolation],
+  { -- | The list of active violations.
+    activeViolations :: Lude.Maybe [ActiveViolation],
+    -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActiveViolationsResponse' with the minimum fields required to make a request.

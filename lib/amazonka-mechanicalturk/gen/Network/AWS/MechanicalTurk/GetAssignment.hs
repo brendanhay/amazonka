@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,14 +40,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAssignment' smart constructor.
-newtype GetAssignment = GetAssignment' {assignmentId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetAssignment = GetAssignment'
+  { -- | The ID of the Assignment to be retrieved.
+    assignmentId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssignment' with the minimum fields required to make a request.
@@ -104,24 +102,20 @@ instance Lude.ToQuery GetAssignment where
 
 -- | /See:/ 'mkGetAssignmentResponse' smart constructor.
 data GetAssignmentResponse = GetAssignmentResponse'
-  { hIT ::
-      Lude.Maybe HIT,
+  { -- | The HIT associated with this assignment. The response includes one HIT element.
+    hIT :: Lude.Maybe HIT,
+    -- | The assignment. The response includes one Assignment element.
     assignment :: Lude.Maybe Assignment,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssignmentResponse' with the minimum fields required to make a request.
 --
--- * 'assignment' - The assignment. The response includes one Assignment element.
 -- * 'hIT' - The HIT associated with this assignment. The response includes one HIT element.
+-- * 'assignment' - The assignment. The response includes one Assignment element.
 -- * 'responseStatus' - The response status code.
 mkGetAssignmentResponse ::
   -- | 'responseStatus'

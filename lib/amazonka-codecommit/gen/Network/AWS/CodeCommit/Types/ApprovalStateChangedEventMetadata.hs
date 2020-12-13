@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApprovalStateChangedEventMetadata' smart constructor.
 data ApprovalStateChangedEventMetadata = ApprovalStateChangedEventMetadata'
-  { approvalStatus ::
-      Lude.Maybe
-        ApprovalState,
-    revisionId ::
-      Lude.Maybe Lude.Text
+  { -- | The approval status for the pull request.
+    approvalStatus :: Lude.Maybe ApprovalState,
+    -- | The revision ID of the pull request when the approval state changed.
+    revisionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApprovalStateChangedEventMetadata' with the minimum fields required to make a request.

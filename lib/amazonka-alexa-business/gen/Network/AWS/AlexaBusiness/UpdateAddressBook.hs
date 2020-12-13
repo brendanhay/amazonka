@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AlexaBusiness.UpdateAddressBook
     mkUpdateAddressBook,
 
     -- ** Request lenses
+    uabAddressBookARN,
     uabName,
     uabDescription,
-    uabAddressBookARN,
 
     -- * Destructuring the response
     UpdateAddressBookResponse (..),
@@ -40,35 +41,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateAddressBook' smart constructor.
 data UpdateAddressBook = UpdateAddressBook'
-  { name ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    addressBookARN :: Lude.Text
+  { -- | The ARN of the room to update.
+    addressBookARN :: Lude.Text,
+    -- | The updated name of the room.
+    name :: Lude.Maybe Lude.Text,
+    -- | The updated description of the room.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAddressBook' with the minimum fields required to make a request.
 --
 -- * 'addressBookARN' - The ARN of the room to update.
--- * 'description' - The updated description of the room.
 -- * 'name' - The updated name of the room.
+-- * 'description' - The updated description of the room.
 mkUpdateAddressBook ::
   -- | 'addressBookARN'
   Lude.Text ->
   UpdateAddressBook
 mkUpdateAddressBook pAddressBookARN_ =
   UpdateAddressBook'
-    { name = Lude.Nothing,
-      description = Lude.Nothing,
-      addressBookARN = pAddressBookARN_
+    { addressBookARN = pAddressBookARN_,
+      name = Lude.Nothing,
+      description = Lude.Nothing
     }
+
+-- | The ARN of the room to update.
+--
+-- /Note:/ Consider using 'addressBookARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uabAddressBookARN :: Lens.Lens' UpdateAddressBook Lude.Text
+uabAddressBookARN = Lens.lens (addressBookARN :: UpdateAddressBook -> Lude.Text) (\s a -> s {addressBookARN = a} :: UpdateAddressBook)
+{-# DEPRECATED uabAddressBookARN "Use generic-lens or generic-optics with 'addressBookARN' instead." #-}
 
 -- | The updated name of the room.
 --
@@ -83,13 +87,6 @@ uabName = Lens.lens (name :: UpdateAddressBook -> Lude.Maybe Lude.Text) (\s a ->
 uabDescription :: Lens.Lens' UpdateAddressBook (Lude.Maybe Lude.Text)
 uabDescription = Lens.lens (description :: UpdateAddressBook -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAddressBook)
 {-# DEPRECATED uabDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The ARN of the room to update.
---
--- /Note:/ Consider using 'addressBookARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uabAddressBookARN :: Lens.Lens' UpdateAddressBook Lude.Text
-uabAddressBookARN = Lens.lens (addressBookARN :: UpdateAddressBook -> Lude.Text) (\s a -> s {addressBookARN = a} :: UpdateAddressBook)
-{-# DEPRECATED uabAddressBookARN "Use generic-lens or generic-optics with 'addressBookARN' instead." #-}
 
 instance Lude.AWSRequest UpdateAddressBook where
   type Rs UpdateAddressBook = UpdateAddressBookResponse
@@ -115,9 +112,9 @@ instance Lude.ToJSON UpdateAddressBook where
   toJSON UpdateAddressBook' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Name" Lude..=) Lude.<$> name,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("AddressBookArn" Lude..= addressBookARN)
+          [ Lude.Just ("AddressBookArn" Lude..= addressBookARN),
+            ("Name" Lude..=) Lude.<$> name,
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -129,16 +126,10 @@ instance Lude.ToQuery UpdateAddressBook where
 
 -- | /See:/ 'mkUpdateAddressBookResponse' smart constructor.
 newtype UpdateAddressBookResponse = UpdateAddressBookResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAddressBookResponse' with the minimum fields required to make a request.

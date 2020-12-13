@@ -13,9 +13,9 @@
 module Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType
   ( RecoveryOptionNameType
       ( RecoveryOptionNameType',
-        AdminOnly,
         VerifiedEmail,
-        VerifiedPhoneNumber
+        VerifiedPhoneNumber,
+        AdminOnly
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RecoveryOptionNameType = RecoveryOptionNameType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AdminOnly :: RecoveryOptionNameType
-pattern AdminOnly = RecoveryOptionNameType' "admin_only"
-
 pattern VerifiedEmail :: RecoveryOptionNameType
 pattern VerifiedEmail = RecoveryOptionNameType' "verified_email"
 
 pattern VerifiedPhoneNumber :: RecoveryOptionNameType
 pattern VerifiedPhoneNumber = RecoveryOptionNameType' "verified_phone_number"
 
+pattern AdminOnly :: RecoveryOptionNameType
+pattern AdminOnly = RecoveryOptionNameType' "admin_only"
+
 {-# COMPLETE
-  AdminOnly,
   VerifiedEmail,
   VerifiedPhoneNumber,
+  AdminOnly,
   RecoveryOptionNameType'
   #-}

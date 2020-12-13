@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.SES.SendCustomVerificationEmail
     mkSendCustomVerificationEmail,
 
     -- ** Request lenses
+    scveTemplateName,
     scveConfigurationSetName,
     scveEmailAddress,
-    scveTemplateName,
 
     -- * Destructuring the response
     SendCustomVerificationEmailResponse (..),
@@ -46,37 +47,40 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkSendCustomVerificationEmail' smart constructor.
 data SendCustomVerificationEmail = SendCustomVerificationEmail'
-  { configurationSetName ::
-      Lude.Maybe Lude.Text,
-    emailAddress :: Lude.Text,
-    templateName :: Lude.Text
+  { -- | The name of the custom verification email template to use when sending the verification email.
+    templateName :: Lude.Text,
+    -- | Name of a configuration set to use when sending the verification email.
+    configurationSetName :: Lude.Maybe Lude.Text,
+    -- | The email address to verify.
+    emailAddress :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendCustomVerificationEmail' with the minimum fields required to make a request.
 --
+-- * 'templateName' - The name of the custom verification email template to use when sending the verification email.
 -- * 'configurationSetName' - Name of a configuration set to use when sending the verification email.
 -- * 'emailAddress' - The email address to verify.
--- * 'templateName' - The name of the custom verification email template to use when sending the verification email.
 mkSendCustomVerificationEmail ::
-  -- | 'emailAddress'
-  Lude.Text ->
   -- | 'templateName'
   Lude.Text ->
+  -- | 'emailAddress'
+  Lude.Text ->
   SendCustomVerificationEmail
-mkSendCustomVerificationEmail pEmailAddress_ pTemplateName_ =
+mkSendCustomVerificationEmail pTemplateName_ pEmailAddress_ =
   SendCustomVerificationEmail'
-    { configurationSetName = Lude.Nothing,
-      emailAddress = pEmailAddress_,
-      templateName = pTemplateName_
+    { templateName = pTemplateName_,
+      configurationSetName = Lude.Nothing,
+      emailAddress = pEmailAddress_
     }
+
+-- | The name of the custom verification email template to use when sending the verification email.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scveTemplateName :: Lens.Lens' SendCustomVerificationEmail Lude.Text
+scveTemplateName = Lens.lens (templateName :: SendCustomVerificationEmail -> Lude.Text) (\s a -> s {templateName = a} :: SendCustomVerificationEmail)
+{-# DEPRECATED scveTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | Name of a configuration set to use when sending the verification email.
 --
@@ -91,13 +95,6 @@ scveConfigurationSetName = Lens.lens (configurationSetName :: SendCustomVerifica
 scveEmailAddress :: Lens.Lens' SendCustomVerificationEmail Lude.Text
 scveEmailAddress = Lens.lens (emailAddress :: SendCustomVerificationEmail -> Lude.Text) (\s a -> s {emailAddress = a} :: SendCustomVerificationEmail)
 {-# DEPRECATED scveEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
-
--- | The name of the custom verification email template to use when sending the verification email.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scveTemplateName :: Lens.Lens' SendCustomVerificationEmail Lude.Text
-scveTemplateName = Lens.lens (templateName :: SendCustomVerificationEmail -> Lude.Text) (\s a -> s {templateName = a} :: SendCustomVerificationEmail)
-{-# DEPRECATED scveTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 instance Lude.AWSRequest SendCustomVerificationEmail where
   type
@@ -124,28 +121,21 @@ instance Lude.ToQuery SendCustomVerificationEmail where
       [ "Action"
           Lude.=: ("SendCustomVerificationEmail" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "TemplateName" Lude.=: templateName,
         "ConfigurationSetName" Lude.=: configurationSetName,
-        "EmailAddress" Lude.=: emailAddress,
-        "TemplateName" Lude.=: templateName
+        "EmailAddress" Lude.=: emailAddress
       ]
 
 -- | The response received when attempting to send the custom verification email.
 --
 -- /See:/ 'mkSendCustomVerificationEmailResponse' smart constructor.
 data SendCustomVerificationEmailResponse = SendCustomVerificationEmailResponse'
-  { messageId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The unique message identifier returned from the @SendCustomVerificationEmail@ operation.
+    messageId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendCustomVerificationEmailResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.CloudDirectory.Types.ConsistencyLevel
   ( ConsistencyLevel
       ( ConsistencyLevel',
-        Eventual,
-        Serializable
+        Serializable,
+        Eventual
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ConsistencyLevel = ConsistencyLevel' Lude.Text
       Lude.ToHeader
     )
 
-pattern Eventual :: ConsistencyLevel
-pattern Eventual = ConsistencyLevel' "EVENTUAL"
-
 pattern Serializable :: ConsistencyLevel
 pattern Serializable = ConsistencyLevel' "SERIALIZABLE"
 
+pattern Eventual :: ConsistencyLevel
+pattern Eventual = ConsistencyLevel' "EVENTUAL"
+
 {-# COMPLETE
-  Eventual,
   Serializable,
+  Eventual,
   ConsistencyLevel'
   #-}

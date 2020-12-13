@@ -30,22 +30,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIncompatibilityMessage' smart constructor.
 data IncompatibilityMessage = IncompatibilityMessage'
-  { type' ::
-      Lude.Maybe DeviceAttribute,
+  { -- | The type of incompatibility.
+    --
+    -- Allowed values include:
+    --
+    --     * ARN
+    --
+    --
+    --     * FORM_FACTOR (for example, phone or tablet)
+    --
+    --
+    --     * MANUFACTURER
+    --
+    --
+    --     * PLATFORM (for example, Android or iOS)
+    --
+    --
+    --     * REMOTE_ACCESS_ENABLED
+    --
+    --
+    --     * APPIUM_VERSION
+    type' :: Lude.Maybe DeviceAttribute,
+    -- | A message about the incompatibility.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IncompatibilityMessage' with the minimum fields required to make a request.
 --
--- * 'message' - A message about the incompatibility.
 -- * 'type'' - The type of incompatibility.
 --
 -- Allowed values include:
@@ -66,6 +79,9 @@ data IncompatibilityMessage = IncompatibilityMessage'
 --
 --
 --     * APPIUM_VERSION
+--
+--
+-- * 'message' - A message about the incompatibility.
 mkIncompatibilityMessage ::
   IncompatibilityMessage
 mkIncompatibilityMessage =

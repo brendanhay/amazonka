@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.ServiceCatalog.UpdatePortfolio
     -- ** Request lenses
     uRemoveTags,
     uAcceptLanguage,
+    uId,
     uDisplayName,
     uAddTags,
     uDescription,
     uProviderName,
-    uId,
 
     -- * Destructuring the response
     UpdatePortfolioResponse (..),
@@ -48,26 +49,36 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkUpdatePortfolio' smart constructor.
 data UpdatePortfolio = UpdatePortfolio'
-  { removeTags ::
-      Lude.Maybe [Lude.Text],
+  { -- | The tags to remove.
+    removeTags :: Lude.Maybe [Lude.Text],
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
     acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The portfolio identifier.
+    id :: Lude.Text,
+    -- | The name to use for display purposes.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The tags to add.
     addTags :: Lude.Maybe [Tag],
+    -- | The updated description of the portfolio.
     description :: Lude.Maybe Lude.Text,
-    providerName :: Lude.Maybe Lude.Text,
-    id :: Lude.Text
+    -- | The updated name of the portfolio provider.
+    providerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePortfolio' with the minimum fields required to make a request.
 --
+-- * 'removeTags' - The tags to remove.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -80,12 +91,11 @@ data UpdatePortfolio = UpdatePortfolio'
 --     * @zh@ - Chinese
 --
 --
+-- * 'id' - The portfolio identifier.
+-- * 'displayName' - The name to use for display purposes.
 -- * 'addTags' - The tags to add.
 -- * 'description' - The updated description of the portfolio.
--- * 'displayName' - The name to use for display purposes.
--- * 'id' - The portfolio identifier.
 -- * 'providerName' - The updated name of the portfolio provider.
--- * 'removeTags' - The tags to remove.
 mkUpdatePortfolio ::
   -- | 'id'
   Lude.Text ->
@@ -94,11 +104,11 @@ mkUpdatePortfolio pId_ =
   UpdatePortfolio'
     { removeTags = Lude.Nothing,
       acceptLanguage = Lude.Nothing,
+      id = pId_,
       displayName = Lude.Nothing,
       addTags = Lude.Nothing,
       description = Lude.Nothing,
-      providerName = Lude.Nothing,
-      id = pId_
+      providerName = Lude.Nothing
     }
 
 -- | The tags to remove.
@@ -125,6 +135,13 @@ uRemoveTags = Lens.lens (removeTags :: UpdatePortfolio -> Lude.Maybe [Lude.Text]
 uAcceptLanguage :: Lens.Lens' UpdatePortfolio (Lude.Maybe Lude.Text)
 uAcceptLanguage = Lens.lens (acceptLanguage :: UpdatePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: UpdatePortfolio)
 {-# DEPRECATED uAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+
+-- | The portfolio identifier.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uId :: Lens.Lens' UpdatePortfolio Lude.Text
+uId = Lens.lens (id :: UpdatePortfolio -> Lude.Text) (\s a -> s {id = a} :: UpdatePortfolio)
+{-# DEPRECATED uId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The name to use for display purposes.
 --
@@ -153,13 +170,6 @@ uDescription = Lens.lens (description :: UpdatePortfolio -> Lude.Maybe Lude.Text
 uProviderName :: Lens.Lens' UpdatePortfolio (Lude.Maybe Lude.Text)
 uProviderName = Lens.lens (providerName :: UpdatePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: UpdatePortfolio)
 {-# DEPRECATED uProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
-
--- | The portfolio identifier.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uId :: Lens.Lens' UpdatePortfolio Lude.Text
-uId = Lens.lens (id :: UpdatePortfolio -> Lude.Text) (\s a -> s {id = a} :: UpdatePortfolio)
-{-# DEPRECATED uId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest UpdatePortfolio where
   type Rs UpdatePortfolio = UpdatePortfolioResponse
@@ -190,11 +200,11 @@ instance Lude.ToJSON UpdatePortfolio where
       ( Lude.catMaybes
           [ ("RemoveTags" Lude..=) Lude.<$> removeTags,
             ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("Id" Lude..= id),
             ("DisplayName" Lude..=) Lude.<$> displayName,
             ("AddTags" Lude..=) Lude.<$> addTags,
             ("Description" Lude..=) Lude.<$> description,
-            ("ProviderName" Lude..=) Lude.<$> providerName,
-            Lude.Just ("Id" Lude..= id)
+            ("ProviderName" Lude..=) Lude.<$> providerName
           ]
       )
 
@@ -206,25 +216,21 @@ instance Lude.ToQuery UpdatePortfolio where
 
 -- | /See:/ 'mkUpdatePortfolioResponse' smart constructor.
 data UpdatePortfolioResponse = UpdatePortfolioResponse'
-  { portfolioDetail ::
-      Lude.Maybe PortfolioDetail,
+  { -- | Information about the portfolio.
+    portfolioDetail :: Lude.Maybe PortfolioDetail,
+    -- | Information about the tags associated with the portfolio.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePortfolioResponse' with the minimum fields required to make a request.
 --
 -- * 'portfolioDetail' - Information about the portfolio.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - Information about the tags associated with the portfolio.
+-- * 'responseStatus' - The response status code.
 mkUpdatePortfolioResponse ::
   -- | 'responseStatus'
   Lude.Int ->

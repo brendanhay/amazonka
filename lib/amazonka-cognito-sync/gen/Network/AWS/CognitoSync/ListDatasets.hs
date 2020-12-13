@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.CognitoSync.ListDatasets
     mkListDatasets,
 
     -- ** Request lenses
-    ldNextToken,
-    ldMaxResults,
-    ldIdentityId,
     ldIdentityPoolId,
+    ldNextToken,
+    ldIdentityId,
+    ldMaxResults,
 
     -- * Destructuring the response
     ListDatasetsResponse (..),
@@ -48,40 +49,44 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListDatasets' smart constructor.
 data ListDatasets = ListDatasets'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
+  { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+    identityPoolId :: Lude.Text,
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
     identityId :: Lude.Text,
-    identityPoolId :: Lude.Text
+    -- | The maximum number of results to be returned.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDatasets' with the minimum fields required to make a request.
 --
--- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 -- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
--- * 'maxResults' - The maximum number of results to be returned.
 -- * 'nextToken' - A pagination token for obtaining the next page of results.
+-- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'maxResults' - The maximum number of results to be returned.
 mkListDatasets ::
-  -- | 'identityId'
-  Lude.Text ->
   -- | 'identityPoolId'
   Lude.Text ->
+  -- | 'identityId'
+  Lude.Text ->
   ListDatasets
-mkListDatasets pIdentityId_ pIdentityPoolId_ =
+mkListDatasets pIdentityPoolId_ pIdentityId_ =
   ListDatasets'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
+    { identityPoolId = pIdentityPoolId_,
+      nextToken = Lude.Nothing,
       identityId = pIdentityId_,
-      identityPoolId = pIdentityPoolId_
+      maxResults = Lude.Nothing
     }
+
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldIdentityPoolId :: Lens.Lens' ListDatasets Lude.Text
+ldIdentityPoolId = Lens.lens (identityPoolId :: ListDatasets -> Lude.Text) (\s a -> s {identityPoolId = a} :: ListDatasets)
+{-# DEPRECATED ldIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A pagination token for obtaining the next page of results.
 --
@@ -90,13 +95,6 @@ ldNextToken :: Lens.Lens' ListDatasets (Lude.Maybe Lude.Text)
 ldNextToken = Lens.lens (nextToken :: ListDatasets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDatasets)
 {-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to be returned.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldMaxResults :: Lens.Lens' ListDatasets (Lude.Maybe Lude.Int)
-ldMaxResults = Lens.lens (maxResults :: ListDatasets -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListDatasets)
-{-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
 -- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -104,12 +102,12 @@ ldIdentityId :: Lens.Lens' ListDatasets Lude.Text
 ldIdentityId = Lens.lens (identityId :: ListDatasets -> Lude.Text) (\s a -> s {identityId = a} :: ListDatasets)
 {-# DEPRECATED ldIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- | The maximum number of results to be returned.
 --
--- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldIdentityPoolId :: Lens.Lens' ListDatasets Lude.Text
-ldIdentityPoolId = Lens.lens (identityPoolId :: ListDatasets -> Lude.Text) (\s a -> s {identityPoolId = a} :: ListDatasets)
-{-# DEPRECATED ldIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMaxResults :: Lens.Lens' ListDatasets (Lude.Maybe Lude.Int)
+ldMaxResults = Lens.lens (maxResults :: ListDatasets -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListDatasets)
+{-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListDatasets where
   type Rs ListDatasets = ListDatasetsResponse
@@ -152,26 +150,23 @@ instance Lude.ToQuery ListDatasets where
 --
 -- /See:/ 'mkListDatasetsResponse' smart constructor.
 data ListDatasetsResponse = ListDatasetsResponse'
-  { count ::
-      Lude.Maybe Lude.Int,
+  { -- | Number of datasets returned.
+    count :: Lude.Maybe Lude.Int,
+    -- | A pagination token for obtaining the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A set of datasets.
     datasets :: Lude.Maybe [Dataset],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDatasetsResponse' with the minimum fields required to make a request.
 --
 -- * 'count' - Number of datasets returned.
--- * 'datasets' - A set of datasets.
 -- * 'nextToken' - A pagination token for obtaining the next page of results.
+-- * 'datasets' - A set of datasets.
 -- * 'responseStatus' - The response status code.
 mkListDatasetsResponse ::
   -- | 'responseStatus'

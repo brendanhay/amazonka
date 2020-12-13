@@ -31,19 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchReadOperationResponse' smart constructor.
 data BatchReadOperationResponse = BatchReadOperationResponse'
-  { exceptionResponse ::
-      Lude.Maybe BatchReadException,
-    successfulResponse ::
-      Lude.Maybe
-        BatchReadSuccessfulResponse
+  { -- | Identifies which operation in a batch has failed.
+    exceptionResponse :: Lude.Maybe BatchReadException,
+    -- | Identifies which operation in a batch has succeeded.
+    successfulResponse :: Lude.Maybe BatchReadSuccessfulResponse
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchReadOperationResponse' with the minimum fields required to make a request.

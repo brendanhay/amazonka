@@ -13,8 +13,8 @@
 module Network.AWS.DirectoryService.Types.RadiusStatus
   ( RadiusStatus
       ( RadiusStatus',
-        RSCompleted,
         RSCreating,
+        RSCompleted,
         RSFailed
       ),
   )
@@ -46,18 +46,18 @@ newtype RadiusStatus = RadiusStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSCompleted :: RadiusStatus
-pattern RSCompleted = RadiusStatus' "Completed"
-
 pattern RSCreating :: RadiusStatus
 pattern RSCreating = RadiusStatus' "Creating"
+
+pattern RSCompleted :: RadiusStatus
+pattern RSCompleted = RadiusStatus' "Completed"
 
 pattern RSFailed :: RadiusStatus
 pattern RSFailed = RadiusStatus' "Failed"
 
 {-# COMPLETE
-  RSCompleted,
   RSCreating,
+  RSCompleted,
   RSFailed,
   RadiusStatus'
   #-}

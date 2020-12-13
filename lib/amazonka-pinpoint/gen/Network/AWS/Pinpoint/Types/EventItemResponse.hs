@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventItemResponse' smart constructor.
 data EventItemResponse = EventItemResponse'
-  { message ::
-      Lude.Maybe Lude.Text,
+  { -- | A custom message that's returned in the response as a result of processing the event.
+    message :: Lude.Maybe Lude.Text,
+    -- | The status code that's returned in the response as a result of processing the event. Possible values are: 202, for events that were accepted; and, 400, for events that weren't valid.
     statusCode :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventItemResponse' with the minimum fields required to make a request.

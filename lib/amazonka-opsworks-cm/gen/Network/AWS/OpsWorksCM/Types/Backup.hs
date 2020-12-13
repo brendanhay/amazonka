@@ -53,66 +53,84 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBackup' smart constructor.
 data Backup = Backup'
-  { engineVersion :: Lude.Maybe Lude.Text,
+  { -- | The engine version that is obtained from the server when the backup is created.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The service role ARN that is obtained from the server when the backup is created.
     serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | The status of a backup while in progress.
     status :: Lude.Maybe BackupStatus,
+    -- | The EC2 instance profile ARN that is obtained from the server when the backup is created. Because this value is stored, you are not required to provide the InstanceProfileArn again if you restore a backup.
     instanceProfileARN :: Lude.Maybe Lude.Text,
+    -- | The security group IDs that are obtained from the server when the backup is created.
     securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | An informational message about backup status.
     statusDescription :: Lude.Maybe Lude.Text,
+    -- | The name of the server from which the backup was made.
     serverName :: Lude.Maybe Lude.Text,
+    -- | The subnet IDs that are obtained from the server when the backup is created.
     subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The key pair that is obtained from the server when the backup is created.
     keyPair :: Lude.Maybe Lude.Text,
+    -- | The time stamp when the backup was created in the database. Example: @2016-07-29T13:38:47.520Z@
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The generated ID of the backup. Example: @myServerName-yyyyMMddHHmmssSSS@
     backupId :: Lude.Maybe Lude.Text,
+    -- | The engine type that is obtained from the server when the backup is created.
     engine :: Lude.Maybe Lude.Text,
+    -- | The instance type that is obtained from the server when the backup is created.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The engine model that is obtained from the server when the backup is created.
     engineModel :: Lude.Maybe Lude.Text,
+    -- | The preferred maintenance period that is obtained from the server when the backup is created.
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The IAM user ARN of the requester for manual backups. This field is empty for automated backups.
     userARN :: Lude.Maybe Lude.Text,
+    -- | The preferred backup period that is obtained from the server when the backup is created.
     preferredBackupWindow :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 URL of the backup's log file.
     s3LogURL :: Lude.Maybe Lude.Text,
+    -- | This field is deprecated and is no longer used.
     s3DataSize :: Lude.Maybe Lude.Int,
+    -- | The ARN of the backup.
     backupARN :: Lude.Maybe Lude.Text,
+    -- | This field is deprecated and is no longer used.
     s3DataURL :: Lude.Maybe Lude.Text,
+    -- | A user-provided description for a manual backup. This field is empty for automated backups.
     description :: Lude.Maybe Lude.Text,
+    -- | The backup type. Valid values are @automated@ or @manual@ .
     backupType :: Lude.Maybe BackupType,
+    -- | The version of AWS OpsWorks CM-specific tools that is obtained from the server when the backup is created.
     toolsVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Backup' with the minimum fields required to make a request.
 --
--- * 'backupARN' - The ARN of the backup.
--- * 'backupId' - The generated ID of the backup. Example: @myServerName-yyyyMMddHHmmssSSS@
--- * 'backupType' - The backup type. Valid values are @automated@ or @manual@ .
--- * 'createdAt' - The time stamp when the backup was created in the database. Example: @2016-07-29T13:38:47.520Z@
--- * 'description' - A user-provided description for a manual backup. This field is empty for automated backups.
--- * 'engine' - The engine type that is obtained from the server when the backup is created.
--- * 'engineModel' - The engine model that is obtained from the server when the backup is created.
 -- * 'engineVersion' - The engine version that is obtained from the server when the backup is created.
--- * 'instanceProfileARN' - The EC2 instance profile ARN that is obtained from the server when the backup is created. Because this value is stored, you are not required to provide the InstanceProfileArn again if you restore a backup.
--- * 'instanceType' - The instance type that is obtained from the server when the backup is created.
--- * 'keyPair' - The key pair that is obtained from the server when the backup is created.
--- * 'preferredBackupWindow' - The preferred backup period that is obtained from the server when the backup is created.
--- * 'preferredMaintenanceWindow' - The preferred maintenance period that is obtained from the server when the backup is created.
--- * 's3DataSize' - This field is deprecated and is no longer used.
--- * 's3DataURL' - This field is deprecated and is no longer used.
--- * 's3LogURL' - The Amazon S3 URL of the backup's log file.
--- * 'securityGroupIds' - The security group IDs that are obtained from the server when the backup is created.
--- * 'serverName' - The name of the server from which the backup was made.
 -- * 'serviceRoleARN' - The service role ARN that is obtained from the server when the backup is created.
 -- * 'status' - The status of a backup while in progress.
+-- * 'instanceProfileARN' - The EC2 instance profile ARN that is obtained from the server when the backup is created. Because this value is stored, you are not required to provide the InstanceProfileArn again if you restore a backup.
+-- * 'securityGroupIds' - The security group IDs that are obtained from the server when the backup is created.
 -- * 'statusDescription' - An informational message about backup status.
+-- * 'serverName' - The name of the server from which the backup was made.
 -- * 'subnetIds' - The subnet IDs that are obtained from the server when the backup is created.
--- * 'toolsVersion' - The version of AWS OpsWorks CM-specific tools that is obtained from the server when the backup is created.
+-- * 'keyPair' - The key pair that is obtained from the server when the backup is created.
+-- * 'createdAt' - The time stamp when the backup was created in the database. Example: @2016-07-29T13:38:47.520Z@
+-- * 'backupId' - The generated ID of the backup. Example: @myServerName-yyyyMMddHHmmssSSS@
+-- * 'engine' - The engine type that is obtained from the server when the backup is created.
+-- * 'instanceType' - The instance type that is obtained from the server when the backup is created.
+-- * 'engineModel' - The engine model that is obtained from the server when the backup is created.
+-- * 'preferredMaintenanceWindow' - The preferred maintenance period that is obtained from the server when the backup is created.
 -- * 'userARN' - The IAM user ARN of the requester for manual backups. This field is empty for automated backups.
+-- * 'preferredBackupWindow' - The preferred backup period that is obtained from the server when the backup is created.
+-- * 's3LogURL' - The Amazon S3 URL of the backup's log file.
+-- * 's3DataSize' - This field is deprecated and is no longer used.
+-- * 'backupARN' - The ARN of the backup.
+-- * 's3DataURL' - This field is deprecated and is no longer used.
+-- * 'description' - A user-provided description for a manual backup. This field is empty for automated backups.
+-- * 'backupType' - The backup type. Valid values are @automated@ or @manual@ .
+-- * 'toolsVersion' - The version of AWS OpsWorks CM-specific tools that is obtained from the server when the backup is created.
 mkBackup ::
   Backup
 mkBackup =

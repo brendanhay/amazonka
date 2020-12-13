@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetDataRetrievalPolicy' smart constructor.
 newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'
-  { accountId ::
-      Lude.Text
+  { -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataRetrievalPolicy' with the minimum fields required to make a request.
@@ -95,18 +90,12 @@ instance Lude.ToQuery GetDataRetrievalPolicy where
 --
 -- /See:/ 'mkGetDataRetrievalPolicyResponse' smart constructor.
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
-  { policy ::
-      Lude.Maybe
-        DataRetrievalPolicy,
+  { -- | Contains the returned data retrieval policy in JSON format.
+    policy :: Lude.Maybe DataRetrievalPolicy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataRetrievalPolicyResponse' with the minimum fields required to make a request.

@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigRuleComplianceSummaryFilters' smart constructor.
 data ConfigRuleComplianceSummaryFilters = ConfigRuleComplianceSummaryFilters'
-  { accountId ::
-      Lude.Maybe Lude.Text,
-    awsRegion ::
-      Lude.Maybe Lude.Text
+  { -- | The 12-digit account ID of the source account.
+    accountId :: Lude.Maybe Lude.Text,
+    -- | The source region where the data is aggregated.
+    awsRegion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigRuleComplianceSummaryFilters' with the minimum fields required to make a request.

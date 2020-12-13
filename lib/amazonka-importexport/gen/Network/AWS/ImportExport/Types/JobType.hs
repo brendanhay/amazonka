@@ -13,8 +13,8 @@
 module Network.AWS.ImportExport.Types.JobType
   ( JobType
       ( JobType',
-        Export,
-        Import
+        Import,
+        Export
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype JobType = JobType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Export :: JobType
-pattern Export = JobType' "Export"
-
 pattern Import :: JobType
 pattern Import = JobType' "Import"
 
+pattern Export :: JobType
+pattern Export = JobType' "Export"
+
 {-# COMPLETE
-  Export,
   Import,
+  Export,
   JobType'
   #-}

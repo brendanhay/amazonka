@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudTrail.RemoveTags
     mkRemoveTags,
 
     -- ** Request lenses
-    rtTagsList,
-    rtResourceId,
+    rResourceId,
+    rTagsList,
 
     -- * Destructuring the response
     RemoveTagsResponse (..),
@@ -41,16 +42,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { tagsList :: Lude.Maybe [Tag],
-    resourceId :: Lude.Text
+  { -- | Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is:
+    --
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+    resourceId :: Lude.Text,
+    -- | Specifies a list of tags to be removed.
+    tagsList :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
@@ -64,23 +63,23 @@ mkRemoveTags ::
   Lude.Text ->
   RemoveTags
 mkRemoveTags pResourceId_ =
-  RemoveTags' {tagsList = Lude.Nothing, resourceId = pResourceId_}
-
--- | Specifies a list of tags to be removed.
---
--- /Note:/ Consider using 'tagsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTagsList :: Lens.Lens' RemoveTags (Lude.Maybe [Tag])
-rtTagsList = Lens.lens (tagsList :: RemoveTags -> Lude.Maybe [Tag]) (\s a -> s {tagsList = a} :: RemoveTags)
-{-# DEPRECATED rtTagsList "Use generic-lens or generic-optics with 'tagsList' instead." #-}
+  RemoveTags' {resourceId = pResourceId_, tagsList = Lude.Nothing}
 
 -- | Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtResourceId :: Lens.Lens' RemoveTags Lude.Text
-rtResourceId = Lens.lens (resourceId :: RemoveTags -> Lude.Text) (\s a -> s {resourceId = a} :: RemoveTags)
-{-# DEPRECATED rtResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+rResourceId :: Lens.Lens' RemoveTags Lude.Text
+rResourceId = Lens.lens (resourceId :: RemoveTags -> Lude.Text) (\s a -> s {resourceId = a} :: RemoveTags)
+{-# DEPRECATED rResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | Specifies a list of tags to be removed.
+--
+-- /Note:/ Consider using 'tagsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rTagsList :: Lens.Lens' RemoveTags (Lude.Maybe [Tag])
+rTagsList = Lens.lens (tagsList :: RemoveTags -> Lude.Maybe [Tag]) (\s a -> s {tagsList = a} :: RemoveTags)
+{-# DEPRECATED rTagsList "Use generic-lens or generic-optics with 'tagsList' instead." #-}
 
 instance Lude.AWSRequest RemoveTags where
   type Rs RemoveTags = RemoveTagsResponse
@@ -108,8 +107,8 @@ instance Lude.ToJSON RemoveTags where
   toJSON RemoveTags' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TagsList" Lude..=) Lude.<$> tagsList,
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            ("TagsList" Lude..=) Lude.<$> tagsList
           ]
       )
 
@@ -123,16 +122,10 @@ instance Lude.ToQuery RemoveTags where
 --
 -- /See:/ 'mkRemoveTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.

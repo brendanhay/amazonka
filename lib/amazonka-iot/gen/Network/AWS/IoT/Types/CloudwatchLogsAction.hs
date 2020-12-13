@@ -17,8 +17,8 @@ module Network.AWS.IoT.Types.CloudwatchLogsAction
     mkCloudwatchLogsAction,
 
     -- * Lenses
-    claRoleARN,
     claLogGroupName,
+    claRoleARN,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudwatchLogsAction' smart constructor.
 data CloudwatchLogsAction = CloudwatchLogsAction'
-  { roleARN ::
-      Lude.Text,
-    logGroupName :: Lude.Text
+  { -- | The CloudWatch log group to which the action sends data.
+    logGroupName :: Lude.Text,
+    -- | The IAM role that allows access to the CloudWatch log.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudwatchLogsAction' with the minimum fields required to make a request.
@@ -47,23 +42,16 @@ data CloudwatchLogsAction = CloudwatchLogsAction'
 -- * 'logGroupName' - The CloudWatch log group to which the action sends data.
 -- * 'roleARN' - The IAM role that allows access to the CloudWatch log.
 mkCloudwatchLogsAction ::
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'logGroupName'
   Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   CloudwatchLogsAction
-mkCloudwatchLogsAction pRoleARN_ pLogGroupName_ =
+mkCloudwatchLogsAction pLogGroupName_ pRoleARN_ =
   CloudwatchLogsAction'
-    { roleARN = pRoleARN_,
-      logGroupName = pLogGroupName_
+    { logGroupName = pLogGroupName_,
+      roleARN = pRoleARN_
     }
-
--- | The IAM role that allows access to the CloudWatch log.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-claRoleARN :: Lens.Lens' CloudwatchLogsAction Lude.Text
-claRoleARN = Lens.lens (roleARN :: CloudwatchLogsAction -> Lude.Text) (\s a -> s {roleARN = a} :: CloudwatchLogsAction)
-{-# DEPRECATED claRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The CloudWatch log group to which the action sends data.
 --
@@ -72,20 +60,27 @@ claLogGroupName :: Lens.Lens' CloudwatchLogsAction Lude.Text
 claLogGroupName = Lens.lens (logGroupName :: CloudwatchLogsAction -> Lude.Text) (\s a -> s {logGroupName = a} :: CloudwatchLogsAction)
 {-# DEPRECATED claLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
+-- | The IAM role that allows access to the CloudWatch log.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+claRoleARN :: Lens.Lens' CloudwatchLogsAction Lude.Text
+claRoleARN = Lens.lens (roleARN :: CloudwatchLogsAction -> Lude.Text) (\s a -> s {roleARN = a} :: CloudwatchLogsAction)
+{-# DEPRECATED claRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+
 instance Lude.FromJSON CloudwatchLogsAction where
   parseJSON =
     Lude.withObject
       "CloudwatchLogsAction"
       ( \x ->
           CloudwatchLogsAction'
-            Lude.<$> (x Lude..: "roleArn") Lude.<*> (x Lude..: "logGroupName")
+            Lude.<$> (x Lude..: "logGroupName") Lude.<*> (x Lude..: "roleArn")
       )
 
 instance Lude.ToJSON CloudwatchLogsAction where
   toJSON CloudwatchLogsAction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("roleArn" Lude..= roleARN),
-            Lude.Just ("logGroupName" Lude..= logGroupName)
+          [ Lude.Just ("logGroupName" Lude..= logGroupName),
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

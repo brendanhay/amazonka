@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,10 +34,10 @@ module Network.AWS.SWF.RegisterDomain
     mkRegisterDomain,
 
     -- ** Request lenses
-    rdDescription,
-    rdTags,
     rdName,
     rdWorkflowExecutionRetentionPeriodInDays,
+    rdDescription,
+    rdTags,
 
     -- * Destructuring the response
     RegisterDomainResponse (..),
@@ -52,34 +53,38 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkRegisterDomain' smart constructor.
 data RegisterDomain = RegisterDomain'
-  { description ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [ResourceTag],
+  { -- | Name of the domain to register. The name must be unique in the region that the domain is registered in.
+    --
+    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
     name :: Lude.Text,
-    workflowExecutionRetentionPeriodInDays :: Lude.Text
+    -- | The duration (in days) that records and histories of workflow executions on the domain should be kept by the service. After the retention period, the workflow execution isn't available in the results of visibility calls.
+    --
+    -- If you pass the value @NONE@ or @0@ (zero), then the workflow execution history isn't retained. As soon as the workflow execution completes, the execution record and its history are deleted.
+    -- The maximum workflow execution retention period is 90 days. For more information about Amazon SWF service limits, see: <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html Amazon SWF Service Limits> in the /Amazon SWF Developer Guide/ .
+    workflowExecutionRetentionPeriodInDays :: Lude.Text,
+    -- | A text description of the domain.
+    description :: Lude.Maybe Lude.Text,
+    -- | Tags to be added when registering a domain.
+    --
+    -- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
+    tags :: Lude.Maybe [ResourceTag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterDomain' with the minimum fields required to make a request.
 --
--- * 'description' - A text description of the domain.
 -- * 'name' - Name of the domain to register. The name must be unique in the region that the domain is registered in.
 --
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
--- * 'tags' - Tags to be added when registering a domain.
---
--- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
 -- * 'workflowExecutionRetentionPeriodInDays' - The duration (in days) that records and histories of workflow executions on the domain should be kept by the service. After the retention period, the workflow execution isn't available in the results of visibility calls.
 --
 -- If you pass the value @NONE@ or @0@ (zero), then the workflow execution history isn't retained. As soon as the workflow execution completes, the execution record and its history are deleted.
 -- The maximum workflow execution retention period is 90 days. For more information about Amazon SWF service limits, see: <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html Amazon SWF Service Limits> in the /Amazon SWF Developer Guide/ .
+-- * 'description' - A text description of the domain.
+-- * 'tags' - Tags to be added when registering a domain.
+--
+-- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
 mkRegisterDomain ::
   -- | 'name'
   Lude.Text ->
@@ -88,28 +93,12 @@ mkRegisterDomain ::
   RegisterDomain
 mkRegisterDomain pName_ pWorkflowExecutionRetentionPeriodInDays_ =
   RegisterDomain'
-    { description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_,
+    { name = pName_,
       workflowExecutionRetentionPeriodInDays =
-        pWorkflowExecutionRetentionPeriodInDays_
+        pWorkflowExecutionRetentionPeriodInDays_,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
-
--- | A text description of the domain.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdDescription :: Lens.Lens' RegisterDomain (Lude.Maybe Lude.Text)
-rdDescription = Lens.lens (description :: RegisterDomain -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RegisterDomain)
-{-# DEPRECATED rdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Tags to be added when registering a domain.
---
--- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdTags :: Lens.Lens' RegisterDomain (Lude.Maybe [ResourceTag])
-rdTags = Lens.lens (tags :: RegisterDomain -> Lude.Maybe [ResourceTag]) (\s a -> s {tags = a} :: RegisterDomain)
-{-# DEPRECATED rdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Name of the domain to register. The name must be unique in the region that the domain is registered in.
 --
@@ -129,6 +118,22 @@ rdName = Lens.lens (name :: RegisterDomain -> Lude.Text) (\s a -> s {name = a} :
 rdWorkflowExecutionRetentionPeriodInDays :: Lens.Lens' RegisterDomain Lude.Text
 rdWorkflowExecutionRetentionPeriodInDays = Lens.lens (workflowExecutionRetentionPeriodInDays :: RegisterDomain -> Lude.Text) (\s a -> s {workflowExecutionRetentionPeriodInDays = a} :: RegisterDomain)
 {-# DEPRECATED rdWorkflowExecutionRetentionPeriodInDays "Use generic-lens or generic-optics with 'workflowExecutionRetentionPeriodInDays' instead." #-}
+
+-- | A text description of the domain.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdDescription :: Lens.Lens' RegisterDomain (Lude.Maybe Lude.Text)
+rdDescription = Lens.lens (description :: RegisterDomain -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RegisterDomain)
+{-# DEPRECATED rdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Tags to be added when registering a domain.
+--
+-- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdTags :: Lens.Lens' RegisterDomain (Lude.Maybe [ResourceTag])
+rdTags = Lens.lens (tags :: RegisterDomain -> Lude.Maybe [ResourceTag]) (\s a -> s {tags = a} :: RegisterDomain)
+{-# DEPRECATED rdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest RegisterDomain where
   type Rs RegisterDomain = RegisterDomainResponse
@@ -150,13 +155,13 @@ instance Lude.ToJSON RegisterDomain where
   toJSON RegisterDomain' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("name" Lude..= name),
+          [ Lude.Just ("name" Lude..= name),
             Lude.Just
               ( "workflowExecutionRetentionPeriodInDays"
                   Lude..= workflowExecutionRetentionPeriodInDays
-              )
+              ),
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -168,13 +173,7 @@ instance Lude.ToQuery RegisterDomain where
 
 -- | /See:/ 'mkRegisterDomainResponse' smart constructor.
 data RegisterDomainResponse = RegisterDomainResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterDomainResponse' with the minimum fields required to make a request.

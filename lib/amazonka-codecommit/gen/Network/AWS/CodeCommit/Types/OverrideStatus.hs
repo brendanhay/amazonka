@@ -13,8 +13,8 @@
 module Network.AWS.CodeCommit.Types.OverrideStatus
   ( OverrideStatus
       ( OverrideStatus',
-        Override,
-        Revoke
+        OSOverride,
+        OSRevoke
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype OverrideStatus = OverrideStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Override :: OverrideStatus
-pattern Override = OverrideStatus' "OVERRIDE"
+pattern OSOverride :: OverrideStatus
+pattern OSOverride = OverrideStatus' "OVERRIDE"
 
-pattern Revoke :: OverrideStatus
-pattern Revoke = OverrideStatus' "REVOKE"
+pattern OSRevoke :: OverrideStatus
+pattern OSRevoke = OverrideStatus' "REVOKE"
 
 {-# COMPLETE
-  Override,
-  Revoke,
+  OSOverride,
+  OSRevoke,
   OverrideStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CodeCommit.MergePullRequestByFastForward
     mkMergePullRequestByFastForward,
 
     -- ** Request lenses
-    mprbffSourceCommitId,
     mprbffPullRequestId,
     mprbffRepositoryName,
+    mprbffSourceCommitId,
 
     -- * Destructuring the response
     MergePullRequestByFastForwardResponse (..),
@@ -41,18 +42,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkMergePullRequestByFastForward' smart constructor.
 data MergePullRequestByFastForward = MergePullRequestByFastForward'
-  { sourceCommitId ::
-      Lude.Maybe Lude.Text,
+  { -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
     pullRequestId :: Lude.Text,
-    repositoryName :: Lude.Text
+    -- | The name of the repository where the pull request was created.
+    repositoryName :: Lude.Text,
+    -- | The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.
+    sourceCommitId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergePullRequestByFastForward' with the minimum fields required to make a request.
@@ -68,17 +65,10 @@ mkMergePullRequestByFastForward ::
   MergePullRequestByFastForward
 mkMergePullRequestByFastForward pPullRequestId_ pRepositoryName_ =
   MergePullRequestByFastForward'
-    { sourceCommitId = Lude.Nothing,
-      pullRequestId = pPullRequestId_,
-      repositoryName = pRepositoryName_
+    { pullRequestId = pPullRequestId_,
+      repositoryName = pRepositoryName_,
+      sourceCommitId = Lude.Nothing
     }
-
--- | The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.
---
--- /Note:/ Consider using 'sourceCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprbffSourceCommitId :: Lens.Lens' MergePullRequestByFastForward (Lude.Maybe Lude.Text)
-mprbffSourceCommitId = Lens.lens (sourceCommitId :: MergePullRequestByFastForward -> Lude.Maybe Lude.Text) (\s a -> s {sourceCommitId = a} :: MergePullRequestByFastForward)
-{-# DEPRECATED mprbffSourceCommitId "Use generic-lens or generic-optics with 'sourceCommitId' instead." #-}
 
 -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
 --
@@ -93,6 +83,13 @@ mprbffPullRequestId = Lens.lens (pullRequestId :: MergePullRequestByFastForward 
 mprbffRepositoryName :: Lens.Lens' MergePullRequestByFastForward Lude.Text
 mprbffRepositoryName = Lens.lens (repositoryName :: MergePullRequestByFastForward -> Lude.Text) (\s a -> s {repositoryName = a} :: MergePullRequestByFastForward)
 {-# DEPRECATED mprbffRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.
+--
+-- /Note:/ Consider using 'sourceCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbffSourceCommitId :: Lens.Lens' MergePullRequestByFastForward (Lude.Maybe Lude.Text)
+mprbffSourceCommitId = Lens.lens (sourceCommitId :: MergePullRequestByFastForward -> Lude.Maybe Lude.Text) (\s a -> s {sourceCommitId = a} :: MergePullRequestByFastForward)
+{-# DEPRECATED mprbffSourceCommitId "Use generic-lens or generic-optics with 'sourceCommitId' instead." #-}
 
 instance Lude.AWSRequest MergePullRequestByFastForward where
   type
@@ -123,9 +120,9 @@ instance Lude.ToJSON MergePullRequestByFastForward where
   toJSON MergePullRequestByFastForward' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("sourceCommitId" Lude..=) Lude.<$> sourceCommitId,
-            Lude.Just ("pullRequestId" Lude..= pullRequestId),
-            Lude.Just ("repositoryName" Lude..= repositoryName)
+          [ Lude.Just ("pullRequestId" Lude..= pullRequestId),
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            ("sourceCommitId" Lude..=) Lude.<$> sourceCommitId
           ]
       )
 
@@ -137,19 +134,12 @@ instance Lude.ToQuery MergePullRequestByFastForward where
 
 -- | /See:/ 'mkMergePullRequestByFastForwardResponse' smart constructor.
 data MergePullRequestByFastForwardResponse = MergePullRequestByFastForwardResponse'
-  { pullRequest ::
-      Lude.Maybe
-        PullRequest,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the specified pull request, including the merge.
+    pullRequest :: Lude.Maybe PullRequest,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergePullRequestByFastForwardResponse' with the minimum fields required to make a request.

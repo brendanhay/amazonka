@@ -13,15 +13,15 @@
 module Network.AWS.DirectoryService.Types.ShareStatus
   ( ShareStatus
       ( ShareStatus',
-        SSDeleted,
-        SSDeleting,
+        SSShared,
         SSPendingAcceptance,
-        SSRejectFailed,
         SSRejected,
         SSRejecting,
+        SSRejectFailed,
+        SSSharing,
         SSShareFailed,
-        SSShared,
-        SSSharing
+        SSDeleted,
+        SSDeleting
       ),
   )
 where
@@ -52,17 +52,11 @@ newtype ShareStatus = ShareStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSDeleted :: ShareStatus
-pattern SSDeleted = ShareStatus' "Deleted"
-
-pattern SSDeleting :: ShareStatus
-pattern SSDeleting = ShareStatus' "Deleting"
+pattern SSShared :: ShareStatus
+pattern SSShared = ShareStatus' "Shared"
 
 pattern SSPendingAcceptance :: ShareStatus
 pattern SSPendingAcceptance = ShareStatus' "PendingAcceptance"
-
-pattern SSRejectFailed :: ShareStatus
-pattern SSRejectFailed = ShareStatus' "RejectFailed"
 
 pattern SSRejected :: ShareStatus
 pattern SSRejected = ShareStatus' "Rejected"
@@ -70,24 +64,30 @@ pattern SSRejected = ShareStatus' "Rejected"
 pattern SSRejecting :: ShareStatus
 pattern SSRejecting = ShareStatus' "Rejecting"
 
-pattern SSShareFailed :: ShareStatus
-pattern SSShareFailed = ShareStatus' "ShareFailed"
-
-pattern SSShared :: ShareStatus
-pattern SSShared = ShareStatus' "Shared"
+pattern SSRejectFailed :: ShareStatus
+pattern SSRejectFailed = ShareStatus' "RejectFailed"
 
 pattern SSSharing :: ShareStatus
 pattern SSSharing = ShareStatus' "Sharing"
 
+pattern SSShareFailed :: ShareStatus
+pattern SSShareFailed = ShareStatus' "ShareFailed"
+
+pattern SSDeleted :: ShareStatus
+pattern SSDeleted = ShareStatus' "Deleted"
+
+pattern SSDeleting :: ShareStatus
+pattern SSDeleting = ShareStatus' "Deleting"
+
 {-# COMPLETE
-  SSDeleted,
-  SSDeleting,
+  SSShared,
   SSPendingAcceptance,
-  SSRejectFailed,
   SSRejected,
   SSRejecting,
-  SSShareFailed,
-  SSShared,
+  SSRejectFailed,
   SSSharing,
+  SSShareFailed,
+  SSDeleted,
+  SSDeleting,
   ShareStatus'
   #-}

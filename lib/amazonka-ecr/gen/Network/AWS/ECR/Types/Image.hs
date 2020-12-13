@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImage' smart constructor.
 data Image = Image'
-  { registryId :: Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the registry containing the image.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The manifest media type of the image.
     imageManifestMediaType :: Lude.Maybe Lude.Text,
+    -- | An object containing the image tag and image digest associated with an image.
     imageId :: Lude.Maybe ImageIdentifier,
+    -- | The name of the repository associated with the image.
     repositoryName :: Lude.Maybe Lude.Text,
+    -- | The image manifest associated with the image.
     imageManifest :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
--- * 'imageId' - An object containing the image tag and image digest associated with an image.
--- * 'imageManifest' - The image manifest associated with the image.
--- * 'imageManifestMediaType' - The manifest media type of the image.
 -- * 'registryId' - The AWS account ID associated with the registry containing the image.
+-- * 'imageManifestMediaType' - The manifest media type of the image.
+-- * 'imageId' - An object containing the image tag and image digest associated with an image.
 -- * 'repositoryName' - The name of the repository associated with the image.
+-- * 'imageManifest' - The image manifest associated with the image.
 mkImage ::
   Image
 mkImage =

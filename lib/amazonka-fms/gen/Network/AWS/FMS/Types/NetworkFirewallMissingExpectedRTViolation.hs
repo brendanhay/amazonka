@@ -32,38 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkFirewallMissingExpectedRTViolation' smart constructor.
 data NetworkFirewallMissingExpectedRTViolation = NetworkFirewallMissingExpectedRTViolation'
-  { currentRouteTable ::
-      Lude.Maybe
-        Lude.Text,
-    availabilityZone ::
-      Lude.Maybe
-        Lude.Text,
-    vpc ::
-      Lude.Maybe
-        Lude.Text,
-    violationTarget ::
-      Lude.Maybe
-        Lude.Text,
-    expectedRouteTable ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The resource ID of the current route table that's associated with the subnet, if one is available.
+    currentRouteTable :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone of a violating subnet.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The resource ID of the VPC associated with a violating subnet.
+    vpc :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS Network Firewall or VPC resource that's in violation.
+    violationTarget :: Lude.Maybe Lude.Text,
+    -- | The resource ID of the route table that should be associated with the subnet.
+    expectedRouteTable :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkFirewallMissingExpectedRTViolation' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone of a violating subnet.
 -- * 'currentRouteTable' - The resource ID of the current route table that's associated with the subnet, if one is available.
--- * 'expectedRouteTable' - The resource ID of the route table that should be associated with the subnet.
--- * 'violationTarget' - The ID of the AWS Network Firewall or VPC resource that's in violation.
+-- * 'availabilityZone' - The Availability Zone of a violating subnet.
 -- * 'vpc' - The resource ID of the VPC associated with a violating subnet.
+-- * 'violationTarget' - The ID of the AWS Network Firewall or VPC resource that's in violation.
+-- * 'expectedRouteTable' - The resource ID of the route table that should be associated with the subnet.
 mkNetworkFirewallMissingExpectedRTViolation ::
   NetworkFirewallMissingExpectedRTViolation
 mkNetworkFirewallMissingExpectedRTViolation =

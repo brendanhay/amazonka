@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.MediaLive.StopMultiplex
     mkStopMultiplex,
 
     -- ** Request lenses
-    smMultiplexId,
+    sMultiplexId,
 
     -- * Destructuring the response
     StopMultiplexResponse (..),
@@ -49,14 +50,11 @@ import qualified Network.AWS.Response as Res
 -- | Placeholder documentation for StopMultiplexRequest
 --
 -- /See:/ 'mkStopMultiplex' smart constructor.
-newtype StopMultiplex = StopMultiplex' {multiplexId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StopMultiplex = StopMultiplex'
+  { -- | The ID of the multiplex.
+    multiplexId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMultiplex' with the minimum fields required to make a request.
@@ -72,9 +70,9 @@ mkStopMultiplex pMultiplexId_ =
 -- | The ID of the multiplex.
 --
 -- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smMultiplexId :: Lens.Lens' StopMultiplex Lude.Text
-smMultiplexId = Lens.lens (multiplexId :: StopMultiplex -> Lude.Text) (\s a -> s {multiplexId = a} :: StopMultiplex)
-{-# DEPRECATED smMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
+sMultiplexId :: Lens.Lens' StopMultiplex Lude.Text
+sMultiplexId = Lens.lens (multiplexId :: StopMultiplex -> Lude.Text) (\s a -> s {multiplexId = a} :: StopMultiplex)
+{-# DEPRECATED sMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
 instance Lude.AWSRequest StopMultiplex where
   type Rs StopMultiplex = StopMultiplexResponse
@@ -120,44 +118,45 @@ instance Lude.ToQuery StopMultiplex where
 --
 -- /See:/ 'mkStopMultiplexResponse' smart constructor.
 data StopMultiplexResponse = StopMultiplexResponse'
-  { state ::
-      Lude.Maybe MultiplexState,
+  { -- | The current state of the multiplex.
+    state :: Lude.Maybe MultiplexState,
+    -- | The unique arn of the multiplex.
     arn :: Lude.Maybe Lude.Text,
+    -- | The number of currently healthy pipelines.
     pipelinesRunningCount :: Lude.Maybe Lude.Int,
+    -- | A list of availability zones for the multiplex.
     availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The number of programs in the multiplex.
     programCount :: Lude.Maybe Lude.Int,
-    destinations ::
-      Lude.Maybe [MultiplexOutputDestination],
+    -- | A list of the multiplex output destinations.
+    destinations :: Lude.Maybe [MultiplexOutputDestination],
+    -- | The name of the multiplex.
     name :: Lude.Maybe Lude.Text,
+    -- | The unique id of the multiplex.
     id :: Lude.Maybe Lude.Text,
-    multiplexSettings ::
-      Lude.Maybe MultiplexSettings,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Configuration for a multiplex event.
+    multiplexSettings :: Lude.Maybe MultiplexSettings,
+    -- | A collection of key-value pairs.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMultiplexResponse' with the minimum fields required to make a request.
 --
+-- * 'state' - The current state of the multiplex.
 -- * 'arn' - The unique arn of the multiplex.
+-- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
 -- * 'availabilityZones' - A list of availability zones for the multiplex.
+-- * 'programCount' - The number of programs in the multiplex.
 -- * 'destinations' - A list of the multiplex output destinations.
+-- * 'name' - The name of the multiplex.
 -- * 'id' - The unique id of the multiplex.
 -- * 'multiplexSettings' - Configuration for a multiplex event.
--- * 'name' - The name of the multiplex.
--- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
--- * 'programCount' - The number of programs in the multiplex.
--- * 'responseStatus' - The response status code.
--- * 'state' - The current state of the multiplex.
 -- * 'tags' - A collection of key-value pairs.
+-- * 'responseStatus' - The response status code.
 mkStopMultiplexResponse ::
   -- | 'responseStatus'
   Lude.Int ->

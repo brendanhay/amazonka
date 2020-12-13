@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.ServiceCatalog.DeleteProvisionedProductPlan
     mkDeleteProvisionedProductPlan,
 
     -- ** Request lenses
-    delAcceptLanguage,
-    delIgnoreErrors,
-    delPlanId,
+    dpppPlanId,
+    dpppAcceptLanguage,
+    dpppIgnoreErrors,
 
     -- * Destructuring the response
     DeleteProvisionedProductPlanResponse (..),
@@ -40,23 +41,28 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDeleteProvisionedProductPlan' smart constructor.
 data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    ignoreErrors ::
-      Lude.Maybe Lude.Bool,
-    planId :: Lude.Text
+  { -- | The plan identifier.
+    planId :: Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
+    ignoreErrors :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProvisionedProductPlan' with the minimum fields required to make a request.
 --
+-- * 'planId' - The plan identifier.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -70,17 +76,23 @@ data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
 --
 --
 -- * 'ignoreErrors' - If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
--- * 'planId' - The plan identifier.
 mkDeleteProvisionedProductPlan ::
   -- | 'planId'
   Lude.Text ->
   DeleteProvisionedProductPlan
 mkDeleteProvisionedProductPlan pPlanId_ =
   DeleteProvisionedProductPlan'
-    { acceptLanguage = Lude.Nothing,
-      ignoreErrors = Lude.Nothing,
-      planId = pPlanId_
+    { planId = pPlanId_,
+      acceptLanguage = Lude.Nothing,
+      ignoreErrors = Lude.Nothing
     }
+
+-- | The plan identifier.
+--
+-- /Note:/ Consider using 'planId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpppPlanId :: Lens.Lens' DeleteProvisionedProductPlan Lude.Text
+dpppPlanId = Lens.lens (planId :: DeleteProvisionedProductPlan -> Lude.Text) (\s a -> s {planId = a} :: DeleteProvisionedProductPlan)
+{-# DEPRECATED dpppPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
 
 -- | The language code.
 --
@@ -96,23 +108,16 @@ mkDeleteProvisionedProductPlan pPlanId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delAcceptLanguage :: Lens.Lens' DeleteProvisionedProductPlan (Lude.Maybe Lude.Text)
-delAcceptLanguage = Lens.lens (acceptLanguage :: DeleteProvisionedProductPlan -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteProvisionedProductPlan)
-{-# DEPRECATED delAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dpppAcceptLanguage :: Lens.Lens' DeleteProvisionedProductPlan (Lude.Maybe Lude.Text)
+dpppAcceptLanguage = Lens.lens (acceptLanguage :: DeleteProvisionedProductPlan -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteProvisionedProductPlan)
+{-# DEPRECATED dpppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
 --
 -- /Note:/ Consider using 'ignoreErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delIgnoreErrors :: Lens.Lens' DeleteProvisionedProductPlan (Lude.Maybe Lude.Bool)
-delIgnoreErrors = Lens.lens (ignoreErrors :: DeleteProvisionedProductPlan -> Lude.Maybe Lude.Bool) (\s a -> s {ignoreErrors = a} :: DeleteProvisionedProductPlan)
-{-# DEPRECATED delIgnoreErrors "Use generic-lens or generic-optics with 'ignoreErrors' instead." #-}
-
--- | The plan identifier.
---
--- /Note:/ Consider using 'planId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delPlanId :: Lens.Lens' DeleteProvisionedProductPlan Lude.Text
-delPlanId = Lens.lens (planId :: DeleteProvisionedProductPlan -> Lude.Text) (\s a -> s {planId = a} :: DeleteProvisionedProductPlan)
-{-# DEPRECATED delPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
+dpppIgnoreErrors :: Lens.Lens' DeleteProvisionedProductPlan (Lude.Maybe Lude.Bool)
+dpppIgnoreErrors = Lens.lens (ignoreErrors :: DeleteProvisionedProductPlan -> Lude.Maybe Lude.Bool) (\s a -> s {ignoreErrors = a} :: DeleteProvisionedProductPlan)
+{-# DEPRECATED dpppIgnoreErrors "Use generic-lens or generic-optics with 'ignoreErrors' instead." #-}
 
 instance Lude.AWSRequest DeleteProvisionedProductPlan where
   type
@@ -143,9 +148,9 @@ instance Lude.ToJSON DeleteProvisionedProductPlan where
   toJSON DeleteProvisionedProductPlan' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("IgnoreErrors" Lude..=) Lude.<$> ignoreErrors,
-            Lude.Just ("PlanId" Lude..= planId)
+          [ Lude.Just ("PlanId" Lude..= planId),
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("IgnoreErrors" Lude..=) Lude.<$> ignoreErrors
           ]
       )
 
@@ -157,16 +162,10 @@ instance Lude.ToQuery DeleteProvisionedProductPlan where
 
 -- | /See:/ 'mkDeleteProvisionedProductPlanResponse' smart constructor.
 newtype DeleteProvisionedProductPlanResponse = DeleteProvisionedProductPlanResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProvisionedProductPlanResponse' with the minimum fields required to make a request.

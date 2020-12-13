@@ -29,21 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMpeg2FilterSettings' smart constructor.
 newtype Mpeg2FilterSettings = Mpeg2FilterSettings'
-  { temporalFilterSettings ::
-      Lude.Maybe TemporalFilterSettings
+  { temporalFilterSettings :: Lude.Maybe TemporalFilterSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mpeg2FilterSettings' with the minimum fields required to make a request.
 --
--- * 'temporalFilterSettings' - Undocumented field.
+-- * 'temporalFilterSettings' -
 mkMpeg2FilterSettings ::
   Mpeg2FilterSettings
 mkMpeg2FilterSettings =

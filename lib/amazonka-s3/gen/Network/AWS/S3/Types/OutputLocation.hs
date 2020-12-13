@@ -30,8 +30,8 @@ import Network.AWS.S3.Types.S3Location
 --
 -- /See:/ 'mkOutputLocation' smart constructor.
 newtype OutputLocation = OutputLocation'
-  { s3 ::
-      Lude.Maybe S3Location
+  { -- | Describes an S3 location that will receive the results of the restore request.
+    s3 :: Lude.Maybe S3Location
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)

@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceSelectionResult' smart constructor.
 data DeviceSelectionResult = DeviceSelectionResult'
-  { matchedDevicesCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of devices that matched the device filter selection criteria.
+    matchedDevicesCount :: Lude.Maybe Lude.Int,
+    -- | The filters in a device selection result.
     filters :: Lude.Maybe [DeviceFilter],
+    -- | The maximum number of devices to be selected by a device filter and included in a test run.
     maxDevices :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceSelectionResult' with the minimum fields required to make a request.
 --
--- * 'filters' - The filters in a device selection result.
 -- * 'matchedDevicesCount' - The number of devices that matched the device filter selection criteria.
+-- * 'filters' - The filters in a device selection result.
 -- * 'maxDevices' - The maximum number of devices to be selected by a device filter and included in a test run.
 mkDeviceSelectionResult ::
   DeviceSelectionResult

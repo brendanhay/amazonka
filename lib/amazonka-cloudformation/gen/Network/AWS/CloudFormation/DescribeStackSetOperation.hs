@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudFormation.DescribeStackSetOperation
     mkDescribeStackSetOperation,
 
     -- ** Request lenses
-    dssoStackSetName,
     dssoOperationId,
+    dssoStackSetName,
 
     -- * Destructuring the response
     DescribeStackSetOperationResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStackSetOperation' smart constructor.
 data DescribeStackSetOperation = DescribeStackSetOperation'
-  { stackSetName ::
-      Lude.Text,
-    operationId :: Lude.Text
+  { -- | The unique ID of the stack set operation.
+    operationId :: Lude.Text,
+    -- | The name or the unique stack ID of the stack set for the stack operation.
+    stackSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSetOperation' with the minimum fields required to make a request.
@@ -58,23 +54,16 @@ data DescribeStackSetOperation = DescribeStackSetOperation'
 -- * 'operationId' - The unique ID of the stack set operation.
 -- * 'stackSetName' - The name or the unique stack ID of the stack set for the stack operation.
 mkDescribeStackSetOperation ::
-  -- | 'stackSetName'
-  Lude.Text ->
   -- | 'operationId'
   Lude.Text ->
+  -- | 'stackSetName'
+  Lude.Text ->
   DescribeStackSetOperation
-mkDescribeStackSetOperation pStackSetName_ pOperationId_ =
+mkDescribeStackSetOperation pOperationId_ pStackSetName_ =
   DescribeStackSetOperation'
-    { stackSetName = pStackSetName_,
-      operationId = pOperationId_
+    { operationId = pOperationId_,
+      stackSetName = pStackSetName_
     }
-
--- | The name or the unique stack ID of the stack set for the stack operation.
---
--- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssoStackSetName :: Lens.Lens' DescribeStackSetOperation Lude.Text
-dssoStackSetName = Lens.lens (stackSetName :: DescribeStackSetOperation -> Lude.Text) (\s a -> s {stackSetName = a} :: DescribeStackSetOperation)
-{-# DEPRECATED dssoStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 -- | The unique ID of the stack set operation.
 --
@@ -82,6 +71,13 @@ dssoStackSetName = Lens.lens (stackSetName :: DescribeStackSetOperation -> Lude.
 dssoOperationId :: Lens.Lens' DescribeStackSetOperation Lude.Text
 dssoOperationId = Lens.lens (operationId :: DescribeStackSetOperation -> Lude.Text) (\s a -> s {operationId = a} :: DescribeStackSetOperation)
 {-# DEPRECATED dssoOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The name or the unique stack ID of the stack set for the stack operation.
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssoStackSetName :: Lens.Lens' DescribeStackSetOperation Lude.Text
+dssoStackSetName = Lens.lens (stackSetName :: DescribeStackSetOperation -> Lude.Text) (\s a -> s {stackSetName = a} :: DescribeStackSetOperation)
+{-# DEPRECATED dssoStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 instance Lude.AWSRequest DescribeStackSetOperation where
   type
@@ -108,31 +104,24 @@ instance Lude.ToQuery DescribeStackSetOperation where
     Lude.mconcat
       [ "Action" Lude.=: ("DescribeStackSetOperation" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "StackSetName" Lude.=: stackSetName,
-        "OperationId" Lude.=: operationId
+        "OperationId" Lude.=: operationId,
+        "StackSetName" Lude.=: stackSetName
       ]
 
 -- | /See:/ 'mkDescribeStackSetOperationResponse' smart constructor.
 data DescribeStackSetOperationResponse = DescribeStackSetOperationResponse'
-  { stackSetOperation ::
-      Lude.Maybe
-        StackSetOperation,
-    responseStatus ::
-      Lude.Int
+  { -- | The specified stack set operation.
+    stackSetOperation :: Lude.Maybe StackSetOperation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSetOperationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stackSetOperation' - The specified stack set operation.
+-- * 'responseStatus' - The response status code.
 mkDescribeStackSetOperationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

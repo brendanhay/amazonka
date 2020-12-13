@@ -13,12 +13,12 @@
 module Network.AWS.EC2.Types.ImageAttributeName
   ( ImageAttributeName
       ( ImageAttributeName',
-        BlockDeviceMapping,
         Description,
         Kernel,
+        RAMDisk,
         LaunchPermission,
         ProductCodes,
-        RAMDisk,
+        BlockDeviceMapping,
         SRIOVNetSupport
       ),
   )
@@ -50,14 +50,14 @@ newtype ImageAttributeName = ImageAttributeName' Lude.Text
       Lude.ToHeader
     )
 
-pattern BlockDeviceMapping :: ImageAttributeName
-pattern BlockDeviceMapping = ImageAttributeName' "blockDeviceMapping"
-
 pattern Description :: ImageAttributeName
 pattern Description = ImageAttributeName' "description"
 
 pattern Kernel :: ImageAttributeName
 pattern Kernel = ImageAttributeName' "kernel"
+
+pattern RAMDisk :: ImageAttributeName
+pattern RAMDisk = ImageAttributeName' "ramdisk"
 
 pattern LaunchPermission :: ImageAttributeName
 pattern LaunchPermission = ImageAttributeName' "launchPermission"
@@ -65,19 +65,19 @@ pattern LaunchPermission = ImageAttributeName' "launchPermission"
 pattern ProductCodes :: ImageAttributeName
 pattern ProductCodes = ImageAttributeName' "productCodes"
 
-pattern RAMDisk :: ImageAttributeName
-pattern RAMDisk = ImageAttributeName' "ramdisk"
+pattern BlockDeviceMapping :: ImageAttributeName
+pattern BlockDeviceMapping = ImageAttributeName' "blockDeviceMapping"
 
 pattern SRIOVNetSupport :: ImageAttributeName
 pattern SRIOVNetSupport = ImageAttributeName' "sriovNetSupport"
 
 {-# COMPLETE
-  BlockDeviceMapping,
   Description,
   Kernel,
+  RAMDisk,
   LaunchPermission,
   ProductCodes,
-  RAMDisk,
+  BlockDeviceMapping,
   SRIOVNetSupport,
   ImageAttributeName'
   #-}

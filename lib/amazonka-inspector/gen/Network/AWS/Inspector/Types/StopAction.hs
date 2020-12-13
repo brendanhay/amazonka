@@ -13,8 +13,8 @@
 module Network.AWS.Inspector.Types.StopAction
   ( StopAction
       ( StopAction',
-        SkipEvaluation,
-        StartEvaluation
+        StartEvaluation,
+        SkipEvaluation
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype StopAction = StopAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern SkipEvaluation :: StopAction
-pattern SkipEvaluation = StopAction' "SKIP_EVALUATION"
-
 pattern StartEvaluation :: StopAction
 pattern StartEvaluation = StopAction' "START_EVALUATION"
 
+pattern SkipEvaluation :: StopAction
+pattern SkipEvaluation = StopAction' "SKIP_EVALUATION"
+
 {-# COMPLETE
-  SkipEvaluation,
   StartEvaluation,
+  SkipEvaluation,
   StopAction'
   #-}

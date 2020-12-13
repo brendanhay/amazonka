@@ -31,16 +31,10 @@ import Network.AWS.SES.Types.CloudWatchDimensionConfiguration
 --
 -- /See:/ 'mkCloudWatchDestination' smart constructor.
 newtype CloudWatchDestination = CloudWatchDestination'
-  { dimensionConfigurations ::
-      [CloudWatchDimensionConfiguration]
+  { -- | A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+    dimensionConfigurations :: [CloudWatchDimensionConfiguration]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchDestination' with the minimum fields required to make a request.

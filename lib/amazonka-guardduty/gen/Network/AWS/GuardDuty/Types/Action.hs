@@ -36,29 +36,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAction' smart constructor.
 data Action = Action'
-  { networkConnectionAction ::
-      Lude.Maybe NetworkConnectionAction,
+  { -- | Information about the NETWORK_CONNECTION action described in this finding.
+    networkConnectionAction :: Lude.Maybe NetworkConnectionAction,
+    -- | Information about the PORT_PROBE action described in this finding.
     portProbeAction :: Lude.Maybe PortProbeAction,
+    -- | The GuardDuty finding activity type.
     actionType :: Lude.Maybe Lude.Text,
+    -- | Information about the DNS_REQUEST action described in this finding.
     dnsRequestAction :: Lude.Maybe DNSRequestAction,
+    -- | Information about the AWS_API_CALL action described in this finding.
     awsAPICallAction :: Lude.Maybe AWSAPICallAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Action' with the minimum fields required to make a request.
 --
--- * 'actionType' - The GuardDuty finding activity type.
--- * 'awsAPICallAction' - Information about the AWS_API_CALL action described in this finding.
--- * 'dnsRequestAction' - Information about the DNS_REQUEST action described in this finding.
 -- * 'networkConnectionAction' - Information about the NETWORK_CONNECTION action described in this finding.
 -- * 'portProbeAction' - Information about the PORT_PROBE action described in this finding.
+-- * 'actionType' - The GuardDuty finding activity type.
+-- * 'dnsRequestAction' - Information about the DNS_REQUEST action described in this finding.
+-- * 'awsAPICallAction' - Information about the AWS_API_CALL action described in this finding.
 mkAction ::
   Action
 mkAction =

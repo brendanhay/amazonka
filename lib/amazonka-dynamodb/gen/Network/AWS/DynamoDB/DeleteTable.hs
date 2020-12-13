@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,15 +24,15 @@ module Network.AWS.DynamoDB.DeleteTable
     mkDeleteTable,
 
     -- ** Request lenses
-    dtTableName,
+    dtfTableName,
 
     -- * Destructuring the response
     DeleteTableResponse (..),
     mkDeleteTableResponse,
 
     -- ** Response lenses
-    dtrsTableDescription,
-    dtrsResponseStatus,
+    drsTableDescription,
+    drsResponseStatus,
   )
 where
 
@@ -44,14 +45,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the input of a @DeleteTable@ operation.
 --
 -- /See:/ 'mkDeleteTable' smart constructor.
-newtype DeleteTable = DeleteTable' {tableName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteTable = DeleteTable'
+  { -- | The name of the table to delete.
+    tableName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTable' with the minimum fields required to make a request.
@@ -66,9 +64,9 @@ mkDeleteTable pTableName_ = DeleteTable' {tableName = pTableName_}
 -- | The name of the table to delete.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtTableName :: Lens.Lens' DeleteTable Lude.Text
-dtTableName = Lens.lens (tableName :: DeleteTable -> Lude.Text) (\s a -> s {tableName = a} :: DeleteTable)
-{-# DEPRECATED dtTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+dtfTableName :: Lens.Lens' DeleteTable Lude.Text
+dtfTableName = Lens.lens (tableName :: DeleteTable -> Lude.Text) (\s a -> s {tableName = a} :: DeleteTable)
+{-# DEPRECATED dtfTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest DeleteTable where
   type Rs DeleteTable = DeleteTableResponse
@@ -107,23 +105,18 @@ instance Lude.ToQuery DeleteTable where
 --
 -- /See:/ 'mkDeleteTableResponse' smart constructor.
 data DeleteTableResponse = DeleteTableResponse'
-  { tableDescription ::
-      Lude.Maybe TableDescription,
+  { -- | Represents the properties of a table.
+    tableDescription :: Lude.Maybe TableDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTableResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tableDescription' - Represents the properties of a table.
+-- * 'responseStatus' - The response status code.
 mkDeleteTableResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -137,13 +130,13 @@ mkDeleteTableResponse pResponseStatus_ =
 -- | Represents the properties of a table.
 --
 -- /Note:/ Consider using 'tableDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTableDescription :: Lens.Lens' DeleteTableResponse (Lude.Maybe TableDescription)
-dtrsTableDescription = Lens.lens (tableDescription :: DeleteTableResponse -> Lude.Maybe TableDescription) (\s a -> s {tableDescription = a} :: DeleteTableResponse)
-{-# DEPRECATED dtrsTableDescription "Use generic-lens or generic-optics with 'tableDescription' instead." #-}
+drsTableDescription :: Lens.Lens' DeleteTableResponse (Lude.Maybe TableDescription)
+drsTableDescription = Lens.lens (tableDescription :: DeleteTableResponse -> Lude.Maybe TableDescription) (\s a -> s {tableDescription = a} :: DeleteTableResponse)
+{-# DEPRECATED drsTableDescription "Use generic-lens or generic-optics with 'tableDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DeleteTableResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DeleteTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTableResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DeleteTableResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTableResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

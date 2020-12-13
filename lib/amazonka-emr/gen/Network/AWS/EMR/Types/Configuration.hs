@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfiguration' smart constructor.
 data Configuration = Configuration'
-  { configurations ::
-      Lude.Maybe [Configuration],
+  { -- | A list of additional configurations to apply within a configuration object.
+    configurations :: Lude.Maybe [Configuration],
+    -- | The classification within a configuration.
     classification :: Lude.Maybe Lude.Text,
+    -- | A set of properties specified within a configuration classification.
     properties :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Configuration' with the minimum fields required to make a request.
 --
--- * 'classification' - The classification within a configuration.
 -- * 'configurations' - A list of additional configurations to apply within a configuration object.
+-- * 'classification' - The classification within a configuration.
 -- * 'properties' - A set of properties specified within a configuration classification.
 mkConfiguration ::
   Configuration

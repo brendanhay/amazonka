@@ -29,25 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSizeConstraintSetSummary' smart constructor.
 data SizeConstraintSetSummary = SizeConstraintSetSummary'
-  { sizeConstraintSetId ::
-      Lude.Text,
+  { -- | A unique identifier for a @SizeConstraintSet@ . You use @SizeConstraintSetId@ to get information about a @SizeConstraintSet@ (see 'GetSizeConstraintSet' ), update a @SizeConstraintSet@ (see 'UpdateSizeConstraintSet' ), insert a @SizeConstraintSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SizeConstraintSet@ from AWS WAF (see 'DeleteSizeConstraintSet' ).
+    --
+    -- @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
+    sizeConstraintSetId :: Lude.Text,
+    -- | The name of the @SizeConstraintSet@ , if any.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SizeConstraintSetSummary' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the @SizeConstraintSet@ , if any.
 -- * 'sizeConstraintSetId' - A unique identifier for a @SizeConstraintSet@ . You use @SizeConstraintSetId@ to get information about a @SizeConstraintSet@ (see 'GetSizeConstraintSet' ), update a @SizeConstraintSet@ (see 'UpdateSizeConstraintSet' ), insert a @SizeConstraintSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SizeConstraintSet@ from AWS WAF (see 'DeleteSizeConstraintSet' ).
 --
 -- @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
+-- * 'name' - The name of the @SizeConstraintSet@ , if any.
 mkSizeConstraintSetSummary ::
   -- | 'sizeConstraintSetId'
   Lude.Text ->

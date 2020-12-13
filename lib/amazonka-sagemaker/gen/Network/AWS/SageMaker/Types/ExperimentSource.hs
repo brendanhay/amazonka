@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExperimentSource' smart constructor.
 data ExperimentSource = ExperimentSource'
-  { sourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | The source type.
+    sourceType :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the source.
     sourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExperimentSource' with the minimum fields required to make a request.
 --
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
 -- * 'sourceType' - The source type.
+-- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
 mkExperimentSource ::
   -- | 'sourceARN'
   Lude.Text ->

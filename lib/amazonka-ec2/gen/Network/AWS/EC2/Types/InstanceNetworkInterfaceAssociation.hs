@@ -31,33 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceNetworkInterfaceAssociation' smart constructor.
 data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'
-  { publicDNSName ::
-      Lude.Maybe
-        Lude.Text,
-    carrierIP ::
-      Lude.Maybe
-        Lude.Text,
-    ipOwnerId ::
-      Lude.Maybe
-        Lude.Text,
-    publicIP ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The public DNS name.
+    publicDNSName :: Lude.Maybe Lude.Text,
+    -- | The carrier IP address associated with the network interface.
+    carrierIP :: Lude.Maybe Lude.Text,
+    -- | The ID of the owner of the Elastic IP address.
+    ipOwnerId :: Lude.Maybe Lude.Text,
+    -- | The public IP address or Elastic IP address bound to the network interface.
+    publicIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceNetworkInterfaceAssociation' with the minimum fields required to make a request.
 --
+-- * 'publicDNSName' - The public DNS name.
 -- * 'carrierIP' - The carrier IP address associated with the network interface.
 -- * 'ipOwnerId' - The ID of the owner of the Elastic IP address.
--- * 'publicDNSName' - The public DNS name.
 -- * 'publicIP' - The public IP address or Elastic IP address bound to the network interface.
 mkInstanceNetworkInterfaceAssociation ::
   InstanceNetworkInterfaceAssociation

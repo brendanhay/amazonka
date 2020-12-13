@@ -31,28 +31,18 @@ import Network.AWS.ServiceCatalog.Types.ServiceActionSummary
 --
 -- /See:/ 'mkServiceActionDetail' smart constructor.
 data ServiceActionDetail = ServiceActionDetail'
-  { serviceActionSummary ::
-      Lude.Maybe ServiceActionSummary,
-    definition ::
-      Lude.Maybe
-        ( Lude.HashMap
-            ServiceActionDefinitionKey
-            (Lude.Text)
-        )
+  { -- | Summary information about the self-service action.
+    serviceActionSummary :: Lude.Maybe ServiceActionSummary,
+    -- | A map that defines the self-service action.
+    definition :: Lude.Maybe (Lude.HashMap ServiceActionDefinitionKey (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceActionDetail' with the minimum fields required to make a request.
 --
--- * 'definition' - A map that defines the self-service action.
 -- * 'serviceActionSummary' - Summary information about the self-service action.
+-- * 'definition' - A map that defines the self-service action.
 mkServiceActionDetail ::
   ServiceActionDetail
 mkServiceActionDetail =

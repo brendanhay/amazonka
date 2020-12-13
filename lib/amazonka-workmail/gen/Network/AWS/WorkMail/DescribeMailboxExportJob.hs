@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,17 +52,12 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkDescribeMailboxExportJob' smart constructor.
 data DescribeMailboxExportJob = DescribeMailboxExportJob'
-  { jobId ::
-      Lude.Text,
+  { -- | The mailbox export job ID.
+    jobId :: Lude.Text,
+    -- | The organization ID.
     organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMailboxExportJob' with the minimum fields required to make a request.
@@ -144,58 +140,51 @@ instance Lude.ToQuery DescribeMailboxExportJob where
 
 -- | /See:/ 'mkDescribeMailboxExportJobResponse' smart constructor.
 data DescribeMailboxExportJobResponse = DescribeMailboxExportJobResponse'
-  { state ::
-      Lude.Maybe
-        MailboxExportJobState,
-    kmsKeyARN ::
-      Lude.Maybe Lude.Text,
-    startTime ::
-      Lude.Maybe Lude.Timestamp,
-    estimatedProgress ::
-      Lude.Maybe Lude.Natural,
-    endTime ::
-      Lude.Maybe Lude.Timestamp,
-    s3Path ::
-      Lude.Maybe Lude.Text,
-    s3Prefix ::
-      Lude.Maybe Lude.Text,
-    entityId ::
-      Lude.Maybe Lude.Text,
-    description ::
-      Lude.Maybe Lude.Text,
-    errorInfo ::
-      Lude.Maybe Lude.Text,
-    s3BucketName ::
-      Lude.Maybe Lude.Text,
-    roleARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The state of the mailbox export job.
+    state :: Lude.Maybe MailboxExportJobState,
+    -- | The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
+    kmsKeyARN :: Lude.Maybe Lude.Text,
+    -- | The mailbox export job start timestamp.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The estimated progress of the mailbox export job, in percentage points.
+    estimatedProgress :: Lude.Maybe Lude.Natural,
+    -- | The mailbox export job end timestamp.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The path to the S3 bucket and file that the mailbox export job is exporting to.
+    s3Path :: Lude.Maybe Lude.Text,
+    -- | The S3 bucket prefix.
+    s3Prefix :: Lude.Maybe Lude.Text,
+    -- | The identifier of the user or resource associated with the mailbox.
+    entityId :: Lude.Maybe Lude.Text,
+    -- | The mailbox export job description.
+    description :: Lude.Maybe Lude.Text,
+    -- | Error information for failed mailbox export jobs.
+    errorInfo :: Lude.Maybe Lude.Text,
+    -- | The name of the S3 bucket.
+    s3BucketName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple Storage Service (Amazon S3) bucket.
+    roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMailboxExportJobResponse' with the minimum fields required to make a request.
 --
--- * 'description' - The mailbox export job description.
--- * 'endTime' - The mailbox export job end timestamp.
--- * 'entityId' - The identifier of the user or resource associated with the mailbox.
--- * 'errorInfo' - Error information for failed mailbox export jobs.
--- * 'estimatedProgress' - The estimated progress of the mailbox export job, in percentage points.
+-- * 'state' - The state of the mailbox export job.
 -- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
--- * 'responseStatus' - The response status code.
--- * 'roleARN' - The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple Storage Service (Amazon S3) bucket.
--- * 's3BucketName' - The name of the S3 bucket.
+-- * 'startTime' - The mailbox export job start timestamp.
+-- * 'estimatedProgress' - The estimated progress of the mailbox export job, in percentage points.
+-- * 'endTime' - The mailbox export job end timestamp.
 -- * 's3Path' - The path to the S3 bucket and file that the mailbox export job is exporting to.
 -- * 's3Prefix' - The S3 bucket prefix.
--- * 'startTime' - The mailbox export job start timestamp.
--- * 'state' - The state of the mailbox export job.
+-- * 'entityId' - The identifier of the user or resource associated with the mailbox.
+-- * 'description' - The mailbox export job description.
+-- * 'errorInfo' - Error information for failed mailbox export jobs.
+-- * 's3BucketName' - The name of the S3 bucket.
+-- * 'roleARN' - The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple Storage Service (Amazon S3) bucket.
+-- * 'responseStatus' - The response status code.
 mkDescribeMailboxExportJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

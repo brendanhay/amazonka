@@ -31,25 +31,21 @@ import Network.AWS.Rekognition.Types.Geometry
 --
 -- /See:/ 'mkCustomLabel' smart constructor.
 data CustomLabel = CustomLabel'
-  { confidence ::
-      Lude.Maybe Lude.Double,
+  { -- | The confidence that the model has in the detection of the custom label. The range is 0-100. A higher value indicates a higher confidence.
+    confidence :: Lude.Maybe Lude.Double,
+    -- | The name of the custom label.
     name :: Lude.Maybe Lude.Text,
+    -- | The location of the detected object on the image that corresponds to the custom label. Includes an axis aligned coarse bounding box surrounding the object and a finer grain polygon for more accurate spatial information.
     geometry :: Lude.Maybe Geometry
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomLabel' with the minimum fields required to make a request.
 --
 -- * 'confidence' - The confidence that the model has in the detection of the custom label. The range is 0-100. A higher value indicates a higher confidence.
--- * 'geometry' - The location of the detected object on the image that corresponds to the custom label. Includes an axis aligned coarse bounding box surrounding the object and a finer grain polygon for more accurate spatial information.
 -- * 'name' - The name of the custom label.
+-- * 'geometry' - The location of the detected object on the image that corresponds to the custom label. Includes an axis aligned coarse bounding box surrounding the object and a finer grain polygon for more accurate spatial information.
 mkCustomLabel ::
   CustomLabel
 mkCustomLabel =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token used to resume pagination from the end of a previous request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Upper bound on number of records to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChannels' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Upper bound on number of records to return.
 -- * 'nextToken' - A token used to resume pagination from the end of a previous request.
+-- * 'maxResults' - Upper bound on number of records to return.
 mkListChannels ::
   ListChannels
 mkListChannels =
@@ -123,18 +119,14 @@ instance Lude.ToQuery ListChannels where
 
 -- | /See:/ 'mkListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
-  { channels ::
-      Lude.Maybe [Channel],
+  { -- | A list of Channel records.
+    channels :: Lude.Maybe [Channel],
+    -- | A token that can be used to resume pagination from the end of the collection.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChannelsResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +20,23 @@ module Network.AWS.SageMaker.DescribeImage
     mkDescribeImage,
 
     -- ** Request lenses
-    diImageName,
+    difImageName,
 
     -- * Destructuring the response
     DescribeImageResponse (..),
     mkDescribeImageResponse,
 
     -- ** Response lenses
-    desrsCreationTime,
-    desrsFailureReason,
-    desrsImageStatus,
-    desrsLastModifiedTime,
-    desrsImageARN,
-    desrsDisplayName,
-    desrsImageName,
-    desrsDescription,
-    desrsRoleARN,
-    desrsResponseStatus,
+    difrsCreationTime,
+    difrsFailureReason,
+    difrsImageStatus,
+    difrsLastModifiedTime,
+    difrsImageARN,
+    difrsDisplayName,
+    difrsImageName,
+    difrsDescription,
+    difrsRoleARN,
+    difrsResponseStatus,
   )
 where
 
@@ -46,14 +47,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeImage' smart constructor.
-newtype DescribeImage = DescribeImage' {imageName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeImage = DescribeImage'
+  { -- | The name of the image to describe.
+    imageName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImage' with the minimum fields required to make a request.
@@ -69,9 +67,9 @@ mkDescribeImage pImageName_ =
 -- | The name of the image to describe.
 --
 -- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diImageName :: Lens.Lens' DescribeImage Lude.Text
-diImageName = Lens.lens (imageName :: DescribeImage -> Lude.Text) (\s a -> s {imageName = a} :: DescribeImage)
-{-# DEPRECATED diImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
+difImageName :: Lens.Lens' DescribeImage Lude.Text
+difImageName = Lens.lens (imageName :: DescribeImage -> Lude.Text) (\s a -> s {imageName = a} :: DescribeImage)
+{-# DEPRECATED difImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
 instance Lude.AWSRequest DescribeImage where
   type Rs DescribeImage = DescribeImageResponse
@@ -116,39 +114,42 @@ instance Lude.ToQuery DescribeImage where
 
 -- | /See:/ 'mkDescribeImageResponse' smart constructor.
 data DescribeImageResponse = DescribeImageResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the image was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | When a create, update, or delete operation fails, the reason for the failure.
     failureReason :: Lude.Maybe Lude.Text,
+    -- | The status of the image.
     imageStatus :: Lude.Maybe ImageStatus,
+    -- | When the image was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the image.
     imageARN :: Lude.Maybe Lude.Text,
+    -- | The name of the image as displayed.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The name of the image.
     imageName :: Lude.Maybe Lude.Text,
+    -- | The description of the image.
     description :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.
     roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImageResponse' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - When the image was created.
--- * 'description' - The description of the image.
--- * 'displayName' - The name of the image as displayed.
 -- * 'failureReason' - When a create, update, or delete operation fails, the reason for the failure.
--- * 'imageARN' - The Amazon Resource Name (ARN) of the image.
--- * 'imageName' - The name of the image.
 -- * 'imageStatus' - The status of the image.
 -- * 'lastModifiedTime' - When the image was last modified.
--- * 'responseStatus' - The response status code.
+-- * 'imageARN' - The Amazon Resource Name (ARN) of the image.
+-- * 'displayName' - The name of the image as displayed.
+-- * 'imageName' - The name of the image.
+-- * 'description' - The description of the image.
 -- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+-- * 'responseStatus' - The response status code.
 mkDescribeImageResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -170,69 +171,69 @@ mkDescribeImageResponse pResponseStatus_ =
 -- | When the image was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsCreationTime :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Timestamp)
-desrsCreationTime = Lens.lens (creationTime :: DescribeImageResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+difrsCreationTime :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Timestamp)
+difrsCreationTime = Lens.lens (creationTime :: DescribeImageResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | When a create, update, or delete operation fails, the reason for the failure.
 --
 -- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsFailureReason :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
-desrsFailureReason = Lens.lens (failureReason :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
+difrsFailureReason :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
+difrsFailureReason = Lens.lens (failureReason :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The status of the image.
 --
 -- /Note:/ Consider using 'imageStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsImageStatus :: Lens.Lens' DescribeImageResponse (Lude.Maybe ImageStatus)
-desrsImageStatus = Lens.lens (imageStatus :: DescribeImageResponse -> Lude.Maybe ImageStatus) (\s a -> s {imageStatus = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsImageStatus "Use generic-lens or generic-optics with 'imageStatus' instead." #-}
+difrsImageStatus :: Lens.Lens' DescribeImageResponse (Lude.Maybe ImageStatus)
+difrsImageStatus = Lens.lens (imageStatus :: DescribeImageResponse -> Lude.Maybe ImageStatus) (\s a -> s {imageStatus = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsImageStatus "Use generic-lens or generic-optics with 'imageStatus' instead." #-}
 
 -- | When the image was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsLastModifiedTime :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Timestamp)
-desrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeImageResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+difrsLastModifiedTime :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Timestamp)
+difrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeImageResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the image.
 --
 -- /Note:/ Consider using 'imageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsImageARN :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
-desrsImageARN = Lens.lens (imageARN :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageARN = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsImageARN "Use generic-lens or generic-optics with 'imageARN' instead." #-}
+difrsImageARN :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
+difrsImageARN = Lens.lens (imageARN :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageARN = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsImageARN "Use generic-lens or generic-optics with 'imageARN' instead." #-}
 
 -- | The name of the image as displayed.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsDisplayName :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
-desrsDisplayName = Lens.lens (displayName :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+difrsDisplayName :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
+difrsDisplayName = Lens.lens (displayName :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The name of the image.
 --
 -- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsImageName :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
-desrsImageName = Lens.lens (imageName :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageName = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
+difrsImageName :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
+difrsImageName = Lens.lens (imageName :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageName = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
 -- | The description of the image.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsDescription :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
-desrsDescription = Lens.lens (description :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+difrsDescription :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
+difrsDescription = Lens.lens (description :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsRoleARN :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
-desrsRoleARN = Lens.lens (roleARN :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+difrsRoleARN :: Lens.Lens' DescribeImageResponse (Lude.Maybe Lude.Text)
+difrsRoleARN = Lens.lens (roleARN :: DescribeImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeImageResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImageResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+difrsResponseStatus :: Lens.Lens' DescribeImageResponse Lude.Int
+difrsResponseStatus = Lens.lens (responseStatus :: DescribeImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImageResponse)
+{-# DEPRECATED difrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

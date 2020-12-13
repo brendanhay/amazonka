@@ -13,13 +13,13 @@
 module Network.AWS.EC2.Types.ImageState
   ( ImageState
       ( ImageState',
-        ISAvailable,
-        ISDeregistered,
-        ISError,
-        ISFailed,
-        ISInvalid,
         ISPending,
-        ISTransient
+        ISAvailable,
+        ISInvalid,
+        ISDeregistered,
+        ISTransient,
+        ISFailed,
+        ISError
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype ImageState = ImageState' Lude.Text
       Lude.ToHeader
     )
 
+pattern ISPending :: ImageState
+pattern ISPending = ImageState' "pending"
+
 pattern ISAvailable :: ImageState
 pattern ISAvailable = ImageState' "available"
-
-pattern ISDeregistered :: ImageState
-pattern ISDeregistered = ImageState' "deregistered"
-
-pattern ISError :: ImageState
-pattern ISError = ImageState' "error"
-
-pattern ISFailed :: ImageState
-pattern ISFailed = ImageState' "failed"
 
 pattern ISInvalid :: ImageState
 pattern ISInvalid = ImageState' "invalid"
 
-pattern ISPending :: ImageState
-pattern ISPending = ImageState' "pending"
+pattern ISDeregistered :: ImageState
+pattern ISDeregistered = ImageState' "deregistered"
 
 pattern ISTransient :: ImageState
 pattern ISTransient = ImageState' "transient"
 
+pattern ISFailed :: ImageState
+pattern ISFailed = ImageState' "failed"
+
+pattern ISError :: ImageState
+pattern ISError = ImageState' "error"
+
 {-# COMPLETE
-  ISAvailable,
-  ISDeregistered,
-  ISError,
-  ISFailed,
-  ISInvalid,
   ISPending,
+  ISAvailable,
+  ISInvalid,
+  ISDeregistered,
   ISTransient,
+  ISFailed,
+  ISError,
   ImageState'
   #-}

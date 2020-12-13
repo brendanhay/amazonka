@@ -55,62 +55,96 @@ import Network.AWS.SSM.Types.Target
 --
 -- /See:/ 'mkCommand' smart constructor.
 data Command = Command'
-  { status :: Lude.Maybe CommandStatus,
+  { -- | The status of the command.
+    status :: Lude.Maybe CommandStatus,
+    -- | If this time is reached and the command has not already started running, it will not run. Calculated based on the ExpiresAfter user input provided as part of the SendCommand API.
     expiresAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Configurations for sending notifications about command status changes.
     notificationConfig :: Lude.Maybe NotificationConfig,
+    -- | The number of targets for the command.
     targetCount :: Lude.Maybe Lude.Int,
+    -- | CloudWatch Logs information where you want Systems Manager to send the command output.
     cloudWatchOutputConfig :: Lude.Maybe CloudWatchOutputConfig,
+    -- | The number of targets for which the status is Delivery Timed Out.
     deliveryTimedOutCount :: Lude.Maybe Lude.Int,
+    -- | The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
     outputS3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | The name of the document requested for execution.
     documentName :: Lude.Maybe Lude.Text,
+    -- | The number of targets for which the status is Failed or Execution Timed Out.
     errorCount :: Lude.Maybe Lude.Int,
+    -- | A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:
+    --
+    --
+    --     * Pending: The command has not been sent to any instances.
+    --
+    --
+    --     * In Progress: The command has been sent to at least one instance but has not reached a final state on all instances.
+    --
+    --
+    --     * Success: The command successfully ran on all invocations. This is a terminal state.
+    --
+    --
+    --     * Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.
+    --
+    --
+    --     * Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.
+    --
+    --
+    --     * Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.
+    --
+    --
+    --     * Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.
+    --
+    --
+    --     * Canceled: The command was terminated before it was completed. This is a terminal state.
+    --
+    --
+    --     * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before running it on any instance. This is a terminal state.
     statusDetails :: Lude.Maybe Lude.Text,
+    -- | The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
     maxErrors :: Lude.Maybe Lude.Text,
+    -- | The instance IDs against which this command was requested.
     instanceIds :: Lude.Maybe [Lude.Text],
+    -- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
     outputS3Region :: Lude.Maybe Lude.Text,
+    -- | An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call.
     targets :: Lude.Maybe [Target],
+    -- | A unique identifier for this command.
     commandId :: Lude.Maybe Lude.Text,
+    -- | The parameter values to be inserted in the document when running the command.
     parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The SSM document version.
     documentVersion :: Lude.Maybe Lude.Text,
+    -- | The @TimeoutSeconds@ value specified for a command.
     timeoutSeconds :: Lude.Maybe Lude.Natural,
+    -- | User-specified information about the command, such as a brief description of what the command should do.
     comment :: Lude.Maybe Lude.Text,
+    -- | The number of targets for which the command invocation reached a terminal state. Terminal states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or Undeliverable.
     completedCount :: Lude.Maybe Lude.Int,
+    -- | The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.
     outputS3BucketName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of instances that are allowed to run the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
     maxConcurrency :: Lude.Maybe Lude.Text,
+    -- | The date and time the command was requested.
     requestedDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The IAM service role that Run Command uses to act on your behalf when sending notifications about command status changes.
     serviceRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Command' with the minimum fields required to make a request.
 --
--- * 'cloudWatchOutputConfig' - CloudWatch Logs information where you want Systems Manager to send the command output.
--- * 'commandId' - A unique identifier for this command.
--- * 'comment' - User-specified information about the command, such as a brief description of what the command should do.
--- * 'completedCount' - The number of targets for which the command invocation reached a terminal state. Terminal states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or Undeliverable.
--- * 'deliveryTimedOutCount' - The number of targets for which the status is Delivery Timed Out.
--- * 'documentName' - The name of the document requested for execution.
--- * 'documentVersion' - The SSM document version.
--- * 'errorCount' - The number of targets for which the status is Failed or Execution Timed Out.
--- * 'expiresAfter' - If this time is reached and the command has not already started running, it will not run. Calculated based on the ExpiresAfter user input provided as part of the SendCommand API.
--- * 'instanceIds' - The instance IDs against which this command was requested.
--- * 'maxConcurrency' - The maximum number of instances that are allowed to run the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
--- * 'maxErrors' - The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
--- * 'notificationConfig' - Configurations for sending notifications about command status changes.
--- * 'outputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.
--- * 'outputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
--- * 'outputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
--- * 'parameters' - The parameter values to be inserted in the document when running the command.
--- * 'requestedDateTime' - The date and time the command was requested.
--- * 'serviceRole' - The IAM service role that Run Command uses to act on your behalf when sending notifications about command status changes.
 -- * 'status' - The status of the command.
+-- * 'expiresAfter' - If this time is reached and the command has not already started running, it will not run. Calculated based on the ExpiresAfter user input provided as part of the SendCommand API.
+-- * 'notificationConfig' - Configurations for sending notifications about command status changes.
+-- * 'targetCount' - The number of targets for the command.
+-- * 'cloudWatchOutputConfig' - CloudWatch Logs information where you want Systems Manager to send the command output.
+-- * 'deliveryTimedOutCount' - The number of targets for which the status is Delivery Timed Out.
+-- * 'outputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
+-- * 'documentName' - The name of the document requested for execution.
+-- * 'errorCount' - The number of targets for which the status is Failed or Execution Timed Out.
 -- * 'statusDetails' - A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:
 --
 --
@@ -141,9 +175,20 @@ data Command = Command'
 --     * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before running it on any instance. This is a terminal state.
 --
 --
--- * 'targetCount' - The number of targets for the command.
+-- * 'maxErrors' - The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
+-- * 'instanceIds' - The instance IDs against which this command was requested.
+-- * 'outputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
 -- * 'targets' - An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call.
+-- * 'commandId' - A unique identifier for this command.
+-- * 'parameters' - The parameter values to be inserted in the document when running the command.
+-- * 'documentVersion' - The SSM document version.
 -- * 'timeoutSeconds' - The @TimeoutSeconds@ value specified for a command.
+-- * 'comment' - User-specified information about the command, such as a brief description of what the command should do.
+-- * 'completedCount' - The number of targets for which the command invocation reached a terminal state. Terminal states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or Undeliverable.
+-- * 'outputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.
+-- * 'maxConcurrency' - The maximum number of instances that are allowed to run the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
+-- * 'requestedDateTime' - The date and time the command was requested.
+-- * 'serviceRole' - The IAM service role that Run Command uses to act on your behalf when sending notifications about command status changes.
 mkCommand ::
   Command
 mkCommand =

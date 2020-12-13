@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,16 +48,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetBulkPublishDetails' smart constructor.
 newtype GetBulkPublishDetails = GetBulkPublishDetails'
-  { identityPoolId ::
-      Lude.Text
+  { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+    identityPoolId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBulkPublishDetails' with the minimum fields required to make a request.
@@ -118,38 +113,37 @@ instance Lude.ToQuery GetBulkPublishDetails where
 --
 -- /See:/ 'mkGetBulkPublishDetailsResponse' smart constructor.
 data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
-  { bulkPublishStartTime ::
-      Lude.Maybe Lude.Timestamp,
-    identityPoolId ::
-      Lude.Maybe Lude.Text,
-    bulkPublishCompleteTime ::
-      Lude.Maybe Lude.Timestamp,
-    failureMessage ::
-      Lude.Maybe Lude.Text,
-    bulkPublishStatus ::
-      Lude.Maybe BulkPublishStatus,
+  { -- | The date/time at which the last bulk publish was initiated.
+    bulkPublishStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+    identityPoolId :: Lude.Maybe Lude.Text,
+    -- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.
+    bulkPublishCompleteTime :: Lude.Maybe Lude.Timestamp,
+    -- | If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.
+    failureMessage :: Lude.Maybe Lude.Text,
+    -- | Status of the last bulk publish operation, valid values are: NOT_STARTED - No bulk publish has been requested for this identity pool
+    --
+    -- IN_PROGRESS - Data is being published to the configured stream
+    -- SUCCEEDED - All data for the identity pool has been published to the configured stream
+    -- FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.
+    bulkPublishStatus :: Lude.Maybe BulkPublishStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBulkPublishDetailsResponse' with the minimum fields required to make a request.
 --
--- * 'bulkPublishCompleteTime' - If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.
 -- * 'bulkPublishStartTime' - The date/time at which the last bulk publish was initiated.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'bulkPublishCompleteTime' - If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.
+-- * 'failureMessage' - If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.
 -- * 'bulkPublishStatus' - Status of the last bulk publish operation, valid values are: NOT_STARTED - No bulk publish has been requested for this identity pool
 --
 -- IN_PROGRESS - Data is being published to the configured stream
 -- SUCCEEDED - All data for the identity pool has been published to the configured stream
 -- FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.
--- * 'failureMessage' - If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.
--- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 -- * 'responseStatus' - The response status code.
 mkGetBulkPublishDetailsResponse ::
   -- | 'responseStatus'

@@ -13,18 +13,18 @@
 module Network.AWS.Lightsail.Types.LoadBalancerMetricName
   ( LoadBalancerMetricName
       ( LoadBalancerMetricName',
-        ClientTLSNegotiationErrorCount,
-        HTTPCodeInstance2XXCount,
-        HTTPCodeInstance3XXCount,
-        HTTPCodeInstance4XXCount,
-        HTTPCodeInstance5XXCount,
-        HTTPCodeLb4XXCount,
-        HTTPCodeLb5XXCount,
-        HealthyHostCount,
-        InstanceResponseTime,
-        RejectedConnectionCount,
-        RequestCount,
-        UnhealthyHostCount
+        LBMNClientTLSNegotiationErrorCount,
+        LBMNHealthyHostCount,
+        LBMNUnhealthyHostCount,
+        LBMNHTTPCodeLb4XXCount,
+        LBMNHTTPCodeLb5XXCount,
+        LBMNHTTPCodeInstance2XXCount,
+        LBMNHTTPCodeInstance3XXCount,
+        LBMNHTTPCodeInstance4XXCount,
+        LBMNHTTPCodeInstance5XXCount,
+        LBMNInstanceResponseTime,
+        LBMNRejectedConnectionCount,
+        LBMNRequestCount
       ),
   )
 where
@@ -55,54 +55,54 @@ newtype LoadBalancerMetricName = LoadBalancerMetricName' Lude.Text
       Lude.ToHeader
     )
 
-pattern ClientTLSNegotiationErrorCount :: LoadBalancerMetricName
-pattern ClientTLSNegotiationErrorCount = LoadBalancerMetricName' "ClientTLSNegotiationErrorCount"
+pattern LBMNClientTLSNegotiationErrorCount :: LoadBalancerMetricName
+pattern LBMNClientTLSNegotiationErrorCount = LoadBalancerMetricName' "ClientTLSNegotiationErrorCount"
 
-pattern HTTPCodeInstance2XXCount :: LoadBalancerMetricName
-pattern HTTPCodeInstance2XXCount = LoadBalancerMetricName' "HTTPCode_Instance_2XX_Count"
+pattern LBMNHealthyHostCount :: LoadBalancerMetricName
+pattern LBMNHealthyHostCount = LoadBalancerMetricName' "HealthyHostCount"
 
-pattern HTTPCodeInstance3XXCount :: LoadBalancerMetricName
-pattern HTTPCodeInstance3XXCount = LoadBalancerMetricName' "HTTPCode_Instance_3XX_Count"
+pattern LBMNUnhealthyHostCount :: LoadBalancerMetricName
+pattern LBMNUnhealthyHostCount = LoadBalancerMetricName' "UnhealthyHostCount"
 
-pattern HTTPCodeInstance4XXCount :: LoadBalancerMetricName
-pattern HTTPCodeInstance4XXCount = LoadBalancerMetricName' "HTTPCode_Instance_4XX_Count"
+pattern LBMNHTTPCodeLb4XXCount :: LoadBalancerMetricName
+pattern LBMNHTTPCodeLb4XXCount = LoadBalancerMetricName' "HTTPCode_LB_4XX_Count"
 
-pattern HTTPCodeInstance5XXCount :: LoadBalancerMetricName
-pattern HTTPCodeInstance5XXCount = LoadBalancerMetricName' "HTTPCode_Instance_5XX_Count"
+pattern LBMNHTTPCodeLb5XXCount :: LoadBalancerMetricName
+pattern LBMNHTTPCodeLb5XXCount = LoadBalancerMetricName' "HTTPCode_LB_5XX_Count"
 
-pattern HTTPCodeLb4XXCount :: LoadBalancerMetricName
-pattern HTTPCodeLb4XXCount = LoadBalancerMetricName' "HTTPCode_LB_4XX_Count"
+pattern LBMNHTTPCodeInstance2XXCount :: LoadBalancerMetricName
+pattern LBMNHTTPCodeInstance2XXCount = LoadBalancerMetricName' "HTTPCode_Instance_2XX_Count"
 
-pattern HTTPCodeLb5XXCount :: LoadBalancerMetricName
-pattern HTTPCodeLb5XXCount = LoadBalancerMetricName' "HTTPCode_LB_5XX_Count"
+pattern LBMNHTTPCodeInstance3XXCount :: LoadBalancerMetricName
+pattern LBMNHTTPCodeInstance3XXCount = LoadBalancerMetricName' "HTTPCode_Instance_3XX_Count"
 
-pattern HealthyHostCount :: LoadBalancerMetricName
-pattern HealthyHostCount = LoadBalancerMetricName' "HealthyHostCount"
+pattern LBMNHTTPCodeInstance4XXCount :: LoadBalancerMetricName
+pattern LBMNHTTPCodeInstance4XXCount = LoadBalancerMetricName' "HTTPCode_Instance_4XX_Count"
 
-pattern InstanceResponseTime :: LoadBalancerMetricName
-pattern InstanceResponseTime = LoadBalancerMetricName' "InstanceResponseTime"
+pattern LBMNHTTPCodeInstance5XXCount :: LoadBalancerMetricName
+pattern LBMNHTTPCodeInstance5XXCount = LoadBalancerMetricName' "HTTPCode_Instance_5XX_Count"
 
-pattern RejectedConnectionCount :: LoadBalancerMetricName
-pattern RejectedConnectionCount = LoadBalancerMetricName' "RejectedConnectionCount"
+pattern LBMNInstanceResponseTime :: LoadBalancerMetricName
+pattern LBMNInstanceResponseTime = LoadBalancerMetricName' "InstanceResponseTime"
 
-pattern RequestCount :: LoadBalancerMetricName
-pattern RequestCount = LoadBalancerMetricName' "RequestCount"
+pattern LBMNRejectedConnectionCount :: LoadBalancerMetricName
+pattern LBMNRejectedConnectionCount = LoadBalancerMetricName' "RejectedConnectionCount"
 
-pattern UnhealthyHostCount :: LoadBalancerMetricName
-pattern UnhealthyHostCount = LoadBalancerMetricName' "UnhealthyHostCount"
+pattern LBMNRequestCount :: LoadBalancerMetricName
+pattern LBMNRequestCount = LoadBalancerMetricName' "RequestCount"
 
 {-# COMPLETE
-  ClientTLSNegotiationErrorCount,
-  HTTPCodeInstance2XXCount,
-  HTTPCodeInstance3XXCount,
-  HTTPCodeInstance4XXCount,
-  HTTPCodeInstance5XXCount,
-  HTTPCodeLb4XXCount,
-  HTTPCodeLb5XXCount,
-  HealthyHostCount,
-  InstanceResponseTime,
-  RejectedConnectionCount,
-  RequestCount,
-  UnhealthyHostCount,
+  LBMNClientTLSNegotiationErrorCount,
+  LBMNHealthyHostCount,
+  LBMNUnhealthyHostCount,
+  LBMNHTTPCodeLb4XXCount,
+  LBMNHTTPCodeLb5XXCount,
+  LBMNHTTPCodeInstance2XXCount,
+  LBMNHTTPCodeInstance3XXCount,
+  LBMNHTTPCodeInstance4XXCount,
+  LBMNHTTPCodeInstance5XXCount,
+  LBMNInstanceResponseTime,
+  LBMNRejectedConnectionCount,
+  LBMNRequestCount,
   LoadBalancerMetricName'
   #-}

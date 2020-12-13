@@ -13,10 +13,10 @@
 module Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
   ( KeyAlgorithm
       ( KeyAlgorithm',
-        EcPRIME256V1,
-        EcSECP384R1,
         Rsa2048,
-        Rsa4096
+        Rsa4096,
+        EcPRIME256V1,
+        EcSECP384R1
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype KeyAlgorithm = KeyAlgorithm' Lude.Text
       Lude.ToHeader
     )
 
-pattern EcPRIME256V1 :: KeyAlgorithm
-pattern EcPRIME256V1 = KeyAlgorithm' "EC_prime256v1"
-
-pattern EcSECP384R1 :: KeyAlgorithm
-pattern EcSECP384R1 = KeyAlgorithm' "EC_secp384r1"
-
 pattern Rsa2048 :: KeyAlgorithm
 pattern Rsa2048 = KeyAlgorithm' "RSA_2048"
 
 pattern Rsa4096 :: KeyAlgorithm
 pattern Rsa4096 = KeyAlgorithm' "RSA_4096"
 
+pattern EcPRIME256V1 :: KeyAlgorithm
+pattern EcPRIME256V1 = KeyAlgorithm' "EC_prime256v1"
+
+pattern EcSECP384R1 :: KeyAlgorithm
+pattern EcSECP384R1 = KeyAlgorithm' "EC_secp384r1"
+
 {-# COMPLETE
-  EcPRIME256V1,
-  EcSECP384R1,
   Rsa2048,
   Rsa4096,
+  EcPRIME256V1,
+  EcSECP384R1,
   KeyAlgorithm'
   #-}

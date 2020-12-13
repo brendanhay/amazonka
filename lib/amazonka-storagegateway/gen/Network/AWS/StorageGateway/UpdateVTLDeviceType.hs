@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
     mkUpdateVTLDeviceType,
 
     -- ** Request lenses
-    uvtldtVTLDeviceARN,
     uvtldtDeviceType,
+    uvtldtVTLDeviceARN,
 
     -- * Destructuring the response
     UpdateVTLDeviceTypeResponse (..),
@@ -40,17 +41,14 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkUpdateVTLDeviceType' smart constructor.
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
-  { vTLDeviceARN ::
-      Lude.Text,
-    deviceType :: Lude.Text
+  { -- | The type of medium changer you want to select.
+    --
+    -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+    deviceType :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
+    vTLDeviceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVTLDeviceType' with the minimum fields required to make a request.
@@ -60,23 +58,16 @@ data UpdateVTLDeviceType = UpdateVTLDeviceType'
 -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
 -- * 'vTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you want to select.
 mkUpdateVTLDeviceType ::
-  -- | 'vTLDeviceARN'
-  Lude.Text ->
   -- | 'deviceType'
   Lude.Text ->
+  -- | 'vTLDeviceARN'
+  Lude.Text ->
   UpdateVTLDeviceType
-mkUpdateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
+mkUpdateVTLDeviceType pDeviceType_ pVTLDeviceARN_ =
   UpdateVTLDeviceType'
-    { vTLDeviceARN = pVTLDeviceARN_,
-      deviceType = pDeviceType_
+    { deviceType = pDeviceType_,
+      vTLDeviceARN = pVTLDeviceARN_
     }
-
--- | The Amazon Resource Name (ARN) of the medium changer you want to select.
---
--- /Note:/ Consider using 'vTLDeviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uvtldtVTLDeviceARN :: Lens.Lens' UpdateVTLDeviceType Lude.Text
-uvtldtVTLDeviceARN = Lens.lens (vTLDeviceARN :: UpdateVTLDeviceType -> Lude.Text) (\s a -> s {vTLDeviceARN = a} :: UpdateVTLDeviceType)
-{-# DEPRECATED uvtldtVTLDeviceARN "Use generic-lens or generic-optics with 'vTLDeviceARN' instead." #-}
 
 -- | The type of medium changer you want to select.
 --
@@ -86,6 +77,13 @@ uvtldtVTLDeviceARN = Lens.lens (vTLDeviceARN :: UpdateVTLDeviceType -> Lude.Text
 uvtldtDeviceType :: Lens.Lens' UpdateVTLDeviceType Lude.Text
 uvtldtDeviceType = Lens.lens (deviceType :: UpdateVTLDeviceType -> Lude.Text) (\s a -> s {deviceType = a} :: UpdateVTLDeviceType)
 {-# DEPRECATED uvtldtDeviceType "Use generic-lens or generic-optics with 'deviceType' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the medium changer you want to select.
+--
+-- /Note:/ Consider using 'vTLDeviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtldtVTLDeviceARN :: Lens.Lens' UpdateVTLDeviceType Lude.Text
+uvtldtVTLDeviceARN = Lens.lens (vTLDeviceARN :: UpdateVTLDeviceType -> Lude.Text) (\s a -> s {vTLDeviceARN = a} :: UpdateVTLDeviceType)
+{-# DEPRECATED uvtldtVTLDeviceARN "Use generic-lens or generic-optics with 'vTLDeviceARN' instead." #-}
 
 instance Lude.AWSRequest UpdateVTLDeviceType where
   type Rs UpdateVTLDeviceType = UpdateVTLDeviceTypeResponse
@@ -112,8 +110,8 @@ instance Lude.ToJSON UpdateVTLDeviceType where
   toJSON UpdateVTLDeviceType' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("VTLDeviceARN" Lude..= vTLDeviceARN),
-            Lude.Just ("DeviceType" Lude..= deviceType)
+          [ Lude.Just ("DeviceType" Lude..= deviceType),
+            Lude.Just ("VTLDeviceARN" Lude..= vTLDeviceARN)
           ]
       )
 
@@ -127,23 +125,18 @@ instance Lude.ToQuery UpdateVTLDeviceType where
 --
 -- /See:/ 'mkUpdateVTLDeviceTypeResponse' smart constructor.
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
-  { vTLDeviceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
+    vTLDeviceARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVTLDeviceTypeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you have selected.
+-- * 'responseStatus' - The response status code.
 mkUpdateVTLDeviceTypeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

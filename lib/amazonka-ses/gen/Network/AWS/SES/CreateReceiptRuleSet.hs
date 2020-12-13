@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,7 +23,7 @@ module Network.AWS.SES.CreateReceiptRuleSet
     mkCreateReceiptRuleSet,
 
     -- ** Request lenses
-    crrsRuleSetName,
+    cRuleSetName,
 
     -- * Destructuring the response
     CreateReceiptRuleSetResponse (..),
@@ -43,16 +44,19 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkCreateReceiptRuleSet' smart constructor.
 newtype CreateReceiptRuleSet = CreateReceiptRuleSet'
-  { ruleSetName ::
-      Lude.Text
+  { -- | The name of the rule set to create. The name must:
+    --
+    --
+    --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+    --
+    --
+    --     * Start and end with a letter or number.
+    --
+    --
+    --     * Contain less than 64 characters.
+    ruleSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptRuleSet' with the minimum fields required to make a request.
@@ -88,9 +92,9 @@ mkCreateReceiptRuleSet pRuleSetName_ =
 --
 --
 -- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsRuleSetName :: Lens.Lens' CreateReceiptRuleSet Lude.Text
-crrsRuleSetName = Lens.lens (ruleSetName :: CreateReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: CreateReceiptRuleSet)
-{-# DEPRECATED crrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
+cRuleSetName :: Lens.Lens' CreateReceiptRuleSet Lude.Text
+cRuleSetName = Lens.lens (ruleSetName :: CreateReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: CreateReceiptRuleSet)
+{-# DEPRECATED cRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 instance Lude.AWSRequest CreateReceiptRuleSet where
   type Rs CreateReceiptRuleSet = CreateReceiptRuleSetResponse
@@ -121,16 +125,10 @@ instance Lude.ToQuery CreateReceiptRuleSet where
 --
 -- /See:/ 'mkCreateReceiptRuleSetResponse' smart constructor.
 newtype CreateReceiptRuleSetResponse = CreateReceiptRuleSetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptRuleSetResponse' with the minimum fields required to make a request.

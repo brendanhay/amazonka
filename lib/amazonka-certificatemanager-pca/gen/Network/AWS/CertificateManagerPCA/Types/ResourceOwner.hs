@@ -13,8 +13,8 @@
 module Network.AWS.CertificateManagerPCA.Types.ResourceOwner
   ( ResourceOwner
       ( ResourceOwner',
-        OtherAccounts,
-        Self
+        Self,
+        OtherAccounts
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ResourceOwner = ResourceOwner' Lude.Text
       Lude.ToHeader
     )
 
-pattern OtherAccounts :: ResourceOwner
-pattern OtherAccounts = ResourceOwner' "OTHER_ACCOUNTS"
-
 pattern Self :: ResourceOwner
 pattern Self = ResourceOwner' "SELF"
 
+pattern OtherAccounts :: ResourceOwner
+pattern OtherAccounts = ResourceOwner' "OTHER_ACCOUNTS"
+
 {-# COMPLETE
-  OtherAccounts,
   Self,
+  OtherAccounts,
   ResourceOwner'
   #-}

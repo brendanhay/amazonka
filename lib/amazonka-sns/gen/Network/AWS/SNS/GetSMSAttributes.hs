@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,13 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkGetSMSAttributes' smart constructor.
 newtype GetSMSAttributes = GetSMSAttributes'
-  { attributes ::
-      Lude.Maybe [Lude.Text]
+  { -- | A list of the individual attribute names, such as @MonthlySpendLimit@ , for which you want values.
+    --
+    -- For all attribute names, see <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes> .
+    -- If you don't use this parameter, Amazon SNS returns all SMS attributes.
+    attributes :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSMSAttributes' with the minimum fields required to make a request.
@@ -108,18 +106,12 @@ instance Lude.ToQuery GetSMSAttributes where
 --
 -- /See:/ 'mkGetSMSAttributesResponse' smart constructor.
 data GetSMSAttributesResponse = GetSMSAttributesResponse'
-  { attributes ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The SMS attribute names and their values.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSMSAttributesResponse' with the minimum fields required to make a request.

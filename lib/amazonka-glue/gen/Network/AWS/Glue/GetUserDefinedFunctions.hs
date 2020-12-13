@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.Glue.GetUserDefinedFunctions
     mkGetUserDefinedFunctions,
 
     -- ** Request lenses
-    gudfCatalogId,
-    gudfNextToken,
-    gudfDatabaseName,
-    gudfMaxResults,
-    gudfPattern,
+    gudfsPattern,
+    gudfsCatalogId,
+    gudfsNextToken,
+    gudfsDatabaseName,
+    gudfsMaxResults,
 
     -- * Destructuring the response
     GetUserDefinedFunctionsResponse (..),
@@ -47,76 +48,74 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetUserDefinedFunctions' smart constructor.
 data GetUserDefinedFunctions = GetUserDefinedFunctions'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | An optional function-name pattern string that filters the function definitions returned.
+    pattern' :: Lude.Text,
+    -- | The ID of the Data Catalog where the functions to be retrieved are located. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | A continuation token, if this is a continuation call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the catalog database where the functions are located. If none is provided, functions from all the databases across the catalog will be returned.
     databaseName :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    pattern' :: Lude.Text
+    -- | The maximum number of functions to return in one response.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserDefinedFunctions' with the minimum fields required to make a request.
 --
+-- * 'pattern'' - An optional function-name pattern string that filters the function definitions returned.
 -- * 'catalogId' - The ID of the Data Catalog where the functions to be retrieved are located. If none is provided, the AWS account ID is used by default.
+-- * 'nextToken' - A continuation token, if this is a continuation call.
 -- * 'databaseName' - The name of the catalog database where the functions are located. If none is provided, functions from all the databases across the catalog will be returned.
 -- * 'maxResults' - The maximum number of functions to return in one response.
--- * 'nextToken' - A continuation token, if this is a continuation call.
--- * 'pattern'' - An optional function-name pattern string that filters the function definitions returned.
 mkGetUserDefinedFunctions ::
   -- | 'pattern''
   Lude.Text ->
   GetUserDefinedFunctions
 mkGetUserDefinedFunctions pPattern_ =
   GetUserDefinedFunctions'
-    { catalogId = Lude.Nothing,
+    { pattern' = pPattern_,
+      catalogId = Lude.Nothing,
       nextToken = Lude.Nothing,
       databaseName = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      pattern' = pPattern_
+      maxResults = Lude.Nothing
     }
-
--- | The ID of the Data Catalog where the functions to be retrieved are located. If none is provided, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudfCatalogId :: Lens.Lens' GetUserDefinedFunctions (Lude.Maybe Lude.Text)
-gudfCatalogId = Lens.lens (catalogId :: GetUserDefinedFunctions -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetUserDefinedFunctions)
-{-# DEPRECATED gudfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
-
--- | A continuation token, if this is a continuation call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudfNextToken :: Lens.Lens' GetUserDefinedFunctions (Lude.Maybe Lude.Text)
-gudfNextToken = Lens.lens (nextToken :: GetUserDefinedFunctions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetUserDefinedFunctions)
-{-# DEPRECATED gudfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The name of the catalog database where the functions are located. If none is provided, functions from all the databases across the catalog will be returned.
---
--- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudfDatabaseName :: Lens.Lens' GetUserDefinedFunctions (Lude.Maybe Lude.Text)
-gudfDatabaseName = Lens.lens (databaseName :: GetUserDefinedFunctions -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: GetUserDefinedFunctions)
-{-# DEPRECATED gudfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
-
--- | The maximum number of functions to return in one response.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudfMaxResults :: Lens.Lens' GetUserDefinedFunctions (Lude.Maybe Lude.Natural)
-gudfMaxResults = Lens.lens (maxResults :: GetUserDefinedFunctions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetUserDefinedFunctions)
-{-# DEPRECATED gudfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | An optional function-name pattern string that filters the function definitions returned.
 --
 -- /Note:/ Consider using 'pattern'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudfPattern :: Lens.Lens' GetUserDefinedFunctions Lude.Text
-gudfPattern = Lens.lens (pattern' :: GetUserDefinedFunctions -> Lude.Text) (\s a -> s {pattern' = a} :: GetUserDefinedFunctions)
-{-# DEPRECATED gudfPattern "Use generic-lens or generic-optics with 'pattern'' instead." #-}
+gudfsPattern :: Lens.Lens' GetUserDefinedFunctions Lude.Text
+gudfsPattern = Lens.lens (pattern' :: GetUserDefinedFunctions -> Lude.Text) (\s a -> s {pattern' = a} :: GetUserDefinedFunctions)
+{-# DEPRECATED gudfsPattern "Use generic-lens or generic-optics with 'pattern'' instead." #-}
+
+-- | The ID of the Data Catalog where the functions to be retrieved are located. If none is provided, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gudfsCatalogId :: Lens.Lens' GetUserDefinedFunctions (Lude.Maybe Lude.Text)
+gudfsCatalogId = Lens.lens (catalogId :: GetUserDefinedFunctions -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetUserDefinedFunctions)
+{-# DEPRECATED gudfsCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+-- | A continuation token, if this is a continuation call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gudfsNextToken :: Lens.Lens' GetUserDefinedFunctions (Lude.Maybe Lude.Text)
+gudfsNextToken = Lens.lens (nextToken :: GetUserDefinedFunctions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetUserDefinedFunctions)
+{-# DEPRECATED gudfsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The name of the catalog database where the functions are located. If none is provided, functions from all the databases across the catalog will be returned.
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gudfsDatabaseName :: Lens.Lens' GetUserDefinedFunctions (Lude.Maybe Lude.Text)
+gudfsDatabaseName = Lens.lens (databaseName :: GetUserDefinedFunctions -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: GetUserDefinedFunctions)
+{-# DEPRECATED gudfsDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+
+-- | The maximum number of functions to return in one response.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gudfsMaxResults :: Lens.Lens' GetUserDefinedFunctions (Lude.Maybe Lude.Natural)
+gudfsMaxResults = Lens.lens (maxResults :: GetUserDefinedFunctions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetUserDefinedFunctions)
+{-# DEPRECATED gudfsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetUserDefinedFunctions where
   page rq rs
@@ -125,7 +124,7 @@ instance Page.AWSPager GetUserDefinedFunctions where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& gudfNextToken Lens..~ rs Lens.^. gudfrsNextToken
+          Lude.& gudfsNextToken Lens..~ rs Lens.^. gudfrsNextToken
 
 instance Lude.AWSRequest GetUserDefinedFunctions where
   type Rs GetUserDefinedFunctions = GetUserDefinedFunctionsResponse
@@ -154,11 +153,11 @@ instance Lude.ToJSON GetUserDefinedFunctions where
   toJSON GetUserDefinedFunctions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+          [ Lude.Just ("Pattern" Lude..= pattern'),
+            ("CatalogId" Lude..=) Lude.<$> catalogId,
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("DatabaseName" Lude..=) Lude.<$> databaseName,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("Pattern" Lude..= pattern')
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -170,27 +169,21 @@ instance Lude.ToQuery GetUserDefinedFunctions where
 
 -- | /See:/ 'mkGetUserDefinedFunctionsResponse' smart constructor.
 data GetUserDefinedFunctionsResponse = GetUserDefinedFunctionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    userDefinedFunctions ::
-      Lude.Maybe
-        [UserDefinedFunction],
+  { -- | A continuation token, if the list of functions returned does not include the last requested function.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of requested function definitions.
+    userDefinedFunctions :: Lude.Maybe [UserDefinedFunction],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserDefinedFunctionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A continuation token, if the list of functions returned does not include the last requested function.
--- * 'responseStatus' - The response status code.
 -- * 'userDefinedFunctions' - A list of requested function definitions.
+-- * 'responseStatus' - The response status code.
 mkGetUserDefinedFunctionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

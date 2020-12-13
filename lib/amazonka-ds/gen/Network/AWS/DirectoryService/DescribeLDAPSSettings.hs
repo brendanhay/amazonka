@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.DirectoryService.DescribeLDAPSSettings
     mkDescribeLDAPSSettings,
 
     -- ** Request lenses
+    dldapssDirectoryId,
     dldapssNextToken,
     dldapssLimit,
     dldapssType,
-    dldapssDirectoryId,
 
     -- * Destructuring the response
     DescribeLDAPSSettingsResponse (..),
@@ -43,26 +44,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLDAPSSettings' smart constructor.
 data DescribeLDAPSSettings = DescribeLDAPSSettings'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the directory.
+    directoryId :: Lude.Text,
+    -- | The type of next token used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of items that should be displayed on one page.
     limit :: Lude.Maybe Lude.Natural,
-    type' :: Lude.Maybe LDAPSType,
-    directoryId :: Lude.Text
+    -- | The type of LDAP security to enable. Currently only the value @Client@ is supported.
+    type' :: Lude.Maybe LDAPSType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLDAPSSettings' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - The identifier of the directory.
--- * 'limit' - Specifies the number of items that should be displayed on one page.
 -- * 'nextToken' - The type of next token used for pagination.
+-- * 'limit' - Specifies the number of items that should be displayed on one page.
 -- * 'type'' - The type of LDAP security to enable. Currently only the value @Client@ is supported.
 mkDescribeLDAPSSettings ::
   -- | 'directoryId'
@@ -70,11 +68,18 @@ mkDescribeLDAPSSettings ::
   DescribeLDAPSSettings
 mkDescribeLDAPSSettings pDirectoryId_ =
   DescribeLDAPSSettings'
-    { nextToken = Lude.Nothing,
+    { directoryId = pDirectoryId_,
+      nextToken = Lude.Nothing,
       limit = Lude.Nothing,
-      type' = Lude.Nothing,
-      directoryId = pDirectoryId_
+      type' = Lude.Nothing
     }
+
+-- | The identifier of the directory.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dldapssDirectoryId :: Lens.Lens' DescribeLDAPSSettings Lude.Text
+dldapssDirectoryId = Lens.lens (directoryId :: DescribeLDAPSSettings -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeLDAPSSettings)
+{-# DEPRECATED dldapssDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The type of next token used for pagination.
 --
@@ -96,13 +101,6 @@ dldapssLimit = Lens.lens (limit :: DescribeLDAPSSettings -> Lude.Maybe Lude.Natu
 dldapssType :: Lens.Lens' DescribeLDAPSSettings (Lude.Maybe LDAPSType)
 dldapssType = Lens.lens (type' :: DescribeLDAPSSettings -> Lude.Maybe LDAPSType) (\s a -> s {type' = a} :: DescribeLDAPSSettings)
 {-# DEPRECATED dldapssType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The identifier of the directory.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dldapssDirectoryId :: Lens.Lens' DescribeLDAPSSettings Lude.Text
-dldapssDirectoryId = Lens.lens (directoryId :: DescribeLDAPSSettings -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeLDAPSSettings)
-{-# DEPRECATED dldapssDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 instance Lude.AWSRequest DescribeLDAPSSettings where
   type Rs DescribeLDAPSSettings = DescribeLDAPSSettingsResponse
@@ -133,10 +131,10 @@ instance Lude.ToJSON DescribeLDAPSSettings where
   toJSON DescribeLDAPSSettings' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("Limit" Lude..=) Lude.<$> limit,
-            ("Type" Lude..=) Lude.<$> type',
-            Lude.Just ("DirectoryId" Lude..= directoryId)
+            ("Type" Lude..=) Lude.<$> type'
           ]
       )
 
@@ -148,19 +146,14 @@ instance Lude.ToQuery DescribeLDAPSSettings where
 
 -- | /See:/ 'mkDescribeLDAPSSettingsResponse' smart constructor.
 data DescribeLDAPSSettingsResponse = DescribeLDAPSSettingsResponse'
-  { lDAPSSettingsInfo ::
-      Lude.Maybe [LDAPSSettingInfo],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about LDAP security for the specified directory, including status of enablement, state last updated date time, and the reason for the state.
+    lDAPSSettingsInfo :: Lude.Maybe [LDAPSSettingInfo],
+    -- | The next token used to retrieve the LDAPS settings if the number of setting types exceeds page limit and there is another page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLDAPSSettingsResponse' with the minimum fields required to make a request.

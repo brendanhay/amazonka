@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPartialMatch' smart constructor.
 data PartialMatch = PartialMatch'
-  { targetViolationReasons ::
-      Lude.Maybe [Lude.Text],
+  { -- | The violation reason.
+    targetViolationReasons :: Lude.Maybe [Lude.Text],
+    -- | The reference rule from the master security group of the AWS Firewall Manager policy.
     reference :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartialMatch' with the minimum fields required to make a request.
 --
--- * 'reference' - The reference rule from the master security group of the AWS Firewall Manager policy.
 -- * 'targetViolationReasons' - The violation reason.
+-- * 'reference' - The reference rule from the master security group of the AWS Firewall Manager policy.
 mkPartialMatch ::
   PartialMatch
 mkPartialMatch =

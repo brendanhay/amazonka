@@ -13,9 +13,9 @@
 module Network.AWS.KinesisAnalytics.Types.InputStartingPosition
   ( InputStartingPosition
       ( InputStartingPosition',
-        LastStoppedPoint,
         Now,
-        TrimHorizon
+        TrimHorizon,
+        LastStoppedPoint
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype InputStartingPosition = InputStartingPosition' Lude.Text
       Lude.ToHeader
     )
 
-pattern LastStoppedPoint :: InputStartingPosition
-pattern LastStoppedPoint = InputStartingPosition' "LAST_STOPPED_POINT"
-
 pattern Now :: InputStartingPosition
 pattern Now = InputStartingPosition' "NOW"
 
 pattern TrimHorizon :: InputStartingPosition
 pattern TrimHorizon = InputStartingPosition' "TRIM_HORIZON"
 
+pattern LastStoppedPoint :: InputStartingPosition
+pattern LastStoppedPoint = InputStartingPosition' "LAST_STOPPED_POINT"
+
 {-# COMPLETE
-  LastStoppedPoint,
   Now,
   TrimHorizon,
+  LastStoppedPoint,
   InputStartingPosition'
   #-}

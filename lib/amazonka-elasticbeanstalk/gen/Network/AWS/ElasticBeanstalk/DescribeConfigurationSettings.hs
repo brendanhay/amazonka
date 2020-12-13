@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,30 +49,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeConfigurationSettings' smart constructor.
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
-  { templateName ::
-      Lude.Maybe Lude.Text,
-    environmentName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the configuration template to describe.
+    --
+    -- Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | The name of the environment to describe.
+    --
+    -- Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The application for the environment or configuration template.
     applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationSettings' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The application for the environment or configuration template.
--- * 'environmentName' - The name of the environment to describe.
---
--- Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 -- * 'templateName' - The name of the configuration template to describe.
 --
 -- Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+-- * 'environmentName' - The name of the environment to describe.
+--
+-- Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'applicationName' - The application for the environment or configuration template.
 mkDescribeConfigurationSettings ::
   -- | 'applicationName'
   Lude.Text ->
@@ -145,19 +145,12 @@ instance Lude.ToQuery DescribeConfigurationSettings where
 --
 -- /See:/ 'mkDescribeConfigurationSettingsResponse' smart constructor.
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
-  { configurationSettings ::
-      Lude.Maybe
-        [ConfigurationSettingsDescription],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of 'ConfigurationSettingsDescription' .
+    configurationSettings :: Lude.Maybe [ConfigurationSettingsDescription],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationSettingsResponse' with the minimum fields required to make a request.

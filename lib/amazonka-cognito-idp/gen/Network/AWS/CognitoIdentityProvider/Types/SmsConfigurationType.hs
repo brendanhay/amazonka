@@ -17,8 +17,8 @@ module Network.AWS.CognitoIdentityProvider.Types.SmsConfigurationType
     mkSmsConfigurationType,
 
     -- * Lenses
-    sctExternalId,
     sctSNSCallerARN,
+    sctExternalId,
   )
 where
 
@@ -29,39 +29,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSmsConfigurationType' smart constructor.
 data SmsConfigurationType = SmsConfigurationType'
-  { externalId ::
-      Lude.Maybe Lude.Text,
-    snsCallerARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller. This is the ARN of the IAM role in your AWS account which Cognito will use to send SMS messages. SMS messages are subject to a <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html spending limit> .
+    snsCallerARN :: Lude.Text,
+    -- | The external ID is a value that we recommend you use to add security to your IAM role which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an @ExternalId@ , the Cognito User Pool will include it when attempting to assume your IAM role, so that you can set your roles trust policy to require the @ExternalID@ . If you use the Cognito Management Console to create a role for SMS MFA, Cognito will create a role with the required permissions and a trust policy that demonstrates use of the @ExternalId@ .
+    externalId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SmsConfigurationType' with the minimum fields required to make a request.
 --
--- * 'externalId' - The external ID is a value that we recommend you use to add security to your IAM role which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an @ExternalId@ , the Cognito User Pool will include it when attempting to assume your IAM role, so that you can set your roles trust policy to require the @ExternalID@ . If you use the Cognito Management Console to create a role for SMS MFA, Cognito will create a role with the required permissions and a trust policy that demonstrates use of the @ExternalId@ .
 -- * 'snsCallerARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller. This is the ARN of the IAM role in your AWS account which Cognito will use to send SMS messages. SMS messages are subject to a <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html spending limit> .
+-- * 'externalId' - The external ID is a value that we recommend you use to add security to your IAM role which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an @ExternalId@ , the Cognito User Pool will include it when attempting to assume your IAM role, so that you can set your roles trust policy to require the @ExternalID@ . If you use the Cognito Management Console to create a role for SMS MFA, Cognito will create a role with the required permissions and a trust policy that demonstrates use of the @ExternalId@ .
 mkSmsConfigurationType ::
   -- | 'snsCallerARN'
   Lude.Text ->
   SmsConfigurationType
 mkSmsConfigurationType pSNSCallerARN_ =
   SmsConfigurationType'
-    { externalId = Lude.Nothing,
-      snsCallerARN = pSNSCallerARN_
+    { snsCallerARN = pSNSCallerARN_,
+      externalId = Lude.Nothing
     }
-
--- | The external ID is a value that we recommend you use to add security to your IAM role which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an @ExternalId@ , the Cognito User Pool will include it when attempting to assume your IAM role, so that you can set your roles trust policy to require the @ExternalID@ . If you use the Cognito Management Console to create a role for SMS MFA, Cognito will create a role with the required permissions and a trust policy that demonstrates use of the @ExternalId@ .
---
--- /Note:/ Consider using 'externalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sctExternalId :: Lens.Lens' SmsConfigurationType (Lude.Maybe Lude.Text)
-sctExternalId = Lens.lens (externalId :: SmsConfigurationType -> Lude.Maybe Lude.Text) (\s a -> s {externalId = a} :: SmsConfigurationType)
-{-# DEPRECATED sctExternalId "Use generic-lens or generic-optics with 'externalId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller. This is the ARN of the IAM role in your AWS account which Cognito will use to send SMS messages. SMS messages are subject to a <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html spending limit> .
 --
@@ -70,20 +58,27 @@ sctSNSCallerARN :: Lens.Lens' SmsConfigurationType Lude.Text
 sctSNSCallerARN = Lens.lens (snsCallerARN :: SmsConfigurationType -> Lude.Text) (\s a -> s {snsCallerARN = a} :: SmsConfigurationType)
 {-# DEPRECATED sctSNSCallerARN "Use generic-lens or generic-optics with 'snsCallerARN' instead." #-}
 
+-- | The external ID is a value that we recommend you use to add security to your IAM role which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an @ExternalId@ , the Cognito User Pool will include it when attempting to assume your IAM role, so that you can set your roles trust policy to require the @ExternalID@ . If you use the Cognito Management Console to create a role for SMS MFA, Cognito will create a role with the required permissions and a trust policy that demonstrates use of the @ExternalId@ .
+--
+-- /Note:/ Consider using 'externalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sctExternalId :: Lens.Lens' SmsConfigurationType (Lude.Maybe Lude.Text)
+sctExternalId = Lens.lens (externalId :: SmsConfigurationType -> Lude.Maybe Lude.Text) (\s a -> s {externalId = a} :: SmsConfigurationType)
+{-# DEPRECATED sctExternalId "Use generic-lens or generic-optics with 'externalId' instead." #-}
+
 instance Lude.FromJSON SmsConfigurationType where
   parseJSON =
     Lude.withObject
       "SmsConfigurationType"
       ( \x ->
           SmsConfigurationType'
-            Lude.<$> (x Lude..:? "ExternalId") Lude.<*> (x Lude..: "SnsCallerArn")
+            Lude.<$> (x Lude..: "SnsCallerArn") Lude.<*> (x Lude..:? "ExternalId")
       )
 
 instance Lude.ToJSON SmsConfigurationType where
   toJSON SmsConfigurationType' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ExternalId" Lude..=) Lude.<$> externalId,
-            Lude.Just ("SnsCallerArn" Lude..= snsCallerARN)
+          [ Lude.Just ("SnsCallerArn" Lude..= snsCallerARN),
+            ("ExternalId" Lude..=) Lude.<$> externalId
           ]
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.Pinpoint.GetVoiceTemplate
     mkGetVoiceTemplate,
 
     -- ** Request lenses
-    gvtVersion,
     gvtTemplateName,
+    gvtVersion,
 
     -- * Destructuring the response
     GetVoiceTemplateResponse (..),
     mkGetVoiceTemplateResponse,
 
     -- ** Response lenses
-    gvtrsResponseStatus,
     gvtrsVoiceTemplateResponse,
+    gvtrsResponseStatus,
   )
 where
 
@@ -40,17 +41,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetVoiceTemplate' smart constructor.
 data GetVoiceTemplate = GetVoiceTemplate'
-  { version ::
-      Lude.Maybe Lude.Text,
-    templateName :: Lude.Text
+  { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+    templateName :: Lude.Text,
+    -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
+    --
+    -- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+    -- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
+    --
+    --     * For a get operation, retrieves information about the active version of the template.
+    --
+    --
+    --     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+    --
+    --
+    --     * For a delete operation, deletes the template, including all versions of the template.
+    version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVoiceTemplate' with the minimum fields required to make a request.
@@ -74,9 +81,16 @@ mkGetVoiceTemplate ::
   GetVoiceTemplate
 mkGetVoiceTemplate pTemplateName_ =
   GetVoiceTemplate'
-    { version = Lude.Nothing,
-      templateName = pTemplateName_
+    { templateName = pTemplateName_,
+      version = Lude.Nothing
     }
+
+-- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvtTemplateName :: Lens.Lens' GetVoiceTemplate Lude.Text
+gvtTemplateName = Lens.lens (templateName :: GetVoiceTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetVoiceTemplate)
+{-# DEPRECATED gvtTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
 --
@@ -98,13 +112,6 @@ gvtVersion :: Lens.Lens' GetVoiceTemplate (Lude.Maybe Lude.Text)
 gvtVersion = Lens.lens (version :: GetVoiceTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetVoiceTemplate)
 {-# DEPRECATED gvtVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvtTemplateName :: Lens.Lens' GetVoiceTemplate Lude.Text
-gvtTemplateName = Lens.lens (templateName :: GetVoiceTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetVoiceTemplate)
-{-# DEPRECATED gvtTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
 instance Lude.AWSRequest GetVoiceTemplate where
   type Rs GetVoiceTemplate = GetVoiceTemplateResponse
   request = Req.get pinpointService
@@ -112,7 +119,7 @@ instance Lude.AWSRequest GetVoiceTemplate where
     Res.receiveJSON
       ( \s h x ->
           GetVoiceTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetVoiceTemplate where
@@ -134,42 +141,29 @@ instance Lude.ToQuery GetVoiceTemplate where
 
 -- | /See:/ 'mkGetVoiceTemplateResponse' smart constructor.
 data GetVoiceTemplateResponse = GetVoiceTemplateResponse'
-  { responseStatus ::
-      Lude.Int,
-    voiceTemplateResponse ::
-      VoiceTemplateResponse
+  { voiceTemplateResponse :: VoiceTemplateResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVoiceTemplateResponse' with the minimum fields required to make a request.
 --
+-- * 'voiceTemplateResponse' -
 -- * 'responseStatus' - The response status code.
--- * 'voiceTemplateResponse' - Undocumented field.
 mkGetVoiceTemplateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'voiceTemplateResponse'
   VoiceTemplateResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetVoiceTemplateResponse
-mkGetVoiceTemplateResponse pResponseStatus_ pVoiceTemplateResponse_ =
+mkGetVoiceTemplateResponse pVoiceTemplateResponse_ pResponseStatus_ =
   GetVoiceTemplateResponse'
-    { responseStatus = pResponseStatus_,
-      voiceTemplateResponse = pVoiceTemplateResponse_
+    { voiceTemplateResponse =
+        pVoiceTemplateResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvtrsResponseStatus :: Lens.Lens' GetVoiceTemplateResponse Lude.Int
-gvtrsResponseStatus = Lens.lens (responseStatus :: GetVoiceTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetVoiceTemplateResponse)
-{-# DEPRECATED gvtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -177,3 +171,10 @@ gvtrsResponseStatus = Lens.lens (responseStatus :: GetVoiceTemplateResponse -> L
 gvtrsVoiceTemplateResponse :: Lens.Lens' GetVoiceTemplateResponse VoiceTemplateResponse
 gvtrsVoiceTemplateResponse = Lens.lens (voiceTemplateResponse :: GetVoiceTemplateResponse -> VoiceTemplateResponse) (\s a -> s {voiceTemplateResponse = a} :: GetVoiceTemplateResponse)
 {-# DEPRECATED gvtrsVoiceTemplateResponse "Use generic-lens or generic-optics with 'voiceTemplateResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvtrsResponseStatus :: Lens.Lens' GetVoiceTemplateResponse Lude.Int
+gvtrsResponseStatus = Lens.lens (responseStatus :: GetVoiceTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetVoiceTemplateResponse)
+{-# DEPRECATED gvtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

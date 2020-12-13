@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H264GopBReference
   ( H264GopBReference
       ( H264GopBReference',
-        HGBRGDisabled,
-        HGBRGEnabled
+        HGBRfDisabled,
+        HGBRfEnabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H264GopBReference = H264GopBReference' Lude.Text
       Lude.ToHeader
     )
 
-pattern HGBRGDisabled :: H264GopBReference
-pattern HGBRGDisabled = H264GopBReference' "DISABLED"
+pattern HGBRfDisabled :: H264GopBReference
+pattern HGBRfDisabled = H264GopBReference' "DISABLED"
 
-pattern HGBRGEnabled :: H264GopBReference
-pattern HGBRGEnabled = H264GopBReference' "ENABLED"
+pattern HGBRfEnabled :: H264GopBReference
+pattern HGBRfEnabled = H264GopBReference' "ENABLED"
 
 {-# COMPLETE
-  HGBRGDisabled,
-  HGBRGEnabled,
+  HGBRfDisabled,
+  HGBRfEnabled,
   H264GopBReference'
   #-}

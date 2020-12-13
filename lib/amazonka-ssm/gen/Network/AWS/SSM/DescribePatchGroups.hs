@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,18 +46,27 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribePatchGroups' smart constructor.
 data DescribePatchGroups = DescribePatchGroups'
-  { filters ::
-      Lude.Maybe [PatchOrchestratorFilter],
+  { -- | One or more filters. Use a filter to return a more specific list of results.
+    --
+    -- For @DescribePatchGroups@ ,valid filter keys include the following:
+    --
+    --     * @NAME_PREFIX@ : The name of the patch group. Wildcards (*) are accepted.
+    --
+    --
+    --     * @OPERATING_SYSTEM@ : The supported operating system type to return results for. For valid operating system values, see 'GetDefaultPatchBaselineRequest$OperatingSystem' in 'CreatePatchBaseline' .
+    -- Examples:
+    --
+    --     * @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
+    --
+    --
+    --     * @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
+    filters :: Lude.Maybe [PatchOrchestratorFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of patch groups to return (per page).
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchGroups' with the minimum fields required to make a request.
@@ -79,8 +89,8 @@ data DescribePatchGroups = DescribePatchGroups'
 --
 --
 --
--- * 'maxResults' - The maximum number of patch groups to return (per page).
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of patch groups to return (per page).
 mkDescribePatchGroups ::
   DescribePatchGroups
 mkDescribePatchGroups =
@@ -178,19 +188,17 @@ instance Lude.ToQuery DescribePatchGroups where
 
 -- | /See:/ 'mkDescribePatchGroupsResponse' smart constructor.
 data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
-  { mappings ::
-      Lude.Maybe
-        [PatchGroupPatchBaselineMapping],
+  { -- | Each entry in the array contains:
+    --
+    -- PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$)
+    -- PatchBaselineIdentity: A PatchBaselineIdentity element.
+    mappings :: Lude.Maybe [PatchGroupPatchBaselineMapping],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchGroupsResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.DirectConnect.Types.BGPStatus
   ( BGPStatus
       ( BGPStatus',
-        Down,
         UP,
+        Down,
         Unknown
       ),
   )
@@ -46,18 +46,18 @@ newtype BGPStatus = BGPStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Down :: BGPStatus
-pattern Down = BGPStatus' "down"
-
 pattern UP :: BGPStatus
 pattern UP = BGPStatus' "up"
+
+pattern Down :: BGPStatus
+pattern Down = BGPStatus' "down"
 
 pattern Unknown :: BGPStatus
 pattern Unknown = BGPStatus' "unknown"
 
 {-# COMPLETE
-  Down,
   UP,
+  Down,
   Unknown,
   BGPStatus'
   #-}

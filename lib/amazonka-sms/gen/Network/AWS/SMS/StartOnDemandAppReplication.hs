@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SMS.StartOnDemandAppReplication
     mkStartOnDemandAppReplication,
 
     -- ** Request lenses
-    sodarDescription,
     sodarAppId,
+    sodarDescription,
 
     -- * Destructuring the response
     StartOnDemandAppReplicationResponse (..),
@@ -39,17 +40,12 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkStartOnDemandAppReplication' smart constructor.
 data StartOnDemandAppReplication = StartOnDemandAppReplication'
-  { description ::
-      Lude.Maybe Lude.Text,
-    appId :: Lude.Text
+  { -- | The ID of the application.
+    appId :: Lude.Text,
+    -- | The description of the replication run.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandAppReplication' with the minimum fields required to make a request.
@@ -62,16 +58,9 @@ mkStartOnDemandAppReplication ::
   StartOnDemandAppReplication
 mkStartOnDemandAppReplication pAppId_ =
   StartOnDemandAppReplication'
-    { description = Lude.Nothing,
-      appId = pAppId_
+    { appId = pAppId_,
+      description = Lude.Nothing
     }
-
--- | The description of the replication run.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sodarDescription :: Lens.Lens' StartOnDemandAppReplication (Lude.Maybe Lude.Text)
-sodarDescription = Lens.lens (description :: StartOnDemandAppReplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StartOnDemandAppReplication)
-{-# DEPRECATED sodarDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the application.
 --
@@ -79,6 +68,13 @@ sodarDescription = Lens.lens (description :: StartOnDemandAppReplication -> Lude
 sodarAppId :: Lens.Lens' StartOnDemandAppReplication Lude.Text
 sodarAppId = Lens.lens (appId :: StartOnDemandAppReplication -> Lude.Text) (\s a -> s {appId = a} :: StartOnDemandAppReplication)
 {-# DEPRECATED sodarAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
+
+-- | The description of the replication run.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodarDescription :: Lens.Lens' StartOnDemandAppReplication (Lude.Maybe Lude.Text)
+sodarDescription = Lens.lens (description :: StartOnDemandAppReplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StartOnDemandAppReplication)
+{-# DEPRECATED sodarDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest StartOnDemandAppReplication where
   type
@@ -109,8 +105,8 @@ instance Lude.ToJSON StartOnDemandAppReplication where
   toJSON StartOnDemandAppReplication' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("appId" Lude..= appId)
+          [ Lude.Just ("appId" Lude..= appId),
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -122,16 +118,10 @@ instance Lude.ToQuery StartOnDemandAppReplication where
 
 -- | /See:/ 'mkStartOnDemandAppReplicationResponse' smart constructor.
 newtype StartOnDemandAppReplicationResponse = StartOnDemandAppReplicationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandAppReplicationResponse' with the minimum fields required to make a request.

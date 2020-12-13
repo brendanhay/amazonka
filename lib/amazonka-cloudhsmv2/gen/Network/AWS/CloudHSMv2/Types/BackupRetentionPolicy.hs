@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBackupRetentionPolicy' smart constructor.
 data BackupRetentionPolicy = BackupRetentionPolicy'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | Use a value between 7 - 379.
+    value :: Lude.Maybe Lude.Text,
+    -- | The type of backup retention policy. For the @DAYS@ type, the value is the number of days to retain backups.
     type' :: Lude.Maybe BackupRetentionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackupRetentionPolicy' with the minimum fields required to make a request.
 --
--- * 'type'' - The type of backup retention policy. For the @DAYS@ type, the value is the number of days to retain backups.
 -- * 'value' - Use a value between 7 - 379.
+-- * 'type'' - The type of backup retention policy. For the @DAYS@ type, the value is the number of days to retain backups.
 mkBackupRetentionPolicy ::
   BackupRetentionPolicy
 mkBackupRetentionPolicy =

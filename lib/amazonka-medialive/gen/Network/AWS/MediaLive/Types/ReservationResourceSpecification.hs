@@ -43,49 +43,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservationResourceSpecification' smart constructor.
 data ReservationResourceSpecification = ReservationResourceSpecification'
-  { videoQuality ::
-      Lude.Maybe
-        ReservationVideoQuality,
-    maximumFramerate ::
-      Lude.Maybe
-        ReservationMaximumFramerate,
-    resourceType ::
-      Lude.Maybe
-        ReservationResourceType,
-    resolution ::
-      Lude.Maybe
-        ReservationResolution,
-    codec ::
-      Lude.Maybe
-        ReservationCodec,
-    specialFeature ::
-      Lude.Maybe
-        ReservationSpecialFeature,
-    channelClass ::
-      Lude.Maybe ChannelClass,
-    maximumBitrate ::
-      Lude.Maybe
-        ReservationMaximumBitrate
+  { -- | Video quality, e.g. 'STANDARD' (Outputs only)
+    videoQuality :: Lude.Maybe ReservationVideoQuality,
+    -- | Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
+    maximumFramerate :: Lude.Maybe ReservationMaximumFramerate,
+    -- | Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+    resourceType :: Lude.Maybe ReservationResourceType,
+    -- | Resolution, e.g. 'HD'
+    resolution :: Lude.Maybe ReservationResolution,
+    -- | Codec, e.g. 'AVC'
+    codec :: Lude.Maybe ReservationCodec,
+    -- | Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
+    specialFeature :: Lude.Maybe ReservationSpecialFeature,
+    -- | Channel class, e.g. 'STANDARD'
+    channelClass :: Lude.Maybe ChannelClass,
+    -- | Maximum bitrate, e.g. 'MAX_20_MBPS'
+    maximumBitrate :: Lude.Maybe ReservationMaximumBitrate
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationResourceSpecification' with the minimum fields required to make a request.
 --
--- * 'channelClass' - Channel class, e.g. 'STANDARD'
--- * 'codec' - Codec, e.g. 'AVC'
--- * 'maximumBitrate' - Maximum bitrate, e.g. 'MAX_20_MBPS'
--- * 'maximumFramerate' - Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
--- * 'resolution' - Resolution, e.g. 'HD'
--- * 'resourceType' - Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
--- * 'specialFeature' - Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
 -- * 'videoQuality' - Video quality, e.g. 'STANDARD' (Outputs only)
+-- * 'maximumFramerate' - Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
+-- * 'resourceType' - Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+-- * 'resolution' - Resolution, e.g. 'HD'
+-- * 'codec' - Codec, e.g. 'AVC'
+-- * 'specialFeature' - Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
+-- * 'channelClass' - Channel class, e.g. 'STANDARD'
+-- * 'maximumBitrate' - Maximum bitrate, e.g. 'MAX_20_MBPS'
 mkReservationResourceSpecification ::
   ReservationResourceSpecification
 mkReservationResourceSpecification =

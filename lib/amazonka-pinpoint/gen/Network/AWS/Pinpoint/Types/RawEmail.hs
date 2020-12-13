@@ -27,23 +27,16 @@ import qualified Network.AWS.Prelude as Lude
 -- | Specifies the contents of an email message, represented as a raw MIME message.
 --
 -- /See:/ 'mkRawEmail' smart constructor.
-newtype RawEmail = RawEmail' {data' :: Lude.Maybe Lude.Base64}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype RawEmail = RawEmail'
+  { -- | The email message, represented as a raw MIME message. The entire message must be base64 encoded.
+    data' :: Lude.Maybe Lude.Base64
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RawEmail' with the minimum fields required to make a request.
 --
--- * 'data'' - The email message, represented as a raw MIME message. The entire message must be base64 encoded.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'data'' - The email message, represented as a raw MIME message. The entire message must be base64 encoded.
 mkRawEmail ::
   RawEmail
 mkRawEmail = RawEmail' {data' = Lude.Nothing}

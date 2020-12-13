@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCampaignState' smart constructor.
 newtype CampaignState = CampaignState'
-  { campaignStatus ::
-      Lude.Maybe CampaignStatus
+  { -- | The current status of the campaign, or the current status of a treatment that belongs to an A/B test campaign.
+    --
+    -- If a campaign uses A/B testing, the campaign has a status of COMPLETED only if all campaign treatments have a status of COMPLETED. If you delete the segment that's associated with a campaign, the campaign fails and has a status of DELETED.
+    campaignStatus :: Lude.Maybe CampaignStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CampaignState' with the minimum fields required to make a request.

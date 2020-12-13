@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIPRange' smart constructor.
 data IPRange = IPRange'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
+    status :: Lude.Maybe Lude.Text,
+    -- | Specifies the IP range.
     cIdRIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRange' with the minimum fields required to make a request.
 --
--- * 'cIdRIP' - Specifies the IP range.
 -- * 'status' - Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
+-- * 'cIdRIP' - Specifies the IP range.
 mkIPRange ::
   IPRange
 mkIPRange = IPRange' {status = Lude.Nothing, cIdRIP = Lude.Nothing}

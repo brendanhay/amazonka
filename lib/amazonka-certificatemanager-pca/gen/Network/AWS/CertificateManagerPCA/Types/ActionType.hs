@@ -13,8 +13,8 @@
 module Network.AWS.CertificateManagerPCA.Types.ActionType
   ( ActionType
       ( ActionType',
-        GetCertificate,
         IssueCertificate,
+        GetCertificate,
         ListPermissions
       ),
   )
@@ -46,18 +46,18 @@ newtype ActionType = ActionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern GetCertificate :: ActionType
-pattern GetCertificate = ActionType' "GetCertificate"
-
 pattern IssueCertificate :: ActionType
 pattern IssueCertificate = ActionType' "IssueCertificate"
+
+pattern GetCertificate :: ActionType
+pattern GetCertificate = ActionType' "GetCertificate"
 
 pattern ListPermissions :: ActionType
 pattern ListPermissions = ActionType' "ListPermissions"
 
 {-# COMPLETE
-  GetCertificate,
   IssueCertificate,
+  GetCertificate,
   ListPermissions,
   ActionType'
   #-}

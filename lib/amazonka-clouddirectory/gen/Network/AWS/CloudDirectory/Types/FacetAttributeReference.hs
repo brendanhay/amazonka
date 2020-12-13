@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFacetAttributeReference' smart constructor.
 data FacetAttributeReference = FacetAttributeReference'
-  { targetFacetName ::
-      Lude.Text,
+  { -- | The target facet name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+    targetFacetName :: Lude.Text,
+    -- | The target attribute name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
     targetAttributeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FacetAttributeReference' with the minimum fields required to make a request.
 --
--- * 'targetAttributeName' - The target attribute name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
 -- * 'targetFacetName' - The target facet name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+-- * 'targetAttributeName' - The target attribute name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
 mkFacetAttributeReference ::
   -- | 'targetFacetName'
   Lude.Text ->

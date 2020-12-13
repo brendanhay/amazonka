@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.IoT.CreateRoleAlias
     mkCreateRoleAlias,
 
     -- ** Request lenses
+    craRoleAlias,
     craCredentialDurationSeconds,
     craTags,
-    craRoleAlias,
     craRoleARN,
 
     -- * Destructuring the response
@@ -43,27 +44,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRoleAlias' smart constructor.
 data CreateRoleAlias = CreateRoleAlias'
-  { credentialDurationSeconds ::
-      Lude.Maybe Lude.Natural,
-    tags :: Lude.Maybe [Tag],
+  { -- | The role alias that points to a role ARN. This allows you to change the role without having to update the device.
     roleAlias :: Lude.Text,
+    -- | How long (in seconds) the credentials will be valid.
+    credentialDurationSeconds :: Lude.Maybe Lude.Natural,
+    -- | Metadata which can be used to manage the role alias.
+    tags :: Lude.Maybe [Tag],
+    -- | The role ARN.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoleAlias' with the minimum fields required to make a request.
 --
--- * 'credentialDurationSeconds' - How long (in seconds) the credentials will be valid.
--- * 'roleARN' - The role ARN.
 -- * 'roleAlias' - The role alias that points to a role ARN. This allows you to change the role without having to update the device.
+-- * 'credentialDurationSeconds' - How long (in seconds) the credentials will be valid.
 -- * 'tags' - Metadata which can be used to manage the role alias.
+-- * 'roleARN' - The role ARN.
 mkCreateRoleAlias ::
   -- | 'roleAlias'
   Lude.Text ->
@@ -72,11 +70,18 @@ mkCreateRoleAlias ::
   CreateRoleAlias
 mkCreateRoleAlias pRoleAlias_ pRoleARN_ =
   CreateRoleAlias'
-    { credentialDurationSeconds = Lude.Nothing,
+    { roleAlias = pRoleAlias_,
+      credentialDurationSeconds = Lude.Nothing,
       tags = Lude.Nothing,
-      roleAlias = pRoleAlias_,
       roleARN = pRoleARN_
     }
+
+-- | The role alias that points to a role ARN. This allows you to change the role without having to update the device.
+--
+-- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craRoleAlias :: Lens.Lens' CreateRoleAlias Lude.Text
+craRoleAlias = Lens.lens (roleAlias :: CreateRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: CreateRoleAlias)
+{-# DEPRECATED craRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
 -- | How long (in seconds) the credentials will be valid.
 --
@@ -91,13 +96,6 @@ craCredentialDurationSeconds = Lens.lens (credentialDurationSeconds :: CreateRol
 craTags :: Lens.Lens' CreateRoleAlias (Lude.Maybe [Tag])
 craTags = Lens.lens (tags :: CreateRoleAlias -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRoleAlias)
 {-# DEPRECATED craTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The role alias that points to a role ARN. This allows you to change the role without having to update the device.
---
--- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-craRoleAlias :: Lens.Lens' CreateRoleAlias Lude.Text
-craRoleAlias = Lens.lens (roleAlias :: CreateRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: CreateRoleAlias)
-{-# DEPRECATED craRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
 -- | The role ARN.
 --
@@ -141,25 +139,21 @@ instance Lude.ToQuery CreateRoleAlias where
 
 -- | /See:/ 'mkCreateRoleAliasResponse' smart constructor.
 data CreateRoleAliasResponse = CreateRoleAliasResponse'
-  { roleAliasARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The role alias ARN.
+    roleAliasARN :: Lude.Maybe Lude.Text,
+    -- | The role alias.
     roleAlias :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoleAliasResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'roleAlias' - The role alias.
 -- * 'roleAliasARN' - The role alias ARN.
+-- * 'roleAlias' - The role alias.
+-- * 'responseStatus' - The response status code.
 mkCreateRoleAliasResponse ::
   -- | 'responseStatus'
   Lude.Int ->

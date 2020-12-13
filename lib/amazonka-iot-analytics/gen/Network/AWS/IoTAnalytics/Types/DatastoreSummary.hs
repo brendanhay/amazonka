@@ -35,34 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatastoreSummary' smart constructor.
 data DatastoreSummary = DatastoreSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the data store was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the data store.
     status :: Lude.Maybe DatastoreStatus,
+    -- | The last time when a new message arrived in the data store.
+    --
+    -- AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation.
+    -- This feature only applies to messages that arrived in the data store after October 23, 2020.
     lastMessageArrivalTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the data store.
     datastoreName :: Lude.Maybe Lude.Text,
+    -- | The last time the data store was updated.
     lastUpdateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Where data store data is stored.
     datastoreStorage :: Lude.Maybe DatastoreStorageSummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatastoreSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - When the data store was created.
--- * 'datastoreName' - The name of the data store.
--- * 'datastoreStorage' - Where data store data is stored.
+-- * 'status' - The status of the data store.
 -- * 'lastMessageArrivalTime' - The last time when a new message arrived in the data store.
 --
 -- AWS IoT Analytics updates this value at most once per minute for one data store. Hence, the @lastMessageArrivalTime@ value is an approximation.
 -- This feature only applies to messages that arrived in the data store after October 23, 2020.
+-- * 'datastoreName' - The name of the data store.
 -- * 'lastUpdateTime' - The last time the data store was updated.
--- * 'status' - The status of the data store.
+-- * 'datastoreStorage' - Where data store data is stored.
 mkDatastoreSummary ::
   DatastoreSummary
 mkDatastoreSummary =

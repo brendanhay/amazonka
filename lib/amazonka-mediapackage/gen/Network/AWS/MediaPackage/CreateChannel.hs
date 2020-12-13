@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.MediaPackage.CreateChannel
     mkCreateChannel,
 
     -- ** Request lenses
+    ccId,
     ccDescription,
     ccTags,
-    ccId,
 
     -- * Destructuring the response
     CreateChannelResponse (..),
@@ -49,37 +50,43 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { description ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    id :: Lude.Text
+  { -- | The ID of the Channel. The ID must be unique within the region and it
+    --
+    -- cannot be changed after a Channel is created.
+    id :: Lude.Text,
+    -- | A short text description of the Channel.
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannel' with the minimum fields required to make a request.
 --
--- * 'description' - A short text description of the Channel.
 -- * 'id' - The ID of the Channel. The ID must be unique within the region and it
 --
 -- cannot be changed after a Channel is created.
--- * 'tags' - Undocumented field.
+-- * 'description' - A short text description of the Channel.
+-- * 'tags' -
 mkCreateChannel ::
   -- | 'id'
   Lude.Text ->
   CreateChannel
 mkCreateChannel pId_ =
   CreateChannel'
-    { description = Lude.Nothing,
-      tags = Lude.Nothing,
-      id = pId_
+    { id = pId_,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | The ID of the Channel. The ID must be unique within the region and it
+--
+-- cannot be changed after a Channel is created.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccId :: Lens.Lens' CreateChannel Lude.Text
+ccId = Lens.lens (id :: CreateChannel -> Lude.Text) (\s a -> s {id = a} :: CreateChannel)
+{-# DEPRECATED ccId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A short text description of the Channel.
 --
@@ -94,15 +101,6 @@ ccDescription = Lens.lens (description :: CreateChannel -> Lude.Maybe Lude.Text)
 ccTags :: Lens.Lens' CreateChannel (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 ccTags = Lens.lens (tags :: CreateChannel -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateChannel)
 {-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The ID of the Channel. The ID must be unique within the region and it
---
--- cannot be changed after a Channel is created.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccId :: Lens.Lens' CreateChannel Lude.Text
-ccId = Lens.lens (id :: CreateChannel -> Lude.Text) (\s a -> s {id = a} :: CreateChannel)
-{-# DEPRECATED ccId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest CreateChannel where
   type Rs CreateChannel = CreateChannelResponse
@@ -134,9 +132,9 @@ instance Lude.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("id" Lude..= id)
+          [ Lude.Just ("id" Lude..= id),
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -148,36 +146,32 @@ instance Lude.ToQuery CreateChannel where
 
 -- | /See:/ 'mkCreateChannelResponse' smart constructor.
 data CreateChannelResponse = CreateChannelResponse'
-  { ingressAccessLogs ::
-      Lude.Maybe IngressAccessLogs,
+  { ingressAccessLogs :: Lude.Maybe IngressAccessLogs,
     hlsIngest :: Lude.Maybe HlsIngest,
+    -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ID of the Channel.
     id :: Lude.Maybe Lude.Text,
+    -- | A short text description of the Channel.
     description :: Lude.Maybe Lude.Text,
     egressAccessLogs :: Lude.Maybe EgressAccessLogs,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannelResponse' with the minimum fields required to make a request.
 --
+-- * 'ingressAccessLogs' -
+-- * 'hlsIngest' -
 -- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
--- * 'description' - A short text description of the Channel.
--- * 'egressAccessLogs' - Undocumented field.
--- * 'hlsIngest' - Undocumented field.
 -- * 'id' - The ID of the Channel.
--- * 'ingressAccessLogs' - Undocumented field.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' -
+-- * 'tags' -
 -- * 'responseStatus' - The response status code.
--- * 'tags' - Undocumented field.
 mkCreateChannelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,13 +38,7 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkDescribeDRTAccess' smart constructor.
 data DescribeDRTAccess = DescribeDRTAccess'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDRTAccess' with the minimum fields required to make a request.
@@ -85,25 +80,21 @@ instance Lude.ToQuery DescribeDRTAccess where
 
 -- | /See:/ 'mkDescribeDRTAccessResponse' smart constructor.
 data DescribeDRTAccessResponse = DescribeDRTAccessResponse'
-  { logBucketList ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of Amazon S3 buckets accessed by the DRT.
+    logBucketList :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.
     roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDRTAccessResponse' with the minimum fields required to make a request.
 --
 -- * 'logBucketList' - The list of Amazon S3 buckets accessed by the DRT.
--- * 'responseStatus' - The response status code.
 -- * 'roleARN' - The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.
+-- * 'responseStatus' - The response status code.
 mkDescribeDRTAccessResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -27,14 +27,13 @@ import qualified Network.AWS.Prelude as Lude
 -- | A list of IP address ranges (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs> ). Used to create an allow list of IP addresses for a private workforce. Workers will only be able to login to their worker portal from an IP address within this range. By default, a workforce isn't restricted to specific IP addresses.
 --
 -- /See:/ 'mkSourceIPConfig' smart constructor.
-newtype SourceIPConfig = SourceIPConfig' {cidrs :: [Lude.Text]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype SourceIPConfig = SourceIPConfig'
+  { -- | A list of one to ten <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html Classless Inter-Domain Routing> (CIDR) values.
+    --
+    -- Maximum: Ten CIDR values
+    cidrs :: [Lude.Text]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceIPConfig' with the minimum fields required to make a request.

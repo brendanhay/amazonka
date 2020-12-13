@@ -34,30 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportVolumeTaskDetails' smart constructor.
 data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
-  { bytesConverted ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of bytes converted so far.
+    bytesConverted :: Lude.Maybe Lude.Integer,
+    -- | The image.
     image :: Lude.Maybe DiskImageDescription,
-    volume ::
-      Lude.Maybe DiskImageVolumeDescription,
+    -- | The volume.
+    volume :: Lude.Maybe DiskImageVolumeDescription,
+    -- | The Availability Zone where the resulting volume will reside.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The description you provided when starting the import volume task.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportVolumeTaskDetails' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone where the resulting volume will reside.
 -- * 'bytesConverted' - The number of bytes converted so far.
--- * 'description' - The description you provided when starting the import volume task.
 -- * 'image' - The image.
 -- * 'volume' - The volume.
+-- * 'availabilityZone' - The Availability Zone where the resulting volume will reside.
+-- * 'description' - The description you provided when starting the import volume task.
 mkImportVolumeTaskDetails ::
   ImportVolumeTaskDetails
 mkImportVolumeTaskDetails =

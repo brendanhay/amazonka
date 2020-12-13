@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,24 +58,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-  { loadBalancerName ::
-      Lude.Text,
-    loadBalancerAttributes ::
-      LoadBalancerAttributes
+  { -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text,
+    -- | The attributes for the load balancer.
+    loadBalancerAttributes :: LoadBalancerAttributes
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLoadBalancerAttributes' with the minimum fields required to make a request.
 --
--- * 'loadBalancerAttributes' - The attributes for the load balancer.
 -- * 'loadBalancerName' - The name of the load balancer.
+-- * 'loadBalancerAttributes' - The attributes for the load balancer.
 mkModifyLoadBalancerAttributes ::
   -- | 'loadBalancerName'
   Lude.Text ->
@@ -139,28 +134,20 @@ instance Lude.ToQuery ModifyLoadBalancerAttributes where
 --
 -- /See:/ 'mkModifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-  { loadBalancerName ::
-      Lude.Maybe
-        Lude.Text,
-    loadBalancerAttributes ::
-      Lude.Maybe
-        LoadBalancerAttributes,
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the load balancer.
+    loadBalancerName :: Lude.Maybe Lude.Text,
+    -- | Information about the load balancer attributes.
+    loadBalancerAttributes :: Lude.Maybe LoadBalancerAttributes,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.
 --
--- * 'loadBalancerAttributes' - Information about the load balancer attributes.
 -- * 'loadBalancerName' - The name of the load balancer.
+-- * 'loadBalancerAttributes' - Information about the load balancer attributes.
 -- * 'responseStatus' - The response status code.
 mkModifyLoadBalancerAttributesResponse ::
   -- | 'responseStatus'

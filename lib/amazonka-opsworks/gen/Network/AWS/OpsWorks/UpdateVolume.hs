@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.OpsWorks.UpdateVolume
     mkUpdateVolume,
 
     -- ** Request lenses
-    uName,
-    uMountPoint,
-    uVolumeId,
+    uvName,
+    uvVolumeId,
+    uvMountPoint,
 
     -- * Destructuring the response
     UpdateVolumeResponse (..),
@@ -39,24 +40,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateVolume' smart constructor.
 data UpdateVolume = UpdateVolume'
-  { name :: Lude.Maybe Lude.Text,
-    mountPoint :: Lude.Maybe Lude.Text,
-    volumeId :: Lude.Text
+  { -- | The new name.
+    name :: Lude.Maybe Lude.Text,
+    -- | The volume ID.
+    volumeId :: Lude.Text,
+    -- | The new mount point.
+    mountPoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVolume' with the minimum fields required to make a request.
 --
--- * 'mountPoint' - The new mount point.
 -- * 'name' - The new name.
 -- * 'volumeId' - The volume ID.
+-- * 'mountPoint' - The new mount point.
 mkUpdateVolume ::
   -- | 'volumeId'
   Lude.Text ->
@@ -64,30 +62,30 @@ mkUpdateVolume ::
 mkUpdateVolume pVolumeId_ =
   UpdateVolume'
     { name = Lude.Nothing,
-      mountPoint = Lude.Nothing,
-      volumeId = pVolumeId_
+      volumeId = pVolumeId_,
+      mountPoint = Lude.Nothing
     }
 
 -- | The new name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uName :: Lens.Lens' UpdateVolume (Lude.Maybe Lude.Text)
-uName = Lens.lens (name :: UpdateVolume -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateVolume)
-{-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The new mount point.
---
--- /Note:/ Consider using 'mountPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uMountPoint :: Lens.Lens' UpdateVolume (Lude.Maybe Lude.Text)
-uMountPoint = Lens.lens (mountPoint :: UpdateVolume -> Lude.Maybe Lude.Text) (\s a -> s {mountPoint = a} :: UpdateVolume)
-{-# DEPRECATED uMountPoint "Use generic-lens or generic-optics with 'mountPoint' instead." #-}
+uvName :: Lens.Lens' UpdateVolume (Lude.Maybe Lude.Text)
+uvName = Lens.lens (name :: UpdateVolume -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateVolume)
+{-# DEPRECATED uvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The volume ID.
 --
 -- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uVolumeId :: Lens.Lens' UpdateVolume Lude.Text
-uVolumeId = Lens.lens (volumeId :: UpdateVolume -> Lude.Text) (\s a -> s {volumeId = a} :: UpdateVolume)
-{-# DEPRECATED uVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+uvVolumeId :: Lens.Lens' UpdateVolume Lude.Text
+uvVolumeId = Lens.lens (volumeId :: UpdateVolume -> Lude.Text) (\s a -> s {volumeId = a} :: UpdateVolume)
+{-# DEPRECATED uvVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+
+-- | The new mount point.
+--
+-- /Note:/ Consider using 'mountPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvMountPoint :: Lens.Lens' UpdateVolume (Lude.Maybe Lude.Text)
+uvMountPoint = Lens.lens (mountPoint :: UpdateVolume -> Lude.Maybe Lude.Text) (\s a -> s {mountPoint = a} :: UpdateVolume)
+{-# DEPRECATED uvMountPoint "Use generic-lens or generic-optics with 'mountPoint' instead." #-}
 
 instance Lude.AWSRequest UpdateVolume where
   type Rs UpdateVolume = UpdateVolumeResponse
@@ -110,8 +108,8 @@ instance Lude.ToJSON UpdateVolume where
     Lude.object
       ( Lude.catMaybes
           [ ("Name" Lude..=) Lude.<$> name,
-            ("MountPoint" Lude..=) Lude.<$> mountPoint,
-            Lude.Just ("VolumeId" Lude..= volumeId)
+            Lude.Just ("VolumeId" Lude..= volumeId),
+            ("MountPoint" Lude..=) Lude.<$> mountPoint
           ]
       )
 
@@ -123,13 +121,7 @@ instance Lude.ToQuery UpdateVolume where
 
 -- | /See:/ 'mkUpdateVolumeResponse' smart constructor.
 data UpdateVolumeResponse = UpdateVolumeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVolumeResponse' with the minimum fields required to make a request.

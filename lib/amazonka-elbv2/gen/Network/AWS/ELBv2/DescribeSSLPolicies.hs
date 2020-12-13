@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,24 +48,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSSLPolicies' smart constructor.
 data DescribeSSLPolicies = DescribeSSLPolicies'
-  { names ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of the policies.
+    names :: Lude.Maybe [Lude.Text],
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSSLPolicies' with the minimum fields required to make a request.
 --
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
 -- * 'names' - The names of the policies.
+-- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
 -- * 'pageSize' - The maximum number of results to return with this call.
 mkDescribeSSLPolicies ::
   DescribeSSLPolicies
@@ -139,25 +136,21 @@ instance Lude.ToQuery DescribeSSLPolicies where
 
 -- | /See:/ 'mkDescribeSSLPoliciesResponse' smart constructor.
 data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
-  { sslPolicies ::
-      Lude.Maybe [SSLPolicy],
+  { -- | Information about the security policies.
+    sslPolicies :: Lude.Maybe [SSLPolicy],
+    -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSSLPoliciesResponse' with the minimum fields required to make a request.
 --
+-- * 'sslPolicies' - Information about the security policies.
 -- * 'nextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
 -- * 'responseStatus' - The response status code.
--- * 'sslPolicies' - Information about the security policies.
 mkDescribeSSLPoliciesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

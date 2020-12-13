@@ -22,11 +22,11 @@ module Network.AWS.EFS.Types.MountTargetDescription
     mtdVPCId,
     mtdAvailabilityZoneName,
     mtdNetworkInterfaceId,
-    mtdOwnerId,
-    mtdMountTargetId,
     mtdFileSystemId,
     mtdSubnetId,
+    mtdOwnerId,
     mtdLifeCycleState,
+    mtdMountTargetId,
   )
 where
 
@@ -38,65 +38,68 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMountTargetDescription' smart constructor.
 data MountTargetDescription = MountTargetDescription'
-  { ipAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | Address at which the file system can be mounted by using the mount target.
+    ipAddress :: Lude.Maybe Lude.Text,
+    -- | The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in. For example, @use1-az1@ is an AZ ID for the us-east-1 Region and it has the same location in every AWS account.
     availabilityZoneId :: Lude.Maybe Lude.Text,
+    -- | The Virtual Private Cloud (VPC) ID that the mount target is configured in.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The name of the Availability Zone (AZ) that the mount target resides in. AZs are independently mapped to names for each AWS account. For example, the Availability Zone @us-east-1a@ for your AWS account might not be the same location as @us-east-1a@ for another AWS account.
     availabilityZoneName :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface that Amazon EFS created when it created the mount target.
     networkInterfaceId :: Lude.Maybe Lude.Text,
-    ownerId :: Lude.Maybe Lude.Text,
-    mountTargetId :: Lude.Text,
+    -- | The ID of the file system for which the mount target is intended.
     fileSystemId :: Lude.Text,
+    -- | The ID of the mount target's subnet.
     subnetId :: Lude.Text,
-    lifeCycleState :: LifeCycleState
+    -- | AWS account ID that owns the resource.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | Lifecycle state of the mount target.
+    lifeCycleState :: LifeCycleState,
+    -- | System-assigned mount target ID.
+    mountTargetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MountTargetDescription' with the minimum fields required to make a request.
 --
--- * 'availabilityZoneId' - The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in. For example, @use1-az1@ is an AZ ID for the us-east-1 Region and it has the same location in every AWS account.
--- * 'availabilityZoneName' - The name of the Availability Zone (AZ) that the mount target resides in. AZs are independently mapped to names for each AWS account. For example, the Availability Zone @us-east-1a@ for your AWS account might not be the same location as @us-east-1a@ for another AWS account.
--- * 'fileSystemId' - The ID of the file system for which the mount target is intended.
 -- * 'ipAddress' - Address at which the file system can be mounted by using the mount target.
+-- * 'availabilityZoneId' - The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in. For example, @use1-az1@ is an AZ ID for the us-east-1 Region and it has the same location in every AWS account.
+-- * 'vpcId' - The Virtual Private Cloud (VPC) ID that the mount target is configured in.
+-- * 'availabilityZoneName' - The name of the Availability Zone (AZ) that the mount target resides in. AZs are independently mapped to names for each AWS account. For example, the Availability Zone @us-east-1a@ for your AWS account might not be the same location as @us-east-1a@ for another AWS account.
+-- * 'networkInterfaceId' - The ID of the network interface that Amazon EFS created when it created the mount target.
+-- * 'fileSystemId' - The ID of the file system for which the mount target is intended.
+-- * 'subnetId' - The ID of the mount target's subnet.
+-- * 'ownerId' - AWS account ID that owns the resource.
 -- * 'lifeCycleState' - Lifecycle state of the mount target.
 -- * 'mountTargetId' - System-assigned mount target ID.
--- * 'networkInterfaceId' - The ID of the network interface that Amazon EFS created when it created the mount target.
--- * 'ownerId' - AWS account ID that owns the resource.
--- * 'subnetId' - The ID of the mount target's subnet.
--- * 'vpcId' - The Virtual Private Cloud (VPC) ID that the mount target is configured in.
 mkMountTargetDescription ::
-  -- | 'mountTargetId'
-  Lude.Text ->
   -- | 'fileSystemId'
   Lude.Text ->
   -- | 'subnetId'
   Lude.Text ->
   -- | 'lifeCycleState'
   LifeCycleState ->
+  -- | 'mountTargetId'
+  Lude.Text ->
   MountTargetDescription
 mkMountTargetDescription
-  pMountTargetId_
   pFileSystemId_
   pSubnetId_
-  pLifeCycleState_ =
+  pLifeCycleState_
+  pMountTargetId_ =
     MountTargetDescription'
       { ipAddress = Lude.Nothing,
         availabilityZoneId = Lude.Nothing,
         vpcId = Lude.Nothing,
         availabilityZoneName = Lude.Nothing,
         networkInterfaceId = Lude.Nothing,
-        ownerId = Lude.Nothing,
-        mountTargetId = pMountTargetId_,
         fileSystemId = pFileSystemId_,
         subnetId = pSubnetId_,
-        lifeCycleState = pLifeCycleState_
+        ownerId = Lude.Nothing,
+        lifeCycleState = pLifeCycleState_,
+        mountTargetId = pMountTargetId_
       }
 
 -- | Address at which the file system can be mounted by using the mount target.
@@ -134,20 +137,6 @@ mtdNetworkInterfaceId :: Lens.Lens' MountTargetDescription (Lude.Maybe Lude.Text
 mtdNetworkInterfaceId = Lens.lens (networkInterfaceId :: MountTargetDescription -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: MountTargetDescription)
 {-# DEPRECATED mtdNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
--- | AWS account ID that owns the resource.
---
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtdOwnerId :: Lens.Lens' MountTargetDescription (Lude.Maybe Lude.Text)
-mtdOwnerId = Lens.lens (ownerId :: MountTargetDescription -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: MountTargetDescription)
-{-# DEPRECATED mtdOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
-
--- | System-assigned mount target ID.
---
--- /Note:/ Consider using 'mountTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtdMountTargetId :: Lens.Lens' MountTargetDescription Lude.Text
-mtdMountTargetId = Lens.lens (mountTargetId :: MountTargetDescription -> Lude.Text) (\s a -> s {mountTargetId = a} :: MountTargetDescription)
-{-# DEPRECATED mtdMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
-
 -- | The ID of the file system for which the mount target is intended.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -162,12 +151,26 @@ mtdSubnetId :: Lens.Lens' MountTargetDescription Lude.Text
 mtdSubnetId = Lens.lens (subnetId :: MountTargetDescription -> Lude.Text) (\s a -> s {subnetId = a} :: MountTargetDescription)
 {-# DEPRECATED mtdSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
+-- | AWS account ID that owns the resource.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtdOwnerId :: Lens.Lens' MountTargetDescription (Lude.Maybe Lude.Text)
+mtdOwnerId = Lens.lens (ownerId :: MountTargetDescription -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: MountTargetDescription)
+{-# DEPRECATED mtdOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
 -- | Lifecycle state of the mount target.
 --
 -- /Note:/ Consider using 'lifeCycleState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mtdLifeCycleState :: Lens.Lens' MountTargetDescription LifeCycleState
 mtdLifeCycleState = Lens.lens (lifeCycleState :: MountTargetDescription -> LifeCycleState) (\s a -> s {lifeCycleState = a} :: MountTargetDescription)
 {-# DEPRECATED mtdLifeCycleState "Use generic-lens or generic-optics with 'lifeCycleState' instead." #-}
+
+-- | System-assigned mount target ID.
+--
+-- /Note:/ Consider using 'mountTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtdMountTargetId :: Lens.Lens' MountTargetDescription Lude.Text
+mtdMountTargetId = Lens.lens (mountTargetId :: MountTargetDescription -> Lude.Text) (\s a -> s {mountTargetId = a} :: MountTargetDescription)
+{-# DEPRECATED mtdMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
 
 instance Lude.FromJSON MountTargetDescription where
   parseJSON =
@@ -180,9 +183,9 @@ instance Lude.FromJSON MountTargetDescription where
             Lude.<*> (x Lude..:? "VpcId")
             Lude.<*> (x Lude..:? "AvailabilityZoneName")
             Lude.<*> (x Lude..:? "NetworkInterfaceId")
-            Lude.<*> (x Lude..:? "OwnerId")
-            Lude.<*> (x Lude..: "MountTargetId")
             Lude.<*> (x Lude..: "FileSystemId")
             Lude.<*> (x Lude..: "SubnetId")
+            Lude.<*> (x Lude..:? "OwnerId")
             Lude.<*> (x Lude..: "LifeCycleState")
+            Lude.<*> (x Lude..: "MountTargetId")
       )

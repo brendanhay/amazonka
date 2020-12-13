@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPartialFailure' smart constructor.
 data PartialFailure = PartialFailure'
-  { failureResource ::
-      Lude.Maybe Lude.Text,
+  { -- | The specified rule that could not be deleted.
+    failureResource :: Lude.Maybe Lude.Text,
+    -- | The code of the error.
     failureCode :: Lude.Maybe Lude.Text,
+    -- | A description of the error.
     failureDescription :: Lude.Maybe Lude.Text,
+    -- | The type of error.
     exceptionType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartialFailure' with the minimum fields required to make a request.
 --
--- * 'exceptionType' - The type of error.
+-- * 'failureResource' - The specified rule that could not be deleted.
 -- * 'failureCode' - The code of the error.
 -- * 'failureDescription' - A description of the error.
--- * 'failureResource' - The specified rule that could not be deleted.
+-- * 'exceptionType' - The type of error.
 mkPartialFailure ::
   PartialFailure
 mkPartialFailure =

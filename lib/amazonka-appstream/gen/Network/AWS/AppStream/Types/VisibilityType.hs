@@ -13,8 +13,8 @@
 module Network.AWS.AppStream.Types.VisibilityType
   ( VisibilityType
       ( VisibilityType',
-        Private,
         Public,
+        Private,
         Shared
       ),
   )
@@ -46,18 +46,18 @@ newtype VisibilityType = VisibilityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Private :: VisibilityType
-pattern Private = VisibilityType' "PRIVATE"
-
 pattern Public :: VisibilityType
 pattern Public = VisibilityType' "PUBLIC"
+
+pattern Private :: VisibilityType
+pattern Private = VisibilityType' "PRIVATE"
 
 pattern Shared :: VisibilityType
 pattern Shared = VisibilityType' "SHARED"
 
 {-# COMPLETE
-  Private,
   Public,
+  Private,
   Shared,
   VisibilityType'
   #-}

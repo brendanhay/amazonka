@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,12 +22,12 @@ module Network.AWS.CloudDirectory.ListObjectAttributes
     mkListObjectAttributes,
 
     -- ** Request lenses
+    loaDirectoryARN,
     loaFacetFilter,
     loaConsistencyLevel,
     loaNextToken,
-    loaMaxResults,
-    loaDirectoryARN,
     loaObjectReference,
+    loaMaxResults,
 
     -- * Destructuring the response
     ListObjectAttributesResponse (..),
@@ -48,31 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListObjectAttributes' smart constructor.
 data ListObjectAttributes = ListObjectAttributes'
-  { facetFilter ::
-      Lude.Maybe SchemaFacet,
-    consistencyLevel :: Lude.Maybe ConsistencyLevel,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
     directoryARN :: Lude.Text,
-    objectReference :: ObjectReference
+    -- | Used to filter the list of object attributes that are associated with a certain facet.
+    facetFilter :: Lude.Maybe SchemaFacet,
+    -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The reference that identifies the object whose attributes will be listed.
+    objectReference :: ObjectReference,
+    -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectAttributes' with the minimum fields required to make a request.
 --
--- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 -- * 'facetFilter' - Used to filter the list of object attributes that are associated with a certain facet.
--- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 -- * 'nextToken' - The pagination token.
 -- * 'objectReference' - The reference that identifies the object whose attributes will be listed.
+-- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 mkListObjectAttributes ::
   -- | 'directoryARN'
   Lude.Text ->
@@ -81,13 +81,20 @@ mkListObjectAttributes ::
   ListObjectAttributes
 mkListObjectAttributes pDirectoryARN_ pObjectReference_ =
   ListObjectAttributes'
-    { facetFilter = Lude.Nothing,
+    { directoryARN = pDirectoryARN_,
+      facetFilter = Lude.Nothing,
       consistencyLevel = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      directoryARN = pDirectoryARN_,
-      objectReference = pObjectReference_
+      objectReference = pObjectReference_,
+      maxResults = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaDirectoryARN :: Lens.Lens' ListObjectAttributes Lude.Text
+loaDirectoryARN = Lens.lens (directoryARN :: ListObjectAttributes -> Lude.Text) (\s a -> s {directoryARN = a} :: ListObjectAttributes)
+{-# DEPRECATED loaDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | Used to filter the list of object attributes that are associated with a certain facet.
 --
@@ -110,26 +117,19 @@ loaNextToken :: Lens.Lens' ListObjectAttributes (Lude.Maybe Lude.Text)
 loaNextToken = Lens.lens (nextToken :: ListObjectAttributes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectAttributes)
 {-# DEPRECATED loaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of items to be retrieved in a single call. This is an approximate number.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loaMaxResults :: Lens.Lens' ListObjectAttributes (Lude.Maybe Lude.Natural)
-loaMaxResults = Lens.lens (maxResults :: ListObjectAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListObjectAttributes)
-{-# DEPRECATED loaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
---
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loaDirectoryARN :: Lens.Lens' ListObjectAttributes Lude.Text
-loaDirectoryARN = Lens.lens (directoryARN :: ListObjectAttributes -> Lude.Text) (\s a -> s {directoryARN = a} :: ListObjectAttributes)
-{-# DEPRECATED loaDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
 -- | The reference that identifies the object whose attributes will be listed.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 loaObjectReference :: Lens.Lens' ListObjectAttributes ObjectReference
 loaObjectReference = Lens.lens (objectReference :: ListObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: ListObjectAttributes)
 {-# DEPRECATED loaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaMaxResults :: Lens.Lens' ListObjectAttributes (Lude.Maybe Lude.Natural)
+loaMaxResults = Lens.lens (maxResults :: ListObjectAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListObjectAttributes)
+{-# DEPRECATED loaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListObjectAttributes where
   page rq rs
@@ -155,8 +155,8 @@ instance Lude.AWSRequest ListObjectAttributes where
 instance Lude.ToHeaders ListObjectAttributes where
   toHeaders ListObjectAttributes' {..} =
     Lude.mconcat
-      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
-        "x-amz-data-partition" Lude.=# directoryARN
+      [ "x-amz-data-partition" Lude.=# directoryARN,
+        "x-amz-consistency-level" Lude.=# consistencyLevel
       ]
 
 instance Lude.ToJSON ListObjectAttributes where
@@ -165,8 +165,8 @@ instance Lude.ToJSON ListObjectAttributes where
       ( Lude.catMaybes
           [ ("FacetFilter" Lude..=) Lude.<$> facetFilter,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+            Lude.Just ("ObjectReference" Lude..= objectReference),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -179,25 +179,20 @@ instance Lude.ToQuery ListObjectAttributes where
 
 -- | /See:/ 'mkListObjectAttributesResponse' smart constructor.
 data ListObjectAttributesResponse = ListObjectAttributesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe [AttributeKeyAndValue],
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
+    attributes :: Lude.Maybe [AttributeKeyAndValue],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectAttributesResponse' with the minimum fields required to make a request.
 --
--- * 'attributes' - Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
 -- * 'nextToken' - The pagination token.
+-- * 'attributes' - Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
 -- * 'responseStatus' - The response status code.
 mkListObjectAttributesResponse ::
   -- | 'responseStatus'

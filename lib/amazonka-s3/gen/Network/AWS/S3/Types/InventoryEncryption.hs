@@ -32,8 +32,9 @@ import Network.AWS.S3.Types.SSES3
 --
 -- /See:/ 'mkInventoryEncryption' smart constructor.
 data InventoryEncryption = InventoryEncryption'
-  { sSES3 ::
-      Lude.Maybe SSES3,
+  { -- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.
+    sSES3 :: Lude.Maybe SSES3,
+    -- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.
     sSEKMS :: Lude.Maybe SSEKMS
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -41,8 +42,8 @@ data InventoryEncryption = InventoryEncryption'
 
 -- | Creates a value of 'InventoryEncryption' with the minimum fields required to make a request.
 --
--- * 'sSEKMS' - Specifies the use of SSE-KMS to encrypt delivered inventory reports.
 -- * 'sSES3' - Specifies the use of SSE-S3 to encrypt delivered inventory reports.
+-- * 'sSEKMS' - Specifies the use of SSE-KMS to encrypt delivered inventory reports.
 mkInventoryEncryption ::
   InventoryEncryption
 mkInventoryEncryption =

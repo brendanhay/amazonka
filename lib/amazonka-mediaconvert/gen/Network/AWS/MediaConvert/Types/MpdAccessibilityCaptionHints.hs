@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints
   ( MpdAccessibilityCaptionHints
       ( MpdAccessibilityCaptionHints',
-        MACHExclude,
-        MACHInclude
+        MACHInclude,
+        MACHExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MpdAccessibilityCaptionHints = MpdAccessibilityCaptionHints' Lude.Text
       Lude.ToHeader
     )
 
-pattern MACHExclude :: MpdAccessibilityCaptionHints
-pattern MACHExclude = MpdAccessibilityCaptionHints' "EXCLUDE"
-
 pattern MACHInclude :: MpdAccessibilityCaptionHints
 pattern MACHInclude = MpdAccessibilityCaptionHints' "INCLUDE"
 
+pattern MACHExclude :: MpdAccessibilityCaptionHints
+pattern MACHExclude = MpdAccessibilityCaptionHints' "EXCLUDE"
+
 {-# COMPLETE
-  MACHExclude,
   MACHInclude,
+  MACHExclude,
   MpdAccessibilityCaptionHints'
   #-}

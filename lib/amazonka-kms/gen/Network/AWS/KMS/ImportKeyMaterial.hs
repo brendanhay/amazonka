@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,10 +42,10 @@ module Network.AWS.KMS.ImportKeyMaterial
 
     -- ** Request lenses
     ikmExpirationModel,
-    ikmValidTo,
     ikmKeyId,
-    ikmImportToken,
     ikmEncryptedKeyMaterial,
+    ikmValidTo,
+    ikmImportToken,
 
     -- * Destructuring the response
     ImportKeyMaterialResponse (..),
@@ -63,35 +64,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkImportKeyMaterial' smart constructor.
 data ImportKeyMaterial = ImportKeyMaterial'
-  { expirationModel ::
-      Lude.Maybe ExpirationModelType,
-    validTo :: Lude.Maybe Lude.Timestamp,
+  { -- | Specifies whether the key material expires. The default is @KEY_MATERIAL_EXPIRES@ , in which case you must include the @ValidTo@ parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ , you must omit the @ValidTo@ parameter.
+    expirationModel :: Lude.Maybe ExpirationModelType,
+    -- | The identifier of the symmetric CMK that receives the imported key material. The CMK's @Origin@ must be @EXTERNAL@ . This must be the same CMK specified in the @KeyID@ parameter of the corresponding 'GetParametersForImport' request.
+    --
+    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
     keyId :: Lude.Text,
-    importToken :: Lude.Base64,
-    encryptedKeyMaterial :: Lude.Base64
+    -- | The encrypted key material to import. The key material must be encrypted with the public wrapping key that 'GetParametersForImport' returned, using the wrapping algorithm that you specified in the same @GetParametersForImport@ request.
+    encryptedKeyMaterial :: Lude.Base64,
+    -- | The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the @ExpirationModel@ parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ . Otherwise it is required.
+    validTo :: Lude.Maybe Lude.Timestamp,
+    -- | The import token that you received in the response to a previous 'GetParametersForImport' request. It must be from the same response that contained the public key that you used to encrypt the key material.
+    importToken :: Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportKeyMaterial' with the minimum fields required to make a request.
 --
--- * 'encryptedKeyMaterial' - The encrypted key material to import. The key material must be encrypted with the public wrapping key that 'GetParametersForImport' returned, using the wrapping algorithm that you specified in the same @GetParametersForImport@ request.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 -- * 'expirationModel' - Specifies whether the key material expires. The default is @KEY_MATERIAL_EXPIRES@ , in which case you must include the @ValidTo@ parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ , you must omit the @ValidTo@ parameter.
--- * 'importToken' - The import token that you received in the response to a previous 'GetParametersForImport' request. It must be from the same response that contained the public key that you used to encrypt the key material.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 -- * 'keyId' - The identifier of the symmetric CMK that receives the imported key material. The CMK's @Origin@ must be @EXTERNAL@ . This must be the same CMK specified in the @KeyID@ parameter of the corresponding 'GetParametersForImport' request.
 --
 -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
@@ -104,22 +104,24 @@ data ImportKeyMaterial = ImportKeyMaterial'
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- * 'encryptedKeyMaterial' - The encrypted key material to import. The key material must be encrypted with the public wrapping key that 'GetParametersForImport' returned, using the wrapping algorithm that you specified in the same @GetParametersForImport@ request.
 -- * 'validTo' - The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the @ExpirationModel@ parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ . Otherwise it is required.
+-- * 'importToken' - The import token that you received in the response to a previous 'GetParametersForImport' request. It must be from the same response that contained the public key that you used to encrypt the key material.
 mkImportKeyMaterial ::
   -- | 'keyId'
   Lude.Text ->
-  -- | 'importToken'
-  Lude.Base64 ->
   -- | 'encryptedKeyMaterial'
   Lude.Base64 ->
+  -- | 'importToken'
+  Lude.Base64 ->
   ImportKeyMaterial
-mkImportKeyMaterial pKeyId_ pImportToken_ pEncryptedKeyMaterial_ =
+mkImportKeyMaterial pKeyId_ pEncryptedKeyMaterial_ pImportToken_ =
   ImportKeyMaterial'
     { expirationModel = Lude.Nothing,
-      validTo = Lude.Nothing,
       keyId = pKeyId_,
-      importToken = pImportToken_,
-      encryptedKeyMaterial = pEncryptedKeyMaterial_
+      encryptedKeyMaterial = pEncryptedKeyMaterial_,
+      validTo = Lude.Nothing,
+      importToken = pImportToken_
     }
 
 -- | Specifies whether the key material expires. The default is @KEY_MATERIAL_EXPIRES@ , in which case you must include the @ValidTo@ parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ , you must omit the @ValidTo@ parameter.
@@ -128,13 +130,6 @@ mkImportKeyMaterial pKeyId_ pImportToken_ pEncryptedKeyMaterial_ =
 ikmExpirationModel :: Lens.Lens' ImportKeyMaterial (Lude.Maybe ExpirationModelType)
 ikmExpirationModel = Lens.lens (expirationModel :: ImportKeyMaterial -> Lude.Maybe ExpirationModelType) (\s a -> s {expirationModel = a} :: ImportKeyMaterial)
 {-# DEPRECATED ikmExpirationModel "Use generic-lens or generic-optics with 'expirationModel' instead." #-}
-
--- | The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the @ExpirationModel@ parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ . Otherwise it is required.
---
--- /Note:/ Consider using 'validTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ikmValidTo :: Lens.Lens' ImportKeyMaterial (Lude.Maybe Lude.Timestamp)
-ikmValidTo = Lens.lens (validTo :: ImportKeyMaterial -> Lude.Maybe Lude.Timestamp) (\s a -> s {validTo = a} :: ImportKeyMaterial)
-{-# DEPRECATED ikmValidTo "Use generic-lens or generic-optics with 'validTo' instead." #-}
 
 -- | The identifier of the symmetric CMK that receives the imported key material. The CMK's @Origin@ must be @EXTERNAL@ . This must be the same CMK specified in the @KeyID@ parameter of the corresponding 'GetParametersForImport' request.
 --
@@ -154,17 +149,6 @@ ikmKeyId :: Lens.Lens' ImportKeyMaterial Lude.Text
 ikmKeyId = Lens.lens (keyId :: ImportKeyMaterial -> Lude.Text) (\s a -> s {keyId = a} :: ImportKeyMaterial)
 {-# DEPRECATED ikmKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
--- | The import token that you received in the response to a previous 'GetParametersForImport' request. It must be from the same response that contained the public key that you used to encrypt the key material.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'importToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ikmImportToken :: Lens.Lens' ImportKeyMaterial Lude.Base64
-ikmImportToken = Lens.lens (importToken :: ImportKeyMaterial -> Lude.Base64) (\s a -> s {importToken = a} :: ImportKeyMaterial)
-{-# DEPRECATED ikmImportToken "Use generic-lens or generic-optics with 'importToken' instead." #-}
-
 -- | The encrypted key material to import. The key material must be encrypted with the public wrapping key that 'GetParametersForImport' returned, using the wrapping algorithm that you specified in the same @GetParametersForImport@ request.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- The underlying isomorphism will encode to Base64 representation during
@@ -175,6 +159,24 @@ ikmImportToken = Lens.lens (importToken :: ImportKeyMaterial -> Lude.Base64) (\s
 ikmEncryptedKeyMaterial :: Lens.Lens' ImportKeyMaterial Lude.Base64
 ikmEncryptedKeyMaterial = Lens.lens (encryptedKeyMaterial :: ImportKeyMaterial -> Lude.Base64) (\s a -> s {encryptedKeyMaterial = a} :: ImportKeyMaterial)
 {-# DEPRECATED ikmEncryptedKeyMaterial "Use generic-lens or generic-optics with 'encryptedKeyMaterial' instead." #-}
+
+-- | The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the @ExpirationModel@ parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ . Otherwise it is required.
+--
+-- /Note:/ Consider using 'validTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ikmValidTo :: Lens.Lens' ImportKeyMaterial (Lude.Maybe Lude.Timestamp)
+ikmValidTo = Lens.lens (validTo :: ImportKeyMaterial -> Lude.Maybe Lude.Timestamp) (\s a -> s {validTo = a} :: ImportKeyMaterial)
+{-# DEPRECATED ikmValidTo "Use generic-lens or generic-optics with 'validTo' instead." #-}
+
+-- | The import token that you received in the response to a previous 'GetParametersForImport' request. It must be from the same response that contained the public key that you used to encrypt the key material.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'importToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ikmImportToken :: Lens.Lens' ImportKeyMaterial Lude.Base64
+ikmImportToken = Lens.lens (importToken :: ImportKeyMaterial -> Lude.Base64) (\s a -> s {importToken = a} :: ImportKeyMaterial)
+{-# DEPRECATED ikmImportToken "Use generic-lens or generic-optics with 'importToken' instead." #-}
 
 instance Lude.AWSRequest ImportKeyMaterial where
   type Rs ImportKeyMaterial = ImportKeyMaterialResponse
@@ -201,10 +203,10 @@ instance Lude.ToJSON ImportKeyMaterial where
     Lude.object
       ( Lude.catMaybes
           [ ("ExpirationModel" Lude..=) Lude.<$> expirationModel,
-            ("ValidTo" Lude..=) Lude.<$> validTo,
             Lude.Just ("KeyId" Lude..= keyId),
-            Lude.Just ("ImportToken" Lude..= importToken),
-            Lude.Just ("EncryptedKeyMaterial" Lude..= encryptedKeyMaterial)
+            Lude.Just ("EncryptedKeyMaterial" Lude..= encryptedKeyMaterial),
+            ("ValidTo" Lude..=) Lude.<$> validTo,
+            Lude.Just ("ImportToken" Lude..= importToken)
           ]
       )
 
@@ -216,16 +218,10 @@ instance Lude.ToQuery ImportKeyMaterial where
 
 -- | /See:/ 'mkImportKeyMaterialResponse' smart constructor.
 newtype ImportKeyMaterialResponse = ImportKeyMaterialResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportKeyMaterialResponse' with the minimum fields required to make a request.

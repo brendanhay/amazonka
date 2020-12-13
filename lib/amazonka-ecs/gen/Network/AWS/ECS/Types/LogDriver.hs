@@ -13,14 +13,14 @@
 module Network.AWS.ECS.Types.LogDriver
   ( LogDriver
       ( LogDriver',
-        LDAWSfirelens,
-        LDAWSlogs,
-        LDFluentd,
-        LDGelf,
         LDJSONFile,
+        LDSyslog,
         LDJournald,
+        LDGelf,
+        LDFluentd,
+        LDAWSlogs,
         LDSplunk,
-        LDSyslog
+        LDAWSfirelens
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype LogDriver = LogDriver' Lude.Text
       Lude.ToHeader
     )
 
-pattern LDAWSfirelens :: LogDriver
-pattern LDAWSfirelens = LogDriver' "awsfirelens"
-
-pattern LDAWSlogs :: LogDriver
-pattern LDAWSlogs = LogDriver' "awslogs"
-
-pattern LDFluentd :: LogDriver
-pattern LDFluentd = LogDriver' "fluentd"
-
-pattern LDGelf :: LogDriver
-pattern LDGelf = LogDriver' "gelf"
-
 pattern LDJSONFile :: LogDriver
 pattern LDJSONFile = LogDriver' "json-file"
-
-pattern LDJournald :: LogDriver
-pattern LDJournald = LogDriver' "journald"
-
-pattern LDSplunk :: LogDriver
-pattern LDSplunk = LogDriver' "splunk"
 
 pattern LDSyslog :: LogDriver
 pattern LDSyslog = LogDriver' "syslog"
 
+pattern LDJournald :: LogDriver
+pattern LDJournald = LogDriver' "journald"
+
+pattern LDGelf :: LogDriver
+pattern LDGelf = LogDriver' "gelf"
+
+pattern LDFluentd :: LogDriver
+pattern LDFluentd = LogDriver' "fluentd"
+
+pattern LDAWSlogs :: LogDriver
+pattern LDAWSlogs = LogDriver' "awslogs"
+
+pattern LDSplunk :: LogDriver
+pattern LDSplunk = LogDriver' "splunk"
+
+pattern LDAWSfirelens :: LogDriver
+pattern LDAWSfirelens = LogDriver' "awsfirelens"
+
 {-# COMPLETE
-  LDAWSfirelens,
-  LDAWSlogs,
-  LDFluentd,
-  LDGelf,
   LDJSONFile,
-  LDJournald,
-  LDSplunk,
   LDSyslog,
+  LDJournald,
+  LDGelf,
+  LDFluentd,
+  LDAWSlogs,
+  LDSplunk,
+  LDAWSfirelens,
   LogDriver'
   #-}

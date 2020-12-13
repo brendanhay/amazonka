@@ -13,17 +13,17 @@
 module Network.AWS.DirectoryService.Types.TrustState
   ( TrustState
       ( TrustState',
-        TSCreated,
         TSCreating,
-        TSDeleted,
-        TSDeleting,
-        TSFailed,
+        TSCreated,
+        TSVerifying,
+        TSVerifyFailed,
+        TSVerified,
+        TSUpdating,
         TSUpdateFailed,
         TSUpdated,
-        TSUpdating,
-        TSVerified,
-        TSVerifyFailed,
-        TSVerifying
+        TSDeleting,
+        TSDeleted,
+        TSFailed
       ),
   )
 where
@@ -54,20 +54,23 @@ newtype TrustState = TrustState' Lude.Text
       Lude.ToHeader
     )
 
-pattern TSCreated :: TrustState
-pattern TSCreated = TrustState' "Created"
-
 pattern TSCreating :: TrustState
 pattern TSCreating = TrustState' "Creating"
 
-pattern TSDeleted :: TrustState
-pattern TSDeleted = TrustState' "Deleted"
+pattern TSCreated :: TrustState
+pattern TSCreated = TrustState' "Created"
 
-pattern TSDeleting :: TrustState
-pattern TSDeleting = TrustState' "Deleting"
+pattern TSVerifying :: TrustState
+pattern TSVerifying = TrustState' "Verifying"
 
-pattern TSFailed :: TrustState
-pattern TSFailed = TrustState' "Failed"
+pattern TSVerifyFailed :: TrustState
+pattern TSVerifyFailed = TrustState' "VerifyFailed"
+
+pattern TSVerified :: TrustState
+pattern TSVerified = TrustState' "Verified"
+
+pattern TSUpdating :: TrustState
+pattern TSUpdating = TrustState' "Updating"
 
 pattern TSUpdateFailed :: TrustState
 pattern TSUpdateFailed = TrustState' "UpdateFailed"
@@ -75,29 +78,26 @@ pattern TSUpdateFailed = TrustState' "UpdateFailed"
 pattern TSUpdated :: TrustState
 pattern TSUpdated = TrustState' "Updated"
 
-pattern TSUpdating :: TrustState
-pattern TSUpdating = TrustState' "Updating"
+pattern TSDeleting :: TrustState
+pattern TSDeleting = TrustState' "Deleting"
 
-pattern TSVerified :: TrustState
-pattern TSVerified = TrustState' "Verified"
+pattern TSDeleted :: TrustState
+pattern TSDeleted = TrustState' "Deleted"
 
-pattern TSVerifyFailed :: TrustState
-pattern TSVerifyFailed = TrustState' "VerifyFailed"
-
-pattern TSVerifying :: TrustState
-pattern TSVerifying = TrustState' "Verifying"
+pattern TSFailed :: TrustState
+pattern TSFailed = TrustState' "Failed"
 
 {-# COMPLETE
-  TSCreated,
   TSCreating,
-  TSDeleted,
-  TSDeleting,
-  TSFailed,
+  TSCreated,
+  TSVerifying,
+  TSVerifyFailed,
+  TSVerified,
+  TSUpdating,
   TSUpdateFailed,
   TSUpdated,
-  TSUpdating,
-  TSVerified,
-  TSVerifyFailed,
-  TSVerifying,
+  TSDeleting,
+  TSDeleted,
+  TSFailed,
   TrustState'
   #-}

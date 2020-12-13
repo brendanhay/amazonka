@@ -31,26 +31,21 @@ import Network.AWS.SSM.Types.ComplianceQueryOperatorType
 --
 -- /See:/ 'mkComplianceStringFilter' smart constructor.
 data ComplianceStringFilter = ComplianceStringFilter'
-  { values ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The value for which to search.
+    values :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The name of the filter.
     key :: Lude.Maybe Lude.Text,
-    type' ::
-      Lude.Maybe ComplianceQueryOperatorType
+    -- | The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith, LessThan, or GreaterThan.
+    type' :: Lude.Maybe ComplianceQueryOperatorType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceStringFilter' with the minimum fields required to make a request.
 --
+-- * 'values' - The value for which to search.
 -- * 'key' - The name of the filter.
 -- * 'type'' - The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith, LessThan, or GreaterThan.
--- * 'values' - The value for which to search.
 mkComplianceStringFilter ::
   ComplianceStringFilter
 mkComplianceStringFilter =

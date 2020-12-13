@@ -30,27 +30,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationResourceLifecycleConfig' smart constructor.
 data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
-  { versionLifecycleConfig ::
-      Lude.Maybe
-        ApplicationVersionLifecycleConfig,
-    serviceRole ::
-      Lude.Maybe Lude.Text
+  { -- | Defines lifecycle settings for application versions.
+    versionLifecycleConfig :: Lude.Maybe ApplicationVersionLifecycleConfig,
+    -- | The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
+    --
+    -- The @ServiceRole@ property is required the first time that you provide a @VersionLifecycleConfig@ for the application in one of the supporting calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@ ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent @UpdateApplicationResourceLifecycle@ calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
+    serviceRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationResourceLifecycleConfig' with the minimum fields required to make a request.
 --
+-- * 'versionLifecycleConfig' - Defines lifecycle settings for application versions.
 -- * 'serviceRole' - The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
 --
 -- The @ServiceRole@ property is required the first time that you provide a @VersionLifecycleConfig@ for the application in one of the supporting calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@ ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent @UpdateApplicationResourceLifecycle@ calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
--- * 'versionLifecycleConfig' - Defines lifecycle settings for application versions.
 mkApplicationResourceLifecycleConfig ::
   ApplicationResourceLifecycleConfig
 mkApplicationResourceLifecycleConfig =

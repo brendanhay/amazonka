@@ -32,29 +32,28 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkEventInfoMap' smart constructor.
 data EventInfoMap = EventInfoMap'
-  { eventDescription ::
-      Lude.Maybe Lude.Text,
+  { -- | The description of an Amazon Redshift event.
+    eventDescription :: Lude.Maybe Lude.Text,
+    -- | The severity of the event.
+    --
+    -- Values: ERROR, INFO
     severity :: Lude.Maybe Lude.Text,
+    -- | The category of an Amazon Redshift event.
     eventCategories :: Lude.Maybe [Lude.Text],
+    -- | The identifier of an Amazon Redshift event.
     eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventInfoMap' with the minimum fields required to make a request.
 --
--- * 'eventCategories' - The category of an Amazon Redshift event.
 -- * 'eventDescription' - The description of an Amazon Redshift event.
--- * 'eventId' - The identifier of an Amazon Redshift event.
 -- * 'severity' - The severity of the event.
 --
 -- Values: ERROR, INFO
+-- * 'eventCategories' - The category of an Amazon Redshift event.
+-- * 'eventId' - The identifier of an Amazon Redshift event.
 mkEventInfoMap ::
   EventInfoMap
 mkEventInfoMap =

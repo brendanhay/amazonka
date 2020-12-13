@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.IoT.ListAuditTasks
 
     -- ** Request lenses
     latTaskType,
+    latStartTime,
     latNextToken,
+    latEndTime,
     latMaxResults,
     latTaskStatus,
-    latStartTime,
-    latEndTime,
 
     -- * Destructuring the response
     ListAuditTasksResponse (..),
@@ -48,31 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAuditTasks' smart constructor.
 data ListAuditTasks = ListAuditTasks'
-  { taskType ::
-      Lude.Maybe AuditTaskType,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    taskStatus :: Lude.Maybe AuditTaskStatus,
+  { -- | A filter to limit the output to the specified type of audit: can be one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
+    taskType :: Lude.Maybe AuditTaskType,
+    -- | The beginning of the time period. Audit information is retained for a limited time (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".
     startTime :: Lude.Timestamp,
-    endTime :: Lude.Timestamp
+    -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The end of the time period.
+    endTime :: Lude.Timestamp,
+    -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | A filter to limit the output to audits with the specified completion status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
+    taskStatus :: Lude.Maybe AuditTaskStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditTasks' with the minimum fields required to make a request.
 --
+-- * 'taskType' - A filter to limit the output to the specified type of audit: can be one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
+-- * 'startTime' - The beginning of the time period. Audit information is retained for a limited time (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".
+-- * 'nextToken' - The token for the next set of results.
 -- * 'endTime' - The end of the time period.
 -- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
--- * 'nextToken' - The token for the next set of results.
--- * 'startTime' - The beginning of the time period. Audit information is retained for a limited time (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".
 -- * 'taskStatus' - A filter to limit the output to audits with the specified completion status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
--- * 'taskType' - A filter to limit the output to the specified type of audit: can be one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
 mkListAuditTasks ::
   -- | 'startTime'
   Lude.Timestamp ->
@@ -82,11 +82,11 @@ mkListAuditTasks ::
 mkListAuditTasks pStartTime_ pEndTime_ =
   ListAuditTasks'
     { taskType = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      taskStatus = Lude.Nothing,
       startTime = pStartTime_,
-      endTime = pEndTime_
+      nextToken = Lude.Nothing,
+      endTime = pEndTime_,
+      maxResults = Lude.Nothing,
+      taskStatus = Lude.Nothing
     }
 
 -- | A filter to limit the output to the specified type of audit: can be one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
@@ -96,12 +96,26 @@ latTaskType :: Lens.Lens' ListAuditTasks (Lude.Maybe AuditTaskType)
 latTaskType = Lens.lens (taskType :: ListAuditTasks -> Lude.Maybe AuditTaskType) (\s a -> s {taskType = a} :: ListAuditTasks)
 {-# DEPRECATED latTaskType "Use generic-lens or generic-optics with 'taskType' instead." #-}
 
+-- | The beginning of the time period. Audit information is retained for a limited time (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latStartTime :: Lens.Lens' ListAuditTasks Lude.Timestamp
+latStartTime = Lens.lens (startTime :: ListAuditTasks -> Lude.Timestamp) (\s a -> s {startTime = a} :: ListAuditTasks)
+{-# DEPRECATED latStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
 -- | The token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 latNextToken :: Lens.Lens' ListAuditTasks (Lude.Maybe Lude.Text)
 latNextToken = Lens.lens (nextToken :: ListAuditTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditTasks)
 {-# DEPRECATED latNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The end of the time period.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latEndTime :: Lens.Lens' ListAuditTasks Lude.Timestamp
+latEndTime = Lens.lens (endTime :: ListAuditTasks -> Lude.Timestamp) (\s a -> s {endTime = a} :: ListAuditTasks)
+{-# DEPRECATED latEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The maximum number of results to return at one time. The default is 25.
 --
@@ -116,20 +130,6 @@ latMaxResults = Lens.lens (maxResults :: ListAuditTasks -> Lude.Maybe Lude.Natur
 latTaskStatus :: Lens.Lens' ListAuditTasks (Lude.Maybe AuditTaskStatus)
 latTaskStatus = Lens.lens (taskStatus :: ListAuditTasks -> Lude.Maybe AuditTaskStatus) (\s a -> s {taskStatus = a} :: ListAuditTasks)
 {-# DEPRECATED latTaskStatus "Use generic-lens or generic-optics with 'taskStatus' instead." #-}
-
--- | The beginning of the time period. Audit information is retained for a limited time (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-latStartTime :: Lens.Lens' ListAuditTasks Lude.Timestamp
-latStartTime = Lens.lens (startTime :: ListAuditTasks -> Lude.Timestamp) (\s a -> s {startTime = a} :: ListAuditTasks)
-{-# DEPRECATED latStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The end of the time period.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-latEndTime :: Lens.Lens' ListAuditTasks Lude.Timestamp
-latEndTime = Lens.lens (endTime :: ListAuditTasks -> Lude.Timestamp) (\s a -> s {endTime = a} :: ListAuditTasks)
-{-# DEPRECATED latEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 instance Page.AWSPager ListAuditTasks where
   page rq rs
@@ -162,34 +162,30 @@ instance Lude.ToQuery ListAuditTasks where
   toQuery ListAuditTasks' {..} =
     Lude.mconcat
       [ "taskType" Lude.=: taskType,
-        "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults,
-        "taskStatus" Lude.=: taskStatus,
         "startTime" Lude.=: startTime,
-        "endTime" Lude.=: endTime
+        "nextToken" Lude.=: nextToken,
+        "endTime" Lude.=: endTime,
+        "maxResults" Lude.=: maxResults,
+        "taskStatus" Lude.=: taskStatus
       ]
 
 -- | /See:/ 'mkListAuditTasksResponse' smart constructor.
 data ListAuditTasksResponse = ListAuditTasksResponse'
-  { tasks ::
-      Lude.Maybe [AuditTaskMetadata],
+  { -- | The audits that were performed during the specified time period.
+    tasks :: Lude.Maybe [AuditTaskMetadata],
+    -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditTasksResponse' with the minimum fields required to make a request.
 --
+-- * 'tasks' - The audits that were performed during the specified time period.
 -- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
 -- * 'responseStatus' - The response status code.
--- * 'tasks' - The audits that were performed during the specified time period.
 mkListAuditTasksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

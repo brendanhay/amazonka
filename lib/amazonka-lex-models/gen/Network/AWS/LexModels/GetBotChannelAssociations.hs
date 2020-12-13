@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +25,10 @@ module Network.AWS.LexModels.GetBotChannelAssociations
 
     -- ** Request lenses
     gbcaNameContains,
+    gbcaBotAlias,
+    gbcaBotName,
     gbcaNextToken,
     gbcaMaxResults,
-    gbcaBotName,
-    gbcaBotAlias,
 
     -- * Destructuring the response
     GetBotChannelAssociationsResponse (..),
@@ -49,42 +50,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetBotChannelAssociations' smart constructor.
 data GetBotChannelAssociations = GetBotChannelAssociations'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the @nameContains@ parameter.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+    botAlias :: Lude.Text,
+    -- | The name of the Amazon Lex bot in the association.
     botName :: Lude.Text,
-    botAlias :: Lude.Text
+    -- | A pagination token for fetching the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of associations to return in the response. The default is 50.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotChannelAssociations' with the minimum fields required to make a request.
 --
+-- * 'nameContains' - Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the @nameContains@ parameter.
 -- * 'botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
 -- * 'botName' - The name of the Amazon Lex bot in the association.
--- * 'maxResults' - The maximum number of associations to return in the response. The default is 50.
--- * 'nameContains' - Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the @nameContains@ parameter.
 -- * 'nextToken' - A pagination token for fetching the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
+-- * 'maxResults' - The maximum number of associations to return in the response. The default is 50.
 mkGetBotChannelAssociations ::
-  -- | 'botName'
-  Lude.Text ->
   -- | 'botAlias'
   Lude.Text ->
+  -- | 'botName'
+  Lude.Text ->
   GetBotChannelAssociations
-mkGetBotChannelAssociations pBotName_ pBotAlias_ =
+mkGetBotChannelAssociations pBotAlias_ pBotName_ =
   GetBotChannelAssociations'
     { nameContains = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
+      botAlias = pBotAlias_,
       botName = pBotName_,
-      botAlias = pBotAlias_
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Substring to match in channel association names. An association will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the @nameContains@ parameter.
@@ -93,6 +92,20 @@ mkGetBotChannelAssociations pBotName_ pBotAlias_ =
 gbcaNameContains :: Lens.Lens' GetBotChannelAssociations (Lude.Maybe Lude.Text)
 gbcaNameContains = Lens.lens (nameContains :: GetBotChannelAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: GetBotChannelAssociations)
 {-# DEPRECATED gbcaNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
+
+-- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+--
+-- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcaBotAlias :: Lens.Lens' GetBotChannelAssociations Lude.Text
+gbcaBotAlias = Lens.lens (botAlias :: GetBotChannelAssociations -> Lude.Text) (\s a -> s {botAlias = a} :: GetBotChannelAssociations)
+{-# DEPRECATED gbcaBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
+
+-- | The name of the Amazon Lex bot in the association.
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbcaBotName :: Lens.Lens' GetBotChannelAssociations Lude.Text
+gbcaBotName = Lens.lens (botName :: GetBotChannelAssociations -> Lude.Text) (\s a -> s {botName = a} :: GetBotChannelAssociations)
+{-# DEPRECATED gbcaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | A pagination token for fetching the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
 --
@@ -107,20 +120,6 @@ gbcaNextToken = Lens.lens (nextToken :: GetBotChannelAssociations -> Lude.Maybe 
 gbcaMaxResults :: Lens.Lens' GetBotChannelAssociations (Lude.Maybe Lude.Natural)
 gbcaMaxResults = Lens.lens (maxResults :: GetBotChannelAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetBotChannelAssociations)
 {-# DEPRECATED gbcaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The name of the Amazon Lex bot in the association.
---
--- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbcaBotName :: Lens.Lens' GetBotChannelAssociations Lude.Text
-gbcaBotName = Lens.lens (botName :: GetBotChannelAssociations -> Lude.Text) (\s a -> s {botName = a} :: GetBotChannelAssociations)
-{-# DEPRECATED gbcaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
-
--- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
---
--- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbcaBotAlias :: Lens.Lens' GetBotChannelAssociations Lude.Text
-gbcaBotAlias = Lens.lens (botAlias :: GetBotChannelAssociations -> Lude.Text) (\s a -> s {botAlias = a} :: GetBotChannelAssociations)
-{-# DEPRECATED gbcaBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
 
 instance Page.AWSPager GetBotChannelAssociations where
   page rq rs
@@ -175,21 +174,14 @@ instance Lude.ToQuery GetBotChannelAssociations where
 
 -- | /See:/ 'mkGetBotChannelAssociationsResponse' smart constructor.
 data GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse'
-  { botChannelAssociations ::
-      Lude.Maybe
-        [BotChannelAssociation],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects, one for each association, that provides information about the Amazon Lex bot and its association with the channel.
+    botChannelAssociations :: Lude.Maybe [BotChannelAssociation],
+    -- | A pagination token that fetches the next page of associations. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of associations, specify the pagination token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotChannelAssociationsResponse' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.ParametersFilterKey
   ( ParametersFilterKey
       ( ParametersFilterKey',
-        PFKKeyId,
         PFKName,
-        PFKType
+        PFKType,
+        PFKKeyId
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ParametersFilterKey = ParametersFilterKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern PFKKeyId :: ParametersFilterKey
-pattern PFKKeyId = ParametersFilterKey' "KeyId"
-
 pattern PFKName :: ParametersFilterKey
 pattern PFKName = ParametersFilterKey' "Name"
 
 pattern PFKType :: ParametersFilterKey
 pattern PFKType = ParametersFilterKey' "Type"
 
+pattern PFKKeyId :: ParametersFilterKey
+pattern PFKKeyId = ParametersFilterKey' "KeyId"
+
 {-# COMPLETE
-  PFKKeyId,
   PFKName,
   PFKType,
+  PFKKeyId,
   ParametersFilterKey'
   #-}

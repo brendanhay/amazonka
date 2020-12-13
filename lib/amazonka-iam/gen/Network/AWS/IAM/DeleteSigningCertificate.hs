@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IAM.DeleteSigningCertificate
     mkDeleteSigningCertificate,
 
     -- ** Request lenses
-    dscUserName,
     dscCertificateId,
+    dscUserName,
 
     -- * Destructuring the response
     DeleteSigningCertificateResponse (..),
@@ -38,17 +39,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSigningCertificate' smart constructor.
 data DeleteSigningCertificate = DeleteSigningCertificate'
-  { userName ::
-      Lude.Maybe Lude.Text,
-    certificateId :: Lude.Text
+  { -- | The ID of the signing certificate to delete.
+    --
+    -- The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
+    certificateId :: Lude.Text,
+    -- | The name of the user the signing certificate belongs to.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSigningCertificate' with the minimum fields required to make a request.
@@ -65,18 +65,9 @@ mkDeleteSigningCertificate ::
   DeleteSigningCertificate
 mkDeleteSigningCertificate pCertificateId_ =
   DeleteSigningCertificate'
-    { userName = Lude.Nothing,
-      certificateId = pCertificateId_
+    { certificateId = pCertificateId_,
+      userName = Lude.Nothing
     }
-
--- | The name of the user the signing certificate belongs to.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscUserName :: Lens.Lens' DeleteSigningCertificate (Lude.Maybe Lude.Text)
-dscUserName = Lens.lens (userName :: DeleteSigningCertificate -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: DeleteSigningCertificate)
-{-# DEPRECATED dscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The ID of the signing certificate to delete.
 --
@@ -86,6 +77,15 @@ dscUserName = Lens.lens (userName :: DeleteSigningCertificate -> Lude.Maybe Lude
 dscCertificateId :: Lens.Lens' DeleteSigningCertificate Lude.Text
 dscCertificateId = Lens.lens (certificateId :: DeleteSigningCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DeleteSigningCertificate)
 {-# DEPRECATED dscCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+
+-- | The name of the user the signing certificate belongs to.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscUserName :: Lens.Lens' DeleteSigningCertificate (Lude.Maybe Lude.Text)
+dscUserName = Lens.lens (userName :: DeleteSigningCertificate -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: DeleteSigningCertificate)
+{-# DEPRECATED dscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 instance Lude.AWSRequest DeleteSigningCertificate where
   type Rs DeleteSigningCertificate = DeleteSigningCertificateResponse
@@ -103,19 +103,13 @@ instance Lude.ToQuery DeleteSigningCertificate where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteSigningCertificate" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "CertificateId" Lude.=: certificateId
+        "CertificateId" Lude.=: certificateId,
+        "UserName" Lude.=: userName
       ]
 
 -- | /See:/ 'mkDeleteSigningCertificateResponse' smart constructor.
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSigningCertificateResponse' with the minimum fields required to make a request.

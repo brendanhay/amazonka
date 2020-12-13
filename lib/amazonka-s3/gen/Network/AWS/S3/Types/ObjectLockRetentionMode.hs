@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.ObjectLockRetentionMode
   ( ObjectLockRetentionMode
       ( ObjectLockRetentionMode',
-        OLRMCompliance,
-        OLRMGovernance
+        OLRMGovernance,
+        OLRMCompliance
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ObjectLockRetentionMode = ObjectLockRetentionMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern OLRMCompliance :: ObjectLockRetentionMode
-pattern OLRMCompliance = ObjectLockRetentionMode' "COMPLIANCE"
-
 pattern OLRMGovernance :: ObjectLockRetentionMode
 pattern OLRMGovernance = ObjectLockRetentionMode' "GOVERNANCE"
 
+pattern OLRMCompliance :: ObjectLockRetentionMode
+pattern OLRMCompliance = ObjectLockRetentionMode' "COMPLIANCE"
+
 {-# COMPLETE
-  OLRMCompliance,
   OLRMGovernance,
+  OLRMCompliance,
   ObjectLockRetentionMode'
   #-}

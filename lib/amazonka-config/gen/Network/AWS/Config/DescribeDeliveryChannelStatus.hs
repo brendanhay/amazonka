@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDeliveryChannelStatus' smart constructor.
 newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
-  { deliveryChannelNames ::
-      Lude.Maybe [Lude.Text]
+  { -- | A list of delivery channel names.
+    deliveryChannelNames :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDeliveryChannelStatus' with the minimum fields required to make a request.
@@ -114,19 +109,12 @@ instance Lude.ToQuery DescribeDeliveryChannelStatus where
 --
 -- /See:/ 'mkDescribeDeliveryChannelStatusResponse' smart constructor.
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
-  { deliveryChannelsStatus ::
-      Lude.Maybe
-        [DeliveryChannelStatus],
-    responseStatus ::
-      Lude.Int
+  { -- | A list that contains the status of a specified delivery channel.
+    deliveryChannelsStatus :: Lude.Maybe [DeliveryChannelStatus],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDeliveryChannelStatusResponse' with the minimum fields required to make a request.

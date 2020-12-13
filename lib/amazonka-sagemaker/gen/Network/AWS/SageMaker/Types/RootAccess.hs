@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.RootAccess
   ( RootAccess
       ( RootAccess',
-        RADisabled,
-        RAEnabled
+        RAEnabled,
+        RADisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RootAccess = RootAccess' Lude.Text
       Lude.ToHeader
     )
 
-pattern RADisabled :: RootAccess
-pattern RADisabled = RootAccess' "Disabled"
-
 pattern RAEnabled :: RootAccess
 pattern RAEnabled = RootAccess' "Enabled"
 
+pattern RADisabled :: RootAccess
+pattern RADisabled = RootAccess' "Disabled"
+
 {-# COMPLETE
-  RADisabled,
   RAEnabled,
+  RADisabled,
   RootAccess'
   #-}

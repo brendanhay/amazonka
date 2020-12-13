@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.Av1FramerateConversionAlgorithm
   ( Av1FramerateConversionAlgorithm
       ( Av1FramerateConversionAlgorithm',
-        DuplicateDrop,
-        Frameformer,
-        Interpolate
+        AFCADuplicateDrop,
+        AFCAInterpolate,
+        AFCAFrameformer
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype Av1FramerateConversionAlgorithm = Av1FramerateConversionAlgorithm' Lude.
       Lude.ToHeader
     )
 
-pattern DuplicateDrop :: Av1FramerateConversionAlgorithm
-pattern DuplicateDrop = Av1FramerateConversionAlgorithm' "DUPLICATE_DROP"
+pattern AFCADuplicateDrop :: Av1FramerateConversionAlgorithm
+pattern AFCADuplicateDrop = Av1FramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern Frameformer :: Av1FramerateConversionAlgorithm
-pattern Frameformer = Av1FramerateConversionAlgorithm' "FRAMEFORMER"
+pattern AFCAInterpolate :: Av1FramerateConversionAlgorithm
+pattern AFCAInterpolate = Av1FramerateConversionAlgorithm' "INTERPOLATE"
 
-pattern Interpolate :: Av1FramerateConversionAlgorithm
-pattern Interpolate = Av1FramerateConversionAlgorithm' "INTERPOLATE"
+pattern AFCAFrameformer :: Av1FramerateConversionAlgorithm
+pattern AFCAFrameformer = Av1FramerateConversionAlgorithm' "FRAMEFORMER"
 
 {-# COMPLETE
-  DuplicateDrop,
-  Frameformer,
-  Interpolate,
+  AFCADuplicateDrop,
+  AFCAInterpolate,
+  AFCAFrameformer,
   Av1FramerateConversionAlgorithm'
   #-}

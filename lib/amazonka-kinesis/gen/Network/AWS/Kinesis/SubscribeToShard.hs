@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,16 +26,16 @@ module Network.AWS.Kinesis.SubscribeToShard
 
     -- ** Request lenses
     stsConsumerARN,
-    stsShardId,
     stsStartingPosition,
+    stsShardId,
 
     -- * Destructuring the response
     SubscribeToShardResponse (..),
     mkSubscribeToShardResponse,
 
     -- ** Response lenses
-    stsrsResponseStatus,
     stsrsEventStream,
+    stsrsResponseStatus,
   )
 where
 
@@ -46,37 +47,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSubscribeToShard' smart constructor.
 data SubscribeToShard = SubscribeToShard'
-  { consumerARN :: Lude.Text,
-    shardId :: Lude.Text,
-    startingPosition :: StartingPosition
+  { -- | For this parameter, use the value you obtained when you called 'RegisterStreamConsumer' .
+    consumerARN :: Lude.Text,
+    -- |
+    startingPosition :: StartingPosition,
+    -- | The ID of the shard you want to subscribe to. To see a list of all the shards for a given stream, use 'ListShards' .
+    shardId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscribeToShard' with the minimum fields required to make a request.
 --
 -- * 'consumerARN' - For this parameter, use the value you obtained when you called 'RegisterStreamConsumer' .
--- * 'shardId' - The ID of the shard you want to subscribe to. To see a list of all the shards for a given stream, use 'ListShards' .
 -- * 'startingPosition' -
+-- * 'shardId' - The ID of the shard you want to subscribe to. To see a list of all the shards for a given stream, use 'ListShards' .
 mkSubscribeToShard ::
   -- | 'consumerARN'
   Lude.Text ->
-  -- | 'shardId'
-  Lude.Text ->
   -- | 'startingPosition'
   StartingPosition ->
+  -- | 'shardId'
+  Lude.Text ->
   SubscribeToShard
-mkSubscribeToShard pConsumerARN_ pShardId_ pStartingPosition_ =
+mkSubscribeToShard pConsumerARN_ pStartingPosition_ pShardId_ =
   SubscribeToShard'
     { consumerARN = pConsumerARN_,
-      shardId = pShardId_,
-      startingPosition = pStartingPosition_
+      startingPosition = pStartingPosition_,
+      shardId = pShardId_
     }
 
 -- | For this parameter, use the value you obtained when you called 'RegisterStreamConsumer' .
@@ -86,19 +84,19 @@ stsConsumerARN :: Lens.Lens' SubscribeToShard Lude.Text
 stsConsumerARN = Lens.lens (consumerARN :: SubscribeToShard -> Lude.Text) (\s a -> s {consumerARN = a} :: SubscribeToShard)
 {-# DEPRECATED stsConsumerARN "Use generic-lens or generic-optics with 'consumerARN' instead." #-}
 
--- | The ID of the shard you want to subscribe to. To see a list of all the shards for a given stream, use 'ListShards' .
---
--- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsShardId :: Lens.Lens' SubscribeToShard Lude.Text
-stsShardId = Lens.lens (shardId :: SubscribeToShard -> Lude.Text) (\s a -> s {shardId = a} :: SubscribeToShard)
-{-# DEPRECATED stsShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
-
 -- |
 --
 -- /Note:/ Consider using 'startingPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 stsStartingPosition :: Lens.Lens' SubscribeToShard StartingPosition
 stsStartingPosition = Lens.lens (startingPosition :: SubscribeToShard -> StartingPosition) (\s a -> s {startingPosition = a} :: SubscribeToShard)
 {-# DEPRECATED stsStartingPosition "Use generic-lens or generic-optics with 'startingPosition' instead." #-}
+
+-- | The ID of the shard you want to subscribe to. To see a list of all the shards for a given stream, use 'ListShards' .
+--
+-- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsShardId :: Lens.Lens' SubscribeToShard Lude.Text
+stsShardId = Lens.lens (shardId :: SubscribeToShard -> Lude.Text) (\s a -> s {shardId = a} :: SubscribeToShard)
+{-# DEPRECATED stsShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
 
 instance Lude.AWSRequest SubscribeToShard where
   type Rs SubscribeToShard = SubscribeToShardResponse
@@ -107,7 +105,7 @@ instance Lude.AWSRequest SubscribeToShard where
     Res.receiveJSON
       ( \s h x ->
           SubscribeToShardResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "EventStream")
+            Lude.<$> (x Lude..:> "EventStream") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders SubscribeToShard where
@@ -126,8 +124,8 @@ instance Lude.ToJSON SubscribeToShard where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("ConsumerARN" Lude..= consumerARN),
-            Lude.Just ("ShardId" Lude..= shardId),
-            Lude.Just ("StartingPosition" Lude..= startingPosition)
+            Lude.Just ("StartingPosition" Lude..= startingPosition),
+            Lude.Just ("ShardId" Lude..= shardId)
           ]
       )
 
@@ -139,18 +137,12 @@ instance Lude.ToQuery SubscribeToShard where
 
 -- | /See:/ 'mkSubscribeToShardResponse' smart constructor.
 data SubscribeToShardResponse = SubscribeToShardResponse'
-  { responseStatus ::
-      Lude.Int,
-    eventStream ::
-      SubscribeToShardEventStream
+  { -- | The event stream that your consumer can use to read records from the shard.
+    eventStream :: SubscribeToShardEventStream,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscribeToShardResponse' with the minimum fields required to make a request.
@@ -158,23 +150,16 @@ data SubscribeToShardResponse = SubscribeToShardResponse'
 -- * 'eventStream' - The event stream that your consumer can use to read records from the shard.
 -- * 'responseStatus' - The response status code.
 mkSubscribeToShardResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'eventStream'
   SubscribeToShardEventStream ->
+  -- | 'responseStatus'
+  Lude.Int ->
   SubscribeToShardResponse
-mkSubscribeToShardResponse pResponseStatus_ pEventStream_ =
+mkSubscribeToShardResponse pEventStream_ pResponseStatus_ =
   SubscribeToShardResponse'
-    { responseStatus = pResponseStatus_,
-      eventStream = pEventStream_
+    { eventStream = pEventStream_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsrsResponseStatus :: Lens.Lens' SubscribeToShardResponse Lude.Int
-stsrsResponseStatus = Lens.lens (responseStatus :: SubscribeToShardResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SubscribeToShardResponse)
-{-# DEPRECATED stsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The event stream that your consumer can use to read records from the shard.
 --
@@ -182,3 +167,10 @@ stsrsResponseStatus = Lens.lens (responseStatus :: SubscribeToShardResponse -> L
 stsrsEventStream :: Lens.Lens' SubscribeToShardResponse SubscribeToShardEventStream
 stsrsEventStream = Lens.lens (eventStream :: SubscribeToShardResponse -> SubscribeToShardEventStream) (\s a -> s {eventStream = a} :: SubscribeToShardResponse)
 {-# DEPRECATED stsrsEventStream "Use generic-lens or generic-optics with 'eventStream' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsrsResponseStatus :: Lens.Lens' SubscribeToShardResponse Lude.Int
+stsrsResponseStatus = Lens.lens (responseStatus :: SubscribeToShardResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SubscribeToShardResponse)
+{-# DEPRECATED stsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

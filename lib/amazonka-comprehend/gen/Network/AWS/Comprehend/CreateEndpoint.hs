@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.Comprehend.CreateEndpoint
     mkCreateEndpoint,
 
     -- ** Request lenses
-    ceClientRequestToken,
-    ceTags,
     ceEndpointName,
     ceModelARN,
     ceDesiredInferenceUnits,
+    ceClientRequestToken,
+    ceTags,
 
     -- * Destructuring the response
     CreateEndpointResponse (..),
@@ -43,28 +44,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-  { clientRequestToken ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | This is the descriptive suffix that becomes part of the @EndpointArn@ used for all subsequent requests to this resource.
     endpointName :: Lude.Text,
+    -- | The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.
     modelARN :: Lude.Text,
-    desiredInferenceUnits :: Lude.Natural
+    -- | The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
+    desiredInferenceUnits :: Lude.Natural,
+    -- | An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a @ResourceInUseException@ .
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEndpoint' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a @ResourceInUseException@ .
--- * 'desiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
 -- * 'endpointName' - This is the descriptive suffix that becomes part of the @EndpointArn@ used for all subsequent requests to this resource.
 -- * 'modelARN' - The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.
+-- * 'desiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
+-- * 'clientRequestToken' - An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a @ResourceInUseException@ .
 -- * 'tags' - Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
 mkCreateEndpoint ::
   -- | 'endpointName'
@@ -76,26 +75,12 @@ mkCreateEndpoint ::
   CreateEndpoint
 mkCreateEndpoint pEndpointName_ pModelARN_ pDesiredInferenceUnits_ =
   CreateEndpoint'
-    { clientRequestToken = Lude.Nothing,
-      tags = Lude.Nothing,
-      endpointName = pEndpointName_,
+    { endpointName = pEndpointName_,
       modelARN = pModelARN_,
-      desiredInferenceUnits = pDesiredInferenceUnits_
+      desiredInferenceUnits = pDesiredInferenceUnits_,
+      clientRequestToken = Lude.Nothing,
+      tags = Lude.Nothing
     }
-
--- | An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a @ResourceInUseException@ .
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceClientRequestToken :: Lens.Lens' CreateEndpoint (Lude.Maybe Lude.Text)
-ceClientRequestToken = Lens.lens (clientRequestToken :: CreateEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateEndpoint)
-{-# DEPRECATED ceClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
--- | Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceTags :: Lens.Lens' CreateEndpoint (Lude.Maybe [Tag])
-ceTags = Lens.lens (tags :: CreateEndpoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEndpoint)
-{-# DEPRECATED ceTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | This is the descriptive suffix that becomes part of the @EndpointArn@ used for all subsequent requests to this resource.
 --
@@ -117,6 +102,20 @@ ceModelARN = Lens.lens (modelARN :: CreateEndpoint -> Lude.Text) (\s a -> s {mod
 ceDesiredInferenceUnits :: Lens.Lens' CreateEndpoint Lude.Natural
 ceDesiredInferenceUnits = Lens.lens (desiredInferenceUnits :: CreateEndpoint -> Lude.Natural) (\s a -> s {desiredInferenceUnits = a} :: CreateEndpoint)
 {-# DEPRECATED ceDesiredInferenceUnits "Use generic-lens or generic-optics with 'desiredInferenceUnits' instead." #-}
+
+-- | An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a @ResourceInUseException@ .
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceClientRequestToken :: Lens.Lens' CreateEndpoint (Lude.Maybe Lude.Text)
+ceClientRequestToken = Lens.lens (clientRequestToken :: CreateEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateEndpoint)
+{-# DEPRECATED ceClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
+-- | Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceTags :: Lens.Lens' CreateEndpoint (Lude.Maybe [Tag])
+ceTags = Lens.lens (tags :: CreateEndpoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEndpoint)
+{-# DEPRECATED ceTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateEndpoint where
   type Rs CreateEndpoint = CreateEndpointResponse
@@ -143,11 +142,11 @@ instance Lude.ToJSON CreateEndpoint where
   toJSON CreateEndpoint' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("EndpointName" Lude..= endpointName),
+          [ Lude.Just ("EndpointName" Lude..= endpointName),
             Lude.Just ("ModelArn" Lude..= modelARN),
-            Lude.Just ("DesiredInferenceUnits" Lude..= desiredInferenceUnits)
+            Lude.Just ("DesiredInferenceUnits" Lude..= desiredInferenceUnits),
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -159,17 +158,12 @@ instance Lude.ToQuery CreateEndpoint where
 
 -- | /See:/ 'mkCreateEndpointResponse' smart constructor.
 data CreateEndpointResponse = CreateEndpointResponse'
-  { endpointARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Number (ARN) of the endpoint being created.
+    endpointARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEndpointResponse' with the minimum fields required to make a request.

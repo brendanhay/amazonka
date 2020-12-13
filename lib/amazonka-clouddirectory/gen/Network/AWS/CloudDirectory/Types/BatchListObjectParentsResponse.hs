@@ -28,25 +28,16 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkBatchListObjectParentsResponse' smart constructor.
 data BatchListObjectParentsResponse = BatchListObjectParentsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    parentLinks ::
-      Lude.Maybe
-        [ObjectIdentifierAndLinkNameTuple]
+  { nextToken :: Lude.Maybe Lude.Text,
+    parentLinks :: Lude.Maybe [ObjectIdentifierAndLinkNameTuple]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectParentsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
--- * 'parentLinks' - Undocumented field.
+-- * 'nextToken' -
+-- * 'parentLinks' -
 mkBatchListObjectParentsResponse ::
   BatchListObjectParentsResponse
 mkBatchListObjectParentsResponse =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,12 +20,12 @@ module Network.AWS.DeviceFarm.UpdateDevicePool
     mkUpdateDevicePool,
 
     -- ** Request lenses
+    udpArn,
     udpRules,
     udpClearMaxDevices,
     udpName,
     udpMaxDevices,
     udpDescription,
-    udpArn,
 
     -- * Destructuring the response
     UpdateDevicePoolResponse (..),
@@ -46,49 +47,60 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateDevicePool' smart constructor.
 data UpdateDevicePool = UpdateDevicePool'
-  { rules ::
-      Lude.Maybe [Rule],
+  { -- | The Amazon Resource Name (ARN) of the Device Farm device pool to update.
+    arn :: Lude.Text,
+    -- | Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for your request, the update replaces the existing rules.
+    rules :: Lude.Maybe [Rule],
+    -- | Sets whether the @maxDevices@ parameter applies to your device pool. If you set this parameter to @true@ , the @maxDevices@ parameter does not apply, and Device Farm does not limit the number of devices that it adds to your device pool. In this case, Device Farm adds all available devices that meet the criteria specified in the @rules@ parameter.
+    --
+    -- If you use this parameter in your request, you cannot use the @maxDevices@ parameter in the same request.
     clearMaxDevices :: Lude.Maybe Lude.Bool,
+    -- | A string that represents the name of the device pool to update.
     name :: Lude.Maybe Lude.Text,
+    -- | The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and that meet the criteria that you assign for the @rules@ parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+    --
+    -- By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+    -- If you use this parameter in your request, you cannot use the @clearMaxDevices@ parameter in the same request.
     maxDevices :: Lude.Maybe Lude.Int,
-    description :: Lude.Maybe Lude.Text,
-    arn :: Lude.Text
+    -- | A description of the device pool to update.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDevicePool' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the Device Farm device pool to update.
+-- * 'rules' - Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for your request, the update replaces the existing rules.
 -- * 'clearMaxDevices' - Sets whether the @maxDevices@ parameter applies to your device pool. If you set this parameter to @true@ , the @maxDevices@ parameter does not apply, and Device Farm does not limit the number of devices that it adds to your device pool. In this case, Device Farm adds all available devices that meet the criteria specified in the @rules@ parameter.
 --
 -- If you use this parameter in your request, you cannot use the @maxDevices@ parameter in the same request.
--- * 'description' - A description of the device pool to update.
+-- * 'name' - A string that represents the name of the device pool to update.
 -- * 'maxDevices' - The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and that meet the criteria that you assign for the @rules@ parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
 --
 -- By specifying the maximum number of devices, you can control the costs that you incur by running tests.
 -- If you use this parameter in your request, you cannot use the @clearMaxDevices@ parameter in the same request.
--- * 'name' - A string that represents the name of the device pool to update.
--- * 'rules' - Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for your request, the update replaces the existing rules.
+-- * 'description' - A description of the device pool to update.
 mkUpdateDevicePool ::
   -- | 'arn'
   Lude.Text ->
   UpdateDevicePool
 mkUpdateDevicePool pArn_ =
   UpdateDevicePool'
-    { rules = Lude.Nothing,
+    { arn = pArn_,
+      rules = Lude.Nothing,
       clearMaxDevices = Lude.Nothing,
       name = Lude.Nothing,
       maxDevices = Lude.Nothing,
-      description = Lude.Nothing,
-      arn = pArn_
+      description = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the Device Farm device pool to update.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udpArn :: Lens.Lens' UpdateDevicePool Lude.Text
+udpArn = Lens.lens (arn :: UpdateDevicePool -> Lude.Text) (\s a -> s {arn = a} :: UpdateDevicePool)
+{-# DEPRECATED udpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for your request, the update replaces the existing rules.
 --
@@ -130,13 +142,6 @@ udpDescription :: Lens.Lens' UpdateDevicePool (Lude.Maybe Lude.Text)
 udpDescription = Lens.lens (description :: UpdateDevicePool -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateDevicePool)
 {-# DEPRECATED udpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the Device Farm device pool to update.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udpArn :: Lens.Lens' UpdateDevicePool Lude.Text
-udpArn = Lens.lens (arn :: UpdateDevicePool -> Lude.Text) (\s a -> s {arn = a} :: UpdateDevicePool)
-{-# DEPRECATED udpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
 instance Lude.AWSRequest UpdateDevicePool where
   type Rs UpdateDevicePool = UpdateDevicePoolResponse
   request = Req.postJSON deviceFarmService
@@ -162,12 +167,12 @@ instance Lude.ToJSON UpdateDevicePool where
   toJSON UpdateDevicePool' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("rules" Lude..=) Lude.<$> rules,
+          [ Lude.Just ("arn" Lude..= arn),
+            ("rules" Lude..=) Lude.<$> rules,
             ("clearMaxDevices" Lude..=) Lude.<$> clearMaxDevices,
             ("name" Lude..=) Lude.<$> name,
             ("maxDevices" Lude..=) Lude.<$> maxDevices,
-            ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("arn" Lude..= arn)
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -181,17 +186,12 @@ instance Lude.ToQuery UpdateDevicePool where
 --
 -- /See:/ 'mkUpdateDevicePoolResponse' smart constructor.
 data UpdateDevicePoolResponse = UpdateDevicePoolResponse'
-  { devicePool ::
-      Lude.Maybe DevicePool,
+  { -- | The device pool you just updated.
+    devicePool :: Lude.Maybe DevicePool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDevicePoolResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.ModifyAvailabilityZoneGroup
     mkModifyAvailabilityZoneGroup,
 
     -- ** Request lenses
-    mazgDryRun,
-    mazgGroupName,
     mazgOptInStatus,
+    mazgGroupName,
+    mazgDryRun,
 
     -- * Destructuring the response
     ModifyAvailabilityZoneGroupResponse (..),
@@ -43,45 +44,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyAvailabilityZoneGroup' smart constructor.
 data ModifyAvailabilityZoneGroup = ModifyAvailabilityZoneGroup'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is @opted-in@ . You must contact <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support> to opt out of a Local Zone group, or Wavelength Zone group.
+    optInStatus :: ModifyAvailabilityZoneOptInStatus,
+    -- | The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
     groupName :: Lude.Text,
-    optInStatus ::
-      ModifyAvailabilityZoneOptInStatus
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyAvailabilityZoneGroup' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'groupName' - The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
 -- * 'optInStatus' - Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is @opted-in@ . You must contact <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support> to opt out of a Local Zone group, or Wavelength Zone group.
+-- * 'groupName' - The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyAvailabilityZoneGroup ::
-  -- | 'groupName'
-  Lude.Text ->
   -- | 'optInStatus'
   ModifyAvailabilityZoneOptInStatus ->
+  -- | 'groupName'
+  Lude.Text ->
   ModifyAvailabilityZoneGroup
-mkModifyAvailabilityZoneGroup pGroupName_ pOptInStatus_ =
+mkModifyAvailabilityZoneGroup pOptInStatus_ pGroupName_ =
   ModifyAvailabilityZoneGroup'
-    { dryRun = Lude.Nothing,
+    { optInStatus = pOptInStatus_,
       groupName = pGroupName_,
-      optInStatus = pOptInStatus_
+      dryRun = Lude.Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is @opted-in@ . You must contact <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support> to opt out of a Local Zone group, or Wavelength Zone group.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mazgDryRun :: Lens.Lens' ModifyAvailabilityZoneGroup (Lude.Maybe Lude.Bool)
-mazgDryRun = Lens.lens (dryRun :: ModifyAvailabilityZoneGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyAvailabilityZoneGroup)
-{-# DEPRECATED mazgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'optInStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mazgOptInStatus :: Lens.Lens' ModifyAvailabilityZoneGroup ModifyAvailabilityZoneOptInStatus
+mazgOptInStatus = Lens.lens (optInStatus :: ModifyAvailabilityZoneGroup -> ModifyAvailabilityZoneOptInStatus) (\s a -> s {optInStatus = a} :: ModifyAvailabilityZoneGroup)
+{-# DEPRECATED mazgOptInStatus "Use generic-lens or generic-optics with 'optInStatus' instead." #-}
 
 -- | The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
 --
@@ -90,12 +86,12 @@ mazgGroupName :: Lens.Lens' ModifyAvailabilityZoneGroup Lude.Text
 mazgGroupName = Lens.lens (groupName :: ModifyAvailabilityZoneGroup -> Lude.Text) (\s a -> s {groupName = a} :: ModifyAvailabilityZoneGroup)
 {-# DEPRECATED mazgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
--- | Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is @opted-in@ . You must contact <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support> to opt out of a Local Zone group, or Wavelength Zone group.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'optInStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mazgOptInStatus :: Lens.Lens' ModifyAvailabilityZoneGroup ModifyAvailabilityZoneOptInStatus
-mazgOptInStatus = Lens.lens (optInStatus :: ModifyAvailabilityZoneGroup -> ModifyAvailabilityZoneOptInStatus) (\s a -> s {optInStatus = a} :: ModifyAvailabilityZoneGroup)
-{-# DEPRECATED mazgOptInStatus "Use generic-lens or generic-optics with 'optInStatus' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mazgDryRun :: Lens.Lens' ModifyAvailabilityZoneGroup (Lude.Maybe Lude.Bool)
+mazgDryRun = Lens.lens (dryRun :: ModifyAvailabilityZoneGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyAvailabilityZoneGroup)
+{-# DEPRECATED mazgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ModifyAvailabilityZoneGroup where
   type
@@ -121,32 +117,25 @@ instance Lude.ToQuery ModifyAvailabilityZoneGroup where
       [ "Action"
           Lude.=: ("ModifyAvailabilityZoneGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
+        "OptInStatus" Lude.=: optInStatus,
         "GroupName" Lude.=: groupName,
-        "OptInStatus" Lude.=: optInStatus
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyAvailabilityZoneGroupResponse' smart constructor.
 data ModifyAvailabilityZoneGroupResponse = ModifyAvailabilityZoneGroupResponse'
-  { return ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | Is @true@ if the request succeeds, and an error otherwise.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyAvailabilityZoneGroupResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
+-- * 'responseStatus' - The response status code.
 mkModifyAvailabilityZoneGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -18,13 +18,13 @@ module Network.AWS.Config.Types.ConformancePackDetail
 
     -- * Lenses
     cpdDeliveryS3Bucket,
+    cpdConformancePackName,
     cpdDeliveryS3KeyPrefix,
     cpdCreatedBy,
     cpdLastUpdateRequestedTime,
-    cpdConformancePackInputParameters,
-    cpdConformancePackName,
-    cpdConformancePackARN,
     cpdConformancePackId,
+    cpdConformancePackInputParameters,
+    cpdConformancePackARN,
   )
 where
 
@@ -36,58 +36,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConformancePackDetail' smart constructor.
 data ConformancePackDetail = ConformancePackDetail'
-  { deliveryS3Bucket ::
-      Lude.Maybe Lude.Text,
-    deliveryS3KeyPrefix :: Lude.Maybe Lude.Text,
-    createdBy :: Lude.Maybe Lude.Text,
-    lastUpdateRequestedTime ::
-      Lude.Maybe Lude.Timestamp,
-    conformancePackInputParameters ::
-      Lude.Maybe [ConformancePackInputParameter],
+  { -- | Conformance pack template that is used to create a pack. The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*".
+    deliveryS3Bucket :: Lude.Maybe Lude.Text,
+    -- | Name of the conformance pack.
     conformancePackName :: Lude.Text,
-    conformancePackARN :: Lude.Text,
-    conformancePackId :: Lude.Text
+    -- | The prefix for the Amazon S3 bucket.
+    deliveryS3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | AWS service that created the conformance pack.
+    createdBy :: Lude.Maybe Lude.Text,
+    -- | Last time when conformation pack update was requested.
+    lastUpdateRequestedTime :: Lude.Maybe Lude.Timestamp,
+    -- | ID of the conformance pack.
+    conformancePackId :: Lude.Text,
+    -- | A list of @ConformancePackInputParameter@ objects.
+    conformancePackInputParameters :: Lude.Maybe [ConformancePackInputParameter],
+    -- | Amazon Resource Name (ARN) of the conformance pack.
+    conformancePackARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConformancePackDetail' with the minimum fields required to make a request.
 --
--- * 'conformancePackARN' - Amazon Resource Name (ARN) of the conformance pack.
+-- * 'deliveryS3Bucket' - Conformance pack template that is used to create a pack. The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*".
+-- * 'conformancePackName' - Name of the conformance pack.
+-- * 'deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
+-- * 'createdBy' - AWS service that created the conformance pack.
+-- * 'lastUpdateRequestedTime' - Last time when conformation pack update was requested.
 -- * 'conformancePackId' - ID of the conformance pack.
 -- * 'conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
--- * 'conformancePackName' - Name of the conformance pack.
--- * 'createdBy' - AWS service that created the conformance pack.
--- * 'deliveryS3Bucket' - Conformance pack template that is used to create a pack. The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*".
--- * 'deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
--- * 'lastUpdateRequestedTime' - Last time when conformation pack update was requested.
+-- * 'conformancePackARN' - Amazon Resource Name (ARN) of the conformance pack.
 mkConformancePackDetail ::
   -- | 'conformancePackName'
   Lude.Text ->
-  -- | 'conformancePackARN'
-  Lude.Text ->
   -- | 'conformancePackId'
+  Lude.Text ->
+  -- | 'conformancePackARN'
   Lude.Text ->
   ConformancePackDetail
 mkConformancePackDetail
   pConformancePackName_
-  pConformancePackARN_
-  pConformancePackId_ =
+  pConformancePackId_
+  pConformancePackARN_ =
     ConformancePackDetail'
       { deliveryS3Bucket = Lude.Nothing,
+        conformancePackName = pConformancePackName_,
         deliveryS3KeyPrefix = Lude.Nothing,
         createdBy = Lude.Nothing,
         lastUpdateRequestedTime = Lude.Nothing,
+        conformancePackId = pConformancePackId_,
         conformancePackInputParameters = Lude.Nothing,
-        conformancePackName = pConformancePackName_,
-        conformancePackARN = pConformancePackARN_,
-        conformancePackId = pConformancePackId_
+        conformancePackARN = pConformancePackARN_
       }
 
 -- | Conformance pack template that is used to create a pack. The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*".
@@ -96,6 +95,13 @@ mkConformancePackDetail
 cpdDeliveryS3Bucket :: Lens.Lens' ConformancePackDetail (Lude.Maybe Lude.Text)
 cpdDeliveryS3Bucket = Lens.lens (deliveryS3Bucket :: ConformancePackDetail -> Lude.Maybe Lude.Text) (\s a -> s {deliveryS3Bucket = a} :: ConformancePackDetail)
 {-# DEPRECATED cpdDeliveryS3Bucket "Use generic-lens or generic-optics with 'deliveryS3Bucket' instead." #-}
+
+-- | Name of the conformance pack.
+--
+-- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdConformancePackName :: Lens.Lens' ConformancePackDetail Lude.Text
+cpdConformancePackName = Lens.lens (conformancePackName :: ConformancePackDetail -> Lude.Text) (\s a -> s {conformancePackName = a} :: ConformancePackDetail)
+{-# DEPRECATED cpdConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
 -- | The prefix for the Amazon S3 bucket.
 --
@@ -118,19 +124,19 @@ cpdLastUpdateRequestedTime :: Lens.Lens' ConformancePackDetail (Lude.Maybe Lude.
 cpdLastUpdateRequestedTime = Lens.lens (lastUpdateRequestedTime :: ConformancePackDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateRequestedTime = a} :: ConformancePackDetail)
 {-# DEPRECATED cpdLastUpdateRequestedTime "Use generic-lens or generic-optics with 'lastUpdateRequestedTime' instead." #-}
 
+-- | ID of the conformance pack.
+--
+-- /Note:/ Consider using 'conformancePackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdConformancePackId :: Lens.Lens' ConformancePackDetail Lude.Text
+cpdConformancePackId = Lens.lens (conformancePackId :: ConformancePackDetail -> Lude.Text) (\s a -> s {conformancePackId = a} :: ConformancePackDetail)
+{-# DEPRECATED cpdConformancePackId "Use generic-lens or generic-optics with 'conformancePackId' instead." #-}
+
 -- | A list of @ConformancePackInputParameter@ objects.
 --
 -- /Note:/ Consider using 'conformancePackInputParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpdConformancePackInputParameters :: Lens.Lens' ConformancePackDetail (Lude.Maybe [ConformancePackInputParameter])
 cpdConformancePackInputParameters = Lens.lens (conformancePackInputParameters :: ConformancePackDetail -> Lude.Maybe [ConformancePackInputParameter]) (\s a -> s {conformancePackInputParameters = a} :: ConformancePackDetail)
 {-# DEPRECATED cpdConformancePackInputParameters "Use generic-lens or generic-optics with 'conformancePackInputParameters' instead." #-}
-
--- | Name of the conformance pack.
---
--- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpdConformancePackName :: Lens.Lens' ConformancePackDetail Lude.Text
-cpdConformancePackName = Lens.lens (conformancePackName :: ConformancePackDetail -> Lude.Text) (\s a -> s {conformancePackName = a} :: ConformancePackDetail)
-{-# DEPRECATED cpdConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
 -- | Amazon Resource Name (ARN) of the conformance pack.
 --
@@ -139,13 +145,6 @@ cpdConformancePackARN :: Lens.Lens' ConformancePackDetail Lude.Text
 cpdConformancePackARN = Lens.lens (conformancePackARN :: ConformancePackDetail -> Lude.Text) (\s a -> s {conformancePackARN = a} :: ConformancePackDetail)
 {-# DEPRECATED cpdConformancePackARN "Use generic-lens or generic-optics with 'conformancePackARN' instead." #-}
 
--- | ID of the conformance pack.
---
--- /Note:/ Consider using 'conformancePackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpdConformancePackId :: Lens.Lens' ConformancePackDetail Lude.Text
-cpdConformancePackId = Lens.lens (conformancePackId :: ConformancePackDetail -> Lude.Text) (\s a -> s {conformancePackId = a} :: ConformancePackDetail)
-{-# DEPRECATED cpdConformancePackId "Use generic-lens or generic-optics with 'conformancePackId' instead." #-}
-
 instance Lude.FromJSON ConformancePackDetail where
   parseJSON =
     Lude.withObject
@@ -153,11 +152,11 @@ instance Lude.FromJSON ConformancePackDetail where
       ( \x ->
           ConformancePackDetail'
             Lude.<$> (x Lude..:? "DeliveryS3Bucket")
+            Lude.<*> (x Lude..: "ConformancePackName")
             Lude.<*> (x Lude..:? "DeliveryS3KeyPrefix")
             Lude.<*> (x Lude..:? "CreatedBy")
             Lude.<*> (x Lude..:? "LastUpdateRequestedTime")
-            Lude.<*> (x Lude..:? "ConformancePackInputParameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "ConformancePackName")
-            Lude.<*> (x Lude..: "ConformancePackArn")
             Lude.<*> (x Lude..: "ConformancePackId")
+            Lude.<*> (x Lude..:? "ConformancePackInputParameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "ConformancePackArn")
       )

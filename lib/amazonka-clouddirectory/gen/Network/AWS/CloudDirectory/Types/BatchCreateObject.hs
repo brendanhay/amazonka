@@ -17,11 +17,11 @@ module Network.AWS.CloudDirectory.Types.BatchCreateObject
     mkBatchCreateObject,
 
     -- * Lenses
+    bcoSchemaFacet,
     bcoParentReference,
+    bcoObjectAttributeList,
     bcoLinkName,
     bcoBatchReferenceName,
-    bcoSchemaFacet,
-    bcoObjectAttributeList,
   )
 where
 
@@ -35,39 +35,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchCreateObject' smart constructor.
 data BatchCreateObject = BatchCreateObject'
-  { parentReference ::
-      Lude.Maybe ObjectReference,
-    linkName :: Lude.Maybe Lude.Text,
-    batchReferenceName :: Lude.Maybe Lude.Text,
+  { -- | A list of @FacetArns@ that will be associated with the object. For more information, see 'arns' .
     schemaFacet :: [SchemaFacet],
-    objectAttributeList :: [AttributeKeyAndValue]
+    -- | If specified, the parent reference to which this object will be attached.
+    parentReference :: Lude.Maybe ObjectReference,
+    -- | An attribute map, which contains an attribute ARN as the key and attribute value as the map value.
+    objectAttributeList :: [AttributeKeyAndValue],
+    -- | The name of the link.
+    linkName :: Lude.Maybe Lude.Text,
+    -- | The batch reference name. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support> for more information.
+    batchReferenceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchCreateObject' with the minimum fields required to make a request.
 --
--- * 'batchReferenceName' - The batch reference name. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support> for more information.
--- * 'linkName' - The name of the link.
--- * 'objectAttributeList' - An attribute map, which contains an attribute ARN as the key and attribute value as the map value.
--- * 'parentReference' - If specified, the parent reference to which this object will be attached.
 -- * 'schemaFacet' - A list of @FacetArns@ that will be associated with the object. For more information, see 'arns' .
+-- * 'parentReference' - If specified, the parent reference to which this object will be attached.
+-- * 'objectAttributeList' - An attribute map, which contains an attribute ARN as the key and attribute value as the map value.
+-- * 'linkName' - The name of the link.
+-- * 'batchReferenceName' - The batch reference name. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support> for more information.
 mkBatchCreateObject ::
   BatchCreateObject
 mkBatchCreateObject =
   BatchCreateObject'
-    { parentReference = Lude.Nothing,
+    { schemaFacet = Lude.mempty,
+      parentReference = Lude.Nothing,
+      objectAttributeList = Lude.mempty,
       linkName = Lude.Nothing,
-      batchReferenceName = Lude.Nothing,
-      schemaFacet = Lude.mempty,
-      objectAttributeList = Lude.mempty
+      batchReferenceName = Lude.Nothing
     }
+
+-- | A list of @FacetArns@ that will be associated with the object. For more information, see 'arns' .
+--
+-- /Note:/ Consider using 'schemaFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcoSchemaFacet :: Lens.Lens' BatchCreateObject [SchemaFacet]
+bcoSchemaFacet = Lens.lens (schemaFacet :: BatchCreateObject -> [SchemaFacet]) (\s a -> s {schemaFacet = a} :: BatchCreateObject)
+{-# DEPRECATED bcoSchemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead." #-}
 
 -- | If specified, the parent reference to which this object will be attached.
 --
@@ -75,6 +80,13 @@ mkBatchCreateObject =
 bcoParentReference :: Lens.Lens' BatchCreateObject (Lude.Maybe ObjectReference)
 bcoParentReference = Lens.lens (parentReference :: BatchCreateObject -> Lude.Maybe ObjectReference) (\s a -> s {parentReference = a} :: BatchCreateObject)
 {-# DEPRECATED bcoParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
+
+-- | An attribute map, which contains an attribute ARN as the key and attribute value as the map value.
+--
+-- /Note:/ Consider using 'objectAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcoObjectAttributeList :: Lens.Lens' BatchCreateObject [AttributeKeyAndValue]
+bcoObjectAttributeList = Lens.lens (objectAttributeList :: BatchCreateObject -> [AttributeKeyAndValue]) (\s a -> s {objectAttributeList = a} :: BatchCreateObject)
+{-# DEPRECATED bcoObjectAttributeList "Use generic-lens or generic-optics with 'objectAttributeList' instead." #-}
 
 -- | The name of the link.
 --
@@ -90,28 +102,14 @@ bcoBatchReferenceName :: Lens.Lens' BatchCreateObject (Lude.Maybe Lude.Text)
 bcoBatchReferenceName = Lens.lens (batchReferenceName :: BatchCreateObject -> Lude.Maybe Lude.Text) (\s a -> s {batchReferenceName = a} :: BatchCreateObject)
 {-# DEPRECATED bcoBatchReferenceName "Use generic-lens or generic-optics with 'batchReferenceName' instead." #-}
 
--- | A list of @FacetArns@ that will be associated with the object. For more information, see 'arns' .
---
--- /Note:/ Consider using 'schemaFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcoSchemaFacet :: Lens.Lens' BatchCreateObject [SchemaFacet]
-bcoSchemaFacet = Lens.lens (schemaFacet :: BatchCreateObject -> [SchemaFacet]) (\s a -> s {schemaFacet = a} :: BatchCreateObject)
-{-# DEPRECATED bcoSchemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead." #-}
-
--- | An attribute map, which contains an attribute ARN as the key and attribute value as the map value.
---
--- /Note:/ Consider using 'objectAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcoObjectAttributeList :: Lens.Lens' BatchCreateObject [AttributeKeyAndValue]
-bcoObjectAttributeList = Lens.lens (objectAttributeList :: BatchCreateObject -> [AttributeKeyAndValue]) (\s a -> s {objectAttributeList = a} :: BatchCreateObject)
-{-# DEPRECATED bcoObjectAttributeList "Use generic-lens or generic-optics with 'objectAttributeList' instead." #-}
-
 instance Lude.ToJSON BatchCreateObject where
   toJSON BatchCreateObject' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ParentReference" Lude..=) Lude.<$> parentReference,
+          [ Lude.Just ("SchemaFacet" Lude..= schemaFacet),
+            ("ParentReference" Lude..=) Lude.<$> parentReference,
+            Lude.Just ("ObjectAttributeList" Lude..= objectAttributeList),
             ("LinkName" Lude..=) Lude.<$> linkName,
-            ("BatchReferenceName" Lude..=) Lude.<$> batchReferenceName,
-            Lude.Just ("SchemaFacet" Lude..= schemaFacet),
-            Lude.Just ("ObjectAttributeList" Lude..= objectAttributeList)
+            ("BatchReferenceName" Lude..=) Lude.<$> batchReferenceName
           ]
       )

@@ -45,52 +45,48 @@ import Network.AWS.Rekognition.Types.TrainingDataResult
 --
 -- /See:/ 'mkProjectVersionDescription' smart constructor.
 data ProjectVersionDescription = ProjectVersionDescription'
-  { minInferenceUnits ::
-      Lude.Maybe Lude.Natural,
-    status ::
-      Lude.Maybe ProjectVersionStatus,
-    evaluationResult ::
-      Lude.Maybe EvaluationResult,
-    manifestSummary ::
-      Lude.Maybe GroundTruthManifest,
-    testingDataResult ::
-      Lude.Maybe TestingDataResult,
+  { -- | The minimum number of inference units used by the model. For more information, see 'StartProjectVersion' .
+    minInferenceUnits :: Lude.Maybe Lude.Natural,
+    -- | The current status of the model version.
+    status :: Lude.Maybe ProjectVersionStatus,
+    -- | The training results. @EvaluationResult@ is only returned if training is successful.
+    evaluationResult :: Lude.Maybe EvaluationResult,
+    -- | The location of the summary manifest. The summary manifest provides aggregate data validation results for the training and test datasets.
+    manifestSummary :: Lude.Maybe GroundTruthManifest,
+    -- | Contains information about the testing results.
+    testingDataResult :: Lude.Maybe TestingDataResult,
+    -- | A descriptive message for an error or warning that occurred.
     statusMessage :: Lude.Maybe Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    projectVersionARN ::
-      Lude.Maybe Lude.Text,
+    -- | The Unix datetime for the date and time that training started.
+    creationTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the model version.
+    projectVersionARN :: Lude.Maybe Lude.Text,
+    -- | The location where training results are saved.
     outputConfig :: Lude.Maybe OutputConfig,
-    billableTrainingTimeInSeconds ::
-      Lude.Maybe Lude.Natural,
-    trainingEndTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    trainingDataResult ::
-      Lude.Maybe TrainingDataResult
+    -- | The duration, in seconds, that the model version has been billed for training. This value is only returned if the model version has been successfully trained.
+    billableTrainingTimeInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The Unix date and time that training of the model ended.
+    trainingEndTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | Contains information about the training results.
+    trainingDataResult :: Lude.Maybe TrainingDataResult
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectVersionDescription' with the minimum fields required to make a request.
 --
--- * 'billableTrainingTimeInSeconds' - The duration, in seconds, that the model version has been billed for training. This value is only returned if the model version has been successfully trained.
--- * 'creationTimestamp' - The Unix datetime for the date and time that training started.
+-- * 'minInferenceUnits' - The minimum number of inference units used by the model. For more information, see 'StartProjectVersion' .
+-- * 'status' - The current status of the model version.
 -- * 'evaluationResult' - The training results. @EvaluationResult@ is only returned if training is successful.
 -- * 'manifestSummary' - The location of the summary manifest. The summary manifest provides aggregate data validation results for the training and test datasets.
--- * 'minInferenceUnits' - The minimum number of inference units used by the model. For more information, see 'StartProjectVersion' .
--- * 'outputConfig' - The location where training results are saved.
--- * 'projectVersionARN' - The Amazon Resource Name (ARN) of the model version.
--- * 'status' - The current status of the model version.
--- * 'statusMessage' - A descriptive message for an error or warning that occurred.
 -- * 'testingDataResult' - Contains information about the testing results.
--- * 'trainingDataResult' - Contains information about the training results.
+-- * 'statusMessage' - A descriptive message for an error or warning that occurred.
+-- * 'creationTimestamp' - The Unix datetime for the date and time that training started.
+-- * 'projectVersionARN' - The Amazon Resource Name (ARN) of the model version.
+-- * 'outputConfig' - The location where training results are saved.
+-- * 'billableTrainingTimeInSeconds' - The duration, in seconds, that the model version has been billed for training. This value is only returned if the model version has been successfully trained.
 -- * 'trainingEndTimestamp' - The Unix date and time that training of the model ended.
+-- * 'trainingDataResult' - Contains information about the training results.
 mkProjectVersionDescription ::
   ProjectVersionDescription
 mkProjectVersionDescription =

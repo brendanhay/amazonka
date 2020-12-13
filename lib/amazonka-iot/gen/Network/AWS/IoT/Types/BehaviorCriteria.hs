@@ -36,31 +36,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBehaviorCriteria' smart constructor.
 data BehaviorCriteria = BehaviorCriteria'
-  { value ::
-      Lude.Maybe MetricValue,
+  { -- | The value to be compared with the @metric@ .
+    value :: Lude.Maybe MetricValue,
+    -- | If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
     consecutiveDatapointsToAlarm :: Lude.Maybe Lude.Natural,
+    -- | The operator that relates the thing measured (@metric@ ) to the criteria (containing a @value@ or @statisticalThreshold@ ).
     comparisonOperator :: Lude.Maybe ComparisonOperator,
+    -- | A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
     statisticalThreshold :: Lude.Maybe StatisticalThreshold,
+    -- | Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, @NUM_MESSAGES_SENT@ ). For a @statisticalThreshhold@ metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.
     durationSeconds :: Lude.Maybe Lude.Int,
+    -- | If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
     consecutiveDatapointsToClear :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BehaviorCriteria' with the minimum fields required to make a request.
 --
--- * 'comparisonOperator' - The operator that relates the thing measured (@metric@ ) to the criteria (containing a @value@ or @statisticalThreshold@ ).
--- * 'consecutiveDatapointsToAlarm' - If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
--- * 'consecutiveDatapointsToClear' - If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
--- * 'durationSeconds' - Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, @NUM_MESSAGES_SENT@ ). For a @statisticalThreshhold@ metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.
--- * 'statisticalThreshold' - A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 -- * 'value' - The value to be compared with the @metric@ .
+-- * 'consecutiveDatapointsToAlarm' - If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
+-- * 'comparisonOperator' - The operator that relates the thing measured (@metric@ ) to the criteria (containing a @value@ or @statisticalThreshold@ ).
+-- * 'statisticalThreshold' - A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+-- * 'durationSeconds' - Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, @NUM_MESSAGES_SENT@ ). For a @statisticalThreshhold@ metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.
+-- * 'consecutiveDatapointsToClear' - If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
 mkBehaviorCriteria ::
   BehaviorCriteria
 mkBehaviorCriteria =

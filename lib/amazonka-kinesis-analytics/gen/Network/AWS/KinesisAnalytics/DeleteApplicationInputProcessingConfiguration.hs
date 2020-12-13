@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.KinesisAnalytics.DeleteApplicationInputProcessingConfiguratio
     mkDeleteApplicationInputProcessingConfiguration,
 
     -- ** Request lenses
-    daipcApplicationName,
     daipcCurrentApplicationVersionId,
     daipcInputId,
+    daipcApplicationName,
 
     -- * Destructuring the response
     DeleteApplicationInputProcessingConfigurationResponse (..),
@@ -40,56 +41,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteApplicationInputProcessingConfiguration' smart constructor.
 data DeleteApplicationInputProcessingConfiguration = DeleteApplicationInputProcessingConfiguration'
-  { applicationName ::
-      Lude.Text,
-    currentApplicationVersionId ::
-      Lude.Natural,
-    inputId ::
-      Lude.Text
+  { -- | The version ID of the Kinesis Analytics application.
+    currentApplicationVersionId :: Lude.Natural,
+    -- | The ID of the input configuration from which to delete the input processing configuration. You can get a list of the input IDs for an application by using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
+    inputId :: Lude.Text,
+    -- | The Kinesis Analytics application name.
+    applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationInputProcessingConfiguration' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The Kinesis Analytics application name.
 -- * 'currentApplicationVersionId' - The version ID of the Kinesis Analytics application.
 -- * 'inputId' - The ID of the input configuration from which to delete the input processing configuration. You can get a list of the input IDs for an application by using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
+-- * 'applicationName' - The Kinesis Analytics application name.
 mkDeleteApplicationInputProcessingConfiguration ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'currentApplicationVersionId'
   Lude.Natural ->
   -- | 'inputId'
   Lude.Text ->
+  -- | 'applicationName'
+  Lude.Text ->
   DeleteApplicationInputProcessingConfiguration
 mkDeleteApplicationInputProcessingConfiguration
-  pApplicationName_
   pCurrentApplicationVersionId_
-  pInputId_ =
+  pInputId_
+  pApplicationName_ =
     DeleteApplicationInputProcessingConfiguration'
-      { applicationName =
-          pApplicationName_,
-        currentApplicationVersionId =
+      { currentApplicationVersionId =
           pCurrentApplicationVersionId_,
-        inputId = pInputId_
+        inputId = pInputId_,
+        applicationName = pApplicationName_
       }
-
--- | The Kinesis Analytics application name.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daipcApplicationName :: Lens.Lens' DeleteApplicationInputProcessingConfiguration Lude.Text
-daipcApplicationName = Lens.lens (applicationName :: DeleteApplicationInputProcessingConfiguration -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteApplicationInputProcessingConfiguration)
-{-# DEPRECATED daipcApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The version ID of the Kinesis Analytics application.
 --
@@ -104,6 +88,13 @@ daipcCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: Del
 daipcInputId :: Lens.Lens' DeleteApplicationInputProcessingConfiguration Lude.Text
 daipcInputId = Lens.lens (inputId :: DeleteApplicationInputProcessingConfiguration -> Lude.Text) (\s a -> s {inputId = a} :: DeleteApplicationInputProcessingConfiguration)
 {-# DEPRECATED daipcInputId "Use generic-lens or generic-optics with 'inputId' instead." #-}
+
+-- | The Kinesis Analytics application name.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daipcApplicationName :: Lens.Lens' DeleteApplicationInputProcessingConfiguration Lude.Text
+daipcApplicationName = Lens.lens (applicationName :: DeleteApplicationInputProcessingConfiguration -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteApplicationInputProcessingConfiguration)
+{-# DEPRECATED daipcApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -140,12 +131,12 @@ instance Lude.ToJSON DeleteApplicationInputProcessingConfiguration where
   toJSON DeleteApplicationInputProcessingConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ApplicationName" Lude..= applicationName),
-            Lude.Just
+          [ Lude.Just
               ( "CurrentApplicationVersionId"
                   Lude..= currentApplicationVersionId
               ),
-            Lude.Just ("InputId" Lude..= inputId)
+            Lude.Just ("InputId" Lude..= inputId),
+            Lude.Just ("ApplicationName" Lude..= applicationName)
           ]
       )
 
@@ -157,20 +148,11 @@ instance Lude.ToQuery DeleteApplicationInputProcessingConfiguration where
 
 -- | /See:/ 'mkDeleteApplicationInputProcessingConfigurationResponse' smart constructor.
 newtype DeleteApplicationInputProcessingConfigurationResponse = DeleteApplicationInputProcessingConfigurationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationInputProcessingConfigurationResponse' with the minimum fields required to make a request.
 --

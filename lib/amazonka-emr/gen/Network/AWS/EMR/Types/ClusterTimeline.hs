@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClusterTimeline' smart constructor.
 data ClusterTimeline = ClusterTimeline'
-  { readyDateTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time when the cluster was ready to run steps.
+    readyDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The creation date and time of the cluster.
     creationDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time when the cluster was terminated.
     endDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterTimeline' with the minimum fields required to make a request.
 --
+-- * 'readyDateTime' - The date and time when the cluster was ready to run steps.
 -- * 'creationDateTime' - The creation date and time of the cluster.
 -- * 'endDateTime' - The date and time when the cluster was terminated.
--- * 'readyDateTime' - The date and time when the cluster was ready to run steps.
 mkClusterTimeline ::
   ClusterTimeline
 mkClusterTimeline =

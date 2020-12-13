@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CodeBuild.StopBuild
     mkStopBuildResponse,
 
     -- ** Response lenses
-    sbrsBuild,
-    sbrsResponseStatus,
+    sbfrsBuild,
+    sbfrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopBuild' smart constructor.
-newtype StopBuild = StopBuild' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StopBuild = StopBuild'
+  { -- | The ID of the build.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopBuild' with the minimum fields required to make a request.
@@ -97,17 +95,12 @@ instance Lude.ToQuery StopBuild where
 
 -- | /See:/ 'mkStopBuildResponse' smart constructor.
 data StopBuildResponse = StopBuildResponse'
-  { build ::
-      Lude.Maybe Build,
+  { -- | Information about the build.
+    build :: Lude.Maybe Build,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopBuildResponse' with the minimum fields required to make a request.
@@ -127,13 +120,13 @@ mkStopBuildResponse pResponseStatus_ =
 -- | Information about the build.
 --
 -- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbrsBuild :: Lens.Lens' StopBuildResponse (Lude.Maybe Build)
-sbrsBuild = Lens.lens (build :: StopBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: StopBuildResponse)
-{-# DEPRECATED sbrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
+sbfrsBuild :: Lens.Lens' StopBuildResponse (Lude.Maybe Build)
+sbfrsBuild = Lens.lens (build :: StopBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: StopBuildResponse)
+{-# DEPRECATED sbfrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbrsResponseStatus :: Lens.Lens' StopBuildResponse Lude.Int
-sbrsResponseStatus = Lens.lens (responseStatus :: StopBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopBuildResponse)
-{-# DEPRECATED sbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sbfrsResponseStatus :: Lens.Lens' StopBuildResponse Lude.Int
+sbfrsResponseStatus = Lens.lens (responseStatus :: StopBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopBuildResponse)
+{-# DEPRECATED sbfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

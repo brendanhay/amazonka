@@ -32,33 +32,21 @@ import Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedCause
 --
 -- /See:/ 'mkWorkflowExecutionCancelRequestedEventAttributes' smart constructor.
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes'
-  { externalWorkflowExecution ::
-      Lude.Maybe
-        WorkflowExecution,
-    externalInitiatedEventId ::
-      Lude.Maybe
-        Lude.Integer,
-    cause ::
-      Lude.Maybe
-        WorkflowExecutionCancelRequestedCause
+  { -- | The external workflow execution for which the cancellation was requested.
+    externalWorkflowExecution :: Lude.Maybe WorkflowExecution,
+    -- | The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    externalInitiatedEventId :: Lude.Maybe Lude.Integer,
+    -- | If set, indicates that the request to cancel the workflow execution was automatically generated, and specifies the cause. This happens if the parent workflow execution times out or is terminated, and the child policy is set to cancel child executions.
+    cause :: Lude.Maybe WorkflowExecutionCancelRequestedCause
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionCancelRequestedEventAttributes' with the minimum fields required to make a request.
 --
--- * 'cause' - If set, indicates that the request to cancel the workflow execution was automatically generated, and specifies the cause. This happens if the parent workflow execution times out or is terminated, and the child policy is set to cancel child executions.
--- * 'externalInitiatedEventId' - The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 -- * 'externalWorkflowExecution' - The external workflow execution for which the cancellation was requested.
+-- * 'externalInitiatedEventId' - The ID of the @RequestCancelExternalWorkflowExecutionInitiated@ event corresponding to the @RequestCancelExternalWorkflowExecution@ decision to cancel this workflow execution.The source event with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'cause' - If set, indicates that the request to cancel the workflow execution was automatically generated, and specifies the cause. This happens if the parent workflow execution times out or is terminated, and the child policy is set to cancel child executions.
 mkWorkflowExecutionCancelRequestedEventAttributes ::
   WorkflowExecutionCancelRequestedEventAttributes
 mkWorkflowExecutionCancelRequestedEventAttributes =

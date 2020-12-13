@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,22 +42,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetCompatibleElasticsearchVersions' smart constructor.
 newtype GetCompatibleElasticsearchVersions = GetCompatibleElasticsearchVersions'
-  { domainName ::
-      Lude.Maybe
-        Lude.Text
+  { domainName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCompatibleElasticsearchVersions' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
+-- * 'domainName' -
 mkGetCompatibleElasticsearchVersions ::
   GetCompatibleElasticsearchVersions
 mkGetCompatibleElasticsearchVersions =
@@ -96,19 +89,12 @@ instance Lude.ToQuery GetCompatibleElasticsearchVersions where
 --
 -- /See:/ 'mkGetCompatibleElasticsearchVersionsResponse' smart constructor.
 data GetCompatibleElasticsearchVersionsResponse = GetCompatibleElasticsearchVersionsResponse'
-  { compatibleElasticsearchVersions ::
-      Lude.Maybe
-        [CompatibleVersionsMap],
-    responseStatus ::
-      Lude.Int
+  { -- | A map of compatible Elasticsearch versions returned as part of the @'GetCompatibleElasticsearchVersions' @ operation.
+    compatibleElasticsearchVersions :: Lude.Maybe [CompatibleVersionsMap],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCompatibleElasticsearchVersionsResponse' with the minimum fields required to make a request.

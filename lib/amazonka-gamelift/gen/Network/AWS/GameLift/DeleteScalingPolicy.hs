@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,8 +51,8 @@ module Network.AWS.GameLift.DeleteScalingPolicy
     mkDeleteScalingPolicy,
 
     -- ** Request lenses
-    dspName,
-    dspFleetId,
+    dName,
+    dFleetId,
 
     -- * Destructuring the response
     DeleteScalingPolicyResponse (..),
@@ -69,22 +70,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
-  { name :: Lude.Text,
+  { -- | A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
+    name :: Lude.Text,
+    -- | A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
     fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScalingPolicy' with the minimum fields required to make a request.
 --
--- * 'fleetId' - A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
 -- * 'name' - A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
+-- * 'fleetId' - A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
 mkDeleteScalingPolicy ::
   -- | 'name'
   Lude.Text ->
@@ -97,16 +94,16 @@ mkDeleteScalingPolicy pName_ pFleetId_ =
 -- | A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dspName :: Lens.Lens' DeleteScalingPolicy Lude.Text
-dspName = Lens.lens (name :: DeleteScalingPolicy -> Lude.Text) (\s a -> s {name = a} :: DeleteScalingPolicy)
-{-# DEPRECATED dspName "Use generic-lens or generic-optics with 'name' instead." #-}
+dName :: Lens.Lens' DeleteScalingPolicy Lude.Text
+dName = Lens.lens (name :: DeleteScalingPolicy -> Lude.Text) (\s a -> s {name = a} :: DeleteScalingPolicy)
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dspFleetId :: Lens.Lens' DeleteScalingPolicy Lude.Text
-dspFleetId = Lens.lens (fleetId :: DeleteScalingPolicy -> Lude.Text) (\s a -> s {fleetId = a} :: DeleteScalingPolicy)
-{-# DEPRECATED dspFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+dFleetId :: Lens.Lens' DeleteScalingPolicy Lude.Text
+dFleetId = Lens.lens (fleetId :: DeleteScalingPolicy -> Lude.Text) (\s a -> s {fleetId = a} :: DeleteScalingPolicy)
+{-# DEPRECATED dFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 instance Lude.AWSRequest DeleteScalingPolicy where
   type Rs DeleteScalingPolicy = DeleteScalingPolicyResponse
@@ -141,13 +138,7 @@ instance Lude.ToQuery DeleteScalingPolicy where
 
 -- | /See:/ 'mkDeleteScalingPolicyResponse' smart constructor.
 data DeleteScalingPolicyResponse = DeleteScalingPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScalingPolicyResponse' with the minimum fields required to make a request.

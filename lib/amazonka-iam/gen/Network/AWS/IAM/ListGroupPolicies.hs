@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,10 +34,10 @@ module Network.AWS.IAM.ListGroupPolicies
     mkListGroupPoliciesResponse,
 
     -- ** Response lenses
+    lgprsPolicyNames,
     lgprsMarker,
     lgprsIsTruncated,
     lgprsResponseStatus,
-    lgprsPolicyNames,
   )
 where
 
@@ -49,29 +50,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGroupPolicies' smart constructor.
 data ListGroupPolicies = ListGroupPolicies'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+    --
+    -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
     maxItems :: Lude.Maybe Lude.Natural,
+    -- | The name of the group to list policies for.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
     groupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupPolicies' with the minimum fields required to make a request.
 --
--- * 'groupName' - The name of the group to list policies for.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 -- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
 -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- * 'groupName' - The name of the group to list policies for.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkListGroupPolicies ::
   -- | 'groupName'
   Lude.Text ->
@@ -123,12 +124,12 @@ instance Lude.AWSRequest ListGroupPolicies where
       "ListGroupPoliciesResult"
       ( \s h x ->
           ListGroupPoliciesResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "PolicyNames" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "PolicyNames" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListGroupPolicies where
@@ -151,28 +152,27 @@ instance Lude.ToQuery ListGroupPolicies where
 --
 -- /See:/ 'mkListGroupPoliciesResponse' smart constructor.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of policy names.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    policyNames :: [Lude.Text],
+    -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
     isTruncated :: Lude.Maybe Lude.Bool,
-    responseStatus :: Lude.Int,
-    policyNames :: [Lude.Text]
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupPoliciesResponse' with the minimum fields required to make a request.
 --
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
--- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 -- * 'policyNames' - A list of policy names.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'responseStatus' - The response status code.
 mkListGroupPoliciesResponse ::
   -- | 'responseStatus'
@@ -180,11 +180,20 @@ mkListGroupPoliciesResponse ::
   ListGroupPoliciesResponse
 mkListGroupPoliciesResponse pResponseStatus_ =
   ListGroupPoliciesResponse'
-    { marker = Lude.Nothing,
+    { policyNames = Lude.mempty,
+      marker = Lude.Nothing,
       isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      policyNames = Lude.mempty
+      responseStatus = pResponseStatus_
     }
+
+-- | A list of policy names.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgprsPolicyNames :: Lens.Lens' ListGroupPoliciesResponse [Lude.Text]
+lgprsPolicyNames = Lens.lens (policyNames :: ListGroupPoliciesResponse -> [Lude.Text]) (\s a -> s {policyNames = a} :: ListGroupPoliciesResponse)
+{-# DEPRECATED lgprsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
@@ -206,12 +215,3 @@ lgprsIsTruncated = Lens.lens (isTruncated :: ListGroupPoliciesResponse -> Lude.M
 lgprsResponseStatus :: Lens.Lens' ListGroupPoliciesResponse Lude.Int
 lgprsResponseStatus = Lens.lens (responseStatus :: ListGroupPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGroupPoliciesResponse)
 {-# DEPRECATED lgprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | A list of policy names.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgprsPolicyNames :: Lens.Lens' ListGroupPoliciesResponse [Lude.Text]
-lgprsPolicyNames = Lens.lens (policyNames :: ListGroupPoliciesResponse -> [Lude.Text]) (\s a -> s {policyNames = a} :: ListGroupPoliciesResponse)
-{-# DEPRECATED lgprsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}

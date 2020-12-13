@@ -13,9 +13,9 @@
 module Network.AWS.LexModels.Types.ExportStatus
   ( ExportStatus
       ( ExportStatus',
-        ESFailed,
         ESInProgress,
-        ESReady
+        ESReady,
+        ESFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ExportStatus = ExportStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESFailed :: ExportStatus
-pattern ESFailed = ExportStatus' "FAILED"
-
 pattern ESInProgress :: ExportStatus
 pattern ESInProgress = ExportStatus' "IN_PROGRESS"
 
 pattern ESReady :: ExportStatus
 pattern ESReady = ExportStatus' "READY"
 
+pattern ESFailed :: ExportStatus
+pattern ESFailed = ExportStatus' "FAILED"
+
 {-# COMPLETE
-  ESFailed,
   ESInProgress,
   ESReady,
+  ESFailed,
   ExportStatus'
   #-}

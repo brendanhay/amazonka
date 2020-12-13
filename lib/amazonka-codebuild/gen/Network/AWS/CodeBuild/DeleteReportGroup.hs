@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,25 +40,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteReportGroup' smart constructor.
 data DeleteReportGroup = DeleteReportGroup'
-  { deleteReports ::
-      Lude.Maybe Lude.Bool,
+  { -- | If @true@ , deletes any reports that belong to a report group before deleting the report group.
+    --
+    -- If @false@ , you must delete any reports in the report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html ListReportsForReportGroup> to get the reports in a report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html DeleteReport> to delete the reports. If you call @DeleteReportGroup@ for a report group that contains one or more reports, an exception is thrown.
+    deleteReports :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the report group to delete.
     arn :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReportGroup' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the report group to delete.
 -- * 'deleteReports' - If @true@ , deletes any reports that belong to a report group before deleting the report group.
 --
 -- If @false@ , you must delete any reports in the report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html ListReportsForReportGroup> to get the reports in a report group. Use <https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html DeleteReport> to delete the reports. If you call @DeleteReportGroup@ for a report group that contains one or more reports, an exception is thrown.
+-- * 'arn' - The ARN of the report group to delete.
 mkDeleteReportGroup ::
   -- | 'arn'
   Lude.Text ->
@@ -118,16 +116,10 @@ instance Lude.ToQuery DeleteReportGroup where
 
 -- | /See:/ 'mkDeleteReportGroupResponse' smart constructor.
 newtype DeleteReportGroupResponse = DeleteReportGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReportGroupResponse' with the minimum fields required to make a request.

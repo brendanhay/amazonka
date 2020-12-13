@@ -35,35 +35,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicaAutoScalingDescription' smart constructor.
 data ReplicaAutoScalingDescription = ReplicaAutoScalingDescription'
-  { replicaStatus ::
-      Lude.Maybe ReplicaStatus,
-    regionName ::
-      Lude.Maybe Lude.Text,
-    globalSecondaryIndexes ::
-      Lude.Maybe
-        [ReplicaGlobalSecondaryIndexAutoScalingDescription],
-    replicaProvisionedWriteCapacityAutoScalingSettings ::
-      Lude.Maybe
-        AutoScalingSettingsDescription,
-    replicaProvisionedReadCapacityAutoScalingSettings ::
-      Lude.Maybe
-        AutoScalingSettingsDescription
+  { -- | The current state of the replica:
+    --
+    --
+    --     * @CREATING@ - The replica is being created.
+    --
+    --
+    --     * @UPDATING@ - The replica is being updated.
+    --
+    --
+    --     * @DELETING@ - The replica is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The replica is ready for use.
+    replicaStatus :: Lude.Maybe ReplicaStatus,
+    -- | The Region where the replica exists.
+    regionName :: Lude.Maybe Lude.Text,
+    -- | Replica-specific global secondary index auto scaling settings.
+    globalSecondaryIndexes :: Lude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription],
+    replicaProvisionedWriteCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription,
+    replicaProvisionedReadCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaAutoScalingDescription' with the minimum fields required to make a request.
 --
--- * 'globalSecondaryIndexes' - Replica-specific global secondary index auto scaling settings.
--- * 'regionName' - The Region where the replica exists.
--- * 'replicaProvisionedReadCapacityAutoScalingSettings' - Undocumented field.
--- * 'replicaProvisionedWriteCapacityAutoScalingSettings' - Undocumented field.
 -- * 'replicaStatus' - The current state of the replica:
 --
 --
@@ -77,6 +74,12 @@ data ReplicaAutoScalingDescription = ReplicaAutoScalingDescription'
 --
 --
 --     * @ACTIVE@ - The replica is ready for use.
+--
+--
+-- * 'regionName' - The Region where the replica exists.
+-- * 'globalSecondaryIndexes' - Replica-specific global secondary index auto scaling settings.
+-- * 'replicaProvisionedWriteCapacityAutoScalingSettings' -
+-- * 'replicaProvisionedReadCapacityAutoScalingSettings' -
 mkReplicaAutoScalingDescription ::
   ReplicaAutoScalingDescription
 mkReplicaAutoScalingDescription =

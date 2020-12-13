@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,22 +49,23 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTagUser' smart constructor.
-data TagUser = TagUser' {userName :: Lude.Text, tags :: [Tag]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data TagUser = TagUser'
+  { -- | The name of the user that you want to add tags to.
+    --
+    -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+    userName :: Lude.Text,
+    -- | The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
+    tags :: [Tag]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagUser' with the minimum fields required to make a request.
 --
--- * 'tags' - The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
 -- * 'userName' - The name of the user that you want to add tags to.
 --
 -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'tags' - The list of tags that you want to attach to the user. Each tag consists of a key name and an associated value.
 mkTagUser ::
   -- | 'userName'
   Lude.Text ->
@@ -109,13 +111,7 @@ instance Lude.ToQuery TagUser where
 
 -- | /See:/ 'mkTagUserResponse' smart constructor.
 data TagUserResponse = TagUserResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagUserResponse' with the minimum fields required to make a request.

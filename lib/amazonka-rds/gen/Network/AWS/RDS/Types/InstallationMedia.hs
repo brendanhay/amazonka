@@ -36,36 +36,36 @@ import Network.AWS.RDS.Types.InstallationMediaFailureCause
 --
 -- /See:/ 'mkInstallationMedia' smart constructor.
 data InstallationMedia = InstallationMedia'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The engine version of the DB engine.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The status of the installation medium.
     status :: Lude.Maybe Lude.Text,
+    -- | The installation medium ID.
     installationMediaId :: Lude.Maybe Lude.Text,
+    -- | The path to the installation medium for the DB engine.
     engineInstallationMediaPath :: Lude.Maybe Lude.Text,
+    -- | The DB engine.
     engine :: Lude.Maybe Lude.Text,
+    -- | The path to the installation medium for the operating system associated with the DB engine.
     osInstallationMediaPath :: Lude.Maybe Lude.Text,
+    -- | The custom Availability Zone (AZ) that contains the installation media.
     customAvailabilityZoneId :: Lude.Maybe Lude.Text,
-    failureCause ::
-      Lude.Maybe InstallationMediaFailureCause
+    -- | If an installation media failure occurred, the cause of the failure.
+    failureCause :: Lude.Maybe InstallationMediaFailureCause
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstallationMedia' with the minimum fields required to make a request.
 --
--- * 'customAvailabilityZoneId' - The custom Availability Zone (AZ) that contains the installation media.
--- * 'engine' - The DB engine.
--- * 'engineInstallationMediaPath' - The path to the installation medium for the DB engine.
 -- * 'engineVersion' - The engine version of the DB engine.
--- * 'failureCause' - If an installation media failure occurred, the cause of the failure.
--- * 'installationMediaId' - The installation medium ID.
--- * 'osInstallationMediaPath' - The path to the installation medium for the operating system associated with the DB engine.
 -- * 'status' - The status of the installation medium.
+-- * 'installationMediaId' - The installation medium ID.
+-- * 'engineInstallationMediaPath' - The path to the installation medium for the DB engine.
+-- * 'engine' - The DB engine.
+-- * 'osInstallationMediaPath' - The path to the installation medium for the operating system associated with the DB engine.
+-- * 'customAvailabilityZoneId' - The custom Availability Zone (AZ) that contains the installation media.
+-- * 'failureCause' - If an installation media failure occurred, the cause of the failure.
 mkInstallationMedia ::
   InstallationMedia
 mkInstallationMedia =

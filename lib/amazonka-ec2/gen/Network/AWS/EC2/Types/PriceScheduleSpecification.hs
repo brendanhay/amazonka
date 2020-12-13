@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPriceScheduleSpecification' smart constructor.
 data PriceScheduleSpecification = PriceScheduleSpecification'
-  { currencyCode ::
-      Lude.Maybe CurrencyCodeValues,
+  { -- | The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
+    currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
     term :: Lude.Maybe Lude.Integer,
+    -- | The fixed price for the term.
     price :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PriceScheduleSpecification' with the minimum fields required to make a request.
 --
 -- * 'currencyCode' - The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
--- * 'price' - The fixed price for the term.
 -- * 'term' - The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
+-- * 'price' - The fixed price for the term.
 mkPriceScheduleSpecification ::
   PriceScheduleSpecification
 mkPriceScheduleSpecification =

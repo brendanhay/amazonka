@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.FMS.DeletePolicy
     mkDeletePolicy,
 
     -- ** Request lenses
-    dpDeleteAllPolicyResources,
     dpPolicyId,
+    dpDeleteAllPolicyResources,
 
     -- * Destructuring the response
     DeletePolicyResponse (..),
@@ -36,21 +37,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
-  { deleteAllPolicyResources ::
-      Lude.Maybe Lude.Bool,
-    policyId :: Lude.Text
+  { -- | The ID of the policy that you want to delete. You can retrieve this ID from @PutPolicy@ and @ListPolicies@ .
+    policyId :: Lude.Text,
+    -- | If @True@ , the request performs cleanup according to the policy type.
+    --
+    -- For AWS WAF and Shield Advanced policies, the cleanup does the following:
+    --
+    --     * Deletes rule groups created by AWS Firewall Manager
+    --
+    --
+    --     * Removes web ACLs from in-scope resources
+    --
+    --
+    --     * Deletes web ACLs that contain no rules or rule groups
+    --
+    --
+    -- For security group policies, the cleanup does the following for each security group in the policy:
+    --
+    --     * Disassociates the security group from in-scope resources
+    --
+    --
+    --     * Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy
+    --
+    --
+    -- After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
+    deleteAllPolicyResources :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
 --
+-- * 'policyId' - The ID of the policy that you want to delete. You can retrieve this ID from @PutPolicy@ and @ListPolicies@ .
 -- * 'deleteAllPolicyResources' - If @True@ , the request performs cleanup according to the policy type.
 --
 -- For AWS WAF and Shield Advanced policies, the cleanup does the following:
@@ -73,16 +91,22 @@ data DeletePolicy = DeletePolicy'
 --
 --
 -- After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
--- * 'policyId' - The ID of the policy that you want to delete. You can retrieve this ID from @PutPolicy@ and @ListPolicies@ .
 mkDeletePolicy ::
   -- | 'policyId'
   Lude.Text ->
   DeletePolicy
 mkDeletePolicy pPolicyId_ =
   DeletePolicy'
-    { deleteAllPolicyResources = Lude.Nothing,
-      policyId = pPolicyId_
+    { policyId = pPolicyId_,
+      deleteAllPolicyResources = Lude.Nothing
     }
+
+-- | The ID of the policy that you want to delete. You can retrieve this ID from @PutPolicy@ and @ListPolicies@ .
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpPolicyId :: Lens.Lens' DeletePolicy Lude.Text
+dpPolicyId = Lens.lens (policyId :: DeletePolicy -> Lude.Text) (\s a -> s {policyId = a} :: DeletePolicy)
+{-# DEPRECATED dpPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | If @True@ , the request performs cleanup according to the policy type.
 --
@@ -112,13 +136,6 @@ dpDeleteAllPolicyResources :: Lens.Lens' DeletePolicy (Lude.Maybe Lude.Bool)
 dpDeleteAllPolicyResources = Lens.lens (deleteAllPolicyResources :: DeletePolicy -> Lude.Maybe Lude.Bool) (\s a -> s {deleteAllPolicyResources = a} :: DeletePolicy)
 {-# DEPRECATED dpDeleteAllPolicyResources "Use generic-lens or generic-optics with 'deleteAllPolicyResources' instead." #-}
 
--- | The ID of the policy that you want to delete. You can retrieve this ID from @PutPolicy@ and @ListPolicies@ .
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpPolicyId :: Lens.Lens' DeletePolicy Lude.Text
-dpPolicyId = Lens.lens (policyId :: DeletePolicy -> Lude.Text) (\s a -> s {policyId = a} :: DeletePolicy)
-{-# DEPRECATED dpPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
-
 instance Lude.AWSRequest DeletePolicy where
   type Rs DeletePolicy = DeletePolicyResponse
   request = Req.postJSON fmsService
@@ -139,9 +156,9 @@ instance Lude.ToJSON DeletePolicy where
   toJSON DeletePolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DeleteAllPolicyResources" Lude..=)
-              Lude.<$> deleteAllPolicyResources,
-            Lude.Just ("PolicyId" Lude..= policyId)
+          [ Lude.Just ("PolicyId" Lude..= policyId),
+            ("DeleteAllPolicyResources" Lude..=)
+              Lude.<$> deleteAllPolicyResources
           ]
       )
 
@@ -153,13 +170,7 @@ instance Lude.ToQuery DeletePolicy where
 
 -- | /See:/ 'mkDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.

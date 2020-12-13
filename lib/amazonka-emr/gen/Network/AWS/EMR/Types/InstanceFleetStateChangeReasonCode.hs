@@ -13,10 +13,10 @@
 module Network.AWS.EMR.Types.InstanceFleetStateChangeReasonCode
   ( InstanceFleetStateChangeReasonCode
       ( InstanceFleetStateChangeReasonCode',
-        IFSCRCClusterTerminated,
-        IFSCRCInstanceFailure,
         IFSCRCInternalError,
-        IFSCRCValidationError
+        IFSCRCValidationError,
+        IFSCRCInstanceFailure,
+        IFSCRCClusterTerminated
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype InstanceFleetStateChangeReasonCode = InstanceFleetStateChangeReasonCode'
       Lude.ToHeader
     )
 
-pattern IFSCRCClusterTerminated :: InstanceFleetStateChangeReasonCode
-pattern IFSCRCClusterTerminated = InstanceFleetStateChangeReasonCode' "CLUSTER_TERMINATED"
-
-pattern IFSCRCInstanceFailure :: InstanceFleetStateChangeReasonCode
-pattern IFSCRCInstanceFailure = InstanceFleetStateChangeReasonCode' "INSTANCE_FAILURE"
-
 pattern IFSCRCInternalError :: InstanceFleetStateChangeReasonCode
 pattern IFSCRCInternalError = InstanceFleetStateChangeReasonCode' "INTERNAL_ERROR"
 
 pattern IFSCRCValidationError :: InstanceFleetStateChangeReasonCode
 pattern IFSCRCValidationError = InstanceFleetStateChangeReasonCode' "VALIDATION_ERROR"
 
+pattern IFSCRCInstanceFailure :: InstanceFleetStateChangeReasonCode
+pattern IFSCRCInstanceFailure = InstanceFleetStateChangeReasonCode' "INSTANCE_FAILURE"
+
+pattern IFSCRCClusterTerminated :: InstanceFleetStateChangeReasonCode
+pattern IFSCRCClusterTerminated = InstanceFleetStateChangeReasonCode' "CLUSTER_TERMINATED"
+
 {-# COMPLETE
-  IFSCRCClusterTerminated,
-  IFSCRCInstanceFailure,
   IFSCRCInternalError,
   IFSCRCValidationError,
+  IFSCRCInstanceFailure,
+  IFSCRCClusterTerminated,
   InstanceFleetStateChangeReasonCode'
   #-}

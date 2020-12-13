@@ -13,17 +13,17 @@
 module Network.AWS.MediaConvert.Types.ContainerType
   ( ContainerType
       ( ContainerType',
-        CTCmfc,
         CTF4V,
         CTIsmv,
         CTM2TS,
         CTM3U8,
-        CTMP4,
+        CTCmfc,
         CTMov,
+        CTMP4,
         CTMpd,
         CTMxf,
-        CTRaw,
-        CTWebm
+        CTWebm,
+        CTRaw
       ),
   )
 where
@@ -55,9 +55,6 @@ newtype ContainerType = ContainerType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CTCmfc :: ContainerType
-pattern CTCmfc = ContainerType' "CMFC"
-
 pattern CTF4V :: ContainerType
 pattern CTF4V = ContainerType' "F4V"
 
@@ -70,11 +67,14 @@ pattern CTM2TS = ContainerType' "M2TS"
 pattern CTM3U8 :: ContainerType
 pattern CTM3U8 = ContainerType' "M3U8"
 
-pattern CTMP4 :: ContainerType
-pattern CTMP4 = ContainerType' "MP4"
+pattern CTCmfc :: ContainerType
+pattern CTCmfc = ContainerType' "CMFC"
 
 pattern CTMov :: ContainerType
 pattern CTMov = ContainerType' "MOV"
+
+pattern CTMP4 :: ContainerType
+pattern CTMP4 = ContainerType' "MP4"
 
 pattern CTMpd :: ContainerType
 pattern CTMpd = ContainerType' "MPD"
@@ -82,23 +82,23 @@ pattern CTMpd = ContainerType' "MPD"
 pattern CTMxf :: ContainerType
 pattern CTMxf = ContainerType' "MXF"
 
-pattern CTRaw :: ContainerType
-pattern CTRaw = ContainerType' "RAW"
-
 pattern CTWebm :: ContainerType
 pattern CTWebm = ContainerType' "WEBM"
 
+pattern CTRaw :: ContainerType
+pattern CTRaw = ContainerType' "RAW"
+
 {-# COMPLETE
-  CTCmfc,
   CTF4V,
   CTIsmv,
   CTM2TS,
   CTM3U8,
-  CTMP4,
+  CTCmfc,
   CTMov,
+  CTMP4,
   CTMpd,
   CTMxf,
-  CTRaw,
   CTWebm,
+  CTRaw,
   ContainerType'
   #-}

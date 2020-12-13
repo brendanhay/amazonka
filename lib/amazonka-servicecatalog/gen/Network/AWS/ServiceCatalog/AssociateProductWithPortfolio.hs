@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,17 +22,17 @@ module Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
     mkAssociateProductWithPortfolio,
 
     -- ** Request lenses
-    apwpSourcePortfolioId,
-    apwpAcceptLanguage,
-    apwpProductId,
-    apwpPortfolioId,
+    aPortfolioId,
+    aSourcePortfolioId,
+    aAcceptLanguage,
+    aProductId,
 
     -- * Destructuring the response
     AssociateProductWithPortfolioResponse (..),
     mkAssociateProductWithPortfolioResponse,
 
     -- ** Response lenses
-    arsResponseStatus,
+    apwprsResponseStatus,
   )
 where
 
@@ -43,24 +44,31 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkAssociateProductWithPortfolio' smart constructor.
 data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
-  { sourcePortfolioId ::
-      Lude.Maybe Lude.Text,
-    acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    productId :: Lude.Text,
-    portfolioId :: Lude.Text
+  { -- | The portfolio identifier.
+    portfolioId :: Lude.Text,
+    -- | The identifier of the source portfolio.
+    sourcePortfolioId :: Lude.Maybe Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The product identifier.
+    productId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateProductWithPortfolio' with the minimum fields required to make a request.
 --
+-- * 'portfolioId' - The portfolio identifier.
+-- * 'sourcePortfolioId' - The identifier of the source portfolio.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -73,29 +81,34 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
 --     * @zh@ - Chinese
 --
 --
--- * 'portfolioId' - The portfolio identifier.
 -- * 'productId' - The product identifier.
--- * 'sourcePortfolioId' - The identifier of the source portfolio.
 mkAssociateProductWithPortfolio ::
-  -- | 'productId'
-  Lude.Text ->
   -- | 'portfolioId'
   Lude.Text ->
+  -- | 'productId'
+  Lude.Text ->
   AssociateProductWithPortfolio
-mkAssociateProductWithPortfolio pProductId_ pPortfolioId_ =
+mkAssociateProductWithPortfolio pPortfolioId_ pProductId_ =
   AssociateProductWithPortfolio'
-    { sourcePortfolioId = Lude.Nothing,
+    { portfolioId = pPortfolioId_,
+      sourcePortfolioId = Lude.Nothing,
       acceptLanguage = Lude.Nothing,
-      productId = pProductId_,
-      portfolioId = pPortfolioId_
+      productId = pProductId_
     }
+
+-- | The portfolio identifier.
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aPortfolioId :: Lens.Lens' AssociateProductWithPortfolio Lude.Text
+aPortfolioId = Lens.lens (portfolioId :: AssociateProductWithPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: AssociateProductWithPortfolio)
+{-# DEPRECATED aPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The identifier of the source portfolio.
 --
 -- /Note:/ Consider using 'sourcePortfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apwpSourcePortfolioId :: Lens.Lens' AssociateProductWithPortfolio (Lude.Maybe Lude.Text)
-apwpSourcePortfolioId = Lens.lens (sourcePortfolioId :: AssociateProductWithPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {sourcePortfolioId = a} :: AssociateProductWithPortfolio)
-{-# DEPRECATED apwpSourcePortfolioId "Use generic-lens or generic-optics with 'sourcePortfolioId' instead." #-}
+aSourcePortfolioId :: Lens.Lens' AssociateProductWithPortfolio (Lude.Maybe Lude.Text)
+aSourcePortfolioId = Lens.lens (sourcePortfolioId :: AssociateProductWithPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {sourcePortfolioId = a} :: AssociateProductWithPortfolio)
+{-# DEPRECATED aSourcePortfolioId "Use generic-lens or generic-optics with 'sourcePortfolioId' instead." #-}
 
 -- | The language code.
 --
@@ -111,23 +124,16 @@ apwpSourcePortfolioId = Lens.lens (sourcePortfolioId :: AssociateProductWithPort
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apwpAcceptLanguage :: Lens.Lens' AssociateProductWithPortfolio (Lude.Maybe Lude.Text)
-apwpAcceptLanguage = Lens.lens (acceptLanguage :: AssociateProductWithPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: AssociateProductWithPortfolio)
-{-# DEPRECATED apwpAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+aAcceptLanguage :: Lens.Lens' AssociateProductWithPortfolio (Lude.Maybe Lude.Text)
+aAcceptLanguage = Lens.lens (acceptLanguage :: AssociateProductWithPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: AssociateProductWithPortfolio)
+{-# DEPRECATED aAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The product identifier.
 --
 -- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apwpProductId :: Lens.Lens' AssociateProductWithPortfolio Lude.Text
-apwpProductId = Lens.lens (productId :: AssociateProductWithPortfolio -> Lude.Text) (\s a -> s {productId = a} :: AssociateProductWithPortfolio)
-{-# DEPRECATED apwpProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
-
--- | The portfolio identifier.
---
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apwpPortfolioId :: Lens.Lens' AssociateProductWithPortfolio Lude.Text
-apwpPortfolioId = Lens.lens (portfolioId :: AssociateProductWithPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: AssociateProductWithPortfolio)
-{-# DEPRECATED apwpPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
+aProductId :: Lens.Lens' AssociateProductWithPortfolio Lude.Text
+aProductId = Lens.lens (productId :: AssociateProductWithPortfolio -> Lude.Text) (\s a -> s {productId = a} :: AssociateProductWithPortfolio)
+{-# DEPRECATED aProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 instance Lude.AWSRequest AssociateProductWithPortfolio where
   type
@@ -158,10 +164,10 @@ instance Lude.ToJSON AssociateProductWithPortfolio where
   toJSON AssociateProductWithPortfolio' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SourcePortfolioId" Lude..=) Lude.<$> sourcePortfolioId,
+          [ Lude.Just ("PortfolioId" Lude..= portfolioId),
+            ("SourcePortfolioId" Lude..=) Lude.<$> sourcePortfolioId,
             ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("ProductId" Lude..= productId),
-            Lude.Just ("PortfolioId" Lude..= portfolioId)
+            Lude.Just ("ProductId" Lude..= productId)
           ]
       )
 
@@ -173,16 +179,10 @@ instance Lude.ToQuery AssociateProductWithPortfolio where
 
 -- | /See:/ 'mkAssociateProductWithPortfolioResponse' smart constructor.
 newtype AssociateProductWithPortfolioResponse = AssociateProductWithPortfolioResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateProductWithPortfolioResponse' with the minimum fields required to make a request.
@@ -201,6 +201,6 @@ mkAssociateProductWithPortfolioResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arsResponseStatus :: Lens.Lens' AssociateProductWithPortfolioResponse Lude.Int
-arsResponseStatus = Lens.lens (responseStatus :: AssociateProductWithPortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateProductWithPortfolioResponse)
-{-# DEPRECATED arsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+apwprsResponseStatus :: Lens.Lens' AssociateProductWithPortfolioResponse Lude.Int
+apwprsResponseStatus = Lens.lens (responseStatus :: AssociateProductWithPortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateProductWithPortfolioResponse)
+{-# DEPRECATED apwprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

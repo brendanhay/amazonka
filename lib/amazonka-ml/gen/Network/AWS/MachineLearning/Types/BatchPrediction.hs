@@ -46,49 +46,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchPrediction' smart constructor.
 data BatchPrediction = BatchPrediction'
-  { status ::
-      Lude.Maybe EntityStatus,
+  { -- | The status of the @BatchPrediction@ . This element can have one of the following values:
+    --
+    --
+    --     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to generate predictions for a batch of observations.
+    --
+    --     * @INPROGRESS@ - The process is underway.
+    --
+    --     * @FAILED@ - The request to perform a batch prediction did not run to completion. It is not usable.
+    --
+    --     * @COMPLETED@ - The batch prediction process completed successfully.
+    --
+    --     * @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not usable.
+    status :: Lude.Maybe EntityStatus,
+    -- | The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time that the @BatchPrediction@ was created. The time is expressed in epoch time.
     createdAt :: Lude.Maybe Lude.Timestamp,
     computeTime :: Lude.Maybe Lude.Integer,
+    -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
     inputDataLocationS3 :: Lude.Maybe Lude.Text,
+    -- | The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
     mLModelId :: Lude.Maybe Lude.Text,
+    -- | The ID of the @DataSource@ that points to the group of observations to predict.
     batchPredictionDataSourceId :: Lude.Maybe Lude.Text,
     totalRecordCount :: Lude.Maybe Lude.Integer,
     startedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
     batchPredictionId :: Lude.Maybe Lude.Text,
     finishedAt :: Lude.Maybe Lude.Timestamp,
     invalidRecordCount :: Lude.Maybe Lude.Integer,
+    -- | The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
     createdByIAMUser :: Lude.Maybe Lude.Text,
+    -- | A user-supplied name or description of the @BatchPrediction@ .
     name :: Lude.Maybe Lude.Text,
+    -- | A description of the most recent details about processing the batch prediction request.
     message :: Lude.Maybe Lude.Text,
+    -- | The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
     outputURI :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPrediction' with the minimum fields required to make a request.
 --
--- * 'batchPredictionDataSourceId' - The ID of the @DataSource@ that points to the group of observations to predict.
--- * 'batchPredictionId' - The ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
--- * 'computeTime' - Undocumented field.
--- * 'createdAt' - The time that the @BatchPrediction@ was created. The time is expressed in epoch time.
--- * 'createdByIAMUser' - The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
--- * 'finishedAt' - Undocumented field.
--- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
--- * 'invalidRecordCount' - Undocumented field.
--- * 'lastUpdatedAt' - The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
--- * 'mLModelId' - The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
--- * 'message' - A description of the most recent details about processing the batch prediction request.
--- * 'name' - A user-supplied name or description of the @BatchPrediction@ .
--- * 'outputURI' - The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
--- * 'startedAt' - Undocumented field.
 -- * 'status' - The status of the @BatchPrediction@ . This element can have one of the following values:
 --
 --
@@ -102,7 +103,21 @@ data BatchPrediction = BatchPrediction'
 --
 --     * @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not usable.
 --
--- * 'totalRecordCount' - Undocumented field.
+-- * 'lastUpdatedAt' - The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
+-- * 'createdAt' - The time that the @BatchPrediction@ was created. The time is expressed in epoch time.
+-- * 'computeTime' -
+-- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+-- * 'mLModelId' - The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
+-- * 'batchPredictionDataSourceId' - The ID of the @DataSource@ that points to the group of observations to predict.
+-- * 'totalRecordCount' -
+-- * 'startedAt' -
+-- * 'batchPredictionId' - The ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
+-- * 'finishedAt' -
+-- * 'invalidRecordCount' -
+-- * 'createdByIAMUser' - The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'name' - A user-supplied name or description of the @BatchPrediction@ .
+-- * 'message' - A description of the most recent details about processing the batch prediction request.
+-- * 'outputURI' - The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
 mkBatchPrediction ::
   BatchPrediction
 mkBatchPrediction =

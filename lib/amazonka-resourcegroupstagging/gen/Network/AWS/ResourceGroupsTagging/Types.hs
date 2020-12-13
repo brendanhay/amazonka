@@ -56,8 +56,8 @@ module Network.AWS.ResourceGroupsTagging.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * TagFilter
     TagFilter (..),

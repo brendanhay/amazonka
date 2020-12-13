@@ -13,8 +13,8 @@
 module Network.AWS.Pinpoint.Types.MessageType
   ( MessageType
       ( MessageType',
-        Promotional,
-        Transactional
+        Transactional,
+        Promotional
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MessageType = MessageType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Promotional :: MessageType
-pattern Promotional = MessageType' "PROMOTIONAL"
-
 pattern Transactional :: MessageType
 pattern Transactional = MessageType' "TRANSACTIONAL"
 
+pattern Promotional :: MessageType
+pattern Promotional = MessageType' "PROMOTIONAL"
+
 {-# COMPLETE
-  Promotional,
   Transactional,
+  Promotional,
   MessageType'
   #-}

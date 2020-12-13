@@ -40,38 +40,42 @@ import Network.AWS.SMS.Types.VMManagerType
 --
 -- /See:/ 'mkConnector' smart constructor.
 data Connector = Connector'
-  { status :: Lude.Maybe ConnectorStatus,
+  { -- | The status of the connector.
+    status :: Lude.Maybe ConnectorStatus,
+    -- | The name of the VM manager.
     vmManagerName :: Lude.Maybe Lude.Text,
+    -- | The IP address of the connector.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | The ID of the VM manager.
     vmManagerId :: Lude.Maybe Lude.Text,
+    -- | The VM management product.
     vmManagerType :: Lude.Maybe VMManagerType,
+    -- | The ID of the connector.
     connectorId :: Lude.Maybe Lude.Text,
+    -- | The time the connector was associated.
     associatedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The MAC address of the connector.
     macAddress :: Lude.Maybe Lude.Text,
+    -- | The connector version.
     version :: Lude.Maybe Lude.Text,
+    -- | The capabilities of the connector.
     capabilityList :: Lude.Maybe [ConnectorCapability]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Connector' with the minimum fields required to make a request.
 --
--- * 'associatedOn' - The time the connector was associated.
--- * 'capabilityList' - The capabilities of the connector.
--- * 'connectorId' - The ID of the connector.
--- * 'ipAddress' - The IP address of the connector.
--- * 'macAddress' - The MAC address of the connector.
 -- * 'status' - The status of the connector.
--- * 'version' - The connector version.
--- * 'vmManagerId' - The ID of the VM manager.
 -- * 'vmManagerName' - The name of the VM manager.
+-- * 'ipAddress' - The IP address of the connector.
+-- * 'vmManagerId' - The ID of the VM manager.
 -- * 'vmManagerType' - The VM management product.
+-- * 'connectorId' - The ID of the connector.
+-- * 'associatedOn' - The time the connector was associated.
+-- * 'macAddress' - The MAC address of the connector.
+-- * 'version' - The connector version.
+-- * 'capabilityList' - The capabilities of the connector.
 mkConnector ::
   Connector
 mkConnector =

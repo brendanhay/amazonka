@@ -17,10 +17,10 @@ module Network.AWS.IoT.Types.ThingIndexingConfiguration
     mkThingIndexingConfiguration,
 
     -- * Lenses
+    ticThingIndexingMode,
     ticManagedFields,
     ticThingConnectivityIndexingMode,
     ticCustomFields,
-    ticThingIndexingMode,
   )
 where
 
@@ -34,36 +34,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingIndexingConfiguration' smart constructor.
 data ThingIndexingConfiguration = ThingIndexingConfiguration'
-  { managedFields ::
-      Lude.Maybe [Field],
-    thingConnectivityIndexingMode ::
-      Lude.Maybe
-        ThingConnectivityIndexingMode,
-    customFields :: Lude.Maybe [Field],
-    thingIndexingMode ::
-      ThingIndexingMode
+  { -- | Thing indexing mode. Valid values are:
+    --
+    --
+    --     * REGISTRY – Your thing index contains registry data only.
+    --
+    --
+    --     * REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.
+    --
+    --
+    --     * OFF - Thing indexing is disabled.
+    thingIndexingMode :: ThingIndexingMode,
+    -- | Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
+    managedFields :: Lude.Maybe [Field],
+    -- | Thing connectivity indexing mode. Valid values are:
+    --
+    --
+    --     * STATUS – Your thing index contains connectivity status. To enable thing connectivity indexing, thingIndexMode must not be set to OFF.
+    --
+    --
+    --     * OFF - Thing connectivity status indexing is disabled.
+    thingConnectivityIndexingMode :: Lude.Maybe ThingConnectivityIndexingMode,
+    -- | Contains custom field names and their data type.
+    customFields :: Lude.Maybe [Field]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingIndexingConfiguration' with the minimum fields required to make a request.
---
--- * 'customFields' - Contains custom field names and their data type.
--- * 'managedFields' - Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
--- * 'thingConnectivityIndexingMode' - Thing connectivity indexing mode. Valid values are:
---
---
---     * STATUS – Your thing index contains connectivity status. To enable thing connectivity indexing, thingIndexMode must not be set to OFF.
---
---
---     * OFF - Thing connectivity status indexing is disabled.
---
 --
 -- * 'thingIndexingMode' - Thing indexing mode. Valid values are:
 --
@@ -75,17 +73,49 @@ data ThingIndexingConfiguration = ThingIndexingConfiguration'
 --
 --
 --     * OFF - Thing indexing is disabled.
+--
+--
+-- * 'managedFields' - Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
+-- * 'thingConnectivityIndexingMode' - Thing connectivity indexing mode. Valid values are:
+--
+--
+--     * STATUS – Your thing index contains connectivity status. To enable thing connectivity indexing, thingIndexMode must not be set to OFF.
+--
+--
+--     * OFF - Thing connectivity status indexing is disabled.
+--
+--
+-- * 'customFields' - Contains custom field names and their data type.
 mkThingIndexingConfiguration ::
   -- | 'thingIndexingMode'
   ThingIndexingMode ->
   ThingIndexingConfiguration
 mkThingIndexingConfiguration pThingIndexingMode_ =
   ThingIndexingConfiguration'
-    { managedFields = Lude.Nothing,
+    { thingIndexingMode =
+        pThingIndexingMode_,
+      managedFields = Lude.Nothing,
       thingConnectivityIndexingMode = Lude.Nothing,
-      customFields = Lude.Nothing,
-      thingIndexingMode = pThingIndexingMode_
+      customFields = Lude.Nothing
     }
+
+-- | Thing indexing mode. Valid values are:
+--
+--
+--     * REGISTRY – Your thing index contains registry data only.
+--
+--
+--     * REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.
+--
+--
+--     * OFF - Thing indexing is disabled.
+--
+--
+--
+-- /Note:/ Consider using 'thingIndexingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ticThingIndexingMode :: Lens.Lens' ThingIndexingConfiguration ThingIndexingMode
+ticThingIndexingMode = Lens.lens (thingIndexingMode :: ThingIndexingConfiguration -> ThingIndexingMode) (\s a -> s {thingIndexingMode = a} :: ThingIndexingConfiguration)
+{-# DEPRECATED ticThingIndexingMode "Use generic-lens or generic-optics with 'thingIndexingMode' instead." #-}
 
 -- | Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
 --
@@ -116,44 +146,26 @@ ticCustomFields :: Lens.Lens' ThingIndexingConfiguration (Lude.Maybe [Field])
 ticCustomFields = Lens.lens (customFields :: ThingIndexingConfiguration -> Lude.Maybe [Field]) (\s a -> s {customFields = a} :: ThingIndexingConfiguration)
 {-# DEPRECATED ticCustomFields "Use generic-lens or generic-optics with 'customFields' instead." #-}
 
--- | Thing indexing mode. Valid values are:
---
---
---     * REGISTRY – Your thing index contains registry data only.
---
---
---     * REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.
---
---
---     * OFF - Thing indexing is disabled.
---
---
---
--- /Note:/ Consider using 'thingIndexingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ticThingIndexingMode :: Lens.Lens' ThingIndexingConfiguration ThingIndexingMode
-ticThingIndexingMode = Lens.lens (thingIndexingMode :: ThingIndexingConfiguration -> ThingIndexingMode) (\s a -> s {thingIndexingMode = a} :: ThingIndexingConfiguration)
-{-# DEPRECATED ticThingIndexingMode "Use generic-lens or generic-optics with 'thingIndexingMode' instead." #-}
-
 instance Lude.FromJSON ThingIndexingConfiguration where
   parseJSON =
     Lude.withObject
       "ThingIndexingConfiguration"
       ( \x ->
           ThingIndexingConfiguration'
-            Lude.<$> (x Lude..:? "managedFields" Lude..!= Lude.mempty)
+            Lude.<$> (x Lude..: "thingIndexingMode")
+            Lude.<*> (x Lude..:? "managedFields" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "thingConnectivityIndexingMode")
             Lude.<*> (x Lude..:? "customFields" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "thingIndexingMode")
       )
 
 instance Lude.ToJSON ThingIndexingConfiguration where
   toJSON ThingIndexingConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("managedFields" Lude..=) Lude.<$> managedFields,
+          [ Lude.Just ("thingIndexingMode" Lude..= thingIndexingMode),
+            ("managedFields" Lude..=) Lude.<$> managedFields,
             ("thingConnectivityIndexingMode" Lude..=)
               Lude.<$> thingConnectivityIndexingMode,
-            ("customFields" Lude..=) Lude.<$> customFields,
-            Lude.Just ("thingIndexingMode" Lude..= thingIndexingMode)
+            ("customFields" Lude..=) Lude.<$> customFields
           ]
       )

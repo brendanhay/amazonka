@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetSamplingStatisticSummaries' smart constructor.
 newtype GetSamplingStatisticSummaries = GetSamplingStatisticSummaries'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingStatisticSummaries' with the minimum fields required to make a request.
@@ -110,29 +105,21 @@ instance Lude.ToQuery GetSamplingStatisticSummaries where
 
 -- | /See:/ 'mkGetSamplingStatisticSummariesResponse' smart constructor.
 data GetSamplingStatisticSummariesResponse = GetSamplingStatisticSummariesResponse'
-  { samplingStatisticSummaries ::
-      Lude.Maybe
-        [SamplingStatisticSummary],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the number of requests instrumented for each sampling rule.
+    samplingStatisticSummaries :: Lude.Maybe [SamplingStatisticSummary],
+    -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingStatisticSummariesResponse' with the minimum fields required to make a request.
 --
+-- * 'samplingStatisticSummaries' - Information about the number of requests instrumented for each sampling rule.
 -- * 'nextToken' - Pagination token.
 -- * 'responseStatus' - The response status code.
--- * 'samplingStatisticSummaries' - Information about the number of requests instrumented for each sampling rule.
 mkGetSamplingStatisticSummariesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

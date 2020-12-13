@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInferenceAccelerator' smart constructor.
 data InferenceAccelerator = InferenceAccelerator'
-  { deviceName ::
-      Lude.Text,
+  { -- | The Elastic Inference accelerator device name. The @deviceName@ must also be referenced in a container definition as a 'ResourceRequirement' .
+    deviceName :: Lude.Text,
+    -- | The Elastic Inference accelerator type to use.
     deviceType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InferenceAccelerator' with the minimum fields required to make a request.

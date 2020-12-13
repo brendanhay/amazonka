@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EMR.ModifyCluster
     mkModifyCluster,
 
     -- ** Request lenses
-    mcStepConcurrencyLevel,
     mcClusterId,
+    mcStepConcurrencyLevel,
 
     -- * Destructuring the response
     ModifyClusterResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyCluster' smart constructor.
 data ModifyCluster = ModifyCluster'
-  { stepConcurrencyLevel ::
-      Lude.Maybe Lude.Int,
-    clusterId :: Lude.Text
+  { -- | The unique identifier of the cluster.
+    clusterId :: Lude.Text,
+    -- | The number of steps that can be executed concurrently. You can specify a maximum of 256 steps.
+    stepConcurrencyLevel :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCluster' with the minimum fields required to make a request.
@@ -63,16 +59,9 @@ mkModifyCluster ::
   ModifyCluster
 mkModifyCluster pClusterId_ =
   ModifyCluster'
-    { stepConcurrencyLevel = Lude.Nothing,
-      clusterId = pClusterId_
+    { clusterId = pClusterId_,
+      stepConcurrencyLevel = Lude.Nothing
     }
-
--- | The number of steps that can be executed concurrently. You can specify a maximum of 256 steps.
---
--- /Note:/ Consider using 'stepConcurrencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcStepConcurrencyLevel :: Lens.Lens' ModifyCluster (Lude.Maybe Lude.Int)
-mcStepConcurrencyLevel = Lens.lens (stepConcurrencyLevel :: ModifyCluster -> Lude.Maybe Lude.Int) (\s a -> s {stepConcurrencyLevel = a} :: ModifyCluster)
-{-# DEPRECATED mcStepConcurrencyLevel "Use generic-lens or generic-optics with 'stepConcurrencyLevel' instead." #-}
 
 -- | The unique identifier of the cluster.
 --
@@ -80,6 +69,13 @@ mcStepConcurrencyLevel = Lens.lens (stepConcurrencyLevel :: ModifyCluster -> Lud
 mcClusterId :: Lens.Lens' ModifyCluster Lude.Text
 mcClusterId = Lens.lens (clusterId :: ModifyCluster -> Lude.Text) (\s a -> s {clusterId = a} :: ModifyCluster)
 {-# DEPRECATED mcClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+
+-- | The number of steps that can be executed concurrently. You can specify a maximum of 256 steps.
+--
+-- /Note:/ Consider using 'stepConcurrencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcStepConcurrencyLevel :: Lens.Lens' ModifyCluster (Lude.Maybe Lude.Int)
+mcStepConcurrencyLevel = Lens.lens (stepConcurrencyLevel :: ModifyCluster -> Lude.Maybe Lude.Int) (\s a -> s {stepConcurrencyLevel = a} :: ModifyCluster)
+{-# DEPRECATED mcStepConcurrencyLevel "Use generic-lens or generic-optics with 'stepConcurrencyLevel' instead." #-}
 
 instance Lude.AWSRequest ModifyCluster where
   type Rs ModifyCluster = ModifyClusterResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON ModifyCluster where
   toJSON ModifyCluster' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("StepConcurrencyLevel" Lude..=) Lude.<$> stepConcurrencyLevel,
-            Lude.Just ("ClusterId" Lude..= clusterId)
+          [ Lude.Just ("ClusterId" Lude..= clusterId),
+            ("StepConcurrencyLevel" Lude..=) Lude.<$> stepConcurrencyLevel
           ]
       )
 
@@ -120,23 +116,18 @@ instance Lude.ToQuery ModifyCluster where
 
 -- | /See:/ 'mkModifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
-  { stepConcurrencyLevel ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of steps that can be executed concurrently.
+    stepConcurrencyLevel :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stepConcurrencyLevel' - The number of steps that can be executed concurrently.
+-- * 'responseStatus' - The response status code.
 mkModifyClusterResponse ::
   -- | 'responseStatus'
   Lude.Int ->

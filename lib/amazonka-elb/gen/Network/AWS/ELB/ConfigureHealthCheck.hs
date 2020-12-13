@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.ELB.ConfigureHealthCheck
     mkConfigureHealthCheck,
 
     -- ** Request lenses
-    chcLoadBalancerName,
     chcHealthCheck,
+    chcLoadBalancerName,
 
     -- * Destructuring the response
     ConfigureHealthCheckResponse (..),
@@ -44,17 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkConfigureHealthCheck' smart constructor.
 data ConfigureHealthCheck = ConfigureHealthCheck'
-  { loadBalancerName ::
-      Lude.Text,
-    healthCheck :: HealthCheck
+  { -- | The configuration information.
+    healthCheck :: HealthCheck,
+    -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigureHealthCheck' with the minimum fields required to make a request.
@@ -62,23 +58,16 @@ data ConfigureHealthCheck = ConfigureHealthCheck'
 -- * 'healthCheck' - The configuration information.
 -- * 'loadBalancerName' - The name of the load balancer.
 mkConfigureHealthCheck ::
-  -- | 'loadBalancerName'
-  Lude.Text ->
   -- | 'healthCheck'
   HealthCheck ->
+  -- | 'loadBalancerName'
+  Lude.Text ->
   ConfigureHealthCheck
-mkConfigureHealthCheck pLoadBalancerName_ pHealthCheck_ =
+mkConfigureHealthCheck pHealthCheck_ pLoadBalancerName_ =
   ConfigureHealthCheck'
-    { loadBalancerName = pLoadBalancerName_,
-      healthCheck = pHealthCheck_
+    { healthCheck = pHealthCheck_,
+      loadBalancerName = pLoadBalancerName_
     }
-
--- | The name of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcLoadBalancerName :: Lens.Lens' ConfigureHealthCheck Lude.Text
-chcLoadBalancerName = Lens.lens (loadBalancerName :: ConfigureHealthCheck -> Lude.Text) (\s a -> s {loadBalancerName = a} :: ConfigureHealthCheck)
-{-# DEPRECATED chcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The configuration information.
 --
@@ -86,6 +75,13 @@ chcLoadBalancerName = Lens.lens (loadBalancerName :: ConfigureHealthCheck -> Lud
 chcHealthCheck :: Lens.Lens' ConfigureHealthCheck HealthCheck
 chcHealthCheck = Lens.lens (healthCheck :: ConfigureHealthCheck -> HealthCheck) (\s a -> s {healthCheck = a} :: ConfigureHealthCheck)
 {-# DEPRECATED chcHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
+
+-- | The name of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcLoadBalancerName :: Lens.Lens' ConfigureHealthCheck Lude.Text
+chcLoadBalancerName = Lens.lens (loadBalancerName :: ConfigureHealthCheck -> Lude.Text) (\s a -> s {loadBalancerName = a} :: ConfigureHealthCheck)
+{-# DEPRECATED chcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 instance Lude.AWSRequest ConfigureHealthCheck where
   type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
@@ -109,25 +105,20 @@ instance Lude.ToQuery ConfigureHealthCheck where
     Lude.mconcat
       [ "Action" Lude.=: ("ConfigureHealthCheck" :: Lude.ByteString),
         "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "HealthCheck" Lude.=: healthCheck
+        "HealthCheck" Lude.=: healthCheck,
+        "LoadBalancerName" Lude.=: loadBalancerName
       ]
 
 -- | Contains the output of ConfigureHealthCheck.
 --
 -- /See:/ 'mkConfigureHealthCheckResponse' smart constructor.
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
-  { healthCheck ::
-      Lude.Maybe HealthCheck,
+  { -- | The updated health check.
+    healthCheck :: Lude.Maybe HealthCheck,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigureHealthCheckResponse' with the minimum fields required to make a request.

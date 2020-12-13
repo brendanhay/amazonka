@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Organizations.UpdatePolicy
     mkUpdatePolicy,
 
     -- ** Request lenses
+    upPolicyId,
     upContent,
     upName,
     upDescription,
-    upPolicyId,
 
     -- * Destructuring the response
     UpdatePolicyResponse (..),
@@ -44,41 +45,52 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdatePolicy' smart constructor.
 data UpdatePolicy = UpdatePolicy'
-  { content :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier (ID) of the policy that you want to update.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+    policyId :: Lude.Text,
+    -- | If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
+    content :: Lude.Maybe Lude.Text,
+    -- | If provided, the new name for the policy.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
     name :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    policyId :: Lude.Text
+    -- | If provided, the new description for the policy.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePolicy' with the minimum fields required to make a request.
 --
--- * 'content' - If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
--- * 'description' - If provided, the new description for the policy.
--- * 'name' - If provided, the new name for the policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 -- * 'policyId' - The unique identifier (ID) of the policy that you want to update.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+-- * 'content' - If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
+-- * 'name' - If provided, the new name for the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- * 'description' - If provided, the new description for the policy.
 mkUpdatePolicy ::
   -- | 'policyId'
   Lude.Text ->
   UpdatePolicy
 mkUpdatePolicy pPolicyId_ =
   UpdatePolicy'
-    { content = Lude.Nothing,
+    { policyId = pPolicyId_,
+      content = Lude.Nothing,
       name = Lude.Nothing,
-      description = Lude.Nothing,
-      policyId = pPolicyId_
+      description = Lude.Nothing
     }
+
+-- | The unique identifier (ID) of the policy that you want to update.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPolicyId :: Lens.Lens' UpdatePolicy Lude.Text
+upPolicyId = Lens.lens (policyId :: UpdatePolicy -> Lude.Text) (\s a -> s {policyId = a} :: UpdatePolicy)
+{-# DEPRECATED upPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
 --
@@ -102,15 +114,6 @@ upName = Lens.lens (name :: UpdatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {na
 upDescription :: Lens.Lens' UpdatePolicy (Lude.Maybe Lude.Text)
 upDescription = Lens.lens (description :: UpdatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdatePolicy)
 {-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The unique identifier (ID) of the policy that you want to update.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upPolicyId :: Lens.Lens' UpdatePolicy Lude.Text
-upPolicyId = Lens.lens (policyId :: UpdatePolicy -> Lude.Text) (\s a -> s {policyId = a} :: UpdatePolicy)
-{-# DEPRECATED upPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 instance Lude.AWSRequest UpdatePolicy where
   type Rs UpdatePolicy = UpdatePolicyResponse
@@ -137,10 +140,10 @@ instance Lude.ToJSON UpdatePolicy where
   toJSON UpdatePolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Content" Lude..=) Lude.<$> content,
+          [ Lude.Just ("PolicyId" Lude..= policyId),
+            ("Content" Lude..=) Lude.<$> content,
             ("Name" Lude..=) Lude.<$> name,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("PolicyId" Lude..= policyId)
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -152,17 +155,12 @@ instance Lude.ToQuery UpdatePolicy where
 
 -- | /See:/ 'mkUpdatePolicyResponse' smart constructor.
 data UpdatePolicyResponse = UpdatePolicyResponse'
-  { policy ::
-      Lude.Maybe Policy,
+  { -- | A structure that contains details about the updated policy, showing the requested changes.
+    policy :: Lude.Maybe Policy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePolicyResponse' with the minimum fields required to make a request.

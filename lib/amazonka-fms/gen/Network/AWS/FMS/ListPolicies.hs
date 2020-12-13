@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If you specify a value for @MaxResults@ and you have more @PolicySummary@ objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of @PolicySummary@ objects. For the second and subsequent @ListPolicies@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of @PolicySummary@ objects.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of @PolicySummary@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicySummary@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicySummary@ objects.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPolicies' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Specifies the number of @PolicySummary@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicySummary@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicySummary@ objects.
 -- * 'nextToken' - If you specify a value for @MaxResults@ and you have more @PolicySummary@ objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of @PolicySummary@ objects. For the second and subsequent @ListPolicies@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of @PolicySummary@ objects.
+-- * 'maxResults' - Specifies the number of @PolicySummary@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicySummary@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicySummary@ objects.
 mkListPolicies ::
   ListPolicies
 mkListPolicies =
@@ -132,18 +128,14 @@ instance Lude.ToQuery ListPolicies where
 
 -- | /See:/ 'mkListPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If you have more @PolicySummary@ objects than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more @PolicySummary@ objects, submit another @ListPolicies@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @PolicySummary@ objects.
     policyList :: Lude.Maybe [PolicySummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.

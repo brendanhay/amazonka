@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.Organizations.EnablePolicyType
     mkEnablePolicyType,
 
     -- ** Request lenses
-    eptRootId,
     eptPolicyType,
+    eptRootId,
 
     -- * Destructuring the response
     EnablePolicyTypeResponse (..),
@@ -44,16 +45,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkEnablePolicyType' smart constructor.
 data EnablePolicyType = EnablePolicyType'
-  { rootId :: Lude.Text,
-    policyType :: PolicyType
+  { -- | The policy type that you want to enable. You can specify one of the following values:
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+    policyType :: PolicyType,
+    -- | The unique identifier (ID) of the root in which you want to enable a policy type. You can get the ID from the 'ListRoots' operation.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
+    rootId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnablePolicyType' with the minimum fields required to make a request.
@@ -77,22 +88,13 @@ data EnablePolicyType = EnablePolicyType'
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
 mkEnablePolicyType ::
-  -- | 'rootId'
-  Lude.Text ->
   -- | 'policyType'
   PolicyType ->
+  -- | 'rootId'
+  Lude.Text ->
   EnablePolicyType
-mkEnablePolicyType pRootId_ pPolicyType_ =
-  EnablePolicyType' {rootId = pRootId_, policyType = pPolicyType_}
-
--- | The unique identifier (ID) of the root in which you want to enable a policy type. You can get the ID from the 'ListRoots' operation.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
---
--- /Note:/ Consider using 'rootId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eptRootId :: Lens.Lens' EnablePolicyType Lude.Text
-eptRootId = Lens.lens (rootId :: EnablePolicyType -> Lude.Text) (\s a -> s {rootId = a} :: EnablePolicyType)
-{-# DEPRECATED eptRootId "Use generic-lens or generic-optics with 'rootId' instead." #-}
+mkEnablePolicyType pPolicyType_ pRootId_ =
+  EnablePolicyType' {policyType = pPolicyType_, rootId = pRootId_}
 
 -- | The policy type that you want to enable. You can specify one of the following values:
 --
@@ -114,6 +116,15 @@ eptRootId = Lens.lens (rootId :: EnablePolicyType -> Lude.Text) (\s a -> s {root
 eptPolicyType :: Lens.Lens' EnablePolicyType PolicyType
 eptPolicyType = Lens.lens (policyType :: EnablePolicyType -> PolicyType) (\s a -> s {policyType = a} :: EnablePolicyType)
 {-# DEPRECATED eptPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
+
+-- | The unique identifier (ID) of the root in which you want to enable a policy type. You can get the ID from the 'ListRoots' operation.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
+--
+-- /Note:/ Consider using 'rootId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eptRootId :: Lens.Lens' EnablePolicyType Lude.Text
+eptRootId = Lens.lens (rootId :: EnablePolicyType -> Lude.Text) (\s a -> s {rootId = a} :: EnablePolicyType)
+{-# DEPRECATED eptRootId "Use generic-lens or generic-optics with 'rootId' instead." #-}
 
 instance Lude.AWSRequest EnablePolicyType where
   type Rs EnablePolicyType = EnablePolicyTypeResponse
@@ -140,8 +151,8 @@ instance Lude.ToJSON EnablePolicyType where
   toJSON EnablePolicyType' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("RootId" Lude..= rootId),
-            Lude.Just ("PolicyType" Lude..= policyType)
+          [ Lude.Just ("PolicyType" Lude..= policyType),
+            Lude.Just ("RootId" Lude..= rootId)
           ]
       )
 
@@ -153,23 +164,18 @@ instance Lude.ToQuery EnablePolicyType where
 
 -- | /See:/ 'mkEnablePolicyTypeResponse' smart constructor.
 data EnablePolicyTypeResponse = EnablePolicyTypeResponse'
-  { root ::
-      Lude.Maybe Root,
+  { -- | A structure that shows the root with the updated list of enabled policy types.
+    root :: Lude.Maybe Root,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnablePolicyTypeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'root' - A structure that shows the root with the updated list of enabled policy types.
+-- * 'responseStatus' - The response status code.
 mkEnablePolicyTypeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -62,39 +62,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameServer' smart constructor.
 data GameServer = GameServer'
-  { instanceId :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | Timestamp that indicates the last time the game server was claimed with a 'ClaimGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). This value is used to calculate when a claimed game server's status should revert to null.
     lastClaimTime :: Lude.Maybe Lude.Timestamp,
+    -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
     gameServerGroupName :: Lude.Maybe Lude.Text,
+    -- | A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
     gameServerData :: Lude.Maybe Lude.Text,
+    -- | Indicates when an available game server has been reserved for gameplay but has not yet started hosting a game. Once it is claimed, the game server remains in @CLAIMED@ status for a maximum of one minute. During this time, game clients connect to the game server to start the game and trigger the game server to update its utilization status. After one minute, the game server claim status reverts to null.
     claimStatus :: Lude.Maybe GameServerClaimStatus,
+    -- | A custom string that uniquely identifies the game server. Game server IDs are developer-defined and are unique across all game server groups in an AWS account.
     gameServerId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the game server is currently available for new games or is busy. Possible statuses include:
+    --
+    --
+    --     * @AVAILABLE@ - The game server is available to be claimed. A game server that has been claimed remains in this status until it reports game hosting activity.
+    --
+    --
+    --     * @UTILIZED@ - The game server is currently hosting a game session with players.
     utilizationStatus :: Lude.Maybe GameServerUtilizationStatus,
+    -- | Timestamp that indicates when the game server was created with a 'RegisterGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ).
     registrationTime :: Lude.Maybe Lude.Timestamp,
+    -- | Timestamp that indicates the last time the game server was updated with health status using an 'UpdateGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). After game server registration, this property is only changed when a game server update specifies a health check value.
     lastHealthCheckTime :: Lude.Maybe Lude.Timestamp,
+    -- | The port and IP address that must be used to establish a client connection to the game server.
     connectionInfo :: Lude.Maybe Lude.Text,
+    -- | The ARN identifier for the game server group where the game server is located.
     gameServerGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameServer' with the minimum fields required to make a request.
 --
--- * 'claimStatus' - Indicates when an available game server has been reserved for gameplay but has not yet started hosting a game. Once it is claimed, the game server remains in @CLAIMED@ status for a maximum of one minute. During this time, game clients connect to the game server to start the game and trigger the game server to update its utilization status. After one minute, the game server claim status reverts to null.
--- * 'connectionInfo' - The port and IP address that must be used to establish a client connection to the game server.
--- * 'gameServerData' - A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
--- * 'gameServerGroupARN' - The ARN identifier for the game server group where the game server is located.
--- * 'gameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
--- * 'gameServerId' - A custom string that uniquely identifies the game server. Game server IDs are developer-defined and are unique across all game server groups in an AWS account.
 -- * 'instanceId' - The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
 -- * 'lastClaimTime' - Timestamp that indicates the last time the game server was claimed with a 'ClaimGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). This value is used to calculate when a claimed game server's status should revert to null.
--- * 'lastHealthCheckTime' - Timestamp that indicates the last time the game server was updated with health status using an 'UpdateGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). After game server registration, this property is only changed when a game server update specifies a health check value.
--- * 'registrationTime' - Timestamp that indicates when the game server was created with a 'RegisterGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ).
+-- * 'gameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
+-- * 'gameServerData' - A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
+-- * 'claimStatus' - Indicates when an available game server has been reserved for gameplay but has not yet started hosting a game. Once it is claimed, the game server remains in @CLAIMED@ status for a maximum of one minute. During this time, game clients connect to the game server to start the game and trigger the game server to update its utilization status. After one minute, the game server claim status reverts to null.
+-- * 'gameServerId' - A custom string that uniquely identifies the game server. Game server IDs are developer-defined and are unique across all game server groups in an AWS account.
 -- * 'utilizationStatus' - Indicates whether the game server is currently available for new games or is busy. Possible statuses include:
 --
 --
@@ -102,6 +109,12 @@ data GameServer = GameServer'
 --
 --
 --     * @UTILIZED@ - The game server is currently hosting a game session with players.
+--
+--
+-- * 'registrationTime' - Timestamp that indicates when the game server was created with a 'RegisterGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ).
+-- * 'lastHealthCheckTime' - Timestamp that indicates the last time the game server was updated with health status using an 'UpdateGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). After game server registration, this property is only changed when a game server update specifies a health check value.
+-- * 'connectionInfo' - The port and IP address that must be used to establish a client connection to the game server.
+-- * 'gameServerGroupARN' - The ARN identifier for the game server group where the game server is located.
 mkGameServer ::
   GameServer
 mkGameServer =

@@ -96,35 +96,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheNode' smart constructor.
 data CacheNode = CacheNode'
-  { sourceCacheNodeId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cluster.
+    sourceCacheNodeId :: Lude.Maybe Lude.Text,
+    -- | The status of the parameter group applied to this cache node.
     parameterGroupStatus :: Lude.Maybe Lude.Text,
+    -- | The date and time when the cache node was created.
     cacheNodeCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | The Availability Zone where this node was created and now resides.
     customerAvailabilityZone :: Lude.Maybe Lude.Text,
+    -- | The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
     cacheNodeId :: Lude.Maybe Lude.Text,
+    -- | The customer outpost ARN of the cache node.
     customerOutpostARN :: Lude.Maybe Lude.Text,
+    -- | The current state of this cache node, one of the following values: @available@ , @creating@ , @rebooting@ , or @deleting@ .
     cacheNodeStatus :: Lude.Maybe Lude.Text,
+    -- | The hostname for connecting to this cache node.
     endpoint :: Lude.Maybe Endpoint
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheNode' with the minimum fields required to make a request.
 --
--- * 'cacheNodeCreateTime' - The date and time when the cache node was created.
--- * 'cacheNodeId' - The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
--- * 'cacheNodeStatus' - The current state of this cache node, one of the following values: @available@ , @creating@ , @rebooting@ , or @deleting@ .
--- * 'customerAvailabilityZone' - The Availability Zone where this node was created and now resides.
--- * 'customerOutpostARN' - The customer outpost ARN of the cache node.
--- * 'endpoint' - The hostname for connecting to this cache node.
--- * 'parameterGroupStatus' - The status of the parameter group applied to this cache node.
 -- * 'sourceCacheNodeId' - The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cluster.
+-- * 'parameterGroupStatus' - The status of the parameter group applied to this cache node.
+-- * 'cacheNodeCreateTime' - The date and time when the cache node was created.
+-- * 'customerAvailabilityZone' - The Availability Zone where this node was created and now resides.
+-- * 'cacheNodeId' - The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.
+-- * 'customerOutpostARN' - The customer outpost ARN of the cache node.
+-- * 'cacheNodeStatus' - The current state of this cache node, one of the following values: @available@ , @creating@ , @rebooting@ , or @deleting@ .
+-- * 'endpoint' - The hostname for connecting to this cache node.
 mkCacheNode ::
   CacheNode
 mkCacheNode =

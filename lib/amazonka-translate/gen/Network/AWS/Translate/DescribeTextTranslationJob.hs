@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.Translate.Types
 
 -- | /See:/ 'mkDescribeTextTranslationJob' smart constructor.
 newtype DescribeTextTranslationJob = DescribeTextTranslationJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier that Amazon Translate generated for the job. The 'StartTextTranslationJob' operation returns this identifier in its response.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTextTranslationJob' with the minimum fields required to make a request.
@@ -106,25 +101,18 @@ instance Lude.ToQuery DescribeTextTranslationJob where
 
 -- | /See:/ 'mkDescribeTextTranslationJobResponse' smart constructor.
 data DescribeTextTranslationJobResponse = DescribeTextTranslationJobResponse'
-  { textTranslationJobProperties ::
-      Lude.Maybe
-        TextTranslationJobProperties,
-    responseStatus ::
-      Lude.Int
+  { -- | An object that contains the properties associated with an asynchronous batch translation job.
+    textTranslationJobProperties :: Lude.Maybe TextTranslationJobProperties,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTextTranslationJobResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'textTranslationJobProperties' - An object that contains the properties associated with an asynchronous batch translation job.
+-- * 'responseStatus' - The response status code.
 mkDescribeTextTranslationJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

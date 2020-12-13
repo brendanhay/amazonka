@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.ELBv2.DescribeListeners
     mkDescribeListenersResponse,
 
     -- ** Response lenses
-    dlsrsNextMarker,
-    dlsrsListeners,
-    dlsrsResponseStatus,
+    dlrsNextMarker,
+    dlrsListeners,
+    dlrsResponseStatus,
   )
 where
 
@@ -46,19 +47,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeListeners' smart constructor.
 data DescribeListeners = DescribeListeners'
-  { listenerARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The Amazon Resource Names (ARN) of the listeners.
+    listenerARNs :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the load balancer.
     loadBalancerARN :: Lude.Maybe Lude.Text,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeListeners' with the minimum fields required to make a request.
@@ -107,12 +105,12 @@ dlPageSize = Lens.lens (pageSize :: DescribeListeners -> Lude.Maybe Lude.Natural
 
 instance Page.AWSPager DescribeListeners where
   page rq rs
-    | Page.stop (rs Lens.^. dlsrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dlsrsListeners) = Lude.Nothing
+    | Page.stop (rs Lens.^. dlrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dlrsListeners) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dlMarker Lens..~ rs Lens.^. dlsrsNextMarker
+          Lude.& dlMarker Lens..~ rs Lens.^. dlrsNextMarker
 
 instance Lude.AWSRequest DescribeListeners where
   type Rs DescribeListeners = DescribeListenersResponse
@@ -149,24 +147,20 @@ instance Lude.ToQuery DescribeListeners where
 
 -- | /See:/ 'mkDescribeListenersResponse' smart constructor.
 data DescribeListenersResponse = DescribeListenersResponse'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | Information about the listeners.
     listeners :: Lude.Maybe [Listener],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeListenersResponse' with the minimum fields required to make a request.
 --
--- * 'listeners' - Information about the listeners.
 -- * 'nextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+-- * 'listeners' - Information about the listeners.
 -- * 'responseStatus' - The response status code.
 mkDescribeListenersResponse ::
   -- | 'responseStatus'
@@ -182,20 +176,20 @@ mkDescribeListenersResponse pResponseStatus_ =
 -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsNextMarker :: Lens.Lens' DescribeListenersResponse (Lude.Maybe Lude.Text)
-dlsrsNextMarker = Lens.lens (nextMarker :: DescribeListenersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeListenersResponse)
-{-# DEPRECATED dlsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+dlrsNextMarker :: Lens.Lens' DescribeListenersResponse (Lude.Maybe Lude.Text)
+dlrsNextMarker = Lens.lens (nextMarker :: DescribeListenersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeListenersResponse)
+{-# DEPRECATED dlrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Information about the listeners.
 --
 -- /Note:/ Consider using 'listeners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsListeners :: Lens.Lens' DescribeListenersResponse (Lude.Maybe [Listener])
-dlsrsListeners = Lens.lens (listeners :: DescribeListenersResponse -> Lude.Maybe [Listener]) (\s a -> s {listeners = a} :: DescribeListenersResponse)
-{-# DEPRECATED dlsrsListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
+dlrsListeners :: Lens.Lens' DescribeListenersResponse (Lude.Maybe [Listener])
+dlrsListeners = Lens.lens (listeners :: DescribeListenersResponse -> Lude.Maybe [Listener]) (\s a -> s {listeners = a} :: DescribeListenersResponse)
+{-# DEPRECATED dlrsListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsResponseStatus :: Lens.Lens' DescribeListenersResponse Lude.Int
-dlsrsResponseStatus = Lens.lens (responseStatus :: DescribeListenersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeListenersResponse)
-{-# DEPRECATED dlsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlrsResponseStatus :: Lens.Lens' DescribeListenersResponse Lude.Int
+dlrsResponseStatus = Lens.lens (responseStatus :: DescribeListenersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeListenersResponse)
+{-# DEPRECATED dlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

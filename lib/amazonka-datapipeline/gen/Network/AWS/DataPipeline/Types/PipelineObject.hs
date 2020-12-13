@@ -17,8 +17,8 @@ module Network.AWS.DataPipeline.Types.PipelineObject
     mkPipelineObject,
 
     -- * Lenses
-    pId,
     pName,
+    pId,
     pFields,
   )
 where
@@ -31,39 +31,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipelineObject' smart constructor.
 data PipelineObject = PipelineObject'
-  { id :: Lude.Text,
+  { -- | The name of the object.
     name :: Lude.Text,
+    -- | The ID of the object.
+    id :: Lude.Text,
+    -- | Key-value pairs that define the properties of the object.
     fields :: [Field]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineObject' with the minimum fields required to make a request.
 --
--- * 'fields' - Key-value pairs that define the properties of the object.
--- * 'id' - The ID of the object.
 -- * 'name' - The name of the object.
+-- * 'id' - The ID of the object.
+-- * 'fields' - Key-value pairs that define the properties of the object.
 mkPipelineObject ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   PipelineObject
-mkPipelineObject pId_ pName_ =
-  PipelineObject' {id = pId_, name = pName_, fields = Lude.mempty}
-
--- | The ID of the object.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pId :: Lens.Lens' PipelineObject Lude.Text
-pId = Lens.lens (id :: PipelineObject -> Lude.Text) (\s a -> s {id = a} :: PipelineObject)
-{-# DEPRECATED pId "Use generic-lens or generic-optics with 'id' instead." #-}
+mkPipelineObject pName_ pId_ =
+  PipelineObject' {name = pName_, id = pId_, fields = Lude.mempty}
 
 -- | The name of the object.
 --
@@ -71,6 +61,13 @@ pId = Lens.lens (id :: PipelineObject -> Lude.Text) (\s a -> s {id = a} :: Pipel
 pName :: Lens.Lens' PipelineObject Lude.Text
 pName = Lens.lens (name :: PipelineObject -> Lude.Text) (\s a -> s {name = a} :: PipelineObject)
 {-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The ID of the object.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pId :: Lens.Lens' PipelineObject Lude.Text
+pId = Lens.lens (id :: PipelineObject -> Lude.Text) (\s a -> s {id = a} :: PipelineObject)
+{-# DEPRECATED pId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Key-value pairs that define the properties of the object.
 --
@@ -85,8 +82,8 @@ instance Lude.FromJSON PipelineObject where
       "PipelineObject"
       ( \x ->
           PipelineObject'
-            Lude.<$> (x Lude..: "id")
-            Lude.<*> (x Lude..: "name")
+            Lude.<$> (x Lude..: "name")
+            Lude.<*> (x Lude..: "id")
             Lude.<*> (x Lude..:? "fields" Lude..!= Lude.mempty)
       )
 
@@ -94,8 +91,8 @@ instance Lude.ToJSON PipelineObject where
   toJSON PipelineObject' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("id" Lude..= id),
-            Lude.Just ("name" Lude..= name),
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just ("id" Lude..= id),
             Lude.Just ("fields" Lude..= fields)
           ]
       )

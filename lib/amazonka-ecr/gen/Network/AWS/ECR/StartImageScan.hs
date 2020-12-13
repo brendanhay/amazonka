@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.ECR.StartImageScan
 
     -- ** Request lenses
     sisRegistryId,
-    sisRepositoryName,
     sisImageId,
+    sisRepositoryName,
 
     -- * Destructuring the response
     StartImageScanResponse (..),
@@ -44,36 +45,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartImageScan' smart constructor.
 data StartImageScan = StartImageScan'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    repositoryName :: Lude.Text,
-    imageId :: ImageIdentifier
+  { -- | The AWS account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    imageId :: ImageIdentifier,
+    -- | The name of the repository that contains the images to scan.
+    repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImageScan' with the minimum fields required to make a request.
 --
--- * 'imageId' - Undocumented field.
 -- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.
+-- * 'imageId' -
 -- * 'repositoryName' - The name of the repository that contains the images to scan.
 mkStartImageScan ::
-  -- | 'repositoryName'
-  Lude.Text ->
   -- | 'imageId'
   ImageIdentifier ->
+  -- | 'repositoryName'
+  Lude.Text ->
   StartImageScan
-mkStartImageScan pRepositoryName_ pImageId_ =
+mkStartImageScan pImageId_ pRepositoryName_ =
   StartImageScan'
     { registryId = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      imageId = pImageId_
+      imageId = pImageId_,
+      repositoryName = pRepositoryName_
     }
 
 -- | The AWS account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.
@@ -83,19 +79,19 @@ sisRegistryId :: Lens.Lens' StartImageScan (Lude.Maybe Lude.Text)
 sisRegistryId = Lens.lens (registryId :: StartImageScan -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: StartImageScan)
 {-# DEPRECATED sisRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
--- | The name of the repository that contains the images to scan.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisRepositoryName :: Lens.Lens' StartImageScan Lude.Text
-sisRepositoryName = Lens.lens (repositoryName :: StartImageScan -> Lude.Text) (\s a -> s {repositoryName = a} :: StartImageScan)
-{-# DEPRECATED sisRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
-
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sisImageId :: Lens.Lens' StartImageScan ImageIdentifier
 sisImageId = Lens.lens (imageId :: StartImageScan -> ImageIdentifier) (\s a -> s {imageId = a} :: StartImageScan)
 {-# DEPRECATED sisImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | The name of the repository that contains the images to scan.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisRepositoryName :: Lens.Lens' StartImageScan Lude.Text
+sisRepositoryName = Lens.lens (repositoryName :: StartImageScan -> Lude.Text) (\s a -> s {repositoryName = a} :: StartImageScan)
+{-# DEPRECATED sisRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Lude.AWSRequest StartImageScan where
   type Rs StartImageScan = StartImageScanResponse
@@ -129,8 +125,8 @@ instance Lude.ToJSON StartImageScan where
     Lude.object
       ( Lude.catMaybes
           [ ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("imageId" Lude..= imageId)
+            Lude.Just ("imageId" Lude..= imageId),
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
@@ -142,27 +138,24 @@ instance Lude.ToQuery StartImageScan where
 
 -- | /See:/ 'mkStartImageScanResponse' smart constructor.
 data StartImageScanResponse = StartImageScanResponse'
-  { registryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The registry ID associated with the request.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The current state of the scan.
     imageScanStatus :: Lude.Maybe ImageScanStatus,
     imageId :: Lude.Maybe ImageIdentifier,
+    -- | The repository name associated with the request.
     repositoryName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImageScanResponse' with the minimum fields required to make a request.
 --
--- * 'imageId' - Undocumented field.
--- * 'imageScanStatus' - The current state of the scan.
 -- * 'registryId' - The registry ID associated with the request.
+-- * 'imageScanStatus' - The current state of the scan.
+-- * 'imageId' -
 -- * 'repositoryName' - The repository name associated with the request.
 -- * 'responseStatus' - The response status code.
 mkStartImageScanResponse ::

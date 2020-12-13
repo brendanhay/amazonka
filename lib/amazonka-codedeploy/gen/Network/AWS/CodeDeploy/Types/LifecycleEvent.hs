@@ -34,28 +34,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLifecycleEvent' smart constructor.
 data LifecycleEvent = LifecycleEvent'
-  { status ::
-      Lude.Maybe LifecycleEventStatus,
+  { -- | The deployment lifecycle event status:
+    --
+    --
+    --     * Pending: The deployment lifecycle event is pending.
+    --
+    --
+    --     * InProgress: The deployment lifecycle event is in progress.
+    --
+    --
+    --     * Succeeded: The deployment lifecycle event ran successfully.
+    --
+    --
+    --     * Failed: The deployment lifecycle event has failed.
+    --
+    --
+    --     * Skipped: The deployment lifecycle event has been skipped.
+    --
+    --
+    --     * Unknown: The deployment lifecycle event is unknown.
+    status :: Lude.Maybe LifecycleEventStatus,
+    -- | The deployment lifecycle event name, such as @ApplicationStop@ , @BeforeInstall@ , @AfterInstall@ , @ApplicationStart@ , or @ValidateService@ .
     lifecycleEventName :: Lude.Maybe Lude.Text,
+    -- | A timestamp that indicates when the deployment lifecycle event started.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Diagnostic information about the deployment lifecycle event.
     diagnostics :: Lude.Maybe Diagnostics,
+    -- | A timestamp that indicates when the deployment lifecycle event ended.
     endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecycleEvent' with the minimum fields required to make a request.
 --
--- * 'diagnostics' - Diagnostic information about the deployment lifecycle event.
--- * 'endTime' - A timestamp that indicates when the deployment lifecycle event ended.
--- * 'lifecycleEventName' - The deployment lifecycle event name, such as @ApplicationStop@ , @BeforeInstall@ , @AfterInstall@ , @ApplicationStart@ , or @ValidateService@ .
--- * 'startTime' - A timestamp that indicates when the deployment lifecycle event started.
 -- * 'status' - The deployment lifecycle event status:
 --
 --
@@ -75,6 +87,12 @@ data LifecycleEvent = LifecycleEvent'
 --
 --
 --     * Unknown: The deployment lifecycle event is unknown.
+--
+--
+-- * 'lifecycleEventName' - The deployment lifecycle event name, such as @ApplicationStop@ , @BeforeInstall@ , @AfterInstall@ , @ApplicationStart@ , or @ValidateService@ .
+-- * 'startTime' - A timestamp that indicates when the deployment lifecycle event started.
+-- * 'diagnostics' - Diagnostic information about the deployment lifecycle event.
+-- * 'endTime' - A timestamp that indicates when the deployment lifecycle event ended.
 mkLifecycleEvent ::
   LifecycleEvent
 mkLifecycleEvent =

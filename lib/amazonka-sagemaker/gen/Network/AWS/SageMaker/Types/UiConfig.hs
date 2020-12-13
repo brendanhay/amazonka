@@ -29,20 +29,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUiConfig' smart constructor.
 data UiConfig = UiConfig'
-  { uiTemplateS3URI :: Lude.Maybe Lude.Text,
+  { -- | The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template> .
+    uiTemplateS3URI :: Lude.Maybe Lude.Text,
+    -- | The ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
+    --
+    -- Use this parameter when you are creating a labeling job for 3D point cloud and video fram labeling jobs. Use your labeling job task type to select one of the following ARN's and use it with this parameter when you create a labeling job. Replace @aws-region@ with the AWS region you are creating your labeling job in.
+    -- __3D Point Cloud HumanTaskUiArns__
+    -- Use this @HumanTaskUiArn@ for 3D point cloud object detection and 3D point cloud object detection adjustment labeling jobs.
+    --
+    --     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectDetection@
+    --
+    --
+    -- Use this @HumanTaskUiArn@ for 3D point cloud object tracking and 3D point cloud object tracking adjustment labeling jobs.
+    --
+    --     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectTracking@
+    --
+    --
+    -- Use this @HumanTaskUiArn@ for 3D point cloud semantic segmentation and 3D point cloud semantic segmentation adjustment labeling jobs.
+    --
+    --     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudSemanticSegmentation@
+    --
+    --
+    -- __Video Frame HumanTaskUiArns__
+    -- Use this @HumanTaskUiArn@ for video frame object detection and video frame object detection adjustment labeling jobs.
+    --
+    --     * @arn:aws:sagemaker:region:394669845002:human-task-ui/VideoObjectDetection@
+    --
+    --
+    -- Use this @HumanTaskUiArn@ for video frame object tracking and video frame object tracking adjustment labeling jobs.
+    --
+    --     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/VideoObjectTracking@
     humanTaskUiARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UiConfig' with the minimum fields required to make a request.
 --
+-- * 'uiTemplateS3URI' - The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template> .
 -- * 'humanTaskUiARN' - The ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
 --
 -- Use this parameter when you are creating a labeling job for 3D point cloud and video fram labeling jobs. Use your labeling job task type to select one of the following ARN's and use it with this parameter when you create a labeling job. Replace @aws-region@ with the AWS region you are creating your labeling job in.
@@ -71,9 +95,6 @@ data UiConfig = UiConfig'
 -- Use this @HumanTaskUiArn@ for video frame object tracking and video frame object tracking adjustment labeling jobs.
 --
 --     * @arn:aws:sagemaker:aws-region:394669845002:human-task-ui/VideoObjectTracking@
---
---
--- * 'uiTemplateS3URI' - The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template> .
 mkUiConfig ::
   UiConfig
 mkUiConfig =

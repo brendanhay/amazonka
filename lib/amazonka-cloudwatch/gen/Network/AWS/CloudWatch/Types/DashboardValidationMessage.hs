@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDashboardValidationMessage' smart constructor.
 data DashboardValidationMessage = DashboardValidationMessage'
-  { dataPath ::
-      Lude.Maybe Lude.Text,
+  { -- | The data path related to the message.
+    dataPath :: Lude.Maybe Lude.Text,
+    -- | A message describing the error or warning.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DashboardValidationMessage' with the minimum fields required to make a request.

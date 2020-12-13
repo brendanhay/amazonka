@@ -13,16 +13,16 @@
 module Network.AWS.CodeBuild.Types.LanguageType
   ( LanguageType
       ( LanguageType',
-        Android,
-        Base,
-        Docker,
-        Dotnet,
-        Golang,
         Java,
-        NodeJs,
-        PHP,
         Python,
-        Ruby
+        NodeJs,
+        Ruby,
+        Golang,
+        Docker,
+        Android,
+        Dotnet,
+        Base,
+        PHP
       ),
   )
 where
@@ -53,46 +53,46 @@ newtype LanguageType = LanguageType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Android :: LanguageType
-pattern Android = LanguageType' "ANDROID"
-
-pattern Base :: LanguageType
-pattern Base = LanguageType' "BASE"
-
-pattern Docker :: LanguageType
-pattern Docker = LanguageType' "DOCKER"
-
-pattern Dotnet :: LanguageType
-pattern Dotnet = LanguageType' "DOTNET"
-
-pattern Golang :: LanguageType
-pattern Golang = LanguageType' "GOLANG"
-
 pattern Java :: LanguageType
 pattern Java = LanguageType' "JAVA"
-
-pattern NodeJs :: LanguageType
-pattern NodeJs = LanguageType' "NODE_JS"
-
-pattern PHP :: LanguageType
-pattern PHP = LanguageType' "PHP"
 
 pattern Python :: LanguageType
 pattern Python = LanguageType' "PYTHON"
 
+pattern NodeJs :: LanguageType
+pattern NodeJs = LanguageType' "NODE_JS"
+
 pattern Ruby :: LanguageType
 pattern Ruby = LanguageType' "RUBY"
 
+pattern Golang :: LanguageType
+pattern Golang = LanguageType' "GOLANG"
+
+pattern Docker :: LanguageType
+pattern Docker = LanguageType' "DOCKER"
+
+pattern Android :: LanguageType
+pattern Android = LanguageType' "ANDROID"
+
+pattern Dotnet :: LanguageType
+pattern Dotnet = LanguageType' "DOTNET"
+
+pattern Base :: LanguageType
+pattern Base = LanguageType' "BASE"
+
+pattern PHP :: LanguageType
+pattern PHP = LanguageType' "PHP"
+
 {-# COMPLETE
-  Android,
-  Base,
-  Docker,
-  Dotnet,
-  Golang,
   Java,
-  NodeJs,
-  PHP,
   Python,
+  NodeJs,
   Ruby,
+  Golang,
+  Docker,
+  Android,
+  Dotnet,
+  Base,
+  PHP,
   LanguageType'
   #-}

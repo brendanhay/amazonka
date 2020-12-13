@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.IoTAnalytics.StartPipelineReprocessing
     mkStartPipelineReprocessing,
 
     -- ** Request lenses
+    sprPipelineName,
     sprStartTime,
     sprEndTime,
-    sprPipelineName,
 
     -- * Destructuring the response
     StartPipelineReprocessingResponse (..),
@@ -41,35 +42,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartPipelineReprocessing' smart constructor.
 data StartPipelineReprocessing = StartPipelineReprocessing'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
-    endTime :: Lude.Maybe Lude.Timestamp,
-    pipelineName :: Lude.Text
+  { -- | The name of the pipeline on which to start reprocessing.
+    pipelineName :: Lude.Text,
+    -- | The start time (inclusive) of raw message data that is reprocessed.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The end time (exclusive) of raw message data that is reprocessed.
+    endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPipelineReprocessing' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end time (exclusive) of raw message data that is reprocessed.
 -- * 'pipelineName' - The name of the pipeline on which to start reprocessing.
 -- * 'startTime' - The start time (inclusive) of raw message data that is reprocessed.
+-- * 'endTime' - The end time (exclusive) of raw message data that is reprocessed.
 mkStartPipelineReprocessing ::
   -- | 'pipelineName'
   Lude.Text ->
   StartPipelineReprocessing
 mkStartPipelineReprocessing pPipelineName_ =
   StartPipelineReprocessing'
-    { startTime = Lude.Nothing,
-      endTime = Lude.Nothing,
-      pipelineName = pPipelineName_
+    { pipelineName = pPipelineName_,
+      startTime = Lude.Nothing,
+      endTime = Lude.Nothing
     }
+
+-- | The name of the pipeline on which to start reprocessing.
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprPipelineName :: Lens.Lens' StartPipelineReprocessing Lude.Text
+sprPipelineName = Lens.lens (pipelineName :: StartPipelineReprocessing -> Lude.Text) (\s a -> s {pipelineName = a} :: StartPipelineReprocessing)
+{-# DEPRECATED sprPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The start time (inclusive) of raw message data that is reprocessed.
 --
@@ -84,13 +88,6 @@ sprStartTime = Lens.lens (startTime :: StartPipelineReprocessing -> Lude.Maybe L
 sprEndTime :: Lens.Lens' StartPipelineReprocessing (Lude.Maybe Lude.Timestamp)
 sprEndTime = Lens.lens (endTime :: StartPipelineReprocessing -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: StartPipelineReprocessing)
 {-# DEPRECATED sprEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | The name of the pipeline on which to start reprocessing.
---
--- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sprPipelineName :: Lens.Lens' StartPipelineReprocessing Lude.Text
-sprPipelineName = Lens.lens (pipelineName :: StartPipelineReprocessing -> Lude.Text) (\s a -> s {pipelineName = a} :: StartPipelineReprocessing)
-{-# DEPRECATED sprPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 instance Lude.AWSRequest StartPipelineReprocessing where
   type
@@ -127,18 +124,12 @@ instance Lude.ToQuery StartPipelineReprocessing where
 
 -- | /See:/ 'mkStartPipelineReprocessingResponse' smart constructor.
 data StartPipelineReprocessingResponse = StartPipelineReprocessingResponse'
-  { reprocessingId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the pipeline reprocessing activity that was started.
+    reprocessingId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPipelineReprocessingResponse' with the minimum fields required to make a request.

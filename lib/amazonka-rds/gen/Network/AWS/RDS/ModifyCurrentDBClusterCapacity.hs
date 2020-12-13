@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +25,10 @@ module Network.AWS.RDS.ModifyCurrentDBClusterCapacity
     mkModifyCurrentDBClusterCapacity,
 
     -- ** Request lenses
+    mcdccDBClusterIdentifier,
     mcdccTimeoutAction,
     mcdccCapacity,
     mcdccSecondsBeforeTimeout,
-    mcdccDBClusterIdentifier,
 
     -- * Destructuring the response
     ModifyCurrentDBClusterCapacityResponse (..),
@@ -51,26 +52,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyCurrentDBClusterCapacity' smart constructor.
 data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
-  { timeoutAction ::
-      Lude.Maybe Lude.Text,
-    capacity ::
-      Lude.Maybe Lude.Int,
-    secondsBeforeTimeout ::
-      Lude.Maybe Lude.Int,
-    dbClusterIdentifier ::
-      Lude.Text
+  { -- | The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.
+    --
+    -- Constraints:
+    --
+    --     * Must match the identifier of an existing DB cluster.
+    dbClusterIdentifier :: Lude.Text,
+    -- | The action to take when the timeout is reached, either @ForceApplyCapacityChange@ or @RollbackCapacityChange@ .
+    --
+    -- @ForceApplyCapacityChange@ , the default, sets the capacity to the specified value as soon as possible.
+    -- @RollbackCapacityChange@ ignores the capacity change if a scaling point isn't found in the timeout period.
+    timeoutAction :: Lude.Maybe Lude.Text,
+    -- | The DB cluster capacity.
+    --
+    -- When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
+    -- Constraints:
+    --
+    --     * For Aurora MySQL, valid capacity values are @1@ , @2@ , @4@ , @8@ , @16@ , @32@ , @64@ , @128@ , and @256@ .
+    --
+    --
+    --     * For Aurora PostgreSQL, valid capacity values are @2@ , @4@ , @8@ , @16@ , @32@ , @64@ , @192@ , and @384@ .
+    capacity :: Lude.Maybe Lude.Int,
+    -- | The amount of time, in seconds, that Aurora Serverless tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
+    --
+    --
+    --     * Value must be from 10 through 600.
+    secondsBeforeTimeout :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCurrentDBClusterCapacity' with the minimum fields required to make a request.
 --
+-- * 'dbClusterIdentifier' - The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing DB cluster.
+--
+--
+-- * 'timeoutAction' - The action to take when the timeout is reached, either @ForceApplyCapacityChange@ or @RollbackCapacityChange@ .
+--
+-- @ForceApplyCapacityChange@ , the default, sets the capacity to the specified value as soon as possible.
+-- @RollbackCapacityChange@ ignores the capacity change if a scaling point isn't found in the timeout period.
 -- * 'capacity' - The DB cluster capacity.
 --
 -- When you change the capacity of a paused Aurora Serverless DB cluster, it automatically resumes.
@@ -82,34 +106,35 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
 --     * For Aurora PostgreSQL, valid capacity values are @2@ , @4@ , @8@ , @16@ , @32@ , @64@ , @192@ , and @384@ .
 --
 --
--- * 'dbClusterIdentifier' - The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.
---
--- Constraints:
---
---     * Must match the identifier of an existing DB cluster.
---
---
 -- * 'secondsBeforeTimeout' - The amount of time, in seconds, that Aurora Serverless tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
 --
 --
 --     * Value must be from 10 through 600.
---
---
--- * 'timeoutAction' - The action to take when the timeout is reached, either @ForceApplyCapacityChange@ or @RollbackCapacityChange@ .
---
--- @ForceApplyCapacityChange@ , the default, sets the capacity to the specified value as soon as possible.
--- @RollbackCapacityChange@ ignores the capacity change if a scaling point isn't found in the timeout period.
 mkModifyCurrentDBClusterCapacity ::
   -- | 'dbClusterIdentifier'
   Lude.Text ->
   ModifyCurrentDBClusterCapacity
 mkModifyCurrentDBClusterCapacity pDBClusterIdentifier_ =
   ModifyCurrentDBClusterCapacity'
-    { timeoutAction = Lude.Nothing,
+    { dbClusterIdentifier =
+        pDBClusterIdentifier_,
+      timeoutAction = Lude.Nothing,
       capacity = Lude.Nothing,
-      secondsBeforeTimeout = Lude.Nothing,
-      dbClusterIdentifier = pDBClusterIdentifier_
+      secondsBeforeTimeout = Lude.Nothing
     }
+
+-- | The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing DB cluster.
+--
+--
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcdccDBClusterIdentifier :: Lens.Lens' ModifyCurrentDBClusterCapacity Lude.Text
+mcdccDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: ModifyCurrentDBClusterCapacity -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: ModifyCurrentDBClusterCapacity)
+{-# DEPRECATED mcdccDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 -- | The action to take when the timeout is reached, either @ForceApplyCapacityChange@ or @RollbackCapacityChange@ .
 --
@@ -150,19 +175,6 @@ mcdccSecondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacity (Lude.May
 mcdccSecondsBeforeTimeout = Lens.lens (secondsBeforeTimeout :: ModifyCurrentDBClusterCapacity -> Lude.Maybe Lude.Int) (\s a -> s {secondsBeforeTimeout = a} :: ModifyCurrentDBClusterCapacity)
 {-# DEPRECATED mcdccSecondsBeforeTimeout "Use generic-lens or generic-optics with 'secondsBeforeTimeout' instead." #-}
 
--- | The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.
---
--- Constraints:
---
---     * Must match the identifier of an existing DB cluster.
---
---
---
--- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcdccDBClusterIdentifier :: Lens.Lens' ModifyCurrentDBClusterCapacity Lude.Text
-mcdccDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: ModifyCurrentDBClusterCapacity -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: ModifyCurrentDBClusterCapacity)
-{-# DEPRECATED mcdccDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
-
 instance Lude.AWSRequest ModifyCurrentDBClusterCapacity where
   type
     Rs ModifyCurrentDBClusterCapacity =
@@ -193,49 +205,38 @@ instance Lude.ToQuery ModifyCurrentDBClusterCapacity where
       [ "Action"
           Lude.=: ("ModifyCurrentDBClusterCapacity" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
         "TimeoutAction" Lude.=: timeoutAction,
         "Capacity" Lude.=: capacity,
-        "SecondsBeforeTimeout" Lude.=: secondsBeforeTimeout,
-        "DBClusterIdentifier" Lude.=: dbClusterIdentifier
+        "SecondsBeforeTimeout" Lude.=: secondsBeforeTimeout
       ]
 
 -- | /See:/ 'mkModifyCurrentDBClusterCapacityResponse' smart constructor.
 data ModifyCurrentDBClusterCapacityResponse = ModifyCurrentDBClusterCapacityResponse'
-  { dbClusterIdentifier ::
-      Lude.Maybe
-        Lude.Text,
-    timeoutAction ::
-      Lude.Maybe
-        Lude.Text,
-    currentCapacity ::
-      Lude.Maybe
-        Lude.Int,
-    pendingCapacity ::
-      Lude.Maybe
-        Lude.Int,
-    secondsBeforeTimeout ::
-      Lude.Maybe
-        Lude.Int,
-    responseStatus ::
-      Lude.Int
+  { -- | A user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
+    dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@ , either @ForceApplyCapacityChange@ or @RollbackCapacityChange@ .
+    timeoutAction :: Lude.Maybe Lude.Text,
+    -- | The current capacity of the DB cluster.
+    currentCapacity :: Lude.Maybe Lude.Int,
+    -- | A value that specifies the capacity that the DB cluster scales to next.
+    pendingCapacity :: Lude.Maybe Lude.Int,
+    -- | The number of seconds before a call to @ModifyCurrentDBClusterCapacity@ times out.
+    secondsBeforeTimeout :: Lude.Maybe Lude.Int,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCurrentDBClusterCapacityResponse' with the minimum fields required to make a request.
 --
--- * 'currentCapacity' - The current capacity of the DB cluster.
 -- * 'dbClusterIdentifier' - A user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
--- * 'pendingCapacity' - A value that specifies the capacity that the DB cluster scales to next.
--- * 'responseStatus' - The response status code.
--- * 'secondsBeforeTimeout' - The number of seconds before a call to @ModifyCurrentDBClusterCapacity@ times out.
 -- * 'timeoutAction' - The timeout action of a call to @ModifyCurrentDBClusterCapacity@ , either @ForceApplyCapacityChange@ or @RollbackCapacityChange@ .
+-- * 'currentCapacity' - The current capacity of the DB cluster.
+-- * 'pendingCapacity' - A value that specifies the capacity that the DB cluster scales to next.
+-- * 'secondsBeforeTimeout' - The number of seconds before a call to @ModifyCurrentDBClusterCapacity@ times out.
+-- * 'responseStatus' - The response status code.
 mkModifyCurrentDBClusterCapacityResponse ::
   -- | 'responseStatus'
   Lude.Int ->

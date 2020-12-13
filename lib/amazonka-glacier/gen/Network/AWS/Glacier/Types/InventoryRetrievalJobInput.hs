@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInventoryRetrievalJobInput' smart constructor.
 data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
-  { endDate ::
-      Lude.Maybe Lude.Text,
+  { -- | The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
+    endDate :: Lude.Maybe Lude.Text,
+    -- | The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
     startDate :: Lude.Maybe Lude.Text,
+    -- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | Specifies the maximum number of inventory items returned per vault inventory retrieval request. Valid values are greater than or equal to 1.
     limit :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryRetrievalJobInput' with the minimum fields required to make a request.
 --
 -- * 'endDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
--- * 'limit' - Specifies the maximum number of inventory items returned per vault inventory retrieval request. Valid values are greater than or equal to 1.
--- * 'marker' - An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
 -- * 'startDate' - The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
+-- * 'marker' - An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
+-- * 'limit' - Specifies the maximum number of inventory items returned per vault inventory retrieval request. Valid values are greater than or equal to 1.
 mkInventoryRetrievalJobInput ::
   InventoryRetrievalJobInput
 mkInventoryRetrievalJobInput =

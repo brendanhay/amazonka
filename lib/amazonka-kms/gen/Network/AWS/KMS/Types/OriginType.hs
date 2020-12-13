@@ -13,9 +13,9 @@
 module Network.AWS.KMS.Types.OriginType
   ( OriginType
       ( OriginType',
-        AWSCloudhsm,
         AWSKMS,
-        External
+        External,
+        AWSCloudhsm
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype OriginType = OriginType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSCloudhsm :: OriginType
-pattern AWSCloudhsm = OriginType' "AWS_CLOUDHSM"
-
 pattern AWSKMS :: OriginType
 pattern AWSKMS = OriginType' "AWS_KMS"
 
 pattern External :: OriginType
 pattern External = OriginType' "EXTERNAL"
 
+pattern AWSCloudhsm :: OriginType
+pattern AWSCloudhsm = OriginType' "AWS_CLOUDHSM"
+
 {-# COMPLETE
-  AWSCloudhsm,
   AWSKMS,
   External,
+  AWSCloudhsm,
   OriginType'
   #-}

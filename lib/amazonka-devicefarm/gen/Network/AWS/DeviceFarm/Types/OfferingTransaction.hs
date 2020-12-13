@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOfferingTransaction' smart constructor.
 data OfferingTransaction = OfferingTransaction'
-  { offeringStatus ::
-      Lude.Maybe OfferingStatus,
+  { -- | The status of an offering transaction.
+    offeringStatus :: Lude.Maybe OfferingStatus,
+    -- | The cost of an offering transaction.
     cost :: Lude.Maybe MonetaryAmount,
+    -- | The transaction ID of the offering transaction.
     transactionId :: Lude.Maybe Lude.Text,
+    -- | The ID that corresponds to a device offering promotion.
     offeringPromotionId :: Lude.Maybe Lude.Text,
+    -- | The date on which an offering transaction was created.
     createdOn :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OfferingTransaction' with the minimum fields required to make a request.
 --
--- * 'cost' - The cost of an offering transaction.
--- * 'createdOn' - The date on which an offering transaction was created.
--- * 'offeringPromotionId' - The ID that corresponds to a device offering promotion.
 -- * 'offeringStatus' - The status of an offering transaction.
+-- * 'cost' - The cost of an offering transaction.
 -- * 'transactionId' - The transaction ID of the offering transaction.
+-- * 'offeringPromotionId' - The ID that corresponds to a device offering promotion.
+-- * 'createdOn' - The date on which an offering transaction was created.
 mkOfferingTransaction ::
   OfferingTransaction
 mkOfferingTransaction =

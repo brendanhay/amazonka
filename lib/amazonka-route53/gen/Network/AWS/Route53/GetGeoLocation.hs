@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,8 +36,8 @@ module Network.AWS.Route53.GetGeoLocation
     mkGetGeoLocationResponse,
 
     -- ** Response lenses
-    gglrsResponseStatus,
     gglrsGeoLocationDetails,
+    gglrsResponseStatus,
   )
 where
 
@@ -50,22 +51,45 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkGetGeoLocation' smart constructor.
 data GetGeoLocation = GetGeoLocation'
-  { subdivisionCode ::
-      Lude.Maybe Lude.Text,
+  { -- | For @SubdivisionCode@ , Amazon Route 53 supports only states of the United States. For a list of state abbreviations, see <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations> on the United States Postal Service website.
+    --
+    -- If you specify @subdivisioncode@ , you must also specify @US@ for @CountryCode@ .
+    subdivisionCode :: Lude.Maybe Lude.Text,
+    -- | Amazon Route 53 uses the two-letter country codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> .
     countryCode :: Lude.Maybe Lude.Text,
+    -- | For geolocation resource record sets, a two-letter abbreviation that identifies a continent. Amazon Route 53 supports the following continent codes:
+    --
+    --
+    --     * __AF__ : Africa
+    --
+    --
+    --     * __AN__ : Antarctica
+    --
+    --
+    --     * __AS__ : Asia
+    --
+    --
+    --     * __EU__ : Europe
+    --
+    --
+    --     * __OC__ : Oceania
+    --
+    --
+    --     * __NA__ : North America
+    --
+    --
+    --     * __SA__ : South America
     continentCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGeoLocation' with the minimum fields required to make a request.
 --
+-- * 'subdivisionCode' - For @SubdivisionCode@ , Amazon Route 53 supports only states of the United States. For a list of state abbreviations, see <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations> on the United States Postal Service website.
+--
+-- If you specify @subdivisioncode@ , you must also specify @US@ for @CountryCode@ .
+-- * 'countryCode' - Amazon Route 53 uses the two-letter country codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> .
 -- * 'continentCode' - For geolocation resource record sets, a two-letter abbreviation that identifies a continent. Amazon Route 53 supports the following continent codes:
 --
 --
@@ -88,12 +112,6 @@ data GetGeoLocation = GetGeoLocation'
 --
 --
 --     * __SA__ : South America
---
---
--- * 'countryCode' - Amazon Route 53 uses the two-letter country codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> .
--- * 'subdivisionCode' - For @SubdivisionCode@ , Amazon Route 53 supports only states of the United States. For a list of state abbreviations, see <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations> on the United States Postal Service website.
---
--- If you specify @subdivisioncode@ , you must also specify @US@ for @CountryCode@ .
 mkGetGeoLocation ::
   GetGeoLocation
 mkGetGeoLocation =
@@ -156,8 +174,8 @@ instance Lude.AWSRequest GetGeoLocation where
     Res.receiveXML
       ( \s h x ->
           GetGeoLocationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "GeoLocationDetails")
+            Lude.<$> (x Lude..@ "GeoLocationDetails")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetGeoLocation where
@@ -178,17 +196,12 @@ instance Lude.ToQuery GetGeoLocation where
 --
 -- /See:/ 'mkGetGeoLocationResponse' smart constructor.
 data GetGeoLocationResponse = GetGeoLocationResponse'
-  { responseStatus ::
-      Lude.Int,
-    geoLocationDetails :: GeoLocationDetails
+  { -- | A complex type that contains the codes and full continent, country, and subdivision names for the specified geolocation code.
+    geoLocationDetails :: GeoLocationDetails,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGeoLocationResponse' with the minimum fields required to make a request.
@@ -196,23 +209,17 @@ data GetGeoLocationResponse = GetGeoLocationResponse'
 -- * 'geoLocationDetails' - A complex type that contains the codes and full continent, country, and subdivision names for the specified geolocation code.
 -- * 'responseStatus' - The response status code.
 mkGetGeoLocationResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'geoLocationDetails'
   GeoLocationDetails ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGeoLocationResponse
-mkGetGeoLocationResponse pResponseStatus_ pGeoLocationDetails_ =
+mkGetGeoLocationResponse pGeoLocationDetails_ pResponseStatus_ =
   GetGeoLocationResponse'
-    { responseStatus = pResponseStatus_,
-      geoLocationDetails = pGeoLocationDetails_
+    { geoLocationDetails =
+        pGeoLocationDetails_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gglrsResponseStatus :: Lens.Lens' GetGeoLocationResponse Lude.Int
-gglrsResponseStatus = Lens.lens (responseStatus :: GetGeoLocationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGeoLocationResponse)
-{-# DEPRECATED gglrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains the codes and full continent, country, and subdivision names for the specified geolocation code.
 --
@@ -220,3 +227,10 @@ gglrsResponseStatus = Lens.lens (responseStatus :: GetGeoLocationResponse -> Lud
 gglrsGeoLocationDetails :: Lens.Lens' GetGeoLocationResponse GeoLocationDetails
 gglrsGeoLocationDetails = Lens.lens (geoLocationDetails :: GetGeoLocationResponse -> GeoLocationDetails) (\s a -> s {geoLocationDetails = a} :: GetGeoLocationResponse)
 {-# DEPRECATED gglrsGeoLocationDetails "Use generic-lens or generic-optics with 'geoLocationDetails' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gglrsResponseStatus :: Lens.Lens' GetGeoLocationResponse Lude.Int
+gglrsResponseStatus = Lens.lens (responseStatus :: GetGeoLocationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGeoLocationResponse)
+{-# DEPRECATED gglrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

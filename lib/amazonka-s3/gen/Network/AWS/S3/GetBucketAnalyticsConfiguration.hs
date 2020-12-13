@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,17 +32,17 @@ module Network.AWS.S3.GetBucketAnalyticsConfiguration
     mkGetBucketAnalyticsConfiguration,
 
     -- ** Request lenses
-    getExpectedBucketOwner,
-    getBucket,
-    getId,
+    gbacfBucket,
+    gbacfId,
+    gbacfExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketAnalyticsConfigurationResponse (..),
     mkGetBucketAnalyticsConfigurationResponse,
 
     -- ** Response lenses
-    gbacrsAnalyticsConfiguration,
-    gbacrsResponseStatus,
+    gbacfrsAnalyticsConfiguration,
+    gbacfrsResponseStatus,
   )
 where
 
@@ -53,25 +54,21 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketAnalyticsConfiguration' smart constructor.
 data GetBucketAnalyticsConfiguration = GetBucketAnalyticsConfiguration'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the bucket from which an analytics configuration is retrieved.
     bucket :: BucketName,
-    id :: Lude.Text
+    -- | The ID that identifies the analytics configuration.
+    id :: Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketAnalyticsConfiguration' with the minimum fields required to make a request.
 --
 -- * 'bucket' - The name of the bucket from which an analytics configuration is retrieved.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 -- * 'id' - The ID that identifies the analytics configuration.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkGetBucketAnalyticsConfiguration ::
   -- | 'bucket'
   BucketName ->
@@ -80,32 +77,31 @@ mkGetBucketAnalyticsConfiguration ::
   GetBucketAnalyticsConfiguration
 mkGetBucketAnalyticsConfiguration pBucket_ pId_ =
   GetBucketAnalyticsConfiguration'
-    { expectedBucketOwner =
-        Lude.Nothing,
-      bucket = pBucket_,
-      id = pId_
+    { bucket = pBucket_,
+      id = pId_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getExpectedBucketOwner :: Lens.Lens' GetBucketAnalyticsConfiguration (Lude.Maybe Lude.Text)
-getExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketAnalyticsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketAnalyticsConfiguration)
-{-# DEPRECATED getExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket from which an analytics configuration is retrieved.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getBucket :: Lens.Lens' GetBucketAnalyticsConfiguration BucketName
-getBucket = Lens.lens (bucket :: GetBucketAnalyticsConfiguration -> BucketName) (\s a -> s {bucket = a} :: GetBucketAnalyticsConfiguration)
-{-# DEPRECATED getBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+gbacfBucket :: Lens.Lens' GetBucketAnalyticsConfiguration BucketName
+gbacfBucket = Lens.lens (bucket :: GetBucketAnalyticsConfiguration -> BucketName) (\s a -> s {bucket = a} :: GetBucketAnalyticsConfiguration)
+{-# DEPRECATED gbacfBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID that identifies the analytics configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getId :: Lens.Lens' GetBucketAnalyticsConfiguration Lude.Text
-getId = Lens.lens (id :: GetBucketAnalyticsConfiguration -> Lude.Text) (\s a -> s {id = a} :: GetBucketAnalyticsConfiguration)
-{-# DEPRECATED getId "Use generic-lens or generic-optics with 'id' instead." #-}
+gbacfId :: Lens.Lens' GetBucketAnalyticsConfiguration Lude.Text
+gbacfId = Lens.lens (id :: GetBucketAnalyticsConfiguration -> Lude.Text) (\s a -> s {id = a} :: GetBucketAnalyticsConfiguration)
+{-# DEPRECATED gbacfId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbacfExpectedBucketOwner :: Lens.Lens' GetBucketAnalyticsConfiguration (Lude.Maybe Lude.Text)
+gbacfExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketAnalyticsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketAnalyticsConfiguration)
+{-# DEPRECATED gbacfExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetBucketAnalyticsConfiguration where
   type
@@ -134,19 +130,12 @@ instance Lude.ToQuery GetBucketAnalyticsConfiguration where
 
 -- | /See:/ 'mkGetBucketAnalyticsConfigurationResponse' smart constructor.
 data GetBucketAnalyticsConfigurationResponse = GetBucketAnalyticsConfigurationResponse'
-  { analyticsConfiguration ::
-      Lude.Maybe
-        AnalyticsConfiguration,
-    responseStatus ::
-      Lude.Int
+  { -- | The configuration and any analyses for the analytics filter.
+    analyticsConfiguration :: Lude.Maybe AnalyticsConfiguration,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketAnalyticsConfigurationResponse' with the minimum fields required to make a request.
@@ -167,13 +156,13 @@ mkGetBucketAnalyticsConfigurationResponse pResponseStatus_ =
 -- | The configuration and any analyses for the analytics filter.
 --
 -- /Note:/ Consider using 'analyticsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbacrsAnalyticsConfiguration :: Lens.Lens' GetBucketAnalyticsConfigurationResponse (Lude.Maybe AnalyticsConfiguration)
-gbacrsAnalyticsConfiguration = Lens.lens (analyticsConfiguration :: GetBucketAnalyticsConfigurationResponse -> Lude.Maybe AnalyticsConfiguration) (\s a -> s {analyticsConfiguration = a} :: GetBucketAnalyticsConfigurationResponse)
-{-# DEPRECATED gbacrsAnalyticsConfiguration "Use generic-lens or generic-optics with 'analyticsConfiguration' instead." #-}
+gbacfrsAnalyticsConfiguration :: Lens.Lens' GetBucketAnalyticsConfigurationResponse (Lude.Maybe AnalyticsConfiguration)
+gbacfrsAnalyticsConfiguration = Lens.lens (analyticsConfiguration :: GetBucketAnalyticsConfigurationResponse -> Lude.Maybe AnalyticsConfiguration) (\s a -> s {analyticsConfiguration = a} :: GetBucketAnalyticsConfigurationResponse)
+{-# DEPRECATED gbacfrsAnalyticsConfiguration "Use generic-lens or generic-optics with 'analyticsConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbacrsResponseStatus :: Lens.Lens' GetBucketAnalyticsConfigurationResponse Lude.Int
-gbacrsResponseStatus = Lens.lens (responseStatus :: GetBucketAnalyticsConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketAnalyticsConfigurationResponse)
-{-# DEPRECATED gbacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbacfrsResponseStatus :: Lens.Lens' GetBucketAnalyticsConfigurationResponse Lude.Int
+gbacfrsResponseStatus = Lens.lens (responseStatus :: GetBucketAnalyticsConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketAnalyticsConfigurationResponse)
+{-# DEPRECATED gbacfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

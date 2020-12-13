@@ -38,41 +38,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotOptionsRequest' smart constructor.
 data SpotOptionsRequest = SpotOptionsRequest'
-  { instanceInterruptionBehavior ::
-      Lude.Maybe SpotInstanceInterruptionBehavior,
+  { -- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
+    instanceInterruptionBehavior :: Lude.Maybe SpotInstanceInterruptionBehavior,
+    -- | Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type @instant@ .
     singleAvailabilityZone :: Lude.Maybe Lude.Bool,
+    -- | The maximum amount per hour for Spot Instances that you're willing to pay.
     maxTotalPrice :: Lude.Maybe Lude.Text,
+    -- | The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
     minTargetCapacity :: Lude.Maybe Lude.Int,
+    -- | The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
     instancePoolsToUseCount :: Lude.Maybe Lude.Int,
-    maintenanceStrategies ::
-      Lude.Maybe FleetSpotMaintenanceStrategiesRequest,
+    -- | The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+    maintenanceStrategies :: Lude.Maybe FleetSpotMaintenanceStrategiesRequest,
+    -- | Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type @instant@ .
     singleInstanceType :: Lude.Maybe Lude.Bool,
-    allocationStrategy ::
-      Lude.Maybe SpotAllocationStrategy
+    -- | Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
+    --
+    -- If the allocation strategy is @lowest-price@ , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
+    -- If the allocation strategy is @diversified@ , EC2 Fleet launches instances from all of the Spot Instance pools that you specify.
+    -- If the allocation strategy is @capacity-optimized@ , EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
+    allocationStrategy :: Lude.Maybe SpotAllocationStrategy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotOptionsRequest' with the minimum fields required to make a request.
 --
+-- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
+-- * 'singleAvailabilityZone' - Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type @instant@ .
+-- * 'maxTotalPrice' - The maximum amount per hour for Spot Instances that you're willing to pay.
+-- * 'minTargetCapacity' - The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+-- * 'instancePoolsToUseCount' - The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+-- * 'maintenanceStrategies' - The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
+-- * 'singleInstanceType' - Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type @instant@ .
 -- * 'allocationStrategy' - Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.
 --
 -- If the allocation strategy is @lowest-price@ , EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.
 -- If the allocation strategy is @diversified@ , EC2 Fleet launches instances from all of the Spot Instance pools that you specify.
 -- If the allocation strategy is @capacity-optimized@ , EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.
--- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
--- * 'instancePoolsToUseCount' - The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
--- * 'maintenanceStrategies' - The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.
--- * 'maxTotalPrice' - The maximum amount per hour for Spot Instances that you're willing to pay.
--- * 'minTargetCapacity' - The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
--- * 'singleAvailabilityZone' - Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type @instant@ .
--- * 'singleInstanceType' - Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type @instant@ .
 mkSpotOptionsRequest ::
   SpotOptionsRequest
 mkSpotOptionsRequest =

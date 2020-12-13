@@ -27,13 +27,7 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceManagedChannelS3Storage' smart constructor.
 data ServiceManagedChannelS3Storage = ServiceManagedChannelS3Storage'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceManagedChannelS3Storage' with the minimum fields required to make a request.

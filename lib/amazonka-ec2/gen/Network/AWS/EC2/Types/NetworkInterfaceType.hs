@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.NetworkInterfaceType
   ( NetworkInterfaceType
       ( NetworkInterfaceType',
-        NITEfa,
         NITInterface,
-        NITNatGateway
+        NITNatGateway,
+        NITEfa
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype NetworkInterfaceType = NetworkInterfaceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern NITEfa :: NetworkInterfaceType
-pattern NITEfa = NetworkInterfaceType' "efa"
-
 pattern NITInterface :: NetworkInterfaceType
 pattern NITInterface = NetworkInterfaceType' "interface"
 
 pattern NITNatGateway :: NetworkInterfaceType
 pattern NITNatGateway = NetworkInterfaceType' "natGateway"
 
+pattern NITEfa :: NetworkInterfaceType
+pattern NITEfa = NetworkInterfaceType' "efa"
+
 {-# COMPLETE
-  NITEfa,
   NITInterface,
   NITNatGateway,
+  NITEfa,
   NetworkInterfaceType'
   #-}

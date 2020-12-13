@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.CodeCommit.EvaluatePullRequestApprovalRules
     mkEvaluatePullRequestApprovalRulesResponse,
 
     -- ** Response lenses
-    eprarrsResponseStatus,
     eprarrsEvaluation,
+    eprarrsResponseStatus,
   )
 where
 
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkEvaluatePullRequestApprovalRules' smart constructor.
 data EvaluatePullRequestApprovalRules = EvaluatePullRequestApprovalRules'
-  { pullRequestId ::
-      Lude.Text,
+  { -- | The system-generated ID of the pull request you want to evaluate.
+    pullRequestId :: Lude.Text,
+    -- | The system-generated ID for the pull request revision. To retrieve the most recent revision ID for a pull request, use 'GetPullRequest' .
     revisionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluatePullRequestApprovalRules' with the minimum fields required to make a request.
@@ -93,7 +89,7 @@ instance Lude.AWSRequest EvaluatePullRequestApprovalRules where
     Res.receiveJSON
       ( \s h x ->
           EvaluatePullRequestApprovalRulesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "evaluation")
+            Lude.<$> (x Lude..:> "evaluation") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders EvaluatePullRequestApprovalRules where
@@ -126,18 +122,12 @@ instance Lude.ToQuery EvaluatePullRequestApprovalRules where
 
 -- | /See:/ 'mkEvaluatePullRequestApprovalRulesResponse' smart constructor.
 data EvaluatePullRequestApprovalRulesResponse = EvaluatePullRequestApprovalRulesResponse'
-  { responseStatus ::
-      Lude.Int,
-    evaluation ::
-      Evaluation
+  { -- | The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override.
+    evaluation :: Evaluation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluatePullRequestApprovalRulesResponse' with the minimum fields required to make a request.
@@ -145,26 +135,19 @@ data EvaluatePullRequestApprovalRulesResponse = EvaluatePullRequestApprovalRules
 -- * 'evaluation' - The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override.
 -- * 'responseStatus' - The response status code.
 mkEvaluatePullRequestApprovalRulesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'evaluation'
   Evaluation ->
+  -- | 'responseStatus'
+  Lude.Int ->
   EvaluatePullRequestApprovalRulesResponse
 mkEvaluatePullRequestApprovalRulesResponse
-  pResponseStatus_
-  pEvaluation_ =
+  pEvaluation_
+  pResponseStatus_ =
     EvaluatePullRequestApprovalRulesResponse'
-      { responseStatus =
-          pResponseStatus_,
-        evaluation = pEvaluation_
+      { evaluation =
+          pEvaluation_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eprarrsResponseStatus :: Lens.Lens' EvaluatePullRequestApprovalRulesResponse Lude.Int
-eprarrsResponseStatus = Lens.lens (responseStatus :: EvaluatePullRequestApprovalRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EvaluatePullRequestApprovalRulesResponse)
-{-# DEPRECATED eprarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override.
 --
@@ -172,3 +155,10 @@ eprarrsResponseStatus = Lens.lens (responseStatus :: EvaluatePullRequestApproval
 eprarrsEvaluation :: Lens.Lens' EvaluatePullRequestApprovalRulesResponse Evaluation
 eprarrsEvaluation = Lens.lens (evaluation :: EvaluatePullRequestApprovalRulesResponse -> Evaluation) (\s a -> s {evaluation = a} :: EvaluatePullRequestApprovalRulesResponse)
 {-# DEPRECATED eprarrsEvaluation "Use generic-lens or generic-optics with 'evaluation' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eprarrsResponseStatus :: Lens.Lens' EvaluatePullRequestApprovalRulesResponse Lude.Int
+eprarrsResponseStatus = Lens.lens (responseStatus :: EvaluatePullRequestApprovalRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EvaluatePullRequestApprovalRulesResponse)
+{-# DEPRECATED eprarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

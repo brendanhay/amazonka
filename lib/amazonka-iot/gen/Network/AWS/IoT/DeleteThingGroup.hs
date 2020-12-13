@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,7 +28,7 @@ module Network.AWS.IoT.DeleteThingGroup
     mkDeleteThingGroupResponse,
 
     -- ** Response lenses
-    dtgtrsResponseStatus,
+    dtgfrsResponseStatus,
   )
 where
 
@@ -39,17 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteThingGroup' smart constructor.
 data DeleteThingGroup = DeleteThingGroup'
-  { expectedVersion ::
-      Lude.Maybe Lude.Integer,
+  { -- | The expected version of the thing group to delete.
+    expectedVersion :: Lude.Maybe Lude.Integer,
+    -- | The name of the thing group to delete.
     thingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteThingGroup' with the minimum fields required to make a request.
@@ -102,16 +98,10 @@ instance Lude.ToQuery DeleteThingGroup where
 
 -- | /See:/ 'mkDeleteThingGroupResponse' smart constructor.
 newtype DeleteThingGroupResponse = DeleteThingGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteThingGroupResponse' with the minimum fields required to make a request.
@@ -127,6 +117,6 @@ mkDeleteThingGroupResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgtrsResponseStatus :: Lens.Lens' DeleteThingGroupResponse Lude.Int
-dtgtrsResponseStatus = Lens.lens (responseStatus :: DeleteThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteThingGroupResponse)
-{-# DEPRECATED dtgtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgfrsResponseStatus :: Lens.Lens' DeleteThingGroupResponse Lude.Int
+dtgfrsResponseStatus = Lens.lens (responseStatus :: DeleteThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteThingGroupResponse)
+{-# DEPRECATED dtgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

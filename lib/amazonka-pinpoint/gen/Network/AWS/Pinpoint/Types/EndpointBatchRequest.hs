@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointBatchRequest' smart constructor.
 newtype EndpointBatchRequest = EndpointBatchRequest'
-  { item ::
-      [EndpointBatchItem]
+  { -- | An array that defines the endpoints to create or update and, for each endpoint, the property values to set or change. An array can contain a maximum of 100 items.
+    item :: [EndpointBatchItem]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointBatchRequest' with the minimum fields required to make a request.

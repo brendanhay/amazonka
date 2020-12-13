@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.APIGateway.GetStages
     mkGetStagesResponse,
 
     -- ** Response lenses
-    gsrsItem,
-    gsrsResponseStatus,
+    grsItem,
+    grsResponseStatus,
   )
 where
 
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetStages' smart constructor.
 data GetStages = GetStages'
-  { deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The stages' deployment identifiers.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStages' with the minimum fields required to make a request.
@@ -111,17 +108,12 @@ instance Lude.ToQuery GetStages where
 --
 -- /See:/ 'mkGetStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'
-  { item ::
-      Lude.Maybe [Stage],
+  { -- | The current page of elements from this collection.
+    item :: Lude.Maybe [Stage],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStagesResponse' with the minimum fields required to make a request.
@@ -141,13 +133,13 @@ mkGetStagesResponse pResponseStatus_ =
 -- | The current page of elements from this collection.
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsItem :: Lens.Lens' GetStagesResponse (Lude.Maybe [Stage])
-gsrsItem = Lens.lens (item :: GetStagesResponse -> Lude.Maybe [Stage]) (\s a -> s {item = a} :: GetStagesResponse)
-{-# DEPRECATED gsrsItem "Use generic-lens or generic-optics with 'item' instead." #-}
+grsItem :: Lens.Lens' GetStagesResponse (Lude.Maybe [Stage])
+grsItem = Lens.lens (item :: GetStagesResponse -> Lude.Maybe [Stage]) (\s a -> s {item = a} :: GetStagesResponse)
+{-# DEPRECATED grsItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsResponseStatus :: Lens.Lens' GetStagesResponse Lude.Int
-gsrsResponseStatus = Lens.lens (responseStatus :: GetStagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetStagesResponse)
-{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grsResponseStatus :: Lens.Lens' GetStagesResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetStagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetStagesResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

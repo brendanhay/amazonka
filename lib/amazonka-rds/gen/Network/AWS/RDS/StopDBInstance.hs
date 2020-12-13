@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.RDS.StopDBInstance
     mkStopDBInstanceResponse,
 
     -- ** Response lenses
-    sdirsDBInstance,
-    sdirsResponseStatus,
+    sdbirsDBInstance,
+    sdbirsResponseStatus,
   )
 where
 
@@ -42,23 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopDBInstance' smart constructor.
 data StopDBInstance = StopDBInstance'
-  { dbSnapshotIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The user-supplied instance identifier of the DB Snapshot created immediately before the DB instance is stopped.
+    dbSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | The user-supplied instance identifier.
     dbInstanceIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDBInstance' with the minimum fields required to make a request.
 --
--- * 'dbInstanceIdentifier' - The user-supplied instance identifier.
 -- * 'dbSnapshotIdentifier' - The user-supplied instance identifier of the DB Snapshot created immediately before the DB instance is stopped.
+-- * 'dbInstanceIdentifier' - The user-supplied instance identifier.
 mkStopDBInstance ::
   -- | 'dbInstanceIdentifier'
   Lude.Text ->
@@ -111,22 +107,16 @@ instance Lude.ToQuery StopDBInstance where
 
 -- | /See:/ 'mkStopDBInstanceResponse' smart constructor.
 data StopDBInstanceResponse = StopDBInstanceResponse'
-  { dbInstance ::
-      Lude.Maybe DBInstance,
+  { dbInstance :: Lude.Maybe DBInstance,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDBInstanceResponse' with the minimum fields required to make a request.
 --
--- * 'dbInstance' - Undocumented field.
+-- * 'dbInstance' -
 -- * 'responseStatus' - The response status code.
 mkStopDBInstanceResponse ::
   -- | 'responseStatus'
@@ -141,13 +131,13 @@ mkStopDBInstanceResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'dbInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdirsDBInstance :: Lens.Lens' StopDBInstanceResponse (Lude.Maybe DBInstance)
-sdirsDBInstance = Lens.lens (dbInstance :: StopDBInstanceResponse -> Lude.Maybe DBInstance) (\s a -> s {dbInstance = a} :: StopDBInstanceResponse)
-{-# DEPRECATED sdirsDBInstance "Use generic-lens or generic-optics with 'dbInstance' instead." #-}
+sdbirsDBInstance :: Lens.Lens' StopDBInstanceResponse (Lude.Maybe DBInstance)
+sdbirsDBInstance = Lens.lens (dbInstance :: StopDBInstanceResponse -> Lude.Maybe DBInstance) (\s a -> s {dbInstance = a} :: StopDBInstanceResponse)
+{-# DEPRECATED sdbirsDBInstance "Use generic-lens or generic-optics with 'dbInstance' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdirsResponseStatus :: Lens.Lens' StopDBInstanceResponse Lude.Int
-sdirsResponseStatus = Lens.lens (responseStatus :: StopDBInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopDBInstanceResponse)
-{-# DEPRECATED sdirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sdbirsResponseStatus :: Lens.Lens' StopDBInstanceResponse Lude.Int
+sdbirsResponseStatus = Lens.lens (responseStatus :: StopDBInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopDBInstanceResponse)
+{-# DEPRECATED sdbirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

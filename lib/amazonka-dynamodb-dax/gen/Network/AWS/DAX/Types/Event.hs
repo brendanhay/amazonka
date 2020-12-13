@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { sourceName :: Lude.Maybe Lude.Text,
+  { -- | The source of the event. For example, if the event occurred at the node level, the source would be the node ID.
+    sourceName :: Lude.Maybe Lude.Text,
+    -- | Specifies the origin of this event - a cluster, a parameter group, a node ID, etc.
     sourceType :: Lude.Maybe SourceType,
+    -- | The date and time when the event occurred.
     date :: Lude.Maybe Lude.Timestamp,
+    -- | A user-defined message associated with the event.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- * 'date' - The date and time when the event occurred.
--- * 'message' - A user-defined message associated with the event.
 -- * 'sourceName' - The source of the event. For example, if the event occurred at the node level, the source would be the node ID.
 -- * 'sourceType' - Specifies the origin of this event - a cluster, a parameter group, a node ID, etc.
+-- * 'date' - The date and time when the event occurred.
+-- * 'message' - A user-defined message associated with the event.
 mkEvent ::
   Event
 mkEvent =

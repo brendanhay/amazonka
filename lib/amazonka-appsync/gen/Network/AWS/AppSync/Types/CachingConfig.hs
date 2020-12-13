@@ -29,26 +29,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCachingConfig' smart constructor.
 data CachingConfig = CachingConfig'
-  { ttl :: Lude.Maybe Lude.Integer,
+  { -- | The TTL in seconds for a resolver that has caching enabled.
+    --
+    -- Valid values are between 1 and 3600 seconds.
+    ttl :: Lude.Maybe Lude.Integer,
+    -- | The caching keys for a resolver that has caching enabled.
+    --
+    -- Valid values are entries from the @> context.arguments@ , @> context.source@ , and @> context.identity@ maps.
     cachingKeys :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachingConfig' with the minimum fields required to make a request.
 --
--- * 'cachingKeys' - The caching keys for a resolver that has caching enabled.
---
--- Valid values are entries from the @> context.arguments@ , @> context.source@ , and @> context.identity@ maps.
 -- * 'ttl' - The TTL in seconds for a resolver that has caching enabled.
 --
 -- Valid values are between 1 and 3600 seconds.
+-- * 'cachingKeys' - The caching keys for a resolver that has caching enabled.
+--
+-- Valid values are entries from the @> context.arguments@ , @> context.source@ , and @> context.identity@ maps.
 mkCachingConfig ::
   CachingConfig
 mkCachingConfig =

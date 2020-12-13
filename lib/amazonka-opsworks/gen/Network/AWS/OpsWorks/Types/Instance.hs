@@ -74,96 +74,142 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { privateDNS :: Lude.Maybe Lude.Text,
+  { -- | The instance's private DNS name.
+    privateDNS :: Lude.Maybe Lude.Text,
+    -- | The instance's reported AWS OpsWorks Stacks agent version.
     reportedAgentVersion :: Lude.Maybe Lude.Text,
+    -- | The instance ID.
     instanceId :: Lude.Maybe Lude.Text,
+    -- | The instance status:
+    --
+    --
+    --     * @booting@
+    --
+    --
+    --     * @connection_lost@
+    --
+    --
+    --     * @online@
+    --
+    --
+    --     * @pending@
+    --
+    --
+    --     * @rebooting@
+    --
+    --
+    --     * @requested@
+    --
+    --
+    --     * @running_setup@
+    --
+    --
+    --     * @setup_failed@
+    --
+    --
+    --     * @shutting_down@
+    --
+    --
+    --     * @start_failed@
+    --
+    --
+    --     * @stop_failed@
+    --
+    --
+    --     * @stopped@
+    --
+    --
+    --     * @stopping@
+    --
+    --
+    --     * @terminated@
+    --
+    --
+    --     * @terminating@
     status :: Lude.Maybe Lude.Text,
+    -- | The instance's private IP address.
     privateIP :: Lude.Maybe Lude.Text,
+    -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
     installUpdatesOnBoot :: Lude.Maybe Lude.Bool,
+    -- | The instance's virtualization type: @paravirtual@ or @hvm@ .
     virtualizationType :: Lude.Maybe VirtualizationType,
+    -- | The ARN of the instance's IAM profile. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
     instanceProfileARN :: Lude.Maybe Lude.Text,
+    -- | The instance's platform.
     platform :: Lude.Maybe Lude.Text,
+    -- | The instance host name.
     hostname :: Lude.Maybe Lude.Text,
+    -- | The SSH key's RSA fingerprint.
     sshHostRsaKeyFingerprint :: Lude.Maybe Lude.Text,
+    -- | An array containing the instance security group IDs.
     securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | For container instances, the Amazon ECS cluster's ARN.
     ecsClusterARN :: Lude.Maybe Lude.Text,
+    -- | The instance's Amazon Resource Number (ARN).
     arn :: Lude.Maybe Lude.Text,
+    -- | The time that the instance was created.
     createdAt :: Lude.Maybe Lude.Text,
+    -- | The ID of the associated Amazon EC2 instance.
     ec2InstanceId :: Lude.Maybe Lude.Text,
+    -- | The instance's Amazon EC2 key-pair name.
     sshKeyName :: Lude.Maybe Lude.Text,
+    -- | The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
     agentVersion :: Lude.Maybe Lude.Text,
+    -- | The root device volume ID.
     rootDeviceVolumeId :: Lude.Maybe Lude.Text,
+    -- | The instance's subnet ID; applicable only if the stack is running in a VPC.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
     infrastructureClass :: Lude.Maybe Lude.Text,
+    -- | The SSH key's Deep Security Agent (DSA) fingerprint.
     sshHostDsaKeyFingerprint :: Lude.Maybe Lude.Text,
+    -- | The instance type, such as @t2.micro@ .
     instanceType :: Lude.Maybe Lude.Text,
+    -- | Whether this is an Amazon EBS-optimized instance.
     ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
     elasticIP :: Lude.Maybe Lude.Text,
+    -- | The instance's operating system.
     os :: Lude.Maybe Lude.Text,
+    -- | The instance Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The ID of the last service error. For more information, call 'DescribeServiceErrors' .
     lastServiceErrorId :: Lude.Maybe Lude.Text,
+    -- | The instance's tenancy option, such as @dedicated@ or @host@ .
     tenancy :: Lude.Maybe Lude.Text,
+    -- | For load-based or time-based instances, the type.
     autoScalingType :: Lude.Maybe AutoScalingType,
+    -- | An array containing the instance layer IDs.
     layerIds :: Lude.Maybe [Lude.Text],
+    -- | The instance architecture: "i386" or "x86_64".
     architecture :: Lude.Maybe Architecture,
+    -- | The instance public DNS name.
     publicDNS :: Lude.Maybe Lude.Text,
+    -- | A custom AMI ID to be used to create the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
     amiId :: Lude.Maybe Lude.Text,
+    -- | The instance public IP address.
     publicIP :: Lude.Maybe Lude.Text,
+    -- | For registered instances, the reported operating system.
     reportedOS :: Lude.Maybe ReportedOS,
+    -- | For registered instances, who performed the registration.
     registeredBy :: Lude.Maybe Lude.Text,
+    -- | The stack ID.
     stackId :: Lude.Maybe Lude.Text,
+    -- | The instance's root device type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
     rootDeviceType :: Lude.Maybe RootDeviceType,
+    -- | For container instances, the instance's ARN.
     ecsContainerInstanceARN :: Lude.Maybe Lude.Text,
+    -- | An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
     blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- * 'agentVersion' - The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
--- * 'amiId' - A custom AMI ID to be used to create the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
--- * 'architecture' - The instance architecture: "i386" or "x86_64".
--- * 'arn' - The instance's Amazon Resource Number (ARN).
--- * 'autoScalingType' - For load-based or time-based instances, the type.
--- * 'availabilityZone' - The instance Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'blockDeviceMappings' - An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
--- * 'createdAt' - The time that the instance was created.
--- * 'ebsOptimized' - Whether this is an Amazon EBS-optimized instance.
--- * 'ec2InstanceId' - The ID of the associated Amazon EC2 instance.
--- * 'ecsClusterARN' - For container instances, the Amazon ECS cluster's ARN.
--- * 'ecsContainerInstanceARN' - For container instances, the instance's ARN.
--- * 'elasticIP' - The instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
--- * 'hostname' - The instance host name.
--- * 'infrastructureClass' - For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
--- * 'installUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
--- * 'instanceId' - The instance ID.
--- * 'instanceProfileARN' - The ARN of the instance's IAM profile. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
--- * 'instanceType' - The instance type, such as @t2.micro@ .
--- * 'lastServiceErrorId' - The ID of the last service error. For more information, call 'DescribeServiceErrors' .
--- * 'layerIds' - An array containing the instance layer IDs.
--- * 'os' - The instance's operating system.
--- * 'platform' - The instance's platform.
 -- * 'privateDNS' - The instance's private DNS name.
--- * 'privateIP' - The instance's private IP address.
--- * 'publicDNS' - The instance public DNS name.
--- * 'publicIP' - The instance public IP address.
--- * 'registeredBy' - For registered instances, who performed the registration.
 -- * 'reportedAgentVersion' - The instance's reported AWS OpsWorks Stacks agent version.
--- * 'reportedOS' - For registered instances, the reported operating system.
--- * 'rootDeviceType' - The instance's root device type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
--- * 'rootDeviceVolumeId' - The root device volume ID.
--- * 'securityGroupIds' - An array containing the instance security group IDs.
--- * 'sshHostDsaKeyFingerprint' - The SSH key's Deep Security Agent (DSA) fingerprint.
--- * 'sshHostRsaKeyFingerprint' - The SSH key's RSA fingerprint.
--- * 'sshKeyName' - The instance's Amazon EC2 key-pair name.
--- * 'stackId' - The stack ID.
+-- * 'instanceId' - The instance ID.
 -- * 'status' - The instance status:
 --
 --
@@ -212,9 +258,43 @@ data Instance = Instance'
 --     * @terminating@
 --
 --
--- * 'subnetId' - The instance's subnet ID; applicable only if the stack is running in a VPC.
--- * 'tenancy' - The instance's tenancy option, such as @dedicated@ or @host@ .
+-- * 'privateIP' - The instance's private IP address.
+-- * 'installUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 -- * 'virtualizationType' - The instance's virtualization type: @paravirtual@ or @hvm@ .
+-- * 'instanceProfileARN' - The ARN of the instance's IAM profile. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- * 'platform' - The instance's platform.
+-- * 'hostname' - The instance host name.
+-- * 'sshHostRsaKeyFingerprint' - The SSH key's RSA fingerprint.
+-- * 'securityGroupIds' - An array containing the instance security group IDs.
+-- * 'ecsClusterARN' - For container instances, the Amazon ECS cluster's ARN.
+-- * 'arn' - The instance's Amazon Resource Number (ARN).
+-- * 'createdAt' - The time that the instance was created.
+-- * 'ec2InstanceId' - The ID of the associated Amazon EC2 instance.
+-- * 'sshKeyName' - The instance's Amazon EC2 key-pair name.
+-- * 'agentVersion' - The agent version. This parameter is set to @INHERIT@ if the instance inherits the default stack setting or to a a version number for a fixed agent version.
+-- * 'rootDeviceVolumeId' - The root device volume ID.
+-- * 'subnetId' - The instance's subnet ID; applicable only if the stack is running in a VPC.
+-- * 'infrastructureClass' - For registered instances, the infrastructure class: @ec2@ or @on-premises@ .
+-- * 'sshHostDsaKeyFingerprint' - The SSH key's Deep Security Agent (DSA) fingerprint.
+-- * 'instanceType' - The instance type, such as @t2.micro@ .
+-- * 'ebsOptimized' - Whether this is an Amazon EBS-optimized instance.
+-- * 'elasticIP' - The instance <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address > .
+-- * 'os' - The instance's operating system.
+-- * 'availabilityZone' - The instance Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+-- * 'lastServiceErrorId' - The ID of the last service error. For more information, call 'DescribeServiceErrors' .
+-- * 'tenancy' - The instance's tenancy option, such as @dedicated@ or @host@ .
+-- * 'autoScalingType' - For load-based or time-based instances, the type.
+-- * 'layerIds' - An array containing the instance layer IDs.
+-- * 'architecture' - The instance architecture: "i386" or "x86_64".
+-- * 'publicDNS' - The instance public DNS name.
+-- * 'amiId' - A custom AMI ID to be used to create the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
+-- * 'publicIP' - The instance public IP address.
+-- * 'reportedOS' - For registered instances, the reported operating system.
+-- * 'registeredBy' - For registered instances, who performed the registration.
+-- * 'stackId' - The stack ID.
+-- * 'rootDeviceType' - The instance's root device type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
+-- * 'ecsContainerInstanceARN' - For container instances, the instance's ARN.
+-- * 'blockDeviceMappings' - An array of @BlockDeviceMapping@ objects that specify the instance's block device mappings.
 mkInstance ::
   Instance
 mkInstance =

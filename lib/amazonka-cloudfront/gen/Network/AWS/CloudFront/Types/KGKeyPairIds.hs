@@ -30,23 +30,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKGKeyPairIds' smart constructor.
 data KGKeyPairIds = KGKeyPairIds'
-  { keyPairIds ::
-      Lude.Maybe KeyPairIds,
+  { keyPairIds :: Lude.Maybe KeyPairIds,
+    -- | The identifier of the key group that contains the public keys.
     keyGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KGKeyPairIds' with the minimum fields required to make a request.
 --
+-- * 'keyPairIds' -
 -- * 'keyGroupId' - The identifier of the key group that contains the public keys.
--- * 'keyPairIds' - Undocumented field.
 mkKGKeyPairIds ::
   KGKeyPairIds
 mkKGKeyPairIds =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
     mkDescribeUserPoolClient,
 
     -- ** Request lenses
-    dupcuUserPoolId,
-    dupcuClientId,
+    dupcfClientId,
+    dupcfUserPoolId,
 
     -- * Destructuring the response
     DescribeUserPoolClientResponse (..),
@@ -42,9 +43,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeUserPoolClient' smart constructor.
 data DescribeUserPoolClient = DescribeUserPoolClient'
-  { userPoolId ::
-      Lude.Text,
-    clientId :: Lude.Sensitive Lude.Text
+  { -- | The app client ID of the app associated with the user pool.
+    clientId :: Lude.Sensitive Lude.Text,
+    -- | The user pool ID for the user pool you want to describe.
+    userPoolId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -54,30 +56,30 @@ data DescribeUserPoolClient = DescribeUserPoolClient'
 -- * 'clientId' - The app client ID of the app associated with the user pool.
 -- * 'userPoolId' - The user pool ID for the user pool you want to describe.
 mkDescribeUserPoolClient ::
-  -- | 'userPoolId'
-  Lude.Text ->
   -- | 'clientId'
   Lude.Sensitive Lude.Text ->
+  -- | 'userPoolId'
+  Lude.Text ->
   DescribeUserPoolClient
-mkDescribeUserPoolClient pUserPoolId_ pClientId_ =
+mkDescribeUserPoolClient pClientId_ pUserPoolId_ =
   DescribeUserPoolClient'
-    { userPoolId = pUserPoolId_,
-      clientId = pClientId_
+    { clientId = pClientId_,
+      userPoolId = pUserPoolId_
     }
-
--- | The user pool ID for the user pool you want to describe.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dupcuUserPoolId :: Lens.Lens' DescribeUserPoolClient Lude.Text
-dupcuUserPoolId = Lens.lens (userPoolId :: DescribeUserPoolClient -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeUserPoolClient)
-{-# DEPRECATED dupcuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The app client ID of the app associated with the user pool.
 --
 -- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dupcuClientId :: Lens.Lens' DescribeUserPoolClient (Lude.Sensitive Lude.Text)
-dupcuClientId = Lens.lens (clientId :: DescribeUserPoolClient -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: DescribeUserPoolClient)
-{-# DEPRECATED dupcuClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+dupcfClientId :: Lens.Lens' DescribeUserPoolClient (Lude.Sensitive Lude.Text)
+dupcfClientId = Lens.lens (clientId :: DescribeUserPoolClient -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: DescribeUserPoolClient)
+{-# DEPRECATED dupcfClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+
+-- | The user pool ID for the user pool you want to describe.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupcfUserPoolId :: Lens.Lens' DescribeUserPoolClient Lude.Text
+dupcfUserPoolId = Lens.lens (userPoolId :: DescribeUserPoolClient -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeUserPoolClient)
+{-# DEPRECATED dupcfUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Lude.AWSRequest DescribeUserPoolClient where
   type Rs DescribeUserPoolClient = DescribeUserPoolClientResponse
@@ -107,8 +109,8 @@ instance Lude.ToJSON DescribeUserPoolClient where
   toJSON DescribeUserPoolClient' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("ClientId" Lude..= clientId)
+          [ Lude.Just ("ClientId" Lude..= clientId),
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
@@ -122,8 +124,9 @@ instance Lude.ToQuery DescribeUserPoolClient where
 --
 -- /See:/ 'mkDescribeUserPoolClientResponse' smart constructor.
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
-  { userPoolClient ::
-      Lude.Maybe UserPoolClientType,
+  { -- | The user pool client from a server response to describe the user pool client.
+    userPoolClient :: Lude.Maybe UserPoolClientType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -131,8 +134,8 @@ data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
 
 -- | Creates a value of 'DescribeUserPoolClientResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userPoolClient' - The user pool client from a server response to describe the user pool client.
+-- * 'responseStatus' - The response status code.
 mkDescribeUserPoolClientResponse ::
   -- | 'responseStatus'
   Lude.Int ->

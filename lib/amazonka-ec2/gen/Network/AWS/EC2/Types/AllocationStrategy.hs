@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.AllocationStrategy
   ( AllocationStrategy
       ( AllocationStrategy',
-        ASCapacityOptimized,
+        ASLowestPrice,
         ASDiversified,
-        ASLowestPrice
+        ASCapacityOptimized
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AllocationStrategy = AllocationStrategy' Lude.Text
       Lude.ToHeader
     )
 
-pattern ASCapacityOptimized :: AllocationStrategy
-pattern ASCapacityOptimized = AllocationStrategy' "capacityOptimized"
+pattern ASLowestPrice :: AllocationStrategy
+pattern ASLowestPrice = AllocationStrategy' "lowestPrice"
 
 pattern ASDiversified :: AllocationStrategy
 pattern ASDiversified = AllocationStrategy' "diversified"
 
-pattern ASLowestPrice :: AllocationStrategy
-pattern ASLowestPrice = AllocationStrategy' "lowestPrice"
+pattern ASCapacityOptimized :: AllocationStrategy
+pattern ASCapacityOptimized = AllocationStrategy' "capacityOptimized"
 
 {-# COMPLETE
-  ASCapacityOptimized,
-  ASDiversified,
   ASLowestPrice,
+  ASDiversified,
+  ASCapacityOptimized,
   AllocationStrategy'
   #-}

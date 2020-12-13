@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOriginGroupMembers' smart constructor.
 data OriginGroupMembers = OriginGroupMembers'
-  { quantity :: Lude.Int,
+  { -- | The number of origins in an origin group.
+    quantity :: Lude.Int,
+    -- | Items (origins) in an origin group.
     items :: Lude.NonEmpty OriginGroupMember
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginGroupMembers' with the minimum fields required to make a request.
 --
--- * 'items' - Items (origins) in an origin group.
 -- * 'quantity' - The number of origins in an origin group.
+-- * 'items' - Items (origins) in an origin group.
 mkOriginGroupMembers ::
   -- | 'quantity'
   Lude.Int ->

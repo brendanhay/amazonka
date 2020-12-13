@@ -31,23 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobDetails' smart constructor.
 data JobDetails = JobDetails'
-  { data' :: Lude.Maybe JobData,
+  { -- | Represents other information about a job required for a job worker to complete the job.
+    data' :: Lude.Maybe JobData,
+    -- | The AWS account ID associated with the job.
     accountId :: Lude.Maybe Lude.Text,
+    -- | The unique system-generated ID of the job.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobDetails' with the minimum fields required to make a request.
 --
--- * 'accountId' - The AWS account ID associated with the job.
 -- * 'data'' - Represents other information about a job required for a job worker to complete the job.
+-- * 'accountId' - The AWS account ID associated with the job.
 -- * 'id' - The unique system-generated ID of the job.
 mkJobDetails ::
   JobDetails

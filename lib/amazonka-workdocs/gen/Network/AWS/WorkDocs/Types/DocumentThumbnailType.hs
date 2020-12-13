@@ -13,9 +13,9 @@
 module Network.AWS.WorkDocs.Types.DocumentThumbnailType
   ( DocumentThumbnailType
       ( DocumentThumbnailType',
-        Large,
         Small,
-        SmallHq
+        SmallHq,
+        Large
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DocumentThumbnailType = DocumentThumbnailType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Large :: DocumentThumbnailType
-pattern Large = DocumentThumbnailType' "LARGE"
-
 pattern Small :: DocumentThumbnailType
 pattern Small = DocumentThumbnailType' "SMALL"
 
 pattern SmallHq :: DocumentThumbnailType
 pattern SmallHq = DocumentThumbnailType' "SMALL_HQ"
 
+pattern Large :: DocumentThumbnailType
+pattern Large = DocumentThumbnailType' "LARGE"
+
 {-# COMPLETE
-  Large,
   Small,
   SmallHq,
+  Large,
   DocumentThumbnailType'
   #-}

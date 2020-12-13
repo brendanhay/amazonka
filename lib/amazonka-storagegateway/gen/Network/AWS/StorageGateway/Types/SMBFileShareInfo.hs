@@ -57,41 +57,63 @@ import Network.AWS.StorageGateway.Types.Tag
 --
 -- /See:/ 'mkSMBFileShareInfo' smart constructor.
 data SMBFileShareInfo = SMBFileShareInfo'
-  { accessBasedEnumeration ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether @AccessBasedEnumeration@ is enabled.
+    accessBasedEnumeration :: Lude.Maybe Lude.Bool,
+    -- | A list of users or groups in the Active Directory that have administrator rights to the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
     adminUserList :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
     auditDestinationARN :: Lude.Maybe Lude.Text,
     fileShareStatus :: Lude.Maybe Lude.Text,
+    -- | A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
     invalidUserList :: Lude.Maybe [Lude.Text],
     kmsKey :: Lude.Maybe Lude.Text,
+    -- | A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
     validUserList :: Lude.Maybe [Lude.Text],
     gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The file share path used by the SMB client to identify the mount point.
     path :: Lude.Maybe Lude.Text,
     authentication :: Lude.Maybe Lude.Text,
+    -- | Refresh cache information.
     cacheAttributes :: Lude.Maybe CacheAttributes,
     objectACL :: Lude.Maybe ObjectACL,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
     kmsEncrypted :: Lude.Maybe Lude.Bool,
     fileShareId :: Lude.Maybe Lude.Text,
     fileShareARN :: Lude.Maybe Lude.Text,
+    -- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
+    --
+    -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
     defaultStorageClass :: Lude.Maybe Lude.Text,
+    -- | The name of the file share. Optional.
     fileShareName :: Lude.Maybe Lude.Text,
     role' :: Lude.Maybe Lude.Text,
+    -- | If this value is set to @true@ , it indicates that access control list (ACL) is enabled on the SMB file share. If it is set to @false@ , it indicates that file and directory permissions are mapped to the POSIX permission.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html Using Microsoft Windows ACLs to control access to an SMB file share> in the /AWS Storage Gateway User Guide/ .
     sMBACLEnabled :: Lude.Maybe Lude.Bool,
+    -- | The notification policy of the file share.
     notificationPolicy :: Lude.Maybe Lude.Text,
+    -- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+    --
+    -- Valid Values: @true@ | @false@
     requesterPays :: Lude.Maybe Lude.Bool,
     locationARN :: Lude.Maybe Lude.Text,
+    -- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+    --
+    -- Valid Values: @true@ | @false@
     guessMIMETypeEnabled :: Lude.Maybe Lude.Bool,
+    -- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+    --
+    -- Valid Values: @true@ | @false@
     readOnly :: Lude.Maybe Lude.Bool,
+    -- | The case of an object name in an Amazon S3 bucket. For @ClientSpecified@ , the client determines the case sensitivity. For @CaseSensitive@ , the gateway determines the case sensitivity. The default value is @ClientSpecified@ .
     caseSensitivity :: Lude.Maybe CaseSensitivity,
+    -- | A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SMBFileShareInfo' with the minimum fields required to make a request.
@@ -99,41 +121,41 @@ data SMBFileShareInfo = SMBFileShareInfo'
 -- * 'accessBasedEnumeration' - Indicates whether @AccessBasedEnumeration@ is enabled.
 -- * 'adminUserList' - A list of users or groups in the Active Directory that have administrator rights to the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
 -- * 'auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.
--- * 'authentication' - Undocumented field.
--- * 'cacheAttributes' - Refresh cache information.
--- * 'caseSensitivity' - The case of an object name in an Amazon S3 bucket. For @ClientSpecified@ , the client determines the case sensitivity. For @CaseSensitive@ , the gateway determines the case sensitivity. The default value is @ClientSpecified@ .
--- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
---
--- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
--- * 'fileShareARN' - Undocumented field.
--- * 'fileShareId' - Undocumented field.
--- * 'fileShareName' - The name of the file share. Optional.
--- * 'fileShareStatus' - Undocumented field.
--- * 'gatewayARN' - Undocumented field.
--- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
---
--- Valid Values: @true@ | @false@
+-- * 'fileShareStatus' -
 -- * 'invalidUserList' - A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+-- * 'kmsKey' -
+-- * 'validUserList' - A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+-- * 'gatewayARN' -
+-- * 'path' - The file share path used by the SMB client to identify the mount point.
+-- * 'authentication' -
+-- * 'cacheAttributes' - Refresh cache information.
+-- * 'objectACL' -
 -- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
--- * 'kmsKey' - Undocumented field.
--- * 'locationARN' - Undocumented field.
--- * 'notificationPolicy' - The notification policy of the file share.
--- * 'objectACL' - Undocumented field.
--- * 'path' - The file share path used by the SMB client to identify the mount point.
--- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+-- * 'fileShareId' -
+-- * 'fileShareARN' -
+-- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
 --
--- Valid Values: @true@ | @false@
--- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
---
--- Valid Values: @true@ | @false@
--- * 'role'' - Undocumented field.
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+-- * 'fileShareName' - The name of the file share. Optional.
+-- * 'role'' -
 -- * 'sMBACLEnabled' - If this value is set to @true@ , it indicates that access control list (ACL) is enabled on the SMB file share. If it is set to @false@ , it indicates that file and directory permissions are mapped to the POSIX permission.
 --
 -- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html Using Microsoft Windows ACLs to control access to an SMB file share> in the /AWS Storage Gateway User Guide/ .
+-- * 'notificationPolicy' - The notification policy of the file share.
+-- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+--
+-- Valid Values: @true@ | @false@
+-- * 'locationARN' -
+-- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+--
+-- Valid Values: @true@ | @false@
+-- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+--
+-- Valid Values: @true@ | @false@
+-- * 'caseSensitivity' - The case of an object name in an Amazon S3 bucket. For @ClientSpecified@ , the client determines the case sensitivity. For @CaseSensitive@ , the gateway determines the case sensitivity. The default value is @ClientSpecified@ .
 -- * 'tags' - A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
--- * 'validUserList' - A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
 mkSMBFileShareInfo ::
   SMBFileShareInfo
 mkSMBFileShareInfo =

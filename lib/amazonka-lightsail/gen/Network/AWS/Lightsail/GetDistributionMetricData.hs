@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.Lightsail.GetDistributionMetricData
     mkGetDistributionMetricData,
 
     -- ** Request lenses
-    gdmdDistributionName,
-    gdmdMetricName,
     gdmdStartTime,
-    gdmdEndTime,
     gdmdPeriod,
-    gdmdUnit,
+    gdmdMetricName,
+    gdmdEndTime,
+    gdmdDistributionName,
     gdmdStatistics,
+    gdmdUnit,
 
     -- * Destructuring the response
     GetDistributionMetricDataResponse (..),
@@ -48,30 +49,100 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDistributionMetricData' smart constructor.
 data GetDistributionMetricData = GetDistributionMetricData'
-  { distributionName ::
-      Lude.Text,
-    metricName :: DistributionMetricName,
+  { -- | The start of the time interval for which to get metric data.
+    --
+    -- Constraints:
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Specified in the Unix time format.
+    -- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify @1538424000@ as the start time.
+    --
+    --
+    -- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
     startTime :: Lude.Timestamp,
-    endTime :: Lude.Timestamp,
+    -- | The granularity, in seconds, for the metric data points that will be returned.
     period :: Lude.Natural,
-    unit :: MetricUnit,
-    statistics :: [MetricStatistic]
+    -- | The metric for which you want to return information.
+    --
+    -- Valid distribution metric names are listed below, along with the most useful @statistics@ to include in your request, and the published @unit@ value.
+    --
+    --     * __@Requests@ __ - The total number of viewer requests received by your Lightsail distribution, for all HTTP methods, and for both HTTP and HTTPS requests.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @None@ .
+    --
+    --
+    --     * __@BytesDownloaded@ __ - The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @None@ .
+    --
+    --
+    --     * __@BytesUploaded @ __ - The number of bytes uploaded to your origin by your Lightsail distribution, using POST and PUT requests.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @None@ .
+    --
+    --
+    --     * __@TotalErrorRate@ __ - The percentage of all viewer requests for which the response's HTTP status code was 4xx or 5xx.
+    -- @Statistics@ : The most useful statistic is @Average@ .
+    -- @Unit@ : The published unit is @Percent@ .
+    --
+    --
+    --     * __@4xxErrorRate@ __ - The percentage of all viewer requests for which the response's HTTP status cod was 4xx. In these cases, the client or client viewer may have made an error. For example, a status code of 404 (Not Found) means that the client requested an object that could not be found.
+    -- @Statistics@ : The most useful statistic is @Average@ .
+    -- @Unit@ : The published unit is @Percent@ .
+    --
+    --
+    --     * __@5xxErrorRate@ __ - The percentage of all viewer requests for which the response's HTTP status code was 5xx. In these cases, the origin server did not satisfy the requests. For example, a status code of 503 (Service Unavailable) means that the origin server is currently unavailable.
+    -- @Statistics@ : The most useful statistic is @Average@ .
+    -- @Unit@ : The published unit is @Percent@ .
+    metricName :: DistributionMetricName,
+    -- | The end of the time interval for which to get metric data.
+    --
+    -- Constraints:
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Specified in the Unix time format.
+    -- For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify @1538427600@ as the end time.
+    --
+    --
+    -- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
+    endTime :: Lude.Timestamp,
+    -- | The name of the distribution for which to get metric data.
+    --
+    -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+    distributionName :: Lude.Text,
+    -- | The statistic for the metric.
+    --
+    -- The following statistics are available:
+    --
+    --     * @Minimum@ - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.
+    --
+    --
+    --     * @Maximum@ - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.
+    --
+    --
+    --     * @Sum@ - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.
+    --
+    --
+    --     * @Average@ - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.
+    --
+    --
+    --     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
+    statistics :: [MetricStatistic],
+    -- | The unit for the metric data request.
+    --
+    -- Valid units depend on the metric data being requested. For the valid units with each available metric, see the @metricName@ parameter.
+    unit :: MetricUnit
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributionMetricData' with the minimum fields required to make a request.
 --
--- * 'distributionName' - The name of the distribution for which to get metric data.
---
--- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
--- * 'endTime' - The end of the time interval for which to get metric data.
+-- * 'startTime' - The start of the time interval for which to get metric data.
 --
 -- Constraints:
 --
@@ -79,10 +150,11 @@ data GetDistributionMetricData = GetDistributionMetricData'
 --
 --
 --     * Specified in the Unix time format.
--- For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify @1538427600@ as the end time.
+-- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify @1538424000@ as the start time.
 --
 --
 -- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
+-- * 'period' - The granularity, in seconds, for the metric data points that will be returned.
 -- * 'metricName' - The metric for which you want to return information.
 --
 -- Valid distribution metric names are listed below, along with the most useful @statistics@ to include in your request, and the published @unit@ value.
@@ -117,8 +189,7 @@ data GetDistributionMetricData = GetDistributionMetricData'
 -- @Unit@ : The published unit is @Percent@ .
 --
 --
--- * 'period' - The granularity, in seconds, for the metric data points that will be returned.
--- * 'startTime' - The start of the time interval for which to get metric data.
+-- * 'endTime' - The end of the time interval for which to get metric data.
 --
 -- Constraints:
 --
@@ -126,10 +197,13 @@ data GetDistributionMetricData = GetDistributionMetricData'
 --
 --
 --     * Specified in the Unix time format.
--- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify @1538424000@ as the start time.
+-- For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify @1538427600@ as the end time.
 --
 --
 -- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
+-- * 'distributionName' - The name of the distribution for which to get metric data.
+--
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
 -- * 'statistics' - The statistic for the metric.
 --
 -- The following statistics are available:
@@ -153,44 +227,60 @@ data GetDistributionMetricData = GetDistributionMetricData'
 --
 -- Valid units depend on the metric data being requested. For the valid units with each available metric, see the @metricName@ parameter.
 mkGetDistributionMetricData ::
-  -- | 'distributionName'
-  Lude.Text ->
-  -- | 'metricName'
-  DistributionMetricName ->
   -- | 'startTime'
-  Lude.Timestamp ->
-  -- | 'endTime'
   Lude.Timestamp ->
   -- | 'period'
   Lude.Natural ->
+  -- | 'metricName'
+  DistributionMetricName ->
+  -- | 'endTime'
+  Lude.Timestamp ->
+  -- | 'distributionName'
+  Lude.Text ->
   -- | 'unit'
   MetricUnit ->
   GetDistributionMetricData
 mkGetDistributionMetricData
-  pDistributionName_
-  pMetricName_
   pStartTime_
-  pEndTime_
   pPeriod_
+  pMetricName_
+  pEndTime_
+  pDistributionName_
   pUnit_ =
     GetDistributionMetricData'
-      { distributionName = pDistributionName_,
-        metricName = pMetricName_,
-        startTime = pStartTime_,
-        endTime = pEndTime_,
+      { startTime = pStartTime_,
         period = pPeriod_,
-        unit = pUnit_,
-        statistics = Lude.mempty
+        metricName = pMetricName_,
+        endTime = pEndTime_,
+        distributionName = pDistributionName_,
+        statistics = Lude.mempty,
+        unit = pUnit_
       }
 
--- | The name of the distribution for which to get metric data.
+-- | The start of the time interval for which to get metric data.
 --
--- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+-- Constraints:
 --
--- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdmdDistributionName :: Lens.Lens' GetDistributionMetricData Lude.Text
-gdmdDistributionName = Lens.lens (distributionName :: GetDistributionMetricData -> Lude.Text) (\s a -> s {distributionName = a} :: GetDistributionMetricData)
-{-# DEPRECATED gdmdDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
+--     * Specified in Coordinated Universal Time (UTC).
+--
+--
+--     * Specified in the Unix time format.
+-- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify @1538424000@ as the start time.
+--
+--
+-- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdmdStartTime :: Lens.Lens' GetDistributionMetricData Lude.Timestamp
+gdmdStartTime = Lens.lens (startTime :: GetDistributionMetricData -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetDistributionMetricData)
+{-# DEPRECATED gdmdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The granularity, in seconds, for the metric data points that will be returned.
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdmdPeriod :: Lens.Lens' GetDistributionMetricData Lude.Natural
+gdmdPeriod = Lens.lens (period :: GetDistributionMetricData -> Lude.Natural) (\s a -> s {period = a} :: GetDistributionMetricData)
+{-# DEPRECATED gdmdPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The metric for which you want to return information.
 --
@@ -232,24 +322,6 @@ gdmdMetricName :: Lens.Lens' GetDistributionMetricData DistributionMetricName
 gdmdMetricName = Lens.lens (metricName :: GetDistributionMetricData -> DistributionMetricName) (\s a -> s {metricName = a} :: GetDistributionMetricData)
 {-# DEPRECATED gdmdMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
--- | The start of the time interval for which to get metric data.
---
--- Constraints:
---
---     * Specified in Coordinated Universal Time (UTC).
---
---
---     * Specified in the Unix time format.
--- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify @1538424000@ as the start time.
---
---
--- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdmdStartTime :: Lens.Lens' GetDistributionMetricData Lude.Timestamp
-gdmdStartTime = Lens.lens (startTime :: GetDistributionMetricData -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetDistributionMetricData)
-{-# DEPRECATED gdmdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
 -- | The end of the time interval for which to get metric data.
 --
 -- Constraints:
@@ -268,21 +340,14 @@ gdmdEndTime :: Lens.Lens' GetDistributionMetricData Lude.Timestamp
 gdmdEndTime = Lens.lens (endTime :: GetDistributionMetricData -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetDistributionMetricData)
 {-# DEPRECATED gdmdEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
--- | The granularity, in seconds, for the metric data points that will be returned.
+-- | The name of the distribution for which to get metric data.
 --
--- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdmdPeriod :: Lens.Lens' GetDistributionMetricData Lude.Natural
-gdmdPeriod = Lens.lens (period :: GetDistributionMetricData -> Lude.Natural) (\s a -> s {period = a} :: GetDistributionMetricData)
-{-# DEPRECATED gdmdPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
-
--- | The unit for the metric data request.
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
 --
--- Valid units depend on the metric data being requested. For the valid units with each available metric, see the @metricName@ parameter.
---
--- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdmdUnit :: Lens.Lens' GetDistributionMetricData MetricUnit
-gdmdUnit = Lens.lens (unit :: GetDistributionMetricData -> MetricUnit) (\s a -> s {unit = a} :: GetDistributionMetricData)
-{-# DEPRECATED gdmdUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
+-- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdmdDistributionName :: Lens.Lens' GetDistributionMetricData Lude.Text
+gdmdDistributionName = Lens.lens (distributionName :: GetDistributionMetricData -> Lude.Text) (\s a -> s {distributionName = a} :: GetDistributionMetricData)
+{-# DEPRECATED gdmdDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
 -- | The statistic for the metric.
 --
@@ -308,6 +373,15 @@ gdmdUnit = Lens.lens (unit :: GetDistributionMetricData -> MetricUnit) (\s a -> 
 gdmdStatistics :: Lens.Lens' GetDistributionMetricData [MetricStatistic]
 gdmdStatistics = Lens.lens (statistics :: GetDistributionMetricData -> [MetricStatistic]) (\s a -> s {statistics = a} :: GetDistributionMetricData)
 {-# DEPRECATED gdmdStatistics "Use generic-lens or generic-optics with 'statistics' instead." #-}
+
+-- | The unit for the metric data request.
+--
+-- Valid units depend on the metric data being requested. For the valid units with each available metric, see the @metricName@ parameter.
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdmdUnit :: Lens.Lens' GetDistributionMetricData MetricUnit
+gdmdUnit = Lens.lens (unit :: GetDistributionMetricData -> MetricUnit) (\s a -> s {unit = a} :: GetDistributionMetricData)
+{-# DEPRECATED gdmdUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 instance Lude.AWSRequest GetDistributionMetricData where
   type
@@ -340,13 +414,13 @@ instance Lude.ToJSON GetDistributionMetricData where
   toJSON GetDistributionMetricData' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("distributionName" Lude..= distributionName),
-            Lude.Just ("metricName" Lude..= metricName),
-            Lude.Just ("startTime" Lude..= startTime),
-            Lude.Just ("endTime" Lude..= endTime),
+          [ Lude.Just ("startTime" Lude..= startTime),
             Lude.Just ("period" Lude..= period),
-            Lude.Just ("unit" Lude..= unit),
-            Lude.Just ("statistics" Lude..= statistics)
+            Lude.Just ("metricName" Lude..= metricName),
+            Lude.Just ("endTime" Lude..= endTime),
+            Lude.Just ("distributionName" Lude..= distributionName),
+            Lude.Just ("statistics" Lude..= statistics),
+            Lude.Just ("unit" Lude..= unit)
           ]
       )
 
@@ -358,28 +432,20 @@ instance Lude.ToQuery GetDistributionMetricData where
 
 -- | /See:/ 'mkGetDistributionMetricDataResponse' smart constructor.
 data GetDistributionMetricDataResponse = GetDistributionMetricDataResponse'
-  { metricName ::
-      Lude.Maybe
-        DistributionMetricName,
-    metricData ::
-      Lude.Maybe
-        [MetricDatapoint],
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the metric returned.
+    metricName :: Lude.Maybe DistributionMetricName,
+    -- | An array of objects that describe the metric data returned.
+    metricData :: Lude.Maybe [MetricDatapoint],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributionMetricDataResponse' with the minimum fields required to make a request.
 --
--- * 'metricData' - An array of objects that describe the metric data returned.
 -- * 'metricName' - The name of the metric returned.
+-- * 'metricData' - An array of objects that describe the metric data returned.
 -- * 'responseStatus' - The response status code.
 mkGetDistributionMetricDataResponse ::
   -- | 'responseStatus'

@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImageScanFinding' smart constructor.
 data ImageScanFinding = ImageScanFinding'
-  { severity ::
-      Lude.Maybe FindingSeverity,
+  { -- | The finding severity.
+    severity :: Lude.Maybe FindingSeverity,
+    -- | A link containing additional details about the security vulnerability.
     uri :: Lude.Maybe Lude.Text,
+    -- | The name associated with the finding, usually a CVE number.
     name :: Lude.Maybe Lude.Text,
+    -- | A collection of attributes of the host from which the finding is generated.
     attributes :: Lude.Maybe [Attribute],
+    -- | The description of the finding.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageScanFinding' with the minimum fields required to make a request.
 --
--- * 'attributes' - A collection of attributes of the host from which the finding is generated.
--- * 'description' - The description of the finding.
--- * 'name' - The name associated with the finding, usually a CVE number.
 -- * 'severity' - The finding severity.
 -- * 'uri' - A link containing additional details about the security vulnerability.
+-- * 'name' - The name associated with the finding, usually a CVE number.
+-- * 'attributes' - A collection of attributes of the host from which the finding is generated.
+-- * 'description' - The description of the finding.
 mkImageScanFinding ::
   ImageScanFinding
 mkImageScanFinding =

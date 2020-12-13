@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,25 +45,22 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkRetrieveTapeArchive' smart constructor.
 data RetrieveTapeArchive = RetrieveTapeArchive'
-  { tapeARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).
+    tapeARN :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
+    --
+    -- You retrieve archived virtual tapes to only one gateway and the gateway must be a tape gateway.
     gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetrieveTapeArchive' with the minimum fields required to make a request.
 --
+-- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).
 -- * 'gatewayARN' - The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
 --
 -- You retrieve archived virtual tapes to only one gateway and the gateway must be a tape gateway.
--- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).
 mkRetrieveTapeArchive ::
   -- | 'tapeARN'
   Lude.Text ->
@@ -131,23 +129,18 @@ instance Lude.ToQuery RetrieveTapeArchive where
 --
 -- /See:/ 'mkRetrieveTapeArchiveResponse' smart constructor.
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
-  { tapeARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
+    tapeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetrieveTapeArchiveResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tapeARN' - The Amazon Resource Name (ARN) of the retrieved virtual tape.
+-- * 'responseStatus' - The response status code.
 mkRetrieveTapeArchiveResponse ::
   -- | 'responseStatus'
   Lude.Int ->

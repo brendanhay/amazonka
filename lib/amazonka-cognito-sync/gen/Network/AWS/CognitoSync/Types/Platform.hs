@@ -13,10 +13,10 @@
 module Network.AWS.CognitoSync.Types.Platform
   ( Platform
       ( Platform',
-        ADM,
         APNS,
         APNSSandbox,
-        GCM
+        GCM,
+        ADM
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype Platform = Platform' Lude.Text
       Lude.ToHeader
     )
 
-pattern ADM :: Platform
-pattern ADM = Platform' "ADM"
-
 pattern APNS :: Platform
 pattern APNS = Platform' "APNS"
 
@@ -59,10 +56,13 @@ pattern APNSSandbox = Platform' "APNS_SANDBOX"
 pattern GCM :: Platform
 pattern GCM = Platform' "GCM"
 
+pattern ADM :: Platform
+pattern ADM = Platform' "ADM"
+
 {-# COMPLETE
-  ADM,
   APNS,
   APNSSandbox,
   GCM,
+  ADM,
   Platform'
   #-}

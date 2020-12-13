@@ -37,32 +37,32 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkSnapshotSchedule' smart constructor.
 data SnapshotSchedule = SnapshotSchedule'
-  { associatedClusters ::
-      Lude.Maybe [ClusterAssociatedToSchedule],
+  { -- | A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
+    associatedClusters :: Lude.Maybe [ClusterAssociatedToSchedule],
+    -- |
     nextInvocations :: Lude.Maybe [Lude.DateTime],
+    -- | A list of ScheduleDefinitions.
     scheduleDefinitions :: Lude.Maybe [Lude.Text],
+    -- | The description of the schedule.
     scheduleDescription :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the schedule.
     scheduleIdentifier :: Lude.Maybe Lude.Text,
+    -- | The number of clusters associated with the schedule.
     associatedClusterCount :: Lude.Maybe Lude.Int,
+    -- | An optional set of tags describing the schedule.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotSchedule' with the minimum fields required to make a request.
 --
--- * 'associatedClusterCount' - The number of clusters associated with the schedule.
 -- * 'associatedClusters' - A list of clusters associated with the schedule. A maximum of 100 clusters is returned.
 -- * 'nextInvocations' -
 -- * 'scheduleDefinitions' - A list of ScheduleDefinitions.
 -- * 'scheduleDescription' - The description of the schedule.
 -- * 'scheduleIdentifier' - A unique identifier for the schedule.
+-- * 'associatedClusterCount' - The number of clusters associated with the schedule.
 -- * 'tags' - An optional set of tags describing the schedule.
 mkSnapshotSchedule ::
   SnapshotSchedule

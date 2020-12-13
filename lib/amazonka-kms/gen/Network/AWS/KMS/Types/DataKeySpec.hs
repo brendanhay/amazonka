@@ -13,8 +13,8 @@
 module Network.AWS.KMS.Types.DataKeySpec
   ( DataKeySpec
       ( DataKeySpec',
-        AES128,
-        AES256
+        AES256,
+        AES128
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DataKeySpec = DataKeySpec' Lude.Text
       Lude.ToHeader
     )
 
-pattern AES128 :: DataKeySpec
-pattern AES128 = DataKeySpec' "AES_128"
-
 pattern AES256 :: DataKeySpec
 pattern AES256 = DataKeySpec' "AES_256"
 
+pattern AES128 :: DataKeySpec
+pattern AES128 = DataKeySpec' "AES_128"
+
 {-# COMPLETE
-  AES128,
   AES256,
+  AES128,
   DataKeySpec'
   #-}

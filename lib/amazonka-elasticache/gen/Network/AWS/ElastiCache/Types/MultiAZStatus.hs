@@ -13,8 +13,8 @@
 module Network.AWS.ElastiCache.Types.MultiAZStatus
   ( MultiAZStatus
       ( MultiAZStatus',
-        Disabled,
-        Enabled
+        MAZSEnabled,
+        MAZSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MultiAZStatus = MultiAZStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: MultiAZStatus
-pattern Disabled = MultiAZStatus' "disabled"
+pattern MAZSEnabled :: MultiAZStatus
+pattern MAZSEnabled = MultiAZStatus' "enabled"
 
-pattern Enabled :: MultiAZStatus
-pattern Enabled = MultiAZStatus' "enabled"
+pattern MAZSDisabled :: MultiAZStatus
+pattern MAZSDisabled = MultiAZStatus' "disabled"
 
 {-# COMPLETE
-  Disabled,
-  Enabled,
+  MAZSEnabled,
+  MAZSDisabled,
   MultiAZStatus'
   #-}

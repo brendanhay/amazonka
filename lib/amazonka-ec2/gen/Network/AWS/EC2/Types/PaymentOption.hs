@@ -14,8 +14,8 @@ module Network.AWS.EC2.Types.PaymentOption
   ( PaymentOption
       ( PaymentOption',
         POAllUpfront,
-        PONoUpfront,
-        POPartialUpfront
+        POPartialUpfront,
+        PONoUpfront
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype PaymentOption = PaymentOption' Lude.Text
 pattern POAllUpfront :: PaymentOption
 pattern POAllUpfront = PaymentOption' "AllUpfront"
 
-pattern PONoUpfront :: PaymentOption
-pattern PONoUpfront = PaymentOption' "NoUpfront"
-
 pattern POPartialUpfront :: PaymentOption
 pattern POPartialUpfront = PaymentOption' "PartialUpfront"
 
+pattern PONoUpfront :: PaymentOption
+pattern PONoUpfront = PaymentOption' "NoUpfront"
+
 {-# COMPLETE
   POAllUpfront,
-  PONoUpfront,
   POPartialUpfront,
+  PONoUpfront,
   PaymentOption'
   #-}

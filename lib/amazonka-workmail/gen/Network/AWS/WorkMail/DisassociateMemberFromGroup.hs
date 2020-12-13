@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkMail.DisassociateMemberFromGroup
     mkDisassociateMemberFromGroup,
 
     -- ** Request lenses
-    dmfgOrganizationId,
-    dmfgGroupId,
     dmfgMemberId,
+    dmfgGroupId,
+    dmfgOrganizationId,
 
     -- * Destructuring the response
     DisassociateMemberFromGroupResponse (..),
@@ -40,46 +41,42 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkDisassociateMemberFromGroup' smart constructor.
 data DisassociateMemberFromGroup = DisassociateMemberFromGroup'
-  { organizationId ::
-      Lude.Text,
+  { -- | The identifier for the member to be removed to the group.
+    memberId :: Lude.Text,
+    -- | The identifier for the group from which members are removed.
     groupId :: Lude.Text,
-    memberId :: Lude.Text
+    -- | The identifier for the organization under which the group exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateMemberFromGroup' with the minimum fields required to make a request.
 --
--- * 'groupId' - The identifier for the group from which members are removed.
 -- * 'memberId' - The identifier for the member to be removed to the group.
+-- * 'groupId' - The identifier for the group from which members are removed.
 -- * 'organizationId' - The identifier for the organization under which the group exists.
 mkDisassociateMemberFromGroup ::
-  -- | 'organizationId'
+  -- | 'memberId'
   Lude.Text ->
   -- | 'groupId'
   Lude.Text ->
-  -- | 'memberId'
+  -- | 'organizationId'
   Lude.Text ->
   DisassociateMemberFromGroup
-mkDisassociateMemberFromGroup pOrganizationId_ pGroupId_ pMemberId_ =
+mkDisassociateMemberFromGroup pMemberId_ pGroupId_ pOrganizationId_ =
   DisassociateMemberFromGroup'
-    { organizationId = pOrganizationId_,
+    { memberId = pMemberId_,
       groupId = pGroupId_,
-      memberId = pMemberId_
+      organizationId = pOrganizationId_
     }
 
--- | The identifier for the organization under which the group exists.
+-- | The identifier for the member to be removed to the group.
 --
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmfgOrganizationId :: Lens.Lens' DisassociateMemberFromGroup Lude.Text
-dmfgOrganizationId = Lens.lens (organizationId :: DisassociateMemberFromGroup -> Lude.Text) (\s a -> s {organizationId = a} :: DisassociateMemberFromGroup)
-{-# DEPRECATED dmfgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+-- /Note:/ Consider using 'memberId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfgMemberId :: Lens.Lens' DisassociateMemberFromGroup Lude.Text
+dmfgMemberId = Lens.lens (memberId :: DisassociateMemberFromGroup -> Lude.Text) (\s a -> s {memberId = a} :: DisassociateMemberFromGroup)
+{-# DEPRECATED dmfgMemberId "Use generic-lens or generic-optics with 'memberId' instead." #-}
 
 -- | The identifier for the group from which members are removed.
 --
@@ -88,12 +85,12 @@ dmfgGroupId :: Lens.Lens' DisassociateMemberFromGroup Lude.Text
 dmfgGroupId = Lens.lens (groupId :: DisassociateMemberFromGroup -> Lude.Text) (\s a -> s {groupId = a} :: DisassociateMemberFromGroup)
 {-# DEPRECATED dmfgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
--- | The identifier for the member to be removed to the group.
+-- | The identifier for the organization under which the group exists.
 --
--- /Note:/ Consider using 'memberId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmfgMemberId :: Lens.Lens' DisassociateMemberFromGroup Lude.Text
-dmfgMemberId = Lens.lens (memberId :: DisassociateMemberFromGroup -> Lude.Text) (\s a -> s {memberId = a} :: DisassociateMemberFromGroup)
-{-# DEPRECATED dmfgMemberId "Use generic-lens or generic-optics with 'memberId' instead." #-}
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfgOrganizationId :: Lens.Lens' DisassociateMemberFromGroup Lude.Text
+dmfgOrganizationId = Lens.lens (organizationId :: DisassociateMemberFromGroup -> Lude.Text) (\s a -> s {organizationId = a} :: DisassociateMemberFromGroup)
+{-# DEPRECATED dmfgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest DisassociateMemberFromGroup where
   type
@@ -122,9 +119,9 @@ instance Lude.ToJSON DisassociateMemberFromGroup where
   toJSON DisassociateMemberFromGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+          [ Lude.Just ("MemberId" Lude..= memberId),
             Lude.Just ("GroupId" Lude..= groupId),
-            Lude.Just ("MemberId" Lude..= memberId)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -136,16 +133,10 @@ instance Lude.ToQuery DisassociateMemberFromGroup where
 
 -- | /See:/ 'mkDisassociateMemberFromGroupResponse' smart constructor.
 newtype DisassociateMemberFromGroupResponse = DisassociateMemberFromGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateMemberFromGroupResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -58,34 +59,36 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
-  { enabled :: Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the 'ApiKey' can be used by callers.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies a value of the API key.
     value :: Lude.Maybe Lude.Text,
+    -- | An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
     customerId :: Lude.Maybe Lude.Text,
+    -- | Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
     generateDistinctId :: Lude.Maybe Lude.Bool,
+    -- | The name of the 'ApiKey' .
     name :: Lude.Maybe Lude.Text,
+    -- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
     stageKeys :: Lude.Maybe [StageKey],
+    -- | The description of the 'ApiKey' .
     description :: Lude.Maybe Lude.Text,
+    -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAPIKey' with the minimum fields required to make a request.
 --
--- * 'customerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
--- * 'description' - The description of the 'ApiKey' .
 -- * 'enabled' - Specifies whether the 'ApiKey' can be used by callers.
+-- * 'value' - Specifies a value of the API key.
+-- * 'customerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
 -- * 'generateDistinctId' - Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
 -- * 'name' - The name of the 'ApiKey' .
 -- * 'stageKeys' - DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
+-- * 'description' - The description of the 'ApiKey' .
 -- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
--- * 'value' - Specifies a value of the API key.
 mkCreateAPIKey ::
   CreateAPIKey
 mkCreateAPIKey =

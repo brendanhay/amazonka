@@ -45,53 +45,64 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportImageTask' smart constructor.
 data ImportImageTask = ImportImageTask'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | A brief status for the import image task.
+    status :: Lude.Maybe Lude.Text,
+    -- | The target hypervisor for the import task.
+    --
+    -- Valid values: @xen@
     hypervisor :: Lude.Maybe Lude.Text,
+    -- | The description string for the import image task.
     platform :: Lude.Maybe Lude.Text,
+    -- | The percentage of progress of the import image task.
     progress :: Lude.Maybe Lude.Text,
-    licenseSpecifications ::
-      Lude.Maybe [ImportImageLicenseConfigurationResponse],
+    -- | The ARNs of the license configurations that are associated with the import image task.
+    licenseSpecifications :: Lude.Maybe [ImportImageLicenseConfigurationResponse],
+    -- | The license type of the virtual machine.
     licenseType :: Lude.Maybe Lude.Text,
+    -- | Information about the snapshots.
     snapshotDetails :: Lude.Maybe [SnapshotDetail],
+    -- | Indicates whether the image is encrypted.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted image.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | A descriptive status message for the import image task.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
     imageId :: Lude.Maybe Lude.Text,
+    -- | The ID of the import image task.
     importTaskId :: Lude.Maybe Lude.Text,
+    -- | The architecture of the virtual machine.
+    --
+    -- Valid values: @i386@ | @x86_64@ | @arm64@
     architecture :: Lude.Maybe Lude.Text,
+    -- | A description of the import task.
     description :: Lude.Maybe Lude.Text,
+    -- | The tags for the import image task.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportImageTask' with the minimum fields required to make a request.
 --
+-- * 'status' - A brief status for the import image task.
+-- * 'hypervisor' - The target hypervisor for the import task.
+--
+-- Valid values: @xen@
+-- * 'platform' - The description string for the import image task.
+-- * 'progress' - The percentage of progress of the import image task.
+-- * 'licenseSpecifications' - The ARNs of the license configurations that are associated with the import image task.
+-- * 'licenseType' - The license type of the virtual machine.
+-- * 'snapshotDetails' - Information about the snapshots.
+-- * 'encrypted' - Indicates whether the image is encrypted.
+-- * 'kmsKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted image.
+-- * 'statusMessage' - A descriptive status message for the import image task.
+-- * 'imageId' - The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
+-- * 'importTaskId' - The ID of the import image task.
 -- * 'architecture' - The architecture of the virtual machine.
 --
 -- Valid values: @i386@ | @x86_64@ | @arm64@
 -- * 'description' - A description of the import task.
--- * 'encrypted' - Indicates whether the image is encrypted.
--- * 'hypervisor' - The target hypervisor for the import task.
---
--- Valid values: @xen@
--- * 'imageId' - The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
--- * 'importTaskId' - The ID of the import image task.
--- * 'kmsKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted image.
--- * 'licenseSpecifications' - The ARNs of the license configurations that are associated with the import image task.
--- * 'licenseType' - The license type of the virtual machine.
--- * 'platform' - The description string for the import image task.
--- * 'progress' - The percentage of progress of the import image task.
--- * 'snapshotDetails' - Information about the snapshots.
--- * 'status' - A brief status for the import image task.
--- * 'statusMessage' - A descriptive status message for the import image task.
 -- * 'tags' - The tags for the import image task.
 mkImportImageTask ::
   ImportImageTask

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.SES.UpdateConfigurationSetSendingEnabled
     mkUpdateConfigurationSetSendingEnabled,
 
     -- ** Request lenses
-    ucsseConfigurationSetName,
     ucsseEnabled,
+    ucsseConfigurationSetName,
 
     -- * Destructuring the response
     UpdateConfigurationSetSendingEnabledResponse (..),
@@ -40,45 +41,31 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkUpdateConfigurationSetSendingEnabled' smart constructor.
 data UpdateConfigurationSetSendingEnabled = UpdateConfigurationSetSendingEnabled'
-  { configurationSetName ::
-      Lude.Text,
-    enabled ::
-      Lude.Bool
+  { -- | Describes whether email sending is enabled or disabled for the configuration set.
+    enabled :: Lude.Bool,
+    -- | The name of the configuration set that you want to update.
+    configurationSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConfigurationSetSendingEnabled' with the minimum fields required to make a request.
 --
--- * 'configurationSetName' - The name of the configuration set that you want to update.
 -- * 'enabled' - Describes whether email sending is enabled or disabled for the configuration set.
+-- * 'configurationSetName' - The name of the configuration set that you want to update.
 mkUpdateConfigurationSetSendingEnabled ::
-  -- | 'configurationSetName'
-  Lude.Text ->
   -- | 'enabled'
   Lude.Bool ->
+  -- | 'configurationSetName'
+  Lude.Text ->
   UpdateConfigurationSetSendingEnabled
 mkUpdateConfigurationSetSendingEnabled
-  pConfigurationSetName_
-  pEnabled_ =
+  pEnabled_
+  pConfigurationSetName_ =
     UpdateConfigurationSetSendingEnabled'
-      { configurationSetName =
-          pConfigurationSetName_,
-        enabled = pEnabled_
+      { enabled = pEnabled_,
+        configurationSetName = pConfigurationSetName_
       }
-
--- | The name of the configuration set that you want to update.
---
--- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsseConfigurationSetName :: Lens.Lens' UpdateConfigurationSetSendingEnabled Lude.Text
-ucsseConfigurationSetName = Lens.lens (configurationSetName :: UpdateConfigurationSetSendingEnabled -> Lude.Text) (\s a -> s {configurationSetName = a} :: UpdateConfigurationSetSendingEnabled)
-{-# DEPRECATED ucsseConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 -- | Describes whether email sending is enabled or disabled for the configuration set.
 --
@@ -86,6 +73,13 @@ ucsseConfigurationSetName = Lens.lens (configurationSetName :: UpdateConfigurati
 ucsseEnabled :: Lens.Lens' UpdateConfigurationSetSendingEnabled Lude.Bool
 ucsseEnabled = Lens.lens (enabled :: UpdateConfigurationSetSendingEnabled -> Lude.Bool) (\s a -> s {enabled = a} :: UpdateConfigurationSetSendingEnabled)
 {-# DEPRECATED ucsseEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+-- | The name of the configuration set that you want to update.
+--
+-- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsseConfigurationSetName :: Lens.Lens' UpdateConfigurationSetSendingEnabled Lude.Text
+ucsseConfigurationSetName = Lens.lens (configurationSetName :: UpdateConfigurationSetSendingEnabled -> Lude.Text) (\s a -> s {configurationSetName = a} :: UpdateConfigurationSetSendingEnabled)
+{-# DEPRECATED ucsseConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 instance Lude.AWSRequest UpdateConfigurationSetSendingEnabled where
   type
@@ -107,19 +101,13 @@ instance Lude.ToQuery UpdateConfigurationSetSendingEnabled where
       [ "Action"
           Lude.=: ("UpdateConfigurationSetSendingEnabled" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ConfigurationSetName" Lude.=: configurationSetName,
-        "Enabled" Lude.=: enabled
+        "Enabled" Lude.=: enabled,
+        "ConfigurationSetName" Lude.=: configurationSetName
       ]
 
 -- | /See:/ 'mkUpdateConfigurationSetSendingEnabledResponse' smart constructor.
 data UpdateConfigurationSetSendingEnabledResponse = UpdateConfigurationSetSendingEnabledResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConfigurationSetSendingEnabledResponse' with the minimum fields required to make a request.

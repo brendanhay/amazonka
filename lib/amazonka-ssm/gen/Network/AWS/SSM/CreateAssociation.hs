@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,6 +24,7 @@ module Network.AWS.SSM.CreateAssociation
     caApplyOnlyAtCronInterval,
     caMaxErrors,
     caScheduleExpression,
+    caName,
     caOutputLocation,
     caSyncCompliance,
     caTargets,
@@ -32,15 +34,14 @@ module Network.AWS.SSM.CreateAssociation
     caAssociationName,
     caComplianceSeverity,
     caMaxConcurrency,
-    caName,
 
     -- * Destructuring the response
     CreateAssociationResponse (..),
     mkCreateAssociationResponse,
 
     -- ** Response lenses
-    crsAssociationDescription,
-    crsResponseStatus,
+    carsAssociationDescription,
+    carsResponseStatus,
   )
 where
 
@@ -52,48 +53,60 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkCreateAssociation' smart constructor.
 data CreateAssociation = CreateAssociation'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
     applyOnlyAtCronInterval :: Lude.Maybe Lude.Bool,
+    -- | The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
+    --
+    -- Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
     maxErrors :: Lude.Maybe Lude.Text,
+    -- | A cron expression when the association will be applied to the target(s).
     scheduleExpression :: Lude.Maybe Lude.Text,
-    outputLocation ::
-      Lude.Maybe InstanceAssociationOutputLocation,
+    -- | The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents.
+    --
+    -- You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account.
+    -- For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:
+    -- @arn:/partition/ :ssm:/region/ :/account-id/ :document//document-name/ @
+    -- For example:
+    -- @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@
+    -- For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
+    name :: Lude.Text,
+    -- | An S3 bucket where you want to store the output details of the request.
+    outputLocation :: Lude.Maybe InstanceAssociationOutputLocation,
+    -- | The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ .
+    --
+    -- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action.
+    -- By default, all associations use @AUTO@ mode.
     syncCompliance :: Lude.Maybe AssociationSyncCompliance,
+    -- | The targets for the association. You can target instances by using tags, AWS Resource Groups, all instances in an AWS account, or individual instance IDs. For more information about choosing targets for an association, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html Using targets and rate controls with State Manager associations> in the /AWS Systems Manager User Guide/ .
     targets :: Lude.Maybe [Target],
-    parameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The parameters for the runtime configuration of the document.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The document version you want to associate with the target(s). Can be a specific version or the default version.
     documentVersion :: Lude.Maybe Lude.Text,
+    -- | Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
     automationTargetParameterName :: Lude.Maybe Lude.Text,
+    -- | Specify a descriptive name for the association.
     associationName :: Lude.Maybe Lude.Text,
-    complianceSeverity ::
-      Lude.Maybe AssociationComplianceSeverity,
-    maxConcurrency :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The severity level to assign to the association.
+    complianceSeverity :: Lude.Maybe AssociationComplianceSeverity,
+    -- | The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+    --
+    -- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+    maxConcurrency :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAssociation' with the minimum fields required to make a request.
 --
--- * 'applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
--- * 'associationName' - Specify a descriptive name for the association.
--- * 'automationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
--- * 'complianceSeverity' - The severity level to assign to the association.
--- * 'documentVersion' - The document version you want to associate with the target(s). Can be a specific version or the default version.
 -- * 'instanceId' - The instance ID.
--- * 'maxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
---
--- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+-- * 'applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
 -- * 'maxErrors' - The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
 --
 -- Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+-- * 'scheduleExpression' - A cron expression when the association will be applied to the target(s).
 -- * 'name' - The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents.
 --
 -- You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account.
@@ -103,13 +116,19 @@ data CreateAssociation = CreateAssociation'
 -- @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@
 -- For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
 -- * 'outputLocation' - An S3 bucket where you want to store the output details of the request.
--- * 'parameters' - The parameters for the runtime configuration of the document.
--- * 'scheduleExpression' - A cron expression when the association will be applied to the target(s).
 -- * 'syncCompliance' - The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ .
 --
 -- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action.
 -- By default, all associations use @AUTO@ mode.
 -- * 'targets' - The targets for the association. You can target instances by using tags, AWS Resource Groups, all instances in an AWS account, or individual instance IDs. For more information about choosing targets for an association, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html Using targets and rate controls with State Manager associations> in the /AWS Systems Manager User Guide/ .
+-- * 'parameters' - The parameters for the runtime configuration of the document.
+-- * 'documentVersion' - The document version you want to associate with the target(s). Can be a specific version or the default version.
+-- * 'automationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+-- * 'associationName' - Specify a descriptive name for the association.
+-- * 'complianceSeverity' - The severity level to assign to the association.
+-- * 'maxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+--
+-- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
 mkCreateAssociation ::
   -- | 'name'
   Lude.Text ->
@@ -120,6 +139,7 @@ mkCreateAssociation pName_ =
       applyOnlyAtCronInterval = Lude.Nothing,
       maxErrors = Lude.Nothing,
       scheduleExpression = Lude.Nothing,
+      name = pName_,
       outputLocation = Lude.Nothing,
       syncCompliance = Lude.Nothing,
       targets = Lude.Nothing,
@@ -128,8 +148,7 @@ mkCreateAssociation pName_ =
       automationTargetParameterName = Lude.Nothing,
       associationName = Lude.Nothing,
       complianceSeverity = Lude.Nothing,
-      maxConcurrency = Lude.Nothing,
-      name = pName_
+      maxConcurrency = Lude.Nothing
     }
 
 -- | The instance ID.
@@ -161,6 +180,20 @@ caMaxErrors = Lens.lens (maxErrors :: CreateAssociation -> Lude.Maybe Lude.Text)
 caScheduleExpression :: Lens.Lens' CreateAssociation (Lude.Maybe Lude.Text)
 caScheduleExpression = Lens.lens (scheduleExpression :: CreateAssociation -> Lude.Maybe Lude.Text) (\s a -> s {scheduleExpression = a} :: CreateAssociation)
 {-# DEPRECATED caScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
+
+-- | The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents.
+--
+-- You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account.
+-- For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:
+-- @arn:/partition/ :ssm:/region/ :/account-id/ :document//document-name/ @
+-- For example:
+-- @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@
+-- For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caName :: Lens.Lens' CreateAssociation Lude.Text
+caName = Lens.lens (name :: CreateAssociation -> Lude.Text) (\s a -> s {name = a} :: CreateAssociation)
+{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An S3 bucket where you want to store the output details of the request.
 --
@@ -230,20 +263,6 @@ caMaxConcurrency :: Lens.Lens' CreateAssociation (Lude.Maybe Lude.Text)
 caMaxConcurrency = Lens.lens (maxConcurrency :: CreateAssociation -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: CreateAssociation)
 {-# DEPRECATED caMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
--- | The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents.
---
--- You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account.
--- For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:
--- @arn:/partition/ :ssm:/region/ :/account-id/ :document//document-name/ @
--- For example:
--- @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@
--- For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caName :: Lens.Lens' CreateAssociation Lude.Text
-caName = Lens.lens (name :: CreateAssociation -> Lude.Text) (\s a -> s {name = a} :: CreateAssociation)
-{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.AWSRequest CreateAssociation where
   type Rs CreateAssociation = CreateAssociationResponse
   request = Req.postJSON ssmService
@@ -275,6 +294,7 @@ instance Lude.ToJSON CreateAssociation where
               Lude.<$> applyOnlyAtCronInterval,
             ("MaxErrors" Lude..=) Lude.<$> maxErrors,
             ("ScheduleExpression" Lude..=) Lude.<$> scheduleExpression,
+            Lude.Just ("Name" Lude..= name),
             ("OutputLocation" Lude..=) Lude.<$> outputLocation,
             ("SyncCompliance" Lude..=) Lude.<$> syncCompliance,
             ("Targets" Lude..=) Lude.<$> targets,
@@ -284,8 +304,7 @@ instance Lude.ToJSON CreateAssociation where
               Lude.<$> automationTargetParameterName,
             ("AssociationName" Lude..=) Lude.<$> associationName,
             ("ComplianceSeverity" Lude..=) Lude.<$> complianceSeverity,
-            ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency,
-            Lude.Just ("Name" Lude..= name)
+            ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency
           ]
       )
 
@@ -297,17 +316,12 @@ instance Lude.ToQuery CreateAssociation where
 
 -- | /See:/ 'mkCreateAssociationResponse' smart constructor.
 data CreateAssociationResponse = CreateAssociationResponse'
-  { associationDescription ::
-      Lude.Maybe AssociationDescription,
+  { -- | Information about the association.
+    associationDescription :: Lude.Maybe AssociationDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAssociationResponse' with the minimum fields required to make a request.
@@ -327,13 +341,13 @@ mkCreateAssociationResponse pResponseStatus_ =
 -- | Information about the association.
 --
 -- /Note:/ Consider using 'associationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsAssociationDescription :: Lens.Lens' CreateAssociationResponse (Lude.Maybe AssociationDescription)
-crsAssociationDescription = Lens.lens (associationDescription :: CreateAssociationResponse -> Lude.Maybe AssociationDescription) (\s a -> s {associationDescription = a} :: CreateAssociationResponse)
-{-# DEPRECATED crsAssociationDescription "Use generic-lens or generic-optics with 'associationDescription' instead." #-}
+carsAssociationDescription :: Lens.Lens' CreateAssociationResponse (Lude.Maybe AssociationDescription)
+carsAssociationDescription = Lens.lens (associationDescription :: CreateAssociationResponse -> Lude.Maybe AssociationDescription) (\s a -> s {associationDescription = a} :: CreateAssociationResponse)
+{-# DEPRECATED carsAssociationDescription "Use generic-lens or generic-optics with 'associationDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CreateAssociationResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CreateAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAssociationResponse)
-{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+carsResponseStatus :: Lens.Lens' CreateAssociationResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAssociationResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

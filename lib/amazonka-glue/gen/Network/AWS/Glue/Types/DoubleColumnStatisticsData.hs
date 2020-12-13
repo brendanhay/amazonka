@@ -17,10 +17,10 @@ module Network.AWS.Glue.Types.DoubleColumnStatisticsData
     mkDoubleColumnStatisticsData,
 
     -- * Lenses
-    douMaximumValue,
-    douMinimumValue,
-    douNumberOfNulls,
-    douNumberOfDistinctValues,
+    dcsdfNumberOfDistinctValues,
+    dcsdfMaximumValue,
+    dcsdfNumberOfNulls,
+    dcsdfMinimumValue,
   )
 where
 
@@ -31,72 +31,68 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDoubleColumnStatisticsData' smart constructor.
 data DoubleColumnStatisticsData = DoubleColumnStatisticsData'
-  { maximumValue ::
-      Lude.Maybe Lude.Double,
-    minimumValue ::
-      Lude.Maybe Lude.Double,
+  { -- | The number of distinct values in a column.
+    numberOfDistinctValues :: Lude.Natural,
+    -- | The highest value in the column.
+    maximumValue :: Lude.Maybe Lude.Double,
+    -- | The number of null values in the column.
     numberOfNulls :: Lude.Natural,
-    numberOfDistinctValues ::
-      Lude.Natural
+    -- | The lowest value in the column.
+    minimumValue :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DoubleColumnStatisticsData' with the minimum fields required to make a request.
 --
--- * 'maximumValue' - The highest value in the column.
--- * 'minimumValue' - The lowest value in the column.
 -- * 'numberOfDistinctValues' - The number of distinct values in a column.
+-- * 'maximumValue' - The highest value in the column.
 -- * 'numberOfNulls' - The number of null values in the column.
+-- * 'minimumValue' - The lowest value in the column.
 mkDoubleColumnStatisticsData ::
-  -- | 'numberOfNulls'
-  Lude.Natural ->
   -- | 'numberOfDistinctValues'
+  Lude.Natural ->
+  -- | 'numberOfNulls'
   Lude.Natural ->
   DoubleColumnStatisticsData
 mkDoubleColumnStatisticsData
-  pNumberOfNulls_
-  pNumberOfDistinctValues_ =
+  pNumberOfDistinctValues_
+  pNumberOfNulls_ =
     DoubleColumnStatisticsData'
-      { maximumValue = Lude.Nothing,
-        minimumValue = Lude.Nothing,
+      { numberOfDistinctValues =
+          pNumberOfDistinctValues_,
+        maximumValue = Lude.Nothing,
         numberOfNulls = pNumberOfNulls_,
-        numberOfDistinctValues = pNumberOfDistinctValues_
+        minimumValue = Lude.Nothing
       }
-
--- | The highest value in the column.
---
--- /Note:/ Consider using 'maximumValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-douMaximumValue :: Lens.Lens' DoubleColumnStatisticsData (Lude.Maybe Lude.Double)
-douMaximumValue = Lens.lens (maximumValue :: DoubleColumnStatisticsData -> Lude.Maybe Lude.Double) (\s a -> s {maximumValue = a} :: DoubleColumnStatisticsData)
-{-# DEPRECATED douMaximumValue "Use generic-lens or generic-optics with 'maximumValue' instead." #-}
-
--- | The lowest value in the column.
---
--- /Note:/ Consider using 'minimumValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-douMinimumValue :: Lens.Lens' DoubleColumnStatisticsData (Lude.Maybe Lude.Double)
-douMinimumValue = Lens.lens (minimumValue :: DoubleColumnStatisticsData -> Lude.Maybe Lude.Double) (\s a -> s {minimumValue = a} :: DoubleColumnStatisticsData)
-{-# DEPRECATED douMinimumValue "Use generic-lens or generic-optics with 'minimumValue' instead." #-}
-
--- | The number of null values in the column.
---
--- /Note:/ Consider using 'numberOfNulls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-douNumberOfNulls :: Lens.Lens' DoubleColumnStatisticsData Lude.Natural
-douNumberOfNulls = Lens.lens (numberOfNulls :: DoubleColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfNulls = a} :: DoubleColumnStatisticsData)
-{-# DEPRECATED douNumberOfNulls "Use generic-lens or generic-optics with 'numberOfNulls' instead." #-}
 
 -- | The number of distinct values in a column.
 --
 -- /Note:/ Consider using 'numberOfDistinctValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-douNumberOfDistinctValues :: Lens.Lens' DoubleColumnStatisticsData Lude.Natural
-douNumberOfDistinctValues = Lens.lens (numberOfDistinctValues :: DoubleColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfDistinctValues = a} :: DoubleColumnStatisticsData)
-{-# DEPRECATED douNumberOfDistinctValues "Use generic-lens or generic-optics with 'numberOfDistinctValues' instead." #-}
+dcsdfNumberOfDistinctValues :: Lens.Lens' DoubleColumnStatisticsData Lude.Natural
+dcsdfNumberOfDistinctValues = Lens.lens (numberOfDistinctValues :: DoubleColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfDistinctValues = a} :: DoubleColumnStatisticsData)
+{-# DEPRECATED dcsdfNumberOfDistinctValues "Use generic-lens or generic-optics with 'numberOfDistinctValues' instead." #-}
+
+-- | The highest value in the column.
+--
+-- /Note:/ Consider using 'maximumValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdfMaximumValue :: Lens.Lens' DoubleColumnStatisticsData (Lude.Maybe Lude.Double)
+dcsdfMaximumValue = Lens.lens (maximumValue :: DoubleColumnStatisticsData -> Lude.Maybe Lude.Double) (\s a -> s {maximumValue = a} :: DoubleColumnStatisticsData)
+{-# DEPRECATED dcsdfMaximumValue "Use generic-lens or generic-optics with 'maximumValue' instead." #-}
+
+-- | The number of null values in the column.
+--
+-- /Note:/ Consider using 'numberOfNulls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdfNumberOfNulls :: Lens.Lens' DoubleColumnStatisticsData Lude.Natural
+dcsdfNumberOfNulls = Lens.lens (numberOfNulls :: DoubleColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfNulls = a} :: DoubleColumnStatisticsData)
+{-# DEPRECATED dcsdfNumberOfNulls "Use generic-lens or generic-optics with 'numberOfNulls' instead." #-}
+
+-- | The lowest value in the column.
+--
+-- /Note:/ Consider using 'minimumValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdfMinimumValue :: Lens.Lens' DoubleColumnStatisticsData (Lude.Maybe Lude.Double)
+dcsdfMinimumValue = Lens.lens (minimumValue :: DoubleColumnStatisticsData -> Lude.Maybe Lude.Double) (\s a -> s {minimumValue = a} :: DoubleColumnStatisticsData)
+{-# DEPRECATED dcsdfMinimumValue "Use generic-lens or generic-optics with 'minimumValue' instead." #-}
 
 instance Lude.FromJSON DoubleColumnStatisticsData where
   parseJSON =
@@ -104,20 +100,20 @@ instance Lude.FromJSON DoubleColumnStatisticsData where
       "DoubleColumnStatisticsData"
       ( \x ->
           DoubleColumnStatisticsData'
-            Lude.<$> (x Lude..:? "MaximumValue")
-            Lude.<*> (x Lude..:? "MinimumValue")
+            Lude.<$> (x Lude..: "NumberOfDistinctValues")
+            Lude.<*> (x Lude..:? "MaximumValue")
             Lude.<*> (x Lude..: "NumberOfNulls")
-            Lude.<*> (x Lude..: "NumberOfDistinctValues")
+            Lude.<*> (x Lude..:? "MinimumValue")
       )
 
 instance Lude.ToJSON DoubleColumnStatisticsData where
   toJSON DoubleColumnStatisticsData' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("MaximumValue" Lude..=) Lude.<$> maximumValue,
-            ("MinimumValue" Lude..=) Lude.<$> minimumValue,
+          [ Lude.Just
+              ("NumberOfDistinctValues" Lude..= numberOfDistinctValues),
+            ("MaximumValue" Lude..=) Lude.<$> maximumValue,
             Lude.Just ("NumberOfNulls" Lude..= numberOfNulls),
-            Lude.Just
-              ("NumberOfDistinctValues" Lude..= numberOfDistinctValues)
+            ("MinimumValue" Lude..=) Lude.<$> minimumValue
           ]
       )

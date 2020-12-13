@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.Lightsail.GetDomains
     mkGetDomains,
 
     -- ** Request lenses
-    gPageToken,
+    gdPageToken,
 
     -- * Destructuring the response
     GetDomainsResponse (..),
     mkGetDomainsResponse,
 
     -- ** Response lenses
-    getdomainsersNextPageToken,
-    getdomainsersDomains,
-    getdomainsersResponseStatus,
+    gdrsNextPageToken,
+    gdrsDomains,
+    gdrsResponseStatus,
   )
 where
 
@@ -42,14 +43,13 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDomains' smart constructor.
-newtype GetDomains = GetDomains' {pageToken :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDomains = GetDomains'
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetDomains@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+    pageToken :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomains' with the minimum fields required to make a request.
@@ -66,18 +66,18 @@ mkGetDomains = GetDomains' {pageToken = Lude.Nothing}
 -- To get a page token, perform an initial @GetDomains@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gPageToken :: Lens.Lens' GetDomains (Lude.Maybe Lude.Text)
-gPageToken = Lens.lens (pageToken :: GetDomains -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetDomains)
-{-# DEPRECATED gPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
+gdPageToken :: Lens.Lens' GetDomains (Lude.Maybe Lude.Text)
+gdPageToken = Lens.lens (pageToken :: GetDomains -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetDomains)
+{-# DEPRECATED gdPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 instance Page.AWSPager GetDomains where
   page rq rs
-    | Page.stop (rs Lens.^. getdomainsersNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. getdomainsersDomains) = Lude.Nothing
+    | Page.stop (rs Lens.^. gdrsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gdrsDomains) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& gPageToken Lens..~ rs Lens.^. getdomainsersNextPageToken
+          Lude.& gdPageToken Lens..~ rs Lens.^. gdrsNextPageToken
 
 instance Lude.AWSRequest GetDomains where
   type Rs GetDomains = GetDomainsResponse
@@ -115,27 +115,26 @@ instance Lude.ToQuery GetDomains where
 
 -- | /See:/ 'mkGetDomainsResponse' smart constructor.
 data GetDomainsResponse = GetDomainsResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to display.
+    -- To get the next page of results, perform another @GetDomains@ request and specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | An array of key-value pairs containing information about each of the domain entries in the user's account.
     domains :: Lude.Maybe [Domain],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomainsResponse' with the minimum fields required to make a request.
 --
--- * 'domains' - An array of key-value pairs containing information about each of the domain entries in the user's account.
 -- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to display.
 -- To get the next page of results, perform another @GetDomains@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'domains' - An array of key-value pairs containing information about each of the domain entries in the user's account.
 -- * 'responseStatus' - The response status code.
 mkGetDomainsResponse ::
   -- | 'responseStatus'
@@ -154,20 +153,20 @@ mkGetDomainsResponse pResponseStatus_ =
 -- To get the next page of results, perform another @GetDomains@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getdomainsersNextPageToken :: Lens.Lens' GetDomainsResponse (Lude.Maybe Lude.Text)
-getdomainsersNextPageToken = Lens.lens (nextPageToken :: GetDomainsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetDomainsResponse)
-{-# DEPRECATED getdomainsersNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+gdrsNextPageToken :: Lens.Lens' GetDomainsResponse (Lude.Maybe Lude.Text)
+gdrsNextPageToken = Lens.lens (nextPageToken :: GetDomainsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetDomainsResponse)
+{-# DEPRECATED gdrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of key-value pairs containing information about each of the domain entries in the user's account.
 --
 -- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getdomainsersDomains :: Lens.Lens' GetDomainsResponse (Lude.Maybe [Domain])
-getdomainsersDomains = Lens.lens (domains :: GetDomainsResponse -> Lude.Maybe [Domain]) (\s a -> s {domains = a} :: GetDomainsResponse)
-{-# DEPRECATED getdomainsersDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
+gdrsDomains :: Lens.Lens' GetDomainsResponse (Lude.Maybe [Domain])
+gdrsDomains = Lens.lens (domains :: GetDomainsResponse -> Lude.Maybe [Domain]) (\s a -> s {domains = a} :: GetDomainsResponse)
+{-# DEPRECATED gdrsDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getdomainsersResponseStatus :: Lens.Lens' GetDomainsResponse Lude.Int
-getdomainsersResponseStatus = Lens.lens (responseStatus :: GetDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDomainsResponse)
-{-# DEPRECATED getdomainsersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdrsResponseStatus :: Lens.Lens' GetDomainsResponse Lude.Int
+gdrsResponseStatus = Lens.lens (responseStatus :: GetDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDomainsResponse)
+{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

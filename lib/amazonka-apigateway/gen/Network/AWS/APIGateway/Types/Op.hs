@@ -14,10 +14,10 @@ module Network.AWS.APIGateway.Types.Op
   ( Op
       ( Op',
         Add,
-        Copy,
-        Move,
         Remove,
         Replace,
+        Move,
+        Copy,
         Test
       ),
   )
@@ -52,27 +52,27 @@ newtype Op = Op' Lude.Text
 pattern Add :: Op
 pattern Add = Op' "add"
 
-pattern Copy :: Op
-pattern Copy = Op' "copy"
-
-pattern Move :: Op
-pattern Move = Op' "move"
-
 pattern Remove :: Op
 pattern Remove = Op' "remove"
 
 pattern Replace :: Op
 pattern Replace = Op' "replace"
 
+pattern Move :: Op
+pattern Move = Op' "move"
+
+pattern Copy :: Op
+pattern Copy = Op' "copy"
+
 pattern Test :: Op
 pattern Test = Op' "test"
 
 {-# COMPLETE
   Add,
-  Copy,
-  Move,
   Remove,
   Replace,
+  Move,
+  Copy,
   Test,
   Op'
   #-}

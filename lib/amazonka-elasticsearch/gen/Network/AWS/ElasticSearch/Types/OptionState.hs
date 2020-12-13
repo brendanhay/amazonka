@@ -13,9 +13,9 @@
 module Network.AWS.ElasticSearch.Types.OptionState
   ( OptionState
       ( OptionState',
-        Active,
+        RequiresIndexDocuments,
         Processing,
-        RequiresIndexDocuments
+        Active
       ),
   )
 where
@@ -52,18 +52,18 @@ newtype OptionState = OptionState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: OptionState
-pattern Active = OptionState' "Active"
+pattern RequiresIndexDocuments :: OptionState
+pattern RequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
 
 pattern Processing :: OptionState
 pattern Processing = OptionState' "Processing"
 
-pattern RequiresIndexDocuments :: OptionState
-pattern RequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
+pattern Active :: OptionState
+pattern Active = OptionState' "Active"
 
 {-# COMPLETE
-  Active,
-  Processing,
   RequiresIndexDocuments,
+  Processing,
+  Active,
   OptionState'
   #-}

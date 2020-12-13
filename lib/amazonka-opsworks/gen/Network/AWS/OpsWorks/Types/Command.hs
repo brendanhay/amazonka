@@ -37,36 +37,82 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCommand' smart constructor.
 data Command = Command'
-  { deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The command deployment ID.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The ID of the instance where the command was executed.
     instanceId :: Lude.Maybe Lude.Text,
+    -- | The command status:
+    --
+    --
+    --     * failed
+    --
+    --
+    --     * successful
+    --
+    --
+    --     * skipped
+    --
+    --
+    --     * pending
     status :: Lude.Maybe Lude.Text,
+    -- | The URL of the command log.
     logURL :: Lude.Maybe Lude.Text,
+    -- | Date and time when the command was run.
     createdAt :: Lude.Maybe Lude.Text,
+    -- | The command ID.
     commandId :: Lude.Maybe Lude.Text,
+    -- | The command exit code.
     exitCode :: Lude.Maybe Lude.Int,
+    -- | The command type:
+    --
+    --
+    --     * @configure@
+    --
+    --
+    --     * @deploy@
+    --
+    --
+    --     * @execute_recipes@
+    --
+    --
+    --     * @install_dependencies@
+    --
+    --
+    --     * @restart@
+    --
+    --
+    --     * @rollback@
+    --
+    --
+    --     * @setup@
+    --
+    --
+    --     * @start@
+    --
+    --
+    --     * @stop@
+    --
+    --
+    --     * @undeploy@
+    --
+    --
+    --     * @update_custom_cookbooks@
+    --
+    --
+    --     * @update_dependencies@
     type' :: Lude.Maybe Lude.Text,
+    -- | Date when the command completed.
     completedAt :: Lude.Maybe Lude.Text,
+    -- | Date and time when the command was acknowledged.
     acknowledgedAt :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Command' with the minimum fields required to make a request.
 --
--- * 'acknowledgedAt' - Date and time when the command was acknowledged.
--- * 'commandId' - The command ID.
--- * 'completedAt' - Date when the command completed.
--- * 'createdAt' - Date and time when the command was run.
 -- * 'deploymentId' - The command deployment ID.
--- * 'exitCode' - The command exit code.
 -- * 'instanceId' - The ID of the instance where the command was executed.
--- * 'logURL' - The URL of the command log.
 -- * 'status' - The command status:
 --
 --
@@ -82,6 +128,10 @@ data Command = Command'
 --     * pending
 --
 --
+-- * 'logURL' - The URL of the command log.
+-- * 'createdAt' - Date and time when the command was run.
+-- * 'commandId' - The command ID.
+-- * 'exitCode' - The command exit code.
 -- * 'type'' - The command type:
 --
 --
@@ -119,6 +169,10 @@ data Command = Command'
 --
 --
 --     * @update_dependencies@
+--
+--
+-- * 'completedAt' - Date when the command completed.
+-- * 'acknowledgedAt' - Date and time when the command was acknowledged.
 mkCommand ::
   Command
 mkCommand =

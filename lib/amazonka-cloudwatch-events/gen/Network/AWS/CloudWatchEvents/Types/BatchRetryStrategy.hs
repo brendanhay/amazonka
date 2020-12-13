@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchRetryStrategy' smart constructor.
 newtype BatchRetryStrategy = BatchRetryStrategy'
-  { attempts ::
-      Lude.Maybe Lude.Int
+  { -- | The number of times to attempt to retry, if the job fails. Valid values are 1–10.
+    attempts :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchRetryStrategy' with the minimum fields required to make a request.

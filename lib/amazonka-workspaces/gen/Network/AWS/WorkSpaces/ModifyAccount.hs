@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,23 +40,18 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkModifyAccount' smart constructor.
 data ModifyAccount = ModifyAccount'
-  { dedicatedTenancySupport ::
-      Lude.Maybe DedicatedTenancySupportEnum,
+  { -- | The status of BYOL.
+    dedicatedTenancySupport :: Lude.Maybe DedicatedTenancySupportEnum,
+    -- | The IP address range, specified as an IPv4 CIDR block, for the management network interface. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be /16 (for example, 203.0.113.25/16). It must also be specified as available by the @ListAvailableManagementCidrRanges@ operation.
     dedicatedTenancyManagementCidrRange :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyAccount' with the minimum fields required to make a request.
 --
--- * 'dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the management network interface. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be /16 (for example, 203.0.113.25/16). It must also be specified as available by the @ListAvailableManagementCidrRanges@ operation.
 -- * 'dedicatedTenancySupport' - The status of BYOL.
+-- * 'dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the management network interface. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block). The CIDR block size must be /16 (for example, 203.0.113.25/16). It must also be specified as available by the @ListAvailableManagementCidrRanges@ operation.
 mkModifyAccount ::
   ModifyAccount
 mkModifyAccount =
@@ -117,16 +113,10 @@ instance Lude.ToQuery ModifyAccount where
 
 -- | /See:/ 'mkModifyAccountResponse' smart constructor.
 newtype ModifyAccountResponse = ModifyAccountResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyAccountResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
     mkDeleteLoadBalancerTLSCertificate,
 
     -- ** Request lenses
+    dlbtcCertificateName,
     dlbtcForce,
     dlbtcLoadBalancerName,
-    dlbtcCertificateName,
 
     -- * Destructuring the response
     DeleteLoadBalancerTLSCertificateResponse (..),
@@ -43,20 +44,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteLoadBalancerTLSCertificate' smart constructor.
 data DeleteLoadBalancerTLSCertificate = DeleteLoadBalancerTLSCertificate'
-  { force ::
-      Lude.Maybe Lude.Bool,
-    loadBalancerName ::
-      Lude.Text,
-    certificateName ::
-      Lude.Text
+  { -- | The SSL/TLS certificate name.
+    certificateName :: Lude.Text,
+    -- | When @true@ , forces the deletion of an SSL/TLS certificate.
+    --
+    -- There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The @force@ parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
+    force :: Lude.Maybe Lude.Bool,
+    -- | The load balancer name.
+    loadBalancerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoadBalancerTLSCertificate' with the minimum fields required to make a request.
@@ -67,19 +64,27 @@ data DeleteLoadBalancerTLSCertificate = DeleteLoadBalancerTLSCertificate'
 -- There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The @force@ parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
 -- * 'loadBalancerName' - The load balancer name.
 mkDeleteLoadBalancerTLSCertificate ::
-  -- | 'loadBalancerName'
-  Lude.Text ->
   -- | 'certificateName'
+  Lude.Text ->
+  -- | 'loadBalancerName'
   Lude.Text ->
   DeleteLoadBalancerTLSCertificate
 mkDeleteLoadBalancerTLSCertificate
-  pLoadBalancerName_
-  pCertificateName_ =
+  pCertificateName_
+  pLoadBalancerName_ =
     DeleteLoadBalancerTLSCertificate'
-      { force = Lude.Nothing,
-        loadBalancerName = pLoadBalancerName_,
-        certificateName = pCertificateName_
+      { certificateName =
+          pCertificateName_,
+        force = Lude.Nothing,
+        loadBalancerName = pLoadBalancerName_
       }
+
+-- | The SSL/TLS certificate name.
+--
+-- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtcCertificateName :: Lens.Lens' DeleteLoadBalancerTLSCertificate Lude.Text
+dlbtcCertificateName = Lens.lens (certificateName :: DeleteLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {certificateName = a} :: DeleteLoadBalancerTLSCertificate)
+{-# DEPRECATED dlbtcCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
 
 -- | When @true@ , forces the deletion of an SSL/TLS certificate.
 --
@@ -96,13 +101,6 @@ dlbtcForce = Lens.lens (force :: DeleteLoadBalancerTLSCertificate -> Lude.Maybe 
 dlbtcLoadBalancerName :: Lens.Lens' DeleteLoadBalancerTLSCertificate Lude.Text
 dlbtcLoadBalancerName = Lens.lens (loadBalancerName :: DeleteLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DeleteLoadBalancerTLSCertificate)
 {-# DEPRECATED dlbtcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
-
--- | The SSL/TLS certificate name.
---
--- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbtcCertificateName :: Lens.Lens' DeleteLoadBalancerTLSCertificate Lude.Text
-dlbtcCertificateName = Lens.lens (certificateName :: DeleteLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {certificateName = a} :: DeleteLoadBalancerTLSCertificate)
-{-# DEPRECATED dlbtcCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
 
 instance Lude.AWSRequest DeleteLoadBalancerTLSCertificate where
   type
@@ -134,9 +132,9 @@ instance Lude.ToJSON DeleteLoadBalancerTLSCertificate where
   toJSON DeleteLoadBalancerTLSCertificate' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("force" Lude..=) Lude.<$> force,
-            Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
-            Lude.Just ("certificateName" Lude..= certificateName)
+          [ Lude.Just ("certificateName" Lude..= certificateName),
+            ("force" Lude..=) Lude.<$> force,
+            Lude.Just ("loadBalancerName" Lude..= loadBalancerName)
           ]
       )
 
@@ -148,19 +146,12 @@ instance Lude.ToQuery DeleteLoadBalancerTLSCertificate where
 
 -- | /See:/ 'mkDeleteLoadBalancerTLSCertificateResponse' smart constructor.
 data DeleteLoadBalancerTLSCertificateResponse = DeleteLoadBalancerTLSCertificateResponse'
-  { operations ::
-      Lude.Maybe
-        [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoadBalancerTLSCertificateResponse' with the minimum fields required to make a request.

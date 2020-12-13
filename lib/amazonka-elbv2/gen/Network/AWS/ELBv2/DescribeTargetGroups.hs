@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.ELBv2.DescribeTargetGroups
     mkDescribeTargetGroupsResponse,
 
     -- ** Response lenses
-    dtgsrsNextMarker,
-    dtgsrsTargetGroups,
-    dtgsrsResponseStatus,
+    dtgrsNextMarker,
+    dtgrsTargetGroups,
+    dtgrsResponseStatus,
   )
 where
 
@@ -47,29 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTargetGroups' smart constructor.
 data DescribeTargetGroups = DescribeTargetGroups'
-  { targetGroupARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The Amazon Resource Names (ARN) of the target groups.
+    targetGroupARNs :: Lude.Maybe [Lude.Text],
+    -- | The names of the target groups.
     names :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the load balancer.
     loadBalancerARN :: Lude.Maybe Lude.Text,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTargetGroups' with the minimum fields required to make a request.
 --
+-- * 'targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups.
+-- * 'names' - The names of the target groups.
 -- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 -- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'names' - The names of the target groups.
 -- * 'pageSize' - The maximum number of results to return with this call.
--- * 'targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups.
 mkDescribeTargetGroups ::
   DescribeTargetGroups
 mkDescribeTargetGroups =
@@ -118,12 +117,12 @@ dtgPageSize = Lens.lens (pageSize :: DescribeTargetGroups -> Lude.Maybe Lude.Nat
 
 instance Page.AWSPager DescribeTargetGroups where
   page rq rs
-    | Page.stop (rs Lens.^. dtgsrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtgsrsTargetGroups) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtgrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtgrsTargetGroups) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dtgMarker Lens..~ rs Lens.^. dtgsrsNextMarker
+          Lude.& dtgMarker Lens..~ rs Lens.^. dtgrsNextMarker
 
 instance Lude.AWSRequest DescribeTargetGroups where
   type Rs DescribeTargetGroups = DescribeTargetGroupsResponse
@@ -162,26 +161,21 @@ instance Lude.ToQuery DescribeTargetGroups where
 
 -- | /See:/ 'mkDescribeTargetGroupsResponse' smart constructor.
 data DescribeTargetGroupsResponse = DescribeTargetGroupsResponse'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
-    targetGroups ::
-      Lude.Maybe [TargetGroup],
+  { -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | Information about the target groups.
+    targetGroups :: Lude.Maybe [TargetGroup],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTargetGroupsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
--- * 'responseStatus' - The response status code.
 -- * 'targetGroups' - Information about the target groups.
+-- * 'responseStatus' - The response status code.
 mkDescribeTargetGroupsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -196,20 +190,20 @@ mkDescribeTargetGroupsResponse pResponseStatus_ =
 -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgsrsNextMarker :: Lens.Lens' DescribeTargetGroupsResponse (Lude.Maybe Lude.Text)
-dtgsrsNextMarker = Lens.lens (nextMarker :: DescribeTargetGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeTargetGroupsResponse)
-{-# DEPRECATED dtgsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+dtgrsNextMarker :: Lens.Lens' DescribeTargetGroupsResponse (Lude.Maybe Lude.Text)
+dtgrsNextMarker = Lens.lens (nextMarker :: DescribeTargetGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeTargetGroupsResponse)
+{-# DEPRECATED dtgrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Information about the target groups.
 --
 -- /Note:/ Consider using 'targetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgsrsTargetGroups :: Lens.Lens' DescribeTargetGroupsResponse (Lude.Maybe [TargetGroup])
-dtgsrsTargetGroups = Lens.lens (targetGroups :: DescribeTargetGroupsResponse -> Lude.Maybe [TargetGroup]) (\s a -> s {targetGroups = a} :: DescribeTargetGroupsResponse)
-{-# DEPRECATED dtgsrsTargetGroups "Use generic-lens or generic-optics with 'targetGroups' instead." #-}
+dtgrsTargetGroups :: Lens.Lens' DescribeTargetGroupsResponse (Lude.Maybe [TargetGroup])
+dtgrsTargetGroups = Lens.lens (targetGroups :: DescribeTargetGroupsResponse -> Lude.Maybe [TargetGroup]) (\s a -> s {targetGroups = a} :: DescribeTargetGroupsResponse)
+{-# DEPRECATED dtgrsTargetGroups "Use generic-lens or generic-optics with 'targetGroups' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgsrsResponseStatus :: Lens.Lens' DescribeTargetGroupsResponse Lude.Int
-dtgsrsResponseStatus = Lens.lens (responseStatus :: DescribeTargetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTargetGroupsResponse)
-{-# DEPRECATED dtgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgrsResponseStatus :: Lens.Lens' DescribeTargetGroupsResponse Lude.Int
+dtgrsResponseStatus = Lens.lens (responseStatus :: DescribeTargetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTargetGroupsResponse)
+{-# DEPRECATED dtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

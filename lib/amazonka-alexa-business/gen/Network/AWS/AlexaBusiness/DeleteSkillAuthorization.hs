@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AlexaBusiness.DeleteSkillAuthorization
     mkDeleteSkillAuthorization,
 
     -- ** Request lenses
-    dsaRoomARN,
     dsaSkillId,
+    dsaRoomARN,
 
     -- * Destructuring the response
     DeleteSkillAuthorizationResponse (..),
@@ -39,39 +40,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSkillAuthorization' smart constructor.
 data DeleteSkillAuthorization = DeleteSkillAuthorization'
-  { roomARN ::
-      Lude.Maybe Lude.Text,
-    skillId :: Lude.Text
+  { -- | The unique identifier of a skill.
+    skillId :: Lude.Text,
+    -- | The room that the skill is authorized for.
+    roomARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSkillAuthorization' with the minimum fields required to make a request.
 --
--- * 'roomARN' - The room that the skill is authorized for.
 -- * 'skillId' - The unique identifier of a skill.
+-- * 'roomARN' - The room that the skill is authorized for.
 mkDeleteSkillAuthorization ::
   -- | 'skillId'
   Lude.Text ->
   DeleteSkillAuthorization
 mkDeleteSkillAuthorization pSkillId_ =
   DeleteSkillAuthorization'
-    { roomARN = Lude.Nothing,
-      skillId = pSkillId_
+    { skillId = pSkillId_,
+      roomARN = Lude.Nothing
     }
-
--- | The room that the skill is authorized for.
---
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaRoomARN :: Lens.Lens' DeleteSkillAuthorization (Lude.Maybe Lude.Text)
-dsaRoomARN = Lens.lens (roomARN :: DeleteSkillAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: DeleteSkillAuthorization)
-{-# DEPRECATED dsaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 -- | The unique identifier of a skill.
 --
@@ -79,6 +68,13 @@ dsaRoomARN = Lens.lens (roomARN :: DeleteSkillAuthorization -> Lude.Maybe Lude.T
 dsaSkillId :: Lens.Lens' DeleteSkillAuthorization Lude.Text
 dsaSkillId = Lens.lens (skillId :: DeleteSkillAuthorization -> Lude.Text) (\s a -> s {skillId = a} :: DeleteSkillAuthorization)
 {-# DEPRECATED dsaSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
+
+-- | The room that the skill is authorized for.
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaRoomARN :: Lens.Lens' DeleteSkillAuthorization (Lude.Maybe Lude.Text)
+dsaRoomARN = Lens.lens (roomARN :: DeleteSkillAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: DeleteSkillAuthorization)
+{-# DEPRECATED dsaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 instance Lude.AWSRequest DeleteSkillAuthorization where
   type Rs DeleteSkillAuthorization = DeleteSkillAuthorizationResponse
@@ -105,8 +101,8 @@ instance Lude.ToJSON DeleteSkillAuthorization where
   toJSON DeleteSkillAuthorization' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RoomArn" Lude..=) Lude.<$> roomARN,
-            Lude.Just ("SkillId" Lude..= skillId)
+          [ Lude.Just ("SkillId" Lude..= skillId),
+            ("RoomArn" Lude..=) Lude.<$> roomARN
           ]
       )
 
@@ -118,16 +114,10 @@ instance Lude.ToQuery DeleteSkillAuthorization where
 
 -- | /See:/ 'mkDeleteSkillAuthorizationResponse' smart constructor.
 newtype DeleteSkillAuthorizationResponse = DeleteSkillAuthorizationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSkillAuthorizationResponse' with the minimum fields required to make a request.

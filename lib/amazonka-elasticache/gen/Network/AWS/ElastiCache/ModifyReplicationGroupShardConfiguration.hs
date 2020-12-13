@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
     -- ** Request lenses
     mrgscNodeGroupsToRetain,
     mrgscReshardingConfiguration,
-    mrgscNodeGroupsToRemove,
-    mrgscReplicationGroupId,
     mrgscNodeGroupCount,
     mrgscApplyImmediately,
+    mrgscReplicationGroupId,
+    mrgscNodeGroupsToRemove,
 
     -- * Destructuring the response
     ModifyReplicationGroupShardConfigurationResponse (..),
@@ -46,67 +47,66 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyReplicationGroupShardConfiguration' smart constructor.
 data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfiguration'
-  { nodeGroupsToRetain ::
-      Lude.Maybe
-        [Lude.Text],
-    reshardingConfiguration ::
-      Lude.Maybe
-        [ReshardingConfiguration],
-    nodeGroupsToRemove ::
-      Lude.Maybe
-        [Lude.Text],
-    replicationGroupId ::
-      Lude.Text,
-    nodeGroupCount ::
-      Lude.Int,
-    applyImmediately ::
-      Lude.Bool
+  { -- | If the value of @NodeGroupCount@ is less than the current number of node groups (shards), then either @NodeGroupsToRemove@ or @NodeGroupsToRetain@ is required. @NodeGroupsToRetain@ is a list of @NodeGroupId@ s to retain in the cluster.
+    --
+    -- ElastiCache for Redis will attempt to remove all node groups except those listed by @NodeGroupsToRetain@ from the cluster.
+    nodeGroupsToRetain :: Lude.Maybe [Lude.Text],
+    -- | Specifies the preferred availability zones for each node group in the cluster. If the value of @NodeGroupCount@ is greater than the current number of node groups (shards), you can use this parameter to specify the preferred availability zones of the cluster's shards. If you omit this parameter ElastiCache selects availability zones for you.
+    --
+    -- You can specify this parameter only if the value of @NodeGroupCount@ is greater than the current number of node groups (shards).
+    reshardingConfiguration :: Lude.Maybe [ReshardingConfiguration],
+    -- | The number of node groups (shards) that results from the modification of the shard configuration.
+    nodeGroupCount :: Lude.Int,
+    -- | Indicates that the shard reconfiguration process begins immediately. At present, the only permitted value for this parameter is @true@ .
+    --
+    -- Value: true
+    applyImmediately :: Lude.Bool,
+    -- | The name of the Redis (cluster mode enabled) cluster (replication group) on which the shards are to be configured.
+    replicationGroupId :: Lude.Text,
+    -- | If the value of @NodeGroupCount@ is less than the current number of node groups (shards), then either @NodeGroupsToRemove@ or @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of @NodeGroupId@ s to remove from the cluster.
+    --
+    -- ElastiCache for Redis will attempt to remove all node groups listed by @NodeGroupsToRemove@ from the cluster.
+    nodeGroupsToRemove :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReplicationGroupShardConfiguration' with the minimum fields required to make a request.
 --
--- * 'applyImmediately' - Indicates that the shard reconfiguration process begins immediately. At present, the only permitted value for this parameter is @true@ .
---
--- Value: true
--- * 'nodeGroupCount' - The number of node groups (shards) that results from the modification of the shard configuration.
--- * 'nodeGroupsToRemove' - If the value of @NodeGroupCount@ is less than the current number of node groups (shards), then either @NodeGroupsToRemove@ or @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of @NodeGroupId@ s to remove from the cluster.
---
--- ElastiCache for Redis will attempt to remove all node groups listed by @NodeGroupsToRemove@ from the cluster.
 -- * 'nodeGroupsToRetain' - If the value of @NodeGroupCount@ is less than the current number of node groups (shards), then either @NodeGroupsToRemove@ or @NodeGroupsToRetain@ is required. @NodeGroupsToRetain@ is a list of @NodeGroupId@ s to retain in the cluster.
 --
 -- ElastiCache for Redis will attempt to remove all node groups except those listed by @NodeGroupsToRetain@ from the cluster.
--- * 'replicationGroupId' - The name of the Redis (cluster mode enabled) cluster (replication group) on which the shards are to be configured.
 -- * 'reshardingConfiguration' - Specifies the preferred availability zones for each node group in the cluster. If the value of @NodeGroupCount@ is greater than the current number of node groups (shards), you can use this parameter to specify the preferred availability zones of the cluster's shards. If you omit this parameter ElastiCache selects availability zones for you.
 --
 -- You can specify this parameter only if the value of @NodeGroupCount@ is greater than the current number of node groups (shards).
+-- * 'nodeGroupCount' - The number of node groups (shards) that results from the modification of the shard configuration.
+-- * 'applyImmediately' - Indicates that the shard reconfiguration process begins immediately. At present, the only permitted value for this parameter is @true@ .
+--
+-- Value: true
+-- * 'replicationGroupId' - The name of the Redis (cluster mode enabled) cluster (replication group) on which the shards are to be configured.
+-- * 'nodeGroupsToRemove' - If the value of @NodeGroupCount@ is less than the current number of node groups (shards), then either @NodeGroupsToRemove@ or @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of @NodeGroupId@ s to remove from the cluster.
+--
+-- ElastiCache for Redis will attempt to remove all node groups listed by @NodeGroupsToRemove@ from the cluster.
 mkModifyReplicationGroupShardConfiguration ::
-  -- | 'replicationGroupId'
-  Lude.Text ->
   -- | 'nodeGroupCount'
   Lude.Int ->
   -- | 'applyImmediately'
   Lude.Bool ->
+  -- | 'replicationGroupId'
+  Lude.Text ->
   ModifyReplicationGroupShardConfiguration
 mkModifyReplicationGroupShardConfiguration
-  pReplicationGroupId_
   pNodeGroupCount_
-  pApplyImmediately_ =
+  pApplyImmediately_
+  pReplicationGroupId_ =
     ModifyReplicationGroupShardConfiguration'
       { nodeGroupsToRetain =
           Lude.Nothing,
         reshardingConfiguration = Lude.Nothing,
-        nodeGroupsToRemove = Lude.Nothing,
-        replicationGroupId = pReplicationGroupId_,
         nodeGroupCount = pNodeGroupCount_,
-        applyImmediately = pApplyImmediately_
+        applyImmediately = pApplyImmediately_,
+        replicationGroupId = pReplicationGroupId_,
+        nodeGroupsToRemove = Lude.Nothing
       }
 
 -- | If the value of @NodeGroupCount@ is less than the current number of node groups (shards), then either @NodeGroupsToRemove@ or @NodeGroupsToRetain@ is required. @NodeGroupsToRetain@ is a list of @NodeGroupId@ s to retain in the cluster.
@@ -127,22 +127,6 @@ mrgscReshardingConfiguration :: Lens.Lens' ModifyReplicationGroupShardConfigurat
 mrgscReshardingConfiguration = Lens.lens (reshardingConfiguration :: ModifyReplicationGroupShardConfiguration -> Lude.Maybe [ReshardingConfiguration]) (\s a -> s {reshardingConfiguration = a} :: ModifyReplicationGroupShardConfiguration)
 {-# DEPRECATED mrgscReshardingConfiguration "Use generic-lens or generic-optics with 'reshardingConfiguration' instead." #-}
 
--- | If the value of @NodeGroupCount@ is less than the current number of node groups (shards), then either @NodeGroupsToRemove@ or @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of @NodeGroupId@ s to remove from the cluster.
---
--- ElastiCache for Redis will attempt to remove all node groups listed by @NodeGroupsToRemove@ from the cluster.
---
--- /Note:/ Consider using 'nodeGroupsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrgscNodeGroupsToRemove :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Lude.Maybe [Lude.Text])
-mrgscNodeGroupsToRemove = Lens.lens (nodeGroupsToRemove :: ModifyReplicationGroupShardConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {nodeGroupsToRemove = a} :: ModifyReplicationGroupShardConfiguration)
-{-# DEPRECATED mrgscNodeGroupsToRemove "Use generic-lens or generic-optics with 'nodeGroupsToRemove' instead." #-}
-
--- | The name of the Redis (cluster mode enabled) cluster (replication group) on which the shards are to be configured.
---
--- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrgscReplicationGroupId :: Lens.Lens' ModifyReplicationGroupShardConfiguration Lude.Text
-mrgscReplicationGroupId = Lens.lens (replicationGroupId :: ModifyReplicationGroupShardConfiguration -> Lude.Text) (\s a -> s {replicationGroupId = a} :: ModifyReplicationGroupShardConfiguration)
-{-# DEPRECATED mrgscReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
-
 -- | The number of node groups (shards) that results from the modification of the shard configuration.
 --
 -- /Note:/ Consider using 'nodeGroupCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -158,6 +142,22 @@ mrgscNodeGroupCount = Lens.lens (nodeGroupCount :: ModifyReplicationGroupShardCo
 mrgscApplyImmediately :: Lens.Lens' ModifyReplicationGroupShardConfiguration Lude.Bool
 mrgscApplyImmediately = Lens.lens (applyImmediately :: ModifyReplicationGroupShardConfiguration -> Lude.Bool) (\s a -> s {applyImmediately = a} :: ModifyReplicationGroupShardConfiguration)
 {-# DEPRECATED mrgscApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
+
+-- | The name of the Redis (cluster mode enabled) cluster (replication group) on which the shards are to be configured.
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrgscReplicationGroupId :: Lens.Lens' ModifyReplicationGroupShardConfiguration Lude.Text
+mrgscReplicationGroupId = Lens.lens (replicationGroupId :: ModifyReplicationGroupShardConfiguration -> Lude.Text) (\s a -> s {replicationGroupId = a} :: ModifyReplicationGroupShardConfiguration)
+{-# DEPRECATED mrgscReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
+
+-- | If the value of @NodeGroupCount@ is less than the current number of node groups (shards), then either @NodeGroupsToRemove@ or @NodeGroupsToRetain@ is required. @NodeGroupsToRemove@ is a list of @NodeGroupId@ s to remove from the cluster.
+--
+-- ElastiCache for Redis will attempt to remove all node groups listed by @NodeGroupsToRemove@ from the cluster.
+--
+-- /Note:/ Consider using 'nodeGroupsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrgscNodeGroupsToRemove :: Lens.Lens' ModifyReplicationGroupShardConfiguration (Lude.Maybe [Lude.Text])
+mrgscNodeGroupsToRemove = Lens.lens (nodeGroupsToRemove :: ModifyReplicationGroupShardConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {nodeGroupsToRemove = a} :: ModifyReplicationGroupShardConfiguration)
+{-# DEPRECATED mrgscNodeGroupsToRemove "Use generic-lens or generic-optics with 'nodeGroupsToRemove' instead." #-}
 
 instance Lude.AWSRequest ModifyReplicationGroupShardConfiguration where
   type
@@ -193,37 +193,26 @@ instance Lude.ToQuery ModifyReplicationGroupShardConfiguration where
             ( Lude.toQueryList "ReshardingConfiguration"
                 Lude.<$> reshardingConfiguration
             ),
+        "NodeGroupCount" Lude.=: nodeGroupCount,
+        "ApplyImmediately" Lude.=: applyImmediately,
+        "ReplicationGroupId" Lude.=: replicationGroupId,
         "NodeGroupsToRemove"
           Lude.=: Lude.toQuery
-            (Lude.toQueryList "NodeGroupToRemove" Lude.<$> nodeGroupsToRemove),
-        "ReplicationGroupId" Lude.=: replicationGroupId,
-        "NodeGroupCount" Lude.=: nodeGroupCount,
-        "ApplyImmediately" Lude.=: applyImmediately
+            (Lude.toQueryList "NodeGroupToRemove" Lude.<$> nodeGroupsToRemove)
       ]
 
 -- | /See:/ 'mkModifyReplicationGroupShardConfigurationResponse' smart constructor.
 data ModifyReplicationGroupShardConfigurationResponse = ModifyReplicationGroupShardConfigurationResponse'
-  { replicationGroup ::
-      Lude.Maybe
-        ReplicationGroup,
-    responseStatus ::
-      Lude.Int
+  { replicationGroup :: Lude.Maybe ReplicationGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReplicationGroupShardConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'replicationGroup' - Undocumented field.
+-- * 'replicationGroup' -
 -- * 'responseStatus' - The response status code.
 mkModifyReplicationGroupShardConfigurationResponse ::
   -- | 'responseStatus'

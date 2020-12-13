@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.EC2.AttachClassicLinkVPC
     mkAttachClassicLinkVPC,
 
     -- ** Request lenses
-    aclvDryRun,
-    aclvGroups,
     aclvInstanceId,
+    aclvGroups,
     aclvVPCId,
+    aclvDryRun,
 
     -- * Destructuring the response
     AttachClassicLinkVPCResponse (..),
@@ -45,27 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachClassicLinkVPC' smart constructor.
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    groups :: [Lude.Text],
+  { -- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
     instanceId :: Lude.Text,
-    vpcId :: Lude.Text
+    -- | The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
+    groups :: [Lude.Text],
+    -- | The ID of a ClassicLink-enabled VPC.
+    vpcId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachClassicLinkVPC' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'groups' - The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
 -- * 'instanceId' - The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
+-- * 'groups' - The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
 -- * 'vpcId' - The ID of a ClassicLink-enabled VPC.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkAttachClassicLinkVPC ::
   -- | 'instanceId'
   Lude.Text ->
@@ -74,25 +72,11 @@ mkAttachClassicLinkVPC ::
   AttachClassicLinkVPC
 mkAttachClassicLinkVPC pInstanceId_ pVPCId_ =
   AttachClassicLinkVPC'
-    { dryRun = Lude.Nothing,
+    { instanceId = pInstanceId_,
       groups = Lude.mempty,
-      instanceId = pInstanceId_,
-      vpcId = pVPCId_
+      vpcId = pVPCId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aclvDryRun :: Lens.Lens' AttachClassicLinkVPC (Lude.Maybe Lude.Bool)
-aclvDryRun = Lens.lens (dryRun :: AttachClassicLinkVPC -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AttachClassicLinkVPC)
-{-# DEPRECATED aclvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
---
--- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aclvGroups :: Lens.Lens' AttachClassicLinkVPC [Lude.Text]
-aclvGroups = Lens.lens (groups :: AttachClassicLinkVPC -> [Lude.Text]) (\s a -> s {groups = a} :: AttachClassicLinkVPC)
-{-# DEPRECATED aclvGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
 --
@@ -101,12 +85,26 @@ aclvInstanceId :: Lens.Lens' AttachClassicLinkVPC Lude.Text
 aclvInstanceId = Lens.lens (instanceId :: AttachClassicLinkVPC -> Lude.Text) (\s a -> s {instanceId = a} :: AttachClassicLinkVPC)
 {-# DEPRECATED aclvInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
+-- | The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclvGroups :: Lens.Lens' AttachClassicLinkVPC [Lude.Text]
+aclvGroups = Lens.lens (groups :: AttachClassicLinkVPC -> [Lude.Text]) (\s a -> s {groups = a} :: AttachClassicLinkVPC)
+{-# DEPRECATED aclvGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
+
 -- | The ID of a ClassicLink-enabled VPC.
 --
 -- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aclvVPCId :: Lens.Lens' AttachClassicLinkVPC Lude.Text
 aclvVPCId = Lens.lens (vpcId :: AttachClassicLinkVPC -> Lude.Text) (\s a -> s {vpcId = a} :: AttachClassicLinkVPC)
 {-# DEPRECATED aclvVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclvDryRun :: Lens.Lens' AttachClassicLinkVPC (Lude.Maybe Lude.Bool)
+aclvDryRun = Lens.lens (dryRun :: AttachClassicLinkVPC -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AttachClassicLinkVPC)
+{-# DEPRECATED aclvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest AttachClassicLinkVPC where
   type Rs AttachClassicLinkVPC = AttachClassicLinkVPCResponse
@@ -129,31 +127,26 @@ instance Lude.ToQuery AttachClassicLinkVPC where
     Lude.mconcat
       [ "Action" Lude.=: ("AttachClassicLinkVpc" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "SecurityGroupId" groups,
         "InstanceId" Lude.=: instanceId,
-        "VpcId" Lude.=: vpcId
+        Lude.toQueryList "SecurityGroupId" groups,
+        "VpcId" Lude.=: vpcId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkAttachClassicLinkVPCResponse' smart constructor.
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachClassicLinkVPCResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkAttachClassicLinkVPCResponse ::
   -- | 'responseStatus'
   Lude.Int ->

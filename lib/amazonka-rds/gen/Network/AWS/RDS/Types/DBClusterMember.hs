@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBClusterMember' smart constructor.
 data DBClusterMember = DBClusterMember'
-  { promotionTier ::
-      Lude.Maybe Lude.Int,
+  { -- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
+    promotionTier :: Lude.Maybe Lude.Int,
+    -- | Specifies the instance identifier for this member of the DB cluster.
     dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | Value that is @true@ if the cluster member is the primary instance for the DB cluster and @false@ otherwise.
     isClusterWriter :: Lude.Maybe Lude.Bool,
+    -- | Specifies the status of the DB cluster parameter group for this member of the DB cluster.
     dbClusterParameterGroupStatus :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterMember' with the minimum fields required to make a request.
 --
--- * 'dbClusterParameterGroupStatus' - Specifies the status of the DB cluster parameter group for this member of the DB cluster.
+-- * 'promotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
 -- * 'dbInstanceIdentifier' - Specifies the instance identifier for this member of the DB cluster.
 -- * 'isClusterWriter' - Value that is @true@ if the cluster member is the primary instance for the DB cluster and @false@ otherwise.
--- * 'promotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
+-- * 'dbClusterParameterGroupStatus' - Specifies the status of the DB cluster parameter group for this member of the DB cluster.
 mkDBClusterMember ::
   DBClusterMember
 mkDBClusterMember =

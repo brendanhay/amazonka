@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,27 +44,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTaskSets' smart constructor.
 data DescribeTaskSets = DescribeTaskSets'
-  { taskSets ::
-      Lude.Maybe [Lude.Text],
+  { -- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
+    taskSets :: Lude.Maybe [Lude.Text],
+    -- | Specifies whether to see the resource tags for the task set. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
     include :: Lude.Maybe [TaskSetField],
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task sets exist in.
     cluster :: Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.
     service :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTaskSets' with the minimum fields required to make a request.
 --
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task sets exist in.
--- * 'include' - Specifies whether to see the resource tags for the task set. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
--- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.
 -- * 'taskSets' - The ID or full Amazon Resource Name (ARN) of task sets to describe.
+-- * 'include' - Specifies whether to see the resource tags for the task set. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task sets exist in.
+-- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.
 mkDescribeTaskSets ::
   -- | 'cluster'
   Lude.Text ->
@@ -150,25 +148,21 @@ instance Lude.ToQuery DescribeTaskSets where
 
 -- | /See:/ 'mkDescribeTaskSetsResponse' smart constructor.
 data DescribeTaskSetsResponse = DescribeTaskSetsResponse'
-  { taskSets ::
-      Lude.Maybe [TaskSet],
+  { -- | The list of task sets described.
+    taskSets :: Lude.Maybe [TaskSet],
+    -- | Any failures associated with the call.
     failures :: Lude.Maybe [Failure],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTaskSetsResponse' with the minimum fields required to make a request.
 --
+-- * 'taskSets' - The list of task sets described.
 -- * 'failures' - Any failures associated with the call.
 -- * 'responseStatus' - The response status code.
--- * 'taskSets' - The list of task sets described.
 mkDescribeTaskSetsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

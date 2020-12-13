@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.CognitoIdentityProvider.UpdateGroup
     mkUpdateGroup,
 
     -- ** Request lenses
+    ugUserPoolId,
     ugPrecedence,
+    ugGroupName,
     ugDescription,
     ugRoleARN,
-    ugGroupName,
-    ugUserPoolId,
 
     -- * Destructuring the response
     UpdateGroupResponse (..),
@@ -46,43 +47,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { precedence ::
-      Lude.Maybe Lude.Natural,
-    description :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Maybe Lude.Text,
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Lude.Text,
+    -- | The new precedence value for the group. For more information about this parameter, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup> .
+    precedence :: Lude.Maybe Lude.Natural,
+    -- | The name of the group.
     groupName :: Lude.Text,
-    userPoolId :: Lude.Text
+    -- | A string containing the new description of the group.
+    description :: Lude.Maybe Lude.Text,
+    -- | The new role ARN for the group. This is used for setting the @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
 --
--- * 'description' - A string containing the new description of the group.
--- * 'groupName' - The name of the group.
--- * 'precedence' - The new precedence value for the group. For more information about this parameter, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup> .
--- * 'roleARN' - The new role ARN for the group. This is used for setting the @cognito:roles@ and @cognito:preferred_role@ claims in the token.
 -- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'precedence' - The new precedence value for the group. For more information about this parameter, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup> .
+-- * 'groupName' - The name of the group.
+-- * 'description' - A string containing the new description of the group.
+-- * 'roleARN' - The new role ARN for the group. This is used for setting the @cognito:roles@ and @cognito:preferred_role@ claims in the token.
 mkUpdateGroup ::
-  -- | 'groupName'
-  Lude.Text ->
   -- | 'userPoolId'
   Lude.Text ->
+  -- | 'groupName'
+  Lude.Text ->
   UpdateGroup
-mkUpdateGroup pGroupName_ pUserPoolId_ =
+mkUpdateGroup pUserPoolId_ pGroupName_ =
   UpdateGroup'
-    { precedence = Lude.Nothing,
-      description = Lude.Nothing,
-      roleARN = Lude.Nothing,
+    { userPoolId = pUserPoolId_,
+      precedence = Lude.Nothing,
       groupName = pGroupName_,
-      userPoolId = pUserPoolId_
+      description = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
+
+-- | The user pool ID for the user pool.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugUserPoolId :: Lens.Lens' UpdateGroup Lude.Text
+ugUserPoolId = Lens.lens (userPoolId :: UpdateGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateGroup)
+{-# DEPRECATED ugUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The new precedence value for the group. For more information about this parameter, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup> .
 --
@@ -90,6 +96,13 @@ mkUpdateGroup pGroupName_ pUserPoolId_ =
 ugPrecedence :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Natural)
 ugPrecedence = Lens.lens (precedence :: UpdateGroup -> Lude.Maybe Lude.Natural) (\s a -> s {precedence = a} :: UpdateGroup)
 {-# DEPRECATED ugPrecedence "Use generic-lens or generic-optics with 'precedence' instead." #-}
+
+-- | The name of the group.
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugGroupName :: Lens.Lens' UpdateGroup Lude.Text
+ugGroupName = Lens.lens (groupName :: UpdateGroup -> Lude.Text) (\s a -> s {groupName = a} :: UpdateGroup)
+{-# DEPRECATED ugGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | A string containing the new description of the group.
 --
@@ -104,20 +117,6 @@ ugDescription = Lens.lens (description :: UpdateGroup -> Lude.Maybe Lude.Text) (
 ugRoleARN :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
 ugRoleARN = Lens.lens (roleARN :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateGroup)
 {-# DEPRECATED ugRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The name of the group.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugGroupName :: Lens.Lens' UpdateGroup Lude.Text
-ugGroupName = Lens.lens (groupName :: UpdateGroup -> Lude.Text) (\s a -> s {groupName = a} :: UpdateGroup)
-{-# DEPRECATED ugGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
--- | The user pool ID for the user pool.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugUserPoolId :: Lens.Lens' UpdateGroup Lude.Text
-ugUserPoolId = Lens.lens (userPoolId :: UpdateGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateGroup)
-{-# DEPRECATED ugUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Lude.AWSRequest UpdateGroup where
   type Rs UpdateGroup = UpdateGroupResponse
@@ -146,11 +145,11 @@ instance Lude.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Precedence" Lude..=) Lude.<$> precedence,
-            ("Description" Lude..=) Lude.<$> description,
-            ("RoleArn" Lude..=) Lude.<$> roleARN,
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            ("Precedence" Lude..=) Lude.<$> precedence,
             Lude.Just ("GroupName" Lude..= groupName),
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+            ("Description" Lude..=) Lude.<$> description,
+            ("RoleArn" Lude..=) Lude.<$> roleARN
           ]
       )
 
@@ -162,17 +161,12 @@ instance Lude.ToQuery UpdateGroup where
 
 -- | /See:/ 'mkUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  { group ::
-      Lude.Maybe GroupType,
+  { -- | The group object for the group.
+    group :: Lude.Maybe GroupType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.

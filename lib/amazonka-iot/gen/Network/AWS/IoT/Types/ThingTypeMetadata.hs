@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingTypeMetadata' smart constructor.
 data ThingTypeMetadata = ThingTypeMetadata'
-  { deprecationDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time when the thing type was deprecated.
+    deprecationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time when the thing type was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | Whether the thing type is deprecated. If __true__ , no new things could be associated with this type.
     deprecated :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingTypeMetadata' with the minimum fields required to make a request.
 --
+-- * 'deprecationDate' - The date and time when the thing type was deprecated.
 -- * 'creationDate' - The date and time when the thing type was created.
 -- * 'deprecated' - Whether the thing type is deprecated. If __true__ , no new things could be associated with this type.
--- * 'deprecationDate' - The date and time when the thing type was deprecated.
 mkThingTypeMetadata ::
   ThingTypeMetadata
 mkThingTypeMetadata =

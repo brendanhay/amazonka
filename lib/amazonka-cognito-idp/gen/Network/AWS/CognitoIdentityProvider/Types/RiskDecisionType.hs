@@ -13,9 +13,9 @@
 module Network.AWS.CognitoIdentityProvider.Types.RiskDecisionType
   ( RiskDecisionType
       ( RiskDecisionType',
+        NoRisk,
         AccountTakeover,
-        Block,
-        NoRisk
+        Block
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RiskDecisionType = RiskDecisionType' Lude.Text
       Lude.ToHeader
     )
 
+pattern NoRisk :: RiskDecisionType
+pattern NoRisk = RiskDecisionType' "NoRisk"
+
 pattern AccountTakeover :: RiskDecisionType
 pattern AccountTakeover = RiskDecisionType' "AccountTakeover"
 
 pattern Block :: RiskDecisionType
 pattern Block = RiskDecisionType' "Block"
 
-pattern NoRisk :: RiskDecisionType
-pattern NoRisk = RiskDecisionType' "NoRisk"
-
 {-# COMPLETE
+  NoRisk,
   AccountTakeover,
   Block,
-  NoRisk,
   RiskDecisionType'
   #-}

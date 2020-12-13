@@ -18,8 +18,8 @@ module Network.AWS.WAFRegional.Types.Predicate
 
     -- * Lenses
     pNegated,
-    pType,
     pDataId,
+    pType,
   )
 where
 
@@ -31,39 +31,38 @@ import Network.AWS.WAFRegional.Types.PredicateType
 --
 -- /See:/ 'mkPredicate' smart constructor.
 data Predicate = Predicate'
-  { negated :: Lude.Bool,
-    type' :: PredicateType,
-    dataId :: Lude.Text
+  { -- | Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address.
+    --
+    -- Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
+    negated :: Lude.Bool,
+    -- | A unique identifier for a predicate in a @Rule@ , such as @ByteMatchSetId@ or @IPSetId@ . The ID is returned by the corresponding @Create@ or @List@ command.
+    dataId :: Lude.Text,
+    -- | The type of predicate in a @Rule@ , such as @ByteMatch@ or @IPSet@ .
+    type' :: PredicateType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Predicate' with the minimum fields required to make a request.
 --
--- * 'dataId' - A unique identifier for a predicate in a @Rule@ , such as @ByteMatchSetId@ or @IPSetId@ . The ID is returned by the corresponding @Create@ or @List@ command.
 -- * 'negated' - Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address.
 --
 -- Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
+-- * 'dataId' - A unique identifier for a predicate in a @Rule@ , such as @ByteMatchSetId@ or @IPSetId@ . The ID is returned by the corresponding @Create@ or @List@ command.
 -- * 'type'' - The type of predicate in a @Rule@ , such as @ByteMatch@ or @IPSet@ .
 mkPredicate ::
   -- | 'negated'
   Lude.Bool ->
-  -- | 'type''
-  PredicateType ->
   -- | 'dataId'
   Lude.Text ->
+  -- | 'type''
+  PredicateType ->
   Predicate
-mkPredicate pNegated_ pType_ pDataId_ =
+mkPredicate pNegated_ pDataId_ pType_ =
   Predicate'
     { negated = pNegated_,
-      type' = pType_,
-      dataId = pDataId_
+      dataId = pDataId_,
+      type' = pType_
     }
 
 -- | Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address.
@@ -75,19 +74,19 @@ pNegated :: Lens.Lens' Predicate Lude.Bool
 pNegated = Lens.lens (negated :: Predicate -> Lude.Bool) (\s a -> s {negated = a} :: Predicate)
 {-# DEPRECATED pNegated "Use generic-lens or generic-optics with 'negated' instead." #-}
 
--- | The type of predicate in a @Rule@ , such as @ByteMatch@ or @IPSet@ .
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pType :: Lens.Lens' Predicate PredicateType
-pType = Lens.lens (type' :: Predicate -> PredicateType) (\s a -> s {type' = a} :: Predicate)
-{-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
 -- | A unique identifier for a predicate in a @Rule@ , such as @ByteMatchSetId@ or @IPSetId@ . The ID is returned by the corresponding @Create@ or @List@ command.
 --
 -- /Note:/ Consider using 'dataId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pDataId :: Lens.Lens' Predicate Lude.Text
 pDataId = Lens.lens (dataId :: Predicate -> Lude.Text) (\s a -> s {dataId = a} :: Predicate)
 {-# DEPRECATED pDataId "Use generic-lens or generic-optics with 'dataId' instead." #-}
+
+-- | The type of predicate in a @Rule@ , such as @ByteMatch@ or @IPSet@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pType :: Lens.Lens' Predicate PredicateType
+pType = Lens.lens (type' :: Predicate -> PredicateType) (\s a -> s {type' = a} :: Predicate)
+{-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 instance Lude.FromJSON Predicate where
   parseJSON =
@@ -96,8 +95,8 @@ instance Lude.FromJSON Predicate where
       ( \x ->
           Predicate'
             Lude.<$> (x Lude..: "Negated")
-            Lude.<*> (x Lude..: "Type")
             Lude.<*> (x Lude..: "DataId")
+            Lude.<*> (x Lude..: "Type")
       )
 
 instance Lude.ToJSON Predicate where
@@ -105,7 +104,7 @@ instance Lude.ToJSON Predicate where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("Negated" Lude..= negated),
-            Lude.Just ("Type" Lude..= type'),
-            Lude.Just ("DataId" Lude..= dataId)
+            Lude.Just ("DataId" Lude..= dataId),
+            Lude.Just ("Type" Lude..= type')
           ]
       )

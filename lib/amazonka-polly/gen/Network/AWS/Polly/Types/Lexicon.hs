@@ -29,8 +29,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLexicon' smart constructor.
 data Lexicon = Lexicon'
-  { content ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | Lexicon content in string format. The content of a lexicon must be in PLS format.
+    content :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Name of the lexicon.
     name :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

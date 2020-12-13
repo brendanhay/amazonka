@@ -13,9 +13,9 @@
 module Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute
   ( GroupByAttribute
       ( GroupByAttribute',
+        TargetId,
         Region,
-        ResourceType,
-        TargetId
+        ResourceType
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype GroupByAttribute = GroupByAttribute' Lude.Text
       Lude.ToHeader
     )
 
+pattern TargetId :: GroupByAttribute
+pattern TargetId = GroupByAttribute' "TARGET_ID"
+
 pattern Region :: GroupByAttribute
 pattern Region = GroupByAttribute' "REGION"
 
 pattern ResourceType :: GroupByAttribute
 pattern ResourceType = GroupByAttribute' "RESOURCE_TYPE"
 
-pattern TargetId :: GroupByAttribute
-pattern TargetId = GroupByAttribute' "TARGET_ID"
-
 {-# COMPLETE
+  TargetId,
   Region,
   ResourceType,
-  TargetId,
   GroupByAttribute'
   #-}

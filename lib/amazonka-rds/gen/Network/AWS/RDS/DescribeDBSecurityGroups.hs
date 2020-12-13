@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     mkDescribeDBSecurityGroupsResponse,
 
     -- ** Response lenses
-    ddbsgrsDBSecurityGroups,
-    ddbsgrsMarker,
-    ddbsgrsResponseStatus,
+    ddsgrsDBSecurityGroups,
+    ddsgrsMarker,
+    ddsgrsResponseStatus,
   )
 where
 
@@ -48,31 +49,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDBSecurityGroups' smart constructor.
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | This parameter isn't currently supported.
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous @DescribeDBSecurityGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
-    dbSecurityGroupName ::
-      Lude.Maybe Lude.Text
+    -- | The name of the DB security group to return details for.
+    dbSecurityGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBSecurityGroups' with the minimum fields required to make a request.
 --
--- * 'dbSecurityGroupName' - The name of the DB security group to return details for.
 -- * 'filters' - This parameter isn't currently supported.
 -- * 'marker' - An optional pagination token provided by a previous @DescribeDBSecurityGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
 -- Default: 100
 -- Constraints: Minimum 20, maximum 100.
+-- * 'dbSecurityGroupName' - The name of the DB security group to return details for.
 mkDescribeDBSecurityGroups ::
   DescribeDBSecurityGroups
 mkDescribeDBSecurityGroups =
@@ -116,12 +116,12 @@ ddbsgDBSecurityGroupName = Lens.lens (dbSecurityGroupName :: DescribeDBSecurityG
 
 instance Page.AWSPager DescribeDBSecurityGroups where
   page rq rs
-    | Page.stop (rs Lens.^. ddbsgrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddbsgrsDBSecurityGroups) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddsgrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddsgrsDBSecurityGroups) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& ddbsgMarker Lens..~ rs Lens.^. ddbsgrsMarker
+          Lude.& ddbsgMarker Lens..~ rs Lens.^. ddsgrsMarker
 
 instance Lude.AWSRequest DescribeDBSecurityGroups where
   type Rs DescribeDBSecurityGroups = DescribeDBSecurityGroupsResponse
@@ -160,21 +160,14 @@ instance Lude.ToQuery DescribeDBSecurityGroups where
 --
 -- /See:/ 'mkDescribeDBSecurityGroupsResponse' smart constructor.
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
-  { dbSecurityGroups ::
-      Lude.Maybe
-        [DBSecurityGroup],
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of @DBSecurityGroup@ instances.
+    dbSecurityGroups :: Lude.Maybe [DBSecurityGroup],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBSecurityGroupsResponse' with the minimum fields required to make a request.
@@ -197,20 +190,20 @@ mkDescribeDBSecurityGroupsResponse pResponseStatus_ =
 -- | A list of @DBSecurityGroup@ instances.
 --
 -- /Note:/ Consider using 'dbSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbsgrsDBSecurityGroups :: Lens.Lens' DescribeDBSecurityGroupsResponse (Lude.Maybe [DBSecurityGroup])
-ddbsgrsDBSecurityGroups = Lens.lens (dbSecurityGroups :: DescribeDBSecurityGroupsResponse -> Lude.Maybe [DBSecurityGroup]) (\s a -> s {dbSecurityGroups = a} :: DescribeDBSecurityGroupsResponse)
-{-# DEPRECATED ddbsgrsDBSecurityGroups "Use generic-lens or generic-optics with 'dbSecurityGroups' instead." #-}
+ddsgrsDBSecurityGroups :: Lens.Lens' DescribeDBSecurityGroupsResponse (Lude.Maybe [DBSecurityGroup])
+ddsgrsDBSecurityGroups = Lens.lens (dbSecurityGroups :: DescribeDBSecurityGroupsResponse -> Lude.Maybe [DBSecurityGroup]) (\s a -> s {dbSecurityGroups = a} :: DescribeDBSecurityGroupsResponse)
+{-# DEPRECATED ddsgrsDBSecurityGroups "Use generic-lens or generic-optics with 'dbSecurityGroups' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbsgrsMarker :: Lens.Lens' DescribeDBSecurityGroupsResponse (Lude.Maybe Lude.Text)
-ddbsgrsMarker = Lens.lens (marker :: DescribeDBSecurityGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBSecurityGroupsResponse)
-{-# DEPRECATED ddbsgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddsgrsMarker :: Lens.Lens' DescribeDBSecurityGroupsResponse (Lude.Maybe Lude.Text)
+ddsgrsMarker = Lens.lens (marker :: DescribeDBSecurityGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBSecurityGroupsResponse)
+{-# DEPRECATED ddsgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbsgrsResponseStatus :: Lens.Lens' DescribeDBSecurityGroupsResponse Lude.Int
-ddbsgrsResponseStatus = Lens.lens (responseStatus :: DescribeDBSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBSecurityGroupsResponse)
-{-# DEPRECATED ddbsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddsgrsResponseStatus :: Lens.Lens' DescribeDBSecurityGroupsResponse Lude.Int
+ddsgrsResponseStatus = Lens.lens (responseStatus :: DescribeDBSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBSecurityGroupsResponse)
+{-# DEPRECATED ddsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -14,8 +14,8 @@ module Network.AWS.SageMaker.Types.AutoMLJobStatus
   ( AutoMLJobStatus
       ( AutoMLJobStatus',
         AMLJSCompleted,
-        AMLJSFailed,
         AMLJSInProgress,
+        AMLJSFailed,
         AMLJSStopped,
         AMLJSStopping
       ),
@@ -51,11 +51,11 @@ newtype AutoMLJobStatus = AutoMLJobStatus' Lude.Text
 pattern AMLJSCompleted :: AutoMLJobStatus
 pattern AMLJSCompleted = AutoMLJobStatus' "Completed"
 
-pattern AMLJSFailed :: AutoMLJobStatus
-pattern AMLJSFailed = AutoMLJobStatus' "Failed"
-
 pattern AMLJSInProgress :: AutoMLJobStatus
 pattern AMLJSInProgress = AutoMLJobStatus' "InProgress"
+
+pattern AMLJSFailed :: AutoMLJobStatus
+pattern AMLJSFailed = AutoMLJobStatus' "Failed"
 
 pattern AMLJSStopped :: AutoMLJobStatus
 pattern AMLJSStopped = AutoMLJobStatus' "Stopped"
@@ -65,8 +65,8 @@ pattern AMLJSStopping = AutoMLJobStatus' "Stopping"
 
 {-# COMPLETE
   AMLJSCompleted,
-  AMLJSFailed,
   AMLJSInProgress,
+  AMLJSFailed,
   AMLJSStopped,
   AMLJSStopping,
   AutoMLJobStatus'

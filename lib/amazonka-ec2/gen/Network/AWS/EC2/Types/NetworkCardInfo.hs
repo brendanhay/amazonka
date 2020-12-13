@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkCardInfo' smart constructor.
 data NetworkCardInfo = NetworkCardInfo'
-  { maximumNetworkInterfaces ::
-      Lude.Maybe Lude.Int,
+  { -- | The maximum number of network interfaces for the network card.
+    maximumNetworkInterfaces :: Lude.Maybe Lude.Int,
+    -- | The network performance of the network card.
     networkPerformance :: Lude.Maybe Lude.Text,
+    -- | The index of the network card.
     networkCardIndex :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkCardInfo' with the minimum fields required to make a request.
 --
 -- * 'maximumNetworkInterfaces' - The maximum number of network interfaces for the network card.
--- * 'networkCardIndex' - The index of the network card.
 -- * 'networkPerformance' - The network performance of the network card.
+-- * 'networkCardIndex' - The index of the network card.
 mkNetworkCardInfo ::
   NetworkCardInfo
 mkNetworkCardInfo =

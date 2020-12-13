@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsageInstruction' smart constructor.
 data UsageInstruction = UsageInstruction'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The usage instruction value for this type.
+    value :: Lude.Maybe Lude.Text,
+    -- | The usage instruction type for the value.
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageInstruction' with the minimum fields required to make a request.
 --
--- * 'type'' - The usage instruction type for the value.
 -- * 'value' - The usage instruction value for this type.
+-- * 'type'' - The usage instruction type for the value.
 mkUsageInstruction ::
   UsageInstruction
 mkUsageInstruction =

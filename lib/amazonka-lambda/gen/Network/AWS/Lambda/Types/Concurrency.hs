@@ -26,16 +26,10 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkConcurrency' smart constructor.
 newtype Concurrency = Concurrency'
-  { reservedConcurrentExecutions ::
-      Lude.Maybe Lude.Natural
+  { -- | The number of concurrent executions that are reserved for this function. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency> .
+    reservedConcurrentExecutions :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Concurrency' with the minimum fields required to make a request.

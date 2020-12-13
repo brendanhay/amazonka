@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,13 +25,13 @@ module Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
     ccfcsSemanticVersion,
     ccfcsNotificationARNs,
     ccfcsChangeSetName,
+    ccfcsApplicationId,
     ccfcsDescription,
     ccfcsCapabilities,
     ccfcsParameterOverrides,
     ccfcsRollbackConfiguration,
     ccfcsResourceTypes,
     ccfcsTags,
-    ccfcsApplicationId,
     ccfcsStackName,
 
     -- * Destructuring the response
@@ -54,43 +55,81 @@ import Network.AWS.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'mkCreateCloudFormationChangeSet' smart constructor.
 data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    templateId ::
-      Lude.Maybe Lude.Text,
-    semanticVersion ::
-      Lude.Maybe Lude.Text,
-    notificationARNs ::
-      Lude.Maybe [Lude.Text],
-    changeSetName ::
-      Lude.Maybe Lude.Text,
-    description ::
-      Lude.Maybe Lude.Text,
-    capabilities ::
-      Lude.Maybe [Lude.Text],
-    parameterOverrides ::
-      Lude.Maybe [ParameterValue],
-    rollbackConfiguration ::
-      Lude.Maybe
-        RollbackConfiguration,
-    resourceTypes ::
-      Lude.Maybe [Lude.Text],
-    tags :: Lude.Maybe [Tag],
+  { -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The UUID returned by CreateCloudFormationTemplate.
+    --
+    -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
+    templateId :: Lude.Maybe Lude.Text,
+    -- | The semantic version of the application:
+    --
+    -- <https://semver.org/ https://semver.org/>
+    semanticVersion :: Lude.Maybe Lude.Text,
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    notificationARNs :: Lude.Maybe [Lude.Text],
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    changeSetName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the application.
     applicationId :: Lude.Text,
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    description :: Lude.Maybe Lude.Text,
+    -- | A list of values that you must specify before you can deploy certain applications.
+    --
+    --  Some applications might include resources that can affect permissions in your AWS
+    --  account, for example, by creating new AWS Identity and Access Management (IAM) users.
+    --  For those applications, you must explicitly acknowledge their capabilities by
+    --  specifying this parameter.
+    -- The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM,
+    --  CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
+    -- The following resources require you to specify CAPABILITY_IAM or
+    --  CAPABILITY_NAMED_IAM:
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM::Policy> , and
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role> .
+    --  If the application contains IAM resources, you can specify either CAPABILITY_IAM
+    --  or CAPABILITY_NAMED_IAM. If the application contains IAM resources
+    --  with custom names, you must specify CAPABILITY_NAMED_IAM.
+    -- The following resources require you to specify CAPABILITY_RESOURCE_POLICY:
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html AWS::Lambda::Permission> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM:Policy> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html AWS::ApplicationAutoScaling::ScalingPolicy> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html AWS::S3::BucketPolicy> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html AWS::SQS::QueuePolicy> , and
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html AWS::SNS:TopicPolicy> .
+    -- Applications that contain one or more nested applications require you to specify
+    --  CAPABILITY_AUTO_EXPAND.
+    -- If your application template contains any of the above resources, we recommend that you review
+    --  all permissions associated with the application before deploying. If you don't specify
+    --  this parameter for an application that requires capabilities, the call will fail.
+    capabilities :: Lude.Maybe [Lude.Text],
+    -- | A list of parameter values for the parameters of the application.
+    parameterOverrides :: Lude.Maybe [ParameterValue],
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    rollbackConfiguration :: Lude.Maybe RollbackConfiguration,
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    resourceTypes :: Lude.Maybe [Lude.Text],
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    tags :: Lude.Maybe [Tag],
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
     stackName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCloudFormationChangeSet' with the minimum fields required to make a request.
 --
+-- * 'clientToken' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+-- * 'templateId' - The UUID returned by CreateCloudFormationTemplate.
+--
+-- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
+-- * 'semanticVersion' - The semantic version of the application:
+--
+-- <https://semver.org/ https://semver.org/>
+-- * 'notificationARNs' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+-- * 'changeSetName' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 -- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- * 'description' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 -- * 'capabilities' - A list of values that you must specify before you can deploy certain applications.
 --
 --  Some applications might include resources that can affect permissions in your AWS
@@ -120,21 +159,11 @@ data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
 -- If your application template contains any of the above resources, we recommend that you review
 --  all permissions associated with the application before deploying. If you don't specify
 --  this parameter for an application that requires capabilities, the call will fail.
--- * 'changeSetName' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'clientToken' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'description' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'notificationARNs' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 -- * 'parameterOverrides' - A list of parameter values for the parameters of the application.
--- * 'resourceTypes' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 -- * 'rollbackConfiguration' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'semanticVersion' - The semantic version of the application:
---
--- <https://semver.org/ https://semver.org/>
--- * 'stackName' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+-- * 'resourceTypes' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 -- * 'tags' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'templateId' - The UUID returned by CreateCloudFormationTemplate.
---
--- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
+-- * 'stackName' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 mkCreateCloudFormationChangeSet ::
   -- | 'applicationId'
   Lude.Text ->
@@ -148,13 +177,13 @@ mkCreateCloudFormationChangeSet pApplicationId_ pStackName_ =
       semanticVersion = Lude.Nothing,
       notificationARNs = Lude.Nothing,
       changeSetName = Lude.Nothing,
+      applicationId = pApplicationId_,
       description = Lude.Nothing,
       capabilities = Lude.Nothing,
       parameterOverrides = Lude.Nothing,
       rollbackConfiguration = Lude.Nothing,
       resourceTypes = Lude.Nothing,
       tags = Lude.Nothing,
-      applicationId = pApplicationId_,
       stackName = pStackName_
     }
 
@@ -196,6 +225,13 @@ ccfcsNotificationARNs = Lens.lens (notificationARNs :: CreateCloudFormationChang
 ccfcsChangeSetName :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe Lude.Text)
 ccfcsChangeSetName = Lens.lens (changeSetName :: CreateCloudFormationChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {changeSetName = a} :: CreateCloudFormationChangeSet)
 {-# DEPRECATED ccfcsChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the application.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsApplicationId :: Lens.Lens' CreateCloudFormationChangeSet Lude.Text
+ccfcsApplicationId = Lens.lens (applicationId :: CreateCloudFormationChangeSet -> Lude.Text) (\s a -> s {applicationId = a} :: CreateCloudFormationChangeSet)
+{-# DEPRECATED ccfcsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 --
@@ -267,13 +303,6 @@ ccfcsTags :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe [Tag])
 ccfcsTags = Lens.lens (tags :: CreateCloudFormationChangeSet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCloudFormationChangeSet)
 {-# DEPRECATED ccfcsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the application.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsApplicationId :: Lens.Lens' CreateCloudFormationChangeSet Lude.Text
-ccfcsApplicationId = Lens.lens (applicationId :: CreateCloudFormationChangeSet -> Lude.Text) (\s a -> s {applicationId = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
 -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -335,42 +364,37 @@ instance Lude.ToQuery CreateCloudFormationChangeSet where
 
 -- | /See:/ 'mkCreateCloudFormationChangeSetResponse' smart constructor.
 data CreateCloudFormationChangeSetResponse = CreateCloudFormationChangeSetResponse'
-  { semanticVersion ::
-      Lude.Maybe
-        Lude.Text,
-    changeSetId ::
-      Lude.Maybe
-        Lude.Text,
-    applicationId ::
-      Lude.Maybe
-        Lude.Text,
-    stackId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The semantic version of the application:
+    --
+    -- <https://semver.org/ https://semver.org/>
+    semanticVersion :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the change set.
+    --
+    -- Length constraints: Minimum length of 1.
+    -- Pattern: ARN:[-a-zA-Z0-9:/]*
+    changeSetId :: Lude.Maybe Lude.Text,
+    -- | The application Amazon Resource Name (ARN).
+    applicationId :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the stack.
+    stackId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCloudFormationChangeSetResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The application Amazon Resource Name (ARN).
+-- * 'semanticVersion' - The semantic version of the application:
+--
+-- <https://semver.org/ https://semver.org/>
 -- * 'changeSetId' - The Amazon Resource Name (ARN) of the change set.
 --
 -- Length constraints: Minimum length of 1.
 -- Pattern: ARN:[-a-zA-Z0-9:/]*
--- * 'responseStatus' - The response status code.
--- * 'semanticVersion' - The semantic version of the application:
---
--- <https://semver.org/ https://semver.org/>
+-- * 'applicationId' - The application Amazon Resource Name (ARN).
 -- * 'stackId' - The unique ID of the stack.
+-- * 'responseStatus' - The response status code.
 mkCreateCloudFormationChangeSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

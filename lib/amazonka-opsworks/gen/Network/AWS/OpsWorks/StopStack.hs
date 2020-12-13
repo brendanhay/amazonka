@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.OpsWorks.StopStack
     mkStopStack,
 
     -- ** Request lenses
-    stoStackId,
+    ssStackId,
 
     -- * Destructuring the response
     StopStackResponse (..),
@@ -36,14 +37,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopStack' smart constructor.
-newtype StopStack = StopStack' {stackId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StopStack = StopStack'
+  { -- | The stack ID.
+    stackId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStack' with the minimum fields required to make a request.
@@ -58,9 +56,9 @@ mkStopStack pStackId_ = StopStack' {stackId = pStackId_}
 -- | The stack ID.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stoStackId :: Lens.Lens' StopStack Lude.Text
-stoStackId = Lens.lens (stackId :: StopStack -> Lude.Text) (\s a -> s {stackId = a} :: StopStack)
-{-# DEPRECATED stoStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+ssStackId :: Lens.Lens' StopStack Lude.Text
+ssStackId = Lens.lens (stackId :: StopStack -> Lude.Text) (\s a -> s {stackId = a} :: StopStack)
+{-# DEPRECATED ssStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 instance Lude.AWSRequest StopStack where
   type Rs StopStack = StopStackResponse
@@ -91,13 +89,7 @@ instance Lude.ToQuery StopStack where
 
 -- | /See:/ 'mkStopStackResponse' smart constructor.
 data StopStackResponse = StopStackResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStackResponse' with the minimum fields required to make a request.

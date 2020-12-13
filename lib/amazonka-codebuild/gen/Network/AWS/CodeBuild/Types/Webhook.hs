@@ -36,34 +36,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWebhook' smart constructor.
 data Webhook = Webhook'
-  { branchFilter :: Lude.Maybe Lude.Text,
+  { -- | A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
+    branchFilter :: Lude.Maybe Lude.Text,
+    -- | A timestamp that indicates the last time a repository's secret token was modified.
     lastModifiedSecret :: Lude.Maybe Lude.Timestamp,
+    -- | The URL to the webhook.
     url :: Lude.Maybe Lude.Text,
+    -- | The secret token of the associated repository.
     secret :: Lude.Maybe Lude.Text,
+    -- | An array of arrays of @WebhookFilter@ objects used to determine which webhooks are triggered. At least one @WebhookFilter@ in the array must specify @EVENT@ as its @type@ .
+    --
+    -- For a build to be triggered, at least one filter group in the @filterGroups@ array must pass. For a filter group to pass, each of its filters must pass.
     filterGroups :: Lude.Maybe [[WebhookFilter]],
+    -- | The AWS CodeBuild endpoint where webhook events are sent.
     payloadURL :: Lude.Maybe Lude.Text,
+    -- | Specifies the type of build this webhook will trigger.
     buildType :: Lude.Maybe WebhookBuildType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Webhook' with the minimum fields required to make a request.
 --
 -- * 'branchFilter' - A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
--- * 'buildType' - Specifies the type of build this webhook will trigger.
+-- * 'lastModifiedSecret' - A timestamp that indicates the last time a repository's secret token was modified.
+-- * 'url' - The URL to the webhook.
+-- * 'secret' - The secret token of the associated repository.
 -- * 'filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine which webhooks are triggered. At least one @WebhookFilter@ in the array must specify @EVENT@ as its @type@ .
 --
 -- For a build to be triggered, at least one filter group in the @filterGroups@ array must pass. For a filter group to pass, each of its filters must pass.
--- * 'lastModifiedSecret' - A timestamp that indicates the last time a repository's secret token was modified.
 -- * 'payloadURL' - The AWS CodeBuild endpoint where webhook events are sent.
--- * 'secret' - The secret token of the associated repository.
--- * 'url' - The URL to the webhook.
+-- * 'buildType' - Specifies the type of build this webhook will trigger.
 mkWebhook ::
   Webhook
 mkWebhook =

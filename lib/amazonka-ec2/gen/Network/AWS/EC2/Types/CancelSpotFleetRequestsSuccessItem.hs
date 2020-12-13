@@ -31,27 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCancelSpotFleetRequestsSuccessItem' smart constructor.
 data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
-  { currentSpotFleetRequestState ::
-      Lude.Maybe BatchState,
-    spotFleetRequestId ::
-      Lude.Maybe Lude.Text,
-    previousSpotFleetRequestState ::
-      Lude.Maybe BatchState
+  { -- | The current state of the Spot Fleet request.
+    currentSpotFleetRequestState :: Lude.Maybe BatchState,
+    -- | The ID of the Spot Fleet request.
+    spotFleetRequestId :: Lude.Maybe Lude.Text,
+    -- | The previous state of the Spot Fleet request.
+    previousSpotFleetRequestState :: Lude.Maybe BatchState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSpotFleetRequestsSuccessItem' with the minimum fields required to make a request.
 --
 -- * 'currentSpotFleetRequestState' - The current state of the Spot Fleet request.
--- * 'previousSpotFleetRequestState' - The previous state of the Spot Fleet request.
 -- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
+-- * 'previousSpotFleetRequestState' - The previous state of the Spot Fleet request.
 mkCancelSpotFleetRequestsSuccessItem ::
   CancelSpotFleetRequestsSuccessItem
 mkCancelSpotFleetRequestsSuccessItem =

@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobDetails' smart constructor.
 data JobDetails = JobDetails'
-  { translatedDocumentsCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of documents successfully processed during a translation job.
+    translatedDocumentsCount :: Lude.Maybe Lude.Int,
+    -- | The number of documents that could not be processed during a translation job.
     documentsWithErrorsCount :: Lude.Maybe Lude.Int,
+    -- | The number of documents used as input in a translation job.
     inputDocumentsCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobDetails' with the minimum fields required to make a request.
 --
+-- * 'translatedDocumentsCount' - The number of documents successfully processed during a translation job.
 -- * 'documentsWithErrorsCount' - The number of documents that could not be processed during a translation job.
 -- * 'inputDocumentsCount' - The number of documents used as input in a translation job.
--- * 'translatedDocumentsCount' - The number of documents successfully processed during a translation job.
 mkJobDetails ::
   JobDetails
 mkJobDetails =

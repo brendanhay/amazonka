@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCrawlerNodeDetails' smart constructor.
 newtype CrawlerNodeDetails = CrawlerNodeDetails'
-  { crawls ::
-      Lude.Maybe [Crawl]
+  { -- | A list of crawls represented by the crawl node.
+    crawls :: Lude.Maybe [Crawl]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CrawlerNodeDetails' with the minimum fields required to make a request.

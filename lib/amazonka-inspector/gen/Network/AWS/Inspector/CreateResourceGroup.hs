@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Inspector.CreateResourceGroup
     mkCreateResourceGroupResponse,
 
     -- ** Response lenses
-    crgrsResponseStatus,
     crgrsResourceGroupARN,
+    crgrsResponseStatus,
   )
 where
 
@@ -39,16 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateResourceGroup' smart constructor.
 newtype CreateResourceGroup = CreateResourceGroup'
-  { resourceGroupTags ::
-      Lude.NonEmpty ResourceGroupTag
+  { -- | A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.
+    --
+    -- For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
+    resourceGroupTags :: Lude.NonEmpty ResourceGroupTag
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceGroup' with the minimum fields required to make a request.
@@ -79,8 +76,8 @@ instance Lude.AWSRequest CreateResourceGroup where
     Res.receiveJSON
       ( \s h x ->
           CreateResourceGroupResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "resourceGroupArn")
+            Lude.<$> (x Lude..:> "resourceGroupArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateResourceGroup where
@@ -109,17 +106,12 @@ instance Lude.ToQuery CreateResourceGroup where
 
 -- | /See:/ 'mkCreateResourceGroupResponse' smart constructor.
 data CreateResourceGroupResponse = CreateResourceGroupResponse'
-  { responseStatus ::
-      Lude.Int,
-    resourceGroupARN :: Lude.Text
+  { -- | The ARN that specifies the resource group that is created.
+    resourceGroupARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceGroupResponse' with the minimum fields required to make a request.
@@ -127,23 +119,17 @@ data CreateResourceGroupResponse = CreateResourceGroupResponse'
 -- * 'resourceGroupARN' - The ARN that specifies the resource group that is created.
 -- * 'responseStatus' - The response status code.
 mkCreateResourceGroupResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'resourceGroupARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateResourceGroupResponse
-mkCreateResourceGroupResponse pResponseStatus_ pResourceGroupARN_ =
+mkCreateResourceGroupResponse pResourceGroupARN_ pResponseStatus_ =
   CreateResourceGroupResponse'
-    { responseStatus = pResponseStatus_,
-      resourceGroupARN = pResourceGroupARN_
+    { resourceGroupARN =
+        pResourceGroupARN_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgrsResponseStatus :: Lens.Lens' CreateResourceGroupResponse Lude.Int
-crgrsResponseStatus = Lens.lens (responseStatus :: CreateResourceGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateResourceGroupResponse)
-{-# DEPRECATED crgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ARN that specifies the resource group that is created.
 --
@@ -151,3 +137,10 @@ crgrsResponseStatus = Lens.lens (responseStatus :: CreateResourceGroupResponse -
 crgrsResourceGroupARN :: Lens.Lens' CreateResourceGroupResponse Lude.Text
 crgrsResourceGroupARN = Lens.lens (resourceGroupARN :: CreateResourceGroupResponse -> Lude.Text) (\s a -> s {resourceGroupARN = a} :: CreateResourceGroupResponse)
 {-# DEPRECATED crgrsResourceGroupARN "Use generic-lens or generic-optics with 'resourceGroupARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crgrsResponseStatus :: Lens.Lens' CreateResourceGroupResponse Lude.Int
+crgrsResponseStatus = Lens.lens (responseStatus :: CreateResourceGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateResourceGroupResponse)
+{-# DEPRECATED crgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

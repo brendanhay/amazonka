@@ -13,9 +13,9 @@
 module Network.AWS.Lambda.Types.LastUpdateStatus
   ( LastUpdateStatus
       ( LastUpdateStatus',
+        LUSSuccessful,
         LUSFailed,
-        LUSInProgress,
-        LUSSuccessful
+        LUSInProgress
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype LastUpdateStatus = LastUpdateStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern LUSSuccessful :: LastUpdateStatus
+pattern LUSSuccessful = LastUpdateStatus' "Successful"
+
 pattern LUSFailed :: LastUpdateStatus
 pattern LUSFailed = LastUpdateStatus' "Failed"
 
 pattern LUSInProgress :: LastUpdateStatus
 pattern LUSInProgress = LastUpdateStatus' "InProgress"
 
-pattern LUSSuccessful :: LastUpdateStatus
-pattern LUSSuccessful = LastUpdateStatus' "Successful"
-
 {-# COMPLETE
+  LUSSuccessful,
   LUSFailed,
   LUSInProgress,
-  LUSSuccessful,
   LastUpdateStatus'
   #-}

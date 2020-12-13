@@ -17,8 +17,8 @@ module Network.AWS.DynamoDB.Types.ContinuousBackupsDescription
     mkContinuousBackupsDescription,
 
     -- * Lenses
-    cbdPointInTimeRecoveryDescription,
     cbdContinuousBackupsStatus,
+    cbdPointInTimeRecoveryDescription,
   )
 where
 
@@ -31,19 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContinuousBackupsDescription' smart constructor.
 data ContinuousBackupsDescription = ContinuousBackupsDescription'
-  { pointInTimeRecoveryDescription ::
-      Lude.Maybe
-        PointInTimeRecoveryDescription,
-    continuousBackupsStatus ::
-      ContinuousBackupsStatus
+  { -- | @ContinuousBackupsStatus@ can be one of the following states: ENABLED, DISABLED
+    continuousBackupsStatus :: ContinuousBackupsStatus,
+    -- | The description of the point in time recovery settings applied to the table.
+    pointInTimeRecoveryDescription :: Lude.Maybe PointInTimeRecoveryDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContinuousBackupsDescription' with the minimum fields required to make a request.
@@ -56,17 +49,10 @@ mkContinuousBackupsDescription ::
   ContinuousBackupsDescription
 mkContinuousBackupsDescription pContinuousBackupsStatus_ =
   ContinuousBackupsDescription'
-    { pointInTimeRecoveryDescription =
-        Lude.Nothing,
-      continuousBackupsStatus = pContinuousBackupsStatus_
+    { continuousBackupsStatus =
+        pContinuousBackupsStatus_,
+      pointInTimeRecoveryDescription = Lude.Nothing
     }
-
--- | The description of the point in time recovery settings applied to the table.
---
--- /Note:/ Consider using 'pointInTimeRecoveryDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbdPointInTimeRecoveryDescription :: Lens.Lens' ContinuousBackupsDescription (Lude.Maybe PointInTimeRecoveryDescription)
-cbdPointInTimeRecoveryDescription = Lens.lens (pointInTimeRecoveryDescription :: ContinuousBackupsDescription -> Lude.Maybe PointInTimeRecoveryDescription) (\s a -> s {pointInTimeRecoveryDescription = a} :: ContinuousBackupsDescription)
-{-# DEPRECATED cbdPointInTimeRecoveryDescription "Use generic-lens or generic-optics with 'pointInTimeRecoveryDescription' instead." #-}
 
 -- | @ContinuousBackupsStatus@ can be one of the following states: ENABLED, DISABLED
 --
@@ -75,12 +61,19 @@ cbdContinuousBackupsStatus :: Lens.Lens' ContinuousBackupsDescription Continuous
 cbdContinuousBackupsStatus = Lens.lens (continuousBackupsStatus :: ContinuousBackupsDescription -> ContinuousBackupsStatus) (\s a -> s {continuousBackupsStatus = a} :: ContinuousBackupsDescription)
 {-# DEPRECATED cbdContinuousBackupsStatus "Use generic-lens or generic-optics with 'continuousBackupsStatus' instead." #-}
 
+-- | The description of the point in time recovery settings applied to the table.
+--
+-- /Note:/ Consider using 'pointInTimeRecoveryDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbdPointInTimeRecoveryDescription :: Lens.Lens' ContinuousBackupsDescription (Lude.Maybe PointInTimeRecoveryDescription)
+cbdPointInTimeRecoveryDescription = Lens.lens (pointInTimeRecoveryDescription :: ContinuousBackupsDescription -> Lude.Maybe PointInTimeRecoveryDescription) (\s a -> s {pointInTimeRecoveryDescription = a} :: ContinuousBackupsDescription)
+{-# DEPRECATED cbdPointInTimeRecoveryDescription "Use generic-lens or generic-optics with 'pointInTimeRecoveryDescription' instead." #-}
+
 instance Lude.FromJSON ContinuousBackupsDescription where
   parseJSON =
     Lude.withObject
       "ContinuousBackupsDescription"
       ( \x ->
           ContinuousBackupsDescription'
-            Lude.<$> (x Lude..:? "PointInTimeRecoveryDescription")
-            Lude.<*> (x Lude..: "ContinuousBackupsStatus")
+            Lude.<$> (x Lude..: "ContinuousBackupsStatus")
+            Lude.<*> (x Lude..:? "PointInTimeRecoveryDescription")
       )

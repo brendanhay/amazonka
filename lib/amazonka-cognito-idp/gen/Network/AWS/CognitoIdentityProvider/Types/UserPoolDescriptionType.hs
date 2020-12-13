@@ -35,32 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserPoolDescriptionType' smart constructor.
 data UserPoolDescriptionType = UserPoolDescriptionType'
-  { status ::
-      Lude.Maybe StatusType,
-    lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The user pool status in a user pool description.
+    status :: Lude.Maybe StatusType,
+    -- | The date the user pool description was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name in a user pool description.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID in a user pool description.
     id :: Lude.Maybe Lude.Text,
+    -- | The date the user pool description was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS Lambda configuration information in a user pool description.
     lambdaConfig :: Lude.Maybe LambdaConfigType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPoolDescriptionType' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The date the user pool description was created.
--- * 'id' - The ID in a user pool description.
--- * 'lambdaConfig' - The AWS Lambda configuration information in a user pool description.
+-- * 'status' - The user pool status in a user pool description.
 -- * 'lastModifiedDate' - The date the user pool description was last modified.
 -- * 'name' - The name in a user pool description.
--- * 'status' - The user pool status in a user pool description.
+-- * 'id' - The ID in a user pool description.
+-- * 'creationDate' - The date the user pool description was created.
+-- * 'lambdaConfig' - The AWS Lambda configuration information in a user pool description.
 mkUserPoolDescriptionType ::
   UserPoolDescriptionType
 mkUserPoolDescriptionType =

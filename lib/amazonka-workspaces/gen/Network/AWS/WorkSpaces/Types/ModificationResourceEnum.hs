@@ -13,9 +13,9 @@
 module Network.AWS.WorkSpaces.Types.ModificationResourceEnum
   ( ModificationResourceEnum
       ( ModificationResourceEnum',
-        ComputeType,
         RootVolume,
-        UserVolume
+        UserVolume,
+        ComputeType
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ModificationResourceEnum = ModificationResourceEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern ComputeType :: ModificationResourceEnum
-pattern ComputeType = ModificationResourceEnum' "COMPUTE_TYPE"
-
 pattern RootVolume :: ModificationResourceEnum
 pattern RootVolume = ModificationResourceEnum' "ROOT_VOLUME"
 
 pattern UserVolume :: ModificationResourceEnum
 pattern UserVolume = ModificationResourceEnum' "USER_VOLUME"
 
+pattern ComputeType :: ModificationResourceEnum
+pattern ComputeType = ModificationResourceEnum' "COMPUTE_TYPE"
+
 {-# COMPLETE
-  ComputeType,
   RootVolume,
   UserVolume,
+  ComputeType,
   ModificationResourceEnum'
   #-}

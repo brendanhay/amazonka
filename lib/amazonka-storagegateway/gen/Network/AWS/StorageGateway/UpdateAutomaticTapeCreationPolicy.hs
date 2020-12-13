@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.StorageGateway.UpdateAutomaticTapeCreationPolicy
     mkUpdateAutomaticTapeCreationPolicy,
 
     -- ** Request lenses
-    uatcpAutomaticTapeCreationRules,
     uatcpGatewayARN,
+    uatcpAutomaticTapeCreationRules,
 
     -- * Destructuring the response
     UpdateAutomaticTapeCreationPolicyResponse (..),
@@ -42,45 +43,30 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkUpdateAutomaticTapeCreationPolicy' smart constructor.
 data UpdateAutomaticTapeCreationPolicy = UpdateAutomaticTapeCreationPolicy'
-  { automaticTapeCreationRules ::
-      Lude.NonEmpty
-        AutomaticTapeCreationRule,
-    gatewayARN :: Lude.Text
+  { gatewayARN :: Lude.Text,
+    -- | An automatic tape creation policy consists of a list of automatic tape creation rules. The rules determine when and how to automatically create new tapes.
+    automaticTapeCreationRules :: Lude.NonEmpty AutomaticTapeCreationRule
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAutomaticTapeCreationPolicy' with the minimum fields required to make a request.
 --
+-- * 'gatewayARN' -
 -- * 'automaticTapeCreationRules' - An automatic tape creation policy consists of a list of automatic tape creation rules. The rules determine when and how to automatically create new tapes.
--- * 'gatewayARN' - Undocumented field.
 mkUpdateAutomaticTapeCreationPolicy ::
-  -- | 'automaticTapeCreationRules'
-  Lude.NonEmpty AutomaticTapeCreationRule ->
   -- | 'gatewayARN'
   Lude.Text ->
+  -- | 'automaticTapeCreationRules'
+  Lude.NonEmpty AutomaticTapeCreationRule ->
   UpdateAutomaticTapeCreationPolicy
 mkUpdateAutomaticTapeCreationPolicy
-  pAutomaticTapeCreationRules_
-  pGatewayARN_ =
+  pGatewayARN_
+  pAutomaticTapeCreationRules_ =
     UpdateAutomaticTapeCreationPolicy'
-      { automaticTapeCreationRules =
-          pAutomaticTapeCreationRules_,
-        gatewayARN = pGatewayARN_
+      { gatewayARN = pGatewayARN_,
+        automaticTapeCreationRules = pAutomaticTapeCreationRules_
       }
-
--- | An automatic tape creation policy consists of a list of automatic tape creation rules. The rules determine when and how to automatically create new tapes.
---
--- /Note:/ Consider using 'automaticTapeCreationRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uatcpAutomaticTapeCreationRules :: Lens.Lens' UpdateAutomaticTapeCreationPolicy (Lude.NonEmpty AutomaticTapeCreationRule)
-uatcpAutomaticTapeCreationRules = Lens.lens (automaticTapeCreationRules :: UpdateAutomaticTapeCreationPolicy -> Lude.NonEmpty AutomaticTapeCreationRule) (\s a -> s {automaticTapeCreationRules = a} :: UpdateAutomaticTapeCreationPolicy)
-{-# DEPRECATED uatcpAutomaticTapeCreationRules "Use generic-lens or generic-optics with 'automaticTapeCreationRules' instead." #-}
 
 -- | Undocumented field.
 --
@@ -88,6 +74,13 @@ uatcpAutomaticTapeCreationRules = Lens.lens (automaticTapeCreationRules :: Updat
 uatcpGatewayARN :: Lens.Lens' UpdateAutomaticTapeCreationPolicy Lude.Text
 uatcpGatewayARN = Lens.lens (gatewayARN :: UpdateAutomaticTapeCreationPolicy -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateAutomaticTapeCreationPolicy)
 {-# DEPRECATED uatcpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+
+-- | An automatic tape creation policy consists of a list of automatic tape creation rules. The rules determine when and how to automatically create new tapes.
+--
+-- /Note:/ Consider using 'automaticTapeCreationRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uatcpAutomaticTapeCreationRules :: Lens.Lens' UpdateAutomaticTapeCreationPolicy (Lude.NonEmpty AutomaticTapeCreationRule)
+uatcpAutomaticTapeCreationRules = Lens.lens (automaticTapeCreationRules :: UpdateAutomaticTapeCreationPolicy -> Lude.NonEmpty AutomaticTapeCreationRule) (\s a -> s {automaticTapeCreationRules = a} :: UpdateAutomaticTapeCreationPolicy)
+{-# DEPRECATED uatcpAutomaticTapeCreationRules "Use generic-lens or generic-optics with 'automaticTapeCreationRules' instead." #-}
 
 instance Lude.AWSRequest UpdateAutomaticTapeCreationPolicy where
   type
@@ -118,9 +111,9 @@ instance Lude.ToJSON UpdateAutomaticTapeCreationPolicy where
   toJSON UpdateAutomaticTapeCreationPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just
-              ("AutomaticTapeCreationRules" Lude..= automaticTapeCreationRules),
-            Lude.Just ("GatewayARN" Lude..= gatewayARN)
+          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            Lude.Just
+              ("AutomaticTapeCreationRules" Lude..= automaticTapeCreationRules)
           ]
       )
 
@@ -132,24 +125,16 @@ instance Lude.ToQuery UpdateAutomaticTapeCreationPolicy where
 
 -- | /See:/ 'mkUpdateAutomaticTapeCreationPolicyResponse' smart constructor.
 data UpdateAutomaticTapeCreationPolicyResponse = UpdateAutomaticTapeCreationPolicyResponse'
-  { gatewayARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAutomaticTapeCreationPolicyResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 -- * 'responseStatus' - The response status code.
 mkUpdateAutomaticTapeCreationPolicyResponse ::
   -- | 'responseStatus'

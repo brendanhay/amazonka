@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.UpdateModel
     mkUpdateModel,
 
     -- ** Request lenses
-    uPatchOperations,
-    uRestAPIId,
     uModelName,
+    uRestAPIId,
+    uPatchOperations,
 
     -- * Destructuring the response
     Model (..),
@@ -46,44 +47,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateModel' smart constructor.
 data UpdateModel = UpdateModel'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | [Required] The name of the model to update.
+    modelName :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
-    modelName :: Lude.Text
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateModel' with the minimum fields required to make a request.
 --
 -- * 'modelName' - [Required] The name of the model to update.
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateModel ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'modelName'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   UpdateModel
-mkUpdateModel pRestAPIId_ pModelName_ =
+mkUpdateModel pModelName_ pRestAPIId_ =
   UpdateModel'
-    { patchOperations = Lude.Nothing,
+    { modelName = pModelName_,
       restAPIId = pRestAPIId_,
-      modelName = pModelName_
+      patchOperations = Lude.Nothing
     }
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- | [Required] The name of the model to update.
 --
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uPatchOperations :: Lens.Lens' UpdateModel (Lude.Maybe [PatchOperation])
-uPatchOperations = Lens.lens (patchOperations :: UpdateModel -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateModel)
-{-# DEPRECATED uPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uModelName :: Lens.Lens' UpdateModel Lude.Text
+uModelName = Lens.lens (modelName :: UpdateModel -> Lude.Text) (\s a -> s {modelName = a} :: UpdateModel)
+{-# DEPRECATED uModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
@@ -92,12 +89,12 @@ uRestAPIId :: Lens.Lens' UpdateModel Lude.Text
 uRestAPIId = Lens.lens (restAPIId :: UpdateModel -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateModel)
 {-# DEPRECATED uRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
--- | [Required] The name of the model to update.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uModelName :: Lens.Lens' UpdateModel Lude.Text
-uModelName = Lens.lens (modelName :: UpdateModel -> Lude.Text) (\s a -> s {modelName = a} :: UpdateModel)
-{-# DEPRECATED uModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uPatchOperations :: Lens.Lens' UpdateModel (Lude.Maybe [PatchOperation])
+uPatchOperations = Lens.lens (patchOperations :: UpdateModel -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateModel)
+{-# DEPRECATED uPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateModel where
   type Rs UpdateModel = Model

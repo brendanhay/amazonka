@@ -39,17 +39,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMySQLSettings' smart constructor.
 data MySQLSettings = MySQLSettings'
-  { maxFileSize ::
-      Lude.Maybe Lude.Int,
+  { -- | Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+    --
+    -- Example: @maxFileSize=512@
+    maxFileSize :: Lude.Maybe Lude.Int,
+    -- | Specifies where to migrate source tables on the target, either to a single database or multiple databases.
+    --
+    -- Example: @targetDbType=MULTIPLE_DATABASES@
     targetDBType :: Lude.Maybe TargetDBType,
+    -- | Fully qualified domain name of the endpoint.
     serverName :: Lude.Maybe Lude.Text,
+    -- | Improves performance when loading data into the MySQLcompatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread.
+    --
+    -- Example: @parallelLoadThreads=1@
     parallelLoadThreads :: Lude.Maybe Lude.Int,
+    -- | Endpoint connection user name.
     username :: Lude.Maybe Lude.Text,
+    -- | Endpoint connection password.
     password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Specifies how often to check the binary log for new changes/events when the database is idle.
+    --
+    -- Example: @eventsPollInterval=5;@
+    -- In the example, AWS DMS checks for changes in the binary logs every five seconds.
     eventsPollInterval :: Lude.Maybe Lude.Int,
+    -- | Database name for the endpoint.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
     afterConnectScript :: Lude.Maybe Lude.Text,
+    -- | Specifies the time zone for the source MySQL database.
+    --
+    -- Example: @serverTimezone=US/Pacific;@
+    -- Note: Do not enclose time zones in single quotes.
     serverTimezone :: Lude.Maybe Lude.Text,
+    -- | Endpoint TCP port.
     port :: Lude.Maybe Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -57,29 +79,29 @@ data MySQLSettings = MySQLSettings'
 
 -- | Creates a value of 'MySQLSettings' with the minimum fields required to make a request.
 --
--- * 'afterConnectScript' - Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
--- * 'databaseName' - Database name for the endpoint.
+-- * 'maxFileSize' - Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+--
+-- Example: @maxFileSize=512@
+-- * 'targetDBType' - Specifies where to migrate source tables on the target, either to a single database or multiple databases.
+--
+-- Example: @targetDbType=MULTIPLE_DATABASES@
+-- * 'serverName' - Fully qualified domain name of the endpoint.
+-- * 'parallelLoadThreads' - Improves performance when loading data into the MySQLcompatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread.
+--
+-- Example: @parallelLoadThreads=1@
+-- * 'username' - Endpoint connection user name.
+-- * 'password' - Endpoint connection password.
 -- * 'eventsPollInterval' - Specifies how often to check the binary log for new changes/events when the database is idle.
 --
 -- Example: @eventsPollInterval=5;@
 -- In the example, AWS DMS checks for changes in the binary logs every five seconds.
--- * 'maxFileSize' - Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
---
--- Example: @maxFileSize=512@
--- * 'parallelLoadThreads' - Improves performance when loading data into the MySQLcompatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread.
---
--- Example: @parallelLoadThreads=1@
--- * 'password' - Endpoint connection password.
--- * 'port' - Endpoint TCP port.
--- * 'serverName' - Fully qualified domain name of the endpoint.
+-- * 'databaseName' - Database name for the endpoint.
+-- * 'afterConnectScript' - Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
 -- * 'serverTimezone' - Specifies the time zone for the source MySQL database.
 --
 -- Example: @serverTimezone=US/Pacific;@
 -- Note: Do not enclose time zones in single quotes.
--- * 'targetDBType' - Specifies where to migrate source tables on the target, either to a single database or multiple databases.
---
--- Example: @targetDbType=MULTIPLE_DATABASES@
--- * 'username' - Endpoint connection user name.
+-- * 'port' - Endpoint TCP port.
 mkMySQLSettings ::
   MySQLSettings
 mkMySQLSettings =

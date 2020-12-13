@@ -32,29 +32,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceBuildInformation' smart constructor.
 data SourceBuildInformation = SourceBuildInformation'
-  { sourceType ::
-      SourceType,
+  { -- | The type of repository.
+    --
+    --
+    --     * @Git@
+    --
+    --
+    --     * @Zip@
+    sourceType :: SourceType,
+    -- | Location where the repository is stored.
+    --
+    --
+    --     * @CodeCommit@
+    --
+    --
+    --     * @S3@
     sourceRepository :: SourceRepository,
+    -- | The location of the source code, as a formatted string, depending on the value of @SourceRepository@
+    --
+    --
+    --     * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .
+    --
+    --
+    --     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
     sourceLocation :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceBuildInformation' with the minimum fields required to make a request.
 --
--- * 'sourceLocation' - The location of the source code, as a formatted string, depending on the value of @SourceRepository@
+-- * 'sourceType' - The type of repository.
 --
 --
---     * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .
+--     * @Git@
 --
 --
---     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
+--     * @Zip@
 --
 --
 -- * 'sourceRepository' - Location where the repository is stored.
@@ -66,13 +80,13 @@ data SourceBuildInformation = SourceBuildInformation'
 --     * @S3@
 --
 --
--- * 'sourceType' - The type of repository.
+-- * 'sourceLocation' - The location of the source code, as a formatted string, depending on the value of @SourceRepository@
 --
 --
---     * @Git@
+--     * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .
 --
 --
---     * @Zip@
+--     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
 mkSourceBuildInformation ::
   -- | 'sourceType'
   SourceType ->

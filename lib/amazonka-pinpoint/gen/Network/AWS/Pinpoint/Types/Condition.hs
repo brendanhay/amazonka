@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCondition' smart constructor.
 data Condition = Condition'
-  { operator :: Lude.Maybe Operator,
+  { -- | Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
+    operator :: Lude.Maybe Operator,
+    -- | The conditions to evaluate for the activity.
     conditions :: Lude.Maybe [SimpleCondition]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Condition' with the minimum fields required to make a request.
 --
--- * 'conditions' - The conditions to evaluate for the activity.
 -- * 'operator' - Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
+-- * 'conditions' - The conditions to evaluate for the activity.
 mkCondition ::
   Condition
 mkCondition =

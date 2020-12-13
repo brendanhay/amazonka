@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.OpsWorksCM.RestoreServer
     mkRestoreServer,
 
     -- ** Request lenses
-    rsKeyPair,
-    rsInstanceType,
-    rsBackupId,
     rsServerName,
+    rsKeyPair,
+    rsBackupId,
+    rsInstanceType,
 
     -- * Destructuring the response
     RestoreServerResponse (..),
@@ -45,40 +46,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRestoreServer' smart constructor.
 data RestoreServer = RestoreServer'
-  { keyPair ::
-      Lude.Maybe Lude.Text,
-    instanceType :: Lude.Maybe Lude.Text,
+  { -- | The name of the server that you want to restore.
+    serverName :: Lude.Text,
+    -- | The name of the key pair to set on the new EC2 instance. This can be helpful if the administrator no longer has the SSH key.
+    keyPair :: Lude.Maybe Lude.Text,
+    -- | The ID of the backup that you want to use to restore a server.
     backupId :: Lude.Text,
-    serverName :: Lude.Text
+    -- | The type of instance to restore. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @m5.large@ . Valid values are @m5.large@ , @r5.xlarge@ , and @r5.2xlarge@ . If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
+    instanceType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreServer' with the minimum fields required to make a request.
 --
+-- * 'serverName' - The name of the server that you want to restore.
+-- * 'keyPair' - The name of the key pair to set on the new EC2 instance. This can be helpful if the administrator no longer has the SSH key.
 -- * 'backupId' - The ID of the backup that you want to use to restore a server.
 -- * 'instanceType' - The type of instance to restore. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @m5.large@ . Valid values are @m5.large@ , @r5.xlarge@ , and @r5.2xlarge@ . If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
--- * 'keyPair' - The name of the key pair to set on the new EC2 instance. This can be helpful if the administrator no longer has the SSH key.
--- * 'serverName' - The name of the server that you want to restore.
 mkRestoreServer ::
-  -- | 'backupId'
-  Lude.Text ->
   -- | 'serverName'
   Lude.Text ->
+  -- | 'backupId'
+  Lude.Text ->
   RestoreServer
-mkRestoreServer pBackupId_ pServerName_ =
+mkRestoreServer pServerName_ pBackupId_ =
   RestoreServer'
-    { keyPair = Lude.Nothing,
-      instanceType = Lude.Nothing,
+    { serverName = pServerName_,
+      keyPair = Lude.Nothing,
       backupId = pBackupId_,
-      serverName = pServerName_
+      instanceType = Lude.Nothing
     }
+
+-- | The name of the server that you want to restore.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsServerName :: Lens.Lens' RestoreServer Lude.Text
+rsServerName = Lens.lens (serverName :: RestoreServer -> Lude.Text) (\s a -> s {serverName = a} :: RestoreServer)
+{-# DEPRECATED rsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | The name of the key pair to set on the new EC2 instance. This can be helpful if the administrator no longer has the SSH key.
 --
@@ -87,13 +92,6 @@ rsKeyPair :: Lens.Lens' RestoreServer (Lude.Maybe Lude.Text)
 rsKeyPair = Lens.lens (keyPair :: RestoreServer -> Lude.Maybe Lude.Text) (\s a -> s {keyPair = a} :: RestoreServer)
 {-# DEPRECATED rsKeyPair "Use generic-lens or generic-optics with 'keyPair' instead." #-}
 
--- | The type of instance to restore. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @m5.large@ . Valid values are @m5.large@ , @r5.xlarge@ , and @r5.2xlarge@ . If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsInstanceType :: Lens.Lens' RestoreServer (Lude.Maybe Lude.Text)
-rsInstanceType = Lens.lens (instanceType :: RestoreServer -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: RestoreServer)
-{-# DEPRECATED rsInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
 -- | The ID of the backup that you want to use to restore a server.
 --
 -- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -101,12 +99,12 @@ rsBackupId :: Lens.Lens' RestoreServer Lude.Text
 rsBackupId = Lens.lens (backupId :: RestoreServer -> Lude.Text) (\s a -> s {backupId = a} :: RestoreServer)
 {-# DEPRECATED rsBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
 
--- | The name of the server that you want to restore.
+-- | The type of instance to restore. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @m5.large@ . Valid values are @m5.large@ , @r5.xlarge@ , and @r5.2xlarge@ . If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
 --
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsServerName :: Lens.Lens' RestoreServer Lude.Text
-rsServerName = Lens.lens (serverName :: RestoreServer -> Lude.Text) (\s a -> s {serverName = a} :: RestoreServer)
-{-# DEPRECATED rsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsInstanceType :: Lens.Lens' RestoreServer (Lude.Maybe Lude.Text)
+rsInstanceType = Lens.lens (instanceType :: RestoreServer -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: RestoreServer)
+{-# DEPRECATED rsInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 instance Lude.AWSRequest RestoreServer where
   type Rs RestoreServer = RestoreServerResponse
@@ -132,10 +130,10 @@ instance Lude.ToJSON RestoreServer where
   toJSON RestoreServer' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("KeyPair" Lude..=) Lude.<$> keyPair,
-            ("InstanceType" Lude..=) Lude.<$> instanceType,
+          [ Lude.Just ("ServerName" Lude..= serverName),
+            ("KeyPair" Lude..=) Lude.<$> keyPair,
             Lude.Just ("BackupId" Lude..= backupId),
-            Lude.Just ("ServerName" Lude..= serverName)
+            ("InstanceType" Lude..=) Lude.<$> instanceType
           ]
       )
 
@@ -147,16 +145,10 @@ instance Lude.ToQuery RestoreServer where
 
 -- | /See:/ 'mkRestoreServerResponse' smart constructor.
 newtype RestoreServerResponse = RestoreServerResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreServerResponse' with the minimum fields required to make a request.

@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStreamSelection' smart constructor.
 data StreamSelection = StreamSelection'
-  { streamOrder ::
-      Lude.Maybe StreamOrder,
+  { -- | A directive that determines the order of streams in the output.
+    streamOrder :: Lude.Maybe StreamOrder,
+    -- | The minimum video bitrate (bps) to include in output.
     minVideoBitsPerSecond :: Lude.Maybe Lude.Int,
+    -- | The maximum video bitrate (bps) to include in output.
     maxVideoBitsPerSecond :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamSelection' with the minimum fields required to make a request.
 --
--- * 'maxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.
--- * 'minVideoBitsPerSecond' - The minimum video bitrate (bps) to include in output.
 -- * 'streamOrder' - A directive that determines the order of streams in the output.
+-- * 'minVideoBitsPerSecond' - The minimum video bitrate (bps) to include in output.
+-- * 'maxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.
 mkStreamSelection ::
   StreamSelection
 mkStreamSelection =

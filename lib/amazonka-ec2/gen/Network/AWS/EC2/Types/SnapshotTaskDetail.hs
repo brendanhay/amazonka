@@ -39,41 +39,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSnapshotTaskDetail' smart constructor.
 data SnapshotTaskDetail = SnapshotTaskDetail'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | A brief status for the import snapshot task.
+    status :: Lude.Maybe Lude.Text,
+    -- | The percentage of completion for the import snapshot task.
     progress :: Lude.Maybe Lude.Text,
+    -- | The format of the disk image from which the snapshot is created.
     format :: Lude.Maybe Lude.Text,
+    -- | The URL of the disk image from which the snapshot is created.
     url :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the snapshot is encrypted.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | A detailed status message for the import snapshot task.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 bucket for the disk image.
     userBucket :: Lude.Maybe UserBucketDetails,
+    -- | The size of the disk in the snapshot, in GiB.
     diskImageSize :: Lude.Maybe Lude.Double,
+    -- | The description of the snapshot.
     description :: Lude.Maybe Lude.Text,
+    -- | The snapshot ID of the disk being imported.
     snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotTaskDetail' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the snapshot.
--- * 'diskImageSize' - The size of the disk in the snapshot, in GiB.
--- * 'encrypted' - Indicates whether the snapshot is encrypted.
--- * 'format' - The format of the disk image from which the snapshot is created.
--- * 'kmsKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
--- * 'progress' - The percentage of completion for the import snapshot task.
--- * 'snapshotId' - The snapshot ID of the disk being imported.
 -- * 'status' - A brief status for the import snapshot task.
--- * 'statusMessage' - A detailed status message for the import snapshot task.
+-- * 'progress' - The percentage of completion for the import snapshot task.
+-- * 'format' - The format of the disk image from which the snapshot is created.
 -- * 'url' - The URL of the disk image from which the snapshot is created.
+-- * 'encrypted' - Indicates whether the snapshot is encrypted.
+-- * 'kmsKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
+-- * 'statusMessage' - A detailed status message for the import snapshot task.
 -- * 'userBucket' - The Amazon S3 bucket for the disk image.
+-- * 'diskImageSize' - The size of the disk in the snapshot, in GiB.
+-- * 'description' - The description of the snapshot.
+-- * 'snapshotId' - The snapshot ID of the disk being imported.
 mkSnapshotTaskDetail ::
   SnapshotTaskDetail
 mkSnapshotTaskDetail =

@@ -29,20 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOperatingSystemConfigurationManager' smart constructor.
 data OperatingSystemConfigurationManager = OperatingSystemConfigurationManager'
-  { name ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The name of the configuration manager, which is Chef.
+    name :: Lude.Maybe Lude.Text,
+    -- | The versions of the configuration manager that are supported by an operating system.
+    version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OperatingSystemConfigurationManager' with the minimum fields required to make a request.

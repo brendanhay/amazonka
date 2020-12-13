@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchAttachPolicy' smart constructor.
 data BatchAttachPolicy = BatchAttachPolicy'
-  { policyReference ::
-      ObjectReference,
+  { -- | The reference that is associated with the policy object.
+    policyReference :: ObjectReference,
+    -- | The reference that identifies the object to which the policy will be attached.
     objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachPolicy' with the minimum fields required to make a request.
 --
--- * 'objectReference' - The reference that identifies the object to which the policy will be attached.
 -- * 'policyReference' - The reference that is associated with the policy object.
+-- * 'objectReference' - The reference that identifies the object to which the policy will be attached.
 mkBatchAttachPolicy ::
   -- | 'policyReference'
   ObjectReference ->

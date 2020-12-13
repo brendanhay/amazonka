@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeSigningPolicies' smart constructor.
 newtype CodeSigningPolicies = CodeSigningPolicies'
-  { untrustedArtifactOnDeployment ::
-      Lude.Maybe CodeSigningPolicy
+  { -- | Code signing configuration policy for deployment validation failure. If you set the policy to @Enforce@ , Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to @Warn@ , Lambda allows the deployment and creates a CloudWatch log.
+    --
+    -- Default value: @Warn@
+    untrustedArtifactOnDeployment :: Lude.Maybe CodeSigningPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSigningPolicies' with the minimum fields required to make a request.

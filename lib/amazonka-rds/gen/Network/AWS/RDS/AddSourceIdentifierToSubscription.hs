@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,22 +43,36 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAddSourceIdentifierToSubscription' smart constructor.
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
-  { subscriptionName ::
-      Lude.Text,
-    sourceIdentifier ::
-      Lude.Text
+  { -- | The name of the RDS event notification subscription you want to add a source identifier to.
+    subscriptionName :: Lude.Text,
+    -- | The identifier of the event source to be added.
+    --
+    -- Constraints:
+    --
+    --     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
+    sourceIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddSourceIdentifierToSubscription' with the minimum fields required to make a request.
 --
+-- * 'subscriptionName' - The name of the RDS event notification subscription you want to add a source identifier to.
 -- * 'sourceIdentifier' - The identifier of the event source to be added.
 --
 -- Constraints:
@@ -78,9 +93,6 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
 --
 --
 --     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
---
---
--- * 'subscriptionName' - The name of the RDS event notification subscription you want to add a source identifier to.
 mkAddSourceIdentifierToSubscription ::
   -- | 'subscriptionName'
   Lude.Text ->
@@ -163,24 +175,16 @@ instance Lude.ToQuery AddSourceIdentifierToSubscription where
 
 -- | /See:/ 'mkAddSourceIdentifierToSubscriptionResponse' smart constructor.
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
-  { eventSubscription ::
-      Lude.Maybe
-        EventSubscription,
-    responseStatus ::
-      Lude.Int
+  { eventSubscription :: Lude.Maybe EventSubscription,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddSourceIdentifierToSubscriptionResponse' with the minimum fields required to make a request.
 --
--- * 'eventSubscription' - Undocumented field.
+-- * 'eventSubscription' -
 -- * 'responseStatus' - The response status code.
 mkAddSourceIdentifierToSubscriptionResponse ::
   -- | 'responseStatus'

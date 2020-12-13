@@ -13,8 +13,8 @@
 module Network.AWS.Comprehend.Types.DocumentClassifierDataFormat
   ( DocumentClassifierDataFormat
       ( DocumentClassifierDataFormat',
-        DCDFAugmentedManifest,
-        DCDFComprehendCSV
+        DCDFComprehendCSV,
+        DCDFAugmentedManifest
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DocumentClassifierDataFormat = DocumentClassifierDataFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern DCDFAugmentedManifest :: DocumentClassifierDataFormat
-pattern DCDFAugmentedManifest = DocumentClassifierDataFormat' "AUGMENTED_MANIFEST"
-
 pattern DCDFComprehendCSV :: DocumentClassifierDataFormat
 pattern DCDFComprehendCSV = DocumentClassifierDataFormat' "COMPREHEND_CSV"
 
+pattern DCDFAugmentedManifest :: DocumentClassifierDataFormat
+pattern DCDFAugmentedManifest = DocumentClassifierDataFormat' "AUGMENTED_MANIFEST"
+
 {-# COMPLETE
-  DCDFAugmentedManifest,
   DCDFComprehendCSV,
+  DCDFAugmentedManifest,
   DocumentClassifierDataFormat'
   #-}

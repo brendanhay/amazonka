@@ -13,23 +13,23 @@
 module Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
   ( ScalableDimension
       ( ScalableDimension',
+        EcsServiceDesiredCount,
+        EC2SpotFleetRequestTargetCapacity,
+        ElasticmapreduceInstancegroupInstanceCount,
         AppstreamFleetDesiredCapacity,
-        CassandraTableReadCapacityUnits,
-        CassandraTableWriteCapacityUnits,
-        ComprehendDocumentClassifierEndpointDesiredInferenceUnits,
-        ComprehendEntityRecognizerEndpointDesiredInferenceUnits,
-        CustomResourceResourceTypeProperty,
-        DynamodbIndexReadCapacityUnits,
-        DynamodbIndexWriteCapacityUnits,
         DynamodbTableReadCapacityUnits,
         DynamodbTableWriteCapacityUnits,
-        EC2SpotFleetRequestTargetCapacity,
-        EcsServiceDesiredCount,
-        ElasticmapreduceInstancegroupInstanceCount,
-        KafkaBrokerStorageVolumeSize,
-        LambdaFunctionProvisionedConcurrency,
+        DynamodbIndexReadCapacityUnits,
+        DynamodbIndexWriteCapacityUnits,
         RDSClusterReadReplicaCount,
-        SagemakerVariantDesiredInstanceCount
+        SagemakerVariantDesiredInstanceCount,
+        CustomResourceResourceTypeProperty,
+        ComprehendDocumentClassifierEndpointDesiredInferenceUnits,
+        ComprehendEntityRecognizerEndpointDesiredInferenceUnits,
+        LambdaFunctionProvisionedConcurrency,
+        CassandraTableReadCapacityUnits,
+        CassandraTableWriteCapacityUnits,
+        KafkaBrokerStorageVolumeSize
       ),
   )
 where
@@ -60,29 +60,17 @@ newtype ScalableDimension = ScalableDimension' Lude.Text
       Lude.ToHeader
     )
 
+pattern EcsServiceDesiredCount :: ScalableDimension
+pattern EcsServiceDesiredCount = ScalableDimension' "ecs:service:DesiredCount"
+
+pattern EC2SpotFleetRequestTargetCapacity :: ScalableDimension
+pattern EC2SpotFleetRequestTargetCapacity = ScalableDimension' "ec2:spot-fleet-request:TargetCapacity"
+
+pattern ElasticmapreduceInstancegroupInstanceCount :: ScalableDimension
+pattern ElasticmapreduceInstancegroupInstanceCount = ScalableDimension' "elasticmapreduce:instancegroup:InstanceCount"
+
 pattern AppstreamFleetDesiredCapacity :: ScalableDimension
 pattern AppstreamFleetDesiredCapacity = ScalableDimension' "appstream:fleet:DesiredCapacity"
-
-pattern CassandraTableReadCapacityUnits :: ScalableDimension
-pattern CassandraTableReadCapacityUnits = ScalableDimension' "cassandra:table:ReadCapacityUnits"
-
-pattern CassandraTableWriteCapacityUnits :: ScalableDimension
-pattern CassandraTableWriteCapacityUnits = ScalableDimension' "cassandra:table:WriteCapacityUnits"
-
-pattern ComprehendDocumentClassifierEndpointDesiredInferenceUnits :: ScalableDimension
-pattern ComprehendDocumentClassifierEndpointDesiredInferenceUnits = ScalableDimension' "comprehend:document-classifier-endpoint:DesiredInferenceUnits"
-
-pattern ComprehendEntityRecognizerEndpointDesiredInferenceUnits :: ScalableDimension
-pattern ComprehendEntityRecognizerEndpointDesiredInferenceUnits = ScalableDimension' "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits"
-
-pattern CustomResourceResourceTypeProperty :: ScalableDimension
-pattern CustomResourceResourceTypeProperty = ScalableDimension' "custom-resource:ResourceType:Property"
-
-pattern DynamodbIndexReadCapacityUnits :: ScalableDimension
-pattern DynamodbIndexReadCapacityUnits = ScalableDimension' "dynamodb:index:ReadCapacityUnits"
-
-pattern DynamodbIndexWriteCapacityUnits :: ScalableDimension
-pattern DynamodbIndexWriteCapacityUnits = ScalableDimension' "dynamodb:index:WriteCapacityUnits"
 
 pattern DynamodbTableReadCapacityUnits :: ScalableDimension
 pattern DynamodbTableReadCapacityUnits = ScalableDimension' "dynamodb:table:ReadCapacityUnits"
@@ -90,20 +78,11 @@ pattern DynamodbTableReadCapacityUnits = ScalableDimension' "dynamodb:table:Read
 pattern DynamodbTableWriteCapacityUnits :: ScalableDimension
 pattern DynamodbTableWriteCapacityUnits = ScalableDimension' "dynamodb:table:WriteCapacityUnits"
 
-pattern EC2SpotFleetRequestTargetCapacity :: ScalableDimension
-pattern EC2SpotFleetRequestTargetCapacity = ScalableDimension' "ec2:spot-fleet-request:TargetCapacity"
+pattern DynamodbIndexReadCapacityUnits :: ScalableDimension
+pattern DynamodbIndexReadCapacityUnits = ScalableDimension' "dynamodb:index:ReadCapacityUnits"
 
-pattern EcsServiceDesiredCount :: ScalableDimension
-pattern EcsServiceDesiredCount = ScalableDimension' "ecs:service:DesiredCount"
-
-pattern ElasticmapreduceInstancegroupInstanceCount :: ScalableDimension
-pattern ElasticmapreduceInstancegroupInstanceCount = ScalableDimension' "elasticmapreduce:instancegroup:InstanceCount"
-
-pattern KafkaBrokerStorageVolumeSize :: ScalableDimension
-pattern KafkaBrokerStorageVolumeSize = ScalableDimension' "kafka:broker-storage:VolumeSize"
-
-pattern LambdaFunctionProvisionedConcurrency :: ScalableDimension
-pattern LambdaFunctionProvisionedConcurrency = ScalableDimension' "lambda:function:ProvisionedConcurrency"
+pattern DynamodbIndexWriteCapacityUnits :: ScalableDimension
+pattern DynamodbIndexWriteCapacityUnits = ScalableDimension' "dynamodb:index:WriteCapacityUnits"
 
 pattern RDSClusterReadReplicaCount :: ScalableDimension
 pattern RDSClusterReadReplicaCount = ScalableDimension' "rds:cluster:ReadReplicaCount"
@@ -111,23 +90,44 @@ pattern RDSClusterReadReplicaCount = ScalableDimension' "rds:cluster:ReadReplica
 pattern SagemakerVariantDesiredInstanceCount :: ScalableDimension
 pattern SagemakerVariantDesiredInstanceCount = ScalableDimension' "sagemaker:variant:DesiredInstanceCount"
 
+pattern CustomResourceResourceTypeProperty :: ScalableDimension
+pattern CustomResourceResourceTypeProperty = ScalableDimension' "custom-resource:ResourceType:Property"
+
+pattern ComprehendDocumentClassifierEndpointDesiredInferenceUnits :: ScalableDimension
+pattern ComprehendDocumentClassifierEndpointDesiredInferenceUnits = ScalableDimension' "comprehend:document-classifier-endpoint:DesiredInferenceUnits"
+
+pattern ComprehendEntityRecognizerEndpointDesiredInferenceUnits :: ScalableDimension
+pattern ComprehendEntityRecognizerEndpointDesiredInferenceUnits = ScalableDimension' "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits"
+
+pattern LambdaFunctionProvisionedConcurrency :: ScalableDimension
+pattern LambdaFunctionProvisionedConcurrency = ScalableDimension' "lambda:function:ProvisionedConcurrency"
+
+pattern CassandraTableReadCapacityUnits :: ScalableDimension
+pattern CassandraTableReadCapacityUnits = ScalableDimension' "cassandra:table:ReadCapacityUnits"
+
+pattern CassandraTableWriteCapacityUnits :: ScalableDimension
+pattern CassandraTableWriteCapacityUnits = ScalableDimension' "cassandra:table:WriteCapacityUnits"
+
+pattern KafkaBrokerStorageVolumeSize :: ScalableDimension
+pattern KafkaBrokerStorageVolumeSize = ScalableDimension' "kafka:broker-storage:VolumeSize"
+
 {-# COMPLETE
+  EcsServiceDesiredCount,
+  EC2SpotFleetRequestTargetCapacity,
+  ElasticmapreduceInstancegroupInstanceCount,
   AppstreamFleetDesiredCapacity,
-  CassandraTableReadCapacityUnits,
-  CassandraTableWriteCapacityUnits,
-  ComprehendDocumentClassifierEndpointDesiredInferenceUnits,
-  ComprehendEntityRecognizerEndpointDesiredInferenceUnits,
-  CustomResourceResourceTypeProperty,
-  DynamodbIndexReadCapacityUnits,
-  DynamodbIndexWriteCapacityUnits,
   DynamodbTableReadCapacityUnits,
   DynamodbTableWriteCapacityUnits,
-  EC2SpotFleetRequestTargetCapacity,
-  EcsServiceDesiredCount,
-  ElasticmapreduceInstancegroupInstanceCount,
-  KafkaBrokerStorageVolumeSize,
-  LambdaFunctionProvisionedConcurrency,
+  DynamodbIndexReadCapacityUnits,
+  DynamodbIndexWriteCapacityUnits,
   RDSClusterReadReplicaCount,
   SagemakerVariantDesiredInstanceCount,
+  CustomResourceResourceTypeProperty,
+  ComprehendDocumentClassifierEndpointDesiredInferenceUnits,
+  ComprehendEntityRecognizerEndpointDesiredInferenceUnits,
+  LambdaFunctionProvisionedConcurrency,
+  CassandraTableReadCapacityUnits,
+  CassandraTableWriteCapacityUnits,
+  KafkaBrokerStorageVolumeSize,
   ScalableDimension'
   #-}

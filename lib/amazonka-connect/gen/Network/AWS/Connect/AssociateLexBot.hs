@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,16 +37,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateLexBot' smart constructor.
 data AssociateLexBot = AssociateLexBot'
-  { instanceId :: Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The Amazon Lex box to associate with the instance.
     lexBot :: LexBot
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateLexBot' with the minimum fields required to make a request.
@@ -103,13 +100,7 @@ instance Lude.ToQuery AssociateLexBot where
 
 -- | /See:/ 'mkAssociateLexBotResponse' smart constructor.
 data AssociateLexBotResponse = AssociateLexBotResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateLexBotResponse' with the minimum fields required to make a request.

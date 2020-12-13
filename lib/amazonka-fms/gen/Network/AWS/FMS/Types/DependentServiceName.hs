@@ -13,10 +13,10 @@
 module Network.AWS.FMS.Types.DependentServiceName
   ( DependentServiceName
       ( DependentServiceName',
-        AWSSHieldAdvanced,
         AWSconfig,
-        AWSvpc,
-        AWSwaf
+        AWSwaf,
+        AWSSHieldAdvanced,
+        AWSvpc
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype DependentServiceName = DependentServiceName' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSSHieldAdvanced :: DependentServiceName
-pattern AWSSHieldAdvanced = DependentServiceName' "AWSSHIELD_ADVANCED"
-
 pattern AWSconfig :: DependentServiceName
 pattern AWSconfig = DependentServiceName' "AWSCONFIG"
-
-pattern AWSvpc :: DependentServiceName
-pattern AWSvpc = DependentServiceName' "AWSVPC"
 
 pattern AWSwaf :: DependentServiceName
 pattern AWSwaf = DependentServiceName' "AWSWAF"
 
+pattern AWSSHieldAdvanced :: DependentServiceName
+pattern AWSSHieldAdvanced = DependentServiceName' "AWSSHIELD_ADVANCED"
+
+pattern AWSvpc :: DependentServiceName
+pattern AWSvpc = DependentServiceName' "AWSVPC"
+
 {-# COMPLETE
-  AWSSHieldAdvanced,
   AWSconfig,
-  AWSvpc,
   AWSwaf,
+  AWSSHieldAdvanced,
+  AWSvpc,
   DependentServiceName'
   #-}

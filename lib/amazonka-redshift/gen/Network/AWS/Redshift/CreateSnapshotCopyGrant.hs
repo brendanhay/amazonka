@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Redshift.CreateSnapshotCopyGrant
 
     -- ** Request lenses
     cscgKMSKeyId,
-    cscgTags,
     cscgSnapshotCopyGrantName,
+    cscgTags,
 
     -- * Destructuring the response
     CreateSnapshotCopyGrantResponse (..),
@@ -45,18 +46,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateSnapshotCopyGrant' smart constructor.
 data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
-  { kmsKeyId ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    snapshotCopyGrantName :: Lude.Text
+  { -- | The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The name of the snapshot copy grant. This name must be unique in the region for the AWS account.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+    --
+    --
+    --     * Alphabetic characters must be lowercase.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Cannot end with a hyphen or contain two consecutive hyphens.
+    --
+    --
+    --     * Must be unique for all clusters within an AWS account.
+    snapshotCopyGrantName :: Lude.Text,
+    -- | A list of tag instances.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshotCopyGrant' with the minimum fields required to make a request.
@@ -89,8 +102,8 @@ mkCreateSnapshotCopyGrant ::
 mkCreateSnapshotCopyGrant pSnapshotCopyGrantName_ =
   CreateSnapshotCopyGrant'
     { kmsKeyId = Lude.Nothing,
-      tags = Lude.Nothing,
-      snapshotCopyGrantName = pSnapshotCopyGrantName_
+      snapshotCopyGrantName = pSnapshotCopyGrantName_,
+      tags = Lude.Nothing
     }
 
 -- | The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
@@ -99,13 +112,6 @@ mkCreateSnapshotCopyGrant pSnapshotCopyGrantName_ =
 cscgKMSKeyId :: Lens.Lens' CreateSnapshotCopyGrant (Lude.Maybe Lude.Text)
 cscgKMSKeyId = Lens.lens (kmsKeyId :: CreateSnapshotCopyGrant -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateSnapshotCopyGrant)
 {-# DEPRECATED cscgKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
-
--- | A list of tag instances.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscgTags :: Lens.Lens' CreateSnapshotCopyGrant (Lude.Maybe [Tag])
-cscgTags = Lens.lens (tags :: CreateSnapshotCopyGrant -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSnapshotCopyGrant)
-{-# DEPRECATED cscgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the snapshot copy grant. This name must be unique in the region for the AWS account.
 --
@@ -132,6 +138,13 @@ cscgSnapshotCopyGrantName :: Lens.Lens' CreateSnapshotCopyGrant Lude.Text
 cscgSnapshotCopyGrantName = Lens.lens (snapshotCopyGrantName :: CreateSnapshotCopyGrant -> Lude.Text) (\s a -> s {snapshotCopyGrantName = a} :: CreateSnapshotCopyGrant)
 {-# DEPRECATED cscgSnapshotCopyGrantName "Use generic-lens or generic-optics with 'snapshotCopyGrantName' instead." #-}
 
+-- | A list of tag instances.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscgTags :: Lens.Lens' CreateSnapshotCopyGrant (Lude.Maybe [Tag])
+cscgTags = Lens.lens (tags :: CreateSnapshotCopyGrant -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSnapshotCopyGrant)
+{-# DEPRECATED cscgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
 instance Lude.AWSRequest CreateSnapshotCopyGrant where
   type Rs CreateSnapshotCopyGrant = CreateSnapshotCopyGrantResponse
   request = Req.postQuery redshiftService
@@ -156,30 +169,23 @@ instance Lude.ToQuery CreateSnapshotCopyGrant where
       [ "Action" Lude.=: ("CreateSnapshotCopyGrant" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
         "KmsKeyId" Lude.=: kmsKeyId,
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
-        "SnapshotCopyGrantName" Lude.=: snapshotCopyGrantName
+        "SnapshotCopyGrantName" Lude.=: snapshotCopyGrantName,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
       ]
 
 -- | /See:/ 'mkCreateSnapshotCopyGrantResponse' smart constructor.
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
-  { snapshotCopyGrant ::
-      Lude.Maybe
-        SnapshotCopyGrant,
+  { snapshotCopyGrant :: Lude.Maybe SnapshotCopyGrant,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshotCopyGrantResponse' with the minimum fields required to make a request.
 --
+-- * 'snapshotCopyGrant' -
 -- * 'responseStatus' - The response status code.
--- * 'snapshotCopyGrant' - Undocumented field.
 mkCreateSnapshotCopyGrantResponse ::
   -- | 'responseStatus'
   Lude.Int ->

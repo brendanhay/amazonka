@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     mkListStreamingDistributionsResponse,
 
     -- ** Response lenses
-    lsdrsResponseStatus,
     lsdrsStreamingDistributionList,
+    lsdrsResponseStatus,
   )
 where
 
@@ -45,17 +46,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListStreamingDistributions' smart constructor.
 data ListStreamingDistributions = ListStreamingDistributions'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The value that you provided for the @Marker@ request parameter.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The value that you provided for the @MaxItems@ request parameter.
     maxItems :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamingDistributions' with the minimum fields required to make a request.
@@ -114,7 +110,7 @@ instance Lude.AWSRequest ListStreamingDistributions where
     Res.receiveXML
       ( \s h x ->
           ListStreamingDistributionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.parseXML x)
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListStreamingDistributions where
@@ -132,45 +128,32 @@ instance Lude.ToQuery ListStreamingDistributions where
 --
 -- /See:/ 'mkListStreamingDistributionsResponse' smart constructor.
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
-  { responseStatus ::
-      Lude.Int,
-    streamingDistributionList ::
-      StreamingDistributionList
+  { -- | The @StreamingDistributionList@ type.
+    streamingDistributionList :: StreamingDistributionList,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamingDistributionsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'streamingDistributionList' - The @StreamingDistributionList@ type.
+-- * 'responseStatus' - The response status code.
 mkListStreamingDistributionsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'streamingDistributionList'
   StreamingDistributionList ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListStreamingDistributionsResponse
 mkListStreamingDistributionsResponse
-  pResponseStatus_
-  pStreamingDistributionList_ =
+  pStreamingDistributionList_
+  pResponseStatus_ =
     ListStreamingDistributionsResponse'
-      { responseStatus =
-          pResponseStatus_,
-        streamingDistributionList = pStreamingDistributionList_
+      { streamingDistributionList =
+          pStreamingDistributionList_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsdrsResponseStatus :: Lens.Lens' ListStreamingDistributionsResponse Lude.Int
-lsdrsResponseStatus = Lens.lens (responseStatus :: ListStreamingDistributionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamingDistributionsResponse)
-{-# DEPRECATED lsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The @StreamingDistributionList@ type.
 --
@@ -178,3 +161,10 @@ lsdrsResponseStatus = Lens.lens (responseStatus :: ListStreamingDistributionsRes
 lsdrsStreamingDistributionList :: Lens.Lens' ListStreamingDistributionsResponse StreamingDistributionList
 lsdrsStreamingDistributionList = Lens.lens (streamingDistributionList :: ListStreamingDistributionsResponse -> StreamingDistributionList) (\s a -> s {streamingDistributionList = a} :: ListStreamingDistributionsResponse)
 {-# DEPRECATED lsdrsStreamingDistributionList "Use generic-lens or generic-optics with 'streamingDistributionList' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdrsResponseStatus :: Lens.Lens' ListStreamingDistributionsResponse Lude.Int
+lsdrsResponseStatus = Lens.lens (responseStatus :: ListStreamingDistributionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamingDistributionsResponse)
+{-# DEPRECATED lsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

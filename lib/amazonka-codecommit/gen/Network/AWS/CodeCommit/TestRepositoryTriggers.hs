@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeCommit.TestRepositoryTriggers
     mkTestRepositoryTriggers,
 
     -- ** Request lenses
-    trtRepositoryName,
     trtTriggers,
+    trtRepositoryName,
 
     -- * Destructuring the response
     TestRepositoryTriggersResponse (..),
@@ -43,39 +44,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkTestRepositoryTriggers' smart constructor.
 data TestRepositoryTriggers = TestRepositoryTriggers'
-  { repositoryName ::
-      Lude.Text,
-    triggers :: [RepositoryTrigger]
+  { -- | The list of triggers to test.
+    triggers :: [RepositoryTrigger],
+    -- | The name of the repository in which to test the triggers.
+    repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestRepositoryTriggers' with the minimum fields required to make a request.
 --
--- * 'repositoryName' - The name of the repository in which to test the triggers.
 -- * 'triggers' - The list of triggers to test.
+-- * 'repositoryName' - The name of the repository in which to test the triggers.
 mkTestRepositoryTriggers ::
   -- | 'repositoryName'
   Lude.Text ->
   TestRepositoryTriggers
 mkTestRepositoryTriggers pRepositoryName_ =
   TestRepositoryTriggers'
-    { repositoryName = pRepositoryName_,
-      triggers = Lude.mempty
+    { triggers = Lude.mempty,
+      repositoryName = pRepositoryName_
     }
-
--- | The name of the repository in which to test the triggers.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trtRepositoryName :: Lens.Lens' TestRepositoryTriggers Lude.Text
-trtRepositoryName = Lens.lens (repositoryName :: TestRepositoryTriggers -> Lude.Text) (\s a -> s {repositoryName = a} :: TestRepositoryTriggers)
-{-# DEPRECATED trtRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The list of triggers to test.
 --
@@ -83,6 +72,13 @@ trtRepositoryName = Lens.lens (repositoryName :: TestRepositoryTriggers -> Lude.
 trtTriggers :: Lens.Lens' TestRepositoryTriggers [RepositoryTrigger]
 trtTriggers = Lens.lens (triggers :: TestRepositoryTriggers -> [RepositoryTrigger]) (\s a -> s {triggers = a} :: TestRepositoryTriggers)
 {-# DEPRECATED trtTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
+
+-- | The name of the repository in which to test the triggers.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trtRepositoryName :: Lens.Lens' TestRepositoryTriggers Lude.Text
+trtRepositoryName = Lens.lens (repositoryName :: TestRepositoryTriggers -> Lude.Text) (\s a -> s {repositoryName = a} :: TestRepositoryTriggers)
+{-# DEPRECATED trtRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Lude.AWSRequest TestRepositoryTriggers where
   type Rs TestRepositoryTriggers = TestRepositoryTriggersResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON TestRepositoryTriggers where
   toJSON TestRepositoryTriggers' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("triggers" Lude..= triggers)
+          [ Lude.Just ("triggers" Lude..= triggers),
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
@@ -126,27 +122,21 @@ instance Lude.ToQuery TestRepositoryTriggers where
 --
 -- /See:/ 'mkTestRepositoryTriggersResponse' smart constructor.
 data TestRepositoryTriggersResponse = TestRepositoryTriggersResponse'
-  { failedExecutions ::
-      Lude.Maybe
-        [RepositoryTriggerExecutionFailure],
-    successfulExecutions ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of triggers that were not tested. This list provides the names of the triggers that could not be tested, separated by commas.
+    failedExecutions :: Lude.Maybe [RepositoryTriggerExecutionFailure],
+    -- | The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.
+    successfulExecutions :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestRepositoryTriggersResponse' with the minimum fields required to make a request.
 --
 -- * 'failedExecutions' - The list of triggers that were not tested. This list provides the names of the triggers that could not be tested, separated by commas.
--- * 'responseStatus' - The response status code.
 -- * 'successfulExecutions' - The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.
+-- * 'responseStatus' - The response status code.
 mkTestRepositoryTriggersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

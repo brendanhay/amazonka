@@ -20,8 +20,8 @@ module Network.AWS.LexModels.Types.Locale
         Es419,
         EsEs,
         EsUs,
-        FrCa,
         FrFr,
+        FrCa,
         ItIt
       ),
   )
@@ -74,11 +74,11 @@ pattern EsEs = Locale' "es-ES"
 pattern EsUs :: Locale
 pattern EsUs = Locale' "es-US"
 
-pattern FrCa :: Locale
-pattern FrCa = Locale' "fr-CA"
-
 pattern FrFr :: Locale
 pattern FrFr = Locale' "fr-FR"
+
+pattern FrCa :: Locale
+pattern FrCa = Locale' "fr-CA"
 
 pattern ItIt :: Locale
 pattern ItIt = Locale' "it-IT"
@@ -91,8 +91,8 @@ pattern ItIt = Locale' "it-IT"
   Es419,
   EsEs,
   EsUs,
-  FrCa,
   FrFr,
+  FrCa,
   ItIt,
   Locale'
   #-}

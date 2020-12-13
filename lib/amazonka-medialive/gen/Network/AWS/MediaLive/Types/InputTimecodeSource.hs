@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.InputTimecodeSource
   ( InputTimecodeSource
       ( InputTimecodeSource',
-        Embedded,
-        Zerobased
+        Zerobased,
+        Embedded
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype InputTimecodeSource = InputTimecodeSource' Lude.Text
       Lude.ToHeader
     )
 
-pattern Embedded :: InputTimecodeSource
-pattern Embedded = InputTimecodeSource' "EMBEDDED"
-
 pattern Zerobased :: InputTimecodeSource
 pattern Zerobased = InputTimecodeSource' "ZEROBASED"
 
+pattern Embedded :: InputTimecodeSource
+pattern Embedded = InputTimecodeSource' "EMBEDDED"
+
 {-# COMPLETE
-  Embedded,
   Zerobased,
+  Embedded,
   InputTimecodeSource'
   #-}

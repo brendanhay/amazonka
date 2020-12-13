@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHierarchyGroup' smart constructor.
 data HierarchyGroup = HierarchyGroup'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the hierarchy group.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the hierarchy group.
     name :: Lude.Maybe Lude.Text,
+    -- | Information about the levels in the hierarchy group.
     hierarchyPath :: Lude.Maybe HierarchyPath,
+    -- | The identifier of the hierarchy group.
     id :: Lude.Maybe Lude.Text,
+    -- | The identifier of the level in the hierarchy group.
     levelId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HierarchyGroup' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the hierarchy group.
+-- * 'name' - The name of the hierarchy group.
 -- * 'hierarchyPath' - Information about the levels in the hierarchy group.
 -- * 'id' - The identifier of the hierarchy group.
 -- * 'levelId' - The identifier of the level in the hierarchy group.
--- * 'name' - The name of the hierarchy group.
 mkHierarchyGroup ::
   HierarchyGroup
 mkHierarchyGroup =

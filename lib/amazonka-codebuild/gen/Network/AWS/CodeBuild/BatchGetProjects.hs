@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchGetProjects' smart constructor.
 newtype BatchGetProjects = BatchGetProjects'
-  { names ::
-      Lude.NonEmpty Lude.Text
+  { -- | The names or ARNs of the build projects. To get information about a project shared with your AWS account, its ARN must be specified. You cannot specify a shared project using its name.
+    names :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetProjects' with the minimum fields required to make a request.
@@ -103,24 +98,20 @@ instance Lude.ToQuery BatchGetProjects where
 
 -- | /See:/ 'mkBatchGetProjectsResponse' smart constructor.
 data BatchGetProjectsResponse = BatchGetProjectsResponse'
-  { projectsNotFound ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The names of build projects for which information could not be found.
+    projectsNotFound :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Information about the requested build projects.
     projects :: Lude.Maybe [Project],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetProjectsResponse' with the minimum fields required to make a request.
 --
--- * 'projects' - Information about the requested build projects.
 -- * 'projectsNotFound' - The names of build projects for which information could not be found.
+-- * 'projects' - Information about the requested build projects.
 -- * 'responseStatus' - The response status code.
 mkBatchGetProjectsResponse ::
   -- | 'responseStatus'

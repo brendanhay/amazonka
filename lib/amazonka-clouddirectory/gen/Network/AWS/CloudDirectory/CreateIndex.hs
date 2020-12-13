@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.CloudDirectory.CreateIndex
     mkCreateIndex,
 
     -- ** Request lenses
-    ciParentReference,
-    ciLinkName,
     ciDirectoryARN,
+    ciParentReference,
     ciOrderedIndexedAttributeList,
+    ciLinkName,
     ciIsUnique,
 
     -- * Destructuring the response
@@ -43,29 +44,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateIndex' smart constructor.
 data CreateIndex = CreateIndex'
-  { parentReference ::
-      Lude.Maybe ObjectReference,
-    linkName :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the directory where the index should be created.
     directoryARN :: Lude.Text,
+    -- | A reference to the parent object that contains the index object.
+    parentReference :: Lude.Maybe ObjectReference,
+    -- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
     orderedIndexedAttributeList :: [AttributeKey],
+    -- | The name of the link between the parent object and the index object.
+    linkName :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the attribute that is being indexed has unique values or not.
     isUnique :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIndex' with the minimum fields required to make a request.
 --
 -- * 'directoryARN' - The ARN of the directory where the index should be created.
--- * 'isUnique' - Indicates whether the attribute that is being indexed has unique values or not.
--- * 'linkName' - The name of the link between the parent object and the index object.
--- * 'orderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
 -- * 'parentReference' - A reference to the parent object that contains the index object.
+-- * 'orderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
+-- * 'linkName' - The name of the link between the parent object and the index object.
+-- * 'isUnique' - Indicates whether the attribute that is being indexed has unique values or not.
 mkCreateIndex ::
   -- | 'directoryARN'
   Lude.Text ->
@@ -74,26 +73,12 @@ mkCreateIndex ::
   CreateIndex
 mkCreateIndex pDirectoryARN_ pIsUnique_ =
   CreateIndex'
-    { parentReference = Lude.Nothing,
-      linkName = Lude.Nothing,
-      directoryARN = pDirectoryARN_,
+    { directoryARN = pDirectoryARN_,
+      parentReference = Lude.Nothing,
       orderedIndexedAttributeList = Lude.mempty,
+      linkName = Lude.Nothing,
       isUnique = pIsUnique_
     }
-
--- | A reference to the parent object that contains the index object.
---
--- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciParentReference :: Lens.Lens' CreateIndex (Lude.Maybe ObjectReference)
-ciParentReference = Lens.lens (parentReference :: CreateIndex -> Lude.Maybe ObjectReference) (\s a -> s {parentReference = a} :: CreateIndex)
-{-# DEPRECATED ciParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
-
--- | The name of the link between the parent object and the index object.
---
--- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciLinkName :: Lens.Lens' CreateIndex (Lude.Maybe Lude.Text)
-ciLinkName = Lens.lens (linkName :: CreateIndex -> Lude.Maybe Lude.Text) (\s a -> s {linkName = a} :: CreateIndex)
-{-# DEPRECATED ciLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
 -- | The ARN of the directory where the index should be created.
 --
@@ -102,12 +87,26 @@ ciDirectoryARN :: Lens.Lens' CreateIndex Lude.Text
 ciDirectoryARN = Lens.lens (directoryARN :: CreateIndex -> Lude.Text) (\s a -> s {directoryARN = a} :: CreateIndex)
 {-# DEPRECATED ciDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
+-- | A reference to the parent object that contains the index object.
+--
+-- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciParentReference :: Lens.Lens' CreateIndex (Lude.Maybe ObjectReference)
+ciParentReference = Lens.lens (parentReference :: CreateIndex -> Lude.Maybe ObjectReference) (\s a -> s {parentReference = a} :: CreateIndex)
+{-# DEPRECATED ciParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
+
 -- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
 --
 -- /Note:/ Consider using 'orderedIndexedAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ciOrderedIndexedAttributeList :: Lens.Lens' CreateIndex [AttributeKey]
 ciOrderedIndexedAttributeList = Lens.lens (orderedIndexedAttributeList :: CreateIndex -> [AttributeKey]) (\s a -> s {orderedIndexedAttributeList = a} :: CreateIndex)
 {-# DEPRECATED ciOrderedIndexedAttributeList "Use generic-lens or generic-optics with 'orderedIndexedAttributeList' instead." #-}
+
+-- | The name of the link between the parent object and the index object.
+--
+-- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciLinkName :: Lens.Lens' CreateIndex (Lude.Maybe Lude.Text)
+ciLinkName = Lens.lens (linkName :: CreateIndex -> Lude.Maybe Lude.Text) (\s a -> s {linkName = a} :: CreateIndex)
+{-# DEPRECATED ciLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
 -- | Indicates whether the attribute that is being indexed has unique values or not.
 --
@@ -136,11 +135,11 @@ instance Lude.ToJSON CreateIndex where
     Lude.object
       ( Lude.catMaybes
           [ ("ParentReference" Lude..=) Lude.<$> parentReference,
-            ("LinkName" Lude..=) Lude.<$> linkName,
             Lude.Just
               ( "OrderedIndexedAttributeList"
                   Lude..= orderedIndexedAttributeList
               ),
+            ("LinkName" Lude..=) Lude.<$> linkName,
             Lude.Just ("IsUnique" Lude..= isUnique)
           ]
       )
@@ -153,17 +152,12 @@ instance Lude.ToQuery CreateIndex where
 
 -- | /See:/ 'mkCreateIndexResponse' smart constructor.
 data CreateIndexResponse = CreateIndexResponse'
-  { objectIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ObjectIdentifier@ of the index created by this operation.
+    objectIdentifier :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIndexResponse' with the minimum fields required to make a request.

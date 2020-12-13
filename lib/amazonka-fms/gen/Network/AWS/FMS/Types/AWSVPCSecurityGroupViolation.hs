@@ -33,31 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSVPCSecurityGroupViolation' smart constructor.
 data AWSVPCSecurityGroupViolation = AWSVPCSecurityGroupViolation'
-  { violationTargetDescription ::
-      Lude.Maybe Lude.Text,
-    possibleSecurityGroupRemediationActions ::
-      Lude.Maybe
-        [SecurityGroupRemediationAction],
-    violationTarget ::
-      Lude.Maybe Lude.Text,
-    partialMatches ::
-      Lude.Maybe [PartialMatch]
+  { -- | A description of the security group that violates the policy.
+    violationTargetDescription :: Lude.Maybe Lude.Text,
+    -- | Remediation options for the rule specified in the @ViolationTarget@ .
+    possibleSecurityGroupRemediationActions :: Lude.Maybe [SecurityGroupRemediationAction],
+    -- | The security group rule that is being evaluated.
+    violationTarget :: Lude.Maybe Lude.Text,
+    -- | List of rules specified in the security group of the AWS Firewall Manager policy that partially match the @ViolationTarget@ rule.
+    partialMatches :: Lude.Maybe [PartialMatch]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSVPCSecurityGroupViolation' with the minimum fields required to make a request.
 --
--- * 'partialMatches' - List of rules specified in the security group of the AWS Firewall Manager policy that partially match the @ViolationTarget@ rule.
+-- * 'violationTargetDescription' - A description of the security group that violates the policy.
 -- * 'possibleSecurityGroupRemediationActions' - Remediation options for the rule specified in the @ViolationTarget@ .
 -- * 'violationTarget' - The security group rule that is being evaluated.
--- * 'violationTargetDescription' - A description of the security group that violates the policy.
+-- * 'partialMatches' - List of rules specified in the security group of the AWS Firewall Manager policy that partially match the @ViolationTarget@ rule.
 mkAWSVPCSecurityGroupViolation ::
   AWSVPCSecurityGroupViolation
 mkAWSVPCSecurityGroupViolation =

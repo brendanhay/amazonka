@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDocumentationVersion' smart constructor.
 data DocumentationVersion = DocumentationVersion'
-  { createdDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date when the API documentation snapshot is created.
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The version identifier of the API documentation snapshot.
     version :: Lude.Maybe Lude.Text,
+    -- | The description of the API documentation snapshot.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentationVersion' with the minimum fields required to make a request.
 --
 -- * 'createdDate' - The date when the API documentation snapshot is created.
--- * 'description' - The description of the API documentation snapshot.
 -- * 'version' - The version identifier of the API documentation snapshot.
+-- * 'description' - The description of the API documentation snapshot.
 mkDocumentationVersion ::
   DocumentationVersion
 mkDocumentationVersion =

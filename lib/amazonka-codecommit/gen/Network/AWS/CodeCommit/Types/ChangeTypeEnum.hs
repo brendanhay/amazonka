@@ -14,8 +14,8 @@ module Network.AWS.CodeCommit.Types.ChangeTypeEnum
   ( ChangeTypeEnum
       ( ChangeTypeEnum',
         A,
-        D,
-        M
+        M,
+        D
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ChangeTypeEnum = ChangeTypeEnum' Lude.Text
 pattern A :: ChangeTypeEnum
 pattern A = ChangeTypeEnum' "A"
 
-pattern D :: ChangeTypeEnum
-pattern D = ChangeTypeEnum' "D"
-
 pattern M :: ChangeTypeEnum
 pattern M = ChangeTypeEnum' "M"
 
+pattern D :: ChangeTypeEnum
+pattern D = ChangeTypeEnum' "D"
+
 {-# COMPLETE
   A,
-  D,
   M,
+  D,
   ChangeTypeEnum'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAuthorizers' smart constructor.
 data ListAuthorizers = ListAuthorizers'
-  { status ::
-      Lude.Maybe AuthorizerStatus,
+  { -- | The status of the list authorizers request.
+    status :: Lude.Maybe AuthorizerStatus,
+    -- | A marker used to get the next set of results.
     marker :: Lude.Maybe Lude.Text,
+    -- | Return the list of authorizers in ascending alphabetical order.
     ascendingOrder :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return at one time.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuthorizers' with the minimum fields required to make a request.
 --
--- * 'ascendingOrder' - Return the list of authorizers in ascending alphabetical order.
--- * 'marker' - A marker used to get the next set of results.
--- * 'pageSize' - The maximum number of results to return at one time.
 -- * 'status' - The status of the list authorizers request.
+-- * 'marker' - A marker used to get the next set of results.
+-- * 'ascendingOrder' - Return the list of authorizers in ascending alphabetical order.
+-- * 'pageSize' - The maximum number of results to return at one time.
 mkListAuthorizers ::
   ListAuthorizers
 mkListAuthorizers =
@@ -143,18 +141,14 @@ instance Lude.ToQuery ListAuthorizers where
 
 -- | /See:/ 'mkListAuthorizersResponse' smart constructor.
 data ListAuthorizersResponse = ListAuthorizersResponse'
-  { authorizers ::
-      Lude.Maybe [AuthorizerSummary],
+  { -- | The authorizers.
+    authorizers :: Lude.Maybe [AuthorizerSummary],
+    -- | A marker used to get the next set of results.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuthorizersResponse' with the minimum fields required to make a request.

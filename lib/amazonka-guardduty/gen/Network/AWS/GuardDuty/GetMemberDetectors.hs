@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.GuardDuty.GetMemberDetectors
     mkGetMemberDetectors,
 
     -- ** Request lenses
-    gmdDetectorId,
     gmdAccountIds,
+    gmdDetectorId,
 
     -- * Destructuring the response
     GetMemberDetectorsResponse (..),
     mkGetMemberDetectorsResponse,
 
     -- ** Response lenses
-    gmdrsResponseStatus,
-    gmdrsMemberDataSourceConfigurations,
     gmdrsUnprocessedAccounts,
+    gmdrsMemberDataSourceConfigurations,
+    gmdrsResponseStatus,
   )
 where
 
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMemberDetectors' smart constructor.
 data GetMemberDetectors = GetMemberDetectors'
-  { detectorId ::
-      Lude.Text,
-    accountIds :: Lude.NonEmpty Lude.Text
+  { -- | The account ID of the member account.
+    accountIds :: Lude.NonEmpty Lude.Text,
+    -- | The detector ID for the master account.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMemberDetectors' with the minimum fields required to make a request.
@@ -59,23 +55,16 @@ data GetMemberDetectors = GetMemberDetectors'
 -- * 'accountIds' - The account ID of the member account.
 -- * 'detectorId' - The detector ID for the master account.
 mkGetMemberDetectors ::
-  -- | 'detectorId'
-  Lude.Text ->
   -- | 'accountIds'
   Lude.NonEmpty Lude.Text ->
+  -- | 'detectorId'
+  Lude.Text ->
   GetMemberDetectors
-mkGetMemberDetectors pDetectorId_ pAccountIds_ =
+mkGetMemberDetectors pAccountIds_ pDetectorId_ =
   GetMemberDetectors'
-    { detectorId = pDetectorId_,
-      accountIds = pAccountIds_
+    { accountIds = pAccountIds_,
+      detectorId = pDetectorId_
     }
-
--- | The detector ID for the master account.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdDetectorId :: Lens.Lens' GetMemberDetectors Lude.Text
-gmdDetectorId = Lens.lens (detectorId :: GetMemberDetectors -> Lude.Text) (\s a -> s {detectorId = a} :: GetMemberDetectors)
-{-# DEPRECATED gmdDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The account ID of the member account.
 --
@@ -84,6 +73,13 @@ gmdAccountIds :: Lens.Lens' GetMemberDetectors (Lude.NonEmpty Lude.Text)
 gmdAccountIds = Lens.lens (accountIds :: GetMemberDetectors -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: GetMemberDetectors)
 {-# DEPRECATED gmdAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
+-- | The detector ID for the master account.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmdDetectorId :: Lens.Lens' GetMemberDetectors Lude.Text
+gmdDetectorId = Lens.lens (detectorId :: GetMemberDetectors -> Lude.Text) (\s a -> s {detectorId = a} :: GetMemberDetectors)
+{-# DEPRECATED gmdDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
 instance Lude.AWSRequest GetMemberDetectors where
   type Rs GetMemberDetectors = GetMemberDetectorsResponse
   request = Req.postJSON guardDutyService
@@ -91,9 +87,9 @@ instance Lude.AWSRequest GetMemberDetectors where
     Res.receiveJSON
       ( \s h x ->
           GetMemberDetectorsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..:> "members")
-            Lude.<*> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetMemberDetectors where
@@ -120,49 +116,42 @@ instance Lude.ToQuery GetMemberDetectors where
 
 -- | /See:/ 'mkGetMemberDetectorsResponse' smart constructor.
 data GetMemberDetectorsResponse = GetMemberDetectorsResponse'
-  { responseStatus ::
-      Lude.Int,
-    memberDataSourceConfigurations ::
-      Lude.NonEmpty
-        MemberDataSourceConfiguration,
-    unprocessedAccounts ::
-      [UnprocessedAccount]
+  { -- | A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
+    unprocessedAccounts :: [UnprocessedAccount],
+    -- | An object that describes which data sources are enabled for a member account.
+    memberDataSourceConfigurations :: Lude.NonEmpty MemberDataSourceConfiguration,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMemberDetectorsResponse' with the minimum fields required to make a request.
 --
+-- * 'unprocessedAccounts' - A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
 -- * 'memberDataSourceConfigurations' - An object that describes which data sources are enabled for a member account.
 -- * 'responseStatus' - The response status code.
--- * 'unprocessedAccounts' - A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
 mkGetMemberDetectorsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'memberDataSourceConfigurations'
   Lude.NonEmpty MemberDataSourceConfiguration ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMemberDetectorsResponse
 mkGetMemberDetectorsResponse
-  pResponseStatus_
-  pMemberDataSourceConfigurations_ =
+  pMemberDataSourceConfigurations_
+  pResponseStatus_ =
     GetMemberDetectorsResponse'
-      { responseStatus = pResponseStatus_,
+      { unprocessedAccounts = Lude.mempty,
         memberDataSourceConfigurations = pMemberDataSourceConfigurations_,
-        unprocessedAccounts = Lude.mempty
+        responseStatus = pResponseStatus_
       }
 
--- | The response status code.
+-- | A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdrsResponseStatus :: Lens.Lens' GetMemberDetectorsResponse Lude.Int
-gmdrsResponseStatus = Lens.lens (responseStatus :: GetMemberDetectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMemberDetectorsResponse)
-{-# DEPRECATED gmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'unprocessedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmdrsUnprocessedAccounts :: Lens.Lens' GetMemberDetectorsResponse [UnprocessedAccount]
+gmdrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: GetMemberDetectorsResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: GetMemberDetectorsResponse)
+{-# DEPRECATED gmdrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
 
 -- | An object that describes which data sources are enabled for a member account.
 --
@@ -171,9 +160,9 @@ gmdrsMemberDataSourceConfigurations :: Lens.Lens' GetMemberDetectorsResponse (Lu
 gmdrsMemberDataSourceConfigurations = Lens.lens (memberDataSourceConfigurations :: GetMemberDetectorsResponse -> Lude.NonEmpty MemberDataSourceConfiguration) (\s a -> s {memberDataSourceConfigurations = a} :: GetMemberDetectorsResponse)
 {-# DEPRECATED gmdrsMemberDataSourceConfigurations "Use generic-lens or generic-optics with 'memberDataSourceConfigurations' instead." #-}
 
--- | A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
+-- | The response status code.
 --
--- /Note:/ Consider using 'unprocessedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdrsUnprocessedAccounts :: Lens.Lens' GetMemberDetectorsResponse [UnprocessedAccount]
-gmdrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: GetMemberDetectorsResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: GetMemberDetectorsResponse)
-{-# DEPRECATED gmdrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmdrsResponseStatus :: Lens.Lens' GetMemberDetectorsResponse Lude.Int
+gmdrsResponseStatus = Lens.lens (responseStatus :: GetMemberDetectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMemberDetectorsResponse)
+{-# DEPRECATED gmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

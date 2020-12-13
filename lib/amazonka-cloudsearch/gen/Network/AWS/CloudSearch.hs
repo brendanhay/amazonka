@@ -132,8 +132,8 @@ module Network.AWS.CloudSearch
     -- ** AccessPoliciesStatus
     AccessPoliciesStatus (..),
     mkAccessPoliciesStatus,
-    apsOptions,
     apsStatus,
+    apsOptions,
 
     -- ** AnalysisOptions
     AnalysisOptions (..),
@@ -148,20 +148,20 @@ module Network.AWS.CloudSearch
     AnalysisScheme (..),
     mkAnalysisScheme,
     asAnalysisOptions,
-    asAnalysisSchemeName,
     asAnalysisSchemeLanguage,
+    asAnalysisSchemeName,
 
     -- ** AnalysisSchemeStatus
     AnalysisSchemeStatus (..),
     mkAnalysisSchemeStatus,
-    assOptions,
     assStatus,
+    assOptions,
 
     -- ** AvailabilityOptionsStatus
     AvailabilityOptionsStatus (..),
     mkAvailabilityOptionsStatus,
-    aosOptions,
     aosStatus,
+    aosOptions,
 
     -- ** DateArrayOptions
     DateArrayOptions (..),
@@ -185,9 +185,9 @@ module Network.AWS.CloudSearch
     -- ** DocumentSuggesterOptions
     DocumentSuggesterOptions (..),
     mkDocumentSuggesterOptions,
+    dsoSourceField,
     dsoSortExpression,
     dsoFuzzyMatching,
-    dsoSourceField,
 
     -- ** DomainEndpointOptions
     DomainEndpointOptions (..),
@@ -198,8 +198,8 @@ module Network.AWS.CloudSearch
     -- ** DomainEndpointOptionsStatus
     DomainEndpointOptionsStatus (..),
     mkDomainEndpointOptionsStatus,
-    deosOptions,
     deosStatus,
+    deosOptions,
 
     -- ** DomainStatus
     DomainStatus (..),
@@ -211,12 +211,12 @@ module Network.AWS.CloudSearch
     dsCreated,
     dsSearchService,
     dsLimits,
+    dsRequiresIndexDocuments,
+    dsDomainName,
     dsSearchPartitionCount,
     dsDeleted,
-    dsProcessing,
     dsDomainId,
-    dsDomainName,
-    dsRequiresIndexDocuments,
+    dsProcessing,
 
     -- ** DoubleArrayOptions
     DoubleArrayOptions (..),
@@ -246,8 +246,8 @@ module Network.AWS.CloudSearch
     -- ** ExpressionStatus
     ExpressionStatus (..),
     mkExpressionStatus,
-    esOptions,
     esStatus,
+    esOptions,
 
     -- ** IndexField
     IndexField (..),
@@ -257,6 +257,7 @@ module Network.AWS.CloudSearch
     ifTextArrayOptions,
     ifDoubleOptions,
     ifTextOptions,
+    ifIndexFieldType,
     ifLatLonOptions,
     ifLiteralArrayOptions,
     ifIntArrayOptions,
@@ -264,13 +265,12 @@ module Network.AWS.CloudSearch
     ifIntOptions,
     ifLiteralOptions,
     ifIndexFieldName,
-    ifIndexFieldType,
 
     -- ** IndexFieldStatus
     IndexFieldStatus (..),
     mkIndexFieldStatus,
-    ifsOptions,
     ifsStatus,
+    ifsOptions,
 
     -- ** IntArrayOptions
     IntArrayOptions (..),
@@ -329,11 +329,11 @@ module Network.AWS.CloudSearch
     -- ** OptionStatus
     OptionStatus (..),
     mkOptionStatus,
-    osPendingDeletion,
-    osUpdateVersion,
-    osCreationDate,
-    osUpdateDate,
     osState,
+    osUpdateDate,
+    osPendingDeletion,
+    osCreationDate,
+    osUpdateVersion,
 
     -- ** ScalingParameters
     ScalingParameters (..),
@@ -345,8 +345,8 @@ module Network.AWS.CloudSearch
     -- ** ScalingParametersStatus
     ScalingParametersStatus (..),
     mkScalingParametersStatus,
-    spsOptions,
     spsStatus,
+    spsOptions,
 
     -- ** ServiceEndpoint
     ServiceEndpoint (..),
@@ -356,14 +356,14 @@ module Network.AWS.CloudSearch
     -- ** Suggester
     Suggester (..),
     mkSuggester,
-    sSuggesterName,
     sDocumentSuggesterOptions,
+    sSuggesterName,
 
     -- ** SuggesterStatus
     SuggesterStatus (..),
     mkSuggesterStatus,
-    ssOptions,
     ssStatus,
+    ssOptions,
 
     -- ** TextArrayOptions
     TextArrayOptions (..),

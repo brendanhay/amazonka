@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,28 +46,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTypeVersions' smart constructor.
 data ListTypeVersions = ListTypeVersions'
-  { typeName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the type for which you want version summary information.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+    typeName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the type for which you want version summary information.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
     arn :: Lude.Maybe Lude.Text,
+    -- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The deprecation status of the type versions that you want to get summary information about.
+    --
+    -- Valid values include:
+    --
+    --     * @LIVE@ : The type version is registered and can be used in CloudFormation operations, dependent on its provisioning behavior and visibility scope.
+    --
+    --
+    --     * @DEPRECATED@ : The type version has been deregistered and can no longer be used in CloudFormation operations.
+    --
+    --
+    -- The default is @LIVE@ .
     deprecatedStatus :: Lude.Maybe DeprecatedStatus,
+    -- | The kind of the type.
+    --
+    -- Currently the only valid value is @RESOURCE@ .
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
     type' :: Lude.Maybe RegistryType,
+    -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypeVersions' with the minimum fields required to make a request.
 --
+-- * 'typeName' - The name of the type for which you want version summary information.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
 -- * 'arn' - The Amazon Resource Name (ARN) of the type for which you want version summary information.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- * 'nextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 -- * 'deprecatedStatus' - The deprecation status of the type versions that you want to get summary information about.
 --
 -- Valid values include:
@@ -78,15 +99,11 @@ data ListTypeVersions = ListTypeVersions'
 --
 --
 -- The default is @LIVE@ .
--- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
--- * 'nextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 -- * 'type'' - The kind of the type.
 --
 -- Currently the only valid value is @RESOURCE@ .
 -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'typeName' - The name of the type for which you want version summary information.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 mkListTypeVersions ::
   ListTypeVersions
 mkListTypeVersions =
@@ -194,26 +211,21 @@ instance Lude.ToQuery ListTypeVersions where
 
 -- | /See:/ 'mkListTypeVersionsResponse' smart constructor.
 data ListTypeVersionsResponse = ListTypeVersionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    typeVersionSummaries ::
-      Lude.Maybe [TypeVersionSummary],
+  { -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @TypeVersionSummary@ structures that contain information about the specified type's versions.
+    typeVersionSummaries :: Lude.Maybe [TypeVersionSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypeVersionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
--- * 'responseStatus' - The response status code.
 -- * 'typeVersionSummaries' - A list of @TypeVersionSummary@ structures that contain information about the specified type's versions.
+-- * 'responseStatus' - The response status code.
 mkListTypeVersionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

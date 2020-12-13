@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.ServiceCatalog.ListResourcesForTagOption
     mkListResourcesForTagOption,
 
     -- ** Request lenses
+    lrftoTagOptionId,
     lrftoResourceType,
     lrftoPageToken,
     lrftoPageSize,
-    lrftoTagOptionId,
 
     -- * Destructuring the response
     ListResourcesForTagOptionResponse (..),
@@ -46,25 +47,27 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListResourcesForTagOption' smart constructor.
 data ListResourcesForTagOption = ListResourcesForTagOption'
-  { resourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | The TagOption identifier.
+    tagOptionId :: Lude.Text,
+    -- | The resource type.
+    --
+    --
+    --     * @Portfolio@
+    --
+    --
+    --     * @Product@
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Natural,
-    tagOptionId :: Lude.Text
+    -- | The maximum number of items to return with this call.
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesForTagOption' with the minimum fields required to make a request.
 --
--- * 'pageSize' - The maximum number of items to return with this call.
--- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'tagOptionId' - The TagOption identifier.
 -- * 'resourceType' - The resource type.
 --
 --
@@ -74,18 +77,26 @@ data ListResourcesForTagOption = ListResourcesForTagOption'
 --     * @Product@
 --
 --
--- * 'tagOptionId' - The TagOption identifier.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 mkListResourcesForTagOption ::
   -- | 'tagOptionId'
   Lude.Text ->
   ListResourcesForTagOption
 mkListResourcesForTagOption pTagOptionId_ =
   ListResourcesForTagOption'
-    { resourceType = Lude.Nothing,
+    { tagOptionId = pTagOptionId_,
+      resourceType = Lude.Nothing,
       pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      tagOptionId = pTagOptionId_
+      pageSize = Lude.Nothing
     }
+
+-- | The TagOption identifier.
+--
+-- /Note:/ Consider using 'tagOptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrftoTagOptionId :: Lens.Lens' ListResourcesForTagOption Lude.Text
+lrftoTagOptionId = Lens.lens (tagOptionId :: ListResourcesForTagOption -> Lude.Text) (\s a -> s {tagOptionId = a} :: ListResourcesForTagOption)
+{-# DEPRECATED lrftoTagOptionId "Use generic-lens or generic-optics with 'tagOptionId' instead." #-}
 
 -- | The resource type.
 --
@@ -115,13 +126,6 @@ lrftoPageToken = Lens.lens (pageToken :: ListResourcesForTagOption -> Lude.Maybe
 lrftoPageSize :: Lens.Lens' ListResourcesForTagOption (Lude.Maybe Lude.Natural)
 lrftoPageSize = Lens.lens (pageSize :: ListResourcesForTagOption -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListResourcesForTagOption)
 {-# DEPRECATED lrftoPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
--- | The TagOption identifier.
---
--- /Note:/ Consider using 'tagOptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrftoTagOptionId :: Lens.Lens' ListResourcesForTagOption Lude.Text
-lrftoTagOptionId = Lens.lens (tagOptionId :: ListResourcesForTagOption -> Lude.Text) (\s a -> s {tagOptionId = a} :: ListResourcesForTagOption)
-{-# DEPRECATED lrftoTagOptionId "Use generic-lens or generic-optics with 'tagOptionId' instead." #-}
 
 instance Page.AWSPager ListResourcesForTagOption where
   page rq rs
@@ -163,10 +167,10 @@ instance Lude.ToJSON ListResourcesForTagOption where
   toJSON ListResourcesForTagOption' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ResourceType" Lude..=) Lude.<$> resourceType,
+          [ Lude.Just ("TagOptionId" Lude..= tagOptionId),
+            ("ResourceType" Lude..=) Lude.<$> resourceType,
             ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize,
-            Lude.Just ("TagOptionId" Lude..= tagOptionId)
+            ("PageSize" Lude..=) Lude.<$> pageSize
           ]
       )
 
@@ -178,27 +182,20 @@ instance Lude.ToQuery ListResourcesForTagOption where
 
 -- | /See:/ 'mkListResourcesForTagOptionResponse' smart constructor.
 data ListResourcesForTagOptionResponse = ListResourcesForTagOptionResponse'
-  { resourceDetails ::
-      Lude.Maybe
-        [ResourceDetail],
-    pageToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the resources.
+    resourceDetails :: Lude.Maybe [ResourceDetail],
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesForTagOptionResponse' with the minimum fields required to make a request.
 --
--- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 -- * 'resourceDetails' - Information about the resources.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 -- * 'responseStatus' - The response status code.
 mkListResourcesForTagOptionResponse ::
   -- | 'responseStatus'

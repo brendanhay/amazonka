@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGetConnectionsFilter' smart constructor.
 data GetConnectionsFilter = GetConnectionsFilter'
-  { matchCriteria ::
-      Lude.Maybe [Lude.Text],
+  { -- | A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.
+    matchCriteria :: Lude.Maybe [Lude.Text],
+    -- | The type of connections to return. Currently, SFTP is not supported.
     connectionType :: Lude.Maybe ConnectionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionsFilter' with the minimum fields required to make a request.
 --
--- * 'connectionType' - The type of connections to return. Currently, SFTP is not supported.
 -- * 'matchCriteria' - A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.
+-- * 'connectionType' - The type of connections to return. Currently, SFTP is not supported.
 mkGetConnectionsFilter ::
   GetConnectionsFilter
 mkGetConnectionsFilter =

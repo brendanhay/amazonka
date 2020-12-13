@@ -13,8 +13,8 @@
 module Network.AWS.Firehose.Types.ElasticsearchS3BackupMode
   ( ElasticsearchS3BackupMode
       ( ElasticsearchS3BackupMode',
-        AllDocuments,
-        FailedDocumentsOnly
+        FailedDocumentsOnly,
+        AllDocuments
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ElasticsearchS3BackupMode = ElasticsearchS3BackupMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern AllDocuments :: ElasticsearchS3BackupMode
-pattern AllDocuments = ElasticsearchS3BackupMode' "AllDocuments"
-
 pattern FailedDocumentsOnly :: ElasticsearchS3BackupMode
 pattern FailedDocumentsOnly = ElasticsearchS3BackupMode' "FailedDocumentsOnly"
 
+pattern AllDocuments :: ElasticsearchS3BackupMode
+pattern AllDocuments = ElasticsearchS3BackupMode' "AllDocuments"
+
 {-# COMPLETE
-  AllDocuments,
   FailedDocumentsOnly,
+  AllDocuments,
   ElasticsearchS3BackupMode'
   #-}

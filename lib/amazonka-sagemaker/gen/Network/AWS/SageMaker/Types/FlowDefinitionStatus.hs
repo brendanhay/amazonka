@@ -13,10 +13,10 @@
 module Network.AWS.SageMaker.Types.FlowDefinitionStatus
   ( FlowDefinitionStatus
       ( FlowDefinitionStatus',
+        FDSInitializing,
         FDSActive,
-        FDSDeleting,
         FDSFailed,
-        FDSInitializing
+        FDSDeleting
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype FlowDefinitionStatus = FlowDefinitionStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern FDSInitializing :: FlowDefinitionStatus
+pattern FDSInitializing = FlowDefinitionStatus' "Initializing"
+
 pattern FDSActive :: FlowDefinitionStatus
 pattern FDSActive = FlowDefinitionStatus' "Active"
-
-pattern FDSDeleting :: FlowDefinitionStatus
-pattern FDSDeleting = FlowDefinitionStatus' "Deleting"
 
 pattern FDSFailed :: FlowDefinitionStatus
 pattern FDSFailed = FlowDefinitionStatus' "Failed"
 
-pattern FDSInitializing :: FlowDefinitionStatus
-pattern FDSInitializing = FlowDefinitionStatus' "Initializing"
+pattern FDSDeleting :: FlowDefinitionStatus
+pattern FDSDeleting = FlowDefinitionStatus' "Deleting"
 
 {-# COMPLETE
-  FDSActive,
-  FDSDeleting,
-  FDSFailed,
   FDSInitializing,
+  FDSActive,
+  FDSFailed,
+  FDSDeleting,
   FlowDefinitionStatus'
   #-}

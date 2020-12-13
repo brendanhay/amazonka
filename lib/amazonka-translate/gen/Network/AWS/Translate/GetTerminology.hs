@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,12 @@ import Network.AWS.Translate.Types
 
 -- | /See:/ 'mkGetTerminology' smart constructor.
 data GetTerminology = GetTerminology'
-  { name :: Lude.Text,
+  { -- | The name of the custom terminology being retrieved.
+    name :: Lude.Text,
+    -- | The data format of the custom terminology being retrieved, either CSV or TMX.
     terminologyDataFormat :: TerminologyDataFormat
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTerminology' with the minimum fields required to make a request.
@@ -125,26 +122,21 @@ instance Lude.ToQuery GetTerminology where
 
 -- | /See:/ 'mkGetTerminologyResponse' smart constructor.
 data GetTerminologyResponse = GetTerminologyResponse'
-  { terminologyProperties ::
-      Lude.Maybe TerminologyProperties,
-    terminologyDataLocation ::
-      Lude.Maybe TerminologyDataLocation,
+  { -- | The properties of the custom terminology being retrieved.
+    terminologyProperties :: Lude.Maybe TerminologyProperties,
+    -- | The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.
+    terminologyDataLocation :: Lude.Maybe TerminologyDataLocation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTerminologyResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'terminologyDataLocation' - The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.
 -- * 'terminologyProperties' - The properties of the custom terminology being retrieved.
+-- * 'terminologyDataLocation' - The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.
+-- * 'responseStatus' - The response status code.
 mkGetTerminologyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

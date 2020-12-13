@@ -52,70 +52,82 @@ import Network.AWS.StorageGateway.Types.Tag
 --
 -- /See:/ 'mkNFSFileShareInfo' smart constructor.
 data NFSFileShareInfo = NFSFileShareInfo'
-  { fileShareStatus ::
-      Lude.Maybe Lude.Text,
+  { fileShareStatus :: Lude.Maybe Lude.Text,
     kmsKey :: Lude.Maybe Lude.Text,
     gatewayARN :: Lude.Maybe Lude.Text,
     path :: Lude.Maybe Lude.Text,
+    -- | Refresh cache information.
     cacheAttributes :: Lude.Maybe CacheAttributes,
     objectACL :: Lude.Maybe ObjectACL,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
     kmsEncrypted :: Lude.Maybe Lude.Bool,
     fileShareId :: Lude.Maybe Lude.Text,
     fileShareARN :: Lude.Maybe Lude.Text,
+    -- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
+    --
+    -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
     defaultStorageClass :: Lude.Maybe Lude.Text,
+    -- | The name of the file share. Optional.
     fileShareName :: Lude.Maybe Lude.Text,
     role' :: Lude.Maybe Lude.Text,
+    -- | The notification policy of the file share.
     notificationPolicy :: Lude.Maybe Lude.Text,
     squash :: Lude.Maybe Lude.Text,
+    -- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+    --
+    -- Valid Values: @true@ | @false@
     requesterPays :: Lude.Maybe Lude.Bool,
     nFSFileShareDefaults :: Lude.Maybe NFSFileShareDefaults,
     locationARN :: Lude.Maybe Lude.Text,
     clientList :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+    --
+    -- Valid Values: @true@ | @false@
     guessMIMETypeEnabled :: Lude.Maybe Lude.Bool,
+    -- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+    --
+    -- Valid Values: @true@ | @false@
     readOnly :: Lude.Maybe Lude.Bool,
+    -- | A list of up to 50 tags assigned to the NFS file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NFSFileShareInfo' with the minimum fields required to make a request.
 --
+-- * 'fileShareStatus' -
+-- * 'kmsKey' -
+-- * 'gatewayARN' -
+-- * 'path' -
 -- * 'cacheAttributes' - Refresh cache information.
--- * 'clientList' - Undocumented field.
--- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
---
--- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
--- * 'fileShareARN' - Undocumented field.
--- * 'fileShareId' - Undocumented field.
--- * 'fileShareName' - The name of the file share. Optional.
--- * 'fileShareStatus' - Undocumented field.
--- * 'gatewayARN' - Undocumented field.
--- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
---
--- Valid Values: @true@ | @false@
+-- * 'objectACL' -
 -- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
--- * 'kmsKey' - Undocumented field.
--- * 'locationARN' - Undocumented field.
--- * 'nFSFileShareDefaults' - Undocumented field.
--- * 'notificationPolicy' - The notification policy of the file share.
--- * 'objectACL' - Undocumented field.
--- * 'path' - Undocumented field.
--- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+-- * 'fileShareId' -
+-- * 'fileShareARN' -
+-- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
 --
--- Valid Values: @true@ | @false@
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+-- * 'fileShareName' - The name of the file share. Optional.
+-- * 'role'' -
+-- * 'notificationPolicy' - The notification policy of the file share.
+-- * 'squash' -
 -- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
 --
 -- Valid Values: @true@ | @false@
--- * 'role'' - Undocumented field.
--- * 'squash' - Undocumented field.
+-- * 'nFSFileShareDefaults' -
+-- * 'locationARN' -
+-- * 'clientList' -
+-- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+--
+-- Valid Values: @true@ | @false@
+-- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+--
+-- Valid Values: @true@ | @false@
 -- * 'tags' - A list of up to 50 tags assigned to the NFS file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
 mkNFSFileShareInfo ::
   NFSFileShareInfo

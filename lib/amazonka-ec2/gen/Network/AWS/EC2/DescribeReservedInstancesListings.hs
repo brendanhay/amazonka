@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,20 +49,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReservedInstancesListings' smart constructor.
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
-  { filters ::
-      Lude.Maybe [Filter],
-    reservedInstancesId ::
-      Lude.Maybe Lude.Text,
-    reservedInstancesListingId ::
-      Lude.Maybe Lude.Text
+  { -- | One or more filters.
+    --
+    --
+    --     * @reserved-instances-id@ - The ID of the Reserved Instances.
+    --
+    --
+    --     * @reserved-instances-listing-id@ - The ID of the Reserved Instances listing.
+    --
+    --
+    --     * @status@ - The status of the Reserved Instance listing (@pending@ | @active@ | @cancelled@ | @closed@ ).
+    --
+    --
+    --     * @status-message@ - The reason for the status.
+    filters :: Lude.Maybe [Filter],
+    -- | One or more Reserved Instance IDs.
+    reservedInstancesId :: Lude.Maybe Lude.Text,
+    -- | One or more Reserved Instance listing IDs.
+    reservedInstancesListingId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedInstancesListings' with the minimum fields required to make a request.
@@ -163,19 +170,12 @@ instance Lude.ToQuery DescribeReservedInstancesListings where
 --
 -- /See:/ 'mkDescribeReservedInstancesListingsResponse' smart constructor.
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
-  { reservedInstancesListings ::
-      Lude.Maybe
-        [ReservedInstancesListing],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the Reserved Instance listing.
+    reservedInstancesListings :: Lude.Maybe [ReservedInstancesListing],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedInstancesListingsResponse' with the minimum fields required to make a request.

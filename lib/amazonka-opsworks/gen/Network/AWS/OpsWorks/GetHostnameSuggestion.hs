@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetHostnameSuggestion' smart constructor.
 newtype GetHostnameSuggestion = GetHostnameSuggestion'
-  { layerId ::
-      Lude.Text
+  { -- | The layer ID.
+    layerId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostnameSuggestion' with the minimum fields required to make a request.
@@ -109,18 +104,14 @@ instance Lude.ToQuery GetHostnameSuggestion where
 --
 -- /See:/ 'mkGetHostnameSuggestionResponse' smart constructor.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
-  { hostname ::
-      Lude.Maybe Lude.Text,
+  { -- | The generated host name.
+    hostname :: Lude.Maybe Lude.Text,
+    -- | The layer ID.
     layerId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostnameSuggestionResponse' with the minimum fields required to make a request.

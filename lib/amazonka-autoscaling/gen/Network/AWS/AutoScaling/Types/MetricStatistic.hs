@@ -14,8 +14,8 @@ module Network.AWS.AutoScaling.Types.MetricStatistic
   ( MetricStatistic
       ( MetricStatistic',
         Average,
-        Maximum,
         Minimum,
+        Maximum,
         SampleCount,
         Sum
       ),
@@ -51,11 +51,11 @@ newtype MetricStatistic = MetricStatistic' Lude.Text
 pattern Average :: MetricStatistic
 pattern Average = MetricStatistic' "Average"
 
-pattern Maximum :: MetricStatistic
-pattern Maximum = MetricStatistic' "Maximum"
-
 pattern Minimum :: MetricStatistic
 pattern Minimum = MetricStatistic' "Minimum"
+
+pattern Maximum :: MetricStatistic
+pattern Maximum = MetricStatistic' "Maximum"
 
 pattern SampleCount :: MetricStatistic
 pattern SampleCount = MetricStatistic' "SampleCount"
@@ -65,8 +65,8 @@ pattern Sum = MetricStatistic' "Sum"
 
 {-# COMPLETE
   Average,
-  Maximum,
   Minimum,
+  Maximum,
   SampleCount,
   Sum,
   MetricStatistic'

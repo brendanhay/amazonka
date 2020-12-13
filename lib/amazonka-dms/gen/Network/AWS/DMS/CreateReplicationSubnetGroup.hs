@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.DMS.CreateReplicationSubnetGroup
     mkCreateReplicationSubnetGroup,
 
     -- ** Request lenses
-    crsgTags,
+    crsgSubnetIds,
     crsgReplicationSubnetGroupIdentifier,
     crsgReplicationSubnetGroupDescription,
-    crsgSubnetIds,
+    crsgTags,
 
     -- * Destructuring the response
     CreateReplicationSubnetGroupResponse (..),
@@ -44,31 +45,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateReplicationSubnetGroup' smart constructor.
 data CreateReplicationSubnetGroup = CreateReplicationSubnetGroup'
-  { tags ::
-      Lude.Maybe [Tag],
-    replicationSubnetGroupIdentifier ::
-      Lude.Text,
-    replicationSubnetGroupDescription ::
-      Lude.Text,
-    subnetIds :: [Lude.Text]
+  { -- | One or more subnet IDs to be assigned to the subnet group.
+    subnetIds :: [Lude.Text],
+    -- | The name for the replication subnet group. This value is stored as a lowercase string.
+    --
+    -- Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be "default".
+    -- Example: @mySubnetgroup@
+    replicationSubnetGroupIdentifier :: Lude.Text,
+    -- | The description for the subnet group.
+    replicationSubnetGroupDescription :: Lude.Text,
+    -- | One or more tags to be assigned to the subnet group.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReplicationSubnetGroup' with the minimum fields required to make a request.
 --
--- * 'replicationSubnetGroupDescription' - The description for the subnet group.
+-- * 'subnetIds' - One or more subnet IDs to be assigned to the subnet group.
 -- * 'replicationSubnetGroupIdentifier' - The name for the replication subnet group. This value is stored as a lowercase string.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens. Must not be "default".
 -- Example: @mySubnetgroup@
--- * 'subnetIds' - One or more subnet IDs to be assigned to the subnet group.
+-- * 'replicationSubnetGroupDescription' - The description for the subnet group.
 -- * 'tags' - One or more tags to be assigned to the subnet group.
 mkCreateReplicationSubnetGroup ::
   -- | 'replicationSubnetGroupIdentifier'
@@ -80,20 +79,20 @@ mkCreateReplicationSubnetGroup
   pReplicationSubnetGroupIdentifier_
   pReplicationSubnetGroupDescription_ =
     CreateReplicationSubnetGroup'
-      { tags = Lude.Nothing,
+      { subnetIds = Lude.mempty,
         replicationSubnetGroupIdentifier =
           pReplicationSubnetGroupIdentifier_,
         replicationSubnetGroupDescription =
           pReplicationSubnetGroupDescription_,
-        subnetIds = Lude.mempty
+        tags = Lude.Nothing
       }
 
--- | One or more tags to be assigned to the subnet group.
+-- | One or more subnet IDs to be assigned to the subnet group.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsgTags :: Lens.Lens' CreateReplicationSubnetGroup (Lude.Maybe [Tag])
-crsgTags = Lens.lens (tags :: CreateReplicationSubnetGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateReplicationSubnetGroup)
-{-# DEPRECATED crsgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsgSubnetIds :: Lens.Lens' CreateReplicationSubnetGroup [Lude.Text]
+crsgSubnetIds = Lens.lens (subnetIds :: CreateReplicationSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateReplicationSubnetGroup)
+{-# DEPRECATED crsgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The name for the replication subnet group. This value is stored as a lowercase string.
 --
@@ -112,12 +111,12 @@ crsgReplicationSubnetGroupDescription :: Lens.Lens' CreateReplicationSubnetGroup
 crsgReplicationSubnetGroupDescription = Lens.lens (replicationSubnetGroupDescription :: CreateReplicationSubnetGroup -> Lude.Text) (\s a -> s {replicationSubnetGroupDescription = a} :: CreateReplicationSubnetGroup)
 {-# DEPRECATED crsgReplicationSubnetGroupDescription "Use generic-lens or generic-optics with 'replicationSubnetGroupDescription' instead." #-}
 
--- | One or more subnet IDs to be assigned to the subnet group.
+-- | One or more tags to be assigned to the subnet group.
 --
--- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsgSubnetIds :: Lens.Lens' CreateReplicationSubnetGroup [Lude.Text]
-crsgSubnetIds = Lens.lens (subnetIds :: CreateReplicationSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateReplicationSubnetGroup)
-{-# DEPRECATED crsgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsgTags :: Lens.Lens' CreateReplicationSubnetGroup (Lude.Maybe [Tag])
+crsgTags = Lens.lens (tags :: CreateReplicationSubnetGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateReplicationSubnetGroup)
+{-# DEPRECATED crsgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateReplicationSubnetGroup where
   type
@@ -149,7 +148,7 @@ instance Lude.ToJSON CreateReplicationSubnetGroup where
   toJSON CreateReplicationSubnetGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("SubnetIds" Lude..= subnetIds),
             Lude.Just
               ( "ReplicationSubnetGroupIdentifier"
                   Lude..= replicationSubnetGroupIdentifier
@@ -158,7 +157,7 @@ instance Lude.ToJSON CreateReplicationSubnetGroup where
               ( "ReplicationSubnetGroupDescription"
                   Lude..= replicationSubnetGroupDescription
               ),
-            Lude.Just ("SubnetIds" Lude..= subnetIds)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -172,19 +171,12 @@ instance Lude.ToQuery CreateReplicationSubnetGroup where
 --
 -- /See:/ 'mkCreateReplicationSubnetGroupResponse' smart constructor.
 data CreateReplicationSubnetGroupResponse = CreateReplicationSubnetGroupResponse'
-  { replicationSubnetGroup ::
-      Lude.Maybe
-        ReplicationSubnetGroup,
-    responseStatus ::
-      Lude.Int
+  { -- | The replication subnet group that was created.
+    replicationSubnetGroup :: Lude.Maybe ReplicationSubnetGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReplicationSubnetGroupResponse' with the minimum fields required to make a request.

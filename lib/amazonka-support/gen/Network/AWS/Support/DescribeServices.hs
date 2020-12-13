@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,23 +43,18 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'mkDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { serviceCodeList ::
-      Lude.Maybe [Lude.Text],
+  { -- | A JSON-formatted list of service codes available for AWS services.
+    serviceCodeList :: Lude.Maybe [Lude.Text],
+    -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
     language :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
 --
--- * 'language' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 -- * 'serviceCodeList' - A JSON-formatted list of service codes available for AWS services.
+-- * 'language' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 mkDescribeServices ::
   DescribeServices
 mkDescribeServices =
@@ -122,23 +118,18 @@ instance Lude.ToQuery DescribeServices where
 --
 -- /See:/ 'mkDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { services ::
-      Lude.Maybe [SupportService],
+  { -- | A JSON-formatted list of AWS services.
+    services :: Lude.Maybe [SupportService],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'services' - A JSON-formatted list of AWS services.
+-- * 'responseStatus' - The response status code.
 mkDescribeServicesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

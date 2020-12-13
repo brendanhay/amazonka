@@ -13,12 +13,12 @@
 module Network.AWS.AppSync.Types.SchemaStatus
   ( SchemaStatus
       ( SchemaStatus',
+        SSProcessing,
         SSActive,
         SSDeleting,
         SSFailed,
-        SSNotApplicable,
-        SSProcessing,
-        SSSuccess
+        SSSuccess,
+        SSNotApplicable
       ),
   )
 where
@@ -49,6 +49,9 @@ newtype SchemaStatus = SchemaStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern SSProcessing :: SchemaStatus
+pattern SSProcessing = SchemaStatus' "PROCESSING"
+
 pattern SSActive :: SchemaStatus
 pattern SSActive = SchemaStatus' "ACTIVE"
 
@@ -58,21 +61,18 @@ pattern SSDeleting = SchemaStatus' "DELETING"
 pattern SSFailed :: SchemaStatus
 pattern SSFailed = SchemaStatus' "FAILED"
 
-pattern SSNotApplicable :: SchemaStatus
-pattern SSNotApplicable = SchemaStatus' "NOT_APPLICABLE"
-
-pattern SSProcessing :: SchemaStatus
-pattern SSProcessing = SchemaStatus' "PROCESSING"
-
 pattern SSSuccess :: SchemaStatus
 pattern SSSuccess = SchemaStatus' "SUCCESS"
 
+pattern SSNotApplicable :: SchemaStatus
+pattern SSNotApplicable = SchemaStatus' "NOT_APPLICABLE"
+
 {-# COMPLETE
+  SSProcessing,
   SSActive,
   SSDeleting,
   SSFailed,
-  SSNotApplicable,
-  SSProcessing,
   SSSuccess,
+  SSNotApplicable,
   SchemaStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPurchaseOffering' smart constructor.
 data PurchaseOffering = PurchaseOffering'
-  { quantity ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of device slots to purchase in an offering request.
+    quantity :: Lude.Maybe Lude.Int,
+    -- | The ID of the offering.
     offeringId :: Lude.Maybe Lude.Text,
+    -- | The ID of the offering promotion to be applied to the purchase.
     offeringPromotionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseOffering' with the minimum fields required to make a request.
 --
+-- * 'quantity' - The number of device slots to purchase in an offering request.
 -- * 'offeringId' - The ID of the offering.
 -- * 'offeringPromotionId' - The ID of the offering promotion to be applied to the purchase.
--- * 'quantity' - The number of device slots to purchase in an offering request.
 mkPurchaseOffering ::
   PurchaseOffering
 mkPurchaseOffering =
@@ -134,17 +131,12 @@ instance Lude.ToQuery PurchaseOffering where
 --
 -- /See:/ 'mkPurchaseOfferingResponse' smart constructor.
 data PurchaseOfferingResponse = PurchaseOfferingResponse'
-  { offeringTransaction ::
-      Lude.Maybe OfferingTransaction,
+  { -- | Represents the offering transaction for the purchase result.
+    offeringTransaction :: Lude.Maybe OfferingTransaction,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseOfferingResponse' with the minimum fields required to make a request.

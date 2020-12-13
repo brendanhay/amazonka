@@ -13,98 +13,104 @@
 module Network.AWS.MediaConvert.Types.LanguageCode
   ( LanguageCode
       ( LanguageCode',
-        Aar,
+        Eng,
+        Spa,
+        Fra,
+        Deu,
+        Ger,
+        Zho,
+        Ara,
+        Hin,
+        Jpn,
+        Rus,
+        Por,
+        Ita,
+        Urd,
+        Vie,
+        Kor,
+        Pan,
         Abk,
+        Aar,
         Afr,
         Aka,
+        Sqi,
         Amh,
-        Ara,
         Arg,
+        Hye,
         Asm,
         Ava,
         Ave,
         Aym,
         Aze,
-        Bak,
         Bam,
+        Bak,
+        Eus,
         Bel,
         Ben,
         Bih,
         Bis,
-        Bod,
         Bos,
         Bre,
         Bul,
+        Mya,
         Cat,
-        Ces,
+        Khm,
         Cha,
         Che,
+        Nya,
         Chu,
         Chv,
         Cor,
         Cos,
         Cre,
-        Cym,
+        Hrv,
+        Ces,
         Dan,
-        Deu,
         Div,
+        Nld,
         Dzo,
-        Ell,
-        Eng,
         Enm,
         Epo,
         Est,
-        Eus,
         Ewe,
         Fao,
-        Fas,
         Fij,
         Fin,
-        Fra,
         Frm,
-        Fry,
         Ful,
-        Ger,
         Gla,
-        Gle,
         Glg,
-        Glv,
+        Lug,
+        Kat,
+        Ell,
         Grn,
         Guj,
         Hat,
         Hau,
         Heb,
         Her,
-        Hin,
         Hmo,
-        Hrv,
         Hun,
-        Hye,
-        IPk,
-        Ibo,
-        Ido,
-        Iii,
-        Iku,
-        Ile,
-        Ina,
-        Ind,
         Isl,
-        Ita,
+        Ido,
+        Ibo,
+        Ind,
+        Ina,
+        Ile,
+        Iku,
+        IPk,
+        Gle,
         Jav,
-        Jpn,
         Kal,
         Kan,
-        Kas,
-        Kat,
         Kau,
+        Kas,
         Kaz,
-        Khm,
         Kik,
         Kin,
         Kir,
         Kom,
         Kon,
-        Kor,
         Kua,
         Kur,
         Lao,
@@ -113,97 +119,91 @@ module Network.AWS.MediaConvert.Types.LanguageCode
         Lim,
         Lin,
         Lit,
-        Ltz,
         Lub,
-        Lug,
-        Mah,
-        Mal,
-        Mar,
+        Ltz,
         Mkd,
         Mlg,
-        Mlt,
-        Mon,
-        Mri,
         Msa,
-        Mya,
+        Mal,
+        Mlt,
+        Glv,
+        Mri,
+        Mar,
+        Mah,
+        Mon,
         Nau,
         Nav,
-        Nbl,
         Nde,
+        Nbl,
         Ndo,
         Nep,
-        Nld,
-        Nno,
-        Nob,
+        Sme,
         Nor,
-        Nya,
-        OSs,
+        Nob,
+        Nno,
         Oci,
         Oji,
         Ori,
-        Orj,
         Orm,
-        Pan,
+        OSs,
         Pli,
+        Fas,
         Pol,
-        Por,
         Pus,
-        Qaa,
-        Qpc,
         Que,
-        Roh,
+        Qaa,
         Ron,
+        Roh,
         Run,
-        Rus,
+        Smo,
         Sag,
         San,
+        Srd,
+        Srb,
+        Sna,
+        Iii,
+        Snd,
         Sin,
         Slk,
         Slv,
-        Sme,
-        Smo,
-        Sna,
-        Snd,
         Som,
         Sot,
-        Spa,
-        Sqi,
-        Srb,
-        Srd,
-        Ssw,
         Sun,
         Swa,
+        Ssw,
         Swe,
+        Tgl,
         Tah,
+        Tgk,
         Tam,
         Tat,
         Tel,
-        Tgk,
-        Tgl,
         Tha,
+        Bod,
         Tir,
-        Tng,
         Ton,
-        Tsn,
         Tso,
-        Tuk,
+        Tsn,
         Tur,
+        Tuk,
         Twi,
         Uig,
         Ukr,
-        Urd,
         Uzb,
         Ven,
-        Vie,
         Vol,
         Wln,
+        Cym,
+        Fry,
         Wol,
         Xho,
         Yid,
         Yor,
         Zha,
-        Zho,
-        Zul
+        Zul,
+        Orj,
+        Qpc,
+        Tng
       ),
   )
 where
@@ -235,11 +235,59 @@ newtype LanguageCode = LanguageCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Aar :: LanguageCode
-pattern Aar = LanguageCode' "AAR"
+pattern Eng :: LanguageCode
+pattern Eng = LanguageCode' "ENG"
+
+pattern Spa :: LanguageCode
+pattern Spa = LanguageCode' "SPA"
+
+pattern Fra :: LanguageCode
+pattern Fra = LanguageCode' "FRA"
+
+pattern Deu :: LanguageCode
+pattern Deu = LanguageCode' "DEU"
+
+pattern Ger :: LanguageCode
+pattern Ger = LanguageCode' "GER"
+
+pattern Zho :: LanguageCode
+pattern Zho = LanguageCode' "ZHO"
+
+pattern Ara :: LanguageCode
+pattern Ara = LanguageCode' "ARA"
+
+pattern Hin :: LanguageCode
+pattern Hin = LanguageCode' "HIN"
+
+pattern Jpn :: LanguageCode
+pattern Jpn = LanguageCode' "JPN"
+
+pattern Rus :: LanguageCode
+pattern Rus = LanguageCode' "RUS"
+
+pattern Por :: LanguageCode
+pattern Por = LanguageCode' "POR"
+
+pattern Ita :: LanguageCode
+pattern Ita = LanguageCode' "ITA"
+
+pattern Urd :: LanguageCode
+pattern Urd = LanguageCode' "URD"
+
+pattern Vie :: LanguageCode
+pattern Vie = LanguageCode' "VIE"
+
+pattern Kor :: LanguageCode
+pattern Kor = LanguageCode' "KOR"
+
+pattern Pan :: LanguageCode
+pattern Pan = LanguageCode' "PAN"
 
 pattern Abk :: LanguageCode
 pattern Abk = LanguageCode' "ABK"
+
+pattern Aar :: LanguageCode
+pattern Aar = LanguageCode' "AAR"
 
 pattern Afr :: LanguageCode
 pattern Afr = LanguageCode' "AFR"
@@ -247,14 +295,17 @@ pattern Afr = LanguageCode' "AFR"
 pattern Aka :: LanguageCode
 pattern Aka = LanguageCode' "AKA"
 
+pattern Sqi :: LanguageCode
+pattern Sqi = LanguageCode' "SQI"
+
 pattern Amh :: LanguageCode
 pattern Amh = LanguageCode' "AMH"
 
-pattern Ara :: LanguageCode
-pattern Ara = LanguageCode' "ARA"
-
 pattern Arg :: LanguageCode
 pattern Arg = LanguageCode' "ARG"
+
+pattern Hye :: LanguageCode
+pattern Hye = LanguageCode' "HYE"
 
 pattern Asm :: LanguageCode
 pattern Asm = LanguageCode' "ASM"
@@ -271,11 +322,14 @@ pattern Aym = LanguageCode' "AYM"
 pattern Aze :: LanguageCode
 pattern Aze = LanguageCode' "AZE"
 
+pattern Bam :: LanguageCode
+pattern Bam = LanguageCode' "BAM"
+
 pattern Bak :: LanguageCode
 pattern Bak = LanguageCode' "BAK"
 
-pattern Bam :: LanguageCode
-pattern Bam = LanguageCode' "BAM"
+pattern Eus :: LanguageCode
+pattern Eus = LanguageCode' "EUS"
 
 pattern Bel :: LanguageCode
 pattern Bel = LanguageCode' "BEL"
@@ -289,9 +343,6 @@ pattern Bih = LanguageCode' "BIH"
 pattern Bis :: LanguageCode
 pattern Bis = LanguageCode' "BIS"
 
-pattern Bod :: LanguageCode
-pattern Bod = LanguageCode' "BOD"
-
 pattern Bos :: LanguageCode
 pattern Bos = LanguageCode' "BOS"
 
@@ -301,17 +352,23 @@ pattern Bre = LanguageCode' "BRE"
 pattern Bul :: LanguageCode
 pattern Bul = LanguageCode' "BUL"
 
+pattern Mya :: LanguageCode
+pattern Mya = LanguageCode' "MYA"
+
 pattern Cat :: LanguageCode
 pattern Cat = LanguageCode' "CAT"
 
-pattern Ces :: LanguageCode
-pattern Ces = LanguageCode' "CES"
+pattern Khm :: LanguageCode
+pattern Khm = LanguageCode' "KHM"
 
 pattern Cha :: LanguageCode
 pattern Cha = LanguageCode' "CHA"
 
 pattern Che :: LanguageCode
 pattern Che = LanguageCode' "CHE"
+
+pattern Nya :: LanguageCode
+pattern Nya = LanguageCode' "NYA"
 
 pattern Chu :: LanguageCode
 pattern Chu = LanguageCode' "CHU"
@@ -328,26 +385,23 @@ pattern Cos = LanguageCode' "COS"
 pattern Cre :: LanguageCode
 pattern Cre = LanguageCode' "CRE"
 
-pattern Cym :: LanguageCode
-pattern Cym = LanguageCode' "CYM"
+pattern Hrv :: LanguageCode
+pattern Hrv = LanguageCode' "HRV"
+
+pattern Ces :: LanguageCode
+pattern Ces = LanguageCode' "CES"
 
 pattern Dan :: LanguageCode
 pattern Dan = LanguageCode' "DAN"
 
-pattern Deu :: LanguageCode
-pattern Deu = LanguageCode' "DEU"
-
 pattern Div :: LanguageCode
 pattern Div = LanguageCode' "DIV"
 
+pattern Nld :: LanguageCode
+pattern Nld = LanguageCode' "NLD"
+
 pattern Dzo :: LanguageCode
 pattern Dzo = LanguageCode' "DZO"
-
-pattern Ell :: LanguageCode
-pattern Ell = LanguageCode' "ELL"
-
-pattern Eng :: LanguageCode
-pattern Eng = LanguageCode' "ENG"
 
 pattern Enm :: LanguageCode
 pattern Enm = LanguageCode' "ENM"
@@ -358,17 +412,11 @@ pattern Epo = LanguageCode' "EPO"
 pattern Est :: LanguageCode
 pattern Est = LanguageCode' "EST"
 
-pattern Eus :: LanguageCode
-pattern Eus = LanguageCode' "EUS"
-
 pattern Ewe :: LanguageCode
 pattern Ewe = LanguageCode' "EWE"
 
 pattern Fao :: LanguageCode
 pattern Fao = LanguageCode' "FAO"
-
-pattern Fas :: LanguageCode
-pattern Fas = LanguageCode' "FAS"
 
 pattern Fij :: LanguageCode
 pattern Fij = LanguageCode' "FIJ"
@@ -376,32 +424,26 @@ pattern Fij = LanguageCode' "FIJ"
 pattern Fin :: LanguageCode
 pattern Fin = LanguageCode' "FIN"
 
-pattern Fra :: LanguageCode
-pattern Fra = LanguageCode' "FRA"
-
 pattern Frm :: LanguageCode
 pattern Frm = LanguageCode' "FRM"
-
-pattern Fry :: LanguageCode
-pattern Fry = LanguageCode' "FRY"
 
 pattern Ful :: LanguageCode
 pattern Ful = LanguageCode' "FUL"
 
-pattern Ger :: LanguageCode
-pattern Ger = LanguageCode' "GER"
-
 pattern Gla :: LanguageCode
 pattern Gla = LanguageCode' "GLA"
-
-pattern Gle :: LanguageCode
-pattern Gle = LanguageCode' "GLE"
 
 pattern Glg :: LanguageCode
 pattern Glg = LanguageCode' "GLG"
 
-pattern Glv :: LanguageCode
-pattern Glv = LanguageCode' "GLV"
+pattern Lug :: LanguageCode
+pattern Lug = LanguageCode' "LUG"
+
+pattern Kat :: LanguageCode
+pattern Kat = LanguageCode' "KAT"
+
+pattern Ell :: LanguageCode
+pattern Ell = LanguageCode' "ELL"
 
 pattern Grn :: LanguageCode
 pattern Grn = LanguageCode' "GRN"
@@ -421,56 +463,41 @@ pattern Heb = LanguageCode' "HEB"
 pattern Her :: LanguageCode
 pattern Her = LanguageCode' "HER"
 
-pattern Hin :: LanguageCode
-pattern Hin = LanguageCode' "HIN"
-
 pattern Hmo :: LanguageCode
 pattern Hmo = LanguageCode' "HMO"
-
-pattern Hrv :: LanguageCode
-pattern Hrv = LanguageCode' "HRV"
 
 pattern Hun :: LanguageCode
 pattern Hun = LanguageCode' "HUN"
 
-pattern Hye :: LanguageCode
-pattern Hye = LanguageCode' "HYE"
-
-pattern IPk :: LanguageCode
-pattern IPk = LanguageCode' "IPK"
-
-pattern Ibo :: LanguageCode
-pattern Ibo = LanguageCode' "IBO"
+pattern Isl :: LanguageCode
+pattern Isl = LanguageCode' "ISL"
 
 pattern Ido :: LanguageCode
 pattern Ido = LanguageCode' "IDO"
 
-pattern Iii :: LanguageCode
-pattern Iii = LanguageCode' "III"
-
-pattern Iku :: LanguageCode
-pattern Iku = LanguageCode' "IKU"
-
-pattern Ile :: LanguageCode
-pattern Ile = LanguageCode' "ILE"
-
-pattern Ina :: LanguageCode
-pattern Ina = LanguageCode' "INA"
+pattern Ibo :: LanguageCode
+pattern Ibo = LanguageCode' "IBO"
 
 pattern Ind :: LanguageCode
 pattern Ind = LanguageCode' "IND"
 
-pattern Isl :: LanguageCode
-pattern Isl = LanguageCode' "ISL"
+pattern Ina :: LanguageCode
+pattern Ina = LanguageCode' "INA"
 
-pattern Ita :: LanguageCode
-pattern Ita = LanguageCode' "ITA"
+pattern Ile :: LanguageCode
+pattern Ile = LanguageCode' "ILE"
+
+pattern Iku :: LanguageCode
+pattern Iku = LanguageCode' "IKU"
+
+pattern IPk :: LanguageCode
+pattern IPk = LanguageCode' "IPK"
+
+pattern Gle :: LanguageCode
+pattern Gle = LanguageCode' "GLE"
 
 pattern Jav :: LanguageCode
 pattern Jav = LanguageCode' "JAV"
-
-pattern Jpn :: LanguageCode
-pattern Jpn = LanguageCode' "JPN"
 
 pattern Kal :: LanguageCode
 pattern Kal = LanguageCode' "KAL"
@@ -478,20 +505,14 @@ pattern Kal = LanguageCode' "KAL"
 pattern Kan :: LanguageCode
 pattern Kan = LanguageCode' "KAN"
 
-pattern Kas :: LanguageCode
-pattern Kas = LanguageCode' "KAS"
-
-pattern Kat :: LanguageCode
-pattern Kat = LanguageCode' "KAT"
-
 pattern Kau :: LanguageCode
 pattern Kau = LanguageCode' "KAU"
 
+pattern Kas :: LanguageCode
+pattern Kas = LanguageCode' "KAS"
+
 pattern Kaz :: LanguageCode
 pattern Kaz = LanguageCode' "KAZ"
-
-pattern Khm :: LanguageCode
-pattern Khm = LanguageCode' "KHM"
 
 pattern Kik :: LanguageCode
 pattern Kik = LanguageCode' "KIK"
@@ -507,9 +528,6 @@ pattern Kom = LanguageCode' "KOM"
 
 pattern Kon :: LanguageCode
 pattern Kon = LanguageCode' "KON"
-
-pattern Kor :: LanguageCode
-pattern Kor = LanguageCode' "KOR"
 
 pattern Kua :: LanguageCode
 pattern Kua = LanguageCode' "KUA"
@@ -535,23 +553,11 @@ pattern Lin = LanguageCode' "LIN"
 pattern Lit :: LanguageCode
 pattern Lit = LanguageCode' "LIT"
 
-pattern Ltz :: LanguageCode
-pattern Ltz = LanguageCode' "LTZ"
-
 pattern Lub :: LanguageCode
 pattern Lub = LanguageCode' "LUB"
 
-pattern Lug :: LanguageCode
-pattern Lug = LanguageCode' "LUG"
-
-pattern Mah :: LanguageCode
-pattern Mah = LanguageCode' "MAH"
-
-pattern Mal :: LanguageCode
-pattern Mal = LanguageCode' "MAL"
-
-pattern Mar :: LanguageCode
-pattern Mar = LanguageCode' "MAR"
+pattern Ltz :: LanguageCode
+pattern Ltz = LanguageCode' "LTZ"
 
 pattern Mkd :: LanguageCode
 pattern Mkd = LanguageCode' "MKD"
@@ -559,20 +565,29 @@ pattern Mkd = LanguageCode' "MKD"
 pattern Mlg :: LanguageCode
 pattern Mlg = LanguageCode' "MLG"
 
+pattern Msa :: LanguageCode
+pattern Msa = LanguageCode' "MSA"
+
+pattern Mal :: LanguageCode
+pattern Mal = LanguageCode' "MAL"
+
 pattern Mlt :: LanguageCode
 pattern Mlt = LanguageCode' "MLT"
 
-pattern Mon :: LanguageCode
-pattern Mon = LanguageCode' "MON"
+pattern Glv :: LanguageCode
+pattern Glv = LanguageCode' "GLV"
 
 pattern Mri :: LanguageCode
 pattern Mri = LanguageCode' "MRI"
 
-pattern Msa :: LanguageCode
-pattern Msa = LanguageCode' "MSA"
+pattern Mar :: LanguageCode
+pattern Mar = LanguageCode' "MAR"
 
-pattern Mya :: LanguageCode
-pattern Mya = LanguageCode' "MYA"
+pattern Mah :: LanguageCode
+pattern Mah = LanguageCode' "MAH"
+
+pattern Mon :: LanguageCode
+pattern Mon = LanguageCode' "MON"
 
 pattern Nau :: LanguageCode
 pattern Nau = LanguageCode' "NAU"
@@ -580,11 +595,11 @@ pattern Nau = LanguageCode' "NAU"
 pattern Nav :: LanguageCode
 pattern Nav = LanguageCode' "NAV"
 
-pattern Nbl :: LanguageCode
-pattern Nbl = LanguageCode' "NBL"
-
 pattern Nde :: LanguageCode
 pattern Nde = LanguageCode' "NDE"
+
+pattern Nbl :: LanguageCode
+pattern Nbl = LanguageCode' "NBL"
 
 pattern Ndo :: LanguageCode
 pattern Ndo = LanguageCode' "NDO"
@@ -592,23 +607,17 @@ pattern Ndo = LanguageCode' "NDO"
 pattern Nep :: LanguageCode
 pattern Nep = LanguageCode' "NEP"
 
-pattern Nld :: LanguageCode
-pattern Nld = LanguageCode' "NLD"
-
-pattern Nno :: LanguageCode
-pattern Nno = LanguageCode' "NNO"
-
-pattern Nob :: LanguageCode
-pattern Nob = LanguageCode' "NOB"
+pattern Sme :: LanguageCode
+pattern Sme = LanguageCode' "SME"
 
 pattern Nor :: LanguageCode
 pattern Nor = LanguageCode' "NOR"
 
-pattern Nya :: LanguageCode
-pattern Nya = LanguageCode' "NYA"
+pattern Nob :: LanguageCode
+pattern Nob = LanguageCode' "NOB"
 
-pattern OSs :: LanguageCode
-pattern OSs = LanguageCode' "OSS"
+pattern Nno :: LanguageCode
+pattern Nno = LanguageCode' "NNO"
 
 pattern Oci :: LanguageCode
 pattern Oci = LanguageCode' "OCI"
@@ -619,53 +628,62 @@ pattern Oji = LanguageCode' "OJI"
 pattern Ori :: LanguageCode
 pattern Ori = LanguageCode' "ORI"
 
-pattern Orj :: LanguageCode
-pattern Orj = LanguageCode' "ORJ"
-
 pattern Orm :: LanguageCode
 pattern Orm = LanguageCode' "ORM"
 
-pattern Pan :: LanguageCode
-pattern Pan = LanguageCode' "PAN"
+pattern OSs :: LanguageCode
+pattern OSs = LanguageCode' "OSS"
 
 pattern Pli :: LanguageCode
 pattern Pli = LanguageCode' "PLI"
 
+pattern Fas :: LanguageCode
+pattern Fas = LanguageCode' "FAS"
+
 pattern Pol :: LanguageCode
 pattern Pol = LanguageCode' "POL"
-
-pattern Por :: LanguageCode
-pattern Por = LanguageCode' "POR"
 
 pattern Pus :: LanguageCode
 pattern Pus = LanguageCode' "PUS"
 
-pattern Qaa :: LanguageCode
-pattern Qaa = LanguageCode' "QAA"
-
-pattern Qpc :: LanguageCode
-pattern Qpc = LanguageCode' "QPC"
-
 pattern Que :: LanguageCode
 pattern Que = LanguageCode' "QUE"
 
-pattern Roh :: LanguageCode
-pattern Roh = LanguageCode' "ROH"
+pattern Qaa :: LanguageCode
+pattern Qaa = LanguageCode' "QAA"
 
 pattern Ron :: LanguageCode
 pattern Ron = LanguageCode' "RON"
 
+pattern Roh :: LanguageCode
+pattern Roh = LanguageCode' "ROH"
+
 pattern Run :: LanguageCode
 pattern Run = LanguageCode' "RUN"
 
-pattern Rus :: LanguageCode
-pattern Rus = LanguageCode' "RUS"
+pattern Smo :: LanguageCode
+pattern Smo = LanguageCode' "SMO"
 
 pattern Sag :: LanguageCode
 pattern Sag = LanguageCode' "SAG"
 
 pattern San :: LanguageCode
 pattern San = LanguageCode' "SAN"
+
+pattern Srd :: LanguageCode
+pattern Srd = LanguageCode' "SRD"
+
+pattern Srb :: LanguageCode
+pattern Srb = LanguageCode' "SRB"
+
+pattern Sna :: LanguageCode
+pattern Sna = LanguageCode' "SNA"
+
+pattern Iii :: LanguageCode
+pattern Iii = LanguageCode' "III"
+
+pattern Snd :: LanguageCode
+pattern Snd = LanguageCode' "SND"
 
 pattern Sin :: LanguageCode
 pattern Sin = LanguageCode' "SIN"
@@ -676,38 +694,11 @@ pattern Slk = LanguageCode' "SLK"
 pattern Slv :: LanguageCode
 pattern Slv = LanguageCode' "SLV"
 
-pattern Sme :: LanguageCode
-pattern Sme = LanguageCode' "SME"
-
-pattern Smo :: LanguageCode
-pattern Smo = LanguageCode' "SMO"
-
-pattern Sna :: LanguageCode
-pattern Sna = LanguageCode' "SNA"
-
-pattern Snd :: LanguageCode
-pattern Snd = LanguageCode' "SND"
-
 pattern Som :: LanguageCode
 pattern Som = LanguageCode' "SOM"
 
 pattern Sot :: LanguageCode
 pattern Sot = LanguageCode' "SOT"
-
-pattern Spa :: LanguageCode
-pattern Spa = LanguageCode' "SPA"
-
-pattern Sqi :: LanguageCode
-pattern Sqi = LanguageCode' "SQI"
-
-pattern Srb :: LanguageCode
-pattern Srb = LanguageCode' "SRB"
-
-pattern Srd :: LanguageCode
-pattern Srd = LanguageCode' "SRD"
-
-pattern Ssw :: LanguageCode
-pattern Ssw = LanguageCode' "SSW"
 
 pattern Sun :: LanguageCode
 pattern Sun = LanguageCode' "SUN"
@@ -715,11 +706,20 @@ pattern Sun = LanguageCode' "SUN"
 pattern Swa :: LanguageCode
 pattern Swa = LanguageCode' "SWA"
 
+pattern Ssw :: LanguageCode
+pattern Ssw = LanguageCode' "SSW"
+
 pattern Swe :: LanguageCode
 pattern Swe = LanguageCode' "SWE"
 
+pattern Tgl :: LanguageCode
+pattern Tgl = LanguageCode' "TGL"
+
 pattern Tah :: LanguageCode
 pattern Tah = LanguageCode' "TAH"
+
+pattern Tgk :: LanguageCode
+pattern Tgk = LanguageCode' "TGK"
 
 pattern Tam :: LanguageCode
 pattern Tam = LanguageCode' "TAM"
@@ -730,35 +730,29 @@ pattern Tat = LanguageCode' "TAT"
 pattern Tel :: LanguageCode
 pattern Tel = LanguageCode' "TEL"
 
-pattern Tgk :: LanguageCode
-pattern Tgk = LanguageCode' "TGK"
-
-pattern Tgl :: LanguageCode
-pattern Tgl = LanguageCode' "TGL"
-
 pattern Tha :: LanguageCode
 pattern Tha = LanguageCode' "THA"
+
+pattern Bod :: LanguageCode
+pattern Bod = LanguageCode' "BOD"
 
 pattern Tir :: LanguageCode
 pattern Tir = LanguageCode' "TIR"
 
-pattern Tng :: LanguageCode
-pattern Tng = LanguageCode' "TNG"
-
 pattern Ton :: LanguageCode
 pattern Ton = LanguageCode' "TON"
-
-pattern Tsn :: LanguageCode
-pattern Tsn = LanguageCode' "TSN"
 
 pattern Tso :: LanguageCode
 pattern Tso = LanguageCode' "TSO"
 
-pattern Tuk :: LanguageCode
-pattern Tuk = LanguageCode' "TUK"
+pattern Tsn :: LanguageCode
+pattern Tsn = LanguageCode' "TSN"
 
 pattern Tur :: LanguageCode
 pattern Tur = LanguageCode' "TUR"
+
+pattern Tuk :: LanguageCode
+pattern Tuk = LanguageCode' "TUK"
 
 pattern Twi :: LanguageCode
 pattern Twi = LanguageCode' "TWI"
@@ -769,23 +763,23 @@ pattern Uig = LanguageCode' "UIG"
 pattern Ukr :: LanguageCode
 pattern Ukr = LanguageCode' "UKR"
 
-pattern Urd :: LanguageCode
-pattern Urd = LanguageCode' "URD"
-
 pattern Uzb :: LanguageCode
 pattern Uzb = LanguageCode' "UZB"
 
 pattern Ven :: LanguageCode
 pattern Ven = LanguageCode' "VEN"
 
-pattern Vie :: LanguageCode
-pattern Vie = LanguageCode' "VIE"
-
 pattern Vol :: LanguageCode
 pattern Vol = LanguageCode' "VOL"
 
 pattern Wln :: LanguageCode
 pattern Wln = LanguageCode' "WLN"
+
+pattern Cym :: LanguageCode
+pattern Cym = LanguageCode' "CYM"
+
+pattern Fry :: LanguageCode
+pattern Fry = LanguageCode' "FRY"
 
 pattern Wol :: LanguageCode
 pattern Wol = LanguageCode' "WOL"
@@ -802,105 +796,117 @@ pattern Yor = LanguageCode' "YOR"
 pattern Zha :: LanguageCode
 pattern Zha = LanguageCode' "ZHA"
 
-pattern Zho :: LanguageCode
-pattern Zho = LanguageCode' "ZHO"
-
 pattern Zul :: LanguageCode
 pattern Zul = LanguageCode' "ZUL"
 
+pattern Orj :: LanguageCode
+pattern Orj = LanguageCode' "ORJ"
+
+pattern Qpc :: LanguageCode
+pattern Qpc = LanguageCode' "QPC"
+
+pattern Tng :: LanguageCode
+pattern Tng = LanguageCode' "TNG"
+
 {-# COMPLETE
-  Aar,
+  Eng,
+  Spa,
+  Fra,
+  Deu,
+  Ger,
+  Zho,
+  Ara,
+  Hin,
+  Jpn,
+  Rus,
+  Por,
+  Ita,
+  Urd,
+  Vie,
+  Kor,
+  Pan,
   Abk,
+  Aar,
   Afr,
   Aka,
+  Sqi,
   Amh,
-  Ara,
   Arg,
+  Hye,
   Asm,
   Ava,
   Ave,
   Aym,
   Aze,
-  Bak,
   Bam,
+  Bak,
+  Eus,
   Bel,
   Ben,
   Bih,
   Bis,
-  Bod,
   Bos,
   Bre,
   Bul,
+  Mya,
   Cat,
-  Ces,
+  Khm,
   Cha,
   Che,
+  Nya,
   Chu,
   Chv,
   Cor,
   Cos,
   Cre,
-  Cym,
+  Hrv,
+  Ces,
   Dan,
-  Deu,
   Div,
+  Nld,
   Dzo,
-  Ell,
-  Eng,
   Enm,
   Epo,
   Est,
-  Eus,
   Ewe,
   Fao,
-  Fas,
   Fij,
   Fin,
-  Fra,
   Frm,
-  Fry,
   Ful,
-  Ger,
   Gla,
-  Gle,
   Glg,
-  Glv,
+  Lug,
+  Kat,
+  Ell,
   Grn,
   Guj,
   Hat,
   Hau,
   Heb,
   Her,
-  Hin,
   Hmo,
-  Hrv,
   Hun,
-  Hye,
-  IPk,
-  Ibo,
-  Ido,
-  Iii,
-  Iku,
-  Ile,
-  Ina,
-  Ind,
   Isl,
-  Ita,
+  Ido,
+  Ibo,
+  Ind,
+  Ina,
+  Ile,
+  Iku,
+  IPk,
+  Gle,
   Jav,
-  Jpn,
   Kal,
   Kan,
-  Kas,
-  Kat,
   Kau,
+  Kas,
   Kaz,
-  Khm,
   Kik,
   Kin,
   Kir,
   Kom,
   Kon,
-  Kor,
   Kua,
   Kur,
   Lao,
@@ -909,96 +915,90 @@ pattern Zul = LanguageCode' "ZUL"
   Lim,
   Lin,
   Lit,
-  Ltz,
   Lub,
-  Lug,
-  Mah,
-  Mal,
-  Mar,
+  Ltz,
   Mkd,
   Mlg,
-  Mlt,
-  Mon,
-  Mri,
   Msa,
-  Mya,
+  Mal,
+  Mlt,
+  Glv,
+  Mri,
+  Mar,
+  Mah,
+  Mon,
   Nau,
   Nav,
-  Nbl,
   Nde,
+  Nbl,
   Ndo,
   Nep,
-  Nld,
-  Nno,
-  Nob,
+  Sme,
   Nor,
-  Nya,
-  OSs,
+  Nob,
+  Nno,
   Oci,
   Oji,
   Ori,
-  Orj,
   Orm,
-  Pan,
+  OSs,
   Pli,
+  Fas,
   Pol,
-  Por,
   Pus,
-  Qaa,
-  Qpc,
   Que,
-  Roh,
+  Qaa,
   Ron,
+  Roh,
   Run,
-  Rus,
+  Smo,
   Sag,
   San,
+  Srd,
+  Srb,
+  Sna,
+  Iii,
+  Snd,
   Sin,
   Slk,
   Slv,
-  Sme,
-  Smo,
-  Sna,
-  Snd,
   Som,
   Sot,
-  Spa,
-  Sqi,
-  Srb,
-  Srd,
-  Ssw,
   Sun,
   Swa,
+  Ssw,
   Swe,
+  Tgl,
   Tah,
+  Tgk,
   Tam,
   Tat,
   Tel,
-  Tgk,
-  Tgl,
   Tha,
+  Bod,
   Tir,
-  Tng,
   Ton,
-  Tsn,
   Tso,
-  Tuk,
+  Tsn,
   Tur,
+  Tuk,
   Twi,
   Uig,
   Ukr,
-  Urd,
   Uzb,
   Ven,
-  Vie,
   Vol,
   Wln,
+  Cym,
+  Fry,
   Wol,
   Xho,
   Yid,
   Yor,
   Zha,
-  Zho,
   Zul,
+  Orj,
+  Qpc,
+  Tng,
   LanguageCode'
   #-}

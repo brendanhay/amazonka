@@ -30,16 +30,10 @@ import Network.AWS.S3.Types.StorageClassAnalysisDataExport
 --
 -- /See:/ 'mkStorageClassAnalysis' smart constructor.
 newtype StorageClassAnalysis = StorageClassAnalysis'
-  { dataExport ::
-      Lude.Maybe StorageClassAnalysisDataExport
+  { -- | Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+    dataExport :: Lude.Maybe StorageClassAnalysisDataExport
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageClassAnalysis' with the minimum fields required to make a request.

@@ -36,35 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStreamInfo' smart constructor.
 data StreamInfo = StreamInfo'
-  { lastUpdatedAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date when the stream was last updated.
+    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The date when the stream was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The stream version.
     streamVersion :: Lude.Maybe Lude.Natural,
+    -- | The stream ARN.
     streamARN :: Lude.Maybe Lude.Text,
+    -- | The files to stream.
     files :: Lude.Maybe (Lude.NonEmpty StreamFile),
+    -- | The description of the stream.
     description :: Lude.Maybe Lude.Text,
+    -- | The stream ID.
     streamId :: Lude.Maybe Lude.Text,
+    -- | An IAM role AWS IoT assumes to access your S3 files.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamInfo' with the minimum fields required to make a request.
 --
--- * 'createdAt' - The date when the stream was created.
--- * 'description' - The description of the stream.
--- * 'files' - The files to stream.
 -- * 'lastUpdatedAt' - The date when the stream was last updated.
--- * 'roleARN' - An IAM role AWS IoT assumes to access your S3 files.
--- * 'streamARN' - The stream ARN.
--- * 'streamId' - The stream ID.
+-- * 'createdAt' - The date when the stream was created.
 -- * 'streamVersion' - The stream version.
+-- * 'streamARN' - The stream ARN.
+-- * 'files' - The files to stream.
+-- * 'description' - The description of the stream.
+-- * 'streamId' - The stream ID.
+-- * 'roleARN' - An IAM role AWS IoT assumes to access your S3 files.
 mkStreamInfo ::
   StreamInfo
 mkStreamInfo =

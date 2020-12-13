@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMergeOperations' smart constructor.
 data MergeOperations = MergeOperations'
-  { destination ::
-      Lude.Maybe ChangeTypeEnum,
+  { -- | The operation on a file in the destination of a merge or pull request.
+    destination :: Lude.Maybe ChangeTypeEnum,
+    -- | The operation (add, modify, or delete) on a file in the source of a merge or pull request.
     source :: Lude.Maybe ChangeTypeEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeOperations' with the minimum fields required to make a request.

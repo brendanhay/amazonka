@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,13 +23,13 @@ module Network.AWS.XRay.GetTimeSeriesServiceStatistics
 
     -- ** Request lenses
     gtsssEntitySelectorExpression,
+    gtsssStartTime,
     gtsssPeriod,
     gtsssForecastStatistics,
     gtsssNextToken,
+    gtsssEndTime,
     gtsssGroupARN,
     gtsssGroupName,
-    gtsssStartTime,
-    gtsssEndTime,
 
     -- * Destructuring the response
     GetTimeSeriesServiceStatisticsResponse (..),
@@ -51,39 +52,36 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetTimeSeriesServiceStatistics' smart constructor.
 data GetTimeSeriesServiceStatistics = GetTimeSeriesServiceStatistics'
-  { entitySelectorExpression ::
-      Lude.Maybe Lude.Text,
-    period :: Lude.Maybe Lude.Int,
-    forecastStatistics ::
-      Lude.Maybe Lude.Bool,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    groupARN ::
-      Lude.Maybe Lude.Text,
-    groupName ::
-      Lude.Maybe Lude.Text,
+  { -- | A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned.
+    entitySelectorExpression :: Lude.Maybe Lude.Text,
+    -- | The start of the time frame for which to aggregate statistics.
     startTime :: Lude.Timestamp,
-    endTime :: Lude.Timestamp
+    -- | Aggregation period in seconds.
+    period :: Lude.Maybe Lude.Int,
+    -- | The forecasted high and low fault count values. Forecast enabled requests require the EntitySelectorExpression ID be provided.
+    forecastStatistics :: Lude.Maybe Lude.Bool,
+    -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The end of the time frame for which to aggregate statistics.
+    endTime :: Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the group for which to pull statistics from.
+    groupARN :: Lude.Maybe Lude.Text,
+    -- | The case-sensitive name of the group for which to pull statistics from.
+    groupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTimeSeriesServiceStatistics' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end of the time frame for which to aggregate statistics.
 -- * 'entitySelectorExpression' - A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned.
+-- * 'startTime' - The start of the time frame for which to aggregate statistics.
+-- * 'period' - Aggregation period in seconds.
 -- * 'forecastStatistics' - The forecasted high and low fault count values. Forecast enabled requests require the EntitySelectorExpression ID be provided.
+-- * 'nextToken' - Pagination token.
+-- * 'endTime' - The end of the time frame for which to aggregate statistics.
 -- * 'groupARN' - The Amazon Resource Name (ARN) of the group for which to pull statistics from.
 -- * 'groupName' - The case-sensitive name of the group for which to pull statistics from.
--- * 'nextToken' - Pagination token.
--- * 'period' - Aggregation period in seconds.
--- * 'startTime' - The start of the time frame for which to aggregate statistics.
 mkGetTimeSeriesServiceStatistics ::
   -- | 'startTime'
   Lude.Timestamp ->
@@ -94,13 +92,13 @@ mkGetTimeSeriesServiceStatistics pStartTime_ pEndTime_ =
   GetTimeSeriesServiceStatistics'
     { entitySelectorExpression =
         Lude.Nothing,
+      startTime = pStartTime_,
       period = Lude.Nothing,
       forecastStatistics = Lude.Nothing,
       nextToken = Lude.Nothing,
+      endTime = pEndTime_,
       groupARN = Lude.Nothing,
-      groupName = Lude.Nothing,
-      startTime = pStartTime_,
-      endTime = pEndTime_
+      groupName = Lude.Nothing
     }
 
 -- | A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned.
@@ -109,6 +107,13 @@ mkGetTimeSeriesServiceStatistics pStartTime_ pEndTime_ =
 gtsssEntitySelectorExpression :: Lens.Lens' GetTimeSeriesServiceStatistics (Lude.Maybe Lude.Text)
 gtsssEntitySelectorExpression = Lens.lens (entitySelectorExpression :: GetTimeSeriesServiceStatistics -> Lude.Maybe Lude.Text) (\s a -> s {entitySelectorExpression = a} :: GetTimeSeriesServiceStatistics)
 {-# DEPRECATED gtsssEntitySelectorExpression "Use generic-lens or generic-optics with 'entitySelectorExpression' instead." #-}
+
+-- | The start of the time frame for which to aggregate statistics.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssStartTime :: Lens.Lens' GetTimeSeriesServiceStatistics Lude.Timestamp
+gtsssStartTime = Lens.lens (startTime :: GetTimeSeriesServiceStatistics -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Aggregation period in seconds.
 --
@@ -131,6 +136,13 @@ gtsssNextToken :: Lens.Lens' GetTimeSeriesServiceStatistics (Lude.Maybe Lude.Tex
 gtsssNextToken = Lens.lens (nextToken :: GetTimeSeriesServiceStatistics -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTimeSeriesServiceStatistics)
 {-# DEPRECATED gtsssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
+-- | The end of the time frame for which to aggregate statistics.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssEndTime :: Lens.Lens' GetTimeSeriesServiceStatistics Lude.Timestamp
+gtsssEndTime = Lens.lens (endTime :: GetTimeSeriesServiceStatistics -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
 -- | The Amazon Resource Name (ARN) of the group for which to pull statistics from.
 --
 -- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -144,20 +156,6 @@ gtsssGroupARN = Lens.lens (groupARN :: GetTimeSeriesServiceStatistics -> Lude.Ma
 gtsssGroupName :: Lens.Lens' GetTimeSeriesServiceStatistics (Lude.Maybe Lude.Text)
 gtsssGroupName = Lens.lens (groupName :: GetTimeSeriesServiceStatistics -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GetTimeSeriesServiceStatistics)
 {-# DEPRECATED gtsssGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
--- | The start of the time frame for which to aggregate statistics.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsssStartTime :: Lens.Lens' GetTimeSeriesServiceStatistics Lude.Timestamp
-gtsssStartTime = Lens.lens (startTime :: GetTimeSeriesServiceStatistics -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetTimeSeriesServiceStatistics)
-{-# DEPRECATED gtsssStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The end of the time frame for which to aggregate statistics.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsssEndTime :: Lens.Lens' GetTimeSeriesServiceStatistics Lude.Timestamp
-gtsssEndTime = Lens.lens (endTime :: GetTimeSeriesServiceStatistics -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetTimeSeriesServiceStatistics)
-{-# DEPRECATED gtsssEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 instance Page.AWSPager GetTimeSeriesServiceStatistics where
   page rq rs
@@ -193,13 +191,13 @@ instance Lude.ToJSON GetTimeSeriesServiceStatistics where
       ( Lude.catMaybes
           [ ("EntitySelectorExpression" Lude..=)
               Lude.<$> entitySelectorExpression,
+            Lude.Just ("StartTime" Lude..= startTime),
             ("Period" Lude..=) Lude.<$> period,
             ("ForecastStatistics" Lude..=) Lude.<$> forecastStatistics,
             ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("EndTime" Lude..= endTime),
             ("GroupARN" Lude..=) Lude.<$> groupARN,
-            ("GroupName" Lude..=) Lude.<$> groupName,
-            Lude.Just ("StartTime" Lude..= startTime),
-            Lude.Just ("EndTime" Lude..= endTime)
+            ("GroupName" Lude..=) Lude.<$> groupName
           ]
       )
 
@@ -211,33 +209,24 @@ instance Lude.ToQuery GetTimeSeriesServiceStatistics where
 
 -- | /See:/ 'mkGetTimeSeriesServiceStatisticsResponse' smart constructor.
 data GetTimeSeriesServiceStatisticsResponse = GetTimeSeriesServiceStatisticsResponse'
-  { containsOldGroupVersions ::
-      Lude.Maybe
-        Lude.Bool,
-    timeSeriesServiceStatistics ::
-      Lude.Maybe
-        [TimeSeriesServiceStatistics],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A flag indicating whether or not a group's filter expression has been consistent, or if a returned aggregation might show statistics from an older version of the group's filter expression.
+    containsOldGroupVersions :: Lude.Maybe Lude.Bool,
+    -- | The collection of statistics.
+    timeSeriesServiceStatistics :: Lude.Maybe [TimeSeriesServiceStatistics],
+    -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTimeSeriesServiceStatisticsResponse' with the minimum fields required to make a request.
 --
 -- * 'containsOldGroupVersions' - A flag indicating whether or not a group's filter expression has been consistent, or if a returned aggregation might show statistics from an older version of the group's filter expression.
+-- * 'timeSeriesServiceStatistics' - The collection of statistics.
 -- * 'nextToken' - Pagination token.
 -- * 'responseStatus' - The response status code.
--- * 'timeSeriesServiceStatistics' - The collection of statistics.
 mkGetTimeSeriesServiceStatisticsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

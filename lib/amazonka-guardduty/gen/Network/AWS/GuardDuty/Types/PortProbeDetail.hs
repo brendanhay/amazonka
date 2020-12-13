@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPortProbeDetail' smart constructor.
 data PortProbeDetail = PortProbeDetail'
-  { remoteIPDetails ::
-      Lude.Maybe RemoteIPDetails,
+  { -- | The remote IP information of the connection.
+    remoteIPDetails :: Lude.Maybe RemoteIPDetails,
+    -- | The local IP information of the connection.
     localIPDetails :: Lude.Maybe LocalIPDetails,
+    -- | The local port information of the connection.
     localPortDetails :: Lude.Maybe LocalPortDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PortProbeDetail' with the minimum fields required to make a request.
 --
+-- * 'remoteIPDetails' - The remote IP information of the connection.
 -- * 'localIPDetails' - The local IP information of the connection.
 -- * 'localPortDetails' - The local port information of the connection.
--- * 'remoteIPDetails' - The remote IP information of the connection.
 mkPortProbeDetail ::
   PortProbeDetail
 mkPortProbeDetail =

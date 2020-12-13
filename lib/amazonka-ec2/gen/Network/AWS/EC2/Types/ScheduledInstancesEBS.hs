@@ -33,37 +33,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledInstancesEBS' smart constructor.
 data ScheduledInstancesEBS = ScheduledInstancesEBS'
-  { deleteOnTermination ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether the volume is deleted on instance termination.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The size of the volume, in GiB.
+    --
+    -- Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
     volumeSize :: Lude.Maybe Lude.Int,
+    -- | The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+    --
+    -- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
     iops :: Lude.Maybe Lude.Int,
+    -- | Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that support them.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The volume type. @gp2@ for General Purpose SSD, @io1@ or @io2@ for Provisioned IOPS SSD, Throughput Optimized HDD for @st1@ , Cold HDD for @sc1@ , or @standard@ for Magnetic.
+    --
+    -- Default: @gp2@
     volumeType :: Lude.Maybe Lude.Text,
+    -- | The ID of the snapshot.
     snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstancesEBS' with the minimum fields required to make a request.
 --
 -- * 'deleteOnTermination' - Indicates whether the volume is deleted on instance termination.
--- * 'encrypted' - Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that support them.
--- * 'iops' - The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
--- * 'snapshotId' - The ID of the snapshot.
 -- * 'volumeSize' - The size of the volume, in GiB.
 --
 -- Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+-- * 'iops' - The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
+-- * 'encrypted' - Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that support them.
 -- * 'volumeType' - The volume type. @gp2@ for General Purpose SSD, @io1@ or @io2@ for Provisioned IOPS SSD, Throughput Optimized HDD for @st1@ , Cold HDD for @sc1@ , or @standard@ for Magnetic.
 --
 -- Default: @gp2@
+-- * 'snapshotId' - The ID of the snapshot.
 mkScheduledInstancesEBS ::
   ScheduledInstancesEBS
 mkScheduledInstancesEBS =

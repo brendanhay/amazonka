@@ -13,8 +13,8 @@
 module Network.AWS.SWF.Types.ExecutionStatus
   ( ExecutionStatus
       ( ExecutionStatus',
-        Closed,
-        Open
+        Open,
+        Closed
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ExecutionStatus = ExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Closed :: ExecutionStatus
-pattern Closed = ExecutionStatus' "CLOSED"
-
 pattern Open :: ExecutionStatus
 pattern Open = ExecutionStatus' "OPEN"
 
+pattern Closed :: ExecutionStatus
+pattern Closed = ExecutionStatus' "CLOSED"
+
 {-# COMPLETE
-  Closed,
   Open,
+  Closed,
   ExecutionStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,14 +40,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetPublicKeyConfig' smart constructor.
-newtype GetPublicKeyConfig = GetPublicKeyConfig' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetPublicKeyConfig = GetPublicKeyConfig'
+  { -- | The identifier of the public key whose configuration you are getting.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPublicKeyConfig' with the minimum fields required to make a request.
@@ -89,19 +87,14 @@ instance Lude.ToQuery GetPublicKeyConfig where
 
 -- | /See:/ 'mkGetPublicKeyConfigResponse' smart constructor.
 data GetPublicKeyConfigResponse = GetPublicKeyConfigResponse'
-  { eTag ::
-      Lude.Maybe Lude.Text,
-    publicKeyConfig ::
-      Lude.Maybe PublicKeyConfig,
+  { -- | The identifier for this version of the public key configuration.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | A public key configuration.
+    publicKeyConfig :: Lude.Maybe PublicKeyConfig,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPublicKeyConfigResponse' with the minimum fields required to make a request.

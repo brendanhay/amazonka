@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.SageMaker.DeleteNotebookInstance
     mkDeleteNotebookInstance,
 
     -- ** Request lenses
-    dNotebookInstanceName,
+    dniNotebookInstanceName,
 
     -- * Destructuring the response
     DeleteNotebookInstanceResponse (..),
@@ -37,16 +38,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteNotebookInstance' smart constructor.
 newtype DeleteNotebookInstance = DeleteNotebookInstance'
-  { notebookInstanceName ::
-      Lude.Text
+  { -- | The name of the Amazon SageMaker notebook instance to delete.
+    notebookInstanceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotebookInstance' with the minimum fields required to make a request.
@@ -65,9 +60,9 @@ mkDeleteNotebookInstance pNotebookInstanceName_ =
 -- | The name of the Amazon SageMaker notebook instance to delete.
 --
 -- /Note:/ Consider using 'notebookInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dNotebookInstanceName :: Lens.Lens' DeleteNotebookInstance Lude.Text
-dNotebookInstanceName = Lens.lens (notebookInstanceName :: DeleteNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: DeleteNotebookInstance)
-{-# DEPRECATED dNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
+dniNotebookInstanceName :: Lens.Lens' DeleteNotebookInstance Lude.Text
+dniNotebookInstanceName = Lens.lens (notebookInstanceName :: DeleteNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: DeleteNotebookInstance)
+{-# DEPRECATED dniNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
 
 instance Lude.AWSRequest DeleteNotebookInstance where
   type Rs DeleteNotebookInstance = DeleteNotebookInstanceResponse
@@ -100,13 +95,7 @@ instance Lude.ToQuery DeleteNotebookInstance where
 
 -- | /See:/ 'mkDeleteNotebookInstanceResponse' smart constructor.
 data DeleteNotebookInstanceResponse = DeleteNotebookInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotebookInstanceResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,22 +58,18 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkCreateRegexMatchSet' smart constructor.
 data CreateRegexMatchSet = CreateRegexMatchSet'
-  { name :: Lude.Text,
+  { -- | A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
+    name :: Lude.Text,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRegexMatchSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'name' - A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkCreateRegexMatchSet ::
   -- | 'name'
   Lude.Text ->
@@ -136,24 +133,20 @@ instance Lude.ToQuery CreateRegexMatchSet where
 
 -- | /See:/ 'mkCreateRegexMatchSetResponse' smart constructor.
 data CreateRegexMatchSetResponse = CreateRegexMatchSetResponse'
-  { regexMatchSet ::
-      Lude.Maybe RegexMatchSet,
+  { -- | A 'RegexMatchSet' that contains no @RegexMatchTuple@ objects.
+    regexMatchSet :: Lude.Maybe RegexMatchSet,
+    -- | The @ChangeToken@ that you used to submit the @CreateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
     changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRegexMatchSetResponse' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 -- * 'regexMatchSet' - A 'RegexMatchSet' that contains no @RegexMatchTuple@ objects.
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 -- * 'responseStatus' - The response status code.
 mkCreateRegexMatchSetResponse ::
   -- | 'responseStatus'

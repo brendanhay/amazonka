@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.Glue.GetDatabases
     mkGetDatabasesResponse,
 
     -- ** Response lenses
+    gdsrsDatabaseList,
     gdsrsNextToken,
     gdsrsResponseStatus,
-    gdsrsDatabaseList,
   )
 where
 
@@ -46,26 +47,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDatabases' smart constructor.
 data GetDatabases = GetDatabases'
-  { resourceShareType ::
-      Lude.Maybe ResourceShareType,
+  { -- | Allows you to specify that you want to list the databases shared with your account. The allowable values are @FOREIGN@ or @ALL@ .
+    --
+    --
+    --     * If set to @FOREIGN@ , will list the databases shared with your account.
+    --
+    --
+    --     * If set to @ALL@ , will list the databases shared with your account, as well as the databases in yor local account.
+    resourceShareType :: Lude.Maybe ResourceShareType,
+    -- | The ID of the Data Catalog from which to retrieve @Databases@ . If none is provided, the AWS account ID is used by default.
     catalogId :: Lude.Maybe Lude.Text,
+    -- | A continuation token, if this is a continuation call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of databases to return in one response.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatabases' with the minimum fields required to make a request.
 --
--- * 'catalogId' - The ID of the Data Catalog from which to retrieve @Databases@ . If none is provided, the AWS account ID is used by default.
--- * 'maxResults' - The maximum number of databases to return in one response.
--- * 'nextToken' - A continuation token, if this is a continuation call.
 -- * 'resourceShareType' - Allows you to specify that you want to list the databases shared with your account. The allowable values are @FOREIGN@ or @ALL@ .
 --
 --
@@ -73,6 +74,11 @@ data GetDatabases = GetDatabases'
 --
 --
 --     * If set to @ALL@ , will list the databases shared with your account, as well as the databases in yor local account.
+--
+--
+-- * 'catalogId' - The ID of the Data Catalog from which to retrieve @Databases@ . If none is provided, the AWS account ID is used by default.
+-- * 'nextToken' - A continuation token, if this is a continuation call.
+-- * 'maxResults' - The maximum number of databases to return in one response.
 mkGetDatabases ::
   GetDatabases
 mkGetDatabases =
@@ -135,9 +141,9 @@ instance Lude.AWSRequest GetDatabases where
     Res.receiveJSON
       ( \s h x ->
           GetDatabasesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "DatabaseList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "DatabaseList" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders GetDatabases where
@@ -170,18 +176,14 @@ instance Lude.ToQuery GetDatabases where
 
 -- | /See:/ 'mkGetDatabasesResponse' smart constructor.
 data GetDatabasesResponse = GetDatabasesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    databaseList :: [Database]
+  { -- | A list of @Database@ objects from the specified catalog.
+    databaseList :: [Database],
+    -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatabasesResponse' with the minimum fields required to make a request.
@@ -195,10 +197,17 @@ mkGetDatabasesResponse ::
   GetDatabasesResponse
 mkGetDatabasesResponse pResponseStatus_ =
   GetDatabasesResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      databaseList = Lude.mempty
+    { databaseList = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | A list of @Database@ objects from the specified catalog.
+--
+-- /Note:/ Consider using 'databaseList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsrsDatabaseList :: Lens.Lens' GetDatabasesResponse [Database]
+gdsrsDatabaseList = Lens.lens (databaseList :: GetDatabasesResponse -> [Database]) (\s a -> s {databaseList = a} :: GetDatabasesResponse)
+{-# DEPRECATED gdsrsDatabaseList "Use generic-lens or generic-optics with 'databaseList' instead." #-}
 
 -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
 --
@@ -213,10 +222,3 @@ gdsrsNextToken = Lens.lens (nextToken :: GetDatabasesResponse -> Lude.Maybe Lude
 gdsrsResponseStatus :: Lens.Lens' GetDatabasesResponse Lude.Int
 gdsrsResponseStatus = Lens.lens (responseStatus :: GetDatabasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDatabasesResponse)
 {-# DEPRECATED gdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | A list of @Database@ objects from the specified catalog.
---
--- /Note:/ Consider using 'databaseList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsDatabaseList :: Lens.Lens' GetDatabasesResponse [Database]
-gdsrsDatabaseList = Lens.lens (databaseList :: GetDatabasesResponse -> [Database]) (\s a -> s {databaseList = a} :: GetDatabasesResponse)
-{-# DEPRECATED gdsrsDatabaseList "Use generic-lens or generic-optics with 'databaseList' instead." #-}

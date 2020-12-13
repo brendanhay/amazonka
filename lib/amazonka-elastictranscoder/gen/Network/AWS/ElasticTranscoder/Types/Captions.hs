@@ -32,23 +32,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptions' smart constructor.
 data Captions = Captions'
-  { mergePolicy :: Lude.Maybe Lude.Text,
+  { -- | A policy that determines how Elastic Transcoder handles the existence of multiple captions.
+    --
+    --
+    --     * __MergeOverride:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.
+    --
+    --
+    --     * __MergeRetain:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If @CaptionSources@ is empty, Elastic Transcoder omits all sidecar captions from the output files.
+    --
+    --
+    --     * __Override:__ Elastic Transcoder transcodes only the sidecar captions that you specify in @CaptionSources@ .
+    --
+    --
+    -- @MergePolicy@ cannot be null.
+    mergePolicy :: Lude.Maybe Lude.Text,
+    -- | Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave @CaptionSources@ blank.
     captionSources :: Lude.Maybe [CaptionSource],
+    -- | The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.
     captionFormats :: Lude.Maybe [CaptionFormat]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Captions' with the minimum fields required to make a request.
 --
--- * 'captionFormats' - The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.
--- * 'captionSources' - Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave @CaptionSources@ blank.
 -- * 'mergePolicy' - A policy that determines how Elastic Transcoder handles the existence of multiple captions.
 --
 --
@@ -62,6 +69,8 @@ data Captions = Captions'
 --
 --
 -- @MergePolicy@ cannot be null.
+-- * 'captionSources' - Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave @CaptionSources@ blank.
+-- * 'captionFormats' - The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.
 mkCaptions ::
   Captions
 mkCaptions =

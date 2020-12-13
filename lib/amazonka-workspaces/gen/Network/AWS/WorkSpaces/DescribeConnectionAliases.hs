@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,9 +30,9 @@ module Network.AWS.WorkSpaces.DescribeConnectionAliases
     mkDescribeConnectionAliasesResponse,
 
     -- ** Response lenses
-    desrsConnectionAliases,
-    desrsNextToken,
-    desrsResponseStatus,
+    dcafrsConnectionAliases,
+    dcafrsNextToken,
+    dcafrsResponseStatus,
   )
 where
 
@@ -43,28 +44,24 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeConnectionAliases' smart constructor.
 data DescribeConnectionAliases = DescribeConnectionAliases'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
-    aliasIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The identifier of the directory associated with the connection alias.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The identifiers of the connection aliases to describe.
+    aliasIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of connection aliases to return.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConnectionAliases' with the minimum fields required to make a request.
 --
--- * 'aliasIds' - The identifiers of the connection aliases to describe.
--- * 'limit' - The maximum number of connection aliases to return.
--- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 -- * 'resourceId' - The identifier of the directory associated with the connection alias.
+-- * 'aliasIds' - The identifiers of the connection aliases to describe.
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+-- * 'limit' - The maximum number of connection aliases to return.
 mkDescribeConnectionAliases ::
   DescribeConnectionAliases
 mkDescribeConnectionAliases =
@@ -147,23 +144,14 @@ instance Lude.ToQuery DescribeConnectionAliases where
 
 -- | /See:/ 'mkDescribeConnectionAliasesResponse' smart constructor.
 data DescribeConnectionAliasesResponse = DescribeConnectionAliasesResponse'
-  { connectionAliases ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ConnectionAlias
-        ),
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the specified connection aliases.
+    connectionAliases :: Lude.Maybe (Lude.NonEmpty ConnectionAlias),
+    -- | The token to use to retrieve the next set of results, or null if no more results are available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConnectionAliasesResponse' with the minimum fields required to make a request.
@@ -186,20 +174,20 @@ mkDescribeConnectionAliasesResponse pResponseStatus_ =
 -- | Information about the specified connection aliases.
 --
 -- /Note:/ Consider using 'connectionAliases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsConnectionAliases :: Lens.Lens' DescribeConnectionAliasesResponse (Lude.Maybe (Lude.NonEmpty ConnectionAlias))
-desrsConnectionAliases = Lens.lens (connectionAliases :: DescribeConnectionAliasesResponse -> Lude.Maybe (Lude.NonEmpty ConnectionAlias)) (\s a -> s {connectionAliases = a} :: DescribeConnectionAliasesResponse)
-{-# DEPRECATED desrsConnectionAliases "Use generic-lens or generic-optics with 'connectionAliases' instead." #-}
+dcafrsConnectionAliases :: Lens.Lens' DescribeConnectionAliasesResponse (Lude.Maybe (Lude.NonEmpty ConnectionAlias))
+dcafrsConnectionAliases = Lens.lens (connectionAliases :: DescribeConnectionAliasesResponse -> Lude.Maybe (Lude.NonEmpty ConnectionAlias)) (\s a -> s {connectionAliases = a} :: DescribeConnectionAliasesResponse)
+{-# DEPRECATED dcafrsConnectionAliases "Use generic-lens or generic-optics with 'connectionAliases' instead." #-}
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsNextToken :: Lens.Lens' DescribeConnectionAliasesResponse (Lude.Maybe Lude.Text)
-desrsNextToken = Lens.lens (nextToken :: DescribeConnectionAliasesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConnectionAliasesResponse)
-{-# DEPRECATED desrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcafrsNextToken :: Lens.Lens' DescribeConnectionAliasesResponse (Lude.Maybe Lude.Text)
+dcafrsNextToken = Lens.lens (nextToken :: DescribeConnectionAliasesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConnectionAliasesResponse)
+{-# DEPRECATED dcafrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeConnectionAliasesResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeConnectionAliasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConnectionAliasesResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcafrsResponseStatus :: Lens.Lens' DescribeConnectionAliasesResponse Lude.Int
+dcafrsResponseStatus = Lens.lens (responseStatus :: DescribeConnectionAliasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConnectionAliasesResponse)
+{-# DEPRECATED dcafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

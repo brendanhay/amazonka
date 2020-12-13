@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlockPublicAccess' smart constructor.
 data BlockPublicAccess = BlockPublicAccess'
-  { ignorePublicACLs ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates if S3 Block Public Access is set to @IgnorePublicAcls@ .
+    ignorePublicACLs :: Lude.Maybe Lude.Bool,
+    -- | Indicates if S3 Block Public Access is set to @BlockPublicAcls@ .
     blockPublicACLs :: Lude.Maybe Lude.Bool,
+    -- | Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@ .
     restrictPublicBuckets :: Lude.Maybe Lude.Bool,
+    -- | Indicates if S3 Block Public Access is set to @BlockPublicPolicy@ .
     blockPublicPolicy :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlockPublicAccess' with the minimum fields required to make a request.
 --
--- * 'blockPublicACLs' - Indicates if S3 Block Public Access is set to @BlockPublicAcls@ .
--- * 'blockPublicPolicy' - Indicates if S3 Block Public Access is set to @BlockPublicPolicy@ .
 -- * 'ignorePublicACLs' - Indicates if S3 Block Public Access is set to @IgnorePublicAcls@ .
+-- * 'blockPublicACLs' - Indicates if S3 Block Public Access is set to @BlockPublicAcls@ .
 -- * 'restrictPublicBuckets' - Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@ .
+-- * 'blockPublicPolicy' - Indicates if S3 Block Public Access is set to @BlockPublicPolicy@ .
 mkBlockPublicAccess ::
   BlockPublicAccess
 mkBlockPublicAccess =

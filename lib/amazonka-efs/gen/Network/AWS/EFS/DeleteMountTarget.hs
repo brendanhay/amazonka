@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,7 +30,7 @@ module Network.AWS.EFS.DeleteMountTarget
     mkDeleteMountTarget,
 
     -- ** Request lenses
-    dMountTargetId,
+    dmtMountTargetId,
 
     -- * Destructuring the response
     DeleteMountTargetResponse (..),
@@ -47,16 +48,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteMountTarget' smart constructor.
 newtype DeleteMountTarget = DeleteMountTarget'
-  { mountTargetId ::
-      Lude.Text
+  { -- | The ID of the mount target to delete (String).
+    mountTargetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMountTarget' with the minimum fields required to make a request.
@@ -72,9 +67,9 @@ mkDeleteMountTarget pMountTargetId_ =
 -- | The ID of the mount target to delete (String).
 --
 -- /Note:/ Consider using 'mountTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMountTargetId :: Lens.Lens' DeleteMountTarget Lude.Text
-dMountTargetId = Lens.lens (mountTargetId :: DeleteMountTarget -> Lude.Text) (\s a -> s {mountTargetId = a} :: DeleteMountTarget)
-{-# DEPRECATED dMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
+dmtMountTargetId :: Lens.Lens' DeleteMountTarget Lude.Text
+dmtMountTargetId = Lens.lens (mountTargetId :: DeleteMountTarget -> Lude.Text) (\s a -> s {mountTargetId = a} :: DeleteMountTarget)
+{-# DEPRECATED dmtMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
 
 instance Lude.AWSRequest DeleteMountTarget where
   type Rs DeleteMountTarget = DeleteMountTargetResponse
@@ -94,13 +89,7 @@ instance Lude.ToQuery DeleteMountTarget where
 
 -- | /See:/ 'mkDeleteMountTargetResponse' smart constructor.
 data DeleteMountTargetResponse = DeleteMountTargetResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMountTargetResponse' with the minimum fields required to make a request.

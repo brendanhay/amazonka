@@ -17,8 +17,8 @@ module Network.AWS.Route53.Types.AlarmIdentifier
     mkAlarmIdentifier,
 
     -- * Lenses
-    aiRegion,
     aiName,
+    aiRegion,
   )
 where
 
@@ -31,16 +31,14 @@ import Network.AWS.Route53.Types.CloudWatchRegion
 --
 -- /See:/ 'mkAlarmIdentifier' smart constructor.
 data AlarmIdentifier = AlarmIdentifier'
-  { region :: CloudWatchRegion,
-    name :: Lude.Text
+  { -- | The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+    name :: Lude.Text,
+    -- | For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
+    --
+    -- For the current list of CloudWatch regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region Amazon CloudWatch> in the /AWS Service Endpoints/ chapter of the /Amazon Web Services General Reference/ .
+    region :: CloudWatchRegion
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlarmIdentifier' with the minimum fields required to make a request.
@@ -50,13 +48,20 @@ data AlarmIdentifier = AlarmIdentifier'
 --
 -- For the current list of CloudWatch regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region Amazon CloudWatch> in the /AWS Service Endpoints/ chapter of the /Amazon Web Services General Reference/ .
 mkAlarmIdentifier ::
-  -- | 'region'
-  CloudWatchRegion ->
   -- | 'name'
   Lude.Text ->
+  -- | 'region'
+  CloudWatchRegion ->
   AlarmIdentifier
-mkAlarmIdentifier pRegion_ pName_ =
-  AlarmIdentifier' {region = pRegion_, name = pName_}
+mkAlarmIdentifier pName_ pRegion_ =
+  AlarmIdentifier' {name = pName_, region = pRegion_}
+
+-- | The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiName :: Lens.Lens' AlarmIdentifier Lude.Text
+aiName = Lens.lens (name :: AlarmIdentifier -> Lude.Text) (\s a -> s {name = a} :: AlarmIdentifier)
+{-# DEPRECATED aiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.
 --
@@ -67,18 +72,11 @@ aiRegion :: Lens.Lens' AlarmIdentifier CloudWatchRegion
 aiRegion = Lens.lens (region :: AlarmIdentifier -> CloudWatchRegion) (\s a -> s {region = a} :: AlarmIdentifier)
 {-# DEPRECATED aiRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
--- | The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiName :: Lens.Lens' AlarmIdentifier Lude.Text
-aiName = Lens.lens (name :: AlarmIdentifier -> Lude.Text) (\s a -> s {name = a} :: AlarmIdentifier)
-{-# DEPRECATED aiName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromXML AlarmIdentifier where
   parseXML x =
     AlarmIdentifier'
-      Lude.<$> (x Lude..@ "Region") Lude.<*> (x Lude..@ "Name")
+      Lude.<$> (x Lude..@ "Name") Lude.<*> (x Lude..@ "Region")
 
 instance Lude.ToXML AlarmIdentifier where
   toXML AlarmIdentifier' {..} =
-    Lude.mconcat ["Region" Lude.@= region, "Name" Lude.@= name]
+    Lude.mconcat ["Name" Lude.@= name, "Region" Lude.@= region]

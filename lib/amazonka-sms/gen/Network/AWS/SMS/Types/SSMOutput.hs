@@ -28,19 +28,15 @@ import Network.AWS.SMS.Types.S3Location
 -- | Contains the location of validation output.
 --
 -- /See:/ 'mkSSMOutput' smart constructor.
-newtype SSMOutput = SSMOutput' {s3Location :: Lude.Maybe S3Location}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype SSMOutput = SSMOutput'
+  { s3Location :: Lude.Maybe S3Location
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSMOutput' with the minimum fields required to make a request.
 --
--- * 's3Location' - Undocumented field.
+-- * 's3Location' -
 mkSSMOutput ::
   SSMOutput
 mkSSMOutput = SSMOutput' {s3Location = Lude.Nothing}

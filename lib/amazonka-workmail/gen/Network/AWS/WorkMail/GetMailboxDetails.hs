@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkMail.GetMailboxDetails
     mkGetMailboxDetails,
 
     -- ** Request lenses
-    gmdOrganizationId,
     gmdUserId,
+    gmdOrganizationId,
 
     -- * Destructuring the response
     GetMailboxDetailsResponse (..),
@@ -41,41 +42,29 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkGetMailboxDetails' smart constructor.
 data GetMailboxDetails = GetMailboxDetails'
-  { organizationId ::
-      Lude.Text,
-    userId :: Lude.Text
+  { -- | The identifier for the user whose mailbox details are being requested.
+    userId :: Lude.Text,
+    -- | The identifier for the organization that contains the user whose mailbox details are being requested.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMailboxDetails' with the minimum fields required to make a request.
 --
--- * 'organizationId' - The identifier for the organization that contains the user whose mailbox details are being requested.
 -- * 'userId' - The identifier for the user whose mailbox details are being requested.
+-- * 'organizationId' - The identifier for the organization that contains the user whose mailbox details are being requested.
 mkGetMailboxDetails ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'userId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   GetMailboxDetails
-mkGetMailboxDetails pOrganizationId_ pUserId_ =
+mkGetMailboxDetails pUserId_ pOrganizationId_ =
   GetMailboxDetails'
-    { organizationId = pOrganizationId_,
-      userId = pUserId_
+    { userId = pUserId_,
+      organizationId = pOrganizationId_
     }
-
--- | The identifier for the organization that contains the user whose mailbox details are being requested.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdOrganizationId :: Lens.Lens' GetMailboxDetails Lude.Text
-gmdOrganizationId = Lens.lens (organizationId :: GetMailboxDetails -> Lude.Text) (\s a -> s {organizationId = a} :: GetMailboxDetails)
-{-# DEPRECATED gmdOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier for the user whose mailbox details are being requested.
 --
@@ -83,6 +72,13 @@ gmdOrganizationId = Lens.lens (organizationId :: GetMailboxDetails -> Lude.Text)
 gmdUserId :: Lens.Lens' GetMailboxDetails Lude.Text
 gmdUserId = Lens.lens (userId :: GetMailboxDetails -> Lude.Text) (\s a -> s {userId = a} :: GetMailboxDetails)
 {-# DEPRECATED gmdUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+-- | The identifier for the organization that contains the user whose mailbox details are being requested.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmdOrganizationId :: Lens.Lens' GetMailboxDetails Lude.Text
+gmdOrganizationId = Lens.lens (organizationId :: GetMailboxDetails -> Lude.Text) (\s a -> s {organizationId = a} :: GetMailboxDetails)
+{-# DEPRECATED gmdOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest GetMailboxDetails where
   type Rs GetMailboxDetails = GetMailboxDetailsResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON GetMailboxDetails where
   toJSON GetMailboxDetails' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("UserId" Lude..= userId)
+          [ Lude.Just ("UserId" Lude..= userId),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -124,18 +120,14 @@ instance Lude.ToQuery GetMailboxDetails where
 
 -- | /See:/ 'mkGetMailboxDetailsResponse' smart constructor.
 data GetMailboxDetailsResponse = GetMailboxDetailsResponse'
-  { mailboxQuota ::
-      Lude.Maybe Lude.Natural,
+  { -- | The maximum allowed mailbox size, in MB, for the specified user.
+    mailboxQuota :: Lude.Maybe Lude.Natural,
+    -- | The current mailbox size, in MB, for the specified user.
     mailboxSize :: Lude.Maybe Lude.Double,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMailboxDetailsResponse' with the minimum fields required to make a request.

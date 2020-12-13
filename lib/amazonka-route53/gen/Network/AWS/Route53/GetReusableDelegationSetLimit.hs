@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,17 +22,17 @@ module Network.AWS.Route53.GetReusableDelegationSetLimit
     mkGetReusableDelegationSetLimit,
 
     -- ** Request lenses
-    grdslType,
     grdslDelegationSetId,
+    grdslType,
 
     -- * Destructuring the response
     GetReusableDelegationSetLimitResponse (..),
     mkGetReusableDelegationSetLimitResponse,
 
     -- ** Response lenses
-    grdslrsResponseStatus,
-    grdslrsLimit,
     grdslrsCount,
+    grdslrsLimit,
+    grdslrsResponseStatus,
   )
 where
 
@@ -45,17 +46,12 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkGetReusableDelegationSetLimit' smart constructor.
 data GetReusableDelegationSetLimit = GetReusableDelegationSetLimit'
-  { type' ::
-      ReusableDelegationSetLimitType,
-    delegationSetId :: ResourceId
+  { -- | The ID of the delegation set that you want to get the limit for.
+    delegationSetId :: ResourceId,
+    -- | Specify @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ to get the maximum number of hosted zones that you can associate with the specified reusable delegation set.
+    type' :: ReusableDelegationSetLimitType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReusableDelegationSetLimit' with the minimum fields required to make a request.
@@ -63,23 +59,17 @@ data GetReusableDelegationSetLimit = GetReusableDelegationSetLimit'
 -- * 'delegationSetId' - The ID of the delegation set that you want to get the limit for.
 -- * 'type'' - Specify @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ to get the maximum number of hosted zones that you can associate with the specified reusable delegation set.
 mkGetReusableDelegationSetLimit ::
-  -- | 'type''
-  ReusableDelegationSetLimitType ->
   -- | 'delegationSetId'
   ResourceId ->
+  -- | 'type''
+  ReusableDelegationSetLimitType ->
   GetReusableDelegationSetLimit
-mkGetReusableDelegationSetLimit pType_ pDelegationSetId_ =
+mkGetReusableDelegationSetLimit pDelegationSetId_ pType_ =
   GetReusableDelegationSetLimit'
-    { type' = pType_,
-      delegationSetId = pDelegationSetId_
+    { delegationSetId =
+        pDelegationSetId_,
+      type' = pType_
     }
-
--- | Specify @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ to get the maximum number of hosted zones that you can associate with the specified reusable delegation set.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdslType :: Lens.Lens' GetReusableDelegationSetLimit ReusableDelegationSetLimitType
-grdslType = Lens.lens (type' :: GetReusableDelegationSetLimit -> ReusableDelegationSetLimitType) (\s a -> s {type' = a} :: GetReusableDelegationSetLimit)
-{-# DEPRECATED grdslType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The ID of the delegation set that you want to get the limit for.
 --
@@ -87,6 +77,13 @@ grdslType = Lens.lens (type' :: GetReusableDelegationSetLimit -> ReusableDelegat
 grdslDelegationSetId :: Lens.Lens' GetReusableDelegationSetLimit ResourceId
 grdslDelegationSetId = Lens.lens (delegationSetId :: GetReusableDelegationSetLimit -> ResourceId) (\s a -> s {delegationSetId = a} :: GetReusableDelegationSetLimit)
 {-# DEPRECATED grdslDelegationSetId "Use generic-lens or generic-optics with 'delegationSetId' instead." #-}
+
+-- | Specify @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ to get the maximum number of hosted zones that you can associate with the specified reusable delegation set.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdslType :: Lens.Lens' GetReusableDelegationSetLimit ReusableDelegationSetLimitType
+grdslType = Lens.lens (type' :: GetReusableDelegationSetLimit -> ReusableDelegationSetLimitType) (\s a -> s {type' = a} :: GetReusableDelegationSetLimit)
+{-# DEPRECATED grdslType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 instance Lude.AWSRequest GetReusableDelegationSetLimit where
   type
@@ -97,9 +94,9 @@ instance Lude.AWSRequest GetReusableDelegationSetLimit where
     Res.receiveXML
       ( \s h x ->
           GetReusableDelegationSetLimitResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..@ "Count")
             Lude.<*> (x Lude..@ "Limit")
-            Lude.<*> (x Lude..@ "Count")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetReusableDelegationSetLimit where
@@ -121,20 +118,14 @@ instance Lude.ToQuery GetReusableDelegationSetLimit where
 --
 -- /See:/ 'mkGetReusableDelegationSetLimitResponse' smart constructor.
 data GetReusableDelegationSetLimitResponse = GetReusableDelegationSetLimitResponse'
-  { responseStatus ::
-      Lude.Int,
-    limit ::
-      ReusableDelegationSetLimit,
-    count ::
-      Lude.Natural
+  { -- | The current number of hosted zones that you can associate with the specified reusable delegation set.
+    count :: Lude.Natural,
+    -- | The current setting for the limit on hosted zones that you can associate with the specified reusable delegation set.
+    limit :: ReusableDelegationSetLimit,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReusableDelegationSetLimitResponse' with the minimum fields required to make a request.
@@ -143,30 +134,29 @@ data GetReusableDelegationSetLimitResponse = GetReusableDelegationSetLimitRespon
 -- * 'limit' - The current setting for the limit on hosted zones that you can associate with the specified reusable delegation set.
 -- * 'responseStatus' - The response status code.
 mkGetReusableDelegationSetLimitResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'limit'
-  ReusableDelegationSetLimit ->
   -- | 'count'
   Lude.Natural ->
+  -- | 'limit'
+  ReusableDelegationSetLimit ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetReusableDelegationSetLimitResponse
 mkGetReusableDelegationSetLimitResponse
-  pResponseStatus_
+  pCount_
   pLimit_
-  pCount_ =
+  pResponseStatus_ =
     GetReusableDelegationSetLimitResponse'
-      { responseStatus =
-          pResponseStatus_,
+      { count = pCount_,
         limit = pLimit_,
-        count = pCount_
+        responseStatus = pResponseStatus_
       }
 
--- | The response status code.
+-- | The current number of hosted zones that you can associate with the specified reusable delegation set.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdslrsResponseStatus :: Lens.Lens' GetReusableDelegationSetLimitResponse Lude.Int
-grdslrsResponseStatus = Lens.lens (responseStatus :: GetReusableDelegationSetLimitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetReusableDelegationSetLimitResponse)
-{-# DEPRECATED grdslrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdslrsCount :: Lens.Lens' GetReusableDelegationSetLimitResponse Lude.Natural
+grdslrsCount = Lens.lens (count :: GetReusableDelegationSetLimitResponse -> Lude.Natural) (\s a -> s {count = a} :: GetReusableDelegationSetLimitResponse)
+{-# DEPRECATED grdslrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The current setting for the limit on hosted zones that you can associate with the specified reusable delegation set.
 --
@@ -175,9 +165,9 @@ grdslrsLimit :: Lens.Lens' GetReusableDelegationSetLimitResponse ReusableDelegat
 grdslrsLimit = Lens.lens (limit :: GetReusableDelegationSetLimitResponse -> ReusableDelegationSetLimit) (\s a -> s {limit = a} :: GetReusableDelegationSetLimitResponse)
 {-# DEPRECATED grdslrsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | The current number of hosted zones that you can associate with the specified reusable delegation set.
+-- | The response status code.
 --
--- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdslrsCount :: Lens.Lens' GetReusableDelegationSetLimitResponse Lude.Natural
-grdslrsCount = Lens.lens (count :: GetReusableDelegationSetLimitResponse -> Lude.Natural) (\s a -> s {count = a} :: GetReusableDelegationSetLimitResponse)
-{-# DEPRECATED grdslrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdslrsResponseStatus :: Lens.Lens' GetReusableDelegationSetLimitResponse Lude.Int
+grdslrsResponseStatus = Lens.lens (responseStatus :: GetReusableDelegationSetLimitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetReusableDelegationSetLimitResponse)
+{-# DEPRECATED grdslrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

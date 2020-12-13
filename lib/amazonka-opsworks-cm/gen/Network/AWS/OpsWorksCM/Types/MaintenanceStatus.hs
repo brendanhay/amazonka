@@ -13,8 +13,8 @@
 module Network.AWS.OpsWorksCM.Types.MaintenanceStatus
   ( MaintenanceStatus
       ( MaintenanceStatus',
-        MSFailed,
-        MSSuccess
+        MSSuccess,
+        MSFailed
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MaintenanceStatus = MaintenanceStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern MSFailed :: MaintenanceStatus
-pattern MSFailed = MaintenanceStatus' "FAILED"
-
 pattern MSSuccess :: MaintenanceStatus
 pattern MSSuccess = MaintenanceStatus' "SUCCESS"
 
+pattern MSFailed :: MaintenanceStatus
+pattern MSFailed = MaintenanceStatus' "FAILED"
+
 {-# COMPLETE
-  MSFailed,
   MSSuccess,
+  MSFailed,
   MaintenanceStatus'
   #-}

@@ -47,17 +47,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFragmentSelector' smart constructor.
 data FragmentSelector = FragmentSelector'
-  { fragmentSelectorType ::
-      FragmentSelectorType,
+  { -- | The origin of the timestamps to use (Server or Producer).
+    fragmentSelectorType :: FragmentSelectorType,
+    -- | The range of timestamps to return.
     timestampRange :: TimestampRange
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FragmentSelector' with the minimum fields required to make a request.

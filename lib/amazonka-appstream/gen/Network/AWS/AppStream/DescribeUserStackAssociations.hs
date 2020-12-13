@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,28 +56,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeUserStackAssociations' smart constructor.
 data DescribeUserStackAssociations = DescribeUserStackAssociations'
-  { userName ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    authenticationType ::
-      Lude.Maybe AuthenticationType,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    stackName ::
-      Lude.Maybe Lude.Text
+  { -- | The email address of the user who is associated with the stack.
+    userName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The authentication type for the user who is associated with the stack. You must specify USERPOOL.
+    authenticationType :: Lude.Maybe AuthenticationType,
+    -- | The maximum size of each page of results.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The name of the stack that is associated with the user.
+    stackName :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserStackAssociations' with the minimum fields required to make a request.
 --
+-- * 'userName' - The email address of the user who is associated with the stack.
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 -- * 'authenticationType' - The authentication type for the user who is associated with the stack. You must specify USERPOOL.
 -- * 'maxResults' - The maximum size of each page of results.
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 -- * 'stackName' - The name of the stack that is associated with the user.
--- * 'userName' - The email address of the user who is associated with the stack.
 mkDescribeUserStackAssociations ::
   DescribeUserStackAssociations
 mkDescribeUserStackAssociations =
@@ -179,30 +179,21 @@ instance Lude.ToQuery DescribeUserStackAssociations where
 
 -- | /See:/ 'mkDescribeUserStackAssociationsResponse' smart constructor.
 data DescribeUserStackAssociationsResponse = DescribeUserStackAssociationsResponse'
-  { userStackAssociations ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            UserStackAssociation
-        ),
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The UserStackAssociation objects.
+    userStackAssociations :: Lude.Maybe (Lude.NonEmpty UserStackAssociation),
+    -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserStackAssociationsResponse' with the minimum fields required to make a request.
 --
+-- * 'userStackAssociations' - The UserStackAssociation objects.
 -- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 -- * 'responseStatus' - The response status code.
--- * 'userStackAssociations' - The UserStackAssociation objects.
 mkDescribeUserStackAssociationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

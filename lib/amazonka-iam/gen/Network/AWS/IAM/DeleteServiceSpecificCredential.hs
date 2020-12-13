@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,28 +37,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteServiceSpecificCredential' smart constructor.
 data DeleteServiceSpecificCredential = DeleteServiceSpecificCredential'
-  { userName ::
-      Lude.Maybe Lude.Text,
-    serviceSpecificCredentialId ::
-      Lude.Text
+  { -- | The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the service-specific credential. You can get this value by calling 'ListServiceSpecificCredentials' .
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+    serviceSpecificCredentialId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServiceSpecificCredential' with the minimum fields required to make a request.
 --
--- * 'serviceSpecificCredentialId' - The unique identifier of the service-specific credential. You can get this value by calling 'ListServiceSpecificCredentials' .
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 -- * 'userName' - The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'serviceSpecificCredentialId' - The unique identifier of the service-specific credential. You can get this value by calling 'ListServiceSpecificCredentials' .
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 mkDeleteServiceSpecificCredential ::
   -- | 'serviceSpecificCredentialId'
   Lude.Text ->
@@ -111,13 +110,7 @@ instance Lude.ToQuery DeleteServiceSpecificCredential where
 
 -- | /See:/ 'mkDeleteServiceSpecificCredentialResponse' smart constructor.
 data DeleteServiceSpecificCredentialResponse = DeleteServiceSpecificCredentialResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServiceSpecificCredentialResponse' with the minimum fields required to make a request.

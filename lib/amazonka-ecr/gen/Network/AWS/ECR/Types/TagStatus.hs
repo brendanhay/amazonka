@@ -13,9 +13,9 @@
 module Network.AWS.ECR.Types.TagStatus
   ( TagStatus
       ( TagStatus',
-        Any,
         Tagged,
-        Untagged
+        Untagged,
+        Any
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype TagStatus = TagStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Any :: TagStatus
-pattern Any = TagStatus' "ANY"
-
 pattern Tagged :: TagStatus
 pattern Tagged = TagStatus' "TAGGED"
 
 pattern Untagged :: TagStatus
 pattern Untagged = TagStatus' "UNTAGGED"
 
+pattern Any :: TagStatus
+pattern Any = TagStatus' "ANY"
+
 {-# COMPLETE
-  Any,
   Tagged,
   Untagged,
+  Any,
   TagStatus'
   #-}

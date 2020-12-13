@@ -50,60 +50,69 @@ import Network.AWS.SSM.Types.ResourceType
 --
 -- /See:/ 'mkInstanceInformation' smart constructor.
 data InstanceInformation = InstanceInformation'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | Connection status of SSM Agent.
     pingStatus :: Lude.Maybe PingStatus,
+    -- | The IP address of the managed instance.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | The type of instance. Instances are either EC2 instances or managed instances.
     resourceType :: Lude.Maybe ResourceType,
+    -- | The date the server or VM was registered with AWS as a managed instance.
     registrationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The version of the OS platform running on your instance.
     platformVersion :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the latest version of SSM Agent is running on your Linux Managed Instance. This field does not indicate whether or not the latest version is installed on Windows managed instances, because some older versions of Windows Server use the EC2Config service to process SSM requests.
     isLatestVersion :: Lude.Maybe Lude.Bool,
+    -- | The version of SSM Agent running on your Linux instance.
     agentVersion :: Lude.Maybe Lude.Text,
+    -- | The date and time when agent last pinged Systems Manager service.
     lastPingDateTime :: Lude.Maybe Lude.Timestamp,
-    lastSuccessfulAssociationExecutionDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The last date the association was successfully run.
+    lastSuccessfulAssociationExecutionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The activation ID created by Systems Manager when the server or VM was registered.
     activationId :: Lude.Maybe Lude.Text,
+    -- | The name assigned to an on-premises server or virtual machine (VM) when it is activated as a Systems Manager managed instance. The name is specified as the @DefaultInstanceName@ property using the 'CreateActivation' command. It is applied to the managed instance by specifying the Activation Code and Activation ID when you install SSM Agent on the instance, as explained in <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html Install SSM Agent for a hybrid environment (Linux)> and <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html Install SSM Agent for a hybrid environment (Windows)> . To retrieve the Name tag of an EC2 instance, use the Amazon EC2 @DescribeInstances@ action. For information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances> in the /Amazon EC2 API Reference/ or <http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html describe-instances> in the /AWS CLI Command Reference/ .
     name :: Lude.Maybe Lude.Text,
+    -- | The operating system platform type.
     platformType :: Lude.Maybe PlatformType,
-    associationOverview ::
-      Lude.Maybe InstanceAggregatedAssociationOverview,
+    -- | Information about the association.
+    associationOverview :: Lude.Maybe InstanceAggregatedAssociationOverview,
+    -- | The status of the association.
     associationStatus :: Lude.Maybe Lude.Text,
-    lastAssociationExecutionDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date the association was last run.
+    lastAssociationExecutionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the operating system platform running on your instance.
     platformName :: Lude.Maybe Lude.Text,
+    -- | The fully qualified host name of the managed instance.
     computerName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Identity and Access Management (IAM) role assigned to the on-premises Systems Manager managed instance. This call does not return the IAM role for EC2 instances. To retrieve the IAM role for an EC2 instance, use the Amazon EC2 @DescribeInstances@ action. For information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances> in the /Amazon EC2 API Reference/ or <http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html describe-instances> in the /AWS CLI Command Reference/ .
     iamRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceInformation' with the minimum fields required to make a request.
 --
--- * 'activationId' - The activation ID created by Systems Manager when the server or VM was registered.
--- * 'agentVersion' - The version of SSM Agent running on your Linux instance.
--- * 'associationOverview' - Information about the association.
--- * 'associationStatus' - The status of the association.
--- * 'computerName' - The fully qualified host name of the managed instance.
--- * 'iamRole' - The Amazon Identity and Access Management (IAM) role assigned to the on-premises Systems Manager managed instance. This call does not return the IAM role for EC2 instances. To retrieve the IAM role for an EC2 instance, use the Amazon EC2 @DescribeInstances@ action. For information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances> in the /Amazon EC2 API Reference/ or <http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html describe-instances> in the /AWS CLI Command Reference/ .
 -- * 'instanceId' - The instance ID.
+-- * 'pingStatus' - Connection status of SSM Agent.
 -- * 'ipAddress' - The IP address of the managed instance.
+-- * 'resourceType' - The type of instance. Instances are either EC2 instances or managed instances.
+-- * 'registrationDate' - The date the server or VM was registered with AWS as a managed instance.
+-- * 'platformVersion' - The version of the OS platform running on your instance.
 -- * 'isLatestVersion' - Indicates whether the latest version of SSM Agent is running on your Linux Managed Instance. This field does not indicate whether or not the latest version is installed on Windows managed instances, because some older versions of Windows Server use the EC2Config service to process SSM requests.
--- * 'lastAssociationExecutionDate' - The date the association was last run.
+-- * 'agentVersion' - The version of SSM Agent running on your Linux instance.
 -- * 'lastPingDateTime' - The date and time when agent last pinged Systems Manager service.
 -- * 'lastSuccessfulAssociationExecutionDate' - The last date the association was successfully run.
+-- * 'activationId' - The activation ID created by Systems Manager when the server or VM was registered.
 -- * 'name' - The name assigned to an on-premises server or virtual machine (VM) when it is activated as a Systems Manager managed instance. The name is specified as the @DefaultInstanceName@ property using the 'CreateActivation' command. It is applied to the managed instance by specifying the Activation Code and Activation ID when you install SSM Agent on the instance, as explained in <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html Install SSM Agent for a hybrid environment (Linux)> and <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html Install SSM Agent for a hybrid environment (Windows)> . To retrieve the Name tag of an EC2 instance, use the Amazon EC2 @DescribeInstances@ action. For information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances> in the /Amazon EC2 API Reference/ or <http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html describe-instances> in the /AWS CLI Command Reference/ .
--- * 'pingStatus' - Connection status of SSM Agent.
--- * 'platformName' - The name of the operating system platform running on your instance.
 -- * 'platformType' - The operating system platform type.
--- * 'platformVersion' - The version of the OS platform running on your instance.
--- * 'registrationDate' - The date the server or VM was registered with AWS as a managed instance.
--- * 'resourceType' - The type of instance. Instances are either EC2 instances or managed instances.
+-- * 'associationOverview' - Information about the association.
+-- * 'associationStatus' - The status of the association.
+-- * 'lastAssociationExecutionDate' - The date the association was last run.
+-- * 'platformName' - The name of the operating system platform running on your instance.
+-- * 'computerName' - The fully qualified host name of the managed instance.
+-- * 'iamRole' - The Amazon Identity and Access Management (IAM) role assigned to the on-premises Systems Manager managed instance. This call does not return the IAM role for EC2 instances. To retrieve the IAM role for an EC2 instance, use the Amazon EC2 @DescribeInstances@ action. For information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances> in the /Amazon EC2 API Reference/ or <http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html describe-instances> in the /AWS CLI Command Reference/ .
 mkInstanceInformation ::
   InstanceInformation
 mkInstanceInformation =

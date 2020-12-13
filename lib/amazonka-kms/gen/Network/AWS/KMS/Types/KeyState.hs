@@ -13,8 +13,8 @@
 module Network.AWS.KMS.Types.KeyState
   ( KeyState
       ( KeyState',
-        Disabled,
         Enabled,
+        Disabled,
         PendingDeletion,
         PendingImport,
         Unavailable
@@ -48,11 +48,11 @@ newtype KeyState = KeyState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: KeyState
-pattern Disabled = KeyState' "Disabled"
-
 pattern Enabled :: KeyState
 pattern Enabled = KeyState' "Enabled"
+
+pattern Disabled :: KeyState
+pattern Disabled = KeyState' "Disabled"
 
 pattern PendingDeletion :: KeyState
 pattern PendingDeletion = KeyState' "PendingDeletion"
@@ -64,8 +64,8 @@ pattern Unavailable :: KeyState
 pattern Unavailable = KeyState' "Unavailable"
 
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   PendingDeletion,
   PendingImport,
   Unavailable,

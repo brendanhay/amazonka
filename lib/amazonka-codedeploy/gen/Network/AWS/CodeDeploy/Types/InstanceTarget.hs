@@ -37,33 +37,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceTarget' smart constructor.
 data InstanceTarget = InstanceTarget'
-  { targetARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the target.
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | The unique ID of a deployment target that has a type of @instanceTarget@ .
     targetId :: Lude.Maybe Lude.Text,
+    -- | The status an EC2/On-premises deployment's target instance.
     status :: Lude.Maybe TargetStatus,
+    -- | The unique ID of a deployment.
     deploymentId :: Lude.Maybe Lude.Text,
+    -- | A label that identifies whether the instance is an original target (@BLUE@ ) or a replacement target (@GREEN@ ).
     instanceLabel :: Lude.Maybe TargetLabel,
+    -- | The date and time when the target instance was updated by a deployment.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The lifecycle events of the deployment to this target instance.
     lifecycleEvents :: Lude.Maybe [LifecycleEvent]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceTarget' with the minimum fields required to make a request.
 --
+-- * 'targetARN' - The Amazon Resource Name (ARN) of the target.
+-- * 'targetId' - The unique ID of a deployment target that has a type of @instanceTarget@ .
+-- * 'status' - The status an EC2/On-premises deployment's target instance.
 -- * 'deploymentId' - The unique ID of a deployment.
 -- * 'instanceLabel' - A label that identifies whether the instance is an original target (@BLUE@ ) or a replacement target (@GREEN@ ).
 -- * 'lastUpdatedAt' - The date and time when the target instance was updated by a deployment.
 -- * 'lifecycleEvents' - The lifecycle events of the deployment to this target instance.
--- * 'status' - The status an EC2/On-premises deployment's target instance.
--- * 'targetARN' - The Amazon Resource Name (ARN) of the target.
--- * 'targetId' - The unique ID of a deployment target that has a type of @instanceTarget@ .
 mkInstanceTarget ::
   InstanceTarget
 mkInstanceTarget =

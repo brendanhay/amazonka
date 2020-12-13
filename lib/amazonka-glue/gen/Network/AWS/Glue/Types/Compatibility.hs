@@ -13,14 +13,14 @@
 module Network.AWS.Glue.Types.Compatibility
   ( Compatibility
       ( Compatibility',
+        CNone,
+        CDisabled,
         CBackward,
         CBackwardAll,
-        CDisabled,
         CForward,
         CForwardAll,
         CFull,
-        CFullAll,
-        CNone
+        CFullAll
       ),
   )
 where
@@ -51,14 +51,17 @@ newtype Compatibility = Compatibility' Lude.Text
       Lude.ToHeader
     )
 
+pattern CNone :: Compatibility
+pattern CNone = Compatibility' "NONE"
+
+pattern CDisabled :: Compatibility
+pattern CDisabled = Compatibility' "DISABLED"
+
 pattern CBackward :: Compatibility
 pattern CBackward = Compatibility' "BACKWARD"
 
 pattern CBackwardAll :: Compatibility
 pattern CBackwardAll = Compatibility' "BACKWARD_ALL"
-
-pattern CDisabled :: Compatibility
-pattern CDisabled = Compatibility' "DISABLED"
 
 pattern CForward :: Compatibility
 pattern CForward = Compatibility' "FORWARD"
@@ -72,17 +75,14 @@ pattern CFull = Compatibility' "FULL"
 pattern CFullAll :: Compatibility
 pattern CFullAll = Compatibility' "FULL_ALL"
 
-pattern CNone :: Compatibility
-pattern CNone = Compatibility' "NONE"
-
 {-# COMPLETE
+  CNone,
+  CDisabled,
   CBackward,
   CBackwardAll,
-  CDisabled,
   CForward,
   CForwardAll,
   CFull,
   CFullAll,
-  CNone,
   Compatibility'
   #-}

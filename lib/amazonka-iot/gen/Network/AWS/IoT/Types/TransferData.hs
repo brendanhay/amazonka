@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransferData' smart constructor.
 data TransferData = TransferData'
-  { transferDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the transfer took place.
+    transferDate :: Lude.Maybe Lude.Timestamp,
+    -- | The date the transfer was accepted.
     acceptDate :: Lude.Maybe Lude.Timestamp,
+    -- | The transfer message.
     transferMessage :: Lude.Maybe Lude.Text,
+    -- | The date the transfer was rejected.
     rejectDate :: Lude.Maybe Lude.Timestamp,
+    -- | The reason why the transfer was rejected.
     rejectReason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransferData' with the minimum fields required to make a request.
 --
+-- * 'transferDate' - The date the transfer took place.
 -- * 'acceptDate' - The date the transfer was accepted.
+-- * 'transferMessage' - The transfer message.
 -- * 'rejectDate' - The date the transfer was rejected.
 -- * 'rejectReason' - The reason why the transfer was rejected.
--- * 'transferDate' - The date the transfer took place.
--- * 'transferMessage' - The transfer message.
 mkTransferData ::
   TransferData
 mkTransferData =

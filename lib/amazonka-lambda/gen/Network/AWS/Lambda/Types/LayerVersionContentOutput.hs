@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLayerVersionContentOutput' smart constructor.
 data LayerVersionContentOutput = LayerVersionContentOutput'
-  { signingProfileVersionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) for a signing profile version.
+    signingProfileVersionARN :: Lude.Maybe Lude.Text,
+    -- | A link to the layer archive in Amazon S3 that is valid for 10 minutes.
     location :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of a signing job.
     signingJobARN :: Lude.Maybe Lude.Text,
+    -- | The size of the layer archive in bytes.
     codeSize :: Lude.Maybe Lude.Integer,
+    -- | The SHA-256 hash of the layer archive.
     codeSha256 :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LayerVersionContentOutput' with the minimum fields required to make a request.
 --
--- * 'codeSha256' - The SHA-256 hash of the layer archive.
--- * 'codeSize' - The size of the layer archive in bytes.
+-- * 'signingProfileVersionARN' - The Amazon Resource Name (ARN) for a signing profile version.
 -- * 'location' - A link to the layer archive in Amazon S3 that is valid for 10 minutes.
 -- * 'signingJobARN' - The Amazon Resource Name (ARN) of a signing job.
--- * 'signingProfileVersionARN' - The Amazon Resource Name (ARN) for a signing profile version.
+-- * 'codeSize' - The size of the layer archive in bytes.
+-- * 'codeSha256' - The SHA-256 hash of the layer archive.
 mkLayerVersionContentOutput ::
   LayerVersionContentOutput
 mkLayerVersionContentOutput =

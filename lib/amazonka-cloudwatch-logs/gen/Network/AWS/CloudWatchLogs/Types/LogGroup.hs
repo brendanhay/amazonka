@@ -34,31 +34,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogGroup' smart constructor.
 data LogGroup = LogGroup'
-  { creationTime :: Lude.Maybe Lude.Natural,
+  { -- | The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+    creationTime :: Lude.Maybe Lude.Natural,
+    -- | The number of metric filters.
     metricFilterCount :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) of the log group.
     arn :: Lude.Maybe Lude.Text,
+    -- | The name of the log group.
     logGroupName :: Lude.Maybe Lude.Text,
     retentionInDays :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The number of bytes stored.
     storedBytes :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogGroup' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the log group.
 -- * 'creationTime' - The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
--- * 'kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
--- * 'logGroupName' - The name of the log group.
 -- * 'metricFilterCount' - The number of metric filters.
--- * 'retentionInDays' - Undocumented field.
+-- * 'arn' - The Amazon Resource Name (ARN) of the log group.
+-- * 'logGroupName' - The name of the log group.
+-- * 'retentionInDays' -
+-- * 'kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 -- * 'storedBytes' - The number of bytes stored.
 mkLogGroup ::
   LogGroup

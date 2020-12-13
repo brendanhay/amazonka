@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.IoT.ListJobExecutionsForJob
 
     -- ** Request lenses
     ljefjStatus,
+    ljefjJobId,
     ljefjNextToken,
     ljefjMaxResults,
-    ljefjJobId,
 
     -- * Destructuring the response
     ListJobExecutionsForJobResponse (..),
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListJobExecutionsForJob' smart constructor.
 data ListJobExecutionsForJob = ListJobExecutionsForJob'
-  { status ::
-      Lude.Maybe JobExecutionStatus,
+  { -- | The status of the job.
+    status :: Lude.Maybe JobExecutionStatus,
+    -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Lude.Text,
+    -- | The token to retrieve the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    jobId :: Lude.Text
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobExecutionsForJob' with the minimum fields required to make a request.
 --
--- * 'jobId' - The unique identifier you assigned to this job when it was created.
--- * 'maxResults' - The maximum number of results to be returned per request.
--- * 'nextToken' - The token to retrieve the next set of results.
 -- * 'status' - The status of the job.
+-- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'nextToken' - The token to retrieve the next set of results.
+-- * 'maxResults' - The maximum number of results to be returned per request.
 mkListJobExecutionsForJob ::
   -- | 'jobId'
   Lude.Text ->
@@ -74,9 +72,9 @@ mkListJobExecutionsForJob ::
 mkListJobExecutionsForJob pJobId_ =
   ListJobExecutionsForJob'
     { status = Lude.Nothing,
+      jobId = pJobId_,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      jobId = pJobId_
+      maxResults = Lude.Nothing
     }
 
 -- | The status of the job.
@@ -85,6 +83,13 @@ mkListJobExecutionsForJob pJobId_ =
 ljefjStatus :: Lens.Lens' ListJobExecutionsForJob (Lude.Maybe JobExecutionStatus)
 ljefjStatus = Lens.lens (status :: ListJobExecutionsForJob -> Lude.Maybe JobExecutionStatus) (\s a -> s {status = a} :: ListJobExecutionsForJob)
 {-# DEPRECATED ljefjStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The unique identifier you assigned to this job when it was created.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljefjJobId :: Lens.Lens' ListJobExecutionsForJob Lude.Text
+ljefjJobId = Lens.lens (jobId :: ListJobExecutionsForJob -> Lude.Text) (\s a -> s {jobId = a} :: ListJobExecutionsForJob)
+{-# DEPRECATED ljefjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The token to retrieve the next set of results.
 --
@@ -99,13 +104,6 @@ ljefjNextToken = Lens.lens (nextToken :: ListJobExecutionsForJob -> Lude.Maybe L
 ljefjMaxResults :: Lens.Lens' ListJobExecutionsForJob (Lude.Maybe Lude.Natural)
 ljefjMaxResults = Lens.lens (maxResults :: ListJobExecutionsForJob -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListJobExecutionsForJob)
 {-# DEPRECATED ljefjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The unique identifier you assigned to this job when it was created.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljefjJobId :: Lens.Lens' ListJobExecutionsForJob Lude.Text
-ljefjJobId = Lens.lens (jobId :: ListJobExecutionsForJob -> Lude.Text) (\s a -> s {jobId = a} :: ListJobExecutionsForJob)
-{-# DEPRECATED ljefjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Page.AWSPager ListJobExecutionsForJob where
   page rq rs
@@ -145,20 +143,14 @@ instance Lude.ToQuery ListJobExecutionsForJob where
 
 -- | /See:/ 'mkListJobExecutionsForJobResponse' smart constructor.
 data ListJobExecutionsForJobResponse = ListJobExecutionsForJobResponse'
-  { executionSummaries ::
-      Lude.Maybe
-        [JobExecutionSummaryForJob],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of job execution summaries.
+    executionSummaries :: Lude.Maybe [JobExecutionSummaryForJob],
+    -- | The token for the next set of results, or __null__ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobExecutionsForJobResponse' with the minimum fields required to make a request.

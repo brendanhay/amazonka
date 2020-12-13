@@ -32,31 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheParameterGroup' smart constructor.
 data CacheParameterGroup = CacheParameterGroup'
-  { cacheParameterGroupFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the cache parameter group family that this cache parameter group is compatible with.
+    --
+    -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
+    cacheParameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | The ARN (Amazon Resource Name) of the cache parameter group.
     arn :: Lude.Maybe Lude.Text,
+    -- | The name of the cache parameter group.
     cacheParameterGroupName :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the parameter group is associated with a Global Datastore
     isGlobal :: Lude.Maybe Lude.Bool,
+    -- | The description for this cache parameter group.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheParameterGroup' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN (Amazon Resource Name) of the cache parameter group.
 -- * 'cacheParameterGroupFamily' - The name of the cache parameter group family that this cache parameter group is compatible with.
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
+-- * 'arn' - The ARN (Amazon Resource Name) of the cache parameter group.
 -- * 'cacheParameterGroupName' - The name of the cache parameter group.
--- * 'description' - The description for this cache parameter group.
 -- * 'isGlobal' - Indicates whether the parameter group is associated with a Global Datastore
+-- * 'description' - The description for this cache parameter group.
 mkCacheParameterGroup ::
   CacheParameterGroup
 mkCacheParameterGroup =

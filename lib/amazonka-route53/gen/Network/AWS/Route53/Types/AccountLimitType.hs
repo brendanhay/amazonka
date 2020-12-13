@@ -15,9 +15,9 @@ module Network.AWS.Route53.Types.AccountLimitType
       ( AccountLimitType',
         MaxHealthChecksByOwner,
         MaxHostedZonesByOwner,
+        MaxTrafficPolicyInstancesByOwner,
         MaxReusableDelegationSetsByOwner,
-        MaxTrafficPoliciesByOwner,
-        MaxTrafficPolicyInstancesByOwner
+        MaxTrafficPoliciesByOwner
       ),
   )
 where
@@ -55,20 +55,20 @@ pattern MaxHealthChecksByOwner = AccountLimitType' "MAX_HEALTH_CHECKS_BY_OWNER"
 pattern MaxHostedZonesByOwner :: AccountLimitType
 pattern MaxHostedZonesByOwner = AccountLimitType' "MAX_HOSTED_ZONES_BY_OWNER"
 
+pattern MaxTrafficPolicyInstancesByOwner :: AccountLimitType
+pattern MaxTrafficPolicyInstancesByOwner = AccountLimitType' "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
+
 pattern MaxReusableDelegationSetsByOwner :: AccountLimitType
 pattern MaxReusableDelegationSetsByOwner = AccountLimitType' "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
 
 pattern MaxTrafficPoliciesByOwner :: AccountLimitType
 pattern MaxTrafficPoliciesByOwner = AccountLimitType' "MAX_TRAFFIC_POLICIES_BY_OWNER"
 
-pattern MaxTrafficPolicyInstancesByOwner :: AccountLimitType
-pattern MaxTrafficPolicyInstancesByOwner = AccountLimitType' "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
-
 {-# COMPLETE
   MaxHealthChecksByOwner,
   MaxHostedZonesByOwner,
+  MaxTrafficPolicyInstancesByOwner,
   MaxReusableDelegationSetsByOwner,
   MaxTrafficPoliciesByOwner,
-  MaxTrafficPolicyInstancesByOwner,
   AccountLimitType'
   #-}

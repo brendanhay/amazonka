@@ -20,6 +20,7 @@ module Network.AWS.CloudWatchEvents.Types.Target
     tRunCommandParameters,
     tHTTPParameters,
     tKinesisParameters,
+    tARN,
     tInputTransformer,
     tDeadLetterConfig,
     tSqsParameters,
@@ -27,11 +28,10 @@ module Network.AWS.CloudWatchEvents.Types.Target
     tBatchParameters,
     tRedshiftDataParameters,
     tEcsParameters,
+    tId,
     tRetryPolicy,
     tInputPath,
     tRoleARN,
-    tId,
-    tARN,
   )
 where
 
@@ -54,66 +54,81 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTarget' smart constructor.
 data Target = Target'
-  { runCommandParameters ::
-      Lude.Maybe RunCommandParameters,
+  { -- | Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
+    runCommandParameters :: Lude.Maybe RunCommandParameters,
+    -- | Contains the HTTP parameters to use when the target is a API Gateway REST endpoint.
+    --
+    -- If you specify an API Gateway REST API as a target, you can use this parameter to specify headers, path parameter, query string keys/values as part of your target invoking request.
     hTTPParameters :: Lude.Maybe HTTPParameters,
+    -- | The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the @eventId@ as the partition key.
     kinesisParameters :: Lude.Maybe KinesisParameters,
+    -- | The Amazon Resource Name (ARN) of the target.
+    arn :: Lude.Text,
+    -- | Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
     inputTransformer :: Lude.Maybe InputTransformer,
+    -- | The @DeadLetterConfig@ that defines the target queue to send dead-letter queue events to.
     deadLetterConfig :: Lude.Maybe DeadLetterConfig,
+    -- | Contains the message group ID to use when the target is a FIFO queue.
+    --
+    -- If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
     sqsParameters :: Lude.Maybe SqsParameters,
+    -- | Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
     input :: Lude.Maybe Lude.Text,
+    -- | If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in the /AWS Batch User Guide/ .
     batchParameters :: Lude.Maybe BatchParameters,
+    -- | Contains the Redshift Data API parameters to use when the target is a Redshift cluster.
+    --
+    -- If you specify a Redshift Cluster as a Target, you can use this to specify parameters to invoke the Redshift Data API ExecuteStatement based on EventBridge events.
     redshiftDataParameters :: Lude.Maybe RedshiftDataParameters,
+    -- | Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Task Definitions > in the /Amazon EC2 Container Service Developer Guide/ .
     ecsParameters :: Lude.Maybe EcsParameters,
-    retryPolicy :: Lude.Maybe RetryPolicy,
-    inputPath :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the target.
     id :: Lude.Text,
-    arn :: Lude.Text
+    -- | The @RetryPolicy@ object that contains the retry policy configuration to use for the dead-letter queue.
+    retryPolicy :: Lude.Maybe RetryPolicy,
+    -- | The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath> .
+    inputPath :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Target' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the target.
--- * 'batchParameters' - If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in the /AWS Batch User Guide/ .
--- * 'deadLetterConfig' - The @DeadLetterConfig@ that defines the target queue to send dead-letter queue events to.
--- * 'ecsParameters' - Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Task Definitions > in the /Amazon EC2 Container Service Developer Guide/ .
+-- * 'runCommandParameters' - Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
 -- * 'hTTPParameters' - Contains the HTTP parameters to use when the target is a API Gateway REST endpoint.
 --
 -- If you specify an API Gateway REST API as a target, you can use this parameter to specify headers, path parameter, query string keys/values as part of your target invoking request.
--- * 'id' - The ID of the target.
--- * 'input' - Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
--- * 'inputPath' - The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath> .
--- * 'inputTransformer' - Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
 -- * 'kinesisParameters' - The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the @eventId@ as the partition key.
--- * 'redshiftDataParameters' - Contains the Redshift Data API parameters to use when the target is a Redshift cluster.
---
--- If you specify a Redshift Cluster as a Target, you can use this to specify parameters to invoke the Redshift Data API ExecuteStatement based on EventBridge events.
--- * 'retryPolicy' - The @RetryPolicy@ object that contains the retry policy configuration to use for the dead-letter queue.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
--- * 'runCommandParameters' - Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
+-- * 'arn' - The Amazon Resource Name (ARN) of the target.
+-- * 'inputTransformer' - Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
+-- * 'deadLetterConfig' - The @DeadLetterConfig@ that defines the target queue to send dead-letter queue events to.
 -- * 'sqsParameters' - Contains the message group ID to use when the target is a FIFO queue.
 --
 -- If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+-- * 'input' - Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format> .
+-- * 'batchParameters' - If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in the /AWS Batch User Guide/ .
+-- * 'redshiftDataParameters' - Contains the Redshift Data API parameters to use when the target is a Redshift cluster.
+--
+-- If you specify a Redshift Cluster as a Target, you can use this to specify parameters to invoke the Redshift Data API ExecuteStatement based on EventBridge events.
+-- * 'ecsParameters' - Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Task Definitions > in the /Amazon EC2 Container Service Developer Guide/ .
+-- * 'id' - The ID of the target.
+-- * 'retryPolicy' - The @RetryPolicy@ object that contains the retry policy configuration to use for the dead-letter queue.
+-- * 'inputPath' - The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see <http://goessner.net/articles/JsonPath/ JSONPath> .
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
 mkTarget ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'arn'
   Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   Target
-mkTarget pId_ pARN_ =
+mkTarget pARN_ pId_ =
   Target'
     { runCommandParameters = Lude.Nothing,
       hTTPParameters = Lude.Nothing,
       kinesisParameters = Lude.Nothing,
+      arn = pARN_,
       inputTransformer = Lude.Nothing,
       deadLetterConfig = Lude.Nothing,
       sqsParameters = Lude.Nothing,
@@ -121,11 +136,10 @@ mkTarget pId_ pARN_ =
       batchParameters = Lude.Nothing,
       redshiftDataParameters = Lude.Nothing,
       ecsParameters = Lude.Nothing,
+      id = pId_,
       retryPolicy = Lude.Nothing,
       inputPath = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      id = pId_,
-      arn = pARN_
+      roleARN = Lude.Nothing
     }
 
 -- | Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
@@ -150,6 +164,13 @@ tHTTPParameters = Lens.lens (hTTPParameters :: Target -> Lude.Maybe HTTPParamete
 tKinesisParameters :: Lens.Lens' Target (Lude.Maybe KinesisParameters)
 tKinesisParameters = Lens.lens (kinesisParameters :: Target -> Lude.Maybe KinesisParameters) (\s a -> s {kinesisParameters = a} :: Target)
 {-# DEPRECATED tKinesisParameters "Use generic-lens or generic-optics with 'kinesisParameters' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the target.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tARN :: Lens.Lens' Target Lude.Text
+tARN = Lens.lens (arn :: Target -> Lude.Text) (\s a -> s {arn = a} :: Target)
+{-# DEPRECATED tARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
 --
@@ -204,6 +225,13 @@ tEcsParameters :: Lens.Lens' Target (Lude.Maybe EcsParameters)
 tEcsParameters = Lens.lens (ecsParameters :: Target -> Lude.Maybe EcsParameters) (\s a -> s {ecsParameters = a} :: Target)
 {-# DEPRECATED tEcsParameters "Use generic-lens or generic-optics with 'ecsParameters' instead." #-}
 
+-- | The ID of the target.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tId :: Lens.Lens' Target Lude.Text
+tId = Lens.lens (id :: Target -> Lude.Text) (\s a -> s {id = a} :: Target)
+{-# DEPRECATED tId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 -- | The @RetryPolicy@ object that contains the retry policy configuration to use for the dead-letter queue.
 --
 -- /Note:/ Consider using 'retryPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -225,20 +253,6 @@ tRoleARN :: Lens.Lens' Target (Lude.Maybe Lude.Text)
 tRoleARN = Lens.lens (roleARN :: Target -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: Target)
 {-# DEPRECATED tRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | The ID of the target.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tId :: Lens.Lens' Target Lude.Text
-tId = Lens.lens (id :: Target -> Lude.Text) (\s a -> s {id = a} :: Target)
-{-# DEPRECATED tId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the target.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tARN :: Lens.Lens' Target Lude.Text
-tARN = Lens.lens (arn :: Target -> Lude.Text) (\s a -> s {arn = a} :: Target)
-{-# DEPRECATED tARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
 instance Lude.FromJSON Target where
   parseJSON =
     Lude.withObject
@@ -248,6 +262,7 @@ instance Lude.FromJSON Target where
             Lude.<$> (x Lude..:? "RunCommandParameters")
             Lude.<*> (x Lude..:? "HttpParameters")
             Lude.<*> (x Lude..:? "KinesisParameters")
+            Lude.<*> (x Lude..: "Arn")
             Lude.<*> (x Lude..:? "InputTransformer")
             Lude.<*> (x Lude..:? "DeadLetterConfig")
             Lude.<*> (x Lude..:? "SqsParameters")
@@ -255,11 +270,10 @@ instance Lude.FromJSON Target where
             Lude.<*> (x Lude..:? "BatchParameters")
             Lude.<*> (x Lude..:? "RedshiftDataParameters")
             Lude.<*> (x Lude..:? "EcsParameters")
+            Lude.<*> (x Lude..: "Id")
             Lude.<*> (x Lude..:? "RetryPolicy")
             Lude.<*> (x Lude..:? "InputPath")
             Lude.<*> (x Lude..:? "RoleArn")
-            Lude.<*> (x Lude..: "Id")
-            Lude.<*> (x Lude..: "Arn")
       )
 
 instance Lude.ToJSON Target where
@@ -269,6 +283,7 @@ instance Lude.ToJSON Target where
           [ ("RunCommandParameters" Lude..=) Lude.<$> runCommandParameters,
             ("HttpParameters" Lude..=) Lude.<$> hTTPParameters,
             ("KinesisParameters" Lude..=) Lude.<$> kinesisParameters,
+            Lude.Just ("Arn" Lude..= arn),
             ("InputTransformer" Lude..=) Lude.<$> inputTransformer,
             ("DeadLetterConfig" Lude..=) Lude.<$> deadLetterConfig,
             ("SqsParameters" Lude..=) Lude.<$> sqsParameters,
@@ -276,10 +291,9 @@ instance Lude.ToJSON Target where
             ("BatchParameters" Lude..=) Lude.<$> batchParameters,
             ("RedshiftDataParameters" Lude..=) Lude.<$> redshiftDataParameters,
             ("EcsParameters" Lude..=) Lude.<$> ecsParameters,
+            Lude.Just ("Id" Lude..= id),
             ("RetryPolicy" Lude..=) Lude.<$> retryPolicy,
             ("InputPath" Lude..=) Lude.<$> inputPath,
-            ("RoleArn" Lude..=) Lude.<$> roleARN,
-            Lude.Just ("Id" Lude..= id),
-            Lude.Just ("Arn" Lude..= arn)
+            ("RoleArn" Lude..=) Lude.<$> roleARN
           ]
       )

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSlotTypeConfiguration' smart constructor.
 newtype SlotTypeConfiguration = SlotTypeConfiguration'
-  { regexConfiguration ::
-      Lude.Maybe SlotTypeRegexConfiguration
+  { -- | A regular expression used to validate the value of a slot.
+    regexConfiguration :: Lude.Maybe SlotTypeRegexConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SlotTypeConfiguration' with the minimum fields required to make a request.

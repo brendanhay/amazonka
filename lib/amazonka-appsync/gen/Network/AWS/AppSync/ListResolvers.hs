@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.AppSync.ListResolvers
     mkListResolvers,
 
     -- ** Request lenses
+    lrTypeName,
+    lrApiId,
     lrNextToken,
     lrMaxResults,
-    lrApiId,
-    lrTypeName,
 
     -- * Destructuring the response
     ListResolversResponse (..),
@@ -46,40 +47,51 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListResolvers' smart constructor.
 data ListResolvers = ListResolvers'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The type name.
+    typeName :: Lude.Text,
+    -- | The API ID.
     apiId :: Lude.Text,
-    typeName :: Lude.Text
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results you want the request to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResolvers' with the minimum fields required to make a request.
 --
--- * 'apiId' - The API ID.
--- * 'maxResults' - The maximum number of results you want the request to return.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 -- * 'typeName' - The type name.
+-- * 'apiId' - The API ID.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'maxResults' - The maximum number of results you want the request to return.
 mkListResolvers ::
-  -- | 'apiId'
-  Lude.Text ->
   -- | 'typeName'
   Lude.Text ->
+  -- | 'apiId'
+  Lude.Text ->
   ListResolvers
-mkListResolvers pApiId_ pTypeName_ =
+mkListResolvers pTypeName_ pApiId_ =
   ListResolvers'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
+    { typeName = pTypeName_,
       apiId = pApiId_,
-      typeName = pTypeName_
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The type name.
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrTypeName :: Lens.Lens' ListResolvers Lude.Text
+lrTypeName = Lens.lens (typeName :: ListResolvers -> Lude.Text) (\s a -> s {typeName = a} :: ListResolvers)
+{-# DEPRECATED lrTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+-- | The API ID.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrApiId :: Lens.Lens' ListResolvers Lude.Text
+lrApiId = Lens.lens (apiId :: ListResolvers -> Lude.Text) (\s a -> s {apiId = a} :: ListResolvers)
+{-# DEPRECATED lrApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
@@ -94,20 +106,6 @@ lrNextToken = Lens.lens (nextToken :: ListResolvers -> Lude.Maybe Lude.Text) (\s
 lrMaxResults :: Lens.Lens' ListResolvers (Lude.Maybe Lude.Natural)
 lrMaxResults = Lens.lens (maxResults :: ListResolvers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListResolvers)
 {-# DEPRECATED lrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The API ID.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrApiId :: Lens.Lens' ListResolvers Lude.Text
-lrApiId = Lens.lens (apiId :: ListResolvers -> Lude.Text) (\s a -> s {apiId = a} :: ListResolvers)
-{-# DEPRECATED lrApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
-
--- | The type name.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrTypeName :: Lens.Lens' ListResolvers Lude.Text
-lrTypeName = Lens.lens (typeName :: ListResolvers -> Lude.Text) (\s a -> s {typeName = a} :: ListResolvers)
-{-# DEPRECATED lrTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 instance Page.AWSPager ListResolvers where
   page rq rs
@@ -156,18 +154,14 @@ instance Lude.ToQuery ListResolvers where
 
 -- | /See:/ 'mkListResolversResponse' smart constructor.
 data ListResolversResponse = ListResolversResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The @Resolver@ objects.
     resolvers :: Lude.Maybe [Resolver],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResolversResponse' with the minimum fields required to make a request.

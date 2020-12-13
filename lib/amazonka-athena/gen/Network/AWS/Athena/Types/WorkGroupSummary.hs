@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkGroupSummary' smart constructor.
 data WorkGroupSummary = WorkGroupSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The workgroup creation date and time.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The state of the workgroup.
     state :: Lude.Maybe WorkGroupState,
+    -- | The name of the workgroup.
     name :: Lude.Maybe Lude.Text,
+    -- | The workgroup description.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkGroupSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The workgroup creation date and time.
--- * 'description' - The workgroup description.
--- * 'name' - The name of the workgroup.
 -- * 'state' - The state of the workgroup.
+-- * 'name' - The name of the workgroup.
+-- * 'description' - The workgroup description.
 mkWorkGroupSummary ::
   WorkGroupSummary
 mkWorkGroupSummary =

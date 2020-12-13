@@ -13,10 +13,10 @@
 module Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey
   ( ServiceActionDefinitionKey
       ( ServiceActionDefinitionKey',
-        AssumeRole,
         Name,
-        Parameters,
-        Version
+        Version,
+        AssumeRole,
+        Parameters
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ServiceActionDefinitionKey = ServiceActionDefinitionKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern AssumeRole :: ServiceActionDefinitionKey
-pattern AssumeRole = ServiceActionDefinitionKey' "AssumeRole"
-
 pattern Name :: ServiceActionDefinitionKey
 pattern Name = ServiceActionDefinitionKey' "Name"
-
-pattern Parameters :: ServiceActionDefinitionKey
-pattern Parameters = ServiceActionDefinitionKey' "Parameters"
 
 pattern Version :: ServiceActionDefinitionKey
 pattern Version = ServiceActionDefinitionKey' "Version"
 
+pattern AssumeRole :: ServiceActionDefinitionKey
+pattern AssumeRole = ServiceActionDefinitionKey' "AssumeRole"
+
+pattern Parameters :: ServiceActionDefinitionKey
+pattern Parameters = ServiceActionDefinitionKey' "Parameters"
+
 {-# COMPLETE
-  AssumeRole,
   Name,
-  Parameters,
   Version,
+  AssumeRole,
+  Parameters,
   ServiceActionDefinitionKey'
   #-}

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricGranularityType' smart constructor.
 newtype MetricGranularityType = MetricGranularityType'
-  { granularity ::
-      Lude.Maybe Lude.Text
+  { -- | The granularity. The only valid value is @1Minute@ .
+    granularity :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricGranularityType' with the minimum fields required to make a request.

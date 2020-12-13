@@ -13,8 +13,8 @@
 module Network.AWS.MediaStore.Types.ContainerLevelMetrics
   ( ContainerLevelMetrics
       ( ContainerLevelMetrics',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ContainerLevelMetrics = ContainerLevelMetrics' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: ContainerLevelMetrics
-pattern Disabled = ContainerLevelMetrics' "DISABLED"
-
 pattern Enabled :: ContainerLevelMetrics
 pattern Enabled = ContainerLevelMetrics' "ENABLED"
 
+pattern Disabled :: ContainerLevelMetrics
+pattern Disabled = ContainerLevelMetrics' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   ContainerLevelMetrics'
   #-}

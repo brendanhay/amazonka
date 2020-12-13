@@ -13,8 +13,8 @@
 module Network.AWS.Redshift.Types.UsageLimitFeatureType
   ( UsageLimitFeatureType
       ( UsageLimitFeatureType',
-        ConcurrencyScaling,
-        Spectrum
+        Spectrum,
+        ConcurrencyScaling
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype UsageLimitFeatureType = UsageLimitFeatureType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ConcurrencyScaling :: UsageLimitFeatureType
-pattern ConcurrencyScaling = UsageLimitFeatureType' "concurrency-scaling"
-
 pattern Spectrum :: UsageLimitFeatureType
 pattern Spectrum = UsageLimitFeatureType' "spectrum"
 
+pattern ConcurrencyScaling :: UsageLimitFeatureType
+pattern ConcurrencyScaling = UsageLimitFeatureType' "concurrency-scaling"
+
 {-# COMPLETE
-  ConcurrencyScaling,
   Spectrum,
+  ConcurrencyScaling,
   UsageLimitFeatureType'
   #-}

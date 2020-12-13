@@ -13,8 +13,8 @@
 module Network.AWS.CognitoSync.Types.StreamingStatus
   ( StreamingStatus
       ( StreamingStatus',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype StreamingStatus = StreamingStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: StreamingStatus
-pattern Disabled = StreamingStatus' "DISABLED"
-
 pattern Enabled :: StreamingStatus
 pattern Enabled = StreamingStatus' "ENABLED"
 
+pattern Disabled :: StreamingStatus
+pattern Disabled = StreamingStatus' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   StreamingStatus'
   #-}

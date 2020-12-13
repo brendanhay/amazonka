@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeBuild.GetReportGroupTrend
     mkGetReportGroupTrend,
 
     -- ** Request lenses
-    grgtNumOfReports,
     grgtReportGroupARN,
+    grgtNumOfReports,
     grgtTrendField,
 
     -- * Destructuring the response
@@ -42,25 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetReportGroupTrend' smart constructor.
 data GetReportGroupTrend = GetReportGroupTrend'
-  { numOfReports ::
-      Lude.Maybe Lude.Natural,
-    reportGroupARN :: Lude.Text,
+  { reportGroupARN :: Lude.Text,
+    numOfReports :: Lude.Maybe Lude.Natural,
     trendField :: ReportGroupTrendFieldType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReportGroupTrend' with the minimum fields required to make a request.
 --
--- * 'numOfReports' - Undocumented field.
--- * 'reportGroupARN' - Undocumented field.
--- * 'trendField' - Undocumented field.
+-- * 'reportGroupARN' -
+-- * 'numOfReports' -
+-- * 'trendField' -
 mkGetReportGroupTrend ::
   -- | 'reportGroupARN'
   Lude.Text ->
@@ -69,17 +63,10 @@ mkGetReportGroupTrend ::
   GetReportGroupTrend
 mkGetReportGroupTrend pReportGroupARN_ pTrendField_ =
   GetReportGroupTrend'
-    { numOfReports = Lude.Nothing,
-      reportGroupARN = pReportGroupARN_,
+    { reportGroupARN = pReportGroupARN_,
+      numOfReports = Lude.Nothing,
       trendField = pTrendField_
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'numOfReports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grgtNumOfReports :: Lens.Lens' GetReportGroupTrend (Lude.Maybe Lude.Natural)
-grgtNumOfReports = Lens.lens (numOfReports :: GetReportGroupTrend -> Lude.Maybe Lude.Natural) (\s a -> s {numOfReports = a} :: GetReportGroupTrend)
-{-# DEPRECATED grgtNumOfReports "Use generic-lens or generic-optics with 'numOfReports' instead." #-}
 
 -- | Undocumented field.
 --
@@ -87,6 +74,13 @@ grgtNumOfReports = Lens.lens (numOfReports :: GetReportGroupTrend -> Lude.Maybe 
 grgtReportGroupARN :: Lens.Lens' GetReportGroupTrend Lude.Text
 grgtReportGroupARN = Lens.lens (reportGroupARN :: GetReportGroupTrend -> Lude.Text) (\s a -> s {reportGroupARN = a} :: GetReportGroupTrend)
 {-# DEPRECATED grgtReportGroupARN "Use generic-lens or generic-optics with 'reportGroupARN' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'numOfReports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgtNumOfReports :: Lens.Lens' GetReportGroupTrend (Lude.Maybe Lude.Natural)
+grgtNumOfReports = Lens.lens (numOfReports :: GetReportGroupTrend -> Lude.Maybe Lude.Natural) (\s a -> s {numOfReports = a} :: GetReportGroupTrend)
+{-# DEPRECATED grgtNumOfReports "Use generic-lens or generic-optics with 'numOfReports' instead." #-}
 
 -- | Undocumented field.
 --
@@ -122,8 +116,8 @@ instance Lude.ToJSON GetReportGroupTrend where
   toJSON GetReportGroupTrend' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("numOfReports" Lude..=) Lude.<$> numOfReports,
-            Lude.Just ("reportGroupArn" Lude..= reportGroupARN),
+          [ Lude.Just ("reportGroupArn" Lude..= reportGroupARN),
+            ("numOfReports" Lude..=) Lude.<$> numOfReports,
             Lude.Just ("trendField" Lude..= trendField)
           ]
       )
@@ -136,26 +130,19 @@ instance Lude.ToQuery GetReportGroupTrend where
 
 -- | /See:/ 'mkGetReportGroupTrendResponse' smart constructor.
 data GetReportGroupTrendResponse = GetReportGroupTrendResponse'
-  { rawData ::
-      Lude.Maybe [ReportWithRawData],
-    stats ::
-      Lude.Maybe ReportGroupTrendStats,
+  { rawData :: Lude.Maybe [ReportWithRawData],
+    stats :: Lude.Maybe ReportGroupTrendStats,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReportGroupTrendResponse' with the minimum fields required to make a request.
 --
--- * 'rawData' - Undocumented field.
+-- * 'rawData' -
+-- * 'stats' -
 -- * 'responseStatus' - The response status code.
--- * 'stats' - Undocumented field.
 mkGetReportGroupTrendResponse ::
   -- | 'responseStatus'
   Lude.Int ->

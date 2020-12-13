@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Inspector.CreateAssessmentTarget
     mkCreateAssessmentTargetResponse,
 
     -- ** Response lenses
-    catrsResponseStatus,
     catrsAssessmentTargetARN,
+    catrsResponseStatus,
   )
 where
 
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAssessmentTarget' smart constructor.
 data CreateAssessmentTarget = CreateAssessmentTarget'
-  { resourceGroupARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+    resourceGroupARN :: Lude.Maybe Lude.Text,
+    -- | The user-defined name that identifies the assessment target that you want to create. The name must be unique within the AWS account.
     assessmentTargetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAssessmentTarget' with the minimum fields required to make a request.
 --
--- * 'assessmentTargetName' - The user-defined name that identifies the assessment target that you want to create. The name must be unique within the AWS account.
 -- * 'resourceGroupARN' - The ARN that specifies the resource group that is used to create the assessment target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+-- * 'assessmentTargetName' - The user-defined name that identifies the assessment target that you want to create. The name must be unique within the AWS account.
 mkCreateAssessmentTarget ::
   -- | 'assessmentTargetName'
   Lude.Text ->
@@ -88,8 +84,8 @@ instance Lude.AWSRequest CreateAssessmentTarget where
     Res.receiveJSON
       ( \s h x ->
           CreateAssessmentTargetResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "assessmentTargetArn")
+            Lude.<$> (x Lude..:> "assessmentTargetArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateAssessmentTarget where
@@ -120,18 +116,12 @@ instance Lude.ToQuery CreateAssessmentTarget where
 
 -- | /See:/ 'mkCreateAssessmentTargetResponse' smart constructor.
 data CreateAssessmentTargetResponse = CreateAssessmentTargetResponse'
-  { responseStatus ::
-      Lude.Int,
-    assessmentTargetARN ::
-      Lude.Text
+  { -- | The ARN that specifies the assessment target that is created.
+    assessmentTargetARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAssessmentTargetResponse' with the minimum fields required to make a request.
@@ -139,26 +129,19 @@ data CreateAssessmentTargetResponse = CreateAssessmentTargetResponse'
 -- * 'assessmentTargetARN' - The ARN that specifies the assessment target that is created.
 -- * 'responseStatus' - The response status code.
 mkCreateAssessmentTargetResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'assessmentTargetARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAssessmentTargetResponse
 mkCreateAssessmentTargetResponse
-  pResponseStatus_
-  pAssessmentTargetARN_ =
+  pAssessmentTargetARN_
+  pResponseStatus_ =
     CreateAssessmentTargetResponse'
-      { responseStatus =
-          pResponseStatus_,
-        assessmentTargetARN = pAssessmentTargetARN_
+      { assessmentTargetARN =
+          pAssessmentTargetARN_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-catrsResponseStatus :: Lens.Lens' CreateAssessmentTargetResponse Lude.Int
-catrsResponseStatus = Lens.lens (responseStatus :: CreateAssessmentTargetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAssessmentTargetResponse)
-{-# DEPRECATED catrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ARN that specifies the assessment target that is created.
 --
@@ -166,3 +149,10 @@ catrsResponseStatus = Lens.lens (responseStatus :: CreateAssessmentTargetRespons
 catrsAssessmentTargetARN :: Lens.Lens' CreateAssessmentTargetResponse Lude.Text
 catrsAssessmentTargetARN = Lens.lens (assessmentTargetARN :: CreateAssessmentTargetResponse -> Lude.Text) (\s a -> s {assessmentTargetARN = a} :: CreateAssessmentTargetResponse)
 {-# DEPRECATED catrsAssessmentTargetARN "Use generic-lens or generic-optics with 'assessmentTargetARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+catrsResponseStatus :: Lens.Lens' CreateAssessmentTargetResponse Lude.Int
+catrsResponseStatus = Lens.lens (responseStatus :: CreateAssessmentTargetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAssessmentTargetResponse)
+{-# DEPRECATED catrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

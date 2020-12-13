@@ -13,14 +13,14 @@
 module Network.AWS.Kinesis.Types.MetricsName
   ( MetricsName
       ( MetricsName',
-        All,
         IncomingBytes,
         IncomingRecords,
-        IteratorAgeMilliseconds,
         OutgoingBytes,
         OutgoingRecords,
+        WriteProvisionedThroughputExceeded,
         ReadProvisionedThroughputExceeded,
-        WriteProvisionedThroughputExceeded
+        IteratorAgeMilliseconds,
+        All
       ),
   )
 where
@@ -51,17 +51,11 @@ newtype MetricsName = MetricsName' Lude.Text
       Lude.ToHeader
     )
 
-pattern All :: MetricsName
-pattern All = MetricsName' "ALL"
-
 pattern IncomingBytes :: MetricsName
 pattern IncomingBytes = MetricsName' "IncomingBytes"
 
 pattern IncomingRecords :: MetricsName
 pattern IncomingRecords = MetricsName' "IncomingRecords"
-
-pattern IteratorAgeMilliseconds :: MetricsName
-pattern IteratorAgeMilliseconds = MetricsName' "IteratorAgeMilliseconds"
 
 pattern OutgoingBytes :: MetricsName
 pattern OutgoingBytes = MetricsName' "OutgoingBytes"
@@ -69,20 +63,26 @@ pattern OutgoingBytes = MetricsName' "OutgoingBytes"
 pattern OutgoingRecords :: MetricsName
 pattern OutgoingRecords = MetricsName' "OutgoingRecords"
 
-pattern ReadProvisionedThroughputExceeded :: MetricsName
-pattern ReadProvisionedThroughputExceeded = MetricsName' "ReadProvisionedThroughputExceeded"
-
 pattern WriteProvisionedThroughputExceeded :: MetricsName
 pattern WriteProvisionedThroughputExceeded = MetricsName' "WriteProvisionedThroughputExceeded"
 
+pattern ReadProvisionedThroughputExceeded :: MetricsName
+pattern ReadProvisionedThroughputExceeded = MetricsName' "ReadProvisionedThroughputExceeded"
+
+pattern IteratorAgeMilliseconds :: MetricsName
+pattern IteratorAgeMilliseconds = MetricsName' "IteratorAgeMilliseconds"
+
+pattern All :: MetricsName
+pattern All = MetricsName' "ALL"
+
 {-# COMPLETE
-  All,
   IncomingBytes,
   IncomingRecords,
-  IteratorAgeMilliseconds,
   OutgoingBytes,
   OutgoingRecords,
-  ReadProvisionedThroughputExceeded,
   WriteProvisionedThroughputExceeded,
+  ReadProvisionedThroughputExceeded,
+  IteratorAgeMilliseconds,
+  All,
   MetricsName'
   #-}

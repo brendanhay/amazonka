@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchRemoveFacetFromObject' smart constructor.
 data BatchRemoveFacetFromObject = BatchRemoveFacetFromObject'
-  { schemaFacet ::
-      SchemaFacet,
+  { -- | The facet to remove from the object.
+    schemaFacet :: SchemaFacet,
+    -- | A reference to the object whose facet will be removed.
     objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchRemoveFacetFromObject' with the minimum fields required to make a request.
 --
--- * 'objectReference' - A reference to the object whose facet will be removed.
 -- * 'schemaFacet' - The facet to remove from the object.
+-- * 'objectReference' - A reference to the object whose facet will be removed.
 mkBatchRemoveFacetFromObject ::
   -- | 'schemaFacet'
   SchemaFacet ->

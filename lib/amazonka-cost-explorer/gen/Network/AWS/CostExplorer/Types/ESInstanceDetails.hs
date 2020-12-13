@@ -32,20 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkESInstanceDetails' smart constructor.
 data ESInstanceDetails = ESInstanceDetails'
-  { currentGeneration ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether the recommendation is for a current-generation instance.
+    currentGeneration :: Lude.Maybe Lude.Bool,
+    -- | The class of instance that AWS recommends.
     instanceClass :: Lude.Maybe Lude.Text,
+    -- | The size of instance that AWS recommends.
     instanceSize :: Lude.Maybe Lude.Text,
+    -- | Whether the recommended reservation is size flexible.
     sizeFlexEligible :: Lude.Maybe Lude.Bool,
+    -- | The AWS Region of the recommended reservation.
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ESInstanceDetails' with the minimum fields required to make a request.
@@ -53,8 +51,8 @@ data ESInstanceDetails = ESInstanceDetails'
 -- * 'currentGeneration' - Whether the recommendation is for a current-generation instance.
 -- * 'instanceClass' - The class of instance that AWS recommends.
 -- * 'instanceSize' - The size of instance that AWS recommends.
--- * 'region' - The AWS Region of the recommended reservation.
 -- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
+-- * 'region' - The AWS Region of the recommended reservation.
 mkESInstanceDetails ::
   ESInstanceDetails
 mkESInstanceDetails =

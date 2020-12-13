@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.RDS.CreateCustomAvailabilityZone
 
     -- ** Request lenses
     ccazVPNTunnelOriginatorIP,
+    ccazCustomAvailabilityZoneName,
     ccazNewVPNTunnelName,
     ccazExistingVPNId,
-    ccazCustomAvailabilityZoneName,
 
     -- * Destructuring the response
     CreateCustomAvailabilityZoneResponse (..),
@@ -47,34 +48,32 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateCustomAvailabilityZone' smart constructor.
 data CreateCustomAvailabilityZone = CreateCustomAvailabilityZone'
-  { vpnTunnelOriginatorIP ::
-      Lude.Maybe Lude.Text,
-    newVPNTunnelName ::
-      Lude.Maybe Lude.Text,
-    existingVPNId ::
-      Lude.Maybe Lude.Text,
-    customAvailabilityZoneName ::
-      Lude.Text
+  { -- | The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.
+    --
+    -- Specify this parameter only if @ExistingVpnId@ isn't specified.
+    vpnTunnelOriginatorIP :: Lude.Maybe Lude.Text,
+    -- | The name of the custom Availability Zone (AZ).
+    customAvailabilityZoneName :: Lude.Text,
+    -- | The name of a new VPN tunnel between the Amazon RDS website and the VMware vSphere cluster.
+    --
+    -- Specify this parameter only if @ExistingVpnId@ isn't specified.
+    newVPNTunnelName :: Lude.Maybe Lude.Text,
+    -- | The ID of an existing virtual private network (VPN) between the Amazon RDS website and the VMware vSphere cluster.
+    existingVPNId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomAvailabilityZone' with the minimum fields required to make a request.
 --
--- * 'customAvailabilityZoneName' - The name of the custom Availability Zone (AZ).
--- * 'existingVPNId' - The ID of an existing virtual private network (VPN) between the Amazon RDS website and the VMware vSphere cluster.
--- * 'newVPNTunnelName' - The name of a new VPN tunnel between the Amazon RDS website and the VMware vSphere cluster.
---
--- Specify this parameter only if @ExistingVpnId@ isn't specified.
 -- * 'vpnTunnelOriginatorIP' - The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.
 --
 -- Specify this parameter only if @ExistingVpnId@ isn't specified.
+-- * 'customAvailabilityZoneName' - The name of the custom Availability Zone (AZ).
+-- * 'newVPNTunnelName' - The name of a new VPN tunnel between the Amazon RDS website and the VMware vSphere cluster.
+--
+-- Specify this parameter only if @ExistingVpnId@ isn't specified.
+-- * 'existingVPNId' - The ID of an existing virtual private network (VPN) between the Amazon RDS website and the VMware vSphere cluster.
 mkCreateCustomAvailabilityZone ::
   -- | 'customAvailabilityZoneName'
   Lude.Text ->
@@ -83,9 +82,9 @@ mkCreateCustomAvailabilityZone pCustomAvailabilityZoneName_ =
   CreateCustomAvailabilityZone'
     { vpnTunnelOriginatorIP =
         Lude.Nothing,
+      customAvailabilityZoneName = pCustomAvailabilityZoneName_,
       newVPNTunnelName = Lude.Nothing,
-      existingVPNId = Lude.Nothing,
-      customAvailabilityZoneName = pCustomAvailabilityZoneName_
+      existingVPNId = Lude.Nothing
     }
 
 -- | The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.
@@ -96,6 +95,13 @@ mkCreateCustomAvailabilityZone pCustomAvailabilityZoneName_ =
 ccazVPNTunnelOriginatorIP :: Lens.Lens' CreateCustomAvailabilityZone (Lude.Maybe Lude.Text)
 ccazVPNTunnelOriginatorIP = Lens.lens (vpnTunnelOriginatorIP :: CreateCustomAvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {vpnTunnelOriginatorIP = a} :: CreateCustomAvailabilityZone)
 {-# DEPRECATED ccazVPNTunnelOriginatorIP "Use generic-lens or generic-optics with 'vpnTunnelOriginatorIP' instead." #-}
+
+-- | The name of the custom Availability Zone (AZ).
+--
+-- /Note:/ Consider using 'customAvailabilityZoneName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccazCustomAvailabilityZoneName :: Lens.Lens' CreateCustomAvailabilityZone Lude.Text
+ccazCustomAvailabilityZoneName = Lens.lens (customAvailabilityZoneName :: CreateCustomAvailabilityZone -> Lude.Text) (\s a -> s {customAvailabilityZoneName = a} :: CreateCustomAvailabilityZone)
+{-# DEPRECATED ccazCustomAvailabilityZoneName "Use generic-lens or generic-optics with 'customAvailabilityZoneName' instead." #-}
 
 -- | The name of a new VPN tunnel between the Amazon RDS website and the VMware vSphere cluster.
 --
@@ -112,13 +118,6 @@ ccazNewVPNTunnelName = Lens.lens (newVPNTunnelName :: CreateCustomAvailabilityZo
 ccazExistingVPNId :: Lens.Lens' CreateCustomAvailabilityZone (Lude.Maybe Lude.Text)
 ccazExistingVPNId = Lens.lens (existingVPNId :: CreateCustomAvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {existingVPNId = a} :: CreateCustomAvailabilityZone)
 {-# DEPRECATED ccazExistingVPNId "Use generic-lens or generic-optics with 'existingVPNId' instead." #-}
-
--- | The name of the custom Availability Zone (AZ).
---
--- /Note:/ Consider using 'customAvailabilityZoneName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccazCustomAvailabilityZoneName :: Lens.Lens' CreateCustomAvailabilityZone Lude.Text
-ccazCustomAvailabilityZoneName = Lens.lens (customAvailabilityZoneName :: CreateCustomAvailabilityZone -> Lude.Text) (\s a -> s {customAvailabilityZoneName = a} :: CreateCustomAvailabilityZone)
-{-# DEPRECATED ccazCustomAvailabilityZoneName "Use generic-lens or generic-optics with 'customAvailabilityZoneName' instead." #-}
 
 instance Lude.AWSRequest CreateCustomAvailabilityZone where
   type
@@ -147,30 +146,23 @@ instance Lude.ToQuery CreateCustomAvailabilityZone where
           Lude.=: ("CreateCustomAvailabilityZone" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "VpnTunnelOriginatorIP" Lude.=: vpnTunnelOriginatorIP,
+        "CustomAvailabilityZoneName" Lude.=: customAvailabilityZoneName,
         "NewVpnTunnelName" Lude.=: newVPNTunnelName,
-        "ExistingVpnId" Lude.=: existingVPNId,
-        "CustomAvailabilityZoneName" Lude.=: customAvailabilityZoneName
+        "ExistingVpnId" Lude.=: existingVPNId
       ]
 
 -- | /See:/ 'mkCreateCustomAvailabilityZoneResponse' smart constructor.
 data CreateCustomAvailabilityZoneResponse = CreateCustomAvailabilityZoneResponse'
-  { customAvailabilityZone ::
-      Lude.Maybe
-        CustomAvailabilityZone,
-    responseStatus ::
-      Lude.Int
+  { customAvailabilityZone :: Lude.Maybe CustomAvailabilityZone,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomAvailabilityZoneResponse' with the minimum fields required to make a request.
 --
--- * 'customAvailabilityZone' - Undocumented field.
+-- * 'customAvailabilityZone' -
 -- * 'responseStatus' - The response status code.
 mkCreateCustomAvailabilityZoneResponse ::
   -- | 'responseStatus'

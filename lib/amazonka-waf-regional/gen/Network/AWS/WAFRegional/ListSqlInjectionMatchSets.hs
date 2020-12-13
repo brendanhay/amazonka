@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,23 +44,18 @@ import Network.AWS.WAFRegional.Types
 --
 -- /See:/ 'mkListSqlInjectionMatchSets' smart constructor.
 data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | If you specify a value for @Limit@ and you have more 'SqlInjectionMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @SqlInjectionMatchSets@ . For the second and subsequent @ListSqlInjectionMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @SqlInjectionMatchSets@ .
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of 'SqlInjectionMatchSet' objects that you want AWS WAF to return for this request. If you have more @SqlInjectionMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSqlInjectionMatchSets' with the minimum fields required to make a request.
 --
--- * 'limit' - Specifies the number of 'SqlInjectionMatchSet' objects that you want AWS WAF to return for this request. If you have more @SqlInjectionMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 -- * 'nextMarker' - If you specify a value for @Limit@ and you have more 'SqlInjectionMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @SqlInjectionMatchSets@ . For the second and subsequent @ListSqlInjectionMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @SqlInjectionMatchSets@ .
+-- * 'limit' - Specifies the number of 'SqlInjectionMatchSet' objects that you want AWS WAF to return for this request. If you have more @SqlInjectionMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 mkListSqlInjectionMatchSets ::
   ListSqlInjectionMatchSets
 mkListSqlInjectionMatchSets =
@@ -128,28 +124,21 @@ instance Lude.ToQuery ListSqlInjectionMatchSets where
 --
 -- /See:/ 'mkListSqlInjectionMatchSetsResponse' smart constructor.
 data ListSqlInjectionMatchSetsResponse = ListSqlInjectionMatchSetsResponse'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
-    sqlInjectionMatchSets ::
-      Lude.Maybe
-        [SqlInjectionMatchSetSummary],
-    responseStatus ::
-      Lude.Int
+  { -- | If you have more 'SqlInjectionMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @SqlInjectionMatchSet@ objects, submit another @ListSqlInjectionMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | An array of 'SqlInjectionMatchSetSummary' objects.
+    sqlInjectionMatchSets :: Lude.Maybe [SqlInjectionMatchSetSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSqlInjectionMatchSetsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextMarker' - If you have more 'SqlInjectionMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @SqlInjectionMatchSet@ objects, submit another @ListSqlInjectionMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
--- * 'responseStatus' - The response status code.
 -- * 'sqlInjectionMatchSets' - An array of 'SqlInjectionMatchSetSummary' objects.
+-- * 'responseStatus' - The response status code.
 mkListSqlInjectionMatchSetsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

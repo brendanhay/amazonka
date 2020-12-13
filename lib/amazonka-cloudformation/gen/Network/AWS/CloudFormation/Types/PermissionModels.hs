@@ -13,8 +13,8 @@
 module Network.AWS.CloudFormation.Types.PermissionModels
   ( PermissionModels
       ( PermissionModels',
-        SelfManaged,
-        ServiceManaged
+        ServiceManaged,
+        SelfManaged
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PermissionModels = PermissionModels' Lude.Text
       Lude.ToHeader
     )
 
-pattern SelfManaged :: PermissionModels
-pattern SelfManaged = PermissionModels' "SELF_MANAGED"
-
 pattern ServiceManaged :: PermissionModels
 pattern ServiceManaged = PermissionModels' "SERVICE_MANAGED"
 
+pattern SelfManaged :: PermissionModels
+pattern SelfManaged = PermissionModels' "SELF_MANAGED"
+
 {-# COMPLETE
-  SelfManaged,
   ServiceManaged,
+  SelfManaged,
   PermissionModels'
   #-}

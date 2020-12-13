@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,28 +46,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListResourceComplianceSummaries' smart constructor.
 data ListResourceComplianceSummaries = ListResourceComplianceSummaries'
-  { filters ::
-      Lude.Maybe
-        [ComplianceStringFilter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+  { -- | One or more filters. Use a filter to return a more specific list of results.
+    filters :: Lude.Maybe [ComplianceStringFilter],
+    -- | A token to start the list. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceComplianceSummaries' with the minimum fields required to make a request.
 --
 -- * 'filters' - One or more filters. Use a filter to return a more specific list of results.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkListResourceComplianceSummaries ::
   ListResourceComplianceSummaries
 mkListResourceComplianceSummaries =
@@ -150,28 +144,20 @@ instance Lude.ToQuery ListResourceComplianceSummaries where
 
 -- | /See:/ 'mkListResourceComplianceSummariesResponse' smart constructor.
 data ListResourceComplianceSummariesResponse = ListResourceComplianceSummariesResponse'
-  { resourceComplianceSummaryItems ::
-      Lude.Maybe
-        [ResourceComplianceSummaryItem],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A summary count for specified or targeted managed instances. Summary count includes information about compliant and non-compliant State Manager associations, patch status, or custom items according to the filter criteria that you specify.
+    resourceComplianceSummaryItems :: Lude.Maybe [ResourceComplianceSummaryItem],
+    -- | The token for the next set of items to return. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceComplianceSummariesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
 -- * 'resourceComplianceSummaryItems' - A summary count for specified or targeted managed instances. Summary count includes information about compliant and non-compliant State Manager associations, patch status, or custom items according to the filter criteria that you specify.
+-- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
 -- * 'responseStatus' - The response status code.
 mkListResourceComplianceSummariesResponse ::
   -- | 'responseStatus'

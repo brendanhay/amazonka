@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EMR.ListInstanceFleets
     mkListInstanceFleets,
 
     -- ** Request lenses
-    lifMarker,
     lifClusterId,
+    lifMarker,
 
     -- * Destructuring the response
     ListInstanceFleetsResponse (..),
@@ -44,17 +45,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListInstanceFleets' smart constructor.
 data ListInstanceFleets = ListInstanceFleets'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    clusterId :: Lude.Text
+  { -- | The unique identifier of the cluster.
+    clusterId :: Lude.Text,
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceFleets' with the minimum fields required to make a request.
@@ -67,16 +63,9 @@ mkListInstanceFleets ::
   ListInstanceFleets
 mkListInstanceFleets pClusterId_ =
   ListInstanceFleets'
-    { marker = Lude.Nothing,
-      clusterId = pClusterId_
+    { clusterId = pClusterId_,
+      marker = Lude.Nothing
     }
-
--- | The pagination token that indicates the next set of results to retrieve.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lifMarker :: Lens.Lens' ListInstanceFleets (Lude.Maybe Lude.Text)
-lifMarker = Lens.lens (marker :: ListInstanceFleets -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceFleets)
-{-# DEPRECATED lifMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The unique identifier of the cluster.
 --
@@ -84,6 +73,13 @@ lifMarker = Lens.lens (marker :: ListInstanceFleets -> Lude.Maybe Lude.Text) (\s
 lifClusterId :: Lens.Lens' ListInstanceFleets Lude.Text
 lifClusterId = Lens.lens (clusterId :: ListInstanceFleets -> Lude.Text) (\s a -> s {clusterId = a} :: ListInstanceFleets)
 {-# DEPRECATED lifClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lifMarker :: Lens.Lens' ListInstanceFleets (Lude.Maybe Lude.Text)
+lifMarker = Lens.lens (marker :: ListInstanceFleets -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceFleets)
+{-# DEPRECATED lifMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 instance Page.AWSPager ListInstanceFleets where
   page rq rs
@@ -119,8 +115,8 @@ instance Lude.ToJSON ListInstanceFleets where
   toJSON ListInstanceFleets' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            Lude.Just ("ClusterId" Lude..= clusterId)
+          [ Lude.Just ("ClusterId" Lude..= clusterId),
+            ("Marker" Lude..=) Lude.<$> marker
           ]
       )
 
@@ -132,18 +128,14 @@ instance Lude.ToQuery ListInstanceFleets where
 
 -- | /See:/ 'mkListInstanceFleetsResponse' smart constructor.
 data ListInstanceFleetsResponse = ListInstanceFleetsResponse'
-  { instanceFleets ::
-      Lude.Maybe [InstanceFleet],
+  { -- | The list of instance fleets for the cluster and given filters.
+    instanceFleets :: Lude.Maybe [InstanceFleet],
+    -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceFleetsResponse' with the minimum fields required to make a request.

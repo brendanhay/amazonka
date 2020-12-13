@@ -31,10 +31,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCredentials' smart constructor.
 data Credentials = Credentials'
-  { accessTokenExpiration ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A token generated with an expiration time for the session a user is logged in to Amazon Connect.
+    accessTokenExpiration :: Lude.Maybe Lude.Timestamp,
+    -- | An access token generated for a federated user to access Amazon Connect.
     accessToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Renews a token generated for a user to access the Amazon Connect instance.
     refreshToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Renews the expiration timer for a generated token.
     refreshTokenExpiration :: Lude.Maybe Lude.Timestamp
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -42,8 +45,8 @@ data Credentials = Credentials'
 
 -- | Creates a value of 'Credentials' with the minimum fields required to make a request.
 --
--- * 'accessToken' - An access token generated for a federated user to access Amazon Connect.
 -- * 'accessTokenExpiration' - A token generated with an expiration time for the session a user is logged in to Amazon Connect.
+-- * 'accessToken' - An access token generated for a federated user to access Amazon Connect.
 -- * 'refreshToken' - Renews a token generated for a user to access the Amazon Connect instance.
 -- * 'refreshTokenExpiration' - Renews the expiration timer for a generated token.
 mkCredentials ::

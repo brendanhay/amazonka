@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStream' smart constructor.
 data Stream = Stream'
-  { fileId :: Lude.Maybe Lude.Natural,
+  { -- | The ID of a file associated with a stream.
+    fileId :: Lude.Maybe Lude.Natural,
+    -- | The stream ID.
     streamId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Stream' with the minimum fields required to make a request.

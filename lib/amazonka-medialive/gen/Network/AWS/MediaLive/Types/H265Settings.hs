@@ -37,15 +37,15 @@ module Network.AWS.MediaLive.Types.H265Settings
     hsFixedAfd,
     hsFilterSettings,
     hsBitrate,
+    hsFramerateDenominator,
     hsColorMetadata,
     hsLookAheadRateControl,
     hsAdaptiveQuantization,
+    hsFramerateNumerator,
     hsLevel,
     hsMaxBitrate,
     hsGopClosedCadence,
     hsParDenominator,
-    hsFramerateNumerator,
-    hsFramerateDenominator,
   )
 where
 
@@ -73,79 +73,111 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkH265Settings' smart constructor.
 data H265Settings = H265Settings'
-  { sceneChangeDetect ::
-      Lude.Maybe H265SceneChangeDetect,
+  { -- | Scene change detection.
+    sceneChangeDetect :: Lude.Maybe H265SceneChangeDetect,
+    -- | Sets the scan type of the output to progressive or top-field-first interlaced.
     scanType :: Lude.Maybe H265ScanType,
+    -- | Determines how timecodes should be inserted into the video elementary stream.
+    --
+    -- - 'disabled': Do not include timecodes
+    -- - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
     timecodeInsertion :: Lude.Maybe H265TimecodeInsertionBehavior,
+    -- | Pixel Aspect Ratio numerator.
     parNumerator :: Lude.Maybe Lude.Natural,
+    -- | Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
     afdSignaling :: Lude.Maybe AfdSignaling,
+    -- | GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
+    --
+    -- If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
+    -- If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
     gopSize :: Lude.Maybe Lude.Double,
+    -- | Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
     gopSizeUnits :: Lude.Maybe H265GopSizeUnits,
+    -- | Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+    --
+    -- This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
     slices :: Lude.Maybe Lude.Natural,
+    -- | H.265 Profile.
     profile :: Lude.Maybe H265Profile,
-    alternativeTransferFunction ::
-      Lude.Maybe H265AlternativeTransferFunction,
+    -- | Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
+    alternativeTransferFunction :: Lude.Maybe H265AlternativeTransferFunction,
+    -- | Rate control mode.
+    --
+    --
+    -- QVBR: Quality will match the specified quality level except when it is constrained by the
+    -- maximum bitrate.  Recommended if you or your viewers pay for bandwidth.
+    --
+    -- CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
+    -- your assets to devices that cannot handle variable bitrates.
+    --
+    -- Multiplex: This rate control mode is only supported (and is required) when the video is being
+    -- delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
+    -- by the properties within the Multiplex Program.
     rateControlMode :: Lude.Maybe H265RateControlMode,
+    -- | Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
     minIInterval :: Lude.Maybe Lude.Natural,
+    -- | Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
+    --
+    -- - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
+    -- - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
+    -- - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
     qvbrQualityLevel :: Lude.Maybe Lude.Natural,
+    -- | Color Space settings
     colorSpaceSettings :: Lude.Maybe H265ColorSpaceSettings,
+    -- | If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
     flickerAq :: Lude.Maybe H265FlickerAq,
+    -- | Size of buffer (HRD buffer model) in bits.
     bufSize :: Lude.Maybe Lude.Natural,
+    -- | H.265 Tier.
     tier :: Lude.Maybe H265Tier,
+    -- | Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
     fixedAfd :: Lude.Maybe FixedAfd,
+    -- | Optional filters that you can apply to an encode.
     filterSettings :: Lude.Maybe H265FilterSettings,
+    -- | Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
     bitrate :: Lude.Maybe Lude.Natural,
+    -- | Framerate denominator.
+    framerateDenominator :: Lude.Natural,
+    -- | Includes colorspace metadata in the output.
     colorMetadata :: Lude.Maybe H265ColorMetadata,
+    -- | Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
     lookAheadRateControl :: Lude.Maybe H265LookAheadRateControl,
+    -- | Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
     adaptiveQuantization :: Lude.Maybe H265AdaptiveQuantization,
-    level :: Lude.Maybe H265Level,
-    maxBitrate :: Lude.Maybe Lude.Natural,
-    gopClosedCadence :: Lude.Maybe Lude.Natural,
-    parDenominator :: Lude.Maybe Lude.Natural,
+    -- | Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
     framerateNumerator :: Lude.Natural,
-    framerateDenominator :: Lude.Natural
+    -- | H.265 Level.
+    level :: Lude.Maybe H265Level,
+    -- | For QVBR: See the tooltip for Quality level
+    maxBitrate :: Lude.Maybe Lude.Natural,
+    -- | Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+    gopClosedCadence :: Lude.Maybe Lude.Natural,
+    -- | Pixel Aspect Ratio denominator.
+    parDenominator :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'H265Settings' with the minimum fields required to make a request.
 --
--- * 'adaptiveQuantization' - Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+-- * 'sceneChangeDetect' - Scene change detection.
+-- * 'scanType' - Sets the scan type of the output to progressive or top-field-first interlaced.
+-- * 'timecodeInsertion' - Determines how timecodes should be inserted into the video elementary stream.
+--
+-- - 'disabled': Do not include timecodes
+-- - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
+-- * 'parNumerator' - Pixel Aspect Ratio numerator.
 -- * 'afdSignaling' - Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
--- * 'alternativeTransferFunction' - Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
--- * 'bitrate' - Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
--- * 'bufSize' - Size of buffer (HRD buffer model) in bits.
--- * 'colorMetadata' - Includes colorspace metadata in the output.
--- * 'colorSpaceSettings' - Color Space settings
--- * 'filterSettings' - Optional filters that you can apply to an encode.
--- * 'fixedAfd' - Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
--- * 'flickerAq' - If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
--- * 'framerateDenominator' - Framerate denominator.
--- * 'framerateNumerator' - Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
--- * 'gopClosedCadence' - Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
 -- * 'gopSize' - GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
 --
 -- If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
 -- If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
 -- * 'gopSizeUnits' - Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
--- * 'level' - H.265 Level.
--- * 'lookAheadRateControl' - Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
--- * 'maxBitrate' - For QVBR: See the tooltip for Quality level
--- * 'minIInterval' - Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
--- * 'parDenominator' - Pixel Aspect Ratio denominator.
--- * 'parNumerator' - Pixel Aspect Ratio numerator.
--- * 'profile' - H.265 Profile.
--- * 'qvbrQualityLevel' - Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
+-- * 'slices' - Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
 --
--- - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
--- - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
--- - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+-- This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
+-- * 'profile' - H.265 Profile.
+-- * 'alternativeTransferFunction' - Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
 -- * 'rateControlMode' - Rate control mode.
 --
 --
@@ -158,23 +190,35 @@ data H265Settings = H265Settings'
 -- Multiplex: This rate control mode is only supported (and is required) when the video is being
 -- delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
 -- by the properties within the Multiplex Program.
--- * 'scanType' - Sets the scan type of the output to progressive or top-field-first interlaced.
--- * 'sceneChangeDetect' - Scene change detection.
--- * 'slices' - Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+-- * 'minIInterval' - Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+-- * 'qvbrQualityLevel' - Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
 --
--- This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
+-- - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
+-- - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
+-- - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+-- * 'colorSpaceSettings' - Color Space settings
+-- * 'flickerAq' - If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+-- * 'bufSize' - Size of buffer (HRD buffer model) in bits.
 -- * 'tier' - H.265 Tier.
--- * 'timecodeInsertion' - Determines how timecodes should be inserted into the video elementary stream.
---
--- - 'disabled': Do not include timecodes
--- - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
+-- * 'fixedAfd' - Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
+-- * 'filterSettings' - Optional filters that you can apply to an encode.
+-- * 'bitrate' - Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+-- * 'framerateDenominator' - Framerate denominator.
+-- * 'colorMetadata' - Includes colorspace metadata in the output.
+-- * 'lookAheadRateControl' - Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
+-- * 'adaptiveQuantization' - Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+-- * 'framerateNumerator' - Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+-- * 'level' - H.265 Level.
+-- * 'maxBitrate' - For QVBR: See the tooltip for Quality level
+-- * 'gopClosedCadence' - Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+-- * 'parDenominator' - Pixel Aspect Ratio denominator.
 mkH265Settings ::
-  -- | 'framerateNumerator'
-  Lude.Natural ->
   -- | 'framerateDenominator'
   Lude.Natural ->
+  -- | 'framerateNumerator'
+  Lude.Natural ->
   H265Settings
-mkH265Settings pFramerateNumerator_ pFramerateDenominator_ =
+mkH265Settings pFramerateDenominator_ pFramerateNumerator_ =
   H265Settings'
     { sceneChangeDetect = Lude.Nothing,
       scanType = Lude.Nothing,
@@ -196,15 +240,15 @@ mkH265Settings pFramerateNumerator_ pFramerateDenominator_ =
       fixedAfd = Lude.Nothing,
       filterSettings = Lude.Nothing,
       bitrate = Lude.Nothing,
+      framerateDenominator = pFramerateDenominator_,
       colorMetadata = Lude.Nothing,
       lookAheadRateControl = Lude.Nothing,
       adaptiveQuantization = Lude.Nothing,
+      framerateNumerator = pFramerateNumerator_,
       level = Lude.Nothing,
       maxBitrate = Lude.Nothing,
       gopClosedCadence = Lude.Nothing,
-      parDenominator = Lude.Nothing,
-      framerateNumerator = pFramerateNumerator_,
-      framerateDenominator = pFramerateDenominator_
+      parDenominator = Lude.Nothing
     }
 
 -- | Scene change detection.
@@ -370,6 +414,13 @@ hsBitrate :: Lens.Lens' H265Settings (Lude.Maybe Lude.Natural)
 hsBitrate = Lens.lens (bitrate :: H265Settings -> Lude.Maybe Lude.Natural) (\s a -> s {bitrate = a} :: H265Settings)
 {-# DEPRECATED hsBitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
 
+-- | Framerate denominator.
+--
+-- /Note:/ Consider using 'framerateDenominator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsFramerateDenominator :: Lens.Lens' H265Settings Lude.Natural
+hsFramerateDenominator = Lens.lens (framerateDenominator :: H265Settings -> Lude.Natural) (\s a -> s {framerateDenominator = a} :: H265Settings)
+{-# DEPRECATED hsFramerateDenominator "Use generic-lens or generic-optics with 'framerateDenominator' instead." #-}
+
 -- | Includes colorspace metadata in the output.
 --
 -- /Note:/ Consider using 'colorMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -390,6 +441,13 @@ hsLookAheadRateControl = Lens.lens (lookAheadRateControl :: H265Settings -> Lude
 hsAdaptiveQuantization :: Lens.Lens' H265Settings (Lude.Maybe H265AdaptiveQuantization)
 hsAdaptiveQuantization = Lens.lens (adaptiveQuantization :: H265Settings -> Lude.Maybe H265AdaptiveQuantization) (\s a -> s {adaptiveQuantization = a} :: H265Settings)
 {-# DEPRECATED hsAdaptiveQuantization "Use generic-lens or generic-optics with 'adaptiveQuantization' instead." #-}
+
+-- | Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+--
+-- /Note:/ Consider using 'framerateNumerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsFramerateNumerator :: Lens.Lens' H265Settings Lude.Natural
+hsFramerateNumerator = Lens.lens (framerateNumerator :: H265Settings -> Lude.Natural) (\s a -> s {framerateNumerator = a} :: H265Settings)
+{-# DEPRECATED hsFramerateNumerator "Use generic-lens or generic-optics with 'framerateNumerator' instead." #-}
 
 -- | H.265 Level.
 --
@@ -419,20 +477,6 @@ hsParDenominator :: Lens.Lens' H265Settings (Lude.Maybe Lude.Natural)
 hsParDenominator = Lens.lens (parDenominator :: H265Settings -> Lude.Maybe Lude.Natural) (\s a -> s {parDenominator = a} :: H265Settings)
 {-# DEPRECATED hsParDenominator "Use generic-lens or generic-optics with 'parDenominator' instead." #-}
 
--- | Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
---
--- /Note:/ Consider using 'framerateNumerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsFramerateNumerator :: Lens.Lens' H265Settings Lude.Natural
-hsFramerateNumerator = Lens.lens (framerateNumerator :: H265Settings -> Lude.Natural) (\s a -> s {framerateNumerator = a} :: H265Settings)
-{-# DEPRECATED hsFramerateNumerator "Use generic-lens or generic-optics with 'framerateNumerator' instead." #-}
-
--- | Framerate denominator.
---
--- /Note:/ Consider using 'framerateDenominator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hsFramerateDenominator :: Lens.Lens' H265Settings Lude.Natural
-hsFramerateDenominator = Lens.lens (framerateDenominator :: H265Settings -> Lude.Natural) (\s a -> s {framerateDenominator = a} :: H265Settings)
-{-# DEPRECATED hsFramerateDenominator "Use generic-lens or generic-optics with 'framerateDenominator' instead." #-}
-
 instance Lude.FromJSON H265Settings where
   parseJSON =
     Lude.withObject
@@ -459,15 +503,15 @@ instance Lude.FromJSON H265Settings where
             Lude.<*> (x Lude..:? "fixedAfd")
             Lude.<*> (x Lude..:? "filterSettings")
             Lude.<*> (x Lude..:? "bitrate")
+            Lude.<*> (x Lude..: "framerateDenominator")
             Lude.<*> (x Lude..:? "colorMetadata")
             Lude.<*> (x Lude..:? "lookAheadRateControl")
             Lude.<*> (x Lude..:? "adaptiveQuantization")
+            Lude.<*> (x Lude..: "framerateNumerator")
             Lude.<*> (x Lude..:? "level")
             Lude.<*> (x Lude..:? "maxBitrate")
             Lude.<*> (x Lude..:? "gopClosedCadence")
             Lude.<*> (x Lude..:? "parDenominator")
-            Lude.<*> (x Lude..: "framerateNumerator")
-            Lude.<*> (x Lude..: "framerateDenominator")
       )
 
 instance Lude.ToJSON H265Settings where
@@ -495,14 +539,14 @@ instance Lude.ToJSON H265Settings where
             ("fixedAfd" Lude..=) Lude.<$> fixedAfd,
             ("filterSettings" Lude..=) Lude.<$> filterSettings,
             ("bitrate" Lude..=) Lude.<$> bitrate,
+            Lude.Just ("framerateDenominator" Lude..= framerateDenominator),
             ("colorMetadata" Lude..=) Lude.<$> colorMetadata,
             ("lookAheadRateControl" Lude..=) Lude.<$> lookAheadRateControl,
             ("adaptiveQuantization" Lude..=) Lude.<$> adaptiveQuantization,
+            Lude.Just ("framerateNumerator" Lude..= framerateNumerator),
             ("level" Lude..=) Lude.<$> level,
             ("maxBitrate" Lude..=) Lude.<$> maxBitrate,
             ("gopClosedCadence" Lude..=) Lude.<$> gopClosedCadence,
-            ("parDenominator" Lude..=) Lude.<$> parDenominator,
-            Lude.Just ("framerateNumerator" Lude..= framerateNumerator),
-            Lude.Just ("framerateDenominator" Lude..= framerateDenominator)
+            ("parDenominator" Lude..=) Lude.<$> parDenominator
           ]
       )

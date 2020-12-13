@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.WorkMail.StartMailboxExportJob
     mkStartMailboxExportJob,
 
     -- ** Request lenses
-    smejDescription,
-    smejClientToken,
-    smejOrganizationId,
-    smejEntityId,
-    smejRoleARN,
     smejKMSKeyARN,
-    smejS3BucketName,
+    smejClientToken,
     smejS3Prefix,
+    smejEntityId,
+    smejDescription,
+    smejOrganizationId,
+    smejS3BucketName,
+    smejRoleARN,
 
     -- * Destructuring the response
     StartMailboxExportJobResponse (..),
@@ -46,104 +47,70 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkStartMailboxExportJob' smart constructor.
 data StartMailboxExportJob = StartMailboxExportJob'
-  { description ::
-      Lude.Maybe Lude.Text,
-    clientToken :: Lude.Text,
-    organizationId :: Lude.Text,
-    entityId :: Lude.Text,
-    roleARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
     kmsKeyARN :: Lude.Text,
+    -- | The idempotency token for the client request.
+    clientToken :: Lude.Text,
+    -- | The S3 bucket prefix.
+    s3Prefix :: Lude.Text,
+    -- | The identifier of the user or resource associated with the mailbox.
+    entityId :: Lude.Text,
+    -- | The mailbox export job description.
+    description :: Lude.Maybe Lude.Text,
+    -- | The identifier associated with the organization.
+    organizationId :: Lude.Text,
+    -- | The name of the S3 bucket.
     s3BucketName :: Lude.Text,
-    s3Prefix :: Lude.Text
+    -- | The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the S3 bucket.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMailboxExportJob' with the minimum fields required to make a request.
 --
--- * 'clientToken' - The idempotency token for the client request.
--- * 'description' - The mailbox export job description.
--- * 'entityId' - The identifier of the user or resource associated with the mailbox.
 -- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
--- * 'organizationId' - The identifier associated with the organization.
--- * 'roleARN' - The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the S3 bucket.
--- * 's3BucketName' - The name of the S3 bucket.
+-- * 'clientToken' - The idempotency token for the client request.
 -- * 's3Prefix' - The S3 bucket prefix.
+-- * 'entityId' - The identifier of the user or resource associated with the mailbox.
+-- * 'description' - The mailbox export job description.
+-- * 'organizationId' - The identifier associated with the organization.
+-- * 's3BucketName' - The name of the S3 bucket.
+-- * 'roleARN' - The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the S3 bucket.
 mkStartMailboxExportJob ::
-  -- | 'clientToken'
-  Lude.Text ->
-  -- | 'organizationId'
-  Lude.Text ->
-  -- | 'entityId'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'kmsKeyARN'
   Lude.Text ->
-  -- | 's3BucketName'
+  -- | 'clientToken'
   Lude.Text ->
   -- | 's3Prefix'
   Lude.Text ->
+  -- | 'entityId'
+  Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 's3BucketName'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   StartMailboxExportJob
 mkStartMailboxExportJob
-  pClientToken_
-  pOrganizationId_
-  pEntityId_
-  pRoleARN_
   pKMSKeyARN_
+  pClientToken_
+  pS3Prefix_
+  pEntityId_
+  pOrganizationId_
   pS3BucketName_
-  pS3Prefix_ =
+  pRoleARN_ =
     StartMailboxExportJob'
-      { description = Lude.Nothing,
+      { kmsKeyARN = pKMSKeyARN_,
         clientToken = pClientToken_,
-        organizationId = pOrganizationId_,
+        s3Prefix = pS3Prefix_,
         entityId = pEntityId_,
-        roleARN = pRoleARN_,
-        kmsKeyARN = pKMSKeyARN_,
+        description = Lude.Nothing,
+        organizationId = pOrganizationId_,
         s3BucketName = pS3BucketName_,
-        s3Prefix = pS3Prefix_
+        roleARN = pRoleARN_
       }
-
--- | The mailbox export job description.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smejDescription :: Lens.Lens' StartMailboxExportJob (Lude.Maybe Lude.Text)
-smejDescription = Lens.lens (description :: StartMailboxExportJob -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StartMailboxExportJob)
-{-# DEPRECATED smejDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The idempotency token for the client request.
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smejClientToken :: Lens.Lens' StartMailboxExportJob Lude.Text
-smejClientToken = Lens.lens (clientToken :: StartMailboxExportJob -> Lude.Text) (\s a -> s {clientToken = a} :: StartMailboxExportJob)
-{-# DEPRECATED smejClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The identifier associated with the organization.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smejOrganizationId :: Lens.Lens' StartMailboxExportJob Lude.Text
-smejOrganizationId = Lens.lens (organizationId :: StartMailboxExportJob -> Lude.Text) (\s a -> s {organizationId = a} :: StartMailboxExportJob)
-{-# DEPRECATED smejOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
--- | The identifier of the user or resource associated with the mailbox.
---
--- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smejEntityId :: Lens.Lens' StartMailboxExportJob Lude.Text
-smejEntityId = Lens.lens (entityId :: StartMailboxExportJob -> Lude.Text) (\s a -> s {entityId = a} :: StartMailboxExportJob)
-{-# DEPRECATED smejEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
-
--- | The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the S3 bucket.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smejRoleARN :: Lens.Lens' StartMailboxExportJob Lude.Text
-smejRoleARN = Lens.lens (roleARN :: StartMailboxExportJob -> Lude.Text) (\s a -> s {roleARN = a} :: StartMailboxExportJob)
-{-# DEPRECATED smejRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
 --
@@ -152,12 +119,12 @@ smejKMSKeyARN :: Lens.Lens' StartMailboxExportJob Lude.Text
 smejKMSKeyARN = Lens.lens (kmsKeyARN :: StartMailboxExportJob -> Lude.Text) (\s a -> s {kmsKeyARN = a} :: StartMailboxExportJob)
 {-# DEPRECATED smejKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
--- | The name of the S3 bucket.
+-- | The idempotency token for the client request.
 --
--- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smejS3BucketName :: Lens.Lens' StartMailboxExportJob Lude.Text
-smejS3BucketName = Lens.lens (s3BucketName :: StartMailboxExportJob -> Lude.Text) (\s a -> s {s3BucketName = a} :: StartMailboxExportJob)
-{-# DEPRECATED smejS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smejClientToken :: Lens.Lens' StartMailboxExportJob Lude.Text
+smejClientToken = Lens.lens (clientToken :: StartMailboxExportJob -> Lude.Text) (\s a -> s {clientToken = a} :: StartMailboxExportJob)
+{-# DEPRECATED smejClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The S3 bucket prefix.
 --
@@ -165,6 +132,41 @@ smejS3BucketName = Lens.lens (s3BucketName :: StartMailboxExportJob -> Lude.Text
 smejS3Prefix :: Lens.Lens' StartMailboxExportJob Lude.Text
 smejS3Prefix = Lens.lens (s3Prefix :: StartMailboxExportJob -> Lude.Text) (\s a -> s {s3Prefix = a} :: StartMailboxExportJob)
 {-# DEPRECATED smejS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
+
+-- | The identifier of the user or resource associated with the mailbox.
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smejEntityId :: Lens.Lens' StartMailboxExportJob Lude.Text
+smejEntityId = Lens.lens (entityId :: StartMailboxExportJob -> Lude.Text) (\s a -> s {entityId = a} :: StartMailboxExportJob)
+{-# DEPRECATED smejEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
+
+-- | The mailbox export job description.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smejDescription :: Lens.Lens' StartMailboxExportJob (Lude.Maybe Lude.Text)
+smejDescription = Lens.lens (description :: StartMailboxExportJob -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StartMailboxExportJob)
+{-# DEPRECATED smejDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The identifier associated with the organization.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smejOrganizationId :: Lens.Lens' StartMailboxExportJob Lude.Text
+smejOrganizationId = Lens.lens (organizationId :: StartMailboxExportJob -> Lude.Text) (\s a -> s {organizationId = a} :: StartMailboxExportJob)
+{-# DEPRECATED smejOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+
+-- | The name of the S3 bucket.
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smejS3BucketName :: Lens.Lens' StartMailboxExportJob Lude.Text
+smejS3BucketName = Lens.lens (s3BucketName :: StartMailboxExportJob -> Lude.Text) (\s a -> s {s3BucketName = a} :: StartMailboxExportJob)
+{-# DEPRECATED smejS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
+
+-- | The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the S3 bucket.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smejRoleARN :: Lens.Lens' StartMailboxExportJob Lude.Text
+smejRoleARN = Lens.lens (roleARN :: StartMailboxExportJob -> Lude.Text) (\s a -> s {roleARN = a} :: StartMailboxExportJob)
+{-# DEPRECATED smejRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.AWSRequest StartMailboxExportJob where
   type Rs StartMailboxExportJob = StartMailboxExportJobResponse
@@ -191,14 +193,14 @@ instance Lude.ToJSON StartMailboxExportJob where
   toJSON StartMailboxExportJob' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Description" Lude..=) Lude.<$> description,
+          [ Lude.Just ("KmsKeyArn" Lude..= kmsKeyARN),
             Lude.Just ("ClientToken" Lude..= clientToken),
-            Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("S3Prefix" Lude..= s3Prefix),
             Lude.Just ("EntityId" Lude..= entityId),
-            Lude.Just ("RoleArn" Lude..= roleARN),
-            Lude.Just ("KmsKeyArn" Lude..= kmsKeyARN),
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("OrganizationId" Lude..= organizationId),
             Lude.Just ("S3BucketName" Lude..= s3BucketName),
-            Lude.Just ("S3Prefix" Lude..= s3Prefix)
+            Lude.Just ("RoleArn" Lude..= roleARN)
           ]
       )
 
@@ -210,17 +212,12 @@ instance Lude.ToQuery StartMailboxExportJob where
 
 -- | /See:/ 'mkStartMailboxExportJobResponse' smart constructor.
 data StartMailboxExportJobResponse = StartMailboxExportJobResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The job ID.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMailboxExportJobResponse' with the minimum fields required to make a request.

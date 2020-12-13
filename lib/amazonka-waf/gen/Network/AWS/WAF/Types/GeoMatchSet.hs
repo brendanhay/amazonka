@@ -17,9 +17,9 @@ module Network.AWS.WAF.Types.GeoMatchSet
     mkGeoMatchSet,
 
     -- * Lenses
-    gmsName,
-    gmsGeoMatchSetId,
     gmsGeoMatchConstraints,
+    gmsGeoMatchSetId,
+    gmsName,
   )
 where
 
@@ -31,17 +31,16 @@ import Network.AWS.WAF.Types.GeoMatchConstraint
 --
 -- /See:/ 'mkGeoMatchSet' smart constructor.
 data GeoMatchSet = GeoMatchSet'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | An array of 'GeoMatchConstraint' objects, which contain the country that you want AWS WAF to search for.
+    geoMatchConstraints :: [GeoMatchConstraint],
+    -- | The @GeoMatchSetId@ for an @GeoMatchSet@ . You use @GeoMatchSetId@ to get information about a @GeoMatchSet@ (see 'GeoMatchSet' ), update a @GeoMatchSet@ (see 'UpdateGeoMatchSet' ), insert a @GeoMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @GeoMatchSet@ from AWS WAF (see 'DeleteGeoMatchSet' ).
+    --
+    -- @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
     geoMatchSetId :: Lude.Text,
-    geoMatchConstraints :: [GeoMatchConstraint]
+    -- | A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GeoMatchSet' with the minimum fields required to make a request.
@@ -57,17 +56,17 @@ mkGeoMatchSet ::
   GeoMatchSet
 mkGeoMatchSet pGeoMatchSetId_ =
   GeoMatchSet'
-    { name = Lude.Nothing,
+    { geoMatchConstraints = Lude.mempty,
       geoMatchSetId = pGeoMatchSetId_,
-      geoMatchConstraints = Lude.mempty
+      name = Lude.Nothing
     }
 
--- | A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
+-- | An array of 'GeoMatchConstraint' objects, which contain the country that you want AWS WAF to search for.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsName :: Lens.Lens' GeoMatchSet (Lude.Maybe Lude.Text)
-gmsName = Lens.lens (name :: GeoMatchSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GeoMatchSet)
-{-# DEPRECATED gmsName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'geoMatchConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsGeoMatchConstraints :: Lens.Lens' GeoMatchSet [GeoMatchConstraint]
+gmsGeoMatchConstraints = Lens.lens (geoMatchConstraints :: GeoMatchSet -> [GeoMatchConstraint]) (\s a -> s {geoMatchConstraints = a} :: GeoMatchSet)
+{-# DEPRECATED gmsGeoMatchConstraints "Use generic-lens or generic-optics with 'geoMatchConstraints' instead." #-}
 
 -- | The @GeoMatchSetId@ for an @GeoMatchSet@ . You use @GeoMatchSetId@ to get information about a @GeoMatchSet@ (see 'GeoMatchSet' ), update a @GeoMatchSet@ (see 'UpdateGeoMatchSet' ), insert a @GeoMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @GeoMatchSet@ from AWS WAF (see 'DeleteGeoMatchSet' ).
 --
@@ -78,12 +77,12 @@ gmsGeoMatchSetId :: Lens.Lens' GeoMatchSet Lude.Text
 gmsGeoMatchSetId = Lens.lens (geoMatchSetId :: GeoMatchSet -> Lude.Text) (\s a -> s {geoMatchSetId = a} :: GeoMatchSet)
 {-# DEPRECATED gmsGeoMatchSetId "Use generic-lens or generic-optics with 'geoMatchSetId' instead." #-}
 
--- | An array of 'GeoMatchConstraint' objects, which contain the country that you want AWS WAF to search for.
+-- | A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
 --
--- /Note:/ Consider using 'geoMatchConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsGeoMatchConstraints :: Lens.Lens' GeoMatchSet [GeoMatchConstraint]
-gmsGeoMatchConstraints = Lens.lens (geoMatchConstraints :: GeoMatchSet -> [GeoMatchConstraint]) (\s a -> s {geoMatchConstraints = a} :: GeoMatchSet)
-{-# DEPRECATED gmsGeoMatchConstraints "Use generic-lens or generic-optics with 'geoMatchConstraints' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsName :: Lens.Lens' GeoMatchSet (Lude.Maybe Lude.Text)
+gmsName = Lens.lens (name :: GeoMatchSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GeoMatchSet)
+{-# DEPRECATED gmsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.FromJSON GeoMatchSet where
   parseJSON =
@@ -91,7 +90,7 @@ instance Lude.FromJSON GeoMatchSet where
       "GeoMatchSet"
       ( \x ->
           GeoMatchSet'
-            Lude.<$> (x Lude..:? "Name")
+            Lude.<$> (x Lude..:? "GeoMatchConstraints" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..: "GeoMatchSetId")
-            Lude.<*> (x Lude..:? "GeoMatchConstraints" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
       )

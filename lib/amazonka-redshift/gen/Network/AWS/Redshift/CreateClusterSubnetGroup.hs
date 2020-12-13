@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     mkCreateClusterSubnetGroup,
 
     -- ** Request lenses
-    ccsgTags,
-    ccsgClusterSubnetGroupName,
-    ccsgDescription,
-    ccsgSubnetIds,
+    ccsgfSubnetIds,
+    ccsgfClusterSubnetGroupName,
+    ccsgfDescription,
+    ccsgfTags,
 
     -- * Destructuring the response
     CreateClusterSubnetGroupResponse (..),
@@ -46,23 +47,34 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateClusterSubnetGroup' smart constructor.
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
-  { tags ::
-      Lude.Maybe [Tag],
+  { -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
+    subnetIds :: [Lude.Text],
+    -- | The name for the subnet group. Amazon Redshift stores the value as a lowercase string.
+    --
+    -- Constraints:
+    --
+    --     * Must contain no more than 255 alphanumeric characters or hyphens.
+    --
+    --
+    --     * Must not be "Default".
+    --
+    --
+    --     * Must be unique for all subnet groups that are created by your AWS account.
+    --
+    --
+    -- Example: @examplesubnetgroup@
     clusterSubnetGroupName :: Lude.Text,
+    -- | A description for the subnet group.
     description :: Lude.Text,
-    subnetIds :: [Lude.Text]
+    -- | A list of tag instances.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterSubnetGroup' with the minimum fields required to make a request.
 --
+-- * 'subnetIds' - An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
 -- * 'clusterSubnetGroupName' - The name for the subnet group. Amazon Redshift stores the value as a lowercase string.
 --
 -- Constraints:
@@ -78,7 +90,6 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
 --
 -- Example: @examplesubnetgroup@
 -- * 'description' - A description for the subnet group.
--- * 'subnetIds' - An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
 -- * 'tags' - A list of tag instances.
 mkCreateClusterSubnetGroup ::
   -- | 'clusterSubnetGroupName'
@@ -88,18 +99,18 @@ mkCreateClusterSubnetGroup ::
   CreateClusterSubnetGroup
 mkCreateClusterSubnetGroup pClusterSubnetGroupName_ pDescription_ =
   CreateClusterSubnetGroup'
-    { tags = Lude.Nothing,
+    { subnetIds = Lude.mempty,
       clusterSubnetGroupName = pClusterSubnetGroupName_,
       description = pDescription_,
-      subnetIds = Lude.mempty
+      tags = Lude.Nothing
     }
 
--- | A list of tag instances.
+-- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsgTags :: Lens.Lens' CreateClusterSubnetGroup (Lude.Maybe [Tag])
-ccsgTags = Lens.lens (tags :: CreateClusterSubnetGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateClusterSubnetGroup)
-{-# DEPRECATED ccsgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsgfSubnetIds :: Lens.Lens' CreateClusterSubnetGroup [Lude.Text]
+ccsgfSubnetIds = Lens.lens (subnetIds :: CreateClusterSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateClusterSubnetGroup)
+{-# DEPRECATED ccsgfSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a lowercase string.
 --
@@ -117,23 +128,23 @@ ccsgTags = Lens.lens (tags :: CreateClusterSubnetGroup -> Lude.Maybe [Tag]) (\s 
 -- Example: @examplesubnetgroup@
 --
 -- /Note:/ Consider using 'clusterSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsgClusterSubnetGroupName :: Lens.Lens' CreateClusterSubnetGroup Lude.Text
-ccsgClusterSubnetGroupName = Lens.lens (clusterSubnetGroupName :: CreateClusterSubnetGroup -> Lude.Text) (\s a -> s {clusterSubnetGroupName = a} :: CreateClusterSubnetGroup)
-{-# DEPRECATED ccsgClusterSubnetGroupName "Use generic-lens or generic-optics with 'clusterSubnetGroupName' instead." #-}
+ccsgfClusterSubnetGroupName :: Lens.Lens' CreateClusterSubnetGroup Lude.Text
+ccsgfClusterSubnetGroupName = Lens.lens (clusterSubnetGroupName :: CreateClusterSubnetGroup -> Lude.Text) (\s a -> s {clusterSubnetGroupName = a} :: CreateClusterSubnetGroup)
+{-# DEPRECATED ccsgfClusterSubnetGroupName "Use generic-lens or generic-optics with 'clusterSubnetGroupName' instead." #-}
 
 -- | A description for the subnet group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsgDescription :: Lens.Lens' CreateClusterSubnetGroup Lude.Text
-ccsgDescription = Lens.lens (description :: CreateClusterSubnetGroup -> Lude.Text) (\s a -> s {description = a} :: CreateClusterSubnetGroup)
-{-# DEPRECATED ccsgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+ccsgfDescription :: Lens.Lens' CreateClusterSubnetGroup Lude.Text
+ccsgfDescription = Lens.lens (description :: CreateClusterSubnetGroup -> Lude.Text) (\s a -> s {description = a} :: CreateClusterSubnetGroup)
+{-# DEPRECATED ccsgfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
+-- | A list of tag instances.
 --
--- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsgSubnetIds :: Lens.Lens' CreateClusterSubnetGroup [Lude.Text]
-ccsgSubnetIds = Lens.lens (subnetIds :: CreateClusterSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateClusterSubnetGroup)
-{-# DEPRECATED ccsgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsgfTags :: Lens.Lens' CreateClusterSubnetGroup (Lude.Maybe [Tag])
+ccsgfTags = Lens.lens (tags :: CreateClusterSubnetGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateClusterSubnetGroup)
+{-# DEPRECATED ccsgfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateClusterSubnetGroup where
   type Rs CreateClusterSubnetGroup = CreateClusterSubnetGroupResponse
@@ -158,32 +169,24 @@ instance Lude.ToQuery CreateClusterSubnetGroup where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateClusterSubnetGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "SubnetIds" Lude.=: Lude.toQueryList "SubnetIdentifier" subnetIds,
         "ClusterSubnetGroupName" Lude.=: clusterSubnetGroupName,
         "Description" Lude.=: description,
-        "SubnetIds" Lude.=: Lude.toQueryList "SubnetIdentifier" subnetIds
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
       ]
 
 -- | /See:/ 'mkCreateClusterSubnetGroupResponse' smart constructor.
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
-  { clusterSubnetGroup ::
-      Lude.Maybe
-        ClusterSubnetGroup,
-    responseStatus ::
-      Lude.Int
+  { clusterSubnetGroup :: Lude.Maybe ClusterSubnetGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- * 'clusterSubnetGroup' - Undocumented field.
+-- * 'clusterSubnetGroup' -
 -- * 'responseStatus' - The response status code.
 mkCreateClusterSubnetGroupResponse ::
   -- | 'responseStatus'

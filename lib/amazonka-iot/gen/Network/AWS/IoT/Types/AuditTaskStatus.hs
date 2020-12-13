@@ -13,10 +13,10 @@
 module Network.AWS.IoT.Types.AuditTaskStatus
   ( AuditTaskStatus
       ( AuditTaskStatus',
-        ATSCanceled,
+        ATSInProgress,
         ATSCompleted,
         ATSFailed,
-        ATSInProgress
+        ATSCanceled
       ),
   )
 where
@@ -47,8 +47,8 @@ newtype AuditTaskStatus = AuditTaskStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ATSCanceled :: AuditTaskStatus
-pattern ATSCanceled = AuditTaskStatus' "CANCELED"
+pattern ATSInProgress :: AuditTaskStatus
+pattern ATSInProgress = AuditTaskStatus' "IN_PROGRESS"
 
 pattern ATSCompleted :: AuditTaskStatus
 pattern ATSCompleted = AuditTaskStatus' "COMPLETED"
@@ -56,13 +56,13 @@ pattern ATSCompleted = AuditTaskStatus' "COMPLETED"
 pattern ATSFailed :: AuditTaskStatus
 pattern ATSFailed = AuditTaskStatus' "FAILED"
 
-pattern ATSInProgress :: AuditTaskStatus
-pattern ATSInProgress = AuditTaskStatus' "IN_PROGRESS"
+pattern ATSCanceled :: AuditTaskStatus
+pattern ATSCanceled = AuditTaskStatus' "CANCELED"
 
 {-# COMPLETE
-  ATSCanceled,
+  ATSInProgress,
   ATSCompleted,
   ATSFailed,
-  ATSInProgress,
+  ATSCanceled,
   AuditTaskStatus'
   #-}

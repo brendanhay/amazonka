@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInsightsConfiguration' smart constructor.
 data InsightsConfiguration = InsightsConfiguration'
-  { notificationsEnabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+    notificationsEnabled :: Lude.Maybe Lude.Bool,
+    -- | Set the InsightsEnabled value to true to enable insights or false to disable insights.
     insightsEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightsConfiguration' with the minimum fields required to make a request.
 --
--- * 'insightsEnabled' - Set the InsightsEnabled value to true to enable insights or false to disable insights.
 -- * 'notificationsEnabled' - Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+-- * 'insightsEnabled' - Set the InsightsEnabled value to true to enable insights or false to disable insights.
 mkInsightsConfiguration ::
   InsightsConfiguration
 mkInsightsConfiguration =

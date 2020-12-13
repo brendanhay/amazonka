@@ -13,8 +13,8 @@
 module Network.AWS.Pinpoint.Types.Action
   ( Action
       ( Action',
-        DeepLink,
         OpenApp,
+        DeepLink,
         URL
       ),
   )
@@ -46,18 +46,18 @@ newtype Action = Action' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeepLink :: Action
-pattern DeepLink = Action' "DEEP_LINK"
-
 pattern OpenApp :: Action
 pattern OpenApp = Action' "OPEN_APP"
+
+pattern DeepLink :: Action
+pattern DeepLink = Action' "DEEP_LINK"
 
 pattern URL :: Action
 pattern URL = Action' "URL"
 
 {-# COMPLETE
-  DeepLink,
   OpenApp,
+  DeepLink,
   URL,
   Action'
   #-}

@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogTargetConfiguration' smart constructor.
 data LogTargetConfiguration = LogTargetConfiguration'
-  { logLevel ::
-      Lude.Maybe LogLevel,
+  { -- | The logging level.
+    logLevel :: Lude.Maybe LogLevel,
+    -- | A log target
     logTarget :: Lude.Maybe LogTarget
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogTargetConfiguration' with the minimum fields required to make a request.

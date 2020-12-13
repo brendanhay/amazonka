@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.GuardDuty.DeleteFilter
     mkDeleteFilter,
 
     -- ** Request lenses
-    dfDetectorId,
     dfFilterName,
+    dfDetectorId,
 
     -- * Destructuring the response
     DeleteFilterResponse (..),
@@ -39,40 +40,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteFilter' smart constructor.
 data DeleteFilter = DeleteFilter'
-  { detectorId :: Lude.Text,
-    filterName :: Lude.Text
+  { -- | The name of the filter that you want to delete.
+    filterName :: Lude.Text,
+    -- | The unique ID of the detector that the filter is associated with.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFilter' with the minimum fields required to make a request.
 --
--- * 'detectorId' - The unique ID of the detector that the filter is associated with.
 -- * 'filterName' - The name of the filter that you want to delete.
+-- * 'detectorId' - The unique ID of the detector that the filter is associated with.
 mkDeleteFilter ::
-  -- | 'detectorId'
-  Lude.Text ->
   -- | 'filterName'
   Lude.Text ->
+  -- | 'detectorId'
+  Lude.Text ->
   DeleteFilter
-mkDeleteFilter pDetectorId_ pFilterName_ =
+mkDeleteFilter pFilterName_ pDetectorId_ =
   DeleteFilter'
-    { detectorId = pDetectorId_,
-      filterName = pFilterName_
+    { filterName = pFilterName_,
+      detectorId = pDetectorId_
     }
-
--- | The unique ID of the detector that the filter is associated with.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfDetectorId :: Lens.Lens' DeleteFilter Lude.Text
-dfDetectorId = Lens.lens (detectorId :: DeleteFilter -> Lude.Text) (\s a -> s {detectorId = a} :: DeleteFilter)
-{-# DEPRECATED dfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The name of the filter that you want to delete.
 --
@@ -80,6 +70,13 @@ dfDetectorId = Lens.lens (detectorId :: DeleteFilter -> Lude.Text) (\s a -> s {d
 dfFilterName :: Lens.Lens' DeleteFilter Lude.Text
 dfFilterName = Lens.lens (filterName :: DeleteFilter -> Lude.Text) (\s a -> s {filterName = a} :: DeleteFilter)
 {-# DEPRECATED dfFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
+
+-- | The unique ID of the detector that the filter is associated with.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfDetectorId :: Lens.Lens' DeleteFilter Lude.Text
+dfDetectorId = Lens.lens (detectorId :: DeleteFilter -> Lude.Text) (\s a -> s {detectorId = a} :: DeleteFilter)
+{-# DEPRECATED dfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 instance Lude.AWSRequest DeleteFilter where
   type Rs DeleteFilter = DeleteFilterResponse
@@ -113,16 +110,10 @@ instance Lude.ToQuery DeleteFilter where
 
 -- | /See:/ 'mkDeleteFilterResponse' smart constructor.
 newtype DeleteFilterResponse = DeleteFilterResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFilterResponse' with the minimum fields required to make a request.

@@ -13,11 +13,11 @@
 module Network.AWS.SSM.Types.ComplianceQueryOperatorType
   ( ComplianceQueryOperatorType
       ( ComplianceQueryOperatorType',
-        CQOTBeginWith,
         CQOTEqual,
-        CQOTGreaterThan,
+        CQOTNotEqual,
+        CQOTBeginWith,
         CQOTLessThan,
-        CQOTNotEqual
+        CQOTGreaterThan
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ComplianceQueryOperatorType = ComplianceQueryOperatorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CQOTBeginWith :: ComplianceQueryOperatorType
-pattern CQOTBeginWith = ComplianceQueryOperatorType' "BEGIN_WITH"
-
 pattern CQOTEqual :: ComplianceQueryOperatorType
 pattern CQOTEqual = ComplianceQueryOperatorType' "EQUAL"
-
-pattern CQOTGreaterThan :: ComplianceQueryOperatorType
-pattern CQOTGreaterThan = ComplianceQueryOperatorType' "GREATER_THAN"
-
-pattern CQOTLessThan :: ComplianceQueryOperatorType
-pattern CQOTLessThan = ComplianceQueryOperatorType' "LESS_THAN"
 
 pattern CQOTNotEqual :: ComplianceQueryOperatorType
 pattern CQOTNotEqual = ComplianceQueryOperatorType' "NOT_EQUAL"
 
+pattern CQOTBeginWith :: ComplianceQueryOperatorType
+pattern CQOTBeginWith = ComplianceQueryOperatorType' "BEGIN_WITH"
+
+pattern CQOTLessThan :: ComplianceQueryOperatorType
+pattern CQOTLessThan = ComplianceQueryOperatorType' "LESS_THAN"
+
+pattern CQOTGreaterThan :: ComplianceQueryOperatorType
+pattern CQOTGreaterThan = ComplianceQueryOperatorType' "GREATER_THAN"
+
 {-# COMPLETE
-  CQOTBeginWith,
   CQOTEqual,
-  CQOTGreaterThan,
-  CQOTLessThan,
   CQOTNotEqual,
+  CQOTBeginWith,
+  CQOTLessThan,
+  CQOTGreaterThan,
   ComplianceQueryOperatorType'
   #-}

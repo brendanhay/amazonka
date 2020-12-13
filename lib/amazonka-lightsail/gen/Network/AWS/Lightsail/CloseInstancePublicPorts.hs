@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,23 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCloseInstancePublicPorts' smart constructor.
 data CloseInstancePublicPorts = CloseInstancePublicPorts'
-  { portInfo ::
-      PortInfo,
+  { -- | An object to describe the ports to close for the specified instance.
+    portInfo :: PortInfo,
+    -- | The name of the instance for which to close ports.
     instanceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloseInstancePublicPorts' with the minimum fields required to make a request.
 --
--- * 'instanceName' - The name of the instance for which to close ports.
 -- * 'portInfo' - An object to describe the ports to close for the specified instance.
+-- * 'instanceName' - The name of the instance for which to close ports.
 mkCloseInstancePublicPorts ::
   -- | 'portInfo'
   PortInfo ->
@@ -123,18 +119,12 @@ instance Lude.ToQuery CloseInstancePublicPorts where
 
 -- | /See:/ 'mkCloseInstancePublicPortsResponse' smart constructor.
 data CloseInstancePublicPortsResponse = CloseInstancePublicPortsResponse'
-  { operation ::
-      Lude.Maybe Operation,
-    responseStatus ::
-      Lude.Int
+  { -- | An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operation :: Lude.Maybe Operation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloseInstancePublicPortsResponse' with the minimum fields required to make a request.

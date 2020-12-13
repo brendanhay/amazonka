@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.OutputGroupType
   ( OutputGroupType
       ( OutputGroupType',
-        CmafGroupSettings,
+        HlsGroupSettings,
         DashIsoGroupSettings,
         FileGroupSettings,
-        HlsGroupSettings,
-        MsSmoothGroupSettings
+        MsSmoothGroupSettings,
+        CmafGroupSettings
       ),
   )
 where
@@ -49,8 +49,8 @@ newtype OutputGroupType = OutputGroupType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CmafGroupSettings :: OutputGroupType
-pattern CmafGroupSettings = OutputGroupType' "CMAF_GROUP_SETTINGS"
+pattern HlsGroupSettings :: OutputGroupType
+pattern HlsGroupSettings = OutputGroupType' "HLS_GROUP_SETTINGS"
 
 pattern DashIsoGroupSettings :: OutputGroupType
 pattern DashIsoGroupSettings = OutputGroupType' "DASH_ISO_GROUP_SETTINGS"
@@ -58,17 +58,17 @@ pattern DashIsoGroupSettings = OutputGroupType' "DASH_ISO_GROUP_SETTINGS"
 pattern FileGroupSettings :: OutputGroupType
 pattern FileGroupSettings = OutputGroupType' "FILE_GROUP_SETTINGS"
 
-pattern HlsGroupSettings :: OutputGroupType
-pattern HlsGroupSettings = OutputGroupType' "HLS_GROUP_SETTINGS"
-
 pattern MsSmoothGroupSettings :: OutputGroupType
 pattern MsSmoothGroupSettings = OutputGroupType' "MS_SMOOTH_GROUP_SETTINGS"
 
+pattern CmafGroupSettings :: OutputGroupType
+pattern CmafGroupSettings = OutputGroupType' "CMAF_GROUP_SETTINGS"
+
 {-# COMPLETE
-  CmafGroupSettings,
+  HlsGroupSettings,
   DashIsoGroupSettings,
   FileGroupSettings,
-  HlsGroupSettings,
   MsSmoothGroupSettings,
+  CmafGroupSettings,
   OutputGroupType'
   #-}

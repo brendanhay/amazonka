@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkObjectAttributeRange' smart constructor.
 data ObjectAttributeRange = ObjectAttributeRange'
-  { range ::
-      Lude.Maybe TypedAttributeValueRange,
+  { -- | The range of attribute values being selected.
+    range :: Lude.Maybe TypedAttributeValueRange,
+    -- | The key of the attribute that the attribute range covers.
     attributeKey :: Lude.Maybe AttributeKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectAttributeRange' with the minimum fields required to make a request.
 --
--- * 'attributeKey' - The key of the attribute that the attribute range covers.
 -- * 'range' - The range of attribute values being selected.
+-- * 'attributeKey' - The key of the attribute that the attribute range covers.
 mkObjectAttributeRange ::
   ObjectAttributeRange
 mkObjectAttributeRange =

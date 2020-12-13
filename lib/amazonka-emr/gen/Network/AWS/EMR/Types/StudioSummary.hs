@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStudioSummary' smart constructor.
 data StudioSummary = StudioSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time when the Amazon EMR Studio was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the Amazon EMR Studio.
     studioId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the Amazon EMR Studio.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The unique access URL of the Amazon EMR Studio.
     url :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon EMR Studio.
     name :: Lude.Maybe Lude.Text,
+    -- | The detailed description of the EMR Studio.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StudioSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The time when the Amazon EMR Studio was created.
--- * 'description' - The detailed description of the EMR Studio.
--- * 'name' - The name of the Amazon EMR Studio.
 -- * 'studioId' - The ID of the Amazon EMR Studio.
--- * 'url' - The unique access URL of the Amazon EMR Studio.
 -- * 'vpcId' - The ID of the Virtual Private Cloud (Amazon VPC) associated with the Amazon EMR Studio.
+-- * 'url' - The unique access URL of the Amazon EMR Studio.
+-- * 'name' - The name of the Amazon EMR Studio.
+-- * 'description' - The detailed description of the EMR Studio.
 mkStudioSummary ::
   StudioSummary
 mkStudioSummary =

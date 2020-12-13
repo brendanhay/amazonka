@@ -17,8 +17,8 @@ module Network.AWS.CloudFormation.Types.StackDriftInformation
     mkStackDriftInformation,
 
     -- * Lenses
-    sdiLastCheckTimestamp,
     sdiStackDriftStatus,
+    sdiLastCheckTimestamp,
   )
 where
 
@@ -30,22 +30,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackDriftInformation' smart constructor.
 data StackDriftInformation = StackDriftInformation'
-  { lastCheckTimestamp ::
-      Lude.Maybe Lude.DateTime,
-    stackDriftStatus :: StackDriftStatus
+  { -- | Status of the stack's actual configuration compared to its expected template configuration.
+    --
+    --
+    --     * @DRIFTED@ : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted.
+    --
+    --
+    --     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack differs from its expected template configuration.
+    --
+    --
+    --     * @IN_SYNC@ : The stack's actual configuration matches its expected template configuration.
+    --
+    --
+    --     * @UNKNOWN@ : This value is reserved for future use.
+    stackDriftStatus :: StackDriftStatus,
+    -- | Most recent time when a drift detection operation was initiated on the stack, or any of its individual resources that support drift detection.
+    lastCheckTimestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackDriftInformation' with the minimum fields required to make a request.
 --
--- * 'lastCheckTimestamp' - Most recent time when a drift detection operation was initiated on the stack, or any of its individual resources that support drift detection.
 -- * 'stackDriftStatus' - Status of the stack's actual configuration compared to its expected template configuration.
 --
 --
@@ -59,22 +65,18 @@ data StackDriftInformation = StackDriftInformation'
 --
 --
 --     * @UNKNOWN@ : This value is reserved for future use.
+--
+--
+-- * 'lastCheckTimestamp' - Most recent time when a drift detection operation was initiated on the stack, or any of its individual resources that support drift detection.
 mkStackDriftInformation ::
   -- | 'stackDriftStatus'
   StackDriftStatus ->
   StackDriftInformation
 mkStackDriftInformation pStackDriftStatus_ =
   StackDriftInformation'
-    { lastCheckTimestamp = Lude.Nothing,
-      stackDriftStatus = pStackDriftStatus_
+    { stackDriftStatus = pStackDriftStatus_,
+      lastCheckTimestamp = Lude.Nothing
     }
-
--- | Most recent time when a drift detection operation was initiated on the stack, or any of its individual resources that support drift detection.
---
--- /Note:/ Consider using 'lastCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdiLastCheckTimestamp :: Lens.Lens' StackDriftInformation (Lude.Maybe Lude.DateTime)
-sdiLastCheckTimestamp = Lens.lens (lastCheckTimestamp :: StackDriftInformation -> Lude.Maybe Lude.DateTime) (\s a -> s {lastCheckTimestamp = a} :: StackDriftInformation)
-{-# DEPRECATED sdiLastCheckTimestamp "Use generic-lens or generic-optics with 'lastCheckTimestamp' instead." #-}
 
 -- | Status of the stack's actual configuration compared to its expected template configuration.
 --
@@ -97,8 +99,15 @@ sdiStackDriftStatus :: Lens.Lens' StackDriftInformation StackDriftStatus
 sdiStackDriftStatus = Lens.lens (stackDriftStatus :: StackDriftInformation -> StackDriftStatus) (\s a -> s {stackDriftStatus = a} :: StackDriftInformation)
 {-# DEPRECATED sdiStackDriftStatus "Use generic-lens or generic-optics with 'stackDriftStatus' instead." #-}
 
+-- | Most recent time when a drift detection operation was initiated on the stack, or any of its individual resources that support drift detection.
+--
+-- /Note:/ Consider using 'lastCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdiLastCheckTimestamp :: Lens.Lens' StackDriftInformation (Lude.Maybe Lude.DateTime)
+sdiLastCheckTimestamp = Lens.lens (lastCheckTimestamp :: StackDriftInformation -> Lude.Maybe Lude.DateTime) (\s a -> s {lastCheckTimestamp = a} :: StackDriftInformation)
+{-# DEPRECATED sdiLastCheckTimestamp "Use generic-lens or generic-optics with 'lastCheckTimestamp' instead." #-}
+
 instance Lude.FromXML StackDriftInformation where
   parseXML x =
     StackDriftInformation'
-      Lude.<$> (x Lude..@? "LastCheckTimestamp")
-      Lude.<*> (x Lude..@ "StackDriftStatus")
+      Lude.<$> (x Lude..@ "StackDriftStatus")
+      Lude.<*> (x Lude..@? "LastCheckTimestamp")

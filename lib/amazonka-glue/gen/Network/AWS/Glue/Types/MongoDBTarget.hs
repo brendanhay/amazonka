@@ -30,23 +30,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMongoDBTarget' smart constructor.
 data MongoDBTarget = MongoDBTarget'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The path of the Amazon DocumentDB or MongoDB target (database/collection).
+    path :: Lude.Maybe Lude.Text,
+    -- | The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
     connectionName :: Lude.Maybe Lude.Text,
+    -- | Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.
+    --
+    -- A value of @true@ means to scan all records, while a value of @false@ means to sample the records. If no value is specified, the value defaults to @true@ .
     scanAll :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MongoDBTarget' with the minimum fields required to make a request.
 --
--- * 'connectionName' - The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 -- * 'path' - The path of the Amazon DocumentDB or MongoDB target (database/collection).
+-- * 'connectionName' - The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 -- * 'scanAll' - Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.
 --
 -- A value of @true@ means to scan all records, while a value of @false@ means to sample the records. If no value is specified, the value defaults to @true@ .

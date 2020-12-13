@@ -33,29 +33,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnection' smart constructor.
 data Connection = Connection'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The connection status. This parameter can return one of the following values:
+    --
+    --
+    --     * @"successful"@
+    --
+    --
+    --     * @"testing"@
+    --
+    --
+    --     * @"failed"@
+    --
+    --
+    --     * @"deleting"@
+    status :: Lude.Maybe Lude.Text,
+    -- | The ARN of the replication instance.
     replicationInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The identifier of the endpoint. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
     endpointIdentifier :: Lude.Maybe Lude.Text,
+    -- | The replication instance identifier. This parameter is stored as a lowercase string.
     replicationInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The ARN string that uniquely identifies the endpoint.
     endpointARN :: Lude.Maybe Lude.Text,
+    -- | The error message when the connection last failed.
     lastFailureMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Connection' with the minimum fields required to make a request.
 --
--- * 'endpointARN' - The ARN string that uniquely identifies the endpoint.
--- * 'endpointIdentifier' - The identifier of the endpoint. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
--- * 'lastFailureMessage' - The error message when the connection last failed.
--- * 'replicationInstanceARN' - The ARN of the replication instance.
--- * 'replicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a lowercase string.
 -- * 'status' - The connection status. This parameter can return one of the following values:
 --
 --
@@ -69,6 +76,13 @@ data Connection = Connection'
 --
 --
 --     * @"deleting"@
+--
+--
+-- * 'replicationInstanceARN' - The ARN of the replication instance.
+-- * 'endpointIdentifier' - The identifier of the endpoint. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
+-- * 'replicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a lowercase string.
+-- * 'endpointARN' - The ARN string that uniquely identifies the endpoint.
+-- * 'lastFailureMessage' - The error message when the connection last failed.
 mkConnection ::
   Connection
 mkConnection =

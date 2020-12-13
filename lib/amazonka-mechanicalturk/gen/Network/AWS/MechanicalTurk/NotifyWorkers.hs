@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,23 +42,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkNotifyWorkers' smart constructor.
 data NotifyWorkers = NotifyWorkers'
-  { subject :: Lude.Text,
+  { -- | The subject line of the email message to send. Can include up to 200 characters.
+    subject :: Lude.Text,
+    -- | The text of the email message to send. Can include up to 4,096 characters
     messageText :: Lude.Text,
+    -- | A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
     workerIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyWorkers' with the minimum fields required to make a request.
 --
--- * 'messageText' - The text of the email message to send. Can include up to 4,096 characters
 -- * 'subject' - The subject line of the email message to send. Can include up to 200 characters.
+-- * 'messageText' - The text of the email message to send. Can include up to 4,096 characters
 -- * 'workerIds' - A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
 mkNotifyWorkers ::
   -- | 'subject'
@@ -135,17 +133,12 @@ instance Lude.ToQuery NotifyWorkers where
 
 -- | /See:/ 'mkNotifyWorkersResponse' smart constructor.
 data NotifyWorkersResponse = NotifyWorkersResponse'
-  { notifyWorkersFailureStatuses ::
-      Lude.Maybe [NotifyWorkersFailureStatus],
+  { -- | When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects.
+    notifyWorkersFailureStatuses :: Lude.Maybe [NotifyWorkersFailureStatus],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyWorkersResponse' with the minimum fields required to make a request.

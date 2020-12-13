@@ -31,18 +31,12 @@ import Network.AWS.ServiceCatalog.Types.ProvisioningArtifact
 --
 -- /See:/ 'mkProvisioningArtifactView' smart constructor.
 data ProvisioningArtifactView = ProvisioningArtifactView'
-  { productViewSummary ::
-      Lude.Maybe ProductViewSummary,
-    provisioningArtifact ::
-      Lude.Maybe ProvisioningArtifact
+  { -- | Summary information about a product view.
+    productViewSummary :: Lude.Maybe ProductViewSummary,
+    -- | Information about a provisioning artifact. A provisioning artifact is also known as a product version.
+    provisioningArtifact :: Lude.Maybe ProvisioningArtifact
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifactView' with the minimum fields required to make a request.

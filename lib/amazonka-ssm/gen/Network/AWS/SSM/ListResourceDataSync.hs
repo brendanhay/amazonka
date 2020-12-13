@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListResourceDataSync' smart constructor.
 data ListResourceDataSync = ListResourceDataSync'
-  { syncType ::
-      Lude.Maybe Lude.Text,
+  { -- | View a list of resource data syncs according to the sync type. Specify @SyncToDestination@ to view resource data syncs that synchronize data to an Amazon S3 bucket. Specify @SyncFromSource@ to view resource data syncs from AWS Organizations or from multiple AWS Regions.
+    syncType :: Lude.Maybe Lude.Text,
+    -- | A token to start the list. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceDataSync' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
 -- * 'syncType' - View a list of resource data syncs according to the sync type. Specify @SyncToDestination@ to view resource data syncs that synchronize data to an Amazon S3 bucket. Specify @SyncFromSource@ to view resource data syncs from AWS Organizations or from multiple AWS Regions.
+-- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkListResourceDataSync ::
   ListResourceDataSync
 mkListResourceDataSync =
@@ -146,24 +143,20 @@ instance Lude.ToQuery ListResourceDataSync where
 
 -- | /See:/ 'mkListResourceDataSyncResponse' smart constructor.
 data ListResourceDataSyncResponse = ListResourceDataSyncResponse'
-  { resourceDataSyncItems ::
-      Lude.Maybe [ResourceDataSyncItem],
+  { -- | A list of your current Resource Data Sync configurations and their statuses.
+    resourceDataSyncItems :: Lude.Maybe [ResourceDataSyncItem],
+    -- | The token for the next set of items to return. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceDataSyncResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
 -- * 'resourceDataSyncItems' - A list of your current Resource Data Sync configurations and their statuses.
+-- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
 -- * 'responseStatus' - The response status code.
 mkListResourceDataSyncResponse ::
   -- | 'responseStatus'

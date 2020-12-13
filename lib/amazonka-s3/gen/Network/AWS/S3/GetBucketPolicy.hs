@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,16 +27,16 @@ module Network.AWS.S3.GetBucketPolicy
     mkGetBucketPolicy,
 
     -- ** Request lenses
-    gbpExpectedBucketOwner,
     gbpBucket,
+    gbpExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketPolicyResponse (..),
     mkGetBucketPolicyResponse,
 
     -- ** Response lenses
-    gbprsResponseStatus,
     gbprsPolicy,
+    gbprsResponseStatus,
   )
 where
 
@@ -47,17 +48,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketPolicy' smart constructor.
 data GetBucketPolicy = GetBucketPolicy'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The bucket name for which to get the bucket policy.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketPolicy' with the minimum fields required to make a request.
@@ -70,16 +66,9 @@ mkGetBucketPolicy ::
   GetBucketPolicy
 mkGetBucketPolicy pBucket_ =
   GetBucketPolicy'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbpExpectedBucketOwner :: Lens.Lens' GetBucketPolicy (Lude.Maybe Lude.Text)
-gbpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketPolicy -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketPolicy)
-{-# DEPRECATED gbpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name for which to get the bucket policy.
 --
@@ -88,6 +77,13 @@ gbpBucket :: Lens.Lens' GetBucketPolicy BucketName
 gbpBucket = Lens.lens (bucket :: GetBucketPolicy -> BucketName) (\s a -> s {bucket = a} :: GetBucketPolicy)
 {-# DEPRECATED gbpBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpExpectedBucketOwner :: Lens.Lens' GetBucketPolicy (Lude.Maybe Lude.Text)
+gbpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketPolicy -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketPolicy)
+{-# DEPRECATED gbpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+
 instance Lude.AWSRequest GetBucketPolicy where
   type Rs GetBucketPolicy = GetBucketPolicyResponse
   request = Req.get s3Service
@@ -95,7 +91,7 @@ instance Lude.AWSRequest GetBucketPolicy where
     Res.receiveBytes
       ( \s h x ->
           GetBucketPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.pure x)
+            Lude.<$> (Lude.pure x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetBucketPolicy where
@@ -111,9 +107,10 @@ instance Lude.ToQuery GetBucketPolicy where
 
 -- | /See:/ 'mkGetBucketPolicyResponse' smart constructor.
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
-  { responseStatus ::
-      Lude.Int,
-    policy :: Lude.ByteString
+  { -- | The bucket policy as a JSON document.
+    policy :: Lude.ByteString,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -123,23 +120,16 @@ data GetBucketPolicyResponse = GetBucketPolicyResponse'
 -- * 'policy' - The bucket policy as a JSON document.
 -- * 'responseStatus' - The response status code.
 mkGetBucketPolicyResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'policy'
   Lude.ByteString ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBucketPolicyResponse
-mkGetBucketPolicyResponse pResponseStatus_ pPolicy_ =
+mkGetBucketPolicyResponse pPolicy_ pResponseStatus_ =
   GetBucketPolicyResponse'
-    { responseStatus = pResponseStatus_,
-      policy = pPolicy_
+    { policy = pPolicy_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbprsResponseStatus :: Lens.Lens' GetBucketPolicyResponse Lude.Int
-gbprsResponseStatus = Lens.lens (responseStatus :: GetBucketPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketPolicyResponse)
-{-# DEPRECATED gbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The bucket policy as a JSON document.
 --
@@ -147,3 +137,10 @@ gbprsResponseStatus = Lens.lens (responseStatus :: GetBucketPolicyResponse -> Lu
 gbprsPolicy :: Lens.Lens' GetBucketPolicyResponse Lude.ByteString
 gbprsPolicy = Lens.lens (policy :: GetBucketPolicyResponse -> Lude.ByteString) (\s a -> s {policy = a} :: GetBucketPolicyResponse)
 {-# DEPRECATED gbprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbprsResponseStatus :: Lens.Lens' GetBucketPolicyResponse Lude.Int
+gbprsResponseStatus = Lens.lens (responseStatus :: GetBucketPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketPolicyResponse)
+{-# DEPRECATED gbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

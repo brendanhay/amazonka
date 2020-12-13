@@ -33,26 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventDimensions' smart constructor.
 data EventDimensions = EventDimensions'
-  { metrics ::
-      Lude.Maybe (Lude.HashMap Lude.Text (MetricDimension)),
+  { -- | One or more custom metrics that your application reports to Amazon Pinpoint. You can use these metrics as selection criteria when you create an event filter.
+    metrics :: Lude.Maybe (Lude.HashMap Lude.Text (MetricDimension)),
+    -- | The name of the event that causes the campaign to be sent or the journey activity to be performed. This can be a standard event that Amazon Pinpoint generates, such as _email.delivered. For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see <https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html Streaming Amazon Pinpoint Events> in the /Amazon Pinpoint Developer Guide/ .
     eventType :: Lude.Maybe SetDimension,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeDimension))
+    -- | One or more custom attributes that your application reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeDimension))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventDimensions' with the minimum fields required to make a request.
 --
--- * 'attributes' - One or more custom attributes that your application reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.
--- * 'eventType' - The name of the event that causes the campaign to be sent or the journey activity to be performed. This can be a standard event that Amazon Pinpoint generates, such as _email.delivered. For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see <https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html Streaming Amazon Pinpoint Events> in the /Amazon Pinpoint Developer Guide/ .
 -- * 'metrics' - One or more custom metrics that your application reports to Amazon Pinpoint. You can use these metrics as selection criteria when you create an event filter.
+-- * 'eventType' - The name of the event that causes the campaign to be sent or the journey activity to be performed. This can be a standard event that Amazon Pinpoint generates, such as _email.delivered. For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see <https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html Streaming Amazon Pinpoint Events> in the /Amazon Pinpoint Developer Guide/ .
+-- * 'attributes' - One or more custom attributes that your application reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.
 mkEventDimensions ::
   EventDimensions
 mkEventDimensions =

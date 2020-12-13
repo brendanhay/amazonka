@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.Glacier.CreateVault
     mkCreateVault,
 
     -- ** Request lenses
-    cvAccountId,
     cvVaultName,
+    cvAccountId,
 
     -- * Destructuring the response
     CreateVaultResponse (..),
@@ -54,37 +55,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateVault' smart constructor.
 data CreateVault = CreateVault'
-  { accountId :: Lude.Text,
-    vaultName :: Lude.Text
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVault' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 mkCreateVault ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   CreateVault
-mkCreateVault pAccountId_ pVaultName_ =
-  CreateVault' {accountId = pAccountId_, vaultName = pVaultName_}
-
--- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvAccountId :: Lens.Lens' CreateVault Lude.Text
-cvAccountId = Lens.lens (accountId :: CreateVault -> Lude.Text) (\s a -> s {accountId = a} :: CreateVault)
-{-# DEPRECATED cvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+mkCreateVault pVaultName_ pAccountId_ =
+  CreateVault' {vaultName = pVaultName_, accountId = pAccountId_}
 
 -- | The name of the vault.
 --
@@ -92,6 +82,13 @@ cvAccountId = Lens.lens (accountId :: CreateVault -> Lude.Text) (\s a -> s {acco
 cvVaultName :: Lens.Lens' CreateVault Lude.Text
 cvVaultName = Lens.lens (vaultName :: CreateVault -> Lude.Text) (\s a -> s {vaultName = a} :: CreateVault)
 {-# DEPRECATED cvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvAccountId :: Lens.Lens' CreateVault Lude.Text
+cvAccountId = Lens.lens (accountId :: CreateVault -> Lude.Text) (\s a -> s {accountId = a} :: CreateVault)
+{-# DEPRECATED cvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Lude.AWSRequest CreateVault where
   type Rs CreateVault = CreateVaultResponse
@@ -121,17 +118,12 @@ instance Lude.ToQuery CreateVault where
 --
 -- /See:/ 'mkCreateVaultResponse' smart constructor.
 data CreateVaultResponse = CreateVaultResponse'
-  { location ::
-      Lude.Maybe Lude.Text,
+  { -- | The URI of the vault that was created.
+    location :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVaultResponse' with the minimum fields required to make a request.

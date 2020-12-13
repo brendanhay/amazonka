@@ -13,12 +13,12 @@
 module Network.AWS.CodeBuild.Types.WebhookFilterType
   ( WebhookFilterType
       ( WebhookFilterType',
-        ActorAccountId,
-        BaseRef,
-        CommitMessage,
         Event,
+        BaseRef,
+        HeadRef,
+        ActorAccountId,
         FilePath,
-        HeadRef
+        CommitMessage
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype WebhookFilterType = WebhookFilterType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ActorAccountId :: WebhookFilterType
-pattern ActorAccountId = WebhookFilterType' "ACTOR_ACCOUNT_ID"
+pattern Event :: WebhookFilterType
+pattern Event = WebhookFilterType' "EVENT"
 
 pattern BaseRef :: WebhookFilterType
 pattern BaseRef = WebhookFilterType' "BASE_REF"
 
-pattern CommitMessage :: WebhookFilterType
-pattern CommitMessage = WebhookFilterType' "COMMIT_MESSAGE"
+pattern HeadRef :: WebhookFilterType
+pattern HeadRef = WebhookFilterType' "HEAD_REF"
 
-pattern Event :: WebhookFilterType
-pattern Event = WebhookFilterType' "EVENT"
+pattern ActorAccountId :: WebhookFilterType
+pattern ActorAccountId = WebhookFilterType' "ACTOR_ACCOUNT_ID"
 
 pattern FilePath :: WebhookFilterType
 pattern FilePath = WebhookFilterType' "FILE_PATH"
 
-pattern HeadRef :: WebhookFilterType
-pattern HeadRef = WebhookFilterType' "HEAD_REF"
+pattern CommitMessage :: WebhookFilterType
+pattern CommitMessage = WebhookFilterType' "COMMIT_MESSAGE"
 
 {-# COMPLETE
-  ActorAccountId,
-  BaseRef,
-  CommitMessage,
   Event,
-  FilePath,
+  BaseRef,
   HeadRef,
+  ActorAccountId,
+  FilePath,
+  CommitMessage,
   WebhookFilterType'
   #-}

@@ -13,19 +13,19 @@
 module Network.AWS.CloudDirectory.Types.BatchReadExceptionType
   ( BatchReadExceptionType
       ( BatchReadExceptionType',
-        AccessDeniedException,
-        CannotListParentOfRootException,
-        DirectoryNotEnabledException,
-        FacetValidationException,
-        InternalServiceException,
+        ValidationException,
         InvalidARNException,
-        InvalidNextTokenException,
-        LimitExceededException,
-        NotIndexException,
-        NotNodeException,
-        NotPolicyException,
         ResourceNotFoundException,
-        ValidationException
+        InvalidNextTokenException,
+        AccessDeniedException,
+        NotNodeException,
+        FacetValidationException,
+        CannotListParentOfRootException,
+        NotIndexException,
+        NotPolicyException,
+        DirectoryNotEnabledException,
+        LimitExceededException,
+        InternalServiceException
       ),
   )
 where
@@ -56,58 +56,58 @@ newtype BatchReadExceptionType = BatchReadExceptionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AccessDeniedException :: BatchReadExceptionType
-pattern AccessDeniedException = BatchReadExceptionType' "AccessDeniedException"
-
-pattern CannotListParentOfRootException :: BatchReadExceptionType
-pattern CannotListParentOfRootException = BatchReadExceptionType' "CannotListParentOfRootException"
-
-pattern DirectoryNotEnabledException :: BatchReadExceptionType
-pattern DirectoryNotEnabledException = BatchReadExceptionType' "DirectoryNotEnabledException"
-
-pattern FacetValidationException :: BatchReadExceptionType
-pattern FacetValidationException = BatchReadExceptionType' "FacetValidationException"
-
-pattern InternalServiceException :: BatchReadExceptionType
-pattern InternalServiceException = BatchReadExceptionType' "InternalServiceException"
+pattern ValidationException :: BatchReadExceptionType
+pattern ValidationException = BatchReadExceptionType' "ValidationException"
 
 pattern InvalidARNException :: BatchReadExceptionType
 pattern InvalidARNException = BatchReadExceptionType' "InvalidArnException"
 
+pattern ResourceNotFoundException :: BatchReadExceptionType
+pattern ResourceNotFoundException = BatchReadExceptionType' "ResourceNotFoundException"
+
 pattern InvalidNextTokenException :: BatchReadExceptionType
 pattern InvalidNextTokenException = BatchReadExceptionType' "InvalidNextTokenException"
 
-pattern LimitExceededException :: BatchReadExceptionType
-pattern LimitExceededException = BatchReadExceptionType' "LimitExceededException"
-
-pattern NotIndexException :: BatchReadExceptionType
-pattern NotIndexException = BatchReadExceptionType' "NotIndexException"
+pattern AccessDeniedException :: BatchReadExceptionType
+pattern AccessDeniedException = BatchReadExceptionType' "AccessDeniedException"
 
 pattern NotNodeException :: BatchReadExceptionType
 pattern NotNodeException = BatchReadExceptionType' "NotNodeException"
 
+pattern FacetValidationException :: BatchReadExceptionType
+pattern FacetValidationException = BatchReadExceptionType' "FacetValidationException"
+
+pattern CannotListParentOfRootException :: BatchReadExceptionType
+pattern CannotListParentOfRootException = BatchReadExceptionType' "CannotListParentOfRootException"
+
+pattern NotIndexException :: BatchReadExceptionType
+pattern NotIndexException = BatchReadExceptionType' "NotIndexException"
+
 pattern NotPolicyException :: BatchReadExceptionType
 pattern NotPolicyException = BatchReadExceptionType' "NotPolicyException"
 
-pattern ResourceNotFoundException :: BatchReadExceptionType
-pattern ResourceNotFoundException = BatchReadExceptionType' "ResourceNotFoundException"
+pattern DirectoryNotEnabledException :: BatchReadExceptionType
+pattern DirectoryNotEnabledException = BatchReadExceptionType' "DirectoryNotEnabledException"
 
-pattern ValidationException :: BatchReadExceptionType
-pattern ValidationException = BatchReadExceptionType' "ValidationException"
+pattern LimitExceededException :: BatchReadExceptionType
+pattern LimitExceededException = BatchReadExceptionType' "LimitExceededException"
+
+pattern InternalServiceException :: BatchReadExceptionType
+pattern InternalServiceException = BatchReadExceptionType' "InternalServiceException"
 
 {-# COMPLETE
-  AccessDeniedException,
-  CannotListParentOfRootException,
-  DirectoryNotEnabledException,
-  FacetValidationException,
-  InternalServiceException,
-  InvalidARNException,
-  InvalidNextTokenException,
-  LimitExceededException,
-  NotIndexException,
-  NotNodeException,
-  NotPolicyException,
-  ResourceNotFoundException,
   ValidationException,
+  InvalidARNException,
+  ResourceNotFoundException,
+  InvalidNextTokenException,
+  AccessDeniedException,
+  NotNodeException,
+  FacetValidationException,
+  CannotListParentOfRootException,
+  NotIndexException,
+  NotPolicyException,
+  DirectoryNotEnabledException,
+  LimitExceededException,
+  InternalServiceException,
   BatchReadExceptionType'
   #-}

@@ -13,12 +13,12 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor
   ( DvbSubtitleOutlineColor
       ( DvbSubtitleOutlineColor',
-        DSOCBlack,
-        DSOCBlue,
-        DSOCGreen,
-        DSOCRed,
-        DSOCWhite,
-        DSOCYellow
+        Black,
+        White,
+        Yellow,
+        Red,
+        Green,
+        Blue
       ),
   )
 where
@@ -50,30 +50,30 @@ newtype DvbSubtitleOutlineColor = DvbSubtitleOutlineColor' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSOCBlack :: DvbSubtitleOutlineColor
-pattern DSOCBlack = DvbSubtitleOutlineColor' "BLACK"
+pattern Black :: DvbSubtitleOutlineColor
+pattern Black = DvbSubtitleOutlineColor' "BLACK"
 
-pattern DSOCBlue :: DvbSubtitleOutlineColor
-pattern DSOCBlue = DvbSubtitleOutlineColor' "BLUE"
+pattern White :: DvbSubtitleOutlineColor
+pattern White = DvbSubtitleOutlineColor' "WHITE"
 
-pattern DSOCGreen :: DvbSubtitleOutlineColor
-pattern DSOCGreen = DvbSubtitleOutlineColor' "GREEN"
+pattern Yellow :: DvbSubtitleOutlineColor
+pattern Yellow = DvbSubtitleOutlineColor' "YELLOW"
 
-pattern DSOCRed :: DvbSubtitleOutlineColor
-pattern DSOCRed = DvbSubtitleOutlineColor' "RED"
+pattern Red :: DvbSubtitleOutlineColor
+pattern Red = DvbSubtitleOutlineColor' "RED"
 
-pattern DSOCWhite :: DvbSubtitleOutlineColor
-pattern DSOCWhite = DvbSubtitleOutlineColor' "WHITE"
+pattern Green :: DvbSubtitleOutlineColor
+pattern Green = DvbSubtitleOutlineColor' "GREEN"
 
-pattern DSOCYellow :: DvbSubtitleOutlineColor
-pattern DSOCYellow = DvbSubtitleOutlineColor' "YELLOW"
+pattern Blue :: DvbSubtitleOutlineColor
+pattern Blue = DvbSubtitleOutlineColor' "BLUE"
 
 {-# COMPLETE
-  DSOCBlack,
-  DSOCBlue,
-  DSOCGreen,
-  DSOCRed,
-  DSOCWhite,
-  DSOCYellow,
+  Black,
+  White,
+  Yellow,
+  Red,
+  Green,
+  Blue,
   DvbSubtitleOutlineColor'
   #-}

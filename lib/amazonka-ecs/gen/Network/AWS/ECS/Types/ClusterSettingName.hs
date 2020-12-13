@@ -13,7 +13,7 @@
 module Network.AWS.ECS.Types.ClusterSettingName
   ( ClusterSettingName
       ( ClusterSettingName',
-        ContainerInsights
+        CSNContainerInsights
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype ClusterSettingName = ClusterSettingName' Lude.Text
       Lude.ToHeader
     )
 
-pattern ContainerInsights :: ClusterSettingName
-pattern ContainerInsights = ClusterSettingName' "containerInsights"
+pattern CSNContainerInsights :: ClusterSettingName
+pattern CSNContainerInsights = ClusterSettingName' "containerInsights"
 
 {-# COMPLETE
-  ContainerInsights,
+  CSNContainerInsights,
   ClusterSettingName'
   #-}

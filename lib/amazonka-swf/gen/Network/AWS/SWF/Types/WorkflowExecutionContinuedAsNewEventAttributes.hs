@@ -20,14 +20,14 @@ module Network.AWS.SWF.Types.WorkflowExecutionContinuedAsNewEventAttributes
     wecaneaTagList,
     wecaneaTaskStartToCloseTimeout,
     wecaneaLambdaRole,
+    wecaneaWorkflowType,
     wecaneaInput,
     wecaneaExecutionStartToCloseTimeout,
-    wecaneaTaskPriority,
-    wecaneaDecisionTaskCompletedEventId,
-    wecaneaNewExecutionRunId,
     wecaneaTaskList,
+    wecaneaTaskPriority,
     wecaneaChildPolicy,
-    wecaneaWorkflowType,
+    wecaneaNewExecutionRunId,
+    wecaneaDecisionTaskCompletedEventId,
   )
 where
 
@@ -41,49 +41,60 @@ import Network.AWS.SWF.Types.WorkflowType
 --
 -- /See:/ 'mkWorkflowExecutionContinuedAsNewEventAttributes' smart constructor.
 data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes'
-  { tagList ::
-      Lude.Maybe
-        [Lude.Text],
-    taskStartToCloseTimeout ::
-      Lude.Maybe
-        Lude.Text,
-    lambdaRole ::
-      Lude.Maybe
-        Lude.Text,
-    input ::
-      Lude.Maybe
-        Lude.Text,
-    executionStartToCloseTimeout ::
-      Lude.Maybe
-        Lude.Text,
-    taskPriority ::
-      Lude.Maybe
-        Lude.Text,
-    decisionTaskCompletedEventId ::
-      Lude.Integer,
-    newExecutionRunId ::
-      Lude.Text,
-    taskList ::
-      TaskList,
-    childPolicy ::
-      ChildPolicy,
-    workflowType ::
-      WorkflowType
+  { -- | The list of tags associated with the new workflow execution.
+    tagList :: Lude.Maybe [Lude.Text],
+    -- | The maximum duration of decision tasks for the new workflow execution.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+    taskStartToCloseTimeout :: Lude.Maybe Lude.Text,
+    -- | The IAM role to attach to the new (continued) workflow execution.
+    lambdaRole :: Lude.Maybe Lude.Text,
+    -- | The workflow type of this execution.
+    workflowType :: WorkflowType,
+    -- | The input provided to the new workflow execution.
+    input :: Lude.Maybe Lude.Text,
+    -- | The total duration allowed for the new workflow execution.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+    executionStartToCloseTimeout :: Lude.Maybe Lude.Text,
+    -- | The task list to use for the decisions of the new (continued) workflow execution.
+    taskList :: TaskList,
+    -- | The priority of the task to use for the decisions of the new (continued) workflow execution.
+    taskPriority :: Lude.Maybe Lude.Text,
+    -- | The policy to use for the child workflow executions of the new execution if it is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout.
+    --
+    -- The supported child policies are:
+    --
+    --     * @TERMINATE@ – The child executions are terminated.
+    --
+    --
+    --     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
+    --
+    --
+    --     * @ABANDON@ – No action is taken. The child executions continue to run.
+    childPolicy :: ChildPolicy,
+    -- | The @runId@ of the new workflow execution.
+    newExecutionRunId :: Lude.Text,
+    -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @ContinueAsNewWorkflowExecution@ decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    decisionTaskCompletedEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionContinuedAsNewEventAttributes' with the minimum fields required to make a request.
 --
+-- * 'tagList' - The list of tags associated with the new workflow execution.
+-- * 'taskStartToCloseTimeout' - The maximum duration of decision tasks for the new workflow execution.
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+-- * 'lambdaRole' - The IAM role to attach to the new (continued) workflow execution.
+-- * 'workflowType' - The workflow type of this execution.
+-- * 'input' - The input provided to the new workflow execution.
+-- * 'executionStartToCloseTimeout' - The total duration allowed for the new workflow execution.
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+-- * 'taskList' - The task list to use for the decisions of the new (continued) workflow execution.
+-- * 'taskPriority' - The priority of the task to use for the decisions of the new (continued) workflow execution.
 -- * 'childPolicy' - The policy to use for the child workflow executions of the new execution if it is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout.
 --
 -- The supported child policies are:
@@ -97,52 +108,40 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
 --     * @ABANDON@ – No action is taken. The child executions continue to run.
 --
 --
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @ContinueAsNewWorkflowExecution@ decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'executionStartToCloseTimeout' - The total duration allowed for the new workflow execution.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'input' - The input provided to the new workflow execution.
--- * 'lambdaRole' - The IAM role to attach to the new (continued) workflow execution.
 -- * 'newExecutionRunId' - The @runId@ of the new workflow execution.
--- * 'tagList' - The list of tags associated with the new workflow execution.
--- * 'taskList' - The task list to use for the decisions of the new (continued) workflow execution.
--- * 'taskPriority' - The priority of the task to use for the decisions of the new (continued) workflow execution.
--- * 'taskStartToCloseTimeout' - The maximum duration of decision tasks for the new workflow execution.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'workflowType' - The workflow type of this execution.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @ContinueAsNewWorkflowExecution@ decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 mkWorkflowExecutionContinuedAsNewEventAttributes ::
-  -- | 'decisionTaskCompletedEventId'
-  Lude.Integer ->
-  -- | 'newExecutionRunId'
-  Lude.Text ->
+  -- | 'workflowType'
+  WorkflowType ->
   -- | 'taskList'
   TaskList ->
   -- | 'childPolicy'
   ChildPolicy ->
-  -- | 'workflowType'
-  WorkflowType ->
+  -- | 'newExecutionRunId'
+  Lude.Text ->
+  -- | 'decisionTaskCompletedEventId'
+  Lude.Integer ->
   WorkflowExecutionContinuedAsNewEventAttributes
 mkWorkflowExecutionContinuedAsNewEventAttributes
-  pDecisionTaskCompletedEventId_
-  pNewExecutionRunId_
+  pWorkflowType_
   pTaskList_
   pChildPolicy_
-  pWorkflowType_ =
+  pNewExecutionRunId_
+  pDecisionTaskCompletedEventId_ =
     WorkflowExecutionContinuedAsNewEventAttributes'
       { tagList =
           Lude.Nothing,
         taskStartToCloseTimeout = Lude.Nothing,
         lambdaRole = Lude.Nothing,
+        workflowType = pWorkflowType_,
         input = Lude.Nothing,
         executionStartToCloseTimeout = Lude.Nothing,
-        taskPriority = Lude.Nothing,
-        decisionTaskCompletedEventId =
-          pDecisionTaskCompletedEventId_,
-        newExecutionRunId = pNewExecutionRunId_,
         taskList = pTaskList_,
+        taskPriority = Lude.Nothing,
         childPolicy = pChildPolicy_,
-        workflowType = pWorkflowType_
+        newExecutionRunId = pNewExecutionRunId_,
+        decisionTaskCompletedEventId =
+          pDecisionTaskCompletedEventId_
       }
 
 -- | The list of tags associated with the new workflow execution.
@@ -168,6 +167,13 @@ wecaneaLambdaRole :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (
 wecaneaLambdaRole = Lens.lens (lambdaRole :: WorkflowExecutionContinuedAsNewEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {lambdaRole = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 {-# DEPRECATED wecaneaLambdaRole "Use generic-lens or generic-optics with 'lambdaRole' instead." #-}
 
+-- | The workflow type of this execution.
+--
+-- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wecaneaWorkflowType :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes WorkflowType
+wecaneaWorkflowType = Lens.lens (workflowType :: WorkflowExecutionContinuedAsNewEventAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
+{-# DEPRECATED wecaneaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
+
 -- | The input provided to the new workflow execution.
 --
 -- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -184,33 +190,19 @@ wecaneaExecutionStartToCloseTimeout :: Lens.Lens' WorkflowExecutionContinuedAsNe
 wecaneaExecutionStartToCloseTimeout = Lens.lens (executionStartToCloseTimeout :: WorkflowExecutionContinuedAsNewEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {executionStartToCloseTimeout = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 {-# DEPRECATED wecaneaExecutionStartToCloseTimeout "Use generic-lens or generic-optics with 'executionStartToCloseTimeout' instead." #-}
 
--- | The priority of the task to use for the decisions of the new (continued) workflow execution.
---
--- /Note:/ Consider using 'taskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecaneaTaskPriority :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Lude.Maybe Lude.Text)
-wecaneaTaskPriority = Lens.lens (taskPriority :: WorkflowExecutionContinuedAsNewEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {taskPriority = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
-{-# DEPRECATED wecaneaTaskPriority "Use generic-lens or generic-optics with 'taskPriority' instead." #-}
-
--- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @ContinueAsNewWorkflowExecution@ decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
---
--- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecaneaDecisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes Lude.Integer
-wecaneaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: WorkflowExecutionContinuedAsNewEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
-{-# DEPRECATED wecaneaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
-
--- | The @runId@ of the new workflow execution.
---
--- /Note:/ Consider using 'newExecutionRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecaneaNewExecutionRunId :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes Lude.Text
-wecaneaNewExecutionRunId = Lens.lens (newExecutionRunId :: WorkflowExecutionContinuedAsNewEventAttributes -> Lude.Text) (\s a -> s {newExecutionRunId = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
-{-# DEPRECATED wecaneaNewExecutionRunId "Use generic-lens or generic-optics with 'newExecutionRunId' instead." #-}
-
 -- | The task list to use for the decisions of the new (continued) workflow execution.
 --
 -- /Note:/ Consider using 'taskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 wecaneaTaskList :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes TaskList
 wecaneaTaskList = Lens.lens (taskList :: WorkflowExecutionContinuedAsNewEventAttributes -> TaskList) (\s a -> s {taskList = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 {-# DEPRECATED wecaneaTaskList "Use generic-lens or generic-optics with 'taskList' instead." #-}
+
+-- | The priority of the task to use for the decisions of the new (continued) workflow execution.
+--
+-- /Note:/ Consider using 'taskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wecaneaTaskPriority :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes (Lude.Maybe Lude.Text)
+wecaneaTaskPriority = Lens.lens (taskPriority :: WorkflowExecutionContinuedAsNewEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {taskPriority = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
+{-# DEPRECATED wecaneaTaskPriority "Use generic-lens or generic-optics with 'taskPriority' instead." #-}
 
 -- | The policy to use for the child workflow executions of the new execution if it is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout.
 --
@@ -231,12 +223,19 @@ wecaneaChildPolicy :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes 
 wecaneaChildPolicy = Lens.lens (childPolicy :: WorkflowExecutionContinuedAsNewEventAttributes -> ChildPolicy) (\s a -> s {childPolicy = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
 {-# DEPRECATED wecaneaChildPolicy "Use generic-lens or generic-optics with 'childPolicy' instead." #-}
 
--- | The workflow type of this execution.
+-- | The @runId@ of the new workflow execution.
 --
--- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wecaneaWorkflowType :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes WorkflowType
-wecaneaWorkflowType = Lens.lens (workflowType :: WorkflowExecutionContinuedAsNewEventAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
-{-# DEPRECATED wecaneaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
+-- /Note:/ Consider using 'newExecutionRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wecaneaNewExecutionRunId :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes Lude.Text
+wecaneaNewExecutionRunId = Lens.lens (newExecutionRunId :: WorkflowExecutionContinuedAsNewEventAttributes -> Lude.Text) (\s a -> s {newExecutionRunId = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
+{-# DEPRECATED wecaneaNewExecutionRunId "Use generic-lens or generic-optics with 'newExecutionRunId' instead." #-}
+
+-- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @ContinueAsNewWorkflowExecution@ decision that started this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+--
+-- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wecaneaDecisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionContinuedAsNewEventAttributes Lude.Integer
+wecaneaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: WorkflowExecutionContinuedAsNewEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionContinuedAsNewEventAttributes)
+{-# DEPRECATED wecaneaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
 instance
   Lude.FromJSON
@@ -250,12 +249,12 @@ instance
             Lude.<$> (x Lude..:? "tagList" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "taskStartToCloseTimeout")
             Lude.<*> (x Lude..:? "lambdaRole")
+            Lude.<*> (x Lude..: "workflowType")
             Lude.<*> (x Lude..:? "input")
             Lude.<*> (x Lude..:? "executionStartToCloseTimeout")
-            Lude.<*> (x Lude..:? "taskPriority")
-            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
-            Lude.<*> (x Lude..: "newExecutionRunId")
             Lude.<*> (x Lude..: "taskList")
+            Lude.<*> (x Lude..:? "taskPriority")
             Lude.<*> (x Lude..: "childPolicy")
-            Lude.<*> (x Lude..: "workflowType")
+            Lude.<*> (x Lude..: "newExecutionRunId")
+            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
       )

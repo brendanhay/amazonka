@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     mkGetOpenIdTokenForDeveloperIdentity,
 
     -- ** Request lenses
-    goitfdiTokenDuration,
-    goitfdiIdentityId,
     goitfdiIdentityPoolId,
+    goitfdiTokenDuration,
     goitfdiLogins,
+    goitfdiIdentityId,
 
     -- * Destructuring the response
     GetOpenIdTokenForDeveloperIdentityResponse (..),
@@ -48,58 +49,36 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetOpenIdTokenForDeveloperIdentity' smart constructor.
 data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
-  { tokenDuration ::
-      Lude.Maybe
-        Lude.Natural,
-    identityId ::
-      Lude.Maybe Lude.Text,
-    identityPoolId ::
-      Lude.Text,
-    logins ::
-      Lude.HashMap
-        Lude.Text
-        (Lude.Text)
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Lude.Text,
+    -- | The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.
+    tokenDuration :: Lude.Maybe Lude.Natural,
+    -- | A set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax @"developer_provider_name": "developer_user_identifier"@ . The developer provider is the "domain" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.
+    logins :: Lude.HashMap Lude.Text (Lude.Text),
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpenIdTokenForDeveloperIdentity' with the minimum fields required to make a request.
 --
--- * 'identityId' - A unique identifier in the format REGION:GUID.
 -- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
--- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax @"developer_provider_name": "developer_user_identifier"@ . The developer provider is the "domain" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.
 -- * 'tokenDuration' - The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.
+-- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax @"developer_provider_name": "developer_user_identifier"@ . The developer provider is the "domain" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
 mkGetOpenIdTokenForDeveloperIdentity ::
   -- | 'identityPoolId'
   Lude.Text ->
   GetOpenIdTokenForDeveloperIdentity
 mkGetOpenIdTokenForDeveloperIdentity pIdentityPoolId_ =
   GetOpenIdTokenForDeveloperIdentity'
-    { tokenDuration = Lude.Nothing,
-      identityId = Lude.Nothing,
-      identityPoolId = pIdentityPoolId_,
-      logins = Lude.mempty
+    { identityPoolId =
+        pIdentityPoolId_,
+      tokenDuration = Lude.Nothing,
+      logins = Lude.mempty,
+      identityId = Lude.Nothing
     }
-
--- | The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.
---
--- /Note:/ Consider using 'tokenDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goitfdiTokenDuration :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Lude.Maybe Lude.Natural)
-goitfdiTokenDuration = Lens.lens (tokenDuration :: GetOpenIdTokenForDeveloperIdentity -> Lude.Maybe Lude.Natural) (\s a -> s {tokenDuration = a} :: GetOpenIdTokenForDeveloperIdentity)
-{-# DEPRECATED goitfdiTokenDuration "Use generic-lens or generic-optics with 'tokenDuration' instead." #-}
-
--- | A unique identifier in the format REGION:GUID.
---
--- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goitfdiIdentityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Lude.Maybe Lude.Text)
-goitfdiIdentityId = Lens.lens (identityId :: GetOpenIdTokenForDeveloperIdentity -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentity)
-{-# DEPRECATED goitfdiIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 --
@@ -108,12 +87,26 @@ goitfdiIdentityPoolId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity Lude.Text
 goitfdiIdentityPoolId = Lens.lens (identityPoolId :: GetOpenIdTokenForDeveloperIdentity -> Lude.Text) (\s a -> s {identityPoolId = a} :: GetOpenIdTokenForDeveloperIdentity)
 {-# DEPRECATED goitfdiIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
+-- | The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.
+--
+-- /Note:/ Consider using 'tokenDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goitfdiTokenDuration :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Lude.Maybe Lude.Natural)
+goitfdiTokenDuration = Lens.lens (tokenDuration :: GetOpenIdTokenForDeveloperIdentity -> Lude.Maybe Lude.Natural) (\s a -> s {tokenDuration = a} :: GetOpenIdTokenForDeveloperIdentity)
+{-# DEPRECATED goitfdiTokenDuration "Use generic-lens or generic-optics with 'tokenDuration' instead." #-}
+
 -- | A set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax @"developer_provider_name": "developer_user_identifier"@ . The developer provider is the "domain" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins.
 --
 -- /Note:/ Consider using 'logins' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 goitfdiLogins :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Lude.HashMap Lude.Text (Lude.Text))
 goitfdiLogins = Lens.lens (logins :: GetOpenIdTokenForDeveloperIdentity -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {logins = a} :: GetOpenIdTokenForDeveloperIdentity)
 {-# DEPRECATED goitfdiLogins "Use generic-lens or generic-optics with 'logins' instead." #-}
+
+-- | A unique identifier in the format REGION:GUID.
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goitfdiIdentityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Lude.Maybe Lude.Text)
+goitfdiIdentityId = Lens.lens (identityId :: GetOpenIdTokenForDeveloperIdentity -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentity)
+{-# DEPRECATED goitfdiIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 instance Lude.AWSRequest GetOpenIdTokenForDeveloperIdentity where
   type
@@ -146,10 +139,10 @@ instance Lude.ToJSON GetOpenIdTokenForDeveloperIdentity where
   toJSON GetOpenIdTokenForDeveloperIdentity' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TokenDuration" Lude..=) Lude.<$> tokenDuration,
-            ("IdentityId" Lude..=) Lude.<$> identityId,
-            Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
-            Lude.Just ("Logins" Lude..= logins)
+          [ Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
+            ("TokenDuration" Lude..=) Lude.<$> tokenDuration,
+            Lude.Just ("Logins" Lude..= logins),
+            ("IdentityId" Lude..=) Lude.<$> identityId
           ]
       )
 
@@ -163,29 +156,21 @@ instance Lude.ToQuery GetOpenIdTokenForDeveloperIdentity where
 --
 -- /See:/ 'mkGetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
-  { token ::
-      Lude.Maybe
-        Lude.Text,
-    identityId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An OpenID token.
+    token :: Lude.Maybe Lude.Text,
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpenIdTokenForDeveloperIdentityResponse' with the minimum fields required to make a request.
 --
+-- * 'token' - An OpenID token.
 -- * 'identityId' - A unique identifier in the format REGION:GUID.
 -- * 'responseStatus' - The response status code.
--- * 'token' - An OpenID token.
 mkGetOpenIdTokenForDeveloperIdentityResponse ::
   -- | 'responseStatus'
   Lude.Int ->

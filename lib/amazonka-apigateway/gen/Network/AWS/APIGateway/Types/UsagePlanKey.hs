@@ -34,26 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsagePlanKey' smart constructor.
 data UsagePlanKey = UsagePlanKey'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The value of a usage plan key.
+    value :: Lude.Maybe Lude.Text,
+    -- | The name of a usage plan key.
     name :: Lude.Maybe Lude.Text,
+    -- | The Id of a usage plan key.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of a usage plan key. Currently, the valid key type is @API_KEY@ .
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsagePlanKey' with the minimum fields required to make a request.
 --
--- * 'id' - The Id of a usage plan key.
--- * 'name' - The name of a usage plan key.
--- * 'type'' - The type of a usage plan key. Currently, the valid key type is @API_KEY@ .
 -- * 'value' - The value of a usage plan key.
+-- * 'name' - The name of a usage plan key.
+-- * 'id' - The Id of a usage plan key.
+-- * 'type'' - The type of a usage plan key. Currently, the valid key type is @API_KEY@ .
 mkUsagePlanKey ::
   UsagePlanKey
 mkUsagePlanKey =

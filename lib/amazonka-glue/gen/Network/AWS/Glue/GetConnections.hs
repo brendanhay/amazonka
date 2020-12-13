@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.Glue.GetConnections
     mkGetConnectionsResponse,
 
     -- ** Response lenses
-    ggrsNextToken,
-    ggrsConnectionList,
-    ggrsResponseStatus,
+    gcgrsNextToken,
+    gcgrsConnectionList,
+    gcgrsResponseStatus,
   )
 where
 
@@ -47,29 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetConnections' smart constructor.
 data GetConnections = GetConnections'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | A continuation token, if this is a continuation call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.
     hidePassword :: Lude.Maybe Lude.Bool,
+    -- | A filter that controls which connections are returned.
     filter :: Lude.Maybe GetConnectionsFilter,
+    -- | The maximum number of connections to return in one response.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnections' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
--- * 'filter' - A filter that controls which connections are returned.
--- * 'hidePassword' - Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.
--- * 'maxResults' - The maximum number of connections to return in one response.
 -- * 'nextToken' - A continuation token, if this is a continuation call.
+-- * 'hidePassword' - Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.
+-- * 'filter' - A filter that controls which connections are returned.
+-- * 'maxResults' - The maximum number of connections to return in one response.
 mkGetConnections ::
   GetConnections
 mkGetConnections =
@@ -118,12 +117,12 @@ gcsMaxResults = Lens.lens (maxResults :: GetConnections -> Lude.Maybe Lude.Natur
 
 instance Page.AWSPager GetConnections where
   page rq rs
-    | Page.stop (rs Lens.^. ggrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ggrsConnectionList) = Lude.Nothing
+    | Page.stop (rs Lens.^. gcgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gcgrsConnectionList) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& gcsNextToken Lens..~ rs Lens.^. ggrsNextToken
+          Lude.& gcsNextToken Lens..~ rs Lens.^. gcgrsNextToken
 
 instance Lude.AWSRequest GetConnections where
   type Rs GetConnections = GetConnectionsResponse
@@ -168,24 +167,20 @@ instance Lude.ToQuery GetConnections where
 
 -- | /See:/ 'mkGetConnectionsResponse' smart constructor.
 data GetConnectionsResponse = GetConnectionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token, if the list of connections returned does not include the last of the filtered connections.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of requested connection definitions.
     connectionList :: Lude.Maybe [Connection],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionsResponse' with the minimum fields required to make a request.
 --
--- * 'connectionList' - A list of requested connection definitions.
 -- * 'nextToken' - A continuation token, if the list of connections returned does not include the last of the filtered connections.
+-- * 'connectionList' - A list of requested connection definitions.
 -- * 'responseStatus' - The response status code.
 mkGetConnectionsResponse ::
   -- | 'responseStatus'
@@ -201,20 +196,20 @@ mkGetConnectionsResponse pResponseStatus_ =
 -- | A continuation token, if the list of connections returned does not include the last of the filtered connections.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsNextToken :: Lens.Lens' GetConnectionsResponse (Lude.Maybe Lude.Text)
-ggrsNextToken = Lens.lens (nextToken :: GetConnectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetConnectionsResponse)
-{-# DEPRECATED ggrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gcgrsNextToken :: Lens.Lens' GetConnectionsResponse (Lude.Maybe Lude.Text)
+gcgrsNextToken = Lens.lens (nextToken :: GetConnectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetConnectionsResponse)
+{-# DEPRECATED gcgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of requested connection definitions.
 --
 -- /Note:/ Consider using 'connectionList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsConnectionList :: Lens.Lens' GetConnectionsResponse (Lude.Maybe [Connection])
-ggrsConnectionList = Lens.lens (connectionList :: GetConnectionsResponse -> Lude.Maybe [Connection]) (\s a -> s {connectionList = a} :: GetConnectionsResponse)
-{-# DEPRECATED ggrsConnectionList "Use generic-lens or generic-optics with 'connectionList' instead." #-}
+gcgrsConnectionList :: Lens.Lens' GetConnectionsResponse (Lude.Maybe [Connection])
+gcgrsConnectionList = Lens.lens (connectionList :: GetConnectionsResponse -> Lude.Maybe [Connection]) (\s a -> s {connectionList = a} :: GetConnectionsResponse)
+{-# DEPRECATED gcgrsConnectionList "Use generic-lens or generic-optics with 'connectionList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsResponseStatus :: Lens.Lens' GetConnectionsResponse Lude.Int
-ggrsResponseStatus = Lens.lens (responseStatus :: GetConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectionsResponse)
-{-# DEPRECATED ggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcgrsResponseStatus :: Lens.Lens' GetConnectionsResponse Lude.Int
+gcgrsResponseStatus = Lens.lens (responseStatus :: GetConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectionsResponse)
+{-# DEPRECATED gcgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

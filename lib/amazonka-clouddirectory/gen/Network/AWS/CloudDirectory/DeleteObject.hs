@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudDirectory.DeleteObject
     mkDeleteObject,
 
     -- ** Request lenses
-    doDirectoryARN,
-    doObjectReference,
+    dofDirectoryARN,
+    dofObjectReference,
 
     -- * Destructuring the response
     DeleteObjectResponse (..),
@@ -39,16 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteObject' smart constructor.
 data DeleteObject = DeleteObject'
-  { directoryARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
+    directoryARN :: Lude.Text,
+    -- | A reference that identifies the object.
     objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteObject' with the minimum fields required to make a request.
@@ -70,16 +67,16 @@ mkDeleteObject pDirectoryARN_ pObjectReference_ =
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
 --
 -- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doDirectoryARN :: Lens.Lens' DeleteObject Lude.Text
-doDirectoryARN = Lens.lens (directoryARN :: DeleteObject -> Lude.Text) (\s a -> s {directoryARN = a} :: DeleteObject)
-{-# DEPRECATED doDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+dofDirectoryARN :: Lens.Lens' DeleteObject Lude.Text
+dofDirectoryARN = Lens.lens (directoryARN :: DeleteObject -> Lude.Text) (\s a -> s {directoryARN = a} :: DeleteObject)
+{-# DEPRECATED dofDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | A reference that identifies the object.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doObjectReference :: Lens.Lens' DeleteObject ObjectReference
-doObjectReference = Lens.lens (objectReference :: DeleteObject -> ObjectReference) (\s a -> s {objectReference = a} :: DeleteObject)
-{-# DEPRECATED doObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+dofObjectReference :: Lens.Lens' DeleteObject ObjectReference
+dofObjectReference = Lens.lens (objectReference :: DeleteObject -> ObjectReference) (\s a -> s {objectReference = a} :: DeleteObject)
+{-# DEPRECATED dofObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
 instance Lude.AWSRequest DeleteObject where
   type Rs DeleteObject = DeleteObjectResponse
@@ -110,16 +107,10 @@ instance Lude.ToQuery DeleteObject where
 
 -- | /See:/ 'mkDeleteObjectResponse' smart constructor.
 newtype DeleteObjectResponse = DeleteObjectResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.

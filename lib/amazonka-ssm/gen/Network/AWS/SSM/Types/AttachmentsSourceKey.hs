@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.AttachmentsSourceKey
   ( AttachmentsSourceKey
       ( AttachmentsSourceKey',
-        AttachmentReference,
+        SourceURL,
         S3FileURL,
-        SourceURL
+        AttachmentReference
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AttachmentsSourceKey = AttachmentsSourceKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern AttachmentReference :: AttachmentsSourceKey
-pattern AttachmentReference = AttachmentsSourceKey' "AttachmentReference"
+pattern SourceURL :: AttachmentsSourceKey
+pattern SourceURL = AttachmentsSourceKey' "SourceUrl"
 
 pattern S3FileURL :: AttachmentsSourceKey
 pattern S3FileURL = AttachmentsSourceKey' "S3FileUrl"
 
-pattern SourceURL :: AttachmentsSourceKey
-pattern SourceURL = AttachmentsSourceKey' "SourceUrl"
+pattern AttachmentReference :: AttachmentsSourceKey
+pattern AttachmentReference = AttachmentsSourceKey' "AttachmentReference"
 
 {-# COMPLETE
-  AttachmentReference,
-  S3FileURL,
   SourceURL,
+  S3FileURL,
+  AttachmentReference,
   AttachmentsSourceKey'
   #-}

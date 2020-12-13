@@ -13,8 +13,8 @@
 module Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
   ( RequiredAttributeBehavior
       ( RequiredAttributeBehavior',
-        NotRequired,
-        RequiredAlways
+        RequiredAlways,
+        NotRequired
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RequiredAttributeBehavior = RequiredAttributeBehavior' Lude.Text
       Lude.ToHeader
     )
 
-pattern NotRequired :: RequiredAttributeBehavior
-pattern NotRequired = RequiredAttributeBehavior' "NOT_REQUIRED"
-
 pattern RequiredAlways :: RequiredAttributeBehavior
 pattern RequiredAlways = RequiredAttributeBehavior' "REQUIRED_ALWAYS"
 
+pattern NotRequired :: RequiredAttributeBehavior
+pattern NotRequired = RequiredAttributeBehavior' "NOT_REQUIRED"
+
 {-# COMPLETE
-  NotRequired,
   RequiredAlways,
+  NotRequired,
   RequiredAttributeBehavior'
   #-}

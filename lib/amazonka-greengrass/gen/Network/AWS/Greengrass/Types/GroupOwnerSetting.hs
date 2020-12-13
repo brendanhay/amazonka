@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroupOwnerSetting' smart constructor.
 data GroupOwnerSetting = GroupOwnerSetting'
-  { autoAddGroupOwner ::
-      Lude.Maybe Lude.Bool,
+  { -- | If true, AWS IoT Greengrass automatically adds the specified Linux OS group owner of the resource to the Lambda process privileges. Thus the Lambda process will have the file access permissions of the added Linux group.
+    autoAddGroupOwner :: Lude.Maybe Lude.Bool,
+    -- | The name of the Linux OS group whose privileges will be added to the Lambda process. This field is optional.
     groupOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupOwnerSetting' with the minimum fields required to make a request.

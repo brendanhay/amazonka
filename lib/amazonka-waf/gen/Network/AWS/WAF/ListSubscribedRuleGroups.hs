@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkListSubscribedRuleGroups' smart constructor.
 data ListSubscribedRuleGroups = ListSubscribedRuleGroups'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | If you specify a value for @Limit@ and you have more @ByteMatchSets@ subscribed rule groups than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of subscribed rule groups. For the second and subsequent @ListSubscribedRuleGroupsRequest@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of subscribed rule groups.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of objects.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscribedRuleGroups' with the minimum fields required to make a request.
 --
--- * 'limit' - Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of objects.
 -- * 'nextMarker' - If you specify a value for @Limit@ and you have more @ByteMatchSets@ subscribed rule groups than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of subscribed rule groups. For the second and subsequent @ListSubscribedRuleGroupsRequest@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of subscribed rule groups.
+-- * 'limit' - Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of objects.
 mkListSubscribedRuleGroups ::
   ListSubscribedRuleGroups
 mkListSubscribedRuleGroups =
@@ -132,28 +128,21 @@ instance Lude.ToQuery ListSubscribedRuleGroups where
 
 -- | /See:/ 'mkListSubscribedRuleGroupsResponse' smart constructor.
 data ListSubscribedRuleGroupsResponse = ListSubscribedRuleGroupsResponse'
-  { ruleGroups ::
-      Lude.Maybe
-        [SubscribedRuleGroupSummary],
-    nextMarker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An array of 'RuleGroup' objects.
+    ruleGroups :: Lude.Maybe [SubscribedRuleGroupSummary],
+    -- | If you have more objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more objects, submit another @ListSubscribedRuleGroups@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscribedRuleGroupsResponse' with the minimum fields required to make a request.
 --
+-- * 'ruleGroups' - An array of 'RuleGroup' objects.
 -- * 'nextMarker' - If you have more objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more objects, submit another @ListSubscribedRuleGroups@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 -- * 'responseStatus' - The response status code.
--- * 'ruleGroups' - An array of 'RuleGroup' objects.
 mkListSubscribedRuleGroupsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

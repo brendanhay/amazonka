@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.DAX.ListTags
     mkListTags,
 
     -- ** Request lenses
-    ltNextToken,
     ltResourceName,
+    ltNextToken,
 
     -- * Destructuring the response
     ListTagsResponse (..),
@@ -44,38 +45,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTags' smart constructor.
 data ListTags = ListTags'
-  { nextToken :: Lude.Maybe Lude.Text,
-    resourceName :: Lude.Text
+  { -- | The name of the DAX resource to which the tags belong.
+    resourceName :: Lude.Text,
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token.
 -- * 'resourceName' - The name of the DAX resource to which the tags belong.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token.
 mkListTags ::
   -- | 'resourceName'
   Lude.Text ->
   ListTags
 mkListTags pResourceName_ =
   ListTags'
-    { nextToken = Lude.Nothing,
-      resourceName = pResourceName_
+    { resourceName = pResourceName_,
+      nextToken = Lude.Nothing
     }
-
--- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
-ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
-{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the DAX resource to which the tags belong.
 --
@@ -83,6 +73,13 @@ ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a ->
 ltResourceName :: Lens.Lens' ListTags Lude.Text
 ltResourceName = Lens.lens (resourceName :: ListTags -> Lude.Text) (\s a -> s {resourceName = a} :: ListTags)
 {-# DEPRECATED ltResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+
+-- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListTags where
   page rq rs
@@ -120,8 +117,8 @@ instance Lude.ToJSON ListTags where
   toJSON ListTags' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("ResourceName" Lude..= resourceName)
+          [ Lude.Just ("ResourceName" Lude..= resourceName),
+            ("NextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
@@ -133,25 +130,21 @@ instance Lude.ToQuery ListTags where
 
 -- | /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If this value is present, there are additional results to be displayed. To retrieve them, call @ListTags@ again, with @NextToken@ set to this value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of tags currently associated with the DAX cluster.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If this value is present, there are additional results to be displayed. To retrieve them, call @ListTags@ again, with @NextToken@ set to this value.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A list of tags currently associated with the DAX cluster.
+-- * 'responseStatus' - The response status code.
 mkListTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

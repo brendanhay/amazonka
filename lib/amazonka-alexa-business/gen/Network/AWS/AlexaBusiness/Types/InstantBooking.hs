@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstantBooking' smart constructor.
 data InstantBooking = InstantBooking'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether instant booking is enabled or not.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
     durationInMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstantBooking' with the minimum fields required to make a request.
 --
--- * 'durationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
 -- * 'enabled' - Whether instant booking is enabled or not.
+-- * 'durationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
 mkInstantBooking ::
   InstantBooking
 mkInstantBooking =

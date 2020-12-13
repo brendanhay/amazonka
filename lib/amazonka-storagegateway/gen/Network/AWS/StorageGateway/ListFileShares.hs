@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,25 +49,21 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkListFileShares' smart constructor.
 data ListFileShares = ListFileShares'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.
+    gatewayARN :: Lude.Maybe Lude.Text,
+    -- | Opaque pagination token returned from a previous ListFileShares operation. If present, @Marker@ specifies where to continue the list from after a previous call to ListFileShares. Optional.
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFileShares' with the minimum fields required to make a request.
 --
 -- * 'gatewayARN' - The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.
--- * 'limit' - The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional.
 -- * 'marker' - Opaque pagination token returned from a previous ListFileShares operation. If present, @Marker@ specifies where to continue the list from after a previous call to ListFileShares. Optional.
+-- * 'limit' - The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional.
 mkListFileShares ::
   ListFileShares
 mkListFileShares =
@@ -150,19 +147,16 @@ instance Lude.ToQuery ListFileShares where
 --
 -- /See:/ 'mkListFileSharesResponse' smart constructor.
 data ListFileSharesResponse = ListFileSharesResponse'
-  { fileShareInfoList ::
-      Lude.Maybe [FileShareInfo],
+  { -- | An array of information about the file gateway's file shares.
+    fileShareInfoList :: Lude.Maybe [FileShareInfo],
+    -- | If the request includes @Marker@ , the response returns that value in this field.
     marker :: Lude.Maybe Lude.Text,
+    -- | If a value is present, there are more file shares to return. In a subsequent request, use @NextMarker@ as the value for @Marker@ to retrieve the next set of file shares.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFileSharesResponse' with the minimum fields required to make a request.

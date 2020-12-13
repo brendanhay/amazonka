@@ -13,10 +13,10 @@
 module Network.AWS.ECS.Types.ClusterField
   ( ClusterField
       ( ClusterField',
-        Attachments,
-        Settings,
-        Statistics,
-        Tags
+        CFAttachments,
+        CFSettings,
+        CFStatistics,
+        CFTags
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ClusterField = ClusterField' Lude.Text
       Lude.ToHeader
     )
 
-pattern Attachments :: ClusterField
-pattern Attachments = ClusterField' "ATTACHMENTS"
+pattern CFAttachments :: ClusterField
+pattern CFAttachments = ClusterField' "ATTACHMENTS"
 
-pattern Settings :: ClusterField
-pattern Settings = ClusterField' "SETTINGS"
+pattern CFSettings :: ClusterField
+pattern CFSettings = ClusterField' "SETTINGS"
 
-pattern Statistics :: ClusterField
-pattern Statistics = ClusterField' "STATISTICS"
+pattern CFStatistics :: ClusterField
+pattern CFStatistics = ClusterField' "STATISTICS"
 
-pattern Tags :: ClusterField
-pattern Tags = ClusterField' "TAGS"
+pattern CFTags :: ClusterField
+pattern CFTags = ClusterField' "TAGS"
 
 {-# COMPLETE
-  Attachments,
-  Settings,
-  Statistics,
-  Tags,
+  CFAttachments,
+  CFSettings,
+  CFStatistics,
+  CFTags,
   ClusterField'
   #-}

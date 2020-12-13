@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,8 +36,8 @@ module Network.AWS.ElasticBeanstalk.UpdateTagsForResource
 
     -- ** Request lenses
     utfrTagsToRemove,
-    utfrTagsToAdd,
     utfrResourceARN,
+    utfrTagsToAdd,
 
     -- * Destructuring the response
     UpdateTagsForResourceResponse (..),
@@ -52,29 +53,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateTagsForResource' smart constructor.
 data UpdateTagsForResource = UpdateTagsForResource'
-  { tagsToRemove ::
-      Lude.Maybe [Lude.Text],
-    tagsToAdd :: Lude.Maybe [Tag],
-    resourceARN :: Lude.Text
+  { -- | A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.
+    --
+    -- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+    tagsToRemove :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the resouce to be updated.
+    --
+    -- Must be the ARN of an Elastic Beanstalk resource.
+    resourceARN :: Lude.Text,
+    -- | A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.
+    --
+    -- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+    tagsToAdd :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagsForResource' with the minimum fields required to make a request.
 --
+-- * 'tagsToRemove' - A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.
+--
+-- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
 -- * 'resourceARN' - The Amazon Resource Name (ARN) of the resouce to be updated.
 --
 -- Must be the ARN of an Elastic Beanstalk resource.
 -- * 'tagsToAdd' - A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.
---
--- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
--- * 'tagsToRemove' - A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.
 --
 -- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
 mkUpdateTagsForResource ::
@@ -84,8 +87,8 @@ mkUpdateTagsForResource ::
 mkUpdateTagsForResource pResourceARN_ =
   UpdateTagsForResource'
     { tagsToRemove = Lude.Nothing,
-      tagsToAdd = Lude.Nothing,
-      resourceARN = pResourceARN_
+      resourceARN = pResourceARN_,
+      tagsToAdd = Lude.Nothing
     }
 
 -- | A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.
@@ -97,15 +100,6 @@ utfrTagsToRemove :: Lens.Lens' UpdateTagsForResource (Lude.Maybe [Lude.Text])
 utfrTagsToRemove = Lens.lens (tagsToRemove :: UpdateTagsForResource -> Lude.Maybe [Lude.Text]) (\s a -> s {tagsToRemove = a} :: UpdateTagsForResource)
 {-# DEPRECATED utfrTagsToRemove "Use generic-lens or generic-optics with 'tagsToRemove' instead." #-}
 
--- | A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.
---
--- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
---
--- /Note:/ Consider using 'tagsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utfrTagsToAdd :: Lens.Lens' UpdateTagsForResource (Lude.Maybe [Tag])
-utfrTagsToAdd = Lens.lens (tagsToAdd :: UpdateTagsForResource -> Lude.Maybe [Tag]) (\s a -> s {tagsToAdd = a} :: UpdateTagsForResource)
-{-# DEPRECATED utfrTagsToAdd "Use generic-lens or generic-optics with 'tagsToAdd' instead." #-}
-
 -- | The Amazon Resource Name (ARN) of the resouce to be updated.
 --
 -- Must be the ARN of an Elastic Beanstalk resource.
@@ -114,6 +108,15 @@ utfrTagsToAdd = Lens.lens (tagsToAdd :: UpdateTagsForResource -> Lude.Maybe [Tag
 utfrResourceARN :: Lens.Lens' UpdateTagsForResource Lude.Text
 utfrResourceARN = Lens.lens (resourceARN :: UpdateTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UpdateTagsForResource)
 {-# DEPRECATED utfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.
+--
+-- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+--
+-- /Note:/ Consider using 'tagsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utfrTagsToAdd :: Lens.Lens' UpdateTagsForResource (Lude.Maybe [Tag])
+utfrTagsToAdd = Lens.lens (tagsToAdd :: UpdateTagsForResource -> Lude.Maybe [Tag]) (\s a -> s {tagsToAdd = a} :: UpdateTagsForResource)
+{-# DEPRECATED utfrTagsToAdd "Use generic-lens or generic-optics with 'tagsToAdd' instead." #-}
 
 instance Lude.AWSRequest UpdateTagsForResource where
   type Rs UpdateTagsForResource = UpdateTagsForResourceResponse
@@ -133,20 +136,14 @@ instance Lude.ToQuery UpdateTagsForResource where
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
         "TagsToRemove"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tagsToRemove),
+        "ResourceArn" Lude.=: resourceARN,
         "TagsToAdd"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tagsToAdd),
-        "ResourceArn" Lude.=: resourceARN
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tagsToAdd)
       ]
 
 -- | /See:/ 'mkUpdateTagsForResourceResponse' smart constructor.
 data UpdateTagsForResourceResponse = UpdateTagsForResourceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagsForResourceResponse' with the minimum fields required to make a request.

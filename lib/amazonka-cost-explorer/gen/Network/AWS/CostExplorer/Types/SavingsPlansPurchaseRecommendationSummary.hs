@@ -38,62 +38,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansPurchaseRecommendationSummary' smart constructor.
 data SavingsPlansPurchaseRecommendationSummary = SavingsPlansPurchaseRecommendationSummary'
-  { currencyCode ::
-      Lude.Maybe
-        Lude.Text,
-    dailyCommitmentToPurchase ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedTotalCost ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedROI ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedSavingsAmount ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedMonthlySavingsAmount ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedOnDemandCostWithCurrentCommitment ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedSavingsPercentage ::
-      Lude.Maybe
-        Lude.Text,
-    totalRecommendationCount ::
-      Lude.Maybe
-        Lude.Text,
-    currentOnDemandSpend ::
-      Lude.Maybe
-        Lude.Text,
-    hourlyCommitmentToPurchase ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The currency code AWS used to generate the recommendations and present potential savings.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | The recommended Savings Plans cost on a daily (24 hourly) basis.
+    dailyCommitmentToPurchase :: Lude.Maybe Lude.Text,
+    -- | The estimated total cost of the usage after purchasing the recommended Savings Plans. This is a sum of the cost of Savings Plans during this term, and the remaining On-Demand usage.
+    estimatedTotalCost :: Lude.Maybe Lude.Text,
+    -- | The estimated return on investment based on the recommended Savings Plans and estimated savings.
+    estimatedROI :: Lude.Maybe Lude.Text,
+    -- | The estimated total savings over the lookback period, based on the purchase of the recommended Savings Plans.
+    estimatedSavingsAmount :: Lude.Maybe Lude.Text,
+    -- | The estimated monthly savings amount, based on the recommended Savings Plans purchase.
+    estimatedMonthlySavingsAmount :: Lude.Maybe Lude.Text,
+    -- | The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own.
+    estimatedOnDemandCostWithCurrentCommitment :: Lude.Maybe Lude.Text,
+    -- | The estimated savings relative to the total cost of On-Demand usage, over the lookback period. This is calculated as @estimatedSavingsAmount@ / @CurrentOnDemandSpend@ *100.
+    estimatedSavingsPercentage :: Lude.Maybe Lude.Text,
+    -- | The aggregate number of Savings Plans recommendations that exist for your account.
+    totalRecommendationCount :: Lude.Maybe Lude.Text,
+    -- | The current total on demand spend of the applicable usage types over the lookback period.
+    currentOnDemandSpend :: Lude.Maybe Lude.Text,
+    -- | The recommended hourly commitment based on the recommendation parameters.
+    hourlyCommitmentToPurchase :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansPurchaseRecommendationSummary' with the minimum fields required to make a request.
 --
 -- * 'currencyCode' - The currency code AWS used to generate the recommendations and present potential savings.
--- * 'currentOnDemandSpend' - The current total on demand spend of the applicable usage types over the lookback period.
 -- * 'dailyCommitmentToPurchase' - The recommended Savings Plans cost on a daily (24 hourly) basis.
--- * 'estimatedMonthlySavingsAmount' - The estimated monthly savings amount, based on the recommended Savings Plans purchase.
--- * 'estimatedOnDemandCostWithCurrentCommitment' - The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own.
+-- * 'estimatedTotalCost' - The estimated total cost of the usage after purchasing the recommended Savings Plans. This is a sum of the cost of Savings Plans during this term, and the remaining On-Demand usage.
 -- * 'estimatedROI' - The estimated return on investment based on the recommended Savings Plans and estimated savings.
 -- * 'estimatedSavingsAmount' - The estimated total savings over the lookback period, based on the purchase of the recommended Savings Plans.
+-- * 'estimatedMonthlySavingsAmount' - The estimated monthly savings amount, based on the recommended Savings Plans purchase.
+-- * 'estimatedOnDemandCostWithCurrentCommitment' - The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own.
 -- * 'estimatedSavingsPercentage' - The estimated savings relative to the total cost of On-Demand usage, over the lookback period. This is calculated as @estimatedSavingsAmount@ / @CurrentOnDemandSpend@ *100.
--- * 'estimatedTotalCost' - The estimated total cost of the usage after purchasing the recommended Savings Plans. This is a sum of the cost of Savings Plans during this term, and the remaining On-Demand usage.
--- * 'hourlyCommitmentToPurchase' - The recommended hourly commitment based on the recommendation parameters.
 -- * 'totalRecommendationCount' - The aggregate number of Savings Plans recommendations that exist for your account.
+-- * 'currentOnDemandSpend' - The current total on demand spend of the applicable usage types over the lookback period.
+-- * 'hourlyCommitmentToPurchase' - The recommended hourly commitment based on the recommendation parameters.
 mkSavingsPlansPurchaseRecommendationSummary ::
   SavingsPlansPurchaseRecommendationSummary
 mkSavingsPlansPurchaseRecommendationSummary =

@@ -35,37 +35,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogStream' smart constructor.
 data LogStream = LogStream'
-  { creationTime ::
-      Lude.Maybe Lude.Natural,
+  { -- | The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+    creationTime :: Lude.Maybe Lude.Natural,
+    -- | The sequence token.
     uploadSequenceToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the log stream.
     arn :: Lude.Maybe Lude.Text,
+    -- | The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
     firstEventTimestamp :: Lude.Maybe Lude.Natural,
+    -- | The name of the log stream.
     logStreamName :: Lude.Maybe Lude.Text,
+    -- | The number of bytes stored.
+    --
+    -- __Important:__ On June 17, 2019, this parameter was deprecated for log streams, and is always reported as zero. This change applies only to log streams. The @storedBytes@ parameter for log groups is not affected.
     storedBytes :: Lude.Maybe Lude.Natural,
+    -- | The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
     lastIngestionTime :: Lude.Maybe Lude.Natural,
+    -- | The time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
     lastEventTimestamp :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogStream' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the log stream.
 -- * 'creationTime' - The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'uploadSequenceToken' - The sequence token.
+-- * 'arn' - The Amazon Resource Name (ARN) of the log stream.
 -- * 'firstEventTimestamp' - The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
--- * 'lastEventTimestamp' - The time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
--- * 'lastIngestionTime' - The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 -- * 'logStreamName' - The name of the log stream.
 -- * 'storedBytes' - The number of bytes stored.
 --
 -- __Important:__ On June 17, 2019, this parameter was deprecated for log streams, and is always reported as zero. This change applies only to log streams. The @storedBytes@ parameter for log groups is not affected.
--- * 'uploadSequenceToken' - The sequence token.
+-- * 'lastIngestionTime' - The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'lastEventTimestamp' - The time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.
 mkLogStream ::
   LogStream
 mkLogStream =

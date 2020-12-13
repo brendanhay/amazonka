@@ -53,62 +53,68 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTunnelOption' smart constructor.
 data TunnelOption = TunnelOption'
-  { outsideIPAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | The external IP address of the VPN tunnel.
+    outsideIPAddress :: Lude.Maybe Lude.Text,
+    -- | The number of packets in an IKE replay window.
     replayWindowSize :: Lude.Maybe Lude.Int,
+    -- | The action to take after a DPD timeout occurs.
     dpdTimeoutAction :: Lude.Maybe Lude.Text,
+    -- | The percentage of the rekey window determined by @RekeyMarginTimeSeconds@ during which the rekey time is randomly selected.
     rekeyFuzzPercentage :: Lude.Maybe Lude.Int,
+    -- | The lifetime for phase 1 of the IKE negotiation, in seconds.
     phase1LifetimeSeconds :: Lude.Maybe Lude.Int,
+    -- | The IKE versions that are permitted for the VPN tunnel.
     ikeVersions :: Lude.Maybe [IKEVersionsListValue],
-    phase2IntegrityAlgorithms ::
-      Lude.Maybe [Phase2IntegrityAlgorithmsListValue],
+    -- | The permitted integrity algorithms for the VPN tunnel for phase 2 IKE negotiations.
+    phase2IntegrityAlgorithms :: Lude.Maybe [Phase2IntegrityAlgorithmsListValue],
+    -- | The lifetime for phase 2 of the IKE negotiation, in seconds.
     phase2LifetimeSeconds :: Lude.Maybe Lude.Int,
-    phase1EncryptionAlgorithms ::
-      Lude.Maybe [Phase1EncryptionAlgorithmsListValue],
-    phase1DHGroupNumbers ::
-      Lude.Maybe [Phase1DHGroupNumbersListValue],
-    phase1IntegrityAlgorithms ::
-      Lude.Maybe [Phase1IntegrityAlgorithmsListValue],
+    -- | The permitted encryption algorithms for the VPN tunnel for phase 1 IKE negotiations.
+    phase1EncryptionAlgorithms :: Lude.Maybe [Phase1EncryptionAlgorithmsListValue],
+    -- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE negotiations.
+    phase1DHGroupNumbers :: Lude.Maybe [Phase1DHGroupNumbersListValue],
+    -- | The permitted integrity algorithms for the VPN tunnel for phase 1 IKE negotiations.
+    phase1IntegrityAlgorithms :: Lude.Maybe [Phase1IntegrityAlgorithmsListValue],
+    -- | The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey.
     rekeyMarginTimeSeconds :: Lude.Maybe Lude.Int,
+    -- | The number of seconds after which a DPD timeout occurs.
     dpdTimeoutSeconds :: Lude.Maybe Lude.Int,
+    -- | The range of inside IPv4 addresses for the tunnel.
     tunnelInsideCidr :: Lude.Maybe Lude.Text,
+    -- | The action to take when the establishing the VPN tunnels for a VPN connection.
     startupAction :: Lude.Maybe Lude.Text,
-    phase2EncryptionAlgorithms ::
-      Lude.Maybe [Phase2EncryptionAlgorithmsListValue],
-    phase2DHGroupNumbers ::
-      Lude.Maybe [Phase2DHGroupNumbersListValue],
+    -- | The permitted encryption algorithms for the VPN tunnel for phase 2 IKE negotiations.
+    phase2EncryptionAlgorithms :: Lude.Maybe [Phase2EncryptionAlgorithmsListValue],
+    -- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE negotiations.
+    phase2DHGroupNumbers :: Lude.Maybe [Phase2DHGroupNumbersListValue],
+    -- | The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and the customer gateway.
     preSharedKey :: Lude.Maybe Lude.Text,
+    -- | The range of inside IPv6 addresses for the tunnel.
     tunnelInsideIPv6Cidr :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TunnelOption' with the minimum fields required to make a request.
 --
--- * 'dpdTimeoutAction' - The action to take after a DPD timeout occurs.
--- * 'dpdTimeoutSeconds' - The number of seconds after which a DPD timeout occurs.
--- * 'ikeVersions' - The IKE versions that are permitted for the VPN tunnel.
 -- * 'outsideIPAddress' - The external IP address of the VPN tunnel.
--- * 'phase1DHGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE negotiations.
--- * 'phase1EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 1 IKE negotiations.
--- * 'phase1IntegrityAlgorithms' - The permitted integrity algorithms for the VPN tunnel for phase 1 IKE negotiations.
+-- * 'replayWindowSize' - The number of packets in an IKE replay window.
+-- * 'dpdTimeoutAction' - The action to take after a DPD timeout occurs.
+-- * 'rekeyFuzzPercentage' - The percentage of the rekey window determined by @RekeyMarginTimeSeconds@ during which the rekey time is randomly selected.
 -- * 'phase1LifetimeSeconds' - The lifetime for phase 1 of the IKE negotiation, in seconds.
--- * 'phase2DHGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE negotiations.
--- * 'phase2EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 2 IKE negotiations.
+-- * 'ikeVersions' - The IKE versions that are permitted for the VPN tunnel.
 -- * 'phase2IntegrityAlgorithms' - The permitted integrity algorithms for the VPN tunnel for phase 2 IKE negotiations.
 -- * 'phase2LifetimeSeconds' - The lifetime for phase 2 of the IKE negotiation, in seconds.
--- * 'preSharedKey' - The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and the customer gateway.
--- * 'rekeyFuzzPercentage' - The percentage of the rekey window determined by @RekeyMarginTimeSeconds@ during which the rekey time is randomly selected.
+-- * 'phase1EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 1 IKE negotiations.
+-- * 'phase1DHGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE negotiations.
+-- * 'phase1IntegrityAlgorithms' - The permitted integrity algorithms for the VPN tunnel for phase 1 IKE negotiations.
 -- * 'rekeyMarginTimeSeconds' - The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey.
--- * 'replayWindowSize' - The number of packets in an IKE replay window.
--- * 'startupAction' - The action to take when the establishing the VPN tunnels for a VPN connection.
+-- * 'dpdTimeoutSeconds' - The number of seconds after which a DPD timeout occurs.
 -- * 'tunnelInsideCidr' - The range of inside IPv4 addresses for the tunnel.
+-- * 'startupAction' - The action to take when the establishing the VPN tunnels for a VPN connection.
+-- * 'phase2EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 2 IKE negotiations.
+-- * 'phase2DHGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE negotiations.
+-- * 'preSharedKey' - The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and the customer gateway.
 -- * 'tunnelInsideIPv6Cidr' - The range of inside IPv6 addresses for the tunnel.
 mkTunnelOption ::
   TunnelOption

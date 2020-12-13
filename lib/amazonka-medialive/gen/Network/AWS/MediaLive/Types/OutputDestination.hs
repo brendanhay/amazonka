@@ -34,29 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputDestination' smart constructor.
 data OutputDestination = OutputDestination'
-  { settings ::
-      Lude.Maybe [OutputDestinationSettings],
-    mediaPackageSettings ::
-      Lude.Maybe [MediaPackageOutputDestinationSettings],
+  { -- | Destination settings for a standard output; one destination for each redundant encoder.
+    settings :: Lude.Maybe [OutputDestinationSettings],
+    -- | Destination settings for a MediaPackage output; one destination for both encoders.
+    mediaPackageSettings :: Lude.Maybe [MediaPackageOutputDestinationSettings],
+    -- | User-specified id. This is used in an output group or an output.
     id :: Lude.Maybe Lude.Text,
-    multiplexSettings ::
-      Lude.Maybe MultiplexProgramChannelDestinationSettings
+    -- | Destination settings for a Multiplex output; one destination for both encoders.
+    multiplexSettings :: Lude.Maybe MultiplexProgramChannelDestinationSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputDestination' with the minimum fields required to make a request.
 --
--- * 'id' - User-specified id. This is used in an output group or an output.
--- * 'mediaPackageSettings' - Destination settings for a MediaPackage output; one destination for both encoders.
--- * 'multiplexSettings' - Destination settings for a Multiplex output; one destination for both encoders.
 -- * 'settings' - Destination settings for a standard output; one destination for each redundant encoder.
+-- * 'mediaPackageSettings' - Destination settings for a MediaPackage output; one destination for both encoders.
+-- * 'id' - User-specified id. This is used in an output group or an output.
+-- * 'multiplexSettings' - Destination settings for a Multiplex output; one destination for both encoders.
 mkOutputDestination ::
   OutputDestination
 mkOutputDestination =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,13 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCertificate' smart constructor.
 newtype GetCertificate = GetCertificate'
-  { certificateARN ::
-      Lude.Text
+  { -- | String that contains a certificate ARN in the following format:
+    --
+    -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    certificateARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificate' with the minimum fields required to make a request.
@@ -113,18 +111,14 @@ instance Lude.ToQuery GetCertificate where
 
 -- | /See:/ 'mkGetCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
-  { certificate ::
-      Lude.Maybe Lude.Text,
+  { -- | The ACM-issued certificate corresponding to the ARN specified as input.
+    certificate :: Lude.Maybe Lude.Text,
+    -- | Certificates forming the requested certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
     certificateChain :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificateResponse' with the minimum fields required to make a request.

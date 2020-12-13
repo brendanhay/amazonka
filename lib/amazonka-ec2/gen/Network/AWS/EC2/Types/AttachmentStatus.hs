@@ -13,12 +13,12 @@
 module Network.AWS.EC2.Types.AttachmentStatus
   ( AttachmentStatus
       ( AttachmentStatus',
-        AAttached,
         AAttaching,
-        AAvailable,
-        ABusy,
+        AAttached,
+        ADetaching,
         ADetached,
-        ADetaching
+        ABusy,
+        AAvailable
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype AttachmentStatus = AttachmentStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern AAttached :: AttachmentStatus
-pattern AAttached = AttachmentStatus' "attached"
-
 pattern AAttaching :: AttachmentStatus
 pattern AAttaching = AttachmentStatus' "attaching"
 
-pattern AAvailable :: AttachmentStatus
-pattern AAvailable = AttachmentStatus' "available"
-
-pattern ABusy :: AttachmentStatus
-pattern ABusy = AttachmentStatus' "busy"
-
-pattern ADetached :: AttachmentStatus
-pattern ADetached = AttachmentStatus' "detached"
+pattern AAttached :: AttachmentStatus
+pattern AAttached = AttachmentStatus' "attached"
 
 pattern ADetaching :: AttachmentStatus
 pattern ADetaching = AttachmentStatus' "detaching"
 
+pattern ADetached :: AttachmentStatus
+pattern ADetached = AttachmentStatus' "detached"
+
+pattern ABusy :: AttachmentStatus
+pattern ABusy = AttachmentStatus' "busy"
+
+pattern AAvailable :: AttachmentStatus
+pattern AAvailable = AttachmentStatus' "available"
+
 {-# COMPLETE
-  AAttached,
   AAttaching,
-  AAvailable,
-  ABusy,
-  ADetached,
+  AAttached,
   ADetaching,
+  ADetached,
+  ABusy,
+  AAvailable,
   AttachmentStatus'
   #-}

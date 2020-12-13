@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.InputRotate
   ( InputRotate
       ( InputRotate',
-        Auto,
         Degree0,
+        Degrees90,
         Degrees180,
         Degrees270,
-        Degrees90
+        Auto
       ),
   )
 where
@@ -49,11 +49,11 @@ newtype InputRotate = InputRotate' Lude.Text
       Lude.ToHeader
     )
 
-pattern Auto :: InputRotate
-pattern Auto = InputRotate' "AUTO"
-
 pattern Degree0 :: InputRotate
 pattern Degree0 = InputRotate' "DEGREE_0"
+
+pattern Degrees90 :: InputRotate
+pattern Degrees90 = InputRotate' "DEGREES_90"
 
 pattern Degrees180 :: InputRotate
 pattern Degrees180 = InputRotate' "DEGREES_180"
@@ -61,14 +61,14 @@ pattern Degrees180 = InputRotate' "DEGREES_180"
 pattern Degrees270 :: InputRotate
 pattern Degrees270 = InputRotate' "DEGREES_270"
 
-pattern Degrees90 :: InputRotate
-pattern Degrees90 = InputRotate' "DEGREES_90"
+pattern Auto :: InputRotate
+pattern Auto = InputRotate' "AUTO"
 
 {-# COMPLETE
-  Auto,
   Degree0,
+  Degrees90,
   Degrees180,
   Degrees270,
-  Degrees90,
+  Auto,
   InputRotate'
   #-}

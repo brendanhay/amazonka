@@ -29,17 +29,10 @@ import Network.AWS.SSM.Types.S3OutputLocation
 --
 -- /See:/ 'mkInstanceAssociationOutputLocation' smart constructor.
 newtype InstanceAssociationOutputLocation = InstanceAssociationOutputLocation'
-  { s3Location ::
-      Lude.Maybe
-        S3OutputLocation
+  { -- | An S3 bucket where you want to store the results of this request.
+    s3Location :: Lude.Maybe S3OutputLocation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceAssociationOutputLocation' with the minimum fields required to make a request.

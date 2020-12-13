@@ -41,46 +41,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayAttachment' smart constructor.
 data TransitGatewayAttachment = TransitGatewayAttachment'
-  { creationTime ::
-      Lude.Maybe Lude.DateTime,
-    state ::
-      Lude.Maybe TransitGatewayAttachmentState,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.DateTime,
+    -- | The attachment state. Note that the @initiating@ state has been deprecated.
+    state :: Lude.Maybe TransitGatewayAttachmentState,
+    -- | The ID of the resource.
     resourceId :: Lude.Maybe Lude.Text,
-    resourceType ::
-      Lude.Maybe
-        TransitGatewayAttachmentResourceType,
-    transitGatewayOwnerId ::
-      Lude.Maybe Lude.Text,
+    -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
+    resourceType :: Lude.Maybe TransitGatewayAttachmentResourceType,
+    -- | The ID of the AWS account that owns the transit gateway.
+    transitGatewayOwnerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the transit gateway.
     transitGatewayId :: Lude.Maybe Lude.Text,
-    transitGatewayAttachmentId ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account that owns the resource.
     resourceOwnerId :: Lude.Maybe Lude.Text,
+    -- | The tags for the attachment.
     tags :: Lude.Maybe [Tag],
-    association ::
-      Lude.Maybe
-        TransitGatewayAttachmentAssociation
+    -- | The association.
+    association :: Lude.Maybe TransitGatewayAttachmentAssociation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayAttachment' with the minimum fields required to make a request.
 --
--- * 'association' - The association.
 -- * 'creationTime' - The creation time.
--- * 'resourceId' - The ID of the resource.
--- * 'resourceOwnerId' - The ID of the AWS account that owns the resource.
--- * 'resourceType' - The resource type. Note that the @tgw-peering@ resource type has been deprecated.
 -- * 'state' - The attachment state. Note that the @initiating@ state has been deprecated.
--- * 'tags' - The tags for the attachment.
--- * 'transitGatewayAttachmentId' - The ID of the attachment.
--- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'resourceId' - The ID of the resource.
+-- * 'resourceType' - The resource type. Note that the @tgw-peering@ resource type has been deprecated.
 -- * 'transitGatewayOwnerId' - The ID of the AWS account that owns the transit gateway.
+-- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'resourceOwnerId' - The ID of the AWS account that owns the resource.
+-- * 'tags' - The tags for the attachment.
+-- * 'association' - The association.
 mkTransitGatewayAttachment ::
   TransitGatewayAttachment
 mkTransitGatewayAttachment =

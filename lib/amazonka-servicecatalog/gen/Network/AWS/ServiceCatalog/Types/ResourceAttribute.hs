@@ -13,12 +13,12 @@
 module Network.AWS.ServiceCatalog.Types.ResourceAttribute
   ( ResourceAttribute
       ( ResourceAttribute',
-        Creationpolicy,
-        Deletionpolicy,
-        Metadata,
         Properties,
-        Tags,
-        Updatepolicy
+        Metadata,
+        Creationpolicy,
+        Updatepolicy,
+        Deletionpolicy,
+        Tags
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype ResourceAttribute = ResourceAttribute' Lude.Text
       Lude.ToHeader
     )
 
-pattern Creationpolicy :: ResourceAttribute
-pattern Creationpolicy = ResourceAttribute' "CREATIONPOLICY"
-
-pattern Deletionpolicy :: ResourceAttribute
-pattern Deletionpolicy = ResourceAttribute' "DELETIONPOLICY"
+pattern Properties :: ResourceAttribute
+pattern Properties = ResourceAttribute' "PROPERTIES"
 
 pattern Metadata :: ResourceAttribute
 pattern Metadata = ResourceAttribute' "METADATA"
 
-pattern Properties :: ResourceAttribute
-pattern Properties = ResourceAttribute' "PROPERTIES"
-
-pattern Tags :: ResourceAttribute
-pattern Tags = ResourceAttribute' "TAGS"
+pattern Creationpolicy :: ResourceAttribute
+pattern Creationpolicy = ResourceAttribute' "CREATIONPOLICY"
 
 pattern Updatepolicy :: ResourceAttribute
 pattern Updatepolicy = ResourceAttribute' "UPDATEPOLICY"
 
+pattern Deletionpolicy :: ResourceAttribute
+pattern Deletionpolicy = ResourceAttribute' "DELETIONPOLICY"
+
+pattern Tags :: ResourceAttribute
+pattern Tags = ResourceAttribute' "TAGS"
+
 {-# COMPLETE
-  Creationpolicy,
-  Deletionpolicy,
-  Metadata,
   Properties,
-  Tags,
+  Metadata,
+  Creationpolicy,
   Updatepolicy,
+  Deletionpolicy,
+  Tags,
   ResourceAttribute'
   #-}

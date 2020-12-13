@@ -47,7 +47,7 @@ mkMLModelAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dmlmsrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dmlmrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. mlmStatus
                 Lude.. Lens._Just
@@ -58,7 +58,7 @@ mkMLModelAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dmlmsrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dmlmrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. mlmStatus
                 Lude.. Lens._Just
@@ -80,7 +80,7 @@ mkBatchPredictionAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dbpsrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dbprsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. bpStatus
                 Lude.. Lens._Just
@@ -91,7 +91,7 @@ mkBatchPredictionAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dbpsrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dbprsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. bpStatus
                 Lude.. Lens._Just
@@ -113,7 +113,7 @@ mkDataSourceAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddssrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddsrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -124,7 +124,7 @@ mkDataSourceAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddssrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddsrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -146,7 +146,7 @@ mkEvaluationAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (desrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dersResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. eStatus
                 Lude.. Lens._Just
@@ -157,7 +157,7 @@ mkEvaluationAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (desrsResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dersResults Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. eStatus
                 Lude.. Lens._Just

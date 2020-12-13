@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,13 +21,13 @@ module Network.AWS.AlexaBusiness.CreateBusinessReportSchedule
 
     -- ** Request lenses
     cbrsS3KeyPrefix,
+    cbrsFormat,
     cbrsRecurrence,
     cbrsScheduleName,
     cbrsClientRequestToken,
+    cbrsContentRange,
     cbrsS3BucketName,
     cbrsTags,
-    cbrsFormat,
-    cbrsContentRange,
 
     -- * Destructuring the response
     CreateBusinessReportScheduleResponse (..),
@@ -46,40 +47,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateBusinessReportSchedule' smart constructor.
 data CreateBusinessReportSchedule = CreateBusinessReportSchedule'
-  { s3KeyPrefix ::
-      Lude.Maybe Lude.Text,
-    recurrence ::
-      Lude.Maybe
-        BusinessReportRecurrence,
-    scheduleName ::
-      Lude.Maybe Lude.Text,
-    clientRequestToken ::
-      Lude.Maybe Lude.Text,
-    s3BucketName ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | The S3 key where the report is delivered.
+    s3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | The format of the generated report (individual CSV files or zipped files of individual files).
     format :: BusinessReportFormat,
-    contentRange ::
-      BusinessReportContentRange
+    -- | The recurrence of the reports. If this isn't specified, the report will only be delivered one time when the API is called.
+    recurrence :: Lude.Maybe BusinessReportRecurrence,
+    -- | The name identifier of the schedule.
+    scheduleName :: Lude.Maybe Lude.Text,
+    -- | The client request token.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The content range of the reports.
+    contentRange :: BusinessReportContentRange,
+    -- | The S3 bucket name of the output reports. If this isn't specified, the report can be retrieved from a download link by calling ListBusinessReportSchedule.
+    s3BucketName :: Lude.Maybe Lude.Text,
+    -- | The tags for the business report schedule.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBusinessReportSchedule' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - The client request token.
--- * 'contentRange' - The content range of the reports.
+-- * 's3KeyPrefix' - The S3 key where the report is delivered.
 -- * 'format' - The format of the generated report (individual CSV files or zipped files of individual files).
 -- * 'recurrence' - The recurrence of the reports. If this isn't specified, the report will only be delivered one time when the API is called.
--- * 's3BucketName' - The S3 bucket name of the output reports. If this isn't specified, the report can be retrieved from a download link by calling ListBusinessReportSchedule.
--- * 's3KeyPrefix' - The S3 key where the report is delivered.
 -- * 'scheduleName' - The name identifier of the schedule.
+-- * 'clientRequestToken' - The client request token.
+-- * 'contentRange' - The content range of the reports.
+-- * 's3BucketName' - The S3 bucket name of the output reports. If this isn't specified, the report can be retrieved from a download link by calling ListBusinessReportSchedule.
 -- * 'tags' - The tags for the business report schedule.
 mkCreateBusinessReportSchedule ::
   -- | 'format'
@@ -90,13 +86,13 @@ mkCreateBusinessReportSchedule ::
 mkCreateBusinessReportSchedule pFormat_ pContentRange_ =
   CreateBusinessReportSchedule'
     { s3KeyPrefix = Lude.Nothing,
+      format = pFormat_,
       recurrence = Lude.Nothing,
       scheduleName = Lude.Nothing,
       clientRequestToken = Lude.Nothing,
+      contentRange = pContentRange_,
       s3BucketName = Lude.Nothing,
-      tags = Lude.Nothing,
-      format = pFormat_,
-      contentRange = pContentRange_
+      tags = Lude.Nothing
     }
 
 -- | The S3 key where the report is delivered.
@@ -105,6 +101,13 @@ mkCreateBusinessReportSchedule pFormat_ pContentRange_ =
 cbrsS3KeyPrefix :: Lens.Lens' CreateBusinessReportSchedule (Lude.Maybe Lude.Text)
 cbrsS3KeyPrefix = Lens.lens (s3KeyPrefix :: CreateBusinessReportSchedule -> Lude.Maybe Lude.Text) (\s a -> s {s3KeyPrefix = a} :: CreateBusinessReportSchedule)
 {-# DEPRECATED cbrsS3KeyPrefix "Use generic-lens or generic-optics with 's3KeyPrefix' instead." #-}
+
+-- | The format of the generated report (individual CSV files or zipped files of individual files).
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrsFormat :: Lens.Lens' CreateBusinessReportSchedule BusinessReportFormat
+cbrsFormat = Lens.lens (format :: CreateBusinessReportSchedule -> BusinessReportFormat) (\s a -> s {format = a} :: CreateBusinessReportSchedule)
+{-# DEPRECATED cbrsFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The recurrence of the reports. If this isn't specified, the report will only be delivered one time when the API is called.
 --
@@ -127,6 +130,13 @@ cbrsClientRequestToken :: Lens.Lens' CreateBusinessReportSchedule (Lude.Maybe Lu
 cbrsClientRequestToken = Lens.lens (clientRequestToken :: CreateBusinessReportSchedule -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateBusinessReportSchedule)
 {-# DEPRECATED cbrsClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
+-- | The content range of the reports.
+--
+-- /Note:/ Consider using 'contentRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbrsContentRange :: Lens.Lens' CreateBusinessReportSchedule BusinessReportContentRange
+cbrsContentRange = Lens.lens (contentRange :: CreateBusinessReportSchedule -> BusinessReportContentRange) (\s a -> s {contentRange = a} :: CreateBusinessReportSchedule)
+{-# DEPRECATED cbrsContentRange "Use generic-lens or generic-optics with 'contentRange' instead." #-}
+
 -- | The S3 bucket name of the output reports. If this isn't specified, the report can be retrieved from a download link by calling ListBusinessReportSchedule.
 --
 -- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -140,20 +150,6 @@ cbrsS3BucketName = Lens.lens (s3BucketName :: CreateBusinessReportSchedule -> Lu
 cbrsTags :: Lens.Lens' CreateBusinessReportSchedule (Lude.Maybe [Tag])
 cbrsTags = Lens.lens (tags :: CreateBusinessReportSchedule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateBusinessReportSchedule)
 {-# DEPRECATED cbrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The format of the generated report (individual CSV files or zipped files of individual files).
---
--- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbrsFormat :: Lens.Lens' CreateBusinessReportSchedule BusinessReportFormat
-cbrsFormat = Lens.lens (format :: CreateBusinessReportSchedule -> BusinessReportFormat) (\s a -> s {format = a} :: CreateBusinessReportSchedule)
-{-# DEPRECATED cbrsFormat "Use generic-lens or generic-optics with 'format' instead." #-}
-
--- | The content range of the reports.
---
--- /Note:/ Consider using 'contentRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbrsContentRange :: Lens.Lens' CreateBusinessReportSchedule BusinessReportContentRange
-cbrsContentRange = Lens.lens (contentRange :: CreateBusinessReportSchedule -> BusinessReportContentRange) (\s a -> s {contentRange = a} :: CreateBusinessReportSchedule)
-{-# DEPRECATED cbrsContentRange "Use generic-lens or generic-optics with 'contentRange' instead." #-}
 
 instance Lude.AWSRequest CreateBusinessReportSchedule where
   type
@@ -185,13 +181,13 @@ instance Lude.ToJSON CreateBusinessReportSchedule where
     Lude.object
       ( Lude.catMaybes
           [ ("S3KeyPrefix" Lude..=) Lude.<$> s3KeyPrefix,
+            Lude.Just ("Format" Lude..= format),
             ("Recurrence" Lude..=) Lude.<$> recurrence,
             ("ScheduleName" Lude..=) Lude.<$> scheduleName,
             ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("ContentRange" Lude..= contentRange),
             ("S3BucketName" Lude..=) Lude.<$> s3BucketName,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Format" Lude..= format),
-            Lude.Just ("ContentRange" Lude..= contentRange)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -203,25 +199,18 @@ instance Lude.ToQuery CreateBusinessReportSchedule where
 
 -- | /See:/ 'mkCreateBusinessReportScheduleResponse' smart constructor.
 data CreateBusinessReportScheduleResponse = CreateBusinessReportScheduleResponse'
-  { scheduleARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the business report schedule.
+    scheduleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBusinessReportScheduleResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'scheduleARN' - The ARN of the business report schedule.
+-- * 'responseStatus' - The response status code.
 mkCreateBusinessReportScheduleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

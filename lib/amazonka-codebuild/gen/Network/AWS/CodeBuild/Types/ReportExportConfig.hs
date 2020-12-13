@@ -31,17 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReportExportConfig' smart constructor.
 data ReportExportConfig = ReportExportConfig'
-  { exportConfigType ::
-      Lude.Maybe ReportExportConfigType,
+  { -- | The export configuration type. Valid values are:
+    --
+    --
+    --     * @S3@ : The report results are exported to an S3 bucket.
+    --
+    --
+    --     * @NO_EXPORT@ : The report results are not exported.
+    exportConfigType :: Lude.Maybe ReportExportConfigType,
+    -- | A @S3ReportExportConfig@ object that contains information about the S3 bucket where the run of a report is exported.
     s3Destination :: Lude.Maybe S3ReportExportConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReportExportConfig' with the minimum fields required to make a request.

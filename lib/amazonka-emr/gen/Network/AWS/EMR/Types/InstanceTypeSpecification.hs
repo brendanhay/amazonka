@@ -36,37 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceTypeSpecification' smart constructor.
 data InstanceTypeSpecification = InstanceTypeSpecification'
-  { bidPrice ::
-      Lude.Maybe Lude.Text,
-    weightedCapacity ::
-      Lude.Maybe Lude.Natural,
-    configurations ::
-      Lude.Maybe [Configuration],
-    ebsBlockDevices ::
-      Lude.Maybe [EBSBlockDevice],
+  { -- | The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD.
+    bidPrice :: Lude.Maybe Lude.Text,
+    -- | The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . Capacity values represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the default value is 1.
+    weightedCapacity :: Lude.Maybe Lude.Natural,
+    -- | A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+    configurations :: Lude.Maybe [Configuration],
+    -- | The configuration of Amazon Elastic Block Storage (Amazon EBS) attached to each instance as defined by @InstanceType@ .
+    ebsBlockDevices :: Lude.Maybe [EBSBlockDevice],
+    -- | The EC2 instance type, for example @m3.xlarge@ .
     instanceType :: Lude.Maybe Lude.Text,
+    -- | Evaluates to @TRUE@ when the specified @InstanceType@ is EBS-optimized.
     ebsOptimized :: Lude.Maybe Lude.Bool,
-    bidPriceAsPercentageOfOnDemandPrice ::
-      Lude.Maybe Lude.Double
+    -- | The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%).
+    bidPriceAsPercentageOfOnDemandPrice :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceTypeSpecification' with the minimum fields required to make a request.
 --
 -- * 'bidPrice' - The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD.
--- * 'bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%).
+-- * 'weightedCapacity' - The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . Capacity values represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the default value is 1.
 -- * 'configurations' - A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
 -- * 'ebsBlockDevices' - The configuration of Amazon Elastic Block Storage (Amazon EBS) attached to each instance as defined by @InstanceType@ .
--- * 'ebsOptimized' - Evaluates to @TRUE@ when the specified @InstanceType@ is EBS-optimized.
 -- * 'instanceType' - The EC2 instance type, for example @m3.xlarge@ .
--- * 'weightedCapacity' - The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . Capacity values represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the default value is 1.
+-- * 'ebsOptimized' - Evaluates to @TRUE@ when the specified @InstanceType@ is EBS-optimized.
+-- * 'bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%).
 mkInstanceTypeSpecification ::
   InstanceTypeSpecification
 mkInstanceTypeSpecification =

@@ -30,16 +30,12 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkCopyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
-  { eTag :: Lude.Maybe ETag,
+  { -- | Entity tag of the object.
+    eTag :: Lude.Maybe ETag,
+    -- | Date and time at which the object was uploaded.
     lastModified :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyPartResult' with the minimum fields required to make a request.

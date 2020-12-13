@@ -51,60 +51,74 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHIT' smart constructor.
 data HIT = HIT'
-  { creationTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The date and time the HIT was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the HIT Group of this HIT.
     hITGroupId :: Lude.Maybe Lude.Text,
+    -- | The number of assignments for this HIT that are being previewed or have been accepted by Workers, but have not yet been submitted, returned, or abandoned.
     numberOfAssignmentsPending :: Lude.Maybe Lude.Int,
+    -- | The ID of the HIT type of this HIT
     hITTypeId :: Lude.Maybe Lude.Text,
+    -- | The date and time the HIT expires.
     expiration :: Lude.Maybe Lude.Timestamp,
+    -- | The amount of time, in seconds, after the Worker submits an assignment for the HIT that the results are automatically approved by Amazon Mechanical Turk. This is the amount of time the Requester has to reject an assignment submitted by a Worker before the assignment is auto-approved and the Worker is paid.
     autoApprovalDelayInSeconds :: Lude.Maybe Lude.Integer,
+    -- | An arbitrary data field the Requester who created the HIT can use. This field is visible only to the creator of the HIT.
     requesterAnnotation :: Lude.Maybe Lude.Text,
+    -- | The status of the HIT and its assignments. Valid Values are Assignable | Unassignable | Reviewable | Reviewing | Disposed.
     hITStatus :: Lude.Maybe HITStatus,
+    -- | The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
     maxAssignments :: Lude.Maybe Lude.Int,
+    -- | The number of assignments for this HIT that have been approved or rejected.
     numberOfAssignmentsCompleted :: Lude.Maybe Lude.Int,
     reward :: Lude.Maybe Lude.Text,
+    -- | One or more words or phrases that describe the HIT, separated by commas. Search terms similar to the keywords of a HIT are more likely to have the HIT in the search results.
     keywords :: Lude.Maybe Lude.Text,
+    -- | The ID of the HIT Layout of this HIT.
     hITLayoutId :: Lude.Maybe Lude.Text,
+    -- | Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
     qualificationRequirements :: Lude.Maybe [QualificationRequirement],
+    -- | The title of the HIT.
     title :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the HIT.
     hITId :: Lude.Maybe Lude.Text,
+    -- | Indicates the review status of the HIT. Valid Values are NotReviewed | MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
     hITReviewStatus :: Lude.Maybe HITReviewStatus,
+    -- | The number of assignments for this HIT that are available for Workers to accept.
     numberOfAssignmentsAvailable :: Lude.Maybe Lude.Int,
+    -- | A general description of the HIT.
     description :: Lude.Maybe Lude.Text,
+    -- | The data the Worker completing the HIT uses produce the results. This is either either a QuestionForm, HTMLQuestion or an ExternalQuestion data structure.
     question :: Lude.Maybe Lude.Text,
+    -- | The length of time, in seconds, that a Worker has to complete the HIT after accepting it.
     assignmentDurationInSeconds :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HIT' with the minimum fields required to make a request.
 --
--- * 'assignmentDurationInSeconds' - The length of time, in seconds, that a Worker has to complete the HIT after accepting it.
--- * 'autoApprovalDelayInSeconds' - The amount of time, in seconds, after the Worker submits an assignment for the HIT that the results are automatically approved by Amazon Mechanical Turk. This is the amount of time the Requester has to reject an assignment submitted by a Worker before the assignment is auto-approved and the Worker is paid.
 -- * 'creationTime' - The date and time the HIT was created.
--- * 'description' - A general description of the HIT.
--- * 'expiration' - The date and time the HIT expires.
 -- * 'hITGroupId' - The ID of the HIT Group of this HIT.
--- * 'hITId' - A unique identifier for the HIT.
--- * 'hITLayoutId' - The ID of the HIT Layout of this HIT.
--- * 'hITReviewStatus' - Indicates the review status of the HIT. Valid Values are NotReviewed | MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
--- * 'hITStatus' - The status of the HIT and its assignments. Valid Values are Assignable | Unassignable | Reviewable | Reviewing | Disposed.
--- * 'hITTypeId' - The ID of the HIT type of this HIT
--- * 'keywords' - One or more words or phrases that describe the HIT, separated by commas. Search terms similar to the keywords of a HIT are more likely to have the HIT in the search results.
--- * 'maxAssignments' - The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
--- * 'numberOfAssignmentsAvailable' - The number of assignments for this HIT that are available for Workers to accept.
--- * 'numberOfAssignmentsCompleted' - The number of assignments for this HIT that have been approved or rejected.
 -- * 'numberOfAssignmentsPending' - The number of assignments for this HIT that are being previewed or have been accepted by Workers, but have not yet been submitted, returned, or abandoned.
--- * 'qualificationRequirements' - Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
--- * 'question' - The data the Worker completing the HIT uses produce the results. This is either either a QuestionForm, HTMLQuestion or an ExternalQuestion data structure.
+-- * 'hITTypeId' - The ID of the HIT type of this HIT
+-- * 'expiration' - The date and time the HIT expires.
+-- * 'autoApprovalDelayInSeconds' - The amount of time, in seconds, after the Worker submits an assignment for the HIT that the results are automatically approved by Amazon Mechanical Turk. This is the amount of time the Requester has to reject an assignment submitted by a Worker before the assignment is auto-approved and the Worker is paid.
 -- * 'requesterAnnotation' - An arbitrary data field the Requester who created the HIT can use. This field is visible only to the creator of the HIT.
--- * 'reward' - Undocumented field.
+-- * 'hITStatus' - The status of the HIT and its assignments. Valid Values are Assignable | Unassignable | Reviewable | Reviewing | Disposed.
+-- * 'maxAssignments' - The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
+-- * 'numberOfAssignmentsCompleted' - The number of assignments for this HIT that have been approved or rejected.
+-- * 'reward' -
+-- * 'keywords' - One or more words or phrases that describe the HIT, separated by commas. Search terms similar to the keywords of a HIT are more likely to have the HIT in the search results.
+-- * 'hITLayoutId' - The ID of the HIT Layout of this HIT.
+-- * 'qualificationRequirements' - Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
 -- * 'title' - The title of the HIT.
+-- * 'hITId' - A unique identifier for the HIT.
+-- * 'hITReviewStatus' - Indicates the review status of the HIT. Valid Values are NotReviewed | MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
+-- * 'numberOfAssignmentsAvailable' - The number of assignments for this HIT that are available for Workers to accept.
+-- * 'description' - A general description of the HIT.
+-- * 'question' - The data the Worker completing the HIT uses produce the results. This is either either a QuestionForm, HTMLQuestion or an ExternalQuestion data structure.
+-- * 'assignmentDurationInSeconds' - The length of time, in seconds, that a Worker has to complete the HIT after accepting it.
 mkHIT ::
   HIT
 mkHIT =

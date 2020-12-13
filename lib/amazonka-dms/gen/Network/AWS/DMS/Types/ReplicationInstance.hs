@@ -53,90 +53,128 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationInstance' smart constructor.
 data ReplicationInstance = ReplicationInstance'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The engine version number of the replication instance.
+    --
+    -- If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
+    -- When modifying a major engine version of an instance, also set @AllowMajorVersionUpgrade@ to @true@ .
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
     publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | Boolean value indicating if minor version upgrades will be automatically applied to the instance.
     autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
-    replicationInstancePublicIPAddresses ::
-      Lude.Maybe [Lude.Text],
-    replicationSubnetGroup ::
-      Lude.Maybe ReplicationSubnetGroup,
+    -- | One or more public IP addresses for the replication instance.
+    replicationInstancePublicIPAddresses :: Lude.Maybe [Lude.Text],
+    -- | The subnet group for the replication instance.
+    replicationSubnetGroup :: Lude.Maybe ReplicationSubnetGroup,
+    -- | The time the replication instance was created.
     instanceCreateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The expiration date of the free replication instance that is part of the Free DMS program.
     freeUntil :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the replication instance. The possible return values include:
+    --
+    --
+    --     * @"available"@
+    --
+    --
+    --     * @"creating"@
+    --
+    --
+    --     * @"deleted"@
+    --
+    --
+    --     * @"deleting"@
+    --
+    --
+    --     * @"failed"@
+    --
+    --
+    --     * @"modifying"@
+    --
+    --
+    --     * @"upgrading"@
+    --
+    --
+    --     * @"rebooting"@
+    --
+    --
+    --     * @"resetting-master-credentials"@
+    --
+    --
+    --     * @"storage-full"@
+    --
+    --
+    --     * @"incompatible-credentials"@
+    --
+    --
+    --     * @"incompatible-network"@
+    --
+    --
+    --     * @"maintenance"@
     replicationInstanceStatus :: Lude.Maybe Lude.Text,
-    replicationInstancePrivateIPAddresses ::
-      Lude.Maybe [Lude.Text],
+    -- | One or more private IP addresses for the replication instance.
+    replicationInstancePrivateIPAddresses :: Lude.Maybe [Lude.Text],
+    -- | The maintenance window times for the replication instance. Any pending upgrades to the replication instance are performed during this time.
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
-    replicationInstancePrivateIPAddress ::
-      Lude.Maybe Lude.Text,
+    -- | The private IP address of the replication instance.
+    replicationInstancePrivateIPAddress :: Lude.Maybe Lude.Text,
+    -- | An AWS KMS key identifier that is used to encrypt the data on the replication instance.
+    --
+    -- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
+    -- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone for the instance.
     availabilityZone :: Lude.Maybe Lude.Text,
-    vpcSecurityGroups ::
-      Lude.Maybe [VPCSecurityGroupMembership],
+    -- | The VPC security group for the instance.
+    vpcSecurityGroups :: Lude.Maybe [VPCSecurityGroupMembership],
+    -- | Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
     multiAZ :: Lude.Maybe Lude.Bool,
+    -- | The Availability Zone of the standby replication instance in a Multi-AZ deployment.
     secondaryAvailabilityZone :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the replication instance.
     replicationInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The amount of storage (in gigabytes) that is allocated for the replication instance.
     allocatedStorage :: Lude.Maybe Lude.Int,
+    -- | The DNS name servers supported for the replication instance to access your on-premise source or target database.
     dnsNameServers :: Lude.Maybe Lude.Text,
-    replicationInstancePublicIPAddress ::
-      Lude.Maybe Lude.Text,
+    -- | The public IP address of the replication instance.
+    replicationInstancePublicIPAddress :: Lude.Maybe Lude.Text,
+    -- | The compute and memory capacity of the replication instance as defined for the specified replication instance class. It is a required parameter, although a defualt value is pre-selected in the DMS console.
+    --
+    -- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
     replicationInstanceClass :: Lude.Maybe Lude.Text,
-    replicationInstanceIdentifier ::
-      Lude.Maybe Lude.Text,
-    pendingModifiedValues ::
-      Lude.Maybe ReplicationPendingModifiedValues
+    -- | The replication instance identifier is a required parameter. This parameter is stored as a lowercase string.
+    --
+    -- Constraints:
+    --
+    --     * Must contain 1-63 alphanumeric characters or hyphens.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Cannot end with a hyphen or contain two consecutive hyphens.
+    --
+    --
+    -- Example: @myrepinstance@
+    replicationInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The pending modification values.
+    pendingModifiedValues :: Lude.Maybe ReplicationPendingModifiedValues
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationInstance' with the minimum fields required to make a request.
 --
--- * 'allocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
--- * 'autoMinorVersionUpgrade' - Boolean value indicating if minor version upgrades will be automatically applied to the instance.
--- * 'availabilityZone' - The Availability Zone for the instance.
--- * 'dnsNameServers' - The DNS name servers supported for the replication instance to access your on-premise source or target database.
 -- * 'engineVersion' - The engine version number of the replication instance.
 --
 -- If an engine version number is not specified when a replication instance is created, the default is the latest engine version available.
 -- When modifying a major engine version of an instance, also set @AllowMajorVersionUpgrade@ to @true@ .
--- * 'freeUntil' - The expiration date of the free replication instance that is part of the Free DMS program.
--- * 'instanceCreateTime' - The time the replication instance was created.
--- * 'kmsKeyId' - An AWS KMS key identifier that is used to encrypt the data on the replication instance.
---
--- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
--- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
--- * 'multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
--- * 'pendingModifiedValues' - The pending modification values.
--- * 'preferredMaintenanceWindow' - The maintenance window times for the replication instance. Any pending upgrades to the replication instance are performed during this time.
 -- * 'publiclyAccessible' - Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
--- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
--- * 'replicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class. It is a required parameter, although a defualt value is pre-selected in the DMS console.
---
--- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
--- * 'replicationInstanceIdentifier' - The replication instance identifier is a required parameter. This parameter is stored as a lowercase string.
---
--- Constraints:
---
---     * Must contain 1-63 alphanumeric characters or hyphens.
---
---
---     * First character must be a letter.
---
---
---     * Cannot end with a hyphen or contain two consecutive hyphens.
---
---
--- Example: @myrepinstance@
--- * 'replicationInstancePrivateIPAddress' - The private IP address of the replication instance.
--- * 'replicationInstancePrivateIPAddresses' - One or more private IP addresses for the replication instance.
--- * 'replicationInstancePublicIPAddress' - The public IP address of the replication instance.
+-- * 'autoMinorVersionUpgrade' - Boolean value indicating if minor version upgrades will be automatically applied to the instance.
 -- * 'replicationInstancePublicIPAddresses' - One or more public IP addresses for the replication instance.
+-- * 'replicationSubnetGroup' - The subnet group for the replication instance.
+-- * 'instanceCreateTime' - The time the replication instance was created.
+-- * 'freeUntil' - The expiration date of the free replication instance that is part of the Free DMS program.
 -- * 'replicationInstanceStatus' - The status of the replication instance. The possible return values include:
 --
 --
@@ -179,9 +217,39 @@ data ReplicationInstance = ReplicationInstance'
 --     * @"maintenance"@
 --
 --
--- * 'replicationSubnetGroup' - The subnet group for the replication instance.
--- * 'secondaryAvailabilityZone' - The Availability Zone of the standby replication instance in a Multi-AZ deployment.
+-- * 'replicationInstancePrivateIPAddresses' - One or more private IP addresses for the replication instance.
+-- * 'preferredMaintenanceWindow' - The maintenance window times for the replication instance. Any pending upgrades to the replication instance are performed during this time.
+-- * 'replicationInstancePrivateIPAddress' - The private IP address of the replication instance.
+-- * 'kmsKeyId' - An AWS KMS key identifier that is used to encrypt the data on the replication instance.
+--
+-- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
+-- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+-- * 'availabilityZone' - The Availability Zone for the instance.
 -- * 'vpcSecurityGroups' - The VPC security group for the instance.
+-- * 'multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
+-- * 'secondaryAvailabilityZone' - The Availability Zone of the standby replication instance in a Multi-AZ deployment.
+-- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- * 'allocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
+-- * 'dnsNameServers' - The DNS name servers supported for the replication instance to access your on-premise source or target database.
+-- * 'replicationInstancePublicIPAddress' - The public IP address of the replication instance.
+-- * 'replicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class. It is a required parameter, although a defualt value is pre-selected in the DMS console.
+--
+-- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+-- * 'replicationInstanceIdentifier' - The replication instance identifier is a required parameter. This parameter is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must contain 1-63 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- Example: @myrepinstance@
+-- * 'pendingModifiedValues' - The pending modification values.
 mkReplicationInstance ::
   ReplicationInstance
 mkReplicationInstance =

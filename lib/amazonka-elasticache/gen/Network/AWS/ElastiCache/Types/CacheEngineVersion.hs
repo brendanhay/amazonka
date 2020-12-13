@@ -32,31 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheEngineVersion' smart constructor.
 data CacheEngineVersion = CacheEngineVersion'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version number of the cache engine.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the cache parameter group family associated with this cache engine.
+    --
+    -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
     cacheParameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | The description of the cache engine.
     cacheEngineDescription :: Lude.Maybe Lude.Text,
+    -- | The name of the cache engine.
     engine :: Lude.Maybe Lude.Text,
+    -- | The description of the cache engine version.
     cacheEngineVersionDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheEngineVersion' with the minimum fields required to make a request.
 --
--- * 'cacheEngineDescription' - The description of the cache engine.
--- * 'cacheEngineVersionDescription' - The description of the cache engine version.
+-- * 'engineVersion' - The version number of the cache engine.
 -- * 'cacheParameterGroupFamily' - The name of the cache parameter group family associated with this cache engine.
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
+-- * 'cacheEngineDescription' - The description of the cache engine.
 -- * 'engine' - The name of the cache engine.
--- * 'engineVersion' - The version number of the cache engine.
+-- * 'cacheEngineVersionDescription' - The description of the cache engine version.
 mkCacheEngineVersion ::
   CacheEngineVersion
 mkCacheEngineVersion =

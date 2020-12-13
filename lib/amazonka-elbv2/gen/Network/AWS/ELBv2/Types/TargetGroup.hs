@@ -47,53 +47,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetGroup' smart constructor.
 data TargetGroup = TargetGroup'
-  { protocolVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | [HTTP/HTTPS protocol] The protocol version. The possible values are @GRPC@ , @HTTP1@ , and @HTTP2@ .
+    protocolVersion :: Lude.Maybe Lude.Text,
+    -- | The HTTP or gRPC codes to use when checking for a successful response from a target.
     matcher :: Lude.Maybe Matcher,
+    -- | The destination for health checks on the targets.
     healthCheckPath :: Lude.Maybe Lude.Text,
+    -- | Indicates whether health checks are enabled.
     healthCheckEnabled :: Lude.Maybe Lude.Bool,
+    -- | The number of consecutive health check failures required before considering the target unhealthy.
     unhealthyThresholdCount :: Lude.Maybe Lude.Natural,
+    -- | The ID of the VPC for the targets.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the target group.
     targetGroupARN :: Lude.Maybe Lude.Text,
+    -- | The protocol to use for routing traffic to the targets.
     protocol :: Lude.Maybe ProtocolEnum,
+    -- | The approximate amount of time, in seconds, between health checks of an individual target.
     healthCheckIntervalSeconds :: Lude.Maybe Lude.Natural,
+    -- | The type of target that you must specify when registering targets with this target group. The possible values are @instance@ (register targets by instance ID), @ip@ (register targets by IP address), or @lambda@ (register a single Lambda function as a target).
     targetType :: Lude.Maybe TargetTypeEnum,
+    -- | The number of consecutive health checks successes required before considering an unhealthy target healthy.
     healthyThresholdCount :: Lude.Maybe Lude.Natural,
+    -- | The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
     healthCheckProtocol :: Lude.Maybe ProtocolEnum,
+    -- | The Amazon Resource Names (ARN) of the load balancers that route traffic to this target group.
     loadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | The amount of time, in seconds, during which no response means a failed health check.
     healthCheckTimeoutSeconds :: Lude.Maybe Lude.Natural,
+    -- | The port to use to connect with the target.
     healthCheckPort :: Lude.Maybe Lude.Text,
+    -- | The name of the target group.
     targetGroupName :: Lude.Maybe Lude.Text,
+    -- | The port on which the targets are listening. Not used if the target is a Lambda function.
     port :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGroup' with the minimum fields required to make a request.
 --
--- * 'healthCheckEnabled' - Indicates whether health checks are enabled.
--- * 'healthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an individual target.
--- * 'healthCheckPath' - The destination for health checks on the targets.
--- * 'healthCheckPort' - The port to use to connect with the target.
--- * 'healthCheckProtocol' - The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
--- * 'healthCheckTimeoutSeconds' - The amount of time, in seconds, during which no response means a failed health check.
--- * 'healthyThresholdCount' - The number of consecutive health checks successes required before considering an unhealthy target healthy.
--- * 'loadBalancerARNs' - The Amazon Resource Names (ARN) of the load balancers that route traffic to this target group.
--- * 'matcher' - The HTTP or gRPC codes to use when checking for a successful response from a target.
--- * 'port' - The port on which the targets are listening. Not used if the target is a Lambda function.
--- * 'protocol' - The protocol to use for routing traffic to the targets.
 -- * 'protocolVersion' - [HTTP/HTTPS protocol] The protocol version. The possible values are @GRPC@ , @HTTP1@ , and @HTTP2@ .
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
--- * 'targetGroupName' - The name of the target group.
--- * 'targetType' - The type of target that you must specify when registering targets with this target group. The possible values are @instance@ (register targets by instance ID), @ip@ (register targets by IP address), or @lambda@ (register a single Lambda function as a target).
+-- * 'matcher' - The HTTP or gRPC codes to use when checking for a successful response from a target.
+-- * 'healthCheckPath' - The destination for health checks on the targets.
+-- * 'healthCheckEnabled' - Indicates whether health checks are enabled.
 -- * 'unhealthyThresholdCount' - The number of consecutive health check failures required before considering the target unhealthy.
 -- * 'vpcId' - The ID of the VPC for the targets.
+-- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
+-- * 'protocol' - The protocol to use for routing traffic to the targets.
+-- * 'healthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an individual target.
+-- * 'targetType' - The type of target that you must specify when registering targets with this target group. The possible values are @instance@ (register targets by instance ID), @ip@ (register targets by IP address), or @lambda@ (register a single Lambda function as a target).
+-- * 'healthyThresholdCount' - The number of consecutive health checks successes required before considering an unhealthy target healthy.
+-- * 'healthCheckProtocol' - The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
+-- * 'loadBalancerARNs' - The Amazon Resource Names (ARN) of the load balancers that route traffic to this target group.
+-- * 'healthCheckTimeoutSeconds' - The amount of time, in seconds, during which no response means a failed health check.
+-- * 'healthCheckPort' - The port to use to connect with the target.
+-- * 'targetGroupName' - The name of the target group.
+-- * 'port' - The port on which the targets are listening. Not used if the target is a Lambda function.
 mkTargetGroup ::
   TargetGroup
 mkTargetGroup =

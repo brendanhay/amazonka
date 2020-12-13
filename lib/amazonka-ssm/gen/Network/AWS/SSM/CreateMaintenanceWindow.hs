@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,17 +21,17 @@ module Network.AWS.SSM.CreateMaintenanceWindow
 
     -- ** Request lenses
     cmwClientToken,
+    cmwSchedule,
     cmwScheduleOffset,
     cmwEndDate,
     cmwScheduleTimezone,
     cmwStartDate,
-    cmwDescription,
-    cmwTags,
     cmwName,
-    cmwSchedule,
-    cmwDuration,
     cmwCutoff,
     cmwAllowUnassociatedTargets,
+    cmwDescription,
+    cmwDuration,
+    cmwTags,
 
     -- * Destructuring the response
     CreateMaintenanceWindowResponse (..),
@@ -50,43 +51,68 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkCreateMaintenanceWindow' smart constructor.
 data CreateMaintenanceWindow = CreateMaintenanceWindow'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    scheduleOffset :: Lude.Maybe Lude.Natural,
-    endDate :: Lude.Maybe Lude.Text,
-    scheduleTimezone :: Lude.Maybe Lude.Text,
-    startDate :: Lude.Maybe Lude.Text,
-    description ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    tags :: Lude.Maybe [Tag],
-    name :: Lude.Text,
+  { -- | User-provided idempotency token.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The schedule of the maintenance window in the form of a cron or rate expression.
     schedule :: Lude.Text,
-    duration :: Lude.Natural,
+    -- | The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+    --
+    -- For example, the following cron expression schedules a maintenance window to run on the third Tuesday of every month at 11:30 PM.
+    -- @cron(0 30 23 ? * TUE#3 *)@
+    -- If the schedule offset is @2@ , the maintenance window won't run until two days later.
+    scheduleOffset :: Lude.Maybe Lude.Natural,
+    -- | The date and time, in ISO-8601 Extended format, for when you want the maintenance window to become inactive. EndDate allows you to set a date and time in the future when the maintenance window will no longer run.
+    endDate :: Lude.Maybe Lude.Text,
+    -- | The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+    scheduleTimezone :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO-8601 Extended format, for when you want the maintenance window to become active. StartDate allows you to delay activation of the maintenance window until the specified future date.
+    startDate :: Lude.Maybe Lude.Text,
+    -- | The name of the maintenance window.
+    name :: Lude.Text,
+    -- | The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
     cutoff :: Lude.Natural,
-    allowUnassociatedTargets :: Lude.Bool
+    -- | Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
+    --
+    -- If you don't enable this option, then you must specify previously-registered targets when you register a task with the maintenance window.
+    allowUnassociatedTargets :: Lude.Bool,
+    -- | An optional description for the maintenance window. We recommend specifying a description to help you organize your maintenance windows.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The duration of the maintenance window in hours.
+    duration :: Lude.Natural,
+    -- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key name/value pairs:
+    --
+    --
+    --     * @Key=TaskType,Value=AgentUpdate@
+    --
+    --
+    --     * @Key=OS,Value=Windows@
+    --
+    --
+    --     * @Key=Environment,Value=Production@
+    tags :: Lude.Maybe [Tag]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMaintenanceWindow' with the minimum fields required to make a request.
 --
--- * 'allowUnassociatedTargets' - Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
---
--- If you don't enable this option, then you must specify previously-registered targets when you register a task with the maintenance window.
 -- * 'clientToken' - User-provided idempotency token.
--- * 'cutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
--- * 'description' - An optional description for the maintenance window. We recommend specifying a description to help you organize your maintenance windows.
--- * 'duration' - The duration of the maintenance window in hours.
--- * 'endDate' - The date and time, in ISO-8601 Extended format, for when you want the maintenance window to become inactive. EndDate allows you to set a date and time in the future when the maintenance window will no longer run.
--- * 'name' - The name of the maintenance window.
 -- * 'schedule' - The schedule of the maintenance window in the form of a cron or rate expression.
 -- * 'scheduleOffset' - The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
 --
 -- For example, the following cron expression schedules a maintenance window to run on the third Tuesday of every month at 11:30 PM.
 -- @cron(0 30 23 ? * TUE#3 *)@
 -- If the schedule offset is @2@ , the maintenance window won't run until two days later.
+-- * 'endDate' - The date and time, in ISO-8601 Extended format, for when you want the maintenance window to become inactive. EndDate allows you to set a date and time in the future when the maintenance window will no longer run.
 -- * 'scheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
 -- * 'startDate' - The date and time, in ISO-8601 Extended format, for when you want the maintenance window to become active. StartDate allows you to delay activation of the maintenance window until the specified future date.
+-- * 'name' - The name of the maintenance window.
+-- * 'cutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
+-- * 'allowUnassociatedTargets' - Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
+--
+-- If you don't enable this option, then you must specify previously-registered targets when you register a task with the maintenance window.
+-- * 'description' - An optional description for the maintenance window. We recommend specifying a description to help you organize your maintenance windows.
+-- * 'duration' - The duration of the maintenance window in hours.
 -- * 'tags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key name/value pairs:
 --
 --
@@ -98,36 +124,36 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 --
 --     * @Key=Environment,Value=Production@
 mkCreateMaintenanceWindow ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'schedule'
   Lude.Text ->
-  -- | 'duration'
-  Lude.Natural ->
+  -- | 'name'
+  Lude.Text ->
   -- | 'cutoff'
   Lude.Natural ->
   -- | 'allowUnassociatedTargets'
   Lude.Bool ->
+  -- | 'duration'
+  Lude.Natural ->
   CreateMaintenanceWindow
 mkCreateMaintenanceWindow
-  pName_
   pSchedule_
-  pDuration_
+  pName_
   pCutoff_
-  pAllowUnassociatedTargets_ =
+  pAllowUnassociatedTargets_
+  pDuration_ =
     CreateMaintenanceWindow'
       { clientToken = Lude.Nothing,
+        schedule = pSchedule_,
         scheduleOffset = Lude.Nothing,
         endDate = Lude.Nothing,
         scheduleTimezone = Lude.Nothing,
         startDate = Lude.Nothing,
-        description = Lude.Nothing,
-        tags = Lude.Nothing,
         name = pName_,
-        schedule = pSchedule_,
-        duration = pDuration_,
         cutoff = pCutoff_,
-        allowUnassociatedTargets = pAllowUnassociatedTargets_
+        allowUnassociatedTargets = pAllowUnassociatedTargets_,
+        description = Lude.Nothing,
+        duration = pDuration_,
+        tags = Lude.Nothing
       }
 
 -- | User-provided idempotency token.
@@ -136,6 +162,13 @@ mkCreateMaintenanceWindow
 cmwClientToken :: Lens.Lens' CreateMaintenanceWindow (Lude.Maybe Lude.Text)
 cmwClientToken = Lens.lens (clientToken :: CreateMaintenanceWindow -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateMaintenanceWindow)
 {-# DEPRECATED cmwClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The schedule of the maintenance window in the form of a cron or rate expression.
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmwSchedule :: Lens.Lens' CreateMaintenanceWindow Lude.Text
+cmwSchedule = Lens.lens (schedule :: CreateMaintenanceWindow -> Lude.Text) (\s a -> s {schedule = a} :: CreateMaintenanceWindow)
+{-# DEPRECATED cmwSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
 --
@@ -169,12 +202,42 @@ cmwStartDate :: Lens.Lens' CreateMaintenanceWindow (Lude.Maybe Lude.Text)
 cmwStartDate = Lens.lens (startDate :: CreateMaintenanceWindow -> Lude.Maybe Lude.Text) (\s a -> s {startDate = a} :: CreateMaintenanceWindow)
 {-# DEPRECATED cmwStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
+-- | The name of the maintenance window.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmwName :: Lens.Lens' CreateMaintenanceWindow Lude.Text
+cmwName = Lens.lens (name :: CreateMaintenanceWindow -> Lude.Text) (\s a -> s {name = a} :: CreateMaintenanceWindow)
+{-# DEPRECATED cmwName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
+--
+-- /Note:/ Consider using 'cutoff' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmwCutoff :: Lens.Lens' CreateMaintenanceWindow Lude.Natural
+cmwCutoff = Lens.lens (cutoff :: CreateMaintenanceWindow -> Lude.Natural) (\s a -> s {cutoff = a} :: CreateMaintenanceWindow)
+{-# DEPRECATED cmwCutoff "Use generic-lens or generic-optics with 'cutoff' instead." #-}
+
+-- | Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
+--
+-- If you don't enable this option, then you must specify previously-registered targets when you register a task with the maintenance window.
+--
+-- /Note:/ Consider using 'allowUnassociatedTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmwAllowUnassociatedTargets :: Lens.Lens' CreateMaintenanceWindow Lude.Bool
+cmwAllowUnassociatedTargets = Lens.lens (allowUnassociatedTargets :: CreateMaintenanceWindow -> Lude.Bool) (\s a -> s {allowUnassociatedTargets = a} :: CreateMaintenanceWindow)
+{-# DEPRECATED cmwAllowUnassociatedTargets "Use generic-lens or generic-optics with 'allowUnassociatedTargets' instead." #-}
+
 -- | An optional description for the maintenance window. We recommend specifying a description to help you organize your maintenance windows.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cmwDescription :: Lens.Lens' CreateMaintenanceWindow (Lude.Maybe (Lude.Sensitive Lude.Text))
 cmwDescription = Lens.lens (description :: CreateMaintenanceWindow -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: CreateMaintenanceWindow)
 {-# DEPRECATED cmwDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The duration of the maintenance window in hours.
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmwDuration :: Lens.Lens' CreateMaintenanceWindow Lude.Natural
+cmwDuration = Lens.lens (duration :: CreateMaintenanceWindow -> Lude.Natural) (\s a -> s {duration = a} :: CreateMaintenanceWindow)
+{-# DEPRECATED cmwDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key name/value pairs:
 --
@@ -193,43 +256,6 @@ cmwDescription = Lens.lens (description :: CreateMaintenanceWindow -> Lude.Maybe
 cmwTags :: Lens.Lens' CreateMaintenanceWindow (Lude.Maybe [Tag])
 cmwTags = Lens.lens (tags :: CreateMaintenanceWindow -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateMaintenanceWindow)
 {-# DEPRECATED cmwTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the maintenance window.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmwName :: Lens.Lens' CreateMaintenanceWindow Lude.Text
-cmwName = Lens.lens (name :: CreateMaintenanceWindow -> Lude.Text) (\s a -> s {name = a} :: CreateMaintenanceWindow)
-{-# DEPRECATED cmwName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The schedule of the maintenance window in the form of a cron or rate expression.
---
--- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmwSchedule :: Lens.Lens' CreateMaintenanceWindow Lude.Text
-cmwSchedule = Lens.lens (schedule :: CreateMaintenanceWindow -> Lude.Text) (\s a -> s {schedule = a} :: CreateMaintenanceWindow)
-{-# DEPRECATED cmwSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
-
--- | The duration of the maintenance window in hours.
---
--- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmwDuration :: Lens.Lens' CreateMaintenanceWindow Lude.Natural
-cmwDuration = Lens.lens (duration :: CreateMaintenanceWindow -> Lude.Natural) (\s a -> s {duration = a} :: CreateMaintenanceWindow)
-{-# DEPRECATED cmwDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
-
--- | The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
---
--- /Note:/ Consider using 'cutoff' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmwCutoff :: Lens.Lens' CreateMaintenanceWindow Lude.Natural
-cmwCutoff = Lens.lens (cutoff :: CreateMaintenanceWindow -> Lude.Natural) (\s a -> s {cutoff = a} :: CreateMaintenanceWindow)
-{-# DEPRECATED cmwCutoff "Use generic-lens or generic-optics with 'cutoff' instead." #-}
-
--- | Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
---
--- If you don't enable this option, then you must specify previously-registered targets when you register a task with the maintenance window.
---
--- /Note:/ Consider using 'allowUnassociatedTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmwAllowUnassociatedTargets :: Lens.Lens' CreateMaintenanceWindow Lude.Bool
-cmwAllowUnassociatedTargets = Lens.lens (allowUnassociatedTargets :: CreateMaintenanceWindow -> Lude.Bool) (\s a -> s {allowUnassociatedTargets = a} :: CreateMaintenanceWindow)
-{-# DEPRECATED cmwAllowUnassociatedTargets "Use generic-lens or generic-optics with 'allowUnassociatedTargets' instead." #-}
 
 instance Lude.AWSRequest CreateMaintenanceWindow where
   type Rs CreateMaintenanceWindow = CreateMaintenanceWindowResponse
@@ -257,18 +283,18 @@ instance Lude.ToJSON CreateMaintenanceWindow where
     Lude.object
       ( Lude.catMaybes
           [ ("ClientToken" Lude..=) Lude.<$> clientToken,
+            Lude.Just ("Schedule" Lude..= schedule),
             ("ScheduleOffset" Lude..=) Lude.<$> scheduleOffset,
             ("EndDate" Lude..=) Lude.<$> endDate,
             ("ScheduleTimezone" Lude..=) Lude.<$> scheduleTimezone,
             ("StartDate" Lude..=) Lude.<$> startDate,
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Schedule" Lude..= schedule),
-            Lude.Just ("Duration" Lude..= duration),
             Lude.Just ("Cutoff" Lude..= cutoff),
             Lude.Just
-              ("AllowUnassociatedTargets" Lude..= allowUnassociatedTargets)
+              ("AllowUnassociatedTargets" Lude..= allowUnassociatedTargets),
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("Duration" Lude..= duration),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -280,23 +306,18 @@ instance Lude.ToQuery CreateMaintenanceWindow where
 
 -- | /See:/ 'mkCreateMaintenanceWindowResponse' smart constructor.
 data CreateMaintenanceWindowResponse = CreateMaintenanceWindowResponse'
-  { windowId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the created maintenance window.
+    windowId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'windowId' - The ID of the created maintenance window.
+-- * 'responseStatus' - The response status code.
 mkCreateMaintenanceWindowResponse ::
   -- | 'responseStatus'
   Lude.Int ->

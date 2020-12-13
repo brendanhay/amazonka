@@ -13,8 +13,8 @@
 module Network.AWS.Comprehend.Types.EntityRecognizerDataFormat
   ( EntityRecognizerDataFormat
       ( EntityRecognizerDataFormat',
-        AugmentedManifest,
-        ComprehendCSV
+        ComprehendCSV,
+        AugmentedManifest
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EntityRecognizerDataFormat = EntityRecognizerDataFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern AugmentedManifest :: EntityRecognizerDataFormat
-pattern AugmentedManifest = EntityRecognizerDataFormat' "AUGMENTED_MANIFEST"
-
 pattern ComprehendCSV :: EntityRecognizerDataFormat
 pattern ComprehendCSV = EntityRecognizerDataFormat' "COMPREHEND_CSV"
 
+pattern AugmentedManifest :: EntityRecognizerDataFormat
+pattern AugmentedManifest = EntityRecognizerDataFormat' "AUGMENTED_MANIFEST"
+
 {-# COMPLETE
-  AugmentedManifest,
   ComprehendCSV,
+  AugmentedManifest,
   EntityRecognizerDataFormat'
   #-}

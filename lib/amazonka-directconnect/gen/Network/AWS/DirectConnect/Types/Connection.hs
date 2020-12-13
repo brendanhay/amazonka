@@ -47,40 +47,88 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnection' smart constructor.
 data Connection = Connection'
-  { lagId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the LAG.
+    lagId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VLAN.
     vlan :: Lude.Maybe Lude.Int,
+    -- | The location of the connection.
     location :: Lude.Maybe Lude.Text,
+    -- | The Direct Connect endpoint on which the physical connection terminates.
     awsDevice :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
     hasLogicalRedundancy :: Lude.Maybe HasLogicalRedundancy,
+    -- | The ID of the connection.
     connectionId :: Lude.Maybe Lude.Text,
+    -- | The time of the most recent call to 'DescribeLoa' for this connection.
     loaIssueTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the AWS Direct Connect service provider associated with the connection.
     partnerName :: Lude.Maybe Lude.Text,
+    -- | The name of the connection.
     connectionName :: Lude.Maybe Lude.Text,
+    -- | The bandwidth of the connection.
     bandwidth :: Lude.Maybe Lude.Text,
+    -- | Indicates whether jumbo frames (9001 MTU) are supported.
     jumboFrameCapable :: Lude.Maybe Lude.Bool,
+    -- | The ID of the AWS account that owns the connection.
     ownerAccount :: Lude.Maybe Lude.Text,
+    -- | The AWS Region where the connection is located.
     region :: Lude.Maybe Lude.Text,
+    -- | The name of the service provider associated with the connection.
     providerName :: Lude.Maybe Lude.Text,
+    -- | The Direct Connect endpoint on which the physical connection terminates.
     awsDeviceV2 :: Lude.Maybe Lude.Text,
+    -- | The state of the connection. The following are the possible values:
+    --
+    --
+    --     * @ordering@ : The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+    --
+    --
+    --     * @requested@ : The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+    --
+    --
+    --     * @pending@ : The connection has been approved and is being initialized.
+    --
+    --
+    --     * @available@ : The network link is up and the connection is ready for use.
+    --
+    --
+    --     * @down@ : The network link is down.
+    --
+    --
+    --     * @deleting@ : The connection is being deleted.
+    --
+    --
+    --     * @deleted@ : The connection has been deleted.
+    --
+    --
+    --     * @rejected@ : A hosted connection in the @ordering@ state enters the @rejected@ state if it is deleted by the customer.
+    --
+    --
+    --     * @unknown@ : The state of the connection is not available.
     connectionState :: Lude.Maybe ConnectionState,
+    -- | The tags associated with the connection.
     tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Connection' with the minimum fields required to make a request.
 --
+-- * 'lagId' - The ID of the LAG.
+-- * 'vlan' - The ID of the VLAN.
+-- * 'location' - The location of the connection.
 -- * 'awsDevice' - The Direct Connect endpoint on which the physical connection terminates.
--- * 'awsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
--- * 'bandwidth' - The bandwidth of the connection.
+-- * 'hasLogicalRedundancy' - Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
 -- * 'connectionId' - The ID of the connection.
+-- * 'loaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
+-- * 'partnerName' - The name of the AWS Direct Connect service provider associated with the connection.
 -- * 'connectionName' - The name of the connection.
+-- * 'bandwidth' - The bandwidth of the connection.
+-- * 'jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+-- * 'ownerAccount' - The ID of the AWS account that owns the connection.
+-- * 'region' - The AWS Region where the connection is located.
+-- * 'providerName' - The name of the service provider associated with the connection.
+-- * 'awsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
 -- * 'connectionState' - The state of the connection. The following are the possible values:
 --
 --
@@ -111,17 +159,7 @@ data Connection = Connection'
 --     * @unknown@ : The state of the connection is not available.
 --
 --
--- * 'hasLogicalRedundancy' - Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
--- * 'jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
--- * 'lagId' - The ID of the LAG.
--- * 'loaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
--- * 'location' - The location of the connection.
--- * 'ownerAccount' - The ID of the AWS account that owns the connection.
--- * 'partnerName' - The name of the AWS Direct Connect service provider associated with the connection.
--- * 'providerName' - The name of the service provider associated with the connection.
--- * 'region' - The AWS Region where the connection is located.
 -- * 'tags' - The tags associated with the connection.
--- * 'vlan' - The ID of the VLAN.
 mkConnection ::
   Connection
 mkConnection =

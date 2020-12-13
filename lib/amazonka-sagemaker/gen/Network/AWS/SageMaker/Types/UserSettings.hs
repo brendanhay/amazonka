@@ -37,34 +37,36 @@ import Network.AWS.SageMaker.Types.TensorBoardAppSettings
 --
 -- /See:/ 'mkUserSettings' smart constructor.
 data UserSettings = UserSettings'
-  { tensorBoardAppSettings ::
-      Lude.Maybe TensorBoardAppSettings,
+  { -- | The TensorBoard app settings.
+    tensorBoardAppSettings :: Lude.Maybe TensorBoardAppSettings,
+    -- | The kernel gateway app settings.
     kernelGatewayAppSettings :: Lude.Maybe KernelGatewayAppSettings,
+    -- | The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+    --
+    -- Optional when the @CreateDomain.AppNetworkAccessType@ parameter is set to @PublicInternetOnly@ .
+    -- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set to @VpcOnly@ .
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The Jupyter server's app settings.
     jupyterServerAppSettings :: Lude.Maybe JupyterServerAppSettings,
+    -- | The sharing settings.
     sharingSettings :: Lude.Maybe SharingSettings,
+    -- | The execution role for the user.
     executionRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserSettings' with the minimum fields required to make a request.
 --
--- * 'executionRole' - The execution role for the user.
--- * 'jupyterServerAppSettings' - The Jupyter server's app settings.
+-- * 'tensorBoardAppSettings' - The TensorBoard app settings.
 -- * 'kernelGatewayAppSettings' - The kernel gateway app settings.
 -- * 'securityGroups' - The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 --
 -- Optional when the @CreateDomain.AppNetworkAccessType@ parameter is set to @PublicInternetOnly@ .
 -- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set to @VpcOnly@ .
+-- * 'jupyterServerAppSettings' - The Jupyter server's app settings.
 -- * 'sharingSettings' - The sharing settings.
--- * 'tensorBoardAppSettings' - The TensorBoard app settings.
+-- * 'executionRole' - The execution role for the user.
 mkUserSettings ::
   UserSettings
 mkUserSettings =

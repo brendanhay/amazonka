@@ -13,11 +13,11 @@
 module Network.AWS.SES.Types.VerificationStatus
   ( VerificationStatus
       ( VerificationStatus',
-        VSFailed,
-        VSNotStarted,
         VSPending,
         VSSuccess,
-        VSTemporaryFailure
+        VSFailed,
+        VSTemporaryFailure,
+        VSNotStarted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype VerificationStatus = VerificationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern VSFailed :: VerificationStatus
-pattern VSFailed = VerificationStatus' "Failed"
-
-pattern VSNotStarted :: VerificationStatus
-pattern VSNotStarted = VerificationStatus' "NotStarted"
-
 pattern VSPending :: VerificationStatus
 pattern VSPending = VerificationStatus' "Pending"
 
 pattern VSSuccess :: VerificationStatus
 pattern VSSuccess = VerificationStatus' "Success"
 
+pattern VSFailed :: VerificationStatus
+pattern VSFailed = VerificationStatus' "Failed"
+
 pattern VSTemporaryFailure :: VerificationStatus
 pattern VSTemporaryFailure = VerificationStatus' "TemporaryFailure"
 
+pattern VSNotStarted :: VerificationStatus
+pattern VSNotStarted = VerificationStatus' "NotStarted"
+
 {-# COMPLETE
-  VSFailed,
-  VSNotStarted,
   VSPending,
   VSSuccess,
+  VSFailed,
   VSTemporaryFailure,
+  VSNotStarted,
   VerificationStatus'
   #-}

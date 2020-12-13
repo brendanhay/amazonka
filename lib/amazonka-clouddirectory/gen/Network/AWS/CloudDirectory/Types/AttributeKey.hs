@@ -17,8 +17,8 @@ module Network.AWS.CloudDirectory.Types.AttributeKey
     mkAttributeKey,
 
     -- * Lenses
-    akSchemaARN,
     akFacetName,
+    akSchemaARN,
     akName,
   )
 where
@@ -30,45 +30,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttributeKey' smart constructor.
 data AttributeKey = AttributeKey'
-  { schemaARN :: Lude.Text,
+  { -- | The name of the facet that the attribute exists within.
     facetName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the schema that contains the facet and attribute.
+    schemaARN :: Lude.Text,
+    -- | The name of the attribute.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeKey' with the minimum fields required to make a request.
 --
 -- * 'facetName' - The name of the facet that the attribute exists within.
--- * 'name' - The name of the attribute.
 -- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema that contains the facet and attribute.
+-- * 'name' - The name of the attribute.
 mkAttributeKey ::
-  -- | 'schemaARN'
-  Lude.Text ->
   -- | 'facetName'
+  Lude.Text ->
+  -- | 'schemaARN'
   Lude.Text ->
   -- | 'name'
   Lude.Text ->
   AttributeKey
-mkAttributeKey pSchemaARN_ pFacetName_ pName_ =
+mkAttributeKey pFacetName_ pSchemaARN_ pName_ =
   AttributeKey'
-    { schemaARN = pSchemaARN_,
-      facetName = pFacetName_,
+    { facetName = pFacetName_,
+      schemaARN = pSchemaARN_,
       name = pName_
     }
-
--- | The Amazon Resource Name (ARN) of the schema that contains the facet and attribute.
---
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akSchemaARN :: Lens.Lens' AttributeKey Lude.Text
-akSchemaARN = Lens.lens (schemaARN :: AttributeKey -> Lude.Text) (\s a -> s {schemaARN = a} :: AttributeKey)
-{-# DEPRECATED akSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The name of the facet that the attribute exists within.
 --
@@ -76,6 +66,13 @@ akSchemaARN = Lens.lens (schemaARN :: AttributeKey -> Lude.Text) (\s a -> s {sch
 akFacetName :: Lens.Lens' AttributeKey Lude.Text
 akFacetName = Lens.lens (facetName :: AttributeKey -> Lude.Text) (\s a -> s {facetName = a} :: AttributeKey)
 {-# DEPRECATED akFacetName "Use generic-lens or generic-optics with 'facetName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the schema that contains the facet and attribute.
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akSchemaARN :: Lens.Lens' AttributeKey Lude.Text
+akSchemaARN = Lens.lens (schemaARN :: AttributeKey -> Lude.Text) (\s a -> s {schemaARN = a} :: AttributeKey)
+{-# DEPRECATED akSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The name of the attribute.
 --
@@ -90,8 +87,8 @@ instance Lude.FromJSON AttributeKey where
       "AttributeKey"
       ( \x ->
           AttributeKey'
-            Lude.<$> (x Lude..: "SchemaArn")
-            Lude.<*> (x Lude..: "FacetName")
+            Lude.<$> (x Lude..: "FacetName")
+            Lude.<*> (x Lude..: "SchemaArn")
             Lude.<*> (x Lude..: "Name")
       )
 
@@ -99,8 +96,8 @@ instance Lude.ToJSON AttributeKey where
   toJSON AttributeKey' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SchemaArn" Lude..= schemaARN),
-            Lude.Just ("FacetName" Lude..= facetName),
+          [ Lude.Just ("FacetName" Lude..= facetName),
+            Lude.Just ("SchemaArn" Lude..= schemaARN),
             Lude.Just ("Name" Lude..= name)
           ]
       )

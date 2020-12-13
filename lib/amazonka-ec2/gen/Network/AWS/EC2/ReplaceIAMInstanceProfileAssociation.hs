@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.ReplaceIAMInstanceProfileAssociation
     mkReplaceIAMInstanceProfileAssociation,
 
     -- ** Request lenses
-    riapaIAMInstanceProfile,
     riapaAssociationId,
+    riapaIAMInstanceProfile,
 
     -- * Destructuring the response
     ReplaceIAMInstanceProfileAssociationResponse (..),
@@ -42,18 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkReplaceIAMInstanceProfileAssociation' smart constructor.
 data ReplaceIAMInstanceProfileAssociation = ReplaceIAMInstanceProfileAssociation'
-  { iamInstanceProfile ::
-      IAMInstanceProfileSpecification,
-    associationId ::
-      Lude.Text
+  { -- | The ID of the existing IAM instance profile association.
+    associationId :: Lude.Text,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: IAMInstanceProfileSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceIAMInstanceProfileAssociation' with the minimum fields required to make a request.
@@ -61,26 +56,19 @@ data ReplaceIAMInstanceProfileAssociation = ReplaceIAMInstanceProfileAssociation
 -- * 'associationId' - The ID of the existing IAM instance profile association.
 -- * 'iamInstanceProfile' - The IAM instance profile.
 mkReplaceIAMInstanceProfileAssociation ::
-  -- | 'iamInstanceProfile'
-  IAMInstanceProfileSpecification ->
   -- | 'associationId'
   Lude.Text ->
+  -- | 'iamInstanceProfile'
+  IAMInstanceProfileSpecification ->
   ReplaceIAMInstanceProfileAssociation
 mkReplaceIAMInstanceProfileAssociation
-  pIAMInstanceProfile_
-  pAssociationId_ =
+  pAssociationId_
+  pIAMInstanceProfile_ =
     ReplaceIAMInstanceProfileAssociation'
-      { iamInstanceProfile =
-          pIAMInstanceProfile_,
-        associationId = pAssociationId_
+      { associationId =
+          pAssociationId_,
+        iamInstanceProfile = pIAMInstanceProfile_
       }
-
--- | The IAM instance profile.
---
--- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riapaIAMInstanceProfile :: Lens.Lens' ReplaceIAMInstanceProfileAssociation IAMInstanceProfileSpecification
-riapaIAMInstanceProfile = Lens.lens (iamInstanceProfile :: ReplaceIAMInstanceProfileAssociation -> IAMInstanceProfileSpecification) (\s a -> s {iamInstanceProfile = a} :: ReplaceIAMInstanceProfileAssociation)
-{-# DEPRECATED riapaIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
 -- | The ID of the existing IAM instance profile association.
 --
@@ -88,6 +76,13 @@ riapaIAMInstanceProfile = Lens.lens (iamInstanceProfile :: ReplaceIAMInstancePro
 riapaAssociationId :: Lens.Lens' ReplaceIAMInstanceProfileAssociation Lude.Text
 riapaAssociationId = Lens.lens (associationId :: ReplaceIAMInstanceProfileAssociation -> Lude.Text) (\s a -> s {associationId = a} :: ReplaceIAMInstanceProfileAssociation)
 {-# DEPRECATED riapaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+
+-- | The IAM instance profile.
+--
+-- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riapaIAMInstanceProfile :: Lens.Lens' ReplaceIAMInstanceProfileAssociation IAMInstanceProfileSpecification
+riapaIAMInstanceProfile = Lens.lens (iamInstanceProfile :: ReplaceIAMInstanceProfileAssociation -> IAMInstanceProfileSpecification) (\s a -> s {iamInstanceProfile = a} :: ReplaceIAMInstanceProfileAssociation)
+{-# DEPRECATED riapaIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
 instance Lude.AWSRequest ReplaceIAMInstanceProfileAssociation where
   type
@@ -114,25 +109,18 @@ instance Lude.ToQuery ReplaceIAMInstanceProfileAssociation where
       [ "Action"
           Lude.=: ("ReplaceIamInstanceProfileAssociation" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "IamInstanceProfile" Lude.=: iamInstanceProfile,
-        "AssociationId" Lude.=: associationId
+        "AssociationId" Lude.=: associationId,
+        "IamInstanceProfile" Lude.=: iamInstanceProfile
       ]
 
 -- | /See:/ 'mkReplaceIAMInstanceProfileAssociationResponse' smart constructor.
 data ReplaceIAMInstanceProfileAssociationResponse = ReplaceIAMInstanceProfileAssociationResponse'
-  { iamInstanceProfileAssociation ::
-      Lude.Maybe
-        IAMInstanceProfileAssociation,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the IAM instance profile association.
+    iamInstanceProfileAssociation :: Lude.Maybe IAMInstanceProfileAssociation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceIAMInstanceProfileAssociationResponse' with the minimum fields required to make a request.

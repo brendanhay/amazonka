@@ -32,26 +32,21 @@ import Network.AWS.ServiceCatalog.Types.ResourceAttribute
 --
 -- /See:/ 'mkResourceTargetDefinition' smart constructor.
 data ResourceTargetDefinition = ResourceTargetDefinition'
-  { attribute ::
-      Lude.Maybe ResourceAttribute,
-    requiresRecreation ::
-      Lude.Maybe RequiresRecreation,
+  { -- | The attribute to be changed.
+    attribute :: Lude.Maybe ResourceAttribute,
+    -- | If the attribute is @Properties@ , indicates whether a change to this property causes the resource to be re-created.
+    requiresRecreation :: Lude.Maybe RequiresRecreation,
+    -- | If the attribute is @Properties@ , the value is the name of the property. Otherwise, the value is null.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceTargetDefinition' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The attribute to be changed.
--- * 'name' - If the attribute is @Properties@ , the value is the name of the property. Otherwise, the value is null.
 -- * 'requiresRecreation' - If the attribute is @Properties@ , indicates whether a change to this property causes the resource to be re-created.
+-- * 'name' - If the attribute is @Properties@ , the value is the name of the property. Otherwise, the value is null.
 mkResourceTargetDefinition ::
   ResourceTargetDefinition
 mkResourceTargetDefinition =

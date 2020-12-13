@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.Payer
   ( Payer
       ( Payer',
-        BucketOwner,
-        Requester
+        PRequester,
+        PBucketOwner
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Payer = Payer' Lude.Text
       Lude.ToHeader
     )
 
-pattern BucketOwner :: Payer
-pattern BucketOwner = Payer' "BucketOwner"
+pattern PRequester :: Payer
+pattern PRequester = Payer' "Requester"
 
-pattern Requester :: Payer
-pattern Requester = Payer' "Requester"
+pattern PBucketOwner :: Payer
+pattern PBucketOwner = Payer' "BucketOwner"
 
 {-# COMPLETE
-  BucketOwner,
-  Requester,
+  PRequester,
+  PBucketOwner,
   Payer'
   #-}

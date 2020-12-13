@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStopExecutionTrigger' smart constructor.
 newtype StopExecutionTrigger = StopExecutionTrigger'
-  { reason ::
-      Lude.Maybe Lude.Text
+  { -- | The user-specified reason the pipeline was stopped.
+    reason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopExecutionTrigger' with the minimum fields required to make a request.

@@ -13,14 +13,14 @@
 module Network.AWS.MediaPackage.Types.AdTriggersElement
   ( AdTriggersElement
       ( AdTriggersElement',
+        SpliceInsert,
         Break,
-        DistributorAdvertisement,
-        DistributorOverlayPlacementOpportunity,
-        DistributorPlacementOpportunity,
         ProviderAdvertisement,
-        ProviderOverlayPlacementOpportunity,
+        DistributorAdvertisement,
         ProviderPlacementOpportunity,
-        SpliceInsert
+        DistributorPlacementOpportunity,
+        ProviderOverlayPlacementOpportunity,
+        DistributorOverlayPlacementOpportunity
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype AdTriggersElement = AdTriggersElement' Lude.Text
       Lude.ToHeader
     )
 
+pattern SpliceInsert :: AdTriggersElement
+pattern SpliceInsert = AdTriggersElement' "SPLICE_INSERT"
+
 pattern Break :: AdTriggersElement
 pattern Break = AdTriggersElement' "BREAK"
-
-pattern DistributorAdvertisement :: AdTriggersElement
-pattern DistributorAdvertisement = AdTriggersElement' "DISTRIBUTOR_ADVERTISEMENT"
-
-pattern DistributorOverlayPlacementOpportunity :: AdTriggersElement
-pattern DistributorOverlayPlacementOpportunity = AdTriggersElement' "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
-
-pattern DistributorPlacementOpportunity :: AdTriggersElement
-pattern DistributorPlacementOpportunity = AdTriggersElement' "DISTRIBUTOR_PLACEMENT_OPPORTUNITY"
 
 pattern ProviderAdvertisement :: AdTriggersElement
 pattern ProviderAdvertisement = AdTriggersElement' "PROVIDER_ADVERTISEMENT"
 
-pattern ProviderOverlayPlacementOpportunity :: AdTriggersElement
-pattern ProviderOverlayPlacementOpportunity = AdTriggersElement' "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
+pattern DistributorAdvertisement :: AdTriggersElement
+pattern DistributorAdvertisement = AdTriggersElement' "DISTRIBUTOR_ADVERTISEMENT"
 
 pattern ProviderPlacementOpportunity :: AdTriggersElement
 pattern ProviderPlacementOpportunity = AdTriggersElement' "PROVIDER_PLACEMENT_OPPORTUNITY"
 
-pattern SpliceInsert :: AdTriggersElement
-pattern SpliceInsert = AdTriggersElement' "SPLICE_INSERT"
+pattern DistributorPlacementOpportunity :: AdTriggersElement
+pattern DistributorPlacementOpportunity = AdTriggersElement' "DISTRIBUTOR_PLACEMENT_OPPORTUNITY"
+
+pattern ProviderOverlayPlacementOpportunity :: AdTriggersElement
+pattern ProviderOverlayPlacementOpportunity = AdTriggersElement' "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
+
+pattern DistributorOverlayPlacementOpportunity :: AdTriggersElement
+pattern DistributorOverlayPlacementOpportunity = AdTriggersElement' "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
 
 {-# COMPLETE
-  Break,
-  DistributorAdvertisement,
-  DistributorOverlayPlacementOpportunity,
-  DistributorPlacementOpportunity,
-  ProviderAdvertisement,
-  ProviderOverlayPlacementOpportunity,
-  ProviderPlacementOpportunity,
   SpliceInsert,
+  Break,
+  ProviderAdvertisement,
+  DistributorAdvertisement,
+  ProviderPlacementOpportunity,
+  DistributorPlacementOpportunity,
+  ProviderOverlayPlacementOpportunity,
+  DistributorOverlayPlacementOpportunity,
   AdTriggersElement'
   #-}

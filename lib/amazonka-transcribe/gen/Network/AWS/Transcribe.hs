@@ -150,15 +150,15 @@ module Network.AWS.Transcribe
     -- ** ContentRedaction
     ContentRedaction (..),
     mkContentRedaction,
-    crRedactionType,
     crRedactionOutput,
+    crRedactionType,
 
     -- ** InputDataConfig
     InputDataConfig (..),
     mkInputDataConfig,
     idcTuningDataS3URI,
-    idcS3URI,
     idcDataAccessRoleARN,
+    idcS3URI,
 
     -- ** JobExecutionSettings
     JobExecutionSettings (..),

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,13 +33,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateAdminAccount' smart constructor.
 data DisassociateAdminAccount = DisassociateAdminAccount'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateAdminAccount' with the minimum fields required to make a request.
@@ -73,13 +68,7 @@ instance Lude.ToQuery DisassociateAdminAccount where
 
 -- | /See:/ 'mkDisassociateAdminAccountResponse' smart constructor.
 data DisassociateAdminAccountResponse = DisassociateAdminAccountResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateAdminAccountResponse' with the minimum fields required to make a request.

@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicy' smart constructor.
 data Policy = Policy'
-  { content :: Lude.Maybe Lude.Text,
+  { -- | The text content of the policy.
+    content :: Lude.Maybe Lude.Text,
+    -- | A structure that contains additional details about the policy.
     policySummary :: Lude.Maybe PolicySummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Policy' with the minimum fields required to make a request.

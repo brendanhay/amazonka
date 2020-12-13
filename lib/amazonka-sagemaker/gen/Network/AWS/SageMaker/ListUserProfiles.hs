@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,31 +49,30 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListUserProfiles' smart constructor.
 data ListUserProfiles = ListUserProfiles'
-  { domainIdEquals ::
-      Lude.Maybe Lude.Text,
+  { -- | A parameter by which to filter the results.
+    domainIdEquals :: Lude.Maybe Lude.Text,
+    -- | A parameter by which to filter the results.
     userProfileNameContains :: Lude.Maybe Lude.Text,
+    -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for the results. The default is Ascending.
     sortOrder :: Lude.Maybe SortOrder,
+    -- | Returns a list up to a specified limit.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The parameter by which to sort the results. The default is CreationTime.
     sortBy :: Lude.Maybe UserProfileSortKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUserProfiles' with the minimum fields required to make a request.
 --
 -- * 'domainIdEquals' - A parameter by which to filter the results.
--- * 'maxResults' - Returns a list up to a specified limit.
--- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
--- * 'sortBy' - The parameter by which to sort the results. The default is CreationTime.
--- * 'sortOrder' - The sort order for the results. The default is Ascending.
 -- * 'userProfileNameContains' - A parameter by which to filter the results.
+-- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+-- * 'sortOrder' - The sort order for the results. The default is Ascending.
+-- * 'maxResults' - Returns a list up to a specified limit.
+-- * 'sortBy' - The parameter by which to sort the results. The default is CreationTime.
 mkListUserProfiles ::
   ListUserProfiles
 mkListUserProfiles =
@@ -181,25 +181,21 @@ instance Lude.ToQuery ListUserProfiles where
 
 -- | /See:/ 'mkListUserProfilesResponse' smart constructor.
 data ListUserProfilesResponse = ListUserProfilesResponse'
-  { userProfiles ::
-      Lude.Maybe [UserProfileDetails],
+  { -- | The list of user profiles.
+    userProfiles :: Lude.Maybe [UserProfileDetails],
+    -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUserProfilesResponse' with the minimum fields required to make a request.
 --
+-- * 'userProfiles' - The list of user profiles.
 -- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
 -- * 'responseStatus' - The response status code.
--- * 'userProfiles' - The list of user profiles.
 mkListUserProfilesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

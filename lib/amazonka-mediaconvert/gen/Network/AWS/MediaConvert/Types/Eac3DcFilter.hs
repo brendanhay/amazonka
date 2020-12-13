@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Eac3DcFilter
   ( Eac3DcFilter
       ( Eac3DcFilter',
-        EDFDisabled,
-        EDFEnabled
+        EDFEnabled,
+        EDFDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Eac3DcFilter = Eac3DcFilter' Lude.Text
       Lude.ToHeader
     )
 
-pattern EDFDisabled :: Eac3DcFilter
-pattern EDFDisabled = Eac3DcFilter' "DISABLED"
-
 pattern EDFEnabled :: Eac3DcFilter
 pattern EDFEnabled = Eac3DcFilter' "ENABLED"
 
+pattern EDFDisabled :: Eac3DcFilter
+pattern EDFDisabled = Eac3DcFilter' "DISABLED"
+
 {-# COMPLETE
-  EDFDisabled,
   EDFEnabled,
+  EDFDisabled,
   Eac3DcFilter'
   #-}

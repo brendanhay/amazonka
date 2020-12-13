@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,30 +47,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetCredentialsForIdentity' smart constructor.
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
-  { customRoleARN ::
-      Lude.Maybe Lude.Text,
-    logins ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were received in the token from the identity provider. For example, a SAML-based identity provider. This parameter is optional for identity providers that do not support role customization.
+    customRoleARN :: Lude.Maybe Lude.Text,
+    -- | A set of optional name-value pairs that map provider names to provider tokens. The name-value pair will follow the syntax "provider_name": "provider_user_identifier".
+    --
+    -- Logins should not be specified when trying to get credentials for an unauthenticated identity.
+    -- The Logins parameter is required when using identities associated with external identity providers such as FaceBook. For examples of @Logins@ maps, see the code examples in the <http://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html External Identity Providers> section of the Amazon Cognito Developer Guide.
+    logins :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A unique identifier in the format REGION:GUID.
     identityId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCredentialsForIdentity' with the minimum fields required to make a request.
 --
 -- * 'customRoleARN' - The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were received in the token from the identity provider. For example, a SAML-based identity provider. This parameter is optional for identity providers that do not support role customization.
--- * 'identityId' - A unique identifier in the format REGION:GUID.
 -- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens. The name-value pair will follow the syntax "provider_name": "provider_user_identifier".
 --
 -- Logins should not be specified when trying to get credentials for an unauthenticated identity.
 -- The Logins parameter is required when using identities associated with external identity providers such as FaceBook. For examples of @Logins@ maps, see the code examples in the <http://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html External Identity Providers> section of the Amazon Cognito Developer Guide.
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
 mkGetCredentialsForIdentity ::
   -- | 'identityId'
   Lude.Text ->
@@ -152,20 +150,14 @@ instance Lude.ToQuery GetCredentialsForIdentity where
 --
 -- /See:/ 'mkGetCredentialsForIdentityResponse' smart constructor.
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
-  { credentials ::
-      Lude.Maybe Credentials,
-    identityId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Credentials for the provided identity ID.
+    credentials :: Lude.Maybe Credentials,
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCredentialsForIdentityResponse' with the minimum fields required to make a request.

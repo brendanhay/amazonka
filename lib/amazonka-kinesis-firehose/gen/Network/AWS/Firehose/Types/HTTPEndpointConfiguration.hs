@@ -17,9 +17,9 @@ module Network.AWS.Firehose.Types.HTTPEndpointConfiguration
     mkHTTPEndpointConfiguration,
 
     -- * Lenses
+    httpecURL,
     httpecName,
     httpecAccessKey,
-    httpecURL,
   )
 where
 
@@ -30,30 +30,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPEndpointConfiguration' smart constructor.
 data HTTPEndpointConfiguration = HTTPEndpointConfiguration'
-  { name ::
-      Lude.Maybe Lude.Text,
-    accessKey ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    url :: Lude.Sensitive Lude.Text
+  { -- | The URL of the HTTP endpoint selected as the destination.
+    url :: Lude.Sensitive Lude.Text,
+    -- | The name of the HTTP endpoint selected as the destination.
+    name :: Lude.Maybe Lude.Text,
+    -- | The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+    accessKey :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPEndpointConfiguration' with the minimum fields required to make a request.
 --
--- * 'accessKey' - The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
--- * 'name' - The name of the HTTP endpoint selected as the destination.
 -- * 'url' - The URL of the HTTP endpoint selected as the destination.
+-- * 'name' - The name of the HTTP endpoint selected as the destination.
+-- * 'accessKey' - The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
 mkHTTPEndpointConfiguration ::
   -- | 'url'
   Lude.Sensitive Lude.Text ->
   HTTPEndpointConfiguration
 mkHTTPEndpointConfiguration pURL_ =
   HTTPEndpointConfiguration'
-    { name = Lude.Nothing,
-      accessKey = Lude.Nothing,
-      url = pURL_
+    { url = pURL_,
+      name = Lude.Nothing,
+      accessKey = Lude.Nothing
     }
+
+-- | The URL of the HTTP endpoint selected as the destination.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpecURL :: Lens.Lens' HTTPEndpointConfiguration (Lude.Sensitive Lude.Text)
+httpecURL = Lens.lens (url :: HTTPEndpointConfiguration -> Lude.Sensitive Lude.Text) (\s a -> s {url = a} :: HTTPEndpointConfiguration)
+{-# DEPRECATED httpecURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The name of the HTTP endpoint selected as the destination.
 --
@@ -69,19 +77,12 @@ httpecAccessKey :: Lens.Lens' HTTPEndpointConfiguration (Lude.Maybe (Lude.Sensit
 httpecAccessKey = Lens.lens (accessKey :: HTTPEndpointConfiguration -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {accessKey = a} :: HTTPEndpointConfiguration)
 {-# DEPRECATED httpecAccessKey "Use generic-lens or generic-optics with 'accessKey' instead." #-}
 
--- | The URL of the HTTP endpoint selected as the destination.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-httpecURL :: Lens.Lens' HTTPEndpointConfiguration (Lude.Sensitive Lude.Text)
-httpecURL = Lens.lens (url :: HTTPEndpointConfiguration -> Lude.Sensitive Lude.Text) (\s a -> s {url = a} :: HTTPEndpointConfiguration)
-{-# DEPRECATED httpecURL "Use generic-lens or generic-optics with 'url' instead." #-}
-
 instance Lude.ToJSON HTTPEndpointConfiguration where
   toJSON HTTPEndpointConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Name" Lude..=) Lude.<$> name,
-            ("AccessKey" Lude..=) Lude.<$> accessKey,
-            Lude.Just ("Url" Lude..= url)
+          [ Lude.Just ("Url" Lude..= url),
+            ("Name" Lude..=) Lude.<$> name,
+            ("AccessKey" Lude..=) Lude.<$> accessKey
           ]
       )

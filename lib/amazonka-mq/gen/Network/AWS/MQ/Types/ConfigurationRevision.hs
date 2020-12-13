@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurationRevision' smart constructor.
 data ConfigurationRevision = ConfigurationRevision'
-  { created ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Required. The date and time of the configuration revision.
+    created :: Lude.Maybe Lude.Timestamp,
+    -- | Required. The revision number of the configuration.
     revision :: Lude.Maybe Lude.Int,
+    -- | The description of the configuration revision.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationRevision' with the minimum fields required to make a request.
 --
 -- * 'created' - Required. The date and time of the configuration revision.
--- * 'description' - The description of the configuration revision.
 -- * 'revision' - Required. The revision number of the configuration.
+-- * 'description' - The description of the configuration revision.
 mkConfigurationRevision ::
   ConfigurationRevision
 mkConfigurationRevision =

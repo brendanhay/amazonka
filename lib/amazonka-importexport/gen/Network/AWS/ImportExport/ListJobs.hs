@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,20 +52,14 @@ data ListJobs = ListJobs'
     marker :: Lude.Maybe Lude.Text,
     maxJobs :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
--- * 'apiVersion' - Undocumented field.
--- * 'marker' - Undocumented field.
--- * 'maxJobs' - Undocumented field.
+-- * 'apiVersion' -
+-- * 'marker' -
+-- * 'maxJobs' -
 mkListJobs ::
   ListJobs
 mkListJobs =
@@ -145,21 +140,16 @@ instance Lude.ToQuery ListJobs where
 data ListJobsResponse = ListJobsResponse'
   { jobs :: Lude.Maybe [Job],
     isTruncated :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
--- * 'isTruncated' - Undocumented field.
--- * 'jobs' - Undocumented field.
+-- * 'jobs' -
+-- * 'isTruncated' -
 -- * 'responseStatus' - The response status code.
 mkListJobsResponse ::
   -- | 'responseStatus'

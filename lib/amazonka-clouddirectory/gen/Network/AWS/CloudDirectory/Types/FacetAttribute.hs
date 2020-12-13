@@ -19,8 +19,8 @@ module Network.AWS.CloudDirectory.Types.FacetAttribute
     -- * Lenses
     faAttributeReference,
     faAttributeDefinition,
-    faRequiredBehavior,
     faName,
+    faRequiredBehavior,
   )
 where
 
@@ -34,25 +34,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFacetAttribute' smart constructor.
 data FacetAttribute = FacetAttribute'
-  { attributeReference ::
-      Lude.Maybe FacetAttributeReference,
+  { -- | An attribute reference that is associated with the attribute. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+    attributeReference :: Lude.Maybe FacetAttributeReference,
+    -- | A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
     attributeDefinition :: Lude.Maybe FacetAttributeDefinition,
-    requiredBehavior :: Lude.Maybe RequiredAttributeBehavior,
-    name :: Lude.Text
+    -- | The name of the facet attribute.
+    name :: Lude.Text,
+    -- | The required behavior of the @FacetAttribute@ .
+    requiredBehavior :: Lude.Maybe RequiredAttributeBehavior
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FacetAttribute' with the minimum fields required to make a request.
 --
--- * 'attributeDefinition' - A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
 -- * 'attributeReference' - An attribute reference that is associated with the attribute. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+-- * 'attributeDefinition' - A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
 -- * 'name' - The name of the facet attribute.
 -- * 'requiredBehavior' - The required behavior of the @FacetAttribute@ .
 mkFacetAttribute ::
@@ -63,8 +60,8 @@ mkFacetAttribute pName_ =
   FacetAttribute'
     { attributeReference = Lude.Nothing,
       attributeDefinition = Lude.Nothing,
-      requiredBehavior = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      requiredBehavior = Lude.Nothing
     }
 
 -- | An attribute reference that is associated with the attribute. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
@@ -81,19 +78,19 @@ faAttributeDefinition :: Lens.Lens' FacetAttribute (Lude.Maybe FacetAttributeDef
 faAttributeDefinition = Lens.lens (attributeDefinition :: FacetAttribute -> Lude.Maybe FacetAttributeDefinition) (\s a -> s {attributeDefinition = a} :: FacetAttribute)
 {-# DEPRECATED faAttributeDefinition "Use generic-lens or generic-optics with 'attributeDefinition' instead." #-}
 
--- | The required behavior of the @FacetAttribute@ .
---
--- /Note:/ Consider using 'requiredBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faRequiredBehavior :: Lens.Lens' FacetAttribute (Lude.Maybe RequiredAttributeBehavior)
-faRequiredBehavior = Lens.lens (requiredBehavior :: FacetAttribute -> Lude.Maybe RequiredAttributeBehavior) (\s a -> s {requiredBehavior = a} :: FacetAttribute)
-{-# DEPRECATED faRequiredBehavior "Use generic-lens or generic-optics with 'requiredBehavior' instead." #-}
-
 -- | The name of the facet attribute.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 faName :: Lens.Lens' FacetAttribute Lude.Text
 faName = Lens.lens (name :: FacetAttribute -> Lude.Text) (\s a -> s {name = a} :: FacetAttribute)
 {-# DEPRECATED faName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The required behavior of the @FacetAttribute@ .
+--
+-- /Note:/ Consider using 'requiredBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faRequiredBehavior :: Lens.Lens' FacetAttribute (Lude.Maybe RequiredAttributeBehavior)
+faRequiredBehavior = Lens.lens (requiredBehavior :: FacetAttribute -> Lude.Maybe RequiredAttributeBehavior) (\s a -> s {requiredBehavior = a} :: FacetAttribute)
+{-# DEPRECATED faRequiredBehavior "Use generic-lens or generic-optics with 'requiredBehavior' instead." #-}
 
 instance Lude.FromJSON FacetAttribute where
   parseJSON =
@@ -103,8 +100,8 @@ instance Lude.FromJSON FacetAttribute where
           FacetAttribute'
             Lude.<$> (x Lude..:? "AttributeReference")
             Lude.<*> (x Lude..:? "AttributeDefinition")
-            Lude.<*> (x Lude..:? "RequiredBehavior")
             Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..:? "RequiredBehavior")
       )
 
 instance Lude.ToJSON FacetAttribute where
@@ -113,7 +110,7 @@ instance Lude.ToJSON FacetAttribute where
       ( Lude.catMaybes
           [ ("AttributeReference" Lude..=) Lude.<$> attributeReference,
             ("AttributeDefinition" Lude..=) Lude.<$> attributeDefinition,
-            ("RequiredBehavior" Lude..=) Lude.<$> requiredBehavior,
-            Lude.Just ("Name" Lude..= name)
+            Lude.Just ("Name" Lude..= name),
+            ("RequiredBehavior" Lude..=) Lude.<$> requiredBehavior
           ]
       )

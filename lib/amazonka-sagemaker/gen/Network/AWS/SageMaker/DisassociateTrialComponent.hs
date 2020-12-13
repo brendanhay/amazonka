@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.SageMaker.DisassociateTrialComponent
     mkDisassociateTrialComponent,
 
     -- ** Request lenses
-    dtcTrialComponentName,
-    dtcTrialName,
+    dtcfTrialComponentName,
+    dtcfTrialName,
 
     -- * Destructuring the response
     DisassociateTrialComponentResponse (..),
@@ -43,17 +44,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDisassociateTrialComponent' smart constructor.
 data DisassociateTrialComponent = DisassociateTrialComponent'
-  { trialComponentName ::
-      Lude.Text,
+  { -- | The name of the component to disassociate from the trial.
+    trialComponentName :: Lude.Text,
+    -- | The name of the trial to disassociate from.
     trialName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTrialComponent' with the minimum fields required to make a request.
@@ -76,16 +72,16 @@ mkDisassociateTrialComponent pTrialComponentName_ pTrialName_ =
 -- | The name of the component to disassociate from the trial.
 --
 -- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcTrialComponentName :: Lens.Lens' DisassociateTrialComponent Lude.Text
-dtcTrialComponentName = Lens.lens (trialComponentName :: DisassociateTrialComponent -> Lude.Text) (\s a -> s {trialComponentName = a} :: DisassociateTrialComponent)
-{-# DEPRECATED dtcTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
+dtcfTrialComponentName :: Lens.Lens' DisassociateTrialComponent Lude.Text
+dtcfTrialComponentName = Lens.lens (trialComponentName :: DisassociateTrialComponent -> Lude.Text) (\s a -> s {trialComponentName = a} :: DisassociateTrialComponent)
+{-# DEPRECATED dtcfTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
 
 -- | The name of the trial to disassociate from.
 --
 -- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcTrialName :: Lens.Lens' DisassociateTrialComponent Lude.Text
-dtcTrialName = Lens.lens (trialName :: DisassociateTrialComponent -> Lude.Text) (\s a -> s {trialName = a} :: DisassociateTrialComponent)
-{-# DEPRECATED dtcTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
+dtcfTrialName :: Lens.Lens' DisassociateTrialComponent Lude.Text
+dtcfTrialName = Lens.lens (trialName :: DisassociateTrialComponent -> Lude.Text) (\s a -> s {trialName = a} :: DisassociateTrialComponent)
+{-# DEPRECATED dtcfTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
 instance Lude.AWSRequest DisassociateTrialComponent where
   type
@@ -129,27 +125,21 @@ instance Lude.ToQuery DisassociateTrialComponent where
 
 -- | /See:/ 'mkDisassociateTrialComponentResponse' smart constructor.
 data DisassociateTrialComponentResponse = DisassociateTrialComponentResponse'
-  { trialARN ::
-      Lude.Maybe Lude.Text,
-    trialComponentARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Amazon Resource Name (ARN) of the trial.
+    trialARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the trial component.
+    trialComponentARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTrialComponentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
 -- * 'trialComponentARN' - The ARN of the trial component.
+-- * 'responseStatus' - The response status code.
 mkDisassociateTrialComponentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

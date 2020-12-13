@@ -36,12 +36,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccount' smart constructor.
 data Account = Account'
-  { status :: Lude.Maybe AccountStatus,
+  { -- | The status of the account in the organization.
+    status :: Lude.Maybe AccountStatus,
+    -- | The method by which the account joined the organization.
     joinedMethod :: Lude.Maybe AccountJoinedMethod,
+    -- | The email address associated with the AWS account.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that represents a standard internet email address.
     email :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The Amazon Resource Name (ARN) of the account.
+    --
+    -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
     arn :: Lude.Maybe Lude.Text,
+    -- | The date the account became a part of the organization.
     joinedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The friendly name of the account.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
     name :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The unique identifier (ID) of the account.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
     id :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -49,21 +64,21 @@ data Account = Account'
 
 -- | Creates a value of 'Account' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the account.
---
--- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'status' - The status of the account in the organization.
+-- * 'joinedMethod' - The method by which the account joined the organization.
 -- * 'email' - The email address associated with the AWS account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that represents a standard internet email address.
--- * 'id' - The unique identifier (ID) of the account.
+-- * 'arn' - The Amazon Resource Name (ARN) of the account.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
--- * 'joinedMethod' - The method by which the account joined the organization.
+-- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 -- * 'joinedTimestamp' - The date the account became a part of the organization.
 -- * 'name' - The friendly name of the account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
--- * 'status' - The status of the account in the organization.
+-- * 'id' - The unique identifier (ID) of the account.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 mkAccount ::
   Account
 mkAccount =

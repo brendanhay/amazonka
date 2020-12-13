@@ -31,24 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatastoreStorage' smart constructor.
 data DatastoreStorage = DatastoreStorage'
-  { serviceManagedS3 ::
-      Lude.Maybe ServiceManagedDatastoreS3Storage,
-    customerManagedS3 ::
-      Lude.Maybe CustomerManagedDatastoreS3Storage
+  { -- | Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
+    serviceManagedS3 :: Lude.Maybe ServiceManagedDatastoreS3Storage,
+    -- | Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+    customerManagedS3 :: Lude.Maybe CustomerManagedDatastoreS3Storage
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatastoreStorage' with the minimum fields required to make a request.
 --
--- * 'customerManagedS3' - Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 -- * 'serviceManagedS3' - Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
+-- * 'customerManagedS3' - Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 mkDatastoreStorage ::
   DatastoreStorage
 mkDatastoreStorage =

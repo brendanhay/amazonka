@@ -52,40 +52,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBClusterEndpoint' smart constructor.
 data DBClusterEndpoint = DBClusterEndpoint'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The current status of the endpoint. One of: @creating@ , @available@ , @deleting@ , @inactive@ , @modifying@ . The @inactive@ state applies to an endpoint that can't be used for a certain kind of cluster, such as a @writer@ endpoint for a read-only secondary cluster in a global database.
+    status :: Lude.Maybe Lude.Text,
+    -- | The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
     dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the endpoint.
     dbClusterEndpointARN :: Lude.Maybe Lude.Text,
+    -- | The type associated with a custom endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
     customEndpointType :: Lude.Maybe Lude.Text,
+    -- | List of DB instance identifiers that are part of the custom endpoint group.
     staticMembers :: Lude.Maybe [Lude.Text],
+    -- | The type of the endpoint. One of: @READER@ , @WRITER@ , @CUSTOM@ .
     endpointType :: Lude.Maybe Lude.Text,
+    -- | The identifier associated with the endpoint. This parameter is stored as a lowercase string.
     dbClusterEndpointIdentifier :: Lude.Maybe Lude.Text,
+    -- | The DNS address of the endpoint.
     endpoint :: Lude.Maybe Lude.Text,
-    dbClusterEndpointResourceIdentifier ::
-      Lude.Maybe Lude.Text,
+    -- | A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.
+    dbClusterEndpointResourceIdentifier :: Lude.Maybe Lude.Text,
+    -- | List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
     excludedMembers :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterEndpoint' with the minimum fields required to make a request.
 --
--- * 'customEndpointType' - The type associated with a custom endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
--- * 'dbClusterEndpointARN' - The Amazon Resource Name (ARN) for the endpoint.
--- * 'dbClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as a lowercase string.
--- * 'dbClusterEndpointResourceIdentifier' - A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.
--- * 'dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
--- * 'endpoint' - The DNS address of the endpoint.
--- * 'endpointType' - The type of the endpoint. One of: @READER@ , @WRITER@ , @CUSTOM@ .
--- * 'excludedMembers' - List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
--- * 'staticMembers' - List of DB instance identifiers that are part of the custom endpoint group.
 -- * 'status' - The current status of the endpoint. One of: @creating@ , @available@ , @deleting@ , @inactive@ , @modifying@ . The @inactive@ state applies to an endpoint that can't be used for a certain kind of cluster, such as a @writer@ endpoint for a read-only secondary cluster in a global database.
+-- * 'dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
+-- * 'dbClusterEndpointARN' - The Amazon Resource Name (ARN) for the endpoint.
+-- * 'customEndpointType' - The type associated with a custom endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
+-- * 'staticMembers' - List of DB instance identifiers that are part of the custom endpoint group.
+-- * 'endpointType' - The type of the endpoint. One of: @READER@ , @WRITER@ , @CUSTOM@ .
+-- * 'dbClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as a lowercase string.
+-- * 'endpoint' - The DNS address of the endpoint.
+-- * 'dbClusterEndpointResourceIdentifier' - A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.
+-- * 'excludedMembers' - List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 mkDBClusterEndpoint ::
   DBClusterEndpoint
 mkDBClusterEndpoint =

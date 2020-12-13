@@ -90,8 +90,8 @@ module Network.AWS.KinesisVideo.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
   )
 where
 

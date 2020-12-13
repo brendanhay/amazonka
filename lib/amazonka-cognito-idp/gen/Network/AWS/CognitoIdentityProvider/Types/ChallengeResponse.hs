@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.ChallengeResponse
   ( ChallengeResponse
       ( ChallengeResponse',
-        CFailure,
-        CSuccess
+        CSuccess,
+        CFailure
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ChallengeResponse = ChallengeResponse' Lude.Text
       Lude.ToHeader
     )
 
-pattern CFailure :: ChallengeResponse
-pattern CFailure = ChallengeResponse' "Failure"
-
 pattern CSuccess :: ChallengeResponse
 pattern CSuccess = ChallengeResponse' "Success"
 
+pattern CFailure :: ChallengeResponse
+pattern CFailure = ChallengeResponse' "Failure"
+
 {-# COMPLETE
-  CFailure,
   CSuccess,
+  CFailure,
   ChallengeResponse'
   #-}

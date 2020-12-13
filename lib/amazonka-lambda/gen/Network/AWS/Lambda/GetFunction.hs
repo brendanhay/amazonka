@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Lambda.GetFunction
     mkGetFunction,
 
     -- ** Request lenses
-    gfQualifier,
     gfFunctionName,
+    gfQualifier,
 
     -- * Destructuring the response
     GetFunctionResponse (..),
@@ -43,16 +44,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFunction' smart constructor.
 data GetFunction = GetFunction'
-  { qualifier :: Lude.Maybe Lude.Text,
-    functionName :: Lude.Text
+  { -- | The name of the Lambda function, version, or alias.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | Specify a version or alias to get details about a published version of the function.
+    qualifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunction' with the minimum fields required to make a request.
@@ -78,16 +88,9 @@ mkGetFunction ::
   GetFunction
 mkGetFunction pFunctionName_ =
   GetFunction'
-    { qualifier = Lude.Nothing,
-      functionName = pFunctionName_
+    { functionName = pFunctionName_,
+      qualifier = Lude.Nothing
     }
-
--- | Specify a version or alias to get details about a published version of the function.
---
--- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfQualifier :: Lens.Lens' GetFunction (Lude.Maybe Lude.Text)
-gfQualifier = Lens.lens (qualifier :: GetFunction -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetFunction)
-{-# DEPRECATED gfQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 -- | The name of the Lambda function, version, or alias.
 --
@@ -108,6 +111,13 @@ gfQualifier = Lens.lens (qualifier :: GetFunction -> Lude.Maybe Lude.Text) (\s a
 gfFunctionName :: Lens.Lens' GetFunction Lude.Text
 gfFunctionName = Lens.lens (functionName :: GetFunction -> Lude.Text) (\s a -> s {functionName = a} :: GetFunction)
 {-# DEPRECATED gfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+
+-- | Specify a version or alias to get details about a published version of the function.
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfQualifier :: Lens.Lens' GetFunction (Lude.Maybe Lude.Text)
+gfQualifier = Lens.lens (qualifier :: GetFunction -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetFunction)
+{-# DEPRECATED gfQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 instance Lude.AWSRequest GetFunction where
   type Rs GetFunction = GetFunctionResponse
@@ -136,12 +146,15 @@ instance Lude.ToQuery GetFunction where
 
 -- | /See:/ 'mkGetFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
-  { concurrency ::
-      Lude.Maybe Concurrency,
+  { -- | The function's <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency> .
+    concurrency :: Lude.Maybe Concurrency,
+    -- | The deployment package of the function or version.
     code :: Lude.Maybe FunctionCodeLocation,
+    -- | The configuration of the function or version.
     configuration :: Lude.Maybe FunctionConfiguration,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The function's <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> .
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -149,11 +162,11 @@ data GetFunctionResponse = GetFunctionResponse'
 
 -- | Creates a value of 'GetFunctionResponse' with the minimum fields required to make a request.
 --
--- * 'code' - The deployment package of the function or version.
 -- * 'concurrency' - The function's <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html reserved concurrency> .
+-- * 'code' - The deployment package of the function or version.
 -- * 'configuration' - The configuration of the function or version.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The function's <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> .
+-- * 'responseStatus' - The response status code.
 mkGetFunctionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

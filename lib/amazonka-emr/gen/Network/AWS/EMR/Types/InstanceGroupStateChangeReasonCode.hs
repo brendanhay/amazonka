@@ -13,10 +13,10 @@
 module Network.AWS.EMR.Types.InstanceGroupStateChangeReasonCode
   ( InstanceGroupStateChangeReasonCode
       ( InstanceGroupStateChangeReasonCode',
-        ClusterTerminated,
-        InstanceFailure,
         InternalError,
-        ValidationError
+        ValidationError,
+        InstanceFailure,
+        ClusterTerminated
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype InstanceGroupStateChangeReasonCode = InstanceGroupStateChangeReasonCode'
       Lude.ToHeader
     )
 
-pattern ClusterTerminated :: InstanceGroupStateChangeReasonCode
-pattern ClusterTerminated = InstanceGroupStateChangeReasonCode' "CLUSTER_TERMINATED"
-
-pattern InstanceFailure :: InstanceGroupStateChangeReasonCode
-pattern InstanceFailure = InstanceGroupStateChangeReasonCode' "INSTANCE_FAILURE"
-
 pattern InternalError :: InstanceGroupStateChangeReasonCode
 pattern InternalError = InstanceGroupStateChangeReasonCode' "INTERNAL_ERROR"
 
 pattern ValidationError :: InstanceGroupStateChangeReasonCode
 pattern ValidationError = InstanceGroupStateChangeReasonCode' "VALIDATION_ERROR"
 
+pattern InstanceFailure :: InstanceGroupStateChangeReasonCode
+pattern InstanceFailure = InstanceGroupStateChangeReasonCode' "INSTANCE_FAILURE"
+
+pattern ClusterTerminated :: InstanceGroupStateChangeReasonCode
+pattern ClusterTerminated = InstanceGroupStateChangeReasonCode' "CLUSTER_TERMINATED"
+
 {-# COMPLETE
-  ClusterTerminated,
-  InstanceFailure,
   InternalError,
   ValidationError,
+  InstanceFailure,
+  ClusterTerminated,
   InstanceGroupStateChangeReasonCode'
   #-}

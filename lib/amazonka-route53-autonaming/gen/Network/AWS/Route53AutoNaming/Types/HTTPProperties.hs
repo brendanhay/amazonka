@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPProperties' smart constructor.
 newtype HTTPProperties = HTTPProperties'
-  { hTTPName ::
-      Lude.Maybe Lude.Text
+  { -- | The name of an HTTP namespace.
+    hTTPName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPProperties' with the minimum fields required to make a request.

@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHierarchyStructure' smart constructor.
 data HierarchyStructure = HierarchyStructure'
-  { levelFive ::
-      Lude.Maybe HierarchyLevel,
+  { -- | Information about level five.
+    levelFive :: Lude.Maybe HierarchyLevel,
+    -- | Information about level three.
     levelThree :: Lude.Maybe HierarchyLevel,
+    -- | Information about level four.
     levelFour :: Lude.Maybe HierarchyLevel,
+    -- | Information about level two.
     levelTwo :: Lude.Maybe HierarchyLevel,
+    -- | Information about level one.
     levelOne :: Lude.Maybe HierarchyLevel
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HierarchyStructure' with the minimum fields required to make a request.
 --
 -- * 'levelFive' - Information about level five.
--- * 'levelFour' - Information about level four.
--- * 'levelOne' - Information about level one.
 -- * 'levelThree' - Information about level three.
+-- * 'levelFour' - Information about level four.
 -- * 'levelTwo' - Information about level two.
+-- * 'levelOne' - Information about level one.
 mkHierarchyStructure ::
   HierarchyStructure
 mkHierarchyStructure =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,26 +46,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeElasticGpus' smart constructor.
 data DescribeElasticGpus = DescribeElasticGpus'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters.
+    --
+    --
+    --     * @availability-zone@ - The Availability Zone in which the Elastic Graphics accelerator resides.
+    --
+    --
+    --     * @elastic-gpu-health@ - The status of the Elastic Graphics accelerator (@OK@ | @IMPAIRED@ ).
+    --
+    --
+    --     * @elastic-gpu-state@ - The state of the Elastic Graphics accelerator (@ATTACHED@ ).
+    --
+    --
+    --     * @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for example, @eg1.medium@ .
+    --
+    --
+    --     * @instance-id@ - The ID of the instance to which the Elastic Graphics accelerator is associated.
+    filters :: Lude.Maybe [Filter],
+    -- | The token to request the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The Elastic Graphics accelerator IDs.
     elasticGpuIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticGpus' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'elasticGpuIds' - The Elastic Graphics accelerator IDs.
 -- * 'filters' - The filters.
 --
 --
@@ -83,8 +95,10 @@ data DescribeElasticGpus = DescribeElasticGpus'
 --     * @instance-id@ - The ID of the instance to which the Elastic Graphics accelerator is associated.
 --
 --
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
 -- * 'nextToken' - The token to request the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
+-- * 'elasticGpuIds' - The Elastic Graphics accelerator IDs.
 mkDescribeElasticGpus ::
   DescribeElasticGpus
 mkDescribeElasticGpus =
@@ -184,26 +198,23 @@ instance Lude.ToQuery DescribeElasticGpus where
 
 -- | /See:/ 'mkDescribeElasticGpusResponse' smart constructor.
 data DescribeElasticGpusResponse = DescribeElasticGpusResponse'
-  { elasticGpuSet ::
-      Lude.Maybe [ElasticGpus],
+  { -- | Information about the Elastic Graphics accelerators.
+    elasticGpuSet :: Lude.Maybe [ElasticGpus],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The total number of items to return. If the total number of items available is more than the value specified in max-items then a Next-Token will be provided in the output that you can use to resume pagination.
     maxResults :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticGpusResponse' with the minimum fields required to make a request.
 --
 -- * 'elasticGpuSet' - Information about the Elastic Graphics accelerators.
--- * 'maxResults' - The total number of items to return. If the total number of items available is more than the value specified in max-items then a Next-Token will be provided in the output that you can use to resume pagination.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'maxResults' - The total number of items to return. If the total number of items available is more than the value specified in max-items then a Next-Token will be provided in the output that you can use to resume pagination.
 -- * 'responseStatus' - The response status code.
 mkDescribeElasticGpusResponse ::
   -- | 'responseStatus'

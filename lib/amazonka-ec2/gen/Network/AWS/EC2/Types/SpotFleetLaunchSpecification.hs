@@ -53,72 +53,74 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotFleetLaunchSpecification' smart constructor.
 data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
-  { securityGroups ::
-      Lude.Maybe [GroupIdentifier],
+  { -- | One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+    securityGroups :: Lude.Maybe [GroupIdentifier],
+    -- | The maximum price per unit hour that you are willing to pay for a Spot Instance. If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of @WeightedCapacity@ .
     spotPrice :: Lude.Maybe Lude.Text,
-    weightedCapacity ::
-      Lude.Maybe Lude.Double,
+    -- | The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+    --
+    -- If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+    weightedCapacity :: Lude.Maybe Lude.Double,
+    -- | The name of the key pair.
     keyName :: Lude.Maybe Lude.Text,
-    networkInterfaces ::
-      Lude.Maybe
-        [InstanceNetworkInterfaceSpecification],
+    -- | One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+    networkInterfaces :: Lude.Maybe [InstanceNetworkInterfaceSpecification],
+    -- | The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
     ramdiskId :: Lude.Maybe Lude.Text,
+    -- | The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the kernel.
     kernelId :: Lude.Maybe Lude.Text,
-    instanceType ::
-      Lude.Maybe InstanceType,
-    ebsOptimized ::
-      Lude.Maybe Lude.Bool,
+    -- | The instance type.
+    instanceType :: Lude.Maybe InstanceType,
+    -- | Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+    --
+    -- Default: @false@
+    ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The Base64-encoded user data that instances use when starting up.
     userData :: Lude.Maybe Lude.Text,
-    monitoring ::
-      Lude.Maybe SpotFleetMonitoring,
-    tagSpecifications ::
-      Lude.Maybe
-        [SpotFleetTagSpecification],
-    iamInstanceProfile ::
-      Lude.Maybe
-        IAMInstanceProfileSpecification,
+    -- | Enable or disable monitoring for the instances.
+    monitoring :: Lude.Maybe SpotFleetMonitoring,
+    -- | The tags to apply during creation.
+    tagSpecifications :: Lude.Maybe [SpotFleetTagSpecification],
+    -- | The IAM instance profile.
+    iamInstanceProfile :: Lude.Maybe IAMInstanceProfileSpecification,
+    -- | The ID of the AMI.
     imageId :: Lude.Maybe Lude.Text,
-    addressingType ::
-      Lude.Maybe Lude.Text,
-    blockDeviceMappings ::
-      Lude.Maybe [BlockDeviceMapping],
-    placement ::
-      Lude.Maybe SpotPlacement
+    -- | Deprecated.
+    addressingType :: Lude.Maybe Lude.Text,
+    -- | One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+    blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping],
+    -- | The placement information.
+    placement :: Lude.Maybe SpotPlacement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotFleetLaunchSpecification' with the minimum fields required to make a request.
 --
--- * 'addressingType' - Deprecated.
--- * 'blockDeviceMappings' - One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
--- * 'ebsOptimized' - Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
---
--- Default: @false@
--- * 'iamInstanceProfile' - The IAM instance profile.
--- * 'imageId' - The ID of the AMI.
--- * 'instanceType' - The instance type.
--- * 'kernelId' - The ID of the kernel.
--- * 'keyName' - The name of the key pair.
--- * 'monitoring' - Enable or disable monitoring for the instances.
--- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
--- * 'placement' - The placement information.
--- * 'ramdiskId' - The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
 -- * 'securityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
 -- * 'spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance. If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of @WeightedCapacity@ .
--- * 'subnetId' - The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
--- * 'tagSpecifications' - The tags to apply during creation.
--- * 'userData' - The Base64-encoded user data that instances use when starting up.
 -- * 'weightedCapacity' - The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 --
 -- If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+-- * 'keyName' - The name of the key pair.
+-- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+-- * 'ramdiskId' - The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
+-- * 'subnetId' - The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+-- * 'kernelId' - The ID of the kernel.
+-- * 'instanceType' - The instance type.
+-- * 'ebsOptimized' - Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+--
+-- Default: @false@
+-- * 'userData' - The Base64-encoded user data that instances use when starting up.
+-- * 'monitoring' - Enable or disable monitoring for the instances.
+-- * 'tagSpecifications' - The tags to apply during creation.
+-- * 'iamInstanceProfile' - The IAM instance profile.
+-- * 'imageId' - The ID of the AMI.
+-- * 'addressingType' - Deprecated.
+-- * 'blockDeviceMappings' - One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+-- * 'placement' - The placement information.
 mkSpotFleetLaunchSpecification ::
   SpotFleetLaunchSpecification
 mkSpotFleetLaunchSpecification =

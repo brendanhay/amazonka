@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,7 +29,7 @@ module Network.AWS.MediaStore.DeleteCORSPolicy
     mkDeleteCORSPolicyResponse,
 
     -- ** Response lenses
-    dcorsprsResponseStatus,
+    dcprsResponseStatus,
   )
 where
 
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteCORSPolicy' smart constructor.
 newtype DeleteCORSPolicy = DeleteCORSPolicy'
-  { containerName ::
-      Lude.Text
+  { -- | The name of the container to remove the policy from.
+    containerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCORSPolicy' with the minimum fields required to make a request.
@@ -104,16 +99,10 @@ instance Lude.ToQuery DeleteCORSPolicy where
 
 -- | /See:/ 'mkDeleteCORSPolicyResponse' smart constructor.
 newtype DeleteCORSPolicyResponse = DeleteCORSPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCORSPolicyResponse' with the minimum fields required to make a request.
@@ -129,6 +118,6 @@ mkDeleteCORSPolicyResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcorsprsResponseStatus :: Lens.Lens' DeleteCORSPolicyResponse Lude.Int
-dcorsprsResponseStatus = Lens.lens (responseStatus :: DeleteCORSPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCORSPolicyResponse)
-{-# DEPRECATED dcorsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcprsResponseStatus :: Lens.Lens' DeleteCORSPolicyResponse Lude.Int
+dcprsResponseStatus = Lens.lens (responseStatus :: DeleteCORSPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCORSPolicyResponse)
+{-# DEPRECATED dcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,9 +13,9 @@
 module Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior
   ( OriginRequestPolicyCookieBehavior
       ( OriginRequestPolicyCookieBehavior',
-        ORPCBAll,
         ORPCBNone,
-        ORPCBWhitelist
+        ORPCBWhitelist,
+        ORPCBAll
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype OriginRequestPolicyCookieBehavior = OriginRequestPolicyCookieBehavior' L
       Lude.ToHeader
     )
 
-pattern ORPCBAll :: OriginRequestPolicyCookieBehavior
-pattern ORPCBAll = OriginRequestPolicyCookieBehavior' "all"
-
 pattern ORPCBNone :: OriginRequestPolicyCookieBehavior
 pattern ORPCBNone = OriginRequestPolicyCookieBehavior' "none"
 
 pattern ORPCBWhitelist :: OriginRequestPolicyCookieBehavior
 pattern ORPCBWhitelist = OriginRequestPolicyCookieBehavior' "whitelist"
 
+pattern ORPCBAll :: OriginRequestPolicyCookieBehavior
+pattern ORPCBAll = OriginRequestPolicyCookieBehavior' "all"
+
 {-# COMPLETE
-  ORPCBAll,
   ORPCBNone,
   ORPCBWhitelist,
+  ORPCBAll,
   OriginRequestPolicyCookieBehavior'
   #-}

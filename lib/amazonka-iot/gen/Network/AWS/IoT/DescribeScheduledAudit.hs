@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,16 +45,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeScheduledAudit' smart constructor.
 newtype DescribeScheduledAudit = DescribeScheduledAudit'
-  { scheduledAuditName ::
-      Lude.Text
+  { -- | The name of the scheduled audit whose information you want to get.
+    scheduledAuditName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledAudit' with the minimum fields required to make a request.
@@ -105,38 +100,33 @@ instance Lude.ToQuery DescribeScheduledAudit where
 
 -- | /See:/ 'mkDescribeScheduledAuditResponse' smart constructor.
 data DescribeScheduledAuditResponse = DescribeScheduledAuditResponse'
-  { frequency ::
-      Lude.Maybe AuditFrequency,
-    scheduledAuditName ::
-      Lude.Maybe Lude.Text,
-    dayOfMonth ::
-      Lude.Maybe Lude.Text,
-    targetCheckNames ::
-      Lude.Maybe [Lude.Text],
-    dayOfWeek ::
-      Lude.Maybe DayOfWeek,
-    scheduledAuditARN ::
-      Lude.Maybe Lude.Text,
+  { -- | How often the scheduled audit takes place. One of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
+    frequency :: Lude.Maybe AuditFrequency,
+    -- | The name of the scheduled audit.
+    scheduledAuditName :: Lude.Maybe Lude.Text,
+    -- | The day of the month on which the scheduled audit takes place. Will be "1" through "31" or "LAST". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+    dayOfMonth :: Lude.Maybe Lude.Text,
+    -- | Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
+    targetCheckNames :: Lude.Maybe [Lude.Text],
+    -- | The day of the week on which the scheduled audit takes place. One of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".
+    dayOfWeek :: Lude.Maybe DayOfWeek,
+    -- | The ARN of the scheduled audit.
+    scheduledAuditARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledAuditResponse' with the minimum fields required to make a request.
 --
--- * 'dayOfMonth' - The day of the month on which the scheduled audit takes place. Will be "1" through "31" or "LAST". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
--- * 'dayOfWeek' - The day of the week on which the scheduled audit takes place. One of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".
 -- * 'frequency' - How often the scheduled audit takes place. One of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
--- * 'responseStatus' - The response status code.
--- * 'scheduledAuditARN' - The ARN of the scheduled audit.
 -- * 'scheduledAuditName' - The name of the scheduled audit.
+-- * 'dayOfMonth' - The day of the month on which the scheduled audit takes place. Will be "1" through "31" or "LAST". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
 -- * 'targetCheckNames' - Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
+-- * 'dayOfWeek' - The day of the week on which the scheduled audit takes place. One of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".
+-- * 'scheduledAuditARN' - The ARN of the scheduled audit.
+-- * 'responseStatus' - The response status code.
 mkDescribeScheduledAuditResponse ::
   -- | 'responseStatus'
   Lude.Int ->

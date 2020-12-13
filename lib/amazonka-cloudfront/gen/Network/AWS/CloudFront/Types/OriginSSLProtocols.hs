@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOriginSSLProtocols' smart constructor.
 data OriginSSLProtocols = OriginSSLProtocols'
-  { quantity :: Lude.Int,
+  { -- | The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
+    quantity :: Lude.Int,
+    -- | A list that contains allowed SSL/TLS protocols for this distribution.
     items :: [SSLProtocol]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginSSLProtocols' with the minimum fields required to make a request.
 --
--- * 'items' - A list that contains allowed SSL/TLS protocols for this distribution.
 -- * 'quantity' - The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an HTTPS connection with this origin.
+-- * 'items' - A list that contains allowed SSL/TLS protocols for this distribution.
 mkOriginSSLProtocols ::
   -- | 'quantity'
   Lude.Int ->

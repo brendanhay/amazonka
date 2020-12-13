@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.Connect.ListSecurityProfiles
     mkListSecurityProfiles,
 
     -- ** Request lenses
+    lspInstanceId,
     lspNextToken,
     lspMaxResults,
-    lspInstanceId,
 
     -- * Destructuring the response
     ListSecurityProfilesResponse (..),
@@ -47,35 +48,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSecurityProfiles' smart constructor.
 data ListSecurityProfiles = ListSecurityProfiles'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximimum number of results to return per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityProfiles' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'maxResults' - The maximimum number of results to return per page.
 -- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'maxResults' - The maximimum number of results to return per page.
 mkListSecurityProfiles ::
   -- | 'instanceId'
   Lude.Text ->
   ListSecurityProfiles
 mkListSecurityProfiles pInstanceId_ =
   ListSecurityProfiles'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lspInstanceId :: Lens.Lens' ListSecurityProfiles Lude.Text
+lspInstanceId = Lens.lens (instanceId :: ListSecurityProfiles -> Lude.Text) (\s a -> s {instanceId = a} :: ListSecurityProfiles)
+{-# DEPRECATED lspInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 --
@@ -90,13 +94,6 @@ lspNextToken = Lens.lens (nextToken :: ListSecurityProfiles -> Lude.Maybe Lude.T
 lspMaxResults :: Lens.Lens' ListSecurityProfiles (Lude.Maybe Lude.Natural)
 lspMaxResults = Lens.lens (maxResults :: ListSecurityProfiles -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSecurityProfiles)
 {-# DEPRECATED lspMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lspInstanceId :: Lens.Lens' ListSecurityProfiles Lude.Text
-lspInstanceId = Lens.lens (instanceId :: ListSecurityProfiles -> Lude.Text) (\s a -> s {instanceId = a} :: ListSecurityProfiles)
-{-# DEPRECATED lspInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager ListSecurityProfiles where
   page rq rs
@@ -141,27 +138,21 @@ instance Lude.ToQuery ListSecurityProfiles where
 
 -- | /See:/ 'mkListSecurityProfilesResponse' smart constructor.
 data ListSecurityProfilesResponse = ListSecurityProfilesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    securityProfileSummaryList ::
-      Lude.Maybe
-        [SecurityProfileSummary],
+  { -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the security profiles.
+    securityProfileSummaryList :: Lude.Maybe [SecurityProfileSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityProfilesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'responseStatus' - The response status code.
 -- * 'securityProfileSummaryList' - Information about the security profiles.
+-- * 'responseStatus' - The response status code.
 mkListSecurityProfilesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

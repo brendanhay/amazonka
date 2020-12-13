@@ -40,15 +40,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the instance.
+    arn :: Lude.Maybe Lude.Text,
+    -- | When the instance was created.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | Whether outbound calls are enabled.
     outboundCallsEnabled :: Lude.Maybe Lude.Bool,
+    -- | Whether inbound calls are enabled.
     inboundCallsEnabled :: Lude.Maybe Lude.Bool,
+    -- | The alias of instance.
     instanceAlias :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The identifier of the Amazon Connect instance.
     id :: Lude.Maybe Lude.Text,
+    -- | The state of the instance.
     instanceStatus :: Lude.Maybe InstanceStatus,
+    -- | The identity management type.
     identityManagementType :: Lude.Maybe DirectoryType,
+    -- | Relevant details why the instance was not successfully created.
     statusReason :: Lude.Maybe InstanceStatusReason,
+    -- | The service role of the instance.
     serviceRole :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -58,14 +68,14 @@ data Instance = Instance'
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the instance.
 -- * 'createdTime' - When the instance was created.
--- * 'id' - The identifier of the Amazon Connect instance.
--- * 'identityManagementType' - The identity management type.
+-- * 'outboundCallsEnabled' - Whether outbound calls are enabled.
 -- * 'inboundCallsEnabled' - Whether inbound calls are enabled.
 -- * 'instanceAlias' - The alias of instance.
+-- * 'id' - The identifier of the Amazon Connect instance.
 -- * 'instanceStatus' - The state of the instance.
--- * 'outboundCallsEnabled' - Whether outbound calls are enabled.
--- * 'serviceRole' - The service role of the instance.
+-- * 'identityManagementType' - The identity management type.
 -- * 'statusReason' - Relevant details why the instance was not successfully created.
+-- * 'serviceRole' - The service role of the instance.
 mkInstance ::
   Instance
 mkInstance =

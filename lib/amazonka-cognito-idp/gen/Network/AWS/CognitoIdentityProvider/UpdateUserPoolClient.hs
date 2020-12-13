@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,12 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
 
     -- ** Request lenses
     uupcRefreshTokenValidity,
+    uupcClientId,
     uupcExplicitAuthFlows,
     uupcSupportedIdentityProviders,
     uupcLogoutURLs,
     uupcAllowedOAuthFlowsUserPoolClient,
+    uupcUserPoolId,
     uupcIdTokenValidity,
     uupcTokenValidityUnits,
     uupcDefaultRedirectURI,
@@ -38,8 +41,6 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
     uupcAnalyticsConfiguration,
     uupcClientName,
     uupcCallbackURLs,
-    uupcUserPoolId,
-    uupcClientId,
 
     -- * Destructuring the response
     UpdateUserPoolClientResponse (..),
@@ -61,81 +62,109 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateUserPoolClient' smart constructor.
 data UpdateUserPoolClient = UpdateUserPoolClient'
-  { refreshTokenValidity ::
-      Lude.Maybe Lude.Natural,
-    explicitAuthFlows ::
-      Lude.Maybe [ExplicitAuthFlowsType],
-    supportedIdentityProviders ::
-      Lude.Maybe [Lude.Text],
+  { -- | The time limit, in days, after which the refresh token is no longer valid and cannot be used.
+    refreshTokenValidity :: Lude.Maybe Lude.Natural,
+    -- | The ID of the client associated with the user pool.
+    clientId :: Lude.Sensitive Lude.Text,
+    -- | The authentication flows that are supported by the user pool clients. Flow names without the @ALLOW_@ prefix are deprecated in favor of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@ prefix cannot be used along with values without @ALLOW_@ prefix.
+    --
+    -- Valid values include:
+    --
+    --     * @ALLOW_ADMIN_USER_PASSWORD_AUTH@ : Enable admin based user password authentication flow @ADMIN_USER_PASSWORD_AUTH@ . This setting replaces the @ADMIN_NO_SRP_AUTH@ setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.
+    --
+    --
+    --     * @ALLOW_CUSTOM_AUTH@ : Enable Lambda trigger based authentication.
+    --
+    --
+    --     * @ALLOW_USER_PASSWORD_AUTH@ : Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
+    --
+    --
+    --     * @ALLOW_USER_SRP_AUTH@ : Enable SRP based authentication.
+    --
+    --
+    --     * @ALLOW_REFRESH_TOKEN_AUTH@ : Enable authflow to refresh tokens.
+    explicitAuthFlows :: Lude.Maybe [ExplicitAuthFlowsType],
+    -- | A list of provider names for the identity providers that are supported on this client.
+    supportedIdentityProviders :: Lude.Maybe [Lude.Text],
+    -- | A list of allowed logout URLs for the identity providers.
     logoutURLs :: Lude.Maybe [Lude.Text],
-    allowedOAuthFlowsUserPoolClient ::
-      Lude.Maybe Lude.Bool,
-    idTokenValidity :: Lude.Maybe Lude.Natural,
-    tokenValidityUnits ::
-      Lude.Maybe TokenValidityUnitsType,
-    defaultRedirectURI :: Lude.Maybe Lude.Text,
-    writeAttributes :: Lude.Maybe [Lude.Text],
-    preventUserExistenceErrors ::
-      Lude.Maybe PreventUserExistenceErrorTypes,
-    accessTokenValidity :: Lude.Maybe Lude.Natural,
-    readAttributes :: Lude.Maybe [Lude.Text],
-    allowedOAuthScopes :: Lude.Maybe [Lude.Text],
-    allowedOAuthFlows :: Lude.Maybe [OAuthFlowType],
-    analyticsConfiguration ::
-      Lude.Maybe AnalyticsConfigurationType,
-    clientName :: Lude.Maybe Lude.Text,
-    callbackURLs :: Lude.Maybe [Lude.Text],
+    -- | Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+    allowedOAuthFlowsUserPoolClient :: Lude.Maybe Lude.Bool,
+    -- | The user pool ID for the user pool where you want to update the user pool client.
     userPoolId :: Lude.Text,
-    clientId :: Lude.Sensitive Lude.Text
+    -- | The time limit, after which the ID token is no longer valid and cannot be used.
+    idTokenValidity :: Lude.Maybe Lude.Natural,
+    -- | The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.
+    tokenValidityUnits :: Lude.Maybe TokenValidityUnitsType,
+    -- | The default redirect URI. Must be in the @CallbackURLs@ list.
+    --
+    -- A redirect URI must:
+    --
+    --     * Be an absolute URI.
+    --
+    --
+    --     * Be registered with the authorization server.
+    --
+    --
+    --     * Not include a fragment component.
+    --
+    --
+    -- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
+    -- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+    -- App callback URLs such as myapp://example are also supported.
+    defaultRedirectURI :: Lude.Maybe Lude.Text,
+    -- | The writeable attributes of the user pool.
+    writeAttributes :: Lude.Maybe [Lude.Text],
+    -- | Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to @ENABLED@ and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to @LEGACY@ , those APIs will return a @UserNotFoundException@ exception if the user does not exist in the user pool.
+    --
+    -- Valid values include:
+    --
+    --     * @ENABLED@ - This prevents user existence-related errors.
+    --
+    --
+    --     * @LEGACY@ - This represents the old behavior of Cognito where user existence related errors are not prevented.
+    preventUserExistenceErrors :: Lude.Maybe PreventUserExistenceErrorTypes,
+    -- | The time limit, after which the access token is no longer valid and cannot be used.
+    accessTokenValidity :: Lude.Maybe Lude.Natural,
+    -- | The read-only attributes of the user pool.
+    readAttributes :: Lude.Maybe [Lude.Text],
+    -- | The allowed OAuth scopes. Possible values provided by OAuth are: @phone@ , @email@ , @openid@ , and @profile@ . Possible values provided by AWS are: @aws.cognito.signin.user.admin@ . Custom scopes created in Resource Servers are also supported.
+    allowedOAuthScopes :: Lude.Maybe [Lude.Text],
+    -- | The allowed OAuth flows.
+    --
+    -- Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.
+    -- Set to @implicit@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
+    -- Set to @client_credentials@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.
+    allowedOAuthFlows :: Lude.Maybe [OAuthFlowType],
+    -- | The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+    analyticsConfiguration :: Lude.Maybe AnalyticsConfigurationType,
+    -- | The client name from the update user pool client request.
+    clientName :: Lude.Maybe Lude.Text,
+    -- | A list of allowed redirect (callback) URLs for the identity providers.
+    --
+    -- A redirect URI must:
+    --
+    --     * Be an absolute URI.
+    --
+    --
+    --     * Be registered with the authorization server.
+    --
+    --
+    --     * Not include a fragment component.
+    --
+    --
+    -- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
+    -- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+    -- App callback URLs such as myapp://example are also supported.
+    callbackURLs :: Lude.Maybe [Lude.Text]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserPoolClient' with the minimum fields required to make a request.
 --
--- * 'accessTokenValidity' - The time limit, after which the access token is no longer valid and cannot be used.
--- * 'allowedOAuthFlows' - The allowed OAuth flows.
---
--- Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.
--- Set to @implicit@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
--- Set to @client_credentials@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.
--- * 'allowedOAuthFlowsUserPoolClient' - Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
--- * 'allowedOAuthScopes' - The allowed OAuth scopes. Possible values provided by OAuth are: @phone@ , @email@ , @openid@ , and @profile@ . Possible values provided by AWS are: @aws.cognito.signin.user.admin@ . Custom scopes created in Resource Servers are also supported.
--- * 'analyticsConfiguration' - The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
--- * 'callbackURLs' - A list of allowed redirect (callback) URLs for the identity providers.
---
--- A redirect URI must:
---
---     * Be an absolute URI.
---
---
---     * Be registered with the authorization server.
---
---
---     * Not include a fragment component.
---
---
--- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
--- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
--- App callback URLs such as myapp://example are also supported.
+-- * 'refreshTokenValidity' - The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 -- * 'clientId' - The ID of the client associated with the user pool.
--- * 'clientName' - The client name from the update user pool client request.
--- * 'defaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
---
--- A redirect URI must:
---
---     * Be an absolute URI.
---
---
---     * Be registered with the authorization server.
---
---
---     * Not include a fragment component.
---
---
--- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
--- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
--- App callback URLs such as myapp://example are also supported.
 -- * 'explicitAuthFlows' - The authentication flows that are supported by the user pool clients. Flow names without the @ALLOW_@ prefix are deprecated in favor of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@ prefix cannot be used along with values without @ALLOW_@ prefix.
 --
 -- Valid values include:
@@ -155,8 +184,29 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 --     * @ALLOW_REFRESH_TOKEN_AUTH@ : Enable authflow to refresh tokens.
 --
 --
--- * 'idTokenValidity' - The time limit, after which the ID token is no longer valid and cannot be used.
+-- * 'supportedIdentityProviders' - A list of provider names for the identity providers that are supported on this client.
 -- * 'logoutURLs' - A list of allowed logout URLs for the identity providers.
+-- * 'allowedOAuthFlowsUserPoolClient' - Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+-- * 'userPoolId' - The user pool ID for the user pool where you want to update the user pool client.
+-- * 'idTokenValidity' - The time limit, after which the ID token is no longer valid and cannot be used.
+-- * 'tokenValidityUnits' - The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.
+-- * 'defaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
+--
+-- A redirect URI must:
+--
+--     * Be an absolute URI.
+--
+--
+--     * Be registered with the authorization server.
+--
+--
+--     * Not include a fragment component.
+--
+--
+-- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
+-- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+-- App callback URLs such as myapp://example are also supported.
+-- * 'writeAttributes' - The writeable attributes of the user pool.
 -- * 'preventUserExistenceErrors' - Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to @ENABLED@ and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to @LEGACY@ , those APIs will return a @UserNotFoundException@ exception if the user does not exist in the user pool.
 --
 -- Valid values include:
@@ -167,25 +217,47 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 --     * @LEGACY@ - This represents the old behavior of Cognito where user existence related errors are not prevented.
 --
 --
+-- * 'accessTokenValidity' - The time limit, after which the access token is no longer valid and cannot be used.
 -- * 'readAttributes' - The read-only attributes of the user pool.
--- * 'refreshTokenValidity' - The time limit, in days, after which the refresh token is no longer valid and cannot be used.
--- * 'supportedIdentityProviders' - A list of provider names for the identity providers that are supported on this client.
--- * 'tokenValidityUnits' - The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.
--- * 'userPoolId' - The user pool ID for the user pool where you want to update the user pool client.
--- * 'writeAttributes' - The writeable attributes of the user pool.
+-- * 'allowedOAuthScopes' - The allowed OAuth scopes. Possible values provided by OAuth are: @phone@ , @email@ , @openid@ , and @profile@ . Possible values provided by AWS are: @aws.cognito.signin.user.admin@ . Custom scopes created in Resource Servers are also supported.
+-- * 'allowedOAuthFlows' - The allowed OAuth flows.
+--
+-- Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.
+-- Set to @implicit@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
+-- Set to @client_credentials@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.
+-- * 'analyticsConfiguration' - The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
+-- * 'clientName' - The client name from the update user pool client request.
+-- * 'callbackURLs' - A list of allowed redirect (callback) URLs for the identity providers.
+--
+-- A redirect URI must:
+--
+--     * Be an absolute URI.
+--
+--
+--     * Be registered with the authorization server.
+--
+--
+--     * Not include a fragment component.
+--
+--
+-- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
+-- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+-- App callback URLs such as myapp://example are also supported.
 mkUpdateUserPoolClient ::
-  -- | 'userPoolId'
-  Lude.Text ->
   -- | 'clientId'
   Lude.Sensitive Lude.Text ->
+  -- | 'userPoolId'
+  Lude.Text ->
   UpdateUserPoolClient
-mkUpdateUserPoolClient pUserPoolId_ pClientId_ =
+mkUpdateUserPoolClient pClientId_ pUserPoolId_ =
   UpdateUserPoolClient'
     { refreshTokenValidity = Lude.Nothing,
+      clientId = pClientId_,
       explicitAuthFlows = Lude.Nothing,
       supportedIdentityProviders = Lude.Nothing,
       logoutURLs = Lude.Nothing,
       allowedOAuthFlowsUserPoolClient = Lude.Nothing,
+      userPoolId = pUserPoolId_,
       idTokenValidity = Lude.Nothing,
       tokenValidityUnits = Lude.Nothing,
       defaultRedirectURI = Lude.Nothing,
@@ -197,9 +269,7 @@ mkUpdateUserPoolClient pUserPoolId_ pClientId_ =
       allowedOAuthFlows = Lude.Nothing,
       analyticsConfiguration = Lude.Nothing,
       clientName = Lude.Nothing,
-      callbackURLs = Lude.Nothing,
-      userPoolId = pUserPoolId_,
-      clientId = pClientId_
+      callbackURLs = Lude.Nothing
     }
 
 -- | The time limit, in days, after which the refresh token is no longer valid and cannot be used.
@@ -208,6 +278,13 @@ mkUpdateUserPoolClient pUserPoolId_ pClientId_ =
 uupcRefreshTokenValidity :: Lens.Lens' UpdateUserPoolClient (Lude.Maybe Lude.Natural)
 uupcRefreshTokenValidity = Lens.lens (refreshTokenValidity :: UpdateUserPoolClient -> Lude.Maybe Lude.Natural) (\s a -> s {refreshTokenValidity = a} :: UpdateUserPoolClient)
 {-# DEPRECATED uupcRefreshTokenValidity "Use generic-lens or generic-optics with 'refreshTokenValidity' instead." #-}
+
+-- | The ID of the client associated with the user pool.
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupcClientId :: Lens.Lens' UpdateUserPoolClient (Lude.Sensitive Lude.Text)
+uupcClientId = Lens.lens (clientId :: UpdateUserPoolClient -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: UpdateUserPoolClient)
+{-# DEPRECATED uupcClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The authentication flows that are supported by the user pool clients. Flow names without the @ALLOW_@ prefix are deprecated in favor of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@ prefix cannot be used along with values without @ALLOW_@ prefix.
 --
@@ -254,6 +331,13 @@ uupcLogoutURLs = Lens.lens (logoutURLs :: UpdateUserPoolClient -> Lude.Maybe [Lu
 uupcAllowedOAuthFlowsUserPoolClient :: Lens.Lens' UpdateUserPoolClient (Lude.Maybe Lude.Bool)
 uupcAllowedOAuthFlowsUserPoolClient = Lens.lens (allowedOAuthFlowsUserPoolClient :: UpdateUserPoolClient -> Lude.Maybe Lude.Bool) (\s a -> s {allowedOAuthFlowsUserPoolClient = a} :: UpdateUserPoolClient)
 {-# DEPRECATED uupcAllowedOAuthFlowsUserPoolClient "Use generic-lens or generic-optics with 'allowedOAuthFlowsUserPoolClient' instead." #-}
+
+-- | The user pool ID for the user pool where you want to update the user pool client.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupcUserPoolId :: Lens.Lens' UpdateUserPoolClient Lude.Text
+uupcUserPoolId = Lens.lens (userPoolId :: UpdateUserPoolClient -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateUserPoolClient)
+{-# DEPRECATED uupcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The time limit, after which the ID token is no longer valid and cannot be used.
 --
@@ -382,20 +466,6 @@ uupcCallbackURLs :: Lens.Lens' UpdateUserPoolClient (Lude.Maybe [Lude.Text])
 uupcCallbackURLs = Lens.lens (callbackURLs :: UpdateUserPoolClient -> Lude.Maybe [Lude.Text]) (\s a -> s {callbackURLs = a} :: UpdateUserPoolClient)
 {-# DEPRECATED uupcCallbackURLs "Use generic-lens or generic-optics with 'callbackURLs' instead." #-}
 
--- | The user pool ID for the user pool where you want to update the user pool client.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupcUserPoolId :: Lens.Lens' UpdateUserPoolClient Lude.Text
-uupcUserPoolId = Lens.lens (userPoolId :: UpdateUserPoolClient -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateUserPoolClient)
-{-# DEPRECATED uupcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
-
--- | The ID of the client associated with the user pool.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupcClientId :: Lens.Lens' UpdateUserPoolClient (Lude.Sensitive Lude.Text)
-uupcClientId = Lens.lens (clientId :: UpdateUserPoolClient -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: UpdateUserPoolClient)
-{-# DEPRECATED uupcClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
-
 instance Lude.AWSRequest UpdateUserPoolClient where
   type Rs UpdateUserPoolClient = UpdateUserPoolClientResponse
   request = Req.postJSON cognitoIdentityProviderService
@@ -425,12 +495,14 @@ instance Lude.ToJSON UpdateUserPoolClient where
     Lude.object
       ( Lude.catMaybes
           [ ("RefreshTokenValidity" Lude..=) Lude.<$> refreshTokenValidity,
+            Lude.Just ("ClientId" Lude..= clientId),
             ("ExplicitAuthFlows" Lude..=) Lude.<$> explicitAuthFlows,
             ("SupportedIdentityProviders" Lude..=)
               Lude.<$> supportedIdentityProviders,
             ("LogoutURLs" Lude..=) Lude.<$> logoutURLs,
             ("AllowedOAuthFlowsUserPoolClient" Lude..=)
               Lude.<$> allowedOAuthFlowsUserPoolClient,
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
             ("IdTokenValidity" Lude..=) Lude.<$> idTokenValidity,
             ("TokenValidityUnits" Lude..=) Lude.<$> tokenValidityUnits,
             ("DefaultRedirectURI" Lude..=) Lude.<$> defaultRedirectURI,
@@ -443,9 +515,7 @@ instance Lude.ToJSON UpdateUserPoolClient where
             ("AllowedOAuthFlows" Lude..=) Lude.<$> allowedOAuthFlows,
             ("AnalyticsConfiguration" Lude..=) Lude.<$> analyticsConfiguration,
             ("ClientName" Lude..=) Lude.<$> clientName,
-            ("CallbackURLs" Lude..=) Lude.<$> callbackURLs,
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("ClientId" Lude..= clientId)
+            ("CallbackURLs" Lude..=) Lude.<$> callbackURLs
           ]
       )
 
@@ -459,8 +529,9 @@ instance Lude.ToQuery UpdateUserPoolClient where
 --
 -- /See:/ 'mkUpdateUserPoolClientResponse' smart constructor.
 data UpdateUserPoolClientResponse = UpdateUserPoolClientResponse'
-  { userPoolClient ::
-      Lude.Maybe UserPoolClientType,
+  { -- | The user pool client value from the response from the server when an update user pool client request is made.
+    userPoolClient :: Lude.Maybe UserPoolClientType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -468,8 +539,8 @@ data UpdateUserPoolClientResponse = UpdateUserPoolClientResponse'
 
 -- | Creates a value of 'UpdateUserPoolClientResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userPoolClient' - The user pool client value from the response from the server when an update user pool client request is made.
+-- * 'responseStatus' - The response status code.
 mkUpdateUserPoolClientResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -28,14 +28,11 @@ import Network.AWS.WorkSpaces.Types.Compute
 -- | Describes the compute type.
 --
 -- /See:/ 'mkComputeType' smart constructor.
-newtype ComputeType = ComputeType' {name :: Lude.Maybe Compute}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ComputeType = ComputeType'
+  { -- | The compute type.
+    name :: Lude.Maybe Compute
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComputeType' with the minimum fields required to make a request.

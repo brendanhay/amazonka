@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMonitoringStatisticsResource' smart constructor.
 newtype MonitoringStatisticsResource = MonitoringStatisticsResource'
-  { s3URI ::
-      Lude.Maybe Lude.Text
+  { -- | The Amazon S3 URI for the statistics resource.
+    s3URI :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringStatisticsResource' with the minimum fields required to make a request.

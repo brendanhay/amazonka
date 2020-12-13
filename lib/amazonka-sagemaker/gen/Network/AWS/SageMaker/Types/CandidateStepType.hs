@@ -13,9 +13,9 @@
 module Network.AWS.SageMaker.Types.CandidateStepType
   ( CandidateStepType
       ( CandidateStepType',
-        AWSSageMakerProcessingJob,
         AWSSageMakerTrainingJob,
-        AWSSageMakerTransformJob
+        AWSSageMakerTransformJob,
+        AWSSageMakerProcessingJob
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CandidateStepType = CandidateStepType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSSageMakerProcessingJob :: CandidateStepType
-pattern AWSSageMakerProcessingJob = CandidateStepType' "AWS::SageMaker::ProcessingJob"
-
 pattern AWSSageMakerTrainingJob :: CandidateStepType
 pattern AWSSageMakerTrainingJob = CandidateStepType' "AWS::SageMaker::TrainingJob"
 
 pattern AWSSageMakerTransformJob :: CandidateStepType
 pattern AWSSageMakerTransformJob = CandidateStepType' "AWS::SageMaker::TransformJob"
 
+pattern AWSSageMakerProcessingJob :: CandidateStepType
+pattern AWSSageMakerProcessingJob = CandidateStepType' "AWS::SageMaker::ProcessingJob"
+
 {-# COMPLETE
-  AWSSageMakerProcessingJob,
   AWSSageMakerTrainingJob,
   AWSSageMakerTransformJob,
+  AWSSageMakerProcessingJob,
   CandidateStepType'
   #-}

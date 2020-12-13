@@ -13,9 +13,9 @@
 module Network.AWS.CloudFormation.Types.StackDriftDetectionStatus
   ( StackDriftDetectionStatus
       ( StackDriftDetectionStatus',
-        DetectionComplete,
+        DetectionInProgress,
         DetectionFailed,
-        DetectionInProgress
+        DetectionComplete
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype StackDriftDetectionStatus = StackDriftDetectionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DetectionComplete :: StackDriftDetectionStatus
-pattern DetectionComplete = StackDriftDetectionStatus' "DETECTION_COMPLETE"
+pattern DetectionInProgress :: StackDriftDetectionStatus
+pattern DetectionInProgress = StackDriftDetectionStatus' "DETECTION_IN_PROGRESS"
 
 pattern DetectionFailed :: StackDriftDetectionStatus
 pattern DetectionFailed = StackDriftDetectionStatus' "DETECTION_FAILED"
 
-pattern DetectionInProgress :: StackDriftDetectionStatus
-pattern DetectionInProgress = StackDriftDetectionStatus' "DETECTION_IN_PROGRESS"
+pattern DetectionComplete :: StackDriftDetectionStatus
+pattern DetectionComplete = StackDriftDetectionStatus' "DETECTION_COMPLETE"
 
 {-# COMPLETE
-  DetectionComplete,
-  DetectionFailed,
   DetectionInProgress,
+  DetectionFailed,
+  DetectionComplete,
   StackDriftDetectionStatus'
   #-}

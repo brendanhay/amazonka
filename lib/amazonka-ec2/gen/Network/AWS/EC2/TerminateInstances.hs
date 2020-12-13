@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,8 +26,8 @@ module Network.AWS.EC2.TerminateInstances
     mkTerminateInstances,
 
     -- ** Request lenses
-    tiDryRun,
     tiInstanceIds,
+    tiDryRun,
 
     -- * Destructuring the response
     TerminateInstancesResponse (..),
@@ -46,39 +47,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTerminateInstances' smart constructor.
 data TerminateInstances = TerminateInstances'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    instanceIds :: [Lude.Text]
+  { -- | The IDs of the instances.
+    --
+    -- Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
+    instanceIds :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateInstances' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceIds' - The IDs of the instances.
 --
 -- Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkTerminateInstances ::
   TerminateInstances
 mkTerminateInstances =
   TerminateInstances'
-    { dryRun = Lude.Nothing,
-      instanceIds = Lude.mempty
+    { instanceIds = Lude.mempty,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiDryRun :: Lens.Lens' TerminateInstances (Lude.Maybe Lude.Bool)
-tiDryRun = Lens.lens (dryRun :: TerminateInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: TerminateInstances)
-{-# DEPRECATED tiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the instances.
 --
@@ -88,6 +79,13 @@ tiDryRun = Lens.lens (dryRun :: TerminateInstances -> Lude.Maybe Lude.Bool) (\s 
 tiInstanceIds :: Lens.Lens' TerminateInstances [Lude.Text]
 tiInstanceIds = Lens.lens (instanceIds :: TerminateInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: TerminateInstances)
 {-# DEPRECATED tiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiDryRun :: Lens.Lens' TerminateInstances (Lude.Maybe Lude.Bool)
+tiDryRun = Lens.lens (dryRun :: TerminateInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: TerminateInstances)
+{-# DEPRECATED tiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest TerminateInstances where
   type Rs TerminateInstances = TerminateInstancesResponse
@@ -113,29 +111,24 @@ instance Lude.ToQuery TerminateInstances where
     Lude.mconcat
       [ "Action" Lude.=: ("TerminateInstances" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "InstanceId" instanceIds
+        Lude.toQueryList "InstanceId" instanceIds,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkTerminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
-  { terminatingInstances ::
-      Lude.Maybe [InstanceStateChange],
+  { -- | Information about the terminated instances.
+    terminatingInstances :: Lude.Maybe [InstanceStateChange],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'terminatingInstances' - Information about the terminated instances.
+-- * 'responseStatus' - The response status code.
 mkTerminateInstancesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

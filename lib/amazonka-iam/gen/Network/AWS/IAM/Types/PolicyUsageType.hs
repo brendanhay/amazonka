@@ -13,8 +13,8 @@
 module Network.AWS.IAM.Types.PolicyUsageType
   ( PolicyUsageType
       ( PolicyUsageType',
-        PermissionsBoundary,
-        PermissionsPolicy
+        PermissionsPolicy,
+        PermissionsBoundary
       ),
   )
 where
@@ -48,14 +48,14 @@ newtype PolicyUsageType = PolicyUsageType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PermissionsBoundary :: PolicyUsageType
-pattern PermissionsBoundary = PolicyUsageType' "PermissionsBoundary"
-
 pattern PermissionsPolicy :: PolicyUsageType
 pattern PermissionsPolicy = PolicyUsageType' "PermissionsPolicy"
 
+pattern PermissionsBoundary :: PolicyUsageType
+pattern PermissionsBoundary = PolicyUsageType' "PermissionsBoundary"
+
 {-# COMPLETE
-  PermissionsBoundary,
   PermissionsPolicy,
+  PermissionsBoundary,
   PolicyUsageType'
   #-}

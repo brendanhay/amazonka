@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,18 +44,12 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetDeployablePatchSnapshotForInstance' smart constructor.
 data GetDeployablePatchSnapshotForInstance = GetDeployablePatchSnapshotForInstance'
-  { instanceId ::
-      Lude.Text,
-    snapshotId ::
-      Lude.Text
+  { -- | The ID of the instance for which the appropriate patch snapshot should be retrieved.
+    instanceId :: Lude.Text,
+    -- | The user-defined snapshot ID.
+    snapshotId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeployablePatchSnapshotForInstance' with the minimum fields required to make a request.
@@ -133,40 +128,27 @@ instance Lude.ToQuery GetDeployablePatchSnapshotForInstance where
 
 -- | /See:/ 'mkGetDeployablePatchSnapshotForInstanceResponse' smart constructor.
 data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotForInstanceResponse'
-  { instanceId ::
-      Lude.Maybe
-        Lude.Text,
-    product ::
-      Lude.Maybe
-        Lude.Text,
-    snapshotDownloadURL ::
-      Lude.Maybe
-        Lude.Text,
-    snapshotId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | Returns the specific operating system (for example Windows Server 2012 or Amazon Linux 2015.09) on the instance for the specified patch snapshot.
+    product :: Lude.Maybe Lude.Text,
+    -- | A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
+    snapshotDownloadURL :: Lude.Maybe Lude.Text,
+    -- | The user-defined snapshot ID.
+    snapshotId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeployablePatchSnapshotForInstanceResponse' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The ID of the instance.
 -- * 'product' - Returns the specific operating system (for example Windows Server 2012 or Amazon Linux 2015.09) on the instance for the specified patch snapshot.
--- * 'responseStatus' - The response status code.
 -- * 'snapshotDownloadURL' - A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
 -- * 'snapshotId' - The user-defined snapshot ID.
+-- * 'responseStatus' - The response status code.
 mkGetDeployablePatchSnapshotForInstanceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

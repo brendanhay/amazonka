@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Inspector.GetTelemetryMetadata
     mkGetTelemetryMetadataResponse,
 
     -- ** Response lenses
-    gtmrsResponseStatus,
     gtmrsTelemetryMetadata,
+    gtmrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTelemetryMetadata' smart constructor.
 newtype GetTelemetryMetadata = GetTelemetryMetadata'
-  { assessmentRunARN ::
-      Lude.Text
+  { -- | The ARN that specifies the assessment run that has the telemetry data that you want to obtain.
+    assessmentRunARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTelemetryMetadata' with the minimum fields required to make a request.
@@ -75,8 +70,8 @@ instance Lude.AWSRequest GetTelemetryMetadata where
     Res.receiveJSON
       ( \s h x ->
           GetTelemetryMetadataResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "telemetryMetadata" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "telemetryMetadata" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetTelemetryMetadata where
@@ -105,40 +100,27 @@ instance Lude.ToQuery GetTelemetryMetadata where
 
 -- | /See:/ 'mkGetTelemetryMetadataResponse' smart constructor.
 data GetTelemetryMetadataResponse = GetTelemetryMetadataResponse'
-  { responseStatus ::
-      Lude.Int,
-    telemetryMetadata ::
-      [TelemetryMetadata]
+  { -- | Telemetry details.
+    telemetryMetadata :: [TelemetryMetadata],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTelemetryMetadataResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'telemetryMetadata' - Telemetry details.
+-- * 'responseStatus' - The response status code.
 mkGetTelemetryMetadataResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   GetTelemetryMetadataResponse
 mkGetTelemetryMetadataResponse pResponseStatus_ =
   GetTelemetryMetadataResponse'
-    { responseStatus = pResponseStatus_,
-      telemetryMetadata = Lude.mempty
+    { telemetryMetadata = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtmrsResponseStatus :: Lens.Lens' GetTelemetryMetadataResponse Lude.Int
-gtmrsResponseStatus = Lens.lens (responseStatus :: GetTelemetryMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTelemetryMetadataResponse)
-{-# DEPRECATED gtmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Telemetry details.
 --
@@ -146,3 +128,10 @@ gtmrsResponseStatus = Lens.lens (responseStatus :: GetTelemetryMetadataResponse 
 gtmrsTelemetryMetadata :: Lens.Lens' GetTelemetryMetadataResponse [TelemetryMetadata]
 gtmrsTelemetryMetadata = Lens.lens (telemetryMetadata :: GetTelemetryMetadataResponse -> [TelemetryMetadata]) (\s a -> s {telemetryMetadata = a} :: GetTelemetryMetadataResponse)
 {-# DEPRECATED gtmrsTelemetryMetadata "Use generic-lens or generic-optics with 'telemetryMetadata' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtmrsResponseStatus :: Lens.Lens' GetTelemetryMetadataResponse Lude.Int
+gtmrsResponseStatus = Lens.lens (responseStatus :: GetTelemetryMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTelemetryMetadataResponse)
+{-# DEPRECATED gtmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

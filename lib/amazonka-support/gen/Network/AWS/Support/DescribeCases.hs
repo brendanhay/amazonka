@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,15 +32,15 @@ module Network.AWS.Support.DescribeCases
     mkDescribeCases,
 
     -- ** Request lenses
-    dcIncludeResolvedCases,
-    dcCaseIdList,
-    dcAfterTime,
-    dcBeforeTime,
-    dcNextToken,
-    dcIncludeCommunications,
-    dcDisplayId,
-    dcLanguage,
-    dcMaxResults,
+    dIncludeResolvedCases,
+    dCaseIdList,
+    dAfterTime,
+    dBeforeTime,
+    dNextToken,
+    dIncludeCommunications,
+    dDisplayId,
+    dLanguage,
+    dMaxResults,
 
     -- * Destructuring the response
     DescribeCasesResponse (..),
@@ -61,37 +62,39 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'mkDescribeCases' smart constructor.
 data DescribeCases = DescribeCases'
-  { includeResolvedCases ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether to include resolved support cases in the @DescribeCases@ response. By default, resolved cases aren't included.
+    includeResolvedCases :: Lude.Maybe Lude.Bool,
+    -- | A list of ID numbers of the support cases you want returned. The maximum number of cases is 100.
     caseIdList :: Lude.Maybe [Lude.Text],
+    -- | The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
     afterTime :: Lude.Maybe Lude.Text,
+    -- | The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
     beforeTime :: Lude.Maybe Lude.Text,
+    -- | A resumption point for pagination.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to include communications in the @DescribeCases@ response. By default, communications are incuded.
     includeCommunications :: Lude.Maybe Lude.Bool,
+    -- | The ID displayed for a case in the AWS Support Center user interface.
     displayId :: Lude.Maybe Lude.Text,
+    -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
     language :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return before paginating.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCases' with the minimum fields required to make a request.
 --
+-- * 'includeResolvedCases' - Specifies whether to include resolved support cases in the @DescribeCases@ response. By default, resolved cases aren't included.
+-- * 'caseIdList' - A list of ID numbers of the support cases you want returned. The maximum number of cases is 100.
 -- * 'afterTime' - The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 -- * 'beforeTime' - The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
--- * 'caseIdList' - A list of ID numbers of the support cases you want returned. The maximum number of cases is 100.
--- * 'displayId' - The ID displayed for a case in the AWS Support Center user interface.
+-- * 'nextToken' - A resumption point for pagination.
 -- * 'includeCommunications' - Specifies whether to include communications in the @DescribeCases@ response. By default, communications are incuded.
--- * 'includeResolvedCases' - Specifies whether to include resolved support cases in the @DescribeCases@ response. By default, resolved cases aren't included.
+-- * 'displayId' - The ID displayed for a case in the AWS Support Center user interface.
 -- * 'language' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 -- * 'maxResults' - The maximum number of results to return before paginating.
--- * 'nextToken' - A resumption point for pagination.
 mkDescribeCases ::
   DescribeCases
 mkDescribeCases =
@@ -110,65 +113,65 @@ mkDescribeCases =
 -- | Specifies whether to include resolved support cases in the @DescribeCases@ response. By default, resolved cases aren't included.
 --
 -- /Note:/ Consider using 'includeResolvedCases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcIncludeResolvedCases :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Bool)
-dcIncludeResolvedCases = Lens.lens (includeResolvedCases :: DescribeCases -> Lude.Maybe Lude.Bool) (\s a -> s {includeResolvedCases = a} :: DescribeCases)
-{-# DEPRECATED dcIncludeResolvedCases "Use generic-lens or generic-optics with 'includeResolvedCases' instead." #-}
+dIncludeResolvedCases :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Bool)
+dIncludeResolvedCases = Lens.lens (includeResolvedCases :: DescribeCases -> Lude.Maybe Lude.Bool) (\s a -> s {includeResolvedCases = a} :: DescribeCases)
+{-# DEPRECATED dIncludeResolvedCases "Use generic-lens or generic-optics with 'includeResolvedCases' instead." #-}
 
 -- | A list of ID numbers of the support cases you want returned. The maximum number of cases is 100.
 --
 -- /Note:/ Consider using 'caseIdList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcCaseIdList :: Lens.Lens' DescribeCases (Lude.Maybe [Lude.Text])
-dcCaseIdList = Lens.lens (caseIdList :: DescribeCases -> Lude.Maybe [Lude.Text]) (\s a -> s {caseIdList = a} :: DescribeCases)
-{-# DEPRECATED dcCaseIdList "Use generic-lens or generic-optics with 'caseIdList' instead." #-}
+dCaseIdList :: Lens.Lens' DescribeCases (Lude.Maybe [Lude.Text])
+dCaseIdList = Lens.lens (caseIdList :: DescribeCases -> Lude.Maybe [Lude.Text]) (\s a -> s {caseIdList = a} :: DescribeCases)
+{-# DEPRECATED dCaseIdList "Use generic-lens or generic-optics with 'caseIdList' instead." #-}
 
 -- | The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 --
 -- /Note:/ Consider using 'afterTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcAfterTime :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
-dcAfterTime = Lens.lens (afterTime :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {afterTime = a} :: DescribeCases)
-{-# DEPRECATED dcAfterTime "Use generic-lens or generic-optics with 'afterTime' instead." #-}
+dAfterTime :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
+dAfterTime = Lens.lens (afterTime :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {afterTime = a} :: DescribeCases)
+{-# DEPRECATED dAfterTime "Use generic-lens or generic-optics with 'afterTime' instead." #-}
 
 -- | The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 --
 -- /Note:/ Consider using 'beforeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcBeforeTime :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
-dcBeforeTime = Lens.lens (beforeTime :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {beforeTime = a} :: DescribeCases)
-{-# DEPRECATED dcBeforeTime "Use generic-lens or generic-optics with 'beforeTime' instead." #-}
+dBeforeTime :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
+dBeforeTime = Lens.lens (beforeTime :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {beforeTime = a} :: DescribeCases)
+{-# DEPRECATED dBeforeTime "Use generic-lens or generic-optics with 'beforeTime' instead." #-}
 
 -- | A resumption point for pagination.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcNextToken :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
-dcNextToken = Lens.lens (nextToken :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeCases)
-{-# DEPRECATED dcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dNextToken :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
+dNextToken = Lens.lens (nextToken :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeCases)
+{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specifies whether to include communications in the @DescribeCases@ response. By default, communications are incuded.
 --
 -- /Note:/ Consider using 'includeCommunications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcIncludeCommunications :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Bool)
-dcIncludeCommunications = Lens.lens (includeCommunications :: DescribeCases -> Lude.Maybe Lude.Bool) (\s a -> s {includeCommunications = a} :: DescribeCases)
-{-# DEPRECATED dcIncludeCommunications "Use generic-lens or generic-optics with 'includeCommunications' instead." #-}
+dIncludeCommunications :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Bool)
+dIncludeCommunications = Lens.lens (includeCommunications :: DescribeCases -> Lude.Maybe Lude.Bool) (\s a -> s {includeCommunications = a} :: DescribeCases)
+{-# DEPRECATED dIncludeCommunications "Use generic-lens or generic-optics with 'includeCommunications' instead." #-}
 
 -- | The ID displayed for a case in the AWS Support Center user interface.
 --
 -- /Note:/ Consider using 'displayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcDisplayId :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
-dcDisplayId = Lens.lens (displayId :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {displayId = a} :: DescribeCases)
-{-# DEPRECATED dcDisplayId "Use generic-lens or generic-optics with 'displayId' instead." #-}
+dDisplayId :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
+dDisplayId = Lens.lens (displayId :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {displayId = a} :: DescribeCases)
+{-# DEPRECATED dDisplayId "Use generic-lens or generic-optics with 'displayId' instead." #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 --
 -- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcLanguage :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
-dcLanguage = Lens.lens (language :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: DescribeCases)
-{-# DEPRECATED dcLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
+dLanguage :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Text)
+dLanguage = Lens.lens (language :: DescribeCases -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: DescribeCases)
+{-# DEPRECATED dLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
 -- | The maximum number of results to return before paginating.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcMaxResults :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Natural)
-dcMaxResults = Lens.lens (maxResults :: DescribeCases -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeCases)
-{-# DEPRECATED dcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dMaxResults :: Lens.Lens' DescribeCases (Lude.Maybe Lude.Natural)
+dMaxResults = Lens.lens (maxResults :: DescribeCases -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeCases)
+{-# DEPRECATED dMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeCases where
   page rq rs
@@ -177,7 +180,7 @@ instance Page.AWSPager DescribeCases where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dcNextToken Lens..~ rs Lens.^. drsNextToken
+          Lude.& dNextToken Lens..~ rs Lens.^. drsNextToken
 
 instance Lude.AWSRequest DescribeCases where
   type Rs DescribeCases = DescribeCasesResponse
@@ -228,18 +231,14 @@ instance Lude.ToQuery DescribeCases where
 --
 -- /See:/ 'mkDescribeCasesResponse' smart constructor.
 data DescribeCasesResponse = DescribeCasesResponse'
-  { cases ::
-      Lude.Maybe [CaseDetails],
+  { -- | The details for the cases that match the request.
+    cases :: Lude.Maybe [CaseDetails],
+    -- | A resumption point for pagination.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCasesResponse' with the minimum fields required to make a request.

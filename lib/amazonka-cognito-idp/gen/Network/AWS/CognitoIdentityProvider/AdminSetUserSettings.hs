@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,9 +43,11 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAdminSetUserSettings' smart constructor.
 data AdminSetUserSettings = AdminSetUserSettings'
-  { userPoolId ::
-      Lude.Text,
+  { -- | The ID of the user pool that contains the user that you are setting options for.
+    userPoolId :: Lude.Text,
+    -- | The user name of the user that you are setting options for.
     username :: Lude.Sensitive Lude.Text,
+    -- | You can use this parameter only to set an SMS configuration that uses SMS for delivery.
     mfaOptions :: [MFAOptionType]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -52,9 +55,9 @@ data AdminSetUserSettings = AdminSetUserSettings'
 
 -- | Creates a value of 'AdminSetUserSettings' with the minimum fields required to make a request.
 --
--- * 'mfaOptions' - You can use this parameter only to set an SMS configuration that uses SMS for delivery.
 -- * 'userPoolId' - The ID of the user pool that contains the user that you are setting options for.
 -- * 'username' - The user name of the user that you are setting options for.
+-- * 'mfaOptions' - You can use this parameter only to set an SMS configuration that uses SMS for delivery.
 mkAdminSetUserSettings ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -132,16 +135,10 @@ instance Lude.ToQuery AdminSetUserSettings where
 --
 -- /See:/ 'mkAdminSetUserSettingsResponse' smart constructor.
 newtype AdminSetUserSettingsResponse = AdminSetUserSettingsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminSetUserSettingsResponse' with the minimum fields required to make a request.

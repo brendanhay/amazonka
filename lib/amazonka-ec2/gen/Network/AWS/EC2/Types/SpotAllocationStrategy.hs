@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.SpotAllocationStrategy
   ( SpotAllocationStrategy
       ( SpotAllocationStrategy',
-        CapacityOptimized,
+        LowestPrice,
         Diversified,
-        LowestPrice
+        CapacityOptimized
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype SpotAllocationStrategy = SpotAllocationStrategy' Lude.Text
       Lude.ToHeader
     )
 
-pattern CapacityOptimized :: SpotAllocationStrategy
-pattern CapacityOptimized = SpotAllocationStrategy' "capacity-optimized"
+pattern LowestPrice :: SpotAllocationStrategy
+pattern LowestPrice = SpotAllocationStrategy' "lowest-price"
 
 pattern Diversified :: SpotAllocationStrategy
 pattern Diversified = SpotAllocationStrategy' "diversified"
 
-pattern LowestPrice :: SpotAllocationStrategy
-pattern LowestPrice = SpotAllocationStrategy' "lowest-price"
+pattern CapacityOptimized :: SpotAllocationStrategy
+pattern CapacityOptimized = SpotAllocationStrategy' "capacity-optimized"
 
 {-# COMPLETE
-  CapacityOptimized,
-  Diversified,
   LowestPrice,
+  Diversified,
+  CapacityOptimized,
   SpotAllocationStrategy'
   #-}

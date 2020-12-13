@@ -54,59 +54,63 @@ import Network.AWS.SageMaker.Types.UserContext
 --
 -- /See:/ 'mkTrialComponent' smart constructor.
 data TrialComponent = TrialComponent'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the component was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
     status :: Lude.Maybe TrialComponentStatus,
+    -- | Details of the source of the component.
     sourceDetail :: Lude.Maybe TrialComponentSourceDetail,
+    -- | The metrics for the component.
     metrics :: Lude.Maybe [TrialComponentMetricSummary],
-    outputArtifacts ::
-      Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)),
+    -- | The output artifacts of the component.
+    outputArtifacts :: Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)),
+    -- | When the component started.
     startTime :: Lude.Maybe Lude.Timestamp,
     createdBy :: Lude.Maybe UserContext,
+    -- | When the component was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | An array of the parents of the component. A parent is a trial the component is associated with and the experiment the trial is part of. A component might not have any parents.
     parents :: Lude.Maybe [Parent],
+    -- | When the component ended.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the trial component.
     trialComponentName :: Lude.Maybe Lude.Text,
-    parameters ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (TrialComponentParameterValue)),
+    -- | The hyperparameters of the component.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentParameterValue)),
+    -- | The Amazon Resource Name (ARN) and job type of the source of the component.
     source :: Lude.Maybe TrialComponentSource,
+    -- | The name of the component as displayed. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
     displayName :: Lude.Maybe Lude.Text,
     lastModifiedBy :: Lude.Maybe UserContext,
+    -- | The Amazon Resource Name (ARN) of the trial component.
     trialComponentARN :: Lude.Maybe Lude.Text,
-    inputArtifacts ::
-      Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)),
+    -- | The input artifacts of the component.
+    inputArtifacts :: Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)),
+    -- | The list of tags that are associated with the component. You can use 'Search' API to search on the tags.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponent' with the minimum fields required to make a request.
 --
--- * 'createdBy' - Undocumented field.
 -- * 'creationTime' - When the component was created.
--- * 'displayName' - The name of the component as displayed. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
--- * 'endTime' - When the component ended.
--- * 'inputArtifacts' - The input artifacts of the component.
--- * 'lastModifiedBy' - Undocumented field.
--- * 'lastModifiedTime' - When the component was last modified.
+-- * 'status' -
+-- * 'sourceDetail' - Details of the source of the component.
 -- * 'metrics' - The metrics for the component.
 -- * 'outputArtifacts' - The output artifacts of the component.
--- * 'parameters' - The hyperparameters of the component.
--- * 'parents' - An array of the parents of the component. A parent is a trial the component is associated with and the experiment the trial is part of. A component might not have any parents.
--- * 'source' - The Amazon Resource Name (ARN) and job type of the source of the component.
--- * 'sourceDetail' - Details of the source of the component.
 -- * 'startTime' - When the component started.
--- * 'status' - Undocumented field.
--- * 'tags' - The list of tags that are associated with the component. You can use 'Search' API to search on the tags.
--- * 'trialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
+-- * 'createdBy' -
+-- * 'lastModifiedTime' - When the component was last modified.
+-- * 'parents' - An array of the parents of the component. A parent is a trial the component is associated with and the experiment the trial is part of. A component might not have any parents.
+-- * 'endTime' - When the component ended.
 -- * 'trialComponentName' - The name of the trial component.
+-- * 'parameters' - The hyperparameters of the component.
+-- * 'source' - The Amazon Resource Name (ARN) and job type of the source of the component.
+-- * 'displayName' - The name of the component as displayed. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
+-- * 'lastModifiedBy' -
+-- * 'trialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
+-- * 'inputArtifacts' - The input artifacts of the component.
+-- * 'tags' - The list of tags that are associated with the component. You can use 'Search' API to search on the tags.
 mkTrialComponent ::
   TrialComponent
 mkTrialComponent =

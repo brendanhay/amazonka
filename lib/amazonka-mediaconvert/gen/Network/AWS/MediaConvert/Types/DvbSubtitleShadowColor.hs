@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor
   ( DvbSubtitleShadowColor
       ( DvbSubtitleShadowColor',
-        DSSCBlack,
         DSSCNone,
+        DSSCBlack,
         DSSCWhite
       ),
   )
@@ -49,18 +49,18 @@ newtype DvbSubtitleShadowColor = DvbSubtitleShadowColor' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSSCBlack :: DvbSubtitleShadowColor
-pattern DSSCBlack = DvbSubtitleShadowColor' "BLACK"
-
 pattern DSSCNone :: DvbSubtitleShadowColor
 pattern DSSCNone = DvbSubtitleShadowColor' "NONE"
+
+pattern DSSCBlack :: DvbSubtitleShadowColor
+pattern DSSCBlack = DvbSubtitleShadowColor' "BLACK"
 
 pattern DSSCWhite :: DvbSubtitleShadowColor
 pattern DSSCWhite = DvbSubtitleShadowColor' "WHITE"
 
 {-# COMPLETE
-  DSSCBlack,
   DSSCNone,
+  DSSCBlack,
   DSSCWhite,
   DvbSubtitleShadowColor'
   #-}

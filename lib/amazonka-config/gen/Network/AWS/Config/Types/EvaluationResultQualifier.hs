@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvaluationResultQualifier' smart constructor.
 data EvaluationResultQualifier = EvaluationResultQualifier'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the evaluated AWS resource.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of AWS resource that was evaluated.
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The name of the AWS Config rule that was used in the evaluation.
     configRuleName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluationResultQualifier' with the minimum fields required to make a request.
 --
--- * 'configRuleName' - The name of the AWS Config rule that was used in the evaluation.
 -- * 'resourceId' - The ID of the evaluated AWS resource.
 -- * 'resourceType' - The type of AWS resource that was evaluated.
+-- * 'configRuleName' - The name of the AWS Config rule that was used in the evaluation.
 mkEvaluationResultQualifier ::
   EvaluationResultQualifier
 mkEvaluationResultQualifier =

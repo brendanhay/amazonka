@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,27 +43,21 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkListActivatedRulesInRuleGroup' smart constructor.
 data ListActivatedRulesInRuleGroup = ListActivatedRulesInRuleGroup'
-  { ruleGroupId ::
-      Lude.Maybe Lude.Text,
-    nextMarker ::
-      Lude.Maybe Lude.Text,
-    limit ::
-      Lude.Maybe Lude.Natural
+  { -- | The @RuleGroupId@ of the 'RuleGroup' for which you want to get a list of 'ActivatedRule' objects.
+    ruleGroupId :: Lude.Maybe Lude.Text,
+    -- | If you specify a value for @Limit@ and you have more @ActivatedRules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ActivatedRules@ . For the second and subsequent @ListActivatedRulesInRuleGroup@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ActivatedRules@ .
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return for this request. If you have more @ActivatedRules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ActivatedRules@ .
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActivatedRulesInRuleGroup' with the minimum fields required to make a request.
 --
--- * 'limit' - Specifies the number of @ActivatedRules@ that you want AWS WAF to return for this request. If you have more @ActivatedRules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ActivatedRules@ .
--- * 'nextMarker' - If you specify a value for @Limit@ and you have more @ActivatedRules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ActivatedRules@ . For the second and subsequent @ListActivatedRulesInRuleGroup@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ActivatedRules@ .
 -- * 'ruleGroupId' - The @RuleGroupId@ of the 'RuleGroup' for which you want to get a list of 'ActivatedRule' objects.
+-- * 'nextMarker' - If you specify a value for @Limit@ and you have more @ActivatedRules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ActivatedRules@ . For the second and subsequent @ListActivatedRulesInRuleGroup@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ActivatedRules@ .
+-- * 'limit' - Specifies the number of @ActivatedRules@ that you want AWS WAF to return for this request. If you have more @ActivatedRules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ActivatedRules@ .
 mkListActivatedRulesInRuleGroup ::
   ListActivatedRulesInRuleGroup
 mkListActivatedRulesInRuleGroup =
@@ -138,28 +133,20 @@ instance Lude.ToQuery ListActivatedRulesInRuleGroup where
 
 -- | /See:/ 'mkListActivatedRulesInRuleGroupResponse' smart constructor.
 data ListActivatedRulesInRuleGroupResponse = ListActivatedRulesInRuleGroupResponse'
-  { nextMarker ::
-      Lude.Maybe
-        Lude.Text,
-    activatedRules ::
-      Lude.Maybe
-        [ActivatedRule],
-    responseStatus ::
-      Lude.Int
+  { -- | If you have more @ActivatedRules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ActivatedRules@ , submit another @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | An array of @ActivatedRules@ objects.
+    activatedRules :: Lude.Maybe [ActivatedRule],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActivatedRulesInRuleGroupResponse' with the minimum fields required to make a request.
 --
--- * 'activatedRules' - An array of @ActivatedRules@ objects.
 -- * 'nextMarker' - If you have more @ActivatedRules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ActivatedRules@ , submit another @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+-- * 'activatedRules' - An array of @ActivatedRules@ objects.
 -- * 'responseStatus' - The response status code.
 mkListActivatedRulesInRuleGroupResponse ::
   -- | 'responseStatus'

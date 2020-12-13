@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MediaLive.UpdateChannelClass
     mkUpdateChannelClass,
 
     -- ** Request lenses
-    uccDestinations,
     uccChannelId,
+    uccDestinations,
     uccChannelClass,
 
     -- * Destructuring the response
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateChannelClass' smart constructor.
 data UpdateChannelClass = UpdateChannelClass'
-  { destinations ::
-      Lude.Maybe [OutputDestination],
+  { -- | Channel Id of the channel whose class should be updated.
     channelId :: Lude.Text,
+    -- | A list of output destinations for this channel.
+    destinations :: Lude.Maybe [OutputDestination],
+    -- | The channel class that you wish to update this channel to use.
     channelClass :: ChannelClass
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannelClass' with the minimum fields required to make a request.
 --
--- * 'channelClass' - The channel class that you wish to update this channel to use.
 -- * 'channelId' - Channel Id of the channel whose class should be updated.
 -- * 'destinations' - A list of output destinations for this channel.
+-- * 'channelClass' - The channel class that you wish to update this channel to use.
 mkUpdateChannelClass ::
   -- | 'channelId'
   Lude.Text ->
@@ -70,17 +67,10 @@ mkUpdateChannelClass ::
   UpdateChannelClass
 mkUpdateChannelClass pChannelId_ pChannelClass_ =
   UpdateChannelClass'
-    { destinations = Lude.Nothing,
-      channelId = pChannelId_,
+    { channelId = pChannelId_,
+      destinations = Lude.Nothing,
       channelClass = pChannelClass_
     }
-
--- | A list of output destinations for this channel.
---
--- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccDestinations :: Lens.Lens' UpdateChannelClass (Lude.Maybe [OutputDestination])
-uccDestinations = Lens.lens (destinations :: UpdateChannelClass -> Lude.Maybe [OutputDestination]) (\s a -> s {destinations = a} :: UpdateChannelClass)
-{-# DEPRECATED uccDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | Channel Id of the channel whose class should be updated.
 --
@@ -88,6 +78,13 @@ uccDestinations = Lens.lens (destinations :: UpdateChannelClass -> Lude.Maybe [O
 uccChannelId :: Lens.Lens' UpdateChannelClass Lude.Text
 uccChannelId = Lens.lens (channelId :: UpdateChannelClass -> Lude.Text) (\s a -> s {channelId = a} :: UpdateChannelClass)
 {-# DEPRECATED uccChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
+
+-- | A list of output destinations for this channel.
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccDestinations :: Lens.Lens' UpdateChannelClass (Lude.Maybe [OutputDestination])
+uccDestinations = Lens.lens (destinations :: UpdateChannelClass -> Lude.Maybe [OutputDestination]) (\s a -> s {destinations = a} :: UpdateChannelClass)
+{-# DEPRECATED uccDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The channel class that you wish to update this channel to use.
 --
@@ -136,22 +133,16 @@ instance Lude.ToQuery UpdateChannelClass where
 --
 -- /See:/ 'mkUpdateChannelClassResponse' smart constructor.
 data UpdateChannelClassResponse = UpdateChannelClassResponse'
-  { channel ::
-      Lude.Maybe Channel,
+  { channel :: Lude.Maybe Channel,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannelClassResponse' with the minimum fields required to make a request.
 --
--- * 'channel' - Undocumented field.
+-- * 'channel' -
 -- * 'responseStatus' - The response status code.
 mkUpdateChannelClassResponse ::
   -- | 'responseStatus'

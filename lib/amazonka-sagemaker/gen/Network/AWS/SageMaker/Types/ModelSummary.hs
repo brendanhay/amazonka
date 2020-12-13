@@ -17,9 +17,9 @@ module Network.AWS.SageMaker.Types.ModelSummary
     mkModelSummary,
 
     -- * Lenses
-    msModelName,
-    msModelARN,
     msCreationTime,
+    msModelARN,
+    msModelName,
   )
 where
 
@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkModelSummary' smart constructor.
 data ModelSummary = ModelSummary'
-  { modelName :: Lude.Text,
+  { -- | A timestamp that indicates when the model was created.
+    creationTime :: Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the model.
     modelARN :: Lude.Text,
-    creationTime :: Lude.Timestamp
+    -- | The name of the model that you want a summary for.
+    modelName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelSummary' with the minimum fields required to make a request.
@@ -49,33 +46,19 @@ data ModelSummary = ModelSummary'
 -- * 'modelARN' - The Amazon Resource Name (ARN) of the model.
 -- * 'modelName' - The name of the model that you want a summary for.
 mkModelSummary ::
-  -- | 'modelName'
-  Lude.Text ->
-  -- | 'modelARN'
-  Lude.Text ->
   -- | 'creationTime'
   Lude.Timestamp ->
+  -- | 'modelARN'
+  Lude.Text ->
+  -- | 'modelName'
+  Lude.Text ->
   ModelSummary
-mkModelSummary pModelName_ pModelARN_ pCreationTime_ =
+mkModelSummary pCreationTime_ pModelARN_ pModelName_ =
   ModelSummary'
-    { modelName = pModelName_,
+    { creationTime = pCreationTime_,
       modelARN = pModelARN_,
-      creationTime = pCreationTime_
+      modelName = pModelName_
     }
-
--- | The name of the model that you want a summary for.
---
--- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msModelName :: Lens.Lens' ModelSummary Lude.Text
-msModelName = Lens.lens (modelName :: ModelSummary -> Lude.Text) (\s a -> s {modelName = a} :: ModelSummary)
-{-# DEPRECATED msModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the model.
---
--- /Note:/ Consider using 'modelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msModelARN :: Lens.Lens' ModelSummary Lude.Text
-msModelARN = Lens.lens (modelARN :: ModelSummary -> Lude.Text) (\s a -> s {modelARN = a} :: ModelSummary)
-{-# DEPRECATED msModelARN "Use generic-lens or generic-optics with 'modelARN' instead." #-}
 
 -- | A timestamp that indicates when the model was created.
 --
@@ -84,13 +67,27 @@ msCreationTime :: Lens.Lens' ModelSummary Lude.Timestamp
 msCreationTime = Lens.lens (creationTime :: ModelSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: ModelSummary)
 {-# DEPRECATED msCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
+-- | The Amazon Resource Name (ARN) of the model.
+--
+-- /Note:/ Consider using 'modelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msModelARN :: Lens.Lens' ModelSummary Lude.Text
+msModelARN = Lens.lens (modelARN :: ModelSummary -> Lude.Text) (\s a -> s {modelARN = a} :: ModelSummary)
+{-# DEPRECATED msModelARN "Use generic-lens or generic-optics with 'modelARN' instead." #-}
+
+-- | The name of the model that you want a summary for.
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msModelName :: Lens.Lens' ModelSummary Lude.Text
+msModelName = Lens.lens (modelName :: ModelSummary -> Lude.Text) (\s a -> s {modelName = a} :: ModelSummary)
+{-# DEPRECATED msModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
+
 instance Lude.FromJSON ModelSummary where
   parseJSON =
     Lude.withObject
       "ModelSummary"
       ( \x ->
           ModelSummary'
-            Lude.<$> (x Lude..: "ModelName")
+            Lude.<$> (x Lude..: "CreationTime")
             Lude.<*> (x Lude..: "ModelArn")
-            Lude.<*> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..: "ModelName")
       )

@@ -50,52 +50,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCluster' smart constructor.
 data Cluster = Cluster'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The current status of the cluster.
+    status :: Lude.Maybe Lude.Text,
+    -- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
     iamRoleARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
     clusterARN :: Lude.Maybe Lude.Text,
+    -- | The number of nodes in the cluster that are active (i.e., capable of serving requests).
     activeNodes :: Lude.Maybe Lude.Int,
+    -- | A list of security groups, and the status of each, for the nodes in the cluster.
     securityGroups :: Lude.Maybe [SecurityGroupMembership],
+    -- | Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).
     notificationConfiguration :: Lude.Maybe NotificationConfiguration,
+    -- | A list of nodes to be removed from the cluster.
     nodeIdsToRemove :: Lude.Maybe [Lude.Text],
+    -- | The total number of nodes in the cluster.
     totalNodes :: Lude.Maybe Lude.Int,
+    -- | A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The subnet group where the DAX cluster is running.
     subnetGroup :: Lude.Maybe Lude.Text,
+    -- | The name of the DAX cluster.
     clusterName :: Lude.Maybe Lude.Text,
+    -- | The node type for the nodes in the cluster. (All nodes in a DAX cluster are of the same type.)
     nodeType :: Lude.Maybe Lude.Text,
+    -- | A list of nodes that are currently in the cluster.
     nodes :: Lude.Maybe [Node],
+    -- | The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
     clusterDiscoveryEndpoint :: Lude.Maybe Endpoint,
+    -- | The description of the server-side encryption status on the specified DAX cluster.
     sSEDescription :: Lude.Maybe SSEDescription,
+    -- | The description of the cluster.
     description :: Lude.Maybe Lude.Text,
+    -- | The parameter group being used by nodes in the cluster.
     parameterGroup :: Lude.Maybe ParameterGroupStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
--- * 'activeNodes' - The number of nodes in the cluster that are active (i.e., capable of serving requests).
--- * 'clusterARN' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.
--- * 'clusterDiscoveryEndpoint' - The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
--- * 'clusterName' - The name of the DAX cluster.
--- * 'description' - The description of the cluster.
+-- * 'status' - The current status of the cluster.
 -- * 'iamRoleARN' - A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+-- * 'clusterARN' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+-- * 'activeNodes' - The number of nodes in the cluster that are active (i.e., capable of serving requests).
+-- * 'securityGroups' - A list of security groups, and the status of each, for the nodes in the cluster.
+-- * 'notificationConfiguration' - Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).
 -- * 'nodeIdsToRemove' - A list of nodes to be removed from the cluster.
+-- * 'totalNodes' - The total number of nodes in the cluster.
+-- * 'preferredMaintenanceWindow' - A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
+-- * 'subnetGroup' - The subnet group where the DAX cluster is running.
+-- * 'clusterName' - The name of the DAX cluster.
 -- * 'nodeType' - The node type for the nodes in the cluster. (All nodes in a DAX cluster are of the same type.)
 -- * 'nodes' - A list of nodes that are currently in the cluster.
--- * 'notificationConfiguration' - Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).
--- * 'parameterGroup' - The parameter group being used by nodes in the cluster.
--- * 'preferredMaintenanceWindow' - A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
+-- * 'clusterDiscoveryEndpoint' - The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
 -- * 'sSEDescription' - The description of the server-side encryption status on the specified DAX cluster.
--- * 'securityGroups' - A list of security groups, and the status of each, for the nodes in the cluster.
--- * 'status' - The current status of the cluster.
--- * 'subnetGroup' - The subnet group where the DAX cluster is running.
--- * 'totalNodes' - The total number of nodes in the cluster.
+-- * 'description' - The description of the cluster.
+-- * 'parameterGroup' - The parameter group being used by nodes in the cluster.
 mkCluster ::
   Cluster
 mkCluster =

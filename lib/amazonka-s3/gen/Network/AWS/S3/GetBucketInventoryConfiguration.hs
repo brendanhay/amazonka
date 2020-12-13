@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.S3.GetBucketInventoryConfiguration
     mkGetBucketInventoryConfiguration,
 
     -- ** Request lenses
-    gbicExpectedBucketOwner,
     gbicBucket,
     gbicId,
+    gbicExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketInventoryConfigurationResponse (..),
@@ -53,25 +54,21 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketInventoryConfiguration' smart constructor.
 data GetBucketInventoryConfiguration = GetBucketInventoryConfiguration'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the bucket containing the inventory configuration to retrieve.
     bucket :: BucketName,
-    id :: Lude.Text
+    -- | The ID used to identify the inventory configuration.
+    id :: Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketInventoryConfiguration' with the minimum fields required to make a request.
 --
 -- * 'bucket' - The name of the bucket containing the inventory configuration to retrieve.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 -- * 'id' - The ID used to identify the inventory configuration.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkGetBucketInventoryConfiguration ::
   -- | 'bucket'
   BucketName ->
@@ -80,18 +77,10 @@ mkGetBucketInventoryConfiguration ::
   GetBucketInventoryConfiguration
 mkGetBucketInventoryConfiguration pBucket_ pId_ =
   GetBucketInventoryConfiguration'
-    { expectedBucketOwner =
-        Lude.Nothing,
-      bucket = pBucket_,
-      id = pId_
+    { bucket = pBucket_,
+      id = pId_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbicExpectedBucketOwner :: Lens.Lens' GetBucketInventoryConfiguration (Lude.Maybe Lude.Text)
-gbicExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketInventoryConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketInventoryConfiguration)
-{-# DEPRECATED gbicExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket containing the inventory configuration to retrieve.
 --
@@ -106,6 +95,13 @@ gbicBucket = Lens.lens (bucket :: GetBucketInventoryConfiguration -> BucketName)
 gbicId :: Lens.Lens' GetBucketInventoryConfiguration Lude.Text
 gbicId = Lens.lens (id :: GetBucketInventoryConfiguration -> Lude.Text) (\s a -> s {id = a} :: GetBucketInventoryConfiguration)
 {-# DEPRECATED gbicId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbicExpectedBucketOwner :: Lens.Lens' GetBucketInventoryConfiguration (Lude.Maybe Lude.Text)
+gbicExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketInventoryConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketInventoryConfiguration)
+{-# DEPRECATED gbicExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetBucketInventoryConfiguration where
   type
@@ -134,18 +130,12 @@ instance Lude.ToQuery GetBucketInventoryConfiguration where
 
 -- | /See:/ 'mkGetBucketInventoryConfigurationResponse' smart constructor.
 data GetBucketInventoryConfigurationResponse = GetBucketInventoryConfigurationResponse'
-  { inventoryConfiguration ::
-      Lude.Maybe
-        InventoryConfiguration,
-    responseStatus ::
-      Lude.Int
+  { -- | Specifies the inventory configuration.
+    inventoryConfiguration :: Lude.Maybe InventoryConfiguration,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketInventoryConfigurationResponse' with the minimum fields required to make a request.

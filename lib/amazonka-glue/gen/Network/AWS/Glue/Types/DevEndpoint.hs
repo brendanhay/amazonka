@@ -53,43 +53,105 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDevEndpoint' smart constructor.
 data DevEndpoint = DevEndpoint'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The current status of this @DevEndpoint@ .
+    status :: Lude.Maybe Lude.Text,
+    -- | The reason for a current failure in this @DevEndpoint@ .
     failureReason :: Lude.Maybe Lude.Text,
+    -- | The name of the @DevEndpoint@ .
     endpointName :: Lude.Maybe Lude.Text,
+    -- | The number of workers of a defined @workerType@ that are allocated to the development endpoint.
+    --
+    -- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
     numberOfWorkers :: Lude.Maybe Lude.Int,
+    -- | The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
     extraPythonLibsS3Path :: Lude.Maybe Lude.Text,
+    -- | The status of the last update.
     lastUpdateStatus :: Lude.Maybe Lude.Text,
+    -- | A list of security group identifiers used in this @DevEndpoint@ .
     securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The point in time at which this @DevEndpoint@ was last modified.
     lastModifiedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | A list of public keys to be used by the @DevEndpoints@ for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
     publicKeys :: Lude.Maybe [Lude.Text],
+    -- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
     vpcId :: Lude.Maybe Lude.Text,
+    -- | A map of arguments used to configure the @DevEndpoint@ .
+    --
+    -- Valid arguments are:
+    --
+    --     * @"--enable-glue-datacatalog": ""@
+    --
+    --
+    --     * @"GLUE_PYTHON_VERSION": "3"@
+    --
+    --
+    --     * @"GLUE_PYTHON_VERSION": "2"@
+    --
+    --
+    -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
     arguments :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A private IP address to access the @DevEndpoint@ within a VPC if the @DevEndpoint@ is created within one. The @PrivateAddress@ field is present only when you create the @DevEndpoint@ within your VPC.
     privateAddress :: Lude.Maybe Lude.Text,
+    -- | The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.
+    --
+    --
+    --     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+    --
+    --
+    --     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+    --
+    --
+    --     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+    --
+    --
+    -- Known issue: when a development endpoint is created with the @G.2X@ @WorkerType@ configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
     workerType :: Lude.Maybe WorkerType,
+    -- | The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
     securityConfiguration :: Lude.Maybe Lude.Text,
+    -- | The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
     publicKey :: Lude.Maybe Lude.Text,
+    -- | The subnet ID for this @DevEndpoint@ .
     subnetId :: Lude.Maybe Lude.Text,
+    -- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
+    --
+    -- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+    -- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
+    -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
     glueVersion :: Lude.Maybe Lude.Text,
+    -- | The number of AWS Glue Data Processing Units (DPUs) allocated to this @DevEndpoint@ .
     numberOfNodes :: Lude.Maybe Lude.Int,
+    -- | The public IP address used by this @DevEndpoint@ . The @PublicAddress@ field is present only when you create a non-virtual private cloud (VPC) @DevEndpoint@ .
     publicAddress :: Lude.Maybe Lude.Text,
+    -- | The AWS Availability Zone where this @DevEndpoint@ is located.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The Apache Zeppelin port for the remote Apache Spark interpreter.
     zeppelinRemoteSparkInterpreterPort :: Lude.Maybe Lude.Int,
+    -- | The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
     extraJARsS3Path :: Lude.Maybe Lude.Text,
+    -- | The point in time at which this DevEndpoint was created.
     createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The YARN endpoint address used by this @DevEndpoint@ .
     yarnEndpointAddress :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role used in this @DevEndpoint@ .
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DevEndpoint' with the minimum fields required to make a request.
 --
+-- * 'status' - The current status of this @DevEndpoint@ .
+-- * 'failureReason' - The reason for a current failure in this @DevEndpoint@ .
+-- * 'endpointName' - The name of the @DevEndpoint@ .
+-- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to the development endpoint.
+--
+-- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
+-- * 'extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
+-- * 'lastUpdateStatus' - The status of the last update.
+-- * 'securityGroupIds' - A list of security group identifiers used in this @DevEndpoint@ .
+-- * 'lastModifiedTimestamp' - The point in time at which this @DevEndpoint@ was last modified.
+-- * 'publicKeys' - A list of public keys to be used by the @DevEndpoints@ for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
+-- * 'vpcId' - The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
 -- * 'arguments' - A map of arguments used to configure the @DevEndpoint@ .
 --
 -- Valid arguments are:
@@ -104,33 +166,7 @@ data DevEndpoint = DevEndpoint'
 --
 --
 -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
--- * 'availabilityZone' - The AWS Availability Zone where this @DevEndpoint@ is located.
--- * 'createdTimestamp' - The point in time at which this DevEndpoint was created.
--- * 'endpointName' - The name of the @DevEndpoint@ .
--- * 'extraJARsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
--- * 'extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
--- * 'failureReason' - The reason for a current failure in this @DevEndpoint@ .
--- * 'glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
---
--- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
--- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
--- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
--- * 'lastModifiedTimestamp' - The point in time at which this @DevEndpoint@ was last modified.
--- * 'lastUpdateStatus' - The status of the last update.
--- * 'numberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) allocated to this @DevEndpoint@ .
--- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to the development endpoint.
---
--- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
 -- * 'privateAddress' - A private IP address to access the @DevEndpoint@ within a VPC if the @DevEndpoint@ is created within one. The @PrivateAddress@ field is present only when you create the @DevEndpoint@ within your VPC.
--- * 'publicAddress' - The public IP address used by this @DevEndpoint@ . The @PublicAddress@ field is present only when you create a non-virtual private cloud (VPC) @DevEndpoint@ .
--- * 'publicKey' - The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
--- * 'publicKeys' - A list of public keys to be used by the @DevEndpoints@ for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role used in this @DevEndpoint@ .
--- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
--- * 'securityGroupIds' - A list of security group identifiers used in this @DevEndpoint@ .
--- * 'status' - The current status of this @DevEndpoint@ .
--- * 'subnetId' - The subnet ID for this @DevEndpoint@ .
--- * 'vpcId' - The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
 -- * 'workerType' - The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.
 --
 --
@@ -144,8 +180,22 @@ data DevEndpoint = DevEndpoint'
 --
 --
 -- Known issue: when a development endpoint is created with the @G.2X@ @WorkerType@ configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
--- * 'yarnEndpointAddress' - The YARN endpoint address used by this @DevEndpoint@ .
+-- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
+-- * 'publicKey' - The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
+-- * 'subnetId' - The subnet ID for this @DevEndpoint@ .
+-- * 'glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
+--
+-- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+-- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
+-- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
+-- * 'numberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) allocated to this @DevEndpoint@ .
+-- * 'publicAddress' - The public IP address used by this @DevEndpoint@ . The @PublicAddress@ field is present only when you create a non-virtual private cloud (VPC) @DevEndpoint@ .
+-- * 'availabilityZone' - The AWS Availability Zone where this @DevEndpoint@ is located.
 -- * 'zeppelinRemoteSparkInterpreterPort' - The Apache Zeppelin port for the remote Apache Spark interpreter.
+-- * 'extraJARsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
+-- * 'createdTimestamp' - The point in time at which this DevEndpoint was created.
+-- * 'yarnEndpointAddress' - The YARN endpoint address used by this @DevEndpoint@ .
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role used in this @DevEndpoint@ .
 mkDevEndpoint ::
   DevEndpoint
 mkDevEndpoint =

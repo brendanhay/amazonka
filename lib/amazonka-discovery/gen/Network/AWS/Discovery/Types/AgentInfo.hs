@@ -39,38 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAgentInfo' smart constructor.
 data AgentInfo = AgentInfo'
-  { hostName :: Lude.Maybe Lude.Text,
+  { -- | The name of the host where the agent or connector resides. The host can be a server or virtual machine.
+    hostName :: Lude.Maybe Lude.Text,
+    -- | Time since agent or connector health was reported.
     lastHealthPingTime :: Lude.Maybe Lude.Text,
+    -- | Network details about the host where the agent or connector resides.
     agentNetworkInfoList :: Lude.Maybe [AgentNetworkInfo],
+    -- | The ID of the connector.
     connectorId :: Lude.Maybe Lude.Text,
+    -- | The health of the agent or connector.
     health :: Lude.Maybe AgentStatus,
+    -- | The agent or connector ID.
     agentId :: Lude.Maybe Lude.Text,
+    -- | The agent or connector version.
     version :: Lude.Maybe Lude.Text,
+    -- | Status of the collection process for an agent or connector.
     collectionStatus :: Lude.Maybe Lude.Text,
+    -- | Agent's first registration timestamp in UTC.
     registeredTime :: Lude.Maybe Lude.Text,
+    -- | Type of agent.
     agentType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AgentInfo' with the minimum fields required to make a request.
 --
--- * 'agentId' - The agent or connector ID.
--- * 'agentNetworkInfoList' - Network details about the host where the agent or connector resides.
--- * 'agentType' - Type of agent.
--- * 'collectionStatus' - Status of the collection process for an agent or connector.
--- * 'connectorId' - The ID of the connector.
--- * 'health' - The health of the agent or connector.
 -- * 'hostName' - The name of the host where the agent or connector resides. The host can be a server or virtual machine.
 -- * 'lastHealthPingTime' - Time since agent or connector health was reported.
--- * 'registeredTime' - Agent's first registration timestamp in UTC.
+-- * 'agentNetworkInfoList' - Network details about the host where the agent or connector resides.
+-- * 'connectorId' - The ID of the connector.
+-- * 'health' - The health of the agent or connector.
+-- * 'agentId' - The agent or connector ID.
 -- * 'version' - The agent or connector version.
+-- * 'collectionStatus' - Status of the collection process for an agent or connector.
+-- * 'registeredTime' - Agent's first registration timestamp in UTC.
+-- * 'agentType' - Type of agent.
 mkAgentInfo ::
   AgentInfo
 mkAgentInfo =

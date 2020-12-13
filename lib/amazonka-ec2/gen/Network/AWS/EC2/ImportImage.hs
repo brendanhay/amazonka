@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +20,20 @@ module Network.AWS.EC2.ImportImage
     mkImportImage,
 
     -- ** Request lenses
-    impHypervisor,
-    impPlatform,
-    impClientToken,
-    impLicenseSpecifications,
-    impLicenseType,
-    impRoleName,
-    impEncrypted,
-    impTagSpecifications,
-    impKMSKeyId,
-    impArchitecture,
-    impDescription,
-    impDryRun,
-    impClientData,
-    impDiskContainers,
+    iifHypervisor,
+    iifPlatform,
+    iifClientToken,
+    iifLicenseSpecifications,
+    iifLicenseType,
+    iifRoleName,
+    iifEncrypted,
+    iifTagSpecifications,
+    iifKMSKeyId,
+    iifArchitecture,
+    iifDescription,
+    iifDryRun,
+    iifClientData,
+    iifDiskContainers,
 
     -- * Destructuring the response
     ImportImageResponse (..),
@@ -66,45 +67,82 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkImportImage' smart constructor.
 data ImportImage = ImportImage'
-  { hypervisor :: Lude.Maybe Lude.Text,
+  { -- | The target hypervisor platform.
+    --
+    -- Valid values: @xen@
+    hypervisor :: Lude.Maybe Lude.Text,
+    -- | The operating system of the virtual machine.
+    --
+    -- Valid values: @Windows@ | @Linux@
     platform :: Lude.Maybe Lude.Text,
+    -- | The token to enable idempotency for VM import requests.
     clientToken :: Lude.Maybe Lude.Text,
-    licenseSpecifications ::
-      Lude.Maybe [ImportImageLicenseConfigurationRequest],
+    -- | The ARNs of the license configurations.
+    licenseSpecifications :: Lude.Maybe [ImportImageLicenseConfigurationRequest],
+    -- | The license type to be used for the Amazon Machine Image (AMI) after importing.
+    --
+    -- By default, we detect the source-system operating system (OS) and apply the appropriate license. Specify @AWS@ to replace the source-system license with an AWS license, if appropriate. Specify @BYOL@ to retain the source-system license, if appropriate.
+    -- To use @BYOL@ , you must have existing licenses with rights to use these licenses in a third party cloud, such as AWS. For more information, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide.
     licenseType :: Lude.Maybe Lude.Text,
+    -- | The name of the role to use when not using the default role, 'vmimport'.
     roleName :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the destination AMI of the imported image should be encrypted. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The tags to apply to the image being imported.
     tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
+    --
+    -- The CMK identifier may be provided in any of the following formats:
+    --
+    --     * Key ID
+    --
+    --
+    --     * Key alias. The alias ARN contains the @arn:aws:kms@ namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the @alias@ namespace, and then the CMK alias. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :alias//ExampleAlias/ .
+    --
+    --
+    --     * ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ .
+    --
+    --
+    --     * ARN using key alias. The alias ARN contains the @arn:aws:kms@ namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the @alias@ namespace, and then the CMK alias. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :alias//ExampleAlias/ .
+    --
+    --
+    -- AWS parses @KmsKeyId@ asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure.
+    -- The specified CMK must exist in the Region that the AMI is being copied to.
+    -- Amazon EBS does not support asymmetric CMKs.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The architecture of the virtual machine.
+    --
+    -- Valid values: @i386@ | @x86_64@ | @arm64@
     architecture :: Lude.Maybe Lude.Text,
+    -- | A description string for the import image task.
     description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The client-specific data.
     clientData :: Lude.Maybe ClientData,
+    -- | Information about the disk containers.
     diskContainers :: Lude.Maybe [ImageDiskContainer]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportImage' with the minimum fields required to make a request.
 --
--- * 'architecture' - The architecture of the virtual machine.
---
--- Valid values: @i386@ | @x86_64@ | @arm64@
--- * 'clientData' - The client-specific data.
--- * 'clientToken' - The token to enable idempotency for VM import requests.
--- * 'description' - A description string for the import image task.
--- * 'diskContainers' - Information about the disk containers.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'encrypted' - Specifies whether the destination AMI of the imported image should be encrypted. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- * 'hypervisor' - The target hypervisor platform.
 --
 -- Valid values: @xen@
+-- * 'platform' - The operating system of the virtual machine.
+--
+-- Valid values: @Windows@ | @Linux@
+-- * 'clientToken' - The token to enable idempotency for VM import requests.
+-- * 'licenseSpecifications' - The ARNs of the license configurations.
+-- * 'licenseType' - The license type to be used for the Amazon Machine Image (AMI) after importing.
+--
+-- By default, we detect the source-system operating system (OS) and apply the appropriate license. Specify @AWS@ to replace the source-system license with an AWS license, if appropriate. Specify @BYOL@ to retain the source-system license, if appropriate.
+-- To use @BYOL@ , you must have existing licenses with rights to use these licenses in a third party cloud, such as AWS. For more information, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide.
+-- * 'roleName' - The name of the role to use when not using the default role, 'vmimport'.
+-- * 'encrypted' - Specifies whether the destination AMI of the imported image should be encrypted. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'tagSpecifications' - The tags to apply to the image being imported.
 -- * 'kmsKeyId' - An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
 --
 -- The CMK identifier may be provided in any of the following formats:
@@ -124,16 +162,13 @@ data ImportImage = ImportImage'
 -- AWS parses @KmsKeyId@ asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure.
 -- The specified CMK must exist in the Region that the AMI is being copied to.
 -- Amazon EBS does not support asymmetric CMKs.
--- * 'licenseSpecifications' - The ARNs of the license configurations.
--- * 'licenseType' - The license type to be used for the Amazon Machine Image (AMI) after importing.
+-- * 'architecture' - The architecture of the virtual machine.
 --
--- By default, we detect the source-system operating system (OS) and apply the appropriate license. Specify @AWS@ to replace the source-system license with an AWS license, if appropriate. Specify @BYOL@ to retain the source-system license, if appropriate.
--- To use @BYOL@ , you must have existing licenses with rights to use these licenses in a third party cloud, such as AWS. For more information, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide.
--- * 'platform' - The operating system of the virtual machine.
---
--- Valid values: @Windows@ | @Linux@
--- * 'roleName' - The name of the role to use when not using the default role, 'vmimport'.
--- * 'tagSpecifications' - The tags to apply to the image being imported.
+-- Valid values: @i386@ | @x86_64@ | @arm64@
+-- * 'description' - A description string for the import image task.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'clientData' - The client-specific data.
+-- * 'diskContainers' - Information about the disk containers.
 mkImportImage ::
   ImportImage
 mkImportImage =
@@ -159,32 +194,32 @@ mkImportImage =
 -- Valid values: @xen@
 --
 -- /Note:/ Consider using 'hypervisor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impHypervisor :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
-impHypervisor = Lens.lens (hypervisor :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {hypervisor = a} :: ImportImage)
-{-# DEPRECATED impHypervisor "Use generic-lens or generic-optics with 'hypervisor' instead." #-}
+iifHypervisor :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
+iifHypervisor = Lens.lens (hypervisor :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {hypervisor = a} :: ImportImage)
+{-# DEPRECATED iifHypervisor "Use generic-lens or generic-optics with 'hypervisor' instead." #-}
 
 -- | The operating system of the virtual machine.
 --
 -- Valid values: @Windows@ | @Linux@
 --
 -- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impPlatform :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
-impPlatform = Lens.lens (platform :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: ImportImage)
-{-# DEPRECATED impPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+iifPlatform :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
+iifPlatform = Lens.lens (platform :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: ImportImage)
+{-# DEPRECATED iifPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The token to enable idempotency for VM import requests.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impClientToken :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
-impClientToken = Lens.lens (clientToken :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ImportImage)
-{-# DEPRECATED impClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+iifClientToken :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
+iifClientToken = Lens.lens (clientToken :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ImportImage)
+{-# DEPRECATED iifClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The ARNs of the license configurations.
 --
 -- /Note:/ Consider using 'licenseSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impLicenseSpecifications :: Lens.Lens' ImportImage (Lude.Maybe [ImportImageLicenseConfigurationRequest])
-impLicenseSpecifications = Lens.lens (licenseSpecifications :: ImportImage -> Lude.Maybe [ImportImageLicenseConfigurationRequest]) (\s a -> s {licenseSpecifications = a} :: ImportImage)
-{-# DEPRECATED impLicenseSpecifications "Use generic-lens or generic-optics with 'licenseSpecifications' instead." #-}
+iifLicenseSpecifications :: Lens.Lens' ImportImage (Lude.Maybe [ImportImageLicenseConfigurationRequest])
+iifLicenseSpecifications = Lens.lens (licenseSpecifications :: ImportImage -> Lude.Maybe [ImportImageLicenseConfigurationRequest]) (\s a -> s {licenseSpecifications = a} :: ImportImage)
+{-# DEPRECATED iifLicenseSpecifications "Use generic-lens or generic-optics with 'licenseSpecifications' instead." #-}
 
 -- | The license type to be used for the Amazon Machine Image (AMI) after importing.
 --
@@ -192,30 +227,30 @@ impLicenseSpecifications = Lens.lens (licenseSpecifications :: ImportImage -> Lu
 -- To use @BYOL@ , you must have existing licenses with rights to use these licenses in a third party cloud, such as AWS. For more information, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide.
 --
 -- /Note:/ Consider using 'licenseType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impLicenseType :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
-impLicenseType = Lens.lens (licenseType :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {licenseType = a} :: ImportImage)
-{-# DEPRECATED impLicenseType "Use generic-lens or generic-optics with 'licenseType' instead." #-}
+iifLicenseType :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
+iifLicenseType = Lens.lens (licenseType :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {licenseType = a} :: ImportImage)
+{-# DEPRECATED iifLicenseType "Use generic-lens or generic-optics with 'licenseType' instead." #-}
 
 -- | The name of the role to use when not using the default role, 'vmimport'.
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impRoleName :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
-impRoleName = Lens.lens (roleName :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: ImportImage)
-{-# DEPRECATED impRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+iifRoleName :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
+iifRoleName = Lens.lens (roleName :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: ImportImage)
+{-# DEPRECATED iifRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | Specifies whether the destination AMI of the imported image should be encrypted. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impEncrypted :: Lens.Lens' ImportImage (Lude.Maybe Lude.Bool)
-impEncrypted = Lens.lens (encrypted :: ImportImage -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: ImportImage)
-{-# DEPRECATED impEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
+iifEncrypted :: Lens.Lens' ImportImage (Lude.Maybe Lude.Bool)
+iifEncrypted = Lens.lens (encrypted :: ImportImage -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: ImportImage)
+{-# DEPRECATED iifEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
 -- | The tags to apply to the image being imported.
 --
 -- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impTagSpecifications :: Lens.Lens' ImportImage (Lude.Maybe [TagSpecification])
-impTagSpecifications = Lens.lens (tagSpecifications :: ImportImage -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: ImportImage)
-{-# DEPRECATED impTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+iifTagSpecifications :: Lens.Lens' ImportImage (Lude.Maybe [TagSpecification])
+iifTagSpecifications = Lens.lens (tagSpecifications :: ImportImage -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: ImportImage)
+{-# DEPRECATED iifTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
 --
@@ -238,46 +273,46 @@ impTagSpecifications = Lens.lens (tagSpecifications :: ImportImage -> Lude.Maybe
 -- Amazon EBS does not support asymmetric CMKs.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impKMSKeyId :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
-impKMSKeyId = Lens.lens (kmsKeyId :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: ImportImage)
-{-# DEPRECATED impKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+iifKMSKeyId :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
+iifKMSKeyId = Lens.lens (kmsKeyId :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: ImportImage)
+{-# DEPRECATED iifKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The architecture of the virtual machine.
 --
 -- Valid values: @i386@ | @x86_64@ | @arm64@
 --
 -- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impArchitecture :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
-impArchitecture = Lens.lens (architecture :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {architecture = a} :: ImportImage)
-{-# DEPRECATED impArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
+iifArchitecture :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
+iifArchitecture = Lens.lens (architecture :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {architecture = a} :: ImportImage)
+{-# DEPRECATED iifArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
 
 -- | A description string for the import image task.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impDescription :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
-impDescription = Lens.lens (description :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportImage)
-{-# DEPRECATED impDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+iifDescription :: Lens.Lens' ImportImage (Lude.Maybe Lude.Text)
+iifDescription = Lens.lens (description :: ImportImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportImage)
+{-# DEPRECATED iifDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impDryRun :: Lens.Lens' ImportImage (Lude.Maybe Lude.Bool)
-impDryRun = Lens.lens (dryRun :: ImportImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ImportImage)
-{-# DEPRECATED impDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+iifDryRun :: Lens.Lens' ImportImage (Lude.Maybe Lude.Bool)
+iifDryRun = Lens.lens (dryRun :: ImportImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ImportImage)
+{-# DEPRECATED iifDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The client-specific data.
 --
 -- /Note:/ Consider using 'clientData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impClientData :: Lens.Lens' ImportImage (Lude.Maybe ClientData)
-impClientData = Lens.lens (clientData :: ImportImage -> Lude.Maybe ClientData) (\s a -> s {clientData = a} :: ImportImage)
-{-# DEPRECATED impClientData "Use generic-lens or generic-optics with 'clientData' instead." #-}
+iifClientData :: Lens.Lens' ImportImage (Lude.Maybe ClientData)
+iifClientData = Lens.lens (clientData :: ImportImage -> Lude.Maybe ClientData) (\s a -> s {clientData = a} :: ImportImage)
+{-# DEPRECATED iifClientData "Use generic-lens or generic-optics with 'clientData' instead." #-}
 
 -- | Information about the disk containers.
 --
 -- /Note:/ Consider using 'diskContainers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-impDiskContainers :: Lens.Lens' ImportImage (Lude.Maybe [ImageDiskContainer])
-impDiskContainers = Lens.lens (diskContainers :: ImportImage -> Lude.Maybe [ImageDiskContainer]) (\s a -> s {diskContainers = a} :: ImportImage)
-{-# DEPRECATED impDiskContainers "Use generic-lens or generic-optics with 'diskContainers' instead." #-}
+iifDiskContainers :: Lens.Lens' ImportImage (Lude.Maybe [ImageDiskContainer])
+iifDiskContainers = Lens.lens (diskContainers :: ImportImage -> Lude.Maybe [ImageDiskContainer]) (\s a -> s {diskContainers = a} :: ImportImage)
+{-# DEPRECATED iifDiskContainers "Use generic-lens or generic-optics with 'diskContainers' instead." #-}
 
 instance Lude.AWSRequest ImportImage where
   type Rs ImportImage = ImportImageResponse
@@ -344,53 +379,60 @@ instance Lude.ToQuery ImportImage where
 
 -- | /See:/ 'mkImportImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | A brief status of the task.
+    status :: Lude.Maybe Lude.Text,
+    -- | The target hypervisor of the import task.
     hypervisor :: Lude.Maybe Lude.Text,
+    -- | The operating system of the virtual machine.
     platform :: Lude.Maybe Lude.Text,
+    -- | The progress of the task.
     progress :: Lude.Maybe Lude.Text,
-    licenseSpecifications ::
-      Lude.Maybe
-        [ImportImageLicenseConfigurationResponse],
+    -- | The ARNs of the license configurations.
+    licenseSpecifications :: Lude.Maybe [ImportImageLicenseConfigurationResponse],
+    -- | The license type of the virtual machine.
     licenseType :: Lude.Maybe Lude.Text,
+    -- | Information about the snapshots.
     snapshotDetails :: Lude.Maybe [SnapshotDetail],
+    -- | Indicates whether the AMI is encrypted.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted AMI.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | A detailed status message of the import task.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the Amazon Machine Image (AMI) created by the import task.
     imageId :: Lude.Maybe Lude.Text,
+    -- | The task ID of the import image task.
     importTaskId :: Lude.Maybe Lude.Text,
+    -- | The architecture of the virtual machine.
     architecture :: Lude.Maybe Lude.Text,
+    -- | A description of the import task.
     description :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the image being imported.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportImageResponse' with the minimum fields required to make a request.
 --
--- * 'architecture' - The architecture of the virtual machine.
--- * 'description' - A description of the import task.
--- * 'encrypted' - Indicates whether the AMI is encrypted.
+-- * 'status' - A brief status of the task.
 -- * 'hypervisor' - The target hypervisor of the import task.
--- * 'imageId' - The ID of the Amazon Machine Image (AMI) created by the import task.
--- * 'importTaskId' - The task ID of the import image task.
--- * 'kmsKeyId' - The identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted AMI.
--- * 'licenseSpecifications' - The ARNs of the license configurations.
--- * 'licenseType' - The license type of the virtual machine.
 -- * 'platform' - The operating system of the virtual machine.
 -- * 'progress' - The progress of the task.
--- * 'responseStatus' - The response status code.
+-- * 'licenseSpecifications' - The ARNs of the license configurations.
+-- * 'licenseType' - The license type of the virtual machine.
 -- * 'snapshotDetails' - Information about the snapshots.
--- * 'status' - A brief status of the task.
+-- * 'encrypted' - Indicates whether the AMI is encrypted.
+-- * 'kmsKeyId' - The identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted AMI.
 -- * 'statusMessage' - A detailed status message of the import task.
+-- * 'imageId' - The ID of the Amazon Machine Image (AMI) created by the import task.
+-- * 'importTaskId' - The task ID of the import image task.
+-- * 'architecture' - The architecture of the virtual machine.
+-- * 'description' - A description of the import task.
 -- * 'tags' - Any tags assigned to the image being imported.
+-- * 'responseStatus' - The response status code.
 mkImportImageResponse ::
   -- | 'responseStatus'
   Lude.Int ->

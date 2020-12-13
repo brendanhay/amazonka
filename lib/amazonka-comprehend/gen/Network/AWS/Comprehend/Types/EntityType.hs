@@ -13,15 +13,15 @@
 module Network.AWS.Comprehend.Types.EntityType
   ( EntityType
       ( EntityType',
-        CommercialItem,
-        Date,
-        Event,
+        Person,
         Location,
         Organization,
-        Other,
-        Person,
+        CommercialItem,
+        Event,
+        Date,
         Quantity,
-        Title
+        Title,
+        Other
       ),
   )
 where
@@ -52,14 +52,8 @@ newtype EntityType = EntityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CommercialItem :: EntityType
-pattern CommercialItem = EntityType' "COMMERCIAL_ITEM"
-
-pattern Date :: EntityType
-pattern Date = EntityType' "DATE"
-
-pattern Event :: EntityType
-pattern Event = EntityType' "EVENT"
+pattern Person :: EntityType
+pattern Person = EntityType' "PERSON"
 
 pattern Location :: EntityType
 pattern Location = EntityType' "LOCATION"
@@ -67,11 +61,14 @@ pattern Location = EntityType' "LOCATION"
 pattern Organization :: EntityType
 pattern Organization = EntityType' "ORGANIZATION"
 
-pattern Other :: EntityType
-pattern Other = EntityType' "OTHER"
+pattern CommercialItem :: EntityType
+pattern CommercialItem = EntityType' "COMMERCIAL_ITEM"
 
-pattern Person :: EntityType
-pattern Person = EntityType' "PERSON"
+pattern Event :: EntityType
+pattern Event = EntityType' "EVENT"
+
+pattern Date :: EntityType
+pattern Date = EntityType' "DATE"
 
 pattern Quantity :: EntityType
 pattern Quantity = EntityType' "QUANTITY"
@@ -79,15 +76,18 @@ pattern Quantity = EntityType' "QUANTITY"
 pattern Title :: EntityType
 pattern Title = EntityType' "TITLE"
 
+pattern Other :: EntityType
+pattern Other = EntityType' "OTHER"
+
 {-# COMPLETE
-  CommercialItem,
-  Date,
-  Event,
+  Person,
   Location,
   Organization,
-  Other,
-  Person,
+  CommercialItem,
+  Event,
+  Date,
   Quantity,
   Title,
+  Other,
   EntityType'
   #-}

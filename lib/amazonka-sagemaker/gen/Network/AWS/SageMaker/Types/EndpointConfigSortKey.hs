@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.EndpointConfigSortKey
   ( EndpointConfigSortKey
       ( EndpointConfigSortKey',
-        ECSKCreationTime,
-        ECSKName
+        ECSKName,
+        ECSKCreationTime
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EndpointConfigSortKey = EndpointConfigSortKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern ECSKCreationTime :: EndpointConfigSortKey
-pattern ECSKCreationTime = EndpointConfigSortKey' "CreationTime"
-
 pattern ECSKName :: EndpointConfigSortKey
 pattern ECSKName = EndpointConfigSortKey' "Name"
 
+pattern ECSKCreationTime :: EndpointConfigSortKey
+pattern ECSKCreationTime = EndpointConfigSortKey' "CreationTime"
+
 {-# COMPLETE
-  ECSKCreationTime,
   ECSKName,
+  ECSKCreationTime,
   EndpointConfigSortKey'
   #-}

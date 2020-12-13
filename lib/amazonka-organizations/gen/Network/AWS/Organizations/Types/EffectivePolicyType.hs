@@ -13,9 +13,9 @@
 module Network.AWS.Organizations.Types.EffectivePolicyType
   ( EffectivePolicyType
       ( EffectivePolicyType',
-        EPTAiservicesOptOutPolicy,
+        EPTTagPolicy,
         EPTBackupPolicy,
-        EPTTagPolicy
+        EPTAiservicesOptOutPolicy
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EffectivePolicyType = EffectivePolicyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern EPTAiservicesOptOutPolicy :: EffectivePolicyType
-pattern EPTAiservicesOptOutPolicy = EffectivePolicyType' "AISERVICES_OPT_OUT_POLICY"
+pattern EPTTagPolicy :: EffectivePolicyType
+pattern EPTTagPolicy = EffectivePolicyType' "TAG_POLICY"
 
 pattern EPTBackupPolicy :: EffectivePolicyType
 pattern EPTBackupPolicy = EffectivePolicyType' "BACKUP_POLICY"
 
-pattern EPTTagPolicy :: EffectivePolicyType
-pattern EPTTagPolicy = EffectivePolicyType' "TAG_POLICY"
+pattern EPTAiservicesOptOutPolicy :: EffectivePolicyType
+pattern EPTAiservicesOptOutPolicy = EffectivePolicyType' "AISERVICES_OPT_OUT_POLICY"
 
 {-# COMPLETE
-  EPTAiservicesOptOutPolicy,
-  EPTBackupPolicy,
   EPTTagPolicy,
+  EPTBackupPolicy,
+  EPTAiservicesOptOutPolicy,
   EffectivePolicyType'
   #-}

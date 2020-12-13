@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.CostExplorer.GetCostAndUsage
     -- ** Request lenses
     gcauGroupBy,
     gcauNextPageToken,
+    gcauMetrics,
+    gcauTimePeriod,
     gcauGranularity,
     gcauFilter,
-    gcauTimePeriod,
-    gcauMetrics,
 
     -- * Destructuring the response
     GetCostAndUsageResponse (..),
@@ -48,37 +49,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCostAndUsage' smart constructor.
 data GetCostAndUsage = GetCostAndUsage'
-  { groupBy ::
-      Lude.Maybe [GroupDefinition],
+  { -- | You can group AWS costs using up to two different groups, either dimensions, tag keys, cost categories, or any two group by types.
+    --
+    -- When you group by tag key, you get all tag values, including empty strings.
+    -- Valid values are @AZ@ , @INSTANCE_TYPE@ , @LEGAL_ENTITY_NAME@ , @LINKED_ACCOUNT@ , @OPERATION@ , @PLATFORM@ , @PURCHASE_TYPE@ , @SERVICE@ , @TAGS@ , @TENANCY@ , @RECORD_TYPE@ , and @USAGE_TYPE@ .
+    groupBy :: Lude.Maybe [GroupDefinition],
+    -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
     nextPageToken :: Lude.Maybe Lude.Text,
-    granularity :: Lude.Maybe Granularity,
-    filter :: Lude.Maybe Expression,
+    -- | Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .
+    --
+    -- Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .
+    -- @Metrics@ is required for @GetCostAndUsage@ requests.
+    metrics :: [Lude.Text],
+    -- | Sets the start and end dates for retrieving AWS costs. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
     timePeriod :: DateInterval,
-    metrics :: [Lude.Text]
+    -- | Sets the AWS cost granularity to @MONTHLY@ or @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , either @MONTHLY@ or @DAILY@ , or @HOURLY@ .
+    granularity :: Lude.Maybe Granularity,
+    -- | Filters AWS costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
+    filter :: Lude.Maybe Expression
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCostAndUsage' with the minimum fields required to make a request.
 --
--- * 'filter' - Filters AWS costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
--- * 'granularity' - Sets the AWS cost granularity to @MONTHLY@ or @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , either @MONTHLY@ or @DAILY@ , or @HOURLY@ .
 -- * 'groupBy' - You can group AWS costs using up to two different groups, either dimensions, tag keys, cost categories, or any two group by types.
 --
 -- When you group by tag key, you get all tag values, including empty strings.
 -- Valid values are @AZ@ , @INSTANCE_TYPE@ , @LEGAL_ENTITY_NAME@ , @LINKED_ACCOUNT@ , @OPERATION@ , @PLATFORM@ , @PURCHASE_TYPE@ , @SERVICE@ , @TAGS@ , @TENANCY@ , @RECORD_TYPE@ , and @USAGE_TYPE@ .
+-- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
 -- * 'metrics' - Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .
 --
 -- Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .
 -- @Metrics@ is required for @GetCostAndUsage@ requests.
--- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
 -- * 'timePeriod' - Sets the start and end dates for retrieving AWS costs. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+-- * 'granularity' - Sets the AWS cost granularity to @MONTHLY@ or @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , either @MONTHLY@ or @DAILY@ , or @HOURLY@ .
+-- * 'filter' - Filters AWS costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
 mkGetCostAndUsage ::
   -- | 'timePeriod'
   DateInterval ->
@@ -87,10 +93,10 @@ mkGetCostAndUsage pTimePeriod_ =
   GetCostAndUsage'
     { groupBy = Lude.Nothing,
       nextPageToken = Lude.Nothing,
-      granularity = Lude.Nothing,
-      filter = Lude.Nothing,
+      metrics = Lude.mempty,
       timePeriod = pTimePeriod_,
-      metrics = Lude.mempty
+      granularity = Lude.Nothing,
+      filter = Lude.Nothing
     }
 
 -- | You can group AWS costs using up to two different groups, either dimensions, tag keys, cost categories, or any two group by types.
@@ -110,6 +116,23 @@ gcauNextPageToken :: Lens.Lens' GetCostAndUsage (Lude.Maybe Lude.Text)
 gcauNextPageToken = Lens.lens (nextPageToken :: GetCostAndUsage -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetCostAndUsage)
 {-# DEPRECATED gcauNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
+-- | Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .
+--
+-- Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .
+-- @Metrics@ is required for @GetCostAndUsage@ requests.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauMetrics :: Lens.Lens' GetCostAndUsage [Lude.Text]
+gcauMetrics = Lens.lens (metrics :: GetCostAndUsage -> [Lude.Text]) (\s a -> s {metrics = a} :: GetCostAndUsage)
+{-# DEPRECATED gcauMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
+
+-- | Sets the start and end dates for retrieving AWS costs. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauTimePeriod :: Lens.Lens' GetCostAndUsage DateInterval
+gcauTimePeriod = Lens.lens (timePeriod :: GetCostAndUsage -> DateInterval) (\s a -> s {timePeriod = a} :: GetCostAndUsage)
+{-# DEPRECATED gcauTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
+
 -- | Sets the AWS cost granularity to @MONTHLY@ or @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , either @MONTHLY@ or @DAILY@ , or @HOURLY@ .
 --
 -- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -123,23 +146,6 @@ gcauGranularity = Lens.lens (granularity :: GetCostAndUsage -> Lude.Maybe Granul
 gcauFilter :: Lens.Lens' GetCostAndUsage (Lude.Maybe Expression)
 gcauFilter = Lens.lens (filter :: GetCostAndUsage -> Lude.Maybe Expression) (\s a -> s {filter = a} :: GetCostAndUsage)
 {-# DEPRECATED gcauFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
-
--- | Sets the start and end dates for retrieving AWS costs. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
---
--- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauTimePeriod :: Lens.Lens' GetCostAndUsage DateInterval
-gcauTimePeriod = Lens.lens (timePeriod :: GetCostAndUsage -> DateInterval) (\s a -> s {timePeriod = a} :: GetCostAndUsage)
-{-# DEPRECATED gcauTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
-
--- | Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .
---
--- Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .
--- @Metrics@ is required for @GetCostAndUsage@ requests.
---
--- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauMetrics :: Lens.Lens' GetCostAndUsage [Lude.Text]
-gcauMetrics = Lens.lens (metrics :: GetCostAndUsage -> [Lude.Text]) (\s a -> s {metrics = a} :: GetCostAndUsage)
-{-# DEPRECATED gcauMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 instance Lude.AWSRequest GetCostAndUsage where
   type Rs GetCostAndUsage = GetCostAndUsageResponse
@@ -171,10 +177,10 @@ instance Lude.ToJSON GetCostAndUsage where
       ( Lude.catMaybes
           [ ("GroupBy" Lude..=) Lude.<$> groupBy,
             ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
-            ("Granularity" Lude..=) Lude.<$> granularity,
-            ("Filter" Lude..=) Lude.<$> filter,
+            Lude.Just ("Metrics" Lude..= metrics),
             Lude.Just ("TimePeriod" Lude..= timePeriod),
-            Lude.Just ("Metrics" Lude..= metrics)
+            ("Granularity" Lude..=) Lude.<$> granularity,
+            ("Filter" Lude..=) Lude.<$> filter
           ]
       )
 
@@ -186,28 +192,24 @@ instance Lude.ToQuery GetCostAndUsage where
 
 -- | /See:/ 'mkGetCostAndUsageResponse' smart constructor.
 data GetCostAndUsageResponse = GetCostAndUsageResponse'
-  { resultsByTime ::
-      Lude.Maybe [ResultByTime],
+  { -- | The time period that is covered by the results in the response.
+    resultsByTime :: Lude.Maybe [ResultByTime],
+    -- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
     nextPageToken :: Lude.Maybe Lude.Text,
-    groupDefinitions ::
-      Lude.Maybe [GroupDefinition],
+    -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
+    groupDefinitions :: Lude.Maybe [GroupDefinition],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCostAndUsageResponse' with the minimum fields required to make a request.
 --
--- * 'groupDefinitions' - The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
--- * 'nextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
--- * 'responseStatus' - The response status code.
 -- * 'resultsByTime' - The time period that is covered by the results in the response.
+-- * 'nextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'groupDefinitions' - The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
+-- * 'responseStatus' - The response status code.
 mkGetCostAndUsageResponse ::
   -- | 'responseStatus'
   Lude.Int ->

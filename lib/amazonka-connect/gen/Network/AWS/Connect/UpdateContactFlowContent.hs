@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Connect.UpdateContactFlowContent
 
     -- ** Request lenses
     ucfcInstanceId,
-    ucfcContactFlowId,
     ucfcContent,
+    ucfcContactFlowId,
 
     -- * Destructuring the response
     UpdateContactFlowContentResponse (..),
@@ -39,38 +40,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateContactFlowContent' smart constructor.
 data UpdateContactFlowContent = UpdateContactFlowContent'
-  { instanceId ::
-      Lude.Text,
-    contactFlowId :: Lude.Text,
-    content :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The JSON string that represents contact flow’s content. For an example, see <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html Example contact flow in Amazon Connect Flow language> in the /Amazon Connect Administrator Guide/ .
+    content :: Lude.Text,
+    -- | The identifier of the contact flow.
+    contactFlowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContactFlowContent' with the minimum fields required to make a request.
 --
--- * 'contactFlowId' - The identifier of the contact flow.
--- * 'content' - The JSON string that represents contact flow’s content. For an example, see <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html Example contact flow in Amazon Connect Flow language> in the /Amazon Connect Administrator Guide/ .
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'content' - The JSON string that represents contact flow’s content. For an example, see <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html Example contact flow in Amazon Connect Flow language> in the /Amazon Connect Administrator Guide/ .
+-- * 'contactFlowId' - The identifier of the contact flow.
 mkUpdateContactFlowContent ::
   -- | 'instanceId'
   Lude.Text ->
-  -- | 'contactFlowId'
-  Lude.Text ->
   -- | 'content'
   Lude.Text ->
+  -- | 'contactFlowId'
+  Lude.Text ->
   UpdateContactFlowContent
-mkUpdateContactFlowContent pInstanceId_ pContactFlowId_ pContent_ =
+mkUpdateContactFlowContent pInstanceId_ pContent_ pContactFlowId_ =
   UpdateContactFlowContent'
     { instanceId = pInstanceId_,
-      contactFlowId = pContactFlowId_,
-      content = pContent_
+      content = pContent_,
+      contactFlowId = pContactFlowId_
     }
 
 -- | The identifier of the Amazon Connect instance.
@@ -80,19 +77,19 @@ ucfcInstanceId :: Lens.Lens' UpdateContactFlowContent Lude.Text
 ucfcInstanceId = Lens.lens (instanceId :: UpdateContactFlowContent -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateContactFlowContent)
 {-# DEPRECATED ucfcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
--- | The identifier of the contact flow.
---
--- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucfcContactFlowId :: Lens.Lens' UpdateContactFlowContent Lude.Text
-ucfcContactFlowId = Lens.lens (contactFlowId :: UpdateContactFlowContent -> Lude.Text) (\s a -> s {contactFlowId = a} :: UpdateContactFlowContent)
-{-# DEPRECATED ucfcContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
-
 -- | The JSON string that represents contact flow’s content. For an example, see <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html Example contact flow in Amazon Connect Flow language> in the /Amazon Connect Administrator Guide/ .
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucfcContent :: Lens.Lens' UpdateContactFlowContent Lude.Text
 ucfcContent = Lens.lens (content :: UpdateContactFlowContent -> Lude.Text) (\s a -> s {content = a} :: UpdateContactFlowContent)
 {-# DEPRECATED ucfcContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+-- | The identifier of the contact flow.
+--
+-- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucfcContactFlowId :: Lens.Lens' UpdateContactFlowContent Lude.Text
+ucfcContactFlowId = Lens.lens (contactFlowId :: UpdateContactFlowContent -> Lude.Text) (\s a -> s {contactFlowId = a} :: UpdateContactFlowContent)
+{-# DEPRECATED ucfcContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
 
 instance Lude.AWSRequest UpdateContactFlowContent where
   type Rs UpdateContactFlowContent = UpdateContactFlowContentResponse
@@ -128,13 +125,7 @@ instance Lude.ToQuery UpdateContactFlowContent where
 
 -- | /See:/ 'mkUpdateContactFlowContentResponse' smart constructor.
 data UpdateContactFlowContentResponse = UpdateContactFlowContentResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContactFlowContentResponse' with the minimum fields required to make a request.

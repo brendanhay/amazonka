@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDesiredPlayerSession' smart constructor.
 data DesiredPlayerSession = DesiredPlayerSession'
-  { playerData ::
-      Lude.Maybe Lude.Text,
+  { -- | Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
+    playerData :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a player to associate with the player session.
     playerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DesiredPlayerSession' with the minimum fields required to make a request.

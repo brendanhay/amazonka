@@ -13,9 +13,9 @@
 module Network.AWS.GameLift.Types.BalancingStrategy
   ( BalancingStrategy
       ( BalancingStrategy',
-        OnDemandOnly,
         SpotOnly,
-        SpotPreferred
+        SpotPreferred,
+        OnDemandOnly
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype BalancingStrategy = BalancingStrategy' Lude.Text
       Lude.ToHeader
     )
 
-pattern OnDemandOnly :: BalancingStrategy
-pattern OnDemandOnly = BalancingStrategy' "ON_DEMAND_ONLY"
-
 pattern SpotOnly :: BalancingStrategy
 pattern SpotOnly = BalancingStrategy' "SPOT_ONLY"
 
 pattern SpotPreferred :: BalancingStrategy
 pattern SpotPreferred = BalancingStrategy' "SPOT_PREFERRED"
 
+pattern OnDemandOnly :: BalancingStrategy
+pattern OnDemandOnly = BalancingStrategy' "ON_DEMAND_ONLY"
+
 {-# COMPLETE
-  OnDemandOnly,
   SpotOnly,
   SpotPreferred,
+  OnDemandOnly,
   BalancingStrategy'
   #-}

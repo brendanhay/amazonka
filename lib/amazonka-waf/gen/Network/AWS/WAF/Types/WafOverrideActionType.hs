@@ -13,8 +13,8 @@
 module Network.AWS.WAF.Types.WafOverrideActionType
   ( WafOverrideActionType
       ( WafOverrideActionType',
-        WOATCount,
-        WOATNone
+        WOATNone,
+        WOATCount
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype WafOverrideActionType = WafOverrideActionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern WOATCount :: WafOverrideActionType
-pattern WOATCount = WafOverrideActionType' "COUNT"
-
 pattern WOATNone :: WafOverrideActionType
 pattern WOATNone = WafOverrideActionType' "NONE"
 
+pattern WOATCount :: WafOverrideActionType
+pattern WOATCount = WafOverrideActionType' "COUNT"
+
 {-# COMPLETE
-  WOATCount,
   WOATNone,
+  WOATCount,
   WafOverrideActionType'
   #-}

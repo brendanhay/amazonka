@@ -14,8 +14,8 @@ module Network.AWS.APIGateway.Types.QuotaPeriodType
   ( QuotaPeriodType
       ( QuotaPeriodType',
         Day,
-        Month,
-        Week
+        Week,
+        Month
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype QuotaPeriodType = QuotaPeriodType' Lude.Text
 pattern Day :: QuotaPeriodType
 pattern Day = QuotaPeriodType' "DAY"
 
-pattern Month :: QuotaPeriodType
-pattern Month = QuotaPeriodType' "MONTH"
-
 pattern Week :: QuotaPeriodType
 pattern Week = QuotaPeriodType' "WEEK"
 
+pattern Month :: QuotaPeriodType
+pattern Month = QuotaPeriodType' "MONTH"
+
 {-# COMPLETE
   Day,
-  Month,
   Week,
+  Month,
   QuotaPeriodType'
   #-}

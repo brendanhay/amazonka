@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.TrainingInputMode
   ( TrainingInputMode
       ( TrainingInputMode',
-        File,
-        Pipe
+        TIMPipe,
+        TIMFile
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TrainingInputMode = TrainingInputMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern File :: TrainingInputMode
-pattern File = TrainingInputMode' "File"
+pattern TIMPipe :: TrainingInputMode
+pattern TIMPipe = TrainingInputMode' "Pipe"
 
-pattern Pipe :: TrainingInputMode
-pattern Pipe = TrainingInputMode' "Pipe"
+pattern TIMFile :: TrainingInputMode
+pattern TIMFile = TrainingInputMode' "File"
 
 {-# COMPLETE
-  File,
-  Pipe,
+  TIMPipe,
+  TIMFile,
   TrainingInputMode'
   #-}

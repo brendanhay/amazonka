@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     mkPutDestinationPolicy,
 
     -- ** Request lenses
-    pdpDestinationName,
     pdpAccessPolicy,
+    pdpDestinationName,
 
     -- * Destructuring the response
     PutDestinationPolicyResponse (..),
@@ -36,17 +37,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutDestinationPolicy' smart constructor.
 data PutDestinationPolicy = PutDestinationPolicy'
-  { destinationName ::
-      Lude.Text,
-    accessPolicy :: Lude.Text
+  { -- | An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
+    accessPolicy :: Lude.Text,
+    -- | A name for an existing destination.
+    destinationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDestinationPolicy' with the minimum fields required to make a request.
@@ -54,23 +50,16 @@ data PutDestinationPolicy = PutDestinationPolicy'
 -- * 'accessPolicy' - An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
 -- * 'destinationName' - A name for an existing destination.
 mkPutDestinationPolicy ::
-  -- | 'destinationName'
-  Lude.Text ->
   -- | 'accessPolicy'
   Lude.Text ->
+  -- | 'destinationName'
+  Lude.Text ->
   PutDestinationPolicy
-mkPutDestinationPolicy pDestinationName_ pAccessPolicy_ =
+mkPutDestinationPolicy pAccessPolicy_ pDestinationName_ =
   PutDestinationPolicy'
-    { destinationName = pDestinationName_,
-      accessPolicy = pAccessPolicy_
+    { accessPolicy = pAccessPolicy_,
+      destinationName = pDestinationName_
     }
-
--- | A name for an existing destination.
---
--- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdpDestinationName :: Lens.Lens' PutDestinationPolicy Lude.Text
-pdpDestinationName = Lens.lens (destinationName :: PutDestinationPolicy -> Lude.Text) (\s a -> s {destinationName = a} :: PutDestinationPolicy)
-{-# DEPRECATED pdpDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
 -- | An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
 --
@@ -78,6 +67,13 @@ pdpDestinationName = Lens.lens (destinationName :: PutDestinationPolicy -> Lude.
 pdpAccessPolicy :: Lens.Lens' PutDestinationPolicy Lude.Text
 pdpAccessPolicy = Lens.lens (accessPolicy :: PutDestinationPolicy -> Lude.Text) (\s a -> s {accessPolicy = a} :: PutDestinationPolicy)
 {-# DEPRECATED pdpAccessPolicy "Use generic-lens or generic-optics with 'accessPolicy' instead." #-}
+
+-- | A name for an existing destination.
+--
+-- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdpDestinationName :: Lens.Lens' PutDestinationPolicy Lude.Text
+pdpDestinationName = Lens.lens (destinationName :: PutDestinationPolicy -> Lude.Text) (\s a -> s {destinationName = a} :: PutDestinationPolicy)
+{-# DEPRECATED pdpDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
 instance Lude.AWSRequest PutDestinationPolicy where
   type Rs PutDestinationPolicy = PutDestinationPolicyResponse
@@ -99,8 +95,8 @@ instance Lude.ToJSON PutDestinationPolicy where
   toJSON PutDestinationPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("destinationName" Lude..= destinationName),
-            Lude.Just ("accessPolicy" Lude..= accessPolicy)
+          [ Lude.Just ("accessPolicy" Lude..= accessPolicy),
+            Lude.Just ("destinationName" Lude..= destinationName)
           ]
       )
 
@@ -112,13 +108,7 @@ instance Lude.ToQuery PutDestinationPolicy where
 
 -- | /See:/ 'mkPutDestinationPolicyResponse' smart constructor.
 data PutDestinationPolicyResponse = PutDestinationPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDestinationPolicyResponse' with the minimum fields required to make a request.

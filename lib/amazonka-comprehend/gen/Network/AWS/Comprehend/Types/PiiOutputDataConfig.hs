@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPiiOutputDataConfig' smart constructor.
 data PiiOutputDataConfig = PiiOutputDataConfig'
-  { kmsKeyId ::
-      Lude.Maybe Lude.Text,
+  { -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | When you use the @PiiOutputDataConfig@ object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data.
     s3URI :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PiiOutputDataConfig' with the minimum fields required to make a request.

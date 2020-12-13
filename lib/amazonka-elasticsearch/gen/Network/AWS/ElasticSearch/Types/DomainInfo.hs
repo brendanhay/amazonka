@@ -17,7 +17,7 @@ module Network.AWS.ElasticSearch.Types.DomainInfo
     mkDomainInfo,
 
     -- * Lenses
-    dDomainName,
+    diDomainName,
   )
 where
 
@@ -26,16 +26,10 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkDomainInfo' smart constructor.
 newtype DomainInfo = DomainInfo'
-  { domainName ::
-      Lude.Maybe Lude.Text
+  { -- | Specifies the @DomainName@ .
+    domainName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainInfo' with the minimum fields required to make a request.
@@ -48,9 +42,9 @@ mkDomainInfo = DomainInfo' {domainName = Lude.Nothing}
 -- | Specifies the @DomainName@ .
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDomainName :: Lens.Lens' DomainInfo (Lude.Maybe Lude.Text)
-dDomainName = Lens.lens (domainName :: DomainInfo -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DomainInfo)
-{-# DEPRECATED dDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+diDomainName :: Lens.Lens' DomainInfo (Lude.Maybe Lude.Text)
+diDomainName = Lens.lens (domainName :: DomainInfo -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DomainInfo)
+{-# DEPRECATED diDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.FromJSON DomainInfo where
   parseJSON =

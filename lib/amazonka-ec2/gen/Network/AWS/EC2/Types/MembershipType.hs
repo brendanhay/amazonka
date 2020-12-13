@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.MembershipType
   ( MembershipType
       ( MembershipType',
-        MTIgmp,
-        MTStatic
+        MTStatic,
+        MTIgmp
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MembershipType = MembershipType' Lude.Text
       Lude.ToHeader
     )
 
-pattern MTIgmp :: MembershipType
-pattern MTIgmp = MembershipType' "igmp"
-
 pattern MTStatic :: MembershipType
 pattern MTStatic = MembershipType' "static"
 
+pattern MTIgmp :: MembershipType
+pattern MTIgmp = MembershipType' "igmp"
+
 {-# COMPLETE
-  MTIgmp,
   MTStatic,
+  MTIgmp,
   MembershipType'
   #-}

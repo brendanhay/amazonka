@@ -30,28 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMqttContext' smart constructor.
 data MqttContext = MqttContext'
-  { clientId :: Lude.Maybe Lude.Text,
+  { -- | The value of the @clientId@ key in an MQTT authorization request.
+    clientId :: Lude.Maybe Lude.Text,
+    -- | The value of the @username@ key in an MQTT authorization request.
     username :: Lude.Maybe Lude.Text,
+    -- | The value of the @password@ key in an MQTT authorization request.
     password :: Lude.Maybe Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MqttContext' with the minimum fields required to make a request.
 --
 -- * 'clientId' - The value of the @clientId@ key in an MQTT authorization request.
--- * 'password' - The value of the @password@ key in an MQTT authorization request.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 -- * 'username' - The value of the @username@ key in an MQTT authorization request.
+-- * 'password' - The value of the @password@ key in an MQTT authorization request.
 mkMqttContext ::
   MqttContext
 mkMqttContext =

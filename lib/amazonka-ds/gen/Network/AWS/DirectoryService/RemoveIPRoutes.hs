@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,22 +40,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveIPRoutes' smart constructor.
 data RemoveIPRoutes = RemoveIPRoutes'
-  { directoryId :: Lude.Text,
+  { -- | Identifier (ID) of the directory from which you want to remove the IP addresses.
+    directoryId :: Lude.Text,
+    -- | IP address blocks that you want to remove.
     cidrIPs :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveIPRoutes' with the minimum fields required to make a request.
 --
--- * 'cidrIPs' - IP address blocks that you want to remove.
 -- * 'directoryId' - Identifier (ID) of the directory from which you want to remove the IP addresses.
+-- * 'cidrIPs' - IP address blocks that you want to remove.
 mkRemoveIPRoutes ::
   -- | 'directoryId'
   Lude.Text ->
@@ -116,16 +113,10 @@ instance Lude.ToQuery RemoveIPRoutes where
 
 -- | /See:/ 'mkRemoveIPRoutesResponse' smart constructor.
 newtype RemoveIPRoutesResponse = RemoveIPRoutesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveIPRoutesResponse' with the minimum fields required to make a request.

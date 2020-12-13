@@ -32,26 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScte35TimeSignalApos' smart constructor.
 data Scte35TimeSignalApos = Scte35TimeSignalApos'
-  { webDeliveryAllowedFlag ::
-      Lude.Maybe Scte35AposWebDeliveryAllowedBehavior,
+  { -- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+    webDeliveryAllowedFlag :: Lude.Maybe Scte35AposWebDeliveryAllowedBehavior,
+    -- | When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
     adAvailOffset :: Lude.Maybe Lude.Int,
-    noRegionalBlackoutFlag ::
-      Lude.Maybe Scte35AposNoRegionalBlackoutBehavior
+    -- | When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+    noRegionalBlackoutFlag :: Lude.Maybe Scte35AposNoRegionalBlackoutBehavior
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35TimeSignalApos' with the minimum fields required to make a request.
 --
+-- * 'webDeliveryAllowedFlag' - When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
 -- * 'adAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
 -- * 'noRegionalBlackoutFlag' - When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
--- * 'webDeliveryAllowedFlag' - When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
 mkScte35TimeSignalApos ::
   Scte35TimeSignalApos
 mkScte35TimeSignalApos =

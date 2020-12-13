@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPackageSource' smart constructor.
 data PackageSource = PackageSource'
-  { s3Key :: Lude.Maybe Lude.Text,
+  { -- | Key (file name) of the package.
+    s3Key :: Lude.Maybe Lude.Text,
+    -- | Name of the bucket containing the package.
     s3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PackageSource' with the minimum fields required to make a request.
 --
--- * 's3BucketName' - Name of the bucket containing the package.
 -- * 's3Key' - Key (file name) of the package.
+-- * 's3BucketName' - Name of the bucket containing the package.
 mkPackageSource ::
   PackageSource
 mkPackageSource =

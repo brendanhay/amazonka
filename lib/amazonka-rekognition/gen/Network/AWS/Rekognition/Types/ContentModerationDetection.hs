@@ -30,17 +30,12 @@ import Network.AWS.Rekognition.Types.ModerationLabel
 --
 -- /See:/ 'mkContentModerationDetection' smart constructor.
 data ContentModerationDetection = ContentModerationDetection'
-  { moderationLabel ::
-      Lude.Maybe ModerationLabel,
+  { -- | The unsafe content label detected by in the stored video.
+    moderationLabel :: Lude.Maybe ModerationLabel,
+    -- | Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.
     timestamp :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContentModerationDetection' with the minimum fields required to make a request.

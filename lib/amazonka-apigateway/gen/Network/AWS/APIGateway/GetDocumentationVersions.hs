@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.APIGateway.GetDocumentationVersions
 
     -- ** Request lenses
     gdvLimit,
-    gdvPosition,
     gdvRestAPIId,
+    gdvPosition,
 
     -- * Destructuring the response
     GetDocumentationVersionsResponse (..),
@@ -47,25 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetDocumentationVersions' smart constructor.
 data GetDocumentationVersions = GetDocumentationVersions'
-  { limit ::
-      Lude.Maybe Lude.Int,
-    position :: Lude.Maybe Lude.Text,
-    restAPIId :: Lude.Text
+  { -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+    limit :: Lude.Maybe Lude.Int,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | The current pagination position in the paged result set.
+    position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentationVersions' with the minimum fields required to make a request.
 --
 -- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
--- * 'position' - The current pagination position in the paged result set.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'position' - The current pagination position in the paged result set.
 mkGetDocumentationVersions ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -73,8 +70,8 @@ mkGetDocumentationVersions ::
 mkGetDocumentationVersions pRestAPIId_ =
   GetDocumentationVersions'
     { limit = Lude.Nothing,
-      position = Lude.Nothing,
-      restAPIId = pRestAPIId_
+      restAPIId = pRestAPIId_,
+      position = Lude.Nothing
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
@@ -84,19 +81,19 @@ gdvLimit :: Lens.Lens' GetDocumentationVersions (Lude.Maybe Lude.Int)
 gdvLimit = Lens.lens (limit :: GetDocumentationVersions -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetDocumentationVersions)
 {-# DEPRECATED gdvLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | The current pagination position in the paged result set.
---
--- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdvPosition :: Lens.Lens' GetDocumentationVersions (Lude.Maybe Lude.Text)
-gdvPosition = Lens.lens (position :: GetDocumentationVersions -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetDocumentationVersions)
-{-# DEPRECATED gdvPosition "Use generic-lens or generic-optics with 'position' instead." #-}
-
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
 -- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdvRestAPIId :: Lens.Lens' GetDocumentationVersions Lude.Text
 gdvRestAPIId = Lens.lens (restAPIId :: GetDocumentationVersions -> Lude.Text) (\s a -> s {restAPIId = a} :: GetDocumentationVersions)
 {-# DEPRECATED gdvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | The current pagination position in the paged result set.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvPosition :: Lens.Lens' GetDocumentationVersions (Lude.Maybe Lude.Text)
+gdvPosition = Lens.lens (position :: GetDocumentationVersions -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetDocumentationVersions)
+{-# DEPRECATED gdvPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 instance Page.AWSPager GetDocumentationVersions where
   page rq rs
@@ -142,27 +139,19 @@ instance Lude.ToQuery GetDocumentationVersions where
 --
 -- /See:/ 'mkGetDocumentationVersionsResponse' smart constructor.
 data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
-  { items ::
-      Lude.Maybe
-        [DocumentationVersion],
-    position ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The current page of elements from this collection.
+    items :: Lude.Maybe [DocumentationVersion],
+    position :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentationVersionsResponse' with the minimum fields required to make a request.
 --
 -- * 'items' - The current page of elements from this collection.
--- * 'position' - Undocumented field.
+-- * 'position' -
 -- * 'responseStatus' - The response status code.
 mkGetDocumentationVersionsResponse ::
   -- | 'responseStatus'

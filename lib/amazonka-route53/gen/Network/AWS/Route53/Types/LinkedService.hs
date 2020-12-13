@@ -30,23 +30,18 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'mkLinkedService' smart constructor.
 data LinkedService = LinkedService'
-  { servicePrincipal ::
-      Lude.Maybe Lude.Text,
+  { -- | If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53.
+    servicePrincipal :: Lude.Maybe Lude.Text,
+    -- | If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LinkedService' with the minimum fields required to make a request.
 --
--- * 'description' - If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53.
 -- * 'servicePrincipal' - If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53.
+-- * 'description' - If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53.
 mkLinkedService ::
   LinkedService
 mkLinkedService =

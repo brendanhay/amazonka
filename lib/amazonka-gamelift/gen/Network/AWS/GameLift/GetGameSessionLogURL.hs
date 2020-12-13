@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -70,16 +71,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetGameSessionLogURL' smart constructor.
 newtype GetGameSessionLogURL = GetGameSessionLogURL'
-  { gameSessionId ::
-      Lude.Text
+  { -- | A unique identifier for the game session to get logs for.
+    gameSessionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGameSessionLogURL' with the minimum fields required to make a request.
@@ -137,17 +132,12 @@ instance Lude.ToQuery GetGameSessionLogURL where
 --
 -- /See:/ 'mkGetGameSessionLogURLResponse' smart constructor.
 data GetGameSessionLogURLResponse = GetGameSessionLogURLResponse'
-  { preSignedURL ::
-      Lude.Maybe Lude.Text,
+  { -- | Location of the requested game session logs, available for download. This URL is valid for 15 minutes, after which S3 will reject any download request using this URL. You can request a new URL any time within the 14-day period that the logs are retained.
+    preSignedURL :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGameSessionLogURLResponse' with the minimum fields required to make a request.

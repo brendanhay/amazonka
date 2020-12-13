@@ -33,16 +33,15 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'mkActivityScheduledEventDetails' smart constructor.
 data ActivityScheduledEventDetails = ActivityScheduledEventDetails'
-  { heartbeatInSeconds ::
-      Lude.Maybe Lude.Integer,
-    inputDetails ::
-      Lude.Maybe
-        HistoryEventExecutionDataDetails,
-    input ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    timeoutInSeconds ::
-      Lude.Maybe Lude.Integer,
+  { -- | The maximum allowed duration between two heartbeats for the activity task.
+    heartbeatInSeconds :: Lude.Maybe Lude.Integer,
+    -- | Contains details about the input for an execution history event.
+    inputDetails :: Lude.Maybe HistoryEventExecutionDataDetails,
+    -- | The JSON data input to the activity task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The maximum allowed duration of the activity task.
+    timeoutInSeconds :: Lude.Maybe Lude.Integer,
+    -- | The Amazon Resource Name (ARN) of the scheduled activity.
     resource :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -51,10 +50,10 @@ data ActivityScheduledEventDetails = ActivityScheduledEventDetails'
 -- | Creates a value of 'ActivityScheduledEventDetails' with the minimum fields required to make a request.
 --
 -- * 'heartbeatInSeconds' - The maximum allowed duration between two heartbeats for the activity task.
--- * 'input' - The JSON data input to the activity task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 -- * 'inputDetails' - Contains details about the input for an execution history event.
--- * 'resource' - The Amazon Resource Name (ARN) of the scheduled activity.
+-- * 'input' - The JSON data input to the activity task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 -- * 'timeoutInSeconds' - The maximum allowed duration of the activity task.
+-- * 'resource' - The Amazon Resource Name (ARN) of the scheduled activity.
 mkActivityScheduledEventDetails ::
   -- | 'resource'
   Lude.Text ->

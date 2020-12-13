@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.CmafSegmentControl
   ( CmafSegmentControl
       ( CmafSegmentControl',
-        SegmentedFiles,
-        SingleFile
+        SingleFile,
+        SegmentedFiles
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype CmafSegmentControl = CmafSegmentControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern SegmentedFiles :: CmafSegmentControl
-pattern SegmentedFiles = CmafSegmentControl' "SEGMENTED_FILES"
-
 pattern SingleFile :: CmafSegmentControl
 pattern SingleFile = CmafSegmentControl' "SINGLE_FILE"
 
+pattern SegmentedFiles :: CmafSegmentControl
+pattern SegmentedFiles = CmafSegmentControl' "SEGMENTED_FILES"
+
 {-# COMPLETE
-  SegmentedFiles,
   SingleFile,
+  SegmentedFiles,
   CmafSegmentControl'
   #-}

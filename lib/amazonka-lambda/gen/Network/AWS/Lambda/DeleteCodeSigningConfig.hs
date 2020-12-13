@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteCodeSigningConfig' smart constructor.
 newtype DeleteCodeSigningConfig = DeleteCodeSigningConfig'
-  { codeSigningConfigARN ::
-      Lude.Text
+  { -- | The The Amazon Resource Name (ARN) of the code signing configuration.
+    codeSigningConfigARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCodeSigningConfig' with the minimum fields required to make a request.
@@ -95,16 +90,10 @@ instance Lude.ToQuery DeleteCodeSigningConfig where
 
 -- | /See:/ 'mkDeleteCodeSigningConfigResponse' smart constructor.
 newtype DeleteCodeSigningConfigResponse = DeleteCodeSigningConfigResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCodeSigningConfigResponse' with the minimum fields required to make a request.

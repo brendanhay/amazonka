@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,11 +28,11 @@ module Network.AWS.SageMaker.CreateTrialComponent
     ctcOutputArtifacts,
     ctcStartTime,
     ctcEndTime,
+    ctcTrialComponentName,
     ctcParameters,
     ctcDisplayName,
     ctcInputArtifacts,
     ctcTags,
-    ctcTrialComponentName,
 
     -- * Destructuring the response
     CreateTrialComponentResponse (..),
@@ -51,49 +52,39 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateTrialComponent' smart constructor.
 data CreateTrialComponent = CreateTrialComponent'
-  { status ::
-      Lude.Maybe TrialComponentStatus,
-    outputArtifacts ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (TrialComponentArtifact)
-        ),
+  { -- | The status of the component. States include:
+    --
+    --
+    --     * InProgress
+    --
+    --
+    --     * Completed
+    --
+    --
+    --     * Failed
+    status :: Lude.Maybe TrialComponentStatus,
+    -- | The output artifacts for the component. Examples of output artifacts are metrics, snapshots, logs, and images.
+    outputArtifacts :: Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)),
+    -- | When the component started.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | When the component ended.
     endTime :: Lude.Maybe Lude.Timestamp,
-    parameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (TrialComponentParameterValue)
-        ),
+    -- | The name of the component. The name must be unique in your AWS account and is not case-sensitive.
+    trialComponentName :: Lude.Text,
+    -- | The hyperparameters for the component.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentParameterValue)),
+    -- | The name of the component as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
     displayName :: Lude.Maybe Lude.Text,
-    inputArtifacts ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (TrialComponentArtifact)
-        ),
-    tags :: Lude.Maybe [Tag],
-    trialComponentName :: Lude.Text
+    -- | The input artifacts for the component. Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and instance types.
+    inputArtifacts :: Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)),
+    -- | A list of tags to associate with the component. You can use 'Search' API to search on the tags.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrialComponent' with the minimum fields required to make a request.
 --
--- * 'displayName' - The name of the component as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
--- * 'endTime' - When the component ended.
--- * 'inputArtifacts' - The input artifacts for the component. Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and instance types.
--- * 'outputArtifacts' - The output artifacts for the component. Examples of output artifacts are metrics, snapshots, logs, and images.
--- * 'parameters' - The hyperparameters for the component.
--- * 'startTime' - When the component started.
 -- * 'status' - The status of the component. States include:
 --
 --
@@ -106,8 +97,14 @@ data CreateTrialComponent = CreateTrialComponent'
 --     * Failed
 --
 --
--- * 'tags' - A list of tags to associate with the component. You can use 'Search' API to search on the tags.
+-- * 'outputArtifacts' - The output artifacts for the component. Examples of output artifacts are metrics, snapshots, logs, and images.
+-- * 'startTime' - When the component started.
+-- * 'endTime' - When the component ended.
 -- * 'trialComponentName' - The name of the component. The name must be unique in your AWS account and is not case-sensitive.
+-- * 'parameters' - The hyperparameters for the component.
+-- * 'displayName' - The name of the component as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
+-- * 'inputArtifacts' - The input artifacts for the component. Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and instance types.
+-- * 'tags' - A list of tags to associate with the component. You can use 'Search' API to search on the tags.
 mkCreateTrialComponent ::
   -- | 'trialComponentName'
   Lude.Text ->
@@ -118,11 +115,11 @@ mkCreateTrialComponent pTrialComponentName_ =
       outputArtifacts = Lude.Nothing,
       startTime = Lude.Nothing,
       endTime = Lude.Nothing,
+      trialComponentName = pTrialComponentName_,
       parameters = Lude.Nothing,
       displayName = Lude.Nothing,
       inputArtifacts = Lude.Nothing,
-      tags = Lude.Nothing,
-      trialComponentName = pTrialComponentName_
+      tags = Lude.Nothing
     }
 
 -- | The status of the component. States include:
@@ -164,6 +161,13 @@ ctcEndTime :: Lens.Lens' CreateTrialComponent (Lude.Maybe Lude.Timestamp)
 ctcEndTime = Lens.lens (endTime :: CreateTrialComponent -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: CreateTrialComponent)
 {-# DEPRECATED ctcEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
+-- | The name of the component. The name must be unique in your AWS account and is not case-sensitive.
+--
+-- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctcTrialComponentName :: Lens.Lens' CreateTrialComponent Lude.Text
+ctcTrialComponentName = Lens.lens (trialComponentName :: CreateTrialComponent -> Lude.Text) (\s a -> s {trialComponentName = a} :: CreateTrialComponent)
+{-# DEPRECATED ctcTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
+
 -- | The hyperparameters for the component.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -191,13 +195,6 @@ ctcInputArtifacts = Lens.lens (inputArtifacts :: CreateTrialComponent -> Lude.Ma
 ctcTags :: Lens.Lens' CreateTrialComponent (Lude.Maybe [Tag])
 ctcTags = Lens.lens (tags :: CreateTrialComponent -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTrialComponent)
 {-# DEPRECATED ctcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the component. The name must be unique in your AWS account and is not case-sensitive.
---
--- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctcTrialComponentName :: Lens.Lens' CreateTrialComponent Lude.Text
-ctcTrialComponentName = Lens.lens (trialComponentName :: CreateTrialComponent -> Lude.Text) (\s a -> s {trialComponentName = a} :: CreateTrialComponent)
-{-# DEPRECATED ctcTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
 
 instance Lude.AWSRequest CreateTrialComponent where
   type Rs CreateTrialComponent = CreateTrialComponentResponse
@@ -229,11 +226,11 @@ instance Lude.ToJSON CreateTrialComponent where
             ("OutputArtifacts" Lude..=) Lude.<$> outputArtifacts,
             ("StartTime" Lude..=) Lude.<$> startTime,
             ("EndTime" Lude..=) Lude.<$> endTime,
+            Lude.Just ("TrialComponentName" Lude..= trialComponentName),
             ("Parameters" Lude..=) Lude.<$> parameters,
             ("DisplayName" Lude..=) Lude.<$> displayName,
             ("InputArtifacts" Lude..=) Lude.<$> inputArtifacts,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("TrialComponentName" Lude..= trialComponentName)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -245,23 +242,18 @@ instance Lude.ToQuery CreateTrialComponent where
 
 -- | /See:/ 'mkCreateTrialComponentResponse' smart constructor.
 data CreateTrialComponentResponse = CreateTrialComponentResponse'
-  { trialComponentARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the trial component.
+    trialComponentARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrialComponentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
+-- * 'responseStatus' - The response status code.
 mkCreateTrialComponentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

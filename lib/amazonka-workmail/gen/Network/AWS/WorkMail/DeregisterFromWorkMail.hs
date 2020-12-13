@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkMail.DeregisterFromWorkMail
     mkDeregisterFromWorkMail,
 
     -- ** Request lenses
-    dfwmOrganizationId,
     dfwmEntityId,
+    dfwmOrganizationId,
 
     -- * Destructuring the response
     DeregisterFromWorkMailResponse (..),
@@ -39,17 +40,12 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkDeregisterFromWorkMail' smart constructor.
 data DeregisterFromWorkMail = DeregisterFromWorkMail'
-  { organizationId ::
-      Lude.Text,
-    entityId :: Lude.Text
+  { -- | The identifier for the member (user or group) to be updated.
+    entityId :: Lude.Text,
+    -- | The identifier for the organization under which the Amazon WorkMail entity exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterFromWorkMail' with the minimum fields required to make a request.
@@ -57,23 +53,16 @@ data DeregisterFromWorkMail = DeregisterFromWorkMail'
 -- * 'entityId' - The identifier for the member (user or group) to be updated.
 -- * 'organizationId' - The identifier for the organization under which the Amazon WorkMail entity exists.
 mkDeregisterFromWorkMail ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'entityId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   DeregisterFromWorkMail
-mkDeregisterFromWorkMail pOrganizationId_ pEntityId_ =
+mkDeregisterFromWorkMail pEntityId_ pOrganizationId_ =
   DeregisterFromWorkMail'
-    { organizationId = pOrganizationId_,
-      entityId = pEntityId_
+    { entityId = pEntityId_,
+      organizationId = pOrganizationId_
     }
-
--- | The identifier for the organization under which the Amazon WorkMail entity exists.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfwmOrganizationId :: Lens.Lens' DeregisterFromWorkMail Lude.Text
-dfwmOrganizationId = Lens.lens (organizationId :: DeregisterFromWorkMail -> Lude.Text) (\s a -> s {organizationId = a} :: DeregisterFromWorkMail)
-{-# DEPRECATED dfwmOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier for the member (user or group) to be updated.
 --
@@ -81,6 +70,13 @@ dfwmOrganizationId = Lens.lens (organizationId :: DeregisterFromWorkMail -> Lude
 dfwmEntityId :: Lens.Lens' DeregisterFromWorkMail Lude.Text
 dfwmEntityId = Lens.lens (entityId :: DeregisterFromWorkMail -> Lude.Text) (\s a -> s {entityId = a} :: DeregisterFromWorkMail)
 {-# DEPRECATED dfwmEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
+
+-- | The identifier for the organization under which the Amazon WorkMail entity exists.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfwmOrganizationId :: Lens.Lens' DeregisterFromWorkMail Lude.Text
+dfwmOrganizationId = Lens.lens (organizationId :: DeregisterFromWorkMail -> Lude.Text) (\s a -> s {organizationId = a} :: DeregisterFromWorkMail)
+{-# DEPRECATED dfwmOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest DeregisterFromWorkMail where
   type Rs DeregisterFromWorkMail = DeregisterFromWorkMailResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON DeregisterFromWorkMail where
   toJSON DeregisterFromWorkMail' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("EntityId" Lude..= entityId)
+          [ Lude.Just ("EntityId" Lude..= entityId),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -120,16 +116,10 @@ instance Lude.ToQuery DeregisterFromWorkMail where
 
 -- | /See:/ 'mkDeregisterFromWorkMailResponse' smart constructor.
 newtype DeregisterFromWorkMailResponse = DeregisterFromWorkMailResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterFromWorkMailResponse' with the minimum fields required to make a request.

@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaFacet' smart constructor.
 data SchemaFacet = SchemaFacet'
-  { facetName :: Lude.Maybe Lude.Text,
+  { -- | The name of the facet.
+    facetName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the schema that contains the facet with no minor component. See 'arns' and <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade> for a description of when to provide minor versions.
     schemaARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaFacet' with the minimum fields required to make a request.

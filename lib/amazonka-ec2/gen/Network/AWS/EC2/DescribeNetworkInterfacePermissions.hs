@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.EC2.DescribeNetworkInterfacePermissions
     mkDescribeNetworkInterfacePermissionsResponse,
 
     -- ** Response lenses
-    dnipsrsNetworkInterfacePermissions,
-    dnipsrsNextToken,
-    dnipsrsResponseStatus,
+    dniprsNetworkInterfacePermissions,
+    dniprsNextToken,
+    dniprsResponseStatus,
   )
 where
 
@@ -48,25 +49,31 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeNetworkInterfacePermissions' smart constructor.
 data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
-  { filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    networkInterfacePermissionIds ::
-      Lude.Maybe
-        [Lude.Text],
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | One or more filters.
+    --
+    --
+    --     * @network-interface-permission.network-interface-permission-id@ - The ID of the permission.
+    --
+    --
+    --     * @network-interface-permission.network-interface-id@ - The ID of the network interface.
+    --
+    --
+    --     * @network-interface-permission.aws-account-id@ - The AWS account ID.
+    --
+    --
+    --     * @network-interface-permission.aws-service@ - The AWS service.
+    --
+    --
+    --     * @network-interface-permission.permission@ - The type of permission (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The token to request the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | One or more network interface permission IDs.
+    networkInterfacePermissionIds :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. If this parameter is not specified, up to 50 results are returned by default.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNetworkInterfacePermissions' with the minimum fields required to make a request.
@@ -89,9 +96,9 @@ data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
 --     * @network-interface-permission.permission@ - The type of permission (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@ ).
 --
 --
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. If this parameter is not specified, up to 50 results are returned by default.
--- * 'networkInterfacePermissionIds' - One or more network interface permission IDs.
 -- * 'nextToken' - The token to request the next page of results.
+-- * 'networkInterfacePermissionIds' - One or more network interface permission IDs.
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. If this parameter is not specified, up to 50 results are returned by default.
 mkDescribeNetworkInterfacePermissions ::
   DescribeNetworkInterfacePermissions
 mkDescribeNetworkInterfacePermissions =
@@ -149,13 +156,13 @@ dnipMaxResults = Lens.lens (maxResults :: DescribeNetworkInterfacePermissions ->
 
 instance Page.AWSPager DescribeNetworkInterfacePermissions where
   page rq rs
-    | Page.stop (rs Lens.^. dnipsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dnipsrsNetworkInterfacePermissions) =
+    | Page.stop (rs Lens.^. dniprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dniprsNetworkInterfacePermissions) =
       Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dnipNextToken Lens..~ rs Lens.^. dnipsrsNextToken
+          Lude.& dnipNextToken Lens..~ rs Lens.^. dniprsNextToken
 
 instance Lude.AWSRequest DescribeNetworkInterfacePermissions where
   type
@@ -198,22 +205,14 @@ instance Lude.ToQuery DescribeNetworkInterfacePermissions where
 --
 -- /See:/ 'mkDescribeNetworkInterfacePermissionsResponse' smart constructor.
 data DescribeNetworkInterfacePermissionsResponse = DescribeNetworkInterfacePermissionsResponse'
-  { networkInterfacePermissions ::
-      Lude.Maybe
-        [NetworkInterfacePermission],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The network interface permissions.
+    networkInterfacePermissions :: Lude.Maybe [NetworkInterfacePermission],
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNetworkInterfacePermissionsResponse' with the minimum fields required to make a request.
@@ -236,20 +235,20 @@ mkDescribeNetworkInterfacePermissionsResponse pResponseStatus_ =
 -- | The network interface permissions.
 --
 -- /Note:/ Consider using 'networkInterfacePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnipsrsNetworkInterfacePermissions :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse (Lude.Maybe [NetworkInterfacePermission])
-dnipsrsNetworkInterfacePermissions = Lens.lens (networkInterfacePermissions :: DescribeNetworkInterfacePermissionsResponse -> Lude.Maybe [NetworkInterfacePermission]) (\s a -> s {networkInterfacePermissions = a} :: DescribeNetworkInterfacePermissionsResponse)
-{-# DEPRECATED dnipsrsNetworkInterfacePermissions "Use generic-lens or generic-optics with 'networkInterfacePermissions' instead." #-}
+dniprsNetworkInterfacePermissions :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse (Lude.Maybe [NetworkInterfacePermission])
+dniprsNetworkInterfacePermissions = Lens.lens (networkInterfacePermissions :: DescribeNetworkInterfacePermissionsResponse -> Lude.Maybe [NetworkInterfacePermission]) (\s a -> s {networkInterfacePermissions = a} :: DescribeNetworkInterfacePermissionsResponse)
+{-# DEPRECATED dniprsNetworkInterfacePermissions "Use generic-lens or generic-optics with 'networkInterfacePermissions' instead." #-}
 
 -- | The token to use to retrieve the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnipsrsNextToken :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse (Lude.Maybe Lude.Text)
-dnipsrsNextToken = Lens.lens (nextToken :: DescribeNetworkInterfacePermissionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNetworkInterfacePermissionsResponse)
-{-# DEPRECATED dnipsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dniprsNextToken :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse (Lude.Maybe Lude.Text)
+dniprsNextToken = Lens.lens (nextToken :: DescribeNetworkInterfacePermissionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNetworkInterfacePermissionsResponse)
+{-# DEPRECATED dniprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnipsrsResponseStatus :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse Lude.Int
-dnipsrsResponseStatus = Lens.lens (responseStatus :: DescribeNetworkInterfacePermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNetworkInterfacePermissionsResponse)
-{-# DEPRECATED dnipsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dniprsResponseStatus :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse Lude.Int
+dniprsResponseStatus = Lens.lens (responseStatus :: DescribeNetworkInterfacePermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNetworkInterfacePermissionsResponse)
+{-# DEPRECATED dniprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

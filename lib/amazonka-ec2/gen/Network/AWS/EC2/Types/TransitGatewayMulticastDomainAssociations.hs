@@ -34,29 +34,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayMulticastDomainAssociations' smart constructor.
 data TransitGatewayMulticastDomainAssociations = TransitGatewayMulticastDomainAssociations'
-  { resourceId ::
-      Lude.Maybe
-        Lude.Text,
-    resourceType ::
-      Lude.Maybe
-        TransitGatewayAttachmentResourceType,
-    subnets ::
-      Lude.Maybe
-        [SubnetAssociation],
-    transitGatewayMulticastDomainId ::
-      Lude.Maybe
-        Lude.Text,
-    transitGatewayAttachmentId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The ID of the resource.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of resource, for example a VPC attachment.
+    resourceType :: Lude.Maybe TransitGatewayAttachmentResourceType,
+    -- | The subnets associated with the multicast domain.
+    subnets :: Lude.Maybe [SubnetAssociation],
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Lude.Maybe Lude.Text,
+    -- | The ID of the transit gateway attachment.
+    transitGatewayAttachmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayMulticastDomainAssociations' with the minimum fields required to make a request.
@@ -64,8 +53,8 @@ data TransitGatewayMulticastDomainAssociations = TransitGatewayMulticastDomainAs
 -- * 'resourceId' - The ID of the resource.
 -- * 'resourceType' - The type of resource, for example a VPC attachment.
 -- * 'subnets' - The subnets associated with the multicast domain.
--- * 'transitGatewayAttachmentId' - The ID of the transit gateway attachment.
 -- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+-- * 'transitGatewayAttachmentId' - The ID of the transit gateway attachment.
 mkTransitGatewayMulticastDomainAssociations ::
   TransitGatewayMulticastDomainAssociations
 mkTransitGatewayMulticastDomainAssociations =

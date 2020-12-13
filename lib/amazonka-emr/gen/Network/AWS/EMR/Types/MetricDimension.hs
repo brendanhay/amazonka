@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The dimension value.
+    value :: Lude.Maybe Lude.Text,
+    -- | The dimension name.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
 --
--- * 'key' - The dimension name.
 -- * 'value' - The dimension value.
+-- * 'key' - The dimension name.
 mkMetricDimension ::
   MetricDimension
 mkMetricDimension =

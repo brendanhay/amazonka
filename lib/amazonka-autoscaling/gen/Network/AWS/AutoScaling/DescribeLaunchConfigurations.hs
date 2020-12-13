@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
 
     -- ** Response lenses
     dlcrsNextToken,
-    dlcrsResponseStatus,
     dlcrsLaunchConfigurations,
+    dlcrsResponseStatus,
   )
 where
 
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLaunchConfigurations' smart constructor.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
-  { launchConfigurationNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The launch configuration names. If you omit this parameter, all launch configurations are described.
+    launchConfigurationNames :: Lude.Maybe [Lude.Text],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLaunchConfigurations' with the minimum fields required to make a request.
 --
 -- * 'launchConfigurationNames' - The launch configuration names. If you omit this parameter, all launch configurations are described.
--- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 mkDescribeLaunchConfigurations ::
   DescribeLaunchConfigurations
 mkDescribeLaunchConfigurations =
@@ -115,10 +112,10 @@ instance Lude.AWSRequest DescribeLaunchConfigurations where
       ( \s h x ->
           DescribeLaunchConfigurationsResponse'
             Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "LaunchConfigurations" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeLaunchConfigurations where
@@ -142,27 +139,20 @@ instance Lude.ToQuery DescribeLaunchConfigurations where
 
 -- | /See:/ 'mkDescribeLaunchConfigurationsResponse' smart constructor.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    launchConfigurations ::
-      [LaunchConfiguration]
+  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The launch configurations.
+    launchConfigurations :: [LaunchConfiguration],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLaunchConfigurationsResponse' with the minimum fields required to make a request.
 --
--- * 'launchConfigurations' - The launch configurations.
 -- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+-- * 'launchConfigurations' - The launch configurations.
 -- * 'responseStatus' - The response status code.
 mkDescribeLaunchConfigurationsResponse ::
   -- | 'responseStatus'
@@ -171,8 +161,8 @@ mkDescribeLaunchConfigurationsResponse ::
 mkDescribeLaunchConfigurationsResponse pResponseStatus_ =
   DescribeLaunchConfigurationsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      launchConfigurations = Lude.mempty
+      launchConfigurations = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
@@ -182,16 +172,16 @@ dlcrsNextToken :: Lens.Lens' DescribeLaunchConfigurationsResponse (Lude.Maybe Lu
 dlcrsNextToken = Lens.lens (nextToken :: DescribeLaunchConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLaunchConfigurationsResponse)
 {-# DEPRECATED dlcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcrsResponseStatus :: Lens.Lens' DescribeLaunchConfigurationsResponse Lude.Int
-dlcrsResponseStatus = Lens.lens (responseStatus :: DescribeLaunchConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLaunchConfigurationsResponse)
-{-# DEPRECATED dlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The launch configurations.
 --
 -- /Note:/ Consider using 'launchConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dlcrsLaunchConfigurations :: Lens.Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
 dlcrsLaunchConfigurations = Lens.lens (launchConfigurations :: DescribeLaunchConfigurationsResponse -> [LaunchConfiguration]) (\s a -> s {launchConfigurations = a} :: DescribeLaunchConfigurationsResponse)
 {-# DEPRECATED dlcrsLaunchConfigurations "Use generic-lens or generic-optics with 'launchConfigurations' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrsResponseStatus :: Lens.Lens' DescribeLaunchConfigurationsResponse Lude.Int
+dlcrsResponseStatus = Lens.lens (responseStatus :: DescribeLaunchConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLaunchConfigurationsResponse)
+{-# DEPRECATED dlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

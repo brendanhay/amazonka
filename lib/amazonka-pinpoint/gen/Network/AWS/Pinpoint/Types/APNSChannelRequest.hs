@@ -35,34 +35,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAPNSChannelRequest' smart constructor.
 data APNSChannelRequest = APNSChannelRequest'
-  { tokenKey ::
-      Lude.Maybe Lude.Text,
+  { -- | The authentication key to use for APNs tokens.
+    tokenKey :: Lude.Maybe Lude.Text,
+    -- | The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
     privateKey :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to enable the APNs channel for the application.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
     teamId :: Lude.Maybe Lude.Text,
+    -- | The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
     bundleId :: Lude.Maybe Lude.Text,
+    -- | The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.
     defaultAuthenticationMethod :: Lude.Maybe Lude.Text,
+    -- | The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
     certificate :: Lude.Maybe Lude.Text,
+    -- | The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
     tokenKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APNSChannelRequest' with the minimum fields required to make a request.
 --
--- * 'bundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
--- * 'certificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
--- * 'defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.
--- * 'enabled' - Specifies whether to enable the APNs channel for the application.
--- * 'privateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
--- * 'teamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
 -- * 'tokenKey' - The authentication key to use for APNs tokens.
+-- * 'privateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with APNs.
+-- * 'enabled' - Specifies whether to enable the APNs channel for the application.
+-- * 'teamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
+-- * 'bundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
+-- * 'defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.
+-- * 'certificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.
 -- * 'tokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.
 mkAPNSChannelRequest ::
   APNSChannelRequest

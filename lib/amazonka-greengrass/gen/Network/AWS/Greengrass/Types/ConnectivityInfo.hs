@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnectivityInfo' smart constructor.
 data ConnectivityInfo = ConnectivityInfo'
-  { portNumber ::
-      Lude.Maybe Lude.Int,
+  { -- | The port of the Greengrass core. Usually 8883.
+    portNumber :: Lude.Maybe Lude.Int,
+    -- | The ID of the connectivity information.
     id :: Lude.Maybe Lude.Text,
+    -- | Metadata for this endpoint.
     metadata :: Lude.Maybe Lude.Text,
+    -- | The endpoint for the Greengrass core. Can be an IP address or DNS.
     hostAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectivityInfo' with the minimum fields required to make a request.
 --
--- * 'hostAddress' - The endpoint for the Greengrass core. Can be an IP address or DNS.
+-- * 'portNumber' - The port of the Greengrass core. Usually 8883.
 -- * 'id' - The ID of the connectivity information.
 -- * 'metadata' - Metadata for this endpoint.
--- * 'portNumber' - The port of the Greengrass core. Usually 8883.
+-- * 'hostAddress' - The endpoint for the Greengrass core. Can be an IP address or DNS.
 mkConnectivityInfo ::
   ConnectivityInfo
 mkConnectivityInfo =

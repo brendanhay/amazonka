@@ -31,24 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChannelStorage' smart constructor.
 data ChannelStorage = ChannelStorage'
-  { serviceManagedS3 ::
-      Lude.Maybe ServiceManagedChannelS3Storage,
-    customerManagedS3 ::
-      Lude.Maybe CustomerManagedChannelS3Storage
+  { -- | Use this to store channel data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
+    serviceManagedS3 :: Lude.Maybe ServiceManagedChannelS3Storage,
+    -- | Use this to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the @retentionPeriod@ parameter is ignored. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
+    customerManagedS3 :: Lude.Maybe CustomerManagedChannelS3Storage
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelStorage' with the minimum fields required to make a request.
 --
--- * 'customerManagedS3' - Use this to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the @retentionPeriod@ parameter is ignored. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
 -- * 'serviceManagedS3' - Use this to store channel data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
+-- * 'customerManagedS3' - Use this to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the @retentionPeriod@ parameter is ignored. You cannot change the choice of service-managed or customer-managed S3 storage after the channel is created.
 mkChannelStorage ::
   ChannelStorage
 mkChannelStorage =

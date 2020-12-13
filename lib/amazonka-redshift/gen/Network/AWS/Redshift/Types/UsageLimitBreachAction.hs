@@ -13,9 +13,9 @@
 module Network.AWS.Redshift.Types.UsageLimitBreachAction
   ( UsageLimitBreachAction
       ( UsageLimitBreachAction',
-        Disable,
+        Log,
         EmitMetric,
-        Log
+        Disable
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype UsageLimitBreachAction = UsageLimitBreachAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disable :: UsageLimitBreachAction
-pattern Disable = UsageLimitBreachAction' "disable"
+pattern Log :: UsageLimitBreachAction
+pattern Log = UsageLimitBreachAction' "log"
 
 pattern EmitMetric :: UsageLimitBreachAction
 pattern EmitMetric = UsageLimitBreachAction' "emit-metric"
 
-pattern Log :: UsageLimitBreachAction
-pattern Log = UsageLimitBreachAction' "log"
+pattern Disable :: UsageLimitBreachAction
+pattern Disable = UsageLimitBreachAction' "disable"
 
 {-# COMPLETE
-  Disable,
-  EmitMetric,
   Log,
+  EmitMetric,
+  Disable,
   UsageLimitBreachAction'
   #-}

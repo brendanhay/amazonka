@@ -53,61 +53,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticsearchDomainConfig' smart constructor.
 data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
-  { ebsOptions ::
-      Lude.Maybe EBSOptionsStatus,
-    nodeToNodeEncryptionOptions ::
-      Lude.Maybe
-        NodeToNodeEncryptionOptionsStatus,
-    accessPolicies ::
-      Lude.Maybe AccessPoliciesStatus,
-    logPublishingOptions ::
-      Lude.Maybe LogPublishingOptionsStatus,
-    advancedSecurityOptions ::
-      Lude.Maybe
-        AdvancedSecurityOptionsStatus,
-    elasticsearchClusterConfig ::
-      Lude.Maybe
-        ElasticsearchClusterConfigStatus,
-    snapshotOptions ::
-      Lude.Maybe SnapshotOptionsStatus,
-    cognitoOptions ::
-      Lude.Maybe CognitoOptionsStatus,
-    encryptionAtRestOptions ::
-      Lude.Maybe
-        EncryptionAtRestOptionsStatus,
-    vpcOptions ::
-      Lude.Maybe VPCDerivedInfoStatus,
-    domainEndpointOptions ::
-      Lude.Maybe DomainEndpointOptionsStatus,
-    advancedOptions ::
-      Lude.Maybe AdvancedOptionsStatus,
-    elasticsearchVersion ::
-      Lude.Maybe ElasticsearchVersionStatus
+  { -- | Specifies the @EBSOptions@ for the Elasticsearch domain.
+    ebsOptions :: Lude.Maybe EBSOptionsStatus,
+    -- | Specifies the @NodeToNodeEncryptionOptions@ for the Elasticsearch domain.
+    nodeToNodeEncryptionOptions :: Lude.Maybe NodeToNodeEncryptionOptionsStatus,
+    -- | IAM access policy as a JSON-formatted string.
+    accessPolicies :: Lude.Maybe AccessPoliciesStatus,
+    -- | Log publishing options for the given domain.
+    logPublishingOptions :: Lude.Maybe LogPublishingOptionsStatus,
+    -- | Specifies @AdvancedSecurityOptions@ for the domain.
+    advancedSecurityOptions :: Lude.Maybe AdvancedSecurityOptionsStatus,
+    -- | Specifies the @ElasticsearchClusterConfig@ for the Elasticsearch domain.
+    elasticsearchClusterConfig :: Lude.Maybe ElasticsearchClusterConfigStatus,
+    -- | Specifies the @SnapshotOptions@ for the Elasticsearch domain.
+    snapshotOptions :: Lude.Maybe SnapshotOptionsStatus,
+    -- | The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+    cognitoOptions :: Lude.Maybe CognitoOptionsStatus,
+    -- | Specifies the @EncryptionAtRestOptions@ for the Elasticsearch domain.
+    encryptionAtRestOptions :: Lude.Maybe EncryptionAtRestOptionsStatus,
+    -- | The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
+    vpcOptions :: Lude.Maybe VPCDerivedInfoStatus,
+    -- | Specifies the @DomainEndpointOptions@ for the Elasticsearch domain.
+    domainEndpointOptions :: Lude.Maybe DomainEndpointOptionsStatus,
+    -- | Specifies the @AdvancedOptions@ for the domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options> for more information.
+    advancedOptions :: Lude.Maybe AdvancedOptionsStatus,
+    -- | String of format X.Y to specify version for the Elasticsearch domain.
+    elasticsearchVersion :: Lude.Maybe ElasticsearchVersionStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchDomainConfig' with the minimum fields required to make a request.
 --
--- * 'accessPolicies' - IAM access policy as a JSON-formatted string.
--- * 'advancedOptions' - Specifies the @AdvancedOptions@ for the domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options> for more information.
--- * 'advancedSecurityOptions' - Specifies @AdvancedSecurityOptions@ for the domain.
--- * 'cognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
--- * 'domainEndpointOptions' - Specifies the @DomainEndpointOptions@ for the Elasticsearch domain.
 -- * 'ebsOptions' - Specifies the @EBSOptions@ for the Elasticsearch domain.
--- * 'elasticsearchClusterConfig' - Specifies the @ElasticsearchClusterConfig@ for the Elasticsearch domain.
--- * 'elasticsearchVersion' - String of format X.Y to specify version for the Elasticsearch domain.
--- * 'encryptionAtRestOptions' - Specifies the @EncryptionAtRestOptions@ for the Elasticsearch domain.
--- * 'logPublishingOptions' - Log publishing options for the given domain.
 -- * 'nodeToNodeEncryptionOptions' - Specifies the @NodeToNodeEncryptionOptions@ for the Elasticsearch domain.
+-- * 'accessPolicies' - IAM access policy as a JSON-formatted string.
+-- * 'logPublishingOptions' - Log publishing options for the given domain.
+-- * 'advancedSecurityOptions' - Specifies @AdvancedSecurityOptions@ for the domain.
+-- * 'elasticsearchClusterConfig' - Specifies the @ElasticsearchClusterConfig@ for the Elasticsearch domain.
 -- * 'snapshotOptions' - Specifies the @SnapshotOptions@ for the Elasticsearch domain.
+-- * 'cognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+-- * 'encryptionAtRestOptions' - Specifies the @EncryptionAtRestOptions@ for the Elasticsearch domain.
 -- * 'vpcOptions' - The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
+-- * 'domainEndpointOptions' - Specifies the @DomainEndpointOptions@ for the Elasticsearch domain.
+-- * 'advancedOptions' - Specifies the @AdvancedOptions@ for the domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options> for more information.
+-- * 'elasticsearchVersion' - String of format X.Y to specify version for the Elasticsearch domain.
 mkElasticsearchDomainConfig ::
   ElasticsearchDomainConfig
 mkElasticsearchDomainConfig =

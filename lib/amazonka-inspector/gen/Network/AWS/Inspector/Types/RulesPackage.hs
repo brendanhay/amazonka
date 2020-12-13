@@ -17,10 +17,10 @@ module Network.AWS.Inspector.Types.RulesPackage
     mkRulesPackage,
 
     -- * Lenses
-    rpDescription,
     rpArn,
     rpName,
     rpVersion,
+    rpDescription,
     rpProvider,
   )
 where
@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRulesPackage' smart constructor.
 data RulesPackage = RulesPackage'
-  { description ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the rules package.
     arn :: Lude.Text,
+    -- | The name of the rules package.
     name :: Lude.Text,
+    -- | The version ID of the rules package.
     version :: Lude.Text,
+    -- | The description of the rules package.
+    description :: Lude.Maybe Lude.Text,
+    -- | The provider of the rules package.
     provider :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RulesPackage' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the rules package.
--- * 'description' - The description of the rules package.
 -- * 'name' - The name of the rules package.
--- * 'provider' - The provider of the rules package.
 -- * 'version' - The version ID of the rules package.
+-- * 'description' - The description of the rules package.
+-- * 'provider' - The provider of the rules package.
 mkRulesPackage ::
   -- | 'arn'
   Lude.Text ->
@@ -67,19 +65,12 @@ mkRulesPackage ::
   RulesPackage
 mkRulesPackage pArn_ pName_ pVersion_ pProvider_ =
   RulesPackage'
-    { description = Lude.Nothing,
-      arn = pArn_,
+    { arn = pArn_,
       name = pName_,
       version = pVersion_,
+      description = Lude.Nothing,
       provider = pProvider_
     }
-
--- | The description of the rules package.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpDescription :: Lens.Lens' RulesPackage (Lude.Maybe Lude.Text)
-rpDescription = Lens.lens (description :: RulesPackage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RulesPackage)
-{-# DEPRECATED rpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ARN of the rules package.
 --
@@ -102,6 +93,13 @@ rpVersion :: Lens.Lens' RulesPackage Lude.Text
 rpVersion = Lens.lens (version :: RulesPackage -> Lude.Text) (\s a -> s {version = a} :: RulesPackage)
 {-# DEPRECATED rpVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
+-- | The description of the rules package.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpDescription :: Lens.Lens' RulesPackage (Lude.Maybe Lude.Text)
+rpDescription = Lens.lens (description :: RulesPackage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RulesPackage)
+{-# DEPRECATED rpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
 -- | The provider of the rules package.
 --
 -- /Note:/ Consider using 'provider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -115,9 +113,9 @@ instance Lude.FromJSON RulesPackage where
       "RulesPackage"
       ( \x ->
           RulesPackage'
-            Lude.<$> (x Lude..:? "description")
-            Lude.<*> (x Lude..: "arn")
+            Lude.<$> (x Lude..: "arn")
             Lude.<*> (x Lude..: "name")
             Lude.<*> (x Lude..: "version")
+            Lude.<*> (x Lude..:? "description")
             Lude.<*> (x Lude..: "provider")
       )

@@ -34,34 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEmailTemplateRequest' smart constructor.
 data EmailTemplateRequest = EmailTemplateRequest'
-  { subject ::
-      Lude.Maybe Lude.Text,
+  { -- | The subject line, or title, to use in email messages that are based on the message template.
+    subject :: Lude.Maybe Lude.Text,
+    -- | The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
     textPart :: Lude.Maybe Lude.Text,
+    -- | A custom description of the message template.
     templateDescription :: Lude.Maybe Lude.Text,
+    -- | A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
     defaultSubstitutions :: Lude.Maybe Lude.Text,
+    -- | The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
     htmlPart :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
     recommenderId :: Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    -- | A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmailTemplateRequest' with the minimum fields required to make a request.
 --
+-- * 'subject' - The subject line, or title, to use in email messages that are based on the message template.
+-- * 'textPart' - The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+-- * 'templateDescription' - A custom description of the message template.
 -- * 'defaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
 -- * 'htmlPart' - The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
 -- * 'recommenderId' - The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
--- * 'subject' - The subject line, or title, to use in email messages that are based on the message template.
 -- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
--- * 'templateDescription' - A custom description of the message template.
--- * 'textPart' - The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
 mkEmailTemplateRequest ::
   EmailTemplateRequest
 mkEmailTemplateRequest =

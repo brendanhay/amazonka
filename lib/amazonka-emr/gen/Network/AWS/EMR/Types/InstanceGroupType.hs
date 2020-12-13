@@ -13,8 +13,8 @@
 module Network.AWS.EMR.Types.InstanceGroupType
   ( InstanceGroupType
       ( InstanceGroupType',
-        Core,
         Master,
+        Core,
         Task
       ),
   )
@@ -46,18 +46,18 @@ newtype InstanceGroupType = InstanceGroupType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Core :: InstanceGroupType
-pattern Core = InstanceGroupType' "CORE"
-
 pattern Master :: InstanceGroupType
 pattern Master = InstanceGroupType' "MASTER"
+
+pattern Core :: InstanceGroupType
+pattern Core = InstanceGroupType' "CORE"
 
 pattern Task :: InstanceGroupType
 pattern Task = InstanceGroupType' "TASK"
 
 {-# COMPLETE
-  Core,
   Master,
+  Core,
   Task,
   InstanceGroupType'
   #-}

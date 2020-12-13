@@ -37,58 +37,64 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPNConnectionOptionsSpecification' smart constructor.
 data VPNConnectionOptionsSpecification = VPNConnectionOptionsSpecification'
-  { tunnelInsideIPVersion ::
-      Lude.Maybe
-        TunnelInsideIPVersion,
-    remoteIPv4NetworkCidr ::
-      Lude.Maybe Lude.Text,
-    enableAcceleration ::
-      Lude.Maybe Lude.Bool,
-    localIPv4NetworkCidr ::
-      Lude.Maybe Lude.Text,
-    remoteIPv6NetworkCidr ::
-      Lude.Maybe Lude.Text,
-    tunnelOptions ::
-      Lude.Maybe
-        [VPNTunnelOptionsSpecification],
-    localIPv6NetworkCidr ::
-      Lude.Maybe Lude.Text,
-    staticRoutesOnly ::
-      Lude.Maybe Lude.Bool
+  { -- | Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
+    --
+    -- Default: @ipv4@
+    tunnelInsideIPVersion :: Lude.Maybe TunnelInsideIPVersion,
+    -- | The IPv4 CIDR on the AWS side of the VPN connection.
+    --
+    -- Default: @0.0.0.0/0@
+    remoteIPv4NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | Indicate whether to enable acceleration for the VPN connection.
+    --
+    -- Default: @false@
+    enableAcceleration :: Lude.Maybe Lude.Bool,
+    -- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+    --
+    -- Default: @0.0.0.0/0@
+    localIPv4NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | The IPv6 CIDR on the AWS side of the VPN connection.
+    --
+    -- Default: @::/0@
+    remoteIPv6NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | The tunnel options for the VPN connection.
+    tunnelOptions :: Lude.Maybe [VPNTunnelOptionsSpecification],
+    -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+    --
+    -- Default: @::/0@
+    localIPv6NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Use 'CreateVpnConnectionRoute' to create a static route.
+    --
+    -- Default: @false@
+    staticRoutesOnly :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPNConnectionOptionsSpecification' with the minimum fields required to make a request.
 --
+-- * 'tunnelInsideIPVersion' - Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
+--
+-- Default: @ipv4@
+-- * 'remoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
+--
+-- Default: @0.0.0.0/0@
 -- * 'enableAcceleration' - Indicate whether to enable acceleration for the VPN connection.
 --
 -- Default: @false@
 -- * 'localIPv4NetworkCidr' - The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
 --
 -- Default: @0.0.0.0/0@
--- * 'localIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+-- * 'remoteIPv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection.
 --
 -- Default: @::/0@
--- * 'remoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
---
--- Default: @0.0.0.0/0@
--- * 'remoteIPv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection.
+-- * 'tunnelOptions' - The tunnel options for the VPN connection.
+-- * 'localIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 --
 -- Default: @::/0@
 -- * 'staticRoutesOnly' - Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Use 'CreateVpnConnectionRoute' to create a static route.
 --
 -- Default: @false@
--- * 'tunnelInsideIPVersion' - Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
---
--- Default: @ipv4@
--- * 'tunnelOptions' - The tunnel options for the VPN connection.
 mkVPNConnectionOptionsSpecification ::
   VPNConnectionOptionsSpecification
 mkVPNConnectionOptionsSpecification =

@@ -15,16 +15,16 @@ module Network.AWS.APIGateway.Types.DocumentationPartType
       ( DocumentationPartType',
         DPTAPI,
         DPTAuthorizer,
-        DPTMethod,
         DPTModel,
+        DPTResource,
+        DPTMethod,
         DPTPathParameter,
         DPTQueryParameter,
-        DPTRequestBody,
         DPTRequestHeader,
-        DPTResource,
+        DPTRequestBody,
         DPTResponse,
-        DPTResponseBody,
-        DPTResponseHeader
+        DPTResponseHeader,
+        DPTResponseBody
       ),
   )
 where
@@ -61,11 +61,14 @@ pattern DPTAPI = DocumentationPartType' "API"
 pattern DPTAuthorizer :: DocumentationPartType
 pattern DPTAuthorizer = DocumentationPartType' "AUTHORIZER"
 
-pattern DPTMethod :: DocumentationPartType
-pattern DPTMethod = DocumentationPartType' "METHOD"
-
 pattern DPTModel :: DocumentationPartType
 pattern DPTModel = DocumentationPartType' "MODEL"
+
+pattern DPTResource :: DocumentationPartType
+pattern DPTResource = DocumentationPartType' "RESOURCE"
+
+pattern DPTMethod :: DocumentationPartType
+pattern DPTMethod = DocumentationPartType' "METHOD"
 
 pattern DPTPathParameter :: DocumentationPartType
 pattern DPTPathParameter = DocumentationPartType' "PATH_PARAMETER"
@@ -73,36 +76,33 @@ pattern DPTPathParameter = DocumentationPartType' "PATH_PARAMETER"
 pattern DPTQueryParameter :: DocumentationPartType
 pattern DPTQueryParameter = DocumentationPartType' "QUERY_PARAMETER"
 
-pattern DPTRequestBody :: DocumentationPartType
-pattern DPTRequestBody = DocumentationPartType' "REQUEST_BODY"
-
 pattern DPTRequestHeader :: DocumentationPartType
 pattern DPTRequestHeader = DocumentationPartType' "REQUEST_HEADER"
 
-pattern DPTResource :: DocumentationPartType
-pattern DPTResource = DocumentationPartType' "RESOURCE"
+pattern DPTRequestBody :: DocumentationPartType
+pattern DPTRequestBody = DocumentationPartType' "REQUEST_BODY"
 
 pattern DPTResponse :: DocumentationPartType
 pattern DPTResponse = DocumentationPartType' "RESPONSE"
 
-pattern DPTResponseBody :: DocumentationPartType
-pattern DPTResponseBody = DocumentationPartType' "RESPONSE_BODY"
-
 pattern DPTResponseHeader :: DocumentationPartType
 pattern DPTResponseHeader = DocumentationPartType' "RESPONSE_HEADER"
+
+pattern DPTResponseBody :: DocumentationPartType
+pattern DPTResponseBody = DocumentationPartType' "RESPONSE_BODY"
 
 {-# COMPLETE
   DPTAPI,
   DPTAuthorizer,
-  DPTMethod,
   DPTModel,
+  DPTResource,
+  DPTMethod,
   DPTPathParameter,
   DPTQueryParameter,
-  DPTRequestBody,
   DPTRequestHeader,
-  DPTResource,
+  DPTRequestBody,
   DPTResponse,
-  DPTResponseBody,
   DPTResponseHeader,
+  DPTResponseBody,
   DocumentationPartType'
   #-}

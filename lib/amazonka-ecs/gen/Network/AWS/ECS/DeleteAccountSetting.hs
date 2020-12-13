@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ECS.DeleteAccountSetting
     mkDeleteAccountSetting,
 
     -- ** Request lenses
-    dasPrincipalARN,
     dasName,
+    dasPrincipalARN,
 
     -- * Destructuring the response
     DeleteAccountSettingResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteAccountSetting' smart constructor.
 data DeleteAccountSetting = DeleteAccountSetting'
-  { principalARN ::
-      Lude.Maybe Lude.Text,
-    name :: SettingName
+  { -- | The resource name for which to disable the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected.
+    name :: SettingName,
+    -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it disables the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
+    principalARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccountSetting' with the minimum fields required to make a request.
@@ -62,14 +58,7 @@ mkDeleteAccountSetting ::
   SettingName ->
   DeleteAccountSetting
 mkDeleteAccountSetting pName_ =
-  DeleteAccountSetting' {principalARN = Lude.Nothing, name = pName_}
-
--- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it disables the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
---
--- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasPrincipalARN :: Lens.Lens' DeleteAccountSetting (Lude.Maybe Lude.Text)
-dasPrincipalARN = Lens.lens (principalARN :: DeleteAccountSetting -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: DeleteAccountSetting)
-{-# DEPRECATED dasPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
+  DeleteAccountSetting' {name = pName_, principalARN = Lude.Nothing}
 
 -- | The resource name for which to disable the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected.
 --
@@ -77,6 +66,13 @@ dasPrincipalARN = Lens.lens (principalARN :: DeleteAccountSetting -> Lude.Maybe 
 dasName :: Lens.Lens' DeleteAccountSetting SettingName
 dasName = Lens.lens (name :: DeleteAccountSetting -> SettingName) (\s a -> s {name = a} :: DeleteAccountSetting)
 {-# DEPRECATED dasName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it disables the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
+--
+-- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasPrincipalARN :: Lens.Lens' DeleteAccountSetting (Lude.Maybe Lude.Text)
+dasPrincipalARN = Lens.lens (principalARN :: DeleteAccountSetting -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: DeleteAccountSetting)
+{-# DEPRECATED dasPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
 
 instance Lude.AWSRequest DeleteAccountSetting where
   type Rs DeleteAccountSetting = DeleteAccountSettingResponse
@@ -105,8 +101,8 @@ instance Lude.ToJSON DeleteAccountSetting where
   toJSON DeleteAccountSetting' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("principalArn" Lude..=) Lude.<$> principalARN,
-            Lude.Just ("name" Lude..= name)
+          [ Lude.Just ("name" Lude..= name),
+            ("principalArn" Lude..=) Lude.<$> principalARN
           ]
       )
 
@@ -118,23 +114,18 @@ instance Lude.ToQuery DeleteAccountSetting where
 
 -- | /See:/ 'mkDeleteAccountSettingResponse' smart constructor.
 data DeleteAccountSettingResponse = DeleteAccountSettingResponse'
-  { setting ::
-      Lude.Maybe Setting,
+  { -- | The account setting for the specified principal ARN.
+    setting :: Lude.Maybe Setting,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccountSettingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'setting' - The account setting for the specified principal ARN.
+-- * 'responseStatus' - The response status code.
 mkDeleteAccountSettingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,8 +13,8 @@
 module Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType
   ( DirectConnectGatewayAttachmentType
       ( DirectConnectGatewayAttachmentType',
-        PrivateVirtualInterface,
-        TransitVirtualInterface
+        TransitVirtualInterface,
+        PrivateVirtualInterface
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DirectConnectGatewayAttachmentType = DirectConnectGatewayAttachmentType'
       Lude.ToHeader
     )
 
-pattern PrivateVirtualInterface :: DirectConnectGatewayAttachmentType
-pattern PrivateVirtualInterface = DirectConnectGatewayAttachmentType' "PrivateVirtualInterface"
-
 pattern TransitVirtualInterface :: DirectConnectGatewayAttachmentType
 pattern TransitVirtualInterface = DirectConnectGatewayAttachmentType' "TransitVirtualInterface"
 
+pattern PrivateVirtualInterface :: DirectConnectGatewayAttachmentType
+pattern PrivateVirtualInterface = DirectConnectGatewayAttachmentType' "PrivateVirtualInterface"
+
 {-# COMPLETE
-  PrivateVirtualInterface,
   TransitVirtualInterface,
+  PrivateVirtualInterface,
   DirectConnectGatewayAttachmentType'
   #-}

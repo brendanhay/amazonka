@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SageMaker.DeleteDomain
     mkDeleteDomain,
 
     -- ** Request lenses
-    dddRetentionPolicy,
-    dddDomainId,
+    ddfRetentionPolicy,
+    ddfDomainId,
 
     -- * Destructuring the response
     DeleteDomainResponse (..),
@@ -36,23 +37,18 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteDomain' smart constructor.
 data DeleteDomain = DeleteDomain'
-  { retentionPolicy ::
-      Lude.Maybe RetentionPolicy,
+  { -- | The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained (not automatically deleted).
+    retentionPolicy :: Lude.Maybe RetentionPolicy,
+    -- | The domain ID.
     domainId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
 --
--- * 'domainId' - The domain ID.
 -- * 'retentionPolicy' - The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained (not automatically deleted).
+-- * 'domainId' - The domain ID.
 mkDeleteDomain ::
   -- | 'domainId'
   Lude.Text ->
@@ -66,16 +62,16 @@ mkDeleteDomain pDomainId_ =
 -- | The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained (not automatically deleted).
 --
 -- /Note:/ Consider using 'retentionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddRetentionPolicy :: Lens.Lens' DeleteDomain (Lude.Maybe RetentionPolicy)
-dddRetentionPolicy = Lens.lens (retentionPolicy :: DeleteDomain -> Lude.Maybe RetentionPolicy) (\s a -> s {retentionPolicy = a} :: DeleteDomain)
-{-# DEPRECATED dddRetentionPolicy "Use generic-lens or generic-optics with 'retentionPolicy' instead." #-}
+ddfRetentionPolicy :: Lens.Lens' DeleteDomain (Lude.Maybe RetentionPolicy)
+ddfRetentionPolicy = Lens.lens (retentionPolicy :: DeleteDomain -> Lude.Maybe RetentionPolicy) (\s a -> s {retentionPolicy = a} :: DeleteDomain)
+{-# DEPRECATED ddfRetentionPolicy "Use generic-lens or generic-optics with 'retentionPolicy' instead." #-}
 
 -- | The domain ID.
 --
 -- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddDomainId :: Lens.Lens' DeleteDomain Lude.Text
-dddDomainId = Lens.lens (domainId :: DeleteDomain -> Lude.Text) (\s a -> s {domainId = a} :: DeleteDomain)
-{-# DEPRECATED dddDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
+ddfDomainId :: Lens.Lens' DeleteDomain Lude.Text
+ddfDomainId = Lens.lens (domainId :: DeleteDomain -> Lude.Text) (\s a -> s {domainId = a} :: DeleteDomain)
+{-# DEPRECATED ddfDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 instance Lude.AWSRequest DeleteDomain where
   type Rs DeleteDomain = DeleteDomainResponse
@@ -110,13 +106,7 @@ instance Lude.ToQuery DeleteDomain where
 
 -- | /See:/ 'mkDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.

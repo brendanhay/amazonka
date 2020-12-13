@@ -37,28 +37,61 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecord' smart constructor.
 data Record = Record'
-  { userIdentity :: Lude.Maybe Identity,
+  { -- | Items that are deleted by the Time to Live process after expiration have the following fields:
+    --
+    --
+    --     * Records[].userIdentity.type
+    -- "Service"
+    --
+    --
+    --     * Records[].userIdentity.principalId
+    -- "dynamodb.amazonaws.com"
+    userIdentity :: Lude.Maybe Identity,
+    -- | The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified.
+    --
+    -- Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
     eventVersion :: Lude.Maybe Lude.Text,
+    -- | The main body of the stream record, containing all of the DynamoDB-specific fields.
     dynamodb :: Lude.Maybe StreamRecord,
+    -- | The region in which the @GetRecords@ request was received.
     awsRegion :: Lude.Maybe Lude.Text,
+    -- | The type of data modification that was performed on the DynamoDB table:
+    --
+    --
+    --     * @INSERT@ - a new item was added to the table.
+    --
+    --
+    --     * @MODIFY@ - one or more of an existing item's attributes were modified.
+    --
+    --
+    --     * @REMOVE@ - the item was deleted from the table
     eventName :: Lude.Maybe OperationType,
+    -- | The AWS service from which the stream record originated. For DynamoDB Streams, this is @aws:dynamodb@ .
     eventSource :: Lude.Maybe Lude.Text,
+    -- | A globally unique identifier for the event that was recorded in this stream record.
     eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
--- * 'awsRegion' - The region in which the @GetRecords@ request was received.
+-- * 'userIdentity' - Items that are deleted by the Time to Live process after expiration have the following fields:
+--
+--
+--     * Records[].userIdentity.type
+-- "Service"
+--
+--
+--     * Records[].userIdentity.principalId
+-- "dynamodb.amazonaws.com"
+--
+--
+-- * 'eventVersion' - The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified.
+--
+-- Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
 -- * 'dynamodb' - The main body of the stream record, containing all of the DynamoDB-specific fields.
--- * 'eventId' - A globally unique identifier for the event that was recorded in this stream record.
+-- * 'awsRegion' - The region in which the @GetRecords@ request was received.
 -- * 'eventName' - The type of data modification that was performed on the DynamoDB table:
 --
 --
@@ -72,18 +105,7 @@ data Record = Record'
 --
 --
 -- * 'eventSource' - The AWS service from which the stream record originated. For DynamoDB Streams, this is @aws:dynamodb@ .
--- * 'eventVersion' - The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified.
---
--- Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
--- * 'userIdentity' - Items that are deleted by the Time to Live process after expiration have the following fields:
---
---
---     * Records[].userIdentity.type
--- "Service"
---
---
---     * Records[].userIdentity.principalId
--- "dynamodb.amazonaws.com"
+-- * 'eventId' - A globally unique identifier for the event that was recorded in this stream record.
 mkRecord ::
   Record
 mkRecord =

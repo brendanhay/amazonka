@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKinesisFirehoseDestination' smart constructor.
 data KinesisFirehoseDestination = KinesisFirehoseDestination'
-  { iamRoleARN ::
-      Lude.Text,
+  { -- | The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+    iamRoleARN :: Lude.Text,
+    -- | The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
     deliveryStreamARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisFirehoseDestination' with the minimum fields required to make a request.
 --
--- * 'deliveryStreamARN' - The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
 -- * 'iamRoleARN' - The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+-- * 'deliveryStreamARN' - The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
 mkKinesisFirehoseDestination ::
   -- | 'iamRoleARN'
   Lude.Text ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,7 +23,7 @@ module Network.AWS.Organizations.DeclineHandshake
     mkDeclineHandshake,
 
     -- ** Request lenses
-    dHandshakeId,
+    dhHandshakeId,
 
     -- * Destructuring the response
     DeclineHandshakeResponse (..),
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeclineHandshake' smart constructor.
 newtype DeclineHandshake = DeclineHandshake'
-  { handshakeId ::
-      Lude.Text
+  { -- | The unique identifier (ID) of the handshake that you want to decline. You can get the ID from the 'ListHandshakesForAccount' operation.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+    handshakeId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeclineHandshake' with the minimum fields required to make a request.
@@ -71,9 +68,9 @@ mkDeclineHandshake pHandshakeId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
 --
 -- /Note:/ Consider using 'handshakeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dHandshakeId :: Lens.Lens' DeclineHandshake Lude.Text
-dHandshakeId = Lens.lens (handshakeId :: DeclineHandshake -> Lude.Text) (\s a -> s {handshakeId = a} :: DeclineHandshake)
-{-# DEPRECATED dHandshakeId "Use generic-lens or generic-optics with 'handshakeId' instead." #-}
+dhHandshakeId :: Lens.Lens' DeclineHandshake Lude.Text
+dhHandshakeId = Lens.lens (handshakeId :: DeclineHandshake -> Lude.Text) (\s a -> s {handshakeId = a} :: DeclineHandshake)
+{-# DEPRECATED dhHandshakeId "Use generic-lens or generic-optics with 'handshakeId' instead." #-}
 
 instance Lude.AWSRequest DeclineHandshake where
   type Rs DeclineHandshake = DeclineHandshakeResponse
@@ -109,8 +106,9 @@ instance Lude.ToQuery DeclineHandshake where
 
 -- | /See:/ 'mkDeclineHandshakeResponse' smart constructor.
 data DeclineHandshakeResponse = DeclineHandshakeResponse'
-  { handshake ::
-      Lude.Maybe Handshake,
+  { -- | A structure that contains details about the declined handshake. The state is updated to show the value @DECLINED@ .
+    handshake :: Lude.Maybe Handshake,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

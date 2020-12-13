@@ -31,25 +31,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvaluation' smart constructor.
 data Evaluation = Evaluation'
-  { approvalRulesSatisfied ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of the approval rules that have had their conditions met.
+    approvalRulesSatisfied :: Lude.Maybe [Lude.Text],
+    -- | The names of the approval rules that have not had their conditions met.
     approvalRulesNotSatisfied :: Lude.Maybe [Lude.Text],
+    -- | Whether the state of the pull request is approved.
     approved :: Lude.Maybe Lude.Bool,
+    -- | Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.
     overridden :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Evaluation' with the minimum fields required to make a request.
 --
--- * 'approvalRulesNotSatisfied' - The names of the approval rules that have not had their conditions met.
 -- * 'approvalRulesSatisfied' - The names of the approval rules that have had their conditions met.
+-- * 'approvalRulesNotSatisfied' - The names of the approval rules that have not had their conditions met.
 -- * 'approved' - Whether the state of the pull request is approved.
 -- * 'overridden' - Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.
 mkEvaluation ::

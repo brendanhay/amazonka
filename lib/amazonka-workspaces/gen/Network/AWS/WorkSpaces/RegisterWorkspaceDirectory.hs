@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,12 +20,12 @@ module Network.AWS.WorkSpaces.RegisterWorkspaceDirectory
     mkRegisterWorkspaceDirectory,
 
     -- ** Request lenses
+    rwdDirectoryId,
     rwdSubnetIds,
     rwdEnableSelfService,
+    rwdEnableWorkDocs,
     rwdTenancy,
     rwdTags,
-    rwdDirectoryId,
-    rwdEnableWorkDocs,
 
     -- * Destructuring the response
     RegisterWorkspaceDirectoryResponse (..),
@@ -43,32 +44,30 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkRegisterWorkspaceDirectory' smart constructor.
 data RegisterWorkspaceDirectory = RegisterWorkspaceDirectory'
-  { subnetIds ::
-      Lude.Maybe [Lude.Text],
-    enableSelfService ::
-      Lude.Maybe Lude.Bool,
-    tenancy :: Lude.Maybe Tenancy,
-    tags :: Lude.Maybe [Tag],
+  { -- | The identifier of the directory. You cannot register a directory if it does not have a status of Active. If the directory does not have a status of Active, you will receive an InvalidResourceStateException error. If you have already registered the maximum number of directories that you can register with Amazon WorkSpaces, you will receive a ResourceLimitExceededException error. Deregister directories that you are not using for WorkSpaces, and try again.
     directoryId :: Lude.Text,
-    enableWorkDocs :: Lude.Bool
+    -- | The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the subnets are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these conditions are not met, you will receive an OperationNotSupportedException error.
+    subnetIds :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether self-service capabilities are enabled or disabled.
+    enableSelfService :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this parameter and WorkDocs is not available in the Region, you will receive an OperationNotSupportedException error. Set @EnableWorkDocs@ to disabled, and try again.
+    enableWorkDocs :: Lude.Bool,
+    -- | Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own License (BYOL) images, this value must be set to @DEDICATED@ and your AWS account must be enabled for BYOL. If your account has not been enabled for BYOL, you will receive an InvalidParameterValuesException error. For more information about BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
+    tenancy :: Lude.Maybe Tenancy,
+    -- | The tags associated with the directory.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterWorkspaceDirectory' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - The identifier of the directory. You cannot register a directory if it does not have a status of Active. If the directory does not have a status of Active, you will receive an InvalidResourceStateException error. If you have already registered the maximum number of directories that you can register with Amazon WorkSpaces, you will receive a ResourceLimitExceededException error. Deregister directories that you are not using for WorkSpaces, and try again.
+-- * 'subnetIds' - The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the subnets are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these conditions are not met, you will receive an OperationNotSupportedException error.
 -- * 'enableSelfService' - Indicates whether self-service capabilities are enabled or disabled.
 -- * 'enableWorkDocs' - Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this parameter and WorkDocs is not available in the Region, you will receive an OperationNotSupportedException error. Set @EnableWorkDocs@ to disabled, and try again.
--- * 'subnetIds' - The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the subnets are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these conditions are not met, you will receive an OperationNotSupportedException error.
--- * 'tags' - The tags associated with the directory.
 -- * 'tenancy' - Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own License (BYOL) images, this value must be set to @DEDICATED@ and your AWS account must be enabled for BYOL. If your account has not been enabled for BYOL, you will receive an InvalidParameterValuesException error. For more information about BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
+-- * 'tags' - The tags associated with the directory.
 mkRegisterWorkspaceDirectory ::
   -- | 'directoryId'
   Lude.Text ->
@@ -77,13 +76,20 @@ mkRegisterWorkspaceDirectory ::
   RegisterWorkspaceDirectory
 mkRegisterWorkspaceDirectory pDirectoryId_ pEnableWorkDocs_ =
   RegisterWorkspaceDirectory'
-    { subnetIds = Lude.Nothing,
+    { directoryId = pDirectoryId_,
+      subnetIds = Lude.Nothing,
       enableSelfService = Lude.Nothing,
+      enableWorkDocs = pEnableWorkDocs_,
       tenancy = Lude.Nothing,
-      tags = Lude.Nothing,
-      directoryId = pDirectoryId_,
-      enableWorkDocs = pEnableWorkDocs_
+      tags = Lude.Nothing
     }
+
+-- | The identifier of the directory. You cannot register a directory if it does not have a status of Active. If the directory does not have a status of Active, you will receive an InvalidResourceStateException error. If you have already registered the maximum number of directories that you can register with Amazon WorkSpaces, you will receive a ResourceLimitExceededException error. Deregister directories that you are not using for WorkSpaces, and try again.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwdDirectoryId :: Lens.Lens' RegisterWorkspaceDirectory Lude.Text
+rwdDirectoryId = Lens.lens (directoryId :: RegisterWorkspaceDirectory -> Lude.Text) (\s a -> s {directoryId = a} :: RegisterWorkspaceDirectory)
+{-# DEPRECATED rwdDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the subnets are in supported Availability Zones. The subnets must also be in separate Availability Zones. If these conditions are not met, you will receive an OperationNotSupportedException error.
 --
@@ -99,6 +105,13 @@ rwdEnableSelfService :: Lens.Lens' RegisterWorkspaceDirectory (Lude.Maybe Lude.B
 rwdEnableSelfService = Lens.lens (enableSelfService :: RegisterWorkspaceDirectory -> Lude.Maybe Lude.Bool) (\s a -> s {enableSelfService = a} :: RegisterWorkspaceDirectory)
 {-# DEPRECATED rwdEnableSelfService "Use generic-lens or generic-optics with 'enableSelfService' instead." #-}
 
+-- | Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this parameter and WorkDocs is not available in the Region, you will receive an OperationNotSupportedException error. Set @EnableWorkDocs@ to disabled, and try again.
+--
+-- /Note:/ Consider using 'enableWorkDocs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwdEnableWorkDocs :: Lens.Lens' RegisterWorkspaceDirectory Lude.Bool
+rwdEnableWorkDocs = Lens.lens (enableWorkDocs :: RegisterWorkspaceDirectory -> Lude.Bool) (\s a -> s {enableWorkDocs = a} :: RegisterWorkspaceDirectory)
+{-# DEPRECATED rwdEnableWorkDocs "Use generic-lens or generic-optics with 'enableWorkDocs' instead." #-}
+
 -- | Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own License (BYOL) images, this value must be set to @DEDICATED@ and your AWS account must be enabled for BYOL. If your account has not been enabled for BYOL, you will receive an InvalidParameterValuesException error. For more information about BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
 --
 -- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -112,20 +125,6 @@ rwdTenancy = Lens.lens (tenancy :: RegisterWorkspaceDirectory -> Lude.Maybe Tena
 rwdTags :: Lens.Lens' RegisterWorkspaceDirectory (Lude.Maybe [Tag])
 rwdTags = Lens.lens (tags :: RegisterWorkspaceDirectory -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: RegisterWorkspaceDirectory)
 {-# DEPRECATED rwdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The identifier of the directory. You cannot register a directory if it does not have a status of Active. If the directory does not have a status of Active, you will receive an InvalidResourceStateException error. If you have already registered the maximum number of directories that you can register with Amazon WorkSpaces, you will receive a ResourceLimitExceededException error. Deregister directories that you are not using for WorkSpaces, and try again.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwdDirectoryId :: Lens.Lens' RegisterWorkspaceDirectory Lude.Text
-rwdDirectoryId = Lens.lens (directoryId :: RegisterWorkspaceDirectory -> Lude.Text) (\s a -> s {directoryId = a} :: RegisterWorkspaceDirectory)
-{-# DEPRECATED rwdDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
--- | Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this parameter and WorkDocs is not available in the Region, you will receive an OperationNotSupportedException error. Set @EnableWorkDocs@ to disabled, and try again.
---
--- /Note:/ Consider using 'enableWorkDocs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwdEnableWorkDocs :: Lens.Lens' RegisterWorkspaceDirectory Lude.Bool
-rwdEnableWorkDocs = Lens.lens (enableWorkDocs :: RegisterWorkspaceDirectory -> Lude.Bool) (\s a -> s {enableWorkDocs = a} :: RegisterWorkspaceDirectory)
-{-# DEPRECATED rwdEnableWorkDocs "Use generic-lens or generic-optics with 'enableWorkDocs' instead." #-}
 
 instance Lude.AWSRequest RegisterWorkspaceDirectory where
   type
@@ -156,12 +155,12 @@ instance Lude.ToJSON RegisterWorkspaceDirectory where
   toJSON RegisterWorkspaceDirectory' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SubnetIds" Lude..=) Lude.<$> subnetIds,
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            ("SubnetIds" Lude..=) Lude.<$> subnetIds,
             ("EnableSelfService" Lude..=) Lude.<$> enableSelfService,
+            Lude.Just ("EnableWorkDocs" Lude..= enableWorkDocs),
             ("Tenancy" Lude..=) Lude.<$> tenancy,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("EnableWorkDocs" Lude..= enableWorkDocs)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -173,16 +172,10 @@ instance Lude.ToQuery RegisterWorkspaceDirectory where
 
 -- | /See:/ 'mkRegisterWorkspaceDirectoryResponse' smart constructor.
 newtype RegisterWorkspaceDirectoryResponse = RegisterWorkspaceDirectoryResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterWorkspaceDirectoryResponse' with the minimum fields required to make a request.

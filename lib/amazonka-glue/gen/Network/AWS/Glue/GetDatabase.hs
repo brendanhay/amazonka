@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.GetDatabase
     mkGetDatabase,
 
     -- ** Request lenses
-    gddCatalogId,
-    gddName,
+    gdfCatalogId,
+    gdfName,
 
     -- * Destructuring the response
     GetDatabaseResponse (..),
@@ -40,16 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDatabase' smart constructor.
 data GetDatabase = GetDatabase'
-  { catalogId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog in which the database resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the database to retrieve. For Hive compatibility, this should be all lowercase.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatabase' with the minimum fields required to make a request.
@@ -66,16 +63,16 @@ mkGetDatabase pName_ =
 -- | The ID of the Data Catalog in which the database resides. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gddCatalogId :: Lens.Lens' GetDatabase (Lude.Maybe Lude.Text)
-gddCatalogId = Lens.lens (catalogId :: GetDatabase -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetDatabase)
-{-# DEPRECATED gddCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+gdfCatalogId :: Lens.Lens' GetDatabase (Lude.Maybe Lude.Text)
+gdfCatalogId = Lens.lens (catalogId :: GetDatabase -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetDatabase)
+{-# DEPRECATED gdfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the database to retrieve. For Hive compatibility, this should be all lowercase.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gddName :: Lens.Lens' GetDatabase Lude.Text
-gddName = Lens.lens (name :: GetDatabase -> Lude.Text) (\s a -> s {name = a} :: GetDatabase)
-{-# DEPRECATED gddName "Use generic-lens or generic-optics with 'name' instead." #-}
+gdfName :: Lens.Lens' GetDatabase Lude.Text
+gdfName = Lens.lens (name :: GetDatabase -> Lude.Text) (\s a -> s {name = a} :: GetDatabase)
+{-# DEPRECATED gdfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest GetDatabase where
   type Rs GetDatabase = GetDatabaseResponse
@@ -114,17 +111,12 @@ instance Lude.ToQuery GetDatabase where
 
 -- | /See:/ 'mkGetDatabaseResponse' smart constructor.
 data GetDatabaseResponse = GetDatabaseResponse'
-  { database ::
-      Lude.Maybe Database,
+  { -- | The definition of the specified database in the Data Catalog.
+    database :: Lude.Maybe Database,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatabaseResponse' with the minimum fields required to make a request.

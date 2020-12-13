@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConformancePackComplianceSummary' smart constructor.
 data ConformancePackComplianceSummary = ConformancePackComplianceSummary'
-  { conformancePackName ::
-      Lude.Text,
-    conformancePackComplianceStatus ::
-      ConformancePackComplianceType
+  { -- | The name of the conformance pack name.
+    conformancePackName :: Lude.Text,
+    -- | The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT.
+    conformancePackComplianceStatus :: ConformancePackComplianceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConformancePackComplianceSummary' with the minimum fields required to make a request.
 --
--- * 'conformancePackComplianceStatus' - The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT.
 -- * 'conformancePackName' - The name of the conformance pack name.
+-- * 'conformancePackComplianceStatus' - The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT.
 mkConformancePackComplianceSummary ::
   -- | 'conformancePackName'
   Lude.Text ->

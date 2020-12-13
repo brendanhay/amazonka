@@ -13,15 +13,15 @@
 module Network.AWS.MechanicalTurk.Types.Comparator
   ( Comparator
       ( Comparator',
-        DoesNotExist,
-        EqualTo,
-        Exists,
-        GreaterThan,
-        GreaterThanOrEqualTo,
-        IN,
         LessThan,
         LessThanOrEqualTo,
+        GreaterThan,
+        GreaterThanOrEqualTo,
+        EqualTo,
         NotEqualTo,
+        Exists,
+        DoesNotExist,
+        IN,
         NotIn
       ),
   )
@@ -53,14 +53,11 @@ newtype Comparator = Comparator' Lude.Text
       Lude.ToHeader
     )
 
-pattern DoesNotExist :: Comparator
-pattern DoesNotExist = Comparator' "DoesNotExist"
+pattern LessThan :: Comparator
+pattern LessThan = Comparator' "LessThan"
 
-pattern EqualTo :: Comparator
-pattern EqualTo = Comparator' "EqualTo"
-
-pattern Exists :: Comparator
-pattern Exists = Comparator' "Exists"
+pattern LessThanOrEqualTo :: Comparator
+pattern LessThanOrEqualTo = Comparator' "LessThanOrEqualTo"
 
 pattern GreaterThan :: Comparator
 pattern GreaterThan = Comparator' "GreaterThan"
@@ -68,31 +65,34 @@ pattern GreaterThan = Comparator' "GreaterThan"
 pattern GreaterThanOrEqualTo :: Comparator
 pattern GreaterThanOrEqualTo = Comparator' "GreaterThanOrEqualTo"
 
-pattern IN :: Comparator
-pattern IN = Comparator' "In"
-
-pattern LessThan :: Comparator
-pattern LessThan = Comparator' "LessThan"
-
-pattern LessThanOrEqualTo :: Comparator
-pattern LessThanOrEqualTo = Comparator' "LessThanOrEqualTo"
+pattern EqualTo :: Comparator
+pattern EqualTo = Comparator' "EqualTo"
 
 pattern NotEqualTo :: Comparator
 pattern NotEqualTo = Comparator' "NotEqualTo"
+
+pattern Exists :: Comparator
+pattern Exists = Comparator' "Exists"
+
+pattern DoesNotExist :: Comparator
+pattern DoesNotExist = Comparator' "DoesNotExist"
+
+pattern IN :: Comparator
+pattern IN = Comparator' "In"
 
 pattern NotIn :: Comparator
 pattern NotIn = Comparator' "NotIn"
 
 {-# COMPLETE
-  DoesNotExist,
-  EqualTo,
-  Exists,
-  GreaterThan,
-  GreaterThanOrEqualTo,
-  IN,
   LessThan,
   LessThanOrEqualTo,
+  GreaterThan,
+  GreaterThanOrEqualTo,
+  EqualTo,
   NotEqualTo,
+  Exists,
+  DoesNotExist,
+  IN,
   NotIn,
   Comparator'
   #-}

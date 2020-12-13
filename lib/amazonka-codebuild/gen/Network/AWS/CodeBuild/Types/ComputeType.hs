@@ -13,10 +13,10 @@
 module Network.AWS.CodeBuild.Types.ComputeType
   ( ComputeType
       ( ComputeType',
-        BuildGENERAL12XLARGE,
-        BuildGENERAL1Large,
+        BuildGENERAL1Small,
         BuildGENERAL1Medium,
-        BuildGENERAL1Small
+        BuildGENERAL1Large,
+        BuildGENERAL12XLARGE
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ComputeType = ComputeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern BuildGENERAL12XLARGE :: ComputeType
-pattern BuildGENERAL12XLARGE = ComputeType' "BUILD_GENERAL1_2XLARGE"
-
-pattern BuildGENERAL1Large :: ComputeType
-pattern BuildGENERAL1Large = ComputeType' "BUILD_GENERAL1_LARGE"
+pattern BuildGENERAL1Small :: ComputeType
+pattern BuildGENERAL1Small = ComputeType' "BUILD_GENERAL1_SMALL"
 
 pattern BuildGENERAL1Medium :: ComputeType
 pattern BuildGENERAL1Medium = ComputeType' "BUILD_GENERAL1_MEDIUM"
 
-pattern BuildGENERAL1Small :: ComputeType
-pattern BuildGENERAL1Small = ComputeType' "BUILD_GENERAL1_SMALL"
+pattern BuildGENERAL1Large :: ComputeType
+pattern BuildGENERAL1Large = ComputeType' "BUILD_GENERAL1_LARGE"
+
+pattern BuildGENERAL12XLARGE :: ComputeType
+pattern BuildGENERAL12XLARGE = ComputeType' "BUILD_GENERAL1_2XLARGE"
 
 {-# COMPLETE
-  BuildGENERAL12XLARGE,
-  BuildGENERAL1Large,
-  BuildGENERAL1Medium,
   BuildGENERAL1Small,
+  BuildGENERAL1Medium,
+  BuildGENERAL1Large,
+  BuildGENERAL12XLARGE,
   ComputeType'
   #-}

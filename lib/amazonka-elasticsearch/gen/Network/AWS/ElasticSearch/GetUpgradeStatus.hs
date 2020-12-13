@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,21 +44,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetUpgradeStatus' smart constructor.
 newtype GetUpgradeStatus = GetUpgradeStatus'
-  { domainName ::
-      Lude.Text
+  { domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUpgradeStatus' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
+-- * 'domainName' -
 mkGetUpgradeStatus ::
   -- | 'domainName'
   Lude.Text ->
@@ -100,24 +94,34 @@ instance Lude.ToQuery GetUpgradeStatus where
 --
 -- /See:/ 'mkGetUpgradeStatusResponse' smart constructor.
 data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
-  { stepStatus ::
-      Lude.Maybe UpgradeStatus,
+  { -- | One of 4 statuses that a step can go through returned as part of the @'GetUpgradeStatusResponse' @ object. The status can take one of the following values:
+    --
+    --     * In Progress
+    --
+    --     * Succeeded
+    --
+    --     * Succeeded with Issues
+    --
+    --     * Failed
+    stepStatus :: Lude.Maybe UpgradeStatus,
+    -- | A string that describes the update briefly
     upgradeName :: Lude.Maybe Lude.Text,
+    -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:
+    --
+    --     * PreUpgradeCheck
+    --
+    --     * Snapshot
+    --
+    --     * Upgrade
     upgradeStep :: Lude.Maybe UpgradeStep,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUpgradeStatusResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stepStatus' - One of 4 statuses that a step can go through returned as part of the @'GetUpgradeStatusResponse' @ object. The status can take one of the following values:
 --
 --     * In Progress
@@ -137,6 +141,9 @@ data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
 --     * Snapshot
 --
 --     * Upgrade
+--
+--
+-- * 'responseStatus' - The response status code.
 mkGetUpgradeStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

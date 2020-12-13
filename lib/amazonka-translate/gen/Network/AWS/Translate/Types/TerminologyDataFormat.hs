@@ -13,8 +13,8 @@
 module Network.AWS.Translate.Types.TerminologyDataFormat
   ( TerminologyDataFormat
       ( TerminologyDataFormat',
-        TDFCSV,
-        TDFTmx
+        CSV,
+        Tmx
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TerminologyDataFormat = TerminologyDataFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern TDFCSV :: TerminologyDataFormat
-pattern TDFCSV = TerminologyDataFormat' "CSV"
+pattern CSV :: TerminologyDataFormat
+pattern CSV = TerminologyDataFormat' "CSV"
 
-pattern TDFTmx :: TerminologyDataFormat
-pattern TDFTmx = TerminologyDataFormat' "TMX"
+pattern Tmx :: TerminologyDataFormat
+pattern Tmx = TerminologyDataFormat' "TMX"
 
 {-# COMPLETE
-  TDFCSV,
-  TDFTmx,
+  CSV,
+  Tmx,
   TerminologyDataFormat'
   #-}

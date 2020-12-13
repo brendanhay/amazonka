@@ -33,19 +33,16 @@ import Network.AWS.Redshift.Types.AvailabilityZone
 --
 -- /See:/ 'mkOrderableClusterOption' smart constructor.
 data OrderableClusterOption = OrderableClusterOption'
-  { availabilityZones ::
-      Lude.Maybe [AvailabilityZone],
+  { -- | A list of availability zones for the orderable cluster.
+    availabilityZones :: Lude.Maybe [AvailabilityZone],
+    -- | The cluster type, for example @multi-node@ .
     clusterType :: Lude.Maybe Lude.Text,
+    -- | The version of the orderable cluster.
     clusterVersion :: Lude.Maybe Lude.Text,
+    -- | The node type for the orderable cluster.
     nodeType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrderableClusterOption' with the minimum fields required to make a request.

@@ -19,8 +19,8 @@ module Network.AWS.Connect.Types.UserPhoneConfig
     -- * Lenses
     upcAutoAccept,
     upcAfterContactWorkTimeLimit,
-    upcDeskPhoneNumber,
     upcPhoneType,
+    upcDeskPhoneNumber,
   )
 where
 
@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserPhoneConfig' smart constructor.
 data UserPhoneConfig = UserPhoneConfig'
-  { autoAccept ::
-      Lude.Maybe Lude.Bool,
+  { -- | The Auto accept setting.
+    autoAccept :: Lude.Maybe Lude.Bool,
+    -- | The After Call Work (ACW) timeout setting, in seconds.
     afterContactWorkTimeLimit :: Lude.Maybe Lude.Natural,
-    deskPhoneNumber :: Lude.Maybe Lude.Text,
-    phoneType :: PhoneType
+    -- | The phone type.
+    phoneType :: PhoneType,
+    -- | The phone number for the user's desk phone.
+    deskPhoneNumber :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPhoneConfig' with the minimum fields required to make a request.
 --
--- * 'afterContactWorkTimeLimit' - The After Call Work (ACW) timeout setting, in seconds.
 -- * 'autoAccept' - The Auto accept setting.
--- * 'deskPhoneNumber' - The phone number for the user's desk phone.
+-- * 'afterContactWorkTimeLimit' - The After Call Work (ACW) timeout setting, in seconds.
 -- * 'phoneType' - The phone type.
+-- * 'deskPhoneNumber' - The phone number for the user's desk phone.
 mkUserPhoneConfig ::
   -- | 'phoneType'
   PhoneType ->
@@ -61,8 +58,8 @@ mkUserPhoneConfig pPhoneType_ =
   UserPhoneConfig'
     { autoAccept = Lude.Nothing,
       afterContactWorkTimeLimit = Lude.Nothing,
-      deskPhoneNumber = Lude.Nothing,
-      phoneType = pPhoneType_
+      phoneType = pPhoneType_,
+      deskPhoneNumber = Lude.Nothing
     }
 
 -- | The Auto accept setting.
@@ -79,19 +76,19 @@ upcAfterContactWorkTimeLimit :: Lens.Lens' UserPhoneConfig (Lude.Maybe Lude.Natu
 upcAfterContactWorkTimeLimit = Lens.lens (afterContactWorkTimeLimit :: UserPhoneConfig -> Lude.Maybe Lude.Natural) (\s a -> s {afterContactWorkTimeLimit = a} :: UserPhoneConfig)
 {-# DEPRECATED upcAfterContactWorkTimeLimit "Use generic-lens or generic-optics with 'afterContactWorkTimeLimit' instead." #-}
 
--- | The phone number for the user's desk phone.
---
--- /Note:/ Consider using 'deskPhoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upcDeskPhoneNumber :: Lens.Lens' UserPhoneConfig (Lude.Maybe Lude.Text)
-upcDeskPhoneNumber = Lens.lens (deskPhoneNumber :: UserPhoneConfig -> Lude.Maybe Lude.Text) (\s a -> s {deskPhoneNumber = a} :: UserPhoneConfig)
-{-# DEPRECATED upcDeskPhoneNumber "Use generic-lens or generic-optics with 'deskPhoneNumber' instead." #-}
-
 -- | The phone type.
 --
 -- /Note:/ Consider using 'phoneType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 upcPhoneType :: Lens.Lens' UserPhoneConfig PhoneType
 upcPhoneType = Lens.lens (phoneType :: UserPhoneConfig -> PhoneType) (\s a -> s {phoneType = a} :: UserPhoneConfig)
 {-# DEPRECATED upcPhoneType "Use generic-lens or generic-optics with 'phoneType' instead." #-}
+
+-- | The phone number for the user's desk phone.
+--
+-- /Note:/ Consider using 'deskPhoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcDeskPhoneNumber :: Lens.Lens' UserPhoneConfig (Lude.Maybe Lude.Text)
+upcDeskPhoneNumber = Lens.lens (deskPhoneNumber :: UserPhoneConfig -> Lude.Maybe Lude.Text) (\s a -> s {deskPhoneNumber = a} :: UserPhoneConfig)
+{-# DEPRECATED upcDeskPhoneNumber "Use generic-lens or generic-optics with 'deskPhoneNumber' instead." #-}
 
 instance Lude.FromJSON UserPhoneConfig where
   parseJSON =
@@ -101,8 +98,8 @@ instance Lude.FromJSON UserPhoneConfig where
           UserPhoneConfig'
             Lude.<$> (x Lude..:? "AutoAccept")
             Lude.<*> (x Lude..:? "AfterContactWorkTimeLimit")
-            Lude.<*> (x Lude..:? "DeskPhoneNumber")
             Lude.<*> (x Lude..: "PhoneType")
+            Lude.<*> (x Lude..:? "DeskPhoneNumber")
       )
 
 instance Lude.ToJSON UserPhoneConfig where
@@ -112,7 +109,7 @@ instance Lude.ToJSON UserPhoneConfig where
           [ ("AutoAccept" Lude..=) Lude.<$> autoAccept,
             ("AfterContactWorkTimeLimit" Lude..=)
               Lude.<$> afterContactWorkTimeLimit,
-            ("DeskPhoneNumber" Lude..=) Lude.<$> deskPhoneNumber,
-            Lude.Just ("PhoneType" Lude..= phoneType)
+            Lude.Just ("PhoneType" Lude..= phoneType),
+            ("DeskPhoneNumber" Lude..=) Lude.<$> deskPhoneNumber
           ]
       )

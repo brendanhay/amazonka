@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.MediaPackage.DescribeChannel
     mkDescribeChannel,
 
     -- ** Request lenses
-    dId,
+    dcId,
 
     -- * Destructuring the response
     DescribeChannelResponse (..),
@@ -44,14 +45,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeChannel' smart constructor.
-newtype DescribeChannel = DescribeChannel' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeChannel = DescribeChannel'
+  { -- | The ID of a Channel.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeChannel' with the minimum fields required to make a request.
@@ -66,9 +64,9 @@ mkDescribeChannel pId_ = DescribeChannel' {id = pId_}
 -- | The ID of a Channel.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dId :: Lens.Lens' DescribeChannel Lude.Text
-dId = Lens.lens (id :: DescribeChannel -> Lude.Text) (\s a -> s {id = a} :: DescribeChannel)
-{-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
+dcId :: Lens.Lens' DescribeChannel Lude.Text
+dcId = Lens.lens (id :: DescribeChannel -> Lude.Text) (\s a -> s {id = a} :: DescribeChannel)
+{-# DEPRECATED dcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DescribeChannel where
   type Rs DescribeChannel = DescribeChannelResponse
@@ -105,38 +103,32 @@ instance Lude.ToQuery DescribeChannel where
 
 -- | /See:/ 'mkDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { ingressAccessLogs ::
-      Lude.Maybe IngressAccessLogs,
+  { ingressAccessLogs :: Lude.Maybe IngressAccessLogs,
     hlsIngest :: Lude.Maybe HlsIngest,
+    -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ID of the Channel.
     id :: Lude.Maybe Lude.Text,
+    -- | A short text description of the Channel.
     description :: Lude.Maybe Lude.Text,
-    egressAccessLogs ::
-      Lude.Maybe EgressAccessLogs,
-    tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+    egressAccessLogs :: Lude.Maybe EgressAccessLogs,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeChannelResponse' with the minimum fields required to make a request.
 --
+-- * 'ingressAccessLogs' -
+-- * 'hlsIngest' -
 -- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
--- * 'description' - A short text description of the Channel.
--- * 'egressAccessLogs' - Undocumented field.
--- * 'hlsIngest' - Undocumented field.
 -- * 'id' - The ID of the Channel.
--- * 'ingressAccessLogs' - Undocumented field.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' -
+-- * 'tags' -
 -- * 'responseStatus' - The response status code.
--- * 'tags' - Undocumented field.
 mkDescribeChannelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

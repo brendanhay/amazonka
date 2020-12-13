@@ -13,13 +13,13 @@
 module Network.AWS.Discovery.Types.ContinuousExportStatus
   ( ContinuousExportStatus
       ( ContinuousExportStatus',
+        StartInProgress,
+        StartFailed,
         Active,
         Error,
-        Inactive,
-        StartFailed,
-        StartInProgress,
+        StopInProgress,
         StopFailed,
-        StopInProgress
+        Inactive
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype ContinuousExportStatus = ContinuousExportStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern StartInProgress :: ContinuousExportStatus
+pattern StartInProgress = ContinuousExportStatus' "START_IN_PROGRESS"
+
+pattern StartFailed :: ContinuousExportStatus
+pattern StartFailed = ContinuousExportStatus' "START_FAILED"
+
 pattern Active :: ContinuousExportStatus
 pattern Active = ContinuousExportStatus' "ACTIVE"
 
 pattern Error :: ContinuousExportStatus
 pattern Error = ContinuousExportStatus' "ERROR"
 
-pattern Inactive :: ContinuousExportStatus
-pattern Inactive = ContinuousExportStatus' "INACTIVE"
-
-pattern StartFailed :: ContinuousExportStatus
-pattern StartFailed = ContinuousExportStatus' "START_FAILED"
-
-pattern StartInProgress :: ContinuousExportStatus
-pattern StartInProgress = ContinuousExportStatus' "START_IN_PROGRESS"
+pattern StopInProgress :: ContinuousExportStatus
+pattern StopInProgress = ContinuousExportStatus' "STOP_IN_PROGRESS"
 
 pattern StopFailed :: ContinuousExportStatus
 pattern StopFailed = ContinuousExportStatus' "STOP_FAILED"
 
-pattern StopInProgress :: ContinuousExportStatus
-pattern StopInProgress = ContinuousExportStatus' "STOP_IN_PROGRESS"
+pattern Inactive :: ContinuousExportStatus
+pattern Inactive = ContinuousExportStatus' "INACTIVE"
 
 {-# COMPLETE
+  StartInProgress,
+  StartFailed,
   Active,
   Error,
-  Inactive,
-  StartFailed,
-  StartInProgress,
-  StopFailed,
   StopInProgress,
+  StopFailed,
+  Inactive,
   ContinuousExportStatus'
   #-}

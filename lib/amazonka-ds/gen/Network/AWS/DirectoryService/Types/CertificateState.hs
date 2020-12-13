@@ -13,12 +13,12 @@
 module Network.AWS.DirectoryService.Types.CertificateState
   ( CertificateState
       ( CertificateState',
-        DeregisterFailed,
-        Deregistered,
-        Deregistering,
-        RegisterFailed,
+        Registering,
         Registered,
-        Registering
+        RegisterFailed,
+        Deregistering,
+        Deregistered,
+        DeregisterFailed
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype CertificateState = CertificateState' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeregisterFailed :: CertificateState
-pattern DeregisterFailed = CertificateState' "DeregisterFailed"
-
-pattern Deregistered :: CertificateState
-pattern Deregistered = CertificateState' "Deregistered"
-
-pattern Deregistering :: CertificateState
-pattern Deregistering = CertificateState' "Deregistering"
-
-pattern RegisterFailed :: CertificateState
-pattern RegisterFailed = CertificateState' "RegisterFailed"
+pattern Registering :: CertificateState
+pattern Registering = CertificateState' "Registering"
 
 pattern Registered :: CertificateState
 pattern Registered = CertificateState' "Registered"
 
-pattern Registering :: CertificateState
-pattern Registering = CertificateState' "Registering"
+pattern RegisterFailed :: CertificateState
+pattern RegisterFailed = CertificateState' "RegisterFailed"
+
+pattern Deregistering :: CertificateState
+pattern Deregistering = CertificateState' "Deregistering"
+
+pattern Deregistered :: CertificateState
+pattern Deregistered = CertificateState' "Deregistered"
+
+pattern DeregisterFailed :: CertificateState
+pattern DeregisterFailed = CertificateState' "DeregisterFailed"
 
 {-# COMPLETE
-  DeregisterFailed,
-  Deregistered,
-  Deregistering,
-  RegisterFailed,
-  Registered,
   Registering,
+  Registered,
+  RegisterFailed,
+  Deregistering,
+  Deregistered,
+  DeregisterFailed,
   CertificateState'
   #-}

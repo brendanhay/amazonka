@@ -85,11 +85,11 @@ mkInputAttached =
         [ Wait.matchAll
             "ATTACHED"
             Wait.AcceptSuccess
-            (diirsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+            (difrsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
           Wait.matchAll
             "DETACHED"
             Wait.AcceptRetry
-            (diirsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+            (difrsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
           Wait.matchStatus 500 Wait.AcceptRetry
         ]
     }
@@ -145,15 +145,15 @@ mkInputDetached =
         [ Wait.matchAll
             "DETACHED"
             Wait.AcceptSuccess
-            (diirsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+            (difrsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
           Wait.matchAll
             "CREATING"
             Wait.AcceptRetry
-            (diirsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+            (difrsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
           Wait.matchAll
             "ATTACHED"
             Wait.AcceptRetry
-            (diirsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+            (difrsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
           Wait.matchStatus 500 Wait.AcceptRetry
         ]
     }
@@ -169,11 +169,11 @@ mkInputDeleted =
         [ Wait.matchAll
             "DELETED"
             Wait.AcceptSuccess
-            (diirsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+            (difrsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
           Wait.matchAll
             "DELETING"
             Wait.AcceptRetry
-            (diirsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
+            (difrsState Lude.. Lens._Just Lude.. Lens.to Lude.toText),
           Wait.matchStatus 500 Wait.AcceptRetry
         ]
     }

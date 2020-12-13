@@ -17,8 +17,8 @@ module Network.AWS.MigrationHub.Types.DiscoveredResource
     mkDiscoveredResource,
 
     -- * Lenses
-    drDescription,
     drConfigurationId,
+    drDescription,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDiscoveredResource' smart constructor.
 data DiscoveredResource = DiscoveredResource'
-  { description ::
-      Lude.Maybe Lude.Text,
-    configurationId :: Lude.Text
+  { -- | The configurationId in Application Discovery Service that uniquely identifies the on-premise resource.
+    configurationId :: Lude.Text,
+    -- | A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiscoveredResource' with the minimum fields required to make a request.
@@ -52,16 +47,9 @@ mkDiscoveredResource ::
   DiscoveredResource
 mkDiscoveredResource pConfigurationId_ =
   DiscoveredResource'
-    { description = Lude.Nothing,
-      configurationId = pConfigurationId_
+    { configurationId = pConfigurationId_,
+      description = Lude.Nothing
     }
-
--- | A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drDescription :: Lens.Lens' DiscoveredResource (Lude.Maybe Lude.Text)
-drDescription = Lens.lens (description :: DiscoveredResource -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DiscoveredResource)
-{-# DEPRECATED drDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The configurationId in Application Discovery Service that uniquely identifies the on-premise resource.
 --
@@ -70,20 +58,27 @@ drConfigurationId :: Lens.Lens' DiscoveredResource Lude.Text
 drConfigurationId = Lens.lens (configurationId :: DiscoveredResource -> Lude.Text) (\s a -> s {configurationId = a} :: DiscoveredResource)
 {-# DEPRECATED drConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
+-- | A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drDescription :: Lens.Lens' DiscoveredResource (Lude.Maybe Lude.Text)
+drDescription = Lens.lens (description :: DiscoveredResource -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DiscoveredResource)
+{-# DEPRECATED drDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
 instance Lude.FromJSON DiscoveredResource where
   parseJSON =
     Lude.withObject
       "DiscoveredResource"
       ( \x ->
           DiscoveredResource'
-            Lude.<$> (x Lude..:? "Description") Lude.<*> (x Lude..: "ConfigurationId")
+            Lude.<$> (x Lude..: "ConfigurationId") Lude.<*> (x Lude..:? "Description")
       )
 
 instance Lude.ToJSON DiscoveredResource where
   toJSON DiscoveredResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("ConfigurationId" Lude..= configurationId)
+          [ Lude.Just ("ConfigurationId" Lude..= configurationId),
+            ("Description" Lude..=) Lude.<$> description
           ]
       )

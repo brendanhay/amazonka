@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,19 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGenerateClientCertificate' smart constructor.
 data GenerateClientCertificate = GenerateClientCertificate'
-  { description ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | The description of the 'ClientCertificate' .
+    description :: Lude.Maybe Lude.Text,
+    -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateClientCertificate' with the minimum fields required to make a request.

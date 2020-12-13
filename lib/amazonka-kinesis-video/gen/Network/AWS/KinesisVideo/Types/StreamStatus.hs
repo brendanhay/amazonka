@@ -13,10 +13,10 @@
 module Network.AWS.KinesisVideo.Types.StreamStatus
   ( StreamStatus
       ( StreamStatus',
-        Active,
         Creating,
-        Deleting,
-        Updating
+        Active,
+        Updating,
+        Deleting
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype StreamStatus = StreamStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: StreamStatus
-pattern Active = StreamStatus' "ACTIVE"
-
 pattern Creating :: StreamStatus
 pattern Creating = StreamStatus' "CREATING"
 
-pattern Deleting :: StreamStatus
-pattern Deleting = StreamStatus' "DELETING"
+pattern Active :: StreamStatus
+pattern Active = StreamStatus' "ACTIVE"
 
 pattern Updating :: StreamStatus
 pattern Updating = StreamStatus' "UPDATING"
 
+pattern Deleting :: StreamStatus
+pattern Deleting = StreamStatus' "DELETING"
+
 {-# COMPLETE
-  Active,
   Creating,
-  Deleting,
+  Active,
   Updating,
+  Deleting,
   StreamStatus'
   #-}

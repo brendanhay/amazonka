@@ -31,25 +31,21 @@ import Network.AWS.SageMaker.Types.CandidateStepType
 --
 -- /See:/ 'mkAutoMLCandidateStep' smart constructor.
 data AutoMLCandidateStep = AutoMLCandidateStep'
-  { candidateStepType ::
-      CandidateStepType,
+  { -- | Whether the Candidate is at the transform, training, or processing step.
+    candidateStepType :: CandidateStepType,
+    -- | The ARN for the Candidate's step.
     candidateStepARN :: Lude.Text,
+    -- | The name for the Candidate's step.
     candidateStepName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLCandidateStep' with the minimum fields required to make a request.
 --
+-- * 'candidateStepType' - Whether the Candidate is at the transform, training, or processing step.
 -- * 'candidateStepARN' - The ARN for the Candidate's step.
 -- * 'candidateStepName' - The name for the Candidate's step.
--- * 'candidateStepType' - Whether the Candidate is at the transform, training, or processing step.
 mkAutoMLCandidateStep ::
   -- | 'candidateStepType'
   CandidateStepType ->

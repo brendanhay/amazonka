@@ -13,12 +13,12 @@
 module Network.AWS.AppSync.Types.DataSourceType
   ( DataSourceType
       ( DataSourceType',
-        AWSLambda,
-        AmazonDynamodb,
-        AmazonElasticsearch,
-        HTTP,
-        None,
-        RelationalDatabase
+        DSTAWSLambda,
+        DSTAmazonDynamodb,
+        DSTAmazonElasticsearch,
+        DSTNone,
+        DSTHTTP,
+        DSTRelationalDatabase
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype DataSourceType = DataSourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSLambda :: DataSourceType
-pattern AWSLambda = DataSourceType' "AWS_LAMBDA"
+pattern DSTAWSLambda :: DataSourceType
+pattern DSTAWSLambda = DataSourceType' "AWS_LAMBDA"
 
-pattern AmazonDynamodb :: DataSourceType
-pattern AmazonDynamodb = DataSourceType' "AMAZON_DYNAMODB"
+pattern DSTAmazonDynamodb :: DataSourceType
+pattern DSTAmazonDynamodb = DataSourceType' "AMAZON_DYNAMODB"
 
-pattern AmazonElasticsearch :: DataSourceType
-pattern AmazonElasticsearch = DataSourceType' "AMAZON_ELASTICSEARCH"
+pattern DSTAmazonElasticsearch :: DataSourceType
+pattern DSTAmazonElasticsearch = DataSourceType' "AMAZON_ELASTICSEARCH"
 
-pattern HTTP :: DataSourceType
-pattern HTTP = DataSourceType' "HTTP"
+pattern DSTNone :: DataSourceType
+pattern DSTNone = DataSourceType' "NONE"
 
-pattern None :: DataSourceType
-pattern None = DataSourceType' "NONE"
+pattern DSTHTTP :: DataSourceType
+pattern DSTHTTP = DataSourceType' "HTTP"
 
-pattern RelationalDatabase :: DataSourceType
-pattern RelationalDatabase = DataSourceType' "RELATIONAL_DATABASE"
+pattern DSTRelationalDatabase :: DataSourceType
+pattern DSTRelationalDatabase = DataSourceType' "RELATIONAL_DATABASE"
 
 {-# COMPLETE
-  AWSLambda,
-  AmazonDynamodb,
-  AmazonElasticsearch,
-  HTTP,
-  None,
-  RelationalDatabase,
+  DSTAWSLambda,
+  DSTAmazonDynamodb,
+  DSTAmazonElasticsearch,
+  DSTNone,
+  DSTHTTP,
+  DSTRelationalDatabase,
   DataSourceType'
   #-}

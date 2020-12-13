@@ -33,28 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDescribeFleetError' smart constructor.
 data DescribeFleetError = DescribeFleetError'
-  { lifecycle ::
-      Lude.Maybe InstanceLifecycle,
-    launchTemplateAndOverrides ::
-      Lude.Maybe LaunchTemplateAndOverridesResponse,
+  { -- | Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.
+    lifecycle :: Lude.Maybe InstanceLifecycle,
+    -- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
+    launchTemplateAndOverrides :: Lude.Maybe LaunchTemplateAndOverridesResponse,
+    -- | The error code that indicates why the instance could not be launched. For more information about error codes, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message that describes why the instance could not be launched. For more information about error messages, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetError' with the minimum fields required to make a request.
 --
+-- * 'lifecycle' - Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.
+-- * 'launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
 -- * 'errorCode' - The error code that indicates why the instance could not be launched. For more information about error codes, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
 -- * 'errorMessage' - The error message that describes why the instance could not be launched. For more information about error messages, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
--- * 'launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
--- * 'lifecycle' - Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.
 mkDescribeFleetError ::
   DescribeFleetError
 mkDescribeFleetError =

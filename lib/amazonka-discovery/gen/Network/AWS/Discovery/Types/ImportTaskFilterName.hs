@@ -14,8 +14,8 @@ module Network.AWS.Discovery.Types.ImportTaskFilterName
   ( ImportTaskFilterName
       ( ImportTaskFilterName',
         ImportTaskId,
-        Name,
-        Status
+        Status,
+        Name
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ImportTaskFilterName = ImportTaskFilterName' Lude.Text
 pattern ImportTaskId :: ImportTaskFilterName
 pattern ImportTaskId = ImportTaskFilterName' "IMPORT_TASK_ID"
 
-pattern Name :: ImportTaskFilterName
-pattern Name = ImportTaskFilterName' "NAME"
-
 pattern Status :: ImportTaskFilterName
 pattern Status = ImportTaskFilterName' "STATUS"
 
+pattern Name :: ImportTaskFilterName
+pattern Name = ImportTaskFilterName' "NAME"
+
 {-# COMPLETE
   ImportTaskId,
-  Name,
   Status,
+  Name,
   ImportTaskFilterName'
   #-}

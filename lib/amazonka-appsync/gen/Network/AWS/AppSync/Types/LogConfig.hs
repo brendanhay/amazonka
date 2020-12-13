@@ -31,23 +31,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogConfig' smart constructor.
 data LogConfig = LogConfig'
-  { excludeVerboseContent ::
-      Lude.Maybe Lude.Bool,
+  { -- | Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+    excludeVerboseContent :: Lude.Maybe Lude.Bool,
+    -- | The field logging level. Values can be NONE, ERROR, or ALL.
+    --
+    --
+    --     * __NONE__ : No field-level logs are captured.
+    --
+    --
+    --     * __ERROR__ : Logs the following information only for the fields that are in error:
+    --
+    --     * The error section in the server response.
+    --
+    --
+    --     * Field-level errors.
+    --
+    --
+    --     * The generated request/response functions that got resolved for error fields.
+    --
+    --
+    --
+    --
+    --     * __ALL__ : The following information is logged for all fields in the query:
+    --
+    --     * Field-level tracing information.
+    --
+    --
+    --     * The generated request/response functions that got resolved for each field.
     fieldLogLevel :: FieldLogLevel,
+    -- | The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
     cloudWatchLogsRoleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogConfig' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLogsRoleARN' - The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
 -- * 'excludeVerboseContent' - Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
 -- * 'fieldLogLevel' - The field logging level. Values can be NONE, ERROR, or ALL.
 --
@@ -74,6 +93,11 @@ data LogConfig = LogConfig'
 --
 --
 --     * The generated request/response functions that got resolved for each field.
+--
+--
+--
+--
+-- * 'cloudWatchLogsRoleARN' - The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
 mkLogConfig ::
   -- | 'fieldLogLevel'
   FieldLogLevel ->

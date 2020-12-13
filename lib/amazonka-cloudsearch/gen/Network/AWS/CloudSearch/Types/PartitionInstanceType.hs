@@ -13,14 +13,14 @@
 module Network.AWS.CloudSearch.Types.PartitionInstanceType
   ( PartitionInstanceType
       ( PartitionInstanceType',
-        Search_M1_Large,
         Search_M1_Small,
-        Search_M2_2XLarge,
+        Search_M1_Large,
         Search_M2_XLarge,
-        Search_M3_2XLarge,
-        Search_M3_Large,
+        Search_M2_2XLarge,
         Search_M3_Medium,
-        Search_M3_XLarge
+        Search_M3_Large,
+        Search_M3_XLarge,
+        Search_M3_2XLarge
       ),
   )
 where
@@ -52,38 +52,38 @@ newtype PartitionInstanceType = PartitionInstanceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Search_M1_Large :: PartitionInstanceType
-pattern Search_M1_Large = PartitionInstanceType' "search.m1.large"
-
 pattern Search_M1_Small :: PartitionInstanceType
 pattern Search_M1_Small = PartitionInstanceType' "search.m1.small"
 
-pattern Search_M2_2XLarge :: PartitionInstanceType
-pattern Search_M2_2XLarge = PartitionInstanceType' "search.m2.2xlarge"
+pattern Search_M1_Large :: PartitionInstanceType
+pattern Search_M1_Large = PartitionInstanceType' "search.m1.large"
 
 pattern Search_M2_XLarge :: PartitionInstanceType
 pattern Search_M2_XLarge = PartitionInstanceType' "search.m2.xlarge"
 
-pattern Search_M3_2XLarge :: PartitionInstanceType
-pattern Search_M3_2XLarge = PartitionInstanceType' "search.m3.2xlarge"
-
-pattern Search_M3_Large :: PartitionInstanceType
-pattern Search_M3_Large = PartitionInstanceType' "search.m3.large"
+pattern Search_M2_2XLarge :: PartitionInstanceType
+pattern Search_M2_2XLarge = PartitionInstanceType' "search.m2.2xlarge"
 
 pattern Search_M3_Medium :: PartitionInstanceType
 pattern Search_M3_Medium = PartitionInstanceType' "search.m3.medium"
 
+pattern Search_M3_Large :: PartitionInstanceType
+pattern Search_M3_Large = PartitionInstanceType' "search.m3.large"
+
 pattern Search_M3_XLarge :: PartitionInstanceType
 pattern Search_M3_XLarge = PartitionInstanceType' "search.m3.xlarge"
 
+pattern Search_M3_2XLarge :: PartitionInstanceType
+pattern Search_M3_2XLarge = PartitionInstanceType' "search.m3.2xlarge"
+
 {-# COMPLETE
-  Search_M1_Large,
   Search_M1_Small,
-  Search_M2_2XLarge,
+  Search_M1_Large,
   Search_M2_XLarge,
-  Search_M3_2XLarge,
-  Search_M3_Large,
+  Search_M2_2XLarge,
   Search_M3_Medium,
+  Search_M3_Large,
   Search_M3_XLarge,
+  Search_M3_2XLarge,
   PartitionInstanceType'
   #-}

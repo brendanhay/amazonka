@@ -13,13 +13,13 @@
 module Network.AWS.IAM.Types.PolicySourceType
   ( PolicySourceType
       ( PolicySourceType',
-        AWSManaged,
-        Group,
-        None,
-        Resource,
-        Role,
         User,
-        UserManaged
+        Group,
+        Role,
+        AWSManaged,
+        UserManaged,
+        Resource,
+        None
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype PolicySourceType = PolicySourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSManaged :: PolicySourceType
-pattern AWSManaged = PolicySourceType' "aws-managed"
+pattern User :: PolicySourceType
+pattern User = PolicySourceType' "user"
 
 pattern Group :: PolicySourceType
 pattern Group = PolicySourceType' "group"
 
-pattern None :: PolicySourceType
-pattern None = PolicySourceType' "none"
-
-pattern Resource :: PolicySourceType
-pattern Resource = PolicySourceType' "resource"
-
 pattern Role :: PolicySourceType
 pattern Role = PolicySourceType' "role"
 
-pattern User :: PolicySourceType
-pattern User = PolicySourceType' "user"
+pattern AWSManaged :: PolicySourceType
+pattern AWSManaged = PolicySourceType' "aws-managed"
 
 pattern UserManaged :: PolicySourceType
 pattern UserManaged = PolicySourceType' "user-managed"
 
+pattern Resource :: PolicySourceType
+pattern Resource = PolicySourceType' "resource"
+
+pattern None :: PolicySourceType
+pattern None = PolicySourceType' "none"
+
 {-# COMPLETE
-  AWSManaged,
-  Group,
-  None,
-  Resource,
-  Role,
   User,
+  Group,
+  Role,
+  AWSManaged,
   UserManaged,
+  Resource,
+  None,
   PolicySourceType'
   #-}

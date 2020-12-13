@@ -37,14 +37,13 @@ import qualified Network.AWS.Prelude as Lude
 -- For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /See:/ 'mkSecret' smart constructor.
-data Secret = Secret' {name :: Lude.Text, valueFrom :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Secret = Secret'
+  { -- | The name of the secret.
+    name :: Lude.Text,
+    -- | The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+    valueFrom :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Secret' with the minimum fields required to make a request.

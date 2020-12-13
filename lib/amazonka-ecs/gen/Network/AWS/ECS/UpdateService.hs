@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,6 +58,7 @@ module Network.AWS.ECS.UpdateService
 
     -- ** Request lenses
     usCluster,
+    usService,
     usPlatformVersion,
     usDesiredCount,
     usPlacementConstraints,
@@ -67,7 +69,6 @@ module Network.AWS.ECS.UpdateService
     usNetworkConfiguration,
     usCapacityProviderStrategy,
     usDeploymentConfiguration,
-    usService,
 
     -- * Destructuring the response
     UpdateServiceResponse (..),
@@ -87,32 +88,59 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateService' smart constructor.
 data UpdateService = UpdateService'
-  { cluster ::
-      Lude.Maybe Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Lude.Maybe Lude.Text,
+    -- | The name of the service to update.
+    service :: Lude.Text,
+    -- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
     platformVersion :: Lude.Maybe Lude.Text,
+    -- | The number of instantiations of the task to place and keep running in your service.
     desiredCount :: Lude.Maybe Lude.Int,
+    -- | An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array.
+    --
+    -- You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
     placementConstraints :: Lude.Maybe [PlacementConstraint],
+    -- | The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object.
+    --
+    -- You can specify a maximum of five strategy rules per service.
     placementStrategy :: Lude.Maybe [PlacementStrategy],
+    -- | Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
     forceNewDeployment :: Lude.Maybe Lude.Bool,
+    -- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
     taskDefinition :: Lude.Maybe Lude.Text,
+    -- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
     healthCheckGracePeriodSeconds :: Lude.Maybe Lude.Int,
     networkConfiguration :: Lude.Maybe NetworkConfiguration,
-    capacityProviderStrategy ::
-      Lude.Maybe [CapacityProviderStrategyItem],
-    deploymentConfiguration :: Lude.Maybe DeploymentConfiguration,
-    service :: Lude.Text
+    -- | The capacity provider strategy to update the service to use.
+    --
+    -- If the service is using the default capacity provider strategy for the cluster, the service can be updated to use one or more capacity providers as opposed to the default capacity provider strategy. However, when a service is using a capacity provider strategy that is not the default capacity provider strategy, the service cannot be updated to use the cluster's default capacity provider strategy.
+    -- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
+    -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+    -- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+    capacityProviderStrategy :: Lude.Maybe [CapacityProviderStrategyItem],
+    -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+    deploymentConfiguration :: Lude.Maybe DeploymentConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateService' with the minimum fields required to make a request.
 --
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
+-- * 'service' - The name of the service to update.
+-- * 'platformVersion' - The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'desiredCount' - The number of instantiations of the task to place and keep running in your service.
+-- * 'placementConstraints' - An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array.
+--
+-- You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
+-- * 'placementStrategy' - The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object.
+--
+-- You can specify a maximum of five strategy rules per service.
+-- * 'forceNewDeployment' - Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
+-- * 'taskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
+-- * 'healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+-- * 'networkConfiguration' -
 -- * 'capacityProviderStrategy' - The capacity provider strategy to update the service to use.
 --
 -- If the service is using the default capacity provider strategy for the cluster, the service can be updated to use one or more capacity providers as opposed to the default capacity provider strategy. However, when a service is using a capacity provider strategy that is not the default capacity provider strategy, the service cannot be updated to use the cluster's default capacity provider strategy.
@@ -121,21 +149,7 @@ data UpdateService = UpdateService'
 -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
 -- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
 --
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
 -- * 'deploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
--- * 'desiredCount' - The number of instantiations of the task to place and keep running in your service.
--- * 'forceNewDeployment' - Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
--- * 'healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
--- * 'networkConfiguration' - Undocumented field.
--- * 'placementConstraints' - An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array.
---
--- You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
--- * 'placementStrategy' - The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object.
---
--- You can specify a maximum of five strategy rules per service.
--- * 'platformVersion' - The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'service' - The name of the service to update.
--- * 'taskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
 mkUpdateService ::
   -- | 'service'
   Lude.Text ->
@@ -143,6 +157,7 @@ mkUpdateService ::
 mkUpdateService pService_ =
   UpdateService'
     { cluster = Lude.Nothing,
+      service = pService_,
       platformVersion = Lude.Nothing,
       desiredCount = Lude.Nothing,
       placementConstraints = Lude.Nothing,
@@ -152,8 +167,7 @@ mkUpdateService pService_ =
       healthCheckGracePeriodSeconds = Lude.Nothing,
       networkConfiguration = Lude.Nothing,
       capacityProviderStrategy = Lude.Nothing,
-      deploymentConfiguration = Lude.Nothing,
-      service = pService_
+      deploymentConfiguration = Lude.Nothing
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
@@ -162,6 +176,13 @@ mkUpdateService pService_ =
 usCluster :: Lens.Lens' UpdateService (Lude.Maybe Lude.Text)
 usCluster = Lens.lens (cluster :: UpdateService -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: UpdateService)
 {-# DEPRECATED usCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+
+-- | The name of the service to update.
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usService :: Lens.Lens' UpdateService Lude.Text
+usService = Lens.lens (service :: UpdateService -> Lude.Text) (\s a -> s {service = a} :: UpdateService)
+{-# DEPRECATED usService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
 --
@@ -244,13 +265,6 @@ usDeploymentConfiguration :: Lens.Lens' UpdateService (Lude.Maybe DeploymentConf
 usDeploymentConfiguration = Lens.lens (deploymentConfiguration :: UpdateService -> Lude.Maybe DeploymentConfiguration) (\s a -> s {deploymentConfiguration = a} :: UpdateService)
 {-# DEPRECATED usDeploymentConfiguration "Use generic-lens or generic-optics with 'deploymentConfiguration' instead." #-}
 
--- | The name of the service to update.
---
--- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usService :: Lens.Lens' UpdateService Lude.Text
-usService = Lens.lens (service :: UpdateService -> Lude.Text) (\s a -> s {service = a} :: UpdateService)
-{-# DEPRECATED usService "Use generic-lens or generic-optics with 'service' instead." #-}
-
 instance Lude.AWSRequest UpdateService where
   type Rs UpdateService = UpdateServiceResponse
   request = Req.postJSON ecsService
@@ -279,6 +293,7 @@ instance Lude.ToJSON UpdateService where
     Lude.object
       ( Lude.catMaybes
           [ ("cluster" Lude..=) Lude.<$> cluster,
+            Lude.Just ("service" Lude..= service),
             ("platformVersion" Lude..=) Lude.<$> platformVersion,
             ("desiredCount" Lude..=) Lude.<$> desiredCount,
             ("placementConstraints" Lude..=) Lude.<$> placementConstraints,
@@ -291,8 +306,7 @@ instance Lude.ToJSON UpdateService where
             ("capacityProviderStrategy" Lude..=)
               Lude.<$> capacityProviderStrategy,
             ("deploymentConfiguration" Lude..=)
-              Lude.<$> deploymentConfiguration,
-            Lude.Just ("service" Lude..= service)
+              Lude.<$> deploymentConfiguration
           ]
       )
 
@@ -304,23 +318,18 @@ instance Lude.ToQuery UpdateService where
 
 -- | /See:/ 'mkUpdateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
-  { service ::
-      Lude.Maybe ContainerService,
+  { -- | The full description of your service following the update call.
+    service :: Lude.Maybe ContainerService,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServiceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'service' - The full description of your service following the update call.
+-- * 'responseStatus' - The response status code.
 mkUpdateServiceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

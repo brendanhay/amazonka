@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportTaskS3LocationRequest' smart constructor.
 data ExportTaskS3LocationRequest = ExportTaskS3LocationRequest'
-  { s3Prefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix (logical hierarchy) in the bucket.
+    s3Prefix :: Lude.Maybe Lude.Text,
+    -- | The destination Amazon S3 bucket.
     s3Bucket :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTaskS3LocationRequest' with the minimum fields required to make a request.
 --
--- * 's3Bucket' - The destination Amazon S3 bucket.
 -- * 's3Prefix' - The prefix (logical hierarchy) in the bucket.
+-- * 's3Bucket' - The destination Amazon S3 bucket.
 mkExportTaskS3LocationRequest ::
   -- | 's3Bucket'
   Lude.Text ->

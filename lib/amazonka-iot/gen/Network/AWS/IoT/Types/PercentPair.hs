@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPercentPair' smart constructor.
 data PercentPair = PercentPair'
-  { value :: Lude.Maybe Lude.Double,
+  { -- | The value of the percentile.
+    value :: Lude.Maybe Lude.Double,
+    -- | The percentile.
     percent :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PercentPair' with the minimum fields required to make a request.
 --
--- * 'percent' - The percentile.
 -- * 'value' - The value of the percentile.
+-- * 'percent' - The percentile.
 mkPercentPair ::
   PercentPair
 mkPercentPair =

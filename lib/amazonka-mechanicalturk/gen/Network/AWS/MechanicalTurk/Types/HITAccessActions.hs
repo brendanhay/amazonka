@@ -14,8 +14,8 @@ module Network.AWS.MechanicalTurk.Types.HITAccessActions
   ( HITAccessActions
       ( HITAccessActions',
         Accept,
-        DiscoverPreviewAndAccept,
-        PreviewAndAccept
+        PreviewAndAccept,
+        DiscoverPreviewAndAccept
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype HITAccessActions = HITAccessActions' Lude.Text
 pattern Accept :: HITAccessActions
 pattern Accept = HITAccessActions' "Accept"
 
-pattern DiscoverPreviewAndAccept :: HITAccessActions
-pattern DiscoverPreviewAndAccept = HITAccessActions' "DiscoverPreviewAndAccept"
-
 pattern PreviewAndAccept :: HITAccessActions
 pattern PreviewAndAccept = HITAccessActions' "PreviewAndAccept"
 
+pattern DiscoverPreviewAndAccept :: HITAccessActions
+pattern DiscoverPreviewAndAccept = HITAccessActions' "DiscoverPreviewAndAccept"
+
 {-# COMPLETE
   Accept,
-  DiscoverPreviewAndAccept,
   PreviewAndAccept,
+  DiscoverPreviewAndAccept,
   HITAccessActions'
   #-}

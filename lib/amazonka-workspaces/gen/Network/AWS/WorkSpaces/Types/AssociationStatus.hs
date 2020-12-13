@@ -13,9 +13,9 @@
 module Network.AWS.WorkSpaces.Types.AssociationStatus
   ( AssociationStatus
       ( AssociationStatus',
+        NotAssociated,
         AssociatedWithOwnerAccount,
         AssociatedWithSharedAccount,
-        NotAssociated,
         PendingAssociation,
         PendingDisassociation
       ),
@@ -48,14 +48,14 @@ newtype AssociationStatus = AssociationStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern NotAssociated :: AssociationStatus
+pattern NotAssociated = AssociationStatus' "NOT_ASSOCIATED"
+
 pattern AssociatedWithOwnerAccount :: AssociationStatus
 pattern AssociatedWithOwnerAccount = AssociationStatus' "ASSOCIATED_WITH_OWNER_ACCOUNT"
 
 pattern AssociatedWithSharedAccount :: AssociationStatus
 pattern AssociatedWithSharedAccount = AssociationStatus' "ASSOCIATED_WITH_SHARED_ACCOUNT"
-
-pattern NotAssociated :: AssociationStatus
-pattern NotAssociated = AssociationStatus' "NOT_ASSOCIATED"
 
 pattern PendingAssociation :: AssociationStatus
 pattern PendingAssociation = AssociationStatus' "PENDING_ASSOCIATION"
@@ -64,9 +64,9 @@ pattern PendingDisassociation :: AssociationStatus
 pattern PendingDisassociation = AssociationStatus' "PENDING_DISASSOCIATION"
 
 {-# COMPLETE
+  NotAssociated,
   AssociatedWithOwnerAccount,
   AssociatedWithSharedAccount,
-  NotAssociated,
   PendingAssociation,
   PendingDisassociation,
   AssociationStatus'

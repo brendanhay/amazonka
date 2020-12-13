@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputProcessingConfiguration' smart constructor.
 newtype InputProcessingConfiguration = InputProcessingConfiguration'
-  { inputLambdaProcessor ::
-      InputLambdaProcessor
+  { -- | The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> that is used to preprocess the records in the stream before being processed by your application code.
+    inputLambdaProcessor :: InputLambdaProcessor
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputProcessingConfiguration' with the minimum fields required to make a request.

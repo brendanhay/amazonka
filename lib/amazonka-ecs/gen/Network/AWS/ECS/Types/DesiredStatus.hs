@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.DesiredStatus
   ( DesiredStatus
       ( DesiredStatus',
-        Pending,
         Running,
+        Pending,
         Stopped
       ),
   )
@@ -46,18 +46,18 @@ newtype DesiredStatus = DesiredStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Pending :: DesiredStatus
-pattern Pending = DesiredStatus' "PENDING"
-
 pattern Running :: DesiredStatus
 pattern Running = DesiredStatus' "RUNNING"
+
+pattern Pending :: DesiredStatus
+pattern Pending = DesiredStatus' "PENDING"
 
 pattern Stopped :: DesiredStatus
 pattern Stopped = DesiredStatus' "STOPPED"
 
 {-# COMPLETE
-  Pending,
   Running,
+  Pending,
   Stopped,
   DesiredStatus'
   #-}

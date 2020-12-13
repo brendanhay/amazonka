@@ -13,9 +13,9 @@
 module Network.AWS.MediaLive.Types.InputCodec
   ( InputCodec
       ( InputCodec',
+        MPEG2,
         Avc,
-        Hevc,
-        MPEG2
+        Hevc
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype InputCodec = InputCodec' Lude.Text
       Lude.ToHeader
     )
 
+pattern MPEG2 :: InputCodec
+pattern MPEG2 = InputCodec' "MPEG2"
+
 pattern Avc :: InputCodec
 pattern Avc = InputCodec' "AVC"
 
 pattern Hevc :: InputCodec
 pattern Hevc = InputCodec' "HEVC"
 
-pattern MPEG2 :: InputCodec
-pattern MPEG2 = InputCodec' "MPEG2"
-
 {-# COMPLETE
+  MPEG2,
   Avc,
   Hevc,
-  MPEG2,
   InputCodec'
   #-}

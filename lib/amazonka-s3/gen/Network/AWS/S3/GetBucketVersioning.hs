@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.S3.GetBucketVersioning
     mkGetBucketVersioning,
 
     -- ** Request lenses
-    gbvExpectedBucketOwner,
     gbvBucket,
+    gbvExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketVersioningResponse (..),
@@ -53,17 +54,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketVersioning' smart constructor.
 data GetBucketVersioning = GetBucketVersioning'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The name of the bucket for which to get the versioning information.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketVersioning' with the minimum fields required to make a request.
@@ -76,16 +72,9 @@ mkGetBucketVersioning ::
   GetBucketVersioning
 mkGetBucketVersioning pBucket_ =
   GetBucketVersioning'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbvExpectedBucketOwner :: Lens.Lens' GetBucketVersioning (Lude.Maybe Lude.Text)
-gbvExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketVersioning -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketVersioning)
-{-# DEPRECATED gbvExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket for which to get the versioning information.
 --
@@ -93,6 +82,13 @@ gbvExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketVersioning -
 gbvBucket :: Lens.Lens' GetBucketVersioning BucketName
 gbvBucket = Lens.lens (bucket :: GetBucketVersioning -> BucketName) (\s a -> s {bucket = a} :: GetBucketVersioning)
 {-# DEPRECATED gbvBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbvExpectedBucketOwner :: Lens.Lens' GetBucketVersioning (Lude.Maybe Lude.Text)
+gbvExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketVersioning -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketVersioning)
+{-# DEPRECATED gbvExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetBucketVersioning where
   type Rs GetBucketVersioning = GetBucketVersioningResponse
@@ -120,26 +116,21 @@ instance Lude.ToQuery GetBucketVersioning where
 
 -- | /See:/ 'mkGetBucketVersioningResponse' smart constructor.
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
-  { status ::
-      Lude.Maybe BucketVersioningStatus,
-    mfaDelete ::
-      Lude.Maybe MFADeleteStatus,
+  { -- | The versioning state of the bucket.
+    status :: Lude.Maybe BucketVersioningStatus,
+    -- | Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
+    mfaDelete :: Lude.Maybe MFADeleteStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketVersioningResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The versioning state of the bucket.
 -- * 'mfaDelete' - Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The versioning state of the bucket.
 mkGetBucketVersioningResponse ::
   -- | 'responseStatus'
   Lude.Int ->

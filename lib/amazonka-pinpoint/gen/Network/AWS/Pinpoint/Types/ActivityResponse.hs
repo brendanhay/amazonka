@@ -19,17 +19,17 @@ module Network.AWS.Pinpoint.Types.ActivityResponse
     -- * Lenses
     aState,
     aStart,
+    aCampaignId,
     aTimezonesCompletedCount,
     aTimezonesTotalCount,
     aResult,
     aTreatmentId,
     aSuccessfulEndpointCount,
     aEnd,
-    aTotalEndpointCount,
-    aScheduledStart,
-    aCampaignId,
-    aId,
     aApplicationId,
+    aTotalEndpointCount,
+    aId,
+    aScheduledStart,
   )
 where
 
@@ -40,68 +40,74 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActivityResponse' smart constructor.
 data ActivityResponse = ActivityResponse'
-  { state ::
-      Lude.Maybe Lude.Text,
+  { -- | The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
+    state :: Lude.Maybe Lude.Text,
+    -- | The actual start time, in ISO 8601 format, of the activity.
     start :: Lude.Maybe Lude.Text,
-    timezonesCompletedCount :: Lude.Maybe Lude.Int,
-    timezonesTotalCount :: Lude.Maybe Lude.Int,
-    result :: Lude.Maybe Lude.Text,
-    treatmentId :: Lude.Maybe Lude.Text,
-    successfulEndpointCount :: Lude.Maybe Lude.Int,
-    end :: Lude.Maybe Lude.Text,
-    totalEndpointCount :: Lude.Maybe Lude.Int,
-    scheduledStart :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the campaign that the activity applies to.
     campaignId :: Lude.Text,
+    -- | The total number of time zones that were completed.
+    timezonesCompletedCount :: Lude.Maybe Lude.Int,
+    -- | The total number of unique time zones that are in the segment for the campaign.
+    timezonesTotalCount :: Lude.Maybe Lude.Int,
+    -- | Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.
+    result :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.
+    treatmentId :: Lude.Maybe Lude.Text,
+    -- | The total number of endpoints that the campaign successfully delivered messages to.
+    successfulEndpointCount :: Lude.Maybe Lude.Int,
+    -- | The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.
+    end :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the application that the campaign applies to.
+    applicationId :: Lude.Text,
+    -- | The total number of endpoints that the campaign attempted to deliver messages to.
+    totalEndpointCount :: Lude.Maybe Lude.Int,
+    -- | The unique identifier for the activity.
     id :: Lude.Text,
-    applicationId :: Lude.Text
+    -- | The scheduled start time, in ISO 8601 format, for the activity.
+    scheduledStart :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivityResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that the campaign applies to.
--- * 'campaignId' - The unique identifier for the campaign that the activity applies to.
--- * 'end' - The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.
--- * 'id' - The unique identifier for the activity.
--- * 'result' - Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.
--- * 'scheduledStart' - The scheduled start time, in ISO 8601 format, for the activity.
--- * 'start' - The actual start time, in ISO 8601 format, of the activity.
 -- * 'state' - The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
--- * 'successfulEndpointCount' - The total number of endpoints that the campaign successfully delivered messages to.
+-- * 'start' - The actual start time, in ISO 8601 format, of the activity.
+-- * 'campaignId' - The unique identifier for the campaign that the activity applies to.
 -- * 'timezonesCompletedCount' - The total number of time zones that were completed.
 -- * 'timezonesTotalCount' - The total number of unique time zones that are in the segment for the campaign.
--- * 'totalEndpointCount' - The total number of endpoints that the campaign attempted to deliver messages to.
+-- * 'result' - Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.
 -- * 'treatmentId' - The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.
+-- * 'successfulEndpointCount' - The total number of endpoints that the campaign successfully delivered messages to.
+-- * 'end' - The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.
+-- * 'applicationId' - The unique identifier for the application that the campaign applies to.
+-- * 'totalEndpointCount' - The total number of endpoints that the campaign attempted to deliver messages to.
+-- * 'id' - The unique identifier for the activity.
+-- * 'scheduledStart' - The scheduled start time, in ISO 8601 format, for the activity.
 mkActivityResponse ::
   -- | 'campaignId'
   Lude.Text ->
-  -- | 'id'
-  Lude.Text ->
   -- | 'applicationId'
   Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   ActivityResponse
-mkActivityResponse pCampaignId_ pId_ pApplicationId_ =
+mkActivityResponse pCampaignId_ pApplicationId_ pId_ =
   ActivityResponse'
     { state = Lude.Nothing,
       start = Lude.Nothing,
+      campaignId = pCampaignId_,
       timezonesCompletedCount = Lude.Nothing,
       timezonesTotalCount = Lude.Nothing,
       result = Lude.Nothing,
       treatmentId = Lude.Nothing,
       successfulEndpointCount = Lude.Nothing,
       end = Lude.Nothing,
+      applicationId = pApplicationId_,
       totalEndpointCount = Lude.Nothing,
-      scheduledStart = Lude.Nothing,
-      campaignId = pCampaignId_,
       id = pId_,
-      applicationId = pApplicationId_
+      scheduledStart = Lude.Nothing
     }
 
 -- | The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
@@ -117,6 +123,13 @@ aState = Lens.lens (state :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> 
 aStart :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
 aStart = Lens.lens (start :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {start = a} :: ActivityResponse)
 {-# DEPRECATED aStart "Use generic-lens or generic-optics with 'start' instead." #-}
+
+-- | The unique identifier for the campaign that the activity applies to.
+--
+-- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCampaignId :: Lens.Lens' ActivityResponse Lude.Text
+aCampaignId = Lens.lens (campaignId :: ActivityResponse -> Lude.Text) (\s a -> s {campaignId = a} :: ActivityResponse)
+{-# DEPRECATED aCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
 
 -- | The total number of time zones that were completed.
 --
@@ -160,26 +173,19 @@ aEnd :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
 aEnd = Lens.lens (end :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {end = a} :: ActivityResponse)
 {-# DEPRECATED aEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
+-- | The unique identifier for the application that the campaign applies to.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aApplicationId :: Lens.Lens' ActivityResponse Lude.Text
+aApplicationId = Lens.lens (applicationId :: ActivityResponse -> Lude.Text) (\s a -> s {applicationId = a} :: ActivityResponse)
+{-# DEPRECATED aApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
 -- | The total number of endpoints that the campaign attempted to deliver messages to.
 --
 -- /Note:/ Consider using 'totalEndpointCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aTotalEndpointCount :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Int)
 aTotalEndpointCount = Lens.lens (totalEndpointCount :: ActivityResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalEndpointCount = a} :: ActivityResponse)
 {-# DEPRECATED aTotalEndpointCount "Use generic-lens or generic-optics with 'totalEndpointCount' instead." #-}
-
--- | The scheduled start time, in ISO 8601 format, for the activity.
---
--- /Note:/ Consider using 'scheduledStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aScheduledStart :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
-aScheduledStart = Lens.lens (scheduledStart :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduledStart = a} :: ActivityResponse)
-{-# DEPRECATED aScheduledStart "Use generic-lens or generic-optics with 'scheduledStart' instead." #-}
-
--- | The unique identifier for the campaign that the activity applies to.
---
--- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aCampaignId :: Lens.Lens' ActivityResponse Lude.Text
-aCampaignId = Lens.lens (campaignId :: ActivityResponse -> Lude.Text) (\s a -> s {campaignId = a} :: ActivityResponse)
-{-# DEPRECATED aCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
 
 -- | The unique identifier for the activity.
 --
@@ -188,12 +194,12 @@ aId :: Lens.Lens' ActivityResponse Lude.Text
 aId = Lens.lens (id :: ActivityResponse -> Lude.Text) (\s a -> s {id = a} :: ActivityResponse)
 {-# DEPRECATED aId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | The unique identifier for the application that the campaign applies to.
+-- | The scheduled start time, in ISO 8601 format, for the activity.
 --
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aApplicationId :: Lens.Lens' ActivityResponse Lude.Text
-aApplicationId = Lens.lens (applicationId :: ActivityResponse -> Lude.Text) (\s a -> s {applicationId = a} :: ActivityResponse)
-{-# DEPRECATED aApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+-- /Note:/ Consider using 'scheduledStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aScheduledStart :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
+aScheduledStart = Lens.lens (scheduledStart :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduledStart = a} :: ActivityResponse)
+{-# DEPRECATED aScheduledStart "Use generic-lens or generic-optics with 'scheduledStart' instead." #-}
 
 instance Lude.FromJSON ActivityResponse where
   parseJSON =
@@ -203,15 +209,15 @@ instance Lude.FromJSON ActivityResponse where
           ActivityResponse'
             Lude.<$> (x Lude..:? "State")
             Lude.<*> (x Lude..:? "Start")
+            Lude.<*> (x Lude..: "CampaignId")
             Lude.<*> (x Lude..:? "TimezonesCompletedCount")
             Lude.<*> (x Lude..:? "TimezonesTotalCount")
             Lude.<*> (x Lude..:? "Result")
             Lude.<*> (x Lude..:? "TreatmentId")
             Lude.<*> (x Lude..:? "SuccessfulEndpointCount")
             Lude.<*> (x Lude..:? "End")
-            Lude.<*> (x Lude..:? "TotalEndpointCount")
-            Lude.<*> (x Lude..:? "ScheduledStart")
-            Lude.<*> (x Lude..: "CampaignId")
-            Lude.<*> (x Lude..: "Id")
             Lude.<*> (x Lude..: "ApplicationId")
+            Lude.<*> (x Lude..:? "TotalEndpointCount")
+            Lude.<*> (x Lude..: "Id")
+            Lude.<*> (x Lude..:? "ScheduledStart")
       )

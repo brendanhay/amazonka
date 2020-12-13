@@ -13,12 +13,12 @@
 module Network.AWS.GuardDuty.Types.ThreatIntelSetFormat
   ( ThreatIntelSetFormat
       ( ThreatIntelSetFormat',
-        TISFAlienVault,
-        TISFFireEye,
-        TISFOtxCSV,
-        TISFProofPoint,
-        TISFStix,
-        TISFTxt
+        Txt,
+        Stix,
+        OtxCSV,
+        AlienVault,
+        ProofPoint,
+        FireEye
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype ThreatIntelSetFormat = ThreatIntelSetFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern TISFAlienVault :: ThreatIntelSetFormat
-pattern TISFAlienVault = ThreatIntelSetFormat' "ALIEN_VAULT"
+pattern Txt :: ThreatIntelSetFormat
+pattern Txt = ThreatIntelSetFormat' "TXT"
 
-pattern TISFFireEye :: ThreatIntelSetFormat
-pattern TISFFireEye = ThreatIntelSetFormat' "FIRE_EYE"
+pattern Stix :: ThreatIntelSetFormat
+pattern Stix = ThreatIntelSetFormat' "STIX"
 
-pattern TISFOtxCSV :: ThreatIntelSetFormat
-pattern TISFOtxCSV = ThreatIntelSetFormat' "OTX_CSV"
+pattern OtxCSV :: ThreatIntelSetFormat
+pattern OtxCSV = ThreatIntelSetFormat' "OTX_CSV"
 
-pattern TISFProofPoint :: ThreatIntelSetFormat
-pattern TISFProofPoint = ThreatIntelSetFormat' "PROOF_POINT"
+pattern AlienVault :: ThreatIntelSetFormat
+pattern AlienVault = ThreatIntelSetFormat' "ALIEN_VAULT"
 
-pattern TISFStix :: ThreatIntelSetFormat
-pattern TISFStix = ThreatIntelSetFormat' "STIX"
+pattern ProofPoint :: ThreatIntelSetFormat
+pattern ProofPoint = ThreatIntelSetFormat' "PROOF_POINT"
 
-pattern TISFTxt :: ThreatIntelSetFormat
-pattern TISFTxt = ThreatIntelSetFormat' "TXT"
+pattern FireEye :: ThreatIntelSetFormat
+pattern FireEye = ThreatIntelSetFormat' "FIRE_EYE"
 
 {-# COMPLETE
-  TISFAlienVault,
-  TISFFireEye,
-  TISFOtxCSV,
-  TISFProofPoint,
-  TISFStix,
-  TISFTxt,
+  Txt,
+  Stix,
+  OtxCSV,
+  AlienVault,
+  ProofPoint,
+  FireEye,
   ThreatIntelSetFormat'
   #-}

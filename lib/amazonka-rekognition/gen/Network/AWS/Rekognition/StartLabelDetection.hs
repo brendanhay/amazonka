@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.Rekognition.StartLabelDetection
     -- ** Request lenses
     sldJobTag,
     sldNotificationChannel,
+    sldVideo,
     sldClientRequestToken,
     sldMinConfidence,
-    sldVideo,
 
     -- * Destructuring the response
     StartLabelDetectionResponse (..),
@@ -47,32 +48,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartLabelDetection' smart constructor.
 data StartLabelDetection = StartLabelDetection'
-  { jobTag ::
-      Lude.Maybe Lude.Text,
-    notificationChannel ::
-      Lude.Maybe NotificationChannel,
+  { -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+    jobTag :: Lude.Maybe Lude.Text,
+    -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
+    notificationChannel :: Lude.Maybe NotificationChannel,
+    -- | The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
+    video :: Video,
+    -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartLabelDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
     clientRequestToken :: Lude.Maybe Lude.Text,
-    minConfidence :: Lude.Maybe Lude.Double,
-    video :: Video
+    -- | Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.
+    --
+    -- If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
+    minConfidence :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartLabelDetection' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartLabelDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 -- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+-- * 'notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
+-- * 'video' - The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
+-- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartLabelDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 -- * 'minConfidence' - Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.
 --
 -- If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
--- * 'notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
--- * 'video' - The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
 mkStartLabelDetection ::
   -- | 'video'
   Video ->
@@ -81,9 +81,9 @@ mkStartLabelDetection pVideo_ =
   StartLabelDetection'
     { jobTag = Lude.Nothing,
       notificationChannel = Lude.Nothing,
+      video = pVideo_,
       clientRequestToken = Lude.Nothing,
-      minConfidence = Lude.Nothing,
-      video = pVideo_
+      minConfidence = Lude.Nothing
     }
 
 -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
@@ -100,6 +100,13 @@ sldNotificationChannel :: Lens.Lens' StartLabelDetection (Lude.Maybe Notificatio
 sldNotificationChannel = Lens.lens (notificationChannel :: StartLabelDetection -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartLabelDetection)
 {-# DEPRECATED sldNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
 
+-- | The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
+--
+-- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sldVideo :: Lens.Lens' StartLabelDetection Video
+sldVideo = Lens.lens (video :: StartLabelDetection -> Video) (\s a -> s {video = a} :: StartLabelDetection)
+{-# DEPRECATED sldVideo "Use generic-lens or generic-optics with 'video' instead." #-}
+
 -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartLabelDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -115,13 +122,6 @@ sldClientRequestToken = Lens.lens (clientRequestToken :: StartLabelDetection -> 
 sldMinConfidence :: Lens.Lens' StartLabelDetection (Lude.Maybe Lude.Double)
 sldMinConfidence = Lens.lens (minConfidence :: StartLabelDetection -> Lude.Maybe Lude.Double) (\s a -> s {minConfidence = a} :: StartLabelDetection)
 {-# DEPRECATED sldMinConfidence "Use generic-lens or generic-optics with 'minConfidence' instead." #-}
-
--- | The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
---
--- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sldVideo :: Lens.Lens' StartLabelDetection Video
-sldVideo = Lens.lens (video :: StartLabelDetection -> Video) (\s a -> s {video = a} :: StartLabelDetection)
-{-# DEPRECATED sldVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
 instance Lude.AWSRequest StartLabelDetection where
   type Rs StartLabelDetection = StartLabelDetectionResponse
@@ -150,9 +150,9 @@ instance Lude.ToJSON StartLabelDetection where
       ( Lude.catMaybes
           [ ("JobTag" Lude..=) Lude.<$> jobTag,
             ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
+            Lude.Just ("Video" Lude..= video),
             ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("MinConfidence" Lude..=) Lude.<$> minConfidence,
-            Lude.Just ("Video" Lude..= video)
+            ("MinConfidence" Lude..=) Lude.<$> minConfidence
           ]
       )
 
@@ -164,17 +164,12 @@ instance Lude.ToQuery StartLabelDetection where
 
 -- | /See:/ 'mkStartLabelDetectionResponse' smart constructor.
 data StartLabelDetectionResponse = StartLabelDetectionResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the label detection job. Use @JobId@ to identify the job in a subsequent call to @GetLabelDetection@ .
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartLabelDetectionResponse' with the minimum fields required to make a request.

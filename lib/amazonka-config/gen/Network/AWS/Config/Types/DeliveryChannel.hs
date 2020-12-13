@@ -33,34 +33,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeliveryChannel' smart constructor.
 data DeliveryChannel = DeliveryChannel'
-  { s3KeyPrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix for the specified Amazon S3 bucket.
+    s3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+    --
+    -- If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic> in the AWS Config Developer Guide.
     snsTopicARN :: Lude.Maybe Lude.Text,
+    -- | The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
     name :: Lude.Maybe Lude.Text,
-    configSnapshotDeliveryProperties ::
-      Lude.Maybe ConfigSnapshotDeliveryProperties,
+    -- | The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
+    configSnapshotDeliveryProperties :: Lude.Maybe ConfigSnapshotDeliveryProperties,
+    -- | The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+    --
+    -- If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket> in the AWS Config Developer Guide.
     s3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliveryChannel' with the minimum fields required to make a request.
 --
--- * 'configSnapshotDeliveryProperties' - The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
--- * 'name' - The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
--- * 's3BucketName' - The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
---
--- If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket> in the AWS Config Developer Guide.
 -- * 's3KeyPrefix' - The prefix for the specified Amazon S3 bucket.
 -- * 'snsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
 --
 -- If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic> in the AWS Config Developer Guide.
+-- * 'name' - The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+-- * 'configSnapshotDeliveryProperties' - The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
+-- * 's3BucketName' - The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+--
+-- If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket> in the AWS Config Developer Guide.
 mkDeliveryChannel ::
   DeliveryChannel
 mkDeliveryChannel =

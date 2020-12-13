@@ -13,9 +13,9 @@
 module Network.AWS.Lightsail.Types.DiskSnapshotState
   ( DiskSnapshotState
       ( DiskSnapshotState',
+        DSSPending,
         DSSCompleted,
         DSSError,
-        DSSPending,
         DSSUnknown
       ),
   )
@@ -47,22 +47,22 @@ newtype DiskSnapshotState = DiskSnapshotState' Lude.Text
       Lude.ToHeader
     )
 
+pattern DSSPending :: DiskSnapshotState
+pattern DSSPending = DiskSnapshotState' "pending"
+
 pattern DSSCompleted :: DiskSnapshotState
 pattern DSSCompleted = DiskSnapshotState' "completed"
 
 pattern DSSError :: DiskSnapshotState
 pattern DSSError = DiskSnapshotState' "error"
 
-pattern DSSPending :: DiskSnapshotState
-pattern DSSPending = DiskSnapshotState' "pending"
-
 pattern DSSUnknown :: DiskSnapshotState
 pattern DSSUnknown = DiskSnapshotState' "unknown"
 
 {-# COMPLETE
+  DSSPending,
   DSSCompleted,
   DSSError,
-  DSSPending,
   DSSUnknown,
   DiskSnapshotState'
   #-}

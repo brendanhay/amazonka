@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,12 +24,12 @@ module Network.AWS.Config.PutOrganizationConformancePack
 
     -- ** Request lenses
     pocpDeliveryS3Bucket,
+    pocpOrganizationConformancePackName,
     pocpDeliveryS3KeyPrefix,
     pocpTemplateS3URI,
     pocpConformancePackInputParameters,
     pocpExcludedAccounts,
     pocpTemplateBody,
-    pocpOrganizationConformancePackName,
 
     -- * Destructuring the response
     PutOrganizationConformancePackResponse (..),
@@ -48,42 +49,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutOrganizationConformancePack' smart constructor.
 data PutOrganizationConformancePack = PutOrganizationConformancePack'
-  { deliveryS3Bucket ::
-      Lude.Maybe Lude.Text,
-    deliveryS3KeyPrefix ::
-      Lude.Maybe Lude.Text,
-    templateS3URI ::
-      Lude.Maybe Lude.Text,
-    conformancePackInputParameters ::
-      Lude.Maybe
-        [ConformancePackInputParameter],
-    excludedAccounts ::
-      Lude.Maybe [Lude.Text],
-    templateBody ::
-      Lude.Maybe Lude.Text,
-    organizationConformancePackName ::
-      Lude.Text
+  { -- | Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS Config stores intermediate files while processing conformance pack template.
+    --
+    -- The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*". For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html Permissions for cross account bucket access> .
+    deliveryS3Bucket :: Lude.Maybe Lude.Text,
+    -- | Name of the organization conformance pack you want to create.
+    organizationConformancePackName :: Lude.Text,
+    -- | The prefix for the Amazon S3 bucket.
+    deliveryS3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).
+    templateS3URI :: Lude.Maybe Lude.Text,
+    -- | A list of @ConformancePackInputParameter@ objects.
+    conformancePackInputParameters :: Lude.Maybe [ConformancePackInputParameter],
+    -- | A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
+    excludedAccounts :: Lude.Maybe [Lude.Text],
+    -- | A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
+    templateBody :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutOrganizationConformancePack' with the minimum fields required to make a request.
 --
--- * 'conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
 -- * 'deliveryS3Bucket' - Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS Config stores intermediate files while processing conformance pack template.
 --
 -- The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*". For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html Permissions for cross account bucket access> .
--- * 'deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
--- * 'excludedAccounts' - A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
 -- * 'organizationConformancePackName' - Name of the organization conformance pack you want to create.
--- * 'templateBody' - A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
+-- * 'deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
 -- * 'templateS3URI' - Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).
+-- * 'conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
+-- * 'excludedAccounts' - A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
+-- * 'templateBody' - A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 mkPutOrganizationConformancePack ::
   -- | 'organizationConformancePackName'
   Lude.Text ->
@@ -91,13 +87,13 @@ mkPutOrganizationConformancePack ::
 mkPutOrganizationConformancePack pOrganizationConformancePackName_ =
   PutOrganizationConformancePack'
     { deliveryS3Bucket = Lude.Nothing,
+      organizationConformancePackName =
+        pOrganizationConformancePackName_,
       deliveryS3KeyPrefix = Lude.Nothing,
       templateS3URI = Lude.Nothing,
       conformancePackInputParameters = Lude.Nothing,
       excludedAccounts = Lude.Nothing,
-      templateBody = Lude.Nothing,
-      organizationConformancePackName =
-        pOrganizationConformancePackName_
+      templateBody = Lude.Nothing
     }
 
 -- | Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS Config stores intermediate files while processing conformance pack template.
@@ -108,6 +104,13 @@ mkPutOrganizationConformancePack pOrganizationConformancePackName_ =
 pocpDeliveryS3Bucket :: Lens.Lens' PutOrganizationConformancePack (Lude.Maybe Lude.Text)
 pocpDeliveryS3Bucket = Lens.lens (deliveryS3Bucket :: PutOrganizationConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {deliveryS3Bucket = a} :: PutOrganizationConformancePack)
 {-# DEPRECATED pocpDeliveryS3Bucket "Use generic-lens or generic-optics with 'deliveryS3Bucket' instead." #-}
+
+-- | Name of the organization conformance pack you want to create.
+--
+-- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pocpOrganizationConformancePackName :: Lens.Lens' PutOrganizationConformancePack Lude.Text
+pocpOrganizationConformancePackName = Lens.lens (organizationConformancePackName :: PutOrganizationConformancePack -> Lude.Text) (\s a -> s {organizationConformancePackName = a} :: PutOrganizationConformancePack)
+{-# DEPRECATED pocpOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
 
 -- | The prefix for the Amazon S3 bucket.
 --
@@ -144,13 +147,6 @@ pocpTemplateBody :: Lens.Lens' PutOrganizationConformancePack (Lude.Maybe Lude.T
 pocpTemplateBody = Lens.lens (templateBody :: PutOrganizationConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: PutOrganizationConformancePack)
 {-# DEPRECATED pocpTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
--- | Name of the organization conformance pack you want to create.
---
--- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocpOrganizationConformancePackName :: Lens.Lens' PutOrganizationConformancePack Lude.Text
-pocpOrganizationConformancePackName = Lens.lens (organizationConformancePackName :: PutOrganizationConformancePack -> Lude.Text) (\s a -> s {organizationConformancePackName = a} :: PutOrganizationConformancePack)
-{-# DEPRECATED pocpOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
-
 instance Lude.AWSRequest PutOrganizationConformancePack where
   type
     Rs PutOrganizationConformancePack =
@@ -182,16 +178,16 @@ instance Lude.ToJSON PutOrganizationConformancePack where
     Lude.object
       ( Lude.catMaybes
           [ ("DeliveryS3Bucket" Lude..=) Lude.<$> deliveryS3Bucket,
+            Lude.Just
+              ( "OrganizationConformancePackName"
+                  Lude..= organizationConformancePackName
+              ),
             ("DeliveryS3KeyPrefix" Lude..=) Lude.<$> deliveryS3KeyPrefix,
             ("TemplateS3Uri" Lude..=) Lude.<$> templateS3URI,
             ("ConformancePackInputParameters" Lude..=)
               Lude.<$> conformancePackInputParameters,
             ("ExcludedAccounts" Lude..=) Lude.<$> excludedAccounts,
-            ("TemplateBody" Lude..=) Lude.<$> templateBody,
-            Lude.Just
-              ( "OrganizationConformancePackName"
-                  Lude..= organizationConformancePackName
-              )
+            ("TemplateBody" Lude..=) Lude.<$> templateBody
           ]
       )
 
@@ -203,19 +199,12 @@ instance Lude.ToQuery PutOrganizationConformancePack where
 
 -- | /See:/ 'mkPutOrganizationConformancePackResponse' smart constructor.
 data PutOrganizationConformancePackResponse = PutOrganizationConformancePackResponse'
-  { organizationConformancePackARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | ARN of the organization conformance pack.
+    organizationConformancePackARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutOrganizationConformancePackResponse' with the minimum fields required to make a request.

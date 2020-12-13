@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,24 +47,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDisableAvailabilityZonesForLoadBalancer' smart constructor.
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer'
-  { loadBalancerName ::
-      Lude.Text,
-    availabilityZones ::
-      [Lude.Text]
+  { -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text,
+    -- | The Availability Zones.
+    availabilityZones :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableAvailabilityZonesForLoadBalancer' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - The Availability Zones.
 -- * 'loadBalancerName' - The name of the load balancer.
+-- * 'availabilityZones' - The Availability Zones.
 mkDisableAvailabilityZonesForLoadBalancer ::
   -- | 'loadBalancerName'
   Lude.Text ->
@@ -126,23 +121,13 @@ instance Lude.ToQuery DisableAvailabilityZonesForLoadBalancer where
 --
 -- /See:/ 'mkDisableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'
-  { availabilityZones ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | The remaining Availability Zones for the load balancer.
+    availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableAvailabilityZonesForLoadBalancerResponse' with the minimum fields required to make a request.
 --

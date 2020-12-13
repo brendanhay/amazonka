@@ -13,12 +13,12 @@
 module Network.AWS.SES.Types.BounceType
   ( BounceType
       ( BounceType',
-        ContentRejected,
         DoesNotExist,
-        ExceededQuota,
         MessageTooLarge,
-        TemporaryFailure,
-        Undefined
+        ExceededQuota,
+        ContentRejected,
+        Undefined,
+        TemporaryFailure
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype BounceType = BounceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ContentRejected :: BounceType
-pattern ContentRejected = BounceType' "ContentRejected"
-
 pattern DoesNotExist :: BounceType
 pattern DoesNotExist = BounceType' "DoesNotExist"
-
-pattern ExceededQuota :: BounceType
-pattern ExceededQuota = BounceType' "ExceededQuota"
 
 pattern MessageTooLarge :: BounceType
 pattern MessageTooLarge = BounceType' "MessageTooLarge"
 
-pattern TemporaryFailure :: BounceType
-pattern TemporaryFailure = BounceType' "TemporaryFailure"
+pattern ExceededQuota :: BounceType
+pattern ExceededQuota = BounceType' "ExceededQuota"
+
+pattern ContentRejected :: BounceType
+pattern ContentRejected = BounceType' "ContentRejected"
 
 pattern Undefined :: BounceType
 pattern Undefined = BounceType' "Undefined"
 
+pattern TemporaryFailure :: BounceType
+pattern TemporaryFailure = BounceType' "TemporaryFailure"
+
 {-# COMPLETE
-  ContentRejected,
   DoesNotExist,
-  ExceededQuota,
   MessageTooLarge,
-  TemporaryFailure,
+  ExceededQuota,
+  ContentRejected,
   Undefined,
+  TemporaryFailure,
   BounceType'
   #-}

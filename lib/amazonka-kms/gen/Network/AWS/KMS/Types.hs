@@ -110,6 +110,7 @@ module Network.AWS.KMS.Types
     kmOrigin,
     kmExpirationModel,
     kmKeyManager,
+    kmKeyId,
     kmCustomerMasterKeySpec,
     kmEnabled,
     kmValidTo,
@@ -124,7 +125,6 @@ module Network.AWS.KMS.Types
     kmCloudHSMClusterId,
     kmDescription,
     kmCustomKeyStoreId,
-    kmKeyId,
 
     -- * ListGrantsResponse
     ListGrantsResponse (..),
@@ -136,8 +136,8 @@ module Network.AWS.KMS.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tTagKey,
     tTagValue,
+    tTagKey,
   )
 where
 

@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.ClientVPNRouteStatusCode
   ( ClientVPNRouteStatusCode
       ( ClientVPNRouteStatusCode',
-        CVRSCActive,
         CVRSCCreating,
-        CVRSCDeleting,
-        CVRSCFailed
+        CVRSCActive,
+        CVRSCFailed,
+        CVRSCDeleting
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ClientVPNRouteStatusCode = ClientVPNRouteStatusCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern CVRSCActive :: ClientVPNRouteStatusCode
-pattern CVRSCActive = ClientVPNRouteStatusCode' "active"
-
 pattern CVRSCCreating :: ClientVPNRouteStatusCode
 pattern CVRSCCreating = ClientVPNRouteStatusCode' "creating"
 
-pattern CVRSCDeleting :: ClientVPNRouteStatusCode
-pattern CVRSCDeleting = ClientVPNRouteStatusCode' "deleting"
+pattern CVRSCActive :: ClientVPNRouteStatusCode
+pattern CVRSCActive = ClientVPNRouteStatusCode' "active"
 
 pattern CVRSCFailed :: ClientVPNRouteStatusCode
 pattern CVRSCFailed = ClientVPNRouteStatusCode' "failed"
 
+pattern CVRSCDeleting :: ClientVPNRouteStatusCode
+pattern CVRSCDeleting = ClientVPNRouteStatusCode' "deleting"
+
 {-# COMPLETE
-  CVRSCActive,
   CVRSCCreating,
-  CVRSCDeleting,
+  CVRSCActive,
   CVRSCFailed,
+  CVRSCDeleting,
   ClientVPNRouteStatusCode'
   #-}

@@ -17,9 +17,9 @@ module Network.AWS.ECS.Types.Setting
     mkSetting,
 
     -- * Lenses
-    setValue,
-    setName,
-    setPrincipalARN,
+    sfValue,
+    sfName,
+    sfPrincipalARN,
   )
 where
 
@@ -31,24 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSetting' smart constructor.
 data Setting = Setting'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | Whether the account setting is enabled or disabled for the specified resource.
+    value :: Lude.Maybe Lude.Text,
+    -- | The Amazon ECS resource name.
     name :: Lude.Maybe SettingName,
+    -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
     principalARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Setting' with the minimum fields required to make a request.
 --
+-- * 'value' - Whether the account setting is enabled or disabled for the specified resource.
 -- * 'name' - The Amazon ECS resource name.
 -- * 'principalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
--- * 'value' - Whether the account setting is enabled or disabled for the specified resource.
 mkSetting ::
   Setting
 mkSetting =
@@ -61,23 +58,23 @@ mkSetting =
 -- | Whether the account setting is enabled or disabled for the specified resource.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setValue :: Lens.Lens' Setting (Lude.Maybe Lude.Text)
-setValue = Lens.lens (value :: Setting -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Setting)
-{-# DEPRECATED setValue "Use generic-lens or generic-optics with 'value' instead." #-}
+sfValue :: Lens.Lens' Setting (Lude.Maybe Lude.Text)
+sfValue = Lens.lens (value :: Setting -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Setting)
+{-# DEPRECATED sfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The Amazon ECS resource name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setName :: Lens.Lens' Setting (Lude.Maybe SettingName)
-setName = Lens.lens (name :: Setting -> Lude.Maybe SettingName) (\s a -> s {name = a} :: Setting)
-{-# DEPRECATED setName "Use generic-lens or generic-optics with 'name' instead." #-}
+sfName :: Lens.Lens' Setting (Lude.Maybe SettingName)
+sfName = Lens.lens (name :: Setting -> Lude.Maybe SettingName) (\s a -> s {name = a} :: Setting)
+{-# DEPRECATED sfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the authenticated user is assumed.
 --
 -- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setPrincipalARN :: Lens.Lens' Setting (Lude.Maybe Lude.Text)
-setPrincipalARN = Lens.lens (principalARN :: Setting -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: Setting)
-{-# DEPRECATED setPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
+sfPrincipalARN :: Lens.Lens' Setting (Lude.Maybe Lude.Text)
+sfPrincipalARN = Lens.lens (principalARN :: Setting -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: Setting)
+{-# DEPRECATED sfPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
 
 instance Lude.FromJSON Setting where
   parseJSON =

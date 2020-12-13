@@ -13,8 +13,8 @@
 module Network.AWS.AlexaBusiness.Types.TemperatureUnit
   ( TemperatureUnit
       ( TemperatureUnit',
-        Celsius,
-        Fahrenheit
+        Fahrenheit,
+        Celsius
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TemperatureUnit = TemperatureUnit' Lude.Text
       Lude.ToHeader
     )
 
-pattern Celsius :: TemperatureUnit
-pattern Celsius = TemperatureUnit' "CELSIUS"
-
 pattern Fahrenheit :: TemperatureUnit
 pattern Fahrenheit = TemperatureUnit' "FAHRENHEIT"
 
+pattern Celsius :: TemperatureUnit
+pattern Celsius = TemperatureUnit' "CELSIUS"
+
 {-# COMPLETE
-  Celsius,
   Fahrenheit,
+  Celsius,
   TemperatureUnit'
   #-}

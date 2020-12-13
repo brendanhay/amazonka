@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiplexProgramPipelineDetail' smart constructor.
 data MultiplexProgramPipelineDetail = MultiplexProgramPipelineDetail'
-  { pipelineId ::
-      Lude.Maybe Lude.Text,
-    activeChannelPipeline ::
-      Lude.Maybe Lude.Text
+  { -- | Identifies a specific pipeline in the multiplex.
+    pipelineId :: Lude.Maybe Lude.Text,
+    -- | Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
+    activeChannelPipeline :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexProgramPipelineDetail' with the minimum fields required to make a request.
 --
--- * 'activeChannelPipeline' - Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
 -- * 'pipelineId' - Identifies a specific pipeline in the multiplex.
+-- * 'activeChannelPipeline' - Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
 mkMultiplexProgramPipelineDetail ::
   MultiplexProgramPipelineDetail
 mkMultiplexProgramPipelineDetail =

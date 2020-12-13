@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteInternetGateway
     mkDeleteInternetGateway,
 
     -- ** Request lenses
-    digiDryRun,
-    digiInternetGatewayId,
+    digfDryRun,
+    digfInternetGatewayId,
 
     -- * Destructuring the response
     DeleteInternetGatewayResponse (..),
@@ -36,17 +37,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteInternetGateway' smart constructor.
 data DeleteInternetGateway = DeleteInternetGateway'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The ID of the internet gateway.
     internetGatewayId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInternetGateway' with the minimum fields required to make a request.
@@ -66,16 +62,16 @@ mkDeleteInternetGateway pInternetGatewayId_ =
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-digiDryRun :: Lens.Lens' DeleteInternetGateway (Lude.Maybe Lude.Bool)
-digiDryRun = Lens.lens (dryRun :: DeleteInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteInternetGateway)
-{-# DEPRECATED digiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+digfDryRun :: Lens.Lens' DeleteInternetGateway (Lude.Maybe Lude.Bool)
+digfDryRun = Lens.lens (dryRun :: DeleteInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteInternetGateway)
+{-# DEPRECATED digfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the internet gateway.
 --
 -- /Note:/ Consider using 'internetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-digiInternetGatewayId :: Lens.Lens' DeleteInternetGateway Lude.Text
-digiInternetGatewayId = Lens.lens (internetGatewayId :: DeleteInternetGateway -> Lude.Text) (\s a -> s {internetGatewayId = a} :: DeleteInternetGateway)
-{-# DEPRECATED digiInternetGatewayId "Use generic-lens or generic-optics with 'internetGatewayId' instead." #-}
+digfInternetGatewayId :: Lens.Lens' DeleteInternetGateway Lude.Text
+digfInternetGatewayId = Lens.lens (internetGatewayId :: DeleteInternetGateway -> Lude.Text) (\s a -> s {internetGatewayId = a} :: DeleteInternetGateway)
+{-# DEPRECATED digfInternetGatewayId "Use generic-lens or generic-optics with 'internetGatewayId' instead." #-}
 
 instance Lude.AWSRequest DeleteInternetGateway where
   type Rs DeleteInternetGateway = DeleteInternetGatewayResponse
@@ -99,13 +95,7 @@ instance Lude.ToQuery DeleteInternetGateway where
 
 -- | /See:/ 'mkDeleteInternetGatewayResponse' smart constructor.
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInternetGatewayResponse' with the minimum fields required to make a request.

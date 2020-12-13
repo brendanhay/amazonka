@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.StepExecutionFilter
     mkStepExecutionFilter,
 
     -- * Lenses
-    sefKey,
     sefValues,
+    sefKey,
   )
 where
 
@@ -30,38 +30,26 @@ import Network.AWS.SSM.Types.StepExecutionFilterKey
 --
 -- /See:/ 'mkStepExecutionFilter' smart constructor.
 data StepExecutionFilter = StepExecutionFilter'
-  { key ::
-      StepExecutionFilterKey,
-    values :: Lude.NonEmpty Lude.Text
+  { -- | The values of the filter key.
+    values :: Lude.NonEmpty Lude.Text,
+    -- | One or more keys to limit the results. Valid filter keys include the following: StepName, Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.
+    key :: StepExecutionFilterKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepExecutionFilter' with the minimum fields required to make a request.
 --
--- * 'key' - One or more keys to limit the results. Valid filter keys include the following: StepName, Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.
 -- * 'values' - The values of the filter key.
+-- * 'key' - One or more keys to limit the results. Valid filter keys include the following: StepName, Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.
 mkStepExecutionFilter ::
-  -- | 'key'
-  StepExecutionFilterKey ->
   -- | 'values'
   Lude.NonEmpty Lude.Text ->
+  -- | 'key'
+  StepExecutionFilterKey ->
   StepExecutionFilter
-mkStepExecutionFilter pKey_ pValues_ =
-  StepExecutionFilter' {key = pKey_, values = pValues_}
-
--- | One or more keys to limit the results. Valid filter keys include the following: StepName, Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sefKey :: Lens.Lens' StepExecutionFilter StepExecutionFilterKey
-sefKey = Lens.lens (key :: StepExecutionFilter -> StepExecutionFilterKey) (\s a -> s {key = a} :: StepExecutionFilter)
-{-# DEPRECATED sefKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkStepExecutionFilter pValues_ pKey_ =
+  StepExecutionFilter' {values = pValues_, key = pKey_}
 
 -- | The values of the filter key.
 --
@@ -70,11 +58,18 @@ sefValues :: Lens.Lens' StepExecutionFilter (Lude.NonEmpty Lude.Text)
 sefValues = Lens.lens (values :: StepExecutionFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: StepExecutionFilter)
 {-# DEPRECATED sefValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
+-- | One or more keys to limit the results. Valid filter keys include the following: StepName, Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sefKey :: Lens.Lens' StepExecutionFilter StepExecutionFilterKey
+sefKey = Lens.lens (key :: StepExecutionFilter -> StepExecutionFilterKey) (\s a -> s {key = a} :: StepExecutionFilter)
+{-# DEPRECATED sefKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.ToJSON StepExecutionFilter where
   toJSON StepExecutionFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Key" Lude..= key),
-            Lude.Just ("Values" Lude..= values)
+          [ Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Key" Lude..= key)
           ]
       )

@@ -51,62 +51,74 @@ import Network.AWS.RDS.Types.Tag
 --
 -- /See:/ 'mkDBClusterSnapshot' smart constructor.
 data DBClusterSnapshot = DBClusterSnapshot'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | Provides the version of the database engine for this DB cluster snapshot.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Specifies the status of this DB cluster snapshot.
     status :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the DB cluster snapshot is encrypted.
     storageEncrypted :: Lude.Maybe Lude.Bool,
+    -- | Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
     dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | Provides the master username for the DB cluster snapshot.
     masterUsername :: Lude.Maybe Lude.Text,
-    iamDatabaseAuthenticationEnabled ::
-      Lude.Maybe Lude.Bool,
+    -- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+    iamDatabaseAuthenticationEnabled :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) for the DB cluster snapshot.
     dbClusterSnapshotARN :: Lude.Maybe Lude.Text,
+    -- | Provides the VPC ID associated with the DB cluster snapshot.
     vpcId :: Lude.Maybe Lude.Text,
     tagList :: Lude.Maybe [Tag],
+    -- | Specifies the identifier for the DB cluster snapshot.
     dbClusterSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the database engine.
     engine :: Lude.Maybe Lude.Text,
+    -- | Provides the license model information for this DB cluster snapshot.
     licenseModel :: Lude.Maybe Lude.Text,
+    -- | Provides the list of Availability Zones (AZs) where instances in the DB cluster snapshot can be restored.
     availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | Provides the type of the DB cluster snapshot.
     snapshotType :: Lude.Maybe Lude.Text,
+    -- | If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
     snapshotCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | Specifies the allocated storage size in gibibytes (GiB).
     allocatedStorage :: Lude.Maybe Lude.Int,
+    -- | If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon Resource Name (ARN) for the source DB cluster snapshot, otherwise, a null value.
     sourceDBClusterSnapshotARN :: Lude.Maybe Lude.Text,
+    -- | Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
     clusterCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | Specifies the percentage of the estimated data that has been transferred.
     percentProgress :: Lude.Maybe Lude.Int,
+    -- | Specifies the port that the DB cluster was listening on at the time of the snapshot.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterSnapshot' with the minimum fields required to make a request.
 --
--- * 'allocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
--- * 'availabilityZones' - Provides the list of Availability Zones (AZs) where instances in the DB cluster snapshot can be restored.
--- * 'clusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
--- * 'dbClusterIdentifier' - Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
--- * 'dbClusterSnapshotARN' - The Amazon Resource Name (ARN) for the DB cluster snapshot.
--- * 'dbClusterSnapshotIdentifier' - Specifies the identifier for the DB cluster snapshot.
--- * 'engine' - Specifies the name of the database engine.
 -- * 'engineVersion' - Provides the version of the database engine for this DB cluster snapshot.
--- * 'iamDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
--- * 'kmsKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
--- * 'licenseModel' - Provides the license model information for this DB cluster snapshot.
--- * 'masterUsername' - Provides the master username for the DB cluster snapshot.
--- * 'percentProgress' - Specifies the percentage of the estimated data that has been transferred.
--- * 'port' - Specifies the port that the DB cluster was listening on at the time of the snapshot.
--- * 'snapshotCreateTime' - Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
--- * 'snapshotType' - Provides the type of the DB cluster snapshot.
--- * 'sourceDBClusterSnapshotARN' - If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon Resource Name (ARN) for the source DB cluster snapshot, otherwise, a null value.
 -- * 'status' - Specifies the status of this DB cluster snapshot.
 -- * 'storageEncrypted' - Specifies whether the DB cluster snapshot is encrypted.
--- * 'tagList' - Undocumented field.
+-- * 'dbClusterIdentifier' - Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+-- * 'masterUsername' - Provides the master username for the DB cluster snapshot.
+-- * 'iamDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+-- * 'dbClusterSnapshotARN' - The Amazon Resource Name (ARN) for the DB cluster snapshot.
 -- * 'vpcId' - Provides the VPC ID associated with the DB cluster snapshot.
+-- * 'tagList' -
+-- * 'dbClusterSnapshotIdentifier' - Specifies the identifier for the DB cluster snapshot.
+-- * 'engine' - Specifies the name of the database engine.
+-- * 'licenseModel' - Provides the license model information for this DB cluster snapshot.
+-- * 'availabilityZones' - Provides the list of Availability Zones (AZs) where instances in the DB cluster snapshot can be restored.
+-- * 'snapshotType' - Provides the type of the DB cluster snapshot.
+-- * 'kmsKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
+-- * 'snapshotCreateTime' - Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
+-- * 'allocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
+-- * 'sourceDBClusterSnapshotARN' - If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon Resource Name (ARN) for the source DB cluster snapshot, otherwise, a null value.
+-- * 'clusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
+-- * 'percentProgress' - Specifies the percentage of the estimated data that has been transferred.
+-- * 'port' - Specifies the port that the DB cluster was listening on at the time of the snapshot.
 mkDBClusterSnapshot ::
   DBClusterSnapshot
 mkDBClusterSnapshot =

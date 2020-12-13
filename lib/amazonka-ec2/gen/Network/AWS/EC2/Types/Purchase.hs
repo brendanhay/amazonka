@@ -37,34 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPurchase' smart constructor.
 data Purchase = Purchase'
-  { instanceFamily :: Lude.Maybe Lude.Text,
+  { -- | The instance family on the Dedicated Host that the reservation can be associated with.
+    instanceFamily :: Lude.Maybe Lude.Text,
+    -- | The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
     currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | The ID of the reservation.
     hostReservationId :: Lude.Maybe Lude.Text,
+    -- | The hourly price of the reservation per hour.
     hourlyPrice :: Lude.Maybe Lude.Text,
+    -- | The upfront price of the reservation.
     upfrontPrice :: Lude.Maybe Lude.Text,
+    -- | The IDs of the Dedicated Hosts associated with the reservation.
     hostIdSet :: Lude.Maybe [Lude.Text],
+    -- | The duration of the reservation's term in seconds.
     duration :: Lude.Maybe Lude.Int,
+    -- | The payment option for the reservation.
     paymentOption :: Lude.Maybe PaymentOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Purchase' with the minimum fields required to make a request.
 --
+-- * 'instanceFamily' - The instance family on the Dedicated Host that the reservation can be associated with.
 -- * 'currencyCode' - The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
--- * 'duration' - The duration of the reservation's term in seconds.
--- * 'hostIdSet' - The IDs of the Dedicated Hosts associated with the reservation.
 -- * 'hostReservationId' - The ID of the reservation.
 -- * 'hourlyPrice' - The hourly price of the reservation per hour.
--- * 'instanceFamily' - The instance family on the Dedicated Host that the reservation can be associated with.
--- * 'paymentOption' - The payment option for the reservation.
 -- * 'upfrontPrice' - The upfront price of the reservation.
+-- * 'hostIdSet' - The IDs of the Dedicated Hosts associated with the reservation.
+-- * 'duration' - The duration of the reservation's term in seconds.
+-- * 'paymentOption' - The payment option for the reservation.
 mkPurchase ::
   Purchase
 mkPurchase =

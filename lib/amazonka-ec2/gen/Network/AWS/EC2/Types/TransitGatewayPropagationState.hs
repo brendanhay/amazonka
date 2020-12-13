@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.TransitGatewayPropagationState
   ( TransitGatewayPropagationState
       ( TransitGatewayPropagationState',
-        Disabled,
-        Disabling,
+        Enabling,
         Enabled,
-        Enabling
+        Disabling,
+        Disabled
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TransitGatewayPropagationState = TransitGatewayPropagationState' Lude.Te
       Lude.ToHeader
     )
 
-pattern Disabled :: TransitGatewayPropagationState
-pattern Disabled = TransitGatewayPropagationState' "disabled"
-
-pattern Disabling :: TransitGatewayPropagationState
-pattern Disabling = TransitGatewayPropagationState' "disabling"
+pattern Enabling :: TransitGatewayPropagationState
+pattern Enabling = TransitGatewayPropagationState' "enabling"
 
 pattern Enabled :: TransitGatewayPropagationState
 pattern Enabled = TransitGatewayPropagationState' "enabled"
 
-pattern Enabling :: TransitGatewayPropagationState
-pattern Enabling = TransitGatewayPropagationState' "enabling"
+pattern Disabling :: TransitGatewayPropagationState
+pattern Disabling = TransitGatewayPropagationState' "disabling"
+
+pattern Disabled :: TransitGatewayPropagationState
+pattern Disabled = TransitGatewayPropagationState' "disabled"
 
 {-# COMPLETE
-  Disabled,
-  Disabling,
-  Enabled,
   Enabling,
+  Enabled,
+  Disabling,
+  Disabled,
   TransitGatewayPropagationState'
   #-}

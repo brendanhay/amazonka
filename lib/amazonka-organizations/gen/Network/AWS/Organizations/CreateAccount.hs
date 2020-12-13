@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,11 +44,11 @@ module Network.AWS.Organizations.CreateAccount
     mkCreateAccount,
 
     -- ** Request lenses
+    caEmail,
     caIAMUserAccessToBilling,
     caRoleName,
-    caTags,
-    caEmail,
     caAccountName,
+    caTags,
 
     -- * Destructuring the response
     CreateAccountResponse (..),
@@ -67,19 +68,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAccount' smart constructor.
 data CreateAccount = CreateAccount'
-  { iamUserAccessToBilling ::
-      Lude.Maybe IAMUserAccessToBilling,
-    roleName :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can't access the root user of the account or remove an account that was created with an invalid email address.
     email :: Lude.Sensitive Lude.Text,
-    accountName :: Lude.Sensitive Lude.Text
+    -- | If set to @ALLOW@ , the new account enables IAM users to access account billing information /if/ they have the required permissions. If set to @DENY@ , only the root user of the new account can access account billing information. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide/ .
+    --
+    -- If you don't specify this parameter, the value defaults to @ALLOW@ , and IAM users and roles with the required permissions can access billing information for the new account.
+    iamUserAccessToBilling :: Lude.Maybe IAMUserAccessToBilling,
+    -- | (Optional)
+    --
+    -- The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. This role trusts the management account, allowing users in the management account to assume the role, as permitted by the management account administrator. The role has administrator permissions in the new member account.
+    -- If you don't specify this parameter, the role name defaults to @OrganizationAccountAccessRole@ .
+    -- For more information about how to use this role to access the member account, see the following links:
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role Accessing and Administering the Member Accounts in Your Organization> in the /AWS Organizations User Guide/
+    --
+    --
+    --     * Steps 2 and 3 in <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html Tutorial: Delegate Access Across AWS Accounts Using IAM Roles> in the /IAM User Guide/
+    --
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter. The pattern can include uppercase letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-
+    roleName :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the member account.
+    accountName :: Lude.Sensitive Lude.Text,
+    -- | A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+    tags :: Lude.Maybe [Tag]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAccount' with the minimum fields required to make a request.
 --
--- * 'accountName' - The friendly name of the member account.
 -- * 'email' - The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can't access the root user of the account or remove an account that was created with an invalid email address.
 -- * 'iamUserAccessToBilling' - If set to @ALLOW@ , the new account enables IAM users to access account billing information /if/ they have the required permissions. If set to @DENY@ , only the root user of the new account can access account billing information. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide/ .
 --
@@ -97,6 +115,7 @@ data CreateAccount = CreateAccount'
 --
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter. The pattern can include uppercase letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-
+-- * 'accountName' - The friendly name of the member account.
 -- * 'tags' - A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
 mkCreateAccount ::
   -- | 'email'
@@ -106,12 +125,19 @@ mkCreateAccount ::
   CreateAccount
 mkCreateAccount pEmail_ pAccountName_ =
   CreateAccount'
-    { iamUserAccessToBilling = Lude.Nothing,
+    { email = pEmail_,
+      iamUserAccessToBilling = Lude.Nothing,
       roleName = Lude.Nothing,
-      tags = Lude.Nothing,
-      email = pEmail_,
-      accountName = pAccountName_
+      accountName = pAccountName_,
+      tags = Lude.Nothing
     }
+
+-- | The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can't access the root user of the account or remove an account that was created with an invalid email address.
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caEmail :: Lens.Lens' CreateAccount (Lude.Sensitive Lude.Text)
+caEmail = Lens.lens (email :: CreateAccount -> Lude.Sensitive Lude.Text) (\s a -> s {email = a} :: CreateAccount)
+{-# DEPRECATED caEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | If set to @ALLOW@ , the new account enables IAM users to access account billing information /if/ they have the required permissions. If set to @DENY@ , only the root user of the new account can access account billing information. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide/ .
 --
@@ -141,26 +167,19 @@ caRoleName :: Lens.Lens' CreateAccount (Lude.Maybe Lude.Text)
 caRoleName = Lens.lens (roleName :: CreateAccount -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: CreateAccount)
 {-# DEPRECATED caRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
--- | A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caTags :: Lens.Lens' CreateAccount (Lude.Maybe [Tag])
-caTags = Lens.lens (tags :: CreateAccount -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAccount)
-{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can't access the root user of the account or remove an account that was created with an invalid email address.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caEmail :: Lens.Lens' CreateAccount (Lude.Sensitive Lude.Text)
-caEmail = Lens.lens (email :: CreateAccount -> Lude.Sensitive Lude.Text) (\s a -> s {email = a} :: CreateAccount)
-{-# DEPRECATED caEmail "Use generic-lens or generic-optics with 'email' instead." #-}
-
 -- | The friendly name of the member account.
 --
 -- /Note:/ Consider using 'accountName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 caAccountName :: Lens.Lens' CreateAccount (Lude.Sensitive Lude.Text)
 caAccountName = Lens.lens (accountName :: CreateAccount -> Lude.Sensitive Lude.Text) (\s a -> s {accountName = a} :: CreateAccount)
 {-# DEPRECATED caAccountName "Use generic-lens or generic-optics with 'accountName' instead." #-}
+
+-- | A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateAccount (Lude.Maybe [Tag])
+caTags = Lens.lens (tags :: CreateAccount -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAccount)
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateAccount where
   type Rs CreateAccount = CreateAccountResponse
@@ -188,12 +207,11 @@ instance Lude.ToJSON CreateAccount where
   toJSON CreateAccount' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("IamUserAccessToBilling" Lude..=)
-              Lude.<$> iamUserAccessToBilling,
+          [ Lude.Just ("Email" Lude..= email),
+            ("IamUserAccessToBilling" Lude..=) Lude.<$> iamUserAccessToBilling,
             ("RoleName" Lude..=) Lude.<$> roleName,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Email" Lude..= email),
-            Lude.Just ("AccountName" Lude..= accountName)
+            Lude.Just ("AccountName" Lude..= accountName),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -205,8 +223,9 @@ instance Lude.ToQuery CreateAccount where
 
 -- | /See:/ 'mkCreateAccountResponse' smart constructor.
 data CreateAccountResponse = CreateAccountResponse'
-  { createAccountStatus ::
-      Lude.Maybe CreateAccountStatus,
+  { -- | A structure that contains details about the request to create an account. This response structure might not be fully populated when you first receive it because account creation is an asynchronous process. You can pass the returned @CreateAccountStatus@ ID as a parameter to 'DescribeCreateAccountStatus' to get status about the progress of the request at later times. You can also check the AWS CloudTrail log for the @CreateAccountResult@ event. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization> in the /AWS Organizations User Guide/ .
+    createAccountStatus :: Lude.Maybe CreateAccountStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

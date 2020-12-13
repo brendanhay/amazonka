@@ -31,27 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientConnectResponseOptions' smart constructor.
 data ClientConnectResponseOptions = ClientConnectResponseOptions'
-  { status ::
-      Lude.Maybe
-        ClientVPNEndpointAttributeStatus,
+  { -- | The status of any updates to the client connect options.
+    status :: Lude.Maybe ClientVPNEndpointAttributeStatus,
+    -- | Indicates whether client connect options are enabled.
     enabled :: Lude.Maybe Lude.Bool,
-    lambdaFunctionARN ::
-      Lude.Maybe Lude.Text
+    -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+    lambdaFunctionARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientConnectResponseOptions' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of any updates to the client connect options.
 -- * 'enabled' - Indicates whether client connect options are enabled.
 -- * 'lambdaFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
--- * 'status' - The status of any updates to the client connect options.
 mkClientConnectResponseOptions ::
   ClientConnectResponseOptions
 mkClientConnectResponseOptions =

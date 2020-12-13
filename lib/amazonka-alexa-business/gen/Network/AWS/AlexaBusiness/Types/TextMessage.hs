@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTextMessage' smart constructor.
 data TextMessage = TextMessage'
-  { locale :: Locale,
+  { -- | The locale of the text message. Currently, en-US is supported.
+    locale :: Locale,
+    -- | The value of the text message.
     value :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TextMessage' with the minimum fields required to make a request.

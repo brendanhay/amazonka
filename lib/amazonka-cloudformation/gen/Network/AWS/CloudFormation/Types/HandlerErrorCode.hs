@@ -13,20 +13,20 @@
 module Network.AWS.CloudFormation.Types.HandlerErrorCode
   ( HandlerErrorCode
       ( HandlerErrorCode',
-        AccessDenied,
-        AlreadyExists,
-        GeneralServiceException,
-        InternalFailure,
-        InvalidCredentials,
-        InvalidRequest,
-        NetworkFailure,
-        NotFound,
-        NotStabilized,
         NotUpdatable,
+        InvalidRequest,
+        AccessDenied,
+        InvalidCredentials,
+        AlreadyExists,
+        NotFound,
         ResourceConflict,
-        ServiceInternalError,
+        Throttling,
         ServiceLimitExceeded,
-        Throttling
+        NotStabilized,
+        GeneralServiceException,
+        ServiceInternalError,
+        NetworkFailure,
+        InternalFailure
       ),
   )
 where
@@ -57,62 +57,62 @@ newtype HandlerErrorCode = HandlerErrorCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern AccessDenied :: HandlerErrorCode
-pattern AccessDenied = HandlerErrorCode' "AccessDenied"
-
-pattern AlreadyExists :: HandlerErrorCode
-pattern AlreadyExists = HandlerErrorCode' "AlreadyExists"
-
-pattern GeneralServiceException :: HandlerErrorCode
-pattern GeneralServiceException = HandlerErrorCode' "GeneralServiceException"
-
-pattern InternalFailure :: HandlerErrorCode
-pattern InternalFailure = HandlerErrorCode' "InternalFailure"
-
-pattern InvalidCredentials :: HandlerErrorCode
-pattern InvalidCredentials = HandlerErrorCode' "InvalidCredentials"
+pattern NotUpdatable :: HandlerErrorCode
+pattern NotUpdatable = HandlerErrorCode' "NotUpdatable"
 
 pattern InvalidRequest :: HandlerErrorCode
 pattern InvalidRequest = HandlerErrorCode' "InvalidRequest"
 
-pattern NetworkFailure :: HandlerErrorCode
-pattern NetworkFailure = HandlerErrorCode' "NetworkFailure"
+pattern AccessDenied :: HandlerErrorCode
+pattern AccessDenied = HandlerErrorCode' "AccessDenied"
+
+pattern InvalidCredentials :: HandlerErrorCode
+pattern InvalidCredentials = HandlerErrorCode' "InvalidCredentials"
+
+pattern AlreadyExists :: HandlerErrorCode
+pattern AlreadyExists = HandlerErrorCode' "AlreadyExists"
 
 pattern NotFound :: HandlerErrorCode
 pattern NotFound = HandlerErrorCode' "NotFound"
 
-pattern NotStabilized :: HandlerErrorCode
-pattern NotStabilized = HandlerErrorCode' "NotStabilized"
-
-pattern NotUpdatable :: HandlerErrorCode
-pattern NotUpdatable = HandlerErrorCode' "NotUpdatable"
-
 pattern ResourceConflict :: HandlerErrorCode
 pattern ResourceConflict = HandlerErrorCode' "ResourceConflict"
-
-pattern ServiceInternalError :: HandlerErrorCode
-pattern ServiceInternalError = HandlerErrorCode' "ServiceInternalError"
-
-pattern ServiceLimitExceeded :: HandlerErrorCode
-pattern ServiceLimitExceeded = HandlerErrorCode' "ServiceLimitExceeded"
 
 pattern Throttling :: HandlerErrorCode
 pattern Throttling = HandlerErrorCode' "Throttling"
 
+pattern ServiceLimitExceeded :: HandlerErrorCode
+pattern ServiceLimitExceeded = HandlerErrorCode' "ServiceLimitExceeded"
+
+pattern NotStabilized :: HandlerErrorCode
+pattern NotStabilized = HandlerErrorCode' "NotStabilized"
+
+pattern GeneralServiceException :: HandlerErrorCode
+pattern GeneralServiceException = HandlerErrorCode' "GeneralServiceException"
+
+pattern ServiceInternalError :: HandlerErrorCode
+pattern ServiceInternalError = HandlerErrorCode' "ServiceInternalError"
+
+pattern NetworkFailure :: HandlerErrorCode
+pattern NetworkFailure = HandlerErrorCode' "NetworkFailure"
+
+pattern InternalFailure :: HandlerErrorCode
+pattern InternalFailure = HandlerErrorCode' "InternalFailure"
+
 {-# COMPLETE
-  AccessDenied,
-  AlreadyExists,
-  GeneralServiceException,
-  InternalFailure,
-  InvalidCredentials,
-  InvalidRequest,
-  NetworkFailure,
-  NotFound,
-  NotStabilized,
   NotUpdatable,
+  InvalidRequest,
+  AccessDenied,
+  InvalidCredentials,
+  AlreadyExists,
+  NotFound,
   ResourceConflict,
-  ServiceInternalError,
-  ServiceLimitExceeded,
   Throttling,
+  ServiceLimitExceeded,
+  NotStabilized,
+  GeneralServiceException,
+  ServiceInternalError,
+  NetworkFailure,
+  InternalFailure,
   HandlerErrorCode'
   #-}

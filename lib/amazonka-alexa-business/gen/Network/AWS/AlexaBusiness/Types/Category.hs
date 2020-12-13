@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCategory' smart constructor.
 data Category = Category'
-  { categoryName :: Lude.Maybe Lude.Text,
+  { -- | The name of the skill store category.
+    categoryName :: Lude.Maybe Lude.Text,
+    -- | The ID of the skill store category.
     categoryId :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Category' with the minimum fields required to make a request.
 --
--- * 'categoryId' - The ID of the skill store category.
 -- * 'categoryName' - The name of the skill store category.
+-- * 'categoryId' - The ID of the skill store category.
 mkCategory ::
   Category
 mkCategory =

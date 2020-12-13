@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,16 +23,16 @@ module Network.AWS.DirectConnect.CreateTransitVirtualInterface
     mkCreateTransitVirtualInterface,
 
     -- ** Request lenses
-    ctviConnectionId,
     ctviNewTransitVirtualInterface,
+    ctviConnectionId,
 
     -- * Destructuring the response
     CreateTransitVirtualInterfaceResponse (..),
     mkCreateTransitVirtualInterfaceResponse,
 
     -- ** Response lenses
-    ctvirsVirtualInterface,
-    ctvirsResponseStatus,
+    ctvifrsVirtualInterface,
+    ctvifrsResponseStatus,
   )
 where
 
@@ -43,44 +44,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTransitVirtualInterface' smart constructor.
 data CreateTransitVirtualInterface = CreateTransitVirtualInterface'
-  { connectionId ::
-      Lude.Text,
-    newTransitVirtualInterface ::
-      NewTransitVirtualInterface
+  { -- | Information about the transit virtual interface.
+    newTransitVirtualInterface :: NewTransitVirtualInterface,
+    -- | The ID of the connection.
+    connectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitVirtualInterface' with the minimum fields required to make a request.
 --
--- * 'connectionId' - The ID of the connection.
 -- * 'newTransitVirtualInterface' - Information about the transit virtual interface.
+-- * 'connectionId' - The ID of the connection.
 mkCreateTransitVirtualInterface ::
-  -- | 'connectionId'
-  Lude.Text ->
   -- | 'newTransitVirtualInterface'
   NewTransitVirtualInterface ->
+  -- | 'connectionId'
+  Lude.Text ->
   CreateTransitVirtualInterface
 mkCreateTransitVirtualInterface
-  pConnectionId_
-  pNewTransitVirtualInterface_ =
+  pNewTransitVirtualInterface_
+  pConnectionId_ =
     CreateTransitVirtualInterface'
-      { connectionId = pConnectionId_,
-        newTransitVirtualInterface = pNewTransitVirtualInterface_
+      { newTransitVirtualInterface =
+          pNewTransitVirtualInterface_,
+        connectionId = pConnectionId_
       }
-
--- | The ID of the connection.
---
--- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctviConnectionId :: Lens.Lens' CreateTransitVirtualInterface Lude.Text
-ctviConnectionId = Lens.lens (connectionId :: CreateTransitVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: CreateTransitVirtualInterface)
-{-# DEPRECATED ctviConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | Information about the transit virtual interface.
 --
@@ -88,6 +77,13 @@ ctviConnectionId = Lens.lens (connectionId :: CreateTransitVirtualInterface -> L
 ctviNewTransitVirtualInterface :: Lens.Lens' CreateTransitVirtualInterface NewTransitVirtualInterface
 ctviNewTransitVirtualInterface = Lens.lens (newTransitVirtualInterface :: CreateTransitVirtualInterface -> NewTransitVirtualInterface) (\s a -> s {newTransitVirtualInterface = a} :: CreateTransitVirtualInterface)
 {-# DEPRECATED ctviNewTransitVirtualInterface "Use generic-lens or generic-optics with 'newTransitVirtualInterface' instead." #-}
+
+-- | The ID of the connection.
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctviConnectionId :: Lens.Lens' CreateTransitVirtualInterface Lude.Text
+ctviConnectionId = Lens.lens (connectionId :: CreateTransitVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: CreateTransitVirtualInterface)
+{-# DEPRECATED ctviConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 instance Lude.AWSRequest CreateTransitVirtualInterface where
   type
@@ -119,9 +115,9 @@ instance Lude.ToJSON CreateTransitVirtualInterface where
   toJSON CreateTransitVirtualInterface' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("connectionId" Lude..= connectionId),
-            Lude.Just
-              ("newTransitVirtualInterface" Lude..= newTransitVirtualInterface)
+          [ Lude.Just
+              ("newTransitVirtualInterface" Lude..= newTransitVirtualInterface),
+            Lude.Just ("connectionId" Lude..= connectionId)
           ]
       )
 
@@ -133,25 +129,17 @@ instance Lude.ToQuery CreateTransitVirtualInterface where
 
 -- | /See:/ 'mkCreateTransitVirtualInterfaceResponse' smart constructor.
 data CreateTransitVirtualInterfaceResponse = CreateTransitVirtualInterfaceResponse'
-  { virtualInterface ::
-      Lude.Maybe
-        VirtualInterface,
-    responseStatus ::
-      Lude.Int
+  { virtualInterface :: Lude.Maybe VirtualInterface,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitVirtualInterfaceResponse' with the minimum fields required to make a request.
 --
+-- * 'virtualInterface' -
 -- * 'responseStatus' - The response status code.
--- * 'virtualInterface' - Undocumented field.
 mkCreateTransitVirtualInterfaceResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -166,13 +154,13 @@ mkCreateTransitVirtualInterfaceResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'virtualInterface' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctvirsVirtualInterface :: Lens.Lens' CreateTransitVirtualInterfaceResponse (Lude.Maybe VirtualInterface)
-ctvirsVirtualInterface = Lens.lens (virtualInterface :: CreateTransitVirtualInterfaceResponse -> Lude.Maybe VirtualInterface) (\s a -> s {virtualInterface = a} :: CreateTransitVirtualInterfaceResponse)
-{-# DEPRECATED ctvirsVirtualInterface "Use generic-lens or generic-optics with 'virtualInterface' instead." #-}
+ctvifrsVirtualInterface :: Lens.Lens' CreateTransitVirtualInterfaceResponse (Lude.Maybe VirtualInterface)
+ctvifrsVirtualInterface = Lens.lens (virtualInterface :: CreateTransitVirtualInterfaceResponse -> Lude.Maybe VirtualInterface) (\s a -> s {virtualInterface = a} :: CreateTransitVirtualInterfaceResponse)
+{-# DEPRECATED ctvifrsVirtualInterface "Use generic-lens or generic-optics with 'virtualInterface' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctvirsResponseStatus :: Lens.Lens' CreateTransitVirtualInterfaceResponse Lude.Int
-ctvirsResponseStatus = Lens.lens (responseStatus :: CreateTransitVirtualInterfaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTransitVirtualInterfaceResponse)
-{-# DEPRECATED ctvirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctvifrsResponseStatus :: Lens.Lens' CreateTransitVirtualInterfaceResponse Lude.Int
+ctvifrsResponseStatus = Lens.lens (responseStatus :: CreateTransitVirtualInterfaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTransitVirtualInterfaceResponse)
+{-# DEPRECATED ctvifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

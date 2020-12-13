@@ -13,8 +13,8 @@
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType
   ( EnvironmentInfoType
       ( EnvironmentInfoType',
-        Bundle,
-        Tail
+        Tail,
+        Bundle
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EnvironmentInfoType = EnvironmentInfoType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Bundle :: EnvironmentInfoType
-pattern Bundle = EnvironmentInfoType' "bundle"
-
 pattern Tail :: EnvironmentInfoType
 pattern Tail = EnvironmentInfoType' "tail"
 
+pattern Bundle :: EnvironmentInfoType
+pattern Bundle = EnvironmentInfoType' "bundle"
+
 {-# COMPLETE
-  Bundle,
   Tail,
+  Bundle,
   EnvironmentInfoType'
   #-}

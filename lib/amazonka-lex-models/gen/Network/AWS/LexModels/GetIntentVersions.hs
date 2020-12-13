@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.LexModels.GetIntentVersions
 
     -- ** Request lenses
     givNextToken,
-    givMaxResults,
     givName,
+    givMaxResults,
 
     -- * Destructuring the response
     GetIntentVersionsResponse (..),
@@ -49,25 +50,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetIntentVersions' smart constructor.
 data GetIntentVersions = GetIntentVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    name :: Lude.Text
+  { -- | A pagination token for fetching the next page of intent versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the intent for which versions should be returned.
+    name :: Lude.Text,
+    -- | The maximum number of intent versions to return in the response. The default is 10.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntentVersions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of intent versions to return in the response. The default is 10.
--- * 'name' - The name of the intent for which versions should be returned.
 -- * 'nextToken' - A pagination token for fetching the next page of intent versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+-- * 'name' - The name of the intent for which versions should be returned.
+-- * 'maxResults' - The maximum number of intent versions to return in the response. The default is 10.
 mkGetIntentVersions ::
   -- | 'name'
   Lude.Text ->
@@ -75,8 +72,8 @@ mkGetIntentVersions ::
 mkGetIntentVersions pName_ =
   GetIntentVersions'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      maxResults = Lude.Nothing
     }
 
 -- | A pagination token for fetching the next page of intent versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
@@ -86,19 +83,19 @@ givNextToken :: Lens.Lens' GetIntentVersions (Lude.Maybe Lude.Text)
 givNextToken = Lens.lens (nextToken :: GetIntentVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetIntentVersions)
 {-# DEPRECATED givNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of intent versions to return in the response. The default is 10.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-givMaxResults :: Lens.Lens' GetIntentVersions (Lude.Maybe Lude.Natural)
-givMaxResults = Lens.lens (maxResults :: GetIntentVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetIntentVersions)
-{-# DEPRECATED givMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the intent for which versions should be returned.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 givName :: Lens.Lens' GetIntentVersions Lude.Text
 givName = Lens.lens (name :: GetIntentVersions -> Lude.Text) (\s a -> s {name = a} :: GetIntentVersions)
 {-# DEPRECATED givName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The maximum number of intent versions to return in the response. The default is 10.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+givMaxResults :: Lens.Lens' GetIntentVersions (Lude.Maybe Lude.Natural)
+givMaxResults = Lens.lens (maxResults :: GetIntentVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetIntentVersions)
+{-# DEPRECATED givMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetIntentVersions where
   page rq rs
@@ -141,18 +138,14 @@ instance Lude.ToQuery GetIntentVersions where
 
 -- | /See:/ 'mkGetIntentVersionsResponse' smart constructor.
 data GetIntentVersionsResponse = GetIntentVersionsResponse'
-  { intents ::
-      Lude.Maybe [IntentMetadata],
+  { -- | An array of @IntentMetadata@ objects, one for each numbered version of the intent plus one for the @> LATEST@ version.
+    intents :: Lude.Maybe [IntentMetadata],
+    -- | A pagination token for fetching the next page of intent versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntentVersionsResponse' with the minimum fields required to make a request.

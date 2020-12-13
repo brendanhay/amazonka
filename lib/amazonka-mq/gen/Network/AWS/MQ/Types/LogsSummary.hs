@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogsSummary' smart constructor.
 data LogsSummary = LogsSummary'
-  { pending :: Lude.Maybe PendingLogs,
+  { -- | The list of information about logs pending to be deployed for the specified broker.
+    pending :: Lude.Maybe PendingLogs,
+    -- | Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
     audit :: Lude.Maybe Lude.Bool,
+    -- | Enables general logging.
     general :: Lude.Maybe Lude.Bool,
+    -- | The location of the CloudWatch Logs log group where general logs are sent.
     generalLogGroup :: Lude.Maybe Lude.Text,
+    -- | The location of the CloudWatch Logs log group where audit logs are sent.
     auditLogGroup :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogsSummary' with the minimum fields required to make a request.
 --
+-- * 'pending' - The list of information about logs pending to be deployed for the specified broker.
 -- * 'audit' - Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
--- * 'auditLogGroup' - The location of the CloudWatch Logs log group where audit logs are sent.
 -- * 'general' - Enables general logging.
 -- * 'generalLogGroup' - The location of the CloudWatch Logs log group where general logs are sent.
--- * 'pending' - The list of information about logs pending to be deployed for the specified broker.
+-- * 'auditLogGroup' - The location of the CloudWatch Logs log group where audit logs are sent.
 mkLogsSummary ::
   LogsSummary
 mkLogsSummary =

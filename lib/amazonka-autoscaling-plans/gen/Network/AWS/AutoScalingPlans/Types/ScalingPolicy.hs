@@ -17,9 +17,9 @@ module Network.AWS.AutoScalingPlans.Types.ScalingPolicy
     mkScalingPolicy,
 
     -- * Lenses
-    spTargetTrackingConfiguration,
     spPolicyName,
     spPolicyType,
+    spTargetTrackingConfiguration,
   )
 where
 
@@ -32,18 +32,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-  { targetTrackingConfiguration ::
-      Lude.Maybe TargetTrackingConfiguration,
+  { -- | The name of the scaling policy.
     policyName :: Lude.Text,
-    policyType :: PolicyType
+    -- | The type of scaling policy.
+    policyType :: PolicyType,
+    -- | The target tracking scaling policy. Includes support for predefined or customized metrics.
+    targetTrackingConfiguration :: Lude.Maybe TargetTrackingConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
@@ -59,17 +55,10 @@ mkScalingPolicy ::
   ScalingPolicy
 mkScalingPolicy pPolicyName_ pPolicyType_ =
   ScalingPolicy'
-    { targetTrackingConfiguration = Lude.Nothing,
-      policyName = pPolicyName_,
-      policyType = pPolicyType_
+    { policyName = pPolicyName_,
+      policyType = pPolicyType_,
+      targetTrackingConfiguration = Lude.Nothing
     }
-
--- | The target tracking scaling policy. Includes support for predefined or customized metrics.
---
--- /Note:/ Consider using 'targetTrackingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spTargetTrackingConfiguration :: Lens.Lens' ScalingPolicy (Lude.Maybe TargetTrackingConfiguration)
-spTargetTrackingConfiguration = Lens.lens (targetTrackingConfiguration :: ScalingPolicy -> Lude.Maybe TargetTrackingConfiguration) (\s a -> s {targetTrackingConfiguration = a} :: ScalingPolicy)
-{-# DEPRECATED spTargetTrackingConfiguration "Use generic-lens or generic-optics with 'targetTrackingConfiguration' instead." #-}
 
 -- | The name of the scaling policy.
 --
@@ -85,13 +74,20 @@ spPolicyType :: Lens.Lens' ScalingPolicy PolicyType
 spPolicyType = Lens.lens (policyType :: ScalingPolicy -> PolicyType) (\s a -> s {policyType = a} :: ScalingPolicy)
 {-# DEPRECATED spPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
 
+-- | The target tracking scaling policy. Includes support for predefined or customized metrics.
+--
+-- /Note:/ Consider using 'targetTrackingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spTargetTrackingConfiguration :: Lens.Lens' ScalingPolicy (Lude.Maybe TargetTrackingConfiguration)
+spTargetTrackingConfiguration = Lens.lens (targetTrackingConfiguration :: ScalingPolicy -> Lude.Maybe TargetTrackingConfiguration) (\s a -> s {targetTrackingConfiguration = a} :: ScalingPolicy)
+{-# DEPRECATED spTargetTrackingConfiguration "Use generic-lens or generic-optics with 'targetTrackingConfiguration' instead." #-}
+
 instance Lude.FromJSON ScalingPolicy where
   parseJSON =
     Lude.withObject
       "ScalingPolicy"
       ( \x ->
           ScalingPolicy'
-            Lude.<$> (x Lude..:? "TargetTrackingConfiguration")
-            Lude.<*> (x Lude..: "PolicyName")
+            Lude.<$> (x Lude..: "PolicyName")
             Lude.<*> (x Lude..: "PolicyType")
+            Lude.<*> (x Lude..:? "TargetTrackingConfiguration")
       )

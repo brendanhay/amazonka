@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Config.PutRemediationExceptions
     mkPutRemediationExceptions,
 
     -- ** Request lenses
+    preConfigRuleName,
     preMessage,
     preExpirationTime,
-    preConfigRuleName,
     preResourceKeys,
 
     -- * Destructuring the response
@@ -42,29 +43,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutRemediationExceptions' smart constructor.
 data PutRemediationExceptions = PutRemediationExceptions'
-  { message ::
-      Lude.Maybe Lude.Text,
-    expirationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The name of the AWS Config rule for which you want to create remediation exception.
     configRuleName :: Lude.Text,
-    resourceKeys ::
-      Lude.NonEmpty
-        RemediationExceptionResourceKey
+    -- | The message contains an explanation of the exception.
+    message :: Lude.Maybe Lude.Text,
+    -- | The exception is automatically deleted after the expiration date.
+    expirationTime :: Lude.Maybe Lude.Timestamp,
+    -- | An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
+    resourceKeys :: Lude.NonEmpty RemediationExceptionResourceKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRemediationExceptions' with the minimum fields required to make a request.
 --
 -- * 'configRuleName' - The name of the AWS Config rule for which you want to create remediation exception.
--- * 'expirationTime' - The exception is automatically deleted after the expiration date.
 -- * 'message' - The message contains an explanation of the exception.
+-- * 'expirationTime' - The exception is automatically deleted after the expiration date.
 -- * 'resourceKeys' - An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
 mkPutRemediationExceptions ::
   -- | 'configRuleName'
@@ -74,11 +69,18 @@ mkPutRemediationExceptions ::
   PutRemediationExceptions
 mkPutRemediationExceptions pConfigRuleName_ pResourceKeys_ =
   PutRemediationExceptions'
-    { message = Lude.Nothing,
+    { configRuleName = pConfigRuleName_,
+      message = Lude.Nothing,
       expirationTime = Lude.Nothing,
-      configRuleName = pConfigRuleName_,
       resourceKeys = pResourceKeys_
     }
+
+-- | The name of the AWS Config rule for which you want to create remediation exception.
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preConfigRuleName :: Lens.Lens' PutRemediationExceptions Lude.Text
+preConfigRuleName = Lens.lens (configRuleName :: PutRemediationExceptions -> Lude.Text) (\s a -> s {configRuleName = a} :: PutRemediationExceptions)
+{-# DEPRECATED preConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | The message contains an explanation of the exception.
 --
@@ -93,13 +95,6 @@ preMessage = Lens.lens (message :: PutRemediationExceptions -> Lude.Maybe Lude.T
 preExpirationTime :: Lens.Lens' PutRemediationExceptions (Lude.Maybe Lude.Timestamp)
 preExpirationTime = Lens.lens (expirationTime :: PutRemediationExceptions -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationTime = a} :: PutRemediationExceptions)
 {-# DEPRECATED preExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
-
--- | The name of the AWS Config rule for which you want to create remediation exception.
---
--- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-preConfigRuleName :: Lens.Lens' PutRemediationExceptions Lude.Text
-preConfigRuleName = Lens.lens (configRuleName :: PutRemediationExceptions -> Lude.Text) (\s a -> s {configRuleName = a} :: PutRemediationExceptions)
-{-# DEPRECATED preConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
 --
@@ -136,9 +131,9 @@ instance Lude.ToJSON PutRemediationExceptions where
   toJSON PutRemediationExceptions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Message" Lude..=) Lude.<$> message,
+          [ Lude.Just ("ConfigRuleName" Lude..= configRuleName),
+            ("Message" Lude..=) Lude.<$> message,
             ("ExpirationTime" Lude..=) Lude.<$> expirationTime,
-            Lude.Just ("ConfigRuleName" Lude..= configRuleName),
             Lude.Just ("ResourceKeys" Lude..= resourceKeys)
           ]
       )
@@ -151,19 +146,12 @@ instance Lude.ToQuery PutRemediationExceptions where
 
 -- | /See:/ 'mkPutRemediationExceptionsResponse' smart constructor.
 data PutRemediationExceptionsResponse = PutRemediationExceptionsResponse'
-  { failedBatches ::
-      Lude.Maybe
-        [FailedRemediationExceptionBatch],
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
+    failedBatches :: Lude.Maybe [FailedRemediationExceptionBatch],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRemediationExceptionsResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.RDS.AddRoleToDBCluster
     mkAddRoleToDBCluster,
 
     -- ** Request lenses
-    artdcFeatureName,
     artdcDBClusterIdentifier,
+    artdcFeatureName,
     artdcRoleARN,
 
     -- * Destructuring the response
@@ -37,18 +38,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddRoleToDBCluster' smart constructor.
 data AddRoleToDBCluster = AddRoleToDBCluster'
-  { featureName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the DB cluster to associate the IAM role with.
     dbClusterIdentifier :: Lude.Text,
+    -- | The name of the feature for the DB cluster that the IAM role is to be associated with. For the list of supported feature names, see 'DBEngineVersion' .
+    featureName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster, for example @arn:aws:iam::123456789012:role/AuroraAccessRole@ .
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddRoleToDBCluster' with the minimum fields required to make a request.
@@ -64,17 +61,10 @@ mkAddRoleToDBCluster ::
   AddRoleToDBCluster
 mkAddRoleToDBCluster pDBClusterIdentifier_ pRoleARN_ =
   AddRoleToDBCluster'
-    { featureName = Lude.Nothing,
-      dbClusterIdentifier = pDBClusterIdentifier_,
+    { dbClusterIdentifier = pDBClusterIdentifier_,
+      featureName = Lude.Nothing,
       roleARN = pRoleARN_
     }
-
--- | The name of the feature for the DB cluster that the IAM role is to be associated with. For the list of supported feature names, see 'DBEngineVersion' .
---
--- /Note:/ Consider using 'featureName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artdcFeatureName :: Lens.Lens' AddRoleToDBCluster (Lude.Maybe Lude.Text)
-artdcFeatureName = Lens.lens (featureName :: AddRoleToDBCluster -> Lude.Maybe Lude.Text) (\s a -> s {featureName = a} :: AddRoleToDBCluster)
-{-# DEPRECATED artdcFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
 
 -- | The name of the DB cluster to associate the IAM role with.
 --
@@ -82,6 +72,13 @@ artdcFeatureName = Lens.lens (featureName :: AddRoleToDBCluster -> Lude.Maybe Lu
 artdcDBClusterIdentifier :: Lens.Lens' AddRoleToDBCluster Lude.Text
 artdcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: AddRoleToDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: AddRoleToDBCluster)
 {-# DEPRECATED artdcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+
+-- | The name of the feature for the DB cluster that the IAM role is to be associated with. For the list of supported feature names, see 'DBEngineVersion' .
+--
+-- /Note:/ Consider using 'featureName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artdcFeatureName :: Lens.Lens' AddRoleToDBCluster (Lude.Maybe Lude.Text)
+artdcFeatureName = Lens.lens (featureName :: AddRoleToDBCluster -> Lude.Maybe Lude.Text) (\s a -> s {featureName = a} :: AddRoleToDBCluster)
+{-# DEPRECATED artdcFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster, for example @arn:aws:iam::123456789012:role/AuroraAccessRole@ .
 --
@@ -106,20 +103,14 @@ instance Lude.ToQuery AddRoleToDBCluster where
     Lude.mconcat
       [ "Action" Lude.=: ("AddRoleToDBCluster" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "FeatureName" Lude.=: featureName,
         "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
+        "FeatureName" Lude.=: featureName,
         "RoleArn" Lude.=: roleARN
       ]
 
 -- | /See:/ 'mkAddRoleToDBClusterResponse' smart constructor.
 data AddRoleToDBClusterResponse = AddRoleToDBClusterResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddRoleToDBClusterResponse' with the minimum fields required to make a request.

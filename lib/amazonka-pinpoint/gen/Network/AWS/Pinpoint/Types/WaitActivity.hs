@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWaitActivity' smart constructor.
 data WaitActivity = WaitActivity'
-  { nextActivity ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the next activity to perform, after performing the wait activity.
+    nextActivity :: Lude.Maybe Lude.Text,
+    -- | The amount of time to wait or the date and time when the activity moves participants to the next activity in the journey.
     waitTime :: Lude.Maybe WaitTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WaitActivity' with the minimum fields required to make a request.

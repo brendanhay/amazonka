@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.IAMInstanceProfileAssociationState
   ( IAMInstanceProfileAssociationState
       ( IAMInstanceProfileAssociationState',
-        IAPASAssociated,
         IAPASAssociating,
-        IAPASDisassociated,
-        IAPASDisassociating
+        IAPASAssociated,
+        IAPASDisassociating,
+        IAPASDisassociated
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype IAMInstanceProfileAssociationState = IAMInstanceProfileAssociationState'
       Lude.ToHeader
     )
 
-pattern IAPASAssociated :: IAMInstanceProfileAssociationState
-pattern IAPASAssociated = IAMInstanceProfileAssociationState' "associated"
-
 pattern IAPASAssociating :: IAMInstanceProfileAssociationState
 pattern IAPASAssociating = IAMInstanceProfileAssociationState' "associating"
 
-pattern IAPASDisassociated :: IAMInstanceProfileAssociationState
-pattern IAPASDisassociated = IAMInstanceProfileAssociationState' "disassociated"
+pattern IAPASAssociated :: IAMInstanceProfileAssociationState
+pattern IAPASAssociated = IAMInstanceProfileAssociationState' "associated"
 
 pattern IAPASDisassociating :: IAMInstanceProfileAssociationState
 pattern IAPASDisassociating = IAMInstanceProfileAssociationState' "disassociating"
 
+pattern IAPASDisassociated :: IAMInstanceProfileAssociationState
+pattern IAPASDisassociated = IAMInstanceProfileAssociationState' "disassociated"
+
 {-# COMPLETE
-  IAPASAssociated,
   IAPASAssociating,
-  IAPASDisassociated,
+  IAPASAssociated,
   IAPASDisassociating,
+  IAPASDisassociated,
   IAMInstanceProfileAssociationState'
   #-}

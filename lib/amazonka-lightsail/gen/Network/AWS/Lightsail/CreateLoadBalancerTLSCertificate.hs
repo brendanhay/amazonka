@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.Lightsail.CreateLoadBalancerTLSCertificate
     mkCreateLoadBalancerTLSCertificate,
 
     -- ** Request lenses
-    clbtcCertificateAlternativeNames,
-    clbtcTags,
-    clbtcLoadBalancerName,
     clbtcCertificateName,
     clbtcCertificateDomainName,
+    clbtcLoadBalancerName,
+    clbtcCertificateAlternativeNames,
+    clbtcTags,
 
     -- * Destructuring the response
     CreateLoadBalancerTLSCertificateResponse (..),
@@ -46,79 +47,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateLoadBalancerTLSCertificate' smart constructor.
 data CreateLoadBalancerTLSCertificate = CreateLoadBalancerTLSCertificate'
-  { certificateAlternativeNames ::
-      Lude.Maybe [Lude.Text],
-    tags :: Lude.Maybe [Tag],
-    loadBalancerName ::
-      Lude.Text,
-    certificateName ::
-      Lude.Text,
-    certificateDomainName ::
-      Lude.Text
+  { -- | The SSL/TLS certificate name.
+    --
+    -- You can have up to 10 certificates in your account at one time. Each Lightsail load balancer can have up to 2 certificates associated with it at one time. There is also an overall limit to the number of certificates that can be issue in a 365-day period. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> .
+    certificateName :: Lude.Text,
+    -- | The domain name (e.g., @example.com@ ) for your SSL/TLS certificate.
+    certificateDomainName :: Lude.Text,
+    -- | The load balancer name where you want to create the SSL/TLS certificate.
+    loadBalancerName :: Lude.Text,
+    -- | An array of strings listing alternative domains and subdomains for your SSL/TLS certificate. Lightsail will de-dupe the names for you. You can have a maximum of 9 alternative names (in addition to the 1 primary domain). We do not support wildcards (e.g., @*.example.com@ ).
+    certificateAlternativeNames :: Lude.Maybe [Lude.Text],
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancerTLSCertificate' with the minimum fields required to make a request.
 --
--- * 'certificateAlternativeNames' - An array of strings listing alternative domains and subdomains for your SSL/TLS certificate. Lightsail will de-dupe the names for you. You can have a maximum of 9 alternative names (in addition to the 1 primary domain). We do not support wildcards (e.g., @*.example.com@ ).
--- * 'certificateDomainName' - The domain name (e.g., @example.com@ ) for your SSL/TLS certificate.
 -- * 'certificateName' - The SSL/TLS certificate name.
 --
 -- You can have up to 10 certificates in your account at one time. Each Lightsail load balancer can have up to 2 certificates associated with it at one time. There is also an overall limit to the number of certificates that can be issue in a 365-day period. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> .
+-- * 'certificateDomainName' - The domain name (e.g., @example.com@ ) for your SSL/TLS certificate.
 -- * 'loadBalancerName' - The load balancer name where you want to create the SSL/TLS certificate.
+-- * 'certificateAlternativeNames' - An array of strings listing alternative domains and subdomains for your SSL/TLS certificate. Lightsail will de-dupe the names for you. You can have a maximum of 9 alternative names (in addition to the 1 primary domain). We do not support wildcards (e.g., @*.example.com@ ).
 -- * 'tags' - The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
 mkCreateLoadBalancerTLSCertificate ::
-  -- | 'loadBalancerName'
-  Lude.Text ->
   -- | 'certificateName'
   Lude.Text ->
   -- | 'certificateDomainName'
   Lude.Text ->
+  -- | 'loadBalancerName'
+  Lude.Text ->
   CreateLoadBalancerTLSCertificate
 mkCreateLoadBalancerTLSCertificate
-  pLoadBalancerName_
   pCertificateName_
-  pCertificateDomainName_ =
+  pCertificateDomainName_
+  pLoadBalancerName_ =
     CreateLoadBalancerTLSCertificate'
-      { certificateAlternativeNames =
-          Lude.Nothing,
-        tags = Lude.Nothing,
+      { certificateName =
+          pCertificateName_,
+        certificateDomainName = pCertificateDomainName_,
         loadBalancerName = pLoadBalancerName_,
-        certificateName = pCertificateName_,
-        certificateDomainName = pCertificateDomainName_
+        certificateAlternativeNames = Lude.Nothing,
+        tags = Lude.Nothing
       }
-
--- | An array of strings listing alternative domains and subdomains for your SSL/TLS certificate. Lightsail will de-dupe the names for you. You can have a maximum of 9 alternative names (in addition to the 1 primary domain). We do not support wildcards (e.g., @*.example.com@ ).
---
--- /Note:/ Consider using 'certificateAlternativeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbtcCertificateAlternativeNames :: Lens.Lens' CreateLoadBalancerTLSCertificate (Lude.Maybe [Lude.Text])
-clbtcCertificateAlternativeNames = Lens.lens (certificateAlternativeNames :: CreateLoadBalancerTLSCertificate -> Lude.Maybe [Lude.Text]) (\s a -> s {certificateAlternativeNames = a} :: CreateLoadBalancerTLSCertificate)
-{-# DEPRECATED clbtcCertificateAlternativeNames "Use generic-lens or generic-optics with 'certificateAlternativeNames' instead." #-}
-
--- | The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it's created.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbtcTags :: Lens.Lens' CreateLoadBalancerTLSCertificate (Lude.Maybe [Tag])
-clbtcTags = Lens.lens (tags :: CreateLoadBalancerTLSCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateLoadBalancerTLSCertificate)
-{-# DEPRECATED clbtcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The load balancer name where you want to create the SSL/TLS certificate.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbtcLoadBalancerName :: Lens.Lens' CreateLoadBalancerTLSCertificate Lude.Text
-clbtcLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancerTLSCertificate)
-{-# DEPRECATED clbtcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The SSL/TLS certificate name.
 --
@@ -135,6 +112,29 @@ clbtcCertificateName = Lens.lens (certificateName :: CreateLoadBalancerTLSCertif
 clbtcCertificateDomainName :: Lens.Lens' CreateLoadBalancerTLSCertificate Lude.Text
 clbtcCertificateDomainName = Lens.lens (certificateDomainName :: CreateLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {certificateDomainName = a} :: CreateLoadBalancerTLSCertificate)
 {-# DEPRECATED clbtcCertificateDomainName "Use generic-lens or generic-optics with 'certificateDomainName' instead." #-}
+
+-- | The load balancer name where you want to create the SSL/TLS certificate.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbtcLoadBalancerName :: Lens.Lens' CreateLoadBalancerTLSCertificate Lude.Text
+clbtcLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancerTLSCertificate)
+{-# DEPRECATED clbtcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
+
+-- | An array of strings listing alternative domains and subdomains for your SSL/TLS certificate. Lightsail will de-dupe the names for you. You can have a maximum of 9 alternative names (in addition to the 1 primary domain). We do not support wildcards (e.g., @*.example.com@ ).
+--
+-- /Note:/ Consider using 'certificateAlternativeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbtcCertificateAlternativeNames :: Lens.Lens' CreateLoadBalancerTLSCertificate (Lude.Maybe [Lude.Text])
+clbtcCertificateAlternativeNames = Lens.lens (certificateAlternativeNames :: CreateLoadBalancerTLSCertificate -> Lude.Maybe [Lude.Text]) (\s a -> s {certificateAlternativeNames = a} :: CreateLoadBalancerTLSCertificate)
+{-# DEPRECATED clbtcCertificateAlternativeNames "Use generic-lens or generic-optics with 'certificateAlternativeNames' instead." #-}
+
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbtcTags :: Lens.Lens' CreateLoadBalancerTLSCertificate (Lude.Maybe [Tag])
+clbtcTags = Lens.lens (tags :: CreateLoadBalancerTLSCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateLoadBalancerTLSCertificate)
+{-# DEPRECATED clbtcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateLoadBalancerTLSCertificate where
   type
@@ -166,12 +166,12 @@ instance Lude.ToJSON CreateLoadBalancerTLSCertificate where
   toJSON CreateLoadBalancerTLSCertificate' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("certificateAlternativeNames" Lude..=)
-              Lude.<$> certificateAlternativeNames,
-            ("tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("certificateName" Lude..= certificateName),
+            Lude.Just ("certificateDomainName" Lude..= certificateDomainName),
             Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
-            Lude.Just ("certificateName" Lude..= certificateName),
-            Lude.Just ("certificateDomainName" Lude..= certificateDomainName)
+            ("certificateAlternativeNames" Lude..=)
+              Lude.<$> certificateAlternativeNames,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -183,19 +183,12 @@ instance Lude.ToQuery CreateLoadBalancerTLSCertificate where
 
 -- | /See:/ 'mkCreateLoadBalancerTLSCertificateResponse' smart constructor.
 data CreateLoadBalancerTLSCertificateResponse = CreateLoadBalancerTLSCertificateResponse'
-  { operations ::
-      Lude.Maybe
-        [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancerTLSCertificateResponse' with the minimum fields required to make a request.

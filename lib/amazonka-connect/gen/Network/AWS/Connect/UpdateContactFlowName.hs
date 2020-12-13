@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Connect.UpdateContactFlowName
     mkUpdateContactFlowName,
 
     -- ** Request lenses
-    ucfnName,
-    ucfnDescription,
     ucfnInstanceId,
     ucfnContactFlowId,
+    ucfnName,
+    ucfnDescription,
 
     -- * Destructuring the response
     UpdateContactFlowNameResponse (..),
@@ -40,27 +41,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateContactFlowName' smart constructor.
 data UpdateContactFlowName = UpdateContactFlowName'
-  { name ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
     instanceId :: Lude.Text,
-    contactFlowId :: Lude.Text
+    -- | The identifier of the contact flow.
+    contactFlowId :: Lude.Text,
+    -- | The name of the contact flow.
+    name :: Lude.Maybe Lude.Text,
+    -- | The description of the contact flow.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContactFlowName' with the minimum fields required to make a request.
 --
--- * 'contactFlowId' - The identifier of the contact flow.
--- * 'description' - The description of the contact flow.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'contactFlowId' - The identifier of the contact flow.
 -- * 'name' - The name of the contact flow.
+-- * 'description' - The description of the contact flow.
 mkUpdateContactFlowName ::
   -- | 'instanceId'
   Lude.Text ->
@@ -69,25 +67,11 @@ mkUpdateContactFlowName ::
   UpdateContactFlowName
 mkUpdateContactFlowName pInstanceId_ pContactFlowId_ =
   UpdateContactFlowName'
-    { name = Lude.Nothing,
-      description = Lude.Nothing,
-      instanceId = pInstanceId_,
-      contactFlowId = pContactFlowId_
+    { instanceId = pInstanceId_,
+      contactFlowId = pContactFlowId_,
+      name = Lude.Nothing,
+      description = Lude.Nothing
     }
-
--- | The name of the contact flow.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucfnName :: Lens.Lens' UpdateContactFlowName (Lude.Maybe Lude.Text)
-ucfnName = Lens.lens (name :: UpdateContactFlowName -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateContactFlowName)
-{-# DEPRECATED ucfnName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The description of the contact flow.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucfnDescription :: Lens.Lens' UpdateContactFlowName (Lude.Maybe Lude.Text)
-ucfnDescription = Lens.lens (description :: UpdateContactFlowName -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateContactFlowName)
-{-# DEPRECATED ucfnDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
 --
@@ -102,6 +86,20 @@ ucfnInstanceId = Lens.lens (instanceId :: UpdateContactFlowName -> Lude.Text) (\
 ucfnContactFlowId :: Lens.Lens' UpdateContactFlowName Lude.Text
 ucfnContactFlowId = Lens.lens (contactFlowId :: UpdateContactFlowName -> Lude.Text) (\s a -> s {contactFlowId = a} :: UpdateContactFlowName)
 {-# DEPRECATED ucfnContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
+
+-- | The name of the contact flow.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucfnName :: Lens.Lens' UpdateContactFlowName (Lude.Maybe Lude.Text)
+ucfnName = Lens.lens (name :: UpdateContactFlowName -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateContactFlowName)
+{-# DEPRECATED ucfnName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The description of the contact flow.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucfnDescription :: Lens.Lens' UpdateContactFlowName (Lude.Maybe Lude.Text)
+ucfnDescription = Lens.lens (description :: UpdateContactFlowName -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateContactFlowName)
+{-# DEPRECATED ucfnDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateContactFlowName where
   type Rs UpdateContactFlowName = UpdateContactFlowNameResponse
@@ -141,13 +139,7 @@ instance Lude.ToQuery UpdateContactFlowName where
 
 -- | /See:/ 'mkUpdateContactFlowNameResponse' smart constructor.
 data UpdateContactFlowNameResponse = UpdateContactFlowNameResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContactFlowNameResponse' with the minimum fields required to make a request.

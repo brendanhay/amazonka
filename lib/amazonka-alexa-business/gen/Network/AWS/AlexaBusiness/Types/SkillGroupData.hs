@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSkillGroupData' smart constructor.
 data SkillGroupData = SkillGroupData'
-  { skillGroupARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The skill group ARN of a skill group.
+    skillGroupARN :: Lude.Maybe Lude.Text,
+    -- | The description of a skill group.
     description :: Lude.Maybe Lude.Text,
+    -- | The skill group name of a skill group.
     skillGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SkillGroupData' with the minimum fields required to make a request.
 --
--- * 'description' - The description of a skill group.
 -- * 'skillGroupARN' - The skill group ARN of a skill group.
+-- * 'description' - The description of a skill group.
 -- * 'skillGroupName' - The skill group name of a skill group.
 mkSkillGroupData ::
   SkillGroupData

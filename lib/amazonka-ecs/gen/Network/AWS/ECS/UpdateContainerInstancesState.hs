@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,9 +35,9 @@ module Network.AWS.ECS.UpdateContainerInstancesState
     mkUpdateContainerInstancesState,
 
     -- ** Request lenses
+    ucisStatus,
     ucisCluster,
     ucisContainerInstances,
-    ucisStatus,
 
     -- * Destructuring the response
     UpdateContainerInstancesStateResponse (..),
@@ -57,37 +58,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateContainerInstancesState' smart constructor.
 data UpdateContainerInstancesState = UpdateContainerInstancesState'
-  { cluster ::
-      Lude.Maybe Lude.Text,
-    containerInstances ::
-      [Lude.Text],
-    status ::
-      ContainerInstanceStatus
+  { -- | The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
+    status :: ContainerInstanceStatus,
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Lude.Maybe Lude.Text,
+    -- | A list of container instance IDs or full ARN entries.
+    containerInstances :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContainerInstancesState' with the minimum fields required to make a request.
 --
+-- * 'status' - The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
 -- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
 -- * 'containerInstances' - A list of container instance IDs or full ARN entries.
--- * 'status' - The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
 mkUpdateContainerInstancesState ::
   -- | 'status'
   ContainerInstanceStatus ->
   UpdateContainerInstancesState
 mkUpdateContainerInstancesState pStatus_ =
   UpdateContainerInstancesState'
-    { cluster = Lude.Nothing,
-      containerInstances = Lude.mempty,
-      status = pStatus_
+    { status = pStatus_,
+      cluster = Lude.Nothing,
+      containerInstances = Lude.mempty
     }
+
+-- | The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucisStatus :: Lens.Lens' UpdateContainerInstancesState ContainerInstanceStatus
+ucisStatus = Lens.lens (status :: UpdateContainerInstancesState -> ContainerInstanceStatus) (\s a -> s {status = a} :: UpdateContainerInstancesState)
+{-# DEPRECATED ucisStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
 --
@@ -102,13 +104,6 @@ ucisCluster = Lens.lens (cluster :: UpdateContainerInstancesState -> Lude.Maybe 
 ucisContainerInstances :: Lens.Lens' UpdateContainerInstancesState [Lude.Text]
 ucisContainerInstances = Lens.lens (containerInstances :: UpdateContainerInstancesState -> [Lude.Text]) (\s a -> s {containerInstances = a} :: UpdateContainerInstancesState)
 {-# DEPRECATED ucisContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
-
--- | The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucisStatus :: Lens.Lens' UpdateContainerInstancesState ContainerInstanceStatus
-ucisStatus = Lens.lens (status :: UpdateContainerInstancesState -> ContainerInstanceStatus) (\s a -> s {status = a} :: UpdateContainerInstancesState)
-{-# DEPRECATED ucisStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 instance Lude.AWSRequest UpdateContainerInstancesState where
   type
@@ -141,9 +136,9 @@ instance Lude.ToJSON UpdateContainerInstancesState where
   toJSON UpdateContainerInstancesState' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("cluster" Lude..=) Lude.<$> cluster,
-            Lude.Just ("containerInstances" Lude..= containerInstances),
-            Lude.Just ("status" Lude..= status)
+          [ Lude.Just ("status" Lude..= status),
+            ("cluster" Lude..=) Lude.<$> cluster,
+            Lude.Just ("containerInstances" Lude..= containerInstances)
           ]
       )
 
@@ -155,28 +150,20 @@ instance Lude.ToQuery UpdateContainerInstancesState where
 
 -- | /See:/ 'mkUpdateContainerInstancesStateResponse' smart constructor.
 data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateResponse'
-  { failures ::
-      Lude.Maybe
-        [Failure],
-    containerInstances ::
-      Lude.Maybe
-        [ContainerInstance],
-    responseStatus ::
-      Lude.Int
+  { -- | Any failures associated with the call.
+    failures :: Lude.Maybe [Failure],
+    -- | The list of container instances.
+    containerInstances :: Lude.Maybe [ContainerInstance],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContainerInstancesStateResponse' with the minimum fields required to make a request.
 --
--- * 'containerInstances' - The list of container instances.
 -- * 'failures' - Any failures associated with the call.
+-- * 'containerInstances' - The list of container instances.
 -- * 'responseStatus' - The response status code.
 mkUpdateContainerInstancesStateResponse ::
   -- | 'responseStatus'

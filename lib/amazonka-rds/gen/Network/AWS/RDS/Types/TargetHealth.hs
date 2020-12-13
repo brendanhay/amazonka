@@ -32,26 +32,25 @@ import Network.AWS.RDS.Types.TargetState
 --
 -- /See:/ 'mkTargetHealth' smart constructor.
 data TargetHealth = TargetHealth'
-  { state :: Lude.Maybe TargetState,
+  { -- | The current state of the connection health lifecycle for the RDS Proxy target. The following is a typical lifecycle example for the states of an RDS Proxy target:
+    --
+    -- @registering@ > @unavailable@ > @available@ > @unavailable@ > @available@
+    state :: Lude.Maybe TargetState,
+    -- | The reason for the current health @State@ of the RDS Proxy target.
     reason :: Lude.Maybe TargetHealthReason,
+    -- | A description of the health of the RDS Proxy target. If the @State@ is @AVAILABLE@ , a description is not included.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetHealth' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the health of the RDS Proxy target. If the @State@ is @AVAILABLE@ , a description is not included.
--- * 'reason' - The reason for the current health @State@ of the RDS Proxy target.
 -- * 'state' - The current state of the connection health lifecycle for the RDS Proxy target. The following is a typical lifecycle example for the states of an RDS Proxy target:
 --
 -- @registering@ > @unavailable@ > @available@ > @unavailable@ > @available@
+-- * 'reason' - The reason for the current health @State@ of the RDS Proxy target.
+-- * 'description' - A description of the health of the RDS Proxy target. If the @State@ is @AVAILABLE@ , a description is not included.
 mkTargetHealth ::
   TargetHealth
 mkTargetHealth =

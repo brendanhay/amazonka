@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.ProresTelecine
   ( ProresTelecine
       ( ProresTelecine',
-        PTHard,
-        PTNone
+        PTNone,
+        PTHard
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ProresTelecine = ProresTelecine' Lude.Text
       Lude.ToHeader
     )
 
-pattern PTHard :: ProresTelecine
-pattern PTHard = ProresTelecine' "HARD"
-
 pattern PTNone :: ProresTelecine
 pattern PTNone = ProresTelecine' "NONE"
 
+pattern PTHard :: ProresTelecine
+pattern PTHard = ProresTelecine' "HARD"
+
 {-# COMPLETE
-  PTHard,
   PTNone,
+  PTHard,
   ProresTelecine'
   #-}

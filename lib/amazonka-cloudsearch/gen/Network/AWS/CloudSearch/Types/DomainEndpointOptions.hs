@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainEndpointOptions' smart constructor.
 data DomainEndpointOptions = DomainEndpointOptions'
-  { enforceHTTPS ::
-      Lude.Maybe Lude.Bool,
-    tlsSecurityPolicy ::
-      Lude.Maybe TLSSecurityPolicy
+  { -- | Whether the domain is HTTPS only enabled.
+    enforceHTTPS :: Lude.Maybe Lude.Bool,
+    -- | The minimum required TLS version
+    tlsSecurityPolicy :: Lude.Maybe TLSSecurityPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainEndpointOptions' with the minimum fields required to make a request.

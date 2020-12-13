@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Eac3PhaseControl
   ( Eac3PhaseControl
       ( Eac3PhaseControl',
-        NoShift,
-        Shift90Degrees
+        Shift90Degrees,
+        NoShift
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Eac3PhaseControl = Eac3PhaseControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern NoShift :: Eac3PhaseControl
-pattern NoShift = Eac3PhaseControl' "NO_SHIFT"
-
 pattern Shift90Degrees :: Eac3PhaseControl
 pattern Shift90Degrees = Eac3PhaseControl' "SHIFT_90_DEGREES"
 
+pattern NoShift :: Eac3PhaseControl
+pattern NoShift = Eac3PhaseControl' "NO_SHIFT"
+
 {-# COMPLETE
-  NoShift,
   Shift90Degrees,
+  NoShift,
   Eac3PhaseControl'
   #-}

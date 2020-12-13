@@ -17,9 +17,9 @@ module Network.AWS.Route53.Types.QueryLoggingConfig
     mkQueryLoggingConfig,
 
     -- * Lenses
-    qlcId,
     qlcHostedZoneId,
     qlcCloudWatchLogsLogGroupARN,
+    qlcId,
   )
 where
 
@@ -31,48 +31,38 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'mkQueryLoggingConfig' smart constructor.
 data QueryLoggingConfig = QueryLoggingConfig'
-  { id :: Lude.Text,
+  { -- | The ID of the hosted zone that CloudWatch Logs is logging queries for.
     hostedZoneId :: ResourceId,
-    cloudWatchLogsLogGroupARN :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
+    cloudWatchLogsLogGroupARN :: Lude.Text,
+    -- | The ID for a configuration for DNS query logging.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryLoggingConfig' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLogsLogGroupARN' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
 -- * 'hostedZoneId' - The ID of the hosted zone that CloudWatch Logs is logging queries for.
+-- * 'cloudWatchLogsLogGroupARN' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
 -- * 'id' - The ID for a configuration for DNS query logging.
 mkQueryLoggingConfig ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'cloudWatchLogsLogGroupARN'
   Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   QueryLoggingConfig
 mkQueryLoggingConfig
-  pId_
   pHostedZoneId_
-  pCloudWatchLogsLogGroupARN_ =
+  pCloudWatchLogsLogGroupARN_
+  pId_ =
     QueryLoggingConfig'
-      { id = pId_,
-        hostedZoneId = pHostedZoneId_,
-        cloudWatchLogsLogGroupARN = pCloudWatchLogsLogGroupARN_
+      { hostedZoneId = pHostedZoneId_,
+        cloudWatchLogsLogGroupARN = pCloudWatchLogsLogGroupARN_,
+        id = pId_
       }
-
--- | The ID for a configuration for DNS query logging.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qlcId :: Lens.Lens' QueryLoggingConfig Lude.Text
-qlcId = Lens.lens (id :: QueryLoggingConfig -> Lude.Text) (\s a -> s {id = a} :: QueryLoggingConfig)
-{-# DEPRECATED qlcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ID of the hosted zone that CloudWatch Logs is logging queries for.
 --
@@ -88,9 +78,16 @@ qlcCloudWatchLogsLogGroupARN :: Lens.Lens' QueryLoggingConfig Lude.Text
 qlcCloudWatchLogsLogGroupARN = Lens.lens (cloudWatchLogsLogGroupARN :: QueryLoggingConfig -> Lude.Text) (\s a -> s {cloudWatchLogsLogGroupARN = a} :: QueryLoggingConfig)
 {-# DEPRECATED qlcCloudWatchLogsLogGroupARN "Use generic-lens or generic-optics with 'cloudWatchLogsLogGroupARN' instead." #-}
 
+-- | The ID for a configuration for DNS query logging.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qlcId :: Lens.Lens' QueryLoggingConfig Lude.Text
+qlcId = Lens.lens (id :: QueryLoggingConfig -> Lude.Text) (\s a -> s {id = a} :: QueryLoggingConfig)
+{-# DEPRECATED qlcId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 instance Lude.FromXML QueryLoggingConfig where
   parseXML x =
     QueryLoggingConfig'
-      Lude.<$> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "HostedZoneId")
+      Lude.<$> (x Lude..@ "HostedZoneId")
       Lude.<*> (x Lude..@ "CloudWatchLogsLogGroupArn")
+      Lude.<*> (x Lude..@ "Id")

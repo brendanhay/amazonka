@@ -28,14 +28,23 @@ import qualified Network.AWS.Prelude as Lude
 -- | The backup policy for the file system, showing the curent status. If @ENABLED@ , the file system is being backed up.
 --
 -- /See:/ 'mkBackupPolicy' smart constructor.
-newtype BackupPolicy = BackupPolicy' {status :: Status}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype BackupPolicy = BackupPolicy'
+  { -- | Describes the status of the file system's backup policy.
+    --
+    --
+    --     * /@ENABLED@ - EFS is automatically backing up the file system./
+    --
+    --
+    --     * /@ENABLING@ - EFS is turning on automatic backups for the file system./
+    --
+    --
+    --     * /@DISABLED@ - automatic back ups are turned off for the file system./
+    --
+    --
+    --     * /@DISABLED@ - EFS is turning off automatic backups for the file system./
+    status :: Status
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackupPolicy' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.CreateEmailTemplate
     mkCreateEmailTemplateResponse,
 
     -- ** Response lenses
-    cetrsResponseStatus,
     cetrsCreateTemplateMessageBody,
+    cetrsResponseStatus,
   )
 where
 
@@ -40,23 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateEmailTemplate' smart constructor.
 data CreateEmailTemplate = CreateEmailTemplate'
-  { templateName ::
-      Lude.Text,
+  { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+    templateName :: Lude.Text,
     emailTemplateRequest :: EmailTemplateRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEmailTemplate' with the minimum fields required to make a request.
 --
--- * 'emailTemplateRequest' - Undocumented field.
 -- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+-- * 'emailTemplateRequest' -
 mkCreateEmailTemplate ::
   -- | 'templateName'
   Lude.Text ->
@@ -90,7 +85,7 @@ instance Lude.AWSRequest CreateEmailTemplate where
     Res.receiveJSON
       ( \s h x ->
           CreateEmailTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateEmailTemplate where
@@ -118,44 +113,31 @@ instance Lude.ToQuery CreateEmailTemplate where
 
 -- | /See:/ 'mkCreateEmailTemplateResponse' smart constructor.
 data CreateEmailTemplateResponse = CreateEmailTemplateResponse'
-  { responseStatus ::
-      Lude.Int,
-    createTemplateMessageBody ::
-      CreateTemplateMessageBody
+  { createTemplateMessageBody :: CreateTemplateMessageBody,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEmailTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'createTemplateMessageBody' - Undocumented field.
+-- * 'createTemplateMessageBody' -
 -- * 'responseStatus' - The response status code.
 mkCreateEmailTemplateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'createTemplateMessageBody'
   CreateTemplateMessageBody ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateEmailTemplateResponse
 mkCreateEmailTemplateResponse
-  pResponseStatus_
-  pCreateTemplateMessageBody_ =
+  pCreateTemplateMessageBody_
+  pResponseStatus_ =
     CreateEmailTemplateResponse'
-      { responseStatus = pResponseStatus_,
-        createTemplateMessageBody = pCreateTemplateMessageBody_
+      { createTemplateMessageBody =
+          pCreateTemplateMessageBody_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cetrsResponseStatus :: Lens.Lens' CreateEmailTemplateResponse Lude.Int
-cetrsResponseStatus = Lens.lens (responseStatus :: CreateEmailTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEmailTemplateResponse)
-{-# DEPRECATED cetrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -163,3 +145,10 @@ cetrsResponseStatus = Lens.lens (responseStatus :: CreateEmailTemplateResponse -
 cetrsCreateTemplateMessageBody :: Lens.Lens' CreateEmailTemplateResponse CreateTemplateMessageBody
 cetrsCreateTemplateMessageBody = Lens.lens (createTemplateMessageBody :: CreateEmailTemplateResponse -> CreateTemplateMessageBody) (\s a -> s {createTemplateMessageBody = a} :: CreateEmailTemplateResponse)
 {-# DEPRECATED cetrsCreateTemplateMessageBody "Use generic-lens or generic-optics with 'createTemplateMessageBody' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetrsResponseStatus :: Lens.Lens' CreateEmailTemplateResponse Lude.Int
+cetrsResponseStatus = Lens.lens (responseStatus :: CreateEmailTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEmailTemplateResponse)
+{-# DEPRECATED cetrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Route53AutoNaming.UntagResource
     mkUntagResource,
 
     -- ** Request lenses
-    urResourceARN,
     urTagKeys,
+    urResourceARN,
 
     -- * Destructuring the response
     UntagResourceResponse (..),
@@ -39,38 +40,27 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { resourceARN :: Lude.Text,
-    tagKeys :: [Lude.Text]
+  { -- | The tag keys to remove from the specified resource.
+    tagKeys :: [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.
+    resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.
 -- * 'tagKeys' - The tag keys to remove from the specified resource.
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.
 mkUntagResource ::
   -- | 'resourceARN'
   Lude.Text ->
   UntagResource
 mkUntagResource pResourceARN_ =
   UntagResource'
-    { resourceARN = pResourceARN_,
-      tagKeys = Lude.mempty
+    { tagKeys = Lude.mempty,
+      resourceARN = pResourceARN_
     }
-
--- | The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceARN :: Lens.Lens' UntagResource Lude.Text
-urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
-{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The tag keys to remove from the specified resource.
 --
@@ -78,6 +68,13 @@ urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s
 urTagKeys :: Lens.Lens' UntagResource [Lude.Text]
 urTagKeys = Lens.lens (tagKeys :: UntagResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagResource)
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceARN :: Lens.Lens' UntagResource Lude.Text
+urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
+{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Lude.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
@@ -103,8 +100,8 @@ instance Lude.ToJSON UntagResource where
   toJSON UntagResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
-            Lude.Just ("TagKeys" Lude..= tagKeys)
+          [ Lude.Just ("TagKeys" Lude..= tagKeys),
+            Lude.Just ("ResourceARN" Lude..= resourceARN)
           ]
       )
 
@@ -116,16 +113,10 @@ instance Lude.ToQuery UntagResource where
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 newtype UntagResourceResponse = UntagResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.

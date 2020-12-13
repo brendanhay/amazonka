@@ -31,20 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHadoopStepConfig' smart constructor.
 data HadoopStepConfig = HadoopStepConfig'
-  { args ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of command line arguments to pass to the JAR file's main function for execution.
+    args :: Lude.Maybe [Lude.Text],
+    -- | The path to the JAR file that runs during the step.
     jar :: Lude.Maybe Lude.Text,
+    -- | The name of the main class in the specified Java file. If not specified, the JAR file should specify a main class in its manifest file.
     mainClass :: Lude.Maybe Lude.Text,
-    properties ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    -- | The list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.
+    properties :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HadoopStepConfig' with the minimum fields required to make a request.

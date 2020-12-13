@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     mkListEndpointsByPlatformApplication,
 
     -- ** Request lenses
-    lebpaNextToken,
     lebpaPlatformApplicationARN,
+    lebpaNextToken,
 
     -- * Destructuring the response
     ListEndpointsByPlatformApplicationResponse (..),
@@ -48,40 +49,28 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkListEndpointsByPlatformApplication' smart constructor.
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    platformApplicationARN ::
-      Lude.Text
+  { -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
+    platformApplicationARN :: Lude.Text,
+    -- | NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpointsByPlatformApplication' with the minimum fields required to make a request.
 --
--- * 'nextToken' - NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
 -- * 'platformApplicationARN' - PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
+-- * 'nextToken' - NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
 mkListEndpointsByPlatformApplication ::
   -- | 'platformApplicationARN'
   Lude.Text ->
   ListEndpointsByPlatformApplication
 mkListEndpointsByPlatformApplication pPlatformApplicationARN_ =
   ListEndpointsByPlatformApplication'
-    { nextToken = Lude.Nothing,
-      platformApplicationARN = pPlatformApplicationARN_
+    { platformApplicationARN =
+        pPlatformApplicationARN_,
+      nextToken = Lude.Nothing
     }
-
--- | NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebpaNextToken :: Lens.Lens' ListEndpointsByPlatformApplication (Lude.Maybe Lude.Text)
-lebpaNextToken = Lens.lens (nextToken :: ListEndpointsByPlatformApplication -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpointsByPlatformApplication)
-{-# DEPRECATED lebpaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
 --
@@ -89,6 +78,13 @@ lebpaNextToken = Lens.lens (nextToken :: ListEndpointsByPlatformApplication -> L
 lebpaPlatformApplicationARN :: Lens.Lens' ListEndpointsByPlatformApplication Lude.Text
 lebpaPlatformApplicationARN = Lens.lens (platformApplicationARN :: ListEndpointsByPlatformApplication -> Lude.Text) (\s a -> s {platformApplicationARN = a} :: ListEndpointsByPlatformApplication)
 {-# DEPRECATED lebpaPlatformApplicationARN "Use generic-lens or generic-optics with 'platformApplicationARN' instead." #-}
+
+-- | NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lebpaNextToken :: Lens.Lens' ListEndpointsByPlatformApplication (Lude.Maybe Lude.Text)
+lebpaNextToken = Lens.lens (nextToken :: ListEndpointsByPlatformApplication -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpointsByPlatformApplication)
+{-# DEPRECATED lebpaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListEndpointsByPlatformApplication where
   page rq rs
@@ -128,36 +124,28 @@ instance Lude.ToQuery ListEndpointsByPlatformApplication where
       [ "Action"
           Lude.=: ("ListEndpointsByPlatformApplication" :: Lude.ByteString),
         "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        "PlatformApplicationArn" Lude.=: platformApplicationARN
+        "PlatformApplicationArn" Lude.=: platformApplicationARN,
+        "NextToken" Lude.=: nextToken
       ]
 
 -- | Response for ListEndpointsByPlatformApplication action.
 --
 -- /See:/ 'mkListEndpointsByPlatformApplicationResponse' smart constructor.
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    endpoints ::
-      Lude.Maybe
-        [Endpoint],
-    responseStatus ::
-      Lude.Int
+  { -- | NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Endpoints returned for ListEndpointsByPlatformApplication action.
+    endpoints :: Lude.Maybe [Endpoint],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpointsByPlatformApplicationResponse' with the minimum fields required to make a request.
 --
--- * 'endpoints' - Endpoints returned for ListEndpointsByPlatformApplication action.
 -- * 'nextToken' - NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
+-- * 'endpoints' - Endpoints returned for ListEndpointsByPlatformApplication action.
 -- * 'responseStatus' - The response status code.
 mkListEndpointsByPlatformApplicationResponse ::
   -- | 'responseStatus'

@@ -33,18 +33,14 @@ import Network.AWS.Snowball.Types.S3Resource
 --
 -- /See:/ 'mkJobResource' smart constructor.
 data JobResource = JobResource'
-  { ec2AMIResources ::
-      Lude.Maybe [EC2AMIResource],
+  { -- | The Amazon Machine Images (AMIs) associated with this job.
+    ec2AMIResources :: Lude.Maybe [EC2AMIResource],
+    -- | The Python-language Lambda functions for this job.
     lambdaResources :: Lude.Maybe [LambdaResource],
+    -- | An array of @S3Resource@ objects.
     s3Resources :: Lude.Maybe [S3Resource]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobResource' with the minimum fields required to make a request.

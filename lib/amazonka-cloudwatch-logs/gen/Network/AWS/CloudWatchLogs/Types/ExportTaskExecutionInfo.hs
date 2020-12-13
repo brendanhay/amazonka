@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportTaskExecutionInfo' smart constructor.
 data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
-  { creationTime ::
-      Lude.Maybe Lude.Natural,
+  { -- | The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+    creationTime :: Lude.Maybe Lude.Natural,
+    -- | The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
     completionTime :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTaskExecutionInfo' with the minimum fields required to make a request.
 --
--- * 'completionTime' - The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 -- * 'creationTime' - The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'completionTime' - The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 mkExportTaskExecutionInfo ::
   ExportTaskExecutionInfo
 mkExportTaskExecutionInfo =

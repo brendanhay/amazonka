@@ -38,33 +38,33 @@ import Network.AWS.RDS.Types.TargetType
 --
 -- /See:/ 'mkDBProxyTarget' smart constructor.
 data DBProxyTarget = DBProxyTarget'
-  { targetARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | Information about the connection health of the RDS Proxy target.
     targetHealth :: Lude.Maybe TargetHealth,
+    -- | The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.
     trackedClusterId :: Lude.Maybe Lude.Text,
+    -- | The identifier representing the target. It can be the instance identifier for an RDS DB instance, or the cluster identifier for an Aurora DB cluster.
     rdsResourceId :: Lude.Maybe Lude.Text,
+    -- | Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.
     type' :: Lude.Maybe TargetType,
+    -- | The writer endpoint for the RDS DB instance or Aurora DB cluster.
     endpoint :: Lude.Maybe Lude.Text,
+    -- | The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBProxyTarget' with the minimum fields required to make a request.
 --
--- * 'endpoint' - The writer endpoint for the RDS DB instance or Aurora DB cluster.
--- * 'port' - The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.
--- * 'rdsResourceId' - The identifier representing the target. It can be the instance identifier for an RDS DB instance, or the cluster identifier for an Aurora DB cluster.
 -- * 'targetARN' - The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.
 -- * 'targetHealth' - Information about the connection health of the RDS Proxy target.
 -- * 'trackedClusterId' - The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.
+-- * 'rdsResourceId' - The identifier representing the target. It can be the instance identifier for an RDS DB instance, or the cluster identifier for an Aurora DB cluster.
 -- * 'type'' - Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.
+-- * 'endpoint' - The writer endpoint for the RDS DB instance or Aurora DB cluster.
+-- * 'port' - The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.
 mkDBProxyTarget ::
   DBProxyTarget
 mkDBProxyTarget =

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Ac3BitstreamMode
   ( Ac3BitstreamMode
       ( Ac3BitstreamMode',
-        ABMCommentary,
         ABMCompleteMain,
+        ABMCommentary,
         ABMDialogue,
         ABMEmergency,
         ABMHearingImpaired,
@@ -52,11 +52,11 @@ newtype Ac3BitstreamMode = Ac3BitstreamMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern ABMCommentary :: Ac3BitstreamMode
-pattern ABMCommentary = Ac3BitstreamMode' "COMMENTARY"
-
 pattern ABMCompleteMain :: Ac3BitstreamMode
 pattern ABMCompleteMain = Ac3BitstreamMode' "COMPLETE_MAIN"
+
+pattern ABMCommentary :: Ac3BitstreamMode
+pattern ABMCommentary = Ac3BitstreamMode' "COMMENTARY"
 
 pattern ABMDialogue :: Ac3BitstreamMode
 pattern ABMDialogue = Ac3BitstreamMode' "DIALOGUE"
@@ -77,8 +77,8 @@ pattern ABMVoiceOver :: Ac3BitstreamMode
 pattern ABMVoiceOver = Ac3BitstreamMode' "VOICE_OVER"
 
 {-# COMPLETE
-  ABMCommentary,
   ABMCompleteMain,
+  ABMCommentary,
   ABMDialogue,
   ABMEmergency,
   ABMHearingImpaired,

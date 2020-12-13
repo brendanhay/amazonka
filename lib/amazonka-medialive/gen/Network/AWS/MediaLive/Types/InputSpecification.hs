@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputSpecification' smart constructor.
 data InputSpecification = InputSpecification'
-  { resolution ::
-      Lude.Maybe InputResolution,
+  { -- | Input resolution, categorized coarsely
+    resolution :: Lude.Maybe InputResolution,
+    -- | Input codec
     codec :: Lude.Maybe InputCodec,
+    -- | Maximum input bitrate, categorized coarsely
     maximumBitrate :: Lude.Maybe InputMaximumBitrate
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSpecification' with the minimum fields required to make a request.
 --
+-- * 'resolution' - Input resolution, categorized coarsely
 -- * 'codec' - Input codec
 -- * 'maximumBitrate' - Maximum input bitrate, categorized coarsely
--- * 'resolution' - Input resolution, categorized coarsely
 mkInputSpecification ::
   InputSpecification
 mkInputSpecification =

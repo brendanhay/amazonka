@@ -17,9 +17,9 @@ module Network.AWS.IoTAnalytics.Types.MathActivity
     mkMathActivity,
 
     -- * Lenses
+    maAttribute,
     maNext,
     maName,
-    maAttribute,
     maMath,
   )
 where
@@ -31,41 +31,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMathActivity' smart constructor.
 data MathActivity = MathActivity'
-  { next :: Lude.Maybe Lude.Text,
-    name :: Lude.Text,
+  { -- | The name of the attribute that contains the result of the math operation.
     attribute :: Lude.Text,
+    -- | The next activity in the pipeline.
+    next :: Lude.Maybe Lude.Text,
+    -- | The name of the math activity.
+    name :: Lude.Text,
+    -- | An expression that uses one or more existing attributes and must return an integer value.
     math :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MathActivity' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The name of the attribute that contains the result of the math operation.
--- * 'math' - An expression that uses one or more existing attributes and must return an integer value.
--- * 'name' - The name of the math activity.
 -- * 'next' - The next activity in the pipeline.
+-- * 'name' - The name of the math activity.
+-- * 'math' - An expression that uses one or more existing attributes and must return an integer value.
 mkMathActivity ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'attribute'
+  Lude.Text ->
+  -- | 'name'
   Lude.Text ->
   -- | 'math'
   Lude.Text ->
   MathActivity
-mkMathActivity pName_ pAttribute_ pMath_ =
+mkMathActivity pAttribute_ pName_ pMath_ =
   MathActivity'
-    { next = Lude.Nothing,
+    { attribute = pAttribute_,
+      next = Lude.Nothing,
       name = pName_,
-      attribute = pAttribute_,
       math = pMath_
     }
+
+-- | The name of the attribute that contains the result of the math operation.
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+maAttribute :: Lens.Lens' MathActivity Lude.Text
+maAttribute = Lens.lens (attribute :: MathActivity -> Lude.Text) (\s a -> s {attribute = a} :: MathActivity)
+{-# DEPRECATED maAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The next activity in the pipeline.
 --
@@ -81,13 +86,6 @@ maName :: Lens.Lens' MathActivity Lude.Text
 maName = Lens.lens (name :: MathActivity -> Lude.Text) (\s a -> s {name = a} :: MathActivity)
 {-# DEPRECATED maName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The name of the attribute that contains the result of the math operation.
---
--- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maAttribute :: Lens.Lens' MathActivity Lude.Text
-maAttribute = Lens.lens (attribute :: MathActivity -> Lude.Text) (\s a -> s {attribute = a} :: MathActivity)
-{-# DEPRECATED maAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
-
 -- | An expression that uses one or more existing attributes and must return an integer value.
 --
 -- /Note:/ Consider using 'math' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -101,9 +99,9 @@ instance Lude.FromJSON MathActivity where
       "MathActivity"
       ( \x ->
           MathActivity'
-            Lude.<$> (x Lude..:? "next")
+            Lude.<$> (x Lude..: "attribute")
+            Lude.<*> (x Lude..:? "next")
             Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "attribute")
             Lude.<*> (x Lude..: "math")
       )
 
@@ -111,9 +109,9 @@ instance Lude.ToJSON MathActivity where
   toJSON MathActivity' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("next" Lude..=) Lude.<$> next,
+          [ Lude.Just ("attribute" Lude..= attribute),
+            ("next" Lude..=) Lude.<$> next,
             Lude.Just ("name" Lude..= name),
-            Lude.Just ("attribute" Lude..= attribute),
             Lude.Just ("math" Lude..= math)
           ]
       )

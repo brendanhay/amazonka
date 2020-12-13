@@ -30,23 +30,18 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkElasticIPStatus' smart constructor.
 data ElasticIPStatus = ElasticIPStatus'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the elastic IP (EIP) address.
+    status :: Lude.Maybe Lude.Text,
+    -- | The elastic IP (EIP) address for the cluster.
     elasticIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticIPStatus' with the minimum fields required to make a request.
 --
--- * 'elasticIP' - The elastic IP (EIP) address for the cluster.
 -- * 'status' - The status of the elastic IP (EIP) address.
+-- * 'elasticIP' - The elastic IP (EIP) address for the cluster.
 mkElasticIPStatus ::
   ElasticIPStatus
 mkElasticIPStatus =

@@ -95,12 +95,12 @@ module Network.AWS.CloudHSMv2
     bNeverExpires,
     bSourceRegion,
     bTagList,
+    bBackupId,
     bSourceBackup,
     bClusterId,
     bCreateTimestamp,
     bCopyTimestamp,
     bBackupState,
-    bBackupId,
 
     -- ** BackupRetentionPolicy
     BackupRetentionPolicy (..),
@@ -150,17 +150,17 @@ module Network.AWS.CloudHSMv2
     hsmStateMessage,
     hsmState,
     hsmEniId,
+    hsmHSMId,
     hsmSubnetId,
     hsmAvailabilityZone,
     hsmClusterId,
     hsmEniIP,
-    hsmHSMId,
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * Serialization types
     Lude.Base64 (..),

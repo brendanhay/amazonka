@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,25 +41,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteCertificateAuthority' smart constructor.
 data DeleteCertificateAuthority = DeleteCertificateAuthority'
-  { permanentDeletionTimeInDays ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.
+    permanentDeletionTimeInDays :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must have the following form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
     certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificateAuthority' with the minimum fields required to make a request.
 --
+-- * 'permanentDeletionTimeInDays' - The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.
 -- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must have the following form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
--- * 'permanentDeletionTimeInDays' - The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.
 mkDeleteCertificateAuthority ::
   -- | 'certificateAuthorityARN'
   Lude.Text ->
@@ -123,13 +121,7 @@ instance Lude.ToQuery DeleteCertificateAuthority where
 
 -- | /See:/ 'mkDeleteCertificateAuthorityResponse' smart constructor.
 data DeleteCertificateAuthorityResponse = DeleteCertificateAuthorityResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificateAuthorityResponse' with the minimum fields required to make a request.

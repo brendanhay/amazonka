@@ -38,15 +38,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceSummary' smart constructor.
 data InstanceSummary = InstanceSummary'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the instance.
+    arn :: Lude.Maybe Lude.Text,
+    -- | When the instance was created.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | Whether outbound calls are enabled.
     outboundCallsEnabled :: Lude.Maybe Lude.Bool,
+    -- | Whether inbound calls are enabled.
     inboundCallsEnabled :: Lude.Maybe Lude.Bool,
+    -- | The alias of the instance.
     instanceAlias :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The identifier of the instance.
     id :: Lude.Maybe Lude.Text,
+    -- | The state of the instance.
     instanceStatus :: Lude.Maybe InstanceStatus,
+    -- | The identity management type of the instance.
     identityManagementType :: Lude.Maybe DirectoryType,
+    -- | The service role of the instance.
     serviceRole :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -56,12 +64,12 @@ data InstanceSummary = InstanceSummary'
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the instance.
 -- * 'createdTime' - When the instance was created.
--- * 'id' - The identifier of the instance.
--- * 'identityManagementType' - The identity management type of the instance.
+-- * 'outboundCallsEnabled' - Whether outbound calls are enabled.
 -- * 'inboundCallsEnabled' - Whether inbound calls are enabled.
 -- * 'instanceAlias' - The alias of the instance.
+-- * 'id' - The identifier of the instance.
 -- * 'instanceStatus' - The state of the instance.
--- * 'outboundCallsEnabled' - Whether outbound calls are enabled.
+-- * 'identityManagementType' - The identity management type of the instance.
 -- * 'serviceRole' - The service role of the instance.
 mkInstanceSummary ::
   InstanceSummary

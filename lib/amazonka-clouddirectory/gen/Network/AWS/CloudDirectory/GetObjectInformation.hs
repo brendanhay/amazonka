@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudDirectory.GetObjectInformation
     mkGetObjectInformation,
 
     -- ** Request lenses
-    goiConsistencyLevel,
     goiDirectoryARN,
+    goiConsistencyLevel,
     goiObjectReference,
 
     -- * Destructuring the response
@@ -42,24 +43,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetObjectInformation' smart constructor.
 data GetObjectInformation = GetObjectInformation'
-  { consistencyLevel ::
-      Lude.Maybe ConsistencyLevel,
+  { -- | The ARN of the directory being retrieved.
     directoryARN :: Lude.Text,
+    -- | The consistency level at which to retrieve the object information.
+    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    -- | A reference to the object.
     objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectInformation' with the minimum fields required to make a request.
 --
--- * 'consistencyLevel' - The consistency level at which to retrieve the object information.
 -- * 'directoryARN' - The ARN of the directory being retrieved.
+-- * 'consistencyLevel' - The consistency level at which to retrieve the object information.
 -- * 'objectReference' - A reference to the object.
 mkGetObjectInformation ::
   -- | 'directoryARN'
@@ -69,17 +66,10 @@ mkGetObjectInformation ::
   GetObjectInformation
 mkGetObjectInformation pDirectoryARN_ pObjectReference_ =
   GetObjectInformation'
-    { consistencyLevel = Lude.Nothing,
-      directoryARN = pDirectoryARN_,
+    { directoryARN = pDirectoryARN_,
+      consistencyLevel = Lude.Nothing,
       objectReference = pObjectReference_
     }
-
--- | The consistency level at which to retrieve the object information.
---
--- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goiConsistencyLevel :: Lens.Lens' GetObjectInformation (Lude.Maybe ConsistencyLevel)
-goiConsistencyLevel = Lens.lens (consistencyLevel :: GetObjectInformation -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: GetObjectInformation)
-{-# DEPRECATED goiConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The ARN of the directory being retrieved.
 --
@@ -87,6 +77,13 @@ goiConsistencyLevel = Lens.lens (consistencyLevel :: GetObjectInformation -> Lud
 goiDirectoryARN :: Lens.Lens' GetObjectInformation Lude.Text
 goiDirectoryARN = Lens.lens (directoryARN :: GetObjectInformation -> Lude.Text) (\s a -> s {directoryARN = a} :: GetObjectInformation)
 {-# DEPRECATED goiDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+
+-- | The consistency level at which to retrieve the object information.
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goiConsistencyLevel :: Lens.Lens' GetObjectInformation (Lude.Maybe ConsistencyLevel)
+goiConsistencyLevel = Lens.lens (consistencyLevel :: GetObjectInformation -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: GetObjectInformation)
+{-# DEPRECATED goiConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | A reference to the object.
 --
@@ -110,8 +107,8 @@ instance Lude.AWSRequest GetObjectInformation where
 instance Lude.ToHeaders GetObjectInformation where
   toHeaders GetObjectInformation' {..} =
     Lude.mconcat
-      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
-        "x-amz-data-partition" Lude.=# directoryARN
+      [ "x-amz-data-partition" Lude.=# directoryARN,
+        "x-amz-consistency-level" Lude.=# consistencyLevel
       ]
 
 instance Lude.ToJSON GetObjectInformation where
@@ -130,26 +127,21 @@ instance Lude.ToQuery GetObjectInformation where
 
 -- | /See:/ 'mkGetObjectInformationResponse' smart constructor.
 data GetObjectInformationResponse = GetObjectInformationResponse'
-  { objectIdentifier ::
-      Lude.Maybe Lude.Text,
-    schemaFacets ::
-      Lude.Maybe [SchemaFacet],
+  { -- | The @ObjectIdentifier@ of the specified object.
+    objectIdentifier :: Lude.Maybe Lude.Text,
+    -- | The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See 'GetAppliedSchemaVersion' for details.
+    schemaFacets :: Lude.Maybe [SchemaFacet],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectInformationResponse' with the minimum fields required to make a request.
 --
 -- * 'objectIdentifier' - The @ObjectIdentifier@ of the specified object.
--- * 'responseStatus' - The response status code.
 -- * 'schemaFacets' - The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See 'GetAppliedSchemaVersion' for details.
+-- * 'responseStatus' - The response status code.
 mkGetObjectInformationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

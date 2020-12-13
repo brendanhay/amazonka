@@ -41,46 +41,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansPurchaseRecommendation' smart constructor.
 data SavingsPlansPurchaseRecommendation = SavingsPlansPurchaseRecommendation'
-  { savingsPlansPurchaseRecommendationDetails ::
-      Lude.Maybe
-        [SavingsPlansPurchaseRecommendationDetail],
-    termInYears ::
-      Lude.Maybe
-        TermInYears,
-    accountScope ::
-      Lude.Maybe
-        AccountScope,
-    savingsPlansType ::
-      Lude.Maybe
-        SupportedSavingsPlansType,
-    lookbackPeriodInDays ::
-      Lude.Maybe
-        LookbackPeriodInDays,
-    paymentOption ::
-      Lude.Maybe
-        PaymentOption,
-    savingsPlansPurchaseRecommendationSummary ::
-      Lude.Maybe
-        SavingsPlansPurchaseRecommendationSummary
+  { -- | Details for the Savings Plans we recommend that you purchase to cover existing Savings Plans eligible workloads.
+    savingsPlansPurchaseRecommendationDetails :: Lude.Maybe [SavingsPlansPurchaseRecommendationDetail],
+    -- | The Savings Plans recommendation term in years, used to generate the recommendation.
+    termInYears :: Lude.Maybe TermInYears,
+    -- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
+    accountScope :: Lude.Maybe AccountScope,
+    -- | The requested Savings Plans recommendation type.
+    savingsPlansType :: Lude.Maybe SupportedSavingsPlansType,
+    -- | The lookback period in days, used to generate the recommendation.
+    lookbackPeriodInDays :: Lude.Maybe LookbackPeriodInDays,
+    -- | The payment option used to generate the recommendation.
+    paymentOption :: Lude.Maybe PaymentOption,
+    -- | Summary metrics for your Savings Plans Recommendations.
+    savingsPlansPurchaseRecommendationSummary :: Lude.Maybe SavingsPlansPurchaseRecommendationSummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansPurchaseRecommendation' with the minimum fields required to make a request.
 --
+-- * 'savingsPlansPurchaseRecommendationDetails' - Details for the Savings Plans we recommend that you purchase to cover existing Savings Plans eligible workloads.
+-- * 'termInYears' - The Savings Plans recommendation term in years, used to generate the recommendation.
 -- * 'accountScope' - The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
+-- * 'savingsPlansType' - The requested Savings Plans recommendation type.
 -- * 'lookbackPeriodInDays' - The lookback period in days, used to generate the recommendation.
 -- * 'paymentOption' - The payment option used to generate the recommendation.
--- * 'savingsPlansPurchaseRecommendationDetails' - Details for the Savings Plans we recommend that you purchase to cover existing Savings Plans eligible workloads.
 -- * 'savingsPlansPurchaseRecommendationSummary' - Summary metrics for your Savings Plans Recommendations.
--- * 'savingsPlansType' - The requested Savings Plans recommendation type.
--- * 'termInYears' - The Savings Plans recommendation term in years, used to generate the recommendation.
 mkSavingsPlansPurchaseRecommendation ::
   SavingsPlansPurchaseRecommendation
 mkSavingsPlansPurchaseRecommendation =

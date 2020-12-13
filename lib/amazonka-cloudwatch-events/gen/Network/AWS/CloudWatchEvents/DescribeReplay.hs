@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,14 +50,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeReplay' smart constructor.
-newtype DescribeReplay = DescribeReplay' {replayName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeReplay = DescribeReplay'
+  { -- | The name of the replay to retrieve.
+    replayName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplay' with the minimum fields required to make a request.
@@ -122,46 +120,51 @@ instance Lude.ToQuery DescribeReplay where
 
 -- | /See:/ 'mkDescribeReplayResponse' smart constructor.
 data DescribeReplayResponse = DescribeReplayResponse'
-  { eventSourceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the archive events were replayed from.
+    eventSourceARN :: Lude.Maybe Lude.Text,
+    -- | A @ReplayDestination@ object that contains details about the replay.
     destination :: Lude.Maybe ReplayDestination,
+    -- | The current state of the replay.
     state :: Lude.Maybe ReplayState,
+    -- | The time stamp for the last event that was replayed from the archive.
     eventEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | A time stamp for the time that the replay started.
     replayStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the replay.
     replayARN :: Lude.Maybe Lude.Text,
+    -- | A time stamp for the time that the replay stopped.
     replayEndTime :: Lude.Maybe Lude.Timestamp,
-    eventLastReplayedTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The time that the event was last replayed.
+    eventLastReplayedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time stamp of the first event that was last replayed from the archive.
     eventStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the replay.
     replayName :: Lude.Maybe Lude.Text,
+    -- | The reason that the replay is in the current state.
     stateReason :: Lude.Maybe Lude.Text,
+    -- | The description of the replay.
     description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplayResponse' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the replay.
--- * 'destination' - A @ReplayDestination@ object that contains details about the replay.
--- * 'eventEndTime' - The time stamp for the last event that was replayed from the archive.
--- * 'eventLastReplayedTime' - The time that the event was last replayed.
 -- * 'eventSourceARN' - The ARN of the archive events were replayed from.
--- * 'eventStartTime' - The time stamp of the first event that was last replayed from the archive.
+-- * 'destination' - A @ReplayDestination@ object that contains details about the replay.
+-- * 'state' - The current state of the replay.
+-- * 'eventEndTime' - The time stamp for the last event that was replayed from the archive.
+-- * 'replayStartTime' - A time stamp for the time that the replay started.
 -- * 'replayARN' - The ARN of the replay.
 -- * 'replayEndTime' - A time stamp for the time that the replay stopped.
+-- * 'eventLastReplayedTime' - The time that the event was last replayed.
+-- * 'eventStartTime' - The time stamp of the first event that was last replayed from the archive.
 -- * 'replayName' - The name of the replay.
--- * 'replayStartTime' - A time stamp for the time that the replay started.
--- * 'responseStatus' - The response status code.
--- * 'state' - The current state of the replay.
 -- * 'stateReason' - The reason that the replay is in the current state.
+-- * 'description' - The description of the replay.
+-- * 'responseStatus' - The response status code.
 mkDescribeReplayResponse ::
   -- | 'responseStatus'
   Lude.Int ->

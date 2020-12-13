@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +25,10 @@ module Network.AWS.RDS.CreateDBClusterParameterGroup
     mkCreateDBClusterParameterGroup,
 
     -- ** Request lenses
-    cdcpgTags,
-    cdcpgDBClusterParameterGroupName,
     cdcpgDBParameterGroupFamily,
+    cdcpgDBClusterParameterGroupName,
     cdcpgDescription,
+    cdcpgTags,
 
     -- * Destructuring the response
     CreateDBClusterParameterGroupResponse (..),
@@ -49,31 +50,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateDBClusterParameterGroup' smart constructor.
 data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
-  { tags ::
-      Lude.Maybe [Tag],
-    dbClusterParameterGroupName ::
-      Lude.Text,
-    dbParameterGroupFamily ::
-      Lude.Text,
-    description :: Lude.Text
+  { -- | The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
+    --
+    -- __Aurora MySQL__
+    -- Example: @aurora5.6@ , @aurora-mysql5.7@
+    -- __Aurora PostgreSQL__
+    -- Example: @aurora-postgresql9.6@
+    dbParameterGroupFamily :: Lude.Text,
+    -- | The name of the DB cluster parameter group.
+    --
+    -- Constraints:
+    --
+    --     * Must match the name of an existing DB cluster parameter group.
+    dbClusterParameterGroupName :: Lude.Text,
+    -- | The description for the DB cluster parameter group.
+    description :: Lude.Text,
+    -- | Tags to assign to the DB cluster parameter group.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDBClusterParameterGroup' with the minimum fields required to make a request.
---
--- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group.
---
--- Constraints:
---
---     * Must match the name of an existing DB cluster parameter group.
---
 --
 -- * 'dbParameterGroupFamily' - The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
 --
@@ -81,33 +79,46 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 -- Example: @aurora5.6@ , @aurora-mysql5.7@
 -- __Aurora PostgreSQL__
 -- Example: @aurora-postgresql9.6@
+-- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group.
+--
+-- Constraints:
+--
+--     * Must match the name of an existing DB cluster parameter group.
+--
+--
 -- * 'description' - The description for the DB cluster parameter group.
 -- * 'tags' - Tags to assign to the DB cluster parameter group.
 mkCreateDBClusterParameterGroup ::
-  -- | 'dbClusterParameterGroupName'
-  Lude.Text ->
   -- | 'dbParameterGroupFamily'
+  Lude.Text ->
+  -- | 'dbClusterParameterGroupName'
   Lude.Text ->
   -- | 'description'
   Lude.Text ->
   CreateDBClusterParameterGroup
 mkCreateDBClusterParameterGroup
-  pDBClusterParameterGroupName_
   pDBParameterGroupFamily_
+  pDBClusterParameterGroupName_
   pDescription_ =
     CreateDBClusterParameterGroup'
-      { tags = Lude.Nothing,
+      { dbParameterGroupFamily =
+          pDBParameterGroupFamily_,
         dbClusterParameterGroupName = pDBClusterParameterGroupName_,
-        dbParameterGroupFamily = pDBParameterGroupFamily_,
-        description = pDescription_
+        description = pDescription_,
+        tags = Lude.Nothing
       }
 
--- | Tags to assign to the DB cluster parameter group.
+-- | The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcpgTags :: Lens.Lens' CreateDBClusterParameterGroup (Lude.Maybe [Tag])
-cdcpgTags = Lens.lens (tags :: CreateDBClusterParameterGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDBClusterParameterGroup)
-{-# DEPRECATED cdcpgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- __Aurora MySQL__
+-- Example: @aurora5.6@ , @aurora-mysql5.7@
+-- __Aurora PostgreSQL__
+-- Example: @aurora-postgresql9.6@
+--
+-- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcpgDBParameterGroupFamily :: Lens.Lens' CreateDBClusterParameterGroup Lude.Text
+cdcpgDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: CreateDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: CreateDBClusterParameterGroup)
+{-# DEPRECATED cdcpgDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
 
 -- | The name of the DB cluster parameter group.
 --
@@ -122,24 +133,19 @@ cdcpgDBClusterParameterGroupName :: Lens.Lens' CreateDBClusterParameterGroup Lud
 cdcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: CreateDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: CreateDBClusterParameterGroup)
 {-# DEPRECATED cdcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
 
--- | The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
---
--- __Aurora MySQL__
--- Example: @aurora5.6@ , @aurora-mysql5.7@
--- __Aurora PostgreSQL__
--- Example: @aurora-postgresql9.6@
---
--- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcpgDBParameterGroupFamily :: Lens.Lens' CreateDBClusterParameterGroup Lude.Text
-cdcpgDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: CreateDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: CreateDBClusterParameterGroup)
-{-# DEPRECATED cdcpgDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
-
 -- | The description for the DB cluster parameter group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdcpgDescription :: Lens.Lens' CreateDBClusterParameterGroup Lude.Text
 cdcpgDescription = Lens.lens (description :: CreateDBClusterParameterGroup -> Lude.Text) (\s a -> s {description = a} :: CreateDBClusterParameterGroup)
 {-# DEPRECATED cdcpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Tags to assign to the DB cluster parameter group.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcpgTags :: Lens.Lens' CreateDBClusterParameterGroup (Lude.Maybe [Tag])
+cdcpgTags = Lens.lens (tags :: CreateDBClusterParameterGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDBClusterParameterGroup)
+{-# DEPRECATED cdcpgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateDBClusterParameterGroup where
   type
@@ -167,32 +173,24 @@ instance Lude.ToQuery CreateDBClusterParameterGroup where
       [ "Action"
           Lude.=: ("CreateDBClusterParameterGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
-        "DBClusterParameterGroupName" Lude.=: dbClusterParameterGroupName,
         "DBParameterGroupFamily" Lude.=: dbParameterGroupFamily,
-        "Description" Lude.=: description
+        "DBClusterParameterGroupName" Lude.=: dbClusterParameterGroupName,
+        "Description" Lude.=: description,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
       ]
 
 -- | /See:/ 'mkCreateDBClusterParameterGroupResponse' smart constructor.
 data CreateDBClusterParameterGroupResponse = CreateDBClusterParameterGroupResponse'
-  { dbClusterParameterGroup ::
-      Lude.Maybe
-        DBClusterParameterGroup,
-    responseStatus ::
-      Lude.Int
+  { dbClusterParameterGroup :: Lude.Maybe DBClusterParameterGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDBClusterParameterGroupResponse' with the minimum fields required to make a request.
 --
--- * 'dbClusterParameterGroup' - Undocumented field.
+-- * 'dbClusterParameterGroup' -
 -- * 'responseStatus' - The response status code.
 mkCreateDBClusterParameterGroupResponse ::
   -- | 'responseStatus'

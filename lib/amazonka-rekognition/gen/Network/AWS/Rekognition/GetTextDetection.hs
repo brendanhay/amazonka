@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.Rekognition.GetTextDetection
     mkGetTextDetection,
 
     -- ** Request lenses
+    gtdJobId,
     gtdNextToken,
     gtdMaxResults,
-    gtdJobId,
 
     -- * Destructuring the response
     GetTextDetectionResponse (..),
@@ -51,35 +52,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTextDetection' smart constructor.
 data GetTextDetection = GetTextDetection'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    jobId :: Lude.Text
+  { -- | Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartTextDetection@ .
+    jobId :: Lude.Text,
+    -- | If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTextDetection' with the minimum fields required to make a request.
 --
 -- * 'jobId' - Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartTextDetection@ .
--- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000.
 -- * 'nextToken' - If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.
+-- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000.
 mkGetTextDetection ::
   -- | 'jobId'
   Lude.Text ->
   GetTextDetection
 mkGetTextDetection pJobId_ =
   GetTextDetection'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      jobId = pJobId_
+    { jobId = pJobId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartTextDetection@ .
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdJobId :: Lens.Lens' GetTextDetection Lude.Text
+gtdJobId = Lens.lens (jobId :: GetTextDetection -> Lude.Text) (\s a -> s {jobId = a} :: GetTextDetection)
+{-# DEPRECATED gtdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.
 --
@@ -94,13 +98,6 @@ gtdNextToken = Lens.lens (nextToken :: GetTextDetection -> Lude.Maybe Lude.Text)
 gtdMaxResults :: Lens.Lens' GetTextDetection (Lude.Maybe Lude.Natural)
 gtdMaxResults = Lens.lens (maxResults :: GetTextDetection -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTextDetection)
 {-# DEPRECATED gtdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartTextDetection@ .
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtdJobId :: Lens.Lens' GetTextDetection Lude.Text
-gtdJobId = Lens.lens (jobId :: GetTextDetection -> Lude.Text) (\s a -> s {jobId = a} :: GetTextDetection)
-{-# DEPRECATED gtdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Lude.AWSRequest GetTextDetection where
   type Rs GetTextDetection = GetTextDetectionResponse
@@ -133,9 +130,9 @@ instance Lude.ToJSON GetTextDetection where
   toJSON GetTextDetection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("JobId" Lude..= jobId)
+          [ Lude.Just ("JobId" Lude..= jobId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -147,33 +144,32 @@ instance Lude.ToQuery GetTextDetection where
 
 -- | /See:/ 'mkGetTextDetectionResponse' smart constructor.
 data GetTextDetectionResponse = GetTextDetectionResponse'
-  { textDetections ::
-      Lude.Maybe [TextDetectionResult],
+  { -- | An array of text detected in the video. Each element contains the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.
+    textDetections :: Lude.Maybe [TextDetectionResult],
+    -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.
     nextToken :: Lude.Maybe Lude.Text,
     videoMetadata :: Lude.Maybe VideoMetadata,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | Version number of the text detection model that was used to detect text.
     textModelVersion :: Lude.Maybe Lude.Text,
+    -- | Current status of the text detection job.
     jobStatus :: Lude.Maybe VideoJobStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTextDetectionResponse' with the minimum fields required to make a request.
 --
--- * 'jobStatus' - Current status of the text detection job.
--- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.
--- * 'responseStatus' - The response status code.
--- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 -- * 'textDetections' - An array of text detected in the video. Each element contains the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.
+-- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.
+-- * 'videoMetadata' -
+-- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 -- * 'textModelVersion' - Version number of the text detection model that was used to detect text.
--- * 'videoMetadata' - Undocumented field.
+-- * 'jobStatus' - Current status of the text detection job.
+-- * 'responseStatus' - The response status code.
 mkGetTextDetectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

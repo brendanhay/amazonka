@@ -29,17 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentResourcesDescription' smart constructor.
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
-  { loadBalancer ::
-      Lude.Maybe
-        LoadBalancerDescription
+  { -- | Describes the LoadBalancer.
+    loadBalancer :: Lude.Maybe LoadBalancerDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentResourcesDescription' with the minimum fields required to make a request.

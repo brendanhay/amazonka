@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkMail.CreateGroup
     mkCreateGroup,
 
     -- ** Request lenses
-    cgOrganizationId,
     cgName,
+    cgOrganizationId,
 
     -- * Destructuring the response
     CreateGroupResponse (..),
@@ -40,16 +41,12 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { organizationId :: Lude.Text,
-    name :: Lude.Text
+  { -- | The name of the group.
+    name :: Lude.Text,
+    -- | The organization under which the group is to be created.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
@@ -57,20 +54,13 @@ data CreateGroup = CreateGroup'
 -- * 'name' - The name of the group.
 -- * 'organizationId' - The organization under which the group is to be created.
 mkCreateGroup ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   CreateGroup
-mkCreateGroup pOrganizationId_ pName_ =
-  CreateGroup' {organizationId = pOrganizationId_, name = pName_}
-
--- | The organization under which the group is to be created.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgOrganizationId :: Lens.Lens' CreateGroup Lude.Text
-cgOrganizationId = Lens.lens (organizationId :: CreateGroup -> Lude.Text) (\s a -> s {organizationId = a} :: CreateGroup)
-{-# DEPRECATED cgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+mkCreateGroup pName_ pOrganizationId_ =
+  CreateGroup' {name = pName_, organizationId = pOrganizationId_}
 
 -- | The name of the group.
 --
@@ -78,6 +68,13 @@ cgOrganizationId = Lens.lens (organizationId :: CreateGroup -> Lude.Text) (\s a 
 cgName :: Lens.Lens' CreateGroup Lude.Text
 cgName = Lens.lens (name :: CreateGroup -> Lude.Text) (\s a -> s {name = a} :: CreateGroup)
 {-# DEPRECATED cgName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The organization under which the group is to be created.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgOrganizationId :: Lens.Lens' CreateGroup Lude.Text
+cgOrganizationId = Lens.lens (organizationId :: CreateGroup -> Lude.Text) (\s a -> s {organizationId = a} :: CreateGroup)
+{-# DEPRECATED cgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest CreateGroup where
   type Rs CreateGroup = CreateGroupResponse
@@ -104,8 +101,8 @@ instance Lude.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("Name" Lude..= name)
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -117,17 +114,12 @@ instance Lude.ToQuery CreateGroup where
 
 -- | /See:/ 'mkCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { groupId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the group.
+    groupId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.

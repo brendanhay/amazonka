@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,8 +36,8 @@ module Network.AWS.SageMaker.ListEndpointConfigs
 
     -- ** Response lenses
     lecrsNextToken,
-    lecrsResponseStatus,
     lecrsEndpointConfigs,
+    lecrsResponseStatus,
   )
 where
 
@@ -49,33 +50,33 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListEndpointConfigs' smart constructor.
 data ListEndpointConfigs = ListEndpointConfigs'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only endpoint configurations with a creation time greater than or equal to the specified time (timestamp).
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the result of the previous @ListEndpointConfig@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoint configurations, use the token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for results. The default is @Descending@ .
     sortOrder :: Lude.Maybe OrderKey,
+    -- | A filter that returns only endpoint configurations created before the specified time (timestamp).
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of training jobs to return in the response.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The field to sort results by. The default is @CreationTime@ .
     sortBy :: Lude.Maybe EndpointConfigSortKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpointConfigs' with the minimum fields required to make a request.
 --
+-- * 'nameContains' - A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string.
 -- * 'creationTimeAfter' - A filter that returns only endpoint configurations with a creation time greater than or equal to the specified time (timestamp).
+-- * 'nextToken' - If the result of the previous @ListEndpointConfig@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoint configurations, use the token in the next request.
+-- * 'sortOrder' - The sort order for results. The default is @Descending@ .
 -- * 'creationTimeBefore' - A filter that returns only endpoint configurations created before the specified time (timestamp).
 -- * 'maxResults' - The maximum number of training jobs to return in the response.
--- * 'nameContains' - A string in the endpoint configuration name. This filter returns only endpoint configurations whose name contains the specified string.
--- * 'nextToken' - If the result of the previous @ListEndpointConfig@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoint configurations, use the token in the next request.
 -- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
--- * 'sortOrder' - The sort order for results. The default is @Descending@ .
 mkListEndpointConfigs ::
   ListEndpointConfigs
 mkListEndpointConfigs =
@@ -155,8 +156,8 @@ instance Lude.AWSRequest ListEndpointConfigs where
       ( \s h x ->
           ListEndpointConfigsResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "EndpointConfigs" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListEndpointConfigs where
@@ -192,25 +193,20 @@ instance Lude.ToQuery ListEndpointConfigs where
 
 -- | /See:/ 'mkListEndpointConfigsResponse' smart constructor.
 data ListEndpointConfigsResponse = ListEndpointConfigsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    endpointConfigs ::
-      [EndpointConfigSummary]
+  { -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of endpoint configurations, use it in the subsequent request
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of endpoint configurations.
+    endpointConfigs :: [EndpointConfigSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpointConfigsResponse' with the minimum fields required to make a request.
 --
--- * 'endpointConfigs' - An array of endpoint configurations.
 -- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of endpoint configurations, use it in the subsequent request
+-- * 'endpointConfigs' - An array of endpoint configurations.
 -- * 'responseStatus' - The response status code.
 mkListEndpointConfigsResponse ::
   -- | 'responseStatus'
@@ -219,8 +215,8 @@ mkListEndpointConfigsResponse ::
 mkListEndpointConfigsResponse pResponseStatus_ =
   ListEndpointConfigsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      endpointConfigs = Lude.mempty
+      endpointConfigs = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of endpoint configurations, use it in the subsequent request
@@ -230,16 +226,16 @@ lecrsNextToken :: Lens.Lens' ListEndpointConfigsResponse (Lude.Maybe Lude.Text)
 lecrsNextToken = Lens.lens (nextToken :: ListEndpointConfigsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpointConfigsResponse)
 {-# DEPRECATED lecrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lecrsResponseStatus :: Lens.Lens' ListEndpointConfigsResponse Lude.Int
-lecrsResponseStatus = Lens.lens (responseStatus :: ListEndpointConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEndpointConfigsResponse)
-{-# DEPRECATED lecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | An array of endpoint configurations.
 --
 -- /Note:/ Consider using 'endpointConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lecrsEndpointConfigs :: Lens.Lens' ListEndpointConfigsResponse [EndpointConfigSummary]
 lecrsEndpointConfigs = Lens.lens (endpointConfigs :: ListEndpointConfigsResponse -> [EndpointConfigSummary]) (\s a -> s {endpointConfigs = a} :: ListEndpointConfigsResponse)
 {-# DEPRECATED lecrsEndpointConfigs "Use generic-lens or generic-optics with 'endpointConfigs' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lecrsResponseStatus :: Lens.Lens' ListEndpointConfigsResponse Lude.Int
+lecrsResponseStatus = Lens.lens (responseStatus :: ListEndpointConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEndpointConfigsResponse)
+{-# DEPRECATED lecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

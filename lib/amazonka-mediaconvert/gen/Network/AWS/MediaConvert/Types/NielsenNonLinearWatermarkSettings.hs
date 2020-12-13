@@ -41,54 +41,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNielsenNonLinearWatermarkSettings' smart constructor.
 data NielsenNonLinearWatermarkSettings = NielsenNonLinearWatermarkSettings'
-  { episodeId ::
-      Lude.Maybe Lude.Text,
-    activeWatermarkProcess ::
-      Lude.Maybe
-        NielsenActiveWatermarkProcessType,
-    sourceId ::
-      Lude.Maybe Lude.Natural,
-    cbetSourceId ::
-      Lude.Maybe Lude.Text,
-    ticServerURL ::
-      Lude.Maybe Lude.Text,
-    metadataDestination ::
-      Lude.Maybe Lude.Text,
-    assetName ::
-      Lude.Maybe Lude.Text,
-    adiFilename ::
-      Lude.Maybe Lude.Text,
-    assetId ::
-      Lude.Maybe Lude.Text,
-    uniqueTicPerAudioTrack ::
-      Lude.Maybe
-        NielsenUniqueTicPerAudioTrackType,
-    sourceWatermarkStatus ::
-      Lude.Maybe
-        NielsenSourceWatermarkStatusType
+  { -- | Optional. If this asset uses an episode ID with Nielsen, provide it here.
+    episodeId :: Lude.Maybe Lude.Text,
+    -- | Choose the type of Nielsen watermarks that you want in your outputs. When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value for the setting SID (sourceId). When you choose CBET (CBET), you must provide a value for the setting CSID (cbetSourceId). When you choose NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values for both of these settings.
+    activeWatermarkProcess :: Lude.Maybe NielsenActiveWatermarkProcessType,
+    -- | Use the SID that Nielsen provides to you. This source ID should be unique to your Nielsen account but common to all of your output assets. Required for all Nielsen non-linear watermarking. This ID should be unique to your Nielsen account but common to all of your output assets. Required for all Nielsen non-linear watermarking.
+    sourceId :: Lude.Maybe Lude.Natural,
+    -- | Use the CSID that Nielsen provides to you. This CBET source ID should be unique to your Nielsen account but common to all of your output assets that have CBET watermarking. Required when you choose a value for the setting Watermark types (ActiveWatermarkProcess) that includes CBET.
+    cbetSourceId :: Lude.Maybe Lude.Text,
+    -- | Specify the endpoint for the TIC server that you have deployed and configured in the AWS Cloud. Required for all Nielsen non-linear watermarking. MediaConvert can't connect directly to a TIC server. Instead, you must use API Gateway to provide a RESTful interface between MediaConvert and a TIC server that you deploy in your AWS account. For more information on deploying a TIC server in your AWS account and the required API Gateway, contact Nielsen support.
+    ticServerURL :: Lude.Maybe Lude.Text,
+    -- | Specify the Amazon S3 location where you want MediaConvert to save your Nielsen non-linear metadata .zip file. This Amazon S3 bucket must be in the same Region as the one where you do your MediaConvert transcoding. If you want to include an ADI file in this .zip file, use the setting ADI file (adiFilename) to specify it. MediaConvert delivers the Nielsen metadata .zip files only to your metadata destination Amazon S3 bucket. It doesn't deliver the .zip files to Nielsen. You are responsible for delivering the metadata .zip files to Nielsen.
+    metadataDestination :: Lude.Maybe Lude.Text,
+    -- | Use the asset name that you provide to Nielsen for this asset. Required for all Nielsen non-linear watermarking.
+    assetName :: Lude.Maybe Lude.Text,
+    -- | Optional. Use this setting when you want the service to include an ADI file in the Nielsen  metadata .zip file. To provide an ADI file, store it in Amazon S3 and provide a URL to it  here. The URL should be in the following format: S3://bucket/path/ADI-file. For more information about the metadata .zip file, see the setting Metadata destination (metadataDestination).
+    adiFilename :: Lude.Maybe Lude.Text,
+    -- | Use the asset ID that you provide to Nielsen to uniquely identify this asset. Required for all Nielsen non-linear watermarking.
+    assetId :: Lude.Maybe Lude.Text,
+    -- | To create assets that have the same TIC values in each audio track, keep the default value Share TICs (SAME_TICS_PER_TRACK). To create assets that have unique TIC values for each audio track, choose Use unique TICs (RESERVE_UNIQUE_TICS_PER_TRACK).
+    uniqueTicPerAudioTrack :: Lude.Maybe NielsenUniqueTicPerAudioTrackType,
+    -- | Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already  have non-linear Nielsen watermarks.
+    sourceWatermarkStatus :: Lude.Maybe NielsenSourceWatermarkStatusType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NielsenNonLinearWatermarkSettings' with the minimum fields required to make a request.
 --
+-- * 'episodeId' - Optional. If this asset uses an episode ID with Nielsen, provide it here.
 -- * 'activeWatermarkProcess' - Choose the type of Nielsen watermarks that you want in your outputs. When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value for the setting SID (sourceId). When you choose CBET (CBET), you must provide a value for the setting CSID (cbetSourceId). When you choose NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values for both of these settings.
+-- * 'sourceId' - Use the SID that Nielsen provides to you. This source ID should be unique to your Nielsen account but common to all of your output assets. Required for all Nielsen non-linear watermarking. This ID should be unique to your Nielsen account but common to all of your output assets. Required for all Nielsen non-linear watermarking.
+-- * 'cbetSourceId' - Use the CSID that Nielsen provides to you. This CBET source ID should be unique to your Nielsen account but common to all of your output assets that have CBET watermarking. Required when you choose a value for the setting Watermark types (ActiveWatermarkProcess) that includes CBET.
+-- * 'ticServerURL' - Specify the endpoint for the TIC server that you have deployed and configured in the AWS Cloud. Required for all Nielsen non-linear watermarking. MediaConvert can't connect directly to a TIC server. Instead, you must use API Gateway to provide a RESTful interface between MediaConvert and a TIC server that you deploy in your AWS account. For more information on deploying a TIC server in your AWS account and the required API Gateway, contact Nielsen support.
+-- * 'metadataDestination' - Specify the Amazon S3 location where you want MediaConvert to save your Nielsen non-linear metadata .zip file. This Amazon S3 bucket must be in the same Region as the one where you do your MediaConvert transcoding. If you want to include an ADI file in this .zip file, use the setting ADI file (adiFilename) to specify it. MediaConvert delivers the Nielsen metadata .zip files only to your metadata destination Amazon S3 bucket. It doesn't deliver the .zip files to Nielsen. You are responsible for delivering the metadata .zip files to Nielsen.
+-- * 'assetName' - Use the asset name that you provide to Nielsen for this asset. Required for all Nielsen non-linear watermarking.
 -- * 'adiFilename' - Optional. Use this setting when you want the service to include an ADI file in the Nielsen  metadata .zip file. To provide an ADI file, store it in Amazon S3 and provide a URL to it  here. The URL should be in the following format: S3://bucket/path/ADI-file. For more information about the metadata .zip file, see the setting Metadata destination (metadataDestination).
 -- * 'assetId' - Use the asset ID that you provide to Nielsen to uniquely identify this asset. Required for all Nielsen non-linear watermarking.
--- * 'assetName' - Use the asset name that you provide to Nielsen for this asset. Required for all Nielsen non-linear watermarking.
--- * 'cbetSourceId' - Use the CSID that Nielsen provides to you. This CBET source ID should be unique to your Nielsen account but common to all of your output assets that have CBET watermarking. Required when you choose a value for the setting Watermark types (ActiveWatermarkProcess) that includes CBET.
--- * 'episodeId' - Optional. If this asset uses an episode ID with Nielsen, provide it here.
--- * 'metadataDestination' - Specify the Amazon S3 location where you want MediaConvert to save your Nielsen non-linear metadata .zip file. This Amazon S3 bucket must be in the same Region as the one where you do your MediaConvert transcoding. If you want to include an ADI file in this .zip file, use the setting ADI file (adiFilename) to specify it. MediaConvert delivers the Nielsen metadata .zip files only to your metadata destination Amazon S3 bucket. It doesn't deliver the .zip files to Nielsen. You are responsible for delivering the metadata .zip files to Nielsen.
--- * 'sourceId' - Use the SID that Nielsen provides to you. This source ID should be unique to your Nielsen account but common to all of your output assets. Required for all Nielsen non-linear watermarking. This ID should be unique to your Nielsen account but common to all of your output assets. Required for all Nielsen non-linear watermarking.
--- * 'sourceWatermarkStatus' - Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already  have non-linear Nielsen watermarks.
--- * 'ticServerURL' - Specify the endpoint for the TIC server that you have deployed and configured in the AWS Cloud. Required for all Nielsen non-linear watermarking. MediaConvert can't connect directly to a TIC server. Instead, you must use API Gateway to provide a RESTful interface between MediaConvert and a TIC server that you deploy in your AWS account. For more information on deploying a TIC server in your AWS account and the required API Gateway, contact Nielsen support.
 -- * 'uniqueTicPerAudioTrack' - To create assets that have the same TIC values in each audio track, keep the default value Share TICs (SAME_TICS_PER_TRACK). To create assets that have unique TIC values for each audio track, choose Use unique TICs (RESERVE_UNIQUE_TICS_PER_TRACK).
+-- * 'sourceWatermarkStatus' - Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already  have non-linear Nielsen watermarks.
 mkNielsenNonLinearWatermarkSettings ::
   NielsenNonLinearWatermarkSettings
 mkNielsenNonLinearWatermarkSettings =

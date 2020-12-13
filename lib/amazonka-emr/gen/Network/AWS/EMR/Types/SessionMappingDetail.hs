@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSessionMappingDetail' smart constructor.
 data SessionMappingDetail = SessionMappingDetail'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time the session mapping was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the Amazon EMR Studio.
     studioId :: Lude.Maybe Lude.Text,
+    -- | The time the session mapping was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether the identity mapped to the Studio is a user or a group.
     identityType :: Lude.Maybe IdentityType,
+    -- | The globally unique identifier (GUID) of the user or group.
     identityId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the session policy associated with the user or group.
     sessionPolicyARN :: Lude.Maybe Lude.Text,
+    -- | The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ .
     identityName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SessionMappingDetail' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The time the session mapping was created.
--- * 'identityId' - The globally unique identifier (GUID) of the user or group.
--- * 'identityName' - The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ .
--- * 'identityType' - Specifies whether the identity mapped to the Studio is a user or a group.
--- * 'lastModifiedTime' - The time the session mapping was last modified.
--- * 'sessionPolicyARN' - The Amazon Resource Name (ARN) of the session policy associated with the user or group.
 -- * 'studioId' - The ID of the Amazon EMR Studio.
+-- * 'lastModifiedTime' - The time the session mapping was last modified.
+-- * 'identityType' - Specifies whether the identity mapped to the Studio is a user or a group.
+-- * 'identityId' - The globally unique identifier (GUID) of the user or group.
+-- * 'sessionPolicyARN' - The Amazon Resource Name (ARN) of the session policy associated with the user or group.
+-- * 'identityName' - The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ .
 mkSessionMappingDetail ::
   SessionMappingDetail
 mkSessionMappingDetail =

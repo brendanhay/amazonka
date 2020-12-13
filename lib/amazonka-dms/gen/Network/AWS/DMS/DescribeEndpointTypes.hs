@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,18 +48,19 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEndpointTypes' smart constructor.
 data DescribeEndpointTypes = DescribeEndpointTypes'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | Filters applied to the endpoint types.
+    --
+    -- Valid filter names: engine-name | endpoint-type
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointTypes' with the minimum fields required to make a request.
@@ -156,26 +158,21 @@ instance Lude.ToQuery DescribeEndpointTypes where
 --
 -- /See:/ 'mkDescribeEndpointTypesResponse' smart constructor.
 data DescribeEndpointTypesResponse = DescribeEndpointTypesResponse'
-  { supportedEndpointTypes ::
-      Lude.Maybe
-        [SupportedEndpointType],
+  { -- | The types of endpoints that are supported.
+    supportedEndpointTypes :: Lude.Maybe [SupportedEndpointType],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointTypesResponse' with the minimum fields required to make a request.
 --
+-- * 'supportedEndpointTypes' - The types of endpoints that are supported.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'responseStatus' - The response status code.
--- * 'supportedEndpointTypes' - The types of endpoints that are supported.
 mkDescribeEndpointTypesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

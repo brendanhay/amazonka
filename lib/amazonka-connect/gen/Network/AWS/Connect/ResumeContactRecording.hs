@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResumeContactRecording' smart constructor.
 data ResumeContactRecording = ResumeContactRecording'
-  { instanceId ::
-      Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the contact.
     contactId :: Lude.Text,
+    -- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
     initialContactId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeContactRecording' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
 -- * 'contactId' - The identifier of the contact.
 -- * 'initialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
--- * 'instanceId' - The identifier of the Amazon Connect instance.
 mkResumeContactRecording ::
   -- | 'instanceId'
   Lude.Text ->
@@ -137,16 +134,10 @@ instance Lude.ToQuery ResumeContactRecording where
 
 -- | /See:/ 'mkResumeContactRecordingResponse' smart constructor.
 newtype ResumeContactRecordingResponse = ResumeContactRecordingResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeContactRecordingResponse' with the minimum fields required to make a request.

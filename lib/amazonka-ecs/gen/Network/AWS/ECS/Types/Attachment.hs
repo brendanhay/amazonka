@@ -32,25 +32,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttachment' smart constructor.
 data Attachment = Attachment'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
+    status :: Lude.Maybe Lude.Text,
+    -- | Details of the attachment. For elastic network interfaces, this includes the network interface ID, the MAC address, the subnet ID, and the private IPv4 address.
     details :: Lude.Maybe [KeyValuePair],
+    -- | The unique identifier for the attachment.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of the attachment, such as @ElasticNetworkInterface@ .
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Attachment' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
 -- * 'details' - Details of the attachment. For elastic network interfaces, this includes the network interface ID, the MAC address, the subnet ID, and the private IPv4 address.
 -- * 'id' - The unique identifier for the attachment.
--- * 'status' - The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
 -- * 'type'' - The type of the attachment, such as @ElasticNetworkInterface@ .
 mkAttachment ::
   Attachment

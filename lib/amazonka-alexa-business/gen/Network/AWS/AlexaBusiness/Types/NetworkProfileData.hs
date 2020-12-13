@@ -36,33 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkProfileData' smart constructor.
 data NetworkProfileData = NetworkProfileData'
-  { networkProfileName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the network profile associated with a device.
+    networkProfileName :: Lude.Maybe Lude.Text,
+    -- | The SSID of the Wi-Fi network.
     ssid :: Lude.Maybe Lude.Text,
+    -- | The ARN of the network profile associated with a device.
     networkProfileARN :: Lude.Maybe Lude.Text,
+    -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.
     securityType :: Lude.Maybe NetworkSecurityType,
+    -- | The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
     eapMethod :: Lude.Maybe NetworkEapMethod,
+    -- | Detailed information about a device's network profile.
     description :: Lude.Maybe Lude.Text,
+    -- | The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
     certificateAuthorityARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkProfileData' with the minimum fields required to make a request.
 --
--- * 'certificateAuthorityARN' - The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
--- * 'description' - Detailed information about a device's network profile.
--- * 'eapMethod' - The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
--- * 'networkProfileARN' - The ARN of the network profile associated with a device.
 -- * 'networkProfileName' - The name of the network profile associated with a device.
--- * 'securityType' - The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.
 -- * 'ssid' - The SSID of the Wi-Fi network.
+-- * 'networkProfileARN' - The ARN of the network profile associated with a device.
+-- * 'securityType' - The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.
+-- * 'eapMethod' - The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
+-- * 'description' - Detailed information about a device's network profile.
+-- * 'certificateAuthorityARN' - The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
 mkNetworkProfileData ::
   NetworkProfileData
 mkNetworkProfileData =

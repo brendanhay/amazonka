@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListStreamProcessors' smart constructor.
 data ListStreamProcessors = ListStreamProcessors'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamProcessors' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000.
 -- * 'nextToken' - If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
+-- * 'maxResults' - Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000.
 mkListStreamProcessors ::
   ListStreamProcessors
 mkListStreamProcessors =
@@ -132,25 +128,21 @@ instance Lude.ToQuery ListStreamProcessors where
 
 -- | /See:/ 'mkListStreamProcessorsResponse' smart constructor.
 data ListStreamProcessorsResponse = ListStreamProcessorsResponse'
-  { streamProcessors ::
-      Lude.Maybe [StreamProcessor],
+  { -- | List of stream processors that you have created.
+    streamProcessors :: Lude.Maybe [StreamProcessor],
+    -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamProcessorsResponse' with the minimum fields required to make a request.
 --
+-- * 'streamProcessors' - List of stream processors that you have created.
 -- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
 -- * 'responseStatus' - The response status code.
--- * 'streamProcessors' - List of stream processors that you have created.
 mkListStreamProcessorsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

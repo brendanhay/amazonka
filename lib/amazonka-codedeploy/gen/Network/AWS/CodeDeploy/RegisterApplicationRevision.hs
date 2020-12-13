@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
     mkRegisterApplicationRevision,
 
     -- ** Request lenses
-    rarDescription,
     rarApplicationName,
     rarRevision,
+    rarDescription,
 
     -- * Destructuring the response
     RegisterApplicationRevisionResponse (..),
@@ -39,25 +40,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRegisterApplicationRevision' smart constructor.
 data RegisterApplicationRevision = RegisterApplicationRevision'
-  { description ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
     applicationName :: Lude.Text,
-    revision :: RevisionLocation
+    -- | Information about the application revision to register, including type and location.
+    revision :: RevisionLocation,
+    -- | A comment about the revision.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterApplicationRevision' with the minimum fields required to make a request.
 --
 -- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
--- * 'description' - A comment about the revision.
 -- * 'revision' - Information about the application revision to register, including type and location.
+-- * 'description' - A comment about the revision.
 mkRegisterApplicationRevision ::
   -- | 'applicationName'
   Lude.Text ->
@@ -66,17 +63,10 @@ mkRegisterApplicationRevision ::
   RegisterApplicationRevision
 mkRegisterApplicationRevision pApplicationName_ pRevision_ =
   RegisterApplicationRevision'
-    { description = Lude.Nothing,
-      applicationName = pApplicationName_,
-      revision = pRevision_
+    { applicationName = pApplicationName_,
+      revision = pRevision_,
+      description = Lude.Nothing
     }
-
--- | A comment about the revision.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rarDescription :: Lens.Lens' RegisterApplicationRevision (Lude.Maybe Lude.Text)
-rarDescription = Lens.lens (description :: RegisterApplicationRevision -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RegisterApplicationRevision)
-{-# DEPRECATED rarDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 --
@@ -91,6 +81,13 @@ rarApplicationName = Lens.lens (applicationName :: RegisterApplicationRevision -
 rarRevision :: Lens.Lens' RegisterApplicationRevision RevisionLocation
 rarRevision = Lens.lens (revision :: RegisterApplicationRevision -> RevisionLocation) (\s a -> s {revision = a} :: RegisterApplicationRevision)
 {-# DEPRECATED rarRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
+
+-- | A comment about the revision.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarDescription :: Lens.Lens' RegisterApplicationRevision (Lude.Maybe Lude.Text)
+rarDescription = Lens.lens (description :: RegisterApplicationRevision -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RegisterApplicationRevision)
+{-# DEPRECATED rarDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest RegisterApplicationRevision where
   type
@@ -116,9 +113,9 @@ instance Lude.ToJSON RegisterApplicationRevision where
   toJSON RegisterApplicationRevision' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("applicationName" Lude..= applicationName),
-            Lude.Just ("revision" Lude..= revision)
+          [ Lude.Just ("applicationName" Lude..= applicationName),
+            Lude.Just ("revision" Lude..= revision),
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -130,13 +127,7 @@ instance Lude.ToQuery RegisterApplicationRevision where
 
 -- | /See:/ 'mkRegisterApplicationRevisionResponse' smart constructor.
 data RegisterApplicationRevisionResponse = RegisterApplicationRevisionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterApplicationRevisionResponse' with the minimum fields required to make a request.

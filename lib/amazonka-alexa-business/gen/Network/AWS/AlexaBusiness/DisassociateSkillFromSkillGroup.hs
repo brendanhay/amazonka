@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup
     mkDisassociateSkillFromSkillGroup,
 
     -- ** Request lenses
-    dsfsgSkillGroupARN,
     dsfsgSkillId,
+    dsfsgSkillGroupARN,
 
     -- * Destructuring the response
     DisassociateSkillFromSkillGroupResponse (..),
@@ -39,39 +40,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateSkillFromSkillGroup' smart constructor.
 data DisassociateSkillFromSkillGroup = DisassociateSkillFromSkillGroup'
-  { skillGroupARN ::
-      Lude.Maybe Lude.Text,
-    skillId :: Lude.Text
+  { -- | The ARN of a skill group to associate to a skill.
+    skillId :: Lude.Text,
+    -- | The unique identifier of a skill. Required.
+    skillGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateSkillFromSkillGroup' with the minimum fields required to make a request.
 --
--- * 'skillGroupARN' - The unique identifier of a skill. Required.
 -- * 'skillId' - The ARN of a skill group to associate to a skill.
+-- * 'skillGroupARN' - The unique identifier of a skill. Required.
 mkDisassociateSkillFromSkillGroup ::
   -- | 'skillId'
   Lude.Text ->
   DisassociateSkillFromSkillGroup
 mkDisassociateSkillFromSkillGroup pSkillId_ =
   DisassociateSkillFromSkillGroup'
-    { skillGroupARN = Lude.Nothing,
-      skillId = pSkillId_
+    { skillId = pSkillId_,
+      skillGroupARN = Lude.Nothing
     }
-
--- | The unique identifier of a skill. Required.
---
--- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfsgSkillGroupARN :: Lens.Lens' DisassociateSkillFromSkillGroup (Lude.Maybe Lude.Text)
-dsfsgSkillGroupARN = Lens.lens (skillGroupARN :: DisassociateSkillFromSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: DisassociateSkillFromSkillGroup)
-{-# DEPRECATED dsfsgSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
 -- | The ARN of a skill group to associate to a skill.
 --
@@ -79,6 +68,13 @@ dsfsgSkillGroupARN = Lens.lens (skillGroupARN :: DisassociateSkillFromSkillGroup
 dsfsgSkillId :: Lens.Lens' DisassociateSkillFromSkillGroup Lude.Text
 dsfsgSkillId = Lens.lens (skillId :: DisassociateSkillFromSkillGroup -> Lude.Text) (\s a -> s {skillId = a} :: DisassociateSkillFromSkillGroup)
 {-# DEPRECATED dsfsgSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
+
+-- | The unique identifier of a skill. Required.
+--
+-- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfsgSkillGroupARN :: Lens.Lens' DisassociateSkillFromSkillGroup (Lude.Maybe Lude.Text)
+dsfsgSkillGroupARN = Lens.lens (skillGroupARN :: DisassociateSkillFromSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: DisassociateSkillFromSkillGroup)
+{-# DEPRECATED dsfsgSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
 instance Lude.AWSRequest DisassociateSkillFromSkillGroup where
   type
@@ -109,8 +105,8 @@ instance Lude.ToJSON DisassociateSkillFromSkillGroup where
   toJSON DisassociateSkillFromSkillGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN,
-            Lude.Just ("SkillId" Lude..= skillId)
+          [ Lude.Just ("SkillId" Lude..= skillId),
+            ("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN
           ]
       )
 
@@ -122,16 +118,10 @@ instance Lude.ToQuery DisassociateSkillFromSkillGroup where
 
 -- | /See:/ 'mkDisassociateSkillFromSkillGroupResponse' smart constructor.
 newtype DisassociateSkillFromSkillGroupResponse = DisassociateSkillFromSkillGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateSkillFromSkillGroupResponse' with the minimum fields required to make a request.

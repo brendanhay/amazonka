@@ -13,13 +13,13 @@
 module Network.AWS.CloudHSM.Types.HSMStatus
   ( HSMStatus
       ( HSMStatus',
-        HSDegraded,
         HSPending,
         HSRunning,
+        HSUpdating,
         HSSuspended,
-        HSTerminated,
         HSTerminating,
-        HSUpdating
+        HSTerminated,
+        HSDegraded
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype HSMStatus = HSMStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern HSDegraded :: HSMStatus
-pattern HSDegraded = HSMStatus' "DEGRADED"
-
 pattern HSPending :: HSMStatus
 pattern HSPending = HSMStatus' "PENDING"
 
 pattern HSRunning :: HSMStatus
 pattern HSRunning = HSMStatus' "RUNNING"
 
+pattern HSUpdating :: HSMStatus
+pattern HSUpdating = HSMStatus' "UPDATING"
+
 pattern HSSuspended :: HSMStatus
 pattern HSSuspended = HSMStatus' "SUSPENDED"
-
-pattern HSTerminated :: HSMStatus
-pattern HSTerminated = HSMStatus' "TERMINATED"
 
 pattern HSTerminating :: HSMStatus
 pattern HSTerminating = HSMStatus' "TERMINATING"
 
-pattern HSUpdating :: HSMStatus
-pattern HSUpdating = HSMStatus' "UPDATING"
+pattern HSTerminated :: HSMStatus
+pattern HSTerminated = HSMStatus' "TERMINATED"
+
+pattern HSDegraded :: HSMStatus
+pattern HSDegraded = HSMStatus' "DEGRADED"
 
 {-# COMPLETE
-  HSDegraded,
   HSPending,
   HSRunning,
-  HSSuspended,
-  HSTerminated,
-  HSTerminating,
   HSUpdating,
+  HSSuspended,
+  HSTerminating,
+  HSTerminated,
+  HSDegraded,
   HSMStatus'
   #-}

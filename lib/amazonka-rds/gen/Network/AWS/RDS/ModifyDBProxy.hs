@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,8 +26,8 @@ module Network.AWS.RDS.ModifyDBProxy
     mdpRequireTLS,
     mdpIdleClientTimeout,
     mdpNewDBProxyName,
-    mdpRoleARN,
     mdpDBProxyName,
+    mdpRoleARN,
 
     -- * Destructuring the response
     ModifyDBProxyResponse (..),
@@ -46,35 +47,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyDBProxy' smart constructor.
 data ModifyDBProxy = ModifyDBProxy'
-  { debugLogging ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
+    debugLogging :: Lude.Maybe Lude.Bool,
+    -- | The new list of security groups for the @DBProxy@ .
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The new authentication settings for the @DBProxy@ .
     auth :: Lude.Maybe [UserAuthConfig],
+    -- | Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy, even if the associated database doesn't use TLS.
     requireTLS :: Lude.Maybe Lude.Bool,
+    -- | The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
     idleClientTimeout :: Lude.Maybe Lude.Int,
+    -- | The new identifier for the @DBProxy@ . An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
     newDBProxyName :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Maybe Lude.Text,
-    dbProxyName :: Lude.Text
+    -- | The identifier for the @DBProxy@ to modify.
+    dbProxyName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBProxy' with the minimum fields required to make a request.
 --
--- * 'auth' - The new authentication settings for the @DBProxy@ .
--- * 'dbProxyName' - The identifier for the @DBProxy@ to modify.
 -- * 'debugLogging' - Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
+-- * 'securityGroups' - The new list of security groups for the @DBProxy@ .
+-- * 'auth' - The new authentication settings for the @DBProxy@ .
+-- * 'requireTLS' - Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy, even if the associated database doesn't use TLS.
 -- * 'idleClientTimeout' - The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
 -- * 'newDBProxyName' - The new identifier for the @DBProxy@ . An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
--- * 'requireTLS' - Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy, even if the associated database doesn't use TLS.
+-- * 'dbProxyName' - The identifier for the @DBProxy@ to modify.
 -- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
--- * 'securityGroups' - The new list of security groups for the @DBProxy@ .
 mkModifyDBProxy ::
   -- | 'dbProxyName'
   Lude.Text ->
@@ -87,8 +89,8 @@ mkModifyDBProxy pDBProxyName_ =
       requireTLS = Lude.Nothing,
       idleClientTimeout = Lude.Nothing,
       newDBProxyName = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      dbProxyName = pDBProxyName_
+      dbProxyName = pDBProxyName_,
+      roleARN = Lude.Nothing
     }
 
 -- | Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
@@ -133,19 +135,19 @@ mdpNewDBProxyName :: Lens.Lens' ModifyDBProxy (Lude.Maybe Lude.Text)
 mdpNewDBProxyName = Lens.lens (newDBProxyName :: ModifyDBProxy -> Lude.Maybe Lude.Text) (\s a -> s {newDBProxyName = a} :: ModifyDBProxy)
 {-# DEPRECATED mdpNewDBProxyName "Use generic-lens or generic-optics with 'newDBProxyName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpRoleARN :: Lens.Lens' ModifyDBProxy (Lude.Maybe Lude.Text)
-mdpRoleARN = Lens.lens (roleARN :: ModifyDBProxy -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: ModifyDBProxy)
-{-# DEPRECATED mdpRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
 -- | The identifier for the @DBProxy@ to modify.
 --
 -- /Note:/ Consider using 'dbProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mdpDBProxyName :: Lens.Lens' ModifyDBProxy Lude.Text
 mdpDBProxyName = Lens.lens (dbProxyName :: ModifyDBProxy -> Lude.Text) (\s a -> s {dbProxyName = a} :: ModifyDBProxy)
 {-# DEPRECATED mdpDBProxyName "Use generic-lens or generic-optics with 'dbProxyName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdpRoleARN :: Lens.Lens' ModifyDBProxy (Lude.Maybe Lude.Text)
+mdpRoleARN = Lens.lens (roleARN :: ModifyDBProxy -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: ModifyDBProxy)
+{-# DEPRECATED mdpRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.AWSRequest ModifyDBProxy where
   type Rs ModifyDBProxy = ModifyDBProxyResponse
@@ -177,23 +179,18 @@ instance Lude.ToQuery ModifyDBProxy where
         "RequireTLS" Lude.=: requireTLS,
         "IdleClientTimeout" Lude.=: idleClientTimeout,
         "NewDBProxyName" Lude.=: newDBProxyName,
-        "RoleArn" Lude.=: roleARN,
-        "DBProxyName" Lude.=: dbProxyName
+        "DBProxyName" Lude.=: dbProxyName,
+        "RoleArn" Lude.=: roleARN
       ]
 
 -- | /See:/ 'mkModifyDBProxyResponse' smart constructor.
 data ModifyDBProxyResponse = ModifyDBProxyResponse'
-  { dbProxy ::
-      Lude.Maybe DBProxy,
+  { -- | The @DBProxy@ object representing the new settings for the proxy.
+    dbProxy :: Lude.Maybe DBProxy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBProxyResponse' with the minimum fields required to make a request.

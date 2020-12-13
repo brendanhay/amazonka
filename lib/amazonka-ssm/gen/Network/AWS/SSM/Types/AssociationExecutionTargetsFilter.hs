@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.AssociationExecutionTargetsFilter
     mkAssociationExecutionTargetsFilter,
 
     -- * Lenses
-    aetfKey,
     aetfValue,
+    aetfKey,
   )
 where
 
@@ -30,38 +30,26 @@ import Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey
 --
 -- /See:/ 'mkAssociationExecutionTargetsFilter' smart constructor.
 data AssociationExecutionTargetsFilter = AssociationExecutionTargetsFilter'
-  { key ::
-      AssociationExecutionTargetsFilterKey,
-    value :: Lude.Text
+  { -- | The value specified for the key.
+    value :: Lude.Text,
+    -- | The key value used in the request.
+    key :: AssociationExecutionTargetsFilterKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationExecutionTargetsFilter' with the minimum fields required to make a request.
 --
--- * 'key' - The key value used in the request.
 -- * 'value' - The value specified for the key.
+-- * 'key' - The key value used in the request.
 mkAssociationExecutionTargetsFilter ::
-  -- | 'key'
-  AssociationExecutionTargetsFilterKey ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  AssociationExecutionTargetsFilterKey ->
   AssociationExecutionTargetsFilter
-mkAssociationExecutionTargetsFilter pKey_ pValue_ =
-  AssociationExecutionTargetsFilter' {key = pKey_, value = pValue_}
-
--- | The key value used in the request.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aetfKey :: Lens.Lens' AssociationExecutionTargetsFilter AssociationExecutionTargetsFilterKey
-aetfKey = Lens.lens (key :: AssociationExecutionTargetsFilter -> AssociationExecutionTargetsFilterKey) (\s a -> s {key = a} :: AssociationExecutionTargetsFilter)
-{-# DEPRECATED aetfKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkAssociationExecutionTargetsFilter pValue_ pKey_ =
+  AssociationExecutionTargetsFilter' {value = pValue_, key = pKey_}
 
 -- | The value specified for the key.
 --
@@ -70,9 +58,16 @@ aetfValue :: Lens.Lens' AssociationExecutionTargetsFilter Lude.Text
 aetfValue = Lens.lens (value :: AssociationExecutionTargetsFilter -> Lude.Text) (\s a -> s {value = a} :: AssociationExecutionTargetsFilter)
 {-# DEPRECATED aetfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The key value used in the request.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetfKey :: Lens.Lens' AssociationExecutionTargetsFilter AssociationExecutionTargetsFilterKey
+aetfKey = Lens.lens (key :: AssociationExecutionTargetsFilter -> AssociationExecutionTargetsFilterKey) (\s a -> s {key = a} :: AssociationExecutionTargetsFilter)
+{-# DEPRECATED aetfKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.ToJSON AssociationExecutionTargetsFilter where
   toJSON AssociationExecutionTargetsFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [Lude.Just ("Key" Lude..= key), Lude.Just ("Value" Lude..= value)]
+          [Lude.Just ("Value" Lude..= value), Lude.Just ("Key" Lude..= key)]
       )

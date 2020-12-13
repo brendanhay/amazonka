@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsAkamaiSettings' smart constructor.
 data HlsAkamaiSettings = HlsAkamaiSettings'
-  { hTTPTransferMode ::
-      Lude.Maybe HlsAkamaiHTTPTransferMode,
+  { -- | Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
+    hTTPTransferMode :: Lude.Maybe HlsAkamaiHTTPTransferMode,
+    -- | Number of retry attempts that will be made before the Live Event is put into an error state.
     numRetries :: Lude.Maybe Lude.Natural,
+    -- | Token parameter for authenticated akamai. If not specified, _gda_ is used.
     token :: Lude.Maybe Lude.Text,
+    -- | Number of seconds to wait before retrying connection to the CDN if the connection is lost.
     connectionRetryInterval :: Lude.Maybe Lude.Natural,
+    -- | Size in seconds of file cache for streaming outputs.
     filecacheDuration :: Lude.Maybe Lude.Natural,
+    -- | If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
     restartDelay :: Lude.Maybe Lude.Natural,
+    -- | Salt for authenticated Akamai.
     salt :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsAkamaiSettings' with the minimum fields required to make a request.
 --
--- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the connection is lost.
--- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
 -- * 'hTTPTransferMode' - Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
 -- * 'numRetries' - Number of retry attempts that will be made before the Live Event is put into an error state.
+-- * 'token' - Token parameter for authenticated akamai. If not specified, _gda_ is used.
+-- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+-- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
 -- * 'restartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
 -- * 'salt' - Salt for authenticated Akamai.
--- * 'token' - Token parameter for authenticated akamai. If not specified, _gda_ is used.
 mkHlsAkamaiSettings ::
   HlsAkamaiSettings
 mkHlsAkamaiSettings =

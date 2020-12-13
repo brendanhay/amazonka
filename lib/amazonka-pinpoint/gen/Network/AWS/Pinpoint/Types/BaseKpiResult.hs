@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.
 --
 -- /See:/ 'mkBaseKpiResult' smart constructor.
-newtype BaseKpiResult = BaseKpiResult' {rows :: [ResultRow]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype BaseKpiResult = BaseKpiResult'
+  { -- | An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.
+    rows :: [ResultRow]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BaseKpiResult' with the minimum fields required to make a request.

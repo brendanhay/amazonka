@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.Glue.CreatePartitionIndex
 
     -- ** Request lenses
     cpiCatalogId,
+    cpiPartitionIndex,
     cpiDatabaseName,
     cpiTableName,
-    cpiPartitionIndex,
 
     -- * Destructuring the response
     CreatePartitionIndexResponse (..),
@@ -41,41 +42,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreatePartitionIndex' smart constructor.
 data CreatePartitionIndex = CreatePartitionIndex'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The catalog ID where the table resides.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | Specifies a @PartitionIndex@ structure to create a partition index in an existing table.
+    partitionIndex :: PartitionIndex,
+    -- | Specifies the name of a database in which you want to create a partition index.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    partitionIndex :: PartitionIndex
+    -- | Specifies the name of a table in which you want to create a partition index.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePartitionIndex' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The catalog ID where the table resides.
--- * 'databaseName' - Specifies the name of a database in which you want to create a partition index.
 -- * 'partitionIndex' - Specifies a @PartitionIndex@ structure to create a partition index in an existing table.
+-- * 'databaseName' - Specifies the name of a database in which you want to create a partition index.
 -- * 'tableName' - Specifies the name of a table in which you want to create a partition index.
 mkCreatePartitionIndex ::
+  -- | 'partitionIndex'
+  PartitionIndex ->
   -- | 'databaseName'
   Lude.Text ->
   -- | 'tableName'
   Lude.Text ->
-  -- | 'partitionIndex'
-  PartitionIndex ->
   CreatePartitionIndex
-mkCreatePartitionIndex pDatabaseName_ pTableName_ pPartitionIndex_ =
+mkCreatePartitionIndex pPartitionIndex_ pDatabaseName_ pTableName_ =
   CreatePartitionIndex'
     { catalogId = Lude.Nothing,
+      partitionIndex = pPartitionIndex_,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      partitionIndex = pPartitionIndex_
+      tableName = pTableName_
     }
 
 -- | The catalog ID where the table resides.
@@ -84,6 +82,13 @@ mkCreatePartitionIndex pDatabaseName_ pTableName_ pPartitionIndex_ =
 cpiCatalogId :: Lens.Lens' CreatePartitionIndex (Lude.Maybe Lude.Text)
 cpiCatalogId = Lens.lens (catalogId :: CreatePartitionIndex -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreatePartitionIndex)
 {-# DEPRECATED cpiCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+-- | Specifies a @PartitionIndex@ structure to create a partition index in an existing table.
+--
+-- /Note:/ Consider using 'partitionIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpiPartitionIndex :: Lens.Lens' CreatePartitionIndex PartitionIndex
+cpiPartitionIndex = Lens.lens (partitionIndex :: CreatePartitionIndex -> PartitionIndex) (\s a -> s {partitionIndex = a} :: CreatePartitionIndex)
+{-# DEPRECATED cpiPartitionIndex "Use generic-lens or generic-optics with 'partitionIndex' instead." #-}
 
 -- | Specifies the name of a database in which you want to create a partition index.
 --
@@ -98,13 +103,6 @@ cpiDatabaseName = Lens.lens (databaseName :: CreatePartitionIndex -> Lude.Text) 
 cpiTableName :: Lens.Lens' CreatePartitionIndex Lude.Text
 cpiTableName = Lens.lens (tableName :: CreatePartitionIndex -> Lude.Text) (\s a -> s {tableName = a} :: CreatePartitionIndex)
 {-# DEPRECATED cpiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
--- | Specifies a @PartitionIndex@ structure to create a partition index in an existing table.
---
--- /Note:/ Consider using 'partitionIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpiPartitionIndex :: Lens.Lens' CreatePartitionIndex PartitionIndex
-cpiPartitionIndex = Lens.lens (partitionIndex :: CreatePartitionIndex -> PartitionIndex) (\s a -> s {partitionIndex = a} :: CreatePartitionIndex)
-{-# DEPRECATED cpiPartitionIndex "Use generic-lens or generic-optics with 'partitionIndex' instead." #-}
 
 instance Lude.AWSRequest CreatePartitionIndex where
   type Rs CreatePartitionIndex = CreatePartitionIndexResponse
@@ -132,9 +130,9 @@ instance Lude.ToJSON CreatePartitionIndex where
     Lude.object
       ( Lude.catMaybes
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("PartitionIndex" Lude..= partitionIndex),
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("PartitionIndex" Lude..= partitionIndex)
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -146,16 +144,10 @@ instance Lude.ToQuery CreatePartitionIndex where
 
 -- | /See:/ 'mkCreatePartitionIndexResponse' smart constructor.
 newtype CreatePartitionIndexResponse = CreatePartitionIndexResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePartitionIndexResponse' with the minimum fields required to make a request.

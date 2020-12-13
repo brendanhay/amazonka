@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,23 +44,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddListenerCertificates' smart constructor.
 data AddListenerCertificates = AddListenerCertificates'
-  { listenerARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the listener.
+    listenerARN :: Lude.Text,
+    -- | The certificate to add. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
     certificates :: [Certificate]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddListenerCertificates' with the minimum fields required to make a request.
 --
--- * 'certificates' - The certificate to add. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
 -- * 'listenerARN' - The Amazon Resource Name (ARN) of the listener.
+-- * 'certificates' - The certificate to add. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
 mkAddListenerCertificates ::
   -- | 'listenerARN'
   Lude.Text ->
@@ -115,17 +111,12 @@ instance Lude.ToQuery AddListenerCertificates where
 
 -- | /See:/ 'mkAddListenerCertificatesResponse' smart constructor.
 data AddListenerCertificatesResponse = AddListenerCertificatesResponse'
-  { certificates ::
-      Lude.Maybe [Certificate],
+  { -- | Information about the certificates in the certificate list.
+    certificates :: Lude.Maybe [Certificate],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddListenerCertificatesResponse' with the minimum fields required to make a request.

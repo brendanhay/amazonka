@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,12 +27,12 @@ module Network.AWS.CognitoIdentityProvider.GetUser
     mkGetUserResponse,
 
     -- ** Response lenses
+    gursUserAttributes,
+    gursUsername,
     gursUserMFASettingList,
     gursMFAOptions,
     gursPreferredMFASetting,
     gursResponseStatus,
-    gursUsername,
-    gursUserAttributes,
   )
 where
 
@@ -44,7 +45,10 @@ import qualified Network.AWS.Response as Res
 -- | Represents the request to get information about the user.
 --
 -- /See:/ 'mkGetUser' smart constructor.
-newtype GetUser = GetUser' {accessToken :: Lude.Sensitive Lude.Text}
+newtype GetUser = GetUser'
+  { -- | The access token returned by the server response to get information about the user.
+    accessToken :: Lude.Sensitive Lude.Text
+  }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
@@ -71,12 +75,12 @@ instance Lude.AWSRequest GetUser where
     Res.receiveJSON
       ( \s h x ->
           GetUserResponse'
-            Lude.<$> (x Lude..?> "UserMFASettingList" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "UserAttributes" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..:> "Username")
+            Lude.<*> (x Lude..?> "UserMFASettingList" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..?> "MFAOptions" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..?> "PreferredMfaSetting")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "Username")
-            Lude.<*> (x Lude..?> "UserAttributes" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders GetUser where
@@ -105,42 +109,65 @@ instance Lude.ToQuery GetUser where
 --
 -- /See:/ 'mkGetUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
-  { userMFASettingList ::
-      Lude.Maybe [Lude.Text],
-    mfaOptions :: Lude.Maybe [MFAOptionType],
-    preferredMFASetting :: Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
+  { -- | An array of name-value pairs representing user attributes.
+    --
+    -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+    userAttributes :: [AttributeType],
+    -- | The user name of the user you wish to retrieve from the get user request.
     username :: Lude.Sensitive Lude.Text,
-    userAttributes :: [AttributeType]
+    -- | The MFA options that are enabled for the user. The possible values in this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@ .
+    userMFASettingList :: Lude.Maybe [Lude.Text],
+    -- | /This response parameter is no longer supported./ It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.
+    mfaOptions :: Lude.Maybe [MFAOptionType],
+    -- | The user's preferred MFA setting.
+    preferredMFASetting :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserResponse' with the minimum fields required to make a request.
 --
--- * 'mfaOptions' - /This response parameter is no longer supported./ It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.
--- * 'preferredMFASetting' - The user's preferred MFA setting.
--- * 'responseStatus' - The response status code.
 -- * 'userAttributes' - An array of name-value pairs representing user attributes.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
--- * 'userMFASettingList' - The MFA options that are enabled for the user. The possible values in this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@ .
 -- * 'username' - The user name of the user you wish to retrieve from the get user request.
+-- * 'userMFASettingList' - The MFA options that are enabled for the user. The possible values in this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@ .
+-- * 'mfaOptions' - /This response parameter is no longer supported./ It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.
+-- * 'preferredMFASetting' - The user's preferred MFA setting.
+-- * 'responseStatus' - The response status code.
 mkGetUserResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'username'
   Lude.Sensitive Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetUserResponse
-mkGetUserResponse pResponseStatus_ pUsername_ =
+mkGetUserResponse pUsername_ pResponseStatus_ =
   GetUserResponse'
-    { userMFASettingList = Lude.Nothing,
+    { userAttributes = Lude.mempty,
+      username = pUsername_,
+      userMFASettingList = Lude.Nothing,
       mfaOptions = Lude.Nothing,
       preferredMFASetting = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      username = pUsername_,
-      userAttributes = Lude.mempty
+      responseStatus = pResponseStatus_
     }
+
+-- | An array of name-value pairs representing user attributes.
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+--
+-- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gursUserAttributes :: Lens.Lens' GetUserResponse [AttributeType]
+gursUserAttributes = Lens.lens (userAttributes :: GetUserResponse -> [AttributeType]) (\s a -> s {userAttributes = a} :: GetUserResponse)
+{-# DEPRECATED gursUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
+
+-- | The user name of the user you wish to retrieve from the get user request.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gursUsername :: Lens.Lens' GetUserResponse (Lude.Sensitive Lude.Text)
+gursUsername = Lens.lens (username :: GetUserResponse -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: GetUserResponse)
+{-# DEPRECATED gursUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The MFA options that are enabled for the user. The possible values in this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@ .
 --
@@ -169,19 +196,3 @@ gursPreferredMFASetting = Lens.lens (preferredMFASetting :: GetUserResponse -> L
 gursResponseStatus :: Lens.Lens' GetUserResponse Lude.Int
 gursResponseStatus = Lens.lens (responseStatus :: GetUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUserResponse)
 {-# DEPRECATED gursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The user name of the user you wish to retrieve from the get user request.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gursUsername :: Lens.Lens' GetUserResponse (Lude.Sensitive Lude.Text)
-gursUsername = Lens.lens (username :: GetUserResponse -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: GetUserResponse)
-{-# DEPRECATED gursUsername "Use generic-lens or generic-optics with 'username' instead." #-}
-
--- | An array of name-value pairs representing user attributes.
---
--- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
---
--- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gursUserAttributes :: Lens.Lens' GetUserResponse [AttributeType]
-gursUserAttributes = Lens.lens (userAttributes :: GetUserResponse -> [AttributeType]) (\s a -> s {userAttributes = a} :: GetUserResponse)
-{-# DEPRECATED gursUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}

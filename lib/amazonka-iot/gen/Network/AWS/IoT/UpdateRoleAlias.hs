@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.IoT.UpdateRoleAlias
     mkUpdateRoleAlias,
 
     -- ** Request lenses
+    uraRoleAlias,
     uraCredentialDurationSeconds,
     uraRoleARN,
-    uraRoleAlias,
 
     -- * Destructuring the response
     UpdateRoleAliasResponse (..),
@@ -42,35 +43,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateRoleAlias' smart constructor.
 data UpdateRoleAlias = UpdateRoleAlias'
-  { credentialDurationSeconds ::
-      Lude.Maybe Lude.Natural,
-    roleARN :: Lude.Maybe Lude.Text,
-    roleAlias :: Lude.Text
+  { -- | The role alias to update.
+    roleAlias :: Lude.Text,
+    -- | The number of seconds the credential will be valid.
+    credentialDurationSeconds :: Lude.Maybe Lude.Natural,
+    -- | The role ARN.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoleAlias' with the minimum fields required to make a request.
 --
+-- * 'roleAlias' - The role alias to update.
 -- * 'credentialDurationSeconds' - The number of seconds the credential will be valid.
 -- * 'roleARN' - The role ARN.
--- * 'roleAlias' - The role alias to update.
 mkUpdateRoleAlias ::
   -- | 'roleAlias'
   Lude.Text ->
   UpdateRoleAlias
 mkUpdateRoleAlias pRoleAlias_ =
   UpdateRoleAlias'
-    { credentialDurationSeconds = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      roleAlias = pRoleAlias_
+    { roleAlias = pRoleAlias_,
+      credentialDurationSeconds = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
+
+-- | The role alias to update.
+--
+-- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uraRoleAlias :: Lens.Lens' UpdateRoleAlias Lude.Text
+uraRoleAlias = Lens.lens (roleAlias :: UpdateRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: UpdateRoleAlias)
+{-# DEPRECATED uraRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
 -- | The number of seconds the credential will be valid.
 --
@@ -85,13 +89,6 @@ uraCredentialDurationSeconds = Lens.lens (credentialDurationSeconds :: UpdateRol
 uraRoleARN :: Lens.Lens' UpdateRoleAlias (Lude.Maybe Lude.Text)
 uraRoleARN = Lens.lens (roleARN :: UpdateRoleAlias -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateRoleAlias)
 {-# DEPRECATED uraRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The role alias to update.
---
--- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uraRoleAlias :: Lens.Lens' UpdateRoleAlias Lude.Text
-uraRoleAlias = Lens.lens (roleAlias :: UpdateRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: UpdateRoleAlias)
-{-# DEPRECATED uraRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
 instance Lude.AWSRequest UpdateRoleAlias where
   type Rs UpdateRoleAlias = UpdateRoleAliasResponse
@@ -127,25 +124,21 @@ instance Lude.ToQuery UpdateRoleAlias where
 
 -- | /See:/ 'mkUpdateRoleAliasResponse' smart constructor.
 data UpdateRoleAliasResponse = UpdateRoleAliasResponse'
-  { roleAliasARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The role alias ARN.
+    roleAliasARN :: Lude.Maybe Lude.Text,
+    -- | The role alias.
     roleAlias :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoleAliasResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'roleAlias' - The role alias.
 -- * 'roleAliasARN' - The role alias ARN.
+-- * 'roleAlias' - The role alias.
+-- * 'responseStatus' - The response status code.
 mkUpdateRoleAliasResponse ::
   -- | 'responseStatus'
   Lude.Int ->

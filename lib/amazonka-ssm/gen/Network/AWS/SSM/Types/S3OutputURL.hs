@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3OutputURL' smart constructor.
 newtype S3OutputURL = S3OutputURL'
-  { outputURL ::
-      Lude.Maybe Lude.Text
+  { -- | A URL for an S3 bucket where you want to store the results of this request.
+    outputURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3OutputURL' with the minimum fields required to make a request.

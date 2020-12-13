@@ -41,72 +41,48 @@ import Network.AWS.SSM.Types.MaintenanceWindowTaskType
 --
 -- /See:/ 'mkMaintenanceWindowExecutionTaskInvocationIdentity' smart constructor.
 data MaintenanceWindowExecutionTaskInvocationIdentity = MaintenanceWindowExecutionTaskInvocationIdentity'
-  { status ::
-      Lude.Maybe
-        MaintenanceWindowExecutionStatus,
-    executionId ::
-      Lude.Maybe
-        Lude.Text,
-    taskExecutionId ::
-      Lude.Maybe
-        Lude.Text,
-    startTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    invocationId ::
-      Lude.Maybe
-        Lude.Text,
-    ownerInformation ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    taskType ::
-      Lude.Maybe
-        MaintenanceWindowTaskType,
-    windowTargetId ::
-      Lude.Maybe
-        Lude.Text,
-    windowExecutionId ::
-      Lude.Maybe
-        Lude.Text,
-    statusDetails ::
-      Lude.Maybe
-        Lude.Text,
-    endTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    parameters ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        )
+  { -- | The status of the task invocation.
+    status :: Lude.Maybe MaintenanceWindowExecutionStatus,
+    -- | The ID of the action performed in the service that actually handled the task invocation. If the task type is RUN_COMMAND, this value is the command ID.
+    executionId :: Lude.Maybe Lude.Text,
+    -- | The ID of the specific task execution in the maintenance window execution.
+    taskExecutionId :: Lude.Maybe Lude.Text,
+    -- | The time the invocation started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the task invocation.
+    invocationId :: Lude.Maybe Lude.Text,
+    -- | User-provided value that was specified when the target was registered with the maintenance window. This was also included in any CloudWatch events raised during the task invocation.
+    ownerInformation :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The task type.
+    taskType :: Lude.Maybe MaintenanceWindowTaskType,
+    -- | The ID of the target definition in this maintenance window the invocation was performed for.
+    windowTargetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the maintenance window execution that ran the task.
+    windowExecutionId :: Lude.Maybe Lude.Text,
+    -- | The details explaining the status of the task invocation. Only available for certain Status values.
+    statusDetails :: Lude.Maybe Lude.Text,
+    -- | The time the invocation finished.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The parameters that were provided for the invocation when it was run.
+    parameters :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowExecutionTaskInvocationIdentity' with the minimum fields required to make a request.
 --
--- * 'endTime' - The time the invocation finished.
+-- * 'status' - The status of the task invocation.
 -- * 'executionId' - The ID of the action performed in the service that actually handled the task invocation. If the task type is RUN_COMMAND, this value is the command ID.
+-- * 'taskExecutionId' - The ID of the specific task execution in the maintenance window execution.
+-- * 'startTime' - The time the invocation started.
 -- * 'invocationId' - The ID of the task invocation.
 -- * 'ownerInformation' - User-provided value that was specified when the target was registered with the maintenance window. This was also included in any CloudWatch events raised during the task invocation.
--- * 'parameters' - The parameters that were provided for the invocation when it was run.
--- * 'startTime' - The time the invocation started.
--- * 'status' - The status of the task invocation.
--- * 'statusDetails' - The details explaining the status of the task invocation. Only available for certain Status values.
--- * 'taskExecutionId' - The ID of the specific task execution in the maintenance window execution.
 -- * 'taskType' - The task type.
--- * 'windowExecutionId' - The ID of the maintenance window execution that ran the task.
 -- * 'windowTargetId' - The ID of the target definition in this maintenance window the invocation was performed for.
+-- * 'windowExecutionId' - The ID of the maintenance window execution that ran the task.
+-- * 'statusDetails' - The details explaining the status of the task invocation. Only available for certain Status values.
+-- * 'endTime' - The time the invocation finished.
+-- * 'parameters' - The parameters that were provided for the invocation when it was run.
 mkMaintenanceWindowExecutionTaskInvocationIdentity ::
   MaintenanceWindowExecutionTaskInvocationIdentity
 mkMaintenanceWindowExecutionTaskInvocationIdentity =

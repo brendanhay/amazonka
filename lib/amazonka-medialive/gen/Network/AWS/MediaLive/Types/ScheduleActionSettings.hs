@@ -47,55 +47,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduleActionSettings' smart constructor.
 data ScheduleActionSettings = ScheduleActionSettings'
-  { staticImageDeactivateSettings ::
-      Lude.Maybe
-        StaticImageDeactivateScheduleActionSettings,
-    scte35SpliceInsertSettings ::
-      Lude.Maybe
-        Scte35SpliceInsertScheduleActionSettings,
-    staticImageActivateSettings ::
-      Lude.Maybe
-        StaticImageActivateScheduleActionSettings,
-    scte35TimeSignalSettings ::
-      Lude.Maybe
-        Scte35TimeSignalScheduleActionSettings,
-    inputPrepareSettings ::
-      Lude.Maybe InputPrepareScheduleActionSettings,
-    hlsId3SegmentTaggingSettings ::
-      Lude.Maybe
-        HlsId3SegmentTaggingScheduleActionSettings,
-    scte35ReturnToNetworkSettings ::
-      Lude.Maybe
-        Scte35ReturnToNetworkScheduleActionSettings,
-    pauseStateSettings ::
-      Lude.Maybe PauseStateScheduleActionSettings,
-    hlsTimedMetadataSettings ::
-      Lude.Maybe
-        HlsTimedMetadataScheduleActionSettings,
-    inputSwitchSettings ::
-      Lude.Maybe InputSwitchScheduleActionSettings
+  { -- | Action to deactivate a static image overlay
+    staticImageDeactivateSettings :: Lude.Maybe StaticImageDeactivateScheduleActionSettings,
+    -- | Action to insert SCTE-35 splice_insert message
+    scte35SpliceInsertSettings :: Lude.Maybe Scte35SpliceInsertScheduleActionSettings,
+    -- | Action to activate a static image overlay
+    staticImageActivateSettings :: Lude.Maybe StaticImageActivateScheduleActionSettings,
+    -- | Action to insert SCTE-35 time_signal message
+    scte35TimeSignalSettings :: Lude.Maybe Scte35TimeSignalScheduleActionSettings,
+    -- | Action to prepare an input for a future immediate input switch
+    inputPrepareSettings :: Lude.Maybe InputPrepareScheduleActionSettings,
+    -- | Action to insert HLS ID3 segment tagging
+    hlsId3SegmentTaggingSettings :: Lude.Maybe HlsId3SegmentTaggingScheduleActionSettings,
+    -- | Action to insert SCTE-35 return_to_network message
+    scte35ReturnToNetworkSettings :: Lude.Maybe Scte35ReturnToNetworkScheduleActionSettings,
+    -- | Action to pause or unpause one or both channel pipelines
+    pauseStateSettings :: Lude.Maybe PauseStateScheduleActionSettings,
+    -- | Action to insert HLS metadata
+    hlsTimedMetadataSettings :: Lude.Maybe HlsTimedMetadataScheduleActionSettings,
+    -- | Action to switch the input
+    inputSwitchSettings :: Lude.Maybe InputSwitchScheduleActionSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduleActionSettings' with the minimum fields required to make a request.
 --
--- * 'hlsId3SegmentTaggingSettings' - Action to insert HLS ID3 segment tagging
--- * 'hlsTimedMetadataSettings' - Action to insert HLS metadata
--- * 'inputPrepareSettings' - Action to prepare an input for a future immediate input switch
--- * 'inputSwitchSettings' - Action to switch the input
--- * 'pauseStateSettings' - Action to pause or unpause one or both channel pipelines
--- * 'scte35ReturnToNetworkSettings' - Action to insert SCTE-35 return_to_network message
--- * 'scte35SpliceInsertSettings' - Action to insert SCTE-35 splice_insert message
--- * 'scte35TimeSignalSettings' - Action to insert SCTE-35 time_signal message
--- * 'staticImageActivateSettings' - Action to activate a static image overlay
 -- * 'staticImageDeactivateSettings' - Action to deactivate a static image overlay
+-- * 'scte35SpliceInsertSettings' - Action to insert SCTE-35 splice_insert message
+-- * 'staticImageActivateSettings' - Action to activate a static image overlay
+-- * 'scte35TimeSignalSettings' - Action to insert SCTE-35 time_signal message
+-- * 'inputPrepareSettings' - Action to prepare an input for a future immediate input switch
+-- * 'hlsId3SegmentTaggingSettings' - Action to insert HLS ID3 segment tagging
+-- * 'scte35ReturnToNetworkSettings' - Action to insert SCTE-35 return_to_network message
+-- * 'pauseStateSettings' - Action to pause or unpause one or both channel pipelines
+-- * 'hlsTimedMetadataSettings' - Action to insert HLS metadata
+-- * 'inputSwitchSettings' - Action to switch the input
 mkScheduleActionSettings ::
   ScheduleActionSettings
 mkScheduleActionSettings =

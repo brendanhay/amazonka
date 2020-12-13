@@ -38,39 +38,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainController' smart constructor.
 data DomainController = DomainController'
-  { status ::
-      Lude.Maybe DomainControllerStatus,
+  { -- | The status of the domain controller.
+    status :: Lude.Maybe DomainControllerStatus,
+    -- | Identifier of the directory where the domain controller resides.
     directoryId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the VPC that contains the domain controller.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | Specifies when the domain controller was created.
     launchTime :: Lude.Maybe Lude.Timestamp,
+    -- | Identifier of the subnet in the VPC that contains the domain controller.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone where the domain controller is located.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The date and time that the status was last updated.
     statusLastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the domain controller state.
     statusReason :: Lude.Maybe Lude.Text,
+    -- | The IP address of the domain controller.
     dnsIPAddr :: Lude.Maybe Lude.Text,
+    -- | Identifies a specific domain controller in the directory.
     domainControllerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainController' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone where the domain controller is located.
--- * 'directoryId' - Identifier of the directory where the domain controller resides.
--- * 'dnsIPAddr' - The IP address of the domain controller.
--- * 'domainControllerId' - Identifies a specific domain controller in the directory.
--- * 'launchTime' - Specifies when the domain controller was created.
 -- * 'status' - The status of the domain controller.
+-- * 'directoryId' - Identifier of the directory where the domain controller resides.
+-- * 'vpcId' - The identifier of the VPC that contains the domain controller.
+-- * 'launchTime' - Specifies when the domain controller was created.
+-- * 'subnetId' - Identifier of the subnet in the VPC that contains the domain controller.
+-- * 'availabilityZone' - The Availability Zone where the domain controller is located.
 -- * 'statusLastUpdatedDateTime' - The date and time that the status was last updated.
 -- * 'statusReason' - A description of the domain controller state.
--- * 'subnetId' - Identifier of the subnet in the VPC that contains the domain controller.
--- * 'vpcId' - The identifier of the VPC that contains the domain controller.
+-- * 'dnsIPAddr' - The IP address of the domain controller.
+-- * 'domainControllerId' - Identifies a specific domain controller in the directory.
 mkDomainController ::
   DomainController
 mkDomainController =

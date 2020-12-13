@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListObjectPoliciesResponse' smart constructor.
 data BatchListObjectPoliciesResponse = BatchListObjectPoliciesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    attachedPolicyIds ::
-      Lude.Maybe [Lude.Text]
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of policy @ObjectIdentifiers@ , that are attached to the object.
+    attachedPolicyIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectPoliciesResponse' with the minimum fields required to make a request.
 --
--- * 'attachedPolicyIds' - A list of policy @ObjectIdentifiers@ , that are attached to the object.
 -- * 'nextToken' - The pagination token.
+-- * 'attachedPolicyIds' - A list of policy @ObjectIdentifiers@ , that are attached to the object.
 mkBatchListObjectPoliciesResponse ::
   BatchListObjectPoliciesResponse
 mkBatchListObjectPoliciesResponse =

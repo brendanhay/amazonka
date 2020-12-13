@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceRequirement' smart constructor.
 data ResourceRequirement = ResourceRequirement'
-  { value :: Lude.Text,
+  { -- | The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+    value :: Lude.Text,
+    -- | The type of resource to assign to a container. Currently, the only supported resource type is @GPU@ .
     type' :: ResourceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceRequirement' with the minimum fields required to make a request.
 --
--- * 'type'' - The type of resource to assign to a container. Currently, the only supported resource type is @GPU@ .
 -- * 'value' - The number of physical GPUs to reserve for the container. The number of GPUs reserved for all containers in a job should not exceed the number of available GPUs on the compute resource that the job is launched on.
+-- * 'type'' - The type of resource to assign to a container. Currently, the only supported resource type is @GPU@ .
 mkResourceRequirement ::
   -- | 'value'
   Lude.Text ->

@@ -32,27 +32,24 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkSnapshotErrorMessage' smart constructor.
 data SnapshotErrorMessage = SnapshotErrorMessage'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
+  { -- | The text message describing the error.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the snapshot returning the error.
     snapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the cluster.
     snapshotClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The failure code for the error.
     failureCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotErrorMessage' with the minimum fields required to make a request.
 --
--- * 'failureCode' - The failure code for the error.
 -- * 'failureReason' - The text message describing the error.
--- * 'snapshotClusterIdentifier' - A unique identifier for the cluster.
 -- * 'snapshotIdentifier' - A unique identifier for the snapshot returning the error.
+-- * 'snapshotClusterIdentifier' - A unique identifier for the cluster.
+-- * 'failureCode' - The failure code for the error.
 mkSnapshotErrorMessage ::
   SnapshotErrorMessage
 mkSnapshotErrorMessage =

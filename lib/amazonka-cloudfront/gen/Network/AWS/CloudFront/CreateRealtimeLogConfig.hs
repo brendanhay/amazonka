@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.CloudFront.CreateRealtimeLogConfig
     mkCreateRealtimeLogConfig,
 
     -- ** Request lenses
+    crlcSamplingRate,
+    crlcName,
     crlcEndPoints,
     crlcFields,
-    crlcName,
-    crlcSamplingRate,
 
     -- * Destructuring the response
     CreateRealtimeLogConfigResponse (..),
@@ -45,42 +46,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRealtimeLogConfig' smart constructor.
 data CreateRealtimeLogConfig = CreateRealtimeLogConfig'
-  { endPoints ::
-      [EndPoint],
-    fields :: [Lude.Text],
+  { -- | The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
+    samplingRate :: Lude.Integer,
+    -- | A unique name to identify this real-time log configuration.
     name :: Lude.Text,
-    samplingRate :: Lude.Integer
+    -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+    endPoints :: [EndPoint],
+    -- | A list of fields to include in each real-time log record.
+    --
+    -- For more information about fields, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields> in the /Amazon CloudFront Developer Guide/ .
+    fields :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRealtimeLogConfig' with the minimum fields required to make a request.
 --
+-- * 'samplingRate' - The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
+-- * 'name' - A unique name to identify this real-time log configuration.
 -- * 'endPoints' - Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
 -- * 'fields' - A list of fields to include in each real-time log record.
 --
 -- For more information about fields, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields> in the /Amazon CloudFront Developer Guide/ .
--- * 'name' - A unique name to identify this real-time log configuration.
--- * 'samplingRate' - The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
 mkCreateRealtimeLogConfig ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'samplingRate'
   Lude.Integer ->
+  -- | 'name'
+  Lude.Text ->
   CreateRealtimeLogConfig
-mkCreateRealtimeLogConfig pName_ pSamplingRate_ =
+mkCreateRealtimeLogConfig pSamplingRate_ pName_ =
   CreateRealtimeLogConfig'
-    { endPoints = Lude.mempty,
-      fields = Lude.mempty,
+    { samplingRate = pSamplingRate_,
       name = pName_,
-      samplingRate = pSamplingRate_
+      endPoints = Lude.mempty,
+      fields = Lude.mempty
     }
+
+-- | The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
+--
+-- /Note:/ Consider using 'samplingRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crlcSamplingRate :: Lens.Lens' CreateRealtimeLogConfig Lude.Integer
+crlcSamplingRate = Lens.lens (samplingRate :: CreateRealtimeLogConfig -> Lude.Integer) (\s a -> s {samplingRate = a} :: CreateRealtimeLogConfig)
+{-# DEPRECATED crlcSamplingRate "Use generic-lens or generic-optics with 'samplingRate' instead." #-}
+
+-- | A unique name to identify this real-time log configuration.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crlcName :: Lens.Lens' CreateRealtimeLogConfig Lude.Text
+crlcName = Lens.lens (name :: CreateRealtimeLogConfig -> Lude.Text) (\s a -> s {name = a} :: CreateRealtimeLogConfig)
+{-# DEPRECATED crlcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
 --
@@ -97,20 +111,6 @@ crlcEndPoints = Lens.lens (endPoints :: CreateRealtimeLogConfig -> [EndPoint]) (
 crlcFields :: Lens.Lens' CreateRealtimeLogConfig [Lude.Text]
 crlcFields = Lens.lens (fields :: CreateRealtimeLogConfig -> [Lude.Text]) (\s a -> s {fields = a} :: CreateRealtimeLogConfig)
 {-# DEPRECATED crlcFields "Use generic-lens or generic-optics with 'fields' instead." #-}
-
--- | A unique name to identify this real-time log configuration.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crlcName :: Lens.Lens' CreateRealtimeLogConfig Lude.Text
-crlcName = Lens.lens (name :: CreateRealtimeLogConfig -> Lude.Text) (\s a -> s {name = a} :: CreateRealtimeLogConfig)
-{-# DEPRECATED crlcName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
---
--- /Note:/ Consider using 'samplingRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crlcSamplingRate :: Lens.Lens' CreateRealtimeLogConfig Lude.Integer
-crlcSamplingRate = Lens.lens (samplingRate :: CreateRealtimeLogConfig -> Lude.Integer) (\s a -> s {samplingRate = a} :: CreateRealtimeLogConfig)
-{-# DEPRECATED crlcSamplingRate "Use generic-lens or generic-optics with 'samplingRate' instead." #-}
 
 instance Lude.AWSRequest CreateRealtimeLogConfig where
   type Rs CreateRealtimeLogConfig = CreateRealtimeLogConfigResponse
@@ -140,26 +140,20 @@ instance Lude.ToQuery CreateRealtimeLogConfig where
 instance Lude.ToXML CreateRealtimeLogConfig where
   toXML CreateRealtimeLogConfig' {..} =
     Lude.mconcat
-      [ "EndPoints" Lude.@= Lude.toXMLList "member" endPoints,
-        "Fields" Lude.@= Lude.toXMLList "Field" fields,
+      [ "SamplingRate" Lude.@= samplingRate,
         "Name" Lude.@= name,
-        "SamplingRate" Lude.@= samplingRate
+        "EndPoints" Lude.@= Lude.toXMLList "member" endPoints,
+        "Fields" Lude.@= Lude.toXMLList "Field" fields
       ]
 
 -- | /See:/ 'mkCreateRealtimeLogConfigResponse' smart constructor.
 data CreateRealtimeLogConfigResponse = CreateRealtimeLogConfigResponse'
-  { realtimeLogConfig ::
-      Lude.Maybe
-        RealtimeLogConfig,
+  { -- | A real-time log configuration.
+    realtimeLogConfig :: Lude.Maybe RealtimeLogConfig,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRealtimeLogConfigResponse' with the minimum fields required to make a request.

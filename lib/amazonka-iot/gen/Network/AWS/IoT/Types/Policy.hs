@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicy' smart constructor.
 data Policy = Policy'
-  { policyName :: Lude.Maybe Lude.Text,
+  { -- | The policy name.
+    policyName :: Lude.Maybe Lude.Text,
+    -- | The policy ARN.
     policyARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Policy' with the minimum fields required to make a request.
 --
--- * 'policyARN' - The policy ARN.
 -- * 'policyName' - The policy name.
+-- * 'policyARN' - The policy ARN.
 mkPolicy ::
   Policy
 mkPolicy =

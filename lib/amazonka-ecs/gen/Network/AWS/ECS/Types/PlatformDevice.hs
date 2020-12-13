@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlatformDevice' smart constructor.
 data PlatformDevice = PlatformDevice'
-  { id :: Lude.Text,
+  { -- | The ID for the GPU(s) on the container instance. The available GPU IDs can also be obtained on the container instance in the @/var/lib/ecs/gpu/nvidia_gpu_info.json@ file.
+    id :: Lude.Text,
+    -- | The type of device that is available on the container instance. The only supported value is @GPU@ .
     type' :: PlatformDeviceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformDevice' with the minimum fields required to make a request.

@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAgentVersion' smart constructor.
 data AgentVersion = AgentVersion'
-  { version :: Lude.Maybe Lude.Text,
+  { -- | The agent version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The configuration manager.
     configurationManager :: Lude.Maybe StackConfigurationManager
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AgentVersion' with the minimum fields required to make a request.
 --
--- * 'configurationManager' - The configuration manager.
 -- * 'version' - The agent version.
+-- * 'configurationManager' - The configuration manager.
 mkAgentVersion ::
   AgentVersion
 mkAgentVersion =

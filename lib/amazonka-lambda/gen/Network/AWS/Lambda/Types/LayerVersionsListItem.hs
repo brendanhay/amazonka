@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLayerVersionsListItem' smart constructor.
 data LayerVersionsListItem = LayerVersionsListItem'
-  { layerVersionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the layer version.
+    layerVersionARN :: Lude.Maybe Lude.Text,
+    -- | The date that the version was created, in ISO 8601 format. For example, @2018-11-27T15:10:45.123+0000@ .
     createdDate :: Lude.Maybe Lude.Text,
+    -- | The version number.
     version :: Lude.Maybe Lude.Integer,
+    -- | The layer's open-source license.
     licenseInfo :: Lude.Maybe Lude.Text,
+    -- | The description of the version.
     description :: Lude.Maybe Lude.Text,
+    -- | The layer's compatible runtimes.
     compatibleRuntimes :: Lude.Maybe [Runtime]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LayerVersionsListItem' with the minimum fields required to make a request.
 --
--- * 'compatibleRuntimes' - The layer's compatible runtimes.
--- * 'createdDate' - The date that the version was created, in ISO 8601 format. For example, @2018-11-27T15:10:45.123+0000@ .
--- * 'description' - The description of the version.
 -- * 'layerVersionARN' - The ARN of the layer version.
--- * 'licenseInfo' - The layer's open-source license.
+-- * 'createdDate' - The date that the version was created, in ISO 8601 format. For example, @2018-11-27T15:10:45.123+0000@ .
 -- * 'version' - The version number.
+-- * 'licenseInfo' - The layer's open-source license.
+-- * 'description' - The description of the version.
+-- * 'compatibleRuntimes' - The layer's compatible runtimes.
 mkLayerVersionsListItem ::
   LayerVersionsListItem
 mkLayerVersionsListItem =

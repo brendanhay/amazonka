@@ -32,33 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskStatisticsForAuditCheck' smart constructor.
 data TaskStatisticsForAuditCheck = TaskStatisticsForAuditCheck'
-  { canceledFindingsCount ::
-      Lude.Maybe Lude.Integer,
-    skippedFindingsCount ::
-      Lude.Maybe Lude.Integer,
-    totalFindingsCount ::
-      Lude.Maybe Lude.Integer,
-    failedFindingsCount ::
-      Lude.Maybe Lude.Integer,
-    succeededFindingsCount ::
-      Lude.Maybe Lude.Integer
+  { -- | The number of findings to which the mitigation action task was canceled when applied.
+    canceledFindingsCount :: Lude.Maybe Lude.Integer,
+    -- | The number of findings skipped because of filter conditions provided in the parameters to the command.
+    skippedFindingsCount :: Lude.Maybe Lude.Integer,
+    -- | The total number of findings to which a task is being applied.
+    totalFindingsCount :: Lude.Maybe Lude.Integer,
+    -- | The number of findings for which at least one of the actions failed when applied.
+    failedFindingsCount :: Lude.Maybe Lude.Integer,
+    -- | The number of findings for which all mitigation actions succeeded when applied.
+    succeededFindingsCount :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskStatisticsForAuditCheck' with the minimum fields required to make a request.
 --
 -- * 'canceledFindingsCount' - The number of findings to which the mitigation action task was canceled when applied.
--- * 'failedFindingsCount' - The number of findings for which at least one of the actions failed when applied.
 -- * 'skippedFindingsCount' - The number of findings skipped because of filter conditions provided in the parameters to the command.
--- * 'succeededFindingsCount' - The number of findings for which all mitigation actions succeeded when applied.
 -- * 'totalFindingsCount' - The total number of findings to which a task is being applied.
+-- * 'failedFindingsCount' - The number of findings for which at least one of the actions failed when applied.
+-- * 'succeededFindingsCount' - The number of findings for which all mitigation actions succeeded when applied.
 mkTaskStatisticsForAuditCheck ::
   TaskStatisticsForAuditCheck
 mkTaskStatisticsForAuditCheck =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.Route53Domains.ListTagsForDomain
     mkListTagsForDomainResponse,
 
     -- ** Response lenses
-    ltfdrsResponseStatus,
     ltfdrsTagList,
+    ltfdrsResponseStatus,
   )
 where
 
@@ -43,16 +44,10 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkListTagsForDomain' smart constructor.
 newtype ListTagsForDomain = ListTagsForDomain'
-  { domainName ::
-      Lude.Text
+  { -- | The domain for which you want to get a list of tags.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForDomain' with the minimum fields required to make a request.
@@ -79,8 +74,8 @@ instance Lude.AWSRequest ListTagsForDomain where
     Res.receiveJSON
       ( \s h x ->
           ListTagsForDomainResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "TagList" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "TagList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListTagsForDomain where
@@ -109,39 +104,27 @@ instance Lude.ToQuery ListTagsForDomain where
 --
 -- /See:/ 'mkListTagsForDomainResponse' smart constructor.
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-  { responseStatus ::
-      Lude.Int,
-    tagList :: [Tag]
+  { -- | A list of the tags that are associated with the specified domain.
+    tagList :: [Tag],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForDomainResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tagList' - A list of the tags that are associated with the specified domain.
+-- * 'responseStatus' - The response status code.
 mkListTagsForDomainResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   ListTagsForDomainResponse
 mkListTagsForDomainResponse pResponseStatus_ =
   ListTagsForDomainResponse'
-    { responseStatus = pResponseStatus_,
-      tagList = Lude.mempty
+    { tagList = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfdrsResponseStatus :: Lens.Lens' ListTagsForDomainResponse Lude.Int
-ltfdrsResponseStatus = Lens.lens (responseStatus :: ListTagsForDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForDomainResponse)
-{-# DEPRECATED ltfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of the tags that are associated with the specified domain.
 --
@@ -149,3 +132,10 @@ ltfdrsResponseStatus = Lens.lens (responseStatus :: ListTagsForDomainResponse ->
 ltfdrsTagList :: Lens.Lens' ListTagsForDomainResponse [Tag]
 ltfdrsTagList = Lens.lens (tagList :: ListTagsForDomainResponse -> [Tag]) (\s a -> s {tagList = a} :: ListTagsForDomainResponse)
 {-# DEPRECATED ltfdrsTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfdrsResponseStatus :: Lens.Lens' ListTagsForDomainResponse Lude.Int
+ltfdrsResponseStatus = Lens.lens (responseStatus :: ListTagsForDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForDomainResponse)
+{-# DEPRECATED ltfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

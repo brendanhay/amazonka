@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.KinesisAnalytics.UpdateApplication
     mkUpdateApplication,
 
     -- ** Request lenses
-    uaApplicationName,
     uaCurrentApplicationVersionId,
+    uaApplicationName,
     uaApplicationUpdate,
 
     -- * Destructuring the response
@@ -43,49 +44,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { applicationName ::
-      Lude.Text,
+  { -- | The current application version ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
     currentApplicationVersionId :: Lude.Natural,
+    -- | Name of the Amazon Kinesis Analytics application to update.
+    applicationName :: Lude.Text,
+    -- | Describes application updates.
     applicationUpdate :: ApplicationUpdate
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
 --
+-- * 'currentApplicationVersionId' - The current application version ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
 -- * 'applicationName' - Name of the Amazon Kinesis Analytics application to update.
 -- * 'applicationUpdate' - Describes application updates.
--- * 'currentApplicationVersionId' - The current application version ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
 mkUpdateApplication ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'currentApplicationVersionId'
   Lude.Natural ->
+  -- | 'applicationName'
+  Lude.Text ->
   -- | 'applicationUpdate'
   ApplicationUpdate ->
   UpdateApplication
 mkUpdateApplication
-  pApplicationName_
   pCurrentApplicationVersionId_
+  pApplicationName_
   pApplicationUpdate_ =
     UpdateApplication'
-      { applicationName = pApplicationName_,
-        currentApplicationVersionId = pCurrentApplicationVersionId_,
+      { currentApplicationVersionId =
+          pCurrentApplicationVersionId_,
+        applicationName = pApplicationName_,
         applicationUpdate = pApplicationUpdate_
       }
-
--- | Name of the Amazon Kinesis Analytics application to update.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaApplicationName :: Lens.Lens' UpdateApplication Lude.Text
-uaApplicationName = Lens.lens (applicationName :: UpdateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplication)
-{-# DEPRECATED uaApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The current application version ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
 --
@@ -93,6 +84,13 @@ uaApplicationName = Lens.lens (applicationName :: UpdateApplication -> Lude.Text
 uaCurrentApplicationVersionId :: Lens.Lens' UpdateApplication Lude.Natural
 uaCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: UpdateApplication -> Lude.Natural) (\s a -> s {currentApplicationVersionId = a} :: UpdateApplication)
 {-# DEPRECATED uaCurrentApplicationVersionId "Use generic-lens or generic-optics with 'currentApplicationVersionId' instead." #-}
+
+-- | Name of the Amazon Kinesis Analytics application to update.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaApplicationName :: Lens.Lens' UpdateApplication Lude.Text
+uaApplicationName = Lens.lens (applicationName :: UpdateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplication)
+{-# DEPRECATED uaApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Describes application updates.
 --
@@ -125,11 +123,11 @@ instance Lude.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ApplicationName" Lude..= applicationName),
-            Lude.Just
+          [ Lude.Just
               ( "CurrentApplicationVersionId"
                   Lude..= currentApplicationVersionId
               ),
+            Lude.Just ("ApplicationName" Lude..= applicationName),
             Lude.Just ("ApplicationUpdate" Lude..= applicationUpdate)
           ]
       )
@@ -142,16 +140,10 @@ instance Lude.ToQuery UpdateApplication where
 
 -- | /See:/ 'mkUpdateApplicationResponse' smart constructor.
 newtype UpdateApplicationResponse = UpdateApplicationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.

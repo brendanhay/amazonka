@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,10 +42,10 @@ module Network.AWS.S3.PutBucketMetricsConfiguration
     mkPutBucketMetricsConfiguration,
 
     -- ** Request lenses
-    pbmcExpectedBucketOwner,
+    pbmcMetricsConfiguration,
     pbmcBucket,
     pbmcId,
-    pbmcMetricsConfiguration,
+    pbmcExpectedBucketOwner,
 
     -- * Destructuring the response
     PutBucketMetricsConfigurationResponse (..),
@@ -60,54 +61,50 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketMetricsConfiguration' smart constructor.
 data PutBucketMetricsConfiguration = PutBucketMetricsConfiguration'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the metrics configuration.
+    metricsConfiguration :: MetricsConfiguration,
+    -- | The name of the bucket for which the metrics configuration is set.
     bucket :: BucketName,
+    -- | The ID used to identify the metrics configuration.
     id :: Lude.Text,
-    metricsConfiguration ::
-      MetricsConfiguration
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketMetricsConfiguration' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the bucket for which the metrics configuration is set.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'id' - The ID used to identify the metrics configuration.
 -- * 'metricsConfiguration' - Specifies the metrics configuration.
+-- * 'bucket' - The name of the bucket for which the metrics configuration is set.
+-- * 'id' - The ID used to identify the metrics configuration.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkPutBucketMetricsConfiguration ::
+  -- | 'metricsConfiguration'
+  MetricsConfiguration ->
   -- | 'bucket'
   BucketName ->
   -- | 'id'
   Lude.Text ->
-  -- | 'metricsConfiguration'
-  MetricsConfiguration ->
   PutBucketMetricsConfiguration
 mkPutBucketMetricsConfiguration
+  pMetricsConfiguration_
   pBucket_
-  pId_
-  pMetricsConfiguration_ =
+  pId_ =
     PutBucketMetricsConfiguration'
-      { expectedBucketOwner =
-          Lude.Nothing,
+      { metricsConfiguration =
+          pMetricsConfiguration_,
         bucket = pBucket_,
         id = pId_,
-        metricsConfiguration = pMetricsConfiguration_
+        expectedBucketOwner = Lude.Nothing
       }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Specifies the metrics configuration.
 --
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbmcExpectedBucketOwner :: Lens.Lens' PutBucketMetricsConfiguration (Lude.Maybe Lude.Text)
-pbmcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketMetricsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketMetricsConfiguration)
-{-# DEPRECATED pbmcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+-- /Note:/ Consider using 'metricsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbmcMetricsConfiguration :: Lens.Lens' PutBucketMetricsConfiguration MetricsConfiguration
+pbmcMetricsConfiguration = Lens.lens (metricsConfiguration :: PutBucketMetricsConfiguration -> MetricsConfiguration) (\s a -> s {metricsConfiguration = a} :: PutBucketMetricsConfiguration)
+{-# DEPRECATED pbmcMetricsConfiguration "Use generic-lens or generic-optics with 'metricsConfiguration' instead." #-}
 
 -- | The name of the bucket for which the metrics configuration is set.
 --
@@ -123,12 +120,12 @@ pbmcId :: Lens.Lens' PutBucketMetricsConfiguration Lude.Text
 pbmcId = Lens.lens (id :: PutBucketMetricsConfiguration -> Lude.Text) (\s a -> s {id = a} :: PutBucketMetricsConfiguration)
 {-# DEPRECATED pbmcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | Specifies the metrics configuration.
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
--- /Note:/ Consider using 'metricsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbmcMetricsConfiguration :: Lens.Lens' PutBucketMetricsConfiguration MetricsConfiguration
-pbmcMetricsConfiguration = Lens.lens (metricsConfiguration :: PutBucketMetricsConfiguration -> MetricsConfiguration) (\s a -> s {metricsConfiguration = a} :: PutBucketMetricsConfiguration)
-{-# DEPRECATED pbmcMetricsConfiguration "Use generic-lens or generic-optics with 'metricsConfiguration' instead." #-}
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbmcExpectedBucketOwner :: Lens.Lens' PutBucketMetricsConfiguration (Lude.Maybe Lude.Text)
+pbmcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketMetricsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketMetricsConfiguration)
+{-# DEPRECATED pbmcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest PutBucketMetricsConfiguration where
   type
@@ -158,13 +155,7 @@ instance Lude.ToQuery PutBucketMetricsConfiguration where
 
 -- | /See:/ 'mkPutBucketMetricsConfigurationResponse' smart constructor.
 data PutBucketMetricsConfigurationResponse = PutBucketMetricsConfigurationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketMetricsConfigurationResponse' with the minimum fields required to make a request.

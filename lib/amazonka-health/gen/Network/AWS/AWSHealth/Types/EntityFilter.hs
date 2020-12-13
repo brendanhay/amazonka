@@ -17,12 +17,12 @@ module Network.AWS.AWSHealth.Types.EntityFilter
     mkEntityFilter,
 
     -- * Lenses
+    eEventARNs,
     eStatusCodes,
     eEntityARNs,
     eEntityValues,
     eTags,
     eLastUpdatedTimes,
-    eEventARNs,
   )
 where
 
@@ -35,44 +35,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntityFilter' smart constructor.
 data EntityFilter = EntityFilter'
-  { statusCodes ::
-      Lude.Maybe (Lude.NonEmpty EntityStatusCode),
+  { -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
+    eventARNs :: Lude.NonEmpty Lude.Text,
+    -- | A list of entity status codes (@IMPAIRED@ , @UNIMPAIRED@ , or @UNKNOWN@ ).
+    statusCodes :: Lude.Maybe (Lude.NonEmpty EntityStatusCode),
+    -- | A list of entity ARNs (unique identifiers).
     entityARNs :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of IDs for affected entities.
     entityValues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A map of entity tags attached to the affected entity.
     tags :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
-    lastUpdatedTimes :: Lude.Maybe (Lude.NonEmpty DateTimeRange),
-    eventARNs :: Lude.NonEmpty Lude.Text
+    -- | A list of the most recent dates and times that the entity was updated.
+    lastUpdatedTimes :: Lude.Maybe (Lude.NonEmpty DateTimeRange)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityFilter' with the minimum fields required to make a request.
 --
+-- * 'eventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
+-- * 'statusCodes' - A list of entity status codes (@IMPAIRED@ , @UNIMPAIRED@ , or @UNKNOWN@ ).
 -- * 'entityARNs' - A list of entity ARNs (unique identifiers).
 -- * 'entityValues' - A list of IDs for affected entities.
--- * 'eventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
--- * 'lastUpdatedTimes' - A list of the most recent dates and times that the entity was updated.
--- * 'statusCodes' - A list of entity status codes (@IMPAIRED@ , @UNIMPAIRED@ , or @UNKNOWN@ ).
 -- * 'tags' - A map of entity tags attached to the affected entity.
+-- * 'lastUpdatedTimes' - A list of the most recent dates and times that the entity was updated.
 mkEntityFilter ::
   -- | 'eventARNs'
   Lude.NonEmpty Lude.Text ->
   EntityFilter
 mkEntityFilter pEventARNs_ =
   EntityFilter'
-    { statusCodes = Lude.Nothing,
+    { eventARNs = pEventARNs_,
+      statusCodes = Lude.Nothing,
       entityARNs = Lude.Nothing,
       entityValues = Lude.Nothing,
       tags = Lude.Nothing,
-      lastUpdatedTimes = Lude.Nothing,
-      eventARNs = pEventARNs_
+      lastUpdatedTimes = Lude.Nothing
     }
+
+-- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
+--
+-- /Note:/ Consider using 'eventARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEventARNs :: Lens.Lens' EntityFilter (Lude.NonEmpty Lude.Text)
+eEventARNs = Lens.lens (eventARNs :: EntityFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {eventARNs = a} :: EntityFilter)
+{-# DEPRECATED eEventARNs "Use generic-lens or generic-optics with 'eventARNs' instead." #-}
 
 -- | A list of entity status codes (@IMPAIRED@ , @UNIMPAIRED@ , or @UNKNOWN@ ).
 --
@@ -109,22 +115,15 @@ eLastUpdatedTimes :: Lens.Lens' EntityFilter (Lude.Maybe (Lude.NonEmpty DateTime
 eLastUpdatedTimes = Lens.lens (lastUpdatedTimes :: EntityFilter -> Lude.Maybe (Lude.NonEmpty DateTimeRange)) (\s a -> s {lastUpdatedTimes = a} :: EntityFilter)
 {-# DEPRECATED eLastUpdatedTimes "Use generic-lens or generic-optics with 'lastUpdatedTimes' instead." #-}
 
--- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
---
--- /Note:/ Consider using 'eventARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEventARNs :: Lens.Lens' EntityFilter (Lude.NonEmpty Lude.Text)
-eEventARNs = Lens.lens (eventARNs :: EntityFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {eventARNs = a} :: EntityFilter)
-{-# DEPRECATED eEventARNs "Use generic-lens or generic-optics with 'eventARNs' instead." #-}
-
 instance Lude.ToJSON EntityFilter where
   toJSON EntityFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("statusCodes" Lude..=) Lude.<$> statusCodes,
+          [ Lude.Just ("eventArns" Lude..= eventARNs),
+            ("statusCodes" Lude..=) Lude.<$> statusCodes,
             ("entityArns" Lude..=) Lude.<$> entityARNs,
             ("entityValues" Lude..=) Lude.<$> entityValues,
             ("tags" Lude..=) Lude.<$> tags,
-            ("lastUpdatedTimes" Lude..=) Lude.<$> lastUpdatedTimes,
-            Lude.Just ("eventArns" Lude..= eventARNs)
+            ("lastUpdatedTimes" Lude..=) Lude.<$> lastUpdatedTimes
           ]
       )

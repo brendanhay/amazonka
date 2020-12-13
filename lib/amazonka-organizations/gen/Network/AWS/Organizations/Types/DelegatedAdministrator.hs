@@ -37,17 +37,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDelegatedAdministrator' smart constructor.
 data DelegatedAdministrator = DelegatedAdministrator'
-  { status ::
-      Lude.Maybe AccountStatus,
-    joinedMethod ::
-      Lude.Maybe AccountJoinedMethod,
-    email ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The status of the delegated administrator's account in the organization.
+    status :: Lude.Maybe AccountStatus,
+    -- | The method by which the delegated administrator's account joined the organization.
+    joinedMethod :: Lude.Maybe AccountJoinedMethod,
+    -- | The email address that is associated with the delegated administrator's AWS account.
+    email :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The Amazon Resource Name (ARN) of the delegated administrator's account.
     arn :: Lude.Maybe Lude.Text,
+    -- | The date when the delegated administrator's account became a part of the organization.
     joinedTimestamp :: Lude.Maybe Lude.Timestamp,
-    delegationEnabledDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date when the account was made a delegated administrator.
+    delegationEnabledDate :: Lude.Maybe Lude.Timestamp,
+    -- | The friendly name of the delegated administrator's account.
     name :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The unique identifier (ID) of the delegated administrator's account.
     id :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -55,14 +59,14 @@ data DelegatedAdministrator = DelegatedAdministrator'
 
 -- | Creates a value of 'DelegatedAdministrator' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the delegated administrator's account.
--- * 'delegationEnabledDate' - The date when the account was made a delegated administrator.
--- * 'email' - The email address that is associated with the delegated administrator's AWS account.
--- * 'id' - The unique identifier (ID) of the delegated administrator's account.
--- * 'joinedMethod' - The method by which the delegated administrator's account joined the organization.
--- * 'joinedTimestamp' - The date when the delegated administrator's account became a part of the organization.
--- * 'name' - The friendly name of the delegated administrator's account.
 -- * 'status' - The status of the delegated administrator's account in the organization.
+-- * 'joinedMethod' - The method by which the delegated administrator's account joined the organization.
+-- * 'email' - The email address that is associated with the delegated administrator's AWS account.
+-- * 'arn' - The Amazon Resource Name (ARN) of the delegated administrator's account.
+-- * 'joinedTimestamp' - The date when the delegated administrator's account became a part of the organization.
+-- * 'delegationEnabledDate' - The date when the account was made a delegated administrator.
+-- * 'name' - The friendly name of the delegated administrator's account.
+-- * 'id' - The unique identifier (ID) of the delegated administrator's account.
 mkDelegatedAdministrator ::
   DelegatedAdministrator
 mkDelegatedAdministrator =

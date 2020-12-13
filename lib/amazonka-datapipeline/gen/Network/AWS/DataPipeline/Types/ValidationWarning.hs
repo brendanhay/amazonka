@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkValidationWarning' smart constructor.
 data ValidationWarning = ValidationWarning'
-  { warnings ::
-      Lude.Maybe [Lude.Text],
+  { -- | A description of the validation warning.
+    warnings :: Lude.Maybe [Lude.Text],
+    -- | The identifier of the object that contains the validation warning.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationWarning' with the minimum fields required to make a request.
 --
--- * 'id' - The identifier of the object that contains the validation warning.
 -- * 'warnings' - A description of the validation warning.
+-- * 'id' - The identifier of the object that contains the validation warning.
 mkValidationWarning ::
   ValidationWarning
 mkValidationWarning =

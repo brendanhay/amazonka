@@ -13,12 +13,12 @@
 module Network.AWS.ECS.Types.AgentUpdateStatus
   ( AgentUpdateStatus
       ( AgentUpdateStatus',
-        AUSFailed,
         AUSPending,
-        AUSStaged,
         AUSStaging,
+        AUSStaged,
+        AUSUpdating,
         AUSUpdated,
-        AUSUpdating
+        AUSFailed
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype AgentUpdateStatus = AgentUpdateStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern AUSFailed :: AgentUpdateStatus
-pattern AUSFailed = AgentUpdateStatus' "FAILED"
-
 pattern AUSPending :: AgentUpdateStatus
 pattern AUSPending = AgentUpdateStatus' "PENDING"
-
-pattern AUSStaged :: AgentUpdateStatus
-pattern AUSStaged = AgentUpdateStatus' "STAGED"
 
 pattern AUSStaging :: AgentUpdateStatus
 pattern AUSStaging = AgentUpdateStatus' "STAGING"
 
-pattern AUSUpdated :: AgentUpdateStatus
-pattern AUSUpdated = AgentUpdateStatus' "UPDATED"
+pattern AUSStaged :: AgentUpdateStatus
+pattern AUSStaged = AgentUpdateStatus' "STAGED"
 
 pattern AUSUpdating :: AgentUpdateStatus
 pattern AUSUpdating = AgentUpdateStatus' "UPDATING"
 
+pattern AUSUpdated :: AgentUpdateStatus
+pattern AUSUpdated = AgentUpdateStatus' "UPDATED"
+
+pattern AUSFailed :: AgentUpdateStatus
+pattern AUSFailed = AgentUpdateStatus' "FAILED"
+
 {-# COMPLETE
-  AUSFailed,
   AUSPending,
-  AUSStaged,
   AUSStaging,
-  AUSUpdated,
+  AUSStaged,
   AUSUpdating,
+  AUSUpdated,
+  AUSFailed,
   AgentUpdateStatus'
   #-}

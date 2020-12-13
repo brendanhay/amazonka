@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -59,23 +60,18 @@ import Network.AWS.WAF.Types
 --
 -- /See:/ 'mkCreateSqlInjectionMatchSet' smart constructor.
 data CreateSqlInjectionMatchSet = CreateSqlInjectionMatchSet'
-  { name ::
-      Lude.Text,
+  { -- | A friendly name or description for the 'SqlInjectionMatchSet' that you're creating. You can't change @Name@ after you create the @SqlInjectionMatchSet@ .
+    name :: Lude.Text,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSqlInjectionMatchSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'name' - A friendly name or description for the 'SqlInjectionMatchSet' that you're creating. You can't change @Name@ after you create the @SqlInjectionMatchSet@ .
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkCreateSqlInjectionMatchSet ::
   -- | 'name'
   Lude.Text ->
@@ -146,28 +142,21 @@ instance Lude.ToQuery CreateSqlInjectionMatchSet where
 --
 -- /See:/ 'mkCreateSqlInjectionMatchSetResponse' smart constructor.
 data CreateSqlInjectionMatchSetResponse = CreateSqlInjectionMatchSetResponse'
-  { sqlInjectionMatchSet ::
-      Lude.Maybe
-        SqlInjectionMatchSet,
-    changeToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A 'SqlInjectionMatchSet' .
+    sqlInjectionMatchSet :: Lude.Maybe SqlInjectionMatchSet,
+    -- | The @ChangeToken@ that you used to submit the @CreateSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSqlInjectionMatchSetResponse' with the minimum fields required to make a request.
 --
+-- * 'sqlInjectionMatchSet' - A 'SqlInjectionMatchSet' .
 -- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 -- * 'responseStatus' - The response status code.
--- * 'sqlInjectionMatchSet' - A 'SqlInjectionMatchSet' .
 mkCreateSqlInjectionMatchSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

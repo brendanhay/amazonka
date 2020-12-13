@@ -33,26 +33,23 @@ import Network.AWS.ServiceCatalog.Types.Tag
 --
 -- /See:/ 'mkLaunchPathSummary' smart constructor.
 data LaunchPathSummary = LaunchPathSummary'
-  { constraintSummaries ::
-      Lude.Maybe [ConstraintSummary],
+  { -- | The constraints on the portfolio-product relationship.
+    constraintSummaries :: Lude.Maybe [ConstraintSummary],
+    -- | The name of the portfolio to which the user was assigned.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the product path.
     id :: Lude.Maybe Lude.Text,
+    -- | The tags associated with this product path.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchPathSummary' with the minimum fields required to make a request.
 --
 -- * 'constraintSummaries' - The constraints on the portfolio-product relationship.
--- * 'id' - The identifier of the product path.
 -- * 'name' - The name of the portfolio to which the user was assigned.
+-- * 'id' - The identifier of the product path.
 -- * 'tags' - The tags associated with this product path.
 mkLaunchPathSummary ::
   LaunchPathSummary

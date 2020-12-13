@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.EC2.DescribeVPCEndpointServicePermissions
     -- ** Request lenses
     dvespFilters,
     dvespNextToken,
+    dvespServiceId,
     dvespDryRun,
     dvespMaxResults,
-    dvespServiceId,
 
     -- * Destructuring the response
     DescribeVPCEndpointServicePermissionsResponse (..),
@@ -47,33 +48,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeVPCEndpointServicePermissions' smart constructor.
 data DescribeVPCEndpointServicePermissions = DescribeVPCEndpointServicePermissions'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Int,
-    serviceId ::
-      Lude.Text
+  { -- | One or more filters.
+    --
+    --
+    --     * @principal@ - The ARN of the principal.
+    --
+    --
+    --     * @principal-type@ - The principal type (@All@ | @Service@ | @OrganizationUnit@ | @Account@ | @User@ | @Role@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the service.
+    serviceId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointServicePermissions' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -83,9 +79,10 @@ data DescribeVPCEndpointServicePermissions = DescribeVPCEndpointServicePermissio
 --     * @principal-type@ - The principal type (@All@ | @Service@ | @OrganizationUnit@ | @Account@ | @User@ | @Role@ ).
 --
 --
--- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
 -- * 'nextToken' - The token to retrieve the next page of results.
 -- * 'serviceId' - The ID of the service.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
 mkDescribeVPCEndpointServicePermissions ::
   -- | 'serviceId'
   Lude.Text ->
@@ -94,9 +91,9 @@ mkDescribeVPCEndpointServicePermissions pServiceId_ =
   DescribeVPCEndpointServicePermissions'
     { filters = Lude.Nothing,
       nextToken = Lude.Nothing,
+      serviceId = pServiceId_,
       dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      serviceId = pServiceId_
+      maxResults = Lude.Nothing
     }
 
 -- | One or more filters.
@@ -121,6 +118,13 @@ dvespNextToken :: Lens.Lens' DescribeVPCEndpointServicePermissions (Lude.Maybe L
 dvespNextToken = Lens.lens (nextToken :: DescribeVPCEndpointServicePermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCEndpointServicePermissions)
 {-# DEPRECATED dvespNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
+-- | The ID of the service.
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvespServiceId :: Lens.Lens' DescribeVPCEndpointServicePermissions Lude.Text
+dvespServiceId = Lens.lens (serviceId :: DescribeVPCEndpointServicePermissions -> Lude.Text) (\s a -> s {serviceId = a} :: DescribeVPCEndpointServicePermissions)
+{-# DEPRECATED dvespServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
+
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -134,13 +138,6 @@ dvespDryRun = Lens.lens (dryRun :: DescribeVPCEndpointServicePermissions -> Lude
 dvespMaxResults :: Lens.Lens' DescribeVPCEndpointServicePermissions (Lude.Maybe Lude.Int)
 dvespMaxResults = Lens.lens (maxResults :: DescribeVPCEndpointServicePermissions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeVPCEndpointServicePermissions)
 {-# DEPRECATED dvespMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the service.
---
--- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvespServiceId :: Lens.Lens' DescribeVPCEndpointServicePermissions Lude.Text
-dvespServiceId = Lens.lens (serviceId :: DescribeVPCEndpointServicePermissions -> Lude.Text) (\s a -> s {serviceId = a} :: DescribeVPCEndpointServicePermissions)
-{-# DEPRECATED dvespServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 instance Page.AWSPager DescribeVPCEndpointServicePermissions where
   page rq rs
@@ -181,38 +178,27 @@ instance Lude.ToQuery DescribeVPCEndpointServicePermissions where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
         "NextToken" Lude.=: nextToken,
+        "ServiceId" Lude.=: serviceId,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "ServiceId" Lude.=: serviceId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkDescribeVPCEndpointServicePermissionsResponse' smart constructor.
 data DescribeVPCEndpointServicePermissionsResponse = DescribeVPCEndpointServicePermissionsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    allowedPrincipals ::
-      Lude.Maybe
-        [AllowedPrincipal],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about one or more allowed principals.
+    allowedPrincipals :: Lude.Maybe [AllowedPrincipal],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointServicePermissionsResponse' with the minimum fields required to make a request.
 --
--- * 'allowedPrincipals' - Information about one or more allowed principals.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'allowedPrincipals' - Information about one or more allowed principals.
 -- * 'responseStatus' - The response status code.
 mkDescribeVPCEndpointServicePermissionsResponse ::
   -- | 'responseStatus'

@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDenied' smart constructor.
 data Denied = Denied'
-  { implicitDeny :: Lude.Maybe ImplicitDeny,
+  { -- | Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
+    implicitDeny :: Lude.Maybe ImplicitDeny,
+    -- | Information that explicitly denies the authorization.
     explicitDeny :: Lude.Maybe ExplicitDeny
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Denied' with the minimum fields required to make a request.
 --
--- * 'explicitDeny' - Information that explicitly denies the authorization.
 -- * 'implicitDeny' - Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
+-- * 'explicitDeny' - Information that explicitly denies the authorization.
 mkDenied ::
   Denied
 mkDenied =

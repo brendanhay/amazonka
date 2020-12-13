@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIdentityDescription' smart constructor.
 data IdentityDescription = IdentityDescription'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Date on which the identity was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | Date on which the identity was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The provider names.
     logins :: Lude.Maybe [Lude.Text],
+    -- | A unique identifier in the format REGION:GUID.
     identityId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityDescription' with the minimum fields required to make a request.
 --
--- * 'creationDate' - Date on which the identity was created.
--- * 'identityId' - A unique identifier in the format REGION:GUID.
 -- * 'lastModifiedDate' - Date on which the identity was last modified.
+-- * 'creationDate' - Date on which the identity was created.
 -- * 'logins' - The provider names.
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
 mkIdentityDescription ::
   IdentityDescription
 mkIdentityDescription =

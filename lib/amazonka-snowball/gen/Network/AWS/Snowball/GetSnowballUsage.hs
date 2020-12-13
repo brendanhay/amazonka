@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.Snowball.GetSnowballUsage
     mkGetSnowballUsageResponse,
 
     -- ** Response lenses
-    grsSnowballsInUse,
-    grsSnowballLimit,
-    grsResponseStatus,
+    gsursSnowballsInUse,
+    gsursSnowballLimit,
+    gsursResponseStatus,
   )
 where
 
@@ -39,13 +40,7 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkGetSnowballUsage' smart constructor.
 data GetSnowballUsage = GetSnowballUsage'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSnowballUsage' with the minimum fields required to make a request.
@@ -89,25 +84,21 @@ instance Lude.ToQuery GetSnowballUsage where
 
 -- | /See:/ 'mkGetSnowballUsageResponse' smart constructor.
 data GetSnowballUsageResponse = GetSnowballUsageResponse'
-  { snowballsInUse ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of Snow devices that this account is currently using.
+    snowballsInUse :: Lude.Maybe Lude.Int,
+    -- | The service limit for number of Snow devices this account can have at once. The default service limit is 1 (one).
     snowballLimit :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSnowballUsageResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'snowballLimit' - The service limit for number of Snow devices this account can have at once. The default service limit is 1 (one).
 -- * 'snowballsInUse' - The number of Snow devices that this account is currently using.
+-- * 'snowballLimit' - The service limit for number of Snow devices this account can have at once. The default service limit is 1 (one).
+-- * 'responseStatus' - The response status code.
 mkGetSnowballUsageResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -122,20 +113,20 @@ mkGetSnowballUsageResponse pResponseStatus_ =
 -- | The number of Snow devices that this account is currently using.
 --
 -- /Note:/ Consider using 'snowballsInUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsSnowballsInUse :: Lens.Lens' GetSnowballUsageResponse (Lude.Maybe Lude.Int)
-grsSnowballsInUse = Lens.lens (snowballsInUse :: GetSnowballUsageResponse -> Lude.Maybe Lude.Int) (\s a -> s {snowballsInUse = a} :: GetSnowballUsageResponse)
-{-# DEPRECATED grsSnowballsInUse "Use generic-lens or generic-optics with 'snowballsInUse' instead." #-}
+gsursSnowballsInUse :: Lens.Lens' GetSnowballUsageResponse (Lude.Maybe Lude.Int)
+gsursSnowballsInUse = Lens.lens (snowballsInUse :: GetSnowballUsageResponse -> Lude.Maybe Lude.Int) (\s a -> s {snowballsInUse = a} :: GetSnowballUsageResponse)
+{-# DEPRECATED gsursSnowballsInUse "Use generic-lens or generic-optics with 'snowballsInUse' instead." #-}
 
 -- | The service limit for number of Snow devices this account can have at once. The default service limit is 1 (one).
 --
 -- /Note:/ Consider using 'snowballLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsSnowballLimit :: Lens.Lens' GetSnowballUsageResponse (Lude.Maybe Lude.Int)
-grsSnowballLimit = Lens.lens (snowballLimit :: GetSnowballUsageResponse -> Lude.Maybe Lude.Int) (\s a -> s {snowballLimit = a} :: GetSnowballUsageResponse)
-{-# DEPRECATED grsSnowballLimit "Use generic-lens or generic-optics with 'snowballLimit' instead." #-}
+gsursSnowballLimit :: Lens.Lens' GetSnowballUsageResponse (Lude.Maybe Lude.Int)
+gsursSnowballLimit = Lens.lens (snowballLimit :: GetSnowballUsageResponse -> Lude.Maybe Lude.Int) (\s a -> s {snowballLimit = a} :: GetSnowballUsageResponse)
+{-# DEPRECATED gsursSnowballLimit "Use generic-lens or generic-optics with 'snowballLimit' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsResponseStatus :: Lens.Lens' GetSnowballUsageResponse Lude.Int
-grsResponseStatus = Lens.lens (responseStatus :: GetSnowballUsageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSnowballUsageResponse)
-{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsursResponseStatus :: Lens.Lens' GetSnowballUsageResponse Lude.Int
+gsursResponseStatus = Lens.lens (responseStatus :: GetSnowballUsageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSnowballUsageResponse)
+{-# DEPRECATED gsursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

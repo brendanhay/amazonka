@@ -29,25 +29,15 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkRecordsEvent' smart constructor.
 newtype RecordsEvent = RecordsEvent'
-  { payload ::
-      Lude.Maybe Lude.Base64
+  { -- | The byte array of partial, one or more result records.
+    payload :: Lude.Maybe Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordsEvent' with the minimum fields required to make a request.
 --
--- * 'payload' - The byte array of partial, one or more result records.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'payload' - The byte array of partial, one or more result records.
 mkRecordsEvent ::
   RecordsEvent
 mkRecordsEvent = RecordsEvent' {payload = Lude.Nothing}

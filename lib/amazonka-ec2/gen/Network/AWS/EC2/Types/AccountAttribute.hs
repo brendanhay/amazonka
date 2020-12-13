@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountAttribute' smart constructor.
 data AccountAttribute = AccountAttribute'
-  { attributeValues ::
-      Lude.Maybe [AccountAttributeValue],
+  { -- | The values for the account attribute.
+    attributeValues :: Lude.Maybe [AccountAttributeValue],
+    -- | The name of the account attribute.
     attributeName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountAttribute' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of the account attribute.
 -- * 'attributeValues' - The values for the account attribute.
+-- * 'attributeName' - The name of the account attribute.
 mkAccountAttribute ::
   AccountAttribute
 mkAccountAttribute =

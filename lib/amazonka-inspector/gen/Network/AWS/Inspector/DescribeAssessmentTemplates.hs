@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.Inspector.DescribeAssessmentTemplates
     mkDescribeAssessmentTemplatesResponse,
 
     -- ** Response lenses
-    datrsResponseStatus,
     datrsAssessmentTemplates,
     datrsFailedItems,
+    datrsResponseStatus,
   )
 where
 
@@ -40,21 +41,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAssessmentTemplates' smart constructor.
 newtype DescribeAssessmentTemplates = DescribeAssessmentTemplates'
-  { assessmentTemplateARNs ::
-      Lude.NonEmpty Lude.Text
+  { assessmentTemplateARNs :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAssessmentTemplates' with the minimum fields required to make a request.
 --
--- * 'assessmentTemplateARNs' - Undocumented field.
+-- * 'assessmentTemplateARNs' -
 mkDescribeAssessmentTemplates ::
   -- | 'assessmentTemplateARNs'
   Lude.NonEmpty Lude.Text ->
@@ -81,9 +75,9 @@ instance Lude.AWSRequest DescribeAssessmentTemplates where
     Res.receiveJSON
       ( \s h x ->
           DescribeAssessmentTemplatesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "assessmentTemplates" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "assessmentTemplates" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeAssessmentTemplates where
@@ -116,22 +110,14 @@ instance Lude.ToQuery DescribeAssessmentTemplates where
 
 -- | /See:/ 'mkDescribeAssessmentTemplatesResponse' smart constructor.
 data DescribeAssessmentTemplatesResponse = DescribeAssessmentTemplatesResponse'
-  { responseStatus ::
-      Lude.Int,
-    assessmentTemplates ::
-      [AssessmentTemplate],
-    failedItems ::
-      Lude.HashMap
-        Lude.Text
-        (FailedItemDetails)
+  { -- | Information about the assessment templates.
+    assessmentTemplates :: [AssessmentTemplate],
+    -- | Assessment template details that cannot be described. An error code is provided for each failed item.
+    failedItems :: Lude.HashMap Lude.Text (FailedItemDetails),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAssessmentTemplatesResponse' with the minimum fields required to make a request.
@@ -145,18 +131,11 @@ mkDescribeAssessmentTemplatesResponse ::
   DescribeAssessmentTemplatesResponse
 mkDescribeAssessmentTemplatesResponse pResponseStatus_ =
   DescribeAssessmentTemplatesResponse'
-    { responseStatus =
-        pResponseStatus_,
-      assessmentTemplates = Lude.mempty,
-      failedItems = Lude.mempty
+    { assessmentTemplates =
+        Lude.mempty,
+      failedItems = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datrsResponseStatus :: Lens.Lens' DescribeAssessmentTemplatesResponse Lude.Int
-datrsResponseStatus = Lens.lens (responseStatus :: DescribeAssessmentTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAssessmentTemplatesResponse)
-{-# DEPRECATED datrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the assessment templates.
 --
@@ -171,3 +150,10 @@ datrsAssessmentTemplates = Lens.lens (assessmentTemplates :: DescribeAssessmentT
 datrsFailedItems :: Lens.Lens' DescribeAssessmentTemplatesResponse (Lude.HashMap Lude.Text (FailedItemDetails))
 datrsFailedItems = Lens.lens (failedItems :: DescribeAssessmentTemplatesResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeAssessmentTemplatesResponse)
 {-# DEPRECATED datrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datrsResponseStatus :: Lens.Lens' DescribeAssessmentTemplatesResponse Lude.Int
+datrsResponseStatus = Lens.lens (responseStatus :: DescribeAssessmentTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAssessmentTemplatesResponse)
+{-# DEPRECATED datrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

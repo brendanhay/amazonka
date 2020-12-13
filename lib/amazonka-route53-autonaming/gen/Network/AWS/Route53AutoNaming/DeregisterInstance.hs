@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Route53AutoNaming.DeregisterInstance
     mkDeregisterInstance,
 
     -- ** Request lenses
-    diServiceId,
     diInstanceId,
+    diServiceId,
 
     -- * Destructuring the response
     DeregisterInstanceResponse (..),
@@ -40,17 +41,12 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkDeregisterInstance' smart constructor.
 data DeregisterInstance = DeregisterInstance'
-  { serviceId ::
-      Lude.Text,
-    instanceId :: Lude.Text
+  { -- | The value that you specified for @Id@ in the <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance> request.
+    instanceId :: Lude.Text,
+    -- | The ID of the service that the instance is associated with.
+    serviceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstance' with the minimum fields required to make a request.
@@ -58,23 +54,16 @@ data DeregisterInstance = DeregisterInstance'
 -- * 'instanceId' - The value that you specified for @Id@ in the <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance> request.
 -- * 'serviceId' - The ID of the service that the instance is associated with.
 mkDeregisterInstance ::
-  -- | 'serviceId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'serviceId'
+  Lude.Text ->
   DeregisterInstance
-mkDeregisterInstance pServiceId_ pInstanceId_ =
+mkDeregisterInstance pInstanceId_ pServiceId_ =
   DeregisterInstance'
-    { serviceId = pServiceId_,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      serviceId = pServiceId_
     }
-
--- | The ID of the service that the instance is associated with.
---
--- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diServiceId :: Lens.Lens' DeregisterInstance Lude.Text
-diServiceId = Lens.lens (serviceId :: DeregisterInstance -> Lude.Text) (\s a -> s {serviceId = a} :: DeregisterInstance)
-{-# DEPRECATED diServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 -- | The value that you specified for @Id@ in the <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance> request.
 --
@@ -82,6 +71,13 @@ diServiceId = Lens.lens (serviceId :: DeregisterInstance -> Lude.Text) (\s a -> 
 diInstanceId :: Lens.Lens' DeregisterInstance Lude.Text
 diInstanceId = Lens.lens (instanceId :: DeregisterInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DeregisterInstance)
 {-# DEPRECATED diInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The ID of the service that the instance is associated with.
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diServiceId :: Lens.Lens' DeregisterInstance Lude.Text
+diServiceId = Lens.lens (serviceId :: DeregisterInstance -> Lude.Text) (\s a -> s {serviceId = a} :: DeregisterInstance)
+{-# DEPRECATED diServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 instance Lude.AWSRequest DeregisterInstance where
   type Rs DeregisterInstance = DeregisterInstanceResponse
@@ -110,8 +106,8 @@ instance Lude.ToJSON DeregisterInstance where
   toJSON DeregisterInstance' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ServiceId" Lude..= serviceId),
-            Lude.Just ("InstanceId" Lude..= instanceId)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("ServiceId" Lude..= serviceId)
           ]
       )
 
@@ -123,17 +119,12 @@ instance Lude.ToQuery DeregisterInstance where
 
 -- | /See:/ 'mkDeregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse = DeregisterInstanceResponse'
-  { operationId ::
-      Lude.Maybe Lude.Text,
+  { -- | A value that you can use to determine whether the request completed successfully. For more information, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
+    operationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstanceResponse' with the minimum fields required to make a request.

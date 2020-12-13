@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.DataPipeline.SetStatus
     mkSetStatus,
 
     -- ** Request lenses
+    ssStatus,
     ssPipelineId,
     ssObjectIds,
-    ssStatus,
 
     -- * Destructuring the response
     SetStatusResponse (..),
@@ -39,36 +40,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetStatus' smart constructor.
 data SetStatus = SetStatus'
-  { pipelineId :: Lude.Text,
-    objectIds :: [Lude.Text],
-    status :: Lude.Text
+  { -- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
+    status :: Lude.Text,
+    -- | The ID of the pipeline that contains the objects.
+    pipelineId :: Lude.Text,
+    -- | The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
+    objectIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetStatus' with the minimum fields required to make a request.
 --
--- * 'objectIds' - The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
--- * 'pipelineId' - The ID of the pipeline that contains the objects.
 -- * 'status' - The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
+-- * 'pipelineId' - The ID of the pipeline that contains the objects.
+-- * 'objectIds' - The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
 mkSetStatus ::
-  -- | 'pipelineId'
-  Lude.Text ->
   -- | 'status'
   Lude.Text ->
+  -- | 'pipelineId'
+  Lude.Text ->
   SetStatus
-mkSetStatus pPipelineId_ pStatus_ =
+mkSetStatus pStatus_ pPipelineId_ =
   SetStatus'
-    { pipelineId = pPipelineId_,
-      objectIds = Lude.mempty,
-      status = pStatus_
+    { status = pStatus_,
+      pipelineId = pPipelineId_,
+      objectIds = Lude.mempty
     }
+
+-- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStatus :: Lens.Lens' SetStatus Lude.Text
+ssStatus = Lens.lens (status :: SetStatus -> Lude.Text) (\s a -> s {status = a} :: SetStatus)
+{-# DEPRECATED ssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID of the pipeline that contains the objects.
 --
@@ -83,13 +88,6 @@ ssPipelineId = Lens.lens (pipelineId :: SetStatus -> Lude.Text) (\s a -> s {pipe
 ssObjectIds :: Lens.Lens' SetStatus [Lude.Text]
 ssObjectIds = Lens.lens (objectIds :: SetStatus -> [Lude.Text]) (\s a -> s {objectIds = a} :: SetStatus)
 {-# DEPRECATED ssObjectIds "Use generic-lens or generic-optics with 'objectIds' instead." #-}
-
--- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStatus :: Lens.Lens' SetStatus Lude.Text
-ssStatus = Lens.lens (status :: SetStatus -> Lude.Text) (\s a -> s {status = a} :: SetStatus)
-{-# DEPRECATED ssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 instance Lude.AWSRequest SetStatus where
   type Rs SetStatus = SetStatusResponse
@@ -111,9 +109,9 @@ instance Lude.ToJSON SetStatus where
   toJSON SetStatus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("pipelineId" Lude..= pipelineId),
-            Lude.Just ("objectIds" Lude..= objectIds),
-            Lude.Just ("status" Lude..= status)
+          [ Lude.Just ("status" Lude..= status),
+            Lude.Just ("pipelineId" Lude..= pipelineId),
+            Lude.Just ("objectIds" Lude..= objectIds)
           ]
       )
 
@@ -125,13 +123,7 @@ instance Lude.ToQuery SetStatus where
 
 -- | /See:/ 'mkSetStatusResponse' smart constructor.
 data SetStatusResponse = SetStatusResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetStatusResponse' with the minimum fields required to make a request.

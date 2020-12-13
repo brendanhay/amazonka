@@ -32,30 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigStreamDeliveryInfo' smart constructor.
 data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
-  { lastErrorCode ::
-      Lude.Maybe Lude.Text,
-    lastStatusChangeTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The error code from the last attempted delivery.
+    lastErrorCode :: Lude.Maybe Lude.Text,
+    -- | The time from the last status change.
+    lastStatusChangeTime :: Lude.Maybe Lude.Timestamp,
+    -- | Status of the last attempted delivery.
+    --
+    -- __Note__ Providing an SNS topic on a <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional. If the SNS delivery is turned off, the last status will be __Not_Applicable__ .
     lastStatus :: Lude.Maybe DeliveryStatus,
+    -- | The error message from the last attempted delivery.
     lastErrorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigStreamDeliveryInfo' with the minimum fields required to make a request.
 --
 -- * 'lastErrorCode' - The error code from the last attempted delivery.
--- * 'lastErrorMessage' - The error message from the last attempted delivery.
+-- * 'lastStatusChangeTime' - The time from the last status change.
 -- * 'lastStatus' - Status of the last attempted delivery.
 --
 -- __Note__ Providing an SNS topic on a <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional. If the SNS delivery is turned off, the last status will be __Not_Applicable__ .
--- * 'lastStatusChangeTime' - The time from the last status change.
+-- * 'lastErrorMessage' - The error message from the last attempted delivery.
 mkConfigStreamDeliveryInfo ::
   ConfigStreamDeliveryInfo
 mkConfigStreamDeliveryInfo =

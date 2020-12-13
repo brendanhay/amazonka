@@ -31,23 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAPIStage' smart constructor.
 data APIStage = APIStage'
-  { stage :: Lude.Maybe Lude.Text,
+  { -- | API stage name of the associated API stage in a usage plan.
+    stage :: Lude.Maybe Lude.Text,
+    -- | API Id of the associated API stage in a usage plan.
     apiId :: Lude.Maybe Lude.Text,
+    -- | Map containing method level throttling information for API stage in a usage plan.
     throttle :: Lude.Maybe (Lude.HashMap Lude.Text (ThrottleSettings))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APIStage' with the minimum fields required to make a request.
 --
--- * 'apiId' - API Id of the associated API stage in a usage plan.
 -- * 'stage' - API stage name of the associated API stage in a usage plan.
+-- * 'apiId' - API Id of the associated API stage in a usage plan.
 -- * 'throttle' - Map containing method level throttling information for API stage in a usage plan.
 mkAPIStage ::
   APIStage

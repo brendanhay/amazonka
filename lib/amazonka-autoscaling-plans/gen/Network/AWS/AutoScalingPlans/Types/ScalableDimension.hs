@@ -14,13 +14,13 @@ module Network.AWS.AutoScalingPlans.Types.ScalableDimension
   ( ScalableDimension
       ( ScalableDimension',
         AutoscalingAutoScalingGroupDesiredCapacity,
-        DynamodbIndexReadCapacityUnits,
-        DynamodbIndexWriteCapacityUnits,
+        EcsServiceDesiredCount,
+        EC2SpotFleetRequestTargetCapacity,
+        RDSClusterReadReplicaCount,
         DynamodbTableReadCapacityUnits,
         DynamodbTableWriteCapacityUnits,
-        EC2SpotFleetRequestTargetCapacity,
-        EcsServiceDesiredCount,
-        RDSClusterReadReplicaCount
+        DynamodbIndexReadCapacityUnits,
+        DynamodbIndexWriteCapacityUnits
       ),
   )
 where
@@ -54,11 +54,14 @@ newtype ScalableDimension = ScalableDimension' Lude.Text
 pattern AutoscalingAutoScalingGroupDesiredCapacity :: ScalableDimension
 pattern AutoscalingAutoScalingGroupDesiredCapacity = ScalableDimension' "autoscaling:autoScalingGroup:DesiredCapacity"
 
-pattern DynamodbIndexReadCapacityUnits :: ScalableDimension
-pattern DynamodbIndexReadCapacityUnits = ScalableDimension' "dynamodb:index:ReadCapacityUnits"
+pattern EcsServiceDesiredCount :: ScalableDimension
+pattern EcsServiceDesiredCount = ScalableDimension' "ecs:service:DesiredCount"
 
-pattern DynamodbIndexWriteCapacityUnits :: ScalableDimension
-pattern DynamodbIndexWriteCapacityUnits = ScalableDimension' "dynamodb:index:WriteCapacityUnits"
+pattern EC2SpotFleetRequestTargetCapacity :: ScalableDimension
+pattern EC2SpotFleetRequestTargetCapacity = ScalableDimension' "ec2:spot-fleet-request:TargetCapacity"
+
+pattern RDSClusterReadReplicaCount :: ScalableDimension
+pattern RDSClusterReadReplicaCount = ScalableDimension' "rds:cluster:ReadReplicaCount"
 
 pattern DynamodbTableReadCapacityUnits :: ScalableDimension
 pattern DynamodbTableReadCapacityUnits = ScalableDimension' "dynamodb:table:ReadCapacityUnits"
@@ -66,23 +69,20 @@ pattern DynamodbTableReadCapacityUnits = ScalableDimension' "dynamodb:table:Read
 pattern DynamodbTableWriteCapacityUnits :: ScalableDimension
 pattern DynamodbTableWriteCapacityUnits = ScalableDimension' "dynamodb:table:WriteCapacityUnits"
 
-pattern EC2SpotFleetRequestTargetCapacity :: ScalableDimension
-pattern EC2SpotFleetRequestTargetCapacity = ScalableDimension' "ec2:spot-fleet-request:TargetCapacity"
+pattern DynamodbIndexReadCapacityUnits :: ScalableDimension
+pattern DynamodbIndexReadCapacityUnits = ScalableDimension' "dynamodb:index:ReadCapacityUnits"
 
-pattern EcsServiceDesiredCount :: ScalableDimension
-pattern EcsServiceDesiredCount = ScalableDimension' "ecs:service:DesiredCount"
-
-pattern RDSClusterReadReplicaCount :: ScalableDimension
-pattern RDSClusterReadReplicaCount = ScalableDimension' "rds:cluster:ReadReplicaCount"
+pattern DynamodbIndexWriteCapacityUnits :: ScalableDimension
+pattern DynamodbIndexWriteCapacityUnits = ScalableDimension' "dynamodb:index:WriteCapacityUnits"
 
 {-# COMPLETE
   AutoscalingAutoScalingGroupDesiredCapacity,
-  DynamodbIndexReadCapacityUnits,
-  DynamodbIndexWriteCapacityUnits,
+  EcsServiceDesiredCount,
+  EC2SpotFleetRequestTargetCapacity,
+  RDSClusterReadReplicaCount,
   DynamodbTableReadCapacityUnits,
   DynamodbTableWriteCapacityUnits,
-  EC2SpotFleetRequestTargetCapacity,
-  EcsServiceDesiredCount,
-  RDSClusterReadReplicaCount,
+  DynamodbIndexReadCapacityUnits,
+  DynamodbIndexWriteCapacityUnits,
   ScalableDimension'
   #-}

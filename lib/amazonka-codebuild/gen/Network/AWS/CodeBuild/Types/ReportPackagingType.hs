@@ -13,8 +13,8 @@
 module Network.AWS.CodeBuild.Types.ReportPackagingType
   ( ReportPackagingType
       ( ReportPackagingType',
-        RPTNone,
-        RPTZip
+        RPTZip,
+        RPTNone
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReportPackagingType = ReportPackagingType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RPTNone :: ReportPackagingType
-pattern RPTNone = ReportPackagingType' "NONE"
-
 pattern RPTZip :: ReportPackagingType
 pattern RPTZip = ReportPackagingType' "ZIP"
 
+pattern RPTNone :: ReportPackagingType
+pattern RPTNone = ReportPackagingType' "NONE"
+
 {-# COMPLETE
-  RPTNone,
   RPTZip,
+  RPTNone,
   ReportPackagingType'
   #-}

@@ -32,25 +32,22 @@ import Network.AWS.Snowball.Types.ClusterState
 --
 -- /See:/ 'mkClusterListEntry' smart constructor.
 data ClusterListEntry = ClusterListEntry'
-  { clusterState ::
-      Lude.Maybe ClusterState,
+  { -- | The current state of this cluster. For information about the state of a specific node, see 'JobListEntry$JobState' .
+    clusterState :: Lude.Maybe ClusterState,
+    -- | The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
     clusterId :: Lude.Maybe Lude.Text,
+    -- | The creation date for this cluster.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | Defines an optional description of the cluster, for example @Environmental Data Cluster-01@ .
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterListEntry' with the minimum fields required to make a request.
 --
--- * 'clusterId' - The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 -- * 'clusterState' - The current state of this cluster. For information about the state of a specific node, see 'JobListEntry$JobState' .
+-- * 'clusterId' - The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 -- * 'creationDate' - The creation date for this cluster.
 -- * 'description' - Defines an optional description of the cluster, for example @Environmental Data Cluster-01@ .
 mkClusterListEntry ::

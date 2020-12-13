@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPParameters' smart constructor.
 data HTTPParameters = HTTPParameters'
-  { pathParameterValues ::
-      Lude.Maybe [Lude.Text],
-    queryStringParameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    headerParameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | The path parameter values to be used to populate API Gateway REST API path wildcards ("*").
+    pathParameterValues :: Lude.Maybe [Lude.Text],
+    -- | The query string keys/values that need to be sent as part of request invoking the API Gateway REST API.
+    queryStringParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The headers that need to be sent as part of request invoking the API Gateway REST API.
+    headerParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPParameters' with the minimum fields required to make a request.
 --
--- * 'headerParameters' - The headers that need to be sent as part of request invoking the API Gateway REST API.
 -- * 'pathParameterValues' - The path parameter values to be used to populate API Gateway REST API path wildcards ("*").
 -- * 'queryStringParameters' - The query string keys/values that need to be sent as part of request invoking the API Gateway REST API.
+-- * 'headerParameters' - The headers that need to be sent as part of request invoking the API Gateway REST API.
 mkHTTPParameters ::
   HTTPParameters
 mkHTTPParameters =

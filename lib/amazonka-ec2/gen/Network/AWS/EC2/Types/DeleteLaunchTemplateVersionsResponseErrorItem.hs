@@ -32,37 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeleteLaunchTemplateVersionsResponseErrorItem' smart constructor.
 data DeleteLaunchTemplateVersionsResponseErrorItem = DeleteLaunchTemplateVersionsResponseErrorItem'
-  { launchTemplateName ::
-      Lude.Maybe
-        Lude.Text,
-    launchTemplateId ::
-      Lude.Maybe
-        Lude.Text,
-    versionNumber ::
-      Lude.Maybe
-        Lude.Integer,
-    responseError ::
-      Lude.Maybe
-        ResponseError
+  { -- | The name of the launch template.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | The ID of the launch template.
+    launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | The version number of the launch template.
+    versionNumber :: Lude.Maybe Lude.Integer,
+    -- | Information about the error.
+    responseError :: Lude.Maybe ResponseError
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLaunchTemplateVersionsResponseErrorItem' with the minimum fields required to make a request.
 --
--- * 'launchTemplateId' - The ID of the launch template.
 -- * 'launchTemplateName' - The name of the launch template.
--- * 'responseError' - Information about the error.
+-- * 'launchTemplateId' - The ID of the launch template.
 -- * 'versionNumber' - The version number of the launch template.
+-- * 'responseError' - Information about the error.
 mkDeleteLaunchTemplateVersionsResponseErrorItem ::
   DeleteLaunchTemplateVersionsResponseErrorItem
 mkDeleteLaunchTemplateVersionsResponseErrorItem =

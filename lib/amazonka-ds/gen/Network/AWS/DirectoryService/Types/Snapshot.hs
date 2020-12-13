@@ -35,30 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSnapshot' smart constructor.
 data Snapshot = Snapshot'
-  { status :: Lude.Maybe SnapshotStatus,
+  { -- | The snapshot status.
+    status :: Lude.Maybe SnapshotStatus,
+    -- | The directory identifier.
     directoryId :: Lude.Maybe Lude.Text,
+    -- | The date and time that the snapshot was taken.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The descriptive name of the snapshot.
     name :: Lude.Maybe Lude.Text,
+    -- | The snapshot type.
     type' :: Lude.Maybe SnapshotType,
+    -- | The snapshot identifier.
     snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
--- * 'directoryId' - The directory identifier.
--- * 'name' - The descriptive name of the snapshot.
--- * 'snapshotId' - The snapshot identifier.
--- * 'startTime' - The date and time that the snapshot was taken.
 -- * 'status' - The snapshot status.
+-- * 'directoryId' - The directory identifier.
+-- * 'startTime' - The date and time that the snapshot was taken.
+-- * 'name' - The descriptive name of the snapshot.
 -- * 'type'' - The snapshot type.
+-- * 'snapshotId' - The snapshot identifier.
 mkSnapshot ::
   Snapshot
 mkSnapshot =

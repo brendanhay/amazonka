@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,26 +51,43 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeCacheEngineVersions' smart constructor.
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
-    cacheParameterGroupFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | The cache engine version to return.
+    --
+    -- Example: @1.4.14@
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The name of a specific cache parameter group family to return details for.
+    --
+    -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
+    -- Constraints:
+    --
+    --     * Must be 1 to 255 alphanumeric characters
+    --
+    --
+    --     * First character must be a letter
+    --
+    --
+    --     * Cannot end with a hyphen or contain two consecutive hyphens
+    cacheParameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | If @true@ , specifies that only the default version of the specified engine or engine and major version combination is to be returned.
     defaultOnly :: Lude.Maybe Lude.Bool,
+    -- | The cache engine to return. Valid values: @memcached@ | @redis@
     engine :: Lude.Maybe Lude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: minimum 20; maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheEngineVersions' with the minimum fields required to make a request.
 --
+-- * 'engineVersion' - The cache engine version to return.
+--
+-- Example: @1.4.14@
 -- * 'cacheParameterGroupFamily' - The name of a specific cache parameter group family to return details for.
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
@@ -86,9 +104,6 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
 --
 -- * 'defaultOnly' - If @true@ , specifies that only the default version of the specified engine or engine and major version combination is to be returned.
 -- * 'engine' - The cache engine to return. Valid values: @memcached@ | @redis@
--- * 'engineVersion' - The cache engine version to return.
---
--- Example: @1.4.14@
 -- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -216,22 +231,14 @@ instance Lude.ToQuery DescribeCacheEngineVersions where
 --
 -- /See:/ 'mkDescribeCacheEngineVersionsResponse' smart constructor.
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
-  { cacheEngineVersions ::
-      Lude.Maybe
-        [CacheEngineVersion],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of cache engine version details. Each element in the list contains detailed information about one cache engine version.
+    cacheEngineVersions :: Lude.Maybe [CacheEngineVersion],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheEngineVersionsResponse' with the minimum fields required to make a request.

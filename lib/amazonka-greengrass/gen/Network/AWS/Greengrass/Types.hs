@@ -92,9 +92,9 @@ module Network.AWS.Greengrass.Types
     -- * Connector
     Connector (..),
     mkConnector,
-    conParameters,
-    conConnectorARN,
-    conId,
+    cfConnectorARN,
+    cfParameters,
+    cfId,
 
     -- * ConnectorDefinitionVersion
     ConnectorDefinitionVersion (..),
@@ -104,10 +104,10 @@ module Network.AWS.Greengrass.Types
     -- * Core
     Core (..),
     mkCore,
-    cSyncShadow,
-    cThingARN,
-    cId,
     cCertificateARN,
+    cThingARN,
+    cSyncShadow,
+    cId,
 
     -- * CoreDefinitionVersion
     CoreDefinitionVersion (..),
@@ -138,10 +138,10 @@ module Network.AWS.Greengrass.Types
     -- * Device
     Device (..),
     mkDevice,
-    dSyncShadow,
-    dThingARN,
-    dId,
     dCertificateARN,
+    dThingARN,
+    dSyncShadow,
+    dId,
 
     -- * DeviceDefinitionVersion
     DeviceDefinitionVersion (..),
@@ -213,10 +213,10 @@ module Network.AWS.Greengrass.Types
     GreengrassLogger (..),
     mkGreengrassLogger,
     glSpace,
+    glComponent,
+    glId,
     glType,
     glLevel,
-    glId,
-    glComponent,
 
     -- * GroupCertificateAuthorityProperties
     GroupCertificateAuthorityProperties (..),
@@ -274,14 +274,14 @@ module Network.AWS.Greengrass.Types
     Resource (..),
     mkResource,
     rResourceDataContainer,
-    rId,
     rName,
+    rId,
 
     -- * ResourceAccessPolicy
     ResourceAccessPolicy (..),
     mkResourceAccessPolicy,
-    rapPermission,
     rapResourceId,
+    rapPermission,
 
     -- * ResourceDataContainer
     ResourceDataContainer (..),
@@ -331,10 +331,10 @@ module Network.AWS.Greengrass.Types
     -- * Subscription
     Subscription (..),
     mkSubscription,
-    sTarget,
-    sId,
     sSubject,
     sSource,
+    sId,
+    sTarget,
 
     -- * SubscriptionDefinitionVersion
     SubscriptionDefinitionVersion (..),
@@ -344,8 +344,8 @@ module Network.AWS.Greengrass.Types
     -- * TelemetryConfiguration
     TelemetryConfiguration (..),
     mkTelemetryConfiguration,
-    tcConfigurationSyncStatus,
     tcTelemetry,
+    tcConfigurationSyncStatus,
 
     -- * TelemetryConfigurationUpdate
     TelemetryConfigurationUpdate (..),

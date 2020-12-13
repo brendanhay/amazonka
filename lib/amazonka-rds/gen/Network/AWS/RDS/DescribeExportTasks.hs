@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { sourceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+    sourceARN :: Lude.Maybe Lude.Text,
+    -- | Filters specify one or more snapshot exports to describe. The filters are specified as name-value pairs that define what to include in the output. Filter names and values are case-sensitive.
+    --
+    -- Supported filters include the following:
+    --
+    --     * @export-task-identifier@ - An identifier for the snapshot export task.
+    --
+    --
+    --     * @s3-bucket@ - The Amazon S3 bucket the snapshot is exported to.
+    --
+    --
+    --     * @source-arn@ - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3
+    --
+    --
+    --     * @status@ - The status of the export task. Must be lowercase, for example, @complete@ .
     filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous @DescribeExportTasks@ request. If you specify this parameter, the response includes only records beyond the marker, up to the value specified by the @MaxRecords@ parameter.
     marker :: Lude.Maybe Lude.Text,
+    -- | The identifier of the snapshot export task to be described.
     exportTaskIdentifier :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified value, a pagination token called a marker is included in the response. You can use the marker in a later @DescribeExportTasks@ request to retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
 --
--- * 'exportTaskIdentifier' - The identifier of the snapshot export task to be described.
+-- * 'sourceARN' - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
 -- * 'filters' - Filters specify one or more snapshot exports to describe. The filters are specified as name-value pairs that define what to include in the output. Filter names and values are case-sensitive.
 --
 -- Supported filters include the following:
@@ -83,11 +98,11 @@ data DescribeExportTasks = DescribeExportTasks'
 --
 --
 -- * 'marker' - An optional pagination token provided by a previous @DescribeExportTasks@ request. If you specify this parameter, the response includes only records beyond the marker, up to the value specified by the @MaxRecords@ parameter.
+-- * 'exportTaskIdentifier' - The identifier of the snapshot export task to be described.
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified value, a pagination token called a marker is included in the response. You can use the marker in a later @DescribeExportTasks@ request to retrieve the remaining results.
 --
 -- Default: 100
 -- Constraints: Minimum 20, maximum 100.
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
 mkDescribeExportTasks ::
   DescribeExportTasks
 mkDescribeExportTasks =
@@ -195,25 +210,20 @@ instance Lude.ToQuery DescribeExportTasks where
 
 -- | /See:/ 'mkDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    exportTasks ::
-      Lude.Maybe [ExportTask],
+  { -- | A pagination token that can be used in a later @DescribeExportTasks@ request. A marker is used for pagination to identify the location to begin output for the next response of @DescribeExportTasks@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | Information about an export of a snapshot to Amazon S3.
+    exportTasks :: Lude.Maybe [ExportTask],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
 --
--- * 'exportTasks' - Information about an export of a snapshot to Amazon S3.
 -- * 'marker' - A pagination token that can be used in a later @DescribeExportTasks@ request. A marker is used for pagination to identify the location to begin output for the next response of @DescribeExportTasks@ .
+-- * 'exportTasks' - Information about an export of a snapshot to Amazon S3.
 -- * 'responseStatus' - The response status code.
 mkDescribeExportTasksResponse ::
   -- | 'responseStatus'

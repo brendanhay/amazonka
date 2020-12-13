@@ -17,10 +17,10 @@ module Network.AWS.StepFunctions.Types.StateMachineListItem
     mkStateMachineListItem,
 
     -- * Lenses
-    smliStateMachineARN,
     smliName,
-    smliType,
+    smliStateMachineARN,
     smliCreationDate,
+    smliType,
   )
 where
 
@@ -32,24 +32,39 @@ import Network.AWS.StepFunctions.Types.StateMachineType
 --
 -- /See:/ 'mkStateMachineListItem' smart constructor.
 data StateMachineListItem = StateMachineListItem'
-  { stateMachineARN ::
-      Lude.Text,
+  { -- | The name of the state machine.
+    --
+    -- A name must /not/ contain:
+    --
+    --     * white space
+    --
+    --
+    --     * brackets @< > { } [ ]@
+    --
+    --
+    --     * wildcard characters @? *@
+    --
+    --
+    --     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+    --
+    --
+    --     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+    --
+    --
+    -- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
     name :: Lude.Text,
-    type' :: StateMachineType,
-    creationDate :: Lude.Timestamp
+    -- | The Amazon Resource Name (ARN) that identifies the state machine.
+    stateMachineARN :: Lude.Text,
+    -- | The date the state machine is created.
+    creationDate :: Lude.Timestamp,
+    -- |
+    type' :: StateMachineType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StateMachineListItem' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The date the state machine is created.
 -- * 'name' - The name of the state machine.
 --
 -- A name must /not/ contain:
@@ -71,35 +86,29 @@ data StateMachineListItem = StateMachineListItem'
 --
 -- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 -- * 'stateMachineARN' - The Amazon Resource Name (ARN) that identifies the state machine.
+-- * 'creationDate' - The date the state machine is created.
 -- * 'type'' -
 mkStateMachineListItem ::
-  -- | 'stateMachineARN'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
-  -- | 'type''
-  StateMachineType ->
+  -- | 'stateMachineARN'
+  Lude.Text ->
   -- | 'creationDate'
   Lude.Timestamp ->
+  -- | 'type''
+  StateMachineType ->
   StateMachineListItem
 mkStateMachineListItem
-  pStateMachineARN_
   pName_
-  pType_
-  pCreationDate_ =
+  pStateMachineARN_
+  pCreationDate_
+  pType_ =
     StateMachineListItem'
-      { stateMachineARN = pStateMachineARN_,
-        name = pName_,
-        type' = pType_,
-        creationDate = pCreationDate_
+      { name = pName_,
+        stateMachineARN = pStateMachineARN_,
+        creationDate = pCreationDate_,
+        type' = pType_
       }
-
--- | The Amazon Resource Name (ARN) that identifies the state machine.
---
--- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smliStateMachineARN :: Lens.Lens' StateMachineListItem Lude.Text
-smliStateMachineARN = Lens.lens (stateMachineARN :: StateMachineListItem -> Lude.Text) (\s a -> s {stateMachineARN = a} :: StateMachineListItem)
-{-# DEPRECATED smliStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
 
 -- | The name of the state machine.
 --
@@ -127,12 +136,12 @@ smliName :: Lens.Lens' StateMachineListItem Lude.Text
 smliName = Lens.lens (name :: StateMachineListItem -> Lude.Text) (\s a -> s {name = a} :: StateMachineListItem)
 {-# DEPRECATED smliName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- |
+-- | The Amazon Resource Name (ARN) that identifies the state machine.
 --
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smliType :: Lens.Lens' StateMachineListItem StateMachineType
-smliType = Lens.lens (type' :: StateMachineListItem -> StateMachineType) (\s a -> s {type' = a} :: StateMachineListItem)
-{-# DEPRECATED smliType "Use generic-lens or generic-optics with 'type'' instead." #-}
+-- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smliStateMachineARN :: Lens.Lens' StateMachineListItem Lude.Text
+smliStateMachineARN = Lens.lens (stateMachineARN :: StateMachineListItem -> Lude.Text) (\s a -> s {stateMachineARN = a} :: StateMachineListItem)
+{-# DEPRECATED smliStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
 
 -- | The date the state machine is created.
 --
@@ -141,14 +150,21 @@ smliCreationDate :: Lens.Lens' StateMachineListItem Lude.Timestamp
 smliCreationDate = Lens.lens (creationDate :: StateMachineListItem -> Lude.Timestamp) (\s a -> s {creationDate = a} :: StateMachineListItem)
 {-# DEPRECATED smliCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
+-- |
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smliType :: Lens.Lens' StateMachineListItem StateMachineType
+smliType = Lens.lens (type' :: StateMachineListItem -> StateMachineType) (\s a -> s {type' = a} :: StateMachineListItem)
+{-# DEPRECATED smliType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 instance Lude.FromJSON StateMachineListItem where
   parseJSON =
     Lude.withObject
       "StateMachineListItem"
       ( \x ->
           StateMachineListItem'
-            Lude.<$> (x Lude..: "stateMachineArn")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "type")
+            Lude.<$> (x Lude..: "name")
+            Lude.<*> (x Lude..: "stateMachineArn")
             Lude.<*> (x Lude..: "creationDate")
+            Lude.<*> (x Lude..: "type")
       )

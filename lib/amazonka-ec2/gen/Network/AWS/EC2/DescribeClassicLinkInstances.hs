@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,27 +48,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeClassicLinkInstances' smart constructor.
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | One or more filters.
+    --
+    --
+    --     * @group-id@ - The ID of a VPC security group that's associated with the instance.
+    --
+    --
+    --     * @instance-id@ - The ID of the instance.
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    --
+    --
+    --     * @vpc-id@ - The ID of the VPC to which the instance is linked.
+    -- @vpc-id@ - The ID of the VPC that the instance is linked to.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
-    instanceIds ::
-      Lude.Maybe [Lude.Text],
+    -- | One or more instance IDs. Must be instances linked to a VPC through ClassicLink.
+    instanceIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    --
+    -- Constraint: If the value is greater than 1000, we return only 1000 items.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClassicLinkInstances' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -87,11 +101,12 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
 -- @vpc-id@ - The ID of the VPC that the instance is linked to.
 --
 --
+-- * 'nextToken' - The token for the next page of results.
 -- * 'instanceIds' - One or more instance IDs. Must be instances linked to a VPC through ClassicLink.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- Constraint: If the value is greater than 1000, we return only 1000 items.
--- * 'nextToken' - The token for the next page of results.
 mkDescribeClassicLinkInstances ::
   DescribeClassicLinkInstances
 mkDescribeClassicLinkInstances =
@@ -204,28 +219,20 @@ instance Lude.ToQuery DescribeClassicLinkInstances where
 
 -- | /See:/ 'mkDescribeClassicLinkInstancesResponse' smart constructor.
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    instances ::
-      Lude.Maybe
-        [ClassicLinkInstance],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about one or more linked EC2-Classic instances.
+    instances :: Lude.Maybe [ClassicLinkInstance],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClassicLinkInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'instances' - Information about one or more linked EC2-Classic instances.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'instances' - Information about one or more linked EC2-Classic instances.
 -- * 'responseStatus' - The response status code.
 mkDescribeClassicLinkInstancesResponse ::
   -- | 'responseStatus'

@@ -13,11 +13,11 @@
 module Network.AWS.MachineLearning.Types.EntityStatus
   ( EntityStatus
       ( EntityStatus',
-        ESCompleted,
-        ESDeleted,
-        ESFailed,
-        ESInprogress,
-        ESPending
+        Pending,
+        Inprogress,
+        Failed,
+        Completed,
+        Deleted
       ),
   )
 where
@@ -60,26 +60,26 @@ newtype EntityStatus = EntityStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESCompleted :: EntityStatus
-pattern ESCompleted = EntityStatus' "COMPLETED"
+pattern Pending :: EntityStatus
+pattern Pending = EntityStatus' "PENDING"
 
-pattern ESDeleted :: EntityStatus
-pattern ESDeleted = EntityStatus' "DELETED"
+pattern Inprogress :: EntityStatus
+pattern Inprogress = EntityStatus' "INPROGRESS"
 
-pattern ESFailed :: EntityStatus
-pattern ESFailed = EntityStatus' "FAILED"
+pattern Failed :: EntityStatus
+pattern Failed = EntityStatus' "FAILED"
 
-pattern ESInprogress :: EntityStatus
-pattern ESInprogress = EntityStatus' "INPROGRESS"
+pattern Completed :: EntityStatus
+pattern Completed = EntityStatus' "COMPLETED"
 
-pattern ESPending :: EntityStatus
-pattern ESPending = EntityStatus' "PENDING"
+pattern Deleted :: EntityStatus
+pattern Deleted = EntityStatus' "DELETED"
 
 {-# COMPLETE
-  ESCompleted,
-  ESDeleted,
-  ESFailed,
-  ESInprogress,
-  ESPending,
+  Pending,
+  Inprogress,
+  Failed,
+  Completed,
+  Deleted,
   EntityStatus'
   #-}

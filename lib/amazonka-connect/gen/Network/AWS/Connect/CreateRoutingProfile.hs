@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,13 +20,13 @@ module Network.AWS.Connect.CreateRoutingProfile
     mkCreateRoutingProfile,
 
     -- ** Request lenses
-    crpQueueConfigs,
-    crpTags,
     crpInstanceId,
-    crpName,
-    crpDescription,
+    crpQueueConfigs,
     crpDefaultOutboundQueueId,
+    crpName,
     crpMediaConcurrencies,
+    crpDescription,
+    crpTags,
 
     -- * Destructuring the response
     CreateRoutingProfileResponse (..),
@@ -46,73 +47,57 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRoutingProfile' smart constructor.
 data CreateRoutingProfile = CreateRoutingProfile'
-  { queueConfigs ::
-      Lude.Maybe
-        (Lude.NonEmpty RoutingProfileQueueConfig),
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The identifier of the Amazon Connect instance.
     instanceId :: Lude.Text,
-    name :: Lude.Text,
-    description :: Lude.Text,
+    -- | The inbound queues associated with the routing profile. If no queue is added, the agent can only make outbound calls.
+    queueConfigs :: Lude.Maybe (Lude.NonEmpty RoutingProfileQueueConfig),
+    -- | The default outbound queue for the routing profile.
     defaultOutboundQueueId :: Lude.Text,
-    mediaConcurrencies :: [MediaConcurrency]
+    -- | The name of the routing profile. Must not be more than 127 characters.
+    name :: Lude.Text,
+    -- | The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+    mediaConcurrencies :: [MediaConcurrency],
+    -- | Description of the routing profile. Must not be more than 250 characters.
+    description :: Lude.Text,
+    -- | One or more tags.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoutingProfile' with the minimum fields required to make a request.
 --
--- * 'defaultOutboundQueueId' - The default outbound queue for the routing profile.
--- * 'description' - Description of the routing profile. Must not be more than 250 characters.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'mediaConcurrencies' - The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
--- * 'name' - The name of the routing profile. Must not be more than 127 characters.
 -- * 'queueConfigs' - The inbound queues associated with the routing profile. If no queue is added, the agent can only make outbound calls.
+-- * 'defaultOutboundQueueId' - The default outbound queue for the routing profile.
+-- * 'name' - The name of the routing profile. Must not be more than 127 characters.
+-- * 'mediaConcurrencies' - The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+-- * 'description' - Description of the routing profile. Must not be more than 250 characters.
 -- * 'tags' - One or more tags.
 mkCreateRoutingProfile ::
   -- | 'instanceId'
+  Lude.Text ->
+  -- | 'defaultOutboundQueueId'
   Lude.Text ->
   -- | 'name'
   Lude.Text ->
   -- | 'description'
   Lude.Text ->
-  -- | 'defaultOutboundQueueId'
-  Lude.Text ->
   CreateRoutingProfile
 mkCreateRoutingProfile
   pInstanceId_
+  pDefaultOutboundQueueId_
   pName_
-  pDescription_
-  pDefaultOutboundQueueId_ =
+  pDescription_ =
     CreateRoutingProfile'
-      { queueConfigs = Lude.Nothing,
-        tags = Lude.Nothing,
-        instanceId = pInstanceId_,
-        name = pName_,
-        description = pDescription_,
+      { instanceId = pInstanceId_,
+        queueConfigs = Lude.Nothing,
         defaultOutboundQueueId = pDefaultOutboundQueueId_,
-        mediaConcurrencies = Lude.mempty
+        name = pName_,
+        mediaConcurrencies = Lude.mempty,
+        description = pDescription_,
+        tags = Lude.Nothing
       }
-
--- | The inbound queues associated with the routing profile. If no queue is added, the agent can only make outbound calls.
---
--- /Note:/ Consider using 'queueConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crpQueueConfigs :: Lens.Lens' CreateRoutingProfile (Lude.Maybe (Lude.NonEmpty RoutingProfileQueueConfig))
-crpQueueConfigs = Lens.lens (queueConfigs :: CreateRoutingProfile -> Lude.Maybe (Lude.NonEmpty RoutingProfileQueueConfig)) (\s a -> s {queueConfigs = a} :: CreateRoutingProfile)
-{-# DEPRECATED crpQueueConfigs "Use generic-lens or generic-optics with 'queueConfigs' instead." #-}
-
--- | One or more tags.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crpTags :: Lens.Lens' CreateRoutingProfile (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-crpTags = Lens.lens (tags :: CreateRoutingProfile -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRoutingProfile)
-{-# DEPRECATED crpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
 --
@@ -121,19 +106,12 @@ crpInstanceId :: Lens.Lens' CreateRoutingProfile Lude.Text
 crpInstanceId = Lens.lens (instanceId :: CreateRoutingProfile -> Lude.Text) (\s a -> s {instanceId = a} :: CreateRoutingProfile)
 {-# DEPRECATED crpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
--- | The name of the routing profile. Must not be more than 127 characters.
+-- | The inbound queues associated with the routing profile. If no queue is added, the agent can only make outbound calls.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crpName :: Lens.Lens' CreateRoutingProfile Lude.Text
-crpName = Lens.lens (name :: CreateRoutingProfile -> Lude.Text) (\s a -> s {name = a} :: CreateRoutingProfile)
-{-# DEPRECATED crpName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Description of the routing profile. Must not be more than 250 characters.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crpDescription :: Lens.Lens' CreateRoutingProfile Lude.Text
-crpDescription = Lens.lens (description :: CreateRoutingProfile -> Lude.Text) (\s a -> s {description = a} :: CreateRoutingProfile)
-{-# DEPRECATED crpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'queueConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crpQueueConfigs :: Lens.Lens' CreateRoutingProfile (Lude.Maybe (Lude.NonEmpty RoutingProfileQueueConfig))
+crpQueueConfigs = Lens.lens (queueConfigs :: CreateRoutingProfile -> Lude.Maybe (Lude.NonEmpty RoutingProfileQueueConfig)) (\s a -> s {queueConfigs = a} :: CreateRoutingProfile)
+{-# DEPRECATED crpQueueConfigs "Use generic-lens or generic-optics with 'queueConfigs' instead." #-}
 
 -- | The default outbound queue for the routing profile.
 --
@@ -142,12 +120,33 @@ crpDefaultOutboundQueueId :: Lens.Lens' CreateRoutingProfile Lude.Text
 crpDefaultOutboundQueueId = Lens.lens (defaultOutboundQueueId :: CreateRoutingProfile -> Lude.Text) (\s a -> s {defaultOutboundQueueId = a} :: CreateRoutingProfile)
 {-# DEPRECATED crpDefaultOutboundQueueId "Use generic-lens or generic-optics with 'defaultOutboundQueueId' instead." #-}
 
+-- | The name of the routing profile. Must not be more than 127 characters.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crpName :: Lens.Lens' CreateRoutingProfile Lude.Text
+crpName = Lens.lens (name :: CreateRoutingProfile -> Lude.Text) (\s a -> s {name = a} :: CreateRoutingProfile)
+{-# DEPRECATED crpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
 --
 -- /Note:/ Consider using 'mediaConcurrencies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crpMediaConcurrencies :: Lens.Lens' CreateRoutingProfile [MediaConcurrency]
 crpMediaConcurrencies = Lens.lens (mediaConcurrencies :: CreateRoutingProfile -> [MediaConcurrency]) (\s a -> s {mediaConcurrencies = a} :: CreateRoutingProfile)
 {-# DEPRECATED crpMediaConcurrencies "Use generic-lens or generic-optics with 'mediaConcurrencies' instead." #-}
+
+-- | Description of the routing profile. Must not be more than 250 characters.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crpDescription :: Lens.Lens' CreateRoutingProfile Lude.Text
+crpDescription = Lens.lens (description :: CreateRoutingProfile -> Lude.Text) (\s a -> s {description = a} :: CreateRoutingProfile)
+{-# DEPRECATED crpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | One or more tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crpTags :: Lens.Lens' CreateRoutingProfile (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+crpTags = Lens.lens (tags :: CreateRoutingProfile -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRoutingProfile)
+{-# DEPRECATED crpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateRoutingProfile where
   type Rs CreateRoutingProfile = CreateRoutingProfileResponse
@@ -175,12 +174,12 @@ instance Lude.ToJSON CreateRoutingProfile where
     Lude.object
       ( Lude.catMaybes
           [ ("QueueConfigs" Lude..=) Lude.<$> queueConfigs,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Description" Lude..= description),
             Lude.Just
               ("DefaultOutboundQueueId" Lude..= defaultOutboundQueueId),
-            Lude.Just ("MediaConcurrencies" Lude..= mediaConcurrencies)
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("MediaConcurrencies" Lude..= mediaConcurrencies),
+            Lude.Just ("Description" Lude..= description),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -193,26 +192,21 @@ instance Lude.ToQuery CreateRoutingProfile where
 
 -- | /See:/ 'mkCreateRoutingProfileResponse' smart constructor.
 data CreateRoutingProfileResponse = CreateRoutingProfileResponse'
-  { routingProfileARN ::
-      Lude.Maybe Lude.Text,
-    routingProfileId ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the routing profile.
+    routingProfileARN :: Lude.Maybe Lude.Text,
+    -- | The identifier of the routing profile.
+    routingProfileId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoutingProfileResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'routingProfileARN' - The Amazon Resource Name (ARN) of the routing profile.
 -- * 'routingProfileId' - The identifier of the routing profile.
+-- * 'responseStatus' - The response status code.
 mkCreateRoutingProfileResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogsConfig' smart constructor.
 data LogsConfig = LogsConfig'
-  { s3Logs :: Lude.Maybe S3LogsConfig,
+  { -- | Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+    s3Logs :: Lude.Maybe S3LogsConfig,
+    -- | Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
     cloudWatchLogs :: Lude.Maybe CloudWatchLogsConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogsConfig' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLogs' - Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
 -- * 's3Logs' - Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default.
+-- * 'cloudWatchLogs' - Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default.
 mkLogsConfig ::
   LogsConfig
 mkLogsConfig =

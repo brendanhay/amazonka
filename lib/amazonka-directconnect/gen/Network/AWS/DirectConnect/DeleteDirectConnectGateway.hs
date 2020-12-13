@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.DirectConnect.DeleteDirectConnectGateway
     mkDeleteDirectConnectGateway,
 
     -- ** Request lenses
-    ddcgdDirectConnectGatewayId,
+    ddcgfDirectConnectGatewayId,
 
     -- * Destructuring the response
     DeleteDirectConnectGatewayResponse (..),
     mkDeleteDirectConnectGatewayResponse,
 
     -- ** Response lenses
-    ddcgdrsDirectConnectGateway,
-    ddcgdrsResponseStatus,
+    ddcgfrsDirectConnectGateway,
+    ddcgfrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDirectConnectGateway' smart constructor.
 newtype DeleteDirectConnectGateway = DeleteDirectConnectGateway'
-  { directConnectGatewayId ::
-      Lude.Text
+  { -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectConnectGateway' with the minimum fields required to make a request.
@@ -67,9 +62,9 @@ mkDeleteDirectConnectGateway pDirectConnectGatewayId_ =
 -- | The ID of the Direct Connect gateway.
 --
 -- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcgdDirectConnectGatewayId :: Lens.Lens' DeleteDirectConnectGateway Lude.Text
-ddcgdDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: DeleteDirectConnectGateway -> Lude.Text) (\s a -> s {directConnectGatewayId = a} :: DeleteDirectConnectGateway)
-{-# DEPRECATED ddcgdDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
+ddcgfDirectConnectGatewayId :: Lens.Lens' DeleteDirectConnectGateway Lude.Text
+ddcgfDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: DeleteDirectConnectGateway -> Lude.Text) (\s a -> s {directConnectGatewayId = a} :: DeleteDirectConnectGateway)
+{-# DEPRECATED ddcgfDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
 
 instance Lude.AWSRequest DeleteDirectConnectGateway where
   type
@@ -112,19 +107,12 @@ instance Lude.ToQuery DeleteDirectConnectGateway where
 
 -- | /See:/ 'mkDeleteDirectConnectGatewayResponse' smart constructor.
 data DeleteDirectConnectGatewayResponse = DeleteDirectConnectGatewayResponse'
-  { directConnectGateway ::
-      Lude.Maybe
-        DirectConnectGateway,
-    responseStatus ::
-      Lude.Int
+  { -- | The Direct Connect gateway.
+    directConnectGateway :: Lude.Maybe DirectConnectGateway,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectConnectGatewayResponse' with the minimum fields required to make a request.
@@ -145,13 +133,13 @@ mkDeleteDirectConnectGatewayResponse pResponseStatus_ =
 -- | The Direct Connect gateway.
 --
 -- /Note:/ Consider using 'directConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcgdrsDirectConnectGateway :: Lens.Lens' DeleteDirectConnectGatewayResponse (Lude.Maybe DirectConnectGateway)
-ddcgdrsDirectConnectGateway = Lens.lens (directConnectGateway :: DeleteDirectConnectGatewayResponse -> Lude.Maybe DirectConnectGateway) (\s a -> s {directConnectGateway = a} :: DeleteDirectConnectGatewayResponse)
-{-# DEPRECATED ddcgdrsDirectConnectGateway "Use generic-lens or generic-optics with 'directConnectGateway' instead." #-}
+ddcgfrsDirectConnectGateway :: Lens.Lens' DeleteDirectConnectGatewayResponse (Lude.Maybe DirectConnectGateway)
+ddcgfrsDirectConnectGateway = Lens.lens (directConnectGateway :: DeleteDirectConnectGatewayResponse -> Lude.Maybe DirectConnectGateway) (\s a -> s {directConnectGateway = a} :: DeleteDirectConnectGatewayResponse)
+{-# DEPRECATED ddcgfrsDirectConnectGateway "Use generic-lens or generic-optics with 'directConnectGateway' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcgdrsResponseStatus :: Lens.Lens' DeleteDirectConnectGatewayResponse Lude.Int
-ddcgdrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectConnectGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectConnectGatewayResponse)
-{-# DEPRECATED ddcgdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddcgfrsResponseStatus :: Lens.Lens' DeleteDirectConnectGatewayResponse Lude.Int
+ddcgfrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectConnectGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectConnectGatewayResponse)
+{-# DEPRECATED ddcgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

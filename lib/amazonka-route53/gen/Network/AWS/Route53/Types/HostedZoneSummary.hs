@@ -18,8 +18,8 @@ module Network.AWS.Route53.Types.HostedZoneSummary
 
     -- * Lenses
     hzsHostedZoneId,
-    hzsName,
     hzsOwner,
+    hzsName,
   )
 where
 
@@ -32,38 +32,34 @@ import Network.AWS.Route53.Types.HostedZoneOwner
 --
 -- /See:/ 'mkHostedZoneSummary' smart constructor.
 data HostedZoneSummary = HostedZoneSummary'
-  { hostedZoneId ::
-      ResourceId,
-    name :: Lude.Text,
-    owner :: HostedZoneOwner
+  { -- | The Route 53 hosted zone ID of a private hosted zone that the specified VPC is associated with.
+    hostedZoneId :: ResourceId,
+    -- | The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an AWS account or an AWS service.
+    owner :: HostedZoneOwner,
+    -- | The name of the private hosted zone, such as @example.com@ .
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostedZoneSummary' with the minimum fields required to make a request.
 --
 -- * 'hostedZoneId' - The Route 53 hosted zone ID of a private hosted zone that the specified VPC is associated with.
--- * 'name' - The name of the private hosted zone, such as @example.com@ .
 -- * 'owner' - The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an AWS account or an AWS service.
+-- * 'name' - The name of the private hosted zone, such as @example.com@ .
 mkHostedZoneSummary ::
   -- | 'hostedZoneId'
   ResourceId ->
-  -- | 'name'
-  Lude.Text ->
   -- | 'owner'
   HostedZoneOwner ->
+  -- | 'name'
+  Lude.Text ->
   HostedZoneSummary
-mkHostedZoneSummary pHostedZoneId_ pName_ pOwner_ =
+mkHostedZoneSummary pHostedZoneId_ pOwner_ pName_ =
   HostedZoneSummary'
     { hostedZoneId = pHostedZoneId_,
-      name = pName_,
-      owner = pOwner_
+      owner = pOwner_,
+      name = pName_
     }
 
 -- | The Route 53 hosted zone ID of a private hosted zone that the specified VPC is associated with.
@@ -73,13 +69,6 @@ hzsHostedZoneId :: Lens.Lens' HostedZoneSummary ResourceId
 hzsHostedZoneId = Lens.lens (hostedZoneId :: HostedZoneSummary -> ResourceId) (\s a -> s {hostedZoneId = a} :: HostedZoneSummary)
 {-# DEPRECATED hzsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
--- | The name of the private hosted zone, such as @example.com@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hzsName :: Lens.Lens' HostedZoneSummary Lude.Text
-hzsName = Lens.lens (name :: HostedZoneSummary -> Lude.Text) (\s a -> s {name = a} :: HostedZoneSummary)
-{-# DEPRECATED hzsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 -- | The owner of a private hosted zone that the specified VPC is associated with. The owner can be either an AWS account or an AWS service.
 --
 -- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -87,9 +76,16 @@ hzsOwner :: Lens.Lens' HostedZoneSummary HostedZoneOwner
 hzsOwner = Lens.lens (owner :: HostedZoneSummary -> HostedZoneOwner) (\s a -> s {owner = a} :: HostedZoneSummary)
 {-# DEPRECATED hzsOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
+-- | The name of the private hosted zone, such as @example.com@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hzsName :: Lens.Lens' HostedZoneSummary Lude.Text
+hzsName = Lens.lens (name :: HostedZoneSummary -> Lude.Text) (\s a -> s {name = a} :: HostedZoneSummary)
+{-# DEPRECATED hzsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.FromXML HostedZoneSummary where
   parseXML x =
     HostedZoneSummary'
       Lude.<$> (x Lude..@ "HostedZoneId")
-      Lude.<*> (x Lude..@ "Name")
       Lude.<*> (x Lude..@ "Owner")
+      Lude.<*> (x Lude..@ "Name")

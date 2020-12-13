@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRepositoryNameIdPair' smart constructor.
 data RepositoryNameIdPair = RepositoryNameIdPair'
-  { repositoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID associated with the repository.
+    repositoryId :: Lude.Maybe Lude.Text,
+    -- | The name associated with the repository.
     repositoryName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RepositoryNameIdPair' with the minimum fields required to make a request.

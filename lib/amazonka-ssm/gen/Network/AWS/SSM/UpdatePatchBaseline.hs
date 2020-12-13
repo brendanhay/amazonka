@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -63,20 +64,39 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkUpdatePatchBaseline' smart constructor.
 data UpdatePatchBaseline = UpdatePatchBaseline'
-  { replace ::
-      Lude.Maybe Lude.Bool,
+  { -- | If True, then all fields that are required by the CreatePatchBaseline action are also required for this API request. Optional fields that are not specified are set to null.
+    replace :: Lude.Maybe Lude.Bool,
+    -- | A set of rules used to include patches in the baseline.
     approvalRules :: Lude.Maybe PatchRuleGroup,
+    -- | A set of global filters used to include patches in the baseline.
     globalFilters :: Lude.Maybe PatchFilterGroup,
-    approvedPatchesComplianceLevel ::
-      Lude.Maybe PatchComplianceLevel,
+    -- | Assigns a new compliance severity level to an existing patch baseline.
+    approvedPatchesComplianceLevel :: Lude.Maybe PatchComplianceLevel,
+    -- | The action for Patch Manager to take on patches included in the RejectedPackages list.
+    --
+    --
+    --     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.
+    --
+    --
+    --     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
     rejectedPatchesAction :: Lude.Maybe PatchAction,
+    -- | A list of explicitly approved patches for the baseline.
+    --
+    -- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
     approvedPatches :: Lude.Maybe [Lude.Text],
-    approvedPatchesEnableNonSecurity ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+    approvedPatchesEnableNonSecurity :: Lude.Maybe Lude.Bool,
+    -- | A list of explicitly rejected patches for the baseline.
+    --
+    -- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
     rejectedPatches :: Lude.Maybe [Lude.Text],
+    -- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
     sources :: Lude.Maybe [PatchSource],
+    -- | The name of the patch baseline.
     name :: Lude.Maybe Lude.Text,
+    -- | A description of the patch baseline.
     description :: Lude.Maybe Lude.Text,
+    -- | The ID of the patch baseline to update.
     baselineId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -84,19 +104,10 @@ data UpdatePatchBaseline = UpdatePatchBaseline'
 
 -- | Creates a value of 'UpdatePatchBaseline' with the minimum fields required to make a request.
 --
+-- * 'replace' - If True, then all fields that are required by the CreatePatchBaseline action are also required for this API request. Optional fields that are not specified are set to null.
 -- * 'approvalRules' - A set of rules used to include patches in the baseline.
--- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
---
--- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
--- * 'approvedPatchesComplianceLevel' - Assigns a new compliance severity level to an existing patch baseline.
--- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
--- * 'baselineId' - The ID of the patch baseline to update.
--- * 'description' - A description of the patch baseline.
 -- * 'globalFilters' - A set of global filters used to include patches in the baseline.
--- * 'name' - The name of the patch baseline.
--- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
---
--- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
+-- * 'approvedPatchesComplianceLevel' - Assigns a new compliance severity level to an existing patch baseline.
 -- * 'rejectedPatchesAction' - The action for Patch Manager to take on patches included in the RejectedPackages list.
 --
 --
@@ -106,8 +117,17 @@ data UpdatePatchBaseline = UpdatePatchBaseline'
 --     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
 --
 --
--- * 'replace' - If True, then all fields that are required by the CreatePatchBaseline action are also required for this API request. Optional fields that are not specified are set to null.
+-- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
+-- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+-- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
 -- * 'sources' - Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+-- * 'name' - The name of the patch baseline.
+-- * 'description' - A description of the patch baseline.
+-- * 'baselineId' - The ID of the patch baseline to update.
 mkUpdatePatchBaseline ::
   -- | 'baselineId'
   Lude.Text ->
@@ -288,30 +308,35 @@ instance Lude.ToQuery UpdatePatchBaseline where
 
 -- | /See:/ 'mkUpdatePatchBaselineResponse' smart constructor.
 data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
-  { approvalRules ::
-      Lude.Maybe PatchRuleGroup,
-    operatingSystem ::
-      Lude.Maybe OperatingSystem,
-    globalFilters ::
-      Lude.Maybe PatchFilterGroup,
-    approvedPatchesComplianceLevel ::
-      Lude.Maybe PatchComplianceLevel,
-    rejectedPatchesAction ::
-      Lude.Maybe PatchAction,
-    approvedPatches ::
-      Lude.Maybe [Lude.Text],
-    approvedPatchesEnableNonSecurity ::
-      Lude.Maybe Lude.Bool,
-    rejectedPatches ::
-      Lude.Maybe [Lude.Text],
+  { -- | A set of rules used to include patches in the baseline.
+    approvalRules :: Lude.Maybe PatchRuleGroup,
+    -- | The operating system rule used by the updated patch baseline.
+    operatingSystem :: Lude.Maybe OperatingSystem,
+    -- | A set of global filters used to exclude patches from the baseline.
+    globalFilters :: Lude.Maybe PatchFilterGroup,
+    -- | The compliance severity level assigned to the patch baseline after the update completed.
+    approvedPatchesComplianceLevel :: Lude.Maybe PatchComplianceLevel,
+    -- | The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
+    rejectedPatchesAction :: Lude.Maybe PatchAction,
+    -- | A list of explicitly approved patches for the baseline.
+    approvedPatches :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+    approvedPatchesEnableNonSecurity :: Lude.Maybe Lude.Bool,
+    -- | A list of explicitly rejected patches for the baseline.
+    rejectedPatches :: Lude.Maybe [Lude.Text],
+    -- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
     sources :: Lude.Maybe [PatchSource],
-    createdDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date when the patch baseline was created.
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the patch baseline.
     name :: Lude.Maybe Lude.Text,
-    modifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date when the patch baseline was last modified.
+    modifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the Patch Baseline.
     description :: Lude.Maybe Lude.Text,
+    -- | The ID of the deleted patch baseline.
     baselineId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -320,20 +345,20 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
 -- | Creates a value of 'UpdatePatchBaselineResponse' with the minimum fields required to make a request.
 --
 -- * 'approvalRules' - A set of rules used to include patches in the baseline.
--- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
--- * 'approvedPatchesComplianceLevel' - The compliance severity level assigned to the patch baseline after the update completed.
--- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
--- * 'baselineId' - The ID of the deleted patch baseline.
--- * 'createdDate' - The date when the patch baseline was created.
--- * 'description' - A description of the Patch Baseline.
--- * 'globalFilters' - A set of global filters used to exclude patches from the baseline.
--- * 'modifiedDate' - The date when the patch baseline was last modified.
--- * 'name' - The name of the patch baseline.
 -- * 'operatingSystem' - The operating system rule used by the updated patch baseline.
--- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
+-- * 'globalFilters' - A set of global filters used to exclude patches from the baseline.
+-- * 'approvedPatchesComplianceLevel' - The compliance severity level assigned to the patch baseline after the update completed.
 -- * 'rejectedPatchesAction' - The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
--- * 'responseStatus' - The response status code.
+-- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
+-- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+-- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
 -- * 'sources' - Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+-- * 'createdDate' - The date when the patch baseline was created.
+-- * 'name' - The name of the patch baseline.
+-- * 'modifiedDate' - The date when the patch baseline was last modified.
+-- * 'description' - A description of the Patch Baseline.
+-- * 'baselineId' - The ID of the deleted patch baseline.
+-- * 'responseStatus' - The response status code.
 mkUpdatePatchBaselineResponse ::
   -- | 'responseStatus'
   Lude.Int ->

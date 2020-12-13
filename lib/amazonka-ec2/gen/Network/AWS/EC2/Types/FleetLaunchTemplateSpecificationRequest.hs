@@ -30,29 +30,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetLaunchTemplateSpecificationRequest' smart constructor.
 data FleetLaunchTemplateSpecificationRequest = FleetLaunchTemplateSpecificationRequest'
-  { launchTemplateName ::
-      Lude.Maybe
-        Lude.Text,
-    launchTemplateId ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The name of the launch template. If you specify the template name, you can't specify the template ID.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | The ID of the launch template. If you specify the template ID, you can't specify the template name.
+    launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | The launch template version number, @> Latest@ , or @> Default@ . You must specify a value, otherwise the request fails.
+    --
+    -- If the value is @> Latest@ , Amazon EC2 uses the latest version of the launch template.
+    -- If the value is @> Default@ , Amazon EC2 uses the default version of the launch template.
+    version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetLaunchTemplateSpecificationRequest' with the minimum fields required to make a request.
 --
--- * 'launchTemplateId' - The ID of the launch template. If you specify the template ID, you can't specify the template name.
 -- * 'launchTemplateName' - The name of the launch template. If you specify the template name, you can't specify the template ID.
+-- * 'launchTemplateId' - The ID of the launch template. If you specify the template ID, you can't specify the template name.
 -- * 'version' - The launch template version number, @> Latest@ , or @> Default@ . You must specify a value, otherwise the request fails.
 --
 -- If the value is @> Latest@ , Amazon EC2 uses the latest version of the launch template.

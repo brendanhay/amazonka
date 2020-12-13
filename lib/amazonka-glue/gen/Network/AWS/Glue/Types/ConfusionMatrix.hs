@@ -33,27 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfusionMatrix' smart constructor.
 data ConfusionMatrix = ConfusionMatrix'
-  { numTrueNegatives ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of nonmatches in the data that the transform correctly rejected, in the confusion matrix for your transform.
+    numTrueNegatives :: Lude.Maybe Lude.Integer,
+    -- | The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.
     numFalseNegatives :: Lude.Maybe Lude.Integer,
+    -- | The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.
     numTruePositives :: Lude.Maybe Lude.Integer,
+    -- | The number of nonmatches in the data that the transform incorrectly classified as a match, in the confusion matrix for your transform.
     numFalsePositives :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfusionMatrix' with the minimum fields required to make a request.
 --
--- * 'numFalseNegatives' - The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.
--- * 'numFalsePositives' - The number of nonmatches in the data that the transform incorrectly classified as a match, in the confusion matrix for your transform.
 -- * 'numTrueNegatives' - The number of nonmatches in the data that the transform correctly rejected, in the confusion matrix for your transform.
+-- * 'numFalseNegatives' - The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.
 -- * 'numTruePositives' - The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.
+-- * 'numFalsePositives' - The number of nonmatches in the data that the transform incorrectly classified as a match, in the confusion matrix for your transform.
 mkConfusionMatrix ::
   ConfusionMatrix
 mkConfusionMatrix =

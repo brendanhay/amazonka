@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.AvcIntraTelecine
   ( AvcIntraTelecine
       ( AvcIntraTelecine',
-        AITHard,
-        AITNone
+        AITNone,
+        AITHard
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype AvcIntraTelecine = AvcIntraTelecine' Lude.Text
       Lude.ToHeader
     )
 
-pattern AITHard :: AvcIntraTelecine
-pattern AITHard = AvcIntraTelecine' "HARD"
-
 pattern AITNone :: AvcIntraTelecine
 pattern AITNone = AvcIntraTelecine' "NONE"
 
+pattern AITHard :: AvcIntraTelecine
+pattern AITHard = AvcIntraTelecine' "HARD"
+
 {-# COMPLETE
-  AITHard,
   AITNone,
+  AITHard,
   AvcIntraTelecine'
   #-}

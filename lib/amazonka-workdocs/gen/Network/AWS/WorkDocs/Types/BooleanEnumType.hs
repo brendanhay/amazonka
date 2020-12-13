@@ -13,8 +13,8 @@
 module Network.AWS.WorkDocs.Types.BooleanEnumType
   ( BooleanEnumType
       ( BooleanEnumType',
-        False,
-        True
+        True,
+        False
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype BooleanEnumType = BooleanEnumType' Lude.Text
       Lude.ToHeader
     )
 
-pattern False :: BooleanEnumType
-pattern False = BooleanEnumType' "FALSE"
-
 pattern True :: BooleanEnumType
 pattern True = BooleanEnumType' "TRUE"
 
+pattern False :: BooleanEnumType
+pattern False = BooleanEnumType' "FALSE"
+
 {-# COMPLETE
-  False,
   True,
+  False,
   BooleanEnumType'
   #-}

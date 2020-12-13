@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.Glue.DeleteCrawler
     mkDeleteCrawlerResponse,
 
     -- ** Response lenses
-    dccrsResponseStatus,
+    dcfrsResponseStatus,
   )
 where
 
@@ -37,14 +38,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteCrawler' smart constructor.
-newtype DeleteCrawler = DeleteCrawler' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteCrawler = DeleteCrawler'
+  { -- | The name of the crawler to remove.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCrawler' with the minimum fields required to make a request.
@@ -95,16 +93,10 @@ instance Lude.ToQuery DeleteCrawler where
 
 -- | /See:/ 'mkDeleteCrawlerResponse' smart constructor.
 newtype DeleteCrawlerResponse = DeleteCrawlerResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCrawlerResponse' with the minimum fields required to make a request.
@@ -120,6 +112,6 @@ mkDeleteCrawlerResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsResponseStatus :: Lens.Lens' DeleteCrawlerResponse Lude.Int
-dccrsResponseStatus = Lens.lens (responseStatus :: DeleteCrawlerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCrawlerResponse)
-{-# DEPRECATED dccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcfrsResponseStatus :: Lens.Lens' DeleteCrawlerResponse Lude.Int
+dcfrsResponseStatus = Lens.lens (responseStatus :: DeleteCrawlerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCrawlerResponse)
+{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

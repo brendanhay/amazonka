@@ -44,86 +44,67 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateInstanceNetworkInterfaceSpecificationRequest' smart constructor.
 data LaunchTemplateInstanceNetworkInterfaceSpecificationRequest = LaunchTemplateInstanceNetworkInterfaceSpecificationRequest'
-  { groups ::
-      Lude.Maybe
-        [Lude.Text],
-    privateIPAddresses ::
-      Lude.Maybe
-        [PrivateIPAddressSpecification],
-    deleteOnTermination ::
-      Lude.Maybe
-        Lude.Bool,
-    associateCarrierIPAddress ::
-      Lude.Maybe
-        Lude.Bool,
-    associatePublicIPAddress ::
-      Lude.Maybe
-        Lude.Bool,
-    interfaceType ::
-      Lude.Maybe
-        Lude.Text,
-    networkInterfaceId ::
-      Lude.Maybe
-        Lude.Text,
-    subnetId ::
-      Lude.Maybe
-        Lude.Text,
-    ipv6AddressCount ::
-      Lude.Maybe
-        Lude.Int,
-    networkCardIndex ::
-      Lude.Maybe
-        Lude.Int,
-    privateIPAddress ::
-      Lude.Maybe
-        Lude.Text,
-    secondaryPrivateIPAddressCount ::
-      Lude.Maybe
-        Lude.Int,
-    description ::
-      Lude.Maybe
-        Lude.Text,
-    deviceIndex ::
-      Lude.Maybe
-        Lude.Int,
-    ipv6Addresses ::
-      Lude.Maybe
-        [InstanceIPv6AddressRequest]
+  { -- | The IDs of one or more security groups.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | One or more private IPv4 addresses.
+    privateIPAddresses :: Lude.Maybe [PrivateIPAddressSpecification],
+    -- | Indicates whether the network interface is deleted when the instance is terminated.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | Associates a Carrier IP address with eth0 for a new network interface.
+    --
+    -- Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses> in the /AWS Wavelength Developer Guide/ .
+    associateCarrierIPAddress :: Lude.Maybe Lude.Bool,
+    -- | Associates a public IPv4 address with eth0 for a new network interface.
+    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
+    -- | The type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
+    --
+    -- If you are not creating an EFA, specify @interface@ or omit this parameter.
+    -- Valid values: @interface@ | @efa@
+    interfaceType :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet for the network interface.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
+    ipv6AddressCount :: Lude.Maybe Lude.Int,
+    -- | The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+    networkCardIndex :: Lude.Maybe Lude.Int,
+    -- | The primary private IPv4 address of the network interface.
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The number of secondary private IPv4 addresses to assign to a network interface.
+    secondaryPrivateIPAddressCount :: Lude.Maybe Lude.Int,
+    -- | A description for the network interface.
+    description :: Lude.Maybe Lude.Text,
+    -- | The device index for the network interface attachment.
+    deviceIndex :: Lude.Maybe Lude.Int,
+    -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+    ipv6Addresses :: Lude.Maybe [InstanceIPv6AddressRequest]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateInstanceNetworkInterfaceSpecificationRequest' with the minimum fields required to make a request.
 --
+-- * 'groups' - The IDs of one or more security groups.
+-- * 'privateIPAddresses' - One or more private IPv4 addresses.
+-- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
 -- * 'associateCarrierIPAddress' - Associates a Carrier IP address with eth0 for a new network interface.
 --
 -- Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses> in the /AWS Wavelength Developer Guide/ .
 -- * 'associatePublicIPAddress' - Associates a public IPv4 address with eth0 for a new network interface.
--- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
--- * 'description' - A description for the network interface.
--- * 'deviceIndex' - The device index for the network interface attachment.
--- * 'groups' - The IDs of one or more security groups.
 -- * 'interfaceType' - The type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- If you are not creating an EFA, specify @interface@ or omit this parameter.
 -- Valid values: @interface@ | @efa@
--- * 'ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
--- * 'ipv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
--- * 'networkCardIndex' - The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
 -- * 'networkInterfaceId' - The ID of the network interface.
--- * 'privateIPAddress' - The primary private IPv4 address of the network interface.
--- * 'privateIPAddresses' - One or more private IPv4 addresses.
--- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses to assign to a network interface.
 -- * 'subnetId' - The ID of the subnet for the network interface.
+-- * 'ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
+-- * 'networkCardIndex' - The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+-- * 'privateIPAddress' - The primary private IPv4 address of the network interface.
+-- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses to assign to a network interface.
+-- * 'description' - A description for the network interface.
+-- * 'deviceIndex' - The device index for the network interface attachment.
+-- * 'ipv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
 mkLaunchTemplateInstanceNetworkInterfaceSpecificationRequest ::
   LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
 mkLaunchTemplateInstanceNetworkInterfaceSpecificationRequest =

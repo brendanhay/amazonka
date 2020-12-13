@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,23 +37,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteFieldLevelEncryptionConfig' smart constructor.
 data DeleteFieldLevelEncryptionConfig = DeleteFieldLevelEncryptionConfig'
-  { ifMatch ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the @ETag@ header that you received when retrieving the configuration identity to delete. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Lude.Maybe Lude.Text,
+    -- | The ID of the configuration you want to delete from CloudFront.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFieldLevelEncryptionConfig' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the configuration you want to delete from CloudFront.
 -- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the configuration identity to delete. For example: @E2QWRUHAPOMQZL@ .
+-- * 'id' - The ID of the configuration you want to delete from CloudFront.
 mkDeleteFieldLevelEncryptionConfig ::
   -- | 'id'
   Lude.Text ->
@@ -99,13 +95,7 @@ instance Lude.ToQuery DeleteFieldLevelEncryptionConfig where
 
 -- | /See:/ 'mkDeleteFieldLevelEncryptionConfigResponse' smart constructor.
 data DeleteFieldLevelEncryptionConfigResponse = DeleteFieldLevelEncryptionConfigResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFieldLevelEncryptionConfigResponse' with the minimum fields required to make a request.

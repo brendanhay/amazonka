@@ -17,8 +17,8 @@ module Network.AWS.DynamoDB.Types.AttributeDefinition
     mkAttributeDefinition,
 
     -- * Lenses
-    adAttributeName,
     adAttributeType,
+    adAttributeName,
   )
 where
 
@@ -30,22 +30,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttributeDefinition' smart constructor.
 data AttributeDefinition = AttributeDefinition'
-  { attributeName ::
-      Lude.Text,
-    attributeType :: ScalarAttributeType
+  { -- | The data type for the attribute, where:
+    --
+    --
+    --     * @S@ - the attribute is of type String
+    --
+    --
+    --     * @N@ - the attribute is of type Number
+    --
+    --
+    --     * @B@ - the attribute is of type Binary
+    attributeType :: ScalarAttributeType,
+    -- | A name for the attribute.
+    attributeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeDefinition' with the minimum fields required to make a request.
 --
--- * 'attributeName' - A name for the attribute.
 -- * 'attributeType' - The data type for the attribute, where:
 --
 --
@@ -56,24 +59,20 @@ data AttributeDefinition = AttributeDefinition'
 --
 --
 --     * @B@ - the attribute is of type Binary
+--
+--
+-- * 'attributeName' - A name for the attribute.
 mkAttributeDefinition ::
-  -- | 'attributeName'
-  Lude.Text ->
   -- | 'attributeType'
   ScalarAttributeType ->
+  -- | 'attributeName'
+  Lude.Text ->
   AttributeDefinition
-mkAttributeDefinition pAttributeName_ pAttributeType_ =
+mkAttributeDefinition pAttributeType_ pAttributeName_ =
   AttributeDefinition'
-    { attributeName = pAttributeName_,
-      attributeType = pAttributeType_
+    { attributeType = pAttributeType_,
+      attributeName = pAttributeName_
     }
-
--- | A name for the attribute.
---
--- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAttributeName :: Lens.Lens' AttributeDefinition Lude.Text
-adAttributeName = Lens.lens (attributeName :: AttributeDefinition -> Lude.Text) (\s a -> s {attributeName = a} :: AttributeDefinition)
-{-# DEPRECATED adAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The data type for the attribute, where:
 --
@@ -93,20 +92,27 @@ adAttributeType :: Lens.Lens' AttributeDefinition ScalarAttributeType
 adAttributeType = Lens.lens (attributeType :: AttributeDefinition -> ScalarAttributeType) (\s a -> s {attributeType = a} :: AttributeDefinition)
 {-# DEPRECATED adAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
+-- | A name for the attribute.
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAttributeName :: Lens.Lens' AttributeDefinition Lude.Text
+adAttributeName = Lens.lens (attributeName :: AttributeDefinition -> Lude.Text) (\s a -> s {attributeName = a} :: AttributeDefinition)
+{-# DEPRECATED adAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
+
 instance Lude.FromJSON AttributeDefinition where
   parseJSON =
     Lude.withObject
       "AttributeDefinition"
       ( \x ->
           AttributeDefinition'
-            Lude.<$> (x Lude..: "AttributeName") Lude.<*> (x Lude..: "AttributeType")
+            Lude.<$> (x Lude..: "AttributeType") Lude.<*> (x Lude..: "AttributeName")
       )
 
 instance Lude.ToJSON AttributeDefinition where
   toJSON AttributeDefinition' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AttributeName" Lude..= attributeName),
-            Lude.Just ("AttributeType" Lude..= attributeType)
+          [ Lude.Just ("AttributeType" Lude..= attributeType),
+            Lude.Just ("AttributeName" Lude..= attributeName)
           ]
       )

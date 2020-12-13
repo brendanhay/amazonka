@@ -32,23 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceDefinition' smart constructor.
 data InstanceDefinition = InstanceDefinition'
-  { weightedCapacity ::
-      Lude.Maybe Lude.Text,
+  { -- | Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
+    weightedCapacity :: Lude.Maybe Lude.Text,
+    -- | An EC2 instance type designation.
     instanceType :: GameServerGroupInstanceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceDefinition' with the minimum fields required to make a request.
 --
--- * 'instanceType' - An EC2 instance type designation.
 -- * 'weightedCapacity' - Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
+-- * 'instanceType' - An EC2 instance type designation.
 mkInstanceDefinition ::
   -- | 'instanceType'
   GameServerGroupInstanceType ->

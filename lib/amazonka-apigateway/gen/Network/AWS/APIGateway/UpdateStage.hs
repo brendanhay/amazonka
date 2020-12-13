@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.UpdateStage
     mkUpdateStage,
 
     -- ** Request lenses
-    usPatchOperations,
     usRestAPIId,
+    usPatchOperations,
     usStageName,
 
     -- * Destructuring the response
@@ -58,24 +59,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateStage' smart constructor.
 data UpdateStage = UpdateStage'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation],
+    -- | [Required] The name of the 'Stage' resource to change information about.
     stageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateStage' with the minimum fields required to make a request.
 --
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'stageName' - [Required] The name of the 'Stage' resource to change information about.
 mkUpdateStage ::
   -- | 'restAPIId'
@@ -85,17 +82,10 @@ mkUpdateStage ::
   UpdateStage
 mkUpdateStage pRestAPIId_ pStageName_ =
   UpdateStage'
-    { patchOperations = Lude.Nothing,
-      restAPIId = pRestAPIId_,
+    { restAPIId = pRestAPIId_,
+      patchOperations = Lude.Nothing,
       stageName = pStageName_
     }
-
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usPatchOperations :: Lens.Lens' UpdateStage (Lude.Maybe [PatchOperation])
-usPatchOperations = Lens.lens (patchOperations :: UpdateStage -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateStage)
-{-# DEPRECATED usPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
@@ -103,6 +93,13 @@ usPatchOperations = Lens.lens (patchOperations :: UpdateStage -> Lude.Maybe [Pat
 usRestAPIId :: Lens.Lens' UpdateStage Lude.Text
 usRestAPIId = Lens.lens (restAPIId :: UpdateStage -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateStage)
 {-# DEPRECATED usRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usPatchOperations :: Lens.Lens' UpdateStage (Lude.Maybe [PatchOperation])
+usPatchOperations = Lens.lens (patchOperations :: UpdateStage -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateStage)
+{-# DEPRECATED usPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The name of the 'Stage' resource to change information about.
 --

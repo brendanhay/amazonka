@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.InputSourceType
   ( InputSourceType
       ( InputSourceType',
-        ISTDynamic,
-        ISTStatic
+        ISTStatic,
+        ISTDynamic
       ),
   )
 where
@@ -49,14 +49,14 @@ newtype InputSourceType = InputSourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISTDynamic :: InputSourceType
-pattern ISTDynamic = InputSourceType' "DYNAMIC"
-
 pattern ISTStatic :: InputSourceType
 pattern ISTStatic = InputSourceType' "STATIC"
 
+pattern ISTDynamic :: InputSourceType
+pattern ISTDynamic = InputSourceType' "DYNAMIC"
+
 {-# COMPLETE
-  ISTDynamic,
   ISTStatic,
+  ISTDynamic,
   InputSourceType'
   #-}

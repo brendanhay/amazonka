@@ -36,28 +36,94 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuildPhase' smart constructor.
 data BuildPhase = BuildPhase'
-  { contexts ::
-      Lude.Maybe [PhaseContext],
+  { -- | Additional information about a build phase, especially to help troubleshoot a failed build.
+    contexts :: Lude.Maybe [PhaseContext],
+    -- | When the build phase started, expressed in Unix time format.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The current status of the build phase. Valid values include:
+    --
+    --
+    --     * FAILED
+    --
+    --     * The build phase failed.
+    --
+    --
+    --     * FAULT
+    --
+    --     * The build phase faulted.
+    --
+    --
+    --     * IN_PROGRESS
+    --
+    --     * The build phase is still in progress.
+    --
+    --
+    --     * QUEUED
+    --
+    --     * The build has been submitted and is queued behind other submitted builds.
+    --
+    --
+    --     * STOPPED
+    --
+    --     * The build phase stopped.
+    --
+    --
+    --     * SUCCEEDED
+    --
+    --     * The build phase succeeded.
+    --
+    --
+    --     * TIMED_OUT
+    --
+    --     * The build phase timed out.
     phaseStatus :: Lude.Maybe StatusType,
+    -- | The name of the build phase. Valid values include:
+    --
+    --
+    --     * @BUILD@ : Core build activities typically occur in this build phase.
+    --
+    --
+    --     * @COMPLETED@ : The build has been completed.
+    --
+    --
+    --     * @DOWNLOAD_SOURCE@ : Source code is being downloaded in this build phase.
+    --
+    --
+    --     * @FINALIZING@ : The build process is completing in this build phase.
+    --
+    --
+    --     * @INSTALL@ : Installation activities typically occur in this build phase.
+    --
+    --
+    --     * @POST_BUILD@ : Post-build activities typically occur in this build phase.
+    --
+    --
+    --     * @PRE_BUILD@ : Pre-build activities typically occur in this build phase.
+    --
+    --
+    --     * @PROVISIONING@ : The build environment is being set up.
+    --
+    --
+    --     * @QUEUED@ : The build has been submitted and is queued behind other submitted builds.
+    --
+    --
+    --     * @SUBMITTED@ : The build has been submitted.
+    --
+    --
+    --     * @UPLOAD_ARTIFACTS@ : Build output artifacts are being uploaded to the output location.
     phaseType :: Lude.Maybe BuildPhaseType,
+    -- | When the build phase ended, expressed in Unix time format.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | How long, in seconds, between the starting and ending times of the build's phase.
     durationInSeconds :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildPhase' with the minimum fields required to make a request.
 --
 -- * 'contexts' - Additional information about a build phase, especially to help troubleshoot a failed build.
--- * 'durationInSeconds' - How long, in seconds, between the starting and ending times of the build's phase.
--- * 'endTime' - When the build phase ended, expressed in Unix time format.
+-- * 'startTime' - When the build phase started, expressed in Unix time format.
 -- * 'phaseStatus' - The current status of the build phase. Valid values include:
 --
 --
@@ -132,7 +198,8 @@ data BuildPhase = BuildPhase'
 --     * @UPLOAD_ARTIFACTS@ : Build output artifacts are being uploaded to the output location.
 --
 --
--- * 'startTime' - When the build phase started, expressed in Unix time format.
+-- * 'endTime' - When the build phase ended, expressed in Unix time format.
+-- * 'durationInSeconds' - How long, in seconds, between the starting and ending times of the build's phase.
 mkBuildPhase ::
   BuildPhase
 mkBuildPhase =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,21 +24,21 @@ module Network.AWS.EC2.CreateKeyPair
     mkCreateKeyPair,
 
     -- ** Request lenses
+    ckpKeyName,
     ckpTagSpecifications,
     ckpDryRun,
-    ckpKeyName,
 
     -- * Destructuring the response
     CreateKeyPairResponse (..),
     mkCreateKeyPairResponse,
 
     -- ** Response lenses
+    ckprsKeyFingerprint,
+    ckprsKeyName,
+    ckprsKeyMaterial,
     ckprsKeyPairId,
     ckprsTags,
     ckprsResponseStatus,
-    ckprsKeyName,
-    ckprsKeyFingerprint,
-    ckprsKeyMaterial,
   )
 where
 
@@ -49,37 +50,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
-  { tagSpecifications ::
-      Lude.Maybe [TagSpecification],
-    dryRun :: Lude.Maybe Lude.Bool,
-    keyName :: Lude.Text
+  { -- | A unique name for the key pair.
+    --
+    -- Constraints: Up to 255 ASCII characters
+    keyName :: Lude.Text,
+    -- | The tags to apply to the new key pair.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateKeyPair' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'keyName' - A unique name for the key pair.
 --
 -- Constraints: Up to 255 ASCII characters
 -- * 'tagSpecifications' - The tags to apply to the new key pair.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateKeyPair ::
   -- | 'keyName'
   Lude.Text ->
   CreateKeyPair
 mkCreateKeyPair pKeyName_ =
   CreateKeyPair'
-    { tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      keyName = pKeyName_
+    { keyName = pKeyName_,
+      tagSpecifications = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
+
+-- | A unique name for the key pair.
+--
+-- Constraints: Up to 255 ASCII characters
+--
+-- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckpKeyName :: Lens.Lens' CreateKeyPair Lude.Text
+ckpKeyName = Lens.lens (keyName :: CreateKeyPair -> Lude.Text) (\s a -> s {keyName = a} :: CreateKeyPair)
+{-# DEPRECATED ckpKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
 
 -- | The tags to apply to the new key pair.
 --
@@ -95,15 +103,6 @@ ckpDryRun :: Lens.Lens' CreateKeyPair (Lude.Maybe Lude.Bool)
 ckpDryRun = Lens.lens (dryRun :: CreateKeyPair -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateKeyPair)
 {-# DEPRECATED ckpDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | A unique name for the key pair.
---
--- Constraints: Up to 255 ASCII characters
---
--- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckpKeyName :: Lens.Lens' CreateKeyPair Lude.Text
-ckpKeyName = Lens.lens (keyName :: CreateKeyPair -> Lude.Text) (\s a -> s {keyName = a} :: CreateKeyPair)
-{-# DEPRECATED ckpKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
-
 instance Lude.AWSRequest CreateKeyPair where
   type Rs CreateKeyPair = CreateKeyPairResponse
   request = Req.postQuery ec2Service
@@ -111,14 +110,14 @@ instance Lude.AWSRequest CreateKeyPair where
     Res.receiveXML
       ( \s h x ->
           CreateKeyPairResponse'
-            Lude.<$> (x Lude..@? "keyPairId")
+            Lude.<$> (x Lude..@ "keyFingerprint")
+            Lude.<*> (x Lude..@ "keyName")
+            Lude.<*> (x Lude..@ "keyMaterial")
+            Lude.<*> (x Lude..@? "keyPairId")
             Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
                          Lude.>>= Lude.may (Lude.parseXMLList "item")
                      )
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "keyName")
-            Lude.<*> (x Lude..@ "keyFingerprint")
-            Lude.<*> (x Lude..@ "keyMaterial")
       )
 
 instance Lude.ToHeaders CreateKeyPair where
@@ -132,23 +131,28 @@ instance Lude.ToQuery CreateKeyPair where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateKeyPair" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "KeyName" Lude.=: keyName,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
-        "KeyName" Lude.=: keyName
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Describes a key pair.
 --
 -- /See:/ 'mkCreateKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
-  { keyPairId ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    responseStatus :: Lude.Int,
-    keyName :: Lude.Text,
+  { -- | The SHA-1 digest of the DER encoded private key.
     keyFingerprint :: Lude.Text,
-    keyMaterial :: Lude.Sensitive Lude.Text
+    -- | The name of the key pair.
+    keyName :: Lude.Text,
+    -- | An unencrypted PEM encoded RSA private key.
+    keyMaterial :: Lude.Sensitive Lude.Text,
+    -- | The ID of the key pair.
+    keyPairId :: Lude.Maybe Lude.Text,
+    -- | Any tags applied to the key pair.
+    tags :: Lude.Maybe [Tag],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -156,34 +160,55 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
 -- | Creates a value of 'CreateKeyPairResponse' with the minimum fields required to make a request.
 --
 -- * 'keyFingerprint' - The SHA-1 digest of the DER encoded private key.
--- * 'keyMaterial' - An unencrypted PEM encoded RSA private key.
 -- * 'keyName' - The name of the key pair.
+-- * 'keyMaterial' - An unencrypted PEM encoded RSA private key.
 -- * 'keyPairId' - The ID of the key pair.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - Any tags applied to the key pair.
+-- * 'responseStatus' - The response status code.
 mkCreateKeyPairResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'keyName'
-  Lude.Text ->
   -- | 'keyFingerprint'
+  Lude.Text ->
+  -- | 'keyName'
   Lude.Text ->
   -- | 'keyMaterial'
   Lude.Sensitive Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateKeyPairResponse
 mkCreateKeyPairResponse
-  pResponseStatus_
-  pKeyName_
   pKeyFingerprint_
-  pKeyMaterial_ =
+  pKeyName_
+  pKeyMaterial_
+  pResponseStatus_ =
     CreateKeyPairResponse'
-      { keyPairId = Lude.Nothing,
-        tags = Lude.Nothing,
-        responseStatus = pResponseStatus_,
+      { keyFingerprint = pKeyFingerprint_,
         keyName = pKeyName_,
-        keyFingerprint = pKeyFingerprint_,
-        keyMaterial = pKeyMaterial_
+        keyMaterial = pKeyMaterial_,
+        keyPairId = Lude.Nothing,
+        tags = Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
+
+-- | The SHA-1 digest of the DER encoded private key.
+--
+-- /Note:/ Consider using 'keyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckprsKeyFingerprint :: Lens.Lens' CreateKeyPairResponse Lude.Text
+ckprsKeyFingerprint = Lens.lens (keyFingerprint :: CreateKeyPairResponse -> Lude.Text) (\s a -> s {keyFingerprint = a} :: CreateKeyPairResponse)
+{-# DEPRECATED ckprsKeyFingerprint "Use generic-lens or generic-optics with 'keyFingerprint' instead." #-}
+
+-- | The name of the key pair.
+--
+-- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckprsKeyName :: Lens.Lens' CreateKeyPairResponse Lude.Text
+ckprsKeyName = Lens.lens (keyName :: CreateKeyPairResponse -> Lude.Text) (\s a -> s {keyName = a} :: CreateKeyPairResponse)
+{-# DEPRECATED ckprsKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
+
+-- | An unencrypted PEM encoded RSA private key.
+--
+-- /Note:/ Consider using 'keyMaterial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckprsKeyMaterial :: Lens.Lens' CreateKeyPairResponse (Lude.Sensitive Lude.Text)
+ckprsKeyMaterial = Lens.lens (keyMaterial :: CreateKeyPairResponse -> Lude.Sensitive Lude.Text) (\s a -> s {keyMaterial = a} :: CreateKeyPairResponse)
+{-# DEPRECATED ckprsKeyMaterial "Use generic-lens or generic-optics with 'keyMaterial' instead." #-}
 
 -- | The ID of the key pair.
 --
@@ -205,24 +230,3 @@ ckprsTags = Lens.lens (tags :: CreateKeyPairResponse -> Lude.Maybe [Tag]) (\s a 
 ckprsResponseStatus :: Lens.Lens' CreateKeyPairResponse Lude.Int
 ckprsResponseStatus = Lens.lens (responseStatus :: CreateKeyPairResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateKeyPairResponse)
 {-# DEPRECATED ckprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The name of the key pair.
---
--- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsKeyName :: Lens.Lens' CreateKeyPairResponse Lude.Text
-ckprsKeyName = Lens.lens (keyName :: CreateKeyPairResponse -> Lude.Text) (\s a -> s {keyName = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
-
--- | The SHA-1 digest of the DER encoded private key.
---
--- /Note:/ Consider using 'keyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsKeyFingerprint :: Lens.Lens' CreateKeyPairResponse Lude.Text
-ckprsKeyFingerprint = Lens.lens (keyFingerprint :: CreateKeyPairResponse -> Lude.Text) (\s a -> s {keyFingerprint = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsKeyFingerprint "Use generic-lens or generic-optics with 'keyFingerprint' instead." #-}
-
--- | An unencrypted PEM encoded RSA private key.
---
--- /Note:/ Consider using 'keyMaterial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsKeyMaterial :: Lens.Lens' CreateKeyPairResponse (Lude.Sensitive Lude.Text)
-ckprsKeyMaterial = Lens.lens (keyMaterial :: CreateKeyPairResponse -> Lude.Sensitive Lude.Text) (\s a -> s {keyMaterial = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsKeyMaterial "Use generic-lens or generic-optics with 'keyMaterial' instead." #-}

@@ -14,8 +14,8 @@ module Network.AWS.WorkSpaces.Types.WorkspaceImageState
   ( WorkspaceImageState
       ( WorkspaceImageState',
         WISAvailable,
-        WISError,
-        WISPending
+        WISPending,
+        WISError
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype WorkspaceImageState = WorkspaceImageState' Lude.Text
 pattern WISAvailable :: WorkspaceImageState
 pattern WISAvailable = WorkspaceImageState' "AVAILABLE"
 
-pattern WISError :: WorkspaceImageState
-pattern WISError = WorkspaceImageState' "ERROR"
-
 pattern WISPending :: WorkspaceImageState
 pattern WISPending = WorkspaceImageState' "PENDING"
 
+pattern WISError :: WorkspaceImageState
+pattern WISError = WorkspaceImageState' "ERROR"
+
 {-# COMPLETE
   WISAvailable,
-  WISError,
   WISPending,
+  WISError,
   WorkspaceImageState'
   #-}

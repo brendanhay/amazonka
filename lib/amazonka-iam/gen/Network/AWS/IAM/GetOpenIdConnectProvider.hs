@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetOpenIdConnectProvider' smart constructor.
 newtype GetOpenIdConnectProvider = GetOpenIdConnectProvider'
-  { openIdConnectProviderARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get information for. You can get a list of OIDC provider resource ARNs by using the 'ListOpenIDConnectProviders' operation.
+    --
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    openIdConnectProviderARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpenIdConnectProvider' with the minimum fields required to make a request.
@@ -115,33 +112,27 @@ instance Lude.ToQuery GetOpenIdConnectProvider where
 --
 -- /See:/ 'mkGetOpenIdConnectProviderResponse' smart constructor.
 data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
-  { createDate ::
-      Lude.Maybe Lude.DateTime,
-    url ::
-      Lude.Maybe Lude.Text,
-    thumbprintList ::
-      Lude.Maybe [Lude.Text],
-    clientIdList ::
-      Lude.Maybe [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | The date and time when the IAM OIDC provider resource object was created in the AWS account.
+    createDate :: Lude.Maybe Lude.DateTime,
+    -- | The URL that the IAM OIDC provider resource object is associated with. For more information, see 'CreateOpenIDConnectProvider' .
+    url :: Lude.Maybe Lude.Text,
+    -- | A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see 'CreateOpenIDConnectProvider' .
+    thumbprintList :: Lude.Maybe [Lude.Text],
+    -- | A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see 'CreateOpenIDConnectProvider' .
+    clientIdList :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpenIdConnectProviderResponse' with the minimum fields required to make a request.
 --
--- * 'clientIdList' - A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see 'CreateOpenIDConnectProvider' .
 -- * 'createDate' - The date and time when the IAM OIDC provider resource object was created in the AWS account.
--- * 'responseStatus' - The response status code.
--- * 'thumbprintList' - A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see 'CreateOpenIDConnectProvider' .
 -- * 'url' - The URL that the IAM OIDC provider resource object is associated with. For more information, see 'CreateOpenIDConnectProvider' .
+-- * 'thumbprintList' - A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see 'CreateOpenIDConnectProvider' .
+-- * 'clientIdList' - A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see 'CreateOpenIDConnectProvider' .
+-- * 'responseStatus' - The response status code.
 mkGetOpenIdConnectProviderResponse ::
   -- | 'responseStatus'
   Lude.Int ->

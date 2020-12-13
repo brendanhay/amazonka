@@ -13,12 +13,12 @@
 module Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode
   ( ScalingActivityStatusCode
       ( ScalingActivityStatusCode',
-        Failed,
-        InProgress,
-        Overridden,
         Pending,
+        InProgress,
         Successful,
-        Unfulfilled
+        Overridden,
+        Unfulfilled,
+        Failed
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype ScalingActivityStatusCode = ScalingActivityStatusCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: ScalingActivityStatusCode
-pattern Failed = ScalingActivityStatusCode' "Failed"
+pattern Pending :: ScalingActivityStatusCode
+pattern Pending = ScalingActivityStatusCode' "Pending"
 
 pattern InProgress :: ScalingActivityStatusCode
 pattern InProgress = ScalingActivityStatusCode' "InProgress"
 
-pattern Overridden :: ScalingActivityStatusCode
-pattern Overridden = ScalingActivityStatusCode' "Overridden"
-
-pattern Pending :: ScalingActivityStatusCode
-pattern Pending = ScalingActivityStatusCode' "Pending"
-
 pattern Successful :: ScalingActivityStatusCode
 pattern Successful = ScalingActivityStatusCode' "Successful"
+
+pattern Overridden :: ScalingActivityStatusCode
+pattern Overridden = ScalingActivityStatusCode' "Overridden"
 
 pattern Unfulfilled :: ScalingActivityStatusCode
 pattern Unfulfilled = ScalingActivityStatusCode' "Unfulfilled"
 
+pattern Failed :: ScalingActivityStatusCode
+pattern Failed = ScalingActivityStatusCode' "Failed"
+
 {-# COMPLETE
-  Failed,
-  InProgress,
-  Overridden,
   Pending,
+  InProgress,
   Successful,
+  Overridden,
   Unfulfilled,
+  Failed,
   ScalingActivityStatusCode'
   #-}

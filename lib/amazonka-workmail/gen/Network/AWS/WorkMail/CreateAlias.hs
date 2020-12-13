@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkMail.CreateAlias
     mkCreateAlias,
 
     -- ** Request lenses
-    caOrganizationId,
-    caEntityId,
     caAlias,
+    caEntityId,
+    caOrganizationId,
 
     -- * Destructuring the response
     CreateAliasResponse (..),
@@ -40,17 +41,14 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { organizationId :: Lude.Text,
+  { -- | The alias to add to the member set.
+    alias :: Lude.Text,
+    -- | The member (user or group) to which this alias is added.
     entityId :: Lude.Text,
-    alias :: Lude.Text
+    -- | The organization under which the member (user or group) exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
@@ -59,26 +57,26 @@ data CreateAlias = CreateAlias'
 -- * 'entityId' - The member (user or group) to which this alias is added.
 -- * 'organizationId' - The organization under which the member (user or group) exists.
 mkCreateAlias ::
-  -- | 'organizationId'
+  -- | 'alias'
   Lude.Text ->
   -- | 'entityId'
   Lude.Text ->
-  -- | 'alias'
+  -- | 'organizationId'
   Lude.Text ->
   CreateAlias
-mkCreateAlias pOrganizationId_ pEntityId_ pAlias_ =
+mkCreateAlias pAlias_ pEntityId_ pOrganizationId_ =
   CreateAlias'
-    { organizationId = pOrganizationId_,
+    { alias = pAlias_,
       entityId = pEntityId_,
-      alias = pAlias_
+      organizationId = pOrganizationId_
     }
 
--- | The organization under which the member (user or group) exists.
+-- | The alias to add to the member set.
 --
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caOrganizationId :: Lens.Lens' CreateAlias Lude.Text
-caOrganizationId = Lens.lens (organizationId :: CreateAlias -> Lude.Text) (\s a -> s {organizationId = a} :: CreateAlias)
-{-# DEPRECATED caOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+-- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlias :: Lens.Lens' CreateAlias Lude.Text
+caAlias = Lens.lens (alias :: CreateAlias -> Lude.Text) (\s a -> s {alias = a} :: CreateAlias)
+{-# DEPRECATED caAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
 -- | The member (user or group) to which this alias is added.
 --
@@ -87,12 +85,12 @@ caEntityId :: Lens.Lens' CreateAlias Lude.Text
 caEntityId = Lens.lens (entityId :: CreateAlias -> Lude.Text) (\s a -> s {entityId = a} :: CreateAlias)
 {-# DEPRECATED caEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
--- | The alias to add to the member set.
+-- | The organization under which the member (user or group) exists.
 --
--- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAlias :: Lens.Lens' CreateAlias Lude.Text
-caAlias = Lens.lens (alias :: CreateAlias -> Lude.Text) (\s a -> s {alias = a} :: CreateAlias)
-{-# DEPRECATED caAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caOrganizationId :: Lens.Lens' CreateAlias Lude.Text
+caOrganizationId = Lens.lens (organizationId :: CreateAlias -> Lude.Text) (\s a -> s {organizationId = a} :: CreateAlias)
+{-# DEPRECATED caOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest CreateAlias where
   type Rs CreateAlias = CreateAliasResponse
@@ -118,9 +116,9 @@ instance Lude.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+          [ Lude.Just ("Alias" Lude..= alias),
             Lude.Just ("EntityId" Lude..= entityId),
-            Lude.Just ("Alias" Lude..= alias)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -132,16 +130,10 @@ instance Lude.ToQuery CreateAlias where
 
 -- | /See:/ 'mkCreateAliasResponse' smart constructor.
 newtype CreateAliasResponse = CreateAliasResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.

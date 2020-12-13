@@ -17,11 +17,11 @@ module Network.AWS.EMR.Types.Step
     mkStep,
 
     -- * Lenses
-    sStatus,
-    sActionOnFailure,
-    sConfig,
-    sName,
-    sId,
+    sgStatus,
+    sgActionOnFailure,
+    sgConfig,
+    sgName,
+    sgId,
   )
 where
 
@@ -35,28 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStep' smart constructor.
 data Step = Step'
-  { status :: Lude.Maybe StepStatus,
+  { -- | The current execution status details of the cluster step.
+    status :: Lude.Maybe StepStatus,
+    -- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
     actionOnFailure :: Lude.Maybe ActionOnFailure,
+    -- | The Hadoop job configuration of the cluster step.
     config :: Lude.Maybe HadoopStepConfig,
+    -- | The name of the cluster step.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the cluster step.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Step' with the minimum fields required to make a request.
 --
+-- * 'status' - The current execution status details of the cluster step.
 -- * 'actionOnFailure' - The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
 -- * 'config' - The Hadoop job configuration of the cluster step.
--- * 'id' - The identifier of the cluster step.
 -- * 'name' - The name of the cluster step.
--- * 'status' - The current execution status details of the cluster step.
+-- * 'id' - The identifier of the cluster step.
 mkStep ::
   Step
 mkStep =
@@ -71,37 +70,37 @@ mkStep =
 -- | The current execution status details of the cluster step.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStatus :: Lens.Lens' Step (Lude.Maybe StepStatus)
-sStatus = Lens.lens (status :: Step -> Lude.Maybe StepStatus) (\s a -> s {status = a} :: Step)
-{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+sgStatus :: Lens.Lens' Step (Lude.Maybe StepStatus)
+sgStatus = Lens.lens (status :: Step -> Lude.Maybe StepStatus) (\s a -> s {status = a} :: Step)
+{-# DEPRECATED sgStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
 --
 -- /Note:/ Consider using 'actionOnFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sActionOnFailure :: Lens.Lens' Step (Lude.Maybe ActionOnFailure)
-sActionOnFailure = Lens.lens (actionOnFailure :: Step -> Lude.Maybe ActionOnFailure) (\s a -> s {actionOnFailure = a} :: Step)
-{-# DEPRECATED sActionOnFailure "Use generic-lens or generic-optics with 'actionOnFailure' instead." #-}
+sgActionOnFailure :: Lens.Lens' Step (Lude.Maybe ActionOnFailure)
+sgActionOnFailure = Lens.lens (actionOnFailure :: Step -> Lude.Maybe ActionOnFailure) (\s a -> s {actionOnFailure = a} :: Step)
+{-# DEPRECATED sgActionOnFailure "Use generic-lens or generic-optics with 'actionOnFailure' instead." #-}
 
 -- | The Hadoop job configuration of the cluster step.
 --
 -- /Note:/ Consider using 'config' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sConfig :: Lens.Lens' Step (Lude.Maybe HadoopStepConfig)
-sConfig = Lens.lens (config :: Step -> Lude.Maybe HadoopStepConfig) (\s a -> s {config = a} :: Step)
-{-# DEPRECATED sConfig "Use generic-lens or generic-optics with 'config' instead." #-}
+sgConfig :: Lens.Lens' Step (Lude.Maybe HadoopStepConfig)
+sgConfig = Lens.lens (config :: Step -> Lude.Maybe HadoopStepConfig) (\s a -> s {config = a} :: Step)
+{-# DEPRECATED sgConfig "Use generic-lens or generic-optics with 'config' instead." #-}
 
 -- | The name of the cluster step.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' Step (Lude.Maybe Lude.Text)
-sName = Lens.lens (name :: Step -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Step)
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+sgName :: Lens.Lens' Step (Lude.Maybe Lude.Text)
+sgName = Lens.lens (name :: Step -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Step)
+{-# DEPRECATED sgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the cluster step.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sId :: Lens.Lens' Step (Lude.Maybe Lude.Text)
-sId = Lens.lens (id :: Step -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Step)
-{-# DEPRECATED sId "Use generic-lens or generic-optics with 'id' instead." #-}
+sgId :: Lens.Lens' Step (Lude.Maybe Lude.Text)
+sgId = Lens.lens (id :: Step -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Step)
+{-# DEPRECATED sgId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.FromJSON Step where
   parseJSON =

@@ -13,13 +13,13 @@
 module Network.AWS.CostExplorer.Types.Metric
   ( Metric
       ( Metric',
-        AmortizedCost,
         BlendedCost,
-        NetAmortizedCost,
-        NetUnblendedCost,
-        NormalizedUsageAmount,
         UnblendedCost,
-        UsageQuantity
+        AmortizedCost,
+        NetUnblendedCost,
+        NetAmortizedCost,
+        UsageQuantity,
+        NormalizedUsageAmount
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype Metric = Metric' Lude.Text
       Lude.ToHeader
     )
 
-pattern AmortizedCost :: Metric
-pattern AmortizedCost = Metric' "AMORTIZED_COST"
-
 pattern BlendedCost :: Metric
 pattern BlendedCost = Metric' "BLENDED_COST"
-
-pattern NetAmortizedCost :: Metric
-pattern NetAmortizedCost = Metric' "NET_AMORTIZED_COST"
-
-pattern NetUnblendedCost :: Metric
-pattern NetUnblendedCost = Metric' "NET_UNBLENDED_COST"
-
-pattern NormalizedUsageAmount :: Metric
-pattern NormalizedUsageAmount = Metric' "NORMALIZED_USAGE_AMOUNT"
 
 pattern UnblendedCost :: Metric
 pattern UnblendedCost = Metric' "UNBLENDED_COST"
 
+pattern AmortizedCost :: Metric
+pattern AmortizedCost = Metric' "AMORTIZED_COST"
+
+pattern NetUnblendedCost :: Metric
+pattern NetUnblendedCost = Metric' "NET_UNBLENDED_COST"
+
+pattern NetAmortizedCost :: Metric
+pattern NetAmortizedCost = Metric' "NET_AMORTIZED_COST"
+
 pattern UsageQuantity :: Metric
 pattern UsageQuantity = Metric' "USAGE_QUANTITY"
 
+pattern NormalizedUsageAmount :: Metric
+pattern NormalizedUsageAmount = Metric' "NORMALIZED_USAGE_AMOUNT"
+
 {-# COMPLETE
-  AmortizedCost,
   BlendedCost,
-  NetAmortizedCost,
-  NetUnblendedCost,
-  NormalizedUsageAmount,
   UnblendedCost,
+  AmortizedCost,
+  NetUnblendedCost,
+  NetAmortizedCost,
   UsageQuantity,
+  NormalizedUsageAmount,
   Metric'
   #-}

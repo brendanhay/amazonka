@@ -17,8 +17,8 @@ module Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes
     mkDecisionTaskTimedOutEventAttributes,
 
     -- * Lenses
-    dttoeaTimeoutType,
     dttoeaScheduledEventId,
+    dttoeaTimeoutType,
     dttoeaStartedEventId,
   )
 where
@@ -31,51 +31,39 @@ import Network.AWS.SWF.Types.DecisionTaskTimeoutType
 --
 -- /See:/ 'mkDecisionTaskTimedOutEventAttributes' smart constructor.
 data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes'
-  { timeoutType ::
-      DecisionTaskTimeoutType,
-    scheduledEventId ::
-      Lude.Integer,
-    startedEventId ::
-      Lude.Integer
+  { -- | The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    scheduledEventId :: Lude.Integer,
+    -- | The type of timeout that expired before the decision task could be completed.
+    timeoutType :: DecisionTaskTimeoutType,
+    -- | The ID of the @DecisionTaskStarted@ event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    startedEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DecisionTaskTimedOutEventAttributes' with the minimum fields required to make a request.
 --
 -- * 'scheduledEventId' - The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'startedEventId' - The ID of the @DecisionTaskStarted@ event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 -- * 'timeoutType' - The type of timeout that expired before the decision task could be completed.
+-- * 'startedEventId' - The ID of the @DecisionTaskStarted@ event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 mkDecisionTaskTimedOutEventAttributes ::
-  -- | 'timeoutType'
-  DecisionTaskTimeoutType ->
   -- | 'scheduledEventId'
   Lude.Integer ->
+  -- | 'timeoutType'
+  DecisionTaskTimeoutType ->
   -- | 'startedEventId'
   Lude.Integer ->
   DecisionTaskTimedOutEventAttributes
 mkDecisionTaskTimedOutEventAttributes
-  pTimeoutType_
   pScheduledEventId_
+  pTimeoutType_
   pStartedEventId_ =
     DecisionTaskTimedOutEventAttributes'
-      { timeoutType = pTimeoutType_,
-        scheduledEventId = pScheduledEventId_,
+      { scheduledEventId =
+          pScheduledEventId_,
+        timeoutType = pTimeoutType_,
         startedEventId = pStartedEventId_
       }
-
--- | The type of timeout that expired before the decision task could be completed.
---
--- /Note:/ Consider using 'timeoutType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dttoeaTimeoutType :: Lens.Lens' DecisionTaskTimedOutEventAttributes DecisionTaskTimeoutType
-dttoeaTimeoutType = Lens.lens (timeoutType :: DecisionTaskTimedOutEventAttributes -> DecisionTaskTimeoutType) (\s a -> s {timeoutType = a} :: DecisionTaskTimedOutEventAttributes)
-{-# DEPRECATED dttoeaTimeoutType "Use generic-lens or generic-optics with 'timeoutType' instead." #-}
 
 -- | The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
@@ -83,6 +71,13 @@ dttoeaTimeoutType = Lens.lens (timeoutType :: DecisionTaskTimedOutEventAttribute
 dttoeaScheduledEventId :: Lens.Lens' DecisionTaskTimedOutEventAttributes Lude.Integer
 dttoeaScheduledEventId = Lens.lens (scheduledEventId :: DecisionTaskTimedOutEventAttributes -> Lude.Integer) (\s a -> s {scheduledEventId = a} :: DecisionTaskTimedOutEventAttributes)
 {-# DEPRECATED dttoeaScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
+
+-- | The type of timeout that expired before the decision task could be completed.
+--
+-- /Note:/ Consider using 'timeoutType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttoeaTimeoutType :: Lens.Lens' DecisionTaskTimedOutEventAttributes DecisionTaskTimeoutType
+dttoeaTimeoutType = Lens.lens (timeoutType :: DecisionTaskTimedOutEventAttributes -> DecisionTaskTimeoutType) (\s a -> s {timeoutType = a} :: DecisionTaskTimedOutEventAttributes)
+{-# DEPRECATED dttoeaTimeoutType "Use generic-lens or generic-optics with 'timeoutType' instead." #-}
 
 -- | The ID of the @DecisionTaskStarted@ event recorded when this decision task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
@@ -97,7 +92,7 @@ instance Lude.FromJSON DecisionTaskTimedOutEventAttributes where
       "DecisionTaskTimedOutEventAttributes"
       ( \x ->
           DecisionTaskTimedOutEventAttributes'
-            Lude.<$> (x Lude..: "timeoutType")
-            Lude.<*> (x Lude..: "scheduledEventId")
+            Lude.<$> (x Lude..: "scheduledEventId")
+            Lude.<*> (x Lude..: "timeoutType")
             Lude.<*> (x Lude..: "startedEventId")
       )

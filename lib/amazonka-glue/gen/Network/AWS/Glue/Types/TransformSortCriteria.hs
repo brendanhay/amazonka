@@ -17,8 +17,8 @@ module Network.AWS.Glue.Types.TransformSortCriteria
     mkTransformSortCriteria,
 
     -- * Lenses
-    tscColumn,
     tscSortDirection,
+    tscColumn,
   )
 where
 
@@ -31,41 +31,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransformSortCriteria' smart constructor.
 data TransformSortCriteria = TransformSortCriteria'
-  { column ::
-      TransformSortColumnType,
-    sortDirection :: SortDirectionType
+  { -- | The sort direction to be used in the sorting criteria that are associated with the machine learning transform.
+    sortDirection :: SortDirectionType,
+    -- | The column to be used in the sorting criteria that are associated with the machine learning transform.
+    column :: TransformSortColumnType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformSortCriteria' with the minimum fields required to make a request.
 --
--- * 'column' - The column to be used in the sorting criteria that are associated with the machine learning transform.
 -- * 'sortDirection' - The sort direction to be used in the sorting criteria that are associated with the machine learning transform.
+-- * 'column' - The column to be used in the sorting criteria that are associated with the machine learning transform.
 mkTransformSortCriteria ::
-  -- | 'column'
-  TransformSortColumnType ->
   -- | 'sortDirection'
   SortDirectionType ->
+  -- | 'column'
+  TransformSortColumnType ->
   TransformSortCriteria
-mkTransformSortCriteria pColumn_ pSortDirection_ =
+mkTransformSortCriteria pSortDirection_ pColumn_ =
   TransformSortCriteria'
-    { column = pColumn_,
-      sortDirection = pSortDirection_
+    { sortDirection = pSortDirection_,
+      column = pColumn_
     }
-
--- | The column to be used in the sorting criteria that are associated with the machine learning transform.
---
--- /Note:/ Consider using 'column' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tscColumn :: Lens.Lens' TransformSortCriteria TransformSortColumnType
-tscColumn = Lens.lens (column :: TransformSortCriteria -> TransformSortColumnType) (\s a -> s {column = a} :: TransformSortCriteria)
-{-# DEPRECATED tscColumn "Use generic-lens or generic-optics with 'column' instead." #-}
 
 -- | The sort direction to be used in the sorting criteria that are associated with the machine learning transform.
 --
@@ -74,11 +62,18 @@ tscSortDirection :: Lens.Lens' TransformSortCriteria SortDirectionType
 tscSortDirection = Lens.lens (sortDirection :: TransformSortCriteria -> SortDirectionType) (\s a -> s {sortDirection = a} :: TransformSortCriteria)
 {-# DEPRECATED tscSortDirection "Use generic-lens or generic-optics with 'sortDirection' instead." #-}
 
+-- | The column to be used in the sorting criteria that are associated with the machine learning transform.
+--
+-- /Note:/ Consider using 'column' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tscColumn :: Lens.Lens' TransformSortCriteria TransformSortColumnType
+tscColumn = Lens.lens (column :: TransformSortCriteria -> TransformSortColumnType) (\s a -> s {column = a} :: TransformSortCriteria)
+{-# DEPRECATED tscColumn "Use generic-lens or generic-optics with 'column' instead." #-}
+
 instance Lude.ToJSON TransformSortCriteria where
   toJSON TransformSortCriteria' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Column" Lude..= column),
-            Lude.Just ("SortDirection" Lude..= sortDirection)
+          [ Lude.Just ("SortDirection" Lude..= sortDirection),
+            Lude.Just ("Column" Lude..= column)
           ]
       )

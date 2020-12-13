@@ -36,30 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAggregatedSourceStatus' smart constructor.
 data AggregatedSourceStatus = AggregatedSourceStatus'
-  { lastErrorCode ::
-      Lude.Maybe Lude.Text,
-    lastUpdateStatus ::
-      Lude.Maybe AggregatedSourceStatusType,
+  { -- | The error code that AWS Config returned when the source account aggregation last failed.
+    lastErrorCode :: Lude.Maybe Lude.Text,
+    -- | Filters the last updated status type.
+    --
+    --
+    --     * Valid value FAILED indicates errors while moving data.
+    --
+    --
+    --     * Valid value SUCCEEDED indicates the data was successfully moved.
+    --
+    --
+    --     * Valid value OUTDATED indicates the data is not the most recent.
+    lastUpdateStatus :: Lude.Maybe AggregatedSourceStatusType,
+    -- | The source account or an organization.
     sourceType :: Lude.Maybe AggregatedSourceType,
+    -- | The source account ID or an organization.
     sourceId :: Lude.Maybe Lude.Text,
+    -- | The message indicating that the source account aggregation failed due to an error.
     lastErrorMessage :: Lude.Maybe Lude.Text,
+    -- | The region authorized to collect aggregated data.
     awsRegion :: Lude.Maybe Lude.Text,
+    -- | The time of the last update.
     lastUpdateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AggregatedSourceStatus' with the minimum fields required to make a request.
 --
--- * 'awsRegion' - The region authorized to collect aggregated data.
 -- * 'lastErrorCode' - The error code that AWS Config returned when the source account aggregation last failed.
--- * 'lastErrorMessage' - The message indicating that the source account aggregation failed due to an error.
 -- * 'lastUpdateStatus' - Filters the last updated status type.
 --
 --
@@ -72,9 +78,11 @@ data AggregatedSourceStatus = AggregatedSourceStatus'
 --     * Valid value OUTDATED indicates the data is not the most recent.
 --
 --
--- * 'lastUpdateTime' - The time of the last update.
--- * 'sourceId' - The source account ID or an organization.
 -- * 'sourceType' - The source account or an organization.
+-- * 'sourceId' - The source account ID or an organization.
+-- * 'lastErrorMessage' - The message indicating that the source account aggregation failed due to an error.
+-- * 'awsRegion' - The region authorized to collect aggregated data.
+-- * 'lastUpdateTime' - The time of the last update.
 mkAggregatedSourceStatus ::
   AggregatedSourceStatus
 mkAggregatedSourceStatus =

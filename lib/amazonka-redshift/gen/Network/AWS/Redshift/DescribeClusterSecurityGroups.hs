@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,20 +26,20 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     mkDescribeClusterSecurityGroups,
 
     -- ** Request lenses
-    dcsgTagValues,
-    dcsgTagKeys,
-    dcsgClusterSecurityGroupName,
-    dcsgMarker,
-    dcsgMaxRecords,
+    dcsgfTagValues,
+    dcsgfTagKeys,
+    dcsgfClusterSecurityGroupName,
+    dcsgfMarker,
+    dcsgfMaxRecords,
 
     -- * Destructuring the response
     DescribeClusterSecurityGroupsResponse (..),
     mkDescribeClusterSecurityGroupsResponse,
 
     -- ** Response lenses
-    dcsgsrsClusterSecurityGroups,
-    dcsgsrsMarker,
-    dcsgsrsResponseStatus,
+    drsClusterSecurityGroups,
+    drsMarker,
+    drsResponseStatus,
   )
 where
 
@@ -53,27 +54,31 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeClusterSecurityGroups' smart constructor.
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
-  { tagValues ::
-      Lude.Maybe [Lude.Text],
-    tagKeys ::
-      Lude.Maybe [Lude.Text],
-    clusterSecurityGroupName ::
-      Lude.Maybe Lude.Text,
+  { -- | A tag value or values for which you want to return all matching cluster security groups that are associated with the specified tag value or values. For example, suppose that you have security groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag values associated with them.
+    tagValues :: Lude.Maybe [Lude.Text],
+    -- | A tag key or keys for which you want to return all matching cluster security groups that are associated with the specified key or keys. For example, suppose that you have security groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag keys associated with them.
+    tagKeys :: Lude.Maybe [Lude.Text],
+    -- | The name of a cluster security group for which you are requesting details. You can specify either the __Marker__ parameter or a __ClusterSecurityGroupName__ parameter, but not both.
+    --
+    -- Example: @securitygroup1@
+    clusterSecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterSecurityGroups' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+    --
+    -- Constraints: You can specify either the __ClusterSecurityGroupName__ parameter or the __Marker__ parameter, but not both.
     marker :: Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int
+    -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
+    --
+    -- Default: @100@
+    -- Constraints: minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusterSecurityGroups' with the minimum fields required to make a request.
 --
+-- * 'tagValues' - A tag value or values for which you want to return all matching cluster security groups that are associated with the specified tag value or values. For example, suppose that you have security groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag values associated with them.
+-- * 'tagKeys' - A tag key or keys for which you want to return all matching cluster security groups that are associated with the specified key or keys. For example, suppose that you have security groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag keys associated with them.
 -- * 'clusterSecurityGroupName' - The name of a cluster security group for which you are requesting details. You can specify either the __Marker__ parameter or a __ClusterSecurityGroupName__ parameter, but not both.
 --
 -- Example: @securitygroup1@
@@ -84,8 +89,6 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 --
 -- Default: @100@
 -- Constraints: minimum 20, maximum 100.
--- * 'tagKeys' - A tag key or keys for which you want to return all matching cluster security groups that are associated with the specified key or keys. For example, suppose that you have security groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag keys associated with them.
--- * 'tagValues' - A tag value or values for which you want to return all matching cluster security groups that are associated with the specified tag value or values. For example, suppose that you have security groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag values associated with them.
 mkDescribeClusterSecurityGroups ::
   DescribeClusterSecurityGroups
 mkDescribeClusterSecurityGroups =
@@ -100,34 +103,34 @@ mkDescribeClusterSecurityGroups =
 -- | A tag value or values for which you want to return all matching cluster security groups that are associated with the specified tag value or values. For example, suppose that you have security groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag values associated with them.
 --
 -- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgTagValues :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe [Lude.Text])
-dcsgTagValues = Lens.lens (tagValues :: DescribeClusterSecurityGroups -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeClusterSecurityGroups)
-{-# DEPRECATED dcsgTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
+dcsgfTagValues :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe [Lude.Text])
+dcsgfTagValues = Lens.lens (tagValues :: DescribeClusterSecurityGroups -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeClusterSecurityGroups)
+{-# DEPRECATED dcsgfTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
 
 -- | A tag key or keys for which you want to return all matching cluster security groups that are associated with the specified key or keys. For example, suppose that you have security groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the security groups that have either or both of these tag keys associated with them.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgTagKeys :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe [Lude.Text])
-dcsgTagKeys = Lens.lens (tagKeys :: DescribeClusterSecurityGroups -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeClusterSecurityGroups)
-{-# DEPRECATED dcsgTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+dcsgfTagKeys :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe [Lude.Text])
+dcsgfTagKeys = Lens.lens (tagKeys :: DescribeClusterSecurityGroups -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeClusterSecurityGroups)
+{-# DEPRECATED dcsgfTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
 -- | The name of a cluster security group for which you are requesting details. You can specify either the __Marker__ parameter or a __ClusterSecurityGroupName__ parameter, but not both.
 --
 -- Example: @securitygroup1@
 --
 -- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgClusterSecurityGroupName :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe Lude.Text)
-dcsgClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: DescribeClusterSecurityGroups -> Lude.Maybe Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: DescribeClusterSecurityGroups)
-{-# DEPRECATED dcsgClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
+dcsgfClusterSecurityGroupName :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe Lude.Text)
+dcsgfClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: DescribeClusterSecurityGroups -> Lude.Maybe Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: DescribeClusterSecurityGroups)
+{-# DEPRECATED dcsgfClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterSecurityGroups' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- Constraints: You can specify either the __ClusterSecurityGroupName__ parameter or the __Marker__ parameter, but not both.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgMarker :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe Lude.Text)
-dcsgMarker = Lens.lens (marker :: DescribeClusterSecurityGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterSecurityGroups)
-{-# DEPRECATED dcsgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcsgfMarker :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe Lude.Text)
+dcsgfMarker = Lens.lens (marker :: DescribeClusterSecurityGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterSecurityGroups)
+{-# DEPRECATED dcsgfMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
@@ -135,19 +138,16 @@ dcsgMarker = Lens.lens (marker :: DescribeClusterSecurityGroups -> Lude.Maybe Lu
 -- Constraints: minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgMaxRecords :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe Lude.Int)
-dcsgMaxRecords = Lens.lens (maxRecords :: DescribeClusterSecurityGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeClusterSecurityGroups)
-{-# DEPRECATED dcsgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dcsgfMaxRecords :: Lens.Lens' DescribeClusterSecurityGroups (Lude.Maybe Lude.Int)
+dcsgfMaxRecords = Lens.lens (maxRecords :: DescribeClusterSecurityGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeClusterSecurityGroups)
+{-# DEPRECATED dcsgfMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 instance Page.AWSPager DescribeClusterSecurityGroups where
   page rq rs
-    | Page.stop (rs Lens.^. dcsgsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcsgsrsClusterSecurityGroups) =
-      Lude.Nothing
+    | Page.stop (rs Lens.^. drsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. drsClusterSecurityGroups) = Lude.Nothing
     | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dcsgMarker Lens..~ rs Lens.^. dcsgsrsMarker
+      Lude.Just Lude.$ rq Lude.& dcsgfMarker Lens..~ rs Lens.^. drsMarker
 
 instance Lude.AWSRequest DescribeClusterSecurityGroups where
   type
@@ -191,22 +191,14 @@ instance Lude.ToQuery DescribeClusterSecurityGroups where
 --
 -- /See:/ 'mkDescribeClusterSecurityGroupsResponse' smart constructor.
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
-  { clusterSecurityGroups ::
-      Lude.Maybe
-        [ClusterSecurityGroup],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of 'ClusterSecurityGroup' instances.
+    clusterSecurityGroups :: Lude.Maybe [ClusterSecurityGroup],
+    -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusterSecurityGroupsResponse' with the minimum fields required to make a request.
@@ -229,20 +221,20 @@ mkDescribeClusterSecurityGroupsResponse pResponseStatus_ =
 -- | A list of 'ClusterSecurityGroup' instances.
 --
 -- /Note:/ Consider using 'clusterSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgsrsClusterSecurityGroups :: Lens.Lens' DescribeClusterSecurityGroupsResponse (Lude.Maybe [ClusterSecurityGroup])
-dcsgsrsClusterSecurityGroups = Lens.lens (clusterSecurityGroups :: DescribeClusterSecurityGroupsResponse -> Lude.Maybe [ClusterSecurityGroup]) (\s a -> s {clusterSecurityGroups = a} :: DescribeClusterSecurityGroupsResponse)
-{-# DEPRECATED dcsgsrsClusterSecurityGroups "Use generic-lens or generic-optics with 'clusterSecurityGroups' instead." #-}
+drsClusterSecurityGroups :: Lens.Lens' DescribeClusterSecurityGroupsResponse (Lude.Maybe [ClusterSecurityGroup])
+drsClusterSecurityGroups = Lens.lens (clusterSecurityGroups :: DescribeClusterSecurityGroupsResponse -> Lude.Maybe [ClusterSecurityGroup]) (\s a -> s {clusterSecurityGroups = a} :: DescribeClusterSecurityGroupsResponse)
+{-# DEPRECATED drsClusterSecurityGroups "Use generic-lens or generic-optics with 'clusterSecurityGroups' instead." #-}
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgsrsMarker :: Lens.Lens' DescribeClusterSecurityGroupsResponse (Lude.Maybe Lude.Text)
-dcsgsrsMarker = Lens.lens (marker :: DescribeClusterSecurityGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterSecurityGroupsResponse)
-{-# DEPRECATED dcsgsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drsMarker :: Lens.Lens' DescribeClusterSecurityGroupsResponse (Lude.Maybe Lude.Text)
+drsMarker = Lens.lens (marker :: DescribeClusterSecurityGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterSecurityGroupsResponse)
+{-# DEPRECATED drsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgsrsResponseStatus :: Lens.Lens' DescribeClusterSecurityGroupsResponse Lude.Int
-dcsgsrsResponseStatus = Lens.lens (responseStatus :: DescribeClusterSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClusterSecurityGroupsResponse)
-{-# DEPRECATED dcsgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeClusterSecurityGroupsResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeClusterSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClusterSecurityGroupsResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

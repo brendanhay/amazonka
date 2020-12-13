@@ -13,8 +13,8 @@
 module Network.AWS.FMS.Types.RemediationActionType
   ( RemediationActionType
       ( RemediationActionType',
-        Modify,
-        Remove
+        Remove,
+        Modify
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RemediationActionType = RemediationActionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Modify :: RemediationActionType
-pattern Modify = RemediationActionType' "MODIFY"
-
 pattern Remove :: RemediationActionType
 pattern Remove = RemediationActionType' "REMOVE"
 
+pattern Modify :: RemediationActionType
+pattern Modify = RemediationActionType' "MODIFY"
+
 {-# COMPLETE
-  Modify,
   Remove,
+  Modify,
   RemediationActionType'
   #-}

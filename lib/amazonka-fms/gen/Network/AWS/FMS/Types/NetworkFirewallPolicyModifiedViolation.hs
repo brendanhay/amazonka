@@ -31,30 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkFirewallPolicyModifiedViolation' smart constructor.
 data NetworkFirewallPolicyModifiedViolation = NetworkFirewallPolicyModifiedViolation'
-  { currentPolicyDescription ::
-      Lude.Maybe
-        NetworkFirewallPolicyDescription,
-    violationTarget ::
-      Lude.Maybe
-        Lude.Text,
-    expectedPolicyDescription ::
-      Lude.Maybe
-        NetworkFirewallPolicyDescription
+  { -- | The policy that's currently in use in the individual account.
+    currentPolicyDescription :: Lude.Maybe NetworkFirewallPolicyDescription,
+    -- | The ID of the AWS Network Firewall or VPC resource that's in violation.
+    violationTarget :: Lude.Maybe Lude.Text,
+    -- | The policy that should be in use in the individual account in order to be compliant.
+    expectedPolicyDescription :: Lude.Maybe NetworkFirewallPolicyDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkFirewallPolicyModifiedViolation' with the minimum fields required to make a request.
 --
 -- * 'currentPolicyDescription' - The policy that's currently in use in the individual account.
--- * 'expectedPolicyDescription' - The policy that should be in use in the individual account in order to be compliant.
 -- * 'violationTarget' - The ID of the AWS Network Firewall or VPC resource that's in violation.
+-- * 'expectedPolicyDescription' - The policy that should be in use in the individual account in order to be compliant.
 mkNetworkFirewallPolicyModifiedViolation ::
   NetworkFirewallPolicyModifiedViolation
 mkNetworkFirewallPolicyModifiedViolation =

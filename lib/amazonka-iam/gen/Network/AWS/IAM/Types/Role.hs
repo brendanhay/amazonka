@@ -19,15 +19,15 @@ module Network.AWS.IAM.Types.Role
     -- * Lenses
     rMaxSessionDuration,
     rAssumeRolePolicyDocument,
+    rARN,
+    rPath,
+    rCreateDate,
+    rRoleName,
+    rRoleId,
     rRoleLastUsed,
     rPermissionsBoundary,
     rDescription,
     rTags,
-    rPath,
-    rRoleName,
-    rRoleId,
-    rARN,
-    rCreateDate,
   )
 where
 
@@ -41,67 +41,74 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRole' smart constructor.
 data Role = Role'
-  { maxSessionDuration :: Lude.Maybe Lude.Natural,
+  { -- | The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional @DurationSeconds@ API parameter or @duration-seconds@ CLI parameter.
+    maxSessionDuration :: Lude.Maybe Lude.Natural,
+    -- | The policy that grants an entity permission to assume the role.
     assumeRolePolicyDocument :: Lude.Maybe Lude.Text,
-    roleLastUsed :: Lude.Maybe RoleLastUsed,
-    permissionsBoundary :: Lude.Maybe AttachedPermissionsBoundary,
-    description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    path :: Lude.Text,
-    roleName :: Lude.Text,
-    roleId :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ guide.
     arn :: Lude.Text,
-    createDate :: Lude.DateTime
+    -- | The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    path :: Lude.Text,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
+    createDate :: Lude.DateTime,
+    -- | The friendly name that identifies the role.
+    roleName :: Lude.Text,
+    -- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    roleId :: Lude.Text,
+    -- | Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
+    roleLastUsed :: Lude.Maybe RoleLastUsed,
+    -- | The ARN of the policy used to set the permissions boundary for the role.
+    --
+    -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+    permissionsBoundary :: Lude.Maybe AttachedPermissionsBoundary,
+    -- | A description of the role that you provide.
+    description :: Lude.Maybe Lude.Text,
+    -- | A list of tags that are attached to the specified role. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Role' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ guide.
--- * 'assumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
--- * 'description' - A description of the role that you provide.
 -- * 'maxSessionDuration' - The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional @DurationSeconds@ API parameter or @duration-seconds@ CLI parameter.
+-- * 'assumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
+-- * 'arn' - The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ guide.
 -- * 'path' - The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
+-- * 'roleName' - The friendly name that identifies the role.
+-- * 'roleId' - The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'roleLastUsed' - Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
 -- * 'permissionsBoundary' - The ARN of the policy used to set the permissions boundary for the role.
 --
 -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
--- * 'roleId' - The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'roleLastUsed' - Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
--- * 'roleName' - The friendly name that identifies the role.
+-- * 'description' - A description of the role that you provide.
 -- * 'tags' - A list of tags that are attached to the specified role. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 mkRole ::
+  -- | 'arn'
+  Lude.Text ->
   -- | 'path'
   Lude.Text ->
+  -- | 'createDate'
+  Lude.DateTime ->
   -- | 'roleName'
   Lude.Text ->
   -- | 'roleId'
   Lude.Text ->
-  -- | 'arn'
-  Lude.Text ->
-  -- | 'createDate'
-  Lude.DateTime ->
   Role
-mkRole pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
+mkRole pARN_ pPath_ pCreateDate_ pRoleName_ pRoleId_ =
   Role'
     { maxSessionDuration = Lude.Nothing,
       assumeRolePolicyDocument = Lude.Nothing,
+      arn = pARN_,
+      path = pPath_,
+      createDate = pCreateDate_,
+      roleName = pRoleName_,
+      roleId = pRoleId_,
       roleLastUsed = Lude.Nothing,
       permissionsBoundary = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      path = pPath_,
-      roleName = pRoleName_,
-      roleId = pRoleId_,
-      arn = pARN_,
-      createDate = pCreateDate_
+      tags = Lude.Nothing
     }
 
 -- | The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional @DurationSeconds@ API parameter or @duration-seconds@ CLI parameter.
@@ -117,6 +124,41 @@ rMaxSessionDuration = Lens.lens (maxSessionDuration :: Role -> Lude.Maybe Lude.N
 rAssumeRolePolicyDocument :: Lens.Lens' Role (Lude.Maybe Lude.Text)
 rAssumeRolePolicyDocument = Lens.lens (assumeRolePolicyDocument :: Role -> Lude.Maybe Lude.Text) (\s a -> s {assumeRolePolicyDocument = a} :: Role)
 {-# DEPRECATED rAssumeRolePolicyDocument "Use generic-lens or generic-optics with 'assumeRolePolicyDocument' instead." #-}
+
+-- | The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ guide.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rARN :: Lens.Lens' Role Lude.Text
+rARN = Lens.lens (arn :: Role -> Lude.Text) (\s a -> s {arn = a} :: Role)
+{-# DEPRECATED rARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rPath :: Lens.Lens' Role Lude.Text
+rPath = Lens.lens (path :: Role -> Lude.Text) (\s a -> s {path = a} :: Role)
+{-# DEPRECATED rPath "Use generic-lens or generic-optics with 'path' instead." #-}
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCreateDate :: Lens.Lens' Role Lude.DateTime
+rCreateDate = Lens.lens (createDate :: Role -> Lude.DateTime) (\s a -> s {createDate = a} :: Role)
+{-# DEPRECATED rCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
+
+-- | The friendly name that identifies the role.
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRoleName :: Lens.Lens' Role Lude.Text
+rRoleName = Lens.lens (roleName :: Role -> Lude.Text) (\s a -> s {roleName = a} :: Role)
+{-# DEPRECATED rRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
+-- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'roleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRoleId :: Lens.Lens' Role Lude.Text
+rRoleId = Lens.lens (roleId :: Role -> Lude.Text) (\s a -> s {roleId = a} :: Role)
+{-# DEPRECATED rRoleId "Use generic-lens or generic-optics with 'roleId' instead." #-}
 
 -- | Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
 --
@@ -148,54 +190,19 @@ rTags :: Lens.Lens' Role (Lude.Maybe [Tag])
 rTags = Lens.lens (tags :: Role -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Role)
 {-# DEPRECATED rTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The path to the role. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
---
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rPath :: Lens.Lens' Role Lude.Text
-rPath = Lens.lens (path :: Role -> Lude.Text) (\s a -> s {path = a} :: Role)
-{-# DEPRECATED rPath "Use generic-lens or generic-optics with 'path' instead." #-}
-
--- | The friendly name that identifies the role.
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRoleName :: Lens.Lens' Role Lude.Text
-rRoleName = Lens.lens (roleName :: Role -> Lude.Text) (\s a -> s {roleName = a} :: Role)
-{-# DEPRECATED rRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
-
--- | The stable and unique string identifying the role. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
---
--- /Note:/ Consider using 'roleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRoleId :: Lens.Lens' Role Lude.Text
-rRoleId = Lens.lens (roleId :: Role -> Lude.Text) (\s a -> s {roleId = a} :: Role)
-{-# DEPRECATED rRoleId "Use generic-lens or generic-optics with 'roleId' instead." #-}
-
--- | The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ guide.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rARN :: Lens.Lens' Role Lude.Text
-rARN = Lens.lens (arn :: Role -> Lude.Text) (\s a -> s {arn = a} :: Role)
-{-# DEPRECATED rARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
---
--- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rCreateDate :: Lens.Lens' Role Lude.DateTime
-rCreateDate = Lens.lens (createDate :: Role -> Lude.DateTime) (\s a -> s {createDate = a} :: Role)
-{-# DEPRECATED rCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
-
 instance Lude.FromXML Role where
   parseXML x =
     Role'
       Lude.<$> (x Lude..@? "MaxSessionDuration")
       Lude.<*> (x Lude..@? "AssumeRolePolicyDocument")
+      Lude.<*> (x Lude..@ "Arn")
+      Lude.<*> (x Lude..@ "Path")
+      Lude.<*> (x Lude..@ "CreateDate")
+      Lude.<*> (x Lude..@ "RoleName")
+      Lude.<*> (x Lude..@ "RoleId")
       Lude.<*> (x Lude..@? "RoleLastUsed")
       Lude.<*> (x Lude..@? "PermissionsBoundary")
       Lude.<*> (x Lude..@? "Description")
       Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "member")
                )
-      Lude.<*> (x Lude..@ "Path")
-      Lude.<*> (x Lude..@ "RoleName")
-      Lude.<*> (x Lude..@ "RoleId")
-      Lude.<*> (x Lude..@ "Arn")
-      Lude.<*> (x Lude..@ "CreateDate")

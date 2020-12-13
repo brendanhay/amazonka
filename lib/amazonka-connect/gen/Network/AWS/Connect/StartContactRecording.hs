@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,16 +24,16 @@ module Network.AWS.Connect.StartContactRecording
 
     -- ** Request lenses
     scrInstanceId,
+    scrVoiceRecordingConfiguration,
     scrContactId,
     scrInitialContactId,
-    scrVoiceRecordingConfiguration,
 
     -- * Destructuring the response
     StartContactRecordingResponse (..),
     mkStartContactRecordingResponse,
 
     -- ** Response lenses
-    starsResponseStatus,
+    scrfrsResponseStatus,
   )
 where
 
@@ -44,48 +45,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartContactRecording' smart constructor.
 data StartContactRecording = StartContactRecording'
-  { instanceId ::
-      Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | Who is being recorded.
+    voiceRecordingConfiguration :: VoiceRecordingConfiguration,
+    -- | The identifier of the contact.
     contactId :: Lude.Text,
-    initialContactId :: Lude.Text,
-    voiceRecordingConfiguration ::
-      VoiceRecordingConfiguration
+    -- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
+    initialContactId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartContactRecording' with the minimum fields required to make a request.
 --
--- * 'contactId' - The identifier of the contact.
--- * 'initialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
 -- * 'voiceRecordingConfiguration' - Who is being recorded.
+-- * 'contactId' - The identifier of the contact.
+-- * 'initialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
 mkStartContactRecording ::
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'voiceRecordingConfiguration'
+  VoiceRecordingConfiguration ->
   -- | 'contactId'
   Lude.Text ->
   -- | 'initialContactId'
   Lude.Text ->
-  -- | 'voiceRecordingConfiguration'
-  VoiceRecordingConfiguration ->
   StartContactRecording
 mkStartContactRecording
   pInstanceId_
+  pVoiceRecordingConfiguration_
   pContactId_
-  pInitialContactId_
-  pVoiceRecordingConfiguration_ =
+  pInitialContactId_ =
     StartContactRecording'
       { instanceId = pInstanceId_,
+        voiceRecordingConfiguration = pVoiceRecordingConfiguration_,
         contactId = pContactId_,
-        initialContactId = pInitialContactId_,
-        voiceRecordingConfiguration = pVoiceRecordingConfiguration_
+        initialContactId = pInitialContactId_
       }
 
 -- | The identifier of the Amazon Connect instance.
@@ -94,6 +91,13 @@ mkStartContactRecording
 scrInstanceId :: Lens.Lens' StartContactRecording Lude.Text
 scrInstanceId = Lens.lens (instanceId :: StartContactRecording -> Lude.Text) (\s a -> s {instanceId = a} :: StartContactRecording)
 {-# DEPRECATED scrInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | Who is being recorded.
+--
+-- /Note:/ Consider using 'voiceRecordingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrVoiceRecordingConfiguration :: Lens.Lens' StartContactRecording VoiceRecordingConfiguration
+scrVoiceRecordingConfiguration = Lens.lens (voiceRecordingConfiguration :: StartContactRecording -> VoiceRecordingConfiguration) (\s a -> s {voiceRecordingConfiguration = a} :: StartContactRecording)
+{-# DEPRECATED scrVoiceRecordingConfiguration "Use generic-lens or generic-optics with 'voiceRecordingConfiguration' instead." #-}
 
 -- | The identifier of the contact.
 --
@@ -108,13 +112,6 @@ scrContactId = Lens.lens (contactId :: StartContactRecording -> Lude.Text) (\s a
 scrInitialContactId :: Lens.Lens' StartContactRecording Lude.Text
 scrInitialContactId = Lens.lens (initialContactId :: StartContactRecording -> Lude.Text) (\s a -> s {initialContactId = a} :: StartContactRecording)
 {-# DEPRECATED scrInitialContactId "Use generic-lens or generic-optics with 'initialContactId' instead." #-}
-
--- | Who is being recorded.
---
--- /Note:/ Consider using 'voiceRecordingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrVoiceRecordingConfiguration :: Lens.Lens' StartContactRecording VoiceRecordingConfiguration
-scrVoiceRecordingConfiguration = Lens.lens (voiceRecordingConfiguration :: StartContactRecording -> VoiceRecordingConfiguration) (\s a -> s {voiceRecordingConfiguration = a} :: StartContactRecording)
-{-# DEPRECATED scrVoiceRecordingConfiguration "Use generic-lens or generic-optics with 'voiceRecordingConfiguration' instead." #-}
 
 instance Lude.AWSRequest StartContactRecording where
   type Rs StartContactRecording = StartContactRecordingResponse
@@ -140,12 +137,12 @@ instance Lude.ToJSON StartContactRecording where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("ContactId" Lude..= contactId),
-            Lude.Just ("InitialContactId" Lude..= initialContactId),
             Lude.Just
               ( "VoiceRecordingConfiguration"
                   Lude..= voiceRecordingConfiguration
-              )
+              ),
+            Lude.Just ("ContactId" Lude..= contactId),
+            Lude.Just ("InitialContactId" Lude..= initialContactId)
           ]
       )
 
@@ -157,16 +154,10 @@ instance Lude.ToQuery StartContactRecording where
 
 -- | /See:/ 'mkStartContactRecordingResponse' smart constructor.
 newtype StartContactRecordingResponse = StartContactRecordingResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartContactRecordingResponse' with the minimum fields required to make a request.
@@ -182,6 +173,6 @@ mkStartContactRecordingResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-starsResponseStatus :: Lens.Lens' StartContactRecordingResponse Lude.Int
-starsResponseStatus = Lens.lens (responseStatus :: StartContactRecordingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartContactRecordingResponse)
-{-# DEPRECATED starsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scrfrsResponseStatus :: Lens.Lens' StartContactRecordingResponse Lude.Int
+scrfrsResponseStatus = Lens.lens (responseStatus :: StartContactRecordingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartContactRecordingResponse)
+{-# DEPRECATED scrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

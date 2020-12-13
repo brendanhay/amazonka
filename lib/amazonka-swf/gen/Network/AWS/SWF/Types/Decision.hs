@@ -21,6 +21,7 @@ module Network.AWS.SWF.Types.Decision
     dScheduleActivityTaskDecisionAttributes,
     dSignalExternalWorkflowExecutionDecisionAttributes,
     dStartTimerDecisionAttributes,
+    dDecisionType,
     dRecordMarkerDecisionAttributes,
     dFailWorkflowExecutionDecisionAttributes,
     dStartChildWorkflowExecutionDecisionAttributes,
@@ -30,7 +31,6 @@ module Network.AWS.SWF.Types.Decision
     dCancelWorkflowExecutionDecisionAttributes,
     dCancelTimerDecisionAttributes,
     dContinueAsNewWorkflowExecutionDecisionAttributes,
-    dDecisionType,
   )
 where
 
@@ -182,60 +182,54 @@ import Network.AWS.SWF.Types.StartTimerDecisionAttributes
 --
 -- /See:/ 'mkDecision' smart constructor.
 data Decision = Decision'
-  { requestCancelExternalWorkflowExecutionDecisionAttributes ::
-      Lude.Maybe
-        RequestCancelExternalWorkflowExecutionDecisionAttributes,
-    scheduleActivityTaskDecisionAttributes ::
-      Lude.Maybe ScheduleActivityTaskDecisionAttributes,
-    signalExternalWorkflowExecutionDecisionAttributes ::
-      Lude.Maybe SignalExternalWorkflowExecutionDecisionAttributes,
-    startTimerDecisionAttributes ::
-      Lude.Maybe StartTimerDecisionAttributes,
-    recordMarkerDecisionAttributes ::
-      Lude.Maybe RecordMarkerDecisionAttributes,
-    failWorkflowExecutionDecisionAttributes ::
-      Lude.Maybe FailWorkflowExecutionDecisionAttributes,
-    startChildWorkflowExecutionDecisionAttributes ::
-      Lude.Maybe StartChildWorkflowExecutionDecisionAttributes,
-    completeWorkflowExecutionDecisionAttributes ::
-      Lude.Maybe CompleteWorkflowExecutionDecisionAttributes,
-    scheduleLambdaFunctionDecisionAttributes ::
-      Lude.Maybe ScheduleLambdaFunctionDecisionAttributes,
-    requestCancelActivityTaskDecisionAttributes ::
-      Lude.Maybe RequestCancelActivityTaskDecisionAttributes,
-    cancelWorkflowExecutionDecisionAttributes ::
-      Lude.Maybe CancelWorkflowExecutionDecisionAttributes,
-    cancelTimerDecisionAttributes ::
-      Lude.Maybe CancelTimerDecisionAttributes,
-    continueAsNewWorkflowExecutionDecisionAttributes ::
-      Lude.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes,
-    decisionType :: DecisionType
+  { -- | Provides the details of the @RequestCancelExternalWorkflowExecution@ decision. It isn't set for other decision types.
+    requestCancelExternalWorkflowExecutionDecisionAttributes :: Lude.Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @ScheduleActivityTask@ decision. It isn't set for other decision types.
+    scheduleActivityTaskDecisionAttributes :: Lude.Maybe ScheduleActivityTaskDecisionAttributes,
+    -- | Provides the details of the @SignalExternalWorkflowExecution@ decision. It isn't set for other decision types.
+    signalExternalWorkflowExecutionDecisionAttributes :: Lude.Maybe SignalExternalWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @StartTimer@ decision. It isn't set for other decision types.
+    startTimerDecisionAttributes :: Lude.Maybe StartTimerDecisionAttributes,
+    -- | Specifies the type of the decision.
+    decisionType :: DecisionType,
+    -- | Provides the details of the @RecordMarker@ decision. It isn't set for other decision types.
+    recordMarkerDecisionAttributes :: Lude.Maybe RecordMarkerDecisionAttributes,
+    -- | Provides the details of the @FailWorkflowExecution@ decision. It isn't set for other decision types.
+    failWorkflowExecutionDecisionAttributes :: Lude.Maybe FailWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @StartChildWorkflowExecution@ decision. It isn't set for other decision types.
+    startChildWorkflowExecutionDecisionAttributes :: Lude.Maybe StartChildWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @CompleteWorkflowExecution@ decision. It isn't set for other decision types.
+    completeWorkflowExecutionDecisionAttributes :: Lude.Maybe CompleteWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @ScheduleLambdaFunction@ decision. It isn't set for other decision types.
+    scheduleLambdaFunctionDecisionAttributes :: Lude.Maybe ScheduleLambdaFunctionDecisionAttributes,
+    -- | Provides the details of the @RequestCancelActivityTask@ decision. It isn't set for other decision types.
+    requestCancelActivityTaskDecisionAttributes :: Lude.Maybe RequestCancelActivityTaskDecisionAttributes,
+    -- | Provides the details of the @CancelWorkflowExecution@ decision. It isn't set for other decision types.
+    cancelWorkflowExecutionDecisionAttributes :: Lude.Maybe CancelWorkflowExecutionDecisionAttributes,
+    -- | Provides the details of the @CancelTimer@ decision. It isn't set for other decision types.
+    cancelTimerDecisionAttributes :: Lude.Maybe CancelTimerDecisionAttributes,
+    -- | Provides the details of the @ContinueAsNewWorkflowExecution@ decision. It isn't set for other decision types.
+    continueAsNewWorkflowExecutionDecisionAttributes :: Lude.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Decision' with the minimum fields required to make a request.
 --
--- * 'cancelTimerDecisionAttributes' - Provides the details of the @CancelTimer@ decision. It isn't set for other decision types.
--- * 'cancelWorkflowExecutionDecisionAttributes' - Provides the details of the @CancelWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'completeWorkflowExecutionDecisionAttributes' - Provides the details of the @CompleteWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'continueAsNewWorkflowExecutionDecisionAttributes' - Provides the details of the @ContinueAsNewWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'decisionType' - Specifies the type of the decision.
--- * 'failWorkflowExecutionDecisionAttributes' - Provides the details of the @FailWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'recordMarkerDecisionAttributes' - Provides the details of the @RecordMarker@ decision. It isn't set for other decision types.
--- * 'requestCancelActivityTaskDecisionAttributes' - Provides the details of the @RequestCancelActivityTask@ decision. It isn't set for other decision types.
 -- * 'requestCancelExternalWorkflowExecutionDecisionAttributes' - Provides the details of the @RequestCancelExternalWorkflowExecution@ decision. It isn't set for other decision types.
 -- * 'scheduleActivityTaskDecisionAttributes' - Provides the details of the @ScheduleActivityTask@ decision. It isn't set for other decision types.
--- * 'scheduleLambdaFunctionDecisionAttributes' - Provides the details of the @ScheduleLambdaFunction@ decision. It isn't set for other decision types.
 -- * 'signalExternalWorkflowExecutionDecisionAttributes' - Provides the details of the @SignalExternalWorkflowExecution@ decision. It isn't set for other decision types.
--- * 'startChildWorkflowExecutionDecisionAttributes' - Provides the details of the @StartChildWorkflowExecution@ decision. It isn't set for other decision types.
 -- * 'startTimerDecisionAttributes' - Provides the details of the @StartTimer@ decision. It isn't set for other decision types.
+-- * 'decisionType' - Specifies the type of the decision.
+-- * 'recordMarkerDecisionAttributes' - Provides the details of the @RecordMarker@ decision. It isn't set for other decision types.
+-- * 'failWorkflowExecutionDecisionAttributes' - Provides the details of the @FailWorkflowExecution@ decision. It isn't set for other decision types.
+-- * 'startChildWorkflowExecutionDecisionAttributes' - Provides the details of the @StartChildWorkflowExecution@ decision. It isn't set for other decision types.
+-- * 'completeWorkflowExecutionDecisionAttributes' - Provides the details of the @CompleteWorkflowExecution@ decision. It isn't set for other decision types.
+-- * 'scheduleLambdaFunctionDecisionAttributes' - Provides the details of the @ScheduleLambdaFunction@ decision. It isn't set for other decision types.
+-- * 'requestCancelActivityTaskDecisionAttributes' - Provides the details of the @RequestCancelActivityTask@ decision. It isn't set for other decision types.
+-- * 'cancelWorkflowExecutionDecisionAttributes' - Provides the details of the @CancelWorkflowExecution@ decision. It isn't set for other decision types.
+-- * 'cancelTimerDecisionAttributes' - Provides the details of the @CancelTimer@ decision. It isn't set for other decision types.
+-- * 'continueAsNewWorkflowExecutionDecisionAttributes' - Provides the details of the @ContinueAsNewWorkflowExecution@ decision. It isn't set for other decision types.
 mkDecision ::
   -- | 'decisionType'
   DecisionType ->
@@ -247,6 +241,7 @@ mkDecision pDecisionType_ =
       scheduleActivityTaskDecisionAttributes = Lude.Nothing,
       signalExternalWorkflowExecutionDecisionAttributes = Lude.Nothing,
       startTimerDecisionAttributes = Lude.Nothing,
+      decisionType = pDecisionType_,
       recordMarkerDecisionAttributes = Lude.Nothing,
       failWorkflowExecutionDecisionAttributes = Lude.Nothing,
       startChildWorkflowExecutionDecisionAttributes = Lude.Nothing,
@@ -255,8 +250,7 @@ mkDecision pDecisionType_ =
       requestCancelActivityTaskDecisionAttributes = Lude.Nothing,
       cancelWorkflowExecutionDecisionAttributes = Lude.Nothing,
       cancelTimerDecisionAttributes = Lude.Nothing,
-      continueAsNewWorkflowExecutionDecisionAttributes = Lude.Nothing,
-      decisionType = pDecisionType_
+      continueAsNewWorkflowExecutionDecisionAttributes = Lude.Nothing
     }
 
 -- | Provides the details of the @RequestCancelExternalWorkflowExecution@ decision. It isn't set for other decision types.
@@ -286,6 +280,13 @@ dSignalExternalWorkflowExecutionDecisionAttributes = Lens.lens (signalExternalWo
 dStartTimerDecisionAttributes :: Lens.Lens' Decision (Lude.Maybe StartTimerDecisionAttributes)
 dStartTimerDecisionAttributes = Lens.lens (startTimerDecisionAttributes :: Decision -> Lude.Maybe StartTimerDecisionAttributes) (\s a -> s {startTimerDecisionAttributes = a} :: Decision)
 {-# DEPRECATED dStartTimerDecisionAttributes "Use generic-lens or generic-optics with 'startTimerDecisionAttributes' instead." #-}
+
+-- | Specifies the type of the decision.
+--
+-- /Note:/ Consider using 'decisionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDecisionType :: Lens.Lens' Decision DecisionType
+dDecisionType = Lens.lens (decisionType :: Decision -> DecisionType) (\s a -> s {decisionType = a} :: Decision)
+{-# DEPRECATED dDecisionType "Use generic-lens or generic-optics with 'decisionType' instead." #-}
 
 -- | Provides the details of the @RecordMarker@ decision. It isn't set for other decision types.
 --
@@ -350,13 +351,6 @@ dContinueAsNewWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Lude.M
 dContinueAsNewWorkflowExecutionDecisionAttributes = Lens.lens (continueAsNewWorkflowExecutionDecisionAttributes :: Decision -> Lude.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes) (\s a -> s {continueAsNewWorkflowExecutionDecisionAttributes = a} :: Decision)
 {-# DEPRECATED dContinueAsNewWorkflowExecutionDecisionAttributes "Use generic-lens or generic-optics with 'continueAsNewWorkflowExecutionDecisionAttributes' instead." #-}
 
--- | Specifies the type of the decision.
---
--- /Note:/ Consider using 'decisionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDecisionType :: Lens.Lens' Decision DecisionType
-dDecisionType = Lens.lens (decisionType :: Decision -> DecisionType) (\s a -> s {decisionType = a} :: Decision)
-{-# DEPRECATED dDecisionType "Use generic-lens or generic-optics with 'decisionType' instead." #-}
-
 instance Lude.ToJSON Decision where
   toJSON Decision' {..} =
     Lude.object
@@ -371,6 +365,7 @@ instance Lude.ToJSON Decision where
               Lude.<$> signalExternalWorkflowExecutionDecisionAttributes,
             ("startTimerDecisionAttributes" Lude..=)
               Lude.<$> startTimerDecisionAttributes,
+            Lude.Just ("decisionType" Lude..= decisionType),
             ("recordMarkerDecisionAttributes" Lude..=)
               Lude.<$> recordMarkerDecisionAttributes,
             ("failWorkflowExecutionDecisionAttributes" Lude..=)
@@ -388,7 +383,6 @@ instance Lude.ToJSON Decision where
             ("cancelTimerDecisionAttributes" Lude..=)
               Lude.<$> cancelTimerDecisionAttributes,
             ("continueAsNewWorkflowExecutionDecisionAttributes" Lude..=)
-              Lude.<$> continueAsNewWorkflowExecutionDecisionAttributes,
-            Lude.Just ("decisionType" Lude..= decisionType)
+              Lude.<$> continueAsNewWorkflowExecutionDecisionAttributes
           ]
       )

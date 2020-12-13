@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,29 +42,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCertificates' smart constructor.
 data GetCertificates = GetCertificates'
-  { certificateStatuses ::
-      Lude.Maybe [CertificateStatus],
+  { -- | The status of the certificates for which to return information.
+    --
+    -- For example, specify @ISSUED@ to return only certificates with an @ISSUED@ status.
+    -- When omitted, the response includes all of your certificates in the AWS Region where the request is made, regardless of their current status.
+    certificateStatuses :: Lude.Maybe [CertificateStatus],
+    -- | The name for the certificate for which to return information.
+    --
+    -- When omitted, the response includes all of your certificates in the AWS Region where the request is made.
     certificateName :: Lude.Maybe Lude.Text,
+    -- | Indicates whether to include detailed information about the certificates in the response.
+    --
+    -- When omitted, the response includes only the certificate names, Amazon Resource Names (ARNs), domain names, and tags.
     includeCertificateDetails :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificates' with the minimum fields required to make a request.
 --
--- * 'certificateName' - The name for the certificate for which to return information.
---
--- When omitted, the response includes all of your certificates in the AWS Region where the request is made.
 -- * 'certificateStatuses' - The status of the certificates for which to return information.
 --
 -- For example, specify @ISSUED@ to return only certificates with an @ISSUED@ status.
 -- When omitted, the response includes all of your certificates in the AWS Region where the request is made, regardless of their current status.
+-- * 'certificateName' - The name for the certificate for which to return information.
+--
+-- When omitted, the response includes all of your certificates in the AWS Region where the request is made.
 -- * 'includeCertificateDetails' - Indicates whether to include detailed information about the certificates in the response.
 --
 -- When omitted, the response includes only the certificate names, Amazon Resource Names (ARNs), domain names, and tags.
@@ -145,17 +149,12 @@ instance Lude.ToQuery GetCertificates where
 
 -- | /See:/ 'mkGetCertificatesResponse' smart constructor.
 data GetCertificatesResponse = GetCertificatesResponse'
-  { certificates ::
-      Lude.Maybe [CertificateSummary],
+  { -- | An object that describes certificates.
+    certificates :: Lude.Maybe [CertificateSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificatesResponse' with the minimum fields required to make a request.

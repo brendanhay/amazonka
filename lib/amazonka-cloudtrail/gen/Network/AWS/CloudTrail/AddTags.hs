@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudTrail.AddTags
     mkAddTags,
 
     -- ** Request lenses
-    atTagsList,
     atResourceId,
+    atTagsList,
 
     -- * Destructuring the response
     AddTagsResponse (..),
@@ -41,16 +42,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
-  { tagsList :: Lude.Maybe [Tag],
-    resourceId :: Lude.Text
+  { -- | Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is:
+    --
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+    resourceId :: Lude.Text,
+    -- | Contains a list of CloudTrail tags, up to a limit of 50
+    tagsList :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
@@ -64,14 +63,7 @@ mkAddTags ::
   Lude.Text ->
   AddTags
 mkAddTags pResourceId_ =
-  AddTags' {tagsList = Lude.Nothing, resourceId = pResourceId_}
-
--- | Contains a list of CloudTrail tags, up to a limit of 50
---
--- /Note:/ Consider using 'tagsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atTagsList :: Lens.Lens' AddTags (Lude.Maybe [Tag])
-atTagsList = Lens.lens (tagsList :: AddTags -> Lude.Maybe [Tag]) (\s a -> s {tagsList = a} :: AddTags)
-{-# DEPRECATED atTagsList "Use generic-lens or generic-optics with 'tagsList' instead." #-}
+  AddTags' {resourceId = pResourceId_, tagsList = Lude.Nothing}
 
 -- | Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is:
 --
@@ -81,6 +73,13 @@ atTagsList = Lens.lens (tagsList :: AddTags -> Lude.Maybe [Tag]) (\s a -> s {tag
 atResourceId :: Lens.Lens' AddTags Lude.Text
 atResourceId = Lens.lens (resourceId :: AddTags -> Lude.Text) (\s a -> s {resourceId = a} :: AddTags)
 {-# DEPRECATED atResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | Contains a list of CloudTrail tags, up to a limit of 50
+--
+-- /Note:/ Consider using 'tagsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atTagsList :: Lens.Lens' AddTags (Lude.Maybe [Tag])
+atTagsList = Lens.lens (tagsList :: AddTags -> Lude.Maybe [Tag]) (\s a -> s {tagsList = a} :: AddTags)
+{-# DEPRECATED atTagsList "Use generic-lens or generic-optics with 'tagsList' instead." #-}
 
 instance Lude.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
@@ -108,8 +107,8 @@ instance Lude.ToJSON AddTags where
   toJSON AddTags' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TagsList" Lude..=) Lude.<$> tagsList,
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            ("TagsList" Lude..=) Lude.<$> tagsList
           ]
       )
 
@@ -123,16 +122,10 @@ instance Lude.ToQuery AddTags where
 --
 -- /See:/ 'mkAddTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.

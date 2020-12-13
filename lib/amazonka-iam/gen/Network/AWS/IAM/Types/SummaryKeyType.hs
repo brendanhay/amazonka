@@ -13,32 +13,32 @@
 module Network.AWS.IAM.Types.SummaryKeyType
   ( SummaryKeyType
       ( SummaryKeyType',
+        Users,
+        UsersQuota,
+        Groups,
+        GroupsQuota,
+        ServerCertificates,
+        ServerCertificatesQuota,
+        UserPolicySizeQuota,
+        GroupPolicySizeQuota,
+        GroupsPerUserQuota,
+        SigningCertificatesPerUserQuota,
         AccessKeysPerUserQuota,
-        AccountAccessKeysPresent,
+        MFADevices,
+        MFADevicesInUse,
         AccountMFAEnabled,
+        AccountAccessKeysPresent,
         AccountSigningCertificatesPresent,
         AttachedPoliciesPerGroupQuota,
         AttachedPoliciesPerRoleQuota,
         AttachedPoliciesPerUserQuota,
-        GlobalEndpointTokenVersion,
-        GroupPolicySizeQuota,
-        Groups,
-        GroupsPerUserQuota,
-        GroupsQuota,
-        MFADevices,
-        MFADevicesInUse,
         Policies,
         PoliciesQuota,
         PolicySizeQuota,
         PolicyVersionsInUse,
         PolicyVersionsInUseQuota,
-        ServerCertificates,
-        ServerCertificatesQuota,
-        SigningCertificatesPerUserQuota,
-        UserPolicySizeQuota,
-        Users,
-        UsersQuota,
-        VersionsPerPolicyQuota
+        VersionsPerPolicyQuota,
+        GlobalEndpointTokenVersion
       ),
   )
 where
@@ -69,14 +69,50 @@ newtype SummaryKeyType = SummaryKeyType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Users :: SummaryKeyType
+pattern Users = SummaryKeyType' "Users"
+
+pattern UsersQuota :: SummaryKeyType
+pattern UsersQuota = SummaryKeyType' "UsersQuota"
+
+pattern Groups :: SummaryKeyType
+pattern Groups = SummaryKeyType' "Groups"
+
+pattern GroupsQuota :: SummaryKeyType
+pattern GroupsQuota = SummaryKeyType' "GroupsQuota"
+
+pattern ServerCertificates :: SummaryKeyType
+pattern ServerCertificates = SummaryKeyType' "ServerCertificates"
+
+pattern ServerCertificatesQuota :: SummaryKeyType
+pattern ServerCertificatesQuota = SummaryKeyType' "ServerCertificatesQuota"
+
+pattern UserPolicySizeQuota :: SummaryKeyType
+pattern UserPolicySizeQuota = SummaryKeyType' "UserPolicySizeQuota"
+
+pattern GroupPolicySizeQuota :: SummaryKeyType
+pattern GroupPolicySizeQuota = SummaryKeyType' "GroupPolicySizeQuota"
+
+pattern GroupsPerUserQuota :: SummaryKeyType
+pattern GroupsPerUserQuota = SummaryKeyType' "GroupsPerUserQuota"
+
+pattern SigningCertificatesPerUserQuota :: SummaryKeyType
+pattern SigningCertificatesPerUserQuota = SummaryKeyType' "SigningCertificatesPerUserQuota"
+
 pattern AccessKeysPerUserQuota :: SummaryKeyType
 pattern AccessKeysPerUserQuota = SummaryKeyType' "AccessKeysPerUserQuota"
 
-pattern AccountAccessKeysPresent :: SummaryKeyType
-pattern AccountAccessKeysPresent = SummaryKeyType' "AccountAccessKeysPresent"
+pattern MFADevices :: SummaryKeyType
+pattern MFADevices = SummaryKeyType' "MFADevices"
+
+pattern MFADevicesInUse :: SummaryKeyType
+pattern MFADevicesInUse = SummaryKeyType' "MFADevicesInUse"
 
 pattern AccountMFAEnabled :: SummaryKeyType
 pattern AccountMFAEnabled = SummaryKeyType' "AccountMFAEnabled"
+
+pattern AccountAccessKeysPresent :: SummaryKeyType
+pattern AccountAccessKeysPresent = SummaryKeyType' "AccountAccessKeysPresent"
 
 pattern AccountSigningCertificatesPresent :: SummaryKeyType
 pattern AccountSigningCertificatesPresent = SummaryKeyType' "AccountSigningCertificatesPresent"
@@ -89,27 +125,6 @@ pattern AttachedPoliciesPerRoleQuota = SummaryKeyType' "AttachedPoliciesPerRoleQ
 
 pattern AttachedPoliciesPerUserQuota :: SummaryKeyType
 pattern AttachedPoliciesPerUserQuota = SummaryKeyType' "AttachedPoliciesPerUserQuota"
-
-pattern GlobalEndpointTokenVersion :: SummaryKeyType
-pattern GlobalEndpointTokenVersion = SummaryKeyType' "GlobalEndpointTokenVersion"
-
-pattern GroupPolicySizeQuota :: SummaryKeyType
-pattern GroupPolicySizeQuota = SummaryKeyType' "GroupPolicySizeQuota"
-
-pattern Groups :: SummaryKeyType
-pattern Groups = SummaryKeyType' "Groups"
-
-pattern GroupsPerUserQuota :: SummaryKeyType
-pattern GroupsPerUserQuota = SummaryKeyType' "GroupsPerUserQuota"
-
-pattern GroupsQuota :: SummaryKeyType
-pattern GroupsQuota = SummaryKeyType' "GroupsQuota"
-
-pattern MFADevices :: SummaryKeyType
-pattern MFADevices = SummaryKeyType' "MFADevices"
-
-pattern MFADevicesInUse :: SummaryKeyType
-pattern MFADevicesInUse = SummaryKeyType' "MFADevicesInUse"
 
 pattern Policies :: SummaryKeyType
 pattern Policies = SummaryKeyType' "Policies"
@@ -126,53 +141,38 @@ pattern PolicyVersionsInUse = SummaryKeyType' "PolicyVersionsInUse"
 pattern PolicyVersionsInUseQuota :: SummaryKeyType
 pattern PolicyVersionsInUseQuota = SummaryKeyType' "PolicyVersionsInUseQuota"
 
-pattern ServerCertificates :: SummaryKeyType
-pattern ServerCertificates = SummaryKeyType' "ServerCertificates"
-
-pattern ServerCertificatesQuota :: SummaryKeyType
-pattern ServerCertificatesQuota = SummaryKeyType' "ServerCertificatesQuota"
-
-pattern SigningCertificatesPerUserQuota :: SummaryKeyType
-pattern SigningCertificatesPerUserQuota = SummaryKeyType' "SigningCertificatesPerUserQuota"
-
-pattern UserPolicySizeQuota :: SummaryKeyType
-pattern UserPolicySizeQuota = SummaryKeyType' "UserPolicySizeQuota"
-
-pattern Users :: SummaryKeyType
-pattern Users = SummaryKeyType' "Users"
-
-pattern UsersQuota :: SummaryKeyType
-pattern UsersQuota = SummaryKeyType' "UsersQuota"
-
 pattern VersionsPerPolicyQuota :: SummaryKeyType
 pattern VersionsPerPolicyQuota = SummaryKeyType' "VersionsPerPolicyQuota"
 
+pattern GlobalEndpointTokenVersion :: SummaryKeyType
+pattern GlobalEndpointTokenVersion = SummaryKeyType' "GlobalEndpointTokenVersion"
+
 {-# COMPLETE
+  Users,
+  UsersQuota,
+  Groups,
+  GroupsQuota,
+  ServerCertificates,
+  ServerCertificatesQuota,
+  UserPolicySizeQuota,
+  GroupPolicySizeQuota,
+  GroupsPerUserQuota,
+  SigningCertificatesPerUserQuota,
   AccessKeysPerUserQuota,
-  AccountAccessKeysPresent,
+  MFADevices,
+  MFADevicesInUse,
   AccountMFAEnabled,
+  AccountAccessKeysPresent,
   AccountSigningCertificatesPresent,
   AttachedPoliciesPerGroupQuota,
   AttachedPoliciesPerRoleQuota,
   AttachedPoliciesPerUserQuota,
-  GlobalEndpointTokenVersion,
-  GroupPolicySizeQuota,
-  Groups,
-  GroupsPerUserQuota,
-  GroupsQuota,
-  MFADevices,
-  MFADevicesInUse,
   Policies,
   PoliciesQuota,
   PolicySizeQuota,
   PolicyVersionsInUse,
   PolicyVersionsInUseQuota,
-  ServerCertificates,
-  ServerCertificatesQuota,
-  SigningCertificatesPerUserQuota,
-  UserPolicySizeQuota,
-  Users,
-  UsersQuota,
   VersionsPerPolicyQuota,
+  GlobalEndpointTokenVersion,
   SummaryKeyType'
   #-}

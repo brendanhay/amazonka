@@ -13,12 +13,12 @@
 module Network.AWS.MediaConvert.Types.H265AdaptiveQuantization
   ( H265AdaptiveQuantization
       ( H265AdaptiveQuantization',
+        HAQOff,
+        HAQLow,
+        HAQMedium,
         HAQHigh,
         HAQHigher,
-        HAQLow,
-        HAQMax,
-        HAQMedium,
-        HAQOff
+        HAQMax
       ),
   )
 where
@@ -50,30 +50,30 @@ newtype H265AdaptiveQuantization = H265AdaptiveQuantization' Lude.Text
       Lude.ToHeader
     )
 
+pattern HAQOff :: H265AdaptiveQuantization
+pattern HAQOff = H265AdaptiveQuantization' "OFF"
+
+pattern HAQLow :: H265AdaptiveQuantization
+pattern HAQLow = H265AdaptiveQuantization' "LOW"
+
+pattern HAQMedium :: H265AdaptiveQuantization
+pattern HAQMedium = H265AdaptiveQuantization' "MEDIUM"
+
 pattern HAQHigh :: H265AdaptiveQuantization
 pattern HAQHigh = H265AdaptiveQuantization' "HIGH"
 
 pattern HAQHigher :: H265AdaptiveQuantization
 pattern HAQHigher = H265AdaptiveQuantization' "HIGHER"
 
-pattern HAQLow :: H265AdaptiveQuantization
-pattern HAQLow = H265AdaptiveQuantization' "LOW"
-
 pattern HAQMax :: H265AdaptiveQuantization
 pattern HAQMax = H265AdaptiveQuantization' "MAX"
 
-pattern HAQMedium :: H265AdaptiveQuantization
-pattern HAQMedium = H265AdaptiveQuantization' "MEDIUM"
-
-pattern HAQOff :: H265AdaptiveQuantization
-pattern HAQOff = H265AdaptiveQuantization' "OFF"
-
 {-# COMPLETE
+  HAQOff,
+  HAQLow,
+  HAQMedium,
   HAQHigh,
   HAQHigher,
-  HAQLow,
   HAQMax,
-  HAQMedium,
-  HAQOff,
   H265AdaptiveQuantization'
   #-}

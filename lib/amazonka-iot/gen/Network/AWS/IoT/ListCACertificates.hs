@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,24 +50,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListCACertificates' smart constructor.
 data ListCACertificates = ListCACertificates'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The marker for the next set of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Determines the order of the results.
     ascendingOrder :: Lude.Maybe Lude.Bool,
+    -- | The result page size.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCACertificates' with the minimum fields required to make a request.
 --
--- * 'ascendingOrder' - Determines the order of the results.
 -- * 'marker' - The marker for the next set of results.
+-- * 'ascendingOrder' - Determines the order of the results.
 -- * 'pageSize' - The result page size.
 mkListCACertificates ::
   ListCACertificates
@@ -137,18 +134,14 @@ instance Lude.ToQuery ListCACertificates where
 --
 -- /See:/ 'mkListCACertificatesResponse' smart constructor.
 data ListCACertificatesResponse = ListCACertificatesResponse'
-  { certificates ::
-      Lude.Maybe [CACertificate],
+  { -- | The CA certificates registered in your AWS account.
+    certificates :: Lude.Maybe [CACertificate],
+    -- | The current position within the list of CA certificates.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCACertificatesResponse' with the minimum fields required to make a request.

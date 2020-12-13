@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Destination' smart constructor.
 data S3Destination = S3Destination'
-  { prefix :: Lude.Maybe Lude.Text,
+  { -- | The S3 prefix.
+    prefix :: Lude.Maybe Lude.Text,
+    -- | The S3 bucket that contains the updated firmware.
     bucket :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Destination' with the minimum fields required to make a request.
 --
--- * 'bucket' - The S3 bucket that contains the updated firmware.
 -- * 'prefix' - The S3 prefix.
+-- * 'bucket' - The S3 bucket that contains the updated firmware.
 mkS3Destination ::
   S3Destination
 mkS3Destination =

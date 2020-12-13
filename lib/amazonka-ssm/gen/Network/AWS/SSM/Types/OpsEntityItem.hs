@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOpsEntityItem' smart constructor.
 data OpsEntityItem = OpsEntityItem'
-  { content ::
-      Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+  { -- | The detailed data content for an OpsItem summaries result item.
+    content :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+    -- | The time OpsItem data was captured.
     captureTime :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsEntityItem' with the minimum fields required to make a request.
 --
--- * 'captureTime' - The time OpsItem data was captured.
 -- * 'content' - The detailed data content for an OpsItem summaries result item.
+-- * 'captureTime' - The time OpsItem data was captured.
 mkOpsEntityItem ::
   OpsEntityItem
 mkOpsEntityItem =

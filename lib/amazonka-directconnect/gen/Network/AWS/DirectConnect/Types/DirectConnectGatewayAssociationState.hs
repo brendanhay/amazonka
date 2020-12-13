@@ -13,10 +13,10 @@
 module Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState
   ( DirectConnectGatewayAssociationState
       ( DirectConnectGatewayAssociationState',
-        Associated,
         Associating,
-        Disassociated,
+        Associated,
         Disassociating,
+        Disassociated,
         Updating
       ),
   )
@@ -48,26 +48,26 @@ newtype DirectConnectGatewayAssociationState = DirectConnectGatewayAssociationSt
       Lude.ToHeader
     )
 
-pattern Associated :: DirectConnectGatewayAssociationState
-pattern Associated = DirectConnectGatewayAssociationState' "associated"
-
 pattern Associating :: DirectConnectGatewayAssociationState
 pattern Associating = DirectConnectGatewayAssociationState' "associating"
 
-pattern Disassociated :: DirectConnectGatewayAssociationState
-pattern Disassociated = DirectConnectGatewayAssociationState' "disassociated"
+pattern Associated :: DirectConnectGatewayAssociationState
+pattern Associated = DirectConnectGatewayAssociationState' "associated"
 
 pattern Disassociating :: DirectConnectGatewayAssociationState
 pattern Disassociating = DirectConnectGatewayAssociationState' "disassociating"
+
+pattern Disassociated :: DirectConnectGatewayAssociationState
+pattern Disassociated = DirectConnectGatewayAssociationState' "disassociated"
 
 pattern Updating :: DirectConnectGatewayAssociationState
 pattern Updating = DirectConnectGatewayAssociationState' "updating"
 
 {-# COMPLETE
-  Associated,
   Associating,
-  Disassociated,
+  Associated,
   Disassociating,
+  Disassociated,
   Updating,
   DirectConnectGatewayAssociationState'
   #-}

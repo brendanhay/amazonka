@@ -14,10 +14,10 @@ module Network.AWS.MediaConvert.Types.Mpeg2CodecLevel
   ( Mpeg2CodecLevel
       ( Mpeg2CodecLevel',
         MCLAuto,
-        MCLHIGH1440,
-        MCLHigh,
         MCLLow,
-        MCLMain
+        MCLMain,
+        MCLHIGH1440,
+        MCLHigh
       ),
   )
 where
@@ -52,23 +52,23 @@ newtype Mpeg2CodecLevel = Mpeg2CodecLevel' Lude.Text
 pattern MCLAuto :: Mpeg2CodecLevel
 pattern MCLAuto = Mpeg2CodecLevel' "AUTO"
 
-pattern MCLHIGH1440 :: Mpeg2CodecLevel
-pattern MCLHIGH1440 = Mpeg2CodecLevel' "HIGH1440"
-
-pattern MCLHigh :: Mpeg2CodecLevel
-pattern MCLHigh = Mpeg2CodecLevel' "HIGH"
-
 pattern MCLLow :: Mpeg2CodecLevel
 pattern MCLLow = Mpeg2CodecLevel' "LOW"
 
 pattern MCLMain :: Mpeg2CodecLevel
 pattern MCLMain = Mpeg2CodecLevel' "MAIN"
 
+pattern MCLHIGH1440 :: Mpeg2CodecLevel
+pattern MCLHIGH1440 = Mpeg2CodecLevel' "HIGH1440"
+
+pattern MCLHigh :: Mpeg2CodecLevel
+pattern MCLHigh = Mpeg2CodecLevel' "HIGH"
+
 {-# COMPLETE
   MCLAuto,
-  MCLHIGH1440,
-  MCLHigh,
   MCLLow,
   MCLMain,
+  MCLHIGH1440,
+  MCLHigh,
   Mpeg2CodecLevel'
   #-}

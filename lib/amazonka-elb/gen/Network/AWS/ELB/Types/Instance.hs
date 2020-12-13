@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The ID of an EC2 instance.
 --
 -- /See:/ 'mkInstance' smart constructor.
-newtype Instance = Instance' {instanceId :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Instance = Instance'
+  { -- | The instance ID.
+    instanceId :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.

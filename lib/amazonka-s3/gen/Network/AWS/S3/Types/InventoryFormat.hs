@@ -13,9 +13,9 @@
 module Network.AWS.S3.Types.InventoryFormat
   ( InventoryFormat
       ( InventoryFormat',
-        IFCSV,
-        IFOrc,
-        IFParquet
+        CSV,
+        Orc,
+        Parquet
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype InventoryFormat = InventoryFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern IFCSV :: InventoryFormat
-pattern IFCSV = InventoryFormat' "CSV"
+pattern CSV :: InventoryFormat
+pattern CSV = InventoryFormat' "CSV"
 
-pattern IFOrc :: InventoryFormat
-pattern IFOrc = InventoryFormat' "ORC"
+pattern Orc :: InventoryFormat
+pattern Orc = InventoryFormat' "ORC"
 
-pattern IFParquet :: InventoryFormat
-pattern IFParquet = InventoryFormat' "Parquet"
+pattern Parquet :: InventoryFormat
+pattern Parquet = InventoryFormat' "Parquet"
 
 {-# COMPLETE
-  IFCSV,
-  IFOrc,
-  IFParquet,
+  CSV,
+  Orc,
+  Parquet,
   InventoryFormat'
   #-}

@@ -31,22 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCachePolicyCookiesConfig' smart constructor.
 data CachePolicyCookiesConfig = CachePolicyCookiesConfig'
-  { cookies ::
-      Lude.Maybe CookieNames,
-    cookieBehavior ::
-      CachePolicyCookieBehavior
+  { cookies :: Lude.Maybe CookieNames,
+    -- | Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
+    --
+    --
+    --     * @none@ – Cookies in viewer requests are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any cookies that are listed in an @OriginRequestPolicy@ /are/ included in origin requests.
+    --
+    --
+    --     * @whitelist@ – The cookies in viewer requests that are listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+    --
+    --
+    --     * @allExcept@ – All cookies in viewer requests that are /__not__ / listed in the @CookieNames@ type are included in the cache key and automatically included in requests that CloudFront sends to the origin.
+    --
+    --
+    --     * @all@ – All cookies in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
+    cookieBehavior :: CachePolicyCookieBehavior
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachePolicyCookiesConfig' with the minimum fields required to make a request.
 --
+-- * 'cookies' -
 -- * 'cookieBehavior' - Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
 --
 --
@@ -60,9 +66,6 @@ data CachePolicyCookiesConfig = CachePolicyCookiesConfig'
 --
 --
 --     * @all@ – All cookies in viewer requests are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
---
---
--- * 'cookies' - Undocumented field.
 mkCachePolicyCookiesConfig ::
   -- | 'cookieBehavior'
   CachePolicyCookieBehavior ->

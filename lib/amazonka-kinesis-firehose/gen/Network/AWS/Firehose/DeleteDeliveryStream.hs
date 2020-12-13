@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Firehose.DeleteDeliveryStream
     mkDeleteDeliveryStream,
 
     -- ** Request lenses
-    dAllowForceDelete,
-    dDeliveryStreamName,
+    ddsAllowForceDelete,
+    ddsDeliveryStreamName,
 
     -- * Destructuring the response
     DeleteDeliveryStreamResponse (..),
@@ -42,17 +43,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDeliveryStream' smart constructor.
 data DeleteDeliveryStream = DeleteDeliveryStream'
-  { allowForceDelete ::
-      Lude.Maybe Lude.Bool,
+  { -- | Set this to true if you want to delete the delivery stream even if Kinesis Data Firehose is unable to retire the grant for the CMK. Kinesis Data Firehose might be unable to retire the grant due to a customer error, such as when the CMK or the grant are in an invalid state. If you force deletion, you can then use the <https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html RevokeGrant> operation to revoke the grant you gave to Kinesis Data Firehose. If a failure to retire the grant happens due to an AWS KMS issue, Kinesis Data Firehose keeps retrying the delete operation.
+    --
+    -- The default value is false.
+    allowForceDelete :: Lude.Maybe Lude.Bool,
+    -- | The name of the delivery stream.
     deliveryStreamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeliveryStream' with the minimum fields required to make a request.
@@ -76,16 +74,16 @@ mkDeleteDeliveryStream pDeliveryStreamName_ =
 -- The default value is false.
 --
 -- /Note:/ Consider using 'allowForceDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAllowForceDelete :: Lens.Lens' DeleteDeliveryStream (Lude.Maybe Lude.Bool)
-dAllowForceDelete = Lens.lens (allowForceDelete :: DeleteDeliveryStream -> Lude.Maybe Lude.Bool) (\s a -> s {allowForceDelete = a} :: DeleteDeliveryStream)
-{-# DEPRECATED dAllowForceDelete "Use generic-lens or generic-optics with 'allowForceDelete' instead." #-}
+ddsAllowForceDelete :: Lens.Lens' DeleteDeliveryStream (Lude.Maybe Lude.Bool)
+ddsAllowForceDelete = Lens.lens (allowForceDelete :: DeleteDeliveryStream -> Lude.Maybe Lude.Bool) (\s a -> s {allowForceDelete = a} :: DeleteDeliveryStream)
+{-# DEPRECATED ddsAllowForceDelete "Use generic-lens or generic-optics with 'allowForceDelete' instead." #-}
 
 -- | The name of the delivery stream.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeliveryStreamName :: Lens.Lens' DeleteDeliveryStream Lude.Text
-dDeliveryStreamName = Lens.lens (deliveryStreamName :: DeleteDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: DeleteDeliveryStream)
-{-# DEPRECATED dDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+ddsDeliveryStreamName :: Lens.Lens' DeleteDeliveryStream Lude.Text
+ddsDeliveryStreamName = Lens.lens (deliveryStreamName :: DeleteDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: DeleteDeliveryStream)
+{-# DEPRECATED ddsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
 instance Lude.AWSRequest DeleteDeliveryStream where
   type Rs DeleteDeliveryStream = DeleteDeliveryStreamResponse
@@ -125,16 +123,10 @@ instance Lude.ToQuery DeleteDeliveryStream where
 
 -- | /See:/ 'mkDeleteDeliveryStreamResponse' smart constructor.
 newtype DeleteDeliveryStreamResponse = DeleteDeliveryStreamResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeliveryStreamResponse' with the minimum fields required to make a request.

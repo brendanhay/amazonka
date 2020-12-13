@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.ModifyCapacityReservation
     -- ** Request lenses
     mcrInstanceCount,
     mcrEndDate,
+    mcrCapacityReservationId,
     mcrEndDateType,
     mcrDryRun,
-    mcrCapacityReservationId,
 
     -- * Destructuring the response
     ModifyCapacityReservationResponse (..),
@@ -43,30 +44,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyCapacityReservation' smart constructor.
 data ModifyCapacityReservation = ModifyCapacityReservation'
-  { instanceCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of instances for which to reserve capacity.
+    instanceCount :: Lude.Maybe Lude.Int,
+    -- | The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
+    --
+    -- The Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+    -- You must provide an @EndDate@ value if @EndDateType@ is @limited@ . Omit @EndDate@ if @EndDateType@ is @unlimited@ .
     endDate :: Lude.Maybe Lude.DateTime,
+    -- | The ID of the Capacity Reservation.
+    capacityReservationId :: Lude.Text,
+    -- | Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+    --
+    --
+    --     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an @EndDate@ value if @EndDateType@ is @unlimited@ .
+    --
+    --
+    --     * @limited@ - The Capacity Reservation expires automatically at a specified date and time. You must provide an @EndDate@ value if @EndDateType@ is @limited@ .
     endDateType :: Lude.Maybe EndDateType,
-    dryRun :: Lude.Maybe Lude.Bool,
-    capacityReservationId :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCapacityReservation' with the minimum fields required to make a request.
 --
--- * 'capacityReservationId' - The ID of the Capacity Reservation.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'instanceCount' - The number of instances for which to reserve capacity.
 -- * 'endDate' - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
 --
 -- The Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
 -- You must provide an @EndDate@ value if @EndDateType@ is @limited@ . Omit @EndDate@ if @EndDateType@ is @unlimited@ .
+-- * 'capacityReservationId' - The ID of the Capacity Reservation.
 -- * 'endDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
 --
 --
@@ -76,7 +84,7 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
 --     * @limited@ - The Capacity Reservation expires automatically at a specified date and time. You must provide an @EndDate@ value if @EndDateType@ is @limited@ .
 --
 --
--- * 'instanceCount' - The number of instances for which to reserve capacity.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyCapacityReservation ::
   -- | 'capacityReservationId'
   Lude.Text ->
@@ -85,9 +93,9 @@ mkModifyCapacityReservation pCapacityReservationId_ =
   ModifyCapacityReservation'
     { instanceCount = Lude.Nothing,
       endDate = Lude.Nothing,
+      capacityReservationId = pCapacityReservationId_,
       endDateType = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      capacityReservationId = pCapacityReservationId_
+      dryRun = Lude.Nothing
     }
 
 -- | The number of instances for which to reserve capacity.
@@ -106,6 +114,13 @@ mcrInstanceCount = Lens.lens (instanceCount :: ModifyCapacityReservation -> Lude
 mcrEndDate :: Lens.Lens' ModifyCapacityReservation (Lude.Maybe Lude.DateTime)
 mcrEndDate = Lens.lens (endDate :: ModifyCapacityReservation -> Lude.Maybe Lude.DateTime) (\s a -> s {endDate = a} :: ModifyCapacityReservation)
 {-# DEPRECATED mcrEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+
+-- | The ID of the Capacity Reservation.
+--
+-- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcrCapacityReservationId :: Lens.Lens' ModifyCapacityReservation Lude.Text
+mcrCapacityReservationId = Lens.lens (capacityReservationId :: ModifyCapacityReservation -> Lude.Text) (\s a -> s {capacityReservationId = a} :: ModifyCapacityReservation)
+{-# DEPRECATED mcrCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
 
 -- | Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
 --
@@ -128,13 +143,6 @@ mcrEndDateType = Lens.lens (endDateType :: ModifyCapacityReservation -> Lude.May
 mcrDryRun :: Lens.Lens' ModifyCapacityReservation (Lude.Maybe Lude.Bool)
 mcrDryRun = Lens.lens (dryRun :: ModifyCapacityReservation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyCapacityReservation)
 {-# DEPRECATED mcrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the Capacity Reservation.
---
--- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcrCapacityReservationId :: Lens.Lens' ModifyCapacityReservation Lude.Text
-mcrCapacityReservationId = Lens.lens (capacityReservationId :: ModifyCapacityReservation -> Lude.Text) (\s a -> s {capacityReservationId = a} :: ModifyCapacityReservation)
-{-# DEPRECATED mcrCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
 
 instance Lude.AWSRequest ModifyCapacityReservation where
   type
@@ -161,31 +169,25 @@ instance Lude.ToQuery ModifyCapacityReservation where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "InstanceCount" Lude.=: instanceCount,
         "EndDate" Lude.=: endDate,
+        "CapacityReservationId" Lude.=: capacityReservationId,
         "EndDateType" Lude.=: endDateType,
-        "DryRun" Lude.=: dryRun,
-        "CapacityReservationId" Lude.=: capacityReservationId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyCapacityReservationResponse' smart constructor.
 data ModifyCapacityReservationResponse = ModifyCapacityReservationResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCapacityReservationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkModifyCapacityReservationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

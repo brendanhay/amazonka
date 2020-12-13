@@ -40,41 +40,82 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurationOptionDescription' smart constructor.
 data ConfigurationOptionDescription = ConfigurationOptionDescription'
-  { maxValue ::
-      Lude.Maybe Lude.Int,
-    regex ::
-      Lude.Maybe
-        OptionRestrictionRegex,
-    maxLength ::
-      Lude.Maybe Lude.Int,
-    userDefined ::
-      Lude.Maybe Lude.Bool,
-    namespace ::
-      Lude.Maybe Lude.Text,
-    valueOptions ::
-      Lude.Maybe [Lude.Text],
+  { -- | If specified, the configuration option must be a numeric value less than this value.
+    maxValue :: Lude.Maybe Lude.Int,
+    -- | If specified, the configuration option must be a string value that satisfies this regular expression.
+    regex :: Lude.Maybe OptionRestrictionRegex,
+    -- | If specified, the configuration option must be a string value no longer than this value.
+    maxLength :: Lude.Maybe Lude.Int,
+    -- | An indication of whether the user defined this configuration option:
+    --
+    --
+    --     * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.
+    --
+    --
+    --     * @false@ : This configuration was not defined by the user.
+    --
+    --
+    -- Constraint: You can remove only @UserDefined@ options from a configuration.
+    -- Valid Values: @true@ | @false@
+    userDefined :: Lude.Maybe Lude.Bool,
+    -- | A unique namespace identifying the option's associated AWS resource.
+    namespace :: Lude.Maybe Lude.Text,
+    -- | If specified, values for the configuration option are selected from this list.
+    valueOptions :: Lude.Maybe [Lude.Text],
+    -- | The name of the configuration option.
     name :: Lude.Maybe Lude.Text,
-    changeSeverity ::
-      Lude.Maybe Lude.Text,
-    defaultValue ::
-      Lude.Maybe Lude.Text,
-    valueType ::
-      Lude.Maybe
-        ConfigurationOptionValueType,
-    minValue ::
-      Lude.Maybe Lude.Int
+    -- | An indication of which action is required if the value for this configuration option changes:
+    --
+    --
+    --     * @NoInterruption@ : There is no interruption to the environment or application availability.
+    --
+    --
+    --     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.
+    --
+    --
+    --     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
+    changeSeverity :: Lude.Maybe Lude.Text,
+    -- | The default value for this configuration option.
+    defaultValue :: Lude.Maybe Lude.Text,
+    -- | An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:
+    --
+    --
+    --     * @Scalar@ : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the @MIN/MAX/Regex@ constraints.
+    --
+    --
+    --     * @List@ : Values for this option are multiple selections from the possible values.
+    --
+    --
+    --     * @Boolean@ : Values for this option are either @true@ or @false@ .
+    --
+    --
+    --     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
+    valueType :: Lude.Maybe ConfigurationOptionValueType,
+    -- | If specified, the configuration option must be a numeric value greater than this value.
+    minValue :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationOptionDescription' with the minimum fields required to make a request.
 --
+-- * 'maxValue' - If specified, the configuration option must be a numeric value less than this value.
+-- * 'regex' - If specified, the configuration option must be a string value that satisfies this regular expression.
+-- * 'maxLength' - If specified, the configuration option must be a string value no longer than this value.
+-- * 'userDefined' - An indication of whether the user defined this configuration option:
+--
+--
+--     * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.
+--
+--
+--     * @false@ : This configuration was not defined by the user.
+--
+--
+-- Constraint: You can remove only @UserDefined@ options from a configuration.
+-- Valid Values: @true@ | @false@
+-- * 'namespace' - A unique namespace identifying the option's associated AWS resource.
+-- * 'valueOptions' - If specified, values for the configuration option are selected from this list.
+-- * 'name' - The name of the configuration option.
 -- * 'changeSeverity' - An indication of which action is required if the value for this configuration option changes:
 --
 --
@@ -88,24 +129,6 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 --
 --
 -- * 'defaultValue' - The default value for this configuration option.
--- * 'maxLength' - If specified, the configuration option must be a string value no longer than this value.
--- * 'maxValue' - If specified, the configuration option must be a numeric value less than this value.
--- * 'minValue' - If specified, the configuration option must be a numeric value greater than this value.
--- * 'name' - The name of the configuration option.
--- * 'namespace' - A unique namespace identifying the option's associated AWS resource.
--- * 'regex' - If specified, the configuration option must be a string value that satisfies this regular expression.
--- * 'userDefined' - An indication of whether the user defined this configuration option:
---
---
---     * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.
---
---
---     * @false@ : This configuration was not defined by the user.
---
---
--- Constraint: You can remove only @UserDefined@ options from a configuration.
--- Valid Values: @true@ | @false@
--- * 'valueOptions' - If specified, values for the configuration option are selected from this list.
 -- * 'valueType' - An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:
 --
 --
@@ -119,6 +142,9 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 --
 --
 --     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
+--
+--
+-- * 'minValue' - If specified, the configuration option must be a numeric value greater than this value.
 mkConfigurationOptionDescription ::
   ConfigurationOptionDescription
 mkConfigurationOptionDescription =

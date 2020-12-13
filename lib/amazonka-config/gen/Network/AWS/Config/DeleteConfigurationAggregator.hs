@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,16 +36,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteConfigurationAggregator' smart constructor.
 newtype DeleteConfigurationAggregator = DeleteConfigurationAggregator'
-  { configurationAggregatorName ::
-      Lude.Text
+  { -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationAggregator' with the minimum fields required to make a request.
@@ -106,13 +101,7 @@ instance Lude.ToQuery DeleteConfigurationAggregator where
 
 -- | /See:/ 'mkDeleteConfigurationAggregatorResponse' smart constructor.
 data DeleteConfigurationAggregatorResponse = DeleteConfigurationAggregatorResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationAggregatorResponse' with the minimum fields required to make a request.

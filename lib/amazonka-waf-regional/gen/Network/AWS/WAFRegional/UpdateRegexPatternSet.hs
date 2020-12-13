@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -53,8 +54,8 @@ module Network.AWS.WAFRegional.UpdateRegexPatternSet
     mkUpdateRegexPatternSet,
 
     -- ** Request lenses
-    urpsRegexPatternSetId,
     urpsUpdates,
+    urpsRegexPatternSetId,
     urpsChangeToken,
 
     -- * Destructuring the response
@@ -75,46 +76,35 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkUpdateRegexPatternSet' smart constructor.
 data UpdateRegexPatternSet = UpdateRegexPatternSet'
-  { regexPatternSetId ::
-      Lude.Text,
+  { -- | An array of @RegexPatternSetUpdate@ objects that you want to insert into or delete from a 'RegexPatternSet' .
     updates :: Lude.NonEmpty RegexPatternSetUpdate,
+    -- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to update. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+    regexPatternSetId :: Lude.Text,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRegexPatternSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
--- * 'regexPatternSetId' - The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to update. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
 -- * 'updates' - An array of @RegexPatternSetUpdate@ objects that you want to insert into or delete from a 'RegexPatternSet' .
+-- * 'regexPatternSetId' - The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to update. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkUpdateRegexPatternSet ::
-  -- | 'regexPatternSetId'
-  Lude.Text ->
   -- | 'updates'
   Lude.NonEmpty RegexPatternSetUpdate ->
+  -- | 'regexPatternSetId'
+  Lude.Text ->
   -- | 'changeToken'
   Lude.Text ->
   UpdateRegexPatternSet
-mkUpdateRegexPatternSet pRegexPatternSetId_ pUpdates_ pChangeToken_ =
+mkUpdateRegexPatternSet pUpdates_ pRegexPatternSetId_ pChangeToken_ =
   UpdateRegexPatternSet'
-    { regexPatternSetId = pRegexPatternSetId_,
-      updates = pUpdates_,
+    { updates = pUpdates_,
+      regexPatternSetId = pRegexPatternSetId_,
       changeToken = pChangeToken_
     }
-
--- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to update. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
---
--- /Note:/ Consider using 'regexPatternSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urpsRegexPatternSetId :: Lens.Lens' UpdateRegexPatternSet Lude.Text
-urpsRegexPatternSetId = Lens.lens (regexPatternSetId :: UpdateRegexPatternSet -> Lude.Text) (\s a -> s {regexPatternSetId = a} :: UpdateRegexPatternSet)
-{-# DEPRECATED urpsRegexPatternSetId "Use generic-lens or generic-optics with 'regexPatternSetId' instead." #-}
 
 -- | An array of @RegexPatternSetUpdate@ objects that you want to insert into or delete from a 'RegexPatternSet' .
 --
@@ -122,6 +112,13 @@ urpsRegexPatternSetId = Lens.lens (regexPatternSetId :: UpdateRegexPatternSet ->
 urpsUpdates :: Lens.Lens' UpdateRegexPatternSet (Lude.NonEmpty RegexPatternSetUpdate)
 urpsUpdates = Lens.lens (updates :: UpdateRegexPatternSet -> Lude.NonEmpty RegexPatternSetUpdate) (\s a -> s {updates = a} :: UpdateRegexPatternSet)
 {-# DEPRECATED urpsUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
+
+-- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to update. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+--
+-- /Note:/ Consider using 'regexPatternSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpsRegexPatternSetId :: Lens.Lens' UpdateRegexPatternSet Lude.Text
+urpsRegexPatternSetId = Lens.lens (regexPatternSetId :: UpdateRegexPatternSet -> Lude.Text) (\s a -> s {regexPatternSetId = a} :: UpdateRegexPatternSet)
+{-# DEPRECATED urpsRegexPatternSetId "Use generic-lens or generic-optics with 'regexPatternSetId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
@@ -157,8 +154,8 @@ instance Lude.ToJSON UpdateRegexPatternSet where
   toJSON UpdateRegexPatternSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("RegexPatternSetId" Lude..= regexPatternSetId),
-            Lude.Just ("Updates" Lude..= updates),
+          [ Lude.Just ("Updates" Lude..= updates),
+            Lude.Just ("RegexPatternSetId" Lude..= regexPatternSetId),
             Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
@@ -171,17 +168,12 @@ instance Lude.ToQuery UpdateRegexPatternSet where
 
 -- | /See:/ 'mkUpdateRegexPatternSetResponse' smart constructor.
 data UpdateRegexPatternSetResponse = UpdateRegexPatternSetResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @UpdateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRegexPatternSetResponse' with the minimum fields required to make a request.

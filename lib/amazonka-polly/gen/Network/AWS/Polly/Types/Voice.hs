@@ -38,33 +38,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVoice' smart constructor.
 data Voice = Voice'
-  { languageCode :: Lude.Maybe LanguageCode,
+  { -- | Language code of the voice.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | Human readable name of the language in English.
     languageName :: Lude.Maybe Lude.Text,
+    -- | Gender of the voice.
     gender :: Lude.Maybe Gender,
+    -- | Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
     name :: Lude.Maybe Lude.Text,
+    -- | Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
     id :: Lude.Maybe VoiceId,
+    -- | Additional codes for languages available for the specified voice in addition to its default language.
+    --
+    -- For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code @hi-IN@ .
     additionalLanguageCodes :: Lude.Maybe [LanguageCode],
+    -- | Specifies which engines (@standard@ or @neural@ ) that are supported by a given voice.
     supportedEngines :: Lude.Maybe [Engine]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Voice' with the minimum fields required to make a request.
 --
+-- * 'languageCode' - Language code of the voice.
+-- * 'languageName' - Human readable name of the language in English.
+-- * 'gender' - Gender of the voice.
+-- * 'name' - Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
+-- * 'id' - Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
 -- * 'additionalLanguageCodes' - Additional codes for languages available for the specified voice in addition to its default language.
 --
 -- For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code @hi-IN@ .
--- * 'gender' - Gender of the voice.
--- * 'id' - Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
--- * 'languageCode' - Language code of the voice.
--- * 'languageName' - Human readable name of the language in English.
--- * 'name' - Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
 -- * 'supportedEngines' - Specifies which engines (@standard@ or @neural@ ) that are supported by a given voice.
 mkVoice ::
   Voice

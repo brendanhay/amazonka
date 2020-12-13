@@ -13,13 +13,13 @@
 module Network.AWS.Glacier.Types.CannedACL
   ( CannedACL
       ( CannedACL',
-        AWSExecRead,
-        AuthenticatedRead,
-        BucketOwnerFullControl,
-        BucketOwnerRead,
         Private,
         PublicRead,
-        PublicReadWrite
+        PublicReadWrite,
+        AWSExecRead,
+        AuthenticatedRead,
+        BucketOwnerRead,
+        BucketOwnerFullControl
       ),
   )
 where
@@ -50,18 +50,6 @@ newtype CannedACL = CannedACL' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSExecRead :: CannedACL
-pattern AWSExecRead = CannedACL' "aws-exec-read"
-
-pattern AuthenticatedRead :: CannedACL
-pattern AuthenticatedRead = CannedACL' "authenticated-read"
-
-pattern BucketOwnerFullControl :: CannedACL
-pattern BucketOwnerFullControl = CannedACL' "bucket-owner-full-control"
-
-pattern BucketOwnerRead :: CannedACL
-pattern BucketOwnerRead = CannedACL' "bucket-owner-read"
-
 pattern Private :: CannedACL
 pattern Private = CannedACL' "private"
 
@@ -71,13 +59,25 @@ pattern PublicRead = CannedACL' "public-read"
 pattern PublicReadWrite :: CannedACL
 pattern PublicReadWrite = CannedACL' "public-read-write"
 
+pattern AWSExecRead :: CannedACL
+pattern AWSExecRead = CannedACL' "aws-exec-read"
+
+pattern AuthenticatedRead :: CannedACL
+pattern AuthenticatedRead = CannedACL' "authenticated-read"
+
+pattern BucketOwnerRead :: CannedACL
+pattern BucketOwnerRead = CannedACL' "bucket-owner-read"
+
+pattern BucketOwnerFullControl :: CannedACL
+pattern BucketOwnerFullControl = CannedACL' "bucket-owner-full-control"
+
 {-# COMPLETE
-  AWSExecRead,
-  AuthenticatedRead,
-  BucketOwnerFullControl,
-  BucketOwnerRead,
   Private,
   PublicRead,
   PublicReadWrite,
+  AWSExecRead,
+  AuthenticatedRead,
+  BucketOwnerRead,
+  BucketOwnerFullControl,
   CannedACL'
   #-}

@@ -30,16 +30,12 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { address :: Lude.Maybe Lude.Text,
+  { -- | The DNS address of the Cluster.
+    address :: Lude.Maybe Lude.Text,
+    -- | The port that the database engine is listening on.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.

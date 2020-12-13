@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
 
     -- ** Request lenses
     dsfiNextToken,
+    dsfiSpotFleetRequestId,
     dsfiDryRun,
     dsfiMaxResults,
-    dsfiSpotFleetRequestId,
 
     -- * Destructuring the response
     DescribeSpotFleetInstancesResponse (..),
@@ -49,27 +50,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeSpotFleetInstances' smart constructor.
 data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the Spot Fleet request.
+    spotFleetRequestId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults :: Lude.Maybe Lude.Natural,
-    spotFleetRequestId :: Lude.Text
+    -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotFleetInstances' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 -- * 'nextToken' - The token for the next set of results.
 -- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkDescribeSpotFleetInstances ::
   -- | 'spotFleetRequestId'
   Lude.Text ->
@@ -77,9 +75,9 @@ mkDescribeSpotFleetInstances ::
 mkDescribeSpotFleetInstances pSpotFleetRequestId_ =
   DescribeSpotFleetInstances'
     { nextToken = Lude.Nothing,
+      spotFleetRequestId = pSpotFleetRequestId_,
       dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      spotFleetRequestId = pSpotFleetRequestId_
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of results.
@@ -88,6 +86,13 @@ mkDescribeSpotFleetInstances pSpotFleetRequestId_ =
 dsfiNextToken :: Lens.Lens' DescribeSpotFleetInstances (Lude.Maybe Lude.Text)
 dsfiNextToken = Lens.lens (nextToken :: DescribeSpotFleetInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSpotFleetInstances)
 {-# DEPRECATED dsfiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The ID of the Spot Fleet request.
+--
+-- /Note:/ Consider using 'spotFleetRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfiSpotFleetRequestId :: Lens.Lens' DescribeSpotFleetInstances Lude.Text
+dsfiSpotFleetRequestId = Lens.lens (spotFleetRequestId :: DescribeSpotFleetInstances -> Lude.Text) (\s a -> s {spotFleetRequestId = a} :: DescribeSpotFleetInstances)
+{-# DEPRECATED dsfiSpotFleetRequestId "Use generic-lens or generic-optics with 'spotFleetRequestId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -102,13 +107,6 @@ dsfiDryRun = Lens.lens (dryRun :: DescribeSpotFleetInstances -> Lude.Maybe Lude.
 dsfiMaxResults :: Lens.Lens' DescribeSpotFleetInstances (Lude.Maybe Lude.Natural)
 dsfiMaxResults = Lens.lens (maxResults :: DescribeSpotFleetInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeSpotFleetInstances)
 {-# DEPRECATED dsfiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the Spot Fleet request.
---
--- /Note:/ Consider using 'spotFleetRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfiSpotFleetRequestId :: Lens.Lens' DescribeSpotFleetInstances Lude.Text
-dsfiSpotFleetRequestId = Lens.lens (spotFleetRequestId :: DescribeSpotFleetInstances -> Lude.Text) (\s a -> s {spotFleetRequestId = a} :: DescribeSpotFleetInstances)
-{-# DEPRECATED dsfiSpotFleetRequestId "Use generic-lens or generic-optics with 'spotFleetRequestId' instead." #-}
 
 instance Page.AWSPager DescribeSpotFleetInstances where
   page rq rs
@@ -149,40 +147,33 @@ instance Lude.ToQuery DescribeSpotFleetInstances where
           Lude.=: ("DescribeSpotFleetInstances" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "NextToken" Lude.=: nextToken,
+        "SpotFleetRequestId" Lude.=: spotFleetRequestId,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "SpotFleetRequestId" Lude.=: spotFleetRequestId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | Contains the output of DescribeSpotFleetInstances.
 --
 -- /See:/ 'mkDescribeSpotFleetInstancesResponse' smart constructor.
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    spotFleetRequestId ::
-      Lude.Maybe Lude.Text,
-    activeInstances ::
-      Lude.Maybe
-        [ActiveInstance],
-    responseStatus ::
-      Lude.Int
+  { -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the Spot Fleet request.
+    spotFleetRequestId :: Lude.Maybe Lude.Text,
+    -- | The running instances. This list is refreshed periodically and might be out of date.
+    activeInstances :: Lude.Maybe [ActiveInstance],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotFleetInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'activeInstances' - The running instances. This list is refreshed periodically and might be out of date.
 -- * 'nextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
+-- * 'activeInstances' - The running instances. This list is refreshed periodically and might be out of date.
+-- * 'responseStatus' - The response status code.
 mkDescribeSpotFleetInstancesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

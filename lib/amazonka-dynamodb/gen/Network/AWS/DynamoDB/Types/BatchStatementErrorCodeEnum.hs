@@ -13,17 +13,17 @@
 module Network.AWS.DynamoDB.Types.BatchStatementErrorCodeEnum
   ( BatchStatementErrorCodeEnum
       ( BatchStatementErrorCodeEnum',
-        AccessDenied,
         ConditionalCheckFailed,
-        DuplicateItem,
-        InternalServerError,
         ItemCollectionSizeLimitExceeded,
-        ProvisionedThroughputExceeded,
         RequestLimitExceeded,
-        ResourceNotFound,
-        ThrottlingError,
+        ValidationError,
+        ProvisionedThroughputExceeded,
         TransactionConflict,
-        ValidationError
+        ThrottlingError,
+        InternalServerError,
+        ResourceNotFound,
+        AccessDenied,
+        DuplicateItem
       ),
   )
 where
@@ -54,50 +54,50 @@ newtype BatchStatementErrorCodeEnum = BatchStatementErrorCodeEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern AccessDenied :: BatchStatementErrorCodeEnum
-pattern AccessDenied = BatchStatementErrorCodeEnum' "AccessDenied"
-
 pattern ConditionalCheckFailed :: BatchStatementErrorCodeEnum
 pattern ConditionalCheckFailed = BatchStatementErrorCodeEnum' "ConditionalCheckFailed"
-
-pattern DuplicateItem :: BatchStatementErrorCodeEnum
-pattern DuplicateItem = BatchStatementErrorCodeEnum' "DuplicateItem"
-
-pattern InternalServerError :: BatchStatementErrorCodeEnum
-pattern InternalServerError = BatchStatementErrorCodeEnum' "InternalServerError"
 
 pattern ItemCollectionSizeLimitExceeded :: BatchStatementErrorCodeEnum
 pattern ItemCollectionSizeLimitExceeded = BatchStatementErrorCodeEnum' "ItemCollectionSizeLimitExceeded"
 
-pattern ProvisionedThroughputExceeded :: BatchStatementErrorCodeEnum
-pattern ProvisionedThroughputExceeded = BatchStatementErrorCodeEnum' "ProvisionedThroughputExceeded"
-
 pattern RequestLimitExceeded :: BatchStatementErrorCodeEnum
 pattern RequestLimitExceeded = BatchStatementErrorCodeEnum' "RequestLimitExceeded"
-
-pattern ResourceNotFound :: BatchStatementErrorCodeEnum
-pattern ResourceNotFound = BatchStatementErrorCodeEnum' "ResourceNotFound"
-
-pattern ThrottlingError :: BatchStatementErrorCodeEnum
-pattern ThrottlingError = BatchStatementErrorCodeEnum' "ThrottlingError"
-
-pattern TransactionConflict :: BatchStatementErrorCodeEnum
-pattern TransactionConflict = BatchStatementErrorCodeEnum' "TransactionConflict"
 
 pattern ValidationError :: BatchStatementErrorCodeEnum
 pattern ValidationError = BatchStatementErrorCodeEnum' "ValidationError"
 
+pattern ProvisionedThroughputExceeded :: BatchStatementErrorCodeEnum
+pattern ProvisionedThroughputExceeded = BatchStatementErrorCodeEnum' "ProvisionedThroughputExceeded"
+
+pattern TransactionConflict :: BatchStatementErrorCodeEnum
+pattern TransactionConflict = BatchStatementErrorCodeEnum' "TransactionConflict"
+
+pattern ThrottlingError :: BatchStatementErrorCodeEnum
+pattern ThrottlingError = BatchStatementErrorCodeEnum' "ThrottlingError"
+
+pattern InternalServerError :: BatchStatementErrorCodeEnum
+pattern InternalServerError = BatchStatementErrorCodeEnum' "InternalServerError"
+
+pattern ResourceNotFound :: BatchStatementErrorCodeEnum
+pattern ResourceNotFound = BatchStatementErrorCodeEnum' "ResourceNotFound"
+
+pattern AccessDenied :: BatchStatementErrorCodeEnum
+pattern AccessDenied = BatchStatementErrorCodeEnum' "AccessDenied"
+
+pattern DuplicateItem :: BatchStatementErrorCodeEnum
+pattern DuplicateItem = BatchStatementErrorCodeEnum' "DuplicateItem"
+
 {-# COMPLETE
-  AccessDenied,
   ConditionalCheckFailed,
-  DuplicateItem,
-  InternalServerError,
   ItemCollectionSizeLimitExceeded,
-  ProvisionedThroughputExceeded,
   RequestLimitExceeded,
-  ResourceNotFound,
-  ThrottlingError,
-  TransactionConflict,
   ValidationError,
+  ProvisionedThroughputExceeded,
+  TransactionConflict,
+  ThrottlingError,
+  InternalServerError,
+  ResourceNotFound,
+  AccessDenied,
+  DuplicateItem,
   BatchStatementErrorCodeEnum'
   #-}

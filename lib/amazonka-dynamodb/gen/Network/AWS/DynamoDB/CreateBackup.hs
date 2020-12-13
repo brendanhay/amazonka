@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,8 +38,8 @@ module Network.AWS.DynamoDB.CreateBackup
     mkCreateBackup,
 
     -- ** Request lenses
-    cbTableName,
     cbBackupName,
+    cbTableName,
 
     -- * Destructuring the response
     CreateBackupResponse (..),
@@ -58,16 +59,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateBackup' smart constructor.
 data CreateBackup = CreateBackup'
-  { tableName :: Lude.Text,
-    backupName :: Lude.Text
+  { -- | Specified name for the backup.
+    backupName :: Lude.Text,
+    -- | The name of the table.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBackup' with the minimum fields required to make a request.
@@ -75,20 +72,13 @@ data CreateBackup = CreateBackup'
 -- * 'backupName' - Specified name for the backup.
 -- * 'tableName' - The name of the table.
 mkCreateBackup ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'backupName'
   Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   CreateBackup
-mkCreateBackup pTableName_ pBackupName_ =
-  CreateBackup' {tableName = pTableName_, backupName = pBackupName_}
-
--- | The name of the table.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbTableName :: Lens.Lens' CreateBackup Lude.Text
-cbTableName = Lens.lens (tableName :: CreateBackup -> Lude.Text) (\s a -> s {tableName = a} :: CreateBackup)
-{-# DEPRECATED cbTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+mkCreateBackup pBackupName_ pTableName_ =
+  CreateBackup' {backupName = pBackupName_, tableName = pTableName_}
 
 -- | Specified name for the backup.
 --
@@ -96,6 +86,13 @@ cbTableName = Lens.lens (tableName :: CreateBackup -> Lude.Text) (\s a -> s {tab
 cbBackupName :: Lens.Lens' CreateBackup Lude.Text
 cbBackupName = Lens.lens (backupName :: CreateBackup -> Lude.Text) (\s a -> s {backupName = a} :: CreateBackup)
 {-# DEPRECATED cbBackupName "Use generic-lens or generic-optics with 'backupName' instead." #-}
+
+-- | The name of the table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbTableName :: Lens.Lens' CreateBackup Lude.Text
+cbTableName = Lens.lens (tableName :: CreateBackup -> Lude.Text) (\s a -> s {tableName = a} :: CreateBackup)
+{-# DEPRECATED cbTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest CreateBackup where
   type Rs CreateBackup = CreateBackupResponse
@@ -123,8 +120,8 @@ instance Lude.ToJSON CreateBackup where
   toJSON CreateBackup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("BackupName" Lude..= backupName)
+          [ Lude.Just ("BackupName" Lude..= backupName),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -136,17 +133,12 @@ instance Lude.ToQuery CreateBackup where
 
 -- | /See:/ 'mkCreateBackupResponse' smart constructor.
 data CreateBackupResponse = CreateBackupResponse'
-  { backupDetails ::
-      Lude.Maybe BackupDetails,
+  { -- | Contains the details of the backup created for the table.
+    backupDetails :: Lude.Maybe BackupDetails,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBackupResponse' with the minimum fields required to make a request.

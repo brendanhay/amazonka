@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,18 +45,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListCachePolicies' smart constructor.
 data ListCachePolicies = ListCachePolicies'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | Use this field when paginating results to indicate where to begin in your list of cache policies. The response includes cache policies in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of cache policies that you want in the response.
     maxItems :: Lude.Maybe Lude.Text,
+    -- | A filter to return only the specified kinds of cache policies. Valid values are:
+    --
+    --
+    --     * @managed@ – Returns only the managed policies created by AWS.
+    --
+    --
+    --     * @custom@ – Returns only the custom policies created in your AWS account.
     type' :: Lude.Maybe CachePolicyType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCachePolicies' with the minimum fields required to make a request.
@@ -133,17 +136,12 @@ instance Lude.ToQuery ListCachePolicies where
 
 -- | /See:/ 'mkListCachePoliciesResponse' smart constructor.
 data ListCachePoliciesResponse = ListCachePoliciesResponse'
-  { cachePolicyList ::
-      Lude.Maybe CachePolicyList,
+  { -- | A list of cache policies.
+    cachePolicyList :: Lude.Maybe CachePolicyList,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCachePoliciesResponse' with the minimum fields required to make a request.

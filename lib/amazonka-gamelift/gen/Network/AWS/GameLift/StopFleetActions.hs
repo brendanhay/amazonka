@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,15 +42,15 @@ module Network.AWS.GameLift.StopFleetActions
     mkStopFleetActions,
 
     -- ** Request lenses
-    sFleetId,
     sActions,
+    sFleetId,
 
     -- * Destructuring the response
     StopFleetActionsResponse (..),
     mkStopFleetActionsResponse,
 
     -- ** Response lenses
-    sfasrsResponseStatus,
+    sfarsResponseStatus,
   )
 where
 
@@ -61,16 +62,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopFleetActions' smart constructor.
 data StopFleetActions = StopFleetActions'
-  { fleetId :: Lude.Text,
-    actions :: Lude.NonEmpty FleetAction
+  { -- | List of actions to suspend on the fleet.
+    actions :: Lude.NonEmpty FleetAction,
+    -- | A unique identifier for a fleet to stop actions on. You can use either the fleet ID or ARN value.
+    fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopFleetActions' with the minimum fields required to make a request.
@@ -78,20 +75,13 @@ data StopFleetActions = StopFleetActions'
 -- * 'actions' - List of actions to suspend on the fleet.
 -- * 'fleetId' - A unique identifier for a fleet to stop actions on. You can use either the fleet ID or ARN value.
 mkStopFleetActions ::
-  -- | 'fleetId'
-  Lude.Text ->
   -- | 'actions'
   Lude.NonEmpty FleetAction ->
+  -- | 'fleetId'
+  Lude.Text ->
   StopFleetActions
-mkStopFleetActions pFleetId_ pActions_ =
-  StopFleetActions' {fleetId = pFleetId_, actions = pActions_}
-
--- | A unique identifier for a fleet to stop actions on. You can use either the fleet ID or ARN value.
---
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sFleetId :: Lens.Lens' StopFleetActions Lude.Text
-sFleetId = Lens.lens (fleetId :: StopFleetActions -> Lude.Text) (\s a -> s {fleetId = a} :: StopFleetActions)
-{-# DEPRECATED sFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+mkStopFleetActions pActions_ pFleetId_ =
+  StopFleetActions' {actions = pActions_, fleetId = pFleetId_}
 
 -- | List of actions to suspend on the fleet.
 --
@@ -99,6 +89,13 @@ sFleetId = Lens.lens (fleetId :: StopFleetActions -> Lude.Text) (\s a -> s {flee
 sActions :: Lens.Lens' StopFleetActions (Lude.NonEmpty FleetAction)
 sActions = Lens.lens (actions :: StopFleetActions -> Lude.NonEmpty FleetAction) (\s a -> s {actions = a} :: StopFleetActions)
 {-# DEPRECATED sActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+
+-- | A unique identifier for a fleet to stop actions on. You can use either the fleet ID or ARN value.
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sFleetId :: Lens.Lens' StopFleetActions Lude.Text
+sFleetId = Lens.lens (fleetId :: StopFleetActions -> Lude.Text) (\s a -> s {fleetId = a} :: StopFleetActions)
+{-# DEPRECATED sFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 instance Lude.AWSRequest StopFleetActions where
   type Rs StopFleetActions = StopFleetActionsResponse
@@ -124,8 +121,8 @@ instance Lude.ToJSON StopFleetActions where
   toJSON StopFleetActions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("FleetId" Lude..= fleetId),
-            Lude.Just ("Actions" Lude..= actions)
+          [ Lude.Just ("Actions" Lude..= actions),
+            Lude.Just ("FleetId" Lude..= fleetId)
           ]
       )
 
@@ -137,16 +134,10 @@ instance Lude.ToQuery StopFleetActions where
 
 -- | /See:/ 'mkStopFleetActionsResponse' smart constructor.
 newtype StopFleetActionsResponse = StopFleetActionsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopFleetActionsResponse' with the minimum fields required to make a request.
@@ -162,6 +153,6 @@ mkStopFleetActionsResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfasrsResponseStatus :: Lens.Lens' StopFleetActionsResponse Lude.Int
-sfasrsResponseStatus = Lens.lens (responseStatus :: StopFleetActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopFleetActionsResponse)
-{-# DEPRECATED sfasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sfarsResponseStatus :: Lens.Lens' StopFleetActionsResponse Lude.Int
+sfarsResponseStatus = Lens.lens (responseStatus :: StopFleetActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopFleetActionsResponse)
+{-# DEPRECATED sfarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

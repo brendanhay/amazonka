@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ConnectionNotificationState
   ( ConnectionNotificationState
       ( ConnectionNotificationState',
-        CNSDisabled,
-        CNSEnabled
+        CNSEnabled,
+        CNSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ConnectionNotificationState = ConnectionNotificationState' Lude.Text
       Lude.ToHeader
     )
 
-pattern CNSDisabled :: ConnectionNotificationState
-pattern CNSDisabled = ConnectionNotificationState' "Disabled"
-
 pattern CNSEnabled :: ConnectionNotificationState
 pattern CNSEnabled = ConnectionNotificationState' "Enabled"
 
+pattern CNSDisabled :: ConnectionNotificationState
+pattern CNSDisabled = ConnectionNotificationState' "Disabled"
+
 {-# COMPLETE
-  CNSDisabled,
   CNSEnabled,
+  CNSDisabled,
   ConnectionNotificationState'
   #-}

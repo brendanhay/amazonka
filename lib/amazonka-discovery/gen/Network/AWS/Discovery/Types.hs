@@ -101,30 +101,30 @@ module Network.AWS.Discovery.Types
     -- * CustomerAgentInfo
     CustomerAgentInfo (..),
     mkCustomerAgentInfo,
-    caiActiveAgents,
-    caiHealthyAgents,
-    caiBlackListedAgents,
-    caiShutdownAgents,
     caiUnhealthyAgents,
-    caiTotalAgents,
+    caiHealthyAgents,
     caiUnknownAgents,
+    caiShutdownAgents,
+    caiActiveAgents,
+    caiTotalAgents,
+    caiBlackListedAgents,
 
     -- * CustomerConnectorInfo
     CustomerConnectorInfo (..),
     mkCustomerConnectorInfo,
-    cciActiveConnectors,
-    cciHealthyConnectors,
     cciBlackListedConnectors,
-    cciShutdownConnectors,
-    cciUnhealthyConnectors,
-    cciTotalConnectors,
+    cciHealthyConnectors,
     cciUnknownConnectors,
+    cciShutdownConnectors,
+    cciActiveConnectors,
+    cciTotalConnectors,
+    cciUnhealthyConnectors,
 
     -- * ExportFilter
     ExportFilter (..),
     mkExportFilter,
-    efName,
     efValues,
+    efName,
     efCondition,
 
     -- * ExportInfo
@@ -132,18 +132,18 @@ module Network.AWS.Discovery.Types
     mkExportInfo,
     eiConfigurationsDownloadURL,
     eiRequestedStartTime,
-    eiRequestedEndTime,
-    eiIsTruncated,
-    eiExportId,
     eiExportStatus,
     eiStatusMessage,
+    eiRequestedEndTime,
+    eiIsTruncated,
     eiExportRequestTime,
+    eiExportId,
 
     -- * Filter
     Filter (..),
     mkFilter,
-    fName,
     fValues,
+    fName,
     fCondition,
 
     -- * ImportTask
@@ -172,11 +172,11 @@ module Network.AWS.Discovery.Types
     -- * NeighborConnectionDetail
     NeighborConnectionDetail (..),
     mkNeighborConnectionDetail,
-    ncdTransportProtocol,
-    ncdDestinationPort,
-    ncdSourceServerId,
     ncdDestinationServerId,
+    ncdTransportProtocol,
     ncdConnectionsCount,
+    ncdSourceServerId,
+    ncdDestinationPort,
 
     -- * OrderByElement
     OrderByElement (..),
@@ -187,14 +187,14 @@ module Network.AWS.Discovery.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * TagFilter
     TagFilter (..),
     mkTagFilter,
-    tfName,
     tfValues,
+    tfName,
   )
 where
 

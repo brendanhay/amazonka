@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.AlexaBusiness.CreateRoom
     -- ** Request lenses
     crProfileARN,
     crProviderCalendarId,
+    crRoomName,
     crClientRequestToken,
     crDescription,
     crTags,
-    crRoomName,
 
     -- * Destructuring the response
     CreateRoomResponse (..),
@@ -44,29 +45,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRoom' smart constructor.
 data CreateRoom = CreateRoom'
-  { profileARN :: Lude.Maybe Lude.Text,
+  { -- | The profile ARN for the room. This is required.
+    profileARN :: Lude.Maybe Lude.Text,
+    -- | The calendar ARN for the room.
     providerCalendarId :: Lude.Maybe Lude.Text,
+    -- | The name for the room.
+    roomName :: Lude.Text,
+    -- | A unique, user-specified identifier for this request that ensures idempotency.
     clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The description for the room.
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    roomName :: Lude.Text
+    -- | The tags for the room.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoom' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
--- * 'description' - The description for the room.
 -- * 'profileARN' - The profile ARN for the room. This is required.
 -- * 'providerCalendarId' - The calendar ARN for the room.
 -- * 'roomName' - The name for the room.
+-- * 'clientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
+-- * 'description' - The description for the room.
 -- * 'tags' - The tags for the room.
 mkCreateRoom ::
   -- | 'roomName'
@@ -76,10 +77,10 @@ mkCreateRoom pRoomName_ =
   CreateRoom'
     { profileARN = Lude.Nothing,
       providerCalendarId = Lude.Nothing,
+      roomName = pRoomName_,
       clientRequestToken = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      roomName = pRoomName_
+      tags = Lude.Nothing
     }
 
 -- | The profile ARN for the room. This is required.
@@ -95,6 +96,13 @@ crProfileARN = Lens.lens (profileARN :: CreateRoom -> Lude.Maybe Lude.Text) (\s 
 crProviderCalendarId :: Lens.Lens' CreateRoom (Lude.Maybe Lude.Text)
 crProviderCalendarId = Lens.lens (providerCalendarId :: CreateRoom -> Lude.Maybe Lude.Text) (\s a -> s {providerCalendarId = a} :: CreateRoom)
 {-# DEPRECATED crProviderCalendarId "Use generic-lens or generic-optics with 'providerCalendarId' instead." #-}
+
+-- | The name for the room.
+--
+-- /Note:/ Consider using 'roomName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRoomName :: Lens.Lens' CreateRoom Lude.Text
+crRoomName = Lens.lens (roomName :: CreateRoom -> Lude.Text) (\s a -> s {roomName = a} :: CreateRoom)
+{-# DEPRECATED crRoomName "Use generic-lens or generic-optics with 'roomName' instead." #-}
 
 -- | A unique, user-specified identifier for this request that ensures idempotency.
 --
@@ -116,13 +124,6 @@ crDescription = Lens.lens (description :: CreateRoom -> Lude.Maybe Lude.Text) (\
 crTags :: Lens.Lens' CreateRoom (Lude.Maybe [Tag])
 crTags = Lens.lens (tags :: CreateRoom -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRoom)
 {-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name for the room.
---
--- /Note:/ Consider using 'roomName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crRoomName :: Lens.Lens' CreateRoom Lude.Text
-crRoomName = Lens.lens (roomName :: CreateRoom -> Lude.Text) (\s a -> s {roomName = a} :: CreateRoom)
-{-# DEPRECATED crRoomName "Use generic-lens or generic-optics with 'roomName' instead." #-}
 
 instance Lude.AWSRequest CreateRoom where
   type Rs CreateRoom = CreateRoomResponse
@@ -151,10 +152,10 @@ instance Lude.ToJSON CreateRoom where
       ( Lude.catMaybes
           [ ("ProfileArn" Lude..=) Lude.<$> profileARN,
             ("ProviderCalendarId" Lude..=) Lude.<$> providerCalendarId,
+            Lude.Just ("RoomName" Lude..= roomName),
             ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
             ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("RoomName" Lude..= roomName)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -166,23 +167,18 @@ instance Lude.ToQuery CreateRoom where
 
 -- | /See:/ 'mkCreateRoomResponse' smart constructor.
 data CreateRoomResponse = CreateRoomResponse'
-  { roomARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the newly created room in the response.
+    roomARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoomResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'roomARN' - The ARN of the newly created room in the response.
+-- * 'responseStatus' - The response status code.
 mkCreateRoomResponse ::
   -- | 'responseStatus'
   Lude.Int ->

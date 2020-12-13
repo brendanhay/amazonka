@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -71,16 +72,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkValidateMatchmakingRuleSet' smart constructor.
 newtype ValidateMatchmakingRuleSet = ValidateMatchmakingRuleSet'
-  { ruleSetBody ::
-      Lude.Text
+  { -- | A collection of matchmaking rules to validate, formatted as a JSON string.
+    ruleSetBody :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidateMatchmakingRuleSet' with the minimum fields required to make a request.
@@ -138,24 +133,18 @@ instance Lude.ToQuery ValidateMatchmakingRuleSet where
 --
 -- /See:/ 'mkValidateMatchmakingRuleSetResponse' smart constructor.
 data ValidateMatchmakingRuleSetResponse = ValidateMatchmakingRuleSetResponse'
-  { valid ::
-      Lude.Maybe Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | A response indicating whether the rule set is valid.
+    valid :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidateMatchmakingRuleSetResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'valid' - A response indicating whether the rule set is valid.
+-- * 'responseStatus' - The response status code.
 mkValidateMatchmakingRuleSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

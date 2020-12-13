@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,27 +49,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetBuiltinIntents' smart constructor.
 data GetBuiltinIntents = GetBuiltinIntents'
-  { locale ::
-      Lude.Maybe Locale,
+  { -- | A list of locales that the intent supports.
+    locale :: Lude.Maybe Locale,
+    -- | A pagination token that fetches the next page of intents. If this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, use the pagination token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
     signatureContains :: Lude.Maybe Lude.Text,
+    -- | The maximum number of intents to return in the response. The default is 10.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBuiltinIntents' with the minimum fields required to make a request.
 --
 -- * 'locale' - A list of locales that the intent supports.
--- * 'maxResults' - The maximum number of intents to return in the response. The default is 10.
 -- * 'nextToken' - A pagination token that fetches the next page of intents. If this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, use the pagination token in the next request.
 -- * 'signatureContains' - Substring to match in built-in intent signatures. An intent will be returned if any part of its signature matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
+-- * 'maxResults' - The maximum number of intents to return in the response. The default is 10.
 mkGetBuiltinIntents ::
   GetBuiltinIntents
 mkGetBuiltinIntents =
@@ -151,18 +149,14 @@ instance Lude.ToQuery GetBuiltinIntents where
 
 -- | /See:/ 'mkGetBuiltinIntentsResponse' smart constructor.
 data GetBuiltinIntentsResponse = GetBuiltinIntentsResponse'
-  { intents ::
-      Lude.Maybe [BuiltinIntentMetadata],
+  { -- | An array of @builtinIntentMetadata@ objects, one for each intent in the response.
+    intents :: Lude.Maybe [BuiltinIntentMetadata],
+    -- | A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBuiltinIntentsResponse' with the minimum fields required to make a request.

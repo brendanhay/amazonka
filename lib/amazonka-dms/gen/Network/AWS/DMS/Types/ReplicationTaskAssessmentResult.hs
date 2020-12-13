@@ -34,39 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationTaskAssessmentResult' smart constructor.
 data ReplicationTaskAssessmentResult = ReplicationTaskAssessmentResult'
-  { assessmentResults ::
-      Lude.Maybe Lude.Text,
-    assessmentResultsFile ::
-      Lude.Maybe Lude.Text,
-    replicationTaskIdentifier ::
-      Lude.Maybe Lude.Text,
-    assessmentStatus ::
-      Lude.Maybe Lude.Text,
-    s3ObjectURL ::
-      Lude.Maybe Lude.Text,
-    replicationTaskLastAssessmentDate ::
-      Lude.Maybe Lude.Timestamp,
-    replicationTaskARN ::
-      Lude.Maybe Lude.Text
+  { -- | The task assessment results in JSON format.
+    assessmentResults :: Lude.Maybe Lude.Text,
+    -- | The file containing the results of the task assessment.
+    assessmentResultsFile :: Lude.Maybe Lude.Text,
+    -- | The replication task identifier of the task on which the task assessment was run.
+    replicationTaskIdentifier :: Lude.Maybe Lude.Text,
+    -- | The status of the task assessment.
+    assessmentStatus :: Lude.Maybe Lude.Text,
+    -- | The URL of the S3 object containing the task assessment results.
+    s3ObjectURL :: Lude.Maybe Lude.Text,
+    -- | The date the task assessment was completed.
+    replicationTaskLastAssessmentDate :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationTaskAssessmentResult' with the minimum fields required to make a request.
 --
 -- * 'assessmentResults' - The task assessment results in JSON format.
 -- * 'assessmentResultsFile' - The file containing the results of the task assessment.
--- * 'assessmentStatus' - The status of the task assessment.
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
 -- * 'replicationTaskIdentifier' - The replication task identifier of the task on which the task assessment was run.
--- * 'replicationTaskLastAssessmentDate' - The date the task assessment was completed.
+-- * 'assessmentStatus' - The status of the task assessment.
 -- * 's3ObjectURL' - The URL of the S3 object containing the task assessment results.
+-- * 'replicationTaskLastAssessmentDate' - The date the task assessment was completed.
+-- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
 mkReplicationTaskAssessmentResult ::
   ReplicationTaskAssessmentResult
 mkReplicationTaskAssessmentResult =

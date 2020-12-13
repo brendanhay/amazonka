@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.EC2.ProvisionByoipCidr
     pbcCidrAuthorizationContext,
     pbcPoolTagSpecifications,
     pbcPubliclyAdvertisable,
+    pbcCidr,
     pbcDescription,
     pbcDryRun,
-    pbcCidr,
 
     -- * Destructuring the response
     ProvisionByoipCidrResponse (..),
@@ -47,34 +48,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkProvisionByoipCidr' smart constructor.
 data ProvisionByoipCidr = ProvisionByoipCidr'
-  { cidrAuthorizationContext ::
-      Lude.Maybe CidrAuthorizationContext,
-    poolTagSpecifications ::
-      Lude.Maybe [TagSpecification],
+  { -- | A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.
+    cidrAuthorizationContext :: Lude.Maybe CidrAuthorizationContext,
+    -- | The tags to apply to the address pool.
+    poolTagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | (IPv6 only) Indicate whether the address range will be publicly advertised to the internet.
+    --
+    -- Default: true
     publiclyAdvertisable :: Lude.Maybe Lude.Bool,
+    -- | The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've brought to this or another Region.
+    cidr :: Lude.Text,
+    -- | A description for the address range and the address pool.
     description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    cidr :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionByoipCidr' with the minimum fields required to make a request.
 --
--- * 'cidr' - The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've brought to this or another Region.
 -- * 'cidrAuthorizationContext' - A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.
--- * 'description' - A description for the address range and the address pool.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'poolTagSpecifications' - The tags to apply to the address pool.
 -- * 'publiclyAdvertisable' - (IPv6 only) Indicate whether the address range will be publicly advertised to the internet.
 --
 -- Default: true
+-- * 'cidr' - The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've brought to this or another Region.
+-- * 'description' - A description for the address range and the address pool.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkProvisionByoipCidr ::
   -- | 'cidr'
   Lude.Text ->
@@ -84,9 +85,9 @@ mkProvisionByoipCidr pCidr_ =
     { cidrAuthorizationContext = Lude.Nothing,
       poolTagSpecifications = Lude.Nothing,
       publiclyAdvertisable = Lude.Nothing,
+      cidr = pCidr_,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      cidr = pCidr_
+      dryRun = Lude.Nothing
     }
 
 -- | A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.
@@ -112,6 +113,13 @@ pbcPubliclyAdvertisable :: Lens.Lens' ProvisionByoipCidr (Lude.Maybe Lude.Bool)
 pbcPubliclyAdvertisable = Lens.lens (publiclyAdvertisable :: ProvisionByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAdvertisable = a} :: ProvisionByoipCidr)
 {-# DEPRECATED pbcPubliclyAdvertisable "Use generic-lens or generic-optics with 'publiclyAdvertisable' instead." #-}
 
+-- | The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've brought to this or another Region.
+--
+-- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbcCidr :: Lens.Lens' ProvisionByoipCidr Lude.Text
+pbcCidr = Lens.lens (cidr :: ProvisionByoipCidr -> Lude.Text) (\s a -> s {cidr = a} :: ProvisionByoipCidr)
+{-# DEPRECATED pbcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
+
 -- | A description for the address range and the address pool.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -125,13 +133,6 @@ pbcDescription = Lens.lens (description :: ProvisionByoipCidr -> Lude.Maybe Lude
 pbcDryRun :: Lens.Lens' ProvisionByoipCidr (Lude.Maybe Lude.Bool)
 pbcDryRun = Lens.lens (dryRun :: ProvisionByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ProvisionByoipCidr)
 {-# DEPRECATED pbcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've brought to this or another Region.
---
--- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbcCidr :: Lens.Lens' ProvisionByoipCidr Lude.Text
-pbcCidr = Lens.lens (cidr :: ProvisionByoipCidr -> Lude.Text) (\s a -> s {cidr = a} :: ProvisionByoipCidr)
-{-# DEPRECATED pbcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
 instance Lude.AWSRequest ProvisionByoipCidr where
   type Rs ProvisionByoipCidr = ProvisionByoipCidrResponse
@@ -160,24 +161,19 @@ instance Lude.ToQuery ProvisionByoipCidr where
               Lude.<$> poolTagSpecifications
           ),
         "PubliclyAdvertisable" Lude.=: publiclyAdvertisable,
+        "Cidr" Lude.=: cidr,
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "Cidr" Lude.=: cidr
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkProvisionByoipCidrResponse' smart constructor.
 data ProvisionByoipCidrResponse = ProvisionByoipCidrResponse'
-  { byoipCidr ::
-      Lude.Maybe ByoipCidr,
+  { -- | Information about the address range.
+    byoipCidr :: Lude.Maybe ByoipCidr,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionByoipCidrResponse' with the minimum fields required to make a request.

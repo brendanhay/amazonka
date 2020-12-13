@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientVPNConnectionStatus' smart constructor.
 data ClientVPNConnectionStatus = ClientVPNConnectionStatus'
-  { code ::
-      Lude.Maybe
-        ClientVPNConnectionStatusCode,
+  { -- | The state of the client connection.
+    code :: Lude.Maybe ClientVPNConnectionStatusCode,
+    -- | A message about the status of the client connection, if applicable.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNConnectionStatus' with the minimum fields required to make a request.

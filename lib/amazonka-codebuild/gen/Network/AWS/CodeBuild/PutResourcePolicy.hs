@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeBuild.PutResourcePolicy
     mkPutResourcePolicy,
 
     -- ** Request lenses
-    prpPolicy,
     prpResourceARN,
+    prpPolicy,
 
     -- * Destructuring the response
     PutResourcePolicyResponse (..),
@@ -40,40 +41,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { policy :: Lude.Text,
-    resourceARN :: Lude.Text
+  { -- | The ARN of the @Project@ or @ReportGroup@ resource you want to associate with a resource policy.
+    resourceARN :: Lude.Text,
+    -- | A JSON-formatted resource policy. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project> and <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group> in the /AWS CodeBuild User Guide/ .
+    policy :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourcePolicy' with the minimum fields required to make a request.
 --
--- * 'policy' - A JSON-formatted resource policy. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project> and <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group> in the /AWS CodeBuild User Guide/ .
 -- * 'resourceARN' - The ARN of the @Project@ or @ReportGroup@ resource you want to associate with a resource policy.
+-- * 'policy' - A JSON-formatted resource policy. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project> and <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group> in the /AWS CodeBuild User Guide/ .
 mkPutResourcePolicy ::
-  -- | 'policy'
-  Lude.Text ->
   -- | 'resourceARN'
   Lude.Text ->
+  -- | 'policy'
+  Lude.Text ->
   PutResourcePolicy
-mkPutResourcePolicy pPolicy_ pResourceARN_ =
+mkPutResourcePolicy pResourceARN_ pPolicy_ =
   PutResourcePolicy'
-    { policy = pPolicy_,
-      resourceARN = pResourceARN_
+    { resourceARN = pResourceARN_,
+      policy = pPolicy_
     }
-
--- | A JSON-formatted resource policy. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project> and <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group> in the /AWS CodeBuild User Guide/ .
---
--- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpPolicy :: Lens.Lens' PutResourcePolicy Lude.Text
-prpPolicy = Lens.lens (policy :: PutResourcePolicy -> Lude.Text) (\s a -> s {policy = a} :: PutResourcePolicy)
-{-# DEPRECATED prpPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The ARN of the @Project@ or @ReportGroup@ resource you want to associate with a resource policy.
 --
@@ -81,6 +71,13 @@ prpPolicy = Lens.lens (policy :: PutResourcePolicy -> Lude.Text) (\s a -> s {pol
 prpResourceARN :: Lens.Lens' PutResourcePolicy Lude.Text
 prpResourceARN = Lens.lens (resourceARN :: PutResourcePolicy -> Lude.Text) (\s a -> s {resourceARN = a} :: PutResourcePolicy)
 {-# DEPRECATED prpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | A JSON-formatted resource policy. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project> and <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group> in the /AWS CodeBuild User Guide/ .
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpPolicy :: Lens.Lens' PutResourcePolicy Lude.Text
+prpPolicy = Lens.lens (policy :: PutResourcePolicy -> Lude.Text) (\s a -> s {policy = a} :: PutResourcePolicy)
+{-# DEPRECATED prpPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 instance Lude.AWSRequest PutResourcePolicy where
   type Rs PutResourcePolicy = PutResourcePolicyResponse
@@ -107,8 +104,8 @@ instance Lude.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("policy" Lude..= policy),
-            Lude.Just ("resourceArn" Lude..= resourceARN)
+          [ Lude.Just ("resourceArn" Lude..= resourceARN),
+            Lude.Just ("policy" Lude..= policy)
           ]
       )
 
@@ -120,17 +117,12 @@ instance Lude.ToQuery PutResourcePolicy where
 
 -- | /See:/ 'mkPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { resourceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the @Project@ or @ReportGroup@ resource that is associated with a resource policy.
+    resourceARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourcePolicyResponse' with the minimum fields required to make a request.

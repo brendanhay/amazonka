@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaVersionListItem' smart constructor.
 data SchemaVersionListItem = SchemaVersionListItem'
-  { status ::
-      Lude.Maybe SchemaVersionStatus,
+  { -- | The status of the schema version.
+    status :: Lude.Maybe SchemaVersionStatus,
+    -- | The date and time the schema version was created.
     createdTime :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the schema version.
     schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | The version number of the schema.
     versionNumber :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) of the schema.
     schemaARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaVersionListItem' with the minimum fields required to make a request.
 --
--- * 'createdTime' - The date and time the schema version was created.
--- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
--- * 'schemaVersionId' - The unique identifier of the schema version.
 -- * 'status' - The status of the schema version.
+-- * 'createdTime' - The date and time the schema version was created.
+-- * 'schemaVersionId' - The unique identifier of the schema version.
 -- * 'versionNumber' - The version number of the schema.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
 mkSchemaVersionListItem ::
   SchemaVersionListItem
 mkSchemaVersionListItem =

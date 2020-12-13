@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEventTypes' smart constructor.
 data DescribeEventTypes = DescribeEventTypes'
-  { locale ::
-      Lude.Maybe Lude.Text,
+  { -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+    locale :: Lude.Maybe Lude.Text,
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Values to narrow the results returned.
     filter :: Lude.Maybe EventTypeFilter,
+    -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventTypes' with the minimum fields required to make a request.
 --
--- * 'filter' - Values to narrow the results returned.
 -- * 'locale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
--- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 -- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- * 'filter' - Values to narrow the results returned.
+-- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 mkDescribeEventTypes ::
   DescribeEventTypes
 mkDescribeEventTypes =
@@ -156,18 +154,14 @@ instance Lude.ToQuery DescribeEventTypes where
 
 -- | /See:/ 'mkDescribeEventTypesResponse' smart constructor.
 data DescribeEventTypesResponse = DescribeEventTypesResponse'
-  { eventTypes ::
-      Lude.Maybe [EventType],
+  { -- | A list of event types that match the filter criteria. Event types have a category (@issue@ , @accountNotification@ , or @scheduledChange@ ), a service (for example, @EC2@ , @RDS@ , @DATAPIPELINE@ , @BILLING@ ), and a code (in the format @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
+    eventTypes :: Lude.Maybe [EventType],
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventTypesResponse' with the minimum fields required to make a request.

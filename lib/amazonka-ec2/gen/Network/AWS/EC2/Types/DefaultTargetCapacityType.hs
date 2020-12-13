@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.DefaultTargetCapacityType
   ( DefaultTargetCapacityType
       ( DefaultTargetCapacityType',
-        DTCTOnDemand,
-        DTCTSpot
+        DTCTSpot,
+        DTCTOnDemand
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DefaultTargetCapacityType = DefaultTargetCapacityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DTCTOnDemand :: DefaultTargetCapacityType
-pattern DTCTOnDemand = DefaultTargetCapacityType' "on-demand"
-
 pattern DTCTSpot :: DefaultTargetCapacityType
 pattern DTCTSpot = DefaultTargetCapacityType' "spot"
 
+pattern DTCTOnDemand :: DefaultTargetCapacityType
+pattern DTCTOnDemand = DefaultTargetCapacityType' "on-demand"
+
 {-# COMPLETE
-  DTCTOnDemand,
   DTCTSpot,
+  DTCTOnDemand,
   DefaultTargetCapacityType'
   #-}

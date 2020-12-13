@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.SSM.DescribeSessions
     mkDescribeSessions,
 
     -- ** Request lenses
+    dsState,
     dsFilters,
     dsNextToken,
     dsMaxResults,
-    dsState,
 
     -- * Destructuring the response
     DescribeSessionsResponse (..),
@@ -46,38 +47,42 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-  { filters ::
-      Lude.Maybe (Lude.NonEmpty SessionFilter),
+  { -- | The session status to retrieve a list of sessions for. For example, "Active".
+    state :: SessionState,
+    -- | One or more filters to limit the type of sessions returned by the request.
+    filters :: Lude.Maybe (Lude.NonEmpty SessionFilter),
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    state :: SessionState
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSessions' with the minimum fields required to make a request.
 --
--- * 'filters' - One or more filters to limit the type of sessions returned by the request.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'state' - The session status to retrieve a list of sessions for. For example, "Active".
+-- * 'filters' - One or more filters to limit the type of sessions returned by the request.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeSessions ::
   -- | 'state'
   SessionState ->
   DescribeSessions
 mkDescribeSessions pState_ =
   DescribeSessions'
-    { filters = Lude.Nothing,
+    { state = pState_,
+      filters = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      state = pState_
+      maxResults = Lude.Nothing
     }
+
+-- | The session status to retrieve a list of sessions for. For example, "Active".
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsState :: Lens.Lens' DescribeSessions SessionState
+dsState = Lens.lens (state :: DescribeSessions -> SessionState) (\s a -> s {state = a} :: DescribeSessions)
+{-# DEPRECATED dsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | One or more filters to limit the type of sessions returned by the request.
 --
@@ -99,13 +104,6 @@ dsNextToken = Lens.lens (nextToken :: DescribeSessions -> Lude.Maybe Lude.Text) 
 dsMaxResults :: Lens.Lens' DescribeSessions (Lude.Maybe Lude.Natural)
 dsMaxResults = Lens.lens (maxResults :: DescribeSessions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeSessions)
 {-# DEPRECATED dsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The session status to retrieve a list of sessions for. For example, "Active".
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsState :: Lens.Lens' DescribeSessions SessionState
-dsState = Lens.lens (state :: DescribeSessions -> SessionState) (\s a -> s {state = a} :: DescribeSessions)
-{-# DEPRECATED dsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 instance Page.AWSPager DescribeSessions where
   page rq rs
@@ -143,10 +141,10 @@ instance Lude.ToJSON DescribeSessions where
   toJSON DescribeSessions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
+          [ Lude.Just ("State" Lude..= state),
+            ("Filters" Lude..=) Lude.<$> filters,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("State" Lude..= state)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -158,25 +156,21 @@ instance Lude.ToQuery DescribeSessions where
 
 -- | /See:/ 'mkDescribeSessionsResponse' smart constructor.
 data DescribeSessionsResponse = DescribeSessionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of sessions meeting the request parameters.
     sessions :: Lude.Maybe [Session],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSessionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'responseStatus' - The response status code.
 -- * 'sessions' - A list of sessions meeting the request parameters.
+-- * 'responseStatus' - The response status code.
 mkDescribeSessionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

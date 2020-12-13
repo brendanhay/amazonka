@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkMail.DeleteAccessControlRule
     mkDeleteAccessControlRule,
 
     -- ** Request lenses
-    dacrOrganizationId,
     dacrName,
+    dacrOrganizationId,
 
     -- * Destructuring the response
     DeleteAccessControlRuleResponse (..),
@@ -39,17 +40,12 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkDeleteAccessControlRule' smart constructor.
 data DeleteAccessControlRule = DeleteAccessControlRule'
-  { organizationId ::
-      Lude.Text,
-    name :: Lude.Text
+  { -- | The name of the access control rule.
+    name :: Lude.Text,
+    -- | The identifier for the organization.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessControlRule' with the minimum fields required to make a request.
@@ -57,23 +53,16 @@ data DeleteAccessControlRule = DeleteAccessControlRule'
 -- * 'name' - The name of the access control rule.
 -- * 'organizationId' - The identifier for the organization.
 mkDeleteAccessControlRule ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   DeleteAccessControlRule
-mkDeleteAccessControlRule pOrganizationId_ pName_ =
+mkDeleteAccessControlRule pName_ pOrganizationId_ =
   DeleteAccessControlRule'
-    { organizationId = pOrganizationId_,
-      name = pName_
+    { name = pName_,
+      organizationId = pOrganizationId_
     }
-
--- | The identifier for the organization.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dacrOrganizationId :: Lens.Lens' DeleteAccessControlRule Lude.Text
-dacrOrganizationId = Lens.lens (organizationId :: DeleteAccessControlRule -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteAccessControlRule)
-{-# DEPRECATED dacrOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The name of the access control rule.
 --
@@ -81,6 +70,13 @@ dacrOrganizationId = Lens.lens (organizationId :: DeleteAccessControlRule -> Lud
 dacrName :: Lens.Lens' DeleteAccessControlRule Lude.Text
 dacrName = Lens.lens (name :: DeleteAccessControlRule -> Lude.Text) (\s a -> s {name = a} :: DeleteAccessControlRule)
 {-# DEPRECATED dacrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The identifier for the organization.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacrOrganizationId :: Lens.Lens' DeleteAccessControlRule Lude.Text
+dacrOrganizationId = Lens.lens (organizationId :: DeleteAccessControlRule -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteAccessControlRule)
+{-# DEPRECATED dacrOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest DeleteAccessControlRule where
   type Rs DeleteAccessControlRule = DeleteAccessControlRuleResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON DeleteAccessControlRule where
   toJSON DeleteAccessControlRule' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("Name" Lude..= name)
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -120,16 +116,10 @@ instance Lude.ToQuery DeleteAccessControlRule where
 
 -- | /See:/ 'mkDeleteAccessControlRuleResponse' smart constructor.
 newtype DeleteAccessControlRuleResponse = DeleteAccessControlRuleResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessControlRuleResponse' with the minimum fields required to make a request.

@@ -13,11 +13,11 @@
 module Network.AWS.Firehose.Types.CompressionFormat
   ( CompressionFormat
       ( CompressionFormat',
-        Gzip,
-        HadoopSnappy,
-        Snappy,
         Uncompressed,
-        Zip
+        Gzip,
+        Zip,
+        Snappy,
+        HadoopSnappy
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype CompressionFormat = CompressionFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern Gzip :: CompressionFormat
-pattern Gzip = CompressionFormat' "GZIP"
-
-pattern HadoopSnappy :: CompressionFormat
-pattern HadoopSnappy = CompressionFormat' "HADOOP_SNAPPY"
-
-pattern Snappy :: CompressionFormat
-pattern Snappy = CompressionFormat' "Snappy"
-
 pattern Uncompressed :: CompressionFormat
 pattern Uncompressed = CompressionFormat' "UNCOMPRESSED"
+
+pattern Gzip :: CompressionFormat
+pattern Gzip = CompressionFormat' "GZIP"
 
 pattern Zip :: CompressionFormat
 pattern Zip = CompressionFormat' "ZIP"
 
+pattern Snappy :: CompressionFormat
+pattern Snappy = CompressionFormat' "Snappy"
+
+pattern HadoopSnappy :: CompressionFormat
+pattern HadoopSnappy = CompressionFormat' "HADOOP_SNAPPY"
+
 {-# COMPLETE
-  Gzip,
-  HadoopSnappy,
-  Snappy,
   Uncompressed,
+  Gzip,
   Zip,
+  Snappy,
+  HadoopSnappy,
   CompressionFormat'
   #-}

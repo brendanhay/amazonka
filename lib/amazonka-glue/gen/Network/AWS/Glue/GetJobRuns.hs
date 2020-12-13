@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Glue.GetJobRuns
     mkGetJobRuns,
 
     -- ** Request lenses
+    gjrJobName,
     gjrNextToken,
     gjrMaxResults,
-    gjrJobName,
 
     -- * Destructuring the response
     GetJobRunsResponse (..),
@@ -45,34 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetJobRuns' smart constructor.
 data GetJobRuns = GetJobRuns'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    jobName :: Lude.Text
+  { -- | The name of the job definition for which to retrieve all job runs.
+    jobName :: Lude.Text,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum size of the response.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobRuns' with the minimum fields required to make a request.
 --
 -- * 'jobName' - The name of the job definition for which to retrieve all job runs.
--- * 'maxResults' - The maximum size of the response.
 -- * 'nextToken' - A continuation token, if this is a continuation call.
+-- * 'maxResults' - The maximum size of the response.
 mkGetJobRuns ::
   -- | 'jobName'
   Lude.Text ->
   GetJobRuns
 mkGetJobRuns pJobName_ =
   GetJobRuns'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      jobName = pJobName_
+    { jobName = pJobName_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The name of the job definition for which to retrieve all job runs.
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjrJobName :: Lens.Lens' GetJobRuns Lude.Text
+gjrJobName = Lens.lens (jobName :: GetJobRuns -> Lude.Text) (\s a -> s {jobName = a} :: GetJobRuns)
+{-# DEPRECATED gjrJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | A continuation token, if this is a continuation call.
 --
@@ -87,13 +92,6 @@ gjrNextToken = Lens.lens (nextToken :: GetJobRuns -> Lude.Maybe Lude.Text) (\s a
 gjrMaxResults :: Lens.Lens' GetJobRuns (Lude.Maybe Lude.Natural)
 gjrMaxResults = Lens.lens (maxResults :: GetJobRuns -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetJobRuns)
 {-# DEPRECATED gjrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The name of the job definition for which to retrieve all job runs.
---
--- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjrJobName :: Lens.Lens' GetJobRuns Lude.Text
-gjrJobName = Lens.lens (jobName :: GetJobRuns -> Lude.Text) (\s a -> s {jobName = a} :: GetJobRuns)
-{-# DEPRECATED gjrJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 instance Page.AWSPager GetJobRuns where
   page rq rs
@@ -130,9 +128,9 @@ instance Lude.ToJSON GetJobRuns where
   toJSON GetJobRuns' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("JobName" Lude..= jobName)
+          [ Lude.Just ("JobName" Lude..= jobName),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -144,24 +142,20 @@ instance Lude.ToQuery GetJobRuns where
 
 -- | /See:/ 'mkGetJobRunsResponse' smart constructor.
 data GetJobRunsResponse = GetJobRunsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token, if not all requested job runs have been returned.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of job-run metadata objects.
     jobRuns :: Lude.Maybe [JobRun],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobRunsResponse' with the minimum fields required to make a request.
 --
--- * 'jobRuns' - A list of job-run metadata objects.
 -- * 'nextToken' - A continuation token, if not all requested job runs have been returned.
+-- * 'jobRuns' - A list of job-run metadata objects.
 -- * 'responseStatus' - The response status code.
 mkGetJobRunsResponse ::
   -- | 'responseStatus'

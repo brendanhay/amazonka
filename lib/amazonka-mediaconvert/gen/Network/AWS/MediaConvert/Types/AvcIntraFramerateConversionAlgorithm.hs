@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.AvcIntraFramerateConversionAlgorithm
   ( AvcIntraFramerateConversionAlgorithm
       ( AvcIntraFramerateConversionAlgorithm',
-        AIFCADuplicateDrop,
-        AIFCAFrameformer,
-        AIFCAInterpolate
+        DuplicateDrop,
+        Interpolate,
+        Frameformer
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype AvcIntraFramerateConversionAlgorithm = AvcIntraFramerateConversionAlgori
       Lude.ToHeader
     )
 
-pattern AIFCADuplicateDrop :: AvcIntraFramerateConversionAlgorithm
-pattern AIFCADuplicateDrop = AvcIntraFramerateConversionAlgorithm' "DUPLICATE_DROP"
+pattern DuplicateDrop :: AvcIntraFramerateConversionAlgorithm
+pattern DuplicateDrop = AvcIntraFramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern AIFCAFrameformer :: AvcIntraFramerateConversionAlgorithm
-pattern AIFCAFrameformer = AvcIntraFramerateConversionAlgorithm' "FRAMEFORMER"
+pattern Interpolate :: AvcIntraFramerateConversionAlgorithm
+pattern Interpolate = AvcIntraFramerateConversionAlgorithm' "INTERPOLATE"
 
-pattern AIFCAInterpolate :: AvcIntraFramerateConversionAlgorithm
-pattern AIFCAInterpolate = AvcIntraFramerateConversionAlgorithm' "INTERPOLATE"
+pattern Frameformer :: AvcIntraFramerateConversionAlgorithm
+pattern Frameformer = AvcIntraFramerateConversionAlgorithm' "FRAMEFORMER"
 
 {-# COMPLETE
-  AIFCADuplicateDrop,
-  AIFCAFrameformer,
-  AIFCAInterpolate,
+  DuplicateDrop,
+  Interpolate,
+  Frameformer,
   AvcIntraFramerateConversionAlgorithm'
   #-}

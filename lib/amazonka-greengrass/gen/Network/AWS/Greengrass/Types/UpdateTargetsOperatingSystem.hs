@@ -13,10 +13,10 @@
 module Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem
   ( UpdateTargetsOperatingSystem
       ( UpdateTargetsOperatingSystem',
-        AmazonLinux,
-        Openwrt,
+        Ubuntu,
         Raspbian,
-        Ubuntu
+        AmazonLinux,
+        Openwrt
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype UpdateTargetsOperatingSystem = UpdateTargetsOperatingSystem' Lude.Text
       Lude.ToHeader
     )
 
+pattern Ubuntu :: UpdateTargetsOperatingSystem
+pattern Ubuntu = UpdateTargetsOperatingSystem' "ubuntu"
+
+pattern Raspbian :: UpdateTargetsOperatingSystem
+pattern Raspbian = UpdateTargetsOperatingSystem' "raspbian"
+
 pattern AmazonLinux :: UpdateTargetsOperatingSystem
 pattern AmazonLinux = UpdateTargetsOperatingSystem' "amazon_linux"
 
 pattern Openwrt :: UpdateTargetsOperatingSystem
 pattern Openwrt = UpdateTargetsOperatingSystem' "openwrt"
 
-pattern Raspbian :: UpdateTargetsOperatingSystem
-pattern Raspbian = UpdateTargetsOperatingSystem' "raspbian"
-
-pattern Ubuntu :: UpdateTargetsOperatingSystem
-pattern Ubuntu = UpdateTargetsOperatingSystem' "ubuntu"
-
 {-# COMPLETE
+  Ubuntu,
+  Raspbian,
   AmazonLinux,
   Openwrt,
-  Raspbian,
-  Ubuntu,
   UpdateTargetsOperatingSystem'
   #-}

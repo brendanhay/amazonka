@@ -18,8 +18,8 @@ module Network.AWS.DynamoDB.Types.BatchStatementRequest
 
     -- * Lenses
     bsrConsistentRead,
-    bsrParameters,
     bsrStatement,
+    bsrParameters,
   )
 where
 
@@ -31,26 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchStatementRequest' smart constructor.
 data BatchStatementRequest = BatchStatementRequest'
-  { consistentRead ::
-      Lude.Maybe Lude.Bool,
-    parameters ::
-      Lude.Maybe (Lude.NonEmpty AttributeValue),
-    statement :: Lude.Text
+  { -- | The read consistency of the PartiQL batch request.
+    consistentRead :: Lude.Maybe Lude.Bool,
+    -- | A valid PartiQL statement.
+    statement :: Lude.Text,
+    -- | The parameters associated with a PartiQL statement in the batch request.
+    parameters :: Lude.Maybe (Lude.NonEmpty AttributeValue)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStatementRequest' with the minimum fields required to make a request.
 --
 -- * 'consistentRead' - The read consistency of the PartiQL batch request.
--- * 'parameters' - The parameters associated with a PartiQL statement in the batch request.
 -- * 'statement' - A valid PartiQL statement.
+-- * 'parameters' - The parameters associated with a PartiQL statement in the batch request.
 mkBatchStatementRequest ::
   -- | 'statement'
   Lude.Text ->
@@ -58,8 +53,8 @@ mkBatchStatementRequest ::
 mkBatchStatementRequest pStatement_ =
   BatchStatementRequest'
     { consistentRead = Lude.Nothing,
-      parameters = Lude.Nothing,
-      statement = pStatement_
+      statement = pStatement_,
+      parameters = Lude.Nothing
     }
 
 -- | The read consistency of the PartiQL batch request.
@@ -69,13 +64,6 @@ bsrConsistentRead :: Lens.Lens' BatchStatementRequest (Lude.Maybe Lude.Bool)
 bsrConsistentRead = Lens.lens (consistentRead :: BatchStatementRequest -> Lude.Maybe Lude.Bool) (\s a -> s {consistentRead = a} :: BatchStatementRequest)
 {-# DEPRECATED bsrConsistentRead "Use generic-lens or generic-optics with 'consistentRead' instead." #-}
 
--- | The parameters associated with a PartiQL statement in the batch request.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsrParameters :: Lens.Lens' BatchStatementRequest (Lude.Maybe (Lude.NonEmpty AttributeValue))
-bsrParameters = Lens.lens (parameters :: BatchStatementRequest -> Lude.Maybe (Lude.NonEmpty AttributeValue)) (\s a -> s {parameters = a} :: BatchStatementRequest)
-{-# DEPRECATED bsrParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
 -- | A valid PartiQL statement.
 --
 -- /Note:/ Consider using 'statement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -83,12 +71,19 @@ bsrStatement :: Lens.Lens' BatchStatementRequest Lude.Text
 bsrStatement = Lens.lens (statement :: BatchStatementRequest -> Lude.Text) (\s a -> s {statement = a} :: BatchStatementRequest)
 {-# DEPRECATED bsrStatement "Use generic-lens or generic-optics with 'statement' instead." #-}
 
+-- | The parameters associated with a PartiQL statement in the batch request.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrParameters :: Lens.Lens' BatchStatementRequest (Lude.Maybe (Lude.NonEmpty AttributeValue))
+bsrParameters = Lens.lens (parameters :: BatchStatementRequest -> Lude.Maybe (Lude.NonEmpty AttributeValue)) (\s a -> s {parameters = a} :: BatchStatementRequest)
+{-# DEPRECATED bsrParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
 instance Lude.ToJSON BatchStatementRequest where
   toJSON BatchStatementRequest' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("ConsistentRead" Lude..=) Lude.<$> consistentRead,
-            ("Parameters" Lude..=) Lude.<$> parameters,
-            Lude.Just ("Statement" Lude..= statement)
+            Lude.Just ("Statement" Lude..= statement),
+            ("Parameters" Lude..=) Lude.<$> parameters
           ]
       )

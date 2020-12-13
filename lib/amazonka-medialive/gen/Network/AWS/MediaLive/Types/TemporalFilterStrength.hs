@@ -15,13 +15,6 @@ module Network.AWS.MediaLive.Types.TemporalFilterStrength
       ( TemporalFilterStrength',
         Auto,
         Strength1,
-        Strength10,
-        Strength11,
-        Strength12,
-        Strength13,
-        Strength14,
-        Strength15,
-        Strength16,
         Strength2,
         Strength3,
         Strength4,
@@ -29,7 +22,14 @@ module Network.AWS.MediaLive.Types.TemporalFilterStrength
         Strength6,
         Strength7,
         Strength8,
-        Strength9
+        Strength9,
+        Strength10,
+        Strength11,
+        Strength12,
+        Strength13,
+        Strength14,
+        Strength15,
+        Strength16
       ),
   )
 where
@@ -67,27 +67,6 @@ pattern Auto = TemporalFilterStrength' "AUTO"
 pattern Strength1 :: TemporalFilterStrength
 pattern Strength1 = TemporalFilterStrength' "STRENGTH_1"
 
-pattern Strength10 :: TemporalFilterStrength
-pattern Strength10 = TemporalFilterStrength' "STRENGTH_10"
-
-pattern Strength11 :: TemporalFilterStrength
-pattern Strength11 = TemporalFilterStrength' "STRENGTH_11"
-
-pattern Strength12 :: TemporalFilterStrength
-pattern Strength12 = TemporalFilterStrength' "STRENGTH_12"
-
-pattern Strength13 :: TemporalFilterStrength
-pattern Strength13 = TemporalFilterStrength' "STRENGTH_13"
-
-pattern Strength14 :: TemporalFilterStrength
-pattern Strength14 = TemporalFilterStrength' "STRENGTH_14"
-
-pattern Strength15 :: TemporalFilterStrength
-pattern Strength15 = TemporalFilterStrength' "STRENGTH_15"
-
-pattern Strength16 :: TemporalFilterStrength
-pattern Strength16 = TemporalFilterStrength' "STRENGTH_16"
-
 pattern Strength2 :: TemporalFilterStrength
 pattern Strength2 = TemporalFilterStrength' "STRENGTH_2"
 
@@ -112,16 +91,30 @@ pattern Strength8 = TemporalFilterStrength' "STRENGTH_8"
 pattern Strength9 :: TemporalFilterStrength
 pattern Strength9 = TemporalFilterStrength' "STRENGTH_9"
 
+pattern Strength10 :: TemporalFilterStrength
+pattern Strength10 = TemporalFilterStrength' "STRENGTH_10"
+
+pattern Strength11 :: TemporalFilterStrength
+pattern Strength11 = TemporalFilterStrength' "STRENGTH_11"
+
+pattern Strength12 :: TemporalFilterStrength
+pattern Strength12 = TemporalFilterStrength' "STRENGTH_12"
+
+pattern Strength13 :: TemporalFilterStrength
+pattern Strength13 = TemporalFilterStrength' "STRENGTH_13"
+
+pattern Strength14 :: TemporalFilterStrength
+pattern Strength14 = TemporalFilterStrength' "STRENGTH_14"
+
+pattern Strength15 :: TemporalFilterStrength
+pattern Strength15 = TemporalFilterStrength' "STRENGTH_15"
+
+pattern Strength16 :: TemporalFilterStrength
+pattern Strength16 = TemporalFilterStrength' "STRENGTH_16"
+
 {-# COMPLETE
   Auto,
   Strength1,
-  Strength10,
-  Strength11,
-  Strength12,
-  Strength13,
-  Strength14,
-  Strength15,
-  Strength16,
   Strength2,
   Strength3,
   Strength4,
@@ -130,5 +123,12 @@ pattern Strength9 = TemporalFilterStrength' "STRENGTH_9"
   Strength7,
   Strength8,
   Strength9,
+  Strength10,
+  Strength11,
+  Strength12,
+  Strength13,
+  Strength14,
+  Strength15,
+  Strength16,
   TemporalFilterStrength'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Config.GetComplianceDetailsByConfigRule
     mkGetComplianceDetailsByConfigRule,
 
     -- ** Request lenses
+    gcdbcrConfigRuleName,
     gcdbcrComplianceTypes,
     gcdbcrNextToken,
     gcdbcrLimit,
-    gcdbcrConfigRuleName,
 
     -- * Destructuring the response
     GetComplianceDetailsByConfigRuleResponse (..),
@@ -48,44 +49,47 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetComplianceDetailsByConfigRule' smart constructor.
 data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
-  { complianceTypes ::
-      Lude.Maybe
-        [ComplianceType],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    limit ::
-      Lude.Maybe Lude.Natural,
-    configRuleName ::
-      Lude.Text
+  { -- | The name of the AWS Config rule for which you want compliance information.
+    configRuleName :: Lude.Text,
+    -- | Filters the results by compliance.
+    --
+    -- The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
+    complianceTypes :: Lude.Maybe [ComplianceType],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceDetailsByConfigRule' with the minimum fields required to make a request.
 --
+-- * 'configRuleName' - The name of the AWS Config rule for which you want compliance information.
 -- * 'complianceTypes' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
--- * 'configRuleName' - The name of the AWS Config rule for which you want compliance information.
--- * 'limit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 mkGetComplianceDetailsByConfigRule ::
   -- | 'configRuleName'
   Lude.Text ->
   GetComplianceDetailsByConfigRule
 mkGetComplianceDetailsByConfigRule pConfigRuleName_ =
   GetComplianceDetailsByConfigRule'
-    { complianceTypes = Lude.Nothing,
+    { configRuleName =
+        pConfigRuleName_,
+      complianceTypes = Lude.Nothing,
       nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      configRuleName = pConfigRuleName_
+      limit = Lude.Nothing
     }
+
+-- | The name of the AWS Config rule for which you want compliance information.
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdbcrConfigRuleName :: Lens.Lens' GetComplianceDetailsByConfigRule Lude.Text
+gcdbcrConfigRuleName = Lens.lens (configRuleName :: GetComplianceDetailsByConfigRule -> Lude.Text) (\s a -> s {configRuleName = a} :: GetComplianceDetailsByConfigRule)
+{-# DEPRECATED gcdbcrConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | Filters the results by compliance.
 --
@@ -109,13 +113,6 @@ gcdbcrNextToken = Lens.lens (nextToken :: GetComplianceDetailsByConfigRule -> Lu
 gcdbcrLimit :: Lens.Lens' GetComplianceDetailsByConfigRule (Lude.Maybe Lude.Natural)
 gcdbcrLimit = Lens.lens (limit :: GetComplianceDetailsByConfigRule -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetComplianceDetailsByConfigRule)
 {-# DEPRECATED gcdbcrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The name of the AWS Config rule for which you want compliance information.
---
--- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdbcrConfigRuleName :: Lens.Lens' GetComplianceDetailsByConfigRule Lude.Text
-gcdbcrConfigRuleName = Lens.lens (configRuleName :: GetComplianceDetailsByConfigRule -> Lude.Text) (\s a -> s {configRuleName = a} :: GetComplianceDetailsByConfigRule)
-{-# DEPRECATED gcdbcrConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 instance Page.AWSPager GetComplianceDetailsByConfigRule where
   page rq rs
@@ -157,10 +154,10 @@ instance Lude.ToJSON GetComplianceDetailsByConfigRule where
   toJSON GetComplianceDetailsByConfigRule' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ComplianceTypes" Lude..=) Lude.<$> complianceTypes,
+          [ Lude.Just ("ConfigRuleName" Lude..= configRuleName),
+            ("ComplianceTypes" Lude..=) Lude.<$> complianceTypes,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("ConfigRuleName" Lude..= configRuleName)
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -174,22 +171,14 @@ instance Lude.ToQuery GetComplianceDetailsByConfigRule where
 --
 -- /See:/ 'mkGetComplianceDetailsByConfigRuleResponse' smart constructor.
 data GetComplianceDetailsByConfigRuleResponse = GetComplianceDetailsByConfigRuleResponse'
-  { evaluationResults ::
-      Lude.Maybe
-        [EvaluationResult],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Indicates whether the AWS resource complies with the specified AWS Config rule.
+    evaluationResults :: Lude.Maybe [EvaluationResult],
+    -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceDetailsByConfigRuleResponse' with the minimum fields required to make a request.

@@ -32,29 +32,24 @@ import Network.AWS.WorkSpaces.Types.AssociationStatus
 --
 -- /See:/ 'mkConnectionAliasAssociation' smart constructor.
 data ConnectionAliasAssociation = ConnectionAliasAssociation'
-  { associatedAccountId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the AWS account that associated the connection alias with a directory.
+    associatedAccountId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the directory associated with a connection alias.
     resourceId :: Lude.Maybe Lude.Text,
-    associationStatus ::
-      Lude.Maybe AssociationStatus,
-    connectionIdentifier ::
-      Lude.Maybe Lude.Text
+    -- | The association status of the connection alias.
+    associationStatus :: Lude.Maybe AssociationStatus,
+    -- | The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
+    connectionIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionAliasAssociation' with the minimum fields required to make a request.
 --
 -- * 'associatedAccountId' - The identifier of the AWS account that associated the connection alias with a directory.
+-- * 'resourceId' - The identifier of the directory associated with a connection alias.
 -- * 'associationStatus' - The association status of the connection alias.
 -- * 'connectionIdentifier' - The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
--- * 'resourceId' - The identifier of the directory associated with a connection alias.
 mkConnectionAliasAssociation ::
   ConnectionAliasAssociation
 mkConnectionAliasAssociation =

@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetLocation' smart constructor.
 data TargetLocation = TargetLocation'
-  { accounts ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The AWS accounts targeted by the current Automation execution.
+    accounts :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The maximum number of AWS accounts and AWS regions allowed to run the Automation concurrently
     targetLocationMaxConcurrency :: Lude.Maybe Lude.Text,
+    -- | The maximum number of errors allowed before the system stops queueing additional Automation executions for the currently running Automation.
     targetLocationMaxErrors :: Lude.Maybe Lude.Text,
+    -- | The AWS Regions targeted by the current Automation execution.
     regions :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The Automation execution role used by the currently running Automation.
     executionRoleName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetLocation' with the minimum fields required to make a request.
 --
 -- * 'accounts' - The AWS accounts targeted by the current Automation execution.
--- * 'executionRoleName' - The Automation execution role used by the currently running Automation.
--- * 'regions' - The AWS Regions targeted by the current Automation execution.
 -- * 'targetLocationMaxConcurrency' - The maximum number of AWS accounts and AWS regions allowed to run the Automation concurrently
 -- * 'targetLocationMaxErrors' - The maximum number of errors allowed before the system stops queueing additional Automation executions for the currently running Automation.
+-- * 'regions' - The AWS Regions targeted by the current Automation execution.
+-- * 'executionRoleName' - The Automation execution role used by the currently running Automation.
 mkTargetLocation ::
   TargetLocation
 mkTargetLocation =

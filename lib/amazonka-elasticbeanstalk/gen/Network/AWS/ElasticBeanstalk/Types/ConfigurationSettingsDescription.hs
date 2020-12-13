@@ -39,43 +39,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurationSettingsDescription' smart constructor.
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
-  { templateName ::
-      Lude.Maybe Lude.Text,
-    optionSettings ::
-      Lude.Maybe
-        [ConfigurationOptionSetting],
-    dateUpdated ::
-      Lude.Maybe Lude.DateTime,
-    dateCreated ::
-      Lude.Maybe Lude.DateTime,
-    platformARN ::
-      Lude.Maybe Lude.Text,
-    environmentName ::
-      Lude.Maybe Lude.Text,
-    applicationName ::
-      Lude.Maybe Lude.Text,
-    deploymentStatus ::
-      Lude.Maybe
-        ConfigurationDeploymentStatus,
-    solutionStackName ::
-      Lude.Maybe Lude.Text,
-    description ::
-      Lude.Maybe Lude.Text
+  { -- | If not @null@ , the name of the configuration template for this configuration set.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | A list of the configuration options and their values in this configuration set.
+    optionSettings :: Lude.Maybe [ConfigurationOptionSetting],
+    -- | The date (in UTC time) when this configuration set was last modified.
+    dateUpdated :: Lude.Maybe Lude.DateTime,
+    -- | The date (in UTC time) when this configuration set was created.
+    dateCreated :: Lude.Maybe Lude.DateTime,
+    -- | The ARN of the platform version.
+    platformARN :: Lude.Maybe Lude.Text,
+    -- | If not @null@ , the name of the environment for this configuration set.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The name of the application associated with this configuration set.
+    applicationName :: Lude.Maybe Lude.Text,
+    -- | If this configuration set is associated with an environment, the @DeploymentStatus@ parameter indicates the deployment status of this configuration set:
+    --
+    --
+    --     * @null@ : This configuration is not associated with a running environment.
+    --
+    --
+    --     * @pending@ : This is a draft configuration that is not deployed to the associated environment but is in the process of deploying.
+    --
+    --
+    --     * @deployed@ : This is the configuration that is currently deployed to the associated running environment.
+    --
+    --
+    --     * @failed@ : This is a draft configuration that failed to successfully deploy.
+    deploymentStatus :: Lude.Maybe ConfigurationDeploymentStatus,
+    -- | The name of the solution stack this configuration set uses.
+    solutionStackName :: Lude.Maybe Lude.Text,
+    -- | Describes this configuration set.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationSettingsDescription' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of the application associated with this configuration set.
--- * 'dateCreated' - The date (in UTC time) when this configuration set was created.
+-- * 'templateName' - If not @null@ , the name of the configuration template for this configuration set.
+-- * 'optionSettings' - A list of the configuration options and their values in this configuration set.
 -- * 'dateUpdated' - The date (in UTC time) when this configuration set was last modified.
+-- * 'dateCreated' - The date (in UTC time) when this configuration set was created.
+-- * 'platformARN' - The ARN of the platform version.
+-- * 'environmentName' - If not @null@ , the name of the environment for this configuration set.
+-- * 'applicationName' - The name of the application associated with this configuration set.
 -- * 'deploymentStatus' - If this configuration set is associated with an environment, the @DeploymentStatus@ parameter indicates the deployment status of this configuration set:
 --
 --
@@ -91,12 +99,8 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
 --     * @failed@ : This is a draft configuration that failed to successfully deploy.
 --
 --
--- * 'description' - Describes this configuration set.
--- * 'environmentName' - If not @null@ , the name of the environment for this configuration set.
--- * 'optionSettings' - A list of the configuration options and their values in this configuration set.
--- * 'platformARN' - The ARN of the platform version.
 -- * 'solutionStackName' - The name of the solution stack this configuration set uses.
--- * 'templateName' - If not @null@ , the name of the configuration template for this configuration set.
+-- * 'description' - Describes this configuration set.
 mkConfigurationSettingsDescription ::
   ConfigurationSettingsDescription
 mkConfigurationSettingsDescription =

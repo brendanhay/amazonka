@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DeviceFarm.ListDevicePools
     mkListDevicePools,
 
     -- ** Request lenses
+    ldpArn,
     ldpNextToken,
     ldpType,
-    ldpArn,
 
     -- * Destructuring the response
     ListDevicePoolsResponse (..),
@@ -47,18 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListDevicePools' smart constructor.
 data ListDevicePools = ListDevicePools'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    type' :: Lude.Maybe DevicePoolType,
-    arn :: Lude.Text
+  { -- | The project ARN.
+    arn :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The device pools' type.
+    --
+    -- Allowed values include:
+    --
+    --     * CURATED: A device pool that is created and managed by AWS Device Farm.
+    --
+    --
+    --     * PRIVATE: A device pool that is created and managed by the device pool developer.
+    type' :: Lude.Maybe DevicePoolType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDevicePools' with the minimum fields required to make a request.
@@ -79,10 +83,17 @@ mkListDevicePools ::
   ListDevicePools
 mkListDevicePools pArn_ =
   ListDevicePools'
-    { nextToken = Lude.Nothing,
-      type' = Lude.Nothing,
-      arn = pArn_
+    { arn = pArn_,
+      nextToken = Lude.Nothing,
+      type' = Lude.Nothing
     }
+
+-- | The project ARN.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldpArn :: Lens.Lens' ListDevicePools Lude.Text
+ldpArn = Lens.lens (arn :: ListDevicePools -> Lude.Text) (\s a -> s {arn = a} :: ListDevicePools)
+{-# DEPRECATED ldpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
@@ -106,13 +117,6 @@ ldpNextToken = Lens.lens (nextToken :: ListDevicePools -> Lude.Maybe Lude.Text) 
 ldpType :: Lens.Lens' ListDevicePools (Lude.Maybe DevicePoolType)
 ldpType = Lens.lens (type' :: ListDevicePools -> Lude.Maybe DevicePoolType) (\s a -> s {type' = a} :: ListDevicePools)
 {-# DEPRECATED ldpType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The project ARN.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldpArn :: Lens.Lens' ListDevicePools Lude.Text
-ldpArn = Lens.lens (arn :: ListDevicePools -> Lude.Text) (\s a -> s {arn = a} :: ListDevicePools)
-{-# DEPRECATED ldpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 instance Page.AWSPager ListDevicePools where
   page rq rs
@@ -150,9 +154,9 @@ instance Lude.ToJSON ListDevicePools where
   toJSON ListDevicePools' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("type" Lude..=) Lude.<$> type',
-            Lude.Just ("arn" Lude..= arn)
+          [ Lude.Just ("arn" Lude..= arn),
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("type" Lude..=) Lude.<$> type'
           ]
       )
 
@@ -166,18 +170,14 @@ instance Lude.ToQuery ListDevicePools where
 --
 -- /See:/ 'mkListDevicePoolsResponse' smart constructor.
 data ListDevicePoolsResponse = ListDevicePoolsResponse'
-  { devicePools ::
-      Lude.Maybe [DevicePool],
+  { -- | Information about the device pools.
+    devicePools :: Lude.Maybe [DevicePool],
+    -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDevicePoolsResponse' with the minimum fields required to make a request.

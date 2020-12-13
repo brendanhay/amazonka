@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,11 +25,11 @@ module Network.AWS.WorkDocs.DescribeDocumentVersions
 
     -- ** Request lenses
     ddvInclude,
+    ddvDocumentId,
     ddvAuthenticationToken,
     ddvMarker,
     ddvLimit,
     ddvFields,
-    ddvDocumentId,
 
     -- * Destructuring the response
     DescribeDocumentVersionsResponse (..),
@@ -50,26 +51,30 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDescribeDocumentVersions' smart constructor.
 data DescribeDocumentVersions = DescribeDocumentVersions'
-  { include ::
-      Lude.Maybe Lude.Text,
-    authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
+    include :: Lude.Maybe Lude.Text,
+    -- | The ID of the document.
+    documentId :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of versions to return with this call.
     limit :: Lude.Maybe Lude.Natural,
-    fields :: Lude.Maybe Lude.Text,
-    documentId :: Lude.Text
+    -- | Specify "SOURCE" to include initialized versions and a URL for the source document.
+    fields :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentVersions' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'documentId' - The ID of the document.
--- * 'fields' - Specify "SOURCE" to include initialized versions and a URL for the source document.
 -- * 'include' - A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
--- * 'limit' - The maximum number of versions to return with this call.
+-- * 'documentId' - The ID of the document.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
+-- * 'limit' - The maximum number of versions to return with this call.
+-- * 'fields' - Specify "SOURCE" to include initialized versions and a URL for the source document.
 mkDescribeDocumentVersions ::
   -- | 'documentId'
   Lude.Text ->
@@ -77,11 +82,11 @@ mkDescribeDocumentVersions ::
 mkDescribeDocumentVersions pDocumentId_ =
   DescribeDocumentVersions'
     { include = Lude.Nothing,
+      documentId = pDocumentId_,
       authenticationToken = Lude.Nothing,
       marker = Lude.Nothing,
       limit = Lude.Nothing,
-      fields = Lude.Nothing,
-      documentId = pDocumentId_
+      fields = Lude.Nothing
     }
 
 -- | A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
@@ -90,6 +95,13 @@ mkDescribeDocumentVersions pDocumentId_ =
 ddvInclude :: Lens.Lens' DescribeDocumentVersions (Lude.Maybe Lude.Text)
 ddvInclude = Lens.lens (include :: DescribeDocumentVersions -> Lude.Maybe Lude.Text) (\s a -> s {include = a} :: DescribeDocumentVersions)
 {-# DEPRECATED ddvInclude "Use generic-lens or generic-optics with 'include' instead." #-}
+
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvDocumentId :: Lens.Lens' DescribeDocumentVersions Lude.Text
+ddvDocumentId = Lens.lens (documentId :: DescribeDocumentVersions -> Lude.Text) (\s a -> s {documentId = a} :: DescribeDocumentVersions)
+{-# DEPRECATED ddvDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -118,13 +130,6 @@ ddvLimit = Lens.lens (limit :: DescribeDocumentVersions -> Lude.Maybe Lude.Natur
 ddvFields :: Lens.Lens' DescribeDocumentVersions (Lude.Maybe Lude.Text)
 ddvFields = Lens.lens (fields :: DescribeDocumentVersions -> Lude.Maybe Lude.Text) (\s a -> s {fields = a} :: DescribeDocumentVersions)
 {-# DEPRECATED ddvFields "Use generic-lens or generic-optics with 'fields' instead." #-}
-
--- | The ID of the document.
---
--- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvDocumentId :: Lens.Lens' DescribeDocumentVersions Lude.Text
-ddvDocumentId = Lens.lens (documentId :: DescribeDocumentVersions -> Lude.Text) (\s a -> s {documentId = a} :: DescribeDocumentVersions)
-{-# DEPRECATED ddvDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 instance Page.AWSPager DescribeDocumentVersions where
   page rq rs
@@ -169,20 +174,14 @@ instance Lude.ToQuery DescribeDocumentVersions where
 
 -- | /See:/ 'mkDescribeDocumentVersionsResponse' smart constructor.
 data DescribeDocumentVersionsResponse = DescribeDocumentVersionsResponse'
-  { documentVersions ::
-      Lude.Maybe
-        [DocumentVersionMetadata],
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The document versions.
+    documentVersions :: Lude.Maybe [DocumentVersionMetadata],
+    -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentVersionsResponse' with the minimum fields required to make a request.

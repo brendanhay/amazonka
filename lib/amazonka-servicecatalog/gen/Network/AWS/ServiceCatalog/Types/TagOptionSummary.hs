@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTagOptionSummary' smart constructor.
 data TagOptionSummary = TagOptionSummary'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The TagOption value.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The TagOption key.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagOptionSummary' with the minimum fields required to make a request.
 --
--- * 'key' - The TagOption key.
 -- * 'values' - The TagOption value.
+-- * 'key' - The TagOption key.
 mkTagOptionSummary ::
   TagOptionSummary
 mkTagOptionSummary =

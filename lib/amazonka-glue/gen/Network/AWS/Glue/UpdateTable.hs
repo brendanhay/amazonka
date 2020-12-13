@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,26 +42,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateTable' smart constructor.
 data UpdateTable = UpdateTable'
-  { skipArchive ::
-      Lude.Maybe Lude.Bool,
+  { -- | By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
+    skipArchive :: Lude.Maybe Lude.Bool,
+    -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
     catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
     databaseName :: Lude.Text,
+    -- | An updated @TableInput@ object to define the metadata table in the catalog.
     tableInput :: TableInput
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTable' with the minimum fields required to make a request.
 --
+-- * 'skipArchive' - By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
 -- * 'catalogId' - The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
 -- * 'databaseName' - The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
--- * 'skipArchive' - By default, @UpdateTable@ always creates an archived version of the table before updating it. However, if @skipArchive@ is set to true, @UpdateTable@ does not create the archived version.
 -- * 'tableInput' - An updated @TableInput@ object to define the metadata table in the catalog.
 mkUpdateTable ::
   -- | 'databaseName'
@@ -142,16 +140,10 @@ instance Lude.ToQuery UpdateTable where
 
 -- | /See:/ 'mkUpdateTableResponse' smart constructor.
 newtype UpdateTableResponse = UpdateTableResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTableResponse' with the minimum fields required to make a request.

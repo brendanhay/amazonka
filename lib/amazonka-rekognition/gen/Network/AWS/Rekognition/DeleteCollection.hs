@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.Rekognition.DeleteCollection
     mkDeleteCollection,
 
     -- ** Request lenses
-    dcCollectionId,
+    dCollectionId,
 
     -- * Destructuring the response
     DeleteCollectionResponse (..),
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteCollection' smart constructor.
 newtype DeleteCollection = DeleteCollection'
-  { collectionId ::
-      Lude.Text
+  { -- | ID of the collection to delete.
+    collectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCollection' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkDeleteCollection pCollectionId_ =
 -- | ID of the collection to delete.
 --
 -- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcCollectionId :: Lens.Lens' DeleteCollection Lude.Text
-dcCollectionId = Lens.lens (collectionId :: DeleteCollection -> Lude.Text) (\s a -> s {collectionId = a} :: DeleteCollection)
-{-# DEPRECATED dcCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
+dCollectionId :: Lens.Lens' DeleteCollection Lude.Text
+dCollectionId = Lens.lens (collectionId :: DeleteCollection -> Lude.Text) (\s a -> s {collectionId = a} :: DeleteCollection)
+{-# DEPRECATED dCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
 instance Lude.AWSRequest DeleteCollection where
   type Rs DeleteCollection = DeleteCollectionResponse
@@ -104,23 +99,18 @@ instance Lude.ToQuery DeleteCollection where
 
 -- | /See:/ 'mkDeleteCollectionResponse' smart constructor.
 data DeleteCollectionResponse = DeleteCollectionResponse'
-  { statusCode ::
-      Lude.Maybe Lude.Natural,
+  { -- | HTTP status code that indicates the result of the operation.
+    statusCode :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCollectionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'statusCode' - HTTP status code that indicates the result of the operation.
+-- * 'responseStatus' - The response status code.
 mkDeleteCollectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

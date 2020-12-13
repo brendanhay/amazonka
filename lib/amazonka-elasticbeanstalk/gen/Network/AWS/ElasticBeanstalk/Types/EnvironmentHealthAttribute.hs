@@ -13,14 +13,14 @@
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthAttribute
   ( EnvironmentHealthAttribute
       ( EnvironmentHealthAttribute',
-        EHAAll,
-        EHAApplicationMetrics,
-        EHACauses,
+        EHAStatus,
         EHAColor,
-        EHAHealthStatus,
+        EHACauses,
+        EHAApplicationMetrics,
         EHAInstancesHealth,
-        EHARefreshedAt,
-        EHAStatus
+        EHAAll,
+        EHAHealthStatus,
+        EHARefreshedAt
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype EnvironmentHealthAttribute = EnvironmentHealthAttribute' Lude.Text
       Lude.ToHeader
     )
 
-pattern EHAAll :: EnvironmentHealthAttribute
-pattern EHAAll = EnvironmentHealthAttribute' "All"
-
-pattern EHAApplicationMetrics :: EnvironmentHealthAttribute
-pattern EHAApplicationMetrics = EnvironmentHealthAttribute' "ApplicationMetrics"
-
-pattern EHACauses :: EnvironmentHealthAttribute
-pattern EHACauses = EnvironmentHealthAttribute' "Causes"
+pattern EHAStatus :: EnvironmentHealthAttribute
+pattern EHAStatus = EnvironmentHealthAttribute' "Status"
 
 pattern EHAColor :: EnvironmentHealthAttribute
 pattern EHAColor = EnvironmentHealthAttribute' "Color"
 
-pattern EHAHealthStatus :: EnvironmentHealthAttribute
-pattern EHAHealthStatus = EnvironmentHealthAttribute' "HealthStatus"
+pattern EHACauses :: EnvironmentHealthAttribute
+pattern EHACauses = EnvironmentHealthAttribute' "Causes"
+
+pattern EHAApplicationMetrics :: EnvironmentHealthAttribute
+pattern EHAApplicationMetrics = EnvironmentHealthAttribute' "ApplicationMetrics"
 
 pattern EHAInstancesHealth :: EnvironmentHealthAttribute
 pattern EHAInstancesHealth = EnvironmentHealthAttribute' "InstancesHealth"
 
+pattern EHAAll :: EnvironmentHealthAttribute
+pattern EHAAll = EnvironmentHealthAttribute' "All"
+
+pattern EHAHealthStatus :: EnvironmentHealthAttribute
+pattern EHAHealthStatus = EnvironmentHealthAttribute' "HealthStatus"
+
 pattern EHARefreshedAt :: EnvironmentHealthAttribute
 pattern EHARefreshedAt = EnvironmentHealthAttribute' "RefreshedAt"
 
-pattern EHAStatus :: EnvironmentHealthAttribute
-pattern EHAStatus = EnvironmentHealthAttribute' "Status"
-
 {-# COMPLETE
-  EHAAll,
-  EHAApplicationMetrics,
-  EHACauses,
-  EHAColor,
-  EHAHealthStatus,
-  EHAInstancesHealth,
-  EHARefreshedAt,
   EHAStatus,
+  EHAColor,
+  EHACauses,
+  EHAApplicationMetrics,
+  EHAInstancesHealth,
+  EHAAll,
+  EHAHealthStatus,
+  EHARefreshedAt,
   EnvironmentHealthAttribute'
   #-}

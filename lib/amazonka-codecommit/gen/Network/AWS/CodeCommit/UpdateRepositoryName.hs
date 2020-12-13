@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeCommit.UpdateRepositoryName
     mkUpdateRepositoryName,
 
     -- ** Request lenses
-    urnOldName,
     urnNewName,
+    urnOldName,
 
     -- * Destructuring the response
     UpdateRepositoryNameResponse (..),
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateRepositoryName' smart constructor.
 data UpdateRepositoryName = UpdateRepositoryName'
-  { oldName ::
-      Lude.Text,
-    newName :: Lude.Text
+  { -- | The new name for the repository.
+    newName :: Lude.Text,
+    -- | The current name of the repository.
+    oldName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRepositoryName' with the minimum fields required to make a request.
@@ -56,20 +52,13 @@ data UpdateRepositoryName = UpdateRepositoryName'
 -- * 'newName' - The new name for the repository.
 -- * 'oldName' - The current name of the repository.
 mkUpdateRepositoryName ::
-  -- | 'oldName'
-  Lude.Text ->
   -- | 'newName'
   Lude.Text ->
+  -- | 'oldName'
+  Lude.Text ->
   UpdateRepositoryName
-mkUpdateRepositoryName pOldName_ pNewName_ =
-  UpdateRepositoryName' {oldName = pOldName_, newName = pNewName_}
-
--- | The current name of the repository.
---
--- /Note:/ Consider using 'oldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urnOldName :: Lens.Lens' UpdateRepositoryName Lude.Text
-urnOldName = Lens.lens (oldName :: UpdateRepositoryName -> Lude.Text) (\s a -> s {oldName = a} :: UpdateRepositoryName)
-{-# DEPRECATED urnOldName "Use generic-lens or generic-optics with 'oldName' instead." #-}
+mkUpdateRepositoryName pNewName_ pOldName_ =
+  UpdateRepositoryName' {newName = pNewName_, oldName = pOldName_}
 
 -- | The new name for the repository.
 --
@@ -77,6 +66,13 @@ urnOldName = Lens.lens (oldName :: UpdateRepositoryName -> Lude.Text) (\s a -> s
 urnNewName :: Lens.Lens' UpdateRepositoryName Lude.Text
 urnNewName = Lens.lens (newName :: UpdateRepositoryName -> Lude.Text) (\s a -> s {newName = a} :: UpdateRepositoryName)
 {-# DEPRECATED urnNewName "Use generic-lens or generic-optics with 'newName' instead." #-}
+
+-- | The current name of the repository.
+--
+-- /Note:/ Consider using 'oldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urnOldName :: Lens.Lens' UpdateRepositoryName Lude.Text
+urnOldName = Lens.lens (oldName :: UpdateRepositoryName -> Lude.Text) (\s a -> s {oldName = a} :: UpdateRepositoryName)
+{-# DEPRECATED urnOldName "Use generic-lens or generic-optics with 'oldName' instead." #-}
 
 instance Lude.AWSRequest UpdateRepositoryName where
   type Rs UpdateRepositoryName = UpdateRepositoryNameResponse
@@ -98,8 +94,8 @@ instance Lude.ToJSON UpdateRepositoryName where
   toJSON UpdateRepositoryName' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("oldName" Lude..= oldName),
-            Lude.Just ("newName" Lude..= newName)
+          [ Lude.Just ("newName" Lude..= newName),
+            Lude.Just ("oldName" Lude..= oldName)
           ]
       )
 
@@ -111,13 +107,7 @@ instance Lude.ToQuery UpdateRepositoryName where
 
 -- | /See:/ 'mkUpdateRepositoryNameResponse' smart constructor.
 data UpdateRepositoryNameResponse = UpdateRepositoryNameResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRepositoryNameResponse' with the minimum fields required to make a request.

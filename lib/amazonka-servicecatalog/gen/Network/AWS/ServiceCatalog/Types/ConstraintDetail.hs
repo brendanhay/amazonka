@@ -33,30 +33,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConstraintDetail' smart constructor.
 data ConstraintDetail = ConstraintDetail'
-  { portfolioId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
+    portfolioId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the constraint.
     constraintId :: Lude.Maybe Lude.Text,
+    -- | The owner of the constraint.
     owner :: Lude.Maybe Lude.Text,
+    -- | The type of constraint.
+    --
+    --
+    --     * @LAUNCH@
+    --
+    --
+    --     * @NOTIFICATION@
+    --
+    --
+    --     * STACKSET
+    --
+    --
+    --     * @TEMPLATE@
     type' :: Lude.Maybe Lude.Text,
+    -- | The description of the constraint.
     description :: Lude.Maybe Lude.Text,
+    -- | The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
     productId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConstraintDetail' with the minimum fields required to make a request.
 --
--- * 'constraintId' - The identifier of the constraint.
--- * 'description' - The description of the constraint.
--- * 'owner' - The owner of the constraint.
 -- * 'portfolioId' - The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
--- * 'productId' - The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
+-- * 'constraintId' - The identifier of the constraint.
+-- * 'owner' - The owner of the constraint.
 -- * 'type'' - The type of constraint.
 --
 --
@@ -70,6 +79,10 @@ data ConstraintDetail = ConstraintDetail'
 --
 --
 --     * @TEMPLATE@
+--
+--
+-- * 'description' - The description of the constraint.
+-- * 'productId' - The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
 mkConstraintDetail ::
   ConstraintDetail
 mkConstraintDetail =

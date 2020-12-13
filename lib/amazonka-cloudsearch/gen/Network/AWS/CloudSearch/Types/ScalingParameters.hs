@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScalingParameters' smart constructor.
 data ScalingParameters = ScalingParameters'
-  { desiredInstanceType ::
-      Lude.Maybe PartitionInstanceType,
+  { -- | The instance type that you want to preconfigure for your domain. For example, @search.m1.small@ .
+    desiredInstanceType :: Lude.Maybe PartitionInstanceType,
+    -- | The number of replicas you want to preconfigure for each index partition.
     desiredReplicationCount :: Lude.Maybe Lude.Natural,
+    -- | The number of partitions you want to preconfigure for your domain. Only valid when you select @m2.2xlarge@ as the desired instance type.
     desiredPartitionCount :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingParameters' with the minimum fields required to make a request.
 --
 -- * 'desiredInstanceType' - The instance type that you want to preconfigure for your domain. For example, @search.m1.small@ .
--- * 'desiredPartitionCount' - The number of partitions you want to preconfigure for your domain. Only valid when you select @m2.2xlarge@ as the desired instance type.
 -- * 'desiredReplicationCount' - The number of replicas you want to preconfigure for each index partition.
+-- * 'desiredPartitionCount' - The number of partitions you want to preconfigure for your domain. Only valid when you select @m2.2xlarge@ as the desired instance type.
 mkScalingParameters ::
   ScalingParameters
 mkScalingParameters =

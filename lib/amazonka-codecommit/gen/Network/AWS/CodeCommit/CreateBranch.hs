@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CodeCommit.CreateBranch
     mkCreateBranch,
 
     -- ** Request lenses
-    cbRepositoryName,
-    cbBranchName,
     cbCommitId,
+    cbBranchName,
+    cbRepositoryName,
 
     -- * Destructuring the response
     CreateBranchResponse (..),
@@ -39,45 +40,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateBranch' smart constructor.
 data CreateBranch = CreateBranch'
-  { repositoryName :: Lude.Text,
+  { -- | The ID of the commit to point the new branch to.
+    commitId :: Lude.Text,
+    -- | The name of the new branch to create.
     branchName :: Lude.Text,
-    commitId :: Lude.Text
+    -- | The name of the repository in which you want to create the new branch.
+    repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBranch' with the minimum fields required to make a request.
 --
--- * 'branchName' - The name of the new branch to create.
 -- * 'commitId' - The ID of the commit to point the new branch to.
+-- * 'branchName' - The name of the new branch to create.
 -- * 'repositoryName' - The name of the repository in which you want to create the new branch.
 mkCreateBranch ::
-  -- | 'repositoryName'
+  -- | 'commitId'
   Lude.Text ->
   -- | 'branchName'
   Lude.Text ->
-  -- | 'commitId'
+  -- | 'repositoryName'
   Lude.Text ->
   CreateBranch
-mkCreateBranch pRepositoryName_ pBranchName_ pCommitId_ =
+mkCreateBranch pCommitId_ pBranchName_ pRepositoryName_ =
   CreateBranch'
-    { repositoryName = pRepositoryName_,
+    { commitId = pCommitId_,
       branchName = pBranchName_,
-      commitId = pCommitId_
+      repositoryName = pRepositoryName_
     }
 
--- | The name of the repository in which you want to create the new branch.
+-- | The ID of the commit to point the new branch to.
 --
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbRepositoryName :: Lens.Lens' CreateBranch Lude.Text
-cbRepositoryName = Lens.lens (repositoryName :: CreateBranch -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateBranch)
-{-# DEPRECATED cbRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+-- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbCommitId :: Lens.Lens' CreateBranch Lude.Text
+cbCommitId = Lens.lens (commitId :: CreateBranch -> Lude.Text) (\s a -> s {commitId = a} :: CreateBranch)
+{-# DEPRECATED cbCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
 
 -- | The name of the new branch to create.
 --
@@ -86,12 +84,12 @@ cbBranchName :: Lens.Lens' CreateBranch Lude.Text
 cbBranchName = Lens.lens (branchName :: CreateBranch -> Lude.Text) (\s a -> s {branchName = a} :: CreateBranch)
 {-# DEPRECATED cbBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
 
--- | The ID of the commit to point the new branch to.
+-- | The name of the repository in which you want to create the new branch.
 --
--- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbCommitId :: Lens.Lens' CreateBranch Lude.Text
-cbCommitId = Lens.lens (commitId :: CreateBranch -> Lude.Text) (\s a -> s {commitId = a} :: CreateBranch)
-{-# DEPRECATED cbCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbRepositoryName :: Lens.Lens' CreateBranch Lude.Text
+cbRepositoryName = Lens.lens (repositoryName :: CreateBranch -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateBranch)
+{-# DEPRECATED cbRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Lude.AWSRequest CreateBranch where
   type Rs CreateBranch = CreateBranchResponse
@@ -113,9 +111,9 @@ instance Lude.ToJSON CreateBranch where
   toJSON CreateBranch' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("repositoryName" Lude..= repositoryName),
+          [ Lude.Just ("commitId" Lude..= commitId),
             Lude.Just ("branchName" Lude..= branchName),
-            Lude.Just ("commitId" Lude..= commitId)
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
@@ -127,13 +125,7 @@ instance Lude.ToQuery CreateBranch where
 
 -- | /See:/ 'mkCreateBranchResponse' smart constructor.
 data CreateBranchResponse = CreateBranchResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBranchResponse' with the minimum fields required to make a request.

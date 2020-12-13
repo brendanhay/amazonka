@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.TimedMetadata
   ( TimedMetadata
       ( TimedMetadata',
-        TMNone,
-        TMPassthrough
+        TMPassthrough,
+        TMNone
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype TimedMetadata = TimedMetadata' Lude.Text
       Lude.ToHeader
     )
 
-pattern TMNone :: TimedMetadata
-pattern TMNone = TimedMetadata' "NONE"
-
 pattern TMPassthrough :: TimedMetadata
 pattern TMPassthrough = TimedMetadata' "PASSTHROUGH"
 
+pattern TMNone :: TimedMetadata
+pattern TMNone = TimedMetadata' "NONE"
+
 {-# COMPLETE
-  TMNone,
   TMPassthrough,
+  TMNone,
   TimedMetadata'
   #-}

@@ -30,18 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationalUnit' smart constructor.
 data OrganizationalUnit = OrganizationalUnit'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of this OU.
+    --
+    -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+    arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of this OU.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
     name :: Lude.Maybe Lude.Text,
+    -- | The unique identifier (ID) associated with this OU.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationalUnit' with the minimum fields required to make a request.
@@ -49,12 +51,12 @@ data OrganizationalUnit = OrganizationalUnit'
 -- * 'arn' - The Amazon Resource Name (ARN) of this OU.
 --
 -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
--- * 'id' - The unique identifier (ID) associated with this OU.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
 -- * 'name' - The friendly name of this OU.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- * 'id' - The unique identifier (ID) associated with this OU.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
 mkOrganizationalUnit ::
   OrganizationalUnit
 mkOrganizationalUnit =

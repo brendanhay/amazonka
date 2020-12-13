@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Config.PutConfigurationAggregator
     -- ** Request lenses
     pcaOrganizationAggregationSource,
     pcaAccountAggregationSources,
-    pcaTags,
     pcaConfigurationAggregatorName,
+    pcaTags,
 
     -- * Destructuring the response
     PutConfigurationAggregatorResponse (..),
@@ -42,29 +43,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutConfigurationAggregator' smart constructor.
 data PutConfigurationAggregator = PutConfigurationAggregator'
-  { organizationAggregationSource ::
-      Lude.Maybe
-        OrganizationAggregationSource,
-    accountAggregationSources ::
-      Lude.Maybe [AccountAggregationSource],
-    tags :: Lude.Maybe [Tag],
-    configurationAggregatorName ::
-      Lude.Text
+  { -- | An OrganizationAggregationSource object.
+    organizationAggregationSource :: Lude.Maybe OrganizationAggregationSource,
+    -- | A list of AccountAggregationSource object.
+    accountAggregationSources :: Lude.Maybe [AccountAggregationSource],
+    -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Lude.Text,
+    -- | An array of tag object.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConfigurationAggregator' with the minimum fields required to make a request.
 --
+-- * 'organizationAggregationSource' - An OrganizationAggregationSource object.
 -- * 'accountAggregationSources' - A list of AccountAggregationSource object.
 -- * 'configurationAggregatorName' - The name of the configuration aggregator.
--- * 'organizationAggregationSource' - An OrganizationAggregationSource object.
 -- * 'tags' - An array of tag object.
 mkPutConfigurationAggregator ::
   -- | 'configurationAggregatorName'
@@ -75,8 +70,8 @@ mkPutConfigurationAggregator pConfigurationAggregatorName_ =
     { organizationAggregationSource =
         Lude.Nothing,
       accountAggregationSources = Lude.Nothing,
-      tags = Lude.Nothing,
-      configurationAggregatorName = pConfigurationAggregatorName_
+      configurationAggregatorName = pConfigurationAggregatorName_,
+      tags = Lude.Nothing
     }
 
 -- | An OrganizationAggregationSource object.
@@ -93,19 +88,19 @@ pcaAccountAggregationSources :: Lens.Lens' PutConfigurationAggregator (Lude.Mayb
 pcaAccountAggregationSources = Lens.lens (accountAggregationSources :: PutConfigurationAggregator -> Lude.Maybe [AccountAggregationSource]) (\s a -> s {accountAggregationSources = a} :: PutConfigurationAggregator)
 {-# DEPRECATED pcaAccountAggregationSources "Use generic-lens or generic-optics with 'accountAggregationSources' instead." #-}
 
--- | An array of tag object.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcaTags :: Lens.Lens' PutConfigurationAggregator (Lude.Maybe [Tag])
-pcaTags = Lens.lens (tags :: PutConfigurationAggregator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutConfigurationAggregator)
-{-# DEPRECATED pcaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name of the configuration aggregator.
 --
 -- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pcaConfigurationAggregatorName :: Lens.Lens' PutConfigurationAggregator Lude.Text
 pcaConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: PutConfigurationAggregator -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: PutConfigurationAggregator)
 {-# DEPRECATED pcaConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
+
+-- | An array of tag object.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcaTags :: Lens.Lens' PutConfigurationAggregator (Lude.Maybe [Tag])
+pcaTags = Lens.lens (tags :: PutConfigurationAggregator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutConfigurationAggregator)
+{-# DEPRECATED pcaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest PutConfigurationAggregator where
   type
@@ -141,11 +136,11 @@ instance Lude.ToJSON PutConfigurationAggregator where
               Lude.<$> organizationAggregationSource,
             ("AccountAggregationSources" Lude..=)
               Lude.<$> accountAggregationSources,
-            ("Tags" Lude..=) Lude.<$> tags,
             Lude.Just
               ( "ConfigurationAggregatorName"
                   Lude..= configurationAggregatorName
-              )
+              ),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -157,19 +152,12 @@ instance Lude.ToQuery PutConfigurationAggregator where
 
 -- | /See:/ 'mkPutConfigurationAggregatorResponse' smart constructor.
 data PutConfigurationAggregatorResponse = PutConfigurationAggregatorResponse'
-  { configurationAggregator ::
-      Lude.Maybe
-        ConfigurationAggregator,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a ConfigurationAggregator object.
+    configurationAggregator :: Lude.Maybe ConfigurationAggregator,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConfigurationAggregatorResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,22 +27,22 @@ module Network.AWS.EC2.CreateSubnet
     mkCreateSubnet,
 
     -- ** Request lenses
-    cssIPv6CidrBlock,
-    cssAvailabilityZoneId,
-    cssOutpostARN,
-    cssTagSpecifications,
-    cssAvailabilityZone,
-    cssDryRun,
-    cssCidrBlock,
-    cssVPCId,
+    csgIPv6CidrBlock,
+    csgAvailabilityZoneId,
+    csgVPCId,
+    csgOutpostARN,
+    csgTagSpecifications,
+    csgAvailabilityZone,
+    csgCidrBlock,
+    csgDryRun,
 
     -- * Destructuring the response
     CreateSubnetResponse (..),
     mkCreateSubnetResponse,
 
     -- ** Response lenses
-    crersSubnet,
-    crersResponseStatus,
+    csfrsSubnet,
+    csfrsResponseStatus,
   )
 where
 
@@ -53,84 +54,96 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSubnet' smart constructor.
 data CreateSubnet = CreateSubnet'
-  { ipv6CidrBlock ::
-      Lude.Maybe Lude.Text,
+  { -- | The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
+    ipv6CidrBlock :: Lude.Maybe Lude.Text,
+    -- | The AZ ID or the Local Zone ID of the subnet.
     availabilityZoneId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC.
+    vpcId :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also specify the Availability Zone of the Outpost subnet.
     outpostARN :: Lude.Maybe Lude.Text,
+    -- | The tags to assign to the subnet.
     tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The Availability Zone or Local Zone for the subnet.
+    --
+    -- Default: AWS selects one for you. If you create more than one subnet in your VPC, we do not necessarily select a different zone for each subnet.
+    -- To create a subnet in a Local Zone, set this value to the Local Zone ID, for example @us-west-2-lax-1a@ . For information about the Regions that support Local Zones, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions Available Regions> in the /Amazon Elastic Compute Cloud User Guide/ .
+    -- To create a subnet in an Outpost, set this value to the Availability Zone for the Outpost and specify the Outpost ARN.
     availabilityZone :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The IPv4 network range for the subnet, in CIDR notation. For example, @10.0.0.0/24@ . We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
     cidrBlock :: Lude.Text,
-    vpcId :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubnet' with the minimum fields required to make a request.
 --
+-- * 'ipv6CidrBlock' - The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
+-- * 'availabilityZoneId' - The AZ ID or the Local Zone ID of the subnet.
+-- * 'vpcId' - The ID of the VPC.
+-- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also specify the Availability Zone of the Outpost subnet.
+-- * 'tagSpecifications' - The tags to assign to the subnet.
 -- * 'availabilityZone' - The Availability Zone or Local Zone for the subnet.
 --
 -- Default: AWS selects one for you. If you create more than one subnet in your VPC, we do not necessarily select a different zone for each subnet.
 -- To create a subnet in a Local Zone, set this value to the Local Zone ID, for example @us-west-2-lax-1a@ . For information about the Regions that support Local Zones, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions Available Regions> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- To create a subnet in an Outpost, set this value to the Availability Zone for the Outpost and specify the Outpost ARN.
--- * 'availabilityZoneId' - The AZ ID or the Local Zone ID of the subnet.
 -- * 'cidrBlock' - The IPv4 network range for the subnet, in CIDR notation. For example, @10.0.0.0/24@ . We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'ipv6CidrBlock' - The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
--- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also specify the Availability Zone of the Outpost subnet.
--- * 'tagSpecifications' - The tags to assign to the subnet.
--- * 'vpcId' - The ID of the VPC.
 mkCreateSubnet ::
-  -- | 'cidrBlock'
-  Lude.Text ->
   -- | 'vpcId'
   Lude.Text ->
+  -- | 'cidrBlock'
+  Lude.Text ->
   CreateSubnet
-mkCreateSubnet pCidrBlock_ pVPCId_ =
+mkCreateSubnet pVPCId_ pCidrBlock_ =
   CreateSubnet'
     { ipv6CidrBlock = Lude.Nothing,
       availabilityZoneId = Lude.Nothing,
+      vpcId = pVPCId_,
       outpostARN = Lude.Nothing,
       tagSpecifications = Lude.Nothing,
       availabilityZone = Lude.Nothing,
-      dryRun = Lude.Nothing,
       cidrBlock = pCidrBlock_,
-      vpcId = pVPCId_
+      dryRun = Lude.Nothing
     }
 
 -- | The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
 --
 -- /Note:/ Consider using 'ipv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssIPv6CidrBlock :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Text)
-cssIPv6CidrBlock = Lens.lens (ipv6CidrBlock :: CreateSubnet -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlock = a} :: CreateSubnet)
-{-# DEPRECATED cssIPv6CidrBlock "Use generic-lens or generic-optics with 'ipv6CidrBlock' instead." #-}
+csgIPv6CidrBlock :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Text)
+csgIPv6CidrBlock = Lens.lens (ipv6CidrBlock :: CreateSubnet -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlock = a} :: CreateSubnet)
+{-# DEPRECATED csgIPv6CidrBlock "Use generic-lens or generic-optics with 'ipv6CidrBlock' instead." #-}
 
 -- | The AZ ID or the Local Zone ID of the subnet.
 --
 -- /Note:/ Consider using 'availabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssAvailabilityZoneId :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Text)
-cssAvailabilityZoneId = Lens.lens (availabilityZoneId :: CreateSubnet -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneId = a} :: CreateSubnet)
-{-# DEPRECATED cssAvailabilityZoneId "Use generic-lens or generic-optics with 'availabilityZoneId' instead." #-}
+csgAvailabilityZoneId :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Text)
+csgAvailabilityZoneId = Lens.lens (availabilityZoneId :: CreateSubnet -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneId = a} :: CreateSubnet)
+{-# DEPRECATED csgAvailabilityZoneId "Use generic-lens or generic-optics with 'availabilityZoneId' instead." #-}
+
+-- | The ID of the VPC.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgVPCId :: Lens.Lens' CreateSubnet Lude.Text
+csgVPCId = Lens.lens (vpcId :: CreateSubnet -> Lude.Text) (\s a -> s {vpcId = a} :: CreateSubnet)
+{-# DEPRECATED csgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also specify the Availability Zone of the Outpost subnet.
 --
 -- /Note:/ Consider using 'outpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssOutpostARN :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Text)
-cssOutpostARN = Lens.lens (outpostARN :: CreateSubnet -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: CreateSubnet)
-{-# DEPRECATED cssOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
+csgOutpostARN :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Text)
+csgOutpostARN = Lens.lens (outpostARN :: CreateSubnet -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: CreateSubnet)
+{-# DEPRECATED csgOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
 
 -- | The tags to assign to the subnet.
 --
 -- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssTagSpecifications :: Lens.Lens' CreateSubnet (Lude.Maybe [TagSpecification])
-cssTagSpecifications = Lens.lens (tagSpecifications :: CreateSubnet -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateSubnet)
-{-# DEPRECATED cssTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+csgTagSpecifications :: Lens.Lens' CreateSubnet (Lude.Maybe [TagSpecification])
+csgTagSpecifications = Lens.lens (tagSpecifications :: CreateSubnet -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateSubnet)
+{-# DEPRECATED csgTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The Availability Zone or Local Zone for the subnet.
 --
@@ -139,30 +152,23 @@ cssTagSpecifications = Lens.lens (tagSpecifications :: CreateSubnet -> Lude.Mayb
 -- To create a subnet in an Outpost, set this value to the Availability Zone for the Outpost and specify the Outpost ARN.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssAvailabilityZone :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Text)
-cssAvailabilityZone = Lens.lens (availabilityZone :: CreateSubnet -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: CreateSubnet)
-{-# DEPRECATED cssAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssDryRun :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Bool)
-cssDryRun = Lens.lens (dryRun :: CreateSubnet -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSubnet)
-{-# DEPRECATED cssDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+csgAvailabilityZone :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Text)
+csgAvailabilityZone = Lens.lens (availabilityZone :: CreateSubnet -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: CreateSubnet)
+{-# DEPRECATED csgAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The IPv4 network range for the subnet, in CIDR notation. For example, @10.0.0.0/24@ . We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
 --
 -- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssCidrBlock :: Lens.Lens' CreateSubnet Lude.Text
-cssCidrBlock = Lens.lens (cidrBlock :: CreateSubnet -> Lude.Text) (\s a -> s {cidrBlock = a} :: CreateSubnet)
-{-# DEPRECATED cssCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
+csgCidrBlock :: Lens.Lens' CreateSubnet Lude.Text
+csgCidrBlock = Lens.lens (cidrBlock :: CreateSubnet -> Lude.Text) (\s a -> s {cidrBlock = a} :: CreateSubnet)
+{-# DEPRECATED csgCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
--- | The ID of the VPC.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssVPCId :: Lens.Lens' CreateSubnet Lude.Text
-cssVPCId = Lens.lens (vpcId :: CreateSubnet -> Lude.Text) (\s a -> s {vpcId = a} :: CreateSubnet)
-{-# DEPRECATED cssVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgDryRun :: Lens.Lens' CreateSubnet (Lude.Maybe Lude.Bool)
+csgDryRun = Lens.lens (dryRun :: CreateSubnet -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSubnet)
+{-# DEPRECATED csgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateSubnet where
   type Rs CreateSubnet = CreateSubnetResponse
@@ -187,34 +193,29 @@ instance Lude.ToQuery CreateSubnet where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "Ipv6CidrBlock" Lude.=: ipv6CidrBlock,
         "AvailabilityZoneId" Lude.=: availabilityZoneId,
+        "VpcId" Lude.=: vpcId,
         "OutpostArn" Lude.=: outpostARN,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
         "AvailabilityZone" Lude.=: availabilityZone,
-        "DryRun" Lude.=: dryRun,
         "CidrBlock" Lude.=: cidrBlock,
-        "VpcId" Lude.=: vpcId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateSubnetResponse' smart constructor.
 data CreateSubnetResponse = CreateSubnetResponse'
-  { subnet ::
-      Lude.Maybe Subnet,
+  { -- | Information about the subnet.
+    subnet :: Lude.Maybe Subnet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubnetResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'subnet' - Information about the subnet.
+-- * 'responseStatus' - The response status code.
 mkCreateSubnetResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -228,13 +229,13 @@ mkCreateSubnetResponse pResponseStatus_ =
 -- | Information about the subnet.
 --
 -- /Note:/ Consider using 'subnet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersSubnet :: Lens.Lens' CreateSubnetResponse (Lude.Maybe Subnet)
-crersSubnet = Lens.lens (subnet :: CreateSubnetResponse -> Lude.Maybe Subnet) (\s a -> s {subnet = a} :: CreateSubnetResponse)
-{-# DEPRECATED crersSubnet "Use generic-lens or generic-optics with 'subnet' instead." #-}
+csfrsSubnet :: Lens.Lens' CreateSubnetResponse (Lude.Maybe Subnet)
+csfrsSubnet = Lens.lens (subnet :: CreateSubnetResponse -> Lude.Maybe Subnet) (\s a -> s {subnet = a} :: CreateSubnetResponse)
+{-# DEPRECATED csfrsSubnet "Use generic-lens or generic-optics with 'subnet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersResponseStatus :: Lens.Lens' CreateSubnetResponse Lude.Int
-crersResponseStatus = Lens.lens (responseStatus :: CreateSubnetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSubnetResponse)
-{-# DEPRECATED crersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csfrsResponseStatus :: Lens.Lens' CreateSubnetResponse Lude.Int
+csfrsResponseStatus = Lens.lens (responseStatus :: CreateSubnetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSubnetResponse)
+{-# DEPRECATED csfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

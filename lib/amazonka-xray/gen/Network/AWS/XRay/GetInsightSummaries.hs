@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,12 +21,12 @@ module Network.AWS.XRay.GetInsightSummaries
 
     -- ** Request lenses
     gisStates,
+    gisStartTime,
     gisNextToken,
+    gisEndTime,
     gisGroupARN,
     gisGroupName,
     gisMaxResults,
-    gisStartTime,
-    gisEndTime,
 
     -- * Destructuring the response
     GetInsightSummariesResponse (..),
@@ -46,33 +47,33 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetInsightSummaries' smart constructor.
 data GetInsightSummaries = GetInsightSummaries'
-  { states ::
-      Lude.Maybe [InsightState],
-    nextToken :: Lude.Maybe Lude.Text,
-    groupARN :: Lude.Maybe Lude.Text,
-    groupName :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The list of insight states.
+    states :: Lude.Maybe [InsightState],
+    -- | The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.
     startTime :: Lude.Timestamp,
-    endTime :: Lude.Timestamp
+    -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The end of the time frame in which the insights ended. The end time can't be more than 30 days old.
+    endTime :: Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.
+    groupARN :: Lude.Maybe Lude.Text,
+    -- | The name of the group. Required if the GroupARN isn't provided.
+    groupName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to display.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInsightSummaries' with the minimum fields required to make a request.
 --
+-- * 'states' - The list of insight states.
+-- * 'startTime' - The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.
+-- * 'nextToken' - Pagination token.
 -- * 'endTime' - The end of the time frame in which the insights ended. The end time can't be more than 30 days old.
 -- * 'groupARN' - The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.
 -- * 'groupName' - The name of the group. Required if the GroupARN isn't provided.
 -- * 'maxResults' - The maximum number of results to display.
--- * 'nextToken' - Pagination token.
--- * 'startTime' - The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.
--- * 'states' - The list of insight states.
 mkGetInsightSummaries ::
   -- | 'startTime'
   Lude.Timestamp ->
@@ -82,12 +83,12 @@ mkGetInsightSummaries ::
 mkGetInsightSummaries pStartTime_ pEndTime_ =
   GetInsightSummaries'
     { states = Lude.Nothing,
+      startTime = pStartTime_,
       nextToken = Lude.Nothing,
+      endTime = pEndTime_,
       groupARN = Lude.Nothing,
       groupName = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      startTime = pStartTime_,
-      endTime = pEndTime_
+      maxResults = Lude.Nothing
     }
 
 -- | The list of insight states.
@@ -97,12 +98,26 @@ gisStates :: Lens.Lens' GetInsightSummaries (Lude.Maybe [InsightState])
 gisStates = Lens.lens (states :: GetInsightSummaries -> Lude.Maybe [InsightState]) (\s a -> s {states = a} :: GetInsightSummaries)
 {-# DEPRECATED gisStates "Use generic-lens or generic-optics with 'states' instead." #-}
 
+-- | The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisStartTime :: Lens.Lens' GetInsightSummaries Lude.Timestamp
+gisStartTime = Lens.lens (startTime :: GetInsightSummaries -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetInsightSummaries)
+{-# DEPRECATED gisStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
 -- | Pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gisNextToken :: Lens.Lens' GetInsightSummaries (Lude.Maybe Lude.Text)
 gisNextToken = Lens.lens (nextToken :: GetInsightSummaries -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInsightSummaries)
 {-# DEPRECATED gisNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The end of the time frame in which the insights ended. The end time can't be more than 30 days old.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisEndTime :: Lens.Lens' GetInsightSummaries Lude.Timestamp
+gisEndTime = Lens.lens (endTime :: GetInsightSummaries -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetInsightSummaries)
+{-# DEPRECATED gisEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.
 --
@@ -125,20 +140,6 @@ gisMaxResults :: Lens.Lens' GetInsightSummaries (Lude.Maybe Lude.Natural)
 gisMaxResults = Lens.lens (maxResults :: GetInsightSummaries -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetInsightSummaries)
 {-# DEPRECATED gisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisStartTime :: Lens.Lens' GetInsightSummaries Lude.Timestamp
-gisStartTime = Lens.lens (startTime :: GetInsightSummaries -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetInsightSummaries)
-{-# DEPRECATED gisStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The end of the time frame in which the insights ended. The end time can't be more than 30 days old.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisEndTime :: Lens.Lens' GetInsightSummaries Lude.Timestamp
-gisEndTime = Lens.lens (endTime :: GetInsightSummaries -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetInsightSummaries)
-{-# DEPRECATED gisEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
 instance Lude.AWSRequest GetInsightSummaries where
   type Rs GetInsightSummaries = GetInsightSummariesResponse
   request = Req.postJSON xRayService
@@ -159,12 +160,12 @@ instance Lude.ToJSON GetInsightSummaries where
     Lude.object
       ( Lude.catMaybes
           [ ("States" Lude..=) Lude.<$> states,
+            Lude.Just ("StartTime" Lude..= startTime),
             ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("EndTime" Lude..= endTime),
             ("GroupARN" Lude..=) Lude.<$> groupARN,
             ("GroupName" Lude..=) Lude.<$> groupName,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("StartTime" Lude..= startTime),
-            Lude.Just ("EndTime" Lude..= endTime)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -176,18 +177,14 @@ instance Lude.ToQuery GetInsightSummaries where
 
 -- | /See:/ 'mkGetInsightSummariesResponse' smart constructor.
 data GetInsightSummariesResponse = GetInsightSummariesResponse'
-  { insightSummaries ::
-      Lude.Maybe [InsightSummary],
+  { -- | The summary of each insight within the group matching the provided filters. The summary contains the InsightID, start and end time, the root cause service, the root cause and client impact statistics, the top anomalous services, and the status of the insight.
+    insightSummaries :: Lude.Maybe [InsightSummary],
+    -- | Pagination token.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInsightSummariesResponse' with the minimum fields required to make a request.

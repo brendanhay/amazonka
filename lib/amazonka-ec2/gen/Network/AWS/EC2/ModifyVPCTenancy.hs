@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.EC2.ModifyVPCTenancy
     mkModifyVPCTenancy,
 
     -- ** Request lenses
-    mvtDryRun,
     mvtVPCId,
     mvtInstanceTenancy,
+    mvtDryRun,
 
     -- * Destructuring the response
     ModifyVPCTenancyResponse (..),
@@ -44,25 +45,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyVPCTenancy' smart constructor.
 data ModifyVPCTenancy = ModifyVPCTenancy'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the VPC.
     vpcId :: Lude.Text,
-    instanceTenancy :: VPCTenancy
+    -- | The instance tenancy attribute for the VPC.
+    instanceTenancy :: VPCTenancy,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCTenancy' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'instanceTenancy' - The instance tenancy attribute for the VPC.
 -- * 'vpcId' - The ID of the VPC.
+-- * 'instanceTenancy' - The instance tenancy attribute for the VPC.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyVPCTenancy ::
   -- | 'vpcId'
   Lude.Text ->
@@ -71,17 +68,10 @@ mkModifyVPCTenancy ::
   ModifyVPCTenancy
 mkModifyVPCTenancy pVPCId_ pInstanceTenancy_ =
   ModifyVPCTenancy'
-    { dryRun = Lude.Nothing,
-      vpcId = pVPCId_,
-      instanceTenancy = pInstanceTenancy_
+    { vpcId = pVPCId_,
+      instanceTenancy = pInstanceTenancy_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvtDryRun :: Lens.Lens' ModifyVPCTenancy (Lude.Maybe Lude.Bool)
-mvtDryRun = Lens.lens (dryRun :: ModifyVPCTenancy -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPCTenancy)
-{-# DEPRECATED mvtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPC.
 --
@@ -96,6 +86,13 @@ mvtVPCId = Lens.lens (vpcId :: ModifyVPCTenancy -> Lude.Text) (\s a -> s {vpcId 
 mvtInstanceTenancy :: Lens.Lens' ModifyVPCTenancy VPCTenancy
 mvtInstanceTenancy = Lens.lens (instanceTenancy :: ModifyVPCTenancy -> VPCTenancy) (\s a -> s {instanceTenancy = a} :: ModifyVPCTenancy)
 {-# DEPRECATED mvtInstanceTenancy "Use generic-lens or generic-optics with 'instanceTenancy' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvtDryRun :: Lens.Lens' ModifyVPCTenancy (Lude.Maybe Lude.Bool)
+mvtDryRun = Lens.lens (dryRun :: ModifyVPCTenancy -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPCTenancy)
+{-# DEPRECATED mvtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ModifyVPCTenancy where
   type Rs ModifyVPCTenancy = ModifyVPCTenancyResponse
@@ -118,30 +115,25 @@ instance Lude.ToQuery ModifyVPCTenancy where
     Lude.mconcat
       [ "Action" Lude.=: ("ModifyVpcTenancy" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "VpcId" Lude.=: vpcId,
-        "InstanceTenancy" Lude.=: instanceTenancy
+        "InstanceTenancy" Lude.=: instanceTenancy,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyVPCTenancyResponse' smart constructor.
 data ModifyVPCTenancyResponse = ModifyVPCTenancyResponse'
-  { returnValue ::
-      Lude.Maybe Lude.Bool,
+  { -- | Returns @true@ if the request succeeds; otherwise, returns an error.
+    returnValue :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCTenancyResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'returnValue' - Returns @true@ if the request succeeds; otherwise, returns an error.
+-- * 'responseStatus' - The response status code.
 mkModifyVPCTenancyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

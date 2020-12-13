@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.StorageGateway.AssignTapePool
     mkAssignTapePool,
 
     -- ** Request lenses
-    atpBypassGovernanceRetention,
     atpTapeARN,
     atpPoolId,
+    atpBypassGovernanceRetention,
 
     -- * Destructuring the response
     AssignTapePoolResponse (..),
@@ -43,29 +44,29 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkAssignTapePool' smart constructor.
 data AssignTapePool = AssignTapePool'
-  { bypassGovernanceRetention ::
-      Lude.Maybe Lude.Bool,
+  { -- | The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the tape pool.
     tapeARN :: Lude.Text,
-    poolId :: Lude.Text
+    -- | The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
+    --
+    -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+    poolId :: Lude.Text,
+    -- | Set permissions to bypass governance retention. If the lock type of the archived tape is @Governance@ , the tape's archived age is not older than @RetentionLockInDays@ , and the user does not already have @BypassGovernanceRetention@ , setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console.
+    --
+    -- Valid values: @TRUE@ | @FALSE@
+    bypassGovernanceRetention :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignTapePool' with the minimum fields required to make a request.
 --
--- * 'bypassGovernanceRetention' - Set permissions to bypass governance retention. If the lock type of the archived tape is @Governance@ , the tape's archived age is not older than @RetentionLockInDays@ , and the user does not already have @BypassGovernanceRetention@ , setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console.
---
--- Valid values: @TRUE@ | @FALSE@
+-- * 'tapeARN' - The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the tape pool.
 -- * 'poolId' - The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
--- * 'tapeARN' - The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the tape pool.
+-- * 'bypassGovernanceRetention' - Set permissions to bypass governance retention. If the lock type of the archived tape is @Governance@ , the tape's archived age is not older than @RetentionLockInDays@ , and the user does not already have @BypassGovernanceRetention@ , setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console.
+--
+-- Valid values: @TRUE@ | @FALSE@
 mkAssignTapePool ::
   -- | 'tapeARN'
   Lude.Text ->
@@ -74,19 +75,10 @@ mkAssignTapePool ::
   AssignTapePool
 mkAssignTapePool pTapeARN_ pPoolId_ =
   AssignTapePool'
-    { bypassGovernanceRetention = Lude.Nothing,
-      tapeARN = pTapeARN_,
-      poolId = pPoolId_
+    { tapeARN = pTapeARN_,
+      poolId = pPoolId_,
+      bypassGovernanceRetention = Lude.Nothing
     }
-
--- | Set permissions to bypass governance retention. If the lock type of the archived tape is @Governance@ , the tape's archived age is not older than @RetentionLockInDays@ , and the user does not already have @BypassGovernanceRetention@ , setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console.
---
--- Valid values: @TRUE@ | @FALSE@
---
--- /Note:/ Consider using 'bypassGovernanceRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atpBypassGovernanceRetention :: Lens.Lens' AssignTapePool (Lude.Maybe Lude.Bool)
-atpBypassGovernanceRetention = Lens.lens (bypassGovernanceRetention :: AssignTapePool -> Lude.Maybe Lude.Bool) (\s a -> s {bypassGovernanceRetention = a} :: AssignTapePool)
-{-# DEPRECATED atpBypassGovernanceRetention "Use generic-lens or generic-optics with 'bypassGovernanceRetention' instead." #-}
 
 -- | The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the tape pool.
 --
@@ -103,6 +95,15 @@ atpTapeARN = Lens.lens (tapeARN :: AssignTapePool -> Lude.Text) (\s a -> s {tape
 atpPoolId :: Lens.Lens' AssignTapePool Lude.Text
 atpPoolId = Lens.lens (poolId :: AssignTapePool -> Lude.Text) (\s a -> s {poolId = a} :: AssignTapePool)
 {-# DEPRECATED atpPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
+
+-- | Set permissions to bypass governance retention. If the lock type of the archived tape is @Governance@ , the tape's archived age is not older than @RetentionLockInDays@ , and the user does not already have @BypassGovernanceRetention@ , setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console.
+--
+-- Valid values: @TRUE@ | @FALSE@
+--
+-- /Note:/ Consider using 'bypassGovernanceRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atpBypassGovernanceRetention :: Lens.Lens' AssignTapePool (Lude.Maybe Lude.Bool)
+atpBypassGovernanceRetention = Lens.lens (bypassGovernanceRetention :: AssignTapePool -> Lude.Maybe Lude.Bool) (\s a -> s {bypassGovernanceRetention = a} :: AssignTapePool)
+{-# DEPRECATED atpBypassGovernanceRetention "Use generic-lens or generic-optics with 'bypassGovernanceRetention' instead." #-}
 
 instance Lude.AWSRequest AssignTapePool where
   type Rs AssignTapePool = AssignTapePoolResponse
@@ -129,10 +130,10 @@ instance Lude.ToJSON AssignTapePool where
   toJSON AssignTapePool' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("BypassGovernanceRetention" Lude..=)
-              Lude.<$> bypassGovernanceRetention,
-            Lude.Just ("TapeARN" Lude..= tapeARN),
-            Lude.Just ("PoolId" Lude..= poolId)
+          [ Lude.Just ("TapeARN" Lude..= tapeARN),
+            Lude.Just ("PoolId" Lude..= poolId),
+            ("BypassGovernanceRetention" Lude..=)
+              Lude.<$> bypassGovernanceRetention
           ]
       )
 
@@ -144,23 +145,18 @@ instance Lude.ToQuery AssignTapePool where
 
 -- | /See:/ 'mkAssignTapePoolResponse' smart constructor.
 data AssignTapePoolResponse = AssignTapePoolResponse'
-  { tapeARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape pool.
+    tapeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignTapePoolResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tapeARN' - The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape pool.
+-- * 'responseStatus' - The response status code.
 mkAssignTapePoolResponse ::
   -- | 'responseStatus'
   Lude.Int ->

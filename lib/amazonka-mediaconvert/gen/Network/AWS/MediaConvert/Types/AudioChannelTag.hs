@@ -13,20 +13,20 @@
 module Network.AWS.MediaConvert.Types.AudioChannelTag
   ( AudioChannelTag
       ( AudioChannelTag',
-        C,
-        CS,
         L,
-        LC,
-        LS,
-        Lfe,
-        Lsd,
         R,
-        RC,
+        C,
+        Lfe,
+        LS,
         RS,
+        LC,
+        RC,
+        CS,
+        Lsd,
         Rsd,
         Tcs,
-        Vhc,
         Vhl,
+        Vhc,
         Vhr
       ),
   )
@@ -59,35 +59,35 @@ newtype AudioChannelTag = AudioChannelTag' Lude.Text
       Lude.ToHeader
     )
 
-pattern C :: AudioChannelTag
-pattern C = AudioChannelTag' "C"
-
-pattern CS :: AudioChannelTag
-pattern CS = AudioChannelTag' "CS"
-
 pattern L :: AudioChannelTag
 pattern L = AudioChannelTag' "L"
-
-pattern LC :: AudioChannelTag
-pattern LC = AudioChannelTag' "LC"
-
-pattern LS :: AudioChannelTag
-pattern LS = AudioChannelTag' "LS"
-
-pattern Lfe :: AudioChannelTag
-pattern Lfe = AudioChannelTag' "LFE"
-
-pattern Lsd :: AudioChannelTag
-pattern Lsd = AudioChannelTag' "LSD"
 
 pattern R :: AudioChannelTag
 pattern R = AudioChannelTag' "R"
 
-pattern RC :: AudioChannelTag
-pattern RC = AudioChannelTag' "RC"
+pattern C :: AudioChannelTag
+pattern C = AudioChannelTag' "C"
+
+pattern Lfe :: AudioChannelTag
+pattern Lfe = AudioChannelTag' "LFE"
+
+pattern LS :: AudioChannelTag
+pattern LS = AudioChannelTag' "LS"
 
 pattern RS :: AudioChannelTag
 pattern RS = AudioChannelTag' "RS"
+
+pattern LC :: AudioChannelTag
+pattern LC = AudioChannelTag' "LC"
+
+pattern RC :: AudioChannelTag
+pattern RC = AudioChannelTag' "RC"
+
+pattern CS :: AudioChannelTag
+pattern CS = AudioChannelTag' "CS"
+
+pattern Lsd :: AudioChannelTag
+pattern Lsd = AudioChannelTag' "LSD"
 
 pattern Rsd :: AudioChannelTag
 pattern Rsd = AudioChannelTag' "RSD"
@@ -95,30 +95,30 @@ pattern Rsd = AudioChannelTag' "RSD"
 pattern Tcs :: AudioChannelTag
 pattern Tcs = AudioChannelTag' "TCS"
 
-pattern Vhc :: AudioChannelTag
-pattern Vhc = AudioChannelTag' "VHC"
-
 pattern Vhl :: AudioChannelTag
 pattern Vhl = AudioChannelTag' "VHL"
+
+pattern Vhc :: AudioChannelTag
+pattern Vhc = AudioChannelTag' "VHC"
 
 pattern Vhr :: AudioChannelTag
 pattern Vhr = AudioChannelTag' "VHR"
 
 {-# COMPLETE
-  C,
-  CS,
   L,
-  LC,
-  LS,
-  Lfe,
-  Lsd,
   R,
-  RC,
+  C,
+  Lfe,
+  LS,
   RS,
+  LC,
+  RC,
+  CS,
+  Lsd,
   Rsd,
   Tcs,
-  Vhc,
   Vhl,
+  Vhc,
   Vhr,
   AudioChannelTag'
   #-}

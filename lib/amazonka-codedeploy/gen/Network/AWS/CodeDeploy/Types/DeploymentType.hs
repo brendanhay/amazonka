@@ -13,8 +13,8 @@
 module Network.AWS.CodeDeploy.Types.DeploymentType
   ( DeploymentType
       ( DeploymentType',
-        BlueGreen,
-        InPlace
+        InPlace,
+        BlueGreen
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DeploymentType = DeploymentType' Lude.Text
       Lude.ToHeader
     )
 
-pattern BlueGreen :: DeploymentType
-pattern BlueGreen = DeploymentType' "BLUE_GREEN"
-
 pattern InPlace :: DeploymentType
 pattern InPlace = DeploymentType' "IN_PLACE"
 
+pattern BlueGreen :: DeploymentType
+pattern BlueGreen = DeploymentType' "BLUE_GREEN"
+
 {-# COMPLETE
-  BlueGreen,
   InPlace,
+  BlueGreen,
   DeploymentType'
   #-}

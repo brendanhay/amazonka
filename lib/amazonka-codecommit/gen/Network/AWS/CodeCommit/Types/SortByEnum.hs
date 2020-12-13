@@ -13,8 +13,8 @@
 module Network.AWS.CodeCommit.Types.SortByEnum
   ( SortByEnum
       ( SortByEnum',
-        LastModifiedDate,
-        RepositoryName
+        RepositoryName,
+        LastModifiedDate
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SortByEnum = SortByEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern LastModifiedDate :: SortByEnum
-pattern LastModifiedDate = SortByEnum' "lastModifiedDate"
-
 pattern RepositoryName :: SortByEnum
 pattern RepositoryName = SortByEnum' "repositoryName"
 
+pattern LastModifiedDate :: SortByEnum
+pattern LastModifiedDate = SortByEnum' "lastModifiedDate"
+
 {-# COMPLETE
-  LastModifiedDate,
   RepositoryName,
+  LastModifiedDate,
   SortByEnum'
   #-}

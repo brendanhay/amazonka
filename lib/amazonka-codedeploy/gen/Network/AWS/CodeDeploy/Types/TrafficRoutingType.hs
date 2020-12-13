@@ -13,9 +13,9 @@
 module Network.AWS.CodeDeploy.Types.TrafficRoutingType
   ( TrafficRoutingType
       ( TrafficRoutingType',
-        AllAtOnce,
         TimeBasedCanary,
-        TimeBasedLinear
+        TimeBasedLinear,
+        AllAtOnce
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype TrafficRoutingType = TrafficRoutingType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AllAtOnce :: TrafficRoutingType
-pattern AllAtOnce = TrafficRoutingType' "AllAtOnce"
-
 pattern TimeBasedCanary :: TrafficRoutingType
 pattern TimeBasedCanary = TrafficRoutingType' "TimeBasedCanary"
 
 pattern TimeBasedLinear :: TrafficRoutingType
 pattern TimeBasedLinear = TrafficRoutingType' "TimeBasedLinear"
 
+pattern AllAtOnce :: TrafficRoutingType
+pattern AllAtOnce = TrafficRoutingType' "AllAtOnce"
+
 {-# COMPLETE
-  AllAtOnce,
   TimeBasedCanary,
   TimeBasedLinear,
+  AllAtOnce,
   TrafficRoutingType'
   #-}

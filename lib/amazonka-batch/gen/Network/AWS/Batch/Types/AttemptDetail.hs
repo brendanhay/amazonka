@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttemptDetail' smart constructor.
 data AttemptDetail = AttemptDetail'
-  { stoppedAt ::
-      Lude.Maybe Lude.Integer,
+  { -- | The Unix timestamp (in milliseconds) for when the attempt was stopped (when the attempt transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
+    stoppedAt :: Lude.Maybe Lude.Integer,
+    -- | The Unix timestamp (in milliseconds) for when the attempt was started (when the attempt transitioned from the @STARTING@ state to the @RUNNING@ state).
     startedAt :: Lude.Maybe Lude.Integer,
+    -- | Details about the container in this job attempt.
     container :: Lude.Maybe AttemptContainerDetail,
+    -- | A short, human-readable string to provide additional details about the current status of the job attempt.
     statusReason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttemptDetail' with the minimum fields required to make a request.
 --
--- * 'container' - Details about the container in this job attempt.
--- * 'startedAt' - The Unix timestamp (in milliseconds) for when the attempt was started (when the attempt transitioned from the @STARTING@ state to the @RUNNING@ state).
--- * 'statusReason' - A short, human-readable string to provide additional details about the current status of the job attempt.
 -- * 'stoppedAt' - The Unix timestamp (in milliseconds) for when the attempt was stopped (when the attempt transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
+-- * 'startedAt' - The Unix timestamp (in milliseconds) for when the attempt was started (when the attempt transitioned from the @STARTING@ state to the @RUNNING@ state).
+-- * 'container' - Details about the container in this job attempt.
+-- * 'statusReason' - A short, human-readable string to provide additional details about the current status of the job attempt.
 mkAttemptDetail ::
   AttemptDetail
 mkAttemptDetail =

@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetGroupStickinessConfig' smart constructor.
 data TargetGroupStickinessConfig = TargetGroupStickinessConfig'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    durationSeconds ::
-      Lude.Maybe Lude.Int
+  { -- | Indicates whether target group stickiness is enabled.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+    durationSeconds :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGroupStickinessConfig' with the minimum fields required to make a request.
 --
--- * 'durationSeconds' - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 -- * 'enabled' - Indicates whether target group stickiness is enabled.
+-- * 'durationSeconds' - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 mkTargetGroupStickinessConfig ::
   TargetGroupStickinessConfig
 mkTargetGroupStickinessConfig =

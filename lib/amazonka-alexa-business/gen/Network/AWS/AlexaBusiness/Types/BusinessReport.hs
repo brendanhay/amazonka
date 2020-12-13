@@ -35,29 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBusinessReport' smart constructor.
 data BusinessReport = BusinessReport'
-  { status ::
-      Lude.Maybe BusinessReportStatus,
+  { -- | The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).
+    status :: Lude.Maybe BusinessReportStatus,
+    -- | The failure code.
     failureCode :: Lude.Maybe BusinessReportFailureCode,
+    -- | The time of report delivery.
     deliveryTime :: Lude.Maybe Lude.Timestamp,
+    -- | The download link where a user can download the report.
     downloadURL :: Lude.Maybe Lude.Text,
+    -- | The S3 location of the output reports.
     s3Location :: Lude.Maybe BusinessReportS3Location
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BusinessReport' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).
+-- * 'failureCode' - The failure code.
 -- * 'deliveryTime' - The time of report delivery.
 -- * 'downloadURL' - The download link where a user can download the report.
--- * 'failureCode' - The failure code.
 -- * 's3Location' - The S3 location of the output reports.
--- * 'status' - The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).
 mkBusinessReport ::
   BusinessReport
 mkBusinessReport =

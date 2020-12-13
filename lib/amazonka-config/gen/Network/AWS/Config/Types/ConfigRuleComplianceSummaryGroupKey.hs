@@ -13,8 +13,8 @@
 module Network.AWS.Config.Types.ConfigRuleComplianceSummaryGroupKey
   ( ConfigRuleComplianceSummaryGroupKey
       ( ConfigRuleComplianceSummaryGroupKey',
-        AWSRegion,
-        AccountId
+        AccountId,
+        AWSRegion
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ConfigRuleComplianceSummaryGroupKey = ConfigRuleComplianceSummaryGroupKe
       Lude.ToHeader
     )
 
-pattern AWSRegion :: ConfigRuleComplianceSummaryGroupKey
-pattern AWSRegion = ConfigRuleComplianceSummaryGroupKey' "AWS_REGION"
-
 pattern AccountId :: ConfigRuleComplianceSummaryGroupKey
 pattern AccountId = ConfigRuleComplianceSummaryGroupKey' "ACCOUNT_ID"
 
+pattern AWSRegion :: ConfigRuleComplianceSummaryGroupKey
+pattern AWSRegion = ConfigRuleComplianceSummaryGroupKey' "AWS_REGION"
+
 {-# COMPLETE
-  AWSRegion,
   AccountId,
+  AWSRegion,
   ConfigRuleComplianceSummaryGroupKey'
   #-}

@@ -31,24 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemediationParameterValue' smart constructor.
 data RemediationParameterValue = RemediationParameterValue'
-  { staticValue ::
-      Lude.Maybe StaticValue,
-    resourceValue ::
-      Lude.Maybe ResourceValue
+  { -- | The value is static and does not change at run-time.
+    staticValue :: Lude.Maybe StaticValue,
+    -- | The value is dynamic and changes at run-time.
+    resourceValue :: Lude.Maybe ResourceValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemediationParameterValue' with the minimum fields required to make a request.
 --
--- * 'resourceValue' - The value is dynamic and changes at run-time.
 -- * 'staticValue' - The value is static and does not change at run-time.
+-- * 'resourceValue' - The value is dynamic and changes at run-time.
 mkRemediationParameterValue ::
   RemediationParameterValue
 mkRemediationParameterValue =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,6 +25,7 @@ module Network.AWS.EC2.CreateNetworkInterface
     cniGroups,
     cniPrivateIPAddresses,
     cniInterfaceType,
+    cniSubnetId,
     cniTagSpecifications,
     cniIPv6AddressCount,
     cniPrivateIPAddress,
@@ -31,7 +33,6 @@ module Network.AWS.EC2.CreateNetworkInterface
     cniDescription,
     cniDryRun,
     cniIPv6Addresses,
-    cniSubnetId,
 
     -- * Destructuring the response
     CreateNetworkInterfaceResponse (..),
@@ -53,48 +54,49 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateNetworkInterface' smart constructor.
 data CreateNetworkInterface = CreateNetworkInterface'
-  { groups ::
-      Lude.Maybe [Lude.Text],
-    privateIPAddresses ::
-      Lude.Maybe [PrivateIPAddressSpecification],
-    interfaceType ::
-      Lude.Maybe NetworkInterfaceCreationType,
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
+  { -- | The IDs of one or more security groups.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | One or more private IPv4 addresses.
+    privateIPAddresses :: Lude.Maybe [PrivateIPAddressSpecification],
+    -- | Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
+    interfaceType :: Lude.Maybe NetworkInterfaceCreationType,
+    -- | The ID of the subnet to associate with the network interface.
+    subnetId :: Lude.Text,
+    -- | The tags to apply to the new network interface.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@ , you can specify @0@ to override this setting.
     ipv6AddressCount :: Lude.Maybe Lude.Int,
+    -- | The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
     privateIPAddress :: Lude.Maybe Lude.Text,
-    secondaryPrivateIPAddressCount ::
-      Lude.Maybe Lude.Int,
+    -- | The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ .
+    --
+    -- The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type> in the /Amazon Virtual Private Cloud User Guide/ .
+    secondaryPrivateIPAddressCount :: Lude.Maybe Lude.Int,
+    -- | A description for the network interface.
     description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    ipv6Addresses ::
-      Lude.Maybe [InstanceIPv6Address],
-    subnetId :: Lude.Text
+    -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+    ipv6Addresses :: Lude.Maybe [InstanceIPv6Address]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkInterface' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the network interface.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'groups' - The IDs of one or more security groups.
--- * 'interfaceType' - Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@ , you can specify @0@ to override this setting.
--- * 'ipv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
--- * 'privateIPAddress' - The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
 -- * 'privateIPAddresses' - One or more private IPv4 addresses.
+-- * 'interfaceType' - Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify @efa@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'subnetId' - The ID of the subnet to associate with the network interface.
+-- * 'tagSpecifications' - The tags to apply to the new network interface.
+-- * 'ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@ , you can specify @0@ to override this setting.
+-- * 'privateIPAddress' - The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
 -- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ .
 --
 -- The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type> in the /Amazon Virtual Private Cloud User Guide/ .
--- * 'subnetId' - The ID of the subnet to associate with the network interface.
--- * 'tagSpecifications' - The tags to apply to the new network interface.
+-- * 'description' - A description for the network interface.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'ipv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
 mkCreateNetworkInterface ::
   -- | 'subnetId'
   Lude.Text ->
@@ -104,14 +106,14 @@ mkCreateNetworkInterface pSubnetId_ =
     { groups = Lude.Nothing,
       privateIPAddresses = Lude.Nothing,
       interfaceType = Lude.Nothing,
+      subnetId = pSubnetId_,
       tagSpecifications = Lude.Nothing,
       ipv6AddressCount = Lude.Nothing,
       privateIPAddress = Lude.Nothing,
       secondaryPrivateIPAddressCount = Lude.Nothing,
       description = Lude.Nothing,
       dryRun = Lude.Nothing,
-      ipv6Addresses = Lude.Nothing,
-      subnetId = pSubnetId_
+      ipv6Addresses = Lude.Nothing
     }
 
 -- | The IDs of one or more security groups.
@@ -134,6 +136,13 @@ cniPrivateIPAddresses = Lens.lens (privateIPAddresses :: CreateNetworkInterface 
 cniInterfaceType :: Lens.Lens' CreateNetworkInterface (Lude.Maybe NetworkInterfaceCreationType)
 cniInterfaceType = Lens.lens (interfaceType :: CreateNetworkInterface -> Lude.Maybe NetworkInterfaceCreationType) (\s a -> s {interfaceType = a} :: CreateNetworkInterface)
 {-# DEPRECATED cniInterfaceType "Use generic-lens or generic-optics with 'interfaceType' instead." #-}
+
+-- | The ID of the subnet to associate with the network interface.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniSubnetId :: Lens.Lens' CreateNetworkInterface Lude.Text
+cniSubnetId = Lens.lens (subnetId :: CreateNetworkInterface -> Lude.Text) (\s a -> s {subnetId = a} :: CreateNetworkInterface)
+{-# DEPRECATED cniSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The tags to apply to the new network interface.
 --
@@ -186,13 +195,6 @@ cniIPv6Addresses :: Lens.Lens' CreateNetworkInterface (Lude.Maybe [InstanceIPv6A
 cniIPv6Addresses = Lens.lens (ipv6Addresses :: CreateNetworkInterface -> Lude.Maybe [InstanceIPv6Address]) (\s a -> s {ipv6Addresses = a} :: CreateNetworkInterface)
 {-# DEPRECATED cniIPv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
 
--- | The ID of the subnet to associate with the network interface.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniSubnetId :: Lens.Lens' CreateNetworkInterface Lude.Text
-cniSubnetId = Lens.lens (subnetId :: CreateNetworkInterface -> Lude.Text) (\s a -> s {subnetId = a} :: CreateNetworkInterface)
-{-# DEPRECATED cniSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
 instance Lude.AWSRequest CreateNetworkInterface where
   type Rs CreateNetworkInterface = CreateNetworkInterfaceResponse
   request = Req.postQuery ec2Service
@@ -221,6 +223,7 @@ instance Lude.ToQuery CreateNetworkInterface where
               Lude.<$> privateIPAddresses
           ),
         "InterfaceType" Lude.=: interfaceType,
+        "SubnetId" Lude.=: subnetId,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
         "Ipv6AddressCount" Lude.=: ipv6AddressCount,
@@ -230,25 +233,19 @@ instance Lude.ToQuery CreateNetworkInterface where
         "Description" Lude.=: description,
         "DryRun" Lude.=: dryRun,
         Lude.toQuery
-          (Lude.toQueryList "Ipv6Addresses" Lude.<$> ipv6Addresses),
-        "SubnetId" Lude.=: subnetId
+          (Lude.toQueryList "Ipv6Addresses" Lude.<$> ipv6Addresses)
       ]
 
 -- | Contains the output of CreateNetworkInterface.
 --
 -- /See:/ 'mkCreateNetworkInterfaceResponse' smart constructor.
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
-  { networkInterface ::
-      Lude.Maybe NetworkInterface,
+  { -- | Information about the network interface.
+    networkInterface :: Lude.Maybe NetworkInterface,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkInterfaceResponse' with the minimum fields required to make a request.

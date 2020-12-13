@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.ProresFramerateConversionAlgorithm
   ( ProresFramerateConversionAlgorithm
       ( ProresFramerateConversionAlgorithm',
         PFCADuplicateDrop,
-        PFCAFrameformer,
-        PFCAInterpolate
+        PFCAInterpolate,
+        PFCAFrameformer
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype ProresFramerateConversionAlgorithm = ProresFramerateConversionAlgorithm'
 pattern PFCADuplicateDrop :: ProresFramerateConversionAlgorithm
 pattern PFCADuplicateDrop = ProresFramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern PFCAFrameformer :: ProresFramerateConversionAlgorithm
-pattern PFCAFrameformer = ProresFramerateConversionAlgorithm' "FRAMEFORMER"
-
 pattern PFCAInterpolate :: ProresFramerateConversionAlgorithm
 pattern PFCAInterpolate = ProresFramerateConversionAlgorithm' "INTERPOLATE"
 
+pattern PFCAFrameformer :: ProresFramerateConversionAlgorithm
+pattern PFCAFrameformer = ProresFramerateConversionAlgorithm' "FRAMEFORMER"
+
 {-# COMPLETE
   PFCADuplicateDrop,
-  PFCAFrameformer,
   PFCAInterpolate,
+  PFCAFrameformer,
   ProresFramerateConversionAlgorithm'
   #-}

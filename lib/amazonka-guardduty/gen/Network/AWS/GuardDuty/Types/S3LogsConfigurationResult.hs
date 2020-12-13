@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3LogsConfigurationResult' smart constructor.
 newtype S3LogsConfigurationResult = S3LogsConfigurationResult'
-  { status ::
-      DataSourceStatus
+  { -- | A value that describes whether S3 data event logs are automatically enabled for new members of the organization.
+    status :: DataSourceStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3LogsConfigurationResult' with the minimum fields required to make a request.

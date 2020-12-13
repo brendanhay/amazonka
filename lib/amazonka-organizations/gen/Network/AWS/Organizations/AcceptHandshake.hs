@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,16 +52,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAcceptHandshake' smart constructor.
 newtype AcceptHandshake = AcceptHandshake'
-  { handshakeId ::
-      Lude.Text
+  { -- | The unique identifier (ID) of the handshake that you want to accept.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+    handshakeId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptHandshake' with the minimum fields required to make a request.
@@ -118,8 +115,9 @@ instance Lude.ToQuery AcceptHandshake where
 
 -- | /See:/ 'mkAcceptHandshakeResponse' smart constructor.
 data AcceptHandshakeResponse = AcceptHandshakeResponse'
-  { handshake ::
-      Lude.Maybe Handshake,
+  { -- | A structure that contains details about the accepted handshake.
+    handshake :: Lude.Maybe Handshake,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

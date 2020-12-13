@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.AvailabilityZoneOptInStatus
   ( AvailabilityZoneOptInStatus
       ( AvailabilityZoneOptInStatus',
-        AZOISNotOptedIn,
         AZOISOptInNotRequired,
-        AZOISOptedIn
+        AZOISOptedIn,
+        AZOISNotOptedIn
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AvailabilityZoneOptInStatus = AvailabilityZoneOptInStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern AZOISNotOptedIn :: AvailabilityZoneOptInStatus
-pattern AZOISNotOptedIn = AvailabilityZoneOptInStatus' "not-opted-in"
-
 pattern AZOISOptInNotRequired :: AvailabilityZoneOptInStatus
 pattern AZOISOptInNotRequired = AvailabilityZoneOptInStatus' "opt-in-not-required"
 
 pattern AZOISOptedIn :: AvailabilityZoneOptInStatus
 pattern AZOISOptedIn = AvailabilityZoneOptInStatus' "opted-in"
 
+pattern AZOISNotOptedIn :: AvailabilityZoneOptInStatus
+pattern AZOISNotOptedIn = AvailabilityZoneOptInStatus' "not-opted-in"
+
 {-# COMPLETE
-  AZOISNotOptedIn,
   AZOISOptInNotRequired,
   AZOISOptedIn,
+  AZOISNotOptedIn,
   AvailabilityZoneOptInStatus'
   #-}

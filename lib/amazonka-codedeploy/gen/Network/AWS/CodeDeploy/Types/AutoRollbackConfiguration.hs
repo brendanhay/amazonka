@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoRollbackConfiguration' smart constructor.
 data AutoRollbackConfiguration = AutoRollbackConfiguration'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    events ::
-      Lude.Maybe [AutoRollbackEvent]
+  { -- | Indicates whether a defined automatic rollback configuration is currently enabled.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The event type or types that trigger a rollback.
+    events :: Lude.Maybe [AutoRollbackEvent]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoRollbackConfiguration' with the minimum fields required to make a request.

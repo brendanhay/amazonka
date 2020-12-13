@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.StopType
   ( StopType
       ( StopType',
-        STCancel,
-        STComplete
+        Complete,
+        Cancel
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype StopType = StopType' Lude.Text
       Lude.ToHeader
     )
 
-pattern STCancel :: StopType
-pattern STCancel = StopType' "Cancel"
+pattern Complete :: StopType
+pattern Complete = StopType' "Complete"
 
-pattern STComplete :: StopType
-pattern STComplete = StopType' "Complete"
+pattern Cancel :: StopType
+pattern Cancel = StopType' "Cancel"
 
 {-# COMPLETE
-  STCancel,
-  STComplete,
+  Complete,
+  Cancel,
   StopType'
   #-}

@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
 --
 -- /See:/ 'mkPutItemInput' smart constructor.
-newtype PutItemInput = PutItemInput' {tableName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype PutItemInput = PutItemInput'
+  { -- | The table where the message data will be written.
+    tableName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutItemInput' with the minimum fields required to make a request.

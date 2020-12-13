@@ -32,28 +32,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTopicRuleListItem' smart constructor.
 data TopicRuleListItem = TopicRuleListItem'
-  { createdAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time the rule was created.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether the rule is disabled.
     ruleDisabled :: Lude.Maybe Lude.Bool,
+    -- | The name of the rule.
     ruleName :: Lude.Maybe Lude.Text,
+    -- | The rule ARN.
     ruleARN :: Lude.Maybe Lude.Text,
+    -- | The pattern for the topic names that apply.
     topicPattern :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TopicRuleListItem' with the minimum fields required to make a request.
 --
 -- * 'createdAt' - The date and time the rule was created.
--- * 'ruleARN' - The rule ARN.
 -- * 'ruleDisabled' - Specifies whether the rule is disabled.
 -- * 'ruleName' - The name of the rule.
+-- * 'ruleARN' - The rule ARN.
 -- * 'topicPattern' - The pattern for the topic names that apply.
 mkTopicRuleListItem ::
   TopicRuleListItem

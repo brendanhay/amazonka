@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRevisionInfo' smart constructor.
 data RevisionInfo = RevisionInfo'
-  { genericRevisionInfo ::
-      Lude.Maybe GenericRevisionInfo,
+  { -- | Information about an application revision, including usage details and associated deployment groups.
+    genericRevisionInfo :: Lude.Maybe GenericRevisionInfo,
+    -- | Information about the location and type of an application revision.
     revisionLocation :: Lude.Maybe RevisionLocation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevisionInfo' with the minimum fields required to make a request.

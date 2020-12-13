@@ -13,8 +13,8 @@
 module Network.AWS.Organizations.Types.ParentType
   ( ParentType
       ( ParentType',
-        OrganizationalUnit,
-        Root
+        Root,
+        OrganizationalUnit
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ParentType = ParentType' Lude.Text
       Lude.ToHeader
     )
 
-pattern OrganizationalUnit :: ParentType
-pattern OrganizationalUnit = ParentType' "ORGANIZATIONAL_UNIT"
-
 pattern Root :: ParentType
 pattern Root = ParentType' "ROOT"
 
+pattern OrganizationalUnit :: ParentType
+pattern OrganizationalUnit = ParentType' "ORGANIZATIONAL_UNIT"
+
 {-# COMPLETE
-  OrganizationalUnit,
   Root,
+  OrganizationalUnit,
   ParentType'
   #-}

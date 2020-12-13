@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.VPCAttributeName
   ( VPCAttributeName
       ( VPCAttributeName',
-        EnableDNSHostnames,
-        EnableDNSSupport
+        EnableDNSSupport,
+        EnableDNSHostnames
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype VPCAttributeName = VPCAttributeName' Lude.Text
       Lude.ToHeader
     )
 
-pattern EnableDNSHostnames :: VPCAttributeName
-pattern EnableDNSHostnames = VPCAttributeName' "enableDnsHostnames"
-
 pattern EnableDNSSupport :: VPCAttributeName
 pattern EnableDNSSupport = VPCAttributeName' "enableDnsSupport"
 
+pattern EnableDNSHostnames :: VPCAttributeName
+pattern EnableDNSHostnames = VPCAttributeName' "enableDnsHostnames"
+
 {-# COMPLETE
-  EnableDNSHostnames,
   EnableDNSSupport,
+  EnableDNSHostnames,
   VPCAttributeName'
   #-}

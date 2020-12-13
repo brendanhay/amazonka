@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProgressCounters' smart constructor.
 data ProgressCounters = ProgressCounters'
-  { failedSteps ::
-      Lude.Maybe Lude.Int,
+  { -- | The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
+    failedSteps :: Lude.Maybe Lude.Int,
+    -- | The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
     cancelledSteps :: Lude.Maybe Lude.Int,
+    -- | The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
     successSteps :: Lude.Maybe Lude.Int,
+    -- | The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
     totalSteps :: Lude.Maybe Lude.Int,
+    -- | The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
     timedOutSteps :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProgressCounters' with the minimum fields required to make a request.
 --
--- * 'cancelledSteps' - The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
 -- * 'failedSteps' - The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
+-- * 'cancelledSteps' - The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
 -- * 'successSteps' - The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
--- * 'timedOutSteps' - The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
 -- * 'totalSteps' - The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
+-- * 'timedOutSteps' - The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
 mkProgressCounters ::
   ProgressCounters
 mkProgressCounters =

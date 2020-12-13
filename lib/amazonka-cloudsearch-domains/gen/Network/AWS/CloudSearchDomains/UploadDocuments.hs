@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     mkUploadDocuments,
 
     -- ** Request lenses
-    udContentType,
     udDocuments,
+    udContentType,
 
     -- * Destructuring the response
     UploadDocumentsResponse (..),
@@ -48,32 +49,45 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUploadDocuments' smart constructor.
 data UploadDocuments = UploadDocuments'
-  { contentType :: ContentType,
-    documents :: Lude.HashedBody
+  { -- | A batch of documents formatted in JSON or HTML.
+    documents :: Lude.HashedBody,
+    -- | The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:
+    --
+    --
+    --     * application/json
+    --
+    --     * application/xml
+    contentType :: ContentType
   }
   deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'UploadDocuments' with the minimum fields required to make a request.
 --
+-- * 'documents' - A batch of documents formatted in JSON or HTML.
 -- * 'contentType' - The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:
 --
 --
 --     * application/json
 --
 --     * application/xml
---
--- * 'documents' - A batch of documents formatted in JSON or HTML.
 mkUploadDocuments ::
-  -- | 'contentType'
-  ContentType ->
   -- | 'documents'
   Lude.HashedBody ->
+  -- | 'contentType'
+  ContentType ->
   UploadDocuments
-mkUploadDocuments pContentType_ pDocuments_ =
+mkUploadDocuments pDocuments_ pContentType_ =
   UploadDocuments'
-    { contentType = pContentType_,
-      documents = pDocuments_
+    { documents = pDocuments_,
+      contentType = pContentType_
     }
+
+-- | A batch of documents formatted in JSON or HTML.
+--
+-- /Note:/ Consider using 'documents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDocuments :: Lens.Lens' UploadDocuments Lude.HashedBody
+udDocuments = Lens.lens (documents :: UploadDocuments -> Lude.HashedBody) (\s a -> s {documents = a} :: UploadDocuments)
+{-# DEPRECATED udDocuments "Use generic-lens or generic-optics with 'documents' instead." #-}
 
 -- | The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:
 --
@@ -87,13 +101,6 @@ mkUploadDocuments pContentType_ pDocuments_ =
 udContentType :: Lens.Lens' UploadDocuments ContentType
 udContentType = Lens.lens (contentType :: UploadDocuments -> ContentType) (\s a -> s {contentType = a} :: UploadDocuments)
 {-# DEPRECATED udContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
-
--- | A batch of documents formatted in JSON or HTML.
---
--- /Note:/ Consider using 'documents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDocuments :: Lens.Lens' UploadDocuments Lude.HashedBody
-udDocuments = Lens.lens (documents :: UploadDocuments -> Lude.HashedBody) (\s a -> s {documents = a} :: UploadDocuments)
-{-# DEPRECATED udDocuments "Use generic-lens or generic-optics with 'documents' instead." #-}
 
 instance Lude.AWSRequest UploadDocuments where
   type Rs UploadDocuments = UploadDocumentsResponse
@@ -126,30 +133,27 @@ instance Lude.ToQuery UploadDocuments where
 --
 -- /See:/ 'mkUploadDocumentsResponse' smart constructor.
 data UploadDocumentsResponse = UploadDocumentsResponse'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of an @UploadDocumentsRequest@ .
+    status :: Lude.Maybe Lude.Text,
+    -- | The number of documents that were added to the search domain.
     adds :: Lude.Maybe Lude.Integer,
-    warnings ::
-      Lude.Maybe [DocumentServiceWarning],
+    -- | Any warnings returned by the document service about the documents being uploaded.
+    warnings :: Lude.Maybe [DocumentServiceWarning],
+    -- | The number of documents that were deleted from the search domain.
     deletes :: Lude.Maybe Lude.Integer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadDocumentsResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of an @UploadDocumentsRequest@ .
 -- * 'adds' - The number of documents that were added to the search domain.
+-- * 'warnings' - Any warnings returned by the document service about the documents being uploaded.
 -- * 'deletes' - The number of documents that were deleted from the search domain.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of an @UploadDocumentsRequest@ .
--- * 'warnings' - Any warnings returned by the document service about the documents being uploaded.
 mkUploadDocumentsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

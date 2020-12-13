@@ -17,8 +17,8 @@ module Network.AWS.KinesisAnalytics.Types.InputConfiguration
     mkInputConfiguration,
 
     -- * Lenses
-    icId,
     icInputStartingPositionConfiguration,
+    icId,
   )
 where
 
@@ -30,42 +30,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputConfiguration' smart constructor.
 data InputConfiguration = InputConfiguration'
-  { id :: Lude.Text,
-    inputStartingPositionConfiguration ::
-      InputStartingPositionConfiguration
+  { -- | Point at which you want the application to start processing records from the streaming source.
+    inputStartingPositionConfiguration :: InputStartingPositionConfiguration,
+    -- | Input source ID. You can get this ID by calling the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputConfiguration' with the minimum fields required to make a request.
 --
--- * 'id' - Input source ID. You can get this ID by calling the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
 -- * 'inputStartingPositionConfiguration' - Point at which you want the application to start processing records from the streaming source.
+-- * 'id' - Input source ID. You can get this ID by calling the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
 mkInputConfiguration ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'inputStartingPositionConfiguration'
   InputStartingPositionConfiguration ->
+  -- | 'id'
+  Lude.Text ->
   InputConfiguration
-mkInputConfiguration pId_ pInputStartingPositionConfiguration_ =
+mkInputConfiguration pInputStartingPositionConfiguration_ pId_ =
   InputConfiguration'
-    { id = pId_,
-      inputStartingPositionConfiguration =
-        pInputStartingPositionConfiguration_
+    { inputStartingPositionConfiguration =
+        pInputStartingPositionConfiguration_,
+      id = pId_
     }
-
--- | Input source ID. You can get this ID by calling the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icId :: Lens.Lens' InputConfiguration Lude.Text
-icId = Lens.lens (id :: InputConfiguration -> Lude.Text) (\s a -> s {id = a} :: InputConfiguration)
-{-# DEPRECATED icId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Point at which you want the application to start processing records from the streaming source.
 --
@@ -74,14 +62,21 @@ icInputStartingPositionConfiguration :: Lens.Lens' InputConfiguration InputStart
 icInputStartingPositionConfiguration = Lens.lens (inputStartingPositionConfiguration :: InputConfiguration -> InputStartingPositionConfiguration) (\s a -> s {inputStartingPositionConfiguration = a} :: InputConfiguration)
 {-# DEPRECATED icInputStartingPositionConfiguration "Use generic-lens or generic-optics with 'inputStartingPositionConfiguration' instead." #-}
 
+-- | Input source ID. You can get this ID by calling the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icId :: Lens.Lens' InputConfiguration Lude.Text
+icId = Lens.lens (id :: InputConfiguration -> Lude.Text) (\s a -> s {id = a} :: InputConfiguration)
+{-# DEPRECATED icId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 instance Lude.ToJSON InputConfiguration where
   toJSON InputConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Id" Lude..= id),
-            Lude.Just
+          [ Lude.Just
               ( "InputStartingPositionConfiguration"
                   Lude..= inputStartingPositionConfiguration
-              )
+              ),
+            Lude.Just ("Id" Lude..= id)
           ]
       )

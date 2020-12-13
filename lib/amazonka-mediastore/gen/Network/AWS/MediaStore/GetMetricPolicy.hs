@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.MediaStore.GetMetricPolicy
     mkGetMetricPolicyResponse,
 
     -- ** Response lenses
-    gmprsResponseStatus,
     gmprsMetricPolicy,
+    gmprsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMetricPolicy' smart constructor.
 newtype GetMetricPolicy = GetMetricPolicy'
-  { containerName ::
-      Lude.Text
+  { -- | The name of the container that is associated with the metric policy.
+    containerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMetricPolicy' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest GetMetricPolicy where
     Res.receiveJSON
       ( \s h x ->
           GetMetricPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "MetricPolicy")
+            Lude.<$> (x Lude..:> "MetricPolicy") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetMetricPolicy where
@@ -104,17 +99,12 @@ instance Lude.ToQuery GetMetricPolicy where
 
 -- | /See:/ 'mkGetMetricPolicyResponse' smart constructor.
 data GetMetricPolicyResponse = GetMetricPolicyResponse'
-  { responseStatus ::
-      Lude.Int,
-    metricPolicy :: MetricPolicy
+  { -- | The metric policy that is associated with the specific container.
+    metricPolicy :: MetricPolicy,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMetricPolicyResponse' with the minimum fields required to make a request.
@@ -122,23 +112,16 @@ data GetMetricPolicyResponse = GetMetricPolicyResponse'
 -- * 'metricPolicy' - The metric policy that is associated with the specific container.
 -- * 'responseStatus' - The response status code.
 mkGetMetricPolicyResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'metricPolicy'
   MetricPolicy ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMetricPolicyResponse
-mkGetMetricPolicyResponse pResponseStatus_ pMetricPolicy_ =
+mkGetMetricPolicyResponse pMetricPolicy_ pResponseStatus_ =
   GetMetricPolicyResponse'
-    { responseStatus = pResponseStatus_,
-      metricPolicy = pMetricPolicy_
+    { metricPolicy = pMetricPolicy_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmprsResponseStatus :: Lens.Lens' GetMetricPolicyResponse Lude.Int
-gmprsResponseStatus = Lens.lens (responseStatus :: GetMetricPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMetricPolicyResponse)
-{-# DEPRECATED gmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The metric policy that is associated with the specific container.
 --
@@ -146,3 +129,10 @@ gmprsResponseStatus = Lens.lens (responseStatus :: GetMetricPolicyResponse -> Lu
 gmprsMetricPolicy :: Lens.Lens' GetMetricPolicyResponse MetricPolicy
 gmprsMetricPolicy = Lens.lens (metricPolicy :: GetMetricPolicyResponse -> MetricPolicy) (\s a -> s {metricPolicy = a} :: GetMetricPolicyResponse)
 {-# DEPRECATED gmprsMetricPolicy "Use generic-lens or generic-optics with 'metricPolicy' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmprsResponseStatus :: Lens.Lens' GetMetricPolicyResponse Lude.Int
+gmprsResponseStatus = Lens.lens (responseStatus :: GetMetricPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMetricPolicyResponse)
+{-# DEPRECATED gmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

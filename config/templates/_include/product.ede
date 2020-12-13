@@ -7,10 +7,10 @@
 {% endif %}
 {{ shape.declaration }}
 {% for accessor in shape.accessors %}
-  {% if accessor.value.documentation %}
-    -- | {{ accessor.value.documentation }}
-  {% endif %}
   {% if accessor.first %}{ {% else %}, {% endif %}{{ accessor.value.declaration }}
+  {% if accessor.value.documentation %}
+    -- ^ {{ accessor.value.documentation }}
+  {% endif %}
   {% if accessor.last %}
   }
   {% endif %}

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.MovPaddingControl
   ( MovPaddingControl
       ( MovPaddingControl',
-        MPCNone,
-        MPCOmneon
+        MPCOmneon,
+        MPCNone
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MovPaddingControl = MovPaddingControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern MPCNone :: MovPaddingControl
-pattern MPCNone = MovPaddingControl' "NONE"
-
 pattern MPCOmneon :: MovPaddingControl
 pattern MPCOmneon = MovPaddingControl' "OMNEON"
 
+pattern MPCNone :: MovPaddingControl
+pattern MPCNone = MovPaddingControl' "NONE"
+
 {-# COMPLETE
-  MPCNone,
   MPCOmneon,
+  MPCNone,
   MovPaddingControl'
   #-}

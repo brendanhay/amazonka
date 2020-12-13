@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetCognitoEvents' smart constructor.
 data SetCognitoEvents = SetCognitoEvents'
-  { identityPoolId ::
-      Lude.Text,
+  { -- | The Cognito Identity Pool to use when configuring Cognito Events
+    identityPoolId :: Lude.Text,
+    -- | The events to configure
     events :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetCognitoEvents' with the minimum fields required to make a request.
 --
--- * 'events' - The events to configure
 -- * 'identityPoolId' - The Cognito Identity Pool to use when configuring Cognito Events
+-- * 'events' - The events to configure
 mkSetCognitoEvents ::
   -- | 'identityPoolId'
   Lude.Text ->
@@ -110,13 +106,7 @@ instance Lude.ToQuery SetCognitoEvents where
 
 -- | /See:/ 'mkSetCognitoEventsResponse' smart constructor.
 data SetCognitoEventsResponse = SetCognitoEventsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetCognitoEventsResponse' with the minimum fields required to make a request.

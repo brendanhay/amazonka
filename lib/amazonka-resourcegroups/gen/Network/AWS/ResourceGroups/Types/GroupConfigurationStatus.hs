@@ -13,9 +13,9 @@
 module Network.AWS.ResourceGroups.Types.GroupConfigurationStatus
   ( GroupConfigurationStatus
       ( GroupConfigurationStatus',
+        Updating,
         UpdateComplete,
-        UpdateFailed,
-        Updating
+        UpdateFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype GroupConfigurationStatus = GroupConfigurationStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Updating :: GroupConfigurationStatus
+pattern Updating = GroupConfigurationStatus' "UPDATING"
+
 pattern UpdateComplete :: GroupConfigurationStatus
 pattern UpdateComplete = GroupConfigurationStatus' "UPDATE_COMPLETE"
 
 pattern UpdateFailed :: GroupConfigurationStatus
 pattern UpdateFailed = GroupConfigurationStatus' "UPDATE_FAILED"
 
-pattern Updating :: GroupConfigurationStatus
-pattern Updating = GroupConfigurationStatus' "UPDATING"
-
 {-# COMPLETE
+  Updating,
   UpdateComplete,
   UpdateFailed,
-  Updating,
   GroupConfigurationStatus'
   #-}

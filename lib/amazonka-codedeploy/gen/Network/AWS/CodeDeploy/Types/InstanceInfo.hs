@@ -35,32 +35,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceInfo' smart constructor.
 data InstanceInfo = InstanceInfo'
-  { registerTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time at which the on-premises instance was registered.
+    registerTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the on-premises instance.
     instanceARN :: Lude.Maybe Lude.Text,
+    -- | If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered.
     deregisterTime :: Lude.Maybe Lude.Timestamp,
+    -- | The IAM user ARN associated with the on-premises instance.
     iamUserARN :: Lude.Maybe Lude.Text,
+    -- | The name of the on-premises instance.
     instanceName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the IAM session associated with the on-premises instance.
     iamSessionARN :: Lude.Maybe Lude.Text,
+    -- | The tags currently associated with the on-premises instance.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceInfo' with the minimum fields required to make a request.
 --
--- * 'deregisterTime' - If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered.
--- * 'iamSessionARN' - The ARN of the IAM session associated with the on-premises instance.
--- * 'iamUserARN' - The IAM user ARN associated with the on-premises instance.
--- * 'instanceARN' - The ARN of the on-premises instance.
--- * 'instanceName' - The name of the on-premises instance.
 -- * 'registerTime' - The time at which the on-premises instance was registered.
+-- * 'instanceARN' - The ARN of the on-premises instance.
+-- * 'deregisterTime' - If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered.
+-- * 'iamUserARN' - The IAM user ARN associated with the on-premises instance.
+-- * 'instanceName' - The name of the on-premises instance.
+-- * 'iamSessionARN' - The ARN of the IAM session associated with the on-premises instance.
 -- * 'tags' - The tags currently associated with the on-premises instance.
 mkInstanceInfo ::
   InstanceInfo

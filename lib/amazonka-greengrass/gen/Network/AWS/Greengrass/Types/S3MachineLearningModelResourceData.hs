@@ -31,27 +31,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3MachineLearningModelResourceData' smart constructor.
 data S3MachineLearningModelResourceData = S3MachineLearningModelResourceData'
-  { ownerSetting ::
-      Lude.Maybe
-        ResourceDownloadOwnerSetting,
-    destinationPath ::
-      Lude.Maybe Lude.Text,
-    s3URI ::
-      Lude.Maybe Lude.Text
+  { ownerSetting :: Lude.Maybe ResourceDownloadOwnerSetting,
+    -- | The absolute local path of the resource inside the Lambda environment.
+    destinationPath :: Lude.Maybe Lude.Text,
+    -- | The URI of the source model in an S3 bucket. The model package must be in tar.gz or .zip format.
+    s3URI :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3MachineLearningModelResourceData' with the minimum fields required to make a request.
 --
+-- * 'ownerSetting' -
 -- * 'destinationPath' - The absolute local path of the resource inside the Lambda environment.
--- * 'ownerSetting' - Undocumented field.
 -- * 's3URI' - The URI of the source model in an S3 bucket. The model package must be in tar.gz or .zip format.
 mkS3MachineLearningModelResourceData ::
   S3MachineLearningModelResourceData

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,17 @@ module Network.AWS.SWF.DescribeActivityType
     mkDescribeActivityType,
 
     -- ** Request lenses
-    datDomain,
     datActivityType,
+    datDomain,
 
     -- * Destructuring the response
     DescribeActivityTypeResponse (..),
     mkDescribeActivityTypeResponse,
 
     -- ** Response lenses
-    datrsResponseStatus,
     datrsTypeInfo,
     datrsConfiguration,
+    datrsResponseStatus,
   )
 where
 
@@ -62,17 +63,12 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkDescribeActivityType' smart constructor.
 data DescribeActivityType = DescribeActivityType'
-  { domain ::
-      Lude.Text,
-    activityType :: ActivityType
+  { -- | The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
+    activityType :: ActivityType,
+    -- | The name of the domain in which the activity type is registered.
+    domain :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActivityType' with the minimum fields required to make a request.
@@ -80,23 +76,16 @@ data DescribeActivityType = DescribeActivityType'
 -- * 'activityType' - The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
 -- * 'domain' - The name of the domain in which the activity type is registered.
 mkDescribeActivityType ::
-  -- | 'domain'
-  Lude.Text ->
   -- | 'activityType'
   ActivityType ->
+  -- | 'domain'
+  Lude.Text ->
   DescribeActivityType
-mkDescribeActivityType pDomain_ pActivityType_ =
+mkDescribeActivityType pActivityType_ pDomain_ =
   DescribeActivityType'
-    { domain = pDomain_,
-      activityType = pActivityType_
+    { activityType = pActivityType_,
+      domain = pDomain_
     }
-
--- | The name of the domain in which the activity type is registered.
---
--- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datDomain :: Lens.Lens' DescribeActivityType Lude.Text
-datDomain = Lens.lens (domain :: DescribeActivityType -> Lude.Text) (\s a -> s {domain = a} :: DescribeActivityType)
-{-# DEPRECATED datDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The activity type to get information about. Activity types are identified by the @name@ and @version@ that were supplied when the activity was registered.
 --
@@ -105,6 +94,13 @@ datActivityType :: Lens.Lens' DescribeActivityType ActivityType
 datActivityType = Lens.lens (activityType :: DescribeActivityType -> ActivityType) (\s a -> s {activityType = a} :: DescribeActivityType)
 {-# DEPRECATED datActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
 
+-- | The name of the domain in which the activity type is registered.
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datDomain :: Lens.Lens' DescribeActivityType Lude.Text
+datDomain = Lens.lens (domain :: DescribeActivityType -> Lude.Text) (\s a -> s {domain = a} :: DescribeActivityType)
+{-# DEPRECATED datDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+
 instance Lude.AWSRequest DescribeActivityType where
   type Rs DescribeActivityType = DescribeActivityTypeResponse
   request = Req.postJSON swfService
@@ -112,9 +108,9 @@ instance Lude.AWSRequest DescribeActivityType where
     Res.receiveJSON
       ( \s h x ->
           DescribeActivityTypeResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "typeInfo")
+            Lude.<$> (x Lude..:> "typeInfo")
             Lude.<*> (x Lude..:> "configuration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeActivityType where
@@ -132,8 +128,8 @@ instance Lude.ToJSON DescribeActivityType where
   toJSON DescribeActivityType' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("activityType" Lude..= activityType)
+          [ Lude.Just ("activityType" Lude..= activityType),
+            Lude.Just ("domain" Lude..= domain)
           ]
       )
 
@@ -147,25 +143,25 @@ instance Lude.ToQuery DescribeActivityType where
 --
 -- /See:/ 'mkDescribeActivityTypeResponse' smart constructor.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | General information about the activity type.
+    --
+    -- The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.
+    --
+    --     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.
+    --
+    --
+    --     * @DEPRECATED@ – The type was deprecated using 'DeprecateActivityType' , but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
     typeInfo :: ActivityTypeInfo,
-    configuration ::
-      ActivityTypeConfiguration
+    -- | The configuration settings registered with the activity type.
+    configuration :: ActivityTypeConfiguration,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActivityTypeResponse' with the minimum fields required to make a request.
 --
--- * 'configuration' - The configuration settings registered with the activity type.
--- * 'responseStatus' - The response status code.
 -- * 'typeInfo' - General information about the activity type.
 --
 -- The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.
@@ -174,30 +170,27 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
 --
 --
 --     * @DEPRECATED@ – The type was deprecated using 'DeprecateActivityType' , but is still in use. You should keep workers supporting this type running. You cannot create new tasks of this type.
+--
+--
+-- * 'configuration' - The configuration settings registered with the activity type.
+-- * 'responseStatus' - The response status code.
 mkDescribeActivityTypeResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'typeInfo'
   ActivityTypeInfo ->
   -- | 'configuration'
   ActivityTypeConfiguration ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeActivityTypeResponse
 mkDescribeActivityTypeResponse
-  pResponseStatus_
   pTypeInfo_
-  pConfiguration_ =
+  pConfiguration_
+  pResponseStatus_ =
     DescribeActivityTypeResponse'
-      { responseStatus = pResponseStatus_,
-        typeInfo = pTypeInfo_,
-        configuration = pConfiguration_
+      { typeInfo = pTypeInfo_,
+        configuration = pConfiguration_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datrsResponseStatus :: Lens.Lens' DescribeActivityTypeResponse Lude.Int
-datrsResponseStatus = Lens.lens (responseStatus :: DescribeActivityTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeActivityTypeResponse)
-{-# DEPRECATED datrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | General information about the activity type.
 --
@@ -221,3 +214,10 @@ datrsTypeInfo = Lens.lens (typeInfo :: DescribeActivityTypeResponse -> ActivityT
 datrsConfiguration :: Lens.Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
 datrsConfiguration = Lens.lens (configuration :: DescribeActivityTypeResponse -> ActivityTypeConfiguration) (\s a -> s {configuration = a} :: DescribeActivityTypeResponse)
 {-# DEPRECATED datrsConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datrsResponseStatus :: Lens.Lens' DescribeActivityTypeResponse Lude.Int
+datrsResponseStatus = Lens.lens (responseStatus :: DescribeActivityTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeActivityTypeResponse)
+{-# DEPRECATED datrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

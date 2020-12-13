@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReactionForComment' smart constructor.
 data ReactionForComment = ReactionForComment'
-  { reactionUsers ::
-      Lude.Maybe [Lude.Text],
+  { -- | The Amazon Resource Names (ARNs) of users who have provided reactions to the comment.
+    reactionUsers :: Lude.Maybe [Lude.Text],
+    -- | A numerical count of users who reacted with the specified emoji whose identities have been subsequently deleted from IAM. While these IAM users or roles no longer exist, the reactions might still appear in total reaction counts.
     reactionsFromDeletedUsersCount :: Lude.Maybe Lude.Int,
+    -- | The reaction for a specified comment.
     reaction :: Lude.Maybe ReactionValueFormats
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReactionForComment' with the minimum fields required to make a request.
 --
--- * 'reaction' - The reaction for a specified comment.
 -- * 'reactionUsers' - The Amazon Resource Names (ARNs) of users who have provided reactions to the comment.
 -- * 'reactionsFromDeletedUsersCount' - A numerical count of users who reacted with the specified emoji whose identities have been subsequently deleted from IAM. While these IAM users or roles no longer exist, the reactions might still appear in total reaction counts.
+-- * 'reaction' - The reaction for a specified comment.
 mkReactionForComment ::
   ReactionForComment
 mkReactionForComment =

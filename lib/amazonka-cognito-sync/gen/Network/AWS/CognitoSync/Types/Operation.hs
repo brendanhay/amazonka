@@ -13,8 +13,8 @@
 module Network.AWS.CognitoSync.Types.Operation
   ( Operation
       ( Operation',
-        Remove,
-        Replace
+        Replace,
+        Remove
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Operation = Operation' Lude.Text
       Lude.ToHeader
     )
 
-pattern Remove :: Operation
-pattern Remove = Operation' "remove"
-
 pattern Replace :: Operation
 pattern Replace = Operation' "replace"
 
+pattern Remove :: Operation
+pattern Remove = Operation' "remove"
+
 {-# COMPLETE
-  Remove,
   Replace,
+  Remove,
   Operation'
   #-}

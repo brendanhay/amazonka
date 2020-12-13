@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -53,10 +54,10 @@ module Network.AWS.GameLift.DescribeGameServerInstances
     mkDescribeGameServerInstances,
 
     -- ** Request lenses
+    dgsiGameServerGroupName,
     dgsiNextToken,
     dgsiInstanceIds,
     dgsiLimit,
-    dgsiGameServerGroupName,
 
     -- * Destructuring the response
     DescribeGameServerInstancesResponse (..),
@@ -78,40 +79,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeGameServerInstances' smart constructor.
 data DescribeGameServerInstances = DescribeGameServerInstances'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    instanceIds ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
-    limit :: Lude.Maybe Lude.Natural,
-    gameServerGroupName :: Lude.Text
+  { -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+    gameServerGroupName :: Lude.Text,
+    -- | A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The EC2 instance IDs that you want to retrieve status on. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ . To retrieve all instances in the game server group, leave this parameter empty.
+    instanceIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential segments.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameServerInstances' with the minimum fields required to make a request.
 --
 -- * 'gameServerGroupName' - A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+-- * 'nextToken' - A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
 -- * 'instanceIds' - The EC2 instance IDs that you want to retrieve status on. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ . To retrieve all instances in the game server group, leave this parameter empty.
 -- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential segments.
--- * 'nextToken' - A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
 mkDescribeGameServerInstances ::
   -- | 'gameServerGroupName'
   Lude.Text ->
   DescribeGameServerInstances
 mkDescribeGameServerInstances pGameServerGroupName_ =
   DescribeGameServerInstances'
-    { nextToken = Lude.Nothing,
+    { gameServerGroupName =
+        pGameServerGroupName_,
+      nextToken = Lude.Nothing,
       instanceIds = Lude.Nothing,
-      limit = Lude.Nothing,
-      gameServerGroupName = pGameServerGroupName_
+      limit = Lude.Nothing
     }
+
+-- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+--
+-- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsiGameServerGroupName :: Lens.Lens' DescribeGameServerInstances Lude.Text
+dgsiGameServerGroupName = Lens.lens (gameServerGroupName :: DescribeGameServerInstances -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DescribeGameServerInstances)
+{-# DEPRECATED dgsiGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 -- | A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
 --
@@ -133,13 +137,6 @@ dgsiInstanceIds = Lens.lens (instanceIds :: DescribeGameServerInstances -> Lude.
 dgsiLimit :: Lens.Lens' DescribeGameServerInstances (Lude.Maybe Lude.Natural)
 dgsiLimit = Lens.lens (limit :: DescribeGameServerInstances -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeGameServerInstances)
 {-# DEPRECATED dgsiLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
---
--- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsiGameServerGroupName :: Lens.Lens' DescribeGameServerInstances Lude.Text
-dgsiGameServerGroupName = Lens.lens (gameServerGroupName :: DescribeGameServerInstances -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DescribeGameServerInstances)
-{-# DEPRECATED dgsiGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 instance Page.AWSPager DescribeGameServerInstances where
   page rq rs
@@ -179,10 +176,10 @@ instance Lude.ToJSON DescribeGameServerInstances where
   toJSON DescribeGameServerInstances' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("InstanceIds" Lude..=) Lude.<$> instanceIds,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName)
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -194,22 +191,14 @@ instance Lude.ToQuery DescribeGameServerInstances where
 
 -- | /See:/ 'mkDescribeGameServerInstancesResponse' smart constructor.
 data DescribeGameServerInstancesResponse = DescribeGameServerInstancesResponse'
-  { gameServerInstances ::
-      Lude.Maybe
-        [GameServerInstance],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The collection of requested game server instances.
+    gameServerInstances :: Lude.Maybe [GameServerInstance],
+    -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameServerInstancesResponse' with the minimum fields required to make a request.

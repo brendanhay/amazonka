@@ -17,11 +17,11 @@ module Network.AWS.SWF.Types.ChildWorkflowExecutionCanceledEventAttributes
     mkChildWorkflowExecutionCanceledEventAttributes,
 
     -- * Lenses
-    cDetails,
-    cWorkflowExecution,
     cWorkflowType,
-    cInitiatedEventId,
+    cDetails,
     cStartedEventId,
+    cInitiatedEventId,
+    cWorkflowExecution,
   )
 where
 
@@ -34,74 +34,50 @@ import Network.AWS.SWF.Types.WorkflowType
 --
 -- /See:/ 'mkChildWorkflowExecutionCanceledEventAttributes' smart constructor.
 data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes'
-  { details ::
-      Lude.Maybe
-        Lude.Text,
-    workflowExecution ::
-      WorkflowExecution,
-    workflowType ::
-      WorkflowType,
-    initiatedEventId ::
-      Lude.Integer,
-    startedEventId ::
-      Lude.Integer
+  { -- | The type of the child workflow execution.
+    workflowType :: WorkflowType,
+    -- | Details of the cancellation (if provided).
+    details :: Lude.Maybe Lude.Text,
+    -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    startedEventId :: Lude.Integer,
+    -- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    initiatedEventId :: Lude.Integer,
+    -- | The child workflow execution that was canceled.
+    workflowExecution :: WorkflowExecution
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChildWorkflowExecutionCanceledEventAttributes' with the minimum fields required to make a request.
 --
--- * 'details' - Details of the cancellation (if provided).
--- * 'initiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'startedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'workflowExecution' - The child workflow execution that was canceled.
 -- * 'workflowType' - The type of the child workflow execution.
+-- * 'details' - Details of the cancellation (if provided).
+-- * 'startedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'initiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'workflowExecution' - The child workflow execution that was canceled.
 mkChildWorkflowExecutionCanceledEventAttributes ::
-  -- | 'workflowExecution'
-  WorkflowExecution ->
   -- | 'workflowType'
   WorkflowType ->
-  -- | 'initiatedEventId'
-  Lude.Integer ->
   -- | 'startedEventId'
   Lude.Integer ->
+  -- | 'initiatedEventId'
+  Lude.Integer ->
+  -- | 'workflowExecution'
+  WorkflowExecution ->
   ChildWorkflowExecutionCanceledEventAttributes
 mkChildWorkflowExecutionCanceledEventAttributes
-  pWorkflowExecution_
   pWorkflowType_
+  pStartedEventId_
   pInitiatedEventId_
-  pStartedEventId_ =
+  pWorkflowExecution_ =
     ChildWorkflowExecutionCanceledEventAttributes'
-      { details =
-          Lude.Nothing,
-        workflowExecution = pWorkflowExecution_,
-        workflowType = pWorkflowType_,
+      { workflowType =
+          pWorkflowType_,
+        details = Lude.Nothing,
+        startedEventId = pStartedEventId_,
         initiatedEventId = pInitiatedEventId_,
-        startedEventId = pStartedEventId_
+        workflowExecution = pWorkflowExecution_
       }
-
--- | Details of the cancellation (if provided).
---
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDetails :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes (Lude.Maybe Lude.Text)
-cDetails = Lens.lens (details :: ChildWorkflowExecutionCanceledEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: ChildWorkflowExecutionCanceledEventAttributes)
-{-# DEPRECATED cDetails "Use generic-lens or generic-optics with 'details' instead." #-}
-
--- | The child workflow execution that was canceled.
---
--- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cWorkflowExecution :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes WorkflowExecution
-cWorkflowExecution = Lens.lens (workflowExecution :: ChildWorkflowExecutionCanceledEventAttributes -> WorkflowExecution) (\s a -> s {workflowExecution = a} :: ChildWorkflowExecutionCanceledEventAttributes)
-{-# DEPRECATED cWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
 
 -- | The type of the child workflow execution.
 --
@@ -110,12 +86,12 @@ cWorkflowType :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes Workfl
 cWorkflowType = Lens.lens (workflowType :: ChildWorkflowExecutionCanceledEventAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: ChildWorkflowExecutionCanceledEventAttributes)
 {-# DEPRECATED cWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
--- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | Details of the cancellation (if provided).
 --
--- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cInitiatedEventId :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes Lude.Integer
-cInitiatedEventId = Lens.lens (initiatedEventId :: ChildWorkflowExecutionCanceledEventAttributes -> Lude.Integer) (\s a -> s {initiatedEventId = a} :: ChildWorkflowExecutionCanceledEventAttributes)
-{-# DEPRECATED cInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDetails :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes (Lude.Maybe Lude.Text)
+cDetails = Lens.lens (details :: ChildWorkflowExecutionCanceledEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: ChildWorkflowExecutionCanceledEventAttributes)
+{-# DEPRECATED cDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
@@ -123,6 +99,20 @@ cInitiatedEventId = Lens.lens (initiatedEventId :: ChildWorkflowExecutionCancele
 cStartedEventId :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes Lude.Integer
 cStartedEventId = Lens.lens (startedEventId :: ChildWorkflowExecutionCanceledEventAttributes -> Lude.Integer) (\s a -> s {startedEventId = a} :: ChildWorkflowExecutionCanceledEventAttributes)
 {-# DEPRECATED cStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
+
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+--
+-- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cInitiatedEventId :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes Lude.Integer
+cInitiatedEventId = Lens.lens (initiatedEventId :: ChildWorkflowExecutionCanceledEventAttributes -> Lude.Integer) (\s a -> s {initiatedEventId = a} :: ChildWorkflowExecutionCanceledEventAttributes)
+{-# DEPRECATED cInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
+
+-- | The child workflow execution that was canceled.
+--
+-- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cWorkflowExecution :: Lens.Lens' ChildWorkflowExecutionCanceledEventAttributes WorkflowExecution
+cWorkflowExecution = Lens.lens (workflowExecution :: ChildWorkflowExecutionCanceledEventAttributes -> WorkflowExecution) (\s a -> s {workflowExecution = a} :: ChildWorkflowExecutionCanceledEventAttributes)
+{-# DEPRECATED cWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
 
 instance
   Lude.FromJSON
@@ -133,9 +123,9 @@ instance
       "ChildWorkflowExecutionCanceledEventAttributes"
       ( \x ->
           ChildWorkflowExecutionCanceledEventAttributes'
-            Lude.<$> (x Lude..:? "details")
-            Lude.<*> (x Lude..: "workflowExecution")
-            Lude.<*> (x Lude..: "workflowType")
-            Lude.<*> (x Lude..: "initiatedEventId")
+            Lude.<$> (x Lude..: "workflowType")
+            Lude.<*> (x Lude..:? "details")
             Lude.<*> (x Lude..: "startedEventId")
+            Lude.<*> (x Lude..: "initiatedEventId")
+            Lude.<*> (x Lude..: "workflowExecution")
       )

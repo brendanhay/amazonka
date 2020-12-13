@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStaleIPPermission' smart constructor.
 data StaleIPPermission = StaleIPPermission'
-  { fromPort ::
-      Lude.Maybe Lude.Int,
+  { -- | The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of @-1@ indicates all ICMP types.
+    fromPort :: Lude.Maybe Lude.Int,
+    -- | The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
     userIdGroupPairs :: Lude.Maybe [UserIdGroupPair],
+    -- | The prefix list IDs. Not applicable for stale security group rules.
     prefixListIds :: Lude.Maybe [Lude.Text],
+    -- | The IP protocol name (for @tcp@ , @udp@ , and @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers)> .
     ipProtocol :: Lude.Maybe Lude.Text,
+    -- | The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of @-1@ indicates all ICMP types.
     toPort :: Lude.Maybe Lude.Int,
+    -- | The IP ranges. Not applicable for stale security group rules.
     ipRanges :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaleIPPermission' with the minimum fields required to make a request.
 --
 -- * 'fromPort' - The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of @-1@ indicates all ICMP types.
--- * 'ipProtocol' - The IP protocol name (for @tcp@ , @udp@ , and @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers)> .
--- * 'ipRanges' - The IP ranges. Not applicable for stale security group rules.
--- * 'prefixListIds' - The prefix list IDs. Not applicable for stale security group rules.
--- * 'toPort' - The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of @-1@ indicates all ICMP types.
 -- * 'userIdGroupPairs' - The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.
+-- * 'prefixListIds' - The prefix list IDs. Not applicable for stale security group rules.
+-- * 'ipProtocol' - The IP protocol name (for @tcp@ , @udp@ , and @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers)> .
+-- * 'toPort' - The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of @-1@ indicates all ICMP types.
+-- * 'ipRanges' - The IP ranges. Not applicable for stale security group rules.
 mkStaleIPPermission ::
   StaleIPPermission
 mkStaleIPPermission =

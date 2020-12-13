@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,37 +46,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAggregateConfigRuleComplianceSummary' smart constructor.
 data GetAggregateConfigRuleComplianceSummary = GetAggregateConfigRuleComplianceSummary'
-  { filters ::
-      Lude.Maybe
-        ConfigRuleComplianceSummaryFilters,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural,
-    groupByKey ::
-      Lude.Maybe
-        ConfigRuleComplianceSummaryGroupKey,
-    configurationAggregatorName ::
-      Lude.Text
+  { -- | Filters the results based on the ConfigRuleComplianceSummaryFilters object.
+    filters :: Lude.Maybe ConfigRuleComplianceSummaryFilters,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | Groups the result based on ACCOUNT_ID or AWS_REGION.
+    groupByKey :: Lude.Maybe ConfigRuleComplianceSummaryGroupKey,
+    -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateConfigRuleComplianceSummary' with the minimum fields required to make a request.
 --
--- * 'configurationAggregatorName' - The name of the configuration aggregator.
 -- * 'filters' - Filters the results based on the ConfigRuleComplianceSummaryFilters object.
--- * 'groupByKey' - Groups the result based on ACCOUNT_ID or AWS_REGION.
--- * 'limit' - The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of evaluation results returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
+-- * 'groupByKey' - Groups the result based on ACCOUNT_ID or AWS_REGION.
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
 mkGetAggregateConfigRuleComplianceSummary ::
   -- | 'configurationAggregatorName'
   Lude.Text ->
@@ -177,35 +168,23 @@ instance Lude.ToQuery GetAggregateConfigRuleComplianceSummary where
 
 -- | /See:/ 'mkGetAggregateConfigRuleComplianceSummaryResponse' smart constructor.
 data GetAggregateConfigRuleComplianceSummaryResponse = GetAggregateConfigRuleComplianceSummaryResponse'
-  { aggregateComplianceCounts ::
-      Lude.Maybe
-        [AggregateComplianceCount],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    groupByKey ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a list of AggregateComplianceCounts object.
+    aggregateComplianceCounts :: Lude.Maybe [AggregateComplianceCount],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Groups the result based on ACCOUNT_ID or AWS_REGION.
+    groupByKey :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateConfigRuleComplianceSummaryResponse' with the minimum fields required to make a request.
 --
 -- * 'aggregateComplianceCounts' - Returns a list of AggregateComplianceCounts object.
--- * 'groupByKey' - Groups the result based on ACCOUNT_ID or AWS_REGION.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'groupByKey' - Groups the result based on ACCOUNT_ID or AWS_REGION.
 -- * 'responseStatus' - The response status code.
 mkGetAggregateConfigRuleComplianceSummaryResponse ::
   -- | 'responseStatus'

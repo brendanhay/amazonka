@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceRegistry' smart constructor.
 data ServiceRegistry = ServiceRegistry'
-  { registryARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService> .
+    registryARN :: Lude.Maybe Lude.Text,
+    -- | The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition that your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
     containerName :: Lude.Maybe Lude.Text,
+    -- | The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
     containerPort :: Lude.Maybe Lude.Int,
+    -- | The port value used if your service discovery service specified an SRV record. This field may be used if both the @awsvpc@ network mode and SRV records are used.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceRegistry' with the minimum fields required to make a request.
 --
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService> .
 -- * 'containerName' - The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition that your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
 -- * 'containerPort' - The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the @bridge@ or @host@ network mode, you must specify a @containerName@ and @containerPort@ combination from the task definition. If the task definition your service task specifies uses the @awsvpc@ network mode and a type SRV DNS record is used, you must specify either a @containerName@ and @containerPort@ combination or a @port@ value, but not both.
 -- * 'port' - The port value used if your service discovery service specified an SRV record. This field may be used if both the @awsvpc@ network mode and SRV records are used.
--- * 'registryARN' - The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService> .
 mkServiceRegistry ::
   ServiceRegistry
 mkServiceRegistry =

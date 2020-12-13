@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.SplitType
   ( SplitType
       ( SplitType',
-        STLine,
         STNone,
+        STLine,
         STRecordIO,
         STTFRecord
       ),
@@ -47,11 +47,11 @@ newtype SplitType = SplitType' Lude.Text
       Lude.ToHeader
     )
 
-pattern STLine :: SplitType
-pattern STLine = SplitType' "Line"
-
 pattern STNone :: SplitType
 pattern STNone = SplitType' "None"
+
+pattern STLine :: SplitType
+pattern STLine = SplitType' "Line"
 
 pattern STRecordIO :: SplitType
 pattern STRecordIO = SplitType' "RecordIO"
@@ -60,8 +60,8 @@ pattern STTFRecord :: SplitType
 pattern STTFRecord = SplitType' "TFRecord"
 
 {-# COMPLETE
-  STLine,
   STNone,
+  STLine,
   STRecordIO,
   STTFRecord,
   SplitType'

@@ -18,9 +18,9 @@ module Network.AWS.Pinpoint.Types.JourneyExecutionMetricsResponse
 
     -- * Lenses
     jemMetrics,
-    jemJourneyId,
     jemLastEvaluatedTime,
     jemApplicationId,
+    jemJourneyId,
   )
 where
 
@@ -31,47 +31,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJourneyExecutionMetricsResponse' smart constructor.
 data JourneyExecutionMetricsResponse = JourneyExecutionMetricsResponse'
-  { metrics ::
-      Lude.HashMap
-        Lude.Text
-        (Lude.Text),
-    journeyId :: Lude.Text,
-    lastEvaluatedTime ::
-      Lude.Text,
-    applicationId :: Lude.Text
+  { -- | A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
+    metrics :: Lude.HashMap Lude.Text (Lude.Text),
+    -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
+    lastEvaluatedTime :: Lude.Text,
+    -- | The unique identifier for the application that the metric applies to.
+    applicationId :: Lude.Text,
+    -- | The unique identifier for the journey that the metric applies to.
+    journeyId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyExecutionMetricsResponse' with the minimum fields required to make a request.
 --
+-- * 'metrics' - A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
+-- * 'lastEvaluatedTime' - The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
 -- * 'applicationId' - The unique identifier for the application that the metric applies to.
 -- * 'journeyId' - The unique identifier for the journey that the metric applies to.
--- * 'lastEvaluatedTime' - The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
--- * 'metrics' - A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
 mkJourneyExecutionMetricsResponse ::
-  -- | 'journeyId'
-  Lude.Text ->
   -- | 'lastEvaluatedTime'
   Lude.Text ->
   -- | 'applicationId'
   Lude.Text ->
+  -- | 'journeyId'
+  Lude.Text ->
   JourneyExecutionMetricsResponse
 mkJourneyExecutionMetricsResponse
-  pJourneyId_
   pLastEvaluatedTime_
-  pApplicationId_ =
+  pApplicationId_
+  pJourneyId_ =
     JourneyExecutionMetricsResponse'
       { metrics = Lude.mempty,
-        journeyId = pJourneyId_,
         lastEvaluatedTime = pLastEvaluatedTime_,
-        applicationId = pApplicationId_
+        applicationId = pApplicationId_,
+        journeyId = pJourneyId_
       }
 
 -- | A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
@@ -80,13 +74,6 @@ mkJourneyExecutionMetricsResponse
 jemMetrics :: Lens.Lens' JourneyExecutionMetricsResponse (Lude.HashMap Lude.Text (Lude.Text))
 jemMetrics = Lens.lens (metrics :: JourneyExecutionMetricsResponse -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {metrics = a} :: JourneyExecutionMetricsResponse)
 {-# DEPRECATED jemMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
-
--- | The unique identifier for the journey that the metric applies to.
---
--- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jemJourneyId :: Lens.Lens' JourneyExecutionMetricsResponse Lude.Text
-jemJourneyId = Lens.lens (journeyId :: JourneyExecutionMetricsResponse -> Lude.Text) (\s a -> s {journeyId = a} :: JourneyExecutionMetricsResponse)
-{-# DEPRECATED jemJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
 -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
 --
@@ -102,6 +89,13 @@ jemApplicationId :: Lens.Lens' JourneyExecutionMetricsResponse Lude.Text
 jemApplicationId = Lens.lens (applicationId :: JourneyExecutionMetricsResponse -> Lude.Text) (\s a -> s {applicationId = a} :: JourneyExecutionMetricsResponse)
 {-# DEPRECATED jemApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
+-- | The unique identifier for the journey that the metric applies to.
+--
+-- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jemJourneyId :: Lens.Lens' JourneyExecutionMetricsResponse Lude.Text
+jemJourneyId = Lens.lens (journeyId :: JourneyExecutionMetricsResponse -> Lude.Text) (\s a -> s {journeyId = a} :: JourneyExecutionMetricsResponse)
+{-# DEPRECATED jemJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
+
 instance Lude.FromJSON JourneyExecutionMetricsResponse where
   parseJSON =
     Lude.withObject
@@ -109,7 +103,7 @@ instance Lude.FromJSON JourneyExecutionMetricsResponse where
       ( \x ->
           JourneyExecutionMetricsResponse'
             Lude.<$> (x Lude..:? "Metrics" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "JourneyId")
             Lude.<*> (x Lude..: "LastEvaluatedTime")
             Lude.<*> (x Lude..: "ApplicationId")
+            Lude.<*> (x Lude..: "JourneyId")
       )

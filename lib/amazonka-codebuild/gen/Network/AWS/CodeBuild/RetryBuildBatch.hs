@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,24 +42,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRetryBuildBatch' smart constructor.
 data RetryBuildBatch = RetryBuildBatch'
-  { idempotencyToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuildBatch@ request. The token is included in the @RetryBuildBatch@ request and is valid for five minutes. If you repeat the @RetryBuildBatch@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
+    idempotencyToken :: Lude.Maybe Lude.Text,
+    -- | Specifies the identifier of the batch build to restart.
     id :: Lude.Maybe Lude.Text,
+    -- | Specifies the type of retry to perform.
     retryType :: Lude.Maybe RetryBuildBatchType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryBuildBatch' with the minimum fields required to make a request.
 --
--- * 'id' - Specifies the identifier of the batch build to restart.
 -- * 'idempotencyToken' - A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuildBatch@ request. The token is included in the @RetryBuildBatch@ request and is valid for five minutes. If you repeat the @RetryBuildBatch@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
+-- * 'id' - Specifies the identifier of the batch build to restart.
 -- * 'retryType' - Specifies the type of retry to perform.
 mkRetryBuildBatch ::
   RetryBuildBatch
@@ -129,22 +126,16 @@ instance Lude.ToQuery RetryBuildBatch where
 
 -- | /See:/ 'mkRetryBuildBatchResponse' smart constructor.
 data RetryBuildBatchResponse = RetryBuildBatchResponse'
-  { buildBatch ::
-      Lude.Maybe BuildBatch,
+  { buildBatch :: Lude.Maybe BuildBatch,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryBuildBatchResponse' with the minimum fields required to make a request.
 --
--- * 'buildBatch' - Undocumented field.
+-- * 'buildBatch' -
 -- * 'responseStatus' - The response status code.
 mkRetryBuildBatchResponse ::
   -- | 'responseStatus'

@@ -37,33 +37,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Outpost.
     outpostARN :: Lude.Maybe Lude.Text,
+    -- | Reports impaired functionality that stems from issues related to the systems that support an instance, such as hardware failures and network connectivity problems.
     systemStatus :: Lude.Maybe InstanceStatusSummary,
+    -- | Any scheduled events associated with the instance.
     events :: Lude.Maybe [InstanceStatusEvent],
+    -- | The Availability Zone of the instance.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | Reports impaired functionality that stems from issues internal to the instance, such as impaired reachability.
     instanceStatus :: Lude.Maybe InstanceStatusSummary,
+    -- | The intended state of the instance. 'DescribeInstanceStatus' requires that an instance be in the @running@ state.
     instanceState :: Lude.Maybe InstanceState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStatus' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone of the instance.
--- * 'events' - Any scheduled events associated with the instance.
 -- * 'instanceId' - The ID of the instance.
--- * 'instanceState' - The intended state of the instance. 'DescribeInstanceStatus' requires that an instance be in the @running@ state.
--- * 'instanceStatus' - Reports impaired functionality that stems from issues internal to the instance, such as impaired reachability.
 -- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
 -- * 'systemStatus' - Reports impaired functionality that stems from issues related to the systems that support an instance, such as hardware failures and network connectivity problems.
+-- * 'events' - Any scheduled events associated with the instance.
+-- * 'availabilityZone' - The Availability Zone of the instance.
+-- * 'instanceStatus' - Reports impaired functionality that stems from issues internal to the instance, such as impaired reachability.
+-- * 'instanceState' - The intended state of the instance. 'DescribeInstanceStatus' requires that an instance be in the @running@ state.
 mkInstanceStatus ::
   InstanceStatus
 mkInstanceStatus =

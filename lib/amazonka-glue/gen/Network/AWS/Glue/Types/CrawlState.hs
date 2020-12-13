@@ -13,11 +13,11 @@
 module Network.AWS.Glue.Types.CrawlState
   ( CrawlState
       ( CrawlState',
-        CSCancelled,
-        CSCancelling,
-        CSFailed,
         CSRunning,
-        CSSucceeded
+        CSCancelling,
+        CSCancelled,
+        CSSucceeded,
+        CSFailed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype CrawlState = CrawlState' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSCancelled :: CrawlState
-pattern CSCancelled = CrawlState' "CANCELLED"
+pattern CSRunning :: CrawlState
+pattern CSRunning = CrawlState' "RUNNING"
 
 pattern CSCancelling :: CrawlState
 pattern CSCancelling = CrawlState' "CANCELLING"
 
-pattern CSFailed :: CrawlState
-pattern CSFailed = CrawlState' "FAILED"
-
-pattern CSRunning :: CrawlState
-pattern CSRunning = CrawlState' "RUNNING"
+pattern CSCancelled :: CrawlState
+pattern CSCancelled = CrawlState' "CANCELLED"
 
 pattern CSSucceeded :: CrawlState
 pattern CSSucceeded = CrawlState' "SUCCEEDED"
 
+pattern CSFailed :: CrawlState
+pattern CSFailed = CrawlState' "FAILED"
+
 {-# COMPLETE
-  CSCancelled,
-  CSCancelling,
-  CSFailed,
   CSRunning,
+  CSCancelling,
+  CSCancelled,
   CSSucceeded,
+  CSFailed,
   CrawlState'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.CreateExportJob
     mkCreateExportJobResponse,
 
     -- ** Response lenses
-    cejrsResponseStatus,
     cejrsExportJobResponse,
+    cejrsResponseStatus,
   )
 where
 
@@ -40,22 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateExportJob' smart constructor.
 data CreateExportJob = CreateExportJob'
-  { applicationId :: Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
     exportJobRequest :: ExportJobRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateExportJob' with the minimum fields required to make a request.
 --
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'exportJobRequest' - Undocumented field.
+-- * 'exportJobRequest' -
 mkCreateExportJob ::
   -- | 'applicationId'
   Lude.Text ->
@@ -89,7 +85,7 @@ instance Lude.AWSRequest CreateExportJob where
     Res.receiveJSON
       ( \s h x ->
           CreateExportJobResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateExportJob where
@@ -118,41 +114,28 @@ instance Lude.ToQuery CreateExportJob where
 
 -- | /See:/ 'mkCreateExportJobResponse' smart constructor.
 data CreateExportJobResponse = CreateExportJobResponse'
-  { responseStatus ::
-      Lude.Int,
-    exportJobResponse :: ExportJobResponse
+  { exportJobResponse :: ExportJobResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateExportJobResponse' with the minimum fields required to make a request.
 --
--- * 'exportJobResponse' - Undocumented field.
+-- * 'exportJobResponse' -
 -- * 'responseStatus' - The response status code.
 mkCreateExportJobResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'exportJobResponse'
   ExportJobResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateExportJobResponse
-mkCreateExportJobResponse pResponseStatus_ pExportJobResponse_ =
+mkCreateExportJobResponse pExportJobResponse_ pResponseStatus_ =
   CreateExportJobResponse'
-    { responseStatus = pResponseStatus_,
-      exportJobResponse = pExportJobResponse_
+    { exportJobResponse = pExportJobResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cejrsResponseStatus :: Lens.Lens' CreateExportJobResponse Lude.Int
-cejrsResponseStatus = Lens.lens (responseStatus :: CreateExportJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateExportJobResponse)
-{-# DEPRECATED cejrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -160,3 +143,10 @@ cejrsResponseStatus = Lens.lens (responseStatus :: CreateExportJobResponse -> Lu
 cejrsExportJobResponse :: Lens.Lens' CreateExportJobResponse ExportJobResponse
 cejrsExportJobResponse = Lens.lens (exportJobResponse :: CreateExportJobResponse -> ExportJobResponse) (\s a -> s {exportJobResponse = a} :: CreateExportJobResponse)
 {-# DEPRECATED cejrsExportJobResponse "Use generic-lens or generic-optics with 'exportJobResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cejrsResponseStatus :: Lens.Lens' CreateExportJobResponse Lude.Int
+cejrsResponseStatus = Lens.lens (responseStatus :: CreateExportJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateExportJobResponse)
+{-# DEPRECATED cejrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

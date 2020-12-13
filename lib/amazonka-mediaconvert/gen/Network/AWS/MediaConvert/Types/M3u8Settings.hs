@@ -49,53 +49,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkM3u8Settings' smart constructor.
 data M3u8Settings = M3u8Settings'
-  { pmtPid ::
-      Lude.Maybe Lude.Natural,
+  { -- | Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream.
+    pmtPid :: Lude.Maybe Lude.Natural,
+    -- | Packet Identifier (PID) of the elementary video stream in the transport stream.
     videoPid :: Lude.Maybe Lude.Natural,
+    -- | The value of the program number field in the Program Map Table.
     programNumber :: Lude.Maybe Lude.Natural,
+    -- | Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
     scte35Pid :: Lude.Maybe Lude.Natural,
+    -- | The value of the transport stream ID field in the Program Map Table.
     transportStreamId :: Lude.Maybe Lude.Natural,
+    -- | Packet Identifier (PID) of the private metadata stream in the transport stream.
     privateMetadataPid :: Lude.Maybe Lude.Natural,
+    -- | Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
     audioDuration :: Lude.Maybe M3u8AudioDuration,
+    -- | The number of milliseconds between instances of this table in the output transport stream.
     pmtInterval :: Lude.Maybe Lude.Natural,
+    -- | Packet Identifier (PID) of the timed metadata stream in the transport stream.
     timedMetadataPid :: Lude.Maybe Lude.Natural,
+    -- | The number of audio frames to insert for each PES packet.
     audioFramesPerPes :: Lude.Maybe Lude.Natural,
+    -- | Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID.
     pcrPid :: Lude.Maybe Lude.Natural,
+    -- | Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
     timedMetadata :: Lude.Maybe TimedMetadata,
+    -- | For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE) if you don't want manifest conditioning. Choose Passthrough (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest conditioning. In both cases, also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml).
     scte35Source :: Lude.Maybe M3u8Scte35Source,
+    -- | The number of milliseconds between instances of this table in the output transport stream.
     patInterval :: Lude.Maybe Lude.Natural,
+    -- | Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation.
     audioPids :: Lude.Maybe [Lude.Natural],
+    -- | If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
     nielsenId3 :: Lude.Maybe M3u8NielsenId3,
+    -- | When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
     pcrControl :: Lude.Maybe M3u8PcrControl
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'M3u8Settings' with the minimum fields required to make a request.
 --
--- * 'audioDuration' - Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
--- * 'audioFramesPerPes' - The number of audio frames to insert for each PES packet.
--- * 'audioPids' - Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation.
--- * 'nielsenId3' - If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
--- * 'patInterval' - The number of milliseconds between instances of this table in the output transport stream.
--- * 'pcrControl' - When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
--- * 'pcrPid' - Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID.
--- * 'pmtInterval' - The number of milliseconds between instances of this table in the output transport stream.
 -- * 'pmtPid' - Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream.
--- * 'privateMetadataPid' - Packet Identifier (PID) of the private metadata stream in the transport stream.
+-- * 'videoPid' - Packet Identifier (PID) of the elementary video stream in the transport stream.
 -- * 'programNumber' - The value of the program number field in the Program Map Table.
 -- * 'scte35Pid' - Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
--- * 'scte35Source' - For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE) if you don't want manifest conditioning. Choose Passthrough (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest conditioning. In both cases, also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml).
--- * 'timedMetadata' - Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
--- * 'timedMetadataPid' - Packet Identifier (PID) of the timed metadata stream in the transport stream.
 -- * 'transportStreamId' - The value of the transport stream ID field in the Program Map Table.
--- * 'videoPid' - Packet Identifier (PID) of the elementary video stream in the transport stream.
+-- * 'privateMetadataPid' - Packet Identifier (PID) of the private metadata stream in the transport stream.
+-- * 'audioDuration' - Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+-- * 'pmtInterval' - The number of milliseconds between instances of this table in the output transport stream.
+-- * 'timedMetadataPid' - Packet Identifier (PID) of the timed metadata stream in the transport stream.
+-- * 'audioFramesPerPes' - The number of audio frames to insert for each PES packet.
+-- * 'pcrPid' - Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID.
+-- * 'timedMetadata' - Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
+-- * 'scte35Source' - For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE) if you don't want manifest conditioning. Choose Passthrough (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest conditioning. In both cases, also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml).
+-- * 'patInterval' - The number of milliseconds between instances of this table in the output transport stream.
+-- * 'audioPids' - Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation.
+-- * 'nielsenId3' - If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+-- * 'pcrControl' - When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
 mkM3u8Settings ::
   M3u8Settings
 mkM3u8Settings =

@@ -51,55 +51,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceGroup' smart constructor.
 data InstanceGroup = InstanceGroup'
-  { status ::
-      Lude.Maybe InstanceGroupStatus,
-    lastSuccessfullyAppliedConfigurationsVersion ::
-      Lude.Maybe Lude.Integer,
+  { -- | The current status of the instance group.
+    status :: Lude.Maybe InstanceGroupStatus,
+    -- | The version number of a configuration specification that was successfully applied for an instance group last time.
+    lastSuccessfullyAppliedConfigurationsVersion :: Lude.Maybe Lude.Integer,
+    -- | The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
     bidPrice :: Lude.Maybe Lude.Text,
+    -- | The target number of instances for the instance group.
     requestedInstanceCount :: Lude.Maybe Lude.Int,
+    -- | The number of instances currently running in this instance group.
     runningInstanceCount :: Lude.Maybe Lude.Int,
-    lastSuccessfullyAppliedConfigurations ::
-      Lude.Maybe [Configuration],
+    -- | A list of configurations that were successfully applied for an instance group last time.
+    lastSuccessfullyAppliedConfigurations :: Lude.Maybe [Configuration],
+    -- | The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
     configurations :: Lude.Maybe [Configuration],
+    -- | The type of the instance group. Valid values are MASTER, CORE or TASK.
     instanceGroupType :: Lude.Maybe InstanceGroupType,
+    -- | The EBS block devices that are mapped to this instance group.
     ebsBlockDevices :: Lude.Maybe [EBSBlockDevice],
+    -- | The EC2 instance type for all instances in the instance group.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The version number of the requested configuration specification for this instance group.
     configurationsVersion :: Lude.Maybe Lude.Integer,
+    -- | If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.
     ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.
     market :: Lude.Maybe MarketType,
+    -- | The name of the instance group.
     name :: Lude.Maybe Lude.Text,
+    -- | An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
     autoScalingPolicy :: Lude.Maybe AutoScalingPolicyDescription,
+    -- | Policy for customizing shrink operations.
     shrinkPolicy :: Lude.Maybe ShrinkPolicy,
+    -- | The identifier of the instance group.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceGroup' with the minimum fields required to make a request.
 --
--- * 'autoScalingPolicy' - An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
--- * 'bidPrice' - The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
--- * 'configurations' - The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
--- * 'configurationsVersion' - The version number of the requested configuration specification for this instance group.
--- * 'ebsBlockDevices' - The EBS block devices that are mapped to this instance group.
--- * 'ebsOptimized' - If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.
--- * 'id' - The identifier of the instance group.
--- * 'instanceGroupType' - The type of the instance group. Valid values are MASTER, CORE or TASK.
--- * 'instanceType' - The EC2 instance type for all instances in the instance group.
--- * 'lastSuccessfullyAppliedConfigurations' - A list of configurations that were successfully applied for an instance group last time.
+-- * 'status' - The current status of the instance group.
 -- * 'lastSuccessfullyAppliedConfigurationsVersion' - The version number of a configuration specification that was successfully applied for an instance group last time.
--- * 'market' - The marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.
--- * 'name' - The name of the instance group.
+-- * 'bidPrice' - The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
 -- * 'requestedInstanceCount' - The target number of instances for the instance group.
 -- * 'runningInstanceCount' - The number of instances currently running in this instance group.
+-- * 'lastSuccessfullyAppliedConfigurations' - A list of configurations that were successfully applied for an instance group last time.
+-- * 'configurations' - The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
+-- * 'instanceGroupType' - The type of the instance group. Valid values are MASTER, CORE or TASK.
+-- * 'ebsBlockDevices' - The EBS block devices that are mapped to this instance group.
+-- * 'instanceType' - The EC2 instance type for all instances in the instance group.
+-- * 'configurationsVersion' - The version number of the requested configuration specification for this instance group.
+-- * 'ebsOptimized' - If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an optimized configuration stack and provides additional, dedicated capacity for Amazon EBS I/O.
+-- * 'market' - The marketplace to provision instances for this group. Valid values are ON_DEMAND or SPOT.
+-- * 'name' - The name of the instance group.
+-- * 'autoScalingPolicy' - An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
 -- * 'shrinkPolicy' - Policy for customizing shrink operations.
--- * 'status' - The current status of the instance group.
+-- * 'id' - The identifier of the instance group.
 mkInstanceGroup ::
   InstanceGroup
 mkInstanceGroup =

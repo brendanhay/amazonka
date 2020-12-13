@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,11 +31,11 @@ module Network.AWS.Connect.StartChatContact
     mkStartChatContact,
 
     -- ** Request lenses
+    sccInstanceId,
     sccClientToken,
+    sccContactFlowId,
     sccAttributes,
     sccInitialMessage,
-    sccInstanceId,
-    sccContactFlowId,
     sccParticipantDetails,
 
     -- * Destructuring the response
@@ -57,35 +58,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartChatContact' smart constructor.
 data StartChatContact = StartChatContact'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    initialMessage :: Lude.Maybe ChatMessage,
+  { -- | The identifier of the Amazon Connect instance.
     instanceId :: Lude.Text,
+    -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
+    --
+    -- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
     contactFlowId :: Lude.Text,
+    -- | A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
+    --
+    -- There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The initial message to be sent to the newly created chat.
+    initialMessage :: Lude.Maybe ChatMessage,
+    -- | Information identifying the participant.
     participantDetails :: ParticipantDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartChatContact' with the minimum fields required to make a request.
 --
--- * 'attributes' - A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
---
--- There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
 -- * 'clientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 -- * 'contactFlowId' - The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
 --
 -- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
+-- * 'attributes' - A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
+--
+-- There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
 -- * 'initialMessage' - The initial message to be sent to the newly created chat.
--- * 'instanceId' - The identifier of the Amazon Connect instance.
 -- * 'participantDetails' - Information identifying the participant.
 mkStartChatContact ::
   -- | 'instanceId'
@@ -100,13 +103,20 @@ mkStartChatContact
   pContactFlowId_
   pParticipantDetails_ =
     StartChatContact'
-      { clientToken = Lude.Nothing,
+      { instanceId = pInstanceId_,
+        clientToken = Lude.Nothing,
+        contactFlowId = pContactFlowId_,
         attributes = Lude.Nothing,
         initialMessage = Lude.Nothing,
-        instanceId = pInstanceId_,
-        contactFlowId = pContactFlowId_,
         participantDetails = pParticipantDetails_
       }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccInstanceId :: Lens.Lens' StartChatContact Lude.Text
+sccInstanceId = Lens.lens (instanceId :: StartChatContact -> Lude.Text) (\s a -> s {instanceId = a} :: StartChatContact)
+{-# DEPRECATED sccInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 --
@@ -114,6 +124,15 @@ mkStartChatContact
 sccClientToken :: Lens.Lens' StartChatContact (Lude.Maybe Lude.Text)
 sccClientToken = Lens.lens (clientToken :: StartChatContact -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: StartChatContact)
 {-# DEPRECATED sccClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
+--
+-- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
+--
+-- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sccContactFlowId :: Lens.Lens' StartChatContact Lude.Text
+sccContactFlowId = Lens.lens (contactFlowId :: StartChatContact -> Lude.Text) (\s a -> s {contactFlowId = a} :: StartChatContact)
+{-# DEPRECATED sccContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
 
 -- | A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
 --
@@ -130,22 +149,6 @@ sccAttributes = Lens.lens (attributes :: StartChatContact -> Lude.Maybe (Lude.Ha
 sccInitialMessage :: Lens.Lens' StartChatContact (Lude.Maybe ChatMessage)
 sccInitialMessage = Lens.lens (initialMessage :: StartChatContact -> Lude.Maybe ChatMessage) (\s a -> s {initialMessage = a} :: StartChatContact)
 {-# DEPRECATED sccInitialMessage "Use generic-lens or generic-optics with 'initialMessage' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sccInstanceId :: Lens.Lens' StartChatContact Lude.Text
-sccInstanceId = Lens.lens (instanceId :: StartChatContact -> Lude.Text) (\s a -> s {instanceId = a} :: StartChatContact)
-{-# DEPRECATED sccInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
---
--- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
---
--- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sccContactFlowId :: Lens.Lens' StartChatContact Lude.Text
-sccContactFlowId = Lens.lens (contactFlowId :: StartChatContact -> Lude.Text) (\s a -> s {contactFlowId = a} :: StartChatContact)
-{-# DEPRECATED sccContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
 
 -- | Information identifying the participant.
 --
@@ -180,11 +183,11 @@ instance Lude.ToJSON StartChatContact where
   toJSON StartChatContact' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ClientToken" Lude..=) Lude.<$> clientToken,
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            ("ClientToken" Lude..=) Lude.<$> clientToken,
+            Lude.Just ("ContactFlowId" Lude..= contactFlowId),
             ("Attributes" Lude..=) Lude.<$> attributes,
             ("InitialMessage" Lude..=) Lude.<$> initialMessage,
-            Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("ContactFlowId" Lude..= contactFlowId),
             Lude.Just ("ParticipantDetails" Lude..= participantDetails)
           ]
       )
@@ -197,26 +200,23 @@ instance Lude.ToQuery StartChatContact where
 
 -- | /See:/ 'mkStartChatContactResponse' smart constructor.
 data StartChatContactResponse = StartChatContactResponse'
-  { participantToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token used by the chat participant to call <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection> . The participant token is valid for the lifetime of a chat participant.
+    participantToken :: Lude.Maybe Lude.Text,
+    -- | The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.
     participantId :: Lude.Maybe Lude.Text,
+    -- | The identifier of this contact within the Amazon Connect instance.
     contactId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartChatContactResponse' with the minimum fields required to make a request.
 --
--- * 'contactId' - The identifier of this contact within the Amazon Connect instance.
--- * 'participantId' - The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.
 -- * 'participantToken' - The token used by the chat participant to call <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html CreateParticipantConnection> . The participant token is valid for the lifetime of a chat participant.
+-- * 'participantId' - The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.
+-- * 'contactId' - The identifier of this contact within the Amazon Connect instance.
 -- * 'responseStatus' - The response status code.
 mkStartChatContactResponse ::
   -- | 'responseStatus'

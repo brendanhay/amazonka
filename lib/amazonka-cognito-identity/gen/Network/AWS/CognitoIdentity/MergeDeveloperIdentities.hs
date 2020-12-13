@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     mkMergeDeveloperIdentities,
 
     -- ** Request lenses
+    mdiIdentityPoolId,
+    mdiDeveloperProviderName,
     mdiSourceUserIdentifier,
     mdiDestinationUserIdentifier,
-    mdiDeveloperProviderName,
-    mdiIdentityPoolId,
 
     -- * Destructuring the response
     MergeDeveloperIdentitiesResponse (..),
@@ -47,49 +48,59 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkMergeDeveloperIdentities' smart constructor.
 data MergeDeveloperIdentities = MergeDeveloperIdentities'
-  { sourceUserIdentifier ::
-      Lude.Text,
-    destinationUserIdentifier :: Lude.Text,
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Lude.Text,
+    -- | The "domain" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (.), underscore (_), and dash (-).
     developerProviderName :: Lude.Text,
-    identityPoolId :: Lude.Text
+    -- | User identifier for the source user. The value should be a @DeveloperUserIdentifier@ .
+    sourceUserIdentifier :: Lude.Text,
+    -- | User identifier for the destination user. The value should be a @DeveloperUserIdentifier@ .
+    destinationUserIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeDeveloperIdentities' with the minimum fields required to make a request.
 --
--- * 'destinationUserIdentifier' - User identifier for the destination user. The value should be a @DeveloperUserIdentifier@ .
--- * 'developerProviderName' - The "domain" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (.), underscore (_), and dash (-).
 -- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+-- * 'developerProviderName' - The "domain" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (.), underscore (_), and dash (-).
 -- * 'sourceUserIdentifier' - User identifier for the source user. The value should be a @DeveloperUserIdentifier@ .
+-- * 'destinationUserIdentifier' - User identifier for the destination user. The value should be a @DeveloperUserIdentifier@ .
 mkMergeDeveloperIdentities ::
+  -- | 'identityPoolId'
+  Lude.Text ->
+  -- | 'developerProviderName'
+  Lude.Text ->
   -- | 'sourceUserIdentifier'
   Lude.Text ->
   -- | 'destinationUserIdentifier'
   Lude.Text ->
-  -- | 'developerProviderName'
-  Lude.Text ->
-  -- | 'identityPoolId'
-  Lude.Text ->
   MergeDeveloperIdentities
 mkMergeDeveloperIdentities
-  pSourceUserIdentifier_
-  pDestinationUserIdentifier_
+  pIdentityPoolId_
   pDeveloperProviderName_
-  pIdentityPoolId_ =
+  pSourceUserIdentifier_
+  pDestinationUserIdentifier_ =
     MergeDeveloperIdentities'
-      { sourceUserIdentifier =
-          pSourceUserIdentifier_,
-        destinationUserIdentifier = pDestinationUserIdentifier_,
+      { identityPoolId = pIdentityPoolId_,
         developerProviderName = pDeveloperProviderName_,
-        identityPoolId = pIdentityPoolId_
+        sourceUserIdentifier = pSourceUserIdentifier_,
+        destinationUserIdentifier = pDestinationUserIdentifier_
       }
+
+-- | An identity pool ID in the format REGION:GUID.
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdiIdentityPoolId :: Lens.Lens' MergeDeveloperIdentities Lude.Text
+mdiIdentityPoolId = Lens.lens (identityPoolId :: MergeDeveloperIdentities -> Lude.Text) (\s a -> s {identityPoolId = a} :: MergeDeveloperIdentities)
+{-# DEPRECATED mdiIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+
+-- | The "domain" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (.), underscore (_), and dash (-).
+--
+-- /Note:/ Consider using 'developerProviderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdiDeveloperProviderName :: Lens.Lens' MergeDeveloperIdentities Lude.Text
+mdiDeveloperProviderName = Lens.lens (developerProviderName :: MergeDeveloperIdentities -> Lude.Text) (\s a -> s {developerProviderName = a} :: MergeDeveloperIdentities)
+{-# DEPRECATED mdiDeveloperProviderName "Use generic-lens or generic-optics with 'developerProviderName' instead." #-}
 
 -- | User identifier for the source user. The value should be a @DeveloperUserIdentifier@ .
 --
@@ -104,20 +115,6 @@ mdiSourceUserIdentifier = Lens.lens (sourceUserIdentifier :: MergeDeveloperIdent
 mdiDestinationUserIdentifier :: Lens.Lens' MergeDeveloperIdentities Lude.Text
 mdiDestinationUserIdentifier = Lens.lens (destinationUserIdentifier :: MergeDeveloperIdentities -> Lude.Text) (\s a -> s {destinationUserIdentifier = a} :: MergeDeveloperIdentities)
 {-# DEPRECATED mdiDestinationUserIdentifier "Use generic-lens or generic-optics with 'destinationUserIdentifier' instead." #-}
-
--- | The "domain" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (.), underscore (_), and dash (-).
---
--- /Note:/ Consider using 'developerProviderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdiDeveloperProviderName :: Lens.Lens' MergeDeveloperIdentities Lude.Text
-mdiDeveloperProviderName = Lens.lens (developerProviderName :: MergeDeveloperIdentities -> Lude.Text) (\s a -> s {developerProviderName = a} :: MergeDeveloperIdentities)
-{-# DEPRECATED mdiDeveloperProviderName "Use generic-lens or generic-optics with 'developerProviderName' instead." #-}
-
--- | An identity pool ID in the format REGION:GUID.
---
--- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdiIdentityPoolId :: Lens.Lens' MergeDeveloperIdentities Lude.Text
-mdiIdentityPoolId = Lens.lens (identityPoolId :: MergeDeveloperIdentities -> Lude.Text) (\s a -> s {identityPoolId = a} :: MergeDeveloperIdentities)
-{-# DEPRECATED mdiIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 instance Lude.AWSRequest MergeDeveloperIdentities where
   type Rs MergeDeveloperIdentities = MergeDeveloperIdentitiesResponse
@@ -146,11 +143,11 @@ instance Lude.ToJSON MergeDeveloperIdentities where
   toJSON MergeDeveloperIdentities' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SourceUserIdentifier" Lude..= sourceUserIdentifier),
-            Lude.Just
-              ("DestinationUserIdentifier" Lude..= destinationUserIdentifier),
+          [ Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
             Lude.Just ("DeveloperProviderName" Lude..= developerProviderName),
-            Lude.Just ("IdentityPoolId" Lude..= identityPoolId)
+            Lude.Just ("SourceUserIdentifier" Lude..= sourceUserIdentifier),
+            Lude.Just
+              ("DestinationUserIdentifier" Lude..= destinationUserIdentifier)
           ]
       )
 
@@ -164,18 +161,12 @@ instance Lude.ToQuery MergeDeveloperIdentities where
 --
 -- /See:/ 'mkMergeDeveloperIdentitiesResponse' smart constructor.
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
-  { identityId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A unique identifier in the format REGION:GUID.
+    identityId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeDeveloperIdentitiesResponse' with the minimum fields required to make a request.

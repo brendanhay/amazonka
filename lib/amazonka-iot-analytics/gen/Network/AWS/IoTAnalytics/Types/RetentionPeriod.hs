@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRetentionPeriod' smart constructor.
 data RetentionPeriod = RetentionPeriod'
-  { unlimited ::
-      Lude.Maybe Lude.Bool,
+  { -- | If true, message data is kept indefinitely.
+    unlimited :: Lude.Maybe Lude.Bool,
+    -- | The number of days that message data is kept. The @unlimited@ parameter must be false.
     numberOfDays :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetentionPeriod' with the minimum fields required to make a request.
 --
--- * 'numberOfDays' - The number of days that message data is kept. The @unlimited@ parameter must be false.
 -- * 'unlimited' - If true, message data is kept indefinitely.
+-- * 'numberOfDays' - The number of days that message data is kept. The @unlimited@ parameter must be false.
 mkRetentionPeriod ::
   RetentionPeriod
 mkRetentionPeriod =

@@ -32,18 +32,14 @@ import Network.AWS.Rekognition.Types.PersonDetail
 --
 -- /See:/ 'mkPersonMatch' smart constructor.
 data PersonMatch = PersonMatch'
-  { faceMatches ::
-      Lude.Maybe [FaceMatch],
+  { -- | Information about the faces in the input collection that match the face of a person in the video.
+    faceMatches :: Lude.Maybe [FaceMatch],
+    -- | Information about the matched person.
     person :: Lude.Maybe PersonDetail,
+    -- | The time, in milliseconds from the beginning of the video, that the person was matched in the video.
     timestamp :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PersonMatch' with the minimum fields required to make a request.

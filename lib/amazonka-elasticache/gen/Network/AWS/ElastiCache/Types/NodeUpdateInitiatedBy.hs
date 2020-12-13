@@ -13,8 +13,8 @@
 module Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy
   ( NodeUpdateInitiatedBy
       ( NodeUpdateInitiatedBy',
-        Customer,
-        System
+        System,
+        Customer
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype NodeUpdateInitiatedBy = NodeUpdateInitiatedBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern Customer :: NodeUpdateInitiatedBy
-pattern Customer = NodeUpdateInitiatedBy' "customer"
-
 pattern System :: NodeUpdateInitiatedBy
 pattern System = NodeUpdateInitiatedBy' "system"
 
+pattern Customer :: NodeUpdateInitiatedBy
+pattern Customer = NodeUpdateInitiatedBy' "customer"
+
 {-# COMPLETE
-  Customer,
   System,
+  Customer,
   NodeUpdateInitiatedBy'
   #-}

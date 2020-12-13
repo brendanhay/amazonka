@@ -17,8 +17,8 @@ module Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
     mkTimestampRange,
 
     -- * Lenses
-    trStartTimestamp,
     trEndTimestamp,
+    trStartTimestamp,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimestampRange' smart constructor.
 data TimestampRange = TimestampRange'
-  { startTimestamp ::
-      Lude.Timestamp,
-    endTimestamp :: Lude.Timestamp
+  { -- | The ending timestamp in the range of timestamps for which to return fragments.
+    endTimestamp :: Lude.Timestamp,
+    -- | The starting timestamp in the range of timestamps for which to return fragments.
+    startTimestamp :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimestampRange' with the minimum fields required to make a request.
@@ -47,23 +42,16 @@ data TimestampRange = TimestampRange'
 -- * 'endTimestamp' - The ending timestamp in the range of timestamps for which to return fragments.
 -- * 'startTimestamp' - The starting timestamp in the range of timestamps for which to return fragments.
 mkTimestampRange ::
-  -- | 'startTimestamp'
-  Lude.Timestamp ->
   -- | 'endTimestamp'
   Lude.Timestamp ->
+  -- | 'startTimestamp'
+  Lude.Timestamp ->
   TimestampRange
-mkTimestampRange pStartTimestamp_ pEndTimestamp_ =
+mkTimestampRange pEndTimestamp_ pStartTimestamp_ =
   TimestampRange'
-    { startTimestamp = pStartTimestamp_,
-      endTimestamp = pEndTimestamp_
+    { endTimestamp = pEndTimestamp_,
+      startTimestamp = pStartTimestamp_
     }
-
--- | The starting timestamp in the range of timestamps for which to return fragments.
---
--- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trStartTimestamp :: Lens.Lens' TimestampRange Lude.Timestamp
-trStartTimestamp = Lens.lens (startTimestamp :: TimestampRange -> Lude.Timestamp) (\s a -> s {startTimestamp = a} :: TimestampRange)
-{-# DEPRECATED trStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
 
 -- | The ending timestamp in the range of timestamps for which to return fragments.
 --
@@ -72,11 +60,18 @@ trEndTimestamp :: Lens.Lens' TimestampRange Lude.Timestamp
 trEndTimestamp = Lens.lens (endTimestamp :: TimestampRange -> Lude.Timestamp) (\s a -> s {endTimestamp = a} :: TimestampRange)
 {-# DEPRECATED trEndTimestamp "Use generic-lens or generic-optics with 'endTimestamp' instead." #-}
 
+-- | The starting timestamp in the range of timestamps for which to return fragments.
+--
+-- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trStartTimestamp :: Lens.Lens' TimestampRange Lude.Timestamp
+trStartTimestamp = Lens.lens (startTimestamp :: TimestampRange -> Lude.Timestamp) (\s a -> s {startTimestamp = a} :: TimestampRange)
+{-# DEPRECATED trStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
+
 instance Lude.ToJSON TimestampRange where
   toJSON TimestampRange' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("StartTimestamp" Lude..= startTimestamp),
-            Lude.Just ("EndTimestamp" Lude..= endTimestamp)
+          [ Lude.Just ("EndTimestamp" Lude..= endTimestamp),
+            Lude.Just ("StartTimestamp" Lude..= startTimestamp)
           ]
       )

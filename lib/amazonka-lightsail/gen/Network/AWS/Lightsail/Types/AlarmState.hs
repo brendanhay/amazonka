@@ -13,9 +13,9 @@
 module Network.AWS.Lightsail.Types.AlarmState
   ( AlarmState
       ( AlarmState',
+        OK,
         Alarm,
-        InsufficientData,
-        OK
+        InsufficientData
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AlarmState = AlarmState' Lude.Text
       Lude.ToHeader
     )
 
+pattern OK :: AlarmState
+pattern OK = AlarmState' "OK"
+
 pattern Alarm :: AlarmState
 pattern Alarm = AlarmState' "ALARM"
 
 pattern InsufficientData :: AlarmState
 pattern InsufficientData = AlarmState' "INSUFFICIENT_DATA"
 
-pattern OK :: AlarmState
-pattern OK = AlarmState' "OK"
-
 {-# COMPLETE
+  OK,
   Alarm,
   InsufficientData,
-  OK,
   AlarmState'
   #-}

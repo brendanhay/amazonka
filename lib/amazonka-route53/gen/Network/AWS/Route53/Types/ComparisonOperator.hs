@@ -15,8 +15,8 @@ module Network.AWS.Route53.Types.ComparisonOperator
       ( ComparisonOperator',
         GreaterThanOrEqualToThreshold,
         GreaterThanThreshold,
-        LessThanOrEqualToThreshold,
-        LessThanThreshold
+        LessThanThreshold,
+        LessThanOrEqualToThreshold
       ),
   )
 where
@@ -54,16 +54,16 @@ pattern GreaterThanOrEqualToThreshold = ComparisonOperator' "GreaterThanOrEqualT
 pattern GreaterThanThreshold :: ComparisonOperator
 pattern GreaterThanThreshold = ComparisonOperator' "GreaterThanThreshold"
 
-pattern LessThanOrEqualToThreshold :: ComparisonOperator
-pattern LessThanOrEqualToThreshold = ComparisonOperator' "LessThanOrEqualToThreshold"
-
 pattern LessThanThreshold :: ComparisonOperator
 pattern LessThanThreshold = ComparisonOperator' "LessThanThreshold"
+
+pattern LessThanOrEqualToThreshold :: ComparisonOperator
+pattern LessThanOrEqualToThreshold = ComparisonOperator' "LessThanOrEqualToThreshold"
 
 {-# COMPLETE
   GreaterThanOrEqualToThreshold,
   GreaterThanThreshold,
-  LessThanOrEqualToThreshold,
   LessThanThreshold,
+  LessThanOrEqualToThreshold,
   ComparisonOperator'
   #-}

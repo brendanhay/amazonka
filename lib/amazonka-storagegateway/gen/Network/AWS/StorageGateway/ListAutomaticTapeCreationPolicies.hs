@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,21 +42,14 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkListAutomaticTapeCreationPolicies' smart constructor.
 newtype ListAutomaticTapeCreationPolicies = ListAutomaticTapeCreationPolicies'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text
+  { gatewayARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAutomaticTapeCreationPolicies' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkListAutomaticTapeCreationPolicies ::
   ListAutomaticTapeCreationPolicies
 mkListAutomaticTapeCreationPolicies =
@@ -109,19 +103,12 @@ instance Lude.ToQuery ListAutomaticTapeCreationPolicies where
 
 -- | /See:/ 'mkListAutomaticTapeCreationPoliciesResponse' smart constructor.
 data ListAutomaticTapeCreationPoliciesResponse = ListAutomaticTapeCreationPoliciesResponse'
-  { automaticTapeCreationPolicyInfos ::
-      Lude.Maybe
-        [AutomaticTapeCreationPolicyInfo],
-    responseStatus ::
-      Lude.Int
+  { -- | Gets a listing of information about the gateway's automatic tape creation policies, including the automatic tape creation rules and the gateway that is using the policies.
+    automaticTapeCreationPolicyInfos :: Lude.Maybe [AutomaticTapeCreationPolicyInfo],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAutomaticTapeCreationPoliciesResponse' with the minimum fields required to make a request.

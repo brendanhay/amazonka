@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSOptions' smart constructor.
 data EBSOptions = EBSOptions'
-  { volumeSize :: Lude.Maybe Lude.Int,
+  { -- | Integer to specify the size of an EBS volume.
+    volumeSize :: Lude.Maybe Lude.Int,
+    -- | Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
     iops :: Lude.Maybe Lude.Int,
+    -- | Specifies the volume type for EBS-based storage.
     volumeType :: Lude.Maybe VolumeType,
+    -- | Specifies whether EBS-based storage is enabled.
     ebsEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSOptions' with the minimum fields required to make a request.
 --
--- * 'ebsEnabled' - Specifies whether EBS-based storage is enabled.
--- * 'iops' - Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
 -- * 'volumeSize' - Integer to specify the size of an EBS volume.
+-- * 'iops' - Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
 -- * 'volumeType' - Specifies the volume type for EBS-based storage.
+-- * 'ebsEnabled' - Specifies whether EBS-based storage is enabled.
 mkEBSOptions ::
   EBSOptions
 mkEBSOptions =

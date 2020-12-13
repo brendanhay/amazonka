@@ -36,46 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetLaunchTemplateOverridesRequest' smart constructor.
 data FleetLaunchTemplateOverridesRequest = FleetLaunchTemplateOverridesRequest'
-  { priority ::
-      Lude.Maybe
-        Lude.Double,
-    weightedCapacity ::
-      Lude.Maybe
-        Lude.Double,
-    subnetId ::
-      Lude.Maybe
-        Lude.Text,
-    instanceType ::
-      Lude.Maybe
-        InstanceType,
-    availabilityZone ::
-      Lude.Maybe
-        Lude.Text,
-    placement ::
-      Lude.Maybe
-        Placement,
-    maxPrice ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The priority for the launch template override. If __AllocationStrategy__ is set to @prioritized@ , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+    priority :: Lude.Maybe Lude.Double,
+    -- | The number of units provided by the specified instance type.
+    weightedCapacity :: Lude.Maybe Lude.Double,
+    -- | The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, @subnet-1234abcdeexample1, subnet-0987cdef6example2@ ). A request of type @instant@ can have only one subnet ID.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The instance type.
+    instanceType :: Lude.Maybe InstanceType,
+    -- | The Availability Zone in which to launch the instances.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The location where the instance launched, if applicable.
+    placement :: Lude.Maybe Placement,
+    -- | The maximum price per unit hour that you are willing to pay for a Spot Instance.
+    maxPrice :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetLaunchTemplateOverridesRequest' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone in which to launch the instances.
--- * 'instanceType' - The instance type.
--- * 'maxPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance.
--- * 'placement' - The location where the instance launched, if applicable.
 -- * 'priority' - The priority for the launch template override. If __AllocationStrategy__ is set to @prioritized@ , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
--- * 'subnetId' - The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, @subnet-1234abcdeexample1, subnet-0987cdef6example2@ ). A request of type @instant@ can have only one subnet ID.
 -- * 'weightedCapacity' - The number of units provided by the specified instance type.
+-- * 'subnetId' - The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, @subnet-1234abcdeexample1, subnet-0987cdef6example2@ ). A request of type @instant@ can have only one subnet ID.
+-- * 'instanceType' - The instance type.
+-- * 'availabilityZone' - The Availability Zone in which to launch the instances.
+-- * 'placement' - The location where the instance launched, if applicable.
+-- * 'maxPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance.
 mkFleetLaunchTemplateOverridesRequest ::
   FleetLaunchTemplateOverridesRequest
 mkFleetLaunchTemplateOverridesRequest =

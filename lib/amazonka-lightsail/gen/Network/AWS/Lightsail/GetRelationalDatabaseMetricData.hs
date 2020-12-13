@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.Lightsail.GetRelationalDatabaseMetricData
     mkGetRelationalDatabaseMetricData,
 
     -- ** Request lenses
-    grdmdRelationalDatabaseName,
-    grdmdMetricName,
-    grdmdPeriod,
     grdmdStartTime,
+    grdmdPeriod,
+    grdmdMetricName,
     grdmdEndTime,
-    grdmdUnit,
     grdmdStatistics,
+    grdmdUnit,
+    grdmdRelationalDatabaseName,
 
     -- * Destructuring the response
     GetRelationalDatabaseMetricDataResponse (..),
@@ -48,29 +49,92 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRelationalDatabaseMetricData' smart constructor.
 data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
-  { relationalDatabaseName ::
-      Lude.Text,
-    metricName ::
-      RelationalDatabaseMetricName,
-    period :: Lude.Natural,
+  { -- | The start of the time interval from which to get metric data.
+    --
+    -- Constraints:
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Specified in the Unix time format.
+    -- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the start time.
     startTime :: Lude.Timestamp,
+    -- | The granularity, in seconds, of the returned data points.
+    --
+    -- All relational database metric data is available in 1-minute (60 seconds) granularity.
+    period :: Lude.Natural,
+    -- | The metric for which you want to return information.
+    --
+    -- Valid relational database metric names are listed below, along with the most useful @statistics@ to include in your request, and the published @unit@ value. All relational database metric data is available in 1-minute (60 seconds) granularity.
+    --
+    --     * __@CPUUtilization@ __ - The percentage of CPU utilization currently in use on the database.
+    -- @Statistics@ : The most useful statistics are @Maximum@ and @Average@ .
+    -- @Unit@ : The published unit is @Percent@ .
+    --
+    --
+    --     * __@DatabaseConnections@ __ - The number of database connections in use.
+    -- @Statistics@ : The most useful statistics are @Maximum@ and @Sum@ .
+    -- @Unit@ : The published unit is @Count@ .
+    --
+    --
+    --     * __@DiskQueueDepth@ __ - The number of outstanding IOs (read/write requests) that are waiting to access the disk.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @Count@ .
+    --
+    --
+    --     * __@FreeStorageSpace@ __ - The amount of available storage space.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @Bytes@ .
+    --
+    --
+    --     * __@NetworkReceiveThroughput@ __ - The incoming (Receive) network traffic on the database, including both customer database traffic and AWS traffic used for monitoring and replication.
+    -- @Statistics@ : The most useful statistic is @Average@ .
+    -- @Unit@ : The published unit is @Bytes/Second@ .
+    --
+    --
+    --     * __@NetworkTransmitThroughput@ __ - The outgoing (Transmit) network traffic on the database, including both customer database traffic and AWS traffic used for monitoring and replication.
+    -- @Statistics@ : The most useful statistic is @Average@ .
+    -- @Unit@ : The published unit is @Bytes/Second@ .
+    metricName :: RelationalDatabaseMetricName,
+    -- | The end of the time interval from which to get metric data.
+    --
+    -- Constraints:
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Specified in the Unix time format.
+    -- For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the end time.
     endTime :: Lude.Timestamp,
+    -- | The statistic for the metric.
+    --
+    -- The following statistics are available:
+    --
+    --     * @Minimum@ - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.
+    --
+    --
+    --     * @Maximum@ - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.
+    --
+    --
+    --     * @Sum@ - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.
+    --
+    --
+    --     * @Average@ - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.
+    --
+    --
+    --     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
+    statistics :: [MetricStatistic],
+    -- | The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units with each available metric, see the @metricName@ parameter.
     unit :: MetricUnit,
-    statistics ::
-      [MetricStatistic]
+    -- | The name of your database from which to get metric data.
+    relationalDatabaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseMetricData' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end of the time interval from which to get metric data.
+-- * 'startTime' - The start of the time interval from which to get metric data.
 --
 -- Constraints:
 --
@@ -78,9 +142,12 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
 --
 --
 --     * Specified in the Unix time format.
--- For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the end time.
+-- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the start time.
 --
 --
+-- * 'period' - The granularity, in seconds, of the returned data points.
+--
+-- All relational database metric data is available in 1-minute (60 seconds) granularity.
 -- * 'metricName' - The metric for which you want to return information.
 --
 -- Valid relational database metric names are listed below, along with the most useful @statistics@ to include in your request, and the published @unit@ value. All relational database metric data is available in 1-minute (60 seconds) granularity.
@@ -115,11 +182,7 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
 -- @Unit@ : The published unit is @Bytes/Second@ .
 --
 --
--- * 'period' - The granularity, in seconds, of the returned data points.
---
--- All relational database metric data is available in 1-minute (60 seconds) granularity.
--- * 'relationalDatabaseName' - The name of your database from which to get metric data.
--- * 'startTime' - The start of the time interval from which to get metric data.
+-- * 'endTime' - The end of the time interval from which to get metric data.
 --
 -- Constraints:
 --
@@ -127,7 +190,7 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
 --
 --
 --     * Specified in the Unix time format.
--- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the start time.
+-- For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the end time.
 --
 --
 -- * 'statistics' - The statistic for the metric.
@@ -150,44 +213,63 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
 --
 --
 -- * 'unit' - The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units with each available metric, see the @metricName@ parameter.
+-- * 'relationalDatabaseName' - The name of your database from which to get metric data.
 mkGetRelationalDatabaseMetricData ::
-  -- | 'relationalDatabaseName'
-  Lude.Text ->
-  -- | 'metricName'
-  RelationalDatabaseMetricName ->
-  -- | 'period'
-  Lude.Natural ->
   -- | 'startTime'
   Lude.Timestamp ->
+  -- | 'period'
+  Lude.Natural ->
+  -- | 'metricName'
+  RelationalDatabaseMetricName ->
   -- | 'endTime'
   Lude.Timestamp ->
   -- | 'unit'
   MetricUnit ->
+  -- | 'relationalDatabaseName'
+  Lude.Text ->
   GetRelationalDatabaseMetricData
 mkGetRelationalDatabaseMetricData
-  pRelationalDatabaseName_
-  pMetricName_
-  pPeriod_
   pStartTime_
+  pPeriod_
+  pMetricName_
   pEndTime_
-  pUnit_ =
+  pUnit_
+  pRelationalDatabaseName_ =
     GetRelationalDatabaseMetricData'
-      { relationalDatabaseName =
-          pRelationalDatabaseName_,
-        metricName = pMetricName_,
+      { startTime = pStartTime_,
         period = pPeriod_,
-        startTime = pStartTime_,
+        metricName = pMetricName_,
         endTime = pEndTime_,
+        statistics = Lude.mempty,
         unit = pUnit_,
-        statistics = Lude.mempty
+        relationalDatabaseName = pRelationalDatabaseName_
       }
 
--- | The name of your database from which to get metric data.
+-- | The start of the time interval from which to get metric data.
 --
--- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdmdRelationalDatabaseName :: Lens.Lens' GetRelationalDatabaseMetricData Lude.Text
-grdmdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: GetRelationalDatabaseMetricData -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseMetricData)
-{-# DEPRECATED grdmdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
+-- Constraints:
+--
+--     * Specified in Coordinated Universal Time (UTC).
+--
+--
+--     * Specified in the Unix time format.
+-- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the start time.
+--
+--
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdmdStartTime :: Lens.Lens' GetRelationalDatabaseMetricData Lude.Timestamp
+grdmdStartTime = Lens.lens (startTime :: GetRelationalDatabaseMetricData -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetRelationalDatabaseMetricData)
+{-# DEPRECATED grdmdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The granularity, in seconds, of the returned data points.
+--
+-- All relational database metric data is available in 1-minute (60 seconds) granularity.
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdmdPeriod :: Lens.Lens' GetRelationalDatabaseMetricData Lude.Natural
+grdmdPeriod = Lens.lens (period :: GetRelationalDatabaseMetricData -> Lude.Natural) (\s a -> s {period = a} :: GetRelationalDatabaseMetricData)
+{-# DEPRECATED grdmdPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The metric for which you want to return information.
 --
@@ -229,32 +311,6 @@ grdmdMetricName :: Lens.Lens' GetRelationalDatabaseMetricData RelationalDatabase
 grdmdMetricName = Lens.lens (metricName :: GetRelationalDatabaseMetricData -> RelationalDatabaseMetricName) (\s a -> s {metricName = a} :: GetRelationalDatabaseMetricData)
 {-# DEPRECATED grdmdMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
--- | The granularity, in seconds, of the returned data points.
---
--- All relational database metric data is available in 1-minute (60 seconds) granularity.
---
--- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdmdPeriod :: Lens.Lens' GetRelationalDatabaseMetricData Lude.Natural
-grdmdPeriod = Lens.lens (period :: GetRelationalDatabaseMetricData -> Lude.Natural) (\s a -> s {period = a} :: GetRelationalDatabaseMetricData)
-{-# DEPRECATED grdmdPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
-
--- | The start of the time interval from which to get metric data.
---
--- Constraints:
---
---     * Specified in Coordinated Universal Time (UTC).
---
---
---     * Specified in the Unix time format.
--- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the start time.
---
---
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdmdStartTime :: Lens.Lens' GetRelationalDatabaseMetricData Lude.Timestamp
-grdmdStartTime = Lens.lens (startTime :: GetRelationalDatabaseMetricData -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetRelationalDatabaseMetricData)
-{-# DEPRECATED grdmdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
 -- | The end of the time interval from which to get metric data.
 --
 -- Constraints:
@@ -271,13 +327,6 @@ grdmdStartTime = Lens.lens (startTime :: GetRelationalDatabaseMetricData -> Lude
 grdmdEndTime :: Lens.Lens' GetRelationalDatabaseMetricData Lude.Timestamp
 grdmdEndTime = Lens.lens (endTime :: GetRelationalDatabaseMetricData -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetRelationalDatabaseMetricData)
 {-# DEPRECATED grdmdEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units with each available metric, see the @metricName@ parameter.
---
--- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdmdUnit :: Lens.Lens' GetRelationalDatabaseMetricData MetricUnit
-grdmdUnit = Lens.lens (unit :: GetRelationalDatabaseMetricData -> MetricUnit) (\s a -> s {unit = a} :: GetRelationalDatabaseMetricData)
-{-# DEPRECATED grdmdUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | The statistic for the metric.
 --
@@ -303,6 +352,20 @@ grdmdUnit = Lens.lens (unit :: GetRelationalDatabaseMetricData -> MetricUnit) (\
 grdmdStatistics :: Lens.Lens' GetRelationalDatabaseMetricData [MetricStatistic]
 grdmdStatistics = Lens.lens (statistics :: GetRelationalDatabaseMetricData -> [MetricStatistic]) (\s a -> s {statistics = a} :: GetRelationalDatabaseMetricData)
 {-# DEPRECATED grdmdStatistics "Use generic-lens or generic-optics with 'statistics' instead." #-}
+
+-- | The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units with each available metric, see the @metricName@ parameter.
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdmdUnit :: Lens.Lens' GetRelationalDatabaseMetricData MetricUnit
+grdmdUnit = Lens.lens (unit :: GetRelationalDatabaseMetricData -> MetricUnit) (\s a -> s {unit = a} :: GetRelationalDatabaseMetricData)
+{-# DEPRECATED grdmdUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
+
+-- | The name of your database from which to get metric data.
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdmdRelationalDatabaseName :: Lens.Lens' GetRelationalDatabaseMetricData Lude.Text
+grdmdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: GetRelationalDatabaseMetricData -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseMetricData)
+{-# DEPRECATED grdmdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
 instance Lude.AWSRequest GetRelationalDatabaseMetricData where
   type
@@ -335,14 +398,14 @@ instance Lude.ToJSON GetRelationalDatabaseMetricData where
   toJSON GetRelationalDatabaseMetricData' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName),
-            Lude.Just ("metricName" Lude..= metricName),
+          [ Lude.Just ("startTime" Lude..= startTime),
             Lude.Just ("period" Lude..= period),
-            Lude.Just ("startTime" Lude..= startTime),
+            Lude.Just ("metricName" Lude..= metricName),
             Lude.Just ("endTime" Lude..= endTime),
+            Lude.Just ("statistics" Lude..= statistics),
             Lude.Just ("unit" Lude..= unit),
-            Lude.Just ("statistics" Lude..= statistics)
+            Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName)
           ]
       )
 
@@ -354,28 +417,20 @@ instance Lude.ToQuery GetRelationalDatabaseMetricData where
 
 -- | /See:/ 'mkGetRelationalDatabaseMetricDataResponse' smart constructor.
 data GetRelationalDatabaseMetricDataResponse = GetRelationalDatabaseMetricDataResponse'
-  { metricName ::
-      Lude.Maybe
-        RelationalDatabaseMetricName,
-    metricData ::
-      Lude.Maybe
-        [MetricDatapoint],
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the metric returned.
+    metricName :: Lude.Maybe RelationalDatabaseMetricName,
+    -- | An array of objects that describe the metric data returned.
+    metricData :: Lude.Maybe [MetricDatapoint],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseMetricDataResponse' with the minimum fields required to make a request.
 --
--- * 'metricData' - An array of objects that describe the metric data returned.
 -- * 'metricName' - The name of the metric returned.
+-- * 'metricData' - An array of objects that describe the metric data returned.
 -- * 'responseStatus' - The response status code.
 mkGetRelationalDatabaseMetricDataResponse ::
   -- | 'responseStatus'

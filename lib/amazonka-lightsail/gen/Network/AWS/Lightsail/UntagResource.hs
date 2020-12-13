@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Lightsail.UntagResource
     mkUntagResource,
 
     -- ** Request lenses
-    urResourceARN,
     urResourceName,
     urTagKeys,
+    urResourceARN,
 
     -- * Destructuring the response
     UntagResourceResponse (..),
@@ -43,42 +44,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { resourceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the resource from which you are removing a tag.
     resourceName :: Lude.Text,
-    tagKeys :: [Lude.Text]
+    -- | The tag keys to delete from the specified resource.
+    tagKeys :: [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the resource from which you want to remove a tag.
+    resourceARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource from which you want to remove a tag.
 -- * 'resourceName' - The name of the resource from which you are removing a tag.
 -- * 'tagKeys' - The tag keys to delete from the specified resource.
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource from which you want to remove a tag.
 mkUntagResource ::
   -- | 'resourceName'
   Lude.Text ->
   UntagResource
 mkUntagResource pResourceName_ =
   UntagResource'
-    { resourceARN = Lude.Nothing,
-      resourceName = pResourceName_,
-      tagKeys = Lude.mempty
+    { resourceName = pResourceName_,
+      tagKeys = Lude.mempty,
+      resourceARN = Lude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the resource from which you want to remove a tag.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceARN :: Lens.Lens' UntagResource (Lude.Maybe Lude.Text)
-urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
-{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The name of the resource from which you are removing a tag.
 --
@@ -93,6 +83,13 @@ urResourceName = Lens.lens (resourceName :: UntagResource -> Lude.Text) (\s a ->
 urTagKeys :: Lens.Lens' UntagResource [Lude.Text]
 urTagKeys = Lens.lens (tagKeys :: UntagResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagResource)
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the resource from which you want to remove a tag.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceARN :: Lens.Lens' UntagResource (Lude.Maybe Lude.Text)
+urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
+{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Lude.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
@@ -120,9 +117,9 @@ instance Lude.ToJSON UntagResource where
   toJSON UntagResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("resourceArn" Lude..=) Lude.<$> resourceARN,
-            Lude.Just ("resourceName" Lude..= resourceName),
-            Lude.Just ("tagKeys" Lude..= tagKeys)
+          [ Lude.Just ("resourceName" Lude..= resourceName),
+            Lude.Just ("tagKeys" Lude..= tagKeys),
+            ("resourceArn" Lude..=) Lude.<$> resourceARN
           ]
       )
 
@@ -134,17 +131,12 @@ instance Lude.ToQuery UntagResource where
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.

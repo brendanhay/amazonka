@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Glue.StopTrigger
     mkStopTrigger,
 
     -- ** Request lenses
-    stName,
+    stfName,
 
     -- * Destructuring the response
     StopTriggerResponse (..),
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopTrigger' smart constructor.
-newtype StopTrigger = StopTrigger' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StopTrigger = StopTrigger'
+  { -- | The name of the trigger to stop.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTrigger' with the minimum fields required to make a request.
@@ -60,9 +58,9 @@ mkStopTrigger pName_ = StopTrigger' {name = pName_}
 -- | The name of the trigger to stop.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stName :: Lens.Lens' StopTrigger Lude.Text
-stName = Lens.lens (name :: StopTrigger -> Lude.Text) (\s a -> s {name = a} :: StopTrigger)
-{-# DEPRECATED stName "Use generic-lens or generic-optics with 'name' instead." #-}
+stfName :: Lens.Lens' StopTrigger Lude.Text
+stfName = Lens.lens (name :: StopTrigger -> Lude.Text) (\s a -> s {name = a} :: StopTrigger)
+{-# DEPRECATED stfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest StopTrigger where
   type Rs StopTrigger = StopTriggerResponse
@@ -96,17 +94,12 @@ instance Lude.ToQuery StopTrigger where
 
 -- | /See:/ 'mkStopTriggerResponse' smart constructor.
 data StopTriggerResponse = StopTriggerResponse'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the trigger that was stopped.
+    name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTriggerResponse' with the minimum fields required to make a request.

@@ -30,26 +30,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicaGlobalSecondaryIndexAutoScalingUpdate' smart constructor.
 data ReplicaGlobalSecondaryIndexAutoScalingUpdate = ReplicaGlobalSecondaryIndexAutoScalingUpdate'
-  { provisionedReadCapacityAutoScalingUpdate ::
-      Lude.Maybe
-        AutoScalingSettingsUpdate,
-    indexName ::
-      Lude.Maybe
-        Lude.Text
+  { provisionedReadCapacityAutoScalingUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
+    -- | The name of the global secondary index.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaGlobalSecondaryIndexAutoScalingUpdate' with the minimum fields required to make a request.
 --
+-- * 'provisionedReadCapacityAutoScalingUpdate' -
 -- * 'indexName' - The name of the global secondary index.
--- * 'provisionedReadCapacityAutoScalingUpdate' - Undocumented field.
 mkReplicaGlobalSecondaryIndexAutoScalingUpdate ::
   ReplicaGlobalSecondaryIndexAutoScalingUpdate
 mkReplicaGlobalSecondaryIndexAutoScalingUpdate =

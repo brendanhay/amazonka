@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccessControlList' smart constructor.
 data AccessControlList = AccessControlList'
-  { allowsPublicWriteAccess ::
-      Lude.Maybe Lude.Bool,
+  { -- | A value that indicates whether public write access for the bucket is enabled through an Access Control List (ACL).
+    allowsPublicWriteAccess :: Lude.Maybe Lude.Bool,
+    -- | A value that indicates whether public read access for the bucket is enabled through an Access Control List (ACL).
     allowsPublicReadAccess :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessControlList' with the minimum fields required to make a request.
 --
--- * 'allowsPublicReadAccess' - A value that indicates whether public read access for the bucket is enabled through an Access Control List (ACL).
 -- * 'allowsPublicWriteAccess' - A value that indicates whether public write access for the bucket is enabled through an Access Control List (ACL).
+-- * 'allowsPublicReadAccess' - A value that indicates whether public read access for the bucket is enabled through an Access Control List (ACL).
 mkAccessControlList ::
   AccessControlList
 mkAccessControlList =

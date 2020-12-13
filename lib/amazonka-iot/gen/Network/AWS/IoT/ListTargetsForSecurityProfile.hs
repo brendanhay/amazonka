@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.IoT.ListTargetsForSecurityProfile
 
     -- ** Request lenses
     ltfspNextToken,
-    ltfspMaxResults,
     ltfspSecurityProfileName,
+    ltfspMaxResults,
 
     -- * Destructuring the response
     ListTargetsForSecurityProfileResponse (..),
@@ -45,27 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTargetsForSecurityProfile' smart constructor.
 data ListTargetsForSecurityProfile = ListTargetsForSecurityProfile'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    securityProfileName ::
-      Lude.Text
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The security profile.
+    securityProfileName :: Lude.Text,
+    -- | The maximum number of results to return at one time.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsForSecurityProfile' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return at one time.
 -- * 'nextToken' - The token for the next set of results.
 -- * 'securityProfileName' - The security profile.
+-- * 'maxResults' - The maximum number of results to return at one time.
 mkListTargetsForSecurityProfile ::
   -- | 'securityProfileName'
   Lude.Text ->
@@ -73,8 +68,8 @@ mkListTargetsForSecurityProfile ::
 mkListTargetsForSecurityProfile pSecurityProfileName_ =
   ListTargetsForSecurityProfile'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      securityProfileName = pSecurityProfileName_
+      securityProfileName = pSecurityProfileName_,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of results.
@@ -84,19 +79,19 @@ ltfspNextToken :: Lens.Lens' ListTargetsForSecurityProfile (Lude.Maybe Lude.Text
 ltfspNextToken = Lens.lens (nextToken :: ListTargetsForSecurityProfile -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTargetsForSecurityProfile)
 {-# DEPRECATED ltfspNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to return at one time.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfspMaxResults :: Lens.Lens' ListTargetsForSecurityProfile (Lude.Maybe Lude.Natural)
-ltfspMaxResults = Lens.lens (maxResults :: ListTargetsForSecurityProfile -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTargetsForSecurityProfile)
-{-# DEPRECATED ltfspMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The security profile.
 --
 -- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfspSecurityProfileName :: Lens.Lens' ListTargetsForSecurityProfile Lude.Text
 ltfspSecurityProfileName = Lens.lens (securityProfileName :: ListTargetsForSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: ListTargetsForSecurityProfile)
 {-# DEPRECATED ltfspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
+
+-- | The maximum number of results to return at one time.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfspMaxResults :: Lens.Lens' ListTargetsForSecurityProfile (Lude.Maybe Lude.Natural)
+ltfspMaxResults = Lens.lens (maxResults :: ListTargetsForSecurityProfile -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTargetsForSecurityProfile)
+{-# DEPRECATED ltfspMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListTargetsForSecurityProfile where
   page rq rs
@@ -137,29 +132,21 @@ instance Lude.ToQuery ListTargetsForSecurityProfile where
 
 -- | /See:/ 'mkListTargetsForSecurityProfileResponse' smart constructor.
 data ListTargetsForSecurityProfileResponse = ListTargetsForSecurityProfileResponse'
-  { securityProfileTargets ::
-      Lude.Maybe
-        [SecurityProfileTarget],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The thing groups to which the security profile is attached.
+    securityProfileTargets :: Lude.Maybe [SecurityProfileTarget],
+    -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsForSecurityProfileResponse' with the minimum fields required to make a request.
 --
+-- * 'securityProfileTargets' - The thing groups to which the security profile is attached.
 -- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
 -- * 'responseStatus' - The response status code.
--- * 'securityProfileTargets' - The thing groups to which the security profile is attached.
 mkListTargetsForSecurityProfileResponse ::
   -- | 'responseStatus'
   Lude.Int ->

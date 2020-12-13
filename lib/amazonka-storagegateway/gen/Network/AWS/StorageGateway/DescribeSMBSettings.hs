@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,21 +45,14 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkDescribeSMBSettings' smart constructor.
 newtype DescribeSMBSettings = DescribeSMBSettings'
-  { gatewayARN ::
-      Lude.Text
+  { gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSMBSettings' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkDescribeSMBSettings ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -113,30 +107,59 @@ instance Lude.ToQuery DescribeSMBSettings where
 
 -- | /See:/ 'mkDescribeSMBSettingsResponse' smart constructor.
 data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
-    fileSharesVisible ::
-      Lude.Maybe Lude.Bool,
-    activeDirectoryStatus ::
-      Lude.Maybe ActiveDirectoryStatus,
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The shares on this gateway appear when listing shares.
+    fileSharesVisible :: Lude.Maybe Lude.Bool,
+    -- | Indicates the status of a gateway that is a member of the Active Directory domain.
+    --
+    --
+    --     * @ACCESS_DENIED@ : Indicates that the @JoinDomain@ operation failed due to an authentication error.
+    --
+    --
+    --     * @DETACHED@ : Indicates that gateway is not joined to a domain.
+    --
+    --
+    --     * @JOINED@ : Indicates that the gateway has successfully joined a domain.
+    --
+    --
+    --     * @JOINING@ : Indicates that a @JoinDomain@ operation is in progress.
+    --
+    --
+    --     * @NETWORK_ERROR@ : Indicates that @JoinDomain@ operation failed due to a network or connectivity error.
+    --
+    --
+    --     * @TIMEOUT@ : Indicates that the @JoinDomain@ operation failed because the operation didn't complete within the allotted time.
+    --
+    --
+    --     * @UNKNOWN_ERROR@ : Indicates that the @JoinDomain@ operation failed due to another type of error.
+    activeDirectoryStatus :: Lude.Maybe ActiveDirectoryStatus,
+    -- | The name of the domain that the gateway is joined to.
     domainName :: Lude.Maybe Lude.Text,
-    sMBGuestPasswordSet ::
-      Lude.Maybe Lude.Bool,
-    sMBSecurityStrategy ::
-      Lude.Maybe SMBSecurityStrategy,
+    -- | This value is @true@ if a password for the guest user @smbguest@ is set, otherwise @false@ .
+    --
+    -- Valid Values: @true@ | @false@
+    sMBGuestPasswordSet :: Lude.Maybe Lude.Bool,
+    -- | The type of security strategy that was specified for file gateway.
+    --
+    --
+    --     * @ClientSpecified@ : If you use this option, requests are established based on what is negotiated by the client. This option is recommended when you want to maximize compatibility across different clients in your environment.
+    --
+    --
+    --     * @MandatorySigning@ : If you use this option, file gateway only allows connections from SMBv2 or SMBv3 clients that have signing enabled. This option works with SMB clients on Microsoft Windows Vista, Windows Server 2008 or newer.
+    --
+    --
+    --     * @MandatoryEncryption@ : If you use this option, file gateway only allows connections from SMBv3 clients that have encryption enabled. This option is highly recommended for environments that handle sensitive data. This option works with SMB clients on Microsoft Windows 8, Windows Server 2012 or newer.
+    sMBSecurityStrategy :: Lude.Maybe SMBSecurityStrategy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSMBSettingsResponse' with the minimum fields required to make a request.
 --
+-- * 'gatewayARN' -
+-- * 'fileSharesVisible' - The shares on this gateway appear when listing shares.
 -- * 'activeDirectoryStatus' - Indicates the status of a gateway that is a member of the Active Directory domain.
 --
 --
@@ -162,9 +185,6 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
 --
 --
 -- * 'domainName' - The name of the domain that the gateway is joined to.
--- * 'fileSharesVisible' - The shares on this gateway appear when listing shares.
--- * 'gatewayARN' - Undocumented field.
--- * 'responseStatus' - The response status code.
 -- * 'sMBGuestPasswordSet' - This value is @true@ if a password for the guest user @smbguest@ is set, otherwise @false@ .
 --
 -- Valid Values: @true@ | @false@
@@ -178,6 +198,9 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
 --
 --
 --     * @MandatoryEncryption@ : If you use this option, file gateway only allows connections from SMBv3 clients that have encryption enabled. This option is highly recommended for environments that handle sensitive data. This option works with SMB clients on Microsoft Windows 8, Windows Server 2012 or newer.
+--
+--
+-- * 'responseStatus' - The response status code.
 mkDescribeSMBSettingsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

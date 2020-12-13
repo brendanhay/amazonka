@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoT.DescribeProvisioningTemplateVersion
     mkDescribeProvisioningTemplateVersion,
 
     -- ** Request lenses
-    dptvTemplateName,
     dptvVersionId,
+    dptvTemplateName,
 
     -- * Destructuring the response
     DescribeProvisioningTemplateVersionResponse (..),
@@ -43,43 +44,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeProvisioningTemplateVersion' smart constructor.
 data DescribeProvisioningTemplateVersion = DescribeProvisioningTemplateVersion'
-  { templateName ::
-      Lude.Text,
-    versionId ::
-      Lude.Int
+  { -- | The fleet provisioning template version ID.
+    versionId :: Lude.Int,
+    -- | The template name.
+    templateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningTemplateVersion' with the minimum fields required to make a request.
 --
--- * 'templateName' - The template name.
 -- * 'versionId' - The fleet provisioning template version ID.
+-- * 'templateName' - The template name.
 mkDescribeProvisioningTemplateVersion ::
-  -- | 'templateName'
-  Lude.Text ->
   -- | 'versionId'
   Lude.Int ->
+  -- | 'templateName'
+  Lude.Text ->
   DescribeProvisioningTemplateVersion
-mkDescribeProvisioningTemplateVersion pTemplateName_ pVersionId_ =
+mkDescribeProvisioningTemplateVersion pVersionId_ pTemplateName_ =
   DescribeProvisioningTemplateVersion'
-    { templateName =
-        pTemplateName_,
-      versionId = pVersionId_
+    { versionId = pVersionId_,
+      templateName = pTemplateName_
     }
-
--- | The template name.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptvTemplateName :: Lens.Lens' DescribeProvisioningTemplateVersion Lude.Text
-dptvTemplateName = Lens.lens (templateName :: DescribeProvisioningTemplateVersion -> Lude.Text) (\s a -> s {templateName = a} :: DescribeProvisioningTemplateVersion)
-{-# DEPRECATED dptvTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The fleet provisioning template version ID.
 --
@@ -87,6 +74,13 @@ dptvTemplateName = Lens.lens (templateName :: DescribeProvisioningTemplateVersio
 dptvVersionId :: Lens.Lens' DescribeProvisioningTemplateVersion Lude.Int
 dptvVersionId = Lens.lens (versionId :: DescribeProvisioningTemplateVersion -> Lude.Int) (\s a -> s {versionId = a} :: DescribeProvisioningTemplateVersion)
 {-# DEPRECATED dptvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | The template name.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptvTemplateName :: Lens.Lens' DescribeProvisioningTemplateVersion Lude.Text
+dptvTemplateName = Lens.lens (templateName :: DescribeProvisioningTemplateVersion -> Lude.Text) (\s a -> s {templateName = a} :: DescribeProvisioningTemplateVersion)
+{-# DEPRECATED dptvTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 instance Lude.AWSRequest DescribeProvisioningTemplateVersion where
   type
@@ -121,37 +115,27 @@ instance Lude.ToQuery DescribeProvisioningTemplateVersion where
 
 -- | /See:/ 'mkDescribeProvisioningTemplateVersionResponse' smart constructor.
 data DescribeProvisioningTemplateVersionResponse = DescribeProvisioningTemplateVersionResponse'
-  { versionId ::
-      Lude.Maybe
-        Lude.Int,
-    creationDate ::
-      Lude.Maybe
-        Lude.Timestamp,
-    templateBody ::
-      Lude.Maybe
-        Lude.Text,
-    isDefaultVersion ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | The fleet provisioning template version ID.
+    versionId :: Lude.Maybe Lude.Int,
+    -- | The date when the fleet provisioning template version was created.
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The JSON formatted contents of the fleet provisioning template version.
+    templateBody :: Lude.Maybe Lude.Text,
+    -- | True if the fleet provisioning template version is the default version.
+    isDefaultVersion :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningTemplateVersionResponse' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The fleet provisioning template version ID.
 -- * 'creationDate' - The date when the fleet provisioning template version was created.
+-- * 'templateBody' - The JSON formatted contents of the fleet provisioning template version.
 -- * 'isDefaultVersion' - True if the fleet provisioning template version is the default version.
 -- * 'responseStatus' - The response status code.
--- * 'templateBody' - The JSON formatted contents of the fleet provisioning template version.
--- * 'versionId' - The fleet provisioning template version ID.
 mkDescribeProvisioningTemplateVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

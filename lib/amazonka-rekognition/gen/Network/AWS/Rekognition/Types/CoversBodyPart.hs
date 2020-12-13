@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCoversBodyPart' smart constructor.
 data CoversBodyPart = CoversBodyPart'
-  { value ::
-      Lude.Maybe Lude.Bool,
+  { -- | True if the PPE covers the corresponding body part, otherwise false.
+    value :: Lude.Maybe Lude.Bool,
+    -- | The confidence that Amazon Rekognition has in the value of @Value@ .
     confidence :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoversBodyPart' with the minimum fields required to make a request.
 --
--- * 'confidence' - The confidence that Amazon Rekognition has in the value of @Value@ .
 -- * 'value' - True if the PPE covers the corresponding body part, otherwise false.
+-- * 'confidence' - The confidence that Amazon Rekognition has in the value of @Value@ .
 mkCoversBodyPart ::
   CoversBodyPart
 mkCoversBodyPart =

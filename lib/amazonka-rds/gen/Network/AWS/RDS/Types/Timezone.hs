@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | A time zone associated with a @DBInstance@ or a @DBSnapshot@ . This data type is an element in the response to the @DescribeDBInstances@ , the @DescribeDBSnapshots@ , and the @DescribeDBEngineVersions@ actions.
 --
 -- /See:/ 'mkTimezone' smart constructor.
-newtype Timezone = Timezone' {timezoneName :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Timezone = Timezone'
+  { -- | The name of the time zone.
+    timezoneName :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Timezone' with the minimum fields required to make a request.

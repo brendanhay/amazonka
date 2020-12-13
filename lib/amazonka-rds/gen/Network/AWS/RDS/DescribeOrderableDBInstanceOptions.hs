@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,12 +25,12 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     dodioEngineVersion,
     dodioAvailabilityZoneGroup,
     dodioFilters,
+    dodioEngine,
     dodioDBInstanceClass,
     dodioLicenseModel,
     dodioMarker,
     dodioMaxRecords,
     dodioVPC,
-    dodioEngine,
 
     -- * Destructuring the response
     DescribeOrderableDBInstanceOptionsResponse (..),
@@ -53,42 +54,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeOrderableDBInstanceOptions' smart constructor.
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
-    availabilityZoneGroup ::
-      Lude.Maybe Lude.Text,
-    filters ::
-      Lude.Maybe [Filter],
-    dbInstanceClass ::
-      Lude.Maybe Lude.Text,
-    licenseModel ::
-      Lude.Maybe Lude.Text,
-    marker ::
-      Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int,
-    vpc ::
-      Lude.Maybe Lude.Bool,
-    engine :: Lude.Text
+  { -- | The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group.
+    --
+    -- Omit this parameter to show the available offerings in the specified AWS Region.
+    availabilityZoneGroup :: Lude.Maybe Lude.Text,
+    -- | This parameter isn't currently supported.
+    filters :: Lude.Maybe [Filter],
+    -- | The name of the engine to retrieve DB instance options for.
+    engine :: Lude.Text,
+    -- | The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
+    dbInstanceClass :: Lude.Maybe Lude.Text,
+    -- | The license model filter value. Specify this parameter to show only the available offerings matching the specified license model.
+    licenseModel :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int,
+    -- | A value that indicates whether to show only VPC or non-VPC offerings.
+    vpc :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrderableDBInstanceOptions' with the minimum fields required to make a request.
 --
+-- * 'engineVersion' - The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.
 -- * 'availabilityZoneGroup' - The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group.
 --
 -- Omit this parameter to show the available offerings in the specified AWS Region.
--- * 'dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
--- * 'engine' - The name of the engine to retrieve DB instance options for.
--- * 'engineVersion' - The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.
 -- * 'filters' - This parameter isn't currently supported.
+-- * 'engine' - The name of the engine to retrieve DB instance options for.
+-- * 'dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
 -- * 'licenseModel' - The license model filter value. Specify this parameter to show only the available offerings matching the specified license model.
 -- * 'marker' - An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
@@ -105,12 +106,12 @@ mkDescribeOrderableDBInstanceOptions pEngine_ =
     { engineVersion = Lude.Nothing,
       availabilityZoneGroup = Lude.Nothing,
       filters = Lude.Nothing,
+      engine = pEngine_,
       dbInstanceClass = Lude.Nothing,
       licenseModel = Lude.Nothing,
       marker = Lude.Nothing,
       maxRecords = Lude.Nothing,
-      vpc = Lude.Nothing,
-      engine = pEngine_
+      vpc = Lude.Nothing
     }
 
 -- | The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.
@@ -135,6 +136,13 @@ dodioAvailabilityZoneGroup = Lens.lens (availabilityZoneGroup :: DescribeOrderab
 dodioFilters :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe [Filter])
 dodioFilters = Lens.lens (filters :: DescribeOrderableDBInstanceOptions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeOrderableDBInstanceOptions)
 {-# DEPRECATED dodioFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The name of the engine to retrieve DB instance options for.
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioEngine :: Lens.Lens' DescribeOrderableDBInstanceOptions Lude.Text
+dodioEngine = Lens.lens (engine :: DescribeOrderableDBInstanceOptions -> Lude.Text) (\s a -> s {engine = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
 --
@@ -173,13 +181,6 @@ dodioMaxRecords = Lens.lens (maxRecords :: DescribeOrderableDBInstanceOptions ->
 dodioVPC :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe Lude.Bool)
 dodioVPC = Lens.lens (vpc :: DescribeOrderableDBInstanceOptions -> Lude.Maybe Lude.Bool) (\s a -> s {vpc = a} :: DescribeOrderableDBInstanceOptions)
 {-# DEPRECATED dodioVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
-
--- | The name of the engine to retrieve DB instance options for.
---
--- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dodioEngine :: Lens.Lens' DescribeOrderableDBInstanceOptions Lude.Text
-dodioEngine = Lens.lens (engine :: DescribeOrderableDBInstanceOptions -> Lude.Text) (\s a -> s {engine = a} :: DescribeOrderableDBInstanceOptions)
-{-# DEPRECATED dodioEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 instance Page.AWSPager DescribeOrderableDBInstanceOptions where
   page rq rs
@@ -224,40 +225,32 @@ instance Lude.ToQuery DescribeOrderableDBInstanceOptions where
         "AvailabilityZoneGroup" Lude.=: availabilityZoneGroup,
         "Filters"
           Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "Engine" Lude.=: engine,
         "DBInstanceClass" Lude.=: dbInstanceClass,
         "LicenseModel" Lude.=: licenseModel,
         "Marker" Lude.=: marker,
         "MaxRecords" Lude.=: maxRecords,
-        "Vpc" Lude.=: vpc,
-        "Engine" Lude.=: engine
+        "Vpc" Lude.=: vpc
       ]
 
 -- | Contains the result of a successful invocation of the @DescribeOrderableDBInstanceOptions@ action.
 --
 -- /See:/ 'mkDescribeOrderableDBInstanceOptionsResponse' smart constructor.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
-  { orderableDBInstanceOptions ::
-      Lude.Maybe
-        [OrderableDBInstanceOption],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An @OrderableDBInstanceOption@ structure containing information about orderable options for the DB instance.
+    orderableDBInstanceOptions :: Lude.Maybe [OrderableDBInstanceOption],
+    -- | An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrderableDBInstanceOptionsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'orderableDBInstanceOptions' - An @OrderableDBInstanceOption@ structure containing information about orderable options for the DB instance.
+-- * 'marker' - An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'responseStatus' - The response status code.
 mkDescribeOrderableDBInstanceOptionsResponse ::
   -- | 'responseStatus'

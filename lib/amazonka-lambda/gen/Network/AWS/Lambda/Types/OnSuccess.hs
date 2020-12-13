@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | A destination for events that were processed successfully.
 --
 -- /See:/ 'mkOnSuccess' smart constructor.
-newtype OnSuccess = OnSuccess' {destination :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype OnSuccess = OnSuccess'
+  { -- | The Amazon Resource Name (ARN) of the destination resource.
+    destination :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OnSuccess' with the minimum fields required to make a request.

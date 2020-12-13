@@ -17,6 +17,7 @@ module Network.AWS.Pinpoint.Types.ADMChannelResponse
     mkADMChannelResponse,
 
     -- * Lenses
+    admcPlatform,
     admcLastModifiedDate,
     admcEnabled,
     admcIsArchived,
@@ -26,7 +27,6 @@ module Network.AWS.Pinpoint.Types.ADMChannelResponse
     admcCreationDate,
     admcLastModifiedBy,
     admcHasCredential,
-    admcPlatform,
   )
 where
 
@@ -37,46 +37,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkADMChannelResponse' smart constructor.
 data ADMChannelResponse = ADMChannelResponse'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of messaging or notification platform for the channel. For the ADM channel, this value is ADM.
+    platform :: Lude.Text,
+    -- | The date and time when the ADM channel was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the ADM channel is enabled for the application.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the ADM channel is archived.
     isArchived :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier for the application that the ADM channel applies to.
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The current version of the ADM channel.
     version :: Lude.Maybe Lude.Int,
+    -- | (Deprecated) An identifier for the ADM channel. This property is retained only for backward compatibility.
     id :: Lude.Maybe Lude.Text,
+    -- | The date and time when the ADM channel was enabled.
     creationDate :: Lude.Maybe Lude.Text,
+    -- | The user who last modified the ADM channel.
     lastModifiedBy :: Lude.Maybe Lude.Text,
-    hasCredential :: Lude.Maybe Lude.Bool,
-    platform :: Lude.Text
+    -- | (Not used) This property is retained only for backward compatibility.
+    hasCredential :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ADMChannelResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that the ADM channel applies to.
--- * 'creationDate' - The date and time when the ADM channel was enabled.
--- * 'enabled' - Specifies whether the ADM channel is enabled for the application.
--- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
--- * 'id' - (Deprecated) An identifier for the ADM channel. This property is retained only for backward compatibility.
--- * 'isArchived' - Specifies whether the ADM channel is archived.
--- * 'lastModifiedBy' - The user who last modified the ADM channel.
--- * 'lastModifiedDate' - The date and time when the ADM channel was last modified.
 -- * 'platform' - The type of messaging or notification platform for the channel. For the ADM channel, this value is ADM.
+-- * 'lastModifiedDate' - The date and time when the ADM channel was last modified.
+-- * 'enabled' - Specifies whether the ADM channel is enabled for the application.
+-- * 'isArchived' - Specifies whether the ADM channel is archived.
+-- * 'applicationId' - The unique identifier for the application that the ADM channel applies to.
 -- * 'version' - The current version of the ADM channel.
+-- * 'id' - (Deprecated) An identifier for the ADM channel. This property is retained only for backward compatibility.
+-- * 'creationDate' - The date and time when the ADM channel was enabled.
+-- * 'lastModifiedBy' - The user who last modified the ADM channel.
+-- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
 mkADMChannelResponse ::
   -- | 'platform'
   Lude.Text ->
   ADMChannelResponse
 mkADMChannelResponse pPlatform_ =
   ADMChannelResponse'
-    { lastModifiedDate = Lude.Nothing,
+    { platform = pPlatform_,
+      lastModifiedDate = Lude.Nothing,
       enabled = Lude.Nothing,
       isArchived = Lude.Nothing,
       applicationId = Lude.Nothing,
@@ -84,9 +88,15 @@ mkADMChannelResponse pPlatform_ =
       id = Lude.Nothing,
       creationDate = Lude.Nothing,
       lastModifiedBy = Lude.Nothing,
-      hasCredential = Lude.Nothing,
-      platform = pPlatform_
+      hasCredential = Lude.Nothing
     }
+
+-- | The type of messaging or notification platform for the channel. For the ADM channel, this value is ADM.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admcPlatform :: Lens.Lens' ADMChannelResponse Lude.Text
+admcPlatform = Lens.lens (platform :: ADMChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: ADMChannelResponse)
+{-# DEPRECATED admcPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The date and time when the ADM channel was last modified.
 --
@@ -151,20 +161,14 @@ admcHasCredential :: Lens.Lens' ADMChannelResponse (Lude.Maybe Lude.Bool)
 admcHasCredential = Lens.lens (hasCredential :: ADMChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: ADMChannelResponse)
 {-# DEPRECATED admcHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
--- | The type of messaging or notification platform for the channel. For the ADM channel, this value is ADM.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-admcPlatform :: Lens.Lens' ADMChannelResponse Lude.Text
-admcPlatform = Lens.lens (platform :: ADMChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: ADMChannelResponse)
-{-# DEPRECATED admcPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
 instance Lude.FromJSON ADMChannelResponse where
   parseJSON =
     Lude.withObject
       "ADMChannelResponse"
       ( \x ->
           ADMChannelResponse'
-            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<$> (x Lude..: "Platform")
+            Lude.<*> (x Lude..:? "LastModifiedDate")
             Lude.<*> (x Lude..:? "Enabled")
             Lude.<*> (x Lude..:? "IsArchived")
             Lude.<*> (x Lude..:? "ApplicationId")
@@ -173,5 +177,4 @@ instance Lude.FromJSON ADMChannelResponse where
             Lude.<*> (x Lude..:? "CreationDate")
             Lude.<*> (x Lude..:? "LastModifiedBy")
             Lude.<*> (x Lude..:? "HasCredential")
-            Lude.<*> (x Lude..: "Platform")
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.IoT.ListCertificatesByCA
     mkListCertificatesByCA,
 
     -- ** Request lenses
+    lcbcaCaCertificateId,
     lcbcaMarker,
     lcbcaAscendingOrder,
     lcbcaPageSize,
-    lcbcaCaCertificateId,
 
     -- * Destructuring the response
     ListCertificatesByCAResponse (..),
@@ -48,26 +49,23 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListCertificatesByCA' smart constructor.
 data ListCertificatesByCA = ListCertificatesByCA'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.
+    caCertificateId :: Lude.Text,
+    -- | The marker for the next set of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
     ascendingOrder :: Lude.Maybe Lude.Bool,
-    pageSize :: Lude.Maybe Lude.Natural,
-    caCertificateId :: Lude.Text
+    -- | The result page size.
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificatesByCA' with the minimum fields required to make a request.
 --
--- * 'ascendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 -- * 'caCertificateId' - The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.
 -- * 'marker' - The marker for the next set of results.
+-- * 'ascendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 -- * 'pageSize' - The result page size.
 mkListCertificatesByCA ::
   -- | 'caCertificateId'
@@ -75,11 +73,18 @@ mkListCertificatesByCA ::
   ListCertificatesByCA
 mkListCertificatesByCA pCaCertificateId_ =
   ListCertificatesByCA'
-    { marker = Lude.Nothing,
+    { caCertificateId = pCaCertificateId_,
+      marker = Lude.Nothing,
       ascendingOrder = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      caCertificateId = pCaCertificateId_
+      pageSize = Lude.Nothing
     }
+
+-- | The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.
+--
+-- /Note:/ Consider using 'caCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcbcaCaCertificateId :: Lens.Lens' ListCertificatesByCA Lude.Text
+lcbcaCaCertificateId = Lens.lens (caCertificateId :: ListCertificatesByCA -> Lude.Text) (\s a -> s {caCertificateId = a} :: ListCertificatesByCA)
+{-# DEPRECATED lcbcaCaCertificateId "Use generic-lens or generic-optics with 'caCertificateId' instead." #-}
 
 -- | The marker for the next set of results.
 --
@@ -101,13 +106,6 @@ lcbcaAscendingOrder = Lens.lens (ascendingOrder :: ListCertificatesByCA -> Lude.
 lcbcaPageSize :: Lens.Lens' ListCertificatesByCA (Lude.Maybe Lude.Natural)
 lcbcaPageSize = Lens.lens (pageSize :: ListCertificatesByCA -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListCertificatesByCA)
 {-# DEPRECATED lcbcaPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
--- | The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.
---
--- /Note:/ Consider using 'caCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcbcaCaCertificateId :: Lens.Lens' ListCertificatesByCA Lude.Text
-lcbcaCaCertificateId = Lens.lens (caCertificateId :: ListCertificatesByCA -> Lude.Text) (\s a -> s {caCertificateId = a} :: ListCertificatesByCA)
-{-# DEPRECATED lcbcaCaCertificateId "Use generic-lens or generic-optics with 'caCertificateId' instead." #-}
 
 instance Page.AWSPager ListCertificatesByCA where
   page rq rs
@@ -149,19 +147,14 @@ instance Lude.ToQuery ListCertificatesByCA where
 --
 -- /See:/ 'mkListCertificatesByCAResponse' smart constructor.
 data ListCertificatesByCAResponse = ListCertificatesByCAResponse'
-  { certificates ::
-      Lude.Maybe [Certificate],
-    nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | The device certificates signed by the specified CA certificate.
+    certificates :: Lude.Maybe [Certificate],
+    -- | The marker for the next set of results, or null if there are no additional results.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificatesByCAResponse' with the minimum fields required to make a request.

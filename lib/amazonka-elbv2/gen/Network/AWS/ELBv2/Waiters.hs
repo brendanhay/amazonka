@@ -48,7 +48,7 @@ mkLoadBalancersDeleted =
             Wait.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf
-                    (dlbrsLoadBalancers Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dlbsrsLoadBalancers Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. lbState
                 Lude.. Lens._Just
@@ -100,7 +100,7 @@ mkLoadBalancerAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dlbrsLoadBalancers Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dlbsrsLoadBalancers Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. lbState
                 Lude.. Lens._Just
@@ -113,7 +113,7 @@ mkLoadBalancerAvailable =
             Wait.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf
-                    (dlbrsLoadBalancers Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dlbsrsLoadBalancers Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. lbState
                 Lude.. Lens._Just

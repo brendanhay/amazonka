@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,12 +20,12 @@ module Network.AWS.EC2.CreateClientVPNRoute
     mkCreateClientVPNRoute,
 
     -- ** Request lenses
+    ccvrTargetVPCSubnetId,
     ccvrClientToken,
+    ccvrClientVPNEndpointId,
     ccvrDescription,
     ccvrDryRun,
-    ccvrClientVPNEndpointId,
     ccvrDestinationCidrBlock,
-    ccvrTargetVPCSubnetId,
 
     -- * Destructuring the response
     CreateClientVPNRouteResponse (..),
@@ -44,28 +45,45 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateClientVPNRoute' smart constructor.
 data CreateClientVPNRoute = CreateClientVPNRoute'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | The ID of the subnet through which you want to route traffic. The specified subnet must be an existing target network of the Client VPN endpoint.
+    --
+    -- Alternatively, if you're adding a route for the local network, specify @local@ .
+    targetVPCSubnetId :: Lude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the Client VPN endpoint to which to add the route.
     clientVPNEndpointId :: Lude.Text,
-    destinationCidrBlock :: Lude.Text,
-    targetVPCSubnetId :: Lude.Text
+    -- | A brief description of the route.
+    description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The IPv4 address range, in CIDR notation, of the route destination. For example:
+    --
+    --
+    --     * To add a route for Internet access, enter @0.0.0.0/0@
+    --
+    --
+    --     * To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range
+    --
+    --
+    --     * To add a route for an on-premises network, enter the AWS Site-to-Site VPN connection's IPv4 CIDR range
+    --
+    --
+    --     * To add a route for the local network, enter the client CIDR range
+    destinationCidrBlock :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClientVPNRoute' with the minimum fields required to make a request.
 --
+-- * 'targetVPCSubnetId' - The ID of the subnet through which you want to route traffic. The specified subnet must be an existing target network of the Client VPN endpoint.
+--
+-- Alternatively, if you're adding a route for the local network, specify @local@ .
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 -- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint to which to add the route.
 -- * 'description' - A brief description of the route.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'destinationCidrBlock' - The IPv4 address range, in CIDR notation, of the route destination. For example:
 --
 --
@@ -79,32 +97,35 @@ data CreateClientVPNRoute = CreateClientVPNRoute'
 --
 --
 --     * To add a route for the local network, enter the client CIDR range
---
---
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'targetVPCSubnetId' - The ID of the subnet through which you want to route traffic. The specified subnet must be an existing target network of the Client VPN endpoint.
---
--- Alternatively, if you're adding a route for the local network, specify @local@ .
 mkCreateClientVPNRoute ::
+  -- | 'targetVPCSubnetId'
+  Lude.Text ->
   -- | 'clientVPNEndpointId'
   Lude.Text ->
   -- | 'destinationCidrBlock'
   Lude.Text ->
-  -- | 'targetVPCSubnetId'
-  Lude.Text ->
   CreateClientVPNRoute
 mkCreateClientVPNRoute
+  pTargetVPCSubnetId_
   pClientVPNEndpointId_
-  pDestinationCidrBlock_
-  pTargetVPCSubnetId_ =
+  pDestinationCidrBlock_ =
     CreateClientVPNRoute'
-      { clientToken = Lude.Nothing,
+      { targetVPCSubnetId = pTargetVPCSubnetId_,
+        clientToken = Lude.Nothing,
+        clientVPNEndpointId = pClientVPNEndpointId_,
         description = Lude.Nothing,
         dryRun = Lude.Nothing,
-        clientVPNEndpointId = pClientVPNEndpointId_,
-        destinationCidrBlock = pDestinationCidrBlock_,
-        targetVPCSubnetId = pTargetVPCSubnetId_
+        destinationCidrBlock = pDestinationCidrBlock_
       }
+
+-- | The ID of the subnet through which you want to route traffic. The specified subnet must be an existing target network of the Client VPN endpoint.
+--
+-- Alternatively, if you're adding a route for the local network, specify @local@ .
+--
+-- /Note:/ Consider using 'targetVPCSubnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccvrTargetVPCSubnetId :: Lens.Lens' CreateClientVPNRoute Lude.Text
+ccvrTargetVPCSubnetId = Lens.lens (targetVPCSubnetId :: CreateClientVPNRoute -> Lude.Text) (\s a -> s {targetVPCSubnetId = a} :: CreateClientVPNRoute)
+{-# DEPRECATED ccvrTargetVPCSubnetId "Use generic-lens or generic-optics with 'targetVPCSubnetId' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
@@ -112,6 +133,13 @@ mkCreateClientVPNRoute
 ccvrClientToken :: Lens.Lens' CreateClientVPNRoute (Lude.Maybe Lude.Text)
 ccvrClientToken = Lens.lens (clientToken :: CreateClientVPNRoute -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateClientVPNRoute)
 {-# DEPRECATED ccvrClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The ID of the Client VPN endpoint to which to add the route.
+--
+-- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccvrClientVPNEndpointId :: Lens.Lens' CreateClientVPNRoute Lude.Text
+ccvrClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: CreateClientVPNRoute -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: CreateClientVPNRoute)
+{-# DEPRECATED ccvrClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
 -- | A brief description of the route.
 --
@@ -126,13 +154,6 @@ ccvrDescription = Lens.lens (description :: CreateClientVPNRoute -> Lude.Maybe L
 ccvrDryRun :: Lens.Lens' CreateClientVPNRoute (Lude.Maybe Lude.Bool)
 ccvrDryRun = Lens.lens (dryRun :: CreateClientVPNRoute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateClientVPNRoute)
 {-# DEPRECATED ccvrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the Client VPN endpoint to which to add the route.
---
--- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccvrClientVPNEndpointId :: Lens.Lens' CreateClientVPNRoute Lude.Text
-ccvrClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: CreateClientVPNRoute -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: CreateClientVPNRoute)
-{-# DEPRECATED ccvrClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
 -- | The IPv4 address range, in CIDR notation, of the route destination. For example:
 --
@@ -155,15 +176,6 @@ ccvrDestinationCidrBlock :: Lens.Lens' CreateClientVPNRoute Lude.Text
 ccvrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: CreateClientVPNRoute -> Lude.Text) (\s a -> s {destinationCidrBlock = a} :: CreateClientVPNRoute)
 {-# DEPRECATED ccvrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
--- | The ID of the subnet through which you want to route traffic. The specified subnet must be an existing target network of the Client VPN endpoint.
---
--- Alternatively, if you're adding a route for the local network, specify @local@ .
---
--- /Note:/ Consider using 'targetVPCSubnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccvrTargetVPCSubnetId :: Lens.Lens' CreateClientVPNRoute Lude.Text
-ccvrTargetVPCSubnetId = Lens.lens (targetVPCSubnetId :: CreateClientVPNRoute -> Lude.Text) (\s a -> s {targetVPCSubnetId = a} :: CreateClientVPNRoute)
-{-# DEPRECATED ccvrTargetVPCSubnetId "Use generic-lens or generic-optics with 'targetVPCSubnetId' instead." #-}
-
 instance Lude.AWSRequest CreateClientVPNRoute where
   type Rs CreateClientVPNRoute = CreateClientVPNRouteResponse
   request = Req.postQuery ec2Service
@@ -185,33 +197,28 @@ instance Lude.ToQuery CreateClientVPNRoute where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateClientVpnRoute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "TargetVpcSubnetId" Lude.=: targetVPCSubnetId,
         "ClientToken" Lude.=: clientToken,
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
         "Description" Lude.=: description,
         "DryRun" Lude.=: dryRun,
-        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
-        "DestinationCidrBlock" Lude.=: destinationCidrBlock,
-        "TargetVpcSubnetId" Lude.=: targetVPCSubnetId
+        "DestinationCidrBlock" Lude.=: destinationCidrBlock
       ]
 
 -- | /See:/ 'mkCreateClientVPNRouteResponse' smart constructor.
 data CreateClientVPNRouteResponse = CreateClientVPNRouteResponse'
-  { status ::
-      Lude.Maybe ClientVPNRouteStatus,
+  { -- | The current state of the route.
+    status :: Lude.Maybe ClientVPNRouteStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClientVPNRouteResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The current state of the route.
+-- * 'responseStatus' - The response status code.
 mkCreateClientVPNRouteResponse ::
   -- | 'responseStatus'
   Lude.Int ->

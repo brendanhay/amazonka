@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,10 @@ import Network.AWS.Route53Domains.Types
 
 -- | /See:/ 'mkDisableDomainAutoRenew' smart constructor.
 newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
-  { domainName ::
-      Lude.Text
+  { -- | The name of the domain that you want to disable automatic renewal for.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDomainAutoRenew' with the minimum fields required to make a request.
@@ -103,16 +98,10 @@ instance Lude.ToQuery DisableDomainAutoRenew where
 
 -- | /See:/ 'mkDisableDomainAutoRenewResponse' smart constructor.
 newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDomainAutoRenewResponse' with the minimum fields required to make a request.

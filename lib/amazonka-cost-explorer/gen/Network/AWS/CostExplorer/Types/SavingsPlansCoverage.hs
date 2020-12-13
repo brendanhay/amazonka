@@ -32,26 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansCoverage' smart constructor.
 data SavingsPlansCoverage = SavingsPlansCoverage'
-  { timePeriod ::
-      Lude.Maybe DateInterval,
+  { timePeriod :: Lude.Maybe DateInterval,
+    -- | The amount of Savings Plans eligible usage that the Savings Plans covered.
     coverage :: Lude.Maybe SavingsPlansCoverageData,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    -- | The attribute that applies to a specific @Dimension@ .
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansCoverage' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attribute that applies to a specific @Dimension@ .
+-- * 'timePeriod' -
 -- * 'coverage' - The amount of Savings Plans eligible usage that the Savings Plans covered.
--- * 'timePeriod' - Undocumented field.
+-- * 'attributes' - The attribute that applies to a specific @Dimension@ .
 mkSavingsPlansCoverage ::
   SavingsPlansCoverage
 mkSavingsPlansCoverage =

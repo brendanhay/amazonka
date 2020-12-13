@@ -30,22 +30,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountAttribute' smart constructor.
 data AccountAttribute = AccountAttribute'
-  { used ::
-      Lude.Maybe Lude.Int,
+  { -- | The current usage, such as the current number of servers that are associated with the account.
+    used :: Lude.Maybe Lude.Int,
+    -- | The maximum allowed value.
     maximum :: Lude.Maybe Lude.Int,
+    -- | The attribute name. The following are supported attribute names.
+    --
+    --
+    --     * /ServerLimit:/ The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.
+    --
+    --
+    --     * /ManualBackupLimit:/ The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum of 50 manual backups saved.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountAttribute' with the minimum fields required to make a request.
 --
+-- * 'used' - The current usage, such as the current number of servers that are associated with the account.
 -- * 'maximum' - The maximum allowed value.
 -- * 'name' - The attribute name. The following are supported attribute names.
 --
@@ -54,9 +57,6 @@ data AccountAttribute = AccountAttribute'
 --
 --
 --     * /ManualBackupLimit:/ The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum of 50 manual backups saved.
---
---
--- * 'used' - The current usage, such as the current number of servers that are associated with the account.
 mkAccountAttribute ::
   AccountAttribute
 mkAccountAttribute =

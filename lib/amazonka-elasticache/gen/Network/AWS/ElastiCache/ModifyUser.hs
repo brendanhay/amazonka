@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.ElastiCache.ModifyUser
     -- ** Request lenses
     muAppendAccessString,
     muAccessString,
+    muUserId,
     muPasswords,
     muNoPasswordRequired,
-    muUserId,
 
     -- * Destructuring the response
     User (..),
@@ -49,29 +50,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyUser' smart constructor.
 data ModifyUser = ModifyUser'
-  { appendAccessString ::
-      Lude.Maybe Lude.Text,
+  { -- | Adds additional user permissions to the access string.
+    appendAccessString :: Lude.Maybe Lude.Text,
+    -- | Access permissions string used for this user account.
     accessString :: Lude.Maybe Lude.Text,
+    -- | The ID of the user.
+    userId :: Lude.Text,
+    -- | The passwords belonging to the user account. You are allowed up to two.
     passwords :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    noPasswordRequired :: Lude.Maybe Lude.Bool,
-    userId :: Lude.Text
+    -- | Indicates no password is required for the user account.
+    noPasswordRequired :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyUser' with the minimum fields required to make a request.
 --
--- * 'accessString' - Access permissions string used for this user account.
 -- * 'appendAccessString' - Adds additional user permissions to the access string.
--- * 'noPasswordRequired' - Indicates no password is required for the user account.
--- * 'passwords' - The passwords belonging to the user account. You are allowed up to two.
+-- * 'accessString' - Access permissions string used for this user account.
 -- * 'userId' - The ID of the user.
+-- * 'passwords' - The passwords belonging to the user account. You are allowed up to two.
+-- * 'noPasswordRequired' - Indicates no password is required for the user account.
 mkModifyUser ::
   -- | 'userId'
   Lude.Text ->
@@ -80,9 +79,9 @@ mkModifyUser pUserId_ =
   ModifyUser'
     { appendAccessString = Lude.Nothing,
       accessString = Lude.Nothing,
+      userId = pUserId_,
       passwords = Lude.Nothing,
-      noPasswordRequired = Lude.Nothing,
-      userId = pUserId_
+      noPasswordRequired = Lude.Nothing
     }
 
 -- | Adds additional user permissions to the access string.
@@ -99,6 +98,13 @@ muAccessString :: Lens.Lens' ModifyUser (Lude.Maybe Lude.Text)
 muAccessString = Lens.lens (accessString :: ModifyUser -> Lude.Maybe Lude.Text) (\s a -> s {accessString = a} :: ModifyUser)
 {-# DEPRECATED muAccessString "Use generic-lens or generic-optics with 'accessString' instead." #-}
 
+-- | The ID of the user.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muUserId :: Lens.Lens' ModifyUser Lude.Text
+muUserId = Lens.lens (userId :: ModifyUser -> Lude.Text) (\s a -> s {userId = a} :: ModifyUser)
+{-# DEPRECATED muUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
 -- | The passwords belonging to the user account. You are allowed up to two.
 --
 -- /Note:/ Consider using 'passwords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -112,13 +118,6 @@ muPasswords = Lens.lens (passwords :: ModifyUser -> Lude.Maybe (Lude.NonEmpty Lu
 muNoPasswordRequired :: Lens.Lens' ModifyUser (Lude.Maybe Lude.Bool)
 muNoPasswordRequired = Lens.lens (noPasswordRequired :: ModifyUser -> Lude.Maybe Lude.Bool) (\s a -> s {noPasswordRequired = a} :: ModifyUser)
 {-# DEPRECATED muNoPasswordRequired "Use generic-lens or generic-optics with 'noPasswordRequired' instead." #-}
-
--- | The ID of the user.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-muUserId :: Lens.Lens' ModifyUser Lude.Text
-muUserId = Lens.lens (userId :: ModifyUser -> Lude.Text) (\s a -> s {userId = a} :: ModifyUser)
-{-# DEPRECATED muUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 instance Lude.AWSRequest ModifyUser where
   type Rs ModifyUser = User
@@ -141,8 +140,8 @@ instance Lude.ToQuery ModifyUser where
         "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
         "AppendAccessString" Lude.=: appendAccessString,
         "AccessString" Lude.=: accessString,
+        "UserId" Lude.=: userId,
         "Passwords"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> passwords),
-        "NoPasswordRequired" Lude.=: noPasswordRequired,
-        "UserId" Lude.=: userId
+        "NoPasswordRequired" Lude.=: noPasswordRequired
       ]

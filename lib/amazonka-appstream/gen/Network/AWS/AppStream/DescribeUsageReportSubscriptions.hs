@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.AppStream.DescribeUsageReportSubscriptions
     mkDescribeUsageReportSubscriptions,
 
     -- ** Request lenses
-    durssNextToken,
-    durssMaxResults,
+    dursNextToken,
+    dursMaxResults,
 
     -- * Destructuring the response
     DescribeUsageReportSubscriptionsResponse (..),
     mkDescribeUsageReportSubscriptionsResponse,
 
     -- ** Response lenses
-    durssrsUsageReportSubscriptions,
-    durssrsNextToken,
-    durssrsResponseStatus,
+    dursrsUsageReportSubscriptions,
+    dursrsNextToken,
+    dursrsResponseStatus,
   )
 where
 
@@ -41,24 +42,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeUsageReportSubscriptions' smart constructor.
 data DescribeUsageReportSubscriptions = DescribeUsageReportSubscriptions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Int
+  { -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum size of each page of results.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsageReportSubscriptions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum size of each page of results.
 -- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+-- * 'maxResults' - The maximum size of each page of results.
 mkDescribeUsageReportSubscriptions ::
   DescribeUsageReportSubscriptions
 mkDescribeUsageReportSubscriptions =
@@ -70,16 +65,16 @@ mkDescribeUsageReportSubscriptions =
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-durssNextToken :: Lens.Lens' DescribeUsageReportSubscriptions (Lude.Maybe Lude.Text)
-durssNextToken = Lens.lens (nextToken :: DescribeUsageReportSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUsageReportSubscriptions)
-{-# DEPRECATED durssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dursNextToken :: Lens.Lens' DescribeUsageReportSubscriptions (Lude.Maybe Lude.Text)
+dursNextToken = Lens.lens (nextToken :: DescribeUsageReportSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUsageReportSubscriptions)
+{-# DEPRECATED dursNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum size of each page of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-durssMaxResults :: Lens.Lens' DescribeUsageReportSubscriptions (Lude.Maybe Lude.Int)
-durssMaxResults = Lens.lens (maxResults :: DescribeUsageReportSubscriptions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeUsageReportSubscriptions)
-{-# DEPRECATED durssMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dursMaxResults :: Lens.Lens' DescribeUsageReportSubscriptions (Lude.Maybe Lude.Int)
+dursMaxResults = Lens.lens (maxResults :: DescribeUsageReportSubscriptions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeUsageReportSubscriptions)
+{-# DEPRECATED dursMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest DescribeUsageReportSubscriptions where
   type
@@ -125,29 +120,21 @@ instance Lude.ToQuery DescribeUsageReportSubscriptions where
 
 -- | /See:/ 'mkDescribeUsageReportSubscriptionsResponse' smart constructor.
 data DescribeUsageReportSubscriptionsResponse = DescribeUsageReportSubscriptionsResponse'
-  { usageReportSubscriptions ::
-      Lude.Maybe
-        [UsageReportSubscription],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the usage report subscription.
+    usageReportSubscriptions :: Lude.Maybe [UsageReportSubscription],
+    -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsageReportSubscriptionsResponse' with the minimum fields required to make a request.
 --
+-- * 'usageReportSubscriptions' - Information about the usage report subscription.
 -- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 -- * 'responseStatus' - The response status code.
--- * 'usageReportSubscriptions' - Information about the usage report subscription.
 mkDescribeUsageReportSubscriptionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -163,20 +150,20 @@ mkDescribeUsageReportSubscriptionsResponse pResponseStatus_ =
 -- | Information about the usage report subscription.
 --
 -- /Note:/ Consider using 'usageReportSubscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-durssrsUsageReportSubscriptions :: Lens.Lens' DescribeUsageReportSubscriptionsResponse (Lude.Maybe [UsageReportSubscription])
-durssrsUsageReportSubscriptions = Lens.lens (usageReportSubscriptions :: DescribeUsageReportSubscriptionsResponse -> Lude.Maybe [UsageReportSubscription]) (\s a -> s {usageReportSubscriptions = a} :: DescribeUsageReportSubscriptionsResponse)
-{-# DEPRECATED durssrsUsageReportSubscriptions "Use generic-lens or generic-optics with 'usageReportSubscriptions' instead." #-}
+dursrsUsageReportSubscriptions :: Lens.Lens' DescribeUsageReportSubscriptionsResponse (Lude.Maybe [UsageReportSubscription])
+dursrsUsageReportSubscriptions = Lens.lens (usageReportSubscriptions :: DescribeUsageReportSubscriptionsResponse -> Lude.Maybe [UsageReportSubscription]) (\s a -> s {usageReportSubscriptions = a} :: DescribeUsageReportSubscriptionsResponse)
+{-# DEPRECATED dursrsUsageReportSubscriptions "Use generic-lens or generic-optics with 'usageReportSubscriptions' instead." #-}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-durssrsNextToken :: Lens.Lens' DescribeUsageReportSubscriptionsResponse (Lude.Maybe Lude.Text)
-durssrsNextToken = Lens.lens (nextToken :: DescribeUsageReportSubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUsageReportSubscriptionsResponse)
-{-# DEPRECATED durssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dursrsNextToken :: Lens.Lens' DescribeUsageReportSubscriptionsResponse (Lude.Maybe Lude.Text)
+dursrsNextToken = Lens.lens (nextToken :: DescribeUsageReportSubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUsageReportSubscriptionsResponse)
+{-# DEPRECATED dursrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-durssrsResponseStatus :: Lens.Lens' DescribeUsageReportSubscriptionsResponse Lude.Int
-durssrsResponseStatus = Lens.lens (responseStatus :: DescribeUsageReportSubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUsageReportSubscriptionsResponse)
-{-# DEPRECATED durssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dursrsResponseStatus :: Lens.Lens' DescribeUsageReportSubscriptionsResponse Lude.Int
+dursrsResponseStatus = Lens.lens (responseStatus :: DescribeUsageReportSubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUsageReportSubscriptionsResponse)
+{-# DEPRECATED dursrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

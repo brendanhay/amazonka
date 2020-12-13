@@ -17,8 +17,8 @@ module Network.AWS.Rekognition.Types.ProtectiveEquipmentSummarizationAttributes
     mkProtectiveEquipmentSummarizationAttributes,
 
     -- * Lenses
-    pesaMinConfidence,
     pesaRequiredEquipmentTypes,
+    pesaMinConfidence,
   )
 where
 
@@ -30,37 +30,39 @@ import Network.AWS.Rekognition.Types.ProtectiveEquipmentType
 --
 -- /See:/ 'mkProtectiveEquipmentSummarizationAttributes' smart constructor.
 data ProtectiveEquipmentSummarizationAttributes = ProtectiveEquipmentSummarizationAttributes'
-  { minConfidence ::
-      Lude.Double,
-    requiredEquipmentTypes ::
-      [ProtectiveEquipmentType]
+  { -- | An array of personal protective equipment types for which you want summary information. If a person is detected wearing a required requipment type, the person's ID is added to the @PersonsWithRequiredEquipment@ array field returned in 'ProtectiveEquipmentSummary' by @DetectProtectiveEquipment@ .
+    requiredEquipmentTypes :: [ProtectiveEquipmentType],
+    -- | The minimum confidence level for which you want summary information. The confidence level applies to person detection, body part detection, equipment detection, and body part coverage. Amazon Rekognition doesn't return summary information with a confidence than this specified value. There isn't a default value.
+    --
+    -- Specify a @MinConfidence@ value that is between 50-100% as @DetectProtectiveEquipment@ returns predictions only where the detection confidence is between 50% - 100%. If you specify a value that is less than 50%, the results are the same specifying a value of 50%.
+    minConfidence :: Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectiveEquipmentSummarizationAttributes' with the minimum fields required to make a request.
 --
+-- * 'requiredEquipmentTypes' - An array of personal protective equipment types for which you want summary information. If a person is detected wearing a required requipment type, the person's ID is added to the @PersonsWithRequiredEquipment@ array field returned in 'ProtectiveEquipmentSummary' by @DetectProtectiveEquipment@ .
 -- * 'minConfidence' - The minimum confidence level for which you want summary information. The confidence level applies to person detection, body part detection, equipment detection, and body part coverage. Amazon Rekognition doesn't return summary information with a confidence than this specified value. There isn't a default value.
 --
 -- Specify a @MinConfidence@ value that is between 50-100% as @DetectProtectiveEquipment@ returns predictions only where the detection confidence is between 50% - 100%. If you specify a value that is less than 50%, the results are the same specifying a value of 50%.
---
--- * 'requiredEquipmentTypes' - An array of personal protective equipment types for which you want summary information. If a person is detected wearing a required requipment type, the person's ID is added to the @PersonsWithRequiredEquipment@ array field returned in 'ProtectiveEquipmentSummary' by @DetectProtectiveEquipment@ .
 mkProtectiveEquipmentSummarizationAttributes ::
   -- | 'minConfidence'
   Lude.Double ->
   ProtectiveEquipmentSummarizationAttributes
 mkProtectiveEquipmentSummarizationAttributes pMinConfidence_ =
   ProtectiveEquipmentSummarizationAttributes'
-    { minConfidence =
-        pMinConfidence_,
-      requiredEquipmentTypes = Lude.mempty
+    { requiredEquipmentTypes =
+        Lude.mempty,
+      minConfidence = pMinConfidence_
     }
+
+-- | An array of personal protective equipment types for which you want summary information. If a person is detected wearing a required requipment type, the person's ID is added to the @PersonsWithRequiredEquipment@ array field returned in 'ProtectiveEquipmentSummary' by @DetectProtectiveEquipment@ .
+--
+-- /Note:/ Consider using 'requiredEquipmentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesaRequiredEquipmentTypes :: Lens.Lens' ProtectiveEquipmentSummarizationAttributes [ProtectiveEquipmentType]
+pesaRequiredEquipmentTypes = Lens.lens (requiredEquipmentTypes :: ProtectiveEquipmentSummarizationAttributes -> [ProtectiveEquipmentType]) (\s a -> s {requiredEquipmentTypes = a} :: ProtectiveEquipmentSummarizationAttributes)
+{-# DEPRECATED pesaRequiredEquipmentTypes "Use generic-lens or generic-optics with 'requiredEquipmentTypes' instead." #-}
 
 -- | The minimum confidence level for which you want summary information. The confidence level applies to person detection, body part detection, equipment detection, and body part coverage. Amazon Rekognition doesn't return summary information with a confidence than this specified value. There isn't a default value.
 --
@@ -72,19 +74,12 @@ pesaMinConfidence :: Lens.Lens' ProtectiveEquipmentSummarizationAttributes Lude.
 pesaMinConfidence = Lens.lens (minConfidence :: ProtectiveEquipmentSummarizationAttributes -> Lude.Double) (\s a -> s {minConfidence = a} :: ProtectiveEquipmentSummarizationAttributes)
 {-# DEPRECATED pesaMinConfidence "Use generic-lens or generic-optics with 'minConfidence' instead." #-}
 
--- | An array of personal protective equipment types for which you want summary information. If a person is detected wearing a required requipment type, the person's ID is added to the @PersonsWithRequiredEquipment@ array field returned in 'ProtectiveEquipmentSummary' by @DetectProtectiveEquipment@ .
---
--- /Note:/ Consider using 'requiredEquipmentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesaRequiredEquipmentTypes :: Lens.Lens' ProtectiveEquipmentSummarizationAttributes [ProtectiveEquipmentType]
-pesaRequiredEquipmentTypes = Lens.lens (requiredEquipmentTypes :: ProtectiveEquipmentSummarizationAttributes -> [ProtectiveEquipmentType]) (\s a -> s {requiredEquipmentTypes = a} :: ProtectiveEquipmentSummarizationAttributes)
-{-# DEPRECATED pesaRequiredEquipmentTypes "Use generic-lens or generic-optics with 'requiredEquipmentTypes' instead." #-}
-
 instance Lude.ToJSON ProtectiveEquipmentSummarizationAttributes where
   toJSON ProtectiveEquipmentSummarizationAttributes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("MinConfidence" Lude..= minConfidence),
-            Lude.Just
-              ("RequiredEquipmentTypes" Lude..= requiredEquipmentTypes)
+          [ Lude.Just
+              ("RequiredEquipmentTypes" Lude..= requiredEquipmentTypes),
+            Lude.Just ("MinConfidence" Lude..= minConfidence)
           ]
       )

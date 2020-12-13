@@ -33,31 +33,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
-  { deleteOnTermination ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether the volume is deleted on instance termination.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The volume size, in GiB. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
     volumeSize :: Lude.Maybe Lude.Int,
+    -- | The number of I/O operations per second (IOPS) that the volume supports. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
     iops :: Lude.Maybe Lude.Int,
+    -- | The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD) volumes, @st1@ for Throughput Optimized hard disk drives (HDD), @sc1@ for Cold HDD,and @standard@ for Magnetic volumes.
+    --
+    -- If you specify the @io1@ volume type, you must also specify a value for the @Iops@ attribute. The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB) specified in the AMI attributes to set IOPS to 50 x (volume size).
     volumeType :: Lude.Maybe VolumeType,
+    -- | The snapshot ID.
     snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSBlockDevice' with the minimum fields required to make a request.
 --
 -- * 'deleteOnTermination' - Whether the volume is deleted on instance termination.
--- * 'iops' - The number of I/O operations per second (IOPS) that the volume supports. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
--- * 'snapshotId' - The snapshot ID.
 -- * 'volumeSize' - The volume size, in GiB. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
+-- * 'iops' - The number of I/O operations per second (IOPS) that the volume supports. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice> .
 -- * 'volumeType' - The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD) volumes, @st1@ for Throughput Optimized hard disk drives (HDD), @sc1@ for Cold HDD,and @standard@ for Magnetic volumes.
 --
 -- If you specify the @io1@ volume type, you must also specify a value for the @Iops@ attribute. The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB) specified in the AMI attributes to set IOPS to 50 x (volume size).
+-- * 'snapshotId' - The snapshot ID.
 mkEBSBlockDevice ::
   EBSBlockDevice
 mkEBSBlockDevice =

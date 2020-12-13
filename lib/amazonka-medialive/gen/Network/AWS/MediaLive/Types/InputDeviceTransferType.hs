@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.InputDeviceTransferType
   ( InputDeviceTransferType
       ( InputDeviceTransferType',
-        Incoming,
-        Outgoing
+        Outgoing,
+        Incoming
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype InputDeviceTransferType = InputDeviceTransferType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Incoming :: InputDeviceTransferType
-pattern Incoming = InputDeviceTransferType' "INCOMING"
-
 pattern Outgoing :: InputDeviceTransferType
 pattern Outgoing = InputDeviceTransferType' "OUTGOING"
 
+pattern Incoming :: InputDeviceTransferType
+pattern Incoming = InputDeviceTransferType' "INCOMING"
+
 {-# COMPLETE
-  Incoming,
   Outgoing,
+  Incoming,
   InputDeviceTransferType'
   #-}

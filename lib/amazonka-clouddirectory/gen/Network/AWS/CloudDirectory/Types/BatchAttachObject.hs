@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchAttachObject' smart constructor.
 data BatchAttachObject = BatchAttachObject'
-  { parentReference ::
-      ObjectReference,
+  { -- | The parent object reference.
+    parentReference :: ObjectReference,
+    -- | The child object reference that is to be attached to the object.
     childReference :: ObjectReference,
+    -- | The name of the link.
     linkName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachObject' with the minimum fields required to make a request.
 --
+-- * 'parentReference' - The parent object reference.
 -- * 'childReference' - The child object reference that is to be attached to the object.
 -- * 'linkName' - The name of the link.
--- * 'parentReference' - The parent object reference.
 mkBatchAttachObject ::
   -- | 'parentReference'
   ObjectReference ->

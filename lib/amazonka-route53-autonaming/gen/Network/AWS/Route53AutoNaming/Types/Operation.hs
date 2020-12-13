@@ -38,28 +38,99 @@ import Network.AWS.Route53AutoNaming.Types.OperationType
 --
 -- /See:/ 'mkOperation' smart constructor.
 data Operation = Operation'
-  { status :: Lude.Maybe OperationStatus,
+  { -- | The status of the operation. Values include the following:
+    --
+    --
+    --     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
+    --
+    --
+    --     * __PENDING__ : AWS Cloud Map is performing the operation.
+    --
+    --
+    --     * __SUCCESS__ : The operation succeeded.
+    --
+    --
+    --     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+    status :: Lude.Maybe OperationStatus,
+    -- | The date and time that the value of @Status@ changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of @UpdateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
     updateDate :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
     createDate :: Lude.Maybe Lude.Timestamp,
-    targets ::
-      Lude.Maybe (Lude.HashMap OperationTargetType (Lude.Text)),
+    -- | The name of the target entity that is associated with the operation:
+    --
+    --
+    --     * __NAMESPACE__ : The namespace ID is returned in the @ResourceId@ property.
+    --
+    --
+    --     * __SERVICE__ : The service ID is returned in the @ResourceId@ property.
+    --
+    --
+    --     * __INSTANCE__ : The instance ID is returned in the @ResourceId@ property.
+    targets :: Lude.Maybe (Lude.HashMap OperationTargetType (Lude.Text)),
+    -- | The code associated with @ErrorMessage@ . Values for @ErrorCode@ include the following:
+    --
+    --
+    --     * @ACCESS_DENIED@
+    --
+    --
+    --     * @CANNOT_CREATE_HOSTED_ZONE@
+    --
+    --
+    --     * @EXPIRED_TOKEN@
+    --
+    --
+    --     * @HOSTED_ZONE_NOT_FOUND@
+    --
+    --
+    --     * @INTERNAL_FAILURE@
+    --
+    --
+    --     * @INVALID_CHANGE_BATCH@
+    --
+    --
+    --     * @THROTTLED_REQUEST@
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The ID of the operation that you want to get information about.
     id :: Lude.Maybe Lude.Text,
+    -- | The name of the operation that is associated with the specified ID.
     type' :: Lude.Maybe OperationType,
+    -- | If the value of @Status@ is @FAIL@ , the reason that the operation failed.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Operation' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the operation. Values include the following:
+--
+--
+--     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
+--
+--
+--     * __PENDING__ : AWS Cloud Map is performing the operation.
+--
+--
+--     * __SUCCESS__ : The operation succeeded.
+--
+--
+--     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+--
+--
+-- * 'updateDate' - The date and time that the value of @Status@ changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of @UpdateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
 -- * 'createDate' - The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
+-- * 'targets' - The name of the target entity that is associated with the operation:
+--
+--
+--     * __NAMESPACE__ : The namespace ID is returned in the @ResourceId@ property.
+--
+--
+--     * __SERVICE__ : The service ID is returned in the @ResourceId@ property.
+--
+--
+--     * __INSTANCE__ : The instance ID is returned in the @ResourceId@ property.
+--
+--
 -- * 'errorCode' - The code associated with @ErrorMessage@ . Values for @ErrorCode@ include the following:
 --
 --
@@ -84,37 +155,9 @@ data Operation = Operation'
 --     * @THROTTLED_REQUEST@
 --
 --
--- * 'errorMessage' - If the value of @Status@ is @FAIL@ , the reason that the operation failed.
 -- * 'id' - The ID of the operation that you want to get information about.
--- * 'status' - The status of the operation. Values include the following:
---
---
---     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
---
---
---     * __PENDING__ : AWS Cloud Map is performing the operation.
---
---
---     * __SUCCESS__ : The operation succeeded.
---
---
---     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
---
---
--- * 'targets' - The name of the target entity that is associated with the operation:
---
---
---     * __NAMESPACE__ : The namespace ID is returned in the @ResourceId@ property.
---
---
---     * __SERVICE__ : The service ID is returned in the @ResourceId@ property.
---
---
---     * __INSTANCE__ : The instance ID is returned in the @ResourceId@ property.
---
---
 -- * 'type'' - The name of the operation that is associated with the specified ID.
--- * 'updateDate' - The date and time that the value of @Status@ changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of @UpdateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
+-- * 'errorMessage' - If the value of @Status@ is @FAIL@ , the reason that the operation failed.
 mkOperation ::
   Operation
 mkOperation =

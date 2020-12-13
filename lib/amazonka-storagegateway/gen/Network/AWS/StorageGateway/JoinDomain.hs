@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,13 +20,13 @@ module Network.AWS.StorageGateway.JoinDomain
     mkJoinDomain,
 
     -- ** Request lenses
-    jdOrganizationalUnit,
-    jdTimeoutInSeconds,
-    jdDomainControllers,
     jdGatewayARN,
-    jdDomainName,
+    jdOrganizationalUnit,
     jdUserName,
+    jdTimeoutInSeconds,
+    jdDomainName,
     jdPassword,
+    jdDomainControllers,
 
     -- * Destructuring the response
     JoinDomainResponse (..),
@@ -48,68 +49,53 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkJoinDomain' smart constructor.
 data JoinDomain = JoinDomain'
-  { organizationalUnit ::
-      Lude.Maybe Lude.Text,
-    timeoutInSeconds :: Lude.Maybe Lude.Natural,
-    domainControllers :: Lude.Maybe [Lude.Text],
+  { -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@ operation to return a list of gateways for your account and AWS Region.
     gatewayARN :: Lude.Text,
-    domainName :: Lude.Text,
+    -- | The organizational unit (OU) is a container in an Active Directory that can hold users, groups, computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+    organizationalUnit :: Lude.Maybe Lude.Text,
+    -- | Sets the user name of user who has permission to add the gateway to the Active Directory domain. The domain user account should be enabled to join computers to the domain. For example, you can use the domain administrator account or an account with delegated permissions to join computers to the domain.
     userName :: Lude.Text,
-    password :: Lude.Sensitive Lude.Text
+    -- | Specifies the time in seconds, in which the @JoinDomain@ operation must complete. The default is 20 seconds.
+    timeoutInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The name of the domain that you want the gateway to join.
+    domainName :: Lude.Text,
+    -- | Sets the password of the user who has permission to add the gateway to the Active Directory domain.
+    password :: Lude.Sensitive Lude.Text,
+    -- | List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you need to specify the port number include it after the colon (“:”). For example, @mydc.mydomain.com:389@ .
+    domainControllers :: Lude.Maybe [Lude.Text]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JoinDomain' with the minimum fields required to make a request.
 --
--- * 'domainControllers' - List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you need to specify the port number include it after the colon (“:”). For example, @mydc.mydomain.com:389@ .
--- * 'domainName' - The name of the domain that you want the gateway to join.
 -- * 'gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@ operation to return a list of gateways for your account and AWS Region.
 -- * 'organizationalUnit' - The organizational unit (OU) is a container in an Active Directory that can hold users, groups, computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
--- * 'password' - Sets the password of the user who has permission to add the gateway to the Active Directory domain.
--- * 'timeoutInSeconds' - Specifies the time in seconds, in which the @JoinDomain@ operation must complete. The default is 20 seconds.
 -- * 'userName' - Sets the user name of user who has permission to add the gateway to the Active Directory domain. The domain user account should be enabled to join computers to the domain. For example, you can use the domain administrator account or an account with delegated permissions to join computers to the domain.
+-- * 'timeoutInSeconds' - Specifies the time in seconds, in which the @JoinDomain@ operation must complete. The default is 20 seconds.
+-- * 'domainName' - The name of the domain that you want the gateway to join.
+-- * 'password' - Sets the password of the user who has permission to add the gateway to the Active Directory domain.
+-- * 'domainControllers' - List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you need to specify the port number include it after the colon (“:”). For example, @mydc.mydomain.com:389@ .
 mkJoinDomain ::
   -- | 'gatewayARN'
   Lude.Text ->
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'userName'
+  Lude.Text ->
+  -- | 'domainName'
   Lude.Text ->
   -- | 'password'
   Lude.Sensitive Lude.Text ->
   JoinDomain
-mkJoinDomain pGatewayARN_ pDomainName_ pUserName_ pPassword_ =
+mkJoinDomain pGatewayARN_ pUserName_ pDomainName_ pPassword_ =
   JoinDomain'
-    { organizationalUnit = Lude.Nothing,
-      timeoutInSeconds = Lude.Nothing,
-      domainControllers = Lude.Nothing,
-      gatewayARN = pGatewayARN_,
-      domainName = pDomainName_,
+    { gatewayARN = pGatewayARN_,
+      organizationalUnit = Lude.Nothing,
       userName = pUserName_,
-      password = pPassword_
+      timeoutInSeconds = Lude.Nothing,
+      domainName = pDomainName_,
+      password = pPassword_,
+      domainControllers = Lude.Nothing
     }
-
--- | The organizational unit (OU) is a container in an Active Directory that can hold users, groups, computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
---
--- /Note:/ Consider using 'organizationalUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jdOrganizationalUnit :: Lens.Lens' JoinDomain (Lude.Maybe Lude.Text)
-jdOrganizationalUnit = Lens.lens (organizationalUnit :: JoinDomain -> Lude.Maybe Lude.Text) (\s a -> s {organizationalUnit = a} :: JoinDomain)
-{-# DEPRECATED jdOrganizationalUnit "Use generic-lens or generic-optics with 'organizationalUnit' instead." #-}
-
--- | Specifies the time in seconds, in which the @JoinDomain@ operation must complete. The default is 20 seconds.
---
--- /Note:/ Consider using 'timeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jdTimeoutInSeconds :: Lens.Lens' JoinDomain (Lude.Maybe Lude.Natural)
-jdTimeoutInSeconds = Lens.lens (timeoutInSeconds :: JoinDomain -> Lude.Maybe Lude.Natural) (\s a -> s {timeoutInSeconds = a} :: JoinDomain)
-{-# DEPRECATED jdTimeoutInSeconds "Use generic-lens or generic-optics with 'timeoutInSeconds' instead." #-}
-
--- | List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you need to specify the port number include it after the colon (“:”). For example, @mydc.mydomain.com:389@ .
---
--- /Note:/ Consider using 'domainControllers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jdDomainControllers :: Lens.Lens' JoinDomain (Lude.Maybe [Lude.Text])
-jdDomainControllers = Lens.lens (domainControllers :: JoinDomain -> Lude.Maybe [Lude.Text]) (\s a -> s {domainControllers = a} :: JoinDomain)
-{-# DEPRECATED jdDomainControllers "Use generic-lens or generic-optics with 'domainControllers' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@ operation to return a list of gateways for your account and AWS Region.
 --
@@ -118,12 +104,12 @@ jdGatewayARN :: Lens.Lens' JoinDomain Lude.Text
 jdGatewayARN = Lens.lens (gatewayARN :: JoinDomain -> Lude.Text) (\s a -> s {gatewayARN = a} :: JoinDomain)
 {-# DEPRECATED jdGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | The name of the domain that you want the gateway to join.
+-- | The organizational unit (OU) is a container in an Active Directory that can hold users, groups, computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
 --
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jdDomainName :: Lens.Lens' JoinDomain Lude.Text
-jdDomainName = Lens.lens (domainName :: JoinDomain -> Lude.Text) (\s a -> s {domainName = a} :: JoinDomain)
-{-# DEPRECATED jdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+-- /Note:/ Consider using 'organizationalUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdOrganizationalUnit :: Lens.Lens' JoinDomain (Lude.Maybe Lude.Text)
+jdOrganizationalUnit = Lens.lens (organizationalUnit :: JoinDomain -> Lude.Maybe Lude.Text) (\s a -> s {organizationalUnit = a} :: JoinDomain)
+{-# DEPRECATED jdOrganizationalUnit "Use generic-lens or generic-optics with 'organizationalUnit' instead." #-}
 
 -- | Sets the user name of user who has permission to add the gateway to the Active Directory domain. The domain user account should be enabled to join computers to the domain. For example, you can use the domain administrator account or an account with delegated permissions to join computers to the domain.
 --
@@ -132,12 +118,33 @@ jdUserName :: Lens.Lens' JoinDomain Lude.Text
 jdUserName = Lens.lens (userName :: JoinDomain -> Lude.Text) (\s a -> s {userName = a} :: JoinDomain)
 {-# DEPRECATED jdUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
+-- | Specifies the time in seconds, in which the @JoinDomain@ operation must complete. The default is 20 seconds.
+--
+-- /Note:/ Consider using 'timeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdTimeoutInSeconds :: Lens.Lens' JoinDomain (Lude.Maybe Lude.Natural)
+jdTimeoutInSeconds = Lens.lens (timeoutInSeconds :: JoinDomain -> Lude.Maybe Lude.Natural) (\s a -> s {timeoutInSeconds = a} :: JoinDomain)
+{-# DEPRECATED jdTimeoutInSeconds "Use generic-lens or generic-optics with 'timeoutInSeconds' instead." #-}
+
+-- | The name of the domain that you want the gateway to join.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdDomainName :: Lens.Lens' JoinDomain Lude.Text
+jdDomainName = Lens.lens (domainName :: JoinDomain -> Lude.Text) (\s a -> s {domainName = a} :: JoinDomain)
+{-# DEPRECATED jdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
 -- | Sets the password of the user who has permission to add the gateway to the Active Directory domain.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 jdPassword :: Lens.Lens' JoinDomain (Lude.Sensitive Lude.Text)
 jdPassword = Lens.lens (password :: JoinDomain -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: JoinDomain)
 {-# DEPRECATED jdPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+
+-- | List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you need to specify the port number include it after the colon (“:”). For example, @mydc.mydomain.com:389@ .
+--
+-- /Note:/ Consider using 'domainControllers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jdDomainControllers :: Lens.Lens' JoinDomain (Lude.Maybe [Lude.Text])
+jdDomainControllers = Lens.lens (domainControllers :: JoinDomain -> Lude.Maybe [Lude.Text]) (\s a -> s {domainControllers = a} :: JoinDomain)
+{-# DEPRECATED jdDomainControllers "Use generic-lens or generic-optics with 'domainControllers' instead." #-}
 
 instance Lude.AWSRequest JoinDomain where
   type Rs JoinDomain = JoinDomainResponse
@@ -166,13 +173,13 @@ instance Lude.ToJSON JoinDomain where
   toJSON JoinDomain' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("OrganizationalUnit" Lude..=) Lude.<$> organizationalUnit,
-            ("TimeoutInSeconds" Lude..=) Lude.<$> timeoutInSeconds,
-            ("DomainControllers" Lude..=) Lude.<$> domainControllers,
-            Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            Lude.Just ("DomainName" Lude..= domainName),
+          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            ("OrganizationalUnit" Lude..=) Lude.<$> organizationalUnit,
             Lude.Just ("UserName" Lude..= userName),
-            Lude.Just ("Password" Lude..= password)
+            ("TimeoutInSeconds" Lude..=) Lude.<$> timeoutInSeconds,
+            Lude.Just ("DomainName" Lude..= domainName),
+            Lude.Just ("Password" Lude..= password),
+            ("DomainControllers" Lude..=) Lude.<$> domainControllers
           ]
       )
 
@@ -186,23 +193,40 @@ instance Lude.ToQuery JoinDomain where
 --
 -- /See:/ 'mkJoinDomainResponse' smart constructor.
 data JoinDomainResponse = JoinDomainResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
-    activeDirectoryStatus ::
-      Lude.Maybe ActiveDirectoryStatus,
+  { -- | The unique Amazon Resource Name (ARN) of the gateway that joined the domain.
+    gatewayARN :: Lude.Maybe Lude.Text,
+    -- | Indicates the status of the gateway as a member of the Active Directory domain.
+    --
+    --
+    --     * @ACCESS_DENIED@ : Indicates that the @JoinDomain@ operation failed due to an authentication error.
+    --
+    --
+    --     * @DETACHED@ : Indicates that gateway is not joined to a domain.
+    --
+    --
+    --     * @JOINED@ : Indicates that the gateway has successfully joined a domain.
+    --
+    --
+    --     * @JOINING@ : Indicates that a @JoinDomain@ operation is in progress.
+    --
+    --
+    --     * @NETWORK_ERROR@ : Indicates that @JoinDomain@ operation failed due to a network or connectivity error.
+    --
+    --
+    --     * @TIMEOUT@ : Indicates that the @JoinDomain@ operation failed because the operation didn't complete within the allotted time.
+    --
+    --
+    --     * @UNKNOWN_ERROR@ : Indicates that the @JoinDomain@ operation failed due to another type of error.
+    activeDirectoryStatus :: Lude.Maybe ActiveDirectoryStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JoinDomainResponse' with the minimum fields required to make a request.
 --
+-- * 'gatewayARN' - The unique Amazon Resource Name (ARN) of the gateway that joined the domain.
 -- * 'activeDirectoryStatus' - Indicates the status of the gateway as a member of the Active Directory domain.
 --
 --
@@ -227,7 +251,6 @@ data JoinDomainResponse = JoinDomainResponse'
 --     * @UNKNOWN_ERROR@ : Indicates that the @JoinDomain@ operation failed due to another type of error.
 --
 --
--- * 'gatewayARN' - The unique Amazon Resource Name (ARN) of the gateway that joined the domain.
 -- * 'responseStatus' - The response status code.
 mkJoinDomainResponse ::
   -- | 'responseStatus'

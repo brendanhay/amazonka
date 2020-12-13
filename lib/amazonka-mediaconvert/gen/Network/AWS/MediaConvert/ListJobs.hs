@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,28 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { status :: Lude.Maybe JobStatus,
+  { -- | Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+    status :: Lude.Maybe JobStatus,
+    -- | Optional. Provide a queue name to get back only jobs from that queue.
     queue :: Lude.Maybe Lude.Text,
+    -- | Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
     order :: Lude.Maybe Order,
+    -- | Optional. Number of jobs, up to twenty, that will be returned at one time.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Optional. Number of jobs, up to twenty, that will be returned at one time.
+-- * 'status' - Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+-- * 'queue' - Optional. Provide a queue name to get back only jobs from that queue.
 -- * 'nextToken' - Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
 -- * 'order' - Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
--- * 'queue' - Optional. Provide a queue name to get back only jobs from that queue.
--- * 'status' - Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+-- * 'maxResults' - Optional. Number of jobs, up to twenty, that will be returned at one time.
 mkListJobs ::
   ListJobs
 mkListJobs =
@@ -160,24 +160,20 @@ instance Lude.ToQuery ListJobs where
 
 -- | /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Use this string to request the next batch of jobs.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | List of jobs
     jobs :: Lude.Maybe [Job],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
--- * 'jobs' - List of jobs
 -- * 'nextToken' - Use this string to request the next batch of jobs.
+-- * 'jobs' - List of jobs
 -- * 'responseStatus' - The response status code.
 mkListJobsResponse ::
   -- | 'responseStatus'

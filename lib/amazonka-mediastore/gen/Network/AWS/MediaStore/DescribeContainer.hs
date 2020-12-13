@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.MediaStore.DescribeContainer
     mkDescribeContainer,
 
     -- ** Request lenses
-    dContainerName,
+    dcContainerName,
 
     -- * Destructuring the response
     DescribeContainerResponse (..),
     mkDescribeContainerResponse,
 
     -- ** Response lenses
-    drsContainer,
-    drsResponseStatus,
+    dcrsContainer,
+    dcrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeContainer' smart constructor.
 newtype DescribeContainer = DescribeContainer'
-  { containerName ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the container to query.
+    containerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContainer' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkDescribeContainer =
 -- | The name of the container to query.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dContainerName :: Lens.Lens' DescribeContainer (Lude.Maybe Lude.Text)
-dContainerName = Lens.lens (containerName :: DescribeContainer -> Lude.Maybe Lude.Text) (\s a -> s {containerName = a} :: DescribeContainer)
-{-# DEPRECATED dContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
+dcContainerName :: Lens.Lens' DescribeContainer (Lude.Maybe Lude.Text)
+dcContainerName = Lens.lens (containerName :: DescribeContainer -> Lude.Maybe Lude.Text) (\s a -> s {containerName = a} :: DescribeContainer)
+{-# DEPRECATED dcContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 instance Lude.AWSRequest DescribeContainer where
   type Rs DescribeContainer = DescribeContainerResponse
@@ -100,17 +95,12 @@ instance Lude.ToQuery DescribeContainer where
 
 -- | /See:/ 'mkDescribeContainerResponse' smart constructor.
 data DescribeContainerResponse = DescribeContainerResponse'
-  { container ::
-      Lude.Maybe Container,
+  { -- | The name of the queried container.
+    container :: Lude.Maybe Container,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContainerResponse' with the minimum fields required to make a request.
@@ -130,13 +120,13 @@ mkDescribeContainerResponse pResponseStatus_ =
 -- | The name of the queried container.
 --
 -- /Note:/ Consider using 'container' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsContainer :: Lens.Lens' DescribeContainerResponse (Lude.Maybe Container)
-drsContainer = Lens.lens (container :: DescribeContainerResponse -> Lude.Maybe Container) (\s a -> s {container = a} :: DescribeContainerResponse)
-{-# DEPRECATED drsContainer "Use generic-lens or generic-optics with 'container' instead." #-}
+dcrsContainer :: Lens.Lens' DescribeContainerResponse (Lude.Maybe Container)
+dcrsContainer = Lens.lens (container :: DescribeContainerResponse -> Lude.Maybe Container) (\s a -> s {container = a} :: DescribeContainerResponse)
+{-# DEPRECATED dcrsContainer "Use generic-lens or generic-optics with 'container' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeContainerResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeContainerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContainerResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrsResponseStatus :: Lens.Lens' DescribeContainerResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeContainerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContainerResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTableVersion' smart constructor.
 data TableVersion = TableVersion'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The table in question.
     table :: Lude.Maybe Table
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableVersion' with the minimum fields required to make a request.
 --
--- * 'table' - The table in question.
 -- * 'versionId' - The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
+-- * 'table' - The table in question.
 mkTableVersion ::
   TableVersion
 mkTableVersion =

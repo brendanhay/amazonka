@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Contains information that allowed the authorization.
 --
 -- /See:/ 'mkAllowed' smart constructor.
-newtype Allowed = Allowed' {policies :: Lude.Maybe [Policy]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Allowed = Allowed'
+  { -- | A list of policies that allowed the authentication.
+    policies :: Lude.Maybe [Policy]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Allowed' with the minimum fields required to make a request.

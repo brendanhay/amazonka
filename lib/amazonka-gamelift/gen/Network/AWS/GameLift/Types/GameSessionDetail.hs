@@ -31,17 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameSessionDetail' smart constructor.
 data GameSessionDetail = GameSessionDetail'
-  { gameSession ::
-      Lude.Maybe GameSession,
+  { -- | Object that describes a game session.
+    gameSession :: Lude.Maybe GameSession,
+    -- | Current status of protection for the game session.
+    --
+    --
+    --     * __NoProtection__ -- The game session can be terminated during a scale-down event.
+    --
+    --
+    --     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
     protectionPolicy :: Lude.Maybe ProtectionPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameSessionDetail' with the minimum fields required to make a request.

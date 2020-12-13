@@ -32,30 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingGroupDocument' smart constructor.
 data ThingGroupDocument = ThingGroupDocument'
-  { parentGroupNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | Parent group names.
+    parentGroupNames :: Lude.Maybe [Lude.Text],
+    -- | The thing group ID.
     thingGroupId :: Lude.Maybe Lude.Text,
+    -- | The thing group name.
     thingGroupName :: Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The thing group attributes.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The thing group description.
     thingGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingGroupDocument' with the minimum fields required to make a request.
 --
--- * 'attributes' - The thing group attributes.
 -- * 'parentGroupNames' - Parent group names.
--- * 'thingGroupDescription' - The thing group description.
 -- * 'thingGroupId' - The thing group ID.
 -- * 'thingGroupName' - The thing group name.
+-- * 'attributes' - The thing group attributes.
+-- * 'thingGroupDescription' - The thing group description.
 mkThingGroupDocument ::
   ThingGroupDocument
 mkThingGroupDocument =

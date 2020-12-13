@@ -13,12 +13,12 @@
 module Network.AWS.CloudWatchEvents.Types.ReplayState
   ( ReplayState
       ( ReplayState',
-        Cancelled,
+        Starting,
+        Running,
         Cancelling,
         Completed,
-        Failed,
-        Running,
-        Starting
+        Cancelled,
+        Failed
       ),
   )
 where
@@ -49,8 +49,11 @@ newtype ReplayState = ReplayState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cancelled :: ReplayState
-pattern Cancelled = ReplayState' "CANCELLED"
+pattern Starting :: ReplayState
+pattern Starting = ReplayState' "STARTING"
+
+pattern Running :: ReplayState
+pattern Running = ReplayState' "RUNNING"
 
 pattern Cancelling :: ReplayState
 pattern Cancelling = ReplayState' "CANCELLING"
@@ -58,21 +61,18 @@ pattern Cancelling = ReplayState' "CANCELLING"
 pattern Completed :: ReplayState
 pattern Completed = ReplayState' "COMPLETED"
 
+pattern Cancelled :: ReplayState
+pattern Cancelled = ReplayState' "CANCELLED"
+
 pattern Failed :: ReplayState
 pattern Failed = ReplayState' "FAILED"
 
-pattern Running :: ReplayState
-pattern Running = ReplayState' "RUNNING"
-
-pattern Starting :: ReplayState
-pattern Starting = ReplayState' "STARTING"
-
 {-# COMPLETE
-  Cancelled,
+  Starting,
+  Running,
   Cancelling,
   Completed,
+  Cancelled,
   Failed,
-  Running,
-  Starting,
   ReplayState'
   #-}

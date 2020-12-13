@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.EMR.ListInstances
     -- ** Request lenses
     liInstanceGroupTypes,
     liInstanceFleetType,
+    liClusterId,
     liMarker,
     liInstanceFleetId,
     liInstanceStates,
     liInstanceGroupId,
-    liClusterId,
 
     -- * Destructuring the response
     ListInstancesResponse (..),
@@ -51,33 +52,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { instanceGroupTypes ::
-      Lude.Maybe [InstanceGroupType],
+  { -- | The type of instance group for which to list the instances.
+    instanceGroupTypes :: Lude.Maybe [InstanceGroupType],
+    -- | The node type of the instance fleet. For example MASTER, CORE, or TASK.
     instanceFleetType :: Lude.Maybe InstanceFleetType,
+    -- | The identifier of the cluster for which to list the instances.
+    clusterId :: Lude.Text,
+    -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the instance fleet.
     instanceFleetId :: Lude.Maybe Lude.Text,
+    -- | A list of instance states that will filter the instances returned with this request.
     instanceStates :: Lude.Maybe [InstanceState],
-    instanceGroupId :: Lude.Maybe Lude.Text,
-    clusterId :: Lude.Text
+    -- | The identifier of the instance group for which to list the instances.
+    instanceGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstances' with the minimum fields required to make a request.
 --
--- * 'clusterId' - The identifier of the cluster for which to list the instances.
--- * 'instanceFleetId' - The unique identifier of the instance fleet.
--- * 'instanceFleetType' - The node type of the instance fleet. For example MASTER, CORE, or TASK.
--- * 'instanceGroupId' - The identifier of the instance group for which to list the instances.
 -- * 'instanceGroupTypes' - The type of instance group for which to list the instances.
--- * 'instanceStates' - A list of instance states that will filter the instances returned with this request.
+-- * 'instanceFleetType' - The node type of the instance fleet. For example MASTER, CORE, or TASK.
+-- * 'clusterId' - The identifier of the cluster for which to list the instances.
 -- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- * 'instanceFleetId' - The unique identifier of the instance fleet.
+-- * 'instanceStates' - A list of instance states that will filter the instances returned with this request.
+-- * 'instanceGroupId' - The identifier of the instance group for which to list the instances.
 mkListInstances ::
   -- | 'clusterId'
   Lude.Text ->
@@ -86,11 +87,11 @@ mkListInstances pClusterId_ =
   ListInstances'
     { instanceGroupTypes = Lude.Nothing,
       instanceFleetType = Lude.Nothing,
+      clusterId = pClusterId_,
       marker = Lude.Nothing,
       instanceFleetId = Lude.Nothing,
       instanceStates = Lude.Nothing,
-      instanceGroupId = Lude.Nothing,
-      clusterId = pClusterId_
+      instanceGroupId = Lude.Nothing
     }
 
 -- | The type of instance group for which to list the instances.
@@ -106,6 +107,13 @@ liInstanceGroupTypes = Lens.lens (instanceGroupTypes :: ListInstances -> Lude.Ma
 liInstanceFleetType :: Lens.Lens' ListInstances (Lude.Maybe InstanceFleetType)
 liInstanceFleetType = Lens.lens (instanceFleetType :: ListInstances -> Lude.Maybe InstanceFleetType) (\s a -> s {instanceFleetType = a} :: ListInstances)
 {-# DEPRECATED liInstanceFleetType "Use generic-lens or generic-optics with 'instanceFleetType' instead." #-}
+
+-- | The identifier of the cluster for which to list the instances.
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liClusterId :: Lens.Lens' ListInstances Lude.Text
+liClusterId = Lens.lens (clusterId :: ListInstances -> Lude.Text) (\s a -> s {clusterId = a} :: ListInstances)
+{-# DEPRECATED liClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
@@ -134,13 +142,6 @@ liInstanceStates = Lens.lens (instanceStates :: ListInstances -> Lude.Maybe [Ins
 liInstanceGroupId :: Lens.Lens' ListInstances (Lude.Maybe Lude.Text)
 liInstanceGroupId = Lens.lens (instanceGroupId :: ListInstances -> Lude.Maybe Lude.Text) (\s a -> s {instanceGroupId = a} :: ListInstances)
 {-# DEPRECATED liInstanceGroupId "Use generic-lens or generic-optics with 'instanceGroupId' instead." #-}
-
--- | The identifier of the cluster for which to list the instances.
---
--- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liClusterId :: Lens.Lens' ListInstances Lude.Text
-liClusterId = Lens.lens (clusterId :: ListInstances -> Lude.Text) (\s a -> s {clusterId = a} :: ListInstances)
-{-# DEPRECATED liClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 instance Page.AWSPager ListInstances where
   page rq rs
@@ -178,11 +179,11 @@ instance Lude.ToJSON ListInstances where
       ( Lude.catMaybes
           [ ("InstanceGroupTypes" Lude..=) Lude.<$> instanceGroupTypes,
             ("InstanceFleetType" Lude..=) Lude.<$> instanceFleetType,
+            Lude.Just ("ClusterId" Lude..= clusterId),
             ("Marker" Lude..=) Lude.<$> marker,
             ("InstanceFleetId" Lude..=) Lude.<$> instanceFleetId,
             ("InstanceStates" Lude..=) Lude.<$> instanceStates,
-            ("InstanceGroupId" Lude..=) Lude.<$> instanceGroupId,
-            Lude.Just ("ClusterId" Lude..= clusterId)
+            ("InstanceGroupId" Lude..=) Lude.<$> instanceGroupId
           ]
       )
 
@@ -196,24 +197,20 @@ instance Lude.ToQuery ListInstances where
 --
 -- /See:/ 'mkListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The list of instances for the cluster and given filters.
     instances :: Lude.Maybe [Instance],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'instances' - The list of instances for the cluster and given filters.
 -- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- * 'instances' - The list of instances for the cluster and given filters.
 -- * 'responseStatus' - The response status code.
 mkListInstancesResponse ::
   -- | 'responseStatus'

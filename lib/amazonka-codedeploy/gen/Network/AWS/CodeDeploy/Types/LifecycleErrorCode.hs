@@ -13,11 +13,11 @@
 module Network.AWS.CodeDeploy.Types.LifecycleErrorCode
   ( LifecycleErrorCode
       ( LifecycleErrorCode',
-        ScriptFailed,
+        Success,
         ScriptMissing,
         ScriptNotExecutable,
         ScriptTimedOut,
-        Success,
+        ScriptFailed,
         UnknownError
       ),
   )
@@ -49,8 +49,8 @@ newtype LifecycleErrorCode = LifecycleErrorCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern ScriptFailed :: LifecycleErrorCode
-pattern ScriptFailed = LifecycleErrorCode' "ScriptFailed"
+pattern Success :: LifecycleErrorCode
+pattern Success = LifecycleErrorCode' "Success"
 
 pattern ScriptMissing :: LifecycleErrorCode
 pattern ScriptMissing = LifecycleErrorCode' "ScriptMissing"
@@ -61,18 +61,18 @@ pattern ScriptNotExecutable = LifecycleErrorCode' "ScriptNotExecutable"
 pattern ScriptTimedOut :: LifecycleErrorCode
 pattern ScriptTimedOut = LifecycleErrorCode' "ScriptTimedOut"
 
-pattern Success :: LifecycleErrorCode
-pattern Success = LifecycleErrorCode' "Success"
+pattern ScriptFailed :: LifecycleErrorCode
+pattern ScriptFailed = LifecycleErrorCode' "ScriptFailed"
 
 pattern UnknownError :: LifecycleErrorCode
 pattern UnknownError = LifecycleErrorCode' "UnknownError"
 
 {-# COMPLETE
-  ScriptFailed,
+  Success,
   ScriptMissing,
   ScriptNotExecutable,
   ScriptTimedOut,
-  Success,
+  ScriptFailed,
   UnknownError,
   LifecycleErrorCode'
   #-}

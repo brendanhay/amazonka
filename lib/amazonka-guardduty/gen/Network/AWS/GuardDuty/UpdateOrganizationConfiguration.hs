@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,26 +41,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateOrganizationConfiguration' smart constructor.
 data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
-  { dataSources ::
-      Lude.Maybe
-        OrganizationDataSourceConfigurations,
+  { -- | An object describes which data sources will be updated.
+    dataSources :: Lude.Maybe OrganizationDataSourceConfigurations,
+    -- | The ID of the detector to update the delegated administrator for.
     detectorId :: Lude.Text,
+    -- | Indicates whether to automatically enable member accounts in the organization.
     autoEnable :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOrganizationConfiguration' with the minimum fields required to make a request.
 --
--- * 'autoEnable' - Indicates whether to automatically enable member accounts in the organization.
 -- * 'dataSources' - An object describes which data sources will be updated.
 -- * 'detectorId' - The ID of the detector to update the delegated administrator for.
+-- * 'autoEnable' - Indicates whether to automatically enable member accounts in the organization.
 mkUpdateOrganizationConfiguration ::
   -- | 'detectorId'
   Lude.Text ->
@@ -133,16 +129,10 @@ instance Lude.ToQuery UpdateOrganizationConfiguration where
 
 -- | /See:/ 'mkUpdateOrganizationConfigurationResponse' smart constructor.
 newtype UpdateOrganizationConfigurationResponse = UpdateOrganizationConfigurationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOrganizationConfigurationResponse' with the minimum fields required to make a request.

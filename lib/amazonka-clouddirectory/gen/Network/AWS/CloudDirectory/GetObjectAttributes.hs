@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.CloudDirectory.GetObjectAttributes
     mkGetObjectAttributes,
 
     -- ** Request lenses
-    goaConsistencyLevel,
     goaDirectoryARN,
-    goaObjectReference,
     goaSchemaFacet,
+    goaConsistencyLevel,
     goaAttributeNames,
+    goaObjectReference,
 
     -- * Destructuring the response
     GetObjectAttributesResponse (..),
@@ -43,55 +44,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetObjectAttributes' smart constructor.
 data GetObjectAttributes = GetObjectAttributes'
-  { consistencyLevel ::
-      Lude.Maybe ConsistencyLevel,
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides.
     directoryARN :: Lude.Text,
-    objectReference :: ObjectReference,
+    -- | Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
     schemaFacet :: SchemaFacet,
-    attributeNames :: [Lude.Text]
+    -- | The consistency level at which to retrieve the attributes on an object.
+    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    -- | List of attribute names whose values will be retrieved.
+    attributeNames :: [Lude.Text],
+    -- | Reference that identifies the object whose attributes will be retrieved.
+    objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectAttributes' with the minimum fields required to make a request.
 --
--- * 'attributeNames' - List of attribute names whose values will be retrieved.
--- * 'consistencyLevel' - The consistency level at which to retrieve the attributes on an object.
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides.
--- * 'objectReference' - Reference that identifies the object whose attributes will be retrieved.
 -- * 'schemaFacet' - Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
+-- * 'consistencyLevel' - The consistency level at which to retrieve the attributes on an object.
+-- * 'attributeNames' - List of attribute names whose values will be retrieved.
+-- * 'objectReference' - Reference that identifies the object whose attributes will be retrieved.
 mkGetObjectAttributes ::
   -- | 'directoryARN'
   Lude.Text ->
-  -- | 'objectReference'
-  ObjectReference ->
   -- | 'schemaFacet'
   SchemaFacet ->
+  -- | 'objectReference'
+  ObjectReference ->
   GetObjectAttributes
 mkGetObjectAttributes
   pDirectoryARN_
-  pObjectReference_
-  pSchemaFacet_ =
+  pSchemaFacet_
+  pObjectReference_ =
     GetObjectAttributes'
-      { consistencyLevel = Lude.Nothing,
-        directoryARN = pDirectoryARN_,
-        objectReference = pObjectReference_,
+      { directoryARN = pDirectoryARN_,
         schemaFacet = pSchemaFacet_,
-        attributeNames = Lude.mempty
+        consistencyLevel = Lude.Nothing,
+        attributeNames = Lude.mempty,
+        objectReference = pObjectReference_
       }
-
--- | The consistency level at which to retrieve the attributes on an object.
---
--- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goaConsistencyLevel :: Lens.Lens' GetObjectAttributes (Lude.Maybe ConsistencyLevel)
-goaConsistencyLevel = Lens.lens (consistencyLevel :: GetObjectAttributes -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: GetObjectAttributes)
-{-# DEPRECATED goaConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides.
 --
@@ -100,13 +92,6 @@ goaDirectoryARN :: Lens.Lens' GetObjectAttributes Lude.Text
 goaDirectoryARN = Lens.lens (directoryARN :: GetObjectAttributes -> Lude.Text) (\s a -> s {directoryARN = a} :: GetObjectAttributes)
 {-# DEPRECATED goaDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
--- | Reference that identifies the object whose attributes will be retrieved.
---
--- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goaObjectReference :: Lens.Lens' GetObjectAttributes ObjectReference
-goaObjectReference = Lens.lens (objectReference :: GetObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: GetObjectAttributes)
-{-# DEPRECATED goaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
-
 -- | Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
 --
 -- /Note:/ Consider using 'schemaFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -114,12 +99,26 @@ goaSchemaFacet :: Lens.Lens' GetObjectAttributes SchemaFacet
 goaSchemaFacet = Lens.lens (schemaFacet :: GetObjectAttributes -> SchemaFacet) (\s a -> s {schemaFacet = a} :: GetObjectAttributes)
 {-# DEPRECATED goaSchemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead." #-}
 
+-- | The consistency level at which to retrieve the attributes on an object.
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goaConsistencyLevel :: Lens.Lens' GetObjectAttributes (Lude.Maybe ConsistencyLevel)
+goaConsistencyLevel = Lens.lens (consistencyLevel :: GetObjectAttributes -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: GetObjectAttributes)
+{-# DEPRECATED goaConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
+
 -- | List of attribute names whose values will be retrieved.
 --
 -- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 goaAttributeNames :: Lens.Lens' GetObjectAttributes [Lude.Text]
 goaAttributeNames = Lens.lens (attributeNames :: GetObjectAttributes -> [Lude.Text]) (\s a -> s {attributeNames = a} :: GetObjectAttributes)
 {-# DEPRECATED goaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
+
+-- | Reference that identifies the object whose attributes will be retrieved.
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goaObjectReference :: Lens.Lens' GetObjectAttributes ObjectReference
+goaObjectReference = Lens.lens (objectReference :: GetObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: GetObjectAttributes)
+{-# DEPRECATED goaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
 instance Lude.AWSRequest GetObjectAttributes where
   type Rs GetObjectAttributes = GetObjectAttributesResponse
@@ -135,17 +134,17 @@ instance Lude.AWSRequest GetObjectAttributes where
 instance Lude.ToHeaders GetObjectAttributes where
   toHeaders GetObjectAttributes' {..} =
     Lude.mconcat
-      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
-        "x-amz-data-partition" Lude.=# directoryARN
+      [ "x-amz-data-partition" Lude.=# directoryARN,
+        "x-amz-consistency-level" Lude.=# consistencyLevel
       ]
 
 instance Lude.ToJSON GetObjectAttributes where
   toJSON GetObjectAttributes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ObjectReference" Lude..= objectReference),
-            Lude.Just ("SchemaFacet" Lude..= schemaFacet),
-            Lude.Just ("AttributeNames" Lude..= attributeNames)
+          [ Lude.Just ("SchemaFacet" Lude..= schemaFacet),
+            Lude.Just ("AttributeNames" Lude..= attributeNames),
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )
 
@@ -159,17 +158,12 @@ instance Lude.ToQuery GetObjectAttributes where
 
 -- | /See:/ 'mkGetObjectAttributesResponse' smart constructor.
 data GetObjectAttributesResponse = GetObjectAttributesResponse'
-  { attributes ::
-      Lude.Maybe [AttributeKeyAndValue],
+  { -- | The attributes that are associated with the object.
+    attributes :: Lude.Maybe [AttributeKeyAndValue],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectAttributesResponse' with the minimum fields required to make a request.

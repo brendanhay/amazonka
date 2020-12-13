@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceAccess' smart constructor.
 data InstanceAccess = InstanceAccess'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for an instance being accessed.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | IP address that is assigned to the instance.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | Operating system that is running on the instance.
     operatingSystem :: Lude.Maybe OperatingSystem,
+    -- | Credentials required to access the instance.
     credentials :: Lude.Maybe InstanceCredentials,
+    -- | A unique identifier for a fleet containing the instance being accessed.
     fleetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceAccess' with the minimum fields required to make a request.
 --
--- * 'credentials' - Credentials required to access the instance.
--- * 'fleetId' - A unique identifier for a fleet containing the instance being accessed.
 -- * 'instanceId' - A unique identifier for an instance being accessed.
 -- * 'ipAddress' - IP address that is assigned to the instance.
 -- * 'operatingSystem' - Operating system that is running on the instance.
+-- * 'credentials' - Credentials required to access the instance.
+-- * 'fleetId' - A unique identifier for a fleet containing the instance being accessed.
 mkInstanceAccess ::
   InstanceAccess
 mkInstanceAccess =

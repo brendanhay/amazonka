@@ -39,38 +39,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegionDescription' smart constructor.
 data RegionDescription = RegionDescription'
-  { status ::
-      Lude.Maybe DirectoryStage,
+  { -- | The status of the replication process for the specified Region.
+    status :: Lude.Maybe DirectoryStage,
+    -- | The identifier of the directory.
     directoryId :: Lude.Maybe Lude.Text,
+    -- | The name of the Region. For example, @us-east-1@ .
     regionName :: Lude.Maybe Lude.Text,
-    desiredNumberOfDomainControllers ::
-      Lude.Maybe Lude.Natural,
+    -- | The desired number of domain controllers in the specified Region for the specified directory.
+    desiredNumberOfDomainControllers :: Lude.Maybe Lude.Natural,
+    -- | Specifies if the Region is the primary Region or an additional Region.
     regionType :: Lude.Maybe RegionType,
+    -- | Specifies when the Region replication began.
     launchTime :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time that the Region description was last updated.
     lastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time that the Region status was last updated.
     statusLastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
     vpcSettings :: Lude.Maybe DirectoryVPCSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegionDescription' with the minimum fields required to make a request.
 --
--- * 'desiredNumberOfDomainControllers' - The desired number of domain controllers in the specified Region for the specified directory.
--- * 'directoryId' - The identifier of the directory.
--- * 'lastUpdatedDateTime' - The date and time that the Region description was last updated.
--- * 'launchTime' - Specifies when the Region replication began.
--- * 'regionName' - The name of the Region. For example, @us-east-1@ .
--- * 'regionType' - Specifies if the Region is the primary Region or an additional Region.
 -- * 'status' - The status of the replication process for the specified Region.
+-- * 'directoryId' - The identifier of the directory.
+-- * 'regionName' - The name of the Region. For example, @us-east-1@ .
+-- * 'desiredNumberOfDomainControllers' - The desired number of domain controllers in the specified Region for the specified directory.
+-- * 'regionType' - Specifies if the Region is the primary Region or an additional Region.
+-- * 'launchTime' - Specifies when the Region replication began.
+-- * 'lastUpdatedDateTime' - The date and time that the Region description was last updated.
 -- * 'statusLastUpdatedDateTime' - The date and time that the Region status was last updated.
--- * 'vpcSettings' - Undocumented field.
+-- * 'vpcSettings' -
 mkRegionDescription ::
   RegionDescription
 mkRegionDescription =

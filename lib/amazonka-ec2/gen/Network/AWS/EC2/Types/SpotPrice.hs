@@ -17,11 +17,11 @@ module Network.AWS.EC2.Types.SpotPrice
     mkSpotPrice,
 
     -- * Lenses
-    sProductDescription,
-    sSpotPrice,
-    sInstanceType,
-    sAvailabilityZone,
-    sTimestamp,
+    spfProductDescription,
+    spfSpotPrice,
+    spfInstanceType,
+    spfAvailabilityZone,
+    spfTimestamp,
   )
 where
 
@@ -34,28 +34,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotPrice' smart constructor.
 data SpotPrice = SpotPrice'
-  { productDescription ::
-      Lude.Maybe RIProductDescription,
+  { -- | A general description of the AMI.
+    productDescription :: Lude.Maybe RIProductDescription,
+    -- | The maximum price per hour that you are willing to pay for a Spot Instance.
     spotPrice :: Lude.Maybe Lude.Text,
+    -- | The instance type.
     instanceType :: Lude.Maybe InstanceType,
+    -- | The Availability Zone.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The date and time the request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
     timestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotPrice' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone.
--- * 'instanceType' - The instance type.
 -- * 'productDescription' - A general description of the AMI.
 -- * 'spotPrice' - The maximum price per hour that you are willing to pay for a Spot Instance.
+-- * 'instanceType' - The instance type.
+-- * 'availabilityZone' - The Availability Zone.
 -- * 'timestamp' - The date and time the request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 mkSpotPrice ::
   SpotPrice
@@ -71,37 +69,37 @@ mkSpotPrice =
 -- | A general description of the AMI.
 --
 -- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sProductDescription :: Lens.Lens' SpotPrice (Lude.Maybe RIProductDescription)
-sProductDescription = Lens.lens (productDescription :: SpotPrice -> Lude.Maybe RIProductDescription) (\s a -> s {productDescription = a} :: SpotPrice)
-{-# DEPRECATED sProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
+spfProductDescription :: Lens.Lens' SpotPrice (Lude.Maybe RIProductDescription)
+spfProductDescription = Lens.lens (productDescription :: SpotPrice -> Lude.Maybe RIProductDescription) (\s a -> s {productDescription = a} :: SpotPrice)
+{-# DEPRECATED spfProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
 
 -- | The maximum price per hour that you are willing to pay for a Spot Instance.
 --
 -- /Note:/ Consider using 'spotPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSpotPrice :: Lens.Lens' SpotPrice (Lude.Maybe Lude.Text)
-sSpotPrice = Lens.lens (spotPrice :: SpotPrice -> Lude.Maybe Lude.Text) (\s a -> s {spotPrice = a} :: SpotPrice)
-{-# DEPRECATED sSpotPrice "Use generic-lens or generic-optics with 'spotPrice' instead." #-}
+spfSpotPrice :: Lens.Lens' SpotPrice (Lude.Maybe Lude.Text)
+spfSpotPrice = Lens.lens (spotPrice :: SpotPrice -> Lude.Maybe Lude.Text) (\s a -> s {spotPrice = a} :: SpotPrice)
+{-# DEPRECATED spfSpotPrice "Use generic-lens or generic-optics with 'spotPrice' instead." #-}
 
 -- | The instance type.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sInstanceType :: Lens.Lens' SpotPrice (Lude.Maybe InstanceType)
-sInstanceType = Lens.lens (instanceType :: SpotPrice -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: SpotPrice)
-{-# DEPRECATED sInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+spfInstanceType :: Lens.Lens' SpotPrice (Lude.Maybe InstanceType)
+spfInstanceType = Lens.lens (instanceType :: SpotPrice -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: SpotPrice)
+{-# DEPRECATED spfInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The Availability Zone.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sAvailabilityZone :: Lens.Lens' SpotPrice (Lude.Maybe Lude.Text)
-sAvailabilityZone = Lens.lens (availabilityZone :: SpotPrice -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: SpotPrice)
-{-# DEPRECATED sAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+spfAvailabilityZone :: Lens.Lens' SpotPrice (Lude.Maybe Lude.Text)
+spfAvailabilityZone = Lens.lens (availabilityZone :: SpotPrice -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: SpotPrice)
+{-# DEPRECATED spfAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The date and time the request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTimestamp :: Lens.Lens' SpotPrice (Lude.Maybe Lude.DateTime)
-sTimestamp = Lens.lens (timestamp :: SpotPrice -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: SpotPrice)
-{-# DEPRECATED sTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+spfTimestamp :: Lens.Lens' SpotPrice (Lude.Maybe Lude.DateTime)
+spfTimestamp = Lens.lens (timestamp :: SpotPrice -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: SpotPrice)
+{-# DEPRECATED spfTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 instance Lude.FromXML SpotPrice where
   parseXML x =

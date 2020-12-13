@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.H264Telecine
   ( H264Telecine
       ( H264Telecine',
-        HHard,
         HNone,
-        HSoft
+        HSoft,
+        HHard
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype H264Telecine = H264Telecine' Lude.Text
       Lude.ToHeader
     )
 
-pattern HHard :: H264Telecine
-pattern HHard = H264Telecine' "HARD"
-
 pattern HNone :: H264Telecine
 pattern HNone = H264Telecine' "NONE"
 
 pattern HSoft :: H264Telecine
 pattern HSoft = H264Telecine' "SOFT"
 
+pattern HHard :: H264Telecine
+pattern HHard = H264Telecine' "HARD"
+
 {-# COMPLETE
-  HHard,
   HNone,
   HSoft,
+  HHard,
   H264Telecine'
   #-}

@@ -13,14 +13,14 @@
 module Network.AWS.S3.Types.StorageClass
   ( StorageClass
       ( StorageClass',
-        DeepArchive,
-        Glacier,
-        IntelligentTiering,
-        OnezoneIA,
-        Outposts,
-        ReducedRedundancy,
         Standard,
-        StandardIA
+        ReducedRedundancy,
+        StandardIA,
+        OnezoneIA,
+        IntelligentTiering,
+        Glacier,
+        DeepArchive,
+        Outposts
       ),
   )
 where
@@ -52,38 +52,38 @@ newtype StorageClass = StorageClass' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeepArchive :: StorageClass
-pattern DeepArchive = StorageClass' "DEEP_ARCHIVE"
-
-pattern Glacier :: StorageClass
-pattern Glacier = StorageClass' "GLACIER"
-
-pattern IntelligentTiering :: StorageClass
-pattern IntelligentTiering = StorageClass' "INTELLIGENT_TIERING"
-
-pattern OnezoneIA :: StorageClass
-pattern OnezoneIA = StorageClass' "ONEZONE_IA"
-
-pattern Outposts :: StorageClass
-pattern Outposts = StorageClass' "OUTPOSTS"
+pattern Standard :: StorageClass
+pattern Standard = StorageClass' "STANDARD"
 
 pattern ReducedRedundancy :: StorageClass
 pattern ReducedRedundancy = StorageClass' "REDUCED_REDUNDANCY"
 
-pattern Standard :: StorageClass
-pattern Standard = StorageClass' "STANDARD"
-
 pattern StandardIA :: StorageClass
 pattern StandardIA = StorageClass' "STANDARD_IA"
 
+pattern OnezoneIA :: StorageClass
+pattern OnezoneIA = StorageClass' "ONEZONE_IA"
+
+pattern IntelligentTiering :: StorageClass
+pattern IntelligentTiering = StorageClass' "INTELLIGENT_TIERING"
+
+pattern Glacier :: StorageClass
+pattern Glacier = StorageClass' "GLACIER"
+
+pattern DeepArchive :: StorageClass
+pattern DeepArchive = StorageClass' "DEEP_ARCHIVE"
+
+pattern Outposts :: StorageClass
+pattern Outposts = StorageClass' "OUTPOSTS"
+
 {-# COMPLETE
-  DeepArchive,
-  Glacier,
-  IntelligentTiering,
-  OnezoneIA,
-  Outposts,
-  ReducedRedundancy,
   Standard,
+  ReducedRedundancy,
   StandardIA,
+  OnezoneIA,
+  IntelligentTiering,
+  Glacier,
+  DeepArchive,
+  Outposts,
   StorageClass'
   #-}

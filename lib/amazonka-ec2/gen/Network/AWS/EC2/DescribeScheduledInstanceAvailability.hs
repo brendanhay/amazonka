@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,12 +27,12 @@ module Network.AWS.EC2.DescribeScheduledInstanceAvailability
     -- ** Request lenses
     dsiaMinSlotDurationInHours,
     dsiaFilters,
+    dsiaFirstSlotStartTimeRange,
     dsiaNextToken,
+    dsiaRecurrence,
     dsiaMaxSlotDurationInHours,
     dsiaDryRun,
     dsiaMaxResults,
-    dsiaFirstSlotStartTimeRange,
-    dsiaRecurrence,
 
     -- * Destructuring the response
     DescribeScheduledInstanceAvailabilityResponse (..),
@@ -55,41 +56,41 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeScheduledInstanceAvailability' smart constructor.
 data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailability'
-  { minSlotDurationInHours ::
-      Lude.Maybe
-        Lude.Int,
-    filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxSlotDurationInHours ::
-      Lude.Maybe
-        Lude.Int,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    firstSlotStartTimeRange ::
-      SlotDateTimeRangeRequest,
-    recurrence ::
-      ScheduledInstanceRecurrenceRequest
+  { -- | The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
+    minSlotDurationInHours :: Lude.Maybe Lude.Int,
+    -- | The filters.
+    --
+    --
+    --     * @availability-zone@ - The Availability Zone (for example, @us-west-2a@ ).
+    --
+    --
+    --     * @instance-type@ - The instance type (for example, @c4.large@ ).
+    --
+    --
+    --     * @network-platform@ - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
+    --
+    --
+    --     * @platform@ - The platform (@Linux/UNIX@ or @Windows@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The time period for the first schedule to start.
+    firstSlotStartTimeRange :: SlotDateTimeRangeRequest,
+    -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The schedule recurrence.
+    recurrence :: ScheduledInstanceRecurrenceRequest,
+    -- | The maximum available duration, in hours. This value must be greater than @MinSlotDurationInHours@ and less than 1,720.
+    maxSlotDurationInHours :: Lude.Maybe Lude.Int,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 300. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledInstanceAvailability' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'minSlotDurationInHours' - The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
 -- * 'filters' - The filters.
 --
 --
@@ -106,11 +107,11 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 --
 --
 -- * 'firstSlotStartTimeRange' - The time period for the first schedule to start.
--- * 'maxResults' - The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 300. To retrieve the remaining results, make another call with the returned @NextToken@ value.
--- * 'maxSlotDurationInHours' - The maximum available duration, in hours. This value must be greater than @MinSlotDurationInHours@ and less than 1,720.
--- * 'minSlotDurationInHours' - The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
 -- * 'nextToken' - The token for the next set of results.
 -- * 'recurrence' - The schedule recurrence.
+-- * 'maxSlotDurationInHours' - The maximum available duration, in hours. This value must be greater than @MinSlotDurationInHours@ and less than 1,720.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 300. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkDescribeScheduledInstanceAvailability ::
   -- | 'firstSlotStartTimeRange'
   SlotDateTimeRangeRequest ->
@@ -124,12 +125,12 @@ mkDescribeScheduledInstanceAvailability
       { minSlotDurationInHours =
           Lude.Nothing,
         filters = Lude.Nothing,
+        firstSlotStartTimeRange = pFirstSlotStartTimeRange_,
         nextToken = Lude.Nothing,
+        recurrence = pRecurrence_,
         maxSlotDurationInHours = Lude.Nothing,
         dryRun = Lude.Nothing,
-        maxResults = Lude.Nothing,
-        firstSlotStartTimeRange = pFirstSlotStartTimeRange_,
-        recurrence = pRecurrence_
+        maxResults = Lude.Nothing
       }
 
 -- | The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
@@ -160,12 +161,26 @@ dsiaFilters :: Lens.Lens' DescribeScheduledInstanceAvailability (Lude.Maybe [Fil
 dsiaFilters = Lens.lens (filters :: DescribeScheduledInstanceAvailability -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeScheduledInstanceAvailability)
 {-# DEPRECATED dsiaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
+-- | The time period for the first schedule to start.
+--
+-- /Note:/ Consider using 'firstSlotStartTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiaFirstSlotStartTimeRange :: Lens.Lens' DescribeScheduledInstanceAvailability SlotDateTimeRangeRequest
+dsiaFirstSlotStartTimeRange = Lens.lens (firstSlotStartTimeRange :: DescribeScheduledInstanceAvailability -> SlotDateTimeRangeRequest) (\s a -> s {firstSlotStartTimeRange = a} :: DescribeScheduledInstanceAvailability)
+{-# DEPRECATED dsiaFirstSlotStartTimeRange "Use generic-lens or generic-optics with 'firstSlotStartTimeRange' instead." #-}
+
 -- | The token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dsiaNextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Lude.Maybe Lude.Text)
 dsiaNextToken = Lens.lens (nextToken :: DescribeScheduledInstanceAvailability -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeScheduledInstanceAvailability)
 {-# DEPRECATED dsiaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The schedule recurrence.
+--
+-- /Note:/ Consider using 'recurrence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsiaRecurrence :: Lens.Lens' DescribeScheduledInstanceAvailability ScheduledInstanceRecurrenceRequest
+dsiaRecurrence = Lens.lens (recurrence :: DescribeScheduledInstanceAvailability -> ScheduledInstanceRecurrenceRequest) (\s a -> s {recurrence = a} :: DescribeScheduledInstanceAvailability)
+{-# DEPRECATED dsiaRecurrence "Use generic-lens or generic-optics with 'recurrence' instead." #-}
 
 -- | The maximum available duration, in hours. This value must be greater than @MinSlotDurationInHours@ and less than 1,720.
 --
@@ -187,20 +202,6 @@ dsiaDryRun = Lens.lens (dryRun :: DescribeScheduledInstanceAvailability -> Lude.
 dsiaMaxResults :: Lens.Lens' DescribeScheduledInstanceAvailability (Lude.Maybe Lude.Natural)
 dsiaMaxResults = Lens.lens (maxResults :: DescribeScheduledInstanceAvailability -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeScheduledInstanceAvailability)
 {-# DEPRECATED dsiaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The time period for the first schedule to start.
---
--- /Note:/ Consider using 'firstSlotStartTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaFirstSlotStartTimeRange :: Lens.Lens' DescribeScheduledInstanceAvailability SlotDateTimeRangeRequest
-dsiaFirstSlotStartTimeRange = Lens.lens (firstSlotStartTimeRange :: DescribeScheduledInstanceAvailability -> SlotDateTimeRangeRequest) (\s a -> s {firstSlotStartTimeRange = a} :: DescribeScheduledInstanceAvailability)
-{-# DEPRECATED dsiaFirstSlotStartTimeRange "Use generic-lens or generic-optics with 'firstSlotStartTimeRange' instead." #-}
-
--- | The schedule recurrence.
---
--- /Note:/ Consider using 'recurrence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsiaRecurrence :: Lens.Lens' DescribeScheduledInstanceAvailability ScheduledInstanceRecurrenceRequest
-dsiaRecurrence = Lens.lens (recurrence :: DescribeScheduledInstanceAvailability -> ScheduledInstanceRecurrenceRequest) (\s a -> s {recurrence = a} :: DescribeScheduledInstanceAvailability)
-{-# DEPRECATED dsiaRecurrence "Use generic-lens or generic-optics with 'recurrence' instead." #-}
 
 instance Page.AWSPager DescribeScheduledInstanceAvailability where
   page rq rs
@@ -242,44 +243,33 @@ instance Lude.ToQuery DescribeScheduledInstanceAvailability where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "MinSlotDurationInHours" Lude.=: minSlotDurationInHours,
         Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "FirstSlotStartTimeRange" Lude.=: firstSlotStartTimeRange,
         "NextToken" Lude.=: nextToken,
+        "Recurrence" Lude.=: recurrence,
         "MaxSlotDurationInHours" Lude.=: maxSlotDurationInHours,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "FirstSlotStartTimeRange" Lude.=: firstSlotStartTimeRange,
-        "Recurrence" Lude.=: recurrence
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | Contains the output of DescribeScheduledInstanceAvailability.
 --
 -- /See:/ 'mkDescribeScheduledInstanceAvailabilityResponse' smart constructor.
 data DescribeScheduledInstanceAvailabilityResponse = DescribeScheduledInstanceAvailabilityResponse'
-  { scheduledInstanceAvailabilitySet ::
-      Lude.Maybe
-        [ScheduledInstanceAvailability],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the available Scheduled Instances.
+    scheduledInstanceAvailabilitySet :: Lude.Maybe [ScheduledInstanceAvailability],
+    -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledInstanceAvailabilityResponse' with the minimum fields required to make a request.
 --
+-- * 'scheduledInstanceAvailabilitySet' - Information about the available Scheduled Instances.
 -- * 'nextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'scheduledInstanceAvailabilitySet' - Information about the available Scheduled Instances.
 mkDescribeScheduledInstanceAvailabilityResponse ::
   -- | 'responseStatus'
   Lude.Int ->

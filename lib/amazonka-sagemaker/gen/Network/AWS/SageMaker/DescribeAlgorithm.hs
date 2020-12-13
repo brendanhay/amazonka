@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +20,25 @@ module Network.AWS.SageMaker.DescribeAlgorithm
     mkDescribeAlgorithm,
 
     -- ** Request lenses
-    dAlgorithmName,
+    daAlgorithmName,
 
     -- * Destructuring the response
     DescribeAlgorithmResponse (..),
     mkDescribeAlgorithmResponse,
 
     -- ** Response lenses
-    daarsValidationSpecification,
-    daarsInferenceSpecification,
-    daarsAlgorithmDescription,
-    daarsCertifyForMarketplace,
-    daarsProductId,
-    daarsResponseStatus,
-    daarsAlgorithmName,
-    daarsAlgorithmARN,
-    daarsCreationTime,
-    daarsTrainingSpecification,
-    daarsAlgorithmStatus,
-    daarsAlgorithmStatusDetails,
+    drsCreationTime,
+    drsAlgorithmARN,
+    drsTrainingSpecification,
+    drsAlgorithmName,
+    drsValidationSpecification,
+    drsInferenceSpecification,
+    drsAlgorithmDescription,
+    drsCertifyForMarketplace,
+    drsAlgorithmStatus,
+    drsProductId,
+    drsAlgorithmStatusDetails,
+    drsResponseStatus,
   )
 where
 
@@ -49,16 +50,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeAlgorithm' smart constructor.
 newtype DescribeAlgorithm = DescribeAlgorithm'
-  { algorithmName ::
-      Lude.Text
+  { -- | The name of the algorithm to describe.
+    algorithmName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlgorithm' with the minimum fields required to make a request.
@@ -74,9 +69,9 @@ mkDescribeAlgorithm pAlgorithmName_ =
 -- | The name of the algorithm to describe.
 --
 -- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAlgorithmName :: Lens.Lens' DescribeAlgorithm Lude.Text
-dAlgorithmName = Lens.lens (algorithmName :: DescribeAlgorithm -> Lude.Text) (\s a -> s {algorithmName = a} :: DescribeAlgorithm)
-{-# DEPRECATED dAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
+daAlgorithmName :: Lens.Lens' DescribeAlgorithm Lude.Text
+daAlgorithmName = Lens.lens (algorithmName :: DescribeAlgorithm -> Lude.Text) (\s a -> s {algorithmName = a} :: DescribeAlgorithm)
+{-# DEPRECATED daAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
 
 instance Lude.AWSRequest DescribeAlgorithm where
   type Rs DescribeAlgorithm = DescribeAlgorithmResponse
@@ -85,18 +80,18 @@ instance Lude.AWSRequest DescribeAlgorithm where
     Res.receiveJSON
       ( \s h x ->
           DescribeAlgorithmResponse'
-            Lude.<$> (x Lude..?> "ValidationSpecification")
+            Lude.<$> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "AlgorithmArn")
+            Lude.<*> (x Lude..:> "TrainingSpecification")
+            Lude.<*> (x Lude..:> "AlgorithmName")
+            Lude.<*> (x Lude..?> "ValidationSpecification")
             Lude.<*> (x Lude..?> "InferenceSpecification")
             Lude.<*> (x Lude..?> "AlgorithmDescription")
             Lude.<*> (x Lude..?> "CertifyForMarketplace")
-            Lude.<*> (x Lude..?> "ProductId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "AlgorithmName")
-            Lude.<*> (x Lude..:> "AlgorithmArn")
-            Lude.<*> (x Lude..:> "CreationTime")
-            Lude.<*> (x Lude..:> "TrainingSpecification")
             Lude.<*> (x Lude..:> "AlgorithmStatus")
+            Lude.<*> (x Lude..?> "ProductId")
             Lude.<*> (x Lude..:> "AlgorithmStatusDetails")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeAlgorithm where
@@ -125,169 +120,167 @@ instance Lude.ToQuery DescribeAlgorithm where
 
 -- | /See:/ 'mkDescribeAlgorithmResponse' smart constructor.
 data DescribeAlgorithmResponse = DescribeAlgorithmResponse'
-  { validationSpecification ::
-      Lude.Maybe
-        AlgorithmValidationSpecification,
-    inferenceSpecification ::
-      Lude.Maybe InferenceSpecification,
-    algorithmDescription ::
-      Lude.Maybe Lude.Text,
-    certifyForMarketplace ::
-      Lude.Maybe Lude.Bool,
-    productId :: Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    algorithmName :: Lude.Text,
-    algorithmARN :: Lude.Text,
+  { -- | A timestamp specifying when the algorithm was created.
     creationTime :: Lude.Timestamp,
-    trainingSpecification ::
-      TrainingSpecification,
+    -- | The Amazon Resource Name (ARN) of the algorithm.
+    algorithmARN :: Lude.Text,
+    -- | Details about training jobs run by this algorithm.
+    trainingSpecification :: TrainingSpecification,
+    -- | The name of the algorithm being described.
+    algorithmName :: Lude.Text,
+    -- | Details about configurations for one or more training jobs that Amazon SageMaker runs to test the algorithm.
+    validationSpecification :: Lude.Maybe AlgorithmValidationSpecification,
+    -- | Details about inference jobs that the algorithm runs.
+    inferenceSpecification :: Lude.Maybe InferenceSpecification,
+    -- | A brief summary about the algorithm.
+    algorithmDescription :: Lude.Maybe Lude.Text,
+    -- | Whether the algorithm is certified to be listed in AWS Marketplace.
+    certifyForMarketplace :: Lude.Maybe Lude.Bool,
+    -- | The current status of the algorithm.
     algorithmStatus :: AlgorithmStatus,
-    algorithmStatusDetails ::
-      AlgorithmStatusDetails
+    -- | The product identifier of the algorithm.
+    productId :: Lude.Maybe Lude.Text,
+    -- | Details about the current status of the algorithm.
+    algorithmStatusDetails :: AlgorithmStatusDetails,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlgorithmResponse' with the minimum fields required to make a request.
 --
--- * 'algorithmARN' - The Amazon Resource Name (ARN) of the algorithm.
--- * 'algorithmDescription' - A brief summary about the algorithm.
--- * 'algorithmName' - The name of the algorithm being described.
--- * 'algorithmStatus' - The current status of the algorithm.
--- * 'algorithmStatusDetails' - Details about the current status of the algorithm.
--- * 'certifyForMarketplace' - Whether the algorithm is certified to be listed in AWS Marketplace.
 -- * 'creationTime' - A timestamp specifying when the algorithm was created.
--- * 'inferenceSpecification' - Details about inference jobs that the algorithm runs.
--- * 'productId' - The product identifier of the algorithm.
--- * 'responseStatus' - The response status code.
+-- * 'algorithmARN' - The Amazon Resource Name (ARN) of the algorithm.
 -- * 'trainingSpecification' - Details about training jobs run by this algorithm.
+-- * 'algorithmName' - The name of the algorithm being described.
 -- * 'validationSpecification' - Details about configurations for one or more training jobs that Amazon SageMaker runs to test the algorithm.
+-- * 'inferenceSpecification' - Details about inference jobs that the algorithm runs.
+-- * 'algorithmDescription' - A brief summary about the algorithm.
+-- * 'certifyForMarketplace' - Whether the algorithm is certified to be listed in AWS Marketplace.
+-- * 'algorithmStatus' - The current status of the algorithm.
+-- * 'productId' - The product identifier of the algorithm.
+-- * 'algorithmStatusDetails' - Details about the current status of the algorithm.
+-- * 'responseStatus' - The response status code.
 mkDescribeAlgorithmResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'algorithmName'
-  Lude.Text ->
-  -- | 'algorithmARN'
-  Lude.Text ->
   -- | 'creationTime'
   Lude.Timestamp ->
+  -- | 'algorithmARN'
+  Lude.Text ->
   -- | 'trainingSpecification'
   TrainingSpecification ->
+  -- | 'algorithmName'
+  Lude.Text ->
   -- | 'algorithmStatus'
   AlgorithmStatus ->
   -- | 'algorithmStatusDetails'
   AlgorithmStatusDetails ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAlgorithmResponse
 mkDescribeAlgorithmResponse
-  pResponseStatus_
-  pAlgorithmName_
-  pAlgorithmARN_
   pCreationTime_
+  pAlgorithmARN_
   pTrainingSpecification_
+  pAlgorithmName_
   pAlgorithmStatus_
-  pAlgorithmStatusDetails_ =
+  pAlgorithmStatusDetails_
+  pResponseStatus_ =
     DescribeAlgorithmResponse'
-      { validationSpecification =
-          Lude.Nothing,
+      { creationTime = pCreationTime_,
+        algorithmARN = pAlgorithmARN_,
+        trainingSpecification = pTrainingSpecification_,
+        algorithmName = pAlgorithmName_,
+        validationSpecification = Lude.Nothing,
         inferenceSpecification = Lude.Nothing,
         algorithmDescription = Lude.Nothing,
         certifyForMarketplace = Lude.Nothing,
-        productId = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        algorithmName = pAlgorithmName_,
-        algorithmARN = pAlgorithmARN_,
-        creationTime = pCreationTime_,
-        trainingSpecification = pTrainingSpecification_,
         algorithmStatus = pAlgorithmStatus_,
-        algorithmStatusDetails = pAlgorithmStatusDetails_
+        productId = Lude.Nothing,
+        algorithmStatusDetails = pAlgorithmStatusDetails_,
+        responseStatus = pResponseStatus_
       }
-
--- | Details about configurations for one or more training jobs that Amazon SageMaker runs to test the algorithm.
---
--- /Note:/ Consider using 'validationSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsValidationSpecification :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe AlgorithmValidationSpecification)
-daarsValidationSpecification = Lens.lens (validationSpecification :: DescribeAlgorithmResponse -> Lude.Maybe AlgorithmValidationSpecification) (\s a -> s {validationSpecification = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsValidationSpecification "Use generic-lens or generic-optics with 'validationSpecification' instead." #-}
-
--- | Details about inference jobs that the algorithm runs.
---
--- /Note:/ Consider using 'inferenceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsInferenceSpecification :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe InferenceSpecification)
-daarsInferenceSpecification = Lens.lens (inferenceSpecification :: DescribeAlgorithmResponse -> Lude.Maybe InferenceSpecification) (\s a -> s {inferenceSpecification = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsInferenceSpecification "Use generic-lens or generic-optics with 'inferenceSpecification' instead." #-}
-
--- | A brief summary about the algorithm.
---
--- /Note:/ Consider using 'algorithmDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsAlgorithmDescription :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe Lude.Text)
-daarsAlgorithmDescription = Lens.lens (algorithmDescription :: DescribeAlgorithmResponse -> Lude.Maybe Lude.Text) (\s a -> s {algorithmDescription = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsAlgorithmDescription "Use generic-lens or generic-optics with 'algorithmDescription' instead." #-}
-
--- | Whether the algorithm is certified to be listed in AWS Marketplace.
---
--- /Note:/ Consider using 'certifyForMarketplace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsCertifyForMarketplace :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe Lude.Bool)
-daarsCertifyForMarketplace = Lens.lens (certifyForMarketplace :: DescribeAlgorithmResponse -> Lude.Maybe Lude.Bool) (\s a -> s {certifyForMarketplace = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsCertifyForMarketplace "Use generic-lens or generic-optics with 'certifyForMarketplace' instead." #-}
-
--- | The product identifier of the algorithm.
---
--- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsProductId :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe Lude.Text)
-daarsProductId = Lens.lens (productId :: DescribeAlgorithmResponse -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsResponseStatus :: Lens.Lens' DescribeAlgorithmResponse Lude.Int
-daarsResponseStatus = Lens.lens (responseStatus :: DescribeAlgorithmResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The name of the algorithm being described.
---
--- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsAlgorithmName :: Lens.Lens' DescribeAlgorithmResponse Lude.Text
-daarsAlgorithmName = Lens.lens (algorithmName :: DescribeAlgorithmResponse -> Lude.Text) (\s a -> s {algorithmName = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the algorithm.
---
--- /Note:/ Consider using 'algorithmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsAlgorithmARN :: Lens.Lens' DescribeAlgorithmResponse Lude.Text
-daarsAlgorithmARN = Lens.lens (algorithmARN :: DescribeAlgorithmResponse -> Lude.Text) (\s a -> s {algorithmARN = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsAlgorithmARN "Use generic-lens or generic-optics with 'algorithmARN' instead." #-}
 
 -- | A timestamp specifying when the algorithm was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsCreationTime :: Lens.Lens' DescribeAlgorithmResponse Lude.Timestamp
-daarsCreationTime = Lens.lens (creationTime :: DescribeAlgorithmResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+drsCreationTime :: Lens.Lens' DescribeAlgorithmResponse Lude.Timestamp
+drsCreationTime = Lens.lens (creationTime :: DescribeAlgorithmResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the algorithm.
+--
+-- /Note:/ Consider using 'algorithmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsAlgorithmARN :: Lens.Lens' DescribeAlgorithmResponse Lude.Text
+drsAlgorithmARN = Lens.lens (algorithmARN :: DescribeAlgorithmResponse -> Lude.Text) (\s a -> s {algorithmARN = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsAlgorithmARN "Use generic-lens or generic-optics with 'algorithmARN' instead." #-}
 
 -- | Details about training jobs run by this algorithm.
 --
 -- /Note:/ Consider using 'trainingSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsTrainingSpecification :: Lens.Lens' DescribeAlgorithmResponse TrainingSpecification
-daarsTrainingSpecification = Lens.lens (trainingSpecification :: DescribeAlgorithmResponse -> TrainingSpecification) (\s a -> s {trainingSpecification = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsTrainingSpecification "Use generic-lens or generic-optics with 'trainingSpecification' instead." #-}
+drsTrainingSpecification :: Lens.Lens' DescribeAlgorithmResponse TrainingSpecification
+drsTrainingSpecification = Lens.lens (trainingSpecification :: DescribeAlgorithmResponse -> TrainingSpecification) (\s a -> s {trainingSpecification = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsTrainingSpecification "Use generic-lens or generic-optics with 'trainingSpecification' instead." #-}
+
+-- | The name of the algorithm being described.
+--
+-- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsAlgorithmName :: Lens.Lens' DescribeAlgorithmResponse Lude.Text
+drsAlgorithmName = Lens.lens (algorithmName :: DescribeAlgorithmResponse -> Lude.Text) (\s a -> s {algorithmName = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
+
+-- | Details about configurations for one or more training jobs that Amazon SageMaker runs to test the algorithm.
+--
+-- /Note:/ Consider using 'validationSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsValidationSpecification :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe AlgorithmValidationSpecification)
+drsValidationSpecification = Lens.lens (validationSpecification :: DescribeAlgorithmResponse -> Lude.Maybe AlgorithmValidationSpecification) (\s a -> s {validationSpecification = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsValidationSpecification "Use generic-lens or generic-optics with 'validationSpecification' instead." #-}
+
+-- | Details about inference jobs that the algorithm runs.
+--
+-- /Note:/ Consider using 'inferenceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsInferenceSpecification :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe InferenceSpecification)
+drsInferenceSpecification = Lens.lens (inferenceSpecification :: DescribeAlgorithmResponse -> Lude.Maybe InferenceSpecification) (\s a -> s {inferenceSpecification = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsInferenceSpecification "Use generic-lens or generic-optics with 'inferenceSpecification' instead." #-}
+
+-- | A brief summary about the algorithm.
+--
+-- /Note:/ Consider using 'algorithmDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsAlgorithmDescription :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe Lude.Text)
+drsAlgorithmDescription = Lens.lens (algorithmDescription :: DescribeAlgorithmResponse -> Lude.Maybe Lude.Text) (\s a -> s {algorithmDescription = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsAlgorithmDescription "Use generic-lens or generic-optics with 'algorithmDescription' instead." #-}
+
+-- | Whether the algorithm is certified to be listed in AWS Marketplace.
+--
+-- /Note:/ Consider using 'certifyForMarketplace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsCertifyForMarketplace :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe Lude.Bool)
+drsCertifyForMarketplace = Lens.lens (certifyForMarketplace :: DescribeAlgorithmResponse -> Lude.Maybe Lude.Bool) (\s a -> s {certifyForMarketplace = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsCertifyForMarketplace "Use generic-lens or generic-optics with 'certifyForMarketplace' instead." #-}
 
 -- | The current status of the algorithm.
 --
 -- /Note:/ Consider using 'algorithmStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsAlgorithmStatus :: Lens.Lens' DescribeAlgorithmResponse AlgorithmStatus
-daarsAlgorithmStatus = Lens.lens (algorithmStatus :: DescribeAlgorithmResponse -> AlgorithmStatus) (\s a -> s {algorithmStatus = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsAlgorithmStatus "Use generic-lens or generic-optics with 'algorithmStatus' instead." #-}
+drsAlgorithmStatus :: Lens.Lens' DescribeAlgorithmResponse AlgorithmStatus
+drsAlgorithmStatus = Lens.lens (algorithmStatus :: DescribeAlgorithmResponse -> AlgorithmStatus) (\s a -> s {algorithmStatus = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsAlgorithmStatus "Use generic-lens or generic-optics with 'algorithmStatus' instead." #-}
+
+-- | The product identifier of the algorithm.
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsProductId :: Lens.Lens' DescribeAlgorithmResponse (Lude.Maybe Lude.Text)
+drsProductId = Lens.lens (productId :: DescribeAlgorithmResponse -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | Details about the current status of the algorithm.
 --
 -- /Note:/ Consider using 'algorithmStatusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsAlgorithmStatusDetails :: Lens.Lens' DescribeAlgorithmResponse AlgorithmStatusDetails
-daarsAlgorithmStatusDetails = Lens.lens (algorithmStatusDetails :: DescribeAlgorithmResponse -> AlgorithmStatusDetails) (\s a -> s {algorithmStatusDetails = a} :: DescribeAlgorithmResponse)
-{-# DEPRECATED daarsAlgorithmStatusDetails "Use generic-lens or generic-optics with 'algorithmStatusDetails' instead." #-}
+drsAlgorithmStatusDetails :: Lens.Lens' DescribeAlgorithmResponse AlgorithmStatusDetails
+drsAlgorithmStatusDetails = Lens.lens (algorithmStatusDetails :: DescribeAlgorithmResponse -> AlgorithmStatusDetails) (\s a -> s {algorithmStatusDetails = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsAlgorithmStatusDetails "Use generic-lens or generic-optics with 'algorithmStatusDetails' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeAlgorithmResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeAlgorithmResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAlgorithmResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

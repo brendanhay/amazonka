@@ -40,43 +40,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssignment' smart constructor.
 data Assignment = Assignment'
-  { acceptTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time the Worker accepted the assignment.
+    acceptTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Worker's answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.
     answer :: Lude.Maybe Lude.Text,
+    -- | The status of the assignment.
     assignmentStatus :: Lude.Maybe AssignmentStatus,
+    -- | The feedback string included with the call to the ApproveAssignment operation or the RejectAssignment operation, if the Requester approved or rejected the assignment and specified feedback.
     requesterFeedback :: Lude.Maybe Lude.Text,
+    -- | The date and time of the deadline for the assignment. This value is derived from the deadline specification for the HIT and the date and time the Worker accepted the HIT.
     deadline :: Lude.Maybe Lude.Timestamp,
+    -- | If the Worker has submitted results and the Requester has approved the results, ApprovalTime is the date and time the Requester approved the results. This value is omitted from the assignment if the Requester has not yet approved the results.
     approvalTime :: Lude.Maybe Lude.Timestamp,
+    -- | If the Worker has submitted results and the Requester has rejected the results, RejectionTime is the date and time the Requester rejected the results.
     rejectionTime :: Lude.Maybe Lude.Timestamp,
+    -- | If results have been submitted, AutoApprovalTime is the date and time the results of the assignment results are considered Approved automatically if they have not already been explicitly approved or rejected by the Requester. This value is derived from the auto-approval delay specified by the Requester in the HIT. This value is omitted from the assignment if the Worker has not yet submitted results.
     autoApprovalTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the HIT.
     hITId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Worker who accepted the HIT.
     workerId :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the assignment.
     assignmentId :: Lude.Maybe Lude.Text,
+    -- | If the Worker has submitted results, SubmitTime is the date and time the assignment was submitted. This value is omitted from the assignment if the Worker has not yet submitted results.
     submitTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Assignment' with the minimum fields required to make a request.
 --
 -- * 'acceptTime' - The date and time the Worker accepted the assignment.
 -- * 'answer' - The Worker's answers submitted for the HIT contained in a QuestionFormAnswers document, if the Worker provides an answer. If the Worker does not provide any answers, Answer may contain a QuestionFormAnswers document, or Answer may be empty.
--- * 'approvalTime' - If the Worker has submitted results and the Requester has approved the results, ApprovalTime is the date and time the Requester approved the results. This value is omitted from the assignment if the Requester has not yet approved the results.
--- * 'assignmentId' - A unique identifier for the assignment.
 -- * 'assignmentStatus' - The status of the assignment.
--- * 'autoApprovalTime' - If results have been submitted, AutoApprovalTime is the date and time the results of the assignment results are considered Approved automatically if they have not already been explicitly approved or rejected by the Requester. This value is derived from the auto-approval delay specified by the Requester in the HIT. This value is omitted from the assignment if the Worker has not yet submitted results.
--- * 'deadline' - The date and time of the deadline for the assignment. This value is derived from the deadline specification for the HIT and the date and time the Worker accepted the HIT.
--- * 'hITId' - The ID of the HIT.
--- * 'rejectionTime' - If the Worker has submitted results and the Requester has rejected the results, RejectionTime is the date and time the Requester rejected the results.
 -- * 'requesterFeedback' - The feedback string included with the call to the ApproveAssignment operation or the RejectAssignment operation, if the Requester approved or rejected the assignment and specified feedback.
--- * 'submitTime' - If the Worker has submitted results, SubmitTime is the date and time the assignment was submitted. This value is omitted from the assignment if the Worker has not yet submitted results.
+-- * 'deadline' - The date and time of the deadline for the assignment. This value is derived from the deadline specification for the HIT and the date and time the Worker accepted the HIT.
+-- * 'approvalTime' - If the Worker has submitted results and the Requester has approved the results, ApprovalTime is the date and time the Requester approved the results. This value is omitted from the assignment if the Requester has not yet approved the results.
+-- * 'rejectionTime' - If the Worker has submitted results and the Requester has rejected the results, RejectionTime is the date and time the Requester rejected the results.
+-- * 'autoApprovalTime' - If results have been submitted, AutoApprovalTime is the date and time the results of the assignment results are considered Approved automatically if they have not already been explicitly approved or rejected by the Requester. This value is derived from the auto-approval delay specified by the Requester in the HIT. This value is omitted from the assignment if the Worker has not yet submitted results.
+-- * 'hITId' - The ID of the HIT.
 -- * 'workerId' - The ID of the Worker who accepted the HIT.
+-- * 'assignmentId' - A unique identifier for the assignment.
+-- * 'submitTime' - If the Worker has submitted results, SubmitTime is the date and time the assignment was submitted. This value is omitted from the assignment if the Worker has not yet submitted results.
 mkAssignment ::
   Assignment
 mkAssignment =

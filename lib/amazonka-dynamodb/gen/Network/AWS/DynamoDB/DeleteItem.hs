@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,10 +30,10 @@ module Network.AWS.DynamoDB.DeleteItem
     diReturnConsumedCapacity,
     diReturnItemCollectionMetrics,
     diConditionExpression,
+    diKey,
     diConditionalOperator,
     diExpected,
     diTableName,
-    diKey,
 
     -- * Destructuring the response
     DeleteItemResponse (..),
@@ -56,49 +57,88 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteItem' smart constructor.
 data DeleteItem = DeleteItem'
-  { expressionAttributeNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
+    --
+    --
+    --     * To access an attribute whose name conflicts with a DynamoDB reserved word.
+    --
+    --
+    --     * To create a placeholder for repeating occurrences of an attribute name in an expression.
+    --
+    --
+    --     * To prevent special characters in an attribute name from being misinterpreted in an expression.
+    --
+    --
+    -- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
+    --
+    --     * @Percentile@
+    --
+    --
+    -- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :
+    --
+    --     * @{"#P":"Percentile"}@
+    --
+    --
+    -- You could then use this substitution in an expression, as in this example:
+    --
+    --     * @#P = :val@
+    --
+    --
+    -- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Use @ReturnValues@ if you want to get the item attributes as they appeared before they were deleted. For @DeleteItem@ , the valid values are:
+    --
+    --
+    --     * @NONE@ - If @ReturnValues@ is not specified, or if its value is @NONE@ , then nothing is returned. (This setting is the default for @ReturnValues@ .)
+    --
+    --
+    --     * @ALL_OLD@ - The content of the old item is returned.
     returnValues :: Lude.Maybe ReturnValue,
-    expressionAttributeValues ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | One or more values that can be substituted in an expression.
+    --
+    -- Use the __:__ (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the /ProductStatus/ attribute was one of the following:
+    -- @Available | Backordered | Discontinued@
+    -- You would first need to specify @ExpressionAttributeValues@ as follows:
+    -- @{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }@
+    -- You could then use these values in an expression, such as this:
+    -- @ProductStatus IN (:avail, :back, :disc)@
+    -- For more information on expression attribute values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions> in the /Amazon DynamoDB Developer Guide/ .
+    expressionAttributeValues :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
     returnConsumedCapacity :: Lude.Maybe ReturnConsumedCapacity,
-    returnItemCollectionMetrics ::
-      Lude.Maybe ReturnItemCollectionMetrics,
+    -- | Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
+    returnItemCollectionMetrics :: Lude.Maybe ReturnItemCollectionMetrics,
+    -- | A condition that must be satisfied in order for a conditional @DeleteItem@ to succeed.
+    --
+    -- An expression can contain any of the following:
+    --
+    --     * Functions: @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
+    -- These function names are case-sensitive.
+    --
+    --
+    --     * Comparison operators: @= | <> | < | > | <= | >= | BETWEEN | IN @
+    --
+    --
+    --     * Logical operators: @AND | OR | NOT@
+    --
+    --
+    -- For more information about condition expressions, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions> in the /Amazon DynamoDB Developer Guide/ .
     conditionExpression :: Lude.Maybe Lude.Text,
+    -- | A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to delete.
+    --
+    -- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+    key :: Lude.HashMap Lude.Text (AttributeValue),
+    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
     conditionalOperator :: Lude.Maybe ConditionalOperator,
-    expected ::
-      Lude.Maybe (Lude.HashMap Lude.Text (ExpectedAttributeValue)),
-    tableName :: Lude.Text,
-    key :: Lude.HashMap Lude.Text (AttributeValue)
+    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
+    expected :: Lude.Maybe (Lude.HashMap Lude.Text (ExpectedAttributeValue)),
+    -- | The name of the table from which to delete the item.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteItem' with the minimum fields required to make a request.
 --
--- * 'conditionExpression' - A condition that must be satisfied in order for a conditional @DeleteItem@ to succeed.
---
--- An expression can contain any of the following:
---
---     * Functions: @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
--- These function names are case-sensitive.
---
---
---     * Comparison operators: @= | <> | < | > | <= | >= | BETWEEN | IN @
---
---
---     * Logical operators: @AND | OR | NOT@
---
---
--- For more information about condition expressions, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions> in the /Amazon DynamoDB Developer Guide/ .
--- * 'conditionalOperator' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
--- * 'expected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
 --
 --
@@ -127,20 +167,6 @@ data DeleteItem = DeleteItem'
 --
 --
 -- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
--- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
---
--- Use the __:__ (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the /ProductStatus/ attribute was one of the following:
--- @Available | Backordered | Discontinued@
--- You would first need to specify @ExpressionAttributeValues@ as follows:
--- @{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }@
--- You could then use these values in an expression, such as this:
--- @ProductStatus IN (:avail, :back, :disc)@
--- For more information on expression attribute values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions> in the /Amazon DynamoDB Developer Guide/ .
--- * 'key' - A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to delete.
---
--- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
--- * 'returnConsumedCapacity' - Undocumented field.
--- * 'returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
 -- * 'returnValues' - Use @ReturnValues@ if you want to get the item attributes as they appeared before they were deleted. For @DeleteItem@ , the valid values are:
 --
 --
@@ -150,6 +176,37 @@ data DeleteItem = DeleteItem'
 --     * @ALL_OLD@ - The content of the old item is returned.
 --
 --
+-- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
+--
+-- Use the __:__ (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the /ProductStatus/ attribute was one of the following:
+-- @Available | Backordered | Discontinued@
+-- You would first need to specify @ExpressionAttributeValues@ as follows:
+-- @{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }@
+-- You could then use these values in an expression, such as this:
+-- @ProductStatus IN (:avail, :back, :disc)@
+-- For more information on expression attribute values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'returnConsumedCapacity' -
+-- * 'returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
+-- * 'conditionExpression' - A condition that must be satisfied in order for a conditional @DeleteItem@ to succeed.
+--
+-- An expression can contain any of the following:
+--
+--     * Functions: @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
+-- These function names are case-sensitive.
+--
+--
+--     * Comparison operators: @= | <> | < | > | <= | >= | BETWEEN | IN @
+--
+--
+--     * Logical operators: @AND | OR | NOT@
+--
+--
+-- For more information about condition expressions, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'key' - A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to delete.
+--
+-- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+-- * 'conditionalOperator' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'expected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'tableName' - The name of the table from which to delete the item.
 mkDeleteItem ::
   -- | 'tableName'
@@ -163,10 +220,10 @@ mkDeleteItem pTableName_ =
       returnConsumedCapacity = Lude.Nothing,
       returnItemCollectionMetrics = Lude.Nothing,
       conditionExpression = Lude.Nothing,
+      key = Lude.mempty,
       conditionalOperator = Lude.Nothing,
       expected = Lude.Nothing,
-      tableName = pTableName_,
-      key = Lude.mempty
+      tableName = pTableName_
     }
 
 -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
@@ -268,6 +325,15 @@ diConditionExpression :: Lens.Lens' DeleteItem (Lude.Maybe Lude.Text)
 diConditionExpression = Lens.lens (conditionExpression :: DeleteItem -> Lude.Maybe Lude.Text) (\s a -> s {conditionExpression = a} :: DeleteItem)
 {-# DEPRECATED diConditionExpression "Use generic-lens or generic-optics with 'conditionExpression' instead." #-}
 
+-- | A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to delete.
+--
+-- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diKey :: Lens.Lens' DeleteItem (Lude.HashMap Lude.Text (AttributeValue))
+diKey = Lens.lens (key :: DeleteItem -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: DeleteItem)
+{-# DEPRECATED diKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
 --
 -- /Note:/ Consider using 'conditionalOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -288,15 +354,6 @@ diExpected = Lens.lens (expected :: DeleteItem -> Lude.Maybe (Lude.HashMap Lude.
 diTableName :: Lens.Lens' DeleteItem Lude.Text
 diTableName = Lens.lens (tableName :: DeleteItem -> Lude.Text) (\s a -> s {tableName = a} :: DeleteItem)
 {-# DEPRECATED diTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
--- | A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to delete.
---
--- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diKey :: Lens.Lens' DeleteItem (Lude.HashMap Lude.Text (AttributeValue))
-diKey = Lens.lens (key :: DeleteItem -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: DeleteItem)
-{-# DEPRECATED diKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 instance Lude.AWSRequest DeleteItem where
   type Rs DeleteItem = DeleteItemResponse
@@ -335,10 +392,10 @@ instance Lude.ToJSON DeleteItem where
             ("ReturnItemCollectionMetrics" Lude..=)
               Lude.<$> returnItemCollectionMetrics,
             ("ConditionExpression" Lude..=) Lude.<$> conditionExpression,
+            Lude.Just ("Key" Lude..= key),
             ("ConditionalOperator" Lude..=) Lude.<$> conditionalOperator,
             ("Expected" Lude..=) Lude.<$> expected,
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("Key" Lude..= key)
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -352,26 +409,28 @@ instance Lude.ToQuery DeleteItem where
 --
 -- /See:/ 'mkDeleteItemResponse' smart constructor.
 data DeleteItemResponse = DeleteItemResponse'
-  { itemCollectionMetrics ::
-      Lude.Maybe ItemCollectionMetrics,
+  { -- | Information about item collections, if any, that were affected by the @DeleteItem@ operation. @ItemCollectionMetrics@ is only returned if the @ReturnItemCollectionMetrics@ parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.
+    --
+    -- Each @ItemCollectionMetrics@ element consists of:
+    --
+    --     * @ItemCollectionKey@ - The partition key value of the item collection. This is the same as the partition key value of the item itself.
+    --
+    --
+    --     * @SizeEstimateRangeGB@ - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.
+    -- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
+    itemCollectionMetrics :: Lude.Maybe ItemCollectionMetrics,
+    -- | The capacity units consumed by the @DeleteItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Mode> in the /Amazon DynamoDB Developer Guide/ .
     consumedCapacity :: Lude.Maybe ConsumedCapacity,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | A map of attribute names to @AttributeValue@ objects, representing the item as it appeared before the @DeleteItem@ operation. This map appears in the response only if @ReturnValues@ was specified as @ALL_OLD@ in the request.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteItemResponse' with the minimum fields required to make a request.
 --
--- * 'attributes' - A map of attribute names to @AttributeValue@ objects, representing the item as it appeared before the @DeleteItem@ operation. This map appears in the response only if @ReturnValues@ was specified as @ALL_OLD@ in the request.
--- * 'consumedCapacity' - The capacity units consumed by the @DeleteItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Mode> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'itemCollectionMetrics' - Information about item collections, if any, that were affected by the @DeleteItem@ operation. @ItemCollectionMetrics@ is only returned if the @ReturnItemCollectionMetrics@ parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.
 --
 -- Each @ItemCollectionMetrics@ element consists of:
@@ -383,6 +442,8 @@ data DeleteItemResponse = DeleteItemResponse'
 -- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
 --
 --
+-- * 'consumedCapacity' - The capacity units consumed by the @DeleteItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Mode> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'attributes' - A map of attribute names to @AttributeValue@ objects, representing the item as it appeared before the @DeleteItem@ operation. This map appears in the response only if @ReturnValues@ was specified as @ALL_OLD@ in the request.
 -- * 'responseStatus' - The response status code.
 mkDeleteItemResponse ::
   -- | 'responseStatus'

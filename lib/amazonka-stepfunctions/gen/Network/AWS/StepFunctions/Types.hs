@@ -108,11 +108,11 @@ module Network.AWS.StepFunctions.Types
     ExecutionListItem (..),
     mkExecutionListItem,
     eliStopDate,
-    eliExecutionARN,
-    eliStateMachineARN,
-    eliName,
     eliStatus,
     eliStartDate,
+    eliName,
+    eliStateMachineARN,
+    eliExecutionARN,
 
     -- * ExecutionStartedEventDetails
     ExecutionStartedEventDetails (..),
@@ -160,6 +160,7 @@ module Network.AWS.StepFunctions.Types
     heTaskScheduledEventDetails,
     heActivityScheduledEventDetails,
     heExecutionStartedEventDetails,
+    heId,
     heActivityScheduleFailedEventDetails,
     heLambdaFunctionScheduleFailedEventDetails,
     heStateEnteredEventDetails,
@@ -167,11 +168,10 @@ module Network.AWS.StepFunctions.Types
     heActivityFailedEventDetails,
     heTaskFailedEventDetails,
     heLambdaFunctionFailedEventDetails,
+    heType,
     heExecutionTimedOutEventDetails,
     heMapIterationFailedEventDetails,
     heTimestamp,
-    heType,
-    heId,
 
     -- * HistoryEventExecutionDataDetails
     HistoryEventExecutionDataDetails (..),
@@ -249,17 +249,17 @@ module Network.AWS.StepFunctions.Types
     -- * StateExitedEventDetails
     StateExitedEventDetails (..),
     mkStateExitedEventDetails,
+    seedName,
     seedOutput,
     seedOutputDetails,
-    seedName,
 
     -- * StateMachineListItem
     StateMachineListItem (..),
     mkStateMachineListItem,
-    smliStateMachineARN,
     smliName,
-    smliType,
+    smliStateMachineARN,
     smliCreationDate,
+    smliType,
 
     -- * Tag
     Tag (..),
@@ -270,27 +270,27 @@ module Network.AWS.StepFunctions.Types
     -- * TaskFailedEventDetails
     TaskFailedEventDetails (..),
     mkTaskFailedEventDetails,
+    tfedResourceType,
     tfedError,
     tfedCause,
-    tfedResourceType,
     tfedResource,
 
     -- * TaskScheduledEventDetails
     TaskScheduledEventDetails (..),
     mkTaskScheduledEventDetails,
-    tasHeartbeatInSeconds,
-    tasTimeoutInSeconds,
-    tasResourceType,
-    tasResource,
-    tasRegion,
-    tasParameters,
+    tsedfHeartbeatInSeconds,
+    tsedfResourceType,
+    tsedfTimeoutInSeconds,
+    tsedfResource,
+    tsedfParameters,
+    tsedfRegion,
 
     -- * TaskStartFailedEventDetails
     TaskStartFailedEventDetails (..),
     mkTaskStartFailedEventDetails,
+    tsfedsResourceType,
     tsfedsError,
     tsfedsCause,
-    tsfedsResourceType,
     tsfedsResource,
 
     -- * TaskStartedEventDetails
@@ -302,33 +302,33 @@ module Network.AWS.StepFunctions.Types
     -- * TaskSubmitFailedEventDetails
     TaskSubmitFailedEventDetails (..),
     mkTaskSubmitFailedEventDetails,
+    tsfedResourceType,
     tsfedError,
     tsfedCause,
-    tsfedResourceType,
     tsfedResource,
 
     -- * TaskSubmittedEventDetails
     TaskSubmittedEventDetails (..),
     mkTaskSubmittedEventDetails,
-    tOutput,
-    tOutputDetails,
     tResourceType,
+    tOutput,
     tResource,
+    tOutputDetails,
 
     -- * TaskSucceededEventDetails
     TaskSucceededEventDetails (..),
     mkTaskSucceededEventDetails,
-    tsedsOutput,
-    tsedsOutputDetails,
     tsedsResourceType,
+    tsedsOutput,
     tsedsResource,
+    tsedsOutputDetails,
 
     -- * TaskTimedOutEventDetails
     TaskTimedOutEventDetails (..),
     mkTaskTimedOutEventDetails,
+    ttoedResourceType,
     ttoedError,
     ttoedCause,
-    ttoedResourceType,
     ttoedResource,
 
     -- * TracingConfiguration

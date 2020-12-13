@@ -13,17 +13,17 @@
 module Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute
   ( InstancesHealthAttribute
       ( InstancesHealthAttribute',
-        All,
-        ApplicationMetrics,
-        AvailabilityZone,
-        Causes,
-        Color,
-        Deployment,
         HealthStatus,
-        InstanceType,
-        LaunchedAt,
+        Color,
+        Causes,
+        ApplicationMetrics,
         RefreshedAt,
-        System
+        LaunchedAt,
+        System,
+        Deployment,
+        AvailabilityZone,
+        InstanceType,
+        All
       ),
   )
 where
@@ -54,50 +54,50 @@ newtype InstancesHealthAttribute = InstancesHealthAttribute' Lude.Text
       Lude.ToHeader
     )
 
-pattern All :: InstancesHealthAttribute
-pattern All = InstancesHealthAttribute' "All"
-
-pattern ApplicationMetrics :: InstancesHealthAttribute
-pattern ApplicationMetrics = InstancesHealthAttribute' "ApplicationMetrics"
-
-pattern AvailabilityZone :: InstancesHealthAttribute
-pattern AvailabilityZone = InstancesHealthAttribute' "AvailabilityZone"
-
-pattern Causes :: InstancesHealthAttribute
-pattern Causes = InstancesHealthAttribute' "Causes"
+pattern HealthStatus :: InstancesHealthAttribute
+pattern HealthStatus = InstancesHealthAttribute' "HealthStatus"
 
 pattern Color :: InstancesHealthAttribute
 pattern Color = InstancesHealthAttribute' "Color"
 
-pattern Deployment :: InstancesHealthAttribute
-pattern Deployment = InstancesHealthAttribute' "Deployment"
+pattern Causes :: InstancesHealthAttribute
+pattern Causes = InstancesHealthAttribute' "Causes"
 
-pattern HealthStatus :: InstancesHealthAttribute
-pattern HealthStatus = InstancesHealthAttribute' "HealthStatus"
-
-pattern InstanceType :: InstancesHealthAttribute
-pattern InstanceType = InstancesHealthAttribute' "InstanceType"
-
-pattern LaunchedAt :: InstancesHealthAttribute
-pattern LaunchedAt = InstancesHealthAttribute' "LaunchedAt"
+pattern ApplicationMetrics :: InstancesHealthAttribute
+pattern ApplicationMetrics = InstancesHealthAttribute' "ApplicationMetrics"
 
 pattern RefreshedAt :: InstancesHealthAttribute
 pattern RefreshedAt = InstancesHealthAttribute' "RefreshedAt"
 
+pattern LaunchedAt :: InstancesHealthAttribute
+pattern LaunchedAt = InstancesHealthAttribute' "LaunchedAt"
+
 pattern System :: InstancesHealthAttribute
 pattern System = InstancesHealthAttribute' "System"
 
+pattern Deployment :: InstancesHealthAttribute
+pattern Deployment = InstancesHealthAttribute' "Deployment"
+
+pattern AvailabilityZone :: InstancesHealthAttribute
+pattern AvailabilityZone = InstancesHealthAttribute' "AvailabilityZone"
+
+pattern InstanceType :: InstancesHealthAttribute
+pattern InstanceType = InstancesHealthAttribute' "InstanceType"
+
+pattern All :: InstancesHealthAttribute
+pattern All = InstancesHealthAttribute' "All"
+
 {-# COMPLETE
-  All,
-  ApplicationMetrics,
-  AvailabilityZone,
-  Causes,
-  Color,
-  Deployment,
   HealthStatus,
-  InstanceType,
-  LaunchedAt,
+  Color,
+  Causes,
+  ApplicationMetrics,
   RefreshedAt,
+  LaunchedAt,
   System,
+  Deployment,
+  AvailabilityZone,
+  InstanceType,
+  All,
   InstancesHealthAttribute'
   #-}

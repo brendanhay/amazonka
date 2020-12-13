@@ -178,17 +178,17 @@ module Network.AWS.CertificateManagerPCA
     -- ** CertificateAuthorityConfiguration
     CertificateAuthorityConfiguration (..),
     mkCertificateAuthorityConfiguration,
-    cacKeyAlgorithm,
-    cacSigningAlgorithm,
     cacSubject,
+    cacSigningAlgorithm,
+    cacKeyAlgorithm,
 
     -- ** CrlConfiguration
     CrlConfiguration (..),
     mkCrlConfiguration,
+    ccEnabled,
     ccCustomCname,
     ccExpirationInDays,
     ccS3BucketName,
-    ccEnabled,
 
     -- ** Permission
     Permission (..),

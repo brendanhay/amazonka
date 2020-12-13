@@ -29,14 +29,17 @@ import qualified Network.AWS.Prelude as Lude
 -- Configuration sets let you create groups of rules that you can apply to the emails you send using Amazon SES. For more information about using configuration sets, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html Using Amazon SES Configuration Sets> in the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/ Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkConfigurationSet' smart constructor.
-newtype ConfigurationSet = ConfigurationSet' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ConfigurationSet = ConfigurationSet'
+  { -- | The name of the configuration set. The name must meet the following requirements:
+    --
+    --
+    --     * Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+    --
+    --
+    --     * Contain 64 characters or fewer.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationSet' with the minimum fields required to make a request.

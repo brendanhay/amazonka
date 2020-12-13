@@ -15,9 +15,9 @@ module Network.AWS.SSM.Types.ComplianceSeverity
       ( ComplianceSeverity',
         CSCritical,
         CSHigh,
-        CSInformational,
-        CSLow,
         CSMedium,
+        CSLow,
+        CSInformational,
         CSUnspecified
       ),
   )
@@ -55,14 +55,14 @@ pattern CSCritical = ComplianceSeverity' "CRITICAL"
 pattern CSHigh :: ComplianceSeverity
 pattern CSHigh = ComplianceSeverity' "HIGH"
 
-pattern CSInformational :: ComplianceSeverity
-pattern CSInformational = ComplianceSeverity' "INFORMATIONAL"
+pattern CSMedium :: ComplianceSeverity
+pattern CSMedium = ComplianceSeverity' "MEDIUM"
 
 pattern CSLow :: ComplianceSeverity
 pattern CSLow = ComplianceSeverity' "LOW"
 
-pattern CSMedium :: ComplianceSeverity
-pattern CSMedium = ComplianceSeverity' "MEDIUM"
+pattern CSInformational :: ComplianceSeverity
+pattern CSInformational = ComplianceSeverity' "INFORMATIONAL"
 
 pattern CSUnspecified :: ComplianceSeverity
 pattern CSUnspecified = ComplianceSeverity' "UNSPECIFIED"
@@ -70,9 +70,9 @@ pattern CSUnspecified = ComplianceSeverity' "UNSPECIFIED"
 {-# COMPLETE
   CSCritical,
   CSHigh,
-  CSInformational,
-  CSLow,
   CSMedium,
+  CSLow,
+  CSInformational,
   CSUnspecified,
   ComplianceSeverity'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,31 +48,43 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkSearchProvisionedProducts' smart constructor.
 data SearchProvisionedProducts = SearchProvisionedProducts'
-  { filters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            ProvisionedProductViewFilterBy
-            ([Lude.Text])
-        ),
+  { -- | The search filters.
+    --
+    -- When the key is @SearchQuery@ , the searchable fields are @arn@ , @createdTime@ , @id@ , @lastRecordId@ , @idempotencyToken@ , @name@ , @physicalId@ , @productId@ , @provisioningArtifact@ , @type@ , @status@ , @tags@ , @userArn@ , @userArnSession@ , @lastProvisioningRecordId@ , @lastSuccessfulProvisioningRecordId@ , @productName@ , and @provisioningArtifactName@ .
+    -- Example: @"SearchQuery":["status:AVAILABLE"]@
+    filters :: Lude.Maybe (Lude.HashMap ProvisionedProductViewFilterBy ([Lude.Text])),
+    -- | The sort order. If no value is specified, the results are not sorted.
     sortOrder :: Lude.Maybe SortOrder,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
     acceptLanguage :: Lude.Maybe Lude.Text,
-    accessLevelFilter ::
-      Lude.Maybe AccessLevelFilter,
+    -- | The access level to use to obtain results. The default is @User@ .
+    accessLevelFilter :: Lude.Maybe AccessLevelFilter,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
     pageSize :: Lude.Maybe Lude.Natural,
+    -- | The sort field. If no value is specified, the results are not sorted. The valid values are @arn@ , @id@ , @name@ , and @lastRecordId@ .
     sortBy :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchProvisionedProducts' with the minimum fields required to make a request.
 --
+-- * 'filters' - The search filters.
+--
+-- When the key is @SearchQuery@ , the searchable fields are @arn@ , @createdTime@ , @id@ , @lastRecordId@ , @idempotencyToken@ , @name@ , @physicalId@ , @productId@ , @provisioningArtifact@ , @type@ , @status@ , @tags@ , @userArn@ , @userArnSession@ , @lastProvisioningRecordId@ , @lastSuccessfulProvisioningRecordId@ , @productName@ , and @provisioningArtifactName@ .
+-- Example: @"SearchQuery":["status:AVAILABLE"]@
+-- * 'sortOrder' - The sort order. If no value is specified, the results are not sorted.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -85,14 +98,9 @@ data SearchProvisionedProducts = SearchProvisionedProducts'
 --
 --
 -- * 'accessLevelFilter' - The access level to use to obtain results. The default is @User@ .
--- * 'filters' - The search filters.
---
--- When the key is @SearchQuery@ , the searchable fields are @arn@ , @createdTime@ , @id@ , @lastRecordId@ , @idempotencyToken@ , @name@ , @physicalId@ , @productId@ , @provisioningArtifact@ , @type@ , @status@ , @tags@ , @userArn@ , @userArnSession@ , @lastProvisioningRecordId@ , @lastSuccessfulProvisioningRecordId@ , @productName@ , and @provisioningArtifactName@ .
--- Example: @"SearchQuery":["status:AVAILABLE"]@
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'sortBy' - The sort field. If no value is specified, the results are not sorted. The valid values are @arn@ , @id@ , @name@ , and @lastRecordId@ .
--- * 'sortOrder' - The sort order. If no value is specified, the results are not sorted.
 mkSearchProvisionedProducts ::
   SearchProvisionedProducts
 mkSearchProvisionedProducts =
@@ -219,31 +227,24 @@ instance Lude.ToQuery SearchProvisionedProducts where
 
 -- | /See:/ 'mkSearchProvisionedProductsResponse' smart constructor.
 data SearchProvisionedProductsResponse = SearchProvisionedProductsResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    provisionedProducts ::
-      Lude.Maybe
-        [ProvisionedProductAttribute],
-    totalResultsCount ::
-      Lude.Maybe Lude.Int,
-    responseStatus ::
-      Lude.Int
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Information about the provisioned products.
+    provisionedProducts :: Lude.Maybe [ProvisionedProductAttribute],
+    -- | The number of provisioned products found.
+    totalResultsCount :: Lude.Maybe Lude.Int,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchProvisionedProductsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 -- * 'provisionedProducts' - Information about the provisioned products.
--- * 'responseStatus' - The response status code.
 -- * 'totalResultsCount' - The number of provisioned products found.
+-- * 'responseStatus' - The response status code.
 mkSearchProvisionedProductsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

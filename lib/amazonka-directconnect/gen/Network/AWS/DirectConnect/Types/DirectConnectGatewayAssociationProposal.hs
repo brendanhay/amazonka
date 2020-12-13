@@ -37,44 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectConnectGatewayAssociationProposal' smart constructor.
 data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationProposal'
-  { existingAllowedPrefixesToDirectConnectGateway ::
-      Lude.Maybe
-        [RouteFilterPrefix],
-    directConnectGatewayId ::
-      Lude.Maybe
-        Lude.Text,
-    proposalId ::
-      Lude.Maybe
-        Lude.Text,
-    associatedGateway ::
-      Lude.Maybe
-        AssociatedGateway,
-    proposalState ::
-      Lude.Maybe
-        DirectConnectGatewayAssociationProposalState,
-    directConnectGatewayOwnerAccount ::
-      Lude.Maybe
-        Lude.Text,
-    requestedAllowedPrefixesToDirectConnectGateway ::
-      Lude.Maybe
-        [RouteFilterPrefix]
+  { -- | The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
+    existingAllowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix],
+    -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the association proposal.
+    proposalId :: Lude.Maybe Lude.Text,
+    -- | Information about the associated gateway.
+    associatedGateway :: Lude.Maybe AssociatedGateway,
+    -- | The state of the proposal. The following are possible values:
+    --
+    --
+    --     * @accepted@ : The proposal has been accepted. The Direct Connect gateway association is available to use in this state.
+    --
+    --
+    --     * @deleted@ : The proposal has been deleted by the owner that made the proposal. The Direct Connect gateway association cannot be used in this state.
+    --
+    --
+    --     * @requested@ : The proposal has been requested. The Direct Connect gateway association cannot be used in this state.
+    proposalState :: Lude.Maybe DirectConnectGatewayAssociationProposalState,
+    -- | The ID of the AWS account that owns the Direct Connect gateway.
+    directConnectGatewayOwnerAccount :: Lude.Maybe Lude.Text,
+    -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+    requestedAllowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectConnectGatewayAssociationProposal' with the minimum fields required to make a request.
 --
--- * 'associatedGateway' - Information about the associated gateway.
--- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
--- * 'directConnectGatewayOwnerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
 -- * 'existingAllowedPrefixesToDirectConnectGateway' - The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
 -- * 'proposalId' - The ID of the association proposal.
+-- * 'associatedGateway' - Information about the associated gateway.
 -- * 'proposalState' - The state of the proposal. The following are possible values:
 --
 --
@@ -87,6 +82,7 @@ data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationPr
 --     * @requested@ : The proposal has been requested. The Direct Connect gateway association cannot be used in this state.
 --
 --
+-- * 'directConnectGatewayOwnerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
 -- * 'requestedAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 mkDirectConnectGatewayAssociationProposal ::
   DirectConnectGatewayAssociationProposal

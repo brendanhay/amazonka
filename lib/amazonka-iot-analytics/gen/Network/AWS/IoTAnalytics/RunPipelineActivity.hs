@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,23 +42,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRunPipelineActivity' smart constructor.
 data RunPipelineActivity = RunPipelineActivity'
-  { pipelineActivity ::
-      PipelineActivity,
+  { -- | The pipeline activity that is run. This must not be a channel activity or a datastore activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a lambda activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.
+    pipelineActivity :: PipelineActivity,
+    -- | The sample message payloads on which the pipeline activity is run.
     payloads :: Lude.NonEmpty Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RunPipelineActivity' with the minimum fields required to make a request.
 --
--- * 'payloads' - The sample message payloads on which the pipeline activity is run.
 -- * 'pipelineActivity' - The pipeline activity that is run. This must not be a channel activity or a datastore activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a lambda activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.
+-- * 'payloads' - The sample message payloads on which the pipeline activity is run.
 mkRunPipelineActivity ::
   -- | 'pipelineActivity'
   PipelineActivity ->
@@ -116,20 +112,14 @@ instance Lude.ToQuery RunPipelineActivity where
 
 -- | /See:/ 'mkRunPipelineActivityResponse' smart constructor.
 data RunPipelineActivityResponse = RunPipelineActivityResponse'
-  { logResult ::
-      Lude.Maybe Lude.Text,
-    payloads ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Base64),
+  { -- | In case the pipeline activity fails, the log message that is generated.
+    logResult :: Lude.Maybe Lude.Text,
+    -- | The enriched or transformed sample message payloads as base64-encoded strings. (The results of running the pipeline activity on each input sample message payload, encoded in base64.)
+    payloads :: Lude.Maybe (Lude.NonEmpty Lude.Base64),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RunPipelineActivityResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     mkDeleteInterconnect,
 
     -- ** Request lenses
-    dInterconnectId,
+    diInterconnectId,
 
     -- * Destructuring the response
     DeleteInterconnectResponse (..),
     mkDeleteInterconnectResponse,
 
     -- ** Response lenses
-    drsInterconnectState,
-    drsResponseStatus,
+    dirsInterconnectState,
+    dirsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteInterconnect' smart constructor.
 newtype DeleteInterconnect = DeleteInterconnect'
-  { interconnectId ::
-      Lude.Text
+  { -- | The ID of the interconnect.
+    interconnectId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInterconnect' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDeleteInterconnect pInterconnectId_ =
 -- | The ID of the interconnect.
 --
 -- /Note:/ Consider using 'interconnectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInterconnectId :: Lens.Lens' DeleteInterconnect Lude.Text
-dInterconnectId = Lens.lens (interconnectId :: DeleteInterconnect -> Lude.Text) (\s a -> s {interconnectId = a} :: DeleteInterconnect)
-{-# DEPRECATED dInterconnectId "Use generic-lens or generic-optics with 'interconnectId' instead." #-}
+diInterconnectId :: Lens.Lens' DeleteInterconnect Lude.Text
+diInterconnectId = Lens.lens (interconnectId :: DeleteInterconnect -> Lude.Text) (\s a -> s {interconnectId = a} :: DeleteInterconnect)
+{-# DEPRECATED diInterconnectId "Use generic-lens or generic-optics with 'interconnectId' instead." #-}
 
 instance Lude.AWSRequest DeleteInterconnect where
   type Rs DeleteInterconnect = DeleteInterconnectResponse
@@ -105,17 +100,33 @@ instance Lude.ToQuery DeleteInterconnect where
 
 -- | /See:/ 'mkDeleteInterconnectResponse' smart constructor.
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
-  { interconnectState ::
-      Lude.Maybe InterconnectState,
+  { -- | The state of the interconnect. The following are the possible values:
+    --
+    --
+    --     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+    --
+    --
+    --     * @pending@ : The interconnect is approved, and is being initialized.
+    --
+    --
+    --     * @available@ : The network link is up, and the interconnect is ready for use.
+    --
+    --
+    --     * @down@ : The network link is down.
+    --
+    --
+    --     * @deleting@ : The interconnect is being deleted.
+    --
+    --
+    --     * @deleted@ : The interconnect is deleted.
+    --
+    --
+    --     * @unknown@ : The state of the interconnect is not available.
+    interconnectState :: Lude.Maybe InterconnectState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInterconnectResponse' with the minimum fields required to make a request.
@@ -181,13 +192,13 @@ mkDeleteInterconnectResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'interconnectState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsInterconnectState :: Lens.Lens' DeleteInterconnectResponse (Lude.Maybe InterconnectState)
-drsInterconnectState = Lens.lens (interconnectState :: DeleteInterconnectResponse -> Lude.Maybe InterconnectState) (\s a -> s {interconnectState = a} :: DeleteInterconnectResponse)
-{-# DEPRECATED drsInterconnectState "Use generic-lens or generic-optics with 'interconnectState' instead." #-}
+dirsInterconnectState :: Lens.Lens' DeleteInterconnectResponse (Lude.Maybe InterconnectState)
+dirsInterconnectState = Lens.lens (interconnectState :: DeleteInterconnectResponse -> Lude.Maybe InterconnectState) (\s a -> s {interconnectState = a} :: DeleteInterconnectResponse)
+{-# DEPRECATED dirsInterconnectState "Use generic-lens or generic-optics with 'interconnectState' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteInterconnectResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteInterconnectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInterconnectResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dirsResponseStatus :: Lens.Lens' DeleteInterconnectResponse Lude.Int
+dirsResponseStatus = Lens.lens (responseStatus :: DeleteInterconnectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInterconnectResponse)
+{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

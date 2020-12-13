@@ -31,26 +31,18 @@ import Network.AWS.RDS.Types.ValidStorageOptions
 --
 -- /See:/ 'mkValidDBInstanceModificationsMessage' smart constructor.
 data ValidDBInstanceModificationsMessage = ValidDBInstanceModificationsMessage'
-  { validProcessorFeatures ::
-      Lude.Maybe
-        [AvailableProcessorFeature],
-    storage ::
-      Lude.Maybe
-        [ValidStorageOptions]
+  { -- | Valid processor features for your DB instance.
+    validProcessorFeatures :: Lude.Maybe [AvailableProcessorFeature],
+    -- | Valid storage options for your DB instance.
+    storage :: Lude.Maybe [ValidStorageOptions]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidDBInstanceModificationsMessage' with the minimum fields required to make a request.
 --
--- * 'storage' - Valid storage options for your DB instance.
 -- * 'validProcessorFeatures' - Valid processor features for your DB instance.
+-- * 'storage' - Valid storage options for your DB instance.
 mkValidDBInstanceModificationsMessage ::
   ValidDBInstanceModificationsMessage
 mkValidDBInstanceModificationsMessage =

@@ -33,32 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCIPv6CidrBlockAssociation' smart constructor.
 data VPCIPv6CidrBlockAssociation = VPCIPv6CidrBlockAssociation'
-  { associationId ::
-      Lude.Maybe Lude.Text,
-    ipv6CidrBlock ::
-      Lude.Maybe Lude.Text,
-    networkBorderGroup ::
-      Lude.Maybe Lude.Text,
-    ipv6CidrBlockState ::
-      Lude.Maybe VPCCidrBlockState,
+  { -- | The association ID for the IPv6 CIDR block.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The IPv6 CIDR block.
+    ipv6CidrBlock :: Lude.Maybe Lude.Text,
+    -- | The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses, for example, @us-east-1-wl1-bos-wlz-1@ .
+    networkBorderGroup :: Lude.Maybe Lude.Text,
+    -- | Information about the state of the CIDR block.
+    ipv6CidrBlockState :: Lude.Maybe VPCCidrBlockState,
+    -- | The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.
     ipv6Pool :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCIPv6CidrBlockAssociation' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The association ID for the IPv6 CIDR block.
 -- * 'ipv6CidrBlock' - The IPv6 CIDR block.
+-- * 'networkBorderGroup' - The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses, for example, @us-east-1-wl1-bos-wlz-1@ .
 -- * 'ipv6CidrBlockState' - Information about the state of the CIDR block.
 -- * 'ipv6Pool' - The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.
--- * 'networkBorderGroup' - The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses, for example, @us-east-1-wl1-bos-wlz-1@ .
 mkVPCIPv6CidrBlockAssociation ::
   VPCIPv6CidrBlockAssociation
 mkVPCIPv6CidrBlockAssociation =

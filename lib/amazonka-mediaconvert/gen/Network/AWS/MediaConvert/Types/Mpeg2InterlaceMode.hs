@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.Mpeg2InterlaceMode
   ( Mpeg2InterlaceMode
       ( Mpeg2InterlaceMode',
-        MIMBottomField,
-        MIMFollowBottomField,
-        MIMFollowTopField,
         MIMProgressive,
-        MIMTopField
+        MIMTopField,
+        MIMBottomField,
+        MIMFollowTopField,
+        MIMFollowBottomField
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype Mpeg2InterlaceMode = Mpeg2InterlaceMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern MIMBottomField :: Mpeg2InterlaceMode
-pattern MIMBottomField = Mpeg2InterlaceMode' "BOTTOM_FIELD"
-
-pattern MIMFollowBottomField :: Mpeg2InterlaceMode
-pattern MIMFollowBottomField = Mpeg2InterlaceMode' "FOLLOW_BOTTOM_FIELD"
-
-pattern MIMFollowTopField :: Mpeg2InterlaceMode
-pattern MIMFollowTopField = Mpeg2InterlaceMode' "FOLLOW_TOP_FIELD"
-
 pattern MIMProgressive :: Mpeg2InterlaceMode
 pattern MIMProgressive = Mpeg2InterlaceMode' "PROGRESSIVE"
 
 pattern MIMTopField :: Mpeg2InterlaceMode
 pattern MIMTopField = Mpeg2InterlaceMode' "TOP_FIELD"
 
+pattern MIMBottomField :: Mpeg2InterlaceMode
+pattern MIMBottomField = Mpeg2InterlaceMode' "BOTTOM_FIELD"
+
+pattern MIMFollowTopField :: Mpeg2InterlaceMode
+pattern MIMFollowTopField = Mpeg2InterlaceMode' "FOLLOW_TOP_FIELD"
+
+pattern MIMFollowBottomField :: Mpeg2InterlaceMode
+pattern MIMFollowBottomField = Mpeg2InterlaceMode' "FOLLOW_BOTTOM_FIELD"
+
 {-# COMPLETE
-  MIMBottomField,
-  MIMFollowBottomField,
-  MIMFollowTopField,
   MIMProgressive,
   MIMTopField,
+  MIMBottomField,
+  MIMFollowTopField,
+  MIMFollowBottomField,
   Mpeg2InterlaceMode'
   #-}

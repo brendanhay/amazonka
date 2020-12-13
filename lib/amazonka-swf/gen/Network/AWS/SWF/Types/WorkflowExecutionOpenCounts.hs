@@ -17,11 +17,11 @@ module Network.AWS.SWF.Types.WorkflowExecutionOpenCounts
     mkWorkflowExecutionOpenCounts,
 
     -- * Lenses
-    weocOpenLambdaFunctions,
+    weocOpenChildWorkflowExecutions,
     weocOpenActivityTasks,
+    weocOpenLambdaFunctions,
     weocOpenDecisionTasks,
     weocOpenTimers,
-    weocOpenChildWorkflowExecutions,
   )
 where
 
@@ -32,59 +32,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflowExecutionOpenCounts' smart constructor.
 data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts'
-  { openLambdaFunctions ::
-      Lude.Maybe Lude.Natural,
+  { -- | The count of child workflow executions whose status is @OPEN@ .
+    openChildWorkflowExecutions :: Lude.Natural,
+    -- | The count of activity tasks whose status is @OPEN@ .
     openActivityTasks :: Lude.Natural,
+    -- | The count of Lambda tasks whose status is @OPEN@ .
+    openLambdaFunctions :: Lude.Maybe Lude.Natural,
+    -- | The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task.
     openDecisionTasks :: Lude.Natural,
-    openTimers :: Lude.Natural,
-    openChildWorkflowExecutions ::
-      Lude.Natural
+    -- | The count of timers started by this workflow execution that have not fired yet.
+    openTimers :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionOpenCounts' with the minimum fields required to make a request.
 --
--- * 'openActivityTasks' - The count of activity tasks whose status is @OPEN@ .
 -- * 'openChildWorkflowExecutions' - The count of child workflow executions whose status is @OPEN@ .
--- * 'openDecisionTasks' - The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task.
+-- * 'openActivityTasks' - The count of activity tasks whose status is @OPEN@ .
 -- * 'openLambdaFunctions' - The count of Lambda tasks whose status is @OPEN@ .
+-- * 'openDecisionTasks' - The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task.
 -- * 'openTimers' - The count of timers started by this workflow execution that have not fired yet.
 mkWorkflowExecutionOpenCounts ::
+  -- | 'openChildWorkflowExecutions'
+  Lude.Natural ->
   -- | 'openActivityTasks'
   Lude.Natural ->
   -- | 'openDecisionTasks'
   Lude.Natural ->
   -- | 'openTimers'
   Lude.Natural ->
-  -- | 'openChildWorkflowExecutions'
-  Lude.Natural ->
   WorkflowExecutionOpenCounts
 mkWorkflowExecutionOpenCounts
+  pOpenChildWorkflowExecutions_
   pOpenActivityTasks_
   pOpenDecisionTasks_
-  pOpenTimers_
-  pOpenChildWorkflowExecutions_ =
+  pOpenTimers_ =
     WorkflowExecutionOpenCounts'
-      { openLambdaFunctions = Lude.Nothing,
+      { openChildWorkflowExecutions =
+          pOpenChildWorkflowExecutions_,
         openActivityTasks = pOpenActivityTasks_,
+        openLambdaFunctions = Lude.Nothing,
         openDecisionTasks = pOpenDecisionTasks_,
-        openTimers = pOpenTimers_,
-        openChildWorkflowExecutions = pOpenChildWorkflowExecutions_
+        openTimers = pOpenTimers_
       }
 
--- | The count of Lambda tasks whose status is @OPEN@ .
+-- | The count of child workflow executions whose status is @OPEN@ .
 --
--- /Note:/ Consider using 'openLambdaFunctions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-weocOpenLambdaFunctions :: Lens.Lens' WorkflowExecutionOpenCounts (Lude.Maybe Lude.Natural)
-weocOpenLambdaFunctions = Lens.lens (openLambdaFunctions :: WorkflowExecutionOpenCounts -> Lude.Maybe Lude.Natural) (\s a -> s {openLambdaFunctions = a} :: WorkflowExecutionOpenCounts)
-{-# DEPRECATED weocOpenLambdaFunctions "Use generic-lens or generic-optics with 'openLambdaFunctions' instead." #-}
+-- /Note:/ Consider using 'openChildWorkflowExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+weocOpenChildWorkflowExecutions :: Lens.Lens' WorkflowExecutionOpenCounts Lude.Natural
+weocOpenChildWorkflowExecutions = Lens.lens (openChildWorkflowExecutions :: WorkflowExecutionOpenCounts -> Lude.Natural) (\s a -> s {openChildWorkflowExecutions = a} :: WorkflowExecutionOpenCounts)
+{-# DEPRECATED weocOpenChildWorkflowExecutions "Use generic-lens or generic-optics with 'openChildWorkflowExecutions' instead." #-}
 
 -- | The count of activity tasks whose status is @OPEN@ .
 --
@@ -92,6 +90,13 @@ weocOpenLambdaFunctions = Lens.lens (openLambdaFunctions :: WorkflowExecutionOpe
 weocOpenActivityTasks :: Lens.Lens' WorkflowExecutionOpenCounts Lude.Natural
 weocOpenActivityTasks = Lens.lens (openActivityTasks :: WorkflowExecutionOpenCounts -> Lude.Natural) (\s a -> s {openActivityTasks = a} :: WorkflowExecutionOpenCounts)
 {-# DEPRECATED weocOpenActivityTasks "Use generic-lens or generic-optics with 'openActivityTasks' instead." #-}
+
+-- | The count of Lambda tasks whose status is @OPEN@ .
+--
+-- /Note:/ Consider using 'openLambdaFunctions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+weocOpenLambdaFunctions :: Lens.Lens' WorkflowExecutionOpenCounts (Lude.Maybe Lude.Natural)
+weocOpenLambdaFunctions = Lens.lens (openLambdaFunctions :: WorkflowExecutionOpenCounts -> Lude.Maybe Lude.Natural) (\s a -> s {openLambdaFunctions = a} :: WorkflowExecutionOpenCounts)
+{-# DEPRECATED weocOpenLambdaFunctions "Use generic-lens or generic-optics with 'openLambdaFunctions' instead." #-}
 
 -- | The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task.
 --
@@ -107,22 +112,15 @@ weocOpenTimers :: Lens.Lens' WorkflowExecutionOpenCounts Lude.Natural
 weocOpenTimers = Lens.lens (openTimers :: WorkflowExecutionOpenCounts -> Lude.Natural) (\s a -> s {openTimers = a} :: WorkflowExecutionOpenCounts)
 {-# DEPRECATED weocOpenTimers "Use generic-lens or generic-optics with 'openTimers' instead." #-}
 
--- | The count of child workflow executions whose status is @OPEN@ .
---
--- /Note:/ Consider using 'openChildWorkflowExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-weocOpenChildWorkflowExecutions :: Lens.Lens' WorkflowExecutionOpenCounts Lude.Natural
-weocOpenChildWorkflowExecutions = Lens.lens (openChildWorkflowExecutions :: WorkflowExecutionOpenCounts -> Lude.Natural) (\s a -> s {openChildWorkflowExecutions = a} :: WorkflowExecutionOpenCounts)
-{-# DEPRECATED weocOpenChildWorkflowExecutions "Use generic-lens or generic-optics with 'openChildWorkflowExecutions' instead." #-}
-
 instance Lude.FromJSON WorkflowExecutionOpenCounts where
   parseJSON =
     Lude.withObject
       "WorkflowExecutionOpenCounts"
       ( \x ->
           WorkflowExecutionOpenCounts'
-            Lude.<$> (x Lude..:? "openLambdaFunctions")
+            Lude.<$> (x Lude..: "openChildWorkflowExecutions")
             Lude.<*> (x Lude..: "openActivityTasks")
+            Lude.<*> (x Lude..:? "openLambdaFunctions")
             Lude.<*> (x Lude..: "openDecisionTasks")
             Lude.<*> (x Lude..: "openTimers")
-            Lude.<*> (x Lude..: "openChildWorkflowExecutions")
       )

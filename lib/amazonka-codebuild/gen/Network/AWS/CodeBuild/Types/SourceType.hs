@@ -13,13 +13,13 @@
 module Network.AWS.CodeBuild.Types.SourceType
   ( SourceType
       ( SourceType',
-        STBitbucket,
         STCodecommit,
         STCodepipeline,
         STGithub,
+        STS3,
+        STBitbucket,
         STGithubEnterprise,
-        STNoSource,
-        STS3
+        STNoSource
       ),
   )
 where
@@ -50,9 +50,6 @@ newtype SourceType = SourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern STBitbucket :: SourceType
-pattern STBitbucket = SourceType' "BITBUCKET"
-
 pattern STCodecommit :: SourceType
 pattern STCodecommit = SourceType' "CODECOMMIT"
 
@@ -62,22 +59,25 @@ pattern STCodepipeline = SourceType' "CODEPIPELINE"
 pattern STGithub :: SourceType
 pattern STGithub = SourceType' "GITHUB"
 
+pattern STS3 :: SourceType
+pattern STS3 = SourceType' "S3"
+
+pattern STBitbucket :: SourceType
+pattern STBitbucket = SourceType' "BITBUCKET"
+
 pattern STGithubEnterprise :: SourceType
 pattern STGithubEnterprise = SourceType' "GITHUB_ENTERPRISE"
 
 pattern STNoSource :: SourceType
 pattern STNoSource = SourceType' "NO_SOURCE"
 
-pattern STS3 :: SourceType
-pattern STS3 = SourceType' "S3"
-
 {-# COMPLETE
-  STBitbucket,
   STCodecommit,
   STCodepipeline,
   STGithub,
+  STS3,
+  STBitbucket,
   STGithubEnterprise,
   STNoSource,
-  STS3,
   SourceType'
   #-}

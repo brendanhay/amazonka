@@ -13,9 +13,9 @@
 module Network.AWS.Route53AutoNaming.Types.OperationTargetType
   ( OperationTargetType
       ( OperationTargetType',
-        OTTInstance,
         OTTNamespace,
-        OTTService
+        OTTService,
+        OTTInstance
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype OperationTargetType = OperationTargetType' Lude.Text
       Lude.ToHeader
     )
 
-pattern OTTInstance :: OperationTargetType
-pattern OTTInstance = OperationTargetType' "INSTANCE"
-
 pattern OTTNamespace :: OperationTargetType
 pattern OTTNamespace = OperationTargetType' "NAMESPACE"
 
 pattern OTTService :: OperationTargetType
 pattern OTTService = OperationTargetType' "SERVICE"
 
+pattern OTTInstance :: OperationTargetType
+pattern OTTInstance = OperationTargetType' "INSTANCE"
+
 {-# COMPLETE
-  OTTInstance,
   OTTNamespace,
   OTTService,
+  OTTInstance,
   OperationTargetType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,32 +46,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBrokerInstanceOptions' smart constructor.
 data DescribeBrokerInstanceOptions = DescribeBrokerInstanceOptions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    engineType ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    hostInstanceType ::
-      Lude.Maybe Lude.Text,
-    storageType ::
-      Lude.Maybe Lude.Text
+  { -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filter response by engine type.
+    engineType :: Lude.Maybe Lude.Text,
+    -- | The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | Filter response by host instance type.
+    hostInstanceType :: Lude.Maybe Lude.Text,
+    -- | Filter response by storage type.
+    storageType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBrokerInstanceOptions' with the minimum fields required to make a request.
 --
--- * 'engineType' - Filter response by engine type.
--- * 'hostInstanceType' - Filter response by host instance type.
--- * 'maxResults' - The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 -- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- * 'engineType' - Filter response by engine type.
+-- * 'maxResults' - The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+-- * 'hostInstanceType' - Filter response by host instance type.
 -- * 'storageType' - Filter response by storage type.
 mkDescribeBrokerInstanceOptions ::
   DescribeBrokerInstanceOptions
@@ -157,32 +152,23 @@ instance Lude.ToQuery DescribeBrokerInstanceOptions where
 
 -- | /See:/ 'mkDescribeBrokerInstanceOptionsResponse' smart constructor.
 data DescribeBrokerInstanceOptionsResponse = DescribeBrokerInstanceOptionsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    brokerInstanceOptions ::
-      Lude.Maybe
-        [BrokerInstanceOption],
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    responseStatus ::
-      Lude.Int
+  { -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | List of available broker instance options.
+    brokerInstanceOptions :: Lude.Maybe [BrokerInstanceOption],
+    -- | Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBrokerInstanceOptionsResponse' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 -- * 'brokerInstanceOptions' - List of available broker instance options.
 -- * 'maxResults' - Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 -- * 'responseStatus' - The response status code.
 mkDescribeBrokerInstanceOptionsResponse ::
   -- | 'responseStatus'

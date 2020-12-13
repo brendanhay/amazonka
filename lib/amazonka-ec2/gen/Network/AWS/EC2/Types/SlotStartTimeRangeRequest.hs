@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSlotStartTimeRangeRequest' smart constructor.
 data SlotStartTimeRangeRequest = SlotStartTimeRangeRequest'
-  { latestTime ::
-      Lude.Maybe Lude.DateTime,
-    earliestTime ::
-      Lude.Maybe Lude.DateTime
+  { -- | The latest date and time, in UTC, for the Scheduled Instance to start.
+    latestTime :: Lude.Maybe Lude.DateTime,
+    -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
+    earliestTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SlotStartTimeRangeRequest' with the minimum fields required to make a request.
 --
--- * 'earliestTime' - The earliest date and time, in UTC, for the Scheduled Instance to start.
 -- * 'latestTime' - The latest date and time, in UTC, for the Scheduled Instance to start.
+-- * 'earliestTime' - The earliest date and time, in UTC, for the Scheduled Instance to start.
 mkSlotStartTimeRangeRequest ::
   SlotStartTimeRangeRequest
 mkSlotStartTimeRangeRequest =

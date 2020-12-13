@@ -33,27 +33,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWriteSegmentRequest' smart constructor.
 data WriteSegmentRequest = WriteSegmentRequest'
-  { segmentGroups ::
-      Lude.Maybe SegmentGroupList,
+  { -- | The segment group to use and the dimensions to apply to the group's base segments in order to build the segment. A segment group can consist of zero or more base segments. Your request can include only one segment group.
+    segmentGroups :: Lude.Maybe SegmentGroupList,
+    -- | The name of the segment.
     name :: Lude.Maybe Lude.Text,
+    -- | The criteria that define the dimensions for the segment.
     dimensions :: Lude.Maybe SegmentDimensions,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    -- | A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WriteSegmentRequest' with the minimum fields required to make a request.
 --
--- * 'dimensions' - The criteria that define the dimensions for the segment.
--- * 'name' - The name of the segment.
 -- * 'segmentGroups' - The segment group to use and the dimensions to apply to the group's base segments in order to build the segment. A segment group can consist of zero or more base segments. Your request can include only one segment group.
+-- * 'name' - The name of the segment.
+-- * 'dimensions' - The criteria that define the dimensions for the segment.
 -- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.
 mkWriteSegmentRequest ::
   WriteSegmentRequest

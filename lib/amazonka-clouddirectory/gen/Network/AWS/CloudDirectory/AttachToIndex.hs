@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CloudDirectory.AttachToIndex
 
     -- ** Request lenses
     atiDirectoryARN,
-    atiIndexReference,
     atiTargetReference,
+    atiIndexReference,
 
     -- * Destructuring the response
     AttachToIndexResponse (..),
@@ -41,37 +42,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachToIndex' smart constructor.
 data AttachToIndex = AttachToIndex'
-  { directoryARN :: Lude.Text,
-    indexReference :: ObjectReference,
-    targetReference :: ObjectReference
+  { -- | The Amazon Resource Name (ARN) of the directory where the object and index exist.
+    directoryARN :: Lude.Text,
+    -- | A reference to the object that you are attaching to the index.
+    targetReference :: ObjectReference,
+    -- | A reference to the index that you are attaching the object to.
+    indexReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachToIndex' with the minimum fields required to make a request.
 --
 -- * 'directoryARN' - The Amazon Resource Name (ARN) of the directory where the object and index exist.
--- * 'indexReference' - A reference to the index that you are attaching the object to.
 -- * 'targetReference' - A reference to the object that you are attaching to the index.
+-- * 'indexReference' - A reference to the index that you are attaching the object to.
 mkAttachToIndex ::
   -- | 'directoryARN'
   Lude.Text ->
-  -- | 'indexReference'
-  ObjectReference ->
   -- | 'targetReference'
   ObjectReference ->
+  -- | 'indexReference'
+  ObjectReference ->
   AttachToIndex
-mkAttachToIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
+mkAttachToIndex pDirectoryARN_ pTargetReference_ pIndexReference_ =
   AttachToIndex'
     { directoryARN = pDirectoryARN_,
-      indexReference = pIndexReference_,
-      targetReference = pTargetReference_
+      targetReference = pTargetReference_,
+      indexReference = pIndexReference_
     }
 
 -- | The Amazon Resource Name (ARN) of the directory where the object and index exist.
@@ -81,19 +79,19 @@ atiDirectoryARN :: Lens.Lens' AttachToIndex Lude.Text
 atiDirectoryARN = Lens.lens (directoryARN :: AttachToIndex -> Lude.Text) (\s a -> s {directoryARN = a} :: AttachToIndex)
 {-# DEPRECATED atiDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
--- | A reference to the index that you are attaching the object to.
---
--- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atiIndexReference :: Lens.Lens' AttachToIndex ObjectReference
-atiIndexReference = Lens.lens (indexReference :: AttachToIndex -> ObjectReference) (\s a -> s {indexReference = a} :: AttachToIndex)
-{-# DEPRECATED atiIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
-
 -- | A reference to the object that you are attaching to the index.
 --
 -- /Note:/ Consider using 'targetReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atiTargetReference :: Lens.Lens' AttachToIndex ObjectReference
 atiTargetReference = Lens.lens (targetReference :: AttachToIndex -> ObjectReference) (\s a -> s {targetReference = a} :: AttachToIndex)
 {-# DEPRECATED atiTargetReference "Use generic-lens or generic-optics with 'targetReference' instead." #-}
+
+-- | A reference to the index that you are attaching the object to.
+--
+-- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atiIndexReference :: Lens.Lens' AttachToIndex ObjectReference
+atiIndexReference = Lens.lens (indexReference :: AttachToIndex -> ObjectReference) (\s a -> s {indexReference = a} :: AttachToIndex)
+{-# DEPRECATED atiIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
 
 instance Lude.AWSRequest AttachToIndex where
   type Rs AttachToIndex = AttachToIndexResponse
@@ -114,8 +112,8 @@ instance Lude.ToJSON AttachToIndex where
   toJSON AttachToIndex' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("IndexReference" Lude..= indexReference),
-            Lude.Just ("TargetReference" Lude..= targetReference)
+          [ Lude.Just ("TargetReference" Lude..= targetReference),
+            Lude.Just ("IndexReference" Lude..= indexReference)
           ]
       )
 
@@ -127,17 +125,12 @@ instance Lude.ToQuery AttachToIndex where
 
 -- | /See:/ 'mkAttachToIndexResponse' smart constructor.
 data AttachToIndexResponse = AttachToIndexResponse'
-  { attachedObjectIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ObjectIdentifier@ of the object that was attached to the index.
+    attachedObjectIdentifier :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachToIndexResponse' with the minimum fields required to make a request.

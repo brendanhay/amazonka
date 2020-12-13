@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBInstanceStatusInfo' smart constructor.
 data DBInstanceStatusInfo = DBInstanceStatusInfo'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+    status :: Lude.Maybe Lude.Text,
+    -- | Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
     normal :: Lude.Maybe Lude.Bool,
+    -- | This value is currently "read replication."
     statusType :: Lude.Maybe Lude.Text,
+    -- | Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBInstanceStatusInfo' with the minimum fields required to make a request.
 --
--- * 'message' - Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
--- * 'normal' - Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
 -- * 'status' - Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+-- * 'normal' - Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
 -- * 'statusType' - This value is currently "read replication."
+-- * 'message' - Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
 mkDBInstanceStatusInfo ::
   DBInstanceStatusInfo
 mkDBInstanceStatusInfo =

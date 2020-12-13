@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes an IPv4 CIDR block.
 --
 -- /See:/ 'mkCidrBlock' smart constructor.
-newtype CidrBlock = CidrBlock' {cidrBlock :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype CidrBlock = CidrBlock'
+  { -- | The IPv4 CIDR block.
+    cidrBlock :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CidrBlock' with the minimum fields required to make a request.

@@ -35,26 +35,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSInfo' smart constructor.
 data EBSInfo = EBSInfo'
-  { ebsOptimizedInfo ::
-      Lude.Maybe EBSOptimizedInfo,
+  { -- | Describes the optimized EBS performance for the instance type.
+    ebsOptimizedInfo :: Lude.Maybe EBSOptimizedInfo,
+    -- | Indicates whether Amazon EBS encryption is supported.
     encryptionSupport :: Lude.Maybe EBSEncryptionSupport,
+    -- | Indicates whether the instance type is Amazon EBS-optimized. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in /Amazon EC2 User Guide for Linux Instances/ .
     ebsOptimizedSupport :: Lude.Maybe EBSOptimizedSupport,
+    -- | Indicates whether non-volatile memory express (NVMe) is supported.
     nvmeSupport :: Lude.Maybe EBSNvmeSupport
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSInfo' with the minimum fields required to make a request.
 --
 -- * 'ebsOptimizedInfo' - Describes the optimized EBS performance for the instance type.
--- * 'ebsOptimizedSupport' - Indicates whether the instance type is Amazon EBS-optimized. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in /Amazon EC2 User Guide for Linux Instances/ .
 -- * 'encryptionSupport' - Indicates whether Amazon EBS encryption is supported.
+-- * 'ebsOptimizedSupport' - Indicates whether the instance type is Amazon EBS-optimized. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in /Amazon EC2 User Guide for Linux Instances/ .
 -- * 'nvmeSupport' - Indicates whether non-volatile memory express (NVMe) is supported.
 mkEBSInfo ::
   EBSInfo

@@ -30,30 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservationPurchaseRecommendationSummary' smart constructor.
 data ReservationPurchaseRecommendationSummary = ReservationPurchaseRecommendationSummary'
-  { currencyCode ::
-      Lude.Maybe
-        Lude.Text,
-    totalEstimatedMonthlySavingsPercentage ::
-      Lude.Maybe
-        Lude.Text,
-    totalEstimatedMonthlySavingsAmount ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The currency code used for this recommendation.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | The total amount that AWS estimates that this recommendation could save you in a month, as a percentage of your costs.
+    totalEstimatedMonthlySavingsPercentage :: Lude.Maybe Lude.Text,
+    -- | The total amount that AWS estimates that this recommendation could save you in a month.
+    totalEstimatedMonthlySavingsAmount :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationPurchaseRecommendationSummary' with the minimum fields required to make a request.
 --
 -- * 'currencyCode' - The currency code used for this recommendation.
--- * 'totalEstimatedMonthlySavingsAmount' - The total amount that AWS estimates that this recommendation could save you in a month.
 -- * 'totalEstimatedMonthlySavingsPercentage' - The total amount that AWS estimates that this recommendation could save you in a month, as a percentage of your costs.
+-- * 'totalEstimatedMonthlySavingsAmount' - The total amount that AWS estimates that this recommendation could save you in a month.
 mkReservationPurchaseRecommendationSummary ::
   ReservationPurchaseRecommendationSummary
 mkReservationPurchaseRecommendationSummary =

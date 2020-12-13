@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.CreatePushTemplate
     mkCreatePushTemplateResponse,
 
     -- ** Response lenses
-    cptrsResponseStatus,
     cptrsCreateTemplateMessageBody,
+    cptrsResponseStatus,
   )
 where
 
@@ -40,24 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreatePushTemplate' smart constructor.
 data CreatePushTemplate = CreatePushTemplate'
-  { templateName ::
-      Lude.Text,
-    pushNotificationTemplateRequest ::
-      PushNotificationTemplateRequest
+  { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+    templateName :: Lude.Text,
+    pushNotificationTemplateRequest :: PushNotificationTemplateRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePushTemplate' with the minimum fields required to make a request.
 --
--- * 'pushNotificationTemplateRequest' - Undocumented field.
 -- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+-- * 'pushNotificationTemplateRequest' -
 mkCreatePushTemplate ::
   -- | 'templateName'
   Lude.Text ->
@@ -94,7 +88,7 @@ instance Lude.AWSRequest CreatePushTemplate where
     Res.receiveJSON
       ( \s h x ->
           CreatePushTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreatePushTemplate where
@@ -126,44 +120,31 @@ instance Lude.ToQuery CreatePushTemplate where
 
 -- | /See:/ 'mkCreatePushTemplateResponse' smart constructor.
 data CreatePushTemplateResponse = CreatePushTemplateResponse'
-  { responseStatus ::
-      Lude.Int,
-    createTemplateMessageBody ::
-      CreateTemplateMessageBody
+  { createTemplateMessageBody :: CreateTemplateMessageBody,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePushTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'createTemplateMessageBody' - Undocumented field.
+-- * 'createTemplateMessageBody' -
 -- * 'responseStatus' - The response status code.
 mkCreatePushTemplateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'createTemplateMessageBody'
   CreateTemplateMessageBody ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePushTemplateResponse
 mkCreatePushTemplateResponse
-  pResponseStatus_
-  pCreateTemplateMessageBody_ =
+  pCreateTemplateMessageBody_
+  pResponseStatus_ =
     CreatePushTemplateResponse'
-      { responseStatus = pResponseStatus_,
-        createTemplateMessageBody = pCreateTemplateMessageBody_
+      { createTemplateMessageBody =
+          pCreateTemplateMessageBody_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cptrsResponseStatus :: Lens.Lens' CreatePushTemplateResponse Lude.Int
-cptrsResponseStatus = Lens.lens (responseStatus :: CreatePushTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePushTemplateResponse)
-{-# DEPRECATED cptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -171,3 +152,10 @@ cptrsResponseStatus = Lens.lens (responseStatus :: CreatePushTemplateResponse ->
 cptrsCreateTemplateMessageBody :: Lens.Lens' CreatePushTemplateResponse CreateTemplateMessageBody
 cptrsCreateTemplateMessageBody = Lens.lens (createTemplateMessageBody :: CreatePushTemplateResponse -> CreateTemplateMessageBody) (\s a -> s {createTemplateMessageBody = a} :: CreatePushTemplateResponse)
 {-# DEPRECATED cptrsCreateTemplateMessageBody "Use generic-lens or generic-optics with 'createTemplateMessageBody' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptrsResponseStatus :: Lens.Lens' CreatePushTemplateResponse Lude.Int
+cptrsResponseStatus = Lens.lens (responseStatus :: CreatePushTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePushTemplateResponse)
+{-# DEPRECATED cptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,12 +13,12 @@
 module Network.AWS.DirectConnect.Types.InterconnectState
   ( InterconnectState
       ( InterconnectState',
-        ISAvailable,
-        ISDeleted,
-        ISDeleting,
-        ISDown,
-        ISPending,
         ISRequested,
+        ISPending,
+        ISAvailable,
+        ISDown,
+        ISDeleting,
+        ISDeleted,
         ISUnknown
       ),
   )
@@ -50,34 +50,34 @@ newtype InterconnectState = InterconnectState' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISAvailable :: InterconnectState
-pattern ISAvailable = InterconnectState' "available"
-
-pattern ISDeleted :: InterconnectState
-pattern ISDeleted = InterconnectState' "deleted"
-
-pattern ISDeleting :: InterconnectState
-pattern ISDeleting = InterconnectState' "deleting"
-
-pattern ISDown :: InterconnectState
-pattern ISDown = InterconnectState' "down"
+pattern ISRequested :: InterconnectState
+pattern ISRequested = InterconnectState' "requested"
 
 pattern ISPending :: InterconnectState
 pattern ISPending = InterconnectState' "pending"
 
-pattern ISRequested :: InterconnectState
-pattern ISRequested = InterconnectState' "requested"
+pattern ISAvailable :: InterconnectState
+pattern ISAvailable = InterconnectState' "available"
+
+pattern ISDown :: InterconnectState
+pattern ISDown = InterconnectState' "down"
+
+pattern ISDeleting :: InterconnectState
+pattern ISDeleting = InterconnectState' "deleting"
+
+pattern ISDeleted :: InterconnectState
+pattern ISDeleted = InterconnectState' "deleted"
 
 pattern ISUnknown :: InterconnectState
 pattern ISUnknown = InterconnectState' "unknown"
 
 {-# COMPLETE
-  ISAvailable,
-  ISDeleted,
-  ISDeleting,
-  ISDown,
-  ISPending,
   ISRequested,
+  ISPending,
+  ISAvailable,
+  ISDown,
+  ISDeleting,
+  ISDeleted,
   ISUnknown,
   InterconnectState'
   #-}

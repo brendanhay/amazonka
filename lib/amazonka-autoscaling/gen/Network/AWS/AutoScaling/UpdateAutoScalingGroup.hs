@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,12 +47,12 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     uasgDesiredCapacity,
     uasgMixedInstancesPolicy,
     uasgMinSize,
+    uasgAutoScalingGroupName,
     uasgLaunchConfigurationName,
     uasgHealthCheckType,
     uasgLaunchTemplate,
     uasgCapacityRebalance,
     uasgPlacementGroup,
-    uasgAutoScalingGroupName,
 
     -- * Destructuring the response
     UpdateAutoScalingGroupResponse (..),
@@ -67,62 +68,70 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateAutoScalingGroup' smart constructor.
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
-  { terminationPolicies ::
-      Lude.Maybe [Lude.Text],
+  { -- | A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
+    terminationPolicies :: Lude.Maybe [Lude.Text],
+    -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default value is @0@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period> in the /Amazon EC2 Auto Scaling User Guide/ .
+    --
+    -- Conditional: Required if you are adding an @ELB@ health check.
     healthCheckGracePeriod :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles> in the /Amazon EC2 Auto Scaling User Guide/ .
     serviceLinkedRoleARN :: Lude.Maybe Lude.Text,
-    newInstancesProtectedFromScaleIn ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
+    newInstancesProtectedFromScaleIn :: Lude.Maybe Lude.Bool,
+    -- | A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
     vpcZoneIdentifier :: Lude.Maybe Lude.Text,
+    -- | The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
     maxInstanceLifetime :: Lude.Maybe Lude.Int,
+    -- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
     defaultCooldown :: Lude.Maybe Lude.Int,
+    -- | The maximum size of the Auto Scaling group.
     maxSize :: Lude.Maybe Lude.Int,
-    availabilityZones ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | One or more Availability Zones for the group.
+    availabilityZones :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
     desiredCapacity :: Lude.Maybe Lude.Int,
-    mixedInstancesPolicy ::
-      Lude.Maybe MixedInstancesPolicy,
+    -- | An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional parameters are left unchanged if not specified. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
+    mixedInstancesPolicy :: Lude.Maybe MixedInstancesPolicy,
+    -- | The minimum size of the Auto Scaling group.
     minSize :: Lude.Maybe Lude.Int,
-    launchConfigurationName ::
-      Lude.Maybe Lude.Text,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text,
+    -- | The name of the launch configuration. If you specify @LaunchConfigurationName@ in your update request, you can't specify @LaunchTemplate@ or @MixedInstancesPolicy@ .
+    launchConfigurationName :: Lude.Maybe Lude.Text,
+    -- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
     healthCheckType :: Lude.Maybe Lude.Text,
-    launchTemplate ::
-      Lude.Maybe LaunchTemplateSpecification,
+    -- | The launch template and version to use to specify the updates. If you specify @LaunchTemplate@ in your update request, you can't specify @LaunchConfigurationName@ or @MixedInstancesPolicy@ .
+    launchTemplate :: Lude.Maybe LaunchTemplateSpecification,
+    -- | Enables or disables Capacity Rebalancing. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
     capacityRebalance :: Lude.Maybe Lude.Bool,
-    placementGroup :: Lude.Maybe Lude.Text,
-    autoScalingGroupName :: Lude.Text
+    -- | The name of an existing placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
+    placementGroup :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAutoScalingGroup' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'availabilityZones' - One or more Availability Zones for the group.
--- * 'capacityRebalance' - Enables or disables Capacity Rebalancing. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'defaultCooldown' - The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
+-- * 'terminationPolicies' - A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
 -- * 'healthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default value is @0@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 -- Conditional: Required if you are adding an @ELB@ health check.
--- * 'healthCheckType' - The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
--- * 'launchConfigurationName' - The name of the launch configuration. If you specify @LaunchConfigurationName@ in your update request, you can't specify @LaunchTemplate@ or @MixedInstancesPolicy@ .
--- * 'launchTemplate' - The launch template and version to use to specify the updates. If you specify @LaunchTemplate@ in your update request, you can't specify @LaunchConfigurationName@ or @MixedInstancesPolicy@ .
--- * 'maxInstanceLifetime' - The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'maxSize' - The maximum size of the Auto Scaling group.
--- * 'minSize' - The minimum size of the Auto Scaling group.
--- * 'mixedInstancesPolicy' - An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional parameters are left unchanged if not specified. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'newInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'placementGroup' - The name of an existing placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
 -- * 'serviceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'terminationPolicies' - A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'newInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
 -- * 'vpcZoneIdentifier' - A comma-separated list of subnet IDs for a virtual private cloud (VPC). If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
+-- * 'maxInstanceLifetime' - The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). To clear a previously set value, specify a new value of 0. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'defaultCooldown' - The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'maxSize' - The maximum size of the Auto Scaling group.
+-- * 'availabilityZones' - One or more Availability Zones for the group.
+-- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group after this operation completes and the capacity it attempts to maintain. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
+-- * 'mixedInstancesPolicy' - An embedded object that specifies a mixed instances policy. When you make changes to an existing policy, all optional parameters are left unchanged if not specified. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'minSize' - The minimum size of the Auto Scaling group.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'launchConfigurationName' - The name of the launch configuration. If you specify @LaunchConfigurationName@ in your update request, you can't specify @LaunchTemplate@ or @MixedInstancesPolicy@ .
+-- * 'healthCheckType' - The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
+-- * 'launchTemplate' - The launch template and version to use to specify the updates. If you specify @LaunchTemplate@ in your update request, you can't specify @LaunchConfigurationName@ or @MixedInstancesPolicy@ .
+-- * 'capacityRebalance' - Enables or disables Capacity Rebalancing. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'placementGroup' - The name of an existing placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
 mkUpdateAutoScalingGroup ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
@@ -141,12 +150,12 @@ mkUpdateAutoScalingGroup pAutoScalingGroupName_ =
       desiredCapacity = Lude.Nothing,
       mixedInstancesPolicy = Lude.Nothing,
       minSize = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_,
       launchConfigurationName = Lude.Nothing,
       healthCheckType = Lude.Nothing,
       launchTemplate = Lude.Nothing,
       capacityRebalance = Lude.Nothing,
-      placementGroup = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_
+      placementGroup = Lude.Nothing
     }
 
 -- | A policy or a list of policies that are used to select the instances to terminate. The policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
@@ -235,6 +244,13 @@ uasgMinSize :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Int)
 uasgMinSize = Lens.lens (minSize :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Int) (\s a -> s {minSize = a} :: UpdateAutoScalingGroup)
 {-# DEPRECATED uasgMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
 
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasgAutoScalingGroupName :: Lens.Lens' UpdateAutoScalingGroup Lude.Text
+uasgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: UpdateAutoScalingGroup -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: UpdateAutoScalingGroup)
+{-# DEPRECATED uasgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+
 -- | The name of the launch configuration. If you specify @LaunchConfigurationName@ in your update request, you can't specify @LaunchTemplate@ or @MixedInstancesPolicy@ .
 --
 -- /Note:/ Consider using 'launchConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -270,13 +286,6 @@ uasgPlacementGroup :: Lens.Lens' UpdateAutoScalingGroup (Lude.Maybe Lude.Text)
 uasgPlacementGroup = Lens.lens (placementGroup :: UpdateAutoScalingGroup -> Lude.Maybe Lude.Text) (\s a -> s {placementGroup = a} :: UpdateAutoScalingGroup)
 {-# DEPRECATED uasgPlacementGroup "Use generic-lens or generic-optics with 'placementGroup' instead." #-}
 
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasgAutoScalingGroupName :: Lens.Lens' UpdateAutoScalingGroup Lude.Text
-uasgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: UpdateAutoScalingGroup -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: UpdateAutoScalingGroup)
-{-# DEPRECATED uasgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
 instance Lude.AWSRequest UpdateAutoScalingGroup where
   type Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse
   request = Req.postQuery autoScalingService
@@ -310,23 +319,17 @@ instance Lude.ToQuery UpdateAutoScalingGroup where
         "DesiredCapacity" Lude.=: desiredCapacity,
         "MixedInstancesPolicy" Lude.=: mixedInstancesPolicy,
         "MinSize" Lude.=: minSize,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "LaunchConfigurationName" Lude.=: launchConfigurationName,
         "HealthCheckType" Lude.=: healthCheckType,
         "LaunchTemplate" Lude.=: launchTemplate,
         "CapacityRebalance" Lude.=: capacityRebalance,
-        "PlacementGroup" Lude.=: placementGroup,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
+        "PlacementGroup" Lude.=: placementGroup
       ]
 
 -- | /See:/ 'mkUpdateAutoScalingGroupResponse' smart constructor.
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAutoScalingGroupResponse' with the minimum fields required to make a request.

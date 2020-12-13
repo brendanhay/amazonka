@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,23 +39,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAbortEnvironmentUpdate' smart constructor.
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
-  { environmentName ::
-      Lude.Maybe Lude.Text,
+  { -- | This specifies the name of the environment with the in-progress update that you want to cancel.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | This specifies the ID of the environment with the in-progress update that you want to cancel.
     environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortEnvironmentUpdate' with the minimum fields required to make a request.
 --
--- * 'environmentId' - This specifies the ID of the environment with the in-progress update that you want to cancel.
 -- * 'environmentName' - This specifies the name of the environment with the in-progress update that you want to cancel.
+-- * 'environmentId' - This specifies the ID of the environment with the in-progress update that you want to cancel.
 mkAbortEnvironmentUpdate ::
   AbortEnvironmentUpdate
 mkAbortEnvironmentUpdate =
@@ -99,13 +95,7 @@ instance Lude.ToQuery AbortEnvironmentUpdate where
 
 -- | /See:/ 'mkAbortEnvironmentUpdateResponse' smart constructor.
 data AbortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortEnvironmentUpdateResponse' with the minimum fields required to make a request.

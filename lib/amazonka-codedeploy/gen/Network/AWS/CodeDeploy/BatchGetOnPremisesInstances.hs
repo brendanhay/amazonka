@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkBatchGetOnPremisesInstances' smart constructor.
 newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
-  { instanceNames ::
-      [Lude.Text]
+  { -- | The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.
+    instanceNames :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetOnPremisesInstances' with the minimum fields required to make a request.
@@ -111,19 +106,12 @@ instance Lude.ToQuery BatchGetOnPremisesInstances where
 --
 -- /See:/ 'mkBatchGetOnPremisesInstancesResponse' smart constructor.
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
-  { instanceInfos ::
-      Lude.Maybe
-        [InstanceInfo],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the on-premises instances.
+    instanceInfos :: Lude.Maybe [InstanceInfo],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetOnPremisesInstancesResponse' with the minimum fields required to make a request.

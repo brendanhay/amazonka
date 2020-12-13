@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,20 +21,20 @@ module Network.AWS.GuardDuty.CreateIPSet
 
     -- ** Request lenses
     cisClientToken,
-    cisTags,
+    cisLocation,
+    cisFormat,
+    cisActivate,
     cisDetectorId,
     cisName,
-    cisFormat,
-    cisLocation,
-    cisActivate,
+    cisTags,
 
     -- * Destructuring the response
     CreateIPSetResponse (..),
     mkCreateIPSetResponse,
 
     -- ** Response lenses
-    cisrsResponseStatus,
     cisrsIPSetId,
+    cisrsResponseStatus,
   )
 where
 
@@ -45,56 +46,58 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateIPSet' smart constructor.
 data CreateIPSet = CreateIPSet'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    detectorId :: Lude.Text,
-    name :: Lude.Text,
-    format :: IPSetFormat,
+  { -- | The idempotency token for the create request.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
     location :: Lude.Text,
-    activate :: Lude.Bool
+    -- | The format of the file that contains the IPSet.
+    format :: IPSetFormat,
+    -- | A Boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
+    activate :: Lude.Bool,
+    -- | The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+    detectorId :: Lude.Text,
+    -- | The user-friendly name to identify the IPSet.
+    --
+    -- Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).
+    name :: Lude.Text,
+    -- | The tags to be added to a new IP set resource.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIPSet' with the minimum fields required to make a request.
 --
--- * 'activate' - A Boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
 -- * 'clientToken' - The idempotency token for the create request.
--- * 'detectorId' - The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
--- * 'format' - The format of the file that contains the IPSet.
 -- * 'location' - The URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
+-- * 'format' - The format of the file that contains the IPSet.
+-- * 'activate' - A Boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
+-- * 'detectorId' - The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
 -- * 'name' - The user-friendly name to identify the IPSet.
 --
 -- Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).
 -- * 'tags' - The tags to be added to a new IP set resource.
 mkCreateIPSet ::
+  -- | 'location'
+  Lude.Text ->
+  -- | 'format'
+  IPSetFormat ->
+  -- | 'activate'
+  Lude.Bool ->
   -- | 'detectorId'
   Lude.Text ->
   -- | 'name'
   Lude.Text ->
-  -- | 'format'
-  IPSetFormat ->
-  -- | 'location'
-  Lude.Text ->
-  -- | 'activate'
-  Lude.Bool ->
   CreateIPSet
-mkCreateIPSet pDetectorId_ pName_ pFormat_ pLocation_ pActivate_ =
+mkCreateIPSet pLocation_ pFormat_ pActivate_ pDetectorId_ pName_ =
   CreateIPSet'
     { clientToken = Lude.Nothing,
-      tags = Lude.Nothing,
+      location = pLocation_,
+      format = pFormat_,
+      activate = pActivate_,
       detectorId = pDetectorId_,
       name = pName_,
-      format = pFormat_,
-      location = pLocation_,
-      activate = pActivate_
+      tags = Lude.Nothing
     }
 
 -- | The idempotency token for the create request.
@@ -104,12 +107,26 @@ cisClientToken :: Lens.Lens' CreateIPSet (Lude.Maybe Lude.Text)
 cisClientToken = Lens.lens (clientToken :: CreateIPSet -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateIPSet)
 {-# DEPRECATED cisClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
--- | The tags to be added to a new IP set resource.
+-- | The URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisTags :: Lens.Lens' CreateIPSet (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cisTags = Lens.lens (tags :: CreateIPSet -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateIPSet)
-{-# DEPRECATED cisTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisLocation :: Lens.Lens' CreateIPSet Lude.Text
+cisLocation = Lens.lens (location :: CreateIPSet -> Lude.Text) (\s a -> s {location = a} :: CreateIPSet)
+{-# DEPRECATED cisLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | The format of the file that contains the IPSet.
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisFormat :: Lens.Lens' CreateIPSet IPSetFormat
+cisFormat = Lens.lens (format :: CreateIPSet -> IPSetFormat) (\s a -> s {format = a} :: CreateIPSet)
+{-# DEPRECATED cisFormat "Use generic-lens or generic-optics with 'format' instead." #-}
+
+-- | A Boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
+--
+-- /Note:/ Consider using 'activate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisActivate :: Lens.Lens' CreateIPSet Lude.Bool
+cisActivate = Lens.lens (activate :: CreateIPSet -> Lude.Bool) (\s a -> s {activate = a} :: CreateIPSet)
+{-# DEPRECATED cisActivate "Use generic-lens or generic-optics with 'activate' instead." #-}
 
 -- | The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
 --
@@ -127,26 +144,12 @@ cisName :: Lens.Lens' CreateIPSet Lude.Text
 cisName = Lens.lens (name :: CreateIPSet -> Lude.Text) (\s a -> s {name = a} :: CreateIPSet)
 {-# DEPRECATED cisName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The format of the file that contains the IPSet.
+-- | The tags to be added to a new IP set resource.
 --
--- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisFormat :: Lens.Lens' CreateIPSet IPSetFormat
-cisFormat = Lens.lens (format :: CreateIPSet -> IPSetFormat) (\s a -> s {format = a} :: CreateIPSet)
-{-# DEPRECATED cisFormat "Use generic-lens or generic-optics with 'format' instead." #-}
-
--- | The URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisLocation :: Lens.Lens' CreateIPSet Lude.Text
-cisLocation = Lens.lens (location :: CreateIPSet -> Lude.Text) (\s a -> s {location = a} :: CreateIPSet)
-{-# DEPRECATED cisLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | A Boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
---
--- /Note:/ Consider using 'activate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisActivate :: Lens.Lens' CreateIPSet Lude.Bool
-cisActivate = Lens.lens (activate :: CreateIPSet -> Lude.Bool) (\s a -> s {activate = a} :: CreateIPSet)
-{-# DEPRECATED cisActivate "Use generic-lens or generic-optics with 'activate' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisTags :: Lens.Lens' CreateIPSet (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cisTags = Lens.lens (tags :: CreateIPSet -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateIPSet)
+{-# DEPRECATED cisTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateIPSet where
   type Rs CreateIPSet = CreateIPSetResponse
@@ -155,7 +158,7 @@ instance Lude.AWSRequest CreateIPSet where
     Res.receiveJSON
       ( \s h x ->
           CreateIPSetResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "ipSetId")
+            Lude.<$> (x Lude..:> "ipSetId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateIPSet where
@@ -172,11 +175,11 @@ instance Lude.ToJSON CreateIPSet where
     Lude.object
       ( Lude.catMaybes
           [ ("clientToken" Lude..=) Lude.<$> clientToken,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("format" Lude..= format),
             Lude.Just ("location" Lude..= location),
-            Lude.Just ("activate" Lude..= activate)
+            Lude.Just ("format" Lude..= format),
+            Lude.Just ("activate" Lude..= activate),
+            Lude.Just ("name" Lude..= name),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -189,17 +192,12 @@ instance Lude.ToQuery CreateIPSet where
 
 -- | /See:/ 'mkCreateIPSetResponse' smart constructor.
 data CreateIPSetResponse = CreateIPSetResponse'
-  { responseStatus ::
-      Lude.Int,
-    ipSetId :: Lude.Text
+  { -- | The ID of the IPSet resource.
+    ipSetId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIPSetResponse' with the minimum fields required to make a request.
@@ -207,23 +205,16 @@ data CreateIPSetResponse = CreateIPSetResponse'
 -- * 'ipSetId' - The ID of the IPSet resource.
 -- * 'responseStatus' - The response status code.
 mkCreateIPSetResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'ipSetId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateIPSetResponse
-mkCreateIPSetResponse pResponseStatus_ pIPSetId_ =
+mkCreateIPSetResponse pIPSetId_ pResponseStatus_ =
   CreateIPSetResponse'
-    { responseStatus = pResponseStatus_,
-      ipSetId = pIPSetId_
+    { ipSetId = pIPSetId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisrsResponseStatus :: Lens.Lens' CreateIPSetResponse Lude.Int
-cisrsResponseStatus = Lens.lens (responseStatus :: CreateIPSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateIPSetResponse)
-{-# DEPRECATED cisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ID of the IPSet resource.
 --
@@ -231,3 +222,10 @@ cisrsResponseStatus = Lens.lens (responseStatus :: CreateIPSetResponse -> Lude.I
 cisrsIPSetId :: Lens.Lens' CreateIPSetResponse Lude.Text
 cisrsIPSetId = Lens.lens (ipSetId :: CreateIPSetResponse -> Lude.Text) (\s a -> s {ipSetId = a} :: CreateIPSetResponse)
 {-# DEPRECATED cisrsIPSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisrsResponseStatus :: Lens.Lens' CreateIPSetResponse Lude.Int
+cisrsResponseStatus = Lens.lens (responseStatus :: CreateIPSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateIPSetResponse)
+{-# DEPRECATED cisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

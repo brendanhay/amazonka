@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.AfdSignaling
   ( AfdSignaling
       ( AfdSignaling',
+        ASNone,
         ASAuto,
-        ASFixed,
-        ASNone
+        ASFixed
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype AfdSignaling = AfdSignaling' Lude.Text
       Lude.ToHeader
     )
 
+pattern ASNone :: AfdSignaling
+pattern ASNone = AfdSignaling' "NONE"
+
 pattern ASAuto :: AfdSignaling
 pattern ASAuto = AfdSignaling' "AUTO"
 
 pattern ASFixed :: AfdSignaling
 pattern ASFixed = AfdSignaling' "FIXED"
 
-pattern ASNone :: AfdSignaling
-pattern ASNone = AfdSignaling' "NONE"
-
 {-# COMPLETE
+  ASNone,
   ASAuto,
   ASFixed,
-  ASNone,
   AfdSignaling'
   #-}

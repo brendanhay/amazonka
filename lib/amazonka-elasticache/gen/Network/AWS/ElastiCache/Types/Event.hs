@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { sourceType :: Lude.Maybe SourceType,
+  { -- | Specifies the origin of this event - a cluster, a parameter group, a security group, etc.
+    sourceType :: Lude.Maybe SourceType,
+    -- | The identifier for the source of the event. For example, if the event occurred at the cluster level, the identifier would be the name of the cluster.
     sourceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The date and time when the event occurred.
     date :: Lude.Maybe Lude.DateTime,
+    -- | The text of the event.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
+-- * 'sourceType' - Specifies the origin of this event - a cluster, a parameter group, a security group, etc.
+-- * 'sourceIdentifier' - The identifier for the source of the event. For example, if the event occurred at the cluster level, the identifier would be the name of the cluster.
 -- * 'date' - The date and time when the event occurred.
 -- * 'message' - The text of the event.
--- * 'sourceIdentifier' - The identifier for the source of the event. For example, if the event occurred at the cluster level, the identifier would be the name of the cluster.
--- * 'sourceType' - Specifies the origin of this event - a cluster, a parameter group, a security group, etc.
 mkEvent ::
   Event
 mkEvent =

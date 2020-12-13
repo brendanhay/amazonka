@@ -13,9 +13,9 @@
 module Network.AWS.ECS.Types.PlacementStrategyType
   ( PlacementStrategyType
       ( PlacementStrategyType',
-        Binpack,
         Random,
-        Spread
+        Spread,
+        Binpack
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype PlacementStrategyType = PlacementStrategyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Binpack :: PlacementStrategyType
-pattern Binpack = PlacementStrategyType' "binpack"
-
 pattern Random :: PlacementStrategyType
 pattern Random = PlacementStrategyType' "random"
 
 pattern Spread :: PlacementStrategyType
 pattern Spread = PlacementStrategyType' "spread"
 
+pattern Binpack :: PlacementStrategyType
+pattern Binpack = PlacementStrategyType' "binpack"
+
 {-# COMPLETE
-  Binpack,
   Random,
   Spread,
+  Binpack,
   PlacementStrategyType'
   #-}

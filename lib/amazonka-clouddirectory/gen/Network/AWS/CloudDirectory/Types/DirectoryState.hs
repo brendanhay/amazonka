@@ -13,9 +13,9 @@
 module Network.AWS.CloudDirectory.Types.DirectoryState
   ( DirectoryState
       ( DirectoryState',
-        Deleted,
+        Enabled,
         Disabled,
-        Enabled
+        Deleted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DirectoryState = DirectoryState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deleted :: DirectoryState
-pattern Deleted = DirectoryState' "DELETED"
+pattern Enabled :: DirectoryState
+pattern Enabled = DirectoryState' "ENABLED"
 
 pattern Disabled :: DirectoryState
 pattern Disabled = DirectoryState' "DISABLED"
 
-pattern Enabled :: DirectoryState
-pattern Enabled = DirectoryState' "ENABLED"
+pattern Deleted :: DirectoryState
+pattern Deleted = DirectoryState' "DELETED"
 
 {-# COMPLETE
-  Deleted,
-  Disabled,
   Enabled,
+  Disabled,
+  Deleted,
   DirectoryState'
   #-}

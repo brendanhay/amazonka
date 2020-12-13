@@ -184,22 +184,22 @@ module Network.AWS.Route53Domains
     -- ** ExtraParam
     ExtraParam (..),
     mkExtraParam,
-    epName,
     epValue,
+    epName,
 
     -- ** Nameserver
     Nameserver (..),
     mkNameserver,
-    nGlueIPs,
     nName,
+    nGlueIPs,
 
     -- ** OperationSummary
     OperationSummary (..),
     mkOperationSummary,
-    osOperationId,
     osStatus,
-    osType,
     osSubmittedDate,
+    osOperationId,
+    osType,
 
     -- ** Tag
     Tag (..),

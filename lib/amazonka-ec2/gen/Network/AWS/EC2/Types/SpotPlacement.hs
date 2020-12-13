@@ -31,18 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotPlacement' smart constructor.
 data SpotPlacement = SpotPlacement'
-  { availabilityZone ::
-      Lude.Maybe Lude.Text,
+  { -- | The Availability Zone.
+    --
+    -- [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for Spot Instances.
     tenancy :: Lude.Maybe Tenancy,
+    -- | The name of the placement group.
     groupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotPlacement' with the minimum fields required to make a request.
@@ -50,8 +48,8 @@ data SpotPlacement = SpotPlacement'
 -- * 'availabilityZone' - The Availability Zone.
 --
 -- [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
--- * 'groupName' - The name of the placement group.
 -- * 'tenancy' - The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for Spot Instances.
+-- * 'groupName' - The name of the placement group.
 mkSpotPlacement ::
   SpotPlacement
 mkSpotPlacement =

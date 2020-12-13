@@ -18,9 +18,9 @@ module Network.AWS.AppStream.Types.ComputeCapacityStatus
 
     -- * Lenses
     ccsInUse,
+    ccsDesired,
     ccsRunning,
     ccsAvailable,
-    ccsDesired,
   )
 where
 
@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComputeCapacityStatus' smart constructor.
 data ComputeCapacityStatus = ComputeCapacityStatus'
-  { inUse ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of instances in use for streaming.
+    inUse :: Lude.Maybe Lude.Int,
+    -- | The desired number of streaming instances.
+    desired :: Lude.Int,
+    -- | The total number of simultaneous streaming instances that are running.
     running :: Lude.Maybe Lude.Int,
-    available :: Lude.Maybe Lude.Int,
-    desired :: Lude.Int
+    -- | The number of currently available instances that can be used to stream sessions.
+    available :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComputeCapacityStatus' with the minimum fields required to make a request.
 --
--- * 'available' - The number of currently available instances that can be used to stream sessions.
--- * 'desired' - The desired number of streaming instances.
 -- * 'inUse' - The number of instances in use for streaming.
+-- * 'desired' - The desired number of streaming instances.
 -- * 'running' - The total number of simultaneous streaming instances that are running.
+-- * 'available' - The number of currently available instances that can be used to stream sessions.
 mkComputeCapacityStatus ::
   -- | 'desired'
   Lude.Int ->
@@ -59,9 +56,9 @@ mkComputeCapacityStatus ::
 mkComputeCapacityStatus pDesired_ =
   ComputeCapacityStatus'
     { inUse = Lude.Nothing,
+      desired = pDesired_,
       running = Lude.Nothing,
-      available = Lude.Nothing,
-      desired = pDesired_
+      available = Lude.Nothing
     }
 
 -- | The number of instances in use for streaming.
@@ -70,6 +67,13 @@ mkComputeCapacityStatus pDesired_ =
 ccsInUse :: Lens.Lens' ComputeCapacityStatus (Lude.Maybe Lude.Int)
 ccsInUse = Lens.lens (inUse :: ComputeCapacityStatus -> Lude.Maybe Lude.Int) (\s a -> s {inUse = a} :: ComputeCapacityStatus)
 {-# DEPRECATED ccsInUse "Use generic-lens or generic-optics with 'inUse' instead." #-}
+
+-- | The desired number of streaming instances.
+--
+-- /Note:/ Consider using 'desired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsDesired :: Lens.Lens' ComputeCapacityStatus Lude.Int
+ccsDesired = Lens.lens (desired :: ComputeCapacityStatus -> Lude.Int) (\s a -> s {desired = a} :: ComputeCapacityStatus)
+{-# DEPRECATED ccsDesired "Use generic-lens or generic-optics with 'desired' instead." #-}
 
 -- | The total number of simultaneous streaming instances that are running.
 --
@@ -85,13 +89,6 @@ ccsAvailable :: Lens.Lens' ComputeCapacityStatus (Lude.Maybe Lude.Int)
 ccsAvailable = Lens.lens (available :: ComputeCapacityStatus -> Lude.Maybe Lude.Int) (\s a -> s {available = a} :: ComputeCapacityStatus)
 {-# DEPRECATED ccsAvailable "Use generic-lens or generic-optics with 'available' instead." #-}
 
--- | The desired number of streaming instances.
---
--- /Note:/ Consider using 'desired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsDesired :: Lens.Lens' ComputeCapacityStatus Lude.Int
-ccsDesired = Lens.lens (desired :: ComputeCapacityStatus -> Lude.Int) (\s a -> s {desired = a} :: ComputeCapacityStatus)
-{-# DEPRECATED ccsDesired "Use generic-lens or generic-optics with 'desired' instead." #-}
-
 instance Lude.FromJSON ComputeCapacityStatus where
   parseJSON =
     Lude.withObject
@@ -99,7 +96,7 @@ instance Lude.FromJSON ComputeCapacityStatus where
       ( \x ->
           ComputeCapacityStatus'
             Lude.<$> (x Lude..:? "InUse")
+            Lude.<*> (x Lude..: "Desired")
             Lude.<*> (x Lude..:? "Running")
             Lude.<*> (x Lude..:? "Available")
-            Lude.<*> (x Lude..: "Desired")
       )

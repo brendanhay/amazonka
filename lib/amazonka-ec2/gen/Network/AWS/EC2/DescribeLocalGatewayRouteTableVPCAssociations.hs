@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.EC2.DescribeLocalGatewayRouteTableVPCAssociations
     mkDescribeLocalGatewayRouteTableVPCAssociationsResponse,
 
     -- ** Response lenses
-    dlgrtvpcarsLocalGatewayRouteTableVPCAssociations,
-    dlgrtvpcarsNextToken,
-    dlgrtvpcarsResponseStatus,
+    dlgrtvarsLocalGatewayRouteTableVPCAssociations,
+    dlgrtvarsNextToken,
+    dlgrtvarsResponseStatus,
   )
 where
 
@@ -47,37 +48,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLocalGatewayRouteTableVPCAssociations' smart constructor.
 data DescribeLocalGatewayRouteTableVPCAssociations = DescribeLocalGatewayRouteTableVPCAssociations'
-  { localGatewayRouteTableVPCAssociationIds ::
-      Lude.Maybe
-        [Lude.Text],
-    filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | The IDs of the associations.
+    localGatewayRouteTableVPCAssociationIds :: Lude.Maybe [Lude.Text],
+    -- | One or more filters.
+    --
+    --
+    --     * @local-gateway-id@ - The ID of a local gateway.
+    --
+    --
+    --     * @local-gateway-route-table-id@ - The ID of the local gateway route table.
+    --
+    --
+    --     * @local-gateway-route-table-vpc-association-id@ - The ID of the association.
+    --
+    --
+    --     * @state@ - The state of the association.
+    --
+    --
+    --     * @vpc-id@ - The ID of the VPC.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocalGatewayRouteTableVPCAssociations' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'localGatewayRouteTableVPCAssociationIds' - The IDs of the associations.
 -- * 'filters' - One or more filters.
 --
 --
@@ -96,9 +98,9 @@ data DescribeLocalGatewayRouteTableVPCAssociations = DescribeLocalGatewayRouteTa
 --     * @vpc-id@ - The ID of the VPC.
 --
 --
--- * 'localGatewayRouteTableVPCAssociationIds' - The IDs of the associations.
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeLocalGatewayRouteTableVPCAssociations ::
   DescribeLocalGatewayRouteTableVPCAssociations
 mkDescribeLocalGatewayRouteTableVPCAssociations =
@@ -168,14 +170,14 @@ instance
     DescribeLocalGatewayRouteTableVPCAssociations
   where
   page rq rs
-    | Page.stop (rs Lens.^. dlgrtvpcarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dlgrtvarsNextToken) = Lude.Nothing
     | Page.stop
-        (rs Lens.^. dlgrtvpcarsLocalGatewayRouteTableVPCAssociations) =
+        (rs Lens.^. dlgrtvarsLocalGatewayRouteTableVPCAssociations) =
       Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dlgrtvpcaNextToken Lens..~ rs Lens.^. dlgrtvpcarsNextToken
+          Lude.& dlgrtvpcaNextToken Lens..~ rs Lens.^. dlgrtvarsNextToken
 
 instance
   Lude.AWSRequest
@@ -226,26 +228,15 @@ instance Lude.ToQuery DescribeLocalGatewayRouteTableVPCAssociations where
 
 -- | /See:/ 'mkDescribeLocalGatewayRouteTableVPCAssociationsResponse' smart constructor.
 data DescribeLocalGatewayRouteTableVPCAssociationsResponse = DescribeLocalGatewayRouteTableVPCAssociationsResponse'
-  { localGatewayRouteTableVPCAssociations ::
-      Lude.Maybe
-        [LocalGatewayRouteTableVPCAssociation],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the associations.
+    localGatewayRouteTableVPCAssociations :: Lude.Maybe [LocalGatewayRouteTableVPCAssociation],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocalGatewayRouteTableVPCAssociationsResponse' with the minimum fields required to make a request.
 --
@@ -268,20 +259,20 @@ mkDescribeLocalGatewayRouteTableVPCAssociationsResponse
 -- | Information about the associations.
 --
 -- /Note:/ Consider using 'localGatewayRouteTableVPCAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtvpcarsLocalGatewayRouteTableVPCAssociations :: Lens.Lens' DescribeLocalGatewayRouteTableVPCAssociationsResponse (Lude.Maybe [LocalGatewayRouteTableVPCAssociation])
-dlgrtvpcarsLocalGatewayRouteTableVPCAssociations = Lens.lens (localGatewayRouteTableVPCAssociations :: DescribeLocalGatewayRouteTableVPCAssociationsResponse -> Lude.Maybe [LocalGatewayRouteTableVPCAssociation]) (\s a -> s {localGatewayRouteTableVPCAssociations = a} :: DescribeLocalGatewayRouteTableVPCAssociationsResponse)
-{-# DEPRECATED dlgrtvpcarsLocalGatewayRouteTableVPCAssociations "Use generic-lens or generic-optics with 'localGatewayRouteTableVPCAssociations' instead." #-}
+dlgrtvarsLocalGatewayRouteTableVPCAssociations :: Lens.Lens' DescribeLocalGatewayRouteTableVPCAssociationsResponse (Lude.Maybe [LocalGatewayRouteTableVPCAssociation])
+dlgrtvarsLocalGatewayRouteTableVPCAssociations = Lens.lens (localGatewayRouteTableVPCAssociations :: DescribeLocalGatewayRouteTableVPCAssociationsResponse -> Lude.Maybe [LocalGatewayRouteTableVPCAssociation]) (\s a -> s {localGatewayRouteTableVPCAssociations = a} :: DescribeLocalGatewayRouteTableVPCAssociationsResponse)
+{-# DEPRECATED dlgrtvarsLocalGatewayRouteTableVPCAssociations "Use generic-lens or generic-optics with 'localGatewayRouteTableVPCAssociations' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtvpcarsNextToken :: Lens.Lens' DescribeLocalGatewayRouteTableVPCAssociationsResponse (Lude.Maybe Lude.Text)
-dlgrtvpcarsNextToken = Lens.lens (nextToken :: DescribeLocalGatewayRouteTableVPCAssociationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLocalGatewayRouteTableVPCAssociationsResponse)
-{-# DEPRECATED dlgrtvpcarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dlgrtvarsNextToken :: Lens.Lens' DescribeLocalGatewayRouteTableVPCAssociationsResponse (Lude.Maybe Lude.Text)
+dlgrtvarsNextToken = Lens.lens (nextToken :: DescribeLocalGatewayRouteTableVPCAssociationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLocalGatewayRouteTableVPCAssociationsResponse)
+{-# DEPRECATED dlgrtvarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrtvpcarsResponseStatus :: Lens.Lens' DescribeLocalGatewayRouteTableVPCAssociationsResponse Lude.Int
-dlgrtvpcarsResponseStatus = Lens.lens (responseStatus :: DescribeLocalGatewayRouteTableVPCAssociationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLocalGatewayRouteTableVPCAssociationsResponse)
-{-# DEPRECATED dlgrtvpcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlgrtvarsResponseStatus :: Lens.Lens' DescribeLocalGatewayRouteTableVPCAssociationsResponse Lude.Int
+dlgrtvarsResponseStatus = Lens.lens (responseStatus :: DescribeLocalGatewayRouteTableVPCAssociationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLocalGatewayRouteTableVPCAssociationsResponse)
+{-# DEPRECATED dlgrtvarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

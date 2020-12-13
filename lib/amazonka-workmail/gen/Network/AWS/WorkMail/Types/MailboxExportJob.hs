@@ -37,37 +37,39 @@ import Network.AWS.WorkMail.Types.MailboxExportJobState
 --
 -- /See:/ 'mkMailboxExportJob' smart constructor.
 data MailboxExportJob = MailboxExportJob'
-  { state ::
-      Lude.Maybe MailboxExportJobState,
+  { -- | The state of the mailbox export job.
+    state :: Lude.Maybe MailboxExportJobState,
+    -- | The identifier of the mailbox export job.
     jobId :: Lude.Maybe Lude.Text,
+    -- | The mailbox export job start timestamp.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The estimated progress of the mailbox export job, in percentage points.
     estimatedProgress :: Lude.Maybe Lude.Natural,
+    -- | The mailbox export job end timestamp.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The path to the S3 bucket and file that the mailbox export job exports to.
     s3Path :: Lude.Maybe Lude.Text,
+    -- | The identifier of the user or resource associated with the mailbox.
     entityId :: Lude.Maybe Lude.Text,
+    -- | The mailbox export job description.
     description :: Lude.Maybe Lude.Text,
+    -- | The name of the S3 bucket.
     s3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MailboxExportJob' with the minimum fields required to make a request.
 --
--- * 'description' - The mailbox export job description.
--- * 'endTime' - The mailbox export job end timestamp.
--- * 'entityId' - The identifier of the user or resource associated with the mailbox.
--- * 'estimatedProgress' - The estimated progress of the mailbox export job, in percentage points.
--- * 'jobId' - The identifier of the mailbox export job.
--- * 's3BucketName' - The name of the S3 bucket.
--- * 's3Path' - The path to the S3 bucket and file that the mailbox export job exports to.
--- * 'startTime' - The mailbox export job start timestamp.
 -- * 'state' - The state of the mailbox export job.
+-- * 'jobId' - The identifier of the mailbox export job.
+-- * 'startTime' - The mailbox export job start timestamp.
+-- * 'estimatedProgress' - The estimated progress of the mailbox export job, in percentage points.
+-- * 'endTime' - The mailbox export job end timestamp.
+-- * 's3Path' - The path to the S3 bucket and file that the mailbox export job exports to.
+-- * 'entityId' - The identifier of the user or resource associated with the mailbox.
+-- * 'description' - The mailbox export job description.
+-- * 's3BucketName' - The name of the S3 bucket.
 mkMailboxExportJob ::
   MailboxExportJob
 mkMailboxExportJob =

@@ -17,9 +17,9 @@ module Network.AWS.DynamoDB.Types.ReplicaAutoScalingUpdate
     mkReplicaAutoScalingUpdate,
 
     -- * Lenses
+    rasuRegionName,
     rasuReplicaProvisionedReadCapacityAutoScalingUpdate,
     rasuReplicaGlobalSecondaryIndexUpdates,
-    rasuRegionName,
   )
 where
 
@@ -32,38 +32,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicaAutoScalingUpdate' smart constructor.
 data ReplicaAutoScalingUpdate = ReplicaAutoScalingUpdate'
-  { replicaProvisionedReadCapacityAutoScalingUpdate ::
-      Lude.Maybe AutoScalingSettingsUpdate,
-    replicaGlobalSecondaryIndexUpdates ::
-      Lude.Maybe
-        [ReplicaGlobalSecondaryIndexAutoScalingUpdate],
-    regionName :: Lude.Text
+  { -- | The Region where the replica exists.
+    regionName :: Lude.Text,
+    replicaProvisionedReadCapacityAutoScalingUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
+    -- | Represents the auto scaling settings of global secondary indexes that will be modified.
+    replicaGlobalSecondaryIndexUpdates :: Lude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaAutoScalingUpdate' with the minimum fields required to make a request.
 --
 -- * 'regionName' - The Region where the replica exists.
+-- * 'replicaProvisionedReadCapacityAutoScalingUpdate' -
 -- * 'replicaGlobalSecondaryIndexUpdates' - Represents the auto scaling settings of global secondary indexes that will be modified.
--- * 'replicaProvisionedReadCapacityAutoScalingUpdate' - Undocumented field.
 mkReplicaAutoScalingUpdate ::
   -- | 'regionName'
   Lude.Text ->
   ReplicaAutoScalingUpdate
 mkReplicaAutoScalingUpdate pRegionName_ =
   ReplicaAutoScalingUpdate'
-    { replicaProvisionedReadCapacityAutoScalingUpdate =
-        Lude.Nothing,
-      replicaGlobalSecondaryIndexUpdates = Lude.Nothing,
-      regionName = pRegionName_
+    { regionName = pRegionName_,
+      replicaProvisionedReadCapacityAutoScalingUpdate = Lude.Nothing,
+      replicaGlobalSecondaryIndexUpdates = Lude.Nothing
     }
+
+-- | The Region where the replica exists.
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasuRegionName :: Lens.Lens' ReplicaAutoScalingUpdate Lude.Text
+rasuRegionName = Lens.lens (regionName :: ReplicaAutoScalingUpdate -> Lude.Text) (\s a -> s {regionName = a} :: ReplicaAutoScalingUpdate)
+{-# DEPRECATED rasuRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | Undocumented field.
 --
@@ -79,21 +78,14 @@ rasuReplicaGlobalSecondaryIndexUpdates :: Lens.Lens' ReplicaAutoScalingUpdate (L
 rasuReplicaGlobalSecondaryIndexUpdates = Lens.lens (replicaGlobalSecondaryIndexUpdates :: ReplicaAutoScalingUpdate -> Lude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate]) (\s a -> s {replicaGlobalSecondaryIndexUpdates = a} :: ReplicaAutoScalingUpdate)
 {-# DEPRECATED rasuReplicaGlobalSecondaryIndexUpdates "Use generic-lens or generic-optics with 'replicaGlobalSecondaryIndexUpdates' instead." #-}
 
--- | The Region where the replica exists.
---
--- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasuRegionName :: Lens.Lens' ReplicaAutoScalingUpdate Lude.Text
-rasuRegionName = Lens.lens (regionName :: ReplicaAutoScalingUpdate -> Lude.Text) (\s a -> s {regionName = a} :: ReplicaAutoScalingUpdate)
-{-# DEPRECATED rasuRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
-
 instance Lude.ToJSON ReplicaAutoScalingUpdate where
   toJSON ReplicaAutoScalingUpdate' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ReplicaProvisionedReadCapacityAutoScalingUpdate" Lude..=)
+          [ Lude.Just ("RegionName" Lude..= regionName),
+            ("ReplicaProvisionedReadCapacityAutoScalingUpdate" Lude..=)
               Lude.<$> replicaProvisionedReadCapacityAutoScalingUpdate,
             ("ReplicaGlobalSecondaryIndexUpdates" Lude..=)
-              Lude.<$> replicaGlobalSecondaryIndexUpdates,
-            Lude.Just ("RegionName" Lude..= regionName)
+              Lude.<$> replicaGlobalSecondaryIndexUpdates
           ]
       )

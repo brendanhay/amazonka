@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DynamoDB.DescribeContributorInsights
     mkDescribeContributorInsights,
 
     -- ** Request lenses
-    dciIndexName,
     dciTableName,
+    dciIndexName,
 
     -- * Destructuring the response
     DescribeContributorInsightsResponse (..),
@@ -45,39 +46,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeContributorInsights' smart constructor.
 data DescribeContributorInsights = DescribeContributorInsights'
-  { indexName ::
-      Lude.Maybe Lude.Text,
-    tableName :: Lude.Text
+  { -- | The name of the table to describe.
+    tableName :: Lude.Text,
+    -- | The name of the global secondary index to describe, if applicable.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContributorInsights' with the minimum fields required to make a request.
 --
--- * 'indexName' - The name of the global secondary index to describe, if applicable.
 -- * 'tableName' - The name of the table to describe.
+-- * 'indexName' - The name of the global secondary index to describe, if applicable.
 mkDescribeContributorInsights ::
   -- | 'tableName'
   Lude.Text ->
   DescribeContributorInsights
 mkDescribeContributorInsights pTableName_ =
   DescribeContributorInsights'
-    { indexName = Lude.Nothing,
-      tableName = pTableName_
+    { tableName = pTableName_,
+      indexName = Lude.Nothing
     }
-
--- | The name of the global secondary index to describe, if applicable.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dciIndexName :: Lens.Lens' DescribeContributorInsights (Lude.Maybe Lude.Text)
-dciIndexName = Lens.lens (indexName :: DescribeContributorInsights -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: DescribeContributorInsights)
-{-# DEPRECATED dciIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The name of the table to describe.
 --
@@ -85,6 +74,13 @@ dciIndexName = Lens.lens (indexName :: DescribeContributorInsights -> Lude.Maybe
 dciTableName :: Lens.Lens' DescribeContributorInsights Lude.Text
 dciTableName = Lens.lens (tableName :: DescribeContributorInsights -> Lude.Text) (\s a -> s {tableName = a} :: DescribeContributorInsights)
 {-# DEPRECATED dciTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+
+-- | The name of the global secondary index to describe, if applicable.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dciIndexName :: Lens.Lens' DescribeContributorInsights (Lude.Maybe Lude.Text)
+dciIndexName = Lens.lens (indexName :: DescribeContributorInsights -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: DescribeContributorInsights)
+{-# DEPRECATED dciIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 instance Lude.AWSRequest DescribeContributorInsights where
   type
@@ -121,8 +117,8 @@ instance Lude.ToJSON DescribeContributorInsights where
   toJSON DescribeContributorInsights' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("IndexName" Lude..=) Lude.<$> indexName,
-            Lude.Just ("TableName" Lude..= tableName)
+          [ Lude.Just ("TableName" Lude..= tableName),
+            ("IndexName" Lude..=) Lude.<$> indexName
           ]
       )
 
@@ -134,40 +130,40 @@ instance Lude.ToQuery DescribeContributorInsights where
 
 -- | /See:/ 'mkDescribeContributorInsightsResponse' smart constructor.
 data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
-  { contributorInsightsRuleList ::
-      Lude.Maybe
-        [Lude.Text],
-    failureException ::
-      Lude.Maybe
-        FailureException,
-    contributorInsightsStatus ::
-      Lude.Maybe
-        ContributorInsightsStatus,
-    lastUpdateDateTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    tableName ::
-      Lude.Maybe
-        Lude.Text,
-    indexName ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | List of names of the associated Alpine rules.
+    contributorInsightsRuleList :: Lude.Maybe [Lude.Text],
+    -- | Returns information about the last failure that encountered.
+    --
+    -- The most common exceptions for a FAILED status are:
+    --
+    --     * LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.
+    --
+    --
+    --     * AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.
+    --
+    --
+    --     * AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.
+    --
+    --
+    --     * InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.
+    failureException :: Lude.Maybe FailureException,
+    -- | Current Status contributor insights.
+    contributorInsightsStatus :: Lude.Maybe ContributorInsightsStatus,
+    -- | Timestamp of the last time the status was changed.
+    lastUpdateDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the table being described.
+    tableName :: Lude.Maybe Lude.Text,
+    -- | The name of the global secondary index being described.
+    indexName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContributorInsightsResponse' with the minimum fields required to make a request.
 --
 -- * 'contributorInsightsRuleList' - List of names of the associated Alpine rules.
--- * 'contributorInsightsStatus' - Current Status contributor insights.
 -- * 'failureException' - Returns information about the last failure that encountered.
 --
 -- The most common exceptions for a FAILED status are:
@@ -184,10 +180,11 @@ data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
 --     * InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.
 --
 --
--- * 'indexName' - The name of the global secondary index being described.
+-- * 'contributorInsightsStatus' - Current Status contributor insights.
 -- * 'lastUpdateDateTime' - Timestamp of the last time the status was changed.
--- * 'responseStatus' - The response status code.
 -- * 'tableName' - The name of the table being described.
+-- * 'indexName' - The name of the global secondary index being described.
+-- * 'responseStatus' - The response status code.
 mkDescribeContributorInsightsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

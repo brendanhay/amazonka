@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataTransfer' smart constructor.
 data DataTransfer = DataTransfer'
-  { totalObjects ::
-      Lude.Maybe Lude.Integer,
+  { -- | The total number of objects for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
+    totalObjects :: Lude.Maybe Lude.Integer,
+    -- | The total bytes of data for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
     totalBytes :: Lude.Maybe Lude.Integer,
+    -- | The number of objects transferred between a Snow device and Amazon S3.
     objectsTransferred :: Lude.Maybe Lude.Integer,
+    -- | The number of bytes transferred between a Snow device and Amazon S3.
     bytesTransferred :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataTransfer' with the minimum fields required to make a request.
 --
--- * 'bytesTransferred' - The number of bytes transferred between a Snow device and Amazon S3.
--- * 'objectsTransferred' - The number of objects transferred between a Snow device and Amazon S3.
--- * 'totalBytes' - The total bytes of data for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
 -- * 'totalObjects' - The total number of objects for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
+-- * 'totalBytes' - The total bytes of data for a transfer between a Snow device and Amazon S3. This value is set to 0 (zero) until all the keys that will be transferred have been listed.
+-- * 'objectsTransferred' - The number of objects transferred between a Snow device and Amazon S3.
+-- * 'bytesTransferred' - The number of bytes transferred between a Snow device and Amazon S3.
 mkDataTransfer ::
   DataTransfer
 mkDataTransfer =

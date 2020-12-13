@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,24 +45,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForStream' smart constructor.
 data ListTagsForStream = ListTagsForStream'
-  { streamARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the stream that you want to list tags for.
+    streamARN :: Lude.Maybe Lude.Text,
+    -- | If you specify this parameter and the result of a @ListTagsForStream@ call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the stream that you want to list tags for.
     streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForStream' with the minimum fields required to make a request.
 --
--- * 'nextToken' - If you specify this parameter and the result of a @ListTagsForStream@ call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
 -- * 'streamARN' - The Amazon Resource Name (ARN) of the stream that you want to list tags for.
+-- * 'nextToken' - If you specify this parameter and the result of a @ListTagsForStream@ call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
 -- * 'streamName' - The name of the stream that you want to list tags for.
 mkListTagsForStream ::
   ListTagsForStream
@@ -126,27 +123,21 @@ instance Lude.ToQuery ListTagsForStream where
 
 -- | /See:/ 'mkListTagsForStreamResponse' smart constructor.
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | If you specify this parameter and the result of a @ListTags@ call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A map of tag keys and values associated with the specified stream.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForStreamResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If you specify this parameter and the result of a @ListTags@ call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A map of tag keys and values associated with the specified stream.
+-- * 'responseStatus' - The response status code.
 mkListTagsForStreamResponse ::
   -- | 'responseStatus'
   Lude.Int ->

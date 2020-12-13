@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.EBSOptimizedSupport
   ( EBSOptimizedSupport
       ( EBSOptimizedSupport',
-        EOSDefault,
+        EOSUnsupported,
         EOSSupported,
-        EOSUnsupported
+        EOSDefault
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EBSOptimizedSupport = EBSOptimizedSupport' Lude.Text
       Lude.ToHeader
     )
 
-pattern EOSDefault :: EBSOptimizedSupport
-pattern EOSDefault = EBSOptimizedSupport' "default"
+pattern EOSUnsupported :: EBSOptimizedSupport
+pattern EOSUnsupported = EBSOptimizedSupport' "unsupported"
 
 pattern EOSSupported :: EBSOptimizedSupport
 pattern EOSSupported = EBSOptimizedSupport' "supported"
 
-pattern EOSUnsupported :: EBSOptimizedSupport
-pattern EOSUnsupported = EBSOptimizedSupport' "unsupported"
+pattern EOSDefault :: EBSOptimizedSupport
+pattern EOSDefault = EBSOptimizedSupport' "default"
 
 {-# COMPLETE
-  EOSDefault,
-  EOSSupported,
   EOSUnsupported,
+  EOSSupported,
+  EOSDefault,
   EBSOptimizedSupport'
   #-}

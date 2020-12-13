@@ -13,8 +13,8 @@
 module Network.AWS.ELBv2.Types.TargetTypeEnum
   ( TargetTypeEnum
       ( TargetTypeEnum',
-        IP,
         Instance,
+        IP,
         Lambda
       ),
   )
@@ -46,18 +46,18 @@ newtype TargetTypeEnum = TargetTypeEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern IP :: TargetTypeEnum
-pattern IP = TargetTypeEnum' "ip"
-
 pattern Instance :: TargetTypeEnum
 pattern Instance = TargetTypeEnum' "instance"
+
+pattern IP :: TargetTypeEnum
+pattern IP = TargetTypeEnum' "ip"
 
 pattern Lambda :: TargetTypeEnum
 pattern Lambda = TargetTypeEnum' "lambda"
 
 {-# COMPLETE
-  IP,
   Instance,
+  IP,
   Lambda,
   TargetTypeEnum'
   #-}

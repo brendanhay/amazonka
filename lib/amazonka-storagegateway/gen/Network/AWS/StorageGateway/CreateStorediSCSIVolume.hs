@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,14 +24,14 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
 
     -- ** Request lenses
     csscsivKMSKey,
-    csscsivKMSEncrypted,
-    csscsivTags,
-    csscsivSnapshotId,
     csscsivGatewayARN,
+    csscsivKMSEncrypted,
+    csscsivNetworkInterfaceId,
     csscsivDiskId,
     csscsivPreserveExistingData,
     csscsivTargetName,
-    csscsivNetworkInterfaceId,
+    csscsivTags,
+    csscsivSnapshotId,
 
     -- * Destructuring the response
     CreateStorediSCSIVolumeResponse (..),
@@ -71,47 +72,58 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkCreateStorediSCSIVolume' smart constructor.
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
-  { kmsKey ::
-      Lude.Maybe Lude.Text,
-    kmsEncrypted :: Lude.Maybe Lude.Bool,
-    tags :: Lude.Maybe [Tag],
-    snapshotId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+    kmsKey :: Lude.Maybe Lude.Text,
     gatewayARN :: Lude.Text,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
+    kmsEncrypted :: Lude.Maybe Lude.Bool,
+    -- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
+    --
+    -- Valid Values: A valid IP address.
+    networkInterfaceId :: Lude.Text,
+    -- | The unique identifier for the gateway local disk that is configured as a stored volume. Use <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
     diskId :: Lude.Text,
+    -- | Set to true @true@ if you want to preserve the data on the local disk. Otherwise, set to @false@ to create an empty volume.
+    --
+    -- Valid Values: @true@ | @false@
     preserveExistingData :: Lude.Bool,
+    -- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
+    --
+    -- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
     targetName :: Lude.Text,
-    networkInterfaceId :: Lude.Text
+    -- | A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
+    tags :: Lude.Maybe [Tag],
+    -- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
+    snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStorediSCSIVolume' with the minimum fields required to make a request.
 --
--- * 'diskId' - The unique identifier for the gateway local disk that is configured as a stored volume. Use <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
--- * 'gatewayARN' - Undocumented field.
+-- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+-- * 'gatewayARN' -
 -- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
--- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
 -- * 'networkInterfaceId' - The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
 --
 -- Valid Values: A valid IP address.
+-- * 'diskId' - The unique identifier for the gateway local disk that is configured as a stored volume. Use <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
 -- * 'preserveExistingData' - Set to true @true@ if you want to preserve the data on the local disk. Otherwise, set to @false@ to create an empty volume.
 --
 -- Valid Values: @true@ | @false@
--- * 'snapshotId' - The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
--- * 'tags' - A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
 -- * 'targetName' - The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
 --
 -- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
+-- * 'tags' - A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
+-- * 'snapshotId' - The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
 mkCreateStorediSCSIVolume ::
   -- | 'gatewayARN'
+  Lude.Text ->
+  -- | 'networkInterfaceId'
   Lude.Text ->
   -- | 'diskId'
   Lude.Text ->
@@ -119,25 +131,23 @@ mkCreateStorediSCSIVolume ::
   Lude.Bool ->
   -- | 'targetName'
   Lude.Text ->
-  -- | 'networkInterfaceId'
-  Lude.Text ->
   CreateStorediSCSIVolume
 mkCreateStorediSCSIVolume
   pGatewayARN_
+  pNetworkInterfaceId_
   pDiskId_
   pPreserveExistingData_
-  pTargetName_
-  pNetworkInterfaceId_ =
+  pTargetName_ =
     CreateStorediSCSIVolume'
       { kmsKey = Lude.Nothing,
-        kmsEncrypted = Lude.Nothing,
-        tags = Lude.Nothing,
-        snapshotId = Lude.Nothing,
         gatewayARN = pGatewayARN_,
+        kmsEncrypted = Lude.Nothing,
+        networkInterfaceId = pNetworkInterfaceId_,
         diskId = pDiskId_,
         preserveExistingData = pPreserveExistingData_,
         targetName = pTargetName_,
-        networkInterfaceId = pNetworkInterfaceId_
+        tags = Lude.Nothing,
+        snapshotId = Lude.Nothing
       }
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
@@ -146,6 +156,13 @@ mkCreateStorediSCSIVolume
 csscsivKMSKey :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe Lude.Text)
 csscsivKMSKey = Lens.lens (kmsKey :: CreateStorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: CreateStorediSCSIVolume)
 {-# DEPRECATED csscsivKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csscsivGatewayARN :: Lens.Lens' CreateStorediSCSIVolume Lude.Text
+csscsivGatewayARN = Lens.lens (gatewayARN :: CreateStorediSCSIVolume -> Lude.Text) (\s a -> s {gatewayARN = a} :: CreateStorediSCSIVolume)
+{-# DEPRECATED csscsivGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
@@ -156,26 +173,14 @@ csscsivKMSEncrypted :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe Lude.Bool)
 csscsivKMSEncrypted = Lens.lens (kmsEncrypted :: CreateStorediSCSIVolume -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: CreateStorediSCSIVolume)
 {-# DEPRECATED csscsivKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
 
--- | A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
+-- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivTags :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe [Tag])
-csscsivTags = Lens.lens (tags :: CreateStorediSCSIVolume -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateStorediSCSIVolume)
-{-# DEPRECATED csscsivTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
+-- Valid Values: A valid IP address.
 --
--- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivSnapshotId :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe Lude.Text)
-csscsivSnapshotId = Lens.lens (snapshotId :: CreateStorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CreateStorediSCSIVolume)
-{-# DEPRECATED csscsivSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivGatewayARN :: Lens.Lens' CreateStorediSCSIVolume Lude.Text
-csscsivGatewayARN = Lens.lens (gatewayARN :: CreateStorediSCSIVolume -> Lude.Text) (\s a -> s {gatewayARN = a} :: CreateStorediSCSIVolume)
-{-# DEPRECATED csscsivGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csscsivNetworkInterfaceId :: Lens.Lens' CreateStorediSCSIVolume Lude.Text
+csscsivNetworkInterfaceId = Lens.lens (networkInterfaceId :: CreateStorediSCSIVolume -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: CreateStorediSCSIVolume)
+{-# DEPRECATED csscsivNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The unique identifier for the gateway local disk that is configured as a stored volume. Use <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
 --
@@ -202,14 +207,19 @@ csscsivTargetName :: Lens.Lens' CreateStorediSCSIVolume Lude.Text
 csscsivTargetName = Lens.lens (targetName :: CreateStorediSCSIVolume -> Lude.Text) (\s a -> s {targetName = a} :: CreateStorediSCSIVolume)
 {-# DEPRECATED csscsivTargetName "Use generic-lens or generic-optics with 'targetName' instead." #-}
 
--- | The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway.
+-- | A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.
 --
--- Valid Values: A valid IP address.
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csscsivTags :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe [Tag])
+csscsivTags = Lens.lens (tags :: CreateStorediSCSIVolume -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateStorediSCSIVolume)
+{-# DEPRECATED csscsivTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot; otherwise, do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
 --
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csscsivNetworkInterfaceId :: Lens.Lens' CreateStorediSCSIVolume Lude.Text
-csscsivNetworkInterfaceId = Lens.lens (networkInterfaceId :: CreateStorediSCSIVolume -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: CreateStorediSCSIVolume)
-{-# DEPRECATED csscsivNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csscsivSnapshotId :: Lens.Lens' CreateStorediSCSIVolume (Lude.Maybe Lude.Text)
+csscsivSnapshotId = Lens.lens (snapshotId :: CreateStorediSCSIVolume -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CreateStorediSCSIVolume)
+{-# DEPRECATED csscsivSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
 instance Lude.AWSRequest CreateStorediSCSIVolume where
   type Rs CreateStorediSCSIVolume = CreateStorediSCSIVolumeResponse
@@ -242,14 +252,14 @@ instance Lude.ToJSON CreateStorediSCSIVolume where
     Lude.object
       ( Lude.catMaybes
           [ ("KMSKey" Lude..=) Lude.<$> kmsKey,
-            ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
-            ("Tags" Lude..=) Lude.<$> tags,
-            ("SnapshotId" Lude..=) Lude.<$> snapshotId,
             Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
+            Lude.Just ("NetworkInterfaceId" Lude..= networkInterfaceId),
             Lude.Just ("DiskId" Lude..= diskId),
             Lude.Just ("PreserveExistingData" Lude..= preserveExistingData),
             Lude.Just ("TargetName" Lude..= targetName),
-            Lude.Just ("NetworkInterfaceId" Lude..= networkInterfaceId)
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("SnapshotId" Lude..=) Lude.<$> snapshotId
           ]
       )
 
@@ -263,29 +273,24 @@ instance Lude.ToQuery CreateStorediSCSIVolume where
 --
 -- /See:/ 'mkCreateStorediSCSIVolumeResponse' smart constructor.
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
-  { targetARN ::
-      Lude.Maybe Lude.Text,
-    volumeARN ::
-      Lude.Maybe Lude.Text,
-    volumeSizeInBytes ::
-      Lude.Maybe Lude.Integer,
+  { -- | The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the configured volume.
+    volumeARN :: Lude.Maybe Lude.Text,
+    -- | The size of the volume in bytes.
+    volumeSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStorediSCSIVolumeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'targetARN' - The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.
 -- * 'volumeARN' - The Amazon Resource Name (ARN) of the configured volume.
 -- * 'volumeSizeInBytes' - The size of the volume in bytes.
+-- * 'responseStatus' - The response status code.
 mkCreateStorediSCSIVolumeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

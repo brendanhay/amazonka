@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudWatchEncryption' smart constructor.
 data CloudWatchEncryption = CloudWatchEncryption'
-  { cloudWatchEncryptionMode ::
-      Lude.Maybe CloudWatchEncryptionMode,
+  { -- | The encryption mode to use for CloudWatch data.
+    cloudWatchEncryptionMode :: Lude.Maybe CloudWatchEncryptionMode,
+    -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
     kmsKeyARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchEncryption' with the minimum fields required to make a request.

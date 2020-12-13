@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,27 +39,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRebuildEnvironment' smart constructor.
 data RebuildEnvironment = RebuildEnvironment'
-  { environmentName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the environment to rebuild.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The ID of the environment to rebuild.
+    --
+    -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
     environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebuildEnvironment' with the minimum fields required to make a request.
 --
--- * 'environmentId' - The ID of the environment to rebuild.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 -- * 'environmentName' - The name of the environment to rebuild.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'environmentId' - The ID of the environment to rebuild.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 mkRebuildEnvironment ::
   RebuildEnvironment
 mkRebuildEnvironment =
@@ -107,13 +107,7 @@ instance Lude.ToQuery RebuildEnvironment where
 
 -- | /See:/ 'mkRebuildEnvironmentResponse' smart constructor.
 data RebuildEnvironmentResponse = RebuildEnvironmentResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebuildEnvironmentResponse' with the minimum fields required to make a request.

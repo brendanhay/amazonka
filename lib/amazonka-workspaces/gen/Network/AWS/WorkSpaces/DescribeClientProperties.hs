@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeClientProperties' smart constructor.
 newtype DescribeClientProperties = DescribeClientProperties'
-  { resourceIds ::
-      Lude.NonEmpty Lude.Text
+  { -- | The resource identifier, in the form of directory IDs.
+    resourceIds :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClientProperties' with the minimum fields required to make a request.
@@ -103,19 +98,12 @@ instance Lude.ToQuery DescribeClientProperties where
 
 -- | /See:/ 'mkDescribeClientPropertiesResponse' smart constructor.
 data DescribeClientPropertiesResponse = DescribeClientPropertiesResponse'
-  { clientPropertiesList ::
-      Lude.Maybe
-        [ClientPropertiesResult],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the specified Amazon WorkSpaces clients.
+    clientPropertiesList :: Lude.Maybe [ClientPropertiesResult],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClientPropertiesResponse' with the minimum fields required to make a request.

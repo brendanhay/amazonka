@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.DAX.IncreaseReplicationFactor
     mkIncreaseReplicationFactor,
 
     -- ** Request lenses
+    irfNewReplicationFactor,
     irfAvailabilityZones,
     irfClusterName,
-    irfNewReplicationFactor,
 
     -- * Destructuring the response
     IncreaseReplicationFactorResponse (..),
@@ -41,37 +42,41 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkIncreaseReplicationFactor' smart constructor.
 data IncreaseReplicationFactor = IncreaseReplicationFactor'
-  { availabilityZones ::
-      Lude.Maybe [Lude.Text],
-    clusterName :: Lude.Text,
-    newReplicationFactor :: Lude.Int
+  { -- | The new number of nodes for the DAX cluster.
+    newReplicationFactor :: Lude.Int,
+    -- | The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.
+    availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The name of the DAX cluster that will receive additional nodes.
+    clusterName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IncreaseReplicationFactor' with the minimum fields required to make a request.
 --
+-- * 'newReplicationFactor' - The new number of nodes for the DAX cluster.
 -- * 'availabilityZones' - The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.
 -- * 'clusterName' - The name of the DAX cluster that will receive additional nodes.
--- * 'newReplicationFactor' - The new number of nodes for the DAX cluster.
 mkIncreaseReplicationFactor ::
-  -- | 'clusterName'
-  Lude.Text ->
   -- | 'newReplicationFactor'
   Lude.Int ->
+  -- | 'clusterName'
+  Lude.Text ->
   IncreaseReplicationFactor
-mkIncreaseReplicationFactor pClusterName_ pNewReplicationFactor_ =
+mkIncreaseReplicationFactor pNewReplicationFactor_ pClusterName_ =
   IncreaseReplicationFactor'
-    { availabilityZones = Lude.Nothing,
-      clusterName = pClusterName_,
-      newReplicationFactor = pNewReplicationFactor_
+    { newReplicationFactor =
+        pNewReplicationFactor_,
+      availabilityZones = Lude.Nothing,
+      clusterName = pClusterName_
     }
+
+-- | The new number of nodes for the DAX cluster.
+--
+-- /Note:/ Consider using 'newReplicationFactor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irfNewReplicationFactor :: Lens.Lens' IncreaseReplicationFactor Lude.Int
+irfNewReplicationFactor = Lens.lens (newReplicationFactor :: IncreaseReplicationFactor -> Lude.Int) (\s a -> s {newReplicationFactor = a} :: IncreaseReplicationFactor)
+{-# DEPRECATED irfNewReplicationFactor "Use generic-lens or generic-optics with 'newReplicationFactor' instead." #-}
 
 -- | The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.
 --
@@ -86,13 +91,6 @@ irfAvailabilityZones = Lens.lens (availabilityZones :: IncreaseReplicationFactor
 irfClusterName :: Lens.Lens' IncreaseReplicationFactor Lude.Text
 irfClusterName = Lens.lens (clusterName :: IncreaseReplicationFactor -> Lude.Text) (\s a -> s {clusterName = a} :: IncreaseReplicationFactor)
 {-# DEPRECATED irfClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
-
--- | The new number of nodes for the DAX cluster.
---
--- /Note:/ Consider using 'newReplicationFactor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irfNewReplicationFactor :: Lens.Lens' IncreaseReplicationFactor Lude.Int
-irfNewReplicationFactor = Lens.lens (newReplicationFactor :: IncreaseReplicationFactor -> Lude.Int) (\s a -> s {newReplicationFactor = a} :: IncreaseReplicationFactor)
-{-# DEPRECATED irfNewReplicationFactor "Use generic-lens or generic-optics with 'newReplicationFactor' instead." #-}
 
 instance Lude.AWSRequest IncreaseReplicationFactor where
   type
@@ -121,9 +119,9 @@ instance Lude.ToJSON IncreaseReplicationFactor where
   toJSON IncreaseReplicationFactor' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AvailabilityZones" Lude..=) Lude.<$> availabilityZones,
-            Lude.Just ("ClusterName" Lude..= clusterName),
-            Lude.Just ("NewReplicationFactor" Lude..= newReplicationFactor)
+          [ Lude.Just ("NewReplicationFactor" Lude..= newReplicationFactor),
+            ("AvailabilityZones" Lude..=) Lude.<$> availabilityZones,
+            Lude.Just ("ClusterName" Lude..= clusterName)
           ]
       )
 
@@ -135,18 +133,12 @@ instance Lude.ToQuery IncreaseReplicationFactor where
 
 -- | /See:/ 'mkIncreaseReplicationFactorResponse' smart constructor.
 data IncreaseReplicationFactorResponse = IncreaseReplicationFactorResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
-    responseStatus ::
-      Lude.Int
+  { -- | A description of the DAX cluster. with its new replication factor.
+    cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IncreaseReplicationFactorResponse' with the minimum fields required to make a request.

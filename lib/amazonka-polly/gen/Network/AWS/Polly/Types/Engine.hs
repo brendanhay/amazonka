@@ -13,8 +13,8 @@
 module Network.AWS.Polly.Types.Engine
   ( Engine
       ( Engine',
-        Neural,
-        Standard
+        Standard,
+        Neural
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Engine = Engine' Lude.Text
       Lude.ToHeader
     )
 
-pattern Neural :: Engine
-pattern Neural = Engine' "neural"
-
 pattern Standard :: Engine
 pattern Standard = Engine' "standard"
 
+pattern Neural :: Engine
+pattern Neural = Engine' "neural"
+
 {-# COMPLETE
-  Neural,
   Standard,
+  Neural,
   Engine'
   #-}

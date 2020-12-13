@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,15 +22,15 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     mkDeleteSnapshotSchedule,
 
     -- ** Request lenses
-    dVolumeARN,
+    dssfVolumeARN,
 
     -- * Destructuring the response
     DeleteSnapshotScheduleResponse (..),
     mkDeleteSnapshotScheduleResponse,
 
     -- ** Response lenses
-    dsssrsVolumeARN,
-    dsssrsResponseStatus,
+    dssrsVolumeARN,
+    dssrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkDeleteSnapshotSchedule' smart constructor.
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
-  { volumeARN ::
-      Lude.Text
+  { -- | The volume which snapshot schedule to delete.
+    volumeARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshotSchedule' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkDeleteSnapshotSchedule pVolumeARN_ =
 -- | The volume which snapshot schedule to delete.
 --
 -- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dVolumeARN :: Lens.Lens' DeleteSnapshotSchedule Lude.Text
-dVolumeARN = Lens.lens (volumeARN :: DeleteSnapshotSchedule -> Lude.Text) (\s a -> s {volumeARN = a} :: DeleteSnapshotSchedule)
-{-# DEPRECATED dVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
+dssfVolumeARN :: Lens.Lens' DeleteSnapshotSchedule Lude.Text
+dssfVolumeARN = Lens.lens (volumeARN :: DeleteSnapshotSchedule -> Lude.Text) (\s a -> s {volumeARN = a} :: DeleteSnapshotSchedule)
+{-# DEPRECATED dssfVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 instance Lude.AWSRequest DeleteSnapshotSchedule where
   type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
@@ -106,23 +101,18 @@ instance Lude.ToQuery DeleteSnapshotSchedule where
 
 -- | /See:/ 'mkDeleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
-  { volumeARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The volume which snapshot schedule was deleted.
+    volumeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshotScheduleResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'volumeARN' - The volume which snapshot schedule was deleted.
+-- * 'responseStatus' - The response status code.
 mkDeleteSnapshotScheduleResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -136,13 +126,13 @@ mkDeleteSnapshotScheduleResponse pResponseStatus_ =
 -- | The volume which snapshot schedule was deleted.
 --
 -- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsssrsVolumeARN :: Lens.Lens' DeleteSnapshotScheduleResponse (Lude.Maybe Lude.Text)
-dsssrsVolumeARN = Lens.lens (volumeARN :: DeleteSnapshotScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: DeleteSnapshotScheduleResponse)
-{-# DEPRECATED dsssrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
+dssrsVolumeARN :: Lens.Lens' DeleteSnapshotScheduleResponse (Lude.Maybe Lude.Text)
+dssrsVolumeARN = Lens.lens (volumeARN :: DeleteSnapshotScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: DeleteSnapshotScheduleResponse)
+{-# DEPRECATED dssrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsssrsResponseStatus :: Lens.Lens' DeleteSnapshotScheduleResponse Lude.Int
-dsssrsResponseStatus = Lens.lens (responseStatus :: DeleteSnapshotScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSnapshotScheduleResponse)
-{-# DEPRECATED dsssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dssrsResponseStatus :: Lens.Lens' DeleteSnapshotScheduleResponse Lude.Int
+dssrsResponseStatus = Lens.lens (responseStatus :: DeleteSnapshotScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSnapshotScheduleResponse)
+{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

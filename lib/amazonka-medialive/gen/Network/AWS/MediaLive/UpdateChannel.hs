@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.MediaLive.UpdateChannel
     -- ** Request lenses
     ucLogLevel,
     ucInputSpecification,
+    ucChannelId,
     ucInputAttachments,
     ucDestinations,
     ucName,
     ucCdiInputSpecification,
     ucEncoderSettings,
     ucRoleARN,
-    ucChannelId,
 
     -- * Destructuring the response
     UpdateChannelResponse (..),
@@ -49,36 +50,37 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
-  { logLevel ::
-      Lude.Maybe LogLevel,
+  { -- | The log level to write to CloudWatch Logs.
+    logLevel :: Lude.Maybe LogLevel,
+    -- | Specification of network and file inputs for this channel
     inputSpecification :: Lude.Maybe InputSpecification,
+    -- | channel ID
+    channelId :: Lude.Text,
     inputAttachments :: Lude.Maybe [InputAttachment],
+    -- | A list of output destinations for this channel.
     destinations :: Lude.Maybe [OutputDestination],
+    -- | The name of the channel.
     name :: Lude.Maybe Lude.Text,
+    -- | Specification of CDI inputs for this channel
     cdiInputSpecification :: Lude.Maybe CdiInputSpecification,
+    -- | The encoder settings for this channel.
     encoderSettings :: Lude.Maybe EncoderSettings,
-    roleARN :: Lude.Maybe Lude.Text,
-    channelId :: Lude.Text
+    -- | An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannel' with the minimum fields required to make a request.
 --
--- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
--- * 'channelId' - channel ID
--- * 'destinations' - A list of output destinations for this channel.
--- * 'encoderSettings' - The encoder settings for this channel.
--- * 'inputAttachments' - Undocumented field.
--- * 'inputSpecification' - Specification of network and file inputs for this channel
 -- * 'logLevel' - The log level to write to CloudWatch Logs.
+-- * 'inputSpecification' - Specification of network and file inputs for this channel
+-- * 'channelId' - channel ID
+-- * 'inputAttachments' -
+-- * 'destinations' - A list of output destinations for this channel.
 -- * 'name' - The name of the channel.
+-- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
+-- * 'encoderSettings' - The encoder settings for this channel.
 -- * 'roleARN' - An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
 mkUpdateChannel ::
   -- | 'channelId'
@@ -88,13 +90,13 @@ mkUpdateChannel pChannelId_ =
   UpdateChannel'
     { logLevel = Lude.Nothing,
       inputSpecification = Lude.Nothing,
+      channelId = pChannelId_,
       inputAttachments = Lude.Nothing,
       destinations = Lude.Nothing,
       name = Lude.Nothing,
       cdiInputSpecification = Lude.Nothing,
       encoderSettings = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      channelId = pChannelId_
+      roleARN = Lude.Nothing
     }
 
 -- | The log level to write to CloudWatch Logs.
@@ -110,6 +112,13 @@ ucLogLevel = Lens.lens (logLevel :: UpdateChannel -> Lude.Maybe LogLevel) (\s a 
 ucInputSpecification :: Lens.Lens' UpdateChannel (Lude.Maybe InputSpecification)
 ucInputSpecification = Lens.lens (inputSpecification :: UpdateChannel -> Lude.Maybe InputSpecification) (\s a -> s {inputSpecification = a} :: UpdateChannel)
 {-# DEPRECATED ucInputSpecification "Use generic-lens or generic-optics with 'inputSpecification' instead." #-}
+
+-- | channel ID
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucChannelId :: Lens.Lens' UpdateChannel Lude.Text
+ucChannelId = Lens.lens (channelId :: UpdateChannel -> Lude.Text) (\s a -> s {channelId = a} :: UpdateChannel)
+{-# DEPRECATED ucChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -152,13 +161,6 @@ ucEncoderSettings = Lens.lens (encoderSettings :: UpdateChannel -> Lude.Maybe En
 ucRoleARN :: Lens.Lens' UpdateChannel (Lude.Maybe Lude.Text)
 ucRoleARN = Lens.lens (roleARN :: UpdateChannel -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateChannel)
 {-# DEPRECATED ucRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | channel ID
---
--- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucChannelId :: Lens.Lens' UpdateChannel Lude.Text
-ucChannelId = Lens.lens (channelId :: UpdateChannel -> Lude.Text) (\s a -> s {channelId = a} :: UpdateChannel)
-{-# DEPRECATED ucChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
 instance Lude.AWSRequest UpdateChannel where
   type Rs UpdateChannel = UpdateChannelResponse
@@ -205,22 +207,16 @@ instance Lude.ToQuery UpdateChannel where
 --
 -- /See:/ 'mkUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
-  { channel ::
-      Lude.Maybe Channel,
+  { channel :: Lude.Maybe Channel,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannelResponse' with the minimum fields required to make a request.
 --
--- * 'channel' - Undocumented field.
+-- * 'channel' -
 -- * 'responseStatus' - The response status code.
 mkUpdateChannelResponse ::
   -- | 'responseStatus'

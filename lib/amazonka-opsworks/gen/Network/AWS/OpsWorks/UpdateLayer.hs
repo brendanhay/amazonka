@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,8 +37,8 @@ module Network.AWS.OpsWorks.UpdateLayer
     ulName,
     ulAutoAssignPublicIPs,
     ulUseEBSOptimizedInstances,
-    ulAutoAssignElasticIPs,
     ulLayerId,
+    ulAutoAssignElasticIPs,
 
     -- * Destructuring the response
     UpdateLayerResponse (..),
@@ -53,58 +54,67 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateLayer' smart constructor.
 data UpdateLayer = UpdateLayer'
-  { customInstanceProfileARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+    customInstanceProfileARN :: Lude.Maybe Lude.Text,
+    -- | An array containing the layer's custom security group IDs.
     customSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
     installUpdatesOnBoot :: Lude.Maybe Lude.Bool,
-    cloudWatchLogsConfiguration ::
-      Lude.Maybe CloudWatchLogsConfiguration,
-    lifecycleEventConfiguration ::
-      Lude.Maybe LifecycleEventConfiguration,
+    -- | Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
+    cloudWatchLogsConfiguration :: Lude.Maybe CloudWatchLogsConfiguration,
+    -- |
+    lifecycleEventConfiguration :: Lude.Maybe LifecycleEventConfiguration,
+    -- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/.
+    --
+    -- The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
     shortname :: Lude.Maybe Lude.Text,
+    -- | A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
     customRecipes :: Lude.Maybe Recipes,
+    -- | A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> .
     customJSON :: Lude.Maybe Lude.Text,
+    -- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
     volumeConfigurations :: Lude.Maybe [VolumeConfiguration],
+    -- | Whether to disable auto healing for the layer.
     enableAutoHealing :: Lude.Maybe Lude.Bool,
+    -- | An array of @Package@ objects that describe the layer's packages.
     packages :: Lude.Maybe [Lude.Text],
-    attributes ::
-      Lude.Maybe (Lude.HashMap LayerAttributesKeys (Maybe Text)),
+    -- | One or more user-defined key/value pairs to be added to the stack attributes.
+    attributes :: Lude.Maybe (Lude.HashMap LayerAttributesKeys (Maybe Text)),
+    -- | The layer name, which is used by the console.
     name :: Lude.Maybe Lude.Text,
+    -- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
     autoAssignPublicIPs :: Lude.Maybe Lude.Bool,
+    -- | Whether to use Amazon EBS-optimized instances.
     useEBSOptimizedInstances :: Lude.Maybe Lude.Bool,
-    autoAssignElasticIPs :: Lude.Maybe Lude.Bool,
-    layerId :: Lude.Text
+    -- | The layer ID.
+    layerId :: Lude.Text,
+    -- | Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
+    autoAssignElasticIPs :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateLayer' with the minimum fields required to make a request.
 --
--- * 'attributes' - One or more user-defined key/value pairs to be added to the stack attributes.
--- * 'autoAssignElasticIPs' - Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
--- * 'autoAssignPublicIPs' - For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
--- * 'cloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
 -- * 'customInstanceProfileARN' - The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
--- * 'customJSON' - A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> .
--- * 'customRecipes' - A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
 -- * 'customSecurityGroupIds' - An array containing the layer's custom security group IDs.
--- * 'enableAutoHealing' - Whether to disable auto healing for the layer.
 -- * 'installUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
--- * 'layerId' - The layer ID.
+-- * 'cloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
 -- * 'lifecycleEventConfiguration' -
--- * 'name' - The layer name, which is used by the console.
--- * 'packages' - An array of @Package@ objects that describe the layer's packages.
 -- * 'shortname' - For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/.
 --
 -- The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
--- * 'useEBSOptimizedInstances' - Whether to use Amazon EBS-optimized instances.
+-- * 'customRecipes' - A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
+-- * 'customJSON' - A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> .
 -- * 'volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
+-- * 'enableAutoHealing' - Whether to disable auto healing for the layer.
+-- * 'packages' - An array of @Package@ objects that describe the layer's packages.
+-- * 'attributes' - One or more user-defined key/value pairs to be added to the stack attributes.
+-- * 'name' - The layer name, which is used by the console.
+-- * 'autoAssignPublicIPs' - For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
+-- * 'useEBSOptimizedInstances' - Whether to use Amazon EBS-optimized instances.
+-- * 'layerId' - The layer ID.
+-- * 'autoAssignElasticIPs' - Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 mkUpdateLayer ::
   -- | 'layerId'
   Lude.Text ->
@@ -126,8 +136,8 @@ mkUpdateLayer pLayerId_ =
       name = Lude.Nothing,
       autoAssignPublicIPs = Lude.Nothing,
       useEBSOptimizedInstances = Lude.Nothing,
-      autoAssignElasticIPs = Lude.Nothing,
-      layerId = pLayerId_
+      layerId = pLayerId_,
+      autoAssignElasticIPs = Lude.Nothing
     }
 
 -- | The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
@@ -237,19 +247,19 @@ ulUseEBSOptimizedInstances :: Lens.Lens' UpdateLayer (Lude.Maybe Lude.Bool)
 ulUseEBSOptimizedInstances = Lens.lens (useEBSOptimizedInstances :: UpdateLayer -> Lude.Maybe Lude.Bool) (\s a -> s {useEBSOptimizedInstances = a} :: UpdateLayer)
 {-# DEPRECATED ulUseEBSOptimizedInstances "Use generic-lens or generic-optics with 'useEBSOptimizedInstances' instead." #-}
 
--- | Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
---
--- /Note:/ Consider using 'autoAssignElasticIPs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulAutoAssignElasticIPs :: Lens.Lens' UpdateLayer (Lude.Maybe Lude.Bool)
-ulAutoAssignElasticIPs = Lens.lens (autoAssignElasticIPs :: UpdateLayer -> Lude.Maybe Lude.Bool) (\s a -> s {autoAssignElasticIPs = a} :: UpdateLayer)
-{-# DEPRECATED ulAutoAssignElasticIPs "Use generic-lens or generic-optics with 'autoAssignElasticIPs' instead." #-}
-
 -- | The layer ID.
 --
 -- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ulLayerId :: Lens.Lens' UpdateLayer Lude.Text
 ulLayerId = Lens.lens (layerId :: UpdateLayer -> Lude.Text) (\s a -> s {layerId = a} :: UpdateLayer)
 {-# DEPRECATED ulLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
+
+-- | Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
+--
+-- /Note:/ Consider using 'autoAssignElasticIPs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulAutoAssignElasticIPs :: Lens.Lens' UpdateLayer (Lude.Maybe Lude.Bool)
+ulAutoAssignElasticIPs = Lens.lens (autoAssignElasticIPs :: UpdateLayer -> Lude.Maybe Lude.Bool) (\s a -> s {autoAssignElasticIPs = a} :: UpdateLayer)
+{-# DEPRECATED ulAutoAssignElasticIPs "Use generic-lens or generic-optics with 'autoAssignElasticIPs' instead." #-}
 
 instance Lude.AWSRequest UpdateLayer where
   type Rs UpdateLayer = UpdateLayerResponse
@@ -290,8 +300,8 @@ instance Lude.ToJSON UpdateLayer where
             ("AutoAssignPublicIps" Lude..=) Lude.<$> autoAssignPublicIPs,
             ("UseEbsOptimizedInstances" Lude..=)
               Lude.<$> useEBSOptimizedInstances,
-            ("AutoAssignElasticIps" Lude..=) Lude.<$> autoAssignElasticIPs,
-            Lude.Just ("LayerId" Lude..= layerId)
+            Lude.Just ("LayerId" Lude..= layerId),
+            ("AutoAssignElasticIps" Lude..=) Lude.<$> autoAssignElasticIPs
           ]
       )
 
@@ -303,13 +313,7 @@ instance Lude.ToQuery UpdateLayer where
 
 -- | /See:/ 'mkUpdateLayerResponse' smart constructor.
 data UpdateLayerResponse = UpdateLayerResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateLayerResponse' with the minimum fields required to make a request.

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentLink' smart constructor.
 data EnvironmentLink = EnvironmentLink'
-  { linkName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the link.
+    linkName :: Lude.Maybe Lude.Text,
+    -- | The name of the linked environment (the dependency).
     environmentName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentLink' with the minimum fields required to make a request.
 --
--- * 'environmentName' - The name of the linked environment (the dependency).
 -- * 'linkName' - The name of the link.
+-- * 'environmentName' - The name of the linked environment (the dependency).
 mkEnvironmentLink ::
   EnvironmentLink
 mkEnvironmentLink =

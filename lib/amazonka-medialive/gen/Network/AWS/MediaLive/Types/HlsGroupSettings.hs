@@ -18,6 +18,7 @@ module Network.AWS.MediaLive.Types.HlsGroupSettings
 
     -- * Lenses
     hgsDirectoryStructure,
+    hgsDestination,
     hgsEncryptionType,
     hgsTimedMetadataId3Period,
     hgsIvInManifest,
@@ -58,7 +59,6 @@ module Network.AWS.MediaLive.Types.HlsGroupSettings
     hgsKeepSegments,
     hgsBaseURLContent1,
     hgsManifestCompression,
-    hgsDestination,
   )
 where
 
@@ -96,152 +96,224 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsGroupSettings' smart constructor.
 data HlsGroupSettings = HlsGroupSettings'
-  { directoryStructure ::
-      Lude.Maybe HlsDirectoryStructure,
+  { -- | Place segments in subdirectories.
+    directoryStructure :: Lude.Maybe HlsDirectoryStructure,
+    -- | A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).
+    destination :: OutputLocationRef,
+    -- | Encrypts the segments with the given encryption scheme.  Exclude this parameter if no encryption is desired.
     encryptionType :: Lude.Maybe HlsEncryptionType,
+    -- | Timed Metadata interval in seconds.
     timedMetadataId3Period :: Lude.Maybe Lude.Natural,
+    -- | For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
     ivInManifest :: Lude.Maybe HlsIvInManifest,
+    -- | Specifies whether to insert EXT-X-DISCONTINUITY tags in the HLS child manifests for this output group.
+    --
+    -- Typically, choose Insert because these tags are required in the manifest (according to the HLS specification) and serve an important purpose.
+    -- Choose Never Insert only if the downstream system is doing real-time failover (without using the MediaLive automatic failover feature) and only if that downstream system has advised you to exclude the tags.
     discontinuityTags :: Lude.Maybe HlsDiscontinuityTags,
+    -- | SEGMENTED_FILES: Emit the program as segments - multiple .ts media files.
+    --
+    --
+    -- SINGLE_FILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
     tsFileMode :: Lude.Maybe HlsTsFileMode,
+    -- | When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
     minSegmentLength :: Lude.Maybe Lude.Natural,
+    -- | DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field).
+    --
+    --
+    -- STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
     iFrameOnlyPlaylists :: Lude.Maybe IFrameOnlyPlaylistType,
+    -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
     programDateTime :: Lude.Maybe HlsProgramDateTime,
+    -- | Applies only if Mode field is LIVE.
+    --
+    --
+    -- Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be smaller than the number in the Keep Segments field.
     indexNSegments :: Lude.Maybe Lude.Natural,
+    -- | Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
     programDateTimePeriod :: Lude.Maybe Lude.Natural,
+    -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
     codecSpecification :: Lude.Maybe HlsCodecSpecification,
+    -- | Parameters that control interactions with the CDN.
     hlsCdnSettings :: Lude.Maybe HlsCdnSettings,
-    captionLanguageMappings ::
-      Lude.Maybe [CaptionLanguageMapping],
+    -- | Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to "insert".
+    captionLanguageMappings :: Lude.Maybe [CaptionLanguageMapping],
+    -- | Parameter that control output group behavior on input loss.
     inputLossAction :: Lude.Maybe InputLossActionForHlsOut,
+    -- | If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event.
+    --
+    --
+    -- VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
     mode :: Lude.Maybe HlsMode,
+    -- | The key provider settings.
     keyProviderSettings :: Lude.Maybe KeyProviderSettings,
-    incompleteSegmentBehavior ::
-      Lude.Maybe HlsIncompleteSegmentBehavior,
+    -- | Specifies whether to include the final (incomplete) segment in the media output when the pipeline stops producing output because of a channel stop, a channel pause or a loss of input to the pipeline.
+    --
+    -- Auto means that MediaLive decides whether to include the final segment, depending on the channel class and the types of output groups.
+    -- Suppress means to never include the incomplete segment. We recommend you choose Auto and let MediaLive control the behavior.
+    incompleteSegmentBehavior :: Lude.Maybe HlsIncompleteSegmentBehavior,
+    -- | For use with encryptionType. This is a 128-bit, 16-byte hex value represented by a 32-character text string. If ivSource is set to "explicit" then this parameter is required and is used as the IV for encryption.
     constantIv :: Lude.Maybe Lude.Text,
+    -- | A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
     baseURLManifest :: Lude.Maybe Lude.Text,
+    -- | Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
     adMarkers :: Lude.Maybe [HlsAdMarkers],
+    -- | The value specifies how the key is represented in the resource identified by the URI.  If parameter is absent, an implicit value of "identity" is used.  A reverse DNS string can also be given.
     keyFormat :: Lude.Maybe Lude.Text,
+    -- | Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
     segmentLength :: Lude.Maybe Lude.Natural,
-    hlsId3SegmentTagging ::
-      Lude.Maybe HlsId3SegmentTaggingState,
-    timedMetadataId3Frame ::
-      Lude.Maybe HlsTimedMetadataId3Frame,
+    -- | State of HLS ID3 Segment Tagging
+    hlsId3SegmentTagging :: Lude.Maybe HlsId3SegmentTaggingState,
+    -- | Indicates ID3 frame that has the timecode.
+    timedMetadataId3Frame :: Lude.Maybe HlsTimedMetadataId3Frame,
+    -- | A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
     baseURLContent :: Lude.Maybe Lude.Text,
+    -- | MANIFESTS_AND_SEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group.
+    --
+    --
+    -- VARIANT_MANIFESTS_AND_SEGMENTS: Generates media manifests for this output group, but not a master manifest.
+    --
+    -- SEGMENTS_ONLY: Does not generate any manifests for this output group.
     outputSelection :: Lude.Maybe HlsOutputSelection,
-    captionLanguageSetting ::
-      Lude.Maybe HlsCaptionLanguageSetting,
+    -- | Applies only to 608 Embedded output captions.
+    --
+    -- insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions.
+    -- none: Include CLOSED-CAPTIONS=NONE line in the manifest.
+    -- omit: Omit any CLOSED-CAPTIONS line from the manifest.
+    captionLanguageSetting :: Lude.Maybe HlsCaptionLanguageSetting,
+    -- | Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
     segmentsPerSubdirectory :: Lude.Maybe Lude.Natural,
-    manifestDurationFormat ::
-      Lude.Maybe HlsManifestDurationFormat,
+    -- | Indicates whether the output manifest should use floating point or integer values for segment duration.
+    manifestDurationFormat :: Lude.Maybe HlsManifestDurationFormat,
+    -- | For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
     ivSource :: Lude.Maybe HlsIvSource,
+    -- | useInputSegmentation has been deprecated. The configured segment size is always used.
     segmentationMode :: Lude.Maybe HlsSegmentationMode,
+    -- | Either a single positive integer version value or a slash delimited list of version values (1/2/3).
     keyFormatVersions :: Lude.Maybe Lude.Text,
+    -- | When set to "disabled", sets the #EXT-X-ALLOW-CACHE:no tag in the manifest, which prevents clients from saving media segments for later replay.
     clientCache :: Lude.Maybe HlsClientCache,
+    -- | Provides an extra millisecond delta offset to fine tune the timestamps.
     timestampDeltaMilliseconds :: Lude.Maybe Lude.Natural,
+    -- | Optional. One value per output group.
+    --
+    --
+    -- Complete this field only if you are completing Base URL manifest A, and the downstream system has notified you that the child manifest files for pipeline 1 of all outputs are in a location different from the child manifest files for pipeline 0.
     baseURLManifest1 :: Lude.Maybe Lude.Text,
+    -- | ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines.
+    --
+    --
+    -- DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only.
+    --
+    -- For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
     redundantManifest :: Lude.Maybe HlsRedundantManifest,
+    -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
     streamInfResolution :: Lude.Maybe HlsStreamInfResolution,
+    -- | Applies only if Mode field is LIVE.
+    --
+    --
+    -- Specifies the number of media segments to retain in the destination directory. This number should be bigger than indexNSegments (Num segments). We recommend (value = (2 x indexNsegments) + 1).
+    --
+    -- If this "keep segments" number is too low, the following might happen: the player is still reading a media manifest file that lists this segment, but that segment has been removed from the destination directory (as directed by indexNSegments). This situation would result in a 404 HTTP error on the player.
     keepSegments :: Lude.Maybe Lude.Natural,
+    -- | Optional. One value per output group.
+    --
+    --
+    -- This field is required only if you are completing Base URL content A, and the downstream system has notified you that the media files for pipeline 1 of all outputs are in a location different from the media files for pipeline 0.
     baseURLContent1 :: Lude.Maybe Lude.Text,
-    manifestCompression :: Lude.Maybe HlsManifestCompression,
-    destination :: OutputLocationRef
+    -- | When set to gzip, compresses HLS playlist.
+    manifestCompression :: Lude.Maybe HlsManifestCompression
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsGroupSettings' with the minimum fields required to make a request.
 --
--- * 'adMarkers' - Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
--- * 'baseURLContent' - A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
--- * 'baseURLContent1' - Optional. One value per output group.
---
---
--- This field is required only if you are completing Base URL content A, and the downstream system has notified you that the media files for pipeline 1 of all outputs are in a location different from the media files for pipeline 0.
--- * 'baseURLManifest' - A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
--- * 'baseURLManifest1' - Optional. One value per output group.
---
---
--- Complete this field only if you are completing Base URL manifest A, and the downstream system has notified you that the child manifest files for pipeline 1 of all outputs are in a location different from the child manifest files for pipeline 0.
--- * 'captionLanguageMappings' - Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to "insert".
--- * 'captionLanguageSetting' - Applies only to 608 Embedded output captions.
---
--- insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions.
--- none: Include CLOSED-CAPTIONS=NONE line in the manifest.
--- omit: Omit any CLOSED-CAPTIONS line from the manifest.
--- * 'clientCache' - When set to "disabled", sets the #EXT-X-ALLOW-CACHE:no tag in the manifest, which prevents clients from saving media segments for later replay.
--- * 'codecSpecification' - Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
--- * 'constantIv' - For use with encryptionType. This is a 128-bit, 16-byte hex value represented by a 32-character text string. If ivSource is set to "explicit" then this parameter is required and is used as the IV for encryption.
--- * 'destination' - A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).
 -- * 'directoryStructure' - Place segments in subdirectories.
+-- * 'destination' - A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).
+-- * 'encryptionType' - Encrypts the segments with the given encryption scheme.  Exclude this parameter if no encryption is desired.
+-- * 'timedMetadataId3Period' - Timed Metadata interval in seconds.
+-- * 'ivInManifest' - For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
 -- * 'discontinuityTags' - Specifies whether to insert EXT-X-DISCONTINUITY tags in the HLS child manifests for this output group.
 --
 -- Typically, choose Insert because these tags are required in the manifest (according to the HLS specification) and serve an important purpose.
 -- Choose Never Insert only if the downstream system is doing real-time failover (without using the MediaLive automatic failover feature) and only if that downstream system has advised you to exclude the tags.
--- * 'encryptionType' - Encrypts the segments with the given encryption scheme.  Exclude this parameter if no encryption is desired.
--- * 'hlsCdnSettings' - Parameters that control interactions with the CDN.
--- * 'hlsId3SegmentTagging' - State of HLS ID3 Segment Tagging
+-- * 'tsFileMode' - SEGMENTED_FILES: Emit the program as segments - multiple .ts media files.
+--
+--
+-- SINGLE_FILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+-- * 'minSegmentLength' - When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
 -- * 'iFrameOnlyPlaylists' - DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field).
 --
 --
 -- STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
--- * 'incompleteSegmentBehavior' - Specifies whether to include the final (incomplete) segment in the media output when the pipeline stops producing output because of a channel stop, a channel pause or a loss of input to the pipeline.
---
--- Auto means that MediaLive decides whether to include the final segment, depending on the channel class and the types of output groups.
--- Suppress means to never include the incomplete segment. We recommend you choose Auto and let MediaLive control the behavior.
+-- * 'programDateTime' - Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
 -- * 'indexNSegments' - Applies only if Mode field is LIVE.
 --
 --
 -- Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be smaller than the number in the Keep Segments field.
+-- * 'programDateTimePeriod' - Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
+-- * 'codecSpecification' - Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
+-- * 'hlsCdnSettings' - Parameters that control interactions with the CDN.
+-- * 'captionLanguageMappings' - Mapping of up to 4 caption channels to caption languages.  Is only meaningful if captionLanguageSetting is set to "insert".
 -- * 'inputLossAction' - Parameter that control output group behavior on input loss.
--- * 'ivInManifest' - For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
--- * 'ivSource' - For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
--- * 'keepSegments' - Applies only if Mode field is LIVE.
---
---
--- Specifies the number of media segments to retain in the destination directory. This number should be bigger than indexNSegments (Num segments). We recommend (value = (2 x indexNsegments) + 1).
---
--- If this "keep segments" number is too low, the following might happen: the player is still reading a media manifest file that lists this segment, but that segment has been removed from the destination directory (as directed by indexNSegments). This situation would result in a 404 HTTP error on the player.
--- * 'keyFormat' - The value specifies how the key is represented in the resource identified by the URI.  If parameter is absent, an implicit value of "identity" is used.  A reverse DNS string can also be given.
--- * 'keyFormatVersions' - Either a single positive integer version value or a slash delimited list of version values (1/2/3).
--- * 'keyProviderSettings' - The key provider settings.
--- * 'manifestCompression' - When set to gzip, compresses HLS playlist.
--- * 'manifestDurationFormat' - Indicates whether the output manifest should use floating point or integer values for segment duration.
--- * 'minSegmentLength' - When set, minimumSegmentLength is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
 -- * 'mode' - If "vod", all segments are indexed and kept permanently in the destination and manifest. If "live", only the number segments specified in keepSegments and indexNSegments are kept; newer segments replace older segments, which may prevent players from rewinding all the way to the beginning of the event.
 --
 --
 -- VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
+-- * 'keyProviderSettings' - The key provider settings.
+-- * 'incompleteSegmentBehavior' - Specifies whether to include the final (incomplete) segment in the media output when the pipeline stops producing output because of a channel stop, a channel pause or a loss of input to the pipeline.
+--
+-- Auto means that MediaLive decides whether to include the final segment, depending on the channel class and the types of output groups.
+-- Suppress means to never include the incomplete segment. We recommend you choose Auto and let MediaLive control the behavior.
+-- * 'constantIv' - For use with encryptionType. This is a 128-bit, 16-byte hex value represented by a 32-character text string. If ivSource is set to "explicit" then this parameter is required and is used as the IV for encryption.
+-- * 'baseURLManifest' - A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
+-- * 'adMarkers' - Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
+-- * 'keyFormat' - The value specifies how the key is represented in the resource identified by the URI.  If parameter is absent, an implicit value of "identity" is used.  A reverse DNS string can also be given.
+-- * 'segmentLength' - Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
+-- * 'hlsId3SegmentTagging' - State of HLS ID3 Segment Tagging
+-- * 'timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
+-- * 'baseURLContent' - A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
 -- * 'outputSelection' - MANIFESTS_AND_SEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group.
 --
 --
 -- VARIANT_MANIFESTS_AND_SEGMENTS: Generates media manifests for this output group, but not a master manifest.
 --
 -- SEGMENTS_ONLY: Does not generate any manifests for this output group.
--- * 'programDateTime' - Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
--- * 'programDateTimePeriod' - Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
+-- * 'captionLanguageSetting' - Applies only to 608 Embedded output captions.
+--
+-- insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions.
+-- none: Include CLOSED-CAPTIONS=NONE line in the manifest.
+-- omit: Omit any CLOSED-CAPTIONS line from the manifest.
+-- * 'segmentsPerSubdirectory' - Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
+-- * 'manifestDurationFormat' - Indicates whether the output manifest should use floating point or integer values for segment duration.
+-- * 'ivSource' - For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
+-- * 'segmentationMode' - useInputSegmentation has been deprecated. The configured segment size is always used.
+-- * 'keyFormatVersions' - Either a single positive integer version value or a slash delimited list of version values (1/2/3).
+-- * 'clientCache' - When set to "disabled", sets the #EXT-X-ALLOW-CACHE:no tag in the manifest, which prevents clients from saving media segments for later replay.
+-- * 'timestampDeltaMilliseconds' - Provides an extra millisecond delta offset to fine tune the timestamps.
+-- * 'baseURLManifest1' - Optional. One value per output group.
+--
+--
+-- Complete this field only if you are completing Base URL manifest A, and the downstream system has notified you that the child manifest files for pipeline 1 of all outputs are in a location different from the child manifest files for pipeline 0.
 -- * 'redundantManifest' - ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines.
 --
 --
 -- DISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only.
 --
 -- For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
--- * 'segmentLength' - Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
--- * 'segmentationMode' - useInputSegmentation has been deprecated. The configured segment size is always used.
--- * 'segmentsPerSubdirectory' - Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
 -- * 'streamInfResolution' - Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
--- * 'timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
--- * 'timedMetadataId3Period' - Timed Metadata interval in seconds.
--- * 'timestampDeltaMilliseconds' - Provides an extra millisecond delta offset to fine tune the timestamps.
--- * 'tsFileMode' - SEGMENTED_FILES: Emit the program as segments - multiple .ts media files.
+-- * 'keepSegments' - Applies only if Mode field is LIVE.
 --
 --
--- SINGLE_FILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
+-- Specifies the number of media segments to retain in the destination directory. This number should be bigger than indexNSegments (Num segments). We recommend (value = (2 x indexNsegments) + 1).
+--
+-- If this "keep segments" number is too low, the following might happen: the player is still reading a media manifest file that lists this segment, but that segment has been removed from the destination directory (as directed by indexNSegments). This situation would result in a 404 HTTP error on the player.
+-- * 'baseURLContent1' - Optional. One value per output group.
+--
+--
+-- This field is required only if you are completing Base URL content A, and the downstream system has notified you that the media files for pipeline 1 of all outputs are in a location different from the media files for pipeline 0.
+-- * 'manifestCompression' - When set to gzip, compresses HLS playlist.
 mkHlsGroupSettings ::
   -- | 'destination'
   OutputLocationRef ->
@@ -249,6 +321,7 @@ mkHlsGroupSettings ::
 mkHlsGroupSettings pDestination_ =
   HlsGroupSettings'
     { directoryStructure = Lude.Nothing,
+      destination = pDestination_,
       encryptionType = Lude.Nothing,
       timedMetadataId3Period = Lude.Nothing,
       ivInManifest = Lude.Nothing,
@@ -288,8 +361,7 @@ mkHlsGroupSettings pDestination_ =
       streamInfResolution = Lude.Nothing,
       keepSegments = Lude.Nothing,
       baseURLContent1 = Lude.Nothing,
-      manifestCompression = Lude.Nothing,
-      destination = pDestination_
+      manifestCompression = Lude.Nothing
     }
 
 -- | Place segments in subdirectories.
@@ -298,6 +370,13 @@ mkHlsGroupSettings pDestination_ =
 hgsDirectoryStructure :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsDirectoryStructure)
 hgsDirectoryStructure = Lens.lens (directoryStructure :: HlsGroupSettings -> Lude.Maybe HlsDirectoryStructure) (\s a -> s {directoryStructure = a} :: HlsGroupSettings)
 {-# DEPRECATED hgsDirectoryStructure "Use generic-lens or generic-optics with 'directoryStructure' instead." #-}
+
+-- | A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsDestination :: Lens.Lens' HlsGroupSettings OutputLocationRef
+hgsDestination = Lens.lens (destination :: HlsGroupSettings -> OutputLocationRef) (\s a -> s {destination = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | Encrypts the segments with the given encryption scheme.  Exclude this parameter if no encryption is desired.
 --
@@ -622,13 +701,6 @@ hgsManifestCompression :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsManifestCom
 hgsManifestCompression = Lens.lens (manifestCompression :: HlsGroupSettings -> Lude.Maybe HlsManifestCompression) (\s a -> s {manifestCompression = a} :: HlsGroupSettings)
 {-# DEPRECATED hgsManifestCompression "Use generic-lens or generic-optics with 'manifestCompression' instead." #-}
 
--- | A directory or HTTP destination for the HLS segments, manifest files, and encryption keys (if enabled).
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hgsDestination :: Lens.Lens' HlsGroupSettings OutputLocationRef
-hgsDestination = Lens.lens (destination :: HlsGroupSettings -> OutputLocationRef) (\s a -> s {destination = a} :: HlsGroupSettings)
-{-# DEPRECATED hgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
 instance Lude.FromJSON HlsGroupSettings where
   parseJSON =
     Lude.withObject
@@ -636,6 +708,7 @@ instance Lude.FromJSON HlsGroupSettings where
       ( \x ->
           HlsGroupSettings'
             Lude.<$> (x Lude..:? "directoryStructure")
+            Lude.<*> (x Lude..: "destination")
             Lude.<*> (x Lude..:? "encryptionType")
             Lude.<*> (x Lude..:? "timedMetadataId3Period")
             Lude.<*> (x Lude..:? "ivInManifest")
@@ -676,7 +749,6 @@ instance Lude.FromJSON HlsGroupSettings where
             Lude.<*> (x Lude..:? "keepSegments")
             Lude.<*> (x Lude..:? "baseUrlContent1")
             Lude.<*> (x Lude..:? "manifestCompression")
-            Lude.<*> (x Lude..: "destination")
       )
 
 instance Lude.ToJSON HlsGroupSettings where
@@ -684,6 +756,7 @@ instance Lude.ToJSON HlsGroupSettings where
     Lude.object
       ( Lude.catMaybes
           [ ("directoryStructure" Lude..=) Lude.<$> directoryStructure,
+            Lude.Just ("destination" Lude..= destination),
             ("encryptionType" Lude..=) Lude.<$> encryptionType,
             ("timedMetadataId3Period" Lude..=) Lude.<$> timedMetadataId3Period,
             ("ivInManifest" Lude..=) Lude.<$> ivInManifest,
@@ -727,7 +800,6 @@ instance Lude.ToJSON HlsGroupSettings where
             ("streamInfResolution" Lude..=) Lude.<$> streamInfResolution,
             ("keepSegments" Lude..=) Lude.<$> keepSegments,
             ("baseUrlContent1" Lude..=) Lude.<$> baseURLContent1,
-            ("manifestCompression" Lude..=) Lude.<$> manifestCompression,
-            Lude.Just ("destination" Lude..= destination)
+            ("manifestCompression" Lude..=) Lude.<$> manifestCompression
           ]
       )

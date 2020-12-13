@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MediaLive.CreateTags
     mkCreateTags,
 
     -- ** Request lenses
-    ctTags,
     ctResourceARN,
+    ctTags,
 
     -- * Destructuring the response
     CreateTagsResponse (..),
@@ -38,36 +39,22 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateTags' smart constructor.
 data CreateTags = CreateTags'
-  { tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    resourceARN :: Lude.Text
+  { resourceARN :: Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
--- * 'resourceARN' - Undocumented field.
--- * 'tags' - Undocumented field.
+-- * 'resourceARN' -
+-- * 'tags' -
 mkCreateTags ::
   -- | 'resourceARN'
   Lude.Text ->
   CreateTags
 mkCreateTags pResourceARN_ =
-  CreateTags' {tags = Lude.Nothing, resourceARN = pResourceARN_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTags :: Lens.Lens' CreateTags (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ctTags = Lens.lens (tags :: CreateTags -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateTags)
-{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+  CreateTags' {resourceARN = pResourceARN_, tags = Lude.Nothing}
 
 -- | Undocumented field.
 --
@@ -75,6 +62,13 @@ ctTags = Lens.lens (tags :: CreateTags -> Lude.Maybe (Lude.HashMap Lude.Text (Lu
 ctResourceARN :: Lens.Lens' CreateTags Lude.Text
 ctResourceARN = Lens.lens (resourceARN :: CreateTags -> Lude.Text) (\s a -> s {resourceARN = a} :: CreateTags)
 {-# DEPRECATED ctResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTags :: Lens.Lens' CreateTags (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ctTags = Lens.lens (tags :: CreateTags -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateTags)
+{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateTags where
   type Rs CreateTags = CreateTagsResponse
@@ -103,13 +97,7 @@ instance Lude.ToQuery CreateTags where
 
 -- | /See:/ 'mkCreateTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.

@@ -33,34 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicaGlobalSecondaryIndexAutoScalingDescription' smart constructor.
 data ReplicaGlobalSecondaryIndexAutoScalingDescription = ReplicaGlobalSecondaryIndexAutoScalingDescription'
-  { indexStatus ::
-      Lude.Maybe
-        IndexStatus,
-    provisionedWriteCapacityAutoScalingSettings ::
-      Lude.Maybe
-        AutoScalingSettingsDescription,
-    provisionedReadCapacityAutoScalingSettings ::
-      Lude.Maybe
-        AutoScalingSettingsDescription,
-    indexName ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The current state of the replica global secondary index:
+    --
+    --
+    --     * @CREATING@ - The index is being created.
+    --
+    --
+    --     * @UPDATING@ - The index is being updated.
+    --
+    --
+    --     * @DELETING@ - The index is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The index is ready for use.
+    indexStatus :: Lude.Maybe IndexStatus,
+    provisionedWriteCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription,
+    provisionedReadCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription,
+    -- | The name of the global secondary index.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaGlobalSecondaryIndexAutoScalingDescription' with the minimum fields required to make a request.
 --
--- * 'indexName' - The name of the global secondary index.
 -- * 'indexStatus' - The current state of the replica global secondary index:
 --
 --
@@ -76,8 +72,9 @@ data ReplicaGlobalSecondaryIndexAutoScalingDescription = ReplicaGlobalSecondaryI
 --     * @ACTIVE@ - The index is ready for use.
 --
 --
--- * 'provisionedReadCapacityAutoScalingSettings' - Undocumented field.
--- * 'provisionedWriteCapacityAutoScalingSettings' - Undocumented field.
+-- * 'provisionedWriteCapacityAutoScalingSettings' -
+-- * 'provisionedReadCapacityAutoScalingSettings' -
+-- * 'indexName' - The name of the global secondary index.
 mkReplicaGlobalSecondaryIndexAutoScalingDescription ::
   ReplicaGlobalSecondaryIndexAutoScalingDescription
 mkReplicaGlobalSecondaryIndexAutoScalingDescription =

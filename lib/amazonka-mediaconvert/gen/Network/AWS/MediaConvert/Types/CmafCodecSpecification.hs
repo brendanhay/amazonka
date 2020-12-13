@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.CmafCodecSpecification
   ( CmafCodecSpecification
       ( CmafCodecSpecification',
-        Rfc4281,
-        Rfc6381
+        Rfc6381,
+        Rfc4281
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype CmafCodecSpecification = CmafCodecSpecification' Lude.Text
       Lude.ToHeader
     )
 
-pattern Rfc4281 :: CmafCodecSpecification
-pattern Rfc4281 = CmafCodecSpecification' "RFC_4281"
-
 pattern Rfc6381 :: CmafCodecSpecification
 pattern Rfc6381 = CmafCodecSpecification' "RFC_6381"
 
+pattern Rfc4281 :: CmafCodecSpecification
+pattern Rfc4281 = CmafCodecSpecification' "RFC_4281"
+
 {-# COMPLETE
-  Rfc4281,
   Rfc6381,
+  Rfc4281,
   CmafCodecSpecification'
   #-}

@@ -13,13 +13,13 @@
 module Network.AWS.SSM.Types.AssociationFilterKey
   ( AssociationFilterKey
       ( AssociationFilterKey',
-        AFKAssociationId,
-        AFKAssociationName,
-        AFKAssociationStatusName,
         AFKInstanceId,
-        AFKLastExecutedAfter,
-        AFKLastExecutedBefore,
         AFKName,
+        AFKAssociationId,
+        AFKAssociationStatusName,
+        AFKLastExecutedBefore,
+        AFKLastExecutedAfter,
+        AFKAssociationName,
         AFKResourceGroupName
       ),
   )
@@ -51,38 +51,38 @@ newtype AssociationFilterKey = AssociationFilterKey' Lude.Text
       Lude.ToHeader
     )
 
+pattern AFKInstanceId :: AssociationFilterKey
+pattern AFKInstanceId = AssociationFilterKey' "InstanceId"
+
+pattern AFKName :: AssociationFilterKey
+pattern AFKName = AssociationFilterKey' "Name"
+
 pattern AFKAssociationId :: AssociationFilterKey
 pattern AFKAssociationId = AssociationFilterKey' "AssociationId"
-
-pattern AFKAssociationName :: AssociationFilterKey
-pattern AFKAssociationName = AssociationFilterKey' "AssociationName"
 
 pattern AFKAssociationStatusName :: AssociationFilterKey
 pattern AFKAssociationStatusName = AssociationFilterKey' "AssociationStatusName"
 
-pattern AFKInstanceId :: AssociationFilterKey
-pattern AFKInstanceId = AssociationFilterKey' "InstanceId"
+pattern AFKLastExecutedBefore :: AssociationFilterKey
+pattern AFKLastExecutedBefore = AssociationFilterKey' "LastExecutedBefore"
 
 pattern AFKLastExecutedAfter :: AssociationFilterKey
 pattern AFKLastExecutedAfter = AssociationFilterKey' "LastExecutedAfter"
 
-pattern AFKLastExecutedBefore :: AssociationFilterKey
-pattern AFKLastExecutedBefore = AssociationFilterKey' "LastExecutedBefore"
-
-pattern AFKName :: AssociationFilterKey
-pattern AFKName = AssociationFilterKey' "Name"
+pattern AFKAssociationName :: AssociationFilterKey
+pattern AFKAssociationName = AssociationFilterKey' "AssociationName"
 
 pattern AFKResourceGroupName :: AssociationFilterKey
 pattern AFKResourceGroupName = AssociationFilterKey' "ResourceGroupName"
 
 {-# COMPLETE
-  AFKAssociationId,
-  AFKAssociationName,
-  AFKAssociationStatusName,
   AFKInstanceId,
-  AFKLastExecutedAfter,
-  AFKLastExecutedBefore,
   AFKName,
+  AFKAssociationId,
+  AFKAssociationStatusName,
+  AFKLastExecutedBefore,
+  AFKLastExecutedAfter,
+  AFKAssociationName,
   AFKResourceGroupName,
   AssociationFilterKey'
   #-}

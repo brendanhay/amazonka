@@ -31,28 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansUtilization' smart constructor.
 data SavingsPlansUtilization = SavingsPlansUtilization'
-  { unusedCommitment ::
-      Lude.Maybe Lude.Text,
-    utilizationPercentage ::
-      Lude.Maybe Lude.Text,
+  { -- | The amount of your Savings Plans commitment that was not consumed from Savings Plans eligible usage in a specific period.
+    unusedCommitment :: Lude.Maybe Lude.Text,
+    -- | The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your Savings Plans.
+    utilizationPercentage :: Lude.Maybe Lude.Text,
+    -- | The total amount of Savings Plans commitment that's been purchased in an account (or set of accounts).
     totalCommitment :: Lude.Maybe Lude.Text,
+    -- | The amount of your Savings Plans commitment that was consumed from Savings Plans eligible usage in a specific period.
     usedCommitment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansUtilization' with the minimum fields required to make a request.
 --
--- * 'totalCommitment' - The total amount of Savings Plans commitment that's been purchased in an account (or set of accounts).
 -- * 'unusedCommitment' - The amount of your Savings Plans commitment that was not consumed from Savings Plans eligible usage in a specific period.
--- * 'usedCommitment' - The amount of your Savings Plans commitment that was consumed from Savings Plans eligible usage in a specific period.
 -- * 'utilizationPercentage' - The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your Savings Plans.
+-- * 'totalCommitment' - The total amount of Savings Plans commitment that's been purchased in an account (or set of accounts).
+-- * 'usedCommitment' - The amount of your Savings Plans commitment that was consumed from Savings Plans eligible usage in a specific period.
 mkSavingsPlansUtilization ::
   SavingsPlansUtilization
 mkSavingsPlansUtilization =

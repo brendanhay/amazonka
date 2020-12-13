@@ -13,9 +13,9 @@
 module Network.AWS.CognitoIdentityProvider.Types.RiskLevelType
   ( RiskLevelType
       ( RiskLevelType',
-        High,
         Low,
-        Medium
+        Medium,
+        High
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RiskLevelType = RiskLevelType' Lude.Text
       Lude.ToHeader
     )
 
-pattern High :: RiskLevelType
-pattern High = RiskLevelType' "High"
-
 pattern Low :: RiskLevelType
 pattern Low = RiskLevelType' "Low"
 
 pattern Medium :: RiskLevelType
 pattern Medium = RiskLevelType' "Medium"
 
+pattern High :: RiskLevelType
+pattern High = RiskLevelType' "High"
+
 {-# COMPLETE
-  High,
   Low,
   Medium,
+  High,
   RiskLevelType'
   #-}

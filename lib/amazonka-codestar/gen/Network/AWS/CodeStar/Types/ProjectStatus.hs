@@ -17,8 +17,8 @@ module Network.AWS.CodeStar.Types.ProjectStatus
     mkProjectStatus,
 
     -- * Lenses
-    psReason,
     psState,
+    psReason,
   )
 where
 
@@ -29,35 +29,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProjectStatus' smart constructor.
 data ProjectStatus = ProjectStatus'
-  { reason :: Lude.Maybe Lude.Text,
-    state :: Lude.Text
+  { -- | The phase of completion for a project creation or deletion.
+    state :: Lude.Text,
+    -- | In the case of a project creation or deletion failure, a reason for the failure.
+    reason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectStatus' with the minimum fields required to make a request.
 --
--- * 'reason' - In the case of a project creation or deletion failure, a reason for the failure.
 -- * 'state' - The phase of completion for a project creation or deletion.
+-- * 'reason' - In the case of a project creation or deletion failure, a reason for the failure.
 mkProjectStatus ::
   -- | 'state'
   Lude.Text ->
   ProjectStatus
 mkProjectStatus pState_ =
-  ProjectStatus' {reason = Lude.Nothing, state = pState_}
-
--- | In the case of a project creation or deletion failure, a reason for the failure.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psReason :: Lens.Lens' ProjectStatus (Lude.Maybe Lude.Text)
-psReason = Lens.lens (reason :: ProjectStatus -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: ProjectStatus)
-{-# DEPRECATED psReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+  ProjectStatus' {state = pState_, reason = Lude.Nothing}
 
 -- | The phase of completion for a project creation or deletion.
 --
@@ -66,11 +55,18 @@ psState :: Lens.Lens' ProjectStatus Lude.Text
 psState = Lens.lens (state :: ProjectStatus -> Lude.Text) (\s a -> s {state = a} :: ProjectStatus)
 {-# DEPRECATED psState "Use generic-lens or generic-optics with 'state' instead." #-}
 
+-- | In the case of a project creation or deletion failure, a reason for the failure.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psReason :: Lens.Lens' ProjectStatus (Lude.Maybe Lude.Text)
+psReason = Lens.lens (reason :: ProjectStatus -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: ProjectStatus)
+{-# DEPRECATED psReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
 instance Lude.FromJSON ProjectStatus where
   parseJSON =
     Lude.withObject
       "ProjectStatus"
       ( \x ->
           ProjectStatus'
-            Lude.<$> (x Lude..:? "reason") Lude.<*> (x Lude..: "state")
+            Lude.<$> (x Lude..: "state") Lude.<*> (x Lude..:? "reason")
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,11 +21,11 @@ module Network.AWS.APIGateway.CreateUsagePlan
 
     -- ** Request lenses
     cupApiStages,
+    cupName,
     cupThrottle,
     cupQuota,
     cupDescription,
     cupTags,
-    cupName,
 
     -- * Destructuring the response
     UsagePlan (..),
@@ -52,31 +53,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateUsagePlan' smart constructor.
 data CreateUsagePlan = CreateUsagePlan'
-  { apiStages ::
-      Lude.Maybe [APIStage],
+  { -- | The associated API stages of the usage plan.
+    apiStages :: Lude.Maybe [APIStage],
+    -- | [Required] The name of the usage plan.
+    name :: Lude.Text,
+    -- | The throttling limits of the usage plan.
     throttle :: Lude.Maybe ThrottleSettings,
+    -- | The quota of the usage plan.
     quota :: Lude.Maybe QuotaSettings,
+    -- | The description of the usage plan.
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    name :: Lude.Text
+    -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUsagePlan' with the minimum fields required to make a request.
 --
 -- * 'apiStages' - The associated API stages of the usage plan.
--- * 'description' - The description of the usage plan.
 -- * 'name' - [Required] The name of the usage plan.
--- * 'quota' - The quota of the usage plan.
--- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
 -- * 'throttle' - The throttling limits of the usage plan.
+-- * 'quota' - The quota of the usage plan.
+-- * 'description' - The description of the usage plan.
+-- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
 mkCreateUsagePlan ::
   -- | 'name'
   Lude.Text ->
@@ -84,11 +84,11 @@ mkCreateUsagePlan ::
 mkCreateUsagePlan pName_ =
   CreateUsagePlan'
     { apiStages = Lude.Nothing,
+      name = pName_,
       throttle = Lude.Nothing,
       quota = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      tags = Lude.Nothing
     }
 
 -- | The associated API stages of the usage plan.
@@ -97,6 +97,13 @@ mkCreateUsagePlan pName_ =
 cupApiStages :: Lens.Lens' CreateUsagePlan (Lude.Maybe [APIStage])
 cupApiStages = Lens.lens (apiStages :: CreateUsagePlan -> Lude.Maybe [APIStage]) (\s a -> s {apiStages = a} :: CreateUsagePlan)
 {-# DEPRECATED cupApiStages "Use generic-lens or generic-optics with 'apiStages' instead." #-}
+
+-- | [Required] The name of the usage plan.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupName :: Lens.Lens' CreateUsagePlan Lude.Text
+cupName = Lens.lens (name :: CreateUsagePlan -> Lude.Text) (\s a -> s {name = a} :: CreateUsagePlan)
+{-# DEPRECATED cupName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The throttling limits of the usage plan.
 --
@@ -126,13 +133,6 @@ cupTags :: Lens.Lens' CreateUsagePlan (Lude.Maybe (Lude.HashMap Lude.Text (Lude.
 cupTags = Lens.lens (tags :: CreateUsagePlan -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateUsagePlan)
 {-# DEPRECATED cupTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | [Required] The name of the usage plan.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupName :: Lens.Lens' CreateUsagePlan Lude.Text
-cupName = Lens.lens (name :: CreateUsagePlan -> Lude.Text) (\s a -> s {name = a} :: CreateUsagePlan)
-{-# DEPRECATED cupName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.AWSRequest CreateUsagePlan where
   type Rs CreateUsagePlan = UsagePlan
   request = Req.postJSON apiGatewayService
@@ -150,11 +150,11 @@ instance Lude.ToJSON CreateUsagePlan where
     Lude.object
       ( Lude.catMaybes
           [ ("apiStages" Lude..=) Lude.<$> apiStages,
+            Lude.Just ("name" Lude..= name),
             ("throttle" Lude..=) Lude.<$> throttle,
             ("quota" Lude..=) Lude.<$> quota,
             ("description" Lude..=) Lude.<$> description,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("name" Lude..= name)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 

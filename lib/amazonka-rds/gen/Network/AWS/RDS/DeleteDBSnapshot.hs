@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.RDS.DeleteDBSnapshot
     mkDeleteDBSnapshotResponse,
 
     -- ** Response lenses
-    ddbsrsDBSnapshot,
-    ddbsrsResponseStatus,
+    ddsrsDBSnapshot,
+    ddsrsResponseStatus,
   )
 where
 
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDBSnapshot' smart constructor.
 newtype DeleteDBSnapshot = DeleteDBSnapshot'
-  { dbSnapshotIdentifier ::
-      Lude.Text
+  { -- | The DB snapshot identifier.
+    --
+    -- Constraints: Must be the name of an existing DB snapshot in the @available@ state.
+    dbSnapshotIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBSnapshot' with the minimum fields required to make a request.
@@ -101,22 +98,16 @@ instance Lude.ToQuery DeleteDBSnapshot where
 
 -- | /See:/ 'mkDeleteDBSnapshotResponse' smart constructor.
 data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
-  { dbSnapshot ::
-      Lude.Maybe DBSnapshot,
+  { dbSnapshot :: Lude.Maybe DBSnapshot,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBSnapshotResponse' with the minimum fields required to make a request.
 --
--- * 'dbSnapshot' - Undocumented field.
+-- * 'dbSnapshot' -
 -- * 'responseStatus' - The response status code.
 mkDeleteDBSnapshotResponse ::
   -- | 'responseStatus'
@@ -131,13 +122,13 @@ mkDeleteDBSnapshotResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'dbSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbsrsDBSnapshot :: Lens.Lens' DeleteDBSnapshotResponse (Lude.Maybe DBSnapshot)
-ddbsrsDBSnapshot = Lens.lens (dbSnapshot :: DeleteDBSnapshotResponse -> Lude.Maybe DBSnapshot) (\s a -> s {dbSnapshot = a} :: DeleteDBSnapshotResponse)
-{-# DEPRECATED ddbsrsDBSnapshot "Use generic-lens or generic-optics with 'dbSnapshot' instead." #-}
+ddsrsDBSnapshot :: Lens.Lens' DeleteDBSnapshotResponse (Lude.Maybe DBSnapshot)
+ddsrsDBSnapshot = Lens.lens (dbSnapshot :: DeleteDBSnapshotResponse -> Lude.Maybe DBSnapshot) (\s a -> s {dbSnapshot = a} :: DeleteDBSnapshotResponse)
+{-# DEPRECATED ddsrsDBSnapshot "Use generic-lens or generic-optics with 'dbSnapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbsrsResponseStatus :: Lens.Lens' DeleteDBSnapshotResponse Lude.Int
-ddbsrsResponseStatus = Lens.lens (responseStatus :: DeleteDBSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDBSnapshotResponse)
-{-# DEPRECATED ddbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddsrsResponseStatus :: Lens.Lens' DeleteDBSnapshotResponse Lude.Int
+ddsrsResponseStatus = Lens.lens (responseStatus :: DeleteDBSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDBSnapshotResponse)
+{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

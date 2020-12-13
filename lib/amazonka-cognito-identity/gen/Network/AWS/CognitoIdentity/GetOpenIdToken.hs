@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetOpenIdToken' smart constructor.
 data GetOpenIdToken = GetOpenIdToken'
-  { logins ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any other OpenId Connect provider, always include the @id_token@ .
+    logins :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A unique identifier in the format REGION:GUID.
     identityId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpenIdToken' with the minimum fields required to make a request.
 --
--- * 'identityId' - A unique identifier in the format REGION:GUID.
 -- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any other OpenId Connect provider, always include the @id_token@ .
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
 mkGetOpenIdToken ::
   -- | 'identityId'
   Lude.Text ->
@@ -126,25 +122,21 @@ instance Lude.ToQuery GetOpenIdToken where
 --
 -- /See:/ 'mkGetOpenIdTokenResponse' smart constructor.
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
-  { token ::
-      Lude.Maybe Lude.Text,
+  { -- | An OpenID token, valid for 10 minutes.
+    token :: Lude.Maybe Lude.Text,
+    -- | A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
     identityId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOpenIdTokenResponse' with the minimum fields required to make a request.
 --
+-- * 'token' - An OpenID token, valid for 10 minutes.
 -- * 'identityId' - A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
 -- * 'responseStatus' - The response status code.
--- * 'token' - An OpenID token, valid for 10 minutes.
 mkGetOpenIdTokenResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.IoT.DescribeStream
     mkDescribeStreamResponse,
 
     -- ** Response lenses
-    dssrsStreamInfo,
-    dssrsResponseStatus,
+    dsfrsStreamInfo,
+    dsfrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStream' smart constructor.
-newtype DescribeStream = DescribeStream' {streamId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeStream = DescribeStream'
+  { -- | The stream ID.
+    streamId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
@@ -87,23 +85,18 @@ instance Lude.ToQuery DescribeStream where
 
 -- | /See:/ 'mkDescribeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-  { streamInfo ::
-      Lude.Maybe StreamInfo,
+  { -- | Information about the stream.
+    streamInfo :: Lude.Maybe StreamInfo,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'streamInfo' - Information about the stream.
+-- * 'responseStatus' - The response status code.
 mkDescribeStreamResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -117,13 +110,13 @@ mkDescribeStreamResponse pResponseStatus_ =
 -- | Information about the stream.
 --
 -- /Note:/ Consider using 'streamInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsStreamInfo :: Lens.Lens' DescribeStreamResponse (Lude.Maybe StreamInfo)
-dssrsStreamInfo = Lens.lens (streamInfo :: DescribeStreamResponse -> Lude.Maybe StreamInfo) (\s a -> s {streamInfo = a} :: DescribeStreamResponse)
-{-# DEPRECATED dssrsStreamInfo "Use generic-lens or generic-optics with 'streamInfo' instead." #-}
+dsfrsStreamInfo :: Lens.Lens' DescribeStreamResponse (Lude.Maybe StreamInfo)
+dsfrsStreamInfo = Lens.lens (streamInfo :: DescribeStreamResponse -> Lude.Maybe StreamInfo) (\s a -> s {streamInfo = a} :: DescribeStreamResponse)
+{-# DEPRECATED dsfrsStreamInfo "Use generic-lens or generic-optics with 'streamInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsResponseStatus :: Lens.Lens' DescribeStreamResponse Lude.Int
-dssrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamResponse)
-{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsfrsResponseStatus :: Lens.Lens' DescribeStreamResponse Lude.Int
+dsfrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamResponse)
+{-# DEPRECATED dsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

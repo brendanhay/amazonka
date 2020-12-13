@@ -33,18 +33,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudwatchLogsExportConfiguration' smart constructor.
 data CloudwatchLogsExportConfiguration = CloudwatchLogsExportConfiguration'
-  { disableLogTypes ::
-      Lude.Maybe [Lude.Text],
-    enableLogTypes ::
-      Lude.Maybe [Lude.Text]
+  { -- | The list of log types to disable.
+    disableLogTypes :: Lude.Maybe [Lude.Text],
+    -- | The list of log types to enable.
+    enableLogTypes :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudwatchLogsExportConfiguration' with the minimum fields required to make a request.

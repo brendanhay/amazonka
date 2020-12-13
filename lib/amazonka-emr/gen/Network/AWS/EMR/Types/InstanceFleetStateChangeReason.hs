@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceFleetStateChangeReason' smart constructor.
 data InstanceFleetStateChangeReason = InstanceFleetStateChangeReason'
-  { code ::
-      Lude.Maybe
-        InstanceFleetStateChangeReasonCode,
-    message ::
-      Lude.Maybe Lude.Text
+  { -- | A code corresponding to the reason the state change occurred.
+    code :: Lude.Maybe InstanceFleetStateChangeReasonCode,
+    -- | An explanatory message.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceFleetStateChangeReason' with the minimum fields required to make a request.

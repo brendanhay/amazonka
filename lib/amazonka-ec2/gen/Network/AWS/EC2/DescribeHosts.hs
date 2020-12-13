@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,23 +49,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeHosts' smart constructor.
 data DescribeHosts = DescribeHosts'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The filters.
+    --
+    --
+    --     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).
+    --
+    --
+    --     * @availability-zone@ - The Availability Zone of the host.
+    --
+    --
+    --     * @client-token@ - The idempotency token that you provided when you allocated the host.
+    --
+    --
+    --     * @host-reservation-id@ - The ID of the reservation assigned to this host.
+    --
+    --
+    --     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.
+    --
+    --
+    --     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
     filter :: Lude.Maybe [Filter],
+    -- | The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.
     hostIds :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
+    --
+    -- You cannot specify this parameter and the host IDs parameter in the same request.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHosts' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token to use to retrieve the next page of results.
 -- * 'filter' - The filters.
 --
 --
@@ -93,7 +115,6 @@ data DescribeHosts = DescribeHosts'
 -- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
 --
 -- You cannot specify this parameter and the host IDs parameter in the same request.
--- * 'nextToken' - The token to use to retrieve the next page of results.
 mkDescribeHosts ::
   DescribeHosts
 mkDescribeHosts =
@@ -199,18 +220,14 @@ instance Lude.ToQuery DescribeHosts where
 
 -- | /See:/ 'mkDescribeHostsResponse' smart constructor.
 data DescribeHostsResponse = DescribeHostsResponse'
-  { hosts ::
-      Lude.Maybe [Host],
+  { -- | Information about the Dedicated Hosts.
+    hosts :: Lude.Maybe [Host],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHostsResponse' with the minimum fields required to make a request.

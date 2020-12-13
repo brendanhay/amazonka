@@ -39,38 +39,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMsSmoothGroupSettings' smart constructor.
 data MsSmoothGroupSettings = MsSmoothGroupSettings'
-  { fragmentLength ::
-      Lude.Maybe Lude.Natural,
-    manifestEncoding ::
-      Lude.Maybe MsSmoothManifestEncoding,
+  { -- | Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
+    fragmentLength :: Lude.Maybe Lude.Natural,
+    -- | Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
+    manifestEncoding :: Lude.Maybe MsSmoothManifestEncoding,
+    -- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
     destination :: Lude.Maybe Lude.Text,
-    audioDeduplication ::
-      Lude.Maybe MsSmoothAudioDeduplication,
-    additionalManifests ::
-      Lude.Maybe [MsSmoothAdditionalManifest],
-    destinationSettings ::
-      Lude.Maybe DestinationSettings,
-    encryption ::
-      Lude.Maybe MsSmoothEncryptionSettings
+    -- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
+    audioDeduplication :: Lude.Maybe MsSmoothAudioDeduplication,
+    -- | By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
+    additionalManifests :: Lude.Maybe [MsSmoothAdditionalManifest],
+    -- | Settings associated with the destination. Will vary based on the type of destination
+    destinationSettings :: Lude.Maybe DestinationSettings,
+    -- | If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
+    encryption :: Lude.Maybe MsSmoothEncryptionSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MsSmoothGroupSettings' with the minimum fields required to make a request.
 --
--- * 'additionalManifests' - By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
--- * 'audioDeduplication' - COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
--- * 'destination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
--- * 'destinationSettings' - Settings associated with the destination. Will vary based on the type of destination
--- * 'encryption' - If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
 -- * 'fragmentLength' - Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
 -- * 'manifestEncoding' - Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
+-- * 'destination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+-- * 'audioDeduplication' - COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
+-- * 'additionalManifests' - By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
+-- * 'destinationSettings' - Settings associated with the destination. Will vary based on the type of destination
+-- * 'encryption' - If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
 mkMsSmoothGroupSettings ::
   MsSmoothGroupSettings
 mkMsSmoothGroupSettings =

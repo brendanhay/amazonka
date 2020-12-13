@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.HlsProgramDateTime
   ( HlsProgramDateTime
       ( HlsProgramDateTime',
-        HPDTExclude,
-        HPDTInclude
+        HPDTInclude,
+        HPDTExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype HlsProgramDateTime = HlsProgramDateTime' Lude.Text
       Lude.ToHeader
     )
 
-pattern HPDTExclude :: HlsProgramDateTime
-pattern HPDTExclude = HlsProgramDateTime' "EXCLUDE"
-
 pattern HPDTInclude :: HlsProgramDateTime
 pattern HPDTInclude = HlsProgramDateTime' "INCLUDE"
 
+pattern HPDTExclude :: HlsProgramDateTime
+pattern HPDTExclude = HlsProgramDateTime' "EXCLUDE"
+
 {-# COMPLETE
-  HPDTExclude,
   HPDTInclude,
+  HPDTExclude,
   HlsProgramDateTime'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Route53AutoNaming.ListInstances
 
     -- ** Request lenses
     liNextToken,
-    liMaxResults,
     liServiceId,
+    liMaxResults,
 
     -- * Destructuring the response
     ListInstancesResponse (..),
@@ -45,27 +46,25 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    serviceId :: Lude.Text
+  { -- | For the first @ListInstances@ request, omit this value.
+    --
+    -- If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the service that you want to list instances for.
+    serviceId :: Lude.Text,
+    -- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstances' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
 -- * 'nextToken' - For the first @ListInstances@ request, omit this value.
 --
 -- If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 -- * 'serviceId' - The ID of the service that you want to list instances for.
+-- * 'maxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
 mkListInstances ::
   -- | 'serviceId'
   Lude.Text ->
@@ -73,8 +72,8 @@ mkListInstances ::
 mkListInstances pServiceId_ =
   ListInstances'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      serviceId = pServiceId_
+      serviceId = pServiceId_,
+      maxResults = Lude.Nothing
     }
 
 -- | For the first @ListInstances@ request, omit this value.
@@ -86,19 +85,19 @@ liNextToken :: Lens.Lens' ListInstances (Lude.Maybe Lude.Text)
 liNextToken = Lens.lens (nextToken :: ListInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstances)
 {-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liMaxResults :: Lens.Lens' ListInstances (Lude.Maybe Lude.Natural)
-liMaxResults = Lens.lens (maxResults :: ListInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInstances)
-{-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the service that you want to list instances for.
 --
 -- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liServiceId :: Lens.Lens' ListInstances Lude.Text
 liServiceId = Lens.lens (serviceId :: ListInstances -> Lude.Text) (\s a -> s {serviceId = a} :: ListInstances)
 {-# DEPRECATED liServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
+
+-- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liMaxResults :: Lens.Lens' ListInstances (Lude.Maybe Lude.Natural)
+liMaxResults = Lens.lens (maxResults :: ListInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInstances)
+{-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListInstances where
   page rq rs
@@ -137,8 +136,8 @@ instance Lude.ToJSON ListInstances where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ServiceId" Lude..= serviceId)
+            Lude.Just ("ServiceId" Lude..= serviceId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -150,24 +149,20 @@ instance Lude.ToQuery ListInstances where
 
 -- | /See:/ 'mkListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Summary information about the instances that are associated with the specified service.
     instances :: Lude.Maybe [InstanceSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'instances' - Summary information about the instances that are associated with the specified service.
 -- * 'nextToken' - If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- * 'instances' - Summary information about the instances that are associated with the specified service.
 -- * 'responseStatus' - The response status code.
 mkListInstancesResponse ::
   -- | 'responseStatus'

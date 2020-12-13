@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,22 +58,18 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkCreateGeoMatchSet' smart constructor.
 data CreateGeoMatchSet = CreateGeoMatchSet'
-  { name :: Lude.Text,
+  { -- | A friendly name or description of the 'GeoMatchSet' . You can't change @Name@ after you create the @GeoMatchSet@ .
+    name :: Lude.Text,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGeoMatchSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'name' - A friendly name or description of the 'GeoMatchSet' . You can't change @Name@ after you create the @GeoMatchSet@ .
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkCreateGeoMatchSet ::
   -- | 'name'
   Lude.Text ->
@@ -136,24 +133,20 @@ instance Lude.ToQuery CreateGeoMatchSet where
 
 -- | /See:/ 'mkCreateGeoMatchSetResponse' smart constructor.
 data CreateGeoMatchSetResponse = CreateGeoMatchSetResponse'
-  { geoMatchSet ::
-      Lude.Maybe GeoMatchSet,
+  { -- | The 'GeoMatchSet' returned in the @CreateGeoMatchSet@ response. The @GeoMatchSet@ contains no @GeoMatchConstraints@ .
+    geoMatchSet :: Lude.Maybe GeoMatchSet,
+    -- | The @ChangeToken@ that you used to submit the @CreateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
     changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGeoMatchSetResponse' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 -- * 'geoMatchSet' - The 'GeoMatchSet' returned in the @CreateGeoMatchSet@ response. The @GeoMatchSet@ contains no @GeoMatchConstraints@ .
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 -- * 'responseStatus' - The response status code.
 mkCreateGeoMatchSetResponse ::
   -- | 'responseStatus'

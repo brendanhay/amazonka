@@ -32,26 +32,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFpgaDeviceInfo' smart constructor.
 data FpgaDeviceInfo = FpgaDeviceInfo'
-  { memoryInfo ::
-      Lude.Maybe FpgaDeviceMemoryInfo,
+  { -- | Describes the memory for the FPGA accelerator for the instance type.
+    memoryInfo :: Lude.Maybe FpgaDeviceMemoryInfo,
+    -- | The manufacturer of the FPGA accelerator.
     manufacturer :: Lude.Maybe Lude.Text,
+    -- | The count of FPGA accelerators for the instance type.
     count :: Lude.Maybe Lude.Int,
+    -- | The name of the FPGA accelerator.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FpgaDeviceInfo' with the minimum fields required to make a request.
 --
--- * 'count' - The count of FPGA accelerators for the instance type.
--- * 'manufacturer' - The manufacturer of the FPGA accelerator.
 -- * 'memoryInfo' - Describes the memory for the FPGA accelerator for the instance type.
+-- * 'manufacturer' - The manufacturer of the FPGA accelerator.
+-- * 'count' - The count of FPGA accelerators for the instance type.
 -- * 'name' - The name of the FPGA accelerator.
 mkFpgaDeviceInfo ::
   FpgaDeviceInfo

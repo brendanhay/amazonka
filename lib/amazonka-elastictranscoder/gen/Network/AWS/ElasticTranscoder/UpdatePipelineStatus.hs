@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     mkUpdatePipelineStatus,
 
     -- ** Request lenses
-    upsId,
     upsStatus,
+    upsId,
 
     -- * Destructuring the response
     UpdatePipelineStatusResponse (..),
@@ -44,21 +45,22 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdatePipelineStatus' smart constructor.
 data UpdatePipelineStatus = UpdatePipelineStatus'
-  { id :: Lude.Text,
-    status :: Lude.Text
+  { -- | The desired status of the pipeline:
+    --
+    --
+    --     * @Active@ : The pipeline is processing jobs.
+    --
+    --
+    --     * @Paused@ : The pipeline is not currently processing jobs.
+    status :: Lude.Text,
+    -- | The identifier of the pipeline to update.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipelineStatus' with the minimum fields required to make a request.
 --
--- * 'id' - The identifier of the pipeline to update.
 -- * 'status' - The desired status of the pipeline:
 --
 --
@@ -66,21 +68,17 @@ data UpdatePipelineStatus = UpdatePipelineStatus'
 --
 --
 --     * @Paused@ : The pipeline is not currently processing jobs.
+--
+--
+-- * 'id' - The identifier of the pipeline to update.
 mkUpdatePipelineStatus ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'status'
   Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   UpdatePipelineStatus
-mkUpdatePipelineStatus pId_ pStatus_ =
-  UpdatePipelineStatus' {id = pId_, status = pStatus_}
-
--- | The identifier of the pipeline to update.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upsId :: Lens.Lens' UpdatePipelineStatus Lude.Text
-upsId = Lens.lens (id :: UpdatePipelineStatus -> Lude.Text) (\s a -> s {id = a} :: UpdatePipelineStatus)
-{-# DEPRECATED upsId "Use generic-lens or generic-optics with 'id' instead." #-}
+mkUpdatePipelineStatus pStatus_ pId_ =
+  UpdatePipelineStatus' {status = pStatus_, id = pId_}
 
 -- | The desired status of the pipeline:
 --
@@ -96,6 +94,13 @@ upsId = Lens.lens (id :: UpdatePipelineStatus -> Lude.Text) (\s a -> s {id = a} 
 upsStatus :: Lens.Lens' UpdatePipelineStatus Lude.Text
 upsStatus = Lens.lens (status :: UpdatePipelineStatus -> Lude.Text) (\s a -> s {status = a} :: UpdatePipelineStatus)
 {-# DEPRECATED upsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The identifier of the pipeline to update.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upsId :: Lens.Lens' UpdatePipelineStatus Lude.Text
+upsId = Lens.lens (id :: UpdatePipelineStatus -> Lude.Text) (\s a -> s {id = a} :: UpdatePipelineStatus)
+{-# DEPRECATED upsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest UpdatePipelineStatus where
   type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse
@@ -126,17 +131,12 @@ instance Lude.ToQuery UpdatePipelineStatus where
 --
 -- /See:/ 'mkUpdatePipelineStatusResponse' smart constructor.
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
-  { pipeline ::
-      Lude.Maybe Pipeline,
+  { -- | A section of the response body that provides information about the pipeline.
+    pipeline :: Lude.Maybe Pipeline,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipelineStatusResponse' with the minimum fields required to make a request.

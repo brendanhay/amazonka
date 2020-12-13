@@ -14,8 +14,8 @@ module Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue
   ( AnomalyDetectorStateValue
       ( AnomalyDetectorStateValue',
         PendingTraining,
-        Trained,
-        TrainedInsufficientData
+        TrainedInsufficientData,
+        Trained
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype AnomalyDetectorStateValue = AnomalyDetectorStateValue' Lude.Text
 pattern PendingTraining :: AnomalyDetectorStateValue
 pattern PendingTraining = AnomalyDetectorStateValue' "PENDING_TRAINING"
 
-pattern Trained :: AnomalyDetectorStateValue
-pattern Trained = AnomalyDetectorStateValue' "TRAINED"
-
 pattern TrainedInsufficientData :: AnomalyDetectorStateValue
 pattern TrainedInsufficientData = AnomalyDetectorStateValue' "TRAINED_INSUFFICIENT_DATA"
 
+pattern Trained :: AnomalyDetectorStateValue
+pattern Trained = AnomalyDetectorStateValue' "TRAINED"
+
 {-# COMPLETE
   PendingTraining,
-  Trained,
   TrainedInsufficientData,
+  Trained,
   AnomalyDetectorStateValue'
   #-}

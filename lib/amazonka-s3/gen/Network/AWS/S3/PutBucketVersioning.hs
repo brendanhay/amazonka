@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,11 +36,11 @@ module Network.AWS.S3.PutBucketVersioning
     mkPutBucketVersioning,
 
     -- ** Request lenses
+    pbvVersioningConfiguration,
     pbvMFA,
+    pbvBucket,
     pbvContentMD5,
     pbvExpectedBucketOwner,
-    pbvBucket,
-    pbvVersioningConfiguration,
 
     -- * Destructuring the response
     PutBucketVersioningResponse (..),
@@ -55,45 +56,53 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketVersioning' smart constructor.
 data PutBucketVersioning = PutBucketVersioning'
-  { mfa ::
-      Lude.Maybe Lude.Text,
-    contentMD5 :: Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | Container for setting the versioning state.
+    versioningConfiguration :: VersioningConfiguration,
+    -- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+    mfa :: Lude.Maybe Lude.Text,
+    -- | The bucket name.
     bucket :: BucketName,
-    versioningConfiguration :: VersioningConfiguration
+    -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketVersioning' with the minimum fields required to make a request.
 --
+-- * 'versioningConfiguration' - Container for setting the versioning state.
+-- * 'mfa' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 -- * 'bucket' - The bucket name.
 -- * 'contentMD5' - >The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'mfa' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
--- * 'versioningConfiguration' - Container for setting the versioning state.
 mkPutBucketVersioning ::
-  -- | 'bucket'
-  BucketName ->
   -- | 'versioningConfiguration'
   VersioningConfiguration ->
+  -- | 'bucket'
+  BucketName ->
   PutBucketVersioning
-mkPutBucketVersioning pBucket_ pVersioningConfiguration_ =
+mkPutBucketVersioning pVersioningConfiguration_ pBucket_ =
   PutBucketVersioning'
-    { mfa = Lude.Nothing,
-      contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
+    { versioningConfiguration =
+        pVersioningConfiguration_,
+      mfa = Lude.Nothing,
       bucket = pBucket_,
-      versioningConfiguration = pVersioningConfiguration_
+      contentMD5 = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing
     }
+
+-- | Container for setting the versioning state.
+--
+-- /Note:/ Consider using 'versioningConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbvVersioningConfiguration :: Lens.Lens' PutBucketVersioning VersioningConfiguration
+pbvVersioningConfiguration = Lens.lens (versioningConfiguration :: PutBucketVersioning -> VersioningConfiguration) (\s a -> s {versioningConfiguration = a} :: PutBucketVersioning)
+{-# DEPRECATED pbvVersioningConfiguration "Use generic-lens or generic-optics with 'versioningConfiguration' instead." #-}
 
 -- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 --
@@ -101,6 +110,13 @@ mkPutBucketVersioning pBucket_ pVersioningConfiguration_ =
 pbvMFA :: Lens.Lens' PutBucketVersioning (Lude.Maybe Lude.Text)
 pbvMFA = Lens.lens (mfa :: PutBucketVersioning -> Lude.Maybe Lude.Text) (\s a -> s {mfa = a} :: PutBucketVersioning)
 {-# DEPRECATED pbvMFA "Use generic-lens or generic-optics with 'mfa' instead." #-}
+
+-- | The bucket name.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbvBucket :: Lens.Lens' PutBucketVersioning BucketName
+pbvBucket = Lens.lens (bucket :: PutBucketVersioning -> BucketName) (\s a -> s {bucket = a} :: PutBucketVersioning)
+{-# DEPRECATED pbvBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
@@ -117,20 +133,6 @@ pbvContentMD5 = Lens.lens (contentMD5 :: PutBucketVersioning -> Lude.Maybe Lude.
 pbvExpectedBucketOwner :: Lens.Lens' PutBucketVersioning (Lude.Maybe Lude.Text)
 pbvExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketVersioning -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketVersioning)
 {-# DEPRECATED pbvExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The bucket name.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbvBucket :: Lens.Lens' PutBucketVersioning BucketName
-pbvBucket = Lens.lens (bucket :: PutBucketVersioning -> BucketName) (\s a -> s {bucket = a} :: PutBucketVersioning)
-{-# DEPRECATED pbvBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Container for setting the versioning state.
---
--- /Note:/ Consider using 'versioningConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbvVersioningConfiguration :: Lens.Lens' PutBucketVersioning VersioningConfiguration
-pbvVersioningConfiguration = Lens.lens (versioningConfiguration :: PutBucketVersioning -> VersioningConfiguration) (\s a -> s {versioningConfiguration = a} :: PutBucketVersioning)
-{-# DEPRECATED pbvVersioningConfiguration "Use generic-lens or generic-optics with 'versioningConfiguration' instead." #-}
 
 instance Lude.AWSRequest PutBucketVersioning where
   type Rs PutBucketVersioning = PutBucketVersioningResponse
@@ -160,13 +162,7 @@ instance Lude.ToQuery PutBucketVersioning where
 
 -- | /See:/ 'mkPutBucketVersioningResponse' smart constructor.
 data PutBucketVersioningResponse = PutBucketVersioningResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketVersioningResponse' with the minimum fields required to make a request.

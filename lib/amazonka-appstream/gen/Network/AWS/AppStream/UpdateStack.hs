@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,11 +27,11 @@ module Network.AWS.AppStream.UpdateStack
     usDeleteStorageConnectors,
     usStorageConnectors,
     usAccessEndpoints,
+    usName,
     usDisplayName,
     usEmbedHostDomains,
     usDescription,
     usRedirectURL,
-    usName,
 
     -- * Destructuring the response
     UpdateStackResponse (..),
@@ -50,43 +51,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateStack' smart constructor.
 data UpdateStack = UpdateStack'
-  { userSettings ::
-      Lude.Maybe (Lude.NonEmpty UserSetting),
+  { -- | The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+    userSettings :: Lude.Maybe (Lude.NonEmpty UserSetting),
+    -- | The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
     applicationSettings :: Lude.Maybe ApplicationSettings,
+    -- | The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
     feedbackURL :: Lude.Maybe Lude.Text,
+    -- | The stack attributes to delete.
     attributesToDelete :: Lude.Maybe [StackAttribute],
+    -- | Deletes the storage connectors currently enabled for the stack.
     deleteStorageConnectors :: Lude.Maybe Lude.Bool,
+    -- | The storage connectors to enable.
     storageConnectors :: Lude.Maybe [StorageConnector],
+    -- | The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
     accessEndpoints :: Lude.Maybe (Lude.NonEmpty AccessEndpoint),
+    -- | The name of the stack.
+    name :: Lude.Text,
+    -- | The stack name to display.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
     embedHostDomains :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The description to display.
     description :: Lude.Maybe Lude.Text,
-    redirectURL :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The URL that users are redirected to after their streaming session ends.
+    redirectURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateStack' with the minimum fields required to make a request.
 --
--- * 'accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+-- * 'userSettings' - The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
 -- * 'applicationSettings' - The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+-- * 'feedbackURL' - The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
 -- * 'attributesToDelete' - The stack attributes to delete.
 -- * 'deleteStorageConnectors' - Deletes the storage connectors currently enabled for the stack.
--- * 'description' - The description to display.
+-- * 'storageConnectors' - The storage connectors to enable.
+-- * 'accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+-- * 'name' - The name of the stack.
 -- * 'displayName' - The stack name to display.
 -- * 'embedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
--- * 'feedbackURL' - The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
--- * 'name' - The name of the stack.
+-- * 'description' - The description to display.
 -- * 'redirectURL' - The URL that users are redirected to after their streaming session ends.
--- * 'storageConnectors' - The storage connectors to enable.
--- * 'userSettings' - The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
 mkUpdateStack ::
   -- | 'name'
   Lude.Text ->
@@ -100,11 +106,11 @@ mkUpdateStack pName_ =
       deleteStorageConnectors = Lude.Nothing,
       storageConnectors = Lude.Nothing,
       accessEndpoints = Lude.Nothing,
+      name = pName_,
       displayName = Lude.Nothing,
       embedHostDomains = Lude.Nothing,
       description = Lude.Nothing,
-      redirectURL = Lude.Nothing,
-      name = pName_
+      redirectURL = Lude.Nothing
     }
 
 -- | The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
@@ -156,6 +162,13 @@ usAccessEndpoints :: Lens.Lens' UpdateStack (Lude.Maybe (Lude.NonEmpty AccessEnd
 usAccessEndpoints = Lens.lens (accessEndpoints :: UpdateStack -> Lude.Maybe (Lude.NonEmpty AccessEndpoint)) (\s a -> s {accessEndpoints = a} :: UpdateStack)
 {-# DEPRECATED usAccessEndpoints "Use generic-lens or generic-optics with 'accessEndpoints' instead." #-}
 
+-- | The name of the stack.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usName :: Lens.Lens' UpdateStack Lude.Text
+usName = Lens.lens (name :: UpdateStack -> Lude.Text) (\s a -> s {name = a} :: UpdateStack)
+{-# DEPRECATED usName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The stack name to display.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -183,13 +196,6 @@ usDescription = Lens.lens (description :: UpdateStack -> Lude.Maybe Lude.Text) (
 usRedirectURL :: Lens.Lens' UpdateStack (Lude.Maybe Lude.Text)
 usRedirectURL = Lens.lens (redirectURL :: UpdateStack -> Lude.Maybe Lude.Text) (\s a -> s {redirectURL = a} :: UpdateStack)
 {-# DEPRECATED usRedirectURL "Use generic-lens or generic-optics with 'redirectURL' instead." #-}
-
--- | The name of the stack.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usName :: Lens.Lens' UpdateStack Lude.Text
-usName = Lens.lens (name :: UpdateStack -> Lude.Text) (\s a -> s {name = a} :: UpdateStack)
-{-# DEPRECATED usName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest UpdateStack where
   type Rs UpdateStack = UpdateStackResponse
@@ -224,11 +230,11 @@ instance Lude.ToJSON UpdateStack where
               Lude.<$> deleteStorageConnectors,
             ("StorageConnectors" Lude..=) Lude.<$> storageConnectors,
             ("AccessEndpoints" Lude..=) Lude.<$> accessEndpoints,
+            Lude.Just ("Name" Lude..= name),
             ("DisplayName" Lude..=) Lude.<$> displayName,
             ("EmbedHostDomains" Lude..=) Lude.<$> embedHostDomains,
             ("Description" Lude..=) Lude.<$> description,
-            ("RedirectURL" Lude..=) Lude.<$> redirectURL,
-            Lude.Just ("Name" Lude..= name)
+            ("RedirectURL" Lude..=) Lude.<$> redirectURL
           ]
       )
 
@@ -240,23 +246,18 @@ instance Lude.ToQuery UpdateStack where
 
 -- | /See:/ 'mkUpdateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
-  { stack ::
-      Lude.Maybe Stack,
+  { -- | Information about the stack.
+    stack :: Lude.Maybe Stack,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateStackResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stack' - Information about the stack.
+-- * 'responseStatus' - The response status code.
 mkUpdateStackResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,17 +13,17 @@
 module Network.AWS.MediaLive.Types.ChannelState
   ( ChannelState
       ( ChannelState',
-        CSCreateFailed,
         CSCreating,
-        CSDeleted,
-        CSDeleting,
+        CSCreateFailed,
         CSIdle,
-        CSRecovering,
-        CSRunning,
         CSStarting,
+        CSRunning,
+        CSRecovering,
         CSStopping,
-        CSUpdateFailed,
-        CSUpdating
+        CSDeleting,
+        CSDeleted,
+        CSUpdating,
+        CSUpdateFailed
       ),
   )
 where
@@ -55,50 +55,50 @@ newtype ChannelState = ChannelState' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSCreateFailed :: ChannelState
-pattern CSCreateFailed = ChannelState' "CREATE_FAILED"
-
 pattern CSCreating :: ChannelState
 pattern CSCreating = ChannelState' "CREATING"
 
-pattern CSDeleted :: ChannelState
-pattern CSDeleted = ChannelState' "DELETED"
-
-pattern CSDeleting :: ChannelState
-pattern CSDeleting = ChannelState' "DELETING"
+pattern CSCreateFailed :: ChannelState
+pattern CSCreateFailed = ChannelState' "CREATE_FAILED"
 
 pattern CSIdle :: ChannelState
 pattern CSIdle = ChannelState' "IDLE"
 
-pattern CSRecovering :: ChannelState
-pattern CSRecovering = ChannelState' "RECOVERING"
+pattern CSStarting :: ChannelState
+pattern CSStarting = ChannelState' "STARTING"
 
 pattern CSRunning :: ChannelState
 pattern CSRunning = ChannelState' "RUNNING"
 
-pattern CSStarting :: ChannelState
-pattern CSStarting = ChannelState' "STARTING"
+pattern CSRecovering :: ChannelState
+pattern CSRecovering = ChannelState' "RECOVERING"
 
 pattern CSStopping :: ChannelState
 pattern CSStopping = ChannelState' "STOPPING"
 
-pattern CSUpdateFailed :: ChannelState
-pattern CSUpdateFailed = ChannelState' "UPDATE_FAILED"
+pattern CSDeleting :: ChannelState
+pattern CSDeleting = ChannelState' "DELETING"
+
+pattern CSDeleted :: ChannelState
+pattern CSDeleted = ChannelState' "DELETED"
 
 pattern CSUpdating :: ChannelState
 pattern CSUpdating = ChannelState' "UPDATING"
 
+pattern CSUpdateFailed :: ChannelState
+pattern CSUpdateFailed = ChannelState' "UPDATE_FAILED"
+
 {-# COMPLETE
-  CSCreateFailed,
   CSCreating,
-  CSDeleted,
-  CSDeleting,
+  CSCreateFailed,
   CSIdle,
-  CSRecovering,
-  CSRunning,
   CSStarting,
+  CSRunning,
+  CSRecovering,
   CSStopping,
-  CSUpdateFailed,
+  CSDeleting,
+  CSDeleted,
   CSUpdating,
+  CSUpdateFailed,
   ChannelState'
   #-}

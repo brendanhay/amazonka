@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,19 +46,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutQueryDefinition' smart constructor.
 data PutQueryDefinition = PutQueryDefinition'
-  { logGroupNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | Use this parameter to include specific log groups as part of your query definition.
+    --
+    -- If you are updating a query definition and you omit this parameter, then the updated definition will contain no log groups.
+    logGroupNames :: Lude.Maybe [Lude.Text],
+    -- | If you are updating a query definition, use this parameter to specify the ID of the query definition that you want to update. You can use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions> to retrieve the IDs of your saved query definitions.
+    --
+    -- If you are creating a query definition, do not specify this parameter. CloudWatch generates a unique ID for the new query definition and include it in the response to this operation.
     queryDefinitionId :: Lude.Maybe Lude.Text,
+    -- | A name for the query definition. If you are saving a lot of query definitions, we recommend that you name them so that you can easily find the ones you want by using the first part of the name as a filter in the @queryDefinitionNamePrefix@ parameter of <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions> .
     name :: Lude.Text,
+    -- | The query string to use for this definition. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
     queryString :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutQueryDefinition' with the minimum fields required to make a request.
@@ -65,10 +67,10 @@ data PutQueryDefinition = PutQueryDefinition'
 -- * 'logGroupNames' - Use this parameter to include specific log groups as part of your query definition.
 --
 -- If you are updating a query definition and you omit this parameter, then the updated definition will contain no log groups.
--- * 'name' - A name for the query definition. If you are saving a lot of query definitions, we recommend that you name them so that you can easily find the ones you want by using the first part of the name as a filter in the @queryDefinitionNamePrefix@ parameter of <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions> .
 -- * 'queryDefinitionId' - If you are updating a query definition, use this parameter to specify the ID of the query definition that you want to update. You can use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions> to retrieve the IDs of your saved query definitions.
 --
 -- If you are creating a query definition, do not specify this parameter. CloudWatch generates a unique ID for the new query definition and include it in the response to this operation.
+-- * 'name' - A name for the query definition. If you are saving a lot of query definitions, we recommend that you name them so that you can easily find the ones you want by using the first part of the name as a filter in the @queryDefinitionNamePrefix@ parameter of <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions> .
 -- * 'queryString' - The query string to use for this definition. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
 mkPutQueryDefinition ::
   -- | 'name'
@@ -157,17 +159,12 @@ instance Lude.ToQuery PutQueryDefinition where
 
 -- | /See:/ 'mkPutQueryDefinitionResponse' smart constructor.
 data PutQueryDefinitionResponse = PutQueryDefinitionResponse'
-  { queryDefinitionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the query definition.
+    queryDefinitionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutQueryDefinitionResponse' with the minimum fields required to make a request.

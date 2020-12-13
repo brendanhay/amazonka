@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.AppStream.DeleteStack
     mkDeleteStackResponse,
 
     -- ** Response lenses
-    dsrsResponseStatus,
+    dsfrsResponseStatus,
   )
 where
 
@@ -37,14 +38,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteStack' smart constructor.
-newtype DeleteStack = DeleteStack' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteStack = DeleteStack'
+  { -- | The name of the stack.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
@@ -95,16 +93,10 @@ instance Lude.ToQuery DeleteStack where
 
 -- | /See:/ 'mkDeleteStackResponse' smart constructor.
 newtype DeleteStackResponse = DeleteStackResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
@@ -120,6 +112,6 @@ mkDeleteStackResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DeleteStackResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DeleteStackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStackResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsfrsResponseStatus :: Lens.Lens' DeleteStackResponse Lude.Int
+dsfrsResponseStatus = Lens.lens (responseStatus :: DeleteStackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStackResponse)
+{-# DEPRECATED dsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

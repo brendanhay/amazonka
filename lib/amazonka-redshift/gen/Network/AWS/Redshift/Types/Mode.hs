@@ -13,8 +13,8 @@
 module Network.AWS.Redshift.Types.Mode
   ( Mode
       ( Mode',
-        HighPerformance,
-        Standard
+        Standard,
+        HighPerformance
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Mode = Mode' Lude.Text
       Lude.ToHeader
     )
 
-pattern HighPerformance :: Mode
-pattern HighPerformance = Mode' "high-performance"
-
 pattern Standard :: Mode
 pattern Standard = Mode' "standard"
 
+pattern HighPerformance :: Mode
+pattern HighPerformance = Mode' "high-performance"
+
 {-# COMPLETE
-  HighPerformance,
   Standard,
+  HighPerformance,
   Mode'
   #-}

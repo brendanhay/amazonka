@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParentHyperParameterTuningJob' smart constructor.
 newtype ParentHyperParameterTuningJob = ParentHyperParameterTuningJob'
-  { hyperParameterTuningJobName ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the hyperparameter tuning job to be used as a starting point for a new hyperparameter tuning job.
+    hyperParameterTuningJobName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParentHyperParameterTuningJob' with the minimum fields required to make a request.

@@ -19,10 +19,10 @@ module Network.AWS.SES.Types.IdentityNotificationAttributes
     -- * Lenses
     inaHeadersInDeliveryNotificationsEnabled,
     inaHeadersInComplaintNotificationsEnabled,
+    inaDeliveryTopic,
     inaHeadersInBounceNotificationsEnabled,
     inaBounceTopic,
     inaComplaintTopic,
-    inaDeliveryTopic,
     inaForwardingEnabled,
   )
 where
@@ -34,59 +34,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIdentityNotificationAttributes' smart constructor.
 data IdentityNotificationAttributes = IdentityNotificationAttributes'
-  { headersInDeliveryNotificationsEnabled ::
-      Lude.Maybe Lude.Bool,
-    headersInComplaintNotificationsEnabled ::
-      Lude.Maybe Lude.Bool,
-    headersInBounceNotificationsEnabled ::
-      Lude.Maybe Lude.Bool,
-    bounceTopic :: Lude.Text,
-    complaintTopic :: Lude.Text,
+  { -- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Delivery@ . A value of @true@ specifies that Amazon SES will include headers in delivery notifications, and a value of @false@ specifies that Amazon SES will not include headers in delivery notifications.
+    headersInDeliveryNotificationsEnabled :: Lude.Maybe Lude.Bool,
+    -- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Complaint@ . A value of @true@ specifies that Amazon SES will include headers in complaint notifications, and a value of @false@ specifies that Amazon SES will not include headers in complaint notifications.
+    headersInComplaintNotificationsEnabled :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.
     deliveryTopic :: Lude.Text,
-    forwardingEnabled ::
-      Lude.Bool
+    -- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Bounce@ . A value of @true@ specifies that Amazon SES will include headers in bounce notifications, and a value of @false@ specifies that Amazon SES will not include headers in bounce notifications.
+    headersInBounceNotificationsEnabled :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.
+    bounceTopic :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint notifications.
+    complaintTopic :: Lude.Text,
+    -- | Describes whether Amazon SES will forward bounce and complaint notifications as email. @true@ indicates that Amazon SES will forward bounce and complaint notifications as email, while @false@ indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.
+    forwardingEnabled :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityNotificationAttributes' with the minimum fields required to make a request.
 --
+-- * 'headersInDeliveryNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Delivery@ . A value of @true@ specifies that Amazon SES will include headers in delivery notifications, and a value of @false@ specifies that Amazon SES will not include headers in delivery notifications.
+-- * 'headersInComplaintNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Complaint@ . A value of @true@ specifies that Amazon SES will include headers in complaint notifications, and a value of @false@ specifies that Amazon SES will not include headers in complaint notifications.
+-- * 'deliveryTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.
+-- * 'headersInBounceNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Bounce@ . A value of @true@ specifies that Amazon SES will include headers in bounce notifications, and a value of @false@ specifies that Amazon SES will not include headers in bounce notifications.
 -- * 'bounceTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.
 -- * 'complaintTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint notifications.
--- * 'deliveryTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.
 -- * 'forwardingEnabled' - Describes whether Amazon SES will forward bounce and complaint notifications as email. @true@ indicates that Amazon SES will forward bounce and complaint notifications as email, while @false@ indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.
--- * 'headersInBounceNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Bounce@ . A value of @true@ specifies that Amazon SES will include headers in bounce notifications, and a value of @false@ specifies that Amazon SES will not include headers in bounce notifications.
--- * 'headersInComplaintNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Complaint@ . A value of @true@ specifies that Amazon SES will include headers in complaint notifications, and a value of @false@ specifies that Amazon SES will not include headers in complaint notifications.
--- * 'headersInDeliveryNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Delivery@ . A value of @true@ specifies that Amazon SES will include headers in delivery notifications, and a value of @false@ specifies that Amazon SES will not include headers in delivery notifications.
 mkIdentityNotificationAttributes ::
+  -- | 'deliveryTopic'
+  Lude.Text ->
   -- | 'bounceTopic'
   Lude.Text ->
   -- | 'complaintTopic'
-  Lude.Text ->
-  -- | 'deliveryTopic'
   Lude.Text ->
   -- | 'forwardingEnabled'
   Lude.Bool ->
   IdentityNotificationAttributes
 mkIdentityNotificationAttributes
+  pDeliveryTopic_
   pBounceTopic_
   pComplaintTopic_
-  pDeliveryTopic_
   pForwardingEnabled_ =
     IdentityNotificationAttributes'
       { headersInDeliveryNotificationsEnabled =
           Lude.Nothing,
         headersInComplaintNotificationsEnabled = Lude.Nothing,
+        deliveryTopic = pDeliveryTopic_,
         headersInBounceNotificationsEnabled = Lude.Nothing,
         bounceTopic = pBounceTopic_,
         complaintTopic = pComplaintTopic_,
-        deliveryTopic = pDeliveryTopic_,
         forwardingEnabled = pForwardingEnabled_
       }
 
@@ -103,6 +100,13 @@ inaHeadersInDeliveryNotificationsEnabled = Lens.lens (headersInDeliveryNotificat
 inaHeadersInComplaintNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Lude.Maybe Lude.Bool)
 inaHeadersInComplaintNotificationsEnabled = Lens.lens (headersInComplaintNotificationsEnabled :: IdentityNotificationAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {headersInComplaintNotificationsEnabled = a} :: IdentityNotificationAttributes)
 {-# DEPRECATED inaHeadersInComplaintNotificationsEnabled "Use generic-lens or generic-optics with 'headersInComplaintNotificationsEnabled' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.
+--
+-- /Note:/ Consider using 'deliveryTopic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+inaDeliveryTopic :: Lens.Lens' IdentityNotificationAttributes Lude.Text
+inaDeliveryTopic = Lens.lens (deliveryTopic :: IdentityNotificationAttributes -> Lude.Text) (\s a -> s {deliveryTopic = a} :: IdentityNotificationAttributes)
+{-# DEPRECATED inaDeliveryTopic "Use generic-lens or generic-optics with 'deliveryTopic' instead." #-}
 
 -- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Bounce@ . A value of @true@ specifies that Amazon SES will include headers in bounce notifications, and a value of @false@ specifies that Amazon SES will not include headers in bounce notifications.
 --
@@ -125,13 +129,6 @@ inaComplaintTopic :: Lens.Lens' IdentityNotificationAttributes Lude.Text
 inaComplaintTopic = Lens.lens (complaintTopic :: IdentityNotificationAttributes -> Lude.Text) (\s a -> s {complaintTopic = a} :: IdentityNotificationAttributes)
 {-# DEPRECATED inaComplaintTopic "Use generic-lens or generic-optics with 'complaintTopic' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.
---
--- /Note:/ Consider using 'deliveryTopic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-inaDeliveryTopic :: Lens.Lens' IdentityNotificationAttributes Lude.Text
-inaDeliveryTopic = Lens.lens (deliveryTopic :: IdentityNotificationAttributes -> Lude.Text) (\s a -> s {deliveryTopic = a} :: IdentityNotificationAttributes)
-{-# DEPRECATED inaDeliveryTopic "Use generic-lens or generic-optics with 'deliveryTopic' instead." #-}
-
 -- | Describes whether Amazon SES will forward bounce and complaint notifications as email. @true@ indicates that Amazon SES will forward bounce and complaint notifications as email, while @false@ indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.
 --
 -- /Note:/ Consider using 'forwardingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -144,8 +141,8 @@ instance Lude.FromXML IdentityNotificationAttributes where
     IdentityNotificationAttributes'
       Lude.<$> (x Lude..@? "HeadersInDeliveryNotificationsEnabled")
       Lude.<*> (x Lude..@? "HeadersInComplaintNotificationsEnabled")
+      Lude.<*> (x Lude..@ "DeliveryTopic")
       Lude.<*> (x Lude..@? "HeadersInBounceNotificationsEnabled")
       Lude.<*> (x Lude..@ "BounceTopic")
       Lude.<*> (x Lude..@ "ComplaintTopic")
-      Lude.<*> (x Lude..@ "DeliveryTopic")
       Lude.<*> (x Lude..@ "ForwardingEnabled")

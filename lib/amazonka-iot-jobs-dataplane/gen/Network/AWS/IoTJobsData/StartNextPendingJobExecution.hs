@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,29 +42,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartNextPendingJobExecution' smart constructor.
 data StartNextPendingJobExecution = StartNextPendingJobExecution'
-  { stepTimeoutInMinutes ::
-      Lude.Maybe Lude.Integer,
-    statusDetails ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
+  { -- | Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in field @stepTimeoutInMinutes@ ) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
+    stepTimeoutInMinutes :: Lude.Maybe Lude.Integer,
+    -- | A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
+    statusDetails :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the thing associated with the device.
     thingName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartNextPendingJobExecution' with the minimum fields required to make a request.
 --
--- * 'statusDetails' - A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
 -- * 'stepTimeoutInMinutes' - Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in field @stepTimeoutInMinutes@ ) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
+-- * 'statusDetails' - A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
 -- * 'thingName' - The name of the thing associated with the device.
 mkStartNextPendingJobExecution ::
   -- | 'thingName'
@@ -131,19 +123,12 @@ instance Lude.ToQuery StartNextPendingJobExecution where
 
 -- | /See:/ 'mkStartNextPendingJobExecutionResponse' smart constructor.
 data StartNextPendingJobExecutionResponse = StartNextPendingJobExecutionResponse'
-  { execution ::
-      Lude.Maybe
-        JobExecution,
-    responseStatus ::
-      Lude.Int
+  { -- | A JobExecution object.
+    execution :: Lude.Maybe JobExecution,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartNextPendingJobExecutionResponse' with the minimum fields required to make a request.

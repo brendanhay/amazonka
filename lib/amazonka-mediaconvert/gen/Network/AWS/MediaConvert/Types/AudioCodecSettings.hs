@@ -49,41 +49,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioCodecSettings' smart constructor.
 data AudioCodecSettings = AudioCodecSettings'
-  { aiffSettings ::
-      Lude.Maybe AiffSettings,
+  { -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
+    aiffSettings :: Lude.Maybe AiffSettings,
+    -- | Type of Audio codec.
     codec :: Lude.Maybe AudioCodec,
+    -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
     ac3Settings :: Lude.Maybe Ac3Settings,
+    -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
     opusSettings :: Lude.Maybe OpusSettings,
+    -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
     mp2Settings :: Lude.Maybe Mp2Settings,
+    -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
     wavSettings :: Lude.Maybe WavSettings,
+    -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3_ATMOS.
     eac3AtmosSettings :: Lude.Maybe Eac3AtmosSettings,
+    -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
     mp3Settings :: Lude.Maybe Mp3Settings,
+    -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
     vorbisSettings :: Lude.Maybe VorbisSettings,
+    -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
     aacSettings :: Lude.Maybe AacSettings,
+    -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
     eac3Settings :: Lude.Maybe Eac3Settings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioCodecSettings' with the minimum fields required to make a request.
 --
--- * 'aacSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
--- * 'ac3Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
 -- * 'aiffSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
 -- * 'codec' - Type of Audio codec.
--- * 'eac3AtmosSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3_ATMOS.
--- * 'eac3Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
--- * 'mp2Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
--- * 'mp3Settings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
+-- * 'ac3Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
 -- * 'opusSettings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
--- * 'vorbisSettings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
+-- * 'mp2Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
 -- * 'wavSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
+-- * 'eac3AtmosSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3_ATMOS.
+-- * 'mp3Settings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
+-- * 'vorbisSettings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
+-- * 'aacSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
+-- * 'eac3Settings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
 mkAudioCodecSettings ::
   AudioCodecSettings
 mkAudioCodecSettings =

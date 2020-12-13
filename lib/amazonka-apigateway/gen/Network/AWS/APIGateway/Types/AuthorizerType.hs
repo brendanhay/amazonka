@@ -13,9 +13,9 @@
 module Network.AWS.APIGateway.Types.AuthorizerType
   ( AuthorizerType
       ( AuthorizerType',
-        AuthorizerCognitoUserPools,
+        AuthorizerToken,
         AuthorizerRequest,
-        AuthorizerToken
+        AuthorizerCognitoUserPools
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype AuthorizerType = AuthorizerType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AuthorizerCognitoUserPools :: AuthorizerType
-pattern AuthorizerCognitoUserPools = AuthorizerType' "COGNITO_USER_POOLS"
+pattern AuthorizerToken :: AuthorizerType
+pattern AuthorizerToken = AuthorizerType' "TOKEN"
 
 pattern AuthorizerRequest :: AuthorizerType
 pattern AuthorizerRequest = AuthorizerType' "REQUEST"
 
-pattern AuthorizerToken :: AuthorizerType
-pattern AuthorizerToken = AuthorizerType' "TOKEN"
+pattern AuthorizerCognitoUserPools :: AuthorizerType
+pattern AuthorizerCognitoUserPools = AuthorizerType' "COGNITO_USER_POOLS"
 
 {-# COMPLETE
-  AuthorizerCognitoUserPools,
-  AuthorizerRequest,
   AuthorizerToken,
+  AuthorizerRequest,
+  AuthorizerCognitoUserPools,
   AuthorizerType'
   #-}

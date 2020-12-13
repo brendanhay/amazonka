@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.EC2.ModifyFleet
     mfTargetCapacitySpecification,
     mfExcessCapacityTerminationPolicy,
     mfLaunchTemplateConfigs,
-    mfDryRun,
     mfFleetId,
+    mfDryRun,
 
     -- * Destructuring the response
     ModifyFleetResponse (..),
@@ -49,31 +50,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyFleet' smart constructor.
 data ModifyFleet = ModifyFleet'
-  { targetCapacitySpecification ::
-      Lude.Maybe TargetCapacitySpecificationRequest,
-    excessCapacityTerminationPolicy ::
-      Lude.Maybe FleetExcessCapacityTerminationPolicy,
-    launchTemplateConfigs ::
-      Lude.Maybe [FleetLaunchTemplateConfigRequest],
-    dryRun :: Lude.Maybe Lude.Bool,
-    fleetId :: Lude.Text
+  { -- | The size of the EC2 Fleet.
+    targetCapacitySpecification :: Lude.Maybe TargetCapacitySpecificationRequest,
+    -- | Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+    excessCapacityTerminationPolicy :: Lude.Maybe FleetExcessCapacityTerminationPolicy,
+    -- | The launch template and overrides.
+    launchTemplateConfigs :: Lude.Maybe [FleetLaunchTemplateConfigRequest],
+    -- | The ID of the EC2 Fleet.
+    fleetId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyFleet' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
--- * 'fleetId' - The ID of the EC2 Fleet.
--- * 'launchTemplateConfigs' - The launch template and overrides.
 -- * 'targetCapacitySpecification' - The size of the EC2 Fleet.
+-- * 'excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+-- * 'launchTemplateConfigs' - The launch template and overrides.
+-- * 'fleetId' - The ID of the EC2 Fleet.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyFleet ::
   -- | 'fleetId'
   Lude.Text ->
@@ -83,8 +80,8 @@ mkModifyFleet pFleetId_ =
     { targetCapacitySpecification = Lude.Nothing,
       excessCapacityTerminationPolicy = Lude.Nothing,
       launchTemplateConfigs = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      fleetId = pFleetId_
+      fleetId = pFleetId_,
+      dryRun = Lude.Nothing
     }
 
 -- | The size of the EC2 Fleet.
@@ -108,19 +105,19 @@ mfLaunchTemplateConfigs :: Lens.Lens' ModifyFleet (Lude.Maybe [FleetLaunchTempla
 mfLaunchTemplateConfigs = Lens.lens (launchTemplateConfigs :: ModifyFleet -> Lude.Maybe [FleetLaunchTemplateConfigRequest]) (\s a -> s {launchTemplateConfigs = a} :: ModifyFleet)
 {-# DEPRECATED mfLaunchTemplateConfigs "Use generic-lens or generic-optics with 'launchTemplateConfigs' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfDryRun :: Lens.Lens' ModifyFleet (Lude.Maybe Lude.Bool)
-mfDryRun = Lens.lens (dryRun :: ModifyFleet -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyFleet)
-{-# DEPRECATED mfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The ID of the EC2 Fleet.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mfFleetId :: Lens.Lens' ModifyFleet Lude.Text
 mfFleetId = Lens.lens (fleetId :: ModifyFleet -> Lude.Text) (\s a -> s {fleetId = a} :: ModifyFleet)
 {-# DEPRECATED mfFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfDryRun :: Lens.Lens' ModifyFleet (Lude.Maybe Lude.Bool)
+mfDryRun = Lens.lens (dryRun :: ModifyFleet -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyFleet)
+{-# DEPRECATED mfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ModifyFleet where
   type Rs ModifyFleet = ModifyFleetResponse
@@ -150,29 +147,24 @@ instance Lude.ToQuery ModifyFleet where
           ( Lude.toQueryList "LaunchTemplateConfig"
               Lude.<$> launchTemplateConfigs
           ),
-        "DryRun" Lude.=: dryRun,
-        "FleetId" Lude.=: fleetId
+        "FleetId" Lude.=: fleetId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyFleetResponse' smart constructor.
 data ModifyFleetResponse = ModifyFleetResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
+  { -- | Is @true@ if the request succeeds, and an error otherwise.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyFleetResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
+-- * 'responseStatus' - The response status code.
 mkModifyFleetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

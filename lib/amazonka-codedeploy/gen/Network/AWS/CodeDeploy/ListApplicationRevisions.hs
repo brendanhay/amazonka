@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     larDeployed,
     larSortOrder,
     larNextToken,
+    larApplicationName,
     larS3Bucket,
     larSortBy,
-    larApplicationName,
 
     -- * Destructuring the response
     ListApplicationRevisionsResponse (..),
@@ -51,29 +52,60 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListApplicationRevisions' smart constructor.
 data ListApplicationRevisions = ListApplicationRevisions'
-  { s3KeyPrefix ::
-      Lude.Maybe Lude.Text,
-    deployed ::
-      Lude.Maybe ListStateFilterAction,
+  { -- | A key prefix for the set of Amazon S3 objects to limit the search for revisions.
+    s3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | Whether to list revisions based on whether the revision is the target revision of a deployment group:
+    --
+    --
+    --     * @include@ : List revisions that are target revisions of a deployment group.
+    --
+    --
+    --     * @exclude@ : Do not list revisions that are target revisions of a deployment group.
+    --
+    --
+    --     * @ignore@ : List all revisions.
+    deployed :: Lude.Maybe ListStateFilterAction,
+    -- | The order in which to sort the list results:
+    --
+    --
+    --     * @ascending@ : ascending order.
+    --
+    --
+    --     * @descending@ : descending order.
+    --
+    --
+    -- If not specified, the results are sorted in ascending order.
+    -- If set to null, the results are sorted in an arbitrary order.
     sortOrder :: Lude.Maybe SortOrder,
+    -- | An identifier returned from the previous @ListApplicationRevisions@ call. It can be used to return the next set of applications in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+    applicationName :: Lude.Text,
+    -- | An Amazon S3 bucket name to limit the search for revisions.
+    --
+    -- If set to null, all of the user's buckets are searched.
     s3Bucket :: Lude.Maybe Lude.Text,
-    sortBy ::
-      Lude.Maybe ApplicationRevisionSortBy,
-    applicationName :: Lude.Text
+    -- | The column name to use to sort the list results:
+    --
+    --
+    --     * @registerTime@ : Sort by the time the revisions were registered with AWS CodeDeploy.
+    --
+    --
+    --     * @firstUsedTime@ : Sort by the time the revisions were first used in a deployment.
+    --
+    --
+    --     * @lastUsedTime@ : Sort by the time the revisions were last used in a deployment.
+    --
+    --
+    -- If not specified or set to null, the results are returned in an arbitrary order.
+    sortBy :: Lude.Maybe ApplicationRevisionSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationRevisions' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+-- * 's3KeyPrefix' - A key prefix for the set of Amazon S3 objects to limit the search for revisions.
 -- * 'deployed' - Whether to list revisions based on whether the revision is the target revision of a deployment group:
 --
 --
@@ -86,11 +118,22 @@ data ListApplicationRevisions = ListApplicationRevisions'
 --     * @ignore@ : List all revisions.
 --
 --
+-- * 'sortOrder' - The order in which to sort the list results:
+--
+--
+--     * @ascending@ : ascending order.
+--
+--
+--     * @descending@ : descending order.
+--
+--
+-- If not specified, the results are sorted in ascending order.
+-- If set to null, the results are sorted in an arbitrary order.
 -- * 'nextToken' - An identifier returned from the previous @ListApplicationRevisions@ call. It can be used to return the next set of applications in the list.
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 -- * 's3Bucket' - An Amazon S3 bucket name to limit the search for revisions.
 --
 -- If set to null, all of the user's buckets are searched.
--- * 's3KeyPrefix' - A key prefix for the set of Amazon S3 objects to limit the search for revisions.
 -- * 'sortBy' - The column name to use to sort the list results:
 --
 --
@@ -104,17 +147,6 @@ data ListApplicationRevisions = ListApplicationRevisions'
 --
 --
 -- If not specified or set to null, the results are returned in an arbitrary order.
--- * 'sortOrder' - The order in which to sort the list results:
---
---
---     * @ascending@ : ascending order.
---
---
---     * @descending@ : descending order.
---
---
--- If not specified, the results are sorted in ascending order.
--- If set to null, the results are sorted in an arbitrary order.
 mkListApplicationRevisions ::
   -- | 'applicationName'
   Lude.Text ->
@@ -125,9 +157,9 @@ mkListApplicationRevisions pApplicationName_ =
       deployed = Lude.Nothing,
       sortOrder = Lude.Nothing,
       nextToken = Lude.Nothing,
+      applicationName = pApplicationName_,
       s3Bucket = Lude.Nothing,
-      sortBy = Lude.Nothing,
-      applicationName = pApplicationName_
+      sortBy = Lude.Nothing
     }
 
 -- | A key prefix for the set of Amazon S3 objects to limit the search for revisions.
@@ -179,6 +211,13 @@ larNextToken :: Lens.Lens' ListApplicationRevisions (Lude.Maybe Lude.Text)
 larNextToken = Lens.lens (nextToken :: ListApplicationRevisions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplicationRevisions)
 {-# DEPRECATED larNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
+-- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larApplicationName :: Lens.Lens' ListApplicationRevisions Lude.Text
+larApplicationName = Lens.lens (applicationName :: ListApplicationRevisions -> Lude.Text) (\s a -> s {applicationName = a} :: ListApplicationRevisions)
+{-# DEPRECATED larApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+
 -- | An Amazon S3 bucket name to limit the search for revisions.
 --
 -- If set to null, all of the user's buckets are searched.
@@ -206,13 +245,6 @@ larS3Bucket = Lens.lens (s3Bucket :: ListApplicationRevisions -> Lude.Maybe Lude
 larSortBy :: Lens.Lens' ListApplicationRevisions (Lude.Maybe ApplicationRevisionSortBy)
 larSortBy = Lens.lens (sortBy :: ListApplicationRevisions -> Lude.Maybe ApplicationRevisionSortBy) (\s a -> s {sortBy = a} :: ListApplicationRevisions)
 {-# DEPRECATED larSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
-
--- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larApplicationName :: Lens.Lens' ListApplicationRevisions Lude.Text
-larApplicationName = Lens.lens (applicationName :: ListApplicationRevisions -> Lude.Text) (\s a -> s {applicationName = a} :: ListApplicationRevisions)
-{-# DEPRECATED larApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 instance Page.AWSPager ListApplicationRevisions where
   page rq rs
@@ -256,9 +288,9 @@ instance Lude.ToJSON ListApplicationRevisions where
             ("deployed" Lude..=) Lude.<$> deployed,
             ("sortOrder" Lude..=) Lude.<$> sortOrder,
             ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("applicationName" Lude..= applicationName),
             ("s3Bucket" Lude..=) Lude.<$> s3Bucket,
-            ("sortBy" Lude..=) Lude.<$> sortBy,
-            Lude.Just ("applicationName" Lude..= applicationName)
+            ("sortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
@@ -272,28 +304,21 @@ instance Lude.ToQuery ListApplicationRevisions where
 --
 -- /See:/ 'mkListApplicationRevisionsResponse' smart constructor.
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    revisions ::
-      Lude.Maybe
-        [RevisionLocation],
-    responseStatus ::
-      Lude.Int
+  { -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of locations that contain the matching revisions.
+    revisions :: Lude.Maybe [RevisionLocation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationRevisionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.
--- * 'responseStatus' - The response status code.
 -- * 'revisions' - A list of locations that contain the matching revisions.
+-- * 'responseStatus' - The response status code.
 mkListApplicationRevisionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

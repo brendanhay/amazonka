@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.JobTemplateListBy
   ( JobTemplateListBy
       ( JobTemplateListBy',
-        JTLBCreationDate,
         JTLBName,
+        JTLBCreationDate,
         JTLBSystem
       ),
   )
@@ -47,18 +47,18 @@ newtype JobTemplateListBy = JobTemplateListBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern JTLBCreationDate :: JobTemplateListBy
-pattern JTLBCreationDate = JobTemplateListBy' "CREATION_DATE"
-
 pattern JTLBName :: JobTemplateListBy
 pattern JTLBName = JobTemplateListBy' "NAME"
+
+pattern JTLBCreationDate :: JobTemplateListBy
+pattern JTLBCreationDate = JobTemplateListBy' "CREATION_DATE"
 
 pattern JTLBSystem :: JobTemplateListBy
 pattern JTLBSystem = JobTemplateListBy' "SYSTEM"
 
 {-# COMPLETE
-  JTLBCreationDate,
   JTLBName,
+  JTLBCreationDate,
   JTLBSystem,
   JobTemplateListBy'
   #-}

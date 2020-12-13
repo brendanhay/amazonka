@@ -33,27 +33,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMssPackage' smart constructor.
 data MssPackage = MssPackage'
-  { segmentDurationSeconds ::
-      Lude.Maybe Lude.Int,
+  { -- | The duration (in seconds) of each segment.
+    segmentDurationSeconds :: Lude.Maybe Lude.Int,
     streamSelection :: Lude.Maybe StreamSelection,
     encryption :: Lude.Maybe MssEncryption,
+    -- | The time window (in seconds) contained in each manifest.
     manifestWindowSeconds :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MssPackage' with the minimum fields required to make a request.
 --
--- * 'encryption' - Undocumented field.
--- * 'manifestWindowSeconds' - The time window (in seconds) contained in each manifest.
 -- * 'segmentDurationSeconds' - The duration (in seconds) of each segment.
--- * 'streamSelection' - Undocumented field.
+-- * 'streamSelection' -
+-- * 'encryption' -
+-- * 'manifestWindowSeconds' - The time window (in seconds) contained in each manifest.
 mkMssPackage ::
   MssPackage
 mkMssPackage =

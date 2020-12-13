@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Route53.UpdateTrafficPolicyComment
     mkUpdateTrafficPolicyComment,
 
     -- ** Request lenses
-    utpcId,
     utpcVersion,
+    utpcId,
     utpcComment,
 
     -- * Destructuring the response
@@ -28,8 +29,8 @@ module Network.AWS.Route53.UpdateTrafficPolicyComment
     mkUpdateTrafficPolicyCommentResponse,
 
     -- ** Response lenses
-    utpcrsResponseStatus,
     utpcrsTrafficPolicy,
+    utpcrsResponseStatus,
   )
 where
 
@@ -43,46 +44,35 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkUpdateTrafficPolicyComment' smart constructor.
 data UpdateTrafficPolicyComment = UpdateTrafficPolicyComment'
-  { id ::
-      Lude.Text,
+  { -- | The value of @Version@ for the traffic policy that you want to update the comment for.
     version :: Lude.Natural,
+    -- | The value of @Id@ for the traffic policy that you want to update the comment for.
+    id :: Lude.Text,
+    -- | The new comment for the specified traffic policy and version.
     comment :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrafficPolicyComment' with the minimum fields required to make a request.
 --
--- * 'comment' - The new comment for the specified traffic policy and version.
--- * 'id' - The value of @Id@ for the traffic policy that you want to update the comment for.
 -- * 'version' - The value of @Version@ for the traffic policy that you want to update the comment for.
+-- * 'id' - The value of @Id@ for the traffic policy that you want to update the comment for.
+-- * 'comment' - The new comment for the specified traffic policy and version.
 mkUpdateTrafficPolicyComment ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'version'
   Lude.Natural ->
+  -- | 'id'
+  Lude.Text ->
   -- | 'comment'
   Lude.Text ->
   UpdateTrafficPolicyComment
-mkUpdateTrafficPolicyComment pId_ pVersion_ pComment_ =
+mkUpdateTrafficPolicyComment pVersion_ pId_ pComment_ =
   UpdateTrafficPolicyComment'
-    { id = pId_,
-      version = pVersion_,
+    { version = pVersion_,
+      id = pId_,
       comment = pComment_
     }
-
--- | The value of @Id@ for the traffic policy that you want to update the comment for.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utpcId :: Lens.Lens' UpdateTrafficPolicyComment Lude.Text
-utpcId = Lens.lens (id :: UpdateTrafficPolicyComment -> Lude.Text) (\s a -> s {id = a} :: UpdateTrafficPolicyComment)
-{-# DEPRECATED utpcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The value of @Version@ for the traffic policy that you want to update the comment for.
 --
@@ -90,6 +80,13 @@ utpcId = Lens.lens (id :: UpdateTrafficPolicyComment -> Lude.Text) (\s a -> s {i
 utpcVersion :: Lens.Lens' UpdateTrafficPolicyComment Lude.Natural
 utpcVersion = Lens.lens (version :: UpdateTrafficPolicyComment -> Lude.Natural) (\s a -> s {version = a} :: UpdateTrafficPolicyComment)
 {-# DEPRECATED utpcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | The value of @Id@ for the traffic policy that you want to update the comment for.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utpcId :: Lens.Lens' UpdateTrafficPolicyComment Lude.Text
+utpcId = Lens.lens (id :: UpdateTrafficPolicyComment -> Lude.Text) (\s a -> s {id = a} :: UpdateTrafficPolicyComment)
+{-# DEPRECATED utpcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The new comment for the specified traffic policy and version.
 --
@@ -107,7 +104,7 @@ instance Lude.AWSRequest UpdateTrafficPolicyComment where
     Res.receiveXML
       ( \s h x ->
           UpdateTrafficPolicyCommentResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "TrafficPolicy")
+            Lude.<$> (x Lude..@ "TrafficPolicy") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToElement UpdateTrafficPolicyComment where
@@ -138,45 +135,32 @@ instance Lude.ToXML UpdateTrafficPolicyComment where
 --
 -- /See:/ 'mkUpdateTrafficPolicyCommentResponse' smart constructor.
 data UpdateTrafficPolicyCommentResponse = UpdateTrafficPolicyCommentResponse'
-  { responseStatus ::
-      Lude.Int,
-    trafficPolicy ::
-      TrafficPolicy
+  { -- | A complex type that contains settings for the specified traffic policy.
+    trafficPolicy :: TrafficPolicy,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrafficPolicyCommentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trafficPolicy' - A complex type that contains settings for the specified traffic policy.
+-- * 'responseStatus' - The response status code.
 mkUpdateTrafficPolicyCommentResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'trafficPolicy'
   TrafficPolicy ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateTrafficPolicyCommentResponse
 mkUpdateTrafficPolicyCommentResponse
-  pResponseStatus_
-  pTrafficPolicy_ =
+  pTrafficPolicy_
+  pResponseStatus_ =
     UpdateTrafficPolicyCommentResponse'
-      { responseStatus =
-          pResponseStatus_,
-        trafficPolicy = pTrafficPolicy_
+      { trafficPolicy =
+          pTrafficPolicy_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utpcrsResponseStatus :: Lens.Lens' UpdateTrafficPolicyCommentResponse Lude.Int
-utpcrsResponseStatus = Lens.lens (responseStatus :: UpdateTrafficPolicyCommentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTrafficPolicyCommentResponse)
-{-# DEPRECATED utpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains settings for the specified traffic policy.
 --
@@ -184,3 +168,10 @@ utpcrsResponseStatus = Lens.lens (responseStatus :: UpdateTrafficPolicyCommentRe
 utpcrsTrafficPolicy :: Lens.Lens' UpdateTrafficPolicyCommentResponse TrafficPolicy
 utpcrsTrafficPolicy = Lens.lens (trafficPolicy :: UpdateTrafficPolicyCommentResponse -> TrafficPolicy) (\s a -> s {trafficPolicy = a} :: UpdateTrafficPolicyCommentResponse)
 {-# DEPRECATED utpcrsTrafficPolicy "Use generic-lens or generic-optics with 'trafficPolicy' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utpcrsResponseStatus :: Lens.Lens' UpdateTrafficPolicyCommentResponse Lude.Int
+utpcrsResponseStatus = Lens.lens (responseStatus :: UpdateTrafficPolicyCommentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTrafficPolicyCommentResponse)
+{-# DEPRECATED utpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

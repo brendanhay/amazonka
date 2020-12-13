@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.AppStream.DescribeImagePermissions
     mkDescribeImagePermissions,
 
     -- ** Request lenses
-    dipsNextToken,
-    dipsSharedAWSAccountIds,
-    dipsMaxResults,
-    dipsName,
+    dNextToken,
+    dName,
+    dSharedAWSAccountIds,
+    dMaxResults,
 
     -- * Destructuring the response
     DescribeImagePermissionsResponse (..),
@@ -44,28 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeImagePermissions' smart constructor.
 data DescribeImagePermissions = DescribeImagePermissions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    sharedAWSAccountIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    maxResults :: Lude.Maybe Lude.Natural,
-    name :: Lude.Text
+  { -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the private image for which to describe permissions. The image must be one that you own.
+    name :: Lude.Text,
+    -- | The 12-digit identifier of one or more AWS accounts with which the image is shared.
+    sharedAWSAccountIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The maximum size of each page of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImagePermissions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum size of each page of results.
--- * 'name' - The name of the private image for which to describe permissions. The image must be one that you own.
 -- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+-- * 'name' - The name of the private image for which to describe permissions. The image must be one that you own.
 -- * 'sharedAWSAccountIds' - The 12-digit identifier of one or more AWS accounts with which the image is shared.
+-- * 'maxResults' - The maximum size of each page of results.
 mkDescribeImagePermissions ::
   -- | 'name'
   Lude.Text ->
@@ -73,38 +70,38 @@ mkDescribeImagePermissions ::
 mkDescribeImagePermissions pName_ =
   DescribeImagePermissions'
     { nextToken = Lude.Nothing,
+      name = pName_,
       sharedAWSAccountIds = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      name = pName_
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipsNextToken :: Lens.Lens' DescribeImagePermissions (Lude.Maybe Lude.Text)
-dipsNextToken = Lens.lens (nextToken :: DescribeImagePermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImagePermissions)
-{-# DEPRECATED dipsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The 12-digit identifier of one or more AWS accounts with which the image is shared.
---
--- /Note:/ Consider using 'sharedAWSAccountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipsSharedAWSAccountIds :: Lens.Lens' DescribeImagePermissions (Lude.Maybe (Lude.NonEmpty Lude.Text))
-dipsSharedAWSAccountIds = Lens.lens (sharedAWSAccountIds :: DescribeImagePermissions -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {sharedAWSAccountIds = a} :: DescribeImagePermissions)
-{-# DEPRECATED dipsSharedAWSAccountIds "Use generic-lens or generic-optics with 'sharedAWSAccountIds' instead." #-}
-
--- | The maximum size of each page of results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipsMaxResults :: Lens.Lens' DescribeImagePermissions (Lude.Maybe Lude.Natural)
-dipsMaxResults = Lens.lens (maxResults :: DescribeImagePermissions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeImagePermissions)
-{-# DEPRECATED dipsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dNextToken :: Lens.Lens' DescribeImagePermissions (Lude.Maybe Lude.Text)
+dNextToken = Lens.lens (nextToken :: DescribeImagePermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImagePermissions)
+{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the private image for which to describe permissions. The image must be one that you own.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipsName :: Lens.Lens' DescribeImagePermissions Lude.Text
-dipsName = Lens.lens (name :: DescribeImagePermissions -> Lude.Text) (\s a -> s {name = a} :: DescribeImagePermissions)
-{-# DEPRECATED dipsName "Use generic-lens or generic-optics with 'name' instead." #-}
+dName :: Lens.Lens' DescribeImagePermissions Lude.Text
+dName = Lens.lens (name :: DescribeImagePermissions -> Lude.Text) (\s a -> s {name = a} :: DescribeImagePermissions)
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The 12-digit identifier of one or more AWS accounts with which the image is shared.
+--
+-- /Note:/ Consider using 'sharedAWSAccountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSharedAWSAccountIds :: Lens.Lens' DescribeImagePermissions (Lude.Maybe (Lude.NonEmpty Lude.Text))
+dSharedAWSAccountIds = Lens.lens (sharedAWSAccountIds :: DescribeImagePermissions -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {sharedAWSAccountIds = a} :: DescribeImagePermissions)
+{-# DEPRECATED dSharedAWSAccountIds "Use generic-lens or generic-optics with 'sharedAWSAccountIds' instead." #-}
+
+-- | The maximum size of each page of results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMaxResults :: Lens.Lens' DescribeImagePermissions (Lude.Maybe Lude.Natural)
+dMaxResults = Lens.lens (maxResults :: DescribeImagePermissions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeImagePermissions)
+{-# DEPRECATED dMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest DescribeImagePermissions where
   type Rs DescribeImagePermissions = DescribeImagePermissionsResponse
@@ -137,9 +134,9 @@ instance Lude.ToJSON DescribeImagePermissions where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("Name" Lude..= name),
             ("SharedAwsAccountIds" Lude..=) Lude.<$> sharedAWSAccountIds,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("Name" Lude..= name)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -151,31 +148,24 @@ instance Lude.ToQuery DescribeImagePermissions where
 
 -- | /See:/ 'mkDescribeImagePermissionsResponse' smart constructor.
 data DescribeImagePermissionsResponse = DescribeImagePermissionsResponse'
-  { sharedImagePermissionsList ::
-      Lude.Maybe
-        [SharedImagePermissions],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    name ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The permissions for a private image that you own.
+    sharedImagePermissionsList :: Lude.Maybe [SharedImagePermissions],
+    -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the private image.
+    name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImagePermissionsResponse' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the private image.
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
--- * 'responseStatus' - The response status code.
 -- * 'sharedImagePermissionsList' - The permissions for a private image that you own.
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'name' - The name of the private image.
+-- * 'responseStatus' - The response status code.
 mkDescribeImagePermissionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

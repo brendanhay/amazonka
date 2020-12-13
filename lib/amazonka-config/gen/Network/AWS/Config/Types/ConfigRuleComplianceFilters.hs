@@ -32,30 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigRuleComplianceFilters' smart constructor.
 data ConfigRuleComplianceFilters = ConfigRuleComplianceFilters'
-  { configRuleName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the AWS Config rule.
+    configRuleName :: Lude.Maybe Lude.Text,
+    -- | The 12-digit account ID of the source account.
     accountId :: Lude.Maybe Lude.Text,
-    complianceType ::
-      Lude.Maybe ComplianceType,
+    -- | The rule compliance status.
+    --
+    -- For the @ConfigRuleComplianceFilters@ data type, AWS Config supports only @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and the @INSUFFICIENT_DATA@ values.
+    complianceType :: Lude.Maybe ComplianceType,
+    -- | The source region where the data is aggregated.
     awsRegion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigRuleComplianceFilters' with the minimum fields required to make a request.
 --
+-- * 'configRuleName' - The name of the AWS Config rule.
 -- * 'accountId' - The 12-digit account ID of the source account.
--- * 'awsRegion' - The source region where the data is aggregated.
 -- * 'complianceType' - The rule compliance status.
 --
 -- For the @ConfigRuleComplianceFilters@ data type, AWS Config supports only @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and the @INSUFFICIENT_DATA@ values.
--- * 'configRuleName' - The name of the AWS Config rule.
+-- * 'awsRegion' - The source region where the data is aggregated.
 mkConfigRuleComplianceFilters ::
   ConfigRuleComplianceFilters
 mkConfigRuleComplianceFilters =

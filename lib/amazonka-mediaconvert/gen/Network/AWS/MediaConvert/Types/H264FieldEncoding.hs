@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H264FieldEncoding
   ( H264FieldEncoding
       ( H264FieldEncoding',
-        ForceField,
-        Paff
+        Paff,
+        ForceField
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H264FieldEncoding = H264FieldEncoding' Lude.Text
       Lude.ToHeader
     )
 
-pattern ForceField :: H264FieldEncoding
-pattern ForceField = H264FieldEncoding' "FORCE_FIELD"
-
 pattern Paff :: H264FieldEncoding
 pattern Paff = H264FieldEncoding' "PAFF"
 
+pattern ForceField :: H264FieldEncoding
+pattern ForceField = H264FieldEncoding' "FORCE_FIELD"
+
 {-# COMPLETE
-  ForceField,
   Paff,
+  ForceField,
   H264FieldEncoding'
   #-}

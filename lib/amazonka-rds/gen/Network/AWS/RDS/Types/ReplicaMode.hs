@@ -13,8 +13,8 @@
 module Network.AWS.RDS.Types.ReplicaMode
   ( ReplicaMode
       ( ReplicaMode',
-        Mounted,
-        OpenReadOnly
+        OpenReadOnly,
+        Mounted
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReplicaMode = ReplicaMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Mounted :: ReplicaMode
-pattern Mounted = ReplicaMode' "mounted"
-
 pattern OpenReadOnly :: ReplicaMode
 pattern OpenReadOnly = ReplicaMode' "open-read-only"
 
+pattern Mounted :: ReplicaMode
+pattern Mounted = ReplicaMode' "mounted"
+
 {-# COMPLETE
-  Mounted,
   OpenReadOnly,
+  Mounted,
   ReplicaMode'
   #-}

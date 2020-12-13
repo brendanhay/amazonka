@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLateDataRule' smart constructor.
 data LateDataRule = LateDataRule'
-  { ruleName :: Lude.Maybe Lude.Text,
+  { -- | The name of the late data rule.
+    ruleName :: Lude.Maybe Lude.Text,
+    -- | The information needed to configure the late data rule.
     ruleConfiguration :: LateDataRuleConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LateDataRule' with the minimum fields required to make a request.
 --
--- * 'ruleConfiguration' - The information needed to configure the late data rule.
 -- * 'ruleName' - The name of the late data rule.
+-- * 'ruleConfiguration' - The information needed to configure the late data rule.
 mkLateDataRule ::
   -- | 'ruleConfiguration'
   LateDataRuleConfiguration ->

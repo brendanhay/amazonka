@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSCredentials' smart constructor.
 data AWSCredentials = AWSCredentials'
-  { secretAccessKey ::
-      Lude.Maybe Lude.Text,
+  { -- | Temporary secret key allowing access to the Amazon GameLift S3 account.
+    secretAccessKey :: Lude.Maybe Lude.Text,
+    -- | Token used to associate a specific build ID with the files uploaded using these credentials.
     sessionToken :: Lude.Maybe Lude.Text,
+    -- | Temporary key allowing access to the Amazon GameLift S3 account.
     accessKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSCredentials' with the minimum fields required to make a request.
 --
--- * 'accessKeyId' - Temporary key allowing access to the Amazon GameLift S3 account.
 -- * 'secretAccessKey' - Temporary secret key allowing access to the Amazon GameLift S3 account.
 -- * 'sessionToken' - Token used to associate a specific build ID with the files uploaded using these credentials.
+-- * 'accessKeyId' - Temporary key allowing access to the Amazon GameLift S3 account.
 mkAWSCredentials ::
   AWSCredentials
 mkAWSCredentials =

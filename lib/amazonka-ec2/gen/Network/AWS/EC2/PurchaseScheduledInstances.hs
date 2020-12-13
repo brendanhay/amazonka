@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.EC2.PurchaseScheduledInstances
 
     -- ** Request lenses
     psiClientToken,
-    psiDryRun,
     psiPurchaseRequests,
+    psiDryRun,
 
     -- * Destructuring the response
     PurchaseScheduledInstancesResponse (..),
@@ -46,26 +47,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPurchaseScheduledInstances' smart constructor.
 data PurchaseScheduledInstances = PurchaseScheduledInstances'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    purchaseRequests ::
-      Lude.NonEmpty PurchaseRequest
+  { -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The purchase requests.
+    purchaseRequests :: Lude.NonEmpty PurchaseRequest,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseScheduledInstances' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'purchaseRequests' - The purchase requests.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkPurchaseScheduledInstances ::
   -- | 'purchaseRequests'
   Lude.NonEmpty PurchaseRequest ->
@@ -73,8 +69,8 @@ mkPurchaseScheduledInstances ::
 mkPurchaseScheduledInstances pPurchaseRequests_ =
   PurchaseScheduledInstances'
     { clientToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      purchaseRequests = pPurchaseRequests_
+      purchaseRequests = pPurchaseRequests_,
+      dryRun = Lude.Nothing
     }
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
@@ -84,19 +80,19 @@ psiClientToken :: Lens.Lens' PurchaseScheduledInstances (Lude.Maybe Lude.Text)
 psiClientToken = Lens.lens (clientToken :: PurchaseScheduledInstances -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: PurchaseScheduledInstances)
 {-# DEPRECATED psiClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psiDryRun :: Lens.Lens' PurchaseScheduledInstances (Lude.Maybe Lude.Bool)
-psiDryRun = Lens.lens (dryRun :: PurchaseScheduledInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: PurchaseScheduledInstances)
-{-# DEPRECATED psiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The purchase requests.
 --
 -- /Note:/ Consider using 'purchaseRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 psiPurchaseRequests :: Lens.Lens' PurchaseScheduledInstances (Lude.NonEmpty PurchaseRequest)
 psiPurchaseRequests = Lens.lens (purchaseRequests :: PurchaseScheduledInstances -> Lude.NonEmpty PurchaseRequest) (\s a -> s {purchaseRequests = a} :: PurchaseScheduledInstances)
 {-# DEPRECATED psiPurchaseRequests "Use generic-lens or generic-optics with 'purchaseRequests' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psiDryRun :: Lens.Lens' PurchaseScheduledInstances (Lude.Maybe Lude.Bool)
+psiDryRun = Lens.lens (dryRun :: PurchaseScheduledInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: PurchaseScheduledInstances)
+{-# DEPRECATED psiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest PurchaseScheduledInstances where
   type
@@ -126,33 +122,26 @@ instance Lude.ToQuery PurchaseScheduledInstances where
           Lude.=: ("PurchaseScheduledInstances" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "ClientToken" Lude.=: clientToken,
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "PurchaseRequest" purchaseRequests
+        Lude.toQueryList "PurchaseRequest" purchaseRequests,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of PurchaseScheduledInstances.
 --
 -- /See:/ 'mkPurchaseScheduledInstancesResponse' smart constructor.
 data PurchaseScheduledInstancesResponse = PurchaseScheduledInstancesResponse'
-  { scheduledInstanceSet ::
-      Lude.Maybe
-        [ScheduledInstance],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the Scheduled Instances.
+    scheduledInstanceSet :: Lude.Maybe [ScheduledInstance],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseScheduledInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'scheduledInstanceSet' - Information about the Scheduled Instances.
+-- * 'responseStatus' - The response status code.
 mkPurchaseScheduledInstancesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

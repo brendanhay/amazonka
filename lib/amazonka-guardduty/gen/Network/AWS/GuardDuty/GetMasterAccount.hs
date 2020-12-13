@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.GuardDuty.GetMasterAccount
     mkGetMasterAccountResponse,
 
     -- ** Response lenses
-    gmarsResponseStatus,
     gmarsMaster,
+    gmarsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMasterAccount' smart constructor.
 newtype GetMasterAccount = GetMasterAccount'
-  { detectorId ::
-      Lude.Text
+  { -- | The unique ID of the detector of the GuardDuty member account.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMasterAccount' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest GetMasterAccount where
     Res.receiveJSON
       ( \s h x ->
           GetMasterAccountResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "master")
+            Lude.<$> (x Lude..:> "master") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetMasterAccount where
@@ -96,17 +91,12 @@ instance Lude.ToQuery GetMasterAccount where
 
 -- | /See:/ 'mkGetMasterAccountResponse' smart constructor.
 data GetMasterAccountResponse = GetMasterAccountResponse'
-  { responseStatus ::
-      Lude.Int,
-    master :: Master
+  { -- | The master account details.
+    master :: Master,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMasterAccountResponse' with the minimum fields required to make a request.
@@ -114,23 +104,16 @@ data GetMasterAccountResponse = GetMasterAccountResponse'
 -- * 'master' - The master account details.
 -- * 'responseStatus' - The response status code.
 mkGetMasterAccountResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'master'
   Master ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMasterAccountResponse
-mkGetMasterAccountResponse pResponseStatus_ pMaster_ =
+mkGetMasterAccountResponse pMaster_ pResponseStatus_ =
   GetMasterAccountResponse'
-    { responseStatus = pResponseStatus_,
-      master = pMaster_
+    { master = pMaster_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmarsResponseStatus :: Lens.Lens' GetMasterAccountResponse Lude.Int
-gmarsResponseStatus = Lens.lens (responseStatus :: GetMasterAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMasterAccountResponse)
-{-# DEPRECATED gmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The master account details.
 --
@@ -138,3 +121,10 @@ gmarsResponseStatus = Lens.lens (responseStatus :: GetMasterAccountResponse -> L
 gmarsMaster :: Lens.Lens' GetMasterAccountResponse Master
 gmarsMaster = Lens.lens (master :: GetMasterAccountResponse -> Master) (\s a -> s {master = a} :: GetMasterAccountResponse)
 {-# DEPRECATED gmarsMaster "Use generic-lens or generic-optics with 'master' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmarsResponseStatus :: Lens.Lens' GetMasterAccountResponse Lude.Int
+gmarsResponseStatus = Lens.lens (responseStatus :: GetMasterAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMasterAccountResponse)
+{-# DEPRECATED gmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

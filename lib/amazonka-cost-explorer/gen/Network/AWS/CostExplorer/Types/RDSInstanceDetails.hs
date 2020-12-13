@@ -36,37 +36,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRDSInstanceDetails' smart constructor.
 data RDSInstanceDetails = RDSInstanceDetails'
-  { currentGeneration ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether the recommendation is for a current-generation instance.
+    currentGeneration :: Lude.Maybe Lude.Bool,
+    -- | Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a second Availability Zone.
     deploymentOption :: Lude.Maybe Lude.Text,
+    -- | The instance family of the recommended reservation.
     family :: Lude.Maybe Lude.Text,
+    -- | The type of instance that AWS recommends.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The license model that the recommended reservation supports.
     licenseModel :: Lude.Maybe Lude.Text,
+    -- | Whether the recommended reservation is size flexible.
     sizeFlexEligible :: Lude.Maybe Lude.Bool,
+    -- | The AWS Region of the recommended reservation.
     region :: Lude.Maybe Lude.Text,
+    -- | The database engine that the recommended reservation supports.
     databaseEngine :: Lude.Maybe Lude.Text,
+    -- | The database edition that the recommended reservation supports.
     databaseEdition :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RDSInstanceDetails' with the minimum fields required to make a request.
 --
 -- * 'currentGeneration' - Whether the recommendation is for a current-generation instance.
--- * 'databaseEdition' - The database edition that the recommended reservation supports.
--- * 'databaseEngine' - The database engine that the recommended reservation supports.
 -- * 'deploymentOption' - Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a second Availability Zone.
 -- * 'family' - The instance family of the recommended reservation.
 -- * 'instanceType' - The type of instance that AWS recommends.
 -- * 'licenseModel' - The license model that the recommended reservation supports.
--- * 'region' - The AWS Region of the recommended reservation.
 -- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
+-- * 'region' - The AWS Region of the recommended reservation.
+-- * 'databaseEngine' - The database engine that the recommended reservation supports.
+-- * 'databaseEdition' - The database edition that the recommended reservation supports.
 mkRDSInstanceDetails ::
   RDSInstanceDetails
 mkRDSInstanceDetails =

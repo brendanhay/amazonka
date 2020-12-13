@@ -24,10 +24,10 @@ module Network.AWS.MediaConvert.Types.Queue
     qReservationPlan,
     qPricingPlan,
     qSubmittedJobsCount,
+    qName,
     qProgressingJobsCount,
     qType,
     qDescription,
-    qName,
   )
 where
 
@@ -42,40 +42,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueue' smart constructor.
 data Queue = Queue'
-  { status :: Lude.Maybe QueueStatus,
+  { -- | Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+    status :: Lude.Maybe QueueStatus,
+    -- | The timestamp in epoch seconds for when you most recently updated the queue.
     lastUpdated :: Lude.Maybe Lude.Timestamp,
+    -- | An identifier for this resource that is unique within all of AWS.
     arn :: Lude.Maybe Lude.Text,
+    -- | The timestamp in epoch seconds for when you created the queue.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
     reservationPlan :: Lude.Maybe ReservationPlan,
+    -- | Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment.
     pricingPlan :: Lude.Maybe PricingPlan,
+    -- | The estimated number of jobs with a SUBMITTED status.
     submittedJobsCount :: Lude.Maybe Lude.Int,
+    -- | A name that you create for each queue. Each name must be unique within your account.
+    name :: Lude.Text,
+    -- | The estimated number of jobs with a PROGRESSING status.
     progressingJobsCount :: Lude.Maybe Lude.Int,
+    -- | Specifies whether this on-demand queue is system or custom. System queues are built in. You can't modify or delete system queues. You can create and modify custom queues.
     type' :: Lude.Maybe Type,
-    description :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | An optional description that you create for each queue.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Queue' with the minimum fields required to make a request.
 --
+-- * 'status' - Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+-- * 'lastUpdated' - The timestamp in epoch seconds for when you most recently updated the queue.
 -- * 'arn' - An identifier for this resource that is unique within all of AWS.
 -- * 'createdAt' - The timestamp in epoch seconds for when you created the queue.
--- * 'description' - An optional description that you create for each queue.
--- * 'lastUpdated' - The timestamp in epoch seconds for when you most recently updated the queue.
--- * 'name' - A name that you create for each queue. Each name must be unique within your account.
--- * 'pricingPlan' - Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment.
--- * 'progressingJobsCount' - The estimated number of jobs with a PROGRESSING status.
 -- * 'reservationPlan' - Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
--- * 'status' - Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+-- * 'pricingPlan' - Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment.
 -- * 'submittedJobsCount' - The estimated number of jobs with a SUBMITTED status.
+-- * 'name' - A name that you create for each queue. Each name must be unique within your account.
+-- * 'progressingJobsCount' - The estimated number of jobs with a PROGRESSING status.
 -- * 'type'' - Specifies whether this on-demand queue is system or custom. System queues are built in. You can't modify or delete system queues. You can create and modify custom queues.
+-- * 'description' - An optional description that you create for each queue.
 mkQueue ::
   -- | 'name'
   Lude.Text ->
@@ -89,10 +94,10 @@ mkQueue pName_ =
       reservationPlan = Lude.Nothing,
       pricingPlan = Lude.Nothing,
       submittedJobsCount = Lude.Nothing,
+      name = pName_,
       progressingJobsCount = Lude.Nothing,
       type' = Lude.Nothing,
-      description = Lude.Nothing,
-      name = pName_
+      description = Lude.Nothing
     }
 
 -- | Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
@@ -144,6 +149,13 @@ qSubmittedJobsCount :: Lens.Lens' Queue (Lude.Maybe Lude.Int)
 qSubmittedJobsCount = Lens.lens (submittedJobsCount :: Queue -> Lude.Maybe Lude.Int) (\s a -> s {submittedJobsCount = a} :: Queue)
 {-# DEPRECATED qSubmittedJobsCount "Use generic-lens or generic-optics with 'submittedJobsCount' instead." #-}
 
+-- | A name that you create for each queue. Each name must be unique within your account.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qName :: Lens.Lens' Queue Lude.Text
+qName = Lens.lens (name :: Queue -> Lude.Text) (\s a -> s {name = a} :: Queue)
+{-# DEPRECATED qName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The estimated number of jobs with a PROGRESSING status.
 --
 -- /Note:/ Consider using 'progressingJobsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -165,13 +177,6 @@ qDescription :: Lens.Lens' Queue (Lude.Maybe Lude.Text)
 qDescription = Lens.lens (description :: Queue -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Queue)
 {-# DEPRECATED qDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | A name that you create for each queue. Each name must be unique within your account.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qName :: Lens.Lens' Queue Lude.Text
-qName = Lens.lens (name :: Queue -> Lude.Text) (\s a -> s {name = a} :: Queue)
-{-# DEPRECATED qName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON Queue where
   parseJSON =
     Lude.withObject
@@ -185,8 +190,8 @@ instance Lude.FromJSON Queue where
             Lude.<*> (x Lude..:? "reservationPlan")
             Lude.<*> (x Lude..:? "pricingPlan")
             Lude.<*> (x Lude..:? "submittedJobsCount")
+            Lude.<*> (x Lude..: "name")
             Lude.<*> (x Lude..:? "progressingJobsCount")
             Lude.<*> (x Lude..:? "type")
             Lude.<*> (x Lude..:? "description")
-            Lude.<*> (x Lude..: "name")
       )

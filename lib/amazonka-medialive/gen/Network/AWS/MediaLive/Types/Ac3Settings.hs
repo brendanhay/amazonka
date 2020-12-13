@@ -39,33 +39,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAc3Settings' smart constructor.
 data Ac3Settings = Ac3Settings'
-  { lfeFilter ::
-      Lude.Maybe Ac3LfeFilter,
+  { -- | When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
+    lfeFilter :: Lude.Maybe Ac3LfeFilter,
+    -- | When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
     metadataControl :: Lude.Maybe Ac3MetadataControl,
+    -- | Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
     bitstreamMode :: Lude.Maybe Ac3BitstreamMode,
+    -- | Dolby Digital coding mode. Determines number of channels.
     codingMode :: Lude.Maybe Ac3CodingMode,
+    -- | Average bitrate in bits/second. Valid bitrates depend on the coding mode.
     bitrate :: Lude.Maybe Lude.Double,
+    -- | Sets the dialnorm for the output. If excluded and input audio is Dolby Digital, dialnorm will be passed through.
     dialnorm :: Lude.Maybe Lude.Natural,
+    -- | If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
     drcProfile :: Lude.Maybe Ac3DrcProfile
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Ac3Settings' with the minimum fields required to make a request.
 --
--- * 'bitrate' - Average bitrate in bits/second. Valid bitrates depend on the coding mode.
--- * 'bitstreamMode' - Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
--- * 'codingMode' - Dolby Digital coding mode. Determines number of channels.
--- * 'dialnorm' - Sets the dialnorm for the output. If excluded and input audio is Dolby Digital, dialnorm will be passed through.
--- * 'drcProfile' - If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
 -- * 'lfeFilter' - When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
 -- * 'metadataControl' - When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
+-- * 'bitstreamMode' - Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
+-- * 'codingMode' - Dolby Digital coding mode. Determines number of channels.
+-- * 'bitrate' - Average bitrate in bits/second. Valid bitrates depend on the coding mode.
+-- * 'dialnorm' - Sets the dialnorm for the output. If excluded and input audio is Dolby Digital, dialnorm will be passed through.
+-- * 'drcProfile' - If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
 mkAc3Settings ::
   Ac3Settings
 mkAc3Settings =

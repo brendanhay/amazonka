@@ -13,9 +13,9 @@
 module Network.AWS.Glue.Types.TaskRunSortColumnType
   ( TaskRunSortColumnType
       ( TaskRunSortColumnType',
-        TRSCTStarted,
-        TRSCTStatus,
-        TRSCTTaskRunType
+        TaskRunType,
+        Status,
+        Started
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype TaskRunSortColumnType = TaskRunSortColumnType' Lude.Text
       Lude.ToHeader
     )
 
-pattern TRSCTStarted :: TaskRunSortColumnType
-pattern TRSCTStarted = TaskRunSortColumnType' "STARTED"
+pattern TaskRunType :: TaskRunSortColumnType
+pattern TaskRunType = TaskRunSortColumnType' "TASK_RUN_TYPE"
 
-pattern TRSCTStatus :: TaskRunSortColumnType
-pattern TRSCTStatus = TaskRunSortColumnType' "STATUS"
+pattern Status :: TaskRunSortColumnType
+pattern Status = TaskRunSortColumnType' "STATUS"
 
-pattern TRSCTTaskRunType :: TaskRunSortColumnType
-pattern TRSCTTaskRunType = TaskRunSortColumnType' "TASK_RUN_TYPE"
+pattern Started :: TaskRunSortColumnType
+pattern Started = TaskRunSortColumnType' "STARTED"
 
 {-# COMPLETE
-  TRSCTStarted,
-  TRSCTStatus,
-  TRSCTTaskRunType,
+  TaskRunType,
+  Status,
+  Started,
   TaskRunSortColumnType'
   #-}

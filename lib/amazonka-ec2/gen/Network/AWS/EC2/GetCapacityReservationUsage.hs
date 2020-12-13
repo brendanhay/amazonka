@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.EC2.GetCapacityReservationUsage
     mkGetCapacityReservationUsage,
 
     -- ** Request lenses
+    gcruCapacityReservationId,
     gcruNextToken,
     gcruDryRun,
     gcruMaxResults,
-    gcruCapacityReservationId,
 
     -- * Destructuring the response
     GetCapacityReservationUsageResponse (..),
@@ -48,41 +49,47 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCapacityReservationUsage' smart constructor.
 data GetCapacityReservationUsage = GetCapacityReservationUsage'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Capacity Reservation.
+    capacityReservationId :: Lude.Text,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    capacityReservationId :: Lude.Text
+    -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
+    --
+    -- Valid range: Minimum value of 1. Maximum value of 1000.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCapacityReservationUsage' with the minimum fields required to make a request.
 --
 -- * 'capacityReservationId' - The ID of the Capacity Reservation.
+-- * 'nextToken' - The token to use to retrieve the next page of results.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
 --
 -- Valid range: Minimum value of 1. Maximum value of 1000.
--- * 'nextToken' - The token to use to retrieve the next page of results.
 mkGetCapacityReservationUsage ::
   -- | 'capacityReservationId'
   Lude.Text ->
   GetCapacityReservationUsage
 mkGetCapacityReservationUsage pCapacityReservationId_ =
   GetCapacityReservationUsage'
-    { nextToken = Lude.Nothing,
+    { capacityReservationId =
+        pCapacityReservationId_,
+      nextToken = Lude.Nothing,
       dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      capacityReservationId = pCapacityReservationId_
+      maxResults = Lude.Nothing
     }
+
+-- | The ID of the Capacity Reservation.
+--
+-- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcruCapacityReservationId :: Lens.Lens' GetCapacityReservationUsage Lude.Text
+gcruCapacityReservationId = Lens.lens (capacityReservationId :: GetCapacityReservationUsage -> Lude.Text) (\s a -> s {capacityReservationId = a} :: GetCapacityReservationUsage)
+{-# DEPRECATED gcruCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
 
 -- | The token to use to retrieve the next page of results.
 --
@@ -106,13 +113,6 @@ gcruDryRun = Lens.lens (dryRun :: GetCapacityReservationUsage -> Lude.Maybe Lude
 gcruMaxResults :: Lens.Lens' GetCapacityReservationUsage (Lude.Maybe Lude.Natural)
 gcruMaxResults = Lens.lens (maxResults :: GetCapacityReservationUsage -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetCapacityReservationUsage)
 {-# DEPRECATED gcruMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the Capacity Reservation.
---
--- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcruCapacityReservationId :: Lens.Lens' GetCapacityReservationUsage Lude.Text
-gcruCapacityReservationId = Lens.lens (capacityReservationId :: GetCapacityReservationUsage -> Lude.Text) (\s a -> s {capacityReservationId = a} :: GetCapacityReservationUsage)
-{-# DEPRECATED gcruCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
 
 instance Lude.AWSRequest GetCapacityReservationUsage where
   type
@@ -147,53 +147,51 @@ instance Lude.ToQuery GetCapacityReservationUsage where
       [ "Action"
           Lude.=: ("GetCapacityReservationUsage" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "CapacityReservationId" Lude.=: capacityReservationId,
         "NextToken" Lude.=: nextToken,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "CapacityReservationId" Lude.=: capacityReservationId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkGetCapacityReservationUsageResponse' smart constructor.
 data GetCapacityReservationUsageResponse = GetCapacityReservationUsageResponse'
-  { state ::
-      Lude.Maybe
-        CapacityReservationState,
-    instanceUsages ::
-      Lude.Maybe
-        [InstanceUsage],
-    availableInstanceCount ::
-      Lude.Maybe Lude.Int,
-    capacityReservationId ::
-      Lude.Maybe
-        Lude.Text,
-    instanceType ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    totalInstanceCount ::
-      Lude.Maybe Lude.Int,
-    responseStatus ::
-      Lude.Int
+  { -- | The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
+    --
+    --
+    --     * @active@ - The Capacity Reservation is active and the capacity is available for your use.
+    --
+    --
+    --     * @expired@ - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.
+    --
+    --
+    --     * @cancelled@ - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.
+    --
+    --
+    --     * @pending@ - The Capacity Reservation request was successful but the capacity provisioning is still pending.
+    --
+    --
+    --     * @failed@ - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.
+    state :: Lude.Maybe CapacityReservationState,
+    -- | Information about the Capacity Reservation usage.
+    instanceUsages :: Lude.Maybe [InstanceUsage],
+    -- | The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.
+    availableInstanceCount :: Lude.Maybe Lude.Int,
+    -- | The ID of the Capacity Reservation.
+    capacityReservationId :: Lude.Maybe Lude.Text,
+    -- | The type of instance for which the Capacity Reservation reserves capacity.
+    instanceType :: Lude.Maybe Lude.Text,
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of instances for which the Capacity Reservation reserves capacity.
+    totalInstanceCount :: Lude.Maybe Lude.Int,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCapacityReservationUsageResponse' with the minimum fields required to make a request.
 --
--- * 'availableInstanceCount' - The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.
--- * 'capacityReservationId' - The ID of the Capacity Reservation.
--- * 'instanceType' - The type of instance for which the Capacity Reservation reserves capacity.
--- * 'instanceUsages' - Information about the Capacity Reservation usage.
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'state' - The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
 --
 --
@@ -212,7 +210,13 @@ data GetCapacityReservationUsageResponse = GetCapacityReservationUsageResponse'
 --     * @failed@ - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.
 --
 --
+-- * 'instanceUsages' - Information about the Capacity Reservation usage.
+-- * 'availableInstanceCount' - The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.
+-- * 'capacityReservationId' - The ID of the Capacity Reservation.
+-- * 'instanceType' - The type of instance for which the Capacity Reservation reserves capacity.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'totalInstanceCount' - The number of instances for which the Capacity Reservation reserves capacity.
+-- * 'responseStatus' - The response status code.
 mkGetCapacityReservationUsageResponse ::
   -- | 'responseStatus'
   Lude.Int ->

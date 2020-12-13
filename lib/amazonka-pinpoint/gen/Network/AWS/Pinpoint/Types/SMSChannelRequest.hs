@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSMSChannelRequest' smart constructor.
 data SMSChannelRequest = SMSChannelRequest'
-  { shortCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The registered short code that you want to use when you send messages through the SMS channel.
+    shortCode :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to enable the SMS channel for the application.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The identity that you want to display on recipients' devices when they receive messages from the SMS channel.
     senderId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SMSChannelRequest' with the minimum fields required to make a request.
 --
+-- * 'shortCode' - The registered short code that you want to use when you send messages through the SMS channel.
 -- * 'enabled' - Specifies whether to enable the SMS channel for the application.
 -- * 'senderId' - The identity that you want to display on recipients' devices when they receive messages from the SMS channel.
--- * 'shortCode' - The registered short code that you want to use when you send messages through the SMS channel.
 mkSMSChannelRequest ::
   SMSChannelRequest
 mkSMSChannelRequest =

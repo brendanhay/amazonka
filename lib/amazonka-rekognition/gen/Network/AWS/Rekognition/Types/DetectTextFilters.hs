@@ -31,23 +31,17 @@ import Network.AWS.Rekognition.Types.RegionOfInterest
 --
 -- /See:/ 'mkDetectTextFilters' smart constructor.
 data DetectTextFilters = DetectTextFilters'
-  { regionsOfInterest ::
-      Lude.Maybe [RegionOfInterest],
+  { -- | A Filter focusing on a certain area of the image. Uses a @BoundingBox@ object to set the region of the image.
+    regionsOfInterest :: Lude.Maybe [RegionOfInterest],
     wordFilter :: Lude.Maybe DetectionFilter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectTextFilters' with the minimum fields required to make a request.
 --
 -- * 'regionsOfInterest' - A Filter focusing on a certain area of the image. Uses a @BoundingBox@ object to set the region of the image.
--- * 'wordFilter' - Undocumented field.
+-- * 'wordFilter' -
 mkDetectTextFilters ::
   DetectTextFilters
 mkDetectTextFilters =

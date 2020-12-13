@@ -13,9 +13,9 @@
 module Network.AWS.DynamoDB.Types.BackupStatus
   ( BackupStatus
       ( BackupStatus',
-        Available,
         Creating,
-        Deleted
+        Deleted,
+        Available
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype BackupStatus = BackupStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Available :: BackupStatus
-pattern Available = BackupStatus' "AVAILABLE"
-
 pattern Creating :: BackupStatus
 pattern Creating = BackupStatus' "CREATING"
 
 pattern Deleted :: BackupStatus
 pattern Deleted = BackupStatus' "DELETED"
 
+pattern Available :: BackupStatus
+pattern Available = BackupStatus' "AVAILABLE"
+
 {-# COMPLETE
-  Available,
   Creating,
   Deleted,
+  Available,
   BackupStatus'
   #-}

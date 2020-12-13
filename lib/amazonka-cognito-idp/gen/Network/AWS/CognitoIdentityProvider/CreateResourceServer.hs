@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CognitoIdentityProvider.CreateResourceServer
     mkCreateResourceServer,
 
     -- ** Request lenses
-    crsScopes,
     crsUserPoolId,
     crsIdentifier,
+    crsScopes,
     crsName,
 
     -- * Destructuring the response
@@ -29,8 +30,8 @@ module Network.AWS.CognitoIdentityProvider.CreateResourceServer
     mkCreateResourceServerResponse,
 
     -- ** Response lenses
-    crsrsResponseStatus,
     crsrsResourceServer,
+    crsrsResponseStatus,
   )
 where
 
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateResourceServer' smart constructor.
 data CreateResourceServer = CreateResourceServer'
-  { scopes ::
-      Lude.Maybe [ResourceServerScopeType],
+  { -- | The user pool ID for the user pool.
     userPoolId :: Lude.Text,
+    -- | A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example, @https://my-weather-api.example.com@ .
     identifier :: Lude.Text,
+    -- | A list of scopes. Each scope is map, where the keys are @name@ and @description@ .
+    scopes :: Lude.Maybe [ResourceServerScopeType],
+    -- | A friendly name for the resource server.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceServer' with the minimum fields required to make a request.
 --
--- * 'identifier' - A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example, @https://my-weather-api.example.com@ .
--- * 'name' - A friendly name for the resource server.
--- * 'scopes' - A list of scopes. Each scope is map, where the keys are @name@ and @description@ .
 -- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'identifier' - A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example, @https://my-weather-api.example.com@ .
+-- * 'scopes' - A list of scopes. Each scope is map, where the keys are @name@ and @description@ .
+-- * 'name' - A friendly name for the resource server.
 mkCreateResourceServer ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -73,18 +71,11 @@ mkCreateResourceServer ::
   CreateResourceServer
 mkCreateResourceServer pUserPoolId_ pIdentifier_ pName_ =
   CreateResourceServer'
-    { scopes = Lude.Nothing,
-      userPoolId = pUserPoolId_,
+    { userPoolId = pUserPoolId_,
       identifier = pIdentifier_,
+      scopes = Lude.Nothing,
       name = pName_
     }
-
--- | A list of scopes. Each scope is map, where the keys are @name@ and @description@ .
---
--- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsScopes :: Lens.Lens' CreateResourceServer (Lude.Maybe [ResourceServerScopeType])
-crsScopes = Lens.lens (scopes :: CreateResourceServer -> Lude.Maybe [ResourceServerScopeType]) (\s a -> s {scopes = a} :: CreateResourceServer)
-{-# DEPRECATED crsScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
 
 -- | The user pool ID for the user pool.
 --
@@ -100,6 +91,13 @@ crsIdentifier :: Lens.Lens' CreateResourceServer Lude.Text
 crsIdentifier = Lens.lens (identifier :: CreateResourceServer -> Lude.Text) (\s a -> s {identifier = a} :: CreateResourceServer)
 {-# DEPRECATED crsIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
 
+-- | A list of scopes. Each scope is map, where the keys are @name@ and @description@ .
+--
+-- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsScopes :: Lens.Lens' CreateResourceServer (Lude.Maybe [ResourceServerScopeType])
+crsScopes = Lens.lens (scopes :: CreateResourceServer -> Lude.Maybe [ResourceServerScopeType]) (\s a -> s {scopes = a} :: CreateResourceServer)
+{-# DEPRECATED crsScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
+
 -- | A friendly name for the resource server.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -114,8 +112,8 @@ instance Lude.AWSRequest CreateResourceServer where
     Res.receiveJSON
       ( \s h x ->
           CreateResourceServerResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ResourceServer")
+            Lude.<$> (x Lude..:> "ResourceServer")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateResourceServer where
@@ -135,9 +133,9 @@ instance Lude.ToJSON CreateResourceServer where
   toJSON CreateResourceServer' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Scopes" Lude..=) Lude.<$> scopes,
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
             Lude.Just ("Identifier" Lude..= identifier),
+            ("Scopes" Lude..=) Lude.<$> scopes,
             Lude.Just ("Name" Lude..= name)
           ]
       )
@@ -150,18 +148,12 @@ instance Lude.ToQuery CreateResourceServer where
 
 -- | /See:/ 'mkCreateResourceServerResponse' smart constructor.
 data CreateResourceServerResponse = CreateResourceServerResponse'
-  { responseStatus ::
-      Lude.Int,
-    resourceServer ::
-      ResourceServerType
+  { -- | The newly created resource server.
+    resourceServer :: ResourceServerType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceServerResponse' with the minimum fields required to make a request.
@@ -169,23 +161,16 @@ data CreateResourceServerResponse = CreateResourceServerResponse'
 -- * 'resourceServer' - The newly created resource server.
 -- * 'responseStatus' - The response status code.
 mkCreateResourceServerResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'resourceServer'
   ResourceServerType ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateResourceServerResponse
-mkCreateResourceServerResponse pResponseStatus_ pResourceServer_ =
+mkCreateResourceServerResponse pResourceServer_ pResponseStatus_ =
   CreateResourceServerResponse'
-    { responseStatus = pResponseStatus_,
-      resourceServer = pResourceServer_
+    { resourceServer = pResourceServer_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsrsResponseStatus :: Lens.Lens' CreateResourceServerResponse Lude.Int
-crsrsResponseStatus = Lens.lens (responseStatus :: CreateResourceServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateResourceServerResponse)
-{-# DEPRECATED crsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The newly created resource server.
 --
@@ -193,3 +178,10 @@ crsrsResponseStatus = Lens.lens (responseStatus :: CreateResourceServerResponse 
 crsrsResourceServer :: Lens.Lens' CreateResourceServerResponse ResourceServerType
 crsrsResourceServer = Lens.lens (resourceServer :: CreateResourceServerResponse -> ResourceServerType) (\s a -> s {resourceServer = a} :: CreateResourceServerResponse)
 {-# DEPRECATED crsrsResourceServer "Use generic-lens or generic-optics with 'resourceServer' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsrsResponseStatus :: Lens.Lens' CreateResourceServerResponse Lude.Int
+crsrsResponseStatus = Lens.lens (responseStatus :: CreateResourceServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateResourceServerResponse)
+{-# DEPRECATED crsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

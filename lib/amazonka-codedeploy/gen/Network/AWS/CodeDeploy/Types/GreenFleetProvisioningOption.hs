@@ -29,17 +29,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGreenFleetProvisioningOption' smart constructor.
 newtype GreenFleetProvisioningOption = GreenFleetProvisioningOption'
-  { action ::
-      Lude.Maybe
-        GreenFleetProvisioningAction
+  { -- | The method used to add instances to a replacement environment.
+    --
+    --
+    --     * @DISCOVER_EXISTING@ : Use instances that already exist or will be created manually.
+    --
+    --
+    --     * @COPY_AUTO_SCALING_GROUP@ : Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling group.
+    action :: Lude.Maybe GreenFleetProvisioningAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GreenFleetProvisioningOption' with the minimum fields required to make a request.

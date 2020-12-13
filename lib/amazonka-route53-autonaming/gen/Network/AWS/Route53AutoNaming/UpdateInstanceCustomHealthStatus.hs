@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.Route53AutoNaming.UpdateInstanceCustomHealthStatus
     mkUpdateInstanceCustomHealthStatus,
 
     -- ** Request lenses
-    uichsServiceId,
     uichsInstanceId,
     uichsStatus,
+    uichsServiceId,
 
     -- * Destructuring the response
     UpdateInstanceCustomHealthStatusResponse (..),
@@ -40,50 +41,38 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkUpdateInstanceCustomHealthStatus' smart constructor.
 data UpdateInstanceCustomHealthStatus = UpdateInstanceCustomHealthStatus'
-  { serviceId ::
-      Lude.Text,
+  { -- | The ID of the instance that you want to change the health status for.
     instanceId :: Lude.Text,
-    status ::
-      CustomHealthStatus
+    -- | The new status of the instance, @HEALTHY@ or @UNHEALTHY@ .
+    status :: CustomHealthStatus,
+    -- | The ID of the service that includes the configuration for the custom health check that you want to change the status for.
+    serviceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInstanceCustomHealthStatus' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The ID of the instance that you want to change the health status for.
--- * 'serviceId' - The ID of the service that includes the configuration for the custom health check that you want to change the status for.
 -- * 'status' - The new status of the instance, @HEALTHY@ or @UNHEALTHY@ .
+-- * 'serviceId' - The ID of the service that includes the configuration for the custom health check that you want to change the status for.
 mkUpdateInstanceCustomHealthStatus ::
-  -- | 'serviceId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
   -- | 'status'
   CustomHealthStatus ->
+  -- | 'serviceId'
+  Lude.Text ->
   UpdateInstanceCustomHealthStatus
 mkUpdateInstanceCustomHealthStatus
-  pServiceId_
   pInstanceId_
-  pStatus_ =
+  pStatus_
+  pServiceId_ =
     UpdateInstanceCustomHealthStatus'
-      { serviceId = pServiceId_,
-        instanceId = pInstanceId_,
-        status = pStatus_
+      { instanceId = pInstanceId_,
+        status = pStatus_,
+        serviceId = pServiceId_
       }
-
--- | The ID of the service that includes the configuration for the custom health check that you want to change the status for.
---
--- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uichsServiceId :: Lens.Lens' UpdateInstanceCustomHealthStatus Lude.Text
-uichsServiceId = Lens.lens (serviceId :: UpdateInstanceCustomHealthStatus -> Lude.Text) (\s a -> s {serviceId = a} :: UpdateInstanceCustomHealthStatus)
-{-# DEPRECATED uichsServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 -- | The ID of the instance that you want to change the health status for.
 --
@@ -98,6 +87,13 @@ uichsInstanceId = Lens.lens (instanceId :: UpdateInstanceCustomHealthStatus -> L
 uichsStatus :: Lens.Lens' UpdateInstanceCustomHealthStatus CustomHealthStatus
 uichsStatus = Lens.lens (status :: UpdateInstanceCustomHealthStatus -> CustomHealthStatus) (\s a -> s {status = a} :: UpdateInstanceCustomHealthStatus)
 {-# DEPRECATED uichsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The ID of the service that includes the configuration for the custom health check that you want to change the status for.
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uichsServiceId :: Lens.Lens' UpdateInstanceCustomHealthStatus Lude.Text
+uichsServiceId = Lens.lens (serviceId :: UpdateInstanceCustomHealthStatus -> Lude.Text) (\s a -> s {serviceId = a} :: UpdateInstanceCustomHealthStatus)
+{-# DEPRECATED uichsServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 instance Lude.AWSRequest UpdateInstanceCustomHealthStatus where
   type
@@ -124,9 +120,9 @@ instance Lude.ToJSON UpdateInstanceCustomHealthStatus where
   toJSON UpdateInstanceCustomHealthStatus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ServiceId" Lude..= serviceId),
-            Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("Status" Lude..= status)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("Status" Lude..= status),
+            Lude.Just ("ServiceId" Lude..= serviceId)
           ]
       )
 
@@ -138,13 +134,7 @@ instance Lude.ToQuery UpdateInstanceCustomHealthStatus where
 
 -- | /See:/ 'mkUpdateInstanceCustomHealthStatusResponse' smart constructor.
 data UpdateInstanceCustomHealthStatusResponse = UpdateInstanceCustomHealthStatusResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInstanceCustomHealthStatusResponse' with the minimum fields required to make a request.

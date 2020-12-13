@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,14 +42,13 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkAddTags' smart constructor.
-data AddTags = AddTags' {resourceARN :: Lude.Text, tags :: [Tag]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data AddTags = AddTags'
+  { -- | The Amazon Resource Name (ARN) of the resource that you want to tag.
+    resourceARN :: Lude.Text,
+    -- | An array of @Tag@ objects. Each tag is a key-value pair. Only the @key@ parameter is required. If you don't specify a value, Amazon SageMaker sets the value to an empty string.
+    tags :: [Tag]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
@@ -114,22 +114,18 @@ instance Lude.ToQuery AddTags where
 
 -- | /See:/ 'mkAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
-  { tags :: Lude.Maybe [Tag],
+  { -- | A list of tags associated with the Amazon SageMaker resource.
+    tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A list of tags associated with the Amazon SageMaker resource.
+-- * 'responseStatus' - The response status code.
 mkAddTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

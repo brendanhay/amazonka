@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoScalingPolicyUpdate' smart constructor.
 data AutoScalingPolicyUpdate = AutoScalingPolicyUpdate'
-  { policyName ::
-      Lude.Maybe Lude.Text,
-    targetTrackingScalingPolicyConfiguration ::
-      AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+  { -- | The name of the scaling policy.
+    policyName :: Lude.Maybe Lude.Text,
+    -- | Represents a target tracking scaling policy configuration.
+    targetTrackingScalingPolicyConfiguration :: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingPolicyUpdate' with the minimum fields required to make a request.

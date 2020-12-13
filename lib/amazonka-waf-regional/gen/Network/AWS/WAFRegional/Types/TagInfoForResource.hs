@@ -32,23 +32,18 @@ import Network.AWS.WAFRegional.Types.Tag
 --
 -- /See:/ 'mkTagInfoForResource' smart constructor.
 data TagInfoForResource = TagInfoForResource'
-  { tagList ::
-      Lude.Maybe (Lude.NonEmpty Tag),
+  { -- |
+    tagList :: Lude.Maybe (Lude.NonEmpty Tag),
+    -- |
     resourceARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagInfoForResource' with the minimum fields required to make a request.
 --
--- * 'resourceARN' -
 -- * 'tagList' -
+-- * 'resourceARN' -
 mkTagInfoForResource ::
   TagInfoForResource
 mkTagInfoForResource =

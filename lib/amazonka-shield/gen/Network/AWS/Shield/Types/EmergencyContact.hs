@@ -18,8 +18,8 @@ module Network.AWS.Shield.Types.EmergencyContact
 
     -- * Lenses
     ecPhoneNumber,
-    ecContactNotes,
     ecEmailAddress,
+    ecContactNotes,
   )
 where
 
@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEmergencyContact' smart constructor.
 data EmergencyContact = EmergencyContact'
-  { phoneNumber ::
-      Lude.Maybe Lude.Text,
-    contactNotes :: Lude.Maybe Lude.Text,
-    emailAddress :: Lude.Text
+  { -- | The phone number for the contact.
+    phoneNumber :: Lude.Maybe Lude.Text,
+    -- | The email address for the contact.
+    emailAddress :: Lude.Text,
+    -- | Additional notes regarding the contact.
+    contactNotes :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmergencyContact' with the minimum fields required to make a request.
 --
--- * 'contactNotes' - Additional notes regarding the contact.
--- * 'emailAddress' - The email address for the contact.
 -- * 'phoneNumber' - The phone number for the contact.
+-- * 'emailAddress' - The email address for the contact.
+-- * 'contactNotes' - Additional notes regarding the contact.
 mkEmergencyContact ::
   -- | 'emailAddress'
   Lude.Text ->
@@ -56,8 +52,8 @@ mkEmergencyContact ::
 mkEmergencyContact pEmailAddress_ =
   EmergencyContact'
     { phoneNumber = Lude.Nothing,
-      contactNotes = Lude.Nothing,
-      emailAddress = pEmailAddress_
+      emailAddress = pEmailAddress_,
+      contactNotes = Lude.Nothing
     }
 
 -- | The phone number for the contact.
@@ -67,19 +63,19 @@ ecPhoneNumber :: Lens.Lens' EmergencyContact (Lude.Maybe Lude.Text)
 ecPhoneNumber = Lens.lens (phoneNumber :: EmergencyContact -> Lude.Maybe Lude.Text) (\s a -> s {phoneNumber = a} :: EmergencyContact)
 {-# DEPRECATED ecPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
--- | Additional notes regarding the contact.
---
--- /Note:/ Consider using 'contactNotes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecContactNotes :: Lens.Lens' EmergencyContact (Lude.Maybe Lude.Text)
-ecContactNotes = Lens.lens (contactNotes :: EmergencyContact -> Lude.Maybe Lude.Text) (\s a -> s {contactNotes = a} :: EmergencyContact)
-{-# DEPRECATED ecContactNotes "Use generic-lens or generic-optics with 'contactNotes' instead." #-}
-
 -- | The email address for the contact.
 --
 -- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ecEmailAddress :: Lens.Lens' EmergencyContact Lude.Text
 ecEmailAddress = Lens.lens (emailAddress :: EmergencyContact -> Lude.Text) (\s a -> s {emailAddress = a} :: EmergencyContact)
 {-# DEPRECATED ecEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
+
+-- | Additional notes regarding the contact.
+--
+-- /Note:/ Consider using 'contactNotes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecContactNotes :: Lens.Lens' EmergencyContact (Lude.Maybe Lude.Text)
+ecContactNotes = Lens.lens (contactNotes :: EmergencyContact -> Lude.Maybe Lude.Text) (\s a -> s {contactNotes = a} :: EmergencyContact)
+{-# DEPRECATED ecContactNotes "Use generic-lens or generic-optics with 'contactNotes' instead." #-}
 
 instance Lude.FromJSON EmergencyContact where
   parseJSON =
@@ -88,8 +84,8 @@ instance Lude.FromJSON EmergencyContact where
       ( \x ->
           EmergencyContact'
             Lude.<$> (x Lude..:? "PhoneNumber")
-            Lude.<*> (x Lude..:? "ContactNotes")
             Lude.<*> (x Lude..: "EmailAddress")
+            Lude.<*> (x Lude..:? "ContactNotes")
       )
 
 instance Lude.ToJSON EmergencyContact where
@@ -97,7 +93,7 @@ instance Lude.ToJSON EmergencyContact where
     Lude.object
       ( Lude.catMaybes
           [ ("PhoneNumber" Lude..=) Lude.<$> phoneNumber,
-            ("ContactNotes" Lude..=) Lude.<$> contactNotes,
-            Lude.Just ("EmailAddress" Lude..= emailAddress)
+            Lude.Just ("EmailAddress" Lude..= emailAddress),
+            ("ContactNotes" Lude..=) Lude.<$> contactNotes
           ]
       )

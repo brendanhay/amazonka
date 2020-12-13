@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,24 +48,32 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListRecordHistory' smart constructor.
 data ListRecordHistory = ListRecordHistory'
-  { searchFilter ::
-      Lude.Maybe ListRecordHistorySearchFilter,
+  { -- | The search filter to scope the results.
+    searchFilter :: Lude.Maybe ListRecordHistorySearchFilter,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
     acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The access level to use to obtain results. The default is @User@ .
     accessLevelFilter :: Lude.Maybe AccessLevelFilter,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRecordHistory' with the minimum fields required to make a request.
 --
+-- * 'searchFilter' - The search filter to scope the results.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -78,9 +87,8 @@ data ListRecordHistory = ListRecordHistory'
 --
 --
 -- * 'accessLevelFilter' - The access level to use to obtain results. The default is @User@ .
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'searchFilter' - The search filter to scope the results.
+-- * 'pageSize' - The maximum number of items to return with this call.
 mkListRecordHistory ::
   ListRecordHistory
 mkListRecordHistory =
@@ -192,19 +200,14 @@ instance Lude.ToQuery ListRecordHistory where
 
 -- | /See:/ 'mkListRecordHistoryResponse' smart constructor.
 data ListRecordHistoryResponse = ListRecordHistoryResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    recordDetails ::
-      Lude.Maybe [RecordDetail],
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The records, in reverse chronological order.
+    recordDetails :: Lude.Maybe [RecordDetail],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRecordHistoryResponse' with the minimum fields required to make a request.

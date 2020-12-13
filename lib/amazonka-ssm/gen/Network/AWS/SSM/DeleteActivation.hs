@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.SSM.DeleteActivation
     mkDeleteActivationResponse,
 
     -- ** Response lenses
-    deleteactivationersResponseStatus,
+    darsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDeleteActivation' smart constructor.
 newtype DeleteActivation = DeleteActivation'
-  { activationId ::
-      Lude.Text
+  { -- | The ID of the activation that you want to delete.
+    activationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteActivation' with the minimum fields required to make a request.
@@ -100,16 +95,10 @@ instance Lude.ToQuery DeleteActivation where
 
 -- | /See:/ 'mkDeleteActivationResponse' smart constructor.
 newtype DeleteActivationResponse = DeleteActivationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteActivationResponse' with the minimum fields required to make a request.
@@ -125,6 +114,6 @@ mkDeleteActivationResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deleteactivationersResponseStatus :: Lens.Lens' DeleteActivationResponse Lude.Int
-deleteactivationersResponseStatus = Lens.lens (responseStatus :: DeleteActivationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteActivationResponse)
-{-# DEPRECATED deleteactivationersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darsResponseStatus :: Lens.Lens' DeleteActivationResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DeleteActivationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteActivationResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkMail.AssociateMemberToGroup
     mkAssociateMemberToGroup,
 
     -- ** Request lenses
-    amtgOrganizationId,
-    amtgGroupId,
     amtgMemberId,
+    amtgGroupId,
+    amtgOrganizationId,
 
     -- * Destructuring the response
     AssociateMemberToGroupResponse (..),
@@ -40,46 +41,42 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkAssociateMemberToGroup' smart constructor.
 data AssociateMemberToGroup = AssociateMemberToGroup'
-  { organizationId ::
-      Lude.Text,
+  { -- | The member (user or group) to associate to the group.
+    memberId :: Lude.Text,
+    -- | The group to which the member (user or group) is associated.
     groupId :: Lude.Text,
-    memberId :: Lude.Text
+    -- | The organization under which the group exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateMemberToGroup' with the minimum fields required to make a request.
 --
--- * 'groupId' - The group to which the member (user or group) is associated.
 -- * 'memberId' - The member (user or group) to associate to the group.
+-- * 'groupId' - The group to which the member (user or group) is associated.
 -- * 'organizationId' - The organization under which the group exists.
 mkAssociateMemberToGroup ::
-  -- | 'organizationId'
+  -- | 'memberId'
   Lude.Text ->
   -- | 'groupId'
   Lude.Text ->
-  -- | 'memberId'
+  -- | 'organizationId'
   Lude.Text ->
   AssociateMemberToGroup
-mkAssociateMemberToGroup pOrganizationId_ pGroupId_ pMemberId_ =
+mkAssociateMemberToGroup pMemberId_ pGroupId_ pOrganizationId_ =
   AssociateMemberToGroup'
-    { organizationId = pOrganizationId_,
+    { memberId = pMemberId_,
       groupId = pGroupId_,
-      memberId = pMemberId_
+      organizationId = pOrganizationId_
     }
 
--- | The organization under which the group exists.
+-- | The member (user or group) to associate to the group.
 --
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amtgOrganizationId :: Lens.Lens' AssociateMemberToGroup Lude.Text
-amtgOrganizationId = Lens.lens (organizationId :: AssociateMemberToGroup -> Lude.Text) (\s a -> s {organizationId = a} :: AssociateMemberToGroup)
-{-# DEPRECATED amtgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+-- /Note:/ Consider using 'memberId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amtgMemberId :: Lens.Lens' AssociateMemberToGroup Lude.Text
+amtgMemberId = Lens.lens (memberId :: AssociateMemberToGroup -> Lude.Text) (\s a -> s {memberId = a} :: AssociateMemberToGroup)
+{-# DEPRECATED amtgMemberId "Use generic-lens or generic-optics with 'memberId' instead." #-}
 
 -- | The group to which the member (user or group) is associated.
 --
@@ -88,12 +85,12 @@ amtgGroupId :: Lens.Lens' AssociateMemberToGroup Lude.Text
 amtgGroupId = Lens.lens (groupId :: AssociateMemberToGroup -> Lude.Text) (\s a -> s {groupId = a} :: AssociateMemberToGroup)
 {-# DEPRECATED amtgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
--- | The member (user or group) to associate to the group.
+-- | The organization under which the group exists.
 --
--- /Note:/ Consider using 'memberId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amtgMemberId :: Lens.Lens' AssociateMemberToGroup Lude.Text
-amtgMemberId = Lens.lens (memberId :: AssociateMemberToGroup -> Lude.Text) (\s a -> s {memberId = a} :: AssociateMemberToGroup)
-{-# DEPRECATED amtgMemberId "Use generic-lens or generic-optics with 'memberId' instead." #-}
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amtgOrganizationId :: Lens.Lens' AssociateMemberToGroup Lude.Text
+amtgOrganizationId = Lens.lens (organizationId :: AssociateMemberToGroup -> Lude.Text) (\s a -> s {organizationId = a} :: AssociateMemberToGroup)
+{-# DEPRECATED amtgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest AssociateMemberToGroup where
   type Rs AssociateMemberToGroup = AssociateMemberToGroupResponse
@@ -120,9 +117,9 @@ instance Lude.ToJSON AssociateMemberToGroup where
   toJSON AssociateMemberToGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+          [ Lude.Just ("MemberId" Lude..= memberId),
             Lude.Just ("GroupId" Lude..= groupId),
-            Lude.Just ("MemberId" Lude..= memberId)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -134,16 +131,10 @@ instance Lude.ToQuery AssociateMemberToGroup where
 
 -- | /See:/ 'mkAssociateMemberToGroupResponse' smart constructor.
 newtype AssociateMemberToGroupResponse = AssociateMemberToGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateMemberToGroupResponse' with the minimum fields required to make a request.

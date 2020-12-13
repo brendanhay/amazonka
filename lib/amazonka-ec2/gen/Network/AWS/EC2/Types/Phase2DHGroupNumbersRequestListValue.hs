@@ -17,7 +17,7 @@ module Network.AWS.EC2.Types.Phase2DHGroupNumbersRequestListValue
     mkPhase2DHGroupNumbersRequestListValue,
 
     -- * Lenses
-    pdhgnrlvdValue,
+    pdhgnrlvfValue,
   )
 where
 
@@ -28,17 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhase2DHGroupNumbersRequestListValue' smart constructor.
 newtype Phase2DHGroupNumbersRequestListValue = Phase2DHGroupNumbersRequestListValue'
-  { value ::
-      Lude.Maybe
-        Lude.Int
+  { -- | The Diffie-Hellmann group number.
+    value :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase2DHGroupNumbersRequestListValue' with the minimum fields required to make a request.
@@ -52,9 +45,9 @@ mkPhase2DHGroupNumbersRequestListValue =
 -- | The Diffie-Hellmann group number.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdhgnrlvdValue :: Lens.Lens' Phase2DHGroupNumbersRequestListValue (Lude.Maybe Lude.Int)
-pdhgnrlvdValue = Lens.lens (value :: Phase2DHGroupNumbersRequestListValue -> Lude.Maybe Lude.Int) (\s a -> s {value = a} :: Phase2DHGroupNumbersRequestListValue)
-{-# DEPRECATED pdhgnrlvdValue "Use generic-lens or generic-optics with 'value' instead." #-}
+pdhgnrlvfValue :: Lens.Lens' Phase2DHGroupNumbersRequestListValue (Lude.Maybe Lude.Int)
+pdhgnrlvfValue = Lens.lens (value :: Phase2DHGroupNumbersRequestListValue -> Lude.Maybe Lude.Int) (\s a -> s {value = a} :: Phase2DHGroupNumbersRequestListValue)
+{-# DEPRECATED pdhgnrlvfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 instance Lude.ToQuery Phase2DHGroupNumbersRequestListValue where
   toQuery Phase2DHGroupNumbersRequestListValue' {..} =

@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCoipPool' smart constructor.
 data CoipPool = CoipPool'
-  { poolId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the address pool.
+    poolId :: Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway route table.
     localGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    -- | The address ranges of the address pool.
     poolCidrs :: Lude.Maybe [Lude.Text],
+    -- | The tags.
     tags :: Lude.Maybe [Tag],
+    -- | The ARN of the address pool.
     poolARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoipPool' with the minimum fields required to make a request.
 --
--- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
--- * 'poolARN' - The ARN of the address pool.
--- * 'poolCidrs' - The address ranges of the address pool.
 -- * 'poolId' - The ID of the address pool.
+-- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
+-- * 'poolCidrs' - The address ranges of the address pool.
 -- * 'tags' - The tags.
+-- * 'poolARN' - The ARN of the address pool.
 mkCoipPool ::
   CoipPool
 mkCoipPool =

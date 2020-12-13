@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.WorkDocs.GetFolderPath
 
     -- ** Request lenses
     gfpAuthenticationToken,
+    gfpFolderId,
     gfpMarker,
     gfpLimit,
     gfpFields,
-    gfpFolderId,
 
     -- * Destructuring the response
     GetFolderPathResponse (..),
@@ -45,12 +46,16 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkGetFolderPath' smart constructor.
 data GetFolderPath = GetFolderPath'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the folder.
+    folderId :: Lude.Text,
+    -- | This value is not supported.
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of levels in the hierarchy to return.
     limit :: Lude.Maybe Lude.Natural,
-    fields :: Lude.Maybe Lude.Text,
-    folderId :: Lude.Text
+    -- | A comma-separated list of values. Specify "NAME" to include the names of the parent folders.
+    fields :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -58,10 +63,10 @@ data GetFolderPath = GetFolderPath'
 -- | Creates a value of 'GetFolderPath' with the minimum fields required to make a request.
 --
 -- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'fields' - A comma-separated list of values. Specify "NAME" to include the names of the parent folders.
 -- * 'folderId' - The ID of the folder.
--- * 'limit' - The maximum number of levels in the hierarchy to return.
 -- * 'marker' - This value is not supported.
+-- * 'limit' - The maximum number of levels in the hierarchy to return.
+-- * 'fields' - A comma-separated list of values. Specify "NAME" to include the names of the parent folders.
 mkGetFolderPath ::
   -- | 'folderId'
   Lude.Text ->
@@ -69,10 +74,10 @@ mkGetFolderPath ::
 mkGetFolderPath pFolderId_ =
   GetFolderPath'
     { authenticationToken = Lude.Nothing,
+      folderId = pFolderId_,
       marker = Lude.Nothing,
       limit = Lude.Nothing,
-      fields = Lude.Nothing,
-      folderId = pFolderId_
+      fields = Lude.Nothing
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
@@ -81,6 +86,13 @@ mkGetFolderPath pFolderId_ =
 gfpAuthenticationToken :: Lens.Lens' GetFolderPath (Lude.Maybe (Lude.Sensitive Lude.Text))
 gfpAuthenticationToken = Lens.lens (authenticationToken :: GetFolderPath -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: GetFolderPath)
 {-# DEPRECATED gfpAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+
+-- | The ID of the folder.
+--
+-- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfpFolderId :: Lens.Lens' GetFolderPath Lude.Text
+gfpFolderId = Lens.lens (folderId :: GetFolderPath -> Lude.Text) (\s a -> s {folderId = a} :: GetFolderPath)
+{-# DEPRECATED gfpFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
 
 -- | This value is not supported.
 --
@@ -102,13 +114,6 @@ gfpLimit = Lens.lens (limit :: GetFolderPath -> Lude.Maybe Lude.Natural) (\s a -
 gfpFields :: Lens.Lens' GetFolderPath (Lude.Maybe Lude.Text)
 gfpFields = Lens.lens (fields :: GetFolderPath -> Lude.Maybe Lude.Text) (\s a -> s {fields = a} :: GetFolderPath)
 {-# DEPRECATED gfpFields "Use generic-lens or generic-optics with 'fields' instead." #-}
-
--- | The ID of the folder.
---
--- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfpFolderId :: Lens.Lens' GetFolderPath Lude.Text
-gfpFolderId = Lens.lens (folderId :: GetFolderPath -> Lude.Text) (\s a -> s {folderId = a} :: GetFolderPath)
-{-# DEPRECATED gfpFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
 
 instance Lude.AWSRequest GetFolderPath where
   type Rs GetFolderPath = GetFolderPathResponse
@@ -142,17 +147,12 @@ instance Lude.ToQuery GetFolderPath where
 
 -- | /See:/ 'mkGetFolderPathResponse' smart constructor.
 data GetFolderPathResponse = GetFolderPathResponse'
-  { path ::
-      Lude.Maybe ResourcePath,
+  { -- | The path information.
+    path :: Lude.Maybe ResourcePath,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFolderPathResponse' with the minimum fields required to make a request.

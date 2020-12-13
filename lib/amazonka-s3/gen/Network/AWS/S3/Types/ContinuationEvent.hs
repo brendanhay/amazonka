@@ -28,13 +28,7 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkContinuationEvent' smart constructor.
 data ContinuationEvent = ContinuationEvent'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContinuationEvent' with the minimum fields required to make a request.

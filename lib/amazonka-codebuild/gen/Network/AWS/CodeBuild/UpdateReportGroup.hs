@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CodeBuild.UpdateReportGroup
     mkUpdateReportGroup,
 
     -- ** Request lenses
+    urgArn,
     urgExportConfig,
     urgTags,
-    urgArn,
 
     -- * Destructuring the response
     UpdateReportGroupResponse (..),
@@ -41,18 +42,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateReportGroup' smart constructor.
 data UpdateReportGroup = UpdateReportGroup'
-  { exportConfig ::
-      Lude.Maybe ReportExportConfig,
-    tags :: Lude.Maybe [Tag],
-    arn :: Lude.Text
+  { -- | The ARN of the report group to update.
+    arn :: Lude.Text,
+    -- | Used to specify an updated export type. Valid values are:
+    --
+    --
+    --     * @S3@ : The report results are exported to an S3 bucket.
+    --
+    --
+    --     * @NO_EXPORT@ : The report results are not exported.
+    exportConfig :: Lude.Maybe ReportExportConfig,
+    -- | An updated list of tag key and value pairs associated with this report group.
+    --
+    -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateReportGroup' with the minimum fields required to make a request.
@@ -76,10 +81,17 @@ mkUpdateReportGroup ::
   UpdateReportGroup
 mkUpdateReportGroup pArn_ =
   UpdateReportGroup'
-    { exportConfig = Lude.Nothing,
-      tags = Lude.Nothing,
-      arn = pArn_
+    { arn = pArn_,
+      exportConfig = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | The ARN of the report group to update.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urgArn :: Lens.Lens' UpdateReportGroup Lude.Text
+urgArn = Lens.lens (arn :: UpdateReportGroup -> Lude.Text) (\s a -> s {arn = a} :: UpdateReportGroup)
+{-# DEPRECATED urgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Used to specify an updated export type. Valid values are:
 --
@@ -104,13 +116,6 @@ urgExportConfig = Lens.lens (exportConfig :: UpdateReportGroup -> Lude.Maybe Rep
 urgTags :: Lens.Lens' UpdateReportGroup (Lude.Maybe [Tag])
 urgTags = Lens.lens (tags :: UpdateReportGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UpdateReportGroup)
 {-# DEPRECATED urgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The ARN of the report group to update.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urgArn :: Lens.Lens' UpdateReportGroup Lude.Text
-urgArn = Lens.lens (arn :: UpdateReportGroup -> Lude.Text) (\s a -> s {arn = a} :: UpdateReportGroup)
-{-# DEPRECATED urgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 instance Lude.AWSRequest UpdateReportGroup where
   type Rs UpdateReportGroup = UpdateReportGroupResponse
@@ -137,9 +142,9 @@ instance Lude.ToJSON UpdateReportGroup where
   toJSON UpdateReportGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("exportConfig" Lude..=) Lude.<$> exportConfig,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("arn" Lude..= arn)
+          [ Lude.Just ("arn" Lude..= arn),
+            ("exportConfig" Lude..=) Lude.<$> exportConfig,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -151,17 +156,12 @@ instance Lude.ToQuery UpdateReportGroup where
 
 -- | /See:/ 'mkUpdateReportGroupResponse' smart constructor.
 data UpdateReportGroupResponse = UpdateReportGroupResponse'
-  { reportGroup ::
-      Lude.Maybe ReportGroup,
+  { -- | Information about the updated report group.
+    reportGroup :: Lude.Maybe ReportGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateReportGroupResponse' with the minimum fields required to make a request.

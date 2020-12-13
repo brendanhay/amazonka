@@ -13,11 +13,11 @@
 module Network.AWS.AppStream.Types.ImageState
   ( ImageState
       ( ImageState',
+        ISPending,
         ISAvailable,
-        ISCopying,
-        ISDeleting,
         ISFailed,
-        ISPending
+        ISCopying,
+        ISDeleting
       ),
   )
 where
@@ -48,8 +48,14 @@ newtype ImageState = ImageState' Lude.Text
       Lude.ToHeader
     )
 
+pattern ISPending :: ImageState
+pattern ISPending = ImageState' "PENDING"
+
 pattern ISAvailable :: ImageState
 pattern ISAvailable = ImageState' "AVAILABLE"
+
+pattern ISFailed :: ImageState
+pattern ISFailed = ImageState' "FAILED"
 
 pattern ISCopying :: ImageState
 pattern ISCopying = ImageState' "COPYING"
@@ -57,17 +63,11 @@ pattern ISCopying = ImageState' "COPYING"
 pattern ISDeleting :: ImageState
 pattern ISDeleting = ImageState' "DELETING"
 
-pattern ISFailed :: ImageState
-pattern ISFailed = ImageState' "FAILED"
-
-pattern ISPending :: ImageState
-pattern ISPending = ImageState' "PENDING"
-
 {-# COMPLETE
+  ISPending,
   ISAvailable,
+  ISFailed,
   ISCopying,
   ISDeleting,
-  ISFailed,
-  ISPending,
   ImageState'
   #-}

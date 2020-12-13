@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.EC2.DisableTransitGatewayRouteTablePropagation
     mkDisableTransitGatewayRouteTablePropagation,
 
     -- ** Request lenses
-    dtgrtpDryRun,
     dtgrtpTransitGatewayRouteTableId,
     dtgrtpTransitGatewayAttachmentId,
+    dtgrtpDryRun,
 
     -- * Destructuring the response
     DisableTransitGatewayRouteTablePropagationResponse (..),
@@ -41,28 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisableTransitGatewayRouteTablePropagation' smart constructor.
 data DisableTransitGatewayRouteTablePropagation = DisableTransitGatewayRouteTablePropagation'
-  { dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    transitGatewayRouteTableId ::
-      Lude.Text,
-    transitGatewayAttachmentId ::
-      Lude.Text
+  { -- | The ID of the propagation route table.
+    transitGatewayRouteTableId :: Lude.Text,
+    -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableTransitGatewayRouteTablePropagation' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'transitGatewayAttachmentId' - The ID of the attachment.
 -- * 'transitGatewayRouteTableId' - The ID of the propagation route table.
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDisableTransitGatewayRouteTablePropagation ::
   -- | 'transitGatewayRouteTableId'
   Lude.Text ->
@@ -73,20 +67,12 @@ mkDisableTransitGatewayRouteTablePropagation
   pTransitGatewayRouteTableId_
   pTransitGatewayAttachmentId_ =
     DisableTransitGatewayRouteTablePropagation'
-      { dryRun =
-          Lude.Nothing,
-        transitGatewayRouteTableId =
+      { transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         transitGatewayAttachmentId =
-          pTransitGatewayAttachmentId_
+          pTransitGatewayAttachmentId_,
+        dryRun = Lude.Nothing
       }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrtpDryRun :: Lens.Lens' DisableTransitGatewayRouteTablePropagation (Lude.Maybe Lude.Bool)
-dtgrtpDryRun = Lens.lens (dryRun :: DisableTransitGatewayRouteTablePropagation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DisableTransitGatewayRouteTablePropagation)
-{-# DEPRECATED dtgrtpDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the propagation route table.
 --
@@ -101,6 +87,13 @@ dtgrtpTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: Disa
 dtgrtpTransitGatewayAttachmentId :: Lens.Lens' DisableTransitGatewayRouteTablePropagation Lude.Text
 dtgrtpTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: DisableTransitGatewayRouteTablePropagation -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: DisableTransitGatewayRouteTablePropagation)
 {-# DEPRECATED dtgrtpTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtpDryRun :: Lens.Lens' DisableTransitGatewayRouteTablePropagation (Lude.Maybe Lude.Bool)
+dtgrtpDryRun = Lens.lens (dryRun :: DisableTransitGatewayRouteTablePropagation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DisableTransitGatewayRouteTablePropagation)
+{-# DEPRECATED dtgrtpDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DisableTransitGatewayRouteTablePropagation where
   type
@@ -126,30 +119,20 @@ instance Lude.ToQuery DisableTransitGatewayRouteTablePropagation where
       [ "Action"
           Lude.=: ("DisableTransitGatewayRouteTablePropagation" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
-        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId
+        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDisableTransitGatewayRouteTablePropagationResponse' smart constructor.
 data DisableTransitGatewayRouteTablePropagationResponse = DisableTransitGatewayRouteTablePropagationResponse'
-  { propagation ::
-      Lude.Maybe
-        TransitGatewayPropagation,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about route propagation.
+    propagation :: Lude.Maybe TransitGatewayPropagation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableTransitGatewayRouteTablePropagationResponse' with the minimum fields required to make a request.
 --

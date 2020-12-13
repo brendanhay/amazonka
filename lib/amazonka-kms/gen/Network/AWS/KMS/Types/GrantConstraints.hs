@@ -34,18 +34,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGrantConstraints' smart constructor.
 data GrantConstraints = GrantConstraints'
-  { encryptionContextEquals ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    encryptionContextSubset ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | A list of key-value pairs that must match the encryption context in the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.
+    encryptionContextEquals :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A list of key-value pairs that must be included in the encryption context of the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.
+    encryptionContextSubset :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GrantConstraints' with the minimum fields required to make a request.

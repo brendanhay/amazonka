@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkShutdownEventConfiguration' smart constructor.
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
-  { executionTimeout ::
-      Lude.Maybe Lude.Int,
-    delayUntilElbConnectionsDrained ::
-      Lude.Maybe Lude.Bool
+  { -- | The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
+    executionTimeout :: Lude.Maybe Lude.Int,
+    -- | Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
+    delayUntilElbConnectionsDrained :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShutdownEventConfiguration' with the minimum fields required to make a request.
 --
--- * 'delayUntilElbConnectionsDrained' - Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
 -- * 'executionTimeout' - The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown event before shutting down an instance.
+-- * 'delayUntilElbConnectionsDrained' - Whether to enable Elastic Load Balancing connection draining. For more information, see <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
 mkShutdownEventConfiguration ::
   ShutdownEventConfiguration
 mkShutdownEventConfiguration =

@@ -35,32 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContactFlow' smart constructor.
 data ContactFlow = ContactFlow'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the contact flow.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The content of the contact flow.
     content :: Lude.Maybe Lude.Text,
+    -- | The name of the contact flow.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the contact flow.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
     type' :: Lude.Maybe ContactFlowType,
+    -- | The description of the contact flow.
     description :: Lude.Maybe Lude.Text,
+    -- | One or more tags.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContactFlow' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the contact flow.
 -- * 'content' - The content of the contact flow.
--- * 'description' - The description of the contact flow.
--- * 'id' - The identifier of the contact flow.
 -- * 'name' - The name of the contact flow.
--- * 'tags' - One or more tags.
+-- * 'id' - The identifier of the contact flow.
 -- * 'type'' - The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
+-- * 'description' - The description of the contact flow.
+-- * 'tags' - One or more tags.
 mkContactFlow ::
   ContactFlow
 mkContactFlow =

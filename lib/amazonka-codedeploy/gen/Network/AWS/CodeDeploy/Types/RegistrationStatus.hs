@@ -13,8 +13,8 @@
 module Network.AWS.CodeDeploy.Types.RegistrationStatus
   ( RegistrationStatus
       ( RegistrationStatus',
-        Deregistered,
-        Registered
+        Registered,
+        Deregistered
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RegistrationStatus = RegistrationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deregistered :: RegistrationStatus
-pattern Deregistered = RegistrationStatus' "Deregistered"
-
 pattern Registered :: RegistrationStatus
 pattern Registered = RegistrationStatus' "Registered"
 
+pattern Deregistered :: RegistrationStatus
+pattern Deregistered = RegistrationStatus' "Deregistered"
+
 {-# COMPLETE
-  Deregistered,
   Registered,
+  Deregistered,
   RegistrationStatus'
   #-}

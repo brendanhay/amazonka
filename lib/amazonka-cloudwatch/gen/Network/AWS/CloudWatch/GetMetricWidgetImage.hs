@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,25 +49,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMetricWidgetImage' smart constructor.
 data GetMetricWidgetImage = GetMetricWidgetImage'
-  { outputFormat ::
-      Lude.Maybe Lude.Text,
+  { -- | The format of the resulting image. Only PNG images are supported.
+    --
+    -- The default is @png@ . If you specify @png@ , the API returns an HTTP response with the content-type set to @text/xml@ . The image data is in a @MetricWidgetImage@ field. For example:
+    -- @<GetMetricWidgetImageResponse xmlns=<URLstring>>@
+    -- @<GetMetricWidgetImageResult>@
+    -- @<MetricWidgetImage>@
+    -- @iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...@
+    -- @</MetricWidgetImage>@
+    -- @</GetMetricWidgetImageResult>@
+    -- @<ResponseMetadata>@
+    -- @<RequestId>6f0d4192-4d42-11e8-82c1-f539a07e0e3b</RequestId>@
+    -- @</ResponseMetadata>@
+    -- @</GetMetricWidgetImageResponse>@
+    -- The @image/png@ setting is intended only for custom HTTP requests. For most use cases, and all actions using an AWS SDK, you should use @png@ . If you specify @image/png@ , the HTTP response has a content-type set to @image/png@ , and the body of the response is a PNG image.
+    outputFormat :: Lude.Maybe Lude.Text,
+    -- | A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one @MetricWidget@ parameter in each @GetMetricWidgetImage@ call.
+    --
+    -- For more information about the syntax of @MetricWidget@ see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html GetMetricWidgetImage: Metric Widget Structure and Syntax> .
+    -- If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.
     metricWidget :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMetricWidgetImage' with the minimum fields required to make a request.
 --
--- * 'metricWidget' - A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one @MetricWidget@ parameter in each @GetMetricWidgetImage@ call.
---
--- For more information about the syntax of @MetricWidget@ see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html GetMetricWidgetImage: Metric Widget Structure and Syntax> .
--- If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.
 -- * 'outputFormat' - The format of the resulting image. Only PNG images are supported.
 --
 -- The default is @png@ . If you specify @png@ , the API returns an HTTP response with the content-type set to @text/xml@ . The image data is in a @MetricWidgetImage@ field. For example:
@@ -81,6 +89,10 @@ data GetMetricWidgetImage = GetMetricWidgetImage'
 -- @</ResponseMetadata>@
 -- @</GetMetricWidgetImageResponse>@
 -- The @image/png@ setting is intended only for custom HTTP requests. For most use cases, and all actions using an AWS SDK, you should use @png@ . If you specify @image/png@ , the HTTP response has a content-type set to @image/png@ , and the body of the response is a PNG image.
+-- * 'metricWidget' - A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one @MetricWidget@ parameter in each @GetMetricWidgetImage@ call.
+--
+-- For more information about the syntax of @MetricWidget@ see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html GetMetricWidgetImage: Metric Widget Structure and Syntax> .
+-- If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.
 mkGetMetricWidgetImage ::
   -- | 'metricWidget'
   Lude.Text ->
@@ -150,26 +162,17 @@ instance Lude.ToQuery GetMetricWidgetImage where
 
 -- | /See:/ 'mkGetMetricWidgetImageResponse' smart constructor.
 data GetMetricWidgetImageResponse = GetMetricWidgetImageResponse'
-  { metricWidgetImage ::
-      Lude.Maybe Lude.Base64,
+  { -- | The image of the graph, in the output format specified. The output is base64-encoded.
+    metricWidgetImage :: Lude.Maybe Lude.Base64,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMetricWidgetImageResponse' with the minimum fields required to make a request.
 --
--- * 'metricWidgetImage' - The image of the graph, in the output format specified. The output is base64-encoded.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'metricWidgetImage' - The image of the graph, in the output format specified. The output is base64-encoded.
 -- * 'responseStatus' - The response status code.
 mkGetMetricWidgetImageResponse ::
   -- | 'responseStatus'

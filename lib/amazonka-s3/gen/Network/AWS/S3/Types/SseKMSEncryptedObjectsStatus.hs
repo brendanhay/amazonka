@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.SseKMSEncryptedObjectsStatus
   ( SseKMSEncryptedObjectsStatus
       ( SseKMSEncryptedObjectsStatus',
-        SKEOSDisabled,
-        SKEOSEnabled
+        SKEOSEnabled,
+        SKEOSDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype SseKMSEncryptedObjectsStatus = SseKMSEncryptedObjectsStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SKEOSDisabled :: SseKMSEncryptedObjectsStatus
-pattern SKEOSDisabled = SseKMSEncryptedObjectsStatus' "Disabled"
-
 pattern SKEOSEnabled :: SseKMSEncryptedObjectsStatus
 pattern SKEOSEnabled = SseKMSEncryptedObjectsStatus' "Enabled"
 
+pattern SKEOSDisabled :: SseKMSEncryptedObjectsStatus
+pattern SKEOSDisabled = SseKMSEncryptedObjectsStatus' "Disabled"
+
 {-# COMPLETE
-  SKEOSDisabled,
   SKEOSEnabled,
+  SKEOSDisabled,
   SseKMSEncryptedObjectsStatus'
   #-}

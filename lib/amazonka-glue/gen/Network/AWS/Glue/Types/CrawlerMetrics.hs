@@ -35,35 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCrawlerMetrics' smart constructor.
 data CrawlerMetrics = CrawlerMetrics'
-  { lastRuntimeSeconds ::
-      Lude.Maybe Lude.Double,
+  { -- | The duration of the crawler's most recent run, in seconds.
+    lastRuntimeSeconds :: Lude.Maybe Lude.Double,
+    -- | The number of tables created by this crawler.
     tablesCreated :: Lude.Maybe Lude.Natural,
+    -- | True if the crawler is still estimating how long it will take to complete this run.
     stillEstimating :: Lude.Maybe Lude.Bool,
+    -- | The median duration of this crawler's runs, in seconds.
     medianRuntimeSeconds :: Lude.Maybe Lude.Double,
+    -- | The estimated time left to complete a running crawl.
     timeLeftSeconds :: Lude.Maybe Lude.Double,
+    -- | The number of tables deleted by this crawler.
     tablesDeleted :: Lude.Maybe Lude.Natural,
+    -- | The number of tables updated by this crawler.
     tablesUpdated :: Lude.Maybe Lude.Natural,
+    -- | The name of the crawler.
     crawlerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CrawlerMetrics' with the minimum fields required to make a request.
 --
--- * 'crawlerName' - The name of the crawler.
 -- * 'lastRuntimeSeconds' - The duration of the crawler's most recent run, in seconds.
--- * 'medianRuntimeSeconds' - The median duration of this crawler's runs, in seconds.
--- * 'stillEstimating' - True if the crawler is still estimating how long it will take to complete this run.
 -- * 'tablesCreated' - The number of tables created by this crawler.
+-- * 'stillEstimating' - True if the crawler is still estimating how long it will take to complete this run.
+-- * 'medianRuntimeSeconds' - The median duration of this crawler's runs, in seconds.
+-- * 'timeLeftSeconds' - The estimated time left to complete a running crawl.
 -- * 'tablesDeleted' - The number of tables deleted by this crawler.
 -- * 'tablesUpdated' - The number of tables updated by this crawler.
--- * 'timeLeftSeconds' - The estimated time left to complete a running crawl.
+-- * 'crawlerName' - The name of the crawler.
 mkCrawlerMetrics ::
   CrawlerMetrics
 mkCrawlerMetrics =

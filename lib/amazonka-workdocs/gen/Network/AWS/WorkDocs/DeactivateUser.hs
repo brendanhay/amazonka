@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkDocs.DeactivateUser
     mkDeactivateUser,
 
     -- ** Request lenses
-    dAuthenticationToken,
-    dUserId,
+    duAuthenticationToken,
+    duUserId,
 
     -- * Destructuring the response
     DeactivateUserResponse (..),
@@ -36,8 +37,9 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDeactivateUser' smart constructor.
 data DeactivateUser = DeactivateUser'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the user.
     userId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -60,16 +62,16 @@ mkDeactivateUser pUserId_ =
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAuthenticationToken :: Lens.Lens' DeactivateUser (Lude.Maybe (Lude.Sensitive Lude.Text))
-dAuthenticationToken = Lens.lens (authenticationToken :: DeactivateUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeactivateUser)
-{-# DEPRECATED dAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+duAuthenticationToken :: Lens.Lens' DeactivateUser (Lude.Maybe (Lude.Sensitive Lude.Text))
+duAuthenticationToken = Lens.lens (authenticationToken :: DeactivateUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeactivateUser)
+{-# DEPRECATED duAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dUserId :: Lens.Lens' DeactivateUser Lude.Text
-dUserId = Lens.lens (userId :: DeactivateUser -> Lude.Text) (\s a -> s {userId = a} :: DeactivateUser)
-{-# DEPRECATED dUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+duUserId :: Lens.Lens' DeactivateUser Lude.Text
+duUserId = Lens.lens (userId :: DeactivateUser -> Lude.Text) (\s a -> s {userId = a} :: DeactivateUser)
+{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 instance Lude.AWSRequest DeactivateUser where
   type Rs DeactivateUser = DeactivateUserResponse
@@ -93,13 +95,7 @@ instance Lude.ToQuery DeactivateUser where
 
 -- | /See:/ 'mkDeactivateUserResponse' smart constructor.
 data DeactivateUserResponse = DeactivateUserResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeactivateUserResponse' with the minimum fields required to make a request.

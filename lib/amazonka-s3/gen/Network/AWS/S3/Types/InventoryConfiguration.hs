@@ -17,13 +17,13 @@ module Network.AWS.S3.Types.InventoryConfiguration
     mkInventoryConfiguration,
 
     -- * Lenses
-    icOptionalFields,
-    icFilter,
-    icDestination,
-    icIsEnabled,
-    icId,
     icIncludedObjectVersions,
+    icDestination,
     icSchedule,
+    icIsEnabled,
+    icOptionalFields,
+    icId,
+    icFilter,
   )
 where
 
@@ -40,90 +40,61 @@ import Network.AWS.S3.Types.InventorySchedule
 --
 -- /See:/ 'mkInventoryConfiguration' smart constructor.
 data InventoryConfiguration = InventoryConfiguration'
-  { optionalFields ::
-      Lude.Maybe [InventoryOptionalField],
-    filter :: Lude.Maybe InventoryFilter,
+  { -- | Object versions to include in the inventory list. If set to @All@ , the list includes all the object versions, which adds the version-related fields @VersionId@ , @IsLatest@ , and @DeleteMarker@ to the list. If set to @Current@ , the list does not contain these version-related fields.
+    includedObjectVersions :: InventoryIncludedObjectVersions,
+    -- | Contains information about where to publish the inventory results.
     destination :: InventoryDestination,
+    -- | Specifies the schedule for generating inventory results.
+    schedule :: InventorySchedule,
+    -- | Specifies whether the inventory is enabled or disabled. If set to @True@ , an inventory list is generated. If set to @False@ , no inventory list is generated.
     isEnabled :: Lude.Bool,
+    -- | Contains the optional fields that are included in the inventory results.
+    optionalFields :: Lude.Maybe [InventoryOptionalField],
+    -- | The ID used to identify the inventory configuration.
     id :: Lude.Text,
-    includedObjectVersions ::
-      InventoryIncludedObjectVersions,
-    schedule :: InventorySchedule
+    -- | Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+    filter :: Lude.Maybe InventoryFilter
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryConfiguration' with the minimum fields required to make a request.
 --
--- * 'destination' - Contains information about where to publish the inventory results.
--- * 'filter' - Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
--- * 'id' - The ID used to identify the inventory configuration.
 -- * 'includedObjectVersions' - Object versions to include in the inventory list. If set to @All@ , the list includes all the object versions, which adds the version-related fields @VersionId@ , @IsLatest@ , and @DeleteMarker@ to the list. If set to @Current@ , the list does not contain these version-related fields.
+-- * 'destination' - Contains information about where to publish the inventory results.
+-- * 'schedule' - Specifies the schedule for generating inventory results.
 -- * 'isEnabled' - Specifies whether the inventory is enabled or disabled. If set to @True@ , an inventory list is generated. If set to @False@ , no inventory list is generated.
 -- * 'optionalFields' - Contains the optional fields that are included in the inventory results.
--- * 'schedule' - Specifies the schedule for generating inventory results.
+-- * 'id' - The ID used to identify the inventory configuration.
+-- * 'filter' - Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
 mkInventoryConfiguration ::
+  -- | 'includedObjectVersions'
+  InventoryIncludedObjectVersions ->
   -- | 'destination'
   InventoryDestination ->
+  -- | 'schedule'
+  InventorySchedule ->
   -- | 'isEnabled'
   Lude.Bool ->
   -- | 'id'
   Lude.Text ->
-  -- | 'includedObjectVersions'
-  InventoryIncludedObjectVersions ->
-  -- | 'schedule'
-  InventorySchedule ->
   InventoryConfiguration
 mkInventoryConfiguration
-  pDestination_
-  pIsEnabled_
-  pId_
   pIncludedObjectVersions_
-  pSchedule_ =
+  pDestination_
+  pSchedule_
+  pIsEnabled_
+  pId_ =
     InventoryConfiguration'
-      { optionalFields = Lude.Nothing,
-        filter = Lude.Nothing,
+      { includedObjectVersions =
+          pIncludedObjectVersions_,
         destination = pDestination_,
+        schedule = pSchedule_,
         isEnabled = pIsEnabled_,
+        optionalFields = Lude.Nothing,
         id = pId_,
-        includedObjectVersions = pIncludedObjectVersions_,
-        schedule = pSchedule_
+        filter = Lude.Nothing
       }
-
--- | Contains the optional fields that are included in the inventory results.
---
--- /Note:/ Consider using 'optionalFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icOptionalFields :: Lens.Lens' InventoryConfiguration (Lude.Maybe [InventoryOptionalField])
-icOptionalFields = Lens.lens (optionalFields :: InventoryConfiguration -> Lude.Maybe [InventoryOptionalField]) (\s a -> s {optionalFields = a} :: InventoryConfiguration)
-{-# DEPRECATED icOptionalFields "Use generic-lens or generic-optics with 'optionalFields' instead." #-}
-
--- | Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
---
--- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icFilter :: Lens.Lens' InventoryConfiguration (Lude.Maybe InventoryFilter)
-icFilter = Lens.lens (filter :: InventoryConfiguration -> Lude.Maybe InventoryFilter) (\s a -> s {filter = a} :: InventoryConfiguration)
-{-# DEPRECATED icFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
-
--- | Contains information about where to publish the inventory results.
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icDestination :: Lens.Lens' InventoryConfiguration InventoryDestination
-icDestination = Lens.lens (destination :: InventoryConfiguration -> InventoryDestination) (\s a -> s {destination = a} :: InventoryConfiguration)
-{-# DEPRECATED icDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
--- | Specifies whether the inventory is enabled or disabled. If set to @True@ , an inventory list is generated. If set to @False@ , no inventory list is generated.
---
--- /Note:/ Consider using 'isEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icIsEnabled :: Lens.Lens' InventoryConfiguration Lude.Bool
-icIsEnabled = Lens.lens (isEnabled :: InventoryConfiguration -> Lude.Bool) (\s a -> s {isEnabled = a} :: InventoryConfiguration)
-{-# DEPRECATED icIsEnabled "Use generic-lens or generic-optics with 'isEnabled' instead." #-}
-
--- | The ID used to identify the inventory configuration.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icId :: Lens.Lens' InventoryConfiguration Lude.Text
-icId = Lens.lens (id :: InventoryConfiguration -> Lude.Text) (\s a -> s {id = a} :: InventoryConfiguration)
-{-# DEPRECATED icId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Object versions to include in the inventory list. If set to @All@ , the list includes all the object versions, which adds the version-related fields @VersionId@ , @IsLatest@ , and @DeleteMarker@ to the list. If set to @Current@ , the list does not contain these version-related fields.
 --
@@ -132,6 +103,13 @@ icIncludedObjectVersions :: Lens.Lens' InventoryConfiguration InventoryIncludedO
 icIncludedObjectVersions = Lens.lens (includedObjectVersions :: InventoryConfiguration -> InventoryIncludedObjectVersions) (\s a -> s {includedObjectVersions = a} :: InventoryConfiguration)
 {-# DEPRECATED icIncludedObjectVersions "Use generic-lens or generic-optics with 'includedObjectVersions' instead." #-}
 
+-- | Contains information about where to publish the inventory results.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icDestination :: Lens.Lens' InventoryConfiguration InventoryDestination
+icDestination = Lens.lens (destination :: InventoryConfiguration -> InventoryDestination) (\s a -> s {destination = a} :: InventoryConfiguration)
+{-# DEPRECATED icDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
+
 -- | Specifies the schedule for generating inventory results.
 --
 -- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -139,28 +117,56 @@ icSchedule :: Lens.Lens' InventoryConfiguration InventorySchedule
 icSchedule = Lens.lens (schedule :: InventoryConfiguration -> InventorySchedule) (\s a -> s {schedule = a} :: InventoryConfiguration)
 {-# DEPRECATED icSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
+-- | Specifies whether the inventory is enabled or disabled. If set to @True@ , an inventory list is generated. If set to @False@ , no inventory list is generated.
+--
+-- /Note:/ Consider using 'isEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icIsEnabled :: Lens.Lens' InventoryConfiguration Lude.Bool
+icIsEnabled = Lens.lens (isEnabled :: InventoryConfiguration -> Lude.Bool) (\s a -> s {isEnabled = a} :: InventoryConfiguration)
+{-# DEPRECATED icIsEnabled "Use generic-lens or generic-optics with 'isEnabled' instead." #-}
+
+-- | Contains the optional fields that are included in the inventory results.
+--
+-- /Note:/ Consider using 'optionalFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icOptionalFields :: Lens.Lens' InventoryConfiguration (Lude.Maybe [InventoryOptionalField])
+icOptionalFields = Lens.lens (optionalFields :: InventoryConfiguration -> Lude.Maybe [InventoryOptionalField]) (\s a -> s {optionalFields = a} :: InventoryConfiguration)
+{-# DEPRECATED icOptionalFields "Use generic-lens or generic-optics with 'optionalFields' instead." #-}
+
+-- | The ID used to identify the inventory configuration.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icId :: Lens.Lens' InventoryConfiguration Lude.Text
+icId = Lens.lens (id :: InventoryConfiguration -> Lude.Text) (\s a -> s {id = a} :: InventoryConfiguration)
+{-# DEPRECATED icId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icFilter :: Lens.Lens' InventoryConfiguration (Lude.Maybe InventoryFilter)
+icFilter = Lens.lens (filter :: InventoryConfiguration -> Lude.Maybe InventoryFilter) (\s a -> s {filter = a} :: InventoryConfiguration)
+{-# DEPRECATED icFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+
 instance Lude.FromXML InventoryConfiguration where
   parseXML x =
     InventoryConfiguration'
-      Lude.<$> ( x Lude..@? "OptionalFields" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "IncludedObjectVersions")
+      Lude.<*> (x Lude..@ "Destination")
+      Lude.<*> (x Lude..@ "Schedule")
+      Lude.<*> (x Lude..@ "IsEnabled")
+      Lude.<*> ( x Lude..@? "OptionalFields" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "Field")
                )
-      Lude.<*> (x Lude..@? "Filter")
-      Lude.<*> (x Lude..@ "Destination")
-      Lude.<*> (x Lude..@ "IsEnabled")
       Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "IncludedObjectVersions")
-      Lude.<*> (x Lude..@ "Schedule")
+      Lude.<*> (x Lude..@? "Filter")
 
 instance Lude.ToXML InventoryConfiguration where
   toXML InventoryConfiguration' {..} =
     Lude.mconcat
-      [ "OptionalFields"
-          Lude.@= Lude.toXML (Lude.toXMLList "Field" Lude.<$> optionalFields),
-        "Filter" Lude.@= filter,
+      [ "IncludedObjectVersions" Lude.@= includedObjectVersions,
         "Destination" Lude.@= destination,
+        "Schedule" Lude.@= schedule,
         "IsEnabled" Lude.@= isEnabled,
+        "OptionalFields"
+          Lude.@= Lude.toXML (Lude.toXMLList "Field" Lude.<$> optionalFields),
         "Id" Lude.@= id,
-        "IncludedObjectVersions" Lude.@= includedObjectVersions,
-        "Schedule" Lude.@= schedule
+        "Filter" Lude.@= filter
       ]

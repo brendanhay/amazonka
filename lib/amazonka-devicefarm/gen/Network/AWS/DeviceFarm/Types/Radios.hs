@@ -31,25 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRadios' smart constructor.
 data Radios = Radios'
-  { nfc :: Lude.Maybe Lude.Bool,
+  { -- | True if NFC is enabled at the beginning of the test. Otherwise, false.
+    nfc :: Lude.Maybe Lude.Bool,
+    -- | True if GPS is enabled at the beginning of the test. Otherwise, false.
     gps :: Lude.Maybe Lude.Bool,
+    -- | True if Bluetooth is enabled at the beginning of the test. Otherwise, false.
     bluetooth :: Lude.Maybe Lude.Bool,
+    -- | True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.
     wifi :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Radios' with the minimum fields required to make a request.
 --
--- * 'bluetooth' - True if Bluetooth is enabled at the beginning of the test. Otherwise, false.
--- * 'gps' - True if GPS is enabled at the beginning of the test. Otherwise, false.
 -- * 'nfc' - True if NFC is enabled at the beginning of the test. Otherwise, false.
+-- * 'gps' - True if GPS is enabled at the beginning of the test. Otherwise, false.
+-- * 'bluetooth' - True if Bluetooth is enabled at the beginning of the test. Otherwise, false.
 -- * 'wifi' - True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.
 mkRadios ::
   Radios

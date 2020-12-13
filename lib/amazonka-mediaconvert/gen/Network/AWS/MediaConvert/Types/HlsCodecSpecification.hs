@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.HlsCodecSpecification
   ( HlsCodecSpecification
       ( HlsCodecSpecification',
-        HCSRfc4281,
-        HCSRfc6381
+        HCSRfc6381,
+        HCSRfc4281
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype HlsCodecSpecification = HlsCodecSpecification' Lude.Text
       Lude.ToHeader
     )
 
-pattern HCSRfc4281 :: HlsCodecSpecification
-pattern HCSRfc4281 = HlsCodecSpecification' "RFC_4281"
-
 pattern HCSRfc6381 :: HlsCodecSpecification
 pattern HCSRfc6381 = HlsCodecSpecification' "RFC_6381"
 
+pattern HCSRfc4281 :: HlsCodecSpecification
+pattern HCSRfc4281 = HlsCodecSpecification' "RFC_4281"
+
 {-# COMPLETE
-  HCSRfc4281,
   HCSRfc6381,
+  HCSRfc4281,
   HlsCodecSpecification'
   #-}

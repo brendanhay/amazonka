@@ -36,37 +36,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrialComponentMetricSummary' smart constructor.
 data TrialComponentMetricSummary = TrialComponentMetricSummary'
-  { max ::
-      Lude.Maybe Lude.Double,
+  { -- | The maximum value of the metric.
+    max :: Lude.Maybe Lude.Double,
+    -- | The Amazon Resource Name (ARN) of the source.
     sourceARN :: Lude.Maybe Lude.Text,
+    -- | The average value of the metric.
     avg :: Lude.Maybe Lude.Double,
+    -- | The number of samples used to generate the metric.
     count :: Lude.Maybe Lude.Int,
+    -- | The name of the metric.
     metricName :: Lude.Maybe Lude.Text,
+    -- | The standard deviation of the metric.
     stdDev :: Lude.Maybe Lude.Double,
+    -- | The minimum value of the metric.
     min :: Lude.Maybe Lude.Double,
+    -- | The most recent value of the metric.
     last :: Lude.Maybe Lude.Double,
-    timeStamp ::
-      Lude.Maybe Lude.Timestamp
+    -- | When the metric was last updated.
+    timeStamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentMetricSummary' with the minimum fields required to make a request.
 --
+-- * 'max' - The maximum value of the metric.
+-- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
 -- * 'avg' - The average value of the metric.
 -- * 'count' - The number of samples used to generate the metric.
--- * 'last' - The most recent value of the metric.
--- * 'max' - The maximum value of the metric.
 -- * 'metricName' - The name of the metric.
--- * 'min' - The minimum value of the metric.
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
 -- * 'stdDev' - The standard deviation of the metric.
+-- * 'min' - The minimum value of the metric.
+-- * 'last' - The most recent value of the metric.
 -- * 'timeStamp' - When the metric was last updated.
 mkTrialComponentMetricSummary ::
   TrialComponentMetricSummary

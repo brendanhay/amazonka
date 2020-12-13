@@ -33,19 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancerInfo' smart constructor.
 data LoadBalancerInfo = LoadBalancerInfo'
-  { elbInfoList ::
-      Lude.Maybe [ELBInfo],
+  { -- | An array that contains information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
+    elbInfoList :: Lude.Maybe [ELBInfo],
+    -- | An array that contains information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
     targetGroupInfoList :: Lude.Maybe [TargetGroupInfo],
-    targetGroupPairInfoList ::
-      Lude.Maybe [TargetGroupPairInfo]
+    -- | The target group pair information. This is an array of @TargeGroupPairInfo@ objects with a maximum size of one.
+    targetGroupPairInfoList :: Lude.Maybe [TargetGroupPairInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerInfo' with the minimum fields required to make a request.

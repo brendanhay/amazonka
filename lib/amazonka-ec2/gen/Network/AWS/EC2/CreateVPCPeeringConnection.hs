@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,36 +48,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateVPCPeeringConnection' smart constructor.
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-  { peerVPCId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+    peerVPCId :: Lude.Maybe Lude.Text,
+    -- | The ID of the requester VPC. You must specify this parameter in the request.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID of the owner of the accepter VPC.
+    --
+    -- Default: Your AWS account ID
     peerOwnerId :: Lude.Maybe Lude.Text,
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
+    -- | The tags to assign to the peering connection.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
+    --
+    -- Default: The Region in which you make the request.
     peerRegion :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCPeeringConnection' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'peerVPCId' - The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
+-- * 'vpcId' - The ID of the requester VPC. You must specify this parameter in the request.
 -- * 'peerOwnerId' - The AWS account ID of the owner of the accepter VPC.
 --
 -- Default: Your AWS account ID
+-- * 'tagSpecifications' - The tags to assign to the peering connection.
 -- * 'peerRegion' - The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
 --
 -- Default: The Region in which you make the request.
--- * 'peerVPCId' - The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
--- * 'tagSpecifications' - The tags to assign to the peering connection.
--- * 'vpcId' - The ID of the requester VPC. You must specify this parameter in the request.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateVPCPeeringConnection ::
   CreateVPCPeeringConnection
 mkCreateVPCPeeringConnection =
@@ -171,25 +174,18 @@ instance Lude.ToQuery CreateVPCPeeringConnection where
 
 -- | /See:/ 'mkCreateVPCPeeringConnectionResponse' smart constructor.
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
-  { vpcPeeringConnection ::
-      Lude.Maybe
-        VPCPeeringConnection,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the VPC peering connection.
+    vpcPeeringConnection :: Lude.Maybe VPCPeeringConnection,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCPeeringConnectionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpcPeeringConnection' - Information about the VPC peering connection.
+-- * 'responseStatus' - The response status code.
 mkCreateVPCPeeringConnectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

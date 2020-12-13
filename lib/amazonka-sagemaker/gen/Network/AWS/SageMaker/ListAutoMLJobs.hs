@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,9 +38,9 @@ module Network.AWS.SageMaker.ListAutoMLJobs
     mkListAutoMLJobsResponse,
 
     -- ** Response lenses
+    lamljrsAutoMLJobSummaries,
     lamljrsNextToken,
     lamljrsResponseStatus,
-    lamljrsAutoMLJobSummaries,
   )
 where
 
@@ -52,39 +53,42 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListAutoMLJobs' smart constructor.
 data ListAutoMLJobs = ListAutoMLJobs'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | Request a list of jobs, using a search filter for name.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | Request a list of jobs, using a filter for time.
     lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | Request a list of jobs, using a filter for time.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for the results. The default is Descending.
     sortOrder :: Lude.Maybe AutoMLSortOrder,
+    -- | Request a list of jobs, using a filter for time.
     lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Request a list of jobs, using a filter for time.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | Request a list of jobs, using a filter for status.
     statusEquals :: Lude.Maybe AutoMLJobStatus,
+    -- | Request a list of jobs up to a specified limit.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The parameter by which to sort the results. The default is AutoMLJobName.
     sortBy :: Lude.Maybe AutoMLSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAutoMLJobs' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - Request a list of jobs, using a filter for time.
--- * 'creationTimeBefore' - Request a list of jobs, using a filter for time.
--- * 'lastModifiedTimeAfter' - Request a list of jobs, using a filter for time.
--- * 'lastModifiedTimeBefore' - Request a list of jobs, using a filter for time.
--- * 'maxResults' - Request a list of jobs up to a specified limit.
 -- * 'nameContains' - Request a list of jobs, using a search filter for name.
+-- * 'lastModifiedTimeBefore' - Request a list of jobs, using a filter for time.
+-- * 'creationTimeAfter' - Request a list of jobs, using a filter for time.
 -- * 'nextToken' - If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
--- * 'sortBy' - The parameter by which to sort the results. The default is AutoMLJobName.
 -- * 'sortOrder' - The sort order for the results. The default is Descending.
+-- * 'lastModifiedTimeAfter' - Request a list of jobs, using a filter for time.
+-- * 'creationTimeBefore' - Request a list of jobs, using a filter for time.
 -- * 'statusEquals' - Request a list of jobs, using a filter for status.
+-- * 'maxResults' - Request a list of jobs up to a specified limit.
+-- * 'sortBy' - The parameter by which to sort the results. The default is AutoMLJobName.
 mkListAutoMLJobs ::
   ListAutoMLJobs
 mkListAutoMLJobs =
@@ -187,9 +191,9 @@ instance Lude.AWSRequest ListAutoMLJobs where
     Res.receiveJSON
       ( \s h x ->
           ListAutoMLJobsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "AutoMLJobSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "AutoMLJobSummaries" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListAutoMLJobs where
@@ -228,18 +232,14 @@ instance Lude.ToQuery ListAutoMLJobs where
 
 -- | /See:/ 'mkListAutoMLJobsResponse' smart constructor.
 data ListAutoMLJobsResponse = ListAutoMLJobsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    autoMLJobSummaries :: [AutoMLJobSummary]
+  { -- | Returns a summary list of jobs.
+    autoMLJobSummaries :: [AutoMLJobSummary],
+    -- | If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAutoMLJobsResponse' with the minimum fields required to make a request.
@@ -253,10 +253,17 @@ mkListAutoMLJobsResponse ::
   ListAutoMLJobsResponse
 mkListAutoMLJobsResponse pResponseStatus_ =
   ListAutoMLJobsResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      autoMLJobSummaries = Lude.mempty
+    { autoMLJobSummaries = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | Returns a summary list of jobs.
+--
+-- /Note:/ Consider using 'autoMLJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamljrsAutoMLJobSummaries :: Lens.Lens' ListAutoMLJobsResponse [AutoMLJobSummary]
+lamljrsAutoMLJobSummaries = Lens.lens (autoMLJobSummaries :: ListAutoMLJobsResponse -> [AutoMLJobSummary]) (\s a -> s {autoMLJobSummaries = a} :: ListAutoMLJobsResponse)
+{-# DEPRECATED lamljrsAutoMLJobSummaries "Use generic-lens or generic-optics with 'autoMLJobSummaries' instead." #-}
 
 -- | If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
 --
@@ -271,10 +278,3 @@ lamljrsNextToken = Lens.lens (nextToken :: ListAutoMLJobsResponse -> Lude.Maybe 
 lamljrsResponseStatus :: Lens.Lens' ListAutoMLJobsResponse Lude.Int
 lamljrsResponseStatus = Lens.lens (responseStatus :: ListAutoMLJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAutoMLJobsResponse)
 {-# DEPRECATED lamljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Returns a summary list of jobs.
---
--- /Note:/ Consider using 'autoMLJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamljrsAutoMLJobSummaries :: Lens.Lens' ListAutoMLJobsResponse [AutoMLJobSummary]
-lamljrsAutoMLJobSummaries = Lens.lens (autoMLJobSummaries :: ListAutoMLJobsResponse -> [AutoMLJobSummary]) (\s a -> s {autoMLJobSummaries = a} :: ListAutoMLJobsResponse)
-{-# DEPRECATED lamljrsAutoMLJobSummaries "Use generic-lens or generic-optics with 'autoMLJobSummaries' instead." #-}

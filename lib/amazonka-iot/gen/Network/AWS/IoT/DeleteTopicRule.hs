@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoT.DeleteTopicRule
     mkDeleteTopicRule,
 
     -- ** Request lenses
-    dRuleName,
+    dtrRuleName,
 
     -- * Destructuring the response
     DeleteTopicRuleResponse (..),
@@ -36,14 +37,11 @@ import qualified Network.AWS.Response as Res
 -- | The input for the DeleteTopicRule operation.
 --
 -- /See:/ 'mkDeleteTopicRule' smart constructor.
-newtype DeleteTopicRule = DeleteTopicRule' {ruleName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteTopicRule = DeleteTopicRule'
+  { -- | The name of the rule.
+    ruleName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTopicRule' with the minimum fields required to make a request.
@@ -59,9 +57,9 @@ mkDeleteTopicRule pRuleName_ =
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRuleName :: Lens.Lens' DeleteTopicRule Lude.Text
-dRuleName = Lens.lens (ruleName :: DeleteTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: DeleteTopicRule)
-{-# DEPRECATED dRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
+dtrRuleName :: Lens.Lens' DeleteTopicRule Lude.Text
+dtrRuleName = Lens.lens (ruleName :: DeleteTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: DeleteTopicRule)
+{-# DEPRECATED dtrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 instance Lude.AWSRequest DeleteTopicRule where
   type Rs DeleteTopicRule = DeleteTopicRuleResponse
@@ -80,13 +78,7 @@ instance Lude.ToQuery DeleteTopicRule where
 
 -- | /See:/ 'mkDeleteTopicRuleResponse' smart constructor.
 data DeleteTopicRuleResponse = DeleteTopicRuleResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTopicRuleResponse' with the minimum fields required to make a request.

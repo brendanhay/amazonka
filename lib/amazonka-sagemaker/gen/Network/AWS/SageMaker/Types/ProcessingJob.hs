@@ -58,63 +58,72 @@ import Network.AWS.SageMaker.Types.Tag
 --
 -- /See:/ 'mkProcessingJob' smart constructor.
 data ProcessingJob = ProcessingJob'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time the processing job was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
     failureReason :: Lude.Maybe Lude.Text,
+    -- | The ARN of a monitoring schedule for an endpoint associated with this processing job.
     monitoringScheduleARN :: Lude.Maybe Lude.Text,
     appSpecification :: Lude.Maybe AppSpecification,
     processingResources :: Lude.Maybe ProcessingResources,
+    -- | Sets the environment variables in the Docker container.
     environment :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the processing job.
     processingJobName :: Lude.Maybe Lude.Text,
     stoppingCondition :: Lude.Maybe ProcessingStoppingCondition,
     experimentConfig :: Lude.Maybe ExperimentConfig,
+    -- | The time the processing job was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
     processingInputs :: Lude.Maybe [ProcessingInput],
     networkConfig :: Lude.Maybe NetworkConfig,
+    -- | The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.
     autoMLJobARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the training job associated with this processing job.
     trainingJobARN :: Lude.Maybe Lude.Text,
+    -- | The status of the processing job.
     processingJobStatus :: Lude.Maybe ProcessingJobStatus,
+    -- | A string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
     exitMessage :: Lude.Maybe Lude.Text,
     processingOutputConfig :: Lude.Maybe ProcessingOutputConfig,
+    -- | The time that the processing job started.
     processingStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time that the processing job ended.
     processingEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
     tags :: Lude.Maybe [Tag],
+    -- | The ARN of the processing job.
     processingJobARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role used to create the processing job.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingJob' with the minimum fields required to make a request.
 --
--- * 'appSpecification' - Undocumented field.
--- * 'autoMLJobARN' - The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.
 -- * 'creationTime' - The time the processing job was created.
--- * 'environment' - Sets the environment variables in the Docker container.
--- * 'exitMessage' - A string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
--- * 'experimentConfig' - Undocumented field.
 -- * 'failureReason' - A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
--- * 'lastModifiedTime' - The time the processing job was last modified.
 -- * 'monitoringScheduleARN' - The ARN of a monitoring schedule for an endpoint associated with this processing job.
--- * 'networkConfig' - Undocumented field.
--- * 'processingEndTime' - The time that the processing job ended.
--- * 'processingInputs' - For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
--- * 'processingJobARN' - The ARN of the processing job.
+-- * 'appSpecification' -
+-- * 'processingResources' -
+-- * 'environment' - Sets the environment variables in the Docker container.
 -- * 'processingJobName' - The name of the processing job.
--- * 'processingJobStatus' - The status of the processing job.
--- * 'processingOutputConfig' - Undocumented field.
--- * 'processingResources' - Undocumented field.
--- * 'processingStartTime' - The time that the processing job started.
--- * 'roleARN' - The ARN of the role used to create the processing job.
--- * 'stoppingCondition' - Undocumented field.
--- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- * 'stoppingCondition' -
+-- * 'experimentConfig' -
+-- * 'lastModifiedTime' - The time the processing job was last modified.
+-- * 'processingInputs' - For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
+-- * 'networkConfig' -
+-- * 'autoMLJobARN' - The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.
 -- * 'trainingJobARN' - The ARN of the training job associated with this processing job.
+-- * 'processingJobStatus' - The status of the processing job.
+-- * 'exitMessage' - A string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
+-- * 'processingOutputConfig' -
+-- * 'processingStartTime' - The time that the processing job started.
+-- * 'processingEndTime' - The time that the processing job ended.
+-- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- * 'processingJobARN' - The ARN of the processing job.
+-- * 'roleARN' - The ARN of the role used to create the processing job.
 mkProcessingJob ::
   ProcessingJob
 mkProcessingJob =

@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkId3Insertion' smart constructor.
 data Id3Insertion = Id3Insertion'
-  { id3 :: Lude.Maybe Lude.Text,
+  { -- | Use ID3 tag (Id3) to provide a tag value in base64-encode format.
+    id3 :: Lude.Maybe Lude.Text,
+    -- | Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
     timecode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Id3Insertion' with the minimum fields required to make a request.

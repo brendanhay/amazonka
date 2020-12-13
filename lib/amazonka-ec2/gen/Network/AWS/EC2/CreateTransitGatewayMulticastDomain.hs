@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.EC2.CreateTransitGatewayMulticastDomain
 
     -- ** Request lenses
     ctgmdTagSpecifications,
-    ctgmdDryRun,
     ctgmdTransitGatewayId,
+    ctgmdDryRun,
 
     -- * Destructuring the response
     CreateTransitGatewayMulticastDomainResponse (..),
@@ -43,29 +44,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTransitGatewayMulticastDomain' smart constructor.
 data CreateTransitGatewayMulticastDomain = CreateTransitGatewayMulticastDomain'
-  { tagSpecifications ::
-      Lude.Maybe
-        [TagSpecification],
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    transitGatewayId ::
-      Lude.Text
+  { -- | The tags for the transit gateway multicast domain.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The ID of the transit gateway.
+    transitGatewayId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayMulticastDomain' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'tagSpecifications' - The tags for the transit gateway multicast domain.
 -- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateTransitGatewayMulticastDomain ::
   -- | 'transitGatewayId'
   Lude.Text ->
@@ -74,8 +67,8 @@ mkCreateTransitGatewayMulticastDomain pTransitGatewayId_ =
   CreateTransitGatewayMulticastDomain'
     { tagSpecifications =
         Lude.Nothing,
-      dryRun = Lude.Nothing,
-      transitGatewayId = pTransitGatewayId_
+      transitGatewayId = pTransitGatewayId_,
+      dryRun = Lude.Nothing
     }
 
 -- | The tags for the transit gateway multicast domain.
@@ -85,19 +78,19 @@ ctgmdTagSpecifications :: Lens.Lens' CreateTransitGatewayMulticastDomain (Lude.M
 ctgmdTagSpecifications = Lens.lens (tagSpecifications :: CreateTransitGatewayMulticastDomain -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateTransitGatewayMulticastDomain)
 {-# DEPRECATED ctgmdTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgmdDryRun :: Lens.Lens' CreateTransitGatewayMulticastDomain (Lude.Maybe Lude.Bool)
-ctgmdDryRun = Lens.lens (dryRun :: CreateTransitGatewayMulticastDomain -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGatewayMulticastDomain)
-{-# DEPRECATED ctgmdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The ID of the transit gateway.
 --
 -- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ctgmdTransitGatewayId :: Lens.Lens' CreateTransitGatewayMulticastDomain Lude.Text
 ctgmdTransitGatewayId = Lens.lens (transitGatewayId :: CreateTransitGatewayMulticastDomain -> Lude.Text) (\s a -> s {transitGatewayId = a} :: CreateTransitGatewayMulticastDomain)
 {-# DEPRECATED ctgmdTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgmdDryRun :: Lens.Lens' CreateTransitGatewayMulticastDomain (Lude.Maybe Lude.Bool)
+ctgmdDryRun = Lens.lens (dryRun :: CreateTransitGatewayMulticastDomain -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGatewayMulticastDomain)
+{-# DEPRECATED ctgmdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateTransitGatewayMulticastDomain where
   type
@@ -126,31 +119,24 @@ instance Lude.ToQuery CreateTransitGatewayMulticastDomain where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
-        "TransitGatewayId" Lude.=: transitGatewayId
+        "TransitGatewayId" Lude.=: transitGatewayId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateTransitGatewayMulticastDomainResponse' smart constructor.
 data CreateTransitGatewayMulticastDomainResponse = CreateTransitGatewayMulticastDomainResponse'
-  { transitGatewayMulticastDomain ::
-      Lude.Maybe
-        TransitGatewayMulticastDomain,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the transit gateway multicast domain.
+    transitGatewayMulticastDomain :: Lude.Maybe TransitGatewayMulticastDomain,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayMulticastDomainResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'transitGatewayMulticastDomain' - Information about the transit gateway multicast domain.
+-- * 'responseStatus' - The response status code.
 mkCreateTransitGatewayMulticastDomainResponse ::
   -- | 'responseStatus'
   Lude.Int ->

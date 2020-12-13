@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.GuardDuty.ListMembers
     -- ** Request lenses
     lmOnlyAssociated,
     lmNextToken,
-    lmMaxResults,
     lmDetectorId,
+    lmMaxResults,
 
     -- * Destructuring the response
     ListMembersResponse (..),
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListMembers' smart constructor.
 data ListMembers = ListMembers'
-  { onlyAssociated ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).
+    onlyAssociated :: Lude.Maybe Lude.Text,
+    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    detectorId :: Lude.Text
+    -- | The unique ID of the detector the member is associated with.
+    detectorId :: Lude.Text,
+    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMembers' with the minimum fields required to make a request.
 --
+-- * 'onlyAssociated' - Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).
+-- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
 -- * 'detectorId' - The unique ID of the detector the member is associated with.
 -- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
--- * 'onlyAssociated' - Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).
 mkListMembers ::
   -- | 'detectorId'
   Lude.Text ->
@@ -75,8 +73,8 @@ mkListMembers pDetectorId_ =
   ListMembers'
     { onlyAssociated = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      detectorId = pDetectorId_
+      detectorId = pDetectorId_,
+      maxResults = Lude.Nothing
     }
 
 -- | Specifies whether to only return associated members or to return all members (including members who haven't been invited yet or have been disassociated).
@@ -93,19 +91,19 @@ lmNextToken :: Lens.Lens' ListMembers (Lude.Maybe Lude.Text)
 lmNextToken = Lens.lens (nextToken :: ListMembers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMembers)
 {-# DEPRECATED lmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmMaxResults :: Lens.Lens' ListMembers (Lude.Maybe Lude.Natural)
-lmMaxResults = Lens.lens (maxResults :: ListMembers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMembers)
-{-# DEPRECATED lmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The unique ID of the detector the member is associated with.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lmDetectorId :: Lens.Lens' ListMembers Lude.Text
 lmDetectorId = Lens.lens (detectorId :: ListMembers -> Lude.Text) (\s a -> s {detectorId = a} :: ListMembers)
 {-# DEPRECATED lmDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
+-- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmMaxResults :: Lens.Lens' ListMembers (Lude.Maybe Lude.Natural)
+lmMaxResults = Lens.lens (maxResults :: ListMembers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMembers)
+{-# DEPRECATED lmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListMembers where
   page rq rs
@@ -151,18 +149,14 @@ instance Lude.ToQuery ListMembers where
 
 -- | /See:/ 'mkListMembersResponse' smart constructor.
 data ListMembersResponse = ListMembersResponse'
-  { members ::
-      Lude.Maybe [Member],
+  { -- | A list of members.
+    members :: Lude.Maybe [Member],
+    -- | The pagination parameter to be used on the next list operation to retrieve more items.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMembersResponse' with the minimum fields required to make a request.

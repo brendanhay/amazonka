@@ -13,9 +13,9 @@
 module Network.AWS.Batch.Types.DeviceCgroupPermission
   ( DeviceCgroupPermission
       ( DeviceCgroupPermission',
-        Mknod,
         Read,
-        Write
+        Write,
+        Mknod
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DeviceCgroupPermission = DeviceCgroupPermission' Lude.Text
       Lude.ToHeader
     )
 
-pattern Mknod :: DeviceCgroupPermission
-pattern Mknod = DeviceCgroupPermission' "MKNOD"
-
 pattern Read :: DeviceCgroupPermission
 pattern Read = DeviceCgroupPermission' "READ"
 
 pattern Write :: DeviceCgroupPermission
 pattern Write = DeviceCgroupPermission' "WRITE"
 
+pattern Mknod :: DeviceCgroupPermission
+pattern Mknod = DeviceCgroupPermission' "MKNOD"
+
 {-# COMPLETE
-  Mknod,
   Read,
   Write,
+  Mknod,
   DeviceCgroupPermission'
   #-}

@@ -29,16 +29,66 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLimit' smart constructor.
 data Limit = Limit'
-  { max :: Lude.Maybe Lude.Text,
+  { -- | The maximum value of the limit.
+    max :: Lude.Maybe Lude.Text,
+    -- | The name of the limit. The possible values are:
+    --
+    --
+    --     * application-load-balancers
+    --
+    --
+    --     * condition-values-per-alb-rule
+    --
+    --
+    --     * condition-wildcards-per-alb-rule
+    --
+    --
+    --     * gateway-load-balancers
+    --
+    --
+    --     * gateway-load-balancers-per-vpc
+    --
+    --
+    --     * geneve-target-groups
+    --
+    --
+    --     * listeners-per-application-load-balancer
+    --
+    --
+    --     * listeners-per-network-load-balancer
+    --
+    --
+    --     * network-load-balancers
+    --
+    --
+    --     * rules-per-application-load-balancer
+    --
+    --
+    --     * target-groups
+    --
+    --
+    --     * target-groups-per-action-on-application-load-balancer
+    --
+    --
+    --     * target-groups-per-action-on-network-load-balancer
+    --
+    --
+    --     * target-groups-per-application-load-balancer
+    --
+    --
+    --     * targets-per-application-load-balancer
+    --
+    --
+    --     * targets-per-availability-zone-per-gateway-load-balancer
+    --
+    --
+    --     * targets-per-availability-zone-per-network-load-balancer
+    --
+    --
+    --     * targets-per-network-load-balancer
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Limit' with the minimum fields required to make a request.

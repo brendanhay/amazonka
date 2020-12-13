@@ -13,11 +13,11 @@
 module Network.AWS.Glue.Types.WorkflowRunStatus
   ( WorkflowRunStatus
       ( WorkflowRunStatus',
-        WRSCompleted,
-        WRSError,
         WRSRunning,
+        WRSCompleted,
+        WRSStopping,
         WRSStopped,
-        WRSStopping
+        WRSError
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype WorkflowRunStatus = WorkflowRunStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern WRSCompleted :: WorkflowRunStatus
-pattern WRSCompleted = WorkflowRunStatus' "COMPLETED"
-
-pattern WRSError :: WorkflowRunStatus
-pattern WRSError = WorkflowRunStatus' "ERROR"
-
 pattern WRSRunning :: WorkflowRunStatus
 pattern WRSRunning = WorkflowRunStatus' "RUNNING"
 
-pattern WRSStopped :: WorkflowRunStatus
-pattern WRSStopped = WorkflowRunStatus' "STOPPED"
+pattern WRSCompleted :: WorkflowRunStatus
+pattern WRSCompleted = WorkflowRunStatus' "COMPLETED"
 
 pattern WRSStopping :: WorkflowRunStatus
 pattern WRSStopping = WorkflowRunStatus' "STOPPING"
 
+pattern WRSStopped :: WorkflowRunStatus
+pattern WRSStopped = WorkflowRunStatus' "STOPPED"
+
+pattern WRSError :: WorkflowRunStatus
+pattern WRSError = WorkflowRunStatus' "ERROR"
+
 {-# COMPLETE
-  WRSCompleted,
-  WRSError,
   WRSRunning,
-  WRSStopped,
+  WRSCompleted,
   WRSStopping,
+  WRSStopped,
+  WRSError,
   WorkflowRunStatus'
   #-}

@@ -38,21 +38,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMicrosoftSQLServerSettings' smart constructor.
 data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
-  { bcpPacketSize ::
-      Lude.Maybe Lude.Int,
-    useBcpFullLoad ::
-      Lude.Maybe Lude.Bool,
+  { -- | The maximum size of the packets (in bytes) used to transfer data using BCP.
+    bcpPacketSize :: Lude.Maybe Lude.Int,
+    -- | Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+    useBcpFullLoad :: Lude.Maybe Lude.Bool,
+    -- | Fully qualified domain name of the endpoint.
     serverName :: Lude.Maybe Lude.Text,
+    -- | Endpoint connection user name.
     username :: Lude.Maybe Lude.Text,
-    safeguardPolicy ::
-      Lude.Maybe SafeguardPolicy,
-    password ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
+    --
+    -- /Start transactions in the database:/ This is the default method. When this method is used, AWS DMS prevents TLOG truncation by mimicking a transaction in the database. As long as such a transaction is open, changes that appear after the transaction started aren't truncated. If you need Microsoft Replication to be enabled in your database, then you must choose this method.
+    -- /Exclusively use sp_repldone within a single task/ : When this method is used, AWS DMS reads the changes and then uses sp_repldone to mark the TLOG transactions as ready for truncation. Although this method doesn't involve any transactional activities, it can only be used when Microsoft Replication isn't running. Also, when using this method, only one AWS DMS task can access the database at any given time. Therefore, if you need to run parallel AWS DMS tasks against the same database, use the default method.
+    safeguardPolicy :: Lude.Maybe SafeguardPolicy,
+    -- | Endpoint connection password.
+    password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Database name for the endpoint.
     databaseName :: Lude.Maybe Lude.Text,
-    readBackupOnly ::
-      Lude.Maybe Lude.Bool,
-    controlTablesFileGroup ::
-      Lude.Maybe Lude.Text,
+    -- | When this attribute is set to @Y@ , AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to @Y@ enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+    readBackupOnly :: Lude.Maybe Lude.Bool,
+    -- | Specify a filegroup for the AWS DMS internal tables. When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created on the specified filegroup.
+    controlTablesFileGroup :: Lude.Maybe Lude.Text,
+    -- | Endpoint TCP port.
     port :: Lude.Maybe Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -61,18 +68,18 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
 -- | Creates a value of 'MicrosoftSQLServerSettings' with the minimum fields required to make a request.
 --
 -- * 'bcpPacketSize' - The maximum size of the packets (in bytes) used to transfer data using BCP.
--- * 'controlTablesFileGroup' - Specify a filegroup for the AWS DMS internal tables. When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created on the specified filegroup.
--- * 'databaseName' - Database name for the endpoint.
--- * 'password' - Endpoint connection password.
--- * 'port' - Endpoint TCP port.
--- * 'readBackupOnly' - When this attribute is set to @Y@ , AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to @Y@ enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+-- * 'useBcpFullLoad' - Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+-- * 'serverName' - Fully qualified domain name of the endpoint.
+-- * 'username' - Endpoint connection user name.
 -- * 'safeguardPolicy' - Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
 --
 -- /Start transactions in the database:/ This is the default method. When this method is used, AWS DMS prevents TLOG truncation by mimicking a transaction in the database. As long as such a transaction is open, changes that appear after the transaction started aren't truncated. If you need Microsoft Replication to be enabled in your database, then you must choose this method.
 -- /Exclusively use sp_repldone within a single task/ : When this method is used, AWS DMS reads the changes and then uses sp_repldone to mark the TLOG transactions as ready for truncation. Although this method doesn't involve any transactional activities, it can only be used when Microsoft Replication isn't running. Also, when using this method, only one AWS DMS task can access the database at any given time. Therefore, if you need to run parallel AWS DMS tasks against the same database, use the default method.
--- * 'serverName' - Fully qualified domain name of the endpoint.
--- * 'useBcpFullLoad' - Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
--- * 'username' - Endpoint connection user name.
+-- * 'password' - Endpoint connection password.
+-- * 'databaseName' - Database name for the endpoint.
+-- * 'readBackupOnly' - When this attribute is set to @Y@ , AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to @Y@ enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+-- * 'controlTablesFileGroup' - Specify a filegroup for the AWS DMS internal tables. When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created on the specified filegroup.
+-- * 'port' - Endpoint TCP port.
 mkMicrosoftSQLServerSettings ::
   MicrosoftSQLServerSettings
 mkMicrosoftSQLServerSettings =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
 
     -- ** Request lenses
     dsfFilterNamePrefix,
+    dsfLogGroupName,
     dsfNextToken,
     dsfLimit,
-    dsfLogGroupName,
 
     -- * Destructuring the response
     DescribeSubscriptionFiltersResponse (..),
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSubscriptionFilters' smart constructor.
 data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
-  { filterNamePrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix to match. If you don't specify a value, no prefix filter is applied.
+    filterNamePrefix :: Lude.Maybe Lude.Text,
+    -- | The name of the log group.
+    logGroupName :: Lude.Text,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    logGroupName :: Lude.Text
+    -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubscriptionFilters' with the minimum fields required to make a request.
 --
 -- * 'filterNamePrefix' - The prefix to match. If you don't specify a value, no prefix filter is applied.
--- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 -- * 'logGroupName' - The name of the log group.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 mkDescribeSubscriptionFilters ::
   -- | 'logGroupName'
   Lude.Text ->
@@ -74,9 +72,9 @@ mkDescribeSubscriptionFilters ::
 mkDescribeSubscriptionFilters pLogGroupName_ =
   DescribeSubscriptionFilters'
     { filterNamePrefix = Lude.Nothing,
+      logGroupName = pLogGroupName_,
       nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      logGroupName = pLogGroupName_
+      limit = Lude.Nothing
     }
 
 -- | The prefix to match. If you don't specify a value, no prefix filter is applied.
@@ -85,6 +83,13 @@ mkDescribeSubscriptionFilters pLogGroupName_ =
 dsfFilterNamePrefix :: Lens.Lens' DescribeSubscriptionFilters (Lude.Maybe Lude.Text)
 dsfFilterNamePrefix = Lens.lens (filterNamePrefix :: DescribeSubscriptionFilters -> Lude.Maybe Lude.Text) (\s a -> s {filterNamePrefix = a} :: DescribeSubscriptionFilters)
 {-# DEPRECATED dsfFilterNamePrefix "Use generic-lens or generic-optics with 'filterNamePrefix' instead." #-}
+
+-- | The name of the log group.
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfLogGroupName :: Lens.Lens' DescribeSubscriptionFilters Lude.Text
+dsfLogGroupName = Lens.lens (logGroupName :: DescribeSubscriptionFilters -> Lude.Text) (\s a -> s {logGroupName = a} :: DescribeSubscriptionFilters)
+{-# DEPRECATED dsfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -99,13 +104,6 @@ dsfNextToken = Lens.lens (nextToken :: DescribeSubscriptionFilters -> Lude.Maybe
 dsfLimit :: Lens.Lens' DescribeSubscriptionFilters (Lude.Maybe Lude.Natural)
 dsfLimit = Lens.lens (limit :: DescribeSubscriptionFilters -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeSubscriptionFilters)
 {-# DEPRECATED dsfLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The name of the log group.
---
--- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfLogGroupName :: Lens.Lens' DescribeSubscriptionFilters Lude.Text
-dsfLogGroupName = Lens.lens (logGroupName :: DescribeSubscriptionFilters -> Lude.Text) (\s a -> s {logGroupName = a} :: DescribeSubscriptionFilters)
-{-# DEPRECATED dsfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 instance Page.AWSPager DescribeSubscriptionFilters where
   page rq rs
@@ -146,9 +144,9 @@ instance Lude.ToJSON DescribeSubscriptionFilters where
     Lude.object
       ( Lude.catMaybes
           [ ("filterNamePrefix" Lude..=) Lude.<$> filterNamePrefix,
+            Lude.Just ("logGroupName" Lude..= logGroupName),
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("logGroupName" Lude..= logGroupName)
+            ("limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -160,29 +158,20 @@ instance Lude.ToQuery DescribeSubscriptionFilters where
 
 -- | /See:/ 'mkDescribeSubscriptionFiltersResponse' smart constructor.
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
-  { subscriptionFilters ::
-      Lude.Maybe
-        [SubscriptionFilter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The subscription filters.
+    subscriptionFilters :: Lude.Maybe [SubscriptionFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubscriptionFiltersResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
--- * 'responseStatus' - The response status code.
 -- * 'subscriptionFilters' - The subscription filters.
+-- * 'nextToken' -
+-- * 'responseStatus' - The response status code.
 mkDescribeSubscriptionFiltersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

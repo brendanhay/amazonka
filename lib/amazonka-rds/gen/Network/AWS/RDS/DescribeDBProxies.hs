@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,30 +47,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDBProxies' smart constructor.
 data DescribeDBProxies = DescribeDBProxies'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | This parameter is not currently supported.
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Natural,
+    -- | The name of the DB proxy.
     dbProxyName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBProxies' with the minimum fields required to make a request.
 --
--- * 'dbProxyName' - The name of the DB proxy.
 -- * 'filters' - This parameter is not currently supported.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 -- Constraints: Minimum 20, maximum 100.
+-- * 'dbProxyName' - The name of the DB proxy.
 mkDescribeDBProxies ::
   DescribeDBProxies
 mkDescribeDBProxies =
@@ -155,18 +156,14 @@ instance Lude.ToQuery DescribeDBProxies where
 
 -- | /See:/ 'mkDescribeDBProxiesResponse' smart constructor.
 data DescribeDBProxiesResponse = DescribeDBProxiesResponse'
-  { dbProxies ::
-      Lude.Maybe [DBProxy],
+  { -- | A return value representing an arbitrary number of @DBProxy@ data structures.
+    dbProxies :: Lude.Maybe [DBProxy],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBProxiesResponse' with the minimum fields required to make a request.

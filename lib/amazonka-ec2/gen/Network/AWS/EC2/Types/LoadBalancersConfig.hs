@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancersConfig' smart constructor.
 data LoadBalancersConfig = LoadBalancersConfig'
-  { classicLoadBalancersConfig ::
-      Lude.Maybe ClassicLoadBalancersConfig,
+  { -- | The Classic Load Balancers.
+    classicLoadBalancersConfig :: Lude.Maybe ClassicLoadBalancersConfig,
+    -- | The target groups.
     targetGroupsConfig :: Lude.Maybe TargetGroupsConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancersConfig' with the minimum fields required to make a request.

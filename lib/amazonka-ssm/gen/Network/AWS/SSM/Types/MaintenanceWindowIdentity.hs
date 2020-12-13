@@ -39,22 +39,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMaintenanceWindowIdentity' smart constructor.
 data MaintenanceWindowIdentity = MaintenanceWindowIdentity'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether the maintenance window is enabled.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The schedule of the maintenance window in the form of a cron or rate expression.
     schedule :: Lude.Maybe Lude.Text,
-    nextExecutionTime ::
-      Lude.Maybe Lude.Text,
-    scheduleOffset ::
-      Lude.Maybe Lude.Natural,
+    -- | The next time the maintenance window will actually run, taking into account any specified times for the maintenance window to become active or inactive.
+    nextExecutionTime :: Lude.Maybe Lude.Text,
+    -- | The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
+    scheduleOffset :: Lude.Maybe Lude.Natural,
+    -- | The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive.
     endDate :: Lude.Maybe Lude.Text,
-    scheduleTimezone ::
-      Lude.Maybe Lude.Text,
+    -- | The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format.
+    scheduleTimezone :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active.
     startDate :: Lude.Maybe Lude.Text,
+    -- | The name of the maintenance window.
     name :: Lude.Maybe Lude.Text,
+    -- | The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
     cutoff :: Lude.Maybe Lude.Natural,
-    description ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A description of the maintenance window.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The duration of the maintenance window in hours.
     duration :: Lude.Maybe Lude.Natural,
+    -- | The ID of the maintenance window.
     windowId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -62,17 +69,17 @@ data MaintenanceWindowIdentity = MaintenanceWindowIdentity'
 
 -- | Creates a value of 'MaintenanceWindowIdentity' with the minimum fields required to make a request.
 --
+-- * 'enabled' - Indicates whether the maintenance window is enabled.
+-- * 'schedule' - The schedule of the maintenance window in the form of a cron or rate expression.
+-- * 'nextExecutionTime' - The next time the maintenance window will actually run, taking into account any specified times for the maintenance window to become active or inactive.
+-- * 'scheduleOffset' - The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
+-- * 'endDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive.
+-- * 'scheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format.
+-- * 'startDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active.
+-- * 'name' - The name of the maintenance window.
 -- * 'cutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
 -- * 'description' - A description of the maintenance window.
 -- * 'duration' - The duration of the maintenance window in hours.
--- * 'enabled' - Indicates whether the maintenance window is enabled.
--- * 'endDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive.
--- * 'name' - The name of the maintenance window.
--- * 'nextExecutionTime' - The next time the maintenance window will actually run, taking into account any specified times for the maintenance window to become active or inactive.
--- * 'schedule' - The schedule of the maintenance window in the form of a cron or rate expression.
--- * 'scheduleOffset' - The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
--- * 'scheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format.
--- * 'startDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active.
 -- * 'windowId' - The ID of the maintenance window.
 mkMaintenanceWindowIdentity ::
   MaintenanceWindowIdentity

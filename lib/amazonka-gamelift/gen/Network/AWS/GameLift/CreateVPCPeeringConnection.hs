@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,9 +40,9 @@ module Network.AWS.GameLift.CreateVPCPeeringConnection
     mkCreateVPCPeeringConnection,
 
     -- ** Request lenses
-    cvpcFleetId,
-    cvpcPeerVPCAWSAccountId,
     cvpcPeerVPCId,
+    cvpcPeerVPCAWSAccountId,
+    cvpcFleetId,
 
     -- * Destructuring the response
     CreateVPCPeeringConnectionResponse (..),
@@ -62,49 +63,45 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateVPCPeeringConnection' smart constructor.
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-  { fleetId ::
-      Lude.Text,
+  { -- | A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+    peerVPCId :: Lude.Text,
+    -- | A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your Account ID in the AWS Management Console under account settings.
     peerVPCAWSAccountId :: Lude.Text,
-    peerVPCId :: Lude.Text
+    -- | A unique identifier for a fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift VPC to peer with.
+    fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCPeeringConnection' with the minimum fields required to make a request.
 --
--- * 'fleetId' - A unique identifier for a fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift VPC to peer with.
--- * 'peerVPCAWSAccountId' - A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your Account ID in the AWS Management Console under account settings.
 -- * 'peerVPCId' - A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+-- * 'peerVPCAWSAccountId' - A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your Account ID in the AWS Management Console under account settings.
+-- * 'fleetId' - A unique identifier for a fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift VPC to peer with.
 mkCreateVPCPeeringConnection ::
-  -- | 'fleetId'
+  -- | 'peerVPCId'
   Lude.Text ->
   -- | 'peerVPCAWSAccountId'
   Lude.Text ->
-  -- | 'peerVPCId'
+  -- | 'fleetId'
   Lude.Text ->
   CreateVPCPeeringConnection
 mkCreateVPCPeeringConnection
-  pFleetId_
+  pPeerVPCId_
   pPeerVPCAWSAccountId_
-  pPeerVPCId_ =
+  pFleetId_ =
     CreateVPCPeeringConnection'
-      { fleetId = pFleetId_,
+      { peerVPCId = pPeerVPCId_,
         peerVPCAWSAccountId = pPeerVPCAWSAccountId_,
-        peerVPCId = pPeerVPCId_
+        fleetId = pFleetId_
       }
 
--- | A unique identifier for a fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift VPC to peer with.
+-- | A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
 --
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvpcFleetId :: Lens.Lens' CreateVPCPeeringConnection Lude.Text
-cvpcFleetId = Lens.lens (fleetId :: CreateVPCPeeringConnection -> Lude.Text) (\s a -> s {fleetId = a} :: CreateVPCPeeringConnection)
-{-# DEPRECATED cvpcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+-- /Note:/ Consider using 'peerVPCId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcPeerVPCId :: Lens.Lens' CreateVPCPeeringConnection Lude.Text
+cvpcPeerVPCId = Lens.lens (peerVPCId :: CreateVPCPeeringConnection -> Lude.Text) (\s a -> s {peerVPCId = a} :: CreateVPCPeeringConnection)
+{-# DEPRECATED cvpcPeerVPCId "Use generic-lens or generic-optics with 'peerVPCId' instead." #-}
 
 -- | A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your Account ID in the AWS Management Console under account settings.
 --
@@ -113,12 +110,12 @@ cvpcPeerVPCAWSAccountId :: Lens.Lens' CreateVPCPeeringConnection Lude.Text
 cvpcPeerVPCAWSAccountId = Lens.lens (peerVPCAWSAccountId :: CreateVPCPeeringConnection -> Lude.Text) (\s a -> s {peerVPCAWSAccountId = a} :: CreateVPCPeeringConnection)
 {-# DEPRECATED cvpcPeerVPCAWSAccountId "Use generic-lens or generic-optics with 'peerVPCAWSAccountId' instead." #-}
 
--- | A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+-- | A unique identifier for a fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift VPC to peer with.
 --
--- /Note:/ Consider using 'peerVPCId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvpcPeerVPCId :: Lens.Lens' CreateVPCPeeringConnection Lude.Text
-cvpcPeerVPCId = Lens.lens (peerVPCId :: CreateVPCPeeringConnection -> Lude.Text) (\s a -> s {peerVPCId = a} :: CreateVPCPeeringConnection)
-{-# DEPRECATED cvpcPeerVPCId "Use generic-lens or generic-optics with 'peerVPCId' instead." #-}
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpcFleetId :: Lens.Lens' CreateVPCPeeringConnection Lude.Text
+cvpcFleetId = Lens.lens (fleetId :: CreateVPCPeeringConnection -> Lude.Text) (\s a -> s {fleetId = a} :: CreateVPCPeeringConnection)
+{-# DEPRECATED cvpcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 instance Lude.AWSRequest CreateVPCPeeringConnection where
   type
@@ -147,9 +144,9 @@ instance Lude.ToJSON CreateVPCPeeringConnection where
   toJSON CreateVPCPeeringConnection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("FleetId" Lude..= fleetId),
+          [ Lude.Just ("PeerVpcId" Lude..= peerVPCId),
             Lude.Just ("PeerVpcAwsAccountId" Lude..= peerVPCAWSAccountId),
-            Lude.Just ("PeerVpcId" Lude..= peerVPCId)
+            Lude.Just ("FleetId" Lude..= fleetId)
           ]
       )
 
@@ -161,16 +158,10 @@ instance Lude.ToQuery CreateVPCPeeringConnection where
 
 -- | /See:/ 'mkCreateVPCPeeringConnectionResponse' smart constructor.
 newtype CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCPeeringConnectionResponse' with the minimum fields required to make a request.

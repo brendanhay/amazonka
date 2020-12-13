@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,27 +44,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateJobQueue' smart constructor.
 data UpdateJobQueue = UpdateJobQueue'
-  { state :: Lude.Maybe JQState,
+  { -- | Describes the queue's ability to accept new jobs. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
+    state :: Lude.Maybe JQState,
+    -- | The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
     priority :: Lude.Maybe Lude.Int,
-    computeEnvironmentOrder ::
-      Lude.Maybe [ComputeEnvironmentOrder],
+    -- | Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment should execute a given job.
+    computeEnvironmentOrder :: Lude.Maybe [ComputeEnvironmentOrder],
+    -- | The name or the Amazon Resource Name (ARN) of the job queue.
     jobQueue :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobQueue' with the minimum fields required to make a request.
 --
+-- * 'state' - Describes the queue's ability to accept new jobs. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
+-- * 'priority' - The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
 -- * 'computeEnvironmentOrder' - Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment should execute a given job.
 -- * 'jobQueue' - The name or the Amazon Resource Name (ARN) of the job queue.
--- * 'priority' - The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
--- * 'state' - Describes the queue's ability to accept new jobs. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
 mkUpdateJobQueue ::
   -- | 'jobQueue'
   Lude.Text ->
@@ -145,18 +143,14 @@ instance Lude.ToQuery UpdateJobQueue where
 
 -- | /See:/ 'mkUpdateJobQueueResponse' smart constructor.
 data UpdateJobQueueResponse = UpdateJobQueueResponse'
-  { jobQueueARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the job queue.
+    jobQueueARN :: Lude.Maybe Lude.Text,
+    -- | The name of the job queue.
     jobQueueName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobQueueResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
   ( ReturnValuesOnConditionCheckFailure
       ( ReturnValuesOnConditionCheckFailure',
-        AllOld,
-        None
+        RVOCCFAllOld,
+        RVOCCFNone
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReturnValuesOnConditionCheckFailure = ReturnValuesOnConditionCheckFailur
       Lude.ToHeader
     )
 
-pattern AllOld :: ReturnValuesOnConditionCheckFailure
-pattern AllOld = ReturnValuesOnConditionCheckFailure' "ALL_OLD"
+pattern RVOCCFAllOld :: ReturnValuesOnConditionCheckFailure
+pattern RVOCCFAllOld = ReturnValuesOnConditionCheckFailure' "ALL_OLD"
 
-pattern None :: ReturnValuesOnConditionCheckFailure
-pattern None = ReturnValuesOnConditionCheckFailure' "NONE"
+pattern RVOCCFNone :: ReturnValuesOnConditionCheckFailure
+pattern RVOCCFNone = ReturnValuesOnConditionCheckFailure' "NONE"
 
 {-# COMPLETE
-  AllOld,
-  None,
+  RVOCCFAllOld,
+  RVOCCFNone,
   ReturnValuesOnConditionCheckFailure'
   #-}

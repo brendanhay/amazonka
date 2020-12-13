@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrailInfo' smart constructor.
 data TrailInfo = TrailInfo'
-  { trailARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of a trail.
+    trailARN :: Lude.Maybe Lude.Text,
+    -- | The AWS region in which a trail was created.
     homeRegion :: Lude.Maybe Lude.Text,
+    -- | The name of a trail.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrailInfo' with the minimum fields required to make a request.
 --
+-- * 'trailARN' - The ARN of a trail.
 -- * 'homeRegion' - The AWS region in which a trail was created.
 -- * 'name' - The name of a trail.
--- * 'trailARN' - The ARN of a trail.
 mkTrailInfo ::
   TrailInfo
 mkTrailInfo =

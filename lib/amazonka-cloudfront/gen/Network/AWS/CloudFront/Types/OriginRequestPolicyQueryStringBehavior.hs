@@ -13,9 +13,9 @@
 module Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringBehavior
   ( OriginRequestPolicyQueryStringBehavior
       ( OriginRequestPolicyQueryStringBehavior',
-        All,
-        None,
-        Whitelist
+        ORPQSBNone,
+        ORPQSBWhitelist,
+        ORPQSBAll
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype OriginRequestPolicyQueryStringBehavior = OriginRequestPolicyQueryStringB
       Lude.ToHeader
     )
 
-pattern All :: OriginRequestPolicyQueryStringBehavior
-pattern All = OriginRequestPolicyQueryStringBehavior' "all"
+pattern ORPQSBNone :: OriginRequestPolicyQueryStringBehavior
+pattern ORPQSBNone = OriginRequestPolicyQueryStringBehavior' "none"
 
-pattern None :: OriginRequestPolicyQueryStringBehavior
-pattern None = OriginRequestPolicyQueryStringBehavior' "none"
+pattern ORPQSBWhitelist :: OriginRequestPolicyQueryStringBehavior
+pattern ORPQSBWhitelist = OriginRequestPolicyQueryStringBehavior' "whitelist"
 
-pattern Whitelist :: OriginRequestPolicyQueryStringBehavior
-pattern Whitelist = OriginRequestPolicyQueryStringBehavior' "whitelist"
+pattern ORPQSBAll :: OriginRequestPolicyQueryStringBehavior
+pattern ORPQSBAll = OriginRequestPolicyQueryStringBehavior' "all"
 
 {-# COMPLETE
-  All,
-  None,
-  Whitelist,
+  ORPQSBNone,
+  ORPQSBWhitelist,
+  ORPQSBAll,
   OriginRequestPolicyQueryStringBehavior'
   #-}

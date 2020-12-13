@@ -13,22 +13,22 @@
 module Network.AWS.S3.Types.Event
   ( Event
       ( Event',
+        S3ReducedRedundancyLostObject,
         S3ObjectCreated,
-        S3ObjectCreatedCompleteMultipartUpload,
-        S3ObjectCreatedCopy,
-        S3ObjectCreatedPost,
         S3ObjectCreatedPut,
+        S3ObjectCreatedPost,
+        S3ObjectCreatedCopy,
+        S3ObjectCreatedCompleteMultipartUpload,
         S3ObjectRemoved,
         S3ObjectRemovedDelete,
         S3ObjectRemovedDeleteMarkerCreated,
         S3ObjectRestore,
-        S3ObjectRestoreCompleted,
         S3ObjectRestorePost,
-        S3ReducedRedundancyLostObject,
+        S3ObjectRestoreCompleted,
         S3Replication,
         S3ReplicationOperationFailedReplication,
-        S3ReplicationOperationMissedThreshold,
         S3ReplicationOperationNotTracked,
+        S3ReplicationOperationMissedThreshold,
         S3ReplicationOperationReplicatedAfterThreshold
       ),
   )
@@ -62,20 +62,23 @@ newtype Event = Event' Lude.Text
       Lude.ToHeader
     )
 
+pattern S3ReducedRedundancyLostObject :: Event
+pattern S3ReducedRedundancyLostObject = Event' "s3:ReducedRedundancyLostObject"
+
 pattern S3ObjectCreated :: Event
 pattern S3ObjectCreated = Event' "s3:ObjectCreated:*"
 
-pattern S3ObjectCreatedCompleteMultipartUpload :: Event
-pattern S3ObjectCreatedCompleteMultipartUpload = Event' "s3:ObjectCreated:CompleteMultipartUpload"
-
-pattern S3ObjectCreatedCopy :: Event
-pattern S3ObjectCreatedCopy = Event' "s3:ObjectCreated:Copy"
+pattern S3ObjectCreatedPut :: Event
+pattern S3ObjectCreatedPut = Event' "s3:ObjectCreated:Put"
 
 pattern S3ObjectCreatedPost :: Event
 pattern S3ObjectCreatedPost = Event' "s3:ObjectCreated:Post"
 
-pattern S3ObjectCreatedPut :: Event
-pattern S3ObjectCreatedPut = Event' "s3:ObjectCreated:Put"
+pattern S3ObjectCreatedCopy :: Event
+pattern S3ObjectCreatedCopy = Event' "s3:ObjectCreated:Copy"
+
+pattern S3ObjectCreatedCompleteMultipartUpload :: Event
+pattern S3ObjectCreatedCompleteMultipartUpload = Event' "s3:ObjectCreated:CompleteMultipartUpload"
 
 pattern S3ObjectRemoved :: Event
 pattern S3ObjectRemoved = Event' "s3:ObjectRemoved:*"
@@ -89,14 +92,11 @@ pattern S3ObjectRemovedDeleteMarkerCreated = Event' "s3:ObjectRemoved:DeleteMark
 pattern S3ObjectRestore :: Event
 pattern S3ObjectRestore = Event' "s3:ObjectRestore:*"
 
-pattern S3ObjectRestoreCompleted :: Event
-pattern S3ObjectRestoreCompleted = Event' "s3:ObjectRestore:Completed"
-
 pattern S3ObjectRestorePost :: Event
 pattern S3ObjectRestorePost = Event' "s3:ObjectRestore:Post"
 
-pattern S3ReducedRedundancyLostObject :: Event
-pattern S3ReducedRedundancyLostObject = Event' "s3:ReducedRedundancyLostObject"
+pattern S3ObjectRestoreCompleted :: Event
+pattern S3ObjectRestoreCompleted = Event' "s3:ObjectRestore:Completed"
 
 pattern S3Replication :: Event
 pattern S3Replication = Event' "s3:Replication:*"
@@ -104,32 +104,32 @@ pattern S3Replication = Event' "s3:Replication:*"
 pattern S3ReplicationOperationFailedReplication :: Event
 pattern S3ReplicationOperationFailedReplication = Event' "s3:Replication:OperationFailedReplication"
 
-pattern S3ReplicationOperationMissedThreshold :: Event
-pattern S3ReplicationOperationMissedThreshold = Event' "s3:Replication:OperationMissedThreshold"
-
 pattern S3ReplicationOperationNotTracked :: Event
 pattern S3ReplicationOperationNotTracked = Event' "s3:Replication:OperationNotTracked"
+
+pattern S3ReplicationOperationMissedThreshold :: Event
+pattern S3ReplicationOperationMissedThreshold = Event' "s3:Replication:OperationMissedThreshold"
 
 pattern S3ReplicationOperationReplicatedAfterThreshold :: Event
 pattern S3ReplicationOperationReplicatedAfterThreshold = Event' "s3:Replication:OperationReplicatedAfterThreshold"
 
 {-# COMPLETE
+  S3ReducedRedundancyLostObject,
   S3ObjectCreated,
-  S3ObjectCreatedCompleteMultipartUpload,
-  S3ObjectCreatedCopy,
-  S3ObjectCreatedPost,
   S3ObjectCreatedPut,
+  S3ObjectCreatedPost,
+  S3ObjectCreatedCopy,
+  S3ObjectCreatedCompleteMultipartUpload,
   S3ObjectRemoved,
   S3ObjectRemovedDelete,
   S3ObjectRemovedDeleteMarkerCreated,
   S3ObjectRestore,
-  S3ObjectRestoreCompleted,
   S3ObjectRestorePost,
-  S3ReducedRedundancyLostObject,
+  S3ObjectRestoreCompleted,
   S3Replication,
   S3ReplicationOperationFailedReplication,
-  S3ReplicationOperationMissedThreshold,
   S3ReplicationOperationNotTracked,
+  S3ReplicationOperationMissedThreshold,
   S3ReplicationOperationReplicatedAfterThreshold,
   Event'
   #-}

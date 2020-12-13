@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,10 +30,10 @@ module Network.AWS.DynamoDB.UpdateItem
     uiReturnConsumedCapacity,
     uiReturnItemCollectionMetrics,
     uiConditionExpression,
+    uiKey,
     uiConditionalOperator,
     uiExpected,
     uiTableName,
-    uiKey,
 
     -- * Destructuring the response
     UpdateItemResponse (..),
@@ -56,53 +57,142 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateItem' smart constructor.
 data UpdateItem = UpdateItem'
-  { expressionAttributeNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
+    --
+    --
+    --     * To access an attribute whose name conflicts with a DynamoDB reserved word.
+    --
+    --
+    --     * To create a placeholder for repeating occurrences of an attribute name in an expression.
+    --
+    --
+    --     * To prevent special characters in an attribute name from being misinterpreted in an expression.
+    --
+    --
+    -- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
+    --
+    --     * @Percentile@
+    --
+    --
+    -- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ .) To work around this, you could specify the following for @ExpressionAttributeNames@ :
+    --
+    --     * @{"#P":"Percentile"}@
+    --
+    --
+    -- You could then use this substitution in an expression, as in this example:
+    --
+    --     * @#P = :val@
+    --
+    --
+    -- For more information about expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Use @ReturnValues@ if you want to get the item attributes as they appear before or after they are updated. For @UpdateItem@ , the valid values are:
+    --
+    --
+    --     * @NONE@ - If @ReturnValues@ is not specified, or if its value is @NONE@ , then nothing is returned. (This setting is the default for @ReturnValues@ .)
+    --
+    --
+    --     * @ALL_OLD@ - Returns all of the attributes of the item, as they appeared before the UpdateItem operation.
+    --
+    --
+    --     * @UPDATED_OLD@ - Returns only the updated attributes, as they appeared before the UpdateItem operation.
+    --
+    --
+    --     * @ALL_NEW@ - Returns all of the attributes of the item, as they appear after the UpdateItem operation.
+    --
+    --
+    --     * @UPDATED_NEW@ - Returns only the updated attributes, as they appear after the UpdateItem operation.
+    --
+    --
+    -- There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.
+    -- The values returned are strongly consistent.
     returnValues :: Lude.Maybe ReturnValue,
+    -- | An expression that defines one or more attributes to be updated, the action to be performed on them, and new values for them.
+    --
+    -- The following action values are available for @UpdateExpression@ .
+    --
+    --     * @SET@ - Adds one or more attributes and values to an item. If any of these attributes already exist, they are replaced by the new values. You can also use @SET@ to add or subtract from an attribute that is of type Number. For example: @SET myNum = myNum + :val@
+    -- @SET@ supports the following functions:
+    --
+    --     * @if_not_exists (path, operand)@ - if the item does not contain an attribute at the specified path, then @if_not_exists@ evaluates to operand; otherwise, it evaluates to path. You can use this function to avoid overwriting an attribute that may already be present in the item.
+    --
+    --
+    --     * @list_append (operand, operand)@ - evaluates to a list with a new element added to it. You can append the new element to the start or the end of the list by reversing the order of the operands.
+    --
+    --
+    -- These function names are case-sensitive.
+    --
+    --
+    --     * @REMOVE@ - Removes one or more attributes from an item.
+    --
+    --
+    --     * @ADD@ - Adds the specified value to the item, if the attribute does not already exist. If the attribute does exist, then the behavior of @ADD@ depends on the data type of the attribute:
+    --
+    --     * If the existing attribute is a number, and if @Value@ is also a number, then @Value@ is mathematically added to the existing attribute. If @Value@ is a negative number, then it is subtracted from the existing attribute.
+    --
+    --
+    --     * If the existing data type is a set and if @Value@ is also a set, then @Value@ is added to the existing set. For example, if the attribute value is the set @[1,2]@ , and the @ADD@ action specified @[3]@ , then the final attribute value is @[1,2,3]@ . An error occurs if an @ADD@ action is specified for a set attribute and the attribute type specified does not match the existing set type.
+    -- Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the @Value@ must also be a set of strings.
+    --
+    --
+    -- /Important:/ The @ADD@ action only supports Number and set data types. In addition, @ADD@ can only be used on top-level attributes, not nested attributes.
+    --
+    --
+    --     * @DELETE@ - Deletes an element from a set.
+    -- If a set of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set @[a,b,c]@ and the @DELETE@ action specifies @[a,c]@ , then the final attribute value is @[b]@ . Specifying an empty set is an error.
+    -- /Important:/ The @DELETE@ action only supports set data types. In addition, @DELETE@ can only be used on top-level attributes, not nested attributes.
+    --
+    --
+    -- You can have many actions in a single expression, such as the following: @SET a=:value1, b=:value2 DELETE :value3, :value4, :value5@
+    -- For more information on update expressions, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items and Attributes> in the /Amazon DynamoDB Developer Guide/ .
     updateExpression :: Lude.Maybe Lude.Text,
-    expressionAttributeValues ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
-    attributeUpdates ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValueUpdate)),
+    -- | One or more values that can be substituted in an expression.
+    --
+    -- Use the __:__ (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the @ProductStatus@ attribute was one of the following:
+    -- @Available | Backordered | Discontinued@
+    -- You would first need to specify @ExpressionAttributeValues@ as follows:
+    -- @{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }@
+    -- You could then use these values in an expression, such as this:
+    -- @ProductStatus IN (:avail, :back, :disc)@
+    -- For more information on expression attribute values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions> in the /Amazon DynamoDB Developer Guide/ .
+    expressionAttributeValues :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | This is a legacy parameter. Use @UpdateExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates> in the /Amazon DynamoDB Developer Guide/ .
+    attributeUpdates :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValueUpdate)),
     returnConsumedCapacity :: Lude.Maybe ReturnConsumedCapacity,
-    returnItemCollectionMetrics ::
-      Lude.Maybe ReturnItemCollectionMetrics,
+    -- | Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
+    returnItemCollectionMetrics :: Lude.Maybe ReturnItemCollectionMetrics,
+    -- | A condition that must be satisfied in order for a conditional update to succeed.
+    --
+    -- An expression can contain any of the following:
+    --
+    --     * Functions: @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
+    -- These function names are case-sensitive.
+    --
+    --
+    --     * Comparison operators: @= | <> | < | > | <= | >= | BETWEEN | IN @
+    --
+    --
+    --     * Logical operators: @AND | OR | NOT@
+    --
+    --
+    -- For more information about condition expressions, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions> in the /Amazon DynamoDB Developer Guide/ .
     conditionExpression :: Lude.Maybe Lude.Text,
+    -- | The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
+    --
+    -- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+    key :: Lude.HashMap Lude.Text (AttributeValue),
+    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
     conditionalOperator :: Lude.Maybe ConditionalOperator,
-    expected ::
-      Lude.Maybe (Lude.HashMap Lude.Text (ExpectedAttributeValue)),
-    tableName :: Lude.Text,
-    key :: Lude.HashMap Lude.Text (AttributeValue)
+    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
+    expected :: Lude.Maybe (Lude.HashMap Lude.Text (ExpectedAttributeValue)),
+    -- | The name of the table containing the item to update.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateItem' with the minimum fields required to make a request.
 --
--- * 'attributeUpdates' - This is a legacy parameter. Use @UpdateExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates> in the /Amazon DynamoDB Developer Guide/ .
--- * 'conditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
---
--- An expression can contain any of the following:
---
---     * Functions: @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
--- These function names are case-sensitive.
---
---
---     * Comparison operators: @= | <> | < | > | <= | >= | BETWEEN | IN @
---
---
---     * Logical operators: @AND | OR | NOT@
---
---
--- For more information about condition expressions, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions> in the /Amazon DynamoDB Developer Guide/ .
--- * 'conditionalOperator' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
--- * 'expected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
 --
 --
@@ -131,20 +221,6 @@ data UpdateItem = UpdateItem'
 --
 --
 -- For more information about expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
--- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
---
--- Use the __:__ (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the @ProductStatus@ attribute was one of the following:
--- @Available | Backordered | Discontinued@
--- You would first need to specify @ExpressionAttributeValues@ as follows:
--- @{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }@
--- You could then use these values in an expression, such as this:
--- @ProductStatus IN (:avail, :back, :disc)@
--- For more information on expression attribute values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions> in the /Amazon DynamoDB Developer Guide/ .
--- * 'key' - The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
---
--- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
--- * 'returnConsumedCapacity' - Undocumented field.
--- * 'returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
 -- * 'returnValues' - Use @ReturnValues@ if you want to get the item attributes as they appear before or after they are updated. For @UpdateItem@ , the valid values are:
 --
 --
@@ -165,7 +241,6 @@ data UpdateItem = UpdateItem'
 --
 -- There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.
 -- The values returned are strongly consistent.
--- * 'tableName' - The name of the table containing the item to update.
 -- * 'updateExpression' - An expression that defines one or more attributes to be updated, the action to be performed on them, and new values for them.
 --
 -- The following action values are available for @UpdateExpression@ .
@@ -204,6 +279,39 @@ data UpdateItem = UpdateItem'
 --
 -- You can have many actions in a single expression, such as the following: @SET a=:value1, b=:value2 DELETE :value3, :value4, :value5@
 -- For more information on update expressions, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items and Attributes> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
+--
+-- Use the __:__ (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the @ProductStatus@ attribute was one of the following:
+-- @Available | Backordered | Discontinued@
+-- You would first need to specify @ExpressionAttributeValues@ as follows:
+-- @{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }@
+-- You could then use these values in an expression, such as this:
+-- @ProductStatus IN (:avail, :back, :disc)@
+-- For more information on expression attribute values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'attributeUpdates' - This is a legacy parameter. Use @UpdateExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html AttributeUpdates> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'returnConsumedCapacity' -
+-- * 'returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to @NONE@ (the default), no statistics are returned.
+-- * 'conditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
+--
+-- An expression can contain any of the following:
+--
+--     * Functions: @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
+-- These function names are case-sensitive.
+--
+--
+--     * Comparison operators: @= | <> | < | > | <= | >= | BETWEEN | IN @
+--
+--
+--     * Logical operators: @AND | OR | NOT@
+--
+--
+-- For more information about condition expressions, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'key' - The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
+--
+-- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+-- * 'conditionalOperator' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'expected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'tableName' - The name of the table containing the item to update.
 mkUpdateItem ::
   -- | 'tableName'
   Lude.Text ->
@@ -218,10 +326,10 @@ mkUpdateItem pTableName_ =
       returnConsumedCapacity = Lude.Nothing,
       returnItemCollectionMetrics = Lude.Nothing,
       conditionExpression = Lude.Nothing,
+      key = Lude.mempty,
       conditionalOperator = Lude.Nothing,
       expected = Lude.Nothing,
-      tableName = pTableName_,
-      key = Lude.mempty
+      tableName = pTableName_
     }
 
 -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
@@ -385,6 +493,15 @@ uiConditionExpression :: Lens.Lens' UpdateItem (Lude.Maybe Lude.Text)
 uiConditionExpression = Lens.lens (conditionExpression :: UpdateItem -> Lude.Maybe Lude.Text) (\s a -> s {conditionExpression = a} :: UpdateItem)
 {-# DEPRECATED uiConditionExpression "Use generic-lens or generic-optics with 'conditionExpression' instead." #-}
 
+-- | The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
+--
+-- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiKey :: Lens.Lens' UpdateItem (Lude.HashMap Lude.Text (AttributeValue))
+uiKey = Lens.lens (key :: UpdateItem -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: UpdateItem)
+{-# DEPRECATED uiKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
 --
 -- /Note:/ Consider using 'conditionalOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -405,15 +522,6 @@ uiExpected = Lens.lens (expected :: UpdateItem -> Lude.Maybe (Lude.HashMap Lude.
 uiTableName :: Lens.Lens' UpdateItem Lude.Text
 uiTableName = Lens.lens (tableName :: UpdateItem -> Lude.Text) (\s a -> s {tableName = a} :: UpdateItem)
 {-# DEPRECATED uiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
--- | The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
---
--- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiKey :: Lens.Lens' UpdateItem (Lude.HashMap Lude.Text (AttributeValue))
-uiKey = Lens.lens (key :: UpdateItem -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: UpdateItem)
-{-# DEPRECATED uiKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 instance Lude.AWSRequest UpdateItem where
   type Rs UpdateItem = UpdateItemResponse
@@ -454,10 +562,10 @@ instance Lude.ToJSON UpdateItem where
             ("ReturnItemCollectionMetrics" Lude..=)
               Lude.<$> returnItemCollectionMetrics,
             ("ConditionExpression" Lude..=) Lude.<$> conditionExpression,
+            Lude.Just ("Key" Lude..= key),
             ("ConditionalOperator" Lude..=) Lude.<$> conditionalOperator,
             ("Expected" Lude..=) Lude.<$> expected,
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("Key" Lude..= key)
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -471,28 +579,30 @@ instance Lude.ToQuery UpdateItem where
 --
 -- /See:/ 'mkUpdateItemResponse' smart constructor.
 data UpdateItemResponse = UpdateItemResponse'
-  { itemCollectionMetrics ::
-      Lude.Maybe ItemCollectionMetrics,
+  { -- | Information about item collections, if any, that were affected by the @UpdateItem@ operation. @ItemCollectionMetrics@ is only returned if the @ReturnItemCollectionMetrics@ parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.
+    --
+    -- Each @ItemCollectionMetrics@ element consists of:
+    --
+    --     * @ItemCollectionKey@ - The partition key value of the item collection. This is the same as the partition key value of the item itself.
+    --
+    --
+    --     * @SizeEstimateRangeGB@ - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.
+    -- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
+    itemCollectionMetrics :: Lude.Maybe ItemCollectionMetrics,
+    -- | The capacity units consumed by the @UpdateItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput> in the /Amazon DynamoDB Developer Guide/ .
     consumedCapacity :: Lude.Maybe ConsumedCapacity,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | A map of attribute values as they appear before or after the @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
+    --
+    -- The @Attributes@ map is only present if @ReturnValues@ was specified as something other than @NONE@ in the request. Each element represents one attribute.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateItemResponse' with the minimum fields required to make a request.
 --
--- * 'attributes' - A map of attribute values as they appear before or after the @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
---
--- The @Attributes@ map is only present if @ReturnValues@ was specified as something other than @NONE@ in the request. Each element represents one attribute.
--- * 'consumedCapacity' - The capacity units consumed by the @UpdateItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'itemCollectionMetrics' - Information about item collections, if any, that were affected by the @UpdateItem@ operation. @ItemCollectionMetrics@ is only returned if the @ReturnItemCollectionMetrics@ parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.
 --
 -- Each @ItemCollectionMetrics@ element consists of:
@@ -504,6 +614,10 @@ data UpdateItemResponse = UpdateItemResponse'
 -- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
 --
 --
+-- * 'consumedCapacity' - The capacity units consumed by the @UpdateItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'attributes' - A map of attribute values as they appear before or after the @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
+--
+-- The @Attributes@ map is only present if @ReturnValues@ was specified as something other than @NONE@ in the request. Each element represents one attribute.
 -- * 'responseStatus' - The response status code.
 mkUpdateItemResponse ::
   -- | 'responseStatus'

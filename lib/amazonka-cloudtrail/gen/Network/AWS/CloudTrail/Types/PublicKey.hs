@@ -31,30 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPublicKey' smart constructor.
 data PublicKey = PublicKey'
-  { fingerprint :: Lude.Maybe Lude.Text,
+  { -- | The fingerprint of the public key.
+    fingerprint :: Lude.Maybe Lude.Text,
+    -- | The ending time of validity of the public key.
     validityEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | The DER encoded public key value in PKCS#1 format.
     value :: Lude.Maybe Lude.Base64,
+    -- | The starting time of validity of the public key.
     validityStartTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublicKey' with the minimum fields required to make a request.
 --
 -- * 'fingerprint' - The fingerprint of the public key.
 -- * 'validityEndTime' - The ending time of validity of the public key.
+-- * 'value' - The DER encoded public key value in PKCS#1 format.
 -- * 'validityStartTime' - The starting time of validity of the public key.
--- * 'value' - The DER encoded public key value in PKCS#1 format.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 mkPublicKey ::
   PublicKey
 mkPublicKey =

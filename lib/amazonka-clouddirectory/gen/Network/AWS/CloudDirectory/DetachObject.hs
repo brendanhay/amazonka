@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.CloudDirectory.DetachObject
     mkDetachObject,
 
     -- ** Request lenses
-    detDirectoryARN,
-    detParentReference,
-    detLinkName,
+    doDirectoryARN,
+    doParentReference,
+    doLinkName,
 
     -- * Destructuring the response
     DetachObjectResponse (..),
     mkDetachObjectResponse,
 
     -- ** Response lenses
-    detrsDetachedObjectIdentifier,
-    detrsResponseStatus,
+    dofrsDetachedObjectIdentifier,
+    dofrsResponseStatus,
   )
 where
 
@@ -41,24 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetachObject' smart constructor.
 data DetachObject = DetachObject'
-  { directoryARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
+    directoryARN :: Lude.Text,
+    -- | The parent reference from which the object with the specified link name is detached.
     parentReference :: ObjectReference,
+    -- | The link name associated with the object that needs to be detached.
     linkName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachObject' with the minimum fields required to make a request.
 --
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
--- * 'linkName' - The link name associated with the object that needs to be detached.
 -- * 'parentReference' - The parent reference from which the object with the specified link name is detached.
+-- * 'linkName' - The link name associated with the object that needs to be detached.
 mkDetachObject ::
   -- | 'directoryARN'
   Lude.Text ->
@@ -77,23 +75,23 @@ mkDetachObject pDirectoryARN_ pParentReference_ pLinkName_ =
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
 --
 -- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detDirectoryARN :: Lens.Lens' DetachObject Lude.Text
-detDirectoryARN = Lens.lens (directoryARN :: DetachObject -> Lude.Text) (\s a -> s {directoryARN = a} :: DetachObject)
-{-# DEPRECATED detDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+doDirectoryARN :: Lens.Lens' DetachObject Lude.Text
+doDirectoryARN = Lens.lens (directoryARN :: DetachObject -> Lude.Text) (\s a -> s {directoryARN = a} :: DetachObject)
+{-# DEPRECATED doDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | The parent reference from which the object with the specified link name is detached.
 --
 -- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detParentReference :: Lens.Lens' DetachObject ObjectReference
-detParentReference = Lens.lens (parentReference :: DetachObject -> ObjectReference) (\s a -> s {parentReference = a} :: DetachObject)
-{-# DEPRECATED detParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
+doParentReference :: Lens.Lens' DetachObject ObjectReference
+doParentReference = Lens.lens (parentReference :: DetachObject -> ObjectReference) (\s a -> s {parentReference = a} :: DetachObject)
+{-# DEPRECATED doParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
 
 -- | The link name associated with the object that needs to be detached.
 --
 -- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detLinkName :: Lens.Lens' DetachObject Lude.Text
-detLinkName = Lens.lens (linkName :: DetachObject -> Lude.Text) (\s a -> s {linkName = a} :: DetachObject)
-{-# DEPRECATED detLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
+doLinkName :: Lens.Lens' DetachObject Lude.Text
+doLinkName = Lens.lens (linkName :: DetachObject -> Lude.Text) (\s a -> s {linkName = a} :: DetachObject)
+{-# DEPRECATED doLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
 instance Lude.AWSRequest DetachObject where
   type Rs DetachObject = DetachObjectResponse
@@ -128,17 +126,12 @@ instance Lude.ToQuery DetachObject where
 
 -- | /See:/ 'mkDetachObjectResponse' smart constructor.
 data DetachObjectResponse = DetachObjectResponse'
-  { detachedObjectIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ObjectIdentifier@ that was detached from the object.
+    detachedObjectIdentifier :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachObjectResponse' with the minimum fields required to make a request.
@@ -158,13 +151,13 @@ mkDetachObjectResponse pResponseStatus_ =
 -- | The @ObjectIdentifier@ that was detached from the object.
 --
 -- /Note:/ Consider using 'detachedObjectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsDetachedObjectIdentifier :: Lens.Lens' DetachObjectResponse (Lude.Maybe Lude.Text)
-detrsDetachedObjectIdentifier = Lens.lens (detachedObjectIdentifier :: DetachObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {detachedObjectIdentifier = a} :: DetachObjectResponse)
-{-# DEPRECATED detrsDetachedObjectIdentifier "Use generic-lens or generic-optics with 'detachedObjectIdentifier' instead." #-}
+dofrsDetachedObjectIdentifier :: Lens.Lens' DetachObjectResponse (Lude.Maybe Lude.Text)
+dofrsDetachedObjectIdentifier = Lens.lens (detachedObjectIdentifier :: DetachObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {detachedObjectIdentifier = a} :: DetachObjectResponse)
+{-# DEPRECATED dofrsDetachedObjectIdentifier "Use generic-lens or generic-optics with 'detachedObjectIdentifier' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsResponseStatus :: Lens.Lens' DetachObjectResponse Lude.Int
-detrsResponseStatus = Lens.lens (responseStatus :: DetachObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachObjectResponse)
-{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dofrsResponseStatus :: Lens.Lens' DetachObjectResponse Lude.Int
+dofrsResponseStatus = Lens.lens (responseStatus :: DetachObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachObjectResponse)
+{-# DEPRECATED dofrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.Lightsail.StartInstance
     mkStartInstanceResponse,
 
     -- ** Response lenses
-    srsOperations,
-    srsResponseStatus,
+    sifrsOperations,
+    sifrsResponseStatus,
   )
 where
 
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartInstance' smart constructor.
-newtype StartInstance = StartInstance' {instanceName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StartInstance = StartInstance'
+  { -- | The name of the instance (a virtual private server) to start.
+    instanceName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstance' with the minimum fields required to make a request.
@@ -102,17 +100,12 @@ instance Lude.ToQuery StartInstance where
 
 -- | /See:/ 'mkStartInstanceResponse' smart constructor.
 data StartInstanceResponse = StartInstanceResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstanceResponse' with the minimum fields required to make a request.
@@ -132,13 +125,13 @@ mkStartInstanceResponse pResponseStatus_ =
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsOperations :: Lens.Lens' StartInstanceResponse (Lude.Maybe [Operation])
-srsOperations = Lens.lens (operations :: StartInstanceResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: StartInstanceResponse)
-{-# DEPRECATED srsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+sifrsOperations :: Lens.Lens' StartInstanceResponse (Lude.Maybe [Operation])
+sifrsOperations = Lens.lens (operations :: StartInstanceResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: StartInstanceResponse)
+{-# DEPRECATED sifrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StartInstanceResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StartInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartInstanceResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sifrsResponseStatus :: Lens.Lens' StartInstanceResponse Lude.Int
+sifrsResponseStatus = Lens.lens (responseStatus :: StartInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartInstanceResponse)
+{-# DEPRECATED sifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

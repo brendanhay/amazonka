@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.ExpirationStatus
   ( ExpirationStatus
       ( ExpirationStatus',
-        ESDisabled,
-        ESEnabled
+        ESEnabled,
+        ESDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ExpirationStatus = ExpirationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESDisabled :: ExpirationStatus
-pattern ESDisabled = ExpirationStatus' "Disabled"
-
 pattern ESEnabled :: ExpirationStatus
 pattern ESEnabled = ExpirationStatus' "Enabled"
 
+pattern ESDisabled :: ExpirationStatus
+pattern ESDisabled = ExpirationStatus' "Disabled"
+
 {-# COMPLETE
-  ESDisabled,
   ESEnabled,
+  ESDisabled,
   ExpirationStatus'
   #-}

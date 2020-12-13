@@ -33,26 +33,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskRunFilterCriteria' smart constructor.
 data TaskRunFilterCriteria = TaskRunFilterCriteria'
-  { status ::
-      Lude.Maybe TaskStatusType,
+  { -- | The current status of the task run.
+    status :: Lude.Maybe TaskStatusType,
+    -- | Filter on task runs started after this date.
     startedAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Filter on task runs started before this date.
     startedBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The type of task run.
     taskRunType :: Lude.Maybe TaskType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskRunFilterCriteria' with the minimum fields required to make a request.
 --
+-- * 'status' - The current status of the task run.
 -- * 'startedAfter' - Filter on task runs started after this date.
 -- * 'startedBefore' - Filter on task runs started before this date.
--- * 'status' - The current status of the task run.
 -- * 'taskRunType' - The type of task run.
 mkTaskRunFilterCriteria ::
   TaskRunFilterCriteria

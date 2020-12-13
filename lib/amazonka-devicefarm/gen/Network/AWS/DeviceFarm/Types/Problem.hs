@@ -37,28 +37,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProblem' smart constructor.
 data Problem = Problem'
-  { device :: Lude.Maybe Device,
+  { -- | Information about the associated device.
+    device :: Lude.Maybe Device,
+    -- | Information about the associated test.
     test :: Lude.Maybe ProblemDetail,
+    -- | The problem's result.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PASSED
+    --
+    --
+    --     * WARNED
+    --
+    --
+    --     * FAILED
+    --
+    --
+    --     * SKIPPED
+    --
+    --
+    --     * ERRORED
+    --
+    --
+    --     * STOPPED
     result :: Lude.Maybe ExecutionResult,
+    -- | Information about the associated run.
     run :: Lude.Maybe ProblemDetail,
+    -- | Information about the associated job.
     job :: Lude.Maybe ProblemDetail,
+    -- | A message about the problem's result.
     message :: Lude.Maybe Lude.Text,
+    -- | Information about the associated suite.
     suite :: Lude.Maybe ProblemDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Problem' with the minimum fields required to make a request.
 --
 -- * 'device' - Information about the associated device.
--- * 'job' - Information about the associated job.
--- * 'message' - A message about the problem's result.
+-- * 'test' - Information about the associated test.
 -- * 'result' - The problem's result.
 --
 -- Allowed values include:
@@ -85,8 +107,9 @@ data Problem = Problem'
 --
 --
 -- * 'run' - Information about the associated run.
+-- * 'job' - Information about the associated job.
+-- * 'message' - A message about the problem's result.
 -- * 'suite' - Information about the associated suite.
--- * 'test' - Information about the associated test.
 mkProblem ::
   Problem
 mkProblem =

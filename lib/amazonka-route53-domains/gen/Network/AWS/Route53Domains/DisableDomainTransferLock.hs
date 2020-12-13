@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Route53Domains.DisableDomainTransferLock
     mkDisableDomainTransferLockResponse,
 
     -- ** Response lenses
-    ddtlrsResponseStatus,
     ddtlrsOperationId,
+    ddtlrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkDisableDomainTransferLock' smart constructor.
 newtype DisableDomainTransferLock = DisableDomainTransferLock'
-  { domainName ::
-      Lude.Text
+  { -- | The name of the domain that you want to remove the transfer lock for.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDomainTransferLock' with the minimum fields required to make a request.
@@ -79,7 +74,7 @@ instance Lude.AWSRequest DisableDomainTransferLock where
     Res.receiveJSON
       ( \s h x ->
           DisableDomainTransferLockResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "OperationId")
+            Lude.<$> (x Lude..:> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DisableDomainTransferLock where
@@ -110,18 +105,12 @@ instance Lude.ToQuery DisableDomainTransferLock where
 --
 -- /See:/ 'mkDisableDomainTransferLockResponse' smart constructor.
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
-  { responseStatus ::
-      Lude.Int,
-    operationId ::
-      Lude.Text
+  { -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
+    operationId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDomainTransferLockResponse' with the minimum fields required to make a request.
@@ -129,24 +118,16 @@ data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
 -- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 -- * 'responseStatus' - The response status code.
 mkDisableDomainTransferLockResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'operationId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableDomainTransferLockResponse
-mkDisableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
+mkDisableDomainTransferLockResponse pOperationId_ pResponseStatus_ =
   DisableDomainTransferLockResponse'
-    { responseStatus =
-        pResponseStatus_,
-      operationId = pOperationId_
+    { operationId = pOperationId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddtlrsResponseStatus :: Lens.Lens' DisableDomainTransferLockResponse Lude.Int
-ddtlrsResponseStatus = Lens.lens (responseStatus :: DisableDomainTransferLockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableDomainTransferLockResponse)
-{-# DEPRECATED ddtlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 --
@@ -154,3 +135,10 @@ ddtlrsResponseStatus = Lens.lens (responseStatus :: DisableDomainTransferLockRes
 ddtlrsOperationId :: Lens.Lens' DisableDomainTransferLockResponse Lude.Text
 ddtlrsOperationId = Lens.lens (operationId :: DisableDomainTransferLockResponse -> Lude.Text) (\s a -> s {operationId = a} :: DisableDomainTransferLockResponse)
 {-# DEPRECATED ddtlrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddtlrsResponseStatus :: Lens.Lens' DisableDomainTransferLockResponse Lude.Int
+ddtlrsResponseStatus = Lens.lens (responseStatus :: DisableDomainTransferLockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableDomainTransferLockResponse)
+{-# DEPRECATED ddtlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

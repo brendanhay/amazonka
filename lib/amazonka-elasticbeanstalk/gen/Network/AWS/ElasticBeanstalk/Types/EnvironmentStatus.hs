@@ -13,14 +13,14 @@
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus
   ( EnvironmentStatus
       ( EnvironmentStatus',
-        ESAborting,
-        ESLaunching,
-        ESLinkingFrom,
-        ESLinkingTo,
-        ESReady,
-        ESTerminated,
-        ESTerminating,
-        ESUpdating
+        Aborting,
+        Launching,
+        Updating,
+        LinkingFrom,
+        LinkingTo,
+        Ready,
+        Terminating,
+        Terminated
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype EnvironmentStatus = EnvironmentStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESAborting :: EnvironmentStatus
-pattern ESAborting = EnvironmentStatus' "Aborting"
+pattern Aborting :: EnvironmentStatus
+pattern Aborting = EnvironmentStatus' "Aborting"
 
-pattern ESLaunching :: EnvironmentStatus
-pattern ESLaunching = EnvironmentStatus' "Launching"
+pattern Launching :: EnvironmentStatus
+pattern Launching = EnvironmentStatus' "Launching"
 
-pattern ESLinkingFrom :: EnvironmentStatus
-pattern ESLinkingFrom = EnvironmentStatus' "LinkingFrom"
+pattern Updating :: EnvironmentStatus
+pattern Updating = EnvironmentStatus' "Updating"
 
-pattern ESLinkingTo :: EnvironmentStatus
-pattern ESLinkingTo = EnvironmentStatus' "LinkingTo"
+pattern LinkingFrom :: EnvironmentStatus
+pattern LinkingFrom = EnvironmentStatus' "LinkingFrom"
 
-pattern ESReady :: EnvironmentStatus
-pattern ESReady = EnvironmentStatus' "Ready"
+pattern LinkingTo :: EnvironmentStatus
+pattern LinkingTo = EnvironmentStatus' "LinkingTo"
 
-pattern ESTerminated :: EnvironmentStatus
-pattern ESTerminated = EnvironmentStatus' "Terminated"
+pattern Ready :: EnvironmentStatus
+pattern Ready = EnvironmentStatus' "Ready"
 
-pattern ESTerminating :: EnvironmentStatus
-pattern ESTerminating = EnvironmentStatus' "Terminating"
+pattern Terminating :: EnvironmentStatus
+pattern Terminating = EnvironmentStatus' "Terminating"
 
-pattern ESUpdating :: EnvironmentStatus
-pattern ESUpdating = EnvironmentStatus' "Updating"
+pattern Terminated :: EnvironmentStatus
+pattern Terminated = EnvironmentStatus' "Terminated"
 
 {-# COMPLETE
-  ESAborting,
-  ESLaunching,
-  ESLinkingFrom,
-  ESLinkingTo,
-  ESReady,
-  ESTerminated,
-  ESTerminating,
-  ESUpdating,
+  Aborting,
+  Launching,
+  Updating,
+  LinkingFrom,
+  LinkingTo,
+  Ready,
+  Terminating,
+  Terminated,
   EnvironmentStatus'
   #-}

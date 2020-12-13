@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.PreventUserExistenceErrorTypes
   ( PreventUserExistenceErrorTypes
       ( PreventUserExistenceErrorTypes',
-        PUEETEnabled,
-        PUEETLegacy
+        PUEETLegacy,
+        PUEETEnabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PreventUserExistenceErrorTypes = PreventUserExistenceErrorTypes' Lude.Te
       Lude.ToHeader
     )
 
-pattern PUEETEnabled :: PreventUserExistenceErrorTypes
-pattern PUEETEnabled = PreventUserExistenceErrorTypes' "ENABLED"
-
 pattern PUEETLegacy :: PreventUserExistenceErrorTypes
 pattern PUEETLegacy = PreventUserExistenceErrorTypes' "LEGACY"
 
+pattern PUEETEnabled :: PreventUserExistenceErrorTypes
+pattern PUEETEnabled = PreventUserExistenceErrorTypes' "ENABLED"
+
 {-# COMPLETE
-  PUEETEnabled,
   PUEETLegacy,
+  PUEETEnabled,
   PreventUserExistenceErrorTypes'
   #-}

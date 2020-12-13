@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkDocs.CreateLabels
     mkCreateLabels,
 
     -- ** Request lenses
-    clAuthenticationToken,
     clResourceId,
+    clAuthenticationToken,
     clLabels,
 
     -- * Destructuring the response
@@ -40,9 +41,11 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkCreateLabels' smart constructor.
 data CreateLabels = CreateLabels'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The ID of the resource.
     resourceId :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | List of labels to add to the resource.
     labels :: [Lude.Text]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -50,26 +53,19 @@ data CreateLabels = CreateLabels'
 
 -- | Creates a value of 'CreateLabels' with the minimum fields required to make a request.
 --
+-- * 'resourceId' - The ID of the resource.
 -- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'labels' - List of labels to add to the resource.
--- * 'resourceId' - The ID of the resource.
 mkCreateLabels ::
   -- | 'resourceId'
   Lude.Text ->
   CreateLabels
 mkCreateLabels pResourceId_ =
   CreateLabels'
-    { authenticationToken = Lude.Nothing,
-      resourceId = pResourceId_,
+    { resourceId = pResourceId_,
+      authenticationToken = Lude.Nothing,
       labels = Lude.mempty
     }
-
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clAuthenticationToken :: Lens.Lens' CreateLabels (Lude.Maybe (Lude.Sensitive Lude.Text))
-clAuthenticationToken = Lens.lens (authenticationToken :: CreateLabels -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateLabels)
-{-# DEPRECATED clAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the resource.
 --
@@ -77,6 +73,13 @@ clAuthenticationToken = Lens.lens (authenticationToken :: CreateLabels -> Lude.M
 clResourceId :: Lens.Lens' CreateLabels Lude.Text
 clResourceId = Lens.lens (resourceId :: CreateLabels -> Lude.Text) (\s a -> s {resourceId = a} :: CreateLabels)
 {-# DEPRECATED clResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clAuthenticationToken :: Lens.Lens' CreateLabels (Lude.Maybe (Lude.Sensitive Lude.Text))
+clAuthenticationToken = Lens.lens (authenticationToken :: CreateLabels -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateLabels)
+{-# DEPRECATED clAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | List of labels to add to the resource.
 --
@@ -117,16 +120,10 @@ instance Lude.ToQuery CreateLabels where
 
 -- | /See:/ 'mkCreateLabelsResponse' smart constructor.
 newtype CreateLabelsResponse = CreateLabelsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLabelsResponse' with the minimum fields required to make a request.

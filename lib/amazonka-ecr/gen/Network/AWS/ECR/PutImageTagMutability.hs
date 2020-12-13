@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutImageTagMutability' smart constructor.
 data PutImageTagMutability = PutImageTagMutability'
-  { registryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the registry that contains the repository in which to update the image tag mutability settings. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository in which to update the image tag mutability settings.
     repositoryName :: Lude.Text,
+    -- | The tag mutability setting for the repository. If @MUTABLE@ is specified, image tags can be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
     imageTagMutability :: ImageTagMutability
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutImageTagMutability' with the minimum fields required to make a request.
 --
--- * 'imageTagMutability' - The tag mutability setting for the repository. If @MUTABLE@ is specified, image tags can be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 -- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to update the image tag mutability settings. If you do not specify a registry, the default registry is assumed.
 -- * 'repositoryName' - The name of the repository in which to update the image tag mutability settings.
+-- * 'imageTagMutability' - The tag mutability setting for the repository. If @MUTABLE@ is specified, image tags can be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 mkPutImageTagMutability ::
   -- | 'repositoryName'
   Lude.Text ->
@@ -140,28 +137,23 @@ instance Lude.ToQuery PutImageTagMutability where
 
 -- | /See:/ 'mkPutImageTagMutabilityResponse' smart constructor.
 data PutImageTagMutabilityResponse = PutImageTagMutabilityResponse'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    repositoryName ::
-      Lude.Maybe Lude.Text,
-    imageTagMutability ::
-      Lude.Maybe ImageTagMutability,
+  { -- | The registry ID associated with the request.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The image tag mutability setting for the repository.
+    imageTagMutability :: Lude.Maybe ImageTagMutability,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutImageTagMutabilityResponse' with the minimum fields required to make a request.
 --
--- * 'imageTagMutability' - The image tag mutability setting for the repository.
 -- * 'registryId' - The registry ID associated with the request.
 -- * 'repositoryName' - The repository name associated with the request.
+-- * 'imageTagMutability' - The image tag mutability setting for the repository.
 -- * 'responseStatus' - The response status code.
 mkPutImageTagMutabilityResponse ::
   -- | 'responseStatus'

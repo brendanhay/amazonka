@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListTables' smart constructor.
 data ListTables = ListTables'
-  { exclusiveStartTableName ::
-      Lude.Maybe Lude.Text,
+  { -- | The first table name that this operation will evaluate. Use the value that was returned for @LastEvaluatedTableName@ in a previous operation, so that you can obtain the next page of results.
+    exclusiveStartTableName :: Lude.Maybe Lude.Text,
+    -- | A maximum number of table names to return. If this parameter is not specified, the limit is 100.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTables' with the minimum fields required to make a request.
@@ -138,18 +134,18 @@ instance Lude.ToQuery ListTables where
 --
 -- /See:/ 'mkListTablesResponse' smart constructor.
 data ListTablesResponse = ListTablesResponse'
-  { lastEvaluatedTableName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the last table in the current page of results. Use this value as the @ExclusiveStartTableName@ in a new request to obtain the next page of results, until all the table names are returned.
+    --
+    -- If you do not receive a @LastEvaluatedTableName@ value in the response, this means that there are no more table names to be retrieved.
+    lastEvaluatedTableName :: Lude.Maybe Lude.Text,
+    -- | The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.
+    --
+    -- If @LastEvaluatedTableName@ also appears in the output, you can use this value as the @ExclusiveStartTableName@ parameter in a subsequent @ListTables@ request and obtain the next page of results.
     tableNames :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTablesResponse' with the minimum fields required to make a request.
@@ -157,10 +153,10 @@ data ListTablesResponse = ListTablesResponse'
 -- * 'lastEvaluatedTableName' - The name of the last table in the current page of results. Use this value as the @ExclusiveStartTableName@ in a new request to obtain the next page of results, until all the table names are returned.
 --
 -- If you do not receive a @LastEvaluatedTableName@ value in the response, this means that there are no more table names to be retrieved.
--- * 'responseStatus' - The response status code.
 -- * 'tableNames' - The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.
 --
 -- If @LastEvaluatedTableName@ also appears in the output, you can use this value as the @ExclusiveStartTableName@ parameter in a subsequent @ListTables@ request and obtain the next page of results.
+-- * 'responseStatus' - The response status code.
 mkListTablesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.OpsWorks.ListTags
 
     -- ** Request lenses
     ltNextToken,
-    ltMaxResults,
     ltResourceARN,
+    ltMaxResults,
 
     -- * Destructuring the response
     ListTagsResponse (..),
@@ -42,24 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTags' smart constructor.
 data ListTags = ListTags'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    resourceARN :: Lude.Text
+  { -- | Do not use. A validation exception occurs if you add a @NextToken@ parameter to a @ListTagsRequest@ call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The stack or layer's Amazon Resource Number (ARN).
+    resourceARN :: Lude.Text,
+    -- | Do not use. A validation exception occurs if you add a @MaxResults@ parameter to a @ListTagsRequest@ call.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Do not use. A validation exception occurs if you add a @MaxResults@ parameter to a @ListTagsRequest@ call.
 -- * 'nextToken' - Do not use. A validation exception occurs if you add a @NextToken@ parameter to a @ListTagsRequest@ call.
 -- * 'resourceARN' - The stack or layer's Amazon Resource Number (ARN).
+-- * 'maxResults' - Do not use. A validation exception occurs if you add a @MaxResults@ parameter to a @ListTagsRequest@ call.
 mkListTags ::
   -- | 'resourceARN'
   Lude.Text ->
@@ -67,8 +65,8 @@ mkListTags ::
 mkListTags pResourceARN_ =
   ListTags'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      resourceARN = pResourceARN_
+      resourceARN = pResourceARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | Do not use. A validation exception occurs if you add a @NextToken@ parameter to a @ListTagsRequest@ call.
@@ -78,19 +76,19 @@ ltNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
 ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
 {-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Do not use. A validation exception occurs if you add a @MaxResults@ parameter to a @ListTagsRequest@ call.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltMaxResults :: Lens.Lens' ListTags (Lude.Maybe Lude.Int)
-ltMaxResults = Lens.lens (maxResults :: ListTags -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListTags)
-{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The stack or layer's Amazon Resource Number (ARN).
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltResourceARN :: Lens.Lens' ListTags Lude.Text
 ltResourceARN = Lens.lens (resourceARN :: ListTags -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTags)
 {-# DEPRECATED ltResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | Do not use. A validation exception occurs if you add a @MaxResults@ parameter to a @ListTagsRequest@ call.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListTags (Lude.Maybe Lude.Int)
+ltMaxResults = Lens.lens (maxResults :: ListTags -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListTags)
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListTags where
   type Rs ListTags = ListTagsResponse
@@ -120,8 +118,8 @@ instance Lude.ToJSON ListTags where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ResourceArn" Lude..= resourceARN)
+            Lude.Just ("ResourceArn" Lude..= resourceARN),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -135,25 +133,21 @@ instance Lude.ToQuery ListTags where
 --
 -- /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to get the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A set of key-value pairs that contain tag keys and tag values that are attached to a stack or layer.
+-- * 'responseStatus' - The response status code.
 mkListTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

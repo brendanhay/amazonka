@@ -504,9 +504,9 @@ module Network.AWS.S3
     -- ** AnalyticsConfiguration
     AnalyticsConfiguration (..),
     mkAnalyticsConfiguration,
-    acFilter,
-    acId,
     acStorageClassAnalysis,
+    acId,
+    acFilter,
 
     -- ** AnalyticsExportDestination
     AnalyticsExportDestination (..),
@@ -531,8 +531,8 @@ module Network.AWS.S3
     -- ** Bucket
     Bucket (..),
     mkBucket,
-    bCreationDate,
     bName,
+    bCreationDate,
 
     -- ** BucketLifecycleConfiguration
     BucketLifecycleConfiguration (..),
@@ -552,11 +552,11 @@ module Network.AWS.S3
     -- ** CORSRule
     CORSRule (..),
     mkCORSRule,
+    crAllowedMethods,
     crMaxAgeSeconds,
     crAllowedHeaders,
-    crExposeHeaders,
-    crAllowedMethods,
     crAllowedOrigins,
+    crExposeHeaders,
 
     -- ** CSVInput
     CSVInput (..),
@@ -591,8 +591,8 @@ module Network.AWS.S3
     -- ** CompletedPart
     CompletedPart (..),
     mkCompletedPart,
-    cpPartNumber,
     cpETag,
+    cpPartNumber,
 
     -- ** Condition
     Condition (..),
@@ -651,28 +651,28 @@ module Network.AWS.S3
     -- ** DeletedObject
     DeletedObject (..),
     mkDeletedObject,
-    dVersionId,
-    dDeleteMarker,
-    dDeleteMarkerVersionId,
-    dKey,
+    doVersionId,
+    doDeleteMarker,
+    doDeleteMarkerVersionId,
+    doKey,
 
     -- ** Destination
     Destination (..),
     mkDestination,
     dMetrics,
     dAccessControlTranslation,
+    dBucket,
     dAccount,
     dStorageClass,
     dEncryptionConfiguration,
     dReplicationTime,
-    dBucket,
 
     -- ** Encryption
     Encryption (..),
     mkEncryption,
+    eEncryptionType,
     eKMSKeyId,
     eKMSContext,
-    eEncryptionType,
 
     -- ** EncryptionConfiguration
     EncryptionConfiguration (..),
@@ -747,10 +747,10 @@ module Network.AWS.S3
     -- ** IntelligentTieringConfiguration
     IntelligentTieringConfiguration (..),
     mkIntelligentTieringConfiguration,
-    itcFilter,
-    itcId,
     itcStatus,
     itcTierings,
+    itcId,
+    itcFilter,
 
     -- ** IntelligentTieringFilter
     IntelligentTieringFilter (..),
@@ -762,13 +762,13 @@ module Network.AWS.S3
     -- ** InventoryConfiguration
     InventoryConfiguration (..),
     mkInventoryConfiguration,
-    icOptionalFields,
-    icFilter,
-    icDestination,
-    icIsEnabled,
-    icId,
     icIncludedObjectVersions,
+    icDestination,
     icSchedule,
+    icIsEnabled,
+    icOptionalFields,
+    icId,
+    icFilter,
 
     -- ** InventoryDestination
     InventoryDestination (..),
@@ -790,10 +790,10 @@ module Network.AWS.S3
     InventoryS3BucketDestination (..),
     mkInventoryS3BucketDestination,
     isbdPrefix,
+    isbdFormat,
+    isbdBucket,
     isbdAccountId,
     isbdEncryption,
-    isbdBucket,
-    isbdFormat,
 
     -- ** InventorySchedule
     InventorySchedule (..),
@@ -813,10 +813,10 @@ module Network.AWS.S3
     -- ** LambdaFunctionConfiguration
     LambdaFunctionConfiguration (..),
     mkLambdaFunctionConfiguration,
-    lfcId,
-    lfcFilter,
     lfcLambdaFunctionARN,
     lfcEvents,
+    lfcId,
+    lfcFilter,
 
     -- ** LifecycleExpiration
     LifecycleExpiration (..),
@@ -828,6 +828,7 @@ module Network.AWS.S3
     -- ** LifecycleRule
     LifecycleRule (..),
     mkLifecycleRule,
+    lrStatus,
     lrTransitions,
     lrNoncurrentVersionExpiration,
     lrPrefix,
@@ -836,7 +837,6 @@ module Network.AWS.S3
     lrId,
     lrFilter,
     lrAbortIncompleteMultipartUpload,
-    lrStatus,
 
     -- ** LifecycleRuleAndOperator
     LifecycleRuleAndOperator (..),
@@ -854,8 +854,8 @@ module Network.AWS.S3
     -- ** LoggingEnabled
     LoggingEnabled (..),
     mkLoggingEnabled,
-    leTargetGrants,
     leTargetBucket,
+    leTargetGrants,
     leTargetPrefix,
 
     -- ** MetadataEntry
@@ -867,8 +867,8 @@ module Network.AWS.S3
     -- ** Metrics
     Metrics (..),
     mkMetrics,
-    mEventThreshold,
     mStatus,
+    mEventThreshold,
 
     -- ** MetricsAndOperator
     MetricsAndOperator (..),
@@ -879,8 +879,8 @@ module Network.AWS.S3
     -- ** MetricsConfiguration
     MetricsConfiguration (..),
     mkMetricsConfiguration,
-    mcFilter,
     mcId,
+    mcFilter,
 
     -- ** MetricsFilter
     MetricsFilter (..),
@@ -907,8 +907,8 @@ module Network.AWS.S3
     -- ** NoncurrentVersionTransition
     NoncurrentVersionTransition (..),
     mkNoncurrentVersionTransition,
-    nvtNoncurrentDays,
     nvtStorageClass,
+    nvtNoncurrentDays,
 
     -- ** NotificationConfiguration
     NotificationConfiguration (..),
@@ -925,9 +925,9 @@ module Network.AWS.S3
     -- ** Object
     Object (..),
     mkObject,
-    oOwner,
     oETag,
     oSize,
+    oOwner,
     oKey,
     oStorageClass,
     oLastModified,
@@ -1039,10 +1039,10 @@ module Network.AWS.S3
     -- ** QueueConfiguration
     QueueConfiguration (..),
     mkQueueConfiguration,
-    qcId,
-    qcFilter,
     qcQueueARN,
     qcEvents,
+    qcId,
+    qcFilter,
 
     -- ** RecordsEvent
     RecordsEvent (..),
@@ -1061,18 +1061,20 @@ module Network.AWS.S3
     -- ** RedirectAllRequestsTo
     RedirectAllRequestsTo (..),
     mkRedirectAllRequestsTo,
-    rartProtocol,
     rartHostName,
+    rartProtocol,
 
     -- ** ReplicationConfiguration
     ReplicationConfiguration (..),
     mkReplicationConfiguration,
-    rcRole,
     rcRules,
+    rcRole,
 
     -- ** ReplicationRule
     ReplicationRule (..),
     mkReplicationRule,
+    rrStatus,
+    rrDestination,
     rrDeleteMarkerReplication,
     rrPriority,
     rrPrefix,
@@ -1080,8 +1082,6 @@ module Network.AWS.S3
     rrId,
     rrFilter,
     rrSourceSelectionCriteria,
-    rrStatus,
-    rrDestination,
 
     -- ** ReplicationRuleAndOperator
     ReplicationRuleAndOperator (..),
@@ -1131,8 +1131,8 @@ module Network.AWS.S3
     -- ** RoutingRule
     RoutingRule (..),
     mkRoutingRule,
-    rrCondition,
     rrRedirect,
+    rrCondition,
 
     -- ** S3KeyFilter
     S3KeyFilter (..),
@@ -1143,13 +1143,13 @@ module Network.AWS.S3
     S3Location (..),
     mkS3Location,
     slCannedACL,
+    slPrefix,
+    slBucketName,
     slAccessControlList,
     slUserMetadata,
     slEncryption,
     slStorageClass,
     slTagging,
-    slBucketName,
-    slPrefix,
 
     -- ** S3ServiceError
     S3ServiceError (..),
@@ -1186,16 +1186,16 @@ module Network.AWS.S3
     -- ** SelectParameters
     SelectParameters (..),
     mkSelectParameters,
-    spInputSerialization,
     spExpressionType,
-    spExpression,
     spOutputSerialization,
+    spExpression,
+    spInputSerialization,
 
     -- ** ServerSideEncryptionByDefault
     ServerSideEncryptionByDefault (..),
     mkServerSideEncryptionByDefault,
-    ssebdKMSMasterKeyId,
     ssebdSSEAlgorithm,
+    ssebdKMSMasterKeyId,
 
     -- ** ServerSideEncryptionConfiguration
     ServerSideEncryptionConfiguration (..),
@@ -1243,8 +1243,8 @@ module Network.AWS.S3
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** Tagging
     Tagging (..),
@@ -1266,17 +1266,17 @@ module Network.AWS.S3
     -- ** TopicConfiguration
     TopicConfiguration (..),
     mkTopicConfiguration,
-    tcId,
-    tcFilter,
     tcTopicARN,
     tcEvents,
+    tcId,
+    tcFilter,
 
     -- ** Transition
     Transition (..),
     mkTransition,
-    traDays,
-    traDate,
-    traStorageClass,
+    tfDays,
+    tfDate,
+    tfStorageClass,
 
     -- ** VersioningConfiguration
     VersioningConfiguration (..),

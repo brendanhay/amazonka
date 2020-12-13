@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.Lambda.CreateAlias
 
     -- ** Request lenses
     caRoutingConfig,
-    caDescription,
-    caFunctionName,
     caName,
+    caFunctionName,
     caFunctionVersion,
+    caDescription,
 
     -- * Destructuring the response
     AliasConfiguration (..),
@@ -49,25 +50,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { routingConfig ::
-      Lude.Maybe AliasRoutingConfiguration,
-    description :: Lude.Maybe Lude.Text,
-    functionName :: Lude.Text,
+  { -- | The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
+    routingConfig :: Lude.Maybe AliasRoutingConfiguration,
+    -- | The name of the alias.
     name :: Lude.Text,
-    functionVersion :: Lude.Text
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @MyFunction@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | The function version that the alias invokes.
+    functionVersion :: Lude.Text,
+    -- | A description of the alias.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the alias.
+-- * 'routingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
+-- * 'name' - The name of the alias.
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -83,23 +96,22 @@ data CreateAlias = CreateAlias'
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 -- * 'functionVersion' - The function version that the alias invokes.
--- * 'name' - The name of the alias.
--- * 'routingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
+-- * 'description' - A description of the alias.
 mkCreateAlias ::
-  -- | 'functionName'
-  Lude.Text ->
   -- | 'name'
+  Lude.Text ->
+  -- | 'functionName'
   Lude.Text ->
   -- | 'functionVersion'
   Lude.Text ->
   CreateAlias
-mkCreateAlias pFunctionName_ pName_ pFunctionVersion_ =
+mkCreateAlias pName_ pFunctionName_ pFunctionVersion_ =
   CreateAlias'
     { routingConfig = Lude.Nothing,
-      description = Lude.Nothing,
-      functionName = pFunctionName_,
       name = pName_,
-      functionVersion = pFunctionVersion_
+      functionName = pFunctionName_,
+      functionVersion = pFunctionVersion_,
+      description = Lude.Nothing
     }
 
 -- | The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
@@ -109,12 +121,12 @@ caRoutingConfig :: Lens.Lens' CreateAlias (Lude.Maybe AliasRoutingConfiguration)
 caRoutingConfig = Lens.lens (routingConfig :: CreateAlias -> Lude.Maybe AliasRoutingConfiguration) (\s a -> s {routingConfig = a} :: CreateAlias)
 {-# DEPRECATED caRoutingConfig "Use generic-lens or generic-optics with 'routingConfig' instead." #-}
 
--- | A description of the alias.
+-- | The name of the alias.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caDescription :: Lens.Lens' CreateAlias (Lude.Maybe Lude.Text)
-caDescription = Lens.lens (description :: CreateAlias -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateAlias)
-{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caName :: Lens.Lens' CreateAlias Lude.Text
+caName = Lens.lens (name :: CreateAlias -> Lude.Text) (\s a -> s {name = a} :: CreateAlias)
+{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -136,19 +148,19 @@ caFunctionName :: Lens.Lens' CreateAlias Lude.Text
 caFunctionName = Lens.lens (functionName :: CreateAlias -> Lude.Text) (\s a -> s {functionName = a} :: CreateAlias)
 {-# DEPRECATED caFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
--- | The name of the alias.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caName :: Lens.Lens' CreateAlias Lude.Text
-caName = Lens.lens (name :: CreateAlias -> Lude.Text) (\s a -> s {name = a} :: CreateAlias)
-{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 -- | The function version that the alias invokes.
 --
 -- /Note:/ Consider using 'functionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 caFunctionVersion :: Lens.Lens' CreateAlias Lude.Text
 caFunctionVersion = Lens.lens (functionVersion :: CreateAlias -> Lude.Text) (\s a -> s {functionVersion = a} :: CreateAlias)
 {-# DEPRECATED caFunctionVersion "Use generic-lens or generic-optics with 'functionVersion' instead." #-}
+
+-- | A description of the alias.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateAlias (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreateAlias -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateAlias)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest CreateAlias where
   type Rs CreateAlias = AliasConfiguration
@@ -163,9 +175,9 @@ instance Lude.ToJSON CreateAlias where
     Lude.object
       ( Lude.catMaybes
           [ ("RoutingConfig" Lude..=) Lude.<$> routingConfig,
-            ("Description" Lude..=) Lude.<$> description,
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("FunctionVersion" Lude..= functionVersion)
+            Lude.Just ("FunctionVersion" Lude..= functionVersion),
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 

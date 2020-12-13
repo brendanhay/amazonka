@@ -33,27 +33,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuildGroup' smart constructor.
 data BuildGroup = BuildGroup'
-  { identifier :: Lude.Maybe Lude.Text,
+  { -- | Contains the identifier of the build group.
+    identifier :: Lude.Maybe Lude.Text,
+    -- | An array of strings that contain the identifiers of the build groups that this build group depends on.
     dependsOn :: Lude.Maybe [Lude.Text],
+    -- | Specifies if failures in this build group can be ignored.
     ignoreFailure :: Lude.Maybe Lude.Bool,
+    -- | A @BuildSummary@ object that contains a summary of the current build group.
     currentBuildSummary :: Lude.Maybe BuildSummary,
+    -- | An array of @BuildSummary@ objects that contain summaries of previous build groups.
     priorBuildSummaryList :: Lude.Maybe [BuildSummary]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildGroup' with the minimum fields required to make a request.
 --
--- * 'currentBuildSummary' - A @BuildSummary@ object that contains a summary of the current build group.
--- * 'dependsOn' - An array of strings that contain the identifiers of the build groups that this build group depends on.
 -- * 'identifier' - Contains the identifier of the build group.
+-- * 'dependsOn' - An array of strings that contain the identifiers of the build groups that this build group depends on.
 -- * 'ignoreFailure' - Specifies if failures in this build group can be ignored.
+-- * 'currentBuildSummary' - A @BuildSummary@ object that contains a summary of the current build group.
 -- * 'priorBuildSummaryList' - An array of @BuildSummary@ objects that contain summaries of previous build groups.
 mkBuildGroup ::
   BuildGroup

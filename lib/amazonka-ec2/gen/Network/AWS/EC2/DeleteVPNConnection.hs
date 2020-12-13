@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.EC2.DeleteVPNConnection
     mkDeleteVPNConnection,
 
     -- ** Request lenses
-    dvcDryRun,
     dvcVPNConnectionId,
+    dvcDryRun,
 
     -- * Destructuring the response
     DeleteVPNConnectionResponse (..),
@@ -41,39 +42,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteVPNConnection' smart constructor.
 data DeleteVPNConnection = DeleteVPNConnection'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    vpnConnectionId :: Lude.Text
+  { -- | The ID of the VPN connection.
+    vpnConnectionId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPNConnection' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'vpnConnectionId' - The ID of the VPN connection.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteVPNConnection ::
   -- | 'vpnConnectionId'
   Lude.Text ->
   DeleteVPNConnection
 mkDeleteVPNConnection pVPNConnectionId_ =
   DeleteVPNConnection'
-    { dryRun = Lude.Nothing,
-      vpnConnectionId = pVPNConnectionId_
+    { vpnConnectionId = pVPNConnectionId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvcDryRun :: Lens.Lens' DeleteVPNConnection (Lude.Maybe Lude.Bool)
-dvcDryRun = Lens.lens (dryRun :: DeleteVPNConnection -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPNConnection)
-{-# DEPRECATED dvcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPN connection.
 --
@@ -81,6 +70,13 @@ dvcDryRun = Lens.lens (dryRun :: DeleteVPNConnection -> Lude.Maybe Lude.Bool) (\
 dvcVPNConnectionId :: Lens.Lens' DeleteVPNConnection Lude.Text
 dvcVPNConnectionId = Lens.lens (vpnConnectionId :: DeleteVPNConnection -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: DeleteVPNConnection)
 {-# DEPRECATED dvcVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcDryRun :: Lens.Lens' DeleteVPNConnection (Lude.Maybe Lude.Bool)
+dvcDryRun = Lens.lens (dryRun :: DeleteVPNConnection -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPNConnection)
+{-# DEPRECATED dvcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteVPNConnection where
   type Rs DeleteVPNConnection = DeleteVPNConnectionResponse
@@ -98,19 +94,13 @@ instance Lude.ToQuery DeleteVPNConnection where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteVpnConnection" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "VpnConnectionId" Lude.=: vpnConnectionId
+        "VpnConnectionId" Lude.=: vpnConnectionId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteVPNConnectionResponse' smart constructor.
 data DeleteVPNConnectionResponse = DeleteVPNConnectionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPNConnectionResponse' with the minimum fields required to make a request.

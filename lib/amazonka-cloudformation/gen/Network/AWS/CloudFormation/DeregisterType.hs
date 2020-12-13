@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeregisterType' smart constructor.
 data DeregisterType = DeregisterType'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The name of the type.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
     typeName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the type.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
     arn :: Lude.Maybe Lude.Text,
+    -- | The kind of type.
+    --
+    -- Currently the only valid value is @RESOURCE@ .
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
     type' :: Lude.Maybe RegistryType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterType' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
+-- * 'typeName' - The name of the type.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
 -- * 'arn' - The Amazon Resource Name (ARN) of the type.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
@@ -68,10 +77,6 @@ data DeregisterType = DeregisterType'
 --
 -- Currently the only valid value is @RESOURCE@ .
 -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'typeName' - The name of the type.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'versionId' - The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
 mkDeregisterType ::
   DeregisterType
 mkDeregisterType =
@@ -146,16 +151,10 @@ instance Lude.ToQuery DeregisterType where
 
 -- | /See:/ 'mkDeregisterTypeResponse' smart constructor.
 newtype DeregisterTypeResponse = DeregisterTypeResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTypeResponse' with the minimum fields required to make a request.

@@ -14,10 +14,10 @@ module Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod
   ( ElasticsearchIndexRotationPeriod
       ( ElasticsearchIndexRotationPeriod',
         NoRotation,
-        OneDay,
         OneHour,
-        OneMonth,
-        OneWeek
+        OneDay,
+        OneWeek,
+        OneMonth
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype ElasticsearchIndexRotationPeriod = ElasticsearchIndexRotationPeriod' Lud
 pattern NoRotation :: ElasticsearchIndexRotationPeriod
 pattern NoRotation = ElasticsearchIndexRotationPeriod' "NoRotation"
 
-pattern OneDay :: ElasticsearchIndexRotationPeriod
-pattern OneDay = ElasticsearchIndexRotationPeriod' "OneDay"
-
 pattern OneHour :: ElasticsearchIndexRotationPeriod
 pattern OneHour = ElasticsearchIndexRotationPeriod' "OneHour"
 
-pattern OneMonth :: ElasticsearchIndexRotationPeriod
-pattern OneMonth = ElasticsearchIndexRotationPeriod' "OneMonth"
+pattern OneDay :: ElasticsearchIndexRotationPeriod
+pattern OneDay = ElasticsearchIndexRotationPeriod' "OneDay"
 
 pattern OneWeek :: ElasticsearchIndexRotationPeriod
 pattern OneWeek = ElasticsearchIndexRotationPeriod' "OneWeek"
 
+pattern OneMonth :: ElasticsearchIndexRotationPeriod
+pattern OneMonth = ElasticsearchIndexRotationPeriod' "OneMonth"
+
 {-# COMPLETE
   NoRotation,
-  OneDay,
   OneHour,
-  OneMonth,
+  OneDay,
   OneWeek,
+  OneMonth,
   ElasticsearchIndexRotationPeriod'
   #-}

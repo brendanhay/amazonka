@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.DeviceFarm.UpdateUpload
     mkUpdateUpload,
 
     -- ** Request lenses
+    uuArn,
     uuEditContent,
     uuName,
     uuContentType,
-    uuArn,
 
     -- * Destructuring the response
     UpdateUploadResponse (..),
@@ -42,38 +43,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateUpload' smart constructor.
 data UpdateUpload = UpdateUpload'
-  { editContent ::
-      Lude.Maybe Lude.Bool,
+  { -- | The Amazon Resource Name (ARN) of the uploaded test spec.
+    arn :: Lude.Text,
+    -- | Set to true if the YAML file has changed and must be updated. Otherwise, set to false.
+    editContent :: Lude.Maybe Lude.Bool,
+    -- | The upload's test spec file name. The name must not contain any forward slashes (/). The test spec file name must end with the @.yaml@ or @.yml@ file extension.
     name :: Lude.Maybe Lude.Text,
-    contentType :: Lude.Maybe Lude.Text,
-    arn :: Lude.Text
+    -- | The upload's content type (for example, @application/x-yaml@ ).
+    contentType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUpload' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the uploaded test spec.
--- * 'contentType' - The upload's content type (for example, @application/x-yaml@ ).
 -- * 'editContent' - Set to true if the YAML file has changed and must be updated. Otherwise, set to false.
 -- * 'name' - The upload's test spec file name. The name must not contain any forward slashes (/). The test spec file name must end with the @.yaml@ or @.yml@ file extension.
+-- * 'contentType' - The upload's content type (for example, @application/x-yaml@ ).
 mkUpdateUpload ::
   -- | 'arn'
   Lude.Text ->
   UpdateUpload
 mkUpdateUpload pArn_ =
   UpdateUpload'
-    { editContent = Lude.Nothing,
+    { arn = pArn_,
+      editContent = Lude.Nothing,
       name = Lude.Nothing,
-      contentType = Lude.Nothing,
-      arn = pArn_
+      contentType = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the uploaded test spec.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuArn :: Lens.Lens' UpdateUpload Lude.Text
+uuArn = Lens.lens (arn :: UpdateUpload -> Lude.Text) (\s a -> s {arn = a} :: UpdateUpload)
+{-# DEPRECATED uuArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | Set to true if the YAML file has changed and must be updated. Otherwise, set to false.
 --
@@ -95,13 +100,6 @@ uuName = Lens.lens (name :: UpdateUpload -> Lude.Maybe Lude.Text) (\s a -> s {na
 uuContentType :: Lens.Lens' UpdateUpload (Lude.Maybe Lude.Text)
 uuContentType = Lens.lens (contentType :: UpdateUpload -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: UpdateUpload)
 {-# DEPRECATED uuContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the uploaded test spec.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuArn :: Lens.Lens' UpdateUpload Lude.Text
-uuArn = Lens.lens (arn :: UpdateUpload -> Lude.Text) (\s a -> s {arn = a} :: UpdateUpload)
-{-# DEPRECATED uuArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 instance Lude.AWSRequest UpdateUpload where
   type Rs UpdateUpload = UpdateUploadResponse
@@ -128,10 +126,10 @@ instance Lude.ToJSON UpdateUpload where
   toJSON UpdateUpload' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("editContent" Lude..=) Lude.<$> editContent,
+          [ Lude.Just ("arn" Lude..= arn),
+            ("editContent" Lude..=) Lude.<$> editContent,
             ("name" Lude..=) Lude.<$> name,
-            ("contentType" Lude..=) Lude.<$> contentType,
-            Lude.Just ("arn" Lude..= arn)
+            ("contentType" Lude..=) Lude.<$> contentType
           ]
       )
 
@@ -143,23 +141,18 @@ instance Lude.ToQuery UpdateUpload where
 
 -- | /See:/ 'mkUpdateUploadResponse' smart constructor.
 data UpdateUploadResponse = UpdateUploadResponse'
-  { upload ::
-      Lude.Maybe Upload,
+  { -- | A test spec uploaded to Device Farm.
+    upload :: Lude.Maybe Upload,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUploadResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'upload' - A test spec uploaded to Device Farm.
+-- * 'responseStatus' - The response status code.
 mkUpdateUploadResponse ::
   -- | 'responseStatus'
   Lude.Int ->

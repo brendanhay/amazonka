@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataRetrievalPolicy' smart constructor.
 newtype DataRetrievalPolicy = DataRetrievalPolicy'
-  { rules ::
-      Lude.Maybe [DataRetrievalRule]
+  { -- | The policy rule. Although this is a list type, currently there must be only one rule, which contains a Strategy field and optionally a BytesPerHour field.
+    rules :: Lude.Maybe [DataRetrievalRule]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataRetrievalPolicy' with the minimum fields required to make a request.

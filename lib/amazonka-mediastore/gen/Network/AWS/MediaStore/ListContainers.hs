@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.MediaStore.ListContainers
 
     -- ** Response lenses
     lcrsNextToken,
-    lcrsResponseStatus,
     lcrsContainers,
+    lcrsResponseStatus,
   )
 where
 
@@ -47,23 +48,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListContainers' smart constructor.
 data ListContainers = ListContainers'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Only if you used @MaxResults@ in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Enter the maximum number of containers in the response. Use from 1 to 255 characters.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListContainers' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Enter the maximum number of containers in the response. Use from 1 to 255 characters.
 -- * 'nextToken' - Only if you used @MaxResults@ in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list.
+-- * 'maxResults' - Enter the maximum number of containers in the response. Use from 1 to 255 characters.
 mkListContainers ::
   ListContainers
 mkListContainers =
@@ -103,8 +99,8 @@ instance Lude.AWSRequest ListContainers where
       ( \s h x ->
           ListContainersResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "Containers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListContainers where
@@ -135,24 +131,20 @@ instance Lude.ToQuery ListContainers where
 
 -- | /See:/ 'mkListContainersResponse' smart constructor.
 data ListContainersResponse = ListContainersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    containers :: [Container]
+  { -- | @NextToken@ is the token to use in the next call to @ListContainers@ . This token is returned only if you included the @MaxResults@ tag in the original command, and only if there are still containers to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The names of the containers.
+    containers :: [Container],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListContainersResponse' with the minimum fields required to make a request.
 --
--- * 'containers' - The names of the containers.
 -- * 'nextToken' - @NextToken@ is the token to use in the next call to @ListContainers@ . This token is returned only if you included the @MaxResults@ tag in the original command, and only if there are still containers to return.
+-- * 'containers' - The names of the containers.
 -- * 'responseStatus' - The response status code.
 mkListContainersResponse ::
   -- | 'responseStatus'
@@ -161,8 +153,8 @@ mkListContainersResponse ::
 mkListContainersResponse pResponseStatus_ =
   ListContainersResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      containers = Lude.mempty
+      containers = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | @NextToken@ is the token to use in the next call to @ListContainers@ . This token is returned only if you included the @MaxResults@ tag in the original command, and only if there are still containers to return.
@@ -172,16 +164,16 @@ lcrsNextToken :: Lens.Lens' ListContainersResponse (Lude.Maybe Lude.Text)
 lcrsNextToken = Lens.lens (nextToken :: ListContainersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListContainersResponse)
 {-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsResponseStatus :: Lens.Lens' ListContainersResponse Lude.Int
-lcrsResponseStatus = Lens.lens (responseStatus :: ListContainersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListContainersResponse)
-{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The names of the containers.
 --
 -- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lcrsContainers :: Lens.Lens' ListContainersResponse [Container]
 lcrsContainers = Lens.lens (containers :: ListContainersResponse -> [Container]) (\s a -> s {containers = a} :: ListContainersResponse)
 {-# DEPRECATED lcrsContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsResponseStatus :: Lens.Lens' ListContainersResponse Lude.Int
+lcrsResponseStatus = Lens.lens (responseStatus :: ListContainersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListContainersResponse)
+{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

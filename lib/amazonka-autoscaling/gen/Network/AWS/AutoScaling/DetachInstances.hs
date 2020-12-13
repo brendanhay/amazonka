@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,24 +47,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetachInstances' smart constructor.
 data DetachInstances = DetachInstances'
-  { instanceIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The IDs of the instances. You can specify up to 20 instances.
+    instanceIds :: Lude.Maybe [Lude.Text],
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Text,
+    -- | Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.
     shouldDecrementDesiredCapacity :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachInstances' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'instanceIds' - The IDs of the instances. You can specify up to 20 instances.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'shouldDecrementDesiredCapacity' - Indicates whether the Auto Scaling group decrements the desired capacity value by the number of instances detached.
 mkDetachInstances ::
   -- | 'autoScalingGroupName'
@@ -135,17 +132,12 @@ instance Lude.ToQuery DetachInstances where
 
 -- | /See:/ 'mkDetachInstancesResponse' smart constructor.
 data DetachInstancesResponse = DetachInstancesResponse'
-  { activities ::
-      Lude.Maybe [Activity],
+  { -- | The activities related to detaching the instances from the Auto Scaling group.
+    activities :: Lude.Maybe [Activity],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachInstancesResponse' with the minimum fields required to make a request.

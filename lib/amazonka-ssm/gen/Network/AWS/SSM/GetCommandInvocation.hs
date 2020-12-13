@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.SSM.GetCommandInvocation
     mkGetCommandInvocation,
 
     -- ** Request lenses
-    gciPluginName,
-    gciCommandId,
     gciInstanceId,
+    gciCommandId,
+    gciPluginName,
 
     -- * Destructuring the response
     GetCommandInvocationResponse (..),
@@ -57,39 +58,51 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetCommandInvocation' smart constructor.
 data GetCommandInvocation = GetCommandInvocation'
-  { pluginName ::
-      Lude.Maybe Lude.Text,
+  { -- | (Required) The ID of the managed instance targeted by the command. A managed instance can be an EC2 instance or an instance in your hybrid environment that is configured for Systems Manager.
+    instanceId :: Lude.Text,
+    -- | (Required) The parent command ID of the invocation plugin.
     commandId :: Lude.Text,
-    instanceId :: Lude.Text
+    -- | (Optional) The name of the plugin for which you want detailed results. If the document contains only one plugin, the name can be omitted and the details will be returned.
+    --
+    -- Plugin names are also referred to as step names in Systems Manager documents.
+    pluginName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommandInvocation' with the minimum fields required to make a request.
 --
--- * 'commandId' - (Required) The parent command ID of the invocation plugin.
 -- * 'instanceId' - (Required) The ID of the managed instance targeted by the command. A managed instance can be an EC2 instance or an instance in your hybrid environment that is configured for Systems Manager.
+-- * 'commandId' - (Required) The parent command ID of the invocation plugin.
 -- * 'pluginName' - (Optional) The name of the plugin for which you want detailed results. If the document contains only one plugin, the name can be omitted and the details will be returned.
 --
 -- Plugin names are also referred to as step names in Systems Manager documents.
 mkGetCommandInvocation ::
-  -- | 'commandId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'commandId'
+  Lude.Text ->
   GetCommandInvocation
-mkGetCommandInvocation pCommandId_ pInstanceId_ =
+mkGetCommandInvocation pInstanceId_ pCommandId_ =
   GetCommandInvocation'
-    { pluginName = Lude.Nothing,
+    { instanceId = pInstanceId_,
       commandId = pCommandId_,
-      instanceId = pInstanceId_
+      pluginName = Lude.Nothing
     }
+
+-- | (Required) The ID of the managed instance targeted by the command. A managed instance can be an EC2 instance or an instance in your hybrid environment that is configured for Systems Manager.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gciInstanceId :: Lens.Lens' GetCommandInvocation Lude.Text
+gciInstanceId = Lens.lens (instanceId :: GetCommandInvocation -> Lude.Text) (\s a -> s {instanceId = a} :: GetCommandInvocation)
+{-# DEPRECATED gciInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | (Required) The parent command ID of the invocation plugin.
+--
+-- /Note:/ Consider using 'commandId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gciCommandId :: Lens.Lens' GetCommandInvocation Lude.Text
+gciCommandId = Lens.lens (commandId :: GetCommandInvocation -> Lude.Text) (\s a -> s {commandId = a} :: GetCommandInvocation)
+{-# DEPRECATED gciCommandId "Use generic-lens or generic-optics with 'commandId' instead." #-}
 
 -- | (Optional) The name of the plugin for which you want detailed results. If the document contains only one plugin, the name can be omitted and the details will be returned.
 --
@@ -99,20 +112,6 @@ mkGetCommandInvocation pCommandId_ pInstanceId_ =
 gciPluginName :: Lens.Lens' GetCommandInvocation (Lude.Maybe Lude.Text)
 gciPluginName = Lens.lens (pluginName :: GetCommandInvocation -> Lude.Maybe Lude.Text) (\s a -> s {pluginName = a} :: GetCommandInvocation)
 {-# DEPRECATED gciPluginName "Use generic-lens or generic-optics with 'pluginName' instead." #-}
-
--- | (Required) The parent command ID of the invocation plugin.
---
--- /Note:/ Consider using 'commandId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gciCommandId :: Lens.Lens' GetCommandInvocation Lude.Text
-gciCommandId = Lens.lens (commandId :: GetCommandInvocation -> Lude.Text) (\s a -> s {commandId = a} :: GetCommandInvocation)
-{-# DEPRECATED gciCommandId "Use generic-lens or generic-optics with 'commandId' instead." #-}
-
--- | (Required) The ID of the managed instance targeted by the command. A managed instance can be an EC2 instance or an instance in your hybrid environment that is configured for Systems Manager.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gciInstanceId :: Lens.Lens' GetCommandInvocation Lude.Text
-gciInstanceId = Lens.lens (instanceId :: GetCommandInvocation -> Lude.Text) (\s a -> s {instanceId = a} :: GetCommandInvocation)
-{-# DEPRECATED gciInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest GetCommandInvocation where
   type Rs GetCommandInvocation = GetCommandInvocationResponse
@@ -156,9 +155,9 @@ instance Lude.ToJSON GetCommandInvocation where
   toJSON GetCommandInvocation' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PluginName" Lude..=) Lude.<$> pluginName,
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
             Lude.Just ("CommandId" Lude..= commandId),
-            Lude.Just ("InstanceId" Lude..= instanceId)
+            ("PluginName" Lude..=) Lude.<$> pluginName
           ]
       )
 
@@ -170,75 +169,96 @@ instance Lude.ToQuery GetCommandInvocation where
 
 -- | /See:/ 'mkGetCommandInvocationResponse' smart constructor.
 data GetCommandInvocationResponse = GetCommandInvocationResponse'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
-    status ::
-      Lude.Maybe
-        CommandInvocationStatus,
-    standardErrorContent ::
-      Lude.Maybe Lude.Text,
-    cloudWatchOutputConfig ::
-      Lude.Maybe CloudWatchOutputConfig,
-    executionElapsedTime ::
-      Lude.Maybe Lude.Text,
-    documentName ::
-      Lude.Maybe Lude.Text,
-    standardErrorURL ::
-      Lude.Maybe Lude.Text,
-    executionStartDateTime ::
-      Lude.Maybe Lude.Text,
-    responseCode ::
-      Lude.Maybe Lude.Int,
-    statusDetails ::
-      Lude.Maybe Lude.Text,
-    executionEndDateTime ::
-      Lude.Maybe Lude.Text,
-    standardOutputURL ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the managed instance targeted by the command. A managed instance can be an EC2 instance or an instance in your hybrid environment that is configured for Systems Manager.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The status of this invocation plugin. This status can be different than StatusDetails.
+    status :: Lude.Maybe CommandInvocationStatus,
+    -- | The first 8,000 characters written by the plugin to stderr. If the command has not finished running, then this string is empty.
+    standardErrorContent :: Lude.Maybe Lude.Text,
+    -- | CloudWatch Logs information where Systems Manager sent the command output.
+    cloudWatchOutputConfig :: Lude.Maybe CloudWatchOutputConfig,
+    -- | Duration since ExecutionStartDateTime.
+    executionElapsedTime :: Lude.Maybe Lude.Text,
+    -- | The name of the document that was run. For example, AWS-RunShellScript.
+    documentName :: Lude.Maybe Lude.Text,
+    -- | The URL for the complete text written by the plugin to stderr. If the command has not finished running, then this string is empty.
+    standardErrorURL :: Lude.Maybe Lude.Text,
+    -- | The date and time the plugin started running. Date and time are written in ISO 8601 format. For example, June 7, 2017 is represented as 2017-06-7. The following sample AWS CLI command uses the @InvokedBefore@ filter.
+    --
+    -- @aws ssm list-commands --filters key=InvokedBefore,value=2017-06-07T00:00:00Z@
+    -- If the plugin has not started to run, the string is empty.
+    executionStartDateTime :: Lude.Maybe Lude.Text,
+    -- | The error level response code for the plugin script. If the response code is -1, then the command has not started running on the instance, or it was not received by the instance.
+    responseCode :: Lude.Maybe Lude.Int,
+    -- | A detailed status of the command execution for an invocation. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:
+    --
+    --
+    --     * Pending: The command has not been sent to the instance.
+    --
+    --
+    --     * In Progress: The command has been sent to the instance but has not reached a terminal state.
+    --
+    --
+    --     * Delayed: The system attempted to send the command to the target, but the target was not available. The instance might not be available because of network issues, because the instance was stopped, or for similar reasons. The system will try to send the command again.
+    --
+    --
+    --     * Success: The command or plugin ran successfully. This is a terminal state.
+    --
+    --
+    --     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.
+    --
+    --
+    --     * Execution Timed Out: The command started to run on the instance, but the execution was not complete before the timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.
+    --
+    --
+    --     * Failed: The command wasn't run successfully on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.
+    --
+    --
+    --     * Canceled: The command was terminated before it was completed. This is a terminal state.
+    --
+    --
+    --     * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.
+    --
+    --
+    --     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+    statusDetails :: Lude.Maybe Lude.Text,
+    -- | The date and time the plugin was finished running. Date and time are written in ISO 8601 format. For example, June 7, 2017 is represented as 2017-06-7. The following sample AWS CLI command uses the @InvokedAfter@ filter.
+    --
+    -- @aws ssm list-commands --filters key=InvokedAfter,value=2017-06-07T00:00:00Z@
+    -- If the plugin has not started to run, the string is empty.
+    executionEndDateTime :: Lude.Maybe Lude.Text,
+    -- | The URL for the complete text written by the plugin to stdout in Amazon S3. If an S3 bucket was not specified, then this string is empty.
+    standardOutputURL :: Lude.Maybe Lude.Text,
+    -- | The parent command ID of the invocation plugin.
     commandId :: Lude.Maybe Lude.Text,
-    documentVersion ::
-      Lude.Maybe Lude.Text,
-    standardOutputContent ::
-      Lude.Maybe Lude.Text,
+    -- | The SSM document version used in the request.
+    documentVersion :: Lude.Maybe Lude.Text,
+    -- | The first 24,000 characters written by the plugin to stdout. If the command has not finished running, if ExecutionStatus is neither Succeeded nor Failed, then this string is empty.
+    standardOutputContent :: Lude.Maybe Lude.Text,
+    -- | The comment text for the command.
     comment :: Lude.Maybe Lude.Text,
-    pluginName ::
-      Lude.Maybe Lude.Text,
+    -- | The name of the plugin for which you want detailed results. For example, aws:RunShellScript is a plugin.
+    pluginName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommandInvocationResponse' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The ID of the managed instance targeted by the command. A managed instance can be an EC2 instance or an instance in your hybrid environment that is configured for Systems Manager.
+-- * 'status' - The status of this invocation plugin. This status can be different than StatusDetails.
+-- * 'standardErrorContent' - The first 8,000 characters written by the plugin to stderr. If the command has not finished running, then this string is empty.
 -- * 'cloudWatchOutputConfig' - CloudWatch Logs information where Systems Manager sent the command output.
--- * 'commandId' - The parent command ID of the invocation plugin.
--- * 'comment' - The comment text for the command.
--- * 'documentName' - The name of the document that was run. For example, AWS-RunShellScript.
--- * 'documentVersion' - The SSM document version used in the request.
 -- * 'executionElapsedTime' - Duration since ExecutionStartDateTime.
--- * 'executionEndDateTime' - The date and time the plugin was finished running. Date and time are written in ISO 8601 format. For example, June 7, 2017 is represented as 2017-06-7. The following sample AWS CLI command uses the @InvokedAfter@ filter.
---
--- @aws ssm list-commands --filters key=InvokedAfter,value=2017-06-07T00:00:00Z@
--- If the plugin has not started to run, the string is empty.
+-- * 'documentName' - The name of the document that was run. For example, AWS-RunShellScript.
+-- * 'standardErrorURL' - The URL for the complete text written by the plugin to stderr. If the command has not finished running, then this string is empty.
 -- * 'executionStartDateTime' - The date and time the plugin started running. Date and time are written in ISO 8601 format. For example, June 7, 2017 is represented as 2017-06-7. The following sample AWS CLI command uses the @InvokedBefore@ filter.
 --
 -- @aws ssm list-commands --filters key=InvokedBefore,value=2017-06-07T00:00:00Z@
 -- If the plugin has not started to run, the string is empty.
--- * 'instanceId' - The ID of the managed instance targeted by the command. A managed instance can be an EC2 instance or an instance in your hybrid environment that is configured for Systems Manager.
--- * 'pluginName' - The name of the plugin for which you want detailed results. For example, aws:RunShellScript is a plugin.
 -- * 'responseCode' - The error level response code for the plugin script. If the response code is -1, then the command has not started running on the instance, or it was not received by the instance.
--- * 'responseStatus' - The response status code.
--- * 'standardErrorContent' - The first 8,000 characters written by the plugin to stderr. If the command has not finished running, then this string is empty.
--- * 'standardErrorURL' - The URL for the complete text written by the plugin to stderr. If the command has not finished running, then this string is empty.
--- * 'standardOutputContent' - The first 24,000 characters written by the plugin to stdout. If the command has not finished running, if ExecutionStatus is neither Succeeded nor Failed, then this string is empty.
--- * 'standardOutputURL' - The URL for the complete text written by the plugin to stdout in Amazon S3. If an S3 bucket was not specified, then this string is empty.
--- * 'status' - The status of this invocation plugin. This status can be different than StatusDetails.
 -- * 'statusDetails' - A detailed status of the command execution for an invocation. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:
 --
 --
@@ -270,6 +290,19 @@ data GetCommandInvocationResponse = GetCommandInvocationResponse'
 --
 --
 --     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+--
+--
+-- * 'executionEndDateTime' - The date and time the plugin was finished running. Date and time are written in ISO 8601 format. For example, June 7, 2017 is represented as 2017-06-7. The following sample AWS CLI command uses the @InvokedAfter@ filter.
+--
+-- @aws ssm list-commands --filters key=InvokedAfter,value=2017-06-07T00:00:00Z@
+-- If the plugin has not started to run, the string is empty.
+-- * 'standardOutputURL' - The URL for the complete text written by the plugin to stdout in Amazon S3. If an S3 bucket was not specified, then this string is empty.
+-- * 'commandId' - The parent command ID of the invocation plugin.
+-- * 'documentVersion' - The SSM document version used in the request.
+-- * 'standardOutputContent' - The first 24,000 characters written by the plugin to stdout. If the command has not finished running, if ExecutionStatus is neither Succeeded nor Failed, then this string is empty.
+-- * 'comment' - The comment text for the command.
+-- * 'pluginName' - The name of the plugin for which you want detailed results. For example, aws:RunShellScript is a plugin.
+-- * 'responseStatus' - The response status code.
 mkGetCommandInvocationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

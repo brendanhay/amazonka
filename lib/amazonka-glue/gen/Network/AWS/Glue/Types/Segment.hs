@@ -17,8 +17,8 @@ module Network.AWS.Glue.Types.Segment
     mkSegment,
 
     -- * Lenses
-    sSegmentNumber,
     sTotalSegments,
+    sSegmentNumber,
   )
 where
 
@@ -29,40 +29,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSegment' smart constructor.
 data Segment = Segment'
-  { segmentNumber :: Lude.Natural,
-    totalSegments :: Lude.Natural
+  { -- | The total number of segments.
+    totalSegments :: Lude.Natural,
+    -- | The zero-based index number of the segment. For example, if the total number of segments is 4, @SegmentNumber@ values range from 0 through 3.
+    segmentNumber :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Segment' with the minimum fields required to make a request.
 --
--- * 'segmentNumber' - The zero-based index number of the segment. For example, if the total number of segments is 4, @SegmentNumber@ values range from 0 through 3.
 -- * 'totalSegments' - The total number of segments.
+-- * 'segmentNumber' - The zero-based index number of the segment. For example, if the total number of segments is 4, @SegmentNumber@ values range from 0 through 3.
 mkSegment ::
-  -- | 'segmentNumber'
-  Lude.Natural ->
   -- | 'totalSegments'
   Lude.Natural ->
+  -- | 'segmentNumber'
+  Lude.Natural ->
   Segment
-mkSegment pSegmentNumber_ pTotalSegments_ =
+mkSegment pTotalSegments_ pSegmentNumber_ =
   Segment'
-    { segmentNumber = pSegmentNumber_,
-      totalSegments = pTotalSegments_
+    { totalSegments = pTotalSegments_,
+      segmentNumber = pSegmentNumber_
     }
-
--- | The zero-based index number of the segment. For example, if the total number of segments is 4, @SegmentNumber@ values range from 0 through 3.
---
--- /Note:/ Consider using 'segmentNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSegmentNumber :: Lens.Lens' Segment Lude.Natural
-sSegmentNumber = Lens.lens (segmentNumber :: Segment -> Lude.Natural) (\s a -> s {segmentNumber = a} :: Segment)
-{-# DEPRECATED sSegmentNumber "Use generic-lens or generic-optics with 'segmentNumber' instead." #-}
 
 -- | The total number of segments.
 --
@@ -71,11 +60,18 @@ sTotalSegments :: Lens.Lens' Segment Lude.Natural
 sTotalSegments = Lens.lens (totalSegments :: Segment -> Lude.Natural) (\s a -> s {totalSegments = a} :: Segment)
 {-# DEPRECATED sTotalSegments "Use generic-lens or generic-optics with 'totalSegments' instead." #-}
 
+-- | The zero-based index number of the segment. For example, if the total number of segments is 4, @SegmentNumber@ values range from 0 through 3.
+--
+-- /Note:/ Consider using 'segmentNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSegmentNumber :: Lens.Lens' Segment Lude.Natural
+sSegmentNumber = Lens.lens (segmentNumber :: Segment -> Lude.Natural) (\s a -> s {segmentNumber = a} :: Segment)
+{-# DEPRECATED sSegmentNumber "Use generic-lens or generic-optics with 'segmentNumber' instead." #-}
+
 instance Lude.ToJSON Segment where
   toJSON Segment' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SegmentNumber" Lude..= segmentNumber),
-            Lude.Just ("TotalSegments" Lude..= totalSegments)
+          [ Lude.Just ("TotalSegments" Lude..= totalSegments),
+            Lude.Just ("SegmentNumber" Lude..= segmentNumber)
           ]
       )

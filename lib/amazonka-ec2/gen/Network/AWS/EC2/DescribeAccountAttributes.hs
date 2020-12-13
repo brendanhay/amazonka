@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -58,17 +59,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-  { attributeNames ::
-      Lude.Maybe [AccountAttributeName],
+  { -- | The account attribute names.
+    attributeNames :: Lude.Maybe [AccountAttributeName],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
@@ -130,19 +126,12 @@ instance Lude.ToQuery DescribeAccountAttributes where
 
 -- | /See:/ 'mkDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-  { accountAttributes ::
-      Lude.Maybe
-        [AccountAttribute],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the account attributes.
+    accountAttributes :: Lude.Maybe [AccountAttribute],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.

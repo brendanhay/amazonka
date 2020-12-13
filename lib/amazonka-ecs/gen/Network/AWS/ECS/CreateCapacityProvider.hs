@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.ECS.CreateCapacityProvider
     mkCreateCapacityProvider,
 
     -- ** Request lenses
-    ccpTags,
-    ccpName,
     ccpAutoScalingGroupProvider,
+    ccpName,
+    ccpTags,
 
     -- * Destructuring the response
     CreateCapacityProviderResponse (..),
@@ -43,19 +44,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCapacityProvider' smart constructor.
 data CreateCapacityProvider = CreateCapacityProvider'
-  { tags ::
-      Lude.Maybe [Tag],
+  { -- | The details of the Auto Scaling group for the capacity provider.
+    autoScalingGroupProvider :: AutoScalingGroupProvider,
+    -- | The name of the capacity provider. Up to 255 characters are allowed, including letters (upper and lowercase), numbers, underscores, and hyphens. The name cannot be prefixed with "@aws@ ", "@ecs@ ", or "@fargate@ ".
     name :: Lude.Text,
-    autoScalingGroupProvider ::
-      AutoScalingGroupProvider
+    -- | The metadata that you apply to the capacity provider to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+    --
+    -- The following basic restrictions apply to tags:
+    --
+    --     * Maximum number of tags per resource - 50
+    --
+    --
+    --     * For each resource, each tag key must be unique, and each tag key can have only one value.
+    --
+    --
+    --     * Maximum key length - 128 Unicode characters in UTF-8
+    --
+    --
+    --     * Maximum value length - 256 Unicode characters in UTF-8
+    --
+    --
+    --     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+    --
+    --
+    --     * Tag keys and values are case-sensitive.
+    --
+    --
+    --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCapacityProvider' with the minimum fields required to make a request.
@@ -86,17 +104,32 @@ data CreateCapacityProvider = CreateCapacityProvider'
 --
 --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 mkCreateCapacityProvider ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'autoScalingGroupProvider'
   AutoScalingGroupProvider ->
+  -- | 'name'
+  Lude.Text ->
   CreateCapacityProvider
-mkCreateCapacityProvider pName_ pAutoScalingGroupProvider_ =
+mkCreateCapacityProvider pAutoScalingGroupProvider_ pName_ =
   CreateCapacityProvider'
-    { tags = Lude.Nothing,
+    { autoScalingGroupProvider =
+        pAutoScalingGroupProvider_,
       name = pName_,
-      autoScalingGroupProvider = pAutoScalingGroupProvider_
+      tags = Lude.Nothing
     }
+
+-- | The details of the Auto Scaling group for the capacity provider.
+--
+-- /Note:/ Consider using 'autoScalingGroupProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpAutoScalingGroupProvider :: Lens.Lens' CreateCapacityProvider AutoScalingGroupProvider
+ccpAutoScalingGroupProvider = Lens.lens (autoScalingGroupProvider :: CreateCapacityProvider -> AutoScalingGroupProvider) (\s a -> s {autoScalingGroupProvider = a} :: CreateCapacityProvider)
+{-# DEPRECATED ccpAutoScalingGroupProvider "Use generic-lens or generic-optics with 'autoScalingGroupProvider' instead." #-}
+
+-- | The name of the capacity provider. Up to 255 characters are allowed, including letters (upper and lowercase), numbers, underscores, and hyphens. The name cannot be prefixed with "@aws@ ", "@ecs@ ", or "@fargate@ ".
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpName :: Lens.Lens' CreateCapacityProvider Lude.Text
+ccpName = Lens.lens (name :: CreateCapacityProvider -> Lude.Text) (\s a -> s {name = a} :: CreateCapacityProvider)
+{-# DEPRECATED ccpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The metadata that you apply to the capacity provider to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
@@ -129,20 +162,6 @@ ccpTags :: Lens.Lens' CreateCapacityProvider (Lude.Maybe [Tag])
 ccpTags = Lens.lens (tags :: CreateCapacityProvider -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCapacityProvider)
 {-# DEPRECATED ccpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the capacity provider. Up to 255 characters are allowed, including letters (upper and lowercase), numbers, underscores, and hyphens. The name cannot be prefixed with "@aws@ ", "@ecs@ ", or "@fargate@ ".
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpName :: Lens.Lens' CreateCapacityProvider Lude.Text
-ccpName = Lens.lens (name :: CreateCapacityProvider -> Lude.Text) (\s a -> s {name = a} :: CreateCapacityProvider)
-{-# DEPRECATED ccpName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The details of the Auto Scaling group for the capacity provider.
---
--- /Note:/ Consider using 'autoScalingGroupProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpAutoScalingGroupProvider :: Lens.Lens' CreateCapacityProvider AutoScalingGroupProvider
-ccpAutoScalingGroupProvider = Lens.lens (autoScalingGroupProvider :: CreateCapacityProvider -> AutoScalingGroupProvider) (\s a -> s {autoScalingGroupProvider = a} :: CreateCapacityProvider)
-{-# DEPRECATED ccpAutoScalingGroupProvider "Use generic-lens or generic-optics with 'autoScalingGroupProvider' instead." #-}
-
 instance Lude.AWSRequest CreateCapacityProvider where
   type Rs CreateCapacityProvider = CreateCapacityProviderResponse
   request = Req.postJSON ecsService
@@ -171,10 +190,10 @@ instance Lude.ToJSON CreateCapacityProvider where
   toJSON CreateCapacityProvider' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just
+              ("autoScalingGroupProvider" Lude..= autoScalingGroupProvider),
             Lude.Just ("name" Lude..= name),
-            Lude.Just
-              ("autoScalingGroupProvider" Lude..= autoScalingGroupProvider)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -186,17 +205,12 @@ instance Lude.ToQuery CreateCapacityProvider where
 
 -- | /See:/ 'mkCreateCapacityProviderResponse' smart constructor.
 data CreateCapacityProviderResponse = CreateCapacityProviderResponse'
-  { capacityProvider ::
-      Lude.Maybe CapacityProvider,
+  { -- | The full description of the new capacity provider.
+    capacityProvider :: Lude.Maybe CapacityProvider,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCapacityProviderResponse' with the minimum fields required to make a request.

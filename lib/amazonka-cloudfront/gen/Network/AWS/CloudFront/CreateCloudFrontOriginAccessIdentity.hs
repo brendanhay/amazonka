@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateCloudFrontOriginAccessIdentity' smart constructor.
 newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity'
-  { cloudFrontOriginAccessIdentityConfig ::
-      CloudFrontOriginAccessIdentityConfig
+  { -- | The current configuration information for the identity.
+    cloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
@@ -110,32 +105,23 @@ instance Lude.ToQuery CreateCloudFrontOriginAccessIdentity where
 --
 -- /See:/ 'mkCreateCloudFrontOriginAccessIdentityResponse' smart constructor.
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    location ::
-      Lude.Maybe
-        Lude.Text,
-    cloudFrontOriginAccessIdentity ::
-      Lude.Maybe
-        CloudFrontOriginAccessIdentity,
-    responseStatus ::
-      Lude.Int
+  { -- | The current version of the origin access identity created.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The fully qualified URI of the new origin access identity just created.
+    location :: Lude.Maybe Lude.Text,
+    -- | The origin access identity's information.
+    cloudFrontOriginAccessIdentity :: Lude.Maybe CloudFrontOriginAccessIdentity,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
 --
--- * 'cloudFrontOriginAccessIdentity' - The origin access identity's information.
 -- * 'eTag' - The current version of the origin access identity created.
 -- * 'location' - The fully qualified URI of the new origin access identity just created.
+-- * 'cloudFrontOriginAccessIdentity' - The origin access identity's information.
 -- * 'responseStatus' - The response status code.
 mkCreateCloudFrontOriginAccessIdentityResponse ::
   -- | 'responseStatus'

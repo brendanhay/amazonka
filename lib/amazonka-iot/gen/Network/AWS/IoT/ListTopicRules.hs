@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,27 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListTopicRules' smart constructor.
 data ListTopicRules = ListTopicRules'
-  { ruleDisabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the rule is disabled.
+    ruleDisabled :: Lude.Maybe Lude.Bool,
+    -- | The topic.
     topic :: Lude.Maybe Lude.Text,
+    -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicRules' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return.
--- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 -- * 'ruleDisabled' - Specifies whether the rule is disabled.
 -- * 'topic' - The topic.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+-- * 'maxResults' - The maximum number of results to return.
 mkListTopicRules ::
   ListTopicRules
 mkListTopicRules =
@@ -147,25 +145,21 @@ instance Lude.ToQuery ListTopicRules where
 --
 -- /See:/ 'mkListTopicRulesResponse' smart constructor.
 data ListTopicRulesResponse = ListTopicRulesResponse'
-  { rules ::
-      Lude.Maybe [TopicRuleListItem],
+  { -- | The rules.
+    rules :: Lude.Maybe [TopicRuleListItem],
+    -- | The token to use to get the next set of results, or __null__ if there are no additional results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicRulesResponse' with the minimum fields required to make a request.
 --
+-- * 'rules' - The rules.
 -- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
 -- * 'responseStatus' - The response status code.
--- * 'rules' - The rules.
 mkListTopicRulesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

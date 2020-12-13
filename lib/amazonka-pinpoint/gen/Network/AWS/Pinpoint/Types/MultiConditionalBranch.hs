@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiConditionalBranch' smart constructor.
 data MultiConditionalBranch = MultiConditionalBranch'
-  { nextActivity ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the next activity to perform, after completing the activity for the path.
+    nextActivity :: Lude.Maybe Lude.Text,
+    -- | The condition to evaluate for the activity path.
     condition :: Lude.Maybe SimpleCondition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiConditionalBranch' with the minimum fields required to make a request.
 --
--- * 'condition' - The condition to evaluate for the activity path.
 -- * 'nextActivity' - The unique identifier for the next activity to perform, after completing the activity for the path.
+-- * 'condition' - The condition to evaluate for the activity path.
 mkMultiConditionalBranch ::
   MultiConditionalBranch
 mkMultiConditionalBranch =

@@ -13,14 +13,14 @@
 module Network.AWS.Greengrass.Types.UpdateAgentLogLevel
   ( UpdateAgentLogLevel
       ( UpdateAgentLogLevel',
-        UALLDebug,
-        UALLError,
-        UALLFatal,
-        UALLInfo,
-        UALLNone,
-        UALLTrace,
-        UALLVerbose,
-        UALLWarn
+        None,
+        Trace,
+        Debug,
+        Verbose,
+        Info,
+        Warn,
+        Error,
+        Fatal
       ),
   )
 where
@@ -52,38 +52,38 @@ newtype UpdateAgentLogLevel = UpdateAgentLogLevel' Lude.Text
       Lude.ToHeader
     )
 
-pattern UALLDebug :: UpdateAgentLogLevel
-pattern UALLDebug = UpdateAgentLogLevel' "DEBUG"
+pattern None :: UpdateAgentLogLevel
+pattern None = UpdateAgentLogLevel' "NONE"
 
-pattern UALLError :: UpdateAgentLogLevel
-pattern UALLError = UpdateAgentLogLevel' "ERROR"
+pattern Trace :: UpdateAgentLogLevel
+pattern Trace = UpdateAgentLogLevel' "TRACE"
 
-pattern UALLFatal :: UpdateAgentLogLevel
-pattern UALLFatal = UpdateAgentLogLevel' "FATAL"
+pattern Debug :: UpdateAgentLogLevel
+pattern Debug = UpdateAgentLogLevel' "DEBUG"
 
-pattern UALLInfo :: UpdateAgentLogLevel
-pattern UALLInfo = UpdateAgentLogLevel' "INFO"
+pattern Verbose :: UpdateAgentLogLevel
+pattern Verbose = UpdateAgentLogLevel' "VERBOSE"
 
-pattern UALLNone :: UpdateAgentLogLevel
-pattern UALLNone = UpdateAgentLogLevel' "NONE"
+pattern Info :: UpdateAgentLogLevel
+pattern Info = UpdateAgentLogLevel' "INFO"
 
-pattern UALLTrace :: UpdateAgentLogLevel
-pattern UALLTrace = UpdateAgentLogLevel' "TRACE"
+pattern Warn :: UpdateAgentLogLevel
+pattern Warn = UpdateAgentLogLevel' "WARN"
 
-pattern UALLVerbose :: UpdateAgentLogLevel
-pattern UALLVerbose = UpdateAgentLogLevel' "VERBOSE"
+pattern Error :: UpdateAgentLogLevel
+pattern Error = UpdateAgentLogLevel' "ERROR"
 
-pattern UALLWarn :: UpdateAgentLogLevel
-pattern UALLWarn = UpdateAgentLogLevel' "WARN"
+pattern Fatal :: UpdateAgentLogLevel
+pattern Fatal = UpdateAgentLogLevel' "FATAL"
 
 {-# COMPLETE
-  UALLDebug,
-  UALLError,
-  UALLFatal,
-  UALLInfo,
-  UALLNone,
-  UALLTrace,
-  UALLVerbose,
-  UALLWarn,
+  None,
+  Trace,
+  Debug,
+  Verbose,
+  Info,
+  Warn,
+  Error,
+  Fatal,
   UpdateAgentLogLevel'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDirectConnectGateway' smart constructor.
 data CreateDirectConnectGateway = CreateDirectConnectGateway'
-  { amazonSideASN ::
-      Lude.Maybe Lude.Integer,
+  { -- | The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.
+    amazonSideASN :: Lude.Maybe Lude.Integer,
+    -- | The name of the Direct Connect gateway.
     directConnectGatewayName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectConnectGateway' with the minimum fields required to make a request.
@@ -123,19 +119,12 @@ instance Lude.ToQuery CreateDirectConnectGateway where
 
 -- | /See:/ 'mkCreateDirectConnectGatewayResponse' smart constructor.
 data CreateDirectConnectGatewayResponse = CreateDirectConnectGatewayResponse'
-  { directConnectGateway ::
-      Lude.Maybe
-        DirectConnectGateway,
-    responseStatus ::
-      Lude.Int
+  { -- | The Direct Connect gateway.
+    directConnectGateway :: Lude.Maybe DirectConnectGateway,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectConnectGatewayResponse' with the minimum fields required to make a request.

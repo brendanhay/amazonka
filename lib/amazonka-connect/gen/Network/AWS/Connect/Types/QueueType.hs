@@ -13,8 +13,8 @@
 module Network.AWS.Connect.Types.QueueType
   ( QueueType
       ( QueueType',
-        Agent,
-        Standard
+        Standard,
+        Agent
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype QueueType = QueueType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Agent :: QueueType
-pattern Agent = QueueType' "AGENT"
-
 pattern Standard :: QueueType
 pattern Standard = QueueType' "STANDARD"
 
+pattern Agent :: QueueType
+pattern Agent = QueueType' "AGENT"
+
 {-# COMPLETE
-  Agent,
   Standard,
+  Agent,
   QueueType'
   #-}

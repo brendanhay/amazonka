@@ -28,11 +28,11 @@ module Network.AWS.AppStream.Types.Image
     iVisibility,
     iImageBuilderName,
     iBaseImageARN,
+    iName,
     iDisplayName,
     iDescription,
     iAppstreamAgentVersion,
     iApplications,
-    iName,
   )
 where
 
@@ -49,50 +49,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImage' smart constructor.
 data Image = Image'
-  { state :: Lude.Maybe ImageState,
+  { -- | The image starts in the @PENDING@ state. If image creation succeeds, the state is @AVAILABLE@ . If image creation fails, the state is @FAILED@ .
+    state :: Lude.Maybe ImageState,
+    -- | The permissions to provide to the destination AWS account for the specified image.
     imagePermissions :: Lude.Maybe ImagePermissions,
+    -- | The operating system platform of the image.
     platform :: Lude.Maybe PlatformType,
+    -- | The release date of the public base image. For private images, this date is the release date of the base image from which the image was created.
     publicBaseImageReleasedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The reason why the last state change occurred.
     stateChangeReason :: Lude.Maybe ImageStateChangeReason,
+    -- | The ARN of the image.
     arn :: Lude.Maybe Lude.Text,
+    -- | The time the image was created.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates whether an image builder can be launched from this image.
     imageBuilderSupported :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether the image is public or private.
     visibility :: Lude.Maybe VisibilityType,
+    -- | The name of the image builder that was used to create the private image. If the image is shared, this value is null.
     imageBuilderName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the image from which this image was created.
     baseImageARN :: Lude.Maybe Lude.Text,
+    -- | The name of the image.
+    name :: Lude.Text,
+    -- | The image name to display.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The description to display.
     description :: Lude.Maybe Lude.Text,
+    -- | The version of the AppStream 2.0 agent to use for instances that are launched from this image.
     appstreamAgentVersion :: Lude.Maybe Lude.Text,
-    applications :: Lude.Maybe [Application],
-    name :: Lude.Text
+    -- | The applications associated with the image.
+    applications :: Lude.Maybe [Application]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
--- * 'applications' - The applications associated with the image.
--- * 'appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for instances that are launched from this image.
--- * 'arn' - The ARN of the image.
--- * 'baseImageARN' - The ARN of the image from which this image was created.
--- * 'createdTime' - The time the image was created.
--- * 'description' - The description to display.
--- * 'displayName' - The image name to display.
--- * 'imageBuilderName' - The name of the image builder that was used to create the private image. If the image is shared, this value is null.
--- * 'imageBuilderSupported' - Indicates whether an image builder can be launched from this image.
+-- * 'state' - The image starts in the @PENDING@ state. If image creation succeeds, the state is @AVAILABLE@ . If image creation fails, the state is @FAILED@ .
 -- * 'imagePermissions' - The permissions to provide to the destination AWS account for the specified image.
--- * 'name' - The name of the image.
 -- * 'platform' - The operating system platform of the image.
 -- * 'publicBaseImageReleasedDate' - The release date of the public base image. For private images, this date is the release date of the base image from which the image was created.
--- * 'state' - The image starts in the @PENDING@ state. If image creation succeeds, the state is @AVAILABLE@ . If image creation fails, the state is @FAILED@ .
 -- * 'stateChangeReason' - The reason why the last state change occurred.
+-- * 'arn' - The ARN of the image.
+-- * 'createdTime' - The time the image was created.
+-- * 'imageBuilderSupported' - Indicates whether an image builder can be launched from this image.
 -- * 'visibility' - Indicates whether the image is public or private.
+-- * 'imageBuilderName' - The name of the image builder that was used to create the private image. If the image is shared, this value is null.
+-- * 'baseImageARN' - The ARN of the image from which this image was created.
+-- * 'name' - The name of the image.
+-- * 'displayName' - The image name to display.
+-- * 'description' - The description to display.
+-- * 'appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for instances that are launched from this image.
+-- * 'applications' - The applications associated with the image.
 mkImage ::
   -- | 'name'
   Lude.Text ->
@@ -110,11 +120,11 @@ mkImage pName_ =
       visibility = Lude.Nothing,
       imageBuilderName = Lude.Nothing,
       baseImageARN = Lude.Nothing,
+      name = pName_,
       displayName = Lude.Nothing,
       description = Lude.Nothing,
       appstreamAgentVersion = Lude.Nothing,
-      applications = Lude.Nothing,
-      name = pName_
+      applications = Lude.Nothing
     }
 
 -- | The image starts in the @PENDING@ state. If image creation succeeds, the state is @AVAILABLE@ . If image creation fails, the state is @FAILED@ .
@@ -194,6 +204,13 @@ iBaseImageARN :: Lens.Lens' Image (Lude.Maybe Lude.Text)
 iBaseImageARN = Lens.lens (baseImageARN :: Image -> Lude.Maybe Lude.Text) (\s a -> s {baseImageARN = a} :: Image)
 {-# DEPRECATED iBaseImageARN "Use generic-lens or generic-optics with 'baseImageARN' instead." #-}
 
+-- | The name of the image.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iName :: Lens.Lens' Image Lude.Text
+iName = Lens.lens (name :: Image -> Lude.Text) (\s a -> s {name = a} :: Image)
+{-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The image name to display.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -222,13 +239,6 @@ iApplications :: Lens.Lens' Image (Lude.Maybe [Application])
 iApplications = Lens.lens (applications :: Image -> Lude.Maybe [Application]) (\s a -> s {applications = a} :: Image)
 {-# DEPRECATED iApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
 
--- | The name of the image.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iName :: Lens.Lens' Image Lude.Text
-iName = Lens.lens (name :: Image -> Lude.Text) (\s a -> s {name = a} :: Image)
-{-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON Image where
   parseJSON =
     Lude.withObject
@@ -246,9 +256,9 @@ instance Lude.FromJSON Image where
             Lude.<*> (x Lude..:? "Visibility")
             Lude.<*> (x Lude..:? "ImageBuilderName")
             Lude.<*> (x Lude..:? "BaseImageArn")
+            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..:? "DisplayName")
             Lude.<*> (x Lude..:? "Description")
             Lude.<*> (x Lude..:? "AppstreamAgentVersion")
             Lude.<*> (x Lude..:? "Applications" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "Name")
       )

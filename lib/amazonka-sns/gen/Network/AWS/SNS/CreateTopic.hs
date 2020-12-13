@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.SNS.CreateTopic
 
     -- ** Request lenses
     ctAttributes,
-    ctTags,
     ctName,
+    ctTags,
 
     -- * Destructuring the response
     CreateTopicResponse (..),
@@ -43,18 +44,49 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkCreateTopic' smart constructor.
 data CreateTopic = CreateTopic'
-  { attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    tags :: Lude.Maybe [Tag],
-    name :: Lude.Text
+  { -- | A map of attributes with their corresponding values.
+    --
+    -- The following lists the names, descriptions, and values of the special request parameters that the @CreateTopic@ action uses:
+    --
+    --     * @DeliveryPolicy@ – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.
+    --
+    --
+    --     * @DisplayName@ – The display name to use for a topic with SMS subscriptions.
+    --
+    --
+    --     * @FifoTopic@ – Set to true to create a FIFO topic.
+    --
+    --
+    --     * @Policy@ – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.
+    --
+    --
+    -- The following attribute applies only to <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption> :
+    --
+    --     * @KmsMasterKeyId@ – The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms> . For more examples, see <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId> in the /AWS Key Management Service API Reference/ .
+    --
+    --
+    -- The following attributes apply only to <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics> :
+    --
+    --     * @FifoTopic@ – When this is set to @true@ , a FIFO topic is created.
+    --
+    --
+    --     * @ContentBasedDeduplication@ – Enables content-based deduplication for FIFO topics.
+    --
+    --     * By default, @ContentBasedDeduplication@ is set to @false@ . If you create a FIFO topic and this attribute is @false@ , you must specify a value for the @MessageDeduplicationId@ parameter for the <https://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish> action.
+    --
+    --
+    --     * When you set @ContentBasedDeduplication@ to @true@ , Amazon SNS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).
+    -- (Optional) To override the generated value, you can specify a value for the the @MessageDeduplicationId@ parameter for the @Publish@ action.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the topic you want to create.
+    --
+    -- Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
+    -- For a FIFO (first-in-first-out) topic, the name must end with the @.fifo@ suffix.
+    name :: Lude.Text,
+    -- | The list of tags to add to a new topic.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTopic' with the minimum fields required to make a request.
@@ -108,8 +140,8 @@ mkCreateTopic ::
 mkCreateTopic pName_ =
   CreateTopic'
     { attributes = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      tags = Lude.Nothing
     }
 
 -- | A map of attributes with their corresponding values.
@@ -155,13 +187,6 @@ ctAttributes :: Lens.Lens' CreateTopic (Lude.Maybe (Lude.HashMap Lude.Text (Lude
 ctAttributes = Lens.lens (attributes :: CreateTopic -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: CreateTopic)
 {-# DEPRECATED ctAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | The list of tags to add to a new topic.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTags :: Lens.Lens' CreateTopic (Lude.Maybe [Tag])
-ctTags = Lens.lens (tags :: CreateTopic -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTopic)
-{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name of the topic you want to create.
 --
 -- Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
@@ -171,6 +196,13 @@ ctTags = Lens.lens (tags :: CreateTopic -> Lude.Maybe [Tag]) (\s a -> s {tags = 
 ctName :: Lens.Lens' CreateTopic Lude.Text
 ctName = Lens.lens (name :: CreateTopic -> Lude.Text) (\s a -> s {name = a} :: CreateTopic)
 {-# DEPRECATED ctName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The list of tags to add to a new topic.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTags :: Lens.Lens' CreateTopic (Lude.Maybe [Tag])
+ctTags = Lens.lens (tags :: CreateTopic -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTopic)
+{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateTopic where
   type Rs CreateTopic = CreateTopicResponse
@@ -197,32 +229,27 @@ instance Lude.ToQuery CreateTopic where
         "Attributes"
           Lude.=: Lude.toQuery
             (Lude.toQueryMap "entry" "key" "value" Lude.<$> attributes),
+        "Name" Lude.=: name,
         "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "Name" Lude.=: name
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
       ]
 
 -- | Response from CreateTopic action.
 --
 -- /See:/ 'mkCreateTopicResponse' smart constructor.
 data CreateTopicResponse = CreateTopicResponse'
-  { topicARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) assigned to the created topic.
+    topicARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTopicResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'topicARN' - The Amazon Resource Name (ARN) assigned to the created topic.
+-- * 'responseStatus' - The response status code.
 mkCreateTopicResponse ::
   -- | 'responseStatus'
   Lude.Int ->

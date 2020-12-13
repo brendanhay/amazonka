@@ -32,25 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEgressOnlyInternetGateway' smart constructor.
 data EgressOnlyInternetGateway = EgressOnlyInternetGateway'
-  { egressOnlyInternetGatewayId ::
-      Lude.Maybe Lude.Text,
-    attachments ::
-      Lude.Maybe [InternetGatewayAttachment],
+  { -- | The ID of the egress-only internet gateway.
+    egressOnlyInternetGatewayId :: Lude.Maybe Lude.Text,
+    -- | Information about the attachment of the egress-only internet gateway.
+    attachments :: Lude.Maybe [InternetGatewayAttachment],
+    -- | The tags assigned to the egress-only internet gateway.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EgressOnlyInternetGateway' with the minimum fields required to make a request.
 --
--- * 'attachments' - Information about the attachment of the egress-only internet gateway.
 -- * 'egressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.
+-- * 'attachments' - Information about the attachment of the egress-only internet gateway.
 -- * 'tags' - The tags assigned to the egress-only internet gateway.
 mkEgressOnlyInternetGateway ::
   EgressOnlyInternetGateway

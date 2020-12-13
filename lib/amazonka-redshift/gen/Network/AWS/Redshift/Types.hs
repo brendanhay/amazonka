@@ -202,11 +202,11 @@ module Network.AWS.Redshift.Types
     -- * ClusterSecurityGroup
     ClusterSecurityGroup (..),
     mkClusterSecurityGroup,
-    cluClusterSecurityGroupName,
-    cluIPRanges,
-    cluEC2SecurityGroups,
-    cluDescription,
-    cluTags,
+    csgfClusterSecurityGroupName,
+    csgfIPRanges,
+    csgfEC2SecurityGroups,
+    csgfDescription,
+    csgfTags,
 
     -- * ClusterSecurityGroupMembership
     ClusterSecurityGroupMembership (..),
@@ -266,8 +266,8 @@ module Network.AWS.Redshift.Types
     -- * DeleteClusterSnapshotMessage
     DeleteClusterSnapshotMessage (..),
     mkDeleteClusterSnapshotMessage,
-    dcsmSnapshotClusterIdentifier,
     dcsmSnapshotIdentifier,
+    dcsmSnapshotClusterIdentifier,
 
     -- * EC2SecurityGroup
     EC2SecurityGroup (..),
@@ -471,11 +471,11 @@ module Network.AWS.Redshift.Types
     -- * ResizeClusterMessage
     ResizeClusterMessage (..),
     mkResizeClusterMessage,
+    rcmClusterIdentifier,
     rcmNumberOfNodes,
     rcmClassic,
     rcmClusterType,
     rcmNodeType,
-    rcmClusterIdentifier,
 
     -- * ResizeInfo
     ResizeInfo (..),
@@ -541,8 +541,8 @@ module Network.AWS.Redshift.Types
     -- * ScheduledActionFilter
     ScheduledActionFilter (..),
     mkScheduledActionFilter,
-    safName,
     safValues,
+    safName,
 
     -- * ScheduledActionType
     ScheduledActionType (..),
@@ -617,8 +617,8 @@ module Network.AWS.Redshift.Types
     -- * SnapshotSortingEntity
     SnapshotSortingEntity (..),
     mkSnapshotSortingEntity,
-    sseSortOrder,
     sseAttribute,
+    sseSortOrder,
 
     -- * Subnet
     Subnet (..),

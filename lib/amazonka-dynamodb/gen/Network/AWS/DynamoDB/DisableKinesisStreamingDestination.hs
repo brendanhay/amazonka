@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DynamoDB.DisableKinesisStreamingDestination
     mkDisableKinesisStreamingDestination,
 
     -- ** Request lenses
-    dksdTableName,
-    dksdStreamARN,
+    dksdfStreamARN,
+    dksdfTableName,
 
     -- * Destructuring the response
     KinesisStreamingDestinationOutput (..),
@@ -41,18 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisableKinesisStreamingDestination' smart constructor.
 data DisableKinesisStreamingDestination = DisableKinesisStreamingDestination'
-  { tableName ::
-      Lude.Text,
-    streamARN ::
-      Lude.Text
+  { -- | The ARN for a Kinesis data stream.
+    streamARN :: Lude.Text,
+    -- | The name of the DynamoDB table.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableKinesisStreamingDestination' with the minimum fields required to make a request.
@@ -60,30 +55,30 @@ data DisableKinesisStreamingDestination = DisableKinesisStreamingDestination'
 -- * 'streamARN' - The ARN for a Kinesis data stream.
 -- * 'tableName' - The name of the DynamoDB table.
 mkDisableKinesisStreamingDestination ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'streamARN'
   Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   DisableKinesisStreamingDestination
-mkDisableKinesisStreamingDestination pTableName_ pStreamARN_ =
+mkDisableKinesisStreamingDestination pStreamARN_ pTableName_ =
   DisableKinesisStreamingDestination'
-    { tableName = pTableName_,
-      streamARN = pStreamARN_
+    { streamARN = pStreamARN_,
+      tableName = pTableName_
     }
-
--- | The name of the DynamoDB table.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dksdTableName :: Lens.Lens' DisableKinesisStreamingDestination Lude.Text
-dksdTableName = Lens.lens (tableName :: DisableKinesisStreamingDestination -> Lude.Text) (\s a -> s {tableName = a} :: DisableKinesisStreamingDestination)
-{-# DEPRECATED dksdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The ARN for a Kinesis data stream.
 --
 -- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dksdStreamARN :: Lens.Lens' DisableKinesisStreamingDestination Lude.Text
-dksdStreamARN = Lens.lens (streamARN :: DisableKinesisStreamingDestination -> Lude.Text) (\s a -> s {streamARN = a} :: DisableKinesisStreamingDestination)
-{-# DEPRECATED dksdStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+dksdfStreamARN :: Lens.Lens' DisableKinesisStreamingDestination Lude.Text
+dksdfStreamARN = Lens.lens (streamARN :: DisableKinesisStreamingDestination -> Lude.Text) (\s a -> s {streamARN = a} :: DisableKinesisStreamingDestination)
+{-# DEPRECATED dksdfStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+
+-- | The name of the DynamoDB table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dksdfTableName :: Lens.Lens' DisableKinesisStreamingDestination Lude.Text
+dksdfTableName = Lens.lens (tableName :: DisableKinesisStreamingDestination -> Lude.Text) (\s a -> s {tableName = a} :: DisableKinesisStreamingDestination)
+{-# DEPRECATED dksdfTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest DisableKinesisStreamingDestination where
   type
@@ -109,8 +104,8 @@ instance Lude.ToJSON DisableKinesisStreamingDestination where
   toJSON DisableKinesisStreamingDestination' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("StreamArn" Lude..= streamARN)
+          [ Lude.Just ("StreamArn" Lude..= streamARN),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 

@@ -13,10 +13,10 @@
 module Network.AWS.MediaLive.Types.InputSecurityGroupState
   ( InputSecurityGroupState
       ( InputSecurityGroupState',
-        ISGSDeleted,
         ISGSIdle,
         ISGSInUse,
-        ISGSUpdating
+        ISGSUpdating,
+        ISGSDeleted
       ),
   )
 where
@@ -48,9 +48,6 @@ newtype InputSecurityGroupState = InputSecurityGroupState' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISGSDeleted :: InputSecurityGroupState
-pattern ISGSDeleted = InputSecurityGroupState' "DELETED"
-
 pattern ISGSIdle :: InputSecurityGroupState
 pattern ISGSIdle = InputSecurityGroupState' "IDLE"
 
@@ -60,10 +57,13 @@ pattern ISGSInUse = InputSecurityGroupState' "IN_USE"
 pattern ISGSUpdating :: InputSecurityGroupState
 pattern ISGSUpdating = InputSecurityGroupState' "UPDATING"
 
+pattern ISGSDeleted :: InputSecurityGroupState
+pattern ISGSDeleted = InputSecurityGroupState' "DELETED"
+
 {-# COMPLETE
-  ISGSDeleted,
   ISGSIdle,
   ISGSInUse,
   ISGSUpdating,
+  ISGSDeleted,
   InputSecurityGroupState'
   #-}

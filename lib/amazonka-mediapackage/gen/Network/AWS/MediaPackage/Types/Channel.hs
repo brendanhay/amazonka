@@ -37,33 +37,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChannel' smart constructor.
 data Channel = Channel'
-  { ingressAccessLogs ::
-      Lude.Maybe IngressAccessLogs,
+  { ingressAccessLogs :: Lude.Maybe IngressAccessLogs,
     hlsIngest :: Lude.Maybe HlsIngest,
+    -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ID of the Channel.
     id :: Lude.Maybe Lude.Text,
+    -- | A short text description of the Channel.
     description :: Lude.Maybe Lude.Text,
     egressAccessLogs :: Lude.Maybe EgressAccessLogs,
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Channel' with the minimum fields required to make a request.
 --
+-- * 'ingressAccessLogs' -
+-- * 'hlsIngest' -
 -- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
--- * 'description' - A short text description of the Channel.
--- * 'egressAccessLogs' - Undocumented field.
--- * 'hlsIngest' - Undocumented field.
 -- * 'id' - The ID of the Channel.
--- * 'ingressAccessLogs' - Undocumented field.
--- * 'tags' - Undocumented field.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' -
+-- * 'tags' -
 mkChannel ::
   Channel
 mkChannel =

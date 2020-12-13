@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,10 +52,19 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkInviteAccountToOrganization' smart constructor.
 data InviteAccountToOrganization = InviteAccountToOrganization'
-  { notes ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
+  { -- | Additional information that you want to include in the generated email to the recipient account owner.
+    notes :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A list of tags that you want to attach to the account when it becomes a member of the organization. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+    --
+    -- /Important:/ Any tags in the request are checked for compliance with any applicable tag policies when the request is made. The request is rejected if the tags in the request don't match the requirements of the policy at that time. Tag policy compliance is /__not__ / checked again when the invitation is accepted and the tags are actually attached to the account. That means that if the tag policy changes between the invitation and the acceptance, then that tags could potentially be non-compliant.
     tags :: Lude.Maybe [Tag],
+    -- | The identifier (ID) of the AWS account that you want to invite to join your organization. This is a JSON object that contains the following elements:
+    --
+    -- @{ "Type": "ACCOUNT", "Id": "</__account id number__ / >" }@
+    -- If you use the AWS CLI, you can submit this as a single string, similar to the following example:
+    -- @--target Id=123456789012,Type=ACCOUNT@
+    -- If you specify @"Type": "ACCOUNT"@ , you must provide the AWS account ID number as the @Id@ . If you specify @"Type": "EMAIL"@ , you must specify the email address that is associated with the account.
+    -- @--target Id=diego@example.com,Type=EMAIL@
     target :: HandshakeParty
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -156,18 +166,12 @@ instance Lude.ToQuery InviteAccountToOrganization where
 
 -- | /See:/ 'mkInviteAccountToOrganizationResponse' smart constructor.
 data InviteAccountToOrganizationResponse = InviteAccountToOrganizationResponse'
-  { handshake ::
-      Lude.Maybe
-        Handshake,
-    responseStatus ::
-      Lude.Int
+  { -- | A structure that contains details about the handshake that is created to support this invitation request.
+    handshake :: Lude.Maybe Handshake,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InviteAccountToOrganizationResponse' with the minimum fields required to make a request.

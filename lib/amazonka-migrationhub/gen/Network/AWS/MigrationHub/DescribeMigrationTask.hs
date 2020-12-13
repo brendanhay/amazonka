@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeMigrationTask' smart constructor.
 data DescribeMigrationTask = DescribeMigrationTask'
-  { progressUpdateStream ::
-      Lude.Text,
+  { -- | The name of the ProgressUpdateStream.
+    progressUpdateStream :: Lude.Text,
+    -- | The identifier given to the MigrationTask. /Do not store personal data in this field./
     migrationTaskName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMigrationTask' with the minimum fields required to make a request.
 --
--- * 'migrationTaskName' - The identifier given to the MigrationTask. /Do not store personal data in this field./
 -- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
+-- * 'migrationTaskName' - The identifier given to the MigrationTask. /Do not store personal data in this field./
 mkDescribeMigrationTask ::
   -- | 'progressUpdateStream'
   Lude.Text ->
@@ -123,17 +119,12 @@ instance Lude.ToQuery DescribeMigrationTask where
 
 -- | /See:/ 'mkDescribeMigrationTaskResponse' smart constructor.
 data DescribeMigrationTaskResponse = DescribeMigrationTaskResponse'
-  { migrationTask ::
-      Lude.Maybe MigrationTask,
+  { -- | Object encapsulating information about the migration task.
+    migrationTask :: Lude.Maybe MigrationTask,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMigrationTaskResponse' with the minimum fields required to make a request.

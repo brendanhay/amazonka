@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,27 +49,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFunctions' smart constructor.
 data ListFunctions = ListFunctions'
-  { masterRegion ::
-      Lude.Maybe Lude.Text,
+  { -- | For Lambda@Edge functions, the AWS Region of the master function. For example, @us-east-1@ filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set @FunctionVersion@ to @ALL@ .
+    masterRegion :: Lude.Maybe Lude.Text,
+    -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of functions to return.
     maxItems :: Lude.Maybe Lude.Natural,
+    -- | Set to @ALL@ to include entries for all published versions of each function.
     functionVersion :: Lude.Maybe FunctionVersion
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctions' with the minimum fields required to make a request.
 --
--- * 'functionVersion' - Set to @ALL@ to include entries for all published versions of each function.
--- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
 -- * 'masterRegion' - For Lambda@Edge functions, the AWS Region of the master function. For example, @us-east-1@ filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set @FunctionVersion@ to @ALL@ .
+-- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
 -- * 'maxItems' - The maximum number of functions to return.
+-- * 'functionVersion' - Set to @ALL@ to include entries for all published versions of each function.
 mkListFunctions ::
   ListFunctions
 mkListFunctions =
@@ -147,9 +145,11 @@ instance Lude.ToQuery ListFunctions where
 --
 -- /See:/ 'mkListFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token that's included if more results are available.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | A list of Lambda functions.
     functions :: Lude.Maybe [FunctionConfiguration],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -157,8 +157,8 @@ data ListFunctionsResponse = ListFunctionsResponse'
 
 -- | Creates a value of 'ListFunctionsResponse' with the minimum fields required to make a request.
 --
--- * 'functions' - A list of Lambda functions.
 -- * 'nextMarker' - The pagination token that's included if more results are available.
+-- * 'functions' - A list of Lambda functions.
 -- * 'responseStatus' - The response status code.
 mkListFunctionsResponse ::
   -- | 'responseStatus'

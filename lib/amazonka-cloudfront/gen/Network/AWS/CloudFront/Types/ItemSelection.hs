@@ -13,9 +13,9 @@
 module Network.AWS.CloudFront.Types.ItemSelection
   ( ItemSelection
       ( ItemSelection',
-        ISAll,
         ISNone,
-        ISWhitelist
+        ISWhitelist,
+        ISAll
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ItemSelection = ItemSelection' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISAll :: ItemSelection
-pattern ISAll = ItemSelection' "all"
-
 pattern ISNone :: ItemSelection
 pattern ISNone = ItemSelection' "none"
 
 pattern ISWhitelist :: ItemSelection
 pattern ISWhitelist = ItemSelection' "whitelist"
 
+pattern ISAll :: ItemSelection
+pattern ISAll = ItemSelection' "all"
+
 {-# COMPLETE
-  ISAll,
   ISNone,
   ISWhitelist,
+  ISAll,
   ItemSelection'
   #-}

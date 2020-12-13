@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,10 +26,10 @@ module Network.AWS.Rekognition.GetLabelDetection
     mkGetLabelDetection,
 
     -- ** Request lenses
+    gldJobId,
     gldNextToken,
     gldMaxResults,
     gldSortBy,
-    gldJobId,
 
     -- * Destructuring the response
     GetLabelDetectionResponse (..),
@@ -53,26 +54,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetLabelDetection' smart constructor.
 data GetLabelDetection = GetLabelDetection'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to @StartlabelDetection@ .
+    jobId :: Lude.Text,
+    -- | If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of labels.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
     maxResults :: Lude.Maybe Lude.Natural,
-    sortBy :: Lude.Maybe LabelDetectionSortBy,
-    jobId :: Lude.Text
+    -- | Sort to use for elements in the @Labels@ array. Use @TIMESTAMP@ to sort array elements by the time labels are detected. Use @NAME@ to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
+    sortBy :: Lude.Maybe LabelDetectionSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLabelDetection' with the minimum fields required to make a request.
 --
 -- * 'jobId' - Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to @StartlabelDetection@ .
--- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 -- * 'nextToken' - If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of labels.
+-- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 -- * 'sortBy' - Sort to use for elements in the @Labels@ array. Use @TIMESTAMP@ to sort array elements by the time labels are detected. Use @NAME@ to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
 mkGetLabelDetection ::
   -- | 'jobId'
@@ -80,11 +78,18 @@ mkGetLabelDetection ::
   GetLabelDetection
 mkGetLabelDetection pJobId_ =
   GetLabelDetection'
-    { nextToken = Lude.Nothing,
+    { jobId = pJobId_,
+      nextToken = Lude.Nothing,
       maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing,
-      jobId = pJobId_
+      sortBy = Lude.Nothing
     }
+
+-- | Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to @StartlabelDetection@ .
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gldJobId :: Lens.Lens' GetLabelDetection Lude.Text
+gldJobId = Lens.lens (jobId :: GetLabelDetection -> Lude.Text) (\s a -> s {jobId = a} :: GetLabelDetection)
+{-# DEPRECATED gldJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of labels.
 --
@@ -106,13 +111,6 @@ gldMaxResults = Lens.lens (maxResults :: GetLabelDetection -> Lude.Maybe Lude.Na
 gldSortBy :: Lens.Lens' GetLabelDetection (Lude.Maybe LabelDetectionSortBy)
 gldSortBy = Lens.lens (sortBy :: GetLabelDetection -> Lude.Maybe LabelDetectionSortBy) (\s a -> s {sortBy = a} :: GetLabelDetection)
 {-# DEPRECATED gldSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
-
--- | Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to @StartlabelDetection@ .
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gldJobId :: Lens.Lens' GetLabelDetection Lude.Text
-gldJobId = Lens.lens (jobId :: GetLabelDetection -> Lude.Text) (\s a -> s {jobId = a} :: GetLabelDetection)
-{-# DEPRECATED gldJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Lude.AWSRequest GetLabelDetection where
   type Rs GetLabelDetection = GetLabelDetectionResponse
@@ -145,10 +143,10 @@ instance Lude.ToJSON GetLabelDetection where
   toJSON GetLabelDetection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("JobId" Lude..= jobId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy,
-            Lude.Just ("JobId" Lude..= jobId)
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
@@ -160,35 +158,33 @@ instance Lude.ToQuery GetLabelDetection where
 
 -- | /See:/ 'mkGetLabelDetectionResponse' smart constructor.
 data GetLabelDetectionResponse = GetLabelDetectionResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    videoMetadata ::
-      Lude.Maybe VideoMetadata,
+  { -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
+    videoMetadata :: Lude.Maybe VideoMetadata,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | An array of labels detected in the video. Each element contains the detected label and the time, in milliseconds from the start of the video, that the label was detected.
     labels :: Lude.Maybe [LabelDetection],
+    -- | The current status of the label detection job.
     jobStatus :: Lude.Maybe VideoJobStatus,
-    labelModelVersion ::
-      Lude.Maybe Lude.Text,
+    -- | Version number of the label detection model that was used to detect labels.
+    labelModelVersion :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLabelDetectionResponse' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.
+-- * 'videoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
+-- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- * 'labels' - An array of labels detected in the video. Each element contains the detected label and the time, in milliseconds from the start of the video, that the label was detected.
 -- * 'jobStatus' - The current status of the label detection job.
 -- * 'labelModelVersion' - Version number of the label detection model that was used to detect labels.
--- * 'labels' - An array of labels detected in the video. Each element contains the detected label and the time, in milliseconds from the start of the video, that the label was detected.
--- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.
 -- * 'responseStatus' - The response status code.
--- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
--- * 'videoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
 mkGetLabelDetectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

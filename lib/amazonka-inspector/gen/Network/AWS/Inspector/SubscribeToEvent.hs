@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Inspector.SubscribeToEvent
     mkSubscribeToEvent,
 
     -- ** Request lenses
-    steResourceARN,
     steEvent,
     steTopicARN,
+    steResourceARN,
 
     -- * Destructuring the response
     SubscribeToEventResponse (..),
@@ -37,45 +38,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSubscribeToEvent' smart constructor.
 data SubscribeToEvent = SubscribeToEvent'
-  { resourceARN :: Lude.Text,
+  { -- | The event for which you want to receive SNS notifications.
     event :: InspectorEvent,
-    topicARN :: Lude.Text
+    -- | The ARN of the SNS topic to which the SNS notifications are sent.
+    topicARN :: Lude.Text,
+    -- | The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.
+    resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscribeToEvent' with the minimum fields required to make a request.
 --
 -- * 'event' - The event for which you want to receive SNS notifications.
--- * 'resourceARN' - The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.
 -- * 'topicARN' - The ARN of the SNS topic to which the SNS notifications are sent.
+-- * 'resourceARN' - The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.
 mkSubscribeToEvent ::
-  -- | 'resourceARN'
-  Lude.Text ->
   -- | 'event'
   InspectorEvent ->
   -- | 'topicARN'
   Lude.Text ->
+  -- | 'resourceARN'
+  Lude.Text ->
   SubscribeToEvent
-mkSubscribeToEvent pResourceARN_ pEvent_ pTopicARN_ =
+mkSubscribeToEvent pEvent_ pTopicARN_ pResourceARN_ =
   SubscribeToEvent'
-    { resourceARN = pResourceARN_,
-      event = pEvent_,
-      topicARN = pTopicARN_
+    { event = pEvent_,
+      topicARN = pTopicARN_,
+      resourceARN = pResourceARN_
     }
-
--- | The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-steResourceARN :: Lens.Lens' SubscribeToEvent Lude.Text
-steResourceARN = Lens.lens (resourceARN :: SubscribeToEvent -> Lude.Text) (\s a -> s {resourceARN = a} :: SubscribeToEvent)
-{-# DEPRECATED steResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The event for which you want to receive SNS notifications.
 --
@@ -90,6 +81,13 @@ steEvent = Lens.lens (event :: SubscribeToEvent -> InspectorEvent) (\s a -> s {e
 steTopicARN :: Lens.Lens' SubscribeToEvent Lude.Text
 steTopicARN = Lens.lens (topicARN :: SubscribeToEvent -> Lude.Text) (\s a -> s {topicARN = a} :: SubscribeToEvent)
 {-# DEPRECATED steTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+
+-- | The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+steResourceARN :: Lens.Lens' SubscribeToEvent Lude.Text
+steResourceARN = Lens.lens (resourceARN :: SubscribeToEvent -> Lude.Text) (\s a -> s {resourceARN = a} :: SubscribeToEvent)
+{-# DEPRECATED steResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Lude.AWSRequest SubscribeToEvent where
   type Rs SubscribeToEvent = SubscribeToEventResponse
@@ -111,9 +109,9 @@ instance Lude.ToJSON SubscribeToEvent where
   toJSON SubscribeToEvent' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("resourceArn" Lude..= resourceARN),
-            Lude.Just ("event" Lude..= event),
-            Lude.Just ("topicArn" Lude..= topicARN)
+          [ Lude.Just ("event" Lude..= event),
+            Lude.Just ("topicArn" Lude..= topicARN),
+            Lude.Just ("resourceArn" Lude..= resourceARN)
           ]
       )
 
@@ -125,13 +123,7 @@ instance Lude.ToQuery SubscribeToEvent where
 
 -- | /See:/ 'mkSubscribeToEventResponse' smart constructor.
 data SubscribeToEventResponse = SubscribeToEventResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscribeToEventResponse' with the minimum fields required to make a request.

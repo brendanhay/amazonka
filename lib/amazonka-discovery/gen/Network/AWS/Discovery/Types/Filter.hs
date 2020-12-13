@@ -17,8 +17,8 @@ module Network.AWS.Discovery.Types.Filter
     mkFilter,
 
     -- * Lenses
-    fName,
     fValues,
+    fName,
     fCondition,
   )
 where
@@ -32,24 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { name :: Lude.Text,
+  { -- | A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
     values :: [Lude.Text],
+    -- | The name of the filter.
+    name :: Lude.Text,
+    -- | A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
     condition :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
--- * 'condition' - A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
--- * 'name' - The name of the filter.
 -- * 'values' - A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
+-- * 'name' - The name of the filter.
+-- * 'condition' - A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
 mkFilter ::
   -- | 'name'
   Lude.Text ->
@@ -58,17 +55,10 @@ mkFilter ::
   Filter
 mkFilter pName_ pCondition_ =
   Filter'
-    { name = pName_,
-      values = Lude.mempty,
+    { values = Lude.mempty,
+      name = pName_,
       condition = pCondition_
     }
-
--- | The name of the filter.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fName :: Lens.Lens' Filter Lude.Text
-fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
-{-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A string value on which to filter. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
 --
@@ -76,6 +66,13 @@ fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
 fValues :: Lens.Lens' Filter [Lude.Text]
 fValues = Lens.lens (values :: Filter -> [Lude.Text]) (\s a -> s {values = a} :: Filter)
 {-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fName :: Lens.Lens' Filter Lude.Text
+fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
+{-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by /AND/ . If you specify multiple values for a particular filter, the system differentiates the values using /OR/ . Calling either /DescribeConfigurations/ or /ListConfigurations/ returns attributes of matching configuration items.
 --
@@ -88,8 +85,8 @@ instance Lude.ToJSON Filter where
   toJSON Filter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            Lude.Just ("values" Lude..= values),
+          [ Lude.Just ("values" Lude..= values),
+            Lude.Just ("name" Lude..= name),
             Lude.Just ("condition" Lude..= condition)
           ]
       )

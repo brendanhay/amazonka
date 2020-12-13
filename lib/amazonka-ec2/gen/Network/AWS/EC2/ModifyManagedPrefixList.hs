@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +25,10 @@ module Network.AWS.EC2.ModifyManagedPrefixList
     -- ** Request lenses
     mmplCurrentVersion,
     mmplRemoveEntries,
+    mmplPrefixListId,
     mmplPrefixListName,
     mmplAddEntries,
     mmplDryRun,
-    mmplPrefixListId,
 
     -- * Destructuring the response
     ModifyManagedPrefixListResponse (..),
@@ -47,33 +48,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyManagedPrefixList' smart constructor.
 data ModifyManagedPrefixList = ModifyManagedPrefixList'
-  { currentVersion ::
-      Lude.Maybe Lude.Integer,
-    removeEntries ::
-      Lude.Maybe [RemovePrefixListEntry],
+  { -- | The current version of the prefix list.
+    currentVersion :: Lude.Maybe Lude.Integer,
+    -- | One or more entries to remove from the prefix list.
+    removeEntries :: Lude.Maybe [RemovePrefixListEntry],
+    -- | The ID of the prefix list.
+    prefixListId :: Lude.Text,
+    -- | A name for the prefix list.
     prefixListName :: Lude.Maybe Lude.Text,
-    addEntries ::
-      Lude.Maybe [AddPrefixListEntry],
-    dryRun :: Lude.Maybe Lude.Bool,
-    prefixListId :: Lude.Text
+    -- | One or more entries to add to the prefix list.
+    addEntries :: Lude.Maybe [AddPrefixListEntry],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyManagedPrefixList' with the minimum fields required to make a request.
 --
--- * 'addEntries' - One or more entries to add to the prefix list.
 -- * 'currentVersion' - The current version of the prefix list.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'removeEntries' - One or more entries to remove from the prefix list.
 -- * 'prefixListId' - The ID of the prefix list.
 -- * 'prefixListName' - A name for the prefix list.
--- * 'removeEntries' - One or more entries to remove from the prefix list.
+-- * 'addEntries' - One or more entries to add to the prefix list.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyManagedPrefixList ::
   -- | 'prefixListId'
   Lude.Text ->
@@ -82,10 +80,10 @@ mkModifyManagedPrefixList pPrefixListId_ =
   ModifyManagedPrefixList'
     { currentVersion = Lude.Nothing,
       removeEntries = Lude.Nothing,
+      prefixListId = pPrefixListId_,
       prefixListName = Lude.Nothing,
       addEntries = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      prefixListId = pPrefixListId_
+      dryRun = Lude.Nothing
     }
 
 -- | The current version of the prefix list.
@@ -101,6 +99,13 @@ mmplCurrentVersion = Lens.lens (currentVersion :: ModifyManagedPrefixList -> Lud
 mmplRemoveEntries :: Lens.Lens' ModifyManagedPrefixList (Lude.Maybe [RemovePrefixListEntry])
 mmplRemoveEntries = Lens.lens (removeEntries :: ModifyManagedPrefixList -> Lude.Maybe [RemovePrefixListEntry]) (\s a -> s {removeEntries = a} :: ModifyManagedPrefixList)
 {-# DEPRECATED mmplRemoveEntries "Use generic-lens or generic-optics with 'removeEntries' instead." #-}
+
+-- | The ID of the prefix list.
+--
+-- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mmplPrefixListId :: Lens.Lens' ModifyManagedPrefixList Lude.Text
+mmplPrefixListId = Lens.lens (prefixListId :: ModifyManagedPrefixList -> Lude.Text) (\s a -> s {prefixListId = a} :: ModifyManagedPrefixList)
+{-# DEPRECATED mmplPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 -- | A name for the prefix list.
 --
@@ -122,13 +127,6 @@ mmplAddEntries = Lens.lens (addEntries :: ModifyManagedPrefixList -> Lude.Maybe 
 mmplDryRun :: Lens.Lens' ModifyManagedPrefixList (Lude.Maybe Lude.Bool)
 mmplDryRun = Lens.lens (dryRun :: ModifyManagedPrefixList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyManagedPrefixList)
 {-# DEPRECATED mmplDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the prefix list.
---
--- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mmplPrefixListId :: Lens.Lens' ModifyManagedPrefixList Lude.Text
-mmplPrefixListId = Lens.lens (prefixListId :: ModifyManagedPrefixList -> Lude.Text) (\s a -> s {prefixListId = a} :: ModifyManagedPrefixList)
-{-# DEPRECATED mmplPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 instance Lude.AWSRequest ModifyManagedPrefixList where
   type Rs ModifyManagedPrefixList = ModifyManagedPrefixListResponse
@@ -154,26 +152,20 @@ instance Lude.ToQuery ModifyManagedPrefixList where
         "CurrentVersion" Lude.=: currentVersion,
         Lude.toQuery
           (Lude.toQueryList "RemoveEntry" Lude.<$> removeEntries),
+        "PrefixListId" Lude.=: prefixListId,
         "PrefixListName" Lude.=: prefixListName,
         Lude.toQuery (Lude.toQueryList "AddEntry" Lude.<$> addEntries),
-        "DryRun" Lude.=: dryRun,
-        "PrefixListId" Lude.=: prefixListId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyManagedPrefixListResponse' smart constructor.
 data ModifyManagedPrefixListResponse = ModifyManagedPrefixListResponse'
-  { prefixList ::
-      Lude.Maybe
-        ManagedPrefixList,
+  { -- | Information about the prefix list.
+    prefixList :: Lude.Maybe ManagedPrefixList,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyManagedPrefixListResponse' with the minimum fields required to make a request.

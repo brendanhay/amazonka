@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkMail.DescribeUser
     mkDescribeUser,
 
     -- ** Request lenses
-    duOrganizationId,
     duUserId,
+    duOrganizationId,
 
     -- * Destructuring the response
     DescribeUserResponse (..),
@@ -47,40 +48,29 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkDescribeUser' smart constructor.
 data DescribeUser = DescribeUser'
-  { organizationId :: Lude.Text,
-    userId :: Lude.Text
+  { -- | The identifier for the user to be described.
+    userId :: Lude.Text,
+    -- | The identifier for the organization under which the user exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUser' with the minimum fields required to make a request.
 --
--- * 'organizationId' - The identifier for the organization under which the user exists.
 -- * 'userId' - The identifier for the user to be described.
+-- * 'organizationId' - The identifier for the organization under which the user exists.
 mkDescribeUser ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'userId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   DescribeUser
-mkDescribeUser pOrganizationId_ pUserId_ =
+mkDescribeUser pUserId_ pOrganizationId_ =
   DescribeUser'
-    { organizationId = pOrganizationId_,
-      userId = pUserId_
+    { userId = pUserId_,
+      organizationId = pOrganizationId_
     }
-
--- | The identifier for the organization under which the user exists.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duOrganizationId :: Lens.Lens' DescribeUser Lude.Text
-duOrganizationId = Lens.lens (organizationId :: DescribeUser -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeUser)
-{-# DEPRECATED duOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier for the user to be described.
 --
@@ -88,6 +78,13 @@ duOrganizationId = Lens.lens (organizationId :: DescribeUser -> Lude.Text) (\s a
 duUserId :: Lens.Lens' DescribeUser Lude.Text
 duUserId = Lens.lens (userId :: DescribeUser -> Lude.Text) (\s a -> s {userId = a} :: DescribeUser)
 {-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+-- | The identifier for the organization under which the user exists.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duOrganizationId :: Lens.Lens' DescribeUser Lude.Text
+duOrganizationId = Lens.lens (organizationId :: DescribeUser -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeUser)
+{-# DEPRECATED duOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest DescribeUser where
   type Rs DescribeUser = DescribeUserResponse
@@ -122,8 +119,8 @@ instance Lude.ToJSON DescribeUser where
   toJSON DescribeUser' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("UserId" Lude..= userId)
+          [ Lude.Just ("UserId" Lude..= userId),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -135,37 +132,39 @@ instance Lude.ToQuery DescribeUser where
 
 -- | /See:/ 'mkDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
-  { email ::
-      Lude.Maybe Lude.Text,
+  { -- | The email of the user.
+    email :: Lude.Maybe Lude.Text,
+    -- | The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
     state :: Lude.Maybe EntityState,
+    -- | The identifier for the described user.
     userId :: Lude.Maybe Lude.Text,
+    -- | The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.
     disabledDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name for the user.
     name :: Lude.Maybe Lude.Text,
+    -- | The display name of the user.
     displayName :: Lude.Maybe Lude.Text,
+    -- | In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, and SYSTEM_USER.
     userRole :: Lude.Maybe UserRole,
+    -- | The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.
     enabledDate :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserResponse' with the minimum fields required to make a request.
 --
--- * 'disabledDate' - The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.
--- * 'displayName' - The display name of the user.
 -- * 'email' - The email of the user.
--- * 'enabledDate' - The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.
--- * 'name' - The name for the user.
--- * 'responseStatus' - The response status code.
 -- * 'state' - The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or never registered to WorkMail).
 -- * 'userId' - The identifier for the described user.
+-- * 'disabledDate' - The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.
+-- * 'name' - The name for the user.
+-- * 'displayName' - The display name of the user.
 -- * 'userRole' - In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, and SYSTEM_USER.
+-- * 'enabledDate' - The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.
+-- * 'responseStatus' - The response status code.
 mkDescribeUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

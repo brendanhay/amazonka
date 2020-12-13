@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -54,18 +55,18 @@ module Network.AWS.GameLift.UpdateGameServer
 
     -- ** Request lenses
     ugsHealthCheck,
-    ugsGameServerData,
-    ugsUtilizationStatus,
     ugsGameServerGroupName,
+    ugsGameServerData,
     ugsGameServerId,
+    ugsUtilizationStatus,
 
     -- * Destructuring the response
     UpdateGameServerResponse (..),
     mkUpdateGameServerResponse,
 
     -- ** Response lenses
-    ursGameServer,
-    ursResponseStatus,
+    ugsrsGameServer,
+    ugsrsResponseStatus,
   )
 where
 
@@ -77,29 +78,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateGameServer' smart constructor.
 data UpdateGameServer = UpdateGameServer'
-  { healthCheck ::
-      Lude.Maybe GameServerHealthCheck,
-    gameServerData :: Lude.Maybe Lude.Text,
-    utilizationStatus ::
-      Lude.Maybe GameServerUtilizationStatus,
+  { -- | Indicates health status of the game server. A request that includes this parameter updates the game server's /LastHealthCheckTime/ timestamp.
+    healthCheck :: Lude.Maybe GameServerHealthCheck,
+    -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
     gameServerGroupName :: Lude.Text,
-    gameServerId :: Lude.Text
+    -- | A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
+    gameServerData :: Lude.Maybe Lude.Text,
+    -- | A custom string that uniquely identifies the game server to update.
+    gameServerId :: Lude.Text,
+    -- | Indicates whether the game server is available or is currently hosting gameplay.
+    utilizationStatus :: Lude.Maybe GameServerUtilizationStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGameServer' with the minimum fields required to make a request.
 --
--- * 'gameServerData' - A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
--- * 'gameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
--- * 'gameServerId' - A custom string that uniquely identifies the game server to update.
 -- * 'healthCheck' - Indicates health status of the game server. A request that includes this parameter updates the game server's /LastHealthCheckTime/ timestamp.
+-- * 'gameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
+-- * 'gameServerData' - A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
+-- * 'gameServerId' - A custom string that uniquely identifies the game server to update.
 -- * 'utilizationStatus' - Indicates whether the game server is available or is currently hosting gameplay.
 mkUpdateGameServer ::
   -- | 'gameServerGroupName'
@@ -110,10 +108,10 @@ mkUpdateGameServer ::
 mkUpdateGameServer pGameServerGroupName_ pGameServerId_ =
   UpdateGameServer'
     { healthCheck = Lude.Nothing,
-      gameServerData = Lude.Nothing,
-      utilizationStatus = Lude.Nothing,
       gameServerGroupName = pGameServerGroupName_,
-      gameServerId = pGameServerId_
+      gameServerData = Lude.Nothing,
+      gameServerId = pGameServerId_,
+      utilizationStatus = Lude.Nothing
     }
 
 -- | Indicates health status of the game server. A request that includes this parameter updates the game server's /LastHealthCheckTime/ timestamp.
@@ -123,20 +121,6 @@ ugsHealthCheck :: Lens.Lens' UpdateGameServer (Lude.Maybe GameServerHealthCheck)
 ugsHealthCheck = Lens.lens (healthCheck :: UpdateGameServer -> Lude.Maybe GameServerHealthCheck) (\s a -> s {healthCheck = a} :: UpdateGameServer)
 {-# DEPRECATED ugsHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
 
--- | A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
---
--- /Note:/ Consider using 'gameServerData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugsGameServerData :: Lens.Lens' UpdateGameServer (Lude.Maybe Lude.Text)
-ugsGameServerData = Lens.lens (gameServerData :: UpdateGameServer -> Lude.Maybe Lude.Text) (\s a -> s {gameServerData = a} :: UpdateGameServer)
-{-# DEPRECATED ugsGameServerData "Use generic-lens or generic-optics with 'gameServerData' instead." #-}
-
--- | Indicates whether the game server is available or is currently hosting gameplay.
---
--- /Note:/ Consider using 'utilizationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugsUtilizationStatus :: Lens.Lens' UpdateGameServer (Lude.Maybe GameServerUtilizationStatus)
-ugsUtilizationStatus = Lens.lens (utilizationStatus :: UpdateGameServer -> Lude.Maybe GameServerUtilizationStatus) (\s a -> s {utilizationStatus = a} :: UpdateGameServer)
-{-# DEPRECATED ugsUtilizationStatus "Use generic-lens or generic-optics with 'utilizationStatus' instead." #-}
-
 -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -144,12 +128,26 @@ ugsGameServerGroupName :: Lens.Lens' UpdateGameServer Lude.Text
 ugsGameServerGroupName = Lens.lens (gameServerGroupName :: UpdateGameServer -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: UpdateGameServer)
 {-# DEPRECATED ugsGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
+-- | A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
+--
+-- /Note:/ Consider using 'gameServerData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsGameServerData :: Lens.Lens' UpdateGameServer (Lude.Maybe Lude.Text)
+ugsGameServerData = Lens.lens (gameServerData :: UpdateGameServer -> Lude.Maybe Lude.Text) (\s a -> s {gameServerData = a} :: UpdateGameServer)
+{-# DEPRECATED ugsGameServerData "Use generic-lens or generic-optics with 'gameServerData' instead." #-}
+
 -- | A custom string that uniquely identifies the game server to update.
 --
 -- /Note:/ Consider using 'gameServerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ugsGameServerId :: Lens.Lens' UpdateGameServer Lude.Text
 ugsGameServerId = Lens.lens (gameServerId :: UpdateGameServer -> Lude.Text) (\s a -> s {gameServerId = a} :: UpdateGameServer)
 {-# DEPRECATED ugsGameServerId "Use generic-lens or generic-optics with 'gameServerId' instead." #-}
+
+-- | Indicates whether the game server is available or is currently hosting gameplay.
+--
+-- /Note:/ Consider using 'utilizationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsUtilizationStatus :: Lens.Lens' UpdateGameServer (Lude.Maybe GameServerUtilizationStatus)
+ugsUtilizationStatus = Lens.lens (utilizationStatus :: UpdateGameServer -> Lude.Maybe GameServerUtilizationStatus) (\s a -> s {utilizationStatus = a} :: UpdateGameServer)
+{-# DEPRECATED ugsUtilizationStatus "Use generic-lens or generic-optics with 'utilizationStatus' instead." #-}
 
 instance Lude.AWSRequest UpdateGameServer where
   type Rs UpdateGameServer = UpdateGameServerResponse
@@ -177,10 +175,10 @@ instance Lude.ToJSON UpdateGameServer where
     Lude.object
       ( Lude.catMaybes
           [ ("HealthCheck" Lude..=) Lude.<$> healthCheck,
-            ("GameServerData" Lude..=) Lude.<$> gameServerData,
-            ("UtilizationStatus" Lude..=) Lude.<$> utilizationStatus,
             Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
-            Lude.Just ("GameServerId" Lude..= gameServerId)
+            ("GameServerData" Lude..=) Lude.<$> gameServerData,
+            Lude.Just ("GameServerId" Lude..= gameServerId),
+            ("UtilizationStatus" Lude..=) Lude.<$> utilizationStatus
           ]
       )
 
@@ -192,17 +190,12 @@ instance Lude.ToQuery UpdateGameServer where
 
 -- | /See:/ 'mkUpdateGameServerResponse' smart constructor.
 data UpdateGameServerResponse = UpdateGameServerResponse'
-  { gameServer ::
-      Lude.Maybe GameServer,
+  { -- | Object that describes the newly updated game server.
+    gameServer :: Lude.Maybe GameServer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGameServerResponse' with the minimum fields required to make a request.
@@ -222,13 +215,13 @@ mkUpdateGameServerResponse pResponseStatus_ =
 -- | Object that describes the newly updated game server.
 --
 -- /Note:/ Consider using 'gameServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ursGameServer :: Lens.Lens' UpdateGameServerResponse (Lude.Maybe GameServer)
-ursGameServer = Lens.lens (gameServer :: UpdateGameServerResponse -> Lude.Maybe GameServer) (\s a -> s {gameServer = a} :: UpdateGameServerResponse)
-{-# DEPRECATED ursGameServer "Use generic-lens or generic-optics with 'gameServer' instead." #-}
+ugsrsGameServer :: Lens.Lens' UpdateGameServerResponse (Lude.Maybe GameServer)
+ugsrsGameServer = Lens.lens (gameServer :: UpdateGameServerResponse -> Lude.Maybe GameServer) (\s a -> s {gameServer = a} :: UpdateGameServerResponse)
+{-# DEPRECATED ugsrsGameServer "Use generic-lens or generic-optics with 'gameServer' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ursResponseStatus :: Lens.Lens' UpdateGameServerResponse Lude.Int
-ursResponseStatus = Lens.lens (responseStatus :: UpdateGameServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGameServerResponse)
-{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ugsrsResponseStatus :: Lens.Lens' UpdateGameServerResponse Lude.Int
+ugsrsResponseStatus = Lens.lens (responseStatus :: UpdateGameServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGameServerResponse)
+{-# DEPRECATED ugsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

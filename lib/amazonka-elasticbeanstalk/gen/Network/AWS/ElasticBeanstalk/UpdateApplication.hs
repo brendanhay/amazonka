@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     mkUpdateApplication,
 
     -- ** Request lenses
-    uaDescription,
     uaApplicationName,
+    uaDescription,
 
     -- * Destructuring the response
     ApplicationDescriptionMessage (..),
@@ -41,17 +42,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { description ::
-      Lude.Maybe Lude.Text,
-    applicationName :: Lude.Text
+  { -- | The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+    applicationName :: Lude.Text,
+    -- | A new description for the application.
+    --
+    -- Default: If not specified, AWS Elastic Beanstalk does not update the description.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
@@ -66,9 +64,16 @@ mkUpdateApplication ::
   UpdateApplication
 mkUpdateApplication pApplicationName_ =
   UpdateApplication'
-    { description = Lude.Nothing,
-      applicationName = pApplicationName_
+    { applicationName = pApplicationName_,
+      description = Lude.Nothing
     }
+
+-- | The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaApplicationName :: Lens.Lens' UpdateApplication Lude.Text
+uaApplicationName = Lens.lens (applicationName :: UpdateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplication)
+{-# DEPRECATED uaApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | A new description for the application.
 --
@@ -78,13 +83,6 @@ mkUpdateApplication pApplicationName_ =
 uaDescription :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
 uaDescription = Lens.lens (description :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApplication)
 {-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaApplicationName :: Lens.Lens' UpdateApplication Lude.Text
-uaApplicationName = Lens.lens (applicationName :: UpdateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplication)
-{-# DEPRECATED uaApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 instance Lude.AWSRequest UpdateApplication where
   type Rs UpdateApplication = ApplicationDescriptionMessage
@@ -105,6 +103,6 @@ instance Lude.ToQuery UpdateApplication where
     Lude.mconcat
       [ "Action" Lude.=: ("UpdateApplication" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Description" Lude.=: description,
-        "ApplicationName" Lude.=: applicationName
+        "ApplicationName" Lude.=: applicationName,
+        "Description" Lude.=: description
       ]

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,27 +48,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListReviewableHITs' smart constructor.
 data ListReviewableHITs = ListReviewableHITs'
-  { status ::
-      Lude.Maybe ReviewableHITStatus,
+  { -- | Can be either @Reviewable@ or @Reviewing@ . Reviewable is the default value.
+    status :: Lude.Maybe ReviewableHITStatus,
+    -- | The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered
     hITTypeId :: Lude.Maybe Lude.Text,
+    -- | Pagination Token
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Limit the number of results returned.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReviewableHITs' with the minimum fields required to make a request.
 --
--- * 'hITTypeId' - The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered
--- * 'maxResults' - Limit the number of results returned.
--- * 'nextToken' - Pagination Token
 -- * 'status' - Can be either @Reviewable@ or @Reviewing@ . Reviewable is the default value.
+-- * 'hITTypeId' - The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered
+-- * 'nextToken' - Pagination Token
+-- * 'maxResults' - Limit the number of results returned.
 mkListReviewableHITs ::
   ListReviewableHITs
 mkListReviewableHITs =
@@ -160,26 +158,22 @@ instance Lude.ToQuery ListReviewableHITs where
 
 -- | /See:/ 'mkListReviewableHITsResponse' smart constructor.
 data ListReviewableHITsResponse = ListReviewableHITsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
     numResults :: Lude.Maybe Lude.Int,
+    -- | The list of HIT elements returned by the query.
     hITs :: Lude.Maybe [HIT],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReviewableHITsResponse' with the minimum fields required to make a request.
 --
--- * 'hITs' - The list of HIT elements returned by the query.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'numResults' - The number of HITs on this page in the filtered results list, equivalent to the number of HITs being returned by this call.
+-- * 'hITs' - The list of HIT elements returned by the query.
 -- * 'responseStatus' - The response status code.
 mkListReviewableHITsResponse ::
   -- | 'responseStatus'

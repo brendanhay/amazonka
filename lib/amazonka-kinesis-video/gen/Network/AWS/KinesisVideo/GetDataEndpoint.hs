@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.KinesisVideo.GetDataEndpoint
     mkGetDataEndpoint,
 
     -- ** Request lenses
+    gdeAPIName,
     gdeStreamARN,
     gdeStreamName,
-    gdeAPIName,
 
     -- * Destructuring the response
     GetDataEndpointResponse (..),
@@ -43,18 +44,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDataEndpoint' smart constructor.
 data GetDataEndpoint = GetDataEndpoint'
-  { streamARN ::
-      Lude.Maybe Lude.Text,
-    streamName :: Lude.Maybe Lude.Text,
-    apiName :: APIName
+  { -- | The name of the API action for which to get an endpoint.
+    apiName :: APIName,
+    -- | The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a @StreamName@ in the request.
+    streamARN :: Lude.Maybe Lude.Text,
+    -- | The name of the stream that you want to get the endpoint for. You must specify either this parameter or a @StreamARN@ in the request.
+    streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataEndpoint' with the minimum fields required to make a request.
@@ -68,10 +65,17 @@ mkGetDataEndpoint ::
   GetDataEndpoint
 mkGetDataEndpoint pAPIName_ =
   GetDataEndpoint'
-    { streamARN = Lude.Nothing,
-      streamName = Lude.Nothing,
-      apiName = pAPIName_
+    { apiName = pAPIName_,
+      streamARN = Lude.Nothing,
+      streamName = Lude.Nothing
     }
+
+-- | The name of the API action for which to get an endpoint.
+--
+-- /Note:/ Consider using 'apiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdeAPIName :: Lens.Lens' GetDataEndpoint APIName
+gdeAPIName = Lens.lens (apiName :: GetDataEndpoint -> APIName) (\s a -> s {apiName = a} :: GetDataEndpoint)
+{-# DEPRECATED gdeAPIName "Use generic-lens or generic-optics with 'apiName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for. You must specify either this parameter or a @StreamName@ in the request.
 --
@@ -86,13 +90,6 @@ gdeStreamARN = Lens.lens (streamARN :: GetDataEndpoint -> Lude.Maybe Lude.Text) 
 gdeStreamName :: Lens.Lens' GetDataEndpoint (Lude.Maybe Lude.Text)
 gdeStreamName = Lens.lens (streamName :: GetDataEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: GetDataEndpoint)
 {-# DEPRECATED gdeStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
-
--- | The name of the API action for which to get an endpoint.
---
--- /Note:/ Consider using 'apiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdeAPIName :: Lens.Lens' GetDataEndpoint APIName
-gdeAPIName = Lens.lens (apiName :: GetDataEndpoint -> APIName) (\s a -> s {apiName = a} :: GetDataEndpoint)
-{-# DEPRECATED gdeAPIName "Use generic-lens or generic-optics with 'apiName' instead." #-}
 
 instance Lude.AWSRequest GetDataEndpoint where
   type Rs GetDataEndpoint = GetDataEndpointResponse
@@ -111,9 +108,9 @@ instance Lude.ToJSON GetDataEndpoint where
   toJSON GetDataEndpoint' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("StreamARN" Lude..=) Lude.<$> streamARN,
-            ("StreamName" Lude..=) Lude.<$> streamName,
-            Lude.Just ("APIName" Lude..= apiName)
+          [ Lude.Just ("APIName" Lude..= apiName),
+            ("StreamARN" Lude..=) Lude.<$> streamARN,
+            ("StreamName" Lude..=) Lude.<$> streamName
           ]
       )
 
@@ -125,17 +122,12 @@ instance Lude.ToQuery GetDataEndpoint where
 
 -- | /See:/ 'mkGetDataEndpointResponse' smart constructor.
 data GetDataEndpointResponse = GetDataEndpointResponse'
-  { dataEndpoint ::
-      Lude.Maybe Lude.Text,
+  { -- | The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application.
+    dataEndpoint :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataEndpointResponse' with the minimum fields required to make a request.

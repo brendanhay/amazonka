@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.Cloud9.UpdateEnvironment
 
     -- ** Request lenses
     ueName,
-    ueDescription,
     ueEnvironmentId,
+    ueDescription,
 
     -- * Destructuring the response
     UpdateEnvironmentResponse (..),
@@ -40,19 +41,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { name ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    environmentId :: Lude.Text
+  { -- | A replacement name for the environment.
+    name :: Lude.Maybe Lude.Text,
+    -- | The ID of the environment to change settings.
+    environmentId :: Lude.Text,
+    -- | Any new or replacement description for the environment.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEnvironment' with the minimum fields required to make a request.
 --
--- * 'description' - Any new or replacement description for the environment.
--- * 'environmentId' - The ID of the environment to change settings.
 -- * 'name' - A replacement name for the environment.
+-- * 'environmentId' - The ID of the environment to change settings.
+-- * 'description' - Any new or replacement description for the environment.
 mkUpdateEnvironment ::
   -- | 'environmentId'
   Lude.Text ->
@@ -60,8 +63,8 @@ mkUpdateEnvironment ::
 mkUpdateEnvironment pEnvironmentId_ =
   UpdateEnvironment'
     { name = Lude.Nothing,
-      description = Lude.Nothing,
-      environmentId = pEnvironmentId_
+      environmentId = pEnvironmentId_,
+      description = Lude.Nothing
     }
 
 -- | A replacement name for the environment.
@@ -71,19 +74,19 @@ ueName :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
 ueName = Lens.lens (name :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateEnvironment)
 {-# DEPRECATED ueName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Any new or replacement description for the environment.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueDescription :: Lens.Lens' UpdateEnvironment (Lude.Maybe (Lude.Sensitive Lude.Text))
-ueDescription = Lens.lens (description :: UpdateEnvironment -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateEnvironment)
-{-# DEPRECATED ueDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 -- | The ID of the environment to change settings.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ueEnvironmentId :: Lens.Lens' UpdateEnvironment Lude.Text
 ueEnvironmentId = Lens.lens (environmentId :: UpdateEnvironment -> Lude.Text) (\s a -> s {environmentId = a} :: UpdateEnvironment)
 {-# DEPRECATED ueEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
+
+-- | Any new or replacement description for the environment.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueDescription :: Lens.Lens' UpdateEnvironment (Lude.Maybe (Lude.Sensitive Lude.Text))
+ueDescription = Lens.lens (description :: UpdateEnvironment -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateEnvironment)
+{-# DEPRECATED ueDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateEnvironment where
   type Rs UpdateEnvironment = UpdateEnvironmentResponse
@@ -112,8 +115,8 @@ instance Lude.ToJSON UpdateEnvironment where
     Lude.object
       ( Lude.catMaybes
           [ ("name" Lude..=) Lude.<$> name,
-            ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("environmentId" Lude..= environmentId)
+            Lude.Just ("environmentId" Lude..= environmentId),
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -125,16 +128,10 @@ instance Lude.ToQuery UpdateEnvironment where
 
 -- | /See:/ 'mkUpdateEnvironmentResponse' smart constructor.
 newtype UpdateEnvironmentResponse = UpdateEnvironmentResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEnvironmentResponse' with the minimum fields required to make a request.

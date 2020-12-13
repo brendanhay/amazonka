@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.MachineLearning.UpdateBatchPrediction
     mkUpdateBatchPrediction,
 
     -- ** Request lenses
-    ubpBatchPredictionId,
     ubpBatchPredictionName,
+    ubpBatchPredictionId,
 
     -- * Destructuring the response
     UpdateBatchPredictionResponse (..),
@@ -42,41 +43,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateBatchPrediction' smart constructor.
 data UpdateBatchPrediction = UpdateBatchPrediction'
-  { batchPredictionId ::
-      Lude.Text,
-    batchPredictionName :: Lude.Text
+  { -- | A new user-supplied name or description of the @BatchPrediction@ .
+    batchPredictionName :: Lude.Text,
+    -- | The ID assigned to the @BatchPrediction@ during creation.
+    batchPredictionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBatchPrediction' with the minimum fields required to make a request.
 --
--- * 'batchPredictionId' - The ID assigned to the @BatchPrediction@ during creation.
 -- * 'batchPredictionName' - A new user-supplied name or description of the @BatchPrediction@ .
+-- * 'batchPredictionId' - The ID assigned to the @BatchPrediction@ during creation.
 mkUpdateBatchPrediction ::
-  -- | 'batchPredictionId'
-  Lude.Text ->
   -- | 'batchPredictionName'
   Lude.Text ->
+  -- | 'batchPredictionId'
+  Lude.Text ->
   UpdateBatchPrediction
-mkUpdateBatchPrediction pBatchPredictionId_ pBatchPredictionName_ =
+mkUpdateBatchPrediction pBatchPredictionName_ pBatchPredictionId_ =
   UpdateBatchPrediction'
-    { batchPredictionId = pBatchPredictionId_,
-      batchPredictionName = pBatchPredictionName_
+    { batchPredictionName =
+        pBatchPredictionName_,
+      batchPredictionId = pBatchPredictionId_
     }
-
--- | The ID assigned to the @BatchPrediction@ during creation.
---
--- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubpBatchPredictionId :: Lens.Lens' UpdateBatchPrediction Lude.Text
-ubpBatchPredictionId = Lens.lens (batchPredictionId :: UpdateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionId = a} :: UpdateBatchPrediction)
-{-# DEPRECATED ubpBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
 -- | A new user-supplied name or description of the @BatchPrediction@ .
 --
@@ -84,6 +74,13 @@ ubpBatchPredictionId = Lens.lens (batchPredictionId :: UpdateBatchPrediction -> 
 ubpBatchPredictionName :: Lens.Lens' UpdateBatchPrediction Lude.Text
 ubpBatchPredictionName = Lens.lens (batchPredictionName :: UpdateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionName = a} :: UpdateBatchPrediction)
 {-# DEPRECATED ubpBatchPredictionName "Use generic-lens or generic-optics with 'batchPredictionName' instead." #-}
+
+-- | The ID assigned to the @BatchPrediction@ during creation.
+--
+-- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubpBatchPredictionId :: Lens.Lens' UpdateBatchPrediction Lude.Text
+ubpBatchPredictionId = Lens.lens (batchPredictionId :: UpdateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionId = a} :: UpdateBatchPrediction)
+{-# DEPRECATED ubpBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
 instance Lude.AWSRequest UpdateBatchPrediction where
   type Rs UpdateBatchPrediction = UpdateBatchPredictionResponse
@@ -111,8 +108,8 @@ instance Lude.ToJSON UpdateBatchPrediction where
   toJSON UpdateBatchPrediction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("BatchPredictionId" Lude..= batchPredictionId),
-            Lude.Just ("BatchPredictionName" Lude..= batchPredictionName)
+          [ Lude.Just ("BatchPredictionName" Lude..= batchPredictionName),
+            Lude.Just ("BatchPredictionId" Lude..= batchPredictionId)
           ]
       )
 
@@ -128,17 +125,12 @@ instance Lude.ToQuery UpdateBatchPrediction where
 --
 -- /See:/ 'mkUpdateBatchPredictionResponse' smart constructor.
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
-  { batchPredictionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID assigned to the @BatchPrediction@ during creation. This value should be identical to the value of the @BatchPredictionId@ in the request.
+    batchPredictionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBatchPredictionResponse' with the minimum fields required to make a request.

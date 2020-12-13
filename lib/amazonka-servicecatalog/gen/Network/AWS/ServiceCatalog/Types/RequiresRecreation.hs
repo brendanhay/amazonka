@@ -13,9 +13,9 @@
 module Network.AWS.ServiceCatalog.Types.RequiresRecreation
   ( RequiresRecreation
       ( RequiresRecreation',
-        Always,
+        Never,
         Conditionally,
-        Never
+        Always
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RequiresRecreation = RequiresRecreation' Lude.Text
       Lude.ToHeader
     )
 
-pattern Always :: RequiresRecreation
-pattern Always = RequiresRecreation' "ALWAYS"
+pattern Never :: RequiresRecreation
+pattern Never = RequiresRecreation' "NEVER"
 
 pattern Conditionally :: RequiresRecreation
 pattern Conditionally = RequiresRecreation' "CONDITIONALLY"
 
-pattern Never :: RequiresRecreation
-pattern Never = RequiresRecreation' "NEVER"
+pattern Always :: RequiresRecreation
+pattern Always = RequiresRecreation' "ALWAYS"
 
 {-# COMPLETE
-  Always,
-  Conditionally,
   Never,
+  Conditionally,
+  Always,
   RequiresRecreation'
   #-}

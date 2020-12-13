@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAcknowledgeJob' smart constructor.
 data AcknowledgeJob = AcknowledgeJob'
-  { jobId :: Lude.Text,
+  { -- | The unique system-generated ID of the job for which you want to confirm receipt.
+    jobId :: Lude.Text,
+    -- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response of the 'PollForJobs' request that returned this job.
     nonce :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcknowledgeJob' with the minimum fields required to make a request.
@@ -121,23 +118,18 @@ instance Lude.ToQuery AcknowledgeJob where
 --
 -- /See:/ 'mkAcknowledgeJobResponse' smart constructor.
 data AcknowledgeJobResponse = AcknowledgeJobResponse'
-  { status ::
-      Lude.Maybe JobStatus,
+  { -- | Whether the job worker has received the specified job.
+    status :: Lude.Maybe JobStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcknowledgeJobResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - Whether the job worker has received the specified job.
+-- * 'responseStatus' - The response status code.
 mkAcknowledgeJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

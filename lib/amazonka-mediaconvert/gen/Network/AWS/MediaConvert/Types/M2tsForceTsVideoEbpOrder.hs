@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.M2tsForceTsVideoEbpOrder
   ( M2tsForceTsVideoEbpOrder
       ( M2tsForceTsVideoEbpOrder',
-        MFTVEODefault,
-        MFTVEOForce
+        MFTVEOForce,
+        MFTVEODefault
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype M2tsForceTsVideoEbpOrder = M2tsForceTsVideoEbpOrder' Lude.Text
       Lude.ToHeader
     )
 
-pattern MFTVEODefault :: M2tsForceTsVideoEbpOrder
-pattern MFTVEODefault = M2tsForceTsVideoEbpOrder' "DEFAULT"
-
 pattern MFTVEOForce :: M2tsForceTsVideoEbpOrder
 pattern MFTVEOForce = M2tsForceTsVideoEbpOrder' "FORCE"
 
+pattern MFTVEODefault :: M2tsForceTsVideoEbpOrder
+pattern MFTVEODefault = M2tsForceTsVideoEbpOrder' "DEFAULT"
+
 {-# COMPLETE
-  MFTVEODefault,
   MFTVEOForce,
+  MFTVEODefault,
   M2tsForceTsVideoEbpOrder'
   #-}

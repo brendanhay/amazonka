@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFilters' smart constructor.
 data Filters = Filters'
-  { queues ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The queues to use to filter the metrics. You can specify up to 100 queues per request.
+    queues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The channel to use to filter the metrics.
     channels :: Lude.Maybe [Channel]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filters' with the minimum fields required to make a request.
 --
--- * 'channels' - The channel to use to filter the metrics.
 -- * 'queues' - The queues to use to filter the metrics. You can specify up to 100 queues per request.
+-- * 'channels' - The channel to use to filter the metrics.
 mkFilters ::
   Filters
 mkFilters =

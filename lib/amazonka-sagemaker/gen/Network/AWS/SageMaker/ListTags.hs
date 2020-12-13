@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.SageMaker.ListTags
     mkListTags,
 
     -- ** Request lenses
-    ltNextToken,
-    ltMaxResults,
-    ltResourceARN,
+    ltsNextToken,
+    ltsResourceARN,
+    ltsMaxResults,
 
     -- * Destructuring the response
     ListTagsResponse (..),
@@ -45,24 +46,21 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListTags' smart constructor.
 data ListTags = ListTags'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    resourceARN :: Lude.Text
+  { -- | If the response to the previous @ListTags@ request is truncated, Amazon SageMaker returns this token. To retrieve the next set of tags, use it in the subsequent request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.
+    resourceARN :: Lude.Text,
+    -- | Maximum number of tags to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of tags to return.
 -- * 'nextToken' - If the response to the previous @ListTags@ request is truncated, Amazon SageMaker returns this token. To retrieve the next set of tags, use it in the subsequent request.
 -- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.
+-- * 'maxResults' - Maximum number of tags to return.
 mkListTags ::
   -- | 'resourceARN'
   Lude.Text ->
@@ -70,30 +68,30 @@ mkListTags ::
 mkListTags pResourceARN_ =
   ListTags'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      resourceARN = pResourceARN_
+      resourceARN = pResourceARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | If the response to the previous @ListTags@ request is truncated, Amazon SageMaker returns this token. To retrieve the next set of tags, use it in the subsequent request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
-ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
-{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Maximum number of tags to return.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltMaxResults :: Lens.Lens' ListTags (Lude.Maybe Lude.Natural)
-ltMaxResults = Lens.lens (maxResults :: ListTags -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTags)
-{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+ltsNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
+ltsNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
+{-# DEPRECATED ltsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltResourceARN :: Lens.Lens' ListTags Lude.Text
-ltResourceARN = Lens.lens (resourceARN :: ListTags -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTags)
-{-# DEPRECATED ltResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+ltsResourceARN :: Lens.Lens' ListTags Lude.Text
+ltsResourceARN = Lens.lens (resourceARN :: ListTags -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTags)
+{-# DEPRECATED ltsResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | Maximum number of tags to return.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsMaxResults :: Lens.Lens' ListTags (Lude.Maybe Lude.Natural)
+ltsMaxResults = Lens.lens (maxResults :: ListTags -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTags)
+{-# DEPRECATED ltsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListTags where
   page rq rs
@@ -102,7 +100,7 @@ instance Page.AWSPager ListTags where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
+          Lude.& ltsNextToken Lens..~ rs Lens.^. ltrsNextToken
 
 instance Lude.AWSRequest ListTags where
   type Rs ListTags = ListTagsResponse
@@ -131,8 +129,8 @@ instance Lude.ToJSON ListTags where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ResourceArn" Lude..= resourceARN)
+            Lude.Just ("ResourceArn" Lude..= resourceARN),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -144,25 +142,21 @@ instance Lude.ToQuery ListTags where
 
 -- | /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If response is truncated, Amazon SageMaker includes a token in the response. You can use this token in your subsequent request to fetch next set of tokens.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @Tag@ objects, each with a tag key and a value.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If response is truncated, Amazon SageMaker includes a token in the response. You can use this token in your subsequent request to fetch next set of tokens.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - An array of @Tag@ objects, each with a tag key and a value.
+-- * 'responseStatus' - The response status code.
 mkListTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

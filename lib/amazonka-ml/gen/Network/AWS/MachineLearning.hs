@@ -255,29 +255,29 @@ module Network.AWS.MachineLearning
     -- ** RDSDataSpec
     RDSDataSpec (..),
     mkRDSDataSpec,
-    rdsdsDataSchemaURI,
-    rdsdsDataSchema,
-    rdsdsDataRearrangement,
-    rdsdsDatabaseInformation,
-    rdsdsSelectSqlQuery,
-    rdsdsDatabaseCredentials,
-    rdsdsS3StagingLocation,
-    rdsdsResourceRole,
-    rdsdsServiceRole,
-    rdsdsSubnetId,
-    rdsdsSecurityGroupIds,
+    rdsS3StagingLocation,
+    rdsSelectSqlQuery,
+    rdsDataSchemaURI,
+    rdsSecurityGroupIds,
+    rdsSubnetId,
+    rdsDataSchema,
+    rdsDatabaseInformation,
+    rdsDatabaseCredentials,
+    rdsResourceRole,
+    rdsDataRearrangement,
+    rdsServiceRole,
 
     -- ** RDSDatabase
     RDSDatabase (..),
     mkRDSDatabase,
-    rdsdInstanceIdentifier,
-    rdsdDatabaseName,
+    rdInstanceIdentifier,
+    rdDatabaseName,
 
     -- ** RDSDatabaseCredentials
     RDSDatabaseCredentials (..),
     mkRDSDatabaseCredentials,
-    rdsdcUsername,
-    rdsdcPassword,
+    rdcUsername,
+    rdcPassword,
 
     -- ** RDSMetadata
     RDSMetadata (..),
@@ -300,25 +300,25 @@ module Network.AWS.MachineLearning
     -- ** RedshiftDataSpec
     RedshiftDataSpec (..),
     mkRedshiftDataSpec,
-    rdsDataSchemaURI,
-    rdsDataSchema,
-    rdsDataRearrangement,
-    rdsDatabaseInformation,
-    rdsSelectSqlQuery,
-    rdsDatabaseCredentials,
-    rdsS3StagingLocation,
+    rdsfS3StagingLocation,
+    rdsfSelectSqlQuery,
+    rdsfDataSchemaURI,
+    rdsfDataSchema,
+    rdsfDatabaseInformation,
+    rdsfDatabaseCredentials,
+    rdsfDataRearrangement,
 
     -- ** RedshiftDatabase
     RedshiftDatabase (..),
     mkRedshiftDatabase,
-    rdDatabaseName,
-    rdClusterIdentifier,
+    rClusterIdentifier,
+    rDatabaseName,
 
     -- ** RedshiftDatabaseCredentials
     RedshiftDatabaseCredentials (..),
     mkRedshiftDatabaseCredentials,
-    rdcUsername,
-    rdcPassword,
+    rUsername,
+    rPassword,
 
     -- ** RedshiftMetadata
     RedshiftMetadata (..),
@@ -332,8 +332,8 @@ module Network.AWS.MachineLearning
     mkS3DataSpec,
     sdsDataSchema,
     sdsDataSchemaLocationS3,
-    sdsDataRearrangement,
     sdsDataLocationS3,
+    sdsDataRearrangement,
 
     -- ** Tag
     Tag (..),

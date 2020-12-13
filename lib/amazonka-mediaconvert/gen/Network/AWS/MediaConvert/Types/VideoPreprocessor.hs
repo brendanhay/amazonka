@@ -41,33 +41,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVideoPreprocessor' smart constructor.
 data VideoPreprocessor = VideoPreprocessor'
-  { timecodeBurnin ::
-      Lude.Maybe TimecodeBurnin,
+  { -- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
+    timecodeBurnin :: Lude.Maybe TimecodeBurnin,
+    -- | Enable Dolby Vision feature to produce Dolby Vision compatible video output.
     dolbyVision :: Lude.Maybe DolbyVision,
+    -- | Enable the Color corrector (ColorCorrector) feature if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
     colorCorrector :: Lude.Maybe ColorCorrector,
+    -- | Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer picture.
     deinterlacer :: Lude.Maybe Deinterlacer,
+    -- | Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
     noiseReducer :: Lude.Maybe NoiseReducer,
+    -- | Enable the Image inserter (ImageInserter) feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
     imageInserter :: Lude.Maybe ImageInserter,
+    -- | If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
     partnerWatermarking :: Lude.Maybe PartnerWatermarking
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoPreprocessor' with the minimum fields required to make a request.
 --
+-- * 'timecodeBurnin' - Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
+-- * 'dolbyVision' - Enable Dolby Vision feature to produce Dolby Vision compatible video output.
 -- * 'colorCorrector' - Enable the Color corrector (ColorCorrector) feature if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
 -- * 'deinterlacer' - Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer picture.
--- * 'dolbyVision' - Enable Dolby Vision feature to produce Dolby Vision compatible video output.
--- * 'imageInserter' - Enable the Image inserter (ImageInserter) feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
 -- * 'noiseReducer' - Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
+-- * 'imageInserter' - Enable the Image inserter (ImageInserter) feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
 -- * 'partnerWatermarking' - If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
--- * 'timecodeBurnin' - Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
 mkVideoPreprocessor ::
   VideoPreprocessor
 mkVideoPreprocessor =

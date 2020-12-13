@@ -13,8 +13,8 @@
 module Network.AWS.WorkSpaces.Types.ConnectionAliasState
   ( ConnectionAliasState
       ( ConnectionAliasState',
-        Created,
         Creating,
+        Created,
         Deleting
       ),
   )
@@ -46,18 +46,18 @@ newtype ConnectionAliasState = ConnectionAliasState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Created :: ConnectionAliasState
-pattern Created = ConnectionAliasState' "CREATED"
-
 pattern Creating :: ConnectionAliasState
 pattern Creating = ConnectionAliasState' "CREATING"
+
+pattern Created :: ConnectionAliasState
+pattern Created = ConnectionAliasState' "CREATED"
 
 pattern Deleting :: ConnectionAliasState
 pattern Deleting = ConnectionAliasState' "DELETING"
 
 {-# COMPLETE
-  Created,
   Creating,
+  Created,
   Deleting,
   ConnectionAliasState'
   #-}

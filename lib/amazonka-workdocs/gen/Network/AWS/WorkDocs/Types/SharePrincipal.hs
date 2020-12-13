@@ -17,9 +17,9 @@ module Network.AWS.WorkDocs.Types.SharePrincipal
     mkSharePrincipal,
 
     -- * Lenses
+    spRole,
     spId,
     spType,
-    spRole,
   )
 where
 
@@ -32,34 +32,38 @@ import Network.AWS.WorkDocs.Types.RoleType
 --
 -- /See:/ 'mkSharePrincipal' smart constructor.
 data SharePrincipal = SharePrincipal'
-  { id :: Lude.Text,
-    type' :: PrincipalType,
-    role' :: RoleType
+  { -- | The role of the recipient.
+    role' :: RoleType,
+    -- | The ID of the recipient.
+    id :: Lude.Text,
+    -- | The type of the recipient.
+    type' :: PrincipalType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SharePrincipal' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the recipient.
 -- * 'role'' - The role of the recipient.
+-- * 'id' - The ID of the recipient.
 -- * 'type'' - The type of the recipient.
 mkSharePrincipal ::
+  -- | 'role''
+  RoleType ->
   -- | 'id'
   Lude.Text ->
   -- | 'type''
   PrincipalType ->
-  -- | 'role''
-  RoleType ->
   SharePrincipal
-mkSharePrincipal pId_ pType_ pRole_ =
-  SharePrincipal' {id = pId_, type' = pType_, role' = pRole_}
+mkSharePrincipal pRole_ pId_ pType_ =
+  SharePrincipal' {role' = pRole_, id = pId_, type' = pType_}
+
+-- | The role of the recipient.
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spRole :: Lens.Lens' SharePrincipal RoleType
+spRole = Lens.lens (role' :: SharePrincipal -> RoleType) (\s a -> s {role' = a} :: SharePrincipal)
+{-# DEPRECATED spRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The ID of the recipient.
 --
@@ -75,19 +79,12 @@ spType :: Lens.Lens' SharePrincipal PrincipalType
 spType = Lens.lens (type' :: SharePrincipal -> PrincipalType) (\s a -> s {type' = a} :: SharePrincipal)
 {-# DEPRECATED spType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The role of the recipient.
---
--- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spRole :: Lens.Lens' SharePrincipal RoleType
-spRole = Lens.lens (role' :: SharePrincipal -> RoleType) (\s a -> s {role' = a} :: SharePrincipal)
-{-# DEPRECATED spRole "Use generic-lens or generic-optics with 'role'' instead." #-}
-
 instance Lude.ToJSON SharePrincipal where
   toJSON SharePrincipal' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Id" Lude..= id),
-            Lude.Just ("Type" Lude..= type'),
-            Lude.Just ("Role" Lude..= role')
+          [ Lude.Just ("Role" Lude..= role'),
+            Lude.Just ("Id" Lude..= id),
+            Lude.Just ("Type" Lude..= type')
           ]
       )

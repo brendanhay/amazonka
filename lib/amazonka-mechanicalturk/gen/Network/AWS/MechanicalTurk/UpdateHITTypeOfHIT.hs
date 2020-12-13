@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
     mkUpdateHITTypeOfHIT,
 
     -- ** Request lenses
-    uhittohitHITId,
     uhittohitHITTypeId,
+    uhittohitHITId,
 
     -- * Destructuring the response
     UpdateHITTypeOfHITResponse (..),
@@ -39,37 +40,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateHITTypeOfHIT' smart constructor.
 data UpdateHITTypeOfHIT = UpdateHITTypeOfHIT'
-  { hITId :: Lude.Text,
-    hITTypeId :: Lude.Text
+  { -- | The ID of the new HIT type.
+    hITTypeId :: Lude.Text,
+    -- | The HIT to update.
+    hITId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateHITTypeOfHIT' with the minimum fields required to make a request.
 --
--- * 'hITId' - The HIT to update.
 -- * 'hITTypeId' - The ID of the new HIT type.
+-- * 'hITId' - The HIT to update.
 mkUpdateHITTypeOfHIT ::
-  -- | 'hITId'
-  Lude.Text ->
   -- | 'hITTypeId'
   Lude.Text ->
+  -- | 'hITId'
+  Lude.Text ->
   UpdateHITTypeOfHIT
-mkUpdateHITTypeOfHIT pHITId_ pHITTypeId_ =
-  UpdateHITTypeOfHIT' {hITId = pHITId_, hITTypeId = pHITTypeId_}
-
--- | The HIT to update.
---
--- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uhittohitHITId :: Lens.Lens' UpdateHITTypeOfHIT Lude.Text
-uhittohitHITId = Lens.lens (hITId :: UpdateHITTypeOfHIT -> Lude.Text) (\s a -> s {hITId = a} :: UpdateHITTypeOfHIT)
-{-# DEPRECATED uhittohitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
+mkUpdateHITTypeOfHIT pHITTypeId_ pHITId_ =
+  UpdateHITTypeOfHIT' {hITTypeId = pHITTypeId_, hITId = pHITId_}
 
 -- | The ID of the new HIT type.
 --
@@ -77,6 +67,13 @@ uhittohitHITId = Lens.lens (hITId :: UpdateHITTypeOfHIT -> Lude.Text) (\s a -> s
 uhittohitHITTypeId :: Lens.Lens' UpdateHITTypeOfHIT Lude.Text
 uhittohitHITTypeId = Lens.lens (hITTypeId :: UpdateHITTypeOfHIT -> Lude.Text) (\s a -> s {hITTypeId = a} :: UpdateHITTypeOfHIT)
 {-# DEPRECATED uhittohitHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
+
+-- | The HIT to update.
+--
+-- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhittohitHITId :: Lens.Lens' UpdateHITTypeOfHIT Lude.Text
+uhittohitHITId = Lens.lens (hITId :: UpdateHITTypeOfHIT -> Lude.Text) (\s a -> s {hITId = a} :: UpdateHITTypeOfHIT)
+{-# DEPRECATED uhittohitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
 instance Lude.AWSRequest UpdateHITTypeOfHIT where
   type Rs UpdateHITTypeOfHIT = UpdateHITTypeOfHITResponse
@@ -104,8 +101,8 @@ instance Lude.ToJSON UpdateHITTypeOfHIT where
   toJSON UpdateHITTypeOfHIT' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("HITId" Lude..= hITId),
-            Lude.Just ("HITTypeId" Lude..= hITTypeId)
+          [ Lude.Just ("HITTypeId" Lude..= hITTypeId),
+            Lude.Just ("HITId" Lude..= hITId)
           ]
       )
 
@@ -117,16 +114,10 @@ instance Lude.ToQuery UpdateHITTypeOfHIT where
 
 -- | /See:/ 'mkUpdateHITTypeOfHITResponse' smart constructor.
 newtype UpdateHITTypeOfHITResponse = UpdateHITTypeOfHITResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateHITTypeOfHITResponse' with the minimum fields required to make a request.

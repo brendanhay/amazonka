@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Glue.RegisterSchemaVersion
     mkRegisterSchemaVersion,
 
     -- ** Request lenses
-    rsvSchemaId,
     rsvSchemaDefinition,
+    rsvSchemaId,
 
     -- * Destructuring the response
     RegisterSchemaVersionResponse (..),
@@ -45,17 +46,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterSchemaVersion' smart constructor.
 data RegisterSchemaVersion = RegisterSchemaVersion'
-  { schemaId ::
-      SchemaId,
-    schemaDefinition :: Lude.Text
+  { -- | The schema definition using the @DataFormat@ setting for the @SchemaName@ .
+    schemaDefinition :: Lude.Text,
+    -- | This is a wrapper structure to contain schema identity fields. The structure contains:
+    --
+    --
+    --     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+    --
+    --
+    --     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+    schemaId :: SchemaId
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterSchemaVersion' with the minimum fields required to make a request.
@@ -69,16 +71,23 @@ data RegisterSchemaVersion = RegisterSchemaVersion'
 --
 --     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
 mkRegisterSchemaVersion ::
-  -- | 'schemaId'
-  SchemaId ->
   -- | 'schemaDefinition'
   Lude.Text ->
+  -- | 'schemaId'
+  SchemaId ->
   RegisterSchemaVersion
-mkRegisterSchemaVersion pSchemaId_ pSchemaDefinition_ =
+mkRegisterSchemaVersion pSchemaDefinition_ pSchemaId_ =
   RegisterSchemaVersion'
-    { schemaId = pSchemaId_,
-      schemaDefinition = pSchemaDefinition_
+    { schemaDefinition = pSchemaDefinition_,
+      schemaId = pSchemaId_
     }
+
+-- | The schema definition using the @DataFormat@ setting for the @SchemaName@ .
+--
+-- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsvSchemaDefinition :: Lens.Lens' RegisterSchemaVersion Lude.Text
+rsvSchemaDefinition = Lens.lens (schemaDefinition :: RegisterSchemaVersion -> Lude.Text) (\s a -> s {schemaDefinition = a} :: RegisterSchemaVersion)
+{-# DEPRECATED rsvSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
 
 -- | This is a wrapper structure to contain schema identity fields. The structure contains:
 --
@@ -94,13 +103,6 @@ mkRegisterSchemaVersion pSchemaId_ pSchemaDefinition_ =
 rsvSchemaId :: Lens.Lens' RegisterSchemaVersion SchemaId
 rsvSchemaId = Lens.lens (schemaId :: RegisterSchemaVersion -> SchemaId) (\s a -> s {schemaId = a} :: RegisterSchemaVersion)
 {-# DEPRECATED rsvSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
-
--- | The schema definition using the @DataFormat@ setting for the @SchemaName@ .
---
--- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsvSchemaDefinition :: Lens.Lens' RegisterSchemaVersion Lude.Text
-rsvSchemaDefinition = Lens.lens (schemaDefinition :: RegisterSchemaVersion -> Lude.Text) (\s a -> s {schemaDefinition = a} :: RegisterSchemaVersion)
-{-# DEPRECATED rsvSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
 
 instance Lude.AWSRequest RegisterSchemaVersion where
   type Rs RegisterSchemaVersion = RegisterSchemaVersionResponse
@@ -130,8 +132,8 @@ instance Lude.ToJSON RegisterSchemaVersion where
   toJSON RegisterSchemaVersion' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SchemaId" Lude..= schemaId),
-            Lude.Just ("SchemaDefinition" Lude..= schemaDefinition)
+          [ Lude.Just ("SchemaDefinition" Lude..= schemaDefinition),
+            Lude.Just ("SchemaId" Lude..= schemaId)
           ]
       )
 
@@ -143,29 +145,24 @@ instance Lude.ToQuery RegisterSchemaVersion where
 
 -- | /See:/ 'mkRegisterSchemaVersionResponse' smart constructor.
 data RegisterSchemaVersionResponse = RegisterSchemaVersionResponse'
-  { status ::
-      Lude.Maybe SchemaVersionStatus,
-    schemaVersionId ::
-      Lude.Maybe Lude.Text,
-    versionNumber ::
-      Lude.Maybe Lude.Natural,
+  { -- | The status of the schema version.
+    status :: Lude.Maybe SchemaVersionStatus,
+    -- | The unique ID that represents the version of this schema.
+    schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | The version of this schema (for sync flow only, in case this is the first version).
+    versionNumber :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterSchemaVersionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'schemaVersionId' - The unique ID that represents the version of this schema.
 -- * 'status' - The status of the schema version.
+-- * 'schemaVersionId' - The unique ID that represents the version of this schema.
 -- * 'versionNumber' - The version of this schema (for sync flow only, in case this is the first version).
+-- * 'responseStatus' - The response status code.
 mkRegisterSchemaVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

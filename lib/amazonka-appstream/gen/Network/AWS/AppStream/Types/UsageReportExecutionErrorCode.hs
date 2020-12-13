@@ -13,9 +13,9 @@
 module Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
   ( UsageReportExecutionErrorCode
       ( UsageReportExecutionErrorCode',
+        UREECResourceNotFound,
         UREECAccessDenied,
-        UREECInternalServiceError,
-        UREECResourceNotFound
+        UREECInternalServiceError
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype UsageReportExecutionErrorCode = UsageReportExecutionErrorCode' Lude.Text
       Lude.ToHeader
     )
 
+pattern UREECResourceNotFound :: UsageReportExecutionErrorCode
+pattern UREECResourceNotFound = UsageReportExecutionErrorCode' "RESOURCE_NOT_FOUND"
+
 pattern UREECAccessDenied :: UsageReportExecutionErrorCode
 pattern UREECAccessDenied = UsageReportExecutionErrorCode' "ACCESS_DENIED"
 
 pattern UREECInternalServiceError :: UsageReportExecutionErrorCode
 pattern UREECInternalServiceError = UsageReportExecutionErrorCode' "INTERNAL_SERVICE_ERROR"
 
-pattern UREECResourceNotFound :: UsageReportExecutionErrorCode
-pattern UREECResourceNotFound = UsageReportExecutionErrorCode' "RESOURCE_NOT_FOUND"
-
 {-# COMPLETE
+  UREECResourceNotFound,
   UREECAccessDenied,
   UREECInternalServiceError,
-  UREECResourceNotFound,
   UsageReportExecutionErrorCode'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.CheckSchemaVersionValidity
     mkCheckSchemaVersionValidity,
 
     -- ** Request lenses
-    csvvDataFormat,
     csvvSchemaDefinition,
+    csvvDataFormat,
 
     -- * Destructuring the response
     CheckSchemaVersionValidityResponse (..),
@@ -41,41 +42,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCheckSchemaVersionValidity' smart constructor.
 data CheckSchemaVersionValidity = CheckSchemaVersionValidity'
-  { dataFormat ::
-      DataFormat,
-    schemaDefinition :: Lude.Text
+  { -- | The definition of the schema that has to be validated.
+    schemaDefinition :: Lude.Text,
+    -- | The data format of the schema definition. Currently only @AVRO@ is supported.
+    dataFormat :: DataFormat
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckSchemaVersionValidity' with the minimum fields required to make a request.
 --
--- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
 -- * 'schemaDefinition' - The definition of the schema that has to be validated.
+-- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
 mkCheckSchemaVersionValidity ::
-  -- | 'dataFormat'
-  DataFormat ->
   -- | 'schemaDefinition'
   Lude.Text ->
+  -- | 'dataFormat'
+  DataFormat ->
   CheckSchemaVersionValidity
-mkCheckSchemaVersionValidity pDataFormat_ pSchemaDefinition_ =
+mkCheckSchemaVersionValidity pSchemaDefinition_ pDataFormat_ =
   CheckSchemaVersionValidity'
-    { dataFormat = pDataFormat_,
-      schemaDefinition = pSchemaDefinition_
+    { schemaDefinition =
+        pSchemaDefinition_,
+      dataFormat = pDataFormat_
     }
-
--- | The data format of the schema definition. Currently only @AVRO@ is supported.
---
--- /Note:/ Consider using 'dataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvvDataFormat :: Lens.Lens' CheckSchemaVersionValidity DataFormat
-csvvDataFormat = Lens.lens (dataFormat :: CheckSchemaVersionValidity -> DataFormat) (\s a -> s {dataFormat = a} :: CheckSchemaVersionValidity)
-{-# DEPRECATED csvvDataFormat "Use generic-lens or generic-optics with 'dataFormat' instead." #-}
 
 -- | The definition of the schema that has to be validated.
 --
@@ -83,6 +73,13 @@ csvvDataFormat = Lens.lens (dataFormat :: CheckSchemaVersionValidity -> DataForm
 csvvSchemaDefinition :: Lens.Lens' CheckSchemaVersionValidity Lude.Text
 csvvSchemaDefinition = Lens.lens (schemaDefinition :: CheckSchemaVersionValidity -> Lude.Text) (\s a -> s {schemaDefinition = a} :: CheckSchemaVersionValidity)
 {-# DEPRECATED csvvSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
+
+-- | The data format of the schema definition. Currently only @AVRO@ is supported.
+--
+-- /Note:/ Consider using 'dataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csvvDataFormat :: Lens.Lens' CheckSchemaVersionValidity DataFormat
+csvvDataFormat = Lens.lens (dataFormat :: CheckSchemaVersionValidity -> DataFormat) (\s a -> s {dataFormat = a} :: CheckSchemaVersionValidity)
+{-# DEPRECATED csvvDataFormat "Use generic-lens or generic-optics with 'dataFormat' instead." #-}
 
 instance Lude.AWSRequest CheckSchemaVersionValidity where
   type
@@ -113,8 +110,8 @@ instance Lude.ToJSON CheckSchemaVersionValidity where
   toJSON CheckSchemaVersionValidity' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("DataFormat" Lude..= dataFormat),
-            Lude.Just ("SchemaDefinition" Lude..= schemaDefinition)
+          [ Lude.Just ("SchemaDefinition" Lude..= schemaDefinition),
+            Lude.Just ("DataFormat" Lude..= dataFormat)
           ]
       )
 
@@ -126,27 +123,21 @@ instance Lude.ToQuery CheckSchemaVersionValidity where
 
 -- | /See:/ 'mkCheckSchemaVersionValidityResponse' smart constructor.
 data CheckSchemaVersionValidityResponse = CheckSchemaVersionValidityResponse'
-  { error ::
-      Lude.Maybe Lude.Text,
-    valid ::
-      Lude.Maybe Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | A validation failure error message.
+    error :: Lude.Maybe Lude.Text,
+    -- | Return true, if the schema is valid and false otherwise.
+    valid :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckSchemaVersionValidityResponse' with the minimum fields required to make a request.
 --
 -- * 'error' - A validation failure error message.
--- * 'responseStatus' - The response status code.
 -- * 'valid' - Return true, if the schema is valid and false otherwise.
+-- * 'responseStatus' - The response status code.
 mkCheckSchemaVersionValidityResponse ::
   -- | 'responseStatus'
   Lude.Int ->

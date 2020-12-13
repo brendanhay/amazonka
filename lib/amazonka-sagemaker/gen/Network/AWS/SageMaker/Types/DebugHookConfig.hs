@@ -17,10 +17,10 @@ module Network.AWS.SageMaker.Types.DebugHookConfig
     mkDebugHookConfig,
 
     -- * Lenses
+    dhcS3OutputPath,
     dhcLocalPath,
     dhcCollectionConfigurations,
     dhcHookParameters,
-    dhcS3OutputPath,
   )
 where
 
@@ -32,40 +32,42 @@ import Network.AWS.SageMaker.Types.CollectionConfiguration
 --
 -- /See:/ 'mkDebugHookConfig' smart constructor.
 data DebugHookConfig = DebugHookConfig'
-  { localPath ::
-      Lude.Maybe Lude.Text,
-    collectionConfigurations ::
-      Lude.Maybe [CollectionConfiguration],
-    hookParameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    s3OutputPath :: Lude.Text
+  { -- | Path to Amazon S3 storage location for tensors.
+    s3OutputPath :: Lude.Text,
+    -- | Path to local storage location for tensors. Defaults to @/opt/ml/output/tensors/@ .
+    localPath :: Lude.Maybe Lude.Text,
+    -- | Configuration information for tensor collections.
+    collectionConfigurations :: Lude.Maybe [CollectionConfiguration],
+    -- | Configuration information for the debug hook parameters.
+    hookParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DebugHookConfig' with the minimum fields required to make a request.
 --
+-- * 's3OutputPath' - Path to Amazon S3 storage location for tensors.
+-- * 'localPath' - Path to local storage location for tensors. Defaults to @/opt/ml/output/tensors/@ .
 -- * 'collectionConfigurations' - Configuration information for tensor collections.
 -- * 'hookParameters' - Configuration information for the debug hook parameters.
--- * 'localPath' - Path to local storage location for tensors. Defaults to @/opt/ml/output/tensors/@ .
--- * 's3OutputPath' - Path to Amazon S3 storage location for tensors.
 mkDebugHookConfig ::
   -- | 's3OutputPath'
   Lude.Text ->
   DebugHookConfig
 mkDebugHookConfig pS3OutputPath_ =
   DebugHookConfig'
-    { localPath = Lude.Nothing,
+    { s3OutputPath = pS3OutputPath_,
+      localPath = Lude.Nothing,
       collectionConfigurations = Lude.Nothing,
-      hookParameters = Lude.Nothing,
-      s3OutputPath = pS3OutputPath_
+      hookParameters = Lude.Nothing
     }
+
+-- | Path to Amazon S3 storage location for tensors.
+--
+-- /Note:/ Consider using 's3OutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhcS3OutputPath :: Lens.Lens' DebugHookConfig Lude.Text
+dhcS3OutputPath = Lens.lens (s3OutputPath :: DebugHookConfig -> Lude.Text) (\s a -> s {s3OutputPath = a} :: DebugHookConfig)
+{-# DEPRECATED dhcS3OutputPath "Use generic-lens or generic-optics with 's3OutputPath' instead." #-}
 
 -- | Path to local storage location for tensors. Defaults to @/opt/ml/output/tensors/@ .
 --
@@ -88,33 +90,26 @@ dhcHookParameters :: Lens.Lens' DebugHookConfig (Lude.Maybe (Lude.HashMap Lude.T
 dhcHookParameters = Lens.lens (hookParameters :: DebugHookConfig -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {hookParameters = a} :: DebugHookConfig)
 {-# DEPRECATED dhcHookParameters "Use generic-lens or generic-optics with 'hookParameters' instead." #-}
 
--- | Path to Amazon S3 storage location for tensors.
---
--- /Note:/ Consider using 's3OutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhcS3OutputPath :: Lens.Lens' DebugHookConfig Lude.Text
-dhcS3OutputPath = Lens.lens (s3OutputPath :: DebugHookConfig -> Lude.Text) (\s a -> s {s3OutputPath = a} :: DebugHookConfig)
-{-# DEPRECATED dhcS3OutputPath "Use generic-lens or generic-optics with 's3OutputPath' instead." #-}
-
 instance Lude.FromJSON DebugHookConfig where
   parseJSON =
     Lude.withObject
       "DebugHookConfig"
       ( \x ->
           DebugHookConfig'
-            Lude.<$> (x Lude..:? "LocalPath")
+            Lude.<$> (x Lude..: "S3OutputPath")
+            Lude.<*> (x Lude..:? "LocalPath")
             Lude.<*> (x Lude..:? "CollectionConfigurations" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "HookParameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "S3OutputPath")
       )
 
 instance Lude.ToJSON DebugHookConfig where
   toJSON DebugHookConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("LocalPath" Lude..=) Lude.<$> localPath,
+          [ Lude.Just ("S3OutputPath" Lude..= s3OutputPath),
+            ("LocalPath" Lude..=) Lude.<$> localPath,
             ("CollectionConfigurations" Lude..=)
               Lude.<$> collectionConfigurations,
-            ("HookParameters" Lude..=) Lude.<$> hookParameters,
-            Lude.Just ("S3OutputPath" Lude..= s3OutputPath)
+            ("HookParameters" Lude..=) Lude.<$> hookParameters
           ]
       )

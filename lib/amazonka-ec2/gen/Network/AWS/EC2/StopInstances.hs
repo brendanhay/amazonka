@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,10 +27,10 @@ module Network.AWS.EC2.StopInstances
     mkStopInstances,
 
     -- ** Request lenses
-    siHibernate,
-    siForce,
-    siDryRun,
-    siInstanceIds,
+    sHibernate,
+    sForce,
+    sInstanceIds,
+    sDryRun,
 
     -- * Destructuring the response
     StopInstancesResponse (..),
@@ -49,39 +50,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopInstances' smart constructor.
 data StopInstances = StopInstances'
-  { hibernate ::
-      Lude.Maybe Lude.Bool,
+  { -- | Hibernates the instance if the instance was enabled for hibernation at launch. If the instance cannot hibernate successfully, a normal shutdown occurs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+    --
+    -- Default: @false@
+    hibernate :: Lude.Maybe Lude.Bool,
+    -- | Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances.
+    --
+    -- Default: @false@
     force :: Lude.Maybe Lude.Bool,
-    dryRun :: Lude.Maybe Lude.Bool,
-    instanceIds :: [Lude.Text]
+    -- | The IDs of the instances.
+    instanceIds :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopInstances' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'force' - Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances.
---
--- Default: @false@
 -- * 'hibernate' - Hibernates the instance if the instance was enabled for hibernation at launch. If the instance cannot hibernate successfully, a normal shutdown occurs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- Default: @false@
+-- * 'force' - Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances.
+--
+-- Default: @false@
 -- * 'instanceIds' - The IDs of the instances.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkStopInstances ::
   StopInstances
 mkStopInstances =
   StopInstances'
     { hibernate = Lude.Nothing,
       force = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      instanceIds = Lude.mempty
+      instanceIds = Lude.mempty,
+      dryRun = Lude.Nothing
     }
 
 -- | Hibernates the instance if the instance was enabled for hibernation at launch. If the instance cannot hibernate successfully, a normal shutdown occurs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance> in the /Amazon Elastic Compute Cloud User Guide/ .
@@ -89,32 +91,32 @@ mkStopInstances =
 -- Default: @false@
 --
 -- /Note:/ Consider using 'hibernate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siHibernate :: Lens.Lens' StopInstances (Lude.Maybe Lude.Bool)
-siHibernate = Lens.lens (hibernate :: StopInstances -> Lude.Maybe Lude.Bool) (\s a -> s {hibernate = a} :: StopInstances)
-{-# DEPRECATED siHibernate "Use generic-lens or generic-optics with 'hibernate' instead." #-}
+sHibernate :: Lens.Lens' StopInstances (Lude.Maybe Lude.Bool)
+sHibernate = Lens.lens (hibernate :: StopInstances -> Lude.Maybe Lude.Bool) (\s a -> s {hibernate = a} :: StopInstances)
+{-# DEPRECATED sHibernate "Use generic-lens or generic-optics with 'hibernate' instead." #-}
 
 -- | Forces the instances to stop. The instances do not have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures. This option is not recommended for Windows instances.
 --
 -- Default: @false@
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siForce :: Lens.Lens' StopInstances (Lude.Maybe Lude.Bool)
-siForce = Lens.lens (force :: StopInstances -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: StopInstances)
-{-# DEPRECATED siForce "Use generic-lens or generic-optics with 'force' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siDryRun :: Lens.Lens' StopInstances (Lude.Maybe Lude.Bool)
-siDryRun = Lens.lens (dryRun :: StopInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: StopInstances)
-{-# DEPRECATED siDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+sForce :: Lens.Lens' StopInstances (Lude.Maybe Lude.Bool)
+sForce = Lens.lens (force :: StopInstances -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: StopInstances)
+{-# DEPRECATED sForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The IDs of the instances.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siInstanceIds :: Lens.Lens' StopInstances [Lude.Text]
-siInstanceIds = Lens.lens (instanceIds :: StopInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: StopInstances)
-{-# DEPRECATED siInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+sInstanceIds :: Lens.Lens' StopInstances [Lude.Text]
+sInstanceIds = Lens.lens (instanceIds :: StopInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: StopInstances)
+{-# DEPRECATED sInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDryRun :: Lens.Lens' StopInstances (Lude.Maybe Lude.Bool)
+sDryRun = Lens.lens (dryRun :: StopInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: StopInstances)
+{-# DEPRECATED sDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest StopInstances where
   type Rs StopInstances = StopInstancesResponse
@@ -142,29 +144,24 @@ instance Lude.ToQuery StopInstances where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "Hibernate" Lude.=: hibernate,
         "Force" Lude.=: force,
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "InstanceId" instanceIds
+        Lude.toQueryList "InstanceId" instanceIds,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkStopInstancesResponse' smart constructor.
 data StopInstancesResponse = StopInstancesResponse'
-  { stoppingInstances ::
-      Lude.Maybe [InstanceStateChange],
+  { -- | Information about the stopped instances.
+    stoppingInstances :: Lude.Maybe [InstanceStateChange],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stoppingInstances' - Information about the stopped instances.
+-- * 'responseStatus' - The response status code.
 mkStopInstancesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

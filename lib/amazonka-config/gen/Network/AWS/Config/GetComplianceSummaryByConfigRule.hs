@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,13 +37,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetComplianceSummaryByConfigRule' smart constructor.
 data GetComplianceSummaryByConfigRule = GetComplianceSummaryByConfigRule'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceSummaryByConfigRule' with the minimum fields required to make a request.
@@ -90,19 +85,12 @@ instance Lude.ToQuery GetComplianceSummaryByConfigRule where
 --
 -- /See:/ 'mkGetComplianceSummaryByConfigRuleResponse' smart constructor.
 data GetComplianceSummaryByConfigRuleResponse = GetComplianceSummaryByConfigRuleResponse'
-  { complianceSummary ::
-      Lude.Maybe
-        ComplianceSummary,
-    responseStatus ::
-      Lude.Int
+  { -- | The number of AWS Config rules that are compliant and the number that are noncompliant, up to a maximum of 25 for each.
+    complianceSummary :: Lude.Maybe ComplianceSummary,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceSummaryByConfigRuleResponse' with the minimum fields required to make a request.

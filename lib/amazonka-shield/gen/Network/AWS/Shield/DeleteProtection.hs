@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.Shield.DeleteProtection
     mkDeleteProtectionResponse,
 
     -- ** Response lenses
-    delrsResponseStatus,
+    dpfrsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkDeleteProtection' smart constructor.
 newtype DeleteProtection = DeleteProtection'
-  { protectionId ::
-      Lude.Text
+  { -- | The unique identifier (ID) for the 'Protection' object to be deleted.
+    protectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProtection' with the minimum fields required to make a request.
@@ -100,16 +95,10 @@ instance Lude.ToQuery DeleteProtection where
 
 -- | /See:/ 'mkDeleteProtectionResponse' smart constructor.
 newtype DeleteProtectionResponse = DeleteProtectionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProtectionResponse' with the minimum fields required to make a request.
@@ -125,6 +114,6 @@ mkDeleteProtectionResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteProtectionResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteProtectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProtectionResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpfrsResponseStatus :: Lens.Lens' DeleteProtectionResponse Lude.Int
+dpfrsResponseStatus = Lens.lens (responseStatus :: DeleteProtectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProtectionResponse)
+{-# DEPRECATED dpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

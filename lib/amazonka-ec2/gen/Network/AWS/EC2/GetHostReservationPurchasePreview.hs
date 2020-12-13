@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,17 +46,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetHostReservationPurchasePreview' smart constructor.
 data GetHostReservationPurchasePreview = GetHostReservationPurchasePreview'
-  { hostIdSet ::
-      [Lude.Text],
+  { -- | The IDs of the Dedicated Hosts with which the reservation is associated.
+    hostIdSet :: [Lude.Text],
+    -- | The offering ID of the reservation.
     offeringId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostReservationPurchasePreview' with the minimum fields required to make a request.
@@ -122,37 +118,27 @@ instance Lude.ToQuery GetHostReservationPurchasePreview where
 
 -- | /See:/ 'mkGetHostReservationPurchasePreviewResponse' smart constructor.
 data GetHostReservationPurchasePreviewResponse = GetHostReservationPurchasePreviewResponse'
-  { currencyCode ::
-      Lude.Maybe
-        CurrencyCodeValues,
-    totalHourlyPrice ::
-      Lude.Maybe
-        Lude.Text,
-    totalUpfrontPrice ::
-      Lude.Maybe
-        Lude.Text,
-    purchase ::
-      Lude.Maybe
-        [Purchase],
-    responseStatus ::
-      Lude.Int
+  { -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
+    currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | The potential total hourly price of the reservation per hour.
+    totalHourlyPrice :: Lude.Maybe Lude.Text,
+    -- | The potential total upfront price. This is billed immediately.
+    totalUpfrontPrice :: Lude.Maybe Lude.Text,
+    -- | The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it.
+    purchase :: Lude.Maybe [Purchase],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostReservationPurchasePreviewResponse' with the minimum fields required to make a request.
 --
 -- * 'currencyCode' - The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
--- * 'purchase' - The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it.
--- * 'responseStatus' - The response status code.
 -- * 'totalHourlyPrice' - The potential total hourly price of the reservation per hour.
 -- * 'totalUpfrontPrice' - The potential total upfront price. This is billed immediately.
+-- * 'purchase' - The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it.
+-- * 'responseStatus' - The response status code.
 mkGetHostReservationPurchasePreviewResponse ::
   -- | 'responseStatus'
   Lude.Int ->

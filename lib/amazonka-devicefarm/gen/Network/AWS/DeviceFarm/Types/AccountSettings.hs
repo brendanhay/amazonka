@@ -37,39 +37,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountSettings' smart constructor.
 data AccountSettings = AccountSettings'
-  { skipAppResign ::
-      Lude.Maybe Lude.Bool,
+  { -- | When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+    --
+    -- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
+    skipAppResign :: Lude.Maybe Lude.Bool,
+    -- | The AWS account number specified in the @AccountSettings@ container.
     awsAccountNumber :: Lude.Maybe Lude.Text,
+    -- | The maximum number of minutes a test run executes before it times out.
     maxJobTimeoutMinutes :: Lude.Maybe Lude.Int,
+    -- | The maximum number of device slots that the AWS account can purchase. Each maximum is expressed as an @offering-id:number@ pair, where the @offering-id@ represents one of the IDs returned by the @ListOfferings@ command.
     maxSlots :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int)),
+    -- | Information about an AWS account's usage of free trial device minutes.
     trialMinutes :: Lude.Maybe TrialMinutes,
-    unmeteredDevices ::
-      Lude.Maybe (Lude.HashMap DevicePlatform (Lude.Int)),
-    unmeteredRemoteAccessDevices ::
-      Lude.Maybe (Lude.HashMap DevicePlatform (Lude.Int)),
+    -- | Returns the unmetered devices you have purchased or want to purchase.
+    unmeteredDevices :: Lude.Maybe (Lude.HashMap DevicePlatform (Lude.Int)),
+    -- | Returns the unmetered remote access devices you have purchased or want to purchase.
+    unmeteredRemoteAccessDevices :: Lude.Maybe (Lude.HashMap DevicePlatform (Lude.Int)),
+    -- | The default number of minutes (at the account level) a test run executes before it times out. The default value is 150 minutes.
     defaultJobTimeoutMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountSettings' with the minimum fields required to make a request.
 --
--- * 'awsAccountNumber' - The AWS account number specified in the @AccountSettings@ container.
--- * 'defaultJobTimeoutMinutes' - The default number of minutes (at the account level) a test run executes before it times out. The default value is 150 minutes.
--- * 'maxJobTimeoutMinutes' - The maximum number of minutes a test run executes before it times out.
--- * 'maxSlots' - The maximum number of device slots that the AWS account can purchase. Each maximum is expressed as an @offering-id:number@ pair, where the @offering-id@ represents one of the IDs returned by the @ListOfferings@ command.
 -- * 'skipAppResign' - When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
+-- * 'awsAccountNumber' - The AWS account number specified in the @AccountSettings@ container.
+-- * 'maxJobTimeoutMinutes' - The maximum number of minutes a test run executes before it times out.
+-- * 'maxSlots' - The maximum number of device slots that the AWS account can purchase. Each maximum is expressed as an @offering-id:number@ pair, where the @offering-id@ represents one of the IDs returned by the @ListOfferings@ command.
 -- * 'trialMinutes' - Information about an AWS account's usage of free trial device minutes.
 -- * 'unmeteredDevices' - Returns the unmetered devices you have purchased or want to purchase.
 -- * 'unmeteredRemoteAccessDevices' - Returns the unmetered remote access devices you have purchased or want to purchase.
+-- * 'defaultJobTimeoutMinutes' - The default number of minutes (at the account level) a test run executes before it times out. The default value is 150 minutes.
 mkAccountSettings ::
   AccountSettings
 mkAccountSettings =

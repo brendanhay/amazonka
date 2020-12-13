@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.FMS.GetViolationDetails
     mkGetViolationDetails,
 
     -- ** Request lenses
-    gvdPolicyId,
-    gvdMemberAccount,
     gvdResourceId,
     gvdResourceType,
+    gvdPolicyId,
+    gvdMemberAccount,
 
     -- * Destructuring the response
     GetViolationDetailsResponse (..),
@@ -42,62 +43,45 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetViolationDetails' smart constructor.
 data GetViolationDetails = GetViolationDetails'
-  { policyId ::
-      Lude.Text,
-    memberAccount :: Lude.Text,
+  { -- | The ID of the resource that has violations.
     resourceId :: Lude.Text,
-    resourceType :: Lude.Text
+    -- | The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . Supported resource types are: @AWS::EC2::Instance@ , @AWS::EC2::NetworkInterface@ , @AWS::EC2::SecurityGroup@ , @AWS::NetworkFirewall::FirewallPolicy@ , and @AWS::EC2::Subnet@ .
+    resourceType :: Lude.Text,
+    -- | The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.
+    policyId :: Lude.Text,
+    -- | The AWS account ID that you want the details for.
+    memberAccount :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetViolationDetails' with the minimum fields required to make a request.
 --
--- * 'memberAccount' - The AWS account ID that you want the details for.
--- * 'policyId' - The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.
 -- * 'resourceId' - The ID of the resource that has violations.
 -- * 'resourceType' - The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . Supported resource types are: @AWS::EC2::Instance@ , @AWS::EC2::NetworkInterface@ , @AWS::EC2::SecurityGroup@ , @AWS::NetworkFirewall::FirewallPolicy@ , and @AWS::EC2::Subnet@ .
+-- * 'policyId' - The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.
+-- * 'memberAccount' - The AWS account ID that you want the details for.
 mkGetViolationDetails ::
-  -- | 'policyId'
-  Lude.Text ->
-  -- | 'memberAccount'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
   -- | 'resourceType'
   Lude.Text ->
+  -- | 'policyId'
+  Lude.Text ->
+  -- | 'memberAccount'
+  Lude.Text ->
   GetViolationDetails
 mkGetViolationDetails
-  pPolicyId_
-  pMemberAccount_
   pResourceId_
-  pResourceType_ =
+  pResourceType_
+  pPolicyId_
+  pMemberAccount_ =
     GetViolationDetails'
-      { policyId = pPolicyId_,
-        memberAccount = pMemberAccount_,
-        resourceId = pResourceId_,
-        resourceType = pResourceType_
+      { resourceId = pResourceId_,
+        resourceType = pResourceType_,
+        policyId = pPolicyId_,
+        memberAccount = pMemberAccount_
       }
-
--- | The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvdPolicyId :: Lens.Lens' GetViolationDetails Lude.Text
-gvdPolicyId = Lens.lens (policyId :: GetViolationDetails -> Lude.Text) (\s a -> s {policyId = a} :: GetViolationDetails)
-{-# DEPRECATED gvdPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
-
--- | The AWS account ID that you want the details for.
---
--- /Note:/ Consider using 'memberAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvdMemberAccount :: Lens.Lens' GetViolationDetails Lude.Text
-gvdMemberAccount = Lens.lens (memberAccount :: GetViolationDetails -> Lude.Text) (\s a -> s {memberAccount = a} :: GetViolationDetails)
-{-# DEPRECATED gvdMemberAccount "Use generic-lens or generic-optics with 'memberAccount' instead." #-}
 
 -- | The ID of the resource that has violations.
 --
@@ -112,6 +96,20 @@ gvdResourceId = Lens.lens (resourceId :: GetViolationDetails -> Lude.Text) (\s a
 gvdResourceType :: Lens.Lens' GetViolationDetails Lude.Text
 gvdResourceType = Lens.lens (resourceType :: GetViolationDetails -> Lude.Text) (\s a -> s {resourceType = a} :: GetViolationDetails)
 {-# DEPRECATED gvdResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The ID of the AWS Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvdPolicyId :: Lens.Lens' GetViolationDetails Lude.Text
+gvdPolicyId = Lens.lens (policyId :: GetViolationDetails -> Lude.Text) (\s a -> s {policyId = a} :: GetViolationDetails)
+{-# DEPRECATED gvdPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
+
+-- | The AWS account ID that you want the details for.
+--
+-- /Note:/ Consider using 'memberAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvdMemberAccount :: Lens.Lens' GetViolationDetails Lude.Text
+gvdMemberAccount = Lens.lens (memberAccount :: GetViolationDetails -> Lude.Text) (\s a -> s {memberAccount = a} :: GetViolationDetails)
+{-# DEPRECATED gvdMemberAccount "Use generic-lens or generic-optics with 'memberAccount' instead." #-}
 
 instance Lude.AWSRequest GetViolationDetails where
   type Rs GetViolationDetails = GetViolationDetailsResponse
@@ -139,10 +137,10 @@ instance Lude.ToJSON GetViolationDetails where
   toJSON GetViolationDetails' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("PolicyId" Lude..= policyId),
-            Lude.Just ("MemberAccount" Lude..= memberAccount),
-            Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("ResourceType" Lude..= resourceType)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("ResourceType" Lude..= resourceType),
+            Lude.Just ("PolicyId" Lude..= policyId),
+            Lude.Just ("MemberAccount" Lude..= memberAccount)
           ]
       )
 
@@ -154,23 +152,18 @@ instance Lude.ToQuery GetViolationDetails where
 
 -- | /See:/ 'mkGetViolationDetailsResponse' smart constructor.
 data GetViolationDetailsResponse = GetViolationDetailsResponse'
-  { violationDetail ::
-      Lude.Maybe ViolationDetail,
+  { -- | Violation detail for a resource.
+    violationDetail :: Lude.Maybe ViolationDetail,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetViolationDetailsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'violationDetail' - Violation detail for a resource.
+-- * 'responseStatus' - The response status code.
 mkGetViolationDetailsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

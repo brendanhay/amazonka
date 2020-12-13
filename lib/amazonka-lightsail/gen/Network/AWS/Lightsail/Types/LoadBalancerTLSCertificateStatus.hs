@@ -13,14 +13,14 @@
 module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateStatus
   ( LoadBalancerTLSCertificateStatus
       ( LoadBalancerTLSCertificateStatus',
-        LBTCSExpired,
-        LBTCSFailed,
-        LBTCSInactive,
-        LBTCSIssued,
         LBTCSPendingValidation,
+        LBTCSIssued,
+        LBTCSInactive,
+        LBTCSExpired,
+        LBTCSValidationTimedOut,
         LBTCSRevoked,
-        LBTCSUnknown,
-        LBTCSValidationTimedOut
+        LBTCSFailed,
+        LBTCSUnknown
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype LoadBalancerTLSCertificateStatus = LoadBalancerTLSCertificateStatus' Lud
       Lude.ToHeader
     )
 
-pattern LBTCSExpired :: LoadBalancerTLSCertificateStatus
-pattern LBTCSExpired = LoadBalancerTLSCertificateStatus' "EXPIRED"
-
-pattern LBTCSFailed :: LoadBalancerTLSCertificateStatus
-pattern LBTCSFailed = LoadBalancerTLSCertificateStatus' "FAILED"
-
-pattern LBTCSInactive :: LoadBalancerTLSCertificateStatus
-pattern LBTCSInactive = LoadBalancerTLSCertificateStatus' "INACTIVE"
+pattern LBTCSPendingValidation :: LoadBalancerTLSCertificateStatus
+pattern LBTCSPendingValidation = LoadBalancerTLSCertificateStatus' "PENDING_VALIDATION"
 
 pattern LBTCSIssued :: LoadBalancerTLSCertificateStatus
 pattern LBTCSIssued = LoadBalancerTLSCertificateStatus' "ISSUED"
 
-pattern LBTCSPendingValidation :: LoadBalancerTLSCertificateStatus
-pattern LBTCSPendingValidation = LoadBalancerTLSCertificateStatus' "PENDING_VALIDATION"
+pattern LBTCSInactive :: LoadBalancerTLSCertificateStatus
+pattern LBTCSInactive = LoadBalancerTLSCertificateStatus' "INACTIVE"
 
-pattern LBTCSRevoked :: LoadBalancerTLSCertificateStatus
-pattern LBTCSRevoked = LoadBalancerTLSCertificateStatus' "REVOKED"
-
-pattern LBTCSUnknown :: LoadBalancerTLSCertificateStatus
-pattern LBTCSUnknown = LoadBalancerTLSCertificateStatus' "UNKNOWN"
+pattern LBTCSExpired :: LoadBalancerTLSCertificateStatus
+pattern LBTCSExpired = LoadBalancerTLSCertificateStatus' "EXPIRED"
 
 pattern LBTCSValidationTimedOut :: LoadBalancerTLSCertificateStatus
 pattern LBTCSValidationTimedOut = LoadBalancerTLSCertificateStatus' "VALIDATION_TIMED_OUT"
 
+pattern LBTCSRevoked :: LoadBalancerTLSCertificateStatus
+pattern LBTCSRevoked = LoadBalancerTLSCertificateStatus' "REVOKED"
+
+pattern LBTCSFailed :: LoadBalancerTLSCertificateStatus
+pattern LBTCSFailed = LoadBalancerTLSCertificateStatus' "FAILED"
+
+pattern LBTCSUnknown :: LoadBalancerTLSCertificateStatus
+pattern LBTCSUnknown = LoadBalancerTLSCertificateStatus' "UNKNOWN"
+
 {-# COMPLETE
-  LBTCSExpired,
-  LBTCSFailed,
-  LBTCSInactive,
-  LBTCSIssued,
   LBTCSPendingValidation,
-  LBTCSRevoked,
-  LBTCSUnknown,
+  LBTCSIssued,
+  LBTCSInactive,
+  LBTCSExpired,
   LBTCSValidationTimedOut,
+  LBTCSRevoked,
+  LBTCSFailed,
+  LBTCSUnknown,
   LoadBalancerTLSCertificateStatus'
   #-}

@@ -31,26 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPutRecordsResultEntry' smart constructor.
 data PutRecordsResultEntry = PutRecordsResultEntry'
-  { sequenceNumber ::
-      Lude.Maybe Lude.Text,
+  { -- | The sequence number for an individual record result.
+    sequenceNumber :: Lude.Maybe Lude.Text,
+    -- | The error code for an individual record result. @ErrorCodes@ can be either @ProvisionedThroughputExceededException@ or @InternalFailure@ .
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message for an individual record result. An @ErrorCode@ value of @ProvisionedThroughputExceededException@ has an error message that includes the account ID, stream name, and shard ID. An @ErrorCode@ value of @InternalFailure@ has the error message @"Internal Service Failure"@ .
     errorMessage :: Lude.Maybe Lude.Text,
+    -- | The shard ID for an individual record result.
     shardId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRecordsResultEntry' with the minimum fields required to make a request.
 --
+-- * 'sequenceNumber' - The sequence number for an individual record result.
 -- * 'errorCode' - The error code for an individual record result. @ErrorCodes@ can be either @ProvisionedThroughputExceededException@ or @InternalFailure@ .
 -- * 'errorMessage' - The error message for an individual record result. An @ErrorCode@ value of @ProvisionedThroughputExceededException@ has an error message that includes the account ID, stream name, and shard ID. An @ErrorCode@ value of @InternalFailure@ has the error message @"Internal Service Failure"@ .
--- * 'sequenceNumber' - The sequence number for an individual record result.
 -- * 'shardId' - The shard ID for an individual record result.
 mkPutRecordsResultEntry ::
   PutRecordsResultEntry

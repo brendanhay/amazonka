@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,12 +21,12 @@ module Network.AWS.CodeCommit.PostCommentForPullRequest
 
     -- ** Request lenses
     pcfprLocation,
-    pcfprClientRequestToken,
-    pcfprPullRequestId,
-    pcfprRepositoryName,
-    pcfprBeforeCommitId,
     pcfprAfterCommitId,
+    pcfprPullRequestId,
     pcfprContent,
+    pcfprBeforeCommitId,
+    pcfprRepositoryName,
+    pcfprClientRequestToken,
 
     -- * Destructuring the response
     PostCommentForPullRequestResponse (..),
@@ -52,60 +53,59 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPostCommentForPullRequest' smart constructor.
 data PostCommentForPullRequest = PostCommentForPullRequest'
-  { location ::
-      Lude.Maybe Location,
-    clientRequestToken ::
-      Lude.Maybe Lude.Text,
-    pullRequestId :: Lude.Text,
-    repositoryName :: Lude.Text,
-    beforeCommitId :: Lude.Text,
+  { -- | The location of the change where you want to post your comment. If no location is provided, the comment is posted as a general comment on the pull request difference between the before commit ID and the after commit ID.
+    location :: Lude.Maybe Location,
+    -- | The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.
     afterCommitId :: Lude.Text,
-    content :: Lude.Text
+    -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+    pullRequestId :: Lude.Text,
+    -- | The content of your comment on the change.
+    content :: Lude.Text,
+    -- | The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.
+    beforeCommitId :: Lude.Text,
+    -- | The name of the repository where you want to post a comment on a pull request.
+    repositoryName :: Lude.Text,
+    -- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostCommentForPullRequest' with the minimum fields required to make a request.
 --
--- * 'afterCommitId' - The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.
--- * 'beforeCommitId' - The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.
--- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
--- * 'content' - The content of your comment on the change.
 -- * 'location' - The location of the change where you want to post your comment. If no location is provided, the comment is posted as a general comment on the pull request difference between the before commit ID and the after commit ID.
+-- * 'afterCommitId' - The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.
 -- * 'pullRequestId' - The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+-- * 'content' - The content of your comment on the change.
+-- * 'beforeCommitId' - The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.
 -- * 'repositoryName' - The name of the repository where you want to post a comment on a pull request.
+-- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
 mkPostCommentForPullRequest ::
-  -- | 'pullRequestId'
-  Lude.Text ->
-  -- | 'repositoryName'
-  Lude.Text ->
-  -- | 'beforeCommitId'
-  Lude.Text ->
   -- | 'afterCommitId'
+  Lude.Text ->
+  -- | 'pullRequestId'
   Lude.Text ->
   -- | 'content'
   Lude.Text ->
+  -- | 'beforeCommitId'
+  Lude.Text ->
+  -- | 'repositoryName'
+  Lude.Text ->
   PostCommentForPullRequest
 mkPostCommentForPullRequest
-  pPullRequestId_
-  pRepositoryName_
-  pBeforeCommitId_
   pAfterCommitId_
-  pContent_ =
+  pPullRequestId_
+  pContent_
+  pBeforeCommitId_
+  pRepositoryName_ =
     PostCommentForPullRequest'
       { location = Lude.Nothing,
-        clientRequestToken = Lude.Nothing,
-        pullRequestId = pPullRequestId_,
-        repositoryName = pRepositoryName_,
-        beforeCommitId = pBeforeCommitId_,
         afterCommitId = pAfterCommitId_,
-        content = pContent_
+        pullRequestId = pPullRequestId_,
+        content = pContent_,
+        beforeCommitId = pBeforeCommitId_,
+        repositoryName = pRepositoryName_,
+        clientRequestToken = Lude.Nothing
       }
 
 -- | The location of the change where you want to post your comment. If no location is provided, the comment is posted as a general comment on the pull request difference between the before commit ID and the after commit ID.
@@ -115,12 +115,12 @@ pcfprLocation :: Lens.Lens' PostCommentForPullRequest (Lude.Maybe Location)
 pcfprLocation = Lens.lens (location :: PostCommentForPullRequest -> Lude.Maybe Location) (\s a -> s {location = a} :: PostCommentForPullRequest)
 {-# DEPRECATED pcfprLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
--- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+-- | The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.
 --
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcfprClientRequestToken :: Lens.Lens' PostCommentForPullRequest (Lude.Maybe Lude.Text)
-pcfprClientRequestToken = Lens.lens (clientRequestToken :: PostCommentForPullRequest -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: PostCommentForPullRequest)
-{-# DEPRECATED pcfprClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+-- /Note:/ Consider using 'afterCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcfprAfterCommitId :: Lens.Lens' PostCommentForPullRequest Lude.Text
+pcfprAfterCommitId = Lens.lens (afterCommitId :: PostCommentForPullRequest -> Lude.Text) (\s a -> s {afterCommitId = a} :: PostCommentForPullRequest)
+{-# DEPRECATED pcfprAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
 
 -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
 --
@@ -129,12 +129,12 @@ pcfprPullRequestId :: Lens.Lens' PostCommentForPullRequest Lude.Text
 pcfprPullRequestId = Lens.lens (pullRequestId :: PostCommentForPullRequest -> Lude.Text) (\s a -> s {pullRequestId = a} :: PostCommentForPullRequest)
 {-# DEPRECATED pcfprPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
--- | The name of the repository where you want to post a comment on a pull request.
+-- | The content of your comment on the change.
 --
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcfprRepositoryName :: Lens.Lens' PostCommentForPullRequest Lude.Text
-pcfprRepositoryName = Lens.lens (repositoryName :: PostCommentForPullRequest -> Lude.Text) (\s a -> s {repositoryName = a} :: PostCommentForPullRequest)
-{-# DEPRECATED pcfprRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcfprContent :: Lens.Lens' PostCommentForPullRequest Lude.Text
+pcfprContent = Lens.lens (content :: PostCommentForPullRequest -> Lude.Text) (\s a -> s {content = a} :: PostCommentForPullRequest)
+{-# DEPRECATED pcfprContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.
 --
@@ -143,19 +143,19 @@ pcfprBeforeCommitId :: Lens.Lens' PostCommentForPullRequest Lude.Text
 pcfprBeforeCommitId = Lens.lens (beforeCommitId :: PostCommentForPullRequest -> Lude.Text) (\s a -> s {beforeCommitId = a} :: PostCommentForPullRequest)
 {-# DEPRECATED pcfprBeforeCommitId "Use generic-lens or generic-optics with 'beforeCommitId' instead." #-}
 
--- | The full commit ID of the commit in the source branch that is the current tip of the branch for the pull request when you post the comment.
+-- | The name of the repository where you want to post a comment on a pull request.
 --
--- /Note:/ Consider using 'afterCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcfprAfterCommitId :: Lens.Lens' PostCommentForPullRequest Lude.Text
-pcfprAfterCommitId = Lens.lens (afterCommitId :: PostCommentForPullRequest -> Lude.Text) (\s a -> s {afterCommitId = a} :: PostCommentForPullRequest)
-{-# DEPRECATED pcfprAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcfprRepositoryName :: Lens.Lens' PostCommentForPullRequest Lude.Text
+pcfprRepositoryName = Lens.lens (repositoryName :: PostCommentForPullRequest -> Lude.Text) (\s a -> s {repositoryName = a} :: PostCommentForPullRequest)
+{-# DEPRECATED pcfprRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
--- | The content of your comment on the change.
+-- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
 --
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcfprContent :: Lens.Lens' PostCommentForPullRequest Lude.Text
-pcfprContent = Lens.lens (content :: PostCommentForPullRequest -> Lude.Text) (\s a -> s {content = a} :: PostCommentForPullRequest)
-{-# DEPRECATED pcfprContent "Use generic-lens or generic-optics with 'content' instead." #-}
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcfprClientRequestToken :: Lens.Lens' PostCommentForPullRequest (Lude.Maybe Lude.Text)
+pcfprClientRequestToken = Lens.lens (clientRequestToken :: PostCommentForPullRequest -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: PostCommentForPullRequest)
+{-# DEPRECATED pcfprClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest PostCommentForPullRequest where
   type
@@ -195,12 +195,12 @@ instance Lude.ToJSON PostCommentForPullRequest where
     Lude.object
       ( Lude.catMaybes
           [ ("location" Lude..=) Lude.<$> location,
-            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("pullRequestId" Lude..= pullRequestId),
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("beforeCommitId" Lude..= beforeCommitId),
             Lude.Just ("afterCommitId" Lude..= afterCommitId),
-            Lude.Just ("content" Lude..= content)
+            Lude.Just ("pullRequestId" Lude..= pullRequestId),
+            Lude.Just ("content" Lude..= content),
+            Lude.Just ("beforeCommitId" Lude..= beforeCommitId),
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -212,44 +212,38 @@ instance Lude.ToQuery PostCommentForPullRequest where
 
 -- | /See:/ 'mkPostCommentForPullRequestResponse' smart constructor.
 data PostCommentForPullRequestResponse = PostCommentForPullRequestResponse'
-  { beforeBlobId ::
-      Lude.Maybe Lude.Text,
-    location ::
-      Lude.Maybe Location,
-    afterCommitId ::
-      Lude.Maybe Lude.Text,
-    pullRequestId ::
-      Lude.Maybe Lude.Text,
-    afterBlobId ::
-      Lude.Maybe Lude.Text,
-    beforeCommitId ::
-      Lude.Maybe Lude.Text,
-    repositoryName ::
-      Lude.Maybe Lude.Text,
-    comment ::
-      Lude.Maybe Comment,
-    responseStatus ::
-      Lude.Int
+  { -- | In the directionality of the pull request, the blob ID of the before blob.
+    beforeBlobId :: Lude.Maybe Lude.Text,
+    -- | The location of the change where you posted your comment.
+    location :: Lude.Maybe Location,
+    -- | The full commit ID of the commit in the destination branch where the pull request is merged.
+    afterCommitId :: Lude.Maybe Lude.Text,
+    -- | The system-generated ID of the pull request.
+    pullRequestId :: Lude.Maybe Lude.Text,
+    -- | In the directionality of the pull request, the blob ID of the after blob.
+    afterBlobId :: Lude.Maybe Lude.Text,
+    -- | The full commit ID of the commit in the source branch used to create the pull request, or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.
+    beforeCommitId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository where you posted a comment on a pull request.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The content of the comment you posted.
+    comment :: Lude.Maybe Comment,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostCommentForPullRequestResponse' with the minimum fields required to make a request.
 --
--- * 'afterBlobId' - In the directionality of the pull request, the blob ID of the after blob.
--- * 'afterCommitId' - The full commit ID of the commit in the destination branch where the pull request is merged.
 -- * 'beforeBlobId' - In the directionality of the pull request, the blob ID of the before blob.
--- * 'beforeCommitId' - The full commit ID of the commit in the source branch used to create the pull request, or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.
--- * 'comment' - The content of the comment you posted.
 -- * 'location' - The location of the change where you posted your comment.
+-- * 'afterCommitId' - The full commit ID of the commit in the destination branch where the pull request is merged.
 -- * 'pullRequestId' - The system-generated ID of the pull request.
+-- * 'afterBlobId' - In the directionality of the pull request, the blob ID of the after blob.
+-- * 'beforeCommitId' - The full commit ID of the commit in the source branch used to create the pull request, or in the case of an updated pull request, the full commit ID of the commit used to update the pull request.
 -- * 'repositoryName' - The name of the repository where you posted a comment on a pull request.
+-- * 'comment' - The content of the comment you posted.
 -- * 'responseStatus' - The response status code.
 mkPostCommentForPullRequestResponse ::
   -- | 'responseStatus'

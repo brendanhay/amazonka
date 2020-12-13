@@ -17,8 +17,8 @@ module Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
     mkUpdateGlobalSecondaryIndexAction,
 
     -- * Lenses
-    ugsiaIndexName,
     ugsiaProvisionedThroughput,
+    ugsiaIndexName,
   )
 where
 
@@ -30,46 +30,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpdateGlobalSecondaryIndexAction' smart constructor.
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
-  { indexName ::
-      Lude.Text,
-    provisionedThroughput ::
-      ProvisionedThroughput
+  { -- | Represents the provisioned throughput settings for the specified global secondary index.
+    --
+    -- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+    provisionedThroughput :: ProvisionedThroughput,
+    -- | The name of the global secondary index to be updated.
+    indexName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGlobalSecondaryIndexAction' with the minimum fields required to make a request.
 --
--- * 'indexName' - The name of the global secondary index to be updated.
 -- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
 --
 -- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'indexName' - The name of the global secondary index to be updated.
 mkUpdateGlobalSecondaryIndexAction ::
-  -- | 'indexName'
-  Lude.Text ->
   -- | 'provisionedThroughput'
   ProvisionedThroughput ->
+  -- | 'indexName'
+  Lude.Text ->
   UpdateGlobalSecondaryIndexAction
 mkUpdateGlobalSecondaryIndexAction
-  pIndexName_
-  pProvisionedThroughput_ =
+  pProvisionedThroughput_
+  pIndexName_ =
     UpdateGlobalSecondaryIndexAction'
-      { indexName = pIndexName_,
-        provisionedThroughput = pProvisionedThroughput_
+      { provisionedThroughput =
+          pProvisionedThroughput_,
+        indexName = pIndexName_
       }
-
--- | The name of the global secondary index to be updated.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugsiaIndexName :: Lens.Lens' UpdateGlobalSecondaryIndexAction Lude.Text
-ugsiaIndexName = Lens.lens (indexName :: UpdateGlobalSecondaryIndexAction -> Lude.Text) (\s a -> s {indexName = a} :: UpdateGlobalSecondaryIndexAction)
-{-# DEPRECATED ugsiaIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | Represents the provisioned throughput settings for the specified global secondary index.
 --
@@ -80,11 +70,18 @@ ugsiaProvisionedThroughput :: Lens.Lens' UpdateGlobalSecondaryIndexAction Provis
 ugsiaProvisionedThroughput = Lens.lens (provisionedThroughput :: UpdateGlobalSecondaryIndexAction -> ProvisionedThroughput) (\s a -> s {provisionedThroughput = a} :: UpdateGlobalSecondaryIndexAction)
 {-# DEPRECATED ugsiaProvisionedThroughput "Use generic-lens or generic-optics with 'provisionedThroughput' instead." #-}
 
+-- | The name of the global secondary index to be updated.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsiaIndexName :: Lens.Lens' UpdateGlobalSecondaryIndexAction Lude.Text
+ugsiaIndexName = Lens.lens (indexName :: UpdateGlobalSecondaryIndexAction -> Lude.Text) (\s a -> s {indexName = a} :: UpdateGlobalSecondaryIndexAction)
+{-# DEPRECATED ugsiaIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+
 instance Lude.ToJSON UpdateGlobalSecondaryIndexAction where
   toJSON UpdateGlobalSecondaryIndexAction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("IndexName" Lude..= indexName),
-            Lude.Just ("ProvisionedThroughput" Lude..= provisionedThroughput)
+          [ Lude.Just ("ProvisionedThroughput" Lude..= provisionedThroughput),
+            Lude.Just ("IndexName" Lude..= indexName)
           ]
       )

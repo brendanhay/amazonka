@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.SES.GetIdentityMailFromDomainAttributes
     mkGetIdentityMailFromDomainAttributesResponse,
 
     -- ** Response lenses
-    gimfdarsResponseStatus,
     gimfdarsMailFromDomainAttributes,
+    gimfdarsResponseStatus,
   )
 where
 
@@ -43,16 +44,10 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkGetIdentityMailFromDomainAttributes' smart constructor.
 newtype GetIdentityMailFromDomainAttributes = GetIdentityMailFromDomainAttributes'
-  { identities ::
-      [Lude.Text]
+  { -- | A list of one or more identities.
+    identities :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityMailFromDomainAttributes' with the minimum fields required to make a request.
@@ -80,10 +75,10 @@ instance Lude.AWSRequest GetIdentityMailFromDomainAttributes where
       "GetIdentityMailFromDomainAttributesResult"
       ( \s h x ->
           GetIdentityMailFromDomainAttributesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "MailFromDomainAttributes" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "MailFromDomainAttributes" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLMap "entry" "key" "value"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetIdentityMailFromDomainAttributes where
@@ -105,20 +100,12 @@ instance Lude.ToQuery GetIdentityMailFromDomainAttributes where
 --
 -- /See:/ 'mkGetIdentityMailFromDomainAttributesResponse' smart constructor.
 data GetIdentityMailFromDomainAttributesResponse = GetIdentityMailFromDomainAttributesResponse'
-  { responseStatus ::
-      Lude.Int,
-    mailFromDomainAttributes ::
-      Lude.HashMap
-        Lude.Text
-        (IdentityMailFromDomainAttributes)
+  { -- | A map of identities to custom MAIL FROM attributes.
+    mailFromDomainAttributes :: Lude.HashMap Lude.Text (IdentityMailFromDomainAttributes),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityMailFromDomainAttributesResponse' with the minimum fields required to make a request.
@@ -131,17 +118,10 @@ mkGetIdentityMailFromDomainAttributesResponse ::
   GetIdentityMailFromDomainAttributesResponse
 mkGetIdentityMailFromDomainAttributesResponse pResponseStatus_ =
   GetIdentityMailFromDomainAttributesResponse'
-    { responseStatus =
-        pResponseStatus_,
-      mailFromDomainAttributes = Lude.mempty
+    { mailFromDomainAttributes =
+        Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gimfdarsResponseStatus :: Lens.Lens' GetIdentityMailFromDomainAttributesResponse Lude.Int
-gimfdarsResponseStatus = Lens.lens (responseStatus :: GetIdentityMailFromDomainAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityMailFromDomainAttributesResponse)
-{-# DEPRECATED gimfdarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A map of identities to custom MAIL FROM attributes.
 --
@@ -149,3 +129,10 @@ gimfdarsResponseStatus = Lens.lens (responseStatus :: GetIdentityMailFromDomainA
 gimfdarsMailFromDomainAttributes :: Lens.Lens' GetIdentityMailFromDomainAttributesResponse (Lude.HashMap Lude.Text (IdentityMailFromDomainAttributes))
 gimfdarsMailFromDomainAttributes = Lens.lens (mailFromDomainAttributes :: GetIdentityMailFromDomainAttributesResponse -> Lude.HashMap Lude.Text (IdentityMailFromDomainAttributes)) (\s a -> s {mailFromDomainAttributes = a} :: GetIdentityMailFromDomainAttributesResponse)
 {-# DEPRECATED gimfdarsMailFromDomainAttributes "Use generic-lens or generic-optics with 'mailFromDomainAttributes' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gimfdarsResponseStatus :: Lens.Lens' GetIdentityMailFromDomainAttributesResponse Lude.Int
+gimfdarsResponseStatus = Lens.lens (responseStatus :: GetIdentityMailFromDomainAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityMailFromDomainAttributesResponse)
+{-# DEPRECATED gimfdarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

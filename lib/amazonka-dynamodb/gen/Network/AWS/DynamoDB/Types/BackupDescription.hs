@@ -33,19 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBackupDescription' smart constructor.
 data BackupDescription = BackupDescription'
-  { backupDetails ::
-      Lude.Maybe BackupDetails,
+  { -- | Contains the details of the backup created for the table.
+    backupDetails :: Lude.Maybe BackupDetails,
+    -- | Contains the details of the table when the backup was created.
     sourceTableDetails :: Lude.Maybe SourceTableDetails,
-    sourceTableFeatureDetails ::
-      Lude.Maybe SourceTableFeatureDetails
+    -- | Contains the details of the features enabled on the table when the backup was created. For example, LSIs, GSIs, streams, TTL.
+    sourceTableFeatureDetails :: Lude.Maybe SourceTableFeatureDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackupDescription' with the minimum fields required to make a request.

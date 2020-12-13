@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuiltinIntentMetadata' smart constructor.
 data BuiltinIntentMetadata = BuiltinIntentMetadata'
-  { signature ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for the built-in intent. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
+    signature :: Lude.Maybe Lude.Text,
+    -- | A list of identifiers for the locales that the intent supports.
     supportedLocales :: Lude.Maybe [Locale]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuiltinIntentMetadata' with the minimum fields required to make a request.

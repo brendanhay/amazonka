@@ -42,32 +42,87 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNatGateway' smart constructor.
 data NatGateway = NatGateway'
-  { state :: Lude.Maybe NatGatewayState,
+  { -- | The state of the NAT gateway.
+    --
+    --
+    --     * @pending@ : The NAT gateway is being created and is not ready to process traffic.
+    --
+    --
+    --     * @failed@ : The NAT gateway could not be created. Check the @failureCode@ and @failureMessage@ fields for the reason.
+    --
+    --
+    --     * @available@ : The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.
+    --
+    --
+    --     * @deleting@ : The NAT gateway is in the process of being terminated and may still be processing traffic.
+    --
+    --
+    --     * @deleted@ : The NAT gateway has been terminated and is no longer processing traffic.
+    state :: Lude.Maybe NatGatewayState,
+    -- | If the NAT gateway could not be created, specifies the error code for the failure. (@InsufficientFreeAddressesInSubnet@ | @Gateway.NotAttached@ | @InvalidAllocationID.NotFound@ | @Resource.AlreadyAssociated@ | @InternalError@ | @InvalidSubnetID.NotFound@ )
     failureCode :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC in which the NAT gateway is located.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.
+    --
+    --
+    --     * For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway"
+    --
+    --
+    --     * For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached"
+    --
+    --
+    --     * For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway"
+    --
+    --
+    --     * For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated"
+    --
+    --
+    --     * For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again."
+    --
+    --
+    --     * For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found."
     failureMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the NAT gateway.
     natGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet in which the NAT gateway is located.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The date and time the NAT gateway was deleted, if applicable.
     deleteTime :: Lude.Maybe Lude.DateTime,
+    -- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
     provisionedBandwidth :: Lude.Maybe ProvisionedBandwidth,
+    -- | Information about the IP addresses and network interface associated with the NAT gateway.
     natGatewayAddresses :: Lude.Maybe [NatGatewayAddress],
+    -- | The date and time the NAT gateway was created.
     createTime :: Lude.Maybe Lude.DateTime,
+    -- | The tags for the NAT gateway.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NatGateway' with the minimum fields required to make a request.
 --
--- * 'createTime' - The date and time the NAT gateway was created.
--- * 'deleteTime' - The date and time the NAT gateway was deleted, if applicable.
+-- * 'state' - The state of the NAT gateway.
+--
+--
+--     * @pending@ : The NAT gateway is being created and is not ready to process traffic.
+--
+--
+--     * @failed@ : The NAT gateway could not be created. Check the @failureCode@ and @failureMessage@ fields for the reason.
+--
+--
+--     * @available@ : The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.
+--
+--
+--     * @deleting@ : The NAT gateway is in the process of being terminated and may still be processing traffic.
+--
+--
+--     * @deleted@ : The NAT gateway has been terminated and is no longer processing traffic.
+--
+--
 -- * 'failureCode' - If the NAT gateway could not be created, specifies the error code for the failure. (@InsufficientFreeAddressesInSubnet@ | @Gateway.NotAttached@ | @InvalidAllocationID.NotFound@ | @Resource.AlreadyAssociated@ | @InternalError@ | @InvalidSubnetID.NotFound@ )
+-- * 'vpcId' - The ID of the VPC in which the NAT gateway is located.
 -- * 'failureMessage' - If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.
 --
 --
@@ -89,30 +144,13 @@ data NatGateway = NatGateway'
 --     * For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found."
 --
 --
--- * 'natGatewayAddresses' - Information about the IP addresses and network interface associated with the NAT gateway.
 -- * 'natGatewayId' - The ID of the NAT gateway.
--- * 'provisionedBandwidth' - Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
--- * 'state' - The state of the NAT gateway.
---
---
---     * @pending@ : The NAT gateway is being created and is not ready to process traffic.
---
---
---     * @failed@ : The NAT gateway could not be created. Check the @failureCode@ and @failureMessage@ fields for the reason.
---
---
---     * @available@ : The NAT gateway is able to process traffic. This status remains until you delete the NAT gateway, and does not indicate the health of the NAT gateway.
---
---
---     * @deleting@ : The NAT gateway is in the process of being terminated and may still be processing traffic.
---
---
---     * @deleted@ : The NAT gateway has been terminated and is no longer processing traffic.
---
---
 -- * 'subnetId' - The ID of the subnet in which the NAT gateway is located.
+-- * 'deleteTime' - The date and time the NAT gateway was deleted, if applicable.
+-- * 'provisionedBandwidth' - Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- * 'natGatewayAddresses' - Information about the IP addresses and network interface associated with the NAT gateway.
+-- * 'createTime' - The date and time the NAT gateway was created.
 -- * 'tags' - The tags for the NAT gateway.
--- * 'vpcId' - The ID of the VPC in which the NAT gateway is located.
 mkNatGateway ::
   NatGateway
 mkNatGateway =

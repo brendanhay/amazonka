@@ -30,26 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDisableFastSnapshotRestoreStateErrorItem' smart constructor.
 data DisableFastSnapshotRestoreStateErrorItem = DisableFastSnapshotRestoreStateErrorItem'
-  { error ::
-      Lude.Maybe
-        DisableFastSnapshotRestoreStateError,
-    availabilityZone ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The error.
+    error :: Lude.Maybe DisableFastSnapshotRestoreStateError,
+    -- | The Availability Zone.
+    availabilityZone :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableFastSnapshotRestoreStateErrorItem' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone.
 -- * 'error' - The error.
+-- * 'availabilityZone' - The Availability Zone.
 mkDisableFastSnapshotRestoreStateErrorItem ::
   DisableFastSnapshotRestoreStateErrorItem
 mkDisableFastSnapshotRestoreStateErrorItem =

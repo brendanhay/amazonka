@@ -13,8 +13,8 @@
 module Network.AWS.Lightsail.Types.InstanceAccessProtocol
   ( InstanceAccessProtocol
       ( InstanceAccessProtocol',
-        Rdp,
-        SSH
+        SSH,
+        Rdp
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype InstanceAccessProtocol = InstanceAccessProtocol' Lude.Text
       Lude.ToHeader
     )
 
-pattern Rdp :: InstanceAccessProtocol
-pattern Rdp = InstanceAccessProtocol' "rdp"
-
 pattern SSH :: InstanceAccessProtocol
 pattern SSH = InstanceAccessProtocol' "ssh"
 
+pattern Rdp :: InstanceAccessProtocol
+pattern Rdp = InstanceAccessProtocol' "rdp"
+
 {-# COMPLETE
-  Rdp,
   SSH,
+  Rdp,
   InstanceAccessProtocol'
   #-}

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWebhookFilterRule' smart constructor.
 data WebhookFilterRule = WebhookFilterRule'
-  { matchEquals ::
-      Lude.Maybe Lude.Text,
+  { -- | The value selected by the @JsonPath@ expression must match what is supplied in the @MatchEquals@ field. Otherwise, the request is ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly brackets. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the @MatchEquals@ value is evaluated as "refs/heads/master". For a list of action configuration properties for built-in action types, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
+    matchEquals :: Lude.Maybe Lude.Text,
+    -- | A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the @MatchEquals@ field. Otherwise, the request is ignored. For more information, see <https://github.com/json-path/JsonPath Java JsonPath implementation> in GitHub.
     jsonPath :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WebhookFilterRule' with the minimum fields required to make a request.
 --
--- * 'jsonPath' - A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the @MatchEquals@ field. Otherwise, the request is ignored. For more information, see <https://github.com/json-path/JsonPath Java JsonPath implementation> in GitHub.
 -- * 'matchEquals' - The value selected by the @JsonPath@ expression must match what is supplied in the @MatchEquals@ field. Otherwise, the request is ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly brackets. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the @MatchEquals@ value is evaluated as "refs/heads/master". For a list of action configuration properties for built-in action types, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
+-- * 'jsonPath' - A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the @MatchEquals@ field. Otherwise, the request is ignored. For more information, see <https://github.com/json-path/JsonPath Java JsonPath implementation> in GitHub.
 mkWebhookFilterRule ::
   -- | 'jsonPath'
   Lude.Text ->

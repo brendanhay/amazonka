@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListComplianceSummaries' smart constructor.
 data ListComplianceSummaries = ListComplianceSummaries'
-  { filters ::
-      Lude.Maybe [ComplianceStringFilter],
+  { -- | One or more compliance or inventory filters. Use a filter to return a more specific list of results.
+    filters :: Lude.Maybe [ComplianceStringFilter],
+    -- | A token to start the list. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. Currently, you can specify null or 50. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListComplianceSummaries' with the minimum fields required to make a request.
 --
 -- * 'filters' - One or more compliance or inventory filters. Use a filter to return a more specific list of results.
--- * 'maxResults' - The maximum number of items to return for this call. Currently, you can specify null or 50. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'maxResults' - The maximum number of items to return for this call. Currently, you can specify null or 50. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkListComplianceSummaries ::
   ListComplianceSummaries
 mkListComplianceSummaries =
@@ -144,26 +141,20 @@ instance Lude.ToQuery ListComplianceSummaries where
 
 -- | /See:/ 'mkListComplianceSummariesResponse' smart constructor.
 data ListComplianceSummariesResponse = ListComplianceSummariesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    complianceSummaryItems ::
-      Lude.Maybe
-        [ComplianceSummaryItem],
+  { -- | The token for the next set of items to return. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of compliant and non-compliant summary counts based on compliance types. For example, this call returns State Manager associations, patches, or custom compliance types according to the filter criteria that you specified.
+    complianceSummaryItems :: Lude.Maybe [ComplianceSummaryItem],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListComplianceSummariesResponse' with the minimum fields required to make a request.
 --
--- * 'complianceSummaryItems' - A list of compliant and non-compliant summary counts based on compliance types. For example, this call returns State Manager associations, patches, or custom compliance types according to the filter criteria that you specified.
 -- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
+-- * 'complianceSummaryItems' - A list of compliant and non-compliant summary counts based on compliance types. For example, this call returns State Manager associations, patches, or custom compliance types according to the filter criteria that you specified.
 -- * 'responseStatus' - The response status code.
 mkListComplianceSummariesResponse ::
   -- | 'responseStatus'

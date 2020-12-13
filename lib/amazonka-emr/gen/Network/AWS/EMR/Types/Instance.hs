@@ -42,42 +42,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { status :: Lude.Maybe InstanceStatus,
+  { -- | The current status of the instance.
+    status :: Lude.Maybe InstanceStatus,
+    -- | The public DNS name of the instance.
     publicDNSName :: Lude.Maybe Lude.Text,
+    -- | The list of EBS volumes that are attached to this instance.
     ebsVolumes :: Lude.Maybe [EBSVolume],
+    -- | The unique identifier of the instance in Amazon EC2.
     ec2InstanceId :: Lude.Maybe Lude.Text,
+    -- | The EC2 instance type, for example @m3.xlarge@ .
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@ .
     market :: Lude.Maybe MarketType,
+    -- | The private IP address of the instance.
     privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the instance fleet to which an EC2 instance belongs.
     instanceFleetId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the instance in Amazon EMR.
     id :: Lude.Maybe Lude.Text,
+    -- | The identifier of the instance group to which this instance belongs.
     instanceGroupId :: Lude.Maybe Lude.Text,
+    -- | The private DNS name of the instance.
     privateDNSName :: Lude.Maybe Lude.Text,
+    -- | The public IP address of the instance.
     publicIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
+-- * 'status' - The current status of the instance.
+-- * 'publicDNSName' - The public DNS name of the instance.
 -- * 'ebsVolumes' - The list of EBS volumes that are attached to this instance.
 -- * 'ec2InstanceId' - The unique identifier of the instance in Amazon EC2.
--- * 'id' - The unique identifier for the instance in Amazon EMR.
--- * 'instanceFleetId' - The unique identifier of the instance fleet to which an EC2 instance belongs.
--- * 'instanceGroupId' - The identifier of the instance group to which this instance belongs.
 -- * 'instanceType' - The EC2 instance type, for example @m3.xlarge@ .
 -- * 'market' - The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@ .
--- * 'privateDNSName' - The private DNS name of the instance.
 -- * 'privateIPAddress' - The private IP address of the instance.
--- * 'publicDNSName' - The public DNS name of the instance.
+-- * 'instanceFleetId' - The unique identifier of the instance fleet to which an EC2 instance belongs.
+-- * 'id' - The unique identifier for the instance in Amazon EMR.
+-- * 'instanceGroupId' - The identifier of the instance group to which this instance belongs.
+-- * 'privateDNSName' - The private DNS name of the instance.
 -- * 'publicIPAddress' - The public IP address of the instance.
--- * 'status' - The current status of the instance.
 mkInstance ::
   Instance
 mkInstance =

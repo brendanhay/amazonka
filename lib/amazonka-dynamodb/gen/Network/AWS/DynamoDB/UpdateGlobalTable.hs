@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.DynamoDB.UpdateGlobalTable
     mkUpdateGlobalTable,
 
     -- ** Request lenses
-    ugtGlobalTableName,
     ugtReplicaUpdates,
+    ugtGlobalTableName,
 
     -- * Destructuring the response
     UpdateGlobalTableResponse (..),
@@ -50,39 +51,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateGlobalTable' smart constructor.
 data UpdateGlobalTable = UpdateGlobalTable'
-  { globalTableName ::
-      Lude.Text,
-    replicaUpdates :: [ReplicaUpdate]
+  { -- | A list of Regions that should be added or removed from the global table.
+    replicaUpdates :: [ReplicaUpdate],
+    -- | The global table name.
+    globalTableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGlobalTable' with the minimum fields required to make a request.
 --
--- * 'globalTableName' - The global table name.
 -- * 'replicaUpdates' - A list of Regions that should be added or removed from the global table.
+-- * 'globalTableName' - The global table name.
 mkUpdateGlobalTable ::
   -- | 'globalTableName'
   Lude.Text ->
   UpdateGlobalTable
 mkUpdateGlobalTable pGlobalTableName_ =
   UpdateGlobalTable'
-    { globalTableName = pGlobalTableName_,
-      replicaUpdates = Lude.mempty
+    { replicaUpdates = Lude.mempty,
+      globalTableName = pGlobalTableName_
     }
-
--- | The global table name.
---
--- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugtGlobalTableName :: Lens.Lens' UpdateGlobalTable Lude.Text
-ugtGlobalTableName = Lens.lens (globalTableName :: UpdateGlobalTable -> Lude.Text) (\s a -> s {globalTableName = a} :: UpdateGlobalTable)
-{-# DEPRECATED ugtGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
 
 -- | A list of Regions that should be added or removed from the global table.
 --
@@ -90,6 +79,13 @@ ugtGlobalTableName = Lens.lens (globalTableName :: UpdateGlobalTable -> Lude.Tex
 ugtReplicaUpdates :: Lens.Lens' UpdateGlobalTable [ReplicaUpdate]
 ugtReplicaUpdates = Lens.lens (replicaUpdates :: UpdateGlobalTable -> [ReplicaUpdate]) (\s a -> s {replicaUpdates = a} :: UpdateGlobalTable)
 {-# DEPRECATED ugtReplicaUpdates "Use generic-lens or generic-optics with 'replicaUpdates' instead." #-}
+
+-- | The global table name.
+--
+-- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtGlobalTableName :: Lens.Lens' UpdateGlobalTable Lude.Text
+ugtGlobalTableName = Lens.lens (globalTableName :: UpdateGlobalTable -> Lude.Text) (\s a -> s {globalTableName = a} :: UpdateGlobalTable)
+{-# DEPRECATED ugtGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
 
 instance Lude.AWSRequest UpdateGlobalTable where
   type Rs UpdateGlobalTable = UpdateGlobalTableResponse
@@ -117,8 +113,8 @@ instance Lude.ToJSON UpdateGlobalTable where
   toJSON UpdateGlobalTable' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("GlobalTableName" Lude..= globalTableName),
-            Lude.Just ("ReplicaUpdates" Lude..= replicaUpdates)
+          [ Lude.Just ("ReplicaUpdates" Lude..= replicaUpdates),
+            Lude.Just ("GlobalTableName" Lude..= globalTableName)
           ]
       )
 
@@ -130,17 +126,12 @@ instance Lude.ToQuery UpdateGlobalTable where
 
 -- | /See:/ 'mkUpdateGlobalTableResponse' smart constructor.
 data UpdateGlobalTableResponse = UpdateGlobalTableResponse'
-  { globalTableDescription ::
-      Lude.Maybe GlobalTableDescription,
+  { -- | Contains the details of the global table.
+    globalTableDescription :: Lude.Maybe GlobalTableDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGlobalTableResponse' with the minimum fields required to make a request.

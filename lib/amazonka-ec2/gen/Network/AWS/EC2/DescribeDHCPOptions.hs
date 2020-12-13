@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.EC2.DescribeDHCPOptions
     mkDescribeDHCPOptions,
 
     -- ** Request lenses
-    ddoFilters,
-    ddoDHCPOptionsIds,
-    ddoNextToken,
-    ddoDryRun,
-    ddoMaxResults,
+    ddhcpoFilters,
+    ddhcpoDHCPOptionsIds,
+    ddhcpoNextToken,
+    ddhcpoDryRun,
+    ddhcpoMaxResults,
 
     -- * Destructuring the response
     DescribeDHCPOptionsResponse (..),
@@ -49,28 +50,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDHCPOptions' smart constructor.
 data DescribeDHCPOptions = DescribeDHCPOptions'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | One or more filters.
+    --
+    --
+    --     * @dhcp-options-id@ - The ID of a DHCP options set.
+    --
+    --
+    --     * @key@ - The key for one of the options (for example, @domain-name@ ).
+    --
+    --
+    --     * @value@ - The value for one of the options.
+    --
+    --
+    --     * @owner-id@ - The ID of the AWS account that owns the DHCP options set.
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    filters :: Lude.Maybe [Filter],
+    -- | The IDs of one or more DHCP options sets.
+    --
+    -- Default: Describes all your DHCP options sets.
     dhcpOptionsIds :: Lude.Maybe [Lude.Text],
+    -- | The token for the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDHCPOptions' with the minimum fields required to make a request.
 --
--- * 'dhcpOptionsIds' - The IDs of one or more DHCP options sets.
---
--- Default: Describes all your DHCP options sets.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -92,8 +107,12 @@ data DescribeDHCPOptions = DescribeDHCPOptions'
 --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'dhcpOptionsIds' - The IDs of one or more DHCP options sets.
+--
+-- Default: Describes all your DHCP options sets.
 -- * 'nextToken' - The token for the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeDHCPOptions ::
   DescribeDHCPOptions
 mkDescribeDHCPOptions =
@@ -128,39 +147,39 @@ mkDescribeDHCPOptions =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddoFilters :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe [Filter])
-ddoFilters = Lens.lens (filters :: DescribeDHCPOptions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDHCPOptions)
-{-# DEPRECATED ddoFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+ddhcpoFilters :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe [Filter])
+ddhcpoFilters = Lens.lens (filters :: DescribeDHCPOptions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDHCPOptions)
+{-# DEPRECATED ddhcpoFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The IDs of one or more DHCP options sets.
 --
 -- Default: Describes all your DHCP options sets.
 --
 -- /Note:/ Consider using 'dhcpOptionsIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddoDHCPOptionsIds :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe [Lude.Text])
-ddoDHCPOptionsIds = Lens.lens (dhcpOptionsIds :: DescribeDHCPOptions -> Lude.Maybe [Lude.Text]) (\s a -> s {dhcpOptionsIds = a} :: DescribeDHCPOptions)
-{-# DEPRECATED ddoDHCPOptionsIds "Use generic-lens or generic-optics with 'dhcpOptionsIds' instead." #-}
+ddhcpoDHCPOptionsIds :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe [Lude.Text])
+ddhcpoDHCPOptionsIds = Lens.lens (dhcpOptionsIds :: DescribeDHCPOptions -> Lude.Maybe [Lude.Text]) (\s a -> s {dhcpOptionsIds = a} :: DescribeDHCPOptions)
+{-# DEPRECATED ddhcpoDHCPOptionsIds "Use generic-lens or generic-optics with 'dhcpOptionsIds' instead." #-}
 
 -- | The token for the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddoNextToken :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe Lude.Text)
-ddoNextToken = Lens.lens (nextToken :: DescribeDHCPOptions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDHCPOptions)
-{-# DEPRECATED ddoNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ddhcpoNextToken :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe Lude.Text)
+ddhcpoNextToken = Lens.lens (nextToken :: DescribeDHCPOptions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDHCPOptions)
+{-# DEPRECATED ddhcpoNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddoDryRun :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe Lude.Bool)
-ddoDryRun = Lens.lens (dryRun :: DescribeDHCPOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeDHCPOptions)
-{-# DEPRECATED ddoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+ddhcpoDryRun :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe Lude.Bool)
+ddhcpoDryRun = Lens.lens (dryRun :: DescribeDHCPOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeDHCPOptions)
+{-# DEPRECATED ddhcpoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddoMaxResults :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe Lude.Natural)
-ddoMaxResults = Lens.lens (maxResults :: DescribeDHCPOptions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeDHCPOptions)
-{-# DEPRECATED ddoMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+ddhcpoMaxResults :: Lens.Lens' DescribeDHCPOptions (Lude.Maybe Lude.Natural)
+ddhcpoMaxResults = Lens.lens (maxResults :: DescribeDHCPOptions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeDHCPOptions)
+{-# DEPRECATED ddhcpoMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeDHCPOptions where
   page rq rs
@@ -169,7 +188,7 @@ instance Page.AWSPager DescribeDHCPOptions where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& ddoNextToken Lens..~ rs Lens.^. ddorsNextToken
+          Lude.& ddhcpoNextToken Lens..~ rs Lens.^. ddorsNextToken
 
 instance Lude.AWSRequest DescribeDHCPOptions where
   type Rs DescribeDHCPOptions = DescribeDHCPOptionsResponse
@@ -206,18 +225,14 @@ instance Lude.ToQuery DescribeDHCPOptions where
 
 -- | /See:/ 'mkDescribeDHCPOptionsResponse' smart constructor.
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
-  { dhcpOptions ::
-      Lude.Maybe [DHCPOptions],
+  { -- | Information about one or more DHCP options sets.
+    dhcpOptions :: Lude.Maybe [DHCPOptions],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDHCPOptionsResponse' with the minimum fields required to make a request.

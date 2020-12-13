@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.CognitoIdentityProvider.ListGroups
     mkListGroups,
 
     -- ** Request lenses
+    lgUserPoolId,
     lgNextToken,
     lgLimit,
-    lgUserPoolId,
 
     -- * Destructuring the response
     ListGroupsResponse (..),
@@ -47,34 +48,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { nextToken :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    userPoolId :: Lude.Text
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The limit of the request to list groups.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
 --
--- * 'limit' - The limit of the request to list groups.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 -- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'limit' - The limit of the request to list groups.
 mkListGroups ::
   -- | 'userPoolId'
   Lude.Text ->
   ListGroups
 mkListGroups pUserPoolId_ =
   ListGroups'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      userPoolId = pUserPoolId_
+    { userPoolId = pUserPoolId_,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | The user pool ID for the user pool.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgUserPoolId :: Lens.Lens' ListGroups Lude.Text
+lgUserPoolId = Lens.lens (userPoolId :: ListGroups -> Lude.Text) (\s a -> s {userPoolId = a} :: ListGroups)
+{-# DEPRECATED lgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
@@ -89,13 +94,6 @@ lgNextToken = Lens.lens (nextToken :: ListGroups -> Lude.Maybe Lude.Text) (\s a 
 lgLimit :: Lens.Lens' ListGroups (Lude.Maybe Lude.Natural)
 lgLimit = Lens.lens (limit :: ListGroups -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListGroups)
 {-# DEPRECATED lgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The user pool ID for the user pool.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgUserPoolId :: Lens.Lens' ListGroups Lude.Text
-lgUserPoolId = Lens.lens (userPoolId :: ListGroups -> Lude.Text) (\s a -> s {userPoolId = a} :: ListGroups)
-{-# DEPRECATED lgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Page.AWSPager ListGroups where
   page rq rs
@@ -135,9 +133,9 @@ instance Lude.ToJSON ListGroups where
   toJSON ListGroups' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -149,18 +147,14 @@ instance Lude.ToQuery ListGroups where
 
 -- | /See:/ 'mkListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { groups ::
-      Lude.Maybe [GroupType],
+  { -- | The group objects for the groups.
+    groups :: Lude.Maybe [GroupType],
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.

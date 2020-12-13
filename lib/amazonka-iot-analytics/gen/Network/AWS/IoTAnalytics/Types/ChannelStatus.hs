@@ -13,8 +13,8 @@
 module Network.AWS.IoTAnalytics.Types.ChannelStatus
   ( ChannelStatus
       ( ChannelStatus',
-        CSActive,
         CSCreating,
+        CSActive,
         CSDeleting
       ),
   )
@@ -46,18 +46,18 @@ newtype ChannelStatus = ChannelStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSActive :: ChannelStatus
-pattern CSActive = ChannelStatus' "ACTIVE"
-
 pattern CSCreating :: ChannelStatus
 pattern CSCreating = ChannelStatus' "CREATING"
+
+pattern CSActive :: ChannelStatus
+pattern CSActive = ChannelStatus' "ACTIVE"
 
 pattern CSDeleting :: ChannelStatus
 pattern CSDeleting = ChannelStatus' "DELETING"
 
 {-# COMPLETE
-  CSActive,
   CSCreating,
+  CSActive,
   CSDeleting,
   ChannelStatus'
   #-}

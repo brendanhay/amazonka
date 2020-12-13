@@ -32,22 +32,49 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkTaggedResource' smart constructor.
 data TaggedResource = TaggedResource'
-  { tag :: Lude.Maybe Tag,
+  { -- | The tag for the resource.
+    tag :: Lude.Maybe Tag,
+    -- | The type of resource with which the tag is associated. Valid resource types are:
+    --
+    --
+    --     * Cluster
+    --
+    --
+    --     * CIDR/IP
+    --
+    --
+    --     * EC2 security group
+    --
+    --
+    --     * Snapshot
+    --
+    --
+    --     * Cluster security group
+    --
+    --
+    --     * Subnet group
+    --
+    --
+    --     * HSM connection
+    --
+    --
+    --     * HSM certificate
+    --
+    --
+    --     * Parameter group
+    --
+    --
+    -- For more information about Amazon Redshift resource types and constructing ARNs, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
     resourceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaggedResource' with the minimum fields required to make a request.
 --
--- * 'resourceName' - The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
+-- * 'tag' - The tag for the resource.
 -- * 'resourceType' - The type of resource with which the tag is associated. Valid resource types are:
 --
 --
@@ -79,7 +106,7 @@ data TaggedResource = TaggedResource'
 --
 --
 -- For more information about Amazon Redshift resource types and constructing ARNs, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
--- * 'tag' - The tag for the resource.
+-- * 'resourceName' - The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
 mkTaggedResource ::
   TaggedResource
 mkTaggedResource =

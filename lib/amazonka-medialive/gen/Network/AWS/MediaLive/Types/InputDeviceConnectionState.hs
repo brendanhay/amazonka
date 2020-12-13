@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.InputDeviceConnectionState
   ( InputDeviceConnectionState
       ( InputDeviceConnectionState',
-        Connected,
-        Disconnected
+        Disconnected,
+        Connected
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype InputDeviceConnectionState = InputDeviceConnectionState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Connected :: InputDeviceConnectionState
-pattern Connected = InputDeviceConnectionState' "CONNECTED"
-
 pattern Disconnected :: InputDeviceConnectionState
 pattern Disconnected = InputDeviceConnectionState' "DISCONNECTED"
 
+pattern Connected :: InputDeviceConnectionState
+pattern Connected = InputDeviceConnectionState' "CONNECTED"
+
 {-# COMPLETE
-  Connected,
   Disconnected,
+  Connected,
   InputDeviceConnectionState'
   #-}

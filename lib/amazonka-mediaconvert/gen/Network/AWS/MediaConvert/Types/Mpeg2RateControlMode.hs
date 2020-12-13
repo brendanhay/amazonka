@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Mpeg2RateControlMode
   ( Mpeg2RateControlMode
       ( Mpeg2RateControlMode',
-        MRCMCbr,
-        MRCMVbr
+        MRCMVbr,
+        MRCMCbr
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Mpeg2RateControlMode = Mpeg2RateControlMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern MRCMCbr :: Mpeg2RateControlMode
-pattern MRCMCbr = Mpeg2RateControlMode' "CBR"
-
 pattern MRCMVbr :: Mpeg2RateControlMode
 pattern MRCMVbr = Mpeg2RateControlMode' "VBR"
 
+pattern MRCMCbr :: Mpeg2RateControlMode
+pattern MRCMCbr = Mpeg2RateControlMode' "CBR"
+
 {-# COMPLETE
-  MRCMCbr,
   MRCMVbr,
+  MRCMCbr,
   Mpeg2RateControlMode'
   #-}

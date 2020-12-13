@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.CompressionType
   ( CompressionType
       ( CompressionType',
-        CTGzip,
-        CTNone
+        CTNone,
+        CTGzip
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CompressionType = CompressionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CTGzip :: CompressionType
-pattern CTGzip = CompressionType' "Gzip"
-
 pattern CTNone :: CompressionType
 pattern CTNone = CompressionType' "None"
 
+pattern CTGzip :: CompressionType
+pattern CTGzip = CompressionType' "Gzip"
+
 {-# COMPLETE
-  CTGzip,
   CTNone,
+  CTGzip,
   CompressionType'
   #-}

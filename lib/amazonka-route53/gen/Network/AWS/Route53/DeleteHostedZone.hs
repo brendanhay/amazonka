@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,8 +39,8 @@ module Network.AWS.Route53.DeleteHostedZone
     mkDeleteHostedZoneResponse,
 
     -- ** Response lenses
-    dhzrsResponseStatus,
     dhzrsChangeInfo,
+    dhzrsResponseStatus,
   )
 where
 
@@ -52,14 +53,11 @@ import Network.AWS.Route53.Types
 -- | A request to delete a hosted zone.
 --
 -- /See:/ 'mkDeleteHostedZone' smart constructor.
-newtype DeleteHostedZone = DeleteHostedZone' {id :: ResourceId}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteHostedZone = DeleteHostedZone'
+  { -- | The ID of the hosted zone you want to delete.
+    id :: ResourceId
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHostedZone' with the minimum fields required to make a request.
@@ -85,7 +83,7 @@ instance Lude.AWSRequest DeleteHostedZone where
     Res.receiveXML
       ( \s h x ->
           DeleteHostedZoneResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "ChangeInfo")
+            Lude.<$> (x Lude..@ "ChangeInfo") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteHostedZone where
@@ -102,17 +100,12 @@ instance Lude.ToQuery DeleteHostedZone where
 --
 -- /See:/ 'mkDeleteHostedZoneResponse' smart constructor.
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
-  { responseStatus ::
-      Lude.Int,
-    changeInfo :: ChangeInfo
+  { -- | A complex type that contains the ID, the status, and the date and time of a request to delete a hosted zone.
+    changeInfo :: ChangeInfo,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHostedZoneResponse' with the minimum fields required to make a request.
@@ -120,23 +113,16 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
 -- * 'changeInfo' - A complex type that contains the ID, the status, and the date and time of a request to delete a hosted zone.
 -- * 'responseStatus' - The response status code.
 mkDeleteHostedZoneResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteHostedZoneResponse
-mkDeleteHostedZoneResponse pResponseStatus_ pChangeInfo_ =
+mkDeleteHostedZoneResponse pChangeInfo_ pResponseStatus_ =
   DeleteHostedZoneResponse'
-    { responseStatus = pResponseStatus_,
-      changeInfo = pChangeInfo_
+    { changeInfo = pChangeInfo_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhzrsResponseStatus :: Lens.Lens' DeleteHostedZoneResponse Lude.Int
-dhzrsResponseStatus = Lens.lens (responseStatus :: DeleteHostedZoneResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHostedZoneResponse)
-{-# DEPRECATED dhzrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains the ID, the status, and the date and time of a request to delete a hosted zone.
 --
@@ -144,3 +130,10 @@ dhzrsResponseStatus = Lens.lens (responseStatus :: DeleteHostedZoneResponse -> L
 dhzrsChangeInfo :: Lens.Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrsChangeInfo = Lens.lens (changeInfo :: DeleteHostedZoneResponse -> ChangeInfo) (\s a -> s {changeInfo = a} :: DeleteHostedZoneResponse)
 {-# DEPRECATED dhzrsChangeInfo "Use generic-lens or generic-optics with 'changeInfo' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhzrsResponseStatus :: Lens.Lens' DeleteHostedZoneResponse Lude.Int
+dhzrsResponseStatus = Lens.lens (responseStatus :: DeleteHostedZoneResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHostedZoneResponse)
+{-# DEPRECATED dhzrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

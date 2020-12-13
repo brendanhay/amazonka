@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.VPNEcmpSupportValue
   ( VPNEcmpSupportValue
       ( VPNEcmpSupportValue',
-        VESVDisable,
-        VESVEnable
+        VESVEnable,
+        VESVDisable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype VPNEcmpSupportValue = VPNEcmpSupportValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern VESVDisable :: VPNEcmpSupportValue
-pattern VESVDisable = VPNEcmpSupportValue' "disable"
-
 pattern VESVEnable :: VPNEcmpSupportValue
 pattern VESVEnable = VPNEcmpSupportValue' "enable"
 
+pattern VESVDisable :: VPNEcmpSupportValue
+pattern VESVDisable = VPNEcmpSupportValue' "disable"
+
 {-# COMPLETE
-  VESVDisable,
   VESVEnable,
+  VESVDisable,
   VPNEcmpSupportValue'
   #-}

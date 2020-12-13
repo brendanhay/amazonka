@@ -39,61 +39,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDescribeFastSnapshotRestoreSuccessItem' smart constructor.
 data DescribeFastSnapshotRestoreSuccessItem = DescribeFastSnapshotRestoreSuccessItem'
-  { disablingTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    state ::
-      Lude.Maybe
-        FastSnapshotRestoreStateCode,
-    ownerAlias ::
-      Lude.Maybe
-        Lude.Text,
-    disabledTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    enabledTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    optimizingTime ::
-      Lude.Maybe
-        Lude.DateTime,
-    ownerId ::
-      Lude.Maybe
-        Lude.Text,
-    stateTransitionReason ::
-      Lude.Maybe
-        Lude.Text,
-    availabilityZone ::
-      Lude.Maybe
-        Lude.Text,
-    snapshotId ::
-      Lude.Maybe
-        Lude.Text,
-    enablingTime ::
-      Lude.Maybe
-        Lude.DateTime
+  { -- | The time at which fast snapshot restores entered the @disabling@ state.
+    disablingTime :: Lude.Maybe Lude.DateTime,
+    -- | The state of fast snapshot restores.
+    state :: Lude.Maybe FastSnapshotRestoreStateCode,
+    -- | The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.
+    ownerAlias :: Lude.Maybe Lude.Text,
+    -- | The time at which fast snapshot restores entered the @disabled@ state.
+    disabledTime :: Lude.Maybe Lude.DateTime,
+    -- | The time at which fast snapshot restores entered the @enabled@ state.
+    enabledTime :: Lude.Maybe Lude.DateTime,
+    -- | The time at which fast snapshot restores entered the @optimizing@ state.
+    optimizingTime :: Lude.Maybe Lude.DateTime,
+    -- | The ID of the AWS account that enabled fast snapshot restores on the snapshot.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | The reason for the state transition. The possible values are as follows:
+    --
+    --
+    --     * @Client.UserInitiated@ - The state successfully transitioned to @enabling@ or @disabling@ .
+    --
+    --
+    --     * @Client.UserInitiated - Lifecycle state transition@ - The state successfully transitioned to @optimizing@ , @enabled@ , or @disabled@ .
+    stateTransitionReason :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The ID of the snapshot.
+    snapshotId :: Lude.Maybe Lude.Text,
+    -- | The time at which fast snapshot restores entered the @enabling@ state.
+    enablingTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFastSnapshotRestoreSuccessItem' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone.
--- * 'disabledTime' - The time at which fast snapshot restores entered the @disabled@ state.
 -- * 'disablingTime' - The time at which fast snapshot restores entered the @disabling@ state.
--- * 'enabledTime' - The time at which fast snapshot restores entered the @enabled@ state.
--- * 'enablingTime' - The time at which fast snapshot restores entered the @enabling@ state.
--- * 'optimizingTime' - The time at which fast snapshot restores entered the @optimizing@ state.
--- * 'ownerAlias' - The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.
--- * 'ownerId' - The ID of the AWS account that enabled fast snapshot restores on the snapshot.
--- * 'snapshotId' - The ID of the snapshot.
 -- * 'state' - The state of fast snapshot restores.
+-- * 'ownerAlias' - The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.
+-- * 'disabledTime' - The time at which fast snapshot restores entered the @disabled@ state.
+-- * 'enabledTime' - The time at which fast snapshot restores entered the @enabled@ state.
+-- * 'optimizingTime' - The time at which fast snapshot restores entered the @optimizing@ state.
+-- * 'ownerId' - The ID of the AWS account that enabled fast snapshot restores on the snapshot.
 -- * 'stateTransitionReason' - The reason for the state transition. The possible values are as follows:
 --
 --
@@ -101,6 +87,11 @@ data DescribeFastSnapshotRestoreSuccessItem = DescribeFastSnapshotRestoreSuccess
 --
 --
 --     * @Client.UserInitiated - Lifecycle state transition@ - The state successfully transitioned to @optimizing@ , @enabled@ , or @disabled@ .
+--
+--
+-- * 'availabilityZone' - The Availability Zone.
+-- * 'snapshotId' - The ID of the snapshot.
+-- * 'enablingTime' - The time at which fast snapshot restores entered the @enabling@ state.
 mkDescribeFastSnapshotRestoreSuccessItem ::
   DescribeFastSnapshotRestoreSuccessItem
 mkDescribeFastSnapshotRestoreSuccessItem =

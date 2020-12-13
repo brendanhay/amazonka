@@ -17,8 +17,8 @@ module Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus
     mkAvailabilityOptionsStatus,
 
     -- * Lenses
-    aosOptions,
     aosStatus,
+    aosOptions,
   )
 where
 
@@ -30,41 +30,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAvailabilityOptionsStatus' smart constructor.
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
-  { options ::
-      Lude.Bool,
-    status :: OptionStatus
+  { status :: OptionStatus,
+    -- | The availability options configured for the domain.
+    options :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityOptionsStatus' with the minimum fields required to make a request.
 --
+-- * 'status' -
 -- * 'options' - The availability options configured for the domain.
--- * 'status' - Undocumented field.
 mkAvailabilityOptionsStatus ::
-  -- | 'options'
-  Lude.Bool ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  Lude.Bool ->
   AvailabilityOptionsStatus
-mkAvailabilityOptionsStatus pOptions_ pStatus_ =
+mkAvailabilityOptionsStatus pStatus_ pOptions_ =
   AvailabilityOptionsStatus'
-    { options = pOptions_,
-      status = pStatus_
+    { status = pStatus_,
+      options = pOptions_
     }
-
--- | The availability options configured for the domain.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aosOptions :: Lens.Lens' AvailabilityOptionsStatus Lude.Bool
-aosOptions = Lens.lens (options :: AvailabilityOptionsStatus -> Lude.Bool) (\s a -> s {options = a} :: AvailabilityOptionsStatus)
-{-# DEPRECATED aosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Undocumented field.
 --
@@ -73,7 +60,14 @@ aosStatus :: Lens.Lens' AvailabilityOptionsStatus OptionStatus
 aosStatus = Lens.lens (status :: AvailabilityOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: AvailabilityOptionsStatus)
 {-# DEPRECATED aosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | The availability options configured for the domain.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aosOptions :: Lens.Lens' AvailabilityOptionsStatus Lude.Bool
+aosOptions = Lens.lens (options :: AvailabilityOptionsStatus -> Lude.Bool) (\s a -> s {options = a} :: AvailabilityOptionsStatus)
+{-# DEPRECATED aosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromXML AvailabilityOptionsStatus where
   parseXML x =
     AvailabilityOptionsStatus'
-      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")
+      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")

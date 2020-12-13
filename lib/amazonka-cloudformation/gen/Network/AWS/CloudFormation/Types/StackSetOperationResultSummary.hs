@@ -35,35 +35,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackSetOperationResultSummary' smart constructor.
 data StackSetOperationResultSummary = StackSetOperationResultSummary'
-  { status ::
-      Lude.Maybe
-        StackSetOperationResultStatus,
-    account ::
-      Lude.Maybe Lude.Text,
-    accountGateResult ::
-      Lude.Maybe AccountGateResult,
-    organizationalUnitId ::
-      Lude.Maybe Lude.Text,
-    region ::
-      Lude.Maybe Lude.Text,
-    statusReason ::
-      Lude.Maybe Lude.Text
+  { -- | The result status of the stack set operation for the given account in the given Region.
+    --
+    --
+    --     * @CANCELLED@ : The operation in the specified account and Region has been cancelled. This is either because a user has stopped the stack set operation, or because the failure tolerance of the stack set operation has been exceeded.
+    --
+    --
+    --     * @FAILED@ : The operation in the specified account and Region failed.
+    -- If the stack set operation fails in enough accounts within a Region, the failure tolerance for the stack set operation as a whole might be exceeded.
+    --
+    --
+    --     * @RUNNING@ : The operation in the specified account and Region is currently in progress.
+    --
+    --
+    --     * @PENDING@ : The operation in the specified account and Region has yet to start.
+    --
+    --
+    --     * @SUCCEEDED@ : The operation in the specified account and Region completed successfully.
+    status :: Lude.Maybe StackSetOperationResultStatus,
+    -- | [@Self-managed@ permissions] The name of the AWS account for this operation result.
+    account :: Lude.Maybe Lude.Text,
+    -- | The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
+    accountGateResult :: Lude.Maybe AccountGateResult,
+    -- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
+    organizationalUnitId :: Lude.Maybe Lude.Text,
+    -- | The name of the AWS Region for this operation result.
+    region :: Lude.Maybe Lude.Text,
+    -- | The reason for the assigned result status.
+    statusReason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackSetOperationResultSummary' with the minimum fields required to make a request.
 --
--- * 'account' - [@Self-managed@ permissions] The name of the AWS account for this operation result.
--- * 'accountGateResult' - The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
--- * 'organizationalUnitId' - [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
--- * 'region' - The name of the AWS Region for this operation result.
 -- * 'status' - The result status of the stack set operation for the given account in the given Region.
 --
 --
@@ -83,6 +88,10 @@ data StackSetOperationResultSummary = StackSetOperationResultSummary'
 --     * @SUCCEEDED@ : The operation in the specified account and Region completed successfully.
 --
 --
+-- * 'account' - [@Self-managed@ permissions] The name of the AWS account for this operation result.
+-- * 'accountGateResult' - The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
+-- * 'organizationalUnitId' - [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
+-- * 'region' - The name of the AWS Region for this operation result.
 -- * 'statusReason' - The reason for the assigned result status.
 mkStackSetOperationResultSummary ::
   StackSetOperationResultSummary

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -70,16 +71,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEC2InstanceLimits' smart constructor.
 newtype DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
-  { ec2InstanceType ::
-      Lude.Maybe EC2InstanceType
+  { -- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions. Leave this parameter blank to retrieve limits for all types.
+    ec2InstanceType :: Lude.Maybe EC2InstanceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEC2InstanceLimits' with the minimum fields required to make a request.
@@ -138,19 +133,12 @@ instance Lude.ToQuery DescribeEC2InstanceLimits where
 --
 -- /See:/ 'mkDescribeEC2InstanceLimitsResponse' smart constructor.
 data DescribeEC2InstanceLimitsResponse = DescribeEC2InstanceLimitsResponse'
-  { ec2InstanceLimits ::
-      Lude.Maybe
-        [EC2InstanceLimit],
-    responseStatus ::
-      Lude.Int
+  { -- | The maximum number of instances for the specified instance type.
+    ec2InstanceLimits :: Lude.Maybe [EC2InstanceLimit],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEC2InstanceLimitsResponse' with the minimum fields required to make a request.

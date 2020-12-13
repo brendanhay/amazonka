@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.IAM.DeleteServiceLinkedRole
     mkDeleteServiceLinkedRoleResponse,
 
     -- ** Response lenses
-    dslrrsResponseStatus,
     dslrrsDeletionTaskId,
+    dslrrsResponseStatus,
   )
 where
 
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteServiceLinkedRole' smart constructor.
 newtype DeleteServiceLinkedRole = DeleteServiceLinkedRole'
-  { roleName ::
-      Lude.Text
+  { -- | The name of the service-linked role to be deleted.
+    roleName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServiceLinkedRole' with the minimum fields required to make a request.
@@ -79,8 +74,8 @@ instance Lude.AWSRequest DeleteServiceLinkedRole where
       "DeleteServiceLinkedRoleResult"
       ( \s h x ->
           DeleteServiceLinkedRoleResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "DeletionTaskId")
+            Lude.<$> (x Lude..@ "DeletionTaskId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteServiceLinkedRole where
@@ -99,17 +94,12 @@ instance Lude.ToQuery DeleteServiceLinkedRole where
 
 -- | /See:/ 'mkDeleteServiceLinkedRoleResponse' smart constructor.
 data DeleteServiceLinkedRoleResponse = DeleteServiceLinkedRoleResponse'
-  { responseStatus ::
-      Lude.Int,
-    deletionTaskId :: Lude.Text
+  { -- | The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
+    deletionTaskId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServiceLinkedRoleResponse' with the minimum fields required to make a request.
@@ -117,24 +107,17 @@ data DeleteServiceLinkedRoleResponse = DeleteServiceLinkedRoleResponse'
 -- * 'deletionTaskId' - The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
 -- * 'responseStatus' - The response status code.
 mkDeleteServiceLinkedRoleResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'deletionTaskId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteServiceLinkedRoleResponse
-mkDeleteServiceLinkedRoleResponse pResponseStatus_ pDeletionTaskId_ =
+mkDeleteServiceLinkedRoleResponse pDeletionTaskId_ pResponseStatus_ =
   DeleteServiceLinkedRoleResponse'
-    { responseStatus =
-        pResponseStatus_,
-      deletionTaskId = pDeletionTaskId_
+    { deletionTaskId =
+        pDeletionTaskId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dslrrsResponseStatus :: Lens.Lens' DeleteServiceLinkedRoleResponse Lude.Int
-dslrrsResponseStatus = Lens.lens (responseStatus :: DeleteServiceLinkedRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServiceLinkedRoleResponse)
-{-# DEPRECATED dslrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
 --
@@ -142,3 +125,10 @@ dslrrsResponseStatus = Lens.lens (responseStatus :: DeleteServiceLinkedRoleRespo
 dslrrsDeletionTaskId :: Lens.Lens' DeleteServiceLinkedRoleResponse Lude.Text
 dslrrsDeletionTaskId = Lens.lens (deletionTaskId :: DeleteServiceLinkedRoleResponse -> Lude.Text) (\s a -> s {deletionTaskId = a} :: DeleteServiceLinkedRoleResponse)
 {-# DEPRECATED dslrrsDeletionTaskId "Use generic-lens or generic-optics with 'deletionTaskId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dslrrsResponseStatus :: Lens.Lens' DeleteServiceLinkedRoleResponse Lude.Int
+dslrrsResponseStatus = Lens.lens (responseStatus :: DeleteServiceLinkedRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServiceLinkedRoleResponse)
+{-# DEPRECATED dslrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,11 +13,11 @@
 module Network.AWS.ElasticBeanstalk.Types.PlatformStatus
   ( PlatformStatus
       ( PlatformStatus',
-        Creating,
-        Deleted,
-        Deleting,
-        Failed,
-        Ready
+        PSCreating,
+        PSFailed,
+        PSReady,
+        PSDeleting,
+        PSDeleted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype PlatformStatus = PlatformStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Creating :: PlatformStatus
-pattern Creating = PlatformStatus' "Creating"
+pattern PSCreating :: PlatformStatus
+pattern PSCreating = PlatformStatus' "Creating"
 
-pattern Deleted :: PlatformStatus
-pattern Deleted = PlatformStatus' "Deleted"
+pattern PSFailed :: PlatformStatus
+pattern PSFailed = PlatformStatus' "Failed"
 
-pattern Deleting :: PlatformStatus
-pattern Deleting = PlatformStatus' "Deleting"
+pattern PSReady :: PlatformStatus
+pattern PSReady = PlatformStatus' "Ready"
 
-pattern Failed :: PlatformStatus
-pattern Failed = PlatformStatus' "Failed"
+pattern PSDeleting :: PlatformStatus
+pattern PSDeleting = PlatformStatus' "Deleting"
 
-pattern Ready :: PlatformStatus
-pattern Ready = PlatformStatus' "Ready"
+pattern PSDeleted :: PlatformStatus
+pattern PSDeleted = PlatformStatus' "Deleted"
 
 {-# COMPLETE
-  Creating,
-  Deleted,
-  Deleting,
-  Failed,
-  Ready,
+  PSCreating,
+  PSFailed,
+  PSReady,
+  PSDeleting,
+  PSDeleted,
   PlatformStatus'
   #-}

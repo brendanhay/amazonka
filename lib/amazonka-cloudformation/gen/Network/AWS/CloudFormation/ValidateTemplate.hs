@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,17 +47,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkValidateTemplate' smart constructor.
 data ValidateTemplate = ValidateTemplate'
-  { templateBody ::
-      Lude.Maybe Lude.Text,
+  { -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+    --
+    -- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
+    templateBody :: Lude.Maybe Lude.Text,
+    -- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+    --
+    -- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
     templateURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidateTemplate' with the minimum fields required to make a request.
@@ -134,34 +134,33 @@ instance Lude.ToQuery ValidateTemplate where
 --
 -- /See:/ 'mkValidateTemplateResponse' smart constructor.
 data ValidateTemplateResponse = ValidateTemplateResponse'
-  { declaredTransforms ::
-      Lude.Maybe [Lude.Text],
-    capabilitiesReason ::
-      Lude.Maybe Lude.Text,
-    parameters ::
-      Lude.Maybe [TemplateParameter],
+  { -- | A list of the transforms that are declared in the template.
+    declaredTransforms :: Lude.Maybe [Lude.Text],
+    -- | The list of resources that generated the values in the @Capabilities@ response element.
+    capabilitiesReason :: Lude.Maybe Lude.Text,
+    -- | A list of @TemplateParameter@ structures.
+    parameters :: Lude.Maybe [TemplateParameter],
+    -- | The description found within the template.
     description :: Lude.Maybe Lude.Text,
+    -- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
     capabilities :: Lude.Maybe [Capability],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidateTemplateResponse' with the minimum fields required to make a request.
 --
+-- * 'declaredTransforms' - A list of the transforms that are declared in the template.
+-- * 'capabilitiesReason' - The list of resources that generated the values in the @Capabilities@ response element.
+-- * 'parameters' - A list of @TemplateParameter@ structures.
+-- * 'description' - The description found within the template.
 -- * 'capabilities' - The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
 --
 -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
--- * 'capabilitiesReason' - The list of resources that generated the values in the @Capabilities@ response element.
--- * 'declaredTransforms' - A list of the transforms that are declared in the template.
--- * 'description' - The description found within the template.
--- * 'parameters' - A list of @TemplateParameter@ structures.
 -- * 'responseStatus' - The response status code.
 mkValidateTemplateResponse ::
   -- | 'responseStatus'

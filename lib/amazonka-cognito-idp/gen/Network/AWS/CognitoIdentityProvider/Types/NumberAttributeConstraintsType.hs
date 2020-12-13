@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNumberAttributeConstraintsType' smart constructor.
 data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
-  { maxValue ::
-      Lude.Maybe Lude.Text,
-    minValue ::
-      Lude.Maybe Lude.Text
+  { -- | The maximum value of an attribute that is of the number data type.
+    maxValue :: Lude.Maybe Lude.Text,
+    -- | The minimum value of an attribute that is of the number data type.
+    minValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NumberAttributeConstraintsType' with the minimum fields required to make a request.

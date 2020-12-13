@@ -42,23 +42,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { hostedZoneId :: Lude.Maybe Lude.Text,
+  { -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+    hostedZoneId :: Lude.Maybe Lude.Text,
+    -- | Specifies the DNS address of the DB instance.
     address :: Lude.Maybe Lude.Text,
+    -- | Specifies the port that the database engine is listening on.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
--- * 'address' - Specifies the DNS address of the DB instance.
 -- * 'hostedZoneId' - Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+-- * 'address' - Specifies the DNS address of the DB instance.
 -- * 'port' - Specifies the port that the database engine is listening on.
 mkEndpoint ::
   Endpoint

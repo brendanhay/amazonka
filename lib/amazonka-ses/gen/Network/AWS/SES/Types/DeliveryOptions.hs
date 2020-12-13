@@ -29,16 +29,10 @@ import Network.AWS.SES.Types.TLSPolicy
 --
 -- /See:/ 'mkDeliveryOptions' smart constructor.
 newtype DeliveryOptions = DeliveryOptions'
-  { tlsPolicy ::
-      Lude.Maybe TLSPolicy
+  { -- | Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is @Require@ , messages are only delivered if a TLS connection can be established. If the value is @Optional@ , messages can be delivered in plain text if a TLS connection can't be established.
+    tlsPolicy :: Lude.Maybe TLSPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliveryOptions' with the minimum fields required to make a request.

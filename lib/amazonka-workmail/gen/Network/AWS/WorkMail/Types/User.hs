@@ -37,34 +37,36 @@ import Network.AWS.WorkMail.Types.UserRole
 --
 -- /See:/ 'mkUser' smart constructor.
 data User = User'
-  { email :: Lude.Maybe Lude.Text,
+  { -- | The email of the user.
+    email :: Lude.Maybe Lude.Text,
+    -- | The state of the user, which can be ENABLED, DISABLED, or DELETED.
     state :: Lude.Maybe EntityState,
+    -- | The date indicating when the user was disabled from Amazon WorkMail use.
     disabledDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the user.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the user.
     id :: Lude.Maybe Lude.Text,
+    -- | The display name of the user.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The role of the user.
     userRole :: Lude.Maybe UserRole,
+    -- | The date indicating when the user was enabled for Amazon WorkMail use.
     enabledDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'User' with the minimum fields required to make a request.
 --
--- * 'disabledDate' - The date indicating when the user was disabled from Amazon WorkMail use.
--- * 'displayName' - The display name of the user.
 -- * 'email' - The email of the user.
--- * 'enabledDate' - The date indicating when the user was enabled for Amazon WorkMail use.
--- * 'id' - The identifier of the user.
--- * 'name' - The name of the user.
 -- * 'state' - The state of the user, which can be ENABLED, DISABLED, or DELETED.
+-- * 'disabledDate' - The date indicating when the user was disabled from Amazon WorkMail use.
+-- * 'name' - The name of the user.
+-- * 'id' - The identifier of the user.
+-- * 'displayName' - The display name of the user.
 -- * 'userRole' - The role of the user.
+-- * 'enabledDate' - The date indicating when the user was enabled for Amazon WorkMail use.
 mkUser ::
   User
 mkUser =

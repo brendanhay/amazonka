@@ -30,28 +30,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArchivalSummary' smart constructor.
 data ArchivalSummary = ArchivalSummary'
-  { archivalReason ::
-      Lude.Maybe Lude.Text,
+  { -- | The reason DynamoDB archived the table. Currently, the only possible value is:
+    --
+    --
+    --     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due to the table's AWS KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.
+    archivalReason :: Lude.Maybe Lude.Text,
+    -- | The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.
     archivalDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.
     archivalBackupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchivalSummary' with the minimum fields required to make a request.
 --
--- * 'archivalBackupARN' - The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.
--- * 'archivalDateTime' - The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.
 -- * 'archivalReason' - The reason DynamoDB archived the table. Currently, the only possible value is:
 --
 --
 --     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due to the table's AWS KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.
+--
+--
+-- * 'archivalDateTime' - The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.
+-- * 'archivalBackupARN' - The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.
 mkArchivalSummary ::
   ArchivalSummary
 mkArchivalSummary =

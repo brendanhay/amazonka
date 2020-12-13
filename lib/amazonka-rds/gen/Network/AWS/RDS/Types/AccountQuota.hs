@@ -89,24 +89,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountQuota' smart constructor.
 data AccountQuota = AccountQuota'
-  { max :: Lude.Maybe Lude.Integer,
+  { -- | The maximum allowed value for the quota.
+    max :: Lude.Maybe Lude.Integer,
+    -- | The amount currently used toward the quota maximum.
     used :: Lude.Maybe Lude.Integer,
+    -- | The name of the Amazon RDS quota for this AWS account.
     accountQuotaName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountQuota' with the minimum fields required to make a request.
 --
--- * 'accountQuotaName' - The name of the Amazon RDS quota for this AWS account.
 -- * 'max' - The maximum allowed value for the quota.
 -- * 'used' - The amount currently used toward the quota maximum.
+-- * 'accountQuotaName' - The name of the Amazon RDS quota for this AWS account.
 mkAccountQuota ::
   AccountQuota
 mkAccountQuota =

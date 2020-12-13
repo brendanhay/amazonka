@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReviewResultDetail' smart constructor.
 data ReviewResultDetail = ReviewResultDetail'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The values of Key provided by the review policies you have selected.
+    value :: Lude.Maybe Lude.Text,
+    -- | A unique identifier of the Review action result.
     actionId :: Lude.Maybe Lude.Text,
+    -- | The type of the object from the SubjectId field.
     subjectType :: Lude.Maybe Lude.Text,
+    -- | Key identifies the particular piece of reviewed information.
     key :: Lude.Maybe Lude.Text,
+    -- | Specifies the QuestionId the result is describing. Depending on whether the TargetType is a HIT or Assignment this results could specify multiple values. If TargetType is HIT and QuestionId is absent, then the result describes results of the HIT, including the HIT agreement score. If ObjectType is Assignment and QuestionId is absent, then the result describes the Worker's performance on the HIT.
     questionId :: Lude.Maybe Lude.Text,
+    -- | The HITID or AssignmentId about which this result was taken. Note that HIT-level Review Policies will often emit results about both the HIT itself and its Assignments, while Assignment-level review policies generally only emit results about the Assignment itself.
     subjectId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReviewResultDetail' with the minimum fields required to make a request.
 --
+-- * 'value' - The values of Key provided by the review policies you have selected.
 -- * 'actionId' - A unique identifier of the Review action result.
+-- * 'subjectType' - The type of the object from the SubjectId field.
 -- * 'key' - Key identifies the particular piece of reviewed information.
 -- * 'questionId' - Specifies the QuestionId the result is describing. Depending on whether the TargetType is a HIT or Assignment this results could specify multiple values. If TargetType is HIT and QuestionId is absent, then the result describes results of the HIT, including the HIT agreement score. If ObjectType is Assignment and QuestionId is absent, then the result describes the Worker's performance on the HIT.
 -- * 'subjectId' - The HITID or AssignmentId about which this result was taken. Note that HIT-level Review Policies will often emit results about both the HIT itself and its Assignments, while Assignment-level review policies generally only emit results about the Assignment itself.
--- * 'subjectType' - The type of the object from the SubjectId field.
--- * 'value' - The values of Key provided by the review policies you have selected.
 mkReviewResultDetail ::
   ReviewResultDetail
 mkReviewResultDetail =

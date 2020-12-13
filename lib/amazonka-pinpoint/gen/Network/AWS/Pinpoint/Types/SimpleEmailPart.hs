@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSimpleEmailPart' smart constructor.
 data SimpleEmailPart = SimpleEmailPart'
-  { data' ::
-      Lude.Maybe Lude.Text,
+  { -- | The textual data of the message content.
+    data' :: Lude.Maybe Lude.Text,
+    -- | The applicable character set for the message content.
     charset :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SimpleEmailPart' with the minimum fields required to make a request.
 --
--- * 'charset' - The applicable character set for the message content.
 -- * 'data'' - The textual data of the message content.
+-- * 'charset' - The applicable character set for the message content.
 mkSimpleEmailPart ::
   SimpleEmailPart
 mkSimpleEmailPart =

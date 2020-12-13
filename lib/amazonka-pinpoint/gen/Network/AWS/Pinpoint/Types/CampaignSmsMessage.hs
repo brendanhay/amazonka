@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCampaignSmsMessage' smart constructor.
 data CampaignSmsMessage = CampaignSmsMessage'
-  { body ::
-      Lude.Maybe Lude.Text,
+  { -- | The body of the SMS message.
+    body :: Lude.Maybe Lude.Text,
+    -- | The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
     messageType :: Lude.Maybe MessageType,
+    -- | The sender ID to display on recipients' devices when they receive the SMS message.
     senderId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CampaignSmsMessage' with the minimum fields required to make a request.

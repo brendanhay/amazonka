@@ -42,40 +42,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrust' smart constructor.
 data Trust = Trust'
-  { directoryId :: Lude.Maybe Lude.Text,
+  { -- | The Directory ID of the AWS directory involved in the trust relationship.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The trust relationship state.
     trustState :: Lude.Maybe TrustState,
+    -- | The date and time that the trust relationship was last updated.
     lastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The trust relationship direction.
     trustDirection :: Lude.Maybe TrustDirection,
+    -- | The date and time that the TrustState was last updated.
     stateLastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The trust relationship type. @Forest@ is the default.
     trustType :: Lude.Maybe TrustType,
+    -- | The reason for the TrustState.
     trustStateReason :: Lude.Maybe Lude.Text,
+    -- | Current state of selective authentication for the trust.
     selectiveAuth :: Lude.Maybe SelectiveAuth,
+    -- | The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
     remoteDomainName :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the trust relationship.
     trustId :: Lude.Maybe Lude.Text,
+    -- | The date and time that the trust relationship was created.
     createdDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Trust' with the minimum fields required to make a request.
 --
--- * 'createdDateTime' - The date and time that the trust relationship was created.
 -- * 'directoryId' - The Directory ID of the AWS directory involved in the trust relationship.
--- * 'lastUpdatedDateTime' - The date and time that the trust relationship was last updated.
--- * 'remoteDomainName' - The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
--- * 'selectiveAuth' - Current state of selective authentication for the trust.
--- * 'stateLastUpdatedDateTime' - The date and time that the TrustState was last updated.
--- * 'trustDirection' - The trust relationship direction.
--- * 'trustId' - The unique ID of the trust relationship.
 -- * 'trustState' - The trust relationship state.
--- * 'trustStateReason' - The reason for the TrustState.
+-- * 'lastUpdatedDateTime' - The date and time that the trust relationship was last updated.
+-- * 'trustDirection' - The trust relationship direction.
+-- * 'stateLastUpdatedDateTime' - The date and time that the TrustState was last updated.
 -- * 'trustType' - The trust relationship type. @Forest@ is the default.
+-- * 'trustStateReason' - The reason for the TrustState.
+-- * 'selectiveAuth' - Current state of selective authentication for the trust.
+-- * 'remoteDomainName' - The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
+-- * 'trustId' - The unique ID of the trust relationship.
+-- * 'createdDateTime' - The date and time that the trust relationship was created.
 mkTrust ::
   Trust
 mkTrust =

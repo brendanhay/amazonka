@@ -30,36 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuditMitigationActionsTaskTarget' smart constructor.
 data AuditMitigationActionsTaskTarget = AuditMitigationActionsTaskTarget'
-  { auditTaskId ::
-      Lude.Maybe Lude.Text,
-    findingIds ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            Lude.Text
-        ),
-    auditCheckToReasonCodeFilter ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ( Lude.NonEmpty
-                Lude.Text
-            )
-        )
+  { -- | If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.
+    auditTaskId :: Lude.Maybe Lude.Text,
+    -- | If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.
+    findingIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.
+    auditCheckToReasonCodeFilter :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditMitigationActionsTaskTarget' with the minimum fields required to make a request.
 --
--- * 'auditCheckToReasonCodeFilter' - Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.
 -- * 'auditTaskId' - If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.
 -- * 'findingIds' - If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.
+-- * 'auditCheckToReasonCodeFilter' - Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.
 mkAuditMitigationActionsTaskTarget ::
   AuditMitigationActionsTaskTarget
 mkAuditMitigationActionsTaskTarget =

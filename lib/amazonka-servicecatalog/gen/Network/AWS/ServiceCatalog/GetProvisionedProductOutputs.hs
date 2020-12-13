@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,29 +46,35 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkGetProvisionedProductOutputs' smart constructor.
 data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
-  { provisionedProductName ::
-      Lude.Maybe Lude.Text,
-    outputKeys ::
-      Lude.Maybe [Lude.Text],
-    acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the provisioned product that you want the outputs from.
+    provisionedProductName :: Lude.Maybe Lude.Text,
+    -- | The list of keys that the API should return with their values. If none are provided, the API will return all outputs of the provisioned product.
+    outputKeys :: Lude.Maybe [Lude.Text],
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
-    pageSize ::
-      Lude.Maybe Lude.Natural,
-    provisionedProductId ::
-      Lude.Maybe Lude.Text
+    -- | The maximum number of items to return with this call.
+    pageSize :: Lude.Maybe Lude.Natural,
+    -- | The identifier of the provisioned product that you want the outputs from.
+    provisionedProductId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProvisionedProductOutputs' with the minimum fields required to make a request.
 --
+-- * 'provisionedProductName' - The name of the provisioned product that you want the outputs from.
+-- * 'outputKeys' - The list of keys that the API should return with their values. If none are provided, the API will return all outputs of the provisioned product.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -80,11 +87,9 @@ data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
 --     * @zh@ - Chinese
 --
 --
--- * 'outputKeys' - The list of keys that the API should return with their values. If none are provided, the API will return all outputs of the provisioned product.
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'provisionedProductId' - The identifier of the provisioned product that you want the outputs from.
--- * 'provisionedProductName' - The name of the provisioned product that you want the outputs from.
 mkGetProvisionedProductOutputs ::
   GetProvisionedProductOutputs
 mkGetProvisionedProductOutputs =
@@ -200,22 +205,14 @@ instance Lude.ToQuery GetProvisionedProductOutputs where
 
 -- | /See:/ 'mkGetProvisionedProductOutputsResponse' smart constructor.
 data GetProvisionedProductOutputsResponse = GetProvisionedProductOutputsResponse'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    outputs ::
-      Lude.Maybe
-        [RecordOutput],
-    responseStatus ::
-      Lude.Int
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
+    outputs :: Lude.Maybe [RecordOutput],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProvisionedProductOutputsResponse' with the minimum fields required to make a request.

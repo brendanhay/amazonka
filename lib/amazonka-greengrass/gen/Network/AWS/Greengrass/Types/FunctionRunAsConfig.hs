@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionRunAsConfig' smart constructor.
 data FunctionRunAsConfig = FunctionRunAsConfig'
-  { uid ::
-      Lude.Maybe Lude.Int,
+  { -- | The user ID whose permissions are used to run a Lambda function.
+    uid :: Lude.Maybe Lude.Int,
+    -- | The group ID whose permissions are used to run a Lambda function.
     gid :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionRunAsConfig' with the minimum fields required to make a request.
 --
--- * 'gid' - The group ID whose permissions are used to run a Lambda function.
 -- * 'uid' - The user ID whose permissions are used to run a Lambda function.
+-- * 'gid' - The group ID whose permissions are used to run a Lambda function.
 mkFunctionRunAsConfig ::
   FunctionRunAsConfig
 mkFunctionRunAsConfig =

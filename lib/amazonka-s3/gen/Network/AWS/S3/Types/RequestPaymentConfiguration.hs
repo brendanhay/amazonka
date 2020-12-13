@@ -30,16 +30,10 @@ import Network.AWS.S3.Types.Payer
 --
 -- /See:/ 'mkRequestPaymentConfiguration' smart constructor.
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration'
-  { payer ::
-      Payer
+  { -- | Specifies who pays for the download and request fees.
+    payer :: Payer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestPaymentConfiguration' with the minimum fields required to make a request.

@@ -30,29 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflowExecutionFailedEventAttributes' smart constructor.
 data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttributes'
-  { reason ::
-      Lude.Maybe
-        Lude.Text,
-    details ::
-      Lude.Maybe
-        Lude.Text,
-    decisionTaskCompletedEventId ::
-      Lude.Integer
+  { -- | The descriptive reason provided for the failure.
+    reason :: Lude.Maybe Lude.Text,
+    -- | The details of the failure.
+    details :: Lude.Maybe Lude.Text,
+    -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    decisionTaskCompletedEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionFailedEventAttributes' with the minimum fields required to make a request.
 --
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'details' - The details of the failure.
 -- * 'reason' - The descriptive reason provided for the failure.
+-- * 'details' - The details of the failure.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 mkWorkflowExecutionFailedEventAttributes ::
   -- | 'decisionTaskCompletedEventId'
   Lude.Integer ->

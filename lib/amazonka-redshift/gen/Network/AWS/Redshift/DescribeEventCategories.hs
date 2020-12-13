@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEventCategories' smart constructor.
 newtype DescribeEventCategories = DescribeEventCategories'
-  { sourceType ::
-      Lude.Maybe Lude.Text
+  { -- | The source type, such as cluster or parameter group, to which the described event categories apply.
+    --
+    -- Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.
+    sourceType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventCategories' with the minimum fields required to make a request.
@@ -104,18 +101,12 @@ instance Lude.ToQuery DescribeEventCategories where
 --
 -- /See:/ 'mkDescribeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-  { eventCategoriesMapList ::
-      Lude.Maybe
-        [EventCategoriesMap],
+  { -- | A list of event categories descriptions.
+    eventCategoriesMapList :: Lude.Maybe [EventCategoriesMap],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.

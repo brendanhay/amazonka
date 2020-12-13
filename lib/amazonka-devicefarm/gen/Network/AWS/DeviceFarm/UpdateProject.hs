@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.DeviceFarm.UpdateProject
     mkUpdateProject,
 
     -- ** Request lenses
+    upArn,
     upName,
     upDefaultJobTimeoutMinutes,
-    upArn,
 
     -- * Destructuring the response
     UpdateProjectResponse (..),
@@ -43,34 +44,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { name :: Lude.Maybe Lude.Text,
-    defaultJobTimeoutMinutes :: Lude.Maybe Lude.Int,
-    arn :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the project whose name to update.
+    arn :: Lude.Text,
+    -- | A string that represents the new name of the project that you are updating.
+    name :: Lude.Maybe Lude.Text,
+    -- | The number of minutes a test run in the project executes before it times out.
+    defaultJobTimeoutMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the project whose name to update.
--- * 'defaultJobTimeoutMinutes' - The number of minutes a test run in the project executes before it times out.
 -- * 'name' - A string that represents the new name of the project that you are updating.
+-- * 'defaultJobTimeoutMinutes' - The number of minutes a test run in the project executes before it times out.
 mkUpdateProject ::
   -- | 'arn'
   Lude.Text ->
   UpdateProject
 mkUpdateProject pArn_ =
   UpdateProject'
-    { name = Lude.Nothing,
-      defaultJobTimeoutMinutes = Lude.Nothing,
-      arn = pArn_
+    { arn = pArn_,
+      name = Lude.Nothing,
+      defaultJobTimeoutMinutes = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the project whose name to update.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upArn :: Lens.Lens' UpdateProject Lude.Text
+upArn = Lens.lens (arn :: UpdateProject -> Lude.Text) (\s a -> s {arn = a} :: UpdateProject)
+{-# DEPRECATED upArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A string that represents the new name of the project that you are updating.
 --
@@ -85,13 +90,6 @@ upName = Lens.lens (name :: UpdateProject -> Lude.Maybe Lude.Text) (\s a -> s {n
 upDefaultJobTimeoutMinutes :: Lens.Lens' UpdateProject (Lude.Maybe Lude.Int)
 upDefaultJobTimeoutMinutes = Lens.lens (defaultJobTimeoutMinutes :: UpdateProject -> Lude.Maybe Lude.Int) (\s a -> s {defaultJobTimeoutMinutes = a} :: UpdateProject)
 {-# DEPRECATED upDefaultJobTimeoutMinutes "Use generic-lens or generic-optics with 'defaultJobTimeoutMinutes' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the project whose name to update.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upArn :: Lens.Lens' UpdateProject Lude.Text
-upArn = Lens.lens (arn :: UpdateProject -> Lude.Text) (\s a -> s {arn = a} :: UpdateProject)
-{-# DEPRECATED upArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 instance Lude.AWSRequest UpdateProject where
   type Rs UpdateProject = UpdateProjectResponse
@@ -118,10 +116,10 @@ instance Lude.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("name" Lude..=) Lude.<$> name,
+          [ Lude.Just ("arn" Lude..= arn),
+            ("name" Lude..=) Lude.<$> name,
             ("defaultJobTimeoutMinutes" Lude..=)
-              Lude.<$> defaultJobTimeoutMinutes,
-            Lude.Just ("arn" Lude..= arn)
+              Lude.<$> defaultJobTimeoutMinutes
           ]
       )
 
@@ -135,17 +133,12 @@ instance Lude.ToQuery UpdateProject where
 --
 -- /See:/ 'mkUpdateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
-  { project ::
-      Lude.Maybe Project,
+  { -- | The project to update.
+    project :: Lude.Maybe Project,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.

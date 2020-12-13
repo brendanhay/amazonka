@@ -38,38 +38,42 @@ import Network.AWS.SSM.Types.Tag
 --
 -- /See:/ 'mkActivation' smart constructor.
 data Activation = Activation'
-  { expired :: Lude.Maybe Lude.Bool,
+  { -- | Whether or not the activation is expired.
+    expired :: Lude.Maybe Lude.Bool,
+    -- | A name for the managed instance when it is created.
     defaultInstanceName :: Lude.Maybe Lude.Text,
+    -- | The ID created by Systems Manager when you submitted the activation.
     activationId :: Lude.Maybe Lude.Text,
+    -- | The date the activation was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of managed instances that can be registered using this activation.
     registrationLimit :: Lude.Maybe Lude.Natural,
+    -- | The date when this activation can no longer be used to register managed instances.
     expirationDate :: Lude.Maybe Lude.Timestamp,
+    -- | A user defined description of the activation.
     description :: Lude.Maybe Lude.Text,
+    -- | Tags assigned to the activation.
     tags :: Lude.Maybe [Tag],
+    -- | The number of managed instances already registered with this activation.
     registrationsCount :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Identity and Access Management (IAM) role to assign to the managed instance.
     iamRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Activation' with the minimum fields required to make a request.
 --
+-- * 'expired' - Whether or not the activation is expired.
+-- * 'defaultInstanceName' - A name for the managed instance when it is created.
 -- * 'activationId' - The ID created by Systems Manager when you submitted the activation.
 -- * 'createdDate' - The date the activation was created.
--- * 'defaultInstanceName' - A name for the managed instance when it is created.
--- * 'description' - A user defined description of the activation.
--- * 'expirationDate' - The date when this activation can no longer be used to register managed instances.
--- * 'expired' - Whether or not the activation is expired.
--- * 'iamRole' - The Amazon Identity and Access Management (IAM) role to assign to the managed instance.
 -- * 'registrationLimit' - The maximum number of managed instances that can be registered using this activation.
--- * 'registrationsCount' - The number of managed instances already registered with this activation.
+-- * 'expirationDate' - The date when this activation can no longer be used to register managed instances.
+-- * 'description' - A user defined description of the activation.
 -- * 'tags' - Tags assigned to the activation.
+-- * 'registrationsCount' - The number of managed instances already registered with this activation.
+-- * 'iamRole' - The Amazon Identity and Access Management (IAM) role to assign to the managed instance.
 mkActivation ::
   Activation
 mkActivation =

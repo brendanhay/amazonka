@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.OpsWorks.CreateDeployment
     mkCreateDeployment,
 
     -- ** Request lenses
+    cdCommand,
     cdCustomJSON,
     cdAppId,
     cdInstanceIds,
     cdLayerIds,
-    cdComment,
     cdStackId,
-    cdCommand,
+    cdComment,
 
     -- * Destructuring the response
     CreateDeploymentResponse (..),
@@ -47,52 +48,62 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { customJSON ::
-      Lude.Maybe Lude.Text,
+  { -- | A @DeploymentCommand@ object that specifies the deployment command and any associated arguments.
+    command :: DeploymentCommand,
+    -- | A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default stack configuration JSON values. The string should be in the following format:
+    --
+    -- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
+    -- For more information about custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> and <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON> .
+    customJSON :: Lude.Maybe Lude.Text,
+    -- | The app ID. This parameter is required for app deployments, but not for other deployment commands.
     appId :: Lude.Maybe Lude.Text,
+    -- | The instance IDs for the deployment targets.
     instanceIds :: Lude.Maybe [Lude.Text],
+    -- | The layer IDs for the deployment targets.
     layerIds :: Lude.Maybe [Lude.Text],
-    comment :: Lude.Maybe Lude.Text,
+    -- | The stack ID.
     stackId :: Lude.Text,
-    command :: DeploymentCommand
+    -- | A user-defined comment.
+    comment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
--- * 'appId' - The app ID. This parameter is required for app deployments, but not for other deployment commands.
 -- * 'command' - A @DeploymentCommand@ object that specifies the deployment command and any associated arguments.
--- * 'comment' - A user-defined comment.
 -- * 'customJSON' - A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default stack configuration JSON values. The string should be in the following format:
 --
 -- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
 -- For more information about custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> and <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON> .
+-- * 'appId' - The app ID. This parameter is required for app deployments, but not for other deployment commands.
 -- * 'instanceIds' - The instance IDs for the deployment targets.
 -- * 'layerIds' - The layer IDs for the deployment targets.
 -- * 'stackId' - The stack ID.
+-- * 'comment' - A user-defined comment.
 mkCreateDeployment ::
-  -- | 'stackId'
-  Lude.Text ->
   -- | 'command'
   DeploymentCommand ->
+  -- | 'stackId'
+  Lude.Text ->
   CreateDeployment
-mkCreateDeployment pStackId_ pCommand_ =
+mkCreateDeployment pCommand_ pStackId_ =
   CreateDeployment'
-    { customJSON = Lude.Nothing,
+    { command = pCommand_,
+      customJSON = Lude.Nothing,
       appId = Lude.Nothing,
       instanceIds = Lude.Nothing,
       layerIds = Lude.Nothing,
-      comment = Lude.Nothing,
       stackId = pStackId_,
-      command = pCommand_
+      comment = Lude.Nothing
     }
+
+-- | A @DeploymentCommand@ object that specifies the deployment command and any associated arguments.
+--
+-- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCommand :: Lens.Lens' CreateDeployment DeploymentCommand
+cdCommand = Lens.lens (command :: CreateDeployment -> DeploymentCommand) (\s a -> s {command = a} :: CreateDeployment)
+{-# DEPRECATED cdCommand "Use generic-lens or generic-optics with 'command' instead." #-}
 
 -- | A string that contains user-defined, custom JSON. You can use this parameter to override some corresponding default stack configuration JSON values. The string should be in the following format:
 --
@@ -125,13 +136,6 @@ cdLayerIds :: Lens.Lens' CreateDeployment (Lude.Maybe [Lude.Text])
 cdLayerIds = Lens.lens (layerIds :: CreateDeployment -> Lude.Maybe [Lude.Text]) (\s a -> s {layerIds = a} :: CreateDeployment)
 {-# DEPRECATED cdLayerIds "Use generic-lens or generic-optics with 'layerIds' instead." #-}
 
--- | A user-defined comment.
---
--- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdComment :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Text)
-cdComment = Lens.lens (comment :: CreateDeployment -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: CreateDeployment)
-{-# DEPRECATED cdComment "Use generic-lens or generic-optics with 'comment' instead." #-}
-
 -- | The stack ID.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -139,12 +143,12 @@ cdStackId :: Lens.Lens' CreateDeployment Lude.Text
 cdStackId = Lens.lens (stackId :: CreateDeployment -> Lude.Text) (\s a -> s {stackId = a} :: CreateDeployment)
 {-# DEPRECATED cdStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
--- | A @DeploymentCommand@ object that specifies the deployment command and any associated arguments.
+-- | A user-defined comment.
 --
--- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCommand :: Lens.Lens' CreateDeployment DeploymentCommand
-cdCommand = Lens.lens (command :: CreateDeployment -> DeploymentCommand) (\s a -> s {command = a} :: CreateDeployment)
-{-# DEPRECATED cdCommand "Use generic-lens or generic-optics with 'command' instead." #-}
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdComment :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Text)
+cdComment = Lens.lens (comment :: CreateDeployment -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: CreateDeployment)
+{-# DEPRECATED cdComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 instance Lude.AWSRequest CreateDeployment where
   type Rs CreateDeployment = CreateDeploymentResponse
@@ -171,13 +175,13 @@ instance Lude.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CustomJson" Lude..=) Lude.<$> customJSON,
+          [ Lude.Just ("Command" Lude..= command),
+            ("CustomJson" Lude..=) Lude.<$> customJSON,
             ("AppId" Lude..=) Lude.<$> appId,
             ("InstanceIds" Lude..=) Lude.<$> instanceIds,
             ("LayerIds" Lude..=) Lude.<$> layerIds,
-            ("Comment" Lude..=) Lude.<$> comment,
             Lude.Just ("StackId" Lude..= stackId),
-            Lude.Just ("Command" Lude..= command)
+            ("Comment" Lude..=) Lude.<$> comment
           ]
       )
 
@@ -191,17 +195,12 @@ instance Lude.ToQuery CreateDeployment where
 --
 -- /See:/ 'mkCreateDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-  { deploymentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The deployment ID, which can be used with other requests to identify the deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.

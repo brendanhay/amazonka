@@ -17,12 +17,12 @@ module Network.AWS.IoT.Types.TopicRulePayload
     mkTopicRulePayload,
 
     -- * Lenses
+    trpActions,
     trpAwsIotSqlVersion,
     trpErrorAction,
     trpRuleDisabled,
-    trpDescription,
     trpSql,
-    trpActions,
+    trpDescription,
   )
 where
 
@@ -34,44 +34,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTopicRulePayload' smart constructor.
 data TopicRulePayload = TopicRulePayload'
-  { awsIotSqlVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The actions associated with the rule.
+    actions :: [Action],
+    -- | The version of the SQL rules engine to use when evaluating the rule.
+    awsIotSqlVersion :: Lude.Maybe Lude.Text,
+    -- | The action to take when an error occurs.
     errorAction :: Lude.Maybe Action,
+    -- | Specifies whether the rule is disabled.
     ruleDisabled :: Lude.Maybe Lude.Bool,
-    description :: Lude.Maybe Lude.Text,
+    -- | The SQL statement used to query the topic. For more information, see <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html AWS IoT SQL Reference> in the /AWS IoT Developer Guide/ .
     sql :: Lude.Text,
-    actions :: [Action]
+    -- | The description of the rule.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TopicRulePayload' with the minimum fields required to make a request.
 --
 -- * 'actions' - The actions associated with the rule.
 -- * 'awsIotSqlVersion' - The version of the SQL rules engine to use when evaluating the rule.
--- * 'description' - The description of the rule.
 -- * 'errorAction' - The action to take when an error occurs.
 -- * 'ruleDisabled' - Specifies whether the rule is disabled.
 -- * 'sql' - The SQL statement used to query the topic. For more information, see <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html AWS IoT SQL Reference> in the /AWS IoT Developer Guide/ .
+-- * 'description' - The description of the rule.
 mkTopicRulePayload ::
   -- | 'sql'
   Lude.Text ->
   TopicRulePayload
 mkTopicRulePayload pSql_ =
   TopicRulePayload'
-    { awsIotSqlVersion = Lude.Nothing,
+    { actions = Lude.mempty,
+      awsIotSqlVersion = Lude.Nothing,
       errorAction = Lude.Nothing,
       ruleDisabled = Lude.Nothing,
-      description = Lude.Nothing,
       sql = pSql_,
-      actions = Lude.mempty
+      description = Lude.Nothing
     }
+
+-- | The actions associated with the rule.
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trpActions :: Lens.Lens' TopicRulePayload [Action]
+trpActions = Lens.lens (actions :: TopicRulePayload -> [Action]) (\s a -> s {actions = a} :: TopicRulePayload)
+{-# DEPRECATED trpActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | The version of the SQL rules engine to use when evaluating the rule.
 --
@@ -94,13 +100,6 @@ trpRuleDisabled :: Lens.Lens' TopicRulePayload (Lude.Maybe Lude.Bool)
 trpRuleDisabled = Lens.lens (ruleDisabled :: TopicRulePayload -> Lude.Maybe Lude.Bool) (\s a -> s {ruleDisabled = a} :: TopicRulePayload)
 {-# DEPRECATED trpRuleDisabled "Use generic-lens or generic-optics with 'ruleDisabled' instead." #-}
 
--- | The description of the rule.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpDescription :: Lens.Lens' TopicRulePayload (Lude.Maybe Lude.Text)
-trpDescription = Lens.lens (description :: TopicRulePayload -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TopicRulePayload)
-{-# DEPRECATED trpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 -- | The SQL statement used to query the topic. For more information, see <https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html AWS IoT SQL Reference> in the /AWS IoT Developer Guide/ .
 --
 -- /Note:/ Consider using 'sql' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -108,22 +107,22 @@ trpSql :: Lens.Lens' TopicRulePayload Lude.Text
 trpSql = Lens.lens (sql :: TopicRulePayload -> Lude.Text) (\s a -> s {sql = a} :: TopicRulePayload)
 {-# DEPRECATED trpSql "Use generic-lens or generic-optics with 'sql' instead." #-}
 
--- | The actions associated with the rule.
+-- | The description of the rule.
 --
--- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpActions :: Lens.Lens' TopicRulePayload [Action]
-trpActions = Lens.lens (actions :: TopicRulePayload -> [Action]) (\s a -> s {actions = a} :: TopicRulePayload)
-{-# DEPRECATED trpActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trpDescription :: Lens.Lens' TopicRulePayload (Lude.Maybe Lude.Text)
+trpDescription = Lens.lens (description :: TopicRulePayload -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TopicRulePayload)
+{-# DEPRECATED trpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.ToJSON TopicRulePayload where
   toJSON TopicRulePayload' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("awsIotSqlVersion" Lude..=) Lude.<$> awsIotSqlVersion,
+          [ Lude.Just ("actions" Lude..= actions),
+            ("awsIotSqlVersion" Lude..=) Lude.<$> awsIotSqlVersion,
             ("errorAction" Lude..=) Lude.<$> errorAction,
             ("ruleDisabled" Lude..=) Lude.<$> ruleDisabled,
-            ("description" Lude..=) Lude.<$> description,
             Lude.Just ("sql" Lude..= sql),
-            Lude.Just ("actions" Lude..= actions)
+            ("description" Lude..=) Lude.<$> description
           ]
       )

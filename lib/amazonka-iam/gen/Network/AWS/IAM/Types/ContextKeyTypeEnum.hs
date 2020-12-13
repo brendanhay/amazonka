@@ -13,18 +13,18 @@
 module Network.AWS.IAM.Types.ContextKeyTypeEnum
   ( ContextKeyTypeEnum
       ( ContextKeyTypeEnum',
-        Binary,
-        BinaryList,
-        Boolean,
-        BooleanList,
-        Date,
-        DateList,
-        IP,
-        IPList,
+        String,
+        StringList,
         Numeric,
         NumericList,
-        String,
-        StringList
+        Boolean,
+        BooleanList,
+        IP,
+        IPList,
+        Binary,
+        BinaryList,
+        Date,
+        DateList
       ),
   )
 where
@@ -55,29 +55,11 @@ newtype ContextKeyTypeEnum = ContextKeyTypeEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern Binary :: ContextKeyTypeEnum
-pattern Binary = ContextKeyTypeEnum' "binary"
+pattern String :: ContextKeyTypeEnum
+pattern String = ContextKeyTypeEnum' "string"
 
-pattern BinaryList :: ContextKeyTypeEnum
-pattern BinaryList = ContextKeyTypeEnum' "binaryList"
-
-pattern Boolean :: ContextKeyTypeEnum
-pattern Boolean = ContextKeyTypeEnum' "boolean"
-
-pattern BooleanList :: ContextKeyTypeEnum
-pattern BooleanList = ContextKeyTypeEnum' "booleanList"
-
-pattern Date :: ContextKeyTypeEnum
-pattern Date = ContextKeyTypeEnum' "date"
-
-pattern DateList :: ContextKeyTypeEnum
-pattern DateList = ContextKeyTypeEnum' "dateList"
-
-pattern IP :: ContextKeyTypeEnum
-pattern IP = ContextKeyTypeEnum' "ip"
-
-pattern IPList :: ContextKeyTypeEnum
-pattern IPList = ContextKeyTypeEnum' "ipList"
+pattern StringList :: ContextKeyTypeEnum
+pattern StringList = ContextKeyTypeEnum' "stringList"
 
 pattern Numeric :: ContextKeyTypeEnum
 pattern Numeric = ContextKeyTypeEnum' "numeric"
@@ -85,24 +67,42 @@ pattern Numeric = ContextKeyTypeEnum' "numeric"
 pattern NumericList :: ContextKeyTypeEnum
 pattern NumericList = ContextKeyTypeEnum' "numericList"
 
-pattern String :: ContextKeyTypeEnum
-pattern String = ContextKeyTypeEnum' "string"
+pattern Boolean :: ContextKeyTypeEnum
+pattern Boolean = ContextKeyTypeEnum' "boolean"
 
-pattern StringList :: ContextKeyTypeEnum
-pattern StringList = ContextKeyTypeEnum' "stringList"
+pattern BooleanList :: ContextKeyTypeEnum
+pattern BooleanList = ContextKeyTypeEnum' "booleanList"
+
+pattern IP :: ContextKeyTypeEnum
+pattern IP = ContextKeyTypeEnum' "ip"
+
+pattern IPList :: ContextKeyTypeEnum
+pattern IPList = ContextKeyTypeEnum' "ipList"
+
+pattern Binary :: ContextKeyTypeEnum
+pattern Binary = ContextKeyTypeEnum' "binary"
+
+pattern BinaryList :: ContextKeyTypeEnum
+pattern BinaryList = ContextKeyTypeEnum' "binaryList"
+
+pattern Date :: ContextKeyTypeEnum
+pattern Date = ContextKeyTypeEnum' "date"
+
+pattern DateList :: ContextKeyTypeEnum
+pattern DateList = ContextKeyTypeEnum' "dateList"
 
 {-# COMPLETE
-  Binary,
-  BinaryList,
-  Boolean,
-  BooleanList,
-  Date,
-  DateList,
-  IP,
-  IPList,
-  Numeric,
-  NumericList,
   String,
   StringList,
+  Numeric,
+  NumericList,
+  Boolean,
+  BooleanList,
+  IP,
+  IPList,
+  Binary,
+  BinaryList,
+  Date,
+  DateList,
   ContextKeyTypeEnum'
   #-}

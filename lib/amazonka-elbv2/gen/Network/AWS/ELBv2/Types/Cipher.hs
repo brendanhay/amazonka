@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCipher' smart constructor.
 data Cipher = Cipher'
-  { priority :: Lude.Maybe Lude.Int,
+  { -- | The priority of the cipher.
+    priority :: Lude.Maybe Lude.Int,
+    -- | The name of the cipher.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Cipher' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the cipher.
 -- * 'priority' - The priority of the cipher.
+-- * 'name' - The name of the cipher.
 mkCipher ::
   Cipher
 mkCipher = Cipher' {priority = Lude.Nothing, name = Lude.Nothing}

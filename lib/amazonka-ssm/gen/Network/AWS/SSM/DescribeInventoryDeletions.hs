@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeInventoryDeletions' smart constructor.
 data DescribeInventoryDeletions = DescribeInventoryDeletions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token to start the list. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | Specify the delete inventory ID for which you want information. This ID was returned by the @DeleteInventory@ action.
     deletionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInventoryDeletions' with the minimum fields required to make a request.
 --
--- * 'deletionId' - Specify the delete inventory ID for which you want information. This ID was returned by the @DeleteInventory@ action.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'deletionId' - Specify the delete inventory ID for which you want information. This ID was returned by the @DeleteInventory@ action.
 mkDescribeInventoryDeletions ::
   DescribeInventoryDeletions
 mkDescribeInventoryDeletions =
@@ -146,21 +143,14 @@ instance Lude.ToQuery DescribeInventoryDeletions where
 
 -- | /See:/ 'mkDescribeInventoryDeletionsResponse' smart constructor.
 data DescribeInventoryDeletionsResponse = DescribeInventoryDeletionsResponse'
-  { inventoryDeletions ::
-      Lude.Maybe
-        [InventoryDeletionStatusItem],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of status items for deleted inventory.
+    inventoryDeletions :: Lude.Maybe [InventoryDeletionStatusItem],
+    -- | The token for the next set of items to return. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInventoryDeletionsResponse' with the minimum fields required to make a request.

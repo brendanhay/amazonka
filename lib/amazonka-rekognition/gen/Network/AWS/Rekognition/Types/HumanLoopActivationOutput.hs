@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHumanLoopActivationOutput' smart constructor.
 data HumanLoopActivationOutput = HumanLoopActivationOutput'
-  { humanLoopActivationReasons ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | Shows if and why human review was needed.
+    humanLoopActivationReasons :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The Amazon Resource Name (ARN) of the HumanLoop created.
     humanLoopARN :: Lude.Maybe Lude.Text,
-    humanLoopActivationConditionsEvaluationResults ::
-      Lude.Maybe Lude.Text
+    -- | Shows the result of condition evaluations, including those conditions which activated a human review.
+    humanLoopActivationConditionsEvaluationResults :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanLoopActivationOutput' with the minimum fields required to make a request.
 --
+-- * 'humanLoopActivationReasons' - Shows if and why human review was needed.
 -- * 'humanLoopARN' - The Amazon Resource Name (ARN) of the HumanLoop created.
 -- * 'humanLoopActivationConditionsEvaluationResults' - Shows the result of condition evaluations, including those conditions which activated a human review.
--- * 'humanLoopActivationReasons' - Shows if and why human review was needed.
 mkHumanLoopActivationOutput ::
   HumanLoopActivationOutput
 mkHumanLoopActivationOutput =

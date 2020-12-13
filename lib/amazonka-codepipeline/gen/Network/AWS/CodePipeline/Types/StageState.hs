@@ -35,29 +35,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStageState' smart constructor.
 data StageState = StageState'
-  { inboundExecution ::
-      Lude.Maybe StageExecution,
+  { inboundExecution :: Lude.Maybe StageExecution,
+    -- | The state of the inbound transition, which is either enabled or disabled.
     inboundTransitionState :: Lude.Maybe TransitionState,
+    -- | The state of the stage.
     actionStates :: Lude.Maybe [ActionState],
+    -- | The name of the stage.
     stageName :: Lude.Maybe Lude.Text,
+    -- | Information about the latest execution in the stage, including its ID and status.
     latestExecution :: Lude.Maybe StageExecution
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StageState' with the minimum fields required to make a request.
 --
--- * 'actionStates' - The state of the stage.
--- * 'inboundExecution' - Undocumented field.
+-- * 'inboundExecution' -
 -- * 'inboundTransitionState' - The state of the inbound transition, which is either enabled or disabled.
--- * 'latestExecution' - Information about the latest execution in the stage, including its ID and status.
+-- * 'actionStates' - The state of the stage.
 -- * 'stageName' - The name of the stage.
+-- * 'latestExecution' - Information about the latest execution in the stage, including its ID and status.
 mkStageState ::
   StageState
 mkStageState =

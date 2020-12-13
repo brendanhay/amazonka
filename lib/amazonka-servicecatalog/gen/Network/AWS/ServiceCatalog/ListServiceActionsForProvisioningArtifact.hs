@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.ServiceCatalog.ListServiceActionsForProvisioningArtifact
     mkListServiceActionsForProvisioningArtifact,
 
     -- ** Request lenses
+    lsafpaProvisioningArtifactId,
     lsafpaAcceptLanguage,
     lsafpaPageToken,
     lsafpaPageSize,
     lsafpaProductId,
-    lsafpaProvisioningArtifactId,
 
     -- * Destructuring the response
     ListServiceActionsForProvisioningArtifactResponse (..),
@@ -47,31 +48,32 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListServiceActionsForProvisioningArtifact' smart constructor.
 data ListServiceActionsForProvisioningArtifact = ListServiceActionsForProvisioningArtifact'
-  { acceptLanguage ::
-      Lude.Maybe
-        Lude.Text,
-    pageToken ::
-      Lude.Maybe
-        Lude.Text,
-    pageSize ::
-      Lude.Maybe
-        Lude.Natural,
-    productId ::
-      Lude.Text,
-    provisioningArtifactId ::
-      Lude.Text
+  { -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+    provisioningArtifactId :: Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Lude.Maybe Lude.Natural,
+    -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
+    productId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServiceActionsForProvisioningArtifact' with the minimum fields required to make a request.
 --
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -84,27 +86,33 @@ data ListServiceActionsForProvisioningArtifact = ListServiceActionsForProvisioni
 --     * @zh@ - Chinese
 --
 --
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
 mkListServiceActionsForProvisioningArtifact ::
-  -- | 'productId'
-  Lude.Text ->
   -- | 'provisioningArtifactId'
+  Lude.Text ->
+  -- | 'productId'
   Lude.Text ->
   ListServiceActionsForProvisioningArtifact
 mkListServiceActionsForProvisioningArtifact
-  pProductId_
-  pProvisioningArtifactId_ =
+  pProvisioningArtifactId_
+  pProductId_ =
     ListServiceActionsForProvisioningArtifact'
-      { acceptLanguage =
-          Lude.Nothing,
+      { provisioningArtifactId =
+          pProvisioningArtifactId_,
+        acceptLanguage = Lude.Nothing,
         pageToken = Lude.Nothing,
         pageSize = Lude.Nothing,
-        productId = pProductId_,
-        provisioningArtifactId = pProvisioningArtifactId_
+        productId = pProductId_
       }
+
+-- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsafpaProvisioningArtifactId :: Lens.Lens' ListServiceActionsForProvisioningArtifact Lude.Text
+lsafpaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ListServiceActionsForProvisioningArtifact -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ListServiceActionsForProvisioningArtifact)
+{-# DEPRECATED lsafpaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The language code.
 --
@@ -144,13 +152,6 @@ lsafpaPageSize = Lens.lens (pageSize :: ListServiceActionsForProvisioningArtifac
 lsafpaProductId :: Lens.Lens' ListServiceActionsForProvisioningArtifact Lude.Text
 lsafpaProductId = Lens.lens (productId :: ListServiceActionsForProvisioningArtifact -> Lude.Text) (\s a -> s {productId = a} :: ListServiceActionsForProvisioningArtifact)
 {-# DEPRECATED lsafpaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
-
--- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
---
--- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsafpaProvisioningArtifactId :: Lens.Lens' ListServiceActionsForProvisioningArtifact Lude.Text
-lsafpaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ListServiceActionsForProvisioningArtifact -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ListServiceActionsForProvisioningArtifact)
-{-# DEPRECATED lsafpaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 instance Page.AWSPager ListServiceActionsForProvisioningArtifact where
   page rq rs
@@ -193,12 +194,12 @@ instance Lude.ToJSON ListServiceActionsForProvisioningArtifact where
   toJSON ListServiceActionsForProvisioningArtifact' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+          [ Lude.Just
+              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
             ("PageToken" Lude..=) Lude.<$> pageToken,
             ("PageSize" Lude..=) Lude.<$> pageSize,
-            Lude.Just ("ProductId" Lude..= productId),
-            Lude.Just
-              ("ProvisioningArtifactId" Lude..= provisioningArtifactId)
+            Lude.Just ("ProductId" Lude..= productId)
           ]
       )
 
@@ -210,32 +211,21 @@ instance Lude.ToQuery ListServiceActionsForProvisioningArtifact where
 
 -- | /See:/ 'mkListServiceActionsForProvisioningArtifactResponse' smart constructor.
 data ListServiceActionsForProvisioningArtifactResponse = ListServiceActionsForProvisioningArtifactResponse'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    serviceActionSummaries ::
-      Lude.Maybe
-        [ServiceActionSummary],
-    responseStatus ::
-      Lude.Int
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | An object containing information about the self-service actions associated with the provisioning artifact.
+    serviceActionSummaries :: Lude.Maybe [ServiceActionSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServiceActionsForProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
 -- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
--- * 'responseStatus' - The response status code.
 -- * 'serviceActionSummaries' - An object containing information about the self-service actions associated with the provisioning artifact.
+-- * 'responseStatus' - The response status code.
 mkListServiceActionsForProvisioningArtifactResponse ::
   -- | 'responseStatus'
   Lude.Int ->

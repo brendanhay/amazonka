@@ -30,17 +30,12 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkAccountWithRestoreAccess' smart constructor.
 data AccountWithRestoreAccess = AccountWithRestoreAccess'
-  { accountAlias ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of an AWS support account authorized to restore a snapshot. For AWS support, the identifier is @amazon-redshift-support@ .
+    accountAlias :: Lude.Maybe Lude.Text,
+    -- | The identifier of an AWS customer account authorized to restore a snapshot.
     accountId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountWithRestoreAccess' with the minimum fields required to make a request.

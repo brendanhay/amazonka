@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDirectoryConfigs' smart constructor.
 data DescribeDirectoryConfigs = DescribeDirectoryConfigs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The directory names.
     directoryNames :: Lude.Maybe [Lude.Text],
+    -- | The maximum size of each page of results.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectoryConfigs' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 -- * 'directoryNames' - The directory names.
 -- * 'maxResults' - The maximum size of each page of results.
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 mkDescribeDirectoryConfigs ::
   DescribeDirectoryConfigs
 mkDescribeDirectoryConfigs =
@@ -148,26 +145,20 @@ instance Lude.ToQuery DescribeDirectoryConfigs where
 
 -- | /See:/ 'mkDescribeDirectoryConfigsResponse' smart constructor.
 data DescribeDirectoryConfigsResponse = DescribeDirectoryConfigsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    directoryConfigs ::
-      Lude.Maybe
-        [DirectoryConfig],
-    responseStatus ::
-      Lude.Int
+  { -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response.
+    directoryConfigs :: Lude.Maybe [DirectoryConfig],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectoryConfigsResponse' with the minimum fields required to make a request.
 --
--- * 'directoryConfigs' - Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response.
 -- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'directoryConfigs' - Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response.
 -- * 'responseStatus' - The response status code.
 mkDescribeDirectoryConfigsResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -89,31 +90,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkLookupEvents' smart constructor.
 data LookupEvents = LookupEvents'
-  { eventCategory ::
-      Lude.Maybe EventCategory,
+  { -- | Specifies the event category. If you do not specify an event category, events of the category are not returned in the response. For example, if you do not specify @insight@ as the value of @EventCategory@ , no Insights events are returned.
+    eventCategory :: Lude.Maybe EventCategory,
+    -- | Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Contains a list of lookup attributes. Currently the list can contain only one item.
     lookupAttributes :: Lude.Maybe [LookupAttribute],
+    -- | The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The number of events to return. Possible values are 1 through 50. The default is 50.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LookupEvents' with the minimum fields required to make a request.
 --
--- * 'endTime' - Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.
 -- * 'eventCategory' - Specifies the event category. If you do not specify an event category, events of the category are not returned in the response. For example, if you do not specify @insight@ as the value of @EventCategory@ , no Insights events are returned.
--- * 'lookupAttributes' - Contains a list of lookup attributes. Currently the list can contain only one item.
--- * 'maxResults' - The number of events to return. Possible values are 1 through 50. The default is 50.
--- * 'nextToken' - The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
 -- * 'startTime' - Specifies that only events that occur after or at the specified time are returned. If the specified start time is after the specified end time, an error is returned.
+-- * 'lookupAttributes' - Contains a list of lookup attributes. Currently the list can contain only one item.
+-- * 'nextToken' - The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
+-- * 'endTime' - Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.
+-- * 'maxResults' - The number of events to return. Possible values are 1 through 50. The default is 50.
 mkLookupEvents ::
   LookupEvents
 mkLookupEvents =
@@ -225,24 +225,20 @@ instance Lude.ToQuery LookupEvents where
 --
 -- /See:/ 'mkLookupEventsResponse' smart constructor.
 data LookupEventsResponse = LookupEventsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.
     events :: Lude.Maybe [Event],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LookupEventsResponse' with the minimum fields required to make a request.
 --
--- * 'events' - A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.
 -- * 'nextToken' - The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
+-- * 'events' - A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.
 -- * 'responseStatus' - The response status code.
 mkLookupEventsResponse ::
   -- | 'responseStatus'

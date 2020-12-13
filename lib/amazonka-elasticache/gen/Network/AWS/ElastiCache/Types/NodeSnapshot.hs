@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeSnapshot' smart constructor.
 data NodeSnapshot = NodeSnapshot'
-  { nodeGroupConfiguration ::
-      Lude.Maybe NodeGroupConfiguration,
+  { -- | The configuration for the source node group (shard).
+    nodeGroupConfiguration :: Lude.Maybe NodeGroupConfiguration,
+    -- | The date and time when the cache node was created in the source cluster.
     cacheNodeCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | A unique identifier for the source cluster.
     cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | The cache node identifier for the node in the source cluster.
     cacheNodeId :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the source node group (shard).
     nodeGroupId :: Lude.Maybe Lude.Text,
+    -- | The date and time when the source node's metadata and cache data set was obtained for the snapshot.
     snapshotCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | The size of the cache on the source cache node.
     cacheSize :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeSnapshot' with the minimum fields required to make a request.
 --
--- * 'cacheClusterId' - A unique identifier for the source cluster.
--- * 'cacheNodeCreateTime' - The date and time when the cache node was created in the source cluster.
--- * 'cacheNodeId' - The cache node identifier for the node in the source cluster.
--- * 'cacheSize' - The size of the cache on the source cache node.
 -- * 'nodeGroupConfiguration' - The configuration for the source node group (shard).
+-- * 'cacheNodeCreateTime' - The date and time when the cache node was created in the source cluster.
+-- * 'cacheClusterId' - A unique identifier for the source cluster.
+-- * 'cacheNodeId' - The cache node identifier for the node in the source cluster.
 -- * 'nodeGroupId' - A unique identifier for the source node group (shard).
 -- * 'snapshotCreateTime' - The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+-- * 'cacheSize' - The size of the cache on the source cache node.
 mkNodeSnapshot ::
   NodeSnapshot
 mkNodeSnapshot =

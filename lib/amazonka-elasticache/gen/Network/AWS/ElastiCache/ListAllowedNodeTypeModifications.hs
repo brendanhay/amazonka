@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,18 +46,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListAllowedNodeTypeModifications' smart constructor.
 data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
-  { cacheClusterId ::
-      Lude.Maybe Lude.Text,
-    replicationGroupId ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to.
+    --
+    -- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+    cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to.
+    --
+    -- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+    replicationGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAllowedNodeTypeModifications' with the minimum fields required to make a request.
@@ -132,31 +131,25 @@ instance Lude.ToQuery ListAllowedNodeTypeModifications where
 --
 -- /See:/ 'mkListAllowedNodeTypeModificationsResponse' smart constructor.
 data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModificationsResponse'
-  { scaleUpModifications ::
-      Lude.Maybe
-        [Lude.Text],
-    scaleDownModifications ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group.
+    --
+    -- When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
+    scaleUpModifications :: Lude.Maybe [Lude.Text],
+    -- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
+    scaleDownModifications :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAllowedNodeTypeModificationsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'scaleDownModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
 -- * 'scaleUpModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group.
 --
 -- When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
+-- * 'scaleDownModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
+-- * 'responseStatus' - The response status code.
 mkListAllowedNodeTypeModificationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

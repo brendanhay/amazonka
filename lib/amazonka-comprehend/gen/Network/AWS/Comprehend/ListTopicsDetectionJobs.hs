@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,26 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTopicsDetectionJobs' smart constructor.
 data ListTopicsDetectionJobs = ListTopicsDetectionJobs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    filter ::
-      Lude.Maybe TopicsDetectionJobFilter,
+  { -- | Identifies the next page of results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.
+    filter :: Lude.Maybe TopicsDetectionJobFilter,
+    -- | The maximum number of results to return in each page. The default is 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicsDetectionJobs' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - Identifies the next page of results to return.
 -- * 'filter' - Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.
 -- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
--- * 'nextToken' - Identifies the next page of results to return.
 mkListTopicsDetectionJobs ::
   ListTopicsDetectionJobs
 mkListTopicsDetectionJobs =
@@ -148,27 +144,21 @@ instance Lude.ToQuery ListTopicsDetectionJobs where
 
 -- | /See:/ 'mkListTopicsDetectionJobsResponse' smart constructor.
 data ListTopicsDetectionJobsResponse = ListTopicsDetectionJobsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    topicsDetectionJobPropertiesList ::
-      Lude.Maybe
-        [TopicsDetectionJobProperties],
+  { -- | Identifies the next page of results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list containing the properties of each job that is returned.
+    topicsDetectionJobPropertiesList :: Lude.Maybe [TopicsDetectionJobProperties],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTopicsDetectionJobsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - Identifies the next page of results to return.
--- * 'responseStatus' - The response status code.
 -- * 'topicsDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
+-- * 'responseStatus' - The response status code.
 mkListTopicsDetectionJobsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

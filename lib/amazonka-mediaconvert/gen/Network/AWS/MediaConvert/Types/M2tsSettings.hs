@@ -81,93 +81,123 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkM2tsSettings' smart constructor.
 data M2tsSettings = M2tsSettings'
-  { pmtPid ::
-      Lude.Maybe Lude.Natural,
+  { -- | Specify the packet identifier (PID) for the program map table (PMT) itself. Default is 480.
+    pmtPid :: Lude.Maybe Lude.Natural,
+    -- | Specify the packet identifier (PID) of the elementary video stream in the transport stream.
     videoPid :: Lude.Maybe Lude.Natural,
+    -- | Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
     bufferModel :: Lude.Maybe M2tsBufferModel,
+    -- | Use Program number (programNumber) to specify the program number used in the program map table (PMT) for this output. Default is 1. Program numbers and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
     programNumber :: Lude.Maybe Lude.Natural,
+    -- | Specify the packet identifier (PID) of the SCTE-35 stream in the transport stream.
     scte35Pid :: Lude.Maybe Lude.Natural,
+    -- | When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
     minEbpInterval :: Lude.Maybe Lude.Natural,
+    -- | Specify the ID for the transport stream itself in the program map table for this output. Transport stream IDs and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
     transportStreamId :: Lude.Maybe Lude.Natural,
+    -- | Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
     maxPcrInterval :: Lude.Maybe Lude.Natural,
+    -- | The length, in seconds, of each fragment. Only used with EBP markers.
     fragmentTime :: Lude.Maybe Lude.Double,
+    -- | Specify the packet identifier (PID) of the private metadata stream. Default is 503.
     privateMetadataPid :: Lude.Maybe Lude.Natural,
+    -- | Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
     scte35Esam :: Lude.Maybe M2tsScte35Esam,
+    -- | Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
     audioDuration :: Lude.Maybe M2tsAudioDuration,
+    -- | Specify the number of milliseconds between instances of the program map table (PMT) in the output transport stream.
     pmtInterval :: Lude.Maybe Lude.Natural,
+    -- | Inserts DVB Service Description Table (NIT) at the specified table repetition interval.
     dvbSdtSettings :: Lude.Maybe DvbSdtSettings,
+    -- | Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
     nullPacketBitrate :: Lude.Maybe Lude.Double,
+    -- | Selects between the DVB and ATSC buffer models for Dolby Digital audio.
     audioBufferModel :: Lude.Maybe M2tsAudioBufferModel,
+    -- | Specify the packet identifier (PID) for timed metadata in this output. Default is 502.
     timedMetadataPid :: Lude.Maybe Lude.Natural,
+    -- | The number of audio frames to insert for each PES packet.
     audioFramesPerPes :: Lude.Maybe Lude.Natural,
+    -- | Specify the packet identifier (PID) for the program clock reference (PCR) in this output. If you do not specify a value, the service will use the value for Video PID (VideoPid).
     pcrPid :: Lude.Maybe Lude.Natural,
+    -- | Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
     segmentationMarkers :: Lude.Maybe M2tsSegmentationMarkers,
+    -- | Specify the packet identifiers (PIDs) for DVB subtitle data included in this output. Specify multiple PIDs as a JSON array. Default is the range 460-479.
     dvbSubPids :: Lude.Maybe [Lude.Natural],
+    -- | For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE). Also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml). Also enable ESAM SCTE-35 (include the property scte35Esam).
     scte35Source :: Lude.Maybe M2tsScte35Source,
+    -- | The number of milliseconds between instances of this table in the output transport stream.
     patInterval :: Lude.Maybe Lude.Natural,
+    -- | Keep the default value (DEFAULT) unless you know that your audio EBP markers are incorrectly appearing before your video EBP markers. To correct this problem, set this value to Force (FORCE).
     forceTsVideoEbpOrder :: Lude.Maybe M2tsForceTsVideoEbpOrder,
+    -- | Controls whether to include the ES Rate field in the PES header.
     esRateInPes :: Lude.Maybe M2tsEsRateInPes,
+    -- | Specify the output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000.
     bitrate :: Lude.Maybe Lude.Natural,
+    -- | Specify the packet identifiers (PIDs) for any elementary audio streams you include in this output. Specify multiple PIDs as a JSON array. Default is the range 482-492.
     audioPids :: Lude.Maybe [Lude.Natural],
+    -- | Specify the packet identifier (PID) for DVB teletext data you include in this output. Default is 499.
     dvbTeletextPid :: Lude.Maybe Lude.Natural,
+    -- | If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
     nielsenId3 :: Lude.Maybe M2tsNielsenId3,
+    -- | Specify the length, in seconds, of each segment. Required unless markers is set to _none_.
     segmentationTime :: Lude.Maybe Lude.Double,
+    -- | When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. When set to VIDEO_INTERVAL, these additional markers will not be inserted. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
     ebpAudioInterval :: Lude.Maybe M2tsEbpAudioInterval,
+    -- | Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
     dvbNitSettings :: Lude.Maybe DvbNitSettings,
+    -- | When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This is effective only when the PCR PID is the same as the video or audio elementary stream.
     pcrControl :: Lude.Maybe M2tsPcrControl,
+    -- | Selects which PIDs to place EBP markers on. They can either be placed only on the video PID, or on both the video PID and all audio PIDs. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
     ebpPlacement :: Lude.Maybe M2tsEbpPlacement,
+    -- | When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.
     rateMode :: Lude.Maybe M2tsRateMode,
+    -- | The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
     segmentationStyle :: Lude.Maybe M2tsSegmentationStyle,
+    -- | Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
     dvbTdtSettings :: Lude.Maybe DvbTdtSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'M2tsSettings' with the minimum fields required to make a request.
 --
--- * 'audioBufferModel' - Selects between the DVB and ATSC buffer models for Dolby Digital audio.
--- * 'audioDuration' - Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
--- * 'audioFramesPerPes' - The number of audio frames to insert for each PES packet.
--- * 'audioPids' - Specify the packet identifiers (PIDs) for any elementary audio streams you include in this output. Specify multiple PIDs as a JSON array. Default is the range 482-492.
--- * 'bitrate' - Specify the output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000.
--- * 'bufferModel' - Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
--- * 'dvbNitSettings' - Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
--- * 'dvbSdtSettings' - Inserts DVB Service Description Table (NIT) at the specified table repetition interval.
--- * 'dvbSubPids' - Specify the packet identifiers (PIDs) for DVB subtitle data included in this output. Specify multiple PIDs as a JSON array. Default is the range 460-479.
--- * 'dvbTdtSettings' - Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
--- * 'dvbTeletextPid' - Specify the packet identifier (PID) for DVB teletext data you include in this output. Default is 499.
--- * 'ebpAudioInterval' - When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. When set to VIDEO_INTERVAL, these additional markers will not be inserted. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
--- * 'ebpPlacement' - Selects which PIDs to place EBP markers on. They can either be placed only on the video PID, or on both the video PID and all audio PIDs. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
--- * 'esRateInPes' - Controls whether to include the ES Rate field in the PES header.
--- * 'forceTsVideoEbpOrder' - Keep the default value (DEFAULT) unless you know that your audio EBP markers are incorrectly appearing before your video EBP markers. To correct this problem, set this value to Force (FORCE).
--- * 'fragmentTime' - The length, in seconds, of each fragment. Only used with EBP markers.
--- * 'maxPcrInterval' - Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
--- * 'minEbpInterval' - When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
--- * 'nielsenId3' - If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
--- * 'nullPacketBitrate' - Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
--- * 'patInterval' - The number of milliseconds between instances of this table in the output transport stream.
--- * 'pcrControl' - When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This is effective only when the PCR PID is the same as the video or audio elementary stream.
--- * 'pcrPid' - Specify the packet identifier (PID) for the program clock reference (PCR) in this output. If you do not specify a value, the service will use the value for Video PID (VideoPid).
--- * 'pmtInterval' - Specify the number of milliseconds between instances of the program map table (PMT) in the output transport stream.
 -- * 'pmtPid' - Specify the packet identifier (PID) for the program map table (PMT) itself. Default is 480.
--- * 'privateMetadataPid' - Specify the packet identifier (PID) of the private metadata stream. Default is 503.
--- * 'programNumber' - Use Program number (programNumber) to specify the program number used in the program map table (PMT) for this output. Default is 1. Program numbers and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
--- * 'rateMode' - When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.
--- * 'scte35Esam' - Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
--- * 'scte35Pid' - Specify the packet identifier (PID) of the SCTE-35 stream in the transport stream.
--- * 'scte35Source' - For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE). Also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml). Also enable ESAM SCTE-35 (include the property scte35Esam).
--- * 'segmentationMarkers' - Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
--- * 'segmentationStyle' - The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
--- * 'segmentationTime' - Specify the length, in seconds, of each segment. Required unless markers is set to _none_.
--- * 'timedMetadataPid' - Specify the packet identifier (PID) for timed metadata in this output. Default is 502.
--- * 'transportStreamId' - Specify the ID for the transport stream itself in the program map table for this output. Transport stream IDs and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
 -- * 'videoPid' - Specify the packet identifier (PID) of the elementary video stream in the transport stream.
+-- * 'bufferModel' - Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
+-- * 'programNumber' - Use Program number (programNumber) to specify the program number used in the program map table (PMT) for this output. Default is 1. Program numbers and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
+-- * 'scte35Pid' - Specify the packet identifier (PID) of the SCTE-35 stream in the transport stream.
+-- * 'minEbpInterval' - When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
+-- * 'transportStreamId' - Specify the ID for the transport stream itself in the program map table for this output. Transport stream IDs and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
+-- * 'maxPcrInterval' - Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
+-- * 'fragmentTime' - The length, in seconds, of each fragment. Only used with EBP markers.
+-- * 'privateMetadataPid' - Specify the packet identifier (PID) of the private metadata stream. Default is 503.
+-- * 'scte35Esam' - Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
+-- * 'audioDuration' - Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+-- * 'pmtInterval' - Specify the number of milliseconds between instances of the program map table (PMT) in the output transport stream.
+-- * 'dvbSdtSettings' - Inserts DVB Service Description Table (NIT) at the specified table repetition interval.
+-- * 'nullPacketBitrate' - Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
+-- * 'audioBufferModel' - Selects between the DVB and ATSC buffer models for Dolby Digital audio.
+-- * 'timedMetadataPid' - Specify the packet identifier (PID) for timed metadata in this output. Default is 502.
+-- * 'audioFramesPerPes' - The number of audio frames to insert for each PES packet.
+-- * 'pcrPid' - Specify the packet identifier (PID) for the program clock reference (PCR) in this output. If you do not specify a value, the service will use the value for Video PID (VideoPid).
+-- * 'segmentationMarkers' - Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
+-- * 'dvbSubPids' - Specify the packet identifiers (PIDs) for DVB subtitle data included in this output. Specify multiple PIDs as a JSON array. Default is the range 460-479.
+-- * 'scte35Source' - For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE). Also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml). Also enable ESAM SCTE-35 (include the property scte35Esam).
+-- * 'patInterval' - The number of milliseconds between instances of this table in the output transport stream.
+-- * 'forceTsVideoEbpOrder' - Keep the default value (DEFAULT) unless you know that your audio EBP markers are incorrectly appearing before your video EBP markers. To correct this problem, set this value to Force (FORCE).
+-- * 'esRateInPes' - Controls whether to include the ES Rate field in the PES header.
+-- * 'bitrate' - Specify the output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000.
+-- * 'audioPids' - Specify the packet identifiers (PIDs) for any elementary audio streams you include in this output. Specify multiple PIDs as a JSON array. Default is the range 482-492.
+-- * 'dvbTeletextPid' - Specify the packet identifier (PID) for DVB teletext data you include in this output. Default is 499.
+-- * 'nielsenId3' - If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+-- * 'segmentationTime' - Specify the length, in seconds, of each segment. Required unless markers is set to _none_.
+-- * 'ebpAudioInterval' - When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. When set to VIDEO_INTERVAL, these additional markers will not be inserted. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
+-- * 'dvbNitSettings' - Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
+-- * 'pcrControl' - When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This is effective only when the PCR PID is the same as the video or audio elementary stream.
+-- * 'ebpPlacement' - Selects which PIDs to place EBP markers on. They can either be placed only on the video PID, or on both the video PID and all audio PIDs. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
+-- * 'rateMode' - When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.
+-- * 'segmentationStyle' - The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
+-- * 'dvbTdtSettings' - Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
 mkM2tsSettings ::
   M2tsSettings
 mkM2tsSettings =

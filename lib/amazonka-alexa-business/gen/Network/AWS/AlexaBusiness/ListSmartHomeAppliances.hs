@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.AlexaBusiness.ListSmartHomeAppliances
 
     -- ** Request lenses
     lshaNextToken,
-    lshaMaxResults,
     lshaRoomARN,
+    lshaMaxResults,
 
     -- * Destructuring the response
     ListSmartHomeAppliancesResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSmartHomeAppliances' smart constructor.
 data ListSmartHomeAppliances = ListSmartHomeAppliances'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    roomARN :: Lude.Text
+  { -- | The tokens used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The room that the appliances are associated with.
+    roomARN :: Lude.Text,
+    -- | The maximum number of appliances to be returned, per paginated calls.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSmartHomeAppliances' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of appliances to be returned, per paginated calls.
 -- * 'nextToken' - The tokens used for pagination.
 -- * 'roomARN' - The room that the appliances are associated with.
+-- * 'maxResults' - The maximum number of appliances to be returned, per paginated calls.
 mkListSmartHomeAppliances ::
   -- | 'roomARN'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListSmartHomeAppliances ::
 mkListSmartHomeAppliances pRoomARN_ =
   ListSmartHomeAppliances'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      roomARN = pRoomARN_
+      roomARN = pRoomARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | The tokens used for pagination.
@@ -82,19 +79,19 @@ lshaNextToken :: Lens.Lens' ListSmartHomeAppliances (Lude.Maybe Lude.Text)
 lshaNextToken = Lens.lens (nextToken :: ListSmartHomeAppliances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSmartHomeAppliances)
 {-# DEPRECATED lshaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of appliances to be returned, per paginated calls.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lshaMaxResults :: Lens.Lens' ListSmartHomeAppliances (Lude.Maybe Lude.Natural)
-lshaMaxResults = Lens.lens (maxResults :: ListSmartHomeAppliances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSmartHomeAppliances)
-{-# DEPRECATED lshaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The room that the appliances are associated with.
 --
 -- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lshaRoomARN :: Lens.Lens' ListSmartHomeAppliances Lude.Text
 lshaRoomARN = Lens.lens (roomARN :: ListSmartHomeAppliances -> Lude.Text) (\s a -> s {roomARN = a} :: ListSmartHomeAppliances)
 {-# DEPRECATED lshaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+
+-- | The maximum number of appliances to be returned, per paginated calls.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lshaMaxResults :: Lens.Lens' ListSmartHomeAppliances (Lude.Maybe Lude.Natural)
+lshaMaxResults = Lens.lens (maxResults :: ListSmartHomeAppliances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSmartHomeAppliances)
+{-# DEPRECATED lshaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListSmartHomeAppliances where
   page rq rs
@@ -133,8 +130,8 @@ instance Lude.ToJSON ListSmartHomeAppliances where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("RoomArn" Lude..= roomARN)
+            Lude.Just ("RoomArn" Lude..= roomARN),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -146,27 +143,21 @@ instance Lude.ToQuery ListSmartHomeAppliances where
 
 -- | /See:/ 'mkListSmartHomeAppliancesResponse' smart constructor.
 data ListSmartHomeAppliancesResponse = ListSmartHomeAppliancesResponse'
-  { smartHomeAppliances ::
-      Lude.Maybe
-        [SmartHomeAppliance],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The smart home appliances.
+    smartHomeAppliances :: Lude.Maybe [SmartHomeAppliance],
+    -- | The tokens used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSmartHomeAppliancesResponse' with the minimum fields required to make a request.
 --
+-- * 'smartHomeAppliances' - The smart home appliances.
 -- * 'nextToken' - The tokens used for pagination.
 -- * 'responseStatus' - The response status code.
--- * 'smartHomeAppliances' - The smart home appliances.
 mkListSmartHomeAppliancesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

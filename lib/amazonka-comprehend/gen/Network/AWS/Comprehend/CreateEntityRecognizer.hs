@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.Comprehend.CreateEntityRecognizer
     mkCreateEntityRecognizer,
 
     -- ** Request lenses
+    cerLanguageCode,
+    cerInputDataConfig,
     cerVPCConfig,
     cerVolumeKMSKeyId,
+    cerDataAccessRoleARN,
     cerClientRequestToken,
     cerTags,
     cerRecognizerName,
-    cerDataAccessRoleARN,
-    cerInputDataConfig,
-    cerLanguageCode,
 
     -- * Destructuring the response
     CreateEntityRecognizerResponse (..),
@@ -46,34 +47,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateEntityRecognizer' smart constructor.
 data CreateEntityRecognizer = CreateEntityRecognizer'
-  { vpcConfig ::
-      Lude.Maybe VPCConfig,
+  { -- | You can specify any of the following languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese ("pt"). All documents must be in the same language.
+    languageCode :: LanguageCode,
+    -- | Specifies the format and location of the input data. The S3 bucket containing the input data must be located in the same region as the entity recognizer being created.
+    inputDataConfig :: EntityRecognizerInputDataConfig,
+    -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+    vpcConfig :: Lude.Maybe VPCConfig,
+    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+    --
+    --
+    --     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+    --
+    --
+    --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
     volumeKMSKeyId :: Lude.Maybe Lude.Text,
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    recognizerName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
     dataAccessRoleARN :: Lude.Text,
-    inputDataConfig ::
-      EntityRecognizerInputDataConfig,
-    languageCode :: LanguageCode
+    -- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | Tags to be associated with the entity recognizer being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
+    tags :: Lude.Maybe [Tag],
+    -- | The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.
+    recognizerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEntityRecognizer' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
--- * 'inputDataConfig' - Specifies the format and location of the input data. The S3 bucket containing the input data must be located in the same region as the entity recognizer being created.
 -- * 'languageCode' - You can specify any of the following languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese ("pt"). All documents must be in the same language.
--- * 'recognizerName' - The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.
--- * 'tags' - Tags to be associated with the entity recognizer being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
+-- * 'inputDataConfig' - Specifies the format and location of the input data. The S3 bucket containing the input data must be located in the same region as the entity recognizer being created.
+-- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 -- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
 --
@@ -83,32 +87,49 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
 --
--- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
+-- * 'clientRequestToken' - A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+-- * 'tags' - Tags to be associated with the entity recognizer being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
+-- * 'recognizerName' - The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.
 mkCreateEntityRecognizer ::
-  -- | 'recognizerName'
-  Lude.Text ->
-  -- | 'dataAccessRoleARN'
-  Lude.Text ->
-  -- | 'inputDataConfig'
-  EntityRecognizerInputDataConfig ->
   -- | 'languageCode'
   LanguageCode ->
+  -- | 'inputDataConfig'
+  EntityRecognizerInputDataConfig ->
+  -- | 'dataAccessRoleARN'
+  Lude.Text ->
+  -- | 'recognizerName'
+  Lude.Text ->
   CreateEntityRecognizer
 mkCreateEntityRecognizer
-  pRecognizerName_
-  pDataAccessRoleARN_
+  pLanguageCode_
   pInputDataConfig_
-  pLanguageCode_ =
+  pDataAccessRoleARN_
+  pRecognizerName_ =
     CreateEntityRecognizer'
-      { vpcConfig = Lude.Nothing,
+      { languageCode = pLanguageCode_,
+        inputDataConfig = pInputDataConfig_,
+        vpcConfig = Lude.Nothing,
         volumeKMSKeyId = Lude.Nothing,
+        dataAccessRoleARN = pDataAccessRoleARN_,
         clientRequestToken = Lude.Nothing,
         tags = Lude.Nothing,
-        recognizerName = pRecognizerName_,
-        dataAccessRoleARN = pDataAccessRoleARN_,
-        inputDataConfig = pInputDataConfig_,
-        languageCode = pLanguageCode_
+        recognizerName = pRecognizerName_
       }
+
+-- | You can specify any of the following languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese ("pt"). All documents must be in the same language.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cerLanguageCode :: Lens.Lens' CreateEntityRecognizer LanguageCode
+cerLanguageCode = Lens.lens (languageCode :: CreateEntityRecognizer -> LanguageCode) (\s a -> s {languageCode = a} :: CreateEntityRecognizer)
+{-# DEPRECATED cerLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | Specifies the format and location of the input data. The S3 bucket containing the input data must be located in the same region as the entity recognizer being created.
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cerInputDataConfig :: Lens.Lens' CreateEntityRecognizer EntityRecognizerInputDataConfig
+cerInputDataConfig = Lens.lens (inputDataConfig :: CreateEntityRecognizer -> EntityRecognizerInputDataConfig) (\s a -> s {inputDataConfig = a} :: CreateEntityRecognizer)
+{-# DEPRECATED cerInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 --
@@ -132,6 +153,13 @@ cerVolumeKMSKeyId :: Lens.Lens' CreateEntityRecognizer (Lude.Maybe Lude.Text)
 cerVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: CreateEntityRecognizer -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: CreateEntityRecognizer)
 {-# DEPRECATED cerVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cerDataAccessRoleARN :: Lens.Lens' CreateEntityRecognizer Lude.Text
+cerDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: CreateEntityRecognizer -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: CreateEntityRecognizer)
+{-# DEPRECATED cerDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
+
 -- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -152,27 +180,6 @@ cerTags = Lens.lens (tags :: CreateEntityRecognizer -> Lude.Maybe [Tag]) (\s a -
 cerRecognizerName :: Lens.Lens' CreateEntityRecognizer Lude.Text
 cerRecognizerName = Lens.lens (recognizerName :: CreateEntityRecognizer -> Lude.Text) (\s a -> s {recognizerName = a} :: CreateEntityRecognizer)
 {-# DEPRECATED cerRecognizerName "Use generic-lens or generic-optics with 'recognizerName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
---
--- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cerDataAccessRoleARN :: Lens.Lens' CreateEntityRecognizer Lude.Text
-cerDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: CreateEntityRecognizer -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: CreateEntityRecognizer)
-{-# DEPRECATED cerDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
-
--- | Specifies the format and location of the input data. The S3 bucket containing the input data must be located in the same region as the entity recognizer being created.
---
--- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cerInputDataConfig :: Lens.Lens' CreateEntityRecognizer EntityRecognizerInputDataConfig
-cerInputDataConfig = Lens.lens (inputDataConfig :: CreateEntityRecognizer -> EntityRecognizerInputDataConfig) (\s a -> s {inputDataConfig = a} :: CreateEntityRecognizer)
-{-# DEPRECATED cerInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
-
--- | You can specify any of the following languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese ("pt"). All documents must be in the same language.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cerLanguageCode :: Lens.Lens' CreateEntityRecognizer LanguageCode
-cerLanguageCode = Lens.lens (languageCode :: CreateEntityRecognizer -> LanguageCode) (\s a -> s {languageCode = a} :: CreateEntityRecognizer)
-{-# DEPRECATED cerLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 instance Lude.AWSRequest CreateEntityRecognizer where
   type Rs CreateEntityRecognizer = CreateEntityRecognizerResponse
@@ -200,14 +207,14 @@ instance Lude.ToJSON CreateEntityRecognizer where
   toJSON CreateEntityRecognizer' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+          [ Lude.Just ("LanguageCode" Lude..= languageCode),
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
+            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
             ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
+            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN),
             ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
             ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("RecognizerName" Lude..= recognizerName),
-            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN),
-            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
-            Lude.Just ("LanguageCode" Lude..= languageCode)
+            Lude.Just ("RecognizerName" Lude..= recognizerName)
           ]
       )
 
@@ -219,17 +226,12 @@ instance Lude.ToQuery CreateEntityRecognizer where
 
 -- | /See:/ 'mkCreateEntityRecognizerResponse' smart constructor.
 data CreateEntityRecognizerResponse = CreateEntityRecognizerResponse'
-  { entityRecognizerARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
+    entityRecognizerARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEntityRecognizerResponse' with the minimum fields required to make a request.

@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScalingAction' smart constructor.
 data ScalingAction = ScalingAction'
-  { market ::
-      Lude.Maybe MarketType,
-    simpleScalingPolicyConfiguration ::
-      SimpleScalingPolicyConfiguration
+  { -- | Not available for instance groups. Instance groups use the market type specified for the group.
+    market :: Lude.Maybe MarketType,
+    -- | The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+    simpleScalingPolicyConfiguration :: SimpleScalingPolicyConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingAction' with the minimum fields required to make a request.

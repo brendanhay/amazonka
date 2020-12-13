@@ -173,8 +173,8 @@ module Network.AWS.ECR
     -- ** EncryptionConfiguration
     EncryptionConfiguration (..),
     mkEncryptionConfiguration,
-    ecKmsKey,
     ecEncryptionType,
+    ecKmsKey,
 
     -- ** Image
     Image (..),

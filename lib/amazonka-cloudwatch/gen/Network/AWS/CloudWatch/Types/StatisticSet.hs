@@ -18,9 +18,9 @@ module Network.AWS.CloudWatch.Types.StatisticSet
 
     -- * Lenses
     ssSampleCount,
-    ssSum,
-    ssMinimum,
     ssMaximum,
+    ssMinimum,
+    ssSum,
   )
 where
 
@@ -31,42 +31,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStatisticSet' smart constructor.
 data StatisticSet = StatisticSet'
-  { sampleCount :: Lude.Double,
-    sum :: Lude.Double,
+  { -- | The number of samples used for the statistic set.
+    sampleCount :: Lude.Double,
+    -- | The maximum value of the sample set.
+    maximum :: Lude.Double,
+    -- | The minimum value of the sample set.
     minimum :: Lude.Double,
-    maximum :: Lude.Double
+    -- | The sum of values for the sample set.
+    sum :: Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatisticSet' with the minimum fields required to make a request.
 --
+-- * 'sampleCount' - The number of samples used for the statistic set.
 -- * 'maximum' - The maximum value of the sample set.
 -- * 'minimum' - The minimum value of the sample set.
--- * 'sampleCount' - The number of samples used for the statistic set.
 -- * 'sum' - The sum of values for the sample set.
 mkStatisticSet ::
   -- | 'sampleCount'
   Lude.Double ->
-  -- | 'sum'
+  -- | 'maximum'
   Lude.Double ->
   -- | 'minimum'
   Lude.Double ->
-  -- | 'maximum'
+  -- | 'sum'
   Lude.Double ->
   StatisticSet
-mkStatisticSet pSampleCount_ pSum_ pMinimum_ pMaximum_ =
+mkStatisticSet pSampleCount_ pMaximum_ pMinimum_ pSum_ =
   StatisticSet'
     { sampleCount = pSampleCount_,
-      sum = pSum_,
+      maximum = pMaximum_,
       minimum = pMinimum_,
-      maximum = pMaximum_
+      sum = pSum_
     }
 
 -- | The number of samples used for the statistic set.
@@ -76,12 +74,12 @@ ssSampleCount :: Lens.Lens' StatisticSet Lude.Double
 ssSampleCount = Lens.lens (sampleCount :: StatisticSet -> Lude.Double) (\s a -> s {sampleCount = a} :: StatisticSet)
 {-# DEPRECATED ssSampleCount "Use generic-lens or generic-optics with 'sampleCount' instead." #-}
 
--- | The sum of values for the sample set.
+-- | The maximum value of the sample set.
 --
--- /Note:/ Consider using 'sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssSum :: Lens.Lens' StatisticSet Lude.Double
-ssSum = Lens.lens (sum :: StatisticSet -> Lude.Double) (\s a -> s {sum = a} :: StatisticSet)
-{-# DEPRECATED ssSum "Use generic-lens or generic-optics with 'sum' instead." #-}
+-- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssMaximum :: Lens.Lens' StatisticSet Lude.Double
+ssMaximum = Lens.lens (maximum :: StatisticSet -> Lude.Double) (\s a -> s {maximum = a} :: StatisticSet)
+{-# DEPRECATED ssMaximum "Use generic-lens or generic-optics with 'maximum' instead." #-}
 
 -- | The minimum value of the sample set.
 --
@@ -90,18 +88,18 @@ ssMinimum :: Lens.Lens' StatisticSet Lude.Double
 ssMinimum = Lens.lens (minimum :: StatisticSet -> Lude.Double) (\s a -> s {minimum = a} :: StatisticSet)
 {-# DEPRECATED ssMinimum "Use generic-lens or generic-optics with 'minimum' instead." #-}
 
--- | The maximum value of the sample set.
+-- | The sum of values for the sample set.
 --
--- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssMaximum :: Lens.Lens' StatisticSet Lude.Double
-ssMaximum = Lens.lens (maximum :: StatisticSet -> Lude.Double) (\s a -> s {maximum = a} :: StatisticSet)
-{-# DEPRECATED ssMaximum "Use generic-lens or generic-optics with 'maximum' instead." #-}
+-- /Note:/ Consider using 'sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssSum :: Lens.Lens' StatisticSet Lude.Double
+ssSum = Lens.lens (sum :: StatisticSet -> Lude.Double) (\s a -> s {sum = a} :: StatisticSet)
+{-# DEPRECATED ssSum "Use generic-lens or generic-optics with 'sum' instead." #-}
 
 instance Lude.ToQuery StatisticSet where
   toQuery StatisticSet' {..} =
     Lude.mconcat
       [ "SampleCount" Lude.=: sampleCount,
-        "Sum" Lude.=: sum,
+        "Maximum" Lude.=: maximum,
         "Minimum" Lude.=: minimum,
-        "Maximum" Lude.=: maximum
+        "Sum" Lude.=: sum
       ]

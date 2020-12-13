@@ -17,8 +17,8 @@ module Network.AWS.Comprehend.Types.PartOfSpeechTagType
         Adp,
         Adv,
         Aux,
-        Cconj,
         Conj,
+        Cconj,
         Det,
         Intj,
         Noun,
@@ -73,11 +73,11 @@ pattern Adv = PartOfSpeechTagType' "ADV"
 pattern Aux :: PartOfSpeechTagType
 pattern Aux = PartOfSpeechTagType' "AUX"
 
-pattern Cconj :: PartOfSpeechTagType
-pattern Cconj = PartOfSpeechTagType' "CCONJ"
-
 pattern Conj :: PartOfSpeechTagType
 pattern Conj = PartOfSpeechTagType' "CONJ"
+
+pattern Cconj :: PartOfSpeechTagType
+pattern Cconj = PartOfSpeechTagType' "CCONJ"
 
 pattern Det :: PartOfSpeechTagType
 pattern Det = PartOfSpeechTagType' "DET"
@@ -120,8 +120,8 @@ pattern Verb = PartOfSpeechTagType' "VERB"
   Adp,
   Adv,
   Aux,
-  Cconj,
   Conj,
+  Cconj,
   Det,
   Intj,
   Noun,

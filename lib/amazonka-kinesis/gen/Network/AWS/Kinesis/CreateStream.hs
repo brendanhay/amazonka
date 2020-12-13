@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,8 +35,8 @@ module Network.AWS.Kinesis.CreateStream
     mkCreateStream,
 
     -- ** Request lenses
-    csStreamName,
     csShardCount,
+    csStreamName,
 
     -- * Destructuring the response
     CreateStreamResponse (..),
@@ -53,16 +54,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateStream' smart constructor.
 data CreateStream = CreateStream'
-  { streamName :: Lude.Text,
-    shardCount :: Lude.Natural
+  { -- | The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.
+    shardCount :: Lude.Natural,
+    -- | A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
+    streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStream' with the minimum fields required to make a request.
@@ -70,23 +67,16 @@ data CreateStream = CreateStream'
 -- * 'shardCount' - The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.
 -- * 'streamName' - A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
 mkCreateStream ::
-  -- | 'streamName'
-  Lude.Text ->
   -- | 'shardCount'
   Lude.Natural ->
+  -- | 'streamName'
+  Lude.Text ->
   CreateStream
-mkCreateStream pStreamName_ pShardCount_ =
+mkCreateStream pShardCount_ pStreamName_ =
   CreateStream'
-    { streamName = pStreamName_,
-      shardCount = pShardCount_
+    { shardCount = pShardCount_,
+      streamName = pStreamName_
     }
-
--- | A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csStreamName :: Lens.Lens' CreateStream Lude.Text
-csStreamName = Lens.lens (streamName :: CreateStream -> Lude.Text) (\s a -> s {streamName = a} :: CreateStream)
-{-# DEPRECATED csStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.
 --
@@ -94,6 +84,13 @@ csStreamName = Lens.lens (streamName :: CreateStream -> Lude.Text) (\s a -> s {s
 csShardCount :: Lens.Lens' CreateStream Lude.Natural
 csShardCount = Lens.lens (shardCount :: CreateStream -> Lude.Natural) (\s a -> s {shardCount = a} :: CreateStream)
 {-# DEPRECATED csShardCount "Use generic-lens or generic-optics with 'shardCount' instead." #-}
+
+-- | A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by AWS Region. That is, two streams in two different AWS accounts can have the same name. Two streams in the same AWS account but in two different Regions can also have the same name.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStreamName :: Lens.Lens' CreateStream Lude.Text
+csStreamName = Lens.lens (streamName :: CreateStream -> Lude.Text) (\s a -> s {streamName = a} :: CreateStream)
+{-# DEPRECATED csStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 instance Lude.AWSRequest CreateStream where
   type Rs CreateStream = CreateStreamResponse
@@ -115,8 +112,8 @@ instance Lude.ToJSON CreateStream where
   toJSON CreateStream' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("StreamName" Lude..= streamName),
-            Lude.Just ("ShardCount" Lude..= shardCount)
+          [ Lude.Just ("ShardCount" Lude..= shardCount),
+            Lude.Just ("StreamName" Lude..= streamName)
           ]
       )
 
@@ -128,13 +125,7 @@ instance Lude.ToQuery CreateStream where
 
 -- | /See:/ 'mkCreateStreamResponse' smart constructor.
 data CreateStreamResponse = CreateStreamResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamResponse' with the minimum fields required to make a request.

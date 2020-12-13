@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameterInlinePolicy' smart constructor.
 data ParameterInlinePolicy = ParameterInlinePolicy'
-  { policyType ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.
+    policyType :: Lude.Maybe Lude.Text,
+    -- | The status of the policy. Policies report the following statuses: Pending (the policy has not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not applied), or InProgress (the policy is being applied now).
     policyStatus :: Lude.Maybe Lude.Text,
+    -- | The JSON text of the policy.
     policyText :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterInlinePolicy' with the minimum fields required to make a request.
 --
+-- * 'policyType' - The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.
 -- * 'policyStatus' - The status of the policy. Policies report the following statuses: Pending (the policy has not been enforced or applied yet), Finished (the policy was applied), Failed (the policy was not applied), or InProgress (the policy is being applied now).
 -- * 'policyText' - The JSON text of the policy.
--- * 'policyType' - The type of policy. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.
 mkParameterInlinePolicy ::
   ParameterInlinePolicy
 mkParameterInlinePolicy =

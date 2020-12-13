@@ -30,16 +30,10 @@ import Network.AWS.S3.Types.SseKMSEncryptedObjects
 --
 -- /See:/ 'mkSourceSelectionCriteria' smart constructor.
 newtype SourceSelectionCriteria = SourceSelectionCriteria'
-  { sseKMSEncryptedObjects ::
-      Lude.Maybe SseKMSEncryptedObjects
+  { -- | A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@ in the replication configuration, this element is required.
+    sseKMSEncryptedObjects :: Lude.Maybe SseKMSEncryptedObjects
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceSelectionCriteria' with the minimum fields required to make a request.

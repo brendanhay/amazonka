@@ -31,24 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionExecutionConfig' smart constructor.
 data FunctionExecutionConfig = FunctionExecutionConfig'
-  { runAs ::
-      Lude.Maybe FunctionRunAsConfig,
-    isolationMode ::
-      Lude.Maybe FunctionIsolationMode
+  { runAs :: Lude.Maybe FunctionRunAsConfig,
+    isolationMode :: Lude.Maybe FunctionIsolationMode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionExecutionConfig' with the minimum fields required to make a request.
 --
--- * 'isolationMode' - Undocumented field.
--- * 'runAs' - Undocumented field.
+-- * 'runAs' -
+-- * 'isolationMode' -
 mkFunctionExecutionConfig ::
   FunctionExecutionConfig
 mkFunctionExecutionConfig =

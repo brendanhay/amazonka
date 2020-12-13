@@ -13,8 +13,8 @@
 module Network.AWS.AWSHealth.Types.EventStatusCode
   ( EventStatusCode
       ( EventStatusCode',
-        Closed,
         Open,
+        Closed,
         Upcoming
       ),
   )
@@ -46,18 +46,18 @@ newtype EventStatusCode = EventStatusCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Closed :: EventStatusCode
-pattern Closed = EventStatusCode' "closed"
-
 pattern Open :: EventStatusCode
 pattern Open = EventStatusCode' "open"
+
+pattern Closed :: EventStatusCode
+pattern Closed = EventStatusCode' "closed"
 
 pattern Upcoming :: EventStatusCode
 pattern Upcoming = EventStatusCode' "upcoming"
 
 {-# COMPLETE
-  Closed,
   Open,
+  Closed,
   Upcoming,
   EventStatusCode'
   #-}

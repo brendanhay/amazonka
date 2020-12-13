@@ -34,23 +34,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobLogs' smart constructor.
 data JobLogs = JobLogs'
-  { jobFailureLogURI :: Lude.Maybe Lude.Text,
+  { -- | A link to an Amazon S3 presigned URL where the job failure log is located.
+    jobFailureLogURI :: Lude.Maybe Lude.Text,
+    -- | A link to an Amazon S3 presigned URL where the job completion report is located.
     jobCompletionReportURI :: Lude.Maybe Lude.Text,
+    -- | A link to an Amazon S3 presigned URL where the job success log is located.
     jobSuccessLogURI :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobLogs' with the minimum fields required to make a request.
 --
--- * 'jobCompletionReportURI' - A link to an Amazon S3 presigned URL where the job completion report is located.
 -- * 'jobFailureLogURI' - A link to an Amazon S3 presigned URL where the job failure log is located.
+-- * 'jobCompletionReportURI' - A link to an Amazon S3 presigned URL where the job completion report is located.
 -- * 'jobSuccessLogURI' - A link to an Amazon S3 presigned URL where the job success log is located.
 mkJobLogs ::
   JobLogs

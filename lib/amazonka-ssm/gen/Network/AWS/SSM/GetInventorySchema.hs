@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,27 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetInventorySchema' smart constructor.
 data GetInventorySchema = GetInventorySchema'
-  { typeName ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of inventory item to return.
+    typeName :: Lude.Maybe Lude.Text,
+    -- | Returns inventory schemas that support aggregation. For example, this call returns the @AWS:InstanceInformation@ type, because it supports aggregation based on the @PlatformName@ , @PlatformType@ , and @PlatformVersion@ attributes.
     aggregator :: Lude.Maybe Lude.Bool,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Returns the sub-type schema for a specified inventory type.
     subType :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInventorySchema' with the minimum fields required to make a request.
 --
+-- * 'typeName' - The type of inventory item to return.
 -- * 'aggregator' - Returns inventory schemas that support aggregation. For example, this call returns the @AWS:InstanceInformation@ type, because it supports aggregation based on the @PlatformName@ , @PlatformType@ , and @PlatformVersion@ attributes.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'subType' - Returns the sub-type schema for a specified inventory type.
--- * 'typeName' - The type of inventory item to return.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkGetInventorySchema ::
   GetInventorySchema
 mkGetInventorySchema =
@@ -168,25 +167,21 @@ instance Lude.ToQuery GetInventorySchema where
 
 -- | /See:/ 'mkGetInventorySchemaResponse' smart constructor.
 data GetInventorySchemaResponse = GetInventorySchemaResponse'
-  { schemas ::
-      Lude.Maybe [InventoryItemSchema],
+  { -- | Inventory schemas returned by the request.
+    schemas :: Lude.Maybe [InventoryItemSchema],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInventorySchemaResponse' with the minimum fields required to make a request.
 --
+-- * 'schemas' - Inventory schemas returned by the request.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 -- * 'responseStatus' - The response status code.
--- * 'schemas' - Inventory schemas returned by the request.
 mkGetInventorySchemaResponse ::
   -- | 'responseStatus'
   Lude.Int ->

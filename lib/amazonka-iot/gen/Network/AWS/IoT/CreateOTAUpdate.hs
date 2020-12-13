@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,14 +24,14 @@ module Network.AWS.IoT.CreateOTAUpdate
     cotauAwsJobExecutionsRolloutConfig,
     cotauProtocols,
     cotauAwsJobPresignedURLConfig,
+    cotauTargets,
+    cotauFiles,
     cotauAdditionalParameters,
     cotauAwsJobTimeoutConfig,
+    cotauOtaUpdateId,
     cotauDescription,
     cotauTargetSelection,
     cotauTags,
-    cotauOtaUpdateId,
-    cotauTargets,
-    cotauFiles,
     cotauRoleARN,
 
     -- * Destructuring the response
@@ -55,72 +56,75 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateOTAUpdate' smart constructor.
 data CreateOTAUpdate = CreateOTAUpdate'
-  { awsJobAbortConfig ::
-      Lude.Maybe AWSJobAbortConfig,
-    awsJobExecutionsRolloutConfig ::
-      Lude.Maybe AWSJobExecutionsRolloutConfig,
+  { -- | The criteria that determine when and how a job abort takes place.
+    awsJobAbortConfig :: Lude.Maybe AWSJobAbortConfig,
+    -- | Configuration for the rollout of OTA updates.
+    awsJobExecutionsRolloutConfig :: Lude.Maybe AWSJobExecutionsRolloutConfig,
+    -- | The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
     protocols :: Lude.Maybe (Lude.NonEmpty Protocol),
-    awsJobPresignedURLConfig ::
-      Lude.Maybe AWSJobPresignedURLConfig,
-    additionalParameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    awsJobTimeoutConfig :: Lude.Maybe AWSJobTimeoutConfig,
-    description :: Lude.Maybe Lude.Text,
-    targetSelection :: Lude.Maybe TargetSelection,
-    tags :: Lude.Maybe [Tag],
-    otaUpdateId :: Lude.Text,
+    -- | Configuration information for pre-signed URLs.
+    awsJobPresignedURLConfig :: Lude.Maybe AWSJobPresignedURLConfig,
+    -- | The devices targeted to receive OTA updates.
     targets :: Lude.NonEmpty Lude.Text,
+    -- | The files to be streamed by the OTA update.
     files :: Lude.NonEmpty OTAUpdateFile,
+    -- | A list of additional OTA update parameters which are name-value pairs.
+    additionalParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
+    awsJobTimeoutConfig :: Lude.Maybe AWSJobTimeoutConfig,
+    -- | The ID of the OTA update to be created.
+    otaUpdateId :: Lude.Text,
+    -- | The description of the OTA update.
+    description :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a thing when a change is detected in a target. For example, an update will run on a thing when the thing is added to a target group, even after the update was completed by all things originally in the group. Valid values: CONTINUOUS | SNAPSHOT.
+    targetSelection :: Lude.Maybe TargetSelection,
+    -- | Metadata which can be used to manage updates.
+    tags :: Lude.Maybe [Tag],
+    -- | The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources to create an OTA update job.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOTAUpdate' with the minimum fields required to make a request.
 --
--- * 'additionalParameters' - A list of additional OTA update parameters which are name-value pairs.
 -- * 'awsJobAbortConfig' - The criteria that determine when and how a job abort takes place.
 -- * 'awsJobExecutionsRolloutConfig' - Configuration for the rollout of OTA updates.
--- * 'awsJobPresignedURLConfig' - Configuration information for pre-signed URLs.
--- * 'awsJobTimeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
--- * 'description' - The description of the OTA update.
--- * 'files' - The files to be streamed by the OTA update.
--- * 'otaUpdateId' - The ID of the OTA update to be created.
 -- * 'protocols' - The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
--- * 'roleARN' - The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources to create an OTA update job.
--- * 'tags' - Metadata which can be used to manage updates.
--- * 'targetSelection' - Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a thing when a change is detected in a target. For example, an update will run on a thing when the thing is added to a target group, even after the update was completed by all things originally in the group. Valid values: CONTINUOUS | SNAPSHOT.
+-- * 'awsJobPresignedURLConfig' - Configuration information for pre-signed URLs.
 -- * 'targets' - The devices targeted to receive OTA updates.
+-- * 'files' - The files to be streamed by the OTA update.
+-- * 'additionalParameters' - A list of additional OTA update parameters which are name-value pairs.
+-- * 'awsJobTimeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
+-- * 'otaUpdateId' - The ID of the OTA update to be created.
+-- * 'description' - The description of the OTA update.
+-- * 'targetSelection' - Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a thing when a change is detected in a target. For example, an update will run on a thing when the thing is added to a target group, even after the update was completed by all things originally in the group. Valid values: CONTINUOUS | SNAPSHOT.
+-- * 'tags' - Metadata which can be used to manage updates.
+-- * 'roleARN' - The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources to create an OTA update job.
 mkCreateOTAUpdate ::
-  -- | 'otaUpdateId'
-  Lude.Text ->
   -- | 'targets'
   Lude.NonEmpty Lude.Text ->
   -- | 'files'
   Lude.NonEmpty OTAUpdateFile ->
+  -- | 'otaUpdateId'
+  Lude.Text ->
   -- | 'roleARN'
   Lude.Text ->
   CreateOTAUpdate
-mkCreateOTAUpdate pOtaUpdateId_ pTargets_ pFiles_ pRoleARN_ =
+mkCreateOTAUpdate pTargets_ pFiles_ pOtaUpdateId_ pRoleARN_ =
   CreateOTAUpdate'
     { awsJobAbortConfig = Lude.Nothing,
       awsJobExecutionsRolloutConfig = Lude.Nothing,
       protocols = Lude.Nothing,
       awsJobPresignedURLConfig = Lude.Nothing,
+      targets = pTargets_,
+      files = pFiles_,
       additionalParameters = Lude.Nothing,
       awsJobTimeoutConfig = Lude.Nothing,
+      otaUpdateId = pOtaUpdateId_,
       description = Lude.Nothing,
       targetSelection = Lude.Nothing,
       tags = Lude.Nothing,
-      otaUpdateId = pOtaUpdateId_,
-      targets = pTargets_,
-      files = pFiles_,
       roleARN = pRoleARN_
     }
 
@@ -152,6 +156,20 @@ cotauAwsJobPresignedURLConfig :: Lens.Lens' CreateOTAUpdate (Lude.Maybe AWSJobPr
 cotauAwsJobPresignedURLConfig = Lens.lens (awsJobPresignedURLConfig :: CreateOTAUpdate -> Lude.Maybe AWSJobPresignedURLConfig) (\s a -> s {awsJobPresignedURLConfig = a} :: CreateOTAUpdate)
 {-# DEPRECATED cotauAwsJobPresignedURLConfig "Use generic-lens or generic-optics with 'awsJobPresignedURLConfig' instead." #-}
 
+-- | The devices targeted to receive OTA updates.
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauTargets :: Lens.Lens' CreateOTAUpdate (Lude.NonEmpty Lude.Text)
+cotauTargets = Lens.lens (targets :: CreateOTAUpdate -> Lude.NonEmpty Lude.Text) (\s a -> s {targets = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
+
+-- | The files to be streamed by the OTA update.
+--
+-- /Note:/ Consider using 'files' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauFiles :: Lens.Lens' CreateOTAUpdate (Lude.NonEmpty OTAUpdateFile)
+cotauFiles = Lens.lens (files :: CreateOTAUpdate -> Lude.NonEmpty OTAUpdateFile) (\s a -> s {files = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauFiles "Use generic-lens or generic-optics with 'files' instead." #-}
+
 -- | A list of additional OTA update parameters which are name-value pairs.
 --
 -- /Note:/ Consider using 'additionalParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -165,6 +183,13 @@ cotauAdditionalParameters = Lens.lens (additionalParameters :: CreateOTAUpdate -
 cotauAwsJobTimeoutConfig :: Lens.Lens' CreateOTAUpdate (Lude.Maybe AWSJobTimeoutConfig)
 cotauAwsJobTimeoutConfig = Lens.lens (awsJobTimeoutConfig :: CreateOTAUpdate -> Lude.Maybe AWSJobTimeoutConfig) (\s a -> s {awsJobTimeoutConfig = a} :: CreateOTAUpdate)
 {-# DEPRECATED cotauAwsJobTimeoutConfig "Use generic-lens or generic-optics with 'awsJobTimeoutConfig' instead." #-}
+
+-- | The ID of the OTA update to be created.
+--
+-- /Note:/ Consider using 'otaUpdateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cotauOtaUpdateId :: Lens.Lens' CreateOTAUpdate Lude.Text
+cotauOtaUpdateId = Lens.lens (otaUpdateId :: CreateOTAUpdate -> Lude.Text) (\s a -> s {otaUpdateId = a} :: CreateOTAUpdate)
+{-# DEPRECATED cotauOtaUpdateId "Use generic-lens or generic-optics with 'otaUpdateId' instead." #-}
 
 -- | The description of the OTA update.
 --
@@ -186,27 +211,6 @@ cotauTargetSelection = Lens.lens (targetSelection :: CreateOTAUpdate -> Lude.May
 cotauTags :: Lens.Lens' CreateOTAUpdate (Lude.Maybe [Tag])
 cotauTags = Lens.lens (tags :: CreateOTAUpdate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateOTAUpdate)
 {-# DEPRECATED cotauTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The ID of the OTA update to be created.
---
--- /Note:/ Consider using 'otaUpdateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cotauOtaUpdateId :: Lens.Lens' CreateOTAUpdate Lude.Text
-cotauOtaUpdateId = Lens.lens (otaUpdateId :: CreateOTAUpdate -> Lude.Text) (\s a -> s {otaUpdateId = a} :: CreateOTAUpdate)
-{-# DEPRECATED cotauOtaUpdateId "Use generic-lens or generic-optics with 'otaUpdateId' instead." #-}
-
--- | The devices targeted to receive OTA updates.
---
--- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cotauTargets :: Lens.Lens' CreateOTAUpdate (Lude.NonEmpty Lude.Text)
-cotauTargets = Lens.lens (targets :: CreateOTAUpdate -> Lude.NonEmpty Lude.Text) (\s a -> s {targets = a} :: CreateOTAUpdate)
-{-# DEPRECATED cotauTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
-
--- | The files to be streamed by the OTA update.
---
--- /Note:/ Consider using 'files' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cotauFiles :: Lens.Lens' CreateOTAUpdate (Lude.NonEmpty OTAUpdateFile)
-cotauFiles = Lens.lens (files :: CreateOTAUpdate -> Lude.NonEmpty OTAUpdateFile) (\s a -> s {files = a} :: CreateOTAUpdate)
-{-# DEPRECATED cotauFiles "Use generic-lens or generic-optics with 'files' instead." #-}
 
 -- | The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources to create an OTA update job.
 --
@@ -243,13 +247,13 @@ instance Lude.ToJSON CreateOTAUpdate where
             ("protocols" Lude..=) Lude.<$> protocols,
             ("awsJobPresignedUrlConfig" Lude..=)
               Lude.<$> awsJobPresignedURLConfig,
+            Lude.Just ("targets" Lude..= targets),
+            Lude.Just ("files" Lude..= files),
             ("additionalParameters" Lude..=) Lude.<$> additionalParameters,
             ("awsJobTimeoutConfig" Lude..=) Lude.<$> awsJobTimeoutConfig,
             ("description" Lude..=) Lude.<$> description,
             ("targetSelection" Lude..=) Lude.<$> targetSelection,
             ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("targets" Lude..= targets),
-            Lude.Just ("files" Lude..= files),
             Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )
@@ -263,31 +267,29 @@ instance Lude.ToQuery CreateOTAUpdate where
 
 -- | /See:/ 'mkCreateOTAUpdateResponse' smart constructor.
 data CreateOTAUpdateResponse = CreateOTAUpdateResponse'
-  { awsIotJobId ::
-      Lude.Maybe Lude.Text,
-    otaUpdateStatus ::
-      Lude.Maybe OTAUpdateStatus,
+  { -- | The AWS IoT job ID associated with the OTA update.
+    awsIotJobId :: Lude.Maybe Lude.Text,
+    -- | The OTA update status.
+    otaUpdateStatus :: Lude.Maybe OTAUpdateStatus,
+    -- | The AWS IoT job ARN associated with the OTA update.
     awsIotJobARN :: Lude.Maybe Lude.Text,
+    -- | The OTA update ID.
     otaUpdateId :: Lude.Maybe Lude.Text,
+    -- | The OTA update ARN.
     otaUpdateARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOTAUpdateResponse' with the minimum fields required to make a request.
 --
--- * 'awsIotJobARN' - The AWS IoT job ARN associated with the OTA update.
 -- * 'awsIotJobId' - The AWS IoT job ID associated with the OTA update.
--- * 'otaUpdateARN' - The OTA update ARN.
--- * 'otaUpdateId' - The OTA update ID.
 -- * 'otaUpdateStatus' - The OTA update status.
+-- * 'awsIotJobARN' - The AWS IoT job ARN associated with the OTA update.
+-- * 'otaUpdateId' - The OTA update ID.
+-- * 'otaUpdateARN' - The OTA update ARN.
 -- * 'responseStatus' - The response status code.
 mkCreateOTAUpdateResponse ::
   -- | 'responseStatus'

@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCConfig' smart constructor.
 data VPCConfig = VPCConfig'
-  { securityGroupIds ::
-      Lude.NonEmpty Lude.Text,
+  { -- | The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the @Subnets@ field.
+    securityGroupIds :: Lude.NonEmpty Lude.Text,
+    -- | The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see <https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html Supported Instance Types and Availability Zones> .
     subnets :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCConfig' with the minimum fields required to make a request.

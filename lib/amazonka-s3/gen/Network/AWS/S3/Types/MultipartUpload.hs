@@ -37,29 +37,28 @@ import Network.AWS.S3.Types.StorageClass
 --
 -- /See:/ 'mkMultipartUpload' smart constructor.
 data MultipartUpload = MultipartUpload'
-  { initiated ::
-      Lude.Maybe Lude.DateTime,
+  { -- | Date and time at which the multipart upload was initiated.
+    initiated :: Lude.Maybe Lude.DateTime,
+    -- | Identifies who initiated the multipart upload.
     initiator :: Lude.Maybe Initiator,
+    -- | Specifies the owner of the object that is part of the multipart upload.
     owner :: Lude.Maybe Owner,
+    -- | Key of the object for which the multipart upload was initiated.
     key :: Lude.Maybe ObjectKey,
+    -- | The class of storage used to store the object.
     storageClass :: Lude.Maybe StorageClass,
+    -- | Upload ID that identifies the multipart upload.
     uploadId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultipartUpload' with the minimum fields required to make a request.
 --
 -- * 'initiated' - Date and time at which the multipart upload was initiated.
 -- * 'initiator' - Identifies who initiated the multipart upload.
--- * 'key' - Key of the object for which the multipart upload was initiated.
 -- * 'owner' - Specifies the owner of the object that is part of the multipart upload.
+-- * 'key' - Key of the object for which the multipart upload was initiated.
 -- * 'storageClass' - The class of storage used to store the object.
 -- * 'uploadId' - Upload ID that identifies the multipart upload.
 mkMultipartUpload ::

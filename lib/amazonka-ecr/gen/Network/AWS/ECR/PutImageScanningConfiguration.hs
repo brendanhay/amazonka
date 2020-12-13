@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.ECR.PutImageScanningConfiguration
 
     -- ** Request lenses
     piscRegistryId,
-    piscRepositoryName,
     piscImageScanningConfiguration,
+    piscRepositoryName,
 
     -- * Destructuring the response
     PutImageScanningConfigurationResponse (..),
@@ -43,39 +44,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutImageScanningConfiguration' smart constructor.
 data PutImageScanningConfiguration = PutImageScanningConfiguration'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    repositoryName :: Lude.Text,
-    imageScanningConfiguration ::
-      ImageScanningConfiguration
+  { -- | The AWS account ID associated with the registry that contains the repository in which to update the image scanning configuration setting. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+    imageScanningConfiguration :: ImageScanningConfiguration,
+    -- | The name of the repository in which to update the image scanning configuration setting.
+    repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutImageScanningConfiguration' with the minimum fields required to make a request.
 --
--- * 'imageScanningConfiguration' - The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 -- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to update the image scanning configuration setting. If you do not specify a registry, the default registry is assumed.
+-- * 'imageScanningConfiguration' - The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 -- * 'repositoryName' - The name of the repository in which to update the image scanning configuration setting.
 mkPutImageScanningConfiguration ::
-  -- | 'repositoryName'
-  Lude.Text ->
   -- | 'imageScanningConfiguration'
   ImageScanningConfiguration ->
+  -- | 'repositoryName'
+  Lude.Text ->
   PutImageScanningConfiguration
 mkPutImageScanningConfiguration
-  pRepositoryName_
-  pImageScanningConfiguration_ =
+  pImageScanningConfiguration_
+  pRepositoryName_ =
     PutImageScanningConfiguration'
       { registryId = Lude.Nothing,
-        repositoryName = pRepositoryName_,
-        imageScanningConfiguration = pImageScanningConfiguration_
+        imageScanningConfiguration = pImageScanningConfiguration_,
+        repositoryName = pRepositoryName_
       }
 
 -- | The AWS account ID associated with the registry that contains the repository in which to update the image scanning configuration setting. If you do not specify a registry, the default registry is assumed.
@@ -85,19 +81,19 @@ piscRegistryId :: Lens.Lens' PutImageScanningConfiguration (Lude.Maybe Lude.Text
 piscRegistryId = Lens.lens (registryId :: PutImageScanningConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: PutImageScanningConfiguration)
 {-# DEPRECATED piscRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
--- | The name of the repository in which to update the image scanning configuration setting.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piscRepositoryName :: Lens.Lens' PutImageScanningConfiguration Lude.Text
-piscRepositoryName = Lens.lens (repositoryName :: PutImageScanningConfiguration -> Lude.Text) (\s a -> s {repositoryName = a} :: PutImageScanningConfiguration)
-{-# DEPRECATED piscRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
-
 -- | The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 --
 -- /Note:/ Consider using 'imageScanningConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 piscImageScanningConfiguration :: Lens.Lens' PutImageScanningConfiguration ImageScanningConfiguration
 piscImageScanningConfiguration = Lens.lens (imageScanningConfiguration :: PutImageScanningConfiguration -> ImageScanningConfiguration) (\s a -> s {imageScanningConfiguration = a} :: PutImageScanningConfiguration)
 {-# DEPRECATED piscImageScanningConfiguration "Use generic-lens or generic-optics with 'imageScanningConfiguration' instead." #-}
+
+-- | The name of the repository in which to update the image scanning configuration setting.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piscRepositoryName :: Lens.Lens' PutImageScanningConfiguration Lude.Text
+piscRepositoryName = Lens.lens (repositoryName :: PutImageScanningConfiguration -> Lude.Text) (\s a -> s {repositoryName = a} :: PutImageScanningConfiguration)
+{-# DEPRECATED piscRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Lude.AWSRequest PutImageScanningConfiguration where
   type
@@ -132,9 +128,9 @@ instance Lude.ToJSON PutImageScanningConfiguration where
     Lude.object
       ( Lude.catMaybes
           [ ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
             Lude.Just
-              ("imageScanningConfiguration" Lude..= imageScanningConfiguration)
+              ("imageScanningConfiguration" Lude..= imageScanningConfiguration),
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
@@ -146,31 +142,22 @@ instance Lude.ToQuery PutImageScanningConfiguration where
 
 -- | /See:/ 'mkPutImageScanningConfigurationResponse' smart constructor.
 data PutImageScanningConfigurationResponse = PutImageScanningConfigurationResponse'
-  { registryId ::
-      Lude.Maybe
-        Lude.Text,
-    imageScanningConfiguration ::
-      Lude.Maybe
-        ImageScanningConfiguration,
-    repositoryName ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The registry ID associated with the request.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The image scanning configuration setting for the repository.
+    imageScanningConfiguration :: Lude.Maybe ImageScanningConfiguration,
+    -- | The repository name associated with the request.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutImageScanningConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'imageScanningConfiguration' - The image scanning configuration setting for the repository.
 -- * 'registryId' - The registry ID associated with the request.
+-- * 'imageScanningConfiguration' - The image scanning configuration setting for the repository.
 -- * 'repositoryName' - The repository name associated with the request.
 -- * 'responseStatus' - The response status code.
 mkPutImageScanningConfigurationResponse ::

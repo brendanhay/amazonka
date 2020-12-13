@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Glue.DeleteTableVersion
     mkDeleteTableVersion,
 
     -- ** Request lenses
+    dtvVersionId,
     dtvCatalogId,
     dtvDatabaseName,
     dtvTableName,
-    dtvVersionId,
 
     -- * Destructuring the response
     DeleteTableVersionResponse (..),
@@ -41,42 +42,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteTableVersion' smart constructor.
 data DeleteTableVersion = DeleteTableVersion'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the table version to be deleted. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
+    versionId :: Lude.Text,
+    -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    versionId :: Lude.Text
+    -- | The name of the table. For Hive compatibility, this name is entirely lowercase.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTableVersion' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The ID of the table version to be deleted. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
 -- * 'catalogId' - The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
 -- * 'databaseName' - The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
 -- * 'tableName' - The name of the table. For Hive compatibility, this name is entirely lowercase.
--- * 'versionId' - The ID of the table version to be deleted. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
 mkDeleteTableVersion ::
+  -- | 'versionId'
+  Lude.Text ->
   -- | 'databaseName'
   Lude.Text ->
   -- | 'tableName'
   Lude.Text ->
-  -- | 'versionId'
-  Lude.Text ->
   DeleteTableVersion
-mkDeleteTableVersion pDatabaseName_ pTableName_ pVersionId_ =
+mkDeleteTableVersion pVersionId_ pDatabaseName_ pTableName_ =
   DeleteTableVersion'
-    { catalogId = Lude.Nothing,
+    { versionId = pVersionId_,
+      catalogId = Lude.Nothing,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      versionId = pVersionId_
+      tableName = pTableName_
     }
+
+-- | The ID of the table version to be deleted. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtvVersionId :: Lens.Lens' DeleteTableVersion Lude.Text
+dtvVersionId = Lens.lens (versionId :: DeleteTableVersion -> Lude.Text) (\s a -> s {versionId = a} :: DeleteTableVersion)
+{-# DEPRECATED dtvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
 --
@@ -98,13 +103,6 @@ dtvDatabaseName = Lens.lens (databaseName :: DeleteTableVersion -> Lude.Text) (\
 dtvTableName :: Lens.Lens' DeleteTableVersion Lude.Text
 dtvTableName = Lens.lens (tableName :: DeleteTableVersion -> Lude.Text) (\s a -> s {tableName = a} :: DeleteTableVersion)
 {-# DEPRECATED dtvTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
--- | The ID of the table version to be deleted. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtvVersionId :: Lens.Lens' DeleteTableVersion Lude.Text
-dtvVersionId = Lens.lens (versionId :: DeleteTableVersion -> Lude.Text) (\s a -> s {versionId = a} :: DeleteTableVersion)
-{-# DEPRECATED dtvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 instance Lude.AWSRequest DeleteTableVersion where
   type Rs DeleteTableVersion = DeleteTableVersionResponse
@@ -130,10 +128,10 @@ instance Lude.ToJSON DeleteTableVersion where
   toJSON DeleteTableVersion' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+          [ Lude.Just ("VersionId" Lude..= versionId),
+            ("CatalogId" Lude..=) Lude.<$> catalogId,
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("VersionId" Lude..= versionId)
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -145,16 +143,10 @@ instance Lude.ToQuery DeleteTableVersion where
 
 -- | /See:/ 'mkDeleteTableVersionResponse' smart constructor.
 newtype DeleteTableVersionResponse = DeleteTableVersionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTableVersionResponse' with the minimum fields required to make a request.

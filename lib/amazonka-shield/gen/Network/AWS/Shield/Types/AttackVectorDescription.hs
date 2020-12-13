@@ -28,16 +28,64 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttackVectorDescription' smart constructor.
 newtype AttackVectorDescription = AttackVectorDescription'
-  { vectorType ::
-      Lude.Text
+  { -- | The attack type. Valid values:
+    --
+    --
+    --     * UDP_TRAFFIC
+    --
+    --
+    --     * UDP_FRAGMENT
+    --
+    --
+    --     * GENERIC_UDP_REFLECTION
+    --
+    --
+    --     * DNS_REFLECTION
+    --
+    --
+    --     * NTP_REFLECTION
+    --
+    --
+    --     * CHARGEN_REFLECTION
+    --
+    --
+    --     * SSDP_REFLECTION
+    --
+    --
+    --     * PORT_MAPPER
+    --
+    --
+    --     * RIP_REFLECTION
+    --
+    --
+    --     * SNMP_REFLECTION
+    --
+    --
+    --     * MSSQL_REFLECTION
+    --
+    --
+    --     * NET_BIOS_REFLECTION
+    --
+    --
+    --     * SYN_FLOOD
+    --
+    --
+    --     * ACK_FLOOD
+    --
+    --
+    --     * REQUEST_FLOOD
+    --
+    --
+    --     * HTTP_REFLECTION
+    --
+    --
+    --     * UDS_REFLECTION
+    --
+    --
+    --     * MEMCACHED_REFLECTION
+    vectorType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackVectorDescription' with the minimum fields required to make a request.

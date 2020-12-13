@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.GuardDuty.ListDetectors
 
     -- ** Response lenses
     ldrsNextToken,
-    ldrsResponseStatus,
     ldrsDetectorIds,
+    ldrsResponseStatus,
   )
 where
 
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListDetectors' smart constructor.
 data ListDetectors = ListDetectors'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDetectors' with the minimum fields required to make a request.
 --
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
 -- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+-- * 'maxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
 mkListDetectors ::
   ListDetectors
 mkListDetectors =
@@ -100,8 +96,8 @@ instance Lude.AWSRequest ListDetectors where
       ( \s h x ->
           ListDetectorsResponse'
             Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "detectorIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListDetectors where
@@ -123,24 +119,20 @@ instance Lude.ToQuery ListDetectors where
 
 -- | /See:/ 'mkListDetectorsResponse' smart constructor.
 data ListDetectorsResponse = ListDetectorsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    detectorIds :: [Lude.Text]
+  { -- | The pagination parameter to be used on the next list operation to retrieve more items.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of detector IDs.
+    detectorIds :: [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDetectorsResponse' with the minimum fields required to make a request.
 --
--- * 'detectorIds' - A list of detector IDs.
 -- * 'nextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
+-- * 'detectorIds' - A list of detector IDs.
 -- * 'responseStatus' - The response status code.
 mkListDetectorsResponse ::
   -- | 'responseStatus'
@@ -149,8 +141,8 @@ mkListDetectorsResponse ::
 mkListDetectorsResponse pResponseStatus_ =
   ListDetectorsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      detectorIds = Lude.mempty
+      detectorIds = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination parameter to be used on the next list operation to retrieve more items.
@@ -160,16 +152,16 @@ ldrsNextToken :: Lens.Lens' ListDetectorsResponse (Lude.Maybe Lude.Text)
 ldrsNextToken = Lens.lens (nextToken :: ListDetectorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDetectorsResponse)
 {-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsResponseStatus :: Lens.Lens' ListDetectorsResponse Lude.Int
-ldrsResponseStatus = Lens.lens (responseStatus :: ListDetectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDetectorsResponse)
-{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of detector IDs.
 --
 -- /Note:/ Consider using 'detectorIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldrsDetectorIds :: Lens.Lens' ListDetectorsResponse [Lude.Text]
 ldrsDetectorIds = Lens.lens (detectorIds :: ListDetectorsResponse -> [Lude.Text]) (\s a -> s {detectorIds = a} :: ListDetectorsResponse)
 {-# DEPRECATED ldrsDetectorIds "Use generic-lens or generic-optics with 'detectorIds' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDetectorsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDetectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDetectorsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

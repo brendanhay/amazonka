@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.UpdateDocumentationVersion
     mkUpdateDocumentationVersion,
 
     -- ** Request lenses
-    udvPatchOperations,
-    udvRestAPIId,
     udvDocumentationVersion,
+    udvRestAPIId,
+    udvPatchOperations,
 
     -- * Destructuring the response
     DocumentationVersion (..),
@@ -44,44 +45,41 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateDocumentationVersion' smart constructor.
 data UpdateDocumentationVersion = UpdateDocumentationVersion'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | [Required] The version identifier of the to-be-updated documentation version.
+    documentationVersion :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' ..
     restAPIId :: Lude.Text,
-    documentationVersion :: Lude.Text
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentationVersion' with the minimum fields required to make a request.
 --
 -- * 'documentationVersion' - [Required] The version identifier of the to-be-updated documentation version.
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' ..
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateDocumentationVersion ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'documentationVersion'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   UpdateDocumentationVersion
-mkUpdateDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
+mkUpdateDocumentationVersion pDocumentationVersion_ pRestAPIId_ =
   UpdateDocumentationVersion'
-    { patchOperations = Lude.Nothing,
+    { documentationVersion =
+        pDocumentationVersion_,
       restAPIId = pRestAPIId_,
-      documentationVersion = pDocumentationVersion_
+      patchOperations = Lude.Nothing
     }
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- | [Required] The version identifier of the to-be-updated documentation version.
 --
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvPatchOperations :: Lens.Lens' UpdateDocumentationVersion (Lude.Maybe [PatchOperation])
-udvPatchOperations = Lens.lens (patchOperations :: UpdateDocumentationVersion -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateDocumentationVersion)
-{-# DEPRECATED udvPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
+-- /Note:/ Consider using 'documentationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udvDocumentationVersion :: Lens.Lens' UpdateDocumentationVersion Lude.Text
+udvDocumentationVersion = Lens.lens (documentationVersion :: UpdateDocumentationVersion -> Lude.Text) (\s a -> s {documentationVersion = a} :: UpdateDocumentationVersion)
+{-# DEPRECATED udvDocumentationVersion "Use generic-lens or generic-optics with 'documentationVersion' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' ..
 --
@@ -90,12 +88,12 @@ udvRestAPIId :: Lens.Lens' UpdateDocumentationVersion Lude.Text
 udvRestAPIId = Lens.lens (restAPIId :: UpdateDocumentationVersion -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateDocumentationVersion)
 {-# DEPRECATED udvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
--- | [Required] The version identifier of the to-be-updated documentation version.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- /Note:/ Consider using 'documentationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvDocumentationVersion :: Lens.Lens' UpdateDocumentationVersion Lude.Text
-udvDocumentationVersion = Lens.lens (documentationVersion :: UpdateDocumentationVersion -> Lude.Text) (\s a -> s {documentationVersion = a} :: UpdateDocumentationVersion)
-{-# DEPRECATED udvDocumentationVersion "Use generic-lens or generic-optics with 'documentationVersion' instead." #-}
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udvPatchOperations :: Lens.Lens' UpdateDocumentationVersion (Lude.Maybe [PatchOperation])
+udvPatchOperations = Lens.lens (patchOperations :: UpdateDocumentationVersion -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateDocumentationVersion)
+{-# DEPRECATED udvPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateDocumentationVersion where
   type Rs UpdateDocumentationVersion = DocumentationVersion

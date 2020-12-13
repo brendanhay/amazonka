@@ -36,27 +36,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOwnerDirectoryDescription' smart constructor.
 data OwnerDirectoryDescription = OwnerDirectoryDescription'
-  { radiusStatus ::
-      Lude.Maybe RadiusStatus,
+  { -- | Information about the status of the RADIUS server.
+    radiusStatus :: Lude.Maybe RadiusStatus,
+    -- | Identifier of the AWS Managed Microsoft AD directory in the directory owner account.
     directoryId :: Lude.Maybe Lude.Text,
-    radiusSettings ::
-      Lude.Maybe RadiusSettings,
+    -- | A 'RadiusSettings' object that contains information about the RADIUS server.
+    radiusSettings :: Lude.Maybe RadiusSettings,
+    -- | Identifier of the directory owner account.
     accountId :: Lude.Maybe Lude.Text,
+    -- | IP address of the directory’s domain controllers.
     dnsIPAddrs :: Lude.Maybe [Lude.Text],
-    vpcSettings ::
-      Lude.Maybe
-        DirectoryVPCSettingsDescription
+    -- | Information about the VPC settings for the directory.
+    vpcSettings :: Lude.Maybe DirectoryVPCSettingsDescription
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OwnerDirectoryDescription' with the minimum fields required to make a request.
 --
--- * 'accountId' - Identifier of the directory owner account.
--- * 'directoryId' - Identifier of the AWS Managed Microsoft AD directory in the directory owner account.
--- * 'dnsIPAddrs' - IP address of the directory’s domain controllers.
--- * 'radiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
 -- * 'radiusStatus' - Information about the status of the RADIUS server.
+-- * 'directoryId' - Identifier of the AWS Managed Microsoft AD directory in the directory owner account.
+-- * 'radiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
+-- * 'accountId' - Identifier of the directory owner account.
+-- * 'dnsIPAddrs' - IP address of the directory’s domain controllers.
 -- * 'vpcSettings' - Information about the VPC settings for the directory.
 mkOwnerDirectoryDescription ::
   OwnerDirectoryDescription

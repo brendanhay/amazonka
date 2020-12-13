@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Lightsail.GetDisk
     mkGetDiskResponse,
 
     -- ** Response lenses
-    ggrsDisk,
-    ggrsResponseStatus,
+    gdgrsDisk,
+    gdgrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDisk' smart constructor.
-newtype GetDisk = GetDisk' {diskName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDisk = GetDisk'
+  { -- | The name of the disk (e.g., @my-disk@ ).
+    diskName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDisk' with the minimum fields required to make a request.
@@ -98,16 +96,12 @@ instance Lude.ToQuery GetDisk where
 
 -- | /See:/ 'mkGetDiskResponse' smart constructor.
 data GetDiskResponse = GetDiskResponse'
-  { disk :: Lude.Maybe Disk,
+  { -- | An object containing information about the disk.
+    disk :: Lude.Maybe Disk,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiskResponse' with the minimum fields required to make a request.
@@ -127,13 +121,13 @@ mkGetDiskResponse pResponseStatus_ =
 -- | An object containing information about the disk.
 --
 -- /Note:/ Consider using 'disk' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsDisk :: Lens.Lens' GetDiskResponse (Lude.Maybe Disk)
-ggrsDisk = Lens.lens (disk :: GetDiskResponse -> Lude.Maybe Disk) (\s a -> s {disk = a} :: GetDiskResponse)
-{-# DEPRECATED ggrsDisk "Use generic-lens or generic-optics with 'disk' instead." #-}
+gdgrsDisk :: Lens.Lens' GetDiskResponse (Lude.Maybe Disk)
+gdgrsDisk = Lens.lens (disk :: GetDiskResponse -> Lude.Maybe Disk) (\s a -> s {disk = a} :: GetDiskResponse)
+{-# DEPRECATED gdgrsDisk "Use generic-lens or generic-optics with 'disk' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsResponseStatus :: Lens.Lens' GetDiskResponse Lude.Int
-ggrsResponseStatus = Lens.lens (responseStatus :: GetDiskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDiskResponse)
-{-# DEPRECATED ggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdgrsResponseStatus :: Lens.Lens' GetDiskResponse Lude.Int
+gdgrsResponseStatus = Lens.lens (responseStatus :: GetDiskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDiskResponse)
+{-# DEPRECATED gdgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

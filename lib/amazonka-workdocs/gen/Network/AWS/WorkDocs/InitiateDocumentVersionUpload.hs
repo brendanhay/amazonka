@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,13 +24,13 @@ module Network.AWS.WorkDocs.InitiateDocumentVersionUpload
 
     -- ** Request lenses
     idvuDocumentSizeInBytes,
+    idvuParentFolderId,
     idvuContentCreatedTimestamp,
     idvuAuthenticationToken,
     idvuName,
     idvuId,
     idvuContentModifiedTimestamp,
     idvuContentType,
-    idvuParentFolderId,
 
     -- * Destructuring the response
     InitiateDocumentVersionUploadResponse (..),
@@ -50,34 +51,36 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkInitiateDocumentVersionUpload' smart constructor.
 data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
-  { documentSizeInBytes ::
-      Lude.Maybe Lude.Integer,
-    contentCreatedTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    authenticationToken ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
+  { -- | The size of the document, in bytes.
+    documentSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The ID of the parent folder.
+    parentFolderId :: Lude.Text,
+    -- | The timestamp when the content of the document was originally created.
+    contentCreatedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The name of the document.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of the document.
     id :: Lude.Maybe Lude.Text,
-    contentModifiedTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    contentType ::
-      Lude.Maybe Lude.Text,
-    parentFolderId :: Lude.Text
+    -- | The timestamp when the content of the document was modified.
+    contentModifiedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The content type of the document.
+    contentType :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateDocumentVersionUpload' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'documentSizeInBytes' - The size of the document, in bytes.
+-- * 'parentFolderId' - The ID of the parent folder.
 -- * 'contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'name' - The name of the document.
+-- * 'id' - The ID of the document.
 -- * 'contentModifiedTimestamp' - The timestamp when the content of the document was modified.
 -- * 'contentType' - The content type of the document.
--- * 'documentSizeInBytes' - The size of the document, in bytes.
--- * 'id' - The ID of the document.
--- * 'name' - The name of the document.
--- * 'parentFolderId' - The ID of the parent folder.
 mkInitiateDocumentVersionUpload ::
   -- | 'parentFolderId'
   Lude.Text ->
@@ -86,13 +89,13 @@ mkInitiateDocumentVersionUpload pParentFolderId_ =
   InitiateDocumentVersionUpload'
     { documentSizeInBytes =
         Lude.Nothing,
+      parentFolderId = pParentFolderId_,
       contentCreatedTimestamp = Lude.Nothing,
       authenticationToken = Lude.Nothing,
       name = Lude.Nothing,
       id = Lude.Nothing,
       contentModifiedTimestamp = Lude.Nothing,
-      contentType = Lude.Nothing,
-      parentFolderId = pParentFolderId_
+      contentType = Lude.Nothing
     }
 
 -- | The size of the document, in bytes.
@@ -101,6 +104,13 @@ mkInitiateDocumentVersionUpload pParentFolderId_ =
 idvuDocumentSizeInBytes :: Lens.Lens' InitiateDocumentVersionUpload (Lude.Maybe Lude.Integer)
 idvuDocumentSizeInBytes = Lens.lens (documentSizeInBytes :: InitiateDocumentVersionUpload -> Lude.Maybe Lude.Integer) (\s a -> s {documentSizeInBytes = a} :: InitiateDocumentVersionUpload)
 {-# DEPRECATED idvuDocumentSizeInBytes "Use generic-lens or generic-optics with 'documentSizeInBytes' instead." #-}
+
+-- | The ID of the parent folder.
+--
+-- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idvuParentFolderId :: Lens.Lens' InitiateDocumentVersionUpload Lude.Text
+idvuParentFolderId = Lens.lens (parentFolderId :: InitiateDocumentVersionUpload -> Lude.Text) (\s a -> s {parentFolderId = a} :: InitiateDocumentVersionUpload)
+{-# DEPRECATED idvuParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
 
 -- | The timestamp when the content of the document was originally created.
 --
@@ -144,13 +154,6 @@ idvuContentType :: Lens.Lens' InitiateDocumentVersionUpload (Lude.Maybe Lude.Tex
 idvuContentType = Lens.lens (contentType :: InitiateDocumentVersionUpload -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: InitiateDocumentVersionUpload)
 {-# DEPRECATED idvuContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
--- | The ID of the parent folder.
---
--- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvuParentFolderId :: Lens.Lens' InitiateDocumentVersionUpload Lude.Text
-idvuParentFolderId = Lens.lens (parentFolderId :: InitiateDocumentVersionUpload -> Lude.Text) (\s a -> s {parentFolderId = a} :: InitiateDocumentVersionUpload)
-{-# DEPRECATED idvuParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
-
 instance Lude.AWSRequest InitiateDocumentVersionUpload where
   type
     Rs InitiateDocumentVersionUpload =
@@ -178,14 +181,14 @@ instance Lude.ToJSON InitiateDocumentVersionUpload where
     Lude.object
       ( Lude.catMaybes
           [ ("DocumentSizeInBytes" Lude..=) Lude.<$> documentSizeInBytes,
+            Lude.Just ("ParentFolderId" Lude..= parentFolderId),
             ("ContentCreatedTimestamp" Lude..=)
               Lude.<$> contentCreatedTimestamp,
             ("Name" Lude..=) Lude.<$> name,
             ("Id" Lude..=) Lude.<$> id,
             ("ContentModifiedTimestamp" Lude..=)
               Lude.<$> contentModifiedTimestamp,
-            ("ContentType" Lude..=) Lude.<$> contentType,
-            Lude.Just ("ParentFolderId" Lude..= parentFolderId)
+            ("ContentType" Lude..=) Lude.<$> contentType
           ]
       )
 
@@ -197,28 +200,21 @@ instance Lude.ToQuery InitiateDocumentVersionUpload where
 
 -- | /See:/ 'mkInitiateDocumentVersionUploadResponse' smart constructor.
 data InitiateDocumentVersionUploadResponse = InitiateDocumentVersionUploadResponse'
-  { metadata ::
-      Lude.Maybe
-        DocumentMetadata,
-    uploadMetadata ::
-      Lude.Maybe
-        UploadMetadata,
-    responseStatus ::
-      Lude.Int
+  { -- | The document metadata.
+    metadata :: Lude.Maybe DocumentMetadata,
+    -- | The upload metadata.
+    uploadMetadata :: Lude.Maybe UploadMetadata,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateDocumentVersionUploadResponse' with the minimum fields required to make a request.
 --
 -- * 'metadata' - The document metadata.
--- * 'responseStatus' - The response status code.
 -- * 'uploadMetadata' - The upload metadata.
+-- * 'responseStatus' - The response status code.
 mkInitiateDocumentVersionUploadResponse ::
   -- | 'responseStatus'
   Lude.Int ->

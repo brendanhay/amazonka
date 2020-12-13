@@ -42,16 +42,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameSessionQueueDestination' smart constructor.
 newtype GameSessionQueueDestination = GameSessionQueueDestination'
-  { destinationARN ::
-      Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
+    destinationARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameSessionQueueDestination' with the minimum fields required to make a request.

@@ -49,61 +49,64 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceNetworkInterface' smart constructor.
 data InstanceNetworkInterface = InstanceNetworkInterface'
-  { groups ::
-      Lude.Maybe [GroupIdentifier],
-    status ::
-      Lude.Maybe NetworkInterfaceStatus,
-    privateIPAddresses ::
-      Lude.Maybe [InstancePrivateIPAddress],
+  { -- | One or more security groups.
+    groups :: Lude.Maybe [GroupIdentifier],
+    -- | The status of the network interface.
+    status :: Lude.Maybe NetworkInterfaceStatus,
+    -- | One or more private IPv4 addresses associated with the network interface.
+    privateIPAddresses :: Lude.Maybe [InstancePrivateIPAddress],
+    -- | Indicates whether to validate network traffic to or from this network interface.
     sourceDestCheck :: Lude.Maybe Lude.Bool,
+    -- | Describes the type of network interface.
+    --
+    -- Valid values: @interface@ | @efa@
     interfaceType :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC.
     vpcId :: Lude.Maybe Lude.Text,
-    networkInterfaceId ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The MAC address.
     mACAddress :: Lude.Maybe Lude.Text,
-    attachment ::
-      Lude.Maybe
-        InstanceNetworkInterfaceAttachment,
+    -- | The network interface attachment.
+    attachment :: Lude.Maybe InstanceNetworkInterfaceAttachment,
+    -- | The ID of the AWS account that created the network interface.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The IPv4 address of the network interface within the subnet.
     privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The private DNS name.
     privateDNSName :: Lude.Maybe Lude.Text,
+    -- | The description.
     description :: Lude.Maybe Lude.Text,
-    association ::
-      Lude.Maybe
-        InstanceNetworkInterfaceAssociation,
-    ipv6Addresses ::
-      Lude.Maybe [InstanceIPv6Address]
+    -- | The association information for an Elastic IPv4 associated with the network interface.
+    association :: Lude.Maybe InstanceNetworkInterfaceAssociation,
+    -- | One or more IPv6 addresses associated with the network interface.
+    ipv6Addresses :: Lude.Maybe [InstanceIPv6Address]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceNetworkInterface' with the minimum fields required to make a request.
 --
--- * 'association' - The association information for an Elastic IPv4 associated with the network interface.
--- * 'attachment' - The network interface attachment.
--- * 'description' - The description.
 -- * 'groups' - One or more security groups.
+-- * 'status' - The status of the network interface.
+-- * 'privateIPAddresses' - One or more private IPv4 addresses associated with the network interface.
+-- * 'sourceDestCheck' - Indicates whether to validate network traffic to or from this network interface.
 -- * 'interfaceType' - Describes the type of network interface.
 --
 -- Valid values: @interface@ | @efa@
--- * 'ipv6Addresses' - One or more IPv6 addresses associated with the network interface.
--- * 'mACAddress' - The MAC address.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'ownerId' - The ID of the AWS account that created the network interface.
--- * 'privateDNSName' - The private DNS name.
--- * 'privateIPAddress' - The IPv4 address of the network interface within the subnet.
--- * 'privateIPAddresses' - One or more private IPv4 addresses associated with the network interface.
--- * 'sourceDestCheck' - Indicates whether to validate network traffic to or from this network interface.
--- * 'status' - The status of the network interface.
--- * 'subnetId' - The ID of the subnet.
 -- * 'vpcId' - The ID of the VPC.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'subnetId' - The ID of the subnet.
+-- * 'mACAddress' - The MAC address.
+-- * 'attachment' - The network interface attachment.
+-- * 'ownerId' - The ID of the AWS account that created the network interface.
+-- * 'privateIPAddress' - The IPv4 address of the network interface within the subnet.
+-- * 'privateDNSName' - The private DNS name.
+-- * 'description' - The description.
+-- * 'association' - The association information for an Elastic IPv4 associated with the network interface.
+-- * 'ipv6Addresses' - One or more IPv6 addresses associated with the network interface.
 mkInstanceNetworkInterface ::
   InstanceNetworkInterface
 mkInstanceNetworkInterface =

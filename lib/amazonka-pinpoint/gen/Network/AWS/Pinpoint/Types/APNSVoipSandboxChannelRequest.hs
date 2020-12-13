@@ -35,39 +35,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAPNSVoipSandboxChannelRequest' smart constructor.
 data APNSVoipSandboxChannelRequest = APNSVoipSandboxChannelRequest'
-  { tokenKey ::
-      Lude.Maybe Lude.Text,
-    privateKey ::
-      Lude.Maybe Lude.Text,
+  { -- | The authentication key to use for APNs tokens.
+    tokenKey :: Lude.Maybe Lude.Text,
+    -- | The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
+    privateKey :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the APNs VoIP sandbox channel is enabled for the application.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
     teamId :: Lude.Maybe Lude.Text,
-    bundleId ::
-      Lude.Maybe Lude.Text,
-    defaultAuthenticationMethod ::
-      Lude.Maybe Lude.Text,
-    certificate ::
-      Lude.Maybe Lude.Text,
-    tokenKeyId ::
-      Lude.Maybe Lude.Text
+    -- | The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
+    bundleId :: Lude.Maybe Lude.Text,
+    -- | The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment for this channel, key or certificate.
+    defaultAuthenticationMethod :: Lude.Maybe Lude.Text,
+    -- | The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
+    certificate :: Lude.Maybe Lude.Text,
+    -- | The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
+    tokenKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APNSVoipSandboxChannelRequest' with the minimum fields required to make a request.
 --
--- * 'bundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
--- * 'certificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
--- * 'defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment for this channel, key or certificate.
--- * 'enabled' - Specifies whether the APNs VoIP sandbox channel is enabled for the application.
--- * 'privateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
--- * 'teamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
 -- * 'tokenKey' - The authentication key to use for APNs tokens.
+-- * 'privateKey' - The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.
+-- * 'enabled' - Specifies whether the APNs VoIP sandbox channel is enabled for the application.
+-- * 'teamId' - The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.
+-- * 'bundleId' - The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.
+-- * 'defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment for this channel, key or certificate.
+-- * 'certificate' - The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.
 -- * 'tokenKeyId' - The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.
 mkAPNSVoipSandboxChannelRequest ::
   APNSVoipSandboxChannelRequest

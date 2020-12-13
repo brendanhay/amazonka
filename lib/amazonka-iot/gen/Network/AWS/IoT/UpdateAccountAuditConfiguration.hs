@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,28 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateAccountAuditConfiguration' smart constructor.
 data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
-  { auditCheckConfigurations ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (AuditCheckConfiguration)
-        ),
-    auditNotificationTargetConfigurations ::
-      Lude.Maybe
-        ( Lude.HashMap
-            AuditNotificationType
-            (AuditNotificationTarget)
-        ),
-    roleARN ::
-      Lude.Maybe Lude.Text
+  { -- | Specifies which audit checks are enabled and disabled for this account. Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are currently enabled.
+    --
+    -- Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted.
+    -- You cannot disable a check if it is used by any scheduled audit. You must first delete the check from the scheduled audit or delete the scheduled audit itself.
+    -- On the first call to @UpdateAccountAuditConfiguration@ , this parameter is required and must specify at least one enabled check.
+    auditCheckConfigurations :: Lude.Maybe (Lude.HashMap Lude.Text (AuditCheckConfiguration)),
+    -- | Information about the targets to which audit notifications are sent.
+    auditNotificationTargetConfigurations :: Lude.Maybe (Lude.HashMap AuditNotificationType (AuditNotificationTarget)),
+    -- | The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAccountAuditConfiguration' with the minimum fields required to make a request.
@@ -143,16 +134,10 @@ instance Lude.ToQuery UpdateAccountAuditConfiguration where
 
 -- | /See:/ 'mkUpdateAccountAuditConfigurationResponse' smart constructor.
 newtype UpdateAccountAuditConfigurationResponse = UpdateAccountAuditConfigurationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAccountAuditConfigurationResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,9 +36,9 @@ module Network.AWS.Glacier.InitiateVaultLock
     mkInitiateVaultLock,
 
     -- ** Request lenses
-    ivlPolicy,
-    ivlAccountId,
     ivlVaultName,
+    ivlAccountId,
+    ivlPolicy,
 
     -- * Destructuring the response
     InitiateVaultLockResponse (..),
@@ -59,44 +60,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkInitiateVaultLock' smart constructor.
 data InitiateVaultLock = InitiateVaultLock'
-  { policy ::
-      Lude.Maybe VaultLockPolicy,
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
     accountId :: Lude.Text,
-    vaultName :: Lude.Text
+    -- | The vault lock policy as a JSON string, which uses "\" as an escape character.
+    policy :: Lude.Maybe VaultLockPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateVaultLock' with the minimum fields required to make a request.
 --
+-- * 'vaultName' - The name of the vault.
 -- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 -- * 'policy' - The vault lock policy as a JSON string, which uses "\" as an escape character.
--- * 'vaultName' - The name of the vault.
 mkInitiateVaultLock ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   InitiateVaultLock
-mkInitiateVaultLock pAccountId_ pVaultName_ =
+mkInitiateVaultLock pVaultName_ pAccountId_ =
   InitiateVaultLock'
-    { policy = Lude.Nothing,
+    { vaultName = pVaultName_,
       accountId = pAccountId_,
-      vaultName = pVaultName_
+      policy = Lude.Nothing
     }
 
--- | The vault lock policy as a JSON string, which uses "\" as an escape character.
+-- | The name of the vault.
 --
--- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivlPolicy :: Lens.Lens' InitiateVaultLock (Lude.Maybe VaultLockPolicy)
-ivlPolicy = Lens.lens (policy :: InitiateVaultLock -> Lude.Maybe VaultLockPolicy) (\s a -> s {policy = a} :: InitiateVaultLock)
-{-# DEPRECATED ivlPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivlVaultName :: Lens.Lens' InitiateVaultLock Lude.Text
+ivlVaultName = Lens.lens (vaultName :: InitiateVaultLock -> Lude.Text) (\s a -> s {vaultName = a} :: InitiateVaultLock)
+{-# DEPRECATED ivlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 --
@@ -105,12 +102,12 @@ ivlAccountId :: Lens.Lens' InitiateVaultLock Lude.Text
 ivlAccountId = Lens.lens (accountId :: InitiateVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: InitiateVaultLock)
 {-# DEPRECATED ivlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | The name of the vault.
+-- | The vault lock policy as a JSON string, which uses "\" as an escape character.
 --
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivlVaultName :: Lens.Lens' InitiateVaultLock Lude.Text
-ivlVaultName = Lens.lens (vaultName :: InitiateVaultLock -> Lude.Text) (\s a -> s {vaultName = a} :: InitiateVaultLock)
-{-# DEPRECATED ivlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivlPolicy :: Lens.Lens' InitiateVaultLock (Lude.Maybe VaultLockPolicy)
+ivlPolicy = Lens.lens (policy :: InitiateVaultLock -> Lude.Maybe VaultLockPolicy) (\s a -> s {policy = a} :: InitiateVaultLock)
+{-# DEPRECATED ivlPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 instance Lude.AWSRequest InitiateVaultLock where
   type Rs InitiateVaultLock = InitiateVaultLockResponse
@@ -147,17 +144,12 @@ instance Lude.ToQuery InitiateVaultLock where
 --
 -- /See:/ 'mkInitiateVaultLockResponse' smart constructor.
 data InitiateVaultLockResponse = InitiateVaultLockResponse'
-  { lockId ::
-      Lude.Maybe Lude.Text,
+  { -- | The lock ID, which is used to complete the vault locking process.
+    lockId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateVaultLockResponse' with the minimum fields required to make a request.

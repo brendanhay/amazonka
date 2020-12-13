@@ -60,69 +60,89 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerDetail' smart constructor.
 data ContainerDetail = ContainerDetail'
-  { image ::
-      Lude.Maybe Lude.Text,
+  { -- | The image used to start the container.
+    image :: Lude.Maybe Lude.Text,
+    -- | The command that is passed to the container.
     command :: Lude.Maybe [Lude.Text],
+    -- | The secrets to pass to the container. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data> in the /Amazon Elastic Container Service Developer Guide/ .
     secrets :: Lude.Maybe [Secret],
+    -- | The environment variables to pass to a container.
     environment :: Lude.Maybe [KeyValuePair],
+    -- | The network interfaces associated with the job.
     networkInterfaces :: Lude.Maybe [NetworkInterface],
+    -- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job. Each container attempt receives a task ARN when they reach the @STARTING@ status.
     taskARN :: Lude.Maybe Lude.Text,
+    -- | A list of @ulimit@ values to set in the container.
     ulimits :: Lude.Maybe [Ulimit],
+    -- | The Amazon Resource Name (ARN) of the container instance on which the container is running.
     containerInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html AWS Batch execution IAM role> .
     executionRoleARN :: Lude.Maybe Lude.Text,
+    -- | When this parameter is true, the container is given elevated privileges on the host container instance (similar to the @root@ user).
     privileged :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) associated with the job upon execution.
     jobRoleARN :: Lude.Maybe Lude.Text,
+    -- | The type and amount of a resource to assign to a container. Currently, the only supported resource is @GPU@ .
     resourceRequirements :: Lude.Maybe [ResourceRequirement],
+    -- | The instance type of the underlying host infrastructure of a multi-node parallel job.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The number of MiB of memory reserved for the job. This is a required parameter.
     memory :: Lude.Maybe Lude.Int,
+    -- | The user name to use inside the container.
     user :: Lude.Maybe Lude.Text,
+    -- | The log configuration specification for the container.
+    --
+    -- This parameter maps to @LogConfig@ in the <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the @--log-driver@ option to <https://docs.docker.com/engine/reference/run/ docker run> . By default, containers use the same logging driver that the Docker daemon uses. However the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers> in the Docker documentation.
+    -- This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: @sudo docker version | grep "Server API version"@
     logConfiguration :: Lude.Maybe LogConfiguration,
+    -- | Linux-specific modifications that are applied to the container, such as details for device mappings.
     linuxParameters :: Lude.Maybe LinuxParameters,
+    -- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
     reason :: Lude.Maybe Lude.Text,
+    -- | The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
     logStreamName :: Lude.Maybe Lude.Text,
+    -- | The mount points for data volumes in your container.
     mountPoints :: Lude.Maybe [MountPoint],
+    -- | The exit code to return upon completion.
     exitCode :: Lude.Maybe Lude.Int,
+    -- | The number of VCPUs allocated for the job. This is a required parameter.
     vcpus :: Lude.Maybe Lude.Int,
+    -- | When this parameter is true, the container is given read-only access to its root file system.
     readonlyRootFilesystem :: Lude.Maybe Lude.Bool,
+    -- | A list of volumes associated with the job.
     volumes :: Lude.Maybe [Volume]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerDetail' with the minimum fields required to make a request.
 --
--- * 'command' - The command that is passed to the container.
--- * 'containerInstanceARN' - The Amazon Resource Name (ARN) of the container instance on which the container is running.
--- * 'environment' - The environment variables to pass to a container.
--- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html AWS Batch execution IAM role> .
--- * 'exitCode' - The exit code to return upon completion.
 -- * 'image' - The image used to start the container.
--- * 'instanceType' - The instance type of the underlying host infrastructure of a multi-node parallel job.
+-- * 'command' - The command that is passed to the container.
+-- * 'secrets' - The secrets to pass to the container. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'environment' - The environment variables to pass to a container.
+-- * 'networkInterfaces' - The network interfaces associated with the job.
+-- * 'taskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job. Each container attempt receives a task ARN when they reach the @STARTING@ status.
+-- * 'ulimits' - A list of @ulimit@ values to set in the container.
+-- * 'containerInstanceARN' - The Amazon Resource Name (ARN) of the container instance on which the container is running.
+-- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For more information, see <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html AWS Batch execution IAM role> .
+-- * 'privileged' - When this parameter is true, the container is given elevated privileges on the host container instance (similar to the @root@ user).
 -- * 'jobRoleARN' - The Amazon Resource Name (ARN) associated with the job upon execution.
--- * 'linuxParameters' - Linux-specific modifications that are applied to the container, such as details for device mappings.
+-- * 'resourceRequirements' - The type and amount of a resource to assign to a container. Currently, the only supported resource is @GPU@ .
+-- * 'instanceType' - The instance type of the underlying host infrastructure of a multi-node parallel job.
+-- * 'memory' - The number of MiB of memory reserved for the job. This is a required parameter.
+-- * 'user' - The user name to use inside the container.
 -- * 'logConfiguration' - The log configuration specification for the container.
 --
 -- This parameter maps to @LogConfig@ in the <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the @--log-driver@ option to <https://docs.docker.com/engine/reference/run/ docker run> . By default, containers use the same logging driver that the Docker daemon uses. However the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers> in the Docker documentation.
 -- This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log into your container instance and run the following command: @sudo docker version | grep "Server API version"@
--- * 'logStreamName' - The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
--- * 'memory' - The number of MiB of memory reserved for the job. This is a required parameter.
--- * 'mountPoints' - The mount points for data volumes in your container.
--- * 'networkInterfaces' - The network interfaces associated with the job.
--- * 'privileged' - When this parameter is true, the container is given elevated privileges on the host container instance (similar to the @root@ user).
--- * 'readonlyRootFilesystem' - When this parameter is true, the container is given read-only access to its root file system.
+-- * 'linuxParameters' - Linux-specific modifications that are applied to the container, such as details for device mappings.
 -- * 'reason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
--- * 'resourceRequirements' - The type and amount of a resource to assign to a container. Currently, the only supported resource is @GPU@ .
--- * 'secrets' - The secrets to pass to the container. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'taskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job. Each container attempt receives a task ARN when they reach the @STARTING@ status.
--- * 'ulimits' - A list of @ulimit@ values to set in the container.
--- * 'user' - The user name to use inside the container.
+-- * 'logStreamName' - The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
+-- * 'mountPoints' - The mount points for data volumes in your container.
+-- * 'exitCode' - The exit code to return upon completion.
 -- * 'vcpus' - The number of VCPUs allocated for the job. This is a required parameter.
+-- * 'readonlyRootFilesystem' - When this parameter is true, the container is given read-only access to its root file system.
 -- * 'volumes' - A list of volumes associated with the job.
 mkContainerDetail ::
   ContainerDetail

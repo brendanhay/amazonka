@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLayersListItem' smart constructor.
 data LayersListItem = LayersListItem'
-  { layerName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the layer.
+    layerName :: Lude.Maybe Lude.Text,
+    -- | The newest version of the layer.
     latestMatchingVersion :: Lude.Maybe LayerVersionsListItem,
+    -- | The Amazon Resource Name (ARN) of the function layer.
     layerARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LayersListItem' with the minimum fields required to make a request.
 --
+-- * 'layerName' - The name of the layer.
 -- * 'latestMatchingVersion' - The newest version of the layer.
 -- * 'layerARN' - The Amazon Resource Name (ARN) of the function layer.
--- * 'layerName' - The name of the layer.
 mkLayersListItem ::
   LayersListItem
 mkLayersListItem =

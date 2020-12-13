@@ -13,8 +13,8 @@
 module Network.AWS.Greengrass.Types.LoggerType
   ( LoggerType
       ( LoggerType',
-        AWSCloudWatch,
-        FileSystem
+        FileSystem,
+        AWSCloudWatch
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype LoggerType = LoggerType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSCloudWatch :: LoggerType
-pattern AWSCloudWatch = LoggerType' "AWSCloudWatch"
-
 pattern FileSystem :: LoggerType
 pattern FileSystem = LoggerType' "FileSystem"
 
+pattern AWSCloudWatch :: LoggerType
+pattern AWSCloudWatch = LoggerType' "AWSCloudWatch"
+
 {-# COMPLETE
-  AWSCloudWatch,
   FileSystem,
+  AWSCloudWatch,
   LoggerType'
   #-}

@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFacetAttributeUpdate' smart constructor.
 data FacetAttributeUpdate = FacetAttributeUpdate'
-  { attribute ::
-      Lude.Maybe FacetAttribute,
+  { -- | The attribute to update.
+    attribute :: Lude.Maybe FacetAttribute,
+    -- | The action to perform when updating the attribute.
     action :: Lude.Maybe UpdateActionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FacetAttributeUpdate' with the minimum fields required to make a request.
 --
--- * 'action' - The action to perform when updating the attribute.
 -- * 'attribute' - The attribute to update.
+-- * 'action' - The action to perform when updating the attribute.
 mkFacetAttributeUpdate ::
   FacetAttributeUpdate
 mkFacetAttributeUpdate =

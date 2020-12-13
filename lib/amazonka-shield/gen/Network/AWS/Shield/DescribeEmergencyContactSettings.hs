@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,13 +37,7 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkDescribeEmergencyContactSettings' smart constructor.
 data DescribeEmergencyContactSettings = DescribeEmergencyContactSettings'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEmergencyContactSettings' with the minimum fields required to make a request.
@@ -88,19 +83,12 @@ instance Lude.ToQuery DescribeEmergencyContactSettings where
 
 -- | /See:/ 'mkDescribeEmergencyContactSettingsResponse' smart constructor.
 data DescribeEmergencyContactSettingsResponse = DescribeEmergencyContactSettingsResponse'
-  { emergencyContactList ::
-      Lude.Maybe
-        [EmergencyContact],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.
+    emergencyContactList :: Lude.Maybe [EmergencyContact],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEmergencyContactSettingsResponse' with the minimum fields required to make a request.

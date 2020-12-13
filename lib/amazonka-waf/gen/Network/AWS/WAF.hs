@@ -303,19 +303,19 @@ module Network.AWS.WAF
     -- ** ActivatedRule
     ActivatedRule (..),
     mkActivatedRule,
+    arPriority,
     arOverrideAction,
+    arRuleId,
     arAction,
     arExcludedRules,
     arType,
-    arPriority,
-    arRuleId,
 
     -- ** ByteMatchSet
     ByteMatchSet (..),
     mkByteMatchSet,
-    bmsName,
-    bmsByteMatchSetId,
     bmsByteMatchTuples,
+    bmsByteMatchSetId,
+    bmsName,
 
     -- ** ByteMatchSetSummary
     ByteMatchSetSummary (..),
@@ -333,8 +333,8 @@ module Network.AWS.WAF
     ByteMatchTuple (..),
     mkByteMatchTuple,
     bmtFieldToMatch,
-    bmtTargetString,
     bmtTextTransformation,
+    bmtTargetString,
     bmtPositionalConstraint,
 
     -- ** ExcludedRule
@@ -351,15 +351,15 @@ module Network.AWS.WAF
     -- ** GeoMatchConstraint
     GeoMatchConstraint (..),
     mkGeoMatchConstraint,
-    gmcType,
     gmcValue,
+    gmcType,
 
     -- ** GeoMatchSet
     GeoMatchSet (..),
     mkGeoMatchSet,
-    gmsName,
-    gmsGeoMatchSetId,
     gmsGeoMatchConstraints,
+    gmsGeoMatchSetId,
+    gmsName,
 
     -- ** GeoMatchSetSummary
     GeoMatchSetSummary (..),
@@ -370,8 +370,8 @@ module Network.AWS.WAF
     -- ** GeoMatchSetUpdate
     GeoMatchSetUpdate (..),
     mkGeoMatchSetUpdate,
-    gmsuAction,
     gmsuGeoMatchConstraint,
+    gmsuAction,
 
     -- ** HTTPHeader
     HTTPHeader (..),
@@ -393,26 +393,26 @@ module Network.AWS.WAF
     IPSet (..),
     mkIPSet,
     isName,
-    isIPSetId,
     isIPSetDescriptors,
+    isIPSetId,
 
     -- ** IPSetDescriptor
     IPSetDescriptor (..),
     mkIPSetDescriptor,
-    isdType,
     isdValue,
+    isdType,
 
     -- ** IPSetSummary
     IPSetSummary (..),
     mkIPSetSummary,
-    issIPSetId,
     issName,
+    issIPSetId,
 
     -- ** IPSetUpdate
     IPSetUpdate (..),
     mkIPSetUpdate,
-    isuAction,
     isuIPSetDescriptor,
+    isuAction,
 
     -- ** LoggingConfiguration
     LoggingConfiguration (..),
@@ -425,18 +425,18 @@ module Network.AWS.WAF
     Predicate (..),
     mkPredicate,
     pNegated,
-    pType,
     pDataId,
+    pType,
 
     -- ** RateBasedRule
     RateBasedRule (..),
     mkRateBasedRule,
-    rbrMetricName,
-    rbrName,
-    rbrRuleId,
-    rbrMatchPredicates,
-    rbrRateKey,
     rbrRateLimit,
+    rbrRateKey,
+    rbrMetricName,
+    rbrRuleId,
+    rbrName,
+    rbrMatchPredicates,
 
     -- ** RegexMatchSet
     RegexMatchSet (..),
@@ -448,8 +448,8 @@ module Network.AWS.WAF
     -- ** RegexMatchSetSummary
     RegexMatchSetSummary (..),
     mkRegexMatchSetSummary,
-    rmssRegexMatchSetId,
     rmssName,
+    rmssRegexMatchSetId,
 
     -- ** RegexMatchSetUpdate
     RegexMatchSetUpdate (..),
@@ -467,15 +467,15 @@ module Network.AWS.WAF
     -- ** RegexPatternSet
     RegexPatternSet (..),
     mkRegexPatternSet,
+    rpsRegexPatternStrings,
     rpsName,
     rpsRegexPatternSetId,
-    rpsRegexPatternStrings,
 
     -- ** RegexPatternSetSummary
     RegexPatternSetSummary (..),
     mkRegexPatternSetSummary,
-    rpssRegexPatternSetId,
     rpssName,
+    rpssRegexPatternSetId,
 
     -- ** RegexPatternSetUpdate
     RegexPatternSetUpdate (..),
@@ -486,17 +486,17 @@ module Network.AWS.WAF
     -- ** Rule
     Rule (..),
     mkRule,
-    rMetricName,
-    rName,
-    rRuleId,
     rPredicates,
+    rMetricName,
+    rRuleId,
+    rName,
 
     -- ** RuleGroup
     RuleGroup (..),
     mkRuleGroup,
+    rgRuleGroupId,
     rgMetricName,
     rgName,
-    rgRuleGroupId,
 
     -- ** RuleGroupSummary
     RuleGroupSummary (..),
@@ -526,25 +526,25 @@ module Network.AWS.WAF
     SampledHTTPRequest (..),
     mkSampledHTTPRequest,
     shttprRuleWithinRuleGroup,
+    shttprWeight,
     shttprAction,
     shttprTimestamp,
     shttprRequest,
-    shttprWeight,
 
     -- ** SizeConstraint
     SizeConstraint (..),
     mkSizeConstraint,
     scFieldToMatch,
-    scTextTransformation,
-    scComparisonOperator,
     scSize,
+    scComparisonOperator,
+    scTextTransformation,
 
     -- ** SizeConstraintSet
     SizeConstraintSet (..),
     mkSizeConstraintSet,
-    scsName,
     scsSizeConstraintSetId,
     scsSizeConstraints,
+    scsName,
 
     -- ** SizeConstraintSetSummary
     SizeConstraintSetSummary (..),
@@ -568,14 +568,14 @@ module Network.AWS.WAF
     -- ** SqlInjectionMatchSetSummary
     SqlInjectionMatchSetSummary (..),
     mkSqlInjectionMatchSetSummary,
-    simssSqlInjectionMatchSetId,
     simssName,
+    simssSqlInjectionMatchSetId,
 
     -- ** SqlInjectionMatchSetUpdate
     SqlInjectionMatchSetUpdate (..),
     mkSqlInjectionMatchSetUpdate,
-    simsuAction,
     simsuSqlInjectionMatchTuple,
+    simsuAction,
 
     -- ** SqlInjectionMatchTuple
     SqlInjectionMatchTuple (..),
@@ -587,14 +587,14 @@ module Network.AWS.WAF
     SubscribedRuleGroupSummary (..),
     mkSubscribedRuleGroupSummary,
     srgsRuleGroupId,
-    srgsName,
     srgsMetricName,
+    srgsName,
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** TagInfoForResource
     TagInfoForResource (..),
@@ -621,12 +621,12 @@ module Network.AWS.WAF
     -- ** WebACL
     WebACL (..),
     mkWebACL,
-    waMetricName,
-    waName,
-    waWebACLARN,
-    waWebACLId,
-    waDefaultAction,
     waRules,
+    waMetricName,
+    waWebACLId,
+    waName,
+    waDefaultAction,
+    waWebACLARN,
 
     -- ** WebACLSummary
     WebACLSummary (..),
@@ -643,9 +643,9 @@ module Network.AWS.WAF
     -- ** XSSMatchSet
     XSSMatchSet (..),
     mkXSSMatchSet,
-    xmsName,
-    xmsXSSMatchSetId,
     xmsXSSMatchTuples,
+    xmsXSSMatchSetId,
+    xmsName,
 
     -- ** XSSMatchSetSummary
     XSSMatchSetSummary (..),
@@ -656,8 +656,8 @@ module Network.AWS.WAF
     -- ** XSSMatchSetUpdate
     XSSMatchSetUpdate (..),
     mkXSSMatchSetUpdate,
-    xmsuAction,
     xmsuXSSMatchTuple,
+    xmsuAction,
 
     -- ** XSSMatchTuple
     XSSMatchTuple (..),

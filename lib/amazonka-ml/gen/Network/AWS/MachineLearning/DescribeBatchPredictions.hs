@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,9 +39,9 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     mkDescribeBatchPredictionsResponse,
 
     -- ** Response lenses
-    dbpsrsResults,
-    dbpsrsNextToken,
-    dbpsrsResponseStatus,
+    dbprsResults,
+    dbprsNextToken,
+    dbprsResponseStatus,
   )
 where
 
@@ -53,32 +54,94 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBatchPredictions' smart constructor.
 data DescribeBatchPredictions = DescribeBatchPredictions'
-  { eQ ::
-      Lude.Maybe Lude.Text,
+  { -- | The equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
+    eQ :: Lude.Maybe Lude.Text,
+    -- | The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
     gE :: Lude.Maybe Lude.Text,
+    -- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
+    --
+    -- For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
+    --
+    --     * 2014-09
+    --
+    --
+    --     * 2014-09-09
+    --
+    --
+    --     * 2014-09-09-Holiday
     prefix :: Lude.Maybe Lude.Text,
+    -- | The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
     gT :: Lude.Maybe Lude.Text,
+    -- | The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
     nE :: Lude.Maybe Lude.Text,
+    -- | An ID of the page in the paginated results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.
+    --
+    --
+    --     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    --     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@ .
     sortOrder :: Lude.Maybe SortOrder,
+    -- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
     limit :: Lude.Maybe Lude.Natural,
+    -- | The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
     lT :: Lude.Maybe Lude.Text,
-    filterVariable ::
-      Lude.Maybe BatchPredictionFilterVariable,
+    -- | Use one of the following variables to filter a list of @BatchPrediction@ :
+    --
+    --
+    --     * @CreatedAt@ - Sets the search criteria to the @BatchPrediction@ creation date.
+    --
+    --     * @Status@ - Sets the search criteria to the @BatchPrediction@ status.
+    --
+    --     * @Name@ - Sets the search criteria to the contents of the @BatchPrediction@ ____ @Name@ .
+    --
+    --     * @IAMUser@ - Sets the search criteria to the user account that invoked the @BatchPrediction@ creation.
+    --
+    --     * @MLModelId@ - Sets the search criteria to the @MLModel@ used in the @BatchPrediction@ .
+    --
+    --     * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .
+    --
+    --     * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory.
+    filterVariable :: Lude.Maybe BatchPredictionFilterVariable,
+    -- | The less than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
     lE :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBatchPredictions' with the minimum fields required to make a request.
 --
 -- * 'eQ' - The equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
+-- * 'gE' - The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
+-- * 'prefix' - A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
+--
+-- For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
+--
+--     * 2014-09
+--
+--
+--     * 2014-09-09
+--
+--
+--     * 2014-09-09-Holiday
+--
+--
+-- * 'gT' - The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
+-- * 'nE' - The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
+-- * 'nextToken' - An ID of the page in the paginated results.
+-- * 'sortOrder' - A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.
+--
+--
+--     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+--     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@ .
+-- * 'limit' - The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
+-- * 'lT' - The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
 -- * 'filterVariable' - Use one of the following variables to filter a list of @BatchPrediction@ :
 --
 --
@@ -96,34 +159,7 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
 --
 --     * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory.
 --
--- * 'gE' - The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
--- * 'gT' - The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
 -- * 'lE' - The less than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
--- * 'lT' - The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
--- * 'limit' - The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
--- * 'nE' - The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
--- * 'nextToken' - An ID of the page in the paginated results.
--- * 'prefix' - A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
---
--- For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
---
---     * 2014-09
---
---
---     * 2014-09-09
---
---
---     * 2014-09-09-Holiday
---
---
--- * 'sortOrder' - A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.
---
---
---     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
---
---     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@ .
 mkDescribeBatchPredictions ::
   DescribeBatchPredictions
 mkDescribeBatchPredictions =
@@ -255,12 +291,12 @@ dbpLE = Lens.lens (lE :: DescribeBatchPredictions -> Lude.Maybe Lude.Text) (\s a
 
 instance Page.AWSPager DescribeBatchPredictions where
   page rq rs
-    | Page.stop (rs Lens.^. dbpsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dbpsrsResults) = Lude.Nothing
+    | Page.stop (rs Lens.^. dbprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dbprsResults) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dbpNextToken Lens..~ rs Lens.^. dbpsrsNextToken
+          Lude.& dbpNextToken Lens..~ rs Lens.^. dbprsNextToken
 
 instance Lude.AWSRequest DescribeBatchPredictions where
   type Rs DescribeBatchPredictions = DescribeBatchPredictionsResponse
@@ -313,28 +349,21 @@ instance Lude.ToQuery DescribeBatchPredictions where
 --
 -- /See:/ 'mkDescribeBatchPredictionsResponse' smart constructor.
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-  { results ::
-      Lude.Maybe
-        [BatchPrediction],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of @BatchPrediction@ objects that meet the search criteria.
+    results :: Lude.Maybe [BatchPrediction],
+    -- | The ID of the next page in the paginated results that indicates at least one more page follows.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBatchPredictionsResponse' with the minimum fields required to make a request.
 --
+-- * 'results' - A list of @BatchPrediction@ objects that meet the search criteria.
 -- * 'nextToken' - The ID of the next page in the paginated results that indicates at least one more page follows.
 -- * 'responseStatus' - The response status code.
--- * 'results' - A list of @BatchPrediction@ objects that meet the search criteria.
 mkDescribeBatchPredictionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -349,20 +378,20 @@ mkDescribeBatchPredictionsResponse pResponseStatus_ =
 -- | A list of @BatchPrediction@ objects that meet the search criteria.
 --
 -- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpsrsResults :: Lens.Lens' DescribeBatchPredictionsResponse (Lude.Maybe [BatchPrediction])
-dbpsrsResults = Lens.lens (results :: DescribeBatchPredictionsResponse -> Lude.Maybe [BatchPrediction]) (\s a -> s {results = a} :: DescribeBatchPredictionsResponse)
-{-# DEPRECATED dbpsrsResults "Use generic-lens or generic-optics with 'results' instead." #-}
+dbprsResults :: Lens.Lens' DescribeBatchPredictionsResponse (Lude.Maybe [BatchPrediction])
+dbprsResults = Lens.lens (results :: DescribeBatchPredictionsResponse -> Lude.Maybe [BatchPrediction]) (\s a -> s {results = a} :: DescribeBatchPredictionsResponse)
+{-# DEPRECATED dbprsResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
 -- | The ID of the next page in the paginated results that indicates at least one more page follows.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpsrsNextToken :: Lens.Lens' DescribeBatchPredictionsResponse (Lude.Maybe Lude.Text)
-dbpsrsNextToken = Lens.lens (nextToken :: DescribeBatchPredictionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBatchPredictionsResponse)
-{-# DEPRECATED dbpsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dbprsNextToken :: Lens.Lens' DescribeBatchPredictionsResponse (Lude.Maybe Lude.Text)
+dbprsNextToken = Lens.lens (nextToken :: DescribeBatchPredictionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBatchPredictionsResponse)
+{-# DEPRECATED dbprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpsrsResponseStatus :: Lens.Lens' DescribeBatchPredictionsResponse Lude.Int
-dbpsrsResponseStatus = Lens.lens (responseStatus :: DescribeBatchPredictionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBatchPredictionsResponse)
-{-# DEPRECATED dbpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbprsResponseStatus :: Lens.Lens' DescribeBatchPredictionsResponse Lude.Int
+dbprsResponseStatus = Lens.lens (responseStatus :: DescribeBatchPredictionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBatchPredictionsResponse)
+{-# DEPRECATED dbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

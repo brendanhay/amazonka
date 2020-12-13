@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStepFunctionsAction' smart constructor.
 data StepFunctionsAction = StepFunctionsAction'
-  { executionNamePrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
+    executionNamePrefix :: Lude.Maybe Lude.Text,
+    -- | The name of the Step Functions state machine whose execution will be started.
     stateMachineName :: Lude.Text,
+    -- | The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepFunctionsAction' with the minimum fields required to make a request.
 --
 -- * 'executionNamePrefix' - (Optional) A name will be given to the state machine execution consisting of this prefix followed by a UUID. Step Functions automatically creates a unique name for each state machine execution if one is not provided.
--- * 'roleARN' - The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
 -- * 'stateMachineName' - The name of the Step Functions state machine whose execution will be started.
+-- * 'roleARN' - The ARN of the role that grants IoT permission to start execution of a state machine ("Action":"states:StartExecution").
 mkStepFunctionsAction ::
   -- | 'stateMachineName'
   Lude.Text ->

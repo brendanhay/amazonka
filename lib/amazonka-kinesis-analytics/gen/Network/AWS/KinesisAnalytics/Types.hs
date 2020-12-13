@@ -26,7 +26,9 @@ module Network.AWS.KinesisAnalytics.Types
     ApplicationDetail (..),
     mkApplicationDetail,
     adApplicationDescription,
+    adApplicationARN,
     adOutputDescriptions,
+    adApplicationVersionId,
     adCloudWatchLoggingOptionDescriptions,
     adReferenceDataSourceDescriptions,
     adInputDescriptions,
@@ -34,15 +36,13 @@ module Network.AWS.KinesisAnalytics.Types
     adCreateTimestamp,
     adLastUpdateTimestamp,
     adApplicationName,
-    adApplicationARN,
     adApplicationStatus,
-    adApplicationVersionId,
 
     -- * ApplicationSummary
     ApplicationSummary (..),
     mkApplicationSummary,
-    asApplicationName,
     asApplicationARN,
+    asApplicationName,
     asApplicationStatus,
 
     -- * ApplicationUpdate
@@ -69,16 +69,16 @@ module Network.AWS.KinesisAnalytics.Types
     -- * CloudWatchLoggingOptionDescription
     CloudWatchLoggingOptionDescription (..),
     mkCloudWatchLoggingOptionDescription,
-    cwlodCloudWatchLoggingOptionId,
     cwlodLogStreamARN,
+    cwlodCloudWatchLoggingOptionId,
     cwlodRoleARN,
 
     -- * CloudWatchLoggingOptionUpdate
     CloudWatchLoggingOptionUpdate (..),
     mkCloudWatchLoggingOptionUpdate,
+    cwlouCloudWatchLoggingOptionId,
     cwlouRoleARNUpdate,
     cwlouLogStreamARNUpdate,
-    cwlouCloudWatchLoggingOptionId,
 
     -- * DestinationSchema
     DestinationSchema (..),
@@ -92,14 +92,14 @@ module Network.AWS.KinesisAnalytics.Types
     iInputProcessingConfiguration,
     iKinesisStreamsInput,
     iKinesisFirehoseInput,
-    iNamePrefix,
     iInputSchema,
+    iNamePrefix,
 
     -- * InputConfiguration
     InputConfiguration (..),
     mkInputConfiguration,
-    icId,
     icInputStartingPositionConfiguration,
+    icId,
 
     -- * InputDescription
     InputDescription (..),
@@ -172,13 +172,13 @@ module Network.AWS.KinesisAnalytics.Types
     -- * InputUpdate
     InputUpdate (..),
     mkInputUpdate,
+    iuInputId,
     iuInputProcessingConfigurationUpdate,
     iuKinesisStreamsInputUpdate,
     iuInputParallelismUpdate,
     iuNamePrefixUpdate,
     iuInputSchemaUpdate,
     iuKinesisFirehoseInputUpdate,
-    iuInputId,
 
     -- * JSONMappingParameters
     JSONMappingParameters (..),
@@ -284,11 +284,11 @@ module Network.AWS.KinesisAnalytics.Types
     -- * Output
     Output (..),
     mkOutput,
+    oDestinationSchema,
     oLambdaOutput,
+    oName,
     oKinesisStreamsOutput,
     oKinesisFirehoseOutput,
-    oName,
-    oDestinationSchema,
 
     -- * OutputDescription
     OutputDescription (..),
@@ -303,19 +303,19 @@ module Network.AWS.KinesisAnalytics.Types
     -- * OutputUpdate
     OutputUpdate (..),
     mkOutputUpdate,
+    ouOutputId,
     ouKinesisStreamsOutputUpdate,
     ouDestinationSchemaUpdate,
     ouKinesisFirehoseOutputUpdate,
     ouNameUpdate,
     ouLambdaOutputUpdate,
-    ouOutputId,
 
     -- * RecordColumn
     RecordColumn (..),
     mkRecordColumn,
+    rcSqlType,
     rcMapping,
     rcName,
-    rcSqlType,
 
     -- * RecordFormat
     RecordFormat (..),
@@ -326,46 +326,46 @@ module Network.AWS.KinesisAnalytics.Types
     -- * ReferenceDataSource
     ReferenceDataSource (..),
     mkReferenceDataSource,
+    rdsReferenceSchema,
     rdsS3ReferenceDataSource,
     rdsTableName,
-    rdsReferenceSchema,
 
     -- * ReferenceDataSourceDescription
     ReferenceDataSourceDescription (..),
     mkReferenceDataSourceDescription,
     rdsdReferenceSchema,
+    rdsdS3ReferenceDataSourceDescription,
     rdsdReferenceId,
     rdsdTableName,
-    rdsdS3ReferenceDataSourceDescription,
 
     -- * ReferenceDataSourceUpdate
     ReferenceDataSourceUpdate (..),
     mkReferenceDataSourceUpdate,
     rdsuTableNameUpdate,
+    rdsuReferenceId,
     rdsuS3ReferenceDataSourceUpdate,
     rdsuReferenceSchemaUpdate,
-    rdsuReferenceId,
 
     -- * S3Configuration
     S3Configuration (..),
     mkS3Configuration,
-    scRoleARN,
     scBucketARN,
     scFileKey,
+    scRoleARN,
 
     -- * S3ReferenceDataSource
     S3ReferenceDataSource (..),
     mkS3ReferenceDataSource,
+    srdsReferenceRoleARN,
     srdsBucketARN,
     srdsFileKey,
-    srdsReferenceRoleARN,
 
     -- * S3ReferenceDataSourceDescription
     S3ReferenceDataSourceDescription (..),
     mkS3ReferenceDataSourceDescription,
+    srdsdReferenceRoleARN,
     srdsdBucketARN,
     srdsdFileKey,
-    srdsdReferenceRoleARN,
 
     -- * S3ReferenceDataSourceUpdate
     S3ReferenceDataSourceUpdate (..),
@@ -377,9 +377,9 @@ module Network.AWS.KinesisAnalytics.Types
     -- * SourceSchema
     SourceSchema (..),
     mkSourceSchema,
-    ssRecordEncoding,
     ssRecordFormat,
     ssRecordColumns,
+    ssRecordEncoding,
 
     -- * Tag
     Tag (..),

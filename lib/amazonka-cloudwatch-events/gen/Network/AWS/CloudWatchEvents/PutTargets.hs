@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -97,8 +98,8 @@ module Network.AWS.CloudWatchEvents.PutTargets
     mkPutTargets,
 
     -- ** Request lenses
-    ptEventBusName,
     ptRule,
+    ptEventBusName,
     ptTargets,
 
     -- * Destructuring the response
@@ -120,23 +121,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutTargets' smart constructor.
 data PutTargets = PutTargets'
-  { eventBusName :: Lude.Maybe Lude.Text,
+  { -- | The name of the rule.
     rule :: Lude.Text,
+    -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+    eventBusName :: Lude.Maybe Lude.Text,
+    -- | The targets to update or add to the rule.
     targets :: Lude.NonEmpty Target
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTargets' with the minimum fields required to make a request.
 --
--- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 -- * 'rule' - The name of the rule.
+-- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 -- * 'targets' - The targets to update or add to the rule.
 mkPutTargets ::
   -- | 'rule'
@@ -146,17 +144,10 @@ mkPutTargets ::
   PutTargets
 mkPutTargets pRule_ pTargets_ =
   PutTargets'
-    { eventBusName = Lude.Nothing,
-      rule = pRule_,
+    { rule = pRule_,
+      eventBusName = Lude.Nothing,
       targets = pTargets_
     }
-
--- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
---
--- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptEventBusName :: Lens.Lens' PutTargets (Lude.Maybe Lude.Text)
-ptEventBusName = Lens.lens (eventBusName :: PutTargets -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: PutTargets)
-{-# DEPRECATED ptEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The name of the rule.
 --
@@ -164,6 +155,13 @@ ptEventBusName = Lens.lens (eventBusName :: PutTargets -> Lude.Maybe Lude.Text) 
 ptRule :: Lens.Lens' PutTargets Lude.Text
 ptRule = Lens.lens (rule :: PutTargets -> Lude.Text) (\s a -> s {rule = a} :: PutTargets)
 {-# DEPRECATED ptRule "Use generic-lens or generic-optics with 'rule' instead." #-}
+
+-- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptEventBusName :: Lens.Lens' PutTargets (Lude.Maybe Lude.Text)
+ptEventBusName = Lens.lens (eventBusName :: PutTargets -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: PutTargets)
+{-# DEPRECATED ptEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The targets to update or add to the rule.
 --
@@ -199,8 +197,8 @@ instance Lude.ToJSON PutTargets where
   toJSON PutTargets' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("EventBusName" Lude..=) Lude.<$> eventBusName,
-            Lude.Just ("Rule" Lude..= rule),
+          [ Lude.Just ("Rule" Lude..= rule),
+            ("EventBusName" Lude..=) Lude.<$> eventBusName,
             Lude.Just ("Targets" Lude..= targets)
           ]
       )
@@ -213,24 +211,20 @@ instance Lude.ToQuery PutTargets where
 
 -- | /See:/ 'mkPutTargetsResponse' smart constructor.
 data PutTargetsResponse = PutTargetsResponse'
-  { failedEntryCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of failed entries.
+    failedEntryCount :: Lude.Maybe Lude.Int,
+    -- | The failed target entries.
     failedEntries :: Lude.Maybe [PutTargetsResultEntry],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTargetsResponse' with the minimum fields required to make a request.
 --
--- * 'failedEntries' - The failed target entries.
 -- * 'failedEntryCount' - The number of failed entries.
+-- * 'failedEntries' - The failed target entries.
 -- * 'responseStatus' - The response status code.
 mkPutTargetsResponse ::
   -- | 'responseStatus'

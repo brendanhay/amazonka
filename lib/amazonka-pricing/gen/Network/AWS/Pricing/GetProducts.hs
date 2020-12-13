@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,19 +49,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetProducts' smart constructor.
 data GetProducts = GetProducts'
-  { filters :: Lude.Maybe [Filter],
+  { -- | The list of filters that limit the returned products. only products that match all filters are returned.
+    filters :: Lude.Maybe [Filter],
+    -- | The format version that you want the response to be in.
+    --
+    -- Valid values are: @aws_v1@
     formatVersion :: Lude.Maybe Lude.Text,
+    -- | The pagination token that indicates the next set of results that you want to retrieve.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The code for the service whose products you want to retrieve.
     serviceCode :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in the response.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProducts' with the minimum fields required to make a request.
@@ -69,9 +71,9 @@ data GetProducts = GetProducts'
 -- * 'formatVersion' - The format version that you want the response to be in.
 --
 -- Valid values are: @aws_v1@
--- * 'maxResults' - The maximum number of results to return in the response.
 -- * 'nextToken' - The pagination token that indicates the next set of results that you want to retrieve.
 -- * 'serviceCode' - The code for the service whose products you want to retrieve.
+-- * 'maxResults' - The maximum number of results to return in the response.
 mkGetProducts ::
   GetProducts
 mkGetProducts =
@@ -173,19 +175,16 @@ instance Lude.ToQuery GetProducts where
 
 -- | /See:/ 'mkGetProductsResponse' smart constructor.
 data GetProductsResponse = GetProductsResponse'
-  { formatVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The format version of the response. For example, aws_v1.
+    formatVersion :: Lude.Maybe Lude.Text,
+    -- | The pagination token that indicates the next set of results to retrieve.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of products that match your filters. The list contains both the product metadata and the price information.
     priceList :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProductsResponse' with the minimum fields required to make a request.

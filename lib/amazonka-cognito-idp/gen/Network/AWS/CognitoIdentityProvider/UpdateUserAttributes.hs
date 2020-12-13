@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
 
     -- ** Request lenses
     uuaClientMetadata,
-    uuaUserAttributes,
     uuaAccessToken,
+    uuaUserAttributes,
 
     -- * Destructuring the response
     UpdateUserAttributesResponse (..),
@@ -43,21 +44,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateUserAttributes' smart constructor.
 data UpdateUserAttributes = UpdateUserAttributes'
-  { clientMetadata ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    userAttributes :: [AttributeType],
-    accessToken :: Lude.Sensitive Lude.Text
+  { -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+    --
+    -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+    clientMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The access token for the request to update user attributes.
+    accessToken :: Lude.Sensitive Lude.Text,
+    -- | An array of name-value pairs representing user attributes.
+    --
+    -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+    userAttributes :: [AttributeType]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserAttributes' with the minimum fields required to make a request.
 --
--- * 'accessToken' - The access token for the request to update user attributes.
 -- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
 -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
 -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+-- * 'accessToken' - The access token for the request to update user attributes.
 -- * 'userAttributes' - An array of name-value pairs representing user attributes.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
@@ -68,8 +76,8 @@ mkUpdateUserAttributes ::
 mkUpdateUserAttributes pAccessToken_ =
   UpdateUserAttributes'
     { clientMetadata = Lude.Nothing,
-      userAttributes = Lude.mempty,
-      accessToken = pAccessToken_
+      accessToken = pAccessToken_,
+      userAttributes = Lude.mempty
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
@@ -82,6 +90,13 @@ uuaClientMetadata :: Lens.Lens' UpdateUserAttributes (Lude.Maybe (Lude.HashMap L
 uuaClientMetadata = Lens.lens (clientMetadata :: UpdateUserAttributes -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: UpdateUserAttributes)
 {-# DEPRECATED uuaClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
+-- | The access token for the request to update user attributes.
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuaAccessToken :: Lens.Lens' UpdateUserAttributes (Lude.Sensitive Lude.Text)
+uuaAccessToken = Lens.lens (accessToken :: UpdateUserAttributes -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: UpdateUserAttributes)
+{-# DEPRECATED uuaAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
+
 -- | An array of name-value pairs representing user attributes.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
@@ -90,13 +105,6 @@ uuaClientMetadata = Lens.lens (clientMetadata :: UpdateUserAttributes -> Lude.Ma
 uuaUserAttributes :: Lens.Lens' UpdateUserAttributes [AttributeType]
 uuaUserAttributes = Lens.lens (userAttributes :: UpdateUserAttributes -> [AttributeType]) (\s a -> s {userAttributes = a} :: UpdateUserAttributes)
 {-# DEPRECATED uuaUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
-
--- | The access token for the request to update user attributes.
---
--- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuaAccessToken :: Lens.Lens' UpdateUserAttributes (Lude.Sensitive Lude.Text)
-uuaAccessToken = Lens.lens (accessToken :: UpdateUserAttributes -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: UpdateUserAttributes)
-{-# DEPRECATED uuaAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 instance Lude.AWSRequest UpdateUserAttributes where
   type Rs UpdateUserAttributes = UpdateUserAttributesResponse
@@ -127,8 +135,8 @@ instance Lude.ToJSON UpdateUserAttributes where
     Lude.object
       ( Lude.catMaybes
           [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
-            Lude.Just ("UserAttributes" Lude..= userAttributes),
-            Lude.Just ("AccessToken" Lude..= accessToken)
+            Lude.Just ("AccessToken" Lude..= accessToken),
+            Lude.Just ("UserAttributes" Lude..= userAttributes)
           ]
       )
 
@@ -142,18 +150,12 @@ instance Lude.ToQuery UpdateUserAttributes where
 --
 -- /See:/ 'mkUpdateUserAttributesResponse' smart constructor.
 data UpdateUserAttributesResponse = UpdateUserAttributesResponse'
-  { codeDeliveryDetailsList ::
-      Lude.Maybe
-        [CodeDeliveryDetailsType],
+  { -- | The code delivery details list from the server for the request to update user attributes.
+    codeDeliveryDetailsList :: Lude.Maybe [CodeDeliveryDetailsType],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserAttributesResponse' with the minimum fields required to make a request.

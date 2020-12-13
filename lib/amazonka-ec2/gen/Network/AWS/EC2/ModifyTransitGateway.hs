@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.EC2.ModifyTransitGateway
     mkModifyTransitGateway,
 
     -- ** Request lenses
+    mtgTransitGatewayId,
     mtgOptions,
     mtgDescription,
     mtgDryRun,
-    mtgTransitGatewayId,
 
     -- * Destructuring the response
     ModifyTransitGatewayResponse (..),
@@ -42,38 +43,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyTransitGateway' smart constructor.
 data ModifyTransitGateway = ModifyTransitGateway'
-  { options ::
-      Lude.Maybe ModifyTransitGatewayOptions,
+  { -- | The ID of the transit gateway.
+    transitGatewayId :: Lude.Text,
+    -- | The options to modify.
+    options :: Lude.Maybe ModifyTransitGatewayOptions,
+    -- | The description for the transit gateway.
     description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    transitGatewayId :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTransitGateway' with the minimum fields required to make a request.
 --
+-- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'options' - The options to modify.
 -- * 'description' - The description for the transit gateway.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'options' - The options to modify.
--- * 'transitGatewayId' - The ID of the transit gateway.
 mkModifyTransitGateway ::
   -- | 'transitGatewayId'
   Lude.Text ->
   ModifyTransitGateway
 mkModifyTransitGateway pTransitGatewayId_ =
   ModifyTransitGateway'
-    { options = Lude.Nothing,
+    { transitGatewayId = pTransitGatewayId_,
+      options = Lude.Nothing,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      transitGatewayId = pTransitGatewayId_
+      dryRun = Lude.Nothing
     }
+
+-- | The ID of the transit gateway.
+--
+-- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgTransitGatewayId :: Lens.Lens' ModifyTransitGateway Lude.Text
+mtgTransitGatewayId = Lens.lens (transitGatewayId :: ModifyTransitGateway -> Lude.Text) (\s a -> s {transitGatewayId = a} :: ModifyTransitGateway)
+{-# DEPRECATED mtgTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
 -- | The options to modify.
 --
@@ -95,13 +100,6 @@ mtgDescription = Lens.lens (description :: ModifyTransitGateway -> Lude.Maybe Lu
 mtgDryRun :: Lens.Lens' ModifyTransitGateway (Lude.Maybe Lude.Bool)
 mtgDryRun = Lens.lens (dryRun :: ModifyTransitGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyTransitGateway)
 {-# DEPRECATED mtgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the transit gateway.
---
--- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtgTransitGatewayId :: Lens.Lens' ModifyTransitGateway Lude.Text
-mtgTransitGatewayId = Lens.lens (transitGatewayId :: ModifyTransitGateway -> Lude.Text) (\s a -> s {transitGatewayId = a} :: ModifyTransitGateway)
-{-# DEPRECATED mtgTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
 instance Lude.AWSRequest ModifyTransitGateway where
   type Rs ModifyTransitGateway = ModifyTransitGatewayResponse
@@ -125,31 +123,25 @@ instance Lude.ToQuery ModifyTransitGateway where
     Lude.mconcat
       [ "Action" Lude.=: ("ModifyTransitGateway" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "TransitGatewayId" Lude.=: transitGatewayId,
         "Options" Lude.=: options,
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "TransitGatewayId" Lude.=: transitGatewayId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyTransitGatewayResponse' smart constructor.
 data ModifyTransitGatewayResponse = ModifyTransitGatewayResponse'
-  { transitGateway ::
-      Lude.Maybe TransitGateway,
+  { transitGateway :: Lude.Maybe TransitGateway,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTransitGatewayResponse' with the minimum fields required to make a request.
 --
+-- * 'transitGateway' -
 -- * 'responseStatus' - The response status code.
--- * 'transitGateway' - Undocumented field.
 mkModifyTransitGatewayResponse ::
   -- | 'responseStatus'
   Lude.Int ->

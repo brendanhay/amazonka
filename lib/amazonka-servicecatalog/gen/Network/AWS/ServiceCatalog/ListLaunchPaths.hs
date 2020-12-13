@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,19 +47,25 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListLaunchPaths' smart constructor.
 data ListLaunchPaths = ListLaunchPaths'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
     pageSize :: Lude.Maybe Lude.Natural,
+    -- | The product identifier.
     productId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLaunchPaths' with the minimum fields required to make a request.
@@ -75,8 +82,8 @@ data ListLaunchPaths = ListLaunchPaths'
 --     * @zh@ - Chinese
 --
 --
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'productId' - The product identifier.
 mkListLaunchPaths ::
   -- | 'productId'
@@ -180,25 +187,20 @@ instance Lude.ToQuery ListLaunchPaths where
 
 -- | /See:/ 'mkListLaunchPathsResponse' smart constructor.
 data ListLaunchPathsResponse = ListLaunchPathsResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    launchPathSummaries ::
-      Lude.Maybe [LaunchPathSummary],
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Information about the launch path.
+    launchPathSummaries :: Lude.Maybe [LaunchPathSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLaunchPathsResponse' with the minimum fields required to make a request.
 --
--- * 'launchPathSummaries' - Information about the launch path.
 -- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'launchPathSummaries' - Information about the launch path.
 -- * 'responseStatus' - The response status code.
 mkListLaunchPathsResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glacier.GetVaultAccessPolicy
     mkGetVaultAccessPolicy,
 
     -- ** Request lenses
-    gvapAccountId,
     gvapVaultName,
+    gvapAccountId,
 
     -- * Destructuring the response
     GetVaultAccessPolicyResponse (..),
@@ -42,41 +43,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetVaultAccessPolicy' smart constructor.
 data GetVaultAccessPolicy = GetVaultAccessPolicy'
-  { accountId ::
-      Lude.Text,
-    vaultName :: Lude.Text
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVaultAccessPolicy' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 mkGetVaultAccessPolicy ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   GetVaultAccessPolicy
-mkGetVaultAccessPolicy pAccountId_ pVaultName_ =
+mkGetVaultAccessPolicy pVaultName_ pAccountId_ =
   GetVaultAccessPolicy'
-    { accountId = pAccountId_,
-      vaultName = pVaultName_
+    { vaultName = pVaultName_,
+      accountId = pAccountId_
     }
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvapAccountId :: Lens.Lens' GetVaultAccessPolicy Lude.Text
-gvapAccountId = Lens.lens (accountId :: GetVaultAccessPolicy -> Lude.Text) (\s a -> s {accountId = a} :: GetVaultAccessPolicy)
-{-# DEPRECATED gvapAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
 --
@@ -84,6 +73,13 @@ gvapAccountId = Lens.lens (accountId :: GetVaultAccessPolicy -> Lude.Text) (\s a
 gvapVaultName :: Lens.Lens' GetVaultAccessPolicy Lude.Text
 gvapVaultName = Lens.lens (vaultName :: GetVaultAccessPolicy -> Lude.Text) (\s a -> s {vaultName = a} :: GetVaultAccessPolicy)
 {-# DEPRECATED gvapVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvapAccountId :: Lens.Lens' GetVaultAccessPolicy Lude.Text
+gvapAccountId = Lens.lens (accountId :: GetVaultAccessPolicy -> Lude.Text) (\s a -> s {accountId = a} :: GetVaultAccessPolicy)
+{-# DEPRECATED gvapAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Lude.AWSRequest GetVaultAccessPolicy where
   type Rs GetVaultAccessPolicy = GetVaultAccessPolicyResponse
@@ -115,17 +111,12 @@ instance Lude.ToQuery GetVaultAccessPolicy where
 --
 -- /See:/ 'mkGetVaultAccessPolicyResponse' smart constructor.
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
-  { policy ::
-      Lude.Maybe VaultAccessPolicy,
+  { -- | Contains the returned vault access policy as a JSON string.
+    policy :: Lude.Maybe VaultAccessPolicy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVaultAccessPolicyResponse' with the minimum fields required to make a request.

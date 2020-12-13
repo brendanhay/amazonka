@@ -20,6 +20,7 @@ module Network.AWS.KMS.Types.KeyMetadata
     kmOrigin,
     kmExpirationModel,
     kmKeyManager,
+    kmKeyId,
     kmCustomerMasterKeySpec,
     kmEnabled,
     kmValidTo,
@@ -34,7 +35,6 @@ module Network.AWS.KMS.Types.KeyMetadata
     kmCloudHSMClusterId,
     kmDescription,
     kmCustomKeyStoreId,
-    kmKeyId,
   )
 where
 
@@ -55,60 +55,78 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
-  { origin :: Lude.Maybe OriginType,
+  { -- | The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is @AWS_CLOUDHSM@ , the key material was created in the AWS CloudHSM cluster associated with a custom key store.
+    origin :: Lude.Maybe OriginType,
+    -- | Specifies whether the CMK's key material expires. This value is present only when @Origin@ is @EXTERNAL@ , otherwise this value is omitted.
     expirationModel :: Lude.Maybe ExpirationModelType,
+    -- | The manager of the CMK. CMKs in your AWS account are either customer managed or AWS managed. For more information about the difference, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys> in the /AWS Key Management Service Developer Guide/ .
     keyManager :: Lude.Maybe KeyManagerType,
+    -- | The globally unique identifier for the CMK.
+    keyId :: Lude.Text,
+    -- | Describes the type of key material in the CMK.
     customerMasterKeySpec :: Lude.Maybe CustomerMasterKeySpec,
+    -- | Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this value is true, otherwise it is false.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. This value is present only for CMKs whose @Origin@ is @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@ , otherwise this value is omitted.
     validTo :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the CMK. For examples, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)> in the Example ARNs section of the /AWS General Reference/ .
     arn :: Lude.Maybe Lude.Text,
+    -- | The current status of the CMK.
+    --
+    -- For more information about how key state affects the use of a CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your CMK> in the /AWS Key Management Service Developer Guide/ .
     keyState :: Lude.Maybe KeyState,
+    -- | The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS.
+    --
+    -- This field appears only when the @KeyUsage@ of the CMK is @ENCRYPT_DECRYPT@ .
     encryptionAlgorithms :: Lude.Maybe [EncryptionAlgorithmSpec],
+    -- | The twelve-digit account ID of the AWS account that owns the CMK.
     awsAccountId :: Lude.Maybe Lude.Text,
+    -- | The signing algorithms that the CMK supports. You cannot use the CMK with other signing algorithms within AWS KMS.
+    --
+    -- This field appears only when the @KeyUsage@ of the CMK is @SIGN_VERIFY@ .
     signingAlgorithms :: Lude.Maybe [SigningAlgorithmSpec],
+    -- | The <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK.
     keyUsage :: Lude.Maybe KeyUsageType,
+    -- | The date and time when the CMK was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ .
     deletionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> , AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.
     cloudHSMClusterId :: Lude.Maybe Lude.Text,
+    -- | The description of the CMK.
     description :: Lude.Maybe Lude.Text,
-    customKeyStoreId :: Lude.Maybe Lude.Text,
-    keyId :: Lude.Text
+    -- | A unique identifier for the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> that contains the CMK. This value is present only when the CMK is created in a custom key store.
+    customKeyStoreId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyMetadata' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the CMK. For examples, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)> in the Example ARNs section of the /AWS General Reference/ .
--- * 'awsAccountId' - The twelve-digit account ID of the AWS account that owns the CMK.
--- * 'cloudHSMClusterId' - The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> , AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.
--- * 'creationDate' - The date and time when the CMK was created.
--- * 'customKeyStoreId' - A unique identifier for the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> that contains the CMK. This value is present only when the CMK is created in a custom key store.
--- * 'customerMasterKeySpec' - Describes the type of key material in the CMK.
--- * 'deletionDate' - The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ .
--- * 'description' - The description of the CMK.
--- * 'enabled' - Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this value is true, otherwise it is false.
--- * 'encryptionAlgorithms' - The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS.
---
--- This field appears only when the @KeyUsage@ of the CMK is @ENCRYPT_DECRYPT@ .
+-- * 'origin' - The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is @AWS_CLOUDHSM@ , the key material was created in the AWS CloudHSM cluster associated with a custom key store.
 -- * 'expirationModel' - Specifies whether the CMK's key material expires. This value is present only when @Origin@ is @EXTERNAL@ , otherwise this value is omitted.
--- * 'keyId' - The globally unique identifier for the CMK.
 -- * 'keyManager' - The manager of the CMK. CMKs in your AWS account are either customer managed or AWS managed. For more information about the difference, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys> in the /AWS Key Management Service Developer Guide/ .
+-- * 'keyId' - The globally unique identifier for the CMK.
+-- * 'customerMasterKeySpec' - Describes the type of key material in the CMK.
+-- * 'enabled' - Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this value is true, otherwise it is false.
+-- * 'validTo' - The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. This value is present only for CMKs whose @Origin@ is @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@ , otherwise this value is omitted.
+-- * 'arn' - The Amazon Resource Name (ARN) of the CMK. For examples, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)> in the Example ARNs section of the /AWS General Reference/ .
 -- * 'keyState' - The current status of the CMK.
 --
 -- For more information about how key state affects the use of a CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your CMK> in the /AWS Key Management Service Developer Guide/ .
--- * 'keyUsage' - The <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK.
--- * 'origin' - The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is @AWS_CLOUDHSM@ , the key material was created in the AWS CloudHSM cluster associated with a custom key store.
+-- * 'encryptionAlgorithms' - The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS.
+--
+-- This field appears only when the @KeyUsage@ of the CMK is @ENCRYPT_DECRYPT@ .
+-- * 'awsAccountId' - The twelve-digit account ID of the AWS account that owns the CMK.
 -- * 'signingAlgorithms' - The signing algorithms that the CMK supports. You cannot use the CMK with other signing algorithms within AWS KMS.
 --
 -- This field appears only when the @KeyUsage@ of the CMK is @SIGN_VERIFY@ .
--- * 'validTo' - The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. This value is present only for CMKs whose @Origin@ is @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@ , otherwise this value is omitted.
+-- * 'keyUsage' - The <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK.
+-- * 'creationDate' - The date and time when the CMK was created.
+-- * 'deletionDate' - The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ .
+-- * 'cloudHSMClusterId' - The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> , AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.
+-- * 'description' - The description of the CMK.
+-- * 'customKeyStoreId' - A unique identifier for the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> that contains the CMK. This value is present only when the CMK is created in a custom key store.
 mkKeyMetadata ::
   -- | 'keyId'
   Lude.Text ->
@@ -118,6 +136,7 @@ mkKeyMetadata pKeyId_ =
     { origin = Lude.Nothing,
       expirationModel = Lude.Nothing,
       keyManager = Lude.Nothing,
+      keyId = pKeyId_,
       customerMasterKeySpec = Lude.Nothing,
       enabled = Lude.Nothing,
       validTo = Lude.Nothing,
@@ -131,8 +150,7 @@ mkKeyMetadata pKeyId_ =
       deletionDate = Lude.Nothing,
       cloudHSMClusterId = Lude.Nothing,
       description = Lude.Nothing,
-      customKeyStoreId = Lude.Nothing,
-      keyId = pKeyId_
+      customKeyStoreId = Lude.Nothing
     }
 
 -- | The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is @AWS_CLOUDHSM@ , the key material was created in the AWS CloudHSM cluster associated with a custom key store.
@@ -155,6 +173,13 @@ kmExpirationModel = Lens.lens (expirationModel :: KeyMetadata -> Lude.Maybe Expi
 kmKeyManager :: Lens.Lens' KeyMetadata (Lude.Maybe KeyManagerType)
 kmKeyManager = Lens.lens (keyManager :: KeyMetadata -> Lude.Maybe KeyManagerType) (\s a -> s {keyManager = a} :: KeyMetadata)
 {-# DEPRECATED kmKeyManager "Use generic-lens or generic-optics with 'keyManager' instead." #-}
+
+-- | The globally unique identifier for the CMK.
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kmKeyId :: Lens.Lens' KeyMetadata Lude.Text
+kmKeyId = Lens.lens (keyId :: KeyMetadata -> Lude.Text) (\s a -> s {keyId = a} :: KeyMetadata)
+{-# DEPRECATED kmKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | Describes the type of key material in the CMK.
 --
@@ -260,13 +285,6 @@ kmCustomKeyStoreId :: Lens.Lens' KeyMetadata (Lude.Maybe Lude.Text)
 kmCustomKeyStoreId = Lens.lens (customKeyStoreId :: KeyMetadata -> Lude.Maybe Lude.Text) (\s a -> s {customKeyStoreId = a} :: KeyMetadata)
 {-# DEPRECATED kmCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
 
--- | The globally unique identifier for the CMK.
---
--- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kmKeyId :: Lens.Lens' KeyMetadata Lude.Text
-kmKeyId = Lens.lens (keyId :: KeyMetadata -> Lude.Text) (\s a -> s {keyId = a} :: KeyMetadata)
-{-# DEPRECATED kmKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
-
 instance Lude.FromJSON KeyMetadata where
   parseJSON =
     Lude.withObject
@@ -276,6 +294,7 @@ instance Lude.FromJSON KeyMetadata where
             Lude.<$> (x Lude..:? "Origin")
             Lude.<*> (x Lude..:? "ExpirationModel")
             Lude.<*> (x Lude..:? "KeyManager")
+            Lude.<*> (x Lude..: "KeyId")
             Lude.<*> (x Lude..:? "CustomerMasterKeySpec")
             Lude.<*> (x Lude..:? "Enabled")
             Lude.<*> (x Lude..:? "ValidTo")
@@ -290,5 +309,4 @@ instance Lude.FromJSON KeyMetadata where
             Lude.<*> (x Lude..:? "CloudHsmClusterId")
             Lude.<*> (x Lude..:? "Description")
             Lude.<*> (x Lude..:? "CustomKeyStoreId")
-            Lude.<*> (x Lude..: "KeyId")
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeCommit.UpdateDefaultBranch
     mkUpdateDefaultBranch,
 
     -- ** Request lenses
-    udbRepositoryName,
     udbDefaultBranchName,
+    udbRepositoryName,
 
     -- * Destructuring the response
     UpdateDefaultBranchResponse (..),
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateDefaultBranch' smart constructor.
 data UpdateDefaultBranch = UpdateDefaultBranch'
-  { repositoryName ::
-      Lude.Text,
-    defaultBranchName :: Lude.Text
+  { -- | The name of the branch to set as the default.
+    defaultBranchName :: Lude.Text,
+    -- | The name of the repository to set or change the default branch for.
+    repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDefaultBranch' with the minimum fields required to make a request.
@@ -56,23 +52,16 @@ data UpdateDefaultBranch = UpdateDefaultBranch'
 -- * 'defaultBranchName' - The name of the branch to set as the default.
 -- * 'repositoryName' - The name of the repository to set or change the default branch for.
 mkUpdateDefaultBranch ::
-  -- | 'repositoryName'
-  Lude.Text ->
   -- | 'defaultBranchName'
   Lude.Text ->
+  -- | 'repositoryName'
+  Lude.Text ->
   UpdateDefaultBranch
-mkUpdateDefaultBranch pRepositoryName_ pDefaultBranchName_ =
+mkUpdateDefaultBranch pDefaultBranchName_ pRepositoryName_ =
   UpdateDefaultBranch'
-    { repositoryName = pRepositoryName_,
-      defaultBranchName = pDefaultBranchName_
+    { defaultBranchName = pDefaultBranchName_,
+      repositoryName = pRepositoryName_
     }
-
--- | The name of the repository to set or change the default branch for.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udbRepositoryName :: Lens.Lens' UpdateDefaultBranch Lude.Text
-udbRepositoryName = Lens.lens (repositoryName :: UpdateDefaultBranch -> Lude.Text) (\s a -> s {repositoryName = a} :: UpdateDefaultBranch)
-{-# DEPRECATED udbRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The name of the branch to set as the default.
 --
@@ -80,6 +69,13 @@ udbRepositoryName = Lens.lens (repositoryName :: UpdateDefaultBranch -> Lude.Tex
 udbDefaultBranchName :: Lens.Lens' UpdateDefaultBranch Lude.Text
 udbDefaultBranchName = Lens.lens (defaultBranchName :: UpdateDefaultBranch -> Lude.Text) (\s a -> s {defaultBranchName = a} :: UpdateDefaultBranch)
 {-# DEPRECATED udbDefaultBranchName "Use generic-lens or generic-optics with 'defaultBranchName' instead." #-}
+
+-- | The name of the repository to set or change the default branch for.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udbRepositoryName :: Lens.Lens' UpdateDefaultBranch Lude.Text
+udbRepositoryName = Lens.lens (repositoryName :: UpdateDefaultBranch -> Lude.Text) (\s a -> s {repositoryName = a} :: UpdateDefaultBranch)
+{-# DEPRECATED udbRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Lude.AWSRequest UpdateDefaultBranch where
   type Rs UpdateDefaultBranch = UpdateDefaultBranchResponse
@@ -101,8 +97,8 @@ instance Lude.ToJSON UpdateDefaultBranch where
   toJSON UpdateDefaultBranch' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("defaultBranchName" Lude..= defaultBranchName)
+          [ Lude.Just ("defaultBranchName" Lude..= defaultBranchName),
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
@@ -114,13 +110,7 @@ instance Lude.ToQuery UpdateDefaultBranch where
 
 -- | /See:/ 'mkUpdateDefaultBranchResponse' smart constructor.
 data UpdateDefaultBranchResponse = UpdateDefaultBranchResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDefaultBranchResponse' with the minimum fields required to make a request.

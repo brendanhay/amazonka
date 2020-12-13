@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,24 +43,41 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateContactMethod' smart constructor.
 data CreateContactMethod = CreateContactMethod'
-  { protocol ::
-      ContactProtocol,
+  { -- | The protocol of the contact method, such as @Email@ or @SMS@ (text messaging).
+    --
+    -- The @SMS@ protocol is supported only in the following AWS Regions.
+    --
+    --     * US East (N. Virginia) (@us-east-1@ )
+    --
+    --
+    --     * US West (Oregon) (@us-west-2@ )
+    --
+    --
+    --     * Europe (Ireland) (@eu-west-1@ )
+    --
+    --
+    --     * Asia Pacific (Tokyo) (@ap-northeast-1@ )
+    --
+    --
+    --     * Asia Pacific (Singapore) (@ap-southeast-1@ )
+    --
+    --
+    --     * Asia Pacific (Sydney) (@ap-southeast-2@ )
+    --
+    --
+    -- For a list of countries/regions where SMS text messages can be sent, and the latest AWS Regions where SMS text messaging is supported, see <https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries> in the /Amazon SNS Developer Guide/ .
+    -- For more information about notifications in Amazon Lightsail, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
+    protocol :: ContactProtocol,
+    -- | The destination of the contact method, such as an email address or a mobile phone number.
+    --
+    -- Use the E.164 format when specifying a mobile phone number. E.164 is a standard for the phone number structure used for international telecommunication. Phone numbers that follow this format can have a maximum of 15 digits, and they are prefixed with the plus character (+) and the country code. For example, a U.S. phone number in E.164 format would be specified as +1XXX5550100. For more information, see <https://en.wikipedia.org/wiki/E.164 E.164> on /Wikipedia/ .
     contactEndpoint :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContactMethod' with the minimum fields required to make a request.
 --
--- * 'contactEndpoint' - The destination of the contact method, such as an email address or a mobile phone number.
---
--- Use the E.164 format when specifying a mobile phone number. E.164 is a standard for the phone number structure used for international telecommunication. Phone numbers that follow this format can have a maximum of 15 digits, and they are prefixed with the plus character (+) and the country code. For example, a U.S. phone number in E.164 format would be specified as +1XXX5550100. For more information, see <https://en.wikipedia.org/wiki/E.164 E.164> on /Wikipedia/ .
 -- * 'protocol' - The protocol of the contact method, such as @Email@ or @SMS@ (text messaging).
 --
 -- The @SMS@ protocol is supported only in the following AWS Regions.
@@ -84,6 +102,9 @@ data CreateContactMethod = CreateContactMethod'
 --
 -- For a list of countries/regions where SMS text messages can be sent, and the latest AWS Regions where SMS text messaging is supported, see <https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html Supported Regions and Countries> in the /Amazon SNS Developer Guide/ .
 -- For more information about notifications in Amazon Lightsail, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
+-- * 'contactEndpoint' - The destination of the contact method, such as an email address or a mobile phone number.
+--
+-- Use the E.164 format when specifying a mobile phone number. E.164 is a standard for the phone number structure used for international telecommunication. Phone numbers that follow this format can have a maximum of 15 digits, and they are prefixed with the plus character (+) and the country code. For example, a U.S. phone number in E.164 format would be specified as +1XXX5550100. For more information, see <https://en.wikipedia.org/wiki/E.164 E.164> on /Wikipedia/ .
 mkCreateContactMethod ::
   -- | 'protocol'
   ContactProtocol ->
@@ -174,17 +195,12 @@ instance Lude.ToQuery CreateContactMethod where
 
 -- | /See:/ 'mkCreateContactMethodResponse' smart constructor.
 data CreateContactMethodResponse = CreateContactMethodResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContactMethodResponse' with the minimum fields required to make a request.

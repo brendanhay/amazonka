@@ -30,16 +30,12 @@ import Network.AWS.XRay.Types.ServiceId
 --
 -- /See:/ 'mkTraceUser' smart constructor.
 data TraceUser = TraceUser'
-  { serviceIds :: Lude.Maybe [ServiceId],
+  { -- | Services that the user's request hit.
+    serviceIds :: Lude.Maybe [ServiceId],
+    -- | The user's name.
     userName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TraceUser' with the minimum fields required to make a request.

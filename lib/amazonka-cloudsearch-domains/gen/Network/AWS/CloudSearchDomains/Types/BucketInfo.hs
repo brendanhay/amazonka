@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | A container for the calculated facet values and counts.
 --
 -- /See:/ 'mkBucketInfo' smart constructor.
-newtype BucketInfo = BucketInfo' {buckets :: Lude.Maybe [Bucket]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype BucketInfo = BucketInfo'
+  { -- | A list of the calculated facet values and counts.
+    buckets :: Lude.Maybe [Bucket]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BucketInfo' with the minimum fields required to make a request.

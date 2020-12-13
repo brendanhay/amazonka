@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.GetSchemaByDefinition
     mkGetSchemaByDefinition,
 
     -- ** Request lenses
-    gsbdSchemaId,
     gsbdSchemaDefinition,
+    gsbdSchemaId,
 
     -- * Destructuring the response
     GetSchemaByDefinitionResponse (..),
@@ -44,17 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSchemaByDefinition' smart constructor.
 data GetSchemaByDefinition = GetSchemaByDefinition'
-  { schemaId ::
-      SchemaId,
-    schemaDefinition :: Lude.Text
+  { -- | The definition of the schema for which schema details are required.
+    schemaDefinition :: Lude.Text,
+    -- | This is a wrapper structure to contain schema identity fields. The structure contains:
+    --
+    --
+    --     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
+    --
+    --
+    --     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
+    schemaId :: SchemaId
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaByDefinition' with the minimum fields required to make a request.
@@ -68,16 +70,23 @@ data GetSchemaByDefinition = GetSchemaByDefinition'
 --
 --     * SchemaId$SchemaName: The name of the schema. One of @SchemaArn@ or @SchemaName@ has to be provided.
 mkGetSchemaByDefinition ::
-  -- | 'schemaId'
-  SchemaId ->
   -- | 'schemaDefinition'
   Lude.Text ->
+  -- | 'schemaId'
+  SchemaId ->
   GetSchemaByDefinition
-mkGetSchemaByDefinition pSchemaId_ pSchemaDefinition_ =
+mkGetSchemaByDefinition pSchemaDefinition_ pSchemaId_ =
   GetSchemaByDefinition'
-    { schemaId = pSchemaId_,
-      schemaDefinition = pSchemaDefinition_
+    { schemaDefinition = pSchemaDefinition_,
+      schemaId = pSchemaId_
     }
+
+-- | The definition of the schema for which schema details are required.
+--
+-- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsbdSchemaDefinition :: Lens.Lens' GetSchemaByDefinition Lude.Text
+gsbdSchemaDefinition = Lens.lens (schemaDefinition :: GetSchemaByDefinition -> Lude.Text) (\s a -> s {schemaDefinition = a} :: GetSchemaByDefinition)
+{-# DEPRECATED gsbdSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
 
 -- | This is a wrapper structure to contain schema identity fields. The structure contains:
 --
@@ -93,13 +102,6 @@ mkGetSchemaByDefinition pSchemaId_ pSchemaDefinition_ =
 gsbdSchemaId :: Lens.Lens' GetSchemaByDefinition SchemaId
 gsbdSchemaId = Lens.lens (schemaId :: GetSchemaByDefinition -> SchemaId) (\s a -> s {schemaId = a} :: GetSchemaByDefinition)
 {-# DEPRECATED gsbdSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
-
--- | The definition of the schema for which schema details are required.
---
--- /Note:/ Consider using 'schemaDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsbdSchemaDefinition :: Lens.Lens' GetSchemaByDefinition Lude.Text
-gsbdSchemaDefinition = Lens.lens (schemaDefinition :: GetSchemaByDefinition -> Lude.Text) (\s a -> s {schemaDefinition = a} :: GetSchemaByDefinition)
-{-# DEPRECATED gsbdSchemaDefinition "Use generic-lens or generic-optics with 'schemaDefinition' instead." #-}
 
 instance Lude.AWSRequest GetSchemaByDefinition where
   type Rs GetSchemaByDefinition = GetSchemaByDefinitionResponse
@@ -131,8 +133,8 @@ instance Lude.ToJSON GetSchemaByDefinition where
   toJSON GetSchemaByDefinition' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SchemaId" Lude..= schemaId),
-            Lude.Just ("SchemaDefinition" Lude..= schemaDefinition)
+          [ Lude.Just ("SchemaDefinition" Lude..= schemaDefinition),
+            Lude.Just ("SchemaId" Lude..= schemaId)
           ]
       )
 
@@ -144,35 +146,30 @@ instance Lude.ToQuery GetSchemaByDefinition where
 
 -- | /See:/ 'mkGetSchemaByDefinitionResponse' smart constructor.
 data GetSchemaByDefinitionResponse = GetSchemaByDefinitionResponse'
-  { status ::
-      Lude.Maybe SchemaVersionStatus,
-    createdTime ::
-      Lude.Maybe Lude.Text,
-    dataFormat ::
-      Lude.Maybe DataFormat,
-    schemaVersionId ::
-      Lude.Maybe Lude.Text,
-    schemaARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the schema version.
+    status :: Lude.Maybe SchemaVersionStatus,
+    -- | The date and time the schema was created.
+    createdTime :: Lude.Maybe Lude.Text,
+    -- | The data format of the schema definition. Currently only @AVRO@ is supported.
+    dataFormat :: Lude.Maybe DataFormat,
+    -- | The schema ID of the schema version.
+    schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the schema.
+    schemaARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaByDefinitionResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the schema version.
 -- * 'createdTime' - The date and time the schema was created.
 -- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
--- * 'responseStatus' - The response status code.
--- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
 -- * 'schemaVersionId' - The schema ID of the schema version.
--- * 'status' - The status of the schema version.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
+-- * 'responseStatus' - The response status code.
 mkGetSchemaByDefinitionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

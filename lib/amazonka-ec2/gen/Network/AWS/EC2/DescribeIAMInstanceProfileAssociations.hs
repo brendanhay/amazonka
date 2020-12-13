@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,31 +47,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeIAMInstanceProfileAssociations' smart constructor.
 data DescribeIAMInstanceProfileAssociations = DescribeIAMInstanceProfileAssociations'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    associationIds ::
-      Lude.Maybe
-        [Lude.Text],
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | The filters.
+    --
+    --
+    --     * @instance-id@ - The ID of the instance.
+    --
+    --
+    --     * @state@ - The state of the association (@associating@ | @associated@ | @disassociating@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The token to request the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The IAM instance profile associations.
+    associationIds :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIAMInstanceProfileAssociations' with the minimum fields required to make a request.
 --
--- * 'associationIds' - The IAM instance profile associations.
 -- * 'filters' - The filters.
 --
 --
@@ -80,8 +76,9 @@ data DescribeIAMInstanceProfileAssociations = DescribeIAMInstanceProfileAssociat
 --     * @state@ - The state of the association (@associating@ | @associated@ | @disassociating@ ).
 --
 --
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 -- * 'nextToken' - The token to request the next page of results.
+-- * 'associationIds' - The IAM instance profile associations.
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkDescribeIAMInstanceProfileAssociations ::
   DescribeIAMInstanceProfileAssociations
 mkDescribeIAMInstanceProfileAssociations =
@@ -175,26 +172,15 @@ instance Lude.ToQuery DescribeIAMInstanceProfileAssociations where
 
 -- | /See:/ 'mkDescribeIAMInstanceProfileAssociationsResponse' smart constructor.
 data DescribeIAMInstanceProfileAssociationsResponse = DescribeIAMInstanceProfileAssociationsResponse'
-  { iamInstanceProfileAssociations ::
-      Lude.Maybe
-        [IAMInstanceProfileAssociation],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the IAM instance profile associations.
+    iamInstanceProfileAssociations :: Lude.Maybe [IAMInstanceProfileAssociation],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIAMInstanceProfileAssociationsResponse' with the minimum fields required to make a request.
 --

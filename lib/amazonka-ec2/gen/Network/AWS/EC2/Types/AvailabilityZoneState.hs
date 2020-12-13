@@ -14,8 +14,8 @@ module Network.AWS.EC2.Types.AvailabilityZoneState
   ( AvailabilityZoneState
       ( AvailabilityZoneState',
         AZSAvailable,
-        AZSImpaired,
         AZSInformation,
+        AZSImpaired,
         AZSUnavailable
       ),
   )
@@ -50,19 +50,19 @@ newtype AvailabilityZoneState = AvailabilityZoneState' Lude.Text
 pattern AZSAvailable :: AvailabilityZoneState
 pattern AZSAvailable = AvailabilityZoneState' "available"
 
-pattern AZSImpaired :: AvailabilityZoneState
-pattern AZSImpaired = AvailabilityZoneState' "impaired"
-
 pattern AZSInformation :: AvailabilityZoneState
 pattern AZSInformation = AvailabilityZoneState' "information"
+
+pattern AZSImpaired :: AvailabilityZoneState
+pattern AZSImpaired = AvailabilityZoneState' "impaired"
 
 pattern AZSUnavailable :: AvailabilityZoneState
 pattern AZSUnavailable = AvailabilityZoneState' "unavailable"
 
 {-# COMPLETE
   AZSAvailable,
-  AZSImpaired,
   AZSInformation,
+  AZSImpaired,
   AZSUnavailable,
   AvailabilityZoneState'
   #-}

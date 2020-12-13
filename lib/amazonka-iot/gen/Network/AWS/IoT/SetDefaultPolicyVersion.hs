@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetDefaultPolicyVersion' smart constructor.
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
-  { policyName ::
-      Lude.Text,
+  { -- | The policy name.
+    policyName :: Lude.Text,
+    -- | The policy version ID.
     policyVersionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDefaultPolicyVersion' with the minimum fields required to make a request.
@@ -106,13 +102,7 @@ instance Lude.ToQuery SetDefaultPolicyVersion where
 
 -- | /See:/ 'mkSetDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDefaultPolicyVersionResponse' with the minimum fields required to make a request.

@@ -31,24 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeProperties' smart constructor.
 data NodeProperties = NodeProperties'
-  { numNodes :: Lude.Int,
+  { -- | The number of nodes associated with a multi-node parallel job.
+    numNodes :: Lude.Int,
+    -- | Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
     mainNode :: Lude.Int,
+    -- | A list of node ranges and their properties associated with a multi-node parallel job.
     nodeRangeProperties :: [NodeRangeProperty]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeProperties' with the minimum fields required to make a request.
 --
+-- * 'numNodes' - The number of nodes associated with a multi-node parallel job.
 -- * 'mainNode' - Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
 -- * 'nodeRangeProperties' - A list of node ranges and their properties associated with a multi-node parallel job.
--- * 'numNodes' - The number of nodes associated with a multi-node parallel job.
 mkNodeProperties ::
   -- | 'numNodes'
   Lude.Int ->

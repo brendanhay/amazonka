@@ -41,46 +41,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAddress' smart constructor.
 data Address = Address'
-  { isRestricted :: Lude.Maybe Lude.Bool,
+  { -- | If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
+    isRestricted :: Lude.Maybe Lude.Bool,
+    -- | The third line in a street address that a Snow device is to be delivered to.
     street3 :: Lude.Maybe Lude.Text,
+    -- | This field is no longer used and the value is ignored.
     landmark :: Lude.Maybe Lude.Text,
+    -- | The postal code in an address that a Snow device is to be delivered to.
     postalCode :: Lude.Maybe Lude.Text,
+    -- | The country in an address that a Snow device is to be delivered to.
     country :: Lude.Maybe Lude.Text,
+    -- | The state or province in an address that a Snow device is to be delivered to.
     stateOrProvince :: Lude.Maybe Lude.Text,
+    -- | The second line in a street address that a Snow device is to be delivered to.
     street2 :: Lude.Maybe Lude.Text,
+    -- | The unique ID for an address.
     addressId :: Lude.Maybe Lude.Text,
+    -- | The city in an address that a Snow device is to be delivered to.
     city :: Lude.Maybe Lude.Text,
+    -- | The phone number associated with an address that a Snow device is to be delivered to.
     phoneNumber :: Lude.Maybe Lude.Text,
+    -- | The name of the company to receive a Snow device at an address.
     company :: Lude.Maybe Lude.Text,
+    -- | The name of a person to receive a Snow device at an address.
     name :: Lude.Maybe Lude.Text,
+    -- | This field is no longer used and the value is ignored.
     prefectureOrDistrict :: Lude.Maybe Lude.Text,
+    -- | The first line in a street address that a Snow device is to be delivered to.
     street1 :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Address' with the minimum fields required to make a request.
 --
+-- * 'isRestricted' - If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
+-- * 'street3' - The third line in a street address that a Snow device is to be delivered to.
+-- * 'landmark' - This field is no longer used and the value is ignored.
+-- * 'postalCode' - The postal code in an address that a Snow device is to be delivered to.
+-- * 'country' - The country in an address that a Snow device is to be delivered to.
+-- * 'stateOrProvince' - The state or province in an address that a Snow device is to be delivered to.
+-- * 'street2' - The second line in a street address that a Snow device is to be delivered to.
 -- * 'addressId' - The unique ID for an address.
 -- * 'city' - The city in an address that a Snow device is to be delivered to.
--- * 'company' - The name of the company to receive a Snow device at an address.
--- * 'country' - The country in an address that a Snow device is to be delivered to.
--- * 'isRestricted' - If the address you are creating is a primary address, then set this option to true. This field is not supported in most regions.
--- * 'landmark' - This field is no longer used and the value is ignored.
--- * 'name' - The name of a person to receive a Snow device at an address.
 -- * 'phoneNumber' - The phone number associated with an address that a Snow device is to be delivered to.
--- * 'postalCode' - The postal code in an address that a Snow device is to be delivered to.
+-- * 'company' - The name of the company to receive a Snow device at an address.
+-- * 'name' - The name of a person to receive a Snow device at an address.
 -- * 'prefectureOrDistrict' - This field is no longer used and the value is ignored.
--- * 'stateOrProvince' - The state or province in an address that a Snow device is to be delivered to.
 -- * 'street1' - The first line in a street address that a Snow device is to be delivered to.
--- * 'street2' - The second line in a street address that a Snow device is to be delivered to.
--- * 'street3' - The third line in a street address that a Snow device is to be delivered to.
 mkAddress ::
   Address
 mkAddress =

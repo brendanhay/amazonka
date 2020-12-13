@@ -32,31 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPutPartnerEventsRequestEntry' smart constructor.
 data PutPartnerEventsRequestEntry = PutPartnerEventsRequestEntry'
-  { time ::
-      Lude.Maybe Lude.Timestamp,
-    detailType ::
-      Lude.Maybe Lude.Text,
-    resources ::
-      Lude.Maybe [Lude.Text],
+  { -- | The date and time of the event.
+    time :: Lude.Maybe Lude.Timestamp,
+    -- | A free-form string used to decide what fields to expect in the event detail.
+    detailType :: Lude.Maybe Lude.Text,
+    -- | AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+    resources :: Lude.Maybe [Lude.Text],
+    -- | The event source that is generating the evntry.
     source :: Lude.Maybe Lude.Text,
+    -- | A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
     detail :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPartnerEventsRequestEntry' with the minimum fields required to make a request.
 --
--- * 'detail' - A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
+-- * 'time' - The date and time of the event.
 -- * 'detailType' - A free-form string used to decide what fields to expect in the event detail.
 -- * 'resources' - AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
 -- * 'source' - The event source that is generating the evntry.
--- * 'time' - The date and time of the event.
+-- * 'detail' - A valid JSON string. There is no other schema imposed. The JSON string may contain fields and nested subobjects.
 mkPutPartnerEventsRequestEntry ::
   PutPartnerEventsRequestEntry
 mkPutPartnerEventsRequestEntry =

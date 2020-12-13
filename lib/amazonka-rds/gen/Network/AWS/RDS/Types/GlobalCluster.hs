@@ -38,39 +38,42 @@ import Network.AWS.RDS.Types.GlobalClusterMember
 --
 -- /See:/ 'mkGlobalCluster' smart constructor.
 data GlobalCluster = GlobalCluster'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | Indicates the database engine version.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Specifies the current state of this global database cluster.
     status :: Lude.Maybe Lude.Text,
+    -- | The deletion protection setting for the new global database cluster.
     deletionProtection :: Lude.Maybe Lude.Bool,
+    -- | The storage encryption setting for the global database cluster.
     storageEncrypted :: Lude.Maybe Lude.Bool,
+    -- | Contains a user-supplied global database cluster identifier. This identifier is the unique key that identifies a global database cluster.
     globalClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The Aurora database engine used by the global database cluster.
     engine :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the global database cluster.
     globalClusterARN :: Lude.Maybe Lude.Text,
+    -- | The default database name within the new global database cluster.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | The list of cluster IDs for secondary clusters within the global database cluster. Currently limited to 1 item.
     globalClusterMembers :: Lude.Maybe [GlobalClusterMember],
+    -- | The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
     globalClusterResourceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalCluster' with the minimum fields required to make a request.
 --
--- * 'databaseName' - The default database name within the new global database cluster.
--- * 'deletionProtection' - The deletion protection setting for the new global database cluster.
--- * 'engine' - The Aurora database engine used by the global database cluster.
 -- * 'engineVersion' - Indicates the database engine version.
--- * 'globalClusterARN' - The Amazon Resource Name (ARN) for the global database cluster.
+-- * 'status' - Specifies the current state of this global database cluster.
+-- * 'deletionProtection' - The deletion protection setting for the new global database cluster.
+-- * 'storageEncrypted' - The storage encryption setting for the global database cluster.
 -- * 'globalClusterIdentifier' - Contains a user-supplied global database cluster identifier. This identifier is the unique key that identifies a global database cluster.
+-- * 'engine' - The Aurora database engine used by the global database cluster.
+-- * 'globalClusterARN' - The Amazon Resource Name (ARN) for the global database cluster.
+-- * 'databaseName' - The default database name within the new global database cluster.
 -- * 'globalClusterMembers' - The list of cluster IDs for secondary clusters within the global database cluster. Currently limited to 1 item.
 -- * 'globalClusterResourceId' - The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
--- * 'status' - Specifies the current state of this global database cluster.
--- * 'storageEncrypted' - The storage encryption setting for the global database cluster.
 mkGlobalCluster ::
   GlobalCluster
 mkGlobalCluster =

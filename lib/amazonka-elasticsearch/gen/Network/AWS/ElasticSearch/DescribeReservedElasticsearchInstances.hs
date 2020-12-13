@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,30 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReservedElasticsearchInstances' smart constructor.
 data DescribeReservedElasticsearchInstances = DescribeReservedElasticsearchInstances'
-  { reservedElasticsearchInstanceId ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Int
+  { -- | The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved Elasticsearch instance ID.
+    reservedElasticsearchInstanceId :: Lude.Maybe Lude.Text,
+    -- | NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Set this value to limit the number of results returned. If not specified, defaults to 100.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedElasticsearchInstances' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Set this value to limit the number of results returned. If not specified, defaults to 100.
--- * 'nextToken' - NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
 -- * 'reservedElasticsearchInstanceId' - The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved Elasticsearch instance ID.
+-- * 'nextToken' - NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
+-- * 'maxResults' - Set this value to limit the number of results returned. If not specified, defaults to 100.
 mkDescribeReservedElasticsearchInstances ::
   DescribeReservedElasticsearchInstances
 mkDescribeReservedElasticsearchInstances =
@@ -144,31 +136,20 @@ instance Lude.ToQuery DescribeReservedElasticsearchInstances where
 --
 -- /See:/ 'mkDescribeReservedElasticsearchInstancesResponse' smart constructor.
 data DescribeReservedElasticsearchInstancesResponse = DescribeReservedElasticsearchInstancesResponse'
-  { reservedElasticsearchInstances ::
-      Lude.Maybe
-        [ReservedElasticsearchInstance],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | List of reserved Elasticsearch instances.
+    reservedElasticsearchInstances :: Lude.Maybe [ReservedElasticsearchInstance],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedElasticsearchInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
 -- * 'reservedElasticsearchInstances' - List of reserved Elasticsearch instances.
+-- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
 -- * 'responseStatus' - The response status code.
 mkDescribeReservedElasticsearchInstancesResponse ::
   -- | 'responseStatus'

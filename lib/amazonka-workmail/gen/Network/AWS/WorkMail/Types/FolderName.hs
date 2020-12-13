@@ -13,11 +13,11 @@
 module Network.AWS.WorkMail.Types.FolderName
   ( FolderName
       ( FolderName',
-        DeletedItems,
-        Drafts,
         Inbox,
-        JunkEmail,
-        SentItems
+        DeletedItems,
+        SentItems,
+        Drafts,
+        JunkEmail
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype FolderName = FolderName' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeletedItems :: FolderName
-pattern DeletedItems = FolderName' "DELETED_ITEMS"
-
-pattern Drafts :: FolderName
-pattern Drafts = FolderName' "DRAFTS"
-
 pattern Inbox :: FolderName
 pattern Inbox = FolderName' "INBOX"
 
-pattern JunkEmail :: FolderName
-pattern JunkEmail = FolderName' "JUNK_EMAIL"
+pattern DeletedItems :: FolderName
+pattern DeletedItems = FolderName' "DELETED_ITEMS"
 
 pattern SentItems :: FolderName
 pattern SentItems = FolderName' "SENT_ITEMS"
 
+pattern Drafts :: FolderName
+pattern Drafts = FolderName' "DRAFTS"
+
+pattern JunkEmail :: FolderName
+pattern JunkEmail = FolderName' "JUNK_EMAIL"
+
 {-# COMPLETE
-  DeletedItems,
-  Drafts,
   Inbox,
-  JunkEmail,
+  DeletedItems,
   SentItems,
+  Drafts,
+  JunkEmail,
   FolderName'
   #-}

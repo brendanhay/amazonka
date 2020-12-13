@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.WorkDocs.GetDocumentVersion
     mkGetDocumentVersion,
 
     -- ** Request lenses
+    gdvVersionId,
+    gdvDocumentId,
     gdvAuthenticationToken,
     gdvIncludeCustomMetadata,
     gdvFields,
-    gdvDocumentId,
-    gdvVersionId,
 
     -- * Destructuring the response
     GetDocumentVersionResponse (..),
@@ -44,37 +45,55 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkGetDocumentVersion' smart constructor.
 data GetDocumentVersion = GetDocumentVersion'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    includeCustomMetadata :: Lude.Maybe Lude.Bool,
-    fields :: Lude.Maybe Lude.Text,
+  { -- | The version ID of the document.
+    versionId :: Lude.Text,
+    -- | The ID of the document.
     documentId :: Lude.Text,
-    versionId :: Lude.Text
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Set this to TRUE to include custom metadata in the response.
+    includeCustomMetadata :: Lude.Maybe Lude.Bool,
+    -- | A comma-separated list of values. Specify "SOURCE" to include a URL for the source document.
+    fields :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentVersion' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'documentId' - The ID of the document.
--- * 'fields' - A comma-separated list of values. Specify "SOURCE" to include a URL for the source document.
--- * 'includeCustomMetadata' - Set this to TRUE to include custom metadata in the response.
 -- * 'versionId' - The version ID of the document.
+-- * 'documentId' - The ID of the document.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'includeCustomMetadata' - Set this to TRUE to include custom metadata in the response.
+-- * 'fields' - A comma-separated list of values. Specify "SOURCE" to include a URL for the source document.
 mkGetDocumentVersion ::
-  -- | 'documentId'
-  Lude.Text ->
   -- | 'versionId'
   Lude.Text ->
+  -- | 'documentId'
+  Lude.Text ->
   GetDocumentVersion
-mkGetDocumentVersion pDocumentId_ pVersionId_ =
+mkGetDocumentVersion pVersionId_ pDocumentId_ =
   GetDocumentVersion'
-    { authenticationToken = Lude.Nothing,
-      includeCustomMetadata = Lude.Nothing,
-      fields = Lude.Nothing,
+    { versionId = pVersionId_,
       documentId = pDocumentId_,
-      versionId = pVersionId_
+      authenticationToken = Lude.Nothing,
+      includeCustomMetadata = Lude.Nothing,
+      fields = Lude.Nothing
     }
+
+-- | The version ID of the document.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvVersionId :: Lens.Lens' GetDocumentVersion Lude.Text
+gdvVersionId = Lens.lens (versionId :: GetDocumentVersion -> Lude.Text) (\s a -> s {versionId = a} :: GetDocumentVersion)
+{-# DEPRECATED gdvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdvDocumentId :: Lens.Lens' GetDocumentVersion Lude.Text
+gdvDocumentId = Lens.lens (documentId :: GetDocumentVersion -> Lude.Text) (\s a -> s {documentId = a} :: GetDocumentVersion)
+{-# DEPRECATED gdvDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -96,20 +115,6 @@ gdvIncludeCustomMetadata = Lens.lens (includeCustomMetadata :: GetDocumentVersio
 gdvFields :: Lens.Lens' GetDocumentVersion (Lude.Maybe Lude.Text)
 gdvFields = Lens.lens (fields :: GetDocumentVersion -> Lude.Maybe Lude.Text) (\s a -> s {fields = a} :: GetDocumentVersion)
 {-# DEPRECATED gdvFields "Use generic-lens or generic-optics with 'fields' instead." #-}
-
--- | The ID of the document.
---
--- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdvDocumentId :: Lens.Lens' GetDocumentVersion Lude.Text
-gdvDocumentId = Lens.lens (documentId :: GetDocumentVersion -> Lude.Text) (\s a -> s {documentId = a} :: GetDocumentVersion)
-{-# DEPRECATED gdvDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
-
--- | The version ID of the document.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdvVersionId :: Lens.Lens' GetDocumentVersion Lude.Text
-gdvVersionId = Lens.lens (versionId :: GetDocumentVersion -> Lude.Text) (\s a -> s {versionId = a} :: GetDocumentVersion)
-{-# DEPRECATED gdvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 instance Lude.AWSRequest GetDocumentVersion where
   type Rs GetDocumentVersion = GetDocumentVersionResponse
@@ -149,14 +154,11 @@ instance Lude.ToQuery GetDocumentVersion where
 
 -- | /See:/ 'mkGetDocumentVersionResponse' smart constructor.
 data GetDocumentVersionResponse = GetDocumentVersionResponse'
-  { customMetadata ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    metadata ::
-      Lude.Maybe DocumentVersionMetadata,
+  { -- | The custom metadata on the document version.
+    customMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The version metadata.
+    metadata :: Lude.Maybe DocumentVersionMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

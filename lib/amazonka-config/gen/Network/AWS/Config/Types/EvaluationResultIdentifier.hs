@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvaluationResultIdentifier' smart constructor.
 data EvaluationResultIdentifier = EvaluationResultIdentifier'
-  { evaluationResultQualifier ::
-      Lude.Maybe EvaluationResultQualifier,
-    orderingTimestamp ::
-      Lude.Maybe Lude.Timestamp
+  { -- | Identifies an AWS Config rule used to evaluate an AWS resource, and provides the type and ID of the evaluated resource.
+    evaluationResultQualifier :: Lude.Maybe EvaluationResultQualifier,
+    -- | The time of the event that triggered the evaluation of your AWS resources. The time can indicate when AWS Config delivered a configuration item change notification, or it can indicate when AWS Config delivered the configuration snapshot, depending on which event triggered the evaluation.
+    orderingTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluationResultIdentifier' with the minimum fields required to make a request.

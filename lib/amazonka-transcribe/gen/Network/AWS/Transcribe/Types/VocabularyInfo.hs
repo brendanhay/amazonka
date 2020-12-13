@@ -33,26 +33,23 @@ import Network.AWS.Transcribe.Types.VocabularyState
 --
 -- /See:/ 'mkVocabularyInfo' smart constructor.
 data VocabularyInfo = VocabularyInfo'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
+  { -- | The language code of the vocabulary entries.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The name of the vocabulary.
     vocabularyName :: Lude.Maybe Lude.Text,
+    -- | The date and time that the vocabulary was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The processing state of the vocabulary. If the state is @READY@ you can use the vocabulary in a @StartTranscriptionJob@ request.
     vocabularyState :: Lude.Maybe VocabularyState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VocabularyInfo' with the minimum fields required to make a request.
 --
 -- * 'languageCode' - The language code of the vocabulary entries.
--- * 'lastModifiedTime' - The date and time that the vocabulary was last modified.
 -- * 'vocabularyName' - The name of the vocabulary.
+-- * 'lastModifiedTime' - The date and time that the vocabulary was last modified.
 -- * 'vocabularyState' - The processing state of the vocabulary. If the state is @READY@ you can use the vocabulary in a @StartTranscriptionJob@ request.
 mkVocabularyInfo ::
   VocabularyInfo

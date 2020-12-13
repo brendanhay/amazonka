@@ -13,8 +13,8 @@
 module Network.AWS.GuardDuty.Types.DataSourceStatus
   ( DataSourceStatus
       ( DataSourceStatus',
-        DSSDisabled,
-        DSSEnabled
+        DSSEnabled,
+        DSSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DataSourceStatus = DataSourceStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSSDisabled :: DataSourceStatus
-pattern DSSDisabled = DataSourceStatus' "DISABLED"
-
 pattern DSSEnabled :: DataSourceStatus
 pattern DSSEnabled = DataSourceStatus' "ENABLED"
 
+pattern DSSDisabled :: DataSourceStatus
+pattern DSSDisabled = DataSourceStatus' "DISABLED"
+
 {-# COMPLETE
-  DSSDisabled,
   DSSEnabled,
+  DSSDisabled,
   DataSourceStatus'
   #-}

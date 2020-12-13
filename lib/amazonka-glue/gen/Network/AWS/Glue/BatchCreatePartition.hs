@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Glue.BatchCreatePartition
     -- ** Request lenses
     bcpCatalogId,
     bcpDatabaseName,
-    bcpTableName,
     bcpPartitionInputList,
+    bcpTableName,
 
     -- * Destructuring the response
     BatchCreatePartitionResponse (..),
@@ -42,19 +43,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchCreatePartition' smart constructor.
 data BatchCreatePartition = BatchCreatePartition'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the catalog in which the partition is to be created. Currently, this should be the AWS account ID.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the metadata database in which the partition is to be created.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    partitionInputList :: [PartitionInput]
+    -- | A list of @PartitionInput@ structures that define the partitions to be created.
+    partitionInputList :: [PartitionInput],
+    -- | The name of the metadata table in which the partition is to be created.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchCreatePartition' with the minimum fields required to make a request.
@@ -73,8 +71,8 @@ mkBatchCreatePartition pDatabaseName_ pTableName_ =
   BatchCreatePartition'
     { catalogId = Lude.Nothing,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      partitionInputList = Lude.mempty
+      partitionInputList = Lude.mempty,
+      tableName = pTableName_
     }
 
 -- | The ID of the catalog in which the partition is to be created. Currently, this should be the AWS account ID.
@@ -91,19 +89,19 @@ bcpDatabaseName :: Lens.Lens' BatchCreatePartition Lude.Text
 bcpDatabaseName = Lens.lens (databaseName :: BatchCreatePartition -> Lude.Text) (\s a -> s {databaseName = a} :: BatchCreatePartition)
 {-# DEPRECATED bcpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
--- | The name of the metadata table in which the partition is to be created.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcpTableName :: Lens.Lens' BatchCreatePartition Lude.Text
-bcpTableName = Lens.lens (tableName :: BatchCreatePartition -> Lude.Text) (\s a -> s {tableName = a} :: BatchCreatePartition)
-{-# DEPRECATED bcpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
 -- | A list of @PartitionInput@ structures that define the partitions to be created.
 --
 -- /Note:/ Consider using 'partitionInputList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 bcpPartitionInputList :: Lens.Lens' BatchCreatePartition [PartitionInput]
 bcpPartitionInputList = Lens.lens (partitionInputList :: BatchCreatePartition -> [PartitionInput]) (\s a -> s {partitionInputList = a} :: BatchCreatePartition)
 {-# DEPRECATED bcpPartitionInputList "Use generic-lens or generic-optics with 'partitionInputList' instead." #-}
+
+-- | The name of the metadata table in which the partition is to be created.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcpTableName :: Lens.Lens' BatchCreatePartition Lude.Text
+bcpTableName = Lens.lens (tableName :: BatchCreatePartition -> Lude.Text) (\s a -> s {tableName = a} :: BatchCreatePartition)
+{-# DEPRECATED bcpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest BatchCreatePartition where
   type Rs BatchCreatePartition = BatchCreatePartitionResponse
@@ -133,8 +131,8 @@ instance Lude.ToJSON BatchCreatePartition where
       ( Lude.catMaybes
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("PartitionInputList" Lude..= partitionInputList)
+            Lude.Just ("PartitionInputList" Lude..= partitionInputList),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -146,17 +144,12 @@ instance Lude.ToQuery BatchCreatePartition where
 
 -- | /See:/ 'mkBatchCreatePartitionResponse' smart constructor.
 data BatchCreatePartitionResponse = BatchCreatePartitionResponse'
-  { errors ::
-      Lude.Maybe [PartitionError],
+  { -- | The errors encountered when trying to create the requested partitions.
+    errors :: Lude.Maybe [PartitionError],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchCreatePartitionResponse' with the minimum fields required to make a request.

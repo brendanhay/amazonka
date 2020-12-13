@@ -44,8 +44,8 @@ module Network.AWS.SNS.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * Topic
     Topic (..),

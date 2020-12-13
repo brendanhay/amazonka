@@ -13,8 +13,8 @@
 module Network.AWS.Cloud9.Types.EnvironmentType
   ( EnvironmentType
       ( EnvironmentType',
-        EC2,
-        SSH
+        SSH,
+        EC2
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EnvironmentType = EnvironmentType' Lude.Text
       Lude.ToHeader
     )
 
-pattern EC2 :: EnvironmentType
-pattern EC2 = EnvironmentType' "ec2"
-
 pattern SSH :: EnvironmentType
 pattern SSH = EnvironmentType' "ssh"
 
+pattern EC2 :: EnvironmentType
+pattern EC2 = EnvironmentType' "ec2"
+
 {-# COMPLETE
-  EC2,
   SSH,
+  EC2,
   EnvironmentType'
   #-}

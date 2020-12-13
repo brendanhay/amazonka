@@ -13,8 +13,8 @@
 module Network.AWS.Pinpoint.Types.AttributeType
   ( AttributeType
       ( AttributeType',
-        Exclusive,
-        Inclusive
+        Inclusive,
+        Exclusive
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AttributeType = AttributeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Exclusive :: AttributeType
-pattern Exclusive = AttributeType' "EXCLUSIVE"
-
 pattern Inclusive :: AttributeType
 pattern Inclusive = AttributeType' "INCLUSIVE"
 
+pattern Exclusive :: AttributeType
+pattern Exclusive = AttributeType' "EXCLUSIVE"
+
 {-# COMPLETE
-  Exclusive,
   Inclusive,
+  Exclusive,
   AttributeType'
   #-}

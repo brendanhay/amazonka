@@ -36,29 +36,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkManagedScaling' smart constructor.
 data ManagedScaling = ManagedScaling'
-  { status ::
-      Lude.Maybe ManagedScalingStatus,
+  { -- | Whether or not to enable managed scaling for the capacity provider.
+    status :: Lude.Maybe ManagedScalingStatus,
+    -- | The maximum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @10000@ is used.
     maximumScalingStepSize :: Lude.Maybe Lude.Natural,
+    -- | The target capacity value for the capacity provider. The specified value must be greater than @0@ and less than or equal to @100@ . A value of @100@ will result in the Amazon EC2 instances in your Auto Scaling group being completely utilized.
     targetCapacity :: Lude.Maybe Lude.Natural,
+    -- | The minimum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @1@ is used.
     minimumScalingStepSize :: Lude.Maybe Lude.Natural,
+    -- | The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of @300@ seconds is used.
     instanceWarmupPeriod :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ManagedScaling' with the minimum fields required to make a request.
 --
--- * 'instanceWarmupPeriod' - The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of @300@ seconds is used.
--- * 'maximumScalingStepSize' - The maximum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @10000@ is used.
--- * 'minimumScalingStepSize' - The minimum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @1@ is used.
 -- * 'status' - Whether or not to enable managed scaling for the capacity provider.
+-- * 'maximumScalingStepSize' - The maximum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @10000@ is used.
 -- * 'targetCapacity' - The target capacity value for the capacity provider. The specified value must be greater than @0@ and less than or equal to @100@ . A value of @100@ will result in the Amazon EC2 instances in your Auto Scaling group being completely utilized.
+-- * 'minimumScalingStepSize' - The minimum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @1@ is used.
+-- * 'instanceWarmupPeriod' - The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of @300@ seconds is used.
 mkManagedScaling ::
   ManagedScaling
 mkManagedScaling =

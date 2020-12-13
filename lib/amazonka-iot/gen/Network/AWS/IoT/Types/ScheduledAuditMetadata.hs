@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledAuditMetadata' smart constructor.
 data ScheduledAuditMetadata = ScheduledAuditMetadata'
-  { frequency ::
-      Lude.Maybe AuditFrequency,
+  { -- | How often the scheduled audit occurs.
+    frequency :: Lude.Maybe AuditFrequency,
+    -- | The name of the scheduled audit.
     scheduledAuditName :: Lude.Maybe Lude.Text,
+    -- | The day of the month on which the scheduled audit is run (if the @frequency@ is "MONTHLY"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
     dayOfMonth :: Lude.Maybe Lude.Text,
+    -- | The day of the week on which the scheduled audit is run (if the @frequency@ is "WEEKLY" or "BIWEEKLY").
     dayOfWeek :: Lude.Maybe DayOfWeek,
+    -- | The ARN of the scheduled audit.
     scheduledAuditARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledAuditMetadata' with the minimum fields required to make a request.
 --
+-- * 'frequency' - How often the scheduled audit occurs.
+-- * 'scheduledAuditName' - The name of the scheduled audit.
 -- * 'dayOfMonth' - The day of the month on which the scheduled audit is run (if the @frequency@ is "MONTHLY"). If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
 -- * 'dayOfWeek' - The day of the week on which the scheduled audit is run (if the @frequency@ is "WEEKLY" or "BIWEEKLY").
--- * 'frequency' - How often the scheduled audit occurs.
 -- * 'scheduledAuditARN' - The ARN of the scheduled audit.
--- * 'scheduledAuditName' - The name of the scheduled audit.
 mkScheduledAuditMetadata ::
   ScheduledAuditMetadata
 mkScheduledAuditMetadata =

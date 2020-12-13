@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,23 +50,25 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListOnPremisesInstances' smart constructor.
 data ListOnPremisesInstances = ListOnPremisesInstances'
-  { tagFilters ::
-      Lude.Maybe [TagFilter],
+  { -- | The on-premises instance tags that are used to restrict the on-premises instance names returned.
+    tagFilters :: Lude.Maybe [TagFilter],
+    -- | An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
     nextToken :: Lude.Maybe Lude.Text,
-    registrationStatus ::
-      Lude.Maybe RegistrationStatus
+    -- | The registration status of the on-premises instances:
+    --
+    --
+    --     * @Deregistered@ : Include deregistered on-premises instances in the resulting list.
+    --
+    --
+    --     * @Registered@ : Include registered on-premises instances in the resulting list.
+    registrationStatus :: Lude.Maybe RegistrationStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOnPremisesInstances' with the minimum fields required to make a request.
 --
+-- * 'tagFilters' - The on-premises instance tags that are used to restrict the on-premises instance names returned.
 -- * 'nextToken' - An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
 -- * 'registrationStatus' - The registration status of the on-premises instances:
 --
@@ -74,9 +77,6 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
 --
 --
 --     * @Registered@ : Include registered on-premises instances in the resulting list.
---
---
--- * 'tagFilters' - The on-premises instance tags that are used to restrict the on-premises instance names returned.
 mkListOnPremisesInstances ::
   ListOnPremisesInstances
 mkListOnPremisesInstances =
@@ -167,25 +167,20 @@ instance Lude.ToQuery ListOnPremisesInstances where
 --
 -- /See:/ 'mkListOnPremisesInstancesResponse' smart constructor.
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    instanceNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of matching on-premises instance names.
+    instanceNames :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOnPremisesInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'instanceNames' - The list of matching on-premises instance names.
 -- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list.
+-- * 'instanceNames' - The list of matching on-premises instance names.
 -- * 'responseStatus' - The response status code.
 mkListOnPremisesInstancesResponse ::
   -- | 'responseStatus'

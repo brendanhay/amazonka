@@ -13,9 +13,9 @@
 module Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedCause
   ( SignalExternalWorkflowExecutionFailedCause
       ( SignalExternalWorkflowExecutionFailedCause',
-        SEWEFCOperationNotPermitted,
+        SEWEFCUnknownExternalWorkflowExecution,
         SEWEFCSignalExternalWorkflowExecutionRateExceeded,
-        SEWEFCUnknownExternalWorkflowExecution
+        SEWEFCOperationNotPermitted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype SignalExternalWorkflowExecutionFailedCause = SignalExternalWorkflowExecu
       Lude.ToHeader
     )
 
-pattern SEWEFCOperationNotPermitted :: SignalExternalWorkflowExecutionFailedCause
-pattern SEWEFCOperationNotPermitted = SignalExternalWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
+pattern SEWEFCUnknownExternalWorkflowExecution :: SignalExternalWorkflowExecutionFailedCause
+pattern SEWEFCUnknownExternalWorkflowExecution = SignalExternalWorkflowExecutionFailedCause' "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
 pattern SEWEFCSignalExternalWorkflowExecutionRateExceeded :: SignalExternalWorkflowExecutionFailedCause
 pattern SEWEFCSignalExternalWorkflowExecutionRateExceeded = SignalExternalWorkflowExecutionFailedCause' "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
 
-pattern SEWEFCUnknownExternalWorkflowExecution :: SignalExternalWorkflowExecutionFailedCause
-pattern SEWEFCUnknownExternalWorkflowExecution = SignalExternalWorkflowExecutionFailedCause' "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+pattern SEWEFCOperationNotPermitted :: SignalExternalWorkflowExecutionFailedCause
+pattern SEWEFCOperationNotPermitted = SignalExternalWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
 {-# COMPLETE
-  SEWEFCOperationNotPermitted,
-  SEWEFCSignalExternalWorkflowExecutionRateExceeded,
   SEWEFCUnknownExternalWorkflowExecution,
+  SEWEFCSignalExternalWorkflowExecutionRateExceeded,
+  SEWEFCOperationNotPermitted,
   SignalExternalWorkflowExecutionFailedCause'
   #-}

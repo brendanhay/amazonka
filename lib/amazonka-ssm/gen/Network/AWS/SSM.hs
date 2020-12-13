@@ -643,16 +643,16 @@ module Network.AWS.SSM
     -- ** Association
     Association (..),
     mkAssociation,
-    assAssociationId,
-    assInstanceId,
-    assOverview,
-    assLastExecutionDate,
-    assScheduleExpression,
-    assName,
-    assTargets,
-    assDocumentVersion,
-    assAssociationVersion,
-    assAssociationName,
+    afAssociationId,
+    afInstanceId,
+    afOverview,
+    afLastExecutionDate,
+    afScheduleExpression,
+    afName,
+    afTargets,
+    afDocumentVersion,
+    afAssociationVersion,
+    afAssociationName,
 
     -- ** AssociationDescription
     AssociationDescription (..),
@@ -695,8 +695,8 @@ module Network.AWS.SSM
     -- ** AssociationExecutionFilter
     AssociationExecutionFilter (..),
     mkAssociationExecutionFilter,
-    aefKey,
     aefValue,
+    aefKey,
     aefType,
 
     -- ** AssociationExecutionTarget
@@ -715,14 +715,14 @@ module Network.AWS.SSM
     -- ** AssociationExecutionTargetsFilter
     AssociationExecutionTargetsFilter (..),
     mkAssociationExecutionTargetsFilter,
-    aetfKey,
     aetfValue,
+    aetfKey,
 
     -- ** AssociationFilter
     AssociationFilter (..),
     mkAssociationFilter,
-    afKey,
     afValue,
+    afKey,
 
     -- ** AssociationOverview
     AssociationOverview (..),
@@ -811,8 +811,8 @@ module Network.AWS.SSM
     -- ** AutomationExecutionFilter
     AutomationExecutionFilter (..),
     mkAutomationExecutionFilter,
-    autKey,
-    autValues,
+    aeffValues,
+    aeffKey,
 
     -- ** AutomationExecutionMetadata
     AutomationExecutionMetadata (..),
@@ -877,28 +877,28 @@ module Network.AWS.SSM
     -- ** CommandFilter
     CommandFilter (..),
     mkCommandFilter,
-    cfKey,
     cfValue,
+    cfKey,
 
     -- ** CommandInvocation
     CommandInvocation (..),
     mkCommandInvocation,
-    comInstanceId,
-    comStatus,
-    comNotificationConfig,
-    comCommandPlugins,
-    comCloudWatchOutputConfig,
-    comDocumentName,
-    comStandardErrorURL,
-    comStatusDetails,
-    comStandardOutputURL,
-    comCommandId,
-    comDocumentVersion,
-    comComment,
-    comTraceOutput,
-    comInstanceName,
-    comRequestedDateTime,
-    comServiceRole,
+    cifInstanceId,
+    cifStatus,
+    cifNotificationConfig,
+    cifCommandPlugins,
+    cifCloudWatchOutputConfig,
+    cifDocumentName,
+    cifStandardErrorURL,
+    cifStatusDetails,
+    cifStandardOutputURL,
+    cifCommandId,
+    cifDocumentVersion,
+    cifComment,
+    cifTraceOutput,
+    cifInstanceName,
+    cifRequestedDateTime,
+    cifServiceRole,
 
     -- ** CommandPlugin
     CommandPlugin (..),
@@ -939,11 +939,11 @@ module Network.AWS.SSM
     -- ** ComplianceItemEntry
     ComplianceItemEntry (..),
     mkComplianceItemEntry,
+    cieStatus,
+    cieSeverity,
     cieDetails,
     cieId,
     cieTitle,
-    cieSeverity,
-    cieStatus,
 
     -- ** ComplianceStringFilter
     ComplianceStringFilter (..),
@@ -972,6 +972,7 @@ module Network.AWS.SSM
     cabreApplyOnlyAtCronInterval,
     cabreMaxErrors,
     cabreScheduleExpression,
+    cabreName,
     cabreOutputLocation,
     cabreSyncCompliance,
     cabreTargets,
@@ -981,7 +982,6 @@ module Network.AWS.SSM
     cabreAssociationName,
     cabreComplianceSeverity,
     cabreMaxConcurrency,
-    cabreName,
 
     -- ** DescribeActivationsFilter
     DescribeActivationsFilter (..),
@@ -999,34 +999,34 @@ module Network.AWS.SSM
     -- ** DocumentDescription
     DocumentDescription (..),
     mkDocumentDescription,
-    dStatus,
-    dDocumentType,
-    dHash,
-    dVersionName,
-    dSchemaVersion,
-    dSha1,
-    dAttachmentsInformation,
-    dDefaultVersion,
-    dTargetType,
-    dOwner,
-    dPlatformTypes,
-    dCreatedDate,
-    dDocumentFormat,
-    dName,
-    dHashType,
-    dParameters,
-    dDocumentVersion,
-    dStatusInformation,
-    dDescription,
-    dRequires,
-    dTags,
-    dLatestVersion,
+    ddStatus,
+    ddDocumentType,
+    ddHash,
+    ddVersionName,
+    ddSchemaVersion,
+    ddSha1,
+    ddAttachmentsInformation,
+    ddDefaultVersion,
+    ddTargetType,
+    ddOwner,
+    ddPlatformTypes,
+    ddCreatedDate,
+    ddDocumentFormat,
+    ddName,
+    ddHashType,
+    ddParameters,
+    ddDocumentVersion,
+    ddStatusInformation,
+    ddDescription,
+    ddRequires,
+    ddTags,
+    ddLatestVersion,
 
     -- ** DocumentFilter
     DocumentFilter (..),
     mkDocumentFilter,
-    dfKey,
     dfValue,
+    dfKey,
 
     -- ** DocumentIdentifier
     DocumentIdentifier (..),
@@ -1060,8 +1060,8 @@ module Network.AWS.SSM
     -- ** DocumentRequires
     DocumentRequires (..),
     mkDocumentRequires,
-    drVersion,
     drName,
+    drVersion,
 
     -- ** DocumentVersionInfo
     DocumentVersionInfo (..),
@@ -1167,37 +1167,37 @@ module Network.AWS.SSM
     -- ** InstanceInformationStringFilter
     InstanceInformationStringFilter (..),
     mkInstanceInformationStringFilter,
-    iisfKey,
     iisfValues,
+    iisfKey,
 
     -- ** InstancePatchState
     InstancePatchState (..),
     mkInstancePatchState,
+    ipsInstanceId,
     ipsUnreportedNotApplicableCount,
+    ipsOperationEndTime,
     ipsRebootOption,
     ipsInstalledPendingRebootCount,
     ipsOwnerInformation,
+    ipsOperation,
     ipsInstalledRejectedCount,
     ipsFailedCount,
     ipsInstalledOtherCount,
     ipsMissingCount,
     ipsInstallOverrideList,
+    ipsOperationStartTime,
     ipsNotApplicableCount,
     ipsInstalledCount,
     ipsLastNoRebootInstallOperationTime,
-    ipsSnapshotId,
-    ipsInstanceId,
-    ipsPatchGroup,
     ipsBaselineId,
-    ipsOperationStartTime,
-    ipsOperationEndTime,
-    ipsOperation,
+    ipsPatchGroup,
+    ipsSnapshotId,
 
     -- ** InstancePatchStateFilter
     InstancePatchStateFilter (..),
     mkInstancePatchStateFilter,
-    ipsfKey,
     ipsfValues,
+    ipsfKey,
     ipsfType,
 
     -- ** InventoryAggregator
@@ -1235,24 +1235,24 @@ module Network.AWS.SSM
     -- ** InventoryFilter
     InventoryFilter (..),
     mkInventoryFilter,
-    ifType,
-    ifKey,
     ifValues,
+    ifKey,
+    ifType,
 
     -- ** InventoryGroup
     InventoryGroup (..),
     mkInventoryGroup,
-    igName,
     igFilters,
+    igName,
 
     -- ** InventoryItem
     InventoryItem (..),
     mkInventoryItem,
     iiContext,
-    iiContentHash,
-    iiContent,
     iiTypeName,
+    iiContentHash,
     iiSchemaVersion,
+    iiContent,
     iiCaptureTime,
 
     -- ** InventoryItemAttribute
@@ -1264,10 +1264,10 @@ module Network.AWS.SSM
     -- ** InventoryItemSchema
     InventoryItemSchema (..),
     mkInventoryItemSchema,
-    iisVersion,
-    iisDisplayName,
     iisTypeName,
     iisAttributes,
+    iisVersion,
+    iisDisplayName,
 
     -- ** InventoryResultEntity
     InventoryResultEntity (..),
@@ -1278,18 +1278,18 @@ module Network.AWS.SSM
     -- ** InventoryResultItem
     InventoryResultItem (..),
     mkInventoryResultItem,
-    iriContentHash,
-    iriCaptureTime,
     iriTypeName,
+    iriContentHash,
     iriSchemaVersion,
     iriContent,
+    iriCaptureTime,
 
     -- ** LoggingInfo
     LoggingInfo (..),
     mkLoggingInfo,
     liS3KeyPrefix,
-    liS3BucketName,
     liS3Region,
+    liS3BucketName,
 
     -- ** MaintenanceWindowAutomationParameters
     MaintenanceWindowAutomationParameters (..),
@@ -1470,9 +1470,9 @@ module Network.AWS.SSM
     -- ** OpsFilter
     OpsFilter (..),
     mkOpsFilter,
-    ofType,
-    ofKey,
     ofValues,
+    ofKey,
+    ofType,
 
     -- ** OpsItem
     OpsItem (..),
@@ -1503,9 +1503,9 @@ module Network.AWS.SSM
     -- ** OpsItemFilter
     OpsItemFilter (..),
     mkOpsItemFilter,
-    oifKey,
     oifValues,
     oifOperator,
+    oifKey,
 
     -- ** OpsItemNotification
     OpsItemNotification (..),
@@ -1595,41 +1595,41 @@ module Network.AWS.SSM
     ParameterStringFilter (..),
     mkParameterStringFilter,
     psfValues,
-    psfOption,
     psfKey,
+    psfOption,
 
     -- ** ParametersFilter
     ParametersFilter (..),
     mkParametersFilter,
-    pKey,
     pValues,
+    pKey,
 
     -- ** Patch
     Patch (..),
     mkPatch,
-    patBugzillaIds,
-    patVendor,
-    patMsrcSeverity,
-    patRepository,
-    patProductFamily,
-    patSeverity,
-    patAdvisoryIds,
-    patCVEIds,
-    patClassification,
-    patRelease,
-    patMsrcNumber,
-    patName,
-    patVersion,
-    patLanguage,
-    patKbNumber,
-    patContentURL,
-    patId,
-    patReleaseDate,
-    patTitle,
-    patArch,
-    patProduct,
-    patDescription,
-    patEpoch,
+    pfBugzillaIds,
+    pfVendor,
+    pfMsrcSeverity,
+    pfRepository,
+    pfProductFamily,
+    pfSeverity,
+    pfAdvisoryIds,
+    pfCVEIds,
+    pfClassification,
+    pfRelease,
+    pfMsrcNumber,
+    pfName,
+    pfVersion,
+    pfLanguage,
+    pfKbNumber,
+    pfContentURL,
+    pfId,
+    pfReleaseDate,
+    pfTitle,
+    pfArch,
+    pfProduct,
+    pfDescription,
+    pfEpoch,
 
     -- ** PatchBaselineIdentity
     PatchBaselineIdentity (..),
@@ -1643,19 +1643,19 @@ module Network.AWS.SSM
     -- ** PatchComplianceData
     PatchComplianceData (..),
     mkPatchComplianceData,
-    pcdCVEIds,
-    pcdTitle,
-    pcdKBId,
-    pcdClassification,
-    pcdSeverity,
     pcdState,
+    pcdSeverity,
+    pcdCVEIds,
+    pcdClassification,
+    pcdKBId,
     pcdInstalledTime,
+    pcdTitle,
 
     -- ** PatchFilter
     PatchFilter (..),
     mkPatchFilter,
-    pfKey,
     pfValues,
+    pfKey,
 
     -- ** PatchFilterGroup
     PatchFilterGroup (..),
@@ -1679,9 +1679,9 @@ module Network.AWS.SSM
     mkPatchRule,
     prApproveAfterDays,
     prApproveUntilDate,
+    prPatchFilterGroup,
     prEnableNonSecurity,
     prComplianceLevel,
-    prPatchFilterGroup,
 
     -- ** PatchRuleGroup
     PatchRuleGroup (..),
@@ -1692,8 +1692,8 @@ module Network.AWS.SSM
     PatchSource (..),
     mkPatchSource,
     psName,
-    psProducts,
     psConfiguration,
+    psProducts,
 
     -- ** PatchStatus
     PatchStatus (..),
@@ -1737,8 +1737,8 @@ module Network.AWS.SSM
     -- ** ResourceDataSyncAWSOrganizationsSource
     ResourceDataSyncAWSOrganizationsSource (..),
     mkResourceDataSyncAWSOrganizationsSource,
-    rdsaosOrganizationalUnits,
     rdsaosOrganizationSourceType,
+    rdsaosOrganizationalUnits,
 
     -- ** ResourceDataSyncDestinationDataSharing
     ResourceDataSyncDestinationDataSharing (..),
@@ -1768,18 +1768,18 @@ module Network.AWS.SSM
     ResourceDataSyncS3Destination (..),
     mkResourceDataSyncS3Destination,
     rdssdPrefix,
-    rdssdDestinationDataSharing,
-    rdssdAWSKMSKeyARN,
     rdssdBucketName,
+    rdssdDestinationDataSharing,
     rdssdSyncFormat,
+    rdssdAWSKMSKeyARN,
     rdssdRegion,
 
     -- ** ResourceDataSyncSource
     ResourceDataSyncSource (..),
     mkResourceDataSyncSource,
     rdssIncludeFutureRegions,
-    rdssAWSOrganizationsSource,
     rdssSourceType,
+    rdssAWSOrganizationsSource,
     rdssSourceRegions,
 
     -- ** ResourceDataSyncSourceWithState
@@ -1841,8 +1841,8 @@ module Network.AWS.SSM
     -- ** SessionFilter
     SessionFilter (..),
     mkSessionFilter,
-    sfKey,
     sfValue,
+    sfKey,
 
     -- ** SessionManagerOutputURL
     SessionManagerOutputURL (..),
@@ -1889,14 +1889,14 @@ module Network.AWS.SSM
     -- ** StepExecutionFilter
     StepExecutionFilter (..),
     mkStepExecutionFilter,
-    sefKey,
     sefValues,
+    sefKey,
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tagKey,
-    tagValue,
+    tfValue,
+    tfKey,
 
     -- ** Target
     Target (..),

@@ -38,39 +38,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGrantListEntry' smart constructor.
 data GrantListEntry = GrantListEntry'
-  { keyId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the customer master key (CMK) to which the grant applies.
+    keyId :: Lude.Maybe Lude.Text,
+    -- | The principal that can retire the grant.
     retiringPrincipal :: Lude.Maybe Lude.Text,
+    -- | The AWS account under which the grant was issued.
     issuingAccount :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the grant.
     grantId :: Lude.Maybe Lude.Text,
+    -- | A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.
     constraints :: Lude.Maybe GrantConstraints,
+    -- | The identity that gets the permissions in the grant.
+    --
+    -- The @GranteePrincipal@ field in the @ListGrants@ response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the @GranteePrincipal@ field contains the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal> , which might represent several different grantee principals.
     granteePrincipal :: Lude.Maybe Lude.Text,
+    -- | The friendly name that identifies the grant. If a name was provided in the 'CreateGrant' request, that name is returned. Otherwise this value is null.
     name :: Lude.Maybe Lude.Text,
+    -- | The date and time when the grant was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The list of operations permitted by the grant.
     operations :: Lude.Maybe [GrantOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GrantListEntry' with the minimum fields required to make a request.
 --
--- * 'constraints' - A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.
--- * 'creationDate' - The date and time when the grant was created.
+-- * 'keyId' - The unique identifier for the customer master key (CMK) to which the grant applies.
+-- * 'retiringPrincipal' - The principal that can retire the grant.
+-- * 'issuingAccount' - The AWS account under which the grant was issued.
 -- * 'grantId' - The unique identifier for the grant.
+-- * 'constraints' - A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.
 -- * 'granteePrincipal' - The identity that gets the permissions in the grant.
 --
 -- The @GranteePrincipal@ field in the @ListGrants@ response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the @GranteePrincipal@ field contains the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal> , which might represent several different grantee principals.
--- * 'issuingAccount' - The AWS account under which the grant was issued.
--- * 'keyId' - The unique identifier for the customer master key (CMK) to which the grant applies.
 -- * 'name' - The friendly name that identifies the grant. If a name was provided in the 'CreateGrant' request, that name is returned. Otherwise this value is null.
+-- * 'creationDate' - The date and time when the grant was created.
 -- * 'operations' - The list of operations permitted by the grant.
--- * 'retiringPrincipal' - The principal that can retire the grant.
 mkGrantListEntry ::
   GrantListEntry
 mkGrantListEntry =

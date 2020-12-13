@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryInfo' smart constructor.
 data QueryInfo = QueryInfo'
-  { status :: Lude.Maybe QueryStatus,
+  { -- | The status of this query. Possible values are @Cancelled@ , @Complete@ , @Failed@ , @Running@ , @Scheduled@ , and @Unknown@ .
+    status :: Lude.Maybe QueryStatus,
+    -- | The unique ID number of this query.
     queryId :: Lude.Maybe Lude.Text,
+    -- | The name of the log group scanned by this query.
     logGroupName :: Lude.Maybe Lude.Text,
+    -- | The query string used in this query.
     queryString :: Lude.Maybe Lude.Text,
+    -- | The date and time that this query was created.
     createTime :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryInfo' with the minimum fields required to make a request.
 --
--- * 'createTime' - The date and time that this query was created.
--- * 'logGroupName' - The name of the log group scanned by this query.
--- * 'queryId' - The unique ID number of this query.
--- * 'queryString' - The query string used in this query.
 -- * 'status' - The status of this query. Possible values are @Cancelled@ , @Complete@ , @Failed@ , @Running@ , @Scheduled@ , and @Unknown@ .
+-- * 'queryId' - The unique ID number of this query.
+-- * 'logGroupName' - The name of the log group scanned by this query.
+-- * 'queryString' - The query string used in this query.
+-- * 'createTime' - The date and time that this query was created.
 mkQueryInfo ::
   QueryInfo
 mkQueryInfo =

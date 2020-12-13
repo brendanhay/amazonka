@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,11 +28,11 @@ module Network.AWS.EC2.ModifyImageAttribute
     miaUserGroups,
     miaValue,
     miaLaunchPermission,
+    miaImageId,
     miaOperationType,
     miaProductCodes,
     miaDescription,
     miaDryRun,
-    miaImageId,
 
     -- * Destructuring the response
     ModifyImageAttributeResponse (..),
@@ -49,40 +50,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyImageAttribute' smart constructor.
 data ModifyImageAttribute = ModifyImageAttribute'
-  { attribute ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
+    attribute :: Lude.Maybe Lude.Text,
+    -- | The AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
     userIds :: Lude.Maybe [Lude.Text],
+    -- | The user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
     userGroups :: Lude.Maybe [Lude.Text],
+    -- | The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
     value :: Lude.Maybe Lude.Text,
-    launchPermission ::
-      Lude.Maybe LaunchPermissionModifications,
+    -- | A new launch permission for the AMI.
+    launchPermission :: Lude.Maybe LaunchPermissionModifications,
+    -- | The ID of the AMI.
+    imageId :: Lude.Text,
+    -- | The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
     operationType :: Lude.Maybe OperationType,
+    -- | The DevPay product codes. After you add a product code to an AMI, it can't be removed.
     productCodes :: Lude.Maybe [Lude.Text],
+    -- | A new description for the AMI.
     description :: Lude.Maybe AttributeValue,
-    dryRun :: Lude.Maybe Lude.Bool,
-    imageId :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyImageAttribute' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
--- * 'description' - A new description for the AMI.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'imageId' - The ID of the AMI.
+-- * 'userIds' - The AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
+-- * 'userGroups' - The user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
+-- * 'value' - The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
 -- * 'launchPermission' - A new launch permission for the AMI.
+-- * 'imageId' - The ID of the AMI.
 -- * 'operationType' - The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
 -- * 'productCodes' - The DevPay product codes. After you add a product code to an AMI, it can't be removed.
--- * 'userGroups' - The user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
--- * 'userIds' - The AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
--- * 'value' - The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
+-- * 'description' - A new description for the AMI.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyImageAttribute ::
   -- | 'imageId'
   Lude.Text ->
@@ -94,11 +97,11 @@ mkModifyImageAttribute pImageId_ =
       userGroups = Lude.Nothing,
       value = Lude.Nothing,
       launchPermission = Lude.Nothing,
+      imageId = pImageId_,
       operationType = Lude.Nothing,
       productCodes = Lude.Nothing,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      imageId = pImageId_
+      dryRun = Lude.Nothing
     }
 
 -- | The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
@@ -136,6 +139,13 @@ miaLaunchPermission :: Lens.Lens' ModifyImageAttribute (Lude.Maybe LaunchPermiss
 miaLaunchPermission = Lens.lens (launchPermission :: ModifyImageAttribute -> Lude.Maybe LaunchPermissionModifications) (\s a -> s {launchPermission = a} :: ModifyImageAttribute)
 {-# DEPRECATED miaLaunchPermission "Use generic-lens or generic-optics with 'launchPermission' instead." #-}
 
+-- | The ID of the AMI.
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miaImageId :: Lens.Lens' ModifyImageAttribute Lude.Text
+miaImageId = Lens.lens (imageId :: ModifyImageAttribute -> Lude.Text) (\s a -> s {imageId = a} :: ModifyImageAttribute)
+{-# DEPRECATED miaImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
 -- | The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
 --
 -- /Note:/ Consider using 'operationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -164,13 +174,6 @@ miaDryRun :: Lens.Lens' ModifyImageAttribute (Lude.Maybe Lude.Bool)
 miaDryRun = Lens.lens (dryRun :: ModifyImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyImageAttribute)
 {-# DEPRECATED miaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The ID of the AMI.
---
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miaImageId :: Lens.Lens' ModifyImageAttribute Lude.Text
-miaImageId = Lens.lens (imageId :: ModifyImageAttribute -> Lude.Text) (\s a -> s {imageId = a} :: ModifyImageAttribute)
-{-# DEPRECATED miaImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
-
 instance Lude.AWSRequest ModifyImageAttribute where
   type Rs ModifyImageAttribute = ModifyImageAttributeResponse
   request = Req.postQuery ec2Service
@@ -192,23 +195,17 @@ instance Lude.ToQuery ModifyImageAttribute where
         Lude.toQuery (Lude.toQueryList "UserGroup" Lude.<$> userGroups),
         "Value" Lude.=: value,
         "LaunchPermission" Lude.=: launchPermission,
+        "ImageId" Lude.=: imageId,
         "OperationType" Lude.=: operationType,
         Lude.toQuery
           (Lude.toQueryList "ProductCode" Lude.<$> productCodes),
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "ImageId" Lude.=: imageId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyImageAttributeResponse' smart constructor.
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyImageAttributeResponse' with the minimum fields required to make a request.

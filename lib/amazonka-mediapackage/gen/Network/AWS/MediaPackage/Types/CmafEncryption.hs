@@ -30,23 +30,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCmafEncryption' smart constructor.
 data CmafEncryption = CmafEncryption'
-  { keyRotationIntervalSeconds ::
-      Lude.Maybe Lude.Int,
+  { -- | Time (in seconds) between each encryption key rotation.
+    keyRotationIntervalSeconds :: Lude.Maybe Lude.Int,
     spekeKeyProvider :: SpekeKeyProvider
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CmafEncryption' with the minimum fields required to make a request.
 --
 -- * 'keyRotationIntervalSeconds' - Time (in seconds) between each encryption key rotation.
--- * 'spekeKeyProvider' - Undocumented field.
+-- * 'spekeKeyProvider' -
 mkCmafEncryption ::
   -- | 'spekeKeyProvider'
   SpekeKeyProvider ->

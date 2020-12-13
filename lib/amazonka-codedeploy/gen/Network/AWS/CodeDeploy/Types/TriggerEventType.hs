@@ -13,16 +13,16 @@
 module Network.AWS.CodeDeploy.Types.TriggerEventType
   ( TriggerEventType
       ( TriggerEventType',
-        DeploymentFailure,
-        DeploymentReady,
-        DeploymentRollback,
         DeploymentStart,
-        DeploymentStop,
         DeploymentSuccess,
-        InstanceFailure,
-        InstanceReady,
+        DeploymentFailure,
+        DeploymentStop,
+        DeploymentRollback,
+        DeploymentReady,
         InstanceStart,
-        InstanceSuccess
+        InstanceSuccess,
+        InstanceFailure,
+        InstanceReady
       ),
   )
 where
@@ -53,29 +53,23 @@ newtype TriggerEventType = TriggerEventType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeploymentFailure :: TriggerEventType
-pattern DeploymentFailure = TriggerEventType' "DeploymentFailure"
-
-pattern DeploymentReady :: TriggerEventType
-pattern DeploymentReady = TriggerEventType' "DeploymentReady"
-
-pattern DeploymentRollback :: TriggerEventType
-pattern DeploymentRollback = TriggerEventType' "DeploymentRollback"
-
 pattern DeploymentStart :: TriggerEventType
 pattern DeploymentStart = TriggerEventType' "DeploymentStart"
-
-pattern DeploymentStop :: TriggerEventType
-pattern DeploymentStop = TriggerEventType' "DeploymentStop"
 
 pattern DeploymentSuccess :: TriggerEventType
 pattern DeploymentSuccess = TriggerEventType' "DeploymentSuccess"
 
-pattern InstanceFailure :: TriggerEventType
-pattern InstanceFailure = TriggerEventType' "InstanceFailure"
+pattern DeploymentFailure :: TriggerEventType
+pattern DeploymentFailure = TriggerEventType' "DeploymentFailure"
 
-pattern InstanceReady :: TriggerEventType
-pattern InstanceReady = TriggerEventType' "InstanceReady"
+pattern DeploymentStop :: TriggerEventType
+pattern DeploymentStop = TriggerEventType' "DeploymentStop"
+
+pattern DeploymentRollback :: TriggerEventType
+pattern DeploymentRollback = TriggerEventType' "DeploymentRollback"
+
+pattern DeploymentReady :: TriggerEventType
+pattern DeploymentReady = TriggerEventType' "DeploymentReady"
 
 pattern InstanceStart :: TriggerEventType
 pattern InstanceStart = TriggerEventType' "InstanceStart"
@@ -83,16 +77,22 @@ pattern InstanceStart = TriggerEventType' "InstanceStart"
 pattern InstanceSuccess :: TriggerEventType
 pattern InstanceSuccess = TriggerEventType' "InstanceSuccess"
 
+pattern InstanceFailure :: TriggerEventType
+pattern InstanceFailure = TriggerEventType' "InstanceFailure"
+
+pattern InstanceReady :: TriggerEventType
+pattern InstanceReady = TriggerEventType' "InstanceReady"
+
 {-# COMPLETE
-  DeploymentFailure,
-  DeploymentReady,
-  DeploymentRollback,
   DeploymentStart,
-  DeploymentStop,
   DeploymentSuccess,
-  InstanceFailure,
-  InstanceReady,
+  DeploymentFailure,
+  DeploymentStop,
+  DeploymentRollback,
+  DeploymentReady,
   InstanceStart,
   InstanceSuccess,
+  InstanceFailure,
+  InstanceReady,
   TriggerEventType'
   #-}

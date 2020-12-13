@@ -29,17 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGitHubLocation' smart constructor.
 data GitHubLocation = GitHubLocation'
-  { commitId ::
-      Lude.Maybe Lude.Text,
+  { -- | The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
+    commitId :: Lude.Maybe Lude.Text,
+    -- | The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision.
+    --
+    -- Specified as account/repository.
     repository :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GitHubLocation' with the minimum fields required to make a request.

@@ -13,10 +13,10 @@
 module Network.AWS.Greengrass.Types.DeploymentType
   ( DeploymentType
       ( DeploymentType',
-        ForceResetDeployment,
         NewDeployment,
         Redeployment,
-        ResetDeployment
+        ResetDeployment,
+        ForceResetDeployment
       ),
   )
 where
@@ -48,9 +48,6 @@ newtype DeploymentType = DeploymentType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ForceResetDeployment :: DeploymentType
-pattern ForceResetDeployment = DeploymentType' "ForceResetDeployment"
-
 pattern NewDeployment :: DeploymentType
 pattern NewDeployment = DeploymentType' "NewDeployment"
 
@@ -60,10 +57,13 @@ pattern Redeployment = DeploymentType' "Redeployment"
 pattern ResetDeployment :: DeploymentType
 pattern ResetDeployment = DeploymentType' "ResetDeployment"
 
+pattern ForceResetDeployment :: DeploymentType
+pattern ForceResetDeployment = DeploymentType' "ForceResetDeployment"
+
 {-# COMPLETE
-  ForceResetDeployment,
   NewDeployment,
   Redeployment,
   ResetDeployment,
+  ForceResetDeployment,
   DeploymentType'
   #-}

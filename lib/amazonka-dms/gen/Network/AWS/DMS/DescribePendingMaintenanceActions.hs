@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,22 +46,19 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribePendingMaintenanceActions' smart constructor.
 data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
-  { filters ::
-      Lude.Maybe [Filter],
-    marker ::
-      Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int,
-    replicationInstanceARN ::
-      Lude.Maybe Lude.Text
+  { -- |
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePendingMaintenanceActions' with the minimum fields required to make a request.
@@ -162,28 +160,20 @@ instance Lude.ToQuery DescribePendingMaintenanceActions where
 --
 -- /See:/ 'mkDescribePendingMaintenanceActionsResponse' smart constructor.
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
-  { pendingMaintenanceActions ::
-      Lude.Maybe
-        [ResourcePendingMaintenanceActions],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The pending maintenance action.
+    pendingMaintenanceActions :: Lude.Maybe [ResourcePendingMaintenanceActions],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePendingMaintenanceActionsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'pendingMaintenanceActions' - The pending maintenance action.
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'responseStatus' - The response status code.
 mkDescribePendingMaintenanceActionsResponse ::
   -- | 'responseStatus'

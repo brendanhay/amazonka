@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CognitoIdentityProvider.AdminDeleteUser
     mkAdminDeleteUser,
 
     -- ** Request lenses
-    aUserPoolId,
-    aUsername,
+    aduUserPoolId,
+    aduUsername,
 
     -- * Destructuring the response
     AdminDeleteUserResponse (..),
@@ -40,7 +41,9 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAdminDeleteUser' smart constructor.
 data AdminDeleteUser = AdminDeleteUser'
-  { userPoolId :: Lude.Text,
+  { -- | The user pool ID for the user pool where you want to delete the user.
+    userPoolId :: Lude.Text,
+    -- | The user name of the user you wish to delete.
     username :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -65,16 +68,16 @@ mkAdminDeleteUser pUserPoolId_ pUsername_ =
 -- | The user pool ID for the user pool where you want to delete the user.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aUserPoolId :: Lens.Lens' AdminDeleteUser Lude.Text
-aUserPoolId = Lens.lens (userPoolId :: AdminDeleteUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminDeleteUser)
-{-# DEPRECATED aUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+aduUserPoolId :: Lens.Lens' AdminDeleteUser Lude.Text
+aduUserPoolId = Lens.lens (userPoolId :: AdminDeleteUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminDeleteUser)
+{-# DEPRECATED aduUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name of the user you wish to delete.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aUsername :: Lens.Lens' AdminDeleteUser (Lude.Sensitive Lude.Text)
-aUsername = Lens.lens (username :: AdminDeleteUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminDeleteUser)
-{-# DEPRECATED aUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+aduUsername :: Lens.Lens' AdminDeleteUser (Lude.Sensitive Lude.Text)
+aduUsername = Lens.lens (username :: AdminDeleteUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminDeleteUser)
+{-# DEPRECATED aduUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 instance Lude.AWSRequest AdminDeleteUser where
   type Rs AdminDeleteUser = AdminDeleteUserResponse
@@ -111,13 +114,7 @@ instance Lude.ToQuery AdminDeleteUser where
 
 -- | /See:/ 'mkAdminDeleteUserResponse' smart constructor.
 data AdminDeleteUserResponse = AdminDeleteUserResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminDeleteUserResponse' with the minimum fields required to make a request.

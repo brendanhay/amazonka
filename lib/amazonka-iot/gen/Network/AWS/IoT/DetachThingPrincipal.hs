@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoT.DetachThingPrincipal
     mkDetachThingPrincipal,
 
     -- ** Request lenses
-    dtpThingName,
     dtpPrincipal,
+    dtpThingName,
 
     -- * Destructuring the response
     DetachThingPrincipalResponse (..),
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDetachThingPrincipal' smart constructor.
 data DetachThingPrincipal = DetachThingPrincipal'
-  { thingName ::
-      Lude.Text,
-    principal :: Lude.Text
+  { -- | If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
+    principal :: Lude.Text,
+    -- | The name of the thing.
+    thingName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachThingPrincipal' with the minimum fields required to make a request.
@@ -59,23 +55,16 @@ data DetachThingPrincipal = DetachThingPrincipal'
 -- * 'principal' - If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
 -- * 'thingName' - The name of the thing.
 mkDetachThingPrincipal ::
-  -- | 'thingName'
-  Lude.Text ->
   -- | 'principal'
   Lude.Text ->
+  -- | 'thingName'
+  Lude.Text ->
   DetachThingPrincipal
-mkDetachThingPrincipal pThingName_ pPrincipal_ =
+mkDetachThingPrincipal pPrincipal_ pThingName_ =
   DetachThingPrincipal'
-    { thingName = pThingName_,
-      principal = pPrincipal_
+    { principal = pPrincipal_,
+      thingName = pThingName_
     }
-
--- | The name of the thing.
---
--- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtpThingName :: Lens.Lens' DetachThingPrincipal Lude.Text
-dtpThingName = Lens.lens (thingName :: DetachThingPrincipal -> Lude.Text) (\s a -> s {thingName = a} :: DetachThingPrincipal)
-{-# DEPRECATED dtpThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
 --
@@ -83,6 +72,13 @@ dtpThingName = Lens.lens (thingName :: DetachThingPrincipal -> Lude.Text) (\s a 
 dtpPrincipal :: Lens.Lens' DetachThingPrincipal Lude.Text
 dtpPrincipal = Lens.lens (principal :: DetachThingPrincipal -> Lude.Text) (\s a -> s {principal = a} :: DetachThingPrincipal)
 {-# DEPRECATED dtpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+
+-- | The name of the thing.
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtpThingName :: Lens.Lens' DetachThingPrincipal Lude.Text
+dtpThingName = Lens.lens (thingName :: DetachThingPrincipal -> Lude.Text) (\s a -> s {thingName = a} :: DetachThingPrincipal)
+{-# DEPRECATED dtpThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 instance Lude.AWSRequest DetachThingPrincipal where
   type Rs DetachThingPrincipal = DetachThingPrincipalResponse
@@ -109,16 +105,10 @@ instance Lude.ToQuery DetachThingPrincipal where
 --
 -- /See:/ 'mkDetachThingPrincipalResponse' smart constructor.
 newtype DetachThingPrincipalResponse = DetachThingPrincipalResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachThingPrincipalResponse' with the minimum fields required to make a request.

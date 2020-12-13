@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Lambda.GetFunctionEventInvokeConfig
     mkGetFunctionEventInvokeConfig,
 
     -- ** Request lenses
-    gfeicQualifier,
     gfeicFunctionName,
+    gfeicQualifier,
 
     -- * Destructuring the response
     FunctionEventInvokeConfig (..),
@@ -45,17 +46,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFunctionEventInvokeConfig' smart constructor.
 data GetFunctionEventInvokeConfig = GetFunctionEventInvokeConfig'
-  { qualifier ::
-      Lude.Maybe Lude.Text,
-    functionName :: Lude.Text
+  { -- | The name of the Lambda function, version, or alias.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | A version number or alias name.
+    qualifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionEventInvokeConfig' with the minimum fields required to make a request.
@@ -81,16 +90,9 @@ mkGetFunctionEventInvokeConfig ::
   GetFunctionEventInvokeConfig
 mkGetFunctionEventInvokeConfig pFunctionName_ =
   GetFunctionEventInvokeConfig'
-    { qualifier = Lude.Nothing,
-      functionName = pFunctionName_
+    { functionName = pFunctionName_,
+      qualifier = Lude.Nothing
     }
-
--- | A version number or alias name.
---
--- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfeicQualifier :: Lens.Lens' GetFunctionEventInvokeConfig (Lude.Maybe Lude.Text)
-gfeicQualifier = Lens.lens (qualifier :: GetFunctionEventInvokeConfig -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetFunctionEventInvokeConfig)
-{-# DEPRECATED gfeicQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 -- | The name of the Lambda function, version, or alias.
 --
@@ -111,6 +113,13 @@ gfeicQualifier = Lens.lens (qualifier :: GetFunctionEventInvokeConfig -> Lude.Ma
 gfeicFunctionName :: Lens.Lens' GetFunctionEventInvokeConfig Lude.Text
 gfeicFunctionName = Lens.lens (functionName :: GetFunctionEventInvokeConfig -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionEventInvokeConfig)
 {-# DEPRECATED gfeicFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+
+-- | A version number or alias name.
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfeicQualifier :: Lens.Lens' GetFunctionEventInvokeConfig (Lude.Maybe Lude.Text)
+gfeicQualifier = Lens.lens (qualifier :: GetFunctionEventInvokeConfig -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetFunctionEventInvokeConfig)
+{-# DEPRECATED gfeicQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 instance Lude.AWSRequest GetFunctionEventInvokeConfig where
   type Rs GetFunctionEventInvokeConfig = FunctionEventInvokeConfig

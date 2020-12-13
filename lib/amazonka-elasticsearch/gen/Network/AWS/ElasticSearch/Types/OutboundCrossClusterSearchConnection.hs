@@ -34,37 +34,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutboundCrossClusterSearchConnection' smart constructor.
 data OutboundCrossClusterSearchConnection = OutboundCrossClusterSearchConnection'
-  { destinationDomainInfo ::
-      Lude.Maybe
-        DomainInformation,
-    connectionAlias ::
-      Lude.Maybe
-        Lude.Text,
-    crossClusterSearchConnectionId ::
-      Lude.Maybe
-        Lude.Text,
-    connectionStatus ::
-      Lude.Maybe
-        OutboundCrossClusterSearchConnectionStatus,
-    sourceDomainInfo ::
-      Lude.Maybe
-        DomainInformation
+  { -- | Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
+    destinationDomainInfo :: Lude.Maybe DomainInformation,
+    -- | Specifies the connection alias for the outbound cross-cluster search connection.
+    connectionAlias :: Lude.Maybe Lude.Text,
+    -- | Specifies the connection id for the outbound cross-cluster search connection.
+    crossClusterSearchConnectionId :: Lude.Maybe Lude.Text,
+    -- | Specifies the @'OutboundCrossClusterSearchConnectionStatus' @ for the outbound connection.
+    connectionStatus :: Lude.Maybe OutboundCrossClusterSearchConnectionStatus,
+    -- | Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
+    sourceDomainInfo :: Lude.Maybe DomainInformation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutboundCrossClusterSearchConnection' with the minimum fields required to make a request.
 --
--- * 'connectionAlias' - Specifies the connection alias for the outbound cross-cluster search connection.
--- * 'connectionStatus' - Specifies the @'OutboundCrossClusterSearchConnectionStatus' @ for the outbound connection.
--- * 'crossClusterSearchConnectionId' - Specifies the connection id for the outbound cross-cluster search connection.
 -- * 'destinationDomainInfo' - Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
+-- * 'connectionAlias' - Specifies the connection alias for the outbound cross-cluster search connection.
+-- * 'crossClusterSearchConnectionId' - Specifies the connection id for the outbound cross-cluster search connection.
+-- * 'connectionStatus' - Specifies the @'OutboundCrossClusterSearchConnectionStatus' @ for the outbound connection.
 -- * 'sourceDomainInfo' - Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
 mkOutboundCrossClusterSearchConnection ::
   OutboundCrossClusterSearchConnection

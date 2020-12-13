@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecurityGroupMembership' smart constructor.
 data SecurityGroupMembership = SecurityGroupMembership'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
+    status :: Lude.Maybe Lude.Text,
+    -- | The identifier of the cache security group.
     securityGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroupMembership' with the minimum fields required to make a request.
 --
--- * 'securityGroupId' - The identifier of the cache security group.
 -- * 'status' - The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
+-- * 'securityGroupId' - The identifier of the cache security group.
 mkSecurityGroupMembership ::
   SecurityGroupMembership
 mkSecurityGroupMembership =

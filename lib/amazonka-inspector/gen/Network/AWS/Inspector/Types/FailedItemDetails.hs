@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailedItemDetails' smart constructor.
 data FailedItemDetails = FailedItemDetails'
-  { failureCode ::
-      FailedItemErrorCode,
+  { -- | The status code of a failed item.
+    failureCode :: FailedItemErrorCode,
+    -- | Indicates whether you can immediately retry a request for this item for a specified resource.
     retryable :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedItemDetails' with the minimum fields required to make a request.

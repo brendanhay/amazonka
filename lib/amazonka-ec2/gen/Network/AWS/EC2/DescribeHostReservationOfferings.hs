@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,30 +51,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeHostReservationOfferings' smart constructor.
 data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
-  { maxDuration ::
-      Lude.Maybe Lude.Int,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    minDuration ::
-      Lude.Maybe Lude.Int,
-    offeringId ::
-      Lude.Maybe Lude.Text,
-    filter ::
-      Lude.Maybe [Filter],
-    maxResults ::
-      Lude.Maybe Lude.Natural
+  { -- | This is the maximum duration of the reservation to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.
+    maxDuration :: Lude.Maybe Lude.Int,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | This is the minimum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 31536000 for one year.
+    minDuration :: Lude.Maybe Lude.Int,
+    -- | The ID of the reservation offering.
+    offeringId :: Lude.Maybe Lude.Text,
+    -- | The filters.
+    --
+    --
+    --     * @instance-family@ - The instance family of the offering (for example, @m4@ ).
+    --
+    --
+    --     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
+    filter :: Lude.Maybe [Filter],
+    -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHostReservationOfferings' with the minimum fields required to make a request.
 --
+-- * 'maxDuration' - This is the maximum duration of the reservation to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.
+-- * 'nextToken' - The token to use to retrieve the next page of results.
+-- * 'minDuration' - This is the minimum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 31536000 for one year.
+-- * 'offeringId' - The ID of the reservation offering.
 -- * 'filter' - The filters.
 --
 --
@@ -83,11 +88,7 @@ data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
 --     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
 --
 --
--- * 'maxDuration' - This is the maximum duration of the reservation to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.
 -- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
--- * 'minDuration' - This is the minimum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 31536000 for one year.
--- * 'nextToken' - The token to use to retrieve the next page of results.
--- * 'offeringId' - The ID of the reservation offering.
 mkDescribeHostReservationOfferings ::
   DescribeHostReservationOfferings
 mkDescribeHostReservationOfferings =
@@ -197,28 +198,20 @@ instance Lude.ToQuery DescribeHostReservationOfferings where
 
 -- | /See:/ 'mkDescribeHostReservationOfferingsResponse' smart constructor.
 data DescribeHostReservationOfferingsResponse = DescribeHostReservationOfferingsResponse'
-  { offeringSet ::
-      Lude.Maybe
-        [HostOffering],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the offerings.
+    offeringSet :: Lude.Maybe [HostOffering],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHostReservationOfferingsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'offeringSet' - Information about the offerings.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
 mkDescribeHostReservationOfferingsResponse ::
   -- | 'responseStatus'

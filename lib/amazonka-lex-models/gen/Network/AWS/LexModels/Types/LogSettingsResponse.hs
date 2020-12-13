@@ -34,20 +34,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogSettingsResponse' smart constructor.
 data LogSettingsResponse = LogSettingsResponse'
-  { destination ::
-      Lude.Maybe Destination,
+  { -- | The destination where logs are delivered.
+    destination :: Lude.Maybe Destination,
+    -- | The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket.
     kmsKeyARN :: Lude.Maybe Lude.Text,
+    -- | The type of logging that is enabled.
     logType :: Lude.Maybe LogType,
+    -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered.
     resourceARN :: Lude.Maybe Lude.Text,
+    -- | The resource prefix is the first part of the S3 object key within the S3 bucket that you specified to contain audio logs. For CloudWatch Logs it is the prefix of the log stream name within the log group that you specified.
     resourcePrefix :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogSettingsResponse' with the minimum fields required to make a request.

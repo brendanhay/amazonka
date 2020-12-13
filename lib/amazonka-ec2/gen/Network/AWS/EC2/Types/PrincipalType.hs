@@ -13,12 +13,12 @@
 module Network.AWS.EC2.Types.PrincipalType
   ( PrincipalType
       ( PrincipalType',
-        PTAccount,
         PTAll,
-        PTOrganizationUnit,
-        PTRole,
         PTService,
-        PTUser
+        PTOrganizationUnit,
+        PTAccount,
+        PTUser,
+        PTRole
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype PrincipalType = PrincipalType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PTAccount :: PrincipalType
-pattern PTAccount = PrincipalType' "Account"
-
 pattern PTAll :: PrincipalType
 pattern PTAll = PrincipalType' "All"
-
-pattern PTOrganizationUnit :: PrincipalType
-pattern PTOrganizationUnit = PrincipalType' "OrganizationUnit"
-
-pattern PTRole :: PrincipalType
-pattern PTRole = PrincipalType' "Role"
 
 pattern PTService :: PrincipalType
 pattern PTService = PrincipalType' "Service"
 
+pattern PTOrganizationUnit :: PrincipalType
+pattern PTOrganizationUnit = PrincipalType' "OrganizationUnit"
+
+pattern PTAccount :: PrincipalType
+pattern PTAccount = PrincipalType' "Account"
+
 pattern PTUser :: PrincipalType
 pattern PTUser = PrincipalType' "User"
 
+pattern PTRole :: PrincipalType
+pattern PTRole = PrincipalType' "Role"
+
 {-# COMPLETE
-  PTAccount,
   PTAll,
-  PTOrganizationUnit,
-  PTRole,
   PTService,
+  PTOrganizationUnit,
+  PTAccount,
   PTUser,
+  PTRole,
   PrincipalType'
   #-}

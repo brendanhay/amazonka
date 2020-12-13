@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchGetCommitsError' smart constructor.
 data BatchGetCommitsError = BatchGetCommitsError'
-  { commitId ::
-      Lude.Maybe Lude.Text,
+  { -- | A commit ID that either could not be found or was not in a valid format.
+    commitId :: Lude.Maybe Lude.Text,
+    -- | An error code that specifies whether the commit ID was not valid or not found.
     errorCode :: Lude.Maybe Lude.Text,
+    -- | An error message that provides detail about why the commit ID either was not found or was not valid.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetCommitsError' with the minimum fields required to make a request.

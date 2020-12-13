@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSInstanceBlockDevice' smart constructor.
 data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
-  { status ::
-      Lude.Maybe AttachmentStatus,
+  { -- | The attachment state.
+    status :: Lude.Maybe AttachmentStatus,
+    -- | Indicates whether the volume is deleted on instance termination.
     deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The ID of the EBS volume.
     volumeId :: Lude.Maybe Lude.Text,
+    -- | The time stamp when the attachment initiated.
     attachTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSInstanceBlockDevice' with the minimum fields required to make a request.
 --
--- * 'attachTime' - The time stamp when the attachment initiated.
--- * 'deleteOnTermination' - Indicates whether the volume is deleted on instance termination.
 -- * 'status' - The attachment state.
+-- * 'deleteOnTermination' - Indicates whether the volume is deleted on instance termination.
 -- * 'volumeId' - The ID of the EBS volume.
+-- * 'attachTime' - The time stamp when the attachment initiated.
 mkEBSInstanceBlockDevice ::
   EBSInstanceBlockDevice
 mkEBSInstanceBlockDevice =

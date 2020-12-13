@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,12 +28,12 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     asgeFromPort,
     asgeIPPermissions,
     asgeIPProtocol,
+    asgeGroupId,
     asgeToPort,
     asgeCidrIP,
     asgeSourceSecurityGroupOwnerId,
     asgeSourceSecurityGroupName,
     asgeDryRun,
-    asgeGroupId,
 
     -- * Destructuring the response
     AuthorizeSecurityGroupEgressResponse (..),
@@ -48,41 +49,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAuthorizeSecurityGroupEgress' smart constructor.
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
-  { fromPort ::
-      Lude.Maybe Lude.Int,
-    ipPermissions ::
-      Lude.Maybe [IPPermission],
-    ipProtocol ::
-      Lude.Maybe Lude.Text,
+  { -- | Not supported. Use a set of IP permissions to specify the port.
+    fromPort :: Lude.Maybe Lude.Int,
+    -- | The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
+    ipPermissions :: Lude.Maybe [IPPermission],
+    -- | Not supported. Use a set of IP permissions to specify the protocol name or number.
+    ipProtocol :: Lude.Maybe Lude.Text,
+    -- | The ID of the security group.
+    groupId :: Lude.Text,
+    -- | Not supported. Use a set of IP permissions to specify the port.
     toPort :: Lude.Maybe Lude.Int,
+    -- | Not supported. Use a set of IP permissions to specify the CIDR.
     cidrIP :: Lude.Maybe Lude.Text,
-    sourceSecurityGroupOwnerId ::
-      Lude.Maybe Lude.Text,
-    sourceSecurityGroupName ::
-      Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    groupId :: Lude.Text
+    -- | Not supported. Use a set of IP permissions to specify a destination security group.
+    sourceSecurityGroupOwnerId :: Lude.Maybe Lude.Text,
+    -- | Not supported. Use a set of IP permissions to specify a destination security group.
+    sourceSecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeSecurityGroupEgress' with the minimum fields required to make a request.
 --
--- * 'cidrIP' - Not supported. Use a set of IP permissions to specify the CIDR.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'fromPort' - Not supported. Use a set of IP permissions to specify the port.
--- * 'groupId' - The ID of the security group.
 -- * 'ipPermissions' - The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
 -- * 'ipProtocol' - Not supported. Use a set of IP permissions to specify the protocol name or number.
--- * 'sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination security group.
--- * 'sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'groupId' - The ID of the security group.
 -- * 'toPort' - Not supported. Use a set of IP permissions to specify the port.
+-- * 'cidrIP' - Not supported. Use a set of IP permissions to specify the CIDR.
+-- * 'sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkAuthorizeSecurityGroupEgress ::
   -- | 'groupId'
   Lude.Text ->
@@ -92,12 +91,12 @@ mkAuthorizeSecurityGroupEgress pGroupId_ =
     { fromPort = Lude.Nothing,
       ipPermissions = Lude.Nothing,
       ipProtocol = Lude.Nothing,
+      groupId = pGroupId_,
       toPort = Lude.Nothing,
       cidrIP = Lude.Nothing,
       sourceSecurityGroupOwnerId = Lude.Nothing,
       sourceSecurityGroupName = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      groupId = pGroupId_
+      dryRun = Lude.Nothing
     }
 
 -- | Not supported. Use a set of IP permissions to specify the port.
@@ -120,6 +119,13 @@ asgeIPPermissions = Lens.lens (ipPermissions :: AuthorizeSecurityGroupEgress -> 
 asgeIPProtocol :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe Lude.Text)
 asgeIPProtocol = Lens.lens (ipProtocol :: AuthorizeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {ipProtocol = a} :: AuthorizeSecurityGroupEgress)
 {-# DEPRECATED asgeIPProtocol "Use generic-lens or generic-optics with 'ipProtocol' instead." #-}
+
+-- | The ID of the security group.
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgeGroupId :: Lens.Lens' AuthorizeSecurityGroupEgress Lude.Text
+asgeGroupId = Lens.lens (groupId :: AuthorizeSecurityGroupEgress -> Lude.Text) (\s a -> s {groupId = a} :: AuthorizeSecurityGroupEgress)
+{-# DEPRECATED asgeGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify the port.
 --
@@ -156,13 +162,6 @@ asgeDryRun :: Lens.Lens' AuthorizeSecurityGroupEgress (Lude.Maybe Lude.Bool)
 asgeDryRun = Lens.lens (dryRun :: AuthorizeSecurityGroupEgress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AuthorizeSecurityGroupEgress)
 {-# DEPRECATED asgeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The ID of the security group.
---
--- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgeGroupId :: Lens.Lens' AuthorizeSecurityGroupEgress Lude.Text
-asgeGroupId = Lens.lens (groupId :: AuthorizeSecurityGroupEgress -> Lude.Text) (\s a -> s {groupId = a} :: AuthorizeSecurityGroupEgress)
-{-# DEPRECATED asgeGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
-
 instance Lude.AWSRequest AuthorizeSecurityGroupEgress where
   type
     Rs AuthorizeSecurityGroupEgress =
@@ -186,23 +185,17 @@ instance Lude.ToQuery AuthorizeSecurityGroupEgress where
         Lude.toQuery
           (Lude.toQueryList "IpPermissions" Lude.<$> ipPermissions),
         "IpProtocol" Lude.=: ipProtocol,
+        "GroupId" Lude.=: groupId,
         "ToPort" Lude.=: toPort,
         "CidrIp" Lude.=: cidrIP,
         "SourceSecurityGroupOwnerId" Lude.=: sourceSecurityGroupOwnerId,
         "SourceSecurityGroupName" Lude.=: sourceSecurityGroupName,
-        "DryRun" Lude.=: dryRun,
-        "GroupId" Lude.=: groupId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkAuthorizeSecurityGroupEgressResponse' smart constructor.
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeSecurityGroupEgressResponse' with the minimum fields required to make a request.

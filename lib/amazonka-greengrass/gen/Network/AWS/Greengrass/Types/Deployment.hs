@@ -33,26 +33,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeployment' smart constructor.
 data Deployment = Deployment'
-  { deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the deployment.
     deploymentARN :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the deployment was created.
     createdAt :: Lude.Maybe Lude.Text,
+    -- | The type of the deployment.
     deploymentType :: Lude.Maybe DeploymentType,
+    -- | The ARN of the group for this deployment.
     groupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
--- * 'createdAt' - The time, in milliseconds since the epoch, when the deployment was created.
--- * 'deploymentARN' - The ARN of the deployment.
 -- * 'deploymentId' - The ID of the deployment.
+-- * 'deploymentARN' - The ARN of the deployment.
+-- * 'createdAt' - The time, in milliseconds since the epoch, when the deployment was created.
 -- * 'deploymentType' - The type of the deployment.
 -- * 'groupARN' - The ARN of the group for this deployment.
 mkDeployment ::

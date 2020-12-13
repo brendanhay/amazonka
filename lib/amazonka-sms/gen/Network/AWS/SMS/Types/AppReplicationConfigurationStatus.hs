@@ -13,8 +13,8 @@
 module Network.AWS.SMS.Types.AppReplicationConfigurationStatus
   ( AppReplicationConfigurationStatus
       ( AppReplicationConfigurationStatus',
-        Configured,
-        NotConfigured
+        NotConfigured,
+        Configured
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AppReplicationConfigurationStatus = AppReplicationConfigurationStatus' L
       Lude.ToHeader
     )
 
-pattern Configured :: AppReplicationConfigurationStatus
-pattern Configured = AppReplicationConfigurationStatus' "CONFIGURED"
-
 pattern NotConfigured :: AppReplicationConfigurationStatus
 pattern NotConfigured = AppReplicationConfigurationStatus' "NOT_CONFIGURED"
 
+pattern Configured :: AppReplicationConfigurationStatus
+pattern Configured = AppReplicationConfigurationStatus' "CONFIGURED"
+
 {-# COMPLETE
-  Configured,
   NotConfigured,
+  Configured,
   AppReplicationConfigurationStatus'
   #-}

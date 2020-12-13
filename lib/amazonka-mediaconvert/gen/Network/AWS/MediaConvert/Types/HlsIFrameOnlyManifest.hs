@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest
   ( HlsIFrameOnlyManifest
       ( HlsIFrameOnlyManifest',
-        HIFOMExclude,
-        HIFOMInclude
+        HIFOMInclude,
+        HIFOMExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype HlsIFrameOnlyManifest = HlsIFrameOnlyManifest' Lude.Text
       Lude.ToHeader
     )
 
-pattern HIFOMExclude :: HlsIFrameOnlyManifest
-pattern HIFOMExclude = HlsIFrameOnlyManifest' "EXCLUDE"
-
 pattern HIFOMInclude :: HlsIFrameOnlyManifest
 pattern HIFOMInclude = HlsIFrameOnlyManifest' "INCLUDE"
 
+pattern HIFOMExclude :: HlsIFrameOnlyManifest
+pattern HIFOMExclude = HlsIFrameOnlyManifest' "EXCLUDE"
+
 {-# COMPLETE
-  HIFOMExclude,
   HIFOMInclude,
+  HIFOMExclude,
   HlsIFrameOnlyManifest'
   #-}

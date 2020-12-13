@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.EndDateType
   ( EndDateType
       ( EndDateType',
-        Limited,
-        Unlimited
+        Unlimited,
+        Limited
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EndDateType = EndDateType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Limited :: EndDateType
-pattern Limited = EndDateType' "limited"
-
 pattern Unlimited :: EndDateType
 pattern Unlimited = EndDateType' "unlimited"
 
+pattern Limited :: EndDateType
+pattern Limited = EndDateType' "limited"
+
 {-# COMPLETE
-  Limited,
   Unlimited,
+  Limited,
   EndDateType'
   #-}

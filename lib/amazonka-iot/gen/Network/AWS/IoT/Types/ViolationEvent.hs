@@ -37,33 +37,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkViolationEvent' smart constructor.
 data ViolationEvent = ViolationEvent'
-  { violationEventType ::
-      Lude.Maybe ViolationEventType,
+  { -- | The type of violation event.
+    violationEventType :: Lude.Maybe ViolationEventType,
+    -- | The ID of the violation event.
     violationId :: Lude.Maybe Lude.Text,
+    -- | The behavior which was violated.
     behavior :: Lude.Maybe Behavior,
+    -- | The value of the metric (the measurement).
     metricValue :: Lude.Maybe MetricValue,
+    -- | The name of the security profile whose behavior was violated.
     securityProfileName :: Lude.Maybe Lude.Text,
+    -- | The time the violation event occurred.
     violationEventTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the thing responsible for the violation event.
     thingName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ViolationEvent' with the minimum fields required to make a request.
 --
+-- * 'violationEventType' - The type of violation event.
+-- * 'violationId' - The ID of the violation event.
 -- * 'behavior' - The behavior which was violated.
 -- * 'metricValue' - The value of the metric (the measurement).
 -- * 'securityProfileName' - The name of the security profile whose behavior was violated.
--- * 'thingName' - The name of the thing responsible for the violation event.
 -- * 'violationEventTime' - The time the violation event occurred.
--- * 'violationEventType' - The type of violation event.
--- * 'violationId' - The ID of the violation event.
+-- * 'thingName' - The name of the thing responsible for the violation event.
 mkViolationEvent ::
   ViolationEvent
 mkViolationEvent =

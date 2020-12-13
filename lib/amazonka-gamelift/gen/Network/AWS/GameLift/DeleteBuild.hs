@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,7 +39,7 @@ module Network.AWS.GameLift.DeleteBuild
     mkDeleteBuild,
 
     -- ** Request lenses
-    dbBuildId,
+    dBuildId,
 
     -- * Destructuring the response
     DeleteBuildResponse (..),
@@ -55,14 +56,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDeleteBuild' smart constructor.
-newtype DeleteBuild = DeleteBuild' {buildId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteBuild = DeleteBuild'
+  { -- | A unique identifier for a build to delete. You can use either the build ID or ARN value.
+    buildId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBuild' with the minimum fields required to make a request.
@@ -77,9 +75,9 @@ mkDeleteBuild pBuildId_ = DeleteBuild' {buildId = pBuildId_}
 -- | A unique identifier for a build to delete. You can use either the build ID or ARN value.
 --
 -- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbBuildId :: Lens.Lens' DeleteBuild Lude.Text
-dbBuildId = Lens.lens (buildId :: DeleteBuild -> Lude.Text) (\s a -> s {buildId = a} :: DeleteBuild)
-{-# DEPRECATED dbBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
+dBuildId :: Lens.Lens' DeleteBuild Lude.Text
+dBuildId = Lens.lens (buildId :: DeleteBuild -> Lude.Text) (\s a -> s {buildId = a} :: DeleteBuild)
+{-# DEPRECATED dBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
 instance Lude.AWSRequest DeleteBuild where
   type Rs DeleteBuild = DeleteBuildResponse
@@ -110,13 +108,7 @@ instance Lude.ToQuery DeleteBuild where
 
 -- | /See:/ 'mkDeleteBuildResponse' smart constructor.
 data DeleteBuildResponse = DeleteBuildResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBuildResponse' with the minimum fields required to make a request.

@@ -17,8 +17,8 @@ module Network.AWS.S3.Types.RedirectAllRequestsTo
     mkRedirectAllRequestsTo,
 
     -- * Lenses
-    rartProtocol,
     rartHostName,
+    rartProtocol,
   )
 where
 
@@ -31,17 +31,12 @@ import Network.AWS.S3.Types.Protocol
 --
 -- /See:/ 'mkRedirectAllRequestsTo' smart constructor.
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
-  { protocol ::
-      Lude.Maybe Protocol,
-    hostName :: Lude.Text
+  { -- | Name of the host where requests are redirected.
+    hostName :: Lude.Text,
+    -- | Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+    protocol :: Lude.Maybe Protocol
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RedirectAllRequestsTo' with the minimum fields required to make a request.
@@ -54,16 +49,9 @@ mkRedirectAllRequestsTo ::
   RedirectAllRequestsTo
 mkRedirectAllRequestsTo pHostName_ =
   RedirectAllRequestsTo'
-    { protocol = Lude.Nothing,
-      hostName = pHostName_
+    { hostName = pHostName_,
+      protocol = Lude.Nothing
     }
-
--- | Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rartProtocol :: Lens.Lens' RedirectAllRequestsTo (Lude.Maybe Protocol)
-rartProtocol = Lens.lens (protocol :: RedirectAllRequestsTo -> Lude.Maybe Protocol) (\s a -> s {protocol = a} :: RedirectAllRequestsTo)
-{-# DEPRECATED rartProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | Name of the host where requests are redirected.
 --
@@ -72,12 +60,19 @@ rartHostName :: Lens.Lens' RedirectAllRequestsTo Lude.Text
 rartHostName = Lens.lens (hostName :: RedirectAllRequestsTo -> Lude.Text) (\s a -> s {hostName = a} :: RedirectAllRequestsTo)
 {-# DEPRECATED rartHostName "Use generic-lens or generic-optics with 'hostName' instead." #-}
 
+-- | Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rartProtocol :: Lens.Lens' RedirectAllRequestsTo (Lude.Maybe Protocol)
+rartProtocol = Lens.lens (protocol :: RedirectAllRequestsTo -> Lude.Maybe Protocol) (\s a -> s {protocol = a} :: RedirectAllRequestsTo)
+{-# DEPRECATED rartProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
 instance Lude.FromXML RedirectAllRequestsTo where
   parseXML x =
     RedirectAllRequestsTo'
-      Lude.<$> (x Lude..@? "Protocol") Lude.<*> (x Lude..@ "HostName")
+      Lude.<$> (x Lude..@ "HostName") Lude.<*> (x Lude..@? "Protocol")
 
 instance Lude.ToXML RedirectAllRequestsTo where
   toXML RedirectAllRequestsTo' {..} =
     Lude.mconcat
-      ["Protocol" Lude.@= protocol, "HostName" Lude.@= hostName]
+      ["HostName" Lude.@= hostName, "Protocol" Lude.@= protocol]

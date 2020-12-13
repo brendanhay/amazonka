@@ -37,33 +37,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBudgetPerformanceHistory' smart constructor.
 data BudgetPerformanceHistory = BudgetPerformanceHistory'
-  { budgetedAndActualAmountsList ::
-      Lude.Maybe [BudgetedAndActualAmounts],
+  { -- | A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.
+    budgetedAndActualAmountsList :: Lude.Maybe [BudgetedAndActualAmounts],
     timeUnit :: Lude.Maybe TimeUnit,
     budgetName :: Lude.Maybe Lude.Text,
     budgetType :: Lude.Maybe BudgetType,
+    -- | The history of the cost types for a budget during the specified time period.
     costTypes :: Lude.Maybe CostTypes,
-    costFilters ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text ([Lude.Text]))
+    -- | The history of the cost filters for a budget during the specified time period.
+    costFilters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BudgetPerformanceHistory' with the minimum fields required to make a request.
 --
--- * 'budgetName' - Undocumented field.
--- * 'budgetType' - Undocumented field.
 -- * 'budgetedAndActualAmountsList' - A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.
--- * 'costFilters' - The history of the cost filters for a budget during the specified time period.
+-- * 'timeUnit' -
+-- * 'budgetName' -
+-- * 'budgetType' -
 -- * 'costTypes' - The history of the cost types for a budget during the specified time period.
--- * 'timeUnit' - Undocumented field.
+-- * 'costFilters' - The history of the cost filters for a budget during the specified time period.
 mkBudgetPerformanceHistory ::
   BudgetPerformanceHistory
 mkBudgetPerformanceHistory =

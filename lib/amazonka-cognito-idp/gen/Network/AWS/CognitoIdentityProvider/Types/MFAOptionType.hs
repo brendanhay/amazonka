@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMFAOptionType' smart constructor.
 data MFAOptionType = MFAOptionType'
-  { deliveryMedium ::
-      Lude.Maybe DeliveryMediumType,
+  { -- | The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
+    deliveryMedium :: Lude.Maybe DeliveryMediumType,
+    -- | The attribute name of the MFA option type. The only valid value is @phone_number@ .
     attributeName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MFAOptionType' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The attribute name of the MFA option type. The only valid value is @phone_number@ .
 -- * 'deliveryMedium' - The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
+-- * 'attributeName' - The attribute name of the MFA option type. The only valid value is @phone_number@ .
 mkMFAOptionType ::
   MFAOptionType
 mkMFAOptionType =

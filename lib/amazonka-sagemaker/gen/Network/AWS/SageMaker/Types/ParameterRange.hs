@@ -33,27 +33,21 @@ import Network.AWS.SageMaker.Types.IntegerParameterRangeSpecification
 --
 -- /See:/ 'mkParameterRange' smart constructor.
 data ParameterRange = ParameterRange'
-  { categoricalParameterRangeSpecification ::
-      Lude.Maybe CategoricalParameterRangeSpecification,
-    integerParameterRangeSpecification ::
-      Lude.Maybe IntegerParameterRangeSpecification,
-    continuousParameterRangeSpecification ::
-      Lude.Maybe ContinuousParameterRangeSpecification
+  { -- | A @CategoricalParameterRangeSpecification@ object that defines the possible values for a categorical hyperparameter.
+    categoricalParameterRangeSpecification :: Lude.Maybe CategoricalParameterRangeSpecification,
+    -- | A @IntegerParameterRangeSpecification@ object that defines the possible values for an integer hyperparameter.
+    integerParameterRangeSpecification :: Lude.Maybe IntegerParameterRangeSpecification,
+    -- | A @ContinuousParameterRangeSpecification@ object that defines the possible values for a continuous hyperparameter.
+    continuousParameterRangeSpecification :: Lude.Maybe ContinuousParameterRangeSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterRange' with the minimum fields required to make a request.
 --
 -- * 'categoricalParameterRangeSpecification' - A @CategoricalParameterRangeSpecification@ object that defines the possible values for a categorical hyperparameter.
--- * 'continuousParameterRangeSpecification' - A @ContinuousParameterRangeSpecification@ object that defines the possible values for a continuous hyperparameter.
 -- * 'integerParameterRangeSpecification' - A @IntegerParameterRangeSpecification@ object that defines the possible values for an integer hyperparameter.
+-- * 'continuousParameterRangeSpecification' - A @ContinuousParameterRangeSpecification@ object that defines the possible values for a continuous hyperparameter.
 mkParameterRange ::
   ParameterRange
 mkParameterRange =

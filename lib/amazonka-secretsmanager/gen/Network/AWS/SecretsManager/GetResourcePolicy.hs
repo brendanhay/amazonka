@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,16 +58,10 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkGetResourcePolicy' smart constructor.
 newtype GetResourcePolicy = GetResourcePolicy'
-  { secretId ::
-      Lude.Text
+  { -- | Specifies the secret that you want to retrieve the attached resource-based policy for. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    secretId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcePolicy' with the minimum fields required to make a request.
@@ -123,26 +118,23 @@ instance Lude.ToQuery GetResourcePolicy where
 
 -- | /See:/ 'mkGetResourcePolicyResponse' smart constructor.
 data GetResourcePolicyResponse = GetResourcePolicyResponse'
-  { resourcePolicy ::
-      Lude.Maybe Lude.Text,
+  { -- | A JSON-formatted string that describes the permissions that are associated with the attached secret. These permissions are combined with any permissions that are associated with the user or role that attempts to access this secret. The combined permissions specify who can access the secret and what actions they can perform. For more information, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager> in the /AWS Secrets Manager User Guide/ .
+    resourcePolicy :: Lude.Maybe Lude.Text,
+    -- | The ARN of the secret that the resource-based policy was retrieved for.
     arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret that the resource-based policy was retrieved for.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcePolicyResponse' with the minimum fields required to make a request.
 --
+-- * 'resourcePolicy' - A JSON-formatted string that describes the permissions that are associated with the attached secret. These permissions are combined with any permissions that are associated with the user or role that attempts to access this secret. The combined permissions specify who can access the secret and what actions they can perform. For more information, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager> in the /AWS Secrets Manager User Guide/ .
 -- * 'arn' - The ARN of the secret that the resource-based policy was retrieved for.
 -- * 'name' - The friendly name of the secret that the resource-based policy was retrieved for.
--- * 'resourcePolicy' - A JSON-formatted string that describes the permissions that are associated with the attached secret. These permissions are combined with any permissions that are associated with the user or role that attempts to access this secret. The combined permissions specify who can access the secret and what actions they can perform. For more information, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager> in the /AWS Secrets Manager User Guide/ .
 -- * 'responseStatus' - The response status code.
 mkGetResourcePolicyResponse ::
   -- | 'responseStatus'

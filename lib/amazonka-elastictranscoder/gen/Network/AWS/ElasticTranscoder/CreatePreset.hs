@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +25,10 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- ** Request lenses
     cpVideo,
     cpThumbnails,
-    cpDescription,
-    cpAudio,
     cpName,
     cpContainer,
+    cpDescription,
+    cpAudio,
 
     -- * Destructuring the response
     CreatePresetResponse (..),
@@ -50,31 +51,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreatePreset' smart constructor.
 data CreatePreset = CreatePreset'
-  { video ::
-      Lude.Maybe VideoParameters,
+  { -- | A section of the request body that specifies the video parameters.
+    video :: Lude.Maybe VideoParameters,
+    -- | A section of the request body that specifies the thumbnail parameters, if any.
     thumbnails :: Lude.Maybe Thumbnails,
-    description :: Lude.Maybe Lude.Text,
-    audio :: Lude.Maybe AudioParameters,
+    -- | The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.
     name :: Lude.Text,
-    container :: Lude.Text
+    -- | The container type for the output file. Valid values include @flac@ , @flv@ , @fmp4@ , @gif@ , @mp3@ , @mp4@ , @mpg@ , @mxf@ , @oga@ , @ogg@ , @ts@ , and @webm@ .
+    container :: Lude.Text,
+    -- | A description of the preset.
+    description :: Lude.Maybe Lude.Text,
+    -- | A section of the request body that specifies the audio parameters.
+    audio :: Lude.Maybe AudioParameters
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePreset' with the minimum fields required to make a request.
 --
--- * 'audio' - A section of the request body that specifies the audio parameters.
+-- * 'video' - A section of the request body that specifies the video parameters.
+-- * 'thumbnails' - A section of the request body that specifies the thumbnail parameters, if any.
+-- * 'name' - The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.
 -- * 'container' - The container type for the output file. Valid values include @flac@ , @flv@ , @fmp4@ , @gif@ , @mp3@ , @mp4@ , @mpg@ , @mxf@ , @oga@ , @ogg@ , @ts@ , and @webm@ .
 -- * 'description' - A description of the preset.
--- * 'name' - The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.
--- * 'thumbnails' - A section of the request body that specifies the thumbnail parameters, if any.
--- * 'video' - A section of the request body that specifies the video parameters.
+-- * 'audio' - A section of the request body that specifies the audio parameters.
 mkCreatePreset ::
   -- | 'name'
   Lude.Text ->
@@ -85,10 +85,10 @@ mkCreatePreset pName_ pContainer_ =
   CreatePreset'
     { video = Lude.Nothing,
       thumbnails = Lude.Nothing,
-      description = Lude.Nothing,
-      audio = Lude.Nothing,
       name = pName_,
-      container = pContainer_
+      container = pContainer_,
+      description = Lude.Nothing,
+      audio = Lude.Nothing
     }
 
 -- | A section of the request body that specifies the video parameters.
@@ -105,20 +105,6 @@ cpThumbnails :: Lens.Lens' CreatePreset (Lude.Maybe Thumbnails)
 cpThumbnails = Lens.lens (thumbnails :: CreatePreset -> Lude.Maybe Thumbnails) (\s a -> s {thumbnails = a} :: CreatePreset)
 {-# DEPRECATED cpThumbnails "Use generic-lens or generic-optics with 'thumbnails' instead." #-}
 
--- | A description of the preset.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpDescription :: Lens.Lens' CreatePreset (Lude.Maybe Lude.Text)
-cpDescription = Lens.lens (description :: CreatePreset -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePreset)
-{-# DEPRECATED cpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | A section of the request body that specifies the audio parameters.
---
--- /Note:/ Consider using 'audio' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpAudio :: Lens.Lens' CreatePreset (Lude.Maybe AudioParameters)
-cpAudio = Lens.lens (audio :: CreatePreset -> Lude.Maybe AudioParameters) (\s a -> s {audio = a} :: CreatePreset)
-{-# DEPRECATED cpAudio "Use generic-lens or generic-optics with 'audio' instead." #-}
-
 -- | The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -132,6 +118,20 @@ cpName = Lens.lens (name :: CreatePreset -> Lude.Text) (\s a -> s {name = a} :: 
 cpContainer :: Lens.Lens' CreatePreset Lude.Text
 cpContainer = Lens.lens (container :: CreatePreset -> Lude.Text) (\s a -> s {container = a} :: CreatePreset)
 {-# DEPRECATED cpContainer "Use generic-lens or generic-optics with 'container' instead." #-}
+
+-- | A description of the preset.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDescription :: Lens.Lens' CreatePreset (Lude.Maybe Lude.Text)
+cpDescription = Lens.lens (description :: CreatePreset -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePreset)
+{-# DEPRECATED cpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | A section of the request body that specifies the audio parameters.
+--
+-- /Note:/ Consider using 'audio' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpAudio :: Lens.Lens' CreatePreset (Lude.Maybe AudioParameters)
+cpAudio = Lens.lens (audio :: CreatePreset -> Lude.Maybe AudioParameters) (\s a -> s {audio = a} :: CreatePreset)
+{-# DEPRECATED cpAudio "Use generic-lens or generic-optics with 'audio' instead." #-}
 
 instance Lude.AWSRequest CreatePreset where
   type Rs CreatePreset = CreatePresetResponse
@@ -154,10 +154,10 @@ instance Lude.ToJSON CreatePreset where
       ( Lude.catMaybes
           [ ("Video" Lude..=) Lude.<$> video,
             ("Thumbnails" Lude..=) Lude.<$> thumbnails,
-            ("Description" Lude..=) Lude.<$> description,
-            ("Audio" Lude..=) Lude.<$> audio,
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Container" Lude..= container)
+            Lude.Just ("Container" Lude..= container),
+            ("Description" Lude..=) Lude.<$> description,
+            ("Audio" Lude..=) Lude.<$> audio
           ]
       )
 
@@ -171,25 +171,21 @@ instance Lude.ToQuery CreatePreset where
 --
 -- /See:/ 'mkCreatePresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
-  { warning ::
-      Lude.Maybe Lude.Text,
+  { -- | If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
+    warning :: Lude.Maybe Lude.Text,
+    -- | A section of the response body that provides information about the preset that is created.
     preset :: Lude.Maybe Preset,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePresetResponse' with the minimum fields required to make a request.
 --
+-- * 'warning' - If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
 -- * 'preset' - A section of the response body that provides information about the preset that is created.
 -- * 'responseStatus' - The response status code.
--- * 'warning' - If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
 mkCreatePresetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

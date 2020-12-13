@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CloudDirectory.UpgradeAppliedSchema
     mkUpgradeAppliedSchema,
 
     -- ** Request lenses
-    uasDryRun,
-    uasPublishedSchemaARN,
     uasDirectoryARN,
+    uasPublishedSchemaARN,
+    uasDryRun,
 
     -- * Destructuring the response
     UpgradeAppliedSchemaResponse (..),
@@ -42,44 +43,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpgradeAppliedSchema' smart constructor.
 data UpgradeAppliedSchema = UpgradeAppliedSchema'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ARN for the directory to which the upgraded schema will be applied.
+    directoryARN :: Lude.Text,
+    -- | The revision of the published schema to upgrade the directory to.
     publishedSchemaARN :: Lude.Text,
-    directoryARN :: Lude.Text
+    -- | Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeAppliedSchema' with the minimum fields required to make a request.
 --
 -- * 'directoryARN' - The ARN for the directory to which the upgraded schema will be applied.
--- * 'dryRun' - Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.
 -- * 'publishedSchemaARN' - The revision of the published schema to upgrade the directory to.
+-- * 'dryRun' - Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.
 mkUpgradeAppliedSchema ::
-  -- | 'publishedSchemaARN'
-  Lude.Text ->
   -- | 'directoryARN'
   Lude.Text ->
+  -- | 'publishedSchemaARN'
+  Lude.Text ->
   UpgradeAppliedSchema
-mkUpgradeAppliedSchema pPublishedSchemaARN_ pDirectoryARN_ =
+mkUpgradeAppliedSchema pDirectoryARN_ pPublishedSchemaARN_ =
   UpgradeAppliedSchema'
-    { dryRun = Lude.Nothing,
+    { directoryARN = pDirectoryARN_,
       publishedSchemaARN = pPublishedSchemaARN_,
-      directoryARN = pDirectoryARN_
+      dryRun = Lude.Nothing
     }
 
--- | Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.
+-- | The ARN for the directory to which the upgraded schema will be applied.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasDryRun :: Lens.Lens' UpgradeAppliedSchema (Lude.Maybe Lude.Bool)
-uasDryRun = Lens.lens (dryRun :: UpgradeAppliedSchema -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: UpgradeAppliedSchema)
-{-# DEPRECATED uasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasDirectoryARN :: Lens.Lens' UpgradeAppliedSchema Lude.Text
+uasDirectoryARN = Lens.lens (directoryARN :: UpgradeAppliedSchema -> Lude.Text) (\s a -> s {directoryARN = a} :: UpgradeAppliedSchema)
+{-# DEPRECATED uasDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | The revision of the published schema to upgrade the directory to.
 --
@@ -88,12 +85,12 @@ uasPublishedSchemaARN :: Lens.Lens' UpgradeAppliedSchema Lude.Text
 uasPublishedSchemaARN = Lens.lens (publishedSchemaARN :: UpgradeAppliedSchema -> Lude.Text) (\s a -> s {publishedSchemaARN = a} :: UpgradeAppliedSchema)
 {-# DEPRECATED uasPublishedSchemaARN "Use generic-lens or generic-optics with 'publishedSchemaARN' instead." #-}
 
--- | The ARN for the directory to which the upgraded schema will be applied.
+-- | Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasDirectoryARN :: Lens.Lens' UpgradeAppliedSchema Lude.Text
-uasDirectoryARN = Lens.lens (directoryARN :: UpgradeAppliedSchema -> Lude.Text) (\s a -> s {directoryARN = a} :: UpgradeAppliedSchema)
-{-# DEPRECATED uasDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasDryRun :: Lens.Lens' UpgradeAppliedSchema (Lude.Maybe Lude.Bool)
+uasDryRun = Lens.lens (dryRun :: UpgradeAppliedSchema -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: UpgradeAppliedSchema)
+{-# DEPRECATED uasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest UpgradeAppliedSchema where
   type Rs UpgradeAppliedSchema = UpgradeAppliedSchemaResponse
@@ -114,9 +111,9 @@ instance Lude.ToJSON UpgradeAppliedSchema where
   toJSON UpgradeAppliedSchema' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DryRun" Lude..=) Lude.<$> dryRun,
+          [ Lude.Just ("DirectoryArn" Lude..= directoryARN),
             Lude.Just ("PublishedSchemaArn" Lude..= publishedSchemaARN),
-            Lude.Just ("DirectoryArn" Lude..= directoryARN)
+            ("DryRun" Lude..=) Lude.<$> dryRun
           ]
       )
 
@@ -130,26 +127,21 @@ instance Lude.ToQuery UpgradeAppliedSchema where
 
 -- | /See:/ 'mkUpgradeAppliedSchemaResponse' smart constructor.
 data UpgradeAppliedSchemaResponse = UpgradeAppliedSchemaResponse'
-  { directoryARN ::
-      Lude.Maybe Lude.Text,
-    upgradedSchemaARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the directory that is returned as part of the response.
+    directoryARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the upgraded schema that is returned as part of the response.
+    upgradedSchemaARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeAppliedSchemaResponse' with the minimum fields required to make a request.
 --
 -- * 'directoryARN' - The ARN of the directory that is returned as part of the response.
--- * 'responseStatus' - The response status code.
 -- * 'upgradedSchemaARN' - The ARN of the upgraded schema that is returned as part of the response.
+-- * 'responseStatus' - The response status code.
 mkUpgradeAppliedSchemaResponse ::
   -- | 'responseStatus'
   Lude.Int ->

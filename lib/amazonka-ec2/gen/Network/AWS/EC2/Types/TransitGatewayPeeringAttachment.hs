@@ -38,40 +38,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayPeeringAttachment' smart constructor.
 data TransitGatewayPeeringAttachment = TransitGatewayPeeringAttachment'
-  { creationTime ::
-      Lude.Maybe Lude.DateTime,
-    requesterTgwInfo ::
-      Lude.Maybe PeeringTgwInfo,
-    status ::
-      Lude.Maybe
-        PeeringAttachmentStatus,
-    state ::
-      Lude.Maybe
-        TransitGatewayAttachmentState,
-    accepterTgwInfo ::
-      Lude.Maybe PeeringTgwInfo,
-    transitGatewayAttachmentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The time the transit gateway peering attachment was created.
+    creationTime :: Lude.Maybe Lude.DateTime,
+    -- | Information about the requester transit gateway.
+    requesterTgwInfo :: Lude.Maybe PeeringTgwInfo,
+    -- | The status of the transit gateway peering attachment.
+    status :: Lude.Maybe PeeringAttachmentStatus,
+    -- | The state of the transit gateway peering attachment. Note that the @initiating@ state has been deprecated.
+    state :: Lude.Maybe TransitGatewayAttachmentState,
+    -- | Information about the accepter transit gateway.
+    accepterTgwInfo :: Lude.Maybe PeeringTgwInfo,
+    -- | The ID of the transit gateway peering attachment.
+    transitGatewayAttachmentId :: Lude.Maybe Lude.Text,
+    -- | The tags for the transit gateway peering attachment.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayPeeringAttachment' with the minimum fields required to make a request.
 --
--- * 'accepterTgwInfo' - Information about the accepter transit gateway.
 -- * 'creationTime' - The time the transit gateway peering attachment was created.
 -- * 'requesterTgwInfo' - Information about the requester transit gateway.
--- * 'state' - The state of the transit gateway peering attachment. Note that the @initiating@ state has been deprecated.
 -- * 'status' - The status of the transit gateway peering attachment.
--- * 'tags' - The tags for the transit gateway peering attachment.
+-- * 'state' - The state of the transit gateway peering attachment. Note that the @initiating@ state has been deprecated.
+-- * 'accepterTgwInfo' - Information about the accepter transit gateway.
 -- * 'transitGatewayAttachmentId' - The ID of the transit gateway peering attachment.
+-- * 'tags' - The tags for the transit gateway peering attachment.
 mkTransitGatewayPeeringAttachment ::
   TransitGatewayPeeringAttachment
 mkTransitGatewayPeeringAttachment =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,30 +48,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAuditSuppressions' smart constructor.
 data ListAuditSuppressions = ListAuditSuppressions'
-  { checkName ::
-      Lude.Maybe Lude.Text,
+  { checkName :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, @ascendingOrder=true@ .
     ascendingOrder :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return at one time. The default is 25.
     maxResults :: Lude.Maybe Lude.Natural,
-    resourceIdentifier ::
-      Lude.Maybe ResourceIdentifier
+    resourceIdentifier :: Lude.Maybe ResourceIdentifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditSuppressions' with the minimum fields required to make a request.
 --
--- * 'ascendingOrder' - Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, @ascendingOrder=true@ .
--- * 'checkName' - Undocumented field.
--- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
+-- * 'checkName' -
 -- * 'nextToken' - The token for the next set of results.
--- * 'resourceIdentifier' - Undocumented field.
+-- * 'ascendingOrder' - Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, @ascendingOrder=true@ .
+-- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
+-- * 'resourceIdentifier' -
 mkListAuditSuppressions ::
   ListAuditSuppressions
 mkListAuditSuppressions =
@@ -161,26 +157,21 @@ instance Lude.ToQuery ListAuditSuppressions where
 
 -- | /See:/ 'mkListAuditSuppressionsResponse' smart constructor.
 data ListAuditSuppressionsResponse = ListAuditSuppressionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    suppressions ::
-      Lude.Maybe [AuditSuppression],
+  { -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | List of audit suppressions.
+    suppressions :: Lude.Maybe [AuditSuppression],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditSuppressionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
--- * 'responseStatus' - The response status code.
 -- * 'suppressions' - List of audit suppressions.
+-- * 'responseStatus' - The response status code.
 mkListAuditSuppressionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

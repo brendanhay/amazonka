@@ -13,8 +13,8 @@
 module Network.AWS.Batch.Types.CEState
   ( CEState
       ( CEState',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CEState = CEState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: CEState
-pattern Disabled = CEState' "DISABLED"
-
 pattern Enabled :: CEState
 pattern Enabled = CEState' "ENABLED"
 
+pattern Disabled :: CEState
+pattern Disabled = CEState' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   CEState'
   #-}

@@ -40,7 +40,7 @@ mkStepComplete =
         [ Wait.matchAll
             "COMPLETED"
             Wait.AcceptSuccess
-            ( dsrsStep Lude.. Lens._Just Lude.. sStatus Lude.. Lens._Just
+            ( dsfrsStep Lude.. Lens._Just Lude.. sgStatus Lude.. Lens._Just
                 Lude.. ssState
                 Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
@@ -48,7 +48,7 @@ mkStepComplete =
           Wait.matchAll
             "FAILED"
             Wait.AcceptFailure
-            ( dsrsStep Lude.. Lens._Just Lude.. sStatus Lude.. Lens._Just
+            ( dsfrsStep Lude.. Lens._Just Lude.. sgStatus Lude.. Lens._Just
                 Lude.. ssState
                 Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
@@ -56,7 +56,7 @@ mkStepComplete =
           Wait.matchAll
             "CANCELLED"
             Wait.AcceptFailure
-            ( dsrsStep Lude.. Lens._Just Lude.. sStatus Lude.. Lens._Just
+            ( dsfrsStep Lude.. Lens._Just Lude.. sgStatus Lude.. Lens._Just
                 Lude.. ssState
                 Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
@@ -75,13 +75,13 @@ mkClusterTerminated =
         [ Wait.matchAll
             "TERMINATED"
             Wait.AcceptSuccess
-            ( dcrsCluster Lude.. cluStatus Lude.. csState Lude.. Lens._Just
+            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAll
             "TERMINATED_WITH_ERRORS"
             Wait.AcceptFailure
-            ( dcrsCluster Lude.. cluStatus Lude.. csState Lude.. Lens._Just
+            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             )
         ]
@@ -98,31 +98,31 @@ mkClusterRunning =
         [ Wait.matchAll
             "RUNNING"
             Wait.AcceptSuccess
-            ( dcrsCluster Lude.. cluStatus Lude.. csState Lude.. Lens._Just
+            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAll
             "WAITING"
             Wait.AcceptSuccess
-            ( dcrsCluster Lude.. cluStatus Lude.. csState Lude.. Lens._Just
+            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAll
             "TERMINATING"
             Wait.AcceptFailure
-            ( dcrsCluster Lude.. cluStatus Lude.. csState Lude.. Lens._Just
+            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAll
             "TERMINATED"
             Wait.AcceptFailure
-            ( dcrsCluster Lude.. cluStatus Lude.. csState Lude.. Lens._Just
+            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAll
             "TERMINATED_WITH_ERRORS"
             Wait.AcceptFailure
-            ( dcrsCluster Lude.. cluStatus Lude.. csState Lude.. Lens._Just
+            ( dcrsCluster Lude.. cfStatus Lude.. csState Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             )
         ]

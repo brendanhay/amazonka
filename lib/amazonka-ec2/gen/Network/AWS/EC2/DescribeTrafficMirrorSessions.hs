@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.EC2.DescribeTrafficMirrorSessions
     mkDescribeTrafficMirrorSessionsResponse,
 
     -- ** Response lenses
-    dtmsrsNextToken,
-    dtmsrsTrafficMirrorSessions,
-    dtmsrsResponseStatus,
+    dtmssrsNextToken,
+    dtmssrsTrafficMirrorSessions,
+    dtmssrsResponseStatus,
   )
 where
 
@@ -47,28 +48,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTrafficMirrorSessions' smart constructor.
 data DescribeTrafficMirrorSessions = DescribeTrafficMirrorSessions'
-  { filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    trafficMirrorSessionIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @description@ : The Traffic Mirror session description.
+    --
+    --
+    --     * @network-interface-id@ : The ID of the Traffic Mirror session network interface.
+    --
+    --
+    --     * @owner-id@ : The ID of the account that owns the Traffic Mirror session.
+    --
+    --
+    --     * @packet-length@ : The assigned number of packets to mirror.
+    --
+    --
+    --     * @session-number@ : The assigned session number.
+    --
+    --
+    --     * @traffic-mirror-filter-id@ : The ID of the Traffic Mirror filter.
+    --
+    --
+    --     * @traffic-mirror-session-id@ : The ID of the Traffic Mirror session.
+    --
+    --
+    --     * @traffic-mirror-target-id@ : The ID of the Traffic Mirror target.
+    --
+    --
+    --     * @virtual-network-id@ : The virtual network ID of the Traffic Mirror session.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the Traffic Mirror session.
+    trafficMirrorSessionIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrafficMirrorSessions' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
@@ -99,9 +121,10 @@ data DescribeTrafficMirrorSessions = DescribeTrafficMirrorSessions'
 --     * @virtual-network-id@ : The virtual network ID of the Traffic Mirror session.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
 -- * 'trafficMirrorSessionIds' - The ID of the Traffic Mirror session.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeTrafficMirrorSessions ::
   DescribeTrafficMirrorSessions
 mkDescribeTrafficMirrorSessions =
@@ -179,12 +202,13 @@ dtmsMaxResults = Lens.lens (maxResults :: DescribeTrafficMirrorSessions -> Lude.
 
 instance Page.AWSPager DescribeTrafficMirrorSessions where
   page rq rs
-    | Page.stop (rs Lens.^. dtmsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtmsrsTrafficMirrorSessions) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtmssrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtmssrsTrafficMirrorSessions) =
+      Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dtmsNextToken Lens..~ rs Lens.^. dtmsrsNextToken
+          Lude.& dtmsNextToken Lens..~ rs Lens.^. dtmssrsNextToken
 
 instance Lude.AWSRequest DescribeTrafficMirrorSessions where
   type
@@ -226,29 +250,21 @@ instance Lude.ToQuery DescribeTrafficMirrorSessions where
 
 -- | /See:/ 'mkDescribeTrafficMirrorSessionsResponse' smart constructor.
 data DescribeTrafficMirrorSessionsResponse = DescribeTrafficMirrorSessionsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    trafficMirrorSessions ::
-      Lude.Maybe
-        [TrafficMirrorSession],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.
+    trafficMirrorSessions :: Lude.Maybe [TrafficMirrorSession],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrafficMirrorSessionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'trafficMirrorSessions' - Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.
+-- * 'responseStatus' - The response status code.
 mkDescribeTrafficMirrorSessionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -263,20 +279,20 @@ mkDescribeTrafficMirrorSessionsResponse pResponseStatus_ =
 -- | The token to use to retrieve the next page of results. The value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmsrsNextToken :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Lude.Maybe Lude.Text)
-dtmsrsNextToken = Lens.lens (nextToken :: DescribeTrafficMirrorSessionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTrafficMirrorSessionsResponse)
-{-# DEPRECATED dtmsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dtmssrsNextToken :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Lude.Maybe Lude.Text)
+dtmssrsNextToken = Lens.lens (nextToken :: DescribeTrafficMirrorSessionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTrafficMirrorSessionsResponse)
+{-# DEPRECATED dtmssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.
 --
 -- /Note:/ Consider using 'trafficMirrorSessions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmsrsTrafficMirrorSessions :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Lude.Maybe [TrafficMirrorSession])
-dtmsrsTrafficMirrorSessions = Lens.lens (trafficMirrorSessions :: DescribeTrafficMirrorSessionsResponse -> Lude.Maybe [TrafficMirrorSession]) (\s a -> s {trafficMirrorSessions = a} :: DescribeTrafficMirrorSessionsResponse)
-{-# DEPRECATED dtmsrsTrafficMirrorSessions "Use generic-lens or generic-optics with 'trafficMirrorSessions' instead." #-}
+dtmssrsTrafficMirrorSessions :: Lens.Lens' DescribeTrafficMirrorSessionsResponse (Lude.Maybe [TrafficMirrorSession])
+dtmssrsTrafficMirrorSessions = Lens.lens (trafficMirrorSessions :: DescribeTrafficMirrorSessionsResponse -> Lude.Maybe [TrafficMirrorSession]) (\s a -> s {trafficMirrorSessions = a} :: DescribeTrafficMirrorSessionsResponse)
+{-# DEPRECATED dtmssrsTrafficMirrorSessions "Use generic-lens or generic-optics with 'trafficMirrorSessions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmsrsResponseStatus :: Lens.Lens' DescribeTrafficMirrorSessionsResponse Lude.Int
-dtmsrsResponseStatus = Lens.lens (responseStatus :: DescribeTrafficMirrorSessionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrafficMirrorSessionsResponse)
-{-# DEPRECATED dtmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtmssrsResponseStatus :: Lens.Lens' DescribeTrafficMirrorSessionsResponse Lude.Int
+dtmssrsResponseStatus = Lens.lens (responseStatus :: DescribeTrafficMirrorSessionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrafficMirrorSessionsResponse)
+{-# DEPRECATED dtmssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

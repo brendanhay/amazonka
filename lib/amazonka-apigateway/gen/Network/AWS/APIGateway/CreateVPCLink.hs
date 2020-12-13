@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.APIGateway.CreateVPCLink
     mkCreateVPCLink,
 
     -- ** Request lenses
+    cvlTargetARNs,
+    cvlName,
     cvlDescription,
     cvlTags,
-    cvlName,
-    cvlTargetARNs,
 
     -- * Destructuring the response
     VPCLink (..),
@@ -49,38 +50,49 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateVPCLink' smart constructor.
 data CreateVPCLink = CreateVPCLink'
-  { description ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | [Required] The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+    targetARNs :: [Lude.Text],
+    -- | [Required] The name used to label and identify the VPC link.
     name :: Lude.Text,
-    targetARNs :: [Lude.Text]
+    -- | The description of the VPC link.
+    description :: Lude.Maybe Lude.Text,
+    -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCLink' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the VPC link.
--- * 'name' - [Required] The name used to label and identify the VPC link.
--- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
 -- * 'targetARNs' - [Required] The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+-- * 'name' - [Required] The name used to label and identify the VPC link.
+-- * 'description' - The description of the VPC link.
+-- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
 mkCreateVPCLink ::
   -- | 'name'
   Lude.Text ->
   CreateVPCLink
 mkCreateVPCLink pName_ =
   CreateVPCLink'
-    { description = Lude.Nothing,
-      tags = Lude.Nothing,
+    { targetARNs = Lude.mempty,
       name = pName_,
-      targetARNs = Lude.mempty
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | [Required] The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+--
+-- /Note:/ Consider using 'targetARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvlTargetARNs :: Lens.Lens' CreateVPCLink [Lude.Text]
+cvlTargetARNs = Lens.lens (targetARNs :: CreateVPCLink -> [Lude.Text]) (\s a -> s {targetARNs = a} :: CreateVPCLink)
+{-# DEPRECATED cvlTargetARNs "Use generic-lens or generic-optics with 'targetARNs' instead." #-}
+
+-- | [Required] The name used to label and identify the VPC link.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvlName :: Lens.Lens' CreateVPCLink Lude.Text
+cvlName = Lens.lens (name :: CreateVPCLink -> Lude.Text) (\s a -> s {name = a} :: CreateVPCLink)
+{-# DEPRECATED cvlName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The description of the VPC link.
 --
@@ -95,20 +107,6 @@ cvlDescription = Lens.lens (description :: CreateVPCLink -> Lude.Maybe Lude.Text
 cvlTags :: Lens.Lens' CreateVPCLink (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 cvlTags = Lens.lens (tags :: CreateVPCLink -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateVPCLink)
 {-# DEPRECATED cvlTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | [Required] The name used to label and identify the VPC link.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvlName :: Lens.Lens' CreateVPCLink Lude.Text
-cvlName = Lens.lens (name :: CreateVPCLink -> Lude.Text) (\s a -> s {name = a} :: CreateVPCLink)
-{-# DEPRECATED cvlName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | [Required] The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
---
--- /Note:/ Consider using 'targetARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvlTargetARNs :: Lens.Lens' CreateVPCLink [Lude.Text]
-cvlTargetARNs = Lens.lens (targetARNs :: CreateVPCLink -> [Lude.Text]) (\s a -> s {targetARNs = a} :: CreateVPCLink)
-{-# DEPRECATED cvlTargetARNs "Use generic-lens or generic-optics with 'targetARNs' instead." #-}
 
 instance Lude.AWSRequest CreateVPCLink where
   type Rs CreateVPCLink = VPCLink
@@ -126,10 +124,10 @@ instance Lude.ToJSON CreateVPCLink where
   toJSON CreateVPCLink' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            ("tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("targetArns" Lude..= targetARNs),
             Lude.Just ("name" Lude..= name),
-            Lude.Just ("targetArns" Lude..= targetARNs)
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 

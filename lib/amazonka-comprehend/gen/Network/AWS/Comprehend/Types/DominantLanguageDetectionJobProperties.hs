@@ -42,60 +42,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDominantLanguageDetectionJobProperties' smart constructor.
 data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProperties'
-  { jobId ::
-      Lude.Maybe
-        Lude.Text,
-    jobName ::
-      Lude.Maybe
-        Lude.Text,
-    inputDataConfig ::
-      Lude.Maybe
-        InputDataConfig,
-    vpcConfig ::
-      Lude.Maybe
-        VPCConfig,
-    volumeKMSKeyId ::
-      Lude.Maybe
-        Lude.Text,
-    endTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    outputDataConfig ::
-      Lude.Maybe
-        OutputDataConfig,
-    dataAccessRoleARN ::
-      Lude.Maybe
-        Lude.Text,
-    jobStatus ::
-      Lude.Maybe
-        JobStatus,
-    message ::
-      Lude.Maybe
-        Lude.Text,
-    submitTime ::
-      Lude.Maybe
-        Lude.Timestamp
+  { -- | The identifier assigned to the dominant language detection job.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The name that you assigned to the dominant language detection job.
+    jobName :: Lude.Maybe Lude.Text,
+    -- | The input data configuration that you supplied when you created the dominant language detection job.
+    inputDataConfig :: Lude.Maybe InputDataConfig,
+    -- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+    vpcConfig :: Lude.Maybe VPCConfig,
+    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+    --
+    --
+    --     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+    --
+    --
+    --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+    volumeKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | The time that the dominant language detection job completed.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The output data configuration that you supplied when you created the dominant language detection job.
+    outputDataConfig :: Lude.Maybe OutputDataConfig,
+    -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
+    dataAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | The current status of the dominant language detection job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
+    jobStatus :: Lude.Maybe JobStatus,
+    -- | A description for the status of a job.
+    message :: Lude.Maybe Lude.Text,
+    -- | The time that the dominant language detection job was submitted for processing.
+    submitTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DominantLanguageDetectionJobProperties' with the minimum fields required to make a request.
 --
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
--- * 'endTime' - The time that the dominant language detection job completed.
--- * 'inputDataConfig' - The input data configuration that you supplied when you created the dominant language detection job.
 -- * 'jobId' - The identifier assigned to the dominant language detection job.
 -- * 'jobName' - The name that you assigned to the dominant language detection job.
--- * 'jobStatus' - The current status of the dominant language detection job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
--- * 'message' - A description for the status of a job.
--- * 'outputDataConfig' - The output data configuration that you supplied when you created the dominant language detection job.
--- * 'submitTime' - The time that the dominant language detection job was submitted for processing.
+-- * 'inputDataConfig' - The input data configuration that you supplied when you created the dominant language detection job.
+-- * 'vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 -- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
 --
@@ -105,7 +89,12 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
 --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
 --
--- * 'vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+-- * 'endTime' - The time that the dominant language detection job completed.
+-- * 'outputDataConfig' - The output data configuration that you supplied when you created the dominant language detection job.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
+-- * 'jobStatus' - The current status of the dominant language detection job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
+-- * 'message' - A description for the status of a job.
+-- * 'submitTime' - The time that the dominant language detection job was submitted for processing.
 mkDominantLanguageDetectionJobProperties ::
   DominantLanguageDetectionJobProperties
 mkDominantLanguageDetectionJobProperties =

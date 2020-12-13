@@ -20,11 +20,11 @@ module Network.AWS.Glue.Types.Database
     dLocationURI,
     dCatalogId,
     dTargetDatabase,
+    dName,
     dParameters,
     dDescription,
     dCreateTime,
     dCreateTableDefaultPermissions,
-    dName,
   )
 where
 
@@ -37,34 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatabase' smart constructor.
 data Database = Database'
-  { locationURI :: Lude.Maybe Lude.Text,
+  { -- | The location of the database (for example, an HDFS path).
+    locationURI :: Lude.Maybe Lude.Text,
+    -- | The ID of the Data Catalog in which the database resides.
     catalogId :: Lude.Maybe Lude.Text,
+    -- | A @DatabaseIdentifier@ structure that describes a target database for resource linking.
     targetDatabase :: Lude.Maybe DatabaseIdentifier,
+    -- | The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
+    name :: Lude.Text,
+    -- | These key-value pairs define parameters and properties of the database.
     parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A description of the database.
     description :: Lude.Maybe Lude.Text,
+    -- | The time at which the metadata database was created in the catalog.
     createTime :: Lude.Maybe Lude.Timestamp,
-    createTableDefaultPermissions :: Lude.Maybe [PrincipalPermissions],
-    name :: Lude.Text
+    -- | Creates a set of default permissions on the table for principals.
+    createTableDefaultPermissions :: Lude.Maybe [PrincipalPermissions]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Database' with the minimum fields required to make a request.
 --
--- * 'catalogId' - The ID of the Data Catalog in which the database resides.
--- * 'createTableDefaultPermissions' - Creates a set of default permissions on the table for principals.
--- * 'createTime' - The time at which the metadata database was created in the catalog.
--- * 'description' - A description of the database.
 -- * 'locationURI' - The location of the database (for example, an HDFS path).
+-- * 'catalogId' - The ID of the Data Catalog in which the database resides.
+-- * 'targetDatabase' - A @DatabaseIdentifier@ structure that describes a target database for resource linking.
 -- * 'name' - The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
 -- * 'parameters' - These key-value pairs define parameters and properties of the database.
--- * 'targetDatabase' - A @DatabaseIdentifier@ structure that describes a target database for resource linking.
+-- * 'description' - A description of the database.
+-- * 'createTime' - The time at which the metadata database was created in the catalog.
+-- * 'createTableDefaultPermissions' - Creates a set of default permissions on the table for principals.
 mkDatabase ::
   -- | 'name'
   Lude.Text ->
@@ -74,11 +76,11 @@ mkDatabase pName_ =
     { locationURI = Lude.Nothing,
       catalogId = Lude.Nothing,
       targetDatabase = Lude.Nothing,
+      name = pName_,
       parameters = Lude.Nothing,
       description = Lude.Nothing,
       createTime = Lude.Nothing,
-      createTableDefaultPermissions = Lude.Nothing,
-      name = pName_
+      createTableDefaultPermissions = Lude.Nothing
     }
 
 -- | The location of the database (for example, an HDFS path).
@@ -101,6 +103,13 @@ dCatalogId = Lens.lens (catalogId :: Database -> Lude.Maybe Lude.Text) (\s a -> 
 dTargetDatabase :: Lens.Lens' Database (Lude.Maybe DatabaseIdentifier)
 dTargetDatabase = Lens.lens (targetDatabase :: Database -> Lude.Maybe DatabaseIdentifier) (\s a -> s {targetDatabase = a} :: Database)
 {-# DEPRECATED dTargetDatabase "Use generic-lens or generic-optics with 'targetDatabase' instead." #-}
+
+-- | The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dName :: Lens.Lens' Database Lude.Text
+dName = Lens.lens (name :: Database -> Lude.Text) (\s a -> s {name = a} :: Database)
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | These key-value pairs define parameters and properties of the database.
 --
@@ -130,13 +139,6 @@ dCreateTableDefaultPermissions :: Lens.Lens' Database (Lude.Maybe [PrincipalPerm
 dCreateTableDefaultPermissions = Lens.lens (createTableDefaultPermissions :: Database -> Lude.Maybe [PrincipalPermissions]) (\s a -> s {createTableDefaultPermissions = a} :: Database)
 {-# DEPRECATED dCreateTableDefaultPermissions "Use generic-lens or generic-optics with 'createTableDefaultPermissions' instead." #-}
 
--- | The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' Database Lude.Text
-dName = Lens.lens (name :: Database -> Lude.Text) (\s a -> s {name = a} :: Database)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON Database where
   parseJSON =
     Lude.withObject
@@ -146,9 +148,9 @@ instance Lude.FromJSON Database where
             Lude.<$> (x Lude..:? "LocationUri")
             Lude.<*> (x Lude..:? "CatalogId")
             Lude.<*> (x Lude..:? "TargetDatabase")
+            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "Description")
             Lude.<*> (x Lude..:? "CreateTime")
             Lude.<*> (x Lude..:? "CreateTableDefaultPermissions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "Name")
       )

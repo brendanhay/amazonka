@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Lightsail.GetRelationalDatabaseLogEvents
     -- ** Request lenses
     grdleStartTime,
     grdleStartFromHead,
+    grdleLogStreamName,
     grdleEndTime,
     grdlePageToken,
     grdleRelationalDatabaseName,
-    grdleLogStreamName,
 
     -- * Destructuring the response
     GetRelationalDatabaseLogEventsResponse (..),
@@ -46,29 +47,59 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRelationalDatabaseLogEvents' smart constructor.
 data GetRelationalDatabaseLogEvents = GetRelationalDatabaseLogEvents'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
-    startFromHead ::
-      Lude.Maybe Lude.Bool,
-    endTime ::
-      Lude.Maybe Lude.Timestamp,
-    pageToken ::
-      Lude.Maybe Lude.Text,
-    relationalDatabaseName ::
-      Lude.Text,
-    logStreamName :: Lude.Text
+  { -- | The start of the time interval from which to get log events.
+    --
+    -- Constraints:
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Specified in the Unix time format.
+    -- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the start time.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Parameter to specify if the log should start from head or tail. If @true@ is specified, the log event starts from the head of the log. If @false@ is specified, the log event starts from the tail of the log.
+    startFromHead :: Lude.Maybe Lude.Bool,
+    -- | The name of the log stream.
+    --
+    -- Use the @get relational database log streams@ operation to get a list of available log streams.
+    logStreamName :: Lude.Text,
+    -- | The end of the time interval from which to get log events.
+    --
+    -- Constraints:
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Specified in the Unix time format.
+    -- For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the end time.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The token to advance to the next or previous page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetRelationalDatabaseLogEvents@ request. If your results are paginated, the response will return a next forward token and/or next backward token that you can specify as the page token in a subsequent request.
+    pageToken :: Lude.Maybe Lude.Text,
+    -- | The name of your database for which to get log events.
+    relationalDatabaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseLogEvents' with the minimum fields required to make a request.
 --
+-- * 'startTime' - The start of the time interval from which to get log events.
+--
+-- Constraints:
+--
+--     * Specified in Coordinated Universal Time (UTC).
+--
+--
+--     * Specified in the Unix time format.
+-- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the start time.
+--
+--
+-- * 'startFromHead' - Parameter to specify if the log should start from head or tail. If @true@ is specified, the log event starts from the head of the log. If @false@ is specified, the log event starts from the tail of the log.
+-- * 'logStreamName' - The name of the log stream.
+--
+-- Use the @get relational database log streams@ operation to get a list of available log streams.
 -- * 'endTime' - The end of the time interval from which to get log events.
 --
 -- Constraints:
@@ -80,39 +111,26 @@ data GetRelationalDatabaseLogEvents = GetRelationalDatabaseLogEvents'
 -- For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the end time.
 --
 --
--- * 'logStreamName' - The name of the log stream.
---
--- Use the @get relational database log streams@ operation to get a list of available log streams.
 -- * 'pageToken' - The token to advance to the next or previous page of results from your request.
 --
 -- To get a page token, perform an initial @GetRelationalDatabaseLogEvents@ request. If your results are paginated, the response will return a next forward token and/or next backward token that you can specify as the page token in a subsequent request.
 -- * 'relationalDatabaseName' - The name of your database for which to get log events.
--- * 'startFromHead' - Parameter to specify if the log should start from head or tail. If @true@ is specified, the log event starts from the head of the log. If @false@ is specified, the log event starts from the tail of the log.
--- * 'startTime' - The start of the time interval from which to get log events.
---
--- Constraints:
---
---     * Specified in Coordinated Universal Time (UTC).
---
---
---     * Specified in the Unix time format.
--- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the start time.
 mkGetRelationalDatabaseLogEvents ::
-  -- | 'relationalDatabaseName'
-  Lude.Text ->
   -- | 'logStreamName'
+  Lude.Text ->
+  -- | 'relationalDatabaseName'
   Lude.Text ->
   GetRelationalDatabaseLogEvents
 mkGetRelationalDatabaseLogEvents
-  pRelationalDatabaseName_
-  pLogStreamName_ =
+  pLogStreamName_
+  pRelationalDatabaseName_ =
     GetRelationalDatabaseLogEvents'
       { startTime = Lude.Nothing,
         startFromHead = Lude.Nothing,
+        logStreamName = pLogStreamName_,
         endTime = Lude.Nothing,
         pageToken = Lude.Nothing,
-        relationalDatabaseName = pRelationalDatabaseName_,
-        logStreamName = pLogStreamName_
+        relationalDatabaseName = pRelationalDatabaseName_
       }
 
 -- | The start of the time interval from which to get log events.
@@ -138,6 +156,15 @@ grdleStartTime = Lens.lens (startTime :: GetRelationalDatabaseLogEvents -> Lude.
 grdleStartFromHead :: Lens.Lens' GetRelationalDatabaseLogEvents (Lude.Maybe Lude.Bool)
 grdleStartFromHead = Lens.lens (startFromHead :: GetRelationalDatabaseLogEvents -> Lude.Maybe Lude.Bool) (\s a -> s {startFromHead = a} :: GetRelationalDatabaseLogEvents)
 {-# DEPRECATED grdleStartFromHead "Use generic-lens or generic-optics with 'startFromHead' instead." #-}
+
+-- | The name of the log stream.
+--
+-- Use the @get relational database log streams@ operation to get a list of available log streams.
+--
+-- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdleLogStreamName :: Lens.Lens' GetRelationalDatabaseLogEvents Lude.Text
+grdleLogStreamName = Lens.lens (logStreamName :: GetRelationalDatabaseLogEvents -> Lude.Text) (\s a -> s {logStreamName = a} :: GetRelationalDatabaseLogEvents)
+{-# DEPRECATED grdleLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
 -- | The end of the time interval from which to get log events.
 --
@@ -171,15 +198,6 @@ grdlePageToken = Lens.lens (pageToken :: GetRelationalDatabaseLogEvents -> Lude.
 grdleRelationalDatabaseName :: Lens.Lens' GetRelationalDatabaseLogEvents Lude.Text
 grdleRelationalDatabaseName = Lens.lens (relationalDatabaseName :: GetRelationalDatabaseLogEvents -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseLogEvents)
 {-# DEPRECATED grdleRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
-
--- | The name of the log stream.
---
--- Use the @get relational database log streams@ operation to get a list of available log streams.
---
--- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdleLogStreamName :: Lens.Lens' GetRelationalDatabaseLogEvents Lude.Text
-grdleLogStreamName = Lens.lens (logStreamName :: GetRelationalDatabaseLogEvents -> Lude.Text) (\s a -> s {logStreamName = a} :: GetRelationalDatabaseLogEvents)
-{-# DEPRECATED grdleLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
 instance Lude.AWSRequest GetRelationalDatabaseLogEvents where
   type
@@ -215,11 +233,11 @@ instance Lude.ToJSON GetRelationalDatabaseLogEvents where
       ( Lude.catMaybes
           [ ("startTime" Lude..=) Lude.<$> startTime,
             ("startFromHead" Lude..=) Lude.<$> startFromHead,
+            Lude.Just ("logStreamName" Lude..= logStreamName),
             ("endTime" Lude..=) Lude.<$> endTime,
             ("pageToken" Lude..=) Lude.<$> pageToken,
             Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName),
-            Lude.Just ("logStreamName" Lude..= logStreamName)
+              ("relationalDatabaseName" Lude..= relationalDatabaseName)
           ]
       )
 
@@ -231,32 +249,23 @@ instance Lude.ToQuery GetRelationalDatabaseLogEvents where
 
 -- | /See:/ 'mkGetRelationalDatabaseLogEventsResponse' smart constructor.
 data GetRelationalDatabaseLogEventsResponse = GetRelationalDatabaseLogEventsResponse'
-  { nextBackwardToken ::
-      Lude.Maybe
-        Lude.Text,
-    resourceLogEvents ::
-      Lude.Maybe
-        [LogEvent],
-    nextForwardToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A token used for advancing to the previous page of results from your get relational database log events request.
+    nextBackwardToken :: Lude.Maybe Lude.Text,
+    -- | An object describing the result of your get relational database log events request.
+    resourceLogEvents :: Lude.Maybe [LogEvent],
+    -- | A token used for advancing to the next page of results from your get relational database log events request.
+    nextForwardToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseLogEventsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextBackwardToken' - A token used for advancing to the previous page of results from your get relational database log events request.
--- * 'nextForwardToken' - A token used for advancing to the next page of results from your get relational database log events request.
 -- * 'resourceLogEvents' - An object describing the result of your get relational database log events request.
+-- * 'nextForwardToken' - A token used for advancing to the next page of results from your get relational database log events request.
 -- * 'responseStatus' - The response status code.
 mkGetRelationalDatabaseLogEventsResponse ::
   -- | 'responseStatus'

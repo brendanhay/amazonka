@@ -13,8 +13,8 @@
 module Network.AWS.DynamoDB.Types.ReturnItemCollectionMetrics
   ( ReturnItemCollectionMetrics
       ( ReturnItemCollectionMetrics',
-        RICMNone,
-        RICMSize
+        RICMSize,
+        RICMNone
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReturnItemCollectionMetrics = ReturnItemCollectionMetrics' Lude.Text
       Lude.ToHeader
     )
 
-pattern RICMNone :: ReturnItemCollectionMetrics
-pattern RICMNone = ReturnItemCollectionMetrics' "NONE"
-
 pattern RICMSize :: ReturnItemCollectionMetrics
 pattern RICMSize = ReturnItemCollectionMetrics' "SIZE"
 
+pattern RICMNone :: ReturnItemCollectionMetrics
+pattern RICMNone = ReturnItemCollectionMetrics' "NONE"
+
 {-# COMPLETE
-  RICMNone,
   RICMSize,
+  RICMNone,
   ReturnItemCollectionMetrics'
   #-}

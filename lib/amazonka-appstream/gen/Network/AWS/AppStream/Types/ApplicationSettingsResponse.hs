@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationSettingsResponse' smart constructor.
 data ApplicationSettingsResponse = ApplicationSettingsResponse'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    settingsGroup ::
-      Lude.Maybe Lude.Text,
-    s3BucketName ::
-      Lude.Maybe Lude.Text
+  { -- | Specifies whether persistent application settings are enabled for users during their streaming sessions.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The path prefix for the S3 bucket where users’ persistent application settings are stored.
+    settingsGroup :: Lude.Maybe Lude.Text,
+    -- | The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
+    s3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationSettingsResponse' with the minimum fields required to make a request.
 --
 -- * 'enabled' - Specifies whether persistent application settings are enabled for users during their streaming sessions.
--- * 's3BucketName' - The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
 -- * 'settingsGroup' - The path prefix for the S3 bucket where users’ persistent application settings are stored.
+-- * 's3BucketName' - The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
 mkApplicationSettingsResponse ::
   ApplicationSettingsResponse
 mkApplicationSettingsResponse =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,28 +48,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTransitGateway' smart constructor.
 data CreateTransitGateway = CreateTransitGateway'
-  { tagSpecifications ::
-      Lude.Maybe [TagSpecification],
-    options ::
-      Lude.Maybe TransitGatewayRequestOptions,
+  { -- | The tags to apply to the transit gateway.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The transit gateway options.
+    options :: Lude.Maybe TransitGatewayRequestOptions,
+    -- | A description of the transit gateway.
     description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGateway' with the minimum fields required to make a request.
 --
+-- * 'tagSpecifications' - The tags to apply to the transit gateway.
+-- * 'options' - The transit gateway options.
 -- * 'description' - A description of the transit gateway.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'options' - The transit gateway options.
--- * 'tagSpecifications' - The tags to apply to the transit gateway.
 mkCreateTransitGateway ::
   CreateTransitGateway
 mkCreateTransitGateway =
@@ -138,23 +135,18 @@ instance Lude.ToQuery CreateTransitGateway where
 
 -- | /See:/ 'mkCreateTransitGatewayResponse' smart constructor.
 data CreateTransitGatewayResponse = CreateTransitGatewayResponse'
-  { transitGateway ::
-      Lude.Maybe TransitGateway,
+  { -- | Information about the transit gateway.
+    transitGateway :: Lude.Maybe TransitGateway,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'transitGateway' - Information about the transit gateway.
+-- * 'responseStatus' - The response status code.
 mkCreateTransitGatewayResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,12 +13,12 @@
 module Network.AWS.CodePipeline.Types.ActionCategory
   ( ActionCategory
       ( ActionCategory',
-        Approval,
+        Source,
         Build,
         Deploy,
+        Test,
         Invoke,
-        Source,
-        Test
+        Approval
       ),
   )
 where
@@ -49,8 +49,8 @@ newtype ActionCategory = ActionCategory' Lude.Text
       Lude.ToHeader
     )
 
-pattern Approval :: ActionCategory
-pattern Approval = ActionCategory' "Approval"
+pattern Source :: ActionCategory
+pattern Source = ActionCategory' "Source"
 
 pattern Build :: ActionCategory
 pattern Build = ActionCategory' "Build"
@@ -58,21 +58,21 @@ pattern Build = ActionCategory' "Build"
 pattern Deploy :: ActionCategory
 pattern Deploy = ActionCategory' "Deploy"
 
-pattern Invoke :: ActionCategory
-pattern Invoke = ActionCategory' "Invoke"
-
-pattern Source :: ActionCategory
-pattern Source = ActionCategory' "Source"
-
 pattern Test :: ActionCategory
 pattern Test = ActionCategory' "Test"
 
+pattern Invoke :: ActionCategory
+pattern Invoke = ActionCategory' "Invoke"
+
+pattern Approval :: ActionCategory
+pattern Approval = ActionCategory' "Approval"
+
 {-# COMPLETE
-  Approval,
+  Source,
   Build,
   Deploy,
-  Invoke,
-  Source,
   Test,
+  Invoke,
+  Approval,
   ActionCategory'
   #-}

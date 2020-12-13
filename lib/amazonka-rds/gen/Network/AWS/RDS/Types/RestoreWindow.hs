@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRestoreWindow' smart constructor.
 data RestoreWindow = RestoreWindow'
-  { latestTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The latest time you can restore an instance to.
+    latestTime :: Lude.Maybe Lude.DateTime,
+    -- | The earliest time you can restore an instance to.
     earliestTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreWindow' with the minimum fields required to make a request.
 --
--- * 'earliestTime' - The earliest time you can restore an instance to.
 -- * 'latestTime' - The latest time you can restore an instance to.
+-- * 'earliestTime' - The earliest time you can restore an instance to.
 mkRestoreWindow ::
   RestoreWindow
 mkRestoreWindow =

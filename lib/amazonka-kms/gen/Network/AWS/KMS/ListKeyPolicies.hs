@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.KMS.ListKeyPolicies
     mkListKeyPolicies,
 
     -- ** Request lenses
+    lkpKeyId,
     lkpMarker,
     lkpLimit,
-    lkpKeyId,
 
     -- * Destructuring the response
     ListKeyPoliciesResponse (..),
@@ -46,18 +47,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListKeyPolicies' smart constructor.
 data ListKeyPolicies = ListKeyPolicies'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    keyId :: Lude.Text
+  { -- | A unique identifier for the customer master key (CMK).
+    --
+    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+    keyId :: Lude.Text,
+    -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
+    --
+    -- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
+    -- Only one policy can be attached to a key.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListKeyPolicies' with the minimum fields required to make a request.
@@ -74,38 +85,21 @@ data ListKeyPolicies = ListKeyPolicies'
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 -- * 'limit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
 -- Only one policy can be attached to a key.
--- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 mkListKeyPolicies ::
   -- | 'keyId'
   Lude.Text ->
   ListKeyPolicies
 mkListKeyPolicies pKeyId_ =
   ListKeyPolicies'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      keyId = pKeyId_
+    { keyId = pKeyId_,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
-
--- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkpMarker :: Lens.Lens' ListKeyPolicies (Lude.Maybe Lude.Text)
-lkpMarker = Lens.lens (marker :: ListKeyPolicies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListKeyPolicies)
-{-# DEPRECATED lkpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
--- Only one policy can be attached to a key.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkpLimit :: Lens.Lens' ListKeyPolicies (Lude.Maybe Lude.Natural)
-lkpLimit = Lens.lens (limit :: ListKeyPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListKeyPolicies)
-{-# DEPRECATED lkpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | A unique identifier for the customer master key (CMK).
 --
@@ -124,6 +118,23 @@ lkpLimit = Lens.lens (limit :: ListKeyPolicies -> Lude.Maybe Lude.Natural) (\s a
 lkpKeyId :: Lens.Lens' ListKeyPolicies Lude.Text
 lkpKeyId = Lens.lens (keyId :: ListKeyPolicies -> Lude.Text) (\s a -> s {keyId = a} :: ListKeyPolicies)
 {-# DEPRECATED lkpKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkpMarker :: Lens.Lens' ListKeyPolicies (Lude.Maybe Lude.Text)
+lkpMarker = Lens.lens (marker :: ListKeyPolicies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListKeyPolicies)
+{-# DEPRECATED lkpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
+-- Only one policy can be attached to a key.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkpLimit :: Lens.Lens' ListKeyPolicies (Lude.Maybe Lude.Natural)
+lkpLimit = Lens.lens (limit :: ListKeyPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListKeyPolicies)
+{-# DEPRECATED lkpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 instance Page.AWSPager ListKeyPolicies where
   page rq rs
@@ -162,9 +173,9 @@ instance Lude.ToJSON ListKeyPolicies where
   toJSON ListKeyPolicies' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("KeyId" Lude..= keyId)
+          [ Lude.Just ("KeyId" Lude..= keyId),
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -176,27 +187,24 @@ instance Lude.ToQuery ListKeyPolicies where
 
 -- | /See:/ 'mkListKeyPoliciesResponse' smart constructor.
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
-  { policyNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of key policy names. The only valid value is @default@ .
+    policyNames :: Lude.Maybe [Lude.Text],
+    -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
     truncated :: Lude.Maybe Lude.Bool,
+    -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListKeyPoliciesResponse' with the minimum fields required to make a request.
 --
--- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 -- * 'policyNames' - A list of key policy names. The only valid value is @default@ .
--- * 'responseStatus' - The response status code.
 -- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+-- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
+-- * 'responseStatus' - The response status code.
 mkListKeyPoliciesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

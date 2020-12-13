@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,24 +43,20 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkListMailboxExportJobs' smart constructor.
 data ListMailboxExportJobs = ListMailboxExportJobs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The organization ID.
     organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMailboxExportJobs' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'nextToken' - The token to use to retrieve the next page of results.
+-- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'organizationId' - The organization ID.
 mkListMailboxExportJobs ::
   -- | 'organizationId'
@@ -134,25 +131,20 @@ instance Lude.ToQuery ListMailboxExportJobs where
 
 -- | /See:/ 'mkListMailboxExportJobsResponse' smart constructor.
 data ListMailboxExportJobsResponse = ListMailboxExportJobsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    jobs ::
-      Lude.Maybe [MailboxExportJob],
+  { -- | The token to use to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The mailbox export job details.
+    jobs :: Lude.Maybe [MailboxExportJob],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMailboxExportJobsResponse' with the minimum fields required to make a request.
 --
--- * 'jobs' - The mailbox export job details.
 -- * 'nextToken' - The token to use to retrieve the next page of results.
+-- * 'jobs' - The mailbox export job details.
 -- * 'responseStatus' - The response status code.
 mkListMailboxExportJobsResponse ::
   -- | 'responseStatus'

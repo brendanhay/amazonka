@@ -34,33 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobBookmarkEntry' smart constructor.
 data JobBookmarkEntry = JobBookmarkEntry'
-  { jobName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the job in question.
+    jobName :: Lude.Maybe Lude.Text,
+    -- | The run ID number.
     run :: Lude.Maybe Lude.Int,
+    -- | The run ID number.
     runId :: Lude.Maybe Lude.Text,
+    -- | The version of the job.
     version :: Lude.Maybe Lude.Int,
+    -- | The unique run identifier associated with the previous job run.
     previousRunId :: Lude.Maybe Lude.Text,
+    -- | The attempt ID number.
     attempt :: Lude.Maybe Lude.Int,
+    -- | The bookmark itself.
     jobBookmark :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobBookmarkEntry' with the minimum fields required to make a request.
 --
--- * 'attempt' - The attempt ID number.
--- * 'jobBookmark' - The bookmark itself.
 -- * 'jobName' - The name of the job in question.
--- * 'previousRunId' - The unique run identifier associated with the previous job run.
 -- * 'run' - The run ID number.
 -- * 'runId' - The run ID number.
 -- * 'version' - The version of the job.
+-- * 'previousRunId' - The unique run identifier associated with the previous job run.
+-- * 'attempt' - The attempt ID number.
+-- * 'jobBookmark' - The bookmark itself.
 mkJobBookmarkEntry ::
   JobBookmarkEntry
 mkJobBookmarkEntry =

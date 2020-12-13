@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AlexaBusiness.GetRoomSkillParameter
     mkGetRoomSkillParameter,
 
     -- ** Request lenses
-    grspRoomARN,
     grspSkillId,
     grspParameterKey,
+    grspRoomARN,
 
     -- * Destructuring the response
     GetRoomSkillParameterResponse (..),
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRoomSkillParameter' smart constructor.
 data GetRoomSkillParameter = GetRoomSkillParameter'
-  { roomARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the skill from which to get the room skill parameter details. Required.
     skillId :: Lude.Text,
-    parameterKey :: Lude.Text
+    -- | The room skill parameter key for which to get details. Required.
+    parameterKey :: Lude.Text,
+    -- | The ARN of the room from which to get the room skill parameter details.
+    roomARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRoomSkillParameter' with the minimum fields required to make a request.
 --
+-- * 'skillId' - The ARN of the skill from which to get the room skill parameter details. Required.
 -- * 'parameterKey' - The room skill parameter key for which to get details. Required.
 -- * 'roomARN' - The ARN of the room from which to get the room skill parameter details.
--- * 'skillId' - The ARN of the skill from which to get the room skill parameter details. Required.
 mkGetRoomSkillParameter ::
   -- | 'skillId'
   Lude.Text ->
@@ -68,17 +65,10 @@ mkGetRoomSkillParameter ::
   GetRoomSkillParameter
 mkGetRoomSkillParameter pSkillId_ pParameterKey_ =
   GetRoomSkillParameter'
-    { roomARN = Lude.Nothing,
-      skillId = pSkillId_,
-      parameterKey = pParameterKey_
+    { skillId = pSkillId_,
+      parameterKey = pParameterKey_,
+      roomARN = Lude.Nothing
     }
-
--- | The ARN of the room from which to get the room skill parameter details.
---
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grspRoomARN :: Lens.Lens' GetRoomSkillParameter (Lude.Maybe Lude.Text)
-grspRoomARN = Lens.lens (roomARN :: GetRoomSkillParameter -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: GetRoomSkillParameter)
-{-# DEPRECATED grspRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 -- | The ARN of the skill from which to get the room skill parameter details. Required.
 --
@@ -93,6 +83,13 @@ grspSkillId = Lens.lens (skillId :: GetRoomSkillParameter -> Lude.Text) (\s a ->
 grspParameterKey :: Lens.Lens' GetRoomSkillParameter Lude.Text
 grspParameterKey = Lens.lens (parameterKey :: GetRoomSkillParameter -> Lude.Text) (\s a -> s {parameterKey = a} :: GetRoomSkillParameter)
 {-# DEPRECATED grspParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
+
+-- | The ARN of the room from which to get the room skill parameter details.
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grspRoomARN :: Lens.Lens' GetRoomSkillParameter (Lude.Maybe Lude.Text)
+grspRoomARN = Lens.lens (roomARN :: GetRoomSkillParameter -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: GetRoomSkillParameter)
+{-# DEPRECATED grspRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 instance Lude.AWSRequest GetRoomSkillParameter where
   type Rs GetRoomSkillParameter = GetRoomSkillParameterResponse
@@ -120,9 +117,9 @@ instance Lude.ToJSON GetRoomSkillParameter where
   toJSON GetRoomSkillParameter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RoomArn" Lude..=) Lude.<$> roomARN,
-            Lude.Just ("SkillId" Lude..= skillId),
-            Lude.Just ("ParameterKey" Lude..= parameterKey)
+          [ Lude.Just ("SkillId" Lude..= skillId),
+            Lude.Just ("ParameterKey" Lude..= parameterKey),
+            ("RoomArn" Lude..=) Lude.<$> roomARN
           ]
       )
 
@@ -134,23 +131,18 @@ instance Lude.ToQuery GetRoomSkillParameter where
 
 -- | /See:/ 'mkGetRoomSkillParameterResponse' smart constructor.
 data GetRoomSkillParameterResponse = GetRoomSkillParameterResponse'
-  { roomSkillParameter ::
-      Lude.Maybe RoomSkillParameter,
+  { -- | The details of the room skill parameter requested. Required.
+    roomSkillParameter :: Lude.Maybe RoomSkillParameter,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRoomSkillParameterResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'roomSkillParameter' - The details of the room skill parameter requested. Required.
+-- * 'responseStatus' - The response status code.
 mkGetRoomSkillParameterResponse ::
   -- | 'responseStatus'
   Lude.Int ->

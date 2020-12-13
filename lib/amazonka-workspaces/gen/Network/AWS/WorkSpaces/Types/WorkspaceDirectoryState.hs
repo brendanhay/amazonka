@@ -13,11 +13,11 @@
 module Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState
   ( WorkspaceDirectoryState
       ( WorkspaceDirectoryState',
-        Deregistered,
-        Deregistering,
-        Error,
+        Registering,
         Registered,
-        Registering
+        Deregistering,
+        Deregistered,
+        Error
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype WorkspaceDirectoryState = WorkspaceDirectoryState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deregistered :: WorkspaceDirectoryState
-pattern Deregistered = WorkspaceDirectoryState' "DEREGISTERED"
-
-pattern Deregistering :: WorkspaceDirectoryState
-pattern Deregistering = WorkspaceDirectoryState' "DEREGISTERING"
-
-pattern Error :: WorkspaceDirectoryState
-pattern Error = WorkspaceDirectoryState' "ERROR"
+pattern Registering :: WorkspaceDirectoryState
+pattern Registering = WorkspaceDirectoryState' "REGISTERING"
 
 pattern Registered :: WorkspaceDirectoryState
 pattern Registered = WorkspaceDirectoryState' "REGISTERED"
 
-pattern Registering :: WorkspaceDirectoryState
-pattern Registering = WorkspaceDirectoryState' "REGISTERING"
+pattern Deregistering :: WorkspaceDirectoryState
+pattern Deregistering = WorkspaceDirectoryState' "DEREGISTERING"
+
+pattern Deregistered :: WorkspaceDirectoryState
+pattern Deregistered = WorkspaceDirectoryState' "DEREGISTERED"
+
+pattern Error :: WorkspaceDirectoryState
+pattern Error = WorkspaceDirectoryState' "ERROR"
 
 {-# COMPLETE
-  Deregistered,
-  Deregistering,
-  Error,
-  Registered,
   Registering,
+  Registered,
+  Deregistering,
+  Deregistered,
+  Error,
   WorkspaceDirectoryState'
   #-}

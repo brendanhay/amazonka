@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,24 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkPutEncryptionConfig' smart constructor.
 data PutEncryptionConfig = PutEncryptionConfig'
-  { keyId ::
-      Lude.Maybe Lude.Text,
+  { -- | An AWS KMS customer master key (CMK) in one of the following formats:
+    --
+    --
+    --     * __Alias__ - The name of the key. For example, @alias/MyKey@ .
+    --
+    --
+    --     * __Key ID__ - The KMS key ID of the key. For example, @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@ . AWS X-Ray does not support asymmetric CMKs.
+    --
+    --
+    --     * __ARN__ - The full Amazon Resource Name of the key ID or alias. For example, @arn:aws:kms:us-east-2:123456789012:key/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@ . Use this format to specify a key in a different account.
+    --
+    --
+    -- Omit this key if you set @Type@ to @NONE@ .
+    keyId :: Lude.Maybe Lude.Text,
+    -- | The type of encryption. Set to @KMS@ to use your own key for encryption. Set to @NONE@ for default encryption.
     type' :: EncryptionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEncryptionConfig' with the minimum fields required to make a request.
@@ -133,17 +141,12 @@ instance Lude.ToQuery PutEncryptionConfig where
 
 -- | /See:/ 'mkPutEncryptionConfigResponse' smart constructor.
 data PutEncryptionConfigResponse = PutEncryptionConfigResponse'
-  { encryptionConfig ::
-      Lude.Maybe EncryptionConfig,
+  { -- | The new encryption configuration.
+    encryptionConfig :: Lude.Maybe EncryptionConfig,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEncryptionConfigResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -80,38 +81,112 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateKey' smart constructor.
 data CreateKey = CreateKey'
-  { origin :: Lude.Maybe OriginType,
+  { -- | The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is @AWS_KMS@ , which means AWS KMS creates the key material.
+    --
+    -- When the parameter value is @EXTERNAL@ , AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . This value is valid only for symmetric CMKs.
+    -- When the parameter value is @AWS_CLOUDHSM@ , AWS KMS creates the CMK in an AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and creates its key material in the associated AWS CloudHSM cluster. You must also use the @CustomKeyStoreId@ parameter to identify the custom key store. This value is valid only for symmetric CMKs.
+    origin :: Lude.Maybe OriginType,
+    -- | Specifies the type of CMK to create. The default value, @SYMMETRIC_DEFAULT@ , creates a CMK with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html How to Choose Your CMK Configuration> in the /AWS Key Management Service Developer Guide/ .
+    --
+    -- The @CustomerMasterKeySpec@ determines whether the CMK contains a symmetric key or an asymmetric key pair. It also determines the encryption algorithms or signing algorithms that the CMK supports. You can't change the @CustomerMasterKeySpec@ after the CMK is created. To further restrict the algorithms that can be used with the CMK, use a condition key in its key policy or IAM policy. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm kms:EncryptionAlgorithm> or <https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm kms:Signing Algorithm> in the /AWS Key Management Service Developer Guide/ .
+    -- /Important:/ <http://aws.amazon.com/kms/features/#AWS_Service_Integration AWS services that are integrated with AWS KMS> use symmetric CMKs to protect your data. These services do not support asymmetric CMKs. For help determining whether a CMK is symmetric or asymmetric, see <https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html Identifying Symmetric and Asymmetric CMKs> in the /AWS Key Management Service Developer Guide/ .
+    -- AWS KMS supports the following key specs for CMKs:
+    --
+    --     * Symmetric key (default)
+    --
+    --     * @SYMMETRIC_DEFAULT@ (AES-256-GCM)
+    --
+    --
+    --
+    --
+    --     * Asymmetric RSA key pairs
+    --
+    --     * @RSA_2048@
+    --
+    --
+    --     * @RSA_3072@
+    --
+    --
+    --     * @RSA_4096@
+    --
+    --
+    --
+    --
+    --     * Asymmetric NIST-recommended elliptic curve key pairs
+    --
+    --     * @ECC_NIST_P256@ (secp256r1)
+    --
+    --
+    --     * @ECC_NIST_P384@ (secp384r1)
+    --
+    --
+    --     * @ECC_NIST_P521@ (secp521r1)
+    --
+    --
+    --
+    --
+    --     * Other asymmetric elliptic curve key pairs
+    --
+    --     * @ECC_SECG_P256K1@ (secp256k1), commonly used for cryptocurrencies.
     customerMasterKeySpec :: Lude.Maybe CustomerMasterKeySpec,
+    -- | Determines the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK. The default value is @ENCRYPT_DECRYPT@ . This parameter is required only for asymmetric CMKs. You can't change the @KeyUsage@ value after the CMK is created.
+    --
+    -- Select only one valid value.
+    --
+    --     * For symmetric CMKs, omit the parameter or specify @ENCRYPT_DECRYPT@ .
+    --
+    --
+    --     * For asymmetric CMKs with RSA key material, specify @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@ .
+    --
+    --
+    --     * For asymmetric CMKs with ECC key material, specify @SIGN_VERIFY@ .
     keyUsage :: Lude.Maybe KeyUsageType,
+    -- | A flag to indicate whether to bypass the key policy lockout safety check.
+    --
+    -- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
+    -- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /\/AWS Key Management Service Developer Guide\/ / .
+    -- Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent 'PutKeyPolicy' request on the CMK.
+    -- The default value is false.
     bypassPolicyLockoutSafetyCheck :: Lude.Maybe Lude.Bool,
+    -- | The key policy to attach to the CMK.
+    --
+    -- If you provide a key policy, it must meet the following criteria:
+    --
+    --     * If you don't set @BypassPolicyLockoutSafetyCheck@ to true, the key policy must allow the principal that is making the @CreateKey@ request to make a subsequent 'PutKeyPolicy' request on the CMK. This reduces the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section of the /\/AWS Key Management Service Developer Guide\/ / .
+    --
+    --
+    --     * Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible> in the /AWS Identity and Access Management User Guide/ .
+    --
+    --
+    -- If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy> in the /AWS Key Management Service Developer Guide/ .
+    -- The key policy size quota is 32 kilobytes (32768 bytes).
     policy :: Lude.Maybe Lude.Text,
+    -- | A description of the CMK.
+    --
+    -- Use a description that helps you decide whether the CMK is appropriate for a task.
     description :: Lude.Maybe Lude.Text,
+    -- | Creates the CMK in the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the @Origin@ parameter with a value of @AWS_CLOUDHSM@ . The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.
+    --
+    -- This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.
+    -- To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
+    -- The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.
+    -- This operation is part of the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.
     customKeyStoreId :: Lude.Maybe Lude.Text,
+    -- | One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string.
+    --
+    -- When you add tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys> .
+    -- Use this parameter to tag the CMK when it is created. To add tags to an existing CMK, use the 'TagResource' operation.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateKey' with the minimum fields required to make a request.
 --
--- * 'bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety check.
+-- * 'origin' - The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is @AWS_KMS@ , which means AWS KMS creates the key material.
 --
--- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
--- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /\/AWS Key Management Service Developer Guide\/ / .
--- Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent 'PutKeyPolicy' request on the CMK.
--- The default value is false.
--- * 'customKeyStoreId' - Creates the CMK in the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the @Origin@ parameter with a value of @AWS_CLOUDHSM@ . The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.
---
--- This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.
--- To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
--- The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.
--- This operation is part of the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.
+-- When the parameter value is @EXTERNAL@ , AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . This value is valid only for symmetric CMKs.
+-- When the parameter value is @AWS_CLOUDHSM@ , AWS KMS creates the CMK in an AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and creates its key material in the associated AWS CloudHSM cluster. You must also use the @CustomKeyStoreId@ parameter to identify the custom key store. This value is valid only for symmetric CMKs.
 -- * 'customerMasterKeySpec' - Specifies the type of CMK to create. The default value, @SYMMETRIC_DEFAULT@ , creates a CMK with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html How to Choose Your CMK Configuration> in the /AWS Key Management Service Developer Guide/ .
 --
 -- The @CustomerMasterKeySpec@ determines whether the CMK contains a symmetric key or an asymmetric key pair. It also determines the encryption algorithms or signing algorithms that the CMK supports. You can't change the @CustomerMasterKeySpec@ after the CMK is created. To further restrict the algorithms that can be used with the CMK, use a condition key in its key policy or IAM policy. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm kms:EncryptionAlgorithm> or <https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm kms:Signing Algorithm> in the /AWS Key Management Service Developer Guide/ .
@@ -158,9 +233,6 @@ data CreateKey = CreateKey'
 --
 --
 --
--- * 'description' - A description of the CMK.
---
--- Use a description that helps you decide whether the CMK is appropriate for a task.
 -- * 'keyUsage' - Determines the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK. The default value is @ENCRYPT_DECRYPT@ . This parameter is required only for asymmetric CMKs. You can't change the @KeyUsage@ value after the CMK is created.
 --
 -- Select only one valid value.
@@ -174,10 +246,12 @@ data CreateKey = CreateKey'
 --     * For asymmetric CMKs with ECC key material, specify @SIGN_VERIFY@ .
 --
 --
--- * 'origin' - The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is @AWS_KMS@ , which means AWS KMS creates the key material.
+-- * 'bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety check.
 --
--- When the parameter value is @EXTERNAL@ , AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . This value is valid only for symmetric CMKs.
--- When the parameter value is @AWS_CLOUDHSM@ , AWS KMS creates the CMK in an AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and creates its key material in the associated AWS CloudHSM cluster. You must also use the @CustomKeyStoreId@ parameter to identify the custom key store. This value is valid only for symmetric CMKs.
+-- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
+-- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /\/AWS Key Management Service Developer Guide\/ / .
+-- Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent 'PutKeyPolicy' request on the CMK.
+-- The default value is false.
 -- * 'policy' - The key policy to attach to the CMK.
 --
 -- If you provide a key policy, it must meet the following criteria:
@@ -190,6 +264,15 @@ data CreateKey = CreateKey'
 --
 -- If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy> in the /AWS Key Management Service Developer Guide/ .
 -- The key policy size quota is 32 kilobytes (32768 bytes).
+-- * 'description' - A description of the CMK.
+--
+-- Use a description that helps you decide whether the CMK is appropriate for a task.
+-- * 'customKeyStoreId' - Creates the CMK in the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the @Origin@ parameter with a value of @AWS_CLOUDHSM@ . The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.
+--
+-- This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.
+-- To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
+-- The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.
+-- This operation is part of the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.
 -- * 'tags' - One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string.
 --
 -- When you add tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys> .
@@ -395,17 +478,12 @@ instance Lude.ToQuery CreateKey where
 
 -- | /See:/ 'mkCreateKeyResponse' smart constructor.
 data CreateKeyResponse = CreateKeyResponse'
-  { keyMetadata ::
-      Lude.Maybe KeyMetadata,
+  { -- | Metadata associated with the CMK.
+    keyMetadata :: Lude.Maybe KeyMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateKeyResponse' with the minimum fields required to make a request.

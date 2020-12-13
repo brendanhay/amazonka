@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,9 +36,9 @@ module Network.AWS.SecretsManager.PutResourcePolicy
     mkPutResourcePolicy,
 
     -- ** Request lenses
+    prpResourcePolicy,
     prpBlockPublicPolicy,
     prpSecretId,
-    prpResourcePolicy,
 
     -- * Destructuring the response
     PutResourcePolicyResponse (..),
@@ -58,37 +59,40 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { blockPublicPolicy ::
-      Lude.Maybe Lude.Bool,
-    secretId :: Lude.Text,
-    resourcePolicy :: Lude.Text
+  { -- | A JSON-formatted string that's constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+    resourcePolicy :: Lude.Text,
+    -- | Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+    blockPublicPolicy :: Lude.Maybe Lude.Bool,
+    -- | Specifies the secret that you want to attach the resource-based policy to. You can specify either the ARN or the friendly name of the secret.
+    secretId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourcePolicy' with the minimum fields required to make a request.
 --
--- * 'blockPublicPolicy' - Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 -- * 'resourcePolicy' - A JSON-formatted string that's constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+-- * 'blockPublicPolicy' - Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 -- * 'secretId' - Specifies the secret that you want to attach the resource-based policy to. You can specify either the ARN or the friendly name of the secret.
 mkPutResourcePolicy ::
-  -- | 'secretId'
-  Lude.Text ->
   -- | 'resourcePolicy'
   Lude.Text ->
+  -- | 'secretId'
+  Lude.Text ->
   PutResourcePolicy
-mkPutResourcePolicy pSecretId_ pResourcePolicy_ =
+mkPutResourcePolicy pResourcePolicy_ pSecretId_ =
   PutResourcePolicy'
-    { blockPublicPolicy = Lude.Nothing,
-      secretId = pSecretId_,
-      resourcePolicy = pResourcePolicy_
+    { resourcePolicy = pResourcePolicy_,
+      blockPublicPolicy = Lude.Nothing,
+      secretId = pSecretId_
     }
+
+-- | A JSON-formatted string that's constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+--
+-- /Note:/ Consider using 'resourcePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpResourcePolicy :: Lens.Lens' PutResourcePolicy Lude.Text
+prpResourcePolicy = Lens.lens (resourcePolicy :: PutResourcePolicy -> Lude.Text) (\s a -> s {resourcePolicy = a} :: PutResourcePolicy)
+{-# DEPRECATED prpResourcePolicy "Use generic-lens or generic-optics with 'resourcePolicy' instead." #-}
 
 -- | Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 --
@@ -103,13 +107,6 @@ prpBlockPublicPolicy = Lens.lens (blockPublicPolicy :: PutResourcePolicy -> Lude
 prpSecretId :: Lens.Lens' PutResourcePolicy Lude.Text
 prpSecretId = Lens.lens (secretId :: PutResourcePolicy -> Lude.Text) (\s a -> s {secretId = a} :: PutResourcePolicy)
 {-# DEPRECATED prpSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
-
--- | A JSON-formatted string that's constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
---
--- /Note:/ Consider using 'resourcePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpResourcePolicy :: Lens.Lens' PutResourcePolicy Lude.Text
-prpResourcePolicy = Lens.lens (resourcePolicy :: PutResourcePolicy -> Lude.Text) (\s a -> s {resourcePolicy = a} :: PutResourcePolicy)
-{-# DEPRECATED prpResourcePolicy "Use generic-lens or generic-optics with 'resourcePolicy' instead." #-}
 
 instance Lude.AWSRequest PutResourcePolicy where
   type Rs PutResourcePolicy = PutResourcePolicyResponse
@@ -138,9 +135,9 @@ instance Lude.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("BlockPublicPolicy" Lude..=) Lude.<$> blockPublicPolicy,
-            Lude.Just ("SecretId" Lude..= secretId),
-            Lude.Just ("ResourcePolicy" Lude..= resourcePolicy)
+          [ Lude.Just ("ResourcePolicy" Lude..= resourcePolicy),
+            ("BlockPublicPolicy" Lude..=) Lude.<$> blockPublicPolicy,
+            Lude.Just ("SecretId" Lude..= secretId)
           ]
       )
 
@@ -152,18 +149,14 @@ instance Lude.ToQuery PutResourcePolicy where
 
 -- | /See:/ 'mkPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the secret retrieved by the resource-based policy.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret that the retrieved by the resource-based policy.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourcePolicyResponse' with the minimum fields required to make a request.

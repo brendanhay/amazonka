@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -70,10 +71,10 @@ module Network.AWS.S3.PutBucketAnalyticsConfiguration
     mkPutBucketAnalyticsConfiguration,
 
     -- ** Request lenses
-    pExpectedBucketOwner,
-    pBucket,
-    pId,
-    pAnalyticsConfiguration,
+    pbacBucket,
+    pbacId,
+    pbacAnalyticsConfiguration,
+    pbacExpectedBucketOwner,
 
     -- * Destructuring the response
     PutBucketAnalyticsConfigurationResponse (..),
@@ -89,28 +90,24 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketAnalyticsConfiguration' smart constructor.
 data PutBucketAnalyticsConfiguration = PutBucketAnalyticsConfiguration'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the bucket to which an analytics configuration is stored.
     bucket :: BucketName,
+    -- | The ID that identifies the analytics configuration.
     id :: Lude.Text,
-    analyticsConfiguration ::
-      AnalyticsConfiguration
+    -- | The configuration and any analyses for the analytics filter.
+    analyticsConfiguration :: AnalyticsConfiguration,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketAnalyticsConfiguration' with the minimum fields required to make a request.
 --
--- * 'analyticsConfiguration' - The configuration and any analyses for the analytics filter.
 -- * 'bucket' - The name of the bucket to which an analytics configuration is stored.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 -- * 'id' - The ID that identifies the analytics configuration.
+-- * 'analyticsConfiguration' - The configuration and any analyses for the analytics filter.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkPutBucketAnalyticsConfiguration ::
   -- | 'bucket'
   BucketName ->
@@ -124,40 +121,39 @@ mkPutBucketAnalyticsConfiguration
   pId_
   pAnalyticsConfiguration_ =
     PutBucketAnalyticsConfiguration'
-      { expectedBucketOwner =
-          Lude.Nothing,
-        bucket = pBucket_,
+      { bucket = pBucket_,
         id = pId_,
-        analyticsConfiguration = pAnalyticsConfiguration_
+        analyticsConfiguration = pAnalyticsConfiguration_,
+        expectedBucketOwner = Lude.Nothing
       }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pExpectedBucketOwner :: Lens.Lens' PutBucketAnalyticsConfiguration (Lude.Maybe Lude.Text)
-pExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketAnalyticsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketAnalyticsConfiguration)
-{-# DEPRECATED pExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket to which an analytics configuration is stored.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pBucket :: Lens.Lens' PutBucketAnalyticsConfiguration BucketName
-pBucket = Lens.lens (bucket :: PutBucketAnalyticsConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketAnalyticsConfiguration)
-{-# DEPRECATED pBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+pbacBucket :: Lens.Lens' PutBucketAnalyticsConfiguration BucketName
+pbacBucket = Lens.lens (bucket :: PutBucketAnalyticsConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketAnalyticsConfiguration)
+{-# DEPRECATED pbacBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID that identifies the analytics configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pId :: Lens.Lens' PutBucketAnalyticsConfiguration Lude.Text
-pId = Lens.lens (id :: PutBucketAnalyticsConfiguration -> Lude.Text) (\s a -> s {id = a} :: PutBucketAnalyticsConfiguration)
-{-# DEPRECATED pId "Use generic-lens or generic-optics with 'id' instead." #-}
+pbacId :: Lens.Lens' PutBucketAnalyticsConfiguration Lude.Text
+pbacId = Lens.lens (id :: PutBucketAnalyticsConfiguration -> Lude.Text) (\s a -> s {id = a} :: PutBucketAnalyticsConfiguration)
+{-# DEPRECATED pbacId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The configuration and any analyses for the analytics filter.
 --
 -- /Note:/ Consider using 'analyticsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pAnalyticsConfiguration :: Lens.Lens' PutBucketAnalyticsConfiguration AnalyticsConfiguration
-pAnalyticsConfiguration = Lens.lens (analyticsConfiguration :: PutBucketAnalyticsConfiguration -> AnalyticsConfiguration) (\s a -> s {analyticsConfiguration = a} :: PutBucketAnalyticsConfiguration)
-{-# DEPRECATED pAnalyticsConfiguration "Use generic-lens or generic-optics with 'analyticsConfiguration' instead." #-}
+pbacAnalyticsConfiguration :: Lens.Lens' PutBucketAnalyticsConfiguration AnalyticsConfiguration
+pbacAnalyticsConfiguration = Lens.lens (analyticsConfiguration :: PutBucketAnalyticsConfiguration -> AnalyticsConfiguration) (\s a -> s {analyticsConfiguration = a} :: PutBucketAnalyticsConfiguration)
+{-# DEPRECATED pbacAnalyticsConfiguration "Use generic-lens or generic-optics with 'analyticsConfiguration' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbacExpectedBucketOwner :: Lens.Lens' PutBucketAnalyticsConfiguration (Lude.Maybe Lude.Text)
+pbacExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketAnalyticsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketAnalyticsConfiguration)
+{-# DEPRECATED pbacExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest PutBucketAnalyticsConfiguration where
   type
@@ -187,13 +183,7 @@ instance Lude.ToQuery PutBucketAnalyticsConfiguration where
 
 -- | /See:/ 'mkPutBucketAnalyticsConfigurationResponse' smart constructor.
 data PutBucketAnalyticsConfigurationResponse = PutBucketAnalyticsConfigurationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketAnalyticsConfigurationResponse' with the minimum fields required to make a request.

@@ -31,34 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkFirewallMissingFirewallViolation' smart constructor.
 data NetworkFirewallMissingFirewallViolation = NetworkFirewallMissingFirewallViolation'
-  { targetViolationReason ::
-      Lude.Maybe
-        Lude.Text,
-    availabilityZone ::
-      Lude.Maybe
-        Lude.Text,
-    vpc ::
-      Lude.Maybe
-        Lude.Text,
-    violationTarget ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The reason the resource has this violation, if one is available.
+    targetViolationReason :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone of a violating subnet.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The resource ID of the VPC associated with a violating subnet.
+    vpc :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS Network Firewall or VPC resource that's in violation.
+    violationTarget :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkFirewallMissingFirewallViolation' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone of a violating subnet.
 -- * 'targetViolationReason' - The reason the resource has this violation, if one is available.
--- * 'violationTarget' - The ID of the AWS Network Firewall or VPC resource that's in violation.
+-- * 'availabilityZone' - The Availability Zone of a violating subnet.
 -- * 'vpc' - The resource ID of the VPC associated with a violating subnet.
+-- * 'violationTarget' - The ID of the AWS Network Firewall or VPC resource that's in violation.
 mkNetworkFirewallMissingFirewallViolation ::
   NetworkFirewallMissingFirewallViolation
 mkNetworkFirewallMissingFirewallViolation =

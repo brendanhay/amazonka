@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CognitoIdentityProvider.ChangePassword
     mkChangePassword,
 
     -- ** Request lenses
-    cpPreviousPassword,
-    cpProposedPassword,
     cpAccessToken,
+    cpProposedPassword,
+    cpPreviousPassword,
 
     -- * Destructuring the response
     ChangePasswordResponse (..),
@@ -42,10 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkChangePassword' smart constructor.
 data ChangePassword = ChangePassword'
-  { previousPassword ::
-      Lude.Sensitive Lude.Text,
+  { -- | The access token.
+    accessToken :: Lude.Sensitive Lude.Text,
+    -- | The new password.
     proposedPassword :: Lude.Sensitive Lude.Text,
-    accessToken :: Lude.Sensitive Lude.Text
+    -- | The old password.
+    previousPassword :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -53,32 +56,32 @@ data ChangePassword = ChangePassword'
 -- | Creates a value of 'ChangePassword' with the minimum fields required to make a request.
 --
 -- * 'accessToken' - The access token.
--- * 'previousPassword' - The old password.
 -- * 'proposedPassword' - The new password.
+-- * 'previousPassword' - The old password.
 mkChangePassword ::
-  -- | 'previousPassword'
+  -- | 'accessToken'
   Lude.Sensitive Lude.Text ->
   -- | 'proposedPassword'
   Lude.Sensitive Lude.Text ->
-  -- | 'accessToken'
+  -- | 'previousPassword'
   Lude.Sensitive Lude.Text ->
   ChangePassword
 mkChangePassword
-  pPreviousPassword_
+  pAccessToken_
   pProposedPassword_
-  pAccessToken_ =
+  pPreviousPassword_ =
     ChangePassword'
-      { previousPassword = pPreviousPassword_,
+      { accessToken = pAccessToken_,
         proposedPassword = pProposedPassword_,
-        accessToken = pAccessToken_
+        previousPassword = pPreviousPassword_
       }
 
--- | The old password.
+-- | The access token.
 --
--- /Note:/ Consider using 'previousPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPreviousPassword :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
-cpPreviousPassword = Lens.lens (previousPassword :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {previousPassword = a} :: ChangePassword)
-{-# DEPRECATED cpPreviousPassword "Use generic-lens or generic-optics with 'previousPassword' instead." #-}
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpAccessToken :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
+cpAccessToken = Lens.lens (accessToken :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: ChangePassword)
+{-# DEPRECATED cpAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | The new password.
 --
@@ -87,12 +90,12 @@ cpProposedPassword :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
 cpProposedPassword = Lens.lens (proposedPassword :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {proposedPassword = a} :: ChangePassword)
 {-# DEPRECATED cpProposedPassword "Use generic-lens or generic-optics with 'proposedPassword' instead." #-}
 
--- | The access token.
+-- | The old password.
 --
--- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpAccessToken :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
-cpAccessToken = Lens.lens (accessToken :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: ChangePassword)
-{-# DEPRECATED cpAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
+-- /Note:/ Consider using 'previousPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPreviousPassword :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
+cpPreviousPassword = Lens.lens (previousPassword :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {previousPassword = a} :: ChangePassword)
+{-# DEPRECATED cpPreviousPassword "Use generic-lens or generic-optics with 'previousPassword' instead." #-}
 
 instance Lude.AWSRequest ChangePassword where
   type Rs ChangePassword = ChangePasswordResponse
@@ -120,9 +123,9 @@ instance Lude.ToJSON ChangePassword where
   toJSON ChangePassword' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("PreviousPassword" Lude..= previousPassword),
+          [ Lude.Just ("AccessToken" Lude..= accessToken),
             Lude.Just ("ProposedPassword" Lude..= proposedPassword),
-            Lude.Just ("AccessToken" Lude..= accessToken)
+            Lude.Just ("PreviousPassword" Lude..= previousPassword)
           ]
       )
 
@@ -136,16 +139,10 @@ instance Lude.ToQuery ChangePassword where
 --
 -- /See:/ 'mkChangePasswordResponse' smart constructor.
 newtype ChangePasswordResponse = ChangePasswordResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangePasswordResponse' with the minimum fields required to make a request.

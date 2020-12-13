@@ -13,8 +13,8 @@
 module Network.AWS.AppStream.Types.StackErrorCode
   ( StackErrorCode
       ( StackErrorCode',
-        SECInternalServiceError,
-        SECStorageConnectorError
+        SECStorageConnectorError,
+        SECInternalServiceError
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype StackErrorCode = StackErrorCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern SECInternalServiceError :: StackErrorCode
-pattern SECInternalServiceError = StackErrorCode' "INTERNAL_SERVICE_ERROR"
-
 pattern SECStorageConnectorError :: StackErrorCode
 pattern SECStorageConnectorError = StackErrorCode' "STORAGE_CONNECTOR_ERROR"
 
+pattern SECInternalServiceError :: StackErrorCode
+pattern SECInternalServiceError = StackErrorCode' "INTERNAL_SERVICE_ERROR"
+
 {-# COMPLETE
-  SECInternalServiceError,
   SECStorageConnectorError,
+  SECInternalServiceError,
   StackErrorCode'
   #-}

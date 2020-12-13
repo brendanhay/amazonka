@@ -33,31 +33,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPartitionInput' smart constructor.
 data PartitionInput = PartitionInput'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input.
+    --
+    -- The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The last time at which column statistics were computed for this partition.
     lastAnalyzedTime :: Lude.Maybe Lude.Timestamp,
+    -- | Provides information about the physical location where the partition is stored.
     storageDescriptor :: Lude.Maybe StorageDescriptor,
+    -- | These key-value pairs define partition parameters.
     parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The last time at which the partition was accessed.
     lastAccessTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartitionInput' with the minimum fields required to make a request.
 --
--- * 'lastAccessTime' - The last time at which the partition was accessed.
--- * 'lastAnalyzedTime' - The last time at which column statistics were computed for this partition.
--- * 'parameters' - These key-value pairs define partition parameters.
--- * 'storageDescriptor' - Provides information about the physical location where the partition is stored.
 -- * 'values' - The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input.
 --
 -- The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+-- * 'lastAnalyzedTime' - The last time at which column statistics were computed for this partition.
+-- * 'storageDescriptor' - Provides information about the physical location where the partition is stored.
+-- * 'parameters' - These key-value pairs define partition parameters.
+-- * 'lastAccessTime' - The last time at which the partition was accessed.
 mkPartitionInput ::
   PartitionInput
 mkPartitionInput =

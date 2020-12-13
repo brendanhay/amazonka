@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -54,25 +55,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSlotTypes' smart constructor.
 data GetSlotTypes = GetSlotTypes'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch next page of slot types, specify the pagination token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of slot types to return in the response. The default is 10.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSlotTypes' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of slot types to return in the response. The default is 10.
 -- * 'nameContains' - Substring to match in slot type names. A slot type will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 -- * 'nextToken' - A pagination token that fetches the next page of slot types. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch next page of slot types, specify the pagination token in the next request.
+-- * 'maxResults' - The maximum number of slot types to return in the response. The default is 10.
 mkGetSlotTypes ::
   GetSlotTypes
 mkGetSlotTypes =
@@ -146,25 +143,21 @@ instance Lude.ToQuery GetSlotTypes where
 
 -- | /See:/ 'mkGetSlotTypesResponse' smart constructor.
 data GetSlotTypesResponse = GetSlotTypesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of slot types.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of objects, one for each slot type, that provides information such as the name of the slot type, the version, and a description.
     slotTypes :: Lude.Maybe [SlotTypeMetadata],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSlotTypesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of slot types.
--- * 'responseStatus' - The response status code.
 -- * 'slotTypes' - An array of objects, one for each slot type, that provides information such as the name of the slot type, the version, and a description.
+-- * 'responseStatus' - The response status code.
 mkGetSlotTypesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

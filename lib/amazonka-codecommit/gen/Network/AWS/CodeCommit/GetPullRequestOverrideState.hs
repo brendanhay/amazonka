@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetPullRequestOverrideState' smart constructor.
 data GetPullRequestOverrideState = GetPullRequestOverrideState'
-  { pullRequestId ::
-      Lude.Text,
+  { -- | The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).
+    pullRequestId :: Lude.Text,
+    -- | The system-generated ID of the revision for the pull request. To retrieve the most recent revision ID, use 'GetPullRequest' .
     revisionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPullRequestOverrideState' with the minimum fields required to make a request.
@@ -128,22 +124,14 @@ instance Lude.ToQuery GetPullRequestOverrideState where
 
 -- | /See:/ 'mkGetPullRequestOverrideStateResponse' smart constructor.
 data GetPullRequestOverrideStateResponse = GetPullRequestOverrideStateResponse'
-  { overridden ::
-      Lude.Maybe
-        Lude.Bool,
-    overrider ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).
+    overridden :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.
+    overrider :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPullRequestOverrideStateResponse' with the minimum fields required to make a request.

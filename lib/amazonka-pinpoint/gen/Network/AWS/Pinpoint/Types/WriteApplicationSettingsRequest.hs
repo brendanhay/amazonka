@@ -35,33 +35,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWriteApplicationSettingsRequest' smart constructor.
 data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
-  { eventTaggingEnabled ::
-      Lude.Maybe Lude.Bool,
-    cloudWatchMetricsEnabled ::
-      Lude.Maybe Lude.Bool,
-    limits ::
-      Lude.Maybe CampaignLimits,
-    quietTime ::
-      Lude.Maybe QuietTime,
-    campaignHook ::
-      Lude.Maybe CampaignHook
+  { eventTaggingEnabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether to enable application-related alarms in Amazon CloudWatch.
+    cloudWatchMetricsEnabled :: Lude.Maybe Lude.Bool,
+    -- | The default sending limits for campaigns in the application. To override these limits and define custom limits for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource, respectively.
+    limits :: Lude.Maybe CampaignLimits,
+    -- | The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:
+    --
+    --
+    --     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.
+    --
+    --
+    --     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).
+    --
+    --
+    --     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).
+    --
+    --
+    -- If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.
+    -- To override the default quiet time settings for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource to define a custom quiet time for the campaign or journey.
+    quietTime :: Lude.Maybe QuietTime,
+    -- | The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
+    --
+    -- To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link>Campaign resource.
+    campaignHook :: Lude.Maybe CampaignHook
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WriteApplicationSettingsRequest' with the minimum fields required to make a request.
 --
--- * 'campaignHook' - The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
---
--- To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link>Campaign resource.
+-- * 'eventTaggingEnabled' -
 -- * 'cloudWatchMetricsEnabled' - Specifies whether to enable application-related alarms in Amazon CloudWatch.
--- * 'eventTaggingEnabled' - Undocumented field.
 -- * 'limits' - The default sending limits for campaigns in the application. To override these limits and define custom limits for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource, respectively.
 -- * 'quietTime' - The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:
 --
@@ -77,6 +82,9 @@ data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
 --
 -- If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.
 -- To override the default quiet time settings for a specific campaign or journey, use the <link>Campaign resource or the <link>Journey resource to define a custom quiet time for the campaign or journey.
+-- * 'campaignHook' - The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
+--
+-- To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link>Campaign resource.
 mkWriteApplicationSettingsRequest ::
   WriteApplicationSettingsRequest
 mkWriteApplicationSettingsRequest =

@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComplianceByResource' smart constructor.
 data ComplianceByResource = ComplianceByResource'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the AWS resource that was evaluated.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of the AWS resource that was evaluated.
     resourceType :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
     compliance :: Lude.Maybe Compliance
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceByResource' with the minimum fields required to make a request.
 --
--- * 'compliance' - Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
 -- * 'resourceId' - The ID of the AWS resource that was evaluated.
 -- * 'resourceType' - The type of the AWS resource that was evaluated.
+-- * 'compliance' - Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
 mkComplianceByResource ::
   ComplianceByResource
 mkComplianceByResource =

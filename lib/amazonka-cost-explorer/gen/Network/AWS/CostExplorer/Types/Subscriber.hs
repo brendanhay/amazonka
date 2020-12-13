@@ -32,24 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubscriber' smart constructor.
 data Subscriber = Subscriber'
-  { status ::
-      Lude.Maybe SubscriberStatus,
+  { -- | Indicates if the subscriber accepts the notifications.
+    status :: Lude.Maybe SubscriberStatus,
+    -- | The email address or SNS Amazon Resource Name (ARN), depending on the @Type@ .
     address :: Lude.Maybe Lude.Text,
+    -- | The notification delivery channel.
     type' :: Lude.Maybe SubscriberType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscriber' with the minimum fields required to make a request.
 --
--- * 'address' - The email address or SNS Amazon Resource Name (ARN), depending on the @Type@ .
 -- * 'status' - Indicates if the subscriber accepts the notifications.
+-- * 'address' - The email address or SNS Amazon Resource Name (ARN), depending on the @Type@ .
 -- * 'type'' - The notification delivery channel.
 mkSubscriber ::
   Subscriber

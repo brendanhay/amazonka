@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteMonitoringSubscription' smart constructor.
 newtype DeleteMonitoringSubscription = DeleteMonitoringSubscription'
-  { distributionId ::
-      Lude.Text
+  { -- | The ID of the distribution that you are disabling metrics for.
+    distributionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMonitoringSubscription' with the minimum fields required to make a request.
@@ -95,16 +90,10 @@ instance Lude.ToQuery DeleteMonitoringSubscription where
 
 -- | /See:/ 'mkDeleteMonitoringSubscriptionResponse' smart constructor.
 newtype DeleteMonitoringSubscriptionResponse = DeleteMonitoringSubscriptionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMonitoringSubscriptionResponse' with the minimum fields required to make a request.

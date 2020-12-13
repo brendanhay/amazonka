@@ -32,30 +32,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExecutionConfiguration' smart constructor.
 data ExecutionConfiguration = ExecutionConfiguration'
-  { skipAppResign ::
-      Lude.Maybe Lude.Bool,
+  { -- | When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+    --
+    -- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
+    skipAppResign :: Lude.Maybe Lude.Bool,
+    -- | True if account cleanup is enabled at the beginning of the test. Otherwise, false.
     accountsCleanup :: Lude.Maybe Lude.Bool,
+    -- | True if app package cleanup is enabled at the beginning of the test. Otherwise, false.
     appPackagesCleanup :: Lude.Maybe Lude.Bool,
+    -- | The number of minutes a test run executes before it times out.
     jobTimeoutMinutes :: Lude.Maybe Lude.Int,
+    -- | Set to true to enable video capture. Otherwise, set to false. The default is true.
     videoCapture :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionConfiguration' with the minimum fields required to make a request.
 --
--- * 'accountsCleanup' - True if account cleanup is enabled at the beginning of the test. Otherwise, false.
--- * 'appPackagesCleanup' - True if app package cleanup is enabled at the beginning of the test. Otherwise, false.
--- * 'jobTimeoutMinutes' - The number of minutes a test run executes before it times out.
 -- * 'skipAppResign' - When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
+-- * 'accountsCleanup' - True if account cleanup is enabled at the beginning of the test. Otherwise, false.
+-- * 'appPackagesCleanup' - True if app package cleanup is enabled at the beginning of the test. Otherwise, false.
+-- * 'jobTimeoutMinutes' - The number of minutes a test run executes before it times out.
 -- * 'videoCapture' - Set to true to enable video capture. Otherwise, set to false. The default is true.
 mkExecutionConfiguration ::
   ExecutionConfiguration

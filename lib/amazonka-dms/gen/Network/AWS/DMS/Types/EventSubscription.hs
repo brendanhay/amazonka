@@ -36,43 +36,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the AWS DMS event notification subscription.
+    --
+    -- Constraints:
+    -- Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
+    -- The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+    status :: Lude.Maybe Lude.Text,
+    -- | The AWS customer account associated with the AWS DMS event notification subscription.
     customerAWSId :: Lude.Maybe Lude.Text,
+    -- | The AWS DMS event notification subscription Id.
     custSubscriptionId :: Lude.Maybe Lude.Text,
+    -- | The topic ARN of the AWS DMS event notification subscription.
     snsTopicARN :: Lude.Maybe Lude.Text,
+    -- | Boolean value that indicates if the event subscription is enabled.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The type of AWS DMS resource that generates events.
+    --
+    -- Valid values: replication-instance | replication-server | security-group | replication-task
     sourceType :: Lude.Maybe Lude.Text,
+    -- | The time the AWS DMS event notification subscription was created.
     subscriptionCreationTime :: Lude.Maybe Lude.Text,
+    -- | A lists of event categories.
     eventCategoriesList :: Lude.Maybe [Lude.Text],
+    -- | A list of source Ids for the event subscription.
     sourceIdsList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
--- * 'custSubscriptionId' - The AWS DMS event notification subscription Id.
--- * 'customerAWSId' - The AWS customer account associated with the AWS DMS event notification subscription.
--- * 'enabled' - Boolean value that indicates if the event subscription is enabled.
--- * 'eventCategoriesList' - A lists of event categories.
--- * 'snsTopicARN' - The topic ARN of the AWS DMS event notification subscription.
--- * 'sourceIdsList' - A list of source Ids for the event subscription.
--- * 'sourceType' - The type of AWS DMS resource that generates events.
---
--- Valid values: replication-instance | replication-server | security-group | replication-task
 -- * 'status' - The status of the AWS DMS event notification subscription.
 --
 -- Constraints:
 -- Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
 -- The status "no-permission" indicates that AWS DMS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+-- * 'customerAWSId' - The AWS customer account associated with the AWS DMS event notification subscription.
+-- * 'custSubscriptionId' - The AWS DMS event notification subscription Id.
+-- * 'snsTopicARN' - The topic ARN of the AWS DMS event notification subscription.
+-- * 'enabled' - Boolean value that indicates if the event subscription is enabled.
+-- * 'sourceType' - The type of AWS DMS resource that generates events.
+--
+-- Valid values: replication-instance | replication-server | security-group | replication-task
 -- * 'subscriptionCreationTime' - The time the AWS DMS event notification subscription was created.
+-- * 'eventCategoriesList' - A lists of event categories.
+-- * 'sourceIdsList' - A list of source Ids for the event subscription.
 mkEventSubscription ::
   EventSubscription
 mkEventSubscription =

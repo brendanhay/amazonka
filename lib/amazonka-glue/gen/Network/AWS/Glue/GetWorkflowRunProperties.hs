@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.GetWorkflowRunProperties
     mkGetWorkflowRunProperties,
 
     -- ** Request lenses
-    gwrpName,
     gwrpRunId,
+    gwrpName,
 
     -- * Destructuring the response
     GetWorkflowRunPropertiesResponse (..),
@@ -40,38 +41,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetWorkflowRunProperties' smart constructor.
 data GetWorkflowRunProperties = GetWorkflowRunProperties'
-  { name ::
-      Lude.Text,
-    runId :: Lude.Text
+  { -- | The ID of the workflow run whose run properties should be returned.
+    runId :: Lude.Text,
+    -- | Name of the workflow which was run.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWorkflowRunProperties' with the minimum fields required to make a request.
 --
--- * 'name' - Name of the workflow which was run.
 -- * 'runId' - The ID of the workflow run whose run properties should be returned.
+-- * 'name' - Name of the workflow which was run.
 mkGetWorkflowRunProperties ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'runId'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   GetWorkflowRunProperties
-mkGetWorkflowRunProperties pName_ pRunId_ =
-  GetWorkflowRunProperties' {name = pName_, runId = pRunId_}
-
--- | Name of the workflow which was run.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrpName :: Lens.Lens' GetWorkflowRunProperties Lude.Text
-gwrpName = Lens.lens (name :: GetWorkflowRunProperties -> Lude.Text) (\s a -> s {name = a} :: GetWorkflowRunProperties)
-{-# DEPRECATED gwrpName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkGetWorkflowRunProperties pRunId_ pName_ =
+  GetWorkflowRunProperties' {runId = pRunId_, name = pName_}
 
 -- | The ID of the workflow run whose run properties should be returned.
 --
@@ -79,6 +68,13 @@ gwrpName = Lens.lens (name :: GetWorkflowRunProperties -> Lude.Text) (\s a -> s 
 gwrpRunId :: Lens.Lens' GetWorkflowRunProperties Lude.Text
 gwrpRunId = Lens.lens (runId :: GetWorkflowRunProperties -> Lude.Text) (\s a -> s {runId = a} :: GetWorkflowRunProperties)
 {-# DEPRECATED gwrpRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+
+-- | Name of the workflow which was run.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwrpName :: Lens.Lens' GetWorkflowRunProperties Lude.Text
+gwrpName = Lens.lens (name :: GetWorkflowRunProperties -> Lude.Text) (\s a -> s {name = a} :: GetWorkflowRunProperties)
+{-# DEPRECATED gwrpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest GetWorkflowRunProperties where
   type Rs GetWorkflowRunProperties = GetWorkflowRunPropertiesResponse
@@ -106,8 +102,8 @@ instance Lude.ToJSON GetWorkflowRunProperties where
   toJSON GetWorkflowRunProperties' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("RunId" Lude..= runId)
+          [ Lude.Just ("RunId" Lude..= runId),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -119,28 +115,18 @@ instance Lude.ToQuery GetWorkflowRunProperties where
 
 -- | /See:/ 'mkGetWorkflowRunPropertiesResponse' smart constructor.
 data GetWorkflowRunPropertiesResponse = GetWorkflowRunPropertiesResponse'
-  { runProperties ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    responseStatus ::
-      Lude.Int
+  { -- | The workflow run properties which were set during the specified run.
+    runProperties :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWorkflowRunPropertiesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'runProperties' - The workflow run properties which were set during the specified run.
+-- * 'responseStatus' - The response status code.
 mkGetWorkflowRunPropertiesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

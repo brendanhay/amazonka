@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,25 +47,20 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeInstancePatchStatesForPatchGroup' smart constructor.
 data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPatchGroup'
-  { filters ::
-      Lude.Maybe
-        [InstancePatchStateFilter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    patchGroup ::
-      Lude.Text
+  { -- | Each entry in the array is a structure containing:
+    --
+    -- Key (string between 1 and 200 characters)
+    -- Values (array containing a single string)
+    -- Type (string "Equal", "NotEqual", "LessThan", "GreaterThan")
+    filters :: Lude.Maybe [InstancePatchStateFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of patches to return (per page).
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The name of the patch group for which the patch state information should be retrieved.
+    patchGroup :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancePatchStatesForPatchGroup' with the minimum fields required to make a request.
@@ -74,8 +70,8 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
 -- Key (string between 1 and 200 characters)
 -- Values (array containing a single string)
 -- Type (string "Equal", "NotEqual", "LessThan", "GreaterThan")
--- * 'maxResults' - The maximum number of patches to return (per page).
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of patches to return (per page).
 -- * 'patchGroup' - The name of the patch group for which the patch state information should be retrieved.
 mkDescribeInstancePatchStatesForPatchGroup ::
   -- | 'patchGroup'
@@ -177,32 +173,20 @@ instance Lude.ToQuery DescribeInstancePatchStatesForPatchGroup where
 
 -- | /See:/ 'mkDescribeInstancePatchStatesForPatchGroupResponse' smart constructor.
 data DescribeInstancePatchStatesForPatchGroupResponse = DescribeInstancePatchStatesForPatchGroupResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    instancePatchStates ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            InstancePatchState
-        ),
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The high-level patch state for the requested instances.
+    instancePatchStates :: Lude.Maybe (Lude.NonEmpty InstancePatchState),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancePatchStatesForPatchGroupResponse' with the minimum fields required to make a request.
 --
--- * 'instancePatchStates' - The high-level patch state for the requested instances.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'instancePatchStates' - The high-level patch state for the requested instances.
 -- * 'responseStatus' - The response status code.
 mkDescribeInstancePatchStatesForPatchGroupResponse ::
   -- | 'responseStatus'

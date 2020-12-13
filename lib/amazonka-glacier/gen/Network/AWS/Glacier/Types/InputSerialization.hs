@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputSerialization' smart constructor.
 newtype InputSerialization = InputSerialization'
-  { csv ::
-      Lude.Maybe CSVInput
+  { -- | Describes the serialization of a CSV-encoded object.
+    csv :: Lude.Maybe CSVInput
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSerialization' with the minimum fields required to make a request.

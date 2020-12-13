@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnetCidrBlockState' smart constructor.
 data SubnetCidrBlockState = SubnetCidrBlockState'
-  { state ::
-      Lude.Maybe SubnetCidrBlockStateCode,
+  { -- | The state of a CIDR block.
+    state :: Lude.Maybe SubnetCidrBlockStateCode,
+    -- | A message about the status of the CIDR block, if applicable.
     statusMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetCidrBlockState' with the minimum fields required to make a request.

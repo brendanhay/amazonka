@@ -14,8 +14,8 @@ module Network.AWS.Config.Types.AggregatedSourceStatusType
   ( AggregatedSourceStatusType
       ( AggregatedSourceStatusType',
         ASSTFailed,
-        ASSTOutdated,
-        ASSTSucceeded
+        ASSTSucceeded,
+        ASSTOutdated
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype AggregatedSourceStatusType = AggregatedSourceStatusType' Lude.Text
 pattern ASSTFailed :: AggregatedSourceStatusType
 pattern ASSTFailed = AggregatedSourceStatusType' "FAILED"
 
-pattern ASSTOutdated :: AggregatedSourceStatusType
-pattern ASSTOutdated = AggregatedSourceStatusType' "OUTDATED"
-
 pattern ASSTSucceeded :: AggregatedSourceStatusType
 pattern ASSTSucceeded = AggregatedSourceStatusType' "SUCCEEDED"
 
+pattern ASSTOutdated :: AggregatedSourceStatusType
+pattern ASSTOutdated = AggregatedSourceStatusType' "OUTDATED"
+
 {-# COMPLETE
   ASSTFailed,
-  ASSTOutdated,
   ASSTSucceeded,
+  ASSTOutdated,
   AggregatedSourceStatusType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.DirectoryService.DescribeCertificate
     mkDescribeCertificate,
 
     -- ** Request lenses
-    desDirectoryId,
-    desCertificateId,
+    dcgDirectoryId,
+    dcgCertificateId,
 
     -- * Destructuring the response
     DescribeCertificateResponse (..),
     mkDescribeCertificateResponse,
 
     -- ** Response lenses
-    desrsCertificate,
-    desrsResponseStatus,
+    dcgrsCertificate,
+    dcgrsResponseStatus,
   )
 where
 
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeCertificate' smart constructor.
 data DescribeCertificate = DescribeCertificate'
-  { directoryId ::
-      Lude.Text,
+  { -- | The identifier of the directory.
+    directoryId :: Lude.Text,
+    -- | The identifier of the certificate.
     certificateId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificate' with the minimum fields required to make a request.
 --
--- * 'certificateId' - The identifier of the certificate.
 -- * 'directoryId' - The identifier of the directory.
+-- * 'certificateId' - The identifier of the certificate.
 mkDescribeCertificate ::
   -- | 'directoryId'
   Lude.Text ->
@@ -72,16 +68,16 @@ mkDescribeCertificate pDirectoryId_ pCertificateId_ =
 -- | The identifier of the directory.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desDirectoryId :: Lens.Lens' DescribeCertificate Lude.Text
-desDirectoryId = Lens.lens (directoryId :: DescribeCertificate -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeCertificate)
-{-# DEPRECATED desDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+dcgDirectoryId :: Lens.Lens' DescribeCertificate Lude.Text
+dcgDirectoryId = Lens.lens (directoryId :: DescribeCertificate -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeCertificate)
+{-# DEPRECATED dcgDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifier of the certificate.
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desCertificateId :: Lens.Lens' DescribeCertificate Lude.Text
-desCertificateId = Lens.lens (certificateId :: DescribeCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DescribeCertificate)
-{-# DEPRECATED desCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+dcgCertificateId :: Lens.Lens' DescribeCertificate Lude.Text
+dcgCertificateId = Lens.lens (certificateId :: DescribeCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DescribeCertificate)
+{-# DEPRECATED dcgCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
 instance Lude.AWSRequest DescribeCertificate where
   type Rs DescribeCertificate = DescribeCertificateResponse
@@ -123,17 +119,12 @@ instance Lude.ToQuery DescribeCertificate where
 
 -- | /See:/ 'mkDescribeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
-  { certificate ::
-      Lude.Maybe Certificate,
+  { -- | Information about the certificate, including registered date time, certificate state, the reason for the state, expiration date time, and certificate common name.
+    certificate :: Lude.Maybe Certificate,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificateResponse' with the minimum fields required to make a request.
@@ -153,13 +144,13 @@ mkDescribeCertificateResponse pResponseStatus_ =
 -- | Information about the certificate, including registered date time, certificate state, the reason for the state, expiration date time, and certificate common name.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsCertificate :: Lens.Lens' DescribeCertificateResponse (Lude.Maybe Certificate)
-desrsCertificate = Lens.lens (certificate :: DescribeCertificateResponse -> Lude.Maybe Certificate) (\s a -> s {certificate = a} :: DescribeCertificateResponse)
-{-# DEPRECATED desrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
+dcgrsCertificate :: Lens.Lens' DescribeCertificateResponse (Lude.Maybe Certificate)
+dcgrsCertificate = Lens.lens (certificate :: DescribeCertificateResponse -> Lude.Maybe Certificate) (\s a -> s {certificate = a} :: DescribeCertificateResponse)
+{-# DEPRECATED dcgrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeCertificateResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCertificateResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcgrsResponseStatus :: Lens.Lens' DescribeCertificateResponse Lude.Int
+dcgrsResponseStatus = Lens.lens (responseStatus :: DescribeCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCertificateResponse)
+{-# DEPRECATED dcgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

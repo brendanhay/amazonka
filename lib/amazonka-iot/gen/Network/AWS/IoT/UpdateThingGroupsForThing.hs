@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,28 +42,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateThingGroupsForThing' smart constructor.
 data UpdateThingGroupsForThing = UpdateThingGroupsForThing'
-  { thingGroupsToAdd ::
-      Lude.Maybe [Lude.Text],
-    thingGroupsToRemove ::
-      Lude.Maybe [Lude.Text],
-    overrideDynamicGroups ::
-      Lude.Maybe Lude.Bool,
+  { -- | The groups to which the thing will be added.
+    thingGroupsToAdd :: Lude.Maybe [Lude.Text],
+    -- | The groups from which the thing will be removed.
+    thingGroupsToRemove :: Lude.Maybe [Lude.Text],
+    -- | Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+    overrideDynamicGroups :: Lude.Maybe Lude.Bool,
+    -- | The thing whose group memberships will be updated.
     thingName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThingGroupsForThing' with the minimum fields required to make a request.
 --
--- * 'overrideDynamicGroups' - Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 -- * 'thingGroupsToAdd' - The groups to which the thing will be added.
 -- * 'thingGroupsToRemove' - The groups from which the thing will be removed.
+-- * 'overrideDynamicGroups' - Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 -- * 'thingName' - The thing whose group memberships will be updated.
 mkUpdateThingGroupsForThing ::
   UpdateThingGroupsForThing
@@ -136,16 +132,10 @@ instance Lude.ToQuery UpdateThingGroupsForThing where
 
 -- | /See:/ 'mkUpdateThingGroupsForThingResponse' smart constructor.
 newtype UpdateThingGroupsForThingResponse = UpdateThingGroupsForThingResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThingGroupsForThingResponse' with the minimum fields required to make a request.

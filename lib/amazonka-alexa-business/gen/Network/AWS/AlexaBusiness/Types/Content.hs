@@ -33,24 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContent' smart constructor.
 data Content = Content'
-  { audioList :: Lude.Maybe [Audio],
+  { -- | The list of audio messages.
+    audioList :: Lude.Maybe [Audio],
+    -- | The list of text messages.
     textList :: Lude.Maybe [TextMessage],
+    -- | The list of SSML messages.
     ssmlList :: Lude.Maybe [Ssml]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Content' with the minimum fields required to make a request.
 --
 -- * 'audioList' - The list of audio messages.
--- * 'ssmlList' - The list of SSML messages.
 -- * 'textList' - The list of text messages.
+-- * 'ssmlList' - The list of SSML messages.
 mkContent ::
   Content
 mkContent =

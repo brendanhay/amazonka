@@ -31,25 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceId' smart constructor.
 data ServiceId = ServiceId'
-  { accountId :: Lude.Maybe Lude.Text,
+  { -- |
+    accountId :: Lude.Maybe Lude.Text,
+    -- |
     names :: Lude.Maybe [Lude.Text],
+    -- |
     name :: Lude.Maybe Lude.Text,
+    -- |
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceId' with the minimum fields required to make a request.
 --
 -- * 'accountId' -
--- * 'name' -
 -- * 'names' -
+-- * 'name' -
 -- * 'type'' -
 mkServiceId ::
   ServiceId

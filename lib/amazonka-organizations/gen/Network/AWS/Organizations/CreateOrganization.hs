@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateOrganization' smart constructor.
 newtype CreateOrganization = CreateOrganization'
-  { featureSet ::
-      Lude.Maybe OrganizationFeatureSet
+  { -- | Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
+    --
+    --
+    --     * @CONSOLIDATED_BILLING@ : All member accounts have their bills consolidated to and paid by the management account. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated billing> in the /AWS Organizations User Guide./
+    -- The consolidated billing feature subset isn't available for organizations in the AWS GovCloud (US) Region.
+    --
+    --
+    --     * @ALL@ : In addition to all the features supported by the consolidated billing feature set, the management account can also apply any policy type to any member account in the organization. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features> in the /AWS Organizations User Guide./
+    featureSet :: Lude.Maybe OrganizationFeatureSet
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOrganization' with the minimum fields required to make a request.
@@ -121,8 +123,9 @@ instance Lude.ToQuery CreateOrganization where
 
 -- | /See:/ 'mkCreateOrganizationResponse' smart constructor.
 data CreateOrganizationResponse = CreateOrganizationResponse'
-  { organization ::
-      Lude.Maybe Organization,
+  { -- | A structure that contains details about the newly created organization.
+    organization :: Lude.Maybe Organization,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

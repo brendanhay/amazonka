@@ -114,8 +114,8 @@ module Network.AWS.MQ.Types
     -- * EncryptionOptions
     EncryptionOptions (..),
     mkEncryptionOptions,
-    eoKMSKeyId,
     eoUseAWSOwnedKey,
+    eoKMSKeyId,
 
     -- * EngineVersion
     EngineVersion (..),

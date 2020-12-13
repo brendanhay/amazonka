@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.AlexaBusiness.UpdateGatewayGroup
 
     -- ** Request lenses
     uggName,
-    uggDescription,
     uggGatewayGroupARN,
+    uggDescription,
 
     -- * Destructuring the response
     UpdateGatewayGroupResponse (..),
@@ -40,25 +41,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateGatewayGroup' smart constructor.
 data UpdateGatewayGroup = UpdateGatewayGroup'
-  { name ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    gatewayGroupARN :: Lude.Text
+  { -- | The updated name of the gateway group.
+    name :: Lude.Maybe Lude.Text,
+    -- | The ARN of the gateway group to update.
+    gatewayGroupARN :: Lude.Text,
+    -- | The updated description of the gateway group.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewayGroup' with the minimum fields required to make a request.
 --
--- * 'description' - The updated description of the gateway group.
--- * 'gatewayGroupARN' - The ARN of the gateway group to update.
 -- * 'name' - The updated name of the gateway group.
+-- * 'gatewayGroupARN' - The ARN of the gateway group to update.
+-- * 'description' - The updated description of the gateway group.
 mkUpdateGatewayGroup ::
   -- | 'gatewayGroupARN'
   Lude.Text ->
@@ -66,8 +63,8 @@ mkUpdateGatewayGroup ::
 mkUpdateGatewayGroup pGatewayGroupARN_ =
   UpdateGatewayGroup'
     { name = Lude.Nothing,
-      description = Lude.Nothing,
-      gatewayGroupARN = pGatewayGroupARN_
+      gatewayGroupARN = pGatewayGroupARN_,
+      description = Lude.Nothing
     }
 
 -- | The updated name of the gateway group.
@@ -77,19 +74,19 @@ uggName :: Lens.Lens' UpdateGatewayGroup (Lude.Maybe Lude.Text)
 uggName = Lens.lens (name :: UpdateGatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateGatewayGroup)
 {-# DEPRECATED uggName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The updated description of the gateway group.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uggDescription :: Lens.Lens' UpdateGatewayGroup (Lude.Maybe Lude.Text)
-uggDescription = Lens.lens (description :: UpdateGatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateGatewayGroup)
-{-# DEPRECATED uggDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 -- | The ARN of the gateway group to update.
 --
 -- /Note:/ Consider using 'gatewayGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uggGatewayGroupARN :: Lens.Lens' UpdateGatewayGroup Lude.Text
 uggGatewayGroupARN = Lens.lens (gatewayGroupARN :: UpdateGatewayGroup -> Lude.Text) (\s a -> s {gatewayGroupARN = a} :: UpdateGatewayGroup)
 {-# DEPRECATED uggGatewayGroupARN "Use generic-lens or generic-optics with 'gatewayGroupARN' instead." #-}
+
+-- | The updated description of the gateway group.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uggDescription :: Lens.Lens' UpdateGatewayGroup (Lude.Maybe Lude.Text)
+uggDescription = Lens.lens (description :: UpdateGatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateGatewayGroup)
+{-# DEPRECATED uggDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateGatewayGroup where
   type Rs UpdateGatewayGroup = UpdateGatewayGroupResponse
@@ -116,8 +113,8 @@ instance Lude.ToJSON UpdateGatewayGroup where
     Lude.object
       ( Lude.catMaybes
           [ ("Name" Lude..=) Lude.<$> name,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("GatewayGroupArn" Lude..= gatewayGroupARN)
+            Lude.Just ("GatewayGroupArn" Lude..= gatewayGroupARN),
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -129,16 +126,10 @@ instance Lude.ToQuery UpdateGatewayGroup where
 
 -- | /See:/ 'mkUpdateGatewayGroupResponse' smart constructor.
 newtype UpdateGatewayGroupResponse = UpdateGatewayGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewayGroupResponse' with the minimum fields required to make a request.

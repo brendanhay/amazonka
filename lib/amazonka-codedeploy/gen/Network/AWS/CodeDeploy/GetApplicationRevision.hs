@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,17 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetApplicationRevision' smart constructor.
 data GetApplicationRevision = GetApplicationRevision'
-  { applicationName ::
-      Lude.Text,
+  { -- | The name of the application that corresponds to the revision.
+    applicationName :: Lude.Text,
+    -- | Information about the application revision to get, including type and location.
     revision :: RevisionLocation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplicationRevision' with the minimum fields required to make a request.
@@ -130,30 +126,24 @@ instance Lude.ToQuery GetApplicationRevision where
 --
 -- /See:/ 'mkGetApplicationRevisionResponse' smart constructor.
 data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
-  { applicationName ::
-      Lude.Maybe Lude.Text,
-    revisionInfo ::
-      Lude.Maybe
-        GenericRevisionInfo,
-    revision ::
-      Lude.Maybe RevisionLocation,
+  { -- | The name of the application that corresponds to the revision.
+    applicationName :: Lude.Maybe Lude.Text,
+    -- | General information about the revision.
+    revisionInfo :: Lude.Maybe GenericRevisionInfo,
+    -- | Additional information about the revision, including type and location.
+    revision :: Lude.Maybe RevisionLocation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplicationRevisionResponse' with the minimum fields required to make a request.
 --
 -- * 'applicationName' - The name of the application that corresponds to the revision.
--- * 'responseStatus' - The response status code.
--- * 'revision' - Additional information about the revision, including type and location.
 -- * 'revisionInfo' - General information about the revision.
+-- * 'revision' - Additional information about the revision, including type and location.
+-- * 'responseStatus' - The response status code.
 mkGetApplicationRevisionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

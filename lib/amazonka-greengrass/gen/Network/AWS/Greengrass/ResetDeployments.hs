@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,18 +45,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkResetDeployments' smart constructor.
 data ResetDeployments = ResetDeployments'
-  { amznClientToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text,
+    -- | If true, performs a best-effort only core reset.
     force :: Lude.Maybe Lude.Bool,
+    -- | The ID of the Greengrass group.
     groupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDeployments' with the minimum fields required to make a request.
@@ -129,24 +126,20 @@ instance Lude.ToQuery ResetDeployments where
 
 -- | /See:/ 'mkResetDeploymentsResponse' smart constructor.
 data ResetDeploymentsResponse = ResetDeploymentsResponse'
-  { deploymentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the deployment.
     deploymentARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDeploymentsResponse' with the minimum fields required to make a request.
 --
--- * 'deploymentARN' - The ARN of the deployment.
 -- * 'deploymentId' - The ID of the deployment.
+-- * 'deploymentARN' - The ARN of the deployment.
 -- * 'responseStatus' - The response status code.
 mkResetDeploymentsResponse ::
   -- | 'responseStatus'

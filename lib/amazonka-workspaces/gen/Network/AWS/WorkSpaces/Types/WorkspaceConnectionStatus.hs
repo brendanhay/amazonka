@@ -32,29 +32,24 @@ import Network.AWS.WorkSpaces.Types.ConnectionState
 --
 -- /See:/ 'mkWorkspaceConnectionStatus' smart constructor.
 data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
-  { lastKnownUserConnectionTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    connectionStateCheckTimestamp ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The timestamp of the last known user connection.
+    lastKnownUserConnectionTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The timestamp of the connection status check.
+    connectionStateCheckTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The identifier of the WorkSpace.
     workspaceId :: Lude.Maybe Lude.Text,
-    connectionState ::
-      Lude.Maybe ConnectionState
+    -- | The connection state of the WorkSpace. The connection state is unknown if the WorkSpace is stopped.
+    connectionState :: Lude.Maybe ConnectionState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceConnectionStatus' with the minimum fields required to make a request.
 --
--- * 'connectionState' - The connection state of the WorkSpace. The connection state is unknown if the WorkSpace is stopped.
--- * 'connectionStateCheckTimestamp' - The timestamp of the connection status check.
 -- * 'lastKnownUserConnectionTimestamp' - The timestamp of the last known user connection.
+-- * 'connectionStateCheckTimestamp' - The timestamp of the connection status check.
 -- * 'workspaceId' - The identifier of the WorkSpace.
+-- * 'connectionState' - The connection state of the WorkSpace. The connection state is unknown if the WorkSpace is stopped.
 mkWorkspaceConnectionStatus ::
   WorkspaceConnectionStatus
 mkWorkspaceConnectionStatus =

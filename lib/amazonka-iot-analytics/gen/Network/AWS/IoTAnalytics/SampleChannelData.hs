@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.IoTAnalytics.SampleChannelData
 
     -- ** Request lenses
     scdStartTime,
+    scdChannelName,
     scdMaxMessages,
     scdEndTime,
-    scdChannelName,
 
     -- * Destructuring the response
     SampleChannelDataResponse (..),
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSampleChannelData' smart constructor.
 data SampleChannelData = SampleChannelData'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The start of the time window from which sample messages are retrieved.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the channel whose message samples are retrieved.
+    channelName :: Lude.Text,
+    -- | The number of sample messages to be retrieved. The limit is 10. The default is also 10.
     maxMessages :: Lude.Maybe Lude.Natural,
-    endTime :: Lude.Maybe Lude.Timestamp,
-    channelName :: Lude.Text
+    -- | The end of the time window from which sample messages are retrieved.
+    endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SampleChannelData' with the minimum fields required to make a request.
 --
--- * 'channelName' - The name of the channel whose message samples are retrieved.
--- * 'endTime' - The end of the time window from which sample messages are retrieved.
--- * 'maxMessages' - The number of sample messages to be retrieved. The limit is 10. The default is also 10.
 -- * 'startTime' - The start of the time window from which sample messages are retrieved.
+-- * 'channelName' - The name of the channel whose message samples are retrieved.
+-- * 'maxMessages' - The number of sample messages to be retrieved. The limit is 10. The default is also 10.
+-- * 'endTime' - The end of the time window from which sample messages are retrieved.
 mkSampleChannelData ::
   -- | 'channelName'
   Lude.Text ->
@@ -70,9 +68,9 @@ mkSampleChannelData ::
 mkSampleChannelData pChannelName_ =
   SampleChannelData'
     { startTime = Lude.Nothing,
+      channelName = pChannelName_,
       maxMessages = Lude.Nothing,
-      endTime = Lude.Nothing,
-      channelName = pChannelName_
+      endTime = Lude.Nothing
     }
 
 -- | The start of the time window from which sample messages are retrieved.
@@ -81,6 +79,13 @@ mkSampleChannelData pChannelName_ =
 scdStartTime :: Lens.Lens' SampleChannelData (Lude.Maybe Lude.Timestamp)
 scdStartTime = Lens.lens (startTime :: SampleChannelData -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: SampleChannelData)
 {-# DEPRECATED scdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The name of the channel whose message samples are retrieved.
+--
+-- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scdChannelName :: Lens.Lens' SampleChannelData Lude.Text
+scdChannelName = Lens.lens (channelName :: SampleChannelData -> Lude.Text) (\s a -> s {channelName = a} :: SampleChannelData)
+{-# DEPRECATED scdChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
 -- | The number of sample messages to be retrieved. The limit is 10. The default is also 10.
 --
@@ -95,13 +100,6 @@ scdMaxMessages = Lens.lens (maxMessages :: SampleChannelData -> Lude.Maybe Lude.
 scdEndTime :: Lens.Lens' SampleChannelData (Lude.Maybe Lude.Timestamp)
 scdEndTime = Lens.lens (endTime :: SampleChannelData -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: SampleChannelData)
 {-# DEPRECATED scdEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | The name of the channel whose message samples are retrieved.
---
--- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scdChannelName :: Lens.Lens' SampleChannelData Lude.Text
-scdChannelName = Lens.lens (channelName :: SampleChannelData -> Lude.Text) (\s a -> s {channelName = a} :: SampleChannelData)
-{-# DEPRECATED scdChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
 instance Lude.AWSRequest SampleChannelData where
   type Rs SampleChannelData = SampleChannelDataResponse
@@ -130,17 +128,12 @@ instance Lude.ToQuery SampleChannelData where
 
 -- | /See:/ 'mkSampleChannelDataResponse' smart constructor.
 data SampleChannelDataResponse = SampleChannelDataResponse'
-  { payloads ::
-      Lude.Maybe (Lude.NonEmpty Lude.Base64),
+  { -- | The list of message samples. Each sample message is returned as a base64-encoded string.
+    payloads :: Lude.Maybe (Lude.NonEmpty Lude.Base64),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SampleChannelDataResponse' with the minimum fields required to make a request.

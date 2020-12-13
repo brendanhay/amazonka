@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,8 +46,8 @@ module Network.AWS.SWF.CountOpenWorkflowExecutions
     -- ** Request lenses
     coweExecutionFilter,
     coweTypeFilter,
-    coweTagFilter,
     coweDomain,
+    coweTagFilter,
     coweStartTimeFilter,
 
     -- * Destructuring the response
@@ -67,31 +68,27 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkCountOpenWorkflowExecutions' smart constructor.
 data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
-  { executionFilter ::
-      Lude.Maybe WorkflowExecutionFilter,
-    typeFilter ::
-      Lude.Maybe WorkflowTypeFilter,
-    tagFilter :: Lude.Maybe TagFilter,
+  { -- | If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
+    executionFilter :: Lude.Maybe WorkflowExecutionFilter,
+    -- | Specifies the type of the workflow executions to be counted.
+    typeFilter :: Lude.Maybe WorkflowTypeFilter,
+    -- | The name of the domain containing the workflow executions to count.
     domain :: Lude.Text,
-    startTimeFilter ::
-      ExecutionTimeFilter
+    -- | If specified, only executions that have a tag that matches the filter are counted.
+    tagFilter :: Lude.Maybe TagFilter,
+    -- | Specifies the start time criteria that workflow executions must meet in order to be counted.
+    startTimeFilter :: ExecutionTimeFilter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CountOpenWorkflowExecutions' with the minimum fields required to make a request.
 --
--- * 'domain' - The name of the domain containing the workflow executions to count.
 -- * 'executionFilter' - If specified, only workflow executions matching the @WorkflowId@ in the filter are counted.
--- * 'startTimeFilter' - Specifies the start time criteria that workflow executions must meet in order to be counted.
--- * 'tagFilter' - If specified, only executions that have a tag that matches the filter are counted.
 -- * 'typeFilter' - Specifies the type of the workflow executions to be counted.
+-- * 'domain' - The name of the domain containing the workflow executions to count.
+-- * 'tagFilter' - If specified, only executions that have a tag that matches the filter are counted.
+-- * 'startTimeFilter' - Specifies the start time criteria that workflow executions must meet in order to be counted.
 mkCountOpenWorkflowExecutions ::
   -- | 'domain'
   Lude.Text ->
@@ -102,8 +99,8 @@ mkCountOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
   CountOpenWorkflowExecutions'
     { executionFilter = Lude.Nothing,
       typeFilter = Lude.Nothing,
-      tagFilter = Lude.Nothing,
       domain = pDomain_,
+      tagFilter = Lude.Nothing,
       startTimeFilter = pStartTimeFilter_
     }
 
@@ -121,19 +118,19 @@ coweTypeFilter :: Lens.Lens' CountOpenWorkflowExecutions (Lude.Maybe WorkflowTyp
 coweTypeFilter = Lens.lens (typeFilter :: CountOpenWorkflowExecutions -> Lude.Maybe WorkflowTypeFilter) (\s a -> s {typeFilter = a} :: CountOpenWorkflowExecutions)
 {-# DEPRECATED coweTypeFilter "Use generic-lens or generic-optics with 'typeFilter' instead." #-}
 
--- | If specified, only executions that have a tag that matches the filter are counted.
---
--- /Note:/ Consider using 'tagFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coweTagFilter :: Lens.Lens' CountOpenWorkflowExecutions (Lude.Maybe TagFilter)
-coweTagFilter = Lens.lens (tagFilter :: CountOpenWorkflowExecutions -> Lude.Maybe TagFilter) (\s a -> s {tagFilter = a} :: CountOpenWorkflowExecutions)
-{-# DEPRECATED coweTagFilter "Use generic-lens or generic-optics with 'tagFilter' instead." #-}
-
 -- | The name of the domain containing the workflow executions to count.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 coweDomain :: Lens.Lens' CountOpenWorkflowExecutions Lude.Text
 coweDomain = Lens.lens (domain :: CountOpenWorkflowExecutions -> Lude.Text) (\s a -> s {domain = a} :: CountOpenWorkflowExecutions)
 {-# DEPRECATED coweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+
+-- | If specified, only executions that have a tag that matches the filter are counted.
+--
+-- /Note:/ Consider using 'tagFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coweTagFilter :: Lens.Lens' CountOpenWorkflowExecutions (Lude.Maybe TagFilter)
+coweTagFilter = Lens.lens (tagFilter :: CountOpenWorkflowExecutions -> Lude.Maybe TagFilter) (\s a -> s {tagFilter = a} :: CountOpenWorkflowExecutions)
+{-# DEPRECATED coweTagFilter "Use generic-lens or generic-optics with 'tagFilter' instead." #-}
 
 -- | Specifies the start time criteria that workflow executions must meet in order to be counted.
 --
@@ -166,8 +163,8 @@ instance Lude.ToJSON CountOpenWorkflowExecutions where
       ( Lude.catMaybes
           [ ("executionFilter" Lude..=) Lude.<$> executionFilter,
             ("typeFilter" Lude..=) Lude.<$> typeFilter,
-            ("tagFilter" Lude..=) Lude.<$> tagFilter,
             Lude.Just ("domain" Lude..= domain),
+            ("tagFilter" Lude..=) Lude.<$> tagFilter,
             Lude.Just ("startTimeFilter" Lude..= startTimeFilter)
           ]
       )

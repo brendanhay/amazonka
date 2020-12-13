@@ -13,12 +13,12 @@
 module Network.AWS.Lightsail.Types.InstanceHealthState
   ( InstanceHealthState
       ( InstanceHealthState',
-        Draining,
-        Healthy,
         Initial,
-        Unavailable,
+        Healthy,
         Unhealthy,
-        Unused
+        Unused,
+        Draining,
+        Unavailable
       ),
   )
 where
@@ -49,17 +49,11 @@ newtype InstanceHealthState = InstanceHealthState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Draining :: InstanceHealthState
-pattern Draining = InstanceHealthState' "draining"
-
-pattern Healthy :: InstanceHealthState
-pattern Healthy = InstanceHealthState' "healthy"
-
 pattern Initial :: InstanceHealthState
 pattern Initial = InstanceHealthState' "initial"
 
-pattern Unavailable :: InstanceHealthState
-pattern Unavailable = InstanceHealthState' "unavailable"
+pattern Healthy :: InstanceHealthState
+pattern Healthy = InstanceHealthState' "healthy"
 
 pattern Unhealthy :: InstanceHealthState
 pattern Unhealthy = InstanceHealthState' "unhealthy"
@@ -67,12 +61,18 @@ pattern Unhealthy = InstanceHealthState' "unhealthy"
 pattern Unused :: InstanceHealthState
 pattern Unused = InstanceHealthState' "unused"
 
+pattern Draining :: InstanceHealthState
+pattern Draining = InstanceHealthState' "draining"
+
+pattern Unavailable :: InstanceHealthState
+pattern Unavailable = InstanceHealthState' "unavailable"
+
 {-# COMPLETE
-  Draining,
-  Healthy,
   Initial,
-  Unavailable,
+  Healthy,
   Unhealthy,
   Unused,
+  Draining,
+  Unavailable,
   InstanceHealthState'
   #-}

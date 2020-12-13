@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,43 +53,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeUpdateActions' smart constructor.
 data DescribeUpdateActions = DescribeUpdateActions'
-  { cacheClusterIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The cache cluster IDs
+    cacheClusterIds :: Lude.Maybe [Lude.Text],
+    -- | The unique ID of the service update
     serviceUpdateName :: Lude.Maybe Lude.Text,
-    updateActionStatus ::
-      Lude.Maybe [UpdateActionStatus],
+    -- | The status of the update action.
+    updateActionStatus :: Lude.Maybe [UpdateActionStatus],
+    -- | The Elasticache engine to which the update applies. Either Redis or Memcached
     engine :: Lude.Maybe Lude.Text,
-    serviceUpdateTimeRange ::
-      Lude.Maybe TimeRangeFilter,
+    -- | The range of time specified to search for service updates that are in available status
+    serviceUpdateTimeRange :: Lude.Maybe TimeRangeFilter,
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | The replication group IDs
     replicationGroupIds :: Lude.Maybe [Lude.Text],
-    showNodeLevelUpdateStatus ::
-      Lude.Maybe Lude.Bool,
-    serviceUpdateStatus ::
-      Lude.Maybe [ServiceUpdateStatus]
+    -- | Dictates whether to include node level update status in the response
+    showNodeLevelUpdateStatus :: Lude.Maybe Lude.Bool,
+    -- | The status of the service update
+    serviceUpdateStatus :: Lude.Maybe [ServiceUpdateStatus]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUpdateActions' with the minimum fields required to make a request.
 --
 -- * 'cacheClusterIds' - The cache cluster IDs
+-- * 'serviceUpdateName' - The unique ID of the service update
+-- * 'updateActionStatus' - The status of the update action.
 -- * 'engine' - The Elasticache engine to which the update applies. Either Redis or Memcached
+-- * 'serviceUpdateTimeRange' - The range of time specified to search for service updates that are in available status
 -- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response
 -- * 'replicationGroupIds' - The replication group IDs
--- * 'serviceUpdateName' - The unique ID of the service update
--- * 'serviceUpdateStatus' - The status of the service update
--- * 'serviceUpdateTimeRange' - The range of time specified to search for service updates that are in available status
 -- * 'showNodeLevelUpdateStatus' - Dictates whether to include node level update status in the response
--- * 'updateActionStatus' - The status of the update action.
+-- * 'serviceUpdateStatus' - The status of the service update
 mkDescribeUpdateActions ::
   DescribeUpdateActions
 mkDescribeUpdateActions =
@@ -229,25 +229,21 @@ instance Lude.ToQuery DescribeUpdateActions where
 
 -- | /See:/ 'mkDescribeUpdateActionsResponse' smart constructor.
 data DescribeUpdateActionsResponse = DescribeUpdateActionsResponse'
-  { updateActions ::
-      Lude.Maybe [UpdateAction],
+  { -- | Returns a list of update actions
+    updateActions :: Lude.Maybe [UpdateAction],
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUpdateActionsResponse' with the minimum fields required to make a request.
 --
+-- * 'updateActions' - Returns a list of update actions
 -- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'responseStatus' - The response status code.
--- * 'updateActions' - Returns a list of update actions
 mkDescribeUpdateActionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,25 +47,22 @@ import Network.AWS.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'mkCreateCloudFormationTemplate' smart constructor.
 data CreateCloudFormationTemplate = CreateCloudFormationTemplate'
-  { semanticVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The semantic version of the application:
+    --
+    -- <https://semver.org/ https://semver.org/>
+    semanticVersion :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the application.
     applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCloudFormationTemplate' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
 -- * 'semanticVersion' - The semantic version of the application:
 --
 -- <https://semver.org/ https://semver.org/>
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
 mkCreateCloudFormationTemplate ::
   -- | 'applicationId'
   Lude.Text ->
@@ -136,49 +134,39 @@ instance Lude.ToQuery CreateCloudFormationTemplate where
 
 -- | /See:/ 'mkCreateCloudFormationTemplateResponse' smart constructor.
 data CreateCloudFormationTemplateResponse = CreateCloudFormationTemplateResponse'
-  { creationTime ::
-      Lude.Maybe
-        Lude.Text,
-    status ::
-      Lude.Maybe Status,
-    templateId ::
-      Lude.Maybe
-        Lude.Text,
-    semanticVersion ::
-      Lude.Maybe
-        Lude.Text,
-    applicationId ::
-      Lude.Maybe
-        Lude.Text,
-    templateURL ::
-      Lude.Maybe
-        Lude.Text,
-    expirationTime ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The date and time this resource was created.
+    creationTime :: Lude.Maybe Lude.Text,
+    -- | Status of the template creation workflow.
+    --
+    -- Possible values: PREPARING | ACTIVE | EXPIRED
+    status :: Lude.Maybe Status,
+    -- | The UUID returned by CreateCloudFormationTemplate.
+    --
+    -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
+    templateId :: Lude.Maybe Lude.Text,
+    -- | The semantic version of the application:
+    --
+    -- <https://semver.org/ https://semver.org/>
+    semanticVersion :: Lude.Maybe Lude.Text,
+    -- | The application Amazon Resource Name (ARN).
+    applicationId :: Lude.Maybe Lude.Text,
+    -- | A link to the template that can be used to deploy the application using
+    --
+    --  AWS CloudFormation.
+    templateURL :: Lude.Maybe Lude.Text,
+    -- | The date and time this template expires. Templates
+    --
+    --  expire 1 hour after creation.
+    expirationTime :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCloudFormationTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The application Amazon Resource Name (ARN).
 -- * 'creationTime' - The date and time this resource was created.
--- * 'expirationTime' - The date and time this template expires. Templates
---
---  expire 1 hour after creation.
--- * 'responseStatus' - The response status code.
--- * 'semanticVersion' - The semantic version of the application:
---
--- <https://semver.org/ https://semver.org/>
 -- * 'status' - Status of the template creation workflow.
 --
 -- Possible values: PREPARING | ACTIVE | EXPIRED
@@ -186,9 +174,17 @@ data CreateCloudFormationTemplateResponse = CreateCloudFormationTemplateResponse
 -- * 'templateId' - The UUID returned by CreateCloudFormationTemplate.
 --
 -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
+-- * 'semanticVersion' - The semantic version of the application:
+--
+-- <https://semver.org/ https://semver.org/>
+-- * 'applicationId' - The application Amazon Resource Name (ARN).
 -- * 'templateURL' - A link to the template that can be used to deploy the application using
 --
 --  AWS CloudFormation.
+-- * 'expirationTime' - The date and time this template expires. Templates
+--
+--  expire 1 hour after creation.
+-- * 'responseStatus' - The response status code.
 mkCreateCloudFormationTemplateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

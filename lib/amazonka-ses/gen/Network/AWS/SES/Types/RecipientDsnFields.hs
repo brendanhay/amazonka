@@ -17,13 +17,13 @@ module Network.AWS.SES.Types.RecipientDsnFields
     mkRecipientDsnFields,
 
     -- * Lenses
+    rdfStatus,
     rdfDiagnosticCode,
+    rdfAction,
     rdfRemoteMta,
     rdfFinalRecipient,
     rdfExtensionFields,
     rdfLastAttemptDate,
-    rdfAction,
-    rdfStatus,
   )
 where
 
@@ -38,49 +38,56 @@ import Network.AWS.SES.Types.ExtensionField
 --
 -- /See:/ 'mkRecipientDsnFields' smart constructor.
 data RecipientDsnFields = RecipientDsnFields'
-  { diagnosticCode ::
-      Lude.Maybe Lude.Text,
-    remoteMta :: Lude.Maybe Lude.Text,
-    finalRecipient :: Lude.Maybe Lude.Text,
-    extensionFields :: Lude.Maybe [ExtensionField],
-    lastAttemptDate :: Lude.Maybe Lude.DateTime,
+  { -- | The status code that indicates what went wrong. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
+    status :: Lude.Text,
+    -- | An extended explanation of what went wrong; this is usually an SMTP response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the correct formatting of this parameter.
+    diagnosticCode :: Lude.Maybe Lude.Text,
+    -- | The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
     action :: DsnAction,
-    status :: Lude.Text
+    -- | The MTA to which the remote MTA attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). This parameter typically applies only to propagating synchronous bounces.
+    remoteMta :: Lude.Maybe Lude.Text,
+    -- | The email address that the message was ultimately delivered to. This corresponds to the @Final-Recipient@ in the DSN. If not specified, @FinalRecipient@ will be set to the @Recipient@ specified in the @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the recipient in @BouncedRecipientInfo@ must be a recipient of the original bounced message.
+    finalRecipient :: Lude.Maybe Lude.Text,
+    -- | Additional X-headers to include in the DSN.
+    extensionFields :: Lude.Maybe [ExtensionField],
+    -- | The time the final delivery attempt was made, in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
+    lastAttemptDate :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecipientDsnFields' with the minimum fields required to make a request.
 --
--- * 'action' - The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
--- * 'diagnosticCode' - An extended explanation of what went wrong; this is usually an SMTP response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the correct formatting of this parameter.
--- * 'extensionFields' - Additional X-headers to include in the DSN.
--- * 'finalRecipient' - The email address that the message was ultimately delivered to. This corresponds to the @Final-Recipient@ in the DSN. If not specified, @FinalRecipient@ will be set to the @Recipient@ specified in the @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the recipient in @BouncedRecipientInfo@ must be a recipient of the original bounced message.
--- * 'lastAttemptDate' - The time the final delivery attempt was made, in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
--- * 'remoteMta' - The MTA to which the remote MTA attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). This parameter typically applies only to propagating synchronous bounces.
 -- * 'status' - The status code that indicates what went wrong. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
+-- * 'diagnosticCode' - An extended explanation of what went wrong; this is usually an SMTP response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the correct formatting of this parameter.
+-- * 'action' - The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
+-- * 'remoteMta' - The MTA to which the remote MTA attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). This parameter typically applies only to propagating synchronous bounces.
+-- * 'finalRecipient' - The email address that the message was ultimately delivered to. This corresponds to the @Final-Recipient@ in the DSN. If not specified, @FinalRecipient@ will be set to the @Recipient@ specified in the @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the recipient in @BouncedRecipientInfo@ must be a recipient of the original bounced message.
+-- * 'extensionFields' - Additional X-headers to include in the DSN.
+-- * 'lastAttemptDate' - The time the final delivery attempt was made, in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
 mkRecipientDsnFields ::
-  -- | 'action'
-  DsnAction ->
   -- | 'status'
   Lude.Text ->
+  -- | 'action'
+  DsnAction ->
   RecipientDsnFields
-mkRecipientDsnFields pAction_ pStatus_ =
+mkRecipientDsnFields pStatus_ pAction_ =
   RecipientDsnFields'
-    { diagnosticCode = Lude.Nothing,
+    { status = pStatus_,
+      diagnosticCode = Lude.Nothing,
+      action = pAction_,
       remoteMta = Lude.Nothing,
       finalRecipient = Lude.Nothing,
       extensionFields = Lude.Nothing,
-      lastAttemptDate = Lude.Nothing,
-      action = pAction_,
-      status = pStatus_
+      lastAttemptDate = Lude.Nothing
     }
+
+-- | The status code that indicates what went wrong. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdfStatus :: Lens.Lens' RecipientDsnFields Lude.Text
+rdfStatus = Lens.lens (status :: RecipientDsnFields -> Lude.Text) (\s a -> s {status = a} :: RecipientDsnFields)
+{-# DEPRECATED rdfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | An extended explanation of what went wrong; this is usually an SMTP response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the correct formatting of this parameter.
 --
@@ -88,6 +95,13 @@ mkRecipientDsnFields pAction_ pStatus_ =
 rdfDiagnosticCode :: Lens.Lens' RecipientDsnFields (Lude.Maybe Lude.Text)
 rdfDiagnosticCode = Lens.lens (diagnosticCode :: RecipientDsnFields -> Lude.Maybe Lude.Text) (\s a -> s {diagnosticCode = a} :: RecipientDsnFields)
 {-# DEPRECATED rdfDiagnosticCode "Use generic-lens or generic-optics with 'diagnosticCode' instead." #-}
+
+-- | The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdfAction :: Lens.Lens' RecipientDsnFields DsnAction
+rdfAction = Lens.lens (action :: RecipientDsnFields -> DsnAction) (\s a -> s {action = a} :: RecipientDsnFields)
+{-# DEPRECATED rdfAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The MTA to which the remote MTA attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). This parameter typically applies only to propagating synchronous bounces.
 --
@@ -117,29 +131,15 @@ rdfLastAttemptDate :: Lens.Lens' RecipientDsnFields (Lude.Maybe Lude.DateTime)
 rdfLastAttemptDate = Lens.lens (lastAttemptDate :: RecipientDsnFields -> Lude.Maybe Lude.DateTime) (\s a -> s {lastAttemptDate = a} :: RecipientDsnFields)
 {-# DEPRECATED rdfLastAttemptDate "Use generic-lens or generic-optics with 'lastAttemptDate' instead." #-}
 
--- | The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
---
--- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdfAction :: Lens.Lens' RecipientDsnFields DsnAction
-rdfAction = Lens.lens (action :: RecipientDsnFields -> DsnAction) (\s a -> s {action = a} :: RecipientDsnFields)
-{-# DEPRECATED rdfAction "Use generic-lens or generic-optics with 'action' instead." #-}
-
--- | The status code that indicates what went wrong. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdfStatus :: Lens.Lens' RecipientDsnFields Lude.Text
-rdfStatus = Lens.lens (status :: RecipientDsnFields -> Lude.Text) (\s a -> s {status = a} :: RecipientDsnFields)
-{-# DEPRECATED rdfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
 instance Lude.ToQuery RecipientDsnFields where
   toQuery RecipientDsnFields' {..} =
     Lude.mconcat
-      [ "DiagnosticCode" Lude.=: diagnosticCode,
+      [ "Status" Lude.=: status,
+        "DiagnosticCode" Lude.=: diagnosticCode,
+        "Action" Lude.=: action,
         "RemoteMta" Lude.=: remoteMta,
         "FinalRecipient" Lude.=: finalRecipient,
         "ExtensionFields"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> extensionFields),
-        "LastAttemptDate" Lude.=: lastAttemptDate,
-        "Action" Lude.=: action,
-        "Status" Lude.=: status
+        "LastAttemptDate" Lude.=: lastAttemptDate
       ]

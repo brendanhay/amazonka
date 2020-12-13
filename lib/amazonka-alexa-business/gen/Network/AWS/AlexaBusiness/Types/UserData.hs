@@ -34,30 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserData' smart constructor.
 data UserData = UserData'
-  { email :: Lude.Maybe Lude.Text,
+  { -- | The email of a user.
+    email :: Lude.Maybe Lude.Text,
+    -- | The last name of a user.
     lastName :: Lude.Maybe Lude.Text,
+    -- | The enrollment ARN of a user.
     enrollmentId :: Lude.Maybe Lude.Text,
+    -- | The ARN of a user.
     userARN :: Lude.Maybe Lude.Text,
+    -- | The first name of a user.
     firstName :: Lude.Maybe Lude.Text,
+    -- | The enrollment status of a user.
     enrollmentStatus :: Lude.Maybe EnrollmentStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserData' with the minimum fields required to make a request.
 --
 -- * 'email' - The email of a user.
--- * 'enrollmentId' - The enrollment ARN of a user.
--- * 'enrollmentStatus' - The enrollment status of a user.
--- * 'firstName' - The first name of a user.
 -- * 'lastName' - The last name of a user.
+-- * 'enrollmentId' - The enrollment ARN of a user.
 -- * 'userARN' - The ARN of a user.
+-- * 'firstName' - The first name of a user.
+-- * 'enrollmentStatus' - The enrollment status of a user.
 mkUserData ::
   UserData
 mkUserData =

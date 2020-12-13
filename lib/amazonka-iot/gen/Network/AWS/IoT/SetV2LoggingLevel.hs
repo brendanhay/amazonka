@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoT.SetV2LoggingLevel
     mkSetV2LoggingLevel,
 
     -- ** Request lenses
-    svllLogTarget,
     svllLogLevel,
+    svllLogTarget,
 
     -- * Destructuring the response
     SetV2LoggingLevelResponse (..),
@@ -36,16 +37,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetV2LoggingLevel' smart constructor.
 data SetV2LoggingLevel = SetV2LoggingLevel'
-  { logTarget :: LogTarget,
-    logLevel :: LogLevel
+  { -- | The log level.
+    logLevel :: LogLevel,
+    -- | The log target.
+    logTarget :: LogTarget
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetV2LoggingLevel' with the minimum fields required to make a request.
@@ -53,23 +50,16 @@ data SetV2LoggingLevel = SetV2LoggingLevel'
 -- * 'logLevel' - The log level.
 -- * 'logTarget' - The log target.
 mkSetV2LoggingLevel ::
-  -- | 'logTarget'
-  LogTarget ->
   -- | 'logLevel'
   LogLevel ->
+  -- | 'logTarget'
+  LogTarget ->
   SetV2LoggingLevel
-mkSetV2LoggingLevel pLogTarget_ pLogLevel_ =
+mkSetV2LoggingLevel pLogLevel_ pLogTarget_ =
   SetV2LoggingLevel'
-    { logTarget = pLogTarget_,
-      logLevel = pLogLevel_
+    { logLevel = pLogLevel_,
+      logTarget = pLogTarget_
     }
-
--- | The log target.
---
--- /Note:/ Consider using 'logTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svllLogTarget :: Lens.Lens' SetV2LoggingLevel LogTarget
-svllLogTarget = Lens.lens (logTarget :: SetV2LoggingLevel -> LogTarget) (\s a -> s {logTarget = a} :: SetV2LoggingLevel)
-{-# DEPRECATED svllLogTarget "Use generic-lens or generic-optics with 'logTarget' instead." #-}
 
 -- | The log level.
 --
@@ -77,6 +67,13 @@ svllLogTarget = Lens.lens (logTarget :: SetV2LoggingLevel -> LogTarget) (\s a ->
 svllLogLevel :: Lens.Lens' SetV2LoggingLevel LogLevel
 svllLogLevel = Lens.lens (logLevel :: SetV2LoggingLevel -> LogLevel) (\s a -> s {logLevel = a} :: SetV2LoggingLevel)
 {-# DEPRECATED svllLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
+
+-- | The log target.
+--
+-- /Note:/ Consider using 'logTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svllLogTarget :: Lens.Lens' SetV2LoggingLevel LogTarget
+svllLogTarget = Lens.lens (logTarget :: SetV2LoggingLevel -> LogTarget) (\s a -> s {logTarget = a} :: SetV2LoggingLevel)
+{-# DEPRECATED svllLogTarget "Use generic-lens or generic-optics with 'logTarget' instead." #-}
 
 instance Lude.AWSRequest SetV2LoggingLevel where
   type Rs SetV2LoggingLevel = SetV2LoggingLevelResponse
@@ -90,8 +87,8 @@ instance Lude.ToJSON SetV2LoggingLevel where
   toJSON SetV2LoggingLevel' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("logTarget" Lude..= logTarget),
-            Lude.Just ("logLevel" Lude..= logLevel)
+          [ Lude.Just ("logLevel" Lude..= logLevel),
+            Lude.Just ("logTarget" Lude..= logTarget)
           ]
       )
 
@@ -103,13 +100,7 @@ instance Lude.ToQuery SetV2LoggingLevel where
 
 -- | /See:/ 'mkSetV2LoggingLevelResponse' smart constructor.
 data SetV2LoggingLevelResponse = SetV2LoggingLevelResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetV2LoggingLevelResponse' with the minimum fields required to make a request.

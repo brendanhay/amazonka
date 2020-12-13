@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGpuInfo' smart constructor.
 data GpuInfo = GpuInfo'
-  { totalGpuMemoryInMiB :: Lude.Maybe Lude.Int,
+  { -- | The total size of the memory for the GPU accelerators for the instance type, in MiB.
+    totalGpuMemoryInMiB :: Lude.Maybe Lude.Int,
+    -- | Describes the GPU accelerators for the instance type.
     gpus :: Lude.Maybe [GpuDeviceInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GpuInfo' with the minimum fields required to make a request.
 --
--- * 'gpus' - Describes the GPU accelerators for the instance type.
 -- * 'totalGpuMemoryInMiB' - The total size of the memory for the GPU accelerators for the instance type, in MiB.
+-- * 'gpus' - Describes the GPU accelerators for the instance type.
 mkGpuInfo ::
   GpuInfo
 mkGpuInfo =

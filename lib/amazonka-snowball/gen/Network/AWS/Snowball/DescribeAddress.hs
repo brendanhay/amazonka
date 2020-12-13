@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Snowball.DescribeAddress
     mkDescribeAddressResponse,
 
     -- ** Response lenses
-    darsAddress,
-    darsResponseStatus,
+    drsAddress,
+    drsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkDescribeAddress' smart constructor.
-newtype DescribeAddress = DescribeAddress' {addressId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeAddress = DescribeAddress'
+  { -- | The automatically generated ID for a specific address.
+    addressId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAddress' with the minimum fields required to make a request.
@@ -101,17 +99,12 @@ instance Lude.ToQuery DescribeAddress where
 
 -- | /See:/ 'mkDescribeAddressResponse' smart constructor.
 data DescribeAddressResponse = DescribeAddressResponse'
-  { address ::
-      Lude.Maybe Address,
+  { -- | The address that you want the Snow device(s) associated with a specific job to be shipped to.
+    address :: Lude.Maybe Address,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAddressResponse' with the minimum fields required to make a request.
@@ -131,13 +124,13 @@ mkDescribeAddressResponse pResponseStatus_ =
 -- | The address that you want the Snow device(s) associated with a specific job to be shipped to.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsAddress :: Lens.Lens' DescribeAddressResponse (Lude.Maybe Address)
-darsAddress = Lens.lens (address :: DescribeAddressResponse -> Lude.Maybe Address) (\s a -> s {address = a} :: DescribeAddressResponse)
-{-# DEPRECATED darsAddress "Use generic-lens or generic-optics with 'address' instead." #-}
+drsAddress :: Lens.Lens' DescribeAddressResponse (Lude.Maybe Address)
+drsAddress = Lens.lens (address :: DescribeAddressResponse -> Lude.Maybe Address) (\s a -> s {address = a} :: DescribeAddressResponse)
+{-# DEPRECATED drsAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DescribeAddressResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DescribeAddressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAddressResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeAddressResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeAddressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAddressResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

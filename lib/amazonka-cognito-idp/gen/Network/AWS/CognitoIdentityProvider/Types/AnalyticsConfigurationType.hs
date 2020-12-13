@@ -32,30 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAnalyticsConfigurationType' smart constructor.
 data AnalyticsConfigurationType = AnalyticsConfigurationType'
-  { applicationARN ::
-      Lude.Maybe Lude.Text,
-    userDataShared ::
-      Lude.Maybe Lude.Bool,
+  { -- | The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for Pinpoint integration with the chosen User Pool Client. Amazon Cognito publishes events to the pinpoint project declared by the app ARN.
+    applicationARN :: Lude.Maybe Lude.Text,
+    -- | If @UserDataShared@ is @true@ , Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+    userDataShared :: Lude.Maybe Lude.Bool,
+    -- | The application ID for an Amazon Pinpoint application.
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The external ID.
     externalId :: Lude.Maybe Lude.Text,
+    -- | The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnalyticsConfigurationType' with the minimum fields required to make a request.
 --
 -- * 'applicationARN' - The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for Pinpoint integration with the chosen User Pool Client. Amazon Cognito publishes events to the pinpoint project declared by the app ARN.
+-- * 'userDataShared' - If @UserDataShared@ is @true@ , Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 -- * 'applicationId' - The application ID for an Amazon Pinpoint application.
 -- * 'externalId' - The external ID.
 -- * 'roleARN' - The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
--- * 'userDataShared' - If @UserDataShared@ is @true@ , Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 mkAnalyticsConfigurationType ::
   AnalyticsConfigurationType
 mkAnalyticsConfigurationType =

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataSourceConfigurations' smart constructor.
 newtype DataSourceConfigurations = DataSourceConfigurations'
-  { s3Logs ::
-      Lude.Maybe S3LogsConfiguration
+  { -- | Describes whether S3 data event logs are enabled as a data source.
+    s3Logs :: Lude.Maybe S3LogsConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataSourceConfigurations' with the minimum fields required to make a request.

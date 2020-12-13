@@ -54,41 +54,67 @@ import Network.AWS.Transcribe.Types.TranscriptionJobStatus
 --
 -- /See:/ 'mkTranscriptionJob' smart constructor.
 data TranscriptionJob = TranscriptionJob'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A timestamp that shows when the job was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed.
+    --
+    -- The @FailureReason@ field can contain one of the following values:
+    --
+    --     * @Unsupported media format@ - The media format specified in the @MediaFormat@ field of the request isn't valid. See the description of the @MediaFormat@ field for a list of valid values.
+    --
+    --
+    --     * @The media format provided does not match the detected media format@ - The media format of the audio file doesn't match the format specified in the @MediaFormat@ field in the request. Check the media format of your media file and make sure that the two values match.
+    --
+    --
+    --     * @Invalid sample rate for audio file@ - The sample rate specified in the @MediaSampleRateHertz@ of the request isn't valid. The sample rate must be between 8000 and 48000 Hertz.
+    --
+    --
+    --     * @The sample rate provided does not match the detected sample rate@ - The sample rate in the audio file doesn't match the sample rate specified in the @MediaSampleRateHertz@ field in the request. Check the sample rate of your media file and make sure that the two values match.
+    --
+    --
+    --     * @Invalid file size: file size too large@ - The size of your audio file is larger than Amazon Transcribe can process. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Limits> in the /Amazon Transcribe Developer Guide/ .
+    --
+    --
+    --     * @Invalid number of channels: number of channels too large@ - Your audio contains more channels than Amazon Transcribe is configured to process. To request additional channels, see <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe Amazon Transcribe Limits> in the /Amazon Web Services General Reference/ .
     failureReason :: Lude.Maybe Lude.Text,
+    -- | An object that describes content redaction settings for the transcription job.
     contentRedaction :: Lude.Maybe ContentRedaction,
+    -- | A value between zero and one that Amazon Transcribe assigned to the language that it identified in the source audio. Larger values indicate that Amazon Transcribe has higher confidence in the language it identified.
     identifiedLanguageScore :: Lude.Maybe Lude.Double,
+    -- | The language code for the input speech.
     languageCode :: Lude.Maybe LanguageCode,
-    languageOptions ::
-      Lude.Maybe (Lude.NonEmpty LanguageCode),
+    -- | An object that shows the optional array of languages inputted for transcription jobs with automatic language identification enabled.
+    languageOptions :: Lude.Maybe (Lude.NonEmpty LanguageCode),
+    -- | Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing the transcription job.
     settings :: Lude.Maybe Settings,
+    -- | A timestamp that shows with the job was started processing.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | A timestamp that shows when the job was completed.
     completionTime :: Lude.Maybe Lude.Timestamp,
+    -- | An object that describes the input media for the transcription job.
     media :: Lude.Maybe Media,
+    -- | The format of the input media file.
     mediaFormat :: Lude.Maybe MediaFormat,
+    -- | An object containing the details of your custom language model.
     modelSettings :: Lude.Maybe ModelSettings,
-    transcriptionJobStatus ::
-      Lude.Maybe TranscriptionJobStatus,
+    -- | The status of the transcription job.
+    transcriptionJobStatus :: Lude.Maybe TranscriptionJobStatus,
+    -- | Provides information about how a transcription job is executed.
     jobExecutionSettings :: Lude.Maybe JobExecutionSettings,
+    -- | The name of the transcription job.
     transcriptionJobName :: Lude.Maybe Lude.Text,
+    -- | A value that shows if automatic language identification was enabled for a transcription job.
     identifyLanguage :: Lude.Maybe Lude.Bool,
+    -- | An object that describes the output of the transcription job.
     transcript :: Lude.Maybe Transcript,
+    -- | The sample rate, in Hertz, of the audio track in the input media file.
     mediaSampleRateHertz :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TranscriptionJob' with the minimum fields required to make a request.
 --
--- * 'completionTime' - A timestamp that shows when the job was completed.
--- * 'contentRedaction' - An object that describes content redaction settings for the transcription job.
 -- * 'creationTime' - A timestamp that shows when the job was created.
 -- * 'failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed.
 --
@@ -112,20 +138,22 @@ data TranscriptionJob = TranscriptionJob'
 --     * @Invalid number of channels: number of channels too large@ - Your audio contains more channels than Amazon Transcribe is configured to process. To request additional channels, see <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe Amazon Transcribe Limits> in the /Amazon Web Services General Reference/ .
 --
 --
+-- * 'contentRedaction' - An object that describes content redaction settings for the transcription job.
 -- * 'identifiedLanguageScore' - A value between zero and one that Amazon Transcribe assigned to the language that it identified in the source audio. Larger values indicate that Amazon Transcribe has higher confidence in the language it identified.
--- * 'identifyLanguage' - A value that shows if automatic language identification was enabled for a transcription job.
--- * 'jobExecutionSettings' - Provides information about how a transcription job is executed.
 -- * 'languageCode' - The language code for the input speech.
 -- * 'languageOptions' - An object that shows the optional array of languages inputted for transcription jobs with automatic language identification enabled.
--- * 'media' - An object that describes the input media for the transcription job.
--- * 'mediaFormat' - The format of the input media file.
--- * 'mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.
--- * 'modelSettings' - An object containing the details of your custom language model.
 -- * 'settings' - Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing the transcription job.
 -- * 'startTime' - A timestamp that shows with the job was started processing.
--- * 'transcript' - An object that describes the output of the transcription job.
--- * 'transcriptionJobName' - The name of the transcription job.
+-- * 'completionTime' - A timestamp that shows when the job was completed.
+-- * 'media' - An object that describes the input media for the transcription job.
+-- * 'mediaFormat' - The format of the input media file.
+-- * 'modelSettings' - An object containing the details of your custom language model.
 -- * 'transcriptionJobStatus' - The status of the transcription job.
+-- * 'jobExecutionSettings' - Provides information about how a transcription job is executed.
+-- * 'transcriptionJobName' - The name of the transcription job.
+-- * 'identifyLanguage' - A value that shows if automatic language identification was enabled for a transcription job.
+-- * 'transcript' - An object that describes the output of the transcription job.
+-- * 'mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.
 mkTranscriptionJob ::
   TranscriptionJob
 mkTranscriptionJob =

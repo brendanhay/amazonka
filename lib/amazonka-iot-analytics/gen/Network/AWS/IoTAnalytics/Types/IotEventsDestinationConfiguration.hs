@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIotEventsDestinationConfiguration' smart constructor.
 data IotEventsDestinationConfiguration = IotEventsDestinationConfiguration'
-  { inputName ::
-      Lude.Text,
+  { -- | The name of the AWS IoT Events input to which dataset contents are delivered.
+    inputName :: Lude.Text,
+    -- | The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IotEventsDestinationConfiguration' with the minimum fields required to make a request.

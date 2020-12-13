@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLayers' smart constructor.
 data DescribeLayers = DescribeLayers'
-  { layerIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | An array of layer IDs that specify the layers to be described. If you omit this parameter, @DescribeLayers@ returns a description of every layer in the specified stack.
+    layerIds :: Lude.Maybe [Lude.Text],
+    -- | The stack ID.
     stackId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLayers' with the minimum fields required to make a request.
@@ -119,17 +115,12 @@ instance Lude.ToQuery DescribeLayers where
 --
 -- /See:/ 'mkDescribeLayersResponse' smart constructor.
 data DescribeLayersResponse = DescribeLayersResponse'
-  { layers ::
-      Lude.Maybe [Layer],
+  { -- | An array of @Layer@ objects that describe the layers.
+    layers :: Lude.Maybe [Layer],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLayersResponse' with the minimum fields required to make a request.

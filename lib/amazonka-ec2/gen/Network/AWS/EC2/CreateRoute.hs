@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,6 +35,7 @@ module Network.AWS.EC2.CreateRoute
     crVPCPeeringConnectionId,
     crInstanceId,
     crEgressOnlyInternetGatewayId,
+    crRouteTableId,
     crDestinationIPv6CidrBlock,
     crLocalGatewayId,
     crNatGatewayId,
@@ -45,7 +47,6 @@ module Network.AWS.EC2.CreateRoute
     crDryRun,
     crCarrierGatewayId,
     crDestinationCidrBlock,
-    crRouteTableId,
 
     -- * Destructuring the response
     CreateRouteResponse (..),
@@ -65,51 +66,61 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRoute' smart constructor.
 data CreateRoute = CreateRoute'
-  { vpcPeeringConnectionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of a VPC peering connection.
+    vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
+    -- | The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
     instanceId :: Lude.Maybe Lude.Text,
+    -- | [IPv6 traffic only] The ID of an egress-only internet gateway.
     egressOnlyInternetGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the route table for the route.
+    routeTableId :: Lude.Text,
+    -- | The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
     destinationIPv6CidrBlock :: Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway.
     localGatewayId :: Lude.Maybe Lude.Text,
+    -- | [IPv4 traffic only] The ID of a NAT gateway.
     natGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of a network interface.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of a transit gateway.
     transitGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of an internet gateway or virtual private gateway attached to your VPC.
     gatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
     vpcEndpointId :: Lude.Maybe Lude.Text,
+    -- | The ID of a prefix list used for the destination match.
     destinationPrefixListId :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The ID of the carrier gateway.
+    --
+    -- You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
     carrierGatewayId :: Lude.Maybe Lude.Text,
-    destinationCidrBlock :: Lude.Maybe Lude.Text,
-    routeTableId :: Lude.Text
+    -- | The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
+    destinationCidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoute' with the minimum fields required to make a request.
 --
+-- * 'vpcPeeringConnectionId' - The ID of a VPC peering connection.
+-- * 'instanceId' - The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
+-- * 'egressOnlyInternetGatewayId' - [IPv6 traffic only] The ID of an egress-only internet gateway.
+-- * 'routeTableId' - The ID of the route table for the route.
+-- * 'destinationIPv6CidrBlock' - The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
+-- * 'localGatewayId' - The ID of the local gateway.
+-- * 'natGatewayId' - [IPv4 traffic only] The ID of a NAT gateway.
+-- * 'networkInterfaceId' - The ID of a network interface.
+-- * 'transitGatewayId' - The ID of a transit gateway.
+-- * 'gatewayId' - The ID of an internet gateway or virtual private gateway attached to your VPC.
+-- * 'vpcEndpointId' - The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
+-- * 'destinationPrefixListId' - The ID of a prefix list used for the destination match.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'carrierGatewayId' - The ID of the carrier gateway.
 --
 -- You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
 -- * 'destinationCidrBlock' - The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
--- * 'destinationIPv6CidrBlock' - The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
--- * 'destinationPrefixListId' - The ID of a prefix list used for the destination match.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'egressOnlyInternetGatewayId' - [IPv6 traffic only] The ID of an egress-only internet gateway.
--- * 'gatewayId' - The ID of an internet gateway or virtual private gateway attached to your VPC.
--- * 'instanceId' - The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
--- * 'localGatewayId' - The ID of the local gateway.
--- * 'natGatewayId' - [IPv4 traffic only] The ID of a NAT gateway.
--- * 'networkInterfaceId' - The ID of a network interface.
--- * 'routeTableId' - The ID of the route table for the route.
--- * 'transitGatewayId' - The ID of a transit gateway.
--- * 'vpcEndpointId' - The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
--- * 'vpcPeeringConnectionId' - The ID of a VPC peering connection.
 mkCreateRoute ::
   -- | 'routeTableId'
   Lude.Text ->
@@ -119,6 +130,7 @@ mkCreateRoute pRouteTableId_ =
     { vpcPeeringConnectionId = Lude.Nothing,
       instanceId = Lude.Nothing,
       egressOnlyInternetGatewayId = Lude.Nothing,
+      routeTableId = pRouteTableId_,
       destinationIPv6CidrBlock = Lude.Nothing,
       localGatewayId = Lude.Nothing,
       natGatewayId = Lude.Nothing,
@@ -129,8 +141,7 @@ mkCreateRoute pRouteTableId_ =
       destinationPrefixListId = Lude.Nothing,
       dryRun = Lude.Nothing,
       carrierGatewayId = Lude.Nothing,
-      destinationCidrBlock = Lude.Nothing,
-      routeTableId = pRouteTableId_
+      destinationCidrBlock = Lude.Nothing
     }
 
 -- | The ID of a VPC peering connection.
@@ -153,6 +164,13 @@ crInstanceId = Lens.lens (instanceId :: CreateRoute -> Lude.Maybe Lude.Text) (\s
 crEgressOnlyInternetGatewayId :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
 crEgressOnlyInternetGatewayId = Lens.lens (egressOnlyInternetGatewayId :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {egressOnlyInternetGatewayId = a} :: CreateRoute)
 {-# DEPRECATED crEgressOnlyInternetGatewayId "Use generic-lens or generic-optics with 'egressOnlyInternetGatewayId' instead." #-}
+
+-- | The ID of the route table for the route.
+--
+-- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRouteTableId :: Lens.Lens' CreateRoute Lude.Text
+crRouteTableId = Lens.lens (routeTableId :: CreateRoute -> Lude.Text) (\s a -> s {routeTableId = a} :: CreateRoute)
+{-# DEPRECATED crRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
 
 -- | The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
 --
@@ -233,13 +251,6 @@ crDestinationCidrBlock :: Lens.Lens' CreateRoute (Lude.Maybe Lude.Text)
 crDestinationCidrBlock = Lens.lens (destinationCidrBlock :: CreateRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidrBlock = a} :: CreateRoute)
 {-# DEPRECATED crDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
--- | The ID of the route table for the route.
---
--- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crRouteTableId :: Lens.Lens' CreateRoute Lude.Text
-crRouteTableId = Lens.lens (routeTableId :: CreateRoute -> Lude.Text) (\s a -> s {routeTableId = a} :: CreateRoute)
-{-# DEPRECATED crRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
-
 instance Lude.AWSRequest CreateRoute where
   type Rs CreateRoute = CreateRouteResponse
   request = Req.postQuery ec2Service
@@ -264,6 +275,7 @@ instance Lude.ToQuery CreateRoute where
         "VpcPeeringConnectionId" Lude.=: vpcPeeringConnectionId,
         "InstanceId" Lude.=: instanceId,
         "EgressOnlyInternetGatewayId" Lude.=: egressOnlyInternetGatewayId,
+        "RouteTableId" Lude.=: routeTableId,
         "DestinationIpv6CidrBlock" Lude.=: destinationIPv6CidrBlock,
         "LocalGatewayId" Lude.=: localGatewayId,
         "NatGatewayId" Lude.=: natGatewayId,
@@ -274,29 +286,23 @@ instance Lude.ToQuery CreateRoute where
         "DestinationPrefixListId" Lude.=: destinationPrefixListId,
         "DryRun" Lude.=: dryRun,
         "CarrierGatewayId" Lude.=: carrierGatewayId,
-        "DestinationCidrBlock" Lude.=: destinationCidrBlock,
-        "RouteTableId" Lude.=: routeTableId
+        "DestinationCidrBlock" Lude.=: destinationCidrBlock
       ]
 
 -- | /See:/ 'mkCreateRouteResponse' smart constructor.
 data CreateRouteResponse = CreateRouteResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRouteResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkCreateRouteResponse ::
   -- | 'responseStatus'
   Lude.Int ->

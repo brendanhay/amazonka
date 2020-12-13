@@ -17,8 +17,8 @@ module Network.AWS.Lambda.Types.EnvironmentResponse
     mkEnvironmentResponse,
 
     -- * Lenses
-    envVariables,
-    envError,
+    efVariables,
+    efError,
   )
 where
 
@@ -30,12 +30,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentResponse' smart constructor.
 data EnvironmentResponse = EnvironmentResponse'
-  { variables ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Sensitive Lude.Text)
-        ),
+  { -- | Environment variable key-value pairs.
+    variables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)),
+    -- | Error messages for environment variables that couldn't be applied.
     error :: Lude.Maybe EnvironmentError
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -43,8 +40,8 @@ data EnvironmentResponse = EnvironmentResponse'
 
 -- | Creates a value of 'EnvironmentResponse' with the minimum fields required to make a request.
 --
--- * 'error' - Error messages for environment variables that couldn't be applied.
 -- * 'variables' - Environment variable key-value pairs.
+-- * 'error' - Error messages for environment variables that couldn't be applied.
 mkEnvironmentResponse ::
   EnvironmentResponse
 mkEnvironmentResponse =
@@ -56,16 +53,16 @@ mkEnvironmentResponse =
 -- | Environment variable key-value pairs.
 --
 -- /Note:/ Consider using 'variables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-envVariables :: Lens.Lens' EnvironmentResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)))
-envVariables = Lens.lens (variables :: EnvironmentResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text))) (\s a -> s {variables = a} :: EnvironmentResponse)
-{-# DEPRECATED envVariables "Use generic-lens or generic-optics with 'variables' instead." #-}
+efVariables :: Lens.Lens' EnvironmentResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)))
+efVariables = Lens.lens (variables :: EnvironmentResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text))) (\s a -> s {variables = a} :: EnvironmentResponse)
+{-# DEPRECATED efVariables "Use generic-lens or generic-optics with 'variables' instead." #-}
 
 -- | Error messages for environment variables that couldn't be applied.
 --
 -- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-envError :: Lens.Lens' EnvironmentResponse (Lude.Maybe EnvironmentError)
-envError = Lens.lens (error :: EnvironmentResponse -> Lude.Maybe EnvironmentError) (\s a -> s {error = a} :: EnvironmentResponse)
-{-# DEPRECATED envError "Use generic-lens or generic-optics with 'error' instead." #-}
+efError :: Lens.Lens' EnvironmentResponse (Lude.Maybe EnvironmentError)
+efError = Lens.lens (error :: EnvironmentResponse -> Lude.Maybe EnvironmentError) (\s a -> s {error = a} :: EnvironmentResponse)
+{-# DEPRECATED efError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 instance Lude.FromJSON EnvironmentResponse where
   parseJSON =

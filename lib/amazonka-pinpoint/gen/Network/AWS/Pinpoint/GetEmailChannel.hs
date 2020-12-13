@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.GetEmailChannel
     mkGetEmailChannelResponse,
 
     -- ** Response lenses
-    gecrsResponseStatus,
     gecrsEmailChannelResponse,
+    gecrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetEmailChannel' smart constructor.
 newtype GetEmailChannel = GetEmailChannel'
-  { applicationId ::
-      Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEmailChannel' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest GetEmailChannel where
     Res.receiveJSON
       ( \s h x ->
           GetEmailChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetEmailChannel where
@@ -97,42 +92,29 @@ instance Lude.ToQuery GetEmailChannel where
 
 -- | /See:/ 'mkGetEmailChannelResponse' smart constructor.
 data GetEmailChannelResponse = GetEmailChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    emailChannelResponse ::
-      EmailChannelResponse
+  { emailChannelResponse :: EmailChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEmailChannelResponse' with the minimum fields required to make a request.
 --
--- * 'emailChannelResponse' - Undocumented field.
+-- * 'emailChannelResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetEmailChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'emailChannelResponse'
   EmailChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetEmailChannelResponse
-mkGetEmailChannelResponse pResponseStatus_ pEmailChannelResponse_ =
+mkGetEmailChannelResponse pEmailChannelResponse_ pResponseStatus_ =
   GetEmailChannelResponse'
-    { responseStatus = pResponseStatus_,
-      emailChannelResponse = pEmailChannelResponse_
+    { emailChannelResponse =
+        pEmailChannelResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gecrsResponseStatus :: Lens.Lens' GetEmailChannelResponse Lude.Int
-gecrsResponseStatus = Lens.lens (responseStatus :: GetEmailChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEmailChannelResponse)
-{-# DEPRECATED gecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -140,3 +122,10 @@ gecrsResponseStatus = Lens.lens (responseStatus :: GetEmailChannelResponse -> Lu
 gecrsEmailChannelResponse :: Lens.Lens' GetEmailChannelResponse EmailChannelResponse
 gecrsEmailChannelResponse = Lens.lens (emailChannelResponse :: GetEmailChannelResponse -> EmailChannelResponse) (\s a -> s {emailChannelResponse = a} :: GetEmailChannelResponse)
 {-# DEPRECATED gecrsEmailChannelResponse "Use generic-lens or generic-optics with 'emailChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gecrsResponseStatus :: Lens.Lens' GetEmailChannelResponse Lude.Int
+gecrsResponseStatus = Lens.lens (responseStatus :: GetEmailChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEmailChannelResponse)
+{-# DEPRECATED gecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

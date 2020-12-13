@@ -44,36 +44,70 @@ import Network.AWS.Route53Domains.Types.ExtraParam
 --
 -- /See:/ 'mkContactDetail' smart constructor.
 data ContactDetail = ContactDetail'
-  { organizationName ::
-      Lude.Maybe Lude.Text,
+  { -- | Name of the organization for contact types other than @PERSON@ .
+    organizationName :: Lude.Maybe Lude.Text,
+    -- | Email address of the contact.
     email :: Lude.Maybe Lude.Text,
+    -- | The state or province of the contact's city.
     state :: Lude.Maybe Lude.Text,
+    -- | Fax number of the contact.
+    --
+    -- Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as @"+1.1234567890"@ .
     fax :: Lude.Maybe Lude.Text,
+    -- | Last name of contact.
     lastName :: Lude.Maybe Lude.Text,
+    -- | A list of name-value pairs for parameters required by certain top-level domains.
     extraParams :: Lude.Maybe [ExtraParam],
+    -- | The zip or postal code of the contact's address.
     zipCode :: Lude.Maybe Lude.Text,
+    -- | First line of the contact's address.
     addressLine1 :: Lude.Maybe Lude.Text,
+    -- | The city of the contact's address.
     city :: Lude.Maybe Lude.Text,
+    -- | The phone number of the contact.
+    --
+    -- Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as @"+1.1234567890"@ .
     phoneNumber :: Lude.Maybe Lude.Text,
+    -- | Second line of contact's address, if any.
     addressLine2 :: Lude.Maybe Lude.Text,
+    -- | First name of contact.
     firstName :: Lude.Maybe Lude.Text,
+    -- | Code for the country of the contact's address.
     countryCode :: Lude.Maybe CountryCode,
+    -- | Indicates whether the contact is a person, company, association, or public organization. Note the following:
+    --
+    --
+    --     * If you specify a value other than @PERSON@ , you must also specify a value for @OrganizationName@ .
+    --
+    --
+    --     * For some TLDs, the privacy protection available depends on the value that you specify for @Contact Type@ . For the privacy protection settings for your TLD, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/
+    --
+    --
+    --     * For .es domains, if you specify @PERSON@ , you must specify @INDIVIDUAL@ for the value of @ES_LEGAL_FORM@ .
     contactType :: Lude.Maybe ContactType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContactDetail' with the minimum fields required to make a request.
 --
+-- * 'organizationName' - Name of the organization for contact types other than @PERSON@ .
+-- * 'email' - Email address of the contact.
+-- * 'state' - The state or province of the contact's city.
+-- * 'fax' - Fax number of the contact.
+--
+-- Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as @"+1.1234567890"@ .
+-- * 'lastName' - Last name of contact.
+-- * 'extraParams' - A list of name-value pairs for parameters required by certain top-level domains.
+-- * 'zipCode' - The zip or postal code of the contact's address.
 -- * 'addressLine1' - First line of the contact's address.
--- * 'addressLine2' - Second line of contact's address, if any.
 -- * 'city' - The city of the contact's address.
+-- * 'phoneNumber' - The phone number of the contact.
+--
+-- Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as @"+1.1234567890"@ .
+-- * 'addressLine2' - Second line of contact's address, if any.
+-- * 'firstName' - First name of contact.
+-- * 'countryCode' - Code for the country of the contact's address.
 -- * 'contactType' - Indicates whether the contact is a person, company, association, or public organization. Note the following:
 --
 --
@@ -84,22 +118,6 @@ data ContactDetail = ContactDetail'
 --
 --
 --     * For .es domains, if you specify @PERSON@ , you must specify @INDIVIDUAL@ for the value of @ES_LEGAL_FORM@ .
---
---
--- * 'countryCode' - Code for the country of the contact's address.
--- * 'email' - Email address of the contact.
--- * 'extraParams' - A list of name-value pairs for parameters required by certain top-level domains.
--- * 'fax' - Fax number of the contact.
---
--- Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as @"+1.1234567890"@ .
--- * 'firstName' - First name of contact.
--- * 'lastName' - Last name of contact.
--- * 'organizationName' - Name of the organization for contact types other than @PERSON@ .
--- * 'phoneNumber' - The phone number of the contact.
---
--- Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as @"+1.1234567890"@ .
--- * 'state' - The state or province of the contact's city.
--- * 'zipCode' - The zip or postal code of the contact's address.
 mkContactDetail ::
   ContactDetail
 mkContactDetail =

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIPv6CidrBlock' smart constructor.
 newtype IPv6CidrBlock = IPv6CidrBlock'
-  { ipv6CidrBlock ::
-      Lude.Maybe Lude.Text
+  { -- | The IPv6 CIDR block.
+    ipv6CidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPv6CidrBlock' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.LexModels.Types.ProcessBehavior
   ( ProcessBehavior
       ( ProcessBehavior',
-        Build,
-        Save
+        Save,
+        Build
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ProcessBehavior = ProcessBehavior' Lude.Text
       Lude.ToHeader
     )
 
-pattern Build :: ProcessBehavior
-pattern Build = ProcessBehavior' "BUILD"
-
 pattern Save :: ProcessBehavior
 pattern Save = ProcessBehavior' "SAVE"
 
+pattern Build :: ProcessBehavior
+pattern Build = ProcessBehavior' "BUILD"
+
 {-# COMPLETE
-  Build,
   Save,
+  Build,
   ProcessBehavior'
   #-}

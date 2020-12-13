@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPatchOrchestratorFilter' smart constructor.
 data PatchOrchestratorFilter = PatchOrchestratorFilter'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The value for the filter.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The key for the filter.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchOrchestratorFilter' with the minimum fields required to make a request.
 --
--- * 'key' - The key for the filter.
 -- * 'values' - The value for the filter.
+-- * 'key' - The key for the filter.
 mkPatchOrchestratorFilter ::
   PatchOrchestratorFilter
 mkPatchOrchestratorFilter =

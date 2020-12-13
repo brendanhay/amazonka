@@ -13,10 +13,10 @@
 module Network.AWS.CloudFront.Types.CachePolicyQueryStringBehavior
   ( CachePolicyQueryStringBehavior
       ( CachePolicyQueryStringBehavior',
-        CPQSBAll,
-        CPQSBAllExcept,
         CPQSBNone,
-        CPQSBWhitelist
+        CPQSBWhitelist,
+        CPQSBAllExcept,
+        CPQSBAll
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype CachePolicyQueryStringBehavior = CachePolicyQueryStringBehavior' Lude.Te
       Lude.ToHeader
     )
 
-pattern CPQSBAll :: CachePolicyQueryStringBehavior
-pattern CPQSBAll = CachePolicyQueryStringBehavior' "all"
-
-pattern CPQSBAllExcept :: CachePolicyQueryStringBehavior
-pattern CPQSBAllExcept = CachePolicyQueryStringBehavior' "allExcept"
-
 pattern CPQSBNone :: CachePolicyQueryStringBehavior
 pattern CPQSBNone = CachePolicyQueryStringBehavior' "none"
 
 pattern CPQSBWhitelist :: CachePolicyQueryStringBehavior
 pattern CPQSBWhitelist = CachePolicyQueryStringBehavior' "whitelist"
 
+pattern CPQSBAllExcept :: CachePolicyQueryStringBehavior
+pattern CPQSBAllExcept = CachePolicyQueryStringBehavior' "allExcept"
+
+pattern CPQSBAll :: CachePolicyQueryStringBehavior
+pattern CPQSBAll = CachePolicyQueryStringBehavior' "all"
+
 {-# COMPLETE
-  CPQSBAll,
-  CPQSBAllExcept,
   CPQSBNone,
   CPQSBWhitelist,
+  CPQSBAllExcept,
+  CPQSBAll,
   CachePolicyQueryStringBehavior'
   #-}

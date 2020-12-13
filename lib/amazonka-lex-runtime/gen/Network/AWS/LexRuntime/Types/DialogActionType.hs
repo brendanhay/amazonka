@@ -13,11 +13,11 @@
 module Network.AWS.LexRuntime.Types.DialogActionType
   ( DialogActionType
       ( DialogActionType',
-        DATClose,
-        DATConfirmIntent,
-        DATDelegate,
         DATElicitIntent,
-        DATElicitSlot
+        DATConfirmIntent,
+        DATElicitSlot,
+        DATClose,
+        DATDelegate
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype DialogActionType = DialogActionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DATClose :: DialogActionType
-pattern DATClose = DialogActionType' "Close"
+pattern DATElicitIntent :: DialogActionType
+pattern DATElicitIntent = DialogActionType' "ElicitIntent"
 
 pattern DATConfirmIntent :: DialogActionType
 pattern DATConfirmIntent = DialogActionType' "ConfirmIntent"
 
-pattern DATDelegate :: DialogActionType
-pattern DATDelegate = DialogActionType' "Delegate"
-
-pattern DATElicitIntent :: DialogActionType
-pattern DATElicitIntent = DialogActionType' "ElicitIntent"
-
 pattern DATElicitSlot :: DialogActionType
 pattern DATElicitSlot = DialogActionType' "ElicitSlot"
 
+pattern DATClose :: DialogActionType
+pattern DATClose = DialogActionType' "Close"
+
+pattern DATDelegate :: DialogActionType
+pattern DATDelegate = DialogActionType' "Delegate"
+
 {-# COMPLETE
-  DATClose,
-  DATConfirmIntent,
-  DATDelegate,
   DATElicitIntent,
+  DATConfirmIntent,
   DATElicitSlot,
+  DATClose,
+  DATDelegate,
   DialogActionType'
   #-}

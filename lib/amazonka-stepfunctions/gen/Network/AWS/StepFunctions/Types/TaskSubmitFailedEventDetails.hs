@@ -17,9 +17,9 @@ module Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails
     mkTaskSubmitFailedEventDetails,
 
     -- * Lenses
+    tsfedResourceType,
     tsfedError,
     tsfedCause,
-    tsfedResourceType,
     tsfedResource,
   )
 where
@@ -31,13 +31,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskSubmitFailedEventDetails' smart constructor.
 data TaskSubmitFailedEventDetails = TaskSubmitFailedEventDetails'
-  { error ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    cause ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
+  { -- | The action of the resource called by a task state.
     resourceType :: Lude.Text,
+    -- | The error code of the failure.
+    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A more detailed explanation of the cause of the failure.
+    cause :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The service name of the resource in a task state.
     resource :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -45,10 +45,10 @@ data TaskSubmitFailedEventDetails = TaskSubmitFailedEventDetails'
 
 -- | Creates a value of 'TaskSubmitFailedEventDetails' with the minimum fields required to make a request.
 --
--- * 'cause' - A more detailed explanation of the cause of the failure.
--- * 'error' - The error code of the failure.
--- * 'resource' - The service name of the resource in a task state.
 -- * 'resourceType' - The action of the resource called by a task state.
+-- * 'error' - The error code of the failure.
+-- * 'cause' - A more detailed explanation of the cause of the failure.
+-- * 'resource' - The service name of the resource in a task state.
 mkTaskSubmitFailedEventDetails ::
   -- | 'resourceType'
   Lude.Text ->
@@ -57,11 +57,18 @@ mkTaskSubmitFailedEventDetails ::
   TaskSubmitFailedEventDetails
 mkTaskSubmitFailedEventDetails pResourceType_ pResource_ =
   TaskSubmitFailedEventDetails'
-    { error = Lude.Nothing,
+    { resourceType = pResourceType_,
+      error = Lude.Nothing,
       cause = Lude.Nothing,
-      resourceType = pResourceType_,
       resource = pResource_
     }
+
+-- | The action of the resource called by a task state.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedResourceType :: Lens.Lens' TaskSubmitFailedEventDetails Lude.Text
+tsfedResourceType = Lens.lens (resourceType :: TaskSubmitFailedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskSubmitFailedEventDetails)
+{-# DEPRECATED tsfedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The error code of the failure.
 --
@@ -77,13 +84,6 @@ tsfedCause :: Lens.Lens' TaskSubmitFailedEventDetails (Lude.Maybe (Lude.Sensitiv
 tsfedCause = Lens.lens (cause :: TaskSubmitFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: TaskSubmitFailedEventDetails)
 {-# DEPRECATED tsfedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
--- | The action of the resource called by a task state.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsfedResourceType :: Lens.Lens' TaskSubmitFailedEventDetails Lude.Text
-tsfedResourceType = Lens.lens (resourceType :: TaskSubmitFailedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskSubmitFailedEventDetails)
-{-# DEPRECATED tsfedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
 -- | The service name of the resource in a task state.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -97,8 +97,8 @@ instance Lude.FromJSON TaskSubmitFailedEventDetails where
       "TaskSubmitFailedEventDetails"
       ( \x ->
           TaskSubmitFailedEventDetails'
-            Lude.<$> (x Lude..:? "error")
+            Lude.<$> (x Lude..: "resourceType")
+            Lude.<*> (x Lude..:? "error")
             Lude.<*> (x Lude..:? "cause")
-            Lude.<*> (x Lude..: "resourceType")
             Lude.<*> (x Lude..: "resource")
       )

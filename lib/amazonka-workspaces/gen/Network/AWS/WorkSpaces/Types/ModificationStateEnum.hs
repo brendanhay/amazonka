@@ -13,8 +13,8 @@
 module Network.AWS.WorkSpaces.Types.ModificationStateEnum
   ( ModificationStateEnum
       ( ModificationStateEnum',
-        UpdateInProgress,
-        UpdateInitiated
+        UpdateInitiated,
+        UpdateInProgress
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ModificationStateEnum = ModificationStateEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern UpdateInProgress :: ModificationStateEnum
-pattern UpdateInProgress = ModificationStateEnum' "UPDATE_IN_PROGRESS"
-
 pattern UpdateInitiated :: ModificationStateEnum
 pattern UpdateInitiated = ModificationStateEnum' "UPDATE_INITIATED"
 
+pattern UpdateInProgress :: ModificationStateEnum
+pattern UpdateInProgress = ModificationStateEnum' "UPDATE_IN_PROGRESS"
+
 {-# COMPLETE
-  UpdateInProgress,
   UpdateInitiated,
+  UpdateInProgress,
   ModificationStateEnum'
   #-}

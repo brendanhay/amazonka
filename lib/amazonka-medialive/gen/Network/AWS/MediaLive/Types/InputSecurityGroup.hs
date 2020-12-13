@@ -35,32 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputSecurityGroup' smart constructor.
 data InputSecurityGroup = InputSecurityGroup'
-  { state ::
-      Lude.Maybe InputSecurityGroupState,
+  { -- | The current state of the Input Security Group.
+    state :: Lude.Maybe InputSecurityGroupState,
+    -- | Unique ARN of Input Security Group
     arn :: Lude.Maybe Lude.Text,
+    -- | The list of inputs currently using this Input Security Group.
     inputs :: Lude.Maybe [Lude.Text],
+    -- | The Id of the Input Security Group
     id :: Lude.Maybe Lude.Text,
+    -- | Whitelist rules and their sync status
     whitelistRules :: Lude.Maybe [InputWhitelistRule],
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    -- | A collection of key-value pairs.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSecurityGroup' with the minimum fields required to make a request.
 --
--- * 'arn' - Unique ARN of Input Security Group
--- * 'id' - The Id of the Input Security Group
--- * 'inputs' - The list of inputs currently using this Input Security Group.
 -- * 'state' - The current state of the Input Security Group.
--- * 'tags' - A collection of key-value pairs.
+-- * 'arn' - Unique ARN of Input Security Group
+-- * 'inputs' - The list of inputs currently using this Input Security Group.
+-- * 'id' - The Id of the Input Security Group
 -- * 'whitelistRules' - Whitelist rules and their sync status
+-- * 'tags' - A collection of key-value pairs.
 mkInputSecurityGroup ::
   InputSecurityGroup
 mkInputSecurityGroup =

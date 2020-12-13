@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrefixListAssociation' smart constructor.
 data PrefixListAssociation = PrefixListAssociation'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the resource.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The owner of the resource.
     resourceOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrefixListAssociation' with the minimum fields required to make a request.

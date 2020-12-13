@@ -17,8 +17,8 @@ module Network.AWS.Route53.Types.Dimension
     mkDimension,
 
     -- * Lenses
-    dName,
     dValue,
+    dName,
   )
 where
 
@@ -29,35 +29,27 @@ import Network.AWS.Route53.Internal
 -- | For the metric that the CloudWatch alarm is associated with, a complex type that contains information about one dimension.
 --
 -- /See:/ 'mkDimension' smart constructor.
-data Dimension = Dimension' {name :: Lude.Text, value :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Dimension = Dimension'
+  { -- | For the metric that the CloudWatch alarm is associated with, the value of one dimension.
+    value :: Lude.Text,
+    -- | For the metric that the CloudWatch alarm is associated with, the name of one dimension.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Dimension' with the minimum fields required to make a request.
 --
--- * 'name' - For the metric that the CloudWatch alarm is associated with, the name of one dimension.
 -- * 'value' - For the metric that the CloudWatch alarm is associated with, the value of one dimension.
+-- * 'name' - For the metric that the CloudWatch alarm is associated with, the name of one dimension.
 mkDimension ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   Dimension
-mkDimension pName_ pValue_ =
-  Dimension' {name = pName_, value = pValue_}
-
--- | For the metric that the CloudWatch alarm is associated with, the name of one dimension.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' Dimension Lude.Text
-dName = Lens.lens (name :: Dimension -> Lude.Text) (\s a -> s {name = a} :: Dimension)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkDimension pValue_ pName_ =
+  Dimension' {value = pValue_, name = pName_}
 
 -- | For the metric that the CloudWatch alarm is associated with, the value of one dimension.
 --
@@ -66,7 +58,14 @@ dValue :: Lens.Lens' Dimension Lude.Text
 dValue = Lens.lens (value :: Dimension -> Lude.Text) (\s a -> s {value = a} :: Dimension)
 {-# DEPRECATED dValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | For the metric that the CloudWatch alarm is associated with, the name of one dimension.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dName :: Lens.Lens' Dimension Lude.Text
+dName = Lens.lens (name :: Dimension -> Lude.Text) (\s a -> s {name = a} :: Dimension)
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.FromXML Dimension where
   parseXML x =
     Dimension'
-      Lude.<$> (x Lude..@ "Name") Lude.<*> (x Lude..@ "Value")
+      Lude.<$> (x Lude..@ "Value") Lude.<*> (x Lude..@ "Name")

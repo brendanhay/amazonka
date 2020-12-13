@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCrawlerMetrics' smart constructor.
 data GetCrawlerMetrics = GetCrawlerMetrics'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token, if this is a continuation call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum size of a list to return.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | A list of the names of crawlers about which to retrieve metrics.
     crawlerNameList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCrawlerMetrics' with the minimum fields required to make a request.
 --
--- * 'crawlerNameList' - A list of the names of crawlers about which to retrieve metrics.
--- * 'maxResults' - The maximum size of a list to return.
 -- * 'nextToken' - A continuation token, if this is a continuation call.
+-- * 'maxResults' - The maximum size of a list to return.
+-- * 'crawlerNameList' - A list of the names of crawlers about which to retrieve metrics.
 mkGetCrawlerMetrics ::
   GetCrawlerMetrics
 mkGetCrawlerMetrics =
@@ -144,18 +141,14 @@ instance Lude.ToQuery GetCrawlerMetrics where
 
 -- | /See:/ 'mkGetCrawlerMetricsResponse' smart constructor.
 data GetCrawlerMetricsResponse = GetCrawlerMetricsResponse'
-  { crawlerMetricsList ::
-      Lude.Maybe [CrawlerMetrics],
+  { -- | A list of metrics for the specified crawler.
+    crawlerMetricsList :: Lude.Maybe [CrawlerMetrics],
+    -- | A continuation token, if the returned list does not contain the last metric available.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCrawlerMetricsResponse' with the minimum fields required to make a request.

@@ -17,12 +17,12 @@ module Network.AWS.RDS.Types.OptionConfiguration
     mkOptionConfiguration,
 
     -- * Lenses
+    ocOptionName,
     ocOptionSettings,
     ocVPCSecurityGroupMemberships,
     ocDBSecurityGroupMemberships,
     ocOptionVersion,
     ocPort,
-    ocOptionName,
   )
 where
 
@@ -34,46 +34,50 @@ import Network.AWS.RDS.Types.OptionSetting
 --
 -- /See:/ 'mkOptionConfiguration' smart constructor.
 data OptionConfiguration = OptionConfiguration'
-  { optionSettings ::
-      Lude.Maybe [OptionSetting],
-    vpcSecurityGroupMemberships ::
-      Lude.Maybe [Lude.Text],
-    dbSecurityGroupMemberships ::
-      Lude.Maybe [Lude.Text],
+  { -- | The configuration of options to include in a group.
+    optionName :: Lude.Text,
+    -- | The option settings to include in an option group.
+    optionSettings :: Lude.Maybe [OptionSetting],
+    -- | A list of VpcSecurityGroupMembership name strings used for this option.
+    vpcSecurityGroupMemberships :: Lude.Maybe [Lude.Text],
+    -- | A list of DBSecurityGroupMembership name strings used for this option.
+    dbSecurityGroupMemberships :: Lude.Maybe [Lude.Text],
+    -- | The version for the option.
     optionVersion :: Lude.Maybe Lude.Text,
-    port :: Lude.Maybe Lude.Int,
-    optionName :: Lude.Text
+    -- | The optional port for the option.
+    port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionConfiguration' with the minimum fields required to make a request.
 --
--- * 'dbSecurityGroupMemberships' - A list of DBSecurityGroupMembership name strings used for this option.
 -- * 'optionName' - The configuration of options to include in a group.
 -- * 'optionSettings' - The option settings to include in an option group.
+-- * 'vpcSecurityGroupMemberships' - A list of VpcSecurityGroupMembership name strings used for this option.
+-- * 'dbSecurityGroupMemberships' - A list of DBSecurityGroupMembership name strings used for this option.
 -- * 'optionVersion' - The version for the option.
 -- * 'port' - The optional port for the option.
--- * 'vpcSecurityGroupMemberships' - A list of VpcSecurityGroupMembership name strings used for this option.
 mkOptionConfiguration ::
   -- | 'optionName'
   Lude.Text ->
   OptionConfiguration
 mkOptionConfiguration pOptionName_ =
   OptionConfiguration'
-    { optionSettings = Lude.Nothing,
+    { optionName = pOptionName_,
+      optionSettings = Lude.Nothing,
       vpcSecurityGroupMemberships = Lude.Nothing,
       dbSecurityGroupMemberships = Lude.Nothing,
       optionVersion = Lude.Nothing,
-      port = Lude.Nothing,
-      optionName = pOptionName_
+      port = Lude.Nothing
     }
+
+-- | The configuration of options to include in a group.
+--
+-- /Note:/ Consider using 'optionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocOptionName :: Lens.Lens' OptionConfiguration Lude.Text
+ocOptionName = Lens.lens (optionName :: OptionConfiguration -> Lude.Text) (\s a -> s {optionName = a} :: OptionConfiguration)
+{-# DEPRECATED ocOptionName "Use generic-lens or generic-optics with 'optionName' instead." #-}
 
 -- | The option settings to include in an option group.
 --
@@ -110,17 +114,11 @@ ocPort :: Lens.Lens' OptionConfiguration (Lude.Maybe Lude.Int)
 ocPort = Lens.lens (port :: OptionConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: OptionConfiguration)
 {-# DEPRECATED ocPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
--- | The configuration of options to include in a group.
---
--- /Note:/ Consider using 'optionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocOptionName :: Lens.Lens' OptionConfiguration Lude.Text
-ocOptionName = Lens.lens (optionName :: OptionConfiguration -> Lude.Text) (\s a -> s {optionName = a} :: OptionConfiguration)
-{-# DEPRECATED ocOptionName "Use generic-lens or generic-optics with 'optionName' instead." #-}
-
 instance Lude.ToQuery OptionConfiguration where
   toQuery OptionConfiguration' {..} =
     Lude.mconcat
-      [ "OptionSettings"
+      [ "OptionName" Lude.=: optionName,
+        "OptionSettings"
           Lude.=: Lude.toQuery
             (Lude.toQueryList "OptionSetting" Lude.<$> optionSettings),
         "VpcSecurityGroupMemberships"
@@ -134,6 +132,5 @@ instance Lude.ToQuery OptionConfiguration where
                 Lude.<$> dbSecurityGroupMemberships
             ),
         "OptionVersion" Lude.=: optionVersion,
-        "Port" Lude.=: port,
-        "OptionName" Lude.=: optionName
+        "Port" Lude.=: port
       ]

@@ -13,8 +13,8 @@
 module Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause
   ( CompleteWorkflowExecutionFailedCause
       ( CompleteWorkflowExecutionFailedCause',
-        CWEFCOperationNotPermitted,
-        CWEFCUnhandledDecision
+        CWEFCUnhandledDecision,
+        CWEFCOperationNotPermitted
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CompleteWorkflowExecutionFailedCause = CompleteWorkflowExecutionFailedCa
       Lude.ToHeader
     )
 
-pattern CWEFCOperationNotPermitted :: CompleteWorkflowExecutionFailedCause
-pattern CWEFCOperationNotPermitted = CompleteWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
-
 pattern CWEFCUnhandledDecision :: CompleteWorkflowExecutionFailedCause
 pattern CWEFCUnhandledDecision = CompleteWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
 
+pattern CWEFCOperationNotPermitted :: CompleteWorkflowExecutionFailedCause
+pattern CWEFCOperationNotPermitted = CompleteWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
+
 {-# COMPLETE
-  CWEFCOperationNotPermitted,
   CWEFCUnhandledDecision,
+  CWEFCOperationNotPermitted,
   CompleteWorkflowExecutionFailedCause'
   #-}

@@ -33,28 +33,28 @@ import Network.AWS.Route53Domains.Types.OperationType
 --
 -- /See:/ 'mkBillingRecord' smart constructor.
 data BillingRecord = BillingRecord'
-  { operation ::
-      Lude.Maybe OperationType,
+  { -- | The operation that you were charged for.
+    operation :: Lude.Maybe OperationType,
+    -- | The ID of the invoice that is associated with the billing record.
     invoiceId :: Lude.Maybe Lude.Text,
+    -- | The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format> in the /Amazon Route 53 Developer Guide/ .
     domainName :: Lude.Maybe Lude.Text,
+    -- | The date that the operation was billed, in Unix format.
     billDate :: Lude.Maybe Lude.Timestamp,
+    -- | The price that you were charged for the operation, in US dollars.
+    --
+    -- Example value: 12.0
     price :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BillingRecord' with the minimum fields required to make a request.
 --
--- * 'billDate' - The date that the operation was billed, in Unix format.
--- * 'domainName' - The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format> in the /Amazon Route 53 Developer Guide/ .
--- * 'invoiceId' - The ID of the invoice that is associated with the billing record.
 -- * 'operation' - The operation that you were charged for.
+-- * 'invoiceId' - The ID of the invoice that is associated with the billing record.
+-- * 'domainName' - The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format> in the /Amazon Route 53 Developer Guide/ .
+-- * 'billDate' - The date that the operation was billed, in Unix format.
 -- * 'price' - The price that you were charged for the operation, in US dollars.
 --
 -- Example value: 12.0

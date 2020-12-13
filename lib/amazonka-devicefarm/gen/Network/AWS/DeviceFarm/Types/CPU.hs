@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCPU' smart constructor.
 data CPU = CPU'
-  { frequency :: Lude.Maybe Lude.Text,
+  { -- | The CPU's frequency.
+    frequency :: Lude.Maybe Lude.Text,
+    -- | The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
     clock :: Lude.Maybe Lude.Double,
+    -- | The CPU's architecture (for example, x86 or ARM).
     architecture :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CPU' with the minimum fields required to make a request.
 --
--- * 'architecture' - The CPU's architecture (for example, x86 or ARM).
--- * 'clock' - The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
 -- * 'frequency' - The CPU's frequency.
+-- * 'clock' - The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+-- * 'architecture' - The CPU's architecture (for example, x86 or ARM).
 mkCPU ::
   CPU
 mkCPU =

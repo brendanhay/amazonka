@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,9 +45,9 @@ module Network.AWS.SSM.LabelParameterVersion
     mkLabelParameterVersion,
 
     -- ** Request lenses
-    lpvParameterVersion,
     lpvName,
     lpvLabels,
+    lpvParameterVersion,
 
     -- * Destructuring the response
     LabelParameterVersionResponse (..),
@@ -67,24 +68,20 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkLabelParameterVersion' smart constructor.
 data LabelParameterVersion = LabelParameterVersion'
-  { parameterVersion ::
-      Lude.Maybe Lude.Integer,
+  { -- | The parameter name on which you want to attach one or more labels.
     name :: Lude.Text,
-    labels :: Lude.NonEmpty Lude.Text
+    -- | One or more labels to attach to the specified parameter version.
+    labels :: Lude.NonEmpty Lude.Text,
+    -- | The specific version of the parameter on which you want to attach one or more labels. If no version is specified, the system attaches the label to the latest version.
+    parameterVersion :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelParameterVersion' with the minimum fields required to make a request.
 --
--- * 'labels' - One or more labels to attach to the specified parameter version.
 -- * 'name' - The parameter name on which you want to attach one or more labels.
+-- * 'labels' - One or more labels to attach to the specified parameter version.
 -- * 'parameterVersion' - The specific version of the parameter on which you want to attach one or more labels. If no version is specified, the system attaches the label to the latest version.
 mkLabelParameterVersion ::
   -- | 'name'
@@ -94,17 +91,10 @@ mkLabelParameterVersion ::
   LabelParameterVersion
 mkLabelParameterVersion pName_ pLabels_ =
   LabelParameterVersion'
-    { parameterVersion = Lude.Nothing,
-      name = pName_,
-      labels = pLabels_
+    { name = pName_,
+      labels = pLabels_,
+      parameterVersion = Lude.Nothing
     }
-
--- | The specific version of the parameter on which you want to attach one or more labels. If no version is specified, the system attaches the label to the latest version.
---
--- /Note:/ Consider using 'parameterVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpvParameterVersion :: Lens.Lens' LabelParameterVersion (Lude.Maybe Lude.Integer)
-lpvParameterVersion = Lens.lens (parameterVersion :: LabelParameterVersion -> Lude.Maybe Lude.Integer) (\s a -> s {parameterVersion = a} :: LabelParameterVersion)
-{-# DEPRECATED lpvParameterVersion "Use generic-lens or generic-optics with 'parameterVersion' instead." #-}
 
 -- | The parameter name on which you want to attach one or more labels.
 --
@@ -119,6 +109,13 @@ lpvName = Lens.lens (name :: LabelParameterVersion -> Lude.Text) (\s a -> s {nam
 lpvLabels :: Lens.Lens' LabelParameterVersion (Lude.NonEmpty Lude.Text)
 lpvLabels = Lens.lens (labels :: LabelParameterVersion -> Lude.NonEmpty Lude.Text) (\s a -> s {labels = a} :: LabelParameterVersion)
 {-# DEPRECATED lpvLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
+
+-- | The specific version of the parameter on which you want to attach one or more labels. If no version is specified, the system attaches the label to the latest version.
+--
+-- /Note:/ Consider using 'parameterVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpvParameterVersion :: Lens.Lens' LabelParameterVersion (Lude.Maybe Lude.Integer)
+lpvParameterVersion = Lens.lens (parameterVersion :: LabelParameterVersion -> Lude.Maybe Lude.Integer) (\s a -> s {parameterVersion = a} :: LabelParameterVersion)
+{-# DEPRECATED lpvParameterVersion "Use generic-lens or generic-optics with 'parameterVersion' instead." #-}
 
 instance Lude.AWSRequest LabelParameterVersion where
   type Rs LabelParameterVersion = LabelParameterVersionResponse
@@ -147,9 +144,9 @@ instance Lude.ToJSON LabelParameterVersion where
   toJSON LabelParameterVersion' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ParameterVersion" Lude..=) Lude.<$> parameterVersion,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Labels" Lude..= labels)
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Labels" Lude..= labels),
+            ("ParameterVersion" Lude..=) Lude.<$> parameterVersion
           ]
       )
 
@@ -161,20 +158,14 @@ instance Lude.ToQuery LabelParameterVersion where
 
 -- | /See:/ 'mkLabelParameterVersionResponse' smart constructor.
 data LabelParameterVersionResponse = LabelParameterVersionResponse'
-  { invalidLabels ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
-    parameterVersion ::
-      Lude.Maybe Lude.Integer,
+  { -- | The label does not meet the requirements. For information about parameter label requirements, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html Labeling parameters> in the /AWS Systems Manager User Guide/ .
+    invalidLabels :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The version of the parameter that has been labeled.
+    parameterVersion :: Lude.Maybe Lude.Integer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelParameterVersionResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
   ( DeliveryMediumType
       ( DeliveryMediumType',
-        DMTEmail,
-        DMTSms
+        Sms,
+        Email
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DeliveryMediumType = DeliveryMediumType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DMTEmail :: DeliveryMediumType
-pattern DMTEmail = DeliveryMediumType' "EMAIL"
+pattern Sms :: DeliveryMediumType
+pattern Sms = DeliveryMediumType' "SMS"
 
-pattern DMTSms :: DeliveryMediumType
-pattern DMTSms = DeliveryMediumType' "SMS"
+pattern Email :: DeliveryMediumType
+pattern Email = DeliveryMediumType' "EMAIL"
 
 {-# COMPLETE
-  DMTEmail,
-  DMTSms,
+  Sms,
+  Email,
   DeliveryMediumType'
   #-}

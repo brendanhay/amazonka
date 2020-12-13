@@ -53,62 +53,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptionDestinationSettings' smart constructor.
 data CaptionDestinationSettings = CaptionDestinationSettings'
-  { teletextDestinationSettings ::
-      Lude.Maybe
-        TeletextDestinationSettings,
-    ebuTtDDestinationSettings ::
-      Lude.Maybe EbuTtDDestinationSettings,
-    rtmpCaptionInfoDestinationSettings ::
-      Lude.Maybe
-        RtmpCaptionInfoDestinationSettings,
-    dvbSubDestinationSettings ::
-      Lude.Maybe DvbSubDestinationSettings,
-    scte27DestinationSettings ::
-      Lude.Maybe Scte27DestinationSettings,
-    ttmlDestinationSettings ::
-      Lude.Maybe TtmlDestinationSettings,
-    scte20PlusEmbeddedDestinationSettings ::
-      Lude.Maybe
-        Scte20PlusEmbeddedDestinationSettings,
-    embeddedPlusScte20DestinationSettings ::
-      Lude.Maybe
-        EmbeddedPlusScte20DestinationSettings,
-    smpteTtDestinationSettings ::
-      Lude.Maybe SmpteTtDestinationSettings,
-    webvttDestinationSettings ::
-      Lude.Maybe WebvttDestinationSettings,
-    embeddedDestinationSettings ::
-      Lude.Maybe
-        EmbeddedDestinationSettings,
-    burnInDestinationSettings ::
-      Lude.Maybe BurnInDestinationSettings,
-    aribDestinationSettings ::
-      Lude.Maybe AribDestinationSettings
+  { teletextDestinationSettings :: Lude.Maybe TeletextDestinationSettings,
+    ebuTtDDestinationSettings :: Lude.Maybe EbuTtDDestinationSettings,
+    rtmpCaptionInfoDestinationSettings :: Lude.Maybe RtmpCaptionInfoDestinationSettings,
+    dvbSubDestinationSettings :: Lude.Maybe DvbSubDestinationSettings,
+    scte27DestinationSettings :: Lude.Maybe Scte27DestinationSettings,
+    ttmlDestinationSettings :: Lude.Maybe TtmlDestinationSettings,
+    scte20PlusEmbeddedDestinationSettings :: Lude.Maybe Scte20PlusEmbeddedDestinationSettings,
+    embeddedPlusScte20DestinationSettings :: Lude.Maybe EmbeddedPlusScte20DestinationSettings,
+    smpteTtDestinationSettings :: Lude.Maybe SmpteTtDestinationSettings,
+    webvttDestinationSettings :: Lude.Maybe WebvttDestinationSettings,
+    embeddedDestinationSettings :: Lude.Maybe EmbeddedDestinationSettings,
+    burnInDestinationSettings :: Lude.Maybe BurnInDestinationSettings,
+    aribDestinationSettings :: Lude.Maybe AribDestinationSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionDestinationSettings' with the minimum fields required to make a request.
 --
--- * 'aribDestinationSettings' - Undocumented field.
--- * 'burnInDestinationSettings' - Undocumented field.
--- * 'dvbSubDestinationSettings' - Undocumented field.
--- * 'ebuTtDDestinationSettings' - Undocumented field.
--- * 'embeddedDestinationSettings' - Undocumented field.
--- * 'embeddedPlusScte20DestinationSettings' - Undocumented field.
--- * 'rtmpCaptionInfoDestinationSettings' - Undocumented field.
--- * 'scte20PlusEmbeddedDestinationSettings' - Undocumented field.
--- * 'scte27DestinationSettings' - Undocumented field.
--- * 'smpteTtDestinationSettings' - Undocumented field.
--- * 'teletextDestinationSettings' - Undocumented field.
--- * 'ttmlDestinationSettings' - Undocumented field.
--- * 'webvttDestinationSettings' - Undocumented field.
+-- * 'teletextDestinationSettings' -
+-- * 'ebuTtDDestinationSettings' -
+-- * 'rtmpCaptionInfoDestinationSettings' -
+-- * 'dvbSubDestinationSettings' -
+-- * 'scte27DestinationSettings' -
+-- * 'ttmlDestinationSettings' -
+-- * 'scte20PlusEmbeddedDestinationSettings' -
+-- * 'embeddedPlusScte20DestinationSettings' -
+-- * 'smpteTtDestinationSettings' -
+-- * 'webvttDestinationSettings' -
+-- * 'embeddedDestinationSettings' -
+-- * 'burnInDestinationSettings' -
+-- * 'aribDestinationSettings' -
 mkCaptionDestinationSettings ::
   CaptionDestinationSettings
 mkCaptionDestinationSettings =

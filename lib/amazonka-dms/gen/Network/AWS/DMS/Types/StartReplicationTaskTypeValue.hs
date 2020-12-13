@@ -13,9 +13,9 @@
 module Network.AWS.DMS.Types.StartReplicationTaskTypeValue
   ( StartReplicationTaskTypeValue
       ( StartReplicationTaskTypeValue',
-        ReloadTarget,
+        StartReplication,
         ResumeProcessing,
-        StartReplication
+        ReloadTarget
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype StartReplicationTaskTypeValue = StartReplicationTaskTypeValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern ReloadTarget :: StartReplicationTaskTypeValue
-pattern ReloadTarget = StartReplicationTaskTypeValue' "reload-target"
+pattern StartReplication :: StartReplicationTaskTypeValue
+pattern StartReplication = StartReplicationTaskTypeValue' "start-replication"
 
 pattern ResumeProcessing :: StartReplicationTaskTypeValue
 pattern ResumeProcessing = StartReplicationTaskTypeValue' "resume-processing"
 
-pattern StartReplication :: StartReplicationTaskTypeValue
-pattern StartReplication = StartReplicationTaskTypeValue' "start-replication"
+pattern ReloadTarget :: StartReplicationTaskTypeValue
+pattern ReloadTarget = StartReplicationTaskTypeValue' "reload-target"
 
 {-# COMPLETE
-  ReloadTarget,
-  ResumeProcessing,
   StartReplication,
+  ResumeProcessing,
+  ReloadTarget,
   StartReplicationTaskTypeValue'
   #-}

@@ -35,31 +35,30 @@ import Network.AWS.SageMaker.Types.AppType
 --
 -- /See:/ 'mkAppDetails' smart constructor.
 data AppDetails = AppDetails'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status.
     status :: Lude.Maybe AppStatus,
+    -- | The user profile name.
     userProfileName :: Lude.Maybe Lude.Text,
+    -- | The name of the app.
     appName :: Lude.Maybe Lude.Text,
+    -- | The domain ID.
     domainId :: Lude.Maybe Lude.Text,
+    -- | The type of app.
     appType :: Lude.Maybe AppType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppDetails' with the minimum fields required to make a request.
 --
--- * 'appName' - The name of the app.
--- * 'appType' - The type of app.
 -- * 'creationTime' - The creation time.
--- * 'domainId' - The domain ID.
 -- * 'status' - The status.
 -- * 'userProfileName' - The user profile name.
+-- * 'appName' - The name of the app.
+-- * 'domainId' - The domain ID.
+-- * 'appType' - The type of app.
 mkAppDetails ::
   AppDetails
 mkAppDetails =

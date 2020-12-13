@@ -31,16 +31,12 @@ import Network.AWS.WAF.Types.Predicate
 --
 -- /See:/ 'mkRuleUpdate' smart constructor.
 data RuleUpdate = RuleUpdate'
-  { action :: ChangeAction,
+  { -- | Specify @INSERT@ to add a @Predicate@ to a @Rule@ . Use @DELETE@ to remove a @Predicate@ from a @Rule@ .
+    action :: ChangeAction,
+    -- | The ID of the @Predicate@ (such as an @IPSet@ ) that you want to add to a @Rule@ .
     predicate :: Predicate
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuleUpdate' with the minimum fields required to make a request.

@@ -17,9 +17,9 @@ module Network.AWS.SDB.Types
     Attribute (..),
     mkAttribute,
     aAlternateValueEncoding,
+    aValue,
     aAlternateNameEncoding,
     aName,
-    aValue,
 
     -- * DeletableItem
     DeletableItem (..),
@@ -31,21 +31,21 @@ module Network.AWS.SDB.Types
     Item (..),
     mkItem,
     iAlternateNameEncoding,
-    iName,
     iAttributes,
+    iName,
 
     -- * ReplaceableAttribute
     ReplaceableAttribute (..),
     mkReplaceableAttribute,
     raReplace,
-    raName,
     raValue,
+    raName,
 
     -- * ReplaceableItem
     ReplaceableItem (..),
     mkReplaceableItem,
-    riName,
     riAttributes,
+    riName,
 
     -- * UpdateCondition
     UpdateCondition (..),

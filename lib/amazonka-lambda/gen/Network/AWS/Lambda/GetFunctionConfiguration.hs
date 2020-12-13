@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     mkGetFunctionConfiguration,
 
     -- ** Request lenses
-    gfcQualifier,
-    gfcFunctionName,
+    gFunctionName,
+    gQualifier,
 
     -- * Destructuring the response
     FunctionConfiguration (..),
@@ -69,17 +70,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFunctionConfiguration' smart constructor.
 data GetFunctionConfiguration = GetFunctionConfiguration'
-  { qualifier ::
-      Lude.Maybe Lude.Text,
-    functionName :: Lude.Text
+  { -- | The name of the Lambda function, version, or alias.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | Specify a version or alias to get details about a published version of the function.
+    qualifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionConfiguration' with the minimum fields required to make a request.
@@ -105,16 +114,9 @@ mkGetFunctionConfiguration ::
   GetFunctionConfiguration
 mkGetFunctionConfiguration pFunctionName_ =
   GetFunctionConfiguration'
-    { qualifier = Lude.Nothing,
-      functionName = pFunctionName_
+    { functionName = pFunctionName_,
+      qualifier = Lude.Nothing
     }
-
--- | Specify a version or alias to get details about a published version of the function.
---
--- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfcQualifier :: Lens.Lens' GetFunctionConfiguration (Lude.Maybe Lude.Text)
-gfcQualifier = Lens.lens (qualifier :: GetFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetFunctionConfiguration)
-{-# DEPRECATED gfcQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 -- | The name of the Lambda function, version, or alias.
 --
@@ -132,9 +134,16 @@ gfcQualifier = Lens.lens (qualifier :: GetFunctionConfiguration -> Lude.Maybe Lu
 -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfcFunctionName :: Lens.Lens' GetFunctionConfiguration Lude.Text
-gfcFunctionName = Lens.lens (functionName :: GetFunctionConfiguration -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionConfiguration)
-{-# DEPRECATED gfcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+gFunctionName :: Lens.Lens' GetFunctionConfiguration Lude.Text
+gFunctionName = Lens.lens (functionName :: GetFunctionConfiguration -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionConfiguration)
+{-# DEPRECATED gFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+
+-- | Specify a version or alias to get details about a published version of the function.
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gQualifier :: Lens.Lens' GetFunctionConfiguration (Lude.Maybe Lude.Text)
+gQualifier = Lens.lens (qualifier :: GetFunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetFunctionConfiguration)
+{-# DEPRECATED gQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 instance Lude.AWSRequest GetFunctionConfiguration where
   type Rs GetFunctionConfiguration = FunctionConfiguration

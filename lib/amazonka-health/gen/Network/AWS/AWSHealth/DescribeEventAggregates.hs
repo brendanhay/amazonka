@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.AWSHealth.DescribeEventAggregates
     -- ** Request lenses
     deaNextToken,
     deaFilter,
-    deaMaxResults,
     deaAggregateField,
+    deaMaxResults,
 
     -- * Destructuring the response
     DescribeEventAggregatesResponse (..),
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEventAggregates' smart constructor.
 data DescribeEventAggregates = DescribeEventAggregates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Values to narrow the results returned.
     filter :: Lude.Maybe EventFilter,
-    maxResults :: Lude.Maybe Lude.Natural,
-    aggregateField :: EventAggregateField
+    -- | The only currently supported value is @eventTypeCategory@ .
+    aggregateField :: EventAggregateField,
+    -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventAggregates' with the minimum fields required to make a request.
 --
--- * 'aggregateField' - The only currently supported value is @eventTypeCategory@ .
--- * 'filter' - Values to narrow the results returned.
--- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 -- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- * 'filter' - Values to narrow the results returned.
+-- * 'aggregateField' - The only currently supported value is @eventTypeCategory@ .
+-- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 mkDescribeEventAggregates ::
   -- | 'aggregateField'
   EventAggregateField ->
@@ -75,8 +73,8 @@ mkDescribeEventAggregates pAggregateField_ =
   DescribeEventAggregates'
     { nextToken = Lude.Nothing,
       filter = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      aggregateField = pAggregateField_
+      aggregateField = pAggregateField_,
+      maxResults = Lude.Nothing
     }
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
@@ -93,19 +91,19 @@ deaFilter :: Lens.Lens' DescribeEventAggregates (Lude.Maybe EventFilter)
 deaFilter = Lens.lens (filter :: DescribeEventAggregates -> Lude.Maybe EventFilter) (\s a -> s {filter = a} :: DescribeEventAggregates)
 {-# DEPRECATED deaFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
--- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deaMaxResults :: Lens.Lens' DescribeEventAggregates (Lude.Maybe Lude.Natural)
-deaMaxResults = Lens.lens (maxResults :: DescribeEventAggregates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEventAggregates)
-{-# DEPRECATED deaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The only currently supported value is @eventTypeCategory@ .
 --
 -- /Note:/ Consider using 'aggregateField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 deaAggregateField :: Lens.Lens' DescribeEventAggregates EventAggregateField
 deaAggregateField = Lens.lens (aggregateField :: DescribeEventAggregates -> EventAggregateField) (\s a -> s {aggregateField = a} :: DescribeEventAggregates)
 {-# DEPRECATED deaAggregateField "Use generic-lens or generic-optics with 'aggregateField' instead." #-}
+
+-- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deaMaxResults :: Lens.Lens' DescribeEventAggregates (Lude.Maybe Lude.Natural)
+deaMaxResults = Lens.lens (maxResults :: DescribeEventAggregates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEventAggregates)
+{-# DEPRECATED deaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeEventAggregates where
   page rq rs
@@ -145,8 +143,8 @@ instance Lude.ToJSON DescribeEventAggregates where
       ( Lude.catMaybes
           [ ("nextToken" Lude..=) Lude.<$> nextToken,
             ("filter" Lude..=) Lude.<$> filter,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("aggregateField" Lude..= aggregateField)
+            Lude.Just ("aggregateField" Lude..= aggregateField),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -158,25 +156,20 @@ instance Lude.ToQuery DescribeEventAggregates where
 
 -- | /See:/ 'mkDescribeEventAggregatesResponse' smart constructor.
 data DescribeEventAggregatesResponse = DescribeEventAggregatesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    eventAggregates ::
-      Lude.Maybe [EventAggregate],
+  { -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of events in each category that meet the optional filter criteria.
+    eventAggregates :: Lude.Maybe [EventAggregate],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventAggregatesResponse' with the minimum fields required to make a request.
 --
--- * 'eventAggregates' - The number of events in each category that meet the optional filter criteria.
 -- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- * 'eventAggregates' - The number of events in each category that meet the optional filter criteria.
 -- * 'responseStatus' - The response status code.
 mkDescribeEventAggregatesResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.UpdateRestAPI
     mkUpdateRestAPI,
 
     -- ** Request lenses
-    uraPatchOperations,
     uraRestAPIId,
+    uraPatchOperations,
 
     -- * Destructuring the response
     RestAPI (..),
@@ -53,39 +54,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateRestAPI' smart constructor.
 data UpdateRestAPI = UpdateRestAPI'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
-    restAPIId :: Lude.Text
+  { -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRestAPI' with the minimum fields required to make a request.
 --
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateRestAPI ::
   -- | 'restAPIId'
   Lude.Text ->
   UpdateRestAPI
 mkUpdateRestAPI pRestAPIId_ =
   UpdateRestAPI'
-    { patchOperations = Lude.Nothing,
-      restAPIId = pRestAPIId_
+    { restAPIId = pRestAPIId_,
+      patchOperations = Lude.Nothing
     }
-
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uraPatchOperations :: Lens.Lens' UpdateRestAPI (Lude.Maybe [PatchOperation])
-uraPatchOperations = Lens.lens (patchOperations :: UpdateRestAPI -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateRestAPI)
-{-# DEPRECATED uraPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
@@ -93,6 +82,13 @@ uraPatchOperations = Lens.lens (patchOperations :: UpdateRestAPI -> Lude.Maybe [
 uraRestAPIId :: Lens.Lens' UpdateRestAPI Lude.Text
 uraRestAPIId = Lens.lens (restAPIId :: UpdateRestAPI -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateRestAPI)
 {-# DEPRECATED uraRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uraPatchOperations :: Lens.Lens' UpdateRestAPI (Lude.Maybe [PatchOperation])
+uraPatchOperations = Lens.lens (patchOperations :: UpdateRestAPI -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateRestAPI)
+{-# DEPRECATED uraPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateRestAPI where
   type Rs UpdateRestAPI = RestAPI

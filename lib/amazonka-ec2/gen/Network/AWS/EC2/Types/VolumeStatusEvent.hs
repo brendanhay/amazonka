@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeStatusEvent' smart constructor.
 data VolumeStatusEvent = VolumeStatusEvent'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance associated with the event.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The earliest start time of the event.
     notBefore :: Lude.Maybe Lude.DateTime,
+    -- | The type of this event.
     eventType :: Lude.Maybe Lude.Text,
+    -- | A description of the event.
     description :: Lude.Maybe Lude.Text,
+    -- | The latest end time of the event.
     notAfter :: Lude.Maybe Lude.DateTime,
+    -- | The ID of this event.
     eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeStatusEvent' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the event.
--- * 'eventId' - The ID of this event.
--- * 'eventType' - The type of this event.
 -- * 'instanceId' - The ID of the instance associated with the event.
--- * 'notAfter' - The latest end time of the event.
 -- * 'notBefore' - The earliest start time of the event.
+-- * 'eventType' - The type of this event.
+-- * 'description' - A description of the event.
+-- * 'notAfter' - The latest end time of the event.
+-- * 'eventId' - The ID of this event.
 mkVolumeStatusEvent ::
   VolumeStatusEvent
 mkVolumeStatusEvent =

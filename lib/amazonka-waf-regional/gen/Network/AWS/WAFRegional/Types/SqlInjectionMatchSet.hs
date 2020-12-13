@@ -31,19 +31,16 @@ import Network.AWS.WAFRegional.Types.SqlInjectionMatchTuple
 --
 -- /See:/ 'mkSqlInjectionMatchSet' smart constructor.
 data SqlInjectionMatchSet = SqlInjectionMatchSet'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name, if any, of the @SqlInjectionMatchSet@ .
+    name :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ).
+    --
+    -- @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
     sqlInjectionMatchSetId :: Lude.Text,
-    sqlInjectionMatchTuples ::
-      [SqlInjectionMatchTuple]
+    -- | Specifies the parts of web requests that you want to inspect for snippets of malicious SQL code.
+    sqlInjectionMatchTuples :: [SqlInjectionMatchTuple]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SqlInjectionMatchSet' with the minimum fields required to make a request.

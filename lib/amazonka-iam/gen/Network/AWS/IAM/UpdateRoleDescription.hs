@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,23 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateRoleDescription' smart constructor.
 data UpdateRoleDescription = UpdateRoleDescription'
-  { roleName ::
-      Lude.Text,
+  { -- | The name of the role that you want to modify.
+    roleName :: Lude.Text,
+    -- | The new description that you want to apply to the specified role.
     description :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoleDescription' with the minimum fields required to make a request.
 --
--- * 'description' - The new description that you want to apply to the specified role.
 -- * 'roleName' - The name of the role that you want to modify.
+-- * 'description' - The new description that you want to apply to the specified role.
 mkUpdateRoleDescription ::
   -- | 'roleName'
   Lude.Text ->
@@ -113,23 +109,18 @@ instance Lude.ToQuery UpdateRoleDescription where
 
 -- | /See:/ 'mkUpdateRoleDescriptionResponse' smart constructor.
 data UpdateRoleDescriptionResponse = UpdateRoleDescriptionResponse'
-  { role' ::
-      Lude.Maybe Role,
+  { -- | A structure that contains details about the modified role.
+    role' :: Lude.Maybe Role,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoleDescriptionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'role'' - A structure that contains details about the modified role.
+-- * 'responseStatus' - The response status code.
 mkUpdateRoleDescriptionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

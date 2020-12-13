@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.EFS.DescribeMountTargets
     mkDescribeMountTargets,
 
     -- ** Request lenses
-    dmtAccessPointId,
-    dmtFileSystemId,
-    dmtMarker,
-    dmtMaxItems,
-    dmtMountTargetId,
+    dmtsAccessPointId,
+    dmtsFileSystemId,
+    dmtsMarker,
+    dmtsMaxItems,
+    dmtsMountTargetId,
 
     -- * Destructuring the response
     DescribeMountTargetsResponse (..),
@@ -52,20 +53,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeMountTargets' smart constructor.
 data DescribeMountTargets = DescribeMountTargets'
-  { accessPointId ::
-      Lude.Maybe Lude.Text,
+  { -- | (Optional) The ID of the access point whose mount targets that you want to list. It must be included in your request if a @FileSystemId@ or @MountTargetId@ is not included in your request. Accepts either an access point ID or ARN as input.
+    accessPointId :: Lude.Maybe Lude.Text,
+    -- | (Optional) ID of the file system whose mount targets you want to list (String). It must be included in your request if an @AccessPointId@ or @MountTargetId@ is not included. Accepts either a file system ID or ARN as input.
     fileSystemId :: Lude.Maybe Lude.Text,
+    -- | (Optional) Opaque pagination token returned from a previous @DescribeMountTargets@ operation (String). If present, it specifies to continue the list from where the previous returning call left off.
     marker :: Lude.Maybe Lude.Text,
+    -- | (Optional) Maximum number of mount targets to return in the response. Currently, this number is automatically set to 10, and other values are ignored. The response is paginated at 100 per page if you have more than 100 mount targets.
     maxItems :: Lude.Maybe Lude.Natural,
+    -- | (Optional) ID of the mount target that you want to have described (String). It must be included in your request if @FileSystemId@ is not included. Accepts either a mount target ID or ARN as input.
     mountTargetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMountTargets' with the minimum fields required to make a request.
@@ -89,37 +88,37 @@ mkDescribeMountTargets =
 -- | (Optional) The ID of the access point whose mount targets that you want to list. It must be included in your request if a @FileSystemId@ or @MountTargetId@ is not included in your request. Accepts either an access point ID or ARN as input.
 --
 -- /Note:/ Consider using 'accessPointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtAccessPointId :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Text)
-dmtAccessPointId = Lens.lens (accessPointId :: DescribeMountTargets -> Lude.Maybe Lude.Text) (\s a -> s {accessPointId = a} :: DescribeMountTargets)
-{-# DEPRECATED dmtAccessPointId "Use generic-lens or generic-optics with 'accessPointId' instead." #-}
+dmtsAccessPointId :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Text)
+dmtsAccessPointId = Lens.lens (accessPointId :: DescribeMountTargets -> Lude.Maybe Lude.Text) (\s a -> s {accessPointId = a} :: DescribeMountTargets)
+{-# DEPRECATED dmtsAccessPointId "Use generic-lens or generic-optics with 'accessPointId' instead." #-}
 
 -- | (Optional) ID of the file system whose mount targets you want to list (String). It must be included in your request if an @AccessPointId@ or @MountTargetId@ is not included. Accepts either a file system ID or ARN as input.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtFileSystemId :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Text)
-dmtFileSystemId = Lens.lens (fileSystemId :: DescribeMountTargets -> Lude.Maybe Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeMountTargets)
-{-# DEPRECATED dmtFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
+dmtsFileSystemId :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Text)
+dmtsFileSystemId = Lens.lens (fileSystemId :: DescribeMountTargets -> Lude.Maybe Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeMountTargets)
+{-# DEPRECATED dmtsFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | (Optional) Opaque pagination token returned from a previous @DescribeMountTargets@ operation (String). If present, it specifies to continue the list from where the previous returning call left off.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtMarker :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Text)
-dmtMarker = Lens.lens (marker :: DescribeMountTargets -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeMountTargets)
-{-# DEPRECATED dmtMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dmtsMarker :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Text)
+dmtsMarker = Lens.lens (marker :: DescribeMountTargets -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeMountTargets)
+{-# DEPRECATED dmtsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | (Optional) Maximum number of mount targets to return in the response. Currently, this number is automatically set to 10, and other values are ignored. The response is paginated at 100 per page if you have more than 100 mount targets.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtMaxItems :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Natural)
-dmtMaxItems = Lens.lens (maxItems :: DescribeMountTargets -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: DescribeMountTargets)
-{-# DEPRECATED dmtMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+dmtsMaxItems :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Natural)
+dmtsMaxItems = Lens.lens (maxItems :: DescribeMountTargets -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: DescribeMountTargets)
+{-# DEPRECATED dmtsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | (Optional) ID of the mount target that you want to have described (String). It must be included in your request if @FileSystemId@ is not included. Accepts either a mount target ID or ARN as input.
 --
 -- /Note:/ Consider using 'mountTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtMountTargetId :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Text)
-dmtMountTargetId = Lens.lens (mountTargetId :: DescribeMountTargets -> Lude.Maybe Lude.Text) (\s a -> s {mountTargetId = a} :: DescribeMountTargets)
-{-# DEPRECATED dmtMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
+dmtsMountTargetId :: Lens.Lens' DescribeMountTargets (Lude.Maybe Lude.Text)
+dmtsMountTargetId = Lens.lens (mountTargetId :: DescribeMountTargets -> Lude.Maybe Lude.Text) (\s a -> s {mountTargetId = a} :: DescribeMountTargets)
+{-# DEPRECATED dmtsMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
 
 instance Page.AWSPager DescribeMountTargets where
   page rq rs
@@ -128,7 +127,7 @@ instance Page.AWSPager DescribeMountTargets where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dmtMarker Lens..~ rs Lens.^. dmtrsNextMarker
+          Lude.& dmtsMarker Lens..~ rs Lens.^. dmtrsNextMarker
 
 instance Lude.AWSRequest DescribeMountTargets where
   type Rs DescribeMountTargets = DescribeMountTargetsResponse
@@ -163,27 +162,22 @@ instance Lude.ToQuery DescribeMountTargets where
 --
 -- /See:/ 'mkDescribeMountTargetsResponse' smart constructor.
 data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
-  { mountTargets ::
-      Lude.Maybe
-        [MountTargetDescription],
+  { -- | Returns the file system's mount targets as an array of @MountTargetDescription@ objects.
+    mountTargets :: Lude.Maybe [MountTargetDescription],
+    -- | If the request included the @Marker@ , the response returns that value in this field.
     marker :: Lude.Maybe Lude.Text,
-    nextMarker ::
-      Lude.Maybe Lude.Text,
+    -- | If a value is present, there are more mount targets to return. In a subsequent request, you can provide @Marker@ in your request with this value to retrieve the next set of mount targets.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMountTargetsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - If the request included the @Marker@ , the response returns that value in this field.
 -- * 'mountTargets' - Returns the file system's mount targets as an array of @MountTargetDescription@ objects.
+-- * 'marker' - If the request included the @Marker@ , the response returns that value in this field.
 -- * 'nextMarker' - If a value is present, there are more mount targets to return. In a subsequent request, you can provide @Marker@ in your request with this value to retrieve the next set of mount targets.
 -- * 'responseStatus' - The response status code.
 mkDescribeMountTargetsResponse ::

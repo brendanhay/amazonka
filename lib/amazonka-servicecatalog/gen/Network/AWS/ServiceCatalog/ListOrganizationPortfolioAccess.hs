@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.ServiceCatalog.ListOrganizationPortfolioAccess
     mkListOrganizationPortfolioAccess,
 
     -- ** Request lenses
+    lopaPortfolioId,
+    lopaOrganizationNodeType,
     lopaAcceptLanguage,
     lopaPageToken,
     lopaPageSize,
-    lopaPortfolioId,
-    lopaOrganizationNodeType,
 
     -- * Destructuring the response
     ListOrganizationPortfolioAccessResponse (..),
@@ -49,26 +50,52 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListOrganizationPortfolioAccess' smart constructor.
 data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    pageToken ::
-      Lude.Maybe Lude.Text,
-    pageSize ::
-      Lude.Maybe Lude.Natural,
+  { -- | The portfolio identifier. For example, @port-2abcdext3y5fk@ .
     portfolioId :: Lude.Text,
-    organizationNodeType ::
-      OrganizationNodeType
+    -- | The organization node type that will be returned in the output.
+    --
+    --
+    --     * @ORGANIZATION@ - Organization that has access to the portfolio.
+    --
+    --
+    --     * @ORGANIZATIONAL_UNIT@ - Organizational unit that has access to the portfolio within your organization.
+    --
+    --
+    --     * @ACCOUNT@ - Account that has access to the portfolio within your organization.
+    organizationNodeType :: OrganizationNodeType,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOrganizationPortfolioAccess' with the minimum fields required to make a request.
+--
+-- * 'portfolioId' - The portfolio identifier. For example, @port-2abcdext3y5fk@ .
+-- * 'organizationNodeType' - The organization node type that will be returned in the output.
+--
+--
+--     * @ORGANIZATION@ - Organization that has access to the portfolio.
+--
+--
+--     * @ORGANIZATIONAL_UNIT@ - Organizational unit that has access to the portfolio within your organization.
+--
+--
+--     * @ACCOUNT@ - Account that has access to the portfolio within your organization.
+--
 --
 -- * 'acceptLanguage' - The language code.
 --
@@ -82,7 +109,33 @@ data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
 --     * @zh@ - Chinese
 --
 --
--- * 'organizationNodeType' - The organization node type that will be returned in the output.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
+mkListOrganizationPortfolioAccess ::
+  -- | 'portfolioId'
+  Lude.Text ->
+  -- | 'organizationNodeType'
+  OrganizationNodeType ->
+  ListOrganizationPortfolioAccess
+mkListOrganizationPortfolioAccess
+  pPortfolioId_
+  pOrganizationNodeType_ =
+    ListOrganizationPortfolioAccess'
+      { portfolioId = pPortfolioId_,
+        organizationNodeType = pOrganizationNodeType_,
+        acceptLanguage = Lude.Nothing,
+        pageToken = Lude.Nothing,
+        pageSize = Lude.Nothing
+      }
+
+-- | The portfolio identifier. For example, @port-2abcdext3y5fk@ .
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopaPortfolioId :: Lens.Lens' ListOrganizationPortfolioAccess Lude.Text
+lopaPortfolioId = Lens.lens (portfolioId :: ListOrganizationPortfolioAccess -> Lude.Text) (\s a -> s {portfolioId = a} :: ListOrganizationPortfolioAccess)
+{-# DEPRECATED lopaPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
+
+-- | The organization node type that will be returned in the output.
 --
 --
 --     * @ORGANIZATION@ - Organization that has access to the portfolio.
@@ -94,25 +147,11 @@ data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
 --     * @ACCOUNT@ - Account that has access to the portfolio within your organization.
 --
 --
--- * 'pageSize' - The maximum number of items to return with this call.
--- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'portfolioId' - The portfolio identifier. For example, @port-2abcdext3y5fk@ .
-mkListOrganizationPortfolioAccess ::
-  -- | 'portfolioId'
-  Lude.Text ->
-  -- | 'organizationNodeType'
-  OrganizationNodeType ->
-  ListOrganizationPortfolioAccess
-mkListOrganizationPortfolioAccess
-  pPortfolioId_
-  pOrganizationNodeType_ =
-    ListOrganizationPortfolioAccess'
-      { acceptLanguage = Lude.Nothing,
-        pageToken = Lude.Nothing,
-        pageSize = Lude.Nothing,
-        portfolioId = pPortfolioId_,
-        organizationNodeType = pOrganizationNodeType_
-      }
+--
+-- /Note:/ Consider using 'organizationNodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopaOrganizationNodeType :: Lens.Lens' ListOrganizationPortfolioAccess OrganizationNodeType
+lopaOrganizationNodeType = Lens.lens (organizationNodeType :: ListOrganizationPortfolioAccess -> OrganizationNodeType) (\s a -> s {organizationNodeType = a} :: ListOrganizationPortfolioAccess)
+{-# DEPRECATED lopaOrganizationNodeType "Use generic-lens or generic-optics with 'organizationNodeType' instead." #-}
 
 -- | The language code.
 --
@@ -145,31 +184,6 @@ lopaPageToken = Lens.lens (pageToken :: ListOrganizationPortfolioAccess -> Lude.
 lopaPageSize :: Lens.Lens' ListOrganizationPortfolioAccess (Lude.Maybe Lude.Natural)
 lopaPageSize = Lens.lens (pageSize :: ListOrganizationPortfolioAccess -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListOrganizationPortfolioAccess)
 {-# DEPRECATED lopaPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
--- | The portfolio identifier. For example, @port-2abcdext3y5fk@ .
---
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopaPortfolioId :: Lens.Lens' ListOrganizationPortfolioAccess Lude.Text
-lopaPortfolioId = Lens.lens (portfolioId :: ListOrganizationPortfolioAccess -> Lude.Text) (\s a -> s {portfolioId = a} :: ListOrganizationPortfolioAccess)
-{-# DEPRECATED lopaPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
-
--- | The organization node type that will be returned in the output.
---
---
---     * @ORGANIZATION@ - Organization that has access to the portfolio.
---
---
---     * @ORGANIZATIONAL_UNIT@ - Organizational unit that has access to the portfolio within your organization.
---
---
---     * @ACCOUNT@ - Account that has access to the portfolio within your organization.
---
---
---
--- /Note:/ Consider using 'organizationNodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopaOrganizationNodeType :: Lens.Lens' ListOrganizationPortfolioAccess OrganizationNodeType
-lopaOrganizationNodeType = Lens.lens (organizationNodeType :: ListOrganizationPortfolioAccess -> OrganizationNodeType) (\s a -> s {organizationNodeType = a} :: ListOrganizationPortfolioAccess)
-{-# DEPRECATED lopaOrganizationNodeType "Use generic-lens or generic-optics with 'organizationNodeType' instead." #-}
 
 instance Page.AWSPager ListOrganizationPortfolioAccess where
   page rq rs
@@ -211,11 +225,11 @@ instance Lude.ToJSON ListOrganizationPortfolioAccess where
   toJSON ListOrganizationPortfolioAccess' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+          [ Lude.Just ("PortfolioId" Lude..= portfolioId),
+            Lude.Just ("OrganizationNodeType" Lude..= organizationNodeType),
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
             ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize,
-            Lude.Just ("PortfolioId" Lude..= portfolioId),
-            Lude.Just ("OrganizationNodeType" Lude..= organizationNodeType)
+            ("PageSize" Lude..=) Lude.<$> pageSize
           ]
       )
 
@@ -227,22 +241,14 @@ instance Lude.ToQuery ListOrganizationPortfolioAccess where
 
 -- | /See:/ 'mkListOrganizationPortfolioAccessResponse' smart constructor.
 data ListOrganizationPortfolioAccessResponse = ListOrganizationPortfolioAccessResponse'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    organizationNodes ::
-      Lude.Maybe
-        [OrganizationNode],
-    responseStatus ::
-      Lude.Int
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Displays information about the organization nodes.
+    organizationNodes :: Lude.Maybe [OrganizationNode],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOrganizationPortfolioAccessResponse' with the minimum fields required to make a request.

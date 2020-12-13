@@ -33,14 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAdvancedSecurityOptionsInput' smart constructor.
 data AdvancedSecurityOptionsInput = AdvancedSecurityOptionsInput'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    internalUserDatabaseEnabled ::
-      Lude.Maybe Lude.Bool,
-    masterUserOptions ::
-      Lude.Maybe MasterUserOptions,
-    sAMLOptions ::
-      Lude.Maybe SAMLOptionsInput
+  { -- | True if advanced security is enabled.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | True if the internal user database is enabled.
+    internalUserDatabaseEnabled :: Lude.Maybe Lude.Bool,
+    -- | Credentials for the master user: username and password, ARN, or both.
+    masterUserOptions :: Lude.Maybe MasterUserOptions,
+    -- | Specifies the SAML application configuration for the domain.
+    sAMLOptions :: Lude.Maybe SAMLOptionsInput
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)

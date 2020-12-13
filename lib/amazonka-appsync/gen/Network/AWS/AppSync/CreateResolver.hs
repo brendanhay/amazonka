@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.AppSync.CreateResolver
     mkCreateResolver,
 
     -- ** Request lenses
+    crTypeName,
     crDataSourceName,
+    crApiId,
     crRequestMappingTemplate,
     crKind,
     crCachingConfig,
     crResponseMappingTemplate,
+    crFieldName,
     crSyncConfig,
     crPipelineConfig,
-    crApiId,
-    crTypeName,
-    crFieldName,
 
     -- * Destructuring the response
     CreateResolverResponse (..),
@@ -50,33 +51,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateResolver' smart constructor.
 data CreateResolver = CreateResolver'
-  { dataSourceName ::
-      Lude.Maybe Lude.Text,
-    requestMappingTemplate :: Lude.Maybe Lude.Text,
-    kind :: Lude.Maybe ResolverKind,
-    cachingConfig :: Lude.Maybe CachingConfig,
-    responseMappingTemplate :: Lude.Maybe Lude.Text,
-    syncConfig :: Lude.Maybe SyncConfig,
-    pipelineConfig :: Lude.Maybe PipelineConfig,
-    apiId :: Lude.Text,
+  { -- | The name of the @Type@ .
     typeName :: Lude.Text,
-    fieldName :: Lude.Text
+    -- | The name of the data source for which the resolver is being created.
+    dataSourceName :: Lude.Maybe Lude.Text,
+    -- | The ID for the GraphQL API for which the resolver is being created.
+    apiId :: Lude.Text,
+    -- | The mapping template to be used for requests.
+    --
+    -- A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).
+    -- VTL request mapping templates are optional when using a Lambda data source. For all other data sources, VTL request and response mapping templates are required.
+    requestMappingTemplate :: Lude.Maybe Lude.Text,
+    -- | The resolver type.
+    --
+    --
+    --     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.
+    --
+    --
+    --     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
+    kind :: Lude.Maybe ResolverKind,
+    -- | The caching configuration for the resolver.
+    cachingConfig :: Lude.Maybe CachingConfig,
+    -- | The mapping template to be used for responses from the data source.
+    responseMappingTemplate :: Lude.Maybe Lude.Text,
+    -- | The name of the field to attach the resolver to.
+    fieldName :: Lude.Text,
+    -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+    syncConfig :: Lude.Maybe SyncConfig,
+    -- | The @PipelineConfig@ .
+    pipelineConfig :: Lude.Maybe PipelineConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResolver' with the minimum fields required to make a request.
 --
--- * 'apiId' - The ID for the GraphQL API for which the resolver is being created.
--- * 'cachingConfig' - The caching configuration for the resolver.
+-- * 'typeName' - The name of the @Type@ .
 -- * 'dataSourceName' - The name of the data source for which the resolver is being created.
--- * 'fieldName' - The name of the field to attach the resolver to.
+-- * 'apiId' - The ID for the GraphQL API for which the resolver is being created.
+-- * 'requestMappingTemplate' - The mapping template to be used for requests.
+--
+-- A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).
+-- VTL request mapping templates are optional when using a Lambda data source. For all other data sources, VTL request and response mapping templates are required.
 -- * 'kind' - The resolver type.
 --
 --
@@ -86,35 +102,39 @@ data CreateResolver = CreateResolver'
 --     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
 --
 --
--- * 'pipelineConfig' - The @PipelineConfig@ .
--- * 'requestMappingTemplate' - The mapping template to be used for requests.
---
--- A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).
--- VTL request mapping templates are optional when using a Lambda data source. For all other data sources, VTL request and response mapping templates are required.
+-- * 'cachingConfig' - The caching configuration for the resolver.
 -- * 'responseMappingTemplate' - The mapping template to be used for responses from the data source.
+-- * 'fieldName' - The name of the field to attach the resolver to.
 -- * 'syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
--- * 'typeName' - The name of the @Type@ .
+-- * 'pipelineConfig' - The @PipelineConfig@ .
 mkCreateResolver ::
-  -- | 'apiId'
-  Lude.Text ->
   -- | 'typeName'
+  Lude.Text ->
+  -- | 'apiId'
   Lude.Text ->
   -- | 'fieldName'
   Lude.Text ->
   CreateResolver
-mkCreateResolver pApiId_ pTypeName_ pFieldName_ =
+mkCreateResolver pTypeName_ pApiId_ pFieldName_ =
   CreateResolver'
-    { dataSourceName = Lude.Nothing,
+    { typeName = pTypeName_,
+      dataSourceName = Lude.Nothing,
+      apiId = pApiId_,
       requestMappingTemplate = Lude.Nothing,
       kind = Lude.Nothing,
       cachingConfig = Lude.Nothing,
       responseMappingTemplate = Lude.Nothing,
+      fieldName = pFieldName_,
       syncConfig = Lude.Nothing,
-      pipelineConfig = Lude.Nothing,
-      apiId = pApiId_,
-      typeName = pTypeName_,
-      fieldName = pFieldName_
+      pipelineConfig = Lude.Nothing
     }
+
+-- | The name of the @Type@ .
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crTypeName :: Lens.Lens' CreateResolver Lude.Text
+crTypeName = Lens.lens (typeName :: CreateResolver -> Lude.Text) (\s a -> s {typeName = a} :: CreateResolver)
+{-# DEPRECATED crTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The name of the data source for which the resolver is being created.
 --
@@ -122,6 +142,13 @@ mkCreateResolver pApiId_ pTypeName_ pFieldName_ =
 crDataSourceName :: Lens.Lens' CreateResolver (Lude.Maybe Lude.Text)
 crDataSourceName = Lens.lens (dataSourceName :: CreateResolver -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceName = a} :: CreateResolver)
 {-# DEPRECATED crDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
+
+-- | The ID for the GraphQL API for which the resolver is being created.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crApiId :: Lens.Lens' CreateResolver Lude.Text
+crApiId = Lens.lens (apiId :: CreateResolver -> Lude.Text) (\s a -> s {apiId = a} :: CreateResolver)
+{-# DEPRECATED crApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The mapping template to be used for requests.
 --
@@ -162,6 +189,13 @@ crResponseMappingTemplate :: Lens.Lens' CreateResolver (Lude.Maybe Lude.Text)
 crResponseMappingTemplate = Lens.lens (responseMappingTemplate :: CreateResolver -> Lude.Maybe Lude.Text) (\s a -> s {responseMappingTemplate = a} :: CreateResolver)
 {-# DEPRECATED crResponseMappingTemplate "Use generic-lens or generic-optics with 'responseMappingTemplate' instead." #-}
 
+-- | The name of the field to attach the resolver to.
+--
+-- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crFieldName :: Lens.Lens' CreateResolver Lude.Text
+crFieldName = Lens.lens (fieldName :: CreateResolver -> Lude.Text) (\s a -> s {fieldName = a} :: CreateResolver)
+{-# DEPRECATED crFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
+
 -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
 --
 -- /Note:/ Consider using 'syncConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -175,27 +209,6 @@ crSyncConfig = Lens.lens (syncConfig :: CreateResolver -> Lude.Maybe SyncConfig)
 crPipelineConfig :: Lens.Lens' CreateResolver (Lude.Maybe PipelineConfig)
 crPipelineConfig = Lens.lens (pipelineConfig :: CreateResolver -> Lude.Maybe PipelineConfig) (\s a -> s {pipelineConfig = a} :: CreateResolver)
 {-# DEPRECATED crPipelineConfig "Use generic-lens or generic-optics with 'pipelineConfig' instead." #-}
-
--- | The ID for the GraphQL API for which the resolver is being created.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crApiId :: Lens.Lens' CreateResolver Lude.Text
-crApiId = Lens.lens (apiId :: CreateResolver -> Lude.Text) (\s a -> s {apiId = a} :: CreateResolver)
-{-# DEPRECATED crApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
-
--- | The name of the @Type@ .
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crTypeName :: Lens.Lens' CreateResolver Lude.Text
-crTypeName = Lens.lens (typeName :: CreateResolver -> Lude.Text) (\s a -> s {typeName = a} :: CreateResolver)
-{-# DEPRECATED crTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
-
--- | The name of the field to attach the resolver to.
---
--- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crFieldName :: Lens.Lens' CreateResolver Lude.Text
-crFieldName = Lens.lens (fieldName :: CreateResolver -> Lude.Text) (\s a -> s {fieldName = a} :: CreateResolver)
-{-# DEPRECATED crFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
 
 instance Lude.AWSRequest CreateResolver where
   type Rs CreateResolver = CreateResolverResponse
@@ -226,9 +239,9 @@ instance Lude.ToJSON CreateResolver where
             ("cachingConfig" Lude..=) Lude.<$> cachingConfig,
             ("responseMappingTemplate" Lude..=)
               Lude.<$> responseMappingTemplate,
+            Lude.Just ("fieldName" Lude..= fieldName),
             ("syncConfig" Lude..=) Lude.<$> syncConfig,
-            ("pipelineConfig" Lude..=) Lude.<$> pipelineConfig,
-            Lude.Just ("fieldName" Lude..= fieldName)
+            ("pipelineConfig" Lude..=) Lude.<$> pipelineConfig
           ]
       )
 
@@ -247,17 +260,12 @@ instance Lude.ToQuery CreateResolver where
 
 -- | /See:/ 'mkCreateResolverResponse' smart constructor.
 data CreateResolverResponse = CreateResolverResponse'
-  { resolver ::
-      Lude.Maybe Resolver,
+  { -- | The @Resolver@ object.
+    resolver :: Lude.Maybe Resolver,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResolverResponse' with the minimum fields required to make a request.

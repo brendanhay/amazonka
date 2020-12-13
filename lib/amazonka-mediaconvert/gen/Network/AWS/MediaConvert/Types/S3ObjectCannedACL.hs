@@ -13,10 +13,10 @@
 module Network.AWS.MediaConvert.Types.S3ObjectCannedACL
   ( S3ObjectCannedACL
       ( S3ObjectCannedACL',
+        PublicRead,
         AuthenticatedRead,
-        BucketOwnerFullControl,
         BucketOwnerRead,
-        PublicRead
+        BucketOwnerFullControl
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype S3ObjectCannedACL = S3ObjectCannedACL' Lude.Text
       Lude.ToHeader
     )
 
+pattern PublicRead :: S3ObjectCannedACL
+pattern PublicRead = S3ObjectCannedACL' "PUBLIC_READ"
+
 pattern AuthenticatedRead :: S3ObjectCannedACL
 pattern AuthenticatedRead = S3ObjectCannedACL' "AUTHENTICATED_READ"
-
-pattern BucketOwnerFullControl :: S3ObjectCannedACL
-pattern BucketOwnerFullControl = S3ObjectCannedACL' "BUCKET_OWNER_FULL_CONTROL"
 
 pattern BucketOwnerRead :: S3ObjectCannedACL
 pattern BucketOwnerRead = S3ObjectCannedACL' "BUCKET_OWNER_READ"
 
-pattern PublicRead :: S3ObjectCannedACL
-pattern PublicRead = S3ObjectCannedACL' "PUBLIC_READ"
+pattern BucketOwnerFullControl :: S3ObjectCannedACL
+pattern BucketOwnerFullControl = S3ObjectCannedACL' "BUCKET_OWNER_FULL_CONTROL"
 
 {-# COMPLETE
-  AuthenticatedRead,
-  BucketOwnerFullControl,
-  BucketOwnerRead,
   PublicRead,
+  AuthenticatedRead,
+  BucketOwnerRead,
+  BucketOwnerFullControl,
   S3ObjectCannedACL'
   #-}

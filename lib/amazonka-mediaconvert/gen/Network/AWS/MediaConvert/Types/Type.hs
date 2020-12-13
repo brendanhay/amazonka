@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Type
   ( Type
       ( Type',
-        Custom,
-        System
+        System,
+        Custom
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Type = Type' Lude.Text
       Lude.ToHeader
     )
 
-pattern Custom :: Type
-pattern Custom = Type' "CUSTOM"
-
 pattern System :: Type
 pattern System = Type' "SYSTEM"
 
+pattern Custom :: Type
+pattern Custom = Type' "CUSTOM"
+
 {-# COMPLETE
-  Custom,
   System,
+  Custom,
   Type'
   #-}

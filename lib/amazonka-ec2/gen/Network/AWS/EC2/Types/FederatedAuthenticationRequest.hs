@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFederatedAuthenticationRequest' smart constructor.
 data FederatedAuthenticationRequest = FederatedAuthenticationRequest'
-  { sAMLProviderARN ::
-      Lude.Maybe Lude.Text,
-    selfServiceSAMLProviderARN ::
-      Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+    sAMLProviderARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+    selfServiceSAMLProviderARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FederatedAuthenticationRequest' with the minimum fields required to make a request.

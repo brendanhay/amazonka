@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,23 +39,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
-  { terminateEnvByForce ::
-      Lude.Maybe Lude.Bool,
+  { -- | When set to true, running environments will be terminated before deleting the application.
+    terminateEnvByForce :: Lude.Maybe Lude.Bool,
+    -- | The name of the application to delete.
     applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of the application to delete.
 -- * 'terminateEnvByForce' - When set to true, running environments will be terminated before deleting the application.
+-- * 'applicationName' - The name of the application to delete.
 mkDeleteApplication ::
   -- | 'applicationName'
   Lude.Text ->
@@ -101,13 +97,7 @@ instance Lude.ToQuery DeleteApplication where
 
 -- | /See:/ 'mkDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.

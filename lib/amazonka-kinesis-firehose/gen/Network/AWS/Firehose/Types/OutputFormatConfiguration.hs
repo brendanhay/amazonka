@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputFormatConfiguration' smart constructor.
 newtype OutputFormatConfiguration = OutputFormatConfiguration'
-  { serializer ::
-      Lude.Maybe Serializer
+  { -- | Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
+    serializer :: Lude.Maybe Serializer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputFormatConfiguration' with the minimum fields required to make a request.

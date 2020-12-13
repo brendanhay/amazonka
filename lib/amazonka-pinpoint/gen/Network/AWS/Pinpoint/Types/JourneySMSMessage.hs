@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJourneySMSMessage' smart constructor.
 data JourneySMSMessage = JourneySMSMessage'
-  { messageType ::
-      Lude.Maybe MessageType,
+  { -- | The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
+    messageType :: Lude.Maybe MessageType,
+    -- | The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region. For more information, see <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html Supported Countries and Regions> in the Amazon Pinpoint User Guide.
     senderId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneySMSMessage' with the minimum fields required to make a request.

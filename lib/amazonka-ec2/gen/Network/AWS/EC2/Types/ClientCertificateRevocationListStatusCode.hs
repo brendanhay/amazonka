@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ClientCertificateRevocationListStatusCode
   ( ClientCertificateRevocationListStatusCode
       ( ClientCertificateRevocationListStatusCode',
-        CCRLSCActive,
-        CCRLSCPending
+        CCRLSCPending,
+        CCRLSCActive
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ClientCertificateRevocationListStatusCode = ClientCertificateRevocationL
       Lude.ToHeader
     )
 
-pattern CCRLSCActive :: ClientCertificateRevocationListStatusCode
-pattern CCRLSCActive = ClientCertificateRevocationListStatusCode' "active"
-
 pattern CCRLSCPending :: ClientCertificateRevocationListStatusCode
 pattern CCRLSCPending = ClientCertificateRevocationListStatusCode' "pending"
 
+pattern CCRLSCActive :: ClientCertificateRevocationListStatusCode
+pattern CCRLSCActive = ClientCertificateRevocationListStatusCode' "active"
+
 {-# COMPLETE
-  CCRLSCActive,
   CCRLSCPending,
+  CCRLSCActive,
   ClientCertificateRevocationListStatusCode'
   #-}

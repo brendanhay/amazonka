@@ -33,31 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoScalingSettingsUpdate' smart constructor.
 data AutoScalingSettingsUpdate = AutoScalingSettingsUpdate'
-  { autoScalingDisabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Disabled auto scaling for this global table or global secondary index.
+    autoScalingDisabled :: Lude.Maybe Lude.Bool,
+    -- | The minimum capacity units that a global table or global secondary index should be scaled down to.
     minimumUnits :: Lude.Maybe Lude.Natural,
-    scalingPolicyUpdate ::
-      Lude.Maybe AutoScalingPolicyUpdate,
+    -- | The scaling policy to apply for scaling target global table or global secondary index capacity units.
+    scalingPolicyUpdate :: Lude.Maybe AutoScalingPolicyUpdate,
+    -- | The maximum capacity units that a global table or global secondary index should be scaled up to.
     maximumUnits :: Lude.Maybe Lude.Natural,
-    autoScalingRoleARN ::
-      Lude.Maybe Lude.Text
+    -- | Role ARN used for configuring auto scaling policy.
+    autoScalingRoleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingSettingsUpdate' with the minimum fields required to make a request.
 --
 -- * 'autoScalingDisabled' - Disabled auto scaling for this global table or global secondary index.
--- * 'autoScalingRoleARN' - Role ARN used for configuring auto scaling policy.
--- * 'maximumUnits' - The maximum capacity units that a global table or global secondary index should be scaled up to.
 -- * 'minimumUnits' - The minimum capacity units that a global table or global secondary index should be scaled down to.
 -- * 'scalingPolicyUpdate' - The scaling policy to apply for scaling target global table or global secondary index capacity units.
+-- * 'maximumUnits' - The maximum capacity units that a global table or global secondary index should be scaled up to.
+-- * 'autoScalingRoleARN' - Role ARN used for configuring auto scaling policy.
 mkAutoScalingSettingsUpdate ::
   AutoScalingSettingsUpdate
 mkAutoScalingSettingsUpdate =

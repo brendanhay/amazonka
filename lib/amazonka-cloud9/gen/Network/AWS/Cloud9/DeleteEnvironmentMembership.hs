@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Cloud9.DeleteEnvironmentMembership
     mkDeleteEnvironmentMembership,
 
     -- ** Request lenses
-    demEnvironmentId,
     demUserARN,
+    demEnvironmentId,
 
     -- * Destructuring the response
     DeleteEnvironmentMembershipResponse (..),
@@ -39,41 +40,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteEnvironmentMembership' smart constructor.
 data DeleteEnvironmentMembership = DeleteEnvironmentMembership'
-  { environmentId ::
-      Lude.Text,
-    userARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the environment member to delete from the environment.
+    userARN :: Lude.Text,
+    -- | The ID of the environment to delete the environment member from.
+    environmentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEnvironmentMembership' with the minimum fields required to make a request.
 --
--- * 'environmentId' - The ID of the environment to delete the environment member from.
 -- * 'userARN' - The Amazon Resource Name (ARN) of the environment member to delete from the environment.
+-- * 'environmentId' - The ID of the environment to delete the environment member from.
 mkDeleteEnvironmentMembership ::
-  -- | 'environmentId'
-  Lude.Text ->
   -- | 'userARN'
   Lude.Text ->
+  -- | 'environmentId'
+  Lude.Text ->
   DeleteEnvironmentMembership
-mkDeleteEnvironmentMembership pEnvironmentId_ pUserARN_ =
+mkDeleteEnvironmentMembership pUserARN_ pEnvironmentId_ =
   DeleteEnvironmentMembership'
-    { environmentId = pEnvironmentId_,
-      userARN = pUserARN_
+    { userARN = pUserARN_,
+      environmentId = pEnvironmentId_
     }
-
--- | The ID of the environment to delete the environment member from.
---
--- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-demEnvironmentId :: Lens.Lens' DeleteEnvironmentMembership Lude.Text
-demEnvironmentId = Lens.lens (environmentId :: DeleteEnvironmentMembership -> Lude.Text) (\s a -> s {environmentId = a} :: DeleteEnvironmentMembership)
-{-# DEPRECATED demEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the environment member to delete from the environment.
 --
@@ -81,6 +70,13 @@ demEnvironmentId = Lens.lens (environmentId :: DeleteEnvironmentMembership -> Lu
 demUserARN :: Lens.Lens' DeleteEnvironmentMembership Lude.Text
 demUserARN = Lens.lens (userARN :: DeleteEnvironmentMembership -> Lude.Text) (\s a -> s {userARN = a} :: DeleteEnvironmentMembership)
 {-# DEPRECATED demUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+
+-- | The ID of the environment to delete the environment member from.
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demEnvironmentId :: Lens.Lens' DeleteEnvironmentMembership Lude.Text
+demEnvironmentId = Lens.lens (environmentId :: DeleteEnvironmentMembership -> Lude.Text) (\s a -> s {environmentId = a} :: DeleteEnvironmentMembership)
+{-# DEPRECATED demEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 instance Lude.AWSRequest DeleteEnvironmentMembership where
   type
@@ -111,8 +107,8 @@ instance Lude.ToJSON DeleteEnvironmentMembership where
   toJSON DeleteEnvironmentMembership' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("environmentId" Lude..= environmentId),
-            Lude.Just ("userArn" Lude..= userARN)
+          [ Lude.Just ("userArn" Lude..= userARN),
+            Lude.Just ("environmentId" Lude..= environmentId)
           ]
       )
 
@@ -124,16 +120,10 @@ instance Lude.ToQuery DeleteEnvironmentMembership where
 
 -- | /See:/ 'mkDeleteEnvironmentMembershipResponse' smart constructor.
 newtype DeleteEnvironmentMembershipResponse = DeleteEnvironmentMembershipResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEnvironmentMembershipResponse' with the minimum fields required to make a request.

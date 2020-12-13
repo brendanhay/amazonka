@@ -13,17 +13,17 @@
 module Network.AWS.CodeBuild.Types.BuildPhaseType
   ( BuildPhaseType
       ( BuildPhaseType',
-        BPTBuild,
-        BPTCompleted,
-        BPTDownloadSource,
-        BPTFinalizing,
-        BPTInstall,
-        BPTPostBuild,
-        BPTPreBuild,
-        BPTProvisioning,
-        BPTQueued,
         BPTSubmitted,
-        BPTUploadArtifacts
+        BPTQueued,
+        BPTProvisioning,
+        BPTDownloadSource,
+        BPTInstall,
+        BPTPreBuild,
+        BPTBuild,
+        BPTPostBuild,
+        BPTUploadArtifacts,
+        BPTFinalizing,
+        BPTCompleted
       ),
   )
 where
@@ -54,50 +54,50 @@ newtype BuildPhaseType = BuildPhaseType' Lude.Text
       Lude.ToHeader
     )
 
-pattern BPTBuild :: BuildPhaseType
-pattern BPTBuild = BuildPhaseType' "BUILD"
-
-pattern BPTCompleted :: BuildPhaseType
-pattern BPTCompleted = BuildPhaseType' "COMPLETED"
-
-pattern BPTDownloadSource :: BuildPhaseType
-pattern BPTDownloadSource = BuildPhaseType' "DOWNLOAD_SOURCE"
-
-pattern BPTFinalizing :: BuildPhaseType
-pattern BPTFinalizing = BuildPhaseType' "FINALIZING"
-
-pattern BPTInstall :: BuildPhaseType
-pattern BPTInstall = BuildPhaseType' "INSTALL"
-
-pattern BPTPostBuild :: BuildPhaseType
-pattern BPTPostBuild = BuildPhaseType' "POST_BUILD"
-
-pattern BPTPreBuild :: BuildPhaseType
-pattern BPTPreBuild = BuildPhaseType' "PRE_BUILD"
-
-pattern BPTProvisioning :: BuildPhaseType
-pattern BPTProvisioning = BuildPhaseType' "PROVISIONING"
+pattern BPTSubmitted :: BuildPhaseType
+pattern BPTSubmitted = BuildPhaseType' "SUBMITTED"
 
 pattern BPTQueued :: BuildPhaseType
 pattern BPTQueued = BuildPhaseType' "QUEUED"
 
-pattern BPTSubmitted :: BuildPhaseType
-pattern BPTSubmitted = BuildPhaseType' "SUBMITTED"
+pattern BPTProvisioning :: BuildPhaseType
+pattern BPTProvisioning = BuildPhaseType' "PROVISIONING"
+
+pattern BPTDownloadSource :: BuildPhaseType
+pattern BPTDownloadSource = BuildPhaseType' "DOWNLOAD_SOURCE"
+
+pattern BPTInstall :: BuildPhaseType
+pattern BPTInstall = BuildPhaseType' "INSTALL"
+
+pattern BPTPreBuild :: BuildPhaseType
+pattern BPTPreBuild = BuildPhaseType' "PRE_BUILD"
+
+pattern BPTBuild :: BuildPhaseType
+pattern BPTBuild = BuildPhaseType' "BUILD"
+
+pattern BPTPostBuild :: BuildPhaseType
+pattern BPTPostBuild = BuildPhaseType' "POST_BUILD"
 
 pattern BPTUploadArtifacts :: BuildPhaseType
 pattern BPTUploadArtifacts = BuildPhaseType' "UPLOAD_ARTIFACTS"
 
+pattern BPTFinalizing :: BuildPhaseType
+pattern BPTFinalizing = BuildPhaseType' "FINALIZING"
+
+pattern BPTCompleted :: BuildPhaseType
+pattern BPTCompleted = BuildPhaseType' "COMPLETED"
+
 {-# COMPLETE
-  BPTBuild,
-  BPTCompleted,
-  BPTDownloadSource,
-  BPTFinalizing,
-  BPTInstall,
-  BPTPostBuild,
-  BPTPreBuild,
-  BPTProvisioning,
-  BPTQueued,
   BPTSubmitted,
+  BPTQueued,
+  BPTProvisioning,
+  BPTDownloadSource,
+  BPTInstall,
+  BPTPreBuild,
+  BPTBuild,
+  BPTPostBuild,
   BPTUploadArtifacts,
+  BPTFinalizing,
+  BPTCompleted,
   BuildPhaseType'
   #-}

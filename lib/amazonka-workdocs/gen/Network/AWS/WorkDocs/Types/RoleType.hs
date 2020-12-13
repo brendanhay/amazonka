@@ -13,10 +13,10 @@
 module Network.AWS.WorkDocs.Types.RoleType
   ( RoleType
       ( RoleType',
+        Viewer,
         Contributor,
-        Coowner,
         Owner,
-        Viewer
+        Coowner
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype RoleType = RoleType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Viewer :: RoleType
+pattern Viewer = RoleType' "VIEWER"
+
 pattern Contributor :: RoleType
 pattern Contributor = RoleType' "CONTRIBUTOR"
-
-pattern Coowner :: RoleType
-pattern Coowner = RoleType' "COOWNER"
 
 pattern Owner :: RoleType
 pattern Owner = RoleType' "OWNER"
 
-pattern Viewer :: RoleType
-pattern Viewer = RoleType' "VIEWER"
+pattern Coowner :: RoleType
+pattern Coowner = RoleType' "COOWNER"
 
 {-# COMPLETE
-  Contributor,
-  Coowner,
-  Owner,
   Viewer,
+  Contributor,
+  Owner,
+  Coowner,
   RoleType'
   #-}

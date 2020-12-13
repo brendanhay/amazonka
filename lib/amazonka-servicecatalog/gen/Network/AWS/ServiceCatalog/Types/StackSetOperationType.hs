@@ -14,8 +14,8 @@ module Network.AWS.ServiceCatalog.Types.StackSetOperationType
   ( StackSetOperationType
       ( StackSetOperationType',
         Create,
-        Delete,
-        Update
+        Update,
+        Delete
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype StackSetOperationType = StackSetOperationType' Lude.Text
 pattern Create :: StackSetOperationType
 pattern Create = StackSetOperationType' "CREATE"
 
-pattern Delete :: StackSetOperationType
-pattern Delete = StackSetOperationType' "DELETE"
-
 pattern Update :: StackSetOperationType
 pattern Update = StackSetOperationType' "UPDATE"
 
+pattern Delete :: StackSetOperationType
+pattern Delete = StackSetOperationType' "DELETE"
+
 {-# COMPLETE
   Create,
-  Delete,
   Update,
+  Delete,
   StackSetOperationType'
   #-}

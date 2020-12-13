@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkACLAssociation' smart constructor.
 data NetworkACLAssociation = NetworkACLAssociation'
-  { networkACLId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the network ACL.
+    networkACLId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the association between a network ACL and a subnet.
     networkACLAssociationId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkACLAssociation' with the minimum fields required to make a request.
 --
--- * 'networkACLAssociationId' - The ID of the association between a network ACL and a subnet.
 -- * 'networkACLId' - The ID of the network ACL.
 -- * 'subnetId' - The ID of the subnet.
+-- * 'networkACLAssociationId' - The ID of the association between a network ACL and a subnet.
 mkNetworkACLAssociation ::
   NetworkACLAssociation
 mkNetworkACLAssociation =

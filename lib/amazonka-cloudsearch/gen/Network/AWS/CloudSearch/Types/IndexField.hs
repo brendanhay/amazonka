@@ -22,6 +22,7 @@ module Network.AWS.CloudSearch.Types.IndexField
     ifTextArrayOptions,
     ifDoubleOptions,
     ifTextOptions,
+    ifIndexFieldType,
     ifLatLonOptions,
     ifLiteralArrayOptions,
     ifIntArrayOptions,
@@ -29,7 +30,6 @@ module Network.AWS.CloudSearch.Types.IndexField
     ifIntOptions,
     ifLiteralOptions,
     ifIndexFieldName,
-    ifIndexFieldType,
   )
 where
 
@@ -52,69 +52,66 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIndexField' smart constructor.
 data IndexField = IndexField'
-  { doubleArrayOptions ::
-      Lude.Maybe DoubleArrayOptions,
+  { doubleArrayOptions :: Lude.Maybe DoubleArrayOptions,
     dateOptions :: Lude.Maybe DateOptions,
     textArrayOptions :: Lude.Maybe TextArrayOptions,
     doubleOptions :: Lude.Maybe DoubleOptions,
     textOptions :: Lude.Maybe TextOptions,
+    indexFieldType :: IndexFieldType,
     latLonOptions :: Lude.Maybe LatLonOptions,
     literalArrayOptions :: Lude.Maybe LiteralArrayOptions,
     intArrayOptions :: Lude.Maybe IntArrayOptions,
     dateArrayOptions :: Lude.Maybe DateArrayOptions,
     intOptions :: Lude.Maybe IntOptions,
     literalOptions :: Lude.Maybe LiteralOptions,
-    indexFieldName :: Lude.Text,
-    indexFieldType :: IndexFieldType
+    -- | A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options.
+    --
+    -- Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported.
+    -- The name @score@ is reserved and cannot be used as a field name. To reference a document's ID, you can use the name @_id@ .
+    indexFieldName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IndexField' with the minimum fields required to make a request.
 --
--- * 'dateArrayOptions' - Undocumented field.
--- * 'dateOptions' - Undocumented field.
--- * 'doubleArrayOptions' - Undocumented field.
--- * 'doubleOptions' - Undocumented field.
+-- * 'doubleArrayOptions' -
+-- * 'dateOptions' -
+-- * 'textArrayOptions' -
+-- * 'doubleOptions' -
+-- * 'textOptions' -
+-- * 'indexFieldType' -
+-- * 'latLonOptions' -
+-- * 'literalArrayOptions' -
+-- * 'intArrayOptions' -
+-- * 'dateArrayOptions' -
+-- * 'intOptions' -
+-- * 'literalOptions' -
 -- * 'indexFieldName' - A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options.
 --
 -- Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported.
 -- The name @score@ is reserved and cannot be used as a field name. To reference a document's ID, you can use the name @_id@ .
--- * 'indexFieldType' - Undocumented field.
--- * 'intArrayOptions' - Undocumented field.
--- * 'intOptions' - Undocumented field.
--- * 'latLonOptions' - Undocumented field.
--- * 'literalArrayOptions' - Undocumented field.
--- * 'literalOptions' - Undocumented field.
--- * 'textArrayOptions' - Undocumented field.
--- * 'textOptions' - Undocumented field.
 mkIndexField ::
-  -- | 'indexFieldName'
-  Lude.Text ->
   -- | 'indexFieldType'
   IndexFieldType ->
+  -- | 'indexFieldName'
+  Lude.Text ->
   IndexField
-mkIndexField pIndexFieldName_ pIndexFieldType_ =
+mkIndexField pIndexFieldType_ pIndexFieldName_ =
   IndexField'
     { doubleArrayOptions = Lude.Nothing,
       dateOptions = Lude.Nothing,
       textArrayOptions = Lude.Nothing,
       doubleOptions = Lude.Nothing,
       textOptions = Lude.Nothing,
+      indexFieldType = pIndexFieldType_,
       latLonOptions = Lude.Nothing,
       literalArrayOptions = Lude.Nothing,
       intArrayOptions = Lude.Nothing,
       dateArrayOptions = Lude.Nothing,
       intOptions = Lude.Nothing,
       literalOptions = Lude.Nothing,
-      indexFieldName = pIndexFieldName_,
-      indexFieldType = pIndexFieldType_
+      indexFieldName = pIndexFieldName_
     }
 
 -- | Undocumented field.
@@ -151,6 +148,13 @@ ifDoubleOptions = Lens.lens (doubleOptions :: IndexField -> Lude.Maybe DoubleOpt
 ifTextOptions :: Lens.Lens' IndexField (Lude.Maybe TextOptions)
 ifTextOptions = Lens.lens (textOptions :: IndexField -> Lude.Maybe TextOptions) (\s a -> s {textOptions = a} :: IndexField)
 {-# DEPRECATED ifTextOptions "Use generic-lens or generic-optics with 'textOptions' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'indexFieldType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifIndexFieldType :: Lens.Lens' IndexField IndexFieldType
+ifIndexFieldType = Lens.lens (indexFieldType :: IndexField -> IndexFieldType) (\s a -> s {indexFieldType = a} :: IndexField)
+{-# DEPRECATED ifIndexFieldType "Use generic-lens or generic-optics with 'indexFieldType' instead." #-}
 
 -- | Undocumented field.
 --
@@ -204,13 +208,6 @@ ifIndexFieldName :: Lens.Lens' IndexField Lude.Text
 ifIndexFieldName = Lens.lens (indexFieldName :: IndexField -> Lude.Text) (\s a -> s {indexFieldName = a} :: IndexField)
 {-# DEPRECATED ifIndexFieldName "Use generic-lens or generic-optics with 'indexFieldName' instead." #-}
 
--- | Undocumented field.
---
--- /Note:/ Consider using 'indexFieldType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifIndexFieldType :: Lens.Lens' IndexField IndexFieldType
-ifIndexFieldType = Lens.lens (indexFieldType :: IndexField -> IndexFieldType) (\s a -> s {indexFieldType = a} :: IndexField)
-{-# DEPRECATED ifIndexFieldType "Use generic-lens or generic-optics with 'indexFieldType' instead." #-}
-
 instance Lude.FromXML IndexField where
   parseXML x =
     IndexField'
@@ -219,6 +216,7 @@ instance Lude.FromXML IndexField where
       Lude.<*> (x Lude..@? "TextArrayOptions")
       Lude.<*> (x Lude..@? "DoubleOptions")
       Lude.<*> (x Lude..@? "TextOptions")
+      Lude.<*> (x Lude..@ "IndexFieldType")
       Lude.<*> (x Lude..@? "LatLonOptions")
       Lude.<*> (x Lude..@? "LiteralArrayOptions")
       Lude.<*> (x Lude..@? "IntArrayOptions")
@@ -226,7 +224,6 @@ instance Lude.FromXML IndexField where
       Lude.<*> (x Lude..@? "IntOptions")
       Lude.<*> (x Lude..@? "LiteralOptions")
       Lude.<*> (x Lude..@ "IndexFieldName")
-      Lude.<*> (x Lude..@ "IndexFieldType")
 
 instance Lude.ToQuery IndexField where
   toQuery IndexField' {..} =
@@ -236,12 +233,12 @@ instance Lude.ToQuery IndexField where
         "TextArrayOptions" Lude.=: textArrayOptions,
         "DoubleOptions" Lude.=: doubleOptions,
         "TextOptions" Lude.=: textOptions,
+        "IndexFieldType" Lude.=: indexFieldType,
         "LatLonOptions" Lude.=: latLonOptions,
         "LiteralArrayOptions" Lude.=: literalArrayOptions,
         "IntArrayOptions" Lude.=: intArrayOptions,
         "DateArrayOptions" Lude.=: dateArrayOptions,
         "IntOptions" Lude.=: intOptions,
         "LiteralOptions" Lude.=: literalOptions,
-        "IndexFieldName" Lude.=: indexFieldName,
-        "IndexFieldType" Lude.=: indexFieldType
+        "IndexFieldName" Lude.=: indexFieldName
       ]

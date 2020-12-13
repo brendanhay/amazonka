@@ -13,8 +13,8 @@
 module Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionStatus
   ( RealtimeMetricsSubscriptionStatus
       ( RealtimeMetricsSubscriptionStatus',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RealtimeMetricsSubscriptionStatus = RealtimeMetricsSubscriptionStatus' L
       Lude.ToHeader
     )
 
-pattern Disabled :: RealtimeMetricsSubscriptionStatus
-pattern Disabled = RealtimeMetricsSubscriptionStatus' "Disabled"
-
 pattern Enabled :: RealtimeMetricsSubscriptionStatus
 pattern Enabled = RealtimeMetricsSubscriptionStatus' "Enabled"
 
+pattern Disabled :: RealtimeMetricsSubscriptionStatus
+pattern Disabled = RealtimeMetricsSubscriptionStatus' "Disabled"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   RealtimeMetricsSubscriptionStatus'
   #-}

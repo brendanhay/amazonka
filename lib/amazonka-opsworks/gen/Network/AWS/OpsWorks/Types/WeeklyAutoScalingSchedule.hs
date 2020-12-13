@@ -45,46 +45,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWeeklyAutoScalingSchedule' smart constructor.
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
-  { thursday ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    wednesday ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    saturday ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    monday ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    friday ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    sunday ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    tuesday ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | The schedule for Thursday.
+    thursday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The schedule for Wednesday.
+    wednesday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The schedule for Saturday.
+    saturday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The schedule for Monday.
+    monday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The schedule for Friday.
+    friday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The schedule for Sunday.
+    sunday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The schedule for Tuesday.
+    tuesday :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WeeklyAutoScalingSchedule' with the minimum fields required to make a request.
 --
--- * 'friday' - The schedule for Friday.
--- * 'monday' - The schedule for Monday.
--- * 'saturday' - The schedule for Saturday.
--- * 'sunday' - The schedule for Sunday.
 -- * 'thursday' - The schedule for Thursday.
--- * 'tuesday' - The schedule for Tuesday.
 -- * 'wednesday' - The schedule for Wednesday.
+-- * 'saturday' - The schedule for Saturday.
+-- * 'monday' - The schedule for Monday.
+-- * 'friday' - The schedule for Friday.
+-- * 'sunday' - The schedule for Sunday.
+-- * 'tuesday' - The schedule for Tuesday.
 mkWeeklyAutoScalingSchedule ::
   WeeklyAutoScalingSchedule
 mkWeeklyAutoScalingSchedule =

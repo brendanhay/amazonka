@@ -50,53 +50,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataSource' smart constructor.
 data DataSource = DataSource'
-  { status :: Lude.Maybe EntityStatus,
+  { -- | The current status of the @DataSource@ . This element can have one of the following values:
+    --
+    --
+    --     * PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a @DataSource@ .
+    --
+    --     * INPROGRESS - The creation process is underway.
+    --
+    --     * FAILED - The request to create a @DataSource@ did not run to completion. It is not usable.
+    --
+    --     * COMPLETED - The creation process completed successfully.
+    --
+    --     * DELETED - The @DataSource@ is marked as deleted. It is not usable.
+    status :: Lude.Maybe EntityStatus,
+    -- | The number of data files referenced by the @DataSource@ .
     numberOfFiles :: Lude.Maybe Lude.Integer,
+    -- | The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time that the @DataSource@ was created. The time is expressed in epoch time.
     createdAt :: Lude.Maybe Lude.Timestamp,
     computeTime :: Lude.Maybe Lude.Integer,
+    -- | The ID that is assigned to the @DataSource@ during creation.
     dataSourceId :: Lude.Maybe Lude.Text,
     rdsMetadata :: Lude.Maybe RDSMetadata,
+    -- | The total number of observations contained in the data files that the @DataSource@ references.
     dataSizeInBytes :: Lude.Maybe Lude.Integer,
     startedAt :: Lude.Maybe Lude.Timestamp,
     finishedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS user account from which the @DataSource@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
     createdByIAMUser :: Lude.Maybe Lude.Text,
+    -- | A user-supplied name or description of the @DataSource@ .
     name :: Lude.Maybe Lude.Text,
+    -- | The location and name of the data in Amazon Simple Storage Service (Amazon S3) that is used by a @DataSource@ .
     dataLocationS3 :: Lude.Maybe Lude.Text,
+    -- | The parameter is @true@ if statistics need to be generated from the observation data.
     computeStatistics :: Lude.Maybe Lude.Bool,
+    -- | A description of the most recent details about creating the @DataSource@ .
     message :: Lude.Maybe Lude.Text,
     redshiftMetadata :: Lude.Maybe RedshiftMetadata,
+    -- | A JSON string that represents the splitting and rearrangement requirement used when this @DataSource@ was created.
     dataRearrangement :: Lude.Maybe Lude.Text,
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataSource' with the minimum fields required to make a request.
 --
--- * 'computeStatistics' - The parameter is @true@ if statistics need to be generated from the observation data.
--- * 'computeTime' - Undocumented field.
--- * 'createdAt' - The time that the @DataSource@ was created. The time is expressed in epoch time.
--- * 'createdByIAMUser' - The AWS user account from which the @DataSource@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
--- * 'dataLocationS3' - The location and name of the data in Amazon Simple Storage Service (Amazon S3) that is used by a @DataSource@ .
--- * 'dataRearrangement' - A JSON string that represents the splitting and rearrangement requirement used when this @DataSource@ was created.
--- * 'dataSizeInBytes' - The total number of observations contained in the data files that the @DataSource@ references.
--- * 'dataSourceId' - The ID that is assigned to the @DataSource@ during creation.
--- * 'finishedAt' - Undocumented field.
--- * 'lastUpdatedAt' - The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
--- * 'message' - A description of the most recent details about creating the @DataSource@ .
--- * 'name' - A user-supplied name or description of the @DataSource@ .
--- * 'numberOfFiles' - The number of data files referenced by the @DataSource@ .
--- * 'rdsMetadata' - Undocumented field.
--- * 'redshiftMetadata' - Undocumented field.
--- * 'roleARN' - Undocumented field.
--- * 'startedAt' - Undocumented field.
 -- * 'status' - The current status of the @DataSource@ . This element can have one of the following values:
 --
 --
@@ -109,6 +109,24 @@ data DataSource = DataSource'
 --     * COMPLETED - The creation process completed successfully.
 --
 --     * DELETED - The @DataSource@ is marked as deleted. It is not usable.
+--
+-- * 'numberOfFiles' - The number of data files referenced by the @DataSource@ .
+-- * 'lastUpdatedAt' - The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
+-- * 'createdAt' - The time that the @DataSource@ was created. The time is expressed in epoch time.
+-- * 'computeTime' -
+-- * 'dataSourceId' - The ID that is assigned to the @DataSource@ during creation.
+-- * 'rdsMetadata' -
+-- * 'dataSizeInBytes' - The total number of observations contained in the data files that the @DataSource@ references.
+-- * 'startedAt' -
+-- * 'finishedAt' -
+-- * 'createdByIAMUser' - The AWS user account from which the @DataSource@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'name' - A user-supplied name or description of the @DataSource@ .
+-- * 'dataLocationS3' - The location and name of the data in Amazon Simple Storage Service (Amazon S3) that is used by a @DataSource@ .
+-- * 'computeStatistics' - The parameter is @true@ if statistics need to be generated from the observation data.
+-- * 'message' - A description of the most recent details about creating the @DataSource@ .
+-- * 'redshiftMetadata' -
+-- * 'dataRearrangement' - A JSON string that represents the splitting and rearrangement requirement used when this @DataSource@ was created.
+-- * 'roleARN' -
 mkDataSource ::
   DataSource
 mkDataSource =

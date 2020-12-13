@@ -13,13 +13,13 @@
 module Network.AWS.Glue.Types.ColumnStatisticsType
   ( ColumnStatisticsType
       ( ColumnStatisticsType',
-        Binary,
         Boolean,
         Date,
         Decimal,
         Double,
         Long,
-        String
+        String,
+        Binary
       ),
   )
 where
@@ -50,9 +50,6 @@ newtype ColumnStatisticsType = ColumnStatisticsType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Binary :: ColumnStatisticsType
-pattern Binary = ColumnStatisticsType' "BINARY"
-
 pattern Boolean :: ColumnStatisticsType
 pattern Boolean = ColumnStatisticsType' "BOOLEAN"
 
@@ -71,13 +68,16 @@ pattern Long = ColumnStatisticsType' "LONG"
 pattern String :: ColumnStatisticsType
 pattern String = ColumnStatisticsType' "STRING"
 
+pattern Binary :: ColumnStatisticsType
+pattern Binary = ColumnStatisticsType' "BINARY"
+
 {-# COMPLETE
-  Binary,
   Boolean,
   Date,
   Decimal,
   Double,
   Long,
   String,
+  Binary,
   ColumnStatisticsType'
   #-}

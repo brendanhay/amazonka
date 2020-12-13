@@ -32,20 +32,14 @@ data SchemaId = SchemaId'
     schemaName :: Lude.Maybe Lude.Text,
     schemaARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaId' with the minimum fields required to make a request.
 --
--- * 'registryName' - Undocumented field.
--- * 'schemaARN' - Undocumented field.
--- * 'schemaName' - Undocumented field.
+-- * 'registryName' -
+-- * 'schemaName' -
+-- * 'schemaARN' -
 mkSchemaId ::
   SchemaId
 mkSchemaId =

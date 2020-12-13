@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,13 +25,13 @@ module Network.AWS.SSM.CreateOpsItem
     coiPriority,
     coiCategory,
     coiSeverity,
+    coiSource,
     coiRelatedOpsItems,
+    coiTitle,
     coiOperationalData,
+    coiDescription,
     coiNotifications,
     coiTags,
-    coiDescription,
-    coiSource,
-    coiTitle,
 
     -- * Destructuring the response
     CreateOpsItemResponse (..),
@@ -50,67 +51,76 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkCreateOpsItem' smart constructor.
 data CreateOpsItem = CreateOpsItem'
-  { priority ::
-      Lude.Maybe Lude.Natural,
+  { -- | The importance of this OpsItem in relation to other OpsItems in the system.
+    priority :: Lude.Maybe Lude.Natural,
+    -- | Specify a category to assign to an OpsItem.
     category :: Lude.Maybe Lude.Text,
+    -- | Specify a severity to assign to an OpsItem.
     severity :: Lude.Maybe Lude.Text,
-    relatedOpsItems :: Lude.Maybe [RelatedOpsItem],
-    operationalData ::
-      Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue)),
-    notifications :: Lude.Maybe [OpsItemNotification],
-    tags :: Lude.Maybe [Tag],
-    description :: Lude.Text,
+    -- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
     source :: Lude.Text,
-    title :: Lude.Text
+    -- | One or more OpsItems that share something in common with the current OpsItems. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
+    relatedOpsItems :: Lude.Maybe [RelatedOpsItem],
+    -- | A short heading that describes the nature of the OpsItem and the impacted resource.
+    title :: Lude.Text,
+    -- | Operational data is custom data that provides useful reference details about the OpsItem. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data. You enter operational data as key-value pairs. The key has a maximum length of 128 characters. The value has a maximum size of 20 KB.
+    --
+    -- /Important:/ Operational data keys /can't/ begin with the following: amazon, aws, amzn, ssm, /amazon, /aws, /amzn, /ssm.
+    -- You can choose to make the data searchable by other users in the account or you can restrict search access. Searchable data means that all users with access to the OpsItem Overview page (as provided by the 'DescribeOpsItems' API action) can view and search on the specified data. Operational data that is not searchable is only viewable by users who have access to the OpsItem (as provided by the 'GetOpsItem' API action).
+    -- Use the @/aws/resources@ key in OperationalData to specify a related resource in the request. Use the @/aws/automations@ key in OperationalData to associate an Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually> in the /AWS Systems Manager User Guide/ .
+    operationalData :: Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue)),
+    -- | Information about the OpsItem.
+    description :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
+    notifications :: Lude.Maybe [OpsItemNotification],
+    -- | Optional metadata that you assign to a resource. You can restrict access to OpsItems by using an inline IAM policy that specifies tags. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter> in the /AWS Systems Manager User Guide/ .
+    --
+    -- Tags use a key-value pair. For example:
+    -- @Key=Department,Value=Finance@
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOpsItem' with the minimum fields required to make a request.
 --
+-- * 'priority' - The importance of this OpsItem in relation to other OpsItems in the system.
 -- * 'category' - Specify a category to assign to an OpsItem.
--- * 'description' - Information about the OpsItem.
--- * 'notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
+-- * 'severity' - Specify a severity to assign to an OpsItem.
+-- * 'source' - The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
+-- * 'relatedOpsItems' - One or more OpsItems that share something in common with the current OpsItems. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
+-- * 'title' - A short heading that describes the nature of the OpsItem and the impacted resource.
 -- * 'operationalData' - Operational data is custom data that provides useful reference details about the OpsItem. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data. You enter operational data as key-value pairs. The key has a maximum length of 128 characters. The value has a maximum size of 20 KB.
 --
 -- /Important:/ Operational data keys /can't/ begin with the following: amazon, aws, amzn, ssm, /amazon, /aws, /amzn, /ssm.
 -- You can choose to make the data searchable by other users in the account or you can restrict search access. Searchable data means that all users with access to the OpsItem Overview page (as provided by the 'DescribeOpsItems' API action) can view and search on the specified data. Operational data that is not searchable is only viewable by users who have access to the OpsItem (as provided by the 'GetOpsItem' API action).
 -- Use the @/aws/resources@ key in OperationalData to specify a related resource in the request. Use the @/aws/automations@ key in OperationalData to associate an Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually> in the /AWS Systems Manager User Guide/ .
--- * 'priority' - The importance of this OpsItem in relation to other OpsItems in the system.
--- * 'relatedOpsItems' - One or more OpsItems that share something in common with the current OpsItems. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
--- * 'severity' - Specify a severity to assign to an OpsItem.
--- * 'source' - The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
+-- * 'description' - Information about the OpsItem.
+-- * 'notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
 -- * 'tags' - Optional metadata that you assign to a resource. You can restrict access to OpsItems by using an inline IAM policy that specifies tags. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter> in the /AWS Systems Manager User Guide/ .
 --
 -- Tags use a key-value pair. For example:
 -- @Key=Department,Value=Finance@
--- * 'title' - A short heading that describes the nature of the OpsItem and the impacted resource.
 mkCreateOpsItem ::
-  -- | 'description'
-  Lude.Text ->
   -- | 'source'
   Lude.Text ->
   -- | 'title'
   Lude.Text ->
+  -- | 'description'
+  Lude.Text ->
   CreateOpsItem
-mkCreateOpsItem pDescription_ pSource_ pTitle_ =
+mkCreateOpsItem pSource_ pTitle_ pDescription_ =
   CreateOpsItem'
     { priority = Lude.Nothing,
       category = Lude.Nothing,
       severity = Lude.Nothing,
-      relatedOpsItems = Lude.Nothing,
-      operationalData = Lude.Nothing,
-      notifications = Lude.Nothing,
-      tags = Lude.Nothing,
-      description = pDescription_,
       source = pSource_,
-      title = pTitle_
+      relatedOpsItems = Lude.Nothing,
+      title = pTitle_,
+      operationalData = Lude.Nothing,
+      description = pDescription_,
+      notifications = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The importance of this OpsItem in relation to other OpsItems in the system.
@@ -134,12 +144,26 @@ coiSeverity :: Lens.Lens' CreateOpsItem (Lude.Maybe Lude.Text)
 coiSeverity = Lens.lens (severity :: CreateOpsItem -> Lude.Maybe Lude.Text) (\s a -> s {severity = a} :: CreateOpsItem)
 {-# DEPRECATED coiSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
+-- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coiSource :: Lens.Lens' CreateOpsItem Lude.Text
+coiSource = Lens.lens (source :: CreateOpsItem -> Lude.Text) (\s a -> s {source = a} :: CreateOpsItem)
+{-# DEPRECATED coiSource "Use generic-lens or generic-optics with 'source' instead." #-}
+
 -- | One or more OpsItems that share something in common with the current OpsItems. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
 --
 -- /Note:/ Consider using 'relatedOpsItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 coiRelatedOpsItems :: Lens.Lens' CreateOpsItem (Lude.Maybe [RelatedOpsItem])
 coiRelatedOpsItems = Lens.lens (relatedOpsItems :: CreateOpsItem -> Lude.Maybe [RelatedOpsItem]) (\s a -> s {relatedOpsItems = a} :: CreateOpsItem)
 {-# DEPRECATED coiRelatedOpsItems "Use generic-lens or generic-optics with 'relatedOpsItems' instead." #-}
+
+-- | A short heading that describes the nature of the OpsItem and the impacted resource.
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coiTitle :: Lens.Lens' CreateOpsItem Lude.Text
+coiTitle = Lens.lens (title :: CreateOpsItem -> Lude.Text) (\s a -> s {title = a} :: CreateOpsItem)
+{-# DEPRECATED coiTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 -- | Operational data is custom data that provides useful reference details about the OpsItem. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data. You enter operational data as key-value pairs. The key has a maximum length of 128 characters. The value has a maximum size of 20 KB.
 --
@@ -151,6 +175,13 @@ coiRelatedOpsItems = Lens.lens (relatedOpsItems :: CreateOpsItem -> Lude.Maybe [
 coiOperationalData :: Lens.Lens' CreateOpsItem (Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue)))
 coiOperationalData = Lens.lens (operationalData :: CreateOpsItem -> Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue))) (\s a -> s {operationalData = a} :: CreateOpsItem)
 {-# DEPRECATED coiOperationalData "Use generic-lens or generic-optics with 'operationalData' instead." #-}
+
+-- | Information about the OpsItem.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coiDescription :: Lens.Lens' CreateOpsItem Lude.Text
+coiDescription = Lens.lens (description :: CreateOpsItem -> Lude.Text) (\s a -> s {description = a} :: CreateOpsItem)
+{-# DEPRECATED coiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
 --
@@ -168,27 +199,6 @@ coiNotifications = Lens.lens (notifications :: CreateOpsItem -> Lude.Maybe [OpsI
 coiTags :: Lens.Lens' CreateOpsItem (Lude.Maybe [Tag])
 coiTags = Lens.lens (tags :: CreateOpsItem -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateOpsItem)
 {-# DEPRECATED coiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | Information about the OpsItem.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coiDescription :: Lens.Lens' CreateOpsItem Lude.Text
-coiDescription = Lens.lens (description :: CreateOpsItem -> Lude.Text) (\s a -> s {description = a} :: CreateOpsItem)
-{-# DEPRECATED coiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
---
--- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coiSource :: Lens.Lens' CreateOpsItem Lude.Text
-coiSource = Lens.lens (source :: CreateOpsItem -> Lude.Text) (\s a -> s {source = a} :: CreateOpsItem)
-{-# DEPRECATED coiSource "Use generic-lens or generic-optics with 'source' instead." #-}
-
--- | A short heading that describes the nature of the OpsItem and the impacted resource.
---
--- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coiTitle :: Lens.Lens' CreateOpsItem Lude.Text
-coiTitle = Lens.lens (title :: CreateOpsItem -> Lude.Text) (\s a -> s {title = a} :: CreateOpsItem)
-{-# DEPRECATED coiTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 instance Lude.AWSRequest CreateOpsItem where
   type Rs CreateOpsItem = CreateOpsItemResponse
@@ -218,13 +228,13 @@ instance Lude.ToJSON CreateOpsItem where
           [ ("Priority" Lude..=) Lude.<$> priority,
             ("Category" Lude..=) Lude.<$> category,
             ("Severity" Lude..=) Lude.<$> severity,
-            ("RelatedOpsItems" Lude..=) Lude.<$> relatedOpsItems,
-            ("OperationalData" Lude..=) Lude.<$> operationalData,
-            ("Notifications" Lude..=) Lude.<$> notifications,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Description" Lude..= description),
             Lude.Just ("Source" Lude..= source),
-            Lude.Just ("Title" Lude..= title)
+            ("RelatedOpsItems" Lude..=) Lude.<$> relatedOpsItems,
+            Lude.Just ("Title" Lude..= title),
+            ("OperationalData" Lude..=) Lude.<$> operationalData,
+            Lude.Just ("Description" Lude..= description),
+            ("Notifications" Lude..=) Lude.<$> notifications,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -236,17 +246,12 @@ instance Lude.ToQuery CreateOpsItem where
 
 -- | /See:/ 'mkCreateOpsItemResponse' smart constructor.
 data CreateOpsItemResponse = CreateOpsItemResponse'
-  { opsItemId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the OpsItem.
+    opsItemId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOpsItemResponse' with the minimum fields required to make a request.

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimeRangeFilter' smart constructor.
 data TimeRangeFilter = TimeRangeFilter'
-  { startTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The start time of the time range filter
+    startTime :: Lude.Maybe Lude.DateTime,
+    -- | The end time of the time range filter
     endTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeRangeFilter' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end time of the time range filter
 -- * 'startTime' - The start time of the time range filter
+-- * 'endTime' - The end time of the time range filter
 mkTimeRangeFilter ::
   TimeRangeFilter
 mkTimeRangeFilter =

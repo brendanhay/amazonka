@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     mkDeleteIdentityPool,
 
     -- ** Request lenses
-    dIdentityPoolId,
+    dipIdentityPoolId,
 
     -- * Destructuring the response
     DeleteIdentityPoolResponse (..),
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteIdentityPool' smart constructor.
 newtype DeleteIdentityPool = DeleteIdentityPool'
-  { identityPoolId ::
-      Lude.Text
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentityPool' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDeleteIdentityPool pIdentityPoolId_ =
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dIdentityPoolId :: Lens.Lens' DeleteIdentityPool Lude.Text
-dIdentityPoolId = Lens.lens (identityPoolId :: DeleteIdentityPool -> Lude.Text) (\s a -> s {identityPoolId = a} :: DeleteIdentityPool)
-{-# DEPRECATED dIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+dipIdentityPoolId :: Lens.Lens' DeleteIdentityPool Lude.Text
+dipIdentityPoolId = Lens.lens (identityPoolId :: DeleteIdentityPool -> Lude.Text) (\s a -> s {identityPoolId = a} :: DeleteIdentityPool)
+{-# DEPRECATED dipIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 instance Lude.AWSRequest DeleteIdentityPool where
   type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
@@ -101,13 +96,7 @@ instance Lude.ToQuery DeleteIdentityPool where
 
 -- | /See:/ 'mkDeleteIdentityPoolResponse' smart constructor.
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentityPoolResponse' with the minimum fields required to make a request.

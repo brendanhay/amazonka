@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCognitoOptions' smart constructor.
 data CognitoOptions = CognitoOptions'
-  { identityPoolId ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the Cognito identity pool ID for Kibana authentication.
+    identityPoolId :: Lude.Maybe Lude.Text,
+    -- | Specifies the option to enable Cognito for Kibana authentication.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies the Cognito user pool ID for Kibana authentication.
     userPoolId :: Lude.Maybe Lude.Text,
+    -- | Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CognitoOptions' with the minimum fields required to make a request.
 --
--- * 'enabled' - Specifies the option to enable Cognito for Kibana authentication.
 -- * 'identityPoolId' - Specifies the Cognito identity pool ID for Kibana authentication.
--- * 'roleARN' - Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
+-- * 'enabled' - Specifies the option to enable Cognito for Kibana authentication.
 -- * 'userPoolId' - Specifies the Cognito user pool ID for Kibana authentication.
+-- * 'roleARN' - Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
 mkCognitoOptions ::
   CognitoOptions
 mkCognitoOptions =

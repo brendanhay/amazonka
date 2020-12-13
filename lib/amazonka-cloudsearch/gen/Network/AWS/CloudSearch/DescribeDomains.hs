@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CloudSearch.DescribeDomains
     mkDescribeDomainsResponse,
 
     -- ** Response lenses
-    ddsrsResponseStatus,
     ddsrsDomainStatusList,
+    ddsrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDomains' smart constructor.
 newtype DescribeDomains = DescribeDomains'
-  { domainNames ::
-      Lude.Maybe [Lude.Text]
+  { -- | The names of the domains you want to include in the response.
+    domainNames :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomains' with the minimum fields required to make a request.
@@ -75,10 +70,10 @@ instance Lude.AWSRequest DescribeDomains where
       "DescribeDomainsResult"
       ( \s h x ->
           DescribeDomainsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "DomainStatusList" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "DomainStatusList" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeDomains where
@@ -100,22 +95,16 @@ instance Lude.ToQuery DescribeDomains where
 --
 -- /See:/ 'mkDescribeDomainsResponse' smart constructor.
 data DescribeDomainsResponse = DescribeDomainsResponse'
-  { responseStatus ::
-      Lude.Int,
-    domainStatusList :: [DomainStatus]
+  { domainStatusList :: [DomainStatus],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainsResponse' with the minimum fields required to make a request.
 --
--- * 'domainStatusList' - Undocumented field.
+-- * 'domainStatusList' -
 -- * 'responseStatus' - The response status code.
 mkDescribeDomainsResponse ::
   -- | 'responseStatus'
@@ -123,16 +112,9 @@ mkDescribeDomainsResponse ::
   DescribeDomainsResponse
 mkDescribeDomainsResponse pResponseStatus_ =
   DescribeDomainsResponse'
-    { responseStatus = pResponseStatus_,
-      domainStatusList = Lude.mempty
+    { domainStatusList = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsrsResponseStatus :: Lens.Lens' DescribeDomainsResponse Lude.Int
-ddsrsResponseStatus = Lens.lens (responseStatus :: DescribeDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDomainsResponse)
-{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -140,3 +122,10 @@ ddsrsResponseStatus = Lens.lens (responseStatus :: DescribeDomainsResponse -> Lu
 ddsrsDomainStatusList :: Lens.Lens' DescribeDomainsResponse [DomainStatus]
 ddsrsDomainStatusList = Lens.lens (domainStatusList :: DescribeDomainsResponse -> [DomainStatus]) (\s a -> s {domainStatusList = a} :: DescribeDomainsResponse)
 {-# DEPRECATED ddsrsDomainStatusList "Use generic-lens or generic-optics with 'domainStatusList' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsrsResponseStatus :: Lens.Lens' DescribeDomainsResponse Lude.Int
+ddsrsResponseStatus = Lens.lens (responseStatus :: DescribeDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDomainsResponse)
+{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComplianceViolator' smart constructor.
 data ComplianceViolator = ComplianceViolator'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The resource ID.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The resource type. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . For example: @AWS::ElasticLoadBalancingV2::LoadBalancer@ , @AWS::CloudFront::Distribution@ , or @AWS::NetworkFirewall::FirewallPolicy@ .
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The reason that the resource is not protected by the policy.
     violationReason :: Lude.Maybe ViolationReason
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceViolator' with the minimum fields required to make a request.

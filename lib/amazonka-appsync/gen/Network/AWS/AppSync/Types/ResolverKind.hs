@@ -13,8 +13,8 @@
 module Network.AWS.AppSync.Types.ResolverKind
   ( ResolverKind
       ( ResolverKind',
-        Pipeline,
-        Unit
+        Unit,
+        Pipeline
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ResolverKind = ResolverKind' Lude.Text
       Lude.ToHeader
     )
 
-pattern Pipeline :: ResolverKind
-pattern Pipeline = ResolverKind' "PIPELINE"
-
 pattern Unit :: ResolverKind
 pattern Unit = ResolverKind' "UNIT"
 
+pattern Pipeline :: ResolverKind
+pattern Pipeline = ResolverKind' "PIPELINE"
+
 {-# COMPLETE
-  Pipeline,
   Unit,
+  Pipeline,
   ResolverKind'
   #-}

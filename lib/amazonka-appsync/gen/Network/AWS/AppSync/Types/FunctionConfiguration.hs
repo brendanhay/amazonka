@@ -35,35 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { functionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the @Function@ object.
+    functionARN :: Lude.Maybe Lude.Text,
+    -- | The name of the @DataSource@ .
     dataSourceName :: Lude.Maybe Lude.Text,
+    -- | The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
     requestMappingTemplate :: Lude.Maybe Lude.Text,
+    -- | The name of the @Function@ object.
     name :: Lude.Maybe Lude.Text,
+    -- | A unique ID representing the @Function@ object.
     functionId :: Lude.Maybe Lude.Text,
+    -- | The @Function@ response mapping template.
     responseMappingTemplate :: Lude.Maybe Lude.Text,
+    -- | The version of the request mapping template. Currently only the 2018-05-29 version of the template is supported.
     functionVersion :: Lude.Maybe Lude.Text,
+    -- | The @Function@ description.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
 --
--- * 'dataSourceName' - The name of the @DataSource@ .
--- * 'description' - The @Function@ description.
 -- * 'functionARN' - The ARN of the @Function@ object.
--- * 'functionId' - A unique ID representing the @Function@ object.
--- * 'functionVersion' - The version of the request mapping template. Currently only the 2018-05-29 version of the template is supported.
--- * 'name' - The name of the @Function@ object.
+-- * 'dataSourceName' - The name of the @DataSource@ .
 -- * 'requestMappingTemplate' - The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+-- * 'name' - The name of the @Function@ object.
+-- * 'functionId' - A unique ID representing the @Function@ object.
 -- * 'responseMappingTemplate' - The @Function@ response mapping template.
+-- * 'functionVersion' - The version of the request mapping template. Currently only the 2018-05-29 version of the template is supported.
+-- * 'description' - The @Function@ description.
 mkFunctionConfiguration ::
   FunctionConfiguration
 mkFunctionConfiguration =

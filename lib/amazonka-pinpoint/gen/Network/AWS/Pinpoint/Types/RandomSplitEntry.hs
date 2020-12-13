@@ -29,17 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRandomSplitEntry' smart constructor.
 data RandomSplitEntry = RandomSplitEntry'
-  { nextActivity ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the next activity to perform, after completing the activity for the path.
+    nextActivity :: Lude.Maybe Lude.Text,
+    -- | The percentage of participants to send down the activity path.
+    --
+    -- To determine which participants are sent down each path, Amazon Pinpoint applies a probability-based algorithm to the percentages that you specify for the paths. Therefore, the actual percentage of participants who are sent down a path may not be equal to the percentage that you specify.
     percentage :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RandomSplitEntry' with the minimum fields required to make a request.

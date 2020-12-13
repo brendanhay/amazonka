@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSessionManagerOutputURL' smart constructor.
 data SessionManagerOutputURL = SessionManagerOutputURL'
-  { s3OutputURL ::
-      Lude.Maybe Lude.Text,
+  { -- | Reserved for future use.
+    s3OutputURL :: Lude.Maybe Lude.Text,
+    -- | Reserved for future use.
     cloudWatchOutputURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SessionManagerOutputURL' with the minimum fields required to make a request.
 --
--- * 'cloudWatchOutputURL' - Reserved for future use.
 -- * 's3OutputURL' - Reserved for future use.
+-- * 'cloudWatchOutputURL' - Reserved for future use.
 mkSessionManagerOutputURL ::
   SessionManagerOutputURL
 mkSessionManagerOutputURL =

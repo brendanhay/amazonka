@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserSummary' smart constructor.
 data UserSummary = UserSummary'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the user account.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The Amazon Connect user name of the user account.
     username :: Lude.Maybe Lude.Text,
+    -- | The identifier of the user account.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserSummary' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the user account.
--- * 'id' - The identifier of the user account.
 -- * 'username' - The Amazon Connect user name of the user account.
+-- * 'id' - The identifier of the user account.
 mkUserSummary ::
   UserSummary
 mkUserSummary =

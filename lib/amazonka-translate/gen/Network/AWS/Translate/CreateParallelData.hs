@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.Translate.CreateParallelData
     mkCreateParallelData,
 
     -- ** Request lenses
+    cpdClientToken,
+    cpdName,
     cpdEncryptionKey,
     cpdDescription,
-    cpdName,
     cpdParallelDataConfig,
-    cpdClientToken,
 
     -- * Destructuring the response
     CreateParallelDataResponse (..),
@@ -44,45 +45,56 @@ import Network.AWS.Translate.Types
 
 -- | /See:/ 'mkCreateParallelData' smart constructor.
 data CreateParallelData = CreateParallelData'
-  { encryptionKey ::
-      Lude.Maybe EncryptionKey,
-    description :: Lude.Maybe Lude.Text,
+  { -- | A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.
+    clientToken :: Lude.Text,
+    -- | A custom name for the parallel data resource in Amazon Translate. You must assign a name that is unique in the account and region.
     name :: Lude.Text,
-    parallelDataConfig :: ParallelDataConfig,
-    clientToken :: Lude.Text
+    encryptionKey :: Lude.Maybe EncryptionKey,
+    -- | A custom description for the parallel data resource in Amazon Translate.
+    description :: Lude.Maybe Lude.Text,
+    -- | Specifies the format and S3 location of the parallel data input file.
+    parallelDataConfig :: ParallelDataConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateParallelData' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.
--- * 'description' - A custom description for the parallel data resource in Amazon Translate.
--- * 'encryptionKey' - Undocumented field.
 -- * 'name' - A custom name for the parallel data resource in Amazon Translate. You must assign a name that is unique in the account and region.
+-- * 'encryptionKey' -
+-- * 'description' - A custom description for the parallel data resource in Amazon Translate.
 -- * 'parallelDataConfig' - Specifies the format and S3 location of the parallel data input file.
 mkCreateParallelData ::
+  -- | 'clientToken'
+  Lude.Text ->
   -- | 'name'
   Lude.Text ->
   -- | 'parallelDataConfig'
   ParallelDataConfig ->
-  -- | 'clientToken'
-  Lude.Text ->
   CreateParallelData
-mkCreateParallelData pName_ pParallelDataConfig_ pClientToken_ =
+mkCreateParallelData pClientToken_ pName_ pParallelDataConfig_ =
   CreateParallelData'
-    { encryptionKey = Lude.Nothing,
-      description = Lude.Nothing,
+    { clientToken = pClientToken_,
       name = pName_,
-      parallelDataConfig = pParallelDataConfig_,
-      clientToken = pClientToken_
+      encryptionKey = Lude.Nothing,
+      description = Lude.Nothing,
+      parallelDataConfig = pParallelDataConfig_
     }
+
+-- | A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdClientToken :: Lens.Lens' CreateParallelData Lude.Text
+cpdClientToken = Lens.lens (clientToken :: CreateParallelData -> Lude.Text) (\s a -> s {clientToken = a} :: CreateParallelData)
+{-# DEPRECATED cpdClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | A custom name for the parallel data resource in Amazon Translate. You must assign a name that is unique in the account and region.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdName :: Lens.Lens' CreateParallelData Lude.Text
+cpdName = Lens.lens (name :: CreateParallelData -> Lude.Text) (\s a -> s {name = a} :: CreateParallelData)
+{-# DEPRECATED cpdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Undocumented field.
 --
@@ -98,26 +110,12 @@ cpdDescription :: Lens.Lens' CreateParallelData (Lude.Maybe Lude.Text)
 cpdDescription = Lens.lens (description :: CreateParallelData -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateParallelData)
 {-# DEPRECATED cpdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | A custom name for the parallel data resource in Amazon Translate. You must assign a name that is unique in the account and region.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpdName :: Lens.Lens' CreateParallelData Lude.Text
-cpdName = Lens.lens (name :: CreateParallelData -> Lude.Text) (\s a -> s {name = a} :: CreateParallelData)
-{-# DEPRECATED cpdName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 -- | Specifies the format and S3 location of the parallel data input file.
 --
 -- /Note:/ Consider using 'parallelDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpdParallelDataConfig :: Lens.Lens' CreateParallelData ParallelDataConfig
 cpdParallelDataConfig = Lens.lens (parallelDataConfig :: CreateParallelData -> ParallelDataConfig) (\s a -> s {parallelDataConfig = a} :: CreateParallelData)
 {-# DEPRECATED cpdParallelDataConfig "Use generic-lens or generic-optics with 'parallelDataConfig' instead." #-}
-
--- | A unique identifier for the request. This token is automatically generated when you use Amazon Translate through an AWS SDK.
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpdClientToken :: Lens.Lens' CreateParallelData Lude.Text
-cpdClientToken = Lens.lens (clientToken :: CreateParallelData -> Lude.Text) (\s a -> s {clientToken = a} :: CreateParallelData)
-{-# DEPRECATED cpdClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 instance Lude.AWSRequest CreateParallelData where
   type Rs CreateParallelData = CreateParallelDataResponse
@@ -148,11 +146,11 @@ instance Lude.ToJSON CreateParallelData where
   toJSON CreateParallelData' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("EncryptionKey" Lude..=) Lude.<$> encryptionKey,
-            ("Description" Lude..=) Lude.<$> description,
+          [ Lude.Just ("ClientToken" Lude..= clientToken),
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ParallelDataConfig" Lude..= parallelDataConfig),
-            Lude.Just ("ClientToken" Lude..= clientToken)
+            ("EncryptionKey" Lude..=) Lude.<$> encryptionKey,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("ParallelDataConfig" Lude..= parallelDataConfig)
           ]
       )
 
@@ -164,25 +162,21 @@ instance Lude.ToQuery CreateParallelData where
 
 -- | /See:/ 'mkCreateParallelDataResponse' smart constructor.
 data CreateParallelDataResponse = CreateParallelDataResponse'
-  { status ::
-      Lude.Maybe ParallelDataStatus,
+  { -- | The status of the parallel data resource. When the resource is ready for you to use, the status is @ACTIVE@ .
+    status :: Lude.Maybe ParallelDataStatus,
+    -- | The custom name that you assigned to the parallel data resource.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateParallelDataResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the parallel data resource. When the resource is ready for you to use, the status is @ACTIVE@ .
 -- * 'name' - The custom name that you assigned to the parallel data resource.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the parallel data resource. When the resource is ready for you to use, the status is @ACTIVE@ .
 mkCreateParallelDataResponse ::
   -- | 'responseStatus'
   Lude.Int ->

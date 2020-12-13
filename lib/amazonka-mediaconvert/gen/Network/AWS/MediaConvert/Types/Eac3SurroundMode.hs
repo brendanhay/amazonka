@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.Eac3SurroundMode
   ( Eac3SurroundMode
       ( Eac3SurroundMode',
-        ESMDisabled,
+        ESMNotIndicated,
         ESMEnabled,
-        ESMNotIndicated
+        ESMDisabled
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype Eac3SurroundMode = Eac3SurroundMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESMDisabled :: Eac3SurroundMode
-pattern ESMDisabled = Eac3SurroundMode' "DISABLED"
+pattern ESMNotIndicated :: Eac3SurroundMode
+pattern ESMNotIndicated = Eac3SurroundMode' "NOT_INDICATED"
 
 pattern ESMEnabled :: Eac3SurroundMode
 pattern ESMEnabled = Eac3SurroundMode' "ENABLED"
 
-pattern ESMNotIndicated :: Eac3SurroundMode
-pattern ESMNotIndicated = Eac3SurroundMode' "NOT_INDICATED"
+pattern ESMDisabled :: Eac3SurroundMode
+pattern ESMDisabled = Eac3SurroundMode' "DISABLED"
 
 {-# COMPLETE
-  ESMDisabled,
-  ESMEnabled,
   ESMNotIndicated,
+  ESMEnabled,
+  ESMDisabled,
   Eac3SurroundMode'
   #-}

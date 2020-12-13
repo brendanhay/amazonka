@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Lightsail.GetRelationalDatabaseSnapshot
     mkGetRelationalDatabaseSnapshotResponse,
 
     -- ** Response lenses
-    getrsRelationalDatabaseSnapshot,
-    getrsResponseStatus,
+    grdsrsRelationalDatabaseSnapshot,
+    grdsrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRelationalDatabaseSnapshot' smart constructor.
 newtype GetRelationalDatabaseSnapshot = GetRelationalDatabaseSnapshot'
-  { relationalDatabaseSnapshotName ::
-      Lude.Text
+  { -- | The name of the database snapshot for which to get information.
+    relationalDatabaseSnapshotName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseSnapshot' with the minimum fields required to make a request.
@@ -116,19 +111,12 @@ instance Lude.ToQuery GetRelationalDatabaseSnapshot where
 
 -- | /See:/ 'mkGetRelationalDatabaseSnapshotResponse' smart constructor.
 data GetRelationalDatabaseSnapshotResponse = GetRelationalDatabaseSnapshotResponse'
-  { relationalDatabaseSnapshot ::
-      Lude.Maybe
-        RelationalDatabaseSnapshot,
-    responseStatus ::
-      Lude.Int
+  { -- | An object describing the specified database snapshot.
+    relationalDatabaseSnapshot :: Lude.Maybe RelationalDatabaseSnapshot,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseSnapshotResponse' with the minimum fields required to make a request.
@@ -149,13 +137,13 @@ mkGetRelationalDatabaseSnapshotResponse pResponseStatus_ =
 -- | An object describing the specified database snapshot.
 --
 -- /Note:/ Consider using 'relationalDatabaseSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getrsRelationalDatabaseSnapshot :: Lens.Lens' GetRelationalDatabaseSnapshotResponse (Lude.Maybe RelationalDatabaseSnapshot)
-getrsRelationalDatabaseSnapshot = Lens.lens (relationalDatabaseSnapshot :: GetRelationalDatabaseSnapshotResponse -> Lude.Maybe RelationalDatabaseSnapshot) (\s a -> s {relationalDatabaseSnapshot = a} :: GetRelationalDatabaseSnapshotResponse)
-{-# DEPRECATED getrsRelationalDatabaseSnapshot "Use generic-lens or generic-optics with 'relationalDatabaseSnapshot' instead." #-}
+grdsrsRelationalDatabaseSnapshot :: Lens.Lens' GetRelationalDatabaseSnapshotResponse (Lude.Maybe RelationalDatabaseSnapshot)
+grdsrsRelationalDatabaseSnapshot = Lens.lens (relationalDatabaseSnapshot :: GetRelationalDatabaseSnapshotResponse -> Lude.Maybe RelationalDatabaseSnapshot) (\s a -> s {relationalDatabaseSnapshot = a} :: GetRelationalDatabaseSnapshotResponse)
+{-# DEPRECATED grdsrsRelationalDatabaseSnapshot "Use generic-lens or generic-optics with 'relationalDatabaseSnapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getrsResponseStatus :: Lens.Lens' GetRelationalDatabaseSnapshotResponse Lude.Int
-getrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseSnapshotResponse)
-{-# DEPRECATED getrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grdsrsResponseStatus :: Lens.Lens' GetRelationalDatabaseSnapshotResponse Lude.Int
+grdsrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseSnapshotResponse)
+{-# DEPRECATED grdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

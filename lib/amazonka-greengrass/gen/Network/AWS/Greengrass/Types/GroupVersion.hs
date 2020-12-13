@@ -34,33 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroupVersion' smart constructor.
 data GroupVersion = GroupVersion'
-  { resourceDefinitionVersionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the resource definition version for this group.
+    resourceDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the subscription definition version for this group.
     subscriptionDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the core definition version for this group.
     coreDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the device definition version for this group.
     deviceDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the function definition version for this group.
     functionDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the logger definition version for this group.
     loggerDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the connector definition version for this group.
     connectorDefinitionVersionARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupVersion' with the minimum fields required to make a request.
 --
--- * 'connectorDefinitionVersionARN' - The ARN of the connector definition version for this group.
+-- * 'resourceDefinitionVersionARN' - The ARN of the resource definition version for this group.
+-- * 'subscriptionDefinitionVersionARN' - The ARN of the subscription definition version for this group.
 -- * 'coreDefinitionVersionARN' - The ARN of the core definition version for this group.
 -- * 'deviceDefinitionVersionARN' - The ARN of the device definition version for this group.
 -- * 'functionDefinitionVersionARN' - The ARN of the function definition version for this group.
 -- * 'loggerDefinitionVersionARN' - The ARN of the logger definition version for this group.
--- * 'resourceDefinitionVersionARN' - The ARN of the resource definition version for this group.
--- * 'subscriptionDefinitionVersionARN' - The ARN of the subscription definition version for this group.
+-- * 'connectorDefinitionVersionARN' - The ARN of the connector definition version for this group.
 mkGroupVersion ::
   GroupVersion
 mkGroupVersion =

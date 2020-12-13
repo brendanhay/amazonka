@@ -13,14 +13,14 @@
 module Network.AWS.SageMaker.Types.Framework
   ( Framework
       ( Framework',
-        Darknet,
+        Tensorflow,
         Keras,
         Mxnet,
         Onnx,
         Pytorch,
-        Tensorflow,
+        Xgboost,
         Tflite,
-        Xgboost
+        Darknet
       ),
   )
 where
@@ -51,8 +51,8 @@ newtype Framework = Framework' Lude.Text
       Lude.ToHeader
     )
 
-pattern Darknet :: Framework
-pattern Darknet = Framework' "DARKNET"
+pattern Tensorflow :: Framework
+pattern Tensorflow = Framework' "TENSORFLOW"
 
 pattern Keras :: Framework
 pattern Keras = Framework' "KERAS"
@@ -66,23 +66,23 @@ pattern Onnx = Framework' "ONNX"
 pattern Pytorch :: Framework
 pattern Pytorch = Framework' "PYTORCH"
 
-pattern Tensorflow :: Framework
-pattern Tensorflow = Framework' "TENSORFLOW"
+pattern Xgboost :: Framework
+pattern Xgboost = Framework' "XGBOOST"
 
 pattern Tflite :: Framework
 pattern Tflite = Framework' "TFLITE"
 
-pattern Xgboost :: Framework
-pattern Xgboost = Framework' "XGBOOST"
+pattern Darknet :: Framework
+pattern Darknet = Framework' "DARKNET"
 
 {-# COMPLETE
-  Darknet,
+  Tensorflow,
   Keras,
   Mxnet,
   Onnx,
   Pytorch,
-  Tensorflow,
-  Tflite,
   Xgboost,
+  Tflite,
+  Darknet,
   Framework'
   #-}

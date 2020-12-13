@@ -33,29 +33,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerServiceDeploymentRequest' smart constructor.
 data ContainerServiceDeploymentRequest = ContainerServiceDeploymentRequest'
-  { publicEndpoint ::
-      Lude.Maybe
-        EndpointRequest,
-    containers ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Container)
-        )
+  { -- | An object that describes the endpoint of the deployment.
+    publicEndpoint :: Lude.Maybe EndpointRequest,
+    -- | An object that describes the configuration for the containers of the deployment.
+    containers :: Lude.Maybe (Lude.HashMap Lude.Text (Container))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerServiceDeploymentRequest' with the minimum fields required to make a request.
 --
--- * 'containers' - An object that describes the configuration for the containers of the deployment.
 -- * 'publicEndpoint' - An object that describes the endpoint of the deployment.
+-- * 'containers' - An object that describes the configuration for the containers of the deployment.
 mkContainerServiceDeploymentRequest ::
   ContainerServiceDeploymentRequest
 mkContainerServiceDeploymentRequest =

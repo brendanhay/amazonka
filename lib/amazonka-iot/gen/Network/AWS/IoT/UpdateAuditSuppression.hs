@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.IoT.UpdateAuditSuppression
     mkUpdateAuditSuppression,
 
     -- ** Request lenses
+    uasCheckName,
     uasExpirationDate,
     uasSuppressIndefinitely,
     uasDescription,
-    uasCheckName,
     uasResourceIdentifier,
 
     -- * Destructuring the response
@@ -42,29 +43,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateAuditSuppression' smart constructor.
 data UpdateAuditSuppression = UpdateAuditSuppression'
-  { expirationDate ::
-      Lude.Maybe Lude.Timestamp,
+  { checkName :: Lude.Text,
+    -- | The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
+    expirationDate :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Lude.Maybe Lude.Bool,
+    -- | The description of the audit suppression.
     description :: Lude.Maybe Lude.Text,
-    checkName :: Lude.Text,
     resourceIdentifier :: ResourceIdentifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAuditSuppression' with the minimum fields required to make a request.
 --
--- * 'checkName' - Undocumented field.
--- * 'description' - The description of the audit suppression.
+-- * 'checkName' -
 -- * 'expirationDate' - The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
--- * 'resourceIdentifier' - Undocumented field.
 -- * 'suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
+-- * 'description' - The description of the audit suppression.
+-- * 'resourceIdentifier' -
 mkUpdateAuditSuppression ::
   -- | 'checkName'
   Lude.Text ->
@@ -73,12 +70,19 @@ mkUpdateAuditSuppression ::
   UpdateAuditSuppression
 mkUpdateAuditSuppression pCheckName_ pResourceIdentifier_ =
   UpdateAuditSuppression'
-    { expirationDate = Lude.Nothing,
+    { checkName = pCheckName_,
+      expirationDate = Lude.Nothing,
       suppressIndefinitely = Lude.Nothing,
       description = Lude.Nothing,
-      checkName = pCheckName_,
       resourceIdentifier = pResourceIdentifier_
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasCheckName :: Lens.Lens' UpdateAuditSuppression Lude.Text
+uasCheckName = Lens.lens (checkName :: UpdateAuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: UpdateAuditSuppression)
+{-# DEPRECATED uasCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
 -- | The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
 --
@@ -100,13 +104,6 @@ uasSuppressIndefinitely = Lens.lens (suppressIndefinitely :: UpdateAuditSuppress
 uasDescription :: Lens.Lens' UpdateAuditSuppression (Lude.Maybe Lude.Text)
 uasDescription = Lens.lens (description :: UpdateAuditSuppression -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAuditSuppression)
 {-# DEPRECATED uasDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasCheckName :: Lens.Lens' UpdateAuditSuppression Lude.Text
-uasCheckName = Lens.lens (checkName :: UpdateAuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: UpdateAuditSuppression)
-{-# DEPRECATED uasCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
 -- | Undocumented field.
 --
@@ -132,10 +129,10 @@ instance Lude.ToJSON UpdateAuditSuppression where
   toJSON UpdateAuditSuppression' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("expirationDate" Lude..=) Lude.<$> expirationDate,
+          [ Lude.Just ("checkName" Lude..= checkName),
+            ("expirationDate" Lude..=) Lude.<$> expirationDate,
             ("suppressIndefinitely" Lude..=) Lude.<$> suppressIndefinitely,
             ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("checkName" Lude..= checkName),
             Lude.Just ("resourceIdentifier" Lude..= resourceIdentifier)
           ]
       )
@@ -148,16 +145,10 @@ instance Lude.ToQuery UpdateAuditSuppression where
 
 -- | /See:/ 'mkUpdateAuditSuppressionResponse' smart constructor.
 newtype UpdateAuditSuppressionResponse = UpdateAuditSuppressionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAuditSuppressionResponse' with the minimum fields required to make a request.

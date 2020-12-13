@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.EC2.DescribeStaleSecurityGroups
     mkDescribeStaleSecurityGroups,
 
     -- ** Request lenses
+    dssgVPCId,
     dssgNextToken,
     dssgDryRun,
     dssgMaxResults,
-    dssgVPCId,
 
     -- * Destructuring the response
     DescribeStaleSecurityGroupsResponse (..),
@@ -46,39 +47,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStaleSecurityGroups' smart constructor.
 data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the VPC.
+    vpcId :: Lude.Text,
+    -- | The token for the next set of items to return. (You received this token from a prior call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    vpcId :: Lude.Text
+    -- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStaleSecurityGroups' with the minimum fields required to make a request.
 --
+-- * 'vpcId' - The ID of the VPC.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a prior call.)
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a prior call.)
--- * 'vpcId' - The ID of the VPC.
 mkDescribeStaleSecurityGroups ::
   -- | 'vpcId'
   Lude.Text ->
   DescribeStaleSecurityGroups
 mkDescribeStaleSecurityGroups pVPCId_ =
   DescribeStaleSecurityGroups'
-    { nextToken = Lude.Nothing,
+    { vpcId = pVPCId_,
+      nextToken = Lude.Nothing,
       dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      vpcId = pVPCId_
+      maxResults = Lude.Nothing
     }
+
+-- | The ID of the VPC.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssgVPCId :: Lens.Lens' DescribeStaleSecurityGroups Lude.Text
+dssgVPCId = Lens.lens (vpcId :: DescribeStaleSecurityGroups -> Lude.Text) (\s a -> s {vpcId = a} :: DescribeStaleSecurityGroups)
+{-# DEPRECATED dssgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a prior call.)
 --
@@ -100,13 +104,6 @@ dssgDryRun = Lens.lens (dryRun :: DescribeStaleSecurityGroups -> Lude.Maybe Lude
 dssgMaxResults :: Lens.Lens' DescribeStaleSecurityGroups (Lude.Maybe Lude.Natural)
 dssgMaxResults = Lens.lens (maxResults :: DescribeStaleSecurityGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeStaleSecurityGroups)
 {-# DEPRECATED dssgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the VPC.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssgVPCId :: Lens.Lens' DescribeStaleSecurityGroups Lude.Text
-dssgVPCId = Lens.lens (vpcId :: DescribeStaleSecurityGroups -> Lude.Text) (\s a -> s {vpcId = a} :: DescribeStaleSecurityGroups)
-{-# DEPRECATED dssgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 instance Page.AWSPager DescribeStaleSecurityGroups where
   page rq rs
@@ -145,37 +142,29 @@ instance Lude.ToQuery DescribeStaleSecurityGroups where
       [ "Action"
           Lude.=: ("DescribeStaleSecurityGroups" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "VpcId" Lude.=: vpcId,
         "NextToken" Lude.=: nextToken,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "VpcId" Lude.=: vpcId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkDescribeStaleSecurityGroupsResponse' smart constructor.
 data DescribeStaleSecurityGroupsResponse = DescribeStaleSecurityGroupsResponse'
-  { staleSecurityGroupSet ::
-      Lude.Maybe
-        [StaleSecurityGroup],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the stale security groups.
+    staleSecurityGroupSet :: Lude.Maybe [StaleSecurityGroup],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStaleSecurityGroupsResponse' with the minimum fields required to make a request.
 --
+-- * 'staleSecurityGroupSet' - Information about the stale security groups.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 -- * 'responseStatus' - The response status code.
--- * 'staleSecurityGroupSet' - Information about the stale security groups.
 mkDescribeStaleSecurityGroupsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

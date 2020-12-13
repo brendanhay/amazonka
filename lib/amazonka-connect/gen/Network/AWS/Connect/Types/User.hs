@@ -39,38 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUser' smart constructor.
 data User = User'
-  { routingProfileId :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the routing profile for the user.
+    routingProfileId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the user account in the directory used for identity management.
     directoryUserId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the user account.
     arn :: Lude.Maybe Lude.Text,
+    -- | Information about the user identity.
     identityInfo :: Lude.Maybe UserIdentityInfo,
+    -- | The identifiers of the security profiles for the user.
     securityProfileIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The user name assigned to the user account.
     username :: Lude.Maybe Lude.Text,
+    -- | The identifier of the user account.
     id :: Lude.Maybe Lude.Text,
+    -- | The identifier of the hierarchy group for the user.
     hierarchyGroupId :: Lude.Maybe Lude.Text,
+    -- | Information about the phone configuration for the user.
     phoneConfig :: Lude.Maybe UserPhoneConfig,
+    -- | The tags.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'User' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the user account.
--- * 'directoryUserId' - The identifier of the user account in the directory used for identity management.
--- * 'hierarchyGroupId' - The identifier of the hierarchy group for the user.
--- * 'id' - The identifier of the user account.
--- * 'identityInfo' - Information about the user identity.
--- * 'phoneConfig' - Information about the phone configuration for the user.
 -- * 'routingProfileId' - The identifier of the routing profile for the user.
+-- * 'directoryUserId' - The identifier of the user account in the directory used for identity management.
+-- * 'arn' - The Amazon Resource Name (ARN) of the user account.
+-- * 'identityInfo' - Information about the user identity.
 -- * 'securityProfileIds' - The identifiers of the security profiles for the user.
--- * 'tags' - The tags.
 -- * 'username' - The user name assigned to the user account.
+-- * 'id' - The identifier of the user account.
+-- * 'hierarchyGroupId' - The identifier of the hierarchy group for the user.
+-- * 'phoneConfig' - Information about the phone configuration for the user.
+-- * 'tags' - The tags.
 mkUser ::
   User
 mkUser =

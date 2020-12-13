@@ -13,8 +13,8 @@
 module Network.AWS.WorkDocs.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        Document,
-        Folder
+        RTFolder,
+        RTDocument
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ResourceType = ResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Document :: ResourceType
-pattern Document = ResourceType' "DOCUMENT"
+pattern RTFolder :: ResourceType
+pattern RTFolder = ResourceType' "FOLDER"
 
-pattern Folder :: ResourceType
-pattern Folder = ResourceType' "FOLDER"
+pattern RTDocument :: ResourceType
+pattern RTDocument = ResourceType' "DOCUMENT"
 
 {-# COMPLETE
-  Document,
-  Folder,
+  RTFolder,
+  RTDocument,
   ResourceType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.DeviceFarm.ListJobs
     mkListJobs,
 
     -- ** Request lenses
-    ljNextToken,
     ljArn,
+    ljNextToken,
 
     -- * Destructuring the response
     ListJobsResponse (..),
@@ -46,16 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { nextToken :: Lude.Maybe Lude.Text,
-    arn :: Lude.Text
+  { -- | The run's Amazon Resource Name (ARN).
+    arn :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
@@ -66,14 +63,7 @@ mkListJobs ::
   -- | 'arn'
   Lude.Text ->
   ListJobs
-mkListJobs pArn_ = ListJobs' {nextToken = Lude.Nothing, arn = pArn_}
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljNextToken :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljNextToken = Lens.lens (nextToken :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobs)
-{-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+mkListJobs pArn_ = ListJobs' {arn = pArn_, nextToken = Lude.Nothing}
 
 -- | The run's Amazon Resource Name (ARN).
 --
@@ -81,6 +71,13 @@ ljNextToken = Lens.lens (nextToken :: ListJobs -> Lude.Maybe Lude.Text) (\s a ->
 ljArn :: Lens.Lens' ListJobs Lude.Text
 ljArn = Lens.lens (arn :: ListJobs -> Lude.Text) (\s a -> s {arn = a} :: ListJobs)
 {-# DEPRECATED ljArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljNextToken :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
+ljNextToken = Lens.lens (nextToken :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobs)
+{-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListJobs where
   page rq rs
@@ -118,8 +115,8 @@ instance Lude.ToJSON ListJobs where
   toJSON ListJobs' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("arn" Lude..= arn)
+          [ Lude.Just ("arn" Lude..= arn),
+            ("nextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
@@ -133,17 +130,14 @@ instance Lude.ToQuery ListJobs where
 --
 -- /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { jobs :: Lude.Maybe [Job],
+  { -- | Information about the jobs.
+    jobs :: Lude.Maybe [Job],
+    -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.

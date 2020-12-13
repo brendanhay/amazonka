@@ -31,18 +31,14 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkClusterVersion' smart constructor.
 data ClusterVersion = ClusterVersion'
-  { clusterParameterGroupFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the cluster parameter group family for the cluster.
+    clusterParameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | The version number used by the cluster.
     clusterVersion :: Lude.Maybe Lude.Text,
+    -- | The description of the cluster version.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterVersion' with the minimum fields required to make a request.

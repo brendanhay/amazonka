@@ -13,14 +13,14 @@
 module Network.AWS.SMS.Types.ReplicationJobState
   ( ReplicationJobState
       ( ReplicationJobState',
+        RJSPending,
         RJSActive,
-        RJSCompleted,
-        RJSDeleted,
-        RJSDeleting,
         RJSFailed,
-        RJSFailing,
+        RJSDeleting,
+        RJSDeleted,
+        RJSCompleted,
         RJSPausedOnFailure,
-        RJSPending
+        RJSFailing
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype ReplicationJobState = ReplicationJobState' Lude.Text
       Lude.ToHeader
     )
 
+pattern RJSPending :: ReplicationJobState
+pattern RJSPending = ReplicationJobState' "PENDING"
+
 pattern RJSActive :: ReplicationJobState
 pattern RJSActive = ReplicationJobState' "ACTIVE"
-
-pattern RJSCompleted :: ReplicationJobState
-pattern RJSCompleted = ReplicationJobState' "COMPLETED"
-
-pattern RJSDeleted :: ReplicationJobState
-pattern RJSDeleted = ReplicationJobState' "DELETED"
-
-pattern RJSDeleting :: ReplicationJobState
-pattern RJSDeleting = ReplicationJobState' "DELETING"
 
 pattern RJSFailed :: ReplicationJobState
 pattern RJSFailed = ReplicationJobState' "FAILED"
 
-pattern RJSFailing :: ReplicationJobState
-pattern RJSFailing = ReplicationJobState' "FAILING"
+pattern RJSDeleting :: ReplicationJobState
+pattern RJSDeleting = ReplicationJobState' "DELETING"
+
+pattern RJSDeleted :: ReplicationJobState
+pattern RJSDeleted = ReplicationJobState' "DELETED"
+
+pattern RJSCompleted :: ReplicationJobState
+pattern RJSCompleted = ReplicationJobState' "COMPLETED"
 
 pattern RJSPausedOnFailure :: ReplicationJobState
 pattern RJSPausedOnFailure = ReplicationJobState' "PAUSED_ON_FAILURE"
 
-pattern RJSPending :: ReplicationJobState
-pattern RJSPending = ReplicationJobState' "PENDING"
+pattern RJSFailing :: ReplicationJobState
+pattern RJSFailing = ReplicationJobState' "FAILING"
 
 {-# COMPLETE
-  RJSActive,
-  RJSCompleted,
-  RJSDeleted,
-  RJSDeleting,
-  RJSFailed,
-  RJSFailing,
-  RJSPausedOnFailure,
   RJSPending,
+  RJSActive,
+  RJSFailed,
+  RJSDeleting,
+  RJSDeleted,
+  RJSCompleted,
+  RJSPausedOnFailure,
+  RJSFailing,
   ReplicationJobState'
   #-}

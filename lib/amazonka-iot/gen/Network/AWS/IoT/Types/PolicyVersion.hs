@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The policy version ID.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The date and time the policy was created.
     createDate :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether the policy version is the default.
     isDefaultVersion :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyVersion' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The policy version ID.
 -- * 'createDate' - The date and time the policy was created.
 -- * 'isDefaultVersion' - Specifies whether the policy version is the default.
--- * 'versionId' - The policy version ID.
 mkPolicyVersion ::
   PolicyVersion
 mkPolicyVersion =

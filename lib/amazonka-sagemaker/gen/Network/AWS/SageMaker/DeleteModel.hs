@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.SageMaker.DeleteModel
     mkDeleteModel,
 
     -- ** Request lenses
-    dmModelName,
+    dModelName,
 
     -- * Destructuring the response
     DeleteModelResponse (..),
@@ -34,14 +35,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteModel' smart constructor.
-newtype DeleteModel = DeleteModel' {modelName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteModel = DeleteModel'
+  { -- | The name of the model to delete.
+    modelName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModel' with the minimum fields required to make a request.
@@ -56,9 +54,9 @@ mkDeleteModel pModelName_ = DeleteModel' {modelName = pModelName_}
 -- | The name of the model to delete.
 --
 -- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmModelName :: Lens.Lens' DeleteModel Lude.Text
-dmModelName = Lens.lens (modelName :: DeleteModel -> Lude.Text) (\s a -> s {modelName = a} :: DeleteModel)
-{-# DEPRECATED dmModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
+dModelName :: Lens.Lens' DeleteModel Lude.Text
+dModelName = Lens.lens (modelName :: DeleteModel -> Lude.Text) (\s a -> s {modelName = a} :: DeleteModel)
+{-# DEPRECATED dModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
 instance Lude.AWSRequest DeleteModel where
   type Rs DeleteModel = DeleteModelResponse
@@ -89,13 +87,7 @@ instance Lude.ToQuery DeleteModel where
 
 -- | /See:/ 'mkDeleteModelResponse' smart constructor.
 data DeleteModelResponse = DeleteModelResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModelResponse' with the minimum fields required to make a request.

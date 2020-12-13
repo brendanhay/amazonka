@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The static value of the resource.
 --
 -- /See:/ 'mkStaticValue' smart constructor.
-newtype StaticValue = StaticValue' {values :: [Lude.Text]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StaticValue = StaticValue'
+  { -- | A list of values. For example, the ARN of the assumed role.
+    values :: [Lude.Text]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaticValue' with the minimum fields required to make a request.

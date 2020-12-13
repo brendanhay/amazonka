@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,7 +28,7 @@ module Network.AWS.SSM.StopAutomationExecution
     mkStopAutomationExecutionResponse,
 
     -- ** Response lenses
-    saersResponseStatus,
+    srsResponseStatus,
   )
 where
 
@@ -39,23 +40,18 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkStopAutomationExecution' smart constructor.
 data StopAutomationExecution = StopAutomationExecution'
-  { type' ::
-      Lude.Maybe StopType,
+  { -- | The stop request type. Valid types include the following: Cancel and Complete. The default type is Cancel.
+    type' :: Lude.Maybe StopType,
+    -- | The execution ID of the Automation to stop.
     automationExecutionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAutomationExecution' with the minimum fields required to make a request.
 --
--- * 'automationExecutionId' - The execution ID of the Automation to stop.
 -- * 'type'' - The stop request type. Valid types include the following: Cancel and Complete. The default type is Cancel.
+-- * 'automationExecutionId' - The execution ID of the Automation to stop.
 mkStopAutomationExecution ::
   -- | 'automationExecutionId'
   Lude.Text ->
@@ -118,16 +114,10 @@ instance Lude.ToQuery StopAutomationExecution where
 
 -- | /See:/ 'mkStopAutomationExecutionResponse' smart constructor.
 newtype StopAutomationExecutionResponse = StopAutomationExecutionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAutomationExecutionResponse' with the minimum fields required to make a request.
@@ -146,6 +136,6 @@ mkStopAutomationExecutionResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saersResponseStatus :: Lens.Lens' StopAutomationExecutionResponse Lude.Int
-saersResponseStatus = Lens.lens (responseStatus :: StopAutomationExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopAutomationExecutionResponse)
-{-# DEPRECATED saersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StopAutomationExecutionResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopAutomationExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopAutomationExecutionResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

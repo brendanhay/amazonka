@@ -13,10 +13,10 @@
 module Network.AWS.Lightsail.Types.AutoSnapshotStatus
   ( AutoSnapshotStatus
       ( AutoSnapshotStatus',
+        ASSSuccess,
         ASSFailed,
         ASSInProgress,
-        ASSNotFound,
-        ASSSuccess
+        ASSNotFound
       ),
   )
 where
@@ -47,6 +47,9 @@ newtype AutoSnapshotStatus = AutoSnapshotStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern ASSSuccess :: AutoSnapshotStatus
+pattern ASSSuccess = AutoSnapshotStatus' "Success"
+
 pattern ASSFailed :: AutoSnapshotStatus
 pattern ASSFailed = AutoSnapshotStatus' "Failed"
 
@@ -56,13 +59,10 @@ pattern ASSInProgress = AutoSnapshotStatus' "InProgress"
 pattern ASSNotFound :: AutoSnapshotStatus
 pattern ASSNotFound = AutoSnapshotStatus' "NotFound"
 
-pattern ASSSuccess :: AutoSnapshotStatus
-pattern ASSSuccess = AutoSnapshotStatus' "Success"
-
 {-# COMPLETE
+  ASSSuccess,
   ASSFailed,
   ASSInProgress,
   ASSNotFound,
-  ASSSuccess,
   AutoSnapshotStatus'
   #-}

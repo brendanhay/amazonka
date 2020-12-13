@@ -13,10 +13,10 @@
 module Network.AWS.AppStream.Types.FleetState
   ( FleetState
       ( FleetState',
-        Running,
         Starting,
-        Stopped,
-        Stopping
+        Running,
+        Stopping,
+        Stopped
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype FleetState = FleetState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Running :: FleetState
-pattern Running = FleetState' "RUNNING"
-
 pattern Starting :: FleetState
 pattern Starting = FleetState' "STARTING"
 
-pattern Stopped :: FleetState
-pattern Stopped = FleetState' "STOPPED"
+pattern Running :: FleetState
+pattern Running = FleetState' "RUNNING"
 
 pattern Stopping :: FleetState
 pattern Stopping = FleetState' "STOPPING"
 
+pattern Stopped :: FleetState
+pattern Stopped = FleetState' "STOPPED"
+
 {-# COMPLETE
-  Running,
   Starting,
-  Stopped,
+  Running,
   Stopping,
+  Stopped,
   FleetState'
   #-}

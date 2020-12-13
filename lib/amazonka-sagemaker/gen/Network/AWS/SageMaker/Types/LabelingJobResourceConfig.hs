@@ -28,16 +28,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLabelingJobResourceConfig' smart constructor.
 newtype LabelingJobResourceConfig = LabelingJobResourceConfig'
-  { volumeKMSKeyId ::
-      Lude.Maybe Lude.Text
+  { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training job. The @VolumeKmsKeyId@ can be any of the following formats:
+    --
+    --
+    --     * // KMS Key ID
+    -- @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+    --
+    --
+    --     * // Amazon Resource Name (ARN) of a KMS Key
+    -- @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+    volumeKMSKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobResourceConfig' with the minimum fields required to make a request.

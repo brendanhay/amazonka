@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Lightsail.DeleteRelationalDatabase
 
     -- ** Request lenses
     drdSkipFinalSnapshot,
-    drdFinalRelationalDatabaseSnapshotName,
     drdRelationalDatabaseName,
+    drdFinalRelationalDatabaseSnapshotName,
 
     -- * Destructuring the response
     DeleteRelationalDatabaseResponse (..),
@@ -43,23 +44,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteRelationalDatabase' smart constructor.
 data DeleteRelationalDatabase = DeleteRelationalDatabase'
-  { skipFinalSnapshot ::
-      Lude.Maybe Lude.Bool,
-    finalRelationalDatabaseSnapshotName ::
-      Lude.Maybe Lude.Text,
-    relationalDatabaseName :: Lude.Text
+  { -- | Determines whether a final database snapshot is created before your database is deleted. If @true@ is specified, no database snapshot is created. If @false@ is specified, a database snapshot is created before your database is deleted.
+    --
+    -- You must specify the @final relational database snapshot name@ parameter if the @skip final snapshot@ parameter is @false@ .
+    -- Default: @false@
+    skipFinalSnapshot :: Lude.Maybe Lude.Bool,
+    -- | The name of the database that you are deleting.
+    relationalDatabaseName :: Lude.Text,
+    -- | The name of the database snapshot created if @skip final snapshot@ is @false@ , which is the default value for that parameter.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 2 to 255 alphanumeric characters, or hyphens.
+    --
+    --
+    --     * The first and last character must be a letter or number.
+    finalRelationalDatabaseSnapshotName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRelationalDatabase' with the minimum fields required to make a request.
 --
+-- * 'skipFinalSnapshot' - Determines whether a final database snapshot is created before your database is deleted. If @true@ is specified, no database snapshot is created. If @false@ is specified, a database snapshot is created before your database is deleted.
+--
+-- You must specify the @final relational database snapshot name@ parameter if the @skip final snapshot@ parameter is @false@ .
+-- Default: @false@
+-- * 'relationalDatabaseName' - The name of the database that you are deleting.
 -- * 'finalRelationalDatabaseSnapshotName' - The name of the database snapshot created if @skip final snapshot@ is @false@ , which is the default value for that parameter.
 --
 -- Constraints:
@@ -68,13 +79,6 @@ data DeleteRelationalDatabase = DeleteRelationalDatabase'
 --
 --
 --     * The first and last character must be a letter or number.
---
---
--- * 'relationalDatabaseName' - The name of the database that you are deleting.
--- * 'skipFinalSnapshot' - Determines whether a final database snapshot is created before your database is deleted. If @true@ is specified, no database snapshot is created. If @false@ is specified, a database snapshot is created before your database is deleted.
---
--- You must specify the @final relational database snapshot name@ parameter if the @skip final snapshot@ parameter is @false@ .
--- Default: @false@
 mkDeleteRelationalDatabase ::
   -- | 'relationalDatabaseName'
   Lude.Text ->
@@ -82,8 +86,8 @@ mkDeleteRelationalDatabase ::
 mkDeleteRelationalDatabase pRelationalDatabaseName_ =
   DeleteRelationalDatabase'
     { skipFinalSnapshot = Lude.Nothing,
-      finalRelationalDatabaseSnapshotName = Lude.Nothing,
-      relationalDatabaseName = pRelationalDatabaseName_
+      relationalDatabaseName = pRelationalDatabaseName_,
+      finalRelationalDatabaseSnapshotName = Lude.Nothing
     }
 
 -- | Determines whether a final database snapshot is created before your database is deleted. If @true@ is specified, no database snapshot is created. If @false@ is specified, a database snapshot is created before your database is deleted.
@@ -95,6 +99,13 @@ mkDeleteRelationalDatabase pRelationalDatabaseName_ =
 drdSkipFinalSnapshot :: Lens.Lens' DeleteRelationalDatabase (Lude.Maybe Lude.Bool)
 drdSkipFinalSnapshot = Lens.lens (skipFinalSnapshot :: DeleteRelationalDatabase -> Lude.Maybe Lude.Bool) (\s a -> s {skipFinalSnapshot = a} :: DeleteRelationalDatabase)
 {-# DEPRECATED drdSkipFinalSnapshot "Use generic-lens or generic-optics with 'skipFinalSnapshot' instead." #-}
+
+-- | The name of the database that you are deleting.
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdRelationalDatabaseName :: Lens.Lens' DeleteRelationalDatabase Lude.Text
+drdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: DeleteRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: DeleteRelationalDatabase)
+{-# DEPRECATED drdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
 -- | The name of the database snapshot created if @skip final snapshot@ is @false@ , which is the default value for that parameter.
 --
@@ -111,13 +122,6 @@ drdSkipFinalSnapshot = Lens.lens (skipFinalSnapshot :: DeleteRelationalDatabase 
 drdFinalRelationalDatabaseSnapshotName :: Lens.Lens' DeleteRelationalDatabase (Lude.Maybe Lude.Text)
 drdFinalRelationalDatabaseSnapshotName = Lens.lens (finalRelationalDatabaseSnapshotName :: DeleteRelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {finalRelationalDatabaseSnapshotName = a} :: DeleteRelationalDatabase)
 {-# DEPRECATED drdFinalRelationalDatabaseSnapshotName "Use generic-lens or generic-optics with 'finalRelationalDatabaseSnapshotName' instead." #-}
-
--- | The name of the database that you are deleting.
---
--- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drdRelationalDatabaseName :: Lens.Lens' DeleteRelationalDatabase Lude.Text
-drdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: DeleteRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: DeleteRelationalDatabase)
-{-# DEPRECATED drdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
 instance Lude.AWSRequest DeleteRelationalDatabase where
   type Rs DeleteRelationalDatabase = DeleteRelationalDatabaseResponse
@@ -146,10 +150,10 @@ instance Lude.ToJSON DeleteRelationalDatabase where
     Lude.object
       ( Lude.catMaybes
           [ ("skipFinalSnapshot" Lude..=) Lude.<$> skipFinalSnapshot,
-            ("finalRelationalDatabaseSnapshotName" Lude..=)
-              Lude.<$> finalRelationalDatabaseSnapshotName,
             Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName)
+              ("relationalDatabaseName" Lude..= relationalDatabaseName),
+            ("finalRelationalDatabaseSnapshotName" Lude..=)
+              Lude.<$> finalRelationalDatabaseSnapshotName
           ]
       )
 
@@ -161,18 +165,12 @@ instance Lude.ToQuery DeleteRelationalDatabase where
 
 -- | /See:/ 'mkDeleteRelationalDatabaseResponse' smart constructor.
 data DeleteRelationalDatabaseResponse = DeleteRelationalDatabaseResponse'
-  { operations ::
-      Lude.Maybe [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRelationalDatabaseResponse' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.ServerlessApplicationRepository.Types.Status
   ( Status
       ( Status',
+        Preparing,
         Active,
-        Expired,
-        Preparing
+        Expired
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype Status = Status' Lude.Text
       Lude.ToHeader
     )
 
+pattern Preparing :: Status
+pattern Preparing = Status' "PREPARING"
+
 pattern Active :: Status
 pattern Active = Status' "ACTIVE"
 
 pattern Expired :: Status
 pattern Expired = Status' "EXPIRED"
 
-pattern Preparing :: Status
-pattern Preparing = Status' "PREPARING"
-
 {-# COMPLETE
+  Preparing,
   Active,
   Expired,
-  Preparing,
   Status'
   #-}

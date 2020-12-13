@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.Redshift.ModifyScheduledAction
     msaTargetAction,
     msaStartTime,
     msaSchedule,
+    msaScheduledActionName,
     msaScheduledActionDescription,
     msaEnable,
     msaEndTime,
     msaIAMRole,
-    msaScheduledActionName,
 
     -- * Destructuring the response
     ScheduledAction (..),
@@ -53,36 +54,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyScheduledAction' smart constructor.
 data ModifyScheduledAction = ModifyScheduledAction'
-  { targetAction ::
-      Lude.Maybe ScheduledActionType,
+  { -- | A modified JSON format of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
+    targetAction :: Lude.Maybe ScheduledActionType,
+    -- | A modified start time of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
     startTime :: Lude.Maybe Lude.DateTime,
+    -- | A modified schedule in either @at( )@ or @cron( )@ format. For more information about this parameter, see 'ScheduledAction' .
     schedule :: Lude.Maybe Lude.Text,
-    scheduledActionDescription ::
-      Lude.Maybe Lude.Text,
+    -- | The name of the scheduled action to modify.
+    scheduledActionName :: Lude.Text,
+    -- | A modified description of the scheduled action.
+    scheduledActionDescription :: Lude.Maybe Lude.Text,
+    -- | A modified enable flag of the scheduled action. If true, the scheduled action is active. If false, the scheduled action is disabled.
     enable :: Lude.Maybe Lude.Bool,
+    -- | A modified end time of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
     endTime :: Lude.Maybe Lude.DateTime,
-    iamRole :: Lude.Maybe Lude.Text,
-    scheduledActionName :: Lude.Text
+    -- | A different IAM role to assume to run the target action. For more information about this parameter, see 'ScheduledAction' .
+    iamRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyScheduledAction' with the minimum fields required to make a request.
 --
+-- * 'targetAction' - A modified JSON format of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
+-- * 'startTime' - A modified start time of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
+-- * 'schedule' - A modified schedule in either @at( )@ or @cron( )@ format. For more information about this parameter, see 'ScheduledAction' .
+-- * 'scheduledActionName' - The name of the scheduled action to modify.
+-- * 'scheduledActionDescription' - A modified description of the scheduled action.
 -- * 'enable' - A modified enable flag of the scheduled action. If true, the scheduled action is active. If false, the scheduled action is disabled.
 -- * 'endTime' - A modified end time of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
 -- * 'iamRole' - A different IAM role to assume to run the target action. For more information about this parameter, see 'ScheduledAction' .
--- * 'schedule' - A modified schedule in either @at( )@ or @cron( )@ format. For more information about this parameter, see 'ScheduledAction' .
--- * 'scheduledActionDescription' - A modified description of the scheduled action.
--- * 'scheduledActionName' - The name of the scheduled action to modify.
--- * 'startTime' - A modified start time of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
--- * 'targetAction' - A modified JSON format of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
 mkModifyScheduledAction ::
   -- | 'scheduledActionName'
   Lude.Text ->
@@ -92,11 +93,11 @@ mkModifyScheduledAction pScheduledActionName_ =
     { targetAction = Lude.Nothing,
       startTime = Lude.Nothing,
       schedule = Lude.Nothing,
+      scheduledActionName = pScheduledActionName_,
       scheduledActionDescription = Lude.Nothing,
       enable = Lude.Nothing,
       endTime = Lude.Nothing,
-      iamRole = Lude.Nothing,
-      scheduledActionName = pScheduledActionName_
+      iamRole = Lude.Nothing
     }
 
 -- | A modified JSON format of the scheduled action. For more information about this parameter, see 'ScheduledAction' .
@@ -119,6 +120,13 @@ msaStartTime = Lens.lens (startTime :: ModifyScheduledAction -> Lude.Maybe Lude.
 msaSchedule :: Lens.Lens' ModifyScheduledAction (Lude.Maybe Lude.Text)
 msaSchedule = Lens.lens (schedule :: ModifyScheduledAction -> Lude.Maybe Lude.Text) (\s a -> s {schedule = a} :: ModifyScheduledAction)
 {-# DEPRECATED msaSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
+
+-- | The name of the scheduled action to modify.
+--
+-- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaScheduledActionName :: Lens.Lens' ModifyScheduledAction Lude.Text
+msaScheduledActionName = Lens.lens (scheduledActionName :: ModifyScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: ModifyScheduledAction)
+{-# DEPRECATED msaScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
 -- | A modified description of the scheduled action.
 --
@@ -148,13 +156,6 @@ msaIAMRole :: Lens.Lens' ModifyScheduledAction (Lude.Maybe Lude.Text)
 msaIAMRole = Lens.lens (iamRole :: ModifyScheduledAction -> Lude.Maybe Lude.Text) (\s a -> s {iamRole = a} :: ModifyScheduledAction)
 {-# DEPRECATED msaIAMRole "Use generic-lens or generic-optics with 'iamRole' instead." #-}
 
--- | The name of the scheduled action to modify.
---
--- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msaScheduledActionName :: Lens.Lens' ModifyScheduledAction Lude.Text
-msaScheduledActionName = Lens.lens (scheduledActionName :: ModifyScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: ModifyScheduledAction)
-{-# DEPRECATED msaScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
-
 instance Lude.AWSRequest ModifyScheduledAction where
   type Rs ModifyScheduledAction = ScheduledAction
   request = Req.postQuery redshiftService
@@ -177,9 +178,9 @@ instance Lude.ToQuery ModifyScheduledAction where
         "TargetAction" Lude.=: targetAction,
         "StartTime" Lude.=: startTime,
         "Schedule" Lude.=: schedule,
+        "ScheduledActionName" Lude.=: scheduledActionName,
         "ScheduledActionDescription" Lude.=: scheduledActionDescription,
         "Enable" Lude.=: enable,
         "EndTime" Lude.=: endTime,
-        "IamRole" Lude.=: iamRole,
-        "ScheduledActionName" Lude.=: scheduledActionName
+        "IamRole" Lude.=: iamRole
       ]

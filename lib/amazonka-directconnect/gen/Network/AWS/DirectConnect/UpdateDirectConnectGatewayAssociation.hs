@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,29 +44,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateDirectConnectGatewayAssociation' smart constructor.
 data UpdateDirectConnectGatewayAssociation = UpdateDirectConnectGatewayAssociation'
-  { associationId ::
-      Lude.Maybe
-        Lude.Text,
-    addAllowedPrefixesToDirectConnectGateway ::
-      Lude.Maybe
-        [RouteFilterPrefix],
-    removeAllowedPrefixesToDirectConnectGateway ::
-      Lude.Maybe
-        [RouteFilterPrefix]
+  { -- | The ID of the Direct Connect gateway association.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+    addAllowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix],
+    -- | The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.
+    removeAllowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDirectConnectGatewayAssociation' with the minimum fields required to make a request.
 --
--- * 'addAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 -- * 'associationId' - The ID of the Direct Connect gateway association.
+-- * 'addAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 -- * 'removeAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.
 mkUpdateDirectConnectGatewayAssociation ::
   UpdateDirectConnectGatewayAssociation
@@ -145,27 +137,16 @@ instance Lude.ToQuery UpdateDirectConnectGatewayAssociation where
 
 -- | /See:/ 'mkUpdateDirectConnectGatewayAssociationResponse' smart constructor.
 data UpdateDirectConnectGatewayAssociationResponse = UpdateDirectConnectGatewayAssociationResponse'
-  { directConnectGatewayAssociation ::
-      Lude.Maybe
-        DirectConnectGatewayAssociation,
-    responseStatus ::
-      Lude.Int
+  { directConnectGatewayAssociation :: Lude.Maybe DirectConnectGatewayAssociation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDirectConnectGatewayAssociationResponse' with the minimum fields required to make a request.
 --
--- * 'directConnectGatewayAssociation' - Undocumented field.
+-- * 'directConnectGatewayAssociation' -
 -- * 'responseStatus' - The response status code.
 mkUpdateDirectConnectGatewayAssociationResponse ::
   -- | 'responseStatus'

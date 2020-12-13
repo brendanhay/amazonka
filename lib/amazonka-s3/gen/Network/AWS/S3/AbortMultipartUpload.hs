@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,11 +38,11 @@ module Network.AWS.S3.AbortMultipartUpload
     mkAbortMultipartUpload,
 
     -- ** Request lenses
-    amuRequestPayer,
-    amuExpectedBucketOwner,
     amuBucket,
+    amuRequestPayer,
     amuKey,
     amuUploadId,
+    amuExpectedBucketOwner,
 
     -- * Destructuring the response
     AbortMultipartUploadResponse (..),
@@ -61,20 +62,20 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkAbortMultipartUpload' smart constructor.
 data AbortMultipartUpload = AbortMultipartUpload'
-  { requestPayer ::
-      Lude.Maybe RequestPayer,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | The bucket name to which the upload was taking place.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
+    requestPayer :: Lude.Maybe RequestPayer,
+    -- | Key of the object for which the multipart upload was initiated.
     key :: ObjectKey,
-    uploadId :: Lude.Text
+    -- | Upload ID that identifies the multipart upload.
+    uploadId :: Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortMultipartUpload' with the minimum fields required to make a request.
@@ -83,10 +84,10 @@ data AbortMultipartUpload = AbortMultipartUpload'
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'requestPayer' -
 -- * 'key' - Key of the object for which the multipart upload was initiated.
--- * 'requestPayer' - Undocumented field.
 -- * 'uploadId' - Upload ID that identifies the multipart upload.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkAbortMultipartUpload ::
   -- | 'bucket'
   BucketName ->
@@ -97,26 +98,12 @@ mkAbortMultipartUpload ::
   AbortMultipartUpload
 mkAbortMultipartUpload pBucket_ pKey_ pUploadId_ =
   AbortMultipartUpload'
-    { requestPayer = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_,
+    { bucket = pBucket_,
+      requestPayer = Lude.Nothing,
       key = pKey_,
-      uploadId = pUploadId_
+      uploadId = pUploadId_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amuRequestPayer :: Lens.Lens' AbortMultipartUpload (Lude.Maybe RequestPayer)
-amuRequestPayer = Lens.lens (requestPayer :: AbortMultipartUpload -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: AbortMultipartUpload)
-{-# DEPRECATED amuRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amuExpectedBucketOwner :: Lens.Lens' AbortMultipartUpload (Lude.Maybe Lude.Text)
-amuExpectedBucketOwner = Lens.lens (expectedBucketOwner :: AbortMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: AbortMultipartUpload)
-{-# DEPRECATED amuExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name to which the upload was taking place.
 --
@@ -127,6 +114,13 @@ amuExpectedBucketOwner = Lens.lens (expectedBucketOwner :: AbortMultipartUpload 
 amuBucket :: Lens.Lens' AbortMultipartUpload BucketName
 amuBucket = Lens.lens (bucket :: AbortMultipartUpload -> BucketName) (\s a -> s {bucket = a} :: AbortMultipartUpload)
 {-# DEPRECATED amuBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amuRequestPayer :: Lens.Lens' AbortMultipartUpload (Lude.Maybe RequestPayer)
+amuRequestPayer = Lens.lens (requestPayer :: AbortMultipartUpload -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: AbortMultipartUpload)
+{-# DEPRECATED amuRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | Key of the object for which the multipart upload was initiated.
 --
@@ -141,6 +135,13 @@ amuKey = Lens.lens (key :: AbortMultipartUpload -> ObjectKey) (\s a -> s {key = 
 amuUploadId :: Lens.Lens' AbortMultipartUpload Lude.Text
 amuUploadId = Lens.lens (uploadId :: AbortMultipartUpload -> Lude.Text) (\s a -> s {uploadId = a} :: AbortMultipartUpload)
 {-# DEPRECATED amuUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amuExpectedBucketOwner :: Lens.Lens' AbortMultipartUpload (Lude.Maybe Lude.Text)
+amuExpectedBucketOwner = Lens.lens (expectedBucketOwner :: AbortMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: AbortMultipartUpload)
+{-# DEPRECATED amuExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest AbortMultipartUpload where
   type Rs AbortMultipartUpload = AbortMultipartUploadResponse
@@ -170,22 +171,16 @@ instance Lude.ToQuery AbortMultipartUpload where
 
 -- | /See:/ 'mkAbortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
-  { requestCharged ::
-      Lude.Maybe RequestCharged,
+  { requestCharged :: Lude.Maybe RequestCharged,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortMultipartUploadResponse' with the minimum fields required to make a request.
 --
--- * 'requestCharged' - Undocumented field.
+-- * 'requestCharged' -
 -- * 'responseStatus' - The response status code.
 mkAbortMultipartUploadResponse ::
   -- | 'responseStatus'

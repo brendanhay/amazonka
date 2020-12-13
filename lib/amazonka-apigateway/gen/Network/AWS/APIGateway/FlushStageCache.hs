@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkFlushStageCache' smart constructor.
 data FlushStageCache = FlushStageCache'
-  { restAPIId :: Lude.Text,
+  { -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | [Required] The name of the stage to flush its cache.
     stageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlushStageCache' with the minimum fields required to make a request.
@@ -107,13 +104,7 @@ instance Lude.ToQuery FlushStageCache where
 
 -- | /See:/ 'mkFlushStageCacheResponse' smart constructor.
 data FlushStageCacheResponse = FlushStageCacheResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlushStageCacheResponse' with the minimum fields required to make a request.

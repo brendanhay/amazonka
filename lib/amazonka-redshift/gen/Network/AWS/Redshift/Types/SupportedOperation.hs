@@ -29,16 +29,10 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkSupportedOperation' smart constructor.
 newtype SupportedOperation = SupportedOperation'
-  { operationName ::
-      Lude.Maybe Lude.Text
+  { -- | A list of the supported operations.
+    operationName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SupportedOperation' with the minimum fields required to make a request.

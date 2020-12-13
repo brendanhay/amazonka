@@ -318,16 +318,10 @@ import Network.AWS.SageMaker.Types.USD
 --
 -- /See:/ 'mkPublicWorkforceTaskPrice' smart constructor.
 newtype PublicWorkforceTaskPrice = PublicWorkforceTaskPrice'
-  { amountInUsd ::
-      Lude.Maybe USD
+  { -- | Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars.
+    amountInUsd :: Lude.Maybe USD
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublicWorkforceTaskPrice' with the minimum fields required to make a request.

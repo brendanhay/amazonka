@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,7 +40,9 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkEnableUser' smart constructor.
 data EnableUser = EnableUser'
-  { userName :: Lude.Sensitive Lude.Text,
+  { -- | The email address of the user.
+    userName :: Lude.Sensitive Lude.Text,
+    -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -47,8 +50,8 @@ data EnableUser = EnableUser'
 
 -- | Creates a value of 'EnableUser' with the minimum fields required to make a request.
 --
--- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
 -- * 'userName' - The email address of the user.
+-- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
 mkEnableUser ::
   -- | 'userName'
   Lude.Sensitive Lude.Text ->
@@ -112,16 +115,10 @@ instance Lude.ToQuery EnableUser where
 
 -- | /See:/ 'mkEnableUserResponse' smart constructor.
 newtype EnableUserResponse = EnableUserResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableUserResponse' with the minimum fields required to make a request.

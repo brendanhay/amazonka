@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntitlementValue' smart constructor.
 data EntitlementValue = EntitlementValue'
-  { integerValue ::
-      Lude.Maybe Lude.Int,
+  { -- | The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set.
+    integerValue :: Lude.Maybe Lude.Int,
+    -- | The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set.
     doubleValue :: Lude.Maybe Lude.Double,
+    -- | The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set.
     stringValue :: Lude.Maybe Lude.Text,
+    -- | The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set.
     booleanValue :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntitlementValue' with the minimum fields required to make a request.
 --
--- * 'booleanValue' - The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set.
--- * 'doubleValue' - The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set.
 -- * 'integerValue' - The IntegerValue field will be populated with an integer value when the entitlement is an integer type. Otherwise, the field will not be set.
+-- * 'doubleValue' - The DoubleValue field will be populated with a double value when the entitlement is a double type. Otherwise, the field will not be set.
 -- * 'stringValue' - The StringValue field will be populated with a string value when the entitlement is a string type. Otherwise, the field will not be set.
+-- * 'booleanValue' - The BooleanValue field will be populated with a boolean value when the entitlement is a boolean type. Otherwise, the field will not be set.
 mkEntitlementValue ::
   EntitlementValue
 mkEntitlementValue =

@@ -41,38 +41,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccessPointDescription' smart constructor.
 data AccessPointDescription = AccessPointDescription'
-  { posixUser ::
-      Lude.Maybe PosixUser,
+  { -- | The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
+    posixUser :: Lude.Maybe PosixUser,
+    -- | The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.
     rootDirectory :: Lude.Maybe RootDirectory,
+    -- | The opaque string specified in the request to ensure idempotent creation.
     clientToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the access point, assigned by Amazon EFS.
     accessPointId :: Lude.Maybe Lude.Text,
+    -- | The ID of the EFS file system that the access point applies to.
     fileSystemId :: Lude.Maybe Lude.Text,
+    -- | Identified the AWS account that owns the access point resource.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The name of the access point. This is the value of the @Name@ tag.
     name :: Lude.Maybe Lude.Text,
+    -- | The unique Amazon Resource Name (ARN) associated with the access point.
     accessPointARN :: Lude.Maybe Lude.Text,
+    -- | Identifies the lifecycle phase of the access point.
     lifeCycleState :: Lude.Maybe LifeCycleState,
+    -- | The tags associated with the access point, presented as an array of Tag objects.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessPointDescription' with the minimum fields required to make a request.
 --
--- * 'accessPointARN' - The unique Amazon Resource Name (ARN) associated with the access point.
--- * 'accessPointId' - The ID of the access point, assigned by Amazon EFS.
--- * 'clientToken' - The opaque string specified in the request to ensure idempotent creation.
--- * 'fileSystemId' - The ID of the EFS file system that the access point applies to.
--- * 'lifeCycleState' - Identifies the lifecycle phase of the access point.
--- * 'name' - The name of the access point. This is the value of the @Name@ tag.
--- * 'ownerId' - Identified the AWS account that owns the access point resource.
 -- * 'posixUser' - The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
 -- * 'rootDirectory' - The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.
+-- * 'clientToken' - The opaque string specified in the request to ensure idempotent creation.
+-- * 'accessPointId' - The ID of the access point, assigned by Amazon EFS.
+-- * 'fileSystemId' - The ID of the EFS file system that the access point applies to.
+-- * 'ownerId' - Identified the AWS account that owns the access point resource.
+-- * 'name' - The name of the access point. This is the value of the @Name@ tag.
+-- * 'accessPointARN' - The unique Amazon Resource Name (ARN) associated with the access point.
+-- * 'lifeCycleState' - Identifies the lifecycle phase of the access point.
 -- * 'tags' - The tags associated with the access point, presented as an array of Tag objects.
 mkAccessPointDescription ::
   AccessPointDescription

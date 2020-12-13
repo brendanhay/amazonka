@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.ECS.DeregisterContainerInstance
     mkDeregisterContainerInstance,
 
     -- ** Request lenses
-    derCluster,
-    derForce,
-    derContainerInstance,
+    dciCluster,
+    dciForce,
+    dciContainerInstance,
 
     -- * Destructuring the response
     DeregisterContainerInstanceResponse (..),
@@ -44,27 +45,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeregisterContainerInstance' smart constructor.
 data DeregisterContainerInstance = DeregisterContainerInstance'
-  { cluster ::
-      Lude.Maybe Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to deregister. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Lude.Maybe Lude.Text,
+    -- | Forces the deregistration of the container instance. If you have tasks running on the container instance when you deregister it with the @force@ option, these tasks remain running until you terminate the instance or the tasks stop through some other means, but they are orphaned (no longer monitored or accounted for by Amazon ECS). If an orphaned task on your container instance is part of an Amazon ECS service, then the service scheduler starts another copy of that task, on a different container instance if possible.
+    --
+    -- Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer target group are deregistered. They begin connection draining according to the settings on the load balancer or target group.
     force :: Lude.Maybe Lude.Bool,
+    -- | The container instance ID or full ARN of the container instance to deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID@ .
     containerInstance :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterContainerInstance' with the minimum fields required to make a request.
 --
 -- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to deregister. If you do not specify a cluster, the default cluster is assumed.
--- * 'containerInstance' - The container instance ID or full ARN of the container instance to deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID@ .
 -- * 'force' - Forces the deregistration of the container instance. If you have tasks running on the container instance when you deregister it with the @force@ option, these tasks remain running until you terminate the instance or the tasks stop through some other means, but they are orphaned (no longer monitored or accounted for by Amazon ECS). If an orphaned task on your container instance is part of an Amazon ECS service, then the service scheduler starts another copy of that task, on a different container instance if possible.
 --
 -- Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer target group are deregistered. They begin connection draining according to the settings on the load balancer or target group.
+-- * 'containerInstance' - The container instance ID or full ARN of the container instance to deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID@ .
 mkDeregisterContainerInstance ::
   -- | 'containerInstance'
   Lude.Text ->
@@ -79,25 +78,25 @@ mkDeregisterContainerInstance pContainerInstance_ =
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to deregister. If you do not specify a cluster, the default cluster is assumed.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derCluster :: Lens.Lens' DeregisterContainerInstance (Lude.Maybe Lude.Text)
-derCluster = Lens.lens (cluster :: DeregisterContainerInstance -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: DeregisterContainerInstance)
-{-# DEPRECATED derCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+dciCluster :: Lens.Lens' DeregisterContainerInstance (Lude.Maybe Lude.Text)
+dciCluster = Lens.lens (cluster :: DeregisterContainerInstance -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: DeregisterContainerInstance)
+{-# DEPRECATED dciCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | Forces the deregistration of the container instance. If you have tasks running on the container instance when you deregister it with the @force@ option, these tasks remain running until you terminate the instance or the tasks stop through some other means, but they are orphaned (no longer monitored or accounted for by Amazon ECS). If an orphaned task on your container instance is part of an Amazon ECS service, then the service scheduler starts another copy of that task, on a different container instance if possible.
 --
 -- Any containers in orphaned service tasks that are registered with a Classic Load Balancer or an Application Load Balancer target group are deregistered. They begin connection draining according to the settings on the load balancer or target group.
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derForce :: Lens.Lens' DeregisterContainerInstance (Lude.Maybe Lude.Bool)
-derForce = Lens.lens (force :: DeregisterContainerInstance -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeregisterContainerInstance)
-{-# DEPRECATED derForce "Use generic-lens or generic-optics with 'force' instead." #-}
+dciForce :: Lens.Lens' DeregisterContainerInstance (Lude.Maybe Lude.Bool)
+dciForce = Lens.lens (force :: DeregisterContainerInstance -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeregisterContainerInstance)
+{-# DEPRECATED dciForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The container instance ID or full ARN of the container instance to deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID@ .
 --
 -- /Note:/ Consider using 'containerInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derContainerInstance :: Lens.Lens' DeregisterContainerInstance Lude.Text
-derContainerInstance = Lens.lens (containerInstance :: DeregisterContainerInstance -> Lude.Text) (\s a -> s {containerInstance = a} :: DeregisterContainerInstance)
-{-# DEPRECATED derContainerInstance "Use generic-lens or generic-optics with 'containerInstance' instead." #-}
+dciContainerInstance :: Lens.Lens' DeregisterContainerInstance Lude.Text
+dciContainerInstance = Lens.lens (containerInstance :: DeregisterContainerInstance -> Lude.Text) (\s a -> s {containerInstance = a} :: DeregisterContainerInstance)
+{-# DEPRECATED dciContainerInstance "Use generic-lens or generic-optics with 'containerInstance' instead." #-}
 
 instance Lude.AWSRequest DeregisterContainerInstance where
   type
@@ -143,19 +142,12 @@ instance Lude.ToQuery DeregisterContainerInstance where
 
 -- | /See:/ 'mkDeregisterContainerInstanceResponse' smart constructor.
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
-  { containerInstance ::
-      Lude.Maybe
-        ContainerInstance,
-    responseStatus ::
-      Lude.Int
+  { -- | The container instance that was deregistered.
+    containerInstance :: Lude.Maybe ContainerInstance,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterContainerInstanceResponse' with the minimum fields required to make a request.

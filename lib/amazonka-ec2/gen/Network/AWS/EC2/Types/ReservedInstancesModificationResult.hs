@@ -30,20 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedInstancesModificationResult' smart constructor.
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
-  { reservedInstancesId ::
-      Lude.Maybe
-        Lude.Text,
-    targetConfiguration ::
-      Lude.Maybe
-        ReservedInstancesConfiguration
+  { -- | The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.
+    reservedInstancesId :: Lude.Maybe Lude.Text,
+    -- | The target Reserved Instances configurations supplied as part of the modification request.
+    targetConfiguration :: Lude.Maybe ReservedInstancesConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstancesModificationResult' with the minimum fields required to make a request.

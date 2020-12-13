@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,13 +33,13 @@ module Network.AWS.CognitoIdentityProvider.AdminGetUser
     agursEnabled,
     agursUserStatus,
     agursUserAttributes,
+    agursUsername,
     agursUserCreateDate,
     agursUserMFASettingList,
     agursMFAOptions,
     agursUserLastModifiedDate,
     agursPreferredMFASetting,
     agursResponseStatus,
-    agursUsername,
   )
 where
 
@@ -52,7 +53,9 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAdminGetUser' smart constructor.
 data AdminGetUser = AdminGetUser'
-  { userPoolId :: Lude.Text,
+  { -- | The user pool ID for the user pool where you want to get information about the user.
+    userPoolId :: Lude.Text,
+    -- | The user name of the user you wish to retrieve.
     username :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -95,13 +98,13 @@ instance Lude.AWSRequest AdminGetUser where
             Lude.<$> (x Lude..?> "Enabled")
             Lude.<*> (x Lude..?> "UserStatus")
             Lude.<*> (x Lude..?> "UserAttributes" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..:> "Username")
             Lude.<*> (x Lude..?> "UserCreateDate")
             Lude.<*> (x Lude..?> "UserMFASettingList" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..?> "MFAOptions" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..?> "UserLastModifiedDate")
             Lude.<*> (x Lude..?> "PreferredMfaSetting")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "Username")
       )
 
 instance Lude.ToHeaders AdminGetUser where
@@ -136,17 +139,47 @@ instance Lude.ToQuery AdminGetUser where
 --
 -- /See:/ 'mkAdminGetUserResponse' smart constructor.
 data AdminGetUserResponse = AdminGetUserResponse'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates that the status is enabled.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The user status. Can be one of the following:
+    --
+    --
+    --     * UNCONFIRMED - User has been created but not confirmed.
+    --
+    --
+    --     * CONFIRMED - User has been confirmed.
+    --
+    --
+    --     * ARCHIVED - User is no longer active.
+    --
+    --
+    --     * COMPROMISED - User is disabled due to a potential security threat.
+    --
+    --
+    --     * UNKNOWN - User status is not known.
+    --
+    --
+    --     * RESET_REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in.
+    --
+    --
+    --     * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else.
     userStatus :: Lude.Maybe UserStatusType,
+    -- | An array of name-value pairs representing user attributes.
     userAttributes :: Lude.Maybe [AttributeType],
+    -- | The user name of the user about whom you are receiving information.
+    username :: Lude.Sensitive Lude.Text,
+    -- | The date the user was created.
     userCreateDate :: Lude.Maybe Lude.Timestamp,
+    -- | The MFA options that are enabled for the user. The possible values in this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@ .
     userMFASettingList :: Lude.Maybe [Lude.Text],
+    -- | /This response parameter is no longer supported./ It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.
     mfaOptions :: Lude.Maybe [MFAOptionType],
+    -- | The date the user was last modified.
     userLastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The user's preferred MFA setting.
     preferredMFASetting :: Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    username :: Lude.Sensitive Lude.Text
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -154,13 +187,6 @@ data AdminGetUserResponse = AdminGetUserResponse'
 -- | Creates a value of 'AdminGetUserResponse' with the minimum fields required to make a request.
 --
 -- * 'enabled' - Indicates that the status is enabled.
--- * 'mfaOptions' - /This response parameter is no longer supported./ It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.
--- * 'preferredMFASetting' - The user's preferred MFA setting.
--- * 'responseStatus' - The response status code.
--- * 'userAttributes' - An array of name-value pairs representing user attributes.
--- * 'userCreateDate' - The date the user was created.
--- * 'userLastModifiedDate' - The date the user was last modified.
--- * 'userMFASettingList' - The MFA options that are enabled for the user. The possible values in this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@ .
 -- * 'userStatus' - The user status. Can be one of the following:
 --
 --
@@ -185,25 +211,32 @@ data AdminGetUserResponse = AdminGetUserResponse'
 --     * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else.
 --
 --
+-- * 'userAttributes' - An array of name-value pairs representing user attributes.
 -- * 'username' - The user name of the user about whom you are receiving information.
+-- * 'userCreateDate' - The date the user was created.
+-- * 'userMFASettingList' - The MFA options that are enabled for the user. The possible values in this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@ .
+-- * 'mfaOptions' - /This response parameter is no longer supported./ It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.
+-- * 'userLastModifiedDate' - The date the user was last modified.
+-- * 'preferredMFASetting' - The user's preferred MFA setting.
+-- * 'responseStatus' - The response status code.
 mkAdminGetUserResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'username'
   Lude.Sensitive Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   AdminGetUserResponse
-mkAdminGetUserResponse pResponseStatus_ pUsername_ =
+mkAdminGetUserResponse pUsername_ pResponseStatus_ =
   AdminGetUserResponse'
     { enabled = Lude.Nothing,
       userStatus = Lude.Nothing,
       userAttributes = Lude.Nothing,
+      username = pUsername_,
       userCreateDate = Lude.Nothing,
       userMFASettingList = Lude.Nothing,
       mfaOptions = Lude.Nothing,
       userLastModifiedDate = Lude.Nothing,
       preferredMFASetting = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      username = pUsername_
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates that the status is enabled.
@@ -250,6 +283,13 @@ agursUserAttributes :: Lens.Lens' AdminGetUserResponse (Lude.Maybe [AttributeTyp
 agursUserAttributes = Lens.lens (userAttributes :: AdminGetUserResponse -> Lude.Maybe [AttributeType]) (\s a -> s {userAttributes = a} :: AdminGetUserResponse)
 {-# DEPRECATED agursUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
 
+-- | The user name of the user about whom you are receiving information.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agursUsername :: Lens.Lens' AdminGetUserResponse (Lude.Sensitive Lude.Text)
+agursUsername = Lens.lens (username :: AdminGetUserResponse -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminGetUserResponse)
+{-# DEPRECATED agursUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
 -- | The date the user was created.
 --
 -- /Note:/ Consider using 'userCreateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -291,10 +331,3 @@ agursPreferredMFASetting = Lens.lens (preferredMFASetting :: AdminGetUserRespons
 agursResponseStatus :: Lens.Lens' AdminGetUserResponse Lude.Int
 agursResponseStatus = Lens.lens (responseStatus :: AdminGetUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminGetUserResponse)
 {-# DEPRECATED agursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The user name of the user about whom you are receiving information.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agursUsername :: Lens.Lens' AdminGetUserResponse (Lude.Sensitive Lude.Text)
-agursUsername = Lens.lens (username :: AdminGetUserResponse -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminGetUserResponse)
-{-# DEPRECATED agursUsername "Use generic-lens or generic-optics with 'username' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.SSM.ModifyDocumentPermission
     -- ** Request lenses
     mdpSharedDocumentVersion,
     mdpAccountIdsToAdd,
-    mdpAccountIdsToRemove,
-    mdpName,
     mdpPermissionType,
+    mdpName,
+    mdpAccountIdsToRemove,
 
     -- * Destructuring the response
     ModifyDocumentPermissionResponse (..),
@@ -42,43 +43,40 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkModifyDocumentPermission' smart constructor.
 data ModifyDocumentPermission = ModifyDocumentPermission'
-  { sharedDocumentVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | (Optional) The version of the document to share. If it's not specified, the system choose the @Default@ version to share.
+    sharedDocumentVersion :: Lude.Maybe Lude.Text,
+    -- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
     accountIdsToAdd :: Lude.Maybe [Lude.Text],
-    accountIdsToRemove ::
-      Lude.Maybe [Lude.Text],
+    -- | The permission type for the document. The permission type can be /Share/ .
+    permissionType :: DocumentPermissionType,
+    -- | The name of the document that you want to share.
     name :: Lude.Text,
-    permissionType :: DocumentPermissionType
+    -- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
+    accountIdsToRemove :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDocumentPermission' with the minimum fields required to make a request.
 --
--- * 'accountIdsToAdd' - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
--- * 'accountIdsToRemove' - The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
--- * 'name' - The name of the document that you want to share.
--- * 'permissionType' - The permission type for the document. The permission type can be /Share/ .
 -- * 'sharedDocumentVersion' - (Optional) The version of the document to share. If it's not specified, the system choose the @Default@ version to share.
+-- * 'accountIdsToAdd' - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
+-- * 'permissionType' - The permission type for the document. The permission type can be /Share/ .
+-- * 'name' - The name of the document that you want to share.
+-- * 'accountIdsToRemove' - The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
 mkModifyDocumentPermission ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'permissionType'
   DocumentPermissionType ->
+  -- | 'name'
+  Lude.Text ->
   ModifyDocumentPermission
-mkModifyDocumentPermission pName_ pPermissionType_ =
+mkModifyDocumentPermission pPermissionType_ pName_ =
   ModifyDocumentPermission'
     { sharedDocumentVersion = Lude.Nothing,
       accountIdsToAdd = Lude.Nothing,
-      accountIdsToRemove = Lude.Nothing,
+      permissionType = pPermissionType_,
       name = pName_,
-      permissionType = pPermissionType_
+      accountIdsToRemove = Lude.Nothing
     }
 
 -- | (Optional) The version of the document to share. If it's not specified, the system choose the @Default@ version to share.
@@ -95,12 +93,12 @@ mdpAccountIdsToAdd :: Lens.Lens' ModifyDocumentPermission (Lude.Maybe [Lude.Text
 mdpAccountIdsToAdd = Lens.lens (accountIdsToAdd :: ModifyDocumentPermission -> Lude.Maybe [Lude.Text]) (\s a -> s {accountIdsToAdd = a} :: ModifyDocumentPermission)
 {-# DEPRECATED mdpAccountIdsToAdd "Use generic-lens or generic-optics with 'accountIdsToAdd' instead." #-}
 
--- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
+-- | The permission type for the document. The permission type can be /Share/ .
 --
--- /Note:/ Consider using 'accountIdsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpAccountIdsToRemove :: Lens.Lens' ModifyDocumentPermission (Lude.Maybe [Lude.Text])
-mdpAccountIdsToRemove = Lens.lens (accountIdsToRemove :: ModifyDocumentPermission -> Lude.Maybe [Lude.Text]) (\s a -> s {accountIdsToRemove = a} :: ModifyDocumentPermission)
-{-# DEPRECATED mdpAccountIdsToRemove "Use generic-lens or generic-optics with 'accountIdsToRemove' instead." #-}
+-- /Note:/ Consider using 'permissionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdpPermissionType :: Lens.Lens' ModifyDocumentPermission DocumentPermissionType
+mdpPermissionType = Lens.lens (permissionType :: ModifyDocumentPermission -> DocumentPermissionType) (\s a -> s {permissionType = a} :: ModifyDocumentPermission)
+{-# DEPRECATED mdpPermissionType "Use generic-lens or generic-optics with 'permissionType' instead." #-}
 
 -- | The name of the document that you want to share.
 --
@@ -109,12 +107,12 @@ mdpName :: Lens.Lens' ModifyDocumentPermission Lude.Text
 mdpName = Lens.lens (name :: ModifyDocumentPermission -> Lude.Text) (\s a -> s {name = a} :: ModifyDocumentPermission)
 {-# DEPRECATED mdpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The permission type for the document. The permission type can be /Share/ .
+-- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
 --
--- /Note:/ Consider using 'permissionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpPermissionType :: Lens.Lens' ModifyDocumentPermission DocumentPermissionType
-mdpPermissionType = Lens.lens (permissionType :: ModifyDocumentPermission -> DocumentPermissionType) (\s a -> s {permissionType = a} :: ModifyDocumentPermission)
-{-# DEPRECATED mdpPermissionType "Use generic-lens or generic-optics with 'permissionType' instead." #-}
+-- /Note:/ Consider using 'accountIdsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdpAccountIdsToRemove :: Lens.Lens' ModifyDocumentPermission (Lude.Maybe [Lude.Text])
+mdpAccountIdsToRemove = Lens.lens (accountIdsToRemove :: ModifyDocumentPermission -> Lude.Maybe [Lude.Text]) (\s a -> s {accountIdsToRemove = a} :: ModifyDocumentPermission)
+{-# DEPRECATED mdpAccountIdsToRemove "Use generic-lens or generic-optics with 'accountIdsToRemove' instead." #-}
 
 instance Lude.AWSRequest ModifyDocumentPermission where
   type Rs ModifyDocumentPermission = ModifyDocumentPermissionResponse
@@ -143,9 +141,9 @@ instance Lude.ToJSON ModifyDocumentPermission where
       ( Lude.catMaybes
           [ ("SharedDocumentVersion" Lude..=) Lude.<$> sharedDocumentVersion,
             ("AccountIdsToAdd" Lude..=) Lude.<$> accountIdsToAdd,
-            ("AccountIdsToRemove" Lude..=) Lude.<$> accountIdsToRemove,
+            Lude.Just ("PermissionType" Lude..= permissionType),
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("PermissionType" Lude..= permissionType)
+            ("AccountIdsToRemove" Lude..=) Lude.<$> accountIdsToRemove
           ]
       )
 
@@ -157,16 +155,10 @@ instance Lude.ToQuery ModifyDocumentPermission where
 
 -- | /See:/ 'mkModifyDocumentPermissionResponse' smart constructor.
 newtype ModifyDocumentPermissionResponse = ModifyDocumentPermissionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDocumentPermissionResponse' with the minimum fields required to make a request.

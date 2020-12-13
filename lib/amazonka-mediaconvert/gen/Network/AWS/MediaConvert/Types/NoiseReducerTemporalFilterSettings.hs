@@ -32,33 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNoiseReducerTemporalFilterSettings' smart constructor.
 data NoiseReducerTemporalFilterSettings = NoiseReducerTemporalFilterSettings'
-  { postTemporalSharpening ::
-      Lude.Maybe
-        NoiseFilterPostTemporalSharpening,
-    aggressiveMode ::
-      Lude.Maybe
-        Lude.Natural,
-    strength ::
-      Lude.Maybe
-        Lude.Natural,
-    speed ::
-      Lude.Maybe Lude.Int
+  { -- | Optional. When you set Noise reducer (noiseReducer) to Temporal (TEMPORAL), you can use this setting to apply sharpening. The default behavior, Auto (AUTO), allows the transcoder to determine whether to apply filtering, depending on input type and quality. When you set Noise reducer to Temporal, your output bandwidth is reduced. When Post temporal sharpening is also enabled, that bandwidth reduction is smaller.
+    postTemporalSharpening :: Lude.Maybe NoiseFilterPostTemporalSharpening,
+    -- | Use Aggressive mode for content that has complex motion. Higher values produce stronger temporal filtering. This filters highly complex scenes more aggressively and creates better VQ for low bitrate outputs.
+    aggressiveMode :: Lude.Maybe Lude.Natural,
+    -- | Specify the strength of the noise reducing filter on this output. Higher values produce stronger filtering. We recommend the following value ranges, depending on the result that you want: * 0-2 for complexity reduction with minimal sharpness loss * 2-8 for complexity reduction with image preservation * 8-16 for a high level of complexity reduction
+    strength :: Lude.Maybe Lude.Natural,
+    -- | The speed of the filter (higher number is faster). Low setting reduces bit rate at the cost of transcode time, high setting improves transcode time at the cost of bit rate.
+    speed :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NoiseReducerTemporalFilterSettings' with the minimum fields required to make a request.
 --
--- * 'aggressiveMode' - Use Aggressive mode for content that has complex motion. Higher values produce stronger temporal filtering. This filters highly complex scenes more aggressively and creates better VQ for low bitrate outputs.
 -- * 'postTemporalSharpening' - Optional. When you set Noise reducer (noiseReducer) to Temporal (TEMPORAL), you can use this setting to apply sharpening. The default behavior, Auto (AUTO), allows the transcoder to determine whether to apply filtering, depending on input type and quality. When you set Noise reducer to Temporal, your output bandwidth is reduced. When Post temporal sharpening is also enabled, that bandwidth reduction is smaller.
--- * 'speed' - The speed of the filter (higher number is faster). Low setting reduces bit rate at the cost of transcode time, high setting improves transcode time at the cost of bit rate.
+-- * 'aggressiveMode' - Use Aggressive mode for content that has complex motion. Higher values produce stronger temporal filtering. This filters highly complex scenes more aggressively and creates better VQ for low bitrate outputs.
 -- * 'strength' - Specify the strength of the noise reducing filter on this output. Higher values produce stronger filtering. We recommend the following value ranges, depending on the result that you want: * 0-2 for complexity reduction with minimal sharpness loss * 2-8 for complexity reduction with image preservation * 8-16 for a high level of complexity reduction
+-- * 'speed' - The speed of the filter (higher number is faster). Low setting reduces bit rate at the cost of transcode time, high setting improves transcode time at the cost of bit rate.
 mkNoiseReducerTemporalFilterSettings ::
   NoiseReducerTemporalFilterSettings
 mkNoiseReducerTemporalFilterSettings =

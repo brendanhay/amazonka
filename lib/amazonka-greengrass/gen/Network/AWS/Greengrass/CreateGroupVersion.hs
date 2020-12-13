@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.Greengrass.CreateGroupVersion
     cgvResourceDefinitionVersionARN,
     cgvSubscriptionDefinitionVersionARN,
     cgvCoreDefinitionVersionARN,
+    cgvGroupId,
     cgvDeviceDefinitionVersionARN,
     cgvFunctionDefinitionVersionARN,
     cgvLoggerDefinitionVersionARN,
     cgvConnectorDefinitionVersionARN,
-    cgvGroupId,
 
     -- * Destructuring the response
     CreateGroupVersionResponse (..),
@@ -50,38 +51,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGroupVersion' smart constructor.
 data CreateGroupVersion = CreateGroupVersion'
-  { amznClientToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text,
+    -- | The ARN of the resource definition version for this group.
     resourceDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    subscriptionDefinitionVersionARN ::
-      Lude.Maybe Lude.Text,
+    -- | The ARN of the subscription definition version for this group.
+    subscriptionDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the core definition version for this group.
     coreDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the Greengrass group.
+    groupId :: Lude.Text,
+    -- | The ARN of the device definition version for this group.
     deviceDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the function definition version for this group.
     functionDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the logger definition version for this group.
     loggerDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    connectorDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    groupId :: Lude.Text
+    -- | The ARN of the connector definition version for this group.
+    connectorDefinitionVersionARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroupVersion' with the minimum fields required to make a request.
 --
 -- * 'amznClientToken' - A client token used to correlate requests and responses.
--- * 'connectorDefinitionVersionARN' - The ARN of the connector definition version for this group.
--- * 'coreDefinitionVersionARN' - The ARN of the core definition version for this group.
--- * 'deviceDefinitionVersionARN' - The ARN of the device definition version for this group.
--- * 'functionDefinitionVersionARN' - The ARN of the function definition version for this group.
--- * 'groupId' - The ID of the Greengrass group.
--- * 'loggerDefinitionVersionARN' - The ARN of the logger definition version for this group.
 -- * 'resourceDefinitionVersionARN' - The ARN of the resource definition version for this group.
 -- * 'subscriptionDefinitionVersionARN' - The ARN of the subscription definition version for this group.
+-- * 'coreDefinitionVersionARN' - The ARN of the core definition version for this group.
+-- * 'groupId' - The ID of the Greengrass group.
+-- * 'deviceDefinitionVersionARN' - The ARN of the device definition version for this group.
+-- * 'functionDefinitionVersionARN' - The ARN of the function definition version for this group.
+-- * 'loggerDefinitionVersionARN' - The ARN of the logger definition version for this group.
+-- * 'connectorDefinitionVersionARN' - The ARN of the connector definition version for this group.
 mkCreateGroupVersion ::
   -- | 'groupId'
   Lude.Text ->
@@ -92,11 +94,11 @@ mkCreateGroupVersion pGroupId_ =
       resourceDefinitionVersionARN = Lude.Nothing,
       subscriptionDefinitionVersionARN = Lude.Nothing,
       coreDefinitionVersionARN = Lude.Nothing,
+      groupId = pGroupId_,
       deviceDefinitionVersionARN = Lude.Nothing,
       functionDefinitionVersionARN = Lude.Nothing,
       loggerDefinitionVersionARN = Lude.Nothing,
-      connectorDefinitionVersionARN = Lude.Nothing,
-      groupId = pGroupId_
+      connectorDefinitionVersionARN = Lude.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
@@ -127,6 +129,13 @@ cgvCoreDefinitionVersionARN :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Te
 cgvCoreDefinitionVersionARN = Lens.lens (coreDefinitionVersionARN :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {coreDefinitionVersionARN = a} :: CreateGroupVersion)
 {-# DEPRECATED cgvCoreDefinitionVersionARN "Use generic-lens or generic-optics with 'coreDefinitionVersionARN' instead." #-}
 
+-- | The ID of the Greengrass group.
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvGroupId :: Lens.Lens' CreateGroupVersion Lude.Text
+cgvGroupId = Lens.lens (groupId :: CreateGroupVersion -> Lude.Text) (\s a -> s {groupId = a} :: CreateGroupVersion)
+{-# DEPRECATED cgvGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+
 -- | The ARN of the device definition version for this group.
 --
 -- /Note:/ Consider using 'deviceDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -154,13 +163,6 @@ cgvLoggerDefinitionVersionARN = Lens.lens (loggerDefinitionVersionARN :: CreateG
 cgvConnectorDefinitionVersionARN :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Text)
 cgvConnectorDefinitionVersionARN = Lens.lens (connectorDefinitionVersionARN :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {connectorDefinitionVersionARN = a} :: CreateGroupVersion)
 {-# DEPRECATED cgvConnectorDefinitionVersionARN "Use generic-lens or generic-optics with 'connectorDefinitionVersionARN' instead." #-}
-
--- | The ID of the Greengrass group.
---
--- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvGroupId :: Lens.Lens' CreateGroupVersion Lude.Text
-cgvGroupId = Lens.lens (groupId :: CreateGroupVersion -> Lude.Text) (\s a -> s {groupId = a} :: CreateGroupVersion)
-{-# DEPRECATED cgvGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 instance Lude.AWSRequest CreateGroupVersion where
   type Rs CreateGroupVersion = CreateGroupVersionResponse
@@ -215,30 +217,27 @@ instance Lude.ToQuery CreateGroupVersion where
 
 -- | /See:/ 'mkCreateGroupVersionResponse' smart constructor.
 data CreateGroupVersionResponse = CreateGroupVersionResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the version.
     version :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent definition that the version is associated with.
     id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroupVersionResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'version' - The ID of the version.
 -- * 'id' - The ID of the parent definition that the version is associated with.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The ID of the version.
 mkCreateGroupVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

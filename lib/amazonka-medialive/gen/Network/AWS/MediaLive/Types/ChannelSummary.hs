@@ -49,50 +49,59 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChannelSummary' smart constructor.
 data ChannelSummary = ChannelSummary'
-  { state ::
-      Lude.Maybe ChannelState,
+  { state :: Lude.Maybe ChannelState,
+    -- | The log level being written to CloudWatch Logs.
     logLevel :: Lude.Maybe LogLevel,
+    -- | The unique arn of the channel.
     arn :: Lude.Maybe Lude.Text,
+    -- | The number of currently healthy pipelines.
     pipelinesRunningCount :: Lude.Maybe Lude.Int,
+    -- | Specification of network and file inputs for this channel
     inputSpecification :: Lude.Maybe InputSpecification,
+    -- | List of input attachments for channel.
     inputAttachments :: Lude.Maybe [InputAttachment],
+    -- | A list of destinations of the channel. For UDP outputs, there is one
+    --
+    -- destination per output. For other types (HLS, for example), there is
+    -- one destination per packager.
     destinations :: Lude.Maybe [OutputDestination],
+    -- | The name of the channel. (user-mutable)
     name :: Lude.Maybe Lude.Text,
+    -- | Specification of CDI inputs for this channel
     cdiInputSpecification :: Lude.Maybe CdiInputSpecification,
+    -- | The unique id of the channel.
     id :: Lude.Maybe Lude.Text,
+    -- | The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
     channelClass :: Lude.Maybe ChannelClass,
+    -- | The endpoints where outgoing connections initiate from
     egressEndpoints :: Lude.Maybe [ChannelEgressEndpoint],
+    -- | A collection of key-value pairs.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The Amazon Resource Name (ARN) of the role assumed when running the Channel.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelSummary' with the minimum fields required to make a request.
 --
+-- * 'state' -
+-- * 'logLevel' - The log level being written to CloudWatch Logs.
 -- * 'arn' - The unique arn of the channel.
--- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
--- * 'channelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+-- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
+-- * 'inputSpecification' - Specification of network and file inputs for this channel
+-- * 'inputAttachments' - List of input attachments for channel.
 -- * 'destinations' - A list of destinations of the channel. For UDP outputs, there is one
 --
 -- destination per output. For other types (HLS, for example), there is
 -- one destination per packager.
--- * 'egressEndpoints' - The endpoints where outgoing connections initiate from
--- * 'id' - The unique id of the channel.
--- * 'inputAttachments' - List of input attachments for channel.
--- * 'inputSpecification' - Specification of network and file inputs for this channel
--- * 'logLevel' - The log level being written to CloudWatch Logs.
 -- * 'name' - The name of the channel. (user-mutable)
--- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role assumed when running the Channel.
--- * 'state' - Undocumented field.
+-- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
+-- * 'id' - The unique id of the channel.
+-- * 'channelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+-- * 'egressEndpoints' - The endpoints where outgoing connections initiate from
 -- * 'tags' - A collection of key-value pairs.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role assumed when running the Channel.
 mkChannelSummary ::
   ChannelSummary
 mkChannelSummary =

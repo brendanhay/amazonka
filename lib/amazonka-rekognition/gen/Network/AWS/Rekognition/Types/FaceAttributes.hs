@@ -13,8 +13,8 @@
 module Network.AWS.Rekognition.Types.FaceAttributes
   ( FaceAttributes
       ( FaceAttributes',
-        FAAll,
-        FADefault
+        FADefault,
+        FAAll
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FaceAttributes = FaceAttributes' Lude.Text
       Lude.ToHeader
     )
 
-pattern FAAll :: FaceAttributes
-pattern FAAll = FaceAttributes' "ALL"
-
 pattern FADefault :: FaceAttributes
 pattern FADefault = FaceAttributes' "DEFAULT"
 
+pattern FAAll :: FaceAttributes
+pattern FAAll = FaceAttributes' "ALL"
+
 {-# COMPLETE
-  FAAll,
   FADefault,
+  FAAll,
   FaceAttributes'
   #-}

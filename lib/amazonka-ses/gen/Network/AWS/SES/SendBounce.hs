@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.SES.SendBounce
     mkSendBounce,
 
     -- ** Request lenses
-    sbMessageDsn,
-    sbExplanation,
-    sbBounceSenderARN,
     sbOriginalMessageId,
+    sbMessageDsn,
     sbBounceSender,
+    sbExplanation,
     sbBouncedRecipientInfoList,
+    sbBounceSenderARN,
 
     -- * Destructuring the response
     SendBounceResponse (..),
@@ -49,30 +50,30 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkSendBounce' smart constructor.
 data SendBounce = SendBounce'
-  { messageDsn :: Lude.Maybe MessageDsn,
-    explanation :: Lude.Maybe Lude.Text,
-    bounceSenderARN :: Lude.Maybe Lude.Text,
+  { -- | The message ID of the message to be bounced.
     originalMessageId :: Lude.Text,
+    -- | Message-related DSN fields. If not specified, Amazon SES will choose the values.
+    messageDsn :: Lude.Maybe MessageDsn,
+    -- | The address to use in the "From" header of the bounce message. This must be an identity that you have verified with Amazon SES.
     bounceSender :: Lude.Text,
-    bouncedRecipientInfoList :: [BouncedRecipientInfo]
+    -- | Human-readable text for the bounce message to explain the failure. If not specified, the text will be auto-generated based on the bounced recipient information.
+    explanation :: Lude.Maybe Lude.Text,
+    -- | A list of recipients of the bounced message, including the information required to create the Delivery Status Notifications (DSNs) for the recipients. You must specify at least one @BouncedRecipientInfo@ in the list.
+    bouncedRecipientInfoList :: [BouncedRecipientInfo],
+    -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the "From" header of the bounce. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+    bounceSenderARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendBounce' with the minimum fields required to make a request.
 --
--- * 'bounceSender' - The address to use in the "From" header of the bounce message. This must be an identity that you have verified with Amazon SES.
--- * 'bounceSenderARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the "From" header of the bounce. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
--- * 'bouncedRecipientInfoList' - A list of recipients of the bounced message, including the information required to create the Delivery Status Notifications (DSNs) for the recipients. You must specify at least one @BouncedRecipientInfo@ in the list.
--- * 'explanation' - Human-readable text for the bounce message to explain the failure. If not specified, the text will be auto-generated based on the bounced recipient information.
--- * 'messageDsn' - Message-related DSN fields. If not specified, Amazon SES will choose the values.
 -- * 'originalMessageId' - The message ID of the message to be bounced.
+-- * 'messageDsn' - Message-related DSN fields. If not specified, Amazon SES will choose the values.
+-- * 'bounceSender' - The address to use in the "From" header of the bounce message. This must be an identity that you have verified with Amazon SES.
+-- * 'explanation' - Human-readable text for the bounce message to explain the failure. If not specified, the text will be auto-generated based on the bounced recipient information.
+-- * 'bouncedRecipientInfoList' - A list of recipients of the bounced message, including the information required to create the Delivery Status Notifications (DSNs) for the recipients. You must specify at least one @BouncedRecipientInfo@ in the list.
+-- * 'bounceSenderARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the "From" header of the bounce. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 mkSendBounce ::
   -- | 'originalMessageId'
   Lude.Text ->
@@ -81,34 +82,13 @@ mkSendBounce ::
   SendBounce
 mkSendBounce pOriginalMessageId_ pBounceSender_ =
   SendBounce'
-    { messageDsn = Lude.Nothing,
-      explanation = Lude.Nothing,
-      bounceSenderARN = Lude.Nothing,
-      originalMessageId = pOriginalMessageId_,
+    { originalMessageId = pOriginalMessageId_,
+      messageDsn = Lude.Nothing,
       bounceSender = pBounceSender_,
-      bouncedRecipientInfoList = Lude.mempty
+      explanation = Lude.Nothing,
+      bouncedRecipientInfoList = Lude.mempty,
+      bounceSenderARN = Lude.Nothing
     }
-
--- | Message-related DSN fields. If not specified, Amazon SES will choose the values.
---
--- /Note:/ Consider using 'messageDsn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbMessageDsn :: Lens.Lens' SendBounce (Lude.Maybe MessageDsn)
-sbMessageDsn = Lens.lens (messageDsn :: SendBounce -> Lude.Maybe MessageDsn) (\s a -> s {messageDsn = a} :: SendBounce)
-{-# DEPRECATED sbMessageDsn "Use generic-lens or generic-optics with 'messageDsn' instead." #-}
-
--- | Human-readable text for the bounce message to explain the failure. If not specified, the text will be auto-generated based on the bounced recipient information.
---
--- /Note:/ Consider using 'explanation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbExplanation :: Lens.Lens' SendBounce (Lude.Maybe Lude.Text)
-sbExplanation = Lens.lens (explanation :: SendBounce -> Lude.Maybe Lude.Text) (\s a -> s {explanation = a} :: SendBounce)
-{-# DEPRECATED sbExplanation "Use generic-lens or generic-optics with 'explanation' instead." #-}
-
--- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the "From" header of the bounce. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
---
--- /Note:/ Consider using 'bounceSenderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbBounceSenderARN :: Lens.Lens' SendBounce (Lude.Maybe Lude.Text)
-sbBounceSenderARN = Lens.lens (bounceSenderARN :: SendBounce -> Lude.Maybe Lude.Text) (\s a -> s {bounceSenderARN = a} :: SendBounce)
-{-# DEPRECATED sbBounceSenderARN "Use generic-lens or generic-optics with 'bounceSenderARN' instead." #-}
 
 -- | The message ID of the message to be bounced.
 --
@@ -117,6 +97,13 @@ sbOriginalMessageId :: Lens.Lens' SendBounce Lude.Text
 sbOriginalMessageId = Lens.lens (originalMessageId :: SendBounce -> Lude.Text) (\s a -> s {originalMessageId = a} :: SendBounce)
 {-# DEPRECATED sbOriginalMessageId "Use generic-lens or generic-optics with 'originalMessageId' instead." #-}
 
+-- | Message-related DSN fields. If not specified, Amazon SES will choose the values.
+--
+-- /Note:/ Consider using 'messageDsn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbMessageDsn :: Lens.Lens' SendBounce (Lude.Maybe MessageDsn)
+sbMessageDsn = Lens.lens (messageDsn :: SendBounce -> Lude.Maybe MessageDsn) (\s a -> s {messageDsn = a} :: SendBounce)
+{-# DEPRECATED sbMessageDsn "Use generic-lens or generic-optics with 'messageDsn' instead." #-}
+
 -- | The address to use in the "From" header of the bounce message. This must be an identity that you have verified with Amazon SES.
 --
 -- /Note:/ Consider using 'bounceSender' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -124,12 +111,26 @@ sbBounceSender :: Lens.Lens' SendBounce Lude.Text
 sbBounceSender = Lens.lens (bounceSender :: SendBounce -> Lude.Text) (\s a -> s {bounceSender = a} :: SendBounce)
 {-# DEPRECATED sbBounceSender "Use generic-lens or generic-optics with 'bounceSender' instead." #-}
 
+-- | Human-readable text for the bounce message to explain the failure. If not specified, the text will be auto-generated based on the bounced recipient information.
+--
+-- /Note:/ Consider using 'explanation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbExplanation :: Lens.Lens' SendBounce (Lude.Maybe Lude.Text)
+sbExplanation = Lens.lens (explanation :: SendBounce -> Lude.Maybe Lude.Text) (\s a -> s {explanation = a} :: SendBounce)
+{-# DEPRECATED sbExplanation "Use generic-lens or generic-optics with 'explanation' instead." #-}
+
 -- | A list of recipients of the bounced message, including the information required to create the Delivery Status Notifications (DSNs) for the recipients. You must specify at least one @BouncedRecipientInfo@ in the list.
 --
 -- /Note:/ Consider using 'bouncedRecipientInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sbBouncedRecipientInfoList :: Lens.Lens' SendBounce [BouncedRecipientInfo]
 sbBouncedRecipientInfoList = Lens.lens (bouncedRecipientInfoList :: SendBounce -> [BouncedRecipientInfo]) (\s a -> s {bouncedRecipientInfoList = a} :: SendBounce)
 {-# DEPRECATED sbBouncedRecipientInfoList "Use generic-lens or generic-optics with 'bouncedRecipientInfoList' instead." #-}
+
+-- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the "From" header of the bounce. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+-- /Note:/ Consider using 'bounceSenderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbBounceSenderARN :: Lens.Lens' SendBounce (Lude.Maybe Lude.Text)
+sbBounceSenderARN = Lens.lens (bounceSenderARN :: SendBounce -> Lude.Maybe Lude.Text) (\s a -> s {bounceSenderARN = a} :: SendBounce)
+{-# DEPRECATED sbBounceSenderARN "Use generic-lens or generic-optics with 'bounceSenderARN' instead." #-}
 
 instance Lude.AWSRequest SendBounce where
   type Rs SendBounce = SendBounceResponse
@@ -153,30 +154,25 @@ instance Lude.ToQuery SendBounce where
     Lude.mconcat
       [ "Action" Lude.=: ("SendBounce" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "MessageDsn" Lude.=: messageDsn,
-        "Explanation" Lude.=: explanation,
-        "BounceSenderArn" Lude.=: bounceSenderARN,
         "OriginalMessageId" Lude.=: originalMessageId,
+        "MessageDsn" Lude.=: messageDsn,
         "BounceSender" Lude.=: bounceSender,
+        "Explanation" Lude.=: explanation,
         "BouncedRecipientInfoList"
-          Lude.=: Lude.toQueryList "member" bouncedRecipientInfoList
+          Lude.=: Lude.toQueryList "member" bouncedRecipientInfoList,
+        "BounceSenderArn" Lude.=: bounceSenderARN
       ]
 
 -- | Represents a unique message ID.
 --
 -- /See:/ 'mkSendBounceResponse' smart constructor.
 data SendBounceResponse = SendBounceResponse'
-  { messageId ::
-      Lude.Maybe Lude.Text,
+  { -- | The message ID of the bounce message.
+    messageId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendBounceResponse' with the minimum fields required to make a request.

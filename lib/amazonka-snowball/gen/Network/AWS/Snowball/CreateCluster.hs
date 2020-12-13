@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +20,25 @@ module Network.AWS.Snowball.CreateCluster
     mkCreateCluster,
 
     -- ** Request lenses
+    ccJobType,
     ccKMSKeyARN,
     ccNotification,
     ccForwardingAddressId,
+    ccAddressId,
     ccSnowballType,
+    ccShippingOption,
+    ccResources,
     ccDescription,
     ccTaxDocuments,
-    ccJobType,
-    ccResources,
-    ccAddressId,
     ccRoleARN,
-    ccShippingOption,
 
     -- * Destructuring the response
     CreateClusterResponse (..),
     mkCreateClusterResponse,
 
     -- ** Response lenses
-    crersClusterId,
-    crersResponseStatus,
+    crsClusterId,
+    crsResponseStatus,
   )
 where
 
@@ -49,38 +50,65 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { kmsKeyARN ::
-      Lude.Maybe Lude.Text,
-    notification :: Lude.Maybe Notification,
-    forwardingAddressId :: Lude.Maybe Lude.Text,
-    snowballType :: Lude.Maybe SnowballType,
-    description :: Lude.Maybe Lude.Text,
-    taxDocuments :: Lude.Maybe TaxDocuments,
+  { -- | The type of job for this cluster. Currently, the only job type supported for clusters is @LOCAL_USE@ .
     jobType :: JobType,
-    resources :: JobResource,
+    -- | The @KmsKeyARN@ value that you want to associate with this cluster. @KmsKeyARN@ values are created by using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS Key Management Service (AWS KMS).
+    kmsKeyARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
+    notification :: Lude.Maybe Notification,
+    -- | The forwarding address ID for a cluster. This field is not supported in most regions.
+    forwardingAddressId :: Lude.Maybe Lude.Text,
+    -- | The ID for the address that you want the cluster shipped to.
     addressId :: Lude.Text,
-    roleARN :: Lude.Text,
-    shippingOption :: ShippingOption
+    -- | The type of AWS Snow Family device to use for this cluster.
+    snowballType :: Lude.Maybe SnowballType,
+    -- | The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:
+    --
+    --
+    --     * In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.
+    --
+    --
+    --     * In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.
+    --
+    --
+    --     * In India, Snow device are delivered in one to seven days.
+    --
+    --
+    --     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
+    --
+    --
+    --
+    --     * In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day.
+    --
+    --
+    --     * In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.
+    --
+    --
+    --     * In India, Snow device are delivered in one to seven days.
+    --
+    --
+    --     * In the US, you have access to one-day shipping and two-day shipping.
+    shippingOption :: ShippingOption,
+    -- | The resources associated with the cluster job. These resources include Amazon S3 buckets and optional AWS Lambda functions written in the Python language.
+    resources :: JobResource,
+    -- | An optional description of this specific cluster, for example @Environmental Data Cluster-01@ .
+    description :: Lude.Maybe Lude.Text,
+    -- | The tax documents required in your AWS Region.
+    taxDocuments :: Lude.Maybe TaxDocuments,
+    -- | The @RoleARN@ that you want to associate with this cluster. @RoleArn@ values are created by using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
--- * 'addressId' - The ID for the address that you want the cluster shipped to.
--- * 'description' - An optional description of this specific cluster, for example @Environmental Data Cluster-01@ .
--- * 'forwardingAddressId' - The forwarding address ID for a cluster. This field is not supported in most regions.
 -- * 'jobType' - The type of job for this cluster. Currently, the only job type supported for clusters is @LOCAL_USE@ .
 -- * 'kmsKeyARN' - The @KmsKeyARN@ value that you want to associate with this cluster. @KmsKeyARN@ values are created by using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS Key Management Service (AWS KMS).
 -- * 'notification' - The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
--- * 'resources' - The resources associated with the cluster job. These resources include Amazon S3 buckets and optional AWS Lambda functions written in the Python language.
--- * 'roleARN' - The @RoleARN@ that you want to associate with this cluster. @RoleArn@ values are created by using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+-- * 'forwardingAddressId' - The forwarding address ID for a cluster. This field is not supported in most regions.
+-- * 'addressId' - The ID for the address that you want the cluster shipped to.
+-- * 'snowballType' - The type of AWS Snow Family device to use for this cluster.
 -- * 'shippingOption' - The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:
 --
 --
@@ -109,39 +137,48 @@ data CreateCluster = CreateCluster'
 --     * In the US, you have access to one-day shipping and two-day shipping.
 --
 --
--- * 'snowballType' - The type of AWS Snow Family device to use for this cluster.
+-- * 'resources' - The resources associated with the cluster job. These resources include Amazon S3 buckets and optional AWS Lambda functions written in the Python language.
+-- * 'description' - An optional description of this specific cluster, for example @Environmental Data Cluster-01@ .
 -- * 'taxDocuments' - The tax documents required in your AWS Region.
+-- * 'roleARN' - The @RoleARN@ that you want to associate with this cluster. @RoleArn@ values are created by using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 mkCreateCluster ::
   -- | 'jobType'
   JobType ->
-  -- | 'resources'
-  JobResource ->
   -- | 'addressId'
-  Lude.Text ->
-  -- | 'roleARN'
   Lude.Text ->
   -- | 'shippingOption'
   ShippingOption ->
+  -- | 'resources'
+  JobResource ->
+  -- | 'roleARN'
+  Lude.Text ->
   CreateCluster
 mkCreateCluster
   pJobType_
-  pResources_
   pAddressId_
-  pRoleARN_
-  pShippingOption_ =
+  pShippingOption_
+  pResources_
+  pRoleARN_ =
     CreateCluster'
-      { kmsKeyARN = Lude.Nothing,
+      { jobType = pJobType_,
+        kmsKeyARN = Lude.Nothing,
         notification = Lude.Nothing,
         forwardingAddressId = Lude.Nothing,
+        addressId = pAddressId_,
         snowballType = Lude.Nothing,
+        shippingOption = pShippingOption_,
+        resources = pResources_,
         description = Lude.Nothing,
         taxDocuments = Lude.Nothing,
-        jobType = pJobType_,
-        resources = pResources_,
-        addressId = pAddressId_,
-        roleARN = pRoleARN_,
-        shippingOption = pShippingOption_
+        roleARN = pRoleARN_
       }
+
+-- | The type of job for this cluster. Currently, the only job type supported for clusters is @LOCAL_USE@ .
+--
+-- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccJobType :: Lens.Lens' CreateCluster JobType
+ccJobType = Lens.lens (jobType :: CreateCluster -> JobType) (\s a -> s {jobType = a} :: CreateCluster)
+{-# DEPRECATED ccJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
 
 -- | The @KmsKeyARN@ value that you want to associate with this cluster. @KmsKeyARN@ values are created by using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS Key Management Service (AWS KMS).
 --
@@ -164,41 +201,6 @@ ccForwardingAddressId :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
 ccForwardingAddressId = Lens.lens (forwardingAddressId :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {forwardingAddressId = a} :: CreateCluster)
 {-# DEPRECATED ccForwardingAddressId "Use generic-lens or generic-optics with 'forwardingAddressId' instead." #-}
 
--- | The type of AWS Snow Family device to use for this cluster.
---
--- /Note:/ Consider using 'snowballType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccSnowballType :: Lens.Lens' CreateCluster (Lude.Maybe SnowballType)
-ccSnowballType = Lens.lens (snowballType :: CreateCluster -> Lude.Maybe SnowballType) (\s a -> s {snowballType = a} :: CreateCluster)
-{-# DEPRECATED ccSnowballType "Use generic-lens or generic-optics with 'snowballType' instead." #-}
-
--- | An optional description of this specific cluster, for example @Environmental Data Cluster-01@ .
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccDescription :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
-ccDescription = Lens.lens (description :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateCluster)
-{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The tax documents required in your AWS Region.
---
--- /Note:/ Consider using 'taxDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccTaxDocuments :: Lens.Lens' CreateCluster (Lude.Maybe TaxDocuments)
-ccTaxDocuments = Lens.lens (taxDocuments :: CreateCluster -> Lude.Maybe TaxDocuments) (\s a -> s {taxDocuments = a} :: CreateCluster)
-{-# DEPRECATED ccTaxDocuments "Use generic-lens or generic-optics with 'taxDocuments' instead." #-}
-
--- | The type of job for this cluster. Currently, the only job type supported for clusters is @LOCAL_USE@ .
---
--- /Note:/ Consider using 'jobType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccJobType :: Lens.Lens' CreateCluster JobType
-ccJobType = Lens.lens (jobType :: CreateCluster -> JobType) (\s a -> s {jobType = a} :: CreateCluster)
-{-# DEPRECATED ccJobType "Use generic-lens or generic-optics with 'jobType' instead." #-}
-
--- | The resources associated with the cluster job. These resources include Amazon S3 buckets and optional AWS Lambda functions written in the Python language.
---
--- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccResources :: Lens.Lens' CreateCluster JobResource
-ccResources = Lens.lens (resources :: CreateCluster -> JobResource) (\s a -> s {resources = a} :: CreateCluster)
-{-# DEPRECATED ccResources "Use generic-lens or generic-optics with 'resources' instead." #-}
-
 -- | The ID for the address that you want the cluster shipped to.
 --
 -- /Note:/ Consider using 'addressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -206,12 +208,12 @@ ccAddressId :: Lens.Lens' CreateCluster Lude.Text
 ccAddressId = Lens.lens (addressId :: CreateCluster -> Lude.Text) (\s a -> s {addressId = a} :: CreateCluster)
 {-# DEPRECATED ccAddressId "Use generic-lens or generic-optics with 'addressId' instead." #-}
 
--- | The @RoleARN@ that you want to associate with this cluster. @RoleArn@ values are created by using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+-- | The type of AWS Snow Family device to use for this cluster.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccRoleARN :: Lens.Lens' CreateCluster Lude.Text
-ccRoleARN = Lens.lens (roleARN :: CreateCluster -> Lude.Text) (\s a -> s {roleARN = a} :: CreateCluster)
-{-# DEPRECATED ccRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'snowballType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccSnowballType :: Lens.Lens' CreateCluster (Lude.Maybe SnowballType)
+ccSnowballType = Lens.lens (snowballType :: CreateCluster -> Lude.Maybe SnowballType) (\s a -> s {snowballType = a} :: CreateCluster)
+{-# DEPRECATED ccSnowballType "Use generic-lens or generic-optics with 'snowballType' instead." #-}
 
 -- | The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:
 --
@@ -247,6 +249,34 @@ ccShippingOption :: Lens.Lens' CreateCluster ShippingOption
 ccShippingOption = Lens.lens (shippingOption :: CreateCluster -> ShippingOption) (\s a -> s {shippingOption = a} :: CreateCluster)
 {-# DEPRECATED ccShippingOption "Use generic-lens or generic-optics with 'shippingOption' instead." #-}
 
+-- | The resources associated with the cluster job. These resources include Amazon S3 buckets and optional AWS Lambda functions written in the Python language.
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccResources :: Lens.Lens' CreateCluster JobResource
+ccResources = Lens.lens (resources :: CreateCluster -> JobResource) (\s a -> s {resources = a} :: CreateCluster)
+{-# DEPRECATED ccResources "Use generic-lens or generic-optics with 'resources' instead." #-}
+
+-- | An optional description of this specific cluster, for example @Environmental Data Cluster-01@ .
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDescription :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccDescription = Lens.lens (description :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateCluster)
+{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The tax documents required in your AWS Region.
+--
+-- /Note:/ Consider using 'taxDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTaxDocuments :: Lens.Lens' CreateCluster (Lude.Maybe TaxDocuments)
+ccTaxDocuments = Lens.lens (taxDocuments :: CreateCluster -> Lude.Maybe TaxDocuments) (\s a -> s {taxDocuments = a} :: CreateCluster)
+{-# DEPRECATED ccTaxDocuments "Use generic-lens or generic-optics with 'taxDocuments' instead." #-}
+
+-- | The @RoleARN@ that you want to associate with this cluster. @RoleArn@ values are created by using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccRoleARN :: Lens.Lens' CreateCluster Lude.Text
+ccRoleARN = Lens.lens (roleARN :: CreateCluster -> Lude.Text) (\s a -> s {roleARN = a} :: CreateCluster)
+{-# DEPRECATED ccRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+
 instance Lude.AWSRequest CreateCluster where
   type Rs CreateCluster = CreateClusterResponse
   request = Req.postJSON snowballService
@@ -274,17 +304,17 @@ instance Lude.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("KmsKeyARN" Lude..=) Lude.<$> kmsKeyARN,
+          [ Lude.Just ("JobType" Lude..= jobType),
+            ("KmsKeyARN" Lude..=) Lude.<$> kmsKeyARN,
             ("Notification" Lude..=) Lude.<$> notification,
             ("ForwardingAddressId" Lude..=) Lude.<$> forwardingAddressId,
+            Lude.Just ("AddressId" Lude..= addressId),
             ("SnowballType" Lude..=) Lude.<$> snowballType,
+            Lude.Just ("ShippingOption" Lude..= shippingOption),
+            Lude.Just ("Resources" Lude..= resources),
             ("Description" Lude..=) Lude.<$> description,
             ("TaxDocuments" Lude..=) Lude.<$> taxDocuments,
-            Lude.Just ("JobType" Lude..= jobType),
-            Lude.Just ("Resources" Lude..= resources),
-            Lude.Just ("AddressId" Lude..= addressId),
-            Lude.Just ("RoleARN" Lude..= roleARN),
-            Lude.Just ("ShippingOption" Lude..= shippingOption)
+            Lude.Just ("RoleARN" Lude..= roleARN)
           ]
       )
 
@@ -296,17 +326,12 @@ instance Lude.ToQuery CreateCluster where
 
 -- | /See:/ 'mkCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { clusterId ::
-      Lude.Maybe Lude.Text,
+  { -- | The automatically generated ID for a cluster.
+    clusterId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
@@ -326,13 +351,13 @@ mkCreateClusterResponse pResponseStatus_ =
 -- | The automatically generated ID for a cluster.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersClusterId :: Lens.Lens' CreateClusterResponse (Lude.Maybe Lude.Text)
-crersClusterId = Lens.lens (clusterId :: CreateClusterResponse -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: CreateClusterResponse)
-{-# DEPRECATED crersClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+crsClusterId :: Lens.Lens' CreateClusterResponse (Lude.Maybe Lude.Text)
+crsClusterId = Lens.lens (clusterId :: CreateClusterResponse -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: CreateClusterResponse)
+{-# DEPRECATED crsClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersResponseStatus :: Lens.Lens' CreateClusterResponse Lude.Int
-crersResponseStatus = Lens.lens (responseStatus :: CreateClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateClusterResponse)
-{-# DEPRECATED crersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crsResponseStatus :: Lens.Lens' CreateClusterResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CreateClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateClusterResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

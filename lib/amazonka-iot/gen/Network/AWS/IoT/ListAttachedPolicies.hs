@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,26 +47,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAttachedPolicies' smart constructor.
 data ListAttachedPolicies = ListAttachedPolicies'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to retrieve the next set of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | When true, recursively list attached policies.
     recursive :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to be returned per request.
     pageSize :: Lude.Maybe Lude.Natural,
+    -- | The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
     target :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAttachedPolicies' with the minimum fields required to make a request.
 --
 -- * 'marker' - The token to retrieve the next set of results.
--- * 'pageSize' - The maximum number of results to be returned per request.
 -- * 'recursive' - When true, recursively list attached policies.
+-- * 'pageSize' - The maximum number of results to be returned per request.
 -- * 'target' - The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
 mkListAttachedPolicies ::
   -- | 'target'
@@ -148,18 +146,14 @@ instance Lude.ToQuery ListAttachedPolicies where
 
 -- | /See:/ 'mkListAttachedPoliciesResponse' smart constructor.
 data ListAttachedPoliciesResponse = ListAttachedPoliciesResponse'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to retrieve the next set of results, or ``null`` if there are no more results.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The policies.
     policies :: Lude.Maybe [Policy],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAttachedPoliciesResponse' with the minimum fields required to make a request.

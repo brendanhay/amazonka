@@ -32,24 +32,20 @@ import Network.AWS.StepFunctions.Types.LogLevel
 --
 -- /See:/ 'mkLoggingConfiguration' smart constructor.
 data LoggingConfiguration = LoggingConfiguration'
-  { includeExecutionData ::
-      Lude.Maybe Lude.Bool,
+  { -- | Determines whether execution data is included in your log. When set to @false@ , data is excluded.
+    includeExecutionData :: Lude.Maybe Lude.Bool,
+    -- | An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to @OFF@ .
     destinations :: Lude.Maybe [LogDestination],
+    -- | Defines which category of execution history events are logged.
     level :: Lude.Maybe LogLevel
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoggingConfiguration' with the minimum fields required to make a request.
 --
--- * 'destinations' - An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to @OFF@ .
 -- * 'includeExecutionData' - Determines whether execution data is included in your log. When set to @false@ , data is excluded.
+-- * 'destinations' - An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to @OFF@ .
 -- * 'level' - Defines which category of execution history events are logged.
 mkLoggingConfiguration ::
   LoggingConfiguration

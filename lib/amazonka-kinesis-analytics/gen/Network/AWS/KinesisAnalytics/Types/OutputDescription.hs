@@ -37,34 +37,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputDescription' smart constructor.
 data OutputDescription = OutputDescription'
-  { outputId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for the output configuration.
+    outputId :: Lude.Maybe Lude.Text,
+    -- | Data format used for writing data to the destination.
     destinationSchema :: Lude.Maybe DestinationSchema,
-    kinesisFirehoseOutputDescription ::
-      Lude.Maybe KinesisFirehoseOutputDescription,
-    kinesisStreamsOutputDescription ::
-      Lude.Maybe KinesisStreamsOutputDescription,
+    -- | Describes the Amazon Kinesis Firehose delivery stream configured as the destination where output is written.
+    kinesisFirehoseOutputDescription :: Lude.Maybe KinesisFirehoseOutputDescription,
+    -- | Describes Amazon Kinesis stream configured as the destination where output is written.
+    kinesisStreamsOutputDescription :: Lude.Maybe KinesisStreamsOutputDescription,
+    -- | Name of the in-application stream configured as output.
     name :: Lude.Maybe Lude.Text,
-    lambdaOutputDescription ::
-      Lude.Maybe LambdaOutputDescription
+    -- | Describes the AWS Lambda function configured as the destination where output is written.
+    lambdaOutputDescription :: Lude.Maybe LambdaOutputDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputDescription' with the minimum fields required to make a request.
 --
+-- * 'outputId' - A unique identifier for the output configuration.
 -- * 'destinationSchema' - Data format used for writing data to the destination.
 -- * 'kinesisFirehoseOutputDescription' - Describes the Amazon Kinesis Firehose delivery stream configured as the destination where output is written.
 -- * 'kinesisStreamsOutputDescription' - Describes Amazon Kinesis stream configured as the destination where output is written.
--- * 'lambdaOutputDescription' - Describes the AWS Lambda function configured as the destination where output is written.
 -- * 'name' - Name of the in-application stream configured as output.
--- * 'outputId' - A unique identifier for the output configuration.
+-- * 'lambdaOutputDescription' - Describes the AWS Lambda function configured as the destination where output is written.
 mkOutputDescription ::
   OutputDescription
 mkOutputDescription =

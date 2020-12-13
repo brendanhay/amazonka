@@ -33,24 +33,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplication' smart constructor.
 data Application = Application'
-  { args :: Lude.Maybe [Lude.Text],
+  { -- | Arguments for Amazon EMR to pass to the application.
+    args :: Lude.Maybe [Lude.Text],
+    -- | This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
     additionalInfo :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the application.
     name :: Lude.Maybe Lude.Text,
+    -- | The version of the application.
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Application' with the minimum fields required to make a request.
 --
--- * 'additionalInfo' - This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
 -- * 'args' - Arguments for Amazon EMR to pass to the application.
+-- * 'additionalInfo' - This option is for advanced users only. This is meta information about third-party applications that third-party vendors use for testing purposes.
 -- * 'name' - The name of the application.
 -- * 'version' - The version of the application.
 mkApplication ::

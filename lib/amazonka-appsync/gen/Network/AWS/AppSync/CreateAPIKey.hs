@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AppSync.CreateAPIKey
     mkCreateAPIKey,
 
     -- ** Request lenses
+    cakApiId,
     cakExpires,
     cakDescription,
-    cakApiId,
 
     -- * Destructuring the response
     CreateAPIKeyResponse (..),
@@ -41,35 +42,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
-  { expires ::
-      Lude.Maybe Lude.Integer,
-    description :: Lude.Maybe Lude.Text,
-    apiId :: Lude.Text
+  { -- | The ID for your GraphQL API.
+    apiId :: Lude.Text,
+    -- | The time from creation time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time. For more information, see .
+    expires :: Lude.Maybe Lude.Integer,
+    -- | A description of the purpose of the API key.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAPIKey' with the minimum fields required to make a request.
 --
 -- * 'apiId' - The ID for your GraphQL API.
--- * 'description' - A description of the purpose of the API key.
 -- * 'expires' - The time from creation time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time. For more information, see .
+-- * 'description' - A description of the purpose of the API key.
 mkCreateAPIKey ::
   -- | 'apiId'
   Lude.Text ->
   CreateAPIKey
 mkCreateAPIKey pApiId_ =
   CreateAPIKey'
-    { expires = Lude.Nothing,
-      description = Lude.Nothing,
-      apiId = pApiId_
+    { apiId = pApiId_,
+      expires = Lude.Nothing,
+      description = Lude.Nothing
     }
+
+-- | The ID for your GraphQL API.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakApiId :: Lens.Lens' CreateAPIKey Lude.Text
+cakApiId = Lens.lens (apiId :: CreateAPIKey -> Lude.Text) (\s a -> s {apiId = a} :: CreateAPIKey)
+{-# DEPRECATED cakApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The time from creation time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time. For more information, see .
 --
@@ -84,13 +88,6 @@ cakExpires = Lens.lens (expires :: CreateAPIKey -> Lude.Maybe Lude.Integer) (\s 
 cakDescription :: Lens.Lens' CreateAPIKey (Lude.Maybe Lude.Text)
 cakDescription = Lens.lens (description :: CreateAPIKey -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateAPIKey)
 {-# DEPRECATED cakDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The ID for your GraphQL API.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cakApiId :: Lens.Lens' CreateAPIKey Lude.Text
-cakApiId = Lens.lens (apiId :: CreateAPIKey -> Lude.Text) (\s a -> s {apiId = a} :: CreateAPIKey)
-{-# DEPRECATED cakApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 instance Lude.AWSRequest CreateAPIKey where
   type Rs CreateAPIKey = CreateAPIKeyResponse
@@ -129,17 +126,12 @@ instance Lude.ToQuery CreateAPIKey where
 
 -- | /See:/ 'mkCreateAPIKeyResponse' smart constructor.
 data CreateAPIKeyResponse = CreateAPIKeyResponse'
-  { apiKey ::
-      Lude.Maybe APIKey,
+  { -- | The API key.
+    apiKey :: Lude.Maybe APIKey,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAPIKeyResponse' with the minimum fields required to make a request.

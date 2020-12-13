@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImpact' smart constructor.
 data Impact = Impact'
-  { totalImpact :: Lude.Maybe Lude.Double,
+  { -- | The cumulative dollar value observed for an anomaly.
+    totalImpact :: Lude.Maybe Lude.Double,
+    -- | The maximum dollar value observed for an anomaly.
     maxImpact :: Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Impact' with the minimum fields required to make a request.
 --
--- * 'maxImpact' - The maximum dollar value observed for an anomaly.
 -- * 'totalImpact' - The cumulative dollar value observed for an anomaly.
+-- * 'maxImpact' - The maximum dollar value observed for an anomaly.
 mkImpact ::
   -- | 'maxImpact'
   Lude.Double ->

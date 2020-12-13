@@ -13,13 +13,13 @@
 module Network.AWS.GameLift.Types.GameServerGroupStatus
   ( GameServerGroupStatus
       ( GameServerGroupStatus',
+        GSGSNew,
         GSGSActivating,
         GSGSActive,
         GSGSDeleteScheduled,
-        GSGSDeleted,
         GSGSDeleting,
-        GSGSError,
-        GSGSNew
+        GSGSDeleted,
+        GSGSError
       ),
   )
 where
@@ -50,6 +50,9 @@ newtype GameServerGroupStatus = GameServerGroupStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern GSGSNew :: GameServerGroupStatus
+pattern GSGSNew = GameServerGroupStatus' "NEW"
+
 pattern GSGSActivating :: GameServerGroupStatus
 pattern GSGSActivating = GameServerGroupStatus' "ACTIVATING"
 
@@ -59,25 +62,22 @@ pattern GSGSActive = GameServerGroupStatus' "ACTIVE"
 pattern GSGSDeleteScheduled :: GameServerGroupStatus
 pattern GSGSDeleteScheduled = GameServerGroupStatus' "DELETE_SCHEDULED"
 
-pattern GSGSDeleted :: GameServerGroupStatus
-pattern GSGSDeleted = GameServerGroupStatus' "DELETED"
-
 pattern GSGSDeleting :: GameServerGroupStatus
 pattern GSGSDeleting = GameServerGroupStatus' "DELETING"
+
+pattern GSGSDeleted :: GameServerGroupStatus
+pattern GSGSDeleted = GameServerGroupStatus' "DELETED"
 
 pattern GSGSError :: GameServerGroupStatus
 pattern GSGSError = GameServerGroupStatus' "ERROR"
 
-pattern GSGSNew :: GameServerGroupStatus
-pattern GSGSNew = GameServerGroupStatus' "NEW"
-
 {-# COMPLETE
+  GSGSNew,
   GSGSActivating,
   GSGSActive,
   GSGSDeleteScheduled,
-  GSGSDeleted,
   GSGSDeleting,
+  GSGSDeleted,
   GSGSError,
-  GSGSNew,
   GameServerGroupStatus'
   #-}

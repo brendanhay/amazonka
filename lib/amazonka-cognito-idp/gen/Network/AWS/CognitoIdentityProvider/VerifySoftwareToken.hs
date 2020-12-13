@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CognitoIdentityProvider.VerifySoftwareToken
     -- ** Request lenses
     vstAccessToken,
     vstFriendlyDeviceName,
-    vstSession,
     vstUserCode,
+    vstSession,
 
     -- * Destructuring the response
     VerifySoftwareTokenResponse (..),
@@ -43,11 +44,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkVerifySoftwareToken' smart constructor.
 data VerifySoftwareToken = VerifySoftwareToken'
-  { accessToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The access token.
+    accessToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The friendly device name.
     friendlyDeviceName :: Lude.Maybe Lude.Text,
-    session :: Lude.Maybe Lude.Text,
-    userCode :: Lude.Text
+    -- | The one time password computed using the secret code returned by <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken"> .
+    userCode :: Lude.Text,
+    -- | The session which should be passed both ways in challenge-response calls to the service.
+    session :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -56,8 +60,8 @@ data VerifySoftwareToken = VerifySoftwareToken'
 --
 -- * 'accessToken' - The access token.
 -- * 'friendlyDeviceName' - The friendly device name.
--- * 'session' - The session which should be passed both ways in challenge-response calls to the service.
 -- * 'userCode' - The one time password computed using the secret code returned by <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken"> .
+-- * 'session' - The session which should be passed both ways in challenge-response calls to the service.
 mkVerifySoftwareToken ::
   -- | 'userCode'
   Lude.Text ->
@@ -66,8 +70,8 @@ mkVerifySoftwareToken pUserCode_ =
   VerifySoftwareToken'
     { accessToken = Lude.Nothing,
       friendlyDeviceName = Lude.Nothing,
-      session = Lude.Nothing,
-      userCode = pUserCode_
+      userCode = pUserCode_,
+      session = Lude.Nothing
     }
 
 -- | The access token.
@@ -84,19 +88,19 @@ vstFriendlyDeviceName :: Lens.Lens' VerifySoftwareToken (Lude.Maybe Lude.Text)
 vstFriendlyDeviceName = Lens.lens (friendlyDeviceName :: VerifySoftwareToken -> Lude.Maybe Lude.Text) (\s a -> s {friendlyDeviceName = a} :: VerifySoftwareToken)
 {-# DEPRECATED vstFriendlyDeviceName "Use generic-lens or generic-optics with 'friendlyDeviceName' instead." #-}
 
--- | The session which should be passed both ways in challenge-response calls to the service.
---
--- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vstSession :: Lens.Lens' VerifySoftwareToken (Lude.Maybe Lude.Text)
-vstSession = Lens.lens (session :: VerifySoftwareToken -> Lude.Maybe Lude.Text) (\s a -> s {session = a} :: VerifySoftwareToken)
-{-# DEPRECATED vstSession "Use generic-lens or generic-optics with 'session' instead." #-}
-
 -- | The one time password computed using the secret code returned by <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken"> .
 --
 -- /Note:/ Consider using 'userCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 vstUserCode :: Lens.Lens' VerifySoftwareToken Lude.Text
 vstUserCode = Lens.lens (userCode :: VerifySoftwareToken -> Lude.Text) (\s a -> s {userCode = a} :: VerifySoftwareToken)
 {-# DEPRECATED vstUserCode "Use generic-lens or generic-optics with 'userCode' instead." #-}
+
+-- | The session which should be passed both ways in challenge-response calls to the service.
+--
+-- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vstSession :: Lens.Lens' VerifySoftwareToken (Lude.Maybe Lude.Text)
+vstSession = Lens.lens (session :: VerifySoftwareToken -> Lude.Maybe Lude.Text) (\s a -> s {session = a} :: VerifySoftwareToken)
+{-# DEPRECATED vstSession "Use generic-lens or generic-optics with 'session' instead." #-}
 
 instance Lude.AWSRequest VerifySoftwareToken where
   type Rs VerifySoftwareToken = VerifySoftwareTokenResponse
@@ -129,8 +133,8 @@ instance Lude.ToJSON VerifySoftwareToken where
       ( Lude.catMaybes
           [ ("AccessToken" Lude..=) Lude.<$> accessToken,
             ("FriendlyDeviceName" Lude..=) Lude.<$> friendlyDeviceName,
-            ("Session" Lude..=) Lude.<$> session,
-            Lude.Just ("UserCode" Lude..= userCode)
+            Lude.Just ("UserCode" Lude..= userCode),
+            ("Session" Lude..=) Lude.<$> session
           ]
       )
 
@@ -142,26 +146,21 @@ instance Lude.ToQuery VerifySoftwareToken where
 
 -- | /See:/ 'mkVerifySoftwareTokenResponse' smart constructor.
 data VerifySoftwareTokenResponse = VerifySoftwareTokenResponse'
-  { status ::
-      Lude.Maybe
-        VerifySoftwareTokenResponseType,
+  { -- | The status of the verify software token.
+    status :: Lude.Maybe VerifySoftwareTokenResponseType,
+    -- | The session which should be passed both ways in challenge-response calls to the service.
     session :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerifySoftwareTokenResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'session' - The session which should be passed both ways in challenge-response calls to the service.
 -- * 'status' - The status of the verify software token.
+-- * 'session' - The session which should be passed both ways in challenge-response calls to the service.
+-- * 'responseStatus' - The response status code.
 mkVerifySoftwareTokenResponse ::
   -- | 'responseStatus'
   Lude.Int ->

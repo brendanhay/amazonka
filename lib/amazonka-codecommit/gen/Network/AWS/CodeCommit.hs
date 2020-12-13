@@ -775,9 +775,9 @@ module Network.AWS.CodeCommit
     -- ** Folder
     Folder (..),
     mkFolder,
-    folAbsolutePath,
-    folTreeId,
-    folRelativePath,
+    ffAbsolutePath,
+    ffTreeId,
+    ffRelativePath,
 
     -- ** IsBinaryFile
     IsBinaryFile (..),
@@ -909,8 +909,8 @@ module Network.AWS.CodeCommit
     mkPutFileEntry,
     pfeFileContent,
     pfeFileMode,
-    pfeSourceFile,
     pfeFilePath,
+    pfeSourceFile,
 
     -- ** ReactionForComment
     ReactionForComment (..),
@@ -930,9 +930,9 @@ module Network.AWS.CodeCommit
     ReplaceContentEntry (..),
     mkReplaceContentEntry,
     rceFileMode,
-    rceContent,
     rceFilePath,
     rceReplacementType,
+    rceContent,
 
     -- ** RepositoryMetadata
     RepositoryMetadata (..),
@@ -959,8 +959,8 @@ module Network.AWS.CodeCommit
     mkRepositoryTrigger,
     rtBranches,
     rtCustomData,
-    rtName,
     rtDestinationARN,
+    rtName,
     rtEvents,
 
     -- ** RepositoryTriggerExecutionFailure
@@ -972,14 +972,14 @@ module Network.AWS.CodeCommit
     -- ** SetFileModeEntry
     SetFileModeEntry (..),
     mkSetFileModeEntry,
-    sfmeFilePath,
     sfmeFileMode,
+    sfmeFilePath,
 
     -- ** SourceFileSpecifier
     SourceFileSpecifier (..),
     mkSourceFileSpecifier,
-    sfsIsMove,
     sfsFilePath,
+    sfsIsMove,
 
     -- ** SubModule
     SubModule (..),

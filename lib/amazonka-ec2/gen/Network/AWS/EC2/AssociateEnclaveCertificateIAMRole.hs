@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,20 +47,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateEnclaveCertificateIAMRole' smart constructor.
 data AssociateEnclaveCertificateIAMRole = AssociateEnclaveCertificateIAMRole'
-  { certificateARN ::
-      Lude.Maybe Lude.Text,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    roleARN ::
-      Lude.Maybe Lude.Text
+  { -- | The ARN of the ACM certificate with which to associate the IAM role.
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateEnclaveCertificateIAMRole' with the minimum fields required to make a request.
@@ -132,25 +127,16 @@ instance Lude.ToQuery AssociateEnclaveCertificateIAMRole where
 
 -- | /See:/ 'mkAssociateEnclaveCertificateIAMRoleResponse' smart constructor.
 data AssociateEnclaveCertificateIAMRoleResponse = AssociateEnclaveCertificateIAMRoleResponse'
-  { certificateS3BucketName ::
-      Lude.Maybe
-        Lude.Text,
-    certificateS3ObjectKey ::
-      Lude.Maybe
-        Lude.Text,
-    encryptionKMSKeyId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the Amazon S3 bucket to which the certificate was uploaded.
+    certificateS3BucketName :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored. The object key is formatted as follows: @certificate_arn@ /@role_arn@ .
+    certificateS3ObjectKey :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS KMS CMK used to encrypt the private key of the certificate.
+    encryptionKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateEnclaveCertificateIAMRoleResponse' with the minimum fields required to make a request.

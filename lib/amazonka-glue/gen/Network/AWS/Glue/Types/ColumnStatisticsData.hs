@@ -23,8 +23,8 @@ module Network.AWS.Glue.Types.ColumnStatisticsData
     csdDecimalColumnStatisticsData,
     csdDoubleColumnStatisticsData,
     csdStringColumnStatisticsData,
-    csdLongColumnStatisticsData,
     csdType,
+    csdLongColumnStatisticsData,
   )
 where
 
@@ -43,41 +43,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkColumnStatisticsData' smart constructor.
 data ColumnStatisticsData = ColumnStatisticsData'
-  { binaryColumnStatisticsData ::
-      Lude.Maybe BinaryColumnStatisticsData,
-    dateColumnStatisticsData ::
-      Lude.Maybe DateColumnStatisticsData,
-    booleanColumnStatisticsData ::
-      Lude.Maybe BooleanColumnStatisticsData,
-    decimalColumnStatisticsData ::
-      Lude.Maybe DecimalColumnStatisticsData,
-    doubleColumnStatisticsData ::
-      Lude.Maybe DoubleColumnStatisticsData,
-    stringColumnStatisticsData ::
-      Lude.Maybe StringColumnStatisticsData,
-    longColumnStatisticsData ::
-      Lude.Maybe LongColumnStatisticsData,
-    type' :: ColumnStatisticsType
+  { -- | Binary column statistics data.
+    binaryColumnStatisticsData :: Lude.Maybe BinaryColumnStatisticsData,
+    -- | Date column statistics data.
+    dateColumnStatisticsData :: Lude.Maybe DateColumnStatisticsData,
+    -- | Boolean column statistics data.
+    booleanColumnStatisticsData :: Lude.Maybe BooleanColumnStatisticsData,
+    -- | Decimal column statistics data.
+    decimalColumnStatisticsData :: Lude.Maybe DecimalColumnStatisticsData,
+    -- | Double column statistics data.
+    doubleColumnStatisticsData :: Lude.Maybe DoubleColumnStatisticsData,
+    -- | String column statistics data.
+    stringColumnStatisticsData :: Lude.Maybe StringColumnStatisticsData,
+    -- | The type of column statistics data.
+    type' :: ColumnStatisticsType,
+    -- | Long column statistics data.
+    longColumnStatisticsData :: Lude.Maybe LongColumnStatisticsData
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ColumnStatisticsData' with the minimum fields required to make a request.
 --
 -- * 'binaryColumnStatisticsData' - Binary column statistics data.
--- * 'booleanColumnStatisticsData' - Boolean column statistics data.
 -- * 'dateColumnStatisticsData' - Date column statistics data.
+-- * 'booleanColumnStatisticsData' - Boolean column statistics data.
 -- * 'decimalColumnStatisticsData' - Decimal column statistics data.
 -- * 'doubleColumnStatisticsData' - Double column statistics data.
--- * 'longColumnStatisticsData' - Long column statistics data.
 -- * 'stringColumnStatisticsData' - String column statistics data.
 -- * 'type'' - The type of column statistics data.
+-- * 'longColumnStatisticsData' - Long column statistics data.
 mkColumnStatisticsData ::
   -- | 'type''
   ColumnStatisticsType ->
@@ -90,8 +85,8 @@ mkColumnStatisticsData pType_ =
       decimalColumnStatisticsData = Lude.Nothing,
       doubleColumnStatisticsData = Lude.Nothing,
       stringColumnStatisticsData = Lude.Nothing,
-      longColumnStatisticsData = Lude.Nothing,
-      type' = pType_
+      type' = pType_,
+      longColumnStatisticsData = Lude.Nothing
     }
 
 -- | Binary column statistics data.
@@ -136,19 +131,19 @@ csdStringColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe Str
 csdStringColumnStatisticsData = Lens.lens (stringColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe StringColumnStatisticsData) (\s a -> s {stringColumnStatisticsData = a} :: ColumnStatisticsData)
 {-# DEPRECATED csdStringColumnStatisticsData "Use generic-lens or generic-optics with 'stringColumnStatisticsData' instead." #-}
 
--- | Long column statistics data.
---
--- /Note:/ Consider using 'longColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdLongColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe LongColumnStatisticsData)
-csdLongColumnStatisticsData = Lens.lens (longColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe LongColumnStatisticsData) (\s a -> s {longColumnStatisticsData = a} :: ColumnStatisticsData)
-{-# DEPRECATED csdLongColumnStatisticsData "Use generic-lens or generic-optics with 'longColumnStatisticsData' instead." #-}
-
 -- | The type of column statistics data.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 csdType :: Lens.Lens' ColumnStatisticsData ColumnStatisticsType
 csdType = Lens.lens (type' :: ColumnStatisticsData -> ColumnStatisticsType) (\s a -> s {type' = a} :: ColumnStatisticsData)
 {-# DEPRECATED csdType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | Long column statistics data.
+--
+-- /Note:/ Consider using 'longColumnStatisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdLongColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Lude.Maybe LongColumnStatisticsData)
+csdLongColumnStatisticsData = Lens.lens (longColumnStatisticsData :: ColumnStatisticsData -> Lude.Maybe LongColumnStatisticsData) (\s a -> s {longColumnStatisticsData = a} :: ColumnStatisticsData)
+{-# DEPRECATED csdLongColumnStatisticsData "Use generic-lens or generic-optics with 'longColumnStatisticsData' instead." #-}
 
 instance Lude.FromJSON ColumnStatisticsData where
   parseJSON =
@@ -162,8 +157,8 @@ instance Lude.FromJSON ColumnStatisticsData where
             Lude.<*> (x Lude..:? "DecimalColumnStatisticsData")
             Lude.<*> (x Lude..:? "DoubleColumnStatisticsData")
             Lude.<*> (x Lude..:? "StringColumnStatisticsData")
-            Lude.<*> (x Lude..:? "LongColumnStatisticsData")
             Lude.<*> (x Lude..: "Type")
+            Lude.<*> (x Lude..:? "LongColumnStatisticsData")
       )
 
 instance Lude.ToJSON ColumnStatisticsData where
@@ -182,8 +177,8 @@ instance Lude.ToJSON ColumnStatisticsData where
               Lude.<$> doubleColumnStatisticsData,
             ("StringColumnStatisticsData" Lude..=)
               Lude.<$> stringColumnStatisticsData,
+            Lude.Just ("Type" Lude..= type'),
             ("LongColumnStatisticsData" Lude..=)
-              Lude.<$> longColumnStatisticsData,
-            Lude.Just ("Type" Lude..= type')
+              Lude.<$> longColumnStatisticsData
           ]
       )

@@ -17,8 +17,8 @@ module Network.AWS.DataPipeline.Types.ParameterAttribute
     mkParameterAttribute,
 
     -- * Lenses
-    paKey,
     paStringValue,
+    paKey,
   )
 where
 
@@ -29,37 +29,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameterAttribute' smart constructor.
 data ParameterAttribute = ParameterAttribute'
-  { key :: Lude.Text,
-    stringValue :: Lude.Text
+  { -- | The field value, expressed as a String.
+    stringValue :: Lude.Text,
+    -- | The field identifier.
+    key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterAttribute' with the minimum fields required to make a request.
 --
--- * 'key' - The field identifier.
 -- * 'stringValue' - The field value, expressed as a String.
+-- * 'key' - The field identifier.
 mkParameterAttribute ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'stringValue'
   Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   ParameterAttribute
-mkParameterAttribute pKey_ pStringValue_ =
-  ParameterAttribute' {key = pKey_, stringValue = pStringValue_}
-
--- | The field identifier.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paKey :: Lens.Lens' ParameterAttribute Lude.Text
-paKey = Lens.lens (key :: ParameterAttribute -> Lude.Text) (\s a -> s {key = a} :: ParameterAttribute)
-{-# DEPRECATED paKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkParameterAttribute pStringValue_ pKey_ =
+  ParameterAttribute' {stringValue = pStringValue_, key = pKey_}
 
 -- | The field value, expressed as a String.
 --
@@ -68,20 +57,27 @@ paStringValue :: Lens.Lens' ParameterAttribute Lude.Text
 paStringValue = Lens.lens (stringValue :: ParameterAttribute -> Lude.Text) (\s a -> s {stringValue = a} :: ParameterAttribute)
 {-# DEPRECATED paStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
+-- | The field identifier.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paKey :: Lens.Lens' ParameterAttribute Lude.Text
+paKey = Lens.lens (key :: ParameterAttribute -> Lude.Text) (\s a -> s {key = a} :: ParameterAttribute)
+{-# DEPRECATED paKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromJSON ParameterAttribute where
   parseJSON =
     Lude.withObject
       "ParameterAttribute"
       ( \x ->
           ParameterAttribute'
-            Lude.<$> (x Lude..: "key") Lude.<*> (x Lude..: "stringValue")
+            Lude.<$> (x Lude..: "stringValue") Lude.<*> (x Lude..: "key")
       )
 
 instance Lude.ToJSON ParameterAttribute where
   toJSON ParameterAttribute' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("key" Lude..= key),
-            Lude.Just ("stringValue" Lude..= stringValue)
+          [ Lude.Just ("stringValue" Lude..= stringValue),
+            Lude.Just ("key" Lude..= key)
           ]
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.CloudFormation.DescribeStackSet
     mkDescribeStackSet,
 
     -- ** Request lenses
-    desStackSetName,
+    dssStackSetName,
 
     -- * Destructuring the response
     DescribeStackSetResponse (..),
     mkDescribeStackSetResponse,
 
     -- ** Response lenses
-    desrsStackSet,
-    desrsResponseStatus,
+    dssfrsStackSet,
+    dssfrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStackSet' smart constructor.
 newtype DescribeStackSet = DescribeStackSet'
-  { stackSetName ::
-      Lude.Text
+  { -- | The name or unique ID of the stack set whose description you want.
+    stackSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSet' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDescribeStackSet pStackSetName_ =
 -- | The name or unique ID of the stack set whose description you want.
 --
 -- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desStackSetName :: Lens.Lens' DescribeStackSet Lude.Text
-desStackSetName = Lens.lens (stackSetName :: DescribeStackSet -> Lude.Text) (\s a -> s {stackSetName = a} :: DescribeStackSet)
-{-# DEPRECATED desStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+dssStackSetName :: Lens.Lens' DescribeStackSet Lude.Text
+dssStackSetName = Lens.lens (stackSetName :: DescribeStackSet -> Lude.Text) (\s a -> s {stackSetName = a} :: DescribeStackSet)
+{-# DEPRECATED dssStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 instance Lude.AWSRequest DescribeStackSet where
   type Rs DescribeStackSet = DescribeStackSetResponse
@@ -95,23 +90,18 @@ instance Lude.ToQuery DescribeStackSet where
 
 -- | /See:/ 'mkDescribeStackSetResponse' smart constructor.
 data DescribeStackSetResponse = DescribeStackSetResponse'
-  { stackSet ::
-      Lude.Maybe StackSet,
+  { -- | The specified stack set.
+    stackSet :: Lude.Maybe StackSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSetResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stackSet' - The specified stack set.
+-- * 'responseStatus' - The response status code.
 mkDescribeStackSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -125,13 +115,13 @@ mkDescribeStackSetResponse pResponseStatus_ =
 -- | The specified stack set.
 --
 -- /Note:/ Consider using 'stackSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsStackSet :: Lens.Lens' DescribeStackSetResponse (Lude.Maybe StackSet)
-desrsStackSet = Lens.lens (stackSet :: DescribeStackSetResponse -> Lude.Maybe StackSet) (\s a -> s {stackSet = a} :: DescribeStackSetResponse)
-{-# DEPRECATED desrsStackSet "Use generic-lens or generic-optics with 'stackSet' instead." #-}
+dssfrsStackSet :: Lens.Lens' DescribeStackSetResponse (Lude.Maybe StackSet)
+dssfrsStackSet = Lens.lens (stackSet :: DescribeStackSetResponse -> Lude.Maybe StackSet) (\s a -> s {stackSet = a} :: DescribeStackSetResponse)
+{-# DEPRECATED dssfrsStackSet "Use generic-lens or generic-optics with 'stackSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeStackSetResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeStackSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackSetResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dssfrsResponseStatus :: Lens.Lens' DescribeStackSetResponse Lude.Int
+dssfrsResponseStatus = Lens.lens (responseStatus :: DescribeStackSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackSetResponse)
+{-# DEPRECATED dssfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

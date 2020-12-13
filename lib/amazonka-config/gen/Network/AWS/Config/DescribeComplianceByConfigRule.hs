@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -60,28 +61,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeComplianceByConfigRule' smart constructor.
 data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
-  { configRuleNames ::
-      Lude.Maybe [Lude.Text],
-    complianceTypes ::
-      Lude.Maybe [ComplianceType],
-    nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | Specify one or more AWS Config rule names to filter the results by rule.
+    configRuleNames :: Lude.Maybe [Lude.Text],
+    -- | Filters the results by compliance.
+    --
+    -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
+    complianceTypes :: Lude.Maybe [ComplianceType],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeComplianceByConfigRule' with the minimum fields required to make a request.
 --
+-- * 'configRuleNames' - Specify one or more AWS Config rule names to filter the results by rule.
 -- * 'complianceTypes' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
--- * 'configRuleNames' - Specify one or more AWS Config rule names to filter the results by rule.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 mkDescribeComplianceByConfigRule ::
   DescribeComplianceByConfigRule
@@ -172,22 +169,14 @@ instance Lude.ToQuery DescribeComplianceByConfigRule where
 --
 -- /See:/ 'mkDescribeComplianceByConfigRuleResponse' smart constructor.
 data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResponse'
-  { complianceByConfigRules ::
-      Lude.Maybe
-        [ComplianceByConfigRule],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Indicates whether each of the specified AWS Config rules is compliant.
+    complianceByConfigRules :: Lude.Maybe [ComplianceByConfigRule],
+    -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeComplianceByConfigRuleResponse' with the minimum fields required to make a request.

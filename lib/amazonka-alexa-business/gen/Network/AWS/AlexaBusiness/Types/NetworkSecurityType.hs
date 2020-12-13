@@ -14,10 +14,10 @@ module Network.AWS.AlexaBusiness.Types.NetworkSecurityType
   ( NetworkSecurityType
       ( NetworkSecurityType',
         Open,
-        WPA2Enterprise,
-        WPA2Psk,
         Wep,
-        WpaPsk
+        WpaPsk,
+        WPA2Psk,
+        WPA2Enterprise
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype NetworkSecurityType = NetworkSecurityType' Lude.Text
 pattern Open :: NetworkSecurityType
 pattern Open = NetworkSecurityType' "OPEN"
 
-pattern WPA2Enterprise :: NetworkSecurityType
-pattern WPA2Enterprise = NetworkSecurityType' "WPA2_ENTERPRISE"
-
-pattern WPA2Psk :: NetworkSecurityType
-pattern WPA2Psk = NetworkSecurityType' "WPA2_PSK"
-
 pattern Wep :: NetworkSecurityType
 pattern Wep = NetworkSecurityType' "WEP"
 
 pattern WpaPsk :: NetworkSecurityType
 pattern WpaPsk = NetworkSecurityType' "WPA_PSK"
 
+pattern WPA2Psk :: NetworkSecurityType
+pattern WPA2Psk = NetworkSecurityType' "WPA2_PSK"
+
+pattern WPA2Enterprise :: NetworkSecurityType
+pattern WPA2Enterprise = NetworkSecurityType' "WPA2_ENTERPRISE"
+
 {-# COMPLETE
   Open,
-  WPA2Enterprise,
-  WPA2Psk,
   Wep,
   WpaPsk,
+  WPA2Psk,
+  WPA2Enterprise,
   NetworkSecurityType'
   #-}

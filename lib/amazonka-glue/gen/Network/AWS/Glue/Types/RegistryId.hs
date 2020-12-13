@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegistryId' smart constructor.
 data RegistryId = RegistryId'
-  { registryName :: Lude.Maybe Lude.Text,
+  { -- | Name of the registry. Used only for lookup. One of @RegistryArn@ or @RegistryName@ has to be provided.
+    registryName :: Lude.Maybe Lude.Text,
+    -- | Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
     registryARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegistryId' with the minimum fields required to make a request.
 --
--- * 'registryARN' - Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
 -- * 'registryName' - Name of the registry. Used only for lookup. One of @RegistryArn@ or @RegistryName@ has to be provided.
+-- * 'registryARN' - Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
 mkRegistryId ::
   RegistryId
 mkRegistryId =

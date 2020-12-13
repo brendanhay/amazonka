@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,9 +34,9 @@ module Network.AWS.DirectoryService.DescribeTrusts
     mkDescribeTrustsResponse,
 
     -- ** Response lenses
-    dtrsNextToken,
-    dtrsTrusts,
-    dtrsResponseStatus,
+    dtsrsNextToken,
+    dtsrsTrusts,
+    dtsrsResponseStatus,
   )
 where
 
@@ -50,29 +51,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeTrusts' smart constructor.
 data DescribeTrusts = DescribeTrusts'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The Directory ID of the AWS directory that is a part of the requested trust relationship.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The /DescribeTrustsResult.NextToken/ value from a previous call to 'DescribeTrusts' . Pass null if this is the first call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of identifiers of the trust relationships for which to obtain the information. If this member is null, all trust relationships that belong to the current account are returned.
+    --
+    -- An empty list results in an @InvalidParameterException@ being thrown.
     trustIds :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of objects to return.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrusts' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - The Directory ID of the AWS directory that is a part of the requested trust relationship.
--- * 'limit' - The maximum number of objects to return.
 -- * 'nextToken' - The /DescribeTrustsResult.NextToken/ value from a previous call to 'DescribeTrusts' . Pass null if this is the first call.
 -- * 'trustIds' - A list of identifiers of the trust relationships for which to obtain the information. If this member is null, all trust relationships that belong to the current account are returned.
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
+-- * 'limit' - The maximum number of objects to return.
 mkDescribeTrusts ::
   DescribeTrusts
 mkDescribeTrusts =
@@ -115,12 +115,12 @@ dtLimit = Lens.lens (limit :: DescribeTrusts -> Lude.Maybe Lude.Natural) (\s a -
 
 instance Page.AWSPager DescribeTrusts where
   page rq rs
-    | Page.stop (rs Lens.^. dtrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtrsTrusts) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtsrsTrusts) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dtNextToken Lens..~ rs Lens.^. dtrsNextToken
+          Lude.& dtNextToken Lens..~ rs Lens.^. dtsrsNextToken
 
 instance Lude.AWSRequest DescribeTrusts where
   type Rs DescribeTrusts = DescribeTrustsResponse
@@ -166,27 +166,25 @@ instance Lude.ToQuery DescribeTrusts where
 --
 -- /See:/ 'mkDescribeTrustsResponse' smart constructor.
 data DescribeTrustsResponse = DescribeTrustsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeTrusts' to retrieve the next set of items.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of Trust objects that were retrieved.
+    --
+    -- It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
     trusts :: Lude.Maybe [Trust],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrustsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeTrusts' to retrieve the next set of items.
--- * 'responseStatus' - The response status code.
 -- * 'trusts' - The list of Trust objects that were retrieved.
 --
 -- It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
+-- * 'responseStatus' - The response status code.
 mkDescribeTrustsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -201,22 +199,22 @@ mkDescribeTrustsResponse pResponseStatus_ =
 -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeTrusts' to retrieve the next set of items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsNextToken :: Lens.Lens' DescribeTrustsResponse (Lude.Maybe Lude.Text)
-dtrsNextToken = Lens.lens (nextToken :: DescribeTrustsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTrustsResponse)
-{-# DEPRECATED dtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dtsrsNextToken :: Lens.Lens' DescribeTrustsResponse (Lude.Maybe Lude.Text)
+dtsrsNextToken = Lens.lens (nextToken :: DescribeTrustsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTrustsResponse)
+{-# DEPRECATED dtsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of Trust objects that were retrieved.
 --
 -- It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 --
 -- /Note:/ Consider using 'trusts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTrusts :: Lens.Lens' DescribeTrustsResponse (Lude.Maybe [Trust])
-dtrsTrusts = Lens.lens (trusts :: DescribeTrustsResponse -> Lude.Maybe [Trust]) (\s a -> s {trusts = a} :: DescribeTrustsResponse)
-{-# DEPRECATED dtrsTrusts "Use generic-lens or generic-optics with 'trusts' instead." #-}
+dtsrsTrusts :: Lens.Lens' DescribeTrustsResponse (Lude.Maybe [Trust])
+dtsrsTrusts = Lens.lens (trusts :: DescribeTrustsResponse -> Lude.Maybe [Trust]) (\s a -> s {trusts = a} :: DescribeTrustsResponse)
+{-# DEPRECATED dtsrsTrusts "Use generic-lens or generic-optics with 'trusts' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DescribeTrustsResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTrustsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrustsResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtsrsResponseStatus :: Lens.Lens' DescribeTrustsResponse Lude.Int
+dtsrsResponseStatus = Lens.lens (responseStatus :: DescribeTrustsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrustsResponse)
+{-# DEPRECATED dtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

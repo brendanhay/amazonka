@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag
   ( Scte35ArchiveAllowedFlag
       ( Scte35ArchiveAllowedFlag',
-        ArchiveAllowed,
-        ArchiveNotAllowed
+        ArchiveNotAllowed,
+        ArchiveAllowed
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Scte35ArchiveAllowedFlag = Scte35ArchiveAllowedFlag' Lude.Text
       Lude.ToHeader
     )
 
-pattern ArchiveAllowed :: Scte35ArchiveAllowedFlag
-pattern ArchiveAllowed = Scte35ArchiveAllowedFlag' "ARCHIVE_ALLOWED"
-
 pattern ArchiveNotAllowed :: Scte35ArchiveAllowedFlag
 pattern ArchiveNotAllowed = Scte35ArchiveAllowedFlag' "ARCHIVE_NOT_ALLOWED"
 
+pattern ArchiveAllowed :: Scte35ArchiveAllowedFlag
+pattern ArchiveAllowed = Scte35ArchiveAllowedFlag' "ARCHIVE_ALLOWED"
+
 {-# COMPLETE
-  ArchiveAllowed,
   ArchiveNotAllowed,
+  ArchiveAllowed,
   Scte35ArchiveAllowedFlag'
   #-}

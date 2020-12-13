@@ -37,41 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalGatewayVirtualInterface' smart constructor.
 data LocalGatewayVirtualInterface = LocalGatewayVirtualInterface'
-  { localGatewayVirtualInterfaceId ::
-      Lude.Maybe Lude.Text,
-    localBGPASN ::
-      Lude.Maybe Lude.Int,
+  { -- | The ID of the virtual interface.
+    localGatewayVirtualInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.
+    localBGPASN :: Lude.Maybe Lude.Int,
+    -- | The ID of the VLAN.
     vlan :: Lude.Maybe Lude.Int,
-    localGatewayId ::
-      Lude.Maybe Lude.Text,
-    localAddress ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway.
+    localGatewayId :: Lude.Maybe Lude.Text,
+    -- | The local address.
+    localAddress :: Lude.Maybe Lude.Text,
+    -- | The peer BGP ASN.
     peerBGPASN :: Lude.Maybe Lude.Int,
+    -- | The AWS account ID that owns the local gateway virtual interface.
     ownerId :: Lude.Maybe Lude.Text,
-    peerAddress ::
-      Lude.Maybe Lude.Text,
+    -- | The peer address.
+    peerAddress :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the virtual interface.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalGatewayVirtualInterface' with the minimum fields required to make a request.
 --
--- * 'localAddress' - The local address.
--- * 'localBGPASN' - The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.
--- * 'localGatewayId' - The ID of the local gateway.
 -- * 'localGatewayVirtualInterfaceId' - The ID of the virtual interface.
+-- * 'localBGPASN' - The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.
+-- * 'vlan' - The ID of the VLAN.
+-- * 'localGatewayId' - The ID of the local gateway.
+-- * 'localAddress' - The local address.
+-- * 'peerBGPASN' - The peer BGP ASN.
 -- * 'ownerId' - The AWS account ID that owns the local gateway virtual interface.
 -- * 'peerAddress' - The peer address.
--- * 'peerBGPASN' - The peer BGP ASN.
 -- * 'tags' - The tags assigned to the virtual interface.
--- * 'vlan' - The ID of the VLAN.
 mkLocalGatewayVirtualInterface ::
   LocalGatewayVirtualInterface
 mkLocalGatewayVirtualInterface =

@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSDKConfigurationProperty' smart constructor.
 data SDKConfigurationProperty = SDKConfigurationProperty'
-  { friendlyName ::
-      Lude.Maybe Lude.Text,
+  { -- | The user-friendly name of an 'SdkType' configuration property.
+    friendlyName :: Lude.Maybe Lude.Text,
+    -- | A boolean flag of an 'SdkType' configuration property to indicate if the associated SDK configuration property is required (@true@ ) or not (@false@ ).
     required :: Lude.Maybe Lude.Bool,
+    -- | The name of a an 'SdkType' configuration property.
     name :: Lude.Maybe Lude.Text,
+    -- | The default value of an 'SdkType' configuration property.
     defaultValue :: Lude.Maybe Lude.Text,
+    -- | The description of an 'SdkType' configuration property.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SDKConfigurationProperty' with the minimum fields required to make a request.
 --
+-- * 'friendlyName' - The user-friendly name of an 'SdkType' configuration property.
+-- * 'required' - A boolean flag of an 'SdkType' configuration property to indicate if the associated SDK configuration property is required (@true@ ) or not (@false@ ).
+-- * 'name' - The name of a an 'SdkType' configuration property.
 -- * 'defaultValue' - The default value of an 'SdkType' configuration property.
 -- * 'description' - The description of an 'SdkType' configuration property.
--- * 'friendlyName' - The user-friendly name of an 'SdkType' configuration property.
--- * 'name' - The name of a an 'SdkType' configuration property.
--- * 'required' - A boolean flag of an 'SdkType' configuration property to indicate if the associated SDK configuration property is required (@true@ ) or not (@false@ ).
 mkSDKConfigurationProperty ::
   SDKConfigurationProperty
 mkSDKConfigurationProperty =

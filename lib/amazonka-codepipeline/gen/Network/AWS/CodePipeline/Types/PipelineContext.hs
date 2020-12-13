@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipelineContext' smart constructor.
 data PipelineContext = PipelineContext'
-  { stage ::
-      Lude.Maybe StageContext,
+  { -- | The stage of the pipeline.
+    stage :: Lude.Maybe StageContext,
+    -- | The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
     pipelineName :: Lude.Maybe Lude.Text,
+    -- | The context of an action to a job worker in the stage of a pipeline.
     action :: Lude.Maybe ActionContext,
+    -- | The Amazon Resource Name (ARN) of the pipeline.
     pipelineARN :: Lude.Maybe Lude.Text,
+    -- | The execution ID of the pipeline.
     pipelineExecutionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineContext' with the minimum fields required to make a request.
 --
+-- * 'stage' - The stage of the pipeline.
+-- * 'pipelineName' - The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
 -- * 'action' - The context of an action to a job worker in the stage of a pipeline.
 -- * 'pipelineARN' - The Amazon Resource Name (ARN) of the pipeline.
 -- * 'pipelineExecutionId' - The execution ID of the pipeline.
--- * 'pipelineName' - The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
--- * 'stage' - The stage of the pipeline.
 mkPipelineContext ::
   PipelineContext
 mkPipelineContext =

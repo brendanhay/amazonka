@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.PatchSet
   ( PatchSet
       ( PatchSet',
-        Application,
-        OS
+        OS,
+        Application
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PatchSet = PatchSet' Lude.Text
       Lude.ToHeader
     )
 
-pattern Application :: PatchSet
-pattern Application = PatchSet' "APPLICATION"
-
 pattern OS :: PatchSet
 pattern OS = PatchSet' "OS"
 
+pattern Application :: PatchSet
+pattern Application = PatchSet' "APPLICATION"
+
 {-# COMPLETE
-  Application,
   OS,
+  Application,
   PatchSet'
   #-}

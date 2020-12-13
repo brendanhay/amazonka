@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Connect.DescribeUserHierarchyGroup
     mkDescribeUserHierarchyGroup,
 
     -- ** Request lenses
-    duhgHierarchyGroupId,
     duhgInstanceId,
+    duhgHierarchyGroupId,
 
     -- * Destructuring the response
     DescribeUserHierarchyGroupResponse (..),
@@ -40,42 +41,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeUserHierarchyGroup' smart constructor.
 data DescribeUserHierarchyGroup = DescribeUserHierarchyGroup'
-  { hierarchyGroupId ::
-      Lude.Text,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the hierarchy group.
+    hierarchyGroupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserHierarchyGroup' with the minimum fields required to make a request.
 --
--- * 'hierarchyGroupId' - The identifier of the hierarchy group.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'hierarchyGroupId' - The identifier of the hierarchy group.
 mkDescribeUserHierarchyGroup ::
-  -- | 'hierarchyGroupId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'hierarchyGroupId'
+  Lude.Text ->
   DescribeUserHierarchyGroup
-mkDescribeUserHierarchyGroup pHierarchyGroupId_ pInstanceId_ =
+mkDescribeUserHierarchyGroup pInstanceId_ pHierarchyGroupId_ =
   DescribeUserHierarchyGroup'
-    { hierarchyGroupId =
-        pHierarchyGroupId_,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      hierarchyGroupId = pHierarchyGroupId_
     }
-
--- | The identifier of the hierarchy group.
---
--- /Note:/ Consider using 'hierarchyGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duhgHierarchyGroupId :: Lens.Lens' DescribeUserHierarchyGroup Lude.Text
-duhgHierarchyGroupId = Lens.lens (hierarchyGroupId :: DescribeUserHierarchyGroup -> Lude.Text) (\s a -> s {hierarchyGroupId = a} :: DescribeUserHierarchyGroup)
-{-# DEPRECATED duhgHierarchyGroupId "Use generic-lens or generic-optics with 'hierarchyGroupId' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
 --
@@ -83,6 +71,13 @@ duhgHierarchyGroupId = Lens.lens (hierarchyGroupId :: DescribeUserHierarchyGroup
 duhgInstanceId :: Lens.Lens' DescribeUserHierarchyGroup Lude.Text
 duhgInstanceId = Lens.lens (instanceId :: DescribeUserHierarchyGroup -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeUserHierarchyGroup)
 {-# DEPRECATED duhgInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The identifier of the hierarchy group.
+--
+-- /Note:/ Consider using 'hierarchyGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duhgHierarchyGroupId :: Lens.Lens' DescribeUserHierarchyGroup Lude.Text
+duhgHierarchyGroupId = Lens.lens (hierarchyGroupId :: DescribeUserHierarchyGroup -> Lude.Text) (\s a -> s {hierarchyGroupId = a} :: DescribeUserHierarchyGroup)
+{-# DEPRECATED duhgHierarchyGroupId "Use generic-lens or generic-optics with 'hierarchyGroupId' instead." #-}
 
 instance Lude.AWSRequest DescribeUserHierarchyGroup where
   type
@@ -120,19 +115,12 @@ instance Lude.ToQuery DescribeUserHierarchyGroup where
 
 -- | /See:/ 'mkDescribeUserHierarchyGroupResponse' smart constructor.
 data DescribeUserHierarchyGroupResponse = DescribeUserHierarchyGroupResponse'
-  { hierarchyGroup ::
-      Lude.Maybe
-        HierarchyGroup,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the hierarchy group.
+    hierarchyGroup :: Lude.Maybe HierarchyGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserHierarchyGroupResponse' with the minimum fields required to make a request.

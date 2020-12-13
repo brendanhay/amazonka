@@ -17,9 +17,9 @@ module Network.AWS.S3.Types.Transition
     mkTransition,
 
     -- * Lenses
-    traDays,
-    traDate,
-    traStorageClass,
+    tfDays,
+    tfDate,
+    tfStorageClass,
   )
 where
 
@@ -32,23 +32,20 @@ import Network.AWS.S3.Types.TransitionStorageClass
 --
 -- /See:/ 'mkTransition' smart constructor.
 data Transition = Transition'
-  { days :: Lude.Maybe Lude.Int,
+  { -- | Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+    days :: Lude.Maybe Lude.Int,
+    -- | Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
     date :: Lude.Maybe Lude.DateTime,
+    -- | The storage class to which you want the object to transition.
     storageClass :: Lude.Maybe TransitionStorageClass
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Transition' with the minimum fields required to make a request.
 --
--- * 'date' - Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
 -- * 'days' - Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+-- * 'date' - Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
 -- * 'storageClass' - The storage class to which you want the object to transition.
 mkTransition ::
   Transition
@@ -62,23 +59,23 @@ mkTransition =
 -- | Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
 --
 -- /Note:/ Consider using 'days' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-traDays :: Lens.Lens' Transition (Lude.Maybe Lude.Int)
-traDays = Lens.lens (days :: Transition -> Lude.Maybe Lude.Int) (\s a -> s {days = a} :: Transition)
-{-# DEPRECATED traDays "Use generic-lens or generic-optics with 'days' instead." #-}
+tfDays :: Lens.Lens' Transition (Lude.Maybe Lude.Int)
+tfDays = Lens.lens (days :: Transition -> Lude.Maybe Lude.Int) (\s a -> s {days = a} :: Transition)
+{-# DEPRECATED tfDays "Use generic-lens or generic-optics with 'days' instead." #-}
 
 -- | Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
 --
 -- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-traDate :: Lens.Lens' Transition (Lude.Maybe Lude.DateTime)
-traDate = Lens.lens (date :: Transition -> Lude.Maybe Lude.DateTime) (\s a -> s {date = a} :: Transition)
-{-# DEPRECATED traDate "Use generic-lens or generic-optics with 'date' instead." #-}
+tfDate :: Lens.Lens' Transition (Lude.Maybe Lude.DateTime)
+tfDate = Lens.lens (date :: Transition -> Lude.Maybe Lude.DateTime) (\s a -> s {date = a} :: Transition)
+{-# DEPRECATED tfDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
 -- | The storage class to which you want the object to transition.
 --
 -- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-traStorageClass :: Lens.Lens' Transition (Lude.Maybe TransitionStorageClass)
-traStorageClass = Lens.lens (storageClass :: Transition -> Lude.Maybe TransitionStorageClass) (\s a -> s {storageClass = a} :: Transition)
-{-# DEPRECATED traStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
+tfStorageClass :: Lens.Lens' Transition (Lude.Maybe TransitionStorageClass)
+tfStorageClass = Lens.lens (storageClass :: Transition -> Lude.Maybe TransitionStorageClass) (\s a -> s {storageClass = a} :: Transition)
+{-# DEPRECATED tfStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
 
 instance Lude.FromXML Transition where
   parseXML x =

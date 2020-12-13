@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainJoinInfo' smart constructor.
 data DomainJoinInfo = DomainJoinInfo'
-  { organizationalUnitDistinguishedName ::
-      Lude.Maybe Lude.Text,
+  { -- | The distinguished name of the organizational unit for computer accounts.
+    organizationalUnitDistinguishedName :: Lude.Maybe Lude.Text,
+    -- | The fully qualified name of the directory (for example, corp.example.com).
     directoryName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainJoinInfo' with the minimum fields required to make a request.
 --
--- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
 -- * 'organizationalUnitDistinguishedName' - The distinguished name of the organizational unit for computer accounts.
+-- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
 mkDomainJoinInfo ::
   DomainJoinInfo
 mkDomainJoinInfo =

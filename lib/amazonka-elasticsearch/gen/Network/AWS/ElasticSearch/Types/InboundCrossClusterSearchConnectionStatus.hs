@@ -30,20 +30,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInboundCrossClusterSearchConnectionStatus' smart constructor.
 data InboundCrossClusterSearchConnectionStatus = InboundCrossClusterSearchConnectionStatus'
-  { message ::
-      Lude.Maybe
-        Lude.Text,
-    statusCode ::
-      Lude.Maybe
-        InboundCrossClusterSearchConnectionStatusCode
+  { -- | Specifies verbose information for the inbound connection status.
+    message :: Lude.Maybe Lude.Text,
+    -- | The state code for inbound connection. This can be one of the following:
+    --
+    --
+    --     * PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.
+    --
+    --     * APPROVED: Inbound connection is pending acceptance by destination domain owner.
+    --
+    --     * REJECTING: Inbound connection rejection is in process.
+    --
+    --     * REJECTED: Inbound connection is rejected.
+    --
+    --     * DELETING: Inbound connection deletion is in progress.
+    --
+    --     * DELETED: Inbound connection is deleted and cannot be used further.
+    statusCode :: Lude.Maybe InboundCrossClusterSearchConnectionStatusCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InboundCrossClusterSearchConnectionStatus' with the minimum fields required to make a request.

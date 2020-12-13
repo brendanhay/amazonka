@@ -13,9 +13,9 @@
 module Network.AWS.IoT.Types.DomainType
   ( DomainType
       ( DomainType',
+        Endpoint,
         AWSManaged,
-        CustomerManaged,
-        Endpoint
+        CustomerManaged
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DomainType = DomainType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Endpoint :: DomainType
+pattern Endpoint = DomainType' "ENDPOINT"
+
 pattern AWSManaged :: DomainType
 pattern AWSManaged = DomainType' "AWS_MANAGED"
 
 pattern CustomerManaged :: DomainType
 pattern CustomerManaged = DomainType' "CUSTOMER_MANAGED"
 
-pattern Endpoint :: DomainType
-pattern Endpoint = DomainType' "ENDPOINT"
-
 {-# COMPLETE
+  Endpoint,
   AWSManaged,
   CustomerManaged,
-  Endpoint,
   DomainType'
   #-}

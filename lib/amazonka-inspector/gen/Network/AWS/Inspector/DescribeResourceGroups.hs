@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.Inspector.DescribeResourceGroups
     mkDescribeResourceGroupsResponse,
 
     -- ** Response lenses
-    drgrsResponseStatus,
     drgrsResourceGroups,
     drgrsFailedItems,
+    drgrsResponseStatus,
   )
 where
 
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeResourceGroups' smart constructor.
 newtype DescribeResourceGroups = DescribeResourceGroups'
-  { resourceGroupARNs ::
-      Lude.NonEmpty Lude.Text
+  { -- | The ARN that specifies the resource group that you want to describe.
+    resourceGroupARNs :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeResourceGroups' with the minimum fields required to make a request.
@@ -76,9 +71,9 @@ instance Lude.AWSRequest DescribeResourceGroups where
     Res.receiveJSON
       ( \s h x ->
           DescribeResourceGroupsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "resourceGroups" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "resourceGroups" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeResourceGroups where
@@ -107,28 +102,20 @@ instance Lude.ToQuery DescribeResourceGroups where
 
 -- | /See:/ 'mkDescribeResourceGroupsResponse' smart constructor.
 data DescribeResourceGroupsResponse = DescribeResourceGroupsResponse'
-  { responseStatus ::
-      Lude.Int,
-    resourceGroups ::
-      [ResourceGroup],
-    failedItems ::
-      Lude.HashMap
-        Lude.Text
-        (FailedItemDetails)
+  { -- | Information about a resource group.
+    resourceGroups :: [ResourceGroup],
+    -- | Resource group details that cannot be described. An error code is provided for each failed item.
+    failedItems :: Lude.HashMap Lude.Text (FailedItemDetails),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeResourceGroupsResponse' with the minimum fields required to make a request.
 --
--- * 'failedItems' - Resource group details that cannot be described. An error code is provided for each failed item.
 -- * 'resourceGroups' - Information about a resource group.
+-- * 'failedItems' - Resource group details that cannot be described. An error code is provided for each failed item.
 -- * 'responseStatus' - The response status code.
 mkDescribeResourceGroupsResponse ::
   -- | 'responseStatus'
@@ -136,18 +123,10 @@ mkDescribeResourceGroupsResponse ::
   DescribeResourceGroupsResponse
 mkDescribeResourceGroupsResponse pResponseStatus_ =
   DescribeResourceGroupsResponse'
-    { responseStatus =
-        pResponseStatus_,
-      resourceGroups = Lude.mempty,
-      failedItems = Lude.mempty
+    { resourceGroups = Lude.mempty,
+      failedItems = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgrsResponseStatus :: Lens.Lens' DescribeResourceGroupsResponse Lude.Int
-drgrsResponseStatus = Lens.lens (responseStatus :: DescribeResourceGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeResourceGroupsResponse)
-{-# DEPRECATED drgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about a resource group.
 --
@@ -162,3 +141,10 @@ drgrsResourceGroups = Lens.lens (resourceGroups :: DescribeResourceGroupsRespons
 drgrsFailedItems :: Lens.Lens' DescribeResourceGroupsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
 drgrsFailedItems = Lens.lens (failedItems :: DescribeResourceGroupsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeResourceGroupsResponse)
 {-# DEPRECATED drgrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgrsResponseStatus :: Lens.Lens' DescribeResourceGroupsResponse Lude.Int
+drgrsResponseStatus = Lens.lens (responseStatus :: DescribeResourceGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeResourceGroupsResponse)
+{-# DEPRECATED drgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

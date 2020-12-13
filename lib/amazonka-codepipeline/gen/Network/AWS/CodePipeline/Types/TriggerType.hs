@@ -13,12 +13,12 @@
 module Network.AWS.CodePipeline.Types.TriggerType
   ( TriggerType
       ( TriggerType',
-        CloudWatchEvent,
         CreatePipeline,
-        PollForSourceChanges,
-        PutActionRevision,
         StartPipelineExecution,
-        Webhook
+        PollForSourceChanges,
+        Webhook,
+        CloudWatchEvent,
+        PutActionRevision
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype TriggerType = TriggerType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CloudWatchEvent :: TriggerType
-pattern CloudWatchEvent = TriggerType' "CloudWatchEvent"
-
 pattern CreatePipeline :: TriggerType
 pattern CreatePipeline = TriggerType' "CreatePipeline"
-
-pattern PollForSourceChanges :: TriggerType
-pattern PollForSourceChanges = TriggerType' "PollForSourceChanges"
-
-pattern PutActionRevision :: TriggerType
-pattern PutActionRevision = TriggerType' "PutActionRevision"
 
 pattern StartPipelineExecution :: TriggerType
 pattern StartPipelineExecution = TriggerType' "StartPipelineExecution"
 
+pattern PollForSourceChanges :: TriggerType
+pattern PollForSourceChanges = TriggerType' "PollForSourceChanges"
+
 pattern Webhook :: TriggerType
 pattern Webhook = TriggerType' "Webhook"
 
+pattern CloudWatchEvent :: TriggerType
+pattern CloudWatchEvent = TriggerType' "CloudWatchEvent"
+
+pattern PutActionRevision :: TriggerType
+pattern PutActionRevision = TriggerType' "PutActionRevision"
+
 {-# COMPLETE
-  CloudWatchEvent,
   CreatePipeline,
-  PollForSourceChanges,
-  PutActionRevision,
   StartPipelineExecution,
+  PollForSourceChanges,
   Webhook,
+  CloudWatchEvent,
+  PutActionRevision,
   TriggerType'
   #-}

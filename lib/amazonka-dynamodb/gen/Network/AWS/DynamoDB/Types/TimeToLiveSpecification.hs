@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimeToLiveSpecification' smart constructor.
 data TimeToLiveSpecification = TimeToLiveSpecification'
-  { enabled ::
-      Lude.Bool,
+  { -- | Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+    enabled :: Lude.Bool,
+    -- | The name of the TTL attribute used to store the expiration time for items in the table.
     attributeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeToLiveSpecification' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of the TTL attribute used to store the expiration time for items in the table.
 -- * 'enabled' - Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+-- * 'attributeName' - The name of the TTL attribute used to store the expiration time for items in the table.
 mkTimeToLiveSpecification ::
   -- | 'enabled'
   Lude.Bool ->

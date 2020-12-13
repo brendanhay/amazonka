@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDescribePackagesFilter' smart constructor.
 data DescribePackagesFilter = DescribePackagesFilter'
-  { value ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of values for the specified field.
+    value :: Lude.Maybe [Lude.Text],
+    -- | Any field from @PackageDetails@ .
     name :: Lude.Maybe DescribePackagesFilterName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePackagesFilter' with the minimum fields required to make a request.
 --
--- * 'name' - Any field from @PackageDetails@ .
 -- * 'value' - A list of values for the specified field.
+-- * 'name' - Any field from @PackageDetails@ .
 mkDescribePackagesFilter ::
   DescribePackagesFilter
 mkDescribePackagesFilter =

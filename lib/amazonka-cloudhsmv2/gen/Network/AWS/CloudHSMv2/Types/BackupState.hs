@@ -14,9 +14,9 @@ module Network.AWS.CloudHSMv2.Types.BackupState
   ( BackupState
       ( BackupState',
         CreateInProgress,
+        Ready,
         Deleted,
-        PendingDeletion,
-        Ready
+        PendingDeletion
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype BackupState = BackupState' Lude.Text
 pattern CreateInProgress :: BackupState
 pattern CreateInProgress = BackupState' "CREATE_IN_PROGRESS"
 
+pattern Ready :: BackupState
+pattern Ready = BackupState' "READY"
+
 pattern Deleted :: BackupState
 pattern Deleted = BackupState' "DELETED"
 
 pattern PendingDeletion :: BackupState
 pattern PendingDeletion = BackupState' "PENDING_DELETION"
 
-pattern Ready :: BackupState
-pattern Ready = BackupState' "READY"
-
 {-# COMPLETE
   CreateInProgress,
+  Ready,
   Deleted,
   PendingDeletion,
-  Ready,
   BackupState'
   #-}

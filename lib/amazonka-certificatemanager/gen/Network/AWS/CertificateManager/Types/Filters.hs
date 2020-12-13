@@ -33,26 +33,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFilters' smart constructor.
 data Filters = Filters'
-  { keyTypes :: Lude.Maybe [KeyAlgorithm],
+  { -- | Specify one or more algorithms that can be used to generate key pairs.
+    --
+    -- Default filtering returns only @RSA_2048@ certificates. To return other certificate types, provide the desired type signatures in a comma-separated list. For example, @"keyTypes": ["RSA_2048,RSA_4096"]@ returns both @RSA_2048@ and @RSA_4096@ certificates.
+    keyTypes :: Lude.Maybe [KeyAlgorithm],
+    -- | Specify one or more 'KeyUsage' extension values.
     keyUsage :: Lude.Maybe [KeyUsageName],
+    -- | Specify one or more 'ExtendedKeyUsage' extension values.
     extendedKeyUsage :: Lude.Maybe [ExtendedKeyUsageName]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filters' with the minimum fields required to make a request.
 --
--- * 'extendedKeyUsage' - Specify one or more 'ExtendedKeyUsage' extension values.
 -- * 'keyTypes' - Specify one or more algorithms that can be used to generate key pairs.
 --
 -- Default filtering returns only @RSA_2048@ certificates. To return other certificate types, provide the desired type signatures in a comma-separated list. For example, @"keyTypes": ["RSA_2048,RSA_4096"]@ returns both @RSA_2048@ and @RSA_4096@ certificates.
 -- * 'keyUsage' - Specify one or more 'KeyUsage' extension values.
+-- * 'extendedKeyUsage' - Specify one or more 'ExtendedKeyUsage' extension values.
 mkFilters ::
   Filters
 mkFilters =

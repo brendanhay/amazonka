@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkForecastResult' smart constructor.
 data ForecastResult = ForecastResult'
-  { timePeriod ::
-      Lude.Maybe DateInterval,
+  { -- | The period of time that the forecast covers.
+    timePeriod :: Lude.Maybe DateInterval,
+    -- | The mean value of the forecast.
     meanValue :: Lude.Maybe Lude.Text,
+    -- | The upper limit for the prediction interval.
     predictionIntervalUpperBound :: Lude.Maybe Lude.Text,
+    -- | The lower limit for the prediction interval.
     predictionIntervalLowerBound :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForecastResult' with the minimum fields required to make a request.
 --
--- * 'meanValue' - The mean value of the forecast.
--- * 'predictionIntervalLowerBound' - The lower limit for the prediction interval.
--- * 'predictionIntervalUpperBound' - The upper limit for the prediction interval.
 -- * 'timePeriod' - The period of time that the forecast covers.
+-- * 'meanValue' - The mean value of the forecast.
+-- * 'predictionIntervalUpperBound' - The upper limit for the prediction interval.
+-- * 'predictionIntervalLowerBound' - The lower limit for the prediction interval.
 mkForecastResult ::
   ForecastResult
 mkForecastResult =

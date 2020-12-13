@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.StorageGateway.DeleteGateway
     mkDeleteGatewayResponse,
 
     -- ** Response lenses
-    dgrsGatewayARN,
-    dgrsResponseStatus,
+    dgfrsGatewayARN,
+    dgfrsResponseStatus,
   )
 where
 
@@ -43,19 +44,15 @@ import Network.AWS.StorageGateway.Types
 -- | A JSON object containing the ID of the gateway to delete.
 --
 -- /See:/ 'mkDeleteGateway' smart constructor.
-newtype DeleteGateway = DeleteGateway' {gatewayARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteGateway = DeleteGateway'
+  { gatewayARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGateway' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkDeleteGateway ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -106,22 +103,16 @@ instance Lude.ToQuery DeleteGateway where
 --
 -- /See:/ 'mkDeleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGatewayResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 -- * 'responseStatus' - The response status code.
 mkDeleteGatewayResponse ::
   -- | 'responseStatus'
@@ -136,13 +127,13 @@ mkDeleteGatewayResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsGatewayARN :: Lens.Lens' DeleteGatewayResponse (Lude.Maybe Lude.Text)
-dgrsGatewayARN = Lens.lens (gatewayARN :: DeleteGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DeleteGatewayResponse)
-{-# DEPRECATED dgrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+dgfrsGatewayARN :: Lens.Lens' DeleteGatewayResponse (Lude.Maybe Lude.Text)
+dgfrsGatewayARN = Lens.lens (gatewayARN :: DeleteGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DeleteGatewayResponse)
+{-# DEPRECATED dgfrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsResponseStatus :: Lens.Lens' DeleteGatewayResponse Lude.Int
-dgrsResponseStatus = Lens.lens (responseStatus :: DeleteGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGatewayResponse)
-{-# DEPRECATED dgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgfrsResponseStatus :: Lens.Lens' DeleteGatewayResponse Lude.Int
+dgfrsResponseStatus = Lens.lens (responseStatus :: DeleteGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGatewayResponse)
+{-# DEPRECATED dgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -37,27 +37,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClassifier' smart constructor.
 data Classifier = Classifier'
-  { grokClassifier ::
-      Lude.Maybe GrokClassifier,
+  { -- | A classifier that uses @grok@ .
+    grokClassifier :: Lude.Maybe GrokClassifier,
+    -- | A classifier for XML content.
     xmlClassifier :: Lude.Maybe XMLClassifier,
+    -- | A classifier for comma-separated values (CSV).
     csvClassifier :: Lude.Maybe CSVClassifier,
+    -- | A classifier for JSON content.
     jsonClassifier :: Lude.Maybe JSONClassifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Classifier' with the minimum fields required to make a request.
 --
--- * 'csvClassifier' - A classifier for comma-separated values (CSV).
 -- * 'grokClassifier' - A classifier that uses @grok@ .
--- * 'jsonClassifier' - A classifier for JSON content.
 -- * 'xmlClassifier' - A classifier for XML content.
+-- * 'csvClassifier' - A classifier for comma-separated values (CSV).
+-- * 'jsonClassifier' - A classifier for JSON content.
 mkClassifier ::
   Classifier
 mkClassifier =

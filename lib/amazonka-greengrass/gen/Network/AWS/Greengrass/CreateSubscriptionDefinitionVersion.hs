@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.Greengrass.CreateSubscriptionDefinitionVersion
 
     -- ** Request lenses
     csdvAmznClientToken,
-    csdvSubscriptions,
     csdvSubscriptionDefinitionId,
+    csdvSubscriptions,
 
     -- * Destructuring the response
     CreateSubscriptionDefinitionVersionResponse (..),
@@ -44,22 +45,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSubscriptionDefinitionVersion' smart constructor.
 data CreateSubscriptionDefinitionVersion = CreateSubscriptionDefinitionVersion'
-  { amznClientToken ::
-      Lude.Maybe
-        Lude.Text,
-    subscriptions ::
-      Lude.Maybe
-        [Subscription],
-    subscriptionDefinitionId ::
-      Lude.Text
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the subscription definition.
+    subscriptionDefinitionId :: Lude.Text,
+    -- | A list of subscriptions.
+    subscriptions :: Lude.Maybe [Subscription]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubscriptionDefinitionVersion' with the minimum fields required to make a request.
@@ -75,8 +68,8 @@ mkCreateSubscriptionDefinitionVersion pSubscriptionDefinitionId_ =
   CreateSubscriptionDefinitionVersion'
     { amznClientToken =
         Lude.Nothing,
-      subscriptions = Lude.Nothing,
-      subscriptionDefinitionId = pSubscriptionDefinitionId_
+      subscriptionDefinitionId = pSubscriptionDefinitionId_,
+      subscriptions = Lude.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
@@ -86,19 +79,19 @@ csdvAmznClientToken :: Lens.Lens' CreateSubscriptionDefinitionVersion (Lude.Mayb
 csdvAmznClientToken = Lens.lens (amznClientToken :: CreateSubscriptionDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateSubscriptionDefinitionVersion)
 {-# DEPRECATED csdvAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
--- | A list of subscriptions.
---
--- /Note:/ Consider using 'subscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdvSubscriptions :: Lens.Lens' CreateSubscriptionDefinitionVersion (Lude.Maybe [Subscription])
-csdvSubscriptions = Lens.lens (subscriptions :: CreateSubscriptionDefinitionVersion -> Lude.Maybe [Subscription]) (\s a -> s {subscriptions = a} :: CreateSubscriptionDefinitionVersion)
-{-# DEPRECATED csdvSubscriptions "Use generic-lens or generic-optics with 'subscriptions' instead." #-}
-
 -- | The ID of the subscription definition.
 --
 -- /Note:/ Consider using 'subscriptionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 csdvSubscriptionDefinitionId :: Lens.Lens' CreateSubscriptionDefinitionVersion Lude.Text
 csdvSubscriptionDefinitionId = Lens.lens (subscriptionDefinitionId :: CreateSubscriptionDefinitionVersion -> Lude.Text) (\s a -> s {subscriptionDefinitionId = a} :: CreateSubscriptionDefinitionVersion)
 {-# DEPRECATED csdvSubscriptionDefinitionId "Use generic-lens or generic-optics with 'subscriptionDefinitionId' instead." #-}
+
+-- | A list of subscriptions.
+--
+-- /Note:/ Consider using 'subscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdvSubscriptions :: Lens.Lens' CreateSubscriptionDefinitionVersion (Lude.Maybe [Subscription])
+csdvSubscriptions = Lens.lens (subscriptions :: CreateSubscriptionDefinitionVersion -> Lude.Maybe [Subscription]) (\s a -> s {subscriptions = a} :: CreateSubscriptionDefinitionVersion)
+{-# DEPRECATED csdvSubscriptions "Use generic-lens or generic-optics with 'subscriptions' instead." #-}
 
 instance Lude.AWSRequest CreateSubscriptionDefinitionVersion where
   type
@@ -142,37 +135,27 @@ instance Lude.ToQuery CreateSubscriptionDefinitionVersion where
 
 -- | /See:/ 'mkCreateSubscriptionDefinitionVersionResponse' smart constructor.
 data CreateSubscriptionDefinitionVersionResponse = CreateSubscriptionDefinitionVersionResponse'
-  { arn ::
-      Lude.Maybe
-        Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubscriptionDefinitionVersionResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'version' - The ID of the version.
 -- * 'id' - The ID of the parent definition that the version is associated with.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The ID of the version.
 mkCreateSubscriptionDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

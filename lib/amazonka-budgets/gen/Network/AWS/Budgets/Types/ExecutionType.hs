@@ -14,9 +14,9 @@ module Network.AWS.Budgets.Types.ExecutionType
   ( ExecutionType
       ( ExecutionType',
         ApproveBudgetAction,
-        ResetBudgetAction,
         RetryBudgetAction,
-        ReverseBudgetAction
+        ReverseBudgetAction,
+        ResetBudgetAction
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype ExecutionType = ExecutionType' Lude.Text
 pattern ApproveBudgetAction :: ExecutionType
 pattern ApproveBudgetAction = ExecutionType' "APPROVE_BUDGET_ACTION"
 
-pattern ResetBudgetAction :: ExecutionType
-pattern ResetBudgetAction = ExecutionType' "RESET_BUDGET_ACTION"
-
 pattern RetryBudgetAction :: ExecutionType
 pattern RetryBudgetAction = ExecutionType' "RETRY_BUDGET_ACTION"
 
 pattern ReverseBudgetAction :: ExecutionType
 pattern ReverseBudgetAction = ExecutionType' "REVERSE_BUDGET_ACTION"
 
+pattern ResetBudgetAction :: ExecutionType
+pattern ResetBudgetAction = ExecutionType' "RESET_BUDGET_ACTION"
+
 {-# COMPLETE
   ApproveBudgetAction,
-  ResetBudgetAction,
   RetryBudgetAction,
   ReverseBudgetAction,
+  ResetBudgetAction,
   ExecutionType'
   #-}

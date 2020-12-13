@@ -13,10 +13,10 @@
 module Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus
   ( LifecyclePolicyPreviewStatus
       ( LifecyclePolicyPreviewStatus',
+        LPPSInProgress,
         LPPSComplete,
         LPPSExpired,
-        LPPSFailed,
-        LPPSInProgress
+        LPPSFailed
       ),
   )
 where
@@ -47,6 +47,9 @@ newtype LifecyclePolicyPreviewStatus = LifecyclePolicyPreviewStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern LPPSInProgress :: LifecyclePolicyPreviewStatus
+pattern LPPSInProgress = LifecyclePolicyPreviewStatus' "IN_PROGRESS"
+
 pattern LPPSComplete :: LifecyclePolicyPreviewStatus
 pattern LPPSComplete = LifecyclePolicyPreviewStatus' "COMPLETE"
 
@@ -56,13 +59,10 @@ pattern LPPSExpired = LifecyclePolicyPreviewStatus' "EXPIRED"
 pattern LPPSFailed :: LifecyclePolicyPreviewStatus
 pattern LPPSFailed = LifecyclePolicyPreviewStatus' "FAILED"
 
-pattern LPPSInProgress :: LifecyclePolicyPreviewStatus
-pattern LPPSInProgress = LifecyclePolicyPreviewStatus' "IN_PROGRESS"
-
 {-# COMPLETE
+  LPPSInProgress,
   LPPSComplete,
   LPPSExpired,
   LPPSFailed,
-  LPPSInProgress,
   LifecyclePolicyPreviewStatus'
   #-}

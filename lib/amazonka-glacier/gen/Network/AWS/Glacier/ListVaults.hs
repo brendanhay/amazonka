@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.Glacier.ListVaults
     mkListVaults,
 
     -- ** Request lenses
+    lvAccountId,
     lvMarker,
     lvLimit,
-    lvAccountId,
 
     -- * Destructuring the response
     ListVaultsResponse (..),
@@ -51,34 +52,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListVaults' smart constructor.
 data ListVaults = ListVaults'
-  { marker :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Text,
-    accountId :: Lude.Text
+  { -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text,
+    -- | A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of vaults to be returned. The default limit is 10. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.
+    limit :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVaults' with the minimum fields required to make a request.
 --
 -- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
--- * 'limit' - The maximum number of vaults to be returned. The default limit is 10. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.
 -- * 'marker' - A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.
+-- * 'limit' - The maximum number of vaults to be returned. The default limit is 10. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.
 mkListVaults ::
   -- | 'accountId'
   Lude.Text ->
   ListVaults
 mkListVaults pAccountId_ =
   ListVaults'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      accountId = pAccountId_
+    { accountId = pAccountId_,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvAccountId :: Lens.Lens' ListVaults Lude.Text
+lvAccountId = Lens.lens (accountId :: ListVaults -> Lude.Text) (\s a -> s {accountId = a} :: ListVaults)
+{-# DEPRECATED lvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.
 --
@@ -93,13 +98,6 @@ lvMarker = Lens.lens (marker :: ListVaults -> Lude.Maybe Lude.Text) (\s a -> s {
 lvLimit :: Lens.Lens' ListVaults (Lude.Maybe Lude.Text)
 lvLimit = Lens.lens (limit :: ListVaults -> Lude.Maybe Lude.Text) (\s a -> s {limit = a} :: ListVaults)
 {-# DEPRECATED lvLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvAccountId :: Lens.Lens' ListVaults Lude.Text
-lvAccountId = Lens.lens (accountId :: ListVaults -> Lude.Text) (\s a -> s {accountId = a} :: ListVaults)
-{-# DEPRECATED lvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Page.AWSPager ListVaults where
   page rq rs
@@ -135,25 +133,21 @@ instance Lude.ToQuery ListVaults where
 --
 -- /See:/ 'mkListVaultsResponse' smart constructor.
 data ListVaultsResponse = ListVaultsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The vault ARN at which to continue pagination of the results. You use the marker in another List Vaults request to obtain more vaults in the list.
+    marker :: Lude.Maybe Lude.Text,
+    -- | List of vaults.
     vaultList :: Lude.Maybe [DescribeVaultOutput],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVaultsResponse' with the minimum fields required to make a request.
 --
 -- * 'marker' - The vault ARN at which to continue pagination of the results. You use the marker in another List Vaults request to obtain more vaults in the list.
--- * 'responseStatus' - The response status code.
 -- * 'vaultList' - List of vaults.
+-- * 'responseStatus' - The response status code.
 mkListVaultsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

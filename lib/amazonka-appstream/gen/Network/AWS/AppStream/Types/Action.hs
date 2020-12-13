@@ -15,8 +15,8 @@ module Network.AWS.AppStream.Types.Action
       ( Action',
         ClipboardCopyFromLocalDevice,
         ClipboardCopyToLocalDevice,
-        FileDownload,
         FileUpload,
+        FileDownload,
         PrintingToLocalDevice
       ),
   )
@@ -54,11 +54,11 @@ pattern ClipboardCopyFromLocalDevice = Action' "CLIPBOARD_COPY_FROM_LOCAL_DEVICE
 pattern ClipboardCopyToLocalDevice :: Action
 pattern ClipboardCopyToLocalDevice = Action' "CLIPBOARD_COPY_TO_LOCAL_DEVICE"
 
-pattern FileDownload :: Action
-pattern FileDownload = Action' "FILE_DOWNLOAD"
-
 pattern FileUpload :: Action
 pattern FileUpload = Action' "FILE_UPLOAD"
+
+pattern FileDownload :: Action
+pattern FileDownload = Action' "FILE_DOWNLOAD"
 
 pattern PrintingToLocalDevice :: Action
 pattern PrintingToLocalDevice = Action' "PRINTING_TO_LOCAL_DEVICE"
@@ -66,8 +66,8 @@ pattern PrintingToLocalDevice = Action' "PRINTING_TO_LOCAL_DEVICE"
 {-# COMPLETE
   ClipboardCopyFromLocalDevice,
   ClipboardCopyToLocalDevice,
-  FileDownload,
   FileUpload,
+  FileDownload,
   PrintingToLocalDevice,
   Action'
   #-}

@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
-  { reason ::
-      Lude.Maybe Lude.Text,
+  { -- | A description of the state.
+    reason :: Lude.Maybe Lude.Text,
+    -- | The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
     code :: Lude.Maybe LoadBalancerStateEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerState' with the minimum fields required to make a request.
 --
--- * 'code' - The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
 -- * 'reason' - A description of the state.
+-- * 'code' - The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
 mkLoadBalancerState ::
   LoadBalancerState
 mkLoadBalancerState =

@@ -33,22 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansUtilizationAggregates' smart constructor.
 data SavingsPlansUtilizationAggregates = SavingsPlansUtilizationAggregates'
-  { amortizedCommitment ::
-      Lude.Maybe
-        SavingsPlansAmortizedCommitment,
-    savings ::
-      Lude.Maybe
-        SavingsPlansSavings,
-    utilization ::
-      SavingsPlansUtilization
+  { -- | The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
+    amortizedCommitment :: Lude.Maybe SavingsPlansAmortizedCommitment,
+    -- | The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans, as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
+    savings :: Lude.Maybe SavingsPlansSavings,
+    -- | A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
+    utilization :: SavingsPlansUtilization
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansUtilizationAggregates' with the minimum fields required to make a request.

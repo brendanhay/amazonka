@@ -34,31 +34,30 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkRestoreStatus' smart constructor.
 data RestoreStatus = RestoreStatus'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The status of the restore action. Returns starting, restoring, completed, or failed.
+    status :: Lude.Maybe Lude.Text,
+    -- | The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore. This field is only updated when you restore to DC2 and DS2 node types.
     estimatedTimeToCompletionInSeconds :: Lude.Maybe Lude.Integer,
-    currentRestoreRateInMegaBytesPerSecond ::
-      Lude.Maybe Lude.Double,
+    -- | The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup. This field is only updated when you restore to DC2 and DS2 node types.
+    currentRestoreRateInMegaBytesPerSecond :: Lude.Maybe Lude.Double,
+    -- | The number of megabytes that have been transferred from snapshot storage. This field is only updated when you restore to DC2 and DS2 node types.
     progressInMegaBytes :: Lude.Maybe Lude.Integer,
+    -- | The amount of time an in-progress restore has been running, or the amount of time it took a completed restore to finish. This field is only updated when you restore to DC2 and DS2 node types.
     elapsedTimeInSeconds :: Lude.Maybe Lude.Integer,
+    -- | The size of the set of snapshot data used to restore the cluster. This field is only updated when you restore to DC2 and DS2 node types.
     snapshotSizeInMegaBytes :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreStatus' with the minimum fields required to make a request.
 --
--- * 'currentRestoreRateInMegaBytesPerSecond' - The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup. This field is only updated when you restore to DC2 and DS2 node types.
--- * 'elapsedTimeInSeconds' - The amount of time an in-progress restore has been running, or the amount of time it took a completed restore to finish. This field is only updated when you restore to DC2 and DS2 node types.
--- * 'estimatedTimeToCompletionInSeconds' - The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore. This field is only updated when you restore to DC2 and DS2 node types.
--- * 'progressInMegaBytes' - The number of megabytes that have been transferred from snapshot storage. This field is only updated when you restore to DC2 and DS2 node types.
--- * 'snapshotSizeInMegaBytes' - The size of the set of snapshot data used to restore the cluster. This field is only updated when you restore to DC2 and DS2 node types.
 -- * 'status' - The status of the restore action. Returns starting, restoring, completed, or failed.
+-- * 'estimatedTimeToCompletionInSeconds' - The estimate of the time remaining before the restore will complete. Returns 0 for a completed restore. This field is only updated when you restore to DC2 and DS2 node types.
+-- * 'currentRestoreRateInMegaBytesPerSecond' - The number of megabytes per second being transferred from the backup storage. Returns the average rate for a completed backup. This field is only updated when you restore to DC2 and DS2 node types.
+-- * 'progressInMegaBytes' - The number of megabytes that have been transferred from snapshot storage. This field is only updated when you restore to DC2 and DS2 node types.
+-- * 'elapsedTimeInSeconds' - The amount of time an in-progress restore has been running, or the amount of time it took a completed restore to finish. This field is only updated when you restore to DC2 and DS2 node types.
+-- * 'snapshotSizeInMegaBytes' - The size of the set of snapshot data used to restore the cluster. This field is only updated when you restore to DC2 and DS2 node types.
 mkRestoreStatus ::
   RestoreStatus
 mkRestoreStatus =

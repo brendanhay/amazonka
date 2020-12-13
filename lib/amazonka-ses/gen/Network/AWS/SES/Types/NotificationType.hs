@@ -13,9 +13,9 @@
 module Network.AWS.SES.Types.NotificationType
   ( NotificationType
       ( NotificationType',
-        Bounce,
-        Complaint,
-        Delivery
+        NTBounce,
+        NTComplaint,
+        NTDelivery
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype NotificationType = NotificationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Bounce :: NotificationType
-pattern Bounce = NotificationType' "Bounce"
+pattern NTBounce :: NotificationType
+pattern NTBounce = NotificationType' "Bounce"
 
-pattern Complaint :: NotificationType
-pattern Complaint = NotificationType' "Complaint"
+pattern NTComplaint :: NotificationType
+pattern NTComplaint = NotificationType' "Complaint"
 
-pattern Delivery :: NotificationType
-pattern Delivery = NotificationType' "Delivery"
+pattern NTDelivery :: NotificationType
+pattern NTDelivery = NotificationType' "Delivery"
 
 {-# COMPLETE
-  Bounce,
-  Complaint,
-  Delivery,
+  NTBounce,
+  NTComplaint,
+  NTDelivery,
   NotificationType'
   #-}

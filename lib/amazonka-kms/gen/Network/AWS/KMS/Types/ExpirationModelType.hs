@@ -13,8 +13,8 @@
 module Network.AWS.KMS.Types.ExpirationModelType
   ( ExpirationModelType
       ( ExpirationModelType',
-        KeyMaterialDoesNotExpire,
-        KeyMaterialExpires
+        KeyMaterialExpires,
+        KeyMaterialDoesNotExpire
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ExpirationModelType = ExpirationModelType' Lude.Text
       Lude.ToHeader
     )
 
-pattern KeyMaterialDoesNotExpire :: ExpirationModelType
-pattern KeyMaterialDoesNotExpire = ExpirationModelType' "KEY_MATERIAL_DOES_NOT_EXPIRE"
-
 pattern KeyMaterialExpires :: ExpirationModelType
 pattern KeyMaterialExpires = ExpirationModelType' "KEY_MATERIAL_EXPIRES"
 
+pattern KeyMaterialDoesNotExpire :: ExpirationModelType
+pattern KeyMaterialDoesNotExpire = ExpirationModelType' "KEY_MATERIAL_DOES_NOT_EXPIRE"
+
 {-# COMPLETE
-  KeyMaterialDoesNotExpire,
   KeyMaterialExpires,
+  KeyMaterialDoesNotExpire,
   ExpirationModelType'
   #-}

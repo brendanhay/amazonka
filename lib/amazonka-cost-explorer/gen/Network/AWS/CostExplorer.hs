@@ -199,12 +199,12 @@ module Network.AWS.CostExplorer
     mkAnomaly,
     aAnomalyStartDate,
     aDimensionValue,
+    aAnomalyId,
     aRootCauses,
     aAnomalyEndDate,
-    aFeedback,
-    aAnomalyId,
-    aAnomalyScore,
     aImpact,
+    aAnomalyScore,
+    aFeedback,
     aMonitorARN,
 
     -- ** AnomalyDateInterval
@@ -216,15 +216,15 @@ module Network.AWS.CostExplorer
     -- ** AnomalyMonitor
     AnomalyMonitor (..),
     mkAnomalyMonitor,
+    amMonitorType,
     amDimensionalValueCount,
+    amMonitorName,
     amMonitorSpecification,
     amMonitorDimension,
     amCreationDate,
     amLastUpdatedDate,
     amLastEvaluatedDate,
     amMonitorARN,
-    amMonitorName,
-    amMonitorType,
 
     -- ** AnomalyScore
     AnomalyScore (..),
@@ -235,24 +235,24 @@ module Network.AWS.CostExplorer
     -- ** AnomalySubscription
     AnomalySubscription (..),
     mkAnomalySubscription,
-    asAccountId,
-    asSubscriptionARN,
-    asMonitorARNList,
-    asSubscribers,
-    asThreshold,
-    asFrequency,
     asSubscriptionName,
+    asFrequency,
+    asAccountId,
+    asThreshold,
+    asMonitorARNList,
+    asSubscriptionARN,
+    asSubscribers,
 
     -- ** CostCategory
     CostCategory (..),
     mkCostCategory,
-    ccProcessingStatus,
-    ccEffectiveEnd,
-    ccCostCategoryARN,
-    ccEffectiveStart,
-    ccName,
     ccRuleVersion,
     ccRules,
+    ccEffectiveStart,
+    ccCostCategoryARN,
+    ccProcessingStatus,
+    ccName,
+    ccEffectiveEnd,
 
     -- ** CostCategoryProcessingStatus
     CostCategoryProcessingStatus (..),
@@ -738,8 +738,8 @@ module Network.AWS.CostExplorer
     SavingsPlansUtilizationByTime (..),
     mkSavingsPlansUtilizationByTime,
     spubtAmortizedCommitment,
-    spubtSavings,
     spubtTimePeriod,
+    spubtSavings,
     spubtUtilization,
 
     -- ** SavingsPlansUtilizationDetail
@@ -790,8 +790,8 @@ module Network.AWS.CostExplorer
     TotalImpactFilter (..),
     mkTotalImpactFilter,
     tifEndValue,
-    tifNumericOperator,
     tifStartValue,
+    tifNumericOperator,
 
     -- ** UtilizationByTime
     UtilizationByTime (..),

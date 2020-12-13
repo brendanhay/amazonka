@@ -13,8 +13,8 @@
 module Network.AWS.AlexaBusiness.Types.ConnectionStatus
   ( ConnectionStatus
       ( ConnectionStatus',
-        Offline,
-        Online
+        Online,
+        Offline
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ConnectionStatus = ConnectionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Offline :: ConnectionStatus
-pattern Offline = ConnectionStatus' "OFFLINE"
-
 pattern Online :: ConnectionStatus
 pattern Online = ConnectionStatus' "ONLINE"
 
+pattern Offline :: ConnectionStatus
+pattern Offline = ConnectionStatus' "OFFLINE"
+
 {-# COMPLETE
-  Offline,
   Online,
+  Offline,
   ConnectionStatus'
   #-}

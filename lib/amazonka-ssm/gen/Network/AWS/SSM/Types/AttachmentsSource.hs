@@ -31,24 +31,32 @@ import Network.AWS.SSM.Types.AttachmentsSourceKey
 --
 -- /See:/ 'mkAttachmentsSource' smart constructor.
 data AttachmentsSource = AttachmentsSource'
-  { values ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The value of a key-value pair that identifies the location of an attachment to a document. The format for __Value__ depends on the type of key you specify.
+    --
+    --
+    --     * For the key /SourceUrl/ , the value is an S3 bucket location. For example:
+    -- @"Values": [ "s3://doc-example-bucket/my-folder" ]@
+    --
+    --
+    --     * For the key /S3FileUrl/ , the value is a file in an S3 bucket. For example:
+    -- @"Values": [ "s3://doc-example-bucket/my-folder/my-file.py" ]@
+    --
+    --
+    --     * For the key /AttachmentReference/ , the value is constructed from the name of another SSM document in your account, a version number of that document, and a file attached to that document version that you want to reuse. For example:
+    -- @"Values": [ "MyOtherDocument/3/my-other-file.py" ]@
+    -- However, if the SSM document is shared with you from another account, the full SSM document ARN must be specified instead of the document name only. For example:
+    -- @"Values": [ "arn:aws:ssm:us-east-2:111122223333:document/OtherAccountDocument/3/their-file.py" ]@
+    values :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The key of a key-value pair that identifies the location of an attachment to a document.
     key :: Lude.Maybe AttachmentsSourceKey,
+    -- | The name of the document attachment file.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachmentsSource' with the minimum fields required to make a request.
 --
--- * 'key' - The key of a key-value pair that identifies the location of an attachment to a document.
--- * 'name' - The name of the document attachment file.
 -- * 'values' - The value of a key-value pair that identifies the location of an attachment to a document. The format for __Value__ depends on the type of key you specify.
 --
 --
@@ -64,6 +72,10 @@ data AttachmentsSource = AttachmentsSource'
 -- @"Values": [ "MyOtherDocument/3/my-other-file.py" ]@
 -- However, if the SSM document is shared with you from another account, the full SSM document ARN must be specified instead of the document name only. For example:
 -- @"Values": [ "arn:aws:ssm:us-east-2:111122223333:document/OtherAccountDocument/3/their-file.py" ]@
+--
+--
+-- * 'key' - The key of a key-value pair that identifies the location of an attachment to a document.
+-- * 'name' - The name of the document attachment file.
 mkAttachmentsSource ::
   AttachmentsSource
 mkAttachmentsSource =

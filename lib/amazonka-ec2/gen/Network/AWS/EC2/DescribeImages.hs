@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,19 +23,19 @@ module Network.AWS.EC2.DescribeImages
     mkDescribeImages,
 
     -- ** Request lenses
-    deseOwners,
-    deseExecutableUsers,
-    deseFilters,
-    deseImageIds,
-    deseDryRun,
+    disOwners,
+    disExecutableUsers,
+    disFilters,
+    disImageIds,
+    disDryRun,
 
     -- * Destructuring the response
     DescribeImagesResponse (..),
     mkDescribeImagesResponse,
 
     -- ** Response lenses
-    diirsImages,
-    diirsResponseStatus,
+    dihrsImages,
+    dihrsResponseStatus,
   )
 where
 
@@ -46,25 +47,118 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeImages' smart constructor.
 data DescribeImages = DescribeImages'
-  { owners ::
-      Lude.Maybe [Lude.Text],
+  { -- | Scopes the results to images with the specified owners. You can specify a combination of AWS account IDs, @self@ , @amazon@ , and @aws-marketplace@ . If you omit this parameter, the results include all images for which you have launch permissions, regardless of ownership.
+    owners :: Lude.Maybe [Lude.Text],
+    -- | Scopes the images by users with explicit launch permissions. Specify an AWS account ID, @self@ (the sender of the request), or @all@ (public AMIs).
     executableUsers :: Lude.Maybe [Lude.Text],
+    -- | The filters.
+    --
+    --
+    --     * @architecture@ - The image architecture (@i386@ | @x86_64@ | @arm64@ ).
+    --
+    --
+    --     * @block-device-mapping.delete-on-termination@ - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.
+    --
+    --
+    --     * @block-device-mapping.device-name@ - The device name specified in the block device mapping (for example, @/dev/sdh@ or @xvdh@ ).
+    --
+    --
+    --     * @block-device-mapping.snapshot-id@ - The ID of the snapshot used for the EBS volume.
+    --
+    --
+    --     * @block-device-mapping.volume-size@ - The volume size of the EBS volume, in GiB.
+    --
+    --
+    --     * @block-device-mapping.volume-type@ - The volume type of the EBS volume (@gp2@ | @io1@ | @io2@ | @st1 @ | @sc1@ | @standard@ ).
+    --
+    --
+    --     * @block-device-mapping.encrypted@ - A Boolean that indicates whether the EBS volume is encrypted.
+    --
+    --
+    --     * @description@ - The description of the image (provided during image creation).
+    --
+    --
+    --     * @ena-support@ - A Boolean that indicates whether enhanced networking with ENA is enabled.
+    --
+    --
+    --     * @hypervisor@ - The hypervisor type (@ovm@ | @xen@ ).
+    --
+    --
+    --     * @image-id@ - The ID of the image.
+    --
+    --
+    --     * @image-type@ - The image type (@machine@ | @kernel@ | @ramdisk@ ).
+    --
+    --
+    --     * @is-public@ - A Boolean that indicates whether the image is public.
+    --
+    --
+    --     * @kernel-id@ - The kernel ID.
+    --
+    --
+    --     * @manifest-location@ - The location of the image manifest.
+    --
+    --
+    --     * @name@ - The name of the AMI (provided during image creation).
+    --
+    --
+    --     * @owner-alias@ - The owner alias, from an Amazon-maintained list (@amazon@ | @aws-marketplace@ ). This is not the user-configured AWS account alias set using the IAM console. We recommend that you use the related parameter instead of this filter.
+    --
+    --
+    --     * @owner-id@ - The AWS account ID of the owner. We recommend that you use the related parameter instead of this filter.
+    --
+    --
+    --     * @platform@ - The platform. To only list Windows-based AMIs, use @windows@ .
+    --
+    --
+    --     * @product-code@ - The product code.
+    --
+    --
+    --     * @product-code.type@ - The type of the product code (@devpay@ | @marketplace@ ).
+    --
+    --
+    --     * @ramdisk-id@ - The RAM disk ID.
+    --
+    --
+    --     * @root-device-name@ - The device name of the root device volume (for example, @/dev/sda1@ ).
+    --
+    --
+    --     * @root-device-type@ - The type of the root device volume (@ebs@ | @instance-store@ ).
+    --
+    --
+    --     * @state@ - The state of the image (@available@ | @pending@ | @failed@ ).
+    --
+    --
+    --     * @state-reason-code@ - The reason code for the state change.
+    --
+    --
+    --     * @state-reason-message@ - The message for the state change.
+    --
+    --
+    --     * @sriov-net-support@ - A value of @simple@ indicates that enhanced networking with the Intel 82599 VF interface is enabled.
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    --
+    --
+    --     * @virtualization-type@ - The virtualization type (@paravirtual@ | @hvm@ ).
     filters :: Lude.Maybe [Filter],
+    -- | The image IDs.
+    --
+    -- Default: Describes all images available to you.
     imageIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImages' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'owners' - Scopes the results to images with the specified owners. You can specify a combination of AWS account IDs, @self@ , @amazon@ , and @aws-marketplace@ . If you omit this parameter, the results include all images for which you have launch permissions, regardless of ownership.
 -- * 'executableUsers' - Scopes the images by users with explicit launch permissions. Specify an AWS account ID, @self@ (the sender of the request), or @all@ (public AMIs).
 -- * 'filters' - The filters.
 --
@@ -165,7 +259,7 @@ data DescribeImages = DescribeImages'
 -- * 'imageIds' - The image IDs.
 --
 -- Default: Describes all images available to you.
--- * 'owners' - Scopes the results to images with the specified owners. You can specify a combination of AWS account IDs, @self@ , @amazon@ , and @aws-marketplace@ . If you omit this parameter, the results include all images for which you have launch permissions, regardless of ownership.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDescribeImages ::
   DescribeImages
 mkDescribeImages =
@@ -180,16 +274,16 @@ mkDescribeImages =
 -- | Scopes the results to images with the specified owners. You can specify a combination of AWS account IDs, @self@ , @amazon@ , and @aws-marketplace@ . If you omit this parameter, the results include all images for which you have launch permissions, regardless of ownership.
 --
 -- /Note:/ Consider using 'owners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deseOwners :: Lens.Lens' DescribeImages (Lude.Maybe [Lude.Text])
-deseOwners = Lens.lens (owners :: DescribeImages -> Lude.Maybe [Lude.Text]) (\s a -> s {owners = a} :: DescribeImages)
-{-# DEPRECATED deseOwners "Use generic-lens or generic-optics with 'owners' instead." #-}
+disOwners :: Lens.Lens' DescribeImages (Lude.Maybe [Lude.Text])
+disOwners = Lens.lens (owners :: DescribeImages -> Lude.Maybe [Lude.Text]) (\s a -> s {owners = a} :: DescribeImages)
+{-# DEPRECATED disOwners "Use generic-lens or generic-optics with 'owners' instead." #-}
 
 -- | Scopes the images by users with explicit launch permissions. Specify an AWS account ID, @self@ (the sender of the request), or @all@ (public AMIs).
 --
 -- /Note:/ Consider using 'executableUsers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deseExecutableUsers :: Lens.Lens' DescribeImages (Lude.Maybe [Lude.Text])
-deseExecutableUsers = Lens.lens (executableUsers :: DescribeImages -> Lude.Maybe [Lude.Text]) (\s a -> s {executableUsers = a} :: DescribeImages)
-{-# DEPRECATED deseExecutableUsers "Use generic-lens or generic-optics with 'executableUsers' instead." #-}
+disExecutableUsers :: Lens.Lens' DescribeImages (Lude.Maybe [Lude.Text])
+disExecutableUsers = Lens.lens (executableUsers :: DescribeImages -> Lude.Maybe [Lude.Text]) (\s a -> s {executableUsers = a} :: DescribeImages)
+{-# DEPRECATED disExecutableUsers "Use generic-lens or generic-optics with 'executableUsers' instead." #-}
 
 -- | The filters.
 --
@@ -289,25 +383,25 @@ deseExecutableUsers = Lens.lens (executableUsers :: DescribeImages -> Lude.Maybe
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deseFilters :: Lens.Lens' DescribeImages (Lude.Maybe [Filter])
-deseFilters = Lens.lens (filters :: DescribeImages -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeImages)
-{-# DEPRECATED deseFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+disFilters :: Lens.Lens' DescribeImages (Lude.Maybe [Filter])
+disFilters = Lens.lens (filters :: DescribeImages -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeImages)
+{-# DEPRECATED disFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The image IDs.
 --
 -- Default: Describes all images available to you.
 --
 -- /Note:/ Consider using 'imageIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deseImageIds :: Lens.Lens' DescribeImages (Lude.Maybe [Lude.Text])
-deseImageIds = Lens.lens (imageIds :: DescribeImages -> Lude.Maybe [Lude.Text]) (\s a -> s {imageIds = a} :: DescribeImages)
-{-# DEPRECATED deseImageIds "Use generic-lens or generic-optics with 'imageIds' instead." #-}
+disImageIds :: Lens.Lens' DescribeImages (Lude.Maybe [Lude.Text])
+disImageIds = Lens.lens (imageIds :: DescribeImages -> Lude.Maybe [Lude.Text]) (\s a -> s {imageIds = a} :: DescribeImages)
+{-# DEPRECATED disImageIds "Use generic-lens or generic-optics with 'imageIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deseDryRun :: Lens.Lens' DescribeImages (Lude.Maybe Lude.Bool)
-deseDryRun = Lens.lens (dryRun :: DescribeImages -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeImages)
-{-# DEPRECATED deseDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+disDryRun :: Lens.Lens' DescribeImages (Lude.Maybe Lude.Bool)
+disDryRun = Lens.lens (dryRun :: DescribeImages -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeImages)
+{-# DEPRECATED disDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DescribeImages where
   type Rs DescribeImages = DescribeImagesResponse
@@ -343,17 +437,12 @@ instance Lude.ToQuery DescribeImages where
 
 -- | /See:/ 'mkDescribeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-  { images ::
-      Lude.Maybe [Image],
+  { -- | Information about the images.
+    images :: Lude.Maybe [Image],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImagesResponse' with the minimum fields required to make a request.
@@ -373,13 +462,13 @@ mkDescribeImagesResponse pResponseStatus_ =
 -- | Information about the images.
 --
 -- /Note:/ Consider using 'images' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diirsImages :: Lens.Lens' DescribeImagesResponse (Lude.Maybe [Image])
-diirsImages = Lens.lens (images :: DescribeImagesResponse -> Lude.Maybe [Image]) (\s a -> s {images = a} :: DescribeImagesResponse)
-{-# DEPRECATED diirsImages "Use generic-lens or generic-optics with 'images' instead." #-}
+dihrsImages :: Lens.Lens' DescribeImagesResponse (Lude.Maybe [Image])
+dihrsImages = Lens.lens (images :: DescribeImagesResponse -> Lude.Maybe [Image]) (\s a -> s {images = a} :: DescribeImagesResponse)
+{-# DEPRECATED dihrsImages "Use generic-lens or generic-optics with 'images' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diirsResponseStatus :: Lens.Lens' DescribeImagesResponse Lude.Int
-diirsResponseStatus = Lens.lens (responseStatus :: DescribeImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImagesResponse)
-{-# DEPRECATED diirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dihrsResponseStatus :: Lens.Lens' DescribeImagesResponse Lude.Int
+dihrsResponseStatus = Lens.lens (responseStatus :: DescribeImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeImagesResponse)
+{-# DEPRECATED dihrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

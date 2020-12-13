@@ -33,26 +33,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIPv6Pool' smart constructor.
 data IPv6Pool = IPv6Pool'
-  { poolCidrBlocks ::
-      Lude.Maybe [PoolCidrBlock],
+  { -- | The CIDR blocks for the address pool.
+    poolCidrBlocks :: Lude.Maybe [PoolCidrBlock],
+    -- | The ID of the address pool.
     poolId :: Lude.Maybe Lude.Text,
+    -- | The description for the address pool.
     description :: Lude.Maybe Lude.Text,
+    -- | Any tags for the address pool.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPv6Pool' with the minimum fields required to make a request.
 --
--- * 'description' - The description for the address pool.
 -- * 'poolCidrBlocks' - The CIDR blocks for the address pool.
 -- * 'poolId' - The ID of the address pool.
+-- * 'description' - The description for the address pool.
 -- * 'tags' - Any tags for the address pool.
 mkIPv6Pool ::
   IPv6Pool

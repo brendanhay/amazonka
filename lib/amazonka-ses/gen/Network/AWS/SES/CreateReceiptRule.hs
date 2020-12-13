@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkCreateReceiptRule' smart constructor.
 data CreateReceiptRule = CreateReceiptRule'
-  { after ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.
+    after :: Lude.Maybe Lude.Text,
+    -- | The name of the rule set that the receipt rule will be added to.
     ruleSetName :: Lude.Text,
+    -- | A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
     rule :: ReceiptRule
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptRule' with the minimum fields required to make a request.
 --
 -- * 'after' - The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.
--- * 'rule' - A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
 -- * 'ruleSetName' - The name of the rule set that the receipt rule will be added to.
+-- * 'rule' - A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
 mkCreateReceiptRule ::
   -- | 'ruleSetName'
   Lude.Text ->
@@ -128,16 +125,10 @@ instance Lude.ToQuery CreateReceiptRule where
 --
 -- /See:/ 'mkCreateReceiptRuleResponse' smart constructor.
 newtype CreateReceiptRuleResponse = CreateReceiptRuleResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptRuleResponse' with the minimum fields required to make a request.

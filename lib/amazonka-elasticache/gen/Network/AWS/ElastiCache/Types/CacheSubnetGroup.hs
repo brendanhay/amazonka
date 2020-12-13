@@ -41,29 +41,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheSubnetGroup' smart constructor.
 data CacheSubnetGroup = CacheSubnetGroup'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN (Amazon Resource Name) of the cache subnet group.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | A list of subnets associated with the cache subnet group.
     subnets :: Lude.Maybe [Subnet],
+    -- | The name of the cache subnet group.
     cacheSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | The description of the cache subnet group.
     cacheSubnetGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheSubnetGroup' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN (Amazon Resource Name) of the cache subnet group.
--- * 'cacheSubnetGroupDescription' - The description of the cache subnet group.
--- * 'cacheSubnetGroupName' - The name of the cache subnet group.
--- * 'subnets' - A list of subnets associated with the cache subnet group.
 -- * 'vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+-- * 'subnets' - A list of subnets associated with the cache subnet group.
+-- * 'cacheSubnetGroupName' - The name of the cache subnet group.
+-- * 'cacheSubnetGroupDescription' - The description of the cache subnet group.
 mkCacheSubnetGroup ::
   CacheSubnetGroup
 mkCacheSubnetGroup =

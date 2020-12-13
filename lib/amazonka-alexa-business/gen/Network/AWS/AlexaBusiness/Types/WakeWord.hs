@@ -15,8 +15,8 @@ module Network.AWS.AlexaBusiness.Types.WakeWord
       ( WakeWord',
         Alexa,
         Amazon,
-        Computer,
-        Echo
+        Echo,
+        Computer
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern Alexa = WakeWord' "ALEXA"
 pattern Amazon :: WakeWord
 pattern Amazon = WakeWord' "AMAZON"
 
-pattern Computer :: WakeWord
-pattern Computer = WakeWord' "COMPUTER"
-
 pattern Echo :: WakeWord
 pattern Echo = WakeWord' "ECHO"
+
+pattern Computer :: WakeWord
+pattern Computer = WakeWord' "COMPUTER"
 
 {-# COMPLETE
   Alexa,
   Amazon,
-  Computer,
   Echo,
+  Computer,
   WakeWord'
   #-}

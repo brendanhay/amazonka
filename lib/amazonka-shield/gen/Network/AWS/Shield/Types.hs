@@ -106,8 +106,8 @@ module Network.AWS.Shield.Types
     EmergencyContact (..),
     mkEmergencyContact,
     ecPhoneNumber,
-    ecContactNotes,
     ecEmailAddress,
+    ecContactNotes,
 
     -- * Limit
     Limit (..),
@@ -132,10 +132,10 @@ module Network.AWS.Shield.Types
     ProtectionGroup (..),
     mkProtectionGroup,
     pgResourceType,
-    pgProtectionGroupId,
-    pgAggregation,
     pgPattern,
     pgMembers,
+    pgProtectionGroupId,
+    pgAggregation,
 
     -- * ProtectionGroupArbitraryPatternLimits
     ProtectionGroupArbitraryPatternLimits (..),
@@ -170,18 +170,18 @@ module Network.AWS.Shield.Types
     Subscription (..),
     mkSubscription,
     sTimeCommitmentInSeconds,
+    sSubscriptionLimits,
     sStartTime,
     sLimits,
     sAutoRenew,
     sEndTime,
     sProactiveEngagementStatus,
-    sSubscriptionLimits,
 
     -- * SubscriptionLimits
     SubscriptionLimits (..),
     mkSubscriptionLimits,
-    slProtectionLimits,
     slProtectionGroupLimits,
+    slProtectionLimits,
 
     -- * SummarizedAttackVector
     SummarizedAttackVector (..),

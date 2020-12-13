@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,14 +45,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetImport' smart constructor.
-newtype GetImport = GetImport' {importId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetImport = GetImport'
+  { -- | The identifier of the import job information to return.
+    importId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetImport' with the minimum fields required to make a request.
@@ -105,34 +103,35 @@ instance Lude.ToQuery GetImport where
 
 -- | /See:/ 'mkGetImportResponse' smart constructor.
 data GetImportResponse = GetImportResponse'
-  { failureReason ::
-      Lude.Maybe [Lude.Text],
+  { -- | A string that describes why an import job failed to complete.
+    failureReason :: Lude.Maybe [Lude.Text],
+    -- | The type of resource imported.
     resourceType :: Lude.Maybe ResourceType,
+    -- | The identifier for the specific import job.
     importId :: Lude.Maybe Lude.Text,
+    -- | A timestamp for the date and time that the import job was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name given to the import job.
     name :: Lude.Maybe Lude.Text,
+    -- | The action taken when there was a conflict between an existing resource and a resource in the import file.
     mergeStrategy :: Lude.Maybe MergeStrategy,
+    -- | The status of the import job. If the status is @FAILED@ , you can get the reason for the failure from the @failureReason@ field.
     importStatus :: Lude.Maybe ImportStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetImportResponse' with the minimum fields required to make a request.
 --
--- * 'createdDate' - A timestamp for the date and time that the import job was created.
 -- * 'failureReason' - A string that describes why an import job failed to complete.
--- * 'importId' - The identifier for the specific import job.
--- * 'importStatus' - The status of the import job. If the status is @FAILED@ , you can get the reason for the failure from the @failureReason@ field.
--- * 'mergeStrategy' - The action taken when there was a conflict between an existing resource and a resource in the import file.
--- * 'name' - The name given to the import job.
 -- * 'resourceType' - The type of resource imported.
+-- * 'importId' - The identifier for the specific import job.
+-- * 'createdDate' - A timestamp for the date and time that the import job was created.
+-- * 'name' - The name given to the import job.
+-- * 'mergeStrategy' - The action taken when there was a conflict between an existing resource and a resource in the import file.
+-- * 'importStatus' - The status of the import job. If the status is @FAILED@ , you can get the reason for the failure from the @failureReason@ field.
 -- * 'responseStatus' - The response status code.
 mkGetImportResponse ::
   -- | 'responseStatus'

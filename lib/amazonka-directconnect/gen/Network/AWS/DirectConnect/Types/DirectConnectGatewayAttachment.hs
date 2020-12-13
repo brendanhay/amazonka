@@ -36,34 +36,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectConnectGatewayAttachment' smart constructor.
 data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
-  { directConnectGatewayId ::
-      Lude.Maybe Lude.Text,
-    attachmentState ::
-      Lude.Maybe
-        DirectConnectGatewayAttachmentState,
-    stateChangeError ::
-      Lude.Maybe Lude.Text,
-    virtualInterfaceRegion ::
-      Lude.Maybe Lude.Text,
-    virtualInterfaceOwnerAccount ::
-      Lude.Maybe Lude.Text,
-    virtualInterfaceId ::
-      Lude.Maybe Lude.Text,
-    attachmentType ::
-      Lude.Maybe
-        DirectConnectGatewayAttachmentType
+  { -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Lude.Maybe Lude.Text,
+    -- | The state of the attachment. The following are the possible values:
+    --
+    --
+    --     * @attaching@ : The initial state after a virtual interface is created using the Direct Connect gateway.
+    --
+    --
+    --     * @attached@ : The Direct Connect gateway and virtual interface are attached and ready to pass traffic.
+    --
+    --
+    --     * @detaching@ : The initial state after calling 'DeleteVirtualInterface' .
+    --
+    --
+    --     * @detached@ : The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.
+    attachmentState :: Lude.Maybe DirectConnectGatewayAttachmentState,
+    -- | The error message if the state of an object failed to advance.
+    stateChangeError :: Lude.Maybe Lude.Text,
+    -- | The AWS Region where the virtual interface is located.
+    virtualInterfaceRegion :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account that owns the virtual interface.
+    virtualInterfaceOwnerAccount :: Lude.Maybe Lude.Text,
+    -- | The ID of the virtual interface.
+    virtualInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The type of attachment.
+    attachmentType :: Lude.Maybe DirectConnectGatewayAttachmentType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectConnectGatewayAttachment' with the minimum fields required to make a request.
 --
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
 -- * 'attachmentState' - The state of the attachment. The following are the possible values:
 --
 --
@@ -79,12 +84,11 @@ data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
 --     * @detached@ : The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.
 --
 --
--- * 'attachmentType' - The type of attachment.
--- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
 -- * 'stateChangeError' - The error message if the state of an object failed to advance.
--- * 'virtualInterfaceId' - The ID of the virtual interface.
--- * 'virtualInterfaceOwnerAccount' - The ID of the AWS account that owns the virtual interface.
 -- * 'virtualInterfaceRegion' - The AWS Region where the virtual interface is located.
+-- * 'virtualInterfaceOwnerAccount' - The ID of the AWS account that owns the virtual interface.
+-- * 'virtualInterfaceId' - The ID of the virtual interface.
+-- * 'attachmentType' - The type of attachment.
 mkDirectConnectGatewayAttachment ::
   DirectConnectGatewayAttachment
 mkDirectConnectGatewayAttachment =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,23 +43,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkTestConnection' smart constructor.
 data TestConnection = TestConnection'
-  { replicationInstanceARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceARN :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
     endpointARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestConnection' with the minimum fields required to make a request.
 --
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 -- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 mkTestConnection ::
   -- | 'replicationInstanceARN'
   Lude.Text ->
@@ -127,17 +123,12 @@ instance Lude.ToQuery TestConnection where
 --
 -- /See:/ 'mkTestConnectionResponse' smart constructor.
 data TestConnectionResponse = TestConnectionResponse'
-  { connection ::
-      Lude.Maybe Connection,
+  { -- | The connection tested.
+    connection :: Lude.Maybe Connection,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestConnectionResponse' with the minimum fields required to make a request.

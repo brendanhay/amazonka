@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,23 +53,18 @@ import Network.AWS.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'mkGetApplication' smart constructor.
 data GetApplication = GetApplication'
-  { semanticVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The semantic version of the application to get.
+    semanticVersion :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the application.
     applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplication' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
 -- * 'semanticVersion' - The semantic version of the application to get.
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
 mkGetApplication ::
   -- | 'applicationId'
   Lude.Text ->
@@ -135,62 +131,84 @@ instance Lude.ToQuery GetApplication where
 
 -- | /See:/ 'mkGetApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Text,
+  { -- | The date and time this resource was created.
+    creationTime :: Lude.Maybe Lude.Text,
+    -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
     homePageURL :: Lude.Maybe Lude.Text,
+    -- | A link to a license file of the app that matches the spdxLicenseID value of your application.
+    --
+    -- Maximum size 5 MB
     licenseURL :: Lude.Maybe Lude.Text,
+    -- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
     readmeURL :: Lude.Maybe Lude.Text,
+    -- | The application Amazon Resource Name (ARN).
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The name of the application.
+    --
+    -- Minimum length=1. Maximum length=140
+    -- Pattern: "[a-zA-Z0-9\\-]+";
     name :: Lude.Maybe Lude.Text,
+    -- | Version information about the application.
     version :: Lude.Maybe Version,
+    -- | The name of the author publishing the app.
+    --
+    -- Minimum length=1. Maximum length=127.
+    -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
     author :: Lude.Maybe Lude.Text,
+    -- | Labels to improve discovery of apps in search results.
+    --
+    -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+    -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
     labels :: Lude.Maybe [Lude.Text],
+    -- | The URL to the public profile of a verified author. This URL is submitted by the author.
     verifiedAuthorURL :: Lude.Maybe Lude.Text,
+    -- | The description of the application.
+    --
+    -- Minimum length=1. Maximum length=256
     description :: Lude.Maybe Lude.Text,
+    -- | A valid identifier from https://spdx.org/licenses/.
     spdxLicenseId :: Lude.Maybe Lude.Text,
+    -- | Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
     isVerifiedAuthor :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplicationResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The application Amazon Resource Name (ARN).
--- * 'author' - The name of the author publishing the app.
---
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 -- * 'creationTime' - The date and time this resource was created.
--- * 'description' - The description of the application.
---
--- Minimum length=1. Maximum length=256
 -- * 'homePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
--- * 'isVerifiedAuthor' - Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
--- * 'labels' - Labels to improve discovery of apps in search results.
---
--- Minimum length=1. Maximum length=127. Maximum number of labels: 10
--- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 -- * 'licenseURL' - A link to a license file of the app that matches the spdxLicenseID value of your application.
 --
 -- Maximum size 5 MB
+-- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+-- * 'applicationId' - The application Amazon Resource Name (ARN).
 -- * 'name' - The name of the application.
 --
 -- Minimum length=1. Maximum length=140
 -- Pattern: "[a-zA-Z0-9\\-]+";
--- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
---
--- Maximum size 5 MB
--- * 'responseStatus' - The response status code.
--- * 'spdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
--- * 'verifiedAuthorURL' - The URL to the public profile of a verified author. This URL is submitted by the author.
 -- * 'version' - Version information about the application.
+-- * 'author' - The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+-- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- * 'labels' - Labels to improve discovery of apps in search results.
+--
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+-- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- * 'verifiedAuthorURL' - The URL to the public profile of a verified author. This URL is submitted by the author.
+-- * 'description' - The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+-- * 'spdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
+-- * 'isVerifiedAuthor' - Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+-- * 'responseStatus' - The response status code.
 mkGetApplicationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

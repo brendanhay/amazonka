@@ -35,31 +35,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCmafPackage' smart constructor.
 data CmafPackage = CmafPackage'
-  { hlsManifests ::
-      Lude.Maybe [HlsManifest],
+  { -- | A list of HLS manifest configurations
+    hlsManifests :: Lude.Maybe [HlsManifest],
+    -- | Duration (in seconds) of each segment. Actual segments will be
+    --
+    -- rounded to the nearest multiple of the source segment duration.
     segmentDurationSeconds :: Lude.Maybe Lude.Int,
     streamSelection :: Lude.Maybe StreamSelection,
     encryption :: Lude.Maybe CmafEncryption,
+    -- | An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
     segmentPrefix :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CmafPackage' with the minimum fields required to make a request.
 --
--- * 'encryption' - Undocumented field.
 -- * 'hlsManifests' - A list of HLS manifest configurations
 -- * 'segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be
 --
 -- rounded to the nearest multiple of the source segment duration.
+-- * 'streamSelection' -
+-- * 'encryption' -
 -- * 'segmentPrefix' - An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
--- * 'streamSelection' - Undocumented field.
 mkCmafPackage ::
   CmafPackage
 mkCmafPackage =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteManagedPrefixList
     mkDeleteManagedPrefixList,
 
     -- ** Request lenses
-    dmplDryRun,
     dmplPrefixListId,
+    dmplDryRun,
 
     -- * Destructuring the response
     DeleteManagedPrefixListResponse (..),
@@ -40,39 +41,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteManagedPrefixList' smart constructor.
 data DeleteManagedPrefixList = DeleteManagedPrefixList'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    prefixListId :: Lude.Text
+  { -- | The ID of the prefix list.
+    prefixListId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteManagedPrefixList' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'prefixListId' - The ID of the prefix list.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteManagedPrefixList ::
   -- | 'prefixListId'
   Lude.Text ->
   DeleteManagedPrefixList
 mkDeleteManagedPrefixList pPrefixListId_ =
   DeleteManagedPrefixList'
-    { dryRun = Lude.Nothing,
-      prefixListId = pPrefixListId_
+    { prefixListId = pPrefixListId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmplDryRun :: Lens.Lens' DeleteManagedPrefixList (Lude.Maybe Lude.Bool)
-dmplDryRun = Lens.lens (dryRun :: DeleteManagedPrefixList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteManagedPrefixList)
-{-# DEPRECATED dmplDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the prefix list.
 --
@@ -80,6 +69,13 @@ dmplDryRun = Lens.lens (dryRun :: DeleteManagedPrefixList -> Lude.Maybe Lude.Boo
 dmplPrefixListId :: Lens.Lens' DeleteManagedPrefixList Lude.Text
 dmplPrefixListId = Lens.lens (prefixListId :: DeleteManagedPrefixList -> Lude.Text) (\s a -> s {prefixListId = a} :: DeleteManagedPrefixList)
 {-# DEPRECATED dmplPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmplDryRun :: Lens.Lens' DeleteManagedPrefixList (Lude.Maybe Lude.Bool)
+dmplDryRun = Lens.lens (dryRun :: DeleteManagedPrefixList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteManagedPrefixList)
+{-# DEPRECATED dmplDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteManagedPrefixList where
   type Rs DeleteManagedPrefixList = DeleteManagedPrefixListResponse
@@ -102,24 +98,18 @@ instance Lude.ToQuery DeleteManagedPrefixList where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteManagedPrefixList" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "PrefixListId" Lude.=: prefixListId
+        "PrefixListId" Lude.=: prefixListId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteManagedPrefixListResponse' smart constructor.
 data DeleteManagedPrefixListResponse = DeleteManagedPrefixListResponse'
-  { prefixList ::
-      Lude.Maybe
-        ManagedPrefixList,
+  { -- | Information about the prefix list.
+    prefixList :: Lude.Maybe ManagedPrefixList,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteManagedPrefixListResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.StepFunctions.ListStateMachines
     mkListStateMachinesResponse,
 
     -- ** Response lenses
+    lsmrsStateMachines,
     lsmrsNextToken,
     lsmrsResponseStatus,
-    lsmrsStateMachines,
   )
 where
 
@@ -46,25 +47,22 @@ import Network.AWS.StepFunctions.Types
 
 -- | /See:/ 'mkListStateMachines' smart constructor.
 data ListStateMachines = ListStateMachines'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.
+    --
+    -- This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStateMachines' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
 -- * 'maxResults' - The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.
 --
 -- This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
--- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
 mkListStateMachines ::
   ListStateMachines
 mkListStateMachines =
@@ -105,9 +103,9 @@ instance Lude.AWSRequest ListStateMachines where
     Res.receiveJSON
       ( \s h x ->
           ListStateMachinesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<$> (x Lude..?> "stateMachines" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "stateMachines" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListStateMachines where
@@ -138,35 +136,37 @@ instance Lude.ToQuery ListStateMachines where
 
 -- | /See:/ 'mkListStateMachinesResponse' smart constructor.
 data ListStateMachinesResponse = ListStateMachinesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    stateMachines :: [StateMachineListItem]
+  { stateMachines :: [StateMachineListItem],
+    -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStateMachinesResponse' with the minimum fields required to make a request.
 --
+-- * 'stateMachines' -
 -- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
 -- * 'responseStatus' - The response status code.
--- * 'stateMachines' - Undocumented field.
 mkListStateMachinesResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   ListStateMachinesResponse
 mkListStateMachinesResponse pResponseStatus_ =
   ListStateMachinesResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      stateMachines = Lude.mempty
+    { stateMachines = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'stateMachines' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsmrsStateMachines :: Lens.Lens' ListStateMachinesResponse [StateMachineListItem]
+lsmrsStateMachines = Lens.lens (stateMachines :: ListStateMachinesResponse -> [StateMachineListItem]) (\s a -> s {stateMachines = a} :: ListStateMachinesResponse)
+{-# DEPRECATED lsmrsStateMachines "Use generic-lens or generic-optics with 'stateMachines' instead." #-}
 
 -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
 --
@@ -181,10 +181,3 @@ lsmrsNextToken = Lens.lens (nextToken :: ListStateMachinesResponse -> Lude.Maybe
 lsmrsResponseStatus :: Lens.Lens' ListStateMachinesResponse Lude.Int
 lsmrsResponseStatus = Lens.lens (responseStatus :: ListStateMachinesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStateMachinesResponse)
 {-# DEPRECATED lsmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'stateMachines' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsmrsStateMachines :: Lens.Lens' ListStateMachinesResponse [StateMachineListItem]
-lsmrsStateMachines = Lens.lens (stateMachines :: ListStateMachinesResponse -> [StateMachineListItem]) (\s a -> s {stateMachines = a} :: ListStateMachinesResponse)
-{-# DEPRECATED lsmrsStateMachines "Use generic-lens or generic-optics with 'stateMachines' instead." #-}

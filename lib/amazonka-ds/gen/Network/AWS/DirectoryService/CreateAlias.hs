@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,24 +46,22 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { directoryId :: Lude.Text,
+  { -- | The identifier of the directory for which to create the alias.
+    directoryId :: Lude.Text,
+    -- | The requested alias.
+    --
+    -- The alias must be unique amongst all aliases in AWS. This operation throws an @EntityAlreadyExistsException@ error if the alias already exists.
     alias :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
+-- * 'directoryId' - The identifier of the directory for which to create the alias.
 -- * 'alias' - The requested alias.
 --
 -- The alias must be unique amongst all aliases in AWS. This operation throws an @EntityAlreadyExistsException@ error if the alias already exists.
--- * 'directoryId' - The identifier of the directory for which to create the alias.
 mkCreateAlias ::
   -- | 'directoryId'
   Lude.Text ->
@@ -130,24 +129,20 @@ instance Lude.ToQuery CreateAlias where
 --
 -- /See:/ 'mkCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the directory.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The alias for the directory.
     alias :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
 --
--- * 'alias' - The alias for the directory.
 -- * 'directoryId' - The identifier of the directory.
+-- * 'alias' - The alias for the directory.
 -- * 'responseStatus' - The response status code.
 mkCreateAliasResponse ::
   -- | 'responseStatus'

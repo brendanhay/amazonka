@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.Route53.GetCheckerIPRanges
     mkGetCheckerIPRangesResponse,
 
     -- ** Response lenses
-    gcirrsResponseStatus,
     gcirrsCheckerIPRanges,
+    gcirrsResponseStatus,
   )
 where
 
@@ -38,13 +39,7 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkGetCheckerIPRanges' smart constructor.
 data GetCheckerIPRanges = GetCheckerIPRanges'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCheckerIPRanges' with the minimum fields required to make a request.
@@ -59,10 +54,10 @@ instance Lude.AWSRequest GetCheckerIPRanges where
     Res.receiveXML
       ( \s h x ->
           GetCheckerIPRangesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "CheckerIpRanges" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "CheckerIpRanges" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetCheckerIPRanges where
@@ -78,17 +73,12 @@ instance Lude.ToQuery GetCheckerIPRanges where
 --
 -- /See:/ 'mkGetCheckerIPRangesResponse' smart constructor.
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
-  { responseStatus ::
-      Lude.Int,
-    checkerIPRanges :: [Lude.Text]
+  { -- | A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.
+    checkerIPRanges :: [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCheckerIPRangesResponse' with the minimum fields required to make a request.
@@ -101,16 +91,9 @@ mkGetCheckerIPRangesResponse ::
   GetCheckerIPRangesResponse
 mkGetCheckerIPRangesResponse pResponseStatus_ =
   GetCheckerIPRangesResponse'
-    { responseStatus = pResponseStatus_,
-      checkerIPRanges = Lude.mempty
+    { checkerIPRanges = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcirrsResponseStatus :: Lens.Lens' GetCheckerIPRangesResponse Lude.Int
-gcirrsResponseStatus = Lens.lens (responseStatus :: GetCheckerIPRangesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCheckerIPRangesResponse)
-{-# DEPRECATED gcirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.
 --
@@ -118,3 +101,10 @@ gcirrsResponseStatus = Lens.lens (responseStatus :: GetCheckerIPRangesResponse -
 gcirrsCheckerIPRanges :: Lens.Lens' GetCheckerIPRangesResponse [Lude.Text]
 gcirrsCheckerIPRanges = Lens.lens (checkerIPRanges :: GetCheckerIPRangesResponse -> [Lude.Text]) (\s a -> s {checkerIPRanges = a} :: GetCheckerIPRangesResponse)
 {-# DEPRECATED gcirrsCheckerIPRanges "Use generic-lens or generic-optics with 'checkerIPRanges' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcirrsResponseStatus :: Lens.Lens' GetCheckerIPRangesResponse Lude.Int
+gcirrsResponseStatus = Lens.lens (responseStatus :: GetCheckerIPRangesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCheckerIPRangesResponse)
+{-# DEPRECATED gcirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

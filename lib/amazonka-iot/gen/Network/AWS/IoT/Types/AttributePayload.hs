@@ -29,17 +29,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttributePayload' smart constructor.
 data AttributePayload = AttributePayload'
-  { attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | A JSON string containing up to three key-value pair in JSON format. For example:
+    --
+    -- @{\"attributes\":{\"string1\":\"string2\"}}@
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them.
+    --
+    -- To remove an attribute, call @UpdateThing@ with an empty attribute value.
     merge :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributePayload' with the minimum fields required to make a request.

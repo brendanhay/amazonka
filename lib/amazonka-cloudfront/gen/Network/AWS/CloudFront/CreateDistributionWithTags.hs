@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,8 +44,8 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateDistributionWithTags' smart constructor.
 newtype CreateDistributionWithTags = CreateDistributionWithTags'
-  { distributionConfigWithTags ::
-      DistributionConfigWithTags
+  { -- | The distribution's configuration information.
+    distributionConfigWithTags :: DistributionConfigWithTags
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
@@ -103,28 +104,22 @@ instance Lude.ToQuery CreateDistributionWithTags where
 --
 -- /See:/ 'mkCreateDistributionWithTagsResponse' smart constructor.
 data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
-  { eTag ::
-      Lude.Maybe Lude.Text,
-    distribution ::
-      Lude.Maybe
-        Distribution,
-    location ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The current version of the distribution created.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The distribution's information.
+    distribution :: Lude.Maybe Distribution,
+    -- | The fully qualified URI of the new distribution resource just created.
+    location :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDistributionWithTagsResponse' with the minimum fields required to make a request.
 --
--- * 'distribution' - The distribution's information.
 -- * 'eTag' - The current version of the distribution created.
+-- * 'distribution' - The distribution's information.
 -- * 'location' - The fully qualified URI of the new distribution resource just created.
 -- * 'responseStatus' - The response status code.
 mkCreateDistributionWithTagsResponse ::

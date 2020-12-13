@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTextArrayOptions' smart constructor.
 data TextArrayOptions = TextArrayOptions'
-  { sourceFields ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of source fields to map to the field.
+    sourceFields :: Lude.Maybe Lude.Text,
+    -- | Whether the contents of the field can be returned in the search results.
     returnEnabled :: Lude.Maybe Lude.Bool,
+    -- | The name of an analysis scheme for a @text-array@ field.
     analysisScheme :: Lude.Maybe Lude.Text,
+    -- | Whether highlights can be returned for the field.
     highlightEnabled :: Lude.Maybe Lude.Bool,
+    -- | A value to use for the field if the field isn't specified for a document.
     defaultValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TextArrayOptions' with the minimum fields required to make a request.
 --
--- * 'analysisScheme' - The name of an analysis scheme for a @text-array@ field.
--- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
--- * 'highlightEnabled' - Whether highlights can be returned for the field.
--- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
 -- * 'sourceFields' - A list of source fields to map to the field.
+-- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- * 'analysisScheme' - The name of an analysis scheme for a @text-array@ field.
+-- * 'highlightEnabled' - Whether highlights can be returned for the field.
+-- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
 mkTextArrayOptions ::
   TextArrayOptions
 mkTextArrayOptions =

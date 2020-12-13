@@ -18,13 +18,13 @@ module Network.AWS.DynamoDB.Types.ReplicaSettingsDescription
 
     -- * Lenses
     rsdReplicaStatus,
+    rsdRegionName,
     rsdReplicaProvisionedReadCapacityUnits,
     rsdReplicaProvisionedWriteCapacityUnits,
     rsdReplicaBillingModeSummary,
     rsdReplicaGlobalSecondaryIndexSettings,
     rsdReplicaProvisionedWriteCapacityAutoScalingSettings,
     rsdReplicaProvisionedReadCapacityAutoScalingSettings,
-    rsdRegionName,
   )
 where
 
@@ -39,43 +39,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicaSettingsDescription' smart constructor.
 data ReplicaSettingsDescription = ReplicaSettingsDescription'
-  { replicaStatus ::
-      Lude.Maybe ReplicaStatus,
-    replicaProvisionedReadCapacityUnits ::
-      Lude.Maybe Lude.Natural,
-    replicaProvisionedWriteCapacityUnits ::
-      Lude.Maybe Lude.Natural,
-    replicaBillingModeSummary ::
-      Lude.Maybe BillingModeSummary,
-    replicaGlobalSecondaryIndexSettings ::
-      Lude.Maybe
-        [ReplicaGlobalSecondaryIndexSettingsDescription],
-    replicaProvisionedWriteCapacityAutoScalingSettings ::
-      Lude.Maybe
-        AutoScalingSettingsDescription,
-    replicaProvisionedReadCapacityAutoScalingSettings ::
-      Lude.Maybe
-        AutoScalingSettingsDescription,
-    regionName :: Lude.Text
+  { -- | The current state of the Region:
+    --
+    --
+    --     * @CREATING@ - The Region is being created.
+    --
+    --
+    --     * @UPDATING@ - The Region is being updated.
+    --
+    --
+    --     * @DELETING@ - The Region is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The Region is ready for use.
+    replicaStatus :: Lude.Maybe ReplicaStatus,
+    -- | The Region name of the replica.
+    regionName :: Lude.Text,
+    -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+    replicaProvisionedReadCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+    replicaProvisionedWriteCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | The read/write capacity mode of the replica.
+    replicaBillingModeSummary :: Lude.Maybe BillingModeSummary,
+    -- | Replica global secondary index settings for the global table.
+    replicaGlobalSecondaryIndexSettings :: Lude.Maybe [ReplicaGlobalSecondaryIndexSettingsDescription],
+    -- | Auto scaling settings for a global table replica's write capacity units.
+    replicaProvisionedWriteCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription,
+    -- | Auto scaling settings for a global table replica's read capacity units.
+    replicaProvisionedReadCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaSettingsDescription' with the minimum fields required to make a request.
 --
--- * 'regionName' - The Region name of the replica.
--- * 'replicaBillingModeSummary' - The read/write capacity mode of the replica.
--- * 'replicaGlobalSecondaryIndexSettings' - Replica global secondary index settings for the global table.
--- * 'replicaProvisionedReadCapacityAutoScalingSettings' - Auto scaling settings for a global table replica's read capacity units.
--- * 'replicaProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
--- * 'replicaProvisionedWriteCapacityAutoScalingSettings' - Auto scaling settings for a global table replica's write capacity units.
--- * 'replicaProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'replicaStatus' - The current state of the Region:
 --
 --
@@ -89,6 +86,15 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
 --
 --
 --     * @ACTIVE@ - The Region is ready for use.
+--
+--
+-- * 'regionName' - The Region name of the replica.
+-- * 'replicaProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'replicaProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'replicaBillingModeSummary' - The read/write capacity mode of the replica.
+-- * 'replicaGlobalSecondaryIndexSettings' - Replica global secondary index settings for the global table.
+-- * 'replicaProvisionedWriteCapacityAutoScalingSettings' - Auto scaling settings for a global table replica's write capacity units.
+-- * 'replicaProvisionedReadCapacityAutoScalingSettings' - Auto scaling settings for a global table replica's read capacity units.
 mkReplicaSettingsDescription ::
   -- | 'regionName'
   Lude.Text ->
@@ -96,13 +102,13 @@ mkReplicaSettingsDescription ::
 mkReplicaSettingsDescription pRegionName_ =
   ReplicaSettingsDescription'
     { replicaStatus = Lude.Nothing,
+      regionName = pRegionName_,
       replicaProvisionedReadCapacityUnits = Lude.Nothing,
       replicaProvisionedWriteCapacityUnits = Lude.Nothing,
       replicaBillingModeSummary = Lude.Nothing,
       replicaGlobalSecondaryIndexSettings = Lude.Nothing,
       replicaProvisionedWriteCapacityAutoScalingSettings = Lude.Nothing,
-      replicaProvisionedReadCapacityAutoScalingSettings = Lude.Nothing,
-      regionName = pRegionName_
+      replicaProvisionedReadCapacityAutoScalingSettings = Lude.Nothing
     }
 
 -- | The current state of the Region:
@@ -125,6 +131,13 @@ mkReplicaSettingsDescription pRegionName_ =
 rsdReplicaStatus :: Lens.Lens' ReplicaSettingsDescription (Lude.Maybe ReplicaStatus)
 rsdReplicaStatus = Lens.lens (replicaStatus :: ReplicaSettingsDescription -> Lude.Maybe ReplicaStatus) (\s a -> s {replicaStatus = a} :: ReplicaSettingsDescription)
 {-# DEPRECATED rsdReplicaStatus "Use generic-lens or generic-optics with 'replicaStatus' instead." #-}
+
+-- | The Region name of the replica.
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsdRegionName :: Lens.Lens' ReplicaSettingsDescription Lude.Text
+rsdRegionName = Lens.lens (regionName :: ReplicaSettingsDescription -> Lude.Text) (\s a -> s {regionName = a} :: ReplicaSettingsDescription)
+{-# DEPRECATED rsdRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
 --
@@ -168,13 +181,6 @@ rsdReplicaProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaSettin
 rsdReplicaProvisionedReadCapacityAutoScalingSettings = Lens.lens (replicaProvisionedReadCapacityAutoScalingSettings :: ReplicaSettingsDescription -> Lude.Maybe AutoScalingSettingsDescription) (\s a -> s {replicaProvisionedReadCapacityAutoScalingSettings = a} :: ReplicaSettingsDescription)
 {-# DEPRECATED rsdReplicaProvisionedReadCapacityAutoScalingSettings "Use generic-lens or generic-optics with 'replicaProvisionedReadCapacityAutoScalingSettings' instead." #-}
 
--- | The Region name of the replica.
---
--- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsdRegionName :: Lens.Lens' ReplicaSettingsDescription Lude.Text
-rsdRegionName = Lens.lens (regionName :: ReplicaSettingsDescription -> Lude.Text) (\s a -> s {regionName = a} :: ReplicaSettingsDescription)
-{-# DEPRECATED rsdRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
-
 instance Lude.FromJSON ReplicaSettingsDescription where
   parseJSON =
     Lude.withObject
@@ -182,6 +188,7 @@ instance Lude.FromJSON ReplicaSettingsDescription where
       ( \x ->
           ReplicaSettingsDescription'
             Lude.<$> (x Lude..:? "ReplicaStatus")
+            Lude.<*> (x Lude..: "RegionName")
             Lude.<*> (x Lude..:? "ReplicaProvisionedReadCapacityUnits")
             Lude.<*> (x Lude..:? "ReplicaProvisionedWriteCapacityUnits")
             Lude.<*> (x Lude..:? "ReplicaBillingModeSummary")
@@ -190,5 +197,4 @@ instance Lude.FromJSON ReplicaSettingsDescription where
                      )
             Lude.<*> (x Lude..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings")
             Lude.<*> (x Lude..:? "ReplicaProvisionedReadCapacityAutoScalingSettings")
-            Lude.<*> (x Lude..: "RegionName")
       )

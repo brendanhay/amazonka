@@ -17,8 +17,8 @@ module Network.AWS.SageMaker.Types.TargetPlatform
     mkTargetPlatform,
 
     -- * Lenses
-    tpAccelerator,
     tpOS,
+    tpAccelerator,
     tpArch,
   )
 where
@@ -33,21 +33,56 @@ import Network.AWS.SageMaker.Types.TargetPlatformOS
 --
 -- /See:/ 'mkTargetPlatform' smart constructor.
 data TargetPlatform = TargetPlatform'
-  { accelerator ::
-      Lude.Maybe TargetPlatformAccelerator,
+  { -- | Specifies a target platform OS.
+    --
+    --
+    --     * @LINUX@ : Linux-based operating systems.
+    --
+    --
+    --     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@
     os :: TargetPlatformOS,
+    -- | Specifies a target platform accelerator (optional).
+    --
+    --
+    --     * @NVIDIA@ : Nvidia graphics processing unit. It also requires @gpu-code@ , @trt-ver@ , @cuda-ver@ compiler options
+    --
+    --
+    --     * @MALI@ : ARM Mali graphics processor
+    --
+    --
+    --     * @INTEL_GRAPHICS@ : Integrated Intel graphics
+    accelerator :: Lude.Maybe TargetPlatformAccelerator,
+    -- | Specifies a target platform architecture.
+    --
+    --
+    --     * @X86_64@ : 64-bit version of the x86 instruction set.
+    --
+    --
+    --     * @X86@ : 32-bit version of the x86 instruction set.
+    --
+    --
+    --     * @ARM64@ : ARMv8 64-bit CPU.
+    --
+    --
+    --     * @ARM_EABIHF@ : ARMv7 32-bit, Hard Float.
+    --
+    --
+    --     * @ARM_EABI@ : ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM platform.
     arch :: TargetPlatformArch
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetPlatform' with the minimum fields required to make a request.
+--
+-- * 'os' - Specifies a target platform OS.
+--
+--
+--     * @LINUX@ : Linux-based operating systems.
+--
+--
+--     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@
+--
 --
 -- * 'accelerator' - Specifies a target platform accelerator (optional).
 --
@@ -77,15 +112,6 @@ data TargetPlatform = TargetPlatform'
 --
 --
 --     * @ARM_EABI@ : ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM platform.
---
---
--- * 'os' - Specifies a target platform OS.
---
---
---     * @LINUX@ : Linux-based operating systems.
---
---
---     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@
 mkTargetPlatform ::
   -- | 'os'
   TargetPlatformOS ->
@@ -94,10 +120,25 @@ mkTargetPlatform ::
   TargetPlatform
 mkTargetPlatform pOS_ pArch_ =
   TargetPlatform'
-    { accelerator = Lude.Nothing,
-      os = pOS_,
+    { os = pOS_,
+      accelerator = Lude.Nothing,
       arch = pArch_
     }
+
+-- | Specifies a target platform OS.
+--
+--
+--     * @LINUX@ : Linux-based operating systems.
+--
+--
+--     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@
+--
+--
+--
+-- /Note:/ Consider using 'os' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpOS :: Lens.Lens' TargetPlatform TargetPlatformOS
+tpOS = Lens.lens (os :: TargetPlatform -> TargetPlatformOS) (\s a -> s {os = a} :: TargetPlatform)
+{-# DEPRECATED tpOS "Use generic-lens or generic-optics with 'os' instead." #-}
 
 -- | Specifies a target platform accelerator (optional).
 --
@@ -116,21 +157,6 @@ mkTargetPlatform pOS_ pArch_ =
 tpAccelerator :: Lens.Lens' TargetPlatform (Lude.Maybe TargetPlatformAccelerator)
 tpAccelerator = Lens.lens (accelerator :: TargetPlatform -> Lude.Maybe TargetPlatformAccelerator) (\s a -> s {accelerator = a} :: TargetPlatform)
 {-# DEPRECATED tpAccelerator "Use generic-lens or generic-optics with 'accelerator' instead." #-}
-
--- | Specifies a target platform OS.
---
---
---     * @LINUX@ : Linux-based operating systems.
---
---
---     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@
---
---
---
--- /Note:/ Consider using 'os' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpOS :: Lens.Lens' TargetPlatform TargetPlatformOS
-tpOS = Lens.lens (os :: TargetPlatform -> TargetPlatformOS) (\s a -> s {os = a} :: TargetPlatform)
-{-# DEPRECATED tpOS "Use generic-lens or generic-optics with 'os' instead." #-}
 
 -- | Specifies a target platform architecture.
 --
@@ -162,8 +188,8 @@ instance Lude.FromJSON TargetPlatform where
       "TargetPlatform"
       ( \x ->
           TargetPlatform'
-            Lude.<$> (x Lude..:? "Accelerator")
-            Lude.<*> (x Lude..: "Os")
+            Lude.<$> (x Lude..: "Os")
+            Lude.<*> (x Lude..:? "Accelerator")
             Lude.<*> (x Lude..: "Arch")
       )
 
@@ -171,8 +197,8 @@ instance Lude.ToJSON TargetPlatform where
   toJSON TargetPlatform' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Accelerator" Lude..=) Lude.<$> accelerator,
-            Lude.Just ("Os" Lude..= os),
+          [ Lude.Just ("Os" Lude..= os),
+            ("Accelerator" Lude..=) Lude.<$> accelerator,
             Lude.Just ("Arch" Lude..= arch)
           ]
       )

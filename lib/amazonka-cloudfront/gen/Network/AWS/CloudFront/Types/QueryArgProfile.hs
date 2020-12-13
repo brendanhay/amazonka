@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.QueryArgProfile
     mkQueryArgProfile,
 
     -- * Lenses
-    qapQueryArg,
     qapProfileId,
+    qapQueryArg,
   )
 where
 
@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryArgProfile' smart constructor.
 data QueryArgProfile = QueryArgProfile'
-  { queryArg :: Lude.Text,
-    profileId :: Lude.Text
+  { -- | ID of profile to use for field-level encryption query argument-profile mapping
+    profileId :: Lude.Text,
+    -- | Query argument for field-level encryption query argument-profile mapping.
+    queryArg :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryArgProfile' with the minimum fields required to make a request.
@@ -46,20 +42,13 @@ data QueryArgProfile = QueryArgProfile'
 -- * 'profileId' - ID of profile to use for field-level encryption query argument-profile mapping
 -- * 'queryArg' - Query argument for field-level encryption query argument-profile mapping.
 mkQueryArgProfile ::
-  -- | 'queryArg'
-  Lude.Text ->
   -- | 'profileId'
   Lude.Text ->
+  -- | 'queryArg'
+  Lude.Text ->
   QueryArgProfile
-mkQueryArgProfile pQueryArg_ pProfileId_ =
-  QueryArgProfile' {queryArg = pQueryArg_, profileId = pProfileId_}
-
--- | Query argument for field-level encryption query argument-profile mapping.
---
--- /Note:/ Consider using 'queryArg' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qapQueryArg :: Lens.Lens' QueryArgProfile Lude.Text
-qapQueryArg = Lens.lens (queryArg :: QueryArgProfile -> Lude.Text) (\s a -> s {queryArg = a} :: QueryArgProfile)
-{-# DEPRECATED qapQueryArg "Use generic-lens or generic-optics with 'queryArg' instead." #-}
+mkQueryArgProfile pProfileId_ pQueryArg_ =
+  QueryArgProfile' {profileId = pProfileId_, queryArg = pQueryArg_}
 
 -- | ID of profile to use for field-level encryption query argument-profile mapping
 --
@@ -68,12 +57,19 @@ qapProfileId :: Lens.Lens' QueryArgProfile Lude.Text
 qapProfileId = Lens.lens (profileId :: QueryArgProfile -> Lude.Text) (\s a -> s {profileId = a} :: QueryArgProfile)
 {-# DEPRECATED qapProfileId "Use generic-lens or generic-optics with 'profileId' instead." #-}
 
+-- | Query argument for field-level encryption query argument-profile mapping.
+--
+-- /Note:/ Consider using 'queryArg' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qapQueryArg :: Lens.Lens' QueryArgProfile Lude.Text
+qapQueryArg = Lens.lens (queryArg :: QueryArgProfile -> Lude.Text) (\s a -> s {queryArg = a} :: QueryArgProfile)
+{-# DEPRECATED qapQueryArg "Use generic-lens or generic-optics with 'queryArg' instead." #-}
+
 instance Lude.FromXML QueryArgProfile where
   parseXML x =
     QueryArgProfile'
-      Lude.<$> (x Lude..@ "QueryArg") Lude.<*> (x Lude..@ "ProfileId")
+      Lude.<$> (x Lude..@ "ProfileId") Lude.<*> (x Lude..@ "QueryArg")
 
 instance Lude.ToXML QueryArgProfile where
   toXML QueryArgProfile' {..} =
     Lude.mconcat
-      ["QueryArg" Lude.@= queryArg, "ProfileId" Lude.@= profileId]
+      ["ProfileId" Lude.@= profileId, "QueryArg" Lude.@= queryArg]

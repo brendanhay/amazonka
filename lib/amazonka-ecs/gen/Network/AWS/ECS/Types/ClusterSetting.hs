@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClusterSetting' smart constructor.
 data ClusterSetting = ClusterSetting'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The value to set for the cluster setting. The supported values are @enabled@ and @disabled@ . If @enabled@ is specified, CloudWatch Container Insights will be enabled for the cluster, otherwise it will be disabled unless the @containerInsights@ account setting is enabled. If a cluster value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
+    value :: Lude.Maybe Lude.Text,
+    -- | The name of the cluster setting. The only supported value is @containerInsights@ .
     name :: Lude.Maybe ClusterSettingName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterSetting' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the cluster setting. The only supported value is @containerInsights@ .
 -- * 'value' - The value to set for the cluster setting. The supported values are @enabled@ and @disabled@ . If @enabled@ is specified, CloudWatch Container Insights will be enabled for the cluster, otherwise it will be disabled unless the @containerInsights@ account setting is enabled. If a cluster value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
+-- * 'name' - The name of the cluster setting. The only supported value is @containerInsights@ .
 mkClusterSetting ::
   ClusterSetting
 mkClusterSetting =

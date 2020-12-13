@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.GuardDuty.DeleteInvitations
     mkDeleteInvitations,
 
     -- ** Request lenses
-    diAccountIds,
+    dAccountIds,
 
     -- * Destructuring the response
     DeleteInvitationsResponse (..),
     mkDeleteInvitationsResponse,
 
     -- ** Response lenses
-    dirsResponseStatus,
     dirsUnprocessedAccounts,
+    dirsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteInvitations' smart constructor.
 newtype DeleteInvitations = DeleteInvitations'
-  { accountIds ::
-      Lude.NonEmpty Lude.Text
+  { -- | A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from.
+    accountIds :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInvitations' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDeleteInvitations pAccountIds_ =
 -- | A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from.
 --
 -- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diAccountIds :: Lens.Lens' DeleteInvitations (Lude.NonEmpty Lude.Text)
-diAccountIds = Lens.lens (accountIds :: DeleteInvitations -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: DeleteInvitations)
-{-# DEPRECATED diAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+dAccountIds :: Lens.Lens' DeleteInvitations (Lude.NonEmpty Lude.Text)
+dAccountIds = Lens.lens (accountIds :: DeleteInvitations -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: DeleteInvitations)
+{-# DEPRECATED dAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
 instance Lude.AWSRequest DeleteInvitations where
   type Rs DeleteInvitations = DeleteInvitationsResponse
@@ -75,8 +70,8 @@ instance Lude.AWSRequest DeleteInvitations where
     Res.receiveJSON
       ( \s h x ->
           DeleteInvitationsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteInvitations where
@@ -101,40 +96,27 @@ instance Lude.ToQuery DeleteInvitations where
 
 -- | /See:/ 'mkDeleteInvitationsResponse' smart constructor.
 data DeleteInvitationsResponse = DeleteInvitationsResponse'
-  { responseStatus ::
-      Lude.Int,
-    unprocessedAccounts ::
-      [UnprocessedAccount]
+  { -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+    unprocessedAccounts :: [UnprocessedAccount],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInvitationsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unprocessedAccounts' - A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+-- * 'responseStatus' - The response status code.
 mkDeleteInvitationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   DeleteInvitationsResponse
 mkDeleteInvitationsResponse pResponseStatus_ =
   DeleteInvitationsResponse'
-    { responseStatus = pResponseStatus_,
-      unprocessedAccounts = Lude.mempty
+    { unprocessedAccounts = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsResponseStatus :: Lens.Lens' DeleteInvitationsResponse Lude.Int
-dirsResponseStatus = Lens.lens (responseStatus :: DeleteInvitationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInvitationsResponse)
-{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
 --
@@ -142,3 +124,10 @@ dirsResponseStatus = Lens.lens (responseStatus :: DeleteInvitationsResponse -> L
 dirsUnprocessedAccounts :: Lens.Lens' DeleteInvitationsResponse [UnprocessedAccount]
 dirsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: DeleteInvitationsResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: DeleteInvitationsResponse)
 {-# DEPRECATED dirsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsResponseStatus :: Lens.Lens' DeleteInvitationsResponse Lude.Int
+dirsResponseStatus = Lens.lens (responseStatus :: DeleteInvitationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInvitationsResponse)
+{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

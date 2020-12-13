@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.IAM.UpdateServerCertificate
     mkUpdateServerCertificate,
 
     -- ** Request lenses
+    uServerCertificateName,
     uNewServerCertificateName,
     uNewPath,
-    uServerCertificateName,
 
     -- * Destructuring the response
     UpdateServerCertificateResponse (..),
@@ -40,41 +41,53 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateServerCertificate' smart constructor.
 data UpdateServerCertificate = UpdateServerCertificate'
-  { newServerCertificateName ::
-      Lude.Maybe Lude.Text,
-    newPath :: Lude.Maybe Lude.Text,
-    serverCertificateName :: Lude.Text
+  { -- | The name of the server certificate that you want to update.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    serverCertificateName :: Lude.Text,
+    -- | The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    newServerCertificateName :: Lude.Maybe Lude.Text,
+    -- | The new path for the server certificate. Include this only if you are updating the server certificate's path.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+    newPath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServerCertificate' with the minimum fields required to make a request.
 --
--- * 'newPath' - The new path for the server certificate. Include this only if you are updating the server certificate's path.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
--- * 'newServerCertificateName' - The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'serverCertificateName' - The name of the server certificate that you want to update.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'newServerCertificateName' - The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'newPath' - The new path for the server certificate. Include this only if you are updating the server certificate's path.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
 mkUpdateServerCertificate ::
   -- | 'serverCertificateName'
   Lude.Text ->
   UpdateServerCertificate
 mkUpdateServerCertificate pServerCertificateName_ =
   UpdateServerCertificate'
-    { newServerCertificateName = Lude.Nothing,
-      newPath = Lude.Nothing,
-      serverCertificateName = pServerCertificateName_
+    { serverCertificateName =
+        pServerCertificateName_,
+      newServerCertificateName = Lude.Nothing,
+      newPath = Lude.Nothing
     }
+
+-- | The name of the server certificate that you want to update.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'serverCertificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uServerCertificateName :: Lens.Lens' UpdateServerCertificate Lude.Text
+uServerCertificateName = Lens.lens (serverCertificateName :: UpdateServerCertificate -> Lude.Text) (\s a -> s {serverCertificateName = a} :: UpdateServerCertificate)
+{-# DEPRECATED uServerCertificateName "Use generic-lens or generic-optics with 'serverCertificateName' instead." #-}
 
 -- | The new name for the server certificate. Include this only if you are updating the server certificate's name. The name of the certificate cannot contain any spaces.
 --
@@ -94,15 +107,6 @@ uNewPath :: Lens.Lens' UpdateServerCertificate (Lude.Maybe Lude.Text)
 uNewPath = Lens.lens (newPath :: UpdateServerCertificate -> Lude.Maybe Lude.Text) (\s a -> s {newPath = a} :: UpdateServerCertificate)
 {-# DEPRECATED uNewPath "Use generic-lens or generic-optics with 'newPath' instead." #-}
 
--- | The name of the server certificate that you want to update.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'serverCertificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uServerCertificateName :: Lens.Lens' UpdateServerCertificate Lude.Text
-uServerCertificateName = Lens.lens (serverCertificateName :: UpdateServerCertificate -> Lude.Text) (\s a -> s {serverCertificateName = a} :: UpdateServerCertificate)
-{-# DEPRECATED uServerCertificateName "Use generic-lens or generic-optics with 'serverCertificateName' instead." #-}
-
 instance Lude.AWSRequest UpdateServerCertificate where
   type Rs UpdateServerCertificate = UpdateServerCertificateResponse
   request = Req.postQuery iamService
@@ -119,20 +123,14 @@ instance Lude.ToQuery UpdateServerCertificate where
     Lude.mconcat
       [ "Action" Lude.=: ("UpdateServerCertificate" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "ServerCertificateName" Lude.=: serverCertificateName,
         "NewServerCertificateName" Lude.=: newServerCertificateName,
-        "NewPath" Lude.=: newPath,
-        "ServerCertificateName" Lude.=: serverCertificateName
+        "NewPath" Lude.=: newPath
       ]
 
 -- | /See:/ 'mkUpdateServerCertificateResponse' smart constructor.
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServerCertificateResponse' with the minimum fields required to make a request.

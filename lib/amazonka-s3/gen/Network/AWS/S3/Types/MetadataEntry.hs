@@ -30,22 +30,18 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkMetadataEntry' smart constructor.
 data MetadataEntry = MetadataEntry'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | Value of the Object.
+    value :: Lude.Maybe Lude.Text,
+    -- | Name of the Object.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetadataEntry' with the minimum fields required to make a request.
 --
--- * 'name' - Name of the Object.
 -- * 'value' - Value of the Object.
+-- * 'name' - Name of the Object.
 mkMetadataEntry ::
   MetadataEntry
 mkMetadataEntry =

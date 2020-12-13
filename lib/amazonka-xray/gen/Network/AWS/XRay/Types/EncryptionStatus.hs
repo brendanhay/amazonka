@@ -13,8 +13,8 @@
 module Network.AWS.XRay.Types.EncryptionStatus
   ( EncryptionStatus
       ( EncryptionStatus',
-        Active,
-        Updating
+        Updating,
+        Active
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EncryptionStatus = EncryptionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: EncryptionStatus
-pattern Active = EncryptionStatus' "ACTIVE"
-
 pattern Updating :: EncryptionStatus
 pattern Updating = EncryptionStatus' "UPDATING"
 
+pattern Active :: EncryptionStatus
+pattern Active = EncryptionStatus' "ACTIVE"
+
 {-# COMPLETE
-  Active,
   Updating,
+  Active,
   EncryptionStatus'
   #-}

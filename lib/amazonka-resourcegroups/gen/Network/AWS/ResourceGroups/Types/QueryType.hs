@@ -13,8 +13,8 @@
 module Network.AWS.ResourceGroups.Types.QueryType
   ( QueryType
       ( QueryType',
-        CloudformationStack10,
-        TagFilters10
+        TagFilters10,
+        CloudformationStack10
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype QueryType = QueryType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CloudformationStack10 :: QueryType
-pattern CloudformationStack10 = QueryType' "CLOUDFORMATION_STACK_1_0"
-
 pattern TagFilters10 :: QueryType
 pattern TagFilters10 = QueryType' "TAG_FILTERS_1_0"
 
+pattern CloudformationStack10 :: QueryType
+pattern CloudformationStack10 = QueryType' "CLOUDFORMATION_STACK_1_0"
+
 {-# COMPLETE
-  CloudformationStack10,
   TagFilters10,
+  CloudformationStack10,
   QueryType'
   #-}

@@ -17,18 +17,18 @@ module Network.AWS.SageMaker.Types.HyperParameterTrainingJobSummary
     mkHyperParameterTrainingJobSummary,
 
     -- * Lenses
+    hptjsCreationTime,
     hptjsFailureReason,
     hptjsTuningJobName,
+    hptjsTunedHyperParameters,
     hptjsTrainingEndTime,
     hptjsObjectiveStatus,
+    hptjsTrainingJobStatus,
+    hptjsTrainingJobARN,
     hptjsTrainingJobDefinitionName,
     hptjsTrainingStartTime,
-    hptjsFinalHyperParameterTuningJobObjectiveMetric,
     hptjsTrainingJobName,
-    hptjsTrainingJobARN,
-    hptjsCreationTime,
-    hptjsTrainingJobStatus,
-    hptjsTunedHyperParameters,
+    hptjsFinalHyperParameterTuningJobObjectiveMetric,
   )
 where
 
@@ -42,49 +42,52 @@ import Network.AWS.SageMaker.Types.TrainingJobStatus
 --
 -- /See:/ 'mkHyperParameterTrainingJobSummary' smart constructor.
 data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
-    tuningJobName ::
-      Lude.Maybe Lude.Text,
-    trainingEndTime ::
-      Lude.Maybe Lude.Timestamp,
-    objectiveStatus ::
-      Lude.Maybe
-        ObjectiveStatus,
-    trainingJobDefinitionName ::
-      Lude.Maybe Lude.Text,
-    trainingStartTime ::
-      Lude.Maybe Lude.Timestamp,
-    finalHyperParameterTuningJobObjectiveMetric ::
-      Lude.Maybe
-        FinalHyperParameterTuningJobObjectiveMetric,
-    trainingJobName ::
-      Lude.Text,
-    trainingJobARN ::
-      Lude.Text,
-    creationTime ::
-      Lude.Timestamp,
-    trainingJobStatus ::
-      TrainingJobStatus,
-    tunedHyperParameters ::
-      Lude.HashMap
-        Lude.Text
-        (Lude.Text)
+  { -- | The date and time that the training job was created.
+    creationTime :: Lude.Timestamp,
+    -- | The reason that the training job failed.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The HyperParameter tuning job that launched the training job.
+    tuningJobName :: Lude.Maybe Lude.Text,
+    -- | A list of the hyperparameters for which you specified ranges to search.
+    tunedHyperParameters :: Lude.HashMap Lude.Text (Lude.Text),
+    -- | Specifies the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
+    trainingEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the objective metric for the training job:
+    --
+    --
+    --     * Succeeded: The final objective metric for the training job was evaluated by the hyperparameter tuning job and used in the hyperparameter tuning process.
+    --
+    --
+    --
+    --     * Pending: The training job is in progress and evaluation of its final objective metric is pending.
+    --
+    --
+    --
+    --     * Failed: The final objective metric for the training job was not evaluated, and was not used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.
+    objectiveStatus :: Lude.Maybe ObjectiveStatus,
+    -- | The status of the training job.
+    trainingJobStatus :: TrainingJobStatus,
+    -- | The Amazon Resource Name (ARN) of the training job.
+    trainingJobARN :: Lude.Text,
+    -- | The training job definition name.
+    trainingJobDefinitionName :: Lude.Maybe Lude.Text,
+    -- | The date and time that the training job started.
+    trainingStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the training job.
+    trainingJobName :: Lude.Text,
+    -- | The 'FinalHyperParameterTuningJobObjectiveMetric' object that specifies the value of the objective metric of the tuning job that launched this training job.
+    finalHyperParameterTuningJobObjectiveMetric :: Lude.Maybe FinalHyperParameterTuningJobObjectiveMetric
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HyperParameterTrainingJobSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The date and time that the training job was created.
 -- * 'failureReason' - The reason that the training job failed.
--- * 'finalHyperParameterTuningJobObjectiveMetric' - The 'FinalHyperParameterTuningJobObjectiveMetric' object that specifies the value of the objective metric of the tuning job that launched this training job.
+-- * 'tuningJobName' - The HyperParameter tuning job that launched the training job.
+-- * 'tunedHyperParameters' - A list of the hyperparameters for which you specified ranges to search.
+-- * 'trainingEndTime' - Specifies the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
 -- * 'objectiveStatus' - The status of the objective metric for the training job:
 --
 --
@@ -99,43 +102,48 @@ data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
 --     * Failed: The final objective metric for the training job was not evaluated, and was not used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.
 --
 --
--- * 'trainingEndTime' - Specifies the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
+-- * 'trainingJobStatus' - The status of the training job.
 -- * 'trainingJobARN' - The Amazon Resource Name (ARN) of the training job.
 -- * 'trainingJobDefinitionName' - The training job definition name.
--- * 'trainingJobName' - The name of the training job.
--- * 'trainingJobStatus' - The status of the training job.
 -- * 'trainingStartTime' - The date and time that the training job started.
--- * 'tunedHyperParameters' - A list of the hyperparameters for which you specified ranges to search.
--- * 'tuningJobName' - The HyperParameter tuning job that launched the training job.
+-- * 'trainingJobName' - The name of the training job.
+-- * 'finalHyperParameterTuningJobObjectiveMetric' - The 'FinalHyperParameterTuningJobObjectiveMetric' object that specifies the value of the objective metric of the tuning job that launched this training job.
 mkHyperParameterTrainingJobSummary ::
-  -- | 'trainingJobName'
-  Lude.Text ->
-  -- | 'trainingJobARN'
-  Lude.Text ->
   -- | 'creationTime'
   Lude.Timestamp ->
   -- | 'trainingJobStatus'
   TrainingJobStatus ->
+  -- | 'trainingJobARN'
+  Lude.Text ->
+  -- | 'trainingJobName'
+  Lude.Text ->
   HyperParameterTrainingJobSummary
 mkHyperParameterTrainingJobSummary
-  pTrainingJobName_
-  pTrainingJobARN_
   pCreationTime_
-  pTrainingJobStatus_ =
+  pTrainingJobStatus_
+  pTrainingJobARN_
+  pTrainingJobName_ =
     HyperParameterTrainingJobSummary'
-      { failureReason = Lude.Nothing,
+      { creationTime = pCreationTime_,
+        failureReason = Lude.Nothing,
         tuningJobName = Lude.Nothing,
+        tunedHyperParameters = Lude.mempty,
         trainingEndTime = Lude.Nothing,
         objectiveStatus = Lude.Nothing,
+        trainingJobStatus = pTrainingJobStatus_,
+        trainingJobARN = pTrainingJobARN_,
         trainingJobDefinitionName = Lude.Nothing,
         trainingStartTime = Lude.Nothing,
-        finalHyperParameterTuningJobObjectiveMetric = Lude.Nothing,
         trainingJobName = pTrainingJobName_,
-        trainingJobARN = pTrainingJobARN_,
-        creationTime = pCreationTime_,
-        trainingJobStatus = pTrainingJobStatus_,
-        tunedHyperParameters = Lude.mempty
+        finalHyperParameterTuningJobObjectiveMetric = Lude.Nothing
       }
+
+-- | The date and time that the training job was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hptjsCreationTime :: Lens.Lens' HyperParameterTrainingJobSummary Lude.Timestamp
+hptjsCreationTime = Lens.lens (creationTime :: HyperParameterTrainingJobSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: HyperParameterTrainingJobSummary)
+{-# DEPRECATED hptjsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The reason that the training job failed.
 --
@@ -150,6 +158,13 @@ hptjsFailureReason = Lens.lens (failureReason :: HyperParameterTrainingJobSummar
 hptjsTuningJobName :: Lens.Lens' HyperParameterTrainingJobSummary (Lude.Maybe Lude.Text)
 hptjsTuningJobName = Lens.lens (tuningJobName :: HyperParameterTrainingJobSummary -> Lude.Maybe Lude.Text) (\s a -> s {tuningJobName = a} :: HyperParameterTrainingJobSummary)
 {-# DEPRECATED hptjsTuningJobName "Use generic-lens or generic-optics with 'tuningJobName' instead." #-}
+
+-- | A list of the hyperparameters for which you specified ranges to search.
+--
+-- /Note:/ Consider using 'tunedHyperParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hptjsTunedHyperParameters :: Lens.Lens' HyperParameterTrainingJobSummary (Lude.HashMap Lude.Text (Lude.Text))
+hptjsTunedHyperParameters = Lens.lens (tunedHyperParameters :: HyperParameterTrainingJobSummary -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tunedHyperParameters = a} :: HyperParameterTrainingJobSummary)
+{-# DEPRECATED hptjsTunedHyperParameters "Use generic-lens or generic-optics with 'tunedHyperParameters' instead." #-}
 
 -- | Specifies the time when the training job ends on training instances. You are billed for the time interval between the value of @TrainingStartTime@ and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when Amazon SageMaker detects a job failure.
 --
@@ -178,6 +193,20 @@ hptjsObjectiveStatus :: Lens.Lens' HyperParameterTrainingJobSummary (Lude.Maybe 
 hptjsObjectiveStatus = Lens.lens (objectiveStatus :: HyperParameterTrainingJobSummary -> Lude.Maybe ObjectiveStatus) (\s a -> s {objectiveStatus = a} :: HyperParameterTrainingJobSummary)
 {-# DEPRECATED hptjsObjectiveStatus "Use generic-lens or generic-optics with 'objectiveStatus' instead." #-}
 
+-- | The status of the training job.
+--
+-- /Note:/ Consider using 'trainingJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hptjsTrainingJobStatus :: Lens.Lens' HyperParameterTrainingJobSummary TrainingJobStatus
+hptjsTrainingJobStatus = Lens.lens (trainingJobStatus :: HyperParameterTrainingJobSummary -> TrainingJobStatus) (\s a -> s {trainingJobStatus = a} :: HyperParameterTrainingJobSummary)
+{-# DEPRECATED hptjsTrainingJobStatus "Use generic-lens or generic-optics with 'trainingJobStatus' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the training job.
+--
+-- /Note:/ Consider using 'trainingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hptjsTrainingJobARN :: Lens.Lens' HyperParameterTrainingJobSummary Lude.Text
+hptjsTrainingJobARN = Lens.lens (trainingJobARN :: HyperParameterTrainingJobSummary -> Lude.Text) (\s a -> s {trainingJobARN = a} :: HyperParameterTrainingJobSummary)
+{-# DEPRECATED hptjsTrainingJobARN "Use generic-lens or generic-optics with 'trainingJobARN' instead." #-}
+
 -- | The training job definition name.
 --
 -- /Note:/ Consider using 'trainingJobDefinitionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -192,13 +221,6 @@ hptjsTrainingStartTime :: Lens.Lens' HyperParameterTrainingJobSummary (Lude.Mayb
 hptjsTrainingStartTime = Lens.lens (trainingStartTime :: HyperParameterTrainingJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {trainingStartTime = a} :: HyperParameterTrainingJobSummary)
 {-# DEPRECATED hptjsTrainingStartTime "Use generic-lens or generic-optics with 'trainingStartTime' instead." #-}
 
--- | The 'FinalHyperParameterTuningJobObjectiveMetric' object that specifies the value of the objective metric of the tuning job that launched this training job.
---
--- /Note:/ Consider using 'finalHyperParameterTuningJobObjectiveMetric' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hptjsFinalHyperParameterTuningJobObjectiveMetric :: Lens.Lens' HyperParameterTrainingJobSummary (Lude.Maybe FinalHyperParameterTuningJobObjectiveMetric)
-hptjsFinalHyperParameterTuningJobObjectiveMetric = Lens.lens (finalHyperParameterTuningJobObjectiveMetric :: HyperParameterTrainingJobSummary -> Lude.Maybe FinalHyperParameterTuningJobObjectiveMetric) (\s a -> s {finalHyperParameterTuningJobObjectiveMetric = a} :: HyperParameterTrainingJobSummary)
-{-# DEPRECATED hptjsFinalHyperParameterTuningJobObjectiveMetric "Use generic-lens or generic-optics with 'finalHyperParameterTuningJobObjectiveMetric' instead." #-}
-
 -- | The name of the training job.
 --
 -- /Note:/ Consider using 'trainingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -206,33 +228,12 @@ hptjsTrainingJobName :: Lens.Lens' HyperParameterTrainingJobSummary Lude.Text
 hptjsTrainingJobName = Lens.lens (trainingJobName :: HyperParameterTrainingJobSummary -> Lude.Text) (\s a -> s {trainingJobName = a} :: HyperParameterTrainingJobSummary)
 {-# DEPRECATED hptjsTrainingJobName "Use generic-lens or generic-optics with 'trainingJobName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the training job.
+-- | The 'FinalHyperParameterTuningJobObjectiveMetric' object that specifies the value of the objective metric of the tuning job that launched this training job.
 --
--- /Note:/ Consider using 'trainingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hptjsTrainingJobARN :: Lens.Lens' HyperParameterTrainingJobSummary Lude.Text
-hptjsTrainingJobARN = Lens.lens (trainingJobARN :: HyperParameterTrainingJobSummary -> Lude.Text) (\s a -> s {trainingJobARN = a} :: HyperParameterTrainingJobSummary)
-{-# DEPRECATED hptjsTrainingJobARN "Use generic-lens or generic-optics with 'trainingJobARN' instead." #-}
-
--- | The date and time that the training job was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hptjsCreationTime :: Lens.Lens' HyperParameterTrainingJobSummary Lude.Timestamp
-hptjsCreationTime = Lens.lens (creationTime :: HyperParameterTrainingJobSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: HyperParameterTrainingJobSummary)
-{-# DEPRECATED hptjsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The status of the training job.
---
--- /Note:/ Consider using 'trainingJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hptjsTrainingJobStatus :: Lens.Lens' HyperParameterTrainingJobSummary TrainingJobStatus
-hptjsTrainingJobStatus = Lens.lens (trainingJobStatus :: HyperParameterTrainingJobSummary -> TrainingJobStatus) (\s a -> s {trainingJobStatus = a} :: HyperParameterTrainingJobSummary)
-{-# DEPRECATED hptjsTrainingJobStatus "Use generic-lens or generic-optics with 'trainingJobStatus' instead." #-}
-
--- | A list of the hyperparameters for which you specified ranges to search.
---
--- /Note:/ Consider using 'tunedHyperParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hptjsTunedHyperParameters :: Lens.Lens' HyperParameterTrainingJobSummary (Lude.HashMap Lude.Text (Lude.Text))
-hptjsTunedHyperParameters = Lens.lens (tunedHyperParameters :: HyperParameterTrainingJobSummary -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tunedHyperParameters = a} :: HyperParameterTrainingJobSummary)
-{-# DEPRECATED hptjsTunedHyperParameters "Use generic-lens or generic-optics with 'tunedHyperParameters' instead." #-}
+-- /Note:/ Consider using 'finalHyperParameterTuningJobObjectiveMetric' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hptjsFinalHyperParameterTuningJobObjectiveMetric :: Lens.Lens' HyperParameterTrainingJobSummary (Lude.Maybe FinalHyperParameterTuningJobObjectiveMetric)
+hptjsFinalHyperParameterTuningJobObjectiveMetric = Lens.lens (finalHyperParameterTuningJobObjectiveMetric :: HyperParameterTrainingJobSummary -> Lude.Maybe FinalHyperParameterTuningJobObjectiveMetric) (\s a -> s {finalHyperParameterTuningJobObjectiveMetric = a} :: HyperParameterTrainingJobSummary)
+{-# DEPRECATED hptjsFinalHyperParameterTuningJobObjectiveMetric "Use generic-lens or generic-optics with 'finalHyperParameterTuningJobObjectiveMetric' instead." #-}
 
 instance Lude.FromJSON HyperParameterTrainingJobSummary where
   parseJSON =
@@ -240,16 +241,16 @@ instance Lude.FromJSON HyperParameterTrainingJobSummary where
       "HyperParameterTrainingJobSummary"
       ( \x ->
           HyperParameterTrainingJobSummary'
-            Lude.<$> (x Lude..:? "FailureReason")
+            Lude.<$> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..:? "FailureReason")
             Lude.<*> (x Lude..:? "TuningJobName")
+            Lude.<*> (x Lude..:? "TunedHyperParameters" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "TrainingEndTime")
             Lude.<*> (x Lude..:? "ObjectiveStatus")
+            Lude.<*> (x Lude..: "TrainingJobStatus")
+            Lude.<*> (x Lude..: "TrainingJobArn")
             Lude.<*> (x Lude..:? "TrainingJobDefinitionName")
             Lude.<*> (x Lude..:? "TrainingStartTime")
-            Lude.<*> (x Lude..:? "FinalHyperParameterTuningJobObjectiveMetric")
             Lude.<*> (x Lude..: "TrainingJobName")
-            Lude.<*> (x Lude..: "TrainingJobArn")
-            Lude.<*> (x Lude..: "CreationTime")
-            Lude.<*> (x Lude..: "TrainingJobStatus")
-            Lude.<*> (x Lude..:? "TunedHyperParameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "FinalHyperParameterTuningJobObjectiveMetric")
       )

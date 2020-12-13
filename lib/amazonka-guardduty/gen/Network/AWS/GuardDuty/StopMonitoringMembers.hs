@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.GuardDuty.StopMonitoringMembers
     mkStopMonitoringMembers,
 
     -- ** Request lenses
-    smmDetectorId,
-    smmAccountIds,
+    sAccountIds,
+    sDetectorId,
 
     -- * Destructuring the response
     StopMonitoringMembersResponse (..),
     mkStopMonitoringMembersResponse,
 
     -- ** Response lenses
-    smmrsResponseStatus,
     smmrsUnprocessedAccounts,
+    smmrsResponseStatus,
   )
 where
 
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopMonitoringMembers' smart constructor.
 data StopMonitoringMembers = StopMonitoringMembers'
-  { detectorId ::
-      Lude.Text,
-    accountIds :: Lude.NonEmpty Lude.Text
+  { -- | A list of account IDs for the member accounts to stop monitoring.
+    accountIds :: Lude.NonEmpty Lude.Text,
+    -- | The unique ID of the detector associated with the GuardDuty master account that is monitoring member accounts.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMonitoringMembers' with the minimum fields required to make a request.
@@ -58,30 +54,30 @@ data StopMonitoringMembers = StopMonitoringMembers'
 -- * 'accountIds' - A list of account IDs for the member accounts to stop monitoring.
 -- * 'detectorId' - The unique ID of the detector associated with the GuardDuty master account that is monitoring member accounts.
 mkStopMonitoringMembers ::
-  -- | 'detectorId'
-  Lude.Text ->
   -- | 'accountIds'
   Lude.NonEmpty Lude.Text ->
+  -- | 'detectorId'
+  Lude.Text ->
   StopMonitoringMembers
-mkStopMonitoringMembers pDetectorId_ pAccountIds_ =
+mkStopMonitoringMembers pAccountIds_ pDetectorId_ =
   StopMonitoringMembers'
-    { detectorId = pDetectorId_,
-      accountIds = pAccountIds_
+    { accountIds = pAccountIds_,
+      detectorId = pDetectorId_
     }
-
--- | The unique ID of the detector associated with the GuardDuty master account that is monitoring member accounts.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smmDetectorId :: Lens.Lens' StopMonitoringMembers Lude.Text
-smmDetectorId = Lens.lens (detectorId :: StopMonitoringMembers -> Lude.Text) (\s a -> s {detectorId = a} :: StopMonitoringMembers)
-{-# DEPRECATED smmDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | A list of account IDs for the member accounts to stop monitoring.
 --
 -- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smmAccountIds :: Lens.Lens' StopMonitoringMembers (Lude.NonEmpty Lude.Text)
-smmAccountIds = Lens.lens (accountIds :: StopMonitoringMembers -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: StopMonitoringMembers)
-{-# DEPRECATED smmAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+sAccountIds :: Lens.Lens' StopMonitoringMembers (Lude.NonEmpty Lude.Text)
+sAccountIds = Lens.lens (accountIds :: StopMonitoringMembers -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: StopMonitoringMembers)
+{-# DEPRECATED sAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+
+-- | The unique ID of the detector associated with the GuardDuty master account that is monitoring member accounts.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDetectorId :: Lens.Lens' StopMonitoringMembers Lude.Text
+sDetectorId = Lens.lens (detectorId :: StopMonitoringMembers -> Lude.Text) (\s a -> s {detectorId = a} :: StopMonitoringMembers)
+{-# DEPRECATED sDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 instance Lude.AWSRequest StopMonitoringMembers where
   type Rs StopMonitoringMembers = StopMonitoringMembersResponse
@@ -90,8 +86,8 @@ instance Lude.AWSRequest StopMonitoringMembers where
     Res.receiveJSON
       ( \s h x ->
           StopMonitoringMembersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders StopMonitoringMembers where
@@ -117,40 +113,27 @@ instance Lude.ToQuery StopMonitoringMembers where
 
 -- | /See:/ 'mkStopMonitoringMembersResponse' smart constructor.
 data StopMonitoringMembersResponse = StopMonitoringMembersResponse'
-  { responseStatus ::
-      Lude.Int,
-    unprocessedAccounts ::
-      [UnprocessedAccount]
+  { -- | A list of objects that contain an accountId for each account that could not be processed, and a result string that indicates why the account was not processed.
+    unprocessedAccounts :: [UnprocessedAccount],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMonitoringMembersResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unprocessedAccounts' - A list of objects that contain an accountId for each account that could not be processed, and a result string that indicates why the account was not processed.
+-- * 'responseStatus' - The response status code.
 mkStopMonitoringMembersResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   StopMonitoringMembersResponse
 mkStopMonitoringMembersResponse pResponseStatus_ =
   StopMonitoringMembersResponse'
-    { responseStatus = pResponseStatus_,
-      unprocessedAccounts = Lude.mempty
+    { unprocessedAccounts = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smmrsResponseStatus :: Lens.Lens' StopMonitoringMembersResponse Lude.Int
-smmrsResponseStatus = Lens.lens (responseStatus :: StopMonitoringMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopMonitoringMembersResponse)
-{-# DEPRECATED smmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of objects that contain an accountId for each account that could not be processed, and a result string that indicates why the account was not processed.
 --
@@ -158,3 +141,10 @@ smmrsResponseStatus = Lens.lens (responseStatus :: StopMonitoringMembersResponse
 smmrsUnprocessedAccounts :: Lens.Lens' StopMonitoringMembersResponse [UnprocessedAccount]
 smmrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: StopMonitoringMembersResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: StopMonitoringMembersResponse)
 {-# DEPRECATED smmrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smmrsResponseStatus :: Lens.Lens' StopMonitoringMembersResponse Lude.Int
+smmrsResponseStatus = Lens.lens (responseStatus :: StopMonitoringMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopMonitoringMembersResponse)
+{-# DEPRECATED smmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

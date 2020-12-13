@@ -21,6 +21,7 @@ module Network.AWS.SSM.Types.CreateAssociationBatchRequestEntry
     cabreApplyOnlyAtCronInterval,
     cabreMaxErrors,
     cabreScheduleExpression,
+    cabreName,
     cabreOutputLocation,
     cabreSyncCompliance,
     cabreTargets,
@@ -30,7 +31,6 @@ module Network.AWS.SSM.Types.CreateAssociationBatchRequestEntry
     cabreAssociationName,
     cabreComplianceSeverity,
     cabreMaxConcurrency,
-    cabreName,
   )
 where
 
@@ -45,64 +45,60 @@ import Network.AWS.SSM.Types.Target
 --
 -- /See:/ 'mkCreateAssociationBatchRequestEntry' smart constructor.
 data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
-    applyOnlyAtCronInterval ::
-      Lude.Maybe Lude.Bool,
-    maxErrors ::
-      Lude.Maybe Lude.Text,
-    scheduleExpression ::
-      Lude.Maybe Lude.Text,
-    outputLocation ::
-      Lude.Maybe
-        InstanceAssociationOutputLocation,
-    syncCompliance ::
-      Lude.Maybe
-        AssociationSyncCompliance,
-    targets ::
-      Lude.Maybe [Target],
-    parameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([Lude.Text])
-        ),
-    documentVersion ::
-      Lude.Maybe Lude.Text,
-    automationTargetParameterName ::
-      Lude.Maybe Lude.Text,
-    associationName ::
-      Lude.Maybe Lude.Text,
-    complianceSeverity ::
-      Lude.Maybe
-        AssociationComplianceSeverity,
-    maxConcurrency ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
+    applyOnlyAtCronInterval :: Lude.Maybe Lude.Bool,
+    -- | The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
+    --
+    -- Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+    maxErrors :: Lude.Maybe Lude.Text,
+    -- | A cron expression that specifies a schedule when the association runs.
+    scheduleExpression :: Lude.Maybe Lude.Text,
+    -- | The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents.
+    --
+    -- You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account.
+    -- For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:
+    -- @arn:aws:ssm:/region/ :/account-id/ :document//document-name/ @
+    -- For example:
+    -- @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@
+    -- For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
+    name :: Lude.Text,
+    -- | An S3 bucket where you want to store the results of this request.
+    outputLocation :: Lude.Maybe InstanceAssociationOutputLocation,
+    -- | The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ .
+    --
+    -- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action.
+    -- By default, all associations use @AUTO@ mode.
+    syncCompliance :: Lude.Maybe AssociationSyncCompliance,
+    -- | The instances targeted by the request.
+    targets :: Lude.Maybe [Target],
+    -- | A description of the parameters for a document.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The document version.
+    documentVersion :: Lude.Maybe Lude.Text,
+    -- | Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+    automationTargetParameterName :: Lude.Maybe Lude.Text,
+    -- | Specify a descriptive name for the association.
+    associationName :: Lude.Maybe Lude.Text,
+    -- | The severity level to assign to the association.
+    complianceSeverity :: Lude.Maybe AssociationComplianceSeverity,
+    -- | The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+    --
+    -- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+    maxConcurrency :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAssociationBatchRequestEntry' with the minimum fields required to make a request.
 --
--- * 'applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
--- * 'associationName' - Specify a descriptive name for the association.
--- * 'automationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
--- * 'complianceSeverity' - The severity level to assign to the association.
--- * 'documentVersion' - The document version.
 -- * 'instanceId' - The ID of the instance.
--- * 'maxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
---
--- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+-- * 'applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
 -- * 'maxErrors' - The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
 --
 -- Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+-- * 'scheduleExpression' - A cron expression that specifies a schedule when the association runs.
 -- * 'name' - The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents.
 --
 -- You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account.
@@ -112,13 +108,19 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@
 -- For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
 -- * 'outputLocation' - An S3 bucket where you want to store the results of this request.
--- * 'parameters' - A description of the parameters for a document.
--- * 'scheduleExpression' - A cron expression that specifies a schedule when the association runs.
 -- * 'syncCompliance' - The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ .
 --
 -- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action.
 -- By default, all associations use @AUTO@ mode.
 -- * 'targets' - The instances targeted by the request.
+-- * 'parameters' - A description of the parameters for a document.
+-- * 'documentVersion' - The document version.
+-- * 'automationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+-- * 'associationName' - Specify a descriptive name for the association.
+-- * 'complianceSeverity' - The severity level to assign to the association.
+-- * 'maxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+--
+-- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
 mkCreateAssociationBatchRequestEntry ::
   -- | 'name'
   Lude.Text ->
@@ -129,6 +131,7 @@ mkCreateAssociationBatchRequestEntry pName_ =
       applyOnlyAtCronInterval = Lude.Nothing,
       maxErrors = Lude.Nothing,
       scheduleExpression = Lude.Nothing,
+      name = pName_,
       outputLocation = Lude.Nothing,
       syncCompliance = Lude.Nothing,
       targets = Lude.Nothing,
@@ -137,8 +140,7 @@ mkCreateAssociationBatchRequestEntry pName_ =
       automationTargetParameterName = Lude.Nothing,
       associationName = Lude.Nothing,
       complianceSeverity = Lude.Nothing,
-      maxConcurrency = Lude.Nothing,
-      name = pName_
+      maxConcurrency = Lude.Nothing
     }
 
 -- | The ID of the instance.
@@ -170,6 +172,20 @@ cabreMaxErrors = Lens.lens (maxErrors :: CreateAssociationBatchRequestEntry -> L
 cabreScheduleExpression :: Lens.Lens' CreateAssociationBatchRequestEntry (Lude.Maybe Lude.Text)
 cabreScheduleExpression = Lens.lens (scheduleExpression :: CreateAssociationBatchRequestEntry -> Lude.Maybe Lude.Text) (\s a -> s {scheduleExpression = a} :: CreateAssociationBatchRequestEntry)
 {-# DEPRECATED cabreScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
+
+-- | The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents.
+--
+-- You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account.
+-- For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:
+-- @arn:aws:ssm:/region/ :/account-id/ :document//document-name/ @
+-- For example:
+-- @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@
+-- For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cabreName :: Lens.Lens' CreateAssociationBatchRequestEntry Lude.Text
+cabreName = Lens.lens (name :: CreateAssociationBatchRequestEntry -> Lude.Text) (\s a -> s {name = a} :: CreateAssociationBatchRequestEntry)
+{-# DEPRECATED cabreName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An S3 bucket where you want to store the results of this request.
 --
@@ -239,20 +255,6 @@ cabreMaxConcurrency :: Lens.Lens' CreateAssociationBatchRequestEntry (Lude.Maybe
 cabreMaxConcurrency = Lens.lens (maxConcurrency :: CreateAssociationBatchRequestEntry -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: CreateAssociationBatchRequestEntry)
 {-# DEPRECATED cabreMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
--- | The name of the SSM document that contains the configuration information for the instance. You can specify Command or Automation documents.
---
--- You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account.
--- For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:
--- @arn:aws:ssm:/region/ :/account-id/ :document//document-name/ @
--- For example:
--- @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@
--- For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cabreName :: Lens.Lens' CreateAssociationBatchRequestEntry Lude.Text
-cabreName = Lens.lens (name :: CreateAssociationBatchRequestEntry -> Lude.Text) (\s a -> s {name = a} :: CreateAssociationBatchRequestEntry)
-{-# DEPRECATED cabreName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON CreateAssociationBatchRequestEntry where
   parseJSON =
     Lude.withObject
@@ -263,6 +265,7 @@ instance Lude.FromJSON CreateAssociationBatchRequestEntry where
             Lude.<*> (x Lude..:? "ApplyOnlyAtCronInterval")
             Lude.<*> (x Lude..:? "MaxErrors")
             Lude.<*> (x Lude..:? "ScheduleExpression")
+            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..:? "OutputLocation")
             Lude.<*> (x Lude..:? "SyncCompliance")
             Lude.<*> (x Lude..:? "Targets" Lude..!= Lude.mempty)
@@ -272,7 +275,6 @@ instance Lude.FromJSON CreateAssociationBatchRequestEntry where
             Lude.<*> (x Lude..:? "AssociationName")
             Lude.<*> (x Lude..:? "ComplianceSeverity")
             Lude.<*> (x Lude..:? "MaxConcurrency")
-            Lude.<*> (x Lude..: "Name")
       )
 
 instance Lude.ToJSON CreateAssociationBatchRequestEntry where
@@ -284,6 +286,7 @@ instance Lude.ToJSON CreateAssociationBatchRequestEntry where
               Lude.<$> applyOnlyAtCronInterval,
             ("MaxErrors" Lude..=) Lude.<$> maxErrors,
             ("ScheduleExpression" Lude..=) Lude.<$> scheduleExpression,
+            Lude.Just ("Name" Lude..= name),
             ("OutputLocation" Lude..=) Lude.<$> outputLocation,
             ("SyncCompliance" Lude..=) Lude.<$> syncCompliance,
             ("Targets" Lude..=) Lude.<$> targets,
@@ -293,7 +296,6 @@ instance Lude.ToJSON CreateAssociationBatchRequestEntry where
               Lude.<$> automationTargetParameterName,
             ("AssociationName" Lude..=) Lude.<$> associationName,
             ("ComplianceSeverity" Lude..=) Lude.<$> complianceSeverity,
-            ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency,
-            Lude.Just ("Name" Lude..= name)
+            ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency
           ]
       )

@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationInfo' smart constructor.
 data ApplicationInfo = ApplicationInfo'
-  { linkedToGitHub ::
-      Lude.Maybe Lude.Bool,
+  { -- | True if the user has authenticated with GitHub for the specified application. Otherwise, false.
+    linkedToGitHub :: Lude.Maybe Lude.Bool,
+    -- | The destination platform type for deployment of the application (@Lambda@ or @Server@ ).
     computePlatform :: Lude.Maybe ComputePlatform,
+    -- | The application ID.
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The application name.
     applicationName :: Lude.Maybe Lude.Text,
+    -- | The name for a connection to a GitHub account.
     gitHubAccountName :: Lude.Maybe Lude.Text,
+    -- | The time at which the application was created.
     createTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationInfo' with the minimum fields required to make a request.
 --
+-- * 'linkedToGitHub' - True if the user has authenticated with GitHub for the specified application. Otherwise, false.
+-- * 'computePlatform' - The destination platform type for deployment of the application (@Lambda@ or @Server@ ).
 -- * 'applicationId' - The application ID.
 -- * 'applicationName' - The application name.
--- * 'computePlatform' - The destination platform type for deployment of the application (@Lambda@ or @Server@ ).
--- * 'createTime' - The time at which the application was created.
 -- * 'gitHubAccountName' - The name for a connection to a GitHub account.
--- * 'linkedToGitHub' - True if the user has authenticated with GitHub for the specified application. Otherwise, false.
+-- * 'createTime' - The time at which the application was created.
 mkApplicationInfo ::
   ApplicationInfo
 mkApplicationInfo =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.DeleteTags
     mkDeleteTags,
 
     -- ** Request lenses
+    dtsResources,
     dtsDryRun,
     dtsTags,
-    dtsResources,
 
     -- * Destructuring the response
     DeleteTagsResponse (..),
@@ -39,25 +40,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { dryRun :: Lude.Maybe Lude.Bool,
-    tags :: Lude.Maybe [Tag],
-    resources :: [Lude.Text]
+  { -- | The IDs of the resources, separated by spaces.
+    --
+    -- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+    resources :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
+    --
+    -- If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the @aws:@ prefix).
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'resources' - The IDs of the resources, separated by spaces.
 --
 -- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'tags' - The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
 --
 -- If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the @aws:@ prefix).
@@ -65,10 +67,19 @@ mkDeleteTags ::
   DeleteTags
 mkDeleteTags =
   DeleteTags'
-    { dryRun = Lude.Nothing,
-      tags = Lude.Nothing,
-      resources = Lude.mempty
+    { resources = Lude.mempty,
+      dryRun = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | The IDs of the resources, separated by spaces.
+--
+-- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsResources :: Lens.Lens' DeleteTags [Lude.Text]
+dtsResources = Lens.lens (resources :: DeleteTags -> [Lude.Text]) (\s a -> s {resources = a} :: DeleteTags)
+{-# DEPRECATED dtsResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -86,15 +97,6 @@ dtsTags :: Lens.Lens' DeleteTags (Lude.Maybe [Tag])
 dtsTags = Lens.lens (tags :: DeleteTags -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DeleteTags)
 {-# DEPRECATED dtsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The IDs of the resources, separated by spaces.
---
--- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
---
--- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsResources :: Lens.Lens' DeleteTags [Lude.Text]
-dtsResources = Lens.lens (resources :: DeleteTags -> [Lude.Text]) (\s a -> s {resources = a} :: DeleteTags)
-{-# DEPRECATED dtsResources "Use generic-lens or generic-optics with 'resources' instead." #-}
-
 instance Lude.AWSRequest DeleteTags where
   type Rs DeleteTags = DeleteTagsResponse
   request = Req.postQuery ec2Service
@@ -111,20 +113,14 @@ instance Lude.ToQuery DeleteTags where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteTags" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQueryList "ResourceId" resources,
         "DryRun" Lude.=: dryRun,
-        Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
-        Lude.toQueryList "ResourceId" resources
+        Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
       ]
 
 -- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.

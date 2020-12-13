@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.AppSync.UpdateAPIKey
     mkUpdateAPIKey,
 
     -- ** Request lenses
-    uakExpires,
-    uakDescription,
     uakApiId,
+    uakExpires,
     uakId,
+    uakDescription,
 
     -- * Destructuring the response
     UpdateAPIKeyResponse (..),
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateAPIKey' smart constructor.
 data UpdateAPIKey = UpdateAPIKey'
-  { expires ::
-      Lude.Maybe Lude.Integer,
-    description :: Lude.Maybe Lude.Text,
+  { -- | The ID for the GraphQL API.
     apiId :: Lude.Text,
-    id :: Lude.Text
+    -- | The time from update time after which the API key expires. The date is represented as seconds since the epoch. For more information, see .
+    expires :: Lude.Maybe Lude.Integer,
+    -- | The API key ID.
+    id :: Lude.Text,
+    -- | A description of the purpose of the API key.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPIKey' with the minimum fields required to make a request.
 --
 -- * 'apiId' - The ID for the GraphQL API.
--- * 'description' - A description of the purpose of the API key.
 -- * 'expires' - The time from update time after which the API key expires. The date is represented as seconds since the epoch. For more information, see .
 -- * 'id' - The API key ID.
+-- * 'description' - A description of the purpose of the API key.
 mkUpdateAPIKey ::
   -- | 'apiId'
   Lude.Text ->
@@ -71,25 +69,11 @@ mkUpdateAPIKey ::
   UpdateAPIKey
 mkUpdateAPIKey pApiId_ pId_ =
   UpdateAPIKey'
-    { expires = Lude.Nothing,
-      description = Lude.Nothing,
-      apiId = pApiId_,
-      id = pId_
+    { apiId = pApiId_,
+      expires = Lude.Nothing,
+      id = pId_,
+      description = Lude.Nothing
     }
-
--- | The time from update time after which the API key expires. The date is represented as seconds since the epoch. For more information, see .
---
--- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uakExpires :: Lens.Lens' UpdateAPIKey (Lude.Maybe Lude.Integer)
-uakExpires = Lens.lens (expires :: UpdateAPIKey -> Lude.Maybe Lude.Integer) (\s a -> s {expires = a} :: UpdateAPIKey)
-{-# DEPRECATED uakExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
-
--- | A description of the purpose of the API key.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uakDescription :: Lens.Lens' UpdateAPIKey (Lude.Maybe Lude.Text)
-uakDescription = Lens.lens (description :: UpdateAPIKey -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAPIKey)
-{-# DEPRECATED uakDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID for the GraphQL API.
 --
@@ -98,12 +82,26 @@ uakApiId :: Lens.Lens' UpdateAPIKey Lude.Text
 uakApiId = Lens.lens (apiId :: UpdateAPIKey -> Lude.Text) (\s a -> s {apiId = a} :: UpdateAPIKey)
 {-# DEPRECATED uakApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
+-- | The time from update time after which the API key expires. The date is represented as seconds since the epoch. For more information, see .
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakExpires :: Lens.Lens' UpdateAPIKey (Lude.Maybe Lude.Integer)
+uakExpires = Lens.lens (expires :: UpdateAPIKey -> Lude.Maybe Lude.Integer) (\s a -> s {expires = a} :: UpdateAPIKey)
+{-# DEPRECATED uakExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
+
 -- | The API key ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uakId :: Lens.Lens' UpdateAPIKey Lude.Text
 uakId = Lens.lens (id :: UpdateAPIKey -> Lude.Text) (\s a -> s {id = a} :: UpdateAPIKey)
 {-# DEPRECATED uakId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | A description of the purpose of the API key.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakDescription :: Lens.Lens' UpdateAPIKey (Lude.Maybe Lude.Text)
+uakDescription = Lens.lens (description :: UpdateAPIKey -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAPIKey)
+{-# DEPRECATED uakDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateAPIKey where
   type Rs UpdateAPIKey = UpdateAPIKeyResponse
@@ -143,17 +141,12 @@ instance Lude.ToQuery UpdateAPIKey where
 
 -- | /See:/ 'mkUpdateAPIKeyResponse' smart constructor.
 data UpdateAPIKeyResponse = UpdateAPIKeyResponse'
-  { apiKey ::
-      Lude.Maybe APIKey,
+  { -- | The API key.
+    apiKey :: Lude.Maybe APIKey,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPIKeyResponse' with the minimum fields required to make a request.

@@ -27,12 +27,12 @@ module Network.AWS.MediaLive.Types.Mpeg2Settings
     msGopNumBFrames,
     msFixedAfd,
     msFilterSettings,
+    msFramerateDenominator,
     msColorMetadata,
     msAdaptiveQuantization,
+    msFramerateNumerator,
     msGopClosedCadence,
     msColorSpace,
-    msFramerateNumerator,
-    msFramerateDenominator,
   )
 where
 
@@ -54,77 +54,105 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMpeg2Settings' smart constructor.
 data Mpeg2Settings = Mpeg2Settings'
-  { scanType ::
-      Lude.Maybe Mpeg2ScanType,
+  { -- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
+    scanType :: Lude.Maybe Mpeg2ScanType,
+    -- | Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \"MediaLive Features - Timecode configuration\" in the MediaLive User Guide.
+    --
+    -- DISABLED: do not include timecodes.
+    -- GOP_TIMECODE: Include timecode metadata in the GOP header.
     timecodeInsertion :: Lude.Maybe Mpeg2TimecodeInsertionBehavior,
+    -- | Indicates the AFD values that MediaLive will write into the video encode. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose AUTO.
+    --
+    -- AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid).
+    -- FIXED: MediaLive will use the value you specify in fixedAFD.
     afdSignaling :: Lude.Maybe AfdSignaling,
+    -- | Relates to the GOP structure. The GOP size (keyframe interval) in the units specified in gopSizeUnits. If you do not know what GOP is, use the default.
+    --
+    -- If gopSizeUnits is frames, then the gopSize must be an integer and must be greater than or equal to 1.
+    -- If gopSizeUnits is seconds, the gopSize must be greater than 0, but does not need to be an integer.
     gopSize :: Lude.Maybe Lude.Double,
+    -- | Relates to the GOP structure. Specifies whether the gopSize is specified in frames or seconds. If you do not plan to change the default gopSize, leave the default. If you specify SECONDS, MediaLive will internally convert the gop size to a frame count.
     gopSizeUnits :: Lude.Maybe Mpeg2GopSizeUnits,
+    -- | Relates to the GOP structure. If you do not know what GOP is, use the default.
+    --
+    -- FIXED: Set the number of B-frames in each sub-GOP to the value in gopNumBFrames.
+    -- DYNAMIC: Let MediaLive optimize the number of B-frames in each sub-GOP, to improve visual quality.
     subgopLength :: Lude.Maybe Mpeg2SubGopLength,
+    -- | Sets the pixel aspect ratio for the encode.
     displayAspectRatio :: Lude.Maybe Mpeg2DisplayRatio,
+    -- | Relates to the GOP structure. The number of B-frames between reference frames. If you do not know what a B-frame is, use the default.
     gopNumBFrames :: Lude.Maybe Lude.Natural,
+    -- | Complete this field only when afdSignaling is set to FIXED. Enter the AFD value (4 bits) to write on all frames of the video encode.
     fixedAfd :: Lude.Maybe FixedAfd,
+    -- | Optionally specify a noise reduction filter, which can improve quality of compressed content. If you do not choose a filter, no filter will be applied.
+    --
+    -- TEMPORAL: This filter is useful for both source content that is noisy (when it has excessive digital artifacts) and source content that is clean.
+    -- When the content is noisy, the filter cleans up the source content before the encoding phase, with these two effects: First, it improves the output video quality because the content has been cleaned up. Secondly, it decreases the bandwidth because MediaLive does not waste bits on encoding noise.
+    -- When the content is reasonably clean, the filter tends to decrease the bitrate.
     filterSettings :: Lude.Maybe Mpeg2FilterSettings,
+    -- | description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
+    framerateDenominator :: Lude.Natural,
+    -- | Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
     colorMetadata :: Lude.Maybe Mpeg2ColorMetadata,
+    -- | Choose Off to disable adaptive quantization. Or choose another value to enable the quantizer and set its strength. The strengths are: Auto, Off, Low, Medium, High. When you enable this field, MediaLive allows intra-frame quantizers to vary, which might improve visual quality.
     adaptiveQuantization :: Lude.Maybe Mpeg2AdaptiveQuantization,
-    gopClosedCadence :: Lude.Maybe Lude.Natural,
-    colorSpace :: Lude.Maybe Mpeg2ColorSpace,
+    -- | The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
     framerateNumerator :: Lude.Natural,
-    framerateDenominator :: Lude.Natural
+    -- | MPEG2: default is open GOP.
+    gopClosedCadence :: Lude.Maybe Lude.Natural,
+    -- | Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \"MediaLive Features - Video - color space\" in the MediaLive User Guide.
+    --
+    -- PASSTHROUGH: Keep the color space of the input content - do not convert it.
+    -- AUTO:Convert all content that is SD to rec 601, and convert all content that is HD to rec 709.
+    colorSpace :: Lude.Maybe Mpeg2ColorSpace
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mpeg2Settings' with the minimum fields required to make a request.
 --
--- * 'adaptiveQuantization' - Choose Off to disable adaptive quantization. Or choose another value to enable the quantizer and set its strength. The strengths are: Auto, Off, Low, Medium, High. When you enable this field, MediaLive allows intra-frame quantizers to vary, which might improve visual quality.
+-- * 'scanType' - Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
+-- * 'timecodeInsertion' - Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \"MediaLive Features - Timecode configuration\" in the MediaLive User Guide.
+--
+-- DISABLED: do not include timecodes.
+-- GOP_TIMECODE: Include timecode metadata in the GOP header.
 -- * 'afdSignaling' - Indicates the AFD values that MediaLive will write into the video encode. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose AUTO.
 --
 -- AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid).
 -- FIXED: MediaLive will use the value you specify in fixedAFD.
--- * 'colorMetadata' - Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
--- * 'colorSpace' - Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \"MediaLive Features - Video - color space\" in the MediaLive User Guide.
---
--- PASSTHROUGH: Keep the color space of the input content - do not convert it.
--- AUTO:Convert all content that is SD to rec 601, and convert all content that is HD to rec 709.
--- * 'displayAspectRatio' - Sets the pixel aspect ratio for the encode.
--- * 'filterSettings' - Optionally specify a noise reduction filter, which can improve quality of compressed content. If you do not choose a filter, no filter will be applied.
---
--- TEMPORAL: This filter is useful for both source content that is noisy (when it has excessive digital artifacts) and source content that is clean.
--- When the content is noisy, the filter cleans up the source content before the encoding phase, with these two effects: First, it improves the output video quality because the content has been cleaned up. Secondly, it decreases the bandwidth because MediaLive does not waste bits on encoding noise.
--- When the content is reasonably clean, the filter tends to decrease the bitrate.
--- * 'fixedAfd' - Complete this field only when afdSignaling is set to FIXED. Enter the AFD value (4 bits) to write on all frames of the video encode.
--- * 'framerateDenominator' - description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
--- * 'framerateNumerator' - The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
--- * 'gopClosedCadence' - MPEG2: default is open GOP.
--- * 'gopNumBFrames' - Relates to the GOP structure. The number of B-frames between reference frames. If you do not know what a B-frame is, use the default.
 -- * 'gopSize' - Relates to the GOP structure. The GOP size (keyframe interval) in the units specified in gopSizeUnits. If you do not know what GOP is, use the default.
 --
 -- If gopSizeUnits is frames, then the gopSize must be an integer and must be greater than or equal to 1.
 -- If gopSizeUnits is seconds, the gopSize must be greater than 0, but does not need to be an integer.
 -- * 'gopSizeUnits' - Relates to the GOP structure. Specifies whether the gopSize is specified in frames or seconds. If you do not plan to change the default gopSize, leave the default. If you specify SECONDS, MediaLive will internally convert the gop size to a frame count.
--- * 'scanType' - Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
 -- * 'subgopLength' - Relates to the GOP structure. If you do not know what GOP is, use the default.
 --
 -- FIXED: Set the number of B-frames in each sub-GOP to the value in gopNumBFrames.
 -- DYNAMIC: Let MediaLive optimize the number of B-frames in each sub-GOP, to improve visual quality.
--- * 'timecodeInsertion' - Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \"MediaLive Features - Timecode configuration\" in the MediaLive User Guide.
+-- * 'displayAspectRatio' - Sets the pixel aspect ratio for the encode.
+-- * 'gopNumBFrames' - Relates to the GOP structure. The number of B-frames between reference frames. If you do not know what a B-frame is, use the default.
+-- * 'fixedAfd' - Complete this field only when afdSignaling is set to FIXED. Enter the AFD value (4 bits) to write on all frames of the video encode.
+-- * 'filterSettings' - Optionally specify a noise reduction filter, which can improve quality of compressed content. If you do not choose a filter, no filter will be applied.
 --
--- DISABLED: do not include timecodes.
--- GOP_TIMECODE: Include timecode metadata in the GOP header.
+-- TEMPORAL: This filter is useful for both source content that is noisy (when it has excessive digital artifacts) and source content that is clean.
+-- When the content is noisy, the filter cleans up the source content before the encoding phase, with these two effects: First, it improves the output video quality because the content has been cleaned up. Secondly, it decreases the bandwidth because MediaLive does not waste bits on encoding noise.
+-- When the content is reasonably clean, the filter tends to decrease the bitrate.
+-- * 'framerateDenominator' - description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
+-- * 'colorMetadata' - Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
+-- * 'adaptiveQuantization' - Choose Off to disable adaptive quantization. Or choose another value to enable the quantizer and set its strength. The strengths are: Auto, Off, Low, Medium, High. When you enable this field, MediaLive allows intra-frame quantizers to vary, which might improve visual quality.
+-- * 'framerateNumerator' - The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
+-- * 'gopClosedCadence' - MPEG2: default is open GOP.
+-- * 'colorSpace' - Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \"MediaLive Features - Video - color space\" in the MediaLive User Guide.
+--
+-- PASSTHROUGH: Keep the color space of the input content - do not convert it.
+-- AUTO:Convert all content that is SD to rec 601, and convert all content that is HD to rec 709.
 mkMpeg2Settings ::
-  -- | 'framerateNumerator'
-  Lude.Natural ->
   -- | 'framerateDenominator'
   Lude.Natural ->
+  -- | 'framerateNumerator'
+  Lude.Natural ->
   Mpeg2Settings
-mkMpeg2Settings pFramerateNumerator_ pFramerateDenominator_ =
+mkMpeg2Settings pFramerateDenominator_ pFramerateNumerator_ =
   Mpeg2Settings'
     { scanType = Lude.Nothing,
       timecodeInsertion = Lude.Nothing,
@@ -136,12 +164,12 @@ mkMpeg2Settings pFramerateNumerator_ pFramerateDenominator_ =
       gopNumBFrames = Lude.Nothing,
       fixedAfd = Lude.Nothing,
       filterSettings = Lude.Nothing,
+      framerateDenominator = pFramerateDenominator_,
       colorMetadata = Lude.Nothing,
       adaptiveQuantization = Lude.Nothing,
-      gopClosedCadence = Lude.Nothing,
-      colorSpace = Lude.Nothing,
       framerateNumerator = pFramerateNumerator_,
-      framerateDenominator = pFramerateDenominator_
+      gopClosedCadence = Lude.Nothing,
+      colorSpace = Lude.Nothing
     }
 
 -- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
@@ -230,6 +258,13 @@ msFilterSettings :: Lens.Lens' Mpeg2Settings (Lude.Maybe Mpeg2FilterSettings)
 msFilterSettings = Lens.lens (filterSettings :: Mpeg2Settings -> Lude.Maybe Mpeg2FilterSettings) (\s a -> s {filterSettings = a} :: Mpeg2Settings)
 {-# DEPRECATED msFilterSettings "Use generic-lens or generic-optics with 'filterSettings' instead." #-}
 
+-- | description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
+--
+-- /Note:/ Consider using 'framerateDenominator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msFramerateDenominator :: Lens.Lens' Mpeg2Settings Lude.Natural
+msFramerateDenominator = Lens.lens (framerateDenominator :: Mpeg2Settings -> Lude.Natural) (\s a -> s {framerateDenominator = a} :: Mpeg2Settings)
+{-# DEPRECATED msFramerateDenominator "Use generic-lens or generic-optics with 'framerateDenominator' instead." #-}
+
 -- | Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
 --
 -- /Note:/ Consider using 'colorMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -243,6 +278,13 @@ msColorMetadata = Lens.lens (colorMetadata :: Mpeg2Settings -> Lude.Maybe Mpeg2C
 msAdaptiveQuantization :: Lens.Lens' Mpeg2Settings (Lude.Maybe Mpeg2AdaptiveQuantization)
 msAdaptiveQuantization = Lens.lens (adaptiveQuantization :: Mpeg2Settings -> Lude.Maybe Mpeg2AdaptiveQuantization) (\s a -> s {adaptiveQuantization = a} :: Mpeg2Settings)
 {-# DEPRECATED msAdaptiveQuantization "Use generic-lens or generic-optics with 'adaptiveQuantization' instead." #-}
+
+-- | The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
+--
+-- /Note:/ Consider using 'framerateNumerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msFramerateNumerator :: Lens.Lens' Mpeg2Settings Lude.Natural
+msFramerateNumerator = Lens.lens (framerateNumerator :: Mpeg2Settings -> Lude.Natural) (\s a -> s {framerateNumerator = a} :: Mpeg2Settings)
+{-# DEPRECATED msFramerateNumerator "Use generic-lens or generic-optics with 'framerateNumerator' instead." #-}
 
 -- | MPEG2: default is open GOP.
 --
@@ -261,20 +303,6 @@ msColorSpace :: Lens.Lens' Mpeg2Settings (Lude.Maybe Mpeg2ColorSpace)
 msColorSpace = Lens.lens (colorSpace :: Mpeg2Settings -> Lude.Maybe Mpeg2ColorSpace) (\s a -> s {colorSpace = a} :: Mpeg2Settings)
 {-# DEPRECATED msColorSpace "Use generic-lens or generic-optics with 'colorSpace' instead." #-}
 
--- | The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
---
--- /Note:/ Consider using 'framerateNumerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msFramerateNumerator :: Lens.Lens' Mpeg2Settings Lude.Natural
-msFramerateNumerator = Lens.lens (framerateNumerator :: Mpeg2Settings -> Lude.Natural) (\s a -> s {framerateNumerator = a} :: Mpeg2Settings)
-{-# DEPRECATED msFramerateNumerator "Use generic-lens or generic-optics with 'framerateNumerator' instead." #-}
-
--- | description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
---
--- /Note:/ Consider using 'framerateDenominator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msFramerateDenominator :: Lens.Lens' Mpeg2Settings Lude.Natural
-msFramerateDenominator = Lens.lens (framerateDenominator :: Mpeg2Settings -> Lude.Natural) (\s a -> s {framerateDenominator = a} :: Mpeg2Settings)
-{-# DEPRECATED msFramerateDenominator "Use generic-lens or generic-optics with 'framerateDenominator' instead." #-}
-
 instance Lude.FromJSON Mpeg2Settings where
   parseJSON =
     Lude.withObject
@@ -291,12 +319,12 @@ instance Lude.FromJSON Mpeg2Settings where
             Lude.<*> (x Lude..:? "gopNumBFrames")
             Lude.<*> (x Lude..:? "fixedAfd")
             Lude.<*> (x Lude..:? "filterSettings")
+            Lude.<*> (x Lude..: "framerateDenominator")
             Lude.<*> (x Lude..:? "colorMetadata")
             Lude.<*> (x Lude..:? "adaptiveQuantization")
+            Lude.<*> (x Lude..: "framerateNumerator")
             Lude.<*> (x Lude..:? "gopClosedCadence")
             Lude.<*> (x Lude..:? "colorSpace")
-            Lude.<*> (x Lude..: "framerateNumerator")
-            Lude.<*> (x Lude..: "framerateDenominator")
       )
 
 instance Lude.ToJSON Mpeg2Settings where
@@ -313,11 +341,11 @@ instance Lude.ToJSON Mpeg2Settings where
             ("gopNumBFrames" Lude..=) Lude.<$> gopNumBFrames,
             ("fixedAfd" Lude..=) Lude.<$> fixedAfd,
             ("filterSettings" Lude..=) Lude.<$> filterSettings,
+            Lude.Just ("framerateDenominator" Lude..= framerateDenominator),
             ("colorMetadata" Lude..=) Lude.<$> colorMetadata,
             ("adaptiveQuantization" Lude..=) Lude.<$> adaptiveQuantization,
-            ("gopClosedCadence" Lude..=) Lude.<$> gopClosedCadence,
-            ("colorSpace" Lude..=) Lude.<$> colorSpace,
             Lude.Just ("framerateNumerator" Lude..= framerateNumerator),
-            Lude.Just ("framerateDenominator" Lude..= framerateDenominator)
+            ("gopClosedCadence" Lude..=) Lude.<$> gopClosedCadence,
+            ("colorSpace" Lude..=) Lude.<$> colorSpace
           ]
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -61,26 +62,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDataSource' smart constructor.
 data GetDataSource = GetDataSource'
-  { verbose ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the @GetDataSource@ operation should return @DataSourceSchema@ .
+    --
+    -- If true, @DataSourceSchema@ is returned.
+    -- If false, @DataSourceSchema@ is not returned.
+    verbose :: Lude.Maybe Lude.Bool,
+    -- | The ID assigned to the @DataSource@ at creation.
     dataSourceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataSource' with the minimum fields required to make a request.
 --
--- * 'dataSourceId' - The ID assigned to the @DataSource@ at creation.
 -- * 'verbose' - Specifies whether the @GetDataSource@ operation should return @DataSourceSchema@ .
 --
 -- If true, @DataSourceSchema@ is returned.
 -- If false, @DataSourceSchema@ is not returned.
+-- * 'dataSourceId' - The ID assigned to the @DataSource@ at creation.
 mkGetDataSource ::
   -- | 'dataSourceId'
   Lude.Text ->
@@ -168,60 +167,62 @@ instance Lude.ToQuery GetDataSource where
 --
 -- /See:/ 'mkGetDataSourceResponse' smart constructor.
 data GetDataSourceResponse = GetDataSourceResponse'
-  { status ::
-      Lude.Maybe EntityStatus,
+  { -- | The current status of the @DataSource@ . This element can have one of the following values:
+    --
+    --
+    --     * @PENDING@ - Amazon ML submitted a request to create a @DataSource@ .
+    --
+    --     * @INPROGRESS@ - The creation process is underway.
+    --
+    --     * @FAILED@ - The request to create a @DataSource@ did not run to completion. It is not usable.
+    --
+    --     * @COMPLETED@ - The creation process completed successfully.
+    --
+    --     * @DELETED@ - The @DataSource@ is marked as deleted. It is not usable.
+    status :: Lude.Maybe EntityStatus,
+    -- | The number of data files referenced by the @DataSource@ .
     numberOfFiles :: Lude.Maybe Lude.Integer,
+    -- | The time of the most recent edit to the @DataSource@ . The time is expressed in epoch time.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time that the @DataSource@ was created. The time is expressed in epoch time.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @DataSource@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @DataSource@ is in the @COMPLETED@ state and the @ComputeStatistics@ is set to true.
     computeTime :: Lude.Maybe Lude.Integer,
+    -- | The ID assigned to the @DataSource@ at creation. This value should be identical to the value of the @DataSourceId@ in the request.
     dataSourceId :: Lude.Maybe Lude.Text,
     rdsMetadata :: Lude.Maybe RDSMetadata,
+    -- | The total size of observations in the data files.
     dataSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The schema used by all of the data files of this @DataSource@ .
     dataSourceSchema :: Lude.Maybe Lude.Text,
+    -- | The epoch time when Amazon Machine Learning marked the @DataSource@ as @INPROGRESS@ . @StartedAt@ isn't available if the @DataSource@ is in the @PENDING@ state.
     startedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The epoch time when Amazon Machine Learning marked the @DataSource@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @DataSource@ is in the @COMPLETED@ or @FAILED@ state.
     finishedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS user account from which the @DataSource@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
     createdByIAMUser :: Lude.Maybe Lude.Text,
+    -- | A user-supplied name or description of the @DataSource@ .
     name :: Lude.Maybe Lude.Text,
+    -- | A link to the file containing logs of @CreateDataSourceFrom*@ operations.
     logURI :: Lude.Maybe Lude.Text,
+    -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
     dataLocationS3 :: Lude.Maybe Lude.Text,
+    -- | The parameter is @true@ if statistics need to be generated from the observation data.
     computeStatistics :: Lude.Maybe Lude.Bool,
+    -- | The user-supplied description of the most recent details about creating the @DataSource@ .
     message :: Lude.Maybe Lude.Text,
     redshiftMetadata :: Lude.Maybe RedshiftMetadata,
+    -- | A JSON string that represents the splitting and rearrangement requirement used when this @DataSource@ was created.
     dataRearrangement :: Lude.Maybe Lude.Text,
     roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataSourceResponse' with the minimum fields required to make a request.
 --
--- * 'computeStatistics' - The parameter is @true@ if statistics need to be generated from the observation data.
--- * 'computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @DataSource@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @DataSource@ is in the @COMPLETED@ state and the @ComputeStatistics@ is set to true.
--- * 'createdAt' - The time that the @DataSource@ was created. The time is expressed in epoch time.
--- * 'createdByIAMUser' - The AWS user account from which the @DataSource@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
--- * 'dataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
--- * 'dataRearrangement' - A JSON string that represents the splitting and rearrangement requirement used when this @DataSource@ was created.
--- * 'dataSizeInBytes' - The total size of observations in the data files.
--- * 'dataSourceId' - The ID assigned to the @DataSource@ at creation. This value should be identical to the value of the @DataSourceId@ in the request.
--- * 'dataSourceSchema' - The schema used by all of the data files of this @DataSource@ .
--- * 'finishedAt' - The epoch time when Amazon Machine Learning marked the @DataSource@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @DataSource@ is in the @COMPLETED@ or @FAILED@ state.
--- * 'lastUpdatedAt' - The time of the most recent edit to the @DataSource@ . The time is expressed in epoch time.
--- * 'logURI' - A link to the file containing logs of @CreateDataSourceFrom*@ operations.
--- * 'message' - The user-supplied description of the most recent details about creating the @DataSource@ .
--- * 'name' - A user-supplied name or description of the @DataSource@ .
--- * 'numberOfFiles' - The number of data files referenced by the @DataSource@ .
--- * 'rdsMetadata' - Undocumented field.
--- * 'redshiftMetadata' - Undocumented field.
--- * 'responseStatus' - The response status code.
--- * 'roleARN' - Undocumented field.
--- * 'startedAt' - The epoch time when Amazon Machine Learning marked the @DataSource@ as @INPROGRESS@ . @StartedAt@ isn't available if the @DataSource@ is in the @PENDING@ state.
 -- * 'status' - The current status of the @DataSource@ . This element can have one of the following values:
 --
 --
@@ -234,6 +235,27 @@ data GetDataSourceResponse = GetDataSourceResponse'
 --     * @COMPLETED@ - The creation process completed successfully.
 --
 --     * @DELETED@ - The @DataSource@ is marked as deleted. It is not usable.
+--
+-- * 'numberOfFiles' - The number of data files referenced by the @DataSource@ .
+-- * 'lastUpdatedAt' - The time of the most recent edit to the @DataSource@ . The time is expressed in epoch time.
+-- * 'createdAt' - The time that the @DataSource@ was created. The time is expressed in epoch time.
+-- * 'computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @DataSource@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @DataSource@ is in the @COMPLETED@ state and the @ComputeStatistics@ is set to true.
+-- * 'dataSourceId' - The ID assigned to the @DataSource@ at creation. This value should be identical to the value of the @DataSourceId@ in the request.
+-- * 'rdsMetadata' -
+-- * 'dataSizeInBytes' - The total size of observations in the data files.
+-- * 'dataSourceSchema' - The schema used by all of the data files of this @DataSource@ .
+-- * 'startedAt' - The epoch time when Amazon Machine Learning marked the @DataSource@ as @INPROGRESS@ . @StartedAt@ isn't available if the @DataSource@ is in the @PENDING@ state.
+-- * 'finishedAt' - The epoch time when Amazon Machine Learning marked the @DataSource@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @DataSource@ is in the @COMPLETED@ or @FAILED@ state.
+-- * 'createdByIAMUser' - The AWS user account from which the @DataSource@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'name' - A user-supplied name or description of the @DataSource@ .
+-- * 'logURI' - A link to the file containing logs of @CreateDataSourceFrom*@ operations.
+-- * 'dataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+-- * 'computeStatistics' - The parameter is @true@ if statistics need to be generated from the observation data.
+-- * 'message' - The user-supplied description of the most recent details about creating the @DataSource@ .
+-- * 'redshiftMetadata' -
+-- * 'dataRearrangement' - A JSON string that represents the splitting and rearrangement requirement used when this @DataSource@ was created.
+-- * 'roleARN' -
+-- * 'responseStatus' - The response status code.
 mkGetDataSourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

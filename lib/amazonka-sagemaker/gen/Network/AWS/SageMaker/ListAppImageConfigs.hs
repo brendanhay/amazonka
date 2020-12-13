@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,37 +49,39 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListAppImageConfigs' smart constructor.
 data ListAppImageConfigs = ListAppImageConfigs'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | A filter that returns only AppImageConfigs whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only AppImageConfigs created on or after the specified time.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only AppImageConfigs modified on or after the specified time.
     modifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the previous call to @ListImages@ didn't return the full set of AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order. The default value is @Descending@ .
     sortOrder :: Lude.Maybe SortOrder,
+    -- | A filter that returns only AppImageConfigs created on or before the specified time.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only AppImageConfigs modified on or before the specified time.
     modifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of AppImageConfigs to return in the response. The default value is 10.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The property used to sort results. The default value is @CreationTime@ .
     sortBy :: Lude.Maybe AppImageConfigSortKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAppImageConfigs' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - A filter that returns only AppImageConfigs created on or after the specified time.
--- * 'creationTimeBefore' - A filter that returns only AppImageConfigs created on or before the specified time.
--- * 'maxResults' - The maximum number of AppImageConfigs to return in the response. The default value is 10.
--- * 'modifiedTimeAfter' - A filter that returns only AppImageConfigs modified on or after the specified time.
--- * 'modifiedTimeBefore' - A filter that returns only AppImageConfigs modified on or before the specified time.
 -- * 'nameContains' - A filter that returns only AppImageConfigs whose name contains the specified string.
+-- * 'creationTimeAfter' - A filter that returns only AppImageConfigs created on or after the specified time.
+-- * 'modifiedTimeAfter' - A filter that returns only AppImageConfigs modified on or after the specified time.
 -- * 'nextToken' - If the previous call to @ListImages@ didn't return the full set of AppImageConfigs, the call returns a token for getting the next set of AppImageConfigs.
--- * 'sortBy' - The property used to sort results. The default value is @CreationTime@ .
 -- * 'sortOrder' - The sort order. The default value is @Descending@ .
+-- * 'creationTimeBefore' - A filter that returns only AppImageConfigs created on or before the specified time.
+-- * 'modifiedTimeBefore' - A filter that returns only AppImageConfigs modified on or before the specified time.
+-- * 'maxResults' - The maximum number of AppImageConfigs to return in the response. The default value is 10.
+-- * 'sortBy' - The property used to sort results. The default value is @CreationTime@ .
 mkListAppImageConfigs ::
   ListAppImageConfigs
 mkListAppImageConfigs =
@@ -204,18 +207,14 @@ instance Lude.ToQuery ListAppImageConfigs where
 
 -- | /See:/ 'mkListAppImageConfigsResponse' smart constructor.
 data ListAppImageConfigsResponse = ListAppImageConfigsResponse'
-  { appImageConfigs ::
-      Lude.Maybe [AppImageConfigDetails],
+  { -- | A list of AppImageConfigs and their properties.
+    appImageConfigs :: Lude.Maybe [AppImageConfigDetails],
+    -- | A token for getting the next set of AppImageConfigs, if there are any.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAppImageConfigsResponse' with the minimum fields required to make a request.

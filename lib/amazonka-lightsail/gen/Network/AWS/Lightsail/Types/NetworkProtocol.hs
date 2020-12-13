@@ -13,10 +13,10 @@
 module Network.AWS.Lightsail.Types.NetworkProtocol
   ( NetworkProtocol
       ( NetworkProtocol',
-        All,
-        ICMP,
         TCP,
-        Udp
+        All,
+        Udp,
+        ICMP
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype NetworkProtocol = NetworkProtocol' Lude.Text
       Lude.ToHeader
     )
 
-pattern All :: NetworkProtocol
-pattern All = NetworkProtocol' "all"
-
-pattern ICMP :: NetworkProtocol
-pattern ICMP = NetworkProtocol' "icmp"
-
 pattern TCP :: NetworkProtocol
 pattern TCP = NetworkProtocol' "tcp"
+
+pattern All :: NetworkProtocol
+pattern All = NetworkProtocol' "all"
 
 pattern Udp :: NetworkProtocol
 pattern Udp = NetworkProtocol' "udp"
 
+pattern ICMP :: NetworkProtocol
+pattern ICMP = NetworkProtocol' "icmp"
+
 {-# COMPLETE
-  All,
-  ICMP,
   TCP,
+  All,
   Udp,
+  ICMP,
   NetworkProtocol'
   #-}

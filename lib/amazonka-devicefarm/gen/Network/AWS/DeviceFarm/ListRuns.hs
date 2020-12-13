@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.DeviceFarm.ListRuns
     mkListRuns,
 
     -- ** Request lenses
-    lrNextToken,
     lrArn,
+    lrNextToken,
 
     -- * Destructuring the response
     ListRunsResponse (..),
@@ -46,16 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListRuns' smart constructor.
 data ListRuns = ListRuns'
-  { nextToken :: Lude.Maybe Lude.Text,
-    arn :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the project for which you want to list runs.
+    arn :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRuns' with the minimum fields required to make a request.
@@ -66,14 +63,7 @@ mkListRuns ::
   -- | 'arn'
   Lude.Text ->
   ListRuns
-mkListRuns pArn_ = ListRuns' {nextToken = Lude.Nothing, arn = pArn_}
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrNextToken :: Lens.Lens' ListRuns (Lude.Maybe Lude.Text)
-lrNextToken = Lens.lens (nextToken :: ListRuns -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRuns)
-{-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+mkListRuns pArn_ = ListRuns' {arn = pArn_, nextToken = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list runs.
 --
@@ -81,6 +71,13 @@ lrNextToken = Lens.lens (nextToken :: ListRuns -> Lude.Maybe Lude.Text) (\s a ->
 lrArn :: Lens.Lens' ListRuns Lude.Text
 lrArn = Lens.lens (arn :: ListRuns -> Lude.Text) (\s a -> s {arn = a} :: ListRuns)
 {-# DEPRECATED lrArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNextToken :: Lens.Lens' ListRuns (Lude.Maybe Lude.Text)
+lrNextToken = Lens.lens (nextToken :: ListRuns -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRuns)
+{-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListRuns where
   page rq rs
@@ -118,8 +115,8 @@ instance Lude.ToJSON ListRuns where
   toJSON ListRuns' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("arn" Lude..= arn)
+          [ Lude.Just ("arn" Lude..= arn),
+            ("nextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
@@ -133,24 +130,21 @@ instance Lude.ToQuery ListRuns where
 --
 -- /See:/ 'mkListRunsResponse' smart constructor.
 data ListRunsResponse = ListRunsResponse'
-  { runs :: Lude.Maybe [Run],
+  { -- | Information about the runs.
+    runs :: Lude.Maybe [Run],
+    -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRunsResponse' with the minimum fields required to make a request.
 --
+-- * 'runs' - Information about the runs.
 -- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
 -- * 'responseStatus' - The response status code.
--- * 'runs' - Information about the runs.
 mkListRunsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

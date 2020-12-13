@@ -31,24 +31,21 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkProgress' smart constructor.
 data Progress = Progress'
-  { bytesReturned :: Lude.Maybe Lude.Integer,
+  { -- | The current number of bytes of records payload data returned.
+    bytesReturned :: Lude.Maybe Lude.Integer,
+    -- | The current number of object bytes scanned.
     bytesScanned :: Lude.Maybe Lude.Integer,
+    -- | The current number of uncompressed object bytes processed.
     bytesProcessed :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Progress' with the minimum fields required to make a request.
 --
--- * 'bytesProcessed' - The current number of uncompressed object bytes processed.
 -- * 'bytesReturned' - The current number of bytes of records payload data returned.
 -- * 'bytesScanned' - The current number of object bytes scanned.
+-- * 'bytesProcessed' - The current number of uncompressed object bytes processed.
 mkProgress ::
   Progress
 mkProgress =

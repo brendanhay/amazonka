@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,17 +53,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSlotTypeVersion' smart constructor.
 data CreateSlotTypeVersion = CreateSlotTypeVersion'
-  { checksum ::
-      Lude.Maybe Lude.Text,
+  { -- | Checksum for the @> LATEST@ version of the slot type that you want to publish. If you specify a checksum and the @> LATEST@ version of the slot type has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish the new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The name of the slot type that you want to create a new version for. The name is case sensitive.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSlotTypeVersion' with the minimum fields required to make a request.
@@ -133,50 +129,45 @@ instance Lude.ToQuery CreateSlotTypeVersion where
 
 -- | /See:/ 'mkCreateSlotTypeVersionResponse' smart constructor.
 data CreateSlotTypeVersionResponse = CreateSlotTypeVersionResponse'
-  { parentSlotTypeSignature ::
-      Lude.Maybe Lude.Text,
-    slotTypeConfigurations ::
-      Lude.Maybe
-        [SlotTypeConfiguration],
-    checksum ::
-      Lude.Maybe Lude.Text,
-    valueSelectionStrategy ::
-      Lude.Maybe
-        SlotValueSelectionStrategy,
-    createdDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The built-in slot type used a the parent of the slot type.
+    parentSlotTypeSignature :: Lude.Maybe Lude.Text,
+    -- | Configuration information that extends the parent built-in slot type.
+    slotTypeConfigurations :: Lude.Maybe [SlotTypeConfiguration],
+    -- | Checksum of the @> LATEST@ version of the slot type.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
+    valueSelectionStrategy :: Lude.Maybe SlotValueSelectionStrategy,
+    -- | The date that the slot type was created.
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the slot type.
     name :: Lude.Maybe Lude.Text,
+    -- | The version assigned to the new slot type version.
     version :: Lude.Maybe Lude.Text,
-    lastUpdatedDate ::
-      Lude.Maybe Lude.Timestamp,
-    description ::
-      Lude.Maybe Lude.Text,
-    enumerationValues ::
-      Lude.Maybe [EnumerationValue],
+    -- | The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the slot type.
+    description :: Lude.Maybe Lude.Text,
+    -- | A list of @EnumerationValue@ objects that defines the values that the slot type can take.
+    enumerationValues :: Lude.Maybe [EnumerationValue],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSlotTypeVersionResponse' with the minimum fields required to make a request.
 --
+-- * 'parentSlotTypeSignature' - The built-in slot type used a the parent of the slot type.
+-- * 'slotTypeConfigurations' - Configuration information that extends the parent built-in slot type.
 -- * 'checksum' - Checksum of the @> LATEST@ version of the slot type.
+-- * 'valueSelectionStrategy' - The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
 -- * 'createdDate' - The date that the slot type was created.
+-- * 'name' - The name of the slot type.
+-- * 'version' - The version assigned to the new slot type version.
+-- * 'lastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
 -- * 'description' - A description of the slot type.
 -- * 'enumerationValues' - A list of @EnumerationValue@ objects that defines the values that the slot type can take.
--- * 'lastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
--- * 'name' - The name of the slot type.
--- * 'parentSlotTypeSignature' - The built-in slot type used a the parent of the slot type.
 -- * 'responseStatus' - The response status code.
--- * 'slotTypeConfigurations' - Configuration information that extends the parent built-in slot type.
--- * 'valueSelectionStrategy' - The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
--- * 'version' - The version assigned to the new slot type version.
 mkCreateSlotTypeVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

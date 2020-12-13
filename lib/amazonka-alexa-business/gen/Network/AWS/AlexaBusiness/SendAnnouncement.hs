@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AlexaBusiness.SendAnnouncement
     mkSendAnnouncement,
 
     -- ** Request lenses
+    saContent,
     saTimeToLiveInSeconds,
     saRoomFilters,
-    saContent,
     saClientRequestToken,
 
     -- * Destructuring the response
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSendAnnouncement' smart constructor.
 data SendAnnouncement = SendAnnouncement'
-  { timeToLiveInSeconds ::
-      Lude.Maybe Lude.Natural,
-    roomFilters :: [Filter],
+  { -- | The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).
     content :: Content,
+    -- | The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the announcement is not delivered.
+    timeToLiveInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.
+    roomFilters :: [Filter],
+    -- | The unique, user-specified identifier for the request that ensures idempotency.
     clientRequestToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendAnnouncement' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - The unique, user-specified identifier for the request that ensures idempotency.
 -- * 'content' - The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).
--- * 'roomFilters' - The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.
 -- * 'timeToLiveInSeconds' - The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the announcement is not delivered.
+-- * 'roomFilters' - The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.
+-- * 'clientRequestToken' - The unique, user-specified identifier for the request that ensures idempotency.
 mkSendAnnouncement ::
   -- | 'content'
   Content ->
@@ -71,11 +69,18 @@ mkSendAnnouncement ::
   SendAnnouncement
 mkSendAnnouncement pContent_ pClientRequestToken_ =
   SendAnnouncement'
-    { timeToLiveInSeconds = Lude.Nothing,
+    { content = pContent_,
+      timeToLiveInSeconds = Lude.Nothing,
       roomFilters = Lude.mempty,
-      content = pContent_,
       clientRequestToken = pClientRequestToken_
     }
+
+-- | The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saContent :: Lens.Lens' SendAnnouncement Content
+saContent = Lens.lens (content :: SendAnnouncement -> Content) (\s a -> s {content = a} :: SendAnnouncement)
+{-# DEPRECATED saContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the announcement is not delivered.
 --
@@ -90,13 +95,6 @@ saTimeToLiveInSeconds = Lens.lens (timeToLiveInSeconds :: SendAnnouncement -> Lu
 saRoomFilters :: Lens.Lens' SendAnnouncement [Filter]
 saRoomFilters = Lens.lens (roomFilters :: SendAnnouncement -> [Filter]) (\s a -> s {roomFilters = a} :: SendAnnouncement)
 {-# DEPRECATED saRoomFilters "Use generic-lens or generic-optics with 'roomFilters' instead." #-}
-
--- | The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saContent :: Lens.Lens' SendAnnouncement Content
-saContent = Lens.lens (content :: SendAnnouncement -> Content) (\s a -> s {content = a} :: SendAnnouncement)
-{-# DEPRECATED saContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The unique, user-specified identifier for the request that ensures idempotency.
 --
@@ -131,9 +129,9 @@ instance Lude.ToJSON SendAnnouncement where
   toJSON SendAnnouncement' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TimeToLiveInSeconds" Lude..=) Lude.<$> timeToLiveInSeconds,
+          [ Lude.Just ("Content" Lude..= content),
+            ("TimeToLiveInSeconds" Lude..=) Lude.<$> timeToLiveInSeconds,
             Lude.Just ("RoomFilters" Lude..= roomFilters),
-            Lude.Just ("Content" Lude..= content),
             Lude.Just ("ClientRequestToken" Lude..= clientRequestToken)
           ]
       )
@@ -146,17 +144,12 @@ instance Lude.ToQuery SendAnnouncement where
 
 -- | /See:/ 'mkSendAnnouncementResponse' smart constructor.
 data SendAnnouncementResponse = SendAnnouncementResponse'
-  { announcementARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the announcement.
+    announcementARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendAnnouncementResponse' with the minimum fields required to make a request.

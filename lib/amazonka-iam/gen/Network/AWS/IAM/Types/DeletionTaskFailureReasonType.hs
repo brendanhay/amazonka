@@ -32,23 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeletionTaskFailureReasonType' smart constructor.
 data DeletionTaskFailureReasonType = DeletionTaskFailureReasonType'
-  { roleUsageList ::
-      Lude.Maybe [RoleUsageType],
+  { -- | A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.
+    roleUsageList :: Lude.Maybe [RoleUsageType],
+    -- | A short description of the reason that the service-linked role deletion failed.
     reason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletionTaskFailureReasonType' with the minimum fields required to make a request.
 --
--- * 'reason' - A short description of the reason that the service-linked role deletion failed.
 -- * 'roleUsageList' - A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.
+-- * 'reason' - A short description of the reason that the service-linked role deletion failed.
 mkDeletionTaskFailureReasonType ::
   DeletionTaskFailureReasonType
 mkDeletionTaskFailureReasonType =

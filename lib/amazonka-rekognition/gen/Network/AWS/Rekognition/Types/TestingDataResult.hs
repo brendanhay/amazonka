@@ -32,18 +32,14 @@ import Network.AWS.Rekognition.Types.ValidationData
 --
 -- /See:/ 'mkTestingDataResult' smart constructor.
 data TestingDataResult = TestingDataResult'
-  { input ::
-      Lude.Maybe TestingData,
+  { -- | The testing dataset that was supplied for training.
+    input :: Lude.Maybe TestingData,
+    -- | The subset of the dataset that was actually tested. Some images (assets) might not be tested due to file formatting and other issues.
     output :: Lude.Maybe TestingData,
+    -- | The location of the data validation manifest. The data validation manifest is created for the test dataset during model training.
     validation :: Lude.Maybe ValidationData
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestingDataResult' with the minimum fields required to make a request.

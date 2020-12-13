@@ -13,8 +13,8 @@
 module Network.AWS.DMS.Types.SafeguardPolicy
   ( SafeguardPolicy
       ( SafeguardPolicy',
-        ExclusiveAutomaticTruncation,
         RelyOnSqlServerReplicationAgent,
+        ExclusiveAutomaticTruncation,
         SharedAutomaticTruncation
       ),
   )
@@ -46,18 +46,18 @@ newtype SafeguardPolicy = SafeguardPolicy' Lude.Text
       Lude.ToHeader
     )
 
-pattern ExclusiveAutomaticTruncation :: SafeguardPolicy
-pattern ExclusiveAutomaticTruncation = SafeguardPolicy' "exclusive-automatic-truncation"
-
 pattern RelyOnSqlServerReplicationAgent :: SafeguardPolicy
 pattern RelyOnSqlServerReplicationAgent = SafeguardPolicy' "rely-on-sql-server-replication-agent"
+
+pattern ExclusiveAutomaticTruncation :: SafeguardPolicy
+pattern ExclusiveAutomaticTruncation = SafeguardPolicy' "exclusive-automatic-truncation"
 
 pattern SharedAutomaticTruncation :: SafeguardPolicy
 pattern SharedAutomaticTruncation = SafeguardPolicy' "shared-automatic-truncation"
 
 {-# COMPLETE
-  ExclusiveAutomaticTruncation,
   RelyOnSqlServerReplicationAgent,
+  ExclusiveAutomaticTruncation,
   SharedAutomaticTruncation,
   SafeguardPolicy'
   #-}

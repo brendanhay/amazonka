@@ -13,8 +13,8 @@
 module Network.AWS.DeviceFarm.Types.DevicePoolType
   ( DevicePoolType
       ( DevicePoolType',
-        DPTCurated,
-        DPTPrivate
+        Curated,
+        Private
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DevicePoolType = DevicePoolType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DPTCurated :: DevicePoolType
-pattern DPTCurated = DevicePoolType' "CURATED"
+pattern Curated :: DevicePoolType
+pattern Curated = DevicePoolType' "CURATED"
 
-pattern DPTPrivate :: DevicePoolType
-pattern DPTPrivate = DevicePoolType' "PRIVATE"
+pattern Private :: DevicePoolType
+pattern Private = DevicePoolType' "PRIVATE"
 
 {-# COMPLETE
-  DPTCurated,
-  DPTPrivate,
+  Curated,
+  Private,
   DevicePoolType'
   #-}

@@ -41,45 +41,66 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolume' smart constructor.
 data Volume = Volume'
-  { instanceId :: Lude.Maybe Lude.Text,
+  { -- | The instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The value returned by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
     status :: Lude.Maybe Lude.Text,
+    -- | The volume size.
     size :: Lude.Maybe Lude.Int,
+    -- | For PIOPS volumes, the IOPS per disk.
     iops :: Lude.Maybe Lude.Int,
+    -- | The device name.
     device :: Lude.Maybe Lude.Text,
+    -- | Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The volume Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The volume name.
     name :: Lude.Maybe Lude.Text,
+    -- | The RAID array ID.
     raidArrayId :: Lude.Maybe Lude.Text,
+    -- | The volume ID.
     volumeId :: Lude.Maybe Lude.Text,
+    -- | The AWS region. For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
     region :: Lude.Maybe Lude.Text,
+    -- | The volume type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
+    --
+    --
+    --     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.
+    --
+    --
+    --     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.
+    --
+    --
+    --     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.
+    --
+    --
+    --     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
+    --
+    --
+    --     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
     volumeType :: Lude.Maybe Lude.Text,
+    -- | The Amazon EC2 volume ID.
     ec2VolumeId :: Lude.Maybe Lude.Text,
+    -- | The volume mount point. For example, "/mnt/disk1".
     mountPoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Volume' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The volume Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'device' - The device name.
--- * 'ec2VolumeId' - The Amazon EC2 volume ID.
--- * 'encrypted' - Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
 -- * 'instanceId' - The instance ID.
+-- * 'status' - The value returned by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
+-- * 'size' - The volume size.
 -- * 'iops' - For PIOPS volumes, the IOPS per disk.
--- * 'mountPoint' - The volume mount point. For example, "/mnt/disk1".
+-- * 'device' - The device name.
+-- * 'encrypted' - Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
+-- * 'availabilityZone' - The volume Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 -- * 'name' - The volume name.
 -- * 'raidArrayId' - The RAID array ID.
--- * 'region' - The AWS region. For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'size' - The volume size.
--- * 'status' - The value returned by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html DescribeVolumes> .
 -- * 'volumeId' - The volume ID.
+-- * 'region' - The AWS region. For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 -- * 'volumeType' - The volume type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
 --
 --
@@ -96,6 +117,10 @@ data Volume = Volume'
 --
 --
 --     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
+--
+--
+-- * 'ec2VolumeId' - The Amazon EC2 volume ID.
+-- * 'mountPoint' - The volume mount point. For example, "/mnt/disk1".
 mkVolume ::
   Volume
 mkVolume =

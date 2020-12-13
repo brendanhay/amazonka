@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.KMS.PutKeyPolicy
     mkPutKeyPolicy,
 
     -- ** Request lenses
-    pkpBypassPolicyLockoutSafetyCheck,
-    pkpKeyId,
     pkpPolicyName,
+    pkpKeyId,
+    pkpBypassPolicyLockoutSafetyCheck,
     pkpPolicy,
 
     -- * Destructuring the response
@@ -40,29 +41,47 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutKeyPolicy' smart constructor.
 data PutKeyPolicy = PutKeyPolicy'
-  { bypassPolicyLockoutSafetyCheck ::
-      Lude.Maybe Lude.Bool,
-    keyId :: Lude.Text,
+  { -- | The name of the key policy. The only valid value is @default@ .
     policyName :: Lude.Text,
+    -- | A unique identifier for the customer master key (CMK).
+    --
+    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+    keyId :: Lude.Text,
+    -- | A flag to indicate whether to bypass the key policy lockout safety check.
+    --
+    -- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
+    -- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /AWS Key Management Service Developer Guide/ .
+    -- Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent @PutKeyPolicy@ request on the CMK.
+    -- The default value is false.
+    bypassPolicyLockoutSafetyCheck :: Lude.Maybe Lude.Bool,
+    -- | The key policy to attach to the CMK.
+    --
+    -- The key policy must meet the following criteria:
+    --
+    --     * If you don't set @BypassPolicyLockoutSafetyCheck@ to true, the key policy must allow the principal that is making the @PutKeyPolicy@ request to make a subsequent @PutKeyPolicy@ request on the CMK. This reduces the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section of the /AWS Key Management Service Developer Guide/ .
+    --
+    --
+    --     * Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible> in the /AWS Identity and Access Management User Guide/ .
+    --
+    --
+    -- The key policy cannot exceed 32 kilobytes (32768 bytes). For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas> in the /AWS Key Management Service Developer Guide/ .
     policy :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutKeyPolicy' with the minimum fields required to make a request.
 --
--- * 'bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety check.
---
--- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
--- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /AWS Key Management Service Developer Guide/ .
--- Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent @PutKeyPolicy@ request on the CMK.
--- The default value is false.
+-- * 'policyName' - The name of the key policy. The only valid value is @default@ .
 -- * 'keyId' - A unique identifier for the customer master key (CMK).
 --
 -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
@@ -75,6 +94,12 @@ data PutKeyPolicy = PutKeyPolicy'
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- * 'bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety check.
+--
+-- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
+-- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /AWS Key Management Service Developer Guide/ .
+-- Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent @PutKeyPolicy@ request on the CMK.
+-- The default value is false.
 -- * 'policy' - The key policy to attach to the CMK.
 --
 -- The key policy must meet the following criteria:
@@ -86,34 +111,28 @@ data PutKeyPolicy = PutKeyPolicy'
 --
 --
 -- The key policy cannot exceed 32 kilobytes (32768 bytes). For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html Resource Quotas> in the /AWS Key Management Service Developer Guide/ .
--- * 'policyName' - The name of the key policy. The only valid value is @default@ .
 mkPutKeyPolicy ::
-  -- | 'keyId'
-  Lude.Text ->
   -- | 'policyName'
+  Lude.Text ->
+  -- | 'keyId'
   Lude.Text ->
   -- | 'policy'
   Lude.Text ->
   PutKeyPolicy
-mkPutKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
+mkPutKeyPolicy pPolicyName_ pKeyId_ pPolicy_ =
   PutKeyPolicy'
-    { bypassPolicyLockoutSafetyCheck = Lude.Nothing,
+    { policyName = pPolicyName_,
       keyId = pKeyId_,
-      policyName = pPolicyName_,
+      bypassPolicyLockoutSafetyCheck = Lude.Nothing,
       policy = pPolicy_
     }
 
--- | A flag to indicate whether to bypass the key policy lockout safety check.
+-- | The name of the key policy. The only valid value is @default@ .
 --
--- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
--- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /AWS Key Management Service Developer Guide/ .
--- Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent @PutKeyPolicy@ request on the CMK.
--- The default value is false.
---
--- /Note:/ Consider using 'bypassPolicyLockoutSafetyCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkpBypassPolicyLockoutSafetyCheck :: Lens.Lens' PutKeyPolicy (Lude.Maybe Lude.Bool)
-pkpBypassPolicyLockoutSafetyCheck = Lens.lens (bypassPolicyLockoutSafetyCheck :: PutKeyPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {bypassPolicyLockoutSafetyCheck = a} :: PutKeyPolicy)
-{-# DEPRECATED pkpBypassPolicyLockoutSafetyCheck "Use generic-lens or generic-optics with 'bypassPolicyLockoutSafetyCheck' instead." #-}
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pkpPolicyName :: Lens.Lens' PutKeyPolicy Lude.Text
+pkpPolicyName = Lens.lens (policyName :: PutKeyPolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutKeyPolicy)
+{-# DEPRECATED pkpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | A unique identifier for the customer master key (CMK).
 --
@@ -133,12 +152,17 @@ pkpKeyId :: Lens.Lens' PutKeyPolicy Lude.Text
 pkpKeyId = Lens.lens (keyId :: PutKeyPolicy -> Lude.Text) (\s a -> s {keyId = a} :: PutKeyPolicy)
 {-# DEPRECATED pkpKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
--- | The name of the key policy. The only valid value is @default@ .
+-- | A flag to indicate whether to bypass the key policy lockout safety check.
 --
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkpPolicyName :: Lens.Lens' PutKeyPolicy Lude.Text
-pkpPolicyName = Lens.lens (policyName :: PutKeyPolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutKeyPolicy)
-{-# DEPRECATED pkpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+-- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
+-- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /AWS Key Management Service Developer Guide/ .
+-- Use this parameter only when you intend to prevent the principal that is making the request from making a subsequent @PutKeyPolicy@ request on the CMK.
+-- The default value is false.
+--
+-- /Note:/ Consider using 'bypassPolicyLockoutSafetyCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pkpBypassPolicyLockoutSafetyCheck :: Lens.Lens' PutKeyPolicy (Lude.Maybe Lude.Bool)
+pkpBypassPolicyLockoutSafetyCheck = Lens.lens (bypassPolicyLockoutSafetyCheck :: PutKeyPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {bypassPolicyLockoutSafetyCheck = a} :: PutKeyPolicy)
+{-# DEPRECATED pkpBypassPolicyLockoutSafetyCheck "Use generic-lens or generic-optics with 'bypassPolicyLockoutSafetyCheck' instead." #-}
 
 -- | The key policy to attach to the CMK.
 --
@@ -177,10 +201,10 @@ instance Lude.ToJSON PutKeyPolicy where
   toJSON PutKeyPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("BypassPolicyLockoutSafetyCheck" Lude..=)
-              Lude.<$> bypassPolicyLockoutSafetyCheck,
+          [ Lude.Just ("PolicyName" Lude..= policyName),
             Lude.Just ("KeyId" Lude..= keyId),
-            Lude.Just ("PolicyName" Lude..= policyName),
+            ("BypassPolicyLockoutSafetyCheck" Lude..=)
+              Lude.<$> bypassPolicyLockoutSafetyCheck,
             Lude.Just ("Policy" Lude..= policy)
           ]
       )
@@ -193,13 +217,7 @@ instance Lude.ToQuery PutKeyPolicy where
 
 -- | /See:/ 'mkPutKeyPolicyResponse' smart constructor.
 data PutKeyPolicyResponse = PutKeyPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutKeyPolicyResponse' with the minimum fields required to make a request.

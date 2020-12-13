@@ -48,67 +48,148 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJob' smart constructor.
 data Job = Job'
-  { instanceARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the instance.
+    instanceARN :: Lude.Maybe Lude.Text,
+    -- | The job's status.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PENDING_CONCURRENCY
+    --
+    --
+    --     * PENDING_DEVICE
+    --
+    --
+    --     * PROCESSING
+    --
+    --
+    --     * SCHEDULING
+    --
+    --
+    --     * PREPARING
+    --
+    --
+    --     * RUNNING
+    --
+    --
+    --     * COMPLETED
+    --
+    --
+    --     * STOPPING
     status :: Lude.Maybe ExecutionStatus,
+    -- | The job's result counters.
     counters :: Lude.Maybe Counters,
+    -- | The job's ARN.
     arn :: Lude.Maybe Lude.Text,
+    -- | When the job was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The device (phone or tablet).
     device :: Lude.Maybe Device,
+    -- | The job's stop time.
     stopped :: Lude.Maybe Lude.Timestamp,
+    -- | The job's result.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PASSED
+    --
+    --
+    --     * WARNED
+    --
+    --
+    --     * FAILED
+    --
+    --
+    --     * SKIPPED
+    --
+    --
+    --     * ERRORED
+    --
+    --
+    --     * STOPPED
     result :: Lude.Maybe ExecutionResult,
+    -- | The job's name.
     name :: Lude.Maybe Lude.Text,
+    -- | The endpoint for streaming device video.
     videoEndpoint :: Lude.Maybe Lude.Text,
+    -- | Represents the total (metered or unmetered) minutes used by the job.
     deviceMinutes :: Lude.Maybe DeviceMinutes,
+    -- | This value is set to true if video capture is enabled. Otherwise, it is set to false.
     videoCapture :: Lude.Maybe Lude.Bool,
+    -- | The job's type.
+    --
+    -- Allowed values include the following:
+    --
+    --     * BUILTIN_FUZZ
+    --
+    --
+    --     * BUILTIN_EXPLORER. For Android, an app explorer that traverses an Android app, interacting with it and capturing screenshots at the same time.
+    --
+    --
+    --     * APPIUM_JAVA_JUNIT
+    --
+    --
+    --     * APPIUM_JAVA_TESTNG
+    --
+    --
+    --     * APPIUM_PYTHON
+    --
+    --
+    --     * APPIUM_NODE
+    --
+    --
+    --     * APPIUM_RUBY
+    --
+    --
+    --     * APPIUM_WEB_JAVA_JUNIT
+    --
+    --
+    --     * APPIUM_WEB_JAVA_TESTNG
+    --
+    --
+    --     * APPIUM_WEB_PYTHON
+    --
+    --
+    --     * APPIUM_WEB_NODE
+    --
+    --
+    --     * APPIUM_WEB_RUBY
+    --
+    --
+    --     * CALABASH
+    --
+    --
+    --     * INSTRUMENTATION
+    --
+    --
+    --     * UIAUTOMATION
+    --
+    --
+    --     * UIAUTOMATOR
+    --
+    --
+    --     * XCTEST
+    --
+    --
+    --     * XCTEST_UI
     type' :: Lude.Maybe TestType,
+    -- | A message about the job's result.
     message :: Lude.Maybe Lude.Text,
+    -- | The job's start time.
     started :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- * 'arn' - The job's ARN.
--- * 'counters' - The job's result counters.
--- * 'created' - When the job was created.
--- * 'device' - The device (phone or tablet).
--- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the job.
 -- * 'instanceARN' - The ARN of the instance.
--- * 'message' - A message about the job's result.
--- * 'name' - The job's name.
--- * 'result' - The job's result.
---
--- Allowed values include:
---
---     * PENDING
---
---
---     * PASSED
---
---
---     * WARNED
---
---
---     * FAILED
---
---
---     * SKIPPED
---
---
---     * ERRORED
---
---
---     * STOPPED
---
---
--- * 'started' - The job's start time.
 -- * 'status' - The job's status.
 --
 -- Allowed values include:
@@ -140,7 +221,40 @@ data Job = Job'
 --     * STOPPING
 --
 --
+-- * 'counters' - The job's result counters.
+-- * 'arn' - The job's ARN.
+-- * 'created' - When the job was created.
+-- * 'device' - The device (phone or tablet).
 -- * 'stopped' - The job's stop time.
+-- * 'result' - The job's result.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PASSED
+--
+--
+--     * WARNED
+--
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+-- * 'name' - The job's name.
+-- * 'videoEndpoint' - The endpoint for streaming device video.
+-- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the job.
+-- * 'videoCapture' - This value is set to true if video capture is enabled. Otherwise, it is set to false.
 -- * 'type'' - The job's type.
 --
 -- Allowed values include the following:
@@ -199,8 +313,8 @@ data Job = Job'
 --     * XCTEST_UI
 --
 --
--- * 'videoCapture' - This value is set to true if video capture is enabled. Otherwise, it is set to false.
--- * 'videoEndpoint' - The endpoint for streaming device video.
+-- * 'message' - A message about the job's result.
+-- * 'started' - The job's start time.
 mkJob ::
   Job
 mkJob =

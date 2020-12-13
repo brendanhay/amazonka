@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.S3.DeleteBucketReplication
     mkDeleteBucketReplication,
 
     -- ** Request lenses
-    dbrExpectedBucketOwner,
     dbrBucket,
+    dbrExpectedBucketOwner,
 
     -- * Destructuring the response
     DeleteBucketReplicationResponse (..),
@@ -45,17 +46,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkDeleteBucketReplication' smart constructor.
 data DeleteBucketReplication = DeleteBucketReplication'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The bucket name.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketReplication' with the minimum fields required to make a request.
@@ -68,16 +64,9 @@ mkDeleteBucketReplication ::
   DeleteBucketReplication
 mkDeleteBucketReplication pBucket_ =
   DeleteBucketReplication'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrExpectedBucketOwner :: Lens.Lens' DeleteBucketReplication (Lude.Maybe Lude.Text)
-dbrExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketReplication -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketReplication)
-{-# DEPRECATED dbrExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name.
 --
@@ -85,6 +74,13 @@ dbrExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketReplicati
 dbrBucket :: Lens.Lens' DeleteBucketReplication BucketName
 dbrBucket = Lens.lens (bucket :: DeleteBucketReplication -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketReplication)
 {-# DEPRECATED dbrBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrExpectedBucketOwner :: Lens.Lens' DeleteBucketReplication (Lude.Maybe Lude.Text)
+dbrExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketReplication -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketReplication)
+{-# DEPRECATED dbrExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest DeleteBucketReplication where
   type Rs DeleteBucketReplication = DeleteBucketReplicationResponse
@@ -105,13 +101,7 @@ instance Lude.ToQuery DeleteBucketReplication where
 
 -- | /See:/ 'mkDeleteBucketReplicationResponse' smart constructor.
 data DeleteBucketReplicationResponse = DeleteBucketReplicationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketReplicationResponse' with the minimum fields required to make a request.

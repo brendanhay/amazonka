@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,16 +51,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeThingRegistrationTask' smart constructor.
 newtype DescribeThingRegistrationTask = DescribeThingRegistrationTask'
-  { taskId ::
-      Lude.Text
+  { -- | The task ID.
+    taskId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThingRegistrationTask' with the minimum fields required to make a request.
@@ -115,69 +110,51 @@ instance Lude.ToQuery DescribeThingRegistrationTask where
 
 -- | /See:/ 'mkDescribeThingRegistrationTaskResponse' smart constructor.
 data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskResponse'
-  { status ::
-      Lude.Maybe
-        TaskStatus,
-    lastModifiedDate ::
-      Lude.Maybe
-        Lude.Timestamp,
-    inputFileKey ::
-      Lude.Maybe
-        Lude.Text,
-    taskId ::
-      Lude.Maybe
-        Lude.Text,
-    creationDate ::
-      Lude.Maybe
-        Lude.Timestamp,
-    percentageProgress ::
-      Lude.Maybe
-        Lude.Natural,
-    templateBody ::
-      Lude.Maybe
-        Lude.Text,
-    successCount ::
-      Lude.Maybe
-        Lude.Int,
-    message ::
-      Lude.Maybe
-        Lude.Text,
-    failureCount ::
-      Lude.Maybe
-        Lude.Int,
-    inputFileBucket ::
-      Lude.Maybe
-        Lude.Text,
-    roleARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the bulk thing provisioning task.
+    status :: Lude.Maybe TaskStatus,
+    -- | The date when the task was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The input file key.
+    inputFileKey :: Lude.Maybe Lude.Text,
+    -- | The task ID.
+    taskId :: Lude.Maybe Lude.Text,
+    -- | The task creation date.
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The progress of the bulk provisioning task expressed as a percentage.
+    percentageProgress :: Lude.Maybe Lude.Natural,
+    -- | The task's template.
+    templateBody :: Lude.Maybe Lude.Text,
+    -- | The number of things successfully provisioned.
+    successCount :: Lude.Maybe Lude.Int,
+    -- | The message.
+    message :: Lude.Maybe Lude.Text,
+    -- | The number of things that failed to be provisioned.
+    failureCount :: Lude.Maybe Lude.Int,
+    -- | The S3 bucket that contains the input file.
+    inputFileBucket :: Lude.Maybe Lude.Text,
+    -- | The role ARN that grants access to the input file bucket.
+    roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThingRegistrationTaskResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the bulk thing provisioning task.
+-- * 'lastModifiedDate' - The date when the task was last modified.
+-- * 'inputFileKey' - The input file key.
+-- * 'taskId' - The task ID.
 -- * 'creationDate' - The task creation date.
+-- * 'percentageProgress' - The progress of the bulk provisioning task expressed as a percentage.
+-- * 'templateBody' - The task's template.
+-- * 'successCount' - The number of things successfully provisioned.
+-- * 'message' - The message.
 -- * 'failureCount' - The number of things that failed to be provisioned.
 -- * 'inputFileBucket' - The S3 bucket that contains the input file.
--- * 'inputFileKey' - The input file key.
--- * 'lastModifiedDate' - The date when the task was last modified.
--- * 'message' - The message.
--- * 'percentageProgress' - The progress of the bulk provisioning task expressed as a percentage.
--- * 'responseStatus' - The response status code.
 -- * 'roleARN' - The role ARN that grants access to the input file bucket.
--- * 'status' - The status of the bulk thing provisioning task.
--- * 'successCount' - The number of things successfully provisioned.
--- * 'taskId' - The task ID.
--- * 'templateBody' - The task's template.
+-- * 'responseStatus' - The response status code.
 mkDescribeThingRegistrationTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

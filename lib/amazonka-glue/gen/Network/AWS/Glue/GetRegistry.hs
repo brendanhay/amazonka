@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,14 +44,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRegistry' smart constructor.
-newtype GetRegistry = GetRegistry' {registryId :: RegistryId}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetRegistry = GetRegistry'
+  { -- | This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
+    registryId :: RegistryId
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegistry' with the minimum fields required to make a request.
@@ -109,33 +107,33 @@ instance Lude.ToQuery GetRegistry where
 
 -- | /See:/ 'mkGetRegistryResponse' smart constructor.
 data GetRegistryResponse = GetRegistryResponse'
-  { status ::
-      Lude.Maybe RegistryStatus,
+  { -- | The status of the registry.
+    status :: Lude.Maybe RegistryStatus,
+    -- | The name of the registry.
     registryName :: Lude.Maybe Lude.Text,
+    -- | The date and time the registry was created.
     createdTime :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the registry.
     registryARN :: Lude.Maybe Lude.Text,
+    -- | The date and time the registry was updated.
     updatedTime :: Lude.Maybe Lude.Text,
+    -- | A description of the registry.
     description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegistryResponse' with the minimum fields required to make a request.
 --
--- * 'createdTime' - The date and time the registry was created.
--- * 'description' - A description of the registry.
--- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
--- * 'registryName' - The name of the registry.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the registry.
+-- * 'registryName' - The name of the registry.
+-- * 'createdTime' - The date and time the registry was created.
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
 -- * 'updatedTime' - The date and time the registry was updated.
+-- * 'description' - A description of the registry.
+-- * 'responseStatus' - The response status code.
 mkGetRegistryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

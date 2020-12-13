@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainMembership' smart constructor.
 data DomainMembership = DomainMembership'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the Active Directory Domain membership for the DB instance or cluster. Values include joined, pending-join, failed, and so on.
+    status :: Lude.Maybe Lude.Text,
+    -- | The fully qualified domain name of the Active Directory Domain.
     fQDN :: Lude.Maybe Lude.Text,
+    -- | The identifier of the Active Directory Domain.
     domain :: Lude.Maybe Lude.Text,
+    -- | The name of the IAM role to be used when making API calls to the Directory Service.
     iamRoleName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainMembership' with the minimum fields required to make a request.
 --
--- * 'domain' - The identifier of the Active Directory Domain.
--- * 'fQDN' - The fully qualified domain name of the Active Directory Domain.
--- * 'iamRoleName' - The name of the IAM role to be used when making API calls to the Directory Service.
 -- * 'status' - The status of the Active Directory Domain membership for the DB instance or cluster. Values include joined, pending-join, failed, and so on.
+-- * 'fQDN' - The fully qualified domain name of the Active Directory Domain.
+-- * 'domain' - The identifier of the Active Directory Domain.
+-- * 'iamRoleName' - The name of the IAM role to be used when making API calls to the Directory Service.
 mkDomainMembership ::
   DomainMembership
 mkDomainMembership =

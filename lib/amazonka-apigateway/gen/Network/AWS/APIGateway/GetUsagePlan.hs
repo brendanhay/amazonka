@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,14 +47,11 @@ import qualified Network.AWS.Response as Res
 -- | The GET request to get a usage plan of a given plan identifier.
 --
 -- /See:/ 'mkGetUsagePlan' smart constructor.
-newtype GetUsagePlan = GetUsagePlan' {usagePlanId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetUsagePlan = GetUsagePlan'
+  { -- | [Required] The identifier of the 'UsagePlan' resource to be retrieved.
+    usagePlanId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsagePlan' with the minimum fields required to make a request.

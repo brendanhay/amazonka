@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,8 +35,8 @@ module Network.AWS.Organizations.AttachPolicy
     mkAttachPolicy,
 
     -- ** Request lenses
-    apPolicyId,
     apTargetId,
+    apPolicyId,
 
     -- * Destructuring the response
     AttachPolicyResponse (..),
@@ -51,23 +52,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachPolicy' smart constructor.
 data AttachPolicy = AttachPolicy'
-  { policyId :: Lude.Text,
-    targetId :: Lude.Text
+  { -- | The unique identifier (ID) of the root, OU, or account that you want to attach the policy to. You can get the ID by calling the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:
+    --
+    --     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
+    --
+    --
+    --     * __Account__ - A string that consists of exactly 12 digits.
+    --
+    --
+    --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+    targetId :: Lude.Text,
+    -- | The unique identifier (ID) of the policy that you want to attach to the target. You can get the ID for the policy by calling the 'ListPolicies' operation.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+    policyId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachPolicy' with the minimum fields required to make a request.
 --
--- * 'policyId' - The unique identifier (ID) of the policy that you want to attach to the target. You can get the ID for the policy by calling the 'ListPolicies' operation.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
 -- * 'targetId' - The unique identifier (ID) of the root, OU, or account that you want to attach the policy to. You can get the ID by calling the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:
@@ -79,23 +85,19 @@ data AttachPolicy = AttachPolicy'
 --
 --
 --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-mkAttachPolicy ::
-  -- | 'policyId'
-  Lude.Text ->
-  -- | 'targetId'
-  Lude.Text ->
-  AttachPolicy
-mkAttachPolicy pPolicyId_ pTargetId_ =
-  AttachPolicy' {policyId = pPolicyId_, targetId = pTargetId_}
-
--- | The unique identifier (ID) of the policy that you want to attach to the target. You can get the ID for the policy by calling the 'ListPolicies' operation.
+--
+--
+-- * 'policyId' - The unique identifier (ID) of the policy that you want to attach to the target. You can get the ID for the policy by calling the 'ListPolicies' operation.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apPolicyId :: Lens.Lens' AttachPolicy Lude.Text
-apPolicyId = Lens.lens (policyId :: AttachPolicy -> Lude.Text) (\s a -> s {policyId = a} :: AttachPolicy)
-{-# DEPRECATED apPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
+mkAttachPolicy ::
+  -- | 'targetId'
+  Lude.Text ->
+  -- | 'policyId'
+  Lude.Text ->
+  AttachPolicy
+mkAttachPolicy pTargetId_ pPolicyId_ =
+  AttachPolicy' {targetId = pTargetId_, policyId = pPolicyId_}
 
 -- | The unique identifier (ID) of the root, OU, or account that you want to attach the policy to. You can get the ID by calling the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations.
 --
@@ -115,6 +117,15 @@ apPolicyId = Lens.lens (policyId :: AttachPolicy -> Lude.Text) (\s a -> s {polic
 apTargetId :: Lens.Lens' AttachPolicy Lude.Text
 apTargetId = Lens.lens (targetId :: AttachPolicy -> Lude.Text) (\s a -> s {targetId = a} :: AttachPolicy)
 {-# DEPRECATED apTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
+
+-- | The unique identifier (ID) of the policy that you want to attach to the target. You can get the ID for the policy by calling the 'ListPolicies' operation.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apPolicyId :: Lens.Lens' AttachPolicy Lude.Text
+apPolicyId = Lens.lens (policyId :: AttachPolicy -> Lude.Text) (\s a -> s {policyId = a} :: AttachPolicy)
+{-# DEPRECATED apPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 instance Lude.AWSRequest AttachPolicy where
   type Rs AttachPolicy = AttachPolicyResponse
@@ -136,8 +147,8 @@ instance Lude.ToJSON AttachPolicy where
   toJSON AttachPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("PolicyId" Lude..= policyId),
-            Lude.Just ("TargetId" Lude..= targetId)
+          [ Lude.Just ("TargetId" Lude..= targetId),
+            Lude.Just ("PolicyId" Lude..= policyId)
           ]
       )
 
@@ -149,13 +160,7 @@ instance Lude.ToQuery AttachPolicy where
 
 -- | /See:/ 'mkAttachPolicyResponse' smart constructor.
 data AttachPolicyResponse = AttachPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachPolicyResponse' with the minimum fields required to make a request.

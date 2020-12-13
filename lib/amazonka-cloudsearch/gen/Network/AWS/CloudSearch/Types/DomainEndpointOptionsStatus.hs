@@ -17,8 +17,8 @@ module Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus
     mkDomainEndpointOptionsStatus,
 
     -- * Lenses
-    deosOptions,
     deosStatus,
+    deosOptions,
   )
 where
 
@@ -31,41 +31,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainEndpointOptionsStatus' smart constructor.
 data DomainEndpointOptionsStatus = DomainEndpointOptionsStatus'
-  { options ::
-      DomainEndpointOptions,
-    status :: OptionStatus
+  { -- | The status of the configured domain endpoint options.
+    status :: OptionStatus,
+    -- | The domain endpoint options configured for the domain.
+    options :: DomainEndpointOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainEndpointOptionsStatus' with the minimum fields required to make a request.
 --
--- * 'options' - The domain endpoint options configured for the domain.
 -- * 'status' - The status of the configured domain endpoint options.
+-- * 'options' - The domain endpoint options configured for the domain.
 mkDomainEndpointOptionsStatus ::
-  -- | 'options'
-  DomainEndpointOptions ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  DomainEndpointOptions ->
   DomainEndpointOptionsStatus
-mkDomainEndpointOptionsStatus pOptions_ pStatus_ =
+mkDomainEndpointOptionsStatus pStatus_ pOptions_ =
   DomainEndpointOptionsStatus'
-    { options = pOptions_,
-      status = pStatus_
+    { status = pStatus_,
+      options = pOptions_
     }
-
--- | The domain endpoint options configured for the domain.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deosOptions :: Lens.Lens' DomainEndpointOptionsStatus DomainEndpointOptions
-deosOptions = Lens.lens (options :: DomainEndpointOptionsStatus -> DomainEndpointOptions) (\s a -> s {options = a} :: DomainEndpointOptionsStatus)
-{-# DEPRECATED deosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | The status of the configured domain endpoint options.
 --
@@ -74,7 +62,14 @@ deosStatus :: Lens.Lens' DomainEndpointOptionsStatus OptionStatus
 deosStatus = Lens.lens (status :: DomainEndpointOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: DomainEndpointOptionsStatus)
 {-# DEPRECATED deosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | The domain endpoint options configured for the domain.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deosOptions :: Lens.Lens' DomainEndpointOptionsStatus DomainEndpointOptions
+deosOptions = Lens.lens (options :: DomainEndpointOptionsStatus -> DomainEndpointOptions) (\s a -> s {options = a} :: DomainEndpointOptionsStatus)
+{-# DEPRECATED deosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromXML DomainEndpointOptionsStatus where
   parseXML x =
     DomainEndpointOptionsStatus'
-      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")
+      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")

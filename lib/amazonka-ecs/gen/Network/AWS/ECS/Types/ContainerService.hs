@@ -71,71 +71,120 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerService' smart constructor.
 data ContainerService = ContainerService'
-  { taskSets ::
-      Lude.Maybe [TaskSet],
+  { -- | Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an @EXTERNAL@ deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+    taskSets :: Lude.Maybe [TaskSet],
+    -- | The number of tasks in the cluster that are in the @RUNNING@ state.
     runningCount :: Lude.Maybe Lude.Int,
+    -- | The status of the service. The valid values are @ACTIVE@ , @DRAINING@ , or @INACTIVE@ .
     status :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the cluster that hosts the service.
     clusterARN :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
     propagateTags :: Lude.Maybe PropagateTags,
+    -- | The Unix timestamp for when the service was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The platform version on which to run your service. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
     platformVersion :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
     enableECSManagedTags :: Lude.Maybe Lude.Bool,
+    -- | The principal that created the service.
     createdBy :: Lude.Maybe Lude.Text,
+    -- | The desired number of instantiations of the task definition to keep running on the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
     desiredCount :: Lude.Maybe Lude.Int,
+    -- | A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
     loadBalancers :: Lude.Maybe [LoadBalancer],
+    -- | The number of tasks in the cluster that are in the @PENDING@ state.
     pendingCount :: Lude.Maybe Lude.Int,
+    -- | The placement constraints for the tasks in the service.
     placementConstraints :: Lude.Maybe [PlacementConstraint],
+    -- | The event stream for your service. A maximum of 100 of the latest events are displayed.
     events :: Lude.Maybe [ServiceEvent],
+    -- | The placement strategy that determines how tasks for the service are placed.
     placementStrategy :: Lude.Maybe [PlacementStrategy],
+    -- | The current state of deployments for the service.
     deployments :: Lude.Maybe [Deployment],
+    -- | The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
     serviceName :: Lude.Maybe Lude.Text,
+    -- | The deployment controller type the service is using. When using the DescribeServices API, this field is omitted if the service is using the @ECS@ deployment controller type.
     deploymentController :: Lude.Maybe DeploymentController,
+    -- | The launch type on which your service is running. If no value is specified, it will default to @EC2@ . Valid values include @EC2@ and @FARGATE@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
     launchType :: Lude.Maybe LaunchType,
+    -- | The ARN that identifies the service. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the service, the AWS account ID of the service owner, the @service@ namespace, and then the service name. For example, @arn:aws:ecs:region:012345678910:service/my-service@ .
     serviceARN :: Lude.Maybe Lude.Text,
+    -- | The task definition to use for tasks in the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
     taskDefinition :: Lude.Maybe Lude.Text,
+    -- | The scheduling strategy to use for the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services> .
+    --
+    -- There are two service scheduler strategies available:
+    --
+    --     * @REPLICA@ -The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions.
+    --
+    --
+    --     * @DAEMON@ -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that do not meet the placement constraints.
     schedulingStrategy :: Lude.Maybe SchedulingStrategy,
+    -- | The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
     healthCheckGracePeriodSeconds :: Lude.Maybe Lude.Int,
+    -- | The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
     networkConfiguration :: Lude.Maybe NetworkConfiguration,
+    -- | The details of the service discovery registries to assign to this service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
     serviceRegistries :: Lude.Maybe [ServiceRegistry],
-    capacityProviderStrategy ::
-      Lude.Maybe [CapacityProviderStrategyItem],
+    -- | The capacity provider strategy associated with the service.
+    capacityProviderStrategy :: Lude.Maybe [CapacityProviderStrategyItem],
+    -- | The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+    --
+    -- The following basic restrictions apply to tags:
+    --
+    --     * Maximum number of tags per resource - 50
+    --
+    --
+    --     * For each resource, each tag key must be unique, and each tag key can have only one value.
+    --
+    --
+    --     * Maximum key length - 128 Unicode characters in UTF-8
+    --
+    --
+    --     * Maximum value length - 256 Unicode characters in UTF-8
+    --
+    --
+    --     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+    --
+    --
+    --     * Tag keys and values are case-sensitive.
+    --
+    --
+    --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
     tags :: Lude.Maybe [Tag],
+    -- | The ARN of the IAM role associated with the service that allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.
     roleARN :: Lude.Maybe Lude.Text,
-    deploymentConfiguration ::
-      Lude.Maybe DeploymentConfiguration
+    -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+    deploymentConfiguration :: Lude.Maybe DeploymentConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerService' with the minimum fields required to make a request.
 --
--- * 'capacityProviderStrategy' - The capacity provider strategy associated with the service.
+-- * 'taskSets' - Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an @EXTERNAL@ deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+-- * 'runningCount' - The number of tasks in the cluster that are in the @RUNNING@ state.
+-- * 'status' - The status of the service. The valid values are @ACTIVE@ , @DRAINING@ , or @INACTIVE@ .
 -- * 'clusterARN' - The Amazon Resource Name (ARN) of the cluster that hosts the service.
+-- * 'propagateTags' - Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
 -- * 'createdAt' - The Unix timestamp for when the service was created.
--- * 'createdBy' - The principal that created the service.
--- * 'deploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
--- * 'deploymentController' - The deployment controller type the service is using. When using the DescribeServices API, this field is omitted if the service is using the @ECS@ deployment controller type.
--- * 'deployments' - The current state of deployments for the service.
--- * 'desiredCount' - The desired number of instantiations of the task definition to keep running on the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
+-- * 'platformVersion' - The platform version on which to run your service. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
 -- * 'enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'events' - The event stream for your service. A maximum of 100 of the latest events are displayed.
--- * 'healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
--- * 'launchType' - The launch type on which your service is running. If no value is specified, it will default to @EC2@ . Valid values include @EC2@ and @FARGATE@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'createdBy' - The principal that created the service.
+-- * 'desiredCount' - The desired number of instantiations of the task definition to keep running on the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
 -- * 'loadBalancers' - A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
--- * 'networkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
 -- * 'pendingCount' - The number of tasks in the cluster that are in the @PENDING@ state.
 -- * 'placementConstraints' - The placement constraints for the tasks in the service.
+-- * 'events' - The event stream for your service. A maximum of 100 of the latest events are displayed.
 -- * 'placementStrategy' - The placement strategy that determines how tasks for the service are placed.
--- * 'platformVersion' - The platform version on which to run your service. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'propagateTags' - Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
--- * 'roleARN' - The ARN of the IAM role associated with the service that allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.
--- * 'runningCount' - The number of tasks in the cluster that are in the @RUNNING@ state.
+-- * 'deployments' - The current state of deployments for the service.
+-- * 'serviceName' - The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
+-- * 'deploymentController' - The deployment controller type the service is using. When using the DescribeServices API, this field is omitted if the service is using the @ECS@ deployment controller type.
+-- * 'launchType' - The launch type on which your service is running. If no value is specified, it will default to @EC2@ . Valid values include @EC2@ and @FARGATE@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'serviceARN' - The ARN that identifies the service. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the service, the AWS account ID of the service owner, the @service@ namespace, and then the service name. For example, @arn:aws:ecs:region:012345678910:service/my-service@ .
+-- * 'taskDefinition' - The task definition to use for tasks in the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
 -- * 'schedulingStrategy' - The scheduling strategy to use for the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services> .
 --
 -- There are two service scheduler strategies available:
@@ -146,10 +195,10 @@ data ContainerService = ContainerService'
 --     * @DAEMON@ -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that do not meet the placement constraints.
 --
 --
--- * 'serviceARN' - The ARN that identifies the service. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the service, the AWS account ID of the service owner, the @service@ namespace, and then the service name. For example, @arn:aws:ecs:region:012345678910:service/my-service@ .
--- * 'serviceName' - The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
+-- * 'healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+-- * 'networkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
 -- * 'serviceRegistries' - The details of the service discovery registries to assign to this service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
--- * 'status' - The status of the service. The valid values are @ACTIVE@ , @DRAINING@ , or @INACTIVE@ .
+-- * 'capacityProviderStrategy' - The capacity provider strategy associated with the service.
 -- * 'tags' - The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
 -- The following basic restrictions apply to tags:
@@ -175,8 +224,8 @@ data ContainerService = ContainerService'
 --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 --
 --
--- * 'taskDefinition' - The task definition to use for tasks in the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
--- * 'taskSets' - Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an @EXTERNAL@ deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+-- * 'roleARN' - The ARN of the IAM role associated with the service that allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.
+-- * 'deploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 mkContainerService ::
   ContainerService
 mkContainerService =

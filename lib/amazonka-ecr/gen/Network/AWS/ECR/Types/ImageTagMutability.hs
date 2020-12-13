@@ -13,8 +13,8 @@
 module Network.AWS.ECR.Types.ImageTagMutability
   ( ImageTagMutability
       ( ImageTagMutability',
-        Immutable,
-        Mutable
+        Mutable,
+        Immutable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ImageTagMutability = ImageTagMutability' Lude.Text
       Lude.ToHeader
     )
 
-pattern Immutable :: ImageTagMutability
-pattern Immutable = ImageTagMutability' "IMMUTABLE"
-
 pattern Mutable :: ImageTagMutability
 pattern Mutable = ImageTagMutability' "MUTABLE"
 
+pattern Immutable :: ImageTagMutability
+pattern Immutable = ImageTagMutability' "IMMUTABLE"
+
 {-# COMPLETE
-  Immutable,
   Mutable,
+  Immutable,
   ImageTagMutability'
   #-}

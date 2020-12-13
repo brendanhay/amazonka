@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecretsManagerSecretResourceData' smart constructor.
 data SecretsManagerSecretResourceData = SecretsManagerSecretResourceData'
-  { additionalStagingLabelsToDownload ::
-      Lude.Maybe [Lude.Text],
-    arn ::
-      Lude.Maybe Lude.Text
+  { -- | Optional. The staging labels whose values you want to make available on the core, in addition to ''AWSCURRENT''.
+    additionalStagingLabelsToDownload :: Lude.Maybe [Lude.Text],
+    -- | The ARN of the Secrets Manager secret to make available on the core. The value of the secret's latest version (represented by the ''AWSCURRENT'' staging label) is included by default.
+    arn :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecretsManagerSecretResourceData' with the minimum fields required to make a request.

@@ -32,28 +32,24 @@ import Network.AWS.Translate.Types.JobStatus
 --
 -- /See:/ 'mkTextTranslationJobFilter' smart constructor.
 data TextTranslationJobFilter = TextTranslationJobFilter'
-  { submittedBeforeTime ::
-      Lude.Maybe Lude.Timestamp,
-    submittedAfterTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
+    submittedBeforeTime :: Lude.Maybe Lude.Timestamp,
+    -- | Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
+    submittedAfterTime :: Lude.Maybe Lude.Timestamp,
+    -- | Filters the list of jobs by name.
     jobName :: Lude.Maybe Lude.Text,
+    -- | Filters the list of jobs based by job status.
     jobStatus :: Lude.Maybe JobStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TextTranslationJobFilter' with the minimum fields required to make a request.
 --
+-- * 'submittedBeforeTime' - Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
+-- * 'submittedAfterTime' - Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
 -- * 'jobName' - Filters the list of jobs by name.
 -- * 'jobStatus' - Filters the list of jobs based by job status.
--- * 'submittedAfterTime' - Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
--- * 'submittedBeforeTime' - Filters the list of jobs based on the time that the job was submitted for processing and returns only the jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
 mkTextTranslationJobFilter ::
   TextTranslationJobFilter
 mkTextTranslationJobFilter =

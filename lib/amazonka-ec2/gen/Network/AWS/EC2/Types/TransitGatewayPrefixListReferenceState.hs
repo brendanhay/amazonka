@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState
   ( TransitGatewayPrefixListReferenceState
       ( TransitGatewayPrefixListReferenceState',
+        TGPLRSPending,
         TGPLRSAvailable,
-        TGPLRSDeleting,
         TGPLRSModifying,
-        TGPLRSPending
+        TGPLRSDeleting
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TransitGatewayPrefixListReferenceState = TransitGatewayPrefixListReferen
       Lude.ToHeader
     )
 
+pattern TGPLRSPending :: TransitGatewayPrefixListReferenceState
+pattern TGPLRSPending = TransitGatewayPrefixListReferenceState' "pending"
+
 pattern TGPLRSAvailable :: TransitGatewayPrefixListReferenceState
 pattern TGPLRSAvailable = TransitGatewayPrefixListReferenceState' "available"
-
-pattern TGPLRSDeleting :: TransitGatewayPrefixListReferenceState
-pattern TGPLRSDeleting = TransitGatewayPrefixListReferenceState' "deleting"
 
 pattern TGPLRSModifying :: TransitGatewayPrefixListReferenceState
 pattern TGPLRSModifying = TransitGatewayPrefixListReferenceState' "modifying"
 
-pattern TGPLRSPending :: TransitGatewayPrefixListReferenceState
-pattern TGPLRSPending = TransitGatewayPrefixListReferenceState' "pending"
+pattern TGPLRSDeleting :: TransitGatewayPrefixListReferenceState
+pattern TGPLRSDeleting = TransitGatewayPrefixListReferenceState' "deleting"
 
 {-# COMPLETE
-  TGPLRSAvailable,
-  TGPLRSDeleting,
-  TGPLRSModifying,
   TGPLRSPending,
+  TGPLRSAvailable,
+  TGPLRSModifying,
+  TGPLRSDeleting,
   TransitGatewayPrefixListReferenceState'
   #-}

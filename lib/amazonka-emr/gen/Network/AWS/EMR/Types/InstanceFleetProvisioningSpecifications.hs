@@ -31,26 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceFleetProvisioningSpecifications' smart constructor.
 data InstanceFleetProvisioningSpecifications = InstanceFleetProvisioningSpecifications'
-  { spotSpecification ::
-      Lude.Maybe
-        SpotProvisioningSpecification,
-    onDemandSpecification ::
-      Lude.Maybe
-        OnDemandProvisioningSpecification
+  { -- | The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+    spotSpecification :: Lude.Maybe SpotProvisioningSpecification,
+    -- | The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+    onDemandSpecification :: Lude.Maybe OnDemandProvisioningSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceFleetProvisioningSpecifications' with the minimum fields required to make a request.
 --
--- * 'onDemandSpecification' - The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
 -- * 'spotSpecification' - The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+-- * 'onDemandSpecification' - The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
 mkInstanceFleetProvisioningSpecifications ::
   InstanceFleetProvisioningSpecifications
 mkInstanceFleetProvisioningSpecifications =

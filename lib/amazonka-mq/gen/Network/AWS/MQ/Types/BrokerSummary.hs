@@ -38,34 +38,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBrokerSummary' smart constructor.
 data BrokerSummary = BrokerSummary'
-  { brokerName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+    brokerName :: Lude.Maybe Lude.Text,
+    -- | The status of the broker.
     brokerState :: Lude.Maybe BrokerState,
+    -- | The time when the broker was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | Required. The deployment mode of the broker.
     deploymentMode :: Lude.Maybe DeploymentMode,
+    -- | The unique ID that Amazon MQ generates for the broker.
     brokerId :: Lude.Maybe Lude.Text,
+    -- | Required. The type of broker engine.
     engineType :: Lude.Maybe EngineType,
+    -- | The Amazon Resource Name (ARN) of the broker.
     brokerARN :: Lude.Maybe Lude.Text,
+    -- | The broker's instance type.
     hostInstanceType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BrokerSummary' with the minimum fields required to make a request.
 --
--- * 'brokerARN' - The Amazon Resource Name (ARN) of the broker.
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
 -- * 'brokerName' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
 -- * 'brokerState' - The status of the broker.
 -- * 'created' - The time when the broker was created.
 -- * 'deploymentMode' - Required. The deployment mode of the broker.
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
 -- * 'engineType' - Required. The type of broker engine.
+-- * 'brokerARN' - The Amazon Resource Name (ARN) of the broker.
 -- * 'hostInstanceType' - The broker's instance type.
 mkBrokerSummary ::
   BrokerSummary

@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.OriginShield
     mkOriginShield,
 
     -- * Lenses
-    osOriginShieldRegion,
     osEnabled,
+    osOriginShieldRegion,
   )
 where
 
@@ -31,17 +31,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOriginShield' smart constructor.
 data OriginShield = OriginShield'
-  { originShieldRegion ::
-      Lude.Maybe Lude.Text,
-    enabled :: Lude.Bool
+  { -- | A flag that specifies whether Origin Shield is enabled.
+    --
+    -- When it’s enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it’s disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
+    enabled :: Lude.Bool,
+    -- | The AWS Region for Origin Shield.
+    --
+    -- Specify the AWS Region that has the lowest latency to your origin. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as @us-east-2@ .
+    -- When you enable CloudFront Origin Shield, you must specify the AWS Region for Origin Shield. For the list of AWS Regions that you can specify, and for help choosing the best Region for your origin, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region Choosing the AWS Region for Origin Shield> in the /Amazon CloudFront Developer Guide/ .
+    originShieldRegion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginShield' with the minimum fields required to make a request.
@@ -59,9 +59,18 @@ mkOriginShield ::
   OriginShield
 mkOriginShield pEnabled_ =
   OriginShield'
-    { originShieldRegion = Lude.Nothing,
-      enabled = pEnabled_
+    { enabled = pEnabled_,
+      originShieldRegion = Lude.Nothing
     }
+
+-- | A flag that specifies whether Origin Shield is enabled.
+--
+-- When it’s enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it’s disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osEnabled :: Lens.Lens' OriginShield Lude.Bool
+osEnabled = Lens.lens (enabled :: OriginShield -> Lude.Bool) (\s a -> s {enabled = a} :: OriginShield)
+{-# DEPRECATED osEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The AWS Region for Origin Shield.
 --
@@ -73,23 +82,14 @@ osOriginShieldRegion :: Lens.Lens' OriginShield (Lude.Maybe Lude.Text)
 osOriginShieldRegion = Lens.lens (originShieldRegion :: OriginShield -> Lude.Maybe Lude.Text) (\s a -> s {originShieldRegion = a} :: OriginShield)
 {-# DEPRECATED osOriginShieldRegion "Use generic-lens or generic-optics with 'originShieldRegion' instead." #-}
 
--- | A flag that specifies whether Origin Shield is enabled.
---
--- When it’s enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it’s disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osEnabled :: Lens.Lens' OriginShield Lude.Bool
-osEnabled = Lens.lens (enabled :: OriginShield -> Lude.Bool) (\s a -> s {enabled = a} :: OriginShield)
-{-# DEPRECATED osEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
 instance Lude.FromXML OriginShield where
   parseXML x =
     OriginShield'
-      Lude.<$> (x Lude..@? "OriginShieldRegion") Lude.<*> (x Lude..@ "Enabled")
+      Lude.<$> (x Lude..@ "Enabled") Lude.<*> (x Lude..@? "OriginShieldRegion")
 
 instance Lude.ToXML OriginShield where
   toXML OriginShield' {..} =
     Lude.mconcat
-      [ "OriginShieldRegion" Lude.@= originShieldRegion,
-        "Enabled" Lude.@= enabled
+      [ "Enabled" Lude.@= enabled,
+        "OriginShieldRegion" Lude.@= originShieldRegion
       ]

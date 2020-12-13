@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,13 +35,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisableHealthServiceAccessForOrganization' smart constructor.
 data DisableHealthServiceAccessForOrganization = DisableHealthServiceAccessForOrganization'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableHealthServiceAccessForOrganization' with the minimum fields required to make a request.
@@ -82,17 +77,8 @@ instance Lude.ToQuery DisableHealthServiceAccessForOrganization where
 
 -- | /See:/ 'mkDisableHealthServiceAccessForOrganizationResponse' smart constructor.
 data DisableHealthServiceAccessForOrganizationResponse = DisableHealthServiceAccessForOrganizationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableHealthServiceAccessForOrganizationResponse' with the minimum fields required to make a request.
 mkDisableHealthServiceAccessForOrganizationResponse ::

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.StepFunctions.DeleteStateMachine
     mkDeleteStateMachine,
 
     -- ** Request lenses
-    dStateMachineARN,
+    dsmStateMachineARN,
 
     -- * Destructuring the response
     DeleteStateMachineResponse (..),
     mkDeleteStateMachineResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
+    dsmrsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import Network.AWS.StepFunctions.Types
 
 -- | /See:/ 'mkDeleteStateMachine' smart constructor.
 newtype DeleteStateMachine = DeleteStateMachine'
-  { stateMachineARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the state machine to delete.
+    stateMachineARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStateMachine' with the minimum fields required to make a request.
@@ -63,9 +58,9 @@ mkDeleteStateMachine pStateMachineARN_ =
 -- | The Amazon Resource Name (ARN) of the state machine to delete.
 --
 -- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStateMachineARN :: Lens.Lens' DeleteStateMachine Lude.Text
-dStateMachineARN = Lens.lens (stateMachineARN :: DeleteStateMachine -> Lude.Text) (\s a -> s {stateMachineARN = a} :: DeleteStateMachine)
-{-# DEPRECATED dStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
+dsmStateMachineARN :: Lens.Lens' DeleteStateMachine Lude.Text
+dsmStateMachineARN = Lens.lens (stateMachineARN :: DeleteStateMachine -> Lude.Text) (\s a -> s {stateMachineARN = a} :: DeleteStateMachine)
+{-# DEPRECATED dsmStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
 
 instance Lude.AWSRequest DeleteStateMachine where
   type Rs DeleteStateMachine = DeleteStateMachineResponse
@@ -102,16 +97,10 @@ instance Lude.ToQuery DeleteStateMachine where
 
 -- | /See:/ 'mkDeleteStateMachineResponse' smart constructor.
 newtype DeleteStateMachineResponse = DeleteStateMachineResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStateMachineResponse' with the minimum fields required to make a request.
@@ -127,6 +116,6 @@ mkDeleteStateMachineResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteStateMachineResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteStateMachineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStateMachineResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsmrsResponseStatus :: Lens.Lens' DeleteStateMachineResponse Lude.Int
+dsmrsResponseStatus = Lens.lens (responseStatus :: DeleteStateMachineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStateMachineResponse)
+{-# DEPRECATED dsmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

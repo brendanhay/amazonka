@@ -34,33 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroupInformation' smart constructor.
 data GroupInformation = GroupInformation'
-  { latestVersionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the latest version associated with the group.
+    latestVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the group.
     arn :: Lude.Maybe Lude.Text,
+    -- | The name of the group.
     name :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the group was created.
     creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the group.
     id :: Lude.Maybe Lude.Text,
+    -- | The ID of the latest version associated with the group.
     latestVersion :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the group was last updated.
     lastUpdatedTimestamp :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupInformation' with the minimum fields required to make a request.
 --
+-- * 'latestVersionARN' - The ARN of the latest version associated with the group.
 -- * 'arn' - The ARN of the group.
+-- * 'name' - The name of the group.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the group was created.
 -- * 'id' - The ID of the group.
--- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the group was last updated.
 -- * 'latestVersion' - The ID of the latest version associated with the group.
--- * 'latestVersionARN' - The ARN of the latest version associated with the group.
--- * 'name' - The name of the group.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the group was last updated.
 mkGroupInformation ::
   GroupInformation
 mkGroupInformation =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.Lightsail.DeleteDisk
     mkDeleteDisk,
 
     -- ** Request lenses
-    dForceDeleteAddOns,
-    dDiskName,
+    ddForceDeleteAddOns,
+    ddDiskName,
 
     -- * Destructuring the response
     DeleteDiskResponse (..),
     mkDeleteDiskResponse,
 
     -- ** Response lenses
-    drsOperations,
-    drsResponseStatus,
+    ddfrsOperations,
+    ddfrsResponseStatus,
   )
 where
 
@@ -42,23 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDisk' smart constructor.
 data DeleteDisk = DeleteDisk'
-  { forceDeleteAddOns ::
-      Lude.Maybe Lude.Bool,
+  { -- | A Boolean value to indicate whether to delete the enabled add-ons for the disk.
+    forceDeleteAddOns :: Lude.Maybe Lude.Bool,
+    -- | The unique name of the disk you want to delete (e.g., @my-disk@ ).
     diskName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDisk' with the minimum fields required to make a request.
 --
--- * 'diskName' - The unique name of the disk you want to delete (e.g., @my-disk@ ).
 -- * 'forceDeleteAddOns' - A Boolean value to indicate whether to delete the enabled add-ons for the disk.
+-- * 'diskName' - The unique name of the disk you want to delete (e.g., @my-disk@ ).
 mkDeleteDisk ::
   -- | 'diskName'
   Lude.Text ->
@@ -72,16 +68,16 @@ mkDeleteDisk pDiskName_ =
 -- | A Boolean value to indicate whether to delete the enabled add-ons for the disk.
 --
 -- /Note:/ Consider using 'forceDeleteAddOns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dForceDeleteAddOns :: Lens.Lens' DeleteDisk (Lude.Maybe Lude.Bool)
-dForceDeleteAddOns = Lens.lens (forceDeleteAddOns :: DeleteDisk -> Lude.Maybe Lude.Bool) (\s a -> s {forceDeleteAddOns = a} :: DeleteDisk)
-{-# DEPRECATED dForceDeleteAddOns "Use generic-lens or generic-optics with 'forceDeleteAddOns' instead." #-}
+ddForceDeleteAddOns :: Lens.Lens' DeleteDisk (Lude.Maybe Lude.Bool)
+ddForceDeleteAddOns = Lens.lens (forceDeleteAddOns :: DeleteDisk -> Lude.Maybe Lude.Bool) (\s a -> s {forceDeleteAddOns = a} :: DeleteDisk)
+{-# DEPRECATED ddForceDeleteAddOns "Use generic-lens or generic-optics with 'forceDeleteAddOns' instead." #-}
 
 -- | The unique name of the disk you want to delete (e.g., @my-disk@ ).
 --
 -- /Note:/ Consider using 'diskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDiskName :: Lens.Lens' DeleteDisk Lude.Text
-dDiskName = Lens.lens (diskName :: DeleteDisk -> Lude.Text) (\s a -> s {diskName = a} :: DeleteDisk)
-{-# DEPRECATED dDiskName "Use generic-lens or generic-optics with 'diskName' instead." #-}
+ddDiskName :: Lens.Lens' DeleteDisk Lude.Text
+ddDiskName = Lens.lens (diskName :: DeleteDisk -> Lude.Text) (\s a -> s {diskName = a} :: DeleteDisk)
+{-# DEPRECATED ddDiskName "Use generic-lens or generic-optics with 'diskName' instead." #-}
 
 instance Lude.AWSRequest DeleteDisk where
   type Rs DeleteDisk = DeleteDiskResponse
@@ -122,17 +118,12 @@ instance Lude.ToQuery DeleteDisk where
 
 -- | /See:/ 'mkDeleteDiskResponse' smart constructor.
 data DeleteDiskResponse = DeleteDiskResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDiskResponse' with the minimum fields required to make a request.
@@ -152,13 +143,13 @@ mkDeleteDiskResponse pResponseStatus_ =
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsOperations :: Lens.Lens' DeleteDiskResponse (Lude.Maybe [Operation])
-drsOperations = Lens.lens (operations :: DeleteDiskResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteDiskResponse)
-{-# DEPRECATED drsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+ddfrsOperations :: Lens.Lens' DeleteDiskResponse (Lude.Maybe [Operation])
+ddfrsOperations = Lens.lens (operations :: DeleteDiskResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteDiskResponse)
+{-# DEPRECATED ddfrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteDiskResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteDiskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDiskResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddfrsResponseStatus :: Lens.Lens' DeleteDiskResponse Lude.Int
+ddfrsResponseStatus = Lens.lens (responseStatus :: DeleteDiskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDiskResponse)
+{-# DEPRECATED ddfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

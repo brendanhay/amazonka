@@ -13,10 +13,10 @@
 module Network.AWS.SWF.Types.StartTimerFailedCause
   ( StartTimerFailedCause
       ( StartTimerFailedCause',
+        STFCTimerIdAlreadyInUse,
         STFCOpenTimersLimitExceeded,
-        STFCOperationNotPermitted,
         STFCTimerCreationRateExceeded,
-        STFCTimerIdAlreadyInUse
+        STFCOperationNotPermitted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype StartTimerFailedCause = StartTimerFailedCause' Lude.Text
       Lude.ToHeader
     )
 
+pattern STFCTimerIdAlreadyInUse :: StartTimerFailedCause
+pattern STFCTimerIdAlreadyInUse = StartTimerFailedCause' "TIMER_ID_ALREADY_IN_USE"
+
 pattern STFCOpenTimersLimitExceeded :: StartTimerFailedCause
 pattern STFCOpenTimersLimitExceeded = StartTimerFailedCause' "OPEN_TIMERS_LIMIT_EXCEEDED"
-
-pattern STFCOperationNotPermitted :: StartTimerFailedCause
-pattern STFCOperationNotPermitted = StartTimerFailedCause' "OPERATION_NOT_PERMITTED"
 
 pattern STFCTimerCreationRateExceeded :: StartTimerFailedCause
 pattern STFCTimerCreationRateExceeded = StartTimerFailedCause' "TIMER_CREATION_RATE_EXCEEDED"
 
-pattern STFCTimerIdAlreadyInUse :: StartTimerFailedCause
-pattern STFCTimerIdAlreadyInUse = StartTimerFailedCause' "TIMER_ID_ALREADY_IN_USE"
+pattern STFCOperationNotPermitted :: StartTimerFailedCause
+pattern STFCOperationNotPermitted = StartTimerFailedCause' "OPERATION_NOT_PERMITTED"
 
 {-# COMPLETE
-  STFCOpenTimersLimitExceeded,
-  STFCOperationNotPermitted,
-  STFCTimerCreationRateExceeded,
   STFCTimerIdAlreadyInUse,
+  STFCOpenTimersLimitExceeded,
+  STFCTimerCreationRateExceeded,
+  STFCOperationNotPermitted,
   StartTimerFailedCause'
   #-}

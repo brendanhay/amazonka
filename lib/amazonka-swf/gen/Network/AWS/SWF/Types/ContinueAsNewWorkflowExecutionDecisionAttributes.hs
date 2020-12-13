@@ -62,48 +62,60 @@ import Network.AWS.SWF.Types.TaskList
 --
 -- /See:/ 'mkContinueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
 data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'
-  { tagList ::
-      Lude.Maybe
-        [Lude.Text],
-    taskStartToCloseTimeout ::
-      Lude.Maybe
-        Lude.Text,
-    lambdaRole ::
-      Lude.Maybe
-        Lude.Text,
-    input ::
-      Lude.Maybe
-        Lude.Text,
-    workflowTypeVersion ::
-      Lude.Maybe
-        Lude.Text,
-    executionStartToCloseTimeout ::
-      Lude.Maybe
-        Lude.Text,
-    taskList ::
-      Lude.Maybe
-        TaskList,
-    taskPriority ::
-      Lude.Maybe
-        Lude.Text,
-    childPolicy ::
-      Lude.Maybe
-        ChildPolicy
+  { -- | The list of tags to associate with the new workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
+    tagList :: Lude.Maybe [Lude.Text],
+    -- | Specifies the maximum duration of decision tasks for the new workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' .
+    --
+    -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+    taskStartToCloseTimeout :: Lude.Maybe Lude.Text,
+    -- | The IAM role to attach to the new (continued) execution.
+    lambdaRole :: Lude.Maybe Lude.Text,
+    -- | The input provided to the new workflow execution.
+    input :: Lude.Maybe Lude.Text,
+    -- | The version of the workflow to start.
+    workflowTypeVersion :: Lude.Maybe Lude.Text,
+    -- | If set, specifies the total duration for this workflow execution. This overrides the @defaultExecutionStartToCloseTimeout@ specified when registering the workflow type.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+    executionStartToCloseTimeout :: Lude.Maybe Lude.Text,
+    -- | The task list to use for the decisions of the new (continued) workflow execution.
+    taskList :: Lude.Maybe TaskList,
+    -- | The task priority that, if set, specifies the priority for the decision tasks for this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+    --
+    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
+    taskPriority :: Lude.Maybe Lude.Text,
+    -- | If set, specifies the policy to use for the child workflow executions of the new execution if it is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' .
+    --
+    -- The supported child policies are:
+    --
+    --     * @TERMINATE@ – The child executions are terminated.
+    --
+    --
+    --     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
+    --
+    --
+    --     * @ABANDON@ – No action is taken. The child executions continue to run.
+    childPolicy :: Lude.Maybe ChildPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContinueAsNewWorkflowExecutionDecisionAttributes' with the minimum fields required to make a request.
 --
+-- * 'tagList' - The list of tags to associate with the new workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
+-- * 'taskStartToCloseTimeout' - Specifies the maximum duration of decision tasks for the new workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' .
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+-- * 'lambdaRole' - The IAM role to attach to the new (continued) execution.
+-- * 'input' - The input provided to the new workflow execution.
+-- * 'workflowTypeVersion' - The version of the workflow to start.
+-- * 'executionStartToCloseTimeout' - If set, specifies the total duration for this workflow execution. This overrides the @defaultExecutionStartToCloseTimeout@ specified when registering the workflow type.
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+-- * 'taskList' - The task list to use for the decisions of the new (continued) workflow execution.
+-- * 'taskPriority' - The task priority that, if set, specifies the priority for the decision tasks for this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
 -- * 'childPolicy' - If set, specifies the policy to use for the child workflow executions of the new execution if it is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' .
 --
 -- The supported child policies are:
@@ -115,22 +127,6 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
 --
 --
 --     * @ABANDON@ – No action is taken. The child executions continue to run.
---
---
--- * 'executionStartToCloseTimeout' - If set, specifies the total duration for this workflow execution. This overrides the @defaultExecutionStartToCloseTimeout@ specified when registering the workflow type.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'input' - The input provided to the new workflow execution.
--- * 'lambdaRole' - The IAM role to attach to the new (continued) execution.
--- * 'tagList' - The list of tags to associate with the new workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
--- * 'taskList' - The task list to use for the decisions of the new (continued) workflow execution.
--- * 'taskPriority' - The task priority that, if set, specifies the priority for the decision tasks for this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
--- * 'taskStartToCloseTimeout' - Specifies the maximum duration of decision tasks for the new workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'workflowTypeVersion' - The version of the workflow to start.
 mkContinueAsNewWorkflowExecutionDecisionAttributes ::
   ContinueAsNewWorkflowExecutionDecisionAttributes
 mkContinueAsNewWorkflowExecutionDecisionAttributes =

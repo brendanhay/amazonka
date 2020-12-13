@@ -34,31 +34,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedInstancesConfiguration' smart constructor.
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
-  { platform ::
-      Lude.Maybe Lude.Text,
-    instanceCount ::
-      Lude.Maybe Lude.Int,
-    instanceType ::
-      Lude.Maybe InstanceType,
-    availabilityZone ::
-      Lude.Maybe Lude.Text,
+  { -- | The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
+    platform :: Lude.Maybe Lude.Text,
+    -- | The number of modified Reserved Instances.
+    instanceCount :: Lude.Maybe Lude.Int,
+    -- | The instance type for the modified Reserved Instances.
+    instanceType :: Lude.Maybe InstanceType,
+    -- | The Availability Zone for the modified Reserved Instances.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.
     scope :: Lude.Maybe Scope
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstancesConfiguration' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone for the modified Reserved Instances.
+-- * 'platform' - The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
 -- * 'instanceCount' - The number of modified Reserved Instances.
 -- * 'instanceType' - The instance type for the modified Reserved Instances.
--- * 'platform' - The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
+-- * 'availabilityZone' - The Availability Zone for the modified Reserved Instances.
 -- * 'scope' - Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.
 mkReservedInstancesConfiguration ::
   ReservedInstancesConfiguration

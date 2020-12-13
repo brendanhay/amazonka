@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.CreateConnection
     mkCreateConnection,
 
     -- ** Request lenses
-    ccCatalogId,
     ccConnectionInput,
+    ccCatalogId,
 
     -- * Destructuring the response
     CreateConnectionResponse (..),
@@ -39,39 +40,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
-    connectionInput :: ConnectionInput
+  { -- | A @ConnectionInput@ object defining the connection to create.
+    connectionInput :: ConnectionInput,
+    -- | The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
 --
--- * 'catalogId' - The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
 -- * 'connectionInput' - A @ConnectionInput@ object defining the connection to create.
+-- * 'catalogId' - The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
 mkCreateConnection ::
   -- | 'connectionInput'
   ConnectionInput ->
   CreateConnection
 mkCreateConnection pConnectionInput_ =
   CreateConnection'
-    { catalogId = Lude.Nothing,
-      connectionInput = pConnectionInput_
+    { connectionInput = pConnectionInput_,
+      catalogId = Lude.Nothing
     }
-
--- | The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCatalogId :: Lens.Lens' CreateConnection (Lude.Maybe Lude.Text)
-ccCatalogId = Lens.lens (catalogId :: CreateConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreateConnection)
-{-# DEPRECATED ccCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | A @ConnectionInput@ object defining the connection to create.
 --
@@ -79,6 +68,13 @@ ccCatalogId = Lens.lens (catalogId :: CreateConnection -> Lude.Maybe Lude.Text) 
 ccConnectionInput :: Lens.Lens' CreateConnection ConnectionInput
 ccConnectionInput = Lens.lens (connectionInput :: CreateConnection -> ConnectionInput) (\s a -> s {connectionInput = a} :: CreateConnection)
 {-# DEPRECATED ccConnectionInput "Use generic-lens or generic-optics with 'connectionInput' instead." #-}
+
+-- | The ID of the Data Catalog in which to create the connection. If none is provided, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCatalogId :: Lens.Lens' CreateConnection (Lude.Maybe Lude.Text)
+ccCatalogId = Lens.lens (catalogId :: CreateConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreateConnection)
+{-# DEPRECATED ccCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 instance Lude.AWSRequest CreateConnection where
   type Rs CreateConnection = CreateConnectionResponse
@@ -104,8 +100,8 @@ instance Lude.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("ConnectionInput" Lude..= connectionInput)
+          [ Lude.Just ("ConnectionInput" Lude..= connectionInput),
+            ("CatalogId" Lude..=) Lude.<$> catalogId
           ]
       )
 
@@ -117,16 +113,10 @@ instance Lude.ToQuery CreateConnection where
 
 -- | /See:/ 'mkCreateConnectionResponse' smart constructor.
 newtype CreateConnectionResponse = CreateConnectionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConnectionResponse' with the minimum fields required to make a request.

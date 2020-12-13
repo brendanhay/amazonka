@@ -37,50 +37,64 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInsightRuleMetricDatapoint' smart constructor.
 data InsightRuleMetricDatapoint = InsightRuleMetricDatapoint'
-  { maxContributorValue ::
-      Lude.Maybe Lude.Double,
+  { -- | The maximum value provided by one contributor during this timestamp. Each timestamp is evaluated separately, so the identity of the max contributor could be different for each timestamp.
+    --
+    -- This statistic is returned only if you included it in the @Metrics@ array in your request.
+    maxContributorValue :: Lude.Maybe Lude.Double,
+    -- | The number of occurrences that matched the rule during this data point.
+    --
+    -- This statistic is returned only if you included it in the @Metrics@ array in your request.
     sampleCount :: Lude.Maybe Lude.Double,
+    -- | The maximum value from a single occurence from a single contributor during the time period represented by that data point.
+    --
+    -- This statistic is returned only if you included it in the @Metrics@ array in your request.
     maximum :: Lude.Maybe Lude.Double,
+    -- | The average value from all contributors during the time period represented by that data point.
+    --
+    -- This statistic is returned only if you included it in the @Metrics@ array in your request.
     average :: Lude.Maybe Lude.Double,
+    -- | The minimum value from a single contributor during the time period represented by that data point.
+    --
+    -- This statistic is returned only if you included it in the @Metrics@ array in your request.
     minimum :: Lude.Maybe Lude.Double,
-    uniqueContributors ::
-      Lude.Maybe Lude.Double,
+    -- | The number of unique contributors who published data during this timestamp.
+    --
+    -- This statistic is returned only if you included it in the @Metrics@ array in your request.
+    uniqueContributors :: Lude.Maybe Lude.Double,
+    -- | The sum of the values from all contributors during the time period represented by that data point.
+    --
+    -- This statistic is returned only if you included it in the @Metrics@ array in your request.
     sum :: Lude.Maybe Lude.Double,
+    -- | The timestamp of the data point.
     timestamp :: Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightRuleMetricDatapoint' with the minimum fields required to make a request.
 --
--- * 'average' - The average value from all contributors during the time period represented by that data point.
+-- * 'maxContributorValue' - The maximum value provided by one contributor during this timestamp. Each timestamp is evaluated separately, so the identity of the max contributor could be different for each timestamp.
 --
 -- This statistic is returned only if you included it in the @Metrics@ array in your request.
--- * 'maxContributorValue' - The maximum value provided by one contributor during this timestamp. Each timestamp is evaluated separately, so the identity of the max contributor could be different for each timestamp.
+-- * 'sampleCount' - The number of occurrences that matched the rule during this data point.
 --
 -- This statistic is returned only if you included it in the @Metrics@ array in your request.
 -- * 'maximum' - The maximum value from a single occurence from a single contributor during the time period represented by that data point.
 --
 -- This statistic is returned only if you included it in the @Metrics@ array in your request.
+-- * 'average' - The average value from all contributors during the time period represented by that data point.
+--
+-- This statistic is returned only if you included it in the @Metrics@ array in your request.
 -- * 'minimum' - The minimum value from a single contributor during the time period represented by that data point.
 --
 -- This statistic is returned only if you included it in the @Metrics@ array in your request.
--- * 'sampleCount' - The number of occurrences that matched the rule during this data point.
+-- * 'uniqueContributors' - The number of unique contributors who published data during this timestamp.
 --
 -- This statistic is returned only if you included it in the @Metrics@ array in your request.
 -- * 'sum' - The sum of the values from all contributors during the time period represented by that data point.
 --
 -- This statistic is returned only if you included it in the @Metrics@ array in your request.
 -- * 'timestamp' - The timestamp of the data point.
--- * 'uniqueContributors' - The number of unique contributors who published data during this timestamp.
---
--- This statistic is returned only if you included it in the @Metrics@ array in your request.
 mkInsightRuleMetricDatapoint ::
   -- | 'timestamp'
   Lude.DateTime ->

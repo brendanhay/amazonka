@@ -13,46 +13,46 @@
 module Network.AWS.GameLift.Types.GameServerGroupInstanceType
   ( GameServerGroupInstanceType
       ( GameServerGroupInstanceType',
-        C4_2XLarge,
-        C4_4XLarge,
-        C4_8XLarge,
-        C4_Large,
-        C4_XLarge,
-        C5_12XLarge,
-        C5_18XLarge,
-        C5_24XLarge,
-        C5_2XLarge,
-        C5_4XLarge,
-        C5_9XLarge,
-        C5_Large,
-        C5_XLarge,
-        M4_10XLarge,
-        M4_2XLarge,
-        M4_4XLarge,
-        M4_Large,
-        M4_XLarge,
-        M5_12XLarge,
-        M5_16XLarge,
-        M5_24XLarge,
-        M5_2XLarge,
-        M5_4XLarge,
-        M5_8XLarge,
-        M5_Large,
-        M5_XLarge,
-        R4_16XLarge,
-        R4_2XLarge,
-        R4_4XLarge,
-        R4_8XLarge,
-        R4_Large,
-        R4_XLarge,
-        R5_12XLarge,
-        R5_16XLarge,
-        R5_24XLarge,
-        R5_2XLarge,
-        R5_4XLarge,
-        R5_8XLarge,
-        R5_Large,
-        R5_XLarge
+        GSGITC4_Large,
+        GSGITC4_XLarge,
+        GSGITC4_2XLarge,
+        GSGITC4_4XLarge,
+        GSGITC4_8XLarge,
+        GSGITC5_Large,
+        GSGITC5_XLarge,
+        GSGITC5_2XLarge,
+        GSGITC5_4XLarge,
+        GSGITC5_9XLarge,
+        GSGITC5_12XLarge,
+        GSGITC5_18XLarge,
+        GSGITC5_24XLarge,
+        GSGITR4_Large,
+        GSGITR4_XLarge,
+        GSGITR4_2XLarge,
+        GSGITR4_4XLarge,
+        GSGITR4_8XLarge,
+        GSGITR4_16XLarge,
+        GSGITR5_Large,
+        GSGITR5_XLarge,
+        GSGITR5_2XLarge,
+        GSGITR5_4XLarge,
+        GSGITR5_8XLarge,
+        GSGITR5_12XLarge,
+        GSGITR5_16XLarge,
+        GSGITR5_24XLarge,
+        GSGITM4_Large,
+        GSGITM4_XLarge,
+        GSGITM4_2XLarge,
+        GSGITM4_4XLarge,
+        GSGITM4_10XLarge,
+        GSGITM5_Large,
+        GSGITM5_XLarge,
+        GSGITM5_2XLarge,
+        GSGITM5_4XLarge,
+        GSGITM5_8XLarge,
+        GSGITM5_12XLarge,
+        GSGITM5_16XLarge,
+        GSGITM5_24XLarge
       ),
   )
 where
@@ -83,166 +83,166 @@ newtype GameServerGroupInstanceType = GameServerGroupInstanceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern C4_2XLarge :: GameServerGroupInstanceType
-pattern C4_2XLarge = GameServerGroupInstanceType' "c4.2xlarge"
+pattern GSGITC4_Large :: GameServerGroupInstanceType
+pattern GSGITC4_Large = GameServerGroupInstanceType' "c4.large"
 
-pattern C4_4XLarge :: GameServerGroupInstanceType
-pattern C4_4XLarge = GameServerGroupInstanceType' "c4.4xlarge"
+pattern GSGITC4_XLarge :: GameServerGroupInstanceType
+pattern GSGITC4_XLarge = GameServerGroupInstanceType' "c4.xlarge"
 
-pattern C4_8XLarge :: GameServerGroupInstanceType
-pattern C4_8XLarge = GameServerGroupInstanceType' "c4.8xlarge"
+pattern GSGITC4_2XLarge :: GameServerGroupInstanceType
+pattern GSGITC4_2XLarge = GameServerGroupInstanceType' "c4.2xlarge"
 
-pattern C4_Large :: GameServerGroupInstanceType
-pattern C4_Large = GameServerGroupInstanceType' "c4.large"
+pattern GSGITC4_4XLarge :: GameServerGroupInstanceType
+pattern GSGITC4_4XLarge = GameServerGroupInstanceType' "c4.4xlarge"
 
-pattern C4_XLarge :: GameServerGroupInstanceType
-pattern C4_XLarge = GameServerGroupInstanceType' "c4.xlarge"
+pattern GSGITC4_8XLarge :: GameServerGroupInstanceType
+pattern GSGITC4_8XLarge = GameServerGroupInstanceType' "c4.8xlarge"
 
-pattern C5_12XLarge :: GameServerGroupInstanceType
-pattern C5_12XLarge = GameServerGroupInstanceType' "c5.12xlarge"
+pattern GSGITC5_Large :: GameServerGroupInstanceType
+pattern GSGITC5_Large = GameServerGroupInstanceType' "c5.large"
 
-pattern C5_18XLarge :: GameServerGroupInstanceType
-pattern C5_18XLarge = GameServerGroupInstanceType' "c5.18xlarge"
+pattern GSGITC5_XLarge :: GameServerGroupInstanceType
+pattern GSGITC5_XLarge = GameServerGroupInstanceType' "c5.xlarge"
 
-pattern C5_24XLarge :: GameServerGroupInstanceType
-pattern C5_24XLarge = GameServerGroupInstanceType' "c5.24xlarge"
+pattern GSGITC5_2XLarge :: GameServerGroupInstanceType
+pattern GSGITC5_2XLarge = GameServerGroupInstanceType' "c5.2xlarge"
 
-pattern C5_2XLarge :: GameServerGroupInstanceType
-pattern C5_2XLarge = GameServerGroupInstanceType' "c5.2xlarge"
+pattern GSGITC5_4XLarge :: GameServerGroupInstanceType
+pattern GSGITC5_4XLarge = GameServerGroupInstanceType' "c5.4xlarge"
 
-pattern C5_4XLarge :: GameServerGroupInstanceType
-pattern C5_4XLarge = GameServerGroupInstanceType' "c5.4xlarge"
+pattern GSGITC5_9XLarge :: GameServerGroupInstanceType
+pattern GSGITC5_9XLarge = GameServerGroupInstanceType' "c5.9xlarge"
 
-pattern C5_9XLarge :: GameServerGroupInstanceType
-pattern C5_9XLarge = GameServerGroupInstanceType' "c5.9xlarge"
+pattern GSGITC5_12XLarge :: GameServerGroupInstanceType
+pattern GSGITC5_12XLarge = GameServerGroupInstanceType' "c5.12xlarge"
 
-pattern C5_Large :: GameServerGroupInstanceType
-pattern C5_Large = GameServerGroupInstanceType' "c5.large"
+pattern GSGITC5_18XLarge :: GameServerGroupInstanceType
+pattern GSGITC5_18XLarge = GameServerGroupInstanceType' "c5.18xlarge"
 
-pattern C5_XLarge :: GameServerGroupInstanceType
-pattern C5_XLarge = GameServerGroupInstanceType' "c5.xlarge"
+pattern GSGITC5_24XLarge :: GameServerGroupInstanceType
+pattern GSGITC5_24XLarge = GameServerGroupInstanceType' "c5.24xlarge"
 
-pattern M4_10XLarge :: GameServerGroupInstanceType
-pattern M4_10XLarge = GameServerGroupInstanceType' "m4.10xlarge"
+pattern GSGITR4_Large :: GameServerGroupInstanceType
+pattern GSGITR4_Large = GameServerGroupInstanceType' "r4.large"
 
-pattern M4_2XLarge :: GameServerGroupInstanceType
-pattern M4_2XLarge = GameServerGroupInstanceType' "m4.2xlarge"
+pattern GSGITR4_XLarge :: GameServerGroupInstanceType
+pattern GSGITR4_XLarge = GameServerGroupInstanceType' "r4.xlarge"
 
-pattern M4_4XLarge :: GameServerGroupInstanceType
-pattern M4_4XLarge = GameServerGroupInstanceType' "m4.4xlarge"
+pattern GSGITR4_2XLarge :: GameServerGroupInstanceType
+pattern GSGITR4_2XLarge = GameServerGroupInstanceType' "r4.2xlarge"
 
-pattern M4_Large :: GameServerGroupInstanceType
-pattern M4_Large = GameServerGroupInstanceType' "m4.large"
+pattern GSGITR4_4XLarge :: GameServerGroupInstanceType
+pattern GSGITR4_4XLarge = GameServerGroupInstanceType' "r4.4xlarge"
 
-pattern M4_XLarge :: GameServerGroupInstanceType
-pattern M4_XLarge = GameServerGroupInstanceType' "m4.xlarge"
+pattern GSGITR4_8XLarge :: GameServerGroupInstanceType
+pattern GSGITR4_8XLarge = GameServerGroupInstanceType' "r4.8xlarge"
 
-pattern M5_12XLarge :: GameServerGroupInstanceType
-pattern M5_12XLarge = GameServerGroupInstanceType' "m5.12xlarge"
+pattern GSGITR4_16XLarge :: GameServerGroupInstanceType
+pattern GSGITR4_16XLarge = GameServerGroupInstanceType' "r4.16xlarge"
 
-pattern M5_16XLarge :: GameServerGroupInstanceType
-pattern M5_16XLarge = GameServerGroupInstanceType' "m5.16xlarge"
+pattern GSGITR5_Large :: GameServerGroupInstanceType
+pattern GSGITR5_Large = GameServerGroupInstanceType' "r5.large"
 
-pattern M5_24XLarge :: GameServerGroupInstanceType
-pattern M5_24XLarge = GameServerGroupInstanceType' "m5.24xlarge"
+pattern GSGITR5_XLarge :: GameServerGroupInstanceType
+pattern GSGITR5_XLarge = GameServerGroupInstanceType' "r5.xlarge"
 
-pattern M5_2XLarge :: GameServerGroupInstanceType
-pattern M5_2XLarge = GameServerGroupInstanceType' "m5.2xlarge"
+pattern GSGITR5_2XLarge :: GameServerGroupInstanceType
+pattern GSGITR5_2XLarge = GameServerGroupInstanceType' "r5.2xlarge"
 
-pattern M5_4XLarge :: GameServerGroupInstanceType
-pattern M5_4XLarge = GameServerGroupInstanceType' "m5.4xlarge"
+pattern GSGITR5_4XLarge :: GameServerGroupInstanceType
+pattern GSGITR5_4XLarge = GameServerGroupInstanceType' "r5.4xlarge"
 
-pattern M5_8XLarge :: GameServerGroupInstanceType
-pattern M5_8XLarge = GameServerGroupInstanceType' "m5.8xlarge"
+pattern GSGITR5_8XLarge :: GameServerGroupInstanceType
+pattern GSGITR5_8XLarge = GameServerGroupInstanceType' "r5.8xlarge"
 
-pattern M5_Large :: GameServerGroupInstanceType
-pattern M5_Large = GameServerGroupInstanceType' "m5.large"
+pattern GSGITR5_12XLarge :: GameServerGroupInstanceType
+pattern GSGITR5_12XLarge = GameServerGroupInstanceType' "r5.12xlarge"
 
-pattern M5_XLarge :: GameServerGroupInstanceType
-pattern M5_XLarge = GameServerGroupInstanceType' "m5.xlarge"
+pattern GSGITR5_16XLarge :: GameServerGroupInstanceType
+pattern GSGITR5_16XLarge = GameServerGroupInstanceType' "r5.16xlarge"
 
-pattern R4_16XLarge :: GameServerGroupInstanceType
-pattern R4_16XLarge = GameServerGroupInstanceType' "r4.16xlarge"
+pattern GSGITR5_24XLarge :: GameServerGroupInstanceType
+pattern GSGITR5_24XLarge = GameServerGroupInstanceType' "r5.24xlarge"
 
-pattern R4_2XLarge :: GameServerGroupInstanceType
-pattern R4_2XLarge = GameServerGroupInstanceType' "r4.2xlarge"
+pattern GSGITM4_Large :: GameServerGroupInstanceType
+pattern GSGITM4_Large = GameServerGroupInstanceType' "m4.large"
 
-pattern R4_4XLarge :: GameServerGroupInstanceType
-pattern R4_4XLarge = GameServerGroupInstanceType' "r4.4xlarge"
+pattern GSGITM4_XLarge :: GameServerGroupInstanceType
+pattern GSGITM4_XLarge = GameServerGroupInstanceType' "m4.xlarge"
 
-pattern R4_8XLarge :: GameServerGroupInstanceType
-pattern R4_8XLarge = GameServerGroupInstanceType' "r4.8xlarge"
+pattern GSGITM4_2XLarge :: GameServerGroupInstanceType
+pattern GSGITM4_2XLarge = GameServerGroupInstanceType' "m4.2xlarge"
 
-pattern R4_Large :: GameServerGroupInstanceType
-pattern R4_Large = GameServerGroupInstanceType' "r4.large"
+pattern GSGITM4_4XLarge :: GameServerGroupInstanceType
+pattern GSGITM4_4XLarge = GameServerGroupInstanceType' "m4.4xlarge"
 
-pattern R4_XLarge :: GameServerGroupInstanceType
-pattern R4_XLarge = GameServerGroupInstanceType' "r4.xlarge"
+pattern GSGITM4_10XLarge :: GameServerGroupInstanceType
+pattern GSGITM4_10XLarge = GameServerGroupInstanceType' "m4.10xlarge"
 
-pattern R5_12XLarge :: GameServerGroupInstanceType
-pattern R5_12XLarge = GameServerGroupInstanceType' "r5.12xlarge"
+pattern GSGITM5_Large :: GameServerGroupInstanceType
+pattern GSGITM5_Large = GameServerGroupInstanceType' "m5.large"
 
-pattern R5_16XLarge :: GameServerGroupInstanceType
-pattern R5_16XLarge = GameServerGroupInstanceType' "r5.16xlarge"
+pattern GSGITM5_XLarge :: GameServerGroupInstanceType
+pattern GSGITM5_XLarge = GameServerGroupInstanceType' "m5.xlarge"
 
-pattern R5_24XLarge :: GameServerGroupInstanceType
-pattern R5_24XLarge = GameServerGroupInstanceType' "r5.24xlarge"
+pattern GSGITM5_2XLarge :: GameServerGroupInstanceType
+pattern GSGITM5_2XLarge = GameServerGroupInstanceType' "m5.2xlarge"
 
-pattern R5_2XLarge :: GameServerGroupInstanceType
-pattern R5_2XLarge = GameServerGroupInstanceType' "r5.2xlarge"
+pattern GSGITM5_4XLarge :: GameServerGroupInstanceType
+pattern GSGITM5_4XLarge = GameServerGroupInstanceType' "m5.4xlarge"
 
-pattern R5_4XLarge :: GameServerGroupInstanceType
-pattern R5_4XLarge = GameServerGroupInstanceType' "r5.4xlarge"
+pattern GSGITM5_8XLarge :: GameServerGroupInstanceType
+pattern GSGITM5_8XLarge = GameServerGroupInstanceType' "m5.8xlarge"
 
-pattern R5_8XLarge :: GameServerGroupInstanceType
-pattern R5_8XLarge = GameServerGroupInstanceType' "r5.8xlarge"
+pattern GSGITM5_12XLarge :: GameServerGroupInstanceType
+pattern GSGITM5_12XLarge = GameServerGroupInstanceType' "m5.12xlarge"
 
-pattern R5_Large :: GameServerGroupInstanceType
-pattern R5_Large = GameServerGroupInstanceType' "r5.large"
+pattern GSGITM5_16XLarge :: GameServerGroupInstanceType
+pattern GSGITM5_16XLarge = GameServerGroupInstanceType' "m5.16xlarge"
 
-pattern R5_XLarge :: GameServerGroupInstanceType
-pattern R5_XLarge = GameServerGroupInstanceType' "r5.xlarge"
+pattern GSGITM5_24XLarge :: GameServerGroupInstanceType
+pattern GSGITM5_24XLarge = GameServerGroupInstanceType' "m5.24xlarge"
 
 {-# COMPLETE
-  C4_2XLarge,
-  C4_4XLarge,
-  C4_8XLarge,
-  C4_Large,
-  C4_XLarge,
-  C5_12XLarge,
-  C5_18XLarge,
-  C5_24XLarge,
-  C5_2XLarge,
-  C5_4XLarge,
-  C5_9XLarge,
-  C5_Large,
-  C5_XLarge,
-  M4_10XLarge,
-  M4_2XLarge,
-  M4_4XLarge,
-  M4_Large,
-  M4_XLarge,
-  M5_12XLarge,
-  M5_16XLarge,
-  M5_24XLarge,
-  M5_2XLarge,
-  M5_4XLarge,
-  M5_8XLarge,
-  M5_Large,
-  M5_XLarge,
-  R4_16XLarge,
-  R4_2XLarge,
-  R4_4XLarge,
-  R4_8XLarge,
-  R4_Large,
-  R4_XLarge,
-  R5_12XLarge,
-  R5_16XLarge,
-  R5_24XLarge,
-  R5_2XLarge,
-  R5_4XLarge,
-  R5_8XLarge,
-  R5_Large,
-  R5_XLarge,
+  GSGITC4_Large,
+  GSGITC4_XLarge,
+  GSGITC4_2XLarge,
+  GSGITC4_4XLarge,
+  GSGITC4_8XLarge,
+  GSGITC5_Large,
+  GSGITC5_XLarge,
+  GSGITC5_2XLarge,
+  GSGITC5_4XLarge,
+  GSGITC5_9XLarge,
+  GSGITC5_12XLarge,
+  GSGITC5_18XLarge,
+  GSGITC5_24XLarge,
+  GSGITR4_Large,
+  GSGITR4_XLarge,
+  GSGITR4_2XLarge,
+  GSGITR4_4XLarge,
+  GSGITR4_8XLarge,
+  GSGITR4_16XLarge,
+  GSGITR5_Large,
+  GSGITR5_XLarge,
+  GSGITR5_2XLarge,
+  GSGITR5_4XLarge,
+  GSGITR5_8XLarge,
+  GSGITR5_12XLarge,
+  GSGITR5_16XLarge,
+  GSGITR5_24XLarge,
+  GSGITM4_Large,
+  GSGITM4_XLarge,
+  GSGITM4_2XLarge,
+  GSGITM4_4XLarge,
+  GSGITM4_10XLarge,
+  GSGITM5_Large,
+  GSGITM5_XLarge,
+  GSGITM5_2XLarge,
+  GSGITM5_4XLarge,
+  GSGITM5_8XLarge,
+  GSGITM5_12XLarge,
+  GSGITM5_16XLarge,
+  GSGITM5_24XLarge,
   GameServerGroupInstanceType'
   #-}

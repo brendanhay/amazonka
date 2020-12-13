@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFollowModeScheduleActionStartSettings' smart constructor.
 data FollowModeScheduleActionStartSettings = FollowModeScheduleActionStartSettings'
-  { referenceActionName ::
-      Lude.Text,
-    followPoint ::
-      FollowPoint
+  { -- | The action name of another action that this one refers to.
+    referenceActionName :: Lude.Text,
+    -- | Identifies whether this action starts relative to the start or relative to the end of the reference action.
+    followPoint :: FollowPoint
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FollowModeScheduleActionStartSettings' with the minimum fields required to make a request.
 --
--- * 'followPoint' - Identifies whether this action starts relative to the start or relative to the end of the reference action.
 -- * 'referenceActionName' - The action name of another action that this one refers to.
+-- * 'followPoint' - Identifies whether this action starts relative to the start or relative to the end of the reference action.
 mkFollowModeScheduleActionStartSettings ::
   -- | 'referenceActionName'
   Lude.Text ->

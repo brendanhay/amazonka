@@ -13,11 +13,11 @@
 module Network.AWS.IAM.Types.EntityType
   ( EntityType
       ( EntityType',
-        ETAWSManagedPolicy,
+        ETUser,
+        ETRole,
         ETGroup,
         ETLocalManagedPolicy,
-        ETRole,
-        ETUser
+        ETAWSManagedPolicy
       ),
   )
 where
@@ -48,8 +48,11 @@ newtype EntityType = EntityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ETAWSManagedPolicy :: EntityType
-pattern ETAWSManagedPolicy = EntityType' "AWSManagedPolicy"
+pattern ETUser :: EntityType
+pattern ETUser = EntityType' "User"
+
+pattern ETRole :: EntityType
+pattern ETRole = EntityType' "Role"
 
 pattern ETGroup :: EntityType
 pattern ETGroup = EntityType' "Group"
@@ -57,17 +60,14 @@ pattern ETGroup = EntityType' "Group"
 pattern ETLocalManagedPolicy :: EntityType
 pattern ETLocalManagedPolicy = EntityType' "LocalManagedPolicy"
 
-pattern ETRole :: EntityType
-pattern ETRole = EntityType' "Role"
-
-pattern ETUser :: EntityType
-pattern ETUser = EntityType' "User"
+pattern ETAWSManagedPolicy :: EntityType
+pattern ETAWSManagedPolicy = EntityType' "AWSManagedPolicy"
 
 {-# COMPLETE
-  ETAWSManagedPolicy,
+  ETUser,
+  ETRole,
   ETGroup,
   ETLocalManagedPolicy,
-  ETRole,
-  ETUser,
+  ETAWSManagedPolicy,
   EntityType'
   #-}

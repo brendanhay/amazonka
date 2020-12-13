@@ -31,22 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputPrepareScheduleActionSettings' smart constructor.
 data InputPrepareScheduleActionSettings = InputPrepareScheduleActionSettings'
-  { inputAttachmentNameReference ::
-      Lude.Maybe Lude.Text,
-    inputClippingSettings ::
-      Lude.Maybe
-        InputClippingSettings,
-    urlPath ::
-      Lude.Maybe
-        [Lude.Text]
+  { -- | The name of the input attachment that should be prepared by this action. If no name is provided, the action will stop the most recent prepare (if any) when activated.
+    inputAttachmentNameReference :: Lude.Maybe Lude.Text,
+    -- | Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
+    inputClippingSettings :: Lude.Maybe InputClippingSettings,
+    -- | The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
+    urlPath :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputPrepareScheduleActionSettings' with the minimum fields required to make a request.

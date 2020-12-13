@@ -32,25 +32,21 @@ import Network.AWS.SSM.Types.PatchDeploymentStatus
 --
 -- /See:/ 'mkPatchStatus' smart constructor.
 data PatchStatus = PatchStatus'
-  { approvalDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
+    approvalDate :: Lude.Maybe Lude.Timestamp,
+    -- | The approval status of a patch (APPROVED, PENDING_APPROVAL, EXPLICIT_APPROVED, EXPLICIT_REJECTED).
     deploymentStatus :: Lude.Maybe PatchDeploymentStatus,
+    -- | The compliance severity level for a patch.
     complianceLevel :: Lude.Maybe PatchComplianceLevel
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchStatus' with the minimum fields required to make a request.
 --
 -- * 'approvalDate' - The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
--- * 'complianceLevel' - The compliance severity level for a patch.
 -- * 'deploymentStatus' - The approval status of a patch (APPROVED, PENDING_APPROVAL, EXPLICIT_APPROVED, EXPLICIT_REJECTED).
+-- * 'complianceLevel' - The compliance severity level for a patch.
 mkPatchStatus ::
   PatchStatus
 mkPatchStatus =

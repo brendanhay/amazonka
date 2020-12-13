@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.StorageGateway.SetLocalConsolePassword
     mkSetLocalConsolePassword,
 
     -- ** Request lenses
-    slcpGatewayARN,
     slcpLocalConsolePassword,
+    slcpGatewayARN,
 
     -- * Destructuring the response
     SetLocalConsolePasswordResponse (..),
@@ -42,36 +43,29 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkSetLocalConsolePassword' smart constructor.
 data SetLocalConsolePassword = SetLocalConsolePassword'
-  { gatewayARN ::
-      Lude.Text,
-    localConsolePassword ::
-      Lude.Sensitive Lude.Text
+  { -- | The password you want to set for your VM local console.
+    localConsolePassword :: Lude.Sensitive Lude.Text,
+    gatewayARN :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLocalConsolePassword' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
 -- * 'localConsolePassword' - The password you want to set for your VM local console.
+-- * 'gatewayARN' -
 mkSetLocalConsolePassword ::
-  -- | 'gatewayARN'
-  Lude.Text ->
   -- | 'localConsolePassword'
   Lude.Sensitive Lude.Text ->
+  -- | 'gatewayARN'
+  Lude.Text ->
   SetLocalConsolePassword
-mkSetLocalConsolePassword pGatewayARN_ pLocalConsolePassword_ =
+mkSetLocalConsolePassword pLocalConsolePassword_ pGatewayARN_ =
   SetLocalConsolePassword'
-    { gatewayARN = pGatewayARN_,
-      localConsolePassword = pLocalConsolePassword_
+    { localConsolePassword =
+        pLocalConsolePassword_,
+      gatewayARN = pGatewayARN_
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcpGatewayARN :: Lens.Lens' SetLocalConsolePassword Lude.Text
-slcpGatewayARN = Lens.lens (gatewayARN :: SetLocalConsolePassword -> Lude.Text) (\s a -> s {gatewayARN = a} :: SetLocalConsolePassword)
-{-# DEPRECATED slcpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The password you want to set for your VM local console.
 --
@@ -79,6 +73,13 @@ slcpGatewayARN = Lens.lens (gatewayARN :: SetLocalConsolePassword -> Lude.Text) 
 slcpLocalConsolePassword :: Lens.Lens' SetLocalConsolePassword (Lude.Sensitive Lude.Text)
 slcpLocalConsolePassword = Lens.lens (localConsolePassword :: SetLocalConsolePassword -> Lude.Sensitive Lude.Text) (\s a -> s {localConsolePassword = a} :: SetLocalConsolePassword)
 {-# DEPRECATED slcpLocalConsolePassword "Use generic-lens or generic-optics with 'localConsolePassword' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcpGatewayARN :: Lens.Lens' SetLocalConsolePassword Lude.Text
+slcpGatewayARN = Lens.lens (gatewayARN :: SetLocalConsolePassword -> Lude.Text) (\s a -> s {gatewayARN = a} :: SetLocalConsolePassword)
+{-# DEPRECATED slcpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 instance Lude.AWSRequest SetLocalConsolePassword where
   type Rs SetLocalConsolePassword = SetLocalConsolePasswordResponse
@@ -107,8 +108,8 @@ instance Lude.ToJSON SetLocalConsolePassword where
   toJSON SetLocalConsolePassword' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            Lude.Just ("LocalConsolePassword" Lude..= localConsolePassword)
+          [ Lude.Just ("LocalConsolePassword" Lude..= localConsolePassword),
+            Lude.Just ("GatewayARN" Lude..= gatewayARN)
           ]
       )
 
@@ -120,22 +121,16 @@ instance Lude.ToQuery SetLocalConsolePassword where
 
 -- | /See:/ 'mkSetLocalConsolePasswordResponse' smart constructor.
 data SetLocalConsolePasswordResponse = SetLocalConsolePasswordResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLocalConsolePasswordResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 -- * 'responseStatus' - The response status code.
 mkSetLocalConsolePasswordResponse ::
   -- | 'responseStatus'

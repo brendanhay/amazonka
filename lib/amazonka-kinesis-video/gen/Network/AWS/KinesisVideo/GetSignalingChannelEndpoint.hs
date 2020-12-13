@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.KinesisVideo.GetSignalingChannelEndpoint
     mkGetSignalingChannelEndpoint,
 
     -- ** Request lenses
-    gsceSingleMasterChannelEndpointConfiguration,
     gsceChannelARN,
+    gsceSingleMasterChannelEndpointConfiguration,
 
     -- * Destructuring the response
     GetSignalingChannelEndpointResponse (..),
@@ -43,18 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSignalingChannelEndpoint' smart constructor.
 data GetSignalingChannelEndpoint = GetSignalingChannelEndpoint'
-  { singleMasterChannelEndpointConfiguration ::
-      Lude.Maybe
-        SingleMasterChannelEndpointConfiguration,
-    channelARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.
+    channelARN :: Lude.Text,
+    -- | A structure containing the endpoint configuration for the @SINGLE_MASTER@ channel type.
+    singleMasterChannelEndpointConfiguration :: Lude.Maybe SingleMasterChannelEndpointConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSignalingChannelEndpoint' with the minimum fields required to make a request.
@@ -67,17 +62,9 @@ mkGetSignalingChannelEndpoint ::
   GetSignalingChannelEndpoint
 mkGetSignalingChannelEndpoint pChannelARN_ =
   GetSignalingChannelEndpoint'
-    { singleMasterChannelEndpointConfiguration =
-        Lude.Nothing,
-      channelARN = pChannelARN_
+    { channelARN = pChannelARN_,
+      singleMasterChannelEndpointConfiguration = Lude.Nothing
     }
-
--- | A structure containing the endpoint configuration for the @SINGLE_MASTER@ channel type.
---
--- /Note:/ Consider using 'singleMasterChannelEndpointConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsceSingleMasterChannelEndpointConfiguration :: Lens.Lens' GetSignalingChannelEndpoint (Lude.Maybe SingleMasterChannelEndpointConfiguration)
-gsceSingleMasterChannelEndpointConfiguration = Lens.lens (singleMasterChannelEndpointConfiguration :: GetSignalingChannelEndpoint -> Lude.Maybe SingleMasterChannelEndpointConfiguration) (\s a -> s {singleMasterChannelEndpointConfiguration = a} :: GetSignalingChannelEndpoint)
-{-# DEPRECATED gsceSingleMasterChannelEndpointConfiguration "Use generic-lens or generic-optics with 'singleMasterChannelEndpointConfiguration' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.
 --
@@ -85,6 +72,13 @@ gsceSingleMasterChannelEndpointConfiguration = Lens.lens (singleMasterChannelEnd
 gsceChannelARN :: Lens.Lens' GetSignalingChannelEndpoint Lude.Text
 gsceChannelARN = Lens.lens (channelARN :: GetSignalingChannelEndpoint -> Lude.Text) (\s a -> s {channelARN = a} :: GetSignalingChannelEndpoint)
 {-# DEPRECATED gsceChannelARN "Use generic-lens or generic-optics with 'channelARN' instead." #-}
+
+-- | A structure containing the endpoint configuration for the @SINGLE_MASTER@ channel type.
+--
+-- /Note:/ Consider using 'singleMasterChannelEndpointConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsceSingleMasterChannelEndpointConfiguration :: Lens.Lens' GetSignalingChannelEndpoint (Lude.Maybe SingleMasterChannelEndpointConfiguration)
+gsceSingleMasterChannelEndpointConfiguration = Lens.lens (singleMasterChannelEndpointConfiguration :: GetSignalingChannelEndpoint -> Lude.Maybe SingleMasterChannelEndpointConfiguration) (\s a -> s {singleMasterChannelEndpointConfiguration = a} :: GetSignalingChannelEndpoint)
+{-# DEPRECATED gsceSingleMasterChannelEndpointConfiguration "Use generic-lens or generic-optics with 'singleMasterChannelEndpointConfiguration' instead." #-}
 
 instance Lude.AWSRequest GetSignalingChannelEndpoint where
   type
@@ -106,9 +100,9 @@ instance Lude.ToJSON GetSignalingChannelEndpoint where
   toJSON GetSignalingChannelEndpoint' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SingleMasterChannelEndpointConfiguration" Lude..=)
-              Lude.<$> singleMasterChannelEndpointConfiguration,
-            Lude.Just ("ChannelARN" Lude..= channelARN)
+          [ Lude.Just ("ChannelARN" Lude..= channelARN),
+            ("SingleMasterChannelEndpointConfiguration" Lude..=)
+              Lude.<$> singleMasterChannelEndpointConfiguration
           ]
       )
 
@@ -120,19 +114,12 @@ instance Lude.ToQuery GetSignalingChannelEndpoint where
 
 -- | /See:/ 'mkGetSignalingChannelEndpointResponse' smart constructor.
 data GetSignalingChannelEndpointResponse = GetSignalingChannelEndpointResponse'
-  { resourceEndpointList ::
-      Lude.Maybe
-        [ResourceEndpointListItem],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of endpoints for the specified signaling channel.
+    resourceEndpointList :: Lude.Maybe [ResourceEndpointListItem],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSignalingChannelEndpointResponse' with the minimum fields required to make a request.

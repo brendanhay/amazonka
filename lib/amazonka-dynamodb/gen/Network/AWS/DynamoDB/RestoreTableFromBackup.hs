@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -65,37 +66,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRestoreTableFromBackup' smart constructor.
 data RestoreTableFromBackup = RestoreTableFromBackup'
-  { billingModeOverride ::
-      Lude.Maybe BillingMode,
-    globalSecondaryIndexOverride ::
-      Lude.Maybe [GlobalSecondaryIndex],
-    provisionedThroughputOverride ::
-      Lude.Maybe ProvisionedThroughput,
-    sSESpecificationOverride ::
-      Lude.Maybe SSESpecification,
-    localSecondaryIndexOverride ::
-      Lude.Maybe [LocalSecondaryIndex],
+  { -- | The billing mode of the restored table.
+    billingModeOverride :: Lude.Maybe BillingMode,
+    -- | List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
+    globalSecondaryIndexOverride :: Lude.Maybe [GlobalSecondaryIndex],
+    -- | Provisioned throughput settings for the restored table.
+    provisionedThroughputOverride :: Lude.Maybe ProvisionedThroughput,
+    -- | The new server-side encryption settings for the restored table.
+    sSESpecificationOverride :: Lude.Maybe SSESpecification,
+    -- | List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
+    localSecondaryIndexOverride :: Lude.Maybe [LocalSecondaryIndex],
+    -- | The name of the new table to which the backup must be restored.
     targetTableName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) associated with the backup.
     backupARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreTableFromBackup' with the minimum fields required to make a request.
 --
--- * 'backupARN' - The Amazon Resource Name (ARN) associated with the backup.
 -- * 'billingModeOverride' - The billing mode of the restored table.
 -- * 'globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
--- * 'localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
 -- * 'provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
 -- * 'sSESpecificationOverride' - The new server-side encryption settings for the restored table.
+-- * 'localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
 -- * 'targetTableName' - The name of the new table to which the backup must be restored.
+-- * 'backupARN' - The Amazon Resource Name (ARN) associated with the backup.
 mkRestoreTableFromBackup ::
   -- | 'targetTableName'
   Lude.Text ->
@@ -210,23 +207,18 @@ instance Lude.ToQuery RestoreTableFromBackup where
 
 -- | /See:/ 'mkRestoreTableFromBackupResponse' smart constructor.
 data RestoreTableFromBackupResponse = RestoreTableFromBackupResponse'
-  { tableDescription ::
-      Lude.Maybe TableDescription,
+  { -- | The description of the table created from an existing backup.
+    tableDescription :: Lude.Maybe TableDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreTableFromBackupResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tableDescription' - The description of the table created from an existing backup.
+-- * 'responseStatus' - The response status code.
 mkRestoreTableFromBackupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDocumentClassificationJob' smart constructor.
 newtype DescribeDocumentClassificationJob = DescribeDocumentClassificationJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentClassificationJob' with the minimum fields required to make a request.
@@ -106,19 +101,12 @@ instance Lude.ToQuery DescribeDocumentClassificationJob where
 
 -- | /See:/ 'mkDescribeDocumentClassificationJobResponse' smart constructor.
 data DescribeDocumentClassificationJobResponse = DescribeDocumentClassificationJobResponse'
-  { documentClassificationJobProperties ::
-      Lude.Maybe
-        DocumentClassificationJobProperties,
-    responseStatus ::
-      Lude.Int
+  { -- | An object that describes the properties associated with the document classification job.
+    documentClassificationJobProperties :: Lude.Maybe DocumentClassificationJobProperties,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentClassificationJobResponse' with the minimum fields required to make a request.

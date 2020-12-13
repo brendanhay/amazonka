@@ -34,36 +34,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroupType' smart constructor.
 data GroupType = GroupType'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the group was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The user pool ID for the user pool.
     userPoolId :: Lude.Maybe Lude.Text,
+    -- | The date the group was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens. Groups with higher @Precedence@ values take precedence over groups with lower @Precedence@ values or with null @Precedence@ values.
+    --
+    -- Two groups can have the same @Precedence@ value. If this happens, neither group takes precedence over the other. If two groups with the same @Precedence@ have the same role ARN, that role is used in the @cognito:preferred_role@ claim in tokens for users in each group. If the two groups have different role ARNs, the @cognito:preferred_role@ claim is not set in users' tokens.
+    -- The default @Precedence@ value is null.
     precedence :: Lude.Maybe Lude.Natural,
+    -- | The name of the group.
     groupName :: Lude.Maybe Lude.Text,
+    -- | A string containing the description of the group.
     description :: Lude.Maybe Lude.Text,
+    -- | The role ARN for the group.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupType' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The date the group was created.
--- * 'description' - A string containing the description of the group.
--- * 'groupName' - The name of the group.
 -- * 'lastModifiedDate' - The date the group was last modified.
+-- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'creationDate' - The date the group was created.
 -- * 'precedence' - A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens. Groups with higher @Precedence@ values take precedence over groups with lower @Precedence@ values or with null @Precedence@ values.
 --
 -- Two groups can have the same @Precedence@ value. If this happens, neither group takes precedence over the other. If two groups with the same @Precedence@ have the same role ARN, that role is used in the @cognito:preferred_role@ claim in tokens for users in each group. If the two groups have different role ARNs, the @cognito:preferred_role@ claim is not set in users' tokens.
 -- The default @Precedence@ value is null.
+-- * 'groupName' - The name of the group.
+-- * 'description' - A string containing the description of the group.
 -- * 'roleARN' - The role ARN for the group.
--- * 'userPoolId' - The user pool ID for the user pool.
 mkGroupType ::
   GroupType
 mkGroupType =

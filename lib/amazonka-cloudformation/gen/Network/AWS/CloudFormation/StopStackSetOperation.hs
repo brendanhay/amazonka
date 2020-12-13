@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudFormation.StopStackSetOperation
     mkStopStackSetOperation,
 
     -- ** Request lenses
-    sssoStackSetName,
     sssoOperationId,
+    sssoStackSetName,
 
     -- * Destructuring the response
     StopStackSetOperationResponse (..),
@@ -39,17 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopStackSetOperation' smart constructor.
 data StopStackSetOperation = StopStackSetOperation'
-  { stackSetName ::
-      Lude.Text,
-    operationId :: Lude.Text
+  { -- | The ID of the stack operation.
+    operationId :: Lude.Text,
+    -- | The name or unique ID of the stack set that you want to stop the operation for.
+    stackSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStackSetOperation' with the minimum fields required to make a request.
@@ -57,23 +53,16 @@ data StopStackSetOperation = StopStackSetOperation'
 -- * 'operationId' - The ID of the stack operation.
 -- * 'stackSetName' - The name or unique ID of the stack set that you want to stop the operation for.
 mkStopStackSetOperation ::
-  -- | 'stackSetName'
-  Lude.Text ->
   -- | 'operationId'
   Lude.Text ->
+  -- | 'stackSetName'
+  Lude.Text ->
   StopStackSetOperation
-mkStopStackSetOperation pStackSetName_ pOperationId_ =
+mkStopStackSetOperation pOperationId_ pStackSetName_ =
   StopStackSetOperation'
-    { stackSetName = pStackSetName_,
-      operationId = pOperationId_
+    { operationId = pOperationId_,
+      stackSetName = pStackSetName_
     }
-
--- | The name or unique ID of the stack set that you want to stop the operation for.
---
--- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssoStackSetName :: Lens.Lens' StopStackSetOperation Lude.Text
-sssoStackSetName = Lens.lens (stackSetName :: StopStackSetOperation -> Lude.Text) (\s a -> s {stackSetName = a} :: StopStackSetOperation)
-{-# DEPRECATED sssoStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 -- | The ID of the stack operation.
 --
@@ -81,6 +70,13 @@ sssoStackSetName = Lens.lens (stackSetName :: StopStackSetOperation -> Lude.Text
 sssoOperationId :: Lens.Lens' StopStackSetOperation Lude.Text
 sssoOperationId = Lens.lens (operationId :: StopStackSetOperation -> Lude.Text) (\s a -> s {operationId = a} :: StopStackSetOperation)
 {-# DEPRECATED sssoOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The name or unique ID of the stack set that you want to stop the operation for.
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssoStackSetName :: Lens.Lens' StopStackSetOperation Lude.Text
+sssoStackSetName = Lens.lens (stackSetName :: StopStackSetOperation -> Lude.Text) (\s a -> s {stackSetName = a} :: StopStackSetOperation)
+{-# DEPRECATED sssoStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 instance Lude.AWSRequest StopStackSetOperation where
   type Rs StopStackSetOperation = StopStackSetOperationResponse
@@ -104,22 +100,16 @@ instance Lude.ToQuery StopStackSetOperation where
     Lude.mconcat
       [ "Action" Lude.=: ("StopStackSetOperation" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "StackSetName" Lude.=: stackSetName,
-        "OperationId" Lude.=: operationId
+        "OperationId" Lude.=: operationId,
+        "StackSetName" Lude.=: stackSetName
       ]
 
 -- | /See:/ 'mkStopStackSetOperationResponse' smart constructor.
 newtype StopStackSetOperationResponse = StopStackSetOperationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopStackSetOperationResponse' with the minimum fields required to make a request.

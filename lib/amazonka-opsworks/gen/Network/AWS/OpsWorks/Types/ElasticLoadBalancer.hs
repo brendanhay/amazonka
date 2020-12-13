@@ -36,37 +36,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticLoadBalancer' smart constructor.
 data ElasticLoadBalancer = ElasticLoadBalancer'
-  { subnetIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of subnet IDs, if the stack is running in a VPC.
+    subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The VPC ID.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | A list of Availability Zones.
     availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The instance's AWS region.
     region :: Lude.Maybe Lude.Text,
+    -- | The Elastic Load Balancing instance's name.
     elasticLoadBalancerName :: Lude.Maybe Lude.Text,
+    -- | The ID of the stack that the instance is associated with.
     stackId :: Lude.Maybe Lude.Text,
+    -- | A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.
     ec2InstanceIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the layer that the instance is attached to.
     layerId :: Lude.Maybe Lude.Text,
+    -- | The instance's public DNS name.
     dnsName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticLoadBalancer' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - A list of Availability Zones.
--- * 'dnsName' - The instance's public DNS name.
--- * 'ec2InstanceIds' - A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.
--- * 'elasticLoadBalancerName' - The Elastic Load Balancing instance's name.
--- * 'layerId' - The ID of the layer that the instance is attached to.
--- * 'region' - The instance's AWS region.
--- * 'stackId' - The ID of the stack that the instance is associated with.
 -- * 'subnetIds' - A list of subnet IDs, if the stack is running in a VPC.
 -- * 'vpcId' - The VPC ID.
+-- * 'availabilityZones' - A list of Availability Zones.
+-- * 'region' - The instance's AWS region.
+-- * 'elasticLoadBalancerName' - The Elastic Load Balancing instance's name.
+-- * 'stackId' - The ID of the stack that the instance is associated with.
+-- * 'ec2InstanceIds' - A list of the EC2 instances that the Elastic Load Balancing instance is managing traffic for.
+-- * 'layerId' - The ID of the layer that the instance is attached to.
+-- * 'dnsName' - The instance's public DNS name.
 mkElasticLoadBalancer ::
   ElasticLoadBalancer
 mkElasticLoadBalancer =

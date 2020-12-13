@@ -36,32 +36,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolume' smart constructor.
 data Volume = Volume'
-  { dockerVolumeConfiguration ::
-      Lude.Maybe DockerVolumeConfiguration,
-    fsxWindowsFileServerVolumeConfiguration ::
-      Lude.Maybe FSxWindowsFileServerVolumeConfiguration,
+  { -- | This parameter is specified when you are using Docker volumes. Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the @local@ driver. To use bind mounts, specify the @host@ parameter instead.
+    dockerVolumeConfiguration :: Lude.Maybe DockerVolumeConfiguration,
+    -- | This parameter is specified when you are using Amazon FSx for Windows File Server file system for task storage.
+    fsxWindowsFileServerVolumeConfiguration :: Lude.Maybe FSxWindowsFileServerVolumeConfiguration,
+    -- | The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
     name :: Lude.Maybe Lude.Text,
+    -- | This parameter is specified when you are using an Amazon Elastic File System file system for task storage.
     efsVolumeConfiguration :: Lude.Maybe EFSVolumeConfiguration,
+    -- | This parameter is specified when you are using bind mount host volumes. The contents of the @host@ parameter determine whether your bind mount host volume persists on the host container instance and where it is stored. If the @host@ parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
+    --
+    -- Windows containers can mount whole directories on the same drive as @> env:ProgramData@ . Windows containers cannot mount directories on a different drive, and mount point cannot be across drives. For example, you can mount @C:\my\path:C:\my\path@ and @D:\:D:\@ , but not @D:\my\path:C:\my\path@ or @D:\:C:\my\path@ .
     host :: Lude.Maybe HostVolumeProperties
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Volume' with the minimum fields required to make a request.
 --
 -- * 'dockerVolumeConfiguration' - This parameter is specified when you are using Docker volumes. Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the @local@ driver. To use bind mounts, specify the @host@ parameter instead.
--- * 'efsVolumeConfiguration' - This parameter is specified when you are using an Amazon Elastic File System file system for task storage.
 -- * 'fsxWindowsFileServerVolumeConfiguration' - This parameter is specified when you are using Amazon FSx for Windows File Server file system for task storage.
+-- * 'name' - The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
+-- * 'efsVolumeConfiguration' - This parameter is specified when you are using an Amazon Elastic File System file system for task storage.
 -- * 'host' - This parameter is specified when you are using bind mount host volumes. The contents of the @host@ parameter determine whether your bind mount host volume persists on the host container instance and where it is stored. If the @host@ parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data is not guaranteed to persist after the containers associated with it stop running.
 --
 -- Windows containers can mount whole directories on the same drive as @> env:ProgramData@ . Windows containers cannot mount directories on a different drive, and mount point cannot be across drives. For example, you can mount @C:\my\path:C:\my\path@ and @D:\:D:\@ , but not @D:\my\path:C:\my\path@ or @D:\:C:\my\path@ .
--- * 'name' - The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the @sourceVolume@ parameter of container definition @mountPoints@ .
 mkVolume ::
   Volume
 mkVolume =

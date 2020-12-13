@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,35 +45,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-  { attribute ::
-      Lude.Maybe SnapshotAttributeName,
-    createVolumePermission ::
-      Lude.Maybe
-        CreateVolumePermissionModifications,
+  { -- | The snapshot attribute to modify. Only volume creation permissions can be modified.
+    attribute :: Lude.Maybe SnapshotAttributeName,
+    -- | A JSON representation of the snapshot attribute modification.
+    createVolumePermission :: Lude.Maybe CreateVolumePermissionModifications,
+    -- | The account ID to modify for the snapshot.
     userIds :: Lude.Maybe [Lude.Text],
+    -- | The group to modify for the snapshot.
     groupNames :: Lude.Maybe [Lude.Text],
+    -- | The type of operation to perform to the attribute.
     operationType :: Lude.Maybe OperationType,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The ID of the snapshot.
     snapshotId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifySnapshotAttribute' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The snapshot attribute to modify. Only volume creation permissions can be modified.
 -- * 'createVolumePermission' - A JSON representation of the snapshot attribute modification.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'userIds' - The account ID to modify for the snapshot.
 -- * 'groupNames' - The group to modify for the snapshot.
 -- * 'operationType' - The type of operation to perform to the attribute.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'snapshotId' - The ID of the snapshot.
--- * 'userIds' - The account ID to modify for the snapshot.
 mkModifySnapshotAttribute ::
   -- | 'snapshotId'
   Lude.Text ->
@@ -164,13 +163,7 @@ instance Lude.ToQuery ModifySnapshotAttribute where
 
 -- | /See:/ 'mkModifySnapshotAttributeResponse' smart constructor.
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifySnapshotAttributeResponse' with the minimum fields required to make a request.

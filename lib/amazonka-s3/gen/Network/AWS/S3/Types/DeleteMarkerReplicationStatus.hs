@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.DeleteMarkerReplicationStatus
   ( DeleteMarkerReplicationStatus
       ( DeleteMarkerReplicationStatus',
-        DMRSDisabled,
-        DMRSEnabled
+        DMRSEnabled,
+        DMRSDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype DeleteMarkerReplicationStatus = DeleteMarkerReplicationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DMRSDisabled :: DeleteMarkerReplicationStatus
-pattern DMRSDisabled = DeleteMarkerReplicationStatus' "Disabled"
-
 pattern DMRSEnabled :: DeleteMarkerReplicationStatus
 pattern DMRSEnabled = DeleteMarkerReplicationStatus' "Enabled"
 
+pattern DMRSDisabled :: DeleteMarkerReplicationStatus
+pattern DMRSDisabled = DeleteMarkerReplicationStatus' "Disabled"
+
 {-# COMPLETE
-  DMRSDisabled,
   DMRSEnabled,
+  DMRSDisabled,
   DeleteMarkerReplicationStatus'
   #-}

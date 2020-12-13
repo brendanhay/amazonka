@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,12 +43,12 @@ module Network.AWS.S3.ListParts
 
     -- ** Request lenses
     lpMaxParts,
-    lpRequestPayer,
-    lpPartNumberMarker,
-    lpExpectedBucketOwner,
     lpBucket,
+    lpRequestPayer,
     lpKey,
+    lpPartNumberMarker,
     lpUploadId,
+    lpExpectedBucketOwner,
 
     -- * Destructuring the response
     ListPartsResponse (..),
@@ -81,35 +82,38 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkListParts' smart constructor.
 data ListParts = ListParts'
-  { maxParts :: Lude.Maybe Lude.Int,
-    requestPayer :: Lude.Maybe RequestPayer,
-    partNumberMarker :: Lude.Maybe Lude.Int,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | Sets the maximum number of parts to return.
+    maxParts :: Lude.Maybe Lude.Int,
+    -- | The name of the bucket to which the parts are being uploaded.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
+    requestPayer :: Lude.Maybe RequestPayer,
+    -- | Object key for which the multipart upload was initiated.
     key :: ObjectKey,
-    uploadId :: Lude.Text
+    -- | Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
+    partNumberMarker :: Lude.Maybe Lude.Int,
+    -- | Upload ID identifying the multipart upload whose parts are being listed.
+    uploadId :: Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListParts' with the minimum fields required to make a request.
 --
+-- * 'maxParts' - Sets the maximum number of parts to return.
 -- * 'bucket' - The name of the bucket to which the parts are being uploaded.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'requestPayer' -
 -- * 'key' - Object key for which the multipart upload was initiated.
--- * 'maxParts' - Sets the maximum number of parts to return.
 -- * 'partNumberMarker' - Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
--- * 'requestPayer' - Undocumented field.
 -- * 'uploadId' - Upload ID identifying the multipart upload whose parts are being listed.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkListParts ::
   -- | 'bucket'
   BucketName ->
@@ -121,12 +125,12 @@ mkListParts ::
 mkListParts pBucket_ pKey_ pUploadId_ =
   ListParts'
     { maxParts = Lude.Nothing,
-      requestPayer = Lude.Nothing,
-      partNumberMarker = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
       bucket = pBucket_,
+      requestPayer = Lude.Nothing,
       key = pKey_,
-      uploadId = pUploadId_
+      partNumberMarker = Lude.Nothing,
+      uploadId = pUploadId_,
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | Sets the maximum number of parts to return.
@@ -135,27 +139,6 @@ mkListParts pBucket_ pKey_ pUploadId_ =
 lpMaxParts :: Lens.Lens' ListParts (Lude.Maybe Lude.Int)
 lpMaxParts = Lens.lens (maxParts :: ListParts -> Lude.Maybe Lude.Int) (\s a -> s {maxParts = a} :: ListParts)
 {-# DEPRECATED lpMaxParts "Use generic-lens or generic-optics with 'maxParts' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpRequestPayer :: Lens.Lens' ListParts (Lude.Maybe RequestPayer)
-lpRequestPayer = Lens.lens (requestPayer :: ListParts -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: ListParts)
-{-# DEPRECATED lpRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
-
--- | Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
---
--- /Note:/ Consider using 'partNumberMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpPartNumberMarker :: Lens.Lens' ListParts (Lude.Maybe Lude.Int)
-lpPartNumberMarker = Lens.lens (partNumberMarker :: ListParts -> Lude.Maybe Lude.Int) (\s a -> s {partNumberMarker = a} :: ListParts)
-{-# DEPRECATED lpPartNumberMarker "Use generic-lens or generic-optics with 'partNumberMarker' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpExpectedBucketOwner :: Lens.Lens' ListParts (Lude.Maybe Lude.Text)
-lpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListParts -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListParts)
-{-# DEPRECATED lpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket to which the parts are being uploaded.
 --
@@ -167,6 +150,13 @@ lpBucket :: Lens.Lens' ListParts BucketName
 lpBucket = Lens.lens (bucket :: ListParts -> BucketName) (\s a -> s {bucket = a} :: ListParts)
 {-# DEPRECATED lpBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpRequestPayer :: Lens.Lens' ListParts (Lude.Maybe RequestPayer)
+lpRequestPayer = Lens.lens (requestPayer :: ListParts -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: ListParts)
+{-# DEPRECATED lpRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
 -- | Object key for which the multipart upload was initiated.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -174,12 +164,26 @@ lpKey :: Lens.Lens' ListParts ObjectKey
 lpKey = Lens.lens (key :: ListParts -> ObjectKey) (\s a -> s {key = a} :: ListParts)
 {-# DEPRECATED lpKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
+-- | Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
+--
+-- /Note:/ Consider using 'partNumberMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpPartNumberMarker :: Lens.Lens' ListParts (Lude.Maybe Lude.Int)
+lpPartNumberMarker = Lens.lens (partNumberMarker :: ListParts -> Lude.Maybe Lude.Int) (\s a -> s {partNumberMarker = a} :: ListParts)
+{-# DEPRECATED lpPartNumberMarker "Use generic-lens or generic-optics with 'partNumberMarker' instead." #-}
+
 -- | Upload ID identifying the multipart upload whose parts are being listed.
 --
 -- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lpUploadId :: Lens.Lens' ListParts Lude.Text
 lpUploadId = Lens.lens (uploadId :: ListParts -> Lude.Text) (\s a -> s {uploadId = a} :: ListParts)
 {-# DEPRECATED lpUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpExpectedBucketOwner :: Lens.Lens' ListParts (Lude.Maybe Lude.Text)
+lpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListParts -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListParts)
+{-# DEPRECATED lpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Page.AWSPager ListParts where
   page rq rs
@@ -236,51 +240,60 @@ instance Lude.ToQuery ListParts where
 
 -- | /See:/ 'mkListPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-  { parts ::
-      Lude.Maybe [Part],
+  { -- | Container for elements related to a particular part. A response can contain zero or more @Part@ elements.
+    parts :: Lude.Maybe [Part],
     requestCharged :: Lude.Maybe RequestCharged,
+    -- | Maximum number of parts that were allowed in the response.
     maxParts :: Lude.Maybe Lude.Int,
+    -- | Container element that identifies who initiated the multipart upload. If the initiator is an AWS account, this element provides the same information as the @Owner@ element. If the initiator is an IAM User, this element provides the user ARN and display name.
     initiator :: Lude.Maybe Initiator,
+    -- | The name of the bucket to which the multipart upload was initiated.
     bucket :: Lude.Maybe BucketName,
+    -- | If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy> .
+    --
+    -- The response will also include the @x-amz-abort-rule-id@ header that will provide the ID of the lifecycle configuration rule that defines this action.
     abortDate :: Lude.Maybe Lude.DateTime,
+    -- | When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
     nextPartNumberMarker :: Lude.Maybe Lude.Int,
+    -- | This header is returned along with the @x-amz-abort-date@ header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
     abortRuleId :: Lude.Maybe Lude.Text,
+    -- | Container element that identifies the object owner, after the object is created. If multipart upload is initiated by an IAM user, this element provides the parent account ID and display name.
     owner :: Lude.Maybe Owner,
+    -- | Object key for which the multipart upload was initiated.
     key :: Lude.Maybe ObjectKey,
+    -- | Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded object.
     storageClass :: Lude.Maybe StorageClass,
+    -- | Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.
     isTruncated :: Lude.Maybe Lude.Bool,
+    -- | When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
     partNumberMarker :: Lude.Maybe Lude.Int,
+    -- | Upload ID identifying the multipart upload whose parts are being listed.
     uploadId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPartsResponse' with the minimum fields required to make a request.
 --
+-- * 'parts' - Container for elements related to a particular part. A response can contain zero or more @Part@ elements.
+-- * 'requestCharged' -
+-- * 'maxParts' - Maximum number of parts that were allowed in the response.
+-- * 'initiator' - Container element that identifies who initiated the multipart upload. If the initiator is an AWS account, this element provides the same information as the @Owner@ element. If the initiator is an IAM User, this element provides the user ARN and display name.
+-- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
 -- * 'abortDate' - If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy> .
 --
 -- The response will also include the @x-amz-abort-rule-id@ header that will provide the ID of the lifecycle configuration rule that defines this action.
--- * 'abortRuleId' - This header is returned along with the @x-amz-abort-date@ header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
--- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
--- * 'initiator' - Container element that identifies who initiated the multipart upload. If the initiator is an AWS account, this element provides the same information as the @Owner@ element. If the initiator is an IAM User, this element provides the user ARN and display name.
--- * 'isTruncated' - Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.
--- * 'key' - Object key for which the multipart upload was initiated.
--- * 'maxParts' - Maximum number of parts that were allowed in the response.
 -- * 'nextPartNumberMarker' - When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
+-- * 'abortRuleId' - This header is returned along with the @x-amz-abort-date@ header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
 -- * 'owner' - Container element that identifies the object owner, after the object is created. If multipart upload is initiated by an IAM user, this element provides the parent account ID and display name.
--- * 'partNumberMarker' - When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
--- * 'parts' - Container for elements related to a particular part. A response can contain zero or more @Part@ elements.
--- * 'requestCharged' - Undocumented field.
--- * 'responseStatus' - The response status code.
+-- * 'key' - Object key for which the multipart upload was initiated.
 -- * 'storageClass' - Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded object.
+-- * 'isTruncated' - Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.
+-- * 'partNumberMarker' - When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
 -- * 'uploadId' - Upload ID identifying the multipart upload whose parts are being listed.
+-- * 'responseStatus' - The response status code.
 mkListPartsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

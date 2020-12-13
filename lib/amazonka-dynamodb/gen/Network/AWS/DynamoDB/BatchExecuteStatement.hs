@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchExecuteStatement' smart constructor.
 newtype BatchExecuteStatement = BatchExecuteStatement'
-  { statements ::
-      Lude.NonEmpty BatchStatementRequest
+  { -- | The list of PartiQL statements representing the batch to run.
+    statements :: Lude.NonEmpty BatchStatementRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchExecuteStatement' with the minimum fields required to make a request.
@@ -103,24 +98,18 @@ instance Lude.ToQuery BatchExecuteStatement where
 
 -- | /See:/ 'mkBatchExecuteStatementResponse' smart constructor.
 data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
-  { responses ::
-      Lude.Maybe
-        [BatchStatementResponse],
+  { -- | The response to each PartiQL statement in the batch.
+    responses :: Lude.Maybe [BatchStatementResponse],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchExecuteStatementResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'responses' - The response to each PartiQL statement in the batch.
+-- * 'responseStatus' - The response status code.
 mkBatchExecuteStatementResponse ::
   -- | 'responseStatus'
   Lude.Int ->

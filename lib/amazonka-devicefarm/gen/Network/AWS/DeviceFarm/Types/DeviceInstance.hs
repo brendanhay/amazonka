@@ -35,31 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceInstance' smart constructor.
 data DeviceInstance = DeviceInstance'
-  { status ::
-      Lude.Maybe InstanceStatus,
+  { -- | The status of the device instance. Valid values are listed here.
+    status :: Lude.Maybe InstanceStatus,
+    -- | Unique device identifier for the device instance.
     udid :: Lude.Maybe Lude.Text,
+    -- | A object that contains information about the instance profile.
     instanceProfile :: Lude.Maybe InstanceProfile,
+    -- | The Amazon Resource Name (ARN) of the device instance.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ARN of the device.
     deviceARN :: Lude.Maybe Lude.Text,
+    -- | An array of strings that describe the device instance.
     labels :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceInstance' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the device instance.
--- * 'deviceARN' - The ARN of the device.
--- * 'instanceProfile' - A object that contains information about the instance profile.
--- * 'labels' - An array of strings that describe the device instance.
 -- * 'status' - The status of the device instance. Valid values are listed here.
 -- * 'udid' - Unique device identifier for the device instance.
+-- * 'instanceProfile' - A object that contains information about the instance profile.
+-- * 'arn' - The Amazon Resource Name (ARN) of the device instance.
+-- * 'deviceARN' - The ARN of the device.
+-- * 'labels' - An array of strings that describe the device instance.
 mkDeviceInstance ::
   DeviceInstance
 mkDeviceInstance =

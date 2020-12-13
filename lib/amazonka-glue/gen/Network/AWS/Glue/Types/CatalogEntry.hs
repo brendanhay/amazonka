@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCatalogEntry' smart constructor.
 data CatalogEntry = CatalogEntry'
-  { databaseName :: Lude.Text,
+  { -- | The database in which the table metadata resides.
+    databaseName :: Lude.Text,
+    -- | The name of the table in question.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CatalogEntry' with the minimum fields required to make a request.

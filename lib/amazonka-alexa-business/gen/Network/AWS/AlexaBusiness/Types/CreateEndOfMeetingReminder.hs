@@ -17,9 +17,9 @@ module Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder
     mkCreateEndOfMeetingReminder,
 
     -- * Lenses
+    ceomrEnabled,
     ceomrReminderAtMinutes,
     ceomrReminderType,
-    ceomrEnabled,
   )
 where
 
@@ -31,19 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreateEndOfMeetingReminder' smart constructor.
 data CreateEndOfMeetingReminder = CreateEndOfMeetingReminder'
-  { reminderAtMinutes ::
-      Lude.NonEmpty Lude.Int,
-    reminderType ::
-      EndOfMeetingReminderType,
-    enabled :: Lude.Bool
+  { -- | Whether an end of meeting reminder is enabled or not.
+    enabled :: Lude.Bool,
+    -- | A range of 3 to 15 minutes that determines when the reminder begins.
+    reminderAtMinutes :: Lude.NonEmpty Lude.Int,
+    -- | The type of sound that users hear during the end of meeting reminder.
+    reminderType :: EndOfMeetingReminderType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEndOfMeetingReminder' with the minimum fields required to make a request.
@@ -52,23 +47,29 @@ data CreateEndOfMeetingReminder = CreateEndOfMeetingReminder'
 -- * 'reminderAtMinutes' - A range of 3 to 15 minutes that determines when the reminder begins.
 -- * 'reminderType' - The type of sound that users hear during the end of meeting reminder.
 mkCreateEndOfMeetingReminder ::
+  -- | 'enabled'
+  Lude.Bool ->
   -- | 'reminderAtMinutes'
   Lude.NonEmpty Lude.Int ->
   -- | 'reminderType'
   EndOfMeetingReminderType ->
-  -- | 'enabled'
-  Lude.Bool ->
   CreateEndOfMeetingReminder
 mkCreateEndOfMeetingReminder
+  pEnabled_
   pReminderAtMinutes_
-  pReminderType_
-  pEnabled_ =
+  pReminderType_ =
     CreateEndOfMeetingReminder'
-      { reminderAtMinutes =
-          pReminderAtMinutes_,
-        reminderType = pReminderType_,
-        enabled = pEnabled_
+      { enabled = pEnabled_,
+        reminderAtMinutes = pReminderAtMinutes_,
+        reminderType = pReminderType_
       }
+
+-- | Whether an end of meeting reminder is enabled or not.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceomrEnabled :: Lens.Lens' CreateEndOfMeetingReminder Lude.Bool
+ceomrEnabled = Lens.lens (enabled :: CreateEndOfMeetingReminder -> Lude.Bool) (\s a -> s {enabled = a} :: CreateEndOfMeetingReminder)
+{-# DEPRECATED ceomrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | A range of 3 to 15 minutes that determines when the reminder begins.
 --
@@ -84,19 +85,12 @@ ceomrReminderType :: Lens.Lens' CreateEndOfMeetingReminder EndOfMeetingReminderT
 ceomrReminderType = Lens.lens (reminderType :: CreateEndOfMeetingReminder -> EndOfMeetingReminderType) (\s a -> s {reminderType = a} :: CreateEndOfMeetingReminder)
 {-# DEPRECATED ceomrReminderType "Use generic-lens or generic-optics with 'reminderType' instead." #-}
 
--- | Whether an end of meeting reminder is enabled or not.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceomrEnabled :: Lens.Lens' CreateEndOfMeetingReminder Lude.Bool
-ceomrEnabled = Lens.lens (enabled :: CreateEndOfMeetingReminder -> Lude.Bool) (\s a -> s {enabled = a} :: CreateEndOfMeetingReminder)
-{-# DEPRECATED ceomrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
 instance Lude.ToJSON CreateEndOfMeetingReminder where
   toJSON CreateEndOfMeetingReminder' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ReminderAtMinutes" Lude..= reminderAtMinutes),
-            Lude.Just ("ReminderType" Lude..= reminderType),
-            Lude.Just ("Enabled" Lude..= enabled)
+          [ Lude.Just ("Enabled" Lude..= enabled),
+            Lude.Just ("ReminderAtMinutes" Lude..= reminderAtMinutes),
+            Lude.Just ("ReminderType" Lude..= reminderType)
           ]
       )

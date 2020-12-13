@@ -13,9 +13,9 @@
 module Network.AWS.CodeDeploy.Types.TagFilterType
   ( TagFilterType
       ( TagFilterType',
-        TFTKeyAndValue,
         TFTKeyOnly,
-        TFTValueOnly
+        TFTValueOnly,
+        TFTKeyAndValue
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype TagFilterType = TagFilterType' Lude.Text
       Lude.ToHeader
     )
 
-pattern TFTKeyAndValue :: TagFilterType
-pattern TFTKeyAndValue = TagFilterType' "KEY_AND_VALUE"
-
 pattern TFTKeyOnly :: TagFilterType
 pattern TFTKeyOnly = TagFilterType' "KEY_ONLY"
 
 pattern TFTValueOnly :: TagFilterType
 pattern TFTValueOnly = TagFilterType' "VALUE_ONLY"
 
+pattern TFTKeyAndValue :: TagFilterType
+pattern TFTKeyAndValue = TagFilterType' "KEY_AND_VALUE"
+
 {-# COMPLETE
-  TFTKeyAndValue,
   TFTKeyOnly,
   TFTValueOnly,
+  TFTKeyAndValue,
   TagFilterType'
   #-}

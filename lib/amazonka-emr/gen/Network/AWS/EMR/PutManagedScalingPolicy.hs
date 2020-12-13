@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,18 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutManagedScalingPolicy' smart constructor.
 data PutManagedScalingPolicy = PutManagedScalingPolicy'
-  { clusterId ::
-      Lude.Text,
-    managedScalingPolicy ::
-      ManagedScalingPolicy
+  { -- | Specifies the ID of an EMR cluster where the managed scaling policy is attached.
+    clusterId :: Lude.Text,
+    -- | Specifies the constraints for the managed scaling policy.
+    managedScalingPolicy :: ManagedScalingPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutManagedScalingPolicy' with the minimum fields required to make a request.
@@ -121,16 +116,10 @@ instance Lude.ToQuery PutManagedScalingPolicy where
 
 -- | /See:/ 'mkPutManagedScalingPolicyResponse' smart constructor.
 newtype PutManagedScalingPolicyResponse = PutManagedScalingPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutManagedScalingPolicyResponse' with the minimum fields required to make a request.

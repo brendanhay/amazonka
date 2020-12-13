@@ -36,28 +36,27 @@ import Network.AWS.S3.Types.RoutingRule
 --
 -- /See:/ 'mkWebsiteConfiguration' smart constructor.
 data WebsiteConfiguration = WebsiteConfiguration'
-  { redirectAllRequestsTo ::
-      Lude.Maybe RedirectAllRequestsTo,
+  { -- | The redirect behavior for every request to this bucket's website endpoint.
+    --
+    -- /Important:/ If you specify this property, you can't specify any other property.
+    redirectAllRequestsTo :: Lude.Maybe RedirectAllRequestsTo,
+    -- | The name of the error document for the website.
     errorDocument :: Lude.Maybe ErrorDocument,
+    -- | The name of the index document for the website.
     indexDocument :: Lude.Maybe IndexDocument,
+    -- | Rules that define when a redirect is applied and the redirect behavior.
     routingRules :: Lude.Maybe [RoutingRule]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WebsiteConfiguration' with the minimum fields required to make a request.
 --
--- * 'errorDocument' - The name of the error document for the website.
--- * 'indexDocument' - The name of the index document for the website.
 -- * 'redirectAllRequestsTo' - The redirect behavior for every request to this bucket's website endpoint.
 --
 -- /Important:/ If you specify this property, you can't specify any other property.
+-- * 'errorDocument' - The name of the error document for the website.
+-- * 'indexDocument' - The name of the index document for the website.
 -- * 'routingRules' - Rules that define when a redirect is applied and the redirect behavior.
 mkWebsiteConfiguration ::
   WebsiteConfiguration

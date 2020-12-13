@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.InterfacePermissionType
   ( InterfacePermissionType
       ( InterfacePermissionType',
-        EIPAssociate,
-        InstanceAttach
+        InstanceAttach,
+        EIPAssociate
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype InterfacePermissionType = InterfacePermissionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern EIPAssociate :: InterfacePermissionType
-pattern EIPAssociate = InterfacePermissionType' "EIP-ASSOCIATE"
-
 pattern InstanceAttach :: InterfacePermissionType
 pattern InstanceAttach = InterfacePermissionType' "INSTANCE-ATTACH"
 
+pattern EIPAssociate :: InterfacePermissionType
+pattern EIPAssociate = InterfacePermissionType' "EIP-ASSOCIATE"
+
 {-# COMPLETE
-  EIPAssociate,
   InstanceAttach,
+  EIPAssociate,
   InterfacePermissionType'
   #-}

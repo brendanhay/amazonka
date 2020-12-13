@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,23 +42,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListApprovalRuleTemplates' smart constructor.
 data ListApprovalRuleTemplates = ListApprovalRuleTemplates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An enumeration token that, when provided in a request, returns the next batch of the results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A non-zero, non-negative integer used to limit the number of returned results.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApprovalRuleTemplates' with the minimum fields required to make a request.
 --
--- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results.
 -- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
+-- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results.
 mkListApprovalRuleTemplates ::
   ListApprovalRuleTemplates
 mkListApprovalRuleTemplates =
@@ -124,26 +120,20 @@ instance Lude.ToQuery ListApprovalRuleTemplates where
 
 -- | /See:/ 'mkListApprovalRuleTemplatesResponse' smart constructor.
 data ListApprovalRuleTemplatesResponse = ListApprovalRuleTemplatesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    approvalRuleTemplateNames ::
-      Lude.Maybe [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | An enumeration token that allows the operation to batch the next results of the operation.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The names of all the approval rule templates found in the AWS Region for your AWS account.
+    approvalRuleTemplateNames :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApprovalRuleTemplatesResponse' with the minimum fields required to make a request.
 --
--- * 'approvalRuleTemplateNames' - The names of all the approval rule templates found in the AWS Region for your AWS account.
 -- * 'nextToken' - An enumeration token that allows the operation to batch the next results of the operation.
+-- * 'approvalRuleTemplateNames' - The names of all the approval rule templates found in the AWS Region for your AWS account.
 -- * 'responseStatus' - The response status code.
 mkListApprovalRuleTemplatesResponse ::
   -- | 'responseStatus'

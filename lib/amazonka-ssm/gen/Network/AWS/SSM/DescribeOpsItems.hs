@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,24 +48,73 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeOpsItems' smart constructor.
 data DescribeOpsItems = DescribeOpsItems'
-  { opsItemFilters ::
-      Lude.Maybe [OpsItemFilter],
+  { -- | One or more filters to limit the response.
+    --
+    --
+    --     * Key: CreatedTime
+    -- Operations: GreaterThan, LessThan
+    --
+    --
+    --     * Key: LastModifiedBy
+    -- Operations: Contains, Equals
+    --
+    --
+    --     * Key: LastModifiedTime
+    -- Operations: GreaterThan, LessThan
+    --
+    --
+    --     * Key: Priority
+    -- Operations: Equals
+    --
+    --
+    --     * Key: Source
+    -- Operations: Contains, Equals
+    --
+    --
+    --     * Key: Status
+    -- Operations: Equals
+    --
+    --
+    --     * Key: Title
+    -- Operations: Contains
+    --
+    --
+    --     * Key: OperationalData*
+    -- Operations: Equals
+    --
+    --
+    --     * Key: OperationalDataKey
+    -- Operations: Equals
+    --
+    --
+    --     * Key: OperationalDataValue
+    -- Operations: Equals, Contains
+    --
+    --
+    --     * Key: OpsItemId
+    -- Operations: Equals
+    --
+    --
+    --     * Key: ResourceId
+    -- Operations: Contains
+    --
+    --
+    --     * Key: AutomationId
+    -- Operations: Equals
+    --
+    --
+    -- *If you filter the response by using the OperationalData operator, specify a key-value pair by using the following JSON format: {"key":"key_name","value":"a_value"}
+    opsItemFilters :: Lude.Maybe [OpsItemFilter],
+    -- | A token to start the list. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOpsItems' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
 -- * 'opsItemFilters' - One or more filters to limit the response.
 --
 --
@@ -121,6 +171,8 @@ data DescribeOpsItems = DescribeOpsItems'
 --
 --
 -- *If you filter the response by using the OperationalData operator, specify a key-value pair by using the following JSON format: {"key":"key_name","value":"a_value"}
+-- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeOpsItems ::
   DescribeOpsItems
 mkDescribeOpsItems =
@@ -256,19 +308,14 @@ instance Lude.ToQuery DescribeOpsItems where
 
 -- | /See:/ 'mkDescribeOpsItemsResponse' smart constructor.
 data DescribeOpsItemsResponse = DescribeOpsItemsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    opsItemSummaries ::
-      Lude.Maybe [OpsItemSummary],
+  { -- | The token for the next set of items to return. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of OpsItems.
+    opsItemSummaries :: Lude.Maybe [OpsItemSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOpsItemsResponse' with the minimum fields required to make a request.

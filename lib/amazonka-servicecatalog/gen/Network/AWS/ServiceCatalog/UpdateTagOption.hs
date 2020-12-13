@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,25 +42,21 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkUpdateTagOption' smart constructor.
 data UpdateTagOption = UpdateTagOption'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The updated value.
+    value :: Lude.Maybe Lude.Text,
+    -- | The updated active state.
     active :: Lude.Maybe Lude.Bool,
+    -- | The TagOption identifier.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagOption' with the minimum fields required to make a request.
 --
+-- * 'value' - The updated value.
 -- * 'active' - The updated active state.
 -- * 'id' - The TagOption identifier.
--- * 'value' - The updated value.
 mkUpdateTagOption ::
   -- | 'id'
   Lude.Text ->
@@ -132,23 +129,18 @@ instance Lude.ToQuery UpdateTagOption where
 
 -- | /See:/ 'mkUpdateTagOptionResponse' smart constructor.
 data UpdateTagOptionResponse = UpdateTagOptionResponse'
-  { tagOptionDetail ::
-      Lude.Maybe TagOptionDetail,
+  { -- | Information about the TagOption.
+    tagOptionDetail :: Lude.Maybe TagOptionDetail,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagOptionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tagOptionDetail' - Information about the TagOption.
+-- * 'responseStatus' - The response status code.
 mkUpdateTagOptionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

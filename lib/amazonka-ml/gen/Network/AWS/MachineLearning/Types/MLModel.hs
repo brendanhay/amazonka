@@ -52,66 +52,85 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMLModel' smart constructor.
 data MLModel = MLModel'
-  { status :: Lude.Maybe EntityStatus,
+  { -- | The current status of an @MLModel@ . This element can have one of the following values:
+    --
+    --
+    --     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to create an @MLModel@ .
+    --
+    --     * @INPROGRESS@ - The creation process is underway.
+    --
+    --     * @FAILED@ - The request to create an @MLModel@ didn't run to completion. The model isn't usable.
+    --
+    --     * @COMPLETED@ - The creation process completed successfully.
+    --
+    --     * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
+    status :: Lude.Maybe EntityStatus,
+    -- | The time of the most recent edit to the @MLModel@ . The time is expressed in epoch time.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
-    trainingParameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A list of the training parameters in the @MLModel@ . The list is implemented as a map of key-value pairs.
+    --
+    -- The following is the current set of training parameters:
+    --
+    --     * @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.
+    -- The value is an integer that ranges from @100000@ to @2147483648@ . The default value is @33554432@ .
+    --
+    --
+    --     * @sgd.maxPasses@ - The number of times that the training process traverses the observations to build the @MLModel@ . The value is an integer that ranges from @1@ to @10000@ . The default value is @10@ .
+    --
+    --
+    --     * @sgd.shuffleType@ - Whether Amazon ML shuffles the training data. Shuffling the data improves a model's ability to find the optimal solution for a variety of data types. The valid values are @auto@ and @none@ . The default value is @none@ .
+    --
+    --
+    --     * @sgd.l1RegularizationAmount@ - The coefficient regularization L1 norm, which controls overfitting the data by penalizing large coefficients. This parameter tends to drive coefficients to zero, resulting in sparse feature set. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
+    -- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L1 normalization. This parameter can't be used when @L2@ is specified. Use this parameter sparingly.
+    --
+    --
+    --     * @sgd.l2RegularizationAmount@ - The coefficient regularization L2 norm, which controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
+    -- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L2 normalization. This parameter can't be used when @L1@ is specified. Use this parameter sparingly.
+    trainingParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The time of the most recent edit to the @ScoreThreshold@ . The time is expressed in epoch time.
     scoreThresholdLastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time that the @MLModel@ was created. The time is expressed in epoch time.
     createdAt :: Lude.Maybe Lude.Timestamp,
     computeTime :: Lude.Maybe Lude.Integer,
+    -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
     inputDataLocationS3 :: Lude.Maybe Lude.Text,
+    -- | The ID assigned to the @MLModel@ at creation.
     mLModelId :: Lude.Maybe Lude.Text,
     sizeInBytes :: Lude.Maybe Lude.Integer,
     startedAt :: Lude.Maybe Lude.Timestamp,
     scoreThreshold :: Lude.Maybe Lude.Double,
     finishedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The algorithm used to train the @MLModel@ . The following algorithm is supported:
+    --
+    --
+    --     * @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to minimize the gradient of the loss function.
     algorithm :: Lude.Maybe Algorithm,
+    -- | The AWS user account from which the @MLModel@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
     createdByIAMUser :: Lude.Maybe Lude.Text,
+    -- | A user-supplied name or description of the @MLModel@ .
     name :: Lude.Maybe Lude.Text,
+    -- | The current endpoint of the @MLModel@ .
     endpointInfo :: Lude.Maybe RealtimeEndpointInfo,
+    -- | The ID of the training @DataSource@ . The @CreateMLModel@ operation uses the @TrainingDataSourceId@ .
     trainingDataSourceId :: Lude.Maybe Lude.Text,
+    -- | A description of the most recent details about accessing the @MLModel@ .
     message :: Lude.Maybe Lude.Text,
+    -- | Identifies the @MLModel@ category. The following are the available types:
+    --
+    --
+    --     * @REGRESSION@ - Produces a numeric result. For example, "What price should a house be listed at?"
+    --
+    --     * @BINARY@ - Produces one of two possible results. For example, "Is this a child-friendly web site?".
+    --
+    --     * @MULTICLASS@ - Produces one of several possible results. For example, "Is this a HIGH-, LOW-, or MEDIUM-risk trade?".
     mLModelType :: Lude.Maybe MLModelType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MLModel' with the minimum fields required to make a request.
 --
--- * 'algorithm' - The algorithm used to train the @MLModel@ . The following algorithm is supported:
---
---
---     * @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to minimize the gradient of the loss function.
---
--- * 'computeTime' - Undocumented field.
--- * 'createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch time.
--- * 'createdByIAMUser' - The AWS user account from which the @MLModel@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
--- * 'endpointInfo' - The current endpoint of the @MLModel@ .
--- * 'finishedAt' - Undocumented field.
--- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
--- * 'lastUpdatedAt' - The time of the most recent edit to the @MLModel@ . The time is expressed in epoch time.
--- * 'mLModelId' - The ID assigned to the @MLModel@ at creation.
--- * 'mLModelType' - Identifies the @MLModel@ category. The following are the available types:
---
---
---     * @REGRESSION@ - Produces a numeric result. For example, "What price should a house be listed at?"
---
---     * @BINARY@ - Produces one of two possible results. For example, "Is this a child-friendly web site?".
---
---     * @MULTICLASS@ - Produces one of several possible results. For example, "Is this a HIGH-, LOW-, or MEDIUM-risk trade?".
---
--- * 'message' - A description of the most recent details about accessing the @MLModel@ .
--- * 'name' - A user-supplied name or description of the @MLModel@ .
--- * 'scoreThreshold' - Undocumented field.
--- * 'scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@ . The time is expressed in epoch time.
--- * 'sizeInBytes' - Undocumented field.
--- * 'startedAt' - Undocumented field.
 -- * 'status' - The current status of an @MLModel@ . This element can have one of the following values:
 --
 --
@@ -125,7 +144,7 @@ data MLModel = MLModel'
 --
 --     * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
 --
--- * 'trainingDataSourceId' - The ID of the training @DataSource@ . The @CreateMLModel@ operation uses the @TrainingDataSourceId@ .
+-- * 'lastUpdatedAt' - The time of the most recent edit to the @MLModel@ . The time is expressed in epoch time.
 -- * 'trainingParameters' - A list of the training parameters in the @MLModel@ . The list is implemented as a map of key-value pairs.
 --
 -- The following is the current set of training parameters:
@@ -146,6 +165,35 @@ data MLModel = MLModel'
 --
 --     * @sgd.l2RegularizationAmount@ - The coefficient regularization L2 norm, which controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
 -- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L2 normalization. This parameter can't be used when @L1@ is specified. Use this parameter sparingly.
+--
+--
+-- * 'scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@ . The time is expressed in epoch time.
+-- * 'createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch time.
+-- * 'computeTime' -
+-- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+-- * 'mLModelId' - The ID assigned to the @MLModel@ at creation.
+-- * 'sizeInBytes' -
+-- * 'startedAt' -
+-- * 'scoreThreshold' -
+-- * 'finishedAt' -
+-- * 'algorithm' - The algorithm used to train the @MLModel@ . The following algorithm is supported:
+--
+--
+--     * @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to minimize the gradient of the loss function.
+--
+-- * 'createdByIAMUser' - The AWS user account from which the @MLModel@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'name' - A user-supplied name or description of the @MLModel@ .
+-- * 'endpointInfo' - The current endpoint of the @MLModel@ .
+-- * 'trainingDataSourceId' - The ID of the training @DataSource@ . The @CreateMLModel@ operation uses the @TrainingDataSourceId@ .
+-- * 'message' - A description of the most recent details about accessing the @MLModel@ .
+-- * 'mLModelType' - Identifies the @MLModel@ category. The following are the available types:
+--
+--
+--     * @REGRESSION@ - Produces a numeric result. For example, "What price should a house be listed at?"
+--
+--     * @BINARY@ - Produces one of two possible results. For example, "Is this a child-friendly web site?".
+--
+--     * @MULTICLASS@ - Produces one of several possible results. For example, "Is this a HIGH-, LOW-, or MEDIUM-risk trade?".
 mkMLModel ::
   MLModel
 mkMLModel =

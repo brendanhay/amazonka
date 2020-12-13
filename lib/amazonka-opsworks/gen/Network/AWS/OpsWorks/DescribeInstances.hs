@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInstances' smart constructor.
 data DescribeInstances = DescribeInstances'
-  { instanceIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | An array of instance IDs to be described. If you use this parameter, @DescribeInstances@ returns a description of the specified instances. Otherwise, it returns a description of every instance.
+    instanceIds :: Lude.Maybe [Lude.Text],
+    -- | A stack ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified stack.
     stackId :: Lude.Maybe Lude.Text,
+    -- | A layer ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified layer.
     layerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstances' with the minimum fields required to make a request.
 --
 -- * 'instanceIds' - An array of instance IDs to be described. If you use this parameter, @DescribeInstances@ returns a description of the specified instances. Otherwise, it returns a description of every instance.
--- * 'layerId' - A layer ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified layer.
 -- * 'stackId' - A stack ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified stack.
+-- * 'layerId' - A layer ID. If you use this parameter, @DescribeInstances@ returns descriptions of the instances associated with the specified layer.
 mkDescribeInstances ::
   DescribeInstances
 mkDescribeInstances =
@@ -134,17 +131,12 @@ instance Lude.ToQuery DescribeInstances where
 --
 -- /See:/ 'mkDescribeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
-  { instances ::
-      Lude.Maybe [Instance],
+  { -- | An array of @Instance@ objects that describe the instances.
+    instances :: Lude.Maybe [Instance],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancesResponse' with the minimum fields required to make a request.

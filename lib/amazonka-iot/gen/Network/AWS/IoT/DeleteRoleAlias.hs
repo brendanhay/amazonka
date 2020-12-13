@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoT.DeleteRoleAlias
     mkDeleteRoleAlias,
 
     -- ** Request lenses
-    dRoleAlias,
+    draRoleAlias,
 
     -- * Destructuring the response
     DeleteRoleAliasResponse (..),
@@ -37,14 +38,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteRoleAlias' smart constructor.
-newtype DeleteRoleAlias = DeleteRoleAlias' {roleAlias :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteRoleAlias = DeleteRoleAlias'
+  { -- | The role alias to delete.
+    roleAlias :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRoleAlias' with the minimum fields required to make a request.
@@ -60,9 +58,9 @@ mkDeleteRoleAlias pRoleAlias_ =
 -- | The role alias to delete.
 --
 -- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRoleAlias :: Lens.Lens' DeleteRoleAlias Lude.Text
-dRoleAlias = Lens.lens (roleAlias :: DeleteRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: DeleteRoleAlias)
-{-# DEPRECATED dRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
+draRoleAlias :: Lens.Lens' DeleteRoleAlias Lude.Text
+draRoleAlias = Lens.lens (roleAlias :: DeleteRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: DeleteRoleAlias)
+{-# DEPRECATED draRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
 instance Lude.AWSRequest DeleteRoleAlias where
   type Rs DeleteRoleAlias = DeleteRoleAliasResponse
@@ -85,16 +83,10 @@ instance Lude.ToQuery DeleteRoleAlias where
 
 -- | /See:/ 'mkDeleteRoleAliasResponse' smart constructor.
 newtype DeleteRoleAliasResponse = DeleteRoleAliasResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRoleAliasResponse' with the minimum fields required to make a request.

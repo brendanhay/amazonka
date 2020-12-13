@@ -32,18 +32,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRedactionConfig' smart constructor.
 data RedactionConfig = RedactionConfig'
-  { maskCharacter ::
-      Lude.Maybe Lude.Text,
+  { -- | A character that replaces each character in the redacted PII entity.
+    maskCharacter :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the PII entity is redacted with the mask character or the entity type.
     maskMode :: Lude.Maybe PiiEntitiesDetectionMaskMode,
+    -- | An array of the types of PII entities that Amazon Comprehend detects in the input text for your request.
     piiEntityTypes :: Lude.Maybe [PiiEntityType]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RedactionConfig' with the minimum fields required to make a request.

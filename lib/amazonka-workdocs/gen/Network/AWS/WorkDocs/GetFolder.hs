@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.WorkDocs.GetFolder
 
     -- ** Request lenses
     gfAuthenticationToken,
-    gfIncludeCustomMetadata,
     gfFolderId,
+    gfIncludeCustomMetadata,
 
     -- * Destructuring the response
     GetFolderResponse (..),
@@ -42,10 +43,12 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkGetFolder' smart constructor.
 data GetFolder = GetFolder'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    includeCustomMetadata :: Lude.Maybe Lude.Bool,
-    folderId :: Lude.Text
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the folder.
+    folderId :: Lude.Text,
+    -- | Set to TRUE to include custom metadata in the response.
+    includeCustomMetadata :: Lude.Maybe Lude.Bool
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -62,8 +65,8 @@ mkGetFolder ::
 mkGetFolder pFolderId_ =
   GetFolder'
     { authenticationToken = Lude.Nothing,
-      includeCustomMetadata = Lude.Nothing,
-      folderId = pFolderId_
+      folderId = pFolderId_,
+      includeCustomMetadata = Lude.Nothing
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
@@ -73,19 +76,19 @@ gfAuthenticationToken :: Lens.Lens' GetFolder (Lude.Maybe (Lude.Sensitive Lude.T
 gfAuthenticationToken = Lens.lens (authenticationToken :: GetFolder -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: GetFolder)
 {-# DEPRECATED gfAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
--- | Set to TRUE to include custom metadata in the response.
---
--- /Note:/ Consider using 'includeCustomMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfIncludeCustomMetadata :: Lens.Lens' GetFolder (Lude.Maybe Lude.Bool)
-gfIncludeCustomMetadata = Lens.lens (includeCustomMetadata :: GetFolder -> Lude.Maybe Lude.Bool) (\s a -> s {includeCustomMetadata = a} :: GetFolder)
-{-# DEPRECATED gfIncludeCustomMetadata "Use generic-lens or generic-optics with 'includeCustomMetadata' instead." #-}
-
 -- | The ID of the folder.
 --
 -- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gfFolderId :: Lens.Lens' GetFolder Lude.Text
 gfFolderId = Lens.lens (folderId :: GetFolder -> Lude.Text) (\s a -> s {folderId = a} :: GetFolder)
 {-# DEPRECATED gfFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
+
+-- | Set to TRUE to include custom metadata in the response.
+--
+-- /Note:/ Consider using 'includeCustomMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfIncludeCustomMetadata :: Lens.Lens' GetFolder (Lude.Maybe Lude.Bool)
+gfIncludeCustomMetadata = Lens.lens (includeCustomMetadata :: GetFolder -> Lude.Maybe Lude.Bool) (\s a -> s {includeCustomMetadata = a} :: GetFolder)
+{-# DEPRECATED gfIncludeCustomMetadata "Use generic-lens or generic-optics with 'includeCustomMetadata' instead." #-}
 
 instance Lude.AWSRequest GetFolder where
   type Rs GetFolder = GetFolderResponse
@@ -118,18 +121,14 @@ instance Lude.ToQuery GetFolder where
 
 -- | /See:/ 'mkGetFolderResponse' smart constructor.
 data GetFolderResponse = GetFolderResponse'
-  { customMetadata ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The custom metadata on the folder.
+    customMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The metadata of the folder.
     metadata :: Lude.Maybe FolderMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFolderResponse' with the minimum fields required to make a request.

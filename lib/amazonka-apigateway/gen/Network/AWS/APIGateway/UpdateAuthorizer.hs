@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.APIGateway.UpdateAuthorizer
     mkUpdateAuthorizer,
 
     -- ** Request lenses
-    uaaPatchOperations,
-    uaaRestAPIId,
-    uaaAuthorizerId,
+    uaAuthorizerId,
+    uaRestAPIId,
+    uaPatchOperations,
 
     -- * Destructuring the response
     Authorizer (..),
@@ -53,58 +54,54 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | [Required] The identifier of the 'Authorizer' resource.
+    authorizerId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
-    authorizerId :: Lude.Text
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAuthorizer' with the minimum fields required to make a request.
 --
 -- * 'authorizerId' - [Required] The identifier of the 'Authorizer' resource.
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateAuthorizer ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'authorizerId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   UpdateAuthorizer
-mkUpdateAuthorizer pRestAPIId_ pAuthorizerId_ =
+mkUpdateAuthorizer pAuthorizerId_ pRestAPIId_ =
   UpdateAuthorizer'
-    { patchOperations = Lude.Nothing,
+    { authorizerId = pAuthorizerId_,
       restAPIId = pRestAPIId_,
-      authorizerId = pAuthorizerId_
+      patchOperations = Lude.Nothing
     }
-
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaaPatchOperations :: Lens.Lens' UpdateAuthorizer (Lude.Maybe [PatchOperation])
-uaaPatchOperations = Lens.lens (patchOperations :: UpdateAuthorizer -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateAuthorizer)
-{-# DEPRECATED uaaPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaaRestAPIId :: Lens.Lens' UpdateAuthorizer Lude.Text
-uaaRestAPIId = Lens.lens (restAPIId :: UpdateAuthorizer -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateAuthorizer)
-{-# DEPRECATED uaaRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'Authorizer' resource.
 --
 -- /Note:/ Consider using 'authorizerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaaAuthorizerId :: Lens.Lens' UpdateAuthorizer Lude.Text
-uaaAuthorizerId = Lens.lens (authorizerId :: UpdateAuthorizer -> Lude.Text) (\s a -> s {authorizerId = a} :: UpdateAuthorizer)
-{-# DEPRECATED uaaAuthorizerId "Use generic-lens or generic-optics with 'authorizerId' instead." #-}
+uaAuthorizerId :: Lens.Lens' UpdateAuthorizer Lude.Text
+uaAuthorizerId = Lens.lens (authorizerId :: UpdateAuthorizer -> Lude.Text) (\s a -> s {authorizerId = a} :: UpdateAuthorizer)
+{-# DEPRECATED uaAuthorizerId "Use generic-lens or generic-optics with 'authorizerId' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaRestAPIId :: Lens.Lens' UpdateAuthorizer Lude.Text
+uaRestAPIId = Lens.lens (restAPIId :: UpdateAuthorizer -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateAuthorizer)
+{-# DEPRECATED uaRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaPatchOperations :: Lens.Lens' UpdateAuthorizer (Lude.Maybe [PatchOperation])
+uaPatchOperations = Lens.lens (patchOperations :: UpdateAuthorizer -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateAuthorizer)
+{-# DEPRECATED uaPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateAuthorizer where
   type Rs UpdateAuthorizer = Authorizer

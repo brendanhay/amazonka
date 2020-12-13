@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.StorageGateway.RemoveTagsFromResource
     mkRemoveTagsFromResource,
 
     -- ** Request lenses
-    rtfrResourceARN,
     rtfrTagKeys,
+    rtfrResourceARN,
 
     -- * Destructuring the response
     RemoveTagsFromResourceResponse (..),
@@ -42,39 +43,27 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkRemoveTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { resourceARN ::
-      Lude.Text,
-    tagKeys :: [Lude.Text]
+  { -- | The keys of the tags you want to remove from the specified resource. A tag is composed of a key-value pair.
+    tagKeys :: [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
+    resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
 --
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
 -- * 'tagKeys' - The keys of the tags you want to remove from the specified resource. A tag is composed of a key-value pair.
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
 mkRemoveTagsFromResource ::
   -- | 'resourceARN'
   Lude.Text ->
   RemoveTagsFromResource
 mkRemoveTagsFromResource pResourceARN_ =
   RemoveTagsFromResource'
-    { resourceARN = pResourceARN_,
-      tagKeys = Lude.mempty
+    { tagKeys = Lude.mempty,
+      resourceARN = pResourceARN_
     }
-
--- | The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfrResourceARN :: Lens.Lens' RemoveTagsFromResource Lude.Text
-rtfrResourceARN = Lens.lens (resourceARN :: RemoveTagsFromResource -> Lude.Text) (\s a -> s {resourceARN = a} :: RemoveTagsFromResource)
-{-# DEPRECATED rtfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The keys of the tags you want to remove from the specified resource. A tag is composed of a key-value pair.
 --
@@ -82,6 +71,13 @@ rtfrResourceARN = Lens.lens (resourceARN :: RemoveTagsFromResource -> Lude.Text)
 rtfrTagKeys :: Lens.Lens' RemoveTagsFromResource [Lude.Text]
 rtfrTagKeys = Lens.lens (tagKeys :: RemoveTagsFromResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: RemoveTagsFromResource)
 {-# DEPRECATED rtfrTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfrResourceARN :: Lens.Lens' RemoveTagsFromResource Lude.Text
+rtfrResourceARN = Lens.lens (resourceARN :: RemoveTagsFromResource -> Lude.Text) (\s a -> s {resourceARN = a} :: RemoveTagsFromResource)
+{-# DEPRECATED rtfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Lude.AWSRequest RemoveTagsFromResource where
   type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse
@@ -110,8 +106,8 @@ instance Lude.ToJSON RemoveTagsFromResource where
   toJSON RemoveTagsFromResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
-            Lude.Just ("TagKeys" Lude..= tagKeys)
+          [ Lude.Just ("TagKeys" Lude..= tagKeys),
+            Lude.Just ("ResourceARN" Lude..= resourceARN)
           ]
       )
 
@@ -125,17 +121,12 @@ instance Lude.ToQuery RemoveTagsFromResource where
 --
 -- /See:/ 'mkRemoveTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-  { resourceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the resource that the tags were removed from.
+    resourceARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.

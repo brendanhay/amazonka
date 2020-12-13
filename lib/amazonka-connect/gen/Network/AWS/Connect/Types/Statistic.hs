@@ -13,9 +13,9 @@
 module Network.AWS.Connect.Types.Statistic
   ( Statistic
       ( Statistic',
-        Avg,
+        Sum,
         Max,
-        Sum
+        Avg
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype Statistic = Statistic' Lude.Text
       Lude.ToHeader
     )
 
-pattern Avg :: Statistic
-pattern Avg = Statistic' "AVG"
+pattern Sum :: Statistic
+pattern Sum = Statistic' "SUM"
 
 pattern Max :: Statistic
 pattern Max = Statistic' "MAX"
 
-pattern Sum :: Statistic
-pattern Sum = Statistic' "SUM"
+pattern Avg :: Statistic
+pattern Avg = Statistic' "AVG"
 
 {-# COMPLETE
-  Avg,
-  Max,
   Sum,
+  Max,
+  Avg,
   Statistic'
   #-}

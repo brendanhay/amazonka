@@ -13,11 +13,11 @@
 module Network.AWS.Kinesis.Types.ShardIteratorType
   ( ShardIteratorType
       ( ShardIteratorType',
-        SITAfterSequenceNumber,
         SITAtSequenceNumber,
-        SITAtTimestamp,
+        SITAfterSequenceNumber,
+        SITTrimHorizon,
         SITLatest,
-        SITTrimHorizon
+        SITAtTimestamp
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ShardIteratorType = ShardIteratorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern SITAfterSequenceNumber :: ShardIteratorType
-pattern SITAfterSequenceNumber = ShardIteratorType' "AFTER_SEQUENCE_NUMBER"
-
 pattern SITAtSequenceNumber :: ShardIteratorType
 pattern SITAtSequenceNumber = ShardIteratorType' "AT_SEQUENCE_NUMBER"
 
-pattern SITAtTimestamp :: ShardIteratorType
-pattern SITAtTimestamp = ShardIteratorType' "AT_TIMESTAMP"
-
-pattern SITLatest :: ShardIteratorType
-pattern SITLatest = ShardIteratorType' "LATEST"
+pattern SITAfterSequenceNumber :: ShardIteratorType
+pattern SITAfterSequenceNumber = ShardIteratorType' "AFTER_SEQUENCE_NUMBER"
 
 pattern SITTrimHorizon :: ShardIteratorType
 pattern SITTrimHorizon = ShardIteratorType' "TRIM_HORIZON"
 
+pattern SITLatest :: ShardIteratorType
+pattern SITLatest = ShardIteratorType' "LATEST"
+
+pattern SITAtTimestamp :: ShardIteratorType
+pattern SITAtTimestamp = ShardIteratorType' "AT_TIMESTAMP"
+
 {-# COMPLETE
-  SITAfterSequenceNumber,
   SITAtSequenceNumber,
-  SITAtTimestamp,
-  SITLatest,
+  SITAfterSequenceNumber,
   SITTrimHorizon,
+  SITLatest,
+  SITAtTimestamp,
   ShardIteratorType'
   #-}

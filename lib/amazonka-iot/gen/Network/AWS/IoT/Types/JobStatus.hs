@@ -13,10 +13,10 @@
 module Network.AWS.IoT.Types.JobStatus
   ( JobStatus
       ( JobStatus',
+        JSInProgress,
         JSCanceled,
         JSCompleted,
-        JSDeletionInProgress,
-        JSInProgress
+        JSDeletionInProgress
       ),
   )
 where
@@ -47,6 +47,9 @@ newtype JobStatus = JobStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern JSInProgress :: JobStatus
+pattern JSInProgress = JobStatus' "IN_PROGRESS"
+
 pattern JSCanceled :: JobStatus
 pattern JSCanceled = JobStatus' "CANCELED"
 
@@ -56,13 +59,10 @@ pattern JSCompleted = JobStatus' "COMPLETED"
 pattern JSDeletionInProgress :: JobStatus
 pattern JSDeletionInProgress = JobStatus' "DELETION_IN_PROGRESS"
 
-pattern JSInProgress :: JobStatus
-pattern JSInProgress = JobStatus' "IN_PROGRESS"
-
 {-# COMPLETE
+  JSInProgress,
   JSCanceled,
   JSCompleted,
   JSDeletionInProgress,
-  JSInProgress,
   JobStatus'
   #-}

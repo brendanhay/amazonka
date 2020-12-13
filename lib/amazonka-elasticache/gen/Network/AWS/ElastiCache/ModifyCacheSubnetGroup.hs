@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
 
     -- ** Request lenses
     mcsgSubnetIds,
-    mcsgCacheSubnetGroupDescription,
     mcsgCacheSubnetGroupName,
+    mcsgCacheSubnetGroupDescription,
 
     -- * Destructuring the response
     ModifyCacheSubnetGroupResponse (..),
@@ -43,29 +44,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyCacheSubnetGroup' smart constructor.
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
-  { subnetIds ::
-      Lude.Maybe [Lude.Text],
-    cacheSubnetGroupDescription ::
-      Lude.Maybe Lude.Text,
-    cacheSubnetGroupName :: Lude.Text
+  { -- | The EC2 subnet IDs for the cache subnet group.
+    subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The name for the cache subnet group. This value is stored as a lowercase string.
+    --
+    -- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
+    -- Example: @mysubnetgroup@
+    cacheSubnetGroupName :: Lude.Text,
+    -- | A description of the cache subnet group.
+    cacheSubnetGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCacheSubnetGroup' with the minimum fields required to make a request.
 --
--- * 'cacheSubnetGroupDescription' - A description of the cache subnet group.
+-- * 'subnetIds' - The EC2 subnet IDs for the cache subnet group.
 -- * 'cacheSubnetGroupName' - The name for the cache subnet group. This value is stored as a lowercase string.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 -- Example: @mysubnetgroup@
--- * 'subnetIds' - The EC2 subnet IDs for the cache subnet group.
+-- * 'cacheSubnetGroupDescription' - A description of the cache subnet group.
 mkModifyCacheSubnetGroup ::
   -- | 'cacheSubnetGroupName'
   Lude.Text ->
@@ -73,8 +72,8 @@ mkModifyCacheSubnetGroup ::
 mkModifyCacheSubnetGroup pCacheSubnetGroupName_ =
   ModifyCacheSubnetGroup'
     { subnetIds = Lude.Nothing,
-      cacheSubnetGroupDescription = Lude.Nothing,
-      cacheSubnetGroupName = pCacheSubnetGroupName_
+      cacheSubnetGroupName = pCacheSubnetGroupName_,
+      cacheSubnetGroupDescription = Lude.Nothing
     }
 
 -- | The EC2 subnet IDs for the cache subnet group.
@@ -83,13 +82,6 @@ mkModifyCacheSubnetGroup pCacheSubnetGroupName_ =
 mcsgSubnetIds :: Lens.Lens' ModifyCacheSubnetGroup (Lude.Maybe [Lude.Text])
 mcsgSubnetIds = Lens.lens (subnetIds :: ModifyCacheSubnetGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: ModifyCacheSubnetGroup)
 {-# DEPRECATED mcsgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
-
--- | A description of the cache subnet group.
---
--- /Note:/ Consider using 'cacheSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcsgCacheSubnetGroupDescription :: Lens.Lens' ModifyCacheSubnetGroup (Lude.Maybe Lude.Text)
-mcsgCacheSubnetGroupDescription = Lens.lens (cacheSubnetGroupDescription :: ModifyCacheSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheSubnetGroupDescription = a} :: ModifyCacheSubnetGroup)
-{-# DEPRECATED mcsgCacheSubnetGroupDescription "Use generic-lens or generic-optics with 'cacheSubnetGroupDescription' instead." #-}
 
 -- | The name for the cache subnet group. This value is stored as a lowercase string.
 --
@@ -100,6 +92,13 @@ mcsgCacheSubnetGroupDescription = Lens.lens (cacheSubnetGroupDescription :: Modi
 mcsgCacheSubnetGroupName :: Lens.Lens' ModifyCacheSubnetGroup Lude.Text
 mcsgCacheSubnetGroupName = Lens.lens (cacheSubnetGroupName :: ModifyCacheSubnetGroup -> Lude.Text) (\s a -> s {cacheSubnetGroupName = a} :: ModifyCacheSubnetGroup)
 {-# DEPRECATED mcsgCacheSubnetGroupName "Use generic-lens or generic-optics with 'cacheSubnetGroupName' instead." #-}
+
+-- | A description of the cache subnet group.
+--
+-- /Note:/ Consider using 'cacheSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcsgCacheSubnetGroupDescription :: Lens.Lens' ModifyCacheSubnetGroup (Lude.Maybe Lude.Text)
+mcsgCacheSubnetGroupDescription = Lens.lens (cacheSubnetGroupDescription :: ModifyCacheSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheSubnetGroupDescription = a} :: ModifyCacheSubnetGroup)
+{-# DEPRECATED mcsgCacheSubnetGroupDescription "Use generic-lens or generic-optics with 'cacheSubnetGroupDescription' instead." #-}
 
 instance Lude.AWSRequest ModifyCacheSubnetGroup where
   type Rs ModifyCacheSubnetGroup = ModifyCacheSubnetGroupResponse
@@ -127,28 +126,22 @@ instance Lude.ToQuery ModifyCacheSubnetGroup where
         "SubnetIds"
           Lude.=: Lude.toQuery
             (Lude.toQueryList "SubnetIdentifier" Lude.<$> subnetIds),
-        "CacheSubnetGroupDescription" Lude.=: cacheSubnetGroupDescription,
-        "CacheSubnetGroupName" Lude.=: cacheSubnetGroupName
+        "CacheSubnetGroupName" Lude.=: cacheSubnetGroupName,
+        "CacheSubnetGroupDescription" Lude.=: cacheSubnetGroupDescription
       ]
 
 -- | /See:/ 'mkModifyCacheSubnetGroupResponse' smart constructor.
 data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
-  { cacheSubnetGroup ::
-      Lude.Maybe CacheSubnetGroup,
+  { cacheSubnetGroup :: Lude.Maybe CacheSubnetGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCacheSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- * 'cacheSubnetGroup' - Undocumented field.
+-- * 'cacheSubnetGroup' -
 -- * 'responseStatus' - The response status code.
 mkModifyCacheSubnetGroupResponse ::
   -- | 'responseStatus'

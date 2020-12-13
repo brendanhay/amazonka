@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
-  { startingSequenceNumber ::
-      Lude.Maybe Lude.Text,
+  { -- | The first sequence number for the stream records contained within a shard. String contains numeric characters only.
+    startingSequenceNumber :: Lude.Maybe Lude.Text,
+    -- | The last sequence number for the stream records contained within a shard. String contains numeric characters only.
     endingSequenceNumber :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SequenceNumberRange' with the minimum fields required to make a request.
 --
--- * 'endingSequenceNumber' - The last sequence number for the stream records contained within a shard. String contains numeric characters only.
 -- * 'startingSequenceNumber' - The first sequence number for the stream records contained within a shard. String contains numeric characters only.
+-- * 'endingSequenceNumber' - The last sequence number for the stream records contained within a shard. String contains numeric characters only.
 mkSequenceNumberRange ::
   SequenceNumberRange
 mkSequenceNumberRange =

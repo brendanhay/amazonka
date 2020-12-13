@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEFSAuthorizationConfig' smart constructor.
 data EFSAuthorizationConfig = EFSAuthorizationConfig'
-  { accessPointId ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the @EFSVolumeConfiguration@ must either be omitted or set to @/@ which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the @EFSVolumeConfiguration@ . For more information, see <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points> in the /Amazon Elastic File System User Guide/ .
+    accessPointId :: Lude.Maybe Lude.Text,
+    -- | Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the @EFSVolumeConfiguration@ . If this parameter is omitted, the default value of @DISABLED@ is used. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points> in the /Amazon Elastic Container Service Developer Guide/ .
     iam :: Lude.Maybe EFSAuthorizationConfigIAM
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EFSAuthorizationConfig' with the minimum fields required to make a request.

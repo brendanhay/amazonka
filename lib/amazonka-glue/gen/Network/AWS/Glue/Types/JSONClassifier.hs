@@ -17,11 +17,11 @@ module Network.AWS.Glue.Types.JSONClassifier
     mkJSONClassifier,
 
     -- * Lenses
-    jcCreationTime,
-    jcLastUpdated,
-    jcVersion,
-    jcName,
-    jcJSONPath,
+    jsoncCreationTime,
+    jsoncLastUpdated,
+    jsoncJSONPath,
+    jsoncName,
+    jsoncVersion,
   )
 where
 
@@ -32,78 +32,76 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJSONClassifier' smart constructor.
 data JSONClassifier = JSONClassifier'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time that this classifier was registered.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time that this classifier was last updated.
     lastUpdated :: Lude.Maybe Lude.Timestamp,
-    version :: Lude.Maybe Lude.Integer,
+    -- | A @JsonPath@ string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers> .
+    jsonPath :: Lude.Text,
+    -- | The name of the classifier.
     name :: Lude.Text,
-    jsonPath :: Lude.Text
+    -- | The version of this classifier.
+    version :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JSONClassifier' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The time that this classifier was registered.
--- * 'jsonPath' - A @JsonPath@ string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers> .
 -- * 'lastUpdated' - The time that this classifier was last updated.
+-- * 'jsonPath' - A @JsonPath@ string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers> .
 -- * 'name' - The name of the classifier.
 -- * 'version' - The version of this classifier.
 mkJSONClassifier ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'jsonPath'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   JSONClassifier
-mkJSONClassifier pName_ pJSONPath_ =
+mkJSONClassifier pJSONPath_ pName_ =
   JSONClassifier'
     { creationTime = Lude.Nothing,
       lastUpdated = Lude.Nothing,
-      version = Lude.Nothing,
+      jsonPath = pJSONPath_,
       name = pName_,
-      jsonPath = pJSONPath_
+      version = Lude.Nothing
     }
 
 -- | The time that this classifier was registered.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jcCreationTime :: Lens.Lens' JSONClassifier (Lude.Maybe Lude.Timestamp)
-jcCreationTime = Lens.lens (creationTime :: JSONClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: JSONClassifier)
-{-# DEPRECATED jcCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+jsoncCreationTime :: Lens.Lens' JSONClassifier (Lude.Maybe Lude.Timestamp)
+jsoncCreationTime = Lens.lens (creationTime :: JSONClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: JSONClassifier)
+{-# DEPRECATED jsoncCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The time that this classifier was last updated.
 --
 -- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jcLastUpdated :: Lens.Lens' JSONClassifier (Lude.Maybe Lude.Timestamp)
-jcLastUpdated = Lens.lens (lastUpdated :: JSONClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdated = a} :: JSONClassifier)
-{-# DEPRECATED jcLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
-
--- | The version of this classifier.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jcVersion :: Lens.Lens' JSONClassifier (Lude.Maybe Lude.Integer)
-jcVersion = Lens.lens (version :: JSONClassifier -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: JSONClassifier)
-{-# DEPRECATED jcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The name of the classifier.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jcName :: Lens.Lens' JSONClassifier Lude.Text
-jcName = Lens.lens (name :: JSONClassifier -> Lude.Text) (\s a -> s {name = a} :: JSONClassifier)
-{-# DEPRECATED jcName "Use generic-lens or generic-optics with 'name' instead." #-}
+jsoncLastUpdated :: Lens.Lens' JSONClassifier (Lude.Maybe Lude.Timestamp)
+jsoncLastUpdated = Lens.lens (lastUpdated :: JSONClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdated = a} :: JSONClassifier)
+{-# DEPRECATED jsoncLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
 
 -- | A @JsonPath@ string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json Writing JsonPath Custom Classifiers> .
 --
 -- /Note:/ Consider using 'jsonPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jcJSONPath :: Lens.Lens' JSONClassifier Lude.Text
-jcJSONPath = Lens.lens (jsonPath :: JSONClassifier -> Lude.Text) (\s a -> s {jsonPath = a} :: JSONClassifier)
-{-# DEPRECATED jcJSONPath "Use generic-lens or generic-optics with 'jsonPath' instead." #-}
+jsoncJSONPath :: Lens.Lens' JSONClassifier Lude.Text
+jsoncJSONPath = Lens.lens (jsonPath :: JSONClassifier -> Lude.Text) (\s a -> s {jsonPath = a} :: JSONClassifier)
+{-# DEPRECATED jsoncJSONPath "Use generic-lens or generic-optics with 'jsonPath' instead." #-}
+
+-- | The name of the classifier.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsoncName :: Lens.Lens' JSONClassifier Lude.Text
+jsoncName = Lens.lens (name :: JSONClassifier -> Lude.Text) (\s a -> s {name = a} :: JSONClassifier)
+{-# DEPRECATED jsoncName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The version of this classifier.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsoncVersion :: Lens.Lens' JSONClassifier (Lude.Maybe Lude.Integer)
+jsoncVersion = Lens.lens (version :: JSONClassifier -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: JSONClassifier)
+{-# DEPRECATED jsoncVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 instance Lude.FromJSON JSONClassifier where
   parseJSON =
@@ -113,7 +111,7 @@ instance Lude.FromJSON JSONClassifier where
           JSONClassifier'
             Lude.<$> (x Lude..:? "CreationTime")
             Lude.<*> (x Lude..:? "LastUpdated")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..: "JsonPath")
+            Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..:? "Version")
       )

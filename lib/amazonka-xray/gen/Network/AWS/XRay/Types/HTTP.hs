@@ -32,28 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTP' smart constructor.
 data HTTP = HTTP'
-  { hTTPMethod :: Lude.Maybe Lude.Text,
+  { -- | The request method.
+    hTTPMethod :: Lude.Maybe Lude.Text,
+    -- | The response status.
     httpstatus :: Lude.Maybe Lude.Int,
+    -- | The IP address of the requestor.
     clientIP :: Lude.Maybe Lude.Text,
+    -- | The request's user agent string.
     userAgent :: Lude.Maybe Lude.Text,
+    -- | The request URL.
     hTTPURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTP' with the minimum fields required to make a request.
 --
--- * 'clientIP' - The IP address of the requestor.
 -- * 'hTTPMethod' - The request method.
--- * 'hTTPURL' - The request URL.
 -- * 'httpstatus' - The response status.
+-- * 'clientIP' - The IP address of the requestor.
 -- * 'userAgent' - The request's user agent string.
+-- * 'hTTPURL' - The request URL.
 mkHTTP ::
   HTTP
 mkHTTP =

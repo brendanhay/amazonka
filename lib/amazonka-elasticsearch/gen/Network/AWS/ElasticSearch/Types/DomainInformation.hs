@@ -17,9 +17,9 @@ module Network.AWS.ElasticSearch.Types.DomainInformation
     mkDomainInformation,
 
     -- * Lenses
-    diOwnerId,
-    diRegion,
-    diDomainName,
+    dOwnerId,
+    dDomainName,
+    dRegion,
   )
 where
 
@@ -28,25 +28,18 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkDomainInformation' smart constructor.
 data DomainInformation = DomainInformation'
-  { ownerId ::
-      Lude.Maybe Lude.Text,
-    region :: Lude.Maybe Lude.Text,
-    domainName :: Lude.Text
+  { ownerId :: Lude.Maybe Lude.Text,
+    domainName :: Lude.Text,
+    region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainInformation' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
--- * 'ownerId' - Undocumented field.
--- * 'region' - Undocumented field.
+-- * 'ownerId' -
+-- * 'domainName' -
+-- * 'region' -
 mkDomainInformation ::
   -- | 'domainName'
   Lude.Text ->
@@ -54,30 +47,30 @@ mkDomainInformation ::
 mkDomainInformation pDomainName_ =
   DomainInformation'
     { ownerId = Lude.Nothing,
-      region = Lude.Nothing,
-      domainName = pDomainName_
+      domainName = pDomainName_,
+      region = Lude.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diOwnerId :: Lens.Lens' DomainInformation (Lude.Maybe Lude.Text)
-diOwnerId = Lens.lens (ownerId :: DomainInformation -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: DomainInformation)
-{-# DEPRECATED diOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diRegion :: Lens.Lens' DomainInformation (Lude.Maybe Lude.Text)
-diRegion = Lens.lens (region :: DomainInformation -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: DomainInformation)
-{-# DEPRECATED diRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+dOwnerId :: Lens.Lens' DomainInformation (Lude.Maybe Lude.Text)
+dOwnerId = Lens.lens (ownerId :: DomainInformation -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: DomainInformation)
+{-# DEPRECATED dOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diDomainName :: Lens.Lens' DomainInformation Lude.Text
-diDomainName = Lens.lens (domainName :: DomainInformation -> Lude.Text) (\s a -> s {domainName = a} :: DomainInformation)
-{-# DEPRECATED diDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+dDomainName :: Lens.Lens' DomainInformation Lude.Text
+dDomainName = Lens.lens (domainName :: DomainInformation -> Lude.Text) (\s a -> s {domainName = a} :: DomainInformation)
+{-# DEPRECATED dDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRegion :: Lens.Lens' DomainInformation (Lude.Maybe Lude.Text)
+dRegion = Lens.lens (region :: DomainInformation -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: DomainInformation)
+{-# DEPRECATED dRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 instance Lude.FromJSON DomainInformation where
   parseJSON =
@@ -86,8 +79,8 @@ instance Lude.FromJSON DomainInformation where
       ( \x ->
           DomainInformation'
             Lude.<$> (x Lude..:? "OwnerId")
-            Lude.<*> (x Lude..:? "Region")
             Lude.<*> (x Lude..: "DomainName")
+            Lude.<*> (x Lude..:? "Region")
       )
 
 instance Lude.ToJSON DomainInformation where
@@ -95,7 +88,7 @@ instance Lude.ToJSON DomainInformation where
     Lude.object
       ( Lude.catMaybes
           [ ("OwnerId" Lude..=) Lude.<$> ownerId,
-            ("Region" Lude..=) Lude.<$> region,
-            Lude.Just ("DomainName" Lude..= domainName)
+            Lude.Just ("DomainName" Lude..= domainName),
+            ("Region" Lude..=) Lude.<$> region
           ]
       )

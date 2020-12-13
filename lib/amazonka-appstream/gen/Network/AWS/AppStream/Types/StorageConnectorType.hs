@@ -13,8 +13,8 @@
 module Network.AWS.AppStream.Types.StorageConnectorType
   ( StorageConnectorType
       ( StorageConnectorType',
-        GoogleDrive,
         Homefolders,
+        GoogleDrive,
         OneDrive
       ),
   )
@@ -47,18 +47,18 @@ newtype StorageConnectorType = StorageConnectorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern GoogleDrive :: StorageConnectorType
-pattern GoogleDrive = StorageConnectorType' "GOOGLE_DRIVE"
-
 pattern Homefolders :: StorageConnectorType
 pattern Homefolders = StorageConnectorType' "HOMEFOLDERS"
+
+pattern GoogleDrive :: StorageConnectorType
+pattern GoogleDrive = StorageConnectorType' "GOOGLE_DRIVE"
 
 pattern OneDrive :: StorageConnectorType
 pattern OneDrive = StorageConnectorType' "ONE_DRIVE"
 
 {-# COMPLETE
-  GoogleDrive,
   Homefolders,
+  GoogleDrive,
   OneDrive,
   StorageConnectorType'
   #-}

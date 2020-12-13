@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Inspector.CreateExclusionsPreview
     mkCreateExclusionsPreviewResponse,
 
     -- ** Response lenses
-    ceprsResponseStatus,
     ceprsPreviewToken,
+    ceprsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateExclusionsPreview' smart constructor.
 newtype CreateExclusionsPreview = CreateExclusionsPreview'
-  { assessmentTemplateARN ::
-      Lude.Text
+  { -- | The ARN that specifies the assessment template for which you want to create an exclusions preview.
+    assessmentTemplateARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateExclusionsPreview' with the minimum fields required to make a request.
@@ -78,7 +73,7 @@ instance Lude.AWSRequest CreateExclusionsPreview where
     Res.receiveJSON
       ( \s h x ->
           CreateExclusionsPreviewResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "previewToken")
+            Lude.<$> (x Lude..:> "previewToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateExclusionsPreview where
@@ -109,17 +104,12 @@ instance Lude.ToQuery CreateExclusionsPreview where
 
 -- | /See:/ 'mkCreateExclusionsPreviewResponse' smart constructor.
 data CreateExclusionsPreviewResponse = CreateExclusionsPreviewResponse'
-  { responseStatus ::
-      Lude.Int,
-    previewToken :: Lude.Text
+  { -- | Specifies the unique identifier of the requested exclusions preview. You can use the unique identifier to retrieve the exclusions preview when running the GetExclusionsPreview API.
+    previewToken :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateExclusionsPreviewResponse' with the minimum fields required to make a request.
@@ -127,24 +117,16 @@ data CreateExclusionsPreviewResponse = CreateExclusionsPreviewResponse'
 -- * 'previewToken' - Specifies the unique identifier of the requested exclusions preview. You can use the unique identifier to retrieve the exclusions preview when running the GetExclusionsPreview API.
 -- * 'responseStatus' - The response status code.
 mkCreateExclusionsPreviewResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'previewToken'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateExclusionsPreviewResponse
-mkCreateExclusionsPreviewResponse pResponseStatus_ pPreviewToken_ =
+mkCreateExclusionsPreviewResponse pPreviewToken_ pResponseStatus_ =
   CreateExclusionsPreviewResponse'
-    { responseStatus =
-        pResponseStatus_,
-      previewToken = pPreviewToken_
+    { previewToken = pPreviewToken_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceprsResponseStatus :: Lens.Lens' CreateExclusionsPreviewResponse Lude.Int
-ceprsResponseStatus = Lens.lens (responseStatus :: CreateExclusionsPreviewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateExclusionsPreviewResponse)
-{-# DEPRECATED ceprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Specifies the unique identifier of the requested exclusions preview. You can use the unique identifier to retrieve the exclusions preview when running the GetExclusionsPreview API.
 --
@@ -152,3 +134,10 @@ ceprsResponseStatus = Lens.lens (responseStatus :: CreateExclusionsPreviewRespon
 ceprsPreviewToken :: Lens.Lens' CreateExclusionsPreviewResponse Lude.Text
 ceprsPreviewToken = Lens.lens (previewToken :: CreateExclusionsPreviewResponse -> Lude.Text) (\s a -> s {previewToken = a} :: CreateExclusionsPreviewResponse)
 {-# DEPRECATED ceprsPreviewToken "Use generic-lens or generic-optics with 'previewToken' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceprsResponseStatus :: Lens.Lens' CreateExclusionsPreviewResponse Lude.Int
+ceprsResponseStatus = Lens.lens (responseStatus :: CreateExclusionsPreviewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateExclusionsPreviewResponse)
+{-# DEPRECATED ceprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

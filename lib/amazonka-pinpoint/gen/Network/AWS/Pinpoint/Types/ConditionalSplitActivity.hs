@@ -33,27 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConditionalSplitActivity' smart constructor.
 data ConditionalSplitActivity = ConditionalSplitActivity'
-  { evaluationWaitTime ::
-      Lude.Maybe WaitTime,
+  { -- | The amount of time to wait before determining whether the conditions are met, or the date and time when Amazon Pinpoint determines whether the conditions are met.
+    evaluationWaitTime :: Lude.Maybe WaitTime,
+    -- | The unique identifier for the activity to perform if the conditions are met.
     trueActivity :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the activity to perform if the conditions aren't met.
     falseActivity :: Lude.Maybe Lude.Text,
+    -- | The conditions that define the paths for the activity, and the relationship between the conditions.
     condition :: Lude.Maybe Condition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConditionalSplitActivity' with the minimum fields required to make a request.
 --
--- * 'condition' - The conditions that define the paths for the activity, and the relationship between the conditions.
 -- * 'evaluationWaitTime' - The amount of time to wait before determining whether the conditions are met, or the date and time when Amazon Pinpoint determines whether the conditions are met.
--- * 'falseActivity' - The unique identifier for the activity to perform if the conditions aren't met.
 -- * 'trueActivity' - The unique identifier for the activity to perform if the conditions are met.
+-- * 'falseActivity' - The unique identifier for the activity to perform if the conditions aren't met.
+-- * 'condition' - The conditions that define the paths for the activity, and the relationship between the conditions.
 mkConditionalSplitActivity ::
   ConditionalSplitActivity
 mkConditionalSplitActivity =

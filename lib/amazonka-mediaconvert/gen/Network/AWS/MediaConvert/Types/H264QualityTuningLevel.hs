@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.H264QualityTuningLevel
   ( H264QualityTuningLevel
       ( H264QualityTuningLevel',
-        HQTLMultiPassHq,
         HQTLSinglePass,
-        HQTLSinglePassHq
+        HQTLSinglePassHq,
+        HQTLMultiPassHq
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype H264QualityTuningLevel = H264QualityTuningLevel' Lude.Text
       Lude.ToHeader
     )
 
-pattern HQTLMultiPassHq :: H264QualityTuningLevel
-pattern HQTLMultiPassHq = H264QualityTuningLevel' "MULTI_PASS_HQ"
-
 pattern HQTLSinglePass :: H264QualityTuningLevel
 pattern HQTLSinglePass = H264QualityTuningLevel' "SINGLE_PASS"
 
 pattern HQTLSinglePassHq :: H264QualityTuningLevel
 pattern HQTLSinglePassHq = H264QualityTuningLevel' "SINGLE_PASS_HQ"
 
+pattern HQTLMultiPassHq :: H264QualityTuningLevel
+pattern HQTLMultiPassHq = H264QualityTuningLevel' "MULTI_PASS_HQ"
+
 {-# COMPLETE
-  HQTLMultiPassHq,
   HQTLSinglePass,
   HQTLSinglePassHq,
+  HQTLMultiPassHq,
   H264QualityTuningLevel'
   #-}

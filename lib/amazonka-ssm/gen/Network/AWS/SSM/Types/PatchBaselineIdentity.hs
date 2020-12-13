@@ -33,29 +33,27 @@ import Network.AWS.SSM.Types.OperatingSystem
 --
 -- /See:/ 'mkPatchBaselineIdentity' smart constructor.
 data PatchBaselineIdentity = PatchBaselineIdentity'
-  { baselineName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the patch baseline.
+    baselineName :: Lude.Maybe Lude.Text,
+    -- | The description of the patch baseline.
     baselineDescription :: Lude.Maybe Lude.Text,
+    -- | Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
     operatingSystem :: Lude.Maybe OperatingSystem,
+    -- | Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
     defaultBaseline :: Lude.Maybe Lude.Bool,
+    -- | The ID of the patch baseline.
     baselineId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchBaselineIdentity' with the minimum fields required to make a request.
 --
--- * 'baselineDescription' - The description of the patch baseline.
--- * 'baselineId' - The ID of the patch baseline.
 -- * 'baselineName' - The name of the patch baseline.
--- * 'defaultBaseline' - Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+-- * 'baselineDescription' - The description of the patch baseline.
 -- * 'operatingSystem' - Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+-- * 'defaultBaseline' - Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+-- * 'baselineId' - The ID of the patch baseline.
 mkPatchBaselineIdentity ::
   PatchBaselineIdentity
 mkPatchBaselineIdentity =

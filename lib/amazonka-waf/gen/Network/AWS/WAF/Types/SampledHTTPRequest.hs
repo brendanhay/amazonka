@@ -18,10 +18,10 @@ module Network.AWS.WAF.Types.SampledHTTPRequest
 
     -- * Lenses
     shttprRuleWithinRuleGroup,
+    shttprWeight,
     shttprAction,
     shttprTimestamp,
     shttprRequest,
-    shttprWeight,
   )
 where
 
@@ -33,42 +33,40 @@ import Network.AWS.WAF.Types.HTTPRequest
 --
 -- /See:/ 'mkSampledHTTPRequest' smart constructor.
 data SampledHTTPRequest = SampledHTTPRequest'
-  { ruleWithinRuleGroup ::
-      Lude.Maybe Lude.Text,
+  { -- | This value is returned if the @GetSampledRequests@ request specifies the ID of a @RuleGroup@ rather than the ID of an individual rule. @RuleWithinRuleGroup@ is the rule within the specified @RuleGroup@ that matched the request listed in the response.
+    ruleWithinRuleGroup :: Lude.Maybe Lude.Text,
+    -- | A value that indicates how one result in the response relates proportionally to other results in the response. A result that has a weight of @2@ represents roughly twice as many CloudFront web requests as a result that has a weight of @1@ .
+    weight :: Lude.Natural,
+    -- | The action for the @Rule@ that the request matched: @ALLOW@ , @BLOCK@ , or @COUNT@ .
     action :: Lude.Maybe Lude.Text,
+    -- | The time at which AWS WAF received the request from your AWS resource, in Unix time format (in seconds).
     timestamp :: Lude.Maybe Lude.Timestamp,
-    request :: HTTPRequest,
-    weight :: Lude.Natural
+    -- | A complex type that contains detailed information about the request.
+    request :: HTTPRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SampledHTTPRequest' with the minimum fields required to make a request.
 --
--- * 'action' - The action for the @Rule@ that the request matched: @ALLOW@ , @BLOCK@ , or @COUNT@ .
--- * 'request' - A complex type that contains detailed information about the request.
 -- * 'ruleWithinRuleGroup' - This value is returned if the @GetSampledRequests@ request specifies the ID of a @RuleGroup@ rather than the ID of an individual rule. @RuleWithinRuleGroup@ is the rule within the specified @RuleGroup@ that matched the request listed in the response.
--- * 'timestamp' - The time at which AWS WAF received the request from your AWS resource, in Unix time format (in seconds).
 -- * 'weight' - A value that indicates how one result in the response relates proportionally to other results in the response. A result that has a weight of @2@ represents roughly twice as many CloudFront web requests as a result that has a weight of @1@ .
+-- * 'action' - The action for the @Rule@ that the request matched: @ALLOW@ , @BLOCK@ , or @COUNT@ .
+-- * 'timestamp' - The time at which AWS WAF received the request from your AWS resource, in Unix time format (in seconds).
+-- * 'request' - A complex type that contains detailed information about the request.
 mkSampledHTTPRequest ::
-  -- | 'request'
-  HTTPRequest ->
   -- | 'weight'
   Lude.Natural ->
+  -- | 'request'
+  HTTPRequest ->
   SampledHTTPRequest
-mkSampledHTTPRequest pRequest_ pWeight_ =
+mkSampledHTTPRequest pWeight_ pRequest_ =
   SampledHTTPRequest'
     { ruleWithinRuleGroup = Lude.Nothing,
+      weight = pWeight_,
       action = Lude.Nothing,
       timestamp = Lude.Nothing,
-      request = pRequest_,
-      weight = pWeight_
+      request = pRequest_
     }
 
 -- | This value is returned if the @GetSampledRequests@ request specifies the ID of a @RuleGroup@ rather than the ID of an individual rule. @RuleWithinRuleGroup@ is the rule within the specified @RuleGroup@ that matched the request listed in the response.
@@ -77,6 +75,13 @@ mkSampledHTTPRequest pRequest_ pWeight_ =
 shttprRuleWithinRuleGroup :: Lens.Lens' SampledHTTPRequest (Lude.Maybe Lude.Text)
 shttprRuleWithinRuleGroup = Lens.lens (ruleWithinRuleGroup :: SampledHTTPRequest -> Lude.Maybe Lude.Text) (\s a -> s {ruleWithinRuleGroup = a} :: SampledHTTPRequest)
 {-# DEPRECATED shttprRuleWithinRuleGroup "Use generic-lens or generic-optics with 'ruleWithinRuleGroup' instead." #-}
+
+-- | A value that indicates how one result in the response relates proportionally to other results in the response. A result that has a weight of @2@ represents roughly twice as many CloudFront web requests as a result that has a weight of @1@ .
+--
+-- /Note:/ Consider using 'weight' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+shttprWeight :: Lens.Lens' SampledHTTPRequest Lude.Natural
+shttprWeight = Lens.lens (weight :: SampledHTTPRequest -> Lude.Natural) (\s a -> s {weight = a} :: SampledHTTPRequest)
+{-# DEPRECATED shttprWeight "Use generic-lens or generic-optics with 'weight' instead." #-}
 
 -- | The action for the @Rule@ that the request matched: @ALLOW@ , @BLOCK@ , or @COUNT@ .
 --
@@ -99,13 +104,6 @@ shttprRequest :: Lens.Lens' SampledHTTPRequest HTTPRequest
 shttprRequest = Lens.lens (request :: SampledHTTPRequest -> HTTPRequest) (\s a -> s {request = a} :: SampledHTTPRequest)
 {-# DEPRECATED shttprRequest "Use generic-lens or generic-optics with 'request' instead." #-}
 
--- | A value that indicates how one result in the response relates proportionally to other results in the response. A result that has a weight of @2@ represents roughly twice as many CloudFront web requests as a result that has a weight of @1@ .
---
--- /Note:/ Consider using 'weight' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-shttprWeight :: Lens.Lens' SampledHTTPRequest Lude.Natural
-shttprWeight = Lens.lens (weight :: SampledHTTPRequest -> Lude.Natural) (\s a -> s {weight = a} :: SampledHTTPRequest)
-{-# DEPRECATED shttprWeight "Use generic-lens or generic-optics with 'weight' instead." #-}
-
 instance Lude.FromJSON SampledHTTPRequest where
   parseJSON =
     Lude.withObject
@@ -113,8 +111,8 @@ instance Lude.FromJSON SampledHTTPRequest where
       ( \x ->
           SampledHTTPRequest'
             Lude.<$> (x Lude..:? "RuleWithinRuleGroup")
+            Lude.<*> (x Lude..: "Weight")
             Lude.<*> (x Lude..:? "Action")
             Lude.<*> (x Lude..:? "Timestamp")
             Lude.<*> (x Lude..: "Request")
-            Lude.<*> (x Lude..: "Weight")
       )

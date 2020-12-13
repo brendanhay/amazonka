@@ -17,18 +17,18 @@ module Network.AWS.Firehose.Types.DeliveryStreamDescription
     mkDeliveryStreamDescription,
 
     -- * Lenses
+    dsdDeliveryStreamStatus,
+    dsdVersionId,
+    dsdDeliveryStreamARN,
+    dsdHasMoreDestinations,
     dsdFailureDescription,
     dsdDeliveryStreamEncryptionConfiguration,
+    dsdDestinations,
+    dsdDeliveryStreamName,
     dsdCreateTimestamp,
     dsdSource,
     dsdLastUpdateTimestamp,
-    dsdDeliveryStreamName,
-    dsdDeliveryStreamARN,
-    dsdDeliveryStreamStatus,
     dsdDeliveryStreamType,
-    dsdVersionId,
-    dsdDestinations,
-    dsdHasMoreDestinations,
   )
 where
 
@@ -45,37 +45,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeliveryStreamDescription' smart constructor.
 data DeliveryStreamDescription = DeliveryStreamDescription'
-  { failureDescription ::
-      Lude.Maybe FailureDescription,
-    deliveryStreamEncryptionConfiguration ::
-      Lude.Maybe
-        DeliveryStreamEncryptionConfiguration,
-    createTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    source :: Lude.Maybe SourceDescription,
-    lastUpdateTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    deliveryStreamName :: Lude.Text,
-    deliveryStreamARN :: Lude.Text,
-    deliveryStreamStatus ::
-      DeliveryStreamStatus,
-    deliveryStreamType ::
-      DeliveryStreamType,
+  { -- | The status of the delivery stream. If the status of a delivery stream is @CREATING_FAILED@ , this status doesn't change, and you can't invoke @CreateDeliveryStream@ again on it. However, you can invoke the 'DeleteDeliveryStream' operation to delete it.
+    deliveryStreamStatus :: DeliveryStreamStatus,
+    -- | Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.
     versionId :: Lude.Text,
-    destinations ::
-      [DestinationDescription],
-    hasMoreDestinations :: Lude.Bool
+    -- | The Amazon Resource Name (ARN) of the delivery stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    deliveryStreamARN :: Lude.Text,
+    -- | Indicates whether there are more destinations available to list.
+    hasMoreDestinations :: Lude.Bool,
+    -- | Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
+    failureDescription :: Lude.Maybe FailureDescription,
+    -- | Indicates the server-side encryption (SSE) status for the delivery stream.
+    deliveryStreamEncryptionConfiguration :: Lude.Maybe DeliveryStreamEncryptionConfiguration,
+    -- | The destinations.
+    destinations :: [DestinationDescription],
+    -- | The name of the delivery stream.
+    deliveryStreamName :: Lude.Text,
+    -- | The date and time that the delivery stream was created.
+    createTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@ , a 'SourceDescription' object describing the source Kinesis data stream.
+    source :: Lude.Maybe SourceDescription,
+    -- | The date and time that the delivery stream was last updated.
+    lastUpdateTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The delivery stream type. This can be one of the following values:
+    --
+    --
+    --     * @DirectPut@ : Provider applications access the delivery stream directly.
+    --
+    --
+    --     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source.
+    deliveryStreamType :: DeliveryStreamType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliveryStreamDescription' with the minimum fields required to make a request.
 --
--- * 'createTimestamp' - The date and time that the delivery stream was created.
--- * 'deliveryStreamARN' - The Amazon Resource Name (ARN) of the delivery stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 'deliveryStreamEncryptionConfiguration' - Indicates the server-side encryption (SSE) status for the delivery stream.
--- * 'deliveryStreamName' - The name of the delivery stream.
 -- * 'deliveryStreamStatus' - The status of the delivery stream. If the status of a delivery stream is @CREATING_FAILED@ , this status doesn't change, and you can't invoke @CreateDeliveryStream@ again on it. However, you can invoke the 'DeleteDeliveryStream' operation to delete it.
+-- * 'versionId' - Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.
+-- * 'deliveryStreamARN' - The Amazon Resource Name (ARN) of the delivery stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'hasMoreDestinations' - Indicates whether there are more destinations available to list.
+-- * 'failureDescription' - Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
+-- * 'deliveryStreamEncryptionConfiguration' - Indicates the server-side encryption (SSE) status for the delivery stream.
+-- * 'destinations' - The destinations.
+-- * 'deliveryStreamName' - The name of the delivery stream.
+-- * 'createTimestamp' - The date and time that the delivery stream was created.
+-- * 'source' - If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@ , a 'SourceDescription' object describing the source Kinesis data stream.
+-- * 'lastUpdateTimestamp' - The date and time that the delivery stream was last updated.
 -- * 'deliveryStreamType' - The delivery stream type. This can be one of the following values:
 --
 --
@@ -83,49 +99,70 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
 --
 --
 --     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source.
---
---
--- * 'destinations' - The destinations.
--- * 'failureDescription' - Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
--- * 'hasMoreDestinations' - Indicates whether there are more destinations available to list.
--- * 'lastUpdateTimestamp' - The date and time that the delivery stream was last updated.
--- * 'source' - If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@ , a 'SourceDescription' object describing the source Kinesis data stream.
--- * 'versionId' - Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.
 mkDeliveryStreamDescription ::
-  -- | 'deliveryStreamName'
+  -- | 'deliveryStreamStatus'
+  DeliveryStreamStatus ->
+  -- | 'versionId'
   Lude.Text ->
   -- | 'deliveryStreamARN'
   Lude.Text ->
-  -- | 'deliveryStreamStatus'
-  DeliveryStreamStatus ->
-  -- | 'deliveryStreamType'
-  DeliveryStreamType ->
-  -- | 'versionId'
-  Lude.Text ->
   -- | 'hasMoreDestinations'
   Lude.Bool ->
+  -- | 'deliveryStreamName'
+  Lude.Text ->
+  -- | 'deliveryStreamType'
+  DeliveryStreamType ->
   DeliveryStreamDescription
 mkDeliveryStreamDescription
-  pDeliveryStreamName_
-  pDeliveryStreamARN_
   pDeliveryStreamStatus_
-  pDeliveryStreamType_
   pVersionId_
-  pHasMoreDestinations_ =
+  pDeliveryStreamARN_
+  pHasMoreDestinations_
+  pDeliveryStreamName_
+  pDeliveryStreamType_ =
     DeliveryStreamDescription'
-      { failureDescription = Lude.Nothing,
+      { deliveryStreamStatus =
+          pDeliveryStreamStatus_,
+        versionId = pVersionId_,
+        deliveryStreamARN = pDeliveryStreamARN_,
+        hasMoreDestinations = pHasMoreDestinations_,
+        failureDescription = Lude.Nothing,
         deliveryStreamEncryptionConfiguration = Lude.Nothing,
+        destinations = Lude.mempty,
+        deliveryStreamName = pDeliveryStreamName_,
         createTimestamp = Lude.Nothing,
         source = Lude.Nothing,
         lastUpdateTimestamp = Lude.Nothing,
-        deliveryStreamName = pDeliveryStreamName_,
-        deliveryStreamARN = pDeliveryStreamARN_,
-        deliveryStreamStatus = pDeliveryStreamStatus_,
-        deliveryStreamType = pDeliveryStreamType_,
-        versionId = pVersionId_,
-        destinations = Lude.mempty,
-        hasMoreDestinations = pHasMoreDestinations_
+        deliveryStreamType = pDeliveryStreamType_
       }
+
+-- | The status of the delivery stream. If the status of a delivery stream is @CREATING_FAILED@ , this status doesn't change, and you can't invoke @CreateDeliveryStream@ again on it. However, you can invoke the 'DeleteDeliveryStream' operation to delete it.
+--
+-- /Note:/ Consider using 'deliveryStreamStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdDeliveryStreamStatus :: Lens.Lens' DeliveryStreamDescription DeliveryStreamStatus
+dsdDeliveryStreamStatus = Lens.lens (deliveryStreamStatus :: DeliveryStreamDescription -> DeliveryStreamStatus) (\s a -> s {deliveryStreamStatus = a} :: DeliveryStreamDescription)
+{-# DEPRECATED dsdDeliveryStreamStatus "Use generic-lens or generic-optics with 'deliveryStreamStatus' instead." #-}
+
+-- | Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdVersionId :: Lens.Lens' DeliveryStreamDescription Lude.Text
+dsdVersionId = Lens.lens (versionId :: DeliveryStreamDescription -> Lude.Text) (\s a -> s {versionId = a} :: DeliveryStreamDescription)
+{-# DEPRECATED dsdVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the delivery stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- /Note:/ Consider using 'deliveryStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdDeliveryStreamARN :: Lens.Lens' DeliveryStreamDescription Lude.Text
+dsdDeliveryStreamARN = Lens.lens (deliveryStreamARN :: DeliveryStreamDescription -> Lude.Text) (\s a -> s {deliveryStreamARN = a} :: DeliveryStreamDescription)
+{-# DEPRECATED dsdDeliveryStreamARN "Use generic-lens or generic-optics with 'deliveryStreamARN' instead." #-}
+
+-- | Indicates whether there are more destinations available to list.
+--
+-- /Note:/ Consider using 'hasMoreDestinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdHasMoreDestinations :: Lens.Lens' DeliveryStreamDescription Lude.Bool
+dsdHasMoreDestinations = Lens.lens (hasMoreDestinations :: DeliveryStreamDescription -> Lude.Bool) (\s a -> s {hasMoreDestinations = a} :: DeliveryStreamDescription)
+{-# DEPRECATED dsdHasMoreDestinations "Use generic-lens or generic-optics with 'hasMoreDestinations' instead." #-}
 
 -- | Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
 --
@@ -140,6 +177,20 @@ dsdFailureDescription = Lens.lens (failureDescription :: DeliveryStreamDescripti
 dsdDeliveryStreamEncryptionConfiguration :: Lens.Lens' DeliveryStreamDescription (Lude.Maybe DeliveryStreamEncryptionConfiguration)
 dsdDeliveryStreamEncryptionConfiguration = Lens.lens (deliveryStreamEncryptionConfiguration :: DeliveryStreamDescription -> Lude.Maybe DeliveryStreamEncryptionConfiguration) (\s a -> s {deliveryStreamEncryptionConfiguration = a} :: DeliveryStreamDescription)
 {-# DEPRECATED dsdDeliveryStreamEncryptionConfiguration "Use generic-lens or generic-optics with 'deliveryStreamEncryptionConfiguration' instead." #-}
+
+-- | The destinations.
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdDestinations :: Lens.Lens' DeliveryStreamDescription [DestinationDescription]
+dsdDestinations = Lens.lens (destinations :: DeliveryStreamDescription -> [DestinationDescription]) (\s a -> s {destinations = a} :: DeliveryStreamDescription)
+{-# DEPRECATED dsdDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
+
+-- | The name of the delivery stream.
+--
+-- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdDeliveryStreamName :: Lens.Lens' DeliveryStreamDescription Lude.Text
+dsdDeliveryStreamName = Lens.lens (deliveryStreamName :: DeliveryStreamDescription -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: DeliveryStreamDescription)
+{-# DEPRECATED dsdDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
 -- | The date and time that the delivery stream was created.
 --
@@ -162,27 +213,6 @@ dsdLastUpdateTimestamp :: Lens.Lens' DeliveryStreamDescription (Lude.Maybe Lude.
 dsdLastUpdateTimestamp = Lens.lens (lastUpdateTimestamp :: DeliveryStreamDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTimestamp = a} :: DeliveryStreamDescription)
 {-# DEPRECATED dsdLastUpdateTimestamp "Use generic-lens or generic-optics with 'lastUpdateTimestamp' instead." #-}
 
--- | The name of the delivery stream.
---
--- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdDeliveryStreamName :: Lens.Lens' DeliveryStreamDescription Lude.Text
-dsdDeliveryStreamName = Lens.lens (deliveryStreamName :: DeliveryStreamDescription -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: DeliveryStreamDescription)
-{-# DEPRECATED dsdDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the delivery stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- /Note:/ Consider using 'deliveryStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdDeliveryStreamARN :: Lens.Lens' DeliveryStreamDescription Lude.Text
-dsdDeliveryStreamARN = Lens.lens (deliveryStreamARN :: DeliveryStreamDescription -> Lude.Text) (\s a -> s {deliveryStreamARN = a} :: DeliveryStreamDescription)
-{-# DEPRECATED dsdDeliveryStreamARN "Use generic-lens or generic-optics with 'deliveryStreamARN' instead." #-}
-
--- | The status of the delivery stream. If the status of a delivery stream is @CREATING_FAILED@ , this status doesn't change, and you can't invoke @CreateDeliveryStream@ again on it. However, you can invoke the 'DeleteDeliveryStream' operation to delete it.
---
--- /Note:/ Consider using 'deliveryStreamStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdDeliveryStreamStatus :: Lens.Lens' DeliveryStreamDescription DeliveryStreamStatus
-dsdDeliveryStreamStatus = Lens.lens (deliveryStreamStatus :: DeliveryStreamDescription -> DeliveryStreamStatus) (\s a -> s {deliveryStreamStatus = a} :: DeliveryStreamDescription)
-{-# DEPRECATED dsdDeliveryStreamStatus "Use generic-lens or generic-optics with 'deliveryStreamStatus' instead." #-}
-
 -- | The delivery stream type. This can be one of the following values:
 --
 --
@@ -198,43 +228,22 @@ dsdDeliveryStreamType :: Lens.Lens' DeliveryStreamDescription DeliveryStreamType
 dsdDeliveryStreamType = Lens.lens (deliveryStreamType :: DeliveryStreamDescription -> DeliveryStreamType) (\s a -> s {deliveryStreamType = a} :: DeliveryStreamDescription)
 {-# DEPRECATED dsdDeliveryStreamType "Use generic-lens or generic-optics with 'deliveryStreamType' instead." #-}
 
--- | Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdVersionId :: Lens.Lens' DeliveryStreamDescription Lude.Text
-dsdVersionId = Lens.lens (versionId :: DeliveryStreamDescription -> Lude.Text) (\s a -> s {versionId = a} :: DeliveryStreamDescription)
-{-# DEPRECATED dsdVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The destinations.
---
--- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdDestinations :: Lens.Lens' DeliveryStreamDescription [DestinationDescription]
-dsdDestinations = Lens.lens (destinations :: DeliveryStreamDescription -> [DestinationDescription]) (\s a -> s {destinations = a} :: DeliveryStreamDescription)
-{-# DEPRECATED dsdDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
-
--- | Indicates whether there are more destinations available to list.
---
--- /Note:/ Consider using 'hasMoreDestinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdHasMoreDestinations :: Lens.Lens' DeliveryStreamDescription Lude.Bool
-dsdHasMoreDestinations = Lens.lens (hasMoreDestinations :: DeliveryStreamDescription -> Lude.Bool) (\s a -> s {hasMoreDestinations = a} :: DeliveryStreamDescription)
-{-# DEPRECATED dsdHasMoreDestinations "Use generic-lens or generic-optics with 'hasMoreDestinations' instead." #-}
-
 instance Lude.FromJSON DeliveryStreamDescription where
   parseJSON =
     Lude.withObject
       "DeliveryStreamDescription"
       ( \x ->
           DeliveryStreamDescription'
-            Lude.<$> (x Lude..:? "FailureDescription")
+            Lude.<$> (x Lude..: "DeliveryStreamStatus")
+            Lude.<*> (x Lude..: "VersionId")
+            Lude.<*> (x Lude..: "DeliveryStreamARN")
+            Lude.<*> (x Lude..: "HasMoreDestinations")
+            Lude.<*> (x Lude..:? "FailureDescription")
             Lude.<*> (x Lude..:? "DeliveryStreamEncryptionConfiguration")
+            Lude.<*> (x Lude..:? "Destinations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "DeliveryStreamName")
             Lude.<*> (x Lude..:? "CreateTimestamp")
             Lude.<*> (x Lude..:? "Source")
             Lude.<*> (x Lude..:? "LastUpdateTimestamp")
-            Lude.<*> (x Lude..: "DeliveryStreamName")
-            Lude.<*> (x Lude..: "DeliveryStreamARN")
-            Lude.<*> (x Lude..: "DeliveryStreamStatus")
             Lude.<*> (x Lude..: "DeliveryStreamType")
-            Lude.<*> (x Lude..: "VersionId")
-            Lude.<*> (x Lude..:? "Destinations" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "HasMoreDestinations")
       )

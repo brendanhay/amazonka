@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPromptSummary' smart constructor.
 data PromptSummary = PromptSummary'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the prompt.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the prompt.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the prompt.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PromptSummary' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the prompt.
--- * 'id' - The identifier of the prompt.
 -- * 'name' - The name of the prompt.
+-- * 'id' - The identifier of the prompt.
 mkPromptSummary ::
   PromptSummary
 mkPromptSummary =

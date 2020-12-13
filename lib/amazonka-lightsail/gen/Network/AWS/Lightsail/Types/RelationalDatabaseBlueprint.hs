@@ -34,35 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelationalDatabaseBlueprint' smart constructor.
 data RelationalDatabaseBlueprint = RelationalDatabaseBlueprint'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
-    isEngineDefault ::
-      Lude.Maybe Lude.Bool,
-    engineVersionDescription ::
-      Lude.Maybe Lude.Text,
-    engine ::
-      Lude.Maybe RelationalDatabaseEngine,
+  { -- | The database engine version for the database blueprint (for example, @5.7.23@ ).
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating whether the engine version is the default for the database blueprint.
+    isEngineDefault :: Lude.Maybe Lude.Bool,
+    -- | The description of the database engine version for the database blueprint.
+    engineVersionDescription :: Lude.Maybe Lude.Text,
+    -- | The database software of the database blueprint (for example, @MySQL@ ).
+    engine :: Lude.Maybe RelationalDatabaseEngine,
+    -- | The ID for the database blueprint.
     blueprintId :: Lude.Maybe Lude.Text,
-    engineDescription ::
-      Lude.Maybe Lude.Text
+    -- | The description of the database engine for the database blueprint.
+    engineDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseBlueprint' with the minimum fields required to make a request.
 --
--- * 'blueprintId' - The ID for the database blueprint.
--- * 'engine' - The database software of the database blueprint (for example, @MySQL@ ).
--- * 'engineDescription' - The description of the database engine for the database blueprint.
 -- * 'engineVersion' - The database engine version for the database blueprint (for example, @5.7.23@ ).
--- * 'engineVersionDescription' - The description of the database engine version for the database blueprint.
 -- * 'isEngineDefault' - A Boolean value indicating whether the engine version is the default for the database blueprint.
+-- * 'engineVersionDescription' - The description of the database engine version for the database blueprint.
+-- * 'engine' - The database software of the database blueprint (for example, @MySQL@ ).
+-- * 'blueprintId' - The ID for the database blueprint.
+-- * 'engineDescription' - The description of the database engine for the database blueprint.
 mkRelationalDatabaseBlueprint ::
   RelationalDatabaseBlueprint
 mkRelationalDatabaseBlueprint =

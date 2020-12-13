@@ -31,22 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuditMitigationActionsTaskMetadata' smart constructor.
 data AuditMitigationActionsTaskMetadata = AuditMitigationActionsTaskMetadata'
-  { startTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    taskId ::
-      Lude.Maybe Lude.Text,
-    taskStatus ::
-      Lude.Maybe
-        AuditMitigationActionsTaskStatus
+  { -- | The time at which the audit mitigation actions task was started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The unique identifier for the task.
+    taskId :: Lude.Maybe Lude.Text,
+    -- | The current state of the audit mitigation actions task.
+    taskStatus :: Lude.Maybe AuditMitigationActionsTaskStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditMitigationActionsTaskMetadata' with the minimum fields required to make a request.

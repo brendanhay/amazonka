@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ServiceCatalog.DescribeCopyProductStatus
     mkDescribeCopyProductStatus,
 
     -- ** Request lenses
-    dcpsAcceptLanguage,
     dcpsCopyProductToken,
+    dcpsAcceptLanguage,
 
     -- * Destructuring the response
     DescribeCopyProductStatusResponse (..),
@@ -42,21 +43,26 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDescribeCopyProductStatus' smart constructor.
 data DescribeCopyProductStatus = DescribeCopyProductStatus'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    copyProductToken :: Lude.Text
+  { -- | The token for the copy product operation. This token is returned by 'CopyProduct' .
+    copyProductToken :: Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCopyProductStatus' with the minimum fields required to make a request.
 --
+-- * 'copyProductToken' - The token for the copy product operation. This token is returned by 'CopyProduct' .
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -67,18 +73,22 @@ data DescribeCopyProductStatus = DescribeCopyProductStatus'
 --
 --
 --     * @zh@ - Chinese
---
---
--- * 'copyProductToken' - The token for the copy product operation. This token is returned by 'CopyProduct' .
 mkDescribeCopyProductStatus ::
   -- | 'copyProductToken'
   Lude.Text ->
   DescribeCopyProductStatus
 mkDescribeCopyProductStatus pCopyProductToken_ =
   DescribeCopyProductStatus'
-    { acceptLanguage = Lude.Nothing,
-      copyProductToken = pCopyProductToken_
+    { copyProductToken = pCopyProductToken_,
+      acceptLanguage = Lude.Nothing
     }
+
+-- | The token for the copy product operation. This token is returned by 'CopyProduct' .
+--
+-- /Note:/ Consider using 'copyProductToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpsCopyProductToken :: Lens.Lens' DescribeCopyProductStatus Lude.Text
+dcpsCopyProductToken = Lens.lens (copyProductToken :: DescribeCopyProductStatus -> Lude.Text) (\s a -> s {copyProductToken = a} :: DescribeCopyProductStatus)
+{-# DEPRECATED dcpsCopyProductToken "Use generic-lens or generic-optics with 'copyProductToken' instead." #-}
 
 -- | The language code.
 --
@@ -97,13 +107,6 @@ mkDescribeCopyProductStatus pCopyProductToken_ =
 dcpsAcceptLanguage :: Lens.Lens' DescribeCopyProductStatus (Lude.Maybe Lude.Text)
 dcpsAcceptLanguage = Lens.lens (acceptLanguage :: DescribeCopyProductStatus -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeCopyProductStatus)
 {-# DEPRECATED dcpsAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The token for the copy product operation. This token is returned by 'CopyProduct' .
---
--- /Note:/ Consider using 'copyProductToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsCopyProductToken :: Lens.Lens' DescribeCopyProductStatus Lude.Text
-dcpsCopyProductToken = Lens.lens (copyProductToken :: DescribeCopyProductStatus -> Lude.Text) (\s a -> s {copyProductToken = a} :: DescribeCopyProductStatus)
-{-# DEPRECATED dcpsCopyProductToken "Use generic-lens or generic-optics with 'copyProductToken' instead." #-}
 
 instance Lude.AWSRequest DescribeCopyProductStatus where
   type
@@ -137,8 +140,8 @@ instance Lude.ToJSON DescribeCopyProductStatus where
   toJSON DescribeCopyProductStatus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("CopyProductToken" Lude..= copyProductToken)
+          [ Lude.Just ("CopyProductToken" Lude..= copyProductToken),
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage
           ]
       )
 
@@ -150,31 +153,24 @@ instance Lude.ToQuery DescribeCopyProductStatus where
 
 -- | /See:/ 'mkDescribeCopyProductStatusResponse' smart constructor.
 data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
-  { targetProductId ::
-      Lude.Maybe Lude.Text,
-    copyProductStatus ::
-      Lude.Maybe
-        CopyProductStatus,
-    statusDetail ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier of the copied product.
+    targetProductId :: Lude.Maybe Lude.Text,
+    -- | The status of the copy product operation.
+    copyProductStatus :: Lude.Maybe CopyProductStatus,
+    -- | The status message.
+    statusDetail :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCopyProductStatusResponse' with the minimum fields required to make a request.
 --
--- * 'copyProductStatus' - The status of the copy product operation.
--- * 'responseStatus' - The response status code.
--- * 'statusDetail' - The status message.
 -- * 'targetProductId' - The identifier of the copied product.
+-- * 'copyProductStatus' - The status of the copy product operation.
+-- * 'statusDetail' - The status message.
+-- * 'responseStatus' - The response status code.
 mkDescribeCopyProductStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

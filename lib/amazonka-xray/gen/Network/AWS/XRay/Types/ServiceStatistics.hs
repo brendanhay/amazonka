@@ -34,29 +34,27 @@ import Network.AWS.XRay.Types.FaultStatistics
 --
 -- /See:/ 'mkServiceStatistics' smart constructor.
 data ServiceStatistics = ServiceStatistics'
-  { faultStatistics ::
-      Lude.Maybe FaultStatistics,
+  { -- | Information about requests that failed with a 5xx Server Error status code.
+    faultStatistics :: Lude.Maybe FaultStatistics,
+    -- | The number of requests that completed with a 2xx Success status code.
     okCount :: Lude.Maybe Lude.Integer,
+    -- | The aggregate response time of completed requests.
     totalResponseTime :: Lude.Maybe Lude.Double,
+    -- | Information about requests that failed with a 4xx Client Error status code.
     errorStatistics :: Lude.Maybe ErrorStatistics,
+    -- | The total number of completed requests.
     totalCount :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceStatistics' with the minimum fields required to make a request.
 --
--- * 'errorStatistics' - Information about requests that failed with a 4xx Client Error status code.
 -- * 'faultStatistics' - Information about requests that failed with a 5xx Server Error status code.
 -- * 'okCount' - The number of requests that completed with a 2xx Success status code.
--- * 'totalCount' - The total number of completed requests.
 -- * 'totalResponseTime' - The aggregate response time of completed requests.
+-- * 'errorStatistics' - Information about requests that failed with a 4xx Client Error status code.
+-- * 'totalCount' - The total number of completed requests.
 mkServiceStatistics ::
   ServiceStatistics
 mkServiceStatistics =

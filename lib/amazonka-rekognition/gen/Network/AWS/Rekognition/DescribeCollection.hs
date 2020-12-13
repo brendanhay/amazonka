@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.Rekognition.DescribeCollection
     mkDescribeCollection,
 
     -- ** Request lenses
-    dCollectionId,
+    dcCollectionId,
 
     -- * Destructuring the response
     DescribeCollectionResponse (..),
@@ -44,16 +45,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeCollection' smart constructor.
 newtype DescribeCollection = DescribeCollection'
-  { collectionId ::
-      Lude.Text
+  { -- | The ID of the collection to describe.
+    collectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCollection' with the minimum fields required to make a request.
@@ -69,9 +64,9 @@ mkDescribeCollection pCollectionId_ =
 -- | The ID of the collection to describe.
 --
 -- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCollectionId :: Lens.Lens' DescribeCollection Lude.Text
-dCollectionId = Lens.lens (collectionId :: DescribeCollection -> Lude.Text) (\s a -> s {collectionId = a} :: DescribeCollection)
-{-# DEPRECATED dCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
+dcCollectionId :: Lens.Lens' DescribeCollection Lude.Text
+dcCollectionId = Lens.lens (collectionId :: DescribeCollection -> Lude.Text) (\s a -> s {collectionId = a} :: DescribeCollection)
+{-# DEPRECATED dcCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
 instance Lude.AWSRequest DescribeCollection where
   type Rs DescribeCollection = DescribeCollectionResponse
@@ -111,31 +106,30 @@ instance Lude.ToQuery DescribeCollection where
 
 -- | /See:/ 'mkDescribeCollectionResponse' smart constructor.
 data DescribeCollectionResponse = DescribeCollectionResponse'
-  { faceModelVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version of the face model that's used by the collection for face detection.
+    --
+    -- For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
+    faceModelVersion :: Lude.Maybe Lude.Text,
+    -- | The number of faces that are indexed into the collection. To index faces into a collection, use 'IndexFaces' .
     faceCount :: Lude.Maybe Lude.Natural,
-    creationTimestamp ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The number of milliseconds since the Unix epoch time until the creation of the collection. The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
+    creationTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the collection.
     collectionARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCollectionResponse' with the minimum fields required to make a request.
 --
--- * 'collectionARN' - The Amazon Resource Name (ARN) of the collection.
--- * 'creationTimestamp' - The number of milliseconds since the Unix epoch time until the creation of the collection. The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
--- * 'faceCount' - The number of faces that are indexed into the collection. To index faces into a collection, use 'IndexFaces' .
 -- * 'faceModelVersion' - The version of the face model that's used by the collection for face detection.
 --
 -- For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
+-- * 'faceCount' - The number of faces that are indexed into the collection. To index faces into a collection, use 'IndexFaces' .
+-- * 'creationTimestamp' - The number of milliseconds since the Unix epoch time until the creation of the collection. The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.
+-- * 'collectionARN' - The Amazon Resource Name (ARN) of the collection.
 -- * 'responseStatus' - The response status code.
 mkDescribeCollectionResponse ::
   -- | 'responseStatus'

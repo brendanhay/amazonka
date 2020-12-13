@@ -28,14 +28,13 @@ import qualified Network.AWS.Prelude as Lude
 -- | Represents an option to be shown on the client platform (Facebook, Slack, etc.)
 --
 -- /See:/ 'mkButton' smart constructor.
-data Button = Button' {text :: Lude.Text, value :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Button = Button'
+  { -- | Text that is visible to the user on the button.
+    text :: Lude.Text,
+    -- | The value sent to Amazon Lex when a user chooses the button. For example, consider button text "NYC." When the user chooses the button, the value sent can be "New York City."
+    value :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Button' with the minimum fields required to make a request.

@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserBucket' smart constructor.
 data UserBucket = UserBucket'
-  { s3Key :: Lude.Maybe Lude.Text,
+  { -- | The file name of the disk image.
+    s3Key :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon S3 bucket where the disk image is located.
     s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserBucket' with the minimum fields required to make a request.
 --
--- * 's3Bucket' - The name of the Amazon S3 bucket where the disk image is located.
 -- * 's3Key' - The file name of the disk image.
+-- * 's3Bucket' - The name of the Amazon S3 bucket where the disk image is located.
 mkUserBucket ::
   UserBucket
 mkUserBucket =

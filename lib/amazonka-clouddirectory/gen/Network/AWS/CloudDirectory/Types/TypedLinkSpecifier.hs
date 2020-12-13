@@ -17,10 +17,10 @@ module Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
     mkTypedLinkSpecifier,
 
     -- * Lenses
-    tlsTypedLinkFacet,
-    tlsSourceObjectReference,
     tlsTargetObjectReference,
     tlsIdentityAttributeValues,
+    tlsSourceObjectReference,
+    tlsTypedLinkFacet,
   )
 where
 
@@ -34,59 +34,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTypedLinkSpecifier' smart constructor.
 data TypedLinkSpecifier = TypedLinkSpecifier'
-  { typedLinkFacet ::
-      TypedLinkSchemaAndFacetName,
-    sourceObjectReference :: ObjectReference,
+  { -- | Identifies the target object that the typed link will attach to.
     targetObjectReference :: ObjectReference,
-    identityAttributeValues :: [AttributeNameAndValue]
+    -- | Identifies the attribute value to update.
+    identityAttributeValues :: [AttributeNameAndValue],
+    -- | Identifies the source object that the typed link will attach to.
+    sourceObjectReference :: ObjectReference,
+    -- | Identifies the typed link facet that is associated with the typed link.
+    typedLinkFacet :: TypedLinkSchemaAndFacetName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypedLinkSpecifier' with the minimum fields required to make a request.
 --
+-- * 'targetObjectReference' - Identifies the target object that the typed link will attach to.
 -- * 'identityAttributeValues' - Identifies the attribute value to update.
 -- * 'sourceObjectReference' - Identifies the source object that the typed link will attach to.
--- * 'targetObjectReference' - Identifies the target object that the typed link will attach to.
 -- * 'typedLinkFacet' - Identifies the typed link facet that is associated with the typed link.
 mkTypedLinkSpecifier ::
-  -- | 'typedLinkFacet'
-  TypedLinkSchemaAndFacetName ->
-  -- | 'sourceObjectReference'
-  ObjectReference ->
   -- | 'targetObjectReference'
   ObjectReference ->
+  -- | 'sourceObjectReference'
+  ObjectReference ->
+  -- | 'typedLinkFacet'
+  TypedLinkSchemaAndFacetName ->
   TypedLinkSpecifier
 mkTypedLinkSpecifier
-  pTypedLinkFacet_
+  pTargetObjectReference_
   pSourceObjectReference_
-  pTargetObjectReference_ =
+  pTypedLinkFacet_ =
     TypedLinkSpecifier'
-      { typedLinkFacet = pTypedLinkFacet_,
+      { targetObjectReference =
+          pTargetObjectReference_,
+        identityAttributeValues = Lude.mempty,
         sourceObjectReference = pSourceObjectReference_,
-        targetObjectReference = pTargetObjectReference_,
-        identityAttributeValues = Lude.mempty
+        typedLinkFacet = pTypedLinkFacet_
       }
-
--- | Identifies the typed link facet that is associated with the typed link.
---
--- /Note:/ Consider using 'typedLinkFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlsTypedLinkFacet :: Lens.Lens' TypedLinkSpecifier TypedLinkSchemaAndFacetName
-tlsTypedLinkFacet = Lens.lens (typedLinkFacet :: TypedLinkSpecifier -> TypedLinkSchemaAndFacetName) (\s a -> s {typedLinkFacet = a} :: TypedLinkSpecifier)
-{-# DEPRECATED tlsTypedLinkFacet "Use generic-lens or generic-optics with 'typedLinkFacet' instead." #-}
-
--- | Identifies the source object that the typed link will attach to.
---
--- /Note:/ Consider using 'sourceObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlsSourceObjectReference :: Lens.Lens' TypedLinkSpecifier ObjectReference
-tlsSourceObjectReference = Lens.lens (sourceObjectReference :: TypedLinkSpecifier -> ObjectReference) (\s a -> s {sourceObjectReference = a} :: TypedLinkSpecifier)
-{-# DEPRECATED tlsSourceObjectReference "Use generic-lens or generic-optics with 'sourceObjectReference' instead." #-}
 
 -- | Identifies the target object that the typed link will attach to.
 --
@@ -102,26 +86,40 @@ tlsIdentityAttributeValues :: Lens.Lens' TypedLinkSpecifier [AttributeNameAndVal
 tlsIdentityAttributeValues = Lens.lens (identityAttributeValues :: TypedLinkSpecifier -> [AttributeNameAndValue]) (\s a -> s {identityAttributeValues = a} :: TypedLinkSpecifier)
 {-# DEPRECATED tlsIdentityAttributeValues "Use generic-lens or generic-optics with 'identityAttributeValues' instead." #-}
 
+-- | Identifies the source object that the typed link will attach to.
+--
+-- /Note:/ Consider using 'sourceObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlsSourceObjectReference :: Lens.Lens' TypedLinkSpecifier ObjectReference
+tlsSourceObjectReference = Lens.lens (sourceObjectReference :: TypedLinkSpecifier -> ObjectReference) (\s a -> s {sourceObjectReference = a} :: TypedLinkSpecifier)
+{-# DEPRECATED tlsSourceObjectReference "Use generic-lens or generic-optics with 'sourceObjectReference' instead." #-}
+
+-- | Identifies the typed link facet that is associated with the typed link.
+--
+-- /Note:/ Consider using 'typedLinkFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlsTypedLinkFacet :: Lens.Lens' TypedLinkSpecifier TypedLinkSchemaAndFacetName
+tlsTypedLinkFacet = Lens.lens (typedLinkFacet :: TypedLinkSpecifier -> TypedLinkSchemaAndFacetName) (\s a -> s {typedLinkFacet = a} :: TypedLinkSpecifier)
+{-# DEPRECATED tlsTypedLinkFacet "Use generic-lens or generic-optics with 'typedLinkFacet' instead." #-}
+
 instance Lude.FromJSON TypedLinkSpecifier where
   parseJSON =
     Lude.withObject
       "TypedLinkSpecifier"
       ( \x ->
           TypedLinkSpecifier'
-            Lude.<$> (x Lude..: "TypedLinkFacet")
-            Lude.<*> (x Lude..: "SourceObjectReference")
-            Lude.<*> (x Lude..: "TargetObjectReference")
+            Lude.<$> (x Lude..: "TargetObjectReference")
             Lude.<*> (x Lude..:? "IdentityAttributeValues" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "SourceObjectReference")
+            Lude.<*> (x Lude..: "TypedLinkFacet")
       )
 
 instance Lude.ToJSON TypedLinkSpecifier where
   toJSON TypedLinkSpecifier' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TypedLinkFacet" Lude..= typedLinkFacet),
-            Lude.Just ("SourceObjectReference" Lude..= sourceObjectReference),
-            Lude.Just ("TargetObjectReference" Lude..= targetObjectReference),
+          [ Lude.Just ("TargetObjectReference" Lude..= targetObjectReference),
             Lude.Just
-              ("IdentityAttributeValues" Lude..= identityAttributeValues)
+              ("IdentityAttributeValues" Lude..= identityAttributeValues),
+            Lude.Just ("SourceObjectReference" Lude..= sourceObjectReference),
+            Lude.Just ("TypedLinkFacet" Lude..= typedLinkFacet)
           ]
       )

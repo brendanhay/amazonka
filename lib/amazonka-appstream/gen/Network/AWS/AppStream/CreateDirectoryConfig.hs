@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.AppStream.CreateDirectoryConfig
 
     -- ** Request lenses
     cdcServiceAccountCredentials,
-    cdcDirectoryName,
     cdcOrganizationalUnitDistinguishedNames,
+    cdcDirectoryName,
 
     -- * Destructuring the response
     CreateDirectoryConfigResponse (..),
@@ -41,20 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDirectoryConfig' smart constructor.
 data CreateDirectoryConfig = CreateDirectoryConfig'
-  { serviceAccountCredentials ::
-      Lude.Maybe ServiceAccountCredentials,
-    directoryName :: Lude.Text,
-    organizationalUnitDistinguishedNames ::
-      [Lude.Text]
+  { -- | The credentials for the service account used by the fleet or image builder to connect to the directory.
+    serviceAccountCredentials :: Lude.Maybe ServiceAccountCredentials,
+    -- | The distinguished names of the organizational units for computer accounts.
+    organizationalUnitDistinguishedNames :: [Lude.Text],
+    -- | The fully qualified name of the directory (for example, corp.example.com).
+    directoryName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectoryConfig' with the minimum fields required to make a request.
 --
--- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
--- * 'organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
 -- * 'serviceAccountCredentials' - The credentials for the service account used by the fleet or image builder to connect to the directory.
+-- * 'organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
+-- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
 mkCreateDirectoryConfig ::
   -- | 'directoryName'
   Lude.Text ->
@@ -62,8 +64,8 @@ mkCreateDirectoryConfig ::
 mkCreateDirectoryConfig pDirectoryName_ =
   CreateDirectoryConfig'
     { serviceAccountCredentials = Lude.Nothing,
-      directoryName = pDirectoryName_,
-      organizationalUnitDistinguishedNames = Lude.mempty
+      organizationalUnitDistinguishedNames = Lude.mempty,
+      directoryName = pDirectoryName_
     }
 
 -- | The credentials for the service account used by the fleet or image builder to connect to the directory.
@@ -73,19 +75,19 @@ cdcServiceAccountCredentials :: Lens.Lens' CreateDirectoryConfig (Lude.Maybe Ser
 cdcServiceAccountCredentials = Lens.lens (serviceAccountCredentials :: CreateDirectoryConfig -> Lude.Maybe ServiceAccountCredentials) (\s a -> s {serviceAccountCredentials = a} :: CreateDirectoryConfig)
 {-# DEPRECATED cdcServiceAccountCredentials "Use generic-lens or generic-optics with 'serviceAccountCredentials' instead." #-}
 
--- | The fully qualified name of the directory (for example, corp.example.com).
---
--- /Note:/ Consider using 'directoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcDirectoryName :: Lens.Lens' CreateDirectoryConfig Lude.Text
-cdcDirectoryName = Lens.lens (directoryName :: CreateDirectoryConfig -> Lude.Text) (\s a -> s {directoryName = a} :: CreateDirectoryConfig)
-{-# DEPRECATED cdcDirectoryName "Use generic-lens or generic-optics with 'directoryName' instead." #-}
-
 -- | The distinguished names of the organizational units for computer accounts.
 --
 -- /Note:/ Consider using 'organizationalUnitDistinguishedNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdcOrganizationalUnitDistinguishedNames :: Lens.Lens' CreateDirectoryConfig [Lude.Text]
 cdcOrganizationalUnitDistinguishedNames = Lens.lens (organizationalUnitDistinguishedNames :: CreateDirectoryConfig -> [Lude.Text]) (\s a -> s {organizationalUnitDistinguishedNames = a} :: CreateDirectoryConfig)
 {-# DEPRECATED cdcOrganizationalUnitDistinguishedNames "Use generic-lens or generic-optics with 'organizationalUnitDistinguishedNames' instead." #-}
+
+-- | The fully qualified name of the directory (for example, corp.example.com).
+--
+-- /Note:/ Consider using 'directoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDirectoryName :: Lens.Lens' CreateDirectoryConfig Lude.Text
+cdcDirectoryName = Lens.lens (directoryName :: CreateDirectoryConfig -> Lude.Text) (\s a -> s {directoryName = a} :: CreateDirectoryConfig)
+{-# DEPRECATED cdcDirectoryName "Use generic-lens or generic-optics with 'directoryName' instead." #-}
 
 instance Lude.AWSRequest CreateDirectoryConfig where
   type Rs CreateDirectoryConfig = CreateDirectoryConfigResponse
@@ -117,11 +119,11 @@ instance Lude.ToJSON CreateDirectoryConfig where
       ( Lude.catMaybes
           [ ("ServiceAccountCredentials" Lude..=)
               Lude.<$> serviceAccountCredentials,
-            Lude.Just ("DirectoryName" Lude..= directoryName),
             Lude.Just
               ( "OrganizationalUnitDistinguishedNames"
                   Lude..= organizationalUnitDistinguishedNames
-              )
+              ),
+            Lude.Just ("DirectoryName" Lude..= directoryName)
           ]
       )
 
@@ -133,8 +135,9 @@ instance Lude.ToQuery CreateDirectoryConfig where
 
 -- | /See:/ 'mkCreateDirectoryConfigResponse' smart constructor.
 data CreateDirectoryConfigResponse = CreateDirectoryConfigResponse'
-  { directoryConfig ::
-      Lude.Maybe DirectoryConfig,
+  { -- | Information about the directory configuration.
+    directoryConfig :: Lude.Maybe DirectoryConfig,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

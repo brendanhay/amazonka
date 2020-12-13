@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.AlexaBusiness.ListTags
     mkListTags,
 
     -- ** Request lenses
+    ltARN,
     ltNextToken,
     ltMaxResults,
-    ltARN,
 
     -- * Destructuring the response
     ListTagsResponse (..),
@@ -45,34 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTags' smart constructor.
 data ListTags = ListTags'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    arn :: Lude.Text
+  { -- | The ARN of the specified resource for which to list tags.
+    arn :: Lude.Text,
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the specified resource for which to list tags.
--- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 -- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 mkListTags ::
   -- | 'arn'
   Lude.Text ->
   ListTags
 mkListTags pARN_ =
   ListTags'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      arn = pARN_
+    { arn = pARN_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The ARN of the specified resource for which to list tags.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltARN :: Lens.Lens' ListTags Lude.Text
+ltARN = Lens.lens (arn :: ListTags -> Lude.Text) (\s a -> s {arn = a} :: ListTags)
+{-# DEPRECATED ltARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 --
@@ -87,13 +92,6 @@ ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a ->
 ltMaxResults :: Lens.Lens' ListTags (Lude.Maybe Lude.Natural)
 ltMaxResults = Lens.lens (maxResults :: ListTags -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTags)
 {-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ARN of the specified resource for which to list tags.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltARN :: Lens.Lens' ListTags Lude.Text
-ltARN = Lens.lens (arn :: ListTags -> Lude.Text) (\s a -> s {arn = a} :: ListTags)
-{-# DEPRECATED ltARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 instance Page.AWSPager ListTags where
   page rq rs
@@ -131,9 +129,9 @@ instance Lude.ToJSON ListTags where
   toJSON ListTags' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("Arn" Lude..= arn)
+          [ Lude.Just ("Arn" Lude..= arn),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -145,25 +143,21 @@ instance Lude.ToQuery ListTags where
 
 -- | /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token returned to indicate that there is more data available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The tags requested for the specified resource.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token returned to indicate that there is more data available.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags requested for the specified resource.
+-- * 'responseStatus' - The response status code.
 mkListTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

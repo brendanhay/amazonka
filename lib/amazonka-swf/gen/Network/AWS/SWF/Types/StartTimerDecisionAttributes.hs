@@ -44,29 +44,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStartTimerDecisionAttributes' smart constructor.
 data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
-  { control ::
-      Lude.Maybe Lude.Text,
+  { -- | The data attached to the event that can be used by the decider in subsequent workflow tasks.
+    control :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the timer.
+    --
+    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
     timerId :: Lude.Text,
+    -- | The duration to wait before firing the timer.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal to @0@ .
     startToFireTimeout :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTimerDecisionAttributes' with the minimum fields required to make a request.
 --
 -- * 'control' - The data attached to the event that can be used by the decider in subsequent workflow tasks.
--- * 'startToFireTimeout' - The duration to wait before firing the timer.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ .
 -- * 'timerId' - The unique ID of the timer.
 --
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
+-- * 'startToFireTimeout' - The duration to wait before firing the timer.
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ .
 mkStartTimerDecisionAttributes ::
   -- | 'timerId'
   Lude.Text ->

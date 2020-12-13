@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientVPNRoute' smart constructor.
 data ClientVPNRoute = ClientVPNRoute'
-  { status ::
-      Lude.Maybe ClientVPNRouteStatus,
+  { -- | The current state of the route.
+    status :: Lude.Maybe ClientVPNRouteStatus,
+    -- | Indicates how the route was associated with the Client VPN endpoint. @associate@ indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. @add-route@ indicates that the route was manually added using the __CreateClientVpnRoute__ action.
     origin :: Lude.Maybe Lude.Text,
+    -- | The ID of the Client VPN endpoint with which the route is associated.
     clientVPNEndpointId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet through which traffic is routed.
     targetSubnet :: Lude.Maybe Lude.Text,
+    -- | The IPv4 address range, in CIDR notation, of the route destination.
     destinationCidr :: Lude.Maybe Lude.Text,
+    -- | The route type.
     type' :: Lude.Maybe Lude.Text,
+    -- | A brief description of the route.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNRoute' with the minimum fields required to make a request.
 --
--- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the route is associated.
--- * 'description' - A brief description of the route.
--- * 'destinationCidr' - The IPv4 address range, in CIDR notation, of the route destination.
--- * 'origin' - Indicates how the route was associated with the Client VPN endpoint. @associate@ indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. @add-route@ indicates that the route was manually added using the __CreateClientVpnRoute__ action.
 -- * 'status' - The current state of the route.
+-- * 'origin' - Indicates how the route was associated with the Client VPN endpoint. @associate@ indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. @add-route@ indicates that the route was manually added using the __CreateClientVpnRoute__ action.
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the route is associated.
 -- * 'targetSubnet' - The ID of the subnet through which traffic is routed.
+-- * 'destinationCidr' - The IPv4 address range, in CIDR notation, of the route destination.
 -- * 'type'' - The route type.
+-- * 'description' - A brief description of the route.
 mkClientVPNRoute ::
   ClientVPNRoute
 mkClientVPNRoute =

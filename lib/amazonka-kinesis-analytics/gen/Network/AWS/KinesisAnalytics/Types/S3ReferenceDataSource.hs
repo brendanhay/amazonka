@@ -17,9 +17,9 @@ module Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSource
     mkS3ReferenceDataSource,
 
     -- * Lenses
+    srdsReferenceRoleARN,
     srdsBucketARN,
     srdsFileKey,
-    srdsReferenceRoleARN,
   )
 where
 
@@ -32,39 +32,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3ReferenceDataSource' smart constructor.
 data S3ReferenceDataSource = S3ReferenceDataSource'
-  { bucketARN ::
-      Lude.Text,
-    fileKey :: Lude.Text,
-    referenceRoleARN :: Lude.Text
+  { -- | ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the @s3:GetObject@ action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.
+    referenceRoleARN :: Lude.Text,
+    -- | Amazon Resource Name (ARN) of the S3 bucket.
+    bucketARN :: Lude.Text,
+    -- | Object key name containing reference data.
+    fileKey :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3ReferenceDataSource' with the minimum fields required to make a request.
 --
+-- * 'referenceRoleARN' - ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the @s3:GetObject@ action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.
 -- * 'bucketARN' - Amazon Resource Name (ARN) of the S3 bucket.
 -- * 'fileKey' - Object key name containing reference data.
--- * 'referenceRoleARN' - ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the @s3:GetObject@ action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.
 mkS3ReferenceDataSource ::
+  -- | 'referenceRoleARN'
+  Lude.Text ->
   -- | 'bucketARN'
   Lude.Text ->
   -- | 'fileKey'
   Lude.Text ->
-  -- | 'referenceRoleARN'
-  Lude.Text ->
   S3ReferenceDataSource
-mkS3ReferenceDataSource pBucketARN_ pFileKey_ pReferenceRoleARN_ =
+mkS3ReferenceDataSource pReferenceRoleARN_ pBucketARN_ pFileKey_ =
   S3ReferenceDataSource'
-    { bucketARN = pBucketARN_,
-      fileKey = pFileKey_,
-      referenceRoleARN = pReferenceRoleARN_
+    { referenceRoleARN = pReferenceRoleARN_,
+      bucketARN = pBucketARN_,
+      fileKey = pFileKey_
     }
+
+-- | ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the @s3:GetObject@ action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.
+--
+-- /Note:/ Consider using 'referenceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srdsReferenceRoleARN :: Lens.Lens' S3ReferenceDataSource Lude.Text
+srdsReferenceRoleARN = Lens.lens (referenceRoleARN :: S3ReferenceDataSource -> Lude.Text) (\s a -> s {referenceRoleARN = a} :: S3ReferenceDataSource)
+{-# DEPRECATED srdsReferenceRoleARN "Use generic-lens or generic-optics with 'referenceRoleARN' instead." #-}
 
 -- | Amazon Resource Name (ARN) of the S3 bucket.
 --
@@ -80,19 +83,12 @@ srdsFileKey :: Lens.Lens' S3ReferenceDataSource Lude.Text
 srdsFileKey = Lens.lens (fileKey :: S3ReferenceDataSource -> Lude.Text) (\s a -> s {fileKey = a} :: S3ReferenceDataSource)
 {-# DEPRECATED srdsFileKey "Use generic-lens or generic-optics with 'fileKey' instead." #-}
 
--- | ARN of the IAM role that the service can assume to read data on your behalf. This role must have permission for the @s3:GetObject@ action on the object and trust policy that allows Amazon Kinesis Analytics service principal to assume this role.
---
--- /Note:/ Consider using 'referenceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdsReferenceRoleARN :: Lens.Lens' S3ReferenceDataSource Lude.Text
-srdsReferenceRoleARN = Lens.lens (referenceRoleARN :: S3ReferenceDataSource -> Lude.Text) (\s a -> s {referenceRoleARN = a} :: S3ReferenceDataSource)
-{-# DEPRECATED srdsReferenceRoleARN "Use generic-lens or generic-optics with 'referenceRoleARN' instead." #-}
-
 instance Lude.ToJSON S3ReferenceDataSource where
   toJSON S3ReferenceDataSource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("BucketARN" Lude..= bucketARN),
-            Lude.Just ("FileKey" Lude..= fileKey),
-            Lude.Just ("ReferenceRoleARN" Lude..= referenceRoleARN)
+          [ Lude.Just ("ReferenceRoleARN" Lude..= referenceRoleARN),
+            Lude.Just ("BucketARN" Lude..= bucketARN),
+            Lude.Just ("FileKey" Lude..= fileKey)
           ]
       )

@@ -31,16 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflowGraph' smart constructor.
 data WorkflowGraph = WorkflowGraph'
-  { edges :: Lude.Maybe [Edge],
+  { -- | A list of all the directed connections between the nodes belonging to the workflow.
+    edges :: Lude.Maybe [Edge],
+    -- | A list of the the AWS Glue components belong to the workflow represented as nodes.
     nodes :: Lude.Maybe [Node]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowGraph' with the minimum fields required to make a request.

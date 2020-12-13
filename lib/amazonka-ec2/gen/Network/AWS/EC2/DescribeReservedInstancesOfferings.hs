@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -62,57 +63,84 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReservedInstancesOfferings' smart constructor.
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
-  { maxDuration ::
-      Lude.Maybe
-        Lude.Integer,
-    productDescription ::
-      Lude.Maybe
-        RIProductDescription,
-    filters ::
-      Lude.Maybe [Filter],
-    includeMarketplace ::
-      Lude.Maybe Lude.Bool,
-    instanceType ::
-      Lude.Maybe
-        InstanceType,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    minDuration ::
-      Lude.Maybe
-        Lude.Integer,
-    availabilityZone ::
-      Lude.Maybe Lude.Text,
-    offeringType ::
-      Lude.Maybe
-        OfferingTypeValues,
-    reservedInstancesOfferingIds ::
-      Lude.Maybe
-        [Lude.Text],
-    instanceTenancy ::
-      Lude.Maybe Tenancy,
-    offeringClass ::
-      Lude.Maybe
-        OfferingClassType,
-    maxInstanceCount ::
-      Lude.Maybe Lude.Int,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Int
+  { -- | The maximum duration (in seconds) to filter when searching for offerings.
+    --
+    -- Default: 94608000 (3 years)
+    maxDuration :: Lude.Maybe Lude.Integer,
+    -- | The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
+    productDescription :: Lude.Maybe RIProductDescription,
+    -- | One or more filters.
+    --
+    --
+    --     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.
+    --
+    --
+    --     * @duration@ - The duration of the Reserved Instance (for example, one year or three years), in seconds (@31536000@ | @94608000@ ).
+    --
+    --
+    --     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).
+    --
+    --
+    --     * @instance-type@ - The instance type that is covered by the reservation.
+    --
+    --
+    --     * @marketplace@ - Set to @true@ to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both AWS and the Reserved Instance Marketplace are listed.
+    --
+    --
+    --     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC. (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ )
+    --
+    --
+    --     * @reserved-instances-offering-id@ - The Reserved Instances offering ID.
+    --
+    --
+    --     * @scope@ - The scope of the Reserved Instance (@Availability Zone@ or @Region@ ).
+    --
+    --
+    --     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
+    filters :: Lude.Maybe [Filter],
+    -- | Include Reserved Instance Marketplace offerings in the response.
+    includeMarketplace :: Lude.Maybe Lude.Bool,
+    -- | The instance type that the reservation will cover (for example, @m1.small@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+    instanceType :: Lude.Maybe InstanceType,
+    -- | The token to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The minimum duration (in seconds) to filter when searching for offerings.
+    --
+    -- Default: 2592000 (1 month)
+    minDuration :: Lude.Maybe Lude.Integer,
+    -- | The Availability Zone in which the Reserved Instance can be used.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
+    offeringType :: Lude.Maybe OfferingTypeValues,
+    -- | One or more Reserved Instances offering IDs.
+    reservedInstancesOfferingIds :: Lude.Maybe [Lude.Text],
+    -- | The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of @dedicated@ is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).
+    --
+    -- __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only.
+    -- Default: @default@
+    instanceTenancy :: Lude.Maybe Tenancy,
+    -- | The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
+    offeringClass :: Lude.Maybe OfferingClassType,
+    -- | The maximum number of instances to filter when searching for offerings.
+    --
+    -- Default: 20
+    maxInstanceCount :: Lude.Maybe Lude.Int,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. The maximum is 100.
+    --
+    -- Default: 100
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedInstancesOfferings' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxDuration' - The maximum duration (in seconds) to filter when searching for offerings.
+--
+-- Default: 94608000 (3 years)
+-- * 'productDescription' - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
 -- * 'filters' - One or more filters.
 --
 --
@@ -144,28 +172,26 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 --
 --
 -- * 'includeMarketplace' - Include Reserved Instance Marketplace offerings in the response.
+-- * 'instanceType' - The instance type that the reservation will cover (for example, @m1.small@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'nextToken' - The token to retrieve the next page of results.
+-- * 'minDuration' - The minimum duration (in seconds) to filter when searching for offerings.
+--
+-- Default: 2592000 (1 month)
+-- * 'availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
+-- * 'offeringType' - The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
+-- * 'reservedInstancesOfferingIds' - One or more Reserved Instances offering IDs.
 -- * 'instanceTenancy' - The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of @dedicated@ is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).
 --
 -- __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only.
 -- Default: @default@
--- * 'instanceType' - The instance type that the reservation will cover (for example, @m1.small@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'maxDuration' - The maximum duration (in seconds) to filter when searching for offerings.
---
--- Default: 94608000 (3 years)
+-- * 'offeringClass' - The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
 -- * 'maxInstanceCount' - The maximum number of instances to filter when searching for offerings.
 --
 -- Default: 20
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. The maximum is 100.
 --
 -- Default: 100
--- * 'minDuration' - The minimum duration (in seconds) to filter when searching for offerings.
---
--- Default: 2592000 (1 month)
--- * 'nextToken' - The token to retrieve the next page of results.
--- * 'offeringClass' - The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
--- * 'offeringType' - The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
--- * 'productDescription' - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
--- * 'reservedInstancesOfferingIds' - One or more Reserved Instances offering IDs.
 mkDescribeReservedInstancesOfferings ::
   DescribeReservedInstancesOfferings
 mkDescribeReservedInstancesOfferings =
@@ -394,22 +420,14 @@ instance Lude.ToQuery DescribeReservedInstancesOfferings where
 --
 -- /See:/ 'mkDescribeReservedInstancesOfferingsResponse' smart constructor.
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    reservedInstancesOfferings ::
-      Lude.Maybe
-        [ReservedInstancesOffering],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of Reserved Instances offerings.
+    reservedInstancesOfferings :: Lude.Maybe [ReservedInstancesOffering],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedInstancesOfferingsResponse' with the minimum fields required to make a request.

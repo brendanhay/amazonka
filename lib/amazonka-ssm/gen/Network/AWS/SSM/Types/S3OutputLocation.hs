@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3OutputLocation' smart constructor.
 data S3OutputLocation = S3OutputLocation'
-  { outputS3KeyPrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The S3 bucket subfolder.
+    outputS3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
     outputS3Region :: Lude.Maybe Lude.Text,
+    -- | The name of the S3 bucket.
     outputS3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3OutputLocation' with the minimum fields required to make a request.
 --
--- * 'outputS3BucketName' - The name of the S3 bucket.
 -- * 'outputS3KeyPrefix' - The S3 bucket subfolder.
 -- * 'outputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
+-- * 'outputS3BucketName' - The name of the S3 bucket.
 mkS3OutputLocation ::
   S3OutputLocation
 mkS3OutputLocation =

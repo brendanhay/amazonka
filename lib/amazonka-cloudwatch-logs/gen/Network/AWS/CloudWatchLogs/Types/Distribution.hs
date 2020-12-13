@@ -13,8 +13,8 @@
 module Network.AWS.CloudWatchLogs.Types.Distribution
   ( Distribution
       ( Distribution',
-        ByLogStream,
-        Random
+        Random,
+        ByLogStream
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Distribution = Distribution' Lude.Text
       Lude.ToHeader
     )
 
-pattern ByLogStream :: Distribution
-pattern ByLogStream = Distribution' "ByLogStream"
-
 pattern Random :: Distribution
 pattern Random = Distribution' "Random"
 
+pattern ByLogStream :: Distribution
+pattern ByLogStream = Distribution' "ByLogStream"
+
 {-# COMPLETE
-  ByLogStream,
   Random,
+  ByLogStream,
   Distribution'
   #-}

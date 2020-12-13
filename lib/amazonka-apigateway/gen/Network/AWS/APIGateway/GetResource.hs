@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.GetResource
     mkGetResource,
 
     -- ** Request lenses
-    grEmbed,
-    grRestAPIId,
-    grResourceId,
+    grfResourceId,
+    grfEmbed,
+    grfRestAPIId,
 
     -- * Destructuring the response
     Resource (..),
@@ -46,57 +47,54 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetResource' smart constructor.
 data GetResource = GetResource'
-  { embed :: Lude.Maybe [Lude.Text],
-    restAPIId :: Lude.Text,
-    resourceId :: Lude.Text
+  { -- | [Required] The identifier for the 'Resource' resource.
+    resourceId :: Lude.Text,
+    -- | A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
+    embed :: Lude.Maybe [Lude.Text],
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResource' with the minimum fields required to make a request.
 --
--- * 'embed' - A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
 -- * 'resourceId' - [Required] The identifier for the 'Resource' resource.
+-- * 'embed' - A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkGetResource ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   GetResource
-mkGetResource pRestAPIId_ pResourceId_ =
+mkGetResource pResourceId_ pRestAPIId_ =
   GetResource'
-    { embed = Lude.Nothing,
-      restAPIId = pRestAPIId_,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      embed = Lude.Nothing,
+      restAPIId = pRestAPIId_
     }
-
--- | A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
---
--- /Note:/ Consider using 'embed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grEmbed :: Lens.Lens' GetResource (Lude.Maybe [Lude.Text])
-grEmbed = Lens.lens (embed :: GetResource -> Lude.Maybe [Lude.Text]) (\s a -> s {embed = a} :: GetResource)
-{-# DEPRECATED grEmbed "Use generic-lens or generic-optics with 'embed' instead." #-}
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grRestAPIId :: Lens.Lens' GetResource Lude.Text
-grRestAPIId = Lens.lens (restAPIId :: GetResource -> Lude.Text) (\s a -> s {restAPIId = a} :: GetResource)
-{-# DEPRECATED grRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier for the 'Resource' resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grResourceId :: Lens.Lens' GetResource Lude.Text
-grResourceId = Lens.lens (resourceId :: GetResource -> Lude.Text) (\s a -> s {resourceId = a} :: GetResource)
-{-# DEPRECATED grResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+grfResourceId :: Lens.Lens' GetResource Lude.Text
+grfResourceId = Lens.lens (resourceId :: GetResource -> Lude.Text) (\s a -> s {resourceId = a} :: GetResource)
+{-# DEPRECATED grfResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
+--
+-- /Note:/ Consider using 'embed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grfEmbed :: Lens.Lens' GetResource (Lude.Maybe [Lude.Text])
+grfEmbed = Lens.lens (embed :: GetResource -> Lude.Maybe [Lude.Text]) (\s a -> s {embed = a} :: GetResource)
+{-# DEPRECATED grfEmbed "Use generic-lens or generic-optics with 'embed' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grfRestAPIId :: Lens.Lens' GetResource Lude.Text
+grfRestAPIId = Lens.lens (restAPIId :: GetResource -> Lude.Text) (\s a -> s {restAPIId = a} :: GetResource)
+{-# DEPRECATED grfRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest GetResource where
   type Rs GetResource = Resource

@@ -39,35 +39,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMessageConfiguration' smart constructor.
 data MessageConfiguration = MessageConfiguration'
-  { apnsMessage ::
-      Lude.Maybe Message,
+  { -- | The message that the campaign sends through the APNs (Apple Push Notification service) channel. If specified, this message overrides the default message.
+    apnsMessage :: Lude.Maybe Message,
+    -- | The message that the campaign sends through the GCM channel, which enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. If specified, this message overrides the default message.
     gcmMessage :: Lude.Maybe Message,
+    -- | The default message that the campaign sends through all the channels that are configured for the campaign.
     defaultMessage :: Lude.Maybe Message,
+    -- | The message that the campaign sends through a custom channel, as specified by the delivery configuration (CustomDeliveryConfiguration) settings for the campaign. If specified, this message overrides the default message.
     customMessage :: Lude.Maybe CampaignCustomMessage,
+    -- | The message that the campaign sends through the ADM (Amazon Device Messaging) channel. If specified, this message overrides the default message.
     aDMMessage :: Lude.Maybe Message,
+    -- | The message that the campaign sends through the SMS channel. If specified, this message overrides the default message.
     sMSMessage :: Lude.Maybe CampaignSmsMessage,
+    -- | The message that the campaign sends through the email channel. If specified, this message overrides the default message.
     emailMessage :: Lude.Maybe CampaignEmailMessage,
+    -- | The message that the campaign sends through the Baidu (Baidu Cloud Push) channel. If specified, this message overrides the default message.
     baiduMessage :: Lude.Maybe Message
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageConfiguration' with the minimum fields required to make a request.
 --
--- * 'aDMMessage' - The message that the campaign sends through the ADM (Amazon Device Messaging) channel. If specified, this message overrides the default message.
 -- * 'apnsMessage' - The message that the campaign sends through the APNs (Apple Push Notification service) channel. If specified, this message overrides the default message.
--- * 'baiduMessage' - The message that the campaign sends through the Baidu (Baidu Cloud Push) channel. If specified, this message overrides the default message.
--- * 'customMessage' - The message that the campaign sends through a custom channel, as specified by the delivery configuration (CustomDeliveryConfiguration) settings for the campaign. If specified, this message overrides the default message.
--- * 'defaultMessage' - The default message that the campaign sends through all the channels that are configured for the campaign.
--- * 'emailMessage' - The message that the campaign sends through the email channel. If specified, this message overrides the default message.
 -- * 'gcmMessage' - The message that the campaign sends through the GCM channel, which enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. If specified, this message overrides the default message.
+-- * 'defaultMessage' - The default message that the campaign sends through all the channels that are configured for the campaign.
+-- * 'customMessage' - The message that the campaign sends through a custom channel, as specified by the delivery configuration (CustomDeliveryConfiguration) settings for the campaign. If specified, this message overrides the default message.
+-- * 'aDMMessage' - The message that the campaign sends through the ADM (Amazon Device Messaging) channel. If specified, this message overrides the default message.
 -- * 'sMSMessage' - The message that the campaign sends through the SMS channel. If specified, this message overrides the default message.
+-- * 'emailMessage' - The message that the campaign sends through the email channel. If specified, this message overrides the default message.
+-- * 'baiduMessage' - The message that the campaign sends through the Baidu (Baidu Cloud Push) channel. If specified, this message overrides the default message.
 mkMessageConfiguration ::
   MessageConfiguration
 mkMessageConfiguration =

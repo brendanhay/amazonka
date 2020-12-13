@@ -17,8 +17,8 @@ module Network.AWS.EMR.Types.PlacementGroupConfig
     mkPlacementGroupConfig,
 
     -- * Lenses
-    pgcPlacementStrategy,
     pgcInstanceRole,
+    pgcPlacementStrategy,
   )
 where
 
@@ -33,17 +33,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlacementGroupConfig' smart constructor.
 data PlacementGroupConfig = PlacementGroupConfig'
-  { placementStrategy ::
-      Lude.Maybe PlacementGroupStrategy,
-    instanceRole :: InstanceRoleType
+  { -- | Role of the instance in the cluster.
+    --
+    -- Starting with Amazon EMR version 5.23.0, the only supported instance role is @MASTER@ .
+    instanceRole :: InstanceRoleType,
+    -- | EC2 Placement Group strategy associated with instance role.
+    --
+    -- Starting with Amazon EMR version 5.23.0, the only supported placement strategy is @SPREAD@ for the @MASTER@ instance role.
+    placementStrategy :: Lude.Maybe PlacementGroupStrategy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlacementGroupConfig' with the minimum fields required to make a request.
@@ -60,18 +59,9 @@ mkPlacementGroupConfig ::
   PlacementGroupConfig
 mkPlacementGroupConfig pInstanceRole_ =
   PlacementGroupConfig'
-    { placementStrategy = Lude.Nothing,
-      instanceRole = pInstanceRole_
+    { instanceRole = pInstanceRole_,
+      placementStrategy = Lude.Nothing
     }
-
--- | EC2 Placement Group strategy associated with instance role.
---
--- Starting with Amazon EMR version 5.23.0, the only supported placement strategy is @SPREAD@ for the @MASTER@ instance role.
---
--- /Note:/ Consider using 'placementStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgcPlacementStrategy :: Lens.Lens' PlacementGroupConfig (Lude.Maybe PlacementGroupStrategy)
-pgcPlacementStrategy = Lens.lens (placementStrategy :: PlacementGroupConfig -> Lude.Maybe PlacementGroupStrategy) (\s a -> s {placementStrategy = a} :: PlacementGroupConfig)
-{-# DEPRECATED pgcPlacementStrategy "Use generic-lens or generic-optics with 'placementStrategy' instead." #-}
 
 -- | Role of the instance in the cluster.
 --
@@ -82,21 +72,30 @@ pgcInstanceRole :: Lens.Lens' PlacementGroupConfig InstanceRoleType
 pgcInstanceRole = Lens.lens (instanceRole :: PlacementGroupConfig -> InstanceRoleType) (\s a -> s {instanceRole = a} :: PlacementGroupConfig)
 {-# DEPRECATED pgcInstanceRole "Use generic-lens or generic-optics with 'instanceRole' instead." #-}
 
+-- | EC2 Placement Group strategy associated with instance role.
+--
+-- Starting with Amazon EMR version 5.23.0, the only supported placement strategy is @SPREAD@ for the @MASTER@ instance role.
+--
+-- /Note:/ Consider using 'placementStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgcPlacementStrategy :: Lens.Lens' PlacementGroupConfig (Lude.Maybe PlacementGroupStrategy)
+pgcPlacementStrategy = Lens.lens (placementStrategy :: PlacementGroupConfig -> Lude.Maybe PlacementGroupStrategy) (\s a -> s {placementStrategy = a} :: PlacementGroupConfig)
+{-# DEPRECATED pgcPlacementStrategy "Use generic-lens or generic-optics with 'placementStrategy' instead." #-}
+
 instance Lude.FromJSON PlacementGroupConfig where
   parseJSON =
     Lude.withObject
       "PlacementGroupConfig"
       ( \x ->
           PlacementGroupConfig'
-            Lude.<$> (x Lude..:? "PlacementStrategy")
-            Lude.<*> (x Lude..: "InstanceRole")
+            Lude.<$> (x Lude..: "InstanceRole")
+            Lude.<*> (x Lude..:? "PlacementStrategy")
       )
 
 instance Lude.ToJSON PlacementGroupConfig where
   toJSON PlacementGroupConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PlacementStrategy" Lude..=) Lude.<$> placementStrategy,
-            Lude.Just ("InstanceRole" Lude..= instanceRole)
+          [ Lude.Just ("InstanceRole" Lude..= instanceRole),
+            ("PlacementStrategy" Lude..=) Lude.<$> placementStrategy
           ]
       )

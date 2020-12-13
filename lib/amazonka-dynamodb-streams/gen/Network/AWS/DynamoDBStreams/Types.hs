@@ -51,8 +51,8 @@ module Network.AWS.DynamoDBStreams.Types
     -- * KeySchemaElement
     KeySchemaElement (..),
     mkKeySchemaElement,
-    kseAttributeName,
     kseKeyType,
+    kseAttributeName,
 
     -- * Record
     Record (..),

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,28 +38,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateCertificateAuthority' smart constructor.
 data UpdateCertificateAuthority = UpdateCertificateAuthority'
-  { status ::
-      Lude.Maybe CertificateAuthorityStatus,
-    revocationConfiguration ::
-      Lude.Maybe RevocationConfiguration,
+  { -- | Status of your private CA.
+    status :: Lude.Maybe CertificateAuthorityStatus,
+    -- | Revocation information for your private CA.
+    revocationConfiguration :: Lude.Maybe RevocationConfiguration,
+    -- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
     certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCertificateAuthority' with the minimum fields required to make a request.
 --
+-- * 'status' - Status of your private CA.
+-- * 'revocationConfiguration' - Revocation information for your private CA.
 -- * 'certificateAuthorityARN' - Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
--- * 'revocationConfiguration' - Revocation information for your private CA.
--- * 'status' - Status of your private CA.
 mkUpdateCertificateAuthority ::
   -- | 'certificateAuthorityARN'
   Lude.Text ->
@@ -131,13 +129,7 @@ instance Lude.ToQuery UpdateCertificateAuthority where
 
 -- | /See:/ 'mkUpdateCertificateAuthorityResponse' smart constructor.
 data UpdateCertificateAuthorityResponse = UpdateCertificateAuthorityResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCertificateAuthorityResponse' with the minimum fields required to make a request.

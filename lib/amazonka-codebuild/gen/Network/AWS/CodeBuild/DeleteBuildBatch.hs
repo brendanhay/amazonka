@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteBuildBatch' smart constructor.
-newtype DeleteBuildBatch = DeleteBuildBatch' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteBuildBatch = DeleteBuildBatch'
+  { -- | The identifier of the batch build to delete.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBuildBatch' with the minimum fields required to make a request.
@@ -102,28 +100,24 @@ instance Lude.ToQuery DeleteBuildBatch where
 
 -- | /See:/ 'mkDeleteBuildBatchResponse' smart constructor.
 data DeleteBuildBatchResponse = DeleteBuildBatchResponse'
-  { buildsNotDeleted ::
-      Lude.Maybe [BuildNotDeleted],
-    buildsDeleted ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | An array of @BuildNotDeleted@ objects that specify the builds that could not be deleted.
+    buildsNotDeleted :: Lude.Maybe [BuildNotDeleted],
+    -- | An array of strings that contain the identifiers of the builds that were deleted.
+    buildsDeleted :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The status code.
     statusCode :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBuildBatchResponse' with the minimum fields required to make a request.
 --
--- * 'buildsDeleted' - An array of strings that contain the identifiers of the builds that were deleted.
 -- * 'buildsNotDeleted' - An array of @BuildNotDeleted@ objects that specify the builds that could not be deleted.
--- * 'responseStatus' - The response status code.
+-- * 'buildsDeleted' - An array of strings that contain the identifiers of the builds that were deleted.
 -- * 'statusCode' - The status code.
+-- * 'responseStatus' - The response status code.
 mkDeleteBuildBatchResponse ::
   -- | 'responseStatus'
   Lude.Int ->

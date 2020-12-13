@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.RDS.DeleteDBClusterParameterGroup
     mkDeleteDBClusterParameterGroup,
 
     -- ** Request lenses
-    ddbcpgDBClusterParameterGroupName,
+    ddcpgDBClusterParameterGroupName,
 
     -- * Destructuring the response
     DeleteDBClusterParameterGroupResponse (..),
@@ -39,16 +40,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDBClusterParameterGroup' smart constructor.
 newtype DeleteDBClusterParameterGroup = DeleteDBClusterParameterGroup'
-  { dbClusterParameterGroupName ::
-      Lude.Text
+  { -- | The name of the DB cluster parameter group.
+    --
+    -- Constraints:
+    --
+    --     * Must be the name of an existing DB cluster parameter group.
+    --
+    --
+    --     * You can't delete a default DB cluster parameter group.
+    --
+    --
+    --     * Can't be associated with any DB clusters.
+    dbClusterParameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBClusterParameterGroup' with the minimum fields required to make a request.
@@ -89,9 +94,9 @@ mkDeleteDBClusterParameterGroup pDBClusterParameterGroupName_ =
 --
 --
 -- /Note:/ Consider using 'dbClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbcpgDBClusterParameterGroupName :: Lens.Lens' DeleteDBClusterParameterGroup Lude.Text
-ddbcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: DeleteDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: DeleteDBClusterParameterGroup)
-{-# DEPRECATED ddbcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
+ddcpgDBClusterParameterGroupName :: Lens.Lens' DeleteDBClusterParameterGroup Lude.Text
+ddcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: DeleteDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: DeleteDBClusterParameterGroup)
+{-# DEPRECATED ddcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
 
 instance Lude.AWSRequest DeleteDBClusterParameterGroup where
   type
@@ -117,13 +122,7 @@ instance Lude.ToQuery DeleteDBClusterParameterGroup where
 
 -- | /See:/ 'mkDeleteDBClusterParameterGroupResponse' smart constructor.
 data DeleteDBClusterParameterGroupResponse = DeleteDBClusterParameterGroupResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBClusterParameterGroupResponse' with the minimum fields required to make a request.

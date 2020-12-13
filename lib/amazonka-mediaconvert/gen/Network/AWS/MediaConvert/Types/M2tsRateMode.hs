@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.M2tsRateMode
   ( M2tsRateMode
       ( M2tsRateMode',
-        MRMCbr,
-        MRMVbr
+        MRMVbr,
+        MRMCbr
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype M2tsRateMode = M2tsRateMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern MRMCbr :: M2tsRateMode
-pattern MRMCbr = M2tsRateMode' "CBR"
-
 pattern MRMVbr :: M2tsRateMode
 pattern MRMVbr = M2tsRateMode' "VBR"
 
+pattern MRMCbr :: M2tsRateMode
+pattern MRMCbr = M2tsRateMode' "CBR"
+
 {-# COMPLETE
-  MRMCbr,
   MRMVbr,
+  MRMCbr,
   M2tsRateMode'
   #-}

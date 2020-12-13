@@ -42,17 +42,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicaUpdate' smart constructor.
 data ReplicaUpdate = ReplicaUpdate'
-  { create ::
-      Lude.Maybe CreateReplicaAction,
+  { -- | The parameters required for creating a replica on an existing global table.
+    create :: Lude.Maybe CreateReplicaAction,
+    -- | The name of the existing replica to be removed.
     delete :: Lude.Maybe DeleteReplicaAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaUpdate' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IAM.DeleteSSHPublicKey
     mkDeleteSSHPublicKey,
 
     -- ** Request lenses
-    dspkUserName,
     dspkSSHPublicKeyId,
+    dspkUserName,
 
     -- * Destructuring the response
     DeleteSSHPublicKeyResponse (..),
@@ -38,17 +39,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSSHPublicKey' smart constructor.
 data DeleteSSHPublicKey = DeleteSSHPublicKey'
-  { userName ::
-      Lude.Text,
-    sshPublicKeyId :: Lude.Text
+  { -- | The unique identifier for the SSH public key.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+    sshPublicKeyId :: Lude.Text,
+    -- | The name of the IAM user associated with the SSH public key.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSSHPublicKey' with the minimum fields required to make a request.
@@ -60,25 +60,16 @@ data DeleteSSHPublicKey = DeleteSSHPublicKey'
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkDeleteSSHPublicKey ::
-  -- | 'userName'
-  Lude.Text ->
   -- | 'sshPublicKeyId'
   Lude.Text ->
+  -- | 'userName'
+  Lude.Text ->
   DeleteSSHPublicKey
-mkDeleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
+mkDeleteSSHPublicKey pSSHPublicKeyId_ pUserName_ =
   DeleteSSHPublicKey'
-    { userName = pUserName_,
-      sshPublicKeyId = pSSHPublicKeyId_
+    { sshPublicKeyId = pSSHPublicKeyId_,
+      userName = pUserName_
     }
-
--- | The name of the IAM user associated with the SSH public key.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dspkUserName :: Lens.Lens' DeleteSSHPublicKey Lude.Text
-dspkUserName = Lens.lens (userName :: DeleteSSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: DeleteSSHPublicKey)
-{-# DEPRECATED dspkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The unique identifier for the SSH public key.
 --
@@ -88,6 +79,15 @@ dspkUserName = Lens.lens (userName :: DeleteSSHPublicKey -> Lude.Text) (\s a -> 
 dspkSSHPublicKeyId :: Lens.Lens' DeleteSSHPublicKey Lude.Text
 dspkSSHPublicKeyId = Lens.lens (sshPublicKeyId :: DeleteSSHPublicKey -> Lude.Text) (\s a -> s {sshPublicKeyId = a} :: DeleteSSHPublicKey)
 {-# DEPRECATED dspkSSHPublicKeyId "Use generic-lens or generic-optics with 'sshPublicKeyId' instead." #-}
+
+-- | The name of the IAM user associated with the SSH public key.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspkUserName :: Lens.Lens' DeleteSSHPublicKey Lude.Text
+dspkUserName = Lens.lens (userName :: DeleteSSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: DeleteSSHPublicKey)
+{-# DEPRECATED dspkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 instance Lude.AWSRequest DeleteSSHPublicKey where
   type Rs DeleteSSHPublicKey = DeleteSSHPublicKeyResponse
@@ -105,19 +105,13 @@ instance Lude.ToQuery DeleteSSHPublicKey where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteSSHPublicKey" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "SSHPublicKeyId" Lude.=: sshPublicKeyId
+        "SSHPublicKeyId" Lude.=: sshPublicKeyId,
+        "UserName" Lude.=: userName
       ]
 
 -- | /See:/ 'mkDeleteSSHPublicKeyResponse' smart constructor.
 data DeleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSSHPublicKeyResponse' with the minimum fields required to make a request.

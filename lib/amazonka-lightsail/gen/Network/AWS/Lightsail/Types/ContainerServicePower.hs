@@ -35,30 +35,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerServicePower' smart constructor.
 data ContainerServicePower = ContainerServicePower'
-  { powerId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the power (e.g., @nano-1@ ).
+    powerId :: Lude.Maybe Lude.Text,
+    -- | The number of vCPUs included in the power.
     cpuCount :: Lude.Maybe Lude.Double,
+    -- | The friendly name of the power (e.g., @nano@ ).
     name :: Lude.Maybe Lude.Text,
+    -- | The monthly price of the power in USD.
     price :: Lude.Maybe Lude.Double,
+    -- | A Boolean value indicating whether the power is active and can be specified for container services.
     isActive :: Lude.Maybe Lude.Bool,
+    -- | The amount of RAM (in GB) of the power.
     ramSizeInGb :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerServicePower' with the minimum fields required to make a request.
 --
--- * 'cpuCount' - The number of vCPUs included in the power.
--- * 'isActive' - A Boolean value indicating whether the power is active and can be specified for container services.
--- * 'name' - The friendly name of the power (e.g., @nano@ ).
 -- * 'powerId' - The ID of the power (e.g., @nano-1@ ).
+-- * 'cpuCount' - The number of vCPUs included in the power.
+-- * 'name' - The friendly name of the power (e.g., @nano@ ).
 -- * 'price' - The monthly price of the power in USD.
+-- * 'isActive' - A Boolean value indicating whether the power is active and can be specified for container services.
 -- * 'ramSizeInGb' - The amount of RAM (in GB) of the power.
 mkContainerServicePower ::
   ContainerServicePower

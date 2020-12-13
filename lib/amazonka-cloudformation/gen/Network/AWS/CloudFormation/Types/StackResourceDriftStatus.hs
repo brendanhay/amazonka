@@ -13,9 +13,9 @@
 module Network.AWS.CloudFormation.Types.StackResourceDriftStatus
   ( StackResourceDriftStatus
       ( StackResourceDriftStatus',
-        SRDSDeleted,
         SRDSInSync,
         SRDSModified,
+        SRDSDeleted,
         SRDSNotChecked
       ),
   )
@@ -47,22 +47,22 @@ newtype StackResourceDriftStatus = StackResourceDriftStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SRDSDeleted :: StackResourceDriftStatus
-pattern SRDSDeleted = StackResourceDriftStatus' "DELETED"
-
 pattern SRDSInSync :: StackResourceDriftStatus
 pattern SRDSInSync = StackResourceDriftStatus' "IN_SYNC"
 
 pattern SRDSModified :: StackResourceDriftStatus
 pattern SRDSModified = StackResourceDriftStatus' "MODIFIED"
 
+pattern SRDSDeleted :: StackResourceDriftStatus
+pattern SRDSDeleted = StackResourceDriftStatus' "DELETED"
+
 pattern SRDSNotChecked :: StackResourceDriftStatus
 pattern SRDSNotChecked = StackResourceDriftStatus' "NOT_CHECKED"
 
 {-# COMPLETE
-  SRDSDeleted,
   SRDSInSync,
   SRDSModified,
+  SRDSDeleted,
   SRDSNotChecked,
   StackResourceDriftStatus'
   #-}

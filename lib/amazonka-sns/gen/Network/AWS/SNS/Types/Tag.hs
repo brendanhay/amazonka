@@ -17,8 +17,8 @@ module Network.AWS.SNS.Types.Tag
     mkTag,
 
     -- * Lenses
-    tKey,
     tValue,
+    tKey,
   )
 where
 
@@ -28,34 +28,26 @@ import qualified Network.AWS.Prelude as Lude
 -- | The list of tags to be added to the specified topic.
 --
 -- /See:/ 'mkTag' smart constructor.
-data Tag = Tag' {key :: Lude.Text, value :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Tag = Tag'
+  { -- | The optional value portion of the tag.
+    value :: Lude.Text,
+    -- | The required key portion of the tag.
+    key :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- * 'key' - The required key portion of the tag.
 -- * 'value' - The optional value portion of the tag.
+-- * 'key' - The required key portion of the tag.
 mkTag ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   Tag
-mkTag pKey_ pValue_ = Tag' {key = pKey_, value = pValue_}
-
--- | The required key portion of the tag.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
-{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
 
 -- | The optional value portion of the tag.
 --
@@ -64,10 +56,17 @@ tValue :: Lens.Lens' Tag Lude.Text
 tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
 {-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The required key portion of the tag.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tKey :: Lens.Lens' Tag Lude.Text
+tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromXML Tag where
   parseXML x =
-    Tag' Lude.<$> (x Lude..@ "Key") Lude.<*> (x Lude..@ "Value")
+    Tag' Lude.<$> (x Lude..@ "Value") Lude.<*> (x Lude..@ "Key")
 
 instance Lude.ToQuery Tag where
   toQuery Tag' {..} =
-    Lude.mconcat ["Key" Lude.=: key, "Value" Lude.=: value]
+    Lude.mconcat ["Value" Lude.=: value, "Key" Lude.=: key]

@@ -31,22 +31,53 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'mkGeoLocation' smart constructor.
 data GeoLocation = GeoLocation'
-  { subdivisionCode ::
-      Lude.Maybe Lude.Text,
+  { -- | For geolocation resource record sets, the two-letter code for a state of the United States. Route 53 doesn't support any other values for @SubdivisionCode@ . For a list of state abbreviations, see <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations> on the United States Postal Service website.
+    --
+    -- If you specify @subdivisioncode@ , you must also specify @US@ for @CountryCode@ .
+    subdivisionCode :: Lude.Maybe Lude.Text,
+    -- | For geolocation resource record sets, the two-letter code for a country.
+    --
+    -- Amazon Route 53 uses the two-letter country codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> .
     countryCode :: Lude.Maybe Lude.Text,
+    -- | The two-letter code for the continent.
+    --
+    -- Amazon Route 53 supports the following continent codes:
+    --
+    --     * __AF__ : Africa
+    --
+    --
+    --     * __AN__ : Antarctica
+    --
+    --
+    --     * __AS__ : Asia
+    --
+    --
+    --     * __EU__ : Europe
+    --
+    --
+    --     * __OC__ : Oceania
+    --
+    --
+    --     * __NA__ : North America
+    --
+    --
+    --     * __SA__ : South America
+    --
+    --
+    -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or @SubdivisionCode@ returns an @InvalidInput@ error.
     continentCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GeoLocation' with the minimum fields required to make a request.
 --
+-- * 'subdivisionCode' - For geolocation resource record sets, the two-letter code for a state of the United States. Route 53 doesn't support any other values for @SubdivisionCode@ . For a list of state abbreviations, see <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations> on the United States Postal Service website.
+--
+-- If you specify @subdivisioncode@ , you must also specify @US@ for @CountryCode@ .
+-- * 'countryCode' - For geolocation resource record sets, the two-letter code for a country.
+--
+-- Amazon Route 53 uses the two-letter country codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> .
 -- * 'continentCode' - The two-letter code for the continent.
 --
 -- Amazon Route 53 supports the following continent codes:
@@ -73,12 +104,6 @@ data GeoLocation = GeoLocation'
 --
 --
 -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or @SubdivisionCode@ returns an @InvalidInput@ error.
--- * 'countryCode' - For geolocation resource record sets, the two-letter code for a country.
---
--- Amazon Route 53 uses the two-letter country codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> .
--- * 'subdivisionCode' - For geolocation resource record sets, the two-letter code for a state of the United States. Route 53 doesn't support any other values for @SubdivisionCode@ . For a list of state abbreviations, see <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations> on the United States Postal Service website.
---
--- If you specify @subdivisioncode@ , you must also specify @US@ for @CountryCode@ .
 mkGeoLocation ::
   GeoLocation
 mkGeoLocation =

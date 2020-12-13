@@ -18,9 +18,9 @@ module Network.AWS.CodeCommit.Types.ReplaceContentEntry
 
     -- * Lenses
     rceFileMode,
-    rceContent,
     rceFilePath,
     rceReplacementType,
+    rceContent,
   )
 where
 
@@ -33,31 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplaceContentEntry' smart constructor.
 data ReplaceContentEntry = ReplaceContentEntry'
-  { fileMode ::
-      Lude.Maybe FileModeTypeEnum,
-    content :: Lude.Maybe Lude.Base64,
+  { -- | The file mode to apply during conflict resoltion.
+    fileMode :: Lude.Maybe FileModeTypeEnum,
+    -- | The path of the conflicting file.
     filePath :: Lude.Text,
-    replacementType :: ReplacementTypeEnum
+    -- | The replacement type to use when determining how to resolve the conflict.
+    replacementType :: ReplacementTypeEnum,
+    -- | The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.
+    content :: Lude.Maybe Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceContentEntry' with the minimum fields required to make a request.
 --
--- * 'content' - The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 -- * 'fileMode' - The file mode to apply during conflict resoltion.
 -- * 'filePath' - The path of the conflicting file.
 -- * 'replacementType' - The replacement type to use when determining how to resolve the conflict.
+-- * 'content' - The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.
 mkReplaceContentEntry ::
   -- | 'filePath'
   Lude.Text ->
@@ -67,9 +60,9 @@ mkReplaceContentEntry ::
 mkReplaceContentEntry pFilePath_ pReplacementType_ =
   ReplaceContentEntry'
     { fileMode = Lude.Nothing,
-      content = Lude.Nothing,
       filePath = pFilePath_,
-      replacementType = pReplacementType_
+      replacementType = pReplacementType_,
+      content = Lude.Nothing
     }
 
 -- | The file mode to apply during conflict resoltion.
@@ -78,17 +71,6 @@ mkReplaceContentEntry pFilePath_ pReplacementType_ =
 rceFileMode :: Lens.Lens' ReplaceContentEntry (Lude.Maybe FileModeTypeEnum)
 rceFileMode = Lens.lens (fileMode :: ReplaceContentEntry -> Lude.Maybe FileModeTypeEnum) (\s a -> s {fileMode = a} :: ReplaceContentEntry)
 {-# DEPRECATED rceFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
-
--- | The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rceContent :: Lens.Lens' ReplaceContentEntry (Lude.Maybe Lude.Base64)
-rceContent = Lens.lens (content :: ReplaceContentEntry -> Lude.Maybe Lude.Base64) (\s a -> s {content = a} :: ReplaceContentEntry)
-{-# DEPRECATED rceContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The path of the conflicting file.
 --
@@ -104,13 +86,24 @@ rceReplacementType :: Lens.Lens' ReplaceContentEntry ReplacementTypeEnum
 rceReplacementType = Lens.lens (replacementType :: ReplaceContentEntry -> ReplacementTypeEnum) (\s a -> s {replacementType = a} :: ReplaceContentEntry)
 {-# DEPRECATED rceReplacementType "Use generic-lens or generic-optics with 'replacementType' instead." #-}
 
+-- | The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rceContent :: Lens.Lens' ReplaceContentEntry (Lude.Maybe Lude.Base64)
+rceContent = Lens.lens (content :: ReplaceContentEntry -> Lude.Maybe Lude.Base64) (\s a -> s {content = a} :: ReplaceContentEntry)
+{-# DEPRECATED rceContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
 instance Lude.ToJSON ReplaceContentEntry where
   toJSON ReplaceContentEntry' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("fileMode" Lude..=) Lude.<$> fileMode,
-            ("content" Lude..=) Lude.<$> content,
             Lude.Just ("filePath" Lude..= filePath),
-            Lude.Just ("replacementType" Lude..= replacementType)
+            Lude.Just ("replacementType" Lude..= replacementType),
+            ("content" Lude..=) Lude.<$> content
           ]
       )

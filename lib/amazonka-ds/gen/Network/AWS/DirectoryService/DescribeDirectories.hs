@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,27 +52,25 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDirectories' smart constructor.
 data DescribeDirectories = DescribeDirectories'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @DescribeDirectoriesResult.NextToken@ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned.
+    --
+    -- An empty list results in an @InvalidParameterException@ being thrown.
     directoryIds :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectories' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The @DescribeDirectoriesResult.NextToken@ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
 -- * 'directoryIds' - A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned.
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
 -- * 'limit' - The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
--- * 'nextToken' - The @DescribeDirectoriesResult.NextToken@ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
 mkDescribeDirectories ::
   DescribeDirectories
 mkDescribeDirectories =
@@ -158,9 +157,13 @@ instance Lude.ToQuery DescribeDirectories where
 --
 -- /See:/ 'mkDescribeDirectoriesResponse' smart constructor.
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
-  { directoryDescriptions ::
-      Lude.Maybe [DirectoryDescription],
+  { -- | The list of 'DirectoryDescription' objects that were retrieved.
+    --
+    -- It is possible that this list contains less than the number of items specified in the @Limit@ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
+    directoryDescriptions :: Lude.Maybe [DirectoryDescription],
+    -- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDirectories' to retrieve the next set of items.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

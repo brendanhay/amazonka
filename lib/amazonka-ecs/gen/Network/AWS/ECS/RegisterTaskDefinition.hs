@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,9 @@ module Network.AWS.ECS.RegisterTaskDefinition
     rtdExecutionRoleARN,
     rtdRequiresCompatibilities,
     rtdPidMode,
+    rtdFamily,
     rtdIpcMode,
+    rtdContainerDefinitions,
     rtdMemory,
     rtdProxyConfiguration,
     rtdTaskRoleARN,
@@ -35,8 +38,6 @@ module Network.AWS.ECS.RegisterTaskDefinition
     rtdVolumes,
     rtdCpu,
     rtdTags,
-    rtdFamily,
-    rtdContainerDefinitions,
 
     -- * Destructuring the response
     RegisterTaskDefinitionResponse (..),
@@ -57,62 +58,122 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterTaskDefinition' smart constructor.
 data RegisterTaskDefinition = RegisterTaskDefinition'
-  { inferenceAccelerators ::
-      Lude.Maybe [InferenceAccelerator],
+  { -- | The Elastic Inference accelerators to use for the containers in the task.
+    inferenceAccelerators :: Lude.Maybe [InferenceAccelerator],
+    -- | The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. The task execution IAM role is required depending on the requirements of your task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role> in the /Amazon Elastic Container Service Developer Guide/ .
     executionRoleARN :: Lude.Maybe Lude.Text,
-    requiresCompatibilities ::
-      Lude.Maybe [Compatibility],
+    -- | The task launch type that Amazon ECS should validate the task definition against. This ensures that the task definition parameters are compatible with the specified launch type. If no value is specified, it defaults to @EC2@ .
+    requiresCompatibilities :: Lude.Maybe [Compatibility],
+    -- | The process namespace to use for the containers in the task. The valid values are @host@ or @task@ . If @host@ is specified, then all containers within the tasks that specified the @host@ PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If @task@ is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace. For more information, see <https://docs.docker.com/engine/reference/run/#pid-settings---pid PID settings> in the /Docker run reference/ .
+    --
+    -- If the @host@ PID mode is used, be aware that there is a heightened risk of undesired process namespace expose. For more information, see <https://docs.docker.com/engine/security/security/ Docker security> .
     pidMode :: Lude.Maybe PidMode,
-    ipcMode :: Lude.Maybe IPcMode,
-    memory :: Lude.Maybe Lude.Text,
-    proxyConfiguration ::
-      Lude.Maybe ProxyConfiguration,
-    taskRoleARN :: Lude.Maybe Lude.Text,
-    placementConstraints ::
-      Lude.Maybe
-        [TaskDefinitionPlacementConstraint],
-    networkMode :: Lude.Maybe NetworkMode,
-    volumes :: Lude.Maybe [Volume],
-    cpu :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+    -- | You must specify a @family@ for a task definition, which allows you to track multiple versions of the same task definition. The @family@ is used as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
     family :: Lude.Text,
-    containerDefinitions :: [ContainerDefinition]
+    -- | The IPC resource namespace to use for the containers in the task. The valid values are @host@ , @task@ , or @none@ . If @host@ is specified, then all containers within the tasks that specified the @host@ IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If @task@ is specified, all containers within the specified task share the same IPC resources. If @none@ is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see <https://docs.docker.com/engine/reference/run/#ipc-settings---ipc IPC settings> in the /Docker run reference/ .
+    --
+    -- If the @host@ IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see <https://docs.docker.com/engine/security/security/ Docker security> .
+    -- If you are setting namespaced kernel parameters using @systemControls@ for the containers in the task, the following will apply to your IPC resource namespace. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html System Controls> in the /Amazon Elastic Container Service Developer Guide/ .
+    --
+    --     * For tasks that use the @host@ IPC mode, IPC namespace related @systemControls@ are not supported.
+    --
+    --
+    --     * For tasks that use the @task@ IPC mode, IPC namespace related @systemControls@ will apply to all containers within a task.
+    ipcMode :: Lude.Maybe IPcMode,
+    -- | A list of container definitions in JSON format that describe the different containers that make up your task.
+    containerDefinitions :: [ContainerDefinition],
+    -- | The amount of memory (in MiB) used by the task. It can be expressed as an integer using MiB, for example @1024@ , or as a string using GB, for example @1GB@ or @1 GB@ , in a task definition. String values are converted to an integer indicating the MiB when the task definition is registered.
+    --
+    -- If using the EC2 launch type, this field is optional.
+    -- If using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @cpu@ parameter:
+    --
+    --     * 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available @cpu@ values: 256 (.25 vCPU)
+    --
+    --
+    --     * 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available @cpu@ values: 512 (.5 vCPU)
+    --
+    --
+    --     * 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available @cpu@ values: 1024 (1 vCPU)
+    --
+    --
+    --     * Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 2048 (2 vCPU)
+    --
+    --
+    --     * Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 4096 (4 vCPU)
+    memory :: Lude.Maybe Lude.Text,
+    proxyConfiguration :: Lude.Maybe ProxyConfiguration,
+    -- | The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks> in the /Amazon Elastic Container Service Developer Guide/ .
+    taskRoleARN :: Lude.Maybe Lude.Text,
+    -- | An array of placement constraint objects to use for the task. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
+    placementConstraints :: Lude.Maybe [TaskDefinitionPlacementConstraint],
+    -- | The Docker networking mode to use for the containers in the task. The valid values are @none@ , @bridge@ , @awsvpc@ , and @host@ . If no network mode is specified, the default is @bridge@ .
+    --
+    -- For Amazon ECS tasks on Fargate, the @awsvpc@ network mode is required. For Amazon ECS tasks on Amazon EC2 instances, any network mode can be used. If the network mode is set to @none@ , you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The @host@ and @awsvpc@ network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the @bridge@ mode.
+    -- With the @host@ and @awsvpc@ network modes, exposed container ports are mapped directly to the corresponding host port (for the @host@ network mode) or the attached elastic network interface port (for the @awsvpc@ network mode), so you cannot take advantage of dynamic host port mappings.
+    -- /Important:/ When using the @host@ network mode, you should not run containers using the root user (UID 0). It is considered best practice to use a non-root user.
+    -- If the network mode is @awsvpc@ , the task is allocated an elastic network interface, and you must specify a 'NetworkConfiguration' value when you create a service or run a task with the task definition. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
+    -- If the network mode is @host@ , you cannot run multiple instantiations of the same task on a single container instance when port mappings are used.
+    -- Docker for Windows uses different network modes than Docker for Linux. When you register a task definition with Windows containers, you must not specify a network mode. If you use the console to register a task definition with Windows containers, you must choose the @<default>@ network mode object.
+    -- For more information, see <https://docs.docker.com/engine/reference/run/#network-settings Network settings> in the /Docker run reference/ .
+    networkMode :: Lude.Maybe NetworkMode,
+    -- | A list of volume definitions in JSON format that containers in your task may use.
+    volumes :: Lude.Maybe [Volume],
+    -- | The number of CPU units used by the task. It can be expressed as an integer using CPU units, for example @1024@ , or as a string using vCPUs, for example @1 vCPU@ or @1 vcpu@ , in a task definition. String values are converted to an integer indicating the CPU units when the task definition is registered.
+    --
+    -- If you are using the EC2 launch type, this field is optional. Supported values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units (@10@ vCPUs).
+    -- If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @memory@ parameter:
+    --
+    --     * 256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
+    --
+    --
+    --     * 512 (.5 vCPU) - Available @memory@ values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
+    --
+    --
+    --     * 1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
+    --
+    --
+    --     * 2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
+    --
+    --
+    --     * 4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+    cpu :: Lude.Maybe Lude.Text,
+    -- | The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+    --
+    -- The following basic restrictions apply to tags:
+    --
+    --     * Maximum number of tags per resource - 50
+    --
+    --
+    --     * For each resource, each tag key must be unique, and each tag key can have only one value.
+    --
+    --
+    --     * Maximum key length - 128 Unicode characters in UTF-8
+    --
+    --
+    --     * Maximum value length - 256 Unicode characters in UTF-8
+    --
+    --
+    --     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+    --
+    --
+    --     * Tag keys and values are case-sensitive.
+    --
+    --
+    --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterTaskDefinition' with the minimum fields required to make a request.
 --
--- * 'containerDefinitions' - A list of container definitions in JSON format that describe the different containers that make up your task.
--- * 'cpu' - The number of CPU units used by the task. It can be expressed as an integer using CPU units, for example @1024@ , or as a string using vCPUs, for example @1 vCPU@ or @1 vcpu@ , in a task definition. String values are converted to an integer indicating the CPU units when the task definition is registered.
---
--- If you are using the EC2 launch type, this field is optional. Supported values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units (@10@ vCPUs).
--- If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @memory@ parameter:
---
---     * 256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
---
---
---     * 512 (.5 vCPU) - Available @memory@ values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
---
---
---     * 1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
---
---
---     * 2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
---
---
---     * 4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
---
---
--- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. The task execution IAM role is required depending on the requirements of your task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'family' - You must specify a @family@ for a task definition, which allows you to track multiple versions of the same task definition. The @family@ is used as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
 -- * 'inferenceAccelerators' - The Elastic Inference accelerators to use for the containers in the task.
+-- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. The task execution IAM role is required depending on the requirements of your task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'requiresCompatibilities' - The task launch type that Amazon ECS should validate the task definition against. This ensures that the task definition parameters are compatible with the specified launch type. If no value is specified, it defaults to @EC2@ .
+-- * 'pidMode' - The process namespace to use for the containers in the task. The valid values are @host@ or @task@ . If @host@ is specified, then all containers within the tasks that specified the @host@ PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If @task@ is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace. For more information, see <https://docs.docker.com/engine/reference/run/#pid-settings---pid PID settings> in the /Docker run reference/ .
+--
+-- If the @host@ PID mode is used, be aware that there is a heightened risk of undesired process namespace expose. For more information, see <https://docs.docker.com/engine/security/security/ Docker security> .
+-- * 'family' - You must specify a @family@ for a task definition, which allows you to track multiple versions of the same task definition. The @family@ is used as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
 -- * 'ipcMode' - The IPC resource namespace to use for the containers in the task. The valid values are @host@ , @task@ , or @none@ . If @host@ is specified, then all containers within the tasks that specified the @host@ IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If @task@ is specified, all containers within the specified task share the same IPC resources. If @none@ is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see <https://docs.docker.com/engine/reference/run/#ipc-settings---ipc IPC settings> in the /Docker run reference/ .
 --
 -- If the @host@ IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see <https://docs.docker.com/engine/security/security/ Docker security> .
@@ -124,6 +185,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 --     * For tasks that use the @task@ IPC mode, IPC namespace related @systemControls@ will apply to all containers within a task.
 --
 --
+-- * 'containerDefinitions' - A list of container definitions in JSON format that describe the different containers that make up your task.
 -- * 'memory' - The amount of memory (in MiB) used by the task. It can be expressed as an integer using MiB, for example @1024@ , or as a string using GB, for example @1GB@ or @1 GB@ , in a task definition. String values are converted to an integer indicating the MiB when the task definition is registered.
 --
 -- If using the EC2 launch type, this field is optional.
@@ -144,6 +206,9 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 --     * Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available @cpu@ values: 4096 (4 vCPU)
 --
 --
+-- * 'proxyConfiguration' -
+-- * 'taskRoleARN' - The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'placementConstraints' - An array of placement constraint objects to use for the task. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
 -- * 'networkMode' - The Docker networking mode to use for the containers in the task. The valid values are @none@ , @bridge@ , @awsvpc@ , and @host@ . If no network mode is specified, the default is @bridge@ .
 --
 -- For Amazon ECS tasks on Fargate, the @awsvpc@ network mode is required. For Amazon ECS tasks on Amazon EC2 instances, any network mode can be used. If the network mode is set to @none@ , you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The @host@ and @awsvpc@ network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the @bridge@ mode.
@@ -153,12 +218,27 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- If the network mode is @host@ , you cannot run multiple instantiations of the same task on a single container instance when port mappings are used.
 -- Docker for Windows uses different network modes than Docker for Linux. When you register a task definition with Windows containers, you must not specify a network mode. If you use the console to register a task definition with Windows containers, you must choose the @<default>@ network mode object.
 -- For more information, see <https://docs.docker.com/engine/reference/run/#network-settings Network settings> in the /Docker run reference/ .
--- * 'pidMode' - The process namespace to use for the containers in the task. The valid values are @host@ or @task@ . If @host@ is specified, then all containers within the tasks that specified the @host@ PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance. If @task@ is specified, all containers within the specified task share the same process namespace. If no value is specified, the default is a private namespace. For more information, see <https://docs.docker.com/engine/reference/run/#pid-settings---pid PID settings> in the /Docker run reference/ .
+-- * 'volumes' - A list of volume definitions in JSON format that containers in your task may use.
+-- * 'cpu' - The number of CPU units used by the task. It can be expressed as an integer using CPU units, for example @1024@ , or as a string using vCPUs, for example @1 vCPU@ or @1 vcpu@ , in a task definition. String values are converted to an integer indicating the CPU units when the task definition is registered.
 --
--- If the @host@ PID mode is used, be aware that there is a heightened risk of undesired process namespace expose. For more information, see <https://docs.docker.com/engine/security/security/ Docker security> .
--- * 'placementConstraints' - An array of placement constraint objects to use for the task. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
--- * 'proxyConfiguration' - Undocumented field.
--- * 'requiresCompatibilities' - The task launch type that Amazon ECS should validate the task definition against. This ensures that the task definition parameters are compatible with the specified launch type. If no value is specified, it defaults to @EC2@ .
+-- If you are using the EC2 launch type, this field is optional. Supported values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units (@10@ vCPUs).
+-- If you are using the Fargate launch type, this field is required and you must use one of the following values, which determines your range of supported values for the @memory@ parameter:
+--
+--     * 256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
+--
+--
+--     * 512 (.5 vCPU) - Available @memory@ values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
+--
+--
+--     * 1024 (1 vCPU) - Available @memory@ values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
+--
+--
+--     * 2048 (2 vCPU) - Available @memory@ values: Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
+--
+--
+--     * 4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+--
+--
 -- * 'tags' - The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
 -- The following basic restrictions apply to tags:
@@ -182,10 +262,6 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 --
 --
 --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
---
---
--- * 'taskRoleARN' - The short name or full Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'volumes' - A list of volume definitions in JSON format that containers in your task may use.
 mkRegisterTaskDefinition ::
   -- | 'family'
   Lude.Text ->
@@ -196,7 +272,9 @@ mkRegisterTaskDefinition pFamily_ =
       executionRoleARN = Lude.Nothing,
       requiresCompatibilities = Lude.Nothing,
       pidMode = Lude.Nothing,
+      family = pFamily_,
       ipcMode = Lude.Nothing,
+      containerDefinitions = Lude.mempty,
       memory = Lude.Nothing,
       proxyConfiguration = Lude.Nothing,
       taskRoleARN = Lude.Nothing,
@@ -204,9 +282,7 @@ mkRegisterTaskDefinition pFamily_ =
       networkMode = Lude.Nothing,
       volumes = Lude.Nothing,
       cpu = Lude.Nothing,
-      tags = Lude.Nothing,
-      family = pFamily_,
-      containerDefinitions = Lude.mempty
+      tags = Lude.Nothing
     }
 
 -- | The Elastic Inference accelerators to use for the containers in the task.
@@ -239,6 +315,13 @@ rtdPidMode :: Lens.Lens' RegisterTaskDefinition (Lude.Maybe PidMode)
 rtdPidMode = Lens.lens (pidMode :: RegisterTaskDefinition -> Lude.Maybe PidMode) (\s a -> s {pidMode = a} :: RegisterTaskDefinition)
 {-# DEPRECATED rtdPidMode "Use generic-lens or generic-optics with 'pidMode' instead." #-}
 
+-- | You must specify a @family@ for a task definition, which allows you to track multiple versions of the same task definition. The @family@ is used as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
+--
+-- /Note:/ Consider using 'family' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtdFamily :: Lens.Lens' RegisterTaskDefinition Lude.Text
+rtdFamily = Lens.lens (family :: RegisterTaskDefinition -> Lude.Text) (\s a -> s {family = a} :: RegisterTaskDefinition)
+{-# DEPRECATED rtdFamily "Use generic-lens or generic-optics with 'family' instead." #-}
+
 -- | The IPC resource namespace to use for the containers in the task. The valid values are @host@ , @task@ , or @none@ . If @host@ is specified, then all containers within the tasks that specified the @host@ IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If @task@ is specified, all containers within the specified task share the same IPC resources. If @none@ is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see <https://docs.docker.com/engine/reference/run/#ipc-settings---ipc IPC settings> in the /Docker run reference/ .
 --
 -- If the @host@ IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more information, see <https://docs.docker.com/engine/security/security/ Docker security> .
@@ -255,6 +338,13 @@ rtdPidMode = Lens.lens (pidMode :: RegisterTaskDefinition -> Lude.Maybe PidMode)
 rtdIpcMode :: Lens.Lens' RegisterTaskDefinition (Lude.Maybe IPcMode)
 rtdIpcMode = Lens.lens (ipcMode :: RegisterTaskDefinition -> Lude.Maybe IPcMode) (\s a -> s {ipcMode = a} :: RegisterTaskDefinition)
 {-# DEPRECATED rtdIpcMode "Use generic-lens or generic-optics with 'ipcMode' instead." #-}
+
+-- | A list of container definitions in JSON format that describe the different containers that make up your task.
+--
+-- /Note:/ Consider using 'containerDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtdContainerDefinitions :: Lens.Lens' RegisterTaskDefinition [ContainerDefinition]
+rtdContainerDefinitions = Lens.lens (containerDefinitions :: RegisterTaskDefinition -> [ContainerDefinition]) (\s a -> s {containerDefinitions = a} :: RegisterTaskDefinition)
+{-# DEPRECATED rtdContainerDefinitions "Use generic-lens or generic-optics with 'containerDefinitions' instead." #-}
 
 -- | The amount of memory (in MiB) used by the task. It can be expressed as an integer using MiB, for example @1024@ , or as a string using GB, for example @1GB@ or @1 GB@ , in a task definition. String values are converted to an integer indicating the MiB when the task definition is registered.
 --
@@ -382,20 +472,6 @@ rtdTags :: Lens.Lens' RegisterTaskDefinition (Lude.Maybe [Tag])
 rtdTags = Lens.lens (tags :: RegisterTaskDefinition -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: RegisterTaskDefinition)
 {-# DEPRECATED rtdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | You must specify a @family@ for a task definition, which allows you to track multiple versions of the same task definition. The @family@ is used as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
---
--- /Note:/ Consider using 'family' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtdFamily :: Lens.Lens' RegisterTaskDefinition Lude.Text
-rtdFamily = Lens.lens (family :: RegisterTaskDefinition -> Lude.Text) (\s a -> s {family = a} :: RegisterTaskDefinition)
-{-# DEPRECATED rtdFamily "Use generic-lens or generic-optics with 'family' instead." #-}
-
--- | A list of container definitions in JSON format that describe the different containers that make up your task.
---
--- /Note:/ Consider using 'containerDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtdContainerDefinitions :: Lens.Lens' RegisterTaskDefinition [ContainerDefinition]
-rtdContainerDefinitions = Lens.lens (containerDefinitions :: RegisterTaskDefinition -> [ContainerDefinition]) (\s a -> s {containerDefinitions = a} :: RegisterTaskDefinition)
-{-# DEPRECATED rtdContainerDefinitions "Use generic-lens or generic-optics with 'containerDefinitions' instead." #-}
-
 instance Lude.AWSRequest RegisterTaskDefinition where
   type Rs RegisterTaskDefinition = RegisterTaskDefinitionResponse
   request = Req.postJSON ecsService
@@ -430,7 +506,9 @@ instance Lude.ToJSON RegisterTaskDefinition where
             ("requiresCompatibilities" Lude..=)
               Lude.<$> requiresCompatibilities,
             ("pidMode" Lude..=) Lude.<$> pidMode,
+            Lude.Just ("family" Lude..= family),
             ("ipcMode" Lude..=) Lude.<$> ipcMode,
+            Lude.Just ("containerDefinitions" Lude..= containerDefinitions),
             ("memory" Lude..=) Lude.<$> memory,
             ("proxyConfiguration" Lude..=) Lude.<$> proxyConfiguration,
             ("taskRoleArn" Lude..=) Lude.<$> taskRoleARN,
@@ -438,9 +516,7 @@ instance Lude.ToJSON RegisterTaskDefinition where
             ("networkMode" Lude..=) Lude.<$> networkMode,
             ("volumes" Lude..=) Lude.<$> volumes,
             ("cpu" Lude..=) Lude.<$> cpu,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("family" Lude..= family),
-            Lude.Just ("containerDefinitions" Lude..= containerDefinitions)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -452,25 +528,21 @@ instance Lude.ToQuery RegisterTaskDefinition where
 
 -- | /See:/ 'mkRegisterTaskDefinitionResponse' smart constructor.
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
-  { taskDefinition ::
-      Lude.Maybe TaskDefinition,
+  { -- | The full description of the registered task definition.
+    taskDefinition :: Lude.Maybe TaskDefinition,
+    -- | The list of tags associated with the task definition.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterTaskDefinitionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'tags' - The list of tags associated with the task definition.
 -- * 'taskDefinition' - The full description of the registered task definition.
+-- * 'tags' - The list of tags associated with the task definition.
+-- * 'responseStatus' - The response status code.
 mkRegisterTaskDefinitionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

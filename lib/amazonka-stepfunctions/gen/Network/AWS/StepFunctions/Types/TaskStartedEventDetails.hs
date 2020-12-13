@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskStartedEventDetails' smart constructor.
 data TaskStartedEventDetails = TaskStartedEventDetails'
-  { resourceType ::
-      Lude.Text,
+  { -- | The action of the resource called by a task state.
+    resourceType :: Lude.Text,
+    -- | The service name of the resource in a task state.
     resource :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskStartedEventDetails' with the minimum fields required to make a request.
 --
--- * 'resource' - The service name of the resource in a task state.
 -- * 'resourceType' - The action of the resource called by a task state.
+-- * 'resource' - The service name of the resource in a task state.
 mkTaskStartedEventDetails ::
   -- | 'resourceType'
   Lude.Text ->

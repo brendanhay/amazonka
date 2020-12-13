@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTransitGatewayAttachments' smart constructor.
 data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
-  { filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    transitGatewayAttachmentIds ::
-      Lude.Maybe [Lude.Text],
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+  { -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @association.state@ - The state of the association (@associating@ | @associated@ | @disassociating@ ).
+    --
+    --
+    --     * @association.transit-gateway-route-table-id@ - The ID of the route table for the transit gateway.
+    --
+    --
+    --     * @resource-id@ - The ID of the resource.
+    --
+    --
+    --     * @resource-owner-id@ - The ID of the AWS account that owns the resource.
+    --
+    --
+    --     * @resource-type@ - The resource type. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @peering@ .
+    --
+    --
+    --     * @state@ - The state of the attachment. Valid values are @available@ | @deleted@ | @deleting@ | @failed@ | @failing@ | @initiatingRequest@ | @modifying@ | @pendingAcceptance@ | @pending@ | @rollingBack@ | @rejected@ | @rejecting@ .
+    --
+    --
+    --     * @transit-gateway-attachment-id@ - The ID of the attachment.
+    --
+    --
+    --     * @transit-gateway-id@ - The ID of the transit gateway.
+    --
+    --
+    --     * @transit-gateway-owner-id@ - The ID of the AWS account that owns the transit gateway.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The IDs of the attachments.
+    transitGatewayAttachmentIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGatewayAttachments' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
@@ -100,9 +121,10 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
 --     * @transit-gateway-owner-id@ - The ID of the AWS account that owns the transit gateway.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
 -- * 'transitGatewayAttachmentIds' - The IDs of the attachments.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeTransitGatewayAttachments ::
   DescribeTransitGatewayAttachments
 mkDescribeTransitGatewayAttachments =
@@ -228,29 +250,21 @@ instance Lude.ToQuery DescribeTransitGatewayAttachments where
 
 -- | /See:/ 'mkDescribeTransitGatewayAttachmentsResponse' smart constructor.
 data DescribeTransitGatewayAttachmentsResponse = DescribeTransitGatewayAttachmentsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    transitGatewayAttachments ::
-      Lude.Maybe
-        [TransitGatewayAttachment],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the attachments.
+    transitGatewayAttachments :: Lude.Maybe [TransitGatewayAttachment],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGatewayAttachmentsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'transitGatewayAttachments' - Information about the attachments.
+-- * 'responseStatus' - The response status code.
 mkDescribeTransitGatewayAttachmentsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

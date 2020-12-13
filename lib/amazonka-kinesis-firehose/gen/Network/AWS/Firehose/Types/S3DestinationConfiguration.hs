@@ -23,8 +23,8 @@ module Network.AWS.Firehose.Types.S3DestinationConfiguration
     sdcEncryptionConfiguration,
     sdcCompressionFormat,
     sdcBufferingHints,
-    sdcRoleARN,
     sdcBucketARN,
+    sdcRoleARN,
   )
 where
 
@@ -39,49 +39,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3DestinationConfiguration' smart constructor.
 data S3DestinationConfiguration = S3DestinationConfiguration'
-  { prefix ::
-      Lude.Maybe Lude.Text,
-    cloudWatchLoggingOptions ::
-      Lude.Maybe CloudWatchLoggingOptions,
-    errorOutputPrefix ::
-      Lude.Maybe Lude.Text,
-    encryptionConfiguration ::
-      Lude.Maybe EncryptionConfiguration,
-    compressionFormat ::
-      Lude.Maybe CompressionFormat,
-    bufferingHints ::
-      Lude.Maybe BufferingHints,
-    roleARN :: Lude.Text,
-    bucketARN :: Lude.Text
+  { -- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+    prefix :: Lude.Maybe Lude.Text,
+    -- | The CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
+    -- | A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+    errorOutputPrefix :: Lude.Maybe Lude.Text,
+    -- | The encryption configuration. If no value is specified, the default is no encryption.
+    encryptionConfiguration :: Lude.Maybe EncryptionConfiguration,
+    -- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
+    --
+    -- The compression formats @SNAPPY@ or @ZIP@ cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift @COPY@ operation that reads from the S3 bucket.
+    compressionFormat :: Lude.Maybe CompressionFormat,
+    -- | The buffering option. If no value is specified, @BufferingHints@ object default values are used.
+    bufferingHints :: Lude.Maybe BufferingHints,
+    -- | The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    bucketARN :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3DestinationConfiguration' with the minimum fields required to make a request.
 --
--- * 'bucketARN' - The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 'bufferingHints' - The buffering option. If no value is specified, @BufferingHints@ object default values are used.
+-- * 'prefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
 -- * 'cloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
+-- * 'errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+-- * 'encryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
 -- * 'compressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
 --
 -- The compression formats @SNAPPY@ or @ZIP@ cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift @COPY@ operation that reads from the S3 bucket.
--- * 'encryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
--- * 'errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
--- * 'prefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+-- * 'bufferingHints' - The buffering option. If no value is specified, @BufferingHints@ object default values are used.
+-- * 'bucketARN' - The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 -- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 mkS3DestinationConfiguration ::
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'bucketARN'
   Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   S3DestinationConfiguration
-mkS3DestinationConfiguration pRoleARN_ pBucketARN_ =
+mkS3DestinationConfiguration pBucketARN_ pRoleARN_ =
   S3DestinationConfiguration'
     { prefix = Lude.Nothing,
       cloudWatchLoggingOptions = Lude.Nothing,
@@ -89,8 +87,8 @@ mkS3DestinationConfiguration pRoleARN_ pBucketARN_ =
       encryptionConfiguration = Lude.Nothing,
       compressionFormat = Lude.Nothing,
       bufferingHints = Lude.Nothing,
-      roleARN = pRoleARN_,
-      bucketARN = pBucketARN_
+      bucketARN = pBucketARN_,
+      roleARN = pRoleARN_
     }
 
 -- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
@@ -137,19 +135,19 @@ sdcBufferingHints :: Lens.Lens' S3DestinationConfiguration (Lude.Maybe Buffering
 sdcBufferingHints = Lens.lens (bufferingHints :: S3DestinationConfiguration -> Lude.Maybe BufferingHints) (\s a -> s {bufferingHints = a} :: S3DestinationConfiguration)
 {-# DEPRECATED sdcBufferingHints "Use generic-lens or generic-optics with 'bufferingHints' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcRoleARN :: Lens.Lens' S3DestinationConfiguration Lude.Text
-sdcRoleARN = Lens.lens (roleARN :: S3DestinationConfiguration -> Lude.Text) (\s a -> s {roleARN = a} :: S3DestinationConfiguration)
-{-# DEPRECATED sdcRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
 -- | The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
 -- /Note:/ Consider using 'bucketARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sdcBucketARN :: Lens.Lens' S3DestinationConfiguration Lude.Text
 sdcBucketARN = Lens.lens (bucketARN :: S3DestinationConfiguration -> Lude.Text) (\s a -> s {bucketARN = a} :: S3DestinationConfiguration)
 {-# DEPRECATED sdcBucketARN "Use generic-lens or generic-optics with 'bucketARN' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcRoleARN :: Lens.Lens' S3DestinationConfiguration Lude.Text
+sdcRoleARN = Lens.lens (roleARN :: S3DestinationConfiguration -> Lude.Text) (\s a -> s {roleARN = a} :: S3DestinationConfiguration)
+{-# DEPRECATED sdcRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.ToJSON S3DestinationConfiguration where
   toJSON S3DestinationConfiguration' {..} =
@@ -163,7 +161,7 @@ instance Lude.ToJSON S3DestinationConfiguration where
               Lude.<$> encryptionConfiguration,
             ("CompressionFormat" Lude..=) Lude.<$> compressionFormat,
             ("BufferingHints" Lude..=) Lude.<$> bufferingHints,
-            Lude.Just ("RoleARN" Lude..= roleARN),
-            Lude.Just ("BucketARN" Lude..= bucketARN)
+            Lude.Just ("BucketARN" Lude..= bucketARN),
+            Lude.Just ("RoleARN" Lude..= roleARN)
           ]
       )

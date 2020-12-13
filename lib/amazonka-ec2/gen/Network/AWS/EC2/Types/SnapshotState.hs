@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.SnapshotState
   ( SnapshotState
       ( SnapshotState',
-        SSCompleted,
-        SSError,
-        SSPending
+        SPending,
+        SCompleted,
+        SError
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype SnapshotState = SnapshotState' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSCompleted :: SnapshotState
-pattern SSCompleted = SnapshotState' "completed"
+pattern SPending :: SnapshotState
+pattern SPending = SnapshotState' "pending"
 
-pattern SSError :: SnapshotState
-pattern SSError = SnapshotState' "error"
+pattern SCompleted :: SnapshotState
+pattern SCompleted = SnapshotState' "completed"
 
-pattern SSPending :: SnapshotState
-pattern SSPending = SnapshotState' "pending"
+pattern SError :: SnapshotState
+pattern SError = SnapshotState' "error"
 
 {-# COMPLETE
-  SSCompleted,
-  SSError,
-  SSPending,
+  SPending,
+  SCompleted,
+  SError,
   SnapshotState'
   #-}

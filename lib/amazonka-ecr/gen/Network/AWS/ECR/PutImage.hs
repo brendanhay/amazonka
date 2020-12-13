@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,30 +47,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutImage' smart constructor.
 data PutImage = PutImage'
-  { registryId :: Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The media type of the image manifest. If you push an image manifest that does not contain the @mediaType@ field, you must specify the @imageManifestMediaType@ in the request.
     imageManifestMediaType :: Lude.Maybe Lude.Text,
+    -- | The image digest of the image manifest corresponding to the image.
     imageDigest :: Lude.Maybe Lude.Text,
+    -- | The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.
     imageTag :: Lude.Maybe Lude.Text,
+    -- | The name of the repository in which to put the image.
     repositoryName :: Lude.Text,
+    -- | The image manifest corresponding to the image to be uploaded.
     imageManifest :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutImage' with the minimum fields required to make a request.
 --
--- * 'imageDigest' - The image digest of the image manifest corresponding to the image.
--- * 'imageManifest' - The image manifest corresponding to the image to be uploaded.
--- * 'imageManifestMediaType' - The media type of the image manifest. If you push an image manifest that does not contain the @mediaType@ field, you must specify the @imageManifestMediaType@ in the request.
--- * 'imageTag' - The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.
 -- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
+-- * 'imageManifestMediaType' - The media type of the image manifest. If you push an image manifest that does not contain the @mediaType@ field, you must specify the @imageManifestMediaType@ in the request.
+-- * 'imageDigest' - The image digest of the image manifest corresponding to the image.
+-- * 'imageTag' - The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.
 -- * 'repositoryName' - The name of the repository in which to put the image.
+-- * 'imageManifest' - The image manifest corresponding to the image to be uploaded.
 mkPutImage ::
   -- | 'repositoryName'
   Lude.Text ->
@@ -172,17 +173,12 @@ instance Lude.ToQuery PutImage where
 
 -- | /See:/ 'mkPutImageResponse' smart constructor.
 data PutImageResponse = PutImageResponse'
-  { image ::
-      Lude.Maybe Image,
+  { -- | Details of the image uploaded.
+    image :: Lude.Maybe Image,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutImageResponse' with the minimum fields required to make a request.

@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the resource (for example, @sg-xxxxxx@ ).
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of resource.
     resourceType :: Lude.Maybe ResourceType,
+    -- | The custom name of the resource (if available).
     resourceName :: Lude.Maybe Lude.Text,
+    -- | The time that the resource was deleted.
     resourceDeletionTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceIdentifier' with the minimum fields required to make a request.
 --
--- * 'resourceDeletionTime' - The time that the resource was deleted.
 -- * 'resourceId' - The ID of the resource (for example, @sg-xxxxxx@ ).
--- * 'resourceName' - The custom name of the resource (if available).
 -- * 'resourceType' - The type of resource.
+-- * 'resourceName' - The custom name of the resource (if available).
+-- * 'resourceDeletionTime' - The time that the resource was deleted.
 mkResourceIdentifier ::
   ResourceIdentifier
 mkResourceIdentifier =

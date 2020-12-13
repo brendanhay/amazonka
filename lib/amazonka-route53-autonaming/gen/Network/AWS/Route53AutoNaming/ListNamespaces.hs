@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,18 +46,18 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkListNamespaces' smart constructor.
 data ListNamespaces = ListNamespaces'
-  { filters ::
-      Lude.Maybe [NamespaceFilter],
+  { -- | A complex type that contains specifications for the namespaces that you want to list.
+    --
+    -- If you specify more than one filter, a namespace must match all filters to be returned by @ListNamespaces@ .
+    filters :: Lude.Maybe [NamespaceFilter],
+    -- | For the first @ListNamespaces@ request, omit this value.
+    --
+    -- If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNamespaces' with the minimum fields required to make a request.
@@ -64,10 +65,10 @@ data ListNamespaces = ListNamespaces'
 -- * 'filters' - A complex type that contains specifications for the namespaces that you want to list.
 --
 -- If you specify more than one filter, a namespace must match all filters to be returned by @ListNamespaces@ .
--- * 'maxResults' - The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
 -- * 'nextToken' - For the first @ListNamespaces@ request, omit this value.
 --
 -- If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- * 'maxResults' - The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
 mkListNamespaces ::
   ListNamespaces
 mkListNamespaces =
@@ -152,18 +153,14 @@ instance Lude.ToQuery ListNamespaces where
 
 -- | /See:/ 'mkListNamespacesResponse' smart constructor.
 data ListNamespacesResponse = ListNamespacesResponse'
-  { namespaces ::
-      Lude.Maybe [NamespaceSummary],
+  { -- | An array that contains one @NamespaceSummary@ object for each namespace that matches the specified filter criteria.
+    namespaces :: Lude.Maybe [NamespaceSummary],
+    -- | If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNamespacesResponse' with the minimum fields required to make a request.

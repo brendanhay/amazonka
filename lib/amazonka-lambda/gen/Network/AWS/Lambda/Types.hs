@@ -90,12 +90,12 @@ module Network.AWS.Lambda.Types
     -- * CodeSigningConfig
     CodeSigningConfig (..),
     mkCodeSigningConfig,
-    cscDescription,
-    cscCodeSigningConfigId,
-    cscCodeSigningConfigARN,
     cscAllowedPublishers,
     cscCodeSigningPolicies,
+    cscCodeSigningConfigARN,
     cscLastModified,
+    cscDescription,
+    cscCodeSigningConfigId,
 
     -- * CodeSigningPolicies
     CodeSigningPolicies (..),
@@ -132,8 +132,8 @@ module Network.AWS.Lambda.Types
     -- * EnvironmentResponse
     EnvironmentResponse (..),
     mkEnvironmentResponse,
-    envVariables,
-    envError,
+    efVariables,
+    efError,
 
     -- * EventSourceMappingConfiguration
     EventSourceMappingConfiguration (..),
@@ -304,25 +304,25 @@ module Network.AWS.Lambda.Types
     -- * TracingConfig
     TracingConfig (..),
     mkTracingConfig,
-    tMode,
+    tcMode,
 
     -- * TracingConfigResponse
     TracingConfigResponse (..),
     mkTracingConfigResponse,
-    tcMode,
+    tMode,
 
     -- * VPCConfig
     VPCConfig (..),
     mkVPCConfig,
-    vpccSecurityGroupIds,
-    vpccSubnetIds,
+    vcSecurityGroupIds,
+    vcSubnetIds,
 
     -- * VPCConfigResponse
     VPCConfigResponse (..),
     mkVPCConfigResponse,
-    vcSecurityGroupIds,
-    vcSubnetIds,
-    vcVPCId,
+    vpccSecurityGroupIds,
+    vpccSubnetIds,
+    vpccVPCId,
   )
 where
 

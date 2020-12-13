@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.DeviceUpdateStatus
   ( DeviceUpdateStatus
       ( DeviceUpdateStatus',
-        NotUpToDate,
-        UpToDate
+        UpToDate,
+        NotUpToDate
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype DeviceUpdateStatus = DeviceUpdateStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern NotUpToDate :: DeviceUpdateStatus
-pattern NotUpToDate = DeviceUpdateStatus' "NOT_UP_TO_DATE"
-
 pattern UpToDate :: DeviceUpdateStatus
 pattern UpToDate = DeviceUpdateStatus' "UP_TO_DATE"
 
+pattern NotUpToDate :: DeviceUpdateStatus
+pattern NotUpToDate = DeviceUpdateStatus' "NOT_UP_TO_DATE"
+
 {-# COMPLETE
-  NotUpToDate,
   UpToDate,
+  NotUpToDate,
   DeviceUpdateStatus'
   #-}

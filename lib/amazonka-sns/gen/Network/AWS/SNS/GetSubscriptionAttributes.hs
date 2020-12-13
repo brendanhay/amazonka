@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkGetSubscriptionAttributes' smart constructor.
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes'
-  { subscriptionARN ::
-      Lude.Text
+  { -- | The ARN of the subscription whose properties you want to get.
+    subscriptionARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSubscriptionAttributes' with the minimum fields required to make a request.
@@ -104,22 +99,42 @@ instance Lude.ToQuery GetSubscriptionAttributes where
 --
 -- /See:/ 'mkGetSubscriptionAttributesResponse' smart constructor.
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
-  { attributes ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    responseStatus ::
-      Lude.Int
+  { -- | A map of the subscription's attributes. Attributes in this map include the following:
+    --
+    --
+    --     * @ConfirmationWasAuthenticated@ – @true@ if the subscription confirmation request was authenticated.
+    --
+    --
+    --     * @DeliveryPolicy@ – The JSON serialization of the subscription's delivery policy.
+    --
+    --
+    --     * @EffectiveDeliveryPolicy@ – The JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults.
+    --
+    --
+    --     * @FilterPolicy@ – The filter policy JSON that is assigned to the subscription. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering> in the /Amazon SNS Developer Guide/ .
+    --
+    --
+    --     * @Owner@ – The AWS account ID of the subscription's owner.
+    --
+    --
+    --     * @PendingConfirmation@ – @true@ if the subscription hasn't been confirmed. To confirm a pending subscription, call the @ConfirmSubscription@ action with a confirmation token.
+    --
+    --
+    --     * @RawMessageDelivery@ – @true@ if raw message delivery is enabled for the subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.
+    --
+    --
+    --     * @RedrivePolicy@ – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.
+    --
+    --
+    --     * @SubscriptionArn@ – The subscription's ARN.
+    --
+    --
+    --     * @TopicArn@ – The topic ARN that the subscription is associated with.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSubscriptionAttributesResponse' with the minimum fields required to make a request.

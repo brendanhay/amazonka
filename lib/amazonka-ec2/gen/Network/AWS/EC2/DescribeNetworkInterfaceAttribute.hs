@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 
     -- ** Request lenses
     dniaAttribute,
-    dniaDryRun,
     dniaNetworkInterfaceId,
+    dniaDryRun,
 
     -- * Destructuring the response
     DescribeNetworkInterfaceAttributeResponse (..),
@@ -47,28 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeNetworkInterfaceAttribute' smart constructor.
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
-  { attribute ::
-      Lude.Maybe
-        NetworkInterfaceAttribute,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    networkInterfaceId ::
-      Lude.Text
+  { -- | The attribute of the network interface. This parameter is required.
+    attribute :: Lude.Maybe NetworkInterfaceAttribute,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNetworkInterfaceAttribute' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The attribute of the network interface. This parameter is required.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDescribeNetworkInterfaceAttribute ::
   -- | 'networkInterfaceId'
   Lude.Text ->
@@ -76,8 +70,8 @@ mkDescribeNetworkInterfaceAttribute ::
 mkDescribeNetworkInterfaceAttribute pNetworkInterfaceId_ =
   DescribeNetworkInterfaceAttribute'
     { attribute = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      networkInterfaceId = pNetworkInterfaceId_
+      networkInterfaceId = pNetworkInterfaceId_,
+      dryRun = Lude.Nothing
     }
 
 -- | The attribute of the network interface. This parameter is required.
@@ -87,19 +81,19 @@ dniaAttribute :: Lens.Lens' DescribeNetworkInterfaceAttribute (Lude.Maybe Networ
 dniaAttribute = Lens.lens (attribute :: DescribeNetworkInterfaceAttribute -> Lude.Maybe NetworkInterfaceAttribute) (\s a -> s {attribute = a} :: DescribeNetworkInterfaceAttribute)
 {-# DEPRECATED dniaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dniaDryRun :: Lens.Lens' DescribeNetworkInterfaceAttribute (Lude.Maybe Lude.Bool)
-dniaDryRun = Lens.lens (dryRun :: DescribeNetworkInterfaceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeNetworkInterfaceAttribute)
-{-# DEPRECATED dniaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The ID of the network interface.
 --
 -- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dniaNetworkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttribute Lude.Text
 dniaNetworkInterfaceId = Lens.lens (networkInterfaceId :: DescribeNetworkInterfaceAttribute -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: DescribeNetworkInterfaceAttribute)
 {-# DEPRECATED dniaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dniaDryRun :: Lens.Lens' DescribeNetworkInterfaceAttribute (Lude.Maybe Lude.Bool)
+dniaDryRun = Lens.lens (dryRun :: DescribeNetworkInterfaceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeNetworkInterfaceAttribute)
+{-# DEPRECATED dniaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DescribeNetworkInterfaceAttribute where
   type
@@ -133,49 +127,38 @@ instance Lude.ToQuery DescribeNetworkInterfaceAttribute where
           Lude.=: ("DescribeNetworkInterfaceAttribute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "Attribute" Lude.=: attribute,
-        "DryRun" Lude.=: dryRun,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId
+        "NetworkInterfaceId" Lude.=: networkInterfaceId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of DescribeNetworkInterfaceAttribute.
 --
 -- /See:/ 'mkDescribeNetworkInterfaceAttributeResponse' smart constructor.
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
-  { groups ::
-      Lude.Maybe
-        [GroupIdentifier],
-    sourceDestCheck ::
-      Lude.Maybe
-        AttributeBooleanValue,
-    networkInterfaceId ::
-      Lude.Maybe
-        Lude.Text,
-    attachment ::
-      Lude.Maybe
-        NetworkInterfaceAttachment,
-    description ::
-      Lude.Maybe
-        AttributeValue,
-    responseStatus ::
-      Lude.Int
+  { -- | The security groups associated with the network interface.
+    groups :: Lude.Maybe [GroupIdentifier],
+    -- | Indicates whether source/destination checking is enabled.
+    sourceDestCheck :: Lude.Maybe AttributeBooleanValue,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The attachment (if any) of the network interface.
+    attachment :: Lude.Maybe NetworkInterfaceAttachment,
+    -- | The description of the network interface.
+    description :: Lude.Maybe AttributeValue,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.
 --
+-- * 'groups' - The security groups associated with the network interface.
+-- * 'sourceDestCheck' - Indicates whether source/destination checking is enabled.
+-- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'attachment' - The attachment (if any) of the network interface.
 -- * 'description' - The description of the network interface.
--- * 'groups' - The security groups associated with the network interface.
--- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'responseStatus' - The response status code.
--- * 'sourceDestCheck' - Indicates whether source/destination checking is enabled.
 mkDescribeNetworkInterfaceAttributeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

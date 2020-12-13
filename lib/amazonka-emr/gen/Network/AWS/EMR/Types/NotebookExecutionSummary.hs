@@ -34,32 +34,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotebookExecutionSummary' smart constructor.
 data NotebookExecutionSummary = NotebookExecutionSummary'
-  { status ::
-      Lude.Maybe NotebookExecutionStatus,
+  { -- | The status of the notebook execution.
+    --
+    --
+    --     * @START_PENDING@ indicates that the cluster has received the execution request but execution has not begun.
+    --
+    --
+    --     * @STARTING@ indicates that the execution is starting on the cluster.
+    --
+    --
+    --     * @RUNNING@ indicates that the execution is being processed by the cluster.
+    --
+    --
+    --     * @FINISHING@ indicates that execution processing is in the final stages.
+    --
+    --
+    --     * @FINISHED@ indicates that the execution has completed without error.
+    --
+    --
+    --     * @FAILING@ indicates that the execution is failing and will not finish successfully.
+    --
+    --
+    --     * @FAILED@ indicates that the execution failed.
+    --
+    --
+    --     * @STOP_PENDING@ indicates that the cluster has received a @StopNotebookExecution@ request and the stop is pending.
+    --
+    --
+    --     * @STOPPING@ indicates that the cluster is in the process of stopping the execution as a result of a @StopNotebookExecution@ request.
+    --
+    --
+    --     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
+    status :: Lude.Maybe NotebookExecutionStatus,
+    -- | The unique identifier of the editor associated with the notebook execution.
     editorId :: Lude.Maybe Lude.Text,
+    -- | The timestamp when notebook execution started.
     startTime :: Lude.Maybe Lude.Timestamp,
-    notebookExecutionId ::
-      Lude.Maybe Lude.Text,
-    notebookExecutionName ::
-      Lude.Maybe Lude.Text,
+    -- | The unique identifier of the notebook execution.
+    notebookExecutionId :: Lude.Maybe Lude.Text,
+    -- | The name of the notebook execution.
+    notebookExecutionName :: Lude.Maybe Lude.Text,
+    -- | The timestamp when notebook execution started.
     endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotebookExecutionSummary' with the minimum fields required to make a request.
 --
--- * 'editorId' - The unique identifier of the editor associated with the notebook execution.
--- * 'endTime' - The timestamp when notebook execution started.
--- * 'notebookExecutionId' - The unique identifier of the notebook execution.
--- * 'notebookExecutionName' - The name of the notebook execution.
--- * 'startTime' - The timestamp when notebook execution started.
 -- * 'status' - The status of the notebook execution.
 --
 --
@@ -91,6 +113,13 @@ data NotebookExecutionSummary = NotebookExecutionSummary'
 --
 --
 --     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
+--
+--
+-- * 'editorId' - The unique identifier of the editor associated with the notebook execution.
+-- * 'startTime' - The timestamp when notebook execution started.
+-- * 'notebookExecutionId' - The unique identifier of the notebook execution.
+-- * 'notebookExecutionName' - The name of the notebook execution.
+-- * 'endTime' - The timestamp when notebook execution started.
 mkNotebookExecutionSummary ::
   NotebookExecutionSummary
 mkNotebookExecutionSummary =

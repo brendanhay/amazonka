@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,24 +58,19 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectStackSetDrift' smart constructor.
 data DetectStackSetDrift = DetectStackSetDrift'
-  { operationPreferences ::
-      Lude.Maybe StackSetOperationPreferences,
+  { operationPreferences :: Lude.Maybe StackSetOperationPreferences,
+    -- | /The ID of the stack set operation./
     operationId :: Lude.Maybe Lude.Text,
+    -- | The name of the stack set on which to perform the drift detection operation.
     stackSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectStackSetDrift' with the minimum fields required to make a request.
 --
+-- * 'operationPreferences' -
 -- * 'operationId' - /The ID of the stack set operation./
--- * 'operationPreferences' - Undocumented field.
 -- * 'stackSetName' - The name of the stack set on which to perform the drift detection operation.
 mkDetectStackSetDrift ::
   -- | 'stackSetName'
@@ -137,17 +133,14 @@ instance Lude.ToQuery DetectStackSetDrift where
 
 -- | /See:/ 'mkDetectStackSetDriftResponse' smart constructor.
 data DetectStackSetDriftResponse = DetectStackSetDriftResponse'
-  { operationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the drift detection stack set operation.
+    --
+    -- you can use this operation id with @'DescribeStackSetOperation' @ to monitor the progress of the drift detection operation.
+    operationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectStackSetDriftResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +25,10 @@ module Network.AWS.Redshift.DescribeClusterParameters
     mkDescribeClusterParameters,
 
     -- ** Request lenses
-    dcpsMarker,
-    dcpsMaxRecords,
-    dcpsSource,
-    dcpsParameterGroupName,
+    dMarker,
+    dMaxRecords,
+    dSource,
+    dParameterGroupName,
 
     -- * Destructuring the response
     DescribeClusterParametersResponse (..),
@@ -51,19 +52,22 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeClusterParameters' smart constructor.
 data DescribeClusterParameters = DescribeClusterParameters'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
+    --
+    -- Default: @100@
+    -- Constraints: minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | The parameter types to return. Specify @user@ to show parameters that are different form the default. Similarly, specify @engine-default@ to show parameters that are the same as the default parameter group.
+    --
+    -- Default: All parameter types returned.
+    -- Valid Values: @user@ | @engine-default@
     source :: Lude.Maybe Lude.Text,
+    -- | The name of a cluster parameter group for which to return details.
     parameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusterParameters' with the minimum fields required to make a request.
@@ -73,11 +77,11 @@ data DescribeClusterParameters = DescribeClusterParameters'
 --
 -- Default: @100@
 -- Constraints: minimum 20, maximum 100.
--- * 'parameterGroupName' - The name of a cluster parameter group for which to return details.
 -- * 'source' - The parameter types to return. Specify @user@ to show parameters that are different form the default. Similarly, specify @engine-default@ to show parameters that are the same as the default parameter group.
 --
 -- Default: All parameter types returned.
 -- Valid Values: @user@ | @engine-default@
+-- * 'parameterGroupName' - The name of a cluster parameter group for which to return details.
 mkDescribeClusterParameters ::
   -- | 'parameterGroupName'
   Lude.Text ->
@@ -93,9 +97,9 @@ mkDescribeClusterParameters pParameterGroupName_ =
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsMarker :: Lens.Lens' DescribeClusterParameters (Lude.Maybe Lude.Text)
-dcpsMarker = Lens.lens (marker :: DescribeClusterParameters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterParameters)
-{-# DEPRECATED dcpsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dMarker :: Lens.Lens' DescribeClusterParameters (Lude.Maybe Lude.Text)
+dMarker = Lens.lens (marker :: DescribeClusterParameters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterParameters)
+{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
@@ -103,9 +107,9 @@ dcpsMarker = Lens.lens (marker :: DescribeClusterParameters -> Lude.Maybe Lude.T
 -- Constraints: minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsMaxRecords :: Lens.Lens' DescribeClusterParameters (Lude.Maybe Lude.Int)
-dcpsMaxRecords = Lens.lens (maxRecords :: DescribeClusterParameters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeClusterParameters)
-{-# DEPRECATED dcpsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dMaxRecords :: Lens.Lens' DescribeClusterParameters (Lude.Maybe Lude.Int)
+dMaxRecords = Lens.lens (maxRecords :: DescribeClusterParameters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeClusterParameters)
+{-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The parameter types to return. Specify @user@ to show parameters that are different form the default. Similarly, specify @engine-default@ to show parameters that are the same as the default parameter group.
 --
@@ -113,25 +117,23 @@ dcpsMaxRecords = Lens.lens (maxRecords :: DescribeClusterParameters -> Lude.Mayb
 -- Valid Values: @user@ | @engine-default@
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsSource :: Lens.Lens' DescribeClusterParameters (Lude.Maybe Lude.Text)
-dcpsSource = Lens.lens (source :: DescribeClusterParameters -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: DescribeClusterParameters)
-{-# DEPRECATED dcpsSource "Use generic-lens or generic-optics with 'source' instead." #-}
+dSource :: Lens.Lens' DescribeClusterParameters (Lude.Maybe Lude.Text)
+dSource = Lens.lens (source :: DescribeClusterParameters -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: DescribeClusterParameters)
+{-# DEPRECATED dSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | The name of a cluster parameter group for which to return details.
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpsParameterGroupName :: Lens.Lens' DescribeClusterParameters Lude.Text
-dcpsParameterGroupName = Lens.lens (parameterGroupName :: DescribeClusterParameters -> Lude.Text) (\s a -> s {parameterGroupName = a} :: DescribeClusterParameters)
-{-# DEPRECATED dcpsParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
+dParameterGroupName :: Lens.Lens' DescribeClusterParameters Lude.Text
+dParameterGroupName = Lens.lens (parameterGroupName :: DescribeClusterParameters -> Lude.Text) (\s a -> s {parameterGroupName = a} :: DescribeClusterParameters)
+{-# DEPRECATED dParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
 instance Page.AWSPager DescribeClusterParameters where
   page rq rs
     | Page.stop (rs Lens.^. dcprsMarker) = Lude.Nothing
     | Page.stop (rs Lens.^. dcprsParameters) = Lude.Nothing
     | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dcpsMarker Lens..~ rs Lens.^. dcprsMarker
+      Lude.Just Lude.$ rq Lude.& dMarker Lens..~ rs Lens.^. dcprsMarker
 
 instance Lude.AWSRequest DescribeClusterParameters where
   type
@@ -171,20 +173,14 @@ instance Lude.ToQuery DescribeClusterParameters where
 --
 -- /See:/ 'mkDescribeClusterParametersResponse' smart constructor.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    parameters ::
-      Lude.Maybe [Parameter],
-    responseStatus ::
-      Lude.Int
+  { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A list of 'Parameter' instances. Each instance lists the parameters of one cluster parameter group.
+    parameters :: Lude.Maybe [Parameter],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusterParametersResponse' with the minimum fields required to make a request.

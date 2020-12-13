@@ -31,26 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTemporaryCredential' smart constructor.
 data TemporaryCredential = TemporaryCredential'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance's AWS OpsWorks Stacks ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The user name.
     username :: Lude.Maybe Lude.Text,
+    -- | The password.
     password :: Lude.Maybe Lude.Text,
+    -- | The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.
     validForInMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemporaryCredential' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The instance's AWS OpsWorks Stacks ID.
--- * 'password' - The password.
 -- * 'username' - The user name.
+-- * 'password' - The password.
 -- * 'validForInMinutes' - The length of time (in minutes) that the grant is valid. When the grant expires, at the end of this period, the user will no longer be able to use the credentials to log in. If they are logged in at the time, they will be automatically logged out.
 mkTemporaryCredential ::
   TemporaryCredential

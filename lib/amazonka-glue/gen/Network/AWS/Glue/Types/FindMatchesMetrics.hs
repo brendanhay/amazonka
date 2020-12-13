@@ -33,39 +33,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFindMatchesMetrics' smart constructor.
 data FindMatchesMetrics = FindMatchesMetrics'
-  { f1 ::
-      Lude.Maybe Lude.Double,
+  { -- | The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.
+    --
+    -- For more information, see <https://en.wikipedia.org/wiki/F1_score F1 score> in Wikipedia.
+    f1 :: Lude.Maybe Lude.Double,
+    -- | The area under the precision/recall curve (AUPRC) is a single number measuring the overall quality of the transform, that is independent of the choice made for precision vs. recall. Higher values indicate that you have a more attractive precision vs. recall tradeoff.
+    --
+    -- For more information, see <https://en.wikipedia.org/wiki/Precision_and_recall Precision and recall> in Wikipedia.
     areaUnderPRCurve :: Lude.Maybe Lude.Double,
+    -- | The recall metric indicates that for an actual match, how often your transform predicts the match. Specifically, it measures how well the transform finds true positives from the total records in the source data.
+    --
+    -- For more information, see <https://en.wikipedia.org/wiki/Precision_and_recall Precision and recall> in Wikipedia.
     recall :: Lude.Maybe Lude.Double,
+    -- | The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.
+    --
+    -- For more information, see <https://en.wikipedia.org/wiki/Precision_and_recall Precision and recall> in Wikipedia.
     precision :: Lude.Maybe Lude.Double,
+    -- | The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.
+    --
+    -- For more information, see <https://en.wikipedia.org/wiki/Confusion_matrix Confusion matrix> in Wikipedia.
     confusionMatrix :: Lude.Maybe ConfusionMatrix
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FindMatchesMetrics' with the minimum fields required to make a request.
 --
--- * 'areaUnderPRCurve' - The area under the precision/recall curve (AUPRC) is a single number measuring the overall quality of the transform, that is independent of the choice made for precision vs. recall. Higher values indicate that you have a more attractive precision vs. recall tradeoff.
---
--- For more information, see <https://en.wikipedia.org/wiki/Precision_and_recall Precision and recall> in Wikipedia.
--- * 'confusionMatrix' - The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.
---
--- For more information, see <https://en.wikipedia.org/wiki/Confusion_matrix Confusion matrix> in Wikipedia.
 -- * 'f1' - The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.
 --
 -- For more information, see <https://en.wikipedia.org/wiki/F1_score F1 score> in Wikipedia.
--- * 'precision' - The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.
+-- * 'areaUnderPRCurve' - The area under the precision/recall curve (AUPRC) is a single number measuring the overall quality of the transform, that is independent of the choice made for precision vs. recall. Higher values indicate that you have a more attractive precision vs. recall tradeoff.
 --
 -- For more information, see <https://en.wikipedia.org/wiki/Precision_and_recall Precision and recall> in Wikipedia.
 -- * 'recall' - The recall metric indicates that for an actual match, how often your transform predicts the match. Specifically, it measures how well the transform finds true positives from the total records in the source data.
 --
 -- For more information, see <https://en.wikipedia.org/wiki/Precision_and_recall Precision and recall> in Wikipedia.
+-- * 'precision' - The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.
+--
+-- For more information, see <https://en.wikipedia.org/wiki/Precision_and_recall Precision and recall> in Wikipedia.
+-- * 'confusionMatrix' - The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.
+--
+-- For more information, see <https://en.wikipedia.org/wiki/Confusion_matrix Confusion matrix> in Wikipedia.
 mkFindMatchesMetrics ::
   FindMatchesMetrics
 mkFindMatchesMetrics =

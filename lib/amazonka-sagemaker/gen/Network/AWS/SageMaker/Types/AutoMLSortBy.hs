@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.AutoMLSortBy
   ( AutoMLSortBy
       ( AutoMLSortBy',
-        AMLSBCreationTime,
         AMLSBName,
+        AMLSBCreationTime,
         AMLSBStatus
       ),
   )
@@ -46,18 +46,18 @@ newtype AutoMLSortBy = AutoMLSortBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern AMLSBCreationTime :: AutoMLSortBy
-pattern AMLSBCreationTime = AutoMLSortBy' "CreationTime"
-
 pattern AMLSBName :: AutoMLSortBy
 pattern AMLSBName = AutoMLSortBy' "Name"
+
+pattern AMLSBCreationTime :: AutoMLSortBy
+pattern AMLSBCreationTime = AutoMLSortBy' "CreationTime"
 
 pattern AMLSBStatus :: AutoMLSortBy
 pattern AMLSBStatus = AutoMLSortBy' "Status"
 
 {-# COMPLETE
-  AMLSBCreationTime,
   AMLSBName,
+  AMLSBCreationTime,
   AMLSBStatus,
   AutoMLSortBy'
   #-}

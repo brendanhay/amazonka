@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,24 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListDocuments' smart constructor.
 data ListDocuments = ListDocuments'
-  { documentFilterList ::
-      Lude.Maybe (Lude.NonEmpty DocumentFilter),
+  { -- | This data type is deprecated. Instead, use @Filters@ .
+    documentFilterList :: Lude.Maybe (Lude.NonEmpty DocumentFilter),
+    -- | One or more DocumentKeyValuesFilter objects. Use a filter to return a more specific list of results. For keys, you can specify one or more key-value pair tags that have been applied to a document. Other valid keys include @Owner@ , @Name@ , @PlatformTypes@ , @DocumentType@ , and @TargetType@ . For example, to return documents you own use @Key=Owner,Values=Self@ . To specify a custom key-value pair, use the format @Key=tag:tagName,Values=valueName@ .
     filters :: Lude.Maybe [DocumentKeyValuesFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocuments' with the minimum fields required to make a request.
 --
 -- * 'documentFilterList' - This data type is deprecated. Instead, use @Filters@ .
 -- * 'filters' - One or more DocumentKeyValuesFilter objects. Use a filter to return a more specific list of results. For keys, you can specify one or more key-value pair tags that have been applied to a document. Other valid keys include @Owner@ , @Name@ , @PlatformTypes@ , @DocumentType@ , and @TargetType@ . For example, to return documents you own use @Key=Owner,Values=Self@ . To specify a custom key-value pair, use the format @Key=tag:tagName,Values=valueName@ .
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkListDocuments ::
   ListDocuments
 mkListDocuments =
@@ -156,18 +154,14 @@ instance Lude.ToQuery ListDocuments where
 
 -- | /See:/ 'mkListDocumentsResponse' smart constructor.
 data ListDocumentsResponse = ListDocumentsResponse'
-  { documentIdentifiers ::
-      Lude.Maybe [DocumentIdentifier],
+  { -- | The names of the Systems Manager documents.
+    documentIdentifiers :: Lude.Maybe [DocumentIdentifier],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocumentsResponse' with the minimum fields required to make a request.

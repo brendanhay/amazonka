@@ -79,11 +79,11 @@ module Network.AWS.CognitoSync.Types
     -- * RecordPatch
     RecordPatch (..),
     mkRecordPatch,
-    rpDeviceLastModifiedDate,
-    rpValue,
-    rpOp,
-    rpKey,
     rpSyncCount,
+    rpDeviceLastModifiedDate,
+    rpOp,
+    rpValue,
+    rpKey,
   )
 where
 

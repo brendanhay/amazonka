@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,14 +39,14 @@ module Network.AWS.GameLift.StopMatchmaking
     mkStopMatchmaking,
 
     -- ** Request lenses
-    smTicketId,
+    sTicketId,
 
     -- * Destructuring the response
     StopMatchmakingResponse (..),
     mkStopMatchmakingResponse,
 
     -- ** Response lenses
-    smrsResponseStatus,
+    smfrsResponseStatus,
   )
 where
 
@@ -58,14 +59,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkStopMatchmaking' smart constructor.
-newtype StopMatchmaking = StopMatchmaking' {ticketId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StopMatchmaking = StopMatchmaking'
+  { -- | A unique identifier for a matchmaking ticket.
+    ticketId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMatchmaking' with the minimum fields required to make a request.
@@ -81,9 +79,9 @@ mkStopMatchmaking pTicketId_ =
 -- | A unique identifier for a matchmaking ticket.
 --
 -- /Note:/ Consider using 'ticketId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smTicketId :: Lens.Lens' StopMatchmaking Lude.Text
-smTicketId = Lens.lens (ticketId :: StopMatchmaking -> Lude.Text) (\s a -> s {ticketId = a} :: StopMatchmaking)
-{-# DEPRECATED smTicketId "Use generic-lens or generic-optics with 'ticketId' instead." #-}
+sTicketId :: Lens.Lens' StopMatchmaking Lude.Text
+sTicketId = Lens.lens (ticketId :: StopMatchmaking -> Lude.Text) (\s a -> s {ticketId = a} :: StopMatchmaking)
+{-# DEPRECATED sTicketId "Use generic-lens or generic-optics with 'ticketId' instead." #-}
 
 instance Lude.AWSRequest StopMatchmaking where
   type Rs StopMatchmaking = StopMatchmakingResponse
@@ -118,16 +116,10 @@ instance Lude.ToQuery StopMatchmaking where
 
 -- | /See:/ 'mkStopMatchmakingResponse' smart constructor.
 newtype StopMatchmakingResponse = StopMatchmakingResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMatchmakingResponse' with the minimum fields required to make a request.
@@ -143,6 +135,6 @@ mkStopMatchmakingResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smrsResponseStatus :: Lens.Lens' StopMatchmakingResponse Lude.Int
-smrsResponseStatus = Lens.lens (responseStatus :: StopMatchmakingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopMatchmakingResponse)
-{-# DEPRECATED smrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+smfrsResponseStatus :: Lens.Lens' StopMatchmakingResponse Lude.Int
+smfrsResponseStatus = Lens.lens (responseStatus :: StopMatchmakingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopMatchmakingResponse)
+{-# DEPRECATED smfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

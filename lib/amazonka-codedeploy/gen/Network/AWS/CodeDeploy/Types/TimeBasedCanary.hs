@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimeBasedCanary' smart constructor.
 data TimeBasedCanary = TimeBasedCanary'
-  { canaryInterval ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of minutes between the first and second traffic shifts of a @TimeBasedCanary@ deployment.
+    canaryInterval :: Lude.Maybe Lude.Int,
+    -- | The percentage of traffic to shift in the first increment of a @TimeBasedCanary@ deployment.
     canaryPercentage :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeBasedCanary' with the minimum fields required to make a request.

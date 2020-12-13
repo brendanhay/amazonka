@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailure' smart constructor.
 data Failure = Failure'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the failed resource.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The reason for the failure.
     reason :: Lude.Maybe Lude.Text,
+    -- | The details of the failure.
     detail :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Failure' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the failed resource.
--- * 'detail' - The details of the failure.
 -- * 'reason' - The reason for the failure.
+-- * 'detail' - The details of the failure.
 mkFailure ::
   Failure
 mkFailure =

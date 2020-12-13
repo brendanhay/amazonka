@@ -13,12 +13,12 @@
 module Network.AWS.CloudWatchEvents.Types.ArchiveState
   ( ArchiveState
       ( ArchiveState',
-        ASCreateFailed,
-        ASCreating,
-        ASDisabled,
         ASEnabled,
-        ASUpdateFailed,
-        ASUpdating
+        ASDisabled,
+        ASCreating,
+        ASUpdating,
+        ASCreateFailed,
+        ASUpdateFailed
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype ArchiveState = ArchiveState' Lude.Text
       Lude.ToHeader
     )
 
-pattern ASCreateFailed :: ArchiveState
-pattern ASCreateFailed = ArchiveState' "CREATE_FAILED"
-
-pattern ASCreating :: ArchiveState
-pattern ASCreating = ArchiveState' "CREATING"
+pattern ASEnabled :: ArchiveState
+pattern ASEnabled = ArchiveState' "ENABLED"
 
 pattern ASDisabled :: ArchiveState
 pattern ASDisabled = ArchiveState' "DISABLED"
 
-pattern ASEnabled :: ArchiveState
-pattern ASEnabled = ArchiveState' "ENABLED"
-
-pattern ASUpdateFailed :: ArchiveState
-pattern ASUpdateFailed = ArchiveState' "UPDATE_FAILED"
+pattern ASCreating :: ArchiveState
+pattern ASCreating = ArchiveState' "CREATING"
 
 pattern ASUpdating :: ArchiveState
 pattern ASUpdating = ArchiveState' "UPDATING"
 
+pattern ASCreateFailed :: ArchiveState
+pattern ASCreateFailed = ArchiveState' "CREATE_FAILED"
+
+pattern ASUpdateFailed :: ArchiveState
+pattern ASUpdateFailed = ArchiveState' "UPDATE_FAILED"
+
 {-# COMPLETE
-  ASCreateFailed,
-  ASCreating,
-  ASDisabled,
   ASEnabled,
-  ASUpdateFailed,
+  ASDisabled,
+  ASCreating,
   ASUpdating,
+  ASCreateFailed,
+  ASUpdateFailed,
   ArchiveState'
   #-}

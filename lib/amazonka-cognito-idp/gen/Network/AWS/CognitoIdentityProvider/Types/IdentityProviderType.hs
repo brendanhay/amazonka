@@ -36,34 +36,124 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIdentityProviderType' smart constructor.
 data IdentityProviderType = IdentityProviderType'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the identity provider was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The user pool ID.
     userPoolId :: Lude.Maybe Lude.Text,
-    providerType ::
-      Lude.Maybe IdentityProviderTypeType,
+    -- | The identity provider type.
+    providerType :: Lude.Maybe IdentityProviderTypeType,
+    -- | The date the identity provider was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | A list of identity provider identifiers.
     idpIdentifiers :: Lude.Maybe [Lude.Text],
-    attributeMapping ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    providerDetails ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A mapping of identity provider attributes to standard and custom user pool attributes.
+    attributeMapping :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The identity provider details. The following list describes the provider detail keys for each identity provider type.
+    --
+    --
+    --     * For Google and Login with Amazon:
+    --
+    --     * client_id
+    --
+    --
+    --     * client_secret
+    --
+    --
+    --     * authorize_scopes
+    --
+    --
+    --
+    --
+    --     * For Facebook:
+    --
+    --     * client_id
+    --
+    --
+    --     * client_secret
+    --
+    --
+    --     * authorize_scopes
+    --
+    --
+    --     * api_version
+    --
+    --
+    --
+    --
+    --     * For Sign in with Apple:
+    --
+    --     * client_id
+    --
+    --
+    --     * team_id
+    --
+    --
+    --     * key_id
+    --
+    --
+    --     * private_key
+    --
+    --
+    --     * authorize_scopes
+    --
+    --
+    --
+    --
+    --     * For OIDC providers:
+    --
+    --     * client_id
+    --
+    --
+    --     * client_secret
+    --
+    --
+    --     * attributes_request_method
+    --
+    --
+    --     * oidc_issuer
+    --
+    --
+    --     * authorize_scopes
+    --
+    --
+    --     * authorize_url /if not available from discovery URL specified by oidc_issuer key/
+    --
+    --
+    --     * token_url /if not available from discovery URL specified by oidc_issuer key/
+    --
+    --
+    --     * attributes_url /if not available from discovery URL specified by oidc_issuer key/
+    --
+    --
+    --     * jwks_uri /if not available from discovery URL specified by oidc_issuer key/
+    --
+    --
+    --     * authorize_scopes
+    --
+    --
+    --
+    --
+    --     * For SAML providers:
+    --
+    --     * MetadataFile OR MetadataURL
+    --
+    --
+    --     * IDPSignOut /optional/
+    providerDetails :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The identity provider name.
     providerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityProviderType' with the minimum fields required to make a request.
 --
--- * 'attributeMapping' - A mapping of identity provider attributes to standard and custom user pool attributes.
+-- * 'lastModifiedDate' - The date the identity provider was last modified.
+-- * 'userPoolId' - The user pool ID.
+-- * 'providerType' - The identity provider type.
 -- * 'creationDate' - The date the identity provider was created.
 -- * 'idpIdentifiers' - A list of identity provider identifiers.
--- * 'lastModifiedDate' - The date the identity provider was last modified.
+-- * 'attributeMapping' - A mapping of identity provider attributes to standard and custom user pool attributes.
 -- * 'providerDetails' - The identity provider details. The following list describes the provider detail keys for each identity provider type.
 --
 --
@@ -160,8 +250,6 @@ data IdentityProviderType = IdentityProviderType'
 --
 --
 -- * 'providerName' - The identity provider name.
--- * 'providerType' - The identity provider type.
--- * 'userPoolId' - The user pool ID.
 mkIdentityProviderType ::
   IdentityProviderType
 mkIdentityProviderType =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook
     mkDisassociateContactFromAddressBook,
 
     -- ** Request lenses
-    dcfabContactARN,
     dcfabAddressBookARN,
+    dcfabContactARN,
 
     -- * Destructuring the response
     DisassociateContactFromAddressBookResponse (..),
@@ -39,18 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateContactFromAddressBook' smart constructor.
 data DisassociateContactFromAddressBook = DisassociateContactFromAddressBook'
-  { contactARN ::
-      Lude.Text,
-    addressBookARN ::
-      Lude.Text
+  { -- | The ARN of the address from which to disassociate the contact.
+    addressBookARN :: Lude.Text,
+    -- | The ARN of the contact to disassociate from an address book.
+    contactARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateContactFromAddressBook' with the minimum fields required to make a request.
@@ -58,23 +53,17 @@ data DisassociateContactFromAddressBook = DisassociateContactFromAddressBook'
 -- * 'addressBookARN' - The ARN of the address from which to disassociate the contact.
 -- * 'contactARN' - The ARN of the contact to disassociate from an address book.
 mkDisassociateContactFromAddressBook ::
-  -- | 'contactARN'
-  Lude.Text ->
   -- | 'addressBookARN'
   Lude.Text ->
+  -- | 'contactARN'
+  Lude.Text ->
   DisassociateContactFromAddressBook
-mkDisassociateContactFromAddressBook pContactARN_ pAddressBookARN_ =
+mkDisassociateContactFromAddressBook pAddressBookARN_ pContactARN_ =
   DisassociateContactFromAddressBook'
-    { contactARN = pContactARN_,
-      addressBookARN = pAddressBookARN_
+    { addressBookARN =
+        pAddressBookARN_,
+      contactARN = pContactARN_
     }
-
--- | The ARN of the contact to disassociate from an address book.
---
--- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfabContactARN :: Lens.Lens' DisassociateContactFromAddressBook Lude.Text
-dcfabContactARN = Lens.lens (contactARN :: DisassociateContactFromAddressBook -> Lude.Text) (\s a -> s {contactARN = a} :: DisassociateContactFromAddressBook)
-{-# DEPRECATED dcfabContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
 
 -- | The ARN of the address from which to disassociate the contact.
 --
@@ -82,6 +71,13 @@ dcfabContactARN = Lens.lens (contactARN :: DisassociateContactFromAddressBook ->
 dcfabAddressBookARN :: Lens.Lens' DisassociateContactFromAddressBook Lude.Text
 dcfabAddressBookARN = Lens.lens (addressBookARN :: DisassociateContactFromAddressBook -> Lude.Text) (\s a -> s {addressBookARN = a} :: DisassociateContactFromAddressBook)
 {-# DEPRECATED dcfabAddressBookARN "Use generic-lens or generic-optics with 'addressBookARN' instead." #-}
+
+-- | The ARN of the contact to disassociate from an address book.
+--
+-- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfabContactARN :: Lens.Lens' DisassociateContactFromAddressBook Lude.Text
+dcfabContactARN = Lens.lens (contactARN :: DisassociateContactFromAddressBook -> Lude.Text) (\s a -> s {contactARN = a} :: DisassociateContactFromAddressBook)
+{-# DEPRECATED dcfabContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
 
 instance Lude.AWSRequest DisassociateContactFromAddressBook where
   type
@@ -112,8 +108,8 @@ instance Lude.ToJSON DisassociateContactFromAddressBook where
   toJSON DisassociateContactFromAddressBook' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ContactArn" Lude..= contactARN),
-            Lude.Just ("AddressBookArn" Lude..= addressBookARN)
+          [ Lude.Just ("AddressBookArn" Lude..= addressBookARN),
+            Lude.Just ("ContactArn" Lude..= contactARN)
           ]
       )
 
@@ -125,16 +121,10 @@ instance Lude.ToQuery DisassociateContactFromAddressBook where
 
 -- | /See:/ 'mkDisassociateContactFromAddressBookResponse' smart constructor.
 newtype DisassociateContactFromAddressBookResponse = DisassociateContactFromAddressBookResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateContactFromAddressBookResponse' with the minimum fields required to make a request.

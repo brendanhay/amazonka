@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,27 +48,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListBonusPayments' smart constructor.
 data ListBonusPayments = ListBonusPayments'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Pagination token
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
     hITId :: Lude.Maybe Lude.Text,
+    -- | The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
     assignmentId :: Lude.Maybe Lude.Text,
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBonusPayments' with the minimum fields required to make a request.
 --
--- * 'assignmentId' - The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
--- * 'hITId' - The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
--- * 'maxResults' - Undocumented field.
 -- * 'nextToken' - Pagination token
+-- * 'hITId' - The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified
+-- * 'assignmentId' - The ID of the assignment associated with the bonus payments to retrieve. If specified, only bonus payments for the given assignment are returned. Either the HITId parameter or the AssignmentId parameter must be specified
+-- * 'maxResults' -
 mkListBonusPayments ::
   ListBonusPayments
 mkListBonusPayments =
@@ -160,25 +157,21 @@ instance Lude.ToQuery ListBonusPayments where
 
 -- | /See:/ 'mkListBonusPaymentsResponse' smart constructor.
 data ListBonusPaymentsResponse = ListBonusPaymentsResponse'
-  { bonusPayments ::
-      Lude.Maybe [BonusPayment],
+  { -- | A successful request to the ListBonusPayments operation returns a list of BonusPayment objects.
+    bonusPayments :: Lude.Maybe [BonusPayment],
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call.
     numResults :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBonusPaymentsResponse' with the minimum fields required to make a request.
 --
 -- * 'bonusPayments' - A successful request to the ListBonusPayments operation returns a list of BonusPayment objects.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'numResults' - The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call.
 -- * 'responseStatus' - The response status code.
 mkListBonusPaymentsResponse ::

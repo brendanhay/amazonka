@@ -13,8 +13,8 @@
 module Network.AWS.MQ.Types.SanitizationWarningReason
   ( SanitizationWarningReason
       ( SanitizationWarningReason',
-        DisallowedAttributeRemoved,
         DisallowedElementRemoved,
+        DisallowedAttributeRemoved,
         InvalidAttributeValueRemoved
       ),
   )
@@ -47,18 +47,18 @@ newtype SanitizationWarningReason = SanitizationWarningReason' Lude.Text
       Lude.ToHeader
     )
 
-pattern DisallowedAttributeRemoved :: SanitizationWarningReason
-pattern DisallowedAttributeRemoved = SanitizationWarningReason' "DISALLOWED_ATTRIBUTE_REMOVED"
-
 pattern DisallowedElementRemoved :: SanitizationWarningReason
 pattern DisallowedElementRemoved = SanitizationWarningReason' "DISALLOWED_ELEMENT_REMOVED"
+
+pattern DisallowedAttributeRemoved :: SanitizationWarningReason
+pattern DisallowedAttributeRemoved = SanitizationWarningReason' "DISALLOWED_ATTRIBUTE_REMOVED"
 
 pattern InvalidAttributeValueRemoved :: SanitizationWarningReason
 pattern InvalidAttributeValueRemoved = SanitizationWarningReason' "INVALID_ATTRIBUTE_VALUE_REMOVED"
 
 {-# COMPLETE
-  DisallowedAttributeRemoved,
   DisallowedElementRemoved,
+  DisallowedAttributeRemoved,
   InvalidAttributeValueRemoved,
   SanitizationWarningReason'
   #-}

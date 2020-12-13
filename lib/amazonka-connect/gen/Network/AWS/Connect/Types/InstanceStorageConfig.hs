@@ -38,33 +38,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceStorageConfig' smart constructor.
 data InstanceStorageConfig = InstanceStorageConfig'
-  { associationId ::
-      Lude.Maybe Lude.Text,
-    kinesisStreamConfig ::
-      Lude.Maybe KinesisStreamConfig,
-    kinesisVideoStreamConfig ::
-      Lude.Maybe KinesisVideoStreamConfig,
+  { -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The configuration of the Kinesis data stream.
+    kinesisStreamConfig :: Lude.Maybe KinesisStreamConfig,
+    -- | The configuration of the Kinesis video stream.
+    kinesisVideoStreamConfig :: Lude.Maybe KinesisVideoStreamConfig,
+    -- | The S3 configuration.
     s3Config :: Lude.Maybe S3Config,
-    kinesisFirehoseConfig ::
-      Lude.Maybe KinesisFirehoseConfig,
+    -- | The configuration of the Kinesis Firehose delivery stream.
+    kinesisFirehoseConfig :: Lude.Maybe KinesisFirehoseConfig,
+    -- | A valid storage type.
     storageType :: StorageType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStorageConfig' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
--- * 'kinesisFirehoseConfig' - The configuration of the Kinesis Firehose delivery stream.
 -- * 'kinesisStreamConfig' - The configuration of the Kinesis data stream.
 -- * 'kinesisVideoStreamConfig' - The configuration of the Kinesis video stream.
 -- * 's3Config' - The S3 configuration.
+-- * 'kinesisFirehoseConfig' - The configuration of the Kinesis Firehose delivery stream.
 -- * 'storageType' - A valid storage type.
 mkInstanceStorageConfig ::
   -- | 'storageType'

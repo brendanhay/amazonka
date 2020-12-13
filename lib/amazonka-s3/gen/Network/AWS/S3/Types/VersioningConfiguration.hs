@@ -32,23 +32,18 @@ import Network.AWS.S3.Types.MFADelete
 --
 -- /See:/ 'mkVersioningConfiguration' smart constructor.
 data VersioningConfiguration = VersioningConfiguration'
-  { status ::
-      Lude.Maybe BucketVersioningStatus,
+  { -- | The versioning state of the bucket.
+    status :: Lude.Maybe BucketVersioningStatus,
+    -- | Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
     mfaDelete :: Lude.Maybe MFADelete
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VersioningConfiguration' with the minimum fields required to make a request.
 --
--- * 'mfaDelete' - Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
 -- * 'status' - The versioning state of the bucket.
+-- * 'mfaDelete' - Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
 mkVersioningConfiguration ::
   VersioningConfiguration
 mkVersioningConfiguration =

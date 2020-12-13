@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProvisionedCapacityDescription' smart constructor.
 data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
-  { capacityId ::
-      Lude.Maybe Lude.Text,
-    startDate ::
-      Lude.Maybe Lude.Text,
-    expirationDate ::
-      Lude.Maybe Lude.Text
+  { -- | The ID that identifies the provisioned capacity unit.
+    capacityId :: Lude.Maybe Lude.Text,
+    -- | The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).
+    startDate :: Lude.Maybe Lude.Text,
+    -- | The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).
+    expirationDate :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedCapacityDescription' with the minimum fields required to make a request.
 --
 -- * 'capacityId' - The ID that identifies the provisioned capacity unit.
--- * 'expirationDate' - The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).
 -- * 'startDate' - The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).
+-- * 'expirationDate' - The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).
 mkProvisionedCapacityDescription ::
   ProvisionedCapacityDescription
 mkProvisionedCapacityDescription =

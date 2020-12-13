@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.CognitoIdentityProvider.AdminListDevices
 
     -- ** Request lenses
     aldPaginationToken,
-    aldLimit,
     aldUserPoolId,
     aldUsername,
+    aldLimit,
 
     -- * Destructuring the response
     AdminListDevicesResponse (..),
@@ -47,21 +48,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAdminListDevices' smart constructor.
 data AdminListDevices = AdminListDevices'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
+  { -- | The pagination token.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | The user pool ID.
     userPoolId :: Lude.Text,
-    username :: Lude.Sensitive Lude.Text
+    -- | The user name.
+    username :: Lude.Sensitive Lude.Text,
+    -- | The limit of the devices request.
+    limit :: Lude.Maybe Lude.Natural
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminListDevices' with the minimum fields required to make a request.
 --
--- * 'limit' - The limit of the devices request.
 -- * 'paginationToken' - The pagination token.
 -- * 'userPoolId' - The user pool ID.
 -- * 'username' - The user name.
+-- * 'limit' - The limit of the devices request.
 mkAdminListDevices ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -71,9 +75,9 @@ mkAdminListDevices ::
 mkAdminListDevices pUserPoolId_ pUsername_ =
   AdminListDevices'
     { paginationToken = Lude.Nothing,
-      limit = Lude.Nothing,
       userPoolId = pUserPoolId_,
-      username = pUsername_
+      username = pUsername_,
+      limit = Lude.Nothing
     }
 
 -- | The pagination token.
@@ -82,13 +86,6 @@ mkAdminListDevices pUserPoolId_ pUsername_ =
 aldPaginationToken :: Lens.Lens' AdminListDevices (Lude.Maybe Lude.Text)
 aldPaginationToken = Lens.lens (paginationToken :: AdminListDevices -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: AdminListDevices)
 {-# DEPRECATED aldPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
-
--- | The limit of the devices request.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aldLimit :: Lens.Lens' AdminListDevices (Lude.Maybe Lude.Natural)
-aldLimit = Lens.lens (limit :: AdminListDevices -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: AdminListDevices)
-{-# DEPRECATED aldLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The user pool ID.
 --
@@ -103,6 +100,13 @@ aldUserPoolId = Lens.lens (userPoolId :: AdminListDevices -> Lude.Text) (\s a ->
 aldUsername :: Lens.Lens' AdminListDevices (Lude.Sensitive Lude.Text)
 aldUsername = Lens.lens (username :: AdminListDevices -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminListDevices)
 {-# DEPRECATED aldUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+-- | The limit of the devices request.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldLimit :: Lens.Lens' AdminListDevices (Lude.Maybe Lude.Natural)
+aldLimit = Lens.lens (limit :: AdminListDevices -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: AdminListDevices)
+{-# DEPRECATED aldLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 instance Lude.AWSRequest AdminListDevices where
   type Rs AdminListDevices = AdminListDevicesResponse
@@ -134,9 +138,9 @@ instance Lude.ToJSON AdminListDevices where
     Lude.object
       ( Lude.catMaybes
           [ ("PaginationToken" Lude..=) Lude.<$> paginationToken,
-            ("Limit" Lude..=) Lude.<$> limit,
             Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Username" Lude..= username)
+            Lude.Just ("Username" Lude..= username),
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -150,9 +154,11 @@ instance Lude.ToQuery AdminListDevices where
 --
 -- /See:/ 'mkAdminListDevicesResponse' smart constructor.
 data AdminListDevicesResponse = AdminListDevicesResponse'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | The devices in the list of devices response.
     devices :: Lude.Maybe [DeviceType],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -160,8 +166,8 @@ data AdminListDevicesResponse = AdminListDevicesResponse'
 
 -- | Creates a value of 'AdminListDevicesResponse' with the minimum fields required to make a request.
 --
--- * 'devices' - The devices in the list of devices response.
 -- * 'paginationToken' - The pagination token.
+-- * 'devices' - The devices in the list of devices response.
 -- * 'responseStatus' - The response status code.
 mkAdminListDevicesResponse ::
   -- | 'responseStatus'

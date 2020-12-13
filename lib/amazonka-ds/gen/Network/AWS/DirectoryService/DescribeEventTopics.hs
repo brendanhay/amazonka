@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.DirectoryService.DescribeEventTopics
     mkDescribeEventTopicsResponse,
 
     -- ** Response lenses
-    detrsEventTopics,
-    detrsResponseStatus,
+    drsEventTopics,
+    drsResponseStatus,
   )
 where
 
@@ -44,17 +45,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEventTopics' smart constructor.
 data DescribeEventTopics = DescribeEventTopics'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The Directory ID for which to get the list of associated SNS topics. If this member is null, associations for all Directory IDs are returned.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.
+    --
+    -- An empty list results in an @InvalidParameterException@ being thrown.
     topicNames :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventTopics' with the minimum fields required to make a request.
@@ -130,17 +128,12 @@ instance Lude.ToQuery DescribeEventTopics where
 --
 -- /See:/ 'mkDescribeEventTopicsResponse' smart constructor.
 data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
-  { eventTopics ::
-      Lude.Maybe [EventTopic],
+  { -- | A list of SNS topic names that receive status messages from the specified Directory ID.
+    eventTopics :: Lude.Maybe [EventTopic],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventTopicsResponse' with the minimum fields required to make a request.
@@ -160,13 +153,13 @@ mkDescribeEventTopicsResponse pResponseStatus_ =
 -- | A list of SNS topic names that receive status messages from the specified Directory ID.
 --
 -- /Note:/ Consider using 'eventTopics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsEventTopics :: Lens.Lens' DescribeEventTopicsResponse (Lude.Maybe [EventTopic])
-detrsEventTopics = Lens.lens (eventTopics :: DescribeEventTopicsResponse -> Lude.Maybe [EventTopic]) (\s a -> s {eventTopics = a} :: DescribeEventTopicsResponse)
-{-# DEPRECATED detrsEventTopics "Use generic-lens or generic-optics with 'eventTopics' instead." #-}
+drsEventTopics :: Lens.Lens' DescribeEventTopicsResponse (Lude.Maybe [EventTopic])
+drsEventTopics = Lens.lens (eventTopics :: DescribeEventTopicsResponse -> Lude.Maybe [EventTopic]) (\s a -> s {eventTopics = a} :: DescribeEventTopicsResponse)
+{-# DEPRECATED drsEventTopics "Use generic-lens or generic-optics with 'eventTopics' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsResponseStatus :: Lens.Lens' DescribeEventTopicsResponse Lude.Int
-detrsResponseStatus = Lens.lens (responseStatus :: DescribeEventTopicsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventTopicsResponse)
-{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeEventTopicsResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeEventTopicsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventTopicsResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

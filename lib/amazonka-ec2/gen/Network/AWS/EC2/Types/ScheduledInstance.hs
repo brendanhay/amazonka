@@ -43,49 +43,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledInstance' smart constructor.
 data ScheduledInstance = ScheduledInstance'
-  { previousSlotEndTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The time that the previous schedule ended or will end.
+    previousSlotEndTime :: Lude.Maybe Lude.DateTime,
+    -- | The platform (@Linux/UNIX@ or @Windows@ ).
     platform :: Lude.Maybe Lude.Text,
+    -- | The start date for the Scheduled Instance.
     termStartDate :: Lude.Maybe Lude.DateTime,
+    -- | The number of instances.
     instanceCount :: Lude.Maybe Lude.Int,
+    -- | The Scheduled Instance ID.
     scheduledInstanceId :: Lude.Maybe Lude.Text,
+    -- | The hourly price for a single instance.
     hourlyPrice :: Lude.Maybe Lude.Text,
+    -- | The date when the Scheduled Instance was purchased.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | The number of hours in the schedule.
     slotDurationInHours :: Lude.Maybe Lude.Int,
+    -- | The total number of hours for a single instance for the entire term.
     totalScheduledInstanceHours :: Lude.Maybe Lude.Int,
+    -- | The instance type.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The schedule recurrence.
     recurrence :: Lude.Maybe ScheduledInstanceRecurrence,
+    -- | The Availability Zone.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The end date for the Scheduled Instance.
     termEndDate :: Lude.Maybe Lude.DateTime,
+    -- | The time for the next schedule to start.
     nextSlotStartTime :: Lude.Maybe Lude.DateTime,
+    -- | The network platform (@EC2-Classic@ or @EC2-VPC@ ).
     networkPlatform :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstance' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone.
--- * 'createDate' - The date when the Scheduled Instance was purchased.
--- * 'hourlyPrice' - The hourly price for a single instance.
--- * 'instanceCount' - The number of instances.
--- * 'instanceType' - The instance type.
--- * 'networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
--- * 'nextSlotStartTime' - The time for the next schedule to start.
--- * 'platform' - The platform (@Linux/UNIX@ or @Windows@ ).
 -- * 'previousSlotEndTime' - The time that the previous schedule ended or will end.
--- * 'recurrence' - The schedule recurrence.
--- * 'scheduledInstanceId' - The Scheduled Instance ID.
--- * 'slotDurationInHours' - The number of hours in the schedule.
--- * 'termEndDate' - The end date for the Scheduled Instance.
+-- * 'platform' - The platform (@Linux/UNIX@ or @Windows@ ).
 -- * 'termStartDate' - The start date for the Scheduled Instance.
+-- * 'instanceCount' - The number of instances.
+-- * 'scheduledInstanceId' - The Scheduled Instance ID.
+-- * 'hourlyPrice' - The hourly price for a single instance.
+-- * 'createDate' - The date when the Scheduled Instance was purchased.
+-- * 'slotDurationInHours' - The number of hours in the schedule.
 -- * 'totalScheduledInstanceHours' - The total number of hours for a single instance for the entire term.
+-- * 'instanceType' - The instance type.
+-- * 'recurrence' - The schedule recurrence.
+-- * 'availabilityZone' - The Availability Zone.
+-- * 'termEndDate' - The end date for the Scheduled Instance.
+-- * 'nextSlotStartTime' - The time for the next schedule to start.
+-- * 'networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
 mkScheduledInstance ::
   ScheduledInstance
 mkScheduledInstance =

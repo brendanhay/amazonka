@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRuntimeConfiguration' smart constructor.
 newtype RuntimeConfiguration = RuntimeConfiguration'
-  { telemetryConfiguration ::
-      Lude.Maybe TelemetryConfiguration
+  { -- | Configuration for telemetry service.
+    telemetryConfiguration :: Lude.Maybe TelemetryConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuntimeConfiguration' with the minimum fields required to make a request.

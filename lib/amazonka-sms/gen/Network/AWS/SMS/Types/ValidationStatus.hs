@@ -13,11 +13,11 @@
 module Network.AWS.SMS.Types.ValidationStatus
   ( ValidationStatus
       ( ValidationStatus',
-        Failed,
-        InProgress,
-        Pending,
         ReadyForValidation,
-        Succeeded
+        Pending,
+        InProgress,
+        Succeeded,
+        Failed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ValidationStatus = ValidationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: ValidationStatus
-pattern Failed = ValidationStatus' "FAILED"
-
-pattern InProgress :: ValidationStatus
-pattern InProgress = ValidationStatus' "IN_PROGRESS"
+pattern ReadyForValidation :: ValidationStatus
+pattern ReadyForValidation = ValidationStatus' "READY_FOR_VALIDATION"
 
 pattern Pending :: ValidationStatus
 pattern Pending = ValidationStatus' "PENDING"
 
-pattern ReadyForValidation :: ValidationStatus
-pattern ReadyForValidation = ValidationStatus' "READY_FOR_VALIDATION"
+pattern InProgress :: ValidationStatus
+pattern InProgress = ValidationStatus' "IN_PROGRESS"
 
 pattern Succeeded :: ValidationStatus
 pattern Succeeded = ValidationStatus' "SUCCEEDED"
 
+pattern Failed :: ValidationStatus
+pattern Failed = ValidationStatus' "FAILED"
+
 {-# COMPLETE
-  Failed,
-  InProgress,
-  Pending,
   ReadyForValidation,
+  Pending,
+  InProgress,
   Succeeded,
+  Failed,
   ValidationStatus'
   #-}

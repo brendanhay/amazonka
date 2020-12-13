@@ -13,9 +13,9 @@
 module Network.AWS.SES.Types.DimensionValueSource
   ( DimensionValueSource
       ( DimensionValueSource',
+        MessageTag,
         EmailHeader,
-        LinkTag,
-        MessageTag
+        LinkTag
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DimensionValueSource = DimensionValueSource' Lude.Text
       Lude.ToHeader
     )
 
+pattern MessageTag :: DimensionValueSource
+pattern MessageTag = DimensionValueSource' "messageTag"
+
 pattern EmailHeader :: DimensionValueSource
 pattern EmailHeader = DimensionValueSource' "emailHeader"
 
 pattern LinkTag :: DimensionValueSource
 pattern LinkTag = DimensionValueSource' "linkTag"
 
-pattern MessageTag :: DimensionValueSource
-pattern MessageTag = DimensionValueSource' "messageTag"
-
 {-# COMPLETE
+  MessageTag,
   EmailHeader,
   LinkTag,
-  MessageTag,
   DimensionValueSource'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,24 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListExports' smart constructor.
 data ListExports = ListExports'
-  { tableARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) associated with the exported table.
+    tableARN :: Lude.Maybe Lude.Text,
+    -- | An optional string that, if supplied, must be copied from the output of a previous call to @ListExports@ . When provided in this manner, the API fetches the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of results to return per page.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExports' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of results to return per page.
--- * 'nextToken' - An optional string that, if supplied, must be copied from the output of a previous call to @ListExports@ . When provided in this manner, the API fetches the next page of results.
 -- * 'tableARN' - The Amazon Resource Name (ARN) associated with the exported table.
+-- * 'nextToken' - An optional string that, if supplied, must be copied from the output of a previous call to @ListExports@ . When provided in this manner, the API fetches the next page of results.
+-- * 'maxResults' - Maximum number of results to return per page.
 mkListExports ::
   ListExports
 mkListExports =
@@ -131,18 +129,14 @@ instance Lude.ToQuery ListExports where
 
 -- | /See:/ 'mkListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { exportSummaries ::
-      Lude.Maybe [ExportSummary],
+  { -- | A list of @ExportSummary@ objects.
+    exportSummaries :: Lude.Maybe [ExportSummary],
+    -- | If this value is returned, there are additional results to be displayed. To retrieve them, call @ListExports@ again, with @NextToken@ set to this value.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExportsResponse' with the minimum fields required to make a request.

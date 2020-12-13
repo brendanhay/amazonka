@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkListTagOptionsFilters' smart constructor.
 data ListTagOptionsFilters = ListTagOptionsFilters'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The TagOption value.
+    value :: Lude.Maybe Lude.Text,
+    -- | The active state.
     active :: Lude.Maybe Lude.Bool,
+    -- | The TagOption key.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagOptionsFilters' with the minimum fields required to make a request.
 --
+-- * 'value' - The TagOption value.
 -- * 'active' - The active state.
 -- * 'key' - The TagOption key.
--- * 'value' - The TagOption value.
 mkListTagOptionsFilters ::
   ListTagOptionsFilters
 mkListTagOptionsFilters =

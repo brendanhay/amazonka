@@ -14,9 +14,9 @@ module Network.AWS.ECS.Types.ContainerInstanceStatus
   ( ContainerInstanceStatus
       ( ContainerInstanceStatus',
         Active,
-        Deregistering,
         Draining,
         Registering,
+        Deregistering,
         RegistrationFailed
       ),
   )
@@ -51,23 +51,23 @@ newtype ContainerInstanceStatus = ContainerInstanceStatus' Lude.Text
 pattern Active :: ContainerInstanceStatus
 pattern Active = ContainerInstanceStatus' "ACTIVE"
 
-pattern Deregistering :: ContainerInstanceStatus
-pattern Deregistering = ContainerInstanceStatus' "DEREGISTERING"
-
 pattern Draining :: ContainerInstanceStatus
 pattern Draining = ContainerInstanceStatus' "DRAINING"
 
 pattern Registering :: ContainerInstanceStatus
 pattern Registering = ContainerInstanceStatus' "REGISTERING"
 
+pattern Deregistering :: ContainerInstanceStatus
+pattern Deregistering = ContainerInstanceStatus' "DEREGISTERING"
+
 pattern RegistrationFailed :: ContainerInstanceStatus
 pattern RegistrationFailed = ContainerInstanceStatus' "REGISTRATION_FAILED"
 
 {-# COMPLETE
   Active,
-  Deregistering,
   Draining,
   Registering,
+  Deregistering,
   RegistrationFailed,
   ContainerInstanceStatus'
   #-}

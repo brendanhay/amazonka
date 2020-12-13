@@ -13,8 +13,8 @@
 module Network.AWS.CodeDeploy.Types.GreenFleetProvisioningAction
   ( GreenFleetProvisioningAction
       ( GreenFleetProvisioningAction',
-        CopyAutoScalingGroup,
-        DiscoverExisting
+        DiscoverExisting,
+        CopyAutoScalingGroup
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype GreenFleetProvisioningAction = GreenFleetProvisioningAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern CopyAutoScalingGroup :: GreenFleetProvisioningAction
-pattern CopyAutoScalingGroup = GreenFleetProvisioningAction' "COPY_AUTO_SCALING_GROUP"
-
 pattern DiscoverExisting :: GreenFleetProvisioningAction
 pattern DiscoverExisting = GreenFleetProvisioningAction' "DISCOVER_EXISTING"
 
+pattern CopyAutoScalingGroup :: GreenFleetProvisioningAction
+pattern CopyAutoScalingGroup = GreenFleetProvisioningAction' "COPY_AUTO_SCALING_GROUP"
+
 {-# COMPLETE
-  CopyAutoScalingGroup,
   DiscoverExisting,
+  CopyAutoScalingGroup,
   GreenFleetProvisioningAction'
   #-}

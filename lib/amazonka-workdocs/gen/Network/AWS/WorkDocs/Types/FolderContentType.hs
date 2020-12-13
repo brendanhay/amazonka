@@ -13,9 +13,9 @@
 module Network.AWS.WorkDocs.Types.FolderContentType
   ( FolderContentType
       ( FolderContentType',
-        FCTAll,
-        FCTDocument,
-        FCTFolder
+        All,
+        Document,
+        Folder
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype FolderContentType = FolderContentType' Lude.Text
       Lude.ToHeader
     )
 
-pattern FCTAll :: FolderContentType
-pattern FCTAll = FolderContentType' "ALL"
+pattern All :: FolderContentType
+pattern All = FolderContentType' "ALL"
 
-pattern FCTDocument :: FolderContentType
-pattern FCTDocument = FolderContentType' "DOCUMENT"
+pattern Document :: FolderContentType
+pattern Document = FolderContentType' "DOCUMENT"
 
-pattern FCTFolder :: FolderContentType
-pattern FCTFolder = FolderContentType' "FOLDER"
+pattern Folder :: FolderContentType
+pattern Folder = FolderContentType' "FOLDER"
 
 {-# COMPLETE
-  FCTAll,
-  FCTDocument,
-  FCTFolder,
+  All,
+  Document,
+  Folder,
   FolderContentType'
   #-}

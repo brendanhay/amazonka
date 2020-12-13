@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.IoT.SearchIndex
     -- ** Request lenses
     siQueryVersion,
     siNextToken,
+    siQueryString,
     siMaxResults,
     siIndexName,
-    siQueryString,
 
     -- * Destructuring the response
     SearchIndexResponse (..),
@@ -45,29 +46,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSearchIndex' smart constructor.
 data SearchIndex = SearchIndex'
-  { queryVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The query version.
+    queryVersion :: Lude.Maybe Lude.Text,
+    -- | The token used to get the next set of results, or @null@ if there are no additional results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The search query string.
+    queryString :: Lude.Text,
+    -- | The maximum number of results to return at one time.
     maxResults :: Lude.Maybe Lude.Natural,
-    indexName :: Lude.Maybe Lude.Text,
-    queryString :: Lude.Text
+    -- | The search index name.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchIndex' with the minimum fields required to make a request.
 --
--- * 'indexName' - The search index name.
--- * 'maxResults' - The maximum number of results to return at one time.
+-- * 'queryVersion' - The query version.
 -- * 'nextToken' - The token used to get the next set of results, or @null@ if there are no additional results.
 -- * 'queryString' - The search query string.
--- * 'queryVersion' - The query version.
+-- * 'maxResults' - The maximum number of results to return at one time.
+-- * 'indexName' - The search index name.
 mkSearchIndex ::
   -- | 'queryString'
   Lude.Text ->
@@ -76,9 +75,9 @@ mkSearchIndex pQueryString_ =
   SearchIndex'
     { queryVersion = Lude.Nothing,
       nextToken = Lude.Nothing,
+      queryString = pQueryString_,
       maxResults = Lude.Nothing,
-      indexName = Lude.Nothing,
-      queryString = pQueryString_
+      indexName = Lude.Nothing
     }
 
 -- | The query version.
@@ -95,6 +94,13 @@ siNextToken :: Lens.Lens' SearchIndex (Lude.Maybe Lude.Text)
 siNextToken = Lens.lens (nextToken :: SearchIndex -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchIndex)
 {-# DEPRECATED siNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
+-- | The search query string.
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siQueryString :: Lens.Lens' SearchIndex Lude.Text
+siQueryString = Lens.lens (queryString :: SearchIndex -> Lude.Text) (\s a -> s {queryString = a} :: SearchIndex)
+{-# DEPRECATED siQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
+
 -- | The maximum number of results to return at one time.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -108,13 +114,6 @@ siMaxResults = Lens.lens (maxResults :: SearchIndex -> Lude.Maybe Lude.Natural) 
 siIndexName :: Lens.Lens' SearchIndex (Lude.Maybe Lude.Text)
 siIndexName = Lens.lens (indexName :: SearchIndex -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: SearchIndex)
 {-# DEPRECATED siIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
-
--- | The search query string.
---
--- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siQueryString :: Lens.Lens' SearchIndex Lude.Text
-siQueryString = Lens.lens (queryString :: SearchIndex -> Lude.Text) (\s a -> s {queryString = a} :: SearchIndex)
-{-# DEPRECATED siQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
 instance Lude.AWSRequest SearchIndex where
   type Rs SearchIndex = SearchIndexResponse
@@ -138,9 +137,9 @@ instance Lude.ToJSON SearchIndex where
       ( Lude.catMaybes
           [ ("queryVersion" Lude..=) Lude.<$> queryVersion,
             ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("queryString" Lude..= queryString),
             ("maxResults" Lude..=) Lude.<$> maxResults,
-            ("indexName" Lude..=) Lude.<$> indexName,
-            Lude.Just ("queryString" Lude..= queryString)
+            ("indexName" Lude..=) Lude.<$> indexName
           ]
       )
 
@@ -152,27 +151,24 @@ instance Lude.ToQuery SearchIndex where
 
 -- | /See:/ 'mkSearchIndexResponse' smart constructor.
 data SearchIndexResponse = SearchIndexResponse'
-  { thingGroups ::
-      Lude.Maybe [ThingGroupDocument],
+  { -- | The thing groups that match the search query.
+    thingGroups :: Lude.Maybe [ThingGroupDocument],
+    -- | The token used to get the next set of results, or @null@ if there are no additional results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The things that match the search query.
     things :: Lude.Maybe [ThingDocument],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchIndexResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token used to get the next set of results, or @null@ if there are no additional results.
--- * 'responseStatus' - The response status code.
 -- * 'thingGroups' - The thing groups that match the search query.
+-- * 'nextToken' - The token used to get the next set of results, or @null@ if there are no additional results.
 -- * 'things' - The things that match the search query.
+-- * 'responseStatus' - The response status code.
 mkSearchIndexResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -31,29 +31,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelationalDatabaseDataSourceConfig' smart constructor.
 data RelationalDatabaseDataSourceConfig = RelationalDatabaseDataSourceConfig'
-  { relationalDatabaseSourceType ::
-      Lude.Maybe
-        RelationalDatabaseSourceType,
-    rdsHTTPEndpointConfig ::
-      Lude.Maybe
-        RDSHTTPEndpointConfig
+  { -- | Source type for the relational database.
+    --
+    --
+    --     * __RDS_HTTP_ENDPOINT__ : The relational database source type is an Amazon RDS HTTP endpoint.
+    relationalDatabaseSourceType :: Lude.Maybe RelationalDatabaseSourceType,
+    -- | Amazon RDS HTTP endpoint settings.
+    rdsHTTPEndpointConfig :: Lude.Maybe RDSHTTPEndpointConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseDataSourceConfig' with the minimum fields required to make a request.
 --
--- * 'rdsHTTPEndpointConfig' - Amazon RDS HTTP endpoint settings.
 -- * 'relationalDatabaseSourceType' - Source type for the relational database.
 --
 --
 --     * __RDS_HTTP_ENDPOINT__ : The relational database source type is an Amazon RDS HTTP endpoint.
+--
+--
+-- * 'rdsHTTPEndpointConfig' - Amazon RDS HTTP endpoint settings.
 mkRelationalDatabaseDataSourceConfig ::
   RelationalDatabaseDataSourceConfig
 mkRelationalDatabaseDataSourceConfig =

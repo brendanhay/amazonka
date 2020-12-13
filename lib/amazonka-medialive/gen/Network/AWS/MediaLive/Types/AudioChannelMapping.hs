@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioChannelMapping' smart constructor.
 data AudioChannelMapping = AudioChannelMapping'
-  { outputChannel ::
-      Lude.Natural,
+  { -- | The index of the output channel being produced.
+    outputChannel :: Lude.Natural,
+    -- | Indices and gain values for each input channel that should be remixed into this output channel.
     inputChannelLevels :: [InputChannelLevel]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioChannelMapping' with the minimum fields required to make a request.
 --
--- * 'inputChannelLevels' - Indices and gain values for each input channel that should be remixed into this output channel.
 -- * 'outputChannel' - The index of the output channel being produced.
+-- * 'inputChannelLevels' - Indices and gain values for each input channel that should be remixed into this output channel.
 mkAudioChannelMapping ::
   -- | 'outputChannel'
   Lude.Natural ->

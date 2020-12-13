@@ -17,8 +17,8 @@ module Network.AWS.SageMaker.Types.CognitoConfig
     mkCognitoConfig,
 
     -- * Lenses
-    ccUserPool,
     ccClientId,
+    ccUserPool,
   )
 where
 
@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCognitoConfig' smart constructor.
 data CognitoConfig = CognitoConfig'
-  { userPool :: Lude.Text,
-    clientId :: Lude.Text
+  { -- | The client ID for your Amazon Cognito user pool.
+    clientId :: Lude.Text,
+    -- | A <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html user pool> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.
+    userPool :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CognitoConfig' with the minimum fields required to make a request.
@@ -46,20 +42,13 @@ data CognitoConfig = CognitoConfig'
 -- * 'clientId' - The client ID for your Amazon Cognito user pool.
 -- * 'userPool' - A <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html user pool> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.
 mkCognitoConfig ::
-  -- | 'userPool'
-  Lude.Text ->
   -- | 'clientId'
   Lude.Text ->
+  -- | 'userPool'
+  Lude.Text ->
   CognitoConfig
-mkCognitoConfig pUserPool_ pClientId_ =
-  CognitoConfig' {userPool = pUserPool_, clientId = pClientId_}
-
--- | A <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html user pool> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.
---
--- /Note:/ Consider using 'userPool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccUserPool :: Lens.Lens' CognitoConfig Lude.Text
-ccUserPool = Lens.lens (userPool :: CognitoConfig -> Lude.Text) (\s a -> s {userPool = a} :: CognitoConfig)
-{-# DEPRECATED ccUserPool "Use generic-lens or generic-optics with 'userPool' instead." #-}
+mkCognitoConfig pClientId_ pUserPool_ =
+  CognitoConfig' {clientId = pClientId_, userPool = pUserPool_}
 
 -- | The client ID for your Amazon Cognito user pool.
 --
@@ -68,20 +57,27 @@ ccClientId :: Lens.Lens' CognitoConfig Lude.Text
 ccClientId = Lens.lens (clientId :: CognitoConfig -> Lude.Text) (\s a -> s {clientId = a} :: CognitoConfig)
 {-# DEPRECATED ccClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
+-- | A <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html user pool> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.
+--
+-- /Note:/ Consider using 'userPool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccUserPool :: Lens.Lens' CognitoConfig Lude.Text
+ccUserPool = Lens.lens (userPool :: CognitoConfig -> Lude.Text) (\s a -> s {userPool = a} :: CognitoConfig)
+{-# DEPRECATED ccUserPool "Use generic-lens or generic-optics with 'userPool' instead." #-}
+
 instance Lude.FromJSON CognitoConfig where
   parseJSON =
     Lude.withObject
       "CognitoConfig"
       ( \x ->
           CognitoConfig'
-            Lude.<$> (x Lude..: "UserPool") Lude.<*> (x Lude..: "ClientId")
+            Lude.<$> (x Lude..: "ClientId") Lude.<*> (x Lude..: "UserPool")
       )
 
 instance Lude.ToJSON CognitoConfig where
   toJSON CognitoConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("UserPool" Lude..= userPool),
-            Lude.Just ("ClientId" Lude..= clientId)
+          [ Lude.Just ("ClientId" Lude..= clientId),
+            Lude.Just ("UserPool" Lude..= userPool)
           ]
       )

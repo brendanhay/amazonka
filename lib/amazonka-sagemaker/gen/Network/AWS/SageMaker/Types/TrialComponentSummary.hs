@@ -41,38 +41,43 @@ import Network.AWS.SageMaker.Types.UserContext
 --
 -- /See:/ 'mkTrialComponentSummary' smart constructor.
 data TrialComponentSummary = TrialComponentSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the component was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the component. States include:
+    --
+    --
+    --     * InProgress
+    --
+    --
+    --     * Completed
+    --
+    --
+    --     * Failed
     status :: Lude.Maybe TrialComponentStatus,
+    -- | When the component started.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Who created the component.
     createdBy :: Lude.Maybe UserContext,
+    -- | When the component was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | When the component ended.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the trial component.
     trialComponentName :: Lude.Maybe Lude.Text,
+    -- | The name of the component as displayed. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
     displayName :: Lude.Maybe Lude.Text,
+    -- | Who last modified the component.
     lastModifiedBy :: Lude.Maybe UserContext,
+    -- | The ARN of the trial component.
     trialComponentARN :: Lude.Maybe Lude.Text,
-    trialComponentSource ::
-      Lude.Maybe TrialComponentSource
+    trialComponentSource :: Lude.Maybe TrialComponentSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentSummary' with the minimum fields required to make a request.
 --
--- * 'createdBy' - Who created the component.
 -- * 'creationTime' - When the component was created.
--- * 'displayName' - The name of the component as displayed. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
--- * 'endTime' - When the component ended.
--- * 'lastModifiedBy' - Who last modified the component.
--- * 'lastModifiedTime' - When the component was last modified.
--- * 'startTime' - When the component started.
 -- * 'status' - The status of the component. States include:
 --
 --
@@ -85,9 +90,15 @@ data TrialComponentSummary = TrialComponentSummary'
 --     * Failed
 --
 --
--- * 'trialComponentARN' - The ARN of the trial component.
+-- * 'startTime' - When the component started.
+-- * 'createdBy' - Who created the component.
+-- * 'lastModifiedTime' - When the component was last modified.
+-- * 'endTime' - When the component ended.
 -- * 'trialComponentName' - The name of the trial component.
--- * 'trialComponentSource' - Undocumented field.
+-- * 'displayName' - The name of the component as displayed. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
+-- * 'lastModifiedBy' - Who last modified the component.
+-- * 'trialComponentARN' - The ARN of the trial component.
+-- * 'trialComponentSource' -
 mkTrialComponentSummary ::
   TrialComponentSummary
 mkTrialComponentSummary =

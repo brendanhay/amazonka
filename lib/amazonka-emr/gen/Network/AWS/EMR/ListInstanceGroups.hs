@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EMR.ListInstanceGroups
     mkListInstanceGroups,
 
     -- ** Request lenses
-    ligMarker,
     ligClusterId,
+    ligMarker,
 
     -- * Destructuring the response
     ListInstanceGroupsResponse (..),
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListInstanceGroups' smart constructor.
 data ListInstanceGroups = ListInstanceGroups'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    clusterId :: Lude.Text
+  { -- | The identifier of the cluster for which to list the instance groups.
+    clusterId :: Lude.Text,
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceGroups' with the minimum fields required to make a request.
@@ -69,16 +65,9 @@ mkListInstanceGroups ::
   ListInstanceGroups
 mkListInstanceGroups pClusterId_ =
   ListInstanceGroups'
-    { marker = Lude.Nothing,
-      clusterId = pClusterId_
+    { clusterId = pClusterId_,
+      marker = Lude.Nothing
     }
-
--- | The pagination token that indicates the next set of results to retrieve.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ligMarker :: Lens.Lens' ListInstanceGroups (Lude.Maybe Lude.Text)
-ligMarker = Lens.lens (marker :: ListInstanceGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceGroups)
-{-# DEPRECATED ligMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The identifier of the cluster for which to list the instance groups.
 --
@@ -86,6 +75,13 @@ ligMarker = Lens.lens (marker :: ListInstanceGroups -> Lude.Maybe Lude.Text) (\s
 ligClusterId :: Lens.Lens' ListInstanceGroups Lude.Text
 ligClusterId = Lens.lens (clusterId :: ListInstanceGroups -> Lude.Text) (\s a -> s {clusterId = a} :: ListInstanceGroups)
 {-# DEPRECATED ligClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ligMarker :: Lens.Lens' ListInstanceGroups (Lude.Maybe Lude.Text)
+ligMarker = Lens.lens (marker :: ListInstanceGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstanceGroups)
+{-# DEPRECATED ligMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 instance Page.AWSPager ListInstanceGroups where
   page rq rs
@@ -121,8 +117,8 @@ instance Lude.ToJSON ListInstanceGroups where
   toJSON ListInstanceGroups' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            Lude.Just ("ClusterId" Lude..= clusterId)
+          [ Lude.Just ("ClusterId" Lude..= clusterId),
+            ("Marker" Lude..=) Lude.<$> marker
           ]
       )
 
@@ -136,25 +132,20 @@ instance Lude.ToQuery ListInstanceGroups where
 --
 -- /See:/ 'mkListInstanceGroupsResponse' smart constructor.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    instanceGroups ::
-      Lude.Maybe [InstanceGroup],
+  { -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The list of instance groups for the cluster and given filters.
+    instanceGroups :: Lude.Maybe [InstanceGroup],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceGroupsResponse' with the minimum fields required to make a request.
 --
--- * 'instanceGroups' - The list of instance groups for the cluster and given filters.
 -- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- * 'instanceGroups' - The list of instance groups for the cluster and given filters.
 -- * 'responseStatus' - The response status code.
 mkListInstanceGroupsResponse ::
   -- | 'responseStatus'

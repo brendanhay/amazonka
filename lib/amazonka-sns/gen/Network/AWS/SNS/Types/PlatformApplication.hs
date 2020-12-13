@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlatformApplication' smart constructor.
 data PlatformApplication = PlatformApplication'
-  { platformApplicationARN ::
-      Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | PlatformApplicationArn for platform application object.
+    platformApplicationARN :: Lude.Maybe Lude.Text,
+    -- | Attributes for platform application object.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformApplication' with the minimum fields required to make a request.
 --
--- * 'attributes' - Attributes for platform application object.
 -- * 'platformApplicationARN' - PlatformApplicationArn for platform application object.
+-- * 'attributes' - Attributes for platform application object.
 mkPlatformApplication ::
   PlatformApplication
 mkPlatformApplication =

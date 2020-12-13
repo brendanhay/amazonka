@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,8 +33,8 @@ module Network.AWS.CloudFormation.DetectStackDrift
     mkDetectStackDriftResponse,
 
     -- ** Response lenses
-    dsdrsResponseStatus,
     dsdrsStackDriftDetectionId,
+    dsdrsResponseStatus,
   )
 where
 
@@ -45,17 +46,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectStackDrift' smart constructor.
 data DetectStackDrift = DetectStackDrift'
-  { logicalResourceIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The logical names of any resources you want to use as filters.
+    logicalResourceIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The name of the stack for which you want to detect drift.
     stackName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectStackDrift' with the minimum fields required to make a request.
@@ -94,8 +90,8 @@ instance Lude.AWSRequest DetectStackDrift where
       "DetectStackDriftResult"
       ( \s h x ->
           DetectStackDriftResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "StackDriftDetectionId")
+            Lude.<$> (x Lude..@ "StackDriftDetectionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DetectStackDrift where
@@ -117,43 +113,34 @@ instance Lude.ToQuery DetectStackDrift where
 
 -- | /See:/ 'mkDetectStackDriftResponse' smart constructor.
 data DetectStackDriftResponse = DetectStackDriftResponse'
-  { responseStatus ::
-      Lude.Int,
-    stackDriftDetectionId :: Lude.Text
+  { -- | The ID of the drift detection results of this operation.
+    --
+    -- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of drift results AWS CloudFormation retains for any given stack, and for how long, may vary.
+    stackDriftDetectionId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectStackDriftResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stackDriftDetectionId' - The ID of the drift detection results of this operation.
 --
 -- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of drift results AWS CloudFormation retains for any given stack, and for how long, may vary.
+-- * 'responseStatus' - The response status code.
 mkDetectStackDriftResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'stackDriftDetectionId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DetectStackDriftResponse
-mkDetectStackDriftResponse pResponseStatus_ pStackDriftDetectionId_ =
+mkDetectStackDriftResponse pStackDriftDetectionId_ pResponseStatus_ =
   DetectStackDriftResponse'
-    { responseStatus = pResponseStatus_,
-      stackDriftDetectionId = pStackDriftDetectionId_
+    { stackDriftDetectionId =
+        pStackDriftDetectionId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdrsResponseStatus :: Lens.Lens' DetectStackDriftResponse Lude.Int
-dsdrsResponseStatus = Lens.lens (responseStatus :: DetectStackDriftResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectStackDriftResponse)
-{-# DEPRECATED dsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ID of the drift detection results of this operation.
 --
@@ -163,3 +150,10 @@ dsdrsResponseStatus = Lens.lens (responseStatus :: DetectStackDriftResponse -> L
 dsdrsStackDriftDetectionId :: Lens.Lens' DetectStackDriftResponse Lude.Text
 dsdrsStackDriftDetectionId = Lens.lens (stackDriftDetectionId :: DetectStackDriftResponse -> Lude.Text) (\s a -> s {stackDriftDetectionId = a} :: DetectStackDriftResponse)
 {-# DEPRECATED dsdrsStackDriftDetectionId "Use generic-lens or generic-optics with 'stackDriftDetectionId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdrsResponseStatus :: Lens.Lens' DetectStackDriftResponse Lude.Int
+dsdrsResponseStatus = Lens.lens (responseStatus :: DetectStackDriftResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectStackDriftResponse)
+{-# DEPRECATED dsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

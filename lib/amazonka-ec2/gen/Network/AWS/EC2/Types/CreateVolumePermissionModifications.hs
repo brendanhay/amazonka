@@ -30,26 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreateVolumePermissionModifications' smart constructor.
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
-  { remove ::
-      Lude.Maybe
-        [CreateVolumePermission],
-    add ::
-      Lude.Maybe
-        [CreateVolumePermission]
+  { -- | Removes the specified AWS account ID or group from the list.
+    remove :: Lude.Maybe [CreateVolumePermission],
+    -- | Adds the specified AWS account ID or group to the list.
+    add :: Lude.Maybe [CreateVolumePermission]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVolumePermissionModifications' with the minimum fields required to make a request.
 --
--- * 'add' - Adds the specified AWS account ID or group to the list.
 -- * 'remove' - Removes the specified AWS account ID or group from the list.
+-- * 'add' - Adds the specified AWS account ID or group to the list.
 mkCreateVolumePermissionModifications ::
   CreateVolumePermissionModifications
 mkCreateVolumePermissionModifications =

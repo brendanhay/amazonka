@@ -13,13 +13,13 @@
 module Network.AWS.CognitoIdentityProvider.Types.AuthFlowType
   ( AuthFlowType
       ( AuthFlowType',
-        AdminNoSrpAuth,
-        AdminUserPasswordAuth,
-        CustomAuth,
-        RefreshToken,
-        RefreshTokenAuth,
-        UserPasswordAuth,
-        UserSrpAuth
+        AFTUserSrpAuth,
+        AFTRefreshTokenAuth,
+        AFTRefreshToken,
+        AFTCustomAuth,
+        AFTAdminNoSrpAuth,
+        AFTUserPasswordAuth,
+        AFTAdminUserPasswordAuth
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype AuthFlowType = AuthFlowType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AdminNoSrpAuth :: AuthFlowType
-pattern AdminNoSrpAuth = AuthFlowType' "ADMIN_NO_SRP_AUTH"
+pattern AFTUserSrpAuth :: AuthFlowType
+pattern AFTUserSrpAuth = AuthFlowType' "USER_SRP_AUTH"
 
-pattern AdminUserPasswordAuth :: AuthFlowType
-pattern AdminUserPasswordAuth = AuthFlowType' "ADMIN_USER_PASSWORD_AUTH"
+pattern AFTRefreshTokenAuth :: AuthFlowType
+pattern AFTRefreshTokenAuth = AuthFlowType' "REFRESH_TOKEN_AUTH"
 
-pattern CustomAuth :: AuthFlowType
-pattern CustomAuth = AuthFlowType' "CUSTOM_AUTH"
+pattern AFTRefreshToken :: AuthFlowType
+pattern AFTRefreshToken = AuthFlowType' "REFRESH_TOKEN"
 
-pattern RefreshToken :: AuthFlowType
-pattern RefreshToken = AuthFlowType' "REFRESH_TOKEN"
+pattern AFTCustomAuth :: AuthFlowType
+pattern AFTCustomAuth = AuthFlowType' "CUSTOM_AUTH"
 
-pattern RefreshTokenAuth :: AuthFlowType
-pattern RefreshTokenAuth = AuthFlowType' "REFRESH_TOKEN_AUTH"
+pattern AFTAdminNoSrpAuth :: AuthFlowType
+pattern AFTAdminNoSrpAuth = AuthFlowType' "ADMIN_NO_SRP_AUTH"
 
-pattern UserPasswordAuth :: AuthFlowType
-pattern UserPasswordAuth = AuthFlowType' "USER_PASSWORD_AUTH"
+pattern AFTUserPasswordAuth :: AuthFlowType
+pattern AFTUserPasswordAuth = AuthFlowType' "USER_PASSWORD_AUTH"
 
-pattern UserSrpAuth :: AuthFlowType
-pattern UserSrpAuth = AuthFlowType' "USER_SRP_AUTH"
+pattern AFTAdminUserPasswordAuth :: AuthFlowType
+pattern AFTAdminUserPasswordAuth = AuthFlowType' "ADMIN_USER_PASSWORD_AUTH"
 
 {-# COMPLETE
-  AdminNoSrpAuth,
-  AdminUserPasswordAuth,
-  CustomAuth,
-  RefreshToken,
-  RefreshTokenAuth,
-  UserPasswordAuth,
-  UserSrpAuth,
+  AFTUserSrpAuth,
+  AFTRefreshTokenAuth,
+  AFTRefreshToken,
+  AFTCustomAuth,
+  AFTAdminNoSrpAuth,
+  AFTUserPasswordAuth,
+  AFTAdminUserPasswordAuth,
   AuthFlowType'
   #-}

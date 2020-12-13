@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,42 +52,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateMLTransform' smart constructor.
 data UpdateMLTransform = UpdateMLTransform'
-  { numberOfWorkers ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of workers of a defined @workerType@ that are allocated when this task runs.
+    numberOfWorkers :: Lude.Maybe Lude.Int,
+    -- | The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.
+    --
+    --
+    --     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+    --
+    --
+    --     * For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
+    --
+    --
+    --     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
     workerType :: Lude.Maybe WorkerType,
+    -- | This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
     glueVersion :: Lude.Maybe Lude.Text,
+    -- | The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
     role' :: Lude.Maybe Lude.Text,
+    -- | The unique name that you gave the transform when you created it.
     name :: Lude.Maybe Lude.Text,
+    -- | The configuration parameters that are specific to the transform type (algorithm) used. Conditionally dependent on the transform type.
     parameters :: Lude.Maybe TransformParameters,
+    -- | The maximum number of times to retry a task for this transform after a task run fails.
     maxRetries :: Lude.Maybe Lude.Int,
+    -- | The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+    --
+    -- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
     maxCapacity :: Lude.Maybe Lude.Double,
+    -- | The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
     timeout :: Lude.Maybe Lude.Natural,
+    -- | A description of the transform. The default is an empty string.
     description :: Lude.Maybe Lude.Text,
+    -- | A unique identifier that was generated when the transform was created.
     transformId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMLTransform' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the transform. The default is an empty string.
--- * 'glueVersion' - This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
--- * 'maxCapacity' - The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
---
--- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
--- * 'maxRetries' - The maximum number of times to retry a task for this transform after a task run fails.
--- * 'name' - The unique name that you gave the transform when you created it.
 -- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when this task runs.
--- * 'parameters' - The configuration parameters that are specific to the transform type (algorithm) used. Conditionally dependent on the transform type.
--- * 'role'' - The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
--- * 'timeout' - The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
--- * 'transformId' - A unique identifier that was generated when the transform was created.
 -- * 'workerType' - The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.
 --
 --
@@ -97,6 +102,19 @@ data UpdateMLTransform = UpdateMLTransform'
 --
 --
 --     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
+--
+--
+-- * 'glueVersion' - This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
+-- * 'role'' - The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
+-- * 'name' - The unique name that you gave the transform when you created it.
+-- * 'parameters' - The configuration parameters that are specific to the transform type (algorithm) used. Conditionally dependent on the transform type.
+-- * 'maxRetries' - The maximum number of times to retry a task for this transform after a task run fails.
+-- * 'maxCapacity' - The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+--
+-- When the @WorkerType@ field is set to a value other than @Standard@ , the @MaxCapacity@ field is set automatically and becomes read-only.
+-- * 'timeout' - The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
+-- * 'description' - A description of the transform. The default is an empty string.
+-- * 'transformId' - A unique identifier that was generated when the transform was created.
 mkUpdateMLTransform ::
   -- | 'transformId'
   Lude.Text ->
@@ -253,23 +271,18 @@ instance Lude.ToQuery UpdateMLTransform where
 
 -- | /See:/ 'mkUpdateMLTransformResponse' smart constructor.
 data UpdateMLTransformResponse = UpdateMLTransformResponse'
-  { transformId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the transform that was updated.
+    transformId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMLTransformResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'transformId' - The unique identifier for the transform that was updated.
+-- * 'responseStatus' - The response status code.
 mkUpdateMLTransformResponse ::
   -- | 'responseStatus'
   Lude.Int ->

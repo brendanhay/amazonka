@@ -31,11 +31,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLayerVersionContentInput' smart constructor.
 data LayerVersionContentInput = LayerVersionContentInput'
-  { s3ObjectVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | For versioned objects, the version of the layer archive object to use.
+    s3ObjectVersion :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 key of the layer archive.
     s3Key :: Lude.Maybe Lude.Text,
-    zipFile ::
-      Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for you.
+    zipFile :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | The Amazon S3 bucket of the layer archive.
     s3Bucket :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -43,14 +45,10 @@ data LayerVersionContentInput = LayerVersionContentInput'
 
 -- | Creates a value of 'LayerVersionContentInput' with the minimum fields required to make a request.
 --
--- * 's3Bucket' - The Amazon S3 bucket of the layer archive.
--- * 's3Key' - The Amazon S3 key of the layer archive.
 -- * 's3ObjectVersion' - For versioned objects, the version of the layer archive object to use.
--- * 'zipFile' - The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for you.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 's3Key' - The Amazon S3 key of the layer archive.
+-- * 'zipFile' - The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for you.
+-- * 's3Bucket' - The Amazon S3 bucket of the layer archive.
 mkLayerVersionContentInput ::
   LayerVersionContentInput
 mkLayerVersionContentInput =

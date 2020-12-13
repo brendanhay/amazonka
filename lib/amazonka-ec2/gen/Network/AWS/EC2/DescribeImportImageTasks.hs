@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeImportImageTasks' smart constructor.
 data DescribeImportImageTasks = DescribeImportImageTasks'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | Filter tasks using the @task-state@ filter and one of the following values: @active@ , @completed@ , @deleting@ , or @deleted@ .
+    filters :: Lude.Maybe [Filter],
+    -- | The IDs of the import image tasks.
     importTaskIds :: Lude.Maybe [Lude.Text],
+    -- | A token that indicates the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportImageTasks' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - Filter tasks using the @task-state@ filter and one of the following values: @active@ , @completed@ , @deleting@ , or @deleted@ .
 -- * 'importTaskIds' - The IDs of the import image tasks.
--- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'nextToken' - A token that indicates the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call.
 mkDescribeImportImageTasks ::
   DescribeImportImageTasks
 mkDescribeImportImageTasks =
@@ -160,27 +159,20 @@ instance Lude.ToQuery DescribeImportImageTasks where
 
 -- | /See:/ 'mkDescribeImportImageTasksResponse' smart constructor.
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    importImageTasks ::
-      Lude.Maybe
-        [ImportImageTask],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of zero or more import image tasks that are currently active or were completed or canceled in the previous 7 days.
+    importImageTasks :: Lude.Maybe [ImportImageTask],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportImageTasksResponse' with the minimum fields required to make a request.
 --
--- * 'importImageTasks' - A list of zero or more import image tasks that are currently active or were completed or canceled in the previous 7 days.
 -- * 'nextToken' - The token to use to get the next page of results. This value is @null@ when there are no more results to return.
+-- * 'importImageTasks' - A list of zero or more import image tasks that are currently active or were completed or canceled in the previous 7 days.
 -- * 'responseStatus' - The response status code.
 mkDescribeImportImageTasksResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Discovery.StartDataCollectionByAgentIds
     mkStartDataCollectionByAgentIds,
 
     -- ** Request lenses
-    sAgentIds,
+    sdcbaiAgentIds,
 
     -- * Destructuring the response
     StartDataCollectionByAgentIdsResponse (..),
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartDataCollectionByAgentIds' smart constructor.
 newtype StartDataCollectionByAgentIds = StartDataCollectionByAgentIds'
-  { agentIds ::
-      [Lude.Text]
+  { -- | The IDs of the agents or connectors from which to start collecting data. If you send a request to an agent/connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/connectors and you do not have permission to contact some of those agents/connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
+    agentIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDataCollectionByAgentIds' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkStartDataCollectionByAgentIds =
 -- | The IDs of the agents or connectors from which to start collecting data. If you send a request to an agent/connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/connectors and you do not have permission to contact some of those agents/connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
 --
 -- /Note:/ Consider using 'agentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sAgentIds :: Lens.Lens' StartDataCollectionByAgentIds [Lude.Text]
-sAgentIds = Lens.lens (agentIds :: StartDataCollectionByAgentIds -> [Lude.Text]) (\s a -> s {agentIds = a} :: StartDataCollectionByAgentIds)
-{-# DEPRECATED sAgentIds "Use generic-lens or generic-optics with 'agentIds' instead." #-}
+sdcbaiAgentIds :: Lens.Lens' StartDataCollectionByAgentIds [Lude.Text]
+sdcbaiAgentIds = Lens.lens (agentIds :: StartDataCollectionByAgentIds -> [Lude.Text]) (\s a -> s {agentIds = a} :: StartDataCollectionByAgentIds)
+{-# DEPRECATED sdcbaiAgentIds "Use generic-lens or generic-optics with 'agentIds' instead." #-}
 
 instance Lude.AWSRequest StartDataCollectionByAgentIds where
   type
@@ -105,19 +100,12 @@ instance Lude.ToQuery StartDataCollectionByAgentIds where
 
 -- | /See:/ 'mkStartDataCollectionByAgentIdsResponse' smart constructor.
 data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsResponse'
-  { agentsConfigurationStatus ::
-      Lude.Maybe
-        [AgentConfigurationStatus],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
+    agentsConfigurationStatus :: Lude.Maybe [AgentConfigurationStatus],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDataCollectionByAgentIdsResponse' with the minimum fields required to make a request.

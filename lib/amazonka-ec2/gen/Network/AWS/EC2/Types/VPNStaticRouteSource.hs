@@ -13,7 +13,7 @@
 module Network.AWS.EC2.Types.VPNStaticRouteSource
   ( VPNStaticRouteSource
       ( VPNStaticRouteSource',
-        Static
+        VSRSStatic
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype VPNStaticRouteSource = VPNStaticRouteSource' Lude.Text
       Lude.ToHeader
     )
 
-pattern Static :: VPNStaticRouteSource
-pattern Static = VPNStaticRouteSource' "Static"
+pattern VSRSStatic :: VPNStaticRouteSource
+pattern VSRSStatic = VPNStaticRouteSource' "Static"
 
 {-# COMPLETE
-  Static,
+  VSRSStatic,
   VPNStaticRouteSource'
   #-}

@@ -13,9 +13,9 @@
 module Network.AWS.DynamoDB.Types.ScalarAttributeType
   ( ScalarAttributeType
       ( ScalarAttributeType',
-        B,
+        S,
         N,
-        S
+        B
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ScalarAttributeType = ScalarAttributeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern B :: ScalarAttributeType
-pattern B = ScalarAttributeType' "B"
+pattern S :: ScalarAttributeType
+pattern S = ScalarAttributeType' "S"
 
 pattern N :: ScalarAttributeType
 pattern N = ScalarAttributeType' "N"
 
-pattern S :: ScalarAttributeType
-pattern S = ScalarAttributeType' "S"
+pattern B :: ScalarAttributeType
+pattern B = ScalarAttributeType' "B"
 
 {-# COMPLETE
-  B,
-  N,
   S,
+  N,
+  B,
   ScalarAttributeType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.WorkMail.CreateUser
     mkCreateUser,
 
     -- ** Request lenses
-    cuOrganizationId,
     cuName,
-    cuDisplayName,
     cuPassword,
+    cuDisplayName,
+    cuOrganizationId,
 
     -- * Destructuring the response
     CreateUserResponse (..),
@@ -42,44 +43,41 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { organizationId :: Lude.Text,
+  { -- | The name for the new user. WorkMail directory user names have a maximum length of 64. All others have a maximum length of 20.
     name :: Lude.Text,
+    -- | The password for the new user.
+    password :: Lude.Sensitive Lude.Text,
+    -- | The display name for the new user.
     displayName :: Lude.Text,
-    password :: Lude.Sensitive Lude.Text
+    -- | The identifier of the organization for which the user is created.
+    organizationId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
 --
--- * 'displayName' - The display name for the new user.
 -- * 'name' - The name for the new user. WorkMail directory user names have a maximum length of 64. All others have a maximum length of 20.
--- * 'organizationId' - The identifier of the organization for which the user is created.
 -- * 'password' - The password for the new user.
+-- * 'displayName' - The display name for the new user.
+-- * 'organizationId' - The identifier of the organization for which the user is created.
 mkCreateUser ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
-  -- | 'displayName'
   Lude.Text ->
   -- | 'password'
   Lude.Sensitive Lude.Text ->
+  -- | 'displayName'
+  Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   CreateUser
-mkCreateUser pOrganizationId_ pName_ pDisplayName_ pPassword_ =
+mkCreateUser pName_ pPassword_ pDisplayName_ pOrganizationId_ =
   CreateUser'
-    { organizationId = pOrganizationId_,
-      name = pName_,
+    { name = pName_,
+      password = pPassword_,
       displayName = pDisplayName_,
-      password = pPassword_
+      organizationId = pOrganizationId_
     }
-
--- | The identifier of the organization for which the user is created.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuOrganizationId :: Lens.Lens' CreateUser Lude.Text
-cuOrganizationId = Lens.lens (organizationId :: CreateUser -> Lude.Text) (\s a -> s {organizationId = a} :: CreateUser)
-{-# DEPRECATED cuOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The name for the new user. WorkMail directory user names have a maximum length of 64. All others have a maximum length of 20.
 --
@@ -88,6 +86,13 @@ cuName :: Lens.Lens' CreateUser Lude.Text
 cuName = Lens.lens (name :: CreateUser -> Lude.Text) (\s a -> s {name = a} :: CreateUser)
 {-# DEPRECATED cuName "Use generic-lens or generic-optics with 'name' instead." #-}
 
+-- | The password for the new user.
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuPassword :: Lens.Lens' CreateUser (Lude.Sensitive Lude.Text)
+cuPassword = Lens.lens (password :: CreateUser -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateUser)
+{-# DEPRECATED cuPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+
 -- | The display name for the new user.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -95,12 +100,12 @@ cuDisplayName :: Lens.Lens' CreateUser Lude.Text
 cuDisplayName = Lens.lens (displayName :: CreateUser -> Lude.Text) (\s a -> s {displayName = a} :: CreateUser)
 {-# DEPRECATED cuDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
--- | The password for the new user.
+-- | The identifier of the organization for which the user is created.
 --
--- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuPassword :: Lens.Lens' CreateUser (Lude.Sensitive Lude.Text)
-cuPassword = Lens.lens (password :: CreateUser -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateUser)
-{-# DEPRECATED cuPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuOrganizationId :: Lens.Lens' CreateUser Lude.Text
+cuOrganizationId = Lens.lens (organizationId :: CreateUser -> Lude.Text) (\s a -> s {organizationId = a} :: CreateUser)
+{-# DEPRECATED cuOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest CreateUser where
   type Rs CreateUser = CreateUserResponse
@@ -127,10 +132,10 @@ instance Lude.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("Name" Lude..= name),
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Password" Lude..= password),
             Lude.Just ("DisplayName" Lude..= displayName),
-            Lude.Just ("Password" Lude..= password)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -142,23 +147,18 @@ instance Lude.ToQuery CreateUser where
 
 -- | /See:/ 'mkCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { userId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the new user.
+    userId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userId' - The identifier for the new user.
+-- * 'responseStatus' - The response status code.
 mkCreateUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

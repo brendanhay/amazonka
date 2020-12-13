@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeIndex' smart constructor.
-newtype DescribeIndex = DescribeIndex' {indexName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeIndex = DescribeIndex'
+  { -- | The index name.
+    indexName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIndex' with the minimum fields required to make a request.
@@ -92,26 +90,33 @@ instance Lude.ToQuery DescribeIndex where
 
 -- | /See:/ 'mkDescribeIndexResponse' smart constructor.
 data DescribeIndexResponse = DescribeIndexResponse'
-  { indexStatus ::
-      Lude.Maybe IndexStatus,
+  { -- | The index status.
+    indexStatus :: Lude.Maybe IndexStatus,
+    -- | Contains a value that specifies the type of indexing performed. Valid values are:
+    --
+    --
+    --     * REGISTRY – Your thing index contains only registry data.
+    --
+    --
+    --     * REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.
+    --
+    --
+    --     * REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and thing connectivity status data.
+    --
+    --
+    --     * REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data.
     schema :: Lude.Maybe Lude.Text,
+    -- | The index name.
     indexName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIndexResponse' with the minimum fields required to make a request.
 --
--- * 'indexName' - The index name.
 -- * 'indexStatus' - The index status.
--- * 'responseStatus' - The response status code.
 -- * 'schema' - Contains a value that specifies the type of indexing performed. Valid values are:
 --
 --
@@ -125,6 +130,10 @@ data DescribeIndexResponse = DescribeIndexResponse'
 --
 --
 --     * REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data.
+--
+--
+-- * 'indexName' - The index name.
+-- * 'responseStatus' - The response status code.
 mkDescribeIndexResponse ::
   -- | 'responseStatus'
   Lude.Int ->

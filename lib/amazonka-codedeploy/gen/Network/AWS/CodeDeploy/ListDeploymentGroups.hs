@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,23 +48,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListDeploymentGroups' smart constructor.
 data ListDeploymentGroups = ListDeploymentGroups'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
     applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentGroups' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 -- * 'nextToken' - An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 mkListDeploymentGroups ::
   -- | 'applicationName'
   Lude.Text ->
@@ -140,28 +136,23 @@ instance Lude.ToQuery ListDeploymentGroups where
 --
 -- /See:/ 'mkListDeploymentGroupsResponse' smart constructor.
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    applicationName ::
-      Lude.Maybe Lude.Text,
-    deploymentGroups ::
-      Lude.Maybe [Lude.Text],
+  { -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The application name.
+    applicationName :: Lude.Maybe Lude.Text,
+    -- | A list of deployment group names.
+    deploymentGroups :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentGroupsResponse' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
 -- * 'applicationName' - The application name.
 -- * 'deploymentGroups' - A list of deployment group names.
--- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
 -- * 'responseStatus' - The response status code.
 mkListDeploymentGroupsResponse ::
   -- | 'responseStatus'

@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceNetworking' smart constructor.
 data InstanceNetworking = InstanceNetworking'
-  { monthlyTransfer ::
-      Lude.Maybe MonthlyTransfer,
+  { -- | The amount of data in GB allocated for monthly data transfers.
+    monthlyTransfer :: Lude.Maybe MonthlyTransfer,
+    -- | An array of key-value pairs containing information about the ports on the instance.
     ports :: Lude.Maybe [InstancePortInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceNetworking' with the minimum fields required to make a request.

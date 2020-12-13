@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CloudDirectory.GetDirectory
     mkGetDirectoryResponse,
 
     -- ** Response lenses
-    gdrsResponseStatus,
     gdrsDirectory,
+    gdrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDirectory' smart constructor.
-newtype GetDirectory = GetDirectory' {directoryARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDirectory = GetDirectory'
+  { -- | The ARN of the directory.
+    directoryARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDirectory' with the minimum fields required to make a request.
@@ -72,7 +70,7 @@ instance Lude.AWSRequest GetDirectory where
     Res.receiveJSON
       ( \s h x ->
           GetDirectoryResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Directory")
+            Lude.<$> (x Lude..:> "Directory") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetDirectory where
@@ -91,17 +89,12 @@ instance Lude.ToQuery GetDirectory where
 
 -- | /See:/ 'mkGetDirectoryResponse' smart constructor.
 data GetDirectoryResponse = GetDirectoryResponse'
-  { responseStatus ::
-      Lude.Int,
-    directory :: Directory
+  { -- | Metadata about the directory.
+    directory :: Directory,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDirectoryResponse' with the minimum fields required to make a request.
@@ -109,23 +102,16 @@ data GetDirectoryResponse = GetDirectoryResponse'
 -- * 'directory' - Metadata about the directory.
 -- * 'responseStatus' - The response status code.
 mkGetDirectoryResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'directory'
   Directory ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDirectoryResponse
-mkGetDirectoryResponse pResponseStatus_ pDirectory_ =
+mkGetDirectoryResponse pDirectory_ pResponseStatus_ =
   GetDirectoryResponse'
-    { responseStatus = pResponseStatus_,
-      directory = pDirectory_
+    { directory = pDirectory_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsResponseStatus :: Lens.Lens' GetDirectoryResponse Lude.Int
-gdrsResponseStatus = Lens.lens (responseStatus :: GetDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDirectoryResponse)
-{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Metadata about the directory.
 --
@@ -133,3 +119,10 @@ gdrsResponseStatus = Lens.lens (responseStatus :: GetDirectoryResponse -> Lude.I
 gdrsDirectory :: Lens.Lens' GetDirectoryResponse Directory
 gdrsDirectory = Lens.lens (directory :: GetDirectoryResponse -> Directory) (\s a -> s {directory = a} :: GetDirectoryResponse)
 {-# DEPRECATED gdrsDirectory "Use generic-lens or generic-optics with 'directory' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsResponseStatus :: Lens.Lens' GetDirectoryResponse Lude.Int
+gdrsResponseStatus = Lens.lens (responseStatus :: GetDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDirectoryResponse)
+{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

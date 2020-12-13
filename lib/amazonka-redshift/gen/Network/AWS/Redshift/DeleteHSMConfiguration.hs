@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Redshift.DeleteHSMConfiguration
     mkDeleteHSMConfiguration,
 
     -- ** Request lenses
-    dhcHSMConfigurationIdentifier,
+    dhsmcHSMConfigurationIdentifier,
 
     -- * Destructuring the response
     DeleteHSMConfigurationResponse (..),
@@ -37,16 +38,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteHSMConfiguration' smart constructor.
 newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
-  { hsmConfigurationIdentifier ::
-      Lude.Text
+  { -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
+    hsmConfigurationIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSMConfiguration' with the minimum fields required to make a request.
@@ -65,9 +60,9 @@ mkDeleteHSMConfiguration pHSMConfigurationIdentifier_ =
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
 --
 -- /Note:/ Consider using 'hsmConfigurationIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhcHSMConfigurationIdentifier :: Lens.Lens' DeleteHSMConfiguration Lude.Text
-dhcHSMConfigurationIdentifier = Lens.lens (hsmConfigurationIdentifier :: DeleteHSMConfiguration -> Lude.Text) (\s a -> s {hsmConfigurationIdentifier = a} :: DeleteHSMConfiguration)
-{-# DEPRECATED dhcHSMConfigurationIdentifier "Use generic-lens or generic-optics with 'hsmConfigurationIdentifier' instead." #-}
+dhsmcHSMConfigurationIdentifier :: Lens.Lens' DeleteHSMConfiguration Lude.Text
+dhsmcHSMConfigurationIdentifier = Lens.lens (hsmConfigurationIdentifier :: DeleteHSMConfiguration -> Lude.Text) (\s a -> s {hsmConfigurationIdentifier = a} :: DeleteHSMConfiguration)
+{-# DEPRECATED dhsmcHSMConfigurationIdentifier "Use generic-lens or generic-optics with 'hsmConfigurationIdentifier' instead." #-}
 
 instance Lude.AWSRequest DeleteHSMConfiguration where
   type Rs DeleteHSMConfiguration = DeleteHSMConfigurationResponse
@@ -90,13 +85,7 @@ instance Lude.ToQuery DeleteHSMConfiguration where
 
 -- | /See:/ 'mkDeleteHSMConfigurationResponse' smart constructor.
 data DeleteHSMConfigurationResponse = DeleteHSMConfigurationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSMConfigurationResponse' with the minimum fields required to make a request.

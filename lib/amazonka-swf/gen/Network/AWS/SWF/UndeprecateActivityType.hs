@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,8 +41,8 @@ module Network.AWS.SWF.UndeprecateActivityType
     mkUndeprecateActivityType,
 
     -- ** Request lenses
-    uatDomain,
     uatActivityType,
+    uatDomain,
 
     -- * Destructuring the response
     UndeprecateActivityTypeResponse (..),
@@ -57,17 +58,12 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkUndeprecateActivityType' smart constructor.
 data UndeprecateActivityType = UndeprecateActivityType'
-  { domain ::
-      Lude.Text,
-    activityType :: ActivityType
+  { -- | The activity type to undeprecate.
+    activityType :: ActivityType,
+    -- | The name of the domain of the deprecated activity type.
+    domain :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UndeprecateActivityType' with the minimum fields required to make a request.
@@ -75,23 +71,16 @@ data UndeprecateActivityType = UndeprecateActivityType'
 -- * 'activityType' - The activity type to undeprecate.
 -- * 'domain' - The name of the domain of the deprecated activity type.
 mkUndeprecateActivityType ::
-  -- | 'domain'
-  Lude.Text ->
   -- | 'activityType'
   ActivityType ->
+  -- | 'domain'
+  Lude.Text ->
   UndeprecateActivityType
-mkUndeprecateActivityType pDomain_ pActivityType_ =
+mkUndeprecateActivityType pActivityType_ pDomain_ =
   UndeprecateActivityType'
-    { domain = pDomain_,
-      activityType = pActivityType_
+    { activityType = pActivityType_,
+      domain = pDomain_
     }
-
--- | The name of the domain of the deprecated activity type.
---
--- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uatDomain :: Lens.Lens' UndeprecateActivityType Lude.Text
-uatDomain = Lens.lens (domain :: UndeprecateActivityType -> Lude.Text) (\s a -> s {domain = a} :: UndeprecateActivityType)
-{-# DEPRECATED uatDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The activity type to undeprecate.
 --
@@ -99,6 +88,13 @@ uatDomain = Lens.lens (domain :: UndeprecateActivityType -> Lude.Text) (\s a -> 
 uatActivityType :: Lens.Lens' UndeprecateActivityType ActivityType
 uatActivityType = Lens.lens (activityType :: UndeprecateActivityType -> ActivityType) (\s a -> s {activityType = a} :: UndeprecateActivityType)
 {-# DEPRECATED uatActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
+
+-- | The name of the domain of the deprecated activity type.
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uatDomain :: Lens.Lens' UndeprecateActivityType Lude.Text
+uatDomain = Lens.lens (domain :: UndeprecateActivityType -> Lude.Text) (\s a -> s {domain = a} :: UndeprecateActivityType)
+{-# DEPRECATED uatDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 instance Lude.AWSRequest UndeprecateActivityType where
   type Rs UndeprecateActivityType = UndeprecateActivityTypeResponse
@@ -122,8 +118,8 @@ instance Lude.ToJSON UndeprecateActivityType where
   toJSON UndeprecateActivityType' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("activityType" Lude..= activityType)
+          [ Lude.Just ("activityType" Lude..= activityType),
+            Lude.Just ("domain" Lude..= domain)
           ]
       )
 
@@ -135,13 +131,7 @@ instance Lude.ToQuery UndeprecateActivityType where
 
 -- | /See:/ 'mkUndeprecateActivityTypeResponse' smart constructor.
 data UndeprecateActivityTypeResponse = UndeprecateActivityTypeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UndeprecateActivityTypeResponse' with the minimum fields required to make a request.

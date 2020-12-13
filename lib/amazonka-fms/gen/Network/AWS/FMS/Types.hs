@@ -65,12 +65,12 @@ module Network.AWS.FMS.Types
     AppsListData (..),
     mkAppsListData,
     aldListUpdateToken,
+    aldAppsList,
     aldListId,
+    aldListName,
     aldLastUpdateTime,
     aldPreviousAppsList,
     aldCreateTime,
-    aldListName,
-    aldAppsList,
 
     -- * AppsListDataSummary
     AppsListDataSummary (..),
@@ -144,17 +144,17 @@ module Network.AWS.FMS.Types
     -- * Policy
     Policy (..),
     mkPolicy,
+    pPolicyName,
+    pRemediationEnabled,
+    pResourceType,
+    pExcludeResourceTags,
     pPolicyId,
     pResourceTypeList,
     pResourceTags,
     pPolicyUpdateToken,
     pExcludeMap,
     pIncludeMap,
-    pPolicyName,
     pSecurityServicePolicyData,
-    pResourceType,
-    pExcludeResourceTags,
-    pRemediationEnabled,
 
     -- * PolicyComplianceDetail
     PolicyComplianceDetail (..),
@@ -191,13 +191,13 @@ module Network.AWS.FMS.Types
     -- * ProtocolsListData
     ProtocolsListData (..),
     mkProtocolsListData,
+    pldProtocolsList,
     pldListUpdateToken,
     pldListId,
+    pldListName,
     pldLastUpdateTime,
     pldPreviousProtocolsList,
     pldCreateTime,
-    pldListName,
-    pldProtocolsList,
 
     -- * ProtocolsListDataSummary
     ProtocolsListDataSummary (..),
@@ -264,19 +264,19 @@ module Network.AWS.FMS.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * ViolationDetail
     ViolationDetail (..),
     mkViolationDetail,
-    vdResourceTags,
-    vdResourceDescription,
-    vdPolicyId,
-    vdMemberAccount,
     vdResourceId,
     vdResourceType,
+    vdPolicyId,
+    vdResourceTags,
+    vdResourceDescription,
     vdResourceViolations,
+    vdMemberAccount,
   )
 where
 

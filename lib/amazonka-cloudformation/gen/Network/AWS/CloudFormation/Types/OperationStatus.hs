@@ -13,10 +13,10 @@
 module Network.AWS.CloudFormation.Types.OperationStatus
   ( OperationStatus
       ( OperationStatus',
-        OSFailed,
-        OSInProgress,
         OSPending,
-        OSSuccess
+        OSInProgress,
+        OSSuccess,
+        OSFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype OperationStatus = OperationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern OSFailed :: OperationStatus
-pattern OSFailed = OperationStatus' "FAILED"
+pattern OSPending :: OperationStatus
+pattern OSPending = OperationStatus' "PENDING"
 
 pattern OSInProgress :: OperationStatus
 pattern OSInProgress = OperationStatus' "IN_PROGRESS"
 
-pattern OSPending :: OperationStatus
-pattern OSPending = OperationStatus' "PENDING"
-
 pattern OSSuccess :: OperationStatus
 pattern OSSuccess = OperationStatus' "SUCCESS"
 
+pattern OSFailed :: OperationStatus
+pattern OSFailed = OperationStatus' "FAILED"
+
 {-# COMPLETE
-  OSFailed,
-  OSInProgress,
   OSPending,
+  OSInProgress,
   OSSuccess,
+  OSFailed,
   OperationStatus'
   #-}

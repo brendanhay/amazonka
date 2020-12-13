@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudDirectory.BatchRead
     mkBatchRead,
 
     -- ** Request lenses
-    brConsistencyLevel,
     brDirectoryARN,
+    brConsistencyLevel,
     brOperations,
 
     -- * Destructuring the response
@@ -41,24 +42,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchRead' smart constructor.
 data BatchRead = BatchRead'
-  { consistencyLevel ::
-      Lude.Maybe ConsistencyLevel,
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
     directoryARN :: Lude.Text,
+    -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    -- | A list of operations that are part of the batch.
     operations :: [BatchReadOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchRead' with the minimum fields required to make a request.
 --
--- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
+-- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 -- * 'operations' - A list of operations that are part of the batch.
 mkBatchRead ::
   -- | 'directoryARN'
@@ -66,17 +63,10 @@ mkBatchRead ::
   BatchRead
 mkBatchRead pDirectoryARN_ =
   BatchRead'
-    { consistencyLevel = Lude.Nothing,
-      directoryARN = pDirectoryARN_,
+    { directoryARN = pDirectoryARN_,
+      consistencyLevel = Lude.Nothing,
       operations = Lude.mempty
     }
-
--- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
---
--- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brConsistencyLevel :: Lens.Lens' BatchRead (Lude.Maybe ConsistencyLevel)
-brConsistencyLevel = Lens.lens (consistencyLevel :: BatchRead -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: BatchRead)
-{-# DEPRECATED brConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 --
@@ -84,6 +74,13 @@ brConsistencyLevel = Lens.lens (consistencyLevel :: BatchRead -> Lude.Maybe Cons
 brDirectoryARN :: Lens.Lens' BatchRead Lude.Text
 brDirectoryARN = Lens.lens (directoryARN :: BatchRead -> Lude.Text) (\s a -> s {directoryARN = a} :: BatchRead)
 {-# DEPRECATED brDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+
+-- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brConsistencyLevel :: Lens.Lens' BatchRead (Lude.Maybe ConsistencyLevel)
+brConsistencyLevel = Lens.lens (consistencyLevel :: BatchRead -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: BatchRead)
+{-# DEPRECATED brConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | A list of operations that are part of the batch.
 --
@@ -106,8 +103,8 @@ instance Lude.AWSRequest BatchRead where
 instance Lude.ToHeaders BatchRead where
   toHeaders BatchRead' {..} =
     Lude.mconcat
-      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
-        "x-amz-data-partition" Lude.=# directoryARN
+      [ "x-amz-data-partition" Lude.=# directoryARN,
+        "x-amz-consistency-level" Lude.=# consistencyLevel
       ]
 
 instance Lude.ToJSON BatchRead where
@@ -123,23 +120,18 @@ instance Lude.ToQuery BatchRead where
 
 -- | /See:/ 'mkBatchReadResponse' smart constructor.
 data BatchReadResponse = BatchReadResponse'
-  { responses ::
-      Lude.Maybe [BatchReadOperationResponse],
+  { -- | A list of all the responses for each batch read.
+    responses :: Lude.Maybe [BatchReadOperationResponse],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchReadResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'responses' - A list of all the responses for each batch read.
+-- * 'responseStatus' - The response status code.
 mkBatchReadResponse ::
   -- | 'responseStatus'
   Lude.Int ->

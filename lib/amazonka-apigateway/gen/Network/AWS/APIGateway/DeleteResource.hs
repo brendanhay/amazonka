@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.DeleteResource
     mkDeleteResource,
 
     -- ** Request lenses
-    drRestAPIId,
     drResourceId,
+    drRestAPIId,
 
     -- * Destructuring the response
     DeleteResourceResponse (..),
@@ -38,16 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteResource' smart constructor.
 data DeleteResource = DeleteResource'
-  { restAPIId :: Lude.Text,
-    resourceId :: Lude.Text
+  { -- | [Required] The identifier of the 'Resource' resource.
+    resourceId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResource' with the minimum fields required to make a request.
@@ -55,23 +52,16 @@ data DeleteResource = DeleteResource'
 -- * 'resourceId' - [Required] The identifier of the 'Resource' resource.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkDeleteResource ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   DeleteResource
-mkDeleteResource pRestAPIId_ pResourceId_ =
+mkDeleteResource pResourceId_ pRestAPIId_ =
   DeleteResource'
-    { restAPIId = pRestAPIId_,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drRestAPIId :: Lens.Lens' DeleteResource Lude.Text
-drRestAPIId = Lens.lens (restAPIId :: DeleteResource -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteResource)
-{-# DEPRECATED drRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'Resource' resource.
 --
@@ -79,6 +69,13 @@ drRestAPIId = Lens.lens (restAPIId :: DeleteResource -> Lude.Text) (\s a -> s {r
 drResourceId :: Lens.Lens' DeleteResource Lude.Text
 drResourceId = Lens.lens (resourceId :: DeleteResource -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteResource)
 {-# DEPRECATED drResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drRestAPIId :: Lens.Lens' DeleteResource Lude.Text
+drRestAPIId = Lens.lens (restAPIId :: DeleteResource -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteResource)
+{-# DEPRECATED drRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest DeleteResource where
   type Rs DeleteResource = DeleteResourceResponse
@@ -106,13 +103,7 @@ instance Lude.ToQuery DeleteResource where
 
 -- | /See:/ 'mkDeleteResourceResponse' smart constructor.
 data DeleteResourceResponse = DeleteResourceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceResponse' with the minimum fields required to make a request.

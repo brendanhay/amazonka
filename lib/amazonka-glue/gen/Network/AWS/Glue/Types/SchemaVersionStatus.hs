@@ -14,9 +14,9 @@ module Network.AWS.Glue.Types.SchemaVersionStatus
   ( SchemaVersionStatus
       ( SchemaVersionStatus',
         SVSAvailable,
-        SVSDeleting,
+        SVSPending,
         SVSFailure,
-        SVSPending
+        SVSDeleting
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype SchemaVersionStatus = SchemaVersionStatus' Lude.Text
 pattern SVSAvailable :: SchemaVersionStatus
 pattern SVSAvailable = SchemaVersionStatus' "AVAILABLE"
 
-pattern SVSDeleting :: SchemaVersionStatus
-pattern SVSDeleting = SchemaVersionStatus' "DELETING"
+pattern SVSPending :: SchemaVersionStatus
+pattern SVSPending = SchemaVersionStatus' "PENDING"
 
 pattern SVSFailure :: SchemaVersionStatus
 pattern SVSFailure = SchemaVersionStatus' "FAILURE"
 
-pattern SVSPending :: SchemaVersionStatus
-pattern SVSPending = SchemaVersionStatus' "PENDING"
+pattern SVSDeleting :: SchemaVersionStatus
+pattern SVSDeleting = SchemaVersionStatus' "DELETING"
 
 {-# COMPLETE
   SVSAvailable,
-  SVSDeleting,
-  SVSFailure,
   SVSPending,
+  SVSFailure,
+  SVSDeleting,
   SchemaVersionStatus'
   #-}

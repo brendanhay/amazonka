@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,9 +43,9 @@ module Network.AWS.AutoScaling.DescribeInstanceRefreshes
 
     -- ** Request lenses
     dirNextToken,
+    dirAutoScalingGroupName,
     dirMaxRecords,
     dirInstanceRefreshIds,
-    dirAutoScalingGroupName,
 
     -- * Destructuring the response
     DescribeInstanceRefreshesResponse (..),
@@ -65,28 +66,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInstanceRefreshes' smart constructor.
 data DescribeInstanceRefreshes = DescribeInstanceRefreshes'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text,
+    -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
     maxRecords :: Lude.Maybe Lude.Int,
-    instanceRefreshIds ::
-      Lude.Maybe [Lude.Text],
-    autoScalingGroupName :: Lude.Text
+    -- | One or more instance refresh IDs.
+    instanceRefreshIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceRefreshes' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'instanceRefreshIds' - One or more instance refresh IDs.
--- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
+-- * 'instanceRefreshIds' - One or more instance refresh IDs.
 mkDescribeInstanceRefreshes ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
@@ -94,9 +91,9 @@ mkDescribeInstanceRefreshes ::
 mkDescribeInstanceRefreshes pAutoScalingGroupName_ =
   DescribeInstanceRefreshes'
     { nextToken = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_,
       maxRecords = Lude.Nothing,
-      instanceRefreshIds = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_
+      instanceRefreshIds = Lude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
@@ -105,6 +102,13 @@ mkDescribeInstanceRefreshes pAutoScalingGroupName_ =
 dirNextToken :: Lens.Lens' DescribeInstanceRefreshes (Lude.Maybe Lude.Text)
 dirNextToken = Lens.lens (nextToken :: DescribeInstanceRefreshes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceRefreshes)
 {-# DEPRECATED dirNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirAutoScalingGroupName :: Lens.Lens' DescribeInstanceRefreshes Lude.Text
+dirAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribeInstanceRefreshes -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribeInstanceRefreshes)
+{-# DEPRECATED dirAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 --
@@ -119,13 +123,6 @@ dirMaxRecords = Lens.lens (maxRecords :: DescribeInstanceRefreshes -> Lude.Maybe
 dirInstanceRefreshIds :: Lens.Lens' DescribeInstanceRefreshes (Lude.Maybe [Lude.Text])
 dirInstanceRefreshIds = Lens.lens (instanceRefreshIds :: DescribeInstanceRefreshes -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceRefreshIds = a} :: DescribeInstanceRefreshes)
 {-# DEPRECATED dirInstanceRefreshIds "Use generic-lens or generic-optics with 'instanceRefreshIds' instead." #-}
-
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirAutoScalingGroupName :: Lens.Lens' DescribeInstanceRefreshes Lude.Text
-dirAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribeInstanceRefreshes -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribeInstanceRefreshes)
-{-# DEPRECATED dirAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 instance Lude.AWSRequest DescribeInstanceRefreshes where
   type
@@ -156,36 +153,29 @@ instance Lude.ToQuery DescribeInstanceRefreshes where
       [ "Action" Lude.=: ("DescribeInstanceRefreshes" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "NextToken" Lude.=: nextToken,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "MaxRecords" Lude.=: maxRecords,
         "InstanceRefreshIds"
           Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> instanceRefreshIds),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
+            (Lude.toQueryList "member" Lude.<$> instanceRefreshIds)
       ]
 
 -- | /See:/ 'mkDescribeInstanceRefreshesResponse' smart constructor.
 data DescribeInstanceRefreshesResponse = DescribeInstanceRefreshesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    instanceRefreshes ::
-      Lude.Maybe
-        [InstanceRefresh],
-    responseStatus ::
-      Lude.Int
+  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The instance refreshes for the specified group.
+    instanceRefreshes :: Lude.Maybe [InstanceRefresh],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceRefreshesResponse' with the minimum fields required to make a request.
 --
--- * 'instanceRefreshes' - The instance refreshes for the specified group.
 -- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+-- * 'instanceRefreshes' - The instance refreshes for the specified group.
 -- * 'responseStatus' - The response status code.
 mkDescribeInstanceRefreshesResponse ::
   -- | 'responseStatus'

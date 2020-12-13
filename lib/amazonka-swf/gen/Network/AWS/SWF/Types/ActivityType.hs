@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActivityType' smart constructor.
 data ActivityType = ActivityType'
-  { name :: Lude.Text,
+  { -- | The name of this activity.
+    name :: Lude.Text,
+    -- | The version of this activity.
     version :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivityType' with the minimum fields required to make a request.

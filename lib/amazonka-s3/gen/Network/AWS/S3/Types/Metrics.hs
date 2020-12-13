@@ -17,8 +17,8 @@ module Network.AWS.S3.Types.Metrics
     mkMetrics,
 
     -- * Lenses
-    mEventThreshold,
     mStatus,
+    mEventThreshold,
   )
 where
 
@@ -32,36 +32,24 @@ import Network.AWS.S3.Types.ReplicationTimeValue
 --
 -- /See:/ 'mkMetrics' smart constructor.
 data Metrics = Metrics'
-  { eventThreshold ::
-      Lude.Maybe ReplicationTimeValue,
-    status :: MetricsStatus
+  { -- | Specifies whether the replication metrics are enabled.
+    status :: MetricsStatus,
+    -- | A container specifying the time threshold for emitting the @s3:Replication:OperationMissedThreshold@ event.
+    eventThreshold :: Lude.Maybe ReplicationTimeValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Metrics' with the minimum fields required to make a request.
 --
--- * 'eventThreshold' - A container specifying the time threshold for emitting the @s3:Replication:OperationMissedThreshold@ event.
 -- * 'status' - Specifies whether the replication metrics are enabled.
+-- * 'eventThreshold' - A container specifying the time threshold for emitting the @s3:Replication:OperationMissedThreshold@ event.
 mkMetrics ::
   -- | 'status'
   MetricsStatus ->
   Metrics
 mkMetrics pStatus_ =
-  Metrics' {eventThreshold = Lude.Nothing, status = pStatus_}
-
--- | A container specifying the time threshold for emitting the @s3:Replication:OperationMissedThreshold@ event.
---
--- /Note:/ Consider using 'eventThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mEventThreshold :: Lens.Lens' Metrics (Lude.Maybe ReplicationTimeValue)
-mEventThreshold = Lens.lens (eventThreshold :: Metrics -> Lude.Maybe ReplicationTimeValue) (\s a -> s {eventThreshold = a} :: Metrics)
-{-# DEPRECATED mEventThreshold "Use generic-lens or generic-optics with 'eventThreshold' instead." #-}
+  Metrics' {status = pStatus_, eventThreshold = Lude.Nothing}
 
 -- | Specifies whether the replication metrics are enabled.
 --
@@ -70,12 +58,19 @@ mStatus :: Lens.Lens' Metrics MetricsStatus
 mStatus = Lens.lens (status :: Metrics -> MetricsStatus) (\s a -> s {status = a} :: Metrics)
 {-# DEPRECATED mStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | A container specifying the time threshold for emitting the @s3:Replication:OperationMissedThreshold@ event.
+--
+-- /Note:/ Consider using 'eventThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mEventThreshold :: Lens.Lens' Metrics (Lude.Maybe ReplicationTimeValue)
+mEventThreshold = Lens.lens (eventThreshold :: Metrics -> Lude.Maybe ReplicationTimeValue) (\s a -> s {eventThreshold = a} :: Metrics)
+{-# DEPRECATED mEventThreshold "Use generic-lens or generic-optics with 'eventThreshold' instead." #-}
+
 instance Lude.FromXML Metrics where
   parseXML x =
     Metrics'
-      Lude.<$> (x Lude..@? "EventThreshold") Lude.<*> (x Lude..@ "Status")
+      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@? "EventThreshold")
 
 instance Lude.ToXML Metrics where
   toXML Metrics' {..} =
     Lude.mconcat
-      ["EventThreshold" Lude.@= eventThreshold, "Status" Lude.@= status]
+      ["Status" Lude.@= status, "EventThreshold" Lude.@= eventThreshold]

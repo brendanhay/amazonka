@@ -37,35 +37,36 @@ import Network.AWS.SSM.Types.DocumentStatus
 --
 -- /See:/ 'mkDocumentVersionInfo' smart constructor.
 data DocumentVersionInfo = DocumentVersionInfo'
-  { status ::
-      Lude.Maybe DocumentStatus,
+  { -- | The status of the Systems Manager document, such as @Creating@ , @Active@ , @Failed@ , and @Deleting@ .
+    status :: Lude.Maybe DocumentStatus,
+    -- | The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
     versionName :: Lude.Maybe Lude.Text,
+    -- | The date the document was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The document format, either JSON or YAML.
     documentFormat :: Lude.Maybe DocumentFormat,
+    -- | The document name.
     name :: Lude.Maybe Lude.Text,
+    -- | The document version.
     documentVersion :: Lude.Maybe Lude.Text,
+    -- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
     statusInformation :: Lude.Maybe Lude.Text,
+    -- | An identifier for the default version of the document.
     isDefaultVersion :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentVersionInfo' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the Systems Manager document, such as @Creating@ , @Active@ , @Failed@ , and @Deleting@ .
+-- * 'versionName' - The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 -- * 'createdDate' - The date the document was created.
 -- * 'documentFormat' - The document format, either JSON or YAML.
--- * 'documentVersion' - The document version.
--- * 'isDefaultVersion' - An identifier for the default version of the document.
 -- * 'name' - The document name.
--- * 'status' - The status of the Systems Manager document, such as @Creating@ , @Active@ , @Failed@ , and @Deleting@ .
+-- * 'documentVersion' - The document version.
 -- * 'statusInformation' - A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
--- * 'versionName' - The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+-- * 'isDefaultVersion' - An identifier for the default version of the document.
 mkDocumentVersionInfo ::
   DocumentVersionInfo
 mkDocumentVersionInfo =

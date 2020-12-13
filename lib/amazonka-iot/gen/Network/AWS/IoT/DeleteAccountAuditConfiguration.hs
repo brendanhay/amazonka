@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.IoT.DeleteAccountAuditConfiguration
     mkDeleteAccountAuditConfigurationResponse,
 
     -- ** Response lenses
-    daacarsResponseStatus,
+    daacfrsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteAccountAuditConfiguration' smart constructor.
 newtype DeleteAccountAuditConfiguration = DeleteAccountAuditConfiguration'
-  { deleteScheduledAudits ::
-      Lude.Maybe Lude.Bool
+  { -- | If true, all scheduled audits are deleted.
+    deleteScheduledAudits :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccountAuditConfiguration' with the minimum fields required to make a request.
@@ -93,16 +88,10 @@ instance Lude.ToQuery DeleteAccountAuditConfiguration where
 
 -- | /See:/ 'mkDeleteAccountAuditConfigurationResponse' smart constructor.
 newtype DeleteAccountAuditConfigurationResponse = DeleteAccountAuditConfigurationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccountAuditConfigurationResponse' with the minimum fields required to make a request.
@@ -121,6 +110,6 @@ mkDeleteAccountAuditConfigurationResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daacarsResponseStatus :: Lens.Lens' DeleteAccountAuditConfigurationResponse Lude.Int
-daacarsResponseStatus = Lens.lens (responseStatus :: DeleteAccountAuditConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAccountAuditConfigurationResponse)
-{-# DEPRECATED daacarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daacfrsResponseStatus :: Lens.Lens' DeleteAccountAuditConfigurationResponse Lude.Int
+daacfrsResponseStatus = Lens.lens (responseStatus :: DeleteAccountAuditConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAccountAuditConfigurationResponse)
+{-# DEPRECATED daacfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

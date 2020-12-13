@@ -14,10 +14,10 @@ module Network.AWS.EC2.Types.CancelSpotInstanceRequestState
   ( CancelSpotInstanceRequestState
       ( CancelSpotInstanceRequestState',
         CSIRSActive,
-        CSIRSCancelled,
+        CSIRSOpen,
         CSIRSClosed,
-        CSIRSCompleted,
-        CSIRSOpen
+        CSIRSCancelled,
+        CSIRSCompleted
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype CancelSpotInstanceRequestState = CancelSpotInstanceRequestState' Lude.Te
 pattern CSIRSActive :: CancelSpotInstanceRequestState
 pattern CSIRSActive = CancelSpotInstanceRequestState' "active"
 
-pattern CSIRSCancelled :: CancelSpotInstanceRequestState
-pattern CSIRSCancelled = CancelSpotInstanceRequestState' "cancelled"
+pattern CSIRSOpen :: CancelSpotInstanceRequestState
+pattern CSIRSOpen = CancelSpotInstanceRequestState' "open"
 
 pattern CSIRSClosed :: CancelSpotInstanceRequestState
 pattern CSIRSClosed = CancelSpotInstanceRequestState' "closed"
 
+pattern CSIRSCancelled :: CancelSpotInstanceRequestState
+pattern CSIRSCancelled = CancelSpotInstanceRequestState' "cancelled"
+
 pattern CSIRSCompleted :: CancelSpotInstanceRequestState
 pattern CSIRSCompleted = CancelSpotInstanceRequestState' "completed"
 
-pattern CSIRSOpen :: CancelSpotInstanceRequestState
-pattern CSIRSOpen = CancelSpotInstanceRequestState' "open"
-
 {-# COMPLETE
   CSIRSActive,
-  CSIRSCancelled,
-  CSIRSClosed,
-  CSIRSCompleted,
   CSIRSOpen,
+  CSIRSClosed,
+  CSIRSCancelled,
+  CSIRSCompleted,
   CancelSpotInstanceRequestState'
   #-}

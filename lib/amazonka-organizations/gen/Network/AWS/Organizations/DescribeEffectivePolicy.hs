@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,21 +45,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEffectivePolicy' smart constructor.
 data DescribeEffectivePolicy = DescribeEffectivePolicy'
-  { targetId ::
-      Lude.Maybe Lude.Text,
+  { -- | When you're signed in as the management account, specify the ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.
+    targetId :: Lude.Maybe Lude.Text,
+    -- | The type of policy that you want information about. You can specify one of the following values:
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
     policyType :: EffectivePolicyType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEffectivePolicy' with the minimum fields required to make a request.
 --
+-- * 'targetId' - When you're signed in as the management account, specify the ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.
 -- * 'policyType' - The type of policy that you want information about. You can specify one of the following values:
 --
 --
@@ -69,9 +75,6 @@ data DescribeEffectivePolicy = DescribeEffectivePolicy'
 --
 --
 --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
---
---
--- * 'targetId' - When you're signed in as the management account, specify the ID of the account that you want details about. Specifying an organization root or organizational unit (OU) as the target is not supported.
 mkDescribeEffectivePolicy ::
   -- | 'policyType'
   EffectivePolicyType ->
@@ -148,17 +151,12 @@ instance Lude.ToQuery DescribeEffectivePolicy where
 
 -- | /See:/ 'mkDescribeEffectivePolicyResponse' smart constructor.
 data DescribeEffectivePolicyResponse = DescribeEffectivePolicyResponse'
-  { effectivePolicy ::
-      Lude.Maybe EffectivePolicy,
+  { -- | The contents of the effective policy.
+    effectivePolicy :: Lude.Maybe EffectivePolicy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEffectivePolicyResponse' with the minimum fields required to make a request.

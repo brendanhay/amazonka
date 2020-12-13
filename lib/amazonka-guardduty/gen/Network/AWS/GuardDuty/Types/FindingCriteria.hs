@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFindingCriteria' smart constructor.
 newtype FindingCriteria = FindingCriteria'
-  { criterion ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Condition))
+  { -- | Represents a map of finding properties that match specified conditions and values when querying findings.
+    criterion :: Lude.Maybe (Lude.HashMap Lude.Text (Condition))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FindingCriteria' with the minimum fields required to make a request.

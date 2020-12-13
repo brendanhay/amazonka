@@ -13,10 +13,10 @@
 module Network.AWS.MediaConvert.Types.BillingTagsSource
   ( BillingTagsSource
       ( BillingTagsSource',
-        Job,
-        JobTemplate,
+        Queue,
         Preset,
-        Queue
+        JobTemplate,
+        Job
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype BillingTagsSource = BillingTagsSource' Lude.Text
       Lude.ToHeader
     )
 
-pattern Job :: BillingTagsSource
-pattern Job = BillingTagsSource' "JOB"
-
-pattern JobTemplate :: BillingTagsSource
-pattern JobTemplate = BillingTagsSource' "JOB_TEMPLATE"
+pattern Queue :: BillingTagsSource
+pattern Queue = BillingTagsSource' "QUEUE"
 
 pattern Preset :: BillingTagsSource
 pattern Preset = BillingTagsSource' "PRESET"
 
-pattern Queue :: BillingTagsSource
-pattern Queue = BillingTagsSource' "QUEUE"
+pattern JobTemplate :: BillingTagsSource
+pattern JobTemplate = BillingTagsSource' "JOB_TEMPLATE"
+
+pattern Job :: BillingTagsSource
+pattern Job = BillingTagsSource' "JOB"
 
 {-# COMPLETE
-  Job,
-  JobTemplate,
-  Preset,
   Queue,
+  Preset,
+  JobTemplate,
+  Job,
   BillingTagsSource'
   #-}

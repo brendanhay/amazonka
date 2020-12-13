@@ -17,9 +17,9 @@ module Network.AWS.CloudWatch.Types.InsightRuleContributor
     mkInsightRuleContributor,
 
     -- * Lenses
-    ircKeys,
-    ircApproximateAggregateValue,
     ircDatapoints,
+    ircApproximateAggregateValue,
+    ircKeys,
   )
 where
 
@@ -34,25 +34,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInsightRuleContributor' smart constructor.
 data InsightRuleContributor = InsightRuleContributor'
-  { keys ::
-      [Lude.Text],
+  { -- | An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.
+    datapoints :: [InsightRuleContributorDatapoint],
+    -- | An approximation of the aggregate value that comes from this contributor.
     approximateAggregateValue :: Lude.Double,
-    datapoints ::
-      [InsightRuleContributorDatapoint]
+    -- | One of the log entry field keywords that is used to define contributors for this rule.
+    keys :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightRuleContributor' with the minimum fields required to make a request.
 --
--- * 'approximateAggregateValue' - An approximation of the aggregate value that comes from this contributor.
 -- * 'datapoints' - An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.
+-- * 'approximateAggregateValue' - An approximation of the aggregate value that comes from this contributor.
 -- * 'keys' - One of the log entry field keywords that is used to define contributors for this rule.
 mkInsightRuleContributor ::
   -- | 'approximateAggregateValue'
@@ -60,24 +55,10 @@ mkInsightRuleContributor ::
   InsightRuleContributor
 mkInsightRuleContributor pApproximateAggregateValue_ =
   InsightRuleContributor'
-    { keys = Lude.mempty,
+    { datapoints = Lude.mempty,
       approximateAggregateValue = pApproximateAggregateValue_,
-      datapoints = Lude.mempty
+      keys = Lude.mempty
     }
-
--- | One of the log entry field keywords that is used to define contributors for this rule.
---
--- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ircKeys :: Lens.Lens' InsightRuleContributor [Lude.Text]
-ircKeys = Lens.lens (keys :: InsightRuleContributor -> [Lude.Text]) (\s a -> s {keys = a} :: InsightRuleContributor)
-{-# DEPRECATED ircKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
-
--- | An approximation of the aggregate value that comes from this contributor.
---
--- /Note:/ Consider using 'approximateAggregateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ircApproximateAggregateValue :: Lens.Lens' InsightRuleContributor Lude.Double
-ircApproximateAggregateValue = Lens.lens (approximateAggregateValue :: InsightRuleContributor -> Lude.Double) (\s a -> s {approximateAggregateValue = a} :: InsightRuleContributor)
-{-# DEPRECATED ircApproximateAggregateValue "Use generic-lens or generic-optics with 'approximateAggregateValue' instead." #-}
 
 -- | An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.
 --
@@ -86,13 +67,27 @@ ircDatapoints :: Lens.Lens' InsightRuleContributor [InsightRuleContributorDatapo
 ircDatapoints = Lens.lens (datapoints :: InsightRuleContributor -> [InsightRuleContributorDatapoint]) (\s a -> s {datapoints = a} :: InsightRuleContributor)
 {-# DEPRECATED ircDatapoints "Use generic-lens or generic-optics with 'datapoints' instead." #-}
 
+-- | An approximation of the aggregate value that comes from this contributor.
+--
+-- /Note:/ Consider using 'approximateAggregateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ircApproximateAggregateValue :: Lens.Lens' InsightRuleContributor Lude.Double
+ircApproximateAggregateValue = Lens.lens (approximateAggregateValue :: InsightRuleContributor -> Lude.Double) (\s a -> s {approximateAggregateValue = a} :: InsightRuleContributor)
+{-# DEPRECATED ircApproximateAggregateValue "Use generic-lens or generic-optics with 'approximateAggregateValue' instead." #-}
+
+-- | One of the log entry field keywords that is used to define contributors for this rule.
+--
+-- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ircKeys :: Lens.Lens' InsightRuleContributor [Lude.Text]
+ircKeys = Lens.lens (keys :: InsightRuleContributor -> [Lude.Text]) (\s a -> s {keys = a} :: InsightRuleContributor)
+{-# DEPRECATED ircKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
+
 instance Lude.FromXML InsightRuleContributor where
   parseXML x =
     InsightRuleContributor'
-      Lude.<$> ( x Lude..@? "Keys" Lude..!@ Lude.mempty
+      Lude.<$> ( x Lude..@? "Datapoints" Lude..!@ Lude.mempty
                    Lude.>>= Lude.parseXMLList "member"
                )
       Lude.<*> (x Lude..@ "ApproximateAggregateValue")
-      Lude.<*> ( x Lude..@? "Datapoints" Lude..!@ Lude.mempty
+      Lude.<*> ( x Lude..@? "Keys" Lude..!@ Lude.mempty
                    Lude.>>= Lude.parseXMLList "member"
                )

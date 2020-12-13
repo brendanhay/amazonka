@@ -17,8 +17,8 @@ module Network.AWS.IoTAnalytics.Types.GlueConfiguration
     mkGlueConfiguration,
 
     -- * Lenses
-    gcTableName,
     gcDatabaseName,
+    gcTableName,
   )
 where
 
@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlueConfiguration' smart constructor.
 data GlueConfiguration = GlueConfiguration'
-  { tableName :: Lude.Text,
-    databaseName :: Lude.Text
+  { -- | The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
+    databaseName :: Lude.Text,
+    -- | The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlueConfiguration' with the minimum fields required to make a request.
@@ -46,23 +42,16 @@ data GlueConfiguration = GlueConfiguration'
 -- * 'databaseName' - The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
 -- * 'tableName' - The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
 mkGlueConfiguration ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'databaseName'
   Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   GlueConfiguration
-mkGlueConfiguration pTableName_ pDatabaseName_ =
+mkGlueConfiguration pDatabaseName_ pTableName_ =
   GlueConfiguration'
-    { tableName = pTableName_,
-      databaseName = pDatabaseName_
+    { databaseName = pDatabaseName_,
+      tableName = pTableName_
     }
-
--- | The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcTableName :: Lens.Lens' GlueConfiguration Lude.Text
-gcTableName = Lens.lens (tableName :: GlueConfiguration -> Lude.Text) (\s a -> s {tableName = a} :: GlueConfiguration)
-{-# DEPRECATED gcTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
 --
@@ -71,20 +60,27 @@ gcDatabaseName :: Lens.Lens' GlueConfiguration Lude.Text
 gcDatabaseName = Lens.lens (databaseName :: GlueConfiguration -> Lude.Text) (\s a -> s {databaseName = a} :: GlueConfiguration)
 {-# DEPRECATED gcDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
+-- | The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcTableName :: Lens.Lens' GlueConfiguration Lude.Text
+gcTableName = Lens.lens (tableName :: GlueConfiguration -> Lude.Text) (\s a -> s {tableName = a} :: GlueConfiguration)
+{-# DEPRECATED gcTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+
 instance Lude.FromJSON GlueConfiguration where
   parseJSON =
     Lude.withObject
       "GlueConfiguration"
       ( \x ->
           GlueConfiguration'
-            Lude.<$> (x Lude..: "tableName") Lude.<*> (x Lude..: "databaseName")
+            Lude.<$> (x Lude..: "databaseName") Lude.<*> (x Lude..: "tableName")
       )
 
 instance Lude.ToJSON GlueConfiguration where
   toJSON GlueConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("tableName" Lude..= tableName),
-            Lude.Just ("databaseName" Lude..= databaseName)
+          [ Lude.Just ("databaseName" Lude..= databaseName),
+            Lude.Just ("tableName" Lude..= tableName)
           ]
       )

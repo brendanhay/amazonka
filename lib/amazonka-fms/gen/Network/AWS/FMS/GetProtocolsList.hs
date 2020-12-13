@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetProtocolsList' smart constructor.
 data GetProtocolsList = GetProtocolsList'
-  { defaultList ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.
+    defaultList :: Lude.Maybe Lude.Bool,
+    -- | The ID of the AWS Firewall Manager protocols list that you want the details for.
     listId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProtocolsList' with the minimum fields required to make a request.
@@ -119,18 +115,14 @@ instance Lude.ToQuery GetProtocolsList where
 
 -- | /See:/ 'mkGetProtocolsListResponse' smart constructor.
 data GetProtocolsListResponse = GetProtocolsListResponse'
-  { protocolsList ::
-      Lude.Maybe ProtocolsListData,
+  { -- | Information about the specified AWS Firewall Manager protocols list.
+    protocolsList :: Lude.Maybe ProtocolsListData,
+    -- | The Amazon Resource Name (ARN) of the specified protocols list.
     protocolsListARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProtocolsListResponse' with the minimum fields required to make a request.

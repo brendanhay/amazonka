@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.AssociationStatusName
   ( AssociationStatusName
       ( AssociationStatusName',
-        ASNFailed,
-        ASNPending,
-        ASNSuccess
+        Pending,
+        Success,
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AssociationStatusName = AssociationStatusName' Lude.Text
       Lude.ToHeader
     )
 
-pattern ASNFailed :: AssociationStatusName
-pattern ASNFailed = AssociationStatusName' "Failed"
+pattern Pending :: AssociationStatusName
+pattern Pending = AssociationStatusName' "Pending"
 
-pattern ASNPending :: AssociationStatusName
-pattern ASNPending = AssociationStatusName' "Pending"
+pattern Success :: AssociationStatusName
+pattern Success = AssociationStatusName' "Success"
 
-pattern ASNSuccess :: AssociationStatusName
-pattern ASNSuccess = AssociationStatusName' "Success"
+pattern Failed :: AssociationStatusName
+pattern Failed = AssociationStatusName' "Failed"
 
 {-# COMPLETE
-  ASNFailed,
-  ASNPending,
-  ASNSuccess,
+  Pending,
+  Success,
+  Failed,
   AssociationStatusName'
   #-}

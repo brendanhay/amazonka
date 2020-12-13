@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRejectInboundCrossClusterSearchConnection' smart constructor.
 newtype RejectInboundCrossClusterSearchConnection = RejectInboundCrossClusterSearchConnection'
-  { crossClusterSearchConnectionId ::
-      Lude.Text
+  { -- | The id of the inbound connection that you want to reject.
+    crossClusterSearchConnectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectInboundCrossClusterSearchConnection' with the minimum fields required to make a request.
@@ -108,23 +103,13 @@ instance Lude.ToQuery RejectInboundCrossClusterSearchConnection where
 --
 -- /See:/ 'mkRejectInboundCrossClusterSearchConnectionResponse' smart constructor.
 data RejectInboundCrossClusterSearchConnectionResponse = RejectInboundCrossClusterSearchConnectionResponse'
-  { crossClusterSearchConnection ::
-      Lude.Maybe
-        InboundCrossClusterSearchConnection,
-    responseStatus ::
-      Lude.Int
+  { -- | Specifies the @'InboundCrossClusterSearchConnection' @ of rejected inbound connection.
+    crossClusterSearchConnection :: Lude.Maybe InboundCrossClusterSearchConnection,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectInboundCrossClusterSearchConnectionResponse' with the minimum fields required to make a request.
 --

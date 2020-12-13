@@ -96,8 +96,8 @@ module Network.AWS.Translate
     -- ** EncryptionKey
     EncryptionKey (..),
     mkEncryptionKey,
-    ekType,
     ekId,
+    ekType,
 
     -- ** InputDataConfig
     InputDataConfig (..),
@@ -120,14 +120,14 @@ module Network.AWS.Translate
     -- ** ParallelDataConfig
     ParallelDataConfig (..),
     mkParallelDataConfig,
-    pdcS3URI,
     pdcFormat,
+    pdcS3URI,
 
     -- ** ParallelDataDataLocation
     ParallelDataDataLocation (..),
     mkParallelDataDataLocation,
-    pddlRepositoryType,
     pddlLocation,
+    pddlRepositoryType,
 
     -- ** ParallelDataProperties
     ParallelDataProperties (..),
@@ -159,14 +159,14 @@ module Network.AWS.Translate
     -- ** TerminologyData
     TerminologyData (..),
     mkTerminologyData,
-    tdFile,
     tdFormat,
+    tdFile,
 
     -- ** TerminologyDataLocation
     TerminologyDataLocation (..),
     mkTerminologyDataLocation,
-    tdlRepositoryType,
     tdlLocation,
+    tdlRepositoryType,
 
     -- ** TerminologyProperties
     TerminologyProperties (..),

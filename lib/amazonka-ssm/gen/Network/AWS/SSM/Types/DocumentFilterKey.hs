@@ -13,10 +13,10 @@
 module Network.AWS.SSM.Types.DocumentFilterKey
   ( DocumentFilterKey
       ( DocumentFilterKey',
-        DFKDocumentType,
         DFKName,
         DFKOwner,
-        DFKPlatformTypes
+        DFKPlatformTypes,
+        DFKDocumentType
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype DocumentFilterKey = DocumentFilterKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern DFKDocumentType :: DocumentFilterKey
-pattern DFKDocumentType = DocumentFilterKey' "DocumentType"
-
 pattern DFKName :: DocumentFilterKey
 pattern DFKName = DocumentFilterKey' "Name"
 
@@ -59,10 +56,13 @@ pattern DFKOwner = DocumentFilterKey' "Owner"
 pattern DFKPlatformTypes :: DocumentFilterKey
 pattern DFKPlatformTypes = DocumentFilterKey' "PlatformTypes"
 
+pattern DFKDocumentType :: DocumentFilterKey
+pattern DFKDocumentType = DocumentFilterKey' "DocumentType"
+
 {-# COMPLETE
-  DFKDocumentType,
   DFKName,
   DFKOwner,
   DFKPlatformTypes,
+  DFKDocumentType,
   DocumentFilterKey'
   #-}

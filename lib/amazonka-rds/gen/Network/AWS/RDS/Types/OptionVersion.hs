@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOptionVersion' smart constructor.
 data OptionVersion = OptionVersion'
-  { version ::
-      Lude.Maybe Lude.Text,
+  { -- | The version of the option.
+    version :: Lude.Maybe Lude.Text,
+    -- | True if the version is the default version of the option, and otherwise false.
     isDefault :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionVersion' with the minimum fields required to make a request.
 --
--- * 'isDefault' - True if the version is the default version of the option, and otherwise false.
 -- * 'version' - The version of the option.
+-- * 'isDefault' - True if the version is the default version of the option, and otherwise false.
 mkOptionVersion ::
   OptionVersion
 mkOptionVersion =

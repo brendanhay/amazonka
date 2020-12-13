@@ -34,22 +34,18 @@ import Network.AWS.Rekognition.Types.GenderType
 --
 -- /See:/ 'mkGender' smart constructor.
 data Gender = Gender'
-  { value :: Lude.Maybe GenderType,
+  { -- | The predicted gender of the face.
+    value :: Lude.Maybe GenderType,
+    -- | Level of confidence in the prediction.
     confidence :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Gender' with the minimum fields required to make a request.
 --
--- * 'confidence' - Level of confidence in the prediction.
 -- * 'value' - The predicted gender of the face.
+-- * 'confidence' - Level of confidence in the prediction.
 mkGender ::
   Gender
 mkGender = Gender' {value = Lude.Nothing, confidence = Lude.Nothing}

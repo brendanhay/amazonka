@@ -30,17 +30,20 @@ import Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
 --
 -- /See:/ 'mkGroupConfigurationItem' smart constructor.
 data GroupConfigurationItem = GroupConfigurationItem'
-  { parameters ::
-      Lude.Maybe [GroupConfigurationParameter],
+  { -- | A collection of parameters for this group configuration item.
+    parameters :: Lude.Maybe [GroupConfigurationParameter],
+    -- | Specifies the type of group configuration item. Each item must have a unique value for @type@ .
+    --
+    -- You can specify the following string values:
+    --
+    --     * @AWS::EC2::CapacityReservationPool@
+    -- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
+    --
+    --
+    --     * @AWS::ResourceGroups::Generic@ - Supports parameters that configure the behavior of resource groups of any type.
     type' :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupConfigurationItem' with the minimum fields required to make a request.

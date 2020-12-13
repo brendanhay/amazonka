@@ -17,8 +17,8 @@ module Network.AWS.CodePipeline.Types.Tag
     mkTag,
 
     -- * Lenses
-    tKey,
     tValue,
+    tKey,
   )
 where
 
@@ -28,34 +28,26 @@ import qualified Network.AWS.Prelude as Lude
 -- | A tag is a key-value pair that is used to manage the resource.
 --
 -- /See:/ 'mkTag' smart constructor.
-data Tag = Tag' {key :: Lude.Text, value :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Tag = Tag'
+  { -- | The tag's value.
+    value :: Lude.Text,
+    -- | The tag's key.
+    key :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- * 'key' - The tag's key.
 -- * 'value' - The tag's value.
+-- * 'key' - The tag's key.
 mkTag ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   Tag
-mkTag pKey_ pValue_ = Tag' {key = pKey_, value = pValue_}
-
--- | The tag's key.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
-{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
 
 -- | The tag's value.
 --
@@ -64,17 +56,24 @@ tValue :: Lens.Lens' Tag Lude.Text
 tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
 {-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The tag's key.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tKey :: Lens.Lens' Tag Lude.Text
+tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromJSON Tag where
   parseJSON =
     Lude.withObject
       "Tag"
       ( \x ->
-          Tag' Lude.<$> (x Lude..: "key") Lude.<*> (x Lude..: "value")
+          Tag' Lude.<$> (x Lude..: "value") Lude.<*> (x Lude..: "key")
       )
 
 instance Lude.ToJSON Tag where
   toJSON Tag' {..} =
     Lude.object
       ( Lude.catMaybes
-          [Lude.Just ("key" Lude..= key), Lude.Just ("value" Lude..= value)]
+          [Lude.Just ("value" Lude..= value), Lude.Just ("key" Lude..= key)]
       )

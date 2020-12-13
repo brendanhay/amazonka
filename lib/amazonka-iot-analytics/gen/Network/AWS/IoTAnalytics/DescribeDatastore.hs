@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoTAnalytics.DescribeDatastore
     mkDescribeDatastore,
 
     -- ** Request lenses
-    dIncludeStatistics,
     dDatastoreName,
+    dIncludeStatistics,
 
     -- * Destructuring the response
     DescribeDatastoreResponse (..),
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDatastore' smart constructor.
 data DescribeDatastore = DescribeDatastore'
-  { includeStatistics ::
-      Lude.Maybe Lude.Bool,
-    datastoreName :: Lude.Text
+  { -- | The name of the data store
+    datastoreName :: Lude.Text,
+    -- | If true, additional statistical information about the data store is included in the response. This feature cannot be used with a data store whose S3 storage is customer-managed.
+    includeStatistics :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDatastore' with the minimum fields required to make a request.
@@ -64,16 +60,9 @@ mkDescribeDatastore ::
   DescribeDatastore
 mkDescribeDatastore pDatastoreName_ =
   DescribeDatastore'
-    { includeStatistics = Lude.Nothing,
-      datastoreName = pDatastoreName_
+    { datastoreName = pDatastoreName_,
+      includeStatistics = Lude.Nothing
     }
-
--- | If true, additional statistical information about the data store is included in the response. This feature cannot be used with a data store whose S3 storage is customer-managed.
---
--- /Note:/ Consider using 'includeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dIncludeStatistics :: Lens.Lens' DescribeDatastore (Lude.Maybe Lude.Bool)
-dIncludeStatistics = Lens.lens (includeStatistics :: DescribeDatastore -> Lude.Maybe Lude.Bool) (\s a -> s {includeStatistics = a} :: DescribeDatastore)
-{-# DEPRECATED dIncludeStatistics "Use generic-lens or generic-optics with 'includeStatistics' instead." #-}
 
 -- | The name of the data store
 --
@@ -81,6 +70,13 @@ dIncludeStatistics = Lens.lens (includeStatistics :: DescribeDatastore -> Lude.M
 dDatastoreName :: Lens.Lens' DescribeDatastore Lude.Text
 dDatastoreName = Lens.lens (datastoreName :: DescribeDatastore -> Lude.Text) (\s a -> s {datastoreName = a} :: DescribeDatastore)
 {-# DEPRECATED dDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
+
+-- | If true, additional statistical information about the data store is included in the response. This feature cannot be used with a data store whose S3 storage is customer-managed.
+--
+-- /Note:/ Consider using 'includeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dIncludeStatistics :: Lens.Lens' DescribeDatastore (Lude.Maybe Lude.Bool)
+dIncludeStatistics = Lens.lens (includeStatistics :: DescribeDatastore -> Lude.Maybe Lude.Bool) (\s a -> s {includeStatistics = a} :: DescribeDatastore)
+{-# DEPRECATED dIncludeStatistics "Use generic-lens or generic-optics with 'includeStatistics' instead." #-}
 
 instance Lude.AWSRequest DescribeDatastore where
   type Rs DescribeDatastore = DescribeDatastoreResponse
@@ -107,26 +103,21 @@ instance Lude.ToQuery DescribeDatastore where
 
 -- | /See:/ 'mkDescribeDatastoreResponse' smart constructor.
 data DescribeDatastoreResponse = DescribeDatastoreResponse'
-  { datastore ::
-      Lude.Maybe Datastore,
-    statistics ::
-      Lude.Maybe DatastoreStatistics,
+  { -- | Information about the data store.
+    datastore :: Lude.Maybe Datastore,
+    -- | Additional statistical information about the data store. Included if the @includeStatistics@ parameter is set to @true@ in the request.
+    statistics :: Lude.Maybe DatastoreStatistics,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDatastoreResponse' with the minimum fields required to make a request.
 --
 -- * 'datastore' - Information about the data store.
--- * 'responseStatus' - The response status code.
 -- * 'statistics' - Additional statistical information about the data store. Included if the @includeStatistics@ parameter is set to @true@ in the request.
+-- * 'responseStatus' - The response status code.
 mkDescribeDatastoreResponse ::
   -- | 'responseStatus'
   Lude.Int ->

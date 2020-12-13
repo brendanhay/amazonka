@@ -37,37 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCEndpointConnection' smart constructor.
 data VPCEndpointConnection = VPCEndpointConnection'
-  { vpcEndpointOwner ::
-      Lude.Maybe Lude.Text,
-    networkLoadBalancerARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The AWS account ID of the owner of the VPC endpoint.
+    vpcEndpointOwner :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Names (ARNs) of the network load balancers for the service.
+    networkLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | The DNS entries for the VPC endpoint.
     dnsEntries :: Lude.Maybe [DNSEntry],
+    -- | The state of the VPC endpoint.
     vpcEndpointState :: Lude.Maybe State,
-    gatewayLoadBalancerARNs ::
-      Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.
+    gatewayLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | The date and time that the VPC endpoint was created.
     creationTimestamp :: Lude.Maybe Lude.DateTime,
+    -- | The ID of the service to which the endpoint is connected.
     serviceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC endpoint.
     vpcEndpointId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCEndpointConnection' with the minimum fields required to make a request.
 --
--- * 'creationTimestamp' - The date and time that the VPC endpoint was created.
--- * 'dnsEntries' - The DNS entries for the VPC endpoint.
--- * 'gatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.
+-- * 'vpcEndpointOwner' - The AWS account ID of the owner of the VPC endpoint.
 -- * 'networkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of the network load balancers for the service.
+-- * 'dnsEntries' - The DNS entries for the VPC endpoint.
+-- * 'vpcEndpointState' - The state of the VPC endpoint.
+-- * 'gatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.
+-- * 'creationTimestamp' - The date and time that the VPC endpoint was created.
 -- * 'serviceId' - The ID of the service to which the endpoint is connected.
 -- * 'vpcEndpointId' - The ID of the VPC endpoint.
--- * 'vpcEndpointOwner' - The AWS account ID of the owner of the VPC endpoint.
--- * 'vpcEndpointState' - The state of the VPC endpoint.
 mkVPCEndpointConnection ::
   VPCEndpointConnection
 mkVPCEndpointConnection =

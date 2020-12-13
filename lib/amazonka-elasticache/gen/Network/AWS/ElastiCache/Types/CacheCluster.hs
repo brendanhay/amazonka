@@ -62,61 +62,170 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheCluster' smart constructor.
 data CacheCluster = CacheCluster'
-  { authTokenLastModifiedDate ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The date the auth token was last modified
+    authTokenLastModifiedDate :: Lude.Maybe Lude.DateTime,
+    -- | The version of the cache engine that is used in this cluster.
     engineVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the compute and memory capacity node type for the cluster.
+    --
+    -- The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
+    --
+    --     * General purpose:
+    --
+    --     * Current generation:
+    -- __M6g node types__ (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).
+    -- @cache.m6g.large@ , @cache.m6g.xlarge@ , @cache.m6g.2xlarge@ , @cache.m6g.4xlarge@ , @cache.m6g.8xlarge@ , @cache.m6g.12xlarge@ , @cache.m6g.16xlarge@
+    -- __M5 node types:__ @cache.m5.large@ , @cache.m5.xlarge@ , @cache.m5.2xlarge@ , @cache.m5.4xlarge@ , @cache.m5.12xlarge@ , @cache.m5.24xlarge@
+    -- __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@
+    -- __T3 node types:__ @cache.t3.micro@ , @cache.t3.small@ , @cache.t3.medium@
+    -- __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@
+    --
+    --
+    --     * Previous generation: (not recommended)
+    -- __T1 node types:__ @cache.t1.micro@
+    -- __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@
+    -- __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@
+    --
+    --
+    --
+    --
+    --     * Compute optimized:
+    --
+    --     * Previous generation: (not recommended)
+    -- __C1 node types:__ @cache.c1.xlarge@
+    --
+    --
+    --
+    --
+    --     * Memory optimized:
+    --
+    --     * Current generation:
+    -- __R6g node types__ (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).
+    -- @cache.r6g.large@ , @cache.r6g.xlarge@ , @cache.r6g.2xlarge@ , @cache.r6g.4xlarge@ , @cache.r6g.8xlarge@ , @cache.r6g.12xlarge@ , @cache.r6g.16xlarge@
+    -- __R5 node types:__ @cache.r5.large@ , @cache.r5.xlarge@ , @cache.r5.2xlarge@ , @cache.r5.4xlarge@ , @cache.r5.12xlarge@ , @cache.r5.24xlarge@
+    -- __R4 node types:__ @cache.r4.large@ , @cache.r4.xlarge@ , @cache.r4.2xlarge@ , @cache.r4.4xlarge@ , @cache.r4.8xlarge@ , @cache.r4.16xlarge@
+    --
+    --
+    --     * Previous generation: (not recommended)
+    -- __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@
+    -- __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@
+    --
+    --
+    --
+    --
+    -- __Additional node type info__
+    --
+    --     * All current generation instance types are created in Amazon VPC by default.
+    --
+    --
+    --     * Redis append-only files (AOF) are not supported for T1 or T2 instances.
+    --
+    --
+    --     * Redis Multi-AZ with automatic failover is not supported on T1 instances.
+    --
+    --
+    --     * Redis configuration variables @appendonly@ and @appendfsync@ are not supported on Redis version 2.8.22 and later.
     cacheNodeType :: Lude.Maybe Lude.Text,
+    -- | A list of cache nodes that are members of the cluster.
     cacheNodes :: Lude.Maybe [CacheNode],
+    -- | The date and time when the cluster was created.
     cacheClusterCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | A flag that enables encryption at-rest when set to @true@ .
+    --
+    -- You cannot modify the value of @AtRestEncryptionEnabled@ after the cluster is created. To enable at-rest encryption on a cluster you must set @AtRestEncryptionEnabled@ to @true@ when you create a cluster.
+    -- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+    -- Default: @false@
     atRestEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | This parameter is currently disabled.
     autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | A list of VPC Security Groups associated with the cluster.
     securityGroups :: Lude.Maybe [SecurityGroupMembership],
+    -- | Describes a notification topic and its status. Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS).
     notificationConfiguration :: Lude.Maybe NotificationConfiguration,
+    -- | The ARN (Amazon Resource Name) of the cache cluster.
     arn :: Lude.Maybe Lude.Text,
+    -- | A flag that enables in-transit encryption when set to @true@ .
+    --
+    -- You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
+    -- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+    -- Default: @false@
     transitEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your cluster.
+    --
+    -- Example: @05:00-09:00@
     snapshotWindow :: Lude.Maybe Lude.Text,
+    -- | The user-supplied identifier of the cluster. This identifier is a unique key that identifies a cluster.
     cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | Represents a Memcached cluster endpoint which, if Automatic Discovery is enabled on the cluster, can be used by an application to connect to any node in the cluster. The configuration endpoint will always have @.cfg@ in it.
+    --
+    -- Example: @mem-3.9dvc4r/.cfg/ .usw2.cache.amazonaws.com:11211@
     configurationEndpoint :: Lude.Maybe Endpoint,
+    -- | The name of the cache engine (@memcached@ or @redis@ ) to be used for this cluster.
     engine :: Lude.Maybe Lude.Text,
+    -- | A list of cache security group elements, composed of name and status sub-elements.
     cacheSecurityGroups :: Lude.Maybe [CacheSecurityGroupMembership],
+    -- | A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
+    --
+    -- Default: @false@
     authTokenEnabled :: Lude.Maybe Lude.Bool,
+    -- | The URL of the web page where you can download the latest ElastiCache client library.
     clientDownloadLandingPage :: Lude.Maybe Lude.Text,
+    -- | Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
+    --
+    -- Valid values for @ddd@ are:
+    --
+    --     * @sun@
+    --
+    --
+    --     * @mon@
+    --
+    --
+    --     * @tue@
+    --
+    --
+    --     * @wed@
+    --
+    --
+    --     * @thu@
+    --
+    --
+    --     * @fri@
+    --
+    --
+    --     * @sat@
+    --
+    --
+    -- Example: @sun:23:00-mon:01:30@
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The name of the cache subnet group associated with the cluster.
     cacheSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
     preferredAvailabilityZone :: Lude.Maybe Lude.Text,
+    -- | Status of the cache parameter group.
     cacheParameterGroup :: Lude.Maybe CacheParameterGroupStatus,
+    -- | The current state of this cluster, one of the following values: @available@ , @creating@ , @deleted@ , @deleting@ , @incompatible-network@ , @modifying@ , @rebooting cluster nodes@ , @restore-failed@ , or @snapshotting@ .
     cacheClusterStatus :: Lude.Maybe Lude.Text,
+    -- | The number of days for which ElastiCache retains automatic cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted.
+    --
+    -- /Important:/ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
     snapshotRetentionLimit :: Lude.Maybe Lude.Int,
+    -- | The outpost ARN in which the cache cluster is created.
     preferredOutpostARN :: Lude.Maybe Lude.Text,
+    -- | The replication group to which this cluster belongs. If this field is empty, the cluster is not associated with any replication group.
     replicationGroupId :: Lude.Maybe Lude.Text,
     pendingModifiedValues :: Lude.Maybe PendingModifiedValues,
+    -- | The number of cache nodes in the cluster.
+    --
+    -- For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
     numCacheNodes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheCluster' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN (Amazon Resource Name) of the cache cluster.
--- * 'atRestEncryptionEnabled' - A flag that enables encryption at-rest when set to @true@ .
---
--- You cannot modify the value of @AtRestEncryptionEnabled@ after the cluster is created. To enable at-rest encryption on a cluster you must set @AtRestEncryptionEnabled@ to @true@ when you create a cluster.
--- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
--- Default: @false@
--- * 'authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
---
--- Default: @false@
 -- * 'authTokenLastModifiedDate' - The date the auth token was last modified
--- * 'autoMinorVersionUpgrade' - This parameter is currently disabled.
--- * 'cacheClusterCreateTime' - The date and time when the cluster was created.
--- * 'cacheClusterId' - The user-supplied identifier of the cluster. This identifier is a unique key that identifies a cluster.
--- * 'cacheClusterStatus' - The current state of this cluster, one of the following values: @available@ , @creating@ , @deleted@ , @deleting@ , @incompatible-network@ , @modifying@ , @rebooting cluster nodes@ , @restore-failed@ , or @snapshotting@ .
+-- * 'engineVersion' - The version of the cache engine that is used in this cluster.
 -- * 'cacheNodeType' - The name of the compute and memory capacity node type for the cluster.
 --
 -- The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
@@ -179,21 +288,34 @@ data CacheCluster = CacheCluster'
 --
 --
 -- * 'cacheNodes' - A list of cache nodes that are members of the cluster.
--- * 'cacheParameterGroup' - Status of the cache parameter group.
--- * 'cacheSecurityGroups' - A list of cache security group elements, composed of name and status sub-elements.
--- * 'cacheSubnetGroupName' - The name of the cache subnet group associated with the cluster.
--- * 'clientDownloadLandingPage' - The URL of the web page where you can download the latest ElastiCache client library.
+-- * 'cacheClusterCreateTime' - The date and time when the cluster was created.
+-- * 'atRestEncryptionEnabled' - A flag that enables encryption at-rest when set to @true@ .
+--
+-- You cannot modify the value of @AtRestEncryptionEnabled@ after the cluster is created. To enable at-rest encryption on a cluster you must set @AtRestEncryptionEnabled@ to @true@ when you create a cluster.
+-- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+-- Default: @false@
+-- * 'autoMinorVersionUpgrade' - This parameter is currently disabled.
+-- * 'securityGroups' - A list of VPC Security Groups associated with the cluster.
+-- * 'notificationConfiguration' - Describes a notification topic and its status. Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS).
+-- * 'arn' - The ARN (Amazon Resource Name) of the cache cluster.
+-- * 'transitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@ .
+--
+-- You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
+-- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+-- Default: @false@
+-- * 'snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your cluster.
+--
+-- Example: @05:00-09:00@
+-- * 'cacheClusterId' - The user-supplied identifier of the cluster. This identifier is a unique key that identifies a cluster.
 -- * 'configurationEndpoint' - Represents a Memcached cluster endpoint which, if Automatic Discovery is enabled on the cluster, can be used by an application to connect to any node in the cluster. The configuration endpoint will always have @.cfg@ in it.
 --
 -- Example: @mem-3.9dvc4r/.cfg/ .usw2.cache.amazonaws.com:11211@
 -- * 'engine' - The name of the cache engine (@memcached@ or @redis@ ) to be used for this cluster.
--- * 'engineVersion' - The version of the cache engine that is used in this cluster.
--- * 'notificationConfiguration' - Describes a notification topic and its status. Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS).
--- * 'numCacheNodes' - The number of cache nodes in the cluster.
+-- * 'cacheSecurityGroups' - A list of cache security group elements, composed of name and status sub-elements.
+-- * 'authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
 --
--- For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
--- * 'pendingModifiedValues' - Undocumented field.
--- * 'preferredAvailabilityZone' - The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+-- Default: @false@
+-- * 'clientDownloadLandingPage' - The URL of the web page where you can download the latest ElastiCache client library.
 -- * 'preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
 --
 -- Valid values for @ddd@ are:
@@ -220,20 +342,19 @@ data CacheCluster = CacheCluster'
 --
 --
 -- Example: @sun:23:00-mon:01:30@
--- * 'preferredOutpostARN' - The outpost ARN in which the cache cluster is created.
--- * 'replicationGroupId' - The replication group to which this cluster belongs. If this field is empty, the cluster is not associated with any replication group.
--- * 'securityGroups' - A list of VPC Security Groups associated with the cluster.
+-- * 'cacheSubnetGroupName' - The name of the cache subnet group associated with the cluster.
+-- * 'preferredAvailabilityZone' - The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+-- * 'cacheParameterGroup' - Status of the cache parameter group.
+-- * 'cacheClusterStatus' - The current state of this cluster, one of the following values: @available@ , @creating@ , @deleted@ , @deleting@ , @incompatible-network@ , @modifying@ , @rebooting cluster nodes@ , @restore-failed@ , or @snapshotting@ .
 -- * 'snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted.
 --
 -- /Important:/ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
--- * 'snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your cluster.
+-- * 'preferredOutpostARN' - The outpost ARN in which the cache cluster is created.
+-- * 'replicationGroupId' - The replication group to which this cluster belongs. If this field is empty, the cluster is not associated with any replication group.
+-- * 'pendingModifiedValues' -
+-- * 'numCacheNodes' - The number of cache nodes in the cluster.
 --
--- Example: @05:00-09:00@
--- * 'transitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@ .
---
--- You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
--- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
--- Default: @false@
+-- For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
 mkCacheCluster ::
   CacheCluster
 mkCacheCluster =

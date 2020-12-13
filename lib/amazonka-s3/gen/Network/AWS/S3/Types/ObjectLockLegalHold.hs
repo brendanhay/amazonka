@@ -30,16 +30,10 @@ import Network.AWS.S3.Types.ObjectLockLegalHoldStatus
 --
 -- /See:/ 'mkObjectLockLegalHold' smart constructor.
 newtype ObjectLockLegalHold = ObjectLockLegalHold'
-  { status ::
-      Lude.Maybe ObjectLockLegalHoldStatus
+  { -- | Indicates whether the specified object has a Legal Hold in place.
+    status :: Lude.Maybe ObjectLockLegalHoldStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectLockLegalHold' with the minimum fields required to make a request.

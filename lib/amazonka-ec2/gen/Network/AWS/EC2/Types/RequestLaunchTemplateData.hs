@@ -72,116 +72,113 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRequestLaunchTemplateData' smart constructor.
 data RequestLaunchTemplateData = RequestLaunchTemplateData'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
-    securityGroups ::
-      Lude.Maybe [Lude.Text],
-    elasticInferenceAccelerators ::
-      Lude.Maybe
-        [LaunchTemplateElasticInferenceAccelerator],
-    instanceMarketOptions ::
-      Lude.Maybe
-        LaunchTemplateInstanceMarketOptionsRequest,
-    licenseSpecifications ::
-      Lude.Maybe
-        [LaunchTemplateLicenseConfigurationRequest],
-    disableAPITermination ::
-      Lude.Maybe Lude.Bool,
+  { -- | One or more security group IDs. You can create a security group using <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html CreateSecurityGroup> . You cannot specify both a security group ID and security name in the same request.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
+    securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The elastic inference accelerator for the instance.
+    elasticInferenceAccelerators :: Lude.Maybe [LaunchTemplateElasticInferenceAccelerator],
+    -- | The market (purchasing) option for the instances.
+    instanceMarketOptions :: Lude.Maybe LaunchTemplateInstanceMarketOptionsRequest,
+    -- | The license configurations.
+    licenseSpecifications :: Lude.Maybe [LaunchTemplateLicenseConfigurationRequest],
+    -- | If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html ModifyInstanceAttribute> . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance.
+    disableAPITermination :: Lude.Maybe Lude.Bool,
+    -- | The name of the key pair. You can create a key pair using <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair> or <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html ImportKeyPair> .
+    --
+    -- /Important:/ If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
     keyName :: Lude.Maybe Lude.Text,
-    networkInterfaces ::
-      Lude.Maybe
-        [LaunchTemplateInstanceNetworkInterfaceSpecificationRequest],
-    enclaveOptions ::
-      Lude.Maybe
-        LaunchTemplateEnclaveOptionsRequest,
-    cpuOptions ::
-      Lude.Maybe
-        LaunchTemplateCPUOptionsRequest,
+    -- | One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+    networkInterfaces :: Lude.Maybe [LaunchTemplateInstanceNetworkInterfaceSpecificationRequest],
+    -- | Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html What is AWS Nitro Enclaves?> in the /AWS Nitro Enclaves User Guide/ .
+    --
+    -- You can't enable AWS Nitro Enclaves and hibernation on the same instance.
+    enclaveOptions :: Lude.Maybe LaunchTemplateEnclaveOptionsRequest,
+    -- | The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
+    cpuOptions :: Lude.Maybe LaunchTemplateCPUOptionsRequest,
+    -- | The ID of the RAM disk.
+    --
+    -- /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
     ramDiskId :: Lude.Maybe Lude.Text,
+    -- | The ID of the kernel.
+    --
+    -- /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
     kernelId :: Lude.Maybe Lude.Text,
-    elasticGpuSpecifications ::
-      Lude.Maybe [ElasticGpuSpecification],
+    -- | An elastic GPU to associate with the instance.
+    elasticGpuSpecifications :: Lude.Maybe [ElasticGpuSpecification],
+    -- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
     instanceType :: Lude.Maybe InstanceType,
-    capacityReservationSpecification ::
-      Lude.Maybe
-        LaunchTemplateCapacityReservationSpecificationRequest,
+    -- | The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to @open@ , which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+    capacityReservationSpecification :: Lude.Maybe LaunchTemplateCapacityReservationSpecificationRequest,
+    -- | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
     ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The Base64-encoded user data to make available to the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows).
     userData :: Lude.Maybe Lude.Text,
-    monitoring ::
-      Lude.Maybe
-        LaunchTemplatesMonitoringRequest,
-    tagSpecifications ::
-      Lude.Maybe
-        [LaunchTemplateTagSpecificationRequest],
-    hibernationOptions ::
-      Lude.Maybe
-        LaunchTemplateHibernationOptionsRequest,
-    iamInstanceProfile ::
-      Lude.Maybe
-        LaunchTemplateIAMInstanceProfileSpecificationRequest,
+    -- | The monitoring for the instance.
+    monitoring :: Lude.Maybe LaunchTemplatesMonitoringRequest,
+    -- | The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
+    tagSpecifications :: Lude.Maybe [LaunchTemplateTagSpecificationRequest],
+    -- | Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites> . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+    hibernationOptions :: Lude.Maybe LaunchTemplateHibernationOptionsRequest,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: Lude.Maybe LaunchTemplateIAMInstanceProfileSpecificationRequest,
+    -- | The ID of the AMI.
     imageId :: Lude.Maybe Lude.Text,
-    instanceInitiatedShutdownBehavior ::
-      Lude.Maybe ShutdownBehavior,
-    metadataOptions ::
-      Lude.Maybe
-        LaunchTemplateInstanceMetadataOptionsRequest,
-    creditSpecification ::
-      Lude.Maybe CreditSpecificationRequest,
-    blockDeviceMappings ::
-      Lude.Maybe
-        [LaunchTemplateBlockDeviceMappingRequest],
-    placement ::
-      Lude.Maybe
-        LaunchTemplatePlacementRequest
+    -- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+    --
+    -- Default: @stop@
+    instanceInitiatedShutdownBehavior :: Lude.Maybe ShutdownBehavior,
+    -- | The metadata options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data> in the /Amazon Elastic Compute Cloud User Guide/ .
+    metadataOptions :: Lude.Maybe LaunchTemplateInstanceMetadataOptionsRequest,
+    -- | The credit option for CPU usage of the instance. Valid for T2, T3, or T3a instances only.
+    creditSpecification :: Lude.Maybe CreditSpecificationRequest,
+    -- | The block device mapping.
+    blockDeviceMappings :: Lude.Maybe [LaunchTemplateBlockDeviceMappingRequest],
+    -- | The placement for the instance.
+    placement :: Lude.Maybe LaunchTemplatePlacementRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestLaunchTemplateData' with the minimum fields required to make a request.
 --
--- * 'blockDeviceMappings' - The block device mapping.
--- * 'capacityReservationSpecification' - The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to @open@ , which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
--- * 'cpuOptions' - The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'creditSpecification' - The credit option for CPU usage of the instance. Valid for T2, T3, or T3a instances only.
--- * 'disableAPITermination' - If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html ModifyInstanceAttribute> . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance.
--- * 'ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
--- * 'elasticGpuSpecifications' - An elastic GPU to associate with the instance.
+-- * 'securityGroupIds' - One or more security group IDs. You can create a security group using <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html CreateSecurityGroup> . You cannot specify both a security group ID and security name in the same request.
+-- * 'securityGroups' - [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
 -- * 'elasticInferenceAccelerators' - The elastic inference accelerator for the instance.
+-- * 'instanceMarketOptions' - The market (purchasing) option for the instances.
+-- * 'licenseSpecifications' - The license configurations.
+-- * 'disableAPITermination' - If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html ModifyInstanceAttribute> . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance.
+-- * 'keyName' - The name of the key pair. You can create a key pair using <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair> or <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html ImportKeyPair> .
+--
+-- /Important:/ If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
+-- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
 -- * 'enclaveOptions' - Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html What is AWS Nitro Enclaves?> in the /AWS Nitro Enclaves User Guide/ .
 --
 -- You can't enable AWS Nitro Enclaves and hibernation on the same instance.
+-- * 'cpuOptions' - The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'ramDiskId' - The ID of the RAM disk.
+--
+-- /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'kernelId' - The ID of the kernel.
+--
+-- /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'elasticGpuSpecifications' - An elastic GPU to associate with the instance.
+-- * 'instanceType' - The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'capacityReservationSpecification' - The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to @open@ , which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+-- * 'ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
+-- * 'userData' - The Base64-encoded user data to make available to the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows).
+-- * 'monitoring' - The monitoring for the instance.
+-- * 'tagSpecifications' - The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
 -- * 'hibernationOptions' - Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites> . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- * 'iamInstanceProfile' - The IAM instance profile.
 -- * 'imageId' - The ID of the AMI.
 -- * 'instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 --
 -- Default: @stop@
--- * 'instanceMarketOptions' - The market (purchasing) option for the instances.
--- * 'instanceType' - The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'kernelId' - The ID of the kernel.
---
--- /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'keyName' - The name of the key pair. You can create a key pair using <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair> or <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html ImportKeyPair> .
---
--- /Important:/ If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
--- * 'licenseSpecifications' - The license configurations.
 -- * 'metadataOptions' - The metadata options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'monitoring' - The monitoring for the instance.
--- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+-- * 'creditSpecification' - The credit option for CPU usage of the instance. Valid for T2, T3, or T3a instances only.
+-- * 'blockDeviceMappings' - The block device mapping.
 -- * 'placement' - The placement for the instance.
--- * 'ramDiskId' - The ID of the RAM disk.
---
--- /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'securityGroupIds' - One or more security group IDs. You can create a security group using <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html CreateSecurityGroup> . You cannot specify both a security group ID and security name in the same request.
--- * 'securityGroups' - [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
--- * 'tagSpecifications' - The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
--- * 'userData' - The Base64-encoded user data to make available to the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows).
 mkRequestLaunchTemplateData ::
   RequestLaunchTemplateData
 mkRequestLaunchTemplateData =

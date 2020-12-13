@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodePipeline.CreatePipeline
     mkCreatePipeline,
 
     -- ** Request lenses
-    cpTags,
     cpPipeline,
+    cpTags,
 
     -- * Destructuring the response
     CreatePipelineResponse (..),
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { tags :: Lude.Maybe [Tag],
-    pipeline :: PipelineDeclaration
+  { -- | Represents the structure of actions and stages to be performed in the pipeline.
+    pipeline :: PipelineDeclaration,
+    -- | The tags for the pipeline.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
@@ -64,14 +61,7 @@ mkCreatePipeline ::
   PipelineDeclaration ->
   CreatePipeline
 mkCreatePipeline pPipeline_ =
-  CreatePipeline' {tags = Lude.Nothing, pipeline = pPipeline_}
-
--- | The tags for the pipeline.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpTags :: Lens.Lens' CreatePipeline (Lude.Maybe [Tag])
-cpTags = Lens.lens (tags :: CreatePipeline -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePipeline)
-{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+  CreatePipeline' {pipeline = pPipeline_, tags = Lude.Nothing}
 
 -- | Represents the structure of actions and stages to be performed in the pipeline.
 --
@@ -79,6 +69,13 @@ cpTags = Lens.lens (tags :: CreatePipeline -> Lude.Maybe [Tag]) (\s a -> s {tags
 cpPipeline :: Lens.Lens' CreatePipeline PipelineDeclaration
 cpPipeline = Lens.lens (pipeline :: CreatePipeline -> PipelineDeclaration) (\s a -> s {pipeline = a} :: CreatePipeline)
 {-# DEPRECATED cpPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
+
+-- | The tags for the pipeline.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTags :: Lens.Lens' CreatePipeline (Lude.Maybe [Tag])
+cpTags = Lens.lens (tags :: CreatePipeline -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePipeline)
+{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreatePipeline where
   type Rs CreatePipeline = CreatePipelineResponse
@@ -107,8 +104,8 @@ instance Lude.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("pipeline" Lude..= pipeline)
+          [ Lude.Just ("pipeline" Lude..= pipeline),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -122,25 +119,21 @@ instance Lude.ToQuery CreatePipeline where
 --
 -- /See:/ 'mkCreatePipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-  { pipeline ::
-      Lude.Maybe PipelineDeclaration,
+  { -- | Represents the structure of actions and stages to be performed in the pipeline.
+    pipeline :: Lude.Maybe PipelineDeclaration,
+    -- | Specifies the tags applied to the pipeline.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
 --
 -- * 'pipeline' - Represents the structure of actions and stages to be performed in the pipeline.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - Specifies the tags applied to the pipeline.
+-- * 'responseStatus' - The response status code.
 mkCreatePipelineResponse ::
   -- | 'responseStatus'
   Lude.Int ->

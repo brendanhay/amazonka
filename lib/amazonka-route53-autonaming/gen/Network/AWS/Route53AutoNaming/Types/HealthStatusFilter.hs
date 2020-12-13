@@ -13,9 +13,9 @@
 module Network.AWS.Route53AutoNaming.Types.HealthStatusFilter
   ( HealthStatusFilter
       ( HealthStatusFilter',
-        HSFAll,
         HSFHealthy,
-        HSFUnhealthy
+        HSFUnhealthy,
+        HSFAll
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype HealthStatusFilter = HealthStatusFilter' Lude.Text
       Lude.ToHeader
     )
 
-pattern HSFAll :: HealthStatusFilter
-pattern HSFAll = HealthStatusFilter' "ALL"
-
 pattern HSFHealthy :: HealthStatusFilter
 pattern HSFHealthy = HealthStatusFilter' "HEALTHY"
 
 pattern HSFUnhealthy :: HealthStatusFilter
 pattern HSFUnhealthy = HealthStatusFilter' "UNHEALTHY"
 
+pattern HSFAll :: HealthStatusFilter
+pattern HSFAll = HealthStatusFilter' "ALL"
+
 {-# COMPLETE
-  HSFAll,
   HSFHealthy,
   HSFUnhealthy,
+  HSFAll,
   HealthStatusFilter'
   #-}

@@ -32,23 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnet' smart constructor.
 data Subnet = Subnet'
-  { subnetIdentifier :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the subnet.
+    subnetIdentifier :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone associated with the subnet.
     subnetAvailabilityZone :: Lude.Maybe AvailabilityZone,
+    -- | The outpost ARN of the subnet.
     subnetOutpost :: Lude.Maybe SubnetOutpost
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
--- * 'subnetAvailabilityZone' - The Availability Zone associated with the subnet.
 -- * 'subnetIdentifier' - The unique identifier for the subnet.
+-- * 'subnetAvailabilityZone' - The Availability Zone associated with the subnet.
 -- * 'subnetOutpost' - The outpost ARN of the subnet.
 mkSubnet ::
   Subnet

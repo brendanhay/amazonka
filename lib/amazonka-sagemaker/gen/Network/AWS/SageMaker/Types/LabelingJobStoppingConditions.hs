@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLabelingJobStoppingConditions' smart constructor.
 data LabelingJobStoppingConditions = LabelingJobStoppingConditions'
-  { maxHumanLabeledObjectCount ::
-      Lude.Maybe Lude.Natural,
-    maxPercentageOfInputDatasetLabeled ::
-      Lude.Maybe Lude.Natural
+  { -- | The maximum number of objects that can be labeled by human workers.
+    maxHumanLabeledObjectCount :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of input data objects that should be labeled.
+    maxPercentageOfInputDatasetLabeled :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobStoppingConditions' with the minimum fields required to make a request.

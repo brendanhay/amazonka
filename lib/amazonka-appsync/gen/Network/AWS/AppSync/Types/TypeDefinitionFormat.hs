@@ -13,8 +13,8 @@
 module Network.AWS.AppSync.Types.TypeDefinitionFormat
   ( TypeDefinitionFormat
       ( TypeDefinitionFormat',
-        JSON,
-        Sdl
+        Sdl,
+        JSON
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TypeDefinitionFormat = TypeDefinitionFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern JSON :: TypeDefinitionFormat
-pattern JSON = TypeDefinitionFormat' "JSON"
-
 pattern Sdl :: TypeDefinitionFormat
 pattern Sdl = TypeDefinitionFormat' "SDL"
 
+pattern JSON :: TypeDefinitionFormat
+pattern JSON = TypeDefinitionFormat' "JSON"
+
 {-# COMPLETE
-  JSON,
   Sdl,
+  JSON,
   TypeDefinitionFormat'
   #-}

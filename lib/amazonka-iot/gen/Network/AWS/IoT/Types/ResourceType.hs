@@ -13,14 +13,14 @@
 module Network.AWS.IoT.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        RTAccountSettings,
-        RTCaCertificate,
-        RTClientId,
-        RTCognitoIdentityPool,
         RTDeviceCertificate,
-        RTIAMRole,
+        RTCaCertificate,
         RTIotPolicy,
-        RTRoleAlias
+        RTCognitoIdentityPool,
+        RTClientId,
+        RTAccountSettings,
+        RTRoleAlias,
+        RTIAMRole
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype ResourceType = ResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RTAccountSettings :: ResourceType
-pattern RTAccountSettings = ResourceType' "ACCOUNT_SETTINGS"
+pattern RTDeviceCertificate :: ResourceType
+pattern RTDeviceCertificate = ResourceType' "DEVICE_CERTIFICATE"
 
 pattern RTCaCertificate :: ResourceType
 pattern RTCaCertificate = ResourceType' "CA_CERTIFICATE"
 
-pattern RTClientId :: ResourceType
-pattern RTClientId = ResourceType' "CLIENT_ID"
+pattern RTIotPolicy :: ResourceType
+pattern RTIotPolicy = ResourceType' "IOT_POLICY"
 
 pattern RTCognitoIdentityPool :: ResourceType
 pattern RTCognitoIdentityPool = ResourceType' "COGNITO_IDENTITY_POOL"
 
-pattern RTDeviceCertificate :: ResourceType
-pattern RTDeviceCertificate = ResourceType' "DEVICE_CERTIFICATE"
+pattern RTClientId :: ResourceType
+pattern RTClientId = ResourceType' "CLIENT_ID"
 
-pattern RTIAMRole :: ResourceType
-pattern RTIAMRole = ResourceType' "IAM_ROLE"
-
-pattern RTIotPolicy :: ResourceType
-pattern RTIotPolicy = ResourceType' "IOT_POLICY"
+pattern RTAccountSettings :: ResourceType
+pattern RTAccountSettings = ResourceType' "ACCOUNT_SETTINGS"
 
 pattern RTRoleAlias :: ResourceType
 pattern RTRoleAlias = ResourceType' "ROLE_ALIAS"
 
+pattern RTIAMRole :: ResourceType
+pattern RTIAMRole = ResourceType' "IAM_ROLE"
+
 {-# COMPLETE
-  RTAccountSettings,
-  RTCaCertificate,
-  RTClientId,
-  RTCognitoIdentityPool,
   RTDeviceCertificate,
-  RTIAMRole,
+  RTCaCertificate,
   RTIotPolicy,
+  RTCognitoIdentityPool,
+  RTClientId,
+  RTAccountSettings,
   RTRoleAlias,
+  RTIAMRole,
   ResourceType'
   #-}

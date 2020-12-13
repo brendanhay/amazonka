@@ -31,24 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnet' smart constructor.
 data Subnet = Subnet'
-  { subnetStatus :: Lude.Maybe Lude.Text,
+  { -- | The status of the subnet.
+    subnetStatus :: Lude.Maybe Lude.Text,
+    -- | The subnet identifier.
     subnetIdentifier :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone of the subnet.
     subnetAvailabilityZone :: Lude.Maybe AvailabilityZone
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
--- * 'subnetAvailabilityZone' - The Availability Zone of the subnet.
--- * 'subnetIdentifier' - The subnet identifier.
 -- * 'subnetStatus' - The status of the subnet.
+-- * 'subnetIdentifier' - The subnet identifier.
+-- * 'subnetAvailabilityZone' - The Availability Zone of the subnet.
 mkSubnet ::
   Subnet
 mkSubnet =

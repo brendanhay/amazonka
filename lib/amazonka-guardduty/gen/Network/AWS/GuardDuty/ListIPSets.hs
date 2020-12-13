@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.GuardDuty.ListIPSets
 
     -- ** Request lenses
     lisNextToken,
-    lisMaxResults,
     lisDetectorId,
+    lisMaxResults,
 
     -- * Destructuring the response
     ListIPSetsResponse (..),
@@ -31,8 +32,8 @@ module Network.AWS.GuardDuty.ListIPSets
 
     -- ** Response lenses
     lisrsNextToken,
-    lisrsResponseStatus,
     lisrsIPSetIds,
+    lisrsResponseStatus,
   )
 where
 
@@ -45,24 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListIPSets' smart constructor.
 data ListIPSets = ListIPSets'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    detectorId :: Lude.Text
+  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the detector that the IPSet is associated with.
+    detectorId :: Lude.Text,
+    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIPSets' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
 -- * 'detectorId' - The unique ID of the detector that the IPSet is associated with.
 -- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
 mkListIPSets ::
   -- | 'detectorId'
   Lude.Text ->
@@ -70,8 +68,8 @@ mkListIPSets ::
 mkListIPSets pDetectorId_ =
   ListIPSets'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      detectorId = pDetectorId_
+      detectorId = pDetectorId_,
+      maxResults = Lude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
@@ -81,19 +79,19 @@ lisNextToken :: Lens.Lens' ListIPSets (Lude.Maybe Lude.Text)
 lisNextToken = Lens.lens (nextToken :: ListIPSets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIPSets)
 {-# DEPRECATED lisNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lisMaxResults :: Lens.Lens' ListIPSets (Lude.Maybe Lude.Natural)
-lisMaxResults = Lens.lens (maxResults :: ListIPSets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListIPSets)
-{-# DEPRECATED lisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The unique ID of the detector that the IPSet is associated with.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lisDetectorId :: Lens.Lens' ListIPSets Lude.Text
 lisDetectorId = Lens.lens (detectorId :: ListIPSets -> Lude.Text) (\s a -> s {detectorId = a} :: ListIPSets)
 {-# DEPRECATED lisDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
+-- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 50. The maximum value is 50.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lisMaxResults :: Lens.Lens' ListIPSets (Lude.Maybe Lude.Natural)
+lisMaxResults = Lens.lens (maxResults :: ListIPSets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListIPSets)
+{-# DEPRECATED lisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListIPSets where
   page rq rs
@@ -112,8 +110,8 @@ instance Lude.AWSRequest ListIPSets where
       ( \s h x ->
           ListIPSetsResponse'
             Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "ipSetIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListIPSets where
@@ -136,24 +134,20 @@ instance Lude.ToQuery ListIPSets where
 
 -- | /See:/ 'mkListIPSetsResponse' smart constructor.
 data ListIPSetsResponse = ListIPSetsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    ipSetIds :: [Lude.Text]
+  { -- | The pagination parameter to be used on the next list operation to retrieve more items.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The IDs of the IPSet resources.
+    ipSetIds :: [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIPSetsResponse' with the minimum fields required to make a request.
 --
--- * 'ipSetIds' - The IDs of the IPSet resources.
 -- * 'nextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
+-- * 'ipSetIds' - The IDs of the IPSet resources.
 -- * 'responseStatus' - The response status code.
 mkListIPSetsResponse ::
   -- | 'responseStatus'
@@ -162,8 +156,8 @@ mkListIPSetsResponse ::
 mkListIPSetsResponse pResponseStatus_ =
   ListIPSetsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      ipSetIds = Lude.mempty
+      ipSetIds = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination parameter to be used on the next list operation to retrieve more items.
@@ -173,16 +167,16 @@ lisrsNextToken :: Lens.Lens' ListIPSetsResponse (Lude.Maybe Lude.Text)
 lisrsNextToken = Lens.lens (nextToken :: ListIPSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIPSetsResponse)
 {-# DEPRECATED lisrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lisrsResponseStatus :: Lens.Lens' ListIPSetsResponse Lude.Int
-lisrsResponseStatus = Lens.lens (responseStatus :: ListIPSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIPSetsResponse)
-{-# DEPRECATED lisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The IDs of the IPSet resources.
 --
 -- /Note:/ Consider using 'ipSetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lisrsIPSetIds :: Lens.Lens' ListIPSetsResponse [Lude.Text]
 lisrsIPSetIds = Lens.lens (ipSetIds :: ListIPSetsResponse -> [Lude.Text]) (\s a -> s {ipSetIds = a} :: ListIPSetsResponse)
 {-# DEPRECATED lisrsIPSetIds "Use generic-lens or generic-optics with 'ipSetIds' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lisrsResponseStatus :: Lens.Lens' ListIPSetsResponse Lude.Int
+lisrsResponseStatus = Lens.lens (responseStatus :: ListIPSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIPSetsResponse)
+{-# DEPRECATED lisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

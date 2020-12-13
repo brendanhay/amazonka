@@ -28,8 +28,8 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironment' smart constructor.
 newtype Environment = Environment'
-  { variables ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text))
+  { -- | Environment variable key-value pairs.
+    variables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text))
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)

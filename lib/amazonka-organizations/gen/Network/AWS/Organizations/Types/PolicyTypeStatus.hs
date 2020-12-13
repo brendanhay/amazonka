@@ -14,8 +14,8 @@ module Network.AWS.Organizations.Types.PolicyTypeStatus
   ( PolicyTypeStatus
       ( PolicyTypeStatus',
         Enabled,
-        PendingDisable,
-        PendingEnable
+        PendingEnable,
+        PendingDisable
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype PolicyTypeStatus = PolicyTypeStatus' Lude.Text
 pattern Enabled :: PolicyTypeStatus
 pattern Enabled = PolicyTypeStatus' "ENABLED"
 
-pattern PendingDisable :: PolicyTypeStatus
-pattern PendingDisable = PolicyTypeStatus' "PENDING_DISABLE"
-
 pattern PendingEnable :: PolicyTypeStatus
 pattern PendingEnable = PolicyTypeStatus' "PENDING_ENABLE"
 
+pattern PendingDisable :: PolicyTypeStatus
+pattern PendingDisable = PolicyTypeStatus' "PENDING_DISABLE"
+
 {-# COMPLETE
   Enabled,
-  PendingDisable,
   PendingEnable,
+  PendingDisable,
   PolicyTypeStatus'
   #-}

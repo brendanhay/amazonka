@@ -17,8 +17,8 @@ module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfiguratio
     mkAccountTakeoverRiskConfigurationType,
 
     -- * Lenses
-    atrctNotifyConfiguration,
     atrctActions,
+    atrctNotifyConfiguration,
   )
 where
 
@@ -31,19 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountTakeoverRiskConfigurationType' smart constructor.
 data AccountTakeoverRiskConfigurationType = AccountTakeoverRiskConfigurationType'
-  { notifyConfiguration ::
-      Lude.Maybe
-        NotifyConfigurationType,
-    actions ::
-      AccountTakeoverActionsType
+  { -- | Account takeover risk configuration actions
+    actions :: AccountTakeoverActionsType,
+    -- | The notify configuration used to construct email notifications.
+    notifyConfiguration :: Lude.Maybe NotifyConfigurationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountTakeoverRiskConfigurationType' with the minimum fields required to make a request.
@@ -56,17 +49,9 @@ mkAccountTakeoverRiskConfigurationType ::
   AccountTakeoverRiskConfigurationType
 mkAccountTakeoverRiskConfigurationType pActions_ =
   AccountTakeoverRiskConfigurationType'
-    { notifyConfiguration =
-        Lude.Nothing,
-      actions = pActions_
+    { actions = pActions_,
+      notifyConfiguration = Lude.Nothing
     }
-
--- | The notify configuration used to construct email notifications.
---
--- /Note:/ Consider using 'notifyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrctNotifyConfiguration :: Lens.Lens' AccountTakeoverRiskConfigurationType (Lude.Maybe NotifyConfigurationType)
-atrctNotifyConfiguration = Lens.lens (notifyConfiguration :: AccountTakeoverRiskConfigurationType -> Lude.Maybe NotifyConfigurationType) (\s a -> s {notifyConfiguration = a} :: AccountTakeoverRiskConfigurationType)
-{-# DEPRECATED atrctNotifyConfiguration "Use generic-lens or generic-optics with 'notifyConfiguration' instead." #-}
 
 -- | Account takeover risk configuration actions
 --
@@ -75,20 +60,27 @@ atrctActions :: Lens.Lens' AccountTakeoverRiskConfigurationType AccountTakeoverA
 atrctActions = Lens.lens (actions :: AccountTakeoverRiskConfigurationType -> AccountTakeoverActionsType) (\s a -> s {actions = a} :: AccountTakeoverRiskConfigurationType)
 {-# DEPRECATED atrctActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
+-- | The notify configuration used to construct email notifications.
+--
+-- /Note:/ Consider using 'notifyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atrctNotifyConfiguration :: Lens.Lens' AccountTakeoverRiskConfigurationType (Lude.Maybe NotifyConfigurationType)
+atrctNotifyConfiguration = Lens.lens (notifyConfiguration :: AccountTakeoverRiskConfigurationType -> Lude.Maybe NotifyConfigurationType) (\s a -> s {notifyConfiguration = a} :: AccountTakeoverRiskConfigurationType)
+{-# DEPRECATED atrctNotifyConfiguration "Use generic-lens or generic-optics with 'notifyConfiguration' instead." #-}
+
 instance Lude.FromJSON AccountTakeoverRiskConfigurationType where
   parseJSON =
     Lude.withObject
       "AccountTakeoverRiskConfigurationType"
       ( \x ->
           AccountTakeoverRiskConfigurationType'
-            Lude.<$> (x Lude..:? "NotifyConfiguration") Lude.<*> (x Lude..: "Actions")
+            Lude.<$> (x Lude..: "Actions") Lude.<*> (x Lude..:? "NotifyConfiguration")
       )
 
 instance Lude.ToJSON AccountTakeoverRiskConfigurationType where
   toJSON AccountTakeoverRiskConfigurationType' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NotifyConfiguration" Lude..=) Lude.<$> notifyConfiguration,
-            Lude.Just ("Actions" Lude..= actions)
+          [ Lude.Just ("Actions" Lude..= actions),
+            ("NotifyConfiguration" Lude..=) Lude.<$> notifyConfiguration
           ]
       )

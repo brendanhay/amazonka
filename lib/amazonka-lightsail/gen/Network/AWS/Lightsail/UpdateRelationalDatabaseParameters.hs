@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Lightsail.UpdateRelationalDatabaseParameters
     mkUpdateRelationalDatabaseParameters,
 
     -- ** Request lenses
-    urdpRelationalDatabaseName,
     urdpParameters,
+    urdpRelationalDatabaseName,
 
     -- * Destructuring the response
     UpdateRelationalDatabaseParametersResponse (..),
@@ -43,18 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateRelationalDatabaseParameters' smart constructor.
 data UpdateRelationalDatabaseParameters = UpdateRelationalDatabaseParameters'
-  { relationalDatabaseName ::
-      Lude.Text,
-    parameters ::
-      [RelationalDatabaseParameter]
+  { -- | The database parameters to update.
+    parameters :: [RelationalDatabaseParameter],
+    -- | The name of your database for which to update parameters.
+    relationalDatabaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRelationalDatabaseParameters' with the minimum fields required to make a request.
@@ -67,17 +62,9 @@ mkUpdateRelationalDatabaseParameters ::
   UpdateRelationalDatabaseParameters
 mkUpdateRelationalDatabaseParameters pRelationalDatabaseName_ =
   UpdateRelationalDatabaseParameters'
-    { relationalDatabaseName =
-        pRelationalDatabaseName_,
-      parameters = Lude.mempty
+    { parameters = Lude.mempty,
+      relationalDatabaseName = pRelationalDatabaseName_
     }
-
--- | The name of your database for which to update parameters.
---
--- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdpRelationalDatabaseName :: Lens.Lens' UpdateRelationalDatabaseParameters Lude.Text
-urdpRelationalDatabaseName = Lens.lens (relationalDatabaseName :: UpdateRelationalDatabaseParameters -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: UpdateRelationalDatabaseParameters)
-{-# DEPRECATED urdpRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
 -- | The database parameters to update.
 --
@@ -85,6 +72,13 @@ urdpRelationalDatabaseName = Lens.lens (relationalDatabaseName :: UpdateRelation
 urdpParameters :: Lens.Lens' UpdateRelationalDatabaseParameters [RelationalDatabaseParameter]
 urdpParameters = Lens.lens (parameters :: UpdateRelationalDatabaseParameters -> [RelationalDatabaseParameter]) (\s a -> s {parameters = a} :: UpdateRelationalDatabaseParameters)
 {-# DEPRECATED urdpParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+-- | The name of your database for which to update parameters.
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdpRelationalDatabaseName :: Lens.Lens' UpdateRelationalDatabaseParameters Lude.Text
+urdpRelationalDatabaseName = Lens.lens (relationalDatabaseName :: UpdateRelationalDatabaseParameters -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: UpdateRelationalDatabaseParameters)
+{-# DEPRECATED urdpRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
 instance Lude.AWSRequest UpdateRelationalDatabaseParameters where
   type
@@ -116,9 +110,9 @@ instance Lude.ToJSON UpdateRelationalDatabaseParameters where
   toJSON UpdateRelationalDatabaseParameters' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName),
-            Lude.Just ("parameters" Lude..= parameters)
+          [ Lude.Just ("parameters" Lude..= parameters),
+            Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName)
           ]
       )
 
@@ -130,19 +124,12 @@ instance Lude.ToQuery UpdateRelationalDatabaseParameters where
 
 -- | /See:/ 'mkUpdateRelationalDatabaseParametersResponse' smart constructor.
 data UpdateRelationalDatabaseParametersResponse = UpdateRelationalDatabaseParametersResponse'
-  { operations ::
-      Lude.Maybe
-        [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRelationalDatabaseParametersResponse' with the minimum fields required to make a request.

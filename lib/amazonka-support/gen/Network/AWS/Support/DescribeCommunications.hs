@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,11 +25,11 @@ module Network.AWS.Support.DescribeCommunications
     mkDescribeCommunications,
 
     -- ** Request lenses
-    dAfterTime,
-    dBeforeTime,
-    dNextToken,
-    dMaxResults,
-    dCaseId,
+    dcAfterTime,
+    dcCaseId,
+    dcBeforeTime,
+    dcNextToken,
+    dcMaxResults,
 
     -- * Destructuring the response
     DescribeCommunicationsResponse (..),
@@ -50,29 +51,27 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'mkDescribeCommunications' smart constructor.
 data DescribeCommunications = DescribeCommunications'
-  { afterTime ::
-      Lude.Maybe Lude.Text,
+  { -- | The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
+    afterTime :: Lude.Maybe Lude.Text,
+    -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
+    caseId :: Lude.Text,
+    -- | The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
     beforeTime :: Lude.Maybe Lude.Text,
+    -- | A resumption point for pagination.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    caseId :: Lude.Text
+    -- | The maximum number of results to return before paginating.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCommunications' with the minimum fields required to make a request.
 --
 -- * 'afterTime' - The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
--- * 'beforeTime' - The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 -- * 'caseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
--- * 'maxResults' - The maximum number of results to return before paginating.
+-- * 'beforeTime' - The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 -- * 'nextToken' - A resumption point for pagination.
+-- * 'maxResults' - The maximum number of results to return before paginating.
 mkDescribeCommunications ::
   -- | 'caseId'
   Lude.Text ->
@@ -80,46 +79,46 @@ mkDescribeCommunications ::
 mkDescribeCommunications pCaseId_ =
   DescribeCommunications'
     { afterTime = Lude.Nothing,
+      caseId = pCaseId_,
       beforeTime = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      caseId = pCaseId_
+      maxResults = Lude.Nothing
     }
 
 -- | The start date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
 --
 -- /Note:/ Consider using 'afterTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAfterTime :: Lens.Lens' DescribeCommunications (Lude.Maybe Lude.Text)
-dAfterTime = Lens.lens (afterTime :: DescribeCommunications -> Lude.Maybe Lude.Text) (\s a -> s {afterTime = a} :: DescribeCommunications)
-{-# DEPRECATED dAfterTime "Use generic-lens or generic-optics with 'afterTime' instead." #-}
-
--- | The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
---
--- /Note:/ Consider using 'beforeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dBeforeTime :: Lens.Lens' DescribeCommunications (Lude.Maybe Lude.Text)
-dBeforeTime = Lens.lens (beforeTime :: DescribeCommunications -> Lude.Maybe Lude.Text) (\s a -> s {beforeTime = a} :: DescribeCommunications)
-{-# DEPRECATED dBeforeTime "Use generic-lens or generic-optics with 'beforeTime' instead." #-}
-
--- | A resumption point for pagination.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dNextToken :: Lens.Lens' DescribeCommunications (Lude.Maybe Lude.Text)
-dNextToken = Lens.lens (nextToken :: DescribeCommunications -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeCommunications)
-{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of results to return before paginating.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMaxResults :: Lens.Lens' DescribeCommunications (Lude.Maybe Lude.Natural)
-dMaxResults = Lens.lens (maxResults :: DescribeCommunications -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeCommunications)
-{-# DEPRECATED dMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dcAfterTime :: Lens.Lens' DescribeCommunications (Lude.Maybe Lude.Text)
+dcAfterTime = Lens.lens (afterTime :: DescribeCommunications -> Lude.Maybe Lude.Text) (\s a -> s {afterTime = a} :: DescribeCommunications)
+{-# DEPRECATED dcAfterTime "Use generic-lens or generic-optics with 'afterTime' instead." #-}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
 -- /Note:/ Consider using 'caseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCaseId :: Lens.Lens' DescribeCommunications Lude.Text
-dCaseId = Lens.lens (caseId :: DescribeCommunications -> Lude.Text) (\s a -> s {caseId = a} :: DescribeCommunications)
-{-# DEPRECATED dCaseId "Use generic-lens or generic-optics with 'caseId' instead." #-}
+dcCaseId :: Lens.Lens' DescribeCommunications Lude.Text
+dcCaseId = Lens.lens (caseId :: DescribeCommunications -> Lude.Text) (\s a -> s {caseId = a} :: DescribeCommunications)
+{-# DEPRECATED dcCaseId "Use generic-lens or generic-optics with 'caseId' instead." #-}
+
+-- | The end date for a filtered date search on support case communications. Case communications are available for 12 months after creation.
+--
+-- /Note:/ Consider using 'beforeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcBeforeTime :: Lens.Lens' DescribeCommunications (Lude.Maybe Lude.Text)
+dcBeforeTime = Lens.lens (beforeTime :: DescribeCommunications -> Lude.Maybe Lude.Text) (\s a -> s {beforeTime = a} :: DescribeCommunications)
+{-# DEPRECATED dcBeforeTime "Use generic-lens or generic-optics with 'beforeTime' instead." #-}
+
+-- | A resumption point for pagination.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcNextToken :: Lens.Lens' DescribeCommunications (Lude.Maybe Lude.Text)
+dcNextToken = Lens.lens (nextToken :: DescribeCommunications -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeCommunications)
+{-# DEPRECATED dcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The maximum number of results to return before paginating.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcMaxResults :: Lens.Lens' DescribeCommunications (Lude.Maybe Lude.Natural)
+dcMaxResults = Lens.lens (maxResults :: DescribeCommunications -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeCommunications)
+{-# DEPRECATED dcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeCommunications where
   page rq rs
@@ -128,7 +127,7 @@ instance Page.AWSPager DescribeCommunications where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dNextToken Lens..~ rs Lens.^. dcrsNextToken
+          Lude.& dcNextToken Lens..~ rs Lens.^. dcrsNextToken
 
 instance Lude.AWSRequest DescribeCommunications where
   type Rs DescribeCommunications = DescribeCommunicationsResponse
@@ -158,10 +157,10 @@ instance Lude.ToJSON DescribeCommunications where
     Lude.object
       ( Lude.catMaybes
           [ ("afterTime" Lude..=) Lude.<$> afterTime,
+            Lude.Just ("caseId" Lude..= caseId),
             ("beforeTime" Lude..=) Lude.<$> beforeTime,
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("caseId" Lude..= caseId)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -175,25 +174,20 @@ instance Lude.ToQuery DescribeCommunications where
 --
 -- /See:/ 'mkDescribeCommunicationsResponse' smart constructor.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    communications ::
-      Lude.Maybe [Communication],
+  { -- | A resumption point for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The communications for the case.
+    communications :: Lude.Maybe [Communication],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCommunicationsResponse' with the minimum fields required to make a request.
 --
--- * 'communications' - The communications for the case.
 -- * 'nextToken' - A resumption point for pagination.
+-- * 'communications' - The communications for the case.
 -- * 'responseStatus' - The response status code.
 mkDescribeCommunicationsResponse ::
   -- | 'responseStatus'

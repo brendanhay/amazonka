@@ -35,32 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskOverride' smart constructor.
 data TaskOverride = TaskOverride'
-  { containerOverrides ::
-      Lude.Maybe [ContainerOverride],
+  { -- | One or more container overrides sent to a task.
+    containerOverrides :: Lude.Maybe [ContainerOverride],
+    -- | The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
     executionRoleARN :: Lude.Maybe Lude.Text,
+    -- | The memory override for the task.
     memory :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
     taskRoleARN :: Lude.Maybe Lude.Text,
-    inferenceAcceleratorOverrides ::
-      Lude.Maybe [InferenceAcceleratorOverride],
+    -- | The Elastic Inference accelerator override for the task.
+    inferenceAcceleratorOverrides :: Lude.Maybe [InferenceAcceleratorOverride],
+    -- | The cpu override for the task.
     cpu :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskOverride' with the minimum fields required to make a request.
 --
 -- * 'containerOverrides' - One or more container overrides sent to a task.
--- * 'cpu' - The cpu override for the task.
 -- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
--- * 'inferenceAcceleratorOverrides' - The Elastic Inference accelerator override for the task.
 -- * 'memory' - The memory override for the task.
 -- * 'taskRoleARN' - The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+-- * 'inferenceAcceleratorOverrides' - The Elastic Inference accelerator override for the task.
+-- * 'cpu' - The cpu override for the task.
 mkTaskOverride ::
   TaskOverride
 mkTaskOverride =

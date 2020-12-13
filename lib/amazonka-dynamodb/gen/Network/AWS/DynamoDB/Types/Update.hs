@@ -18,11 +18,11 @@ module Network.AWS.DynamoDB.Types.Update
 
     -- * Lenses
     uExpressionAttributeNames,
+    uUpdateExpression,
     uExpressionAttributeValues,
     uReturnValuesOnConditionCheckFailure,
     uConditionExpression,
     uKey,
-    uUpdateExpression,
     uTableName,
   )
 where
@@ -36,35 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpdate' smart constructor.
 data Update = Update'
-  { expressionAttributeNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    expressionAttributeValues ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
-    returnValuesOnConditionCheckFailure ::
-      Lude.Maybe ReturnValuesOnConditionCheckFailure,
-    conditionExpression :: Lude.Maybe Lude.Text,
-    key :: Lude.HashMap Lude.Text (AttributeValue),
+  { -- | One or more substitution tokens for attribute names in an expression.
+    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.
     updateExpression :: Lude.Text,
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
+    returnValuesOnConditionCheckFailure :: Lude.Maybe ReturnValuesOnConditionCheckFailure,
+    -- | A condition that must be satisfied in order for a conditional update to succeed.
+    conditionExpression :: Lude.Maybe Lude.Text,
+    -- | The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
+    key :: Lude.HashMap Lude.Text (AttributeValue),
+    -- | Name of the table for the @UpdateItem@ request.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Update' with the minimum fields required to make a request.
 --
--- * 'conditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
 -- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
--- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
--- * 'key' - The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
--- * 'returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
--- * 'tableName' - Name of the table for the @UpdateItem@ request.
 -- * 'updateExpression' - An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.
+-- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
+-- * 'returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
+-- * 'conditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
+-- * 'key' - The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.
+-- * 'tableName' - Name of the table for the @UpdateItem@ request.
 mkUpdate ::
   -- | 'updateExpression'
   Lude.Text ->
@@ -74,11 +72,11 @@ mkUpdate ::
 mkUpdate pUpdateExpression_ pTableName_ =
   Update'
     { expressionAttributeNames = Lude.Nothing,
+      updateExpression = pUpdateExpression_,
       expressionAttributeValues = Lude.Nothing,
       returnValuesOnConditionCheckFailure = Lude.Nothing,
       conditionExpression = Lude.Nothing,
       key = Lude.mempty,
-      updateExpression = pUpdateExpression_,
       tableName = pTableName_
     }
 
@@ -88,6 +86,13 @@ mkUpdate pUpdateExpression_ pTableName_ =
 uExpressionAttributeNames :: Lens.Lens' Update (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 uExpressionAttributeNames = Lens.lens (expressionAttributeNames :: Update -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {expressionAttributeNames = a} :: Update)
 {-# DEPRECATED uExpressionAttributeNames "Use generic-lens or generic-optics with 'expressionAttributeNames' instead." #-}
+
+-- | An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.
+--
+-- /Note:/ Consider using 'updateExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uUpdateExpression :: Lens.Lens' Update Lude.Text
+uUpdateExpression = Lens.lens (updateExpression :: Update -> Lude.Text) (\s a -> s {updateExpression = a} :: Update)
+{-# DEPRECATED uUpdateExpression "Use generic-lens or generic-optics with 'updateExpression' instead." #-}
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -117,13 +122,6 @@ uKey :: Lens.Lens' Update (Lude.HashMap Lude.Text (AttributeValue))
 uKey = Lens.lens (key :: Update -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: Update)
 {-# DEPRECATED uKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
--- | An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.
---
--- /Note:/ Consider using 'updateExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uUpdateExpression :: Lens.Lens' Update Lude.Text
-uUpdateExpression = Lens.lens (updateExpression :: Update -> Lude.Text) (\s a -> s {updateExpression = a} :: Update)
-{-# DEPRECATED uUpdateExpression "Use generic-lens or generic-optics with 'updateExpression' instead." #-}
-
 -- | Name of the table for the @UpdateItem@ request.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -137,13 +135,13 @@ instance Lude.ToJSON Update where
       ( Lude.catMaybes
           [ ("ExpressionAttributeNames" Lude..=)
               Lude.<$> expressionAttributeNames,
+            Lude.Just ("UpdateExpression" Lude..= updateExpression),
             ("ExpressionAttributeValues" Lude..=)
               Lude.<$> expressionAttributeValues,
             ("ReturnValuesOnConditionCheckFailure" Lude..=)
               Lude.<$> returnValuesOnConditionCheckFailure,
             ("ConditionExpression" Lude..=) Lude.<$> conditionExpression,
             Lude.Just ("Key" Lude..= key),
-            Lude.Just ("UpdateExpression" Lude..= updateExpression),
             Lude.Just ("TableName" Lude..= tableName)
           ]
       )

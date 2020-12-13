@@ -17,8 +17,8 @@ module Network.AWS.IoT.Types.SigV4Authorization
     mkSigV4Authorization,
 
     -- * Lenses
-    svaSigningRegion,
     svaServiceName,
+    svaSigningRegion,
     svaRoleARN,
   )
 where
@@ -30,46 +30,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSigV4Authorization' smart constructor.
 data SigV4Authorization = SigV4Authorization'
-  { signingRegion ::
-      Lude.Text,
+  { -- | The service name to use while signing with Sig V4.
     serviceName :: Lude.Text,
+    -- | The signing region.
+    signingRegion :: Lude.Text,
+    -- | The ARN of the signing role.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SigV4Authorization' with the minimum fields required to make a request.
 --
--- * 'roleARN' - The ARN of the signing role.
 -- * 'serviceName' - The service name to use while signing with Sig V4.
 -- * 'signingRegion' - The signing region.
+-- * 'roleARN' - The ARN of the signing role.
 mkSigV4Authorization ::
-  -- | 'signingRegion'
-  Lude.Text ->
   -- | 'serviceName'
+  Lude.Text ->
+  -- | 'signingRegion'
   Lude.Text ->
   -- | 'roleARN'
   Lude.Text ->
   SigV4Authorization
-mkSigV4Authorization pSigningRegion_ pServiceName_ pRoleARN_ =
+mkSigV4Authorization pServiceName_ pSigningRegion_ pRoleARN_ =
   SigV4Authorization'
-    { signingRegion = pSigningRegion_,
-      serviceName = pServiceName_,
+    { serviceName = pServiceName_,
+      signingRegion = pSigningRegion_,
       roleARN = pRoleARN_
     }
-
--- | The signing region.
---
--- /Note:/ Consider using 'signingRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svaSigningRegion :: Lens.Lens' SigV4Authorization Lude.Text
-svaSigningRegion = Lens.lens (signingRegion :: SigV4Authorization -> Lude.Text) (\s a -> s {signingRegion = a} :: SigV4Authorization)
-{-# DEPRECATED svaSigningRegion "Use generic-lens or generic-optics with 'signingRegion' instead." #-}
 
 -- | The service name to use while signing with Sig V4.
 --
@@ -77,6 +66,13 @@ svaSigningRegion = Lens.lens (signingRegion :: SigV4Authorization -> Lude.Text) 
 svaServiceName :: Lens.Lens' SigV4Authorization Lude.Text
 svaServiceName = Lens.lens (serviceName :: SigV4Authorization -> Lude.Text) (\s a -> s {serviceName = a} :: SigV4Authorization)
 {-# DEPRECATED svaServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
+
+-- | The signing region.
+--
+-- /Note:/ Consider using 'signingRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svaSigningRegion :: Lens.Lens' SigV4Authorization Lude.Text
+svaSigningRegion = Lens.lens (signingRegion :: SigV4Authorization -> Lude.Text) (\s a -> s {signingRegion = a} :: SigV4Authorization)
+{-# DEPRECATED svaSigningRegion "Use generic-lens or generic-optics with 'signingRegion' instead." #-}
 
 -- | The ARN of the signing role.
 --
@@ -91,8 +87,8 @@ instance Lude.FromJSON SigV4Authorization where
       "SigV4Authorization"
       ( \x ->
           SigV4Authorization'
-            Lude.<$> (x Lude..: "signingRegion")
-            Lude.<*> (x Lude..: "serviceName")
+            Lude.<$> (x Lude..: "serviceName")
+            Lude.<*> (x Lude..: "signingRegion")
             Lude.<*> (x Lude..: "roleArn")
       )
 
@@ -100,8 +96,8 @@ instance Lude.ToJSON SigV4Authorization where
   toJSON SigV4Authorization' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("signingRegion" Lude..= signingRegion),
-            Lude.Just ("serviceName" Lude..= serviceName),
+          [ Lude.Just ("serviceName" Lude..= serviceName),
+            Lude.Just ("signingRegion" Lude..= signingRegion),
             Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

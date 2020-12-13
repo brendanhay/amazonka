@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatasetTrigger' smart constructor.
 data DatasetTrigger = DatasetTrigger'
-  { dataset ::
-      Lude.Maybe TriggeringDataset,
+  { -- | The data set whose content creation triggers the creation of this data set's contents.
+    dataset :: Lude.Maybe TriggeringDataset,
+    -- | The Schedule when the trigger is initiated.
     schedule :: Lude.Maybe Schedule
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetTrigger' with the minimum fields required to make a request.

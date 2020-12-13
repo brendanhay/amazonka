@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,20 +47,15 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeOrderableReplicationInstances' smart constructor.
 data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstances'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    maxRecords ::
-      Lude.Maybe
-        Lude.Int
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrderableReplicationInstances' with the minimum fields required to make a request.
@@ -150,26 +146,15 @@ instance Lude.ToQuery DescribeOrderableReplicationInstances where
 --
 -- /See:/ 'mkDescribeOrderableReplicationInstancesResponse' smart constructor.
 data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicationInstancesResponse'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    orderableReplicationInstances ::
-      Lude.Maybe
-        [OrderableReplicationInstance],
-    responseStatus ::
-      Lude.Int
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The order-able replication instances available.
+    orderableReplicationInstances :: Lude.Maybe [OrderableReplicationInstance],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrderableReplicationInstancesResponse' with the minimum fields required to make a request.
 --

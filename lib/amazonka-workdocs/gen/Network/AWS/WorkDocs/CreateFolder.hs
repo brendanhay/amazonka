@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkDocs.CreateFolder
     mkCreateFolder,
 
     -- ** Request lenses
+    cfParentFolderId,
     cfAuthenticationToken,
     cfName,
-    cfParentFolderId,
 
     -- * Destructuring the response
     CreateFolderResponse (..),
@@ -41,29 +42,38 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkCreateFolder' smart constructor.
 data CreateFolder = CreateFolder'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    name :: Lude.Maybe Lude.Text,
-    parentFolderId :: Lude.Text
+  { -- | The ID of the parent folder.
+    parentFolderId :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The name of the new folder.
+    name :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFolder' with the minimum fields required to make a request.
 --
+-- * 'parentFolderId' - The ID of the parent folder.
 -- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'name' - The name of the new folder.
--- * 'parentFolderId' - The ID of the parent folder.
 mkCreateFolder ::
   -- | 'parentFolderId'
   Lude.Text ->
   CreateFolder
 mkCreateFolder pParentFolderId_ =
   CreateFolder'
-    { authenticationToken = Lude.Nothing,
-      name = Lude.Nothing,
-      parentFolderId = pParentFolderId_
+    { parentFolderId = pParentFolderId_,
+      authenticationToken = Lude.Nothing,
+      name = Lude.Nothing
     }
+
+-- | The ID of the parent folder.
+--
+-- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfParentFolderId :: Lens.Lens' CreateFolder Lude.Text
+cfParentFolderId = Lens.lens (parentFolderId :: CreateFolder -> Lude.Text) (\s a -> s {parentFolderId = a} :: CreateFolder)
+{-# DEPRECATED cfParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -78,13 +88,6 @@ cfAuthenticationToken = Lens.lens (authenticationToken :: CreateFolder -> Lude.M
 cfName :: Lens.Lens' CreateFolder (Lude.Maybe Lude.Text)
 cfName = Lens.lens (name :: CreateFolder -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateFolder)
 {-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The ID of the parent folder.
---
--- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfParentFolderId :: Lens.Lens' CreateFolder Lude.Text
-cfParentFolderId = Lens.lens (parentFolderId :: CreateFolder -> Lude.Text) (\s a -> s {parentFolderId = a} :: CreateFolder)
-{-# DEPRECATED cfParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
 
 instance Lude.AWSRequest CreateFolder where
   type Rs CreateFolder = CreateFolderResponse
@@ -108,8 +111,8 @@ instance Lude.ToJSON CreateFolder where
   toJSON CreateFolder' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Name" Lude..=) Lude.<$> name,
-            Lude.Just ("ParentFolderId" Lude..= parentFolderId)
+          [ Lude.Just ("ParentFolderId" Lude..= parentFolderId),
+            ("Name" Lude..=) Lude.<$> name
           ]
       )
 
@@ -121,17 +124,12 @@ instance Lude.ToQuery CreateFolder where
 
 -- | /See:/ 'mkCreateFolderResponse' smart constructor.
 data CreateFolderResponse = CreateFolderResponse'
-  { metadata ::
-      Lude.Maybe FolderMetadata,
+  { -- | The metadata of the folder.
+    metadata :: Lude.Maybe FolderMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFolderResponse' with the minimum fields required to make a request.

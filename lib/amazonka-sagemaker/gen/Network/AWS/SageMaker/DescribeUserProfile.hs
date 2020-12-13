@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SageMaker.DescribeUserProfile
     mkDescribeUserProfile,
 
     -- ** Request lenses
-    dupDomainId,
     dupUserProfileName,
+    dupDomainId,
 
     -- * Destructuring the response
     DescribeUserProfileResponse (..),
@@ -50,41 +51,29 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeUserProfile' smart constructor.
 data DescribeUserProfile = DescribeUserProfile'
-  { domainId ::
-      Lude.Text,
-    userProfileName :: Lude.Text
+  { -- | The user profile name.
+    userProfileName :: Lude.Text,
+    -- | The domain ID.
+    domainId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserProfile' with the minimum fields required to make a request.
 --
--- * 'domainId' - The domain ID.
 -- * 'userProfileName' - The user profile name.
+-- * 'domainId' - The domain ID.
 mkDescribeUserProfile ::
-  -- | 'domainId'
-  Lude.Text ->
   -- | 'userProfileName'
   Lude.Text ->
+  -- | 'domainId'
+  Lude.Text ->
   DescribeUserProfile
-mkDescribeUserProfile pDomainId_ pUserProfileName_ =
+mkDescribeUserProfile pUserProfileName_ pDomainId_ =
   DescribeUserProfile'
-    { domainId = pDomainId_,
-      userProfileName = pUserProfileName_
+    { userProfileName = pUserProfileName_,
+      domainId = pDomainId_
     }
-
--- | The domain ID.
---
--- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dupDomainId :: Lens.Lens' DescribeUserProfile Lude.Text
-dupDomainId = Lens.lens (domainId :: DescribeUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: DescribeUserProfile)
-{-# DEPRECATED dupDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The user profile name.
 --
@@ -92,6 +81,13 @@ dupDomainId = Lens.lens (domainId :: DescribeUserProfile -> Lude.Text) (\s a -> 
 dupUserProfileName :: Lens.Lens' DescribeUserProfile Lude.Text
 dupUserProfileName = Lens.lens (userProfileName :: DescribeUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: DescribeUserProfile)
 {-# DEPRECATED dupUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+
+-- | The domain ID.
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupDomainId :: Lens.Lens' DescribeUserProfile Lude.Text
+dupDomainId = Lens.lens (domainId :: DescribeUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: DescribeUserProfile)
+{-# DEPRECATED dupDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 instance Lude.AWSRequest DescribeUserProfile where
   type Rs DescribeUserProfile = DescribeUserProfileResponse
@@ -129,8 +125,8 @@ instance Lude.ToJSON DescribeUserProfile where
   toJSON DescribeUserProfile' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("DomainId" Lude..= domainId),
-            Lude.Just ("UserProfileName" Lude..= userProfileName)
+          [ Lude.Just ("UserProfileName" Lude..= userProfileName),
+            Lude.Just ("DomainId" Lude..= domainId)
           ]
       )
 
@@ -142,52 +138,48 @@ instance Lude.ToQuery DescribeUserProfile where
 
 -- | /See:/ 'mkDescribeUserProfileResponse' smart constructor.
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
-    userSettings ::
-      Lude.Maybe UserSettings,
-    status ::
-      Lude.Maybe UserProfileStatus,
-    failureReason ::
-      Lude.Maybe Lude.Text,
-    singleSignOnUserValue ::
-      Lude.Maybe Lude.Text,
-    userProfileName ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTime ::
-      Lude.Maybe Lude.Timestamp,
-    homeEfsFileSystemUid ::
-      Lude.Maybe Lude.Text,
-    userProfileARN ::
-      Lude.Maybe Lude.Text,
-    singleSignOnUserIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | A collection of settings.
+    userSettings :: Lude.Maybe UserSettings,
+    -- | The status.
+    status :: Lude.Maybe UserProfileStatus,
+    -- | The failure reason.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The SSO user value.
+    singleSignOnUserValue :: Lude.Maybe Lude.Text,
+    -- | The user profile name.
+    userProfileName :: Lude.Maybe Lude.Text,
+    -- | The last modified time.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
+    homeEfsFileSystemUid :: Lude.Maybe Lude.Text,
+    -- | The user profile Amazon Resource Name (ARN).
+    userProfileARN :: Lude.Maybe Lude.Text,
+    -- | The SSO user identifier.
+    singleSignOnUserIdentifier :: Lude.Maybe Lude.Text,
+    -- | The ID of the domain that contains the profile.
     domainId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserProfileResponse' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The creation time.
--- * 'domainId' - The ID of the domain that contains the profile.
--- * 'failureReason' - The failure reason.
--- * 'homeEfsFileSystemUid' - The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
--- * 'lastModifiedTime' - The last modified time.
--- * 'responseStatus' - The response status code.
--- * 'singleSignOnUserIdentifier' - The SSO user identifier.
--- * 'singleSignOnUserValue' - The SSO user value.
--- * 'status' - The status.
--- * 'userProfileARN' - The user profile Amazon Resource Name (ARN).
--- * 'userProfileName' - The user profile name.
 -- * 'userSettings' - A collection of settings.
+-- * 'status' - The status.
+-- * 'failureReason' - The failure reason.
+-- * 'singleSignOnUserValue' - The SSO user value.
+-- * 'userProfileName' - The user profile name.
+-- * 'lastModifiedTime' - The last modified time.
+-- * 'homeEfsFileSystemUid' - The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
+-- * 'userProfileARN' - The user profile Amazon Resource Name (ARN).
+-- * 'singleSignOnUserIdentifier' - The SSO user identifier.
+-- * 'domainId' - The ID of the domain that contains the profile.
+-- * 'responseStatus' - The response status code.
 mkDescribeUserProfileResponse ::
   -- | 'responseStatus'
   Lude.Int ->

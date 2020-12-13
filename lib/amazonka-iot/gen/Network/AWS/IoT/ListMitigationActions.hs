@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListMitigationActions' smart constructor.
 data ListMitigationActions = ListMitigationActions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Specify a value to limit the result to mitigation actions with a specific action type.
     actionType :: Lude.Maybe MitigationActionType,
+    -- | The maximum number of results to return at one time. The default is 25.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMitigationActions' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of results.
 -- * 'actionType' - Specify a value to limit the result to mitigation actions with a specific action type.
 -- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
--- * 'nextToken' - The token for the next set of results.
 mkListMitigationActions ::
   ListMitigationActions
 mkListMitigationActions =
@@ -131,20 +128,14 @@ instance Lude.ToQuery ListMitigationActions where
 
 -- | /See:/ 'mkListMitigationActionsResponse' smart constructor.
 data ListMitigationActionsResponse = ListMitigationActionsResponse'
-  { actionIdentifiers ::
-      Lude.Maybe
-        [MitigationActionIdentifier],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A set of actions that matched the specified filter criteria.
+    actionIdentifiers :: Lude.Maybe [MitigationActionIdentifier],
+    -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMitigationActionsResponse' with the minimum fields required to make a request.

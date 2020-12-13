@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor
   ( DvbSubtitleBackgroundColor
       ( DvbSubtitleBackgroundColor',
-        Black,
-        None,
-        White
+        DSBCNone,
+        DSBCBlack,
+        DSBCWhite
       ),
   )
 where
@@ -49,18 +49,18 @@ newtype DvbSubtitleBackgroundColor = DvbSubtitleBackgroundColor' Lude.Text
       Lude.ToHeader
     )
 
-pattern Black :: DvbSubtitleBackgroundColor
-pattern Black = DvbSubtitleBackgroundColor' "BLACK"
+pattern DSBCNone :: DvbSubtitleBackgroundColor
+pattern DSBCNone = DvbSubtitleBackgroundColor' "NONE"
 
-pattern None :: DvbSubtitleBackgroundColor
-pattern None = DvbSubtitleBackgroundColor' "NONE"
+pattern DSBCBlack :: DvbSubtitleBackgroundColor
+pattern DSBCBlack = DvbSubtitleBackgroundColor' "BLACK"
 
-pattern White :: DvbSubtitleBackgroundColor
-pattern White = DvbSubtitleBackgroundColor' "WHITE"
+pattern DSBCWhite :: DvbSubtitleBackgroundColor
+pattern DSBCWhite = DvbSubtitleBackgroundColor' "WHITE"
 
 {-# COMPLETE
-  Black,
-  None,
-  White,
+  DSBCNone,
+  DSBCBlack,
+  DSBCWhite,
   DvbSubtitleBackgroundColor'
   #-}

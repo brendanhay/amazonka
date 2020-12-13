@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHumanLoopActivationConditionsConfig' smart constructor.
 newtype HumanLoopActivationConditionsConfig = HumanLoopActivationConditionsConfig'
-  { humanLoopActivationConditions ::
-      Lude.Text
+  { -- | JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. The set of conditions is different for Rekognition and Textract. For more information about how to structure the JSON, see <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI> in the /Amazon SageMaker Developer Guide/ .
+    humanLoopActivationConditions :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanLoopActivationConditionsConfig' with the minimum fields required to make a request.

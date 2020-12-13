@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.SageMaker.CreatePresignedNotebookInstanceURL
     mkCreatePresignedNotebookInstanceURL,
 
     -- ** Request lenses
-    cpniuSessionExpirationDurationInSeconds,
     cpniuNotebookInstanceName,
+    cpniuSessionExpirationDurationInSeconds,
 
     -- * Destructuring the response
     CreatePresignedNotebookInstanceURLResponse (..),
@@ -43,19 +44,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreatePresignedNotebookInstanceURL' smart constructor.
 data CreatePresignedNotebookInstanceURL = CreatePresignedNotebookInstanceURL'
-  { sessionExpirationDurationInSeconds ::
-      Lude.Maybe
-        Lude.Natural,
-    notebookInstanceName ::
-      Lude.Text
+  { -- | The name of the notebook instance.
+    notebookInstanceName :: Lude.Text,
+    -- | The duration of the session, in seconds. The default is 12 hours.
+    sessionExpirationDurationInSeconds :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePresignedNotebookInstanceURL' with the minimum fields required to make a request.
@@ -68,17 +62,10 @@ mkCreatePresignedNotebookInstanceURL ::
   CreatePresignedNotebookInstanceURL
 mkCreatePresignedNotebookInstanceURL pNotebookInstanceName_ =
   CreatePresignedNotebookInstanceURL'
-    { sessionExpirationDurationInSeconds =
-        Lude.Nothing,
-      notebookInstanceName = pNotebookInstanceName_
+    { notebookInstanceName =
+        pNotebookInstanceName_,
+      sessionExpirationDurationInSeconds = Lude.Nothing
     }
-
--- | The duration of the session, in seconds. The default is 12 hours.
---
--- /Note:/ Consider using 'sessionExpirationDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpniuSessionExpirationDurationInSeconds :: Lens.Lens' CreatePresignedNotebookInstanceURL (Lude.Maybe Lude.Natural)
-cpniuSessionExpirationDurationInSeconds = Lens.lens (sessionExpirationDurationInSeconds :: CreatePresignedNotebookInstanceURL -> Lude.Maybe Lude.Natural) (\s a -> s {sessionExpirationDurationInSeconds = a} :: CreatePresignedNotebookInstanceURL)
-{-# DEPRECATED cpniuSessionExpirationDurationInSeconds "Use generic-lens or generic-optics with 'sessionExpirationDurationInSeconds' instead." #-}
 
 -- | The name of the notebook instance.
 --
@@ -86,6 +73,13 @@ cpniuSessionExpirationDurationInSeconds = Lens.lens (sessionExpirationDurationIn
 cpniuNotebookInstanceName :: Lens.Lens' CreatePresignedNotebookInstanceURL Lude.Text
 cpniuNotebookInstanceName = Lens.lens (notebookInstanceName :: CreatePresignedNotebookInstanceURL -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: CreatePresignedNotebookInstanceURL)
 {-# DEPRECATED cpniuNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
+
+-- | The duration of the session, in seconds. The default is 12 hours.
+--
+-- /Note:/ Consider using 'sessionExpirationDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpniuSessionExpirationDurationInSeconds :: Lens.Lens' CreatePresignedNotebookInstanceURL (Lude.Maybe Lude.Natural)
+cpniuSessionExpirationDurationInSeconds = Lens.lens (sessionExpirationDurationInSeconds :: CreatePresignedNotebookInstanceURL -> Lude.Maybe Lude.Natural) (\s a -> s {sessionExpirationDurationInSeconds = a} :: CreatePresignedNotebookInstanceURL)
+{-# DEPRECATED cpniuSessionExpirationDurationInSeconds "Use generic-lens or generic-optics with 'sessionExpirationDurationInSeconds' instead." #-}
 
 instance Lude.AWSRequest CreatePresignedNotebookInstanceURL where
   type
@@ -117,9 +111,9 @@ instance Lude.ToJSON CreatePresignedNotebookInstanceURL where
   toJSON CreatePresignedNotebookInstanceURL' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SessionExpirationDurationInSeconds" Lude..=)
-              Lude.<$> sessionExpirationDurationInSeconds,
-            Lude.Just ("NotebookInstanceName" Lude..= notebookInstanceName)
+          [ Lude.Just ("NotebookInstanceName" Lude..= notebookInstanceName),
+            ("SessionExpirationDurationInSeconds" Lude..=)
+              Lude.<$> sessionExpirationDurationInSeconds
           ]
       )
 
@@ -131,19 +125,12 @@ instance Lude.ToQuery CreatePresignedNotebookInstanceURL where
 
 -- | /See:/ 'mkCreatePresignedNotebookInstanceURLResponse' smart constructor.
 data CreatePresignedNotebookInstanceURLResponse = CreatePresignedNotebookInstanceURLResponse'
-  { authorizedURL ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A JSON object that contains the URL string.
+    authorizedURL :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePresignedNotebookInstanceURLResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,19 +24,19 @@ module Network.AWS.IAM.ListGroupsForUser
     mkListGroupsForUser,
 
     -- ** Request lenses
+    lgfuUserName,
     lgfuMarker,
     lgfuMaxItems,
-    lgfuUserName,
 
     -- * Destructuring the response
     ListGroupsForUserResponse (..),
     mkListGroupsForUserResponse,
 
     -- ** Response lenses
+    lgfursGroups,
     lgfursMarker,
     lgfursIsTruncated,
     lgfursResponseStatus,
-    lgfursGroups,
   )
 where
 
@@ -48,39 +49,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGroupsForUser' smart constructor.
 data ListGroupsForUser = ListGroupsForUser'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    maxItems :: Lude.Maybe Lude.Natural,
-    userName :: Lude.Text
+  { -- | The name of the user to list groups for.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Text,
+    -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+    --
+    -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+    maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsForUser' with the minimum fields required to make a request.
 --
+-- * 'userName' - The name of the user to list groups for.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 -- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
 -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
--- * 'userName' - The name of the user to list groups for.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkListGroupsForUser ::
   -- | 'userName'
   Lude.Text ->
   ListGroupsForUser
 mkListGroupsForUser pUserName_ =
   ListGroupsForUser'
-    { marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      userName = pUserName_
+    { userName = pUserName_,
+      marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
+
+-- | The name of the user to list groups for.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgfuUserName :: Lens.Lens' ListGroupsForUser Lude.Text
+lgfuUserName = Lens.lens (userName :: ListGroupsForUser -> Lude.Text) (\s a -> s {userName = a} :: ListGroupsForUser)
+{-# DEPRECATED lgfuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
@@ -97,15 +107,6 @@ lgfuMarker = Lens.lens (marker :: ListGroupsForUser -> Lude.Maybe Lude.Text) (\s
 lgfuMaxItems :: Lens.Lens' ListGroupsForUser (Lude.Maybe Lude.Natural)
 lgfuMaxItems = Lens.lens (maxItems :: ListGroupsForUser -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListGroupsForUser)
 {-# DEPRECATED lgfuMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
-
--- | The name of the user to list groups for.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgfuUserName :: Lens.Lens' ListGroupsForUser Lude.Text
-lgfuUserName = Lens.lens (userName :: ListGroupsForUser -> Lude.Text) (\s a -> s {userName = a} :: ListGroupsForUser)
-{-# DEPRECATED lgfuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 instance Page.AWSPager ListGroupsForUser where
   page rq rs
@@ -124,12 +125,12 @@ instance Lude.AWSRequest ListGroupsForUser where
       "ListGroupsForUserResult"
       ( \s h x ->
           ListGroupsForUserResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "Groups" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "Groups" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListGroupsForUser where
@@ -143,35 +144,32 @@ instance Lude.ToQuery ListGroupsForUser where
     Lude.mconcat
       [ "Action" Lude.=: ("ListGroupsForUser" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
         "Marker" Lude.=: marker,
-        "MaxItems" Lude.=: maxItems,
-        "UserName" Lude.=: userName
+        "MaxItems" Lude.=: maxItems
       ]
 
 -- | Contains the response to a successful 'ListGroupsForUser' request.
 --
 -- /See:/ 'mkListGroupsForUserResponse' smart constructor.
 data ListGroupsForUserResponse = ListGroupsForUserResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of groups.
+    groups :: [Group],
+    -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
     isTruncated :: Lude.Maybe Lude.Bool,
-    responseStatus :: Lude.Int,
-    groups :: [Group]
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsForUserResponse' with the minimum fields required to make a request.
 --
 -- * 'groups' - A list of groups.
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'responseStatus' - The response status code.
 mkListGroupsForUserResponse ::
   -- | 'responseStatus'
@@ -179,11 +177,18 @@ mkListGroupsForUserResponse ::
   ListGroupsForUserResponse
 mkListGroupsForUserResponse pResponseStatus_ =
   ListGroupsForUserResponse'
-    { marker = Lude.Nothing,
+    { groups = Lude.mempty,
+      marker = Lude.Nothing,
       isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      groups = Lude.mempty
+      responseStatus = pResponseStatus_
     }
+
+-- | A list of groups.
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgfursGroups :: Lens.Lens' ListGroupsForUserResponse [Group]
+lgfursGroups = Lens.lens (groups :: ListGroupsForUserResponse -> [Group]) (\s a -> s {groups = a} :: ListGroupsForUserResponse)
+{-# DEPRECATED lgfursGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
@@ -205,10 +210,3 @@ lgfursIsTruncated = Lens.lens (isTruncated :: ListGroupsForUserResponse -> Lude.
 lgfursResponseStatus :: Lens.Lens' ListGroupsForUserResponse Lude.Int
 lgfursResponseStatus = Lens.lens (responseStatus :: ListGroupsForUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGroupsForUserResponse)
 {-# DEPRECATED lgfursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | A list of groups.
---
--- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgfursGroups :: Lens.Lens' ListGroupsForUserResponse [Group]
-lgfursGroups = Lens.lens (groups :: ListGroupsForUserResponse -> [Group]) (\s a -> s {groups = a} :: ListGroupsForUserResponse)
-{-# DEPRECATED lgfursGroups "Use generic-lens or generic-optics with 'groups' instead." #-}

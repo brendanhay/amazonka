@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.DynamoDB.ExecuteStatement
 
     -- ** Request lenses
     esConsistentRead,
+    esStatement,
     esNextToken,
     esParameters,
-    esStatement,
 
     -- * Destructuring the response
     ExecuteStatementResponse (..),
@@ -43,27 +44,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkExecuteStatement' smart constructor.
 data ExecuteStatement = ExecuteStatement'
-  { consistentRead ::
-      Lude.Maybe Lude.Bool,
+  { -- | The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
+    consistentRead :: Lude.Maybe Lude.Bool,
+    -- | The PartiQL statement representing the operation to run.
+    statement :: Lude.Text,
+    -- | Set this value to get remaining results, if @NextToken@ was returned in the statement response.
     nextToken :: Lude.Maybe Lude.Text,
-    parameters :: Lude.Maybe (Lude.NonEmpty AttributeValue),
-    statement :: Lude.Text
+    -- | The parameters for the PartiQL statement, if any.
+    parameters :: Lude.Maybe (Lude.NonEmpty AttributeValue)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteStatement' with the minimum fields required to make a request.
 --
 -- * 'consistentRead' - The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
+-- * 'statement' - The PartiQL statement representing the operation to run.
 -- * 'nextToken' - Set this value to get remaining results, if @NextToken@ was returned in the statement response.
 -- * 'parameters' - The parameters for the PartiQL statement, if any.
--- * 'statement' - The PartiQL statement representing the operation to run.
 mkExecuteStatement ::
   -- | 'statement'
   Lude.Text ->
@@ -71,9 +69,9 @@ mkExecuteStatement ::
 mkExecuteStatement pStatement_ =
   ExecuteStatement'
     { consistentRead = Lude.Nothing,
+      statement = pStatement_,
       nextToken = Lude.Nothing,
-      parameters = Lude.Nothing,
-      statement = pStatement_
+      parameters = Lude.Nothing
     }
 
 -- | The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
@@ -82,6 +80,13 @@ mkExecuteStatement pStatement_ =
 esConsistentRead :: Lens.Lens' ExecuteStatement (Lude.Maybe Lude.Bool)
 esConsistentRead = Lens.lens (consistentRead :: ExecuteStatement -> Lude.Maybe Lude.Bool) (\s a -> s {consistentRead = a} :: ExecuteStatement)
 {-# DEPRECATED esConsistentRead "Use generic-lens or generic-optics with 'consistentRead' instead." #-}
+
+-- | The PartiQL statement representing the operation to run.
+--
+-- /Note:/ Consider using 'statement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esStatement :: Lens.Lens' ExecuteStatement Lude.Text
+esStatement = Lens.lens (statement :: ExecuteStatement -> Lude.Text) (\s a -> s {statement = a} :: ExecuteStatement)
+{-# DEPRECATED esStatement "Use generic-lens or generic-optics with 'statement' instead." #-}
 
 -- | Set this value to get remaining results, if @NextToken@ was returned in the statement response.
 --
@@ -96,13 +101,6 @@ esNextToken = Lens.lens (nextToken :: ExecuteStatement -> Lude.Maybe Lude.Text) 
 esParameters :: Lens.Lens' ExecuteStatement (Lude.Maybe (Lude.NonEmpty AttributeValue))
 esParameters = Lens.lens (parameters :: ExecuteStatement -> Lude.Maybe (Lude.NonEmpty AttributeValue)) (\s a -> s {parameters = a} :: ExecuteStatement)
 {-# DEPRECATED esParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
--- | The PartiQL statement representing the operation to run.
---
--- /Note:/ Consider using 'statement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esStatement :: Lens.Lens' ExecuteStatement Lude.Text
-esStatement = Lens.lens (statement :: ExecuteStatement -> Lude.Text) (\s a -> s {statement = a} :: ExecuteStatement)
-{-# DEPRECATED esStatement "Use generic-lens or generic-optics with 'statement' instead." #-}
 
 instance Lude.AWSRequest ExecuteStatement where
   type Rs ExecuteStatement = ExecuteStatementResponse
@@ -132,9 +130,9 @@ instance Lude.ToJSON ExecuteStatement where
     Lude.object
       ( Lude.catMaybes
           [ ("ConsistentRead" Lude..=) Lude.<$> consistentRead,
+            Lude.Just ("Statement" Lude..= statement),
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Parameters" Lude..=) Lude.<$> parameters,
-            Lude.Just ("Statement" Lude..= statement)
+            ("Parameters" Lude..=) Lude.<$> parameters
           ]
       )
 
@@ -146,22 +144,14 @@ instance Lude.ToQuery ExecuteStatement where
 
 -- | /See:/ 'mkExecuteStatementResponse' smart constructor.
 data ExecuteStatementResponse = ExecuteStatementResponse'
-  { items ::
-      Lude.Maybe
-        [ Lude.HashMap
-            Lude.Text
-            (AttributeValue)
-        ],
+  { -- | If a read operation was used, this property will contain the result of the reade operation; a map of attribute names and their values. For the write operations this value will be empty.
+    items :: Lude.Maybe [Lude.HashMap Lude.Text (AttributeValue)],
+    -- | If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteStatementResponse' with the minimum fields required to make a request.

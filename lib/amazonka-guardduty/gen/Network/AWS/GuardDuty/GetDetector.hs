@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,14 +27,14 @@ module Network.AWS.GuardDuty.GetDetector
     mkGetDetectorResponse,
 
     -- ** Response lenses
+    gdrsStatus,
     gdrsCreatedAt,
     gdrsFindingPublishingFrequency,
     gdrsDataSources,
     gdrsUpdatedAt,
     gdrsTags,
-    gdrsResponseStatus,
     gdrsServiceRole,
-    gdrsStatus,
+    gdrsResponseStatus,
   )
 where
 
@@ -44,14 +45,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDetector' smart constructor.
-newtype GetDetector = GetDetector' {detectorId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDetector = GetDetector'
+  { -- | The unique ID of the detector that you want to get.
+    detectorId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDetector' with the minimum fields required to make a request.
@@ -78,14 +76,14 @@ instance Lude.AWSRequest GetDetector where
     Res.receiveJSON
       ( \s h x ->
           GetDetectorResponse'
-            Lude.<$> (x Lude..?> "createdAt")
+            Lude.<$> (x Lude..:> "status")
+            Lude.<*> (x Lude..?> "createdAt")
             Lude.<*> (x Lude..?> "findingPublishingFrequency")
             Lude.<*> (x Lude..?> "dataSources")
             Lude.<*> (x Lude..?> "updatedAt")
             Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..:> "serviceRole")
-            Lude.<*> (x Lude..:> "status")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetDetector where
@@ -106,57 +104,62 @@ instance Lude.ToQuery GetDetector where
 
 -- | /See:/ 'mkGetDetectorResponse' smart constructor.
 data GetDetectorResponse = GetDetectorResponse'
-  { createdAt ::
-      Lude.Maybe Lude.Text,
-    findingPublishingFrequency ::
-      Lude.Maybe FindingPublishingFrequency,
-    dataSources ::
-      Lude.Maybe DataSourceConfigurationsResult,
+  { -- | The detector status.
+    status :: DetectorStatus,
+    -- | The timestamp of when the detector was created.
+    createdAt :: Lude.Maybe Lude.Text,
+    -- | The publishing frequency of the finding.
+    findingPublishingFrequency :: Lude.Maybe FindingPublishingFrequency,
+    -- | An object that describes which data sources are enabled for the detector.
+    dataSources :: Lude.Maybe DataSourceConfigurationsResult,
+    -- | The last-updated timestamp for the detector.
     updatedAt :: Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    responseStatus :: Lude.Int,
+    -- | The tags of the detector resource.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The GuardDuty service role.
     serviceRole :: Lude.Text,
-    status :: DetectorStatus
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDetectorResponse' with the minimum fields required to make a request.
 --
--- * 'createdAt' - The timestamp of when the detector was created.
--- * 'dataSources' - An object that describes which data sources are enabled for the detector.
--- * 'findingPublishingFrequency' - The publishing frequency of the finding.
--- * 'responseStatus' - The response status code.
--- * 'serviceRole' - The GuardDuty service role.
 -- * 'status' - The detector status.
--- * 'tags' - The tags of the detector resource.
+-- * 'createdAt' - The timestamp of when the detector was created.
+-- * 'findingPublishingFrequency' - The publishing frequency of the finding.
+-- * 'dataSources' - An object that describes which data sources are enabled for the detector.
 -- * 'updatedAt' - The last-updated timestamp for the detector.
+-- * 'tags' - The tags of the detector resource.
+-- * 'serviceRole' - The GuardDuty service role.
+-- * 'responseStatus' - The response status code.
 mkGetDetectorResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'serviceRole'
-  Lude.Text ->
   -- | 'status'
   DetectorStatus ->
+  -- | 'serviceRole'
+  Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDetectorResponse
-mkGetDetectorResponse pResponseStatus_ pServiceRole_ pStatus_ =
+mkGetDetectorResponse pStatus_ pServiceRole_ pResponseStatus_ =
   GetDetectorResponse'
-    { createdAt = Lude.Nothing,
+    { status = pStatus_,
+      createdAt = Lude.Nothing,
       findingPublishingFrequency = Lude.Nothing,
       dataSources = Lude.Nothing,
       updatedAt = Lude.Nothing,
       tags = Lude.Nothing,
-      responseStatus = pResponseStatus_,
       serviceRole = pServiceRole_,
-      status = pStatus_
+      responseStatus = pResponseStatus_
     }
+
+-- | The detector status.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsStatus :: Lens.Lens' GetDetectorResponse DetectorStatus
+gdrsStatus = Lens.lens (status :: GetDetectorResponse -> DetectorStatus) (\s a -> s {status = a} :: GetDetectorResponse)
+{-# DEPRECATED gdrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The timestamp of when the detector was created.
 --
@@ -193,13 +196,6 @@ gdrsTags :: Lens.Lens' GetDetectorResponse (Lude.Maybe (Lude.HashMap Lude.Text (
 gdrsTags = Lens.lens (tags :: GetDetectorResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GetDetectorResponse)
 {-# DEPRECATED gdrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsResponseStatus :: Lens.Lens' GetDetectorResponse Lude.Int
-gdrsResponseStatus = Lens.lens (responseStatus :: GetDetectorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDetectorResponse)
-{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The GuardDuty service role.
 --
 -- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -207,9 +203,9 @@ gdrsServiceRole :: Lens.Lens' GetDetectorResponse Lude.Text
 gdrsServiceRole = Lens.lens (serviceRole :: GetDetectorResponse -> Lude.Text) (\s a -> s {serviceRole = a} :: GetDetectorResponse)
 {-# DEPRECATED gdrsServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
--- | The detector status.
+-- | The response status code.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsStatus :: Lens.Lens' GetDetectorResponse DetectorStatus
-gdrsStatus = Lens.lens (status :: GetDetectorResponse -> DetectorStatus) (\s a -> s {status = a} :: GetDetectorResponse)
-{-# DEPRECATED gdrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsResponseStatus :: Lens.Lens' GetDetectorResponse Lude.Int
+gdrsResponseStatus = Lens.lens (responseStatus :: GetDetectorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDetectorResponse)
+{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

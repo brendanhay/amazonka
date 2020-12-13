@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttribute' smart constructor.
 data Attribute = Attribute'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The value assigned to the attribute key.
+    value :: Lude.Maybe Lude.Text,
+    -- | The attribute key.
     key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Attribute' with the minimum fields required to make a request.
 --
--- * 'key' - The attribute key.
 -- * 'value' - The value assigned to the attribute key.
+-- * 'key' - The attribute key.
 mkAttribute ::
   -- | 'key'
   Lude.Text ->

@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFileLocation' smart constructor.
 data FileLocation = FileLocation'
-  { stream :: Lude.Maybe Stream,
+  { -- | The stream that contains the OTA update.
+    stream :: Lude.Maybe Stream,
+    -- | The location of the updated firmware in S3.
     s3Location :: Lude.Maybe S3Location
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileLocation' with the minimum fields required to make a request.
 --
--- * 's3Location' - The location of the updated firmware in S3.
 -- * 'stream' - The stream that contains the OTA update.
+-- * 's3Location' - The location of the updated firmware in S3.
 mkFileLocation ::
   FileLocation
 mkFileLocation =

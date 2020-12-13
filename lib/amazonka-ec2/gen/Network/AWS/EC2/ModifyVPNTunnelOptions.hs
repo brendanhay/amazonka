@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.EC2.ModifyVPNTunnelOptions
     mkModifyVPNTunnelOptions,
 
     -- ** Request lenses
-    mvtoDryRun,
-    mvtoVPNConnectionId,
     mvtoVPNTunnelOutsideIPAddress,
     mvtoTunnelOptions,
+    mvtoVPNConnectionId,
+    mvtoDryRun,
 
     -- * Destructuring the response
     ModifyVPNTunnelOptionsResponse (..),
@@ -42,60 +43,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyVPNTunnelOptions' smart constructor.
 data ModifyVPNTunnelOptions = ModifyVPNTunnelOptions'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    vpnConnectionId :: Lude.Text,
+  { -- | The external IP address of the VPN tunnel.
     vpnTunnelOutsideIPAddress :: Lude.Text,
-    tunnelOptions ::
-      ModifyVPNTunnelOptionsSpecification
+    -- | The tunnel options to modify.
+    tunnelOptions :: ModifyVPNTunnelOptionsSpecification,
+    -- | The ID of the AWS Site-to-Site VPN connection.
+    vpnConnectionId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNTunnelOptions' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'vpnTunnelOutsideIPAddress' - The external IP address of the VPN tunnel.
 -- * 'tunnelOptions' - The tunnel options to modify.
 -- * 'vpnConnectionId' - The ID of the AWS Site-to-Site VPN connection.
--- * 'vpnTunnelOutsideIPAddress' - The external IP address of the VPN tunnel.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyVPNTunnelOptions ::
-  -- | 'vpnConnectionId'
-  Lude.Text ->
   -- | 'vpnTunnelOutsideIPAddress'
   Lude.Text ->
   -- | 'tunnelOptions'
   ModifyVPNTunnelOptionsSpecification ->
+  -- | 'vpnConnectionId'
+  Lude.Text ->
   ModifyVPNTunnelOptions
 mkModifyVPNTunnelOptions
-  pVPNConnectionId_
   pVPNTunnelOutsideIPAddress_
-  pTunnelOptions_ =
+  pTunnelOptions_
+  pVPNConnectionId_ =
     ModifyVPNTunnelOptions'
-      { dryRun = Lude.Nothing,
+      { vpnTunnelOutsideIPAddress =
+          pVPNTunnelOutsideIPAddress_,
+        tunnelOptions = pTunnelOptions_,
         vpnConnectionId = pVPNConnectionId_,
-        vpnTunnelOutsideIPAddress = pVPNTunnelOutsideIPAddress_,
-        tunnelOptions = pTunnelOptions_
+        dryRun = Lude.Nothing
       }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvtoDryRun :: Lens.Lens' ModifyVPNTunnelOptions (Lude.Maybe Lude.Bool)
-mvtoDryRun = Lens.lens (dryRun :: ModifyVPNTunnelOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPNTunnelOptions)
-{-# DEPRECATED mvtoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the AWS Site-to-Site VPN connection.
---
--- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvtoVPNConnectionId :: Lens.Lens' ModifyVPNTunnelOptions Lude.Text
-mvtoVPNConnectionId = Lens.lens (vpnConnectionId :: ModifyVPNTunnelOptions -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: ModifyVPNTunnelOptions)
-{-# DEPRECATED mvtoVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
 
 -- | The external IP address of the VPN tunnel.
 --
@@ -110,6 +94,20 @@ mvtoVPNTunnelOutsideIPAddress = Lens.lens (vpnTunnelOutsideIPAddress :: ModifyVP
 mvtoTunnelOptions :: Lens.Lens' ModifyVPNTunnelOptions ModifyVPNTunnelOptionsSpecification
 mvtoTunnelOptions = Lens.lens (tunnelOptions :: ModifyVPNTunnelOptions -> ModifyVPNTunnelOptionsSpecification) (\s a -> s {tunnelOptions = a} :: ModifyVPNTunnelOptions)
 {-# DEPRECATED mvtoTunnelOptions "Use generic-lens or generic-optics with 'tunnelOptions' instead." #-}
+
+-- | The ID of the AWS Site-to-Site VPN connection.
+--
+-- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvtoVPNConnectionId :: Lens.Lens' ModifyVPNTunnelOptions Lude.Text
+mvtoVPNConnectionId = Lens.lens (vpnConnectionId :: ModifyVPNTunnelOptions -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: ModifyVPNTunnelOptions)
+{-# DEPRECATED mvtoVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvtoDryRun :: Lens.Lens' ModifyVPNTunnelOptions (Lude.Maybe Lude.Bool)
+mvtoDryRun = Lens.lens (dryRun :: ModifyVPNTunnelOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPNTunnelOptions)
+{-# DEPRECATED mvtoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ModifyVPNTunnelOptions where
   type Rs ModifyVPNTunnelOptions = ModifyVPNTunnelOptionsResponse
@@ -133,31 +131,25 @@ instance Lude.ToQuery ModifyVPNTunnelOptions where
     Lude.mconcat
       [ "Action" Lude.=: ("ModifyVpnTunnelOptions" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "VpnConnectionId" Lude.=: vpnConnectionId,
         "VpnTunnelOutsideIpAddress" Lude.=: vpnTunnelOutsideIPAddress,
-        "TunnelOptions" Lude.=: tunnelOptions
+        "TunnelOptions" Lude.=: tunnelOptions,
+        "VpnConnectionId" Lude.=: vpnConnectionId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyVPNTunnelOptionsResponse' smart constructor.
 data ModifyVPNTunnelOptionsResponse = ModifyVPNTunnelOptionsResponse'
-  { vpnConnection ::
-      Lude.Maybe VPNConnection,
+  { vpnConnection :: Lude.Maybe VPNConnection,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNTunnelOptionsResponse' with the minimum fields required to make a request.
 --
+-- * 'vpnConnection' -
 -- * 'responseStatus' - The response status code.
--- * 'vpnConnection' - Undocumented field.
 mkModifyVPNTunnelOptionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

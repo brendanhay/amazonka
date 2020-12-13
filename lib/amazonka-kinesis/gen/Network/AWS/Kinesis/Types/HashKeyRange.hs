@@ -17,8 +17,8 @@ module Network.AWS.Kinesis.Types.HashKeyRange
     mkHashKeyRange,
 
     -- * Lenses
-    hkrStartingHashKey,
     hkrEndingHashKey,
+    hkrStartingHashKey,
   )
 where
 
@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHashKeyRange' smart constructor.
 data HashKeyRange = HashKeyRange'
-  { startingHashKey :: Lude.Text,
-    endingHashKey :: Lude.Text
+  { -- | The ending hash key of the hash key range.
+    endingHashKey :: Lude.Text,
+    -- | The starting hash key of the hash key range.
+    startingHashKey :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HashKeyRange' with the minimum fields required to make a request.
@@ -46,23 +42,16 @@ data HashKeyRange = HashKeyRange'
 -- * 'endingHashKey' - The ending hash key of the hash key range.
 -- * 'startingHashKey' - The starting hash key of the hash key range.
 mkHashKeyRange ::
-  -- | 'startingHashKey'
-  Lude.Text ->
   -- | 'endingHashKey'
   Lude.Text ->
+  -- | 'startingHashKey'
+  Lude.Text ->
   HashKeyRange
-mkHashKeyRange pStartingHashKey_ pEndingHashKey_ =
+mkHashKeyRange pEndingHashKey_ pStartingHashKey_ =
   HashKeyRange'
-    { startingHashKey = pStartingHashKey_,
-      endingHashKey = pEndingHashKey_
+    { endingHashKey = pEndingHashKey_,
+      startingHashKey = pStartingHashKey_
     }
-
--- | The starting hash key of the hash key range.
---
--- /Note:/ Consider using 'startingHashKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hkrStartingHashKey :: Lens.Lens' HashKeyRange Lude.Text
-hkrStartingHashKey = Lens.lens (startingHashKey :: HashKeyRange -> Lude.Text) (\s a -> s {startingHashKey = a} :: HashKeyRange)
-{-# DEPRECATED hkrStartingHashKey "Use generic-lens or generic-optics with 'startingHashKey' instead." #-}
 
 -- | The ending hash key of the hash key range.
 --
@@ -71,11 +60,18 @@ hkrEndingHashKey :: Lens.Lens' HashKeyRange Lude.Text
 hkrEndingHashKey = Lens.lens (endingHashKey :: HashKeyRange -> Lude.Text) (\s a -> s {endingHashKey = a} :: HashKeyRange)
 {-# DEPRECATED hkrEndingHashKey "Use generic-lens or generic-optics with 'endingHashKey' instead." #-}
 
+-- | The starting hash key of the hash key range.
+--
+-- /Note:/ Consider using 'startingHashKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hkrStartingHashKey :: Lens.Lens' HashKeyRange Lude.Text
+hkrStartingHashKey = Lens.lens (startingHashKey :: HashKeyRange -> Lude.Text) (\s a -> s {startingHashKey = a} :: HashKeyRange)
+{-# DEPRECATED hkrStartingHashKey "Use generic-lens or generic-optics with 'startingHashKey' instead." #-}
+
 instance Lude.FromJSON HashKeyRange where
   parseJSON =
     Lude.withObject
       "HashKeyRange"
       ( \x ->
           HashKeyRange'
-            Lude.<$> (x Lude..: "StartingHashKey") Lude.<*> (x Lude..: "EndingHashKey")
+            Lude.<$> (x Lude..: "EndingHashKey") Lude.<*> (x Lude..: "StartingHashKey")
       )

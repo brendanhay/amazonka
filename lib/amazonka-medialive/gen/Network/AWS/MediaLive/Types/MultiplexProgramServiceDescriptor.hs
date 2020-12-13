@@ -17,8 +17,8 @@ module Network.AWS.MediaLive.Types.MultiplexProgramServiceDescriptor
     mkMultiplexProgramServiceDescriptor,
 
     -- * Lenses
-    mpsdProviderName,
     mpsdServiceName,
+    mpsdProviderName,
   )
 where
 
@@ -29,42 +29,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiplexProgramServiceDescriptor' smart constructor.
 data MultiplexProgramServiceDescriptor = MultiplexProgramServiceDescriptor'
-  { providerName ::
-      Lude.Text,
-    serviceName ::
-      Lude.Text
+  { -- | Name of the service.
+    serviceName :: Lude.Text,
+    -- | Name of the provider.
+    providerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexProgramServiceDescriptor' with the minimum fields required to make a request.
 --
--- * 'providerName' - Name of the provider.
 -- * 'serviceName' - Name of the service.
+-- * 'providerName' - Name of the provider.
 mkMultiplexProgramServiceDescriptor ::
-  -- | 'providerName'
-  Lude.Text ->
   -- | 'serviceName'
   Lude.Text ->
+  -- | 'providerName'
+  Lude.Text ->
   MultiplexProgramServiceDescriptor
-mkMultiplexProgramServiceDescriptor pProviderName_ pServiceName_ =
+mkMultiplexProgramServiceDescriptor pServiceName_ pProviderName_ =
   MultiplexProgramServiceDescriptor'
-    { providerName = pProviderName_,
-      serviceName = pServiceName_
+    { serviceName = pServiceName_,
+      providerName = pProviderName_
     }
-
--- | Name of the provider.
---
--- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsdProviderName :: Lens.Lens' MultiplexProgramServiceDescriptor Lude.Text
-mpsdProviderName = Lens.lens (providerName :: MultiplexProgramServiceDescriptor -> Lude.Text) (\s a -> s {providerName = a} :: MultiplexProgramServiceDescriptor)
-{-# DEPRECATED mpsdProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | Name of the service.
 --
@@ -73,20 +60,27 @@ mpsdServiceName :: Lens.Lens' MultiplexProgramServiceDescriptor Lude.Text
 mpsdServiceName = Lens.lens (serviceName :: MultiplexProgramServiceDescriptor -> Lude.Text) (\s a -> s {serviceName = a} :: MultiplexProgramServiceDescriptor)
 {-# DEPRECATED mpsdServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
+-- | Name of the provider.
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsdProviderName :: Lens.Lens' MultiplexProgramServiceDescriptor Lude.Text
+mpsdProviderName = Lens.lens (providerName :: MultiplexProgramServiceDescriptor -> Lude.Text) (\s a -> s {providerName = a} :: MultiplexProgramServiceDescriptor)
+{-# DEPRECATED mpsdProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
+
 instance Lude.FromJSON MultiplexProgramServiceDescriptor where
   parseJSON =
     Lude.withObject
       "MultiplexProgramServiceDescriptor"
       ( \x ->
           MultiplexProgramServiceDescriptor'
-            Lude.<$> (x Lude..: "providerName") Lude.<*> (x Lude..: "serviceName")
+            Lude.<$> (x Lude..: "serviceName") Lude.<*> (x Lude..: "providerName")
       )
 
 instance Lude.ToJSON MultiplexProgramServiceDescriptor where
   toJSON MultiplexProgramServiceDescriptor' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("providerName" Lude..= providerName),
-            Lude.Just ("serviceName" Lude..= serviceName)
+          [ Lude.Just ("serviceName" Lude..= serviceName),
+            Lude.Just ("providerName" Lude..= providerName)
           ]
       )

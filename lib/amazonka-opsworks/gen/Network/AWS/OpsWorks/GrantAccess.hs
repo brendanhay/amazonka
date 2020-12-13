@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.OpsWorks.GrantAccess
     mkGrantAccess,
 
     -- ** Request lenses
-    gaValidForInMinutes,
     gaInstanceId,
+    gaValidForInMinutes,
 
     -- * Destructuring the response
     GrantAccessResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGrantAccess' smart constructor.
 data GrantAccess = GrantAccess'
-  { validForInMinutes ::
-      Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+  { -- | The instance's AWS OpsWorks Stacks ID.
+    instanceId :: Lude.Text,
+    -- | The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
+    validForInMinutes :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GrantAccess' with the minimum fields required to make a request.
@@ -63,16 +59,9 @@ mkGrantAccess ::
   GrantAccess
 mkGrantAccess pInstanceId_ =
   GrantAccess'
-    { validForInMinutes = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      validForInMinutes = Lude.Nothing
     }
-
--- | The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
---
--- /Note:/ Consider using 'validForInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaValidForInMinutes :: Lens.Lens' GrantAccess (Lude.Maybe Lude.Natural)
-gaValidForInMinutes = Lens.lens (validForInMinutes :: GrantAccess -> Lude.Maybe Lude.Natural) (\s a -> s {validForInMinutes = a} :: GrantAccess)
-{-# DEPRECATED gaValidForInMinutes "Use generic-lens or generic-optics with 'validForInMinutes' instead." #-}
 
 -- | The instance's AWS OpsWorks Stacks ID.
 --
@@ -80,6 +69,13 @@ gaValidForInMinutes = Lens.lens (validForInMinutes :: GrantAccess -> Lude.Maybe 
 gaInstanceId :: Lens.Lens' GrantAccess Lude.Text
 gaInstanceId = Lens.lens (instanceId :: GrantAccess -> Lude.Text) (\s a -> s {instanceId = a} :: GrantAccess)
 {-# DEPRECATED gaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The length of time (in minutes) that the grant is valid. When the grant expires at the end of this period, the user will no longer be able to use the credentials to log in. If the user is logged in at the time, he or she automatically will be logged out.
+--
+-- /Note:/ Consider using 'validForInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaValidForInMinutes :: Lens.Lens' GrantAccess (Lude.Maybe Lude.Natural)
+gaValidForInMinutes = Lens.lens (validForInMinutes :: GrantAccess -> Lude.Maybe Lude.Natural) (\s a -> s {validForInMinutes = a} :: GrantAccess)
+{-# DEPRECATED gaValidForInMinutes "Use generic-lens or generic-optics with 'validForInMinutes' instead." #-}
 
 instance Lude.AWSRequest GrantAccess where
   type Rs GrantAccess = GrantAccessResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON GrantAccess where
   toJSON GrantAccess' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ValidForInMinutes" Lude..=) Lude.<$> validForInMinutes,
-            Lude.Just ("InstanceId" Lude..= instanceId)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            ("ValidForInMinutes" Lude..=) Lude.<$> validForInMinutes
           ]
       )
 
@@ -122,23 +118,18 @@ instance Lude.ToQuery GrantAccess where
 --
 -- /See:/ 'mkGrantAccessResponse' smart constructor.
 data GrantAccessResponse = GrantAccessResponse'
-  { temporaryCredential ::
-      Lude.Maybe TemporaryCredential,
+  { -- | A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
+    temporaryCredential :: Lude.Maybe TemporaryCredential,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GrantAccessResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'temporaryCredential' - A @TemporaryCredential@ object that contains the data needed to log in to the instance by RDP clients, such as the Microsoft Remote Desktop Connection.
+-- * 'responseStatus' - The response status code.
 mkGrantAccessResponse ::
   -- | 'responseStatus'
   Lude.Int ->

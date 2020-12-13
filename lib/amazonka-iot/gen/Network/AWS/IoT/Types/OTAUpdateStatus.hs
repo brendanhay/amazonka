@@ -13,10 +13,10 @@
 module Network.AWS.IoT.Types.OTAUpdateStatus
   ( OTAUpdateStatus
       ( OTAUpdateStatus',
-        CreateComplete,
-        CreateFailed,
+        CreatePending,
         CreateInProgress,
-        CreatePending
+        CreateComplete,
+        CreateFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype OTAUpdateStatus = OTAUpdateStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern CreatePending :: OTAUpdateStatus
+pattern CreatePending = OTAUpdateStatus' "CREATE_PENDING"
+
+pattern CreateInProgress :: OTAUpdateStatus
+pattern CreateInProgress = OTAUpdateStatus' "CREATE_IN_PROGRESS"
+
 pattern CreateComplete :: OTAUpdateStatus
 pattern CreateComplete = OTAUpdateStatus' "CREATE_COMPLETE"
 
 pattern CreateFailed :: OTAUpdateStatus
 pattern CreateFailed = OTAUpdateStatus' "CREATE_FAILED"
 
-pattern CreateInProgress :: OTAUpdateStatus
-pattern CreateInProgress = OTAUpdateStatus' "CREATE_IN_PROGRESS"
-
-pattern CreatePending :: OTAUpdateStatus
-pattern CreatePending = OTAUpdateStatus' "CREATE_PENDING"
-
 {-# COMPLETE
+  CreatePending,
+  CreateInProgress,
   CreateComplete,
   CreateFailed,
-  CreateInProgress,
-  CreatePending,
   OTAUpdateStatus'
   #-}

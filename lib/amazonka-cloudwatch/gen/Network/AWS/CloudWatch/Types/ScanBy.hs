@@ -13,8 +13,8 @@
 module Network.AWS.CloudWatch.Types.ScanBy
   ( ScanBy
       ( ScanBy',
-        TimestampAscending,
-        TimestampDescending
+        TimestampDescending,
+        TimestampAscending
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ScanBy = ScanBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern TimestampAscending :: ScanBy
-pattern TimestampAscending = ScanBy' "TimestampAscending"
-
 pattern TimestampDescending :: ScanBy
 pattern TimestampDescending = ScanBy' "TimestampDescending"
 
+pattern TimestampAscending :: ScanBy
+pattern TimestampAscending = ScanBy' "TimestampAscending"
+
 {-# COMPLETE
-  TimestampAscending,
   TimestampDescending,
+  TimestampAscending,
   ScanBy'
   #-}

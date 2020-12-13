@@ -30,26 +30,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKendraConfiguration' smart constructor.
 data KendraConfiguration = KendraConfiguration'
-  { queryFilterString ::
-      Lude.Maybe Lude.Text,
+  { -- | A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <http://docs.aws.amazon.com/kendra/latest/dg/filtering.html Filtering queries> .
+    --
+    -- You can override this filter string with a new filter string at runtime.
+    queryFilterString :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot. If the Amazon Kendra index does not exist, you get an exception when you call the @PutIntent@ operation.
     kendraIndex :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of an IAM role that has permission to search the Amazon Kendra index. The role must be in the same account and Region as the Amazon Lex bot. If the role does not exist, you get an exception when you call the @PutIntent@ operation.
     role' :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KendraConfiguration' with the minimum fields required to make a request.
 --
--- * 'kendraIndex' - The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot. If the Amazon Kendra index does not exist, you get an exception when you call the @PutIntent@ operation.
 -- * 'queryFilterString' - A query filter that Amazon Lex sends to Amazon Kendra to filter the response from the query. The filter is in the format defined by Amazon Kendra. For more information, see <http://docs.aws.amazon.com/kendra/latest/dg/filtering.html Filtering queries> .
 --
 -- You can override this filter string with a new filter string at runtime.
+-- * 'kendraIndex' - The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot. If the Amazon Kendra index does not exist, you get an exception when you call the @PutIntent@ operation.
 -- * 'role'' - The Amazon Resource Name (ARN) of an IAM role that has permission to search the Amazon Kendra index. The role must be in the same account and Region as the Amazon Lex bot. If the role does not exist, you get an exception when you call the @PutIntent@ operation.
 mkKendraConfiguration ::
   -- | 'kendraIndex'

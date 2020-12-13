@@ -13,8 +13,8 @@
 module Network.AWS.Rekognition.Types.FaceSearchSortBy
   ( FaceSearchSortBy
       ( FaceSearchSortBy',
-        FSSBIndex,
-        FSSBTimestamp
+        Index,
+        Timestamp
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FaceSearchSortBy = FaceSearchSortBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern FSSBIndex :: FaceSearchSortBy
-pattern FSSBIndex = FaceSearchSortBy' "INDEX"
+pattern Index :: FaceSearchSortBy
+pattern Index = FaceSearchSortBy' "INDEX"
 
-pattern FSSBTimestamp :: FaceSearchSortBy
-pattern FSSBTimestamp = FaceSearchSortBy' "TIMESTAMP"
+pattern Timestamp :: FaceSearchSortBy
+pattern Timestamp = FaceSearchSortBy' "TIMESTAMP"
 
 {-# COMPLETE
-  FSSBIndex,
-  FSSBTimestamp,
+  Index,
+  Timestamp,
   FaceSearchSortBy'
   #-}

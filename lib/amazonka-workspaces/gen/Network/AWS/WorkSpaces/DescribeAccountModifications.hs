@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeAccountModifications' smart constructor.
 newtype DescribeAccountModifications = DescribeAccountModifications'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountModifications' with the minimum fields required to make a request.
@@ -119,22 +114,14 @@ instance Lude.ToQuery DescribeAccountModifications where
 
 -- | /See:/ 'mkDescribeAccountModificationsResponse' smart constructor.
 data DescribeAccountModificationsResponse = DescribeAccountModificationsResponse'
-  { accountModifications ::
-      Lude.Maybe
-        [AccountModification],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The list of modifications to the configuration of BYOL.
+    accountModifications :: Lude.Maybe [AccountModification],
+    -- | The token to use to retrieve the next set of results, or null if no more results are available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountModificationsResponse' with the minimum fields required to make a request.

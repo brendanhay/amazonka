@@ -51,53 +51,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpdateAction' smart constructor.
 data UpdateAction = UpdateAction'
-  { serviceUpdateType ::
-      Lude.Maybe ServiceUpdateType,
+  { -- | Reflects the nature of the service update
+    serviceUpdateType :: Lude.Maybe ServiceUpdateType,
+    -- | If yes, all nodes in the replication group have been updated by the recommended apply-by date. If no, at least one node in the replication group have not been updated by the recommended apply-by date. If N/A, the replication group was created after the recommended apply-by date.
     slaMet :: Lude.Maybe SlaMet,
+    -- | The ID of the cache cluster
     cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the service update
     serviceUpdateName :: Lude.Maybe Lude.Text,
+    -- | The status of the update action
     updateActionStatus :: Lude.Maybe UpdateActionStatus,
+    -- | The Elasticache engine to which the update applies. Either Redis or Memcached
     engine :: Lude.Maybe Lude.Text,
+    -- | The progress of the service update on the replication group
     nodesUpdated :: Lude.Maybe Lude.Text,
+    -- | The date when the UpdateActionStatus was last modified
     updateActionStatusModifiedDate :: Lude.Maybe Lude.DateTime,
+    -- | The date the update is first available
     serviceUpdateReleaseDate :: Lude.Maybe Lude.DateTime,
+    -- | The status of the service update on the cache node
     cacheNodeUpdateStatus :: Lude.Maybe [CacheNodeUpdateStatus],
+    -- | The severity of the service update
     serviceUpdateSeverity :: Lude.Maybe ServiceUpdateSeverity,
+    -- | The status of the service update on the node group
     nodeGroupUpdateStatus :: Lude.Maybe [NodeGroupUpdateStatus],
+    -- | The recommended date to apply the service update to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
     serviceUpdateRecommendedApplyByDate :: Lude.Maybe Lude.DateTime,
+    -- | The date that the service update is available to a replication group
     updateActionAvailableDate :: Lude.Maybe Lude.DateTime,
+    -- | The status of the service update
     serviceUpdateStatus :: Lude.Maybe ServiceUpdateStatus,
+    -- | The estimated length of time for the update to complete
     estimatedUpdateTime :: Lude.Maybe Lude.Text,
+    -- | The ID of the replication group
     replicationGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAction' with the minimum fields required to make a request.
 --
--- * 'cacheClusterId' - The ID of the cache cluster
--- * 'cacheNodeUpdateStatus' - The status of the service update on the cache node
--- * 'engine' - The Elasticache engine to which the update applies. Either Redis or Memcached
--- * 'estimatedUpdateTime' - The estimated length of time for the update to complete
--- * 'nodeGroupUpdateStatus' - The status of the service update on the node group
--- * 'nodesUpdated' - The progress of the service update on the replication group
--- * 'replicationGroupId' - The ID of the replication group
--- * 'serviceUpdateName' - The unique ID of the service update
--- * 'serviceUpdateRecommendedApplyByDate' - The recommended date to apply the service update to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
--- * 'serviceUpdateReleaseDate' - The date the update is first available
--- * 'serviceUpdateSeverity' - The severity of the service update
--- * 'serviceUpdateStatus' - The status of the service update
 -- * 'serviceUpdateType' - Reflects the nature of the service update
 -- * 'slaMet' - If yes, all nodes in the replication group have been updated by the recommended apply-by date. If no, at least one node in the replication group have not been updated by the recommended apply-by date. If N/A, the replication group was created after the recommended apply-by date.
--- * 'updateActionAvailableDate' - The date that the service update is available to a replication group
+-- * 'cacheClusterId' - The ID of the cache cluster
+-- * 'serviceUpdateName' - The unique ID of the service update
 -- * 'updateActionStatus' - The status of the update action
+-- * 'engine' - The Elasticache engine to which the update applies. Either Redis or Memcached
+-- * 'nodesUpdated' - The progress of the service update on the replication group
 -- * 'updateActionStatusModifiedDate' - The date when the UpdateActionStatus was last modified
+-- * 'serviceUpdateReleaseDate' - The date the update is first available
+-- * 'cacheNodeUpdateStatus' - The status of the service update on the cache node
+-- * 'serviceUpdateSeverity' - The severity of the service update
+-- * 'nodeGroupUpdateStatus' - The status of the service update on the node group
+-- * 'serviceUpdateRecommendedApplyByDate' - The recommended date to apply the service update to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
+-- * 'updateActionAvailableDate' - The date that the service update is available to a replication group
+-- * 'serviceUpdateStatus' - The status of the service update
+-- * 'estimatedUpdateTime' - The estimated length of time for the update to complete
+-- * 'replicationGroupId' - The ID of the replication group
 mkUpdateAction ::
   UpdateAction
 mkUpdateAction =

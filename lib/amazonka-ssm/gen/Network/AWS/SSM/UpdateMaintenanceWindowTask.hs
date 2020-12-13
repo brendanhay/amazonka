@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,6 +44,7 @@ module Network.AWS.SSM.UpdateMaintenanceWindowTask
     -- ** Request lenses
     umwtServiceRoleARN,
     umwtReplace,
+    umwtWindowTaskId,
     umwtTaskParameters,
     umwtPriority,
     umwtTaskARN,
@@ -54,7 +56,6 @@ module Network.AWS.SSM.UpdateMaintenanceWindowTask
     umwtDescription,
     umwtMaxConcurrency,
     umwtWindowId,
-    umwtWindowTaskId,
 
     -- * Destructuring the response
     UpdateMaintenanceWindowTaskResponse (..),
@@ -86,45 +87,53 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkUpdateMaintenanceWindowTask' smart constructor.
 data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
-  { serviceRoleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the IAM service role for Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created when you run @RegisterTaskWithMaintenanceWindow@ .
+    --
+    -- For more information, see the following topics in the in the /AWS Systems Manager User Guide/ :
+    --
+    --     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks? >
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | If True, then all fields that are required by the RegisterTaskWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
     replace :: Lude.Maybe Lude.Bool,
-    taskParameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (MaintenanceWindowTaskParameterValueExpression)
-        ),
+    -- | The task ID to modify.
+    windowTaskId :: Lude.Text,
+    -- | The parameters to modify.
+    --
+    -- The map has the following format:
+    -- Key: string, between 1 and 255 characters
+    -- Value: an array of strings, each string is between 1 and 255 characters
+    taskParameters :: Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)),
+    -- | The new task priority to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
     priority :: Lude.Maybe Lude.Natural,
+    -- | The task ARN to modify.
     taskARN :: Lude.Maybe Lude.Text,
+    -- | The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
     maxErrors :: Lude.Maybe Lude.Text,
-    taskInvocationParameters ::
-      Lude.Maybe
-        MaintenanceWindowTaskInvocationParameters,
+    -- | The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
+    --
+    -- /Important:/ When you update a maintenance window task that has options specified in @TaskInvocationParameters@ , you must provide again all the @TaskInvocationParameters@ values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified @TaskInvocationParameters@ values for @Comment@ , @NotificationConfig@ , and @OutputS3BucketName@ . If you update the maintenance window task and specify only a different @OutputS3BucketName@ value, the values for @Comment@ and @NotificationConfig@ are removed.
+    taskInvocationParameters :: Lude.Maybe MaintenanceWindowTaskInvocationParameters,
+    -- | The new task name to specify.
     name :: Lude.Maybe Lude.Text,
+    -- | The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
     targets :: Lude.Maybe [Target],
-    loggingInfo ::
-      Lude.Maybe LoggingInfo,
-    description ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    maxConcurrency ::
-      Lude.Maybe Lude.Text,
-    windowId :: Lude.Text,
-    windowTaskId :: Lude.Text
+    -- | The new logging location in Amazon S3 to specify.
+    loggingInfo :: Lude.Maybe LoggingInfo,
+    -- | The new task description to specify.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is the number of targets that are allowed to run this task in parallel.
+    maxConcurrency :: Lude.Maybe Lude.Text,
+    -- | The maintenance window ID that contains the task to modify.
+    windowId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMaintenanceWindowTask' with the minimum fields required to make a request.
 --
--- * 'description' - The new task description to specify.
--- * 'loggingInfo' - The new logging location in Amazon S3 to specify.
--- * 'maxConcurrency' - The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is the number of targets that are allowed to run this task in parallel.
--- * 'maxErrors' - The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
--- * 'name' - The new task name to specify.
--- * 'priority' - The new task priority to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
--- * 'replace' - If True, then all fields that are required by the RegisterTaskWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
 -- * 'serviceRoleARN' - The ARN of the IAM service role for Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created when you run @RegisterTaskWithMaintenanceWindow@ .
 --
 -- For more information, see the following topics in the in the /AWS Systems Manager User Guide/ :
@@ -135,28 +144,36 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 --     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks? >
 --
 --
--- * 'targets' - The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
--- * 'taskARN' - The task ARN to modify.
--- * 'taskInvocationParameters' - The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
---
--- /Important:/ When you update a maintenance window task that has options specified in @TaskInvocationParameters@ , you must provide again all the @TaskInvocationParameters@ values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified @TaskInvocationParameters@ values for @Comment@ , @NotificationConfig@ , and @OutputS3BucketName@ . If you update the maintenance window task and specify only a different @OutputS3BucketName@ value, the values for @Comment@ and @NotificationConfig@ are removed.
+-- * 'replace' - If True, then all fields that are required by the RegisterTaskWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
+-- * 'windowTaskId' - The task ID to modify.
 -- * 'taskParameters' - The parameters to modify.
 --
 -- The map has the following format:
 -- Key: string, between 1 and 255 characters
 -- Value: an array of strings, each string is between 1 and 255 characters
+-- * 'priority' - The new task priority to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
+-- * 'taskARN' - The task ARN to modify.
+-- * 'maxErrors' - The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
+-- * 'taskInvocationParameters' - The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
+--
+-- /Important:/ When you update a maintenance window task that has options specified in @TaskInvocationParameters@ , you must provide again all the @TaskInvocationParameters@ values that you want to retain. The values you do not specify again are removed. For example, suppose that when you registered a Run Command task, you specified @TaskInvocationParameters@ values for @Comment@ , @NotificationConfig@ , and @OutputS3BucketName@ . If you update the maintenance window task and specify only a different @OutputS3BucketName@ value, the values for @Comment@ and @NotificationConfig@ are removed.
+-- * 'name' - The new task name to specify.
+-- * 'targets' - The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
+-- * 'loggingInfo' - The new logging location in Amazon S3 to specify.
+-- * 'description' - The new task description to specify.
+-- * 'maxConcurrency' - The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is the number of targets that are allowed to run this task in parallel.
 -- * 'windowId' - The maintenance window ID that contains the task to modify.
--- * 'windowTaskId' - The task ID to modify.
 mkUpdateMaintenanceWindowTask ::
-  -- | 'windowId'
-  Lude.Text ->
   -- | 'windowTaskId'
   Lude.Text ->
+  -- | 'windowId'
+  Lude.Text ->
   UpdateMaintenanceWindowTask
-mkUpdateMaintenanceWindowTask pWindowId_ pWindowTaskId_ =
+mkUpdateMaintenanceWindowTask pWindowTaskId_ pWindowId_ =
   UpdateMaintenanceWindowTask'
     { serviceRoleARN = Lude.Nothing,
       replace = Lude.Nothing,
+      windowTaskId = pWindowTaskId_,
       taskParameters = Lude.Nothing,
       priority = Lude.Nothing,
       taskARN = Lude.Nothing,
@@ -167,8 +184,7 @@ mkUpdateMaintenanceWindowTask pWindowId_ pWindowTaskId_ =
       loggingInfo = Lude.Nothing,
       description = Lude.Nothing,
       maxConcurrency = Lude.Nothing,
-      windowId = pWindowId_,
-      windowTaskId = pWindowTaskId_
+      windowId = pWindowId_
     }
 
 -- | The ARN of the IAM service role for Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created when you run @RegisterTaskWithMaintenanceWindow@ .
@@ -193,6 +209,13 @@ umwtServiceRoleARN = Lens.lens (serviceRoleARN :: UpdateMaintenanceWindowTask ->
 umwtReplace :: Lens.Lens' UpdateMaintenanceWindowTask (Lude.Maybe Lude.Bool)
 umwtReplace = Lens.lens (replace :: UpdateMaintenanceWindowTask -> Lude.Maybe Lude.Bool) (\s a -> s {replace = a} :: UpdateMaintenanceWindowTask)
 {-# DEPRECATED umwtReplace "Use generic-lens or generic-optics with 'replace' instead." #-}
+
+-- | The task ID to modify.
+--
+-- /Note:/ Consider using 'windowTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwtWindowTaskId :: Lens.Lens' UpdateMaintenanceWindowTask Lude.Text
+umwtWindowTaskId = Lens.lens (windowTaskId :: UpdateMaintenanceWindowTask -> Lude.Text) (\s a -> s {windowTaskId = a} :: UpdateMaintenanceWindowTask)
+{-# DEPRECATED umwtWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
 
 -- | The parameters to modify.
 --
@@ -277,13 +300,6 @@ umwtWindowId :: Lens.Lens' UpdateMaintenanceWindowTask Lude.Text
 umwtWindowId = Lens.lens (windowId :: UpdateMaintenanceWindowTask -> Lude.Text) (\s a -> s {windowId = a} :: UpdateMaintenanceWindowTask)
 {-# DEPRECATED umwtWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
--- | The task ID to modify.
---
--- /Note:/ Consider using 'windowTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umwtWindowTaskId :: Lens.Lens' UpdateMaintenanceWindowTask Lude.Text
-umwtWindowTaskId = Lens.lens (windowTaskId :: UpdateMaintenanceWindowTask -> Lude.Text) (\s a -> s {windowTaskId = a} :: UpdateMaintenanceWindowTask)
-{-# DEPRECATED umwtWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
-
 instance Lude.AWSRequest UpdateMaintenanceWindowTask where
   type
     Rs UpdateMaintenanceWindowTask =
@@ -326,6 +342,7 @@ instance Lude.ToJSON UpdateMaintenanceWindowTask where
       ( Lude.catMaybes
           [ ("ServiceRoleArn" Lude..=) Lude.<$> serviceRoleARN,
             ("Replace" Lude..=) Lude.<$> replace,
+            Lude.Just ("WindowTaskId" Lude..= windowTaskId),
             ("TaskParameters" Lude..=) Lude.<$> taskParameters,
             ("Priority" Lude..=) Lude.<$> priority,
             ("TaskArn" Lude..=) Lude.<$> taskARN,
@@ -337,8 +354,7 @@ instance Lude.ToJSON UpdateMaintenanceWindowTask where
             ("LoggingInfo" Lude..=) Lude.<$> loggingInfo,
             ("Description" Lude..=) Lude.<$> description,
             ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency,
-            Lude.Just ("WindowId" Lude..= windowId),
-            Lude.Just ("WindowTaskId" Lude..= windowTaskId)
+            Lude.Just ("WindowId" Lude..= windowId)
           ]
       )
 
@@ -350,76 +366,54 @@ instance Lude.ToQuery UpdateMaintenanceWindowTask where
 
 -- | /See:/ 'mkUpdateMaintenanceWindowTaskResponse' smart constructor.
 data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
-  { serviceRoleARN ::
-      Lude.Maybe
-        Lude.Text,
-    windowTaskId ::
-      Lude.Maybe
-        Lude.Text,
-    taskParameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (MaintenanceWindowTaskParameterValueExpression)
-        ),
-    priority ::
-      Lude.Maybe
-        Lude.Natural,
-    taskARN ::
-      Lude.Maybe
-        Lude.Text,
-    maxErrors ::
-      Lude.Maybe
-        Lude.Text,
-    taskInvocationParameters ::
-      Lude.Maybe
-        MaintenanceWindowTaskInvocationParameters,
-    name ::
-      Lude.Maybe
-        Lude.Text,
-    targets ::
-      Lude.Maybe [Target],
-    loggingInfo ::
-      Lude.Maybe
-        LoggingInfo,
-    description ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    maxConcurrency ::
-      Lude.Maybe
-        Lude.Text,
-    windowId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | The task ID of the maintenance window that was updated.
+    windowTaskId :: Lude.Maybe Lude.Text,
+    -- | The updated parameter values.
+    taskParameters :: Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)),
+    -- | The updated priority value.
+    priority :: Lude.Maybe Lude.Natural,
+    -- | The updated task ARN value.
+    taskARN :: Lude.Maybe Lude.Text,
+    -- | The updated MaxErrors value.
+    maxErrors :: Lude.Maybe Lude.Text,
+    -- | The updated parameter values.
+    taskInvocationParameters :: Lude.Maybe MaintenanceWindowTaskInvocationParameters,
+    -- | The updated task name.
+    name :: Lude.Maybe Lude.Text,
+    -- | The updated target values.
+    targets :: Lude.Maybe [Target],
+    -- | The updated logging information in Amazon S3.
+    loggingInfo :: Lude.Maybe LoggingInfo,
+    -- | The updated task description.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The updated MaxConcurrency value.
+    maxConcurrency :: Lude.Maybe Lude.Text,
+    -- | The ID of the maintenance window that was updated.
+    windowId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMaintenanceWindowTaskResponse' with the minimum fields required to make a request.
 --
--- * 'description' - The updated task description.
--- * 'loggingInfo' - The updated logging information in Amazon S3.
--- * 'maxConcurrency' - The updated MaxConcurrency value.
--- * 'maxErrors' - The updated MaxErrors value.
--- * 'name' - The updated task name.
--- * 'priority' - The updated priority value.
--- * 'responseStatus' - The response status code.
 -- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
--- * 'targets' - The updated target values.
--- * 'taskARN' - The updated task ARN value.
--- * 'taskInvocationParameters' - The updated parameter values.
--- * 'taskParameters' - The updated parameter values.
--- * 'windowId' - The ID of the maintenance window that was updated.
 -- * 'windowTaskId' - The task ID of the maintenance window that was updated.
+-- * 'taskParameters' - The updated parameter values.
+-- * 'priority' - The updated priority value.
+-- * 'taskARN' - The updated task ARN value.
+-- * 'maxErrors' - The updated MaxErrors value.
+-- * 'taskInvocationParameters' - The updated parameter values.
+-- * 'name' - The updated task name.
+-- * 'targets' - The updated target values.
+-- * 'loggingInfo' - The updated logging information in Amazon S3.
+-- * 'description' - The updated task description.
+-- * 'maxConcurrency' - The updated MaxConcurrency value.
+-- * 'windowId' - The ID of the maintenance window that was updated.
+-- * 'responseStatus' - The response status code.
 mkUpdateMaintenanceWindowTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

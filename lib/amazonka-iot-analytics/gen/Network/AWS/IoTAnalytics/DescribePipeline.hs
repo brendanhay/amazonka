@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoTAnalytics.DescribePipeline
     mkDescribePipeline,
 
     -- ** Request lenses
-    dpPipelineName,
+    dPipelineName,
 
     -- * Destructuring the response
     DescribePipelineResponse (..),
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribePipeline' smart constructor.
 newtype DescribePipeline = DescribePipeline'
-  { pipelineName ::
-      Lude.Text
+  { -- | The name of the pipeline whose information is retrieved.
+    pipelineName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePipeline' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDescribePipeline pPipelineName_ =
 -- | The name of the pipeline whose information is retrieved.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpPipelineName :: Lens.Lens' DescribePipeline Lude.Text
-dpPipelineName = Lens.lens (pipelineName :: DescribePipeline -> Lude.Text) (\s a -> s {pipelineName = a} :: DescribePipeline)
-{-# DEPRECATED dpPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
+dPipelineName :: Lens.Lens' DescribePipeline Lude.Text
+dPipelineName = Lens.lens (pipelineName :: DescribePipeline -> Lude.Text) (\s a -> s {pipelineName = a} :: DescribePipeline)
+{-# DEPRECATED dPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 instance Lude.AWSRequest DescribePipeline where
   type Rs DescribePipeline = DescribePipelineResponse
@@ -90,17 +85,12 @@ instance Lude.ToQuery DescribePipeline where
 
 -- | /See:/ 'mkDescribePipelineResponse' smart constructor.
 data DescribePipelineResponse = DescribePipelineResponse'
-  { pipeline ::
-      Lude.Maybe Pipeline,
+  { -- | A @Pipeline@ object that contains information about the pipeline.
+    pipeline :: Lude.Maybe Pipeline,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePipelineResponse' with the minimum fields required to make a request.

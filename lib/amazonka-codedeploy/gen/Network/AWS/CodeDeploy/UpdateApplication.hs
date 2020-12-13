@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,23 +39,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { newApplicationName ::
-      Lude.Maybe Lude.Text,
+  { -- | The new name to give the application.
+    newApplicationName :: Lude.Maybe Lude.Text,
+    -- | The current name of the application you want to change.
     applicationName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The current name of the application you want to change.
 -- * 'newApplicationName' - The new name to give the application.
+-- * 'applicationName' - The current name of the application you want to change.
 mkUpdateApplication ::
   UpdateApplication
 mkUpdateApplication =
@@ -110,13 +106,7 @@ instance Lude.ToQuery UpdateApplication where
 
 -- | /See:/ 'mkUpdateApplicationResponse' smart constructor.
 data UpdateApplicationResponse = UpdateApplicationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.

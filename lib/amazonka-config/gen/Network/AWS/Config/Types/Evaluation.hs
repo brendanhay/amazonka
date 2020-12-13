@@ -20,8 +20,8 @@ module Network.AWS.Config.Types.Evaluation
     eAnnotation,
     eComplianceResourceType,
     eComplianceResourceId,
-    eComplianceType,
     eOrderingTimestamp,
+    eComplianceType,
   )
 where
 
@@ -33,52 +33,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvaluation' smart constructor.
 data Evaluation = Evaluation'
-  { annotation :: Lude.Maybe Lude.Text,
+  { -- | Supplementary information about how the evaluation determined the compliance.
+    annotation :: Lude.Maybe Lude.Text,
+    -- | The type of AWS resource that was evaluated.
     complianceResourceType :: Lude.Text,
+    -- | The ID of the AWS resource that was evaluated.
     complianceResourceId :: Lude.Text,
-    complianceType :: ComplianceType,
-    orderingTimestamp :: Lude.Timestamp
+    -- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
+    orderingTimestamp :: Lude.Timestamp,
+    -- | Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against.
+    --
+    -- For the @Evaluation@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for this data type.
+    -- Similarly, AWS Config does not accept @INSUFFICIENT_DATA@ as the value for @ComplianceType@ from a @PutEvaluations@ request. For example, an AWS Lambda function for a custom AWS Config rule cannot pass an @INSUFFICIENT_DATA@ value to AWS Config.
+    complianceType :: ComplianceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Evaluation' with the minimum fields required to make a request.
 --
 -- * 'annotation' - Supplementary information about how the evaluation determined the compliance.
--- * 'complianceResourceId' - The ID of the AWS resource that was evaluated.
 -- * 'complianceResourceType' - The type of AWS resource that was evaluated.
+-- * 'complianceResourceId' - The ID of the AWS resource that was evaluated.
+-- * 'orderingTimestamp' - The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
 -- * 'complianceType' - Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against.
 --
 -- For the @Evaluation@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for this data type.
 -- Similarly, AWS Config does not accept @INSUFFICIENT_DATA@ as the value for @ComplianceType@ from a @PutEvaluations@ request. For example, an AWS Lambda function for a custom AWS Config rule cannot pass an @INSUFFICIENT_DATA@ value to AWS Config.
--- * 'orderingTimestamp' - The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
 mkEvaluation ::
   -- | 'complianceResourceType'
   Lude.Text ->
   -- | 'complianceResourceId'
   Lude.Text ->
-  -- | 'complianceType'
-  ComplianceType ->
   -- | 'orderingTimestamp'
   Lude.Timestamp ->
+  -- | 'complianceType'
+  ComplianceType ->
   Evaluation
 mkEvaluation
   pComplianceResourceType_
   pComplianceResourceId_
-  pComplianceType_
-  pOrderingTimestamp_ =
+  pOrderingTimestamp_
+  pComplianceType_ =
     Evaluation'
       { annotation = Lude.Nothing,
         complianceResourceType = pComplianceResourceType_,
         complianceResourceId = pComplianceResourceId_,
-        complianceType = pComplianceType_,
-        orderingTimestamp = pOrderingTimestamp_
+        orderingTimestamp = pOrderingTimestamp_,
+        complianceType = pComplianceType_
       }
 
 -- | Supplementary information about how the evaluation determined the compliance.
@@ -102,6 +104,13 @@ eComplianceResourceId :: Lens.Lens' Evaluation Lude.Text
 eComplianceResourceId = Lens.lens (complianceResourceId :: Evaluation -> Lude.Text) (\s a -> s {complianceResourceId = a} :: Evaluation)
 {-# DEPRECATED eComplianceResourceId "Use generic-lens or generic-optics with 'complianceResourceId' instead." #-}
 
+-- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
+--
+-- /Note:/ Consider using 'orderingTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eOrderingTimestamp :: Lens.Lens' Evaluation Lude.Timestamp
+eOrderingTimestamp = Lens.lens (orderingTimestamp :: Evaluation -> Lude.Timestamp) (\s a -> s {orderingTimestamp = a} :: Evaluation)
+{-# DEPRECATED eOrderingTimestamp "Use generic-lens or generic-optics with 'orderingTimestamp' instead." #-}
+
 -- | Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against.
 --
 -- For the @Evaluation@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for this data type.
@@ -112,13 +121,6 @@ eComplianceType :: Lens.Lens' Evaluation ComplianceType
 eComplianceType = Lens.lens (complianceType :: Evaluation -> ComplianceType) (\s a -> s {complianceType = a} :: Evaluation)
 {-# DEPRECATED eComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
--- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
---
--- /Note:/ Consider using 'orderingTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eOrderingTimestamp :: Lens.Lens' Evaluation Lude.Timestamp
-eOrderingTimestamp = Lens.lens (orderingTimestamp :: Evaluation -> Lude.Timestamp) (\s a -> s {orderingTimestamp = a} :: Evaluation)
-{-# DEPRECATED eOrderingTimestamp "Use generic-lens or generic-optics with 'orderingTimestamp' instead." #-}
-
 instance Lude.FromJSON Evaluation where
   parseJSON =
     Lude.withObject
@@ -128,8 +130,8 @@ instance Lude.FromJSON Evaluation where
             Lude.<$> (x Lude..:? "Annotation")
             Lude.<*> (x Lude..: "ComplianceResourceType")
             Lude.<*> (x Lude..: "ComplianceResourceId")
-            Lude.<*> (x Lude..: "ComplianceType")
             Lude.<*> (x Lude..: "OrderingTimestamp")
+            Lude.<*> (x Lude..: "ComplianceType")
       )
 
 instance Lude.ToJSON Evaluation where
@@ -140,7 +142,7 @@ instance Lude.ToJSON Evaluation where
             Lude.Just
               ("ComplianceResourceType" Lude..= complianceResourceType),
             Lude.Just ("ComplianceResourceId" Lude..= complianceResourceId),
-            Lude.Just ("ComplianceType" Lude..= complianceType),
-            Lude.Just ("OrderingTimestamp" Lude..= orderingTimestamp)
+            Lude.Just ("OrderingTimestamp" Lude..= orderingTimestamp),
+            Lude.Just ("ComplianceType" Lude..= complianceType)
           ]
       )

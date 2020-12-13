@@ -13,7 +13,7 @@
 module Network.AWS.AppSync.Types.AuthorizationType
   ( AuthorizationType
       ( AuthorizationType',
-        AWSIAM
+        ATAWSIAM
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype AuthorizationType = AuthorizationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSIAM :: AuthorizationType
-pattern AWSIAM = AuthorizationType' "AWS_IAM"
+pattern ATAWSIAM :: AuthorizationType
+pattern ATAWSIAM = AuthorizationType' "AWS_IAM"
 
 {-# COMPLETE
-  AWSIAM,
+  ATAWSIAM,
   AuthorizationType'
   #-}

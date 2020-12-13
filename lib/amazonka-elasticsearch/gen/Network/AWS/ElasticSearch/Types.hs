@@ -64,8 +64,8 @@ module Network.AWS.ElasticSearch.Types
     -- * AccessPoliciesStatus
     AccessPoliciesStatus (..),
     mkAccessPoliciesStatus,
-    apsOptions,
     apsStatus,
+    apsOptions,
 
     -- * AdditionalLimit
     AdditionalLimit (..),
@@ -76,8 +76,8 @@ module Network.AWS.ElasticSearch.Types
     -- * AdvancedOptionsStatus
     AdvancedOptionsStatus (..),
     mkAdvancedOptionsStatus,
-    aosOptions,
     aosStatus,
+    aosOptions,
 
     -- * AdvancedSecurityOptions
     AdvancedSecurityOptions (..),
@@ -97,8 +97,8 @@ module Network.AWS.ElasticSearch.Types
     -- * AdvancedSecurityOptionsStatus
     AdvancedSecurityOptionsStatus (..),
     mkAdvancedSecurityOptionsStatus,
-    asosOptions,
     asosStatus,
+    asosOptions,
 
     -- * CognitoOptions
     CognitoOptions (..),
@@ -111,8 +111,8 @@ module Network.AWS.ElasticSearch.Types
     -- * CognitoOptionsStatus
     CognitoOptionsStatus (..),
     mkCognitoOptionsStatus,
-    cosOptions,
     cosStatus,
+    cosOptions,
 
     -- * CompatibleVersionsMap
     CompatibleVersionsMap (..),
@@ -138,20 +138,20 @@ module Network.AWS.ElasticSearch.Types
     -- * DomainEndpointOptionsStatus
     DomainEndpointOptionsStatus (..),
     mkDomainEndpointOptionsStatus,
-    deosOptions,
     deosStatus,
+    deosOptions,
 
     -- * DomainInfo
     DomainInfo (..),
     mkDomainInfo,
-    dDomainName,
+    diDomainName,
 
     -- * DomainInformation
     DomainInformation (..),
     mkDomainInformation,
-    diOwnerId,
-    diRegion,
-    diDomainName,
+    dOwnerId,
+    dDomainName,
+    dRegion,
 
     -- * DomainPackageDetails
     DomainPackageDetails (..),
@@ -177,8 +177,8 @@ module Network.AWS.ElasticSearch.Types
     -- * EBSOptionsStatus
     EBSOptionsStatus (..),
     mkEBSOptionsStatus,
-    eosOptions,
     eosStatus,
+    eosOptions,
 
     -- * ElasticsearchClusterConfig
     ElasticsearchClusterConfig (..),
@@ -197,8 +197,8 @@ module Network.AWS.ElasticSearch.Types
     -- * ElasticsearchClusterConfigStatus
     ElasticsearchClusterConfigStatus (..),
     mkElasticsearchClusterConfigStatus,
-    eccsOptions,
     eccsStatus,
+    eccsOptions,
 
     -- * ElasticsearchDomainConfig
     ElasticsearchDomainConfig (..),
@@ -224,14 +224,18 @@ module Network.AWS.ElasticSearch.Types
     edsNodeToNodeEncryptionOptions,
     edsAccessPolicies,
     edsServiceSoftwareOptions,
+    edsARN,
     edsLogPublishingOptions,
     edsAdvancedSecurityOptions,
     edsCreated,
+    edsElasticsearchClusterConfig,
     edsSnapshotOptions,
+    edsDomainName,
     edsCognitoOptions,
     edsEncryptionAtRestOptions,
     edsDeleted,
     edsVPCOptions,
+    edsDomainId,
     edsEndpoints,
     edsDomainEndpointOptions,
     edsProcessing,
@@ -239,16 +243,12 @@ module Network.AWS.ElasticSearch.Types
     edsUpgradeProcessing,
     edsAdvancedOptions,
     edsElasticsearchVersion,
-    edsDomainId,
-    edsDomainName,
-    edsARN,
-    edsElasticsearchClusterConfig,
 
     -- * ElasticsearchVersionStatus
     ElasticsearchVersionStatus (..),
     mkElasticsearchVersionStatus,
-    evsOptions,
     evsStatus,
+    evsOptions,
 
     -- * EncryptionAtRestOptions
     EncryptionAtRestOptions (..),
@@ -259,8 +259,8 @@ module Network.AWS.ElasticSearch.Types
     -- * EncryptionAtRestOptionsStatus
     EncryptionAtRestOptionsStatus (..),
     mkEncryptionAtRestOptionsStatus,
-    earosOptions,
     earosStatus,
+    earosOptions,
 
     -- * ErrorDetails
     ErrorDetails (..),
@@ -333,17 +333,17 @@ module Network.AWS.ElasticSearch.Types
     -- * NodeToNodeEncryptionOptionsStatus
     NodeToNodeEncryptionOptionsStatus (..),
     mkNodeToNodeEncryptionOptionsStatus,
-    ntneosOptions,
     ntneosStatus,
+    ntneosOptions,
 
     -- * OptionStatus
     OptionStatus (..),
     mkOptionStatus,
-    osPendingDeletion,
-    osUpdateVersion,
-    osCreationDate,
-    osUpdateDate,
     osState,
+    osUpdateDate,
+    osPendingDeletion,
+    osCreationDate,
+    osUpdateVersion,
 
     -- * OutboundCrossClusterSearchConnection
     OutboundCrossClusterSearchConnection (..),
@@ -467,8 +467,8 @@ module Network.AWS.ElasticSearch.Types
     -- * SnapshotOptionsStatus
     SnapshotOptionsStatus (..),
     mkSnapshotOptionsStatus,
-    sosOptions,
     sosStatus,
+    sosOptions,
 
     -- * StorageType
     StorageType (..),
@@ -486,8 +486,8 @@ module Network.AWS.ElasticSearch.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * UpgradeHistory
     UpgradeHistory (..),
@@ -516,8 +516,8 @@ module Network.AWS.ElasticSearch.Types
     -- * VPCDerivedInfoStatus
     VPCDerivedInfoStatus (..),
     mkVPCDerivedInfoStatus,
-    vdisOptions,
     vdisStatus,
+    vdisOptions,
 
     -- * VPCOptions
     VPCOptions (..),

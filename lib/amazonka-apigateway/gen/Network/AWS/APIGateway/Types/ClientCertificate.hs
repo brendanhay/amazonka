@@ -35,30 +35,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
-  { pemEncodedCertificate ::
-      Lude.Maybe Lude.Text,
+  { -- | The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .
+    pemEncodedCertificate :: Lude.Maybe Lude.Text,
+    -- | The identifier of the client certificate.
     clientCertificateId :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the client certificate was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The timestamp when the client certificate will expire.
     expirationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The description of the client certificate.
     description :: Lude.Maybe Lude.Text,
+    -- | The collection of tags. Each tag element is associated with a given resource.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientCertificate' with the minimum fields required to make a request.
 --
+-- * 'pemEncodedCertificate' - The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .
 -- * 'clientCertificateId' - The identifier of the client certificate.
 -- * 'createdDate' - The timestamp when the client certificate was created.
--- * 'description' - The description of the client certificate.
 -- * 'expirationDate' - The timestamp when the client certificate will expire.
--- * 'pemEncodedCertificate' - The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .
+-- * 'description' - The description of the client certificate.
 -- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
 mkClientCertificate ::
   ClientCertificate

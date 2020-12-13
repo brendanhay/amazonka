@@ -17,8 +17,8 @@ module Network.AWS.Lightsail.Types.InstanceState
     mkInstanceState,
 
     -- * Lenses
-    isName,
-    isCode,
+    isfName,
+    isfCode,
   )
 where
 
@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceState' smart constructor.
 data InstanceState = InstanceState'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | The state of the instance (e.g., @running@ or @pending@ ).
+    name :: Lude.Maybe Lude.Text,
+    -- | The status code for the instance.
     code :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceState' with the minimum fields required to make a request.
 --
--- * 'code' - The status code for the instance.
 -- * 'name' - The state of the instance (e.g., @running@ or @pending@ ).
+-- * 'code' - The status code for the instance.
 mkInstanceState ::
   InstanceState
 mkInstanceState =
@@ -53,16 +49,16 @@ mkInstanceState =
 -- | The state of the instance (e.g., @running@ or @pending@ ).
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isName :: Lens.Lens' InstanceState (Lude.Maybe Lude.Text)
-isName = Lens.lens (name :: InstanceState -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InstanceState)
-{-# DEPRECATED isName "Use generic-lens or generic-optics with 'name' instead." #-}
+isfName :: Lens.Lens' InstanceState (Lude.Maybe Lude.Text)
+isfName = Lens.lens (name :: InstanceState -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InstanceState)
+{-# DEPRECATED isfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The status code for the instance.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isCode :: Lens.Lens' InstanceState (Lude.Maybe Lude.Int)
-isCode = Lens.lens (code :: InstanceState -> Lude.Maybe Lude.Int) (\s a -> s {code = a} :: InstanceState)
-{-# DEPRECATED isCode "Use generic-lens or generic-optics with 'code' instead." #-}
+isfCode :: Lens.Lens' InstanceState (Lude.Maybe Lude.Int)
+isfCode = Lens.lens (code :: InstanceState -> Lude.Maybe Lude.Int) (\s a -> s {code = a} :: InstanceState)
+{-# DEPRECATED isfCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 instance Lude.FromJSON InstanceState where
   parseJSON =

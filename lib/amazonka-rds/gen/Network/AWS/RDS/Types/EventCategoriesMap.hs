@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-  { sourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | The source type that the returned categories belong to
+    sourceType :: Lude.Maybe Lude.Text,
+    -- | The event categories for the specified source type
     eventCategories :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventCategoriesMap' with the minimum fields required to make a request.
 --
--- * 'eventCategories' - The event categories for the specified source type
 -- * 'sourceType' - The source type that the returned categories belong to
+-- * 'eventCategories' - The event categories for the specified source type
 mkEventCategoriesMap ::
   EventCategoriesMap
 mkEventCategoriesMap =

@@ -17,11 +17,11 @@ module Network.AWS.Lightsail.Types.CertificateSummary
     mkCertificateSummary,
 
     -- * Lenses
-    cCertificateDetail,
-    cCertificateName,
-    cCertificateARN,
-    cDomainName,
-    cTags,
+    csfCertificateDetail,
+    csfCertificateName,
+    csfCertificateARN,
+    csfDomainName,
+    csfTags,
   )
 where
 
@@ -34,27 +34,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
-  { certificateDetail ::
-      Lude.Maybe Certificate,
+  { -- | An object that describes a certificate in detail.
+    certificateDetail :: Lude.Maybe Certificate,
+    -- | The name of the certificate.
     certificateName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the certificate.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The domain name of the certificate.
     domainName :: Lude.Maybe Lude.Text,
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateSummary' with the minimum fields required to make a request.
 --
--- * 'certificateARN' - The Amazon Resource Name (ARN) of the certificate.
 -- * 'certificateDetail' - An object that describes a certificate in detail.
 -- * 'certificateName' - The name of the certificate.
+-- * 'certificateARN' - The Amazon Resource Name (ARN) of the certificate.
 -- * 'domainName' - The domain name of the certificate.
 -- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkCertificateSummary ::
@@ -71,37 +69,37 @@ mkCertificateSummary =
 -- | An object that describes a certificate in detail.
 --
 -- /Note:/ Consider using 'certificateDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCertificateDetail :: Lens.Lens' CertificateSummary (Lude.Maybe Certificate)
-cCertificateDetail = Lens.lens (certificateDetail :: CertificateSummary -> Lude.Maybe Certificate) (\s a -> s {certificateDetail = a} :: CertificateSummary)
-{-# DEPRECATED cCertificateDetail "Use generic-lens or generic-optics with 'certificateDetail' instead." #-}
+csfCertificateDetail :: Lens.Lens' CertificateSummary (Lude.Maybe Certificate)
+csfCertificateDetail = Lens.lens (certificateDetail :: CertificateSummary -> Lude.Maybe Certificate) (\s a -> s {certificateDetail = a} :: CertificateSummary)
+{-# DEPRECATED csfCertificateDetail "Use generic-lens or generic-optics with 'certificateDetail' instead." #-}
 
 -- | The name of the certificate.
 --
 -- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCertificateName :: Lens.Lens' CertificateSummary (Lude.Maybe Lude.Text)
-cCertificateName = Lens.lens (certificateName :: CertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {certificateName = a} :: CertificateSummary)
-{-# DEPRECATED cCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
+csfCertificateName :: Lens.Lens' CertificateSummary (Lude.Maybe Lude.Text)
+csfCertificateName = Lens.lens (certificateName :: CertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {certificateName = a} :: CertificateSummary)
+{-# DEPRECATED csfCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the certificate.
 --
 -- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCertificateARN :: Lens.Lens' CertificateSummary (Lude.Maybe Lude.Text)
-cCertificateARN = Lens.lens (certificateARN :: CertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: CertificateSummary)
-{-# DEPRECATED cCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+csfCertificateARN :: Lens.Lens' CertificateSummary (Lude.Maybe Lude.Text)
+csfCertificateARN = Lens.lens (certificateARN :: CertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: CertificateSummary)
+{-# DEPRECATED csfCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | The domain name of the certificate.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDomainName :: Lens.Lens' CertificateSummary (Lude.Maybe Lude.Text)
-cDomainName = Lens.lens (domainName :: CertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: CertificateSummary)
-{-# DEPRECATED cDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+csfDomainName :: Lens.Lens' CertificateSummary (Lude.Maybe Lude.Text)
+csfDomainName = Lens.lens (domainName :: CertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: CertificateSummary)
+{-# DEPRECATED csfDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTags :: Lens.Lens' CertificateSummary (Lude.Maybe [Tag])
-cTags = Lens.lens (tags :: CertificateSummary -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CertificateSummary)
-{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+csfTags :: Lens.Lens' CertificateSummary (Lude.Maybe [Tag])
+csfTags = Lens.lens (tags :: CertificateSummary -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CertificateSummary)
+{-# DEPRECATED csfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.FromJSON CertificateSummary where
   parseJSON =

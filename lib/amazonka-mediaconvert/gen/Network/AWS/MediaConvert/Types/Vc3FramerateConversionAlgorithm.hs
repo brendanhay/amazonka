@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.Vc3FramerateConversionAlgorithm
   ( Vc3FramerateConversionAlgorithm
       ( Vc3FramerateConversionAlgorithm',
-        Vc3DuplicateDrop,
-        Vc3Frameformer,
-        Vc3Interpolate
+        VFCAfDuplicateDrop,
+        VFCAfInterpolate,
+        VFCAfFrameformer
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype Vc3FramerateConversionAlgorithm = Vc3FramerateConversionAlgorithm' Lude.
       Lude.ToHeader
     )
 
-pattern Vc3DuplicateDrop :: Vc3FramerateConversionAlgorithm
-pattern Vc3DuplicateDrop = Vc3FramerateConversionAlgorithm' "DUPLICATE_DROP"
+pattern VFCAfDuplicateDrop :: Vc3FramerateConversionAlgorithm
+pattern VFCAfDuplicateDrop = Vc3FramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern Vc3Frameformer :: Vc3FramerateConversionAlgorithm
-pattern Vc3Frameformer = Vc3FramerateConversionAlgorithm' "FRAMEFORMER"
+pattern VFCAfInterpolate :: Vc3FramerateConversionAlgorithm
+pattern VFCAfInterpolate = Vc3FramerateConversionAlgorithm' "INTERPOLATE"
 
-pattern Vc3Interpolate :: Vc3FramerateConversionAlgorithm
-pattern Vc3Interpolate = Vc3FramerateConversionAlgorithm' "INTERPOLATE"
+pattern VFCAfFrameformer :: Vc3FramerateConversionAlgorithm
+pattern VFCAfFrameformer = Vc3FramerateConversionAlgorithm' "FRAMEFORMER"
 
 {-# COMPLETE
-  Vc3DuplicateDrop,
-  Vc3Frameformer,
-  Vc3Interpolate,
+  VFCAfDuplicateDrop,
+  VFCAfInterpolate,
+  VFCAfFrameformer,
   Vc3FramerateConversionAlgorithm'
   #-}

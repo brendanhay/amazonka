@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AppSync.UpdateAPICache
     mkUpdateAPICache,
 
     -- ** Request lenses
-    uacApiId,
     uacTtl,
+    uacApiId,
     uacApiCachingBehavior,
     uacType,
 
@@ -44,22 +45,80 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateAPICache' smart constructor.
 data UpdateAPICache = UpdateAPICache'
-  { apiId :: Lude.Text,
+  { -- | TTL in seconds for cache entries.
+    --
+    -- Valid values are between 1 and 3600 seconds.
     ttl :: Lude.Integer,
+    -- | The GraphQL API Id.
+    apiId :: Lude.Text,
+    -- | Caching behavior.
+    --
+    --
+    --     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
+    --
+    --
+    --     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
     apiCachingBehavior :: APICachingBehavior,
+    -- | The cache instance type. Valid values are
+    --
+    --
+    --     * @SMALL@
+    --
+    --
+    --     * @MEDIUM@
+    --
+    --
+    --     * @LARGE@
+    --
+    --
+    --     * @XLARGE@
+    --
+    --
+    --     * @LARGE_2X@
+    --
+    --
+    --     * @LARGE_4X@
+    --
+    --
+    --     * @LARGE_8X@ (not available in all regions)
+    --
+    --
+    --     * @LARGE_12X@
+    --
+    --
+    -- Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+    -- The following legacy instance types are available, but their use is discouraged:
+    --
+    --     * __T2_SMALL__ : A t2.small instance type.
+    --
+    --
+    --     * __T2_MEDIUM__ : A t2.medium instance type.
+    --
+    --
+    --     * __R4_LARGE__ : A r4.large instance type.
+    --
+    --
+    --     * __R4_XLARGE__ : A r4.xlarge instance type.
+    --
+    --
+    --     * __R4_2XLARGE__ : A r4.2xlarge instance type.
+    --
+    --
+    --     * __R4_4XLARGE__ : A r4.4xlarge instance type.
+    --
+    --
+    --     * __R4_8XLARGE__ : A r4.8xlarge instance type.
     type' :: APICacheType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPICache' with the minimum fields required to make a request.
 --
+-- * 'ttl' - TTL in seconds for cache entries.
+--
+-- Valid values are between 1 and 3600 seconds.
+-- * 'apiId' - The GraphQL API Id.
 -- * 'apiCachingBehavior' - Caching behavior.
 --
 --
@@ -69,10 +128,6 @@ data UpdateAPICache = UpdateAPICache'
 --     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
 --
 --
--- * 'apiId' - The GraphQL API Id.
--- * 'ttl' - TTL in seconds for cache entries.
---
--- Valid values are between 1 and 3600 seconds.
 -- * 'type'' - The cache instance type. Valid values are
 --
 --
@@ -123,29 +178,22 @@ data UpdateAPICache = UpdateAPICache'
 --
 --     * __R4_8XLARGE__ : A r4.8xlarge instance type.
 mkUpdateAPICache ::
-  -- | 'apiId'
-  Lude.Text ->
   -- | 'ttl'
   Lude.Integer ->
+  -- | 'apiId'
+  Lude.Text ->
   -- | 'apiCachingBehavior'
   APICachingBehavior ->
   -- | 'type''
   APICacheType ->
   UpdateAPICache
-mkUpdateAPICache pApiId_ pTtl_ pApiCachingBehavior_ pType_ =
+mkUpdateAPICache pTtl_ pApiId_ pApiCachingBehavior_ pType_ =
   UpdateAPICache'
-    { apiId = pApiId_,
-      ttl = pTtl_,
+    { ttl = pTtl_,
+      apiId = pApiId_,
       apiCachingBehavior = pApiCachingBehavior_,
       type' = pType_
     }
-
--- | The GraphQL API Id.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uacApiId :: Lens.Lens' UpdateAPICache Lude.Text
-uacApiId = Lens.lens (apiId :: UpdateAPICache -> Lude.Text) (\s a -> s {apiId = a} :: UpdateAPICache)
-{-# DEPRECATED uacApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | TTL in seconds for cache entries.
 --
@@ -155,6 +203,13 @@ uacApiId = Lens.lens (apiId :: UpdateAPICache -> Lude.Text) (\s a -> s {apiId = 
 uacTtl :: Lens.Lens' UpdateAPICache Lude.Integer
 uacTtl = Lens.lens (ttl :: UpdateAPICache -> Lude.Integer) (\s a -> s {ttl = a} :: UpdateAPICache)
 {-# DEPRECATED uacTtl "Use generic-lens or generic-optics with 'ttl' instead." #-}
+
+-- | The GraphQL API Id.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uacApiId :: Lens.Lens' UpdateAPICache Lude.Text
+uacApiId = Lens.lens (apiId :: UpdateAPICache -> Lude.Text) (\s a -> s {apiId = a} :: UpdateAPICache)
+{-# DEPRECATED uacApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | Caching behavior.
 --
@@ -268,17 +323,12 @@ instance Lude.ToQuery UpdateAPICache where
 --
 -- /See:/ 'mkUpdateAPICacheResponse' smart constructor.
 data UpdateAPICacheResponse = UpdateAPICacheResponse'
-  { apiCache ::
-      Lude.Maybe APICache,
+  { -- | The @ApiCache@ object.
+    apiCache :: Lude.Maybe APICache,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPICacheResponse' with the minimum fields required to make a request.

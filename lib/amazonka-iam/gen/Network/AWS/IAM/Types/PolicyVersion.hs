@@ -34,32 +34,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the policy version.
+    --
+    -- Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy version was created.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | The policy document.
+    --
+    -- The policy document is returned in the response to the 'GetPolicyVersion' and 'GetAccountAuthorizationDetails' operations. It is not returned in the response to the 'CreatePolicyVersion' or 'ListPolicyVersions' operations.
+    -- The policy document returned in this structure is URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986> . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the @decode@ method of the @java.net.URLDecoder@ utility class in the Java SDK. Other languages and SDKs provide similar functionality.
     document :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the policy version is set as the policy's default version.
     isDefaultVersion :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyVersion' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The identifier for the policy version.
+--
+-- Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
 -- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy version was created.
 -- * 'document' - The policy document.
 --
 -- The policy document is returned in the response to the 'GetPolicyVersion' and 'GetAccountAuthorizationDetails' operations. It is not returned in the response to the 'CreatePolicyVersion' or 'ListPolicyVersions' operations.
 -- The policy document returned in this structure is URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986> . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the @decode@ method of the @java.net.URLDecoder@ utility class in the Java SDK. Other languages and SDKs provide similar functionality.
 -- * 'isDefaultVersion' - Specifies whether the policy version is set as the policy's default version.
--- * 'versionId' - The identifier for the policy version.
---
--- Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
 mkPolicyVersion ::
   PolicyVersion
 mkPolicyVersion =

@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.InventoryDeletionStatus
   ( InventoryDeletionStatus
       ( InventoryDeletionStatus',
-        IDSComplete,
-        IDSInProgress
+        IDSInProgress,
+        IDSComplete
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype InventoryDeletionStatus = InventoryDeletionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern IDSComplete :: InventoryDeletionStatus
-pattern IDSComplete = InventoryDeletionStatus' "Complete"
-
 pattern IDSInProgress :: InventoryDeletionStatus
 pattern IDSInProgress = InventoryDeletionStatus' "InProgress"
 
+pattern IDSComplete :: InventoryDeletionStatus
+pattern IDSComplete = InventoryDeletionStatus' "Complete"
+
 {-# COMPLETE
-  IDSComplete,
   IDSInProgress,
+  IDSComplete,
   InventoryDeletionStatus'
   #-}

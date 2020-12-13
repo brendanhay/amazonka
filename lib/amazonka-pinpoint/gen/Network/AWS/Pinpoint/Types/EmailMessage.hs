@@ -36,33 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEmailMessage' smart constructor.
 data EmailMessage = EmailMessage'
-  { substitutions ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | The default message variables to use in the email message. You can override the default variables with individual address variables.
+    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The body of the email message.
     body :: Lude.Maybe Lude.Text,
+    -- | The verified email address to send the email message from. The default value is the FromAddress specified for the email channel.
     fromAddress :: Lude.Maybe Lude.Text,
+    -- | The email message, represented as a raw MIME message.
     rawEmail :: Lude.Maybe RawEmail,
+    -- | The email address to forward bounces and complaints to, if feedback forwarding is enabled.
     feedbackForwardingAddress :: Lude.Maybe Lude.Text,
+    -- | The email message, composed of a subject, a text part, and an HTML part.
     simpleEmail :: Lude.Maybe SimpleEmail,
+    -- | The reply-to email address(es) for the email message. If a recipient replies to the email, each reply-to address receives the reply.
     replyToAddresses :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmailMessage' with the minimum fields required to make a request.
 --
+-- * 'substitutions' - The default message variables to use in the email message. You can override the default variables with individual address variables.
 -- * 'body' - The body of the email message.
--- * 'feedbackForwardingAddress' - The email address to forward bounces and complaints to, if feedback forwarding is enabled.
 -- * 'fromAddress' - The verified email address to send the email message from. The default value is the FromAddress specified for the email channel.
 -- * 'rawEmail' - The email message, represented as a raw MIME message.
--- * 'replyToAddresses' - The reply-to email address(es) for the email message. If a recipient replies to the email, each reply-to address receives the reply.
+-- * 'feedbackForwardingAddress' - The email address to forward bounces and complaints to, if feedback forwarding is enabled.
 -- * 'simpleEmail' - The email message, composed of a subject, a text part, and an HTML part.
--- * 'substitutions' - The default message variables to use in the email message. You can override the default variables with individual address variables.
+-- * 'replyToAddresses' - The reply-to email address(es) for the email message. If a recipient replies to the email, each reply-to address receives the reply.
 mkEmailMessage ::
   EmailMessage
 mkEmailMessage =

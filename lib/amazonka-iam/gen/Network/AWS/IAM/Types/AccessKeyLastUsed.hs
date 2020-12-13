@@ -32,18 +32,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccessKeyLastUsed' smart constructor.
 data AccessKeyLastUsed = AccessKeyLastUsed'
-  { lastUsedDate ::
-      Lude.DateTime,
+  { -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the access key was most recently used. This field is null in the following situations:
+    --
+    --
+    --     * The user does not have an access key.
+    --
+    --
+    --     * An access key exists but has not been used since IAM began tracking this information.
+    --
+    --
+    --     * There is no sign-in data associated with the user.
+    lastUsedDate :: Lude.DateTime,
+    -- | The name of the AWS service with which this access key was most recently used. The value of this field is "N/A" in the following situations:
+    --
+    --
+    --     * The user does not have an access key.
+    --
+    --
+    --     * An access key exists but has not been used since IAM started tracking this information.
+    --
+    --
+    --     * There is no sign-in data associated with the user.
     serviceName :: Lude.Text,
+    -- | The AWS Region where this access key was most recently used. The value for this field is "N/A" in the following situations:
+    --
+    --
+    --     * The user does not have an access key.
+    --
+    --
+    --     * An access key exists but has not been used since IAM began tracking this information.
+    --
+    --
+    --     * There is no sign-in data associated with the user.
+    --
+    --
+    -- For more information about AWS Regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
     region :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessKeyLastUsed' with the minimum fields required to make a request.
@@ -55,6 +81,18 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --
 --
 --     * An access key exists but has not been used since IAM began tracking this information.
+--
+--
+--     * There is no sign-in data associated with the user.
+--
+--
+-- * 'serviceName' - The name of the AWS service with which this access key was most recently used. The value of this field is "N/A" in the following situations:
+--
+--
+--     * The user does not have an access key.
+--
+--
+--     * An access key exists but has not been used since IAM started tracking this information.
 --
 --
 --     * There is no sign-in data associated with the user.
@@ -73,16 +111,6 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --
 --
 -- For more information about AWS Regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
--- * 'serviceName' - The name of the AWS service with which this access key was most recently used. The value of this field is "N/A" in the following situations:
---
---
---     * The user does not have an access key.
---
---
---     * An access key exists but has not been used since IAM started tracking this information.
---
---
---     * There is no sign-in data associated with the user.
 mkAccessKeyLastUsed ::
   -- | 'lastUsedDate'
   Lude.DateTime ->

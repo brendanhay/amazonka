@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSoftwareTokenMFAConfigType' smart constructor.
 newtype SoftwareTokenMFAConfigType = SoftwareTokenMFAConfigType'
-  { enabled ::
-      Lude.Maybe Lude.Bool
+  { -- | Specifies whether software token MFA is enabled.
+    enabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SoftwareTokenMFAConfigType' with the minimum fields required to make a request.

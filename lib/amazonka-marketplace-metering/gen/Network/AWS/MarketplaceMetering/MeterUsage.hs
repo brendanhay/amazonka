@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.MarketplaceMetering.MeterUsage
     mkMeterUsage,
 
     -- ** Request lenses
-    muUsageQuantity,
-    muUsageAllocations,
-    muDryRun,
-    muProductCode,
-    muTimestamp,
     muUsageDimension,
+    muUsageQuantity,
+    muProductCode,
+    muUsageAllocations,
+    muTimestamp,
+    muDryRun,
 
     -- * Destructuring the response
     MeterUsageResponse (..),
@@ -47,50 +48,58 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkMeterUsage' smart constructor.
 data MeterUsage = MeterUsage'
-  { usageQuantity ::
-      Lude.Maybe Lude.Natural,
-    usageAllocations :: Lude.Maybe (Lude.NonEmpty UsageAllocation),
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | It will be one of the fcp dimension name provided during the publishing of the product.
+    usageDimension :: Lude.Text,
+    -- | Consumption value for the hour. Defaults to @0@ if not specified.
+    usageQuantity :: Lude.Maybe Lude.Natural,
+    -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
     productCode :: Lude.Text,
+    -- | The set of UsageAllocations to submit.
+    --
+    -- The sum of all UsageAllocation quantities must equal the UsageQuantity of the MeterUsage request, and each UsageAllocation must have a unique set of tags (include no tags).
+    usageAllocations :: Lude.Maybe (Lude.NonEmpty UsageAllocation),
+    -- | Timestamp, in UTC, for which the usage is being reported. Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.
     timestamp :: Lude.Timestamp,
-    usageDimension :: Lude.Text
+    -- | Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException. Defaults to @false@ if not specified.
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MeterUsage' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException. Defaults to @false@ if not specified.
+-- * 'usageDimension' - It will be one of the fcp dimension name provided during the publishing of the product.
+-- * 'usageQuantity' - Consumption value for the hour. Defaults to @0@ if not specified.
 -- * 'productCode' - Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
--- * 'timestamp' - Timestamp, in UTC, for which the usage is being reported. Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.
 -- * 'usageAllocations' - The set of UsageAllocations to submit.
 --
 -- The sum of all UsageAllocation quantities must equal the UsageQuantity of the MeterUsage request, and each UsageAllocation must have a unique set of tags (include no tags).
--- * 'usageDimension' - It will be one of the fcp dimension name provided during the publishing of the product.
--- * 'usageQuantity' - Consumption value for the hour. Defaults to @0@ if not specified.
+-- * 'timestamp' - Timestamp, in UTC, for which the usage is being reported. Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.
+-- * 'dryRun' - Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException. Defaults to @false@ if not specified.
 mkMeterUsage ::
+  -- | 'usageDimension'
+  Lude.Text ->
   -- | 'productCode'
   Lude.Text ->
   -- | 'timestamp'
   Lude.Timestamp ->
-  -- | 'usageDimension'
-  Lude.Text ->
   MeterUsage
-mkMeterUsage pProductCode_ pTimestamp_ pUsageDimension_ =
+mkMeterUsage pUsageDimension_ pProductCode_ pTimestamp_ =
   MeterUsage'
-    { usageQuantity = Lude.Nothing,
-      usageAllocations = Lude.Nothing,
-      dryRun = Lude.Nothing,
+    { usageDimension = pUsageDimension_,
+      usageQuantity = Lude.Nothing,
       productCode = pProductCode_,
+      usageAllocations = Lude.Nothing,
       timestamp = pTimestamp_,
-      usageDimension = pUsageDimension_
+      dryRun = Lude.Nothing
     }
+
+-- | It will be one of the fcp dimension name provided during the publishing of the product.
+--
+-- /Note:/ Consider using 'usageDimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muUsageDimension :: Lens.Lens' MeterUsage Lude.Text
+muUsageDimension = Lens.lens (usageDimension :: MeterUsage -> Lude.Text) (\s a -> s {usageDimension = a} :: MeterUsage)
+{-# DEPRECATED muUsageDimension "Use generic-lens or generic-optics with 'usageDimension' instead." #-}
 
 -- | Consumption value for the hour. Defaults to @0@ if not specified.
 --
@@ -98,6 +107,13 @@ mkMeterUsage pProductCode_ pTimestamp_ pUsageDimension_ =
 muUsageQuantity :: Lens.Lens' MeterUsage (Lude.Maybe Lude.Natural)
 muUsageQuantity = Lens.lens (usageQuantity :: MeterUsage -> Lude.Maybe Lude.Natural) (\s a -> s {usageQuantity = a} :: MeterUsage)
 {-# DEPRECATED muUsageQuantity "Use generic-lens or generic-optics with 'usageQuantity' instead." #-}
+
+-- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
+--
+-- /Note:/ Consider using 'productCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muProductCode :: Lens.Lens' MeterUsage Lude.Text
+muProductCode = Lens.lens (productCode :: MeterUsage -> Lude.Text) (\s a -> s {productCode = a} :: MeterUsage)
+{-# DEPRECATED muProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
 
 -- | The set of UsageAllocations to submit.
 --
@@ -108,20 +124,6 @@ muUsageAllocations :: Lens.Lens' MeterUsage (Lude.Maybe (Lude.NonEmpty UsageAllo
 muUsageAllocations = Lens.lens (usageAllocations :: MeterUsage -> Lude.Maybe (Lude.NonEmpty UsageAllocation)) (\s a -> s {usageAllocations = a} :: MeterUsage)
 {-# DEPRECATED muUsageAllocations "Use generic-lens or generic-optics with 'usageAllocations' instead." #-}
 
--- | Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException. Defaults to @false@ if not specified.
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-muDryRun :: Lens.Lens' MeterUsage (Lude.Maybe Lude.Bool)
-muDryRun = Lens.lens (dryRun :: MeterUsage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: MeterUsage)
-{-# DEPRECATED muDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
---
--- /Note:/ Consider using 'productCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-muProductCode :: Lens.Lens' MeterUsage Lude.Text
-muProductCode = Lens.lens (productCode :: MeterUsage -> Lude.Text) (\s a -> s {productCode = a} :: MeterUsage)
-{-# DEPRECATED muProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
-
 -- | Timestamp, in UTC, for which the usage is being reported. Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -129,12 +131,12 @@ muTimestamp :: Lens.Lens' MeterUsage Lude.Timestamp
 muTimestamp = Lens.lens (timestamp :: MeterUsage -> Lude.Timestamp) (\s a -> s {timestamp = a} :: MeterUsage)
 {-# DEPRECATED muTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
--- | It will be one of the fcp dimension name provided during the publishing of the product.
+-- | Checks whether you have the permissions required for the action, but does not make the request. If you have the permissions, the request returns DryRunOperation; otherwise, it returns UnauthorizedException. Defaults to @false@ if not specified.
 --
--- /Note:/ Consider using 'usageDimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-muUsageDimension :: Lens.Lens' MeterUsage Lude.Text
-muUsageDimension = Lens.lens (usageDimension :: MeterUsage -> Lude.Text) (\s a -> s {usageDimension = a} :: MeterUsage)
-{-# DEPRECATED muUsageDimension "Use generic-lens or generic-optics with 'usageDimension' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+muDryRun :: Lens.Lens' MeterUsage (Lude.Maybe Lude.Bool)
+muDryRun = Lens.lens (dryRun :: MeterUsage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: MeterUsage)
+{-# DEPRECATED muDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest MeterUsage where
   type Rs MeterUsage = MeterUsageResponse
@@ -162,12 +164,12 @@ instance Lude.ToJSON MeterUsage where
   toJSON MeterUsage' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("UsageQuantity" Lude..=) Lude.<$> usageQuantity,
-            ("UsageAllocations" Lude..=) Lude.<$> usageAllocations,
-            ("DryRun" Lude..=) Lude.<$> dryRun,
+          [ Lude.Just ("UsageDimension" Lude..= usageDimension),
+            ("UsageQuantity" Lude..=) Lude.<$> usageQuantity,
             Lude.Just ("ProductCode" Lude..= productCode),
+            ("UsageAllocations" Lude..=) Lude.<$> usageAllocations,
             Lude.Just ("Timestamp" Lude..= timestamp),
-            Lude.Just ("UsageDimension" Lude..= usageDimension)
+            ("DryRun" Lude..=) Lude.<$> dryRun
           ]
       )
 
@@ -179,17 +181,12 @@ instance Lude.ToQuery MeterUsage where
 
 -- | /See:/ 'mkMeterUsageResponse' smart constructor.
 data MeterUsageResponse = MeterUsageResponse'
-  { meteringRecordId ::
-      Lude.Maybe Lude.Text,
+  { -- | Metering record id.
+    meteringRecordId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MeterUsageResponse' with the minimum fields required to make a request.

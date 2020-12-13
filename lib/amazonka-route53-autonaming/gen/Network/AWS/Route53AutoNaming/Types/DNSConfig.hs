@@ -32,24 +32,30 @@ import Network.AWS.Route53AutoNaming.Types.RoutingPolicy
 --
 -- /See:/ 'mkDNSConfig' smart constructor.
 data DNSConfig = DNSConfig'
-  { routingPolicy ::
-      Lude.Maybe RoutingPolicy,
+  { -- | The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
+    --
+    -- You can specify the following values:
+    -- __MULTIVALUE__
+    -- If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances.
+    -- For example, suppose the service includes configurations for one @A@ record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances.
+    -- If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
+    -- For more information about the multivalue routing policy, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue Multivalue Answer Routing> in the /Route 53 Developer Guide/ .
+    -- __WEIGHTED__
+    -- Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances.
+    -- For example, suppose the service includes configurations for one @A@ record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.
+    -- If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
+    -- For more information about the weighted routing policy, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing> in the /Route 53 Developer Guide/ .
+    routingPolicy :: Lude.Maybe RoutingPolicy,
+    -- | The ID of the namespace to use for DNS configuration.
     namespaceId :: Lude.Maybe Lude.Text,
+    -- | An array that contains one @DnsRecord@ object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
     dnsRecords :: [DNSRecord]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DNSConfig' with the minimum fields required to make a request.
 --
--- * 'dnsRecords' - An array that contains one @DnsRecord@ object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
--- * 'namespaceId' - The ID of the namespace to use for DNS configuration.
 -- * 'routingPolicy' - The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
 --
 -- You can specify the following values:
@@ -63,6 +69,8 @@ data DNSConfig = DNSConfig'
 -- For example, suppose the service includes configurations for one @A@ record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.
 -- If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
 -- For more information about the weighted routing policy, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing> in the /Route 53 Developer Guide/ .
+-- * 'namespaceId' - The ID of the namespace to use for DNS configuration.
+-- * 'dnsRecords' - An array that contains one @DnsRecord@ object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
 mkDNSConfig ::
   DNSConfig
 mkDNSConfig =

@@ -29,14 +29,11 @@ import Network.AWS.S3.Types.Tier
 -- | Container for S3 Glacier job parameters.
 --
 -- /See:/ 'mkGlacierJobParameters' smart constructor.
-newtype GlacierJobParameters = GlacierJobParameters' {tier :: Tier}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GlacierJobParameters = GlacierJobParameters'
+  { -- | Retrieval tier at which the restore will be processed.
+    tier :: Tier
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlacierJobParameters' with the minimum fields required to make a request.

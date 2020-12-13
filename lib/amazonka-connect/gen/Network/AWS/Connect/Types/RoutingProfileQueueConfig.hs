@@ -17,8 +17,8 @@ module Network.AWS.Connect.Types.RoutingProfileQueueConfig
     mkRoutingProfileQueueConfig,
 
     -- * Lenses
-    rpqcQueueReference,
     rpqcPriority,
+    rpqcQueueReference,
     rpqcDelay,
   )
 where
@@ -31,46 +31,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoutingProfileQueueConfig' smart constructor.
 data RoutingProfileQueueConfig = RoutingProfileQueueConfig'
-  { queueReference ::
-      RoutingProfileQueueReference,
+  { -- | The order in which contacts are to be handled for the queue. For more information, see <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay> .
     priority :: Lude.Natural,
+    -- | Contains information about a queue resource.
+    queueReference :: RoutingProfileQueueReference,
+    -- | The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay> in the /Amazon Connect Administrator Guide/ .
     delay :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoutingProfileQueueConfig' with the minimum fields required to make a request.
 --
--- * 'delay' - The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay> in the /Amazon Connect Administrator Guide/ .
 -- * 'priority' - The order in which contacts are to be handled for the queue. For more information, see <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay> .
 -- * 'queueReference' - Contains information about a queue resource.
+-- * 'delay' - The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay> in the /Amazon Connect Administrator Guide/ .
 mkRoutingProfileQueueConfig ::
-  -- | 'queueReference'
-  RoutingProfileQueueReference ->
   -- | 'priority'
   Lude.Natural ->
+  -- | 'queueReference'
+  RoutingProfileQueueReference ->
   -- | 'delay'
   Lude.Natural ->
   RoutingProfileQueueConfig
-mkRoutingProfileQueueConfig pQueueReference_ pPriority_ pDelay_ =
+mkRoutingProfileQueueConfig pPriority_ pQueueReference_ pDelay_ =
   RoutingProfileQueueConfig'
-    { queueReference = pQueueReference_,
-      priority = pPriority_,
+    { priority = pPriority_,
+      queueReference = pQueueReference_,
       delay = pDelay_
     }
-
--- | Contains information about a queue resource.
---
--- /Note:/ Consider using 'queueReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpqcQueueReference :: Lens.Lens' RoutingProfileQueueConfig RoutingProfileQueueReference
-rpqcQueueReference = Lens.lens (queueReference :: RoutingProfileQueueConfig -> RoutingProfileQueueReference) (\s a -> s {queueReference = a} :: RoutingProfileQueueConfig)
-{-# DEPRECATED rpqcQueueReference "Use generic-lens or generic-optics with 'queueReference' instead." #-}
 
 -- | The order in which contacts are to be handled for the queue. For more information, see <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay> .
 --
@@ -78,6 +67,13 @@ rpqcQueueReference = Lens.lens (queueReference :: RoutingProfileQueueConfig -> R
 rpqcPriority :: Lens.Lens' RoutingProfileQueueConfig Lude.Natural
 rpqcPriority = Lens.lens (priority :: RoutingProfileQueueConfig -> Lude.Natural) (\s a -> s {priority = a} :: RoutingProfileQueueConfig)
 {-# DEPRECATED rpqcPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
+
+-- | Contains information about a queue resource.
+--
+-- /Note:/ Consider using 'queueReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpqcQueueReference :: Lens.Lens' RoutingProfileQueueConfig RoutingProfileQueueReference
+rpqcQueueReference = Lens.lens (queueReference :: RoutingProfileQueueConfig -> RoutingProfileQueueReference) (\s a -> s {queueReference = a} :: RoutingProfileQueueConfig)
+{-# DEPRECATED rpqcQueueReference "Use generic-lens or generic-optics with 'queueReference' instead." #-}
 
 -- | The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see <https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html Queues: priority and delay> in the /Amazon Connect Administrator Guide/ .
 --
@@ -90,8 +86,8 @@ instance Lude.ToJSON RoutingProfileQueueConfig where
   toJSON RoutingProfileQueueConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("QueueReference" Lude..= queueReference),
-            Lude.Just ("Priority" Lude..= priority),
+          [ Lude.Just ("Priority" Lude..= priority),
+            Lude.Just ("QueueReference" Lude..= queueReference),
             Lude.Just ("Delay" Lude..= delay)
           ]
       )

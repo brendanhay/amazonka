@@ -29,22 +29,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTestCaseFilter' smart constructor.
 data TestCaseFilter = TestCaseFilter'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status used to filter test cases. A @TestCaseFilter@ can have one status. Valid values are:
+    --
+    --
+    --     * @SUCCEEDED@
+    --
+    --
+    --     * @FAILED@
+    --
+    --
+    --     * @ERROR@
+    --
+    --
+    --     * @SKIPPED@
+    --
+    --
+    --     * @UNKNOWN@
+    status :: Lude.Maybe Lude.Text,
+    -- | A keyword that is used to filter on the @name@ or the @prefix@ of the test cases. Only test cases where the keyword is a substring of the @name@ or the @prefix@ will be returned.
     keyword :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestCaseFilter' with the minimum fields required to make a request.
 --
--- * 'keyword' - A keyword that is used to filter on the @name@ or the @prefix@ of the test cases. Only test cases where the keyword is a substring of the @name@ or the @prefix@ will be returned.
 -- * 'status' - The status used to filter test cases. A @TestCaseFilter@ can have one status. Valid values are:
 --
 --
@@ -61,6 +70,9 @@ data TestCaseFilter = TestCaseFilter'
 --
 --
 --     * @UNKNOWN@
+--
+--
+-- * 'keyword' - A keyword that is used to filter on the @name@ or the @prefix@ of the test cases. Only test cases where the keyword is a substring of the @name@ or the @prefix@ will be returned.
 mkTestCaseFilter ::
   TestCaseFilter
 mkTestCaseFilter =

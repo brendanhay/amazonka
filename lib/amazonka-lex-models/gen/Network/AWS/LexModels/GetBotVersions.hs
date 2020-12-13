@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.LexModels.GetBotVersions
 
     -- ** Request lenses
     gbvNextToken,
-    gbvMaxResults,
     gbvName,
+    gbvMaxResults,
 
     -- * Destructuring the response
     GetBotVersionsResponse (..),
@@ -49,25 +50,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetBotVersions' smart constructor.
 data GetBotVersions = GetBotVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    name :: Lude.Text
+  { -- | A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the bot for which versions should be returned.
+    name :: Lude.Text,
+    -- | The maximum number of bot versions to return in the response. The default is 10.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotVersions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of bot versions to return in the response. The default is 10.
--- * 'name' - The name of the bot for which versions should be returned.
 -- * 'nextToken' - A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+-- * 'name' - The name of the bot for which versions should be returned.
+-- * 'maxResults' - The maximum number of bot versions to return in the response. The default is 10.
 mkGetBotVersions ::
   -- | 'name'
   Lude.Text ->
@@ -75,8 +72,8 @@ mkGetBotVersions ::
 mkGetBotVersions pName_ =
   GetBotVersions'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      maxResults = Lude.Nothing
     }
 
 -- | A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
@@ -86,19 +83,19 @@ gbvNextToken :: Lens.Lens' GetBotVersions (Lude.Maybe Lude.Text)
 gbvNextToken = Lens.lens (nextToken :: GetBotVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBotVersions)
 {-# DEPRECATED gbvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of bot versions to return in the response. The default is 10.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbvMaxResults :: Lens.Lens' GetBotVersions (Lude.Maybe Lude.Natural)
-gbvMaxResults = Lens.lens (maxResults :: GetBotVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetBotVersions)
-{-# DEPRECATED gbvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the bot for which versions should be returned.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gbvName :: Lens.Lens' GetBotVersions Lude.Text
 gbvName = Lens.lens (name :: GetBotVersions -> Lude.Text) (\s a -> s {name = a} :: GetBotVersions)
 {-# DEPRECATED gbvName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The maximum number of bot versions to return in the response. The default is 10.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbvMaxResults :: Lens.Lens' GetBotVersions (Lude.Maybe Lude.Natural)
+gbvMaxResults = Lens.lens (maxResults :: GetBotVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetBotVersions)
+{-# DEPRECATED gbvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetBotVersions where
   page rq rs
@@ -141,18 +138,14 @@ instance Lude.ToQuery GetBotVersions where
 
 -- | /See:/ 'mkGetBotVersionsResponse' smart constructor.
 data GetBotVersionsResponse = GetBotVersionsResponse'
-  { bots ::
-      Lude.Maybe [BotMetadata],
+  { -- | An array of @BotMetadata@ objects, one for each numbered version of the bot plus one for the @> LATEST@ version.
+    bots :: Lude.Maybe [BotMetadata],
+    -- | A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotVersionsResponse' with the minimum fields required to make a request.

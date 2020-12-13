@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.CloudHSM.ListLunaClients
 
     -- ** Response lenses
     llcrsNextToken,
-    llcrsResponseStatus,
     llcrsClientList,
+    llcrsResponseStatus,
   )
 where
 
@@ -47,16 +48,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListLunaClients' smart constructor.
 newtype ListLunaClients = ListLunaClients'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | The @NextToken@ value from a previous call to @ListLunaClients@ . Pass null if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLunaClients' with the minimum fields required to make a request.
@@ -90,8 +85,8 @@ instance Lude.AWSRequest ListLunaClients where
       ( \s h x ->
           ListLunaClientsResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "ClientList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListLunaClients where
@@ -118,24 +113,20 @@ instance Lude.ToQuery ListLunaClients where
 
 -- | /See:/ 'mkListLunaClientsResponse' smart constructor.
 data ListLunaClientsResponse = ListLunaClientsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    clientList :: [Lude.Text]
+  { -- | If not null, more results are available. Pass this to @ListLunaClients@ to retrieve the next set of items.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of clients.
+    clientList :: [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLunaClientsResponse' with the minimum fields required to make a request.
 --
--- * 'clientList' - The list of clients.
 -- * 'nextToken' - If not null, more results are available. Pass this to @ListLunaClients@ to retrieve the next set of items.
+-- * 'clientList' - The list of clients.
 -- * 'responseStatus' - The response status code.
 mkListLunaClientsResponse ::
   -- | 'responseStatus'
@@ -144,8 +135,8 @@ mkListLunaClientsResponse ::
 mkListLunaClientsResponse pResponseStatus_ =
   ListLunaClientsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      clientList = Lude.mempty
+      clientList = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If not null, more results are available. Pass this to @ListLunaClients@ to retrieve the next set of items.
@@ -155,16 +146,16 @@ llcrsNextToken :: Lens.Lens' ListLunaClientsResponse (Lude.Maybe Lude.Text)
 llcrsNextToken = Lens.lens (nextToken :: ListLunaClientsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLunaClientsResponse)
 {-# DEPRECATED llcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llcrsResponseStatus :: Lens.Lens' ListLunaClientsResponse Lude.Int
-llcrsResponseStatus = Lens.lens (responseStatus :: ListLunaClientsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLunaClientsResponse)
-{-# DEPRECATED llcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The list of clients.
 --
 -- /Note:/ Consider using 'clientList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 llcrsClientList :: Lens.Lens' ListLunaClientsResponse [Lude.Text]
 llcrsClientList = Lens.lens (clientList :: ListLunaClientsResponse -> [Lude.Text]) (\s a -> s {clientList = a} :: ListLunaClientsResponse)
 {-# DEPRECATED llcrsClientList "Use generic-lens or generic-optics with 'clientList' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llcrsResponseStatus :: Lens.Lens' ListLunaClientsResponse Lude.Int
+llcrsResponseStatus = Lens.lens (responseStatus :: ListLunaClientsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLunaClientsResponse)
+{-# DEPRECATED llcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

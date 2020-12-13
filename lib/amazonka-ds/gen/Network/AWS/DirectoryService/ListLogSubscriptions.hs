@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListLogSubscriptions' smart constructor.
 data ListLogSubscriptions = ListLogSubscriptions'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | If a /DirectoryID/ is provided, lists only the log subscription associated with that directory. If no /DirectoryId/ is provided, lists all log subscriptions associated with your AWS account. If there are no log subscriptions for the AWS account or the directory, an empty list will be returned.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of items to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items returned.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLogSubscriptions' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - If a /DirectoryID/ is provided, lists only the log subscription associated with that directory. If no /DirectoryId/ is provided, lists all log subscriptions associated with your AWS account. If there are no log subscriptions for the AWS account or the directory, an empty list will be returned.
--- * 'limit' - The maximum number of items returned.
 -- * 'nextToken' - The token for the next set of items to return.
+-- * 'limit' - The maximum number of items returned.
 mkListLogSubscriptions ::
   ListLogSubscriptions
 mkListLogSubscriptions =
@@ -146,25 +143,20 @@ instance Lude.ToQuery ListLogSubscriptions where
 
 -- | /See:/ 'mkListLogSubscriptionsResponse' smart constructor.
 data ListLogSubscriptionsResponse = ListLogSubscriptionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    logSubscriptions ::
-      Lude.Maybe [LogSubscription],
+  { -- | The token for the next set of items to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of active 'LogSubscription' objects for calling the AWS account.
+    logSubscriptions :: Lude.Maybe [LogSubscription],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLogSubscriptionsResponse' with the minimum fields required to make a request.
 --
--- * 'logSubscriptions' - A list of active 'LogSubscription' objects for calling the AWS account.
 -- * 'nextToken' - The token for the next set of items to return.
+-- * 'logSubscriptions' - A list of active 'LogSubscription' objects for calling the AWS account.
 -- * 'responseStatus' - The response status code.
 mkListLogSubscriptionsResponse ::
   -- | 'responseStatus'

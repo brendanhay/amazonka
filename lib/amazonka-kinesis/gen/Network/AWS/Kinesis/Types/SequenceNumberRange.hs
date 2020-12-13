@@ -17,8 +17,8 @@ module Network.AWS.Kinesis.Types.SequenceNumberRange
     mkSequenceNumberRange,
 
     -- * Lenses
-    snrEndingSequenceNumber,
     snrStartingSequenceNumber,
+    snrEndingSequenceNumber,
   )
 where
 
@@ -29,39 +29,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
-  { endingSequenceNumber ::
-      Lude.Maybe Lude.Text,
-    startingSequenceNumber :: Lude.Text
+  { -- | The starting sequence number for the range.
+    startingSequenceNumber :: Lude.Text,
+    -- | The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
+    endingSequenceNumber :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SequenceNumberRange' with the minimum fields required to make a request.
 --
--- * 'endingSequenceNumber' - The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
 -- * 'startingSequenceNumber' - The starting sequence number for the range.
+-- * 'endingSequenceNumber' - The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
 mkSequenceNumberRange ::
   -- | 'startingSequenceNumber'
   Lude.Text ->
   SequenceNumberRange
 mkSequenceNumberRange pStartingSequenceNumber_ =
   SequenceNumberRange'
-    { endingSequenceNumber = Lude.Nothing,
-      startingSequenceNumber = pStartingSequenceNumber_
+    { startingSequenceNumber =
+        pStartingSequenceNumber_,
+      endingSequenceNumber = Lude.Nothing
     }
-
--- | The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
---
--- /Note:/ Consider using 'endingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-snrEndingSequenceNumber :: Lens.Lens' SequenceNumberRange (Lude.Maybe Lude.Text)
-snrEndingSequenceNumber = Lens.lens (endingSequenceNumber :: SequenceNumberRange -> Lude.Maybe Lude.Text) (\s a -> s {endingSequenceNumber = a} :: SequenceNumberRange)
-{-# DEPRECATED snrEndingSequenceNumber "Use generic-lens or generic-optics with 'endingSequenceNumber' instead." #-}
 
 -- | The starting sequence number for the range.
 --
@@ -70,12 +59,19 @@ snrStartingSequenceNumber :: Lens.Lens' SequenceNumberRange Lude.Text
 snrStartingSequenceNumber = Lens.lens (startingSequenceNumber :: SequenceNumberRange -> Lude.Text) (\s a -> s {startingSequenceNumber = a} :: SequenceNumberRange)
 {-# DEPRECATED snrStartingSequenceNumber "Use generic-lens or generic-optics with 'startingSequenceNumber' instead." #-}
 
+-- | The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
+--
+-- /Note:/ Consider using 'endingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snrEndingSequenceNumber :: Lens.Lens' SequenceNumberRange (Lude.Maybe Lude.Text)
+snrEndingSequenceNumber = Lens.lens (endingSequenceNumber :: SequenceNumberRange -> Lude.Maybe Lude.Text) (\s a -> s {endingSequenceNumber = a} :: SequenceNumberRange)
+{-# DEPRECATED snrEndingSequenceNumber "Use generic-lens or generic-optics with 'endingSequenceNumber' instead." #-}
+
 instance Lude.FromJSON SequenceNumberRange where
   parseJSON =
     Lude.withObject
       "SequenceNumberRange"
       ( \x ->
           SequenceNumberRange'
-            Lude.<$> (x Lude..:? "EndingSequenceNumber")
-            Lude.<*> (x Lude..: "StartingSequenceNumber")
+            Lude.<$> (x Lude..: "StartingSequenceNumber")
+            Lude.<*> (x Lude..:? "EndingSequenceNumber")
       )

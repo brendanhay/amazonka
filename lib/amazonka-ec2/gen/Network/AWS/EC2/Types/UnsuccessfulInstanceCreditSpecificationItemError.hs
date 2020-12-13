@@ -30,24 +30,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUnsuccessfulInstanceCreditSpecificationItemError' smart constructor.
 data UnsuccessfulInstanceCreditSpecificationItemError = UnsuccessfulInstanceCreditSpecificationItemError'
-  { code ::
-      Lude.Maybe
-        UnsuccessfulInstanceCreditSpecificationErrorCode,
-    message ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The error code.
+    code :: Lude.Maybe UnsuccessfulInstanceCreditSpecificationErrorCode,
+    -- | The applicable error message.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnsuccessfulInstanceCreditSpecificationItemError' with the minimum fields required to make a request.
 --

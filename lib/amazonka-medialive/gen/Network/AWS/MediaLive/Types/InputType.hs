@@ -13,15 +13,15 @@
 module Network.AWS.MediaLive.Types.InputType
   ( InputType
       ( InputType',
-        AWSCdi,
-        InputDevice,
+        UdpPush,
+        RtpPush,
+        RtmpPush,
+        RtmpPull,
+        URLPull,
         MP4File,
         Mediaconnect,
-        RtmpPull,
-        RtmpPush,
-        RtpPush,
-        URLPull,
-        UdpPush
+        InputDevice,
+        AWSCdi
       ),
   )
 where
@@ -53,11 +53,20 @@ newtype InputType = InputType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSCdi :: InputType
-pattern AWSCdi = InputType' "AWS_CDI"
+pattern UdpPush :: InputType
+pattern UdpPush = InputType' "UDP_PUSH"
 
-pattern InputDevice :: InputType
-pattern InputDevice = InputType' "INPUT_DEVICE"
+pattern RtpPush :: InputType
+pattern RtpPush = InputType' "RTP_PUSH"
+
+pattern RtmpPush :: InputType
+pattern RtmpPush = InputType' "RTMP_PUSH"
+
+pattern RtmpPull :: InputType
+pattern RtmpPull = InputType' "RTMP_PULL"
+
+pattern URLPull :: InputType
+pattern URLPull = InputType' "URL_PULL"
 
 pattern MP4File :: InputType
 pattern MP4File = InputType' "MP4_FILE"
@@ -65,30 +74,21 @@ pattern MP4File = InputType' "MP4_FILE"
 pattern Mediaconnect :: InputType
 pattern Mediaconnect = InputType' "MEDIACONNECT"
 
-pattern RtmpPull :: InputType
-pattern RtmpPull = InputType' "RTMP_PULL"
+pattern InputDevice :: InputType
+pattern InputDevice = InputType' "INPUT_DEVICE"
 
-pattern RtmpPush :: InputType
-pattern RtmpPush = InputType' "RTMP_PUSH"
-
-pattern RtpPush :: InputType
-pattern RtpPush = InputType' "RTP_PUSH"
-
-pattern URLPull :: InputType
-pattern URLPull = InputType' "URL_PULL"
-
-pattern UdpPush :: InputType
-pattern UdpPush = InputType' "UDP_PUSH"
+pattern AWSCdi :: InputType
+pattern AWSCdi = InputType' "AWS_CDI"
 
 {-# COMPLETE
-  AWSCdi,
-  InputDevice,
+  UdpPush,
+  RtpPush,
+  RtmpPush,
+  RtmpPull,
+  URLPull,
   MP4File,
   Mediaconnect,
-  RtmpPull,
-  RtmpPush,
-  RtpPush,
-  URLPull,
-  UdpPush,
+  InputDevice,
+  AWSCdi,
   InputType'
   #-}

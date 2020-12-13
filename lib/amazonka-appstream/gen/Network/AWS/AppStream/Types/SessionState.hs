@@ -14,8 +14,8 @@ module Network.AWS.AppStream.Types.SessionState
   ( SessionState
       ( SessionState',
         Active,
-        Expired,
-        Pending
+        Pending,
+        Expired
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype SessionState = SessionState' Lude.Text
 pattern Active :: SessionState
 pattern Active = SessionState' "ACTIVE"
 
-pattern Expired :: SessionState
-pattern Expired = SessionState' "EXPIRED"
-
 pattern Pending :: SessionState
 pattern Pending = SessionState' "PENDING"
 
+pattern Expired :: SessionState
+pattern Expired = SessionState' "EXPIRED"
+
 {-# COMPLETE
   Active,
-  Expired,
   Pending,
+  Expired,
   SessionState'
   #-}

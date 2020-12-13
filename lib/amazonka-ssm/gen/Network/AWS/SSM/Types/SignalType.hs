@@ -15,9 +15,9 @@ module Network.AWS.SSM.Types.SignalType
       ( SignalType',
         Approve,
         Reject,
-        Resume,
         StartStep,
-        StopStep
+        StopStep,
+        Resume
       ),
   )
 where
@@ -54,20 +54,20 @@ pattern Approve = SignalType' "Approve"
 pattern Reject :: SignalType
 pattern Reject = SignalType' "Reject"
 
-pattern Resume :: SignalType
-pattern Resume = SignalType' "Resume"
-
 pattern StartStep :: SignalType
 pattern StartStep = SignalType' "StartStep"
 
 pattern StopStep :: SignalType
 pattern StopStep = SignalType' "StopStep"
 
+pattern Resume :: SignalType
+pattern Resume = SignalType' "Resume"
+
 {-# COMPLETE
   Approve,
   Reject,
-  Resume,
   StartStep,
   StopStep,
+  Resume,
   SignalType'
   #-}

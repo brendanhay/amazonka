@@ -31,26 +31,18 @@ import Network.AWS.Rekognition.Types.StartTechnicalCueDetectionFilter
 --
 -- /See:/ 'mkStartSegmentDetectionFilters' smart constructor.
 data StartSegmentDetectionFilters = StartSegmentDetectionFilters'
-  { technicalCueFilter ::
-      Lude.Maybe
-        StartTechnicalCueDetectionFilter,
-    shotFilter ::
-      Lude.Maybe
-        StartShotDetectionFilter
+  { -- | Filters that are specific to technical cues.
+    technicalCueFilter :: Lude.Maybe StartTechnicalCueDetectionFilter,
+    -- | Filters that are specific to shot detections.
+    shotFilter :: Lude.Maybe StartShotDetectionFilter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSegmentDetectionFilters' with the minimum fields required to make a request.
 --
--- * 'shotFilter' - Filters that are specific to shot detections.
 -- * 'technicalCueFilter' - Filters that are specific to technical cues.
+-- * 'shotFilter' - Filters that are specific to shot detections.
 mkStartSegmentDetectionFilters ::
   StartSegmentDetectionFilters
 mkStartSegmentDetectionFilters =

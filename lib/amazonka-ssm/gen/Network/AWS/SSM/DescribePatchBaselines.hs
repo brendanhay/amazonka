@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,18 +46,17 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribePatchBaselines' smart constructor.
 data DescribePatchBaselines = DescribePatchBaselines'
-  { filters ::
-      Lude.Maybe [PatchOrchestratorFilter],
+  { -- | Each element in the array is a structure containing:
+    --
+    -- Key: (string, "NAME_PREFIX" or "OWNER")
+    -- Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
+    filters :: Lude.Maybe [PatchOrchestratorFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of patch baselines to return (per page).
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchBaselines' with the minimum fields required to make a request.
@@ -65,8 +65,8 @@ data DescribePatchBaselines = DescribePatchBaselines'
 --
 -- Key: (string, "NAME_PREFIX" or "OWNER")
 -- Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
--- * 'maxResults' - The maximum number of patch baselines to return (per page).
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of patch baselines to return (per page).
 mkDescribePatchBaselines ::
   DescribePatchBaselines
 mkDescribePatchBaselines =
@@ -150,20 +150,14 @@ instance Lude.ToQuery DescribePatchBaselines where
 
 -- | /See:/ 'mkDescribePatchBaselinesResponse' smart constructor.
 data DescribePatchBaselinesResponse = DescribePatchBaselinesResponse'
-  { baselineIdentities ::
-      Lude.Maybe
-        [PatchBaselineIdentity],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An array of PatchBaselineIdentity elements.
+    baselineIdentities :: Lude.Maybe [PatchBaselineIdentity],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchBaselinesResponse' with the minimum fields required to make a request.

@@ -13,11 +13,11 @@
 module Network.AWS.Pinpoint.Types.State
   ( State
       ( State',
+        SDraft,
         SActive,
-        SCancelled,
-        SClosed,
         SCompleted,
-        SDraft
+        SCancelled,
+        SClosed
       ),
   )
 where
@@ -48,8 +48,14 @@ newtype State = State' Lude.Text
       Lude.ToHeader
     )
 
+pattern SDraft :: State
+pattern SDraft = State' "DRAFT"
+
 pattern SActive :: State
 pattern SActive = State' "ACTIVE"
+
+pattern SCompleted :: State
+pattern SCompleted = State' "COMPLETED"
 
 pattern SCancelled :: State
 pattern SCancelled = State' "CANCELLED"
@@ -57,17 +63,11 @@ pattern SCancelled = State' "CANCELLED"
 pattern SClosed :: State
 pattern SClosed = State' "CLOSED"
 
-pattern SCompleted :: State
-pattern SCompleted = State' "COMPLETED"
-
-pattern SDraft :: State
-pattern SDraft = State' "DRAFT"
-
 {-# COMPLETE
+  SDraft,
   SActive,
+  SCompleted,
   SCancelled,
   SClosed,
-  SCompleted,
-  SDraft,
   State'
   #-}

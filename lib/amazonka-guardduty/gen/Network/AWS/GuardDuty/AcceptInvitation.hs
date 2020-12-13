@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.GuardDuty.AcceptInvitation
     mkAcceptInvitation,
 
     -- ** Request lenses
-    aiDetectorId,
     aiMasterId,
     aiInvitationId,
+    aiDetectorId,
 
     -- * Destructuring the response
     AcceptInvitationResponse (..),
@@ -40,45 +41,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAcceptInvitation' smart constructor.
 data AcceptInvitation = AcceptInvitation'
-  { detectorId :: Lude.Text,
+  { -- | The account ID of the master GuardDuty account whose invitation you're accepting.
     masterId :: Lude.Text,
-    invitationId :: Lude.Text
+    -- | The value that is used to validate the master account to the member account.
+    invitationId :: Lude.Text,
+    -- | The unique ID of the detector of the GuardDuty member account.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptInvitation' with the minimum fields required to make a request.
 --
--- * 'detectorId' - The unique ID of the detector of the GuardDuty member account.
--- * 'invitationId' - The value that is used to validate the master account to the member account.
 -- * 'masterId' - The account ID of the master GuardDuty account whose invitation you're accepting.
+-- * 'invitationId' - The value that is used to validate the master account to the member account.
+-- * 'detectorId' - The unique ID of the detector of the GuardDuty member account.
 mkAcceptInvitation ::
-  -- | 'detectorId'
-  Lude.Text ->
   -- | 'masterId'
   Lude.Text ->
   -- | 'invitationId'
   Lude.Text ->
+  -- | 'detectorId'
+  Lude.Text ->
   AcceptInvitation
-mkAcceptInvitation pDetectorId_ pMasterId_ pInvitationId_ =
+mkAcceptInvitation pMasterId_ pInvitationId_ pDetectorId_ =
   AcceptInvitation'
-    { detectorId = pDetectorId_,
-      masterId = pMasterId_,
-      invitationId = pInvitationId_
+    { masterId = pMasterId_,
+      invitationId = pInvitationId_,
+      detectorId = pDetectorId_
     }
-
--- | The unique ID of the detector of the GuardDuty member account.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiDetectorId :: Lens.Lens' AcceptInvitation Lude.Text
-aiDetectorId = Lens.lens (detectorId :: AcceptInvitation -> Lude.Text) (\s a -> s {detectorId = a} :: AcceptInvitation)
-{-# DEPRECATED aiDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The account ID of the master GuardDuty account whose invitation you're accepting.
 --
@@ -93,6 +84,13 @@ aiMasterId = Lens.lens (masterId :: AcceptInvitation -> Lude.Text) (\s a -> s {m
 aiInvitationId :: Lens.Lens' AcceptInvitation Lude.Text
 aiInvitationId = Lens.lens (invitationId :: AcceptInvitation -> Lude.Text) (\s a -> s {invitationId = a} :: AcceptInvitation)
 {-# DEPRECATED aiInvitationId "Use generic-lens or generic-optics with 'invitationId' instead." #-}
+
+-- | The unique ID of the detector of the GuardDuty member account.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiDetectorId :: Lens.Lens' AcceptInvitation Lude.Text
+aiDetectorId = Lens.lens (detectorId :: AcceptInvitation -> Lude.Text) (\s a -> s {detectorId = a} :: AcceptInvitation)
+{-# DEPRECATED aiDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 instance Lude.AWSRequest AcceptInvitation where
   type Rs AcceptInvitation = AcceptInvitationResponse
@@ -130,16 +128,10 @@ instance Lude.ToQuery AcceptInvitation where
 
 -- | /See:/ 'mkAcceptInvitationResponse' smart constructor.
 newtype AcceptInvitationResponse = AcceptInvitationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptInvitationResponse' with the minimum fields required to make a request.

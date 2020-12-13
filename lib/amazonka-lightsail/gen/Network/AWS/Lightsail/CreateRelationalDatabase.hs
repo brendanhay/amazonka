@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,17 +22,17 @@ module Network.AWS.Lightsail.CreateRelationalDatabase
     mkCreateRelationalDatabase,
 
     -- ** Request lenses
+    crdRelationalDatabaseBundleId,
     crdMasterUserPassword,
     crdPubliclyAccessible,
+    crdMasterUsername,
     crdPreferredMaintenanceWindow,
+    crdRelationalDatabaseBlueprintId,
     crdPreferredBackupWindow,
     crdAvailabilityZone,
-    crdTags,
-    crdRelationalDatabaseName,
-    crdRelationalDatabaseBlueprintId,
-    crdRelationalDatabaseBundleId,
     crdMasterDatabaseName,
-    crdMasterUsername,
+    crdRelationalDatabaseName,
+    crdTags,
 
     -- * Destructuring the response
     CreateRelationalDatabaseResponse (..),
@@ -51,44 +52,111 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRelationalDatabase' smart constructor.
 data CreateRelationalDatabase = CreateRelationalDatabase'
-  { masterUserPassword ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    publiclyAccessible ::
-      Lude.Maybe Lude.Bool,
-    preferredMaintenanceWindow ::
-      Lude.Maybe Lude.Text,
-    preferredBackupWindow ::
-      Lude.Maybe Lude.Text,
-    availabilityZone :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    relationalDatabaseName :: Lude.Text,
-    relationalDatabaseBlueprintId ::
-      Lude.Text,
+  { -- | The bundle ID for your new database. A bundle describes the performance specifications for your database.
+    --
+    -- You can get a list of database bundle IDs by using the @get relational database bundles@ operation.
     relationalDatabaseBundleId :: Lude.Text,
+    -- | The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
+    --
+    -- Constraints: Must contain 8 to 41 characters.
+    masterUserPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Specifies the accessibility options for your new database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | The master user name for your new database.
+    --
+    -- Constraints:
+    --
+    --     * Master user name is required.
+    --
+    --
+    --     * Must contain from 1 to 16 alphanumeric characters.
+    --
+    --
+    --     * The first character must be a letter.
+    --
+    --
+    --     * Cannot be a reserved word for the database engine you choose.
+    -- For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and Reserved Words articles for <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6> or <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7> respectively.
+    masterUsername :: Lude.Text,
+    -- | The weekly time range during which system maintenance can occur on your new database.
+    --
+    -- The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week.
+    -- Constraints:
+    --
+    --     * Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.
+    --
+    --
+    --     * Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+    --
+    --
+    --     * Must be at least 30 minutes.
+    --
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Example: @Tue:17:00-Tue:17:30@
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The blueprint ID for your new database. A blueprint describes the major engine version of a database.
+    --
+    -- You can get a list of database blueprints IDs by using the @get relational database blueprints@ operation.
+    relationalDatabaseBlueprintId :: Lude.Text,
+    -- | The daily time range during which automated backups are created for your new database if automated backups are enabled.
+    --
+    -- The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. For more information about the preferred backup window time blocks for each region, see the <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Working With Backups> guide in the Amazon Relational Database Service (Amazon RDS) documentation.
+    -- Constraints:
+    --
+    --     * Must be in the @hh24:mi-hh24:mi@ format.
+    -- Example: @16:00-16:30@
+    --
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Must not conflict with the preferred maintenance window.
+    --
+    --
+    --     * Must be at least 30 minutes.
+    preferredBackupWindow :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone in which to create your new database. Use the @us-east-2a@ case-sensitive format.
+    --
+    -- You can get a list of Availability Zones by using the @get regions@ operation. Be sure to add the @include relational database Availability Zones@ parameter to your request.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The name of the master database created when the Lightsail database resource is created.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 1 to 64 alphanumeric characters.
+    --
+    --
+    --     * Cannot be a word reserved by the specified database engine
     masterDatabaseName :: Lude.Text,
-    masterUsername :: Lude.Text
+    -- | The name to use for your new database.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 2 to 255 alphanumeric characters, or hyphens.
+    --
+    --
+    --     * The first and last character must be a letter or number.
+    relationalDatabaseName :: Lude.Text,
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRelationalDatabase' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone in which to create your new database. Use the @us-east-2a@ case-sensitive format.
+-- * 'relationalDatabaseBundleId' - The bundle ID for your new database. A bundle describes the performance specifications for your database.
 --
--- You can get a list of Availability Zones by using the @get regions@ operation. Be sure to add the @include relational database Availability Zones@ parameter to your request.
--- * 'masterDatabaseName' - The name of the master database created when the Lightsail database resource is created.
---
--- Constraints:
---
---     * Must contain from 1 to 64 alphanumeric characters.
---
---
---     * Cannot be a word reserved by the specified database engine
---
---
+-- You can get a list of database bundle IDs by using the @get relational database bundles@ operation.
 -- * 'masterUserPassword' - The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
 --
 -- Constraints: Must contain 8 to 41 characters.
+-- * 'publiclyAccessible' - Specifies the accessibility options for your new database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
 -- * 'masterUsername' - The master user name for your new database.
 --
 -- Constraints:
@@ -104,24 +172,6 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 --
 --     * Cannot be a reserved word for the database engine you choose.
 -- For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and Reserved Words articles for <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6> or <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7> respectively.
---
---
--- * 'preferredBackupWindow' - The daily time range during which automated backups are created for your new database if automated backups are enabled.
---
--- The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. For more information about the preferred backup window time blocks for each region, see the <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Working With Backups> guide in the Amazon Relational Database Service (Amazon RDS) documentation.
--- Constraints:
---
---     * Must be in the @hh24:mi-hh24:mi@ format.
--- Example: @16:00-16:30@
---
---
---     * Specified in Coordinated Universal Time (UTC).
---
---
---     * Must not conflict with the preferred maintenance window.
---
---
---     * Must be at least 30 minutes.
 --
 --
 -- * 'preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur on your new database.
@@ -144,13 +194,40 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 --     * Example: @Tue:17:00-Tue:17:30@
 --
 --
--- * 'publiclyAccessible' - Specifies the accessibility options for your new database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
 -- * 'relationalDatabaseBlueprintId' - The blueprint ID for your new database. A blueprint describes the major engine version of a database.
 --
 -- You can get a list of database blueprints IDs by using the @get relational database blueprints@ operation.
--- * 'relationalDatabaseBundleId' - The bundle ID for your new database. A bundle describes the performance specifications for your database.
+-- * 'preferredBackupWindow' - The daily time range during which automated backups are created for your new database if automated backups are enabled.
 --
--- You can get a list of database bundle IDs by using the @get relational database bundles@ operation.
+-- The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. For more information about the preferred backup window time blocks for each region, see the <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Working With Backups> guide in the Amazon Relational Database Service (Amazon RDS) documentation.
+-- Constraints:
+--
+--     * Must be in the @hh24:mi-hh24:mi@ format.
+-- Example: @16:00-16:30@
+--
+--
+--     * Specified in Coordinated Universal Time (UTC).
+--
+--
+--     * Must not conflict with the preferred maintenance window.
+--
+--
+--     * Must be at least 30 minutes.
+--
+--
+-- * 'availabilityZone' - The Availability Zone in which to create your new database. Use the @us-east-2a@ case-sensitive format.
+--
+-- You can get a list of Availability Zones by using the @get regions@ operation. Be sure to add the @include relational database Availability Zones@ parameter to your request.
+-- * 'masterDatabaseName' - The name of the master database created when the Lightsail database resource is created.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 64 alphanumeric characters.
+--
+--
+--     * Cannot be a word reserved by the specified database engine
+--
+--
 -- * 'relationalDatabaseName' - The name to use for your new database.
 --
 -- Constraints:
@@ -165,36 +242,46 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
 mkCreateRelationalDatabase ::
-  -- | 'relationalDatabaseName'
-  Lude.Text ->
-  -- | 'relationalDatabaseBlueprintId'
-  Lude.Text ->
   -- | 'relationalDatabaseBundleId'
-  Lude.Text ->
-  -- | 'masterDatabaseName'
   Lude.Text ->
   -- | 'masterUsername'
   Lude.Text ->
+  -- | 'relationalDatabaseBlueprintId'
+  Lude.Text ->
+  -- | 'masterDatabaseName'
+  Lude.Text ->
+  -- | 'relationalDatabaseName'
+  Lude.Text ->
   CreateRelationalDatabase
 mkCreateRelationalDatabase
-  pRelationalDatabaseName_
-  pRelationalDatabaseBlueprintId_
   pRelationalDatabaseBundleId_
+  pMasterUsername_
+  pRelationalDatabaseBlueprintId_
   pMasterDatabaseName_
-  pMasterUsername_ =
+  pRelationalDatabaseName_ =
     CreateRelationalDatabase'
-      { masterUserPassword = Lude.Nothing,
+      { relationalDatabaseBundleId =
+          pRelationalDatabaseBundleId_,
+        masterUserPassword = Lude.Nothing,
         publiclyAccessible = Lude.Nothing,
+        masterUsername = pMasterUsername_,
         preferredMaintenanceWindow = Lude.Nothing,
+        relationalDatabaseBlueprintId = pRelationalDatabaseBlueprintId_,
         preferredBackupWindow = Lude.Nothing,
         availabilityZone = Lude.Nothing,
-        tags = Lude.Nothing,
-        relationalDatabaseName = pRelationalDatabaseName_,
-        relationalDatabaseBlueprintId = pRelationalDatabaseBlueprintId_,
-        relationalDatabaseBundleId = pRelationalDatabaseBundleId_,
         masterDatabaseName = pMasterDatabaseName_,
-        masterUsername = pMasterUsername_
+        relationalDatabaseName = pRelationalDatabaseName_,
+        tags = Lude.Nothing
       }
+
+-- | The bundle ID for your new database. A bundle describes the performance specifications for your database.
+--
+-- You can get a list of database bundle IDs by using the @get relational database bundles@ operation.
+--
+-- /Note:/ Consider using 'relationalDatabaseBundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdRelationalDatabaseBundleId :: Lens.Lens' CreateRelationalDatabase Lude.Text
+crdRelationalDatabaseBundleId = Lens.lens (relationalDatabaseBundleId :: CreateRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseBundleId = a} :: CreateRelationalDatabase)
+{-# DEPRECATED crdRelationalDatabaseBundleId "Use generic-lens or generic-optics with 'relationalDatabaseBundleId' instead." #-}
 
 -- | The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
 --
@@ -211,6 +298,29 @@ crdMasterUserPassword = Lens.lens (masterUserPassword :: CreateRelationalDatabas
 crdPubliclyAccessible :: Lens.Lens' CreateRelationalDatabase (Lude.Maybe Lude.Bool)
 crdPubliclyAccessible = Lens.lens (publiclyAccessible :: CreateRelationalDatabase -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: CreateRelationalDatabase)
 {-# DEPRECATED crdPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
+
+-- | The master user name for your new database.
+--
+-- Constraints:
+--
+--     * Master user name is required.
+--
+--
+--     * Must contain from 1 to 16 alphanumeric characters.
+--
+--
+--     * The first character must be a letter.
+--
+--
+--     * Cannot be a reserved word for the database engine you choose.
+-- For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and Reserved Words articles for <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6> or <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7> respectively.
+--
+--
+--
+-- /Note:/ Consider using 'masterUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdMasterUsername :: Lens.Lens' CreateRelationalDatabase Lude.Text
+crdMasterUsername = Lens.lens (masterUsername :: CreateRelationalDatabase -> Lude.Text) (\s a -> s {masterUsername = a} :: CreateRelationalDatabase)
+{-# DEPRECATED crdMasterUsername "Use generic-lens or generic-optics with 'masterUsername' instead." #-}
 
 -- | The weekly time range during which system maintenance can occur on your new database.
 --
@@ -237,6 +347,15 @@ crdPubliclyAccessible = Lens.lens (publiclyAccessible :: CreateRelationalDatabas
 crdPreferredMaintenanceWindow :: Lens.Lens' CreateRelationalDatabase (Lude.Maybe Lude.Text)
 crdPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: CreateRelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: CreateRelationalDatabase)
 {-# DEPRECATED crdPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
+
+-- | The blueprint ID for your new database. A blueprint describes the major engine version of a database.
+--
+-- You can get a list of database blueprints IDs by using the @get relational database blueprints@ operation.
+--
+-- /Note:/ Consider using 'relationalDatabaseBlueprintId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdRelationalDatabaseBlueprintId :: Lens.Lens' CreateRelationalDatabase Lude.Text
+crdRelationalDatabaseBlueprintId = Lens.lens (relationalDatabaseBlueprintId :: CreateRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseBlueprintId = a} :: CreateRelationalDatabase)
+{-# DEPRECATED crdRelationalDatabaseBlueprintId "Use generic-lens or generic-optics with 'relationalDatabaseBlueprintId' instead." #-}
 
 -- | The daily time range during which automated backups are created for your new database if automated backups are enabled.
 --
@@ -271,14 +390,21 @@ crdAvailabilityZone :: Lens.Lens' CreateRelationalDatabase (Lude.Maybe Lude.Text
 crdAvailabilityZone = Lens.lens (availabilityZone :: CreateRelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: CreateRelationalDatabase)
 {-# DEPRECATED crdAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | The tag keys and optional values to add to the resource during create.
+-- | The name of the master database created when the Lightsail database resource is created.
 --
--- Use the @TagResource@ action to tag a resource after it's created.
+-- Constraints:
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdTags :: Lens.Lens' CreateRelationalDatabase (Lude.Maybe [Tag])
-crdTags = Lens.lens (tags :: CreateRelationalDatabase -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRelationalDatabase)
-{-# DEPRECATED crdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+--     * Must contain from 1 to 64 alphanumeric characters.
+--
+--
+--     * Cannot be a word reserved by the specified database engine
+--
+--
+--
+-- /Note:/ Consider using 'masterDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdMasterDatabaseName :: Lens.Lens' CreateRelationalDatabase Lude.Text
+crdMasterDatabaseName = Lens.lens (masterDatabaseName :: CreateRelationalDatabase -> Lude.Text) (\s a -> s {masterDatabaseName = a} :: CreateRelationalDatabase)
+{-# DEPRECATED crdMasterDatabaseName "Use generic-lens or generic-optics with 'masterDatabaseName' instead." #-}
 
 -- | The name to use for your new database.
 --
@@ -296,62 +422,14 @@ crdRelationalDatabaseName :: Lens.Lens' CreateRelationalDatabase Lude.Text
 crdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: CreateRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: CreateRelationalDatabase)
 {-# DEPRECATED crdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
--- | The blueprint ID for your new database. A blueprint describes the major engine version of a database.
+-- | The tag keys and optional values to add to the resource during create.
 --
--- You can get a list of database blueprints IDs by using the @get relational database blueprints@ operation.
+-- Use the @TagResource@ action to tag a resource after it's created.
 --
--- /Note:/ Consider using 'relationalDatabaseBlueprintId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdRelationalDatabaseBlueprintId :: Lens.Lens' CreateRelationalDatabase Lude.Text
-crdRelationalDatabaseBlueprintId = Lens.lens (relationalDatabaseBlueprintId :: CreateRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseBlueprintId = a} :: CreateRelationalDatabase)
-{-# DEPRECATED crdRelationalDatabaseBlueprintId "Use generic-lens or generic-optics with 'relationalDatabaseBlueprintId' instead." #-}
-
--- | The bundle ID for your new database. A bundle describes the performance specifications for your database.
---
--- You can get a list of database bundle IDs by using the @get relational database bundles@ operation.
---
--- /Note:/ Consider using 'relationalDatabaseBundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdRelationalDatabaseBundleId :: Lens.Lens' CreateRelationalDatabase Lude.Text
-crdRelationalDatabaseBundleId = Lens.lens (relationalDatabaseBundleId :: CreateRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseBundleId = a} :: CreateRelationalDatabase)
-{-# DEPRECATED crdRelationalDatabaseBundleId "Use generic-lens or generic-optics with 'relationalDatabaseBundleId' instead." #-}
-
--- | The name of the master database created when the Lightsail database resource is created.
---
--- Constraints:
---
---     * Must contain from 1 to 64 alphanumeric characters.
---
---
---     * Cannot be a word reserved by the specified database engine
---
---
---
--- /Note:/ Consider using 'masterDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdMasterDatabaseName :: Lens.Lens' CreateRelationalDatabase Lude.Text
-crdMasterDatabaseName = Lens.lens (masterDatabaseName :: CreateRelationalDatabase -> Lude.Text) (\s a -> s {masterDatabaseName = a} :: CreateRelationalDatabase)
-{-# DEPRECATED crdMasterDatabaseName "Use generic-lens or generic-optics with 'masterDatabaseName' instead." #-}
-
--- | The master user name for your new database.
---
--- Constraints:
---
---     * Master user name is required.
---
---
---     * Must contain from 1 to 16 alphanumeric characters.
---
---
---     * The first character must be a letter.
---
---
---     * Cannot be a reserved word for the database engine you choose.
--- For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and Reserved Words articles for <https://dev.mysql.com/doc/refman/5.6/en/keywords.html MySQL 5.6> or <https://dev.mysql.com/doc/refman/5.7/en/keywords.html MySQL 5.7> respectively.
---
---
---
--- /Note:/ Consider using 'masterUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdMasterUsername :: Lens.Lens' CreateRelationalDatabase Lude.Text
-crdMasterUsername = Lens.lens (masterUsername :: CreateRelationalDatabase -> Lude.Text) (\s a -> s {masterUsername = a} :: CreateRelationalDatabase)
-{-# DEPRECATED crdMasterUsername "Use generic-lens or generic-optics with 'masterUsername' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdTags :: Lens.Lens' CreateRelationalDatabase (Lude.Maybe [Tag])
+crdTags = Lens.lens (tags :: CreateRelationalDatabase -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRelationalDatabase)
+{-# DEPRECATED crdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateRelationalDatabase where
   type Rs CreateRelationalDatabase = CreateRelationalDatabaseResponse
@@ -379,23 +457,23 @@ instance Lude.ToJSON CreateRelationalDatabase where
   toJSON CreateRelationalDatabase' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("masterUserPassword" Lude..=) Lude.<$> masterUserPassword,
+          [ Lude.Just
+              ("relationalDatabaseBundleId" Lude..= relationalDatabaseBundleId),
+            ("masterUserPassword" Lude..=) Lude.<$> masterUserPassword,
             ("publiclyAccessible" Lude..=) Lude.<$> publiclyAccessible,
+            Lude.Just ("masterUsername" Lude..= masterUsername),
             ("preferredMaintenanceWindow" Lude..=)
               Lude.<$> preferredMaintenanceWindow,
-            ("preferredBackupWindow" Lude..=) Lude.<$> preferredBackupWindow,
-            ("availabilityZone" Lude..=) Lude.<$> availabilityZone,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName),
             Lude.Just
               ( "relationalDatabaseBlueprintId"
                   Lude..= relationalDatabaseBlueprintId
               ),
-            Lude.Just
-              ("relationalDatabaseBundleId" Lude..= relationalDatabaseBundleId),
+            ("preferredBackupWindow" Lude..=) Lude.<$> preferredBackupWindow,
+            ("availabilityZone" Lude..=) Lude.<$> availabilityZone,
             Lude.Just ("masterDatabaseName" Lude..= masterDatabaseName),
-            Lude.Just ("masterUsername" Lude..= masterUsername)
+            Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -407,18 +485,12 @@ instance Lude.ToQuery CreateRelationalDatabase where
 
 -- | /See:/ 'mkCreateRelationalDatabaseResponse' smart constructor.
 data CreateRelationalDatabaseResponse = CreateRelationalDatabaseResponse'
-  { operations ::
-      Lude.Maybe [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRelationalDatabaseResponse' with the minimum fields required to make a request.

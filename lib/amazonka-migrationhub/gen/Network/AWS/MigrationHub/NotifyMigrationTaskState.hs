@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,12 +29,12 @@ module Network.AWS.MigrationHub.NotifyMigrationTaskState
     mkNotifyMigrationTaskState,
 
     -- ** Request lenses
-    nmtsDryRun,
+    nmtsNextUpdateSeconds,
+    nmtsUpdateDateTime,
+    nmtsTask,
     nmtsProgressUpdateStream,
     nmtsMigrationTaskName,
-    nmtsTask,
-    nmtsUpdateDateTime,
-    nmtsNextUpdateSeconds,
+    nmtsDryRun,
 
     -- * Destructuring the response
     NotifyMigrationTaskStateResponse (..),
@@ -52,64 +53,78 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkNotifyMigrationTaskState' smart constructor.
 data NotifyMigrationTaskState = NotifyMigrationTaskState'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    progressUpdateStream :: Lude.Text,
-    migrationTaskName :: Lude.Text,
-    task :: Task,
+  { -- | Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale.
+    nextUpdateSeconds :: Lude.Natural,
+    -- | The timestamp when the task was gathered.
     updateDateTime :: Lude.Timestamp,
-    nextUpdateSeconds :: Lude.Natural
+    -- | Information about the task's progress and status.
+    task :: Task,
+    -- | The name of the ProgressUpdateStream.
+    progressUpdateStream :: Lude.Text,
+    -- | Unique identifier that references the migration task. /Do not store personal data in this field./
+    migrationTaskName :: Lude.Text,
+    -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyMigrationTaskState' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
--- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
 -- * 'nextUpdateSeconds' - Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale.
--- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
--- * 'task' - Information about the task's progress and status.
 -- * 'updateDateTime' - The timestamp when the task was gathered.
+-- * 'task' - Information about the task's progress and status.
+-- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
+-- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
+-- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 mkNotifyMigrationTaskState ::
+  -- | 'nextUpdateSeconds'
+  Lude.Natural ->
+  -- | 'updateDateTime'
+  Lude.Timestamp ->
+  -- | 'task'
+  Task ->
   -- | 'progressUpdateStream'
   Lude.Text ->
   -- | 'migrationTaskName'
   Lude.Text ->
-  -- | 'task'
-  Task ->
-  -- | 'updateDateTime'
-  Lude.Timestamp ->
-  -- | 'nextUpdateSeconds'
-  Lude.Natural ->
   NotifyMigrationTaskState
 mkNotifyMigrationTaskState
-  pProgressUpdateStream_
-  pMigrationTaskName_
-  pTask_
+  pNextUpdateSeconds_
   pUpdateDateTime_
-  pNextUpdateSeconds_ =
+  pTask_
+  pProgressUpdateStream_
+  pMigrationTaskName_ =
     NotifyMigrationTaskState'
-      { dryRun = Lude.Nothing,
+      { nextUpdateSeconds =
+          pNextUpdateSeconds_,
+        updateDateTime = pUpdateDateTime_,
+        task = pTask_,
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
-        task = pTask_,
-        updateDateTime = pUpdateDateTime_,
-        nextUpdateSeconds = pNextUpdateSeconds_
+        dryRun = Lude.Nothing
       }
 
--- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- | Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nmtsDryRun :: Lens.Lens' NotifyMigrationTaskState (Lude.Maybe Lude.Bool)
-nmtsDryRun = Lens.lens (dryRun :: NotifyMigrationTaskState -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: NotifyMigrationTaskState)
-{-# DEPRECATED nmtsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'nextUpdateSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nmtsNextUpdateSeconds :: Lens.Lens' NotifyMigrationTaskState Lude.Natural
+nmtsNextUpdateSeconds = Lens.lens (nextUpdateSeconds :: NotifyMigrationTaskState -> Lude.Natural) (\s a -> s {nextUpdateSeconds = a} :: NotifyMigrationTaskState)
+{-# DEPRECATED nmtsNextUpdateSeconds "Use generic-lens or generic-optics with 'nextUpdateSeconds' instead." #-}
+
+-- | The timestamp when the task was gathered.
+--
+-- /Note:/ Consider using 'updateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nmtsUpdateDateTime :: Lens.Lens' NotifyMigrationTaskState Lude.Timestamp
+nmtsUpdateDateTime = Lens.lens (updateDateTime :: NotifyMigrationTaskState -> Lude.Timestamp) (\s a -> s {updateDateTime = a} :: NotifyMigrationTaskState)
+{-# DEPRECATED nmtsUpdateDateTime "Use generic-lens or generic-optics with 'updateDateTime' instead." #-}
+
+-- | Information about the task's progress and status.
+--
+-- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nmtsTask :: Lens.Lens' NotifyMigrationTaskState Task
+nmtsTask = Lens.lens (task :: NotifyMigrationTaskState -> Task) (\s a -> s {task = a} :: NotifyMigrationTaskState)
+{-# DEPRECATED nmtsTask "Use generic-lens or generic-optics with 'task' instead." #-}
 
 -- | The name of the ProgressUpdateStream.
 --
@@ -125,26 +140,12 @@ nmtsMigrationTaskName :: Lens.Lens' NotifyMigrationTaskState Lude.Text
 nmtsMigrationTaskName = Lens.lens (migrationTaskName :: NotifyMigrationTaskState -> Lude.Text) (\s a -> s {migrationTaskName = a} :: NotifyMigrationTaskState)
 {-# DEPRECATED nmtsMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
 
--- | Information about the task's progress and status.
+-- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
--- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nmtsTask :: Lens.Lens' NotifyMigrationTaskState Task
-nmtsTask = Lens.lens (task :: NotifyMigrationTaskState -> Task) (\s a -> s {task = a} :: NotifyMigrationTaskState)
-{-# DEPRECATED nmtsTask "Use generic-lens or generic-optics with 'task' instead." #-}
-
--- | The timestamp when the task was gathered.
---
--- /Note:/ Consider using 'updateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nmtsUpdateDateTime :: Lens.Lens' NotifyMigrationTaskState Lude.Timestamp
-nmtsUpdateDateTime = Lens.lens (updateDateTime :: NotifyMigrationTaskState -> Lude.Timestamp) (\s a -> s {updateDateTime = a} :: NotifyMigrationTaskState)
-{-# DEPRECATED nmtsUpdateDateTime "Use generic-lens or generic-optics with 'updateDateTime' instead." #-}
-
--- | Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale.
---
--- /Note:/ Consider using 'nextUpdateSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nmtsNextUpdateSeconds :: Lens.Lens' NotifyMigrationTaskState Lude.Natural
-nmtsNextUpdateSeconds = Lens.lens (nextUpdateSeconds :: NotifyMigrationTaskState -> Lude.Natural) (\s a -> s {nextUpdateSeconds = a} :: NotifyMigrationTaskState)
-{-# DEPRECATED nmtsNextUpdateSeconds "Use generic-lens or generic-optics with 'nextUpdateSeconds' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nmtsDryRun :: Lens.Lens' NotifyMigrationTaskState (Lude.Maybe Lude.Bool)
+nmtsDryRun = Lens.lens (dryRun :: NotifyMigrationTaskState -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: NotifyMigrationTaskState)
+{-# DEPRECATED nmtsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest NotifyMigrationTaskState where
   type Rs NotifyMigrationTaskState = NotifyMigrationTaskStateResponse
@@ -171,12 +172,12 @@ instance Lude.ToJSON NotifyMigrationTaskState where
   toJSON NotifyMigrationTaskState' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DryRun" Lude..=) Lude.<$> dryRun,
+          [ Lude.Just ("NextUpdateSeconds" Lude..= nextUpdateSeconds),
+            Lude.Just ("UpdateDateTime" Lude..= updateDateTime),
+            Lude.Just ("Task" Lude..= task),
             Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
             Lude.Just ("MigrationTaskName" Lude..= migrationTaskName),
-            Lude.Just ("Task" Lude..= task),
-            Lude.Just ("UpdateDateTime" Lude..= updateDateTime),
-            Lude.Just ("NextUpdateSeconds" Lude..= nextUpdateSeconds)
+            ("DryRun" Lude..=) Lude.<$> dryRun
           ]
       )
 
@@ -188,16 +189,10 @@ instance Lude.ToQuery NotifyMigrationTaskState where
 
 -- | /See:/ 'mkNotifyMigrationTaskStateResponse' smart constructor.
 newtype NotifyMigrationTaskStateResponse = NotifyMigrationTaskStateResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyMigrationTaskStateResponse' with the minimum fields required to make a request.

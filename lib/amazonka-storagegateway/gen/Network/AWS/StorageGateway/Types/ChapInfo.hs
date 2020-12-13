@@ -31,24 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChapInfo' smart constructor.
 data ChapInfo = ChapInfo'
-  { targetARN :: Lude.Maybe Lude.Text,
-    secretToAuthenticateInitiator ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The Amazon Resource Name (ARN) of the volume.
+    --
+    -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
+    secretToAuthenticateInitiator :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The iSCSI initiator that connects to the target.
     initiatorName :: Lude.Maybe Lude.Text,
-    secretToAuthenticateTarget ::
-      Lude.Maybe (Lude.Sensitive Lude.Text)
+    -- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g., Windows client).
+    secretToAuthenticateTarget :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChapInfo' with the minimum fields required to make a request.
 --
--- * 'initiatorName' - The iSCSI initiator that connects to the target.
--- * 'secretToAuthenticateInitiator' - The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
--- * 'secretToAuthenticateTarget' - The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g., Windows client).
 -- * 'targetARN' - The Amazon Resource Name (ARN) of the volume.
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- * 'secretToAuthenticateInitiator' - The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
+-- * 'initiatorName' - The iSCSI initiator that connects to the target.
+-- * 'secretToAuthenticateTarget' - The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g., Windows client).
 mkChapInfo ::
   ChapInfo
 mkChapInfo =

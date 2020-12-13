@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopQuery' smart constructor.
-newtype StopQuery = StopQuery' {queryId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StopQuery = StopQuery'
+  { -- | The ID number of the query to stop. To find this ID number, use @DescribeQueries@ .
+    queryId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopQuery' with the minimum fields required to make a request.
@@ -98,23 +96,18 @@ instance Lude.ToQuery StopQuery where
 
 -- | /See:/ 'mkStopQueryResponse' smart constructor.
 data StopQueryResponse = StopQueryResponse'
-  { success ::
-      Lude.Maybe Lude.Bool,
+  { -- | This is true if the query was stopped by the @StopQuery@ operation.
+    success :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopQueryResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'success' - This is true if the query was stopped by the @StopQuery@ operation.
+-- * 'responseStatus' - The response status code.
 mkStopQueryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

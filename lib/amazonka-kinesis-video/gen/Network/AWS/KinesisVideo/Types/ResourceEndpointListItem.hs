@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceEndpointListItem' smart constructor.
 data ResourceEndpointListItem = ResourceEndpointListItem'
-  { protocol ::
-      Lude.Maybe ChannelProtocol,
+  { -- | The protocol of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
+    protocol :: Lude.Maybe ChannelProtocol,
+    -- | The endpoint of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
     resourceEndpoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceEndpointListItem' with the minimum fields required to make a request.

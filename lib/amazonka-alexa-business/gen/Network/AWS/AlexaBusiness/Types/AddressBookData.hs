@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAddressBookData' smart constructor.
 data AddressBookData = AddressBookData'
-  { addressBookARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the address book.
+    addressBookARN :: Lude.Maybe Lude.Text,
+    -- | The name of the address book.
     name :: Lude.Maybe Lude.Text,
+    -- | The description of the address book.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddressBookData' with the minimum fields required to make a request.
 --
 -- * 'addressBookARN' - The ARN of the address book.
--- * 'description' - The description of the address book.
 -- * 'name' - The name of the address book.
+-- * 'description' - The description of the address book.
 mkAddressBookData ::
   AddressBookData
 mkAddressBookData =

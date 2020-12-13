@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceUsage' smart constructor.
 data InstanceUsage = InstanceUsage'
-  { accountId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the AWS account that is making use of the Capacity Reservation.
+    accountId :: Lude.Maybe Lude.Text,
+    -- | The number of instances the AWS account currently has in the Capacity Reservation.
     usedInstanceCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceUsage' with the minimum fields required to make a request.

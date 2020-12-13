@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Glacier.DescribeVault
     mkDescribeVault,
 
     -- ** Request lenses
-    dvAccountId,
-    dvVaultName,
+    dVaultName,
+    dAccountId,
 
     -- * Destructuring the response
     DescribeVaultOutput (..),
@@ -49,44 +50,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeVault' smart constructor.
 data DescribeVault = DescribeVault'
-  { accountId :: Lude.Text,
-    vaultName :: Lude.Text
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVault' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 mkDescribeVault ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   DescribeVault
-mkDescribeVault pAccountId_ pVaultName_ =
-  DescribeVault' {accountId = pAccountId_, vaultName = pVaultName_}
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvAccountId :: Lens.Lens' DescribeVault Lude.Text
-dvAccountId = Lens.lens (accountId :: DescribeVault -> Lude.Text) (\s a -> s {accountId = a} :: DescribeVault)
-{-# DEPRECATED dvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+mkDescribeVault pVaultName_ pAccountId_ =
+  DescribeVault' {vaultName = pVaultName_, accountId = pAccountId_}
 
 -- | The name of the vault.
 --
 -- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvVaultName :: Lens.Lens' DescribeVault Lude.Text
-dvVaultName = Lens.lens (vaultName :: DescribeVault -> Lude.Text) (\s a -> s {vaultName = a} :: DescribeVault)
-{-# DEPRECATED dvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+dVaultName :: Lens.Lens' DescribeVault Lude.Text
+dVaultName = Lens.lens (vaultName :: DescribeVault -> Lude.Text) (\s a -> s {vaultName = a} :: DescribeVault)
+{-# DEPRECATED dVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAccountId :: Lens.Lens' DescribeVault Lude.Text
+dAccountId = Lens.lens (accountId :: DescribeVault -> Lude.Text) (\s a -> s {accountId = a} :: DescribeVault)
+{-# DEPRECATED dAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Lude.AWSRequest DescribeVault where
   type Rs DescribeVault = DescribeVaultOutput

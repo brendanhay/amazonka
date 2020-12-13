@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -54,39 +55,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListReservations' smart constructor.
 data ListReservations = ListReservations'
-  { videoQuality ::
-      Lude.Maybe Lude.Text,
+  { -- | Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+    videoQuality :: Lude.Maybe Lude.Text,
+    -- | Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
     maximumFramerate :: Lude.Maybe Lude.Text,
+    -- | Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
     resourceType :: Lude.Maybe Lude.Text,
+    -- | Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
     resolution :: Lude.Maybe Lude.Text,
+    -- | Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
     codec :: Lude.Maybe Lude.Text,
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
     specialFeature :: Lude.Maybe Lude.Text,
+    -- | Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
     channelClass :: Lude.Maybe Lude.Text,
+    -- | Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
     maximumBitrate :: Lude.Maybe Lude.Text,
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReservations' with the minimum fields required to make a request.
 --
--- * 'channelClass' - Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
--- * 'codec' - Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
--- * 'maxResults' - Undocumented field.
--- * 'maximumBitrate' - Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
--- * 'maximumFramerate' - Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
--- * 'nextToken' - Undocumented field.
--- * 'resolution' - Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
--- * 'resourceType' - Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
--- * 'specialFeature' - Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
 -- * 'videoQuality' - Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+-- * 'maximumFramerate' - Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+-- * 'resourceType' - Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+-- * 'resolution' - Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
+-- * 'codec' - Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
+-- * 'nextToken' -
+-- * 'specialFeature' - Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
+-- * 'channelClass' - Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
+-- * 'maximumBitrate' - Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
+-- * 'maxResults' -
 mkListReservations ::
   ListReservations
 mkListReservations =
@@ -225,18 +227,14 @@ instance Lude.ToQuery ListReservations where
 --
 -- /See:/ 'mkListReservationsResponse' smart constructor.
 data ListReservationsResponse = ListReservationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Token to retrieve the next page of results
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | List of reservations
     reservations :: Lude.Maybe [Reservation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReservationsResponse' with the minimum fields required to make a request.

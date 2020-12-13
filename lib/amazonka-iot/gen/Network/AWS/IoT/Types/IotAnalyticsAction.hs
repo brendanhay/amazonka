@@ -31,19 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIotAnalyticsAction' smart constructor.
 data IotAnalyticsAction = IotAnalyticsAction'
-  { batchMode ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether to process the action as a batch. The default value is @false@ .
+    --
+    -- When @batchMode@ is @true@ and the rule SQL statement evaluates to an Array, each Array element is delivered as a separate message when passed by <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_BatchPutMessage.html @BatchPutMessage@ > to the AWS IoT Analytics channel. The resulting array can't have more than 100 messages.
+    batchMode :: Lude.Maybe Lude.Bool,
+    -- | (deprecated) The ARN of the IoT Analytics channel to which message data will be sent.
     channelARN :: Lude.Maybe Lude.Text,
+    -- | The name of the IoT Analytics channel to which message data will be sent.
     channelName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IotAnalyticsAction' with the minimum fields required to make a request.

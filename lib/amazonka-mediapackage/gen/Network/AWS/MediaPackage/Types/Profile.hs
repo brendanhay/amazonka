@@ -13,8 +13,8 @@
 module Network.AWS.MediaPackage.Types.Profile
   ( Profile
       ( Profile',
-        PHbbtv15,
-        PNone
+        PNone,
+        PHbbtv15
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Profile = Profile' Lude.Text
       Lude.ToHeader
     )
 
-pattern PHbbtv15 :: Profile
-pattern PHbbtv15 = Profile' "HBBTV_1_5"
-
 pattern PNone :: Profile
 pattern PNone = Profile' "NONE"
 
+pattern PHbbtv15 :: Profile
+pattern PHbbtv15 = Profile' "HBBTV_1_5"
+
 {-# COMPLETE
-  PHbbtv15,
   PNone,
+  PHbbtv15,
   Profile'
   #-}

@@ -29,16 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRollbackTrigger' smart constructor.
 data RollbackTrigger = RollbackTrigger'
-  { arn :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the rollback trigger.
+    --
+    -- If a specified trigger is missing, the entire stack operation fails and is rolled back.
+    arn :: Lude.Text,
+    -- | The resource type of the rollback trigger. Currently, <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html AWS::CloudWatch::Alarm> is the only supported resource type.
     type' :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RollbackTrigger' with the minimum fields required to make a request.

@@ -31,32 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalTableGlobalSecondaryIndexSettingsUpdate' smart constructor.
 data GlobalTableGlobalSecondaryIndexSettingsUpdate = GlobalTableGlobalSecondaryIndexSettingsUpdate'
-  { provisionedWriteCapacityUnits ::
-      Lude.Maybe
-        Lude.Natural,
-    provisionedWriteCapacityAutoScalingSettingsUpdate ::
-      Lude.Maybe
-        AutoScalingSettingsUpdate,
-    indexName ::
-      Lude.Text
+  { -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
+    provisionedWriteCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | Auto scaling settings for managing a global secondary index's write capacity units.
+    provisionedWriteCapacityAutoScalingSettingsUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
+    -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
+    indexName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalTableGlobalSecondaryIndexSettingsUpdate' with the minimum fields required to make a request.
 --
--- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
--- * 'provisionedWriteCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global secondary index's write capacity units.
 -- * 'provisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
+-- * 'provisionedWriteCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global secondary index's write capacity units.
+-- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
 mkGlobalTableGlobalSecondaryIndexSettingsUpdate ::
   -- | 'indexName'
   Lude.Text ->

@@ -14,10 +14,10 @@ module Network.AWS.EC2.Types.EventCode
   ( EventCode
       ( EventCode',
         InstanceReboot,
-        InstanceRetirement,
-        InstanceStop,
+        SystemReboot,
         SystemMaintenance,
-        SystemReboot
+        InstanceRetirement,
+        InstanceStop
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype EventCode = EventCode' Lude.Text
 pattern InstanceReboot :: EventCode
 pattern InstanceReboot = EventCode' "instance-reboot"
 
+pattern SystemReboot :: EventCode
+pattern SystemReboot = EventCode' "system-reboot"
+
+pattern SystemMaintenance :: EventCode
+pattern SystemMaintenance = EventCode' "system-maintenance"
+
 pattern InstanceRetirement :: EventCode
 pattern InstanceRetirement = EventCode' "instance-retirement"
 
 pattern InstanceStop :: EventCode
 pattern InstanceStop = EventCode' "instance-stop"
 
-pattern SystemMaintenance :: EventCode
-pattern SystemMaintenance = EventCode' "system-maintenance"
-
-pattern SystemReboot :: EventCode
-pattern SystemReboot = EventCode' "system-reboot"
-
 {-# COMPLETE
   InstanceReboot,
+  SystemReboot,
+  SystemMaintenance,
   InstanceRetirement,
   InstanceStop,
-  SystemMaintenance,
-  SystemReboot,
   EventCode'
   #-}

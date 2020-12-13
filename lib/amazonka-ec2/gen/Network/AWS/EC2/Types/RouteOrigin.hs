@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.RouteOrigin
   ( RouteOrigin
       ( RouteOrigin',
-        CreateRoute,
         CreateRouteTable,
+        CreateRoute,
         EnableVGWRoutePropagation
       ),
   )
@@ -46,18 +46,18 @@ newtype RouteOrigin = RouteOrigin' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreateRoute :: RouteOrigin
-pattern CreateRoute = RouteOrigin' "CreateRoute"
-
 pattern CreateRouteTable :: RouteOrigin
 pattern CreateRouteTable = RouteOrigin' "CreateRouteTable"
+
+pattern CreateRoute :: RouteOrigin
+pattern CreateRoute = RouteOrigin' "CreateRoute"
 
 pattern EnableVGWRoutePropagation :: RouteOrigin
 pattern EnableVGWRoutePropagation = RouteOrigin' "EnableVgwRoutePropagation"
 
 {-# COMPLETE
-  CreateRoute,
   CreateRouteTable,
+  CreateRoute,
   EnableVGWRoutePropagation,
   RouteOrigin'
   #-}

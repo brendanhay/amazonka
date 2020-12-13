@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,22 +25,22 @@ module Network.AWS.CloudHSM.CreateHSM
     mkCreateHSM,
 
     -- ** Request lenses
+    chIAMRoleARN,
     chClientToken,
+    chSubscriptionType,
+    chSubnetId,
     chSyslogIP,
+    chSSHKey,
     chExternalId,
     chEniIP,
-    chSubnetId,
-    chSSHKey,
-    chIAMRoleARN,
-    chSubscriptionType,
 
     -- * Destructuring the response
     CreateHSMResponse (..),
     mkCreateHSMResponse,
 
     -- ** Response lenses
-    chrsHSMARN,
-    chrsResponseStatus,
+    chsmrsHSMARN,
+    chsmrsResponseStatus,
   )
 where
 
@@ -53,57 +54,67 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateHSM' smart constructor.
 data CreateHSM = CreateHSM'
-  { clientToken :: Lude.Maybe Lude.Text,
-    syslogIP :: Lude.Maybe Lude.Text,
-    externalId :: Lude.Maybe Lude.Text,
-    eniIP :: Lude.Maybe Lude.Text,
-    subnetId :: Lude.Text,
-    sshKey :: Lude.Text,
+  { -- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.
     iamRoleARN :: Lude.Text,
-    subscriptionType :: SubscriptionType
+    -- | A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.
+    clientToken :: Lude.Maybe Lude.Text,
+    subscriptionType :: SubscriptionType,
+    -- | The identifier of the subnet in your VPC in which to place the HSM.
+    subnetId :: Lude.Text,
+    -- | The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
+    syslogIP :: Lude.Maybe Lude.Text,
+    -- | The SSH public key to install on the HSM.
+    sshKey :: Lude.Text,
+    -- | The external ID from @IamRoleArn@ , if present.
+    externalId :: Lude.Maybe Lude.Text,
+    -- | The IP address to assign to the HSM's ENI.
+    --
+    -- If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.
+    eniIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSM' with the minimum fields required to make a request.
 --
+-- * 'iamRoleARN' - The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.
 -- * 'clientToken' - A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.
+-- * 'subscriptionType' -
+-- * 'subnetId' - The identifier of the subnet in your VPC in which to place the HSM.
+-- * 'syslogIP' - The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
+-- * 'sshKey' - The SSH public key to install on the HSM.
+-- * 'externalId' - The external ID from @IamRoleArn@ , if present.
 -- * 'eniIP' - The IP address to assign to the HSM's ENI.
 --
 -- If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.
--- * 'externalId' - The external ID from @IamRoleArn@ , if present.
--- * 'iamRoleARN' - The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.
--- * 'sshKey' - The SSH public key to install on the HSM.
--- * 'subnetId' - The identifier of the subnet in your VPC in which to place the HSM.
--- * 'subscriptionType' - Undocumented field.
--- * 'syslogIP' - The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
 mkCreateHSM ::
-  -- | 'subnetId'
-  Lude.Text ->
-  -- | 'sshKey'
-  Lude.Text ->
   -- | 'iamRoleARN'
   Lude.Text ->
   -- | 'subscriptionType'
   SubscriptionType ->
+  -- | 'subnetId'
+  Lude.Text ->
+  -- | 'sshKey'
+  Lude.Text ->
   CreateHSM
-mkCreateHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ =
+mkCreateHSM pIAMRoleARN_ pSubscriptionType_ pSubnetId_ pSSHKey_ =
   CreateHSM'
-    { clientToken = Lude.Nothing,
-      syslogIP = Lude.Nothing,
-      externalId = Lude.Nothing,
-      eniIP = Lude.Nothing,
+    { iamRoleARN = pIAMRoleARN_,
+      clientToken = Lude.Nothing,
+      subscriptionType = pSubscriptionType_,
       subnetId = pSubnetId_,
+      syslogIP = Lude.Nothing,
       sshKey = pSSHKey_,
-      iamRoleARN = pIAMRoleARN_,
-      subscriptionType = pSubscriptionType_
+      externalId = Lude.Nothing,
+      eniIP = Lude.Nothing
     }
+
+-- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.
+--
+-- /Note:/ Consider using 'iamRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chIAMRoleARN :: Lens.Lens' CreateHSM Lude.Text
+chIAMRoleARN = Lens.lens (iamRoleARN :: CreateHSM -> Lude.Text) (\s a -> s {iamRoleARN = a} :: CreateHSM)
+{-# DEPRECATED chIAMRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
 
 -- | A user-defined token to ensure idempotence. Subsequent calls to this operation with the same token will be ignored.
 --
@@ -112,12 +123,33 @@ chClientToken :: Lens.Lens' CreateHSM (Lude.Maybe Lude.Text)
 chClientToken = Lens.lens (clientToken :: CreateHSM -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateHSM)
 {-# DEPRECATED chClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'subscriptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chSubscriptionType :: Lens.Lens' CreateHSM SubscriptionType
+chSubscriptionType = Lens.lens (subscriptionType :: CreateHSM -> SubscriptionType) (\s a -> s {subscriptionType = a} :: CreateHSM)
+{-# DEPRECATED chSubscriptionType "Use generic-lens or generic-optics with 'subscriptionType' instead." #-}
+
+-- | The identifier of the subnet in your VPC in which to place the HSM.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chSubnetId :: Lens.Lens' CreateHSM Lude.Text
+chSubnetId = Lens.lens (subnetId :: CreateHSM -> Lude.Text) (\s a -> s {subnetId = a} :: CreateHSM)
+{-# DEPRECATED chSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+
 -- | The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
 --
 -- /Note:/ Consider using 'syslogIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 chSyslogIP :: Lens.Lens' CreateHSM (Lude.Maybe Lude.Text)
 chSyslogIP = Lens.lens (syslogIP :: CreateHSM -> Lude.Maybe Lude.Text) (\s a -> s {syslogIP = a} :: CreateHSM)
 {-# DEPRECATED chSyslogIP "Use generic-lens or generic-optics with 'syslogIP' instead." #-}
+
+-- | The SSH public key to install on the HSM.
+--
+-- /Note:/ Consider using 'sshKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chSSHKey :: Lens.Lens' CreateHSM Lude.Text
+chSSHKey = Lens.lens (sshKey :: CreateHSM -> Lude.Text) (\s a -> s {sshKey = a} :: CreateHSM)
+{-# DEPRECATED chSSHKey "Use generic-lens or generic-optics with 'sshKey' instead." #-}
 
 -- | The external ID from @IamRoleArn@ , if present.
 --
@@ -134,34 +166,6 @@ chExternalId = Lens.lens (externalId :: CreateHSM -> Lude.Maybe Lude.Text) (\s a
 chEniIP :: Lens.Lens' CreateHSM (Lude.Maybe Lude.Text)
 chEniIP = Lens.lens (eniIP :: CreateHSM -> Lude.Maybe Lude.Text) (\s a -> s {eniIP = a} :: CreateHSM)
 {-# DEPRECATED chEniIP "Use generic-lens or generic-optics with 'eniIP' instead." #-}
-
--- | The identifier of the subnet in your VPC in which to place the HSM.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chSubnetId :: Lens.Lens' CreateHSM Lude.Text
-chSubnetId = Lens.lens (subnetId :: CreateHSM -> Lude.Text) (\s a -> s {subnetId = a} :: CreateHSM)
-{-# DEPRECATED chSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The SSH public key to install on the HSM.
---
--- /Note:/ Consider using 'sshKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chSSHKey :: Lens.Lens' CreateHSM Lude.Text
-chSSHKey = Lens.lens (sshKey :: CreateHSM -> Lude.Text) (\s a -> s {sshKey = a} :: CreateHSM)
-{-# DEPRECATED chSSHKey "Use generic-lens or generic-optics with 'sshKey' instead." #-}
-
--- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your behalf.
---
--- /Note:/ Consider using 'iamRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chIAMRoleARN :: Lens.Lens' CreateHSM Lude.Text
-chIAMRoleARN = Lens.lens (iamRoleARN :: CreateHSM -> Lude.Text) (\s a -> s {iamRoleARN = a} :: CreateHSM)
-{-# DEPRECATED chIAMRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'subscriptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chSubscriptionType :: Lens.Lens' CreateHSM SubscriptionType
-chSubscriptionType = Lens.lens (subscriptionType :: CreateHSM -> SubscriptionType) (\s a -> s {subscriptionType = a} :: CreateHSM)
-{-# DEPRECATED chSubscriptionType "Use generic-lens or generic-optics with 'subscriptionType' instead." #-}
 
 instance Lude.AWSRequest CreateHSM where
   type Rs CreateHSM = CreateHSMResponse
@@ -188,14 +192,14 @@ instance Lude.ToJSON CreateHSM where
   toJSON CreateHSM' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ClientToken" Lude..=) Lude.<$> clientToken,
-            ("SyslogIp" Lude..=) Lude.<$> syslogIP,
-            ("ExternalId" Lude..=) Lude.<$> externalId,
-            ("EniIp" Lude..=) Lude.<$> eniIP,
+          [ Lude.Just ("IamRoleArn" Lude..= iamRoleARN),
+            ("ClientToken" Lude..=) Lude.<$> clientToken,
+            Lude.Just ("SubscriptionType" Lude..= subscriptionType),
             Lude.Just ("SubnetId" Lude..= subnetId),
+            ("SyslogIp" Lude..=) Lude.<$> syslogIP,
             Lude.Just ("SshKey" Lude..= sshKey),
-            Lude.Just ("IamRoleArn" Lude..= iamRoleARN),
-            Lude.Just ("SubscriptionType" Lude..= subscriptionType)
+            ("ExternalId" Lude..=) Lude.<$> externalId,
+            ("EniIp" Lude..=) Lude.<$> eniIP
           ]
       )
 
@@ -209,17 +213,12 @@ instance Lude.ToQuery CreateHSM where
 --
 -- /See:/ 'mkCreateHSMResponse' smart constructor.
 data CreateHSMResponse = CreateHSMResponse'
-  { hsmARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the HSM.
+    hsmARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSMResponse' with the minimum fields required to make a request.
@@ -239,13 +238,13 @@ mkCreateHSMResponse pResponseStatus_ =
 -- | The ARN of the HSM.
 --
 -- /Note:/ Consider using 'hsmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chrsHSMARN :: Lens.Lens' CreateHSMResponse (Lude.Maybe Lude.Text)
-chrsHSMARN = Lens.lens (hsmARN :: CreateHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {hsmARN = a} :: CreateHSMResponse)
-{-# DEPRECATED chrsHSMARN "Use generic-lens or generic-optics with 'hsmARN' instead." #-}
+chsmrsHSMARN :: Lens.Lens' CreateHSMResponse (Lude.Maybe Lude.Text)
+chsmrsHSMARN = Lens.lens (hsmARN :: CreateHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {hsmARN = a} :: CreateHSMResponse)
+{-# DEPRECATED chsmrsHSMARN "Use generic-lens or generic-optics with 'hsmARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chrsResponseStatus :: Lens.Lens' CreateHSMResponse Lude.Int
-chrsResponseStatus = Lens.lens (responseStatus :: CreateHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHSMResponse)
-{-# DEPRECATED chrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+chsmrsResponseStatus :: Lens.Lens' CreateHSMResponse Lude.Int
+chsmrsResponseStatus = Lens.lens (responseStatus :: CreateHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHSMResponse)
+{-# DEPRECATED chsmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

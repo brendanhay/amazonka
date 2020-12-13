@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.JobStatus
   ( JobStatus
       ( JobStatus',
-        Canceled,
-        Complete,
-        Error,
+        Submitted,
         Progressing,
-        Submitted
+        Complete,
+        Canceled,
+        Error
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype JobStatus = JobStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Canceled :: JobStatus
-pattern Canceled = JobStatus' "CANCELED"
-
-pattern Complete :: JobStatus
-pattern Complete = JobStatus' "COMPLETE"
-
-pattern Error :: JobStatus
-pattern Error = JobStatus' "ERROR"
+pattern Submitted :: JobStatus
+pattern Submitted = JobStatus' "SUBMITTED"
 
 pattern Progressing :: JobStatus
 pattern Progressing = JobStatus' "PROGRESSING"
 
-pattern Submitted :: JobStatus
-pattern Submitted = JobStatus' "SUBMITTED"
+pattern Complete :: JobStatus
+pattern Complete = JobStatus' "COMPLETE"
+
+pattern Canceled :: JobStatus
+pattern Canceled = JobStatus' "CANCELED"
+
+pattern Error :: JobStatus
+pattern Error = JobStatus' "ERROR"
 
 {-# COMPLETE
-  Canceled,
-  Complete,
-  Error,
-  Progressing,
   Submitted,
+  Progressing,
+  Complete,
+  Canceled,
+  Error,
   JobStatus'
   #-}

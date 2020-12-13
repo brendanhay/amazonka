@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputFormatConfiguration' smart constructor.
 newtype InputFormatConfiguration = InputFormatConfiguration'
-  { deserializer ::
-      Lude.Maybe Deserializer
+  { -- | Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
+    deserializer :: Lude.Maybe Deserializer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputFormatConfiguration' with the minimum fields required to make a request.

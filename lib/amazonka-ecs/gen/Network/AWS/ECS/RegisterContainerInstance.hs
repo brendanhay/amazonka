@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,37 +48,60 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterContainerInstance' smart constructor.
 data RegisterContainerInstance = RegisterContainerInstance'
-  { platformDevices ::
-      Lude.Maybe [PlatformDevice],
-    instanceIdentityDocumentSignature ::
-      Lude.Maybe Lude.Text,
+  { -- | The devices that are available on the container instance. The only supported device type is a GPU.
+    platformDevices :: Lude.Maybe [PlatformDevice],
+    -- | The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
+    instanceIdentityDocumentSignature :: Lude.Maybe Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed.
     cluster :: Lude.Maybe Lude.Text,
-    instanceIdentityDocument ::
-      Lude.Maybe Lude.Text,
-    containerInstanceARN ::
-      Lude.Maybe Lude.Text,
+    -- | The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/document/@
+    instanceIdentityDocument :: Lude.Maybe Lude.Text,
+    -- | The ARN of the container instance (if it was previously registered).
+    containerInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The version information for the Amazon ECS container agent and Docker daemon running on the container instance.
     versionInfo :: Lude.Maybe VersionInfo,
+    -- | The container instance attributes that this container instance supports.
     attributes :: Lude.Maybe [Attribute],
+    -- | The resources available on the instance.
     totalResources :: Lude.Maybe [Resource],
+    -- | The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+    --
+    -- The following basic restrictions apply to tags:
+    --
+    --     * Maximum number of tags per resource - 50
+    --
+    --
+    --     * For each resource, each tag key must be unique, and each tag key can have only one value.
+    --
+    --
+    --     * Maximum key length - 128 Unicode characters in UTF-8
+    --
+    --
+    --     * Maximum value length - 256 Unicode characters in UTF-8
+    --
+    --
+    --     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+    --
+    --
+    --     * Tag keys and values are case-sensitive.
+    --
+    --
+    --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterContainerInstance' with the minimum fields required to make a request.
 --
--- * 'attributes' - The container instance attributes that this container instance supports.
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed.
--- * 'containerInstanceARN' - The ARN of the container instance (if it was previously registered).
--- * 'instanceIdentityDocument' - The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/document/@
--- * 'instanceIdentityDocumentSignature' - The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
 -- * 'platformDevices' - The devices that are available on the container instance. The only supported device type is a GPU.
+-- * 'instanceIdentityDocumentSignature' - The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed.
+-- * 'instanceIdentityDocument' - The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/document/@
+-- * 'containerInstanceARN' - The ARN of the container instance (if it was previously registered).
+-- * 'versionInfo' - The version information for the Amazon ECS container agent and Docker daemon running on the container instance.
+-- * 'attributes' - The container instance attributes that this container instance supports.
+-- * 'totalResources' - The resources available on the instance.
 -- * 'tags' - The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
 -- The following basic restrictions apply to tags:
@@ -101,10 +125,6 @@ data RegisterContainerInstance = RegisterContainerInstance'
 --
 --
 --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
---
---
--- * 'totalResources' - The resources available on the instance.
--- * 'versionInfo' - The version information for the Amazon ECS container agent and Docker daemon running on the container instance.
 mkRegisterContainerInstance ::
   RegisterContainerInstance
 mkRegisterContainerInstance =
@@ -259,19 +279,12 @@ instance Lude.ToQuery RegisterContainerInstance where
 
 -- | /See:/ 'mkRegisterContainerInstanceResponse' smart constructor.
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
-  { containerInstance ::
-      Lude.Maybe
-        ContainerInstance,
-    responseStatus ::
-      Lude.Int
+  { -- | The container instance that was registered.
+    containerInstance :: Lude.Maybe ContainerInstance,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterContainerInstanceResponse' with the minimum fields required to make a request.

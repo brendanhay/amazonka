@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.Organizations.CreatePolicy
     mkCreatePolicy,
 
     -- ** Request lenses
-    cpTags,
     cpContent,
-    cpDescription,
     cpName,
     cpType,
+    cpDescription,
+    cpTags,
 
     -- * Destructuring the response
     CreatePolicyResponse (..),
@@ -47,29 +48,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreatePolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-  { tags :: Lude.Maybe [Tag],
+  { -- | The policy text content to add to the new policy. The text that you supply must adhere to the rules of the policy type you specify in the @Type@ parameter.
     content :: Lude.Text,
-    description :: Lude.Text,
+    -- | The friendly name to assign to the policy.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
     name :: Lude.Text,
-    type' :: PolicyType
+    -- | The type of policy to create. You can specify one of the following values:
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+    type' :: PolicyType,
+    -- | An optional description to assign to the policy.
+    description :: Lude.Text,
+    -- | A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicy' with the minimum fields required to make a request.
 --
 -- * 'content' - The policy text content to add to the new policy. The text that you supply must adhere to the rules of the policy type you specify in the @Type@ parameter.
--- * 'description' - An optional description to assign to the policy.
 -- * 'name' - The friendly name to assign to the policy.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
--- * 'tags' - A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
 -- * 'type'' - The type of policy to create. You can specify one of the following values:
 --
 --
@@ -83,31 +95,28 @@ data CreatePolicy = CreatePolicy'
 --
 --
 --     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+--
+--
+-- * 'description' - An optional description to assign to the policy.
+-- * 'tags' - A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
 mkCreatePolicy ::
   -- | 'content'
-  Lude.Text ->
-  -- | 'description'
   Lude.Text ->
   -- | 'name'
   Lude.Text ->
   -- | 'type''
   PolicyType ->
+  -- | 'description'
+  Lude.Text ->
   CreatePolicy
-mkCreatePolicy pContent_ pDescription_ pName_ pType_ =
+mkCreatePolicy pContent_ pName_ pType_ pDescription_ =
   CreatePolicy'
-    { tags = Lude.Nothing,
-      content = pContent_,
-      description = pDescription_,
+    { content = pContent_,
       name = pName_,
-      type' = pType_
+      type' = pType_,
+      description = pDescription_,
+      tags = Lude.Nothing
     }
-
--- | A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpTags :: Lens.Lens' CreatePolicy (Lude.Maybe [Tag])
-cpTags = Lens.lens (tags :: CreatePolicy -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePolicy)
-{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The policy text content to add to the new policy. The text that you supply must adhere to the rules of the policy type you specify in the @Type@ parameter.
 --
@@ -115,13 +124,6 @@ cpTags = Lens.lens (tags :: CreatePolicy -> Lude.Maybe [Tag]) (\s a -> s {tags =
 cpContent :: Lens.Lens' CreatePolicy Lude.Text
 cpContent = Lens.lens (content :: CreatePolicy -> Lude.Text) (\s a -> s {content = a} :: CreatePolicy)
 {-# DEPRECATED cpContent "Use generic-lens or generic-optics with 'content' instead." #-}
-
--- | An optional description to assign to the policy.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpDescription :: Lens.Lens' CreatePolicy Lude.Text
-cpDescription = Lens.lens (description :: CreatePolicy -> Lude.Text) (\s a -> s {description = a} :: CreatePolicy)
-{-# DEPRECATED cpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The friendly name to assign to the policy.
 --
@@ -153,6 +155,20 @@ cpType :: Lens.Lens' CreatePolicy PolicyType
 cpType = Lens.lens (type' :: CreatePolicy -> PolicyType) (\s a -> s {type' = a} :: CreatePolicy)
 {-# DEPRECATED cpType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
+-- | An optional description to assign to the policy.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDescription :: Lens.Lens' CreatePolicy Lude.Text
+cpDescription = Lens.lens (description :: CreatePolicy -> Lude.Text) (\s a -> s {description = a} :: CreatePolicy)
+{-# DEPRECATED cpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTags :: Lens.Lens' CreatePolicy (Lude.Maybe [Tag])
+cpTags = Lens.lens (tags :: CreatePolicy -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePolicy)
+{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
 instance Lude.AWSRequest CreatePolicy where
   type Rs CreatePolicy = CreatePolicyResponse
   request = Req.postJSON organizationsService
@@ -178,11 +194,11 @@ instance Lude.ToJSON CreatePolicy where
   toJSON CreatePolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Content" Lude..= content),
-            Lude.Just ("Description" Lude..= description),
+          [ Lude.Just ("Content" Lude..= content),
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Type" Lude..= type')
+            Lude.Just ("Type" Lude..= type'),
+            Lude.Just ("Description" Lude..= description),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -194,17 +210,12 @@ instance Lude.ToQuery CreatePolicy where
 
 -- | /See:/ 'mkCreatePolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-  { policy ::
-      Lude.Maybe Policy,
+  { -- | A structure that contains details about the newly created policy.
+    policy :: Lude.Maybe Policy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.

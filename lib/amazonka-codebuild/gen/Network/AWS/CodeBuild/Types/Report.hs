@@ -44,41 +44,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReport' smart constructor.
 data Report = Report'
-  { reportGroupARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the report group associated with this report.
+    reportGroupARN :: Lude.Maybe Lude.Text,
+    -- | The status of this report.
     status :: Lude.Maybe ReportStatusType,
+    -- | The date and time a report expires. A report expires 30 days after it is created. An expired report is not available to view in CodeBuild.
     expired :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the build run that generated this report.
     executionId :: Lude.Maybe Lude.Text,
+    -- | A boolean that specifies if this report run is truncated. The list of test cases is truncated after the maximum number of test cases is reached.
     truncated :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the report run.
     arn :: Lude.Maybe Lude.Text,
+    -- | The date and time this report run occurred.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the report that was run.
     name :: Lude.Maybe Lude.Text,
+    -- | A @CodeCoverageReportSummary@ object that contains a code coverage summary for this report.
     codeCoverageSummary :: Lude.Maybe CodeCoverageReportSummary,
+    -- | A @TestReportSummary@ object that contains information about this test report.
     testSummary :: Lude.Maybe TestReportSummary,
+    -- | The type of the report that was run.
+    --
+    --
+    --     * CODE_COVERAGE
+    --
+    --     * A code coverage report.
+    --
+    --
+    --     * TEST
+    --
+    --     * A test report.
     type' :: Lude.Maybe ReportType,
+    -- | Information about where the raw data used to generate this report was exported.
     exportConfig :: Lude.Maybe ReportExportConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Report' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the report run.
--- * 'codeCoverageSummary' - A @CodeCoverageReportSummary@ object that contains a code coverage summary for this report.
--- * 'created' - The date and time this report run occurred.
--- * 'executionId' - The ARN of the build run that generated this report.
--- * 'expired' - The date and time a report expires. A report expires 30 days after it is created. An expired report is not available to view in CodeBuild.
--- * 'exportConfig' - Information about where the raw data used to generate this report was exported.
--- * 'name' - The name of the report that was run.
 -- * 'reportGroupARN' - The ARN of the report group associated with this report.
 -- * 'status' - The status of this report.
--- * 'testSummary' - A @TestReportSummary@ object that contains information about this test report.
+-- * 'expired' - The date and time a report expires. A report expires 30 days after it is created. An expired report is not available to view in CodeBuild.
+-- * 'executionId' - The ARN of the build run that generated this report.
 -- * 'truncated' - A boolean that specifies if this report run is truncated. The list of test cases is truncated after the maximum number of test cases is reached.
+-- * 'arn' - The ARN of the report run.
+-- * 'created' - The date and time this report run occurred.
+-- * 'name' - The name of the report that was run.
+-- * 'codeCoverageSummary' - A @CodeCoverageReportSummary@ object that contains a code coverage summary for this report.
+-- * 'testSummary' - A @TestReportSummary@ object that contains information about this test report.
 -- * 'type'' - The type of the report that was run.
 --
 --
@@ -90,6 +105,9 @@ data Report = Report'
 --     * TEST
 --
 --     * A test report.
+--
+--
+-- * 'exportConfig' - Information about where the raw data used to generate this report was exported.
 mkReport ::
   Report
 mkReport =

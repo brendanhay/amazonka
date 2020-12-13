@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.MpdCaptionContainerType
   ( MpdCaptionContainerType
       ( MpdCaptionContainerType',
-        FragmentedMP4,
-        Raw
+        Raw,
+        FragmentedMP4
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MpdCaptionContainerType = MpdCaptionContainerType' Lude.Text
       Lude.ToHeader
     )
 
-pattern FragmentedMP4 :: MpdCaptionContainerType
-pattern FragmentedMP4 = MpdCaptionContainerType' "FRAGMENTED_MP4"
-
 pattern Raw :: MpdCaptionContainerType
 pattern Raw = MpdCaptionContainerType' "RAW"
 
+pattern FragmentedMP4 :: MpdCaptionContainerType
+pattern FragmentedMP4 = MpdCaptionContainerType' "FRAGMENTED_MP4"
+
 {-# COMPLETE
-  FragmentedMP4,
   Raw,
+  FragmentedMP4,
   MpdCaptionContainerType'
   #-}

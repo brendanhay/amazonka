@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.DataPipeline.PollForTask
 
     -- ** Request lenses
     pftHostname,
-    pftInstanceIdentity,
     pftWorkerGroup,
+    pftInstanceIdentity,
 
     -- * Destructuring the response
     PollForTaskResponse (..),
@@ -45,24 +46,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPollForTask' smart constructor.
 data PollForTask = PollForTask'
-  { hostname :: Lude.Maybe Lude.Text,
-    instanceIdentity :: Lude.Maybe InstanceIdentity,
-    workerGroup :: Lude.Text
+  { -- | The public DNS name of the calling task runner.
+    hostname :: Lude.Maybe Lude.Text,
+    -- | The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ in the call to @PollForTask@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
+    workerGroup :: Lude.Text,
+    -- | Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using @http://169.254.169.254/latest/meta-data/instance-id@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.
+    instanceIdentity :: Lude.Maybe InstanceIdentity
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForTask' with the minimum fields required to make a request.
 --
 -- * 'hostname' - The public DNS name of the calling task runner.
--- * 'instanceIdentity' - Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using @http://169.254.169.254/latest/meta-data/instance-id@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.
 -- * 'workerGroup' - The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ in the call to @PollForTask@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
+-- * 'instanceIdentity' - Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using @http://169.254.169.254/latest/meta-data/instance-id@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.
 mkPollForTask ::
   -- | 'workerGroup'
   Lude.Text ->
@@ -70,8 +68,8 @@ mkPollForTask ::
 mkPollForTask pWorkerGroup_ =
   PollForTask'
     { hostname = Lude.Nothing,
-      instanceIdentity = Lude.Nothing,
-      workerGroup = pWorkerGroup_
+      workerGroup = pWorkerGroup_,
+      instanceIdentity = Lude.Nothing
     }
 
 -- | The public DNS name of the calling task runner.
@@ -81,19 +79,19 @@ pftHostname :: Lens.Lens' PollForTask (Lude.Maybe Lude.Text)
 pftHostname = Lens.lens (hostname :: PollForTask -> Lude.Maybe Lude.Text) (\s a -> s {hostname = a} :: PollForTask)
 {-# DEPRECATED pftHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
 
--- | Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using @http://169.254.169.254/latest/meta-data/instance-id@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.
---
--- /Note:/ Consider using 'instanceIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pftInstanceIdentity :: Lens.Lens' PollForTask (Lude.Maybe InstanceIdentity)
-pftInstanceIdentity = Lens.lens (instanceIdentity :: PollForTask -> Lude.Maybe InstanceIdentity) (\s a -> s {instanceIdentity = a} :: PollForTask)
-{-# DEPRECATED pftInstanceIdentity "Use generic-lens or generic-optics with 'instanceIdentity' instead." #-}
-
 -- | The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ in the call to @PollForTask@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
 --
 -- /Note:/ Consider using 'workerGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pftWorkerGroup :: Lens.Lens' PollForTask Lude.Text
 pftWorkerGroup = Lens.lens (workerGroup :: PollForTask -> Lude.Text) (\s a -> s {workerGroup = a} :: PollForTask)
 {-# DEPRECATED pftWorkerGroup "Use generic-lens or generic-optics with 'workerGroup' instead." #-}
+
+-- | Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using @http://169.254.169.254/latest/meta-data/instance-id@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.
+--
+-- /Note:/ Consider using 'instanceIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pftInstanceIdentity :: Lens.Lens' PollForTask (Lude.Maybe InstanceIdentity)
+pftInstanceIdentity = Lens.lens (instanceIdentity :: PollForTask -> Lude.Maybe InstanceIdentity) (\s a -> s {instanceIdentity = a} :: PollForTask)
+{-# DEPRECATED pftInstanceIdentity "Use generic-lens or generic-optics with 'instanceIdentity' instead." #-}
 
 instance Lude.AWSRequest PollForTask where
   type Rs PollForTask = PollForTaskResponse
@@ -121,8 +119,8 @@ instance Lude.ToJSON PollForTask where
     Lude.object
       ( Lude.catMaybes
           [ ("hostname" Lude..=) Lude.<$> hostname,
-            ("instanceIdentity" Lude..=) Lude.<$> instanceIdentity,
-            Lude.Just ("workerGroup" Lude..= workerGroup)
+            Lude.Just ("workerGroup" Lude..= workerGroup),
+            ("instanceIdentity" Lude..=) Lude.<$> instanceIdentity
           ]
       )
 
@@ -136,23 +134,18 @@ instance Lude.ToQuery PollForTask where
 --
 -- /See:/ 'mkPollForTaskResponse' smart constructor.
 data PollForTaskResponse = PollForTaskResponse'
-  { taskObject ::
-      Lude.Maybe TaskObject,
+  { -- | The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is @taskId@ , which contains an identifier for the task being assigned. The calling task runner uses @taskId@ in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus' .
+    taskObject :: Lude.Maybe TaskObject,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForTaskResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'taskObject' - The information needed to complete the task that is being assigned to the task runner. One of the fields returned in this object is @taskId@ , which contains an identifier for the task being assigned. The calling task runner uses @taskId@ in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus' .
+-- * 'responseStatus' - The response status code.
 mkPollForTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

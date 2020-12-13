@@ -13,10 +13,10 @@
 module Network.AWS.AppSync.Types.ConflictHandlerType
   ( ConflictHandlerType
       ( ConflictHandlerType',
-        CHTAutomerge,
+        CHTOptimisticConcurrency,
         CHTLambda,
-        CHTNone,
-        CHTOptimisticConcurrency
+        CHTAutomerge,
+        CHTNone
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ConflictHandlerType = ConflictHandlerType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CHTAutomerge :: ConflictHandlerType
-pattern CHTAutomerge = ConflictHandlerType' "AUTOMERGE"
+pattern CHTOptimisticConcurrency :: ConflictHandlerType
+pattern CHTOptimisticConcurrency = ConflictHandlerType' "OPTIMISTIC_CONCURRENCY"
 
 pattern CHTLambda :: ConflictHandlerType
 pattern CHTLambda = ConflictHandlerType' "LAMBDA"
 
+pattern CHTAutomerge :: ConflictHandlerType
+pattern CHTAutomerge = ConflictHandlerType' "AUTOMERGE"
+
 pattern CHTNone :: ConflictHandlerType
 pattern CHTNone = ConflictHandlerType' "NONE"
 
-pattern CHTOptimisticConcurrency :: ConflictHandlerType
-pattern CHTOptimisticConcurrency = ConflictHandlerType' "OPTIMISTIC_CONCURRENCY"
-
 {-# COMPLETE
-  CHTAutomerge,
-  CHTLambda,
-  CHTNone,
   CHTOptimisticConcurrency,
+  CHTLambda,
+  CHTAutomerge,
+  CHTNone,
   ConflictHandlerType'
   #-}

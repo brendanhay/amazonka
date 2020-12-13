@@ -33,31 +33,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBClusterBacktrack' smart constructor.
 data DBClusterBacktrack = DBClusterBacktrack'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the backtrack. This property returns one of the following values:
+    --
+    --
+    --     * @applying@ - The backtrack is currently being applied to or rolled back from the DB cluster.
+    --
+    --
+    --     * @completed@ - The backtrack has successfully been applied to or rolled back from the DB cluster.
+    --
+    --
+    --     * @failed@ - An error occurred while the backtrack was applied to or rolled back from the DB cluster.
+    --
+    --
+    --     * @pending@ - The backtrack is currently pending application to or rollback from the DB cluster.
+    status :: Lude.Maybe Lude.Text,
+    -- | Contains the backtrack identifier.
     backtrackIdentifier :: Lude.Maybe Lude.Text,
+    -- | The timestamp of the time to which the DB cluster was backtracked.
     backtrackTo :: Lude.Maybe Lude.DateTime,
+    -- | Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
     dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The timestamp of the time from which the DB cluster was backtracked.
     backtrackedFrom :: Lude.Maybe Lude.DateTime,
-    backtrackRequestCreationTime ::
-      Lude.Maybe Lude.DateTime
+    -- | The timestamp of the time at which the backtrack was requested.
+    backtrackRequestCreationTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterBacktrack' with the minimum fields required to make a request.
 --
--- * 'backtrackIdentifier' - Contains the backtrack identifier.
--- * 'backtrackRequestCreationTime' - The timestamp of the time at which the backtrack was requested.
--- * 'backtrackTo' - The timestamp of the time to which the DB cluster was backtracked.
--- * 'backtrackedFrom' - The timestamp of the time from which the DB cluster was backtracked.
--- * 'dbClusterIdentifier' - Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
 -- * 'status' - The status of the backtrack. This property returns one of the following values:
 --
 --
@@ -71,6 +76,13 @@ data DBClusterBacktrack = DBClusterBacktrack'
 --
 --
 --     * @pending@ - The backtrack is currently pending application to or rollback from the DB cluster.
+--
+--
+-- * 'backtrackIdentifier' - Contains the backtrack identifier.
+-- * 'backtrackTo' - The timestamp of the time to which the DB cluster was backtracked.
+-- * 'dbClusterIdentifier' - Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
+-- * 'backtrackedFrom' - The timestamp of the time from which the DB cluster was backtracked.
+-- * 'backtrackRequestCreationTime' - The timestamp of the time at which the backtrack was requested.
 mkDBClusterBacktrack ::
   DBClusterBacktrack
 mkDBClusterBacktrack =

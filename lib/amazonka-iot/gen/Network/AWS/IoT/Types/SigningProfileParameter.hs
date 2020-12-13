@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSigningProfileParameter' smart constructor.
 data SigningProfileParameter = SigningProfileParameter'
-  { platform ::
-      Lude.Maybe Lude.Text,
+  { -- | The hardware platform of your device.
+    platform :: Lude.Maybe Lude.Text,
+    -- | Certificate ARN.
     certificateARN :: Lude.Maybe Lude.Text,
-    certificatePathOnDevice ::
-      Lude.Maybe Lude.Text
+    -- | The location of the code-signing certificate on your device.
+    certificatePathOnDevice :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SigningProfileParameter' with the minimum fields required to make a request.
 --
+-- * 'platform' - The hardware platform of your device.
 -- * 'certificateARN' - Certificate ARN.
 -- * 'certificatePathOnDevice' - The location of the code-signing certificate on your device.
--- * 'platform' - The hardware platform of your device.
 mkSigningProfileParameter ::
   SigningProfileParameter
 mkSigningProfileParameter =

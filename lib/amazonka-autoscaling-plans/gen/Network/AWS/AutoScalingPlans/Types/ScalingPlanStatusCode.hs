@@ -15,12 +15,12 @@ module Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode
       ( ScalingPlanStatusCode',
         SPSCActive,
         SPSCActiveWithProblems,
-        SPSCCreationFailed,
         SPSCCreationInProgress,
-        SPSCDeletionFailed,
+        SPSCCreationFailed,
         SPSCDeletionInProgress,
-        SPSCUpdateFailed,
-        SPSCUpdateInProgress
+        SPSCDeletionFailed,
+        SPSCUpdateInProgress,
+        SPSCUpdateFailed
       ),
   )
 where
@@ -57,32 +57,32 @@ pattern SPSCActive = ScalingPlanStatusCode' "Active"
 pattern SPSCActiveWithProblems :: ScalingPlanStatusCode
 pattern SPSCActiveWithProblems = ScalingPlanStatusCode' "ActiveWithProblems"
 
-pattern SPSCCreationFailed :: ScalingPlanStatusCode
-pattern SPSCCreationFailed = ScalingPlanStatusCode' "CreationFailed"
-
 pattern SPSCCreationInProgress :: ScalingPlanStatusCode
 pattern SPSCCreationInProgress = ScalingPlanStatusCode' "CreationInProgress"
 
-pattern SPSCDeletionFailed :: ScalingPlanStatusCode
-pattern SPSCDeletionFailed = ScalingPlanStatusCode' "DeletionFailed"
+pattern SPSCCreationFailed :: ScalingPlanStatusCode
+pattern SPSCCreationFailed = ScalingPlanStatusCode' "CreationFailed"
 
 pattern SPSCDeletionInProgress :: ScalingPlanStatusCode
 pattern SPSCDeletionInProgress = ScalingPlanStatusCode' "DeletionInProgress"
 
-pattern SPSCUpdateFailed :: ScalingPlanStatusCode
-pattern SPSCUpdateFailed = ScalingPlanStatusCode' "UpdateFailed"
+pattern SPSCDeletionFailed :: ScalingPlanStatusCode
+pattern SPSCDeletionFailed = ScalingPlanStatusCode' "DeletionFailed"
 
 pattern SPSCUpdateInProgress :: ScalingPlanStatusCode
 pattern SPSCUpdateInProgress = ScalingPlanStatusCode' "UpdateInProgress"
 
+pattern SPSCUpdateFailed :: ScalingPlanStatusCode
+pattern SPSCUpdateFailed = ScalingPlanStatusCode' "UpdateFailed"
+
 {-# COMPLETE
   SPSCActive,
   SPSCActiveWithProblems,
-  SPSCCreationFailed,
   SPSCCreationInProgress,
-  SPSCDeletionFailed,
+  SPSCCreationFailed,
   SPSCDeletionInProgress,
-  SPSCUpdateFailed,
+  SPSCDeletionFailed,
   SPSCUpdateInProgress,
+  SPSCUpdateFailed,
   ScalingPlanStatusCode'
   #-}

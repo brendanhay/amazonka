@@ -30,18 +30,12 @@ import Network.AWS.SSM.Types.DescribeActivationsFilterKeys
 --
 -- /See:/ 'mkDescribeActivationsFilter' smart constructor.
 data DescribeActivationsFilter = DescribeActivationsFilter'
-  { filterKey ::
-      Lude.Maybe
-        DescribeActivationsFilterKeys,
+  { -- | The name of the filter.
+    filterKey :: Lude.Maybe DescribeActivationsFilterKeys,
+    -- | The filter values.
     filterValues :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActivationsFilter' with the minimum fields required to make a request.

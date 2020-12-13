@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Defines the query to run against an object.
 --
 -- /See:/ 'mkQuery' smart constructor.
-newtype Query = Query' {selectors :: Lude.Maybe [Selector]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Query = Query'
+  { -- | List of selectors that define the query. An object must satisfy all of the selectors to match the query.
+    selectors :: Lude.Maybe [Selector]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Query' with the minimum fields required to make a request.

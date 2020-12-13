@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.EC2.DescribeVPCClassicLink
     mkDescribeVPCClassicLink,
 
     -- ** Request lenses
-    dvclFilters,
-    dvclVPCIds,
-    dvclDryRun,
+    dvpcclFilters,
+    dvpcclVPCIds,
+    dvpcclDryRun,
 
     -- * Destructuring the response
     DescribeVPCClassicLinkResponse (..),
     mkDescribeVPCClassicLinkResponse,
 
     -- ** Response lenses
-    dvclrsVPCs,
-    dvclrsResponseStatus,
+    dvpcclrsVPCs,
+    dvpcclrsResponseStatus,
   )
 where
 
@@ -41,23 +42,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeVPCClassicLink' smart constructor.
 data DescribeVPCClassicLink = DescribeVPCClassicLink'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | One or more filters.
+    --
+    --
+    --     * @is-classic-link-enabled@ - Whether the VPC is enabled for ClassicLink (@true@ | @false@ ).
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    filters :: Lude.Maybe [Filter],
+    -- | One or more VPCs for which you want to describe the ClassicLink status.
     vpcIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCClassicLink' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -71,6 +76,7 @@ data DescribeVPCClassicLink = DescribeVPCClassicLink'
 --
 --
 -- * 'vpcIds' - One or more VPCs for which you want to describe the ClassicLink status.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDescribeVPCClassicLink ::
   DescribeVPCClassicLink
 mkDescribeVPCClassicLink =
@@ -94,23 +100,23 @@ mkDescribeVPCClassicLink =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvclFilters :: Lens.Lens' DescribeVPCClassicLink (Lude.Maybe [Filter])
-dvclFilters = Lens.lens (filters :: DescribeVPCClassicLink -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeVPCClassicLink)
-{-# DEPRECATED dvclFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+dvpcclFilters :: Lens.Lens' DescribeVPCClassicLink (Lude.Maybe [Filter])
+dvpcclFilters = Lens.lens (filters :: DescribeVPCClassicLink -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeVPCClassicLink)
+{-# DEPRECATED dvpcclFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
 --
 -- /Note:/ Consider using 'vpcIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvclVPCIds :: Lens.Lens' DescribeVPCClassicLink (Lude.Maybe [Lude.Text])
-dvclVPCIds = Lens.lens (vpcIds :: DescribeVPCClassicLink -> Lude.Maybe [Lude.Text]) (\s a -> s {vpcIds = a} :: DescribeVPCClassicLink)
-{-# DEPRECATED dvclVPCIds "Use generic-lens or generic-optics with 'vpcIds' instead." #-}
+dvpcclVPCIds :: Lens.Lens' DescribeVPCClassicLink (Lude.Maybe [Lude.Text])
+dvpcclVPCIds = Lens.lens (vpcIds :: DescribeVPCClassicLink -> Lude.Maybe [Lude.Text]) (\s a -> s {vpcIds = a} :: DescribeVPCClassicLink)
+{-# DEPRECATED dvpcclVPCIds "Use generic-lens or generic-optics with 'vpcIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvclDryRun :: Lens.Lens' DescribeVPCClassicLink (Lude.Maybe Lude.Bool)
-dvclDryRun = Lens.lens (dryRun :: DescribeVPCClassicLink -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVPCClassicLink)
-{-# DEPRECATED dvclDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dvpcclDryRun :: Lens.Lens' DescribeVPCClassicLink (Lude.Maybe Lude.Bool)
+dvpcclDryRun = Lens.lens (dryRun :: DescribeVPCClassicLink -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVPCClassicLink)
+{-# DEPRECATED dvpcclDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DescribeVPCClassicLink where
   type Rs DescribeVPCClassicLink = DescribeVPCClassicLinkResponse
@@ -143,23 +149,18 @@ instance Lude.ToQuery DescribeVPCClassicLink where
 
 -- | /See:/ 'mkDescribeVPCClassicLinkResponse' smart constructor.
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
-  { vpcs ::
-      Lude.Maybe [VPCClassicLink],
+  { -- | The ClassicLink status of one or more VPCs.
+    vpcs :: Lude.Maybe [VPCClassicLink],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCClassicLinkResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpcs' - The ClassicLink status of one or more VPCs.
+-- * 'responseStatus' - The response status code.
 mkDescribeVPCClassicLinkResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -173,13 +174,13 @@ mkDescribeVPCClassicLinkResponse pResponseStatus_ =
 -- | The ClassicLink status of one or more VPCs.
 --
 -- /Note:/ Consider using 'vpcs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvclrsVPCs :: Lens.Lens' DescribeVPCClassicLinkResponse (Lude.Maybe [VPCClassicLink])
-dvclrsVPCs = Lens.lens (vpcs :: DescribeVPCClassicLinkResponse -> Lude.Maybe [VPCClassicLink]) (\s a -> s {vpcs = a} :: DescribeVPCClassicLinkResponse)
-{-# DEPRECATED dvclrsVPCs "Use generic-lens or generic-optics with 'vpcs' instead." #-}
+dvpcclrsVPCs :: Lens.Lens' DescribeVPCClassicLinkResponse (Lude.Maybe [VPCClassicLink])
+dvpcclrsVPCs = Lens.lens (vpcs :: DescribeVPCClassicLinkResponse -> Lude.Maybe [VPCClassicLink]) (\s a -> s {vpcs = a} :: DescribeVPCClassicLinkResponse)
+{-# DEPRECATED dvpcclrsVPCs "Use generic-lens or generic-optics with 'vpcs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvclrsResponseStatus :: Lens.Lens' DescribeVPCClassicLinkResponse Lude.Int
-dvclrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCClassicLinkResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCClassicLinkResponse)
-{-# DEPRECATED dvclrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvpcclrsResponseStatus :: Lens.Lens' DescribeVPCClassicLinkResponse Lude.Int
+dvpcclrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCClassicLinkResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCClassicLinkResponse)
+{-# DEPRECATED dvpcclrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

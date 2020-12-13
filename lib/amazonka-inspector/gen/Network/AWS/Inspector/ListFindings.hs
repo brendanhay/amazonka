@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.Inspector.ListFindings
     mkListFindingsResponse,
 
     -- ** Response lenses
+    lfrsFindingARNs,
     lfrsNextToken,
     lfrsResponseStatus,
-    lfrsFindingARNs,
   )
 where
 
@@ -46,29 +47,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFindings' smart constructor.
 data ListFindings = ListFindings'
-  { assessmentRunARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The ARNs of the assessment runs that generate the findings that you want to list.
+    assessmentRunARNs :: Lude.Maybe [Lude.Text],
+    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListFindings__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | You can use this parameter to specify a subset of data to be included in the action's response.
+    --
+    -- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
     filter :: Lude.Maybe FindingFilter,
+    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFindings' with the minimum fields required to make a request.
 --
 -- * 'assessmentRunARNs' - The ARNs of the assessment runs that generate the findings that you want to list.
+-- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListFindings__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 -- * 'filter' - You can use this parameter to specify a subset of data to be included in the action's response.
 --
 -- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
 -- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListFindings__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 mkListFindings ::
   ListFindings
 mkListFindings =
@@ -125,9 +125,9 @@ instance Lude.AWSRequest ListFindings where
     Res.receiveJSON
       ( \s h x ->
           ListFindingsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<$> (x Lude..?> "findingArns" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "findingArns" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListFindings where
@@ -160,18 +160,14 @@ instance Lude.ToQuery ListFindings where
 
 -- | /See:/ 'mkListFindingsResponse' smart constructor.
 data ListFindingsResponse = ListFindingsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    findingARNs :: [Lude.Text]
+  { -- | A list of ARNs that specifies the findings returned by the action.
+    findingARNs :: [Lude.Text],
+    -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFindingsResponse' with the minimum fields required to make a request.
@@ -185,10 +181,17 @@ mkListFindingsResponse ::
   ListFindingsResponse
 mkListFindingsResponse pResponseStatus_ =
   ListFindingsResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      findingARNs = Lude.mempty
+    { findingARNs = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | A list of ARNs that specifies the findings returned by the action.
+--
+-- /Note:/ Consider using 'findingARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfrsFindingARNs :: Lens.Lens' ListFindingsResponse [Lude.Text]
+lfrsFindingARNs = Lens.lens (findingARNs :: ListFindingsResponse -> [Lude.Text]) (\s a -> s {findingARNs = a} :: ListFindingsResponse)
+{-# DEPRECATED lfrsFindingARNs "Use generic-lens or generic-optics with 'findingARNs' instead." #-}
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
@@ -203,10 +206,3 @@ lfrsNextToken = Lens.lens (nextToken :: ListFindingsResponse -> Lude.Maybe Lude.
 lfrsResponseStatus :: Lens.Lens' ListFindingsResponse Lude.Int
 lfrsResponseStatus = Lens.lens (responseStatus :: ListFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFindingsResponse)
 {-# DEPRECATED lfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | A list of ARNs that specifies the findings returned by the action.
---
--- /Note:/ Consider using 'findingARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfrsFindingARNs :: Lens.Lens' ListFindingsResponse [Lude.Text]
-lfrsFindingARNs = Lens.lens (findingARNs :: ListFindingsResponse -> [Lude.Text]) (\s a -> s {findingARNs = a} :: ListFindingsResponse)
-{-# DEPRECATED lfrsFindingARNs "Use generic-lens or generic-optics with 'findingARNs' instead." #-}

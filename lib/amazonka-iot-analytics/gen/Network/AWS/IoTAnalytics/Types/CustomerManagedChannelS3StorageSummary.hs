@@ -30,23 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomerManagedChannelS3StorageSummary' smart constructor.
 data CustomerManagedChannelS3StorageSummary = CustomerManagedChannelS3StorageSummary'
-  { bucket ::
-      Lude.Maybe
-        Lude.Text,
-    keyPrefix ::
-      Lude.Maybe
-        Lude.Text,
-    roleARN ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The name of the S3 bucket in which channel data is stored.
+    bucket :: Lude.Maybe Lude.Text,
+    -- | Optional. The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
+    keyPrefix :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomerManagedChannelS3StorageSummary' with the minimum fields required to make a request.

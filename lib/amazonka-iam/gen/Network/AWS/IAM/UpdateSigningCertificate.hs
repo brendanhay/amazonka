@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.IAM.UpdateSigningCertificate
     mkUpdateSigningCertificate,
 
     -- ** Request lenses
-    uscUserName,
-    uscCertificateId,
     uscStatus,
+    uscCertificateId,
+    uscUserName,
 
     -- * Destructuring the response
     UpdateSigningCertificateResponse (..),
@@ -39,50 +40,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateSigningCertificate' smart constructor.
 data UpdateSigningCertificate = UpdateSigningCertificate'
-  { userName ::
-      Lude.Maybe Lude.Text,
+  { -- | The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
+    status :: StatusType,
+    -- | The ID of the signing certificate you want to update.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
     certificateId :: Lude.Text,
-    status :: StatusType
+    -- | The name of the IAM user the signing certificate belongs to.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSigningCertificate' with the minimum fields required to make a request.
 --
+-- * 'status' - The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
 -- * 'certificateId' - The ID of the signing certificate you want to update.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
--- * 'status' - The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
 -- * 'userName' - The name of the IAM user the signing certificate belongs to.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkUpdateSigningCertificate ::
-  -- | 'certificateId'
-  Lude.Text ->
   -- | 'status'
   StatusType ->
+  -- | 'certificateId'
+  Lude.Text ->
   UpdateSigningCertificate
-mkUpdateSigningCertificate pCertificateId_ pStatus_ =
+mkUpdateSigningCertificate pStatus_ pCertificateId_ =
   UpdateSigningCertificate'
-    { userName = Lude.Nothing,
+    { status = pStatus_,
       certificateId = pCertificateId_,
-      status = pStatus_
+      userName = Lude.Nothing
     }
 
--- | The name of the IAM user the signing certificate belongs to.
+-- | The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
 --
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscUserName :: Lens.Lens' UpdateSigningCertificate (Lude.Maybe Lude.Text)
-uscUserName = Lens.lens (userName :: UpdateSigningCertificate -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: UpdateSigningCertificate)
-{-# DEPRECATED uscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscStatus :: Lens.Lens' UpdateSigningCertificate StatusType
+uscStatus = Lens.lens (status :: UpdateSigningCertificate -> StatusType) (\s a -> s {status = a} :: UpdateSigningCertificate)
+{-# DEPRECATED uscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID of the signing certificate you want to update.
 --
@@ -93,12 +92,14 @@ uscCertificateId :: Lens.Lens' UpdateSigningCertificate Lude.Text
 uscCertificateId = Lens.lens (certificateId :: UpdateSigningCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: UpdateSigningCertificate)
 {-# DEPRECATED uscCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
--- | The status you want to assign to the certificate. @Active@ means that the certificate can be used for API calls to AWS @Inactive@ means that the certificate cannot be used.
+-- | The name of the IAM user the signing certificate belongs to.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscStatus :: Lens.Lens' UpdateSigningCertificate StatusType
-uscStatus = Lens.lens (status :: UpdateSigningCertificate -> StatusType) (\s a -> s {status = a} :: UpdateSigningCertificate)
-{-# DEPRECATED uscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscUserName :: Lens.Lens' UpdateSigningCertificate (Lude.Maybe Lude.Text)
+uscUserName = Lens.lens (userName :: UpdateSigningCertificate -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: UpdateSigningCertificate)
+{-# DEPRECATED uscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 instance Lude.AWSRequest UpdateSigningCertificate where
   type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
@@ -116,20 +117,14 @@ instance Lude.ToQuery UpdateSigningCertificate where
     Lude.mconcat
       [ "Action" Lude.=: ("UpdateSigningCertificate" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
+        "Status" Lude.=: status,
         "CertificateId" Lude.=: certificateId,
-        "Status" Lude.=: status
+        "UserName" Lude.=: userName
       ]
 
 -- | /See:/ 'mkUpdateSigningCertificateResponse' smart constructor.
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSigningCertificateResponse' with the minimum fields required to make a request.

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceServerScopeType' smart constructor.
 data ResourceServerScopeType = ResourceServerScopeType'
-  { scopeName ::
-      Lude.Text,
+  { -- | The name of the scope.
+    scopeName :: Lude.Text,
+    -- | A description of the scope.
     scopeDescription :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceServerScopeType' with the minimum fields required to make a request.
 --
--- * 'scopeDescription' - A description of the scope.
 -- * 'scopeName' - The name of the scope.
+-- * 'scopeDescription' - A description of the scope.
 mkResourceServerScopeType ::
   -- | 'scopeName'
   Lude.Text ->

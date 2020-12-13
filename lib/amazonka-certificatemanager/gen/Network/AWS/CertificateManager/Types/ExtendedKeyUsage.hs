@@ -30,22 +30,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExtendedKeyUsage' smart constructor.
 data ExtendedKeyUsage = ExtendedKeyUsage'
-  { oId ::
-      Lude.Maybe Lude.Text,
+  { -- | An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.
+    --
+    --
+    --     * @1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)@
+    --
+    --
+    --     * @1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)@
+    --
+    --
+    --     * @1.3.6.1.5.5.7.3.3 (CODE_SIGNING)@
+    --
+    --
+    --     * @1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)@
+    --
+    --
+    --     * @1.3.6.1.5.5.7.3.8 (TIME_STAMPING)@
+    --
+    --
+    --     * @1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)@
+    --
+    --
+    --     * @1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)@
+    --
+    --
+    --     * @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@
+    --
+    --
+    --     * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
+    oId :: Lude.Maybe Lude.Text,
+    -- | The name of an Extended Key Usage value.
     name :: Lude.Maybe ExtendedKeyUsageName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExtendedKeyUsage' with the minimum fields required to make a request.
 --
--- * 'name' - The name of an Extended Key Usage value.
 -- * 'oId' - An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.
 --
 --
@@ -74,6 +95,9 @@ data ExtendedKeyUsage = ExtendedKeyUsage'
 --
 --
 --     * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
+--
+--
+-- * 'name' - The name of an Extended Key Usage value.
 mkExtendedKeyUsage ::
   ExtendedKeyUsage
 mkExtendedKeyUsage =

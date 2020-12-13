@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,19 +41,15 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetConnection' smart constructor.
-newtype GetConnection = GetConnection' {connectionId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetConnection = GetConnection'
+  { connectionId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnection' with the minimum fields required to make a request.
 --
--- * 'connectionId' - Undocumented field.
+-- * 'connectionId' -
 mkGetConnection ::
   -- | 'connectionId'
   Lude.Text ->
@@ -98,26 +95,22 @@ instance Lude.ToQuery GetConnection where
 
 -- | /See:/ 'mkGetConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
-  { connectedAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time in ISO 8601 format for when the connection was established.
+    connectedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time in ISO 8601 format for when the connection was last active.
     lastActiveAt :: Lude.Maybe Lude.Timestamp,
     identity :: Lude.Maybe Identity,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionResponse' with the minimum fields required to make a request.
 --
 -- * 'connectedAt' - The time in ISO 8601 format for when the connection was established.
--- * 'identity' - Undocumented field.
 -- * 'lastActiveAt' - The time in ISO 8601 format for when the connection was last active.
+-- * 'identity' -
 -- * 'responseStatus' - The response status code.
 mkGetConnectionResponse ::
   -- | 'responseStatus'

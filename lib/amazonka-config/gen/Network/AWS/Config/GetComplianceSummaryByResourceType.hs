@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetComplianceSummaryByResourceType' smart constructor.
 newtype GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
-  { resourceTypes ::
-      Lude.Maybe
-        [Lude.Text]
+  { -- | Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.
+    --
+    -- For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ . You can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+    resourceTypes :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceSummaryByResourceType' with the minimum fields required to make a request.
@@ -116,19 +112,12 @@ instance Lude.ToQuery GetComplianceSummaryByResourceType where
 --
 -- /See:/ 'mkGetComplianceSummaryByResourceTypeResponse' smart constructor.
 data GetComplianceSummaryByResourceTypeResponse = GetComplianceSummaryByResourceTypeResponse'
-  { complianceSummariesByResourceType ::
-      Lude.Maybe
-        [ComplianceSummaryByResourceType],
-    responseStatus ::
-      Lude.Int
+  { -- | The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.
+    complianceSummariesByResourceType :: Lude.Maybe [ComplianceSummaryByResourceType],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceSummaryByResourceTypeResponse' with the minimum fields required to make a request.

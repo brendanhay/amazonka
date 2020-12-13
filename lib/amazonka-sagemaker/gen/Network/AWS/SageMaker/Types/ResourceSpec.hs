@@ -31,18 +31,14 @@ import Network.AWS.SageMaker.Types.AppInstanceType
 --
 -- /See:/ 'mkResourceSpec' smart constructor.
 data ResourceSpec = ResourceSpec'
-  { instanceType ::
-      Lude.Maybe AppInstanceType,
+  { -- | The instance type that the image version runs on.
+    instanceType :: Lude.Maybe AppInstanceType,
+    -- | The ARN of the SageMaker image that the image version belongs to.
     sageMakerImageARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the image version created on the instance.
     sageMakerImageVersionARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceSpec' with the minimum fields required to make a request.

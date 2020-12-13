@@ -13,8 +13,8 @@
 module Network.AWS.Lightsail.Types.BlueprintType
   ( BlueprintType
       ( BlueprintType',
-        App,
-        OS
+        OS,
+        App
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype BlueprintType = BlueprintType' Lude.Text
       Lude.ToHeader
     )
 
-pattern App :: BlueprintType
-pattern App = BlueprintType' "app"
-
 pattern OS :: BlueprintType
 pattern OS = BlueprintType' "os"
 
+pattern App :: BlueprintType
+pattern App = BlueprintType' "app"
+
 {-# COMPLETE
-  App,
   OS,
+  App,
   BlueprintType'
   #-}

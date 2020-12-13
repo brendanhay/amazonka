@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,21 +45,14 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkDescribeUploadBuffer' smart constructor.
 newtype DescribeUploadBuffer = DescribeUploadBuffer'
-  { gatewayARN ::
-      Lude.Text
+  { gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUploadBuffer' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkDescribeUploadBuffer ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -113,31 +107,26 @@ instance Lude.ToQuery DescribeUploadBuffer where
 
 -- | /See:/ 'mkDescribeUploadBufferResponse' smart constructor.
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
-  { uploadBufferAllocatedInBytes ::
-      Lude.Maybe Lude.Integer,
-    gatewayARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The total number of bytes allocated in the gateway's as upload buffer.
+    uploadBufferAllocatedInBytes :: Lude.Maybe Lude.Integer,
+    gatewayARN :: Lude.Maybe Lude.Text,
+    -- | An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
     diskIds :: Lude.Maybe [Lude.Text],
-    uploadBufferUsedInBytes ::
-      Lude.Maybe Lude.Integer,
+    -- | The total number of bytes being used in the gateway's upload buffer.
+    uploadBufferUsedInBytes :: Lude.Maybe Lude.Integer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUploadBufferResponse' with the minimum fields required to make a request.
 --
--- * 'diskIds' - An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
--- * 'gatewayARN' - Undocumented field.
--- * 'responseStatus' - The response status code.
 -- * 'uploadBufferAllocatedInBytes' - The total number of bytes allocated in the gateway's as upload buffer.
+-- * 'gatewayARN' -
+-- * 'diskIds' - An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
 -- * 'uploadBufferUsedInBytes' - The total number of bytes being used in the gateway's upload buffer.
+-- * 'responseStatus' - The response status code.
 mkDescribeUploadBufferResponse ::
   -- | 'responseStatus'
   Lude.Int ->

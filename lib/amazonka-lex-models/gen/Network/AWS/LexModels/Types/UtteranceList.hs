@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUtteranceList' smart constructor.
 data UtteranceList = UtteranceList'
-  { botVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version of the bot that processed the list.
+    botVersion :: Lude.Maybe Lude.Text,
+    -- | One or more 'UtteranceData' objects that contain information about the utterances that have been made to a bot. The maximum number of object is 100.
     utterances :: Lude.Maybe [UtteranceData]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UtteranceList' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.ParameterType
   ( ParameterType
       ( ParameterType',
-        PTSecureString,
         PTString,
-        PTStringList
+        PTStringList,
+        PTSecureString
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ParameterType = ParameterType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PTSecureString :: ParameterType
-pattern PTSecureString = ParameterType' "SecureString"
-
 pattern PTString :: ParameterType
 pattern PTString = ParameterType' "String"
 
 pattern PTStringList :: ParameterType
 pattern PTStringList = ParameterType' "StringList"
 
+pattern PTSecureString :: ParameterType
+pattern PTSecureString = ParameterType' "SecureString"
+
 {-# COMPLETE
-  PTSecureString,
   PTString,
   PTStringList,
+  PTSecureString,
   ParameterType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateRequestValidator' smart constructor.
 data CreateRequestValidator = CreateRequestValidator'
-  { validateRequestParameters ::
-      Lude.Maybe Lude.Bool,
+  { -- | A Boolean flag to indicate whether to validate request parameters, @true@ , or not @false@ .
+    validateRequestParameters :: Lude.Maybe Lude.Bool,
+    -- | The name of the to-be-created 'RequestValidator' .
     name :: Lude.Maybe Lude.Text,
+    -- | A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (@true@ ) or not (@false@ ).
     validateRequestBody :: Lude.Maybe Lude.Bool,
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRequestValidator' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the to-be-created 'RequestValidator' .
--- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
--- * 'validateRequestBody' - A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (@true@ ) or not (@false@ ).
 -- * 'validateRequestParameters' - A Boolean flag to indicate whether to validate request parameters, @true@ , or not @false@ .
+-- * 'name' - The name of the to-be-created 'RequestValidator' .
+-- * 'validateRequestBody' - A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (@true@ ) or not (@false@ ).
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkCreateRequestValidator ::
   -- | 'restAPIId'
   Lude.Text ->

@@ -17,8 +17,8 @@ module Network.AWS.IoT.Types.AssetPropertyValue
     mkAssetPropertyValue,
 
     -- * Lenses
-    apvQuality,
     apvValue,
+    apvQuality,
     apvTimestamp,
   )
 where
@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssetPropertyValue' smart constructor.
 data AssetPropertyValue = AssetPropertyValue'
-  { quality ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the asset property.
     value :: AssetPropertyVariant,
+    -- | Optional. A string that describes the quality of the value. Accepts substitution templates. Must be @GOOD@ , @BAD@ , or @UNCERTAIN@ .
+    quality :: Lude.Maybe Lude.Text,
+    -- | The asset property value timestamp.
     timestamp :: AssetPropertyTimestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssetPropertyValue' with the minimum fields required to make a request.
 --
+-- * 'value' - The value of the asset property.
 -- * 'quality' - Optional. A string that describes the quality of the value. Accepts substitution templates. Must be @GOOD@ , @BAD@ , or @UNCERTAIN@ .
 -- * 'timestamp' - The asset property value timestamp.
--- * 'value' - The value of the asset property.
 mkAssetPropertyValue ::
   -- | 'value'
   AssetPropertyVariant ->
@@ -59,17 +55,10 @@ mkAssetPropertyValue ::
   AssetPropertyValue
 mkAssetPropertyValue pValue_ pTimestamp_ =
   AssetPropertyValue'
-    { quality = Lude.Nothing,
-      value = pValue_,
+    { value = pValue_,
+      quality = Lude.Nothing,
       timestamp = pTimestamp_
     }
-
--- | Optional. A string that describes the quality of the value. Accepts substitution templates. Must be @GOOD@ , @BAD@ , or @UNCERTAIN@ .
---
--- /Note:/ Consider using 'quality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apvQuality :: Lens.Lens' AssetPropertyValue (Lude.Maybe Lude.Text)
-apvQuality = Lens.lens (quality :: AssetPropertyValue -> Lude.Maybe Lude.Text) (\s a -> s {quality = a} :: AssetPropertyValue)
-{-# DEPRECATED apvQuality "Use generic-lens or generic-optics with 'quality' instead." #-}
 
 -- | The value of the asset property.
 --
@@ -77,6 +66,13 @@ apvQuality = Lens.lens (quality :: AssetPropertyValue -> Lude.Maybe Lude.Text) (
 apvValue :: Lens.Lens' AssetPropertyValue AssetPropertyVariant
 apvValue = Lens.lens (value :: AssetPropertyValue -> AssetPropertyVariant) (\s a -> s {value = a} :: AssetPropertyValue)
 {-# DEPRECATED apvValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+-- | Optional. A string that describes the quality of the value. Accepts substitution templates. Must be @GOOD@ , @BAD@ , or @UNCERTAIN@ .
+--
+-- /Note:/ Consider using 'quality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apvQuality :: Lens.Lens' AssetPropertyValue (Lude.Maybe Lude.Text)
+apvQuality = Lens.lens (quality :: AssetPropertyValue -> Lude.Maybe Lude.Text) (\s a -> s {quality = a} :: AssetPropertyValue)
+{-# DEPRECATED apvQuality "Use generic-lens or generic-optics with 'quality' instead." #-}
 
 -- | The asset property value timestamp.
 --
@@ -91,8 +87,8 @@ instance Lude.FromJSON AssetPropertyValue where
       "AssetPropertyValue"
       ( \x ->
           AssetPropertyValue'
-            Lude.<$> (x Lude..:? "quality")
-            Lude.<*> (x Lude..: "value")
+            Lude.<$> (x Lude..: "value")
+            Lude.<*> (x Lude..:? "quality")
             Lude.<*> (x Lude..: "timestamp")
       )
 
@@ -100,8 +96,8 @@ instance Lude.ToJSON AssetPropertyValue where
   toJSON AssetPropertyValue' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("quality" Lude..=) Lude.<$> quality,
-            Lude.Just ("value" Lude..= value),
+          [ Lude.Just ("value" Lude..= value),
+            ("quality" Lude..=) Lude.<$> quality,
             Lude.Just ("timestamp" Lude..= timestamp)
           ]
       )

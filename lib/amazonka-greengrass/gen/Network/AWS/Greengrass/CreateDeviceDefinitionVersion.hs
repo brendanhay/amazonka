@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.Greengrass.CreateDeviceDefinitionVersion
 
     -- ** Request lenses
     cddvAmznClientToken,
-    cddvDevices,
     cddvDeviceDefinitionId,
+    cddvDevices,
 
     -- * Destructuring the response
     CreateDeviceDefinitionVersionResponse (..),
@@ -44,18 +45,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDeviceDefinitionVersion' smart constructor.
 data CreateDeviceDefinitionVersion = CreateDeviceDefinitionVersion'
-  { amznClientToken ::
-      Lude.Maybe Lude.Text,
-    devices :: Lude.Maybe [Device],
-    deviceDefinitionId :: Lude.Text
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the device definition.
+    deviceDefinitionId :: Lude.Text,
+    -- | A list of devices in the definition version.
+    devices :: Lude.Maybe [Device]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeviceDefinitionVersion' with the minimum fields required to make a request.
@@ -70,8 +67,8 @@ mkCreateDeviceDefinitionVersion ::
 mkCreateDeviceDefinitionVersion pDeviceDefinitionId_ =
   CreateDeviceDefinitionVersion'
     { amznClientToken = Lude.Nothing,
-      devices = Lude.Nothing,
-      deviceDefinitionId = pDeviceDefinitionId_
+      deviceDefinitionId = pDeviceDefinitionId_,
+      devices = Lude.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
@@ -81,19 +78,19 @@ cddvAmznClientToken :: Lens.Lens' CreateDeviceDefinitionVersion (Lude.Maybe Lude
 cddvAmznClientToken = Lens.lens (amznClientToken :: CreateDeviceDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateDeviceDefinitionVersion)
 {-# DEPRECATED cddvAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
--- | A list of devices in the definition version.
---
--- /Note:/ Consider using 'devices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cddvDevices :: Lens.Lens' CreateDeviceDefinitionVersion (Lude.Maybe [Device])
-cddvDevices = Lens.lens (devices :: CreateDeviceDefinitionVersion -> Lude.Maybe [Device]) (\s a -> s {devices = a} :: CreateDeviceDefinitionVersion)
-{-# DEPRECATED cddvDevices "Use generic-lens or generic-optics with 'devices' instead." #-}
-
 -- | The ID of the device definition.
 --
 -- /Note:/ Consider using 'deviceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cddvDeviceDefinitionId :: Lens.Lens' CreateDeviceDefinitionVersion Lude.Text
 cddvDeviceDefinitionId = Lens.lens (deviceDefinitionId :: CreateDeviceDefinitionVersion -> Lude.Text) (\s a -> s {deviceDefinitionId = a} :: CreateDeviceDefinitionVersion)
 {-# DEPRECATED cddvDeviceDefinitionId "Use generic-lens or generic-optics with 'deviceDefinitionId' instead." #-}
+
+-- | A list of devices in the definition version.
+--
+-- /Note:/ Consider using 'devices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddvDevices :: Lens.Lens' CreateDeviceDefinitionVersion (Lude.Maybe [Device])
+cddvDevices = Lens.lens (devices :: CreateDeviceDefinitionVersion -> Lude.Maybe [Device]) (\s a -> s {devices = a} :: CreateDeviceDefinitionVersion)
+{-# DEPRECATED cddvDevices "Use generic-lens or generic-optics with 'devices' instead." #-}
 
 instance Lude.AWSRequest CreateDeviceDefinitionVersion where
   type
@@ -137,37 +134,27 @@ instance Lude.ToQuery CreateDeviceDefinitionVersion where
 
 -- | /See:/ 'mkCreateDeviceDefinitionVersionResponse' smart constructor.
 data CreateDeviceDefinitionVersionResponse = CreateDeviceDefinitionVersionResponse'
-  { arn ::
-      Lude.Maybe
-        Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeviceDefinitionVersionResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'version' - The ID of the version.
 -- * 'id' - The ID of the parent definition that the version is associated with.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The ID of the version.
 mkCreateDeviceDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

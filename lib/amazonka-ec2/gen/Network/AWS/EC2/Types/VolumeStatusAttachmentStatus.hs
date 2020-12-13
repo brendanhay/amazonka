@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeStatusAttachmentStatus' smart constructor.
 data VolumeStatusAttachmentStatus = VolumeStatusAttachmentStatus'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
-    iOPerformance ::
-      Lude.Maybe Lude.Text
+  { -- | The ID of the attached instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The maximum IOPS supported by the attached instance.
+    iOPerformance :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeStatusAttachmentStatus' with the minimum fields required to make a request.
 --
--- * 'iOPerformance' - The maximum IOPS supported by the attached instance.
 -- * 'instanceId' - The ID of the attached instance.
+-- * 'iOPerformance' - The maximum IOPS supported by the attached instance.
 mkVolumeStatusAttachmentStatus ::
   VolumeStatusAttachmentStatus
 mkVolumeStatusAttachmentStatus =

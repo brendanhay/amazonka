@@ -37,35 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCommentsForPullRequest' smart constructor.
 data CommentsForPullRequest = CommentsForPullRequest'
-  { beforeBlobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The full blob ID of the file on which you want to comment on the destination commit.
+    beforeBlobId :: Lude.Maybe Lude.Text,
+    -- | Location information about the comment on the pull request, including the file name, line number, and whether the version of the file where the comment was made is BEFORE (destination branch) or AFTER (source branch).
     location :: Lude.Maybe Location,
+    -- | The full commit ID of the commit that was the tip of the source branch at the time the comment was made.
     afterCommitId :: Lude.Maybe Lude.Text,
+    -- | The system-generated ID of the pull request.
     pullRequestId :: Lude.Maybe Lude.Text,
+    -- | The full blob ID of the file on which you want to comment on the source commit.
     afterBlobId :: Lude.Maybe Lude.Text,
+    -- | The full commit ID of the commit that was the tip of the destination branch when the pull request was created. This commit is superceded by the after commit in the source branch when and if you merge the source branch into the destination branch.
     beforeCommitId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository that contains the pull request.
     repositoryName :: Lude.Maybe Lude.Text,
+    -- | An array of comment objects. Each comment object contains information about a comment on the pull request.
     comments :: Lude.Maybe [Comment]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CommentsForPullRequest' with the minimum fields required to make a request.
 --
--- * 'afterBlobId' - The full blob ID of the file on which you want to comment on the source commit.
--- * 'afterCommitId' - The full commit ID of the commit that was the tip of the source branch at the time the comment was made.
 -- * 'beforeBlobId' - The full blob ID of the file on which you want to comment on the destination commit.
--- * 'beforeCommitId' - The full commit ID of the commit that was the tip of the destination branch when the pull request was created. This commit is superceded by the after commit in the source branch when and if you merge the source branch into the destination branch.
--- * 'comments' - An array of comment objects. Each comment object contains information about a comment on the pull request.
 -- * 'location' - Location information about the comment on the pull request, including the file name, line number, and whether the version of the file where the comment was made is BEFORE (destination branch) or AFTER (source branch).
+-- * 'afterCommitId' - The full commit ID of the commit that was the tip of the source branch at the time the comment was made.
 -- * 'pullRequestId' - The system-generated ID of the pull request.
+-- * 'afterBlobId' - The full blob ID of the file on which you want to comment on the source commit.
+-- * 'beforeCommitId' - The full commit ID of the commit that was the tip of the destination branch when the pull request was created. This commit is superceded by the after commit in the source branch when and if you merge the source branch into the destination branch.
 -- * 'repositoryName' - The name of the repository that contains the pull request.
+-- * 'comments' - An array of comment objects. Each comment object contains information about a comment on the pull request.
 mkCommentsForPullRequest ::
   CommentsForPullRequest
 mkCommentsForPullRequest =

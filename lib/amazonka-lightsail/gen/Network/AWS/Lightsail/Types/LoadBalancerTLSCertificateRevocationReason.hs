@@ -13,16 +13,16 @@
 module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateRevocationReason
   ( LoadBalancerTLSCertificateRevocationReason
       ( LoadBalancerTLSCertificateRevocationReason',
-        AACompromise,
-        AffiliationChanged,
-        CaCompromise,
-        CertificateHold,
-        CessationOfOperation,
+        Unspecified,
         KeyCompromise,
-        PrivilegeWithdrawn,
-        RemoveFromCrl,
+        CaCompromise,
+        AffiliationChanged,
         Superceded,
-        Unspecified
+        CessationOfOperation,
+        CertificateHold,
+        RemoveFromCrl,
+        PrivilegeWithdrawn,
+        AACompromise
       ),
   )
 where
@@ -53,46 +53,46 @@ newtype LoadBalancerTLSCertificateRevocationReason = LoadBalancerTLSCertificateR
       Lude.ToHeader
     )
 
-pattern AACompromise :: LoadBalancerTLSCertificateRevocationReason
-pattern AACompromise = LoadBalancerTLSCertificateRevocationReason' "A_A_COMPROMISE"
-
-pattern AffiliationChanged :: LoadBalancerTLSCertificateRevocationReason
-pattern AffiliationChanged = LoadBalancerTLSCertificateRevocationReason' "AFFILIATION_CHANGED"
-
-pattern CaCompromise :: LoadBalancerTLSCertificateRevocationReason
-pattern CaCompromise = LoadBalancerTLSCertificateRevocationReason' "CA_COMPROMISE"
-
-pattern CertificateHold :: LoadBalancerTLSCertificateRevocationReason
-pattern CertificateHold = LoadBalancerTLSCertificateRevocationReason' "CERTIFICATE_HOLD"
-
-pattern CessationOfOperation :: LoadBalancerTLSCertificateRevocationReason
-pattern CessationOfOperation = LoadBalancerTLSCertificateRevocationReason' "CESSATION_OF_OPERATION"
+pattern Unspecified :: LoadBalancerTLSCertificateRevocationReason
+pattern Unspecified = LoadBalancerTLSCertificateRevocationReason' "UNSPECIFIED"
 
 pattern KeyCompromise :: LoadBalancerTLSCertificateRevocationReason
 pattern KeyCompromise = LoadBalancerTLSCertificateRevocationReason' "KEY_COMPROMISE"
 
-pattern PrivilegeWithdrawn :: LoadBalancerTLSCertificateRevocationReason
-pattern PrivilegeWithdrawn = LoadBalancerTLSCertificateRevocationReason' "PRIVILEGE_WITHDRAWN"
+pattern CaCompromise :: LoadBalancerTLSCertificateRevocationReason
+pattern CaCompromise = LoadBalancerTLSCertificateRevocationReason' "CA_COMPROMISE"
 
-pattern RemoveFromCrl :: LoadBalancerTLSCertificateRevocationReason
-pattern RemoveFromCrl = LoadBalancerTLSCertificateRevocationReason' "REMOVE_FROM_CRL"
+pattern AffiliationChanged :: LoadBalancerTLSCertificateRevocationReason
+pattern AffiliationChanged = LoadBalancerTLSCertificateRevocationReason' "AFFILIATION_CHANGED"
 
 pattern Superceded :: LoadBalancerTLSCertificateRevocationReason
 pattern Superceded = LoadBalancerTLSCertificateRevocationReason' "SUPERCEDED"
 
-pattern Unspecified :: LoadBalancerTLSCertificateRevocationReason
-pattern Unspecified = LoadBalancerTLSCertificateRevocationReason' "UNSPECIFIED"
+pattern CessationOfOperation :: LoadBalancerTLSCertificateRevocationReason
+pattern CessationOfOperation = LoadBalancerTLSCertificateRevocationReason' "CESSATION_OF_OPERATION"
+
+pattern CertificateHold :: LoadBalancerTLSCertificateRevocationReason
+pattern CertificateHold = LoadBalancerTLSCertificateRevocationReason' "CERTIFICATE_HOLD"
+
+pattern RemoveFromCrl :: LoadBalancerTLSCertificateRevocationReason
+pattern RemoveFromCrl = LoadBalancerTLSCertificateRevocationReason' "REMOVE_FROM_CRL"
+
+pattern PrivilegeWithdrawn :: LoadBalancerTLSCertificateRevocationReason
+pattern PrivilegeWithdrawn = LoadBalancerTLSCertificateRevocationReason' "PRIVILEGE_WITHDRAWN"
+
+pattern AACompromise :: LoadBalancerTLSCertificateRevocationReason
+pattern AACompromise = LoadBalancerTLSCertificateRevocationReason' "A_A_COMPROMISE"
 
 {-# COMPLETE
-  AACompromise,
-  AffiliationChanged,
-  CaCompromise,
-  CertificateHold,
-  CessationOfOperation,
-  KeyCompromise,
-  PrivilegeWithdrawn,
-  RemoveFromCrl,
-  Superceded,
   Unspecified,
+  KeyCompromise,
+  CaCompromise,
+  AffiliationChanged,
+  Superceded,
+  CessationOfOperation,
+  CertificateHold,
+  RemoveFromCrl,
+  PrivilegeWithdrawn,
+  AACompromise,
   LoadBalancerTLSCertificateRevocationReason'
   #-}

@@ -38,16 +38,16 @@ module Network.AWS.CostAndUsageReport.Types
     ReportDefinition (..),
     mkReportDefinition,
     rdReportVersioning,
+    rdS3Region,
+    rdFormat,
+    rdTimeUnit,
+    rdCompression,
+    rdReportName,
     rdAdditionalArtifacts,
     rdRefreshClosedReports,
-    rdReportName,
-    rdTimeUnit,
-    rdFormat,
-    rdCompression,
     rdAdditionalSchemaElements,
-    rdS3Bucket,
     rdS3Prefix,
-    rdS3Region,
+    rdS3Bucket,
   )
 where
 

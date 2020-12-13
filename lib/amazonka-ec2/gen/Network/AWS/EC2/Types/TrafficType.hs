@@ -14,8 +14,8 @@ module Network.AWS.EC2.Types.TrafficType
   ( TrafficType
       ( TrafficType',
         TTAccept,
-        TTAll,
-        TTReject
+        TTReject,
+        TTAll
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype TrafficType = TrafficType' Lude.Text
 pattern TTAccept :: TrafficType
 pattern TTAccept = TrafficType' "ACCEPT"
 
-pattern TTAll :: TrafficType
-pattern TTAll = TrafficType' "ALL"
-
 pattern TTReject :: TrafficType
 pattern TTReject = TrafficType' "REJECT"
 
+pattern TTAll :: TrafficType
+pattern TTAll = TrafficType' "ALL"
+
 {-# COMPLETE
   TTAccept,
-  TTAll,
   TTReject,
+  TTAll,
   TrafficType'
   #-}

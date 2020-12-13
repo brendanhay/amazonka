@@ -31,28 +31,39 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkFunctionEventInvokeConfig' smart constructor.
 data FunctionEventInvokeConfig = FunctionEventInvokeConfig'
-  { functionARN ::
-      Lude.Maybe Lude.Text,
-    maximumEventAgeInSeconds ::
-      Lude.Maybe Lude.Natural,
-    maximumRetryAttempts ::
-      Lude.Maybe Lude.Natural,
-    lastModified ::
-      Lude.Maybe Lude.Timestamp,
-    destinationConfig ::
-      Lude.Maybe DestinationConfig
+  { -- | The Amazon Resource Name (ARN) of the function.
+    functionARN :: Lude.Maybe Lude.Text,
+    -- | The maximum age of a request that Lambda sends to a function for processing.
+    maximumEventAgeInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of times to retry when the function returns an error.
+    maximumRetryAttempts :: Lude.Maybe Lude.Natural,
+    -- | The date and time that the configuration was last updated.
+    lastModified :: Lude.Maybe Lude.Timestamp,
+    -- | A destination for events after they have been sent to a function for processing.
+    --
+    -- __Destinations__
+    --
+    --     * __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
+    --
+    --
+    --     * __Queue__ - The ARN of an SQS queue.
+    --
+    --
+    --     * __Topic__ - The ARN of an SNS topic.
+    --
+    --
+    --     * __Event Bus__ - The ARN of an Amazon EventBridge event bus.
+    destinationConfig :: Lude.Maybe DestinationConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionEventInvokeConfig' with the minimum fields required to make a request.
 --
+-- * 'functionARN' - The Amazon Resource Name (ARN) of the function.
+-- * 'maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for processing.
+-- * 'maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.
+-- * 'lastModified' - The date and time that the configuration was last updated.
 -- * 'destinationConfig' - A destination for events after they have been sent to a function for processing.
 --
 -- __Destinations__
@@ -67,12 +78,6 @@ data FunctionEventInvokeConfig = FunctionEventInvokeConfig'
 --
 --
 --     * __Event Bus__ - The ARN of an Amazon EventBridge event bus.
---
---
--- * 'functionARN' - The Amazon Resource Name (ARN) of the function.
--- * 'lastModified' - The date and time that the configuration was last updated.
--- * 'maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for processing.
--- * 'maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.
 mkFunctionEventInvokeConfig ::
   FunctionEventInvokeConfig
 mkFunctionEventInvokeConfig =

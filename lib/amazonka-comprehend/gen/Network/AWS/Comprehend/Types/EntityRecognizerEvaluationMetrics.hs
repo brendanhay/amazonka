@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntityRecognizerEvaluationMetrics' smart constructor.
 data EntityRecognizerEvaluationMetrics = EntityRecognizerEvaluationMetrics'
-  { recall ::
-      Lude.Maybe Lude.Double,
-    precision ::
-      Lude.Maybe Lude.Double,
-    f1Score ::
-      Lude.Maybe Lude.Double
+  { -- | A measure of how complete the recognizer results are for the test data. High recall means that the recognizer returned most of the relevant results.
+    recall :: Lude.Maybe Lude.Double,
+    -- | A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones.
+    precision :: Lude.Maybe Lude.Double,
+    -- | A measure of how accurate the recognizer results are for the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
+    f1Score :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerEvaluationMetrics' with the minimum fields required to make a request.
 --
--- * 'f1Score' - A measure of how accurate the recognizer results are for the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
--- * 'precision' - A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones.
 -- * 'recall' - A measure of how complete the recognizer results are for the test data. High recall means that the recognizer returned most of the relevant results.
+-- * 'precision' - A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones.
+-- * 'f1Score' - A measure of how accurate the recognizer results are for the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
 mkEntityRecognizerEvaluationMetrics ::
   EntityRecognizerEvaluationMetrics
 mkEntityRecognizerEvaluationMetrics =

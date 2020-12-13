@@ -18,9 +18,9 @@ module Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceUpdate
 
     -- * Lenses
     rdsuTableNameUpdate,
+    rdsuReferenceId,
     rdsuS3ReferenceDataSourceUpdate,
     rdsuReferenceSchemaUpdate,
-    rdsuReferenceId,
   )
 where
 
@@ -33,29 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReferenceDataSourceUpdate' smart constructor.
 data ReferenceDataSourceUpdate = ReferenceDataSourceUpdate'
-  { tableNameUpdate ::
-      Lude.Maybe Lude.Text,
-    s3ReferenceDataSourceUpdate ::
-      Lude.Maybe S3ReferenceDataSourceUpdate,
-    referenceSchemaUpdate ::
-      Lude.Maybe SourceSchema,
-    referenceId :: Lude.Text
+  { -- | In-application table name that is created by this update.
+    tableNameUpdate :: Lude.Maybe Lude.Text,
+    -- | ID of the reference data source being updated. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
+    referenceId :: Lude.Text,
+    -- | Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.
+    s3ReferenceDataSourceUpdate :: Lude.Maybe S3ReferenceDataSourceUpdate,
+    -- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+    referenceSchemaUpdate :: Lude.Maybe SourceSchema
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReferenceDataSourceUpdate' with the minimum fields required to make a request.
 --
--- * 'referenceId' - ID of the reference data source being updated. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
--- * 'referenceSchemaUpdate' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
--- * 's3ReferenceDataSourceUpdate' - Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.
 -- * 'tableNameUpdate' - In-application table name that is created by this update.
+-- * 'referenceId' - ID of the reference data source being updated. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
+-- * 's3ReferenceDataSourceUpdate' - Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.
+-- * 'referenceSchemaUpdate' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
 mkReferenceDataSourceUpdate ::
   -- | 'referenceId'
   Lude.Text ->
@@ -63,9 +58,9 @@ mkReferenceDataSourceUpdate ::
 mkReferenceDataSourceUpdate pReferenceId_ =
   ReferenceDataSourceUpdate'
     { tableNameUpdate = Lude.Nothing,
+      referenceId = pReferenceId_,
       s3ReferenceDataSourceUpdate = Lude.Nothing,
-      referenceSchemaUpdate = Lude.Nothing,
-      referenceId = pReferenceId_
+      referenceSchemaUpdate = Lude.Nothing
     }
 
 -- | In-application table name that is created by this update.
@@ -74,6 +69,13 @@ mkReferenceDataSourceUpdate pReferenceId_ =
 rdsuTableNameUpdate :: Lens.Lens' ReferenceDataSourceUpdate (Lude.Maybe Lude.Text)
 rdsuTableNameUpdate = Lens.lens (tableNameUpdate :: ReferenceDataSourceUpdate -> Lude.Maybe Lude.Text) (\s a -> s {tableNameUpdate = a} :: ReferenceDataSourceUpdate)
 {-# DEPRECATED rdsuTableNameUpdate "Use generic-lens or generic-optics with 'tableNameUpdate' instead." #-}
+
+-- | ID of the reference data source being updated. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
+--
+-- /Note:/ Consider using 'referenceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsuReferenceId :: Lens.Lens' ReferenceDataSourceUpdate Lude.Text
+rdsuReferenceId = Lens.lens (referenceId :: ReferenceDataSourceUpdate -> Lude.Text) (\s a -> s {referenceId = a} :: ReferenceDataSourceUpdate)
+{-# DEPRECATED rdsuReferenceId "Use generic-lens or generic-optics with 'referenceId' instead." #-}
 
 -- | Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.
 --
@@ -89,21 +91,14 @@ rdsuReferenceSchemaUpdate :: Lens.Lens' ReferenceDataSourceUpdate (Lude.Maybe So
 rdsuReferenceSchemaUpdate = Lens.lens (referenceSchemaUpdate :: ReferenceDataSourceUpdate -> Lude.Maybe SourceSchema) (\s a -> s {referenceSchemaUpdate = a} :: ReferenceDataSourceUpdate)
 {-# DEPRECATED rdsuReferenceSchemaUpdate "Use generic-lens or generic-optics with 'referenceSchemaUpdate' instead." #-}
 
--- | ID of the reference data source being updated. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get this value.
---
--- /Note:/ Consider using 'referenceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsuReferenceId :: Lens.Lens' ReferenceDataSourceUpdate Lude.Text
-rdsuReferenceId = Lens.lens (referenceId :: ReferenceDataSourceUpdate -> Lude.Text) (\s a -> s {referenceId = a} :: ReferenceDataSourceUpdate)
-{-# DEPRECATED rdsuReferenceId "Use generic-lens or generic-optics with 'referenceId' instead." #-}
-
 instance Lude.ToJSON ReferenceDataSourceUpdate where
   toJSON ReferenceDataSourceUpdate' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("TableNameUpdate" Lude..=) Lude.<$> tableNameUpdate,
+            Lude.Just ("ReferenceId" Lude..= referenceId),
             ("S3ReferenceDataSourceUpdate" Lude..=)
               Lude.<$> s3ReferenceDataSourceUpdate,
-            ("ReferenceSchemaUpdate" Lude..=) Lude.<$> referenceSchemaUpdate,
-            Lude.Just ("ReferenceId" Lude..= referenceId)
+            ("ReferenceSchemaUpdate" Lude..=) Lude.<$> referenceSchemaUpdate
           ]
       )

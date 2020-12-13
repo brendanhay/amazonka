@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTableVersionError' smart constructor.
 data TableVersionError = TableVersionError'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID value of the version in question. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The name of the table in question.
     tableName :: Lude.Maybe Lude.Text,
+    -- | The details about the error.
     errorDetail :: Lude.Maybe ErrorDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableVersionError' with the minimum fields required to make a request.
 --
--- * 'errorDetail' - The details about the error.
--- * 'tableName' - The name of the table in question.
 -- * 'versionId' - The ID value of the version in question. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
+-- * 'tableName' - The name of the table in question.
+-- * 'errorDetail' - The details about the error.
 mkTableVersionError ::
   TableVersionError
 mkTableVersionError =

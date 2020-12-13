@@ -34,32 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStaleSecurityGroup' smart constructor.
 data StaleSecurityGroup = StaleSecurityGroup'
-  { vpcId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the VPC for the security group.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | The ID of the security group.
     groupId :: Lude.Maybe Lude.Text,
+    -- | The name of the security group.
     groupName :: Lude.Maybe Lude.Text,
-    staleIPPermissionsEgress ::
-      Lude.Maybe [StaleIPPermission],
+    -- | Information about the stale outbound rules in the security group.
+    staleIPPermissionsEgress :: Lude.Maybe [StaleIPPermission],
+    -- | Information about the stale inbound rules in the security group.
     staleIPPermissions :: Lude.Maybe [StaleIPPermission],
+    -- | The description of the security group.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaleSecurityGroup' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the security group.
+-- * 'vpcId' - The ID of the VPC for the security group.
 -- * 'groupId' - The ID of the security group.
 -- * 'groupName' - The name of the security group.
--- * 'staleIPPermissions' - Information about the stale inbound rules in the security group.
 -- * 'staleIPPermissionsEgress' - Information about the stale outbound rules in the security group.
--- * 'vpcId' - The ID of the VPC for the security group.
+-- * 'staleIPPermissions' - Information about the stale inbound rules in the security group.
+-- * 'description' - The description of the security group.
 mkStaleSecurityGroup ::
   StaleSecurityGroup
 mkStaleSecurityGroup =

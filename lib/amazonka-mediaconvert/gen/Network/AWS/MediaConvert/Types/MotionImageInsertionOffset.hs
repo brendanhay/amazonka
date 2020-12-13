@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMotionImageInsertionOffset' smart constructor.
 data MotionImageInsertionOffset = MotionImageInsertionOffset'
-  { imageX ::
-      Lude.Maybe Lude.Natural,
+  { -- | Set the distance, in pixels, between the overlay and the left edge of the video frame.
+    imageX :: Lude.Maybe Lude.Natural,
+    -- | Set the distance, in pixels, between the overlay and the top edge of the video frame.
     imageY :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MotionImageInsertionOffset' with the minimum fields required to make a request.

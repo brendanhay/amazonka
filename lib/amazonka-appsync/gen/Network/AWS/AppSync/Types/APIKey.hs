@@ -70,26 +70,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAPIKey' smart constructor.
 data APIKey = APIKey'
-  { expires :: Lude.Maybe Lude.Integer,
+  { -- | The time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour.
+    expires :: Lude.Maybe Lude.Integer,
+    -- | The time after which the API key is deleted. The date is represented as seconds since the epoch, rounded down to the nearest hour.
     deletes :: Lude.Maybe Lude.Integer,
+    -- | The API key ID.
     id :: Lude.Maybe Lude.Text,
+    -- | A description of the purpose of the API key.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APIKey' with the minimum fields required to make a request.
 --
--- * 'deletes' - The time after which the API key is deleted. The date is represented as seconds since the epoch, rounded down to the nearest hour.
--- * 'description' - A description of the purpose of the API key.
 -- * 'expires' - The time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour.
+-- * 'deletes' - The time after which the API key is deleted. The date is represented as seconds since the epoch, rounded down to the nearest hour.
 -- * 'id' - The API key ID.
+-- * 'description' - A description of the purpose of the API key.
 mkAPIKey ::
   APIKey
 mkAPIKey =

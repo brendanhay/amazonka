@@ -29,16 +29,16 @@ import Network.AWS.SageMaker.Types.RepositoryAccessMode
 --
 -- /See:/ 'mkImageConfig' smart constructor.
 newtype ImageConfig = ImageConfig'
-  { repositoryAccessMode ::
-      RepositoryAccessMode
+  { -- | Set this to one of the following values:
+    --
+    --
+    --     * @Platform@ - The model image is hosted in Amazon ECR.
+    --
+    --
+    --     * @Vpc@ - The model image is hosted in a private Docker registry in your VPC.
+    repositoryAccessMode :: RepositoryAccessMode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageConfig' with the minimum fields required to make a request.

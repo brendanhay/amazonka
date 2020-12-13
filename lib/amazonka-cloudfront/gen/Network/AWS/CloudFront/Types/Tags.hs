@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | A complex type that contains zero or more @Tag@ elements.
 --
 -- /See:/ 'mkTags' smart constructor.
-newtype Tags = Tags' {items :: Lude.Maybe [Tag]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Tags = Tags'
+  { -- | A complex type that contains @Tag@ elements.
+    items :: Lude.Maybe [Tag]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tags' with the minimum fields required to make a request.

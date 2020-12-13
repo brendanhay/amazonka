@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,14 +44,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAuditTask' smart constructor.
-newtype DescribeAuditTask = DescribeAuditTask' {taskId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeAuditTask = DescribeAuditTask'
+  { -- | The ID of the audit whose information you want to get.
+    taskId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAuditTask' with the minimum fields required to make a request.
@@ -98,41 +96,33 @@ instance Lude.ToQuery DescribeAuditTask where
 
 -- | /See:/ 'mkDescribeAuditTaskResponse' smart constructor.
 data DescribeAuditTaskResponse = DescribeAuditTaskResponse'
-  { auditDetails ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (AuditCheckDetails)
-        ),
+  { -- | Detailed information about each check performed during this audit.
+    auditDetails :: Lude.Maybe (Lude.HashMap Lude.Text (AuditCheckDetails)),
+    -- | The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
     taskType :: Lude.Maybe AuditTaskType,
-    taskStartTime ::
-      Lude.Maybe Lude.Timestamp,
-    taskStatistics ::
-      Lude.Maybe TaskStatistics,
-    scheduledAuditName ::
-      Lude.Maybe Lude.Text,
-    taskStatus ::
-      Lude.Maybe AuditTaskStatus,
+    -- | The time the audit started.
+    taskStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | Statistical information about the audit.
+    taskStatistics :: Lude.Maybe TaskStatistics,
+    -- | The name of the scheduled audit (only if the audit was a scheduled audit).
+    scheduledAuditName :: Lude.Maybe Lude.Text,
+    -- | The status of the audit: one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
+    taskStatus :: Lude.Maybe AuditTaskStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAuditTaskResponse' with the minimum fields required to make a request.
 --
 -- * 'auditDetails' - Detailed information about each check performed during this audit.
--- * 'responseStatus' - The response status code.
--- * 'scheduledAuditName' - The name of the scheduled audit (only if the audit was a scheduled audit).
+-- * 'taskType' - The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
 -- * 'taskStartTime' - The time the audit started.
 -- * 'taskStatistics' - Statistical information about the audit.
+-- * 'scheduledAuditName' - The name of the scheduled audit (only if the audit was a scheduled audit).
 -- * 'taskStatus' - The status of the audit: one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
--- * 'taskType' - The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
+-- * 'responseStatus' - The response status code.
 mkDescribeAuditTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

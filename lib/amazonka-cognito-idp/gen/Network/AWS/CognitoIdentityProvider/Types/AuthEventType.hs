@@ -41,35 +41,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuthEventType' smart constructor.
 data AuthEventType = AuthEventType'
-  { eventRisk ::
-      Lude.Maybe EventRiskType,
+  { -- | The event risk.
+    eventRisk :: Lude.Maybe EventRiskType,
+    -- | The event response.
     eventResponse :: Lude.Maybe EventResponseType,
+    -- | The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.
     eventContextData :: Lude.Maybe EventContextDataType,
+    -- | The challenge responses.
     challengeResponses :: Lude.Maybe [ChallengeResponseType],
+    -- | The event type.
     eventType :: Lude.Maybe EventType,
+    -- | The creation date
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | A flag specifying the user feedback captured at the time of an event request is good or bad.
     eventFeedback :: Lude.Maybe EventFeedbackType,
+    -- | The event ID.
     eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthEventType' with the minimum fields required to make a request.
 --
--- * 'challengeResponses' - The challenge responses.
--- * 'creationDate' - The creation date
+-- * 'eventRisk' - The event risk.
+-- * 'eventResponse' - The event response.
 -- * 'eventContextData' - The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.
+-- * 'challengeResponses' - The challenge responses.
+-- * 'eventType' - The event type.
+-- * 'creationDate' - The creation date
 -- * 'eventFeedback' - A flag specifying the user feedback captured at the time of an event request is good or bad.
 -- * 'eventId' - The event ID.
--- * 'eventResponse' - The event response.
--- * 'eventRisk' - The event risk.
--- * 'eventType' - The event type.
 mkAuthEventType ::
   AuthEventType
 mkAuthEventType =

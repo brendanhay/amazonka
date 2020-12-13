@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoT.AttachThingPrincipal
     mkAttachThingPrincipal,
 
     -- ** Request lenses
-    atpThingName,
     atpPrincipal,
+    atpThingName,
 
     -- * Destructuring the response
     AttachThingPrincipalResponse (..),
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAttachThingPrincipal' smart constructor.
 data AttachThingPrincipal = AttachThingPrincipal'
-  { thingName ::
-      Lude.Text,
-    principal :: Lude.Text
+  { -- | The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
+    principal :: Lude.Text,
+    -- | The name of the thing.
+    thingName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachThingPrincipal' with the minimum fields required to make a request.
@@ -59,23 +55,16 @@ data AttachThingPrincipal = AttachThingPrincipal'
 -- * 'principal' - The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
 -- * 'thingName' - The name of the thing.
 mkAttachThingPrincipal ::
-  -- | 'thingName'
-  Lude.Text ->
   -- | 'principal'
   Lude.Text ->
+  -- | 'thingName'
+  Lude.Text ->
   AttachThingPrincipal
-mkAttachThingPrincipal pThingName_ pPrincipal_ =
+mkAttachThingPrincipal pPrincipal_ pThingName_ =
   AttachThingPrincipal'
-    { thingName = pThingName_,
-      principal = pPrincipal_
+    { principal = pPrincipal_,
+      thingName = pThingName_
     }
-
--- | The name of the thing.
---
--- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atpThingName :: Lens.Lens' AttachThingPrincipal Lude.Text
-atpThingName = Lens.lens (thingName :: AttachThingPrincipal -> Lude.Text) (\s a -> s {thingName = a} :: AttachThingPrincipal)
-{-# DEPRECATED atpThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
 --
@@ -83,6 +72,13 @@ atpThingName = Lens.lens (thingName :: AttachThingPrincipal -> Lude.Text) (\s a 
 atpPrincipal :: Lens.Lens' AttachThingPrincipal Lude.Text
 atpPrincipal = Lens.lens (principal :: AttachThingPrincipal -> Lude.Text) (\s a -> s {principal = a} :: AttachThingPrincipal)
 {-# DEPRECATED atpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+
+-- | The name of the thing.
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atpThingName :: Lens.Lens' AttachThingPrincipal Lude.Text
+atpThingName = Lens.lens (thingName :: AttachThingPrincipal -> Lude.Text) (\s a -> s {thingName = a} :: AttachThingPrincipal)
+{-# DEPRECATED atpThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 instance Lude.AWSRequest AttachThingPrincipal where
   type Rs AttachThingPrincipal = AttachThingPrincipalResponse
@@ -112,16 +108,10 @@ instance Lude.ToQuery AttachThingPrincipal where
 --
 -- /See:/ 'mkAttachThingPrincipalResponse' smart constructor.
 newtype AttachThingPrincipalResponse = AttachThingPrincipalResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachThingPrincipalResponse' with the minimum fields required to make a request.

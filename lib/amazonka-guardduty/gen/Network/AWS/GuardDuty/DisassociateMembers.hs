@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.GuardDuty.DisassociateMembers
     mkDisassociateMembers,
 
     -- ** Request lenses
-    dmsDetectorId,
-    dmsAccountIds,
+    dmAccountIds,
+    dmDetectorId,
 
     -- * Destructuring the response
     DisassociateMembersResponse (..),
     mkDisassociateMembersResponse,
 
     -- ** Response lenses
-    dmrsResponseStatus,
     dmrsUnprocessedAccounts,
+    dmrsResponseStatus,
   )
 where
 
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateMembers' smart constructor.
 data DisassociateMembers = DisassociateMembers'
-  { detectorId ::
-      Lude.Text,
-    accountIds :: Lude.NonEmpty Lude.Text
+  { -- | A list of account IDs of the GuardDuty member accounts that you want to disassociate from the master account.
+    accountIds :: Lude.NonEmpty Lude.Text,
+    -- | The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the master account.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateMembers' with the minimum fields required to make a request.
@@ -58,30 +54,30 @@ data DisassociateMembers = DisassociateMembers'
 -- * 'accountIds' - A list of account IDs of the GuardDuty member accounts that you want to disassociate from the master account.
 -- * 'detectorId' - The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the master account.
 mkDisassociateMembers ::
-  -- | 'detectorId'
-  Lude.Text ->
   -- | 'accountIds'
   Lude.NonEmpty Lude.Text ->
+  -- | 'detectorId'
+  Lude.Text ->
   DisassociateMembers
-mkDisassociateMembers pDetectorId_ pAccountIds_ =
+mkDisassociateMembers pAccountIds_ pDetectorId_ =
   DisassociateMembers'
-    { detectorId = pDetectorId_,
-      accountIds = pAccountIds_
+    { accountIds = pAccountIds_,
+      detectorId = pDetectorId_
     }
-
--- | The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the master account.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmsDetectorId :: Lens.Lens' DisassociateMembers Lude.Text
-dmsDetectorId = Lens.lens (detectorId :: DisassociateMembers -> Lude.Text) (\s a -> s {detectorId = a} :: DisassociateMembers)
-{-# DEPRECATED dmsDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | A list of account IDs of the GuardDuty member accounts that you want to disassociate from the master account.
 --
 -- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmsAccountIds :: Lens.Lens' DisassociateMembers (Lude.NonEmpty Lude.Text)
-dmsAccountIds = Lens.lens (accountIds :: DisassociateMembers -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: DisassociateMembers)
-{-# DEPRECATED dmsAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+dmAccountIds :: Lens.Lens' DisassociateMembers (Lude.NonEmpty Lude.Text)
+dmAccountIds = Lens.lens (accountIds :: DisassociateMembers -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: DisassociateMembers)
+{-# DEPRECATED dmAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+
+-- | The unique ID of the detector of the GuardDuty account whose members you want to disassociate from the master account.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmDetectorId :: Lens.Lens' DisassociateMembers Lude.Text
+dmDetectorId = Lens.lens (detectorId :: DisassociateMembers -> Lude.Text) (\s a -> s {detectorId = a} :: DisassociateMembers)
+{-# DEPRECATED dmDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 instance Lude.AWSRequest DisassociateMembers where
   type Rs DisassociateMembers = DisassociateMembersResponse
@@ -90,8 +86,8 @@ instance Lude.AWSRequest DisassociateMembers where
     Res.receiveJSON
       ( \s h x ->
           DisassociateMembersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DisassociateMembers where
@@ -118,40 +114,27 @@ instance Lude.ToQuery DisassociateMembers where
 
 -- | /See:/ 'mkDisassociateMembersResponse' smart constructor.
 data DisassociateMembersResponse = DisassociateMembersResponse'
-  { responseStatus ::
-      Lude.Int,
-    unprocessedAccounts ::
-      [UnprocessedAccount]
+  { -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+    unprocessedAccounts :: [UnprocessedAccount],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateMembersResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unprocessedAccounts' - A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+-- * 'responseStatus' - The response status code.
 mkDisassociateMembersResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   DisassociateMembersResponse
 mkDisassociateMembersResponse pResponseStatus_ =
   DisassociateMembersResponse'
-    { responseStatus = pResponseStatus_,
-      unprocessedAccounts = Lude.mempty
+    { unprocessedAccounts = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsResponseStatus :: Lens.Lens' DisassociateMembersResponse Lude.Int
-dmrsResponseStatus = Lens.lens (responseStatus :: DisassociateMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateMembersResponse)
-{-# DEPRECATED dmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
 --
@@ -159,3 +142,10 @@ dmrsResponseStatus = Lens.lens (responseStatus :: DisassociateMembersResponse ->
 dmrsUnprocessedAccounts :: Lens.Lens' DisassociateMembersResponse [UnprocessedAccount]
 dmrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: DisassociateMembersResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: DisassociateMembersResponse)
 {-# DEPRECATED dmrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsResponseStatus :: Lens.Lens' DisassociateMembersResponse Lude.Int
+dmrsResponseStatus = Lens.lens (responseStatus :: DisassociateMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateMembersResponse)
+{-# DEPRECATED dmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

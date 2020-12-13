@@ -13,9 +13,9 @@
 module Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
   ( ScalingStatusCode
       ( ScalingStatusCode',
-        Active,
         Inactive,
-        PartiallyActive
+        PartiallyActive,
+        Active
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ScalingStatusCode = ScalingStatusCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: ScalingStatusCode
-pattern Active = ScalingStatusCode' "Active"
-
 pattern Inactive :: ScalingStatusCode
 pattern Inactive = ScalingStatusCode' "Inactive"
 
 pattern PartiallyActive :: ScalingStatusCode
 pattern PartiallyActive = ScalingStatusCode' "PartiallyActive"
 
+pattern Active :: ScalingStatusCode
+pattern Active = ScalingStatusCode' "Active"
+
 {-# COMPLETE
-  Active,
   Inactive,
   PartiallyActive,
+  Active,
   ScalingStatusCode'
   #-}

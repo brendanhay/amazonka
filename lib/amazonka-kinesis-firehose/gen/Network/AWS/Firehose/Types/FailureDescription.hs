@@ -17,8 +17,8 @@ module Network.AWS.Firehose.Types.FailureDescription
     mkFailureDescription,
 
     -- * Lenses
-    fdType,
     fdDetails,
+    fdType,
   )
 where
 
@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailureDescription' smart constructor.
 data FailureDescription = FailureDescription'
-  { type' ::
-      DeliveryStreamFailureType,
-    details :: Lude.Text
+  { -- | A message providing details about the error that caused the failure.
+    details :: Lude.Text,
+    -- | The type of error that caused the failure.
+    type' :: DeliveryStreamFailureType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailureDescription' with the minimum fields required to make a request.
@@ -48,20 +43,13 @@ data FailureDescription = FailureDescription'
 -- * 'details' - A message providing details about the error that caused the failure.
 -- * 'type'' - The type of error that caused the failure.
 mkFailureDescription ::
-  -- | 'type''
-  DeliveryStreamFailureType ->
   -- | 'details'
   Lude.Text ->
+  -- | 'type''
+  DeliveryStreamFailureType ->
   FailureDescription
-mkFailureDescription pType_ pDetails_ =
-  FailureDescription' {type' = pType_, details = pDetails_}
-
--- | The type of error that caused the failure.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdType :: Lens.Lens' FailureDescription DeliveryStreamFailureType
-fdType = Lens.lens (type' :: FailureDescription -> DeliveryStreamFailureType) (\s a -> s {type' = a} :: FailureDescription)
-{-# DEPRECATED fdType "Use generic-lens or generic-optics with 'type'' instead." #-}
+mkFailureDescription pDetails_ pType_ =
+  FailureDescription' {details = pDetails_, type' = pType_}
 
 -- | A message providing details about the error that caused the failure.
 --
@@ -70,11 +58,18 @@ fdDetails :: Lens.Lens' FailureDescription Lude.Text
 fdDetails = Lens.lens (details :: FailureDescription -> Lude.Text) (\s a -> s {details = a} :: FailureDescription)
 {-# DEPRECATED fdDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
+-- | The type of error that caused the failure.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdType :: Lens.Lens' FailureDescription DeliveryStreamFailureType
+fdType = Lens.lens (type' :: FailureDescription -> DeliveryStreamFailureType) (\s a -> s {type' = a} :: FailureDescription)
+{-# DEPRECATED fdType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 instance Lude.FromJSON FailureDescription where
   parseJSON =
     Lude.withObject
       "FailureDescription"
       ( \x ->
           FailureDescription'
-            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "Details")
+            Lude.<$> (x Lude..: "Details") Lude.<*> (x Lude..: "Type")
       )

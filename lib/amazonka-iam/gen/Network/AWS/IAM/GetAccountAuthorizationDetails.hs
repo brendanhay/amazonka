@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,31 +52,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAccountAuthorizationDetails' smart constructor.
 data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    maxItems ::
-      Lude.Maybe Lude.Natural,
-    filter ::
-      Lude.Maybe [EntityType]
+  { -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+    --
+    -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+    maxItems :: Lude.Maybe Lude.Natural,
+    -- | A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value @LocalManagedPolicy@ to include customer managed policies.
+    --
+    -- The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
+    filter :: Lude.Maybe [EntityType]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountAuthorizationDetails' with the minimum fields required to make a request.
 --
--- * 'filter' - A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value @LocalManagedPolicy@ to include customer managed policies.
---
--- The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
 -- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 -- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
 -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- * 'filter' - A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value @LocalManagedPolicy@ to include customer managed policies.
+--
+-- The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
 mkGetAccountAuthorizationDetails ::
   GetAccountAuthorizationDetails
 mkGetAccountAuthorizationDetails =
@@ -168,45 +167,33 @@ instance Lude.ToQuery GetAccountAuthorizationDetails where
 --
 -- /See:/ 'mkGetAccountAuthorizationDetailsResponse' smart constructor.
 data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
-  { roleDetailList ::
-      Lude.Maybe
-        [RoleDetail],
-    groupDetailList ::
-      Lude.Maybe
-        [GroupDetail],
-    userDetailList ::
-      Lude.Maybe
-        [UserDetail],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    isTruncated ::
-      Lude.Maybe
-        Lude.Bool,
-    policies ::
-      Lude.Maybe
-        [ManagedPolicyDetail],
-    responseStatus ::
-      Lude.Int
+  { -- | A list containing information about IAM roles.
+    roleDetailList :: Lude.Maybe [RoleDetail],
+    -- | A list containing information about IAM groups.
+    groupDetailList :: Lude.Maybe [GroupDetail],
+    -- | A list containing information about IAM users.
+    userDetailList :: Lude.Maybe [UserDetail],
+    -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+    isTruncated :: Lude.Maybe Lude.Bool,
+    -- | A list containing information about managed policies.
+    policies :: Lude.Maybe [ManagedPolicyDetail],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountAuthorizationDetailsResponse' with the minimum fields required to make a request.
 --
+-- * 'roleDetailList' - A list containing information about IAM roles.
 -- * 'groupDetailList' - A list containing information about IAM groups.
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'userDetailList' - A list containing information about IAM users.
 -- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'policies' - A list containing information about managed policies.
 -- * 'responseStatus' - The response status code.
--- * 'roleDetailList' - A list containing information about IAM roles.
--- * 'userDetailList' - A list containing information about IAM users.
 mkGetAccountAuthorizationDetailsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

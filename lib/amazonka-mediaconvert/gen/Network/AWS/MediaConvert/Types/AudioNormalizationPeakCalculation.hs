@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
   ( AudioNormalizationPeakCalculation
       ( AudioNormalizationPeakCalculation',
-        ANPCNone,
-        ANPCTruePeak
+        ANPCTruePeak,
+        ANPCNone
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype AudioNormalizationPeakCalculation = AudioNormalizationPeakCalculation' L
       Lude.ToHeader
     )
 
-pattern ANPCNone :: AudioNormalizationPeakCalculation
-pattern ANPCNone = AudioNormalizationPeakCalculation' "NONE"
-
 pattern ANPCTruePeak :: AudioNormalizationPeakCalculation
 pattern ANPCTruePeak = AudioNormalizationPeakCalculation' "TRUE_PEAK"
 
+pattern ANPCNone :: AudioNormalizationPeakCalculation
+pattern ANPCNone = AudioNormalizationPeakCalculation' "NONE"
+
 {-# COMPLETE
-  ANPCNone,
   ANPCTruePeak,
+  ANPCNone,
   AudioNormalizationPeakCalculation'
   #-}

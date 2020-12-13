@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.AlexaBusiness.CreateContact
     ccPhoneNumbers,
     ccPhoneNumber,
     ccSipAddresses,
+    ccFirstName,
     ccDisplayName,
     ccClientRequestToken,
-    ccFirstName,
 
     -- * Destructuring the response
     CreateContactResponse (..),
@@ -45,27 +46,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateContact' smart constructor.
 data CreateContact = CreateContact'
-  { lastName ::
-      Lude.Maybe Lude.Text,
+  { -- | The last name of the contact that is used to call the contact on the device.
+    lastName :: Lude.Maybe Lude.Text,
+    -- | The list of phone numbers for the contact.
     phoneNumbers :: Lude.Maybe [PhoneNumber],
+    -- | The phone number of the contact in E.164 format. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
     phoneNumber :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The list of SIP addresses for the contact.
     sipAddresses :: Lude.Maybe [SipAddress],
+    -- | The first name of the contact that is used to call the contact on the device.
+    firstName :: Lude.Text,
+    -- | The name of the contact to display on the console.
     displayName :: Lude.Maybe Lude.Text,
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    firstName :: Lude.Text
+    -- | A unique, user-specified identifier for this request that ensures idempotency.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContact' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
--- * 'displayName' - The name of the contact to display on the console.
--- * 'firstName' - The first name of the contact that is used to call the contact on the device.
 -- * 'lastName' - The last name of the contact that is used to call the contact on the device.
--- * 'phoneNumber' - The phone number of the contact in E.164 format. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
 -- * 'phoneNumbers' - The list of phone numbers for the contact.
+-- * 'phoneNumber' - The phone number of the contact in E.164 format. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
 -- * 'sipAddresses' - The list of SIP addresses for the contact.
+-- * 'firstName' - The first name of the contact that is used to call the contact on the device.
+-- * 'displayName' - The name of the contact to display on the console.
+-- * 'clientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
 mkCreateContact ::
   -- | 'firstName'
   Lude.Text ->
@@ -76,9 +83,9 @@ mkCreateContact pFirstName_ =
       phoneNumbers = Lude.Nothing,
       phoneNumber = Lude.Nothing,
       sipAddresses = Lude.Nothing,
+      firstName = pFirstName_,
       displayName = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
-      firstName = pFirstName_
+      clientRequestToken = Lude.Nothing
     }
 
 -- | The last name of the contact that is used to call the contact on the device.
@@ -109,6 +116,13 @@ ccSipAddresses :: Lens.Lens' CreateContact (Lude.Maybe [SipAddress])
 ccSipAddresses = Lens.lens (sipAddresses :: CreateContact -> Lude.Maybe [SipAddress]) (\s a -> s {sipAddresses = a} :: CreateContact)
 {-# DEPRECATED ccSipAddresses "Use generic-lens or generic-optics with 'sipAddresses' instead." #-}
 
+-- | The first name of the contact that is used to call the contact on the device.
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccFirstName :: Lens.Lens' CreateContact Lude.Text
+ccFirstName = Lens.lens (firstName :: CreateContact -> Lude.Text) (\s a -> s {firstName = a} :: CreateContact)
+{-# DEPRECATED ccFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
+
 -- | The name of the contact to display on the console.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -122,13 +136,6 @@ ccDisplayName = Lens.lens (displayName :: CreateContact -> Lude.Maybe Lude.Text)
 ccClientRequestToken :: Lens.Lens' CreateContact (Lude.Maybe Lude.Text)
 ccClientRequestToken = Lens.lens (clientRequestToken :: CreateContact -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateContact)
 {-# DEPRECATED ccClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
--- | The first name of the contact that is used to call the contact on the device.
---
--- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccFirstName :: Lens.Lens' CreateContact Lude.Text
-ccFirstName = Lens.lens (firstName :: CreateContact -> Lude.Text) (\s a -> s {firstName = a} :: CreateContact)
-{-# DEPRECATED ccFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
 instance Lude.AWSRequest CreateContact where
   type Rs CreateContact = CreateContactResponse
@@ -159,9 +166,9 @@ instance Lude.ToJSON CreateContact where
             ("PhoneNumbers" Lude..=) Lude.<$> phoneNumbers,
             ("PhoneNumber" Lude..=) Lude.<$> phoneNumber,
             ("SipAddresses" Lude..=) Lude.<$> sipAddresses,
+            Lude.Just ("FirstName" Lude..= firstName),
             ("DisplayName" Lude..=) Lude.<$> displayName,
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("FirstName" Lude..= firstName)
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -173,17 +180,12 @@ instance Lude.ToQuery CreateContact where
 
 -- | /See:/ 'mkCreateContactResponse' smart constructor.
 data CreateContactResponse = CreateContactResponse'
-  { contactARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the newly created address book.
+    contactARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContactResponse' with the minimum fields required to make a request.

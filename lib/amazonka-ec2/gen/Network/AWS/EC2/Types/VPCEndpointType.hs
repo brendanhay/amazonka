@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.VPCEndpointType
   ( VPCEndpointType
       ( VPCEndpointType',
+        VETInterface,
         VETGateway,
-        VETGatewayLoadBalancer,
-        VETInterface
+        VETGatewayLoadBalancer
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype VPCEndpointType = VPCEndpointType' Lude.Text
       Lude.ToHeader
     )
 
+pattern VETInterface :: VPCEndpointType
+pattern VETInterface = VPCEndpointType' "Interface"
+
 pattern VETGateway :: VPCEndpointType
 pattern VETGateway = VPCEndpointType' "Gateway"
 
 pattern VETGatewayLoadBalancer :: VPCEndpointType
 pattern VETGatewayLoadBalancer = VPCEndpointType' "GatewayLoadBalancer"
 
-pattern VETInterface :: VPCEndpointType
-pattern VETInterface = VPCEndpointType' "Interface"
-
 {-# COMPLETE
+  VETInterface,
   VETGateway,
   VETGatewayLoadBalancer,
-  VETInterface,
   VPCEndpointType'
   #-}

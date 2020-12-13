@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkGetRuleGroup' smart constructor.
-newtype GetRuleGroup = GetRuleGroup' {ruleGroupId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetRuleGroup = GetRuleGroup'
+  { -- | The @RuleGroupId@ of the 'RuleGroup' that you want to get. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+    ruleGroupId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRuleGroup' with the minimum fields required to make a request.
@@ -101,23 +99,18 @@ instance Lude.ToQuery GetRuleGroup where
 
 -- | /See:/ 'mkGetRuleGroupResponse' smart constructor.
 data GetRuleGroupResponse = GetRuleGroupResponse'
-  { ruleGroup ::
-      Lude.Maybe RuleGroup,
+  { -- | Information about the 'RuleGroup' that you specified in the @GetRuleGroup@ request.
+    ruleGroup :: Lude.Maybe RuleGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRuleGroupResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'ruleGroup' - Information about the 'RuleGroup' that you specified in the @GetRuleGroup@ request.
+-- * 'responseStatus' - The response status code.
 mkGetRuleGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -31,28 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuthorizationConfig' smart constructor.
 data AuthorizationConfig = AuthorizationConfig'
-  { awsIAMConfig ::
-      Lude.Maybe AWSIAMConfig,
+  { -- | The AWS IAM settings.
+    awsIAMConfig :: Lude.Maybe AWSIAMConfig,
+    -- | The authorization type required by the HTTP endpoint.
+    --
+    --
+    --     * __AWS_IAM__ : The authorization type is Sigv4.
     authorizationType :: AuthorizationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizationConfig' with the minimum fields required to make a request.
 --
+-- * 'awsIAMConfig' - The AWS IAM settings.
 -- * 'authorizationType' - The authorization type required by the HTTP endpoint.
 --
 --
 --     * __AWS_IAM__ : The authorization type is Sigv4.
---
---
--- * 'awsIAMConfig' - The AWS IAM settings.
 mkAuthorizationConfig ::
   -- | 'authorizationType'
   AuthorizationType ->

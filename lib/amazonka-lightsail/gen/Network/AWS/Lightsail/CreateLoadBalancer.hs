@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,10 +26,10 @@ module Network.AWS.Lightsail.CreateLoadBalancer
     clbHealthCheckPath,
     clbCertificateName,
     clbCertificateDomainName,
-    clbCertificateAlternativeNames,
-    clbTags,
     clbLoadBalancerName,
     clbInstancePort,
+    clbCertificateAlternativeNames,
+    clbTags,
 
     -- * Destructuring the response
     CreateLoadBalancerResponse (..),
@@ -48,38 +49,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { healthCheckPath ::
-      Lude.Maybe Lude.Text,
+  { -- | The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., @"/"@ ).
+    --
+    -- You may want to specify a custom health check path other than the root of your application if your home page loads slowly or has a lot of media or scripting on it.
+    healthCheckPath :: Lude.Maybe Lude.Text,
+    -- | The name of the SSL/TLS certificate.
+    --
+    -- If you specify @certificateName@ , then @certificateDomainName@ is required (and vice-versa).
     certificateName :: Lude.Maybe Lude.Text,
+    -- | The domain name with which your certificate is associated (e.g., @example.com@ ).
+    --
+    -- If you specify @certificateDomainName@ , then @certificateName@ is required (and vice-versa).
     certificateDomainName :: Lude.Maybe Lude.Text,
-    certificateAlternativeNames :: Lude.Maybe [Lude.Text],
-    tags :: Lude.Maybe [Tag],
+    -- | The name of your load balancer.
     loadBalancerName :: Lude.Text,
-    instancePort :: Lude.Int
+    -- | The instance port where you're creating your load balancer.
+    instancePort :: Lude.Int,
+    -- | The optional alternative domains and subdomains to use with your SSL/TLS certificate (e.g., @www.example.com@ , @example.com@ , @m.example.com@ , @blog.example.com@ ).
+    certificateAlternativeNames :: Lude.Maybe [Lude.Text],
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancer' with the minimum fields required to make a request.
 --
--- * 'certificateAlternativeNames' - The optional alternative domains and subdomains to use with your SSL/TLS certificate (e.g., @www.example.com@ , @example.com@ , @m.example.com@ , @blog.example.com@ ).
--- * 'certificateDomainName' - The domain name with which your certificate is associated (e.g., @example.com@ ).
---
--- If you specify @certificateDomainName@ , then @certificateName@ is required (and vice-versa).
--- * 'certificateName' - The name of the SSL/TLS certificate.
---
--- If you specify @certificateName@ , then @certificateDomainName@ is required (and vice-versa).
 -- * 'healthCheckPath' - The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., @"/"@ ).
 --
 -- You may want to specify a custom health check path other than the root of your application if your home page loads slowly or has a lot of media or scripting on it.
--- * 'instancePort' - The instance port where you're creating your load balancer.
+-- * 'certificateName' - The name of the SSL/TLS certificate.
+--
+-- If you specify @certificateName@ , then @certificateDomainName@ is required (and vice-versa).
+-- * 'certificateDomainName' - The domain name with which your certificate is associated (e.g., @example.com@ ).
+--
+-- If you specify @certificateDomainName@ , then @certificateName@ is required (and vice-versa).
 -- * 'loadBalancerName' - The name of your load balancer.
+-- * 'instancePort' - The instance port where you're creating your load balancer.
+-- * 'certificateAlternativeNames' - The optional alternative domains and subdomains to use with your SSL/TLS certificate (e.g., @www.example.com@ , @example.com@ , @m.example.com@ , @blog.example.com@ ).
 -- * 'tags' - The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
@@ -94,10 +103,10 @@ mkCreateLoadBalancer pLoadBalancerName_ pInstancePort_ =
     { healthCheckPath = Lude.Nothing,
       certificateName = Lude.Nothing,
       certificateDomainName = Lude.Nothing,
-      certificateAlternativeNames = Lude.Nothing,
-      tags = Lude.Nothing,
       loadBalancerName = pLoadBalancerName_,
-      instancePort = pInstancePort_
+      instancePort = pInstancePort_,
+      certificateAlternativeNames = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., @"/"@ ).
@@ -127,6 +136,20 @@ clbCertificateDomainName :: Lens.Lens' CreateLoadBalancer (Lude.Maybe Lude.Text)
 clbCertificateDomainName = Lens.lens (certificateDomainName :: CreateLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {certificateDomainName = a} :: CreateLoadBalancer)
 {-# DEPRECATED clbCertificateDomainName "Use generic-lens or generic-optics with 'certificateDomainName' instead." #-}
 
+-- | The name of your load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbLoadBalancerName :: Lens.Lens' CreateLoadBalancer Lude.Text
+clbLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancer)
+{-# DEPRECATED clbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
+
+-- | The instance port where you're creating your load balancer.
+--
+-- /Note:/ Consider using 'instancePort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbInstancePort :: Lens.Lens' CreateLoadBalancer Lude.Int
+clbInstancePort = Lens.lens (instancePort :: CreateLoadBalancer -> Lude.Int) (\s a -> s {instancePort = a} :: CreateLoadBalancer)
+{-# DEPRECATED clbInstancePort "Use generic-lens or generic-optics with 'instancePort' instead." #-}
+
 -- | The optional alternative domains and subdomains to use with your SSL/TLS certificate (e.g., @www.example.com@ , @example.com@ , @m.example.com@ , @blog.example.com@ ).
 --
 -- /Note:/ Consider using 'certificateAlternativeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -142,20 +165,6 @@ clbCertificateAlternativeNames = Lens.lens (certificateAlternativeNames :: Creat
 clbTags :: Lens.Lens' CreateLoadBalancer (Lude.Maybe [Tag])
 clbTags = Lens.lens (tags :: CreateLoadBalancer -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateLoadBalancer)
 {-# DEPRECATED clbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of your load balancer.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbLoadBalancerName :: Lens.Lens' CreateLoadBalancer Lude.Text
-clbLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
-
--- | The instance port where you're creating your load balancer.
---
--- /Note:/ Consider using 'instancePort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbInstancePort :: Lens.Lens' CreateLoadBalancer Lude.Int
-clbInstancePort = Lens.lens (instancePort :: CreateLoadBalancer -> Lude.Int) (\s a -> s {instancePort = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbInstancePort "Use generic-lens or generic-optics with 'instancePort' instead." #-}
 
 instance Lude.AWSRequest CreateLoadBalancer where
   type Rs CreateLoadBalancer = CreateLoadBalancerResponse
@@ -186,11 +195,11 @@ instance Lude.ToJSON CreateLoadBalancer where
           [ ("healthCheckPath" Lude..=) Lude.<$> healthCheckPath,
             ("certificateName" Lude..=) Lude.<$> certificateName,
             ("certificateDomainName" Lude..=) Lude.<$> certificateDomainName,
+            Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
+            Lude.Just ("instancePort" Lude..= instancePort),
             ("certificateAlternativeNames" Lude..=)
               Lude.<$> certificateAlternativeNames,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
-            Lude.Just ("instancePort" Lude..= instancePort)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -202,17 +211,12 @@ instance Lude.ToQuery CreateLoadBalancer where
 
 -- | /See:/ 'mkCreateLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancerResponse' with the minimum fields required to make a request.

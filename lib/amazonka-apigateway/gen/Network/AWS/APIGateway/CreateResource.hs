@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.CreateResource
     mkCreateResource,
 
     -- ** Request lenses
+    crPathPart,
     crRestAPIId,
     crParentId,
-    crPathPart,
 
     -- * Destructuring the response
     Resource (..),
@@ -46,38 +47,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateResource' smart constructor.
 data CreateResource = CreateResource'
-  { restAPIId :: Lude.Text,
-    parentId :: Lude.Text,
-    pathPart :: Lude.Text
+  { -- | The last path segment for this resource.
+    pathPart :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | [Required] The parent resource's identifier.
+    parentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResource' with the minimum fields required to make a request.
 --
--- * 'parentId' - [Required] The parent resource's identifier.
 -- * 'pathPart' - The last path segment for this resource.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'parentId' - [Required] The parent resource's identifier.
 mkCreateResource ::
+  -- | 'pathPart'
+  Lude.Text ->
   -- | 'restAPIId'
   Lude.Text ->
   -- | 'parentId'
   Lude.Text ->
-  -- | 'pathPart'
-  Lude.Text ->
   CreateResource
-mkCreateResource pRestAPIId_ pParentId_ pPathPart_ =
+mkCreateResource pPathPart_ pRestAPIId_ pParentId_ =
   CreateResource'
-    { restAPIId = pRestAPIId_,
-      parentId = pParentId_,
-      pathPart = pPathPart_
+    { pathPart = pPathPart_,
+      restAPIId = pRestAPIId_,
+      parentId = pParentId_
     }
+
+-- | The last path segment for this resource.
+--
+-- /Note:/ Consider using 'pathPart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crPathPart :: Lens.Lens' CreateResource Lude.Text
+crPathPart = Lens.lens (pathPart :: CreateResource -> Lude.Text) (\s a -> s {pathPart = a} :: CreateResource)
+{-# DEPRECATED crPathPart "Use generic-lens or generic-optics with 'pathPart' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
@@ -92,13 +97,6 @@ crRestAPIId = Lens.lens (restAPIId :: CreateResource -> Lude.Text) (\s a -> s {r
 crParentId :: Lens.Lens' CreateResource Lude.Text
 crParentId = Lens.lens (parentId :: CreateResource -> Lude.Text) (\s a -> s {parentId = a} :: CreateResource)
 {-# DEPRECATED crParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
-
--- | The last path segment for this resource.
---
--- /Note:/ Consider using 'pathPart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crPathPart :: Lens.Lens' CreateResource Lude.Text
-crPathPart = Lens.lens (pathPart :: CreateResource -> Lude.Text) (\s a -> s {pathPart = a} :: CreateResource)
-{-# DEPRECATED crPathPart "Use generic-lens or generic-optics with 'pathPart' instead." #-}
 
 instance Lude.AWSRequest CreateResource where
   type Rs CreateResource = Resource

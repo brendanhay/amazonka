@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.UsageClassType
   ( UsageClassType
       ( UsageClassType',
-        UCTOnDemand,
-        UCTSpot
+        UCTSpot,
+        UCTOnDemand
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype UsageClassType = UsageClassType' Lude.Text
       Lude.ToHeader
     )
 
-pattern UCTOnDemand :: UsageClassType
-pattern UCTOnDemand = UsageClassType' "on-demand"
-
 pattern UCTSpot :: UsageClassType
 pattern UCTSpot = UsageClassType' "spot"
 
+pattern UCTOnDemand :: UsageClassType
+pattern UCTOnDemand = UsageClassType' "on-demand"
+
 {-# COMPLETE
-  UCTOnDemand,
   UCTSpot,
+  UCTOnDemand,
   UsageClassType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.EC2.ModifyIdFormat
     mkModifyIdFormat,
 
     -- ** Request lenses
-    mifResource,
     mifUseLongIds,
+    mifResource,
 
     -- * Destructuring the response
     ModifyIdFormatResponse (..),
@@ -40,32 +41,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyIdFormat' smart constructor.
 data ModifyIdFormat = ModifyIdFormat'
-  { resource :: Lude.Text,
-    useLongIds :: Lude.Bool
+  { -- | Indicate whether the resource should use longer IDs (17-character IDs).
+    useLongIds :: Lude.Bool,
+    -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
+    --
+    -- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
+    resource :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyIdFormat' with the minimum fields required to make a request.
 --
+-- * 'useLongIds' - Indicate whether the resource should use longer IDs (17-character IDs).
 -- * 'resource' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
 --
 -- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
--- * 'useLongIds' - Indicate whether the resource should use longer IDs (17-character IDs).
 mkModifyIdFormat ::
-  -- | 'resource'
-  Lude.Text ->
   -- | 'useLongIds'
   Lude.Bool ->
+  -- | 'resource'
+  Lude.Text ->
   ModifyIdFormat
-mkModifyIdFormat pResource_ pUseLongIds_ =
-  ModifyIdFormat' {resource = pResource_, useLongIds = pUseLongIds_}
+mkModifyIdFormat pUseLongIds_ pResource_ =
+  ModifyIdFormat' {useLongIds = pUseLongIds_, resource = pResource_}
+
+-- | Indicate whether the resource should use longer IDs (17-character IDs).
+--
+-- /Note:/ Consider using 'useLongIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mifUseLongIds :: Lens.Lens' ModifyIdFormat Lude.Bool
+mifUseLongIds = Lens.lens (useLongIds :: ModifyIdFormat -> Lude.Bool) (\s a -> s {useLongIds = a} :: ModifyIdFormat)
+{-# DEPRECATED mifUseLongIds "Use generic-lens or generic-optics with 'useLongIds' instead." #-}
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
 --
@@ -75,13 +81,6 @@ mkModifyIdFormat pResource_ pUseLongIds_ =
 mifResource :: Lens.Lens' ModifyIdFormat Lude.Text
 mifResource = Lens.lens (resource :: ModifyIdFormat -> Lude.Text) (\s a -> s {resource = a} :: ModifyIdFormat)
 {-# DEPRECATED mifResource "Use generic-lens or generic-optics with 'resource' instead." #-}
-
--- | Indicate whether the resource should use longer IDs (17-character IDs).
---
--- /Note:/ Consider using 'useLongIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mifUseLongIds :: Lens.Lens' ModifyIdFormat Lude.Bool
-mifUseLongIds = Lens.lens (useLongIds :: ModifyIdFormat -> Lude.Bool) (\s a -> s {useLongIds = a} :: ModifyIdFormat)
-{-# DEPRECATED mifUseLongIds "Use generic-lens or generic-optics with 'useLongIds' instead." #-}
 
 instance Lude.AWSRequest ModifyIdFormat where
   type Rs ModifyIdFormat = ModifyIdFormatResponse
@@ -99,19 +98,13 @@ instance Lude.ToQuery ModifyIdFormat where
     Lude.mconcat
       [ "Action" Lude.=: ("ModifyIdFormat" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Resource" Lude.=: resource,
-        "UseLongIds" Lude.=: useLongIds
+        "UseLongIds" Lude.=: useLongIds,
+        "Resource" Lude.=: resource
       ]
 
 -- | /See:/ 'mkModifyIdFormatResponse' smart constructor.
 data ModifyIdFormatResponse = ModifyIdFormatResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyIdFormatResponse' with the minimum fields required to make a request.

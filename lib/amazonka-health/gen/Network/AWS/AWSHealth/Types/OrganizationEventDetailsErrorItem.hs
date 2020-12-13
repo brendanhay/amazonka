@@ -31,30 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationEventDetailsErrorItem' smart constructor.
 data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
-  { awsAccountId ::
-      Lude.Maybe Lude.Text,
-    eventARN ::
-      Lude.Maybe Lude.Text,
-    errorName ::
-      Lude.Maybe Lude.Text,
-    errorMessage ::
-      Lude.Maybe Lude.Text
+  { -- | Error information returned when a <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization> operation cannot find a specified event.
+    awsAccountId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+    eventARN :: Lude.Maybe Lude.Text,
+    -- | The name of the error.
+    errorName :: Lude.Maybe Lude.Text,
+    -- | A message that describes the error.
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationEventDetailsErrorItem' with the minimum fields required to make a request.
 --
 -- * 'awsAccountId' - Error information returned when a <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization> operation cannot find a specified event.
--- * 'errorMessage' - A message that describes the error.
--- * 'errorName' - The name of the error.
 -- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+-- * 'errorName' - The name of the error.
+-- * 'errorMessage' - A message that describes the error.
 mkOrganizationEventDetailsErrorItem ::
   OrganizationEventDetailsErrorItem
 mkOrganizationEventDetailsErrorItem =

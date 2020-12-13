@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.ColorSpaceUsage
   ( ColorSpaceUsage
       ( ColorSpaceUsage',
-        Fallback,
-        Force
+        Force,
+        Fallback
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ColorSpaceUsage = ColorSpaceUsage' Lude.Text
       Lude.ToHeader
     )
 
-pattern Fallback :: ColorSpaceUsage
-pattern Fallback = ColorSpaceUsage' "FALLBACK"
-
 pattern Force :: ColorSpaceUsage
 pattern Force = ColorSpaceUsage' "FORCE"
 
+pattern Fallback :: ColorSpaceUsage
+pattern Fallback = ColorSpaceUsage' "FALLBACK"
+
 {-# COMPLETE
-  Fallback,
   Force,
+  Fallback,
   ColorSpaceUsage'
   #-}

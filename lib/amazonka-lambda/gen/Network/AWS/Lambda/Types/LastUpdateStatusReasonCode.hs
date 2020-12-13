@@ -15,11 +15,11 @@ module Network.AWS.Lambda.Types.LastUpdateStatusReasonCode
       ( LastUpdateStatusReasonCode',
         LUSRCEniLimitExceeded,
         LUSRCInsufficientRolePermissions,
-        LUSRCInternalError,
         LUSRCInvalidConfiguration,
-        LUSRCInvalidSecurityGroup,
+        LUSRCInternalError,
+        LUSRCSubnetOutOfIPAddresses,
         LUSRCInvalidSubnet,
-        LUSRCSubnetOutOfIPAddresses
+        LUSRCInvalidSecurityGroup
       ),
   )
 where
@@ -56,28 +56,28 @@ pattern LUSRCEniLimitExceeded = LastUpdateStatusReasonCode' "EniLimitExceeded"
 pattern LUSRCInsufficientRolePermissions :: LastUpdateStatusReasonCode
 pattern LUSRCInsufficientRolePermissions = LastUpdateStatusReasonCode' "InsufficientRolePermissions"
 
-pattern LUSRCInternalError :: LastUpdateStatusReasonCode
-pattern LUSRCInternalError = LastUpdateStatusReasonCode' "InternalError"
-
 pattern LUSRCInvalidConfiguration :: LastUpdateStatusReasonCode
 pattern LUSRCInvalidConfiguration = LastUpdateStatusReasonCode' "InvalidConfiguration"
 
-pattern LUSRCInvalidSecurityGroup :: LastUpdateStatusReasonCode
-pattern LUSRCInvalidSecurityGroup = LastUpdateStatusReasonCode' "InvalidSecurityGroup"
-
-pattern LUSRCInvalidSubnet :: LastUpdateStatusReasonCode
-pattern LUSRCInvalidSubnet = LastUpdateStatusReasonCode' "InvalidSubnet"
+pattern LUSRCInternalError :: LastUpdateStatusReasonCode
+pattern LUSRCInternalError = LastUpdateStatusReasonCode' "InternalError"
 
 pattern LUSRCSubnetOutOfIPAddresses :: LastUpdateStatusReasonCode
 pattern LUSRCSubnetOutOfIPAddresses = LastUpdateStatusReasonCode' "SubnetOutOfIPAddresses"
 
+pattern LUSRCInvalidSubnet :: LastUpdateStatusReasonCode
+pattern LUSRCInvalidSubnet = LastUpdateStatusReasonCode' "InvalidSubnet"
+
+pattern LUSRCInvalidSecurityGroup :: LastUpdateStatusReasonCode
+pattern LUSRCInvalidSecurityGroup = LastUpdateStatusReasonCode' "InvalidSecurityGroup"
+
 {-# COMPLETE
   LUSRCEniLimitExceeded,
   LUSRCInsufficientRolePermissions,
-  LUSRCInternalError,
   LUSRCInvalidConfiguration,
-  LUSRCInvalidSecurityGroup,
-  LUSRCInvalidSubnet,
+  LUSRCInternalError,
   LUSRCSubnetOutOfIPAddresses,
+  LUSRCInvalidSubnet,
+  LUSRCInvalidSecurityGroup,
   LastUpdateStatusReasonCode'
   #-}

@@ -58,54 +58,139 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Settings' smart constructor.
 data S3Settings = S3Settings'
-  { parquetVersion ::
-      Lude.Maybe ParquetVersionValue,
+  { -- | The version of the Apache Parquet format that you want to use: @parquet_1_0@ (the default) or @parquet_2_0@ .
+    parquetVersion :: Lude.Maybe ParquetVersionValue,
+    -- | A value that specifies the precision of any @TIMESTAMP@ column values that are written to an Amazon S3 object file in .parquet format.
+    --
+    -- When @ParquetTimestampInMillisecond@ is set to @true@ or @y@ , AWS DMS writes all @TIMESTAMP@ columns in a .parquet formatted file with millisecond precision. Otherwise, DMS writes them with microsecond precision.
+    -- Currently, Amazon Athena and AWS Glue can handle only millisecond precision for @TIMESTAMP@ values. Set this parameter to @true@ for S3 endpoint object files that are .parquet formatted only if you plan to query or process the data with Athena or AWS Glue.
     parquetTimestampInMillisecond :: Lude.Maybe Lude.Bool,
+    -- | A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database.
+    --
+    -- For full load, records can only be inserted. By default (the @false@ setting), no information is recorded in these output files for a full load to indicate that the rows were inserted at the source database. If @IncludeOpForFullLoad@ is set to @true@ or @y@ , the INSERT is recorded as an I annotation in the first field of the .csv file. This allows the format of your target records from a full load to be consistent with the target records from a CDC load.
     includeOpForFullLoad :: Lude.Maybe Lude.Bool,
+    -- | The delimiter used to separate columns in the .csv file for both source and target. The default is a comma.
     csvDelimiter :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) used by the service access IAM role. It is a required parameter that enables DMS to write and read objects from an 3S bucket.
     serviceAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path @/bucketFolder/ //schema_name/ //table_name/ /@ . If this parameter isn't specified, then the path used is @/schema_name/ //table_name/ /@ .
     bucketFolder :: Lude.Maybe Lude.Text,
+    -- | The format of the data that you want to use for output. You can choose one of the following:
+    --
+    --
+    --     * @csv@ : This is a row-based file format with comma-separated values (.csv).
+    --
+    --
+    --     * @parquet@ : Apache Parquet (.parquet) is a columnar storage file format that features efficient compression and provides faster query response.
     dataFormat :: Lude.Maybe DataFormatValue,
+    -- | When set to @true@ , this parameter partitions S3 bucket folders based on transaction commit dates. The default value is @false@ . For more information about date-based folder partitoning, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning> .
     datePartitionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The type of encoding you are using:
+    --
+    --
+    --     * @RLE_DICTIONARY@ uses a combination of bit-packing and run-length encoding to store repeated values more efficiently. This is the default.
+    --
+    --
+    --     * @PLAIN@ doesn't use encoding at all. Values are stored as they are.
+    --
+    --
+    --     * @PLAIN_DICTIONARY@ builds a dictionary of the values encountered in a given column. The dictionary is stored in a dictionary page for each column chunk.
     encodingType :: Lude.Maybe EncodingTypeValue,
+    -- | Specifies how tables are defined in the S3 source files only.
     externalTableDefinition :: Lude.Maybe Lude.Text,
+    -- | The maximum size of an encoded dictionary page of a column. If the dictionary page exceeds this, this column is stored using an encoding type of @PLAIN@ . This parameter defaults to 1024 * 1024 bytes (1 MiB), the maximum size of a dictionary page before it reverts to @PLAIN@ encoding. This size is used for .parquet file format only.
     dictPageSizeLimit :: Lude.Maybe Lude.Int,
+    -- | The name of the S3 bucket.
     bucketName :: Lude.Maybe Lude.Text,
+    -- | The type of server-side encryption that you want to use for your data. This encryption type is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either @SSE_S3@ (the default) or @SSE_KMS@ .
+    --
+    -- To use @SSE_S3@ , you need an AWS Identity and Access Management (IAM) role with permission to allow @"arn:aws:s3:::dms-*"@ to use the following actions:
+    --
+    --     * @s3:CreateBucket@
+    --
+    --
+    --     * @s3:ListBucket@
+    --
+    --
+    --     * @s3:DeleteBucket@
+    --
+    --
+    --     * @s3:GetBucketLocation@
+    --
+    --
+    --     * @s3:GetObject@
+    --
+    --
+    --     * @s3:PutObject@
+    --
+    --
+    --     * @s3:DeleteObject@
+    --
+    --
+    --     * @s3:GetObjectVersion@
+    --
+    --
+    --     * @s3:GetBucketPolicy@
+    --
+    --
+    --     * @s3:PutBucketPolicy@
+    --
+    --
+    --     * @s3:DeleteBucketPolicy@
     encryptionMode :: Lude.Maybe EncryptionModeValue,
+    -- | A value that enables statistics for Parquet pages and row groups. Choose @true@ to enable statistics, @false@ to disable. Statistics include @NULL@ , @DISTINCT@ , @MAX@ , and @MIN@ values. This parameter defaults to @true@ . This value is used for .parquet file format only.
     enableStatistics :: Lude.Maybe Lude.Bool,
+    -- | A value that enables a change data capture (CDC) load to write only INSERT operations to .csv or columnar storage (.parquet) output files. By default (the @false@ setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated, or deleted at the source database for a CDC load to the target.
+    --
+    -- If @CdcInsertsOnly@ is set to @true@ or @y@ , only INSERTs from the source database are migrated to the .csv or .parquet file. For .csv format only, how these INSERTs are recorded depends on the value of @IncludeOpForFullLoad@ . If @IncludeOpForFullLoad@ is set to @true@ , the first field of every CDC record is set to I to indicate the INSERT operation at the source. If @IncludeOpForFullLoad@ is set to @false@ , every CDC record is written without a first field to indicate the INSERT operation at the source. For more information about how these settings work together, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data> in the /AWS Database Migration Service User Guide./ .
     cdcInsertsOnly :: Lude.Maybe Lude.Bool,
+    -- | A value that when nonblank causes AWS DMS to add a column with timestamp information to the endpoint data for an Amazon S3 target.
+    --
+    -- DMS includes an additional @STRING@ column in the .csv or .parquet object files of your migrated data when you set @TimestampColumnName@ to a nonblank value.
+    -- For a full load, each row of this timestamp column contains a timestamp for when the data was transferred from the source to the target by DMS.
+    -- For a change data capture (CDC) load, each row of the timestamp column contains the timestamp for the commit of that row in the source database.
+    -- The string format for this timestamp column value is @yyyy-MM-dd HH:mm:ss.SSSSSS@ . By default, the precision of this value is in microseconds. For a CDC load, the rounding of the precision depends on the commit timestamp supported by DMS for the source database.
+    -- When the @AddColumnName@ parameter is set to @true@ , DMS also includes a name for the timestamp column that you set with @TimestampColumnName@ .
     timestampColumnName :: Lude.Maybe Lude.Text,
+    -- | The delimiter used to separate rows in the .csv file for both source and target. The default is a carriage return (@\n@ ).
     csvRowDelimiter :: Lude.Maybe Lude.Text,
+    -- | Specifies a date separating delimiter to use during folder partitioning. The default value is @SLASH@ . Use this parameter when @DatePartitionedEnabled@ is set to @true@ .
     datePartitionDelimiter :: Lude.Maybe DatePartitionDelimiterValue,
+    -- | An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Either set this parameter to NONE (the default) or don't use it to leave the files uncompressed. This parameter applies to both .csv and .parquet file formats.
     compressionType :: Lude.Maybe CompressionTypeValue,
+    -- | If you are using @SSE_KMS@ for the @EncryptionMode@ , provide the AWS KMS key ID. The key that you use needs an attached policy that enables AWS Identity and Access Management (IAM) user permissions and allows use of the key.
+    --
+    -- Here is a CLI example: @aws dms create-endpoint --endpoint-identifier /value/ --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=/value/ ,BucketFolder=/value/ ,BucketName=/value/ ,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=/value/ @
     serverSideEncryptionKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB). This number is used for .parquet file format only.
     dataPageSize :: Lude.Maybe Lude.Int,
+    -- | A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files. The default setting is @false@ , but when @CdcInsertsAndUpdates@ is set to @true@ or @y@ , only INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet file.
+    --
+    -- For .csv file format only, how these INSERTs and UPDATEs are recorded depends on the value of the @IncludeOpForFullLoad@ parameter. If @IncludeOpForFullLoad@ is set to @true@ , the first field of every CDC record is set to either @I@ or @U@ to indicate INSERT and UPDATE operations at the source. But if @IncludeOpForFullLoad@ is set to @false@ , CDC records are written without an indication of INSERT or UPDATE operations at the source. For more information about how these settings work together, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data> in the /AWS Database Migration Service User Guide./ .
     cdcInsertsAndUpdates :: Lude.Maybe Lude.Bool,
+    -- | Identifies the sequence of the date format to use during folder partitioning. The default value is @YYYYMMDD@ . Use this parameter when @DatePartitionedEnabled@ is set to @true@ .
     datePartitionSequence :: Lude.Maybe DatePartitionSequenceValue,
+    -- | The number of rows in a row group. A smaller row group size provides faster reads. But as the number of row groups grows, the slower writes become. This parameter defaults to 10,000 rows. This number is used for .parquet file format only.
+    --
+    -- If you choose a value larger than the maximum, @RowGroupLength@ is set to the max row group length in bytes (64 * 1024 * 1024).
     rowGroupLength :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Settings' with the minimum fields required to make a request.
 --
--- * 'bucketFolder' - An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path @/bucketFolder/ //schema_name/ //table_name/ /@ . If this parameter isn't specified, then the path used is @/schema_name/ //table_name/ /@ .
--- * 'bucketName' - The name of the S3 bucket.
--- * 'cdcInsertsAndUpdates' - A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files. The default setting is @false@ , but when @CdcInsertsAndUpdates@ is set to @true@ or @y@ , only INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet file.
+-- * 'parquetVersion' - The version of the Apache Parquet format that you want to use: @parquet_1_0@ (the default) or @parquet_2_0@ .
+-- * 'parquetTimestampInMillisecond' - A value that specifies the precision of any @TIMESTAMP@ column values that are written to an Amazon S3 object file in .parquet format.
 --
--- For .csv file format only, how these INSERTs and UPDATEs are recorded depends on the value of the @IncludeOpForFullLoad@ parameter. If @IncludeOpForFullLoad@ is set to @true@ , the first field of every CDC record is set to either @I@ or @U@ to indicate INSERT and UPDATE operations at the source. But if @IncludeOpForFullLoad@ is set to @false@ , CDC records are written without an indication of INSERT or UPDATE operations at the source. For more information about how these settings work together, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data> in the /AWS Database Migration Service User Guide./ .
--- * 'cdcInsertsOnly' - A value that enables a change data capture (CDC) load to write only INSERT operations to .csv or columnar storage (.parquet) output files. By default (the @false@ setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated, or deleted at the source database for a CDC load to the target.
+-- When @ParquetTimestampInMillisecond@ is set to @true@ or @y@ , AWS DMS writes all @TIMESTAMP@ columns in a .parquet formatted file with millisecond precision. Otherwise, DMS writes them with microsecond precision.
+-- Currently, Amazon Athena and AWS Glue can handle only millisecond precision for @TIMESTAMP@ values. Set this parameter to @true@ for S3 endpoint object files that are .parquet formatted only if you plan to query or process the data with Athena or AWS Glue.
+-- * 'includeOpForFullLoad' - A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database.
 --
--- If @CdcInsertsOnly@ is set to @true@ or @y@ , only INSERTs from the source database are migrated to the .csv or .parquet file. For .csv format only, how these INSERTs are recorded depends on the value of @IncludeOpForFullLoad@ . If @IncludeOpForFullLoad@ is set to @true@ , the first field of every CDC record is set to I to indicate the INSERT operation at the source. If @IncludeOpForFullLoad@ is set to @false@ , every CDC record is written without a first field to indicate the INSERT operation at the source. For more information about how these settings work together, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data> in the /AWS Database Migration Service User Guide./ .
--- * 'compressionType' - An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Either set this parameter to NONE (the default) or don't use it to leave the files uncompressed. This parameter applies to both .csv and .parquet file formats.
+-- For full load, records can only be inserted. By default (the @false@ setting), no information is recorded in these output files for a full load to indicate that the rows were inserted at the source database. If @IncludeOpForFullLoad@ is set to @true@ or @y@ , the INSERT is recorded as an I annotation in the first field of the .csv file. This allows the format of your target records from a full load to be consistent with the target records from a CDC load.
 -- * 'csvDelimiter' - The delimiter used to separate columns in the .csv file for both source and target. The default is a comma.
--- * 'csvRowDelimiter' - The delimiter used to separate rows in the .csv file for both source and target. The default is a carriage return (@\n@ ).
+-- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) used by the service access IAM role. It is a required parameter that enables DMS to write and read objects from an 3S bucket.
+-- * 'bucketFolder' - An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path @/bucketFolder/ //schema_name/ //table_name/ /@ . If this parameter isn't specified, then the path used is @/schema_name/ //table_name/ /@ .
 -- * 'dataFormat' - The format of the data that you want to use for output. You can choose one of the following:
 --
 --
@@ -115,12 +200,7 @@ data S3Settings = S3Settings'
 --     * @parquet@ : Apache Parquet (.parquet) is a columnar storage file format that features efficient compression and provides faster query response.
 --
 --
--- * 'dataPageSize' - The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB). This number is used for .parquet file format only.
--- * 'datePartitionDelimiter' - Specifies a date separating delimiter to use during folder partitioning. The default value is @SLASH@ . Use this parameter when @DatePartitionedEnabled@ is set to @true@ .
 -- * 'datePartitionEnabled' - When set to @true@ , this parameter partitions S3 bucket folders based on transaction commit dates. The default value is @false@ . For more information about date-based folder partitoning, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning> .
--- * 'datePartitionSequence' - Identifies the sequence of the date format to use during folder partitioning. The default value is @YYYYMMDD@ . Use this parameter when @DatePartitionedEnabled@ is set to @true@ .
--- * 'dictPageSizeLimit' - The maximum size of an encoded dictionary page of a column. If the dictionary page exceeds this, this column is stored using an encoding type of @PLAIN@ . This parameter defaults to 1024 * 1024 bytes (1 MiB), the maximum size of a dictionary page before it reverts to @PLAIN@ encoding. This size is used for .parquet file format only.
--- * 'enableStatistics' - A value that enables statistics for Parquet pages and row groups. Choose @true@ to enable statistics, @false@ to disable. Statistics include @NULL@ , @DISTINCT@ , @MAX@ , and @MIN@ values. This parameter defaults to @true@ . This value is used for .parquet file format only.
 -- * 'encodingType' - The type of encoding you are using:
 --
 --
@@ -133,6 +213,9 @@ data S3Settings = S3Settings'
 --     * @PLAIN_DICTIONARY@ builds a dictionary of the values encountered in a given column. The dictionary is stored in a dictionary page for each column chunk.
 --
 --
+-- * 'externalTableDefinition' - Specifies how tables are defined in the S3 source files only.
+-- * 'dictPageSizeLimit' - The maximum size of an encoded dictionary page of a column. If the dictionary page exceeds this, this column is stored using an encoding type of @PLAIN@ . This parameter defaults to 1024 * 1024 bytes (1 MiB), the maximum size of a dictionary page before it reverts to @PLAIN@ encoding. This size is used for .parquet file format only.
+-- * 'bucketName' - The name of the S3 bucket.
 -- * 'encryptionMode' - The type of server-side encryption that you want to use for your data. This encryption type is part of the endpoint settings or the extra connections attributes for Amazon S3. You can choose either @SSE_S3@ (the default) or @SSE_KMS@ .
 --
 -- To use @SSE_S3@ , you need an AWS Identity and Access Management (IAM) role with permission to allow @"arn:aws:s3:::dms-*"@ to use the following actions:
@@ -170,22 +253,10 @@ data S3Settings = S3Settings'
 --     * @s3:DeleteBucketPolicy@
 --
 --
--- * 'externalTableDefinition' - Specifies how tables are defined in the S3 source files only.
--- * 'includeOpForFullLoad' - A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database.
+-- * 'enableStatistics' - A value that enables statistics for Parquet pages and row groups. Choose @true@ to enable statistics, @false@ to disable. Statistics include @NULL@ , @DISTINCT@ , @MAX@ , and @MIN@ values. This parameter defaults to @true@ . This value is used for .parquet file format only.
+-- * 'cdcInsertsOnly' - A value that enables a change data capture (CDC) load to write only INSERT operations to .csv or columnar storage (.parquet) output files. By default (the @false@ setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated, or deleted at the source database for a CDC load to the target.
 --
--- For full load, records can only be inserted. By default (the @false@ setting), no information is recorded in these output files for a full load to indicate that the rows were inserted at the source database. If @IncludeOpForFullLoad@ is set to @true@ or @y@ , the INSERT is recorded as an I annotation in the first field of the .csv file. This allows the format of your target records from a full load to be consistent with the target records from a CDC load.
--- * 'parquetTimestampInMillisecond' - A value that specifies the precision of any @TIMESTAMP@ column values that are written to an Amazon S3 object file in .parquet format.
---
--- When @ParquetTimestampInMillisecond@ is set to @true@ or @y@ , AWS DMS writes all @TIMESTAMP@ columns in a .parquet formatted file with millisecond precision. Otherwise, DMS writes them with microsecond precision.
--- Currently, Amazon Athena and AWS Glue can handle only millisecond precision for @TIMESTAMP@ values. Set this parameter to @true@ for S3 endpoint object files that are .parquet formatted only if you plan to query or process the data with Athena or AWS Glue.
--- * 'parquetVersion' - The version of the Apache Parquet format that you want to use: @parquet_1_0@ (the default) or @parquet_2_0@ .
--- * 'rowGroupLength' - The number of rows in a row group. A smaller row group size provides faster reads. But as the number of row groups grows, the slower writes become. This parameter defaults to 10,000 rows. This number is used for .parquet file format only.
---
--- If you choose a value larger than the maximum, @RowGroupLength@ is set to the max row group length in bytes (64 * 1024 * 1024).
--- * 'serverSideEncryptionKMSKeyId' - If you are using @SSE_KMS@ for the @EncryptionMode@ , provide the AWS KMS key ID. The key that you use needs an attached policy that enables AWS Identity and Access Management (IAM) user permissions and allows use of the key.
---
--- Here is a CLI example: @aws dms create-endpoint --endpoint-identifier /value/ --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=/value/ ,BucketFolder=/value/ ,BucketName=/value/ ,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=/value/ @
--- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) used by the service access IAM role. It is a required parameter that enables DMS to write and read objects from an 3S bucket.
+-- If @CdcInsertsOnly@ is set to @true@ or @y@ , only INSERTs from the source database are migrated to the .csv or .parquet file. For .csv format only, how these INSERTs are recorded depends on the value of @IncludeOpForFullLoad@ . If @IncludeOpForFullLoad@ is set to @true@ , the first field of every CDC record is set to I to indicate the INSERT operation at the source. If @IncludeOpForFullLoad@ is set to @false@ , every CDC record is written without a first field to indicate the INSERT operation at the source. For more information about how these settings work together, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data> in the /AWS Database Migration Service User Guide./ .
 -- * 'timestampColumnName' - A value that when nonblank causes AWS DMS to add a column with timestamp information to the endpoint data for an Amazon S3 target.
 --
 -- DMS includes an additional @STRING@ column in the .csv or .parquet object files of your migrated data when you set @TimestampColumnName@ to a nonblank value.
@@ -193,6 +264,20 @@ data S3Settings = S3Settings'
 -- For a change data capture (CDC) load, each row of the timestamp column contains the timestamp for the commit of that row in the source database.
 -- The string format for this timestamp column value is @yyyy-MM-dd HH:mm:ss.SSSSSS@ . By default, the precision of this value is in microseconds. For a CDC load, the rounding of the precision depends on the commit timestamp supported by DMS for the source database.
 -- When the @AddColumnName@ parameter is set to @true@ , DMS also includes a name for the timestamp column that you set with @TimestampColumnName@ .
+-- * 'csvRowDelimiter' - The delimiter used to separate rows in the .csv file for both source and target. The default is a carriage return (@\n@ ).
+-- * 'datePartitionDelimiter' - Specifies a date separating delimiter to use during folder partitioning. The default value is @SLASH@ . Use this parameter when @DatePartitionedEnabled@ is set to @true@ .
+-- * 'compressionType' - An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Either set this parameter to NONE (the default) or don't use it to leave the files uncompressed. This parameter applies to both .csv and .parquet file formats.
+-- * 'serverSideEncryptionKMSKeyId' - If you are using @SSE_KMS@ for the @EncryptionMode@ , provide the AWS KMS key ID. The key that you use needs an attached policy that enables AWS Identity and Access Management (IAM) user permissions and allows use of the key.
+--
+-- Here is a CLI example: @aws dms create-endpoint --endpoint-identifier /value/ --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=/value/ ,BucketFolder=/value/ ,BucketName=/value/ ,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=/value/ @
+-- * 'dataPageSize' - The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB). This number is used for .parquet file format only.
+-- * 'cdcInsertsAndUpdates' - A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files. The default setting is @false@ , but when @CdcInsertsAndUpdates@ is set to @true@ or @y@ , only INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet file.
+--
+-- For .csv file format only, how these INSERTs and UPDATEs are recorded depends on the value of the @IncludeOpForFullLoad@ parameter. If @IncludeOpForFullLoad@ is set to @true@ , the first field of every CDC record is set to either @I@ or @U@ to indicate INSERT and UPDATE operations at the source. But if @IncludeOpForFullLoad@ is set to @false@ , CDC records are written without an indication of INSERT or UPDATE operations at the source. For more information about how these settings work together, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps Indicating Source DB Operations in Migrated S3 Data> in the /AWS Database Migration Service User Guide./ .
+-- * 'datePartitionSequence' - Identifies the sequence of the date format to use during folder partitioning. The default value is @YYYYMMDD@ . Use this parameter when @DatePartitionedEnabled@ is set to @true@ .
+-- * 'rowGroupLength' - The number of rows in a row group. A smaller row group size provides faster reads. But as the number of row groups grows, the slower writes become. This parameter defaults to 10,000 rows. This number is used for .parquet file format only.
+--
+-- If you choose a value larger than the maximum, @RowGroupLength@ is set to the max row group length in bytes (64 * 1024 * 1024).
 mkS3Settings ::
   S3Settings
 mkS3Settings =

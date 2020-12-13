@@ -17,12 +17,12 @@ module Network.AWS.SageMaker.Types.LabelingJobForWorkteamSummary
     mkLabelingJobForWorkteamSummary,
 
     -- * Lenses
+    ljfwsCreationTime,
     ljfwsNumberOfHumanWorkersPerDataObject,
+    ljfwsWorkRequesterAccountId,
     ljfwsLabelCounters,
     ljfwsLabelingJobName,
     ljfwsJobReferenceCode,
-    ljfwsWorkRequesterAccountId,
-    ljfwsCreationTime,
   )
 where
 
@@ -34,56 +34,57 @@ import Network.AWS.SageMaker.Types.LabelCountersForWorkteam
 --
 -- /See:/ 'mkLabelingJobForWorkteamSummary' smart constructor.
 data LabelingJobForWorkteamSummary = LabelingJobForWorkteamSummary'
-  { numberOfHumanWorkersPerDataObject ::
-      Lude.Maybe Lude.Natural,
-    labelCounters ::
-      Lude.Maybe
-        LabelCountersForWorkteam,
-    labelingJobName ::
-      Lude.Maybe Lude.Text,
-    jobReferenceCode :: Lude.Text,
-    workRequesterAccountId ::
-      Lude.Text,
-    creationTime :: Lude.Timestamp
+  { -- | The date and time that the labeling job was created.
+    creationTime :: Lude.Timestamp,
+    -- | The configured number of workers per data object.
+    numberOfHumanWorkersPerDataObject :: Lude.Maybe Lude.Natural,
+    -- |
+    workRequesterAccountId :: Lude.Text,
+    -- | Provides information about the progress of a labeling job.
+    labelCounters :: Lude.Maybe LabelCountersForWorkteam,
+    -- | The name of the labeling job that the work team is assigned to.
+    labelingJobName :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a labeling job. You can use this to refer to a specific labeling job.
+    jobReferenceCode :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobForWorkteamSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The date and time that the labeling job was created.
--- * 'jobReferenceCode' - A unique identifier for a labeling job. You can use this to refer to a specific labeling job.
--- * 'labelCounters' - Provides information about the progress of a labeling job.
--- * 'labelingJobName' - The name of the labeling job that the work team is assigned to.
 -- * 'numberOfHumanWorkersPerDataObject' - The configured number of workers per data object.
 -- * 'workRequesterAccountId' -
+-- * 'labelCounters' - Provides information about the progress of a labeling job.
+-- * 'labelingJobName' - The name of the labeling job that the work team is assigned to.
+-- * 'jobReferenceCode' - A unique identifier for a labeling job. You can use this to refer to a specific labeling job.
 mkLabelingJobForWorkteamSummary ::
-  -- | 'jobReferenceCode'
-  Lude.Text ->
-  -- | 'workRequesterAccountId'
-  Lude.Text ->
   -- | 'creationTime'
   Lude.Timestamp ->
+  -- | 'workRequesterAccountId'
+  Lude.Text ->
+  -- | 'jobReferenceCode'
+  Lude.Text ->
   LabelingJobForWorkteamSummary
 mkLabelingJobForWorkteamSummary
-  pJobReferenceCode_
+  pCreationTime_
   pWorkRequesterAccountId_
-  pCreationTime_ =
+  pJobReferenceCode_ =
     LabelingJobForWorkteamSummary'
-      { numberOfHumanWorkersPerDataObject =
-          Lude.Nothing,
+      { creationTime = pCreationTime_,
+        numberOfHumanWorkersPerDataObject = Lude.Nothing,
+        workRequesterAccountId = pWorkRequesterAccountId_,
         labelCounters = Lude.Nothing,
         labelingJobName = Lude.Nothing,
-        jobReferenceCode = pJobReferenceCode_,
-        workRequesterAccountId = pWorkRequesterAccountId_,
-        creationTime = pCreationTime_
+        jobReferenceCode = pJobReferenceCode_
       }
+
+-- | The date and time that the labeling job was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljfwsCreationTime :: Lens.Lens' LabelingJobForWorkteamSummary Lude.Timestamp
+ljfwsCreationTime = Lens.lens (creationTime :: LabelingJobForWorkteamSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: LabelingJobForWorkteamSummary)
+{-# DEPRECATED ljfwsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The configured number of workers per data object.
 --
@@ -91,6 +92,13 @@ mkLabelingJobForWorkteamSummary
 ljfwsNumberOfHumanWorkersPerDataObject :: Lens.Lens' LabelingJobForWorkteamSummary (Lude.Maybe Lude.Natural)
 ljfwsNumberOfHumanWorkersPerDataObject = Lens.lens (numberOfHumanWorkersPerDataObject :: LabelingJobForWorkteamSummary -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfHumanWorkersPerDataObject = a} :: LabelingJobForWorkteamSummary)
 {-# DEPRECATED ljfwsNumberOfHumanWorkersPerDataObject "Use generic-lens or generic-optics with 'numberOfHumanWorkersPerDataObject' instead." #-}
+
+-- |
+--
+-- /Note:/ Consider using 'workRequesterAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljfwsWorkRequesterAccountId :: Lens.Lens' LabelingJobForWorkteamSummary Lude.Text
+ljfwsWorkRequesterAccountId = Lens.lens (workRequesterAccountId :: LabelingJobForWorkteamSummary -> Lude.Text) (\s a -> s {workRequesterAccountId = a} :: LabelingJobForWorkteamSummary)
+{-# DEPRECATED ljfwsWorkRequesterAccountId "Use generic-lens or generic-optics with 'workRequesterAccountId' instead." #-}
 
 -- | Provides information about the progress of a labeling job.
 --
@@ -113,30 +121,16 @@ ljfwsJobReferenceCode :: Lens.Lens' LabelingJobForWorkteamSummary Lude.Text
 ljfwsJobReferenceCode = Lens.lens (jobReferenceCode :: LabelingJobForWorkteamSummary -> Lude.Text) (\s a -> s {jobReferenceCode = a} :: LabelingJobForWorkteamSummary)
 {-# DEPRECATED ljfwsJobReferenceCode "Use generic-lens or generic-optics with 'jobReferenceCode' instead." #-}
 
--- |
---
--- /Note:/ Consider using 'workRequesterAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljfwsWorkRequesterAccountId :: Lens.Lens' LabelingJobForWorkteamSummary Lude.Text
-ljfwsWorkRequesterAccountId = Lens.lens (workRequesterAccountId :: LabelingJobForWorkteamSummary -> Lude.Text) (\s a -> s {workRequesterAccountId = a} :: LabelingJobForWorkteamSummary)
-{-# DEPRECATED ljfwsWorkRequesterAccountId "Use generic-lens or generic-optics with 'workRequesterAccountId' instead." #-}
-
--- | The date and time that the labeling job was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljfwsCreationTime :: Lens.Lens' LabelingJobForWorkteamSummary Lude.Timestamp
-ljfwsCreationTime = Lens.lens (creationTime :: LabelingJobForWorkteamSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: LabelingJobForWorkteamSummary)
-{-# DEPRECATED ljfwsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
 instance Lude.FromJSON LabelingJobForWorkteamSummary where
   parseJSON =
     Lude.withObject
       "LabelingJobForWorkteamSummary"
       ( \x ->
           LabelingJobForWorkteamSummary'
-            Lude.<$> (x Lude..:? "NumberOfHumanWorkersPerDataObject")
+            Lude.<$> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..:? "NumberOfHumanWorkersPerDataObject")
+            Lude.<*> (x Lude..: "WorkRequesterAccountId")
             Lude.<*> (x Lude..:? "LabelCounters")
             Lude.<*> (x Lude..:? "LabelingJobName")
             Lude.<*> (x Lude..: "JobReferenceCode")
-            Lude.<*> (x Lude..: "WorkRequesterAccountId")
-            Lude.<*> (x Lude..: "CreationTime")
       )

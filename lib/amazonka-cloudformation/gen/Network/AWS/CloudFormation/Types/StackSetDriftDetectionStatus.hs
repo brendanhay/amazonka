@@ -15,8 +15,8 @@ module Network.AWS.CloudFormation.Types.StackSetDriftDetectionStatus
       ( StackSetDriftDetectionStatus',
         SSDDSCompleted,
         SSDDSFailed,
-        SSDDSInProgress,
         SSDDSPartialSuccess,
+        SSDDSInProgress,
         SSDDSStopped
       ),
   )
@@ -54,11 +54,11 @@ pattern SSDDSCompleted = StackSetDriftDetectionStatus' "COMPLETED"
 pattern SSDDSFailed :: StackSetDriftDetectionStatus
 pattern SSDDSFailed = StackSetDriftDetectionStatus' "FAILED"
 
-pattern SSDDSInProgress :: StackSetDriftDetectionStatus
-pattern SSDDSInProgress = StackSetDriftDetectionStatus' "IN_PROGRESS"
-
 pattern SSDDSPartialSuccess :: StackSetDriftDetectionStatus
 pattern SSDDSPartialSuccess = StackSetDriftDetectionStatus' "PARTIAL_SUCCESS"
+
+pattern SSDDSInProgress :: StackSetDriftDetectionStatus
+pattern SSDDSInProgress = StackSetDriftDetectionStatus' "IN_PROGRESS"
 
 pattern SSDDSStopped :: StackSetDriftDetectionStatus
 pattern SSDDSStopped = StackSetDriftDetectionStatus' "STOPPED"
@@ -66,8 +66,8 @@ pattern SSDDSStopped = StackSetDriftDetectionStatus' "STOPPED"
 {-# COMPLETE
   SSDDSCompleted,
   SSDDSFailed,
-  SSDDSInProgress,
   SSDDSPartialSuccess,
+  SSDDSInProgress,
   SSDDSStopped,
   StackSetDriftDetectionStatus'
   #-}

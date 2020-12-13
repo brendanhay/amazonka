@@ -13,17 +13,17 @@
 module Network.AWS.DirectoryService.Types.DirectoryStage
   ( DirectoryStage
       ( DirectoryStage',
-        DSActive,
-        DSCreated,
-        DSCreating,
-        DSDeleted,
-        DSDeleting,
-        DSFailed,
-        DSImpaired,
-        DSInoperable,
         DSRequested,
+        DSCreating,
+        DSCreated,
+        DSActive,
+        DSInoperable,
+        DSImpaired,
+        DSRestoring,
         DSRestoreFailed,
-        DSRestoring
+        DSDeleting,
+        DSDeleted,
+        DSFailed
       ),
   )
 where
@@ -54,50 +54,50 @@ newtype DirectoryStage = DirectoryStage' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSActive :: DirectoryStage
-pattern DSActive = DirectoryStage' "Active"
-
-pattern DSCreated :: DirectoryStage
-pattern DSCreated = DirectoryStage' "Created"
+pattern DSRequested :: DirectoryStage
+pattern DSRequested = DirectoryStage' "Requested"
 
 pattern DSCreating :: DirectoryStage
 pattern DSCreating = DirectoryStage' "Creating"
 
-pattern DSDeleted :: DirectoryStage
-pattern DSDeleted = DirectoryStage' "Deleted"
+pattern DSCreated :: DirectoryStage
+pattern DSCreated = DirectoryStage' "Created"
 
-pattern DSDeleting :: DirectoryStage
-pattern DSDeleting = DirectoryStage' "Deleting"
-
-pattern DSFailed :: DirectoryStage
-pattern DSFailed = DirectoryStage' "Failed"
-
-pattern DSImpaired :: DirectoryStage
-pattern DSImpaired = DirectoryStage' "Impaired"
+pattern DSActive :: DirectoryStage
+pattern DSActive = DirectoryStage' "Active"
 
 pattern DSInoperable :: DirectoryStage
 pattern DSInoperable = DirectoryStage' "Inoperable"
 
-pattern DSRequested :: DirectoryStage
-pattern DSRequested = DirectoryStage' "Requested"
-
-pattern DSRestoreFailed :: DirectoryStage
-pattern DSRestoreFailed = DirectoryStage' "RestoreFailed"
+pattern DSImpaired :: DirectoryStage
+pattern DSImpaired = DirectoryStage' "Impaired"
 
 pattern DSRestoring :: DirectoryStage
 pattern DSRestoring = DirectoryStage' "Restoring"
 
+pattern DSRestoreFailed :: DirectoryStage
+pattern DSRestoreFailed = DirectoryStage' "RestoreFailed"
+
+pattern DSDeleting :: DirectoryStage
+pattern DSDeleting = DirectoryStage' "Deleting"
+
+pattern DSDeleted :: DirectoryStage
+pattern DSDeleted = DirectoryStage' "Deleted"
+
+pattern DSFailed :: DirectoryStage
+pattern DSFailed = DirectoryStage' "Failed"
+
 {-# COMPLETE
-  DSActive,
-  DSCreated,
-  DSCreating,
-  DSDeleted,
-  DSDeleting,
-  DSFailed,
-  DSImpaired,
-  DSInoperable,
   DSRequested,
-  DSRestoreFailed,
+  DSCreating,
+  DSCreated,
+  DSActive,
+  DSInoperable,
+  DSImpaired,
   DSRestoring,
+  DSRestoreFailed,
+  DSDeleting,
+  DSDeleted,
+  DSFailed,
   DirectoryStage'
   #-}

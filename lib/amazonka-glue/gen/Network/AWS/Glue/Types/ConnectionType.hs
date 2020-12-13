@@ -14,10 +14,10 @@ module Network.AWS.Glue.Types.ConnectionType
   ( ConnectionType
       ( ConnectionType',
         Jdbc,
-        Kafka,
+        Sftp,
         Mongodb,
-        Network,
-        Sftp
+        Kafka,
+        Network
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype ConnectionType = ConnectionType' Lude.Text
 pattern Jdbc :: ConnectionType
 pattern Jdbc = ConnectionType' "JDBC"
 
-pattern Kafka :: ConnectionType
-pattern Kafka = ConnectionType' "KAFKA"
+pattern Sftp :: ConnectionType
+pattern Sftp = ConnectionType' "SFTP"
 
 pattern Mongodb :: ConnectionType
 pattern Mongodb = ConnectionType' "MONGODB"
 
+pattern Kafka :: ConnectionType
+pattern Kafka = ConnectionType' "KAFKA"
+
 pattern Network :: ConnectionType
 pattern Network = ConnectionType' "NETWORK"
 
-pattern Sftp :: ConnectionType
-pattern Sftp = ConnectionType' "SFTP"
-
 {-# COMPLETE
   Jdbc,
-  Kafka,
-  Mongodb,
-  Network,
   Sftp,
+  Mongodb,
+  Kafka,
+  Network,
   ConnectionType'
   #-}

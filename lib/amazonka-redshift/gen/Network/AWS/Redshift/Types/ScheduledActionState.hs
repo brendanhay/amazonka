@@ -13,8 +13,8 @@
 module Network.AWS.Redshift.Types.ScheduledActionState
   ( ScheduledActionState
       ( ScheduledActionState',
-        SASActive,
-        SASDisabled
+        Active,
+        Disabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ScheduledActionState = ScheduledActionState' Lude.Text
       Lude.ToHeader
     )
 
-pattern SASActive :: ScheduledActionState
-pattern SASActive = ScheduledActionState' "ACTIVE"
+pattern Active :: ScheduledActionState
+pattern Active = ScheduledActionState' "ACTIVE"
 
-pattern SASDisabled :: ScheduledActionState
-pattern SASDisabled = ScheduledActionState' "DISABLED"
+pattern Disabled :: ScheduledActionState
+pattern Disabled = ScheduledActionState' "DISABLED"
 
 {-# COMPLETE
-  SASActive,
-  SASDisabled,
+  Active,
+  Disabled,
   ScheduledActionState'
   #-}

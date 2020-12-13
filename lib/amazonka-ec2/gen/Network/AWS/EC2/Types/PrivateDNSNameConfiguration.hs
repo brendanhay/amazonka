@@ -32,29 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrivateDNSNameConfiguration' smart constructor.
 data PrivateDNSNameConfiguration = PrivateDNSNameConfiguration'
-  { state ::
-      Lude.Maybe DNSNameState,
+  { -- | The verification state of the VPC endpoint service.
+    --
+    -- >Consumers of the endpoint service can use the private name only when the state is @verified@ .
+    state :: Lude.Maybe DNSNameState,
+    -- | The value the service provider adds to the private DNS name domain record before verification.
     value :: Lude.Maybe Lude.Text,
+    -- | The name of the record subdomain the service provider needs to create. The service provider adds the @value@ text to the @name@ .
     name :: Lude.Maybe Lude.Text,
+    -- | The endpoint service verification type, for example TXT.
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrivateDNSNameConfiguration' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the record subdomain the service provider needs to create. The service provider adds the @value@ text to the @name@ .
 -- * 'state' - The verification state of the VPC endpoint service.
 --
 -- >Consumers of the endpoint service can use the private name only when the state is @verified@ .
--- * 'type'' - The endpoint service verification type, for example TXT.
 -- * 'value' - The value the service provider adds to the private DNS name domain record before verification.
+-- * 'name' - The name of the record subdomain the service provider needs to create. The service provider adds the @value@ text to the @name@ .
+-- * 'type'' - The endpoint service verification type, for example TXT.
 mkPrivateDNSNameConfiguration ::
   PrivateDNSNameConfiguration
 mkPrivateDNSNameConfiguration =

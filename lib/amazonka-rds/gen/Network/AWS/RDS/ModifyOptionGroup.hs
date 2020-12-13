@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,29 +45,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyOptionGroup' smart constructor.
 data ModifyOptionGroup = ModifyOptionGroup'
-  { optionsToInclude ::
-      Lude.Maybe [OptionConfiguration],
+  { -- | Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
+    optionsToInclude :: Lude.Maybe [OptionConfiguration],
+    -- | Options in this list are removed from the option group.
     optionsToRemove :: Lude.Maybe [Lude.Text],
+    -- | A value that indicates whether to apply the change immediately or during the next maintenance window for each instance associated with the option group.
     applyImmediately :: Lude.Maybe Lude.Bool,
+    -- | The name of the option group to be modified.
+    --
+    -- Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
     optionGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyOptionGroup' with the minimum fields required to make a request.
 --
+-- * 'optionsToInclude' - Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
+-- * 'optionsToRemove' - Options in this list are removed from the option group.
 -- * 'applyImmediately' - A value that indicates whether to apply the change immediately or during the next maintenance window for each instance associated with the option group.
 -- * 'optionGroupName' - The name of the option group to be modified.
 --
 -- Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
--- * 'optionsToInclude' - Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
--- * 'optionsToRemove' - Options in this list are removed from the option group.
 mkModifyOptionGroup ::
   -- | 'optionGroupName'
   Lude.Text ->
@@ -142,22 +142,16 @@ instance Lude.ToQuery ModifyOptionGroup where
 
 -- | /See:/ 'mkModifyOptionGroupResponse' smart constructor.
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
-  { optionGroup ::
-      Lude.Maybe OptionGroup,
+  { optionGroup :: Lude.Maybe OptionGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyOptionGroupResponse' with the minimum fields required to make a request.
 --
--- * 'optionGroup' - Undocumented field.
+-- * 'optionGroup' -
 -- * 'responseStatus' - The response status code.
 mkModifyOptionGroupResponse ::
   -- | 'responseStatus'

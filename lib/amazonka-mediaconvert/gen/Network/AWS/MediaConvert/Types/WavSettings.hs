@@ -32,19 +32,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWavSettings' smart constructor.
 data WavSettings = WavSettings'
-  { bitDepth ::
-      Lude.Maybe Lude.Natural,
+  { -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track.
+    bitDepth :: Lude.Maybe Lude.Natural,
+    -- | Specify the number of channels in this output audio track. Valid values are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up to 64.
     channels :: Lude.Maybe Lude.Natural,
+    -- | The service defaults to using RIFF for WAV outputs. If your output audio is likely to exceed 4 GB in file size, or if you otherwise need the extended support of the RF64 format, set your output WAV file format to RF64.
     format :: Lude.Maybe WavFormat,
+    -- | Sample rate in Hz.
     sampleRate :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WavSettings' with the minimum fields required to make a request.

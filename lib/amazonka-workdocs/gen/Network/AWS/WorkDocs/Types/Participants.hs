@@ -31,17 +31,12 @@ import Network.AWS.WorkDocs.Types.UserMetadata
 --
 -- /See:/ 'mkParticipants' smart constructor.
 data Participants = Participants'
-  { groups ::
-      Lude.Maybe [GroupMetadata],
+  { -- | The list of user groups.
+    groups :: Lude.Maybe [GroupMetadata],
+    -- | The list of users.
     users :: Lude.Maybe [UserMetadata]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Participants' with the minimum fields required to make a request.

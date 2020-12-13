@@ -36,35 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBotAliasMetadata' smart constructor.
 data BotAliasMetadata = BotAliasMetadata'
-  { checksum ::
-      Lude.Maybe Lude.Text,
+  { -- | Checksum of the bot alias.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The version of the Amazon Lex bot to which the alias points.
     botVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the bot to which the alias points.
     botName :: Lude.Maybe Lude.Text,
+    -- | The date that the bot alias was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the bot alias.
     name :: Lude.Maybe Lude.Text,
+    -- | Settings that determine how Amazon Lex uses conversation logs for the alias.
     conversationLogs :: Lude.Maybe ConversationLogsResponse,
+    -- | The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the bot alias.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BotAliasMetadata' with the minimum fields required to make a request.
 --
--- * 'botName' - The name of the bot to which the alias points.
--- * 'botVersion' - The version of the Amazon Lex bot to which the alias points.
 -- * 'checksum' - Checksum of the bot alias.
--- * 'conversationLogs' - Settings that determine how Amazon Lex uses conversation logs for the alias.
+-- * 'botVersion' - The version of the Amazon Lex bot to which the alias points.
+-- * 'botName' - The name of the bot to which the alias points.
 -- * 'createdDate' - The date that the bot alias was created.
--- * 'description' - A description of the bot alias.
--- * 'lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same.
 -- * 'name' - The name of the bot alias.
+-- * 'conversationLogs' - Settings that determine how Amazon Lex uses conversation logs for the alias.
+-- * 'lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the creation date and last updated date are the same.
+-- * 'description' - A description of the bot alias.
 mkBotAliasMetadata ::
   BotAliasMetadata
 mkBotAliasMetadata =

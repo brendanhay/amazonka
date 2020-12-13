@@ -17,8 +17,8 @@ module Network.AWS.MediaLive.Types.Scte35DeliveryRestrictions
     mkScte35DeliveryRestrictions,
 
     -- * Lenses
-    sdrDeviceRestrictions,
     sdrArchiveAllowedFlag,
+    sdrDeviceRestrictions,
     sdrWebDeliveryAllowedFlag,
     sdrNoRegionalBlackoutFlag,
   )
@@ -35,59 +35,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScte35DeliveryRestrictions' smart constructor.
 data Scte35DeliveryRestrictions = Scte35DeliveryRestrictions'
-  { deviceRestrictions ::
-      Scte35DeviceRestrictions,
-    archiveAllowedFlag ::
-      Scte35ArchiveAllowedFlag,
-    webDeliveryAllowedFlag ::
-      Scte35WebDeliveryAllowedFlag,
-    noRegionalBlackoutFlag ::
-      Scte35NoRegionalBlackoutFlag
+  { -- | Corresponds to SCTE-35 archive_allowed_flag.
+    archiveAllowedFlag :: Scte35ArchiveAllowedFlag,
+    -- | Corresponds to SCTE-35 device_restrictions parameter.
+    deviceRestrictions :: Scte35DeviceRestrictions,
+    -- | Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
+    webDeliveryAllowedFlag :: Scte35WebDeliveryAllowedFlag,
+    -- | Corresponds to SCTE-35 no_regional_blackout_flag parameter.
+    noRegionalBlackoutFlag :: Scte35NoRegionalBlackoutFlag
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35DeliveryRestrictions' with the minimum fields required to make a request.
 --
 -- * 'archiveAllowedFlag' - Corresponds to SCTE-35 archive_allowed_flag.
 -- * 'deviceRestrictions' - Corresponds to SCTE-35 device_restrictions parameter.
--- * 'noRegionalBlackoutFlag' - Corresponds to SCTE-35 no_regional_blackout_flag parameter.
 -- * 'webDeliveryAllowedFlag' - Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
+-- * 'noRegionalBlackoutFlag' - Corresponds to SCTE-35 no_regional_blackout_flag parameter.
 mkScte35DeliveryRestrictions ::
-  -- | 'deviceRestrictions'
-  Scte35DeviceRestrictions ->
   -- | 'archiveAllowedFlag'
   Scte35ArchiveAllowedFlag ->
+  -- | 'deviceRestrictions'
+  Scte35DeviceRestrictions ->
   -- | 'webDeliveryAllowedFlag'
   Scte35WebDeliveryAllowedFlag ->
   -- | 'noRegionalBlackoutFlag'
   Scte35NoRegionalBlackoutFlag ->
   Scte35DeliveryRestrictions
 mkScte35DeliveryRestrictions
-  pDeviceRestrictions_
   pArchiveAllowedFlag_
+  pDeviceRestrictions_
   pWebDeliveryAllowedFlag_
   pNoRegionalBlackoutFlag_ =
     Scte35DeliveryRestrictions'
-      { deviceRestrictions =
-          pDeviceRestrictions_,
-        archiveAllowedFlag = pArchiveAllowedFlag_,
+      { archiveAllowedFlag =
+          pArchiveAllowedFlag_,
+        deviceRestrictions = pDeviceRestrictions_,
         webDeliveryAllowedFlag = pWebDeliveryAllowedFlag_,
         noRegionalBlackoutFlag = pNoRegionalBlackoutFlag_
       }
-
--- | Corresponds to SCTE-35 device_restrictions parameter.
---
--- /Note:/ Consider using 'deviceRestrictions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdrDeviceRestrictions :: Lens.Lens' Scte35DeliveryRestrictions Scte35DeviceRestrictions
-sdrDeviceRestrictions = Lens.lens (deviceRestrictions :: Scte35DeliveryRestrictions -> Scte35DeviceRestrictions) (\s a -> s {deviceRestrictions = a} :: Scte35DeliveryRestrictions)
-{-# DEPRECATED sdrDeviceRestrictions "Use generic-lens or generic-optics with 'deviceRestrictions' instead." #-}
 
 -- | Corresponds to SCTE-35 archive_allowed_flag.
 --
@@ -95,6 +82,13 @@ sdrDeviceRestrictions = Lens.lens (deviceRestrictions :: Scte35DeliveryRestricti
 sdrArchiveAllowedFlag :: Lens.Lens' Scte35DeliveryRestrictions Scte35ArchiveAllowedFlag
 sdrArchiveAllowedFlag = Lens.lens (archiveAllowedFlag :: Scte35DeliveryRestrictions -> Scte35ArchiveAllowedFlag) (\s a -> s {archiveAllowedFlag = a} :: Scte35DeliveryRestrictions)
 {-# DEPRECATED sdrArchiveAllowedFlag "Use generic-lens or generic-optics with 'archiveAllowedFlag' instead." #-}
+
+-- | Corresponds to SCTE-35 device_restrictions parameter.
+--
+-- /Note:/ Consider using 'deviceRestrictions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdrDeviceRestrictions :: Lens.Lens' Scte35DeliveryRestrictions Scte35DeviceRestrictions
+sdrDeviceRestrictions = Lens.lens (deviceRestrictions :: Scte35DeliveryRestrictions -> Scte35DeviceRestrictions) (\s a -> s {deviceRestrictions = a} :: Scte35DeliveryRestrictions)
+{-# DEPRECATED sdrDeviceRestrictions "Use generic-lens or generic-optics with 'deviceRestrictions' instead." #-}
 
 -- | Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
 --
@@ -116,8 +110,8 @@ instance Lude.FromJSON Scte35DeliveryRestrictions where
       "Scte35DeliveryRestrictions"
       ( \x ->
           Scte35DeliveryRestrictions'
-            Lude.<$> (x Lude..: "deviceRestrictions")
-            Lude.<*> (x Lude..: "archiveAllowedFlag")
+            Lude.<$> (x Lude..: "archiveAllowedFlag")
+            Lude.<*> (x Lude..: "deviceRestrictions")
             Lude.<*> (x Lude..: "webDeliveryAllowedFlag")
             Lude.<*> (x Lude..: "noRegionalBlackoutFlag")
       )
@@ -126,8 +120,8 @@ instance Lude.ToJSON Scte35DeliveryRestrictions where
   toJSON Scte35DeliveryRestrictions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("deviceRestrictions" Lude..= deviceRestrictions),
-            Lude.Just ("archiveAllowedFlag" Lude..= archiveAllowedFlag),
+          [ Lude.Just ("archiveAllowedFlag" Lude..= archiveAllowedFlag),
+            Lude.Just ("deviceRestrictions" Lude..= deviceRestrictions),
             Lude.Just
               ("webDeliveryAllowedFlag" Lude..= webDeliveryAllowedFlag),
             Lude.Just

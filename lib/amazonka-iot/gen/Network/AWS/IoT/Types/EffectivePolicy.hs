@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEffectivePolicy' smart constructor.
 data EffectivePolicy = EffectivePolicy'
-  { policyName ::
-      Lude.Maybe Lude.Text,
+  { -- | The policy name.
+    policyName :: Lude.Maybe Lude.Text,
+    -- | The IAM policy document.
     policyDocument :: Lude.Maybe Lude.Text,
+    -- | The policy ARN.
     policyARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EffectivePolicy' with the minimum fields required to make a request.
 --
--- * 'policyARN' - The policy ARN.
--- * 'policyDocument' - The IAM policy document.
 -- * 'policyName' - The policy name.
+-- * 'policyDocument' - The IAM policy document.
+-- * 'policyARN' - The policy ARN.
 mkEffectivePolicy ::
   EffectivePolicy
 mkEffectivePolicy =

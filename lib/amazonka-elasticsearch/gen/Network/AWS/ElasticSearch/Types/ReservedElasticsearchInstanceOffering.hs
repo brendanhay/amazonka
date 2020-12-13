@@ -38,50 +38,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedElasticsearchInstanceOffering' smart constructor.
 data ReservedElasticsearchInstanceOffering = ReservedElasticsearchInstanceOffering'
-  { currencyCode ::
-      Lude.Maybe
-        Lude.Text,
-    reservedElasticsearchInstanceOfferingId ::
-      Lude.Maybe
-        Lude.Text,
-    elasticsearchInstanceType ::
-      Lude.Maybe
-        ESPartitionInstanceType,
-    recurringCharges ::
-      Lude.Maybe
-        [RecurringCharge],
-    usagePrice ::
-      Lude.Maybe
-        Lude.Double,
-    fixedPrice ::
-      Lude.Maybe
-        Lude.Double,
-    duration ::
-      Lude.Maybe
-        Lude.Int,
-    paymentOption ::
-      Lude.Maybe
-        ReservedElasticsearchInstancePaymentOption
+  { -- | The currency code for the reserved Elasticsearch instance offering.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | The Elasticsearch reserved instance offering identifier.
+    reservedElasticsearchInstanceOfferingId :: Lude.Maybe Lude.Text,
+    -- | The Elasticsearch instance type offered by the reserved instance offering.
+    elasticsearchInstanceType :: Lude.Maybe ESPartitionInstanceType,
+    -- | The charge to your account regardless of whether you are creating any domains using the instance offering.
+    recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The rate you are charged for each hour the domain that is using the offering is running.
+    usagePrice :: Lude.Maybe Lude.Double,
+    -- | The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering.
+    fixedPrice :: Lude.Maybe Lude.Double,
+    -- | The duration, in seconds, for which the offering will reserve the Elasticsearch instance.
+    duration :: Lude.Maybe Lude.Int,
+    -- | Payment option for the reserved Elasticsearch instance offering
+    paymentOption :: Lude.Maybe ReservedElasticsearchInstancePaymentOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedElasticsearchInstanceOffering' with the minimum fields required to make a request.
 --
 -- * 'currencyCode' - The currency code for the reserved Elasticsearch instance offering.
--- * 'duration' - The duration, in seconds, for which the offering will reserve the Elasticsearch instance.
--- * 'elasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance offering.
--- * 'fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering.
--- * 'paymentOption' - Payment option for the reserved Elasticsearch instance offering
--- * 'recurringCharges' - The charge to your account regardless of whether you are creating any domains using the instance offering.
 -- * 'reservedElasticsearchInstanceOfferingId' - The Elasticsearch reserved instance offering identifier.
+-- * 'elasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance offering.
+-- * 'recurringCharges' - The charge to your account regardless of whether you are creating any domains using the instance offering.
 -- * 'usagePrice' - The rate you are charged for each hour the domain that is using the offering is running.
+-- * 'fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved Elasticsearch instance offering.
+-- * 'duration' - The duration, in seconds, for which the offering will reserve the Elasticsearch instance.
+-- * 'paymentOption' - Payment option for the reserved Elasticsearch instance offering
 mkReservedElasticsearchInstanceOffering ::
   ReservedElasticsearchInstanceOffering
 mkReservedElasticsearchInstanceOffering =

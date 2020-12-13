@@ -30,27 +30,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConformancePackRuleCompliance' smart constructor.
 data ConformancePackRuleCompliance = ConformancePackRuleCompliance'
-  { configRuleName ::
-      Lude.Maybe Lude.Text,
-    complianceType ::
-      Lude.Maybe
-        ConformancePackComplianceType
+  { -- | Name of the config rule.
+    configRuleName :: Lude.Maybe Lude.Text,
+    -- | Compliance of the AWS Config rule
+    --
+    -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
+    complianceType :: Lude.Maybe ConformancePackComplianceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConformancePackRuleCompliance' with the minimum fields required to make a request.
 --
+-- * 'configRuleName' - Name of the config rule.
 -- * 'complianceType' - Compliance of the AWS Config rule
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
--- * 'configRuleName' - Name of the config rule.
 mkConformancePackRuleCompliance ::
   ConformancePackRuleCompliance
 mkConformancePackRuleCompliance =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Lambda.ListFunctionsByCodeSigningConfig
     mkListFunctionsByCodeSigningConfig,
 
     -- ** Request lenses
+    lfbcscCodeSigningConfigARN,
     lfbcscMarker,
     lfbcscMaxItems,
-    lfbcscCodeSigningConfigARN,
 
     -- * Destructuring the response
     ListFunctionsByCodeSigningConfigResponse (..),
@@ -45,20 +46,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFunctionsByCodeSigningConfig' smart constructor.
 data ListFunctionsByCodeSigningConfig = ListFunctionsByCodeSigningConfig'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    maxItems ::
-      Lude.Maybe Lude.Natural,
-    codeSigningConfigARN ::
-      Lude.Text
+  { -- | The The Amazon Resource Name (ARN) of the code signing configuration.
+    codeSigningConfigARN :: Lude.Text,
+    -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Maximum number of items to return.
+    maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctionsByCodeSigningConfig' with the minimum fields required to make a request.
@@ -72,10 +67,18 @@ mkListFunctionsByCodeSigningConfig ::
   ListFunctionsByCodeSigningConfig
 mkListFunctionsByCodeSigningConfig pCodeSigningConfigARN_ =
   ListFunctionsByCodeSigningConfig'
-    { marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      codeSigningConfigARN = pCodeSigningConfigARN_
+    { codeSigningConfigARN =
+        pCodeSigningConfigARN_,
+      marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
+
+-- | The The Amazon Resource Name (ARN) of the code signing configuration.
+--
+-- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfbcscCodeSigningConfigARN :: Lens.Lens' ListFunctionsByCodeSigningConfig Lude.Text
+lfbcscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: ListFunctionsByCodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: ListFunctionsByCodeSigningConfig)
+{-# DEPRECATED lfbcscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
 -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
 --
@@ -90,13 +93,6 @@ lfbcscMarker = Lens.lens (marker :: ListFunctionsByCodeSigningConfig -> Lude.May
 lfbcscMaxItems :: Lens.Lens' ListFunctionsByCodeSigningConfig (Lude.Maybe Lude.Natural)
 lfbcscMaxItems = Lens.lens (maxItems :: ListFunctionsByCodeSigningConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListFunctionsByCodeSigningConfig)
 {-# DEPRECATED lfbcscMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
-
--- | The The Amazon Resource Name (ARN) of the code signing configuration.
---
--- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfbcscCodeSigningConfigARN :: Lens.Lens' ListFunctionsByCodeSigningConfig Lude.Text
-lfbcscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: ListFunctionsByCodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: ListFunctionsByCodeSigningConfig)
-{-# DEPRECATED lfbcscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
 instance Page.AWSPager ListFunctionsByCodeSigningConfig where
   page rq rs
@@ -139,22 +135,14 @@ instance Lude.ToQuery ListFunctionsByCodeSigningConfig where
 
 -- | /See:/ 'mkListFunctionsByCodeSigningConfigResponse' smart constructor.
 data ListFunctionsByCodeSigningConfigResponse = ListFunctionsByCodeSigningConfigResponse'
-  { functionARNs ::
-      Lude.Maybe
-        [Lude.Text],
-    nextMarker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The function ARNs.
+    functionARNs :: Lude.Maybe [Lude.Text],
+    -- | The pagination token that's included if more results are available.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctionsByCodeSigningConfigResponse' with the minimum fields required to make a request.

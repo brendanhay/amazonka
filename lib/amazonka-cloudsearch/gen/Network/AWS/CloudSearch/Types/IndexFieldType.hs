@@ -13,17 +13,17 @@
 module Network.AWS.CloudSearch.Types.IndexFieldType
   ( IndexFieldType
       ( IndexFieldType',
-        Date,
-        DateArray,
-        Double,
-        DoubleArray,
         Int,
-        IntArray,
-        Latlon,
+        Double,
         Literal,
-        LiteralArray,
         Text,
-        TextArray
+        Date,
+        Latlon,
+        IntArray,
+        DoubleArray,
+        LiteralArray,
+        TextArray,
+        DateArray
       ),
   )
 where
@@ -55,50 +55,50 @@ newtype IndexFieldType = IndexFieldType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Date :: IndexFieldType
-pattern Date = IndexFieldType' "date"
-
-pattern DateArray :: IndexFieldType
-pattern DateArray = IndexFieldType' "date-array"
+pattern Int :: IndexFieldType
+pattern Int = IndexFieldType' "int"
 
 pattern Double :: IndexFieldType
 pattern Double = IndexFieldType' "double"
 
-pattern DoubleArray :: IndexFieldType
-pattern DoubleArray = IndexFieldType' "double-array"
-
-pattern Int :: IndexFieldType
-pattern Int = IndexFieldType' "int"
-
-pattern IntArray :: IndexFieldType
-pattern IntArray = IndexFieldType' "int-array"
-
-pattern Latlon :: IndexFieldType
-pattern Latlon = IndexFieldType' "latlon"
-
 pattern Literal :: IndexFieldType
 pattern Literal = IndexFieldType' "literal"
-
-pattern LiteralArray :: IndexFieldType
-pattern LiteralArray = IndexFieldType' "literal-array"
 
 pattern Text :: IndexFieldType
 pattern Text = IndexFieldType' "text"
 
+pattern Date :: IndexFieldType
+pattern Date = IndexFieldType' "date"
+
+pattern Latlon :: IndexFieldType
+pattern Latlon = IndexFieldType' "latlon"
+
+pattern IntArray :: IndexFieldType
+pattern IntArray = IndexFieldType' "int-array"
+
+pattern DoubleArray :: IndexFieldType
+pattern DoubleArray = IndexFieldType' "double-array"
+
+pattern LiteralArray :: IndexFieldType
+pattern LiteralArray = IndexFieldType' "literal-array"
+
 pattern TextArray :: IndexFieldType
 pattern TextArray = IndexFieldType' "text-array"
 
+pattern DateArray :: IndexFieldType
+pattern DateArray = IndexFieldType' "date-array"
+
 {-# COMPLETE
-  Date,
-  DateArray,
-  Double,
-  DoubleArray,
   Int,
-  IntArray,
-  Latlon,
+  Double,
   Literal,
-  LiteralArray,
   Text,
+  Date,
+  Latlon,
+  IntArray,
+  DoubleArray,
+  LiteralArray,
   TextArray,
+  DateArray,
   IndexFieldType'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.SMS.Types.ReplicationRunType
   ( ReplicationRunType
       ( ReplicationRunType',
-        Automatic,
-        OnDemand
+        OnDemand,
+        Automatic
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReplicationRunType = ReplicationRunType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Automatic :: ReplicationRunType
-pattern Automatic = ReplicationRunType' "AUTOMATIC"
-
 pattern OnDemand :: ReplicationRunType
 pattern OnDemand = ReplicationRunType' "ON_DEMAND"
 
+pattern Automatic :: ReplicationRunType
+pattern Automatic = ReplicationRunType' "AUTOMATIC"
+
 {-# COMPLETE
-  Automatic,
   OnDemand,
+  Automatic,
   ReplicationRunType'
   #-}

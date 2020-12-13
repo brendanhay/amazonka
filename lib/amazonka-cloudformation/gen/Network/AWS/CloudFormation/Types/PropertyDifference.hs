@@ -17,10 +17,10 @@ module Network.AWS.CloudFormation.Types.PropertyDifference
     mkPropertyDifference,
 
     -- * Lenses
+    pdDifferenceType,
     pdPropertyPath,
     pdExpectedValue,
     pdActualValue,
-    pdDifferenceType,
   )
 where
 
@@ -32,24 +32,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPropertyDifference' smart constructor.
 data PropertyDifference = PropertyDifference'
-  { propertyPath ::
-      Lude.Text,
+  { -- | The type of property difference.
+    --
+    --
+    --     * @ADD@ : A value has been added to a resource property that is an array or list data type.
+    --
+    --
+    --     * @REMOVE@ : The property has been removed from the current resource configuration.
+    --
+    --
+    --     * @NOT_EQUAL@ : The current property value differs from its expected value (as defined in the stack template and any values specified as template parameters).
+    differenceType :: DifferenceType,
+    -- | The fully-qualified path to the resource property.
+    propertyPath :: Lude.Text,
+    -- | The expected property value of the resource property, as defined in the stack template and any values specified as template parameters.
     expectedValue :: Lude.Text,
-    actualValue :: Lude.Text,
-    differenceType :: DifferenceType
+    -- | The actual property value of the resource property.
+    actualValue :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PropertyDifference' with the minimum fields required to make a request.
 --
--- * 'actualValue' - The actual property value of the resource property.
 -- * 'differenceType' - The type of property difference.
 --
 --
@@ -62,29 +67,48 @@ data PropertyDifference = PropertyDifference'
 --     * @NOT_EQUAL@ : The current property value differs from its expected value (as defined in the stack template and any values specified as template parameters).
 --
 --
--- * 'expectedValue' - The expected property value of the resource property, as defined in the stack template and any values specified as template parameters.
 -- * 'propertyPath' - The fully-qualified path to the resource property.
+-- * 'expectedValue' - The expected property value of the resource property, as defined in the stack template and any values specified as template parameters.
+-- * 'actualValue' - The actual property value of the resource property.
 mkPropertyDifference ::
+  -- | 'differenceType'
+  DifferenceType ->
   -- | 'propertyPath'
   Lude.Text ->
   -- | 'expectedValue'
   Lude.Text ->
   -- | 'actualValue'
   Lude.Text ->
-  -- | 'differenceType'
-  DifferenceType ->
   PropertyDifference
 mkPropertyDifference
+  pDifferenceType_
   pPropertyPath_
   pExpectedValue_
-  pActualValue_
-  pDifferenceType_ =
+  pActualValue_ =
     PropertyDifference'
-      { propertyPath = pPropertyPath_,
+      { differenceType = pDifferenceType_,
+        propertyPath = pPropertyPath_,
         expectedValue = pExpectedValue_,
-        actualValue = pActualValue_,
-        differenceType = pDifferenceType_
+        actualValue = pActualValue_
       }
+
+-- | The type of property difference.
+--
+--
+--     * @ADD@ : A value has been added to a resource property that is an array or list data type.
+--
+--
+--     * @REMOVE@ : The property has been removed from the current resource configuration.
+--
+--
+--     * @NOT_EQUAL@ : The current property value differs from its expected value (as defined in the stack template and any values specified as template parameters).
+--
+--
+--
+-- /Note:/ Consider using 'differenceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDifferenceType :: Lens.Lens' PropertyDifference DifferenceType
+pdDifferenceType = Lens.lens (differenceType :: PropertyDifference -> DifferenceType) (\s a -> s {differenceType = a} :: PropertyDifference)
+{-# DEPRECATED pdDifferenceType "Use generic-lens or generic-optics with 'differenceType' instead." #-}
 
 -- | The fully-qualified path to the resource property.
 --
@@ -107,28 +131,10 @@ pdActualValue :: Lens.Lens' PropertyDifference Lude.Text
 pdActualValue = Lens.lens (actualValue :: PropertyDifference -> Lude.Text) (\s a -> s {actualValue = a} :: PropertyDifference)
 {-# DEPRECATED pdActualValue "Use generic-lens or generic-optics with 'actualValue' instead." #-}
 
--- | The type of property difference.
---
---
---     * @ADD@ : A value has been added to a resource property that is an array or list data type.
---
---
---     * @REMOVE@ : The property has been removed from the current resource configuration.
---
---
---     * @NOT_EQUAL@ : The current property value differs from its expected value (as defined in the stack template and any values specified as template parameters).
---
---
---
--- /Note:/ Consider using 'differenceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDifferenceType :: Lens.Lens' PropertyDifference DifferenceType
-pdDifferenceType = Lens.lens (differenceType :: PropertyDifference -> DifferenceType) (\s a -> s {differenceType = a} :: PropertyDifference)
-{-# DEPRECATED pdDifferenceType "Use generic-lens or generic-optics with 'differenceType' instead." #-}
-
 instance Lude.FromXML PropertyDifference where
   parseXML x =
     PropertyDifference'
-      Lude.<$> (x Lude..@ "PropertyPath")
+      Lude.<$> (x Lude..@ "DifferenceType")
+      Lude.<*> (x Lude..@ "PropertyPath")
       Lude.<*> (x Lude..@ "ExpectedValue")
       Lude.<*> (x Lude..@ "ActualValue")
-      Lude.<*> (x Lude..@ "DifferenceType")

@@ -108,8 +108,8 @@ module Network.AWS.OpsWorksCM.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
   )
 where
 

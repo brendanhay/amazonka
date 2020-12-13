@@ -17,8 +17,8 @@ module Network.AWS.Greengrass.Types.TelemetryConfiguration
     mkTelemetryConfiguration,
 
     -- * Lenses
-    tcConfigurationSyncStatus,
     tcTelemetry,
+    tcConfigurationSyncStatus,
   )
 where
 
@@ -31,39 +31,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTelemetryConfiguration' smart constructor.
 data TelemetryConfiguration = TelemetryConfiguration'
-  { configurationSyncStatus ::
-      Lude.Maybe ConfigurationSyncStatus,
-    telemetry :: Telemetry
+  { -- | Configure telemetry to be on or off.
+    telemetry :: Telemetry,
+    -- | Synchronization status of the device reported configuration with the desired configuration.
+    configurationSyncStatus :: Lude.Maybe ConfigurationSyncStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TelemetryConfiguration' with the minimum fields required to make a request.
 --
--- * 'configurationSyncStatus' - Synchronization status of the device reported configuration with the desired configuration.
 -- * 'telemetry' - Configure telemetry to be on or off.
+-- * 'configurationSyncStatus' - Synchronization status of the device reported configuration with the desired configuration.
 mkTelemetryConfiguration ::
   -- | 'telemetry'
   Telemetry ->
   TelemetryConfiguration
 mkTelemetryConfiguration pTelemetry_ =
   TelemetryConfiguration'
-    { configurationSyncStatus = Lude.Nothing,
-      telemetry = pTelemetry_
+    { telemetry = pTelemetry_,
+      configurationSyncStatus = Lude.Nothing
     }
-
--- | Synchronization status of the device reported configuration with the desired configuration.
---
--- /Note:/ Consider using 'configurationSyncStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcConfigurationSyncStatus :: Lens.Lens' TelemetryConfiguration (Lude.Maybe ConfigurationSyncStatus)
-tcConfigurationSyncStatus = Lens.lens (configurationSyncStatus :: TelemetryConfiguration -> Lude.Maybe ConfigurationSyncStatus) (\s a -> s {configurationSyncStatus = a} :: TelemetryConfiguration)
-{-# DEPRECATED tcConfigurationSyncStatus "Use generic-lens or generic-optics with 'configurationSyncStatus' instead." #-}
 
 -- | Configure telemetry to be on or off.
 --
@@ -72,12 +60,19 @@ tcTelemetry :: Lens.Lens' TelemetryConfiguration Telemetry
 tcTelemetry = Lens.lens (telemetry :: TelemetryConfiguration -> Telemetry) (\s a -> s {telemetry = a} :: TelemetryConfiguration)
 {-# DEPRECATED tcTelemetry "Use generic-lens or generic-optics with 'telemetry' instead." #-}
 
+-- | Synchronization status of the device reported configuration with the desired configuration.
+--
+-- /Note:/ Consider using 'configurationSyncStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcConfigurationSyncStatus :: Lens.Lens' TelemetryConfiguration (Lude.Maybe ConfigurationSyncStatus)
+tcConfigurationSyncStatus = Lens.lens (configurationSyncStatus :: TelemetryConfiguration -> Lude.Maybe ConfigurationSyncStatus) (\s a -> s {configurationSyncStatus = a} :: TelemetryConfiguration)
+{-# DEPRECATED tcConfigurationSyncStatus "Use generic-lens or generic-optics with 'configurationSyncStatus' instead." #-}
+
 instance Lude.FromJSON TelemetryConfiguration where
   parseJSON =
     Lude.withObject
       "TelemetryConfiguration"
       ( \x ->
           TelemetryConfiguration'
-            Lude.<$> (x Lude..:? "ConfigurationSyncStatus")
-            Lude.<*> (x Lude..: "Telemetry")
+            Lude.<$> (x Lude..: "Telemetry")
+            Lude.<*> (x Lude..:? "ConfigurationSyncStatus")
       )

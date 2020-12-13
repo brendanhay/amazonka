@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.EC2.StartInstances
     mkStartInstances,
 
     -- ** Request lenses
-    sAdditionalInfo,
-    sDryRun,
-    sInstanceIds,
+    siAdditionalInfo,
+    siInstanceIds,
+    siDryRun,
 
     -- * Destructuring the response
     StartInstancesResponse (..),
@@ -46,54 +47,50 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartInstances' smart constructor.
 data StartInstances = StartInstances'
-  { additionalInfo ::
-      Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    instanceIds :: [Lude.Text]
+  { -- | Reserved.
+    additionalInfo :: Lude.Maybe Lude.Text,
+    -- | The IDs of the instances.
+    instanceIds :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstances' with the minimum fields required to make a request.
 --
 -- * 'additionalInfo' - Reserved.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceIds' - The IDs of the instances.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkStartInstances ::
   StartInstances
 mkStartInstances =
   StartInstances'
     { additionalInfo = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      instanceIds = Lude.mempty
+      instanceIds = Lude.mempty,
+      dryRun = Lude.Nothing
     }
 
 -- | Reserved.
 --
 -- /Note:/ Consider using 'additionalInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sAdditionalInfo :: Lens.Lens' StartInstances (Lude.Maybe Lude.Text)
-sAdditionalInfo = Lens.lens (additionalInfo :: StartInstances -> Lude.Maybe Lude.Text) (\s a -> s {additionalInfo = a} :: StartInstances)
-{-# DEPRECATED sAdditionalInfo "Use generic-lens or generic-optics with 'additionalInfo' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDryRun :: Lens.Lens' StartInstances (Lude.Maybe Lude.Bool)
-sDryRun = Lens.lens (dryRun :: StartInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: StartInstances)
-{-# DEPRECATED sDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+siAdditionalInfo :: Lens.Lens' StartInstances (Lude.Maybe Lude.Text)
+siAdditionalInfo = Lens.lens (additionalInfo :: StartInstances -> Lude.Maybe Lude.Text) (\s a -> s {additionalInfo = a} :: StartInstances)
+{-# DEPRECATED siAdditionalInfo "Use generic-lens or generic-optics with 'additionalInfo' instead." #-}
 
 -- | The IDs of the instances.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sInstanceIds :: Lens.Lens' StartInstances [Lude.Text]
-sInstanceIds = Lens.lens (instanceIds :: StartInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: StartInstances)
-{-# DEPRECATED sInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+siInstanceIds :: Lens.Lens' StartInstances [Lude.Text]
+siInstanceIds = Lens.lens (instanceIds :: StartInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: StartInstances)
+{-# DEPRECATED siInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siDryRun :: Lens.Lens' StartInstances (Lude.Maybe Lude.Bool)
+siDryRun = Lens.lens (dryRun :: StartInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: StartInstances)
+{-# DEPRECATED siDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest StartInstances where
   type Rs StartInstances = StartInstancesResponse
@@ -120,29 +117,24 @@ instance Lude.ToQuery StartInstances where
       [ "Action" Lude.=: ("StartInstances" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "AdditionalInfo" Lude.=: additionalInfo,
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "InstanceId" instanceIds
+        Lude.toQueryList "InstanceId" instanceIds,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkStartInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
-  { startingInstances ::
-      Lude.Maybe [InstanceStateChange],
+  { -- | Information about the started instances.
+    startingInstances :: Lude.Maybe [InstanceStateChange],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'startingInstances' - Information about the started instances.
+-- * 'responseStatus' - The response status code.
 mkStartInstancesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

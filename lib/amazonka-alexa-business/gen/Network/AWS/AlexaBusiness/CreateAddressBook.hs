@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AlexaBusiness.CreateAddressBook
     mkCreateAddressBook,
 
     -- ** Request lenses
+    cabName,
     cabClientRequestToken,
     cabDescription,
-    cabName,
 
     -- * Destructuring the response
     CreateAddressBookResponse (..),
@@ -41,35 +42,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAddressBook' smart constructor.
 data CreateAddressBook = CreateAddressBook'
-  { clientRequestToken ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+  { -- | The name of the address book.
+    name :: Lude.Text,
+    -- | A unique, user-specified identifier for the request that ensures idempotency.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The description of the address book.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAddressBook' with the minimum fields required to make a request.
 --
+-- * 'name' - The name of the address book.
 -- * 'clientRequestToken' - A unique, user-specified identifier for the request that ensures idempotency.
 -- * 'description' - The description of the address book.
--- * 'name' - The name of the address book.
 mkCreateAddressBook ::
   -- | 'name'
   Lude.Text ->
   CreateAddressBook
 mkCreateAddressBook pName_ =
   CreateAddressBook'
-    { clientRequestToken = Lude.Nothing,
-      description = Lude.Nothing,
-      name = pName_
+    { name = pName_,
+      clientRequestToken = Lude.Nothing,
+      description = Lude.Nothing
     }
+
+-- | The name of the address book.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cabName :: Lens.Lens' CreateAddressBook Lude.Text
+cabName = Lens.lens (name :: CreateAddressBook -> Lude.Text) (\s a -> s {name = a} :: CreateAddressBook)
+{-# DEPRECATED cabName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique, user-specified identifier for the request that ensures idempotency.
 --
@@ -84,13 +88,6 @@ cabClientRequestToken = Lens.lens (clientRequestToken :: CreateAddressBook -> Lu
 cabDescription :: Lens.Lens' CreateAddressBook (Lude.Maybe Lude.Text)
 cabDescription = Lens.lens (description :: CreateAddressBook -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateAddressBook)
 {-# DEPRECATED cabDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The name of the address book.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cabName :: Lens.Lens' CreateAddressBook Lude.Text
-cabName = Lens.lens (name :: CreateAddressBook -> Lude.Text) (\s a -> s {name = a} :: CreateAddressBook)
-{-# DEPRECATED cabName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateAddressBook where
   type Rs CreateAddressBook = CreateAddressBookResponse
@@ -118,9 +115,9 @@ instance Lude.ToJSON CreateAddressBook where
   toJSON CreateAddressBook' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("Name" Lude..= name)
+          [ Lude.Just ("Name" Lude..= name),
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -132,17 +129,12 @@ instance Lude.ToQuery CreateAddressBook where
 
 -- | /See:/ 'mkCreateAddressBookResponse' smart constructor.
 data CreateAddressBookResponse = CreateAddressBookResponse'
-  { addressBookARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the newly created address book.
+    addressBookARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAddressBookResponse' with the minimum fields required to make a request.

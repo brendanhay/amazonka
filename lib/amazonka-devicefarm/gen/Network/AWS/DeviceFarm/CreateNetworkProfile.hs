@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,15 +23,15 @@ module Network.AWS.DeviceFarm.CreateNetworkProfile
     cnpUplinkJitterMs,
     cnpUplinkLossPercent,
     cnpDownlinkJitterMs,
+    cnpName,
     cnpDownlinkLossPercent,
+    cnpProjectARN,
     cnpType,
     cnpUplinkDelayMs,
     cnpUplinkBandwidthBits,
     cnpDescription,
     cnpDownlinkDelayMs,
     cnpDownlinkBandwidthBits,
-    cnpProjectARN,
-    cnpName,
 
     -- * Destructuring the response
     CreateNetworkProfileResponse (..),
@@ -50,63 +51,68 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateNetworkProfile' smart constructor.
 data CreateNetworkProfile = CreateNetworkProfile'
-  { uplinkJitterMs ::
-      Lude.Maybe Lude.Integer,
+  { -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+    uplinkJitterMs :: Lude.Maybe Lude.Integer,
+    -- | Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
     uplinkLossPercent :: Lude.Maybe Lude.Natural,
+    -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
     downlinkJitterMs :: Lude.Maybe Lude.Integer,
+    -- | The name for the new network profile.
+    name :: Lude.Text,
+    -- | Proportion of received packets that fail to arrive from 0 to 100 percent.
     downlinkLossPercent :: Lude.Maybe Lude.Natural,
-    type' :: Lude.Maybe NetworkProfileType,
-    uplinkDelayMs :: Lude.Maybe Lude.Integer,
-    uplinkBandwidthBits :: Lude.Maybe Lude.Integer,
-    description :: Lude.Maybe Lude.Text,
-    downlinkDelayMs :: Lude.Maybe Lude.Integer,
-    downlinkBandwidthBits :: Lude.Maybe Lude.Integer,
+    -- | The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
     projectARN :: Lude.Text,
-    name :: Lude.Text
+    -- | The type of network profile to create. Valid values are listed here.
+    type' :: Lude.Maybe NetworkProfileType,
+    -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+    uplinkDelayMs :: Lude.Maybe Lude.Integer,
+    -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
+    uplinkBandwidthBits :: Lude.Maybe Lude.Integer,
+    -- | The description of the network profile.
+    description :: Lude.Maybe Lude.Text,
+    -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+    downlinkDelayMs :: Lude.Maybe Lude.Integer,
+    -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
+    downlinkBandwidthBits :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkProfile' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the network profile.
--- * 'downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
--- * 'downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
--- * 'downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
--- * 'downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
--- * 'name' - The name for the new network profile.
--- * 'projectARN' - The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
--- * 'type'' - The type of network profile to create. Valid values are listed here.
--- * 'uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
--- * 'uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 -- * 'uplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
 -- * 'uplinkLossPercent' - Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+-- * 'downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+-- * 'name' - The name for the new network profile.
+-- * 'downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
+-- * 'projectARN' - The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
+-- * 'type'' - The type of network profile to create. Valid values are listed here.
+-- * 'uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
+-- * 'description' - The description of the network profile.
+-- * 'downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
 mkCreateNetworkProfile ::
-  -- | 'projectARN'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'projectARN'
+  Lude.Text ->
   CreateNetworkProfile
-mkCreateNetworkProfile pProjectARN_ pName_ =
+mkCreateNetworkProfile pName_ pProjectARN_ =
   CreateNetworkProfile'
     { uplinkJitterMs = Lude.Nothing,
       uplinkLossPercent = Lude.Nothing,
       downlinkJitterMs = Lude.Nothing,
+      name = pName_,
       downlinkLossPercent = Lude.Nothing,
+      projectARN = pProjectARN_,
       type' = Lude.Nothing,
       uplinkDelayMs = Lude.Nothing,
       uplinkBandwidthBits = Lude.Nothing,
       description = Lude.Nothing,
       downlinkDelayMs = Lude.Nothing,
-      downlinkBandwidthBits = Lude.Nothing,
-      projectARN = pProjectARN_,
-      name = pName_
+      downlinkBandwidthBits = Lude.Nothing
     }
 
 -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
@@ -130,12 +136,26 @@ cnpDownlinkJitterMs :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Integer)
 cnpDownlinkJitterMs = Lens.lens (downlinkJitterMs :: CreateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {downlinkJitterMs = a} :: CreateNetworkProfile)
 {-# DEPRECATED cnpDownlinkJitterMs "Use generic-lens or generic-optics with 'downlinkJitterMs' instead." #-}
 
+-- | The name for the new network profile.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpName :: Lens.Lens' CreateNetworkProfile Lude.Text
+cnpName = Lens.lens (name :: CreateNetworkProfile -> Lude.Text) (\s a -> s {name = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | Proportion of received packets that fail to arrive from 0 to 100 percent.
 --
 -- /Note:/ Consider using 'downlinkLossPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cnpDownlinkLossPercent :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Natural)
 cnpDownlinkLossPercent = Lens.lens (downlinkLossPercent :: CreateNetworkProfile -> Lude.Maybe Lude.Natural) (\s a -> s {downlinkLossPercent = a} :: CreateNetworkProfile)
 {-# DEPRECATED cnpDownlinkLossPercent "Use generic-lens or generic-optics with 'downlinkLossPercent' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpProjectARN :: Lens.Lens' CreateNetworkProfile Lude.Text
+cnpProjectARN = Lens.lens (projectARN :: CreateNetworkProfile -> Lude.Text) (\s a -> s {projectARN = a} :: CreateNetworkProfile)
+{-# DEPRECATED cnpProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 -- | The type of network profile to create. Valid values are listed here.
 --
@@ -179,20 +199,6 @@ cnpDownlinkBandwidthBits :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Int
 cnpDownlinkBandwidthBits = Lens.lens (downlinkBandwidthBits :: CreateNetworkProfile -> Lude.Maybe Lude.Integer) (\s a -> s {downlinkBandwidthBits = a} :: CreateNetworkProfile)
 {-# DEPRECATED cnpDownlinkBandwidthBits "Use generic-lens or generic-optics with 'downlinkBandwidthBits' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
---
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpProjectARN :: Lens.Lens' CreateNetworkProfile Lude.Text
-cnpProjectARN = Lens.lens (projectARN :: CreateNetworkProfile -> Lude.Text) (\s a -> s {projectARN = a} :: CreateNetworkProfile)
-{-# DEPRECATED cnpProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
-
--- | The name for the new network profile.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpName :: Lens.Lens' CreateNetworkProfile Lude.Text
-cnpName = Lens.lens (name :: CreateNetworkProfile -> Lude.Text) (\s a -> s {name = a} :: CreateNetworkProfile)
-{-# DEPRECATED cnpName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.AWSRequest CreateNetworkProfile where
   type Rs CreateNetworkProfile = CreateNetworkProfileResponse
   request = Req.postJSON deviceFarmService
@@ -222,15 +228,15 @@ instance Lude.ToJSON CreateNetworkProfile where
           [ ("uplinkJitterMs" Lude..=) Lude.<$> uplinkJitterMs,
             ("uplinkLossPercent" Lude..=) Lude.<$> uplinkLossPercent,
             ("downlinkJitterMs" Lude..=) Lude.<$> downlinkJitterMs,
+            Lude.Just ("name" Lude..= name),
             ("downlinkLossPercent" Lude..=) Lude.<$> downlinkLossPercent,
+            Lude.Just ("projectArn" Lude..= projectARN),
             ("type" Lude..=) Lude.<$> type',
             ("uplinkDelayMs" Lude..=) Lude.<$> uplinkDelayMs,
             ("uplinkBandwidthBits" Lude..=) Lude.<$> uplinkBandwidthBits,
             ("description" Lude..=) Lude.<$> description,
             ("downlinkDelayMs" Lude..=) Lude.<$> downlinkDelayMs,
-            ("downlinkBandwidthBits" Lude..=) Lude.<$> downlinkBandwidthBits,
-            Lude.Just ("projectArn" Lude..= projectARN),
-            Lude.Just ("name" Lude..= name)
+            ("downlinkBandwidthBits" Lude..=) Lude.<$> downlinkBandwidthBits
           ]
       )
 
@@ -242,17 +248,12 @@ instance Lude.ToQuery CreateNetworkProfile where
 
 -- | /See:/ 'mkCreateNetworkProfileResponse' smart constructor.
 data CreateNetworkProfileResponse = CreateNetworkProfileResponse'
-  { networkProfile ::
-      Lude.Maybe NetworkProfile,
+  { -- | The network profile that is returned by the create network profile request.
+    networkProfile :: Lude.Maybe NetworkProfile,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkProfileResponse' with the minimum fields required to make a request.

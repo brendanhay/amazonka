@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCPeeringConnectionStatus' smart constructor.
 data VPCPeeringConnectionStatus = VPCPeeringConnectionStatus'
-  { code ::
-      Lude.Maybe Lude.Text,
+  { -- | Code indicating the status of a VPC peering connection.
+    code :: Lude.Maybe Lude.Text,
+    -- | Additional messaging associated with the connection status.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCPeeringConnectionStatus' with the minimum fields required to make a request.

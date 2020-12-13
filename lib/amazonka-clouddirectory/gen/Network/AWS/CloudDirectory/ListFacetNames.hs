@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.CloudDirectory.ListFacetNames
 
     -- ** Request lenses
     lfnNextToken,
-    lfnMaxResults,
     lfnSchemaARN,
+    lfnMaxResults,
 
     -- * Destructuring the response
     ListFacetNamesResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFacetNames' smart constructor.
 data ListFacetNames = ListFacetNames'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    schemaARN :: Lude.Text
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) to retrieve facet names from.
+    schemaARN :: Lude.Text,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFacetNames' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to retrieve.
 -- * 'nextToken' - The pagination token.
 -- * 'schemaARN' - The Amazon Resource Name (ARN) to retrieve facet names from.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkListFacetNames ::
   -- | 'schemaARN'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListFacetNames ::
 mkListFacetNames pSchemaARN_ =
   ListFacetNames'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      schemaARN = pSchemaARN_
+      schemaARN = pSchemaARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token.
@@ -82,19 +79,19 @@ lfnNextToken :: Lens.Lens' ListFacetNames (Lude.Maybe Lude.Text)
 lfnNextToken = Lens.lens (nextToken :: ListFacetNames -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFacetNames)
 {-# DEPRECATED lfnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to retrieve.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfnMaxResults :: Lens.Lens' ListFacetNames (Lude.Maybe Lude.Natural)
-lfnMaxResults = Lens.lens (maxResults :: ListFacetNames -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFacetNames)
-{-# DEPRECATED lfnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The Amazon Resource Name (ARN) to retrieve facet names from.
 --
 -- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lfnSchemaARN :: Lens.Lens' ListFacetNames Lude.Text
 lfnSchemaARN = Lens.lens (schemaARN :: ListFacetNames -> Lude.Text) (\s a -> s {schemaARN = a} :: ListFacetNames)
 {-# DEPRECATED lfnSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+
+-- | The maximum number of results to retrieve.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfnMaxResults :: Lens.Lens' ListFacetNames (Lude.Maybe Lude.Natural)
+lfnMaxResults = Lens.lens (maxResults :: ListFacetNames -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFacetNames)
+{-# DEPRECATED lfnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListFacetNames where
   page rq rs
@@ -138,24 +135,20 @@ instance Lude.ToQuery ListFacetNames where
 
 -- | /See:/ 'mkListFacetNamesResponse' smart constructor.
 data ListFacetNamesResponse = ListFacetNamesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The names of facets that exist within the schema.
     facetNames :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFacetNamesResponse' with the minimum fields required to make a request.
 --
--- * 'facetNames' - The names of facets that exist within the schema.
 -- * 'nextToken' - The pagination token.
+-- * 'facetNames' - The names of facets that exist within the schema.
 -- * 'responseStatus' - The response status code.
 mkListFacetNamesResponse ::
   -- | 'responseStatus'

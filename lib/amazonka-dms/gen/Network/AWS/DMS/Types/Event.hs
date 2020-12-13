@@ -33,30 +33,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { sourceType :: Lude.Maybe SourceType,
+  { -- | The type of AWS DMS resource that generates events.
+    --
+    -- Valid values: replication-instance | endpoint | replication-task
+    sourceType :: Lude.Maybe SourceType,
+    -- | The identifier of an event source.
     sourceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The date of the event.
     date :: Lude.Maybe Lude.Timestamp,
+    -- | The event categories available for the specified source type.
     eventCategories :: Lude.Maybe [Lude.Text],
+    -- | The event message.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- * 'date' - The date of the event.
--- * 'eventCategories' - The event categories available for the specified source type.
--- * 'message' - The event message.
--- * 'sourceIdentifier' - The identifier of an event source.
 -- * 'sourceType' - The type of AWS DMS resource that generates events.
 --
 -- Valid values: replication-instance | endpoint | replication-task
+-- * 'sourceIdentifier' - The identifier of an event source.
+-- * 'date' - The date of the event.
+-- * 'eventCategories' - The event categories available for the specified source type.
+-- * 'message' - The event message.
 mkEvent ::
   Event
 mkEvent =

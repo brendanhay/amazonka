@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.MediaLive.UpdateInputSecurityGroup
     mkUpdateInputSecurityGroup,
 
     -- ** Request lenses
+    uisgInputSecurityGroupId,
     uisgWhitelistRules,
     uisgTags,
-    uisgInputSecurityGroupId,
 
     -- * Destructuring the response
     UpdateInputSecurityGroupResponse (..),
@@ -43,37 +44,39 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateInputSecurityGroup' smart constructor.
 data UpdateInputSecurityGroup = UpdateInputSecurityGroup'
-  { whitelistRules ::
-      Lude.Maybe [InputWhitelistRuleCidr],
-    tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    inputSecurityGroupId :: Lude.Text
+  { -- | The id of the Input Security Group to update.
+    inputSecurityGroupId :: Lude.Text,
+    -- | List of IPv4 CIDR addresses to whitelist
+    whitelistRules :: Lude.Maybe [InputWhitelistRuleCidr],
+    -- | A collection of key-value pairs.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInputSecurityGroup' with the minimum fields required to make a request.
 --
 -- * 'inputSecurityGroupId' - The id of the Input Security Group to update.
--- * 'tags' - A collection of key-value pairs.
 -- * 'whitelistRules' - List of IPv4 CIDR addresses to whitelist
+-- * 'tags' - A collection of key-value pairs.
 mkUpdateInputSecurityGroup ::
   -- | 'inputSecurityGroupId'
   Lude.Text ->
   UpdateInputSecurityGroup
 mkUpdateInputSecurityGroup pInputSecurityGroupId_ =
   UpdateInputSecurityGroup'
-    { whitelistRules = Lude.Nothing,
-      tags = Lude.Nothing,
-      inputSecurityGroupId = pInputSecurityGroupId_
+    { inputSecurityGroupId =
+        pInputSecurityGroupId_,
+      whitelistRules = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | The id of the Input Security Group to update.
+--
+-- /Note:/ Consider using 'inputSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uisgInputSecurityGroupId :: Lens.Lens' UpdateInputSecurityGroup Lude.Text
+uisgInputSecurityGroupId = Lens.lens (inputSecurityGroupId :: UpdateInputSecurityGroup -> Lude.Text) (\s a -> s {inputSecurityGroupId = a} :: UpdateInputSecurityGroup)
+{-# DEPRECATED uisgInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
 
 -- | List of IPv4 CIDR addresses to whitelist
 --
@@ -88,13 +91,6 @@ uisgWhitelistRules = Lens.lens (whitelistRules :: UpdateInputSecurityGroup -> Lu
 uisgTags :: Lens.Lens' UpdateInputSecurityGroup (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 uisgTags = Lens.lens (tags :: UpdateInputSecurityGroup -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: UpdateInputSecurityGroup)
 {-# DEPRECATED uisgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The id of the Input Security Group to update.
---
--- /Note:/ Consider using 'inputSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uisgInputSecurityGroupId :: Lens.Lens' UpdateInputSecurityGroup Lude.Text
-uisgInputSecurityGroupId = Lens.lens (inputSecurityGroupId :: UpdateInputSecurityGroup -> Lude.Text) (\s a -> s {inputSecurityGroupId = a} :: UpdateInputSecurityGroup)
-{-# DEPRECATED uisgInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
 
 instance Lude.AWSRequest UpdateInputSecurityGroup where
   type Rs UpdateInputSecurityGroup = UpdateInputSecurityGroupResponse
@@ -137,25 +133,17 @@ instance Lude.ToQuery UpdateInputSecurityGroup where
 --
 -- /See:/ 'mkUpdateInputSecurityGroupResponse' smart constructor.
 data UpdateInputSecurityGroupResponse = UpdateInputSecurityGroupResponse'
-  { securityGroup ::
-      Lude.Maybe
-        InputSecurityGroup,
-    responseStatus ::
-      Lude.Int
+  { securityGroup :: Lude.Maybe InputSecurityGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInputSecurityGroupResponse' with the minimum fields required to make a request.
 --
+-- * 'securityGroup' -
 -- * 'responseStatus' - The response status code.
--- * 'securityGroup' - Undocumented field.
 mkUpdateInputSecurityGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

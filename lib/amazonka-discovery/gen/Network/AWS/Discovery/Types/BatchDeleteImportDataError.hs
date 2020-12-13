@@ -31,28 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchDeleteImportDataError' smart constructor.
 data BatchDeleteImportDataError = BatchDeleteImportDataError'
-  { importTaskId ::
-      Lude.Maybe Lude.Text,
-    errorCode ::
-      Lude.Maybe
-        BatchDeleteImportDataErrorCode,
-    errorDescription ::
-      Lude.Maybe Lude.Text
+  { -- | The unique import ID associated with the error that occurred.
+    importTaskId :: Lude.Maybe Lude.Text,
+    -- | The type of error that occurred for a specific import task.
+    errorCode :: Lude.Maybe BatchDeleteImportDataErrorCode,
+    -- | The description of the error that occurred for a specific import task.
+    errorDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteImportDataError' with the minimum fields required to make a request.
 --
+-- * 'importTaskId' - The unique import ID associated with the error that occurred.
 -- * 'errorCode' - The type of error that occurred for a specific import task.
 -- * 'errorDescription' - The description of the error that occurred for a specific import task.
--- * 'importTaskId' - The unique import ID associated with the error that occurred.
 mkBatchDeleteImportDataError ::
   BatchDeleteImportDataError
 mkBatchDeleteImportDataError =

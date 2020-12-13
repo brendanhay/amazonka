@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,13 +39,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAccountSummary' smart constructor.
 data GetAccountSummary = GetAccountSummary'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountSummary' with the minimum fields required to make a request.
@@ -85,27 +80,18 @@ instance Lude.ToQuery GetAccountSummary where
 --
 -- /See:/ 'mkGetAccountSummaryResponse' smart constructor.
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
-  { summaryMap ::
-      Lude.Maybe
-        ( Lude.HashMap
-            SummaryKeyType
-            (Lude.Int)
-        ),
+  { -- | A set of key–value pairs containing information about IAM entity usage and IAM quotas.
+    summaryMap :: Lude.Maybe (Lude.HashMap SummaryKeyType (Lude.Int)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountSummaryResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'summaryMap' - A set of key–value pairs containing information about IAM entity usage and IAM quotas.
+-- * 'responseStatus' - The response status code.
 mkGetAccountSummaryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

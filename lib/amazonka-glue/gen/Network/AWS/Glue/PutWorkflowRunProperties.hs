@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.PutWorkflowRunProperties
     mkPutWorkflowRunProperties,
 
     -- ** Request lenses
-    pwrpName,
     pwrpRunId,
+    pwrpName,
     pwrpRunProperties,
 
     -- * Destructuring the response
@@ -40,45 +41,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutWorkflowRunProperties' smart constructor.
 data PutWorkflowRunProperties = PutWorkflowRunProperties'
-  { name ::
-      Lude.Text,
+  { -- | The ID of the workflow run for which the run properties should be updated.
     runId :: Lude.Text,
-    runProperties ::
-      Lude.HashMap Lude.Text (Lude.Text)
+    -- | Name of the workflow which was run.
+    name :: Lude.Text,
+    -- | The properties to put for the specified run.
+    runProperties :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutWorkflowRunProperties' with the minimum fields required to make a request.
 --
--- * 'name' - Name of the workflow which was run.
 -- * 'runId' - The ID of the workflow run for which the run properties should be updated.
+-- * 'name' - Name of the workflow which was run.
 -- * 'runProperties' - The properties to put for the specified run.
 mkPutWorkflowRunProperties ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'runId'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   PutWorkflowRunProperties
-mkPutWorkflowRunProperties pName_ pRunId_ =
+mkPutWorkflowRunProperties pRunId_ pName_ =
   PutWorkflowRunProperties'
-    { name = pName_,
-      runId = pRunId_,
+    { runId = pRunId_,
+      name = pName_,
       runProperties = Lude.mempty
     }
-
--- | Name of the workflow which was run.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pwrpName :: Lens.Lens' PutWorkflowRunProperties Lude.Text
-pwrpName = Lens.lens (name :: PutWorkflowRunProperties -> Lude.Text) (\s a -> s {name = a} :: PutWorkflowRunProperties)
-{-# DEPRECATED pwrpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the workflow run for which the run properties should be updated.
 --
@@ -86,6 +75,13 @@ pwrpName = Lens.lens (name :: PutWorkflowRunProperties -> Lude.Text) (\s a -> s 
 pwrpRunId :: Lens.Lens' PutWorkflowRunProperties Lude.Text
 pwrpRunId = Lens.lens (runId :: PutWorkflowRunProperties -> Lude.Text) (\s a -> s {runId = a} :: PutWorkflowRunProperties)
 {-# DEPRECATED pwrpRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+
+-- | Name of the workflow which was run.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pwrpName :: Lens.Lens' PutWorkflowRunProperties Lude.Text
+pwrpName = Lens.lens (name :: PutWorkflowRunProperties -> Lude.Text) (\s a -> s {name = a} :: PutWorkflowRunProperties)
+{-# DEPRECATED pwrpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The properties to put for the specified run.
 --
@@ -119,8 +115,8 @@ instance Lude.ToJSON PutWorkflowRunProperties where
   toJSON PutWorkflowRunProperties' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("RunId" Lude..= runId),
+          [ Lude.Just ("RunId" Lude..= runId),
+            Lude.Just ("Name" Lude..= name),
             Lude.Just ("RunProperties" Lude..= runProperties)
           ]
       )
@@ -133,16 +129,10 @@ instance Lude.ToQuery PutWorkflowRunProperties where
 
 -- | /See:/ 'mkPutWorkflowRunPropertiesResponse' smart constructor.
 newtype PutWorkflowRunPropertiesResponse = PutWorkflowRunPropertiesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutWorkflowRunPropertiesResponse' with the minimum fields required to make a request.

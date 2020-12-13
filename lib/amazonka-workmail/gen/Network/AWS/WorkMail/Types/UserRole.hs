@@ -13,9 +13,9 @@
 module Network.AWS.WorkMail.Types.UserRole
   ( UserRole
       ( UserRole',
+        URUser,
         URResource,
-        URSystemUser,
-        URUser
+        URSystemUser
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype UserRole = UserRole' Lude.Text
       Lude.ToHeader
     )
 
+pattern URUser :: UserRole
+pattern URUser = UserRole' "USER"
+
 pattern URResource :: UserRole
 pattern URResource = UserRole' "RESOURCE"
 
 pattern URSystemUser :: UserRole
 pattern URSystemUser = UserRole' "SYSTEM_USER"
 
-pattern URUser :: UserRole
-pattern URUser = UserRole' "USER"
-
 {-# COMPLETE
+  URUser,
   URResource,
   URSystemUser,
-  URUser,
   UserRole'
   #-}

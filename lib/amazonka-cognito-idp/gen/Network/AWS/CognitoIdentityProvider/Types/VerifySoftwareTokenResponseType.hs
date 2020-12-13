@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType
   ( VerifySoftwareTokenResponseType
       ( VerifySoftwareTokenResponseType',
-        VSTRTError,
-        VSTRTSuccess
+        VSTRTSuccess,
+        VSTRTError
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype VerifySoftwareTokenResponseType = VerifySoftwareTokenResponseType' Lude.
       Lude.ToHeader
     )
 
-pattern VSTRTError :: VerifySoftwareTokenResponseType
-pattern VSTRTError = VerifySoftwareTokenResponseType' "ERROR"
-
 pattern VSTRTSuccess :: VerifySoftwareTokenResponseType
 pattern VSTRTSuccess = VerifySoftwareTokenResponseType' "SUCCESS"
 
+pattern VSTRTError :: VerifySoftwareTokenResponseType
+pattern VSTRTError = VerifySoftwareTokenResponseType' "ERROR"
+
 {-# COMPLETE
-  VSTRTError,
   VSTRTSuccess,
+  VSTRTError,
   VerifySoftwareTokenResponseType'
   #-}

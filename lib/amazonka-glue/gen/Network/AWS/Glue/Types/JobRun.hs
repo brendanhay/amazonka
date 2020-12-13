@@ -53,61 +53,125 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobRun' smart constructor.
 data JobRun = JobRun'
-  { completedOn :: Lude.Maybe Lude.Timestamp,
+  { -- | The date and time that this job run completed.
+    completedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The number of workers of a defined @workerType@ that are allocated when a job runs.
+    --
+    -- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
     numberOfWorkers :: Lude.Maybe Lude.Int,
+    -- | The name of the trigger that started this job run.
     triggerName :: Lude.Maybe Lude.Text,
+    -- | Specifies configuration properties of a job run notification.
     notificationProperty :: Lude.Maybe NotificationProperty,
+    -- | The last time that this job run was modified.
     lastModifiedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The job arguments associated with this run. For this job run, they replace the default arguments set in the job definition itself.
+    --
+    -- You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+    -- For information about how to specify and consume your own job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide.
+    -- For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
     arguments :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the job definition being used in this run.
     jobName :: Lude.Maybe Lude.Text,
+    -- | The date and time at which this job run was started.
     startedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+    --
+    --
+    --     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+    --
+    --
+    --     * For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
+    --
+    --
+    --     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
     workerType :: Lude.Maybe WorkerType,
+    -- | The name of the @SecurityConfiguration@ structure to be used with this job run.
     securityConfiguration :: Lude.Maybe Lude.Text,
+    -- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark.
+    --
+    -- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+    -- Jobs that are created without specifying a Glue version default to Glue 0.9.
     glueVersion :: Lude.Maybe Lude.Text,
+    -- | The current state of the job run. For more information about the statuses of jobs that have terminated abnormally, see <https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html AWS Glue Job Run Statuses> .
     jobRunState :: Lude.Maybe JobRunState,
+    -- | The name of the log group for secure logging that can be server-side encrypted in Amazon CloudWatch using AWS KMS. This name can be @/aws-glue/jobs/@ , in which case the default encryption is @NONE@ . If you add a role name and @SecurityConfiguration@ name (in other words, @/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/@ ), then that security configuration is used to encrypt the log group.
     logGroupName :: Lude.Maybe Lude.Text,
+    -- | The amount of time (in seconds) that the job run consumed resources.
     executionTime :: Lude.Maybe Lude.Int,
+    -- | A list of predecessors to this job run.
     predecessorRuns :: Lude.Maybe [Predecessor],
+    -- | The ID of the previous run of this job. For example, the @JobRunId@ specified in the @StartJobRun@ action.
     previousRunId :: Lude.Maybe Lude.Text,
+    -- | The ID of this job run.
     id :: Lude.Maybe Lude.Text,
+    -- | The number of the attempt to run this job.
     attempt :: Lude.Maybe Lude.Int,
+    -- | This field is deprecated. Use @MaxCapacity@ instead.
+    --
+    -- The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
     allocatedCapacity :: Lude.Maybe Lude.Int,
+    -- | The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+    --
+    -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@ .
+    -- The value that can be allocated for @MaxCapacity@ depends on whether you are running a Python shell job or an Apache Spark ETL job:
+    --
+    --     * When you specify a Python shell job (@JobCommand.Name@ ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
+    --
+    --
+    --     * When you specify an Apache Spark ETL job (@JobCommand.Name@ ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
     maxCapacity :: Lude.Maybe Lude.Double,
+    -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
     timeout :: Lude.Maybe Lude.Natural,
+    -- | An error message associated with this job run.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobRun' with the minimum fields required to make a request.
 --
--- * 'allocatedCapacity' - This field is deprecated. Use @MaxCapacity@ instead.
+-- * 'completedOn' - The date and time that this job run completed.
+-- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when a job runs.
 --
--- The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+-- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
+-- * 'triggerName' - The name of the trigger that started this job run.
+-- * 'notificationProperty' - Specifies configuration properties of a job run notification.
+-- * 'lastModifiedOn' - The last time that this job run was modified.
 -- * 'arguments' - The job arguments associated with this run. For this job run, they replace the default arguments set in the job definition itself.
 --
 -- You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 -- For information about how to specify and consume your own job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide.
 -- For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
--- * 'attempt' - The number of the attempt to run this job.
--- * 'completedOn' - The date and time that this job run completed.
--- * 'errorMessage' - An error message associated with this job run.
--- * 'executionTime' - The amount of time (in seconds) that the job run consumed resources.
+-- * 'jobName' - The name of the job definition being used in this run.
+-- * 'startedOn' - The date and time at which this job run was started.
+-- * 'workerType' - The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+--
+--
+--     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+--
+--
+--     * For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
+--
+--
+--     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
+--
+--
+-- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this job run.
 -- * 'glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark.
 --
 -- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
 -- Jobs that are created without specifying a Glue version default to Glue 0.9.
--- * 'id' - The ID of this job run.
--- * 'jobName' - The name of the job definition being used in this run.
 -- * 'jobRunState' - The current state of the job run. For more information about the statuses of jobs that have terminated abnormally, see <https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html AWS Glue Job Run Statuses> .
--- * 'lastModifiedOn' - The last time that this job run was modified.
 -- * 'logGroupName' - The name of the log group for secure logging that can be server-side encrypted in Amazon CloudWatch using AWS KMS. This name can be @/aws-glue/jobs/@ , in which case the default encryption is @NONE@ . If you add a role name and @SecurityConfiguration@ name (in other words, @/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/@ ), then that security configuration is used to encrypt the log group.
+-- * 'executionTime' - The amount of time (in seconds) that the job run consumed resources.
+-- * 'predecessorRuns' - A list of predecessors to this job run.
+-- * 'previousRunId' - The ID of the previous run of this job. For example, the @JobRunId@ specified in the @StartJobRun@ action.
+-- * 'id' - The ID of this job run.
+-- * 'attempt' - The number of the attempt to run this job.
+-- * 'allocatedCapacity' - This field is deprecated. Use @MaxCapacity@ instead.
+--
+-- The number of AWS Glue data processing units (DPUs) allocated to this JobRun. From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
 -- * 'maxCapacity' - The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
 --
 -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@ .
@@ -119,26 +183,8 @@ data JobRun = JobRun'
 --     * When you specify an Apache Spark ETL job (@JobCommand.Name@ ="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
 --
 --
--- * 'notificationProperty' - Specifies configuration properties of a job run notification.
--- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when a job runs.
---
--- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
--- * 'predecessorRuns' - A list of predecessors to this job run.
--- * 'previousRunId' - The ID of the previous run of this job. For example, the @JobRunId@ specified in the @StartJobRun@ action.
--- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this job run.
--- * 'startedOn' - The date and time at which this job run was started.
 -- * 'timeout' - The @JobRun@ timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
--- * 'triggerName' - The name of the trigger that started this job run.
--- * 'workerType' - The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
---
---
---     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
---
---
---     * For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.
---
---
---     * For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.
+-- * 'errorMessage' - An error message associated with this job run.
 mkJobRun ::
   JobRun
 mkJobRun =

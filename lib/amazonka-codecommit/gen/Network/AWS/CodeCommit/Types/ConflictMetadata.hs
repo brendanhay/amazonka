@@ -42,39 +42,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConflictMetadata' smart constructor.
 data ConflictMetadata = ConflictMetadata'
-  { numberOfConflicts ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of conflicts, including both hunk conflicts and metadata conflicts.
+    numberOfConflicts :: Lude.Maybe Lude.Int,
+    -- | A boolean value indicating whether there are conflicts in the content of a file.
     contentConflict :: Lude.Maybe Lude.Bool,
+    -- | The file sizes of the file in the source, destination, and base of the merge.
     fileSizes :: Lude.Maybe FileSizes,
+    -- | The path of the file that contains conflicts.
     filePath :: Lude.Maybe Lude.Text,
+    -- | A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.
     isBinaryFile :: Lude.Maybe IsBinaryFile,
+    -- | A boolean value indicating whether there are conflicts in the file mode of a file.
     fileModeConflict :: Lude.Maybe Lude.Bool,
+    -- | A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.
     objectTypeConflict :: Lude.Maybe Lude.Bool,
+    -- | Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.
     mergeOperations :: Lude.Maybe MergeOperations,
+    -- | Information about any object type conflicts in a merge operation.
     objectTypes :: Lude.Maybe ObjectTypes,
+    -- | The file modes of the file in the source, destination, and base of the merge.
     fileModes :: Lude.Maybe FileModes
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConflictMetadata' with the minimum fields required to make a request.
 --
--- * 'contentConflict' - A boolean value indicating whether there are conflicts in the content of a file.
--- * 'fileModeConflict' - A boolean value indicating whether there are conflicts in the file mode of a file.
--- * 'fileModes' - The file modes of the file in the source, destination, and base of the merge.
--- * 'filePath' - The path of the file that contains conflicts.
--- * 'fileSizes' - The file sizes of the file in the source, destination, and base of the merge.
--- * 'isBinaryFile' - A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.
--- * 'mergeOperations' - Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.
 -- * 'numberOfConflicts' - The number of conflicts, including both hunk conflicts and metadata conflicts.
+-- * 'contentConflict' - A boolean value indicating whether there are conflicts in the content of a file.
+-- * 'fileSizes' - The file sizes of the file in the source, destination, and base of the merge.
+-- * 'filePath' - The path of the file that contains conflicts.
+-- * 'isBinaryFile' - A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.
+-- * 'fileModeConflict' - A boolean value indicating whether there are conflicts in the file mode of a file.
 -- * 'objectTypeConflict' - A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.
+-- * 'mergeOperations' - Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.
 -- * 'objectTypes' - Information about any object type conflicts in a merge operation.
+-- * 'fileModes' - The file modes of the file in the source, destination, and base of the merge.
 mkConflictMetadata ::
   ConflictMetadata
 mkConflictMetadata =

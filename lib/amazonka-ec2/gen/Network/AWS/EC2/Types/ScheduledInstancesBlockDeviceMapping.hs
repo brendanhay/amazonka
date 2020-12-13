@@ -32,36 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledInstancesBlockDeviceMapping' smart constructor.
 data ScheduledInstancesBlockDeviceMapping = ScheduledInstancesBlockDeviceMapping'
-  { virtualName ::
-      Lude.Maybe
-        Lude.Text,
-    noDevice ::
-      Lude.Maybe
-        Lude.Text,
-    ebs ::
-      Lude.Maybe
-        ScheduledInstancesEBS,
-    deviceName ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+    --
+    -- Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+    virtualName :: Lude.Maybe Lude.Text,
+    -- | Suppresses the specified device included in the block device mapping of the AMI.
+    noDevice :: Lude.Maybe Lude.Text,
+    -- | Parameters used to set up EBS volumes automatically when the instance is launched.
+    ebs :: Lude.Maybe ScheduledInstancesEBS,
+    -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
+    deviceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstancesBlockDeviceMapping' with the minimum fields required to make a request.
 --
--- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
--- * 'ebs' - Parameters used to set up EBS volumes automatically when the instance is launched.
--- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
 -- * 'virtualName' - The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 --
 -- Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+-- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
+-- * 'ebs' - Parameters used to set up EBS volumes automatically when the instance is launched.
+-- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 mkScheduledInstancesBlockDeviceMapping ::
   ScheduledInstancesBlockDeviceMapping
 mkScheduledInstancesBlockDeviceMapping =

@@ -36,22 +36,18 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkLimits' smart constructor.
 data Limits = Limits'
   { instanceLimits :: Lude.Maybe InstanceLimits,
+    -- | List of additional limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
     additionalLimits :: Lude.Maybe [AdditionalLimit],
+    -- | StorageType represents the list of storage related types and attributes that are available for given InstanceType.
     storageTypes :: Lude.Maybe [StorageType]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Limits' with the minimum fields required to make a request.
 --
+-- * 'instanceLimits' -
 -- * 'additionalLimits' - List of additional limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
--- * 'instanceLimits' - Undocumented field.
 -- * 'storageTypes' - StorageType represents the list of storage related types and attributes that are available for given InstanceType.
 mkLimits ::
   Limits

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.GetRecommenderConfigurations
     mkGetRecommenderConfigurationsResponse,
 
     -- ** Response lenses
-    grcrsResponseStatus,
     grcrsListRecommenderConfigurationsResponse,
+    grcrsResponseStatus,
   )
 where
 
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRecommenderConfigurations' smart constructor.
 data GetRecommenderConfigurations = GetRecommenderConfigurations'
-  { token ::
-      Lude.Maybe Lude.Text,
+  { -- | The NextToken string that specifies which page of results to return in a paginated response.
+    token :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
     pageSize :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRecommenderConfigurations' with the minimum fields required to make a request.
 --
--- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 -- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 mkGetRecommenderConfigurations ::
   GetRecommenderConfigurations
 mkGetRecommenderConfigurations =
@@ -88,7 +84,7 @@ instance Lude.AWSRequest GetRecommenderConfigurations where
     Res.receiveJSON
       ( \s h x ->
           GetRecommenderConfigurationsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetRecommenderConfigurations where
@@ -110,46 +106,31 @@ instance Lude.ToQuery GetRecommenderConfigurations where
 
 -- | /See:/ 'mkGetRecommenderConfigurationsResponse' smart constructor.
 data GetRecommenderConfigurationsResponse = GetRecommenderConfigurationsResponse'
-  { responseStatus ::
-      Lude.Int,
-    listRecommenderConfigurationsResponse ::
-      ListRecommenderConfigurationsResponse
+  { listRecommenderConfigurationsResponse :: ListRecommenderConfigurationsResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRecommenderConfigurationsResponse' with the minimum fields required to make a request.
 --
--- * 'listRecommenderConfigurationsResponse' - Undocumented field.
+-- * 'listRecommenderConfigurationsResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetRecommenderConfigurationsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'listRecommenderConfigurationsResponse'
   ListRecommenderConfigurationsResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRecommenderConfigurationsResponse
 mkGetRecommenderConfigurationsResponse
-  pResponseStatus_
-  pListRecommenderConfigurationsResponse_ =
+  pListRecommenderConfigurationsResponse_
+  pResponseStatus_ =
     GetRecommenderConfigurationsResponse'
-      { responseStatus =
-          pResponseStatus_,
-        listRecommenderConfigurationsResponse =
-          pListRecommenderConfigurationsResponse_
+      { listRecommenderConfigurationsResponse =
+          pListRecommenderConfigurationsResponse_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grcrsResponseStatus :: Lens.Lens' GetRecommenderConfigurationsResponse Lude.Int
-grcrsResponseStatus = Lens.lens (responseStatus :: GetRecommenderConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRecommenderConfigurationsResponse)
-{-# DEPRECATED grcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -157,3 +138,10 @@ grcrsResponseStatus = Lens.lens (responseStatus :: GetRecommenderConfigurationsR
 grcrsListRecommenderConfigurationsResponse :: Lens.Lens' GetRecommenderConfigurationsResponse ListRecommenderConfigurationsResponse
 grcrsListRecommenderConfigurationsResponse = Lens.lens (listRecommenderConfigurationsResponse :: GetRecommenderConfigurationsResponse -> ListRecommenderConfigurationsResponse) (\s a -> s {listRecommenderConfigurationsResponse = a} :: GetRecommenderConfigurationsResponse)
 {-# DEPRECATED grcrsListRecommenderConfigurationsResponse "Use generic-lens or generic-optics with 'listRecommenderConfigurationsResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grcrsResponseStatus :: Lens.Lens' GetRecommenderConfigurationsResponse Lude.Int
+grcrsResponseStatus = Lens.lens (responseStatus :: GetRecommenderConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRecommenderConfigurationsResponse)
+{-# DEPRECATED grcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

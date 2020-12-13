@@ -13,8 +13,8 @@
 module Network.AWS.CloudDirectory.Types.FacetStyle
   ( FacetStyle
       ( FacetStyle',
-        Dynamic,
-        Static
+        Static,
+        Dynamic
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FacetStyle = FacetStyle' Lude.Text
       Lude.ToHeader
     )
 
-pattern Dynamic :: FacetStyle
-pattern Dynamic = FacetStyle' "DYNAMIC"
-
 pattern Static :: FacetStyle
 pattern Static = FacetStyle' "STATIC"
 
+pattern Dynamic :: FacetStyle
+pattern Dynamic = FacetStyle' "DYNAMIC"
+
 {-# COMPLETE
-  Dynamic,
   Static,
+  Dynamic,
   FacetStyle'
   #-}

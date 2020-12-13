@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,20 +38,20 @@ module Network.AWS.SageMaker.CreateCompilationJob
     mkCreateCompilationJob,
 
     -- ** Request lenses
-    ccjTags,
+    ccjStoppingCondition,
     ccjCompilationJobName,
-    ccjRoleARN,
     ccjInputConfig,
     ccjOutputConfig,
-    ccjStoppingCondition,
+    ccjTags,
+    ccjRoleARN,
 
     -- * Destructuring the response
     CreateCompilationJobResponse (..),
     mkCreateCompilationJobResponse,
 
     -- ** Response lenses
-    ccjrsResponseStatus,
     ccjrsCompilationJobARN,
+    ccjrsResponseStatus,
   )
 where
 
@@ -62,28 +63,45 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateCompilationJob' smart constructor.
 data CreateCompilationJob = CreateCompilationJob'
-  { tags ::
-      Lude.Maybe [Tag],
+  { -- | Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training costs.
+    stoppingCondition :: StoppingCondition,
+    -- | A name for the model compilation job. The name must be unique within the AWS Region and within your AWS account.
     compilationJobName :: Lude.Text,
-    roleARN :: Lude.Text,
+    -- | Provides information about the location of input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.
     inputConfig :: InputConfig,
+    -- | Provides information about the output location for the compiled model and the target device the model runs on.
     outputConfig :: OutputConfig,
-    stoppingCondition :: StoppingCondition
+    -- | An array of key-value pairs that you want to use to organize and track your AWS resource costs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+    tags :: Lude.Maybe [Tag],
+    -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+    --
+    -- During model compilation, Amazon SageMaker needs your permission to:
+    --
+    --     * Read input data from an S3 bucket
+    --
+    --
+    --     * Write model artifacts to an S3 bucket
+    --
+    --
+    --     * Write logs to Amazon CloudWatch Logs
+    --
+    --
+    --     * Publish metrics to Amazon CloudWatch
+    --
+    --
+    -- You grant permissions for all of these tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this API must have the @iam:PassRole@ permission. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.>
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCompilationJob' with the minimum fields required to make a request.
 --
+-- * 'stoppingCondition' - Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training costs.
 -- * 'compilationJobName' - A name for the model compilation job. The name must be unique within the AWS Region and within your AWS account.
 -- * 'inputConfig' - Provides information about the location of input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.
 -- * 'outputConfig' - Provides information about the output location for the compiled model and the target device the model runs on.
+-- * 'tags' - An array of key-value pairs that you want to use to organize and track your AWS resource costs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 -- * 'roleARN' - The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
 --
 -- During model compilation, Amazon SageMaker needs your permission to:
@@ -101,41 +119,39 @@ data CreateCompilationJob = CreateCompilationJob'
 --
 --
 -- You grant permissions for all of these tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this API must have the @iam:PassRole@ permission. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles.>
--- * 'stoppingCondition' - Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training costs.
--- * 'tags' - An array of key-value pairs that you want to use to organize and track your AWS resource costs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 mkCreateCompilationJob ::
+  -- | 'stoppingCondition'
+  StoppingCondition ->
   -- | 'compilationJobName'
-  Lude.Text ->
-  -- | 'roleARN'
   Lude.Text ->
   -- | 'inputConfig'
   InputConfig ->
   -- | 'outputConfig'
   OutputConfig ->
-  -- | 'stoppingCondition'
-  StoppingCondition ->
+  -- | 'roleARN'
+  Lude.Text ->
   CreateCompilationJob
 mkCreateCompilationJob
+  pStoppingCondition_
   pCompilationJobName_
-  pRoleARN_
   pInputConfig_
   pOutputConfig_
-  pStoppingCondition_ =
+  pRoleARN_ =
     CreateCompilationJob'
-      { tags = Lude.Nothing,
+      { stoppingCondition = pStoppingCondition_,
         compilationJobName = pCompilationJobName_,
-        roleARN = pRoleARN_,
         inputConfig = pInputConfig_,
         outputConfig = pOutputConfig_,
-        stoppingCondition = pStoppingCondition_
+        tags = Lude.Nothing,
+        roleARN = pRoleARN_
       }
 
--- | An array of key-value pairs that you want to use to organize and track your AWS resource costs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- | Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training costs.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccjTags :: Lens.Lens' CreateCompilationJob (Lude.Maybe [Tag])
-ccjTags = Lens.lens (tags :: CreateCompilationJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCompilationJob)
-{-# DEPRECATED ccjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccjStoppingCondition :: Lens.Lens' CreateCompilationJob StoppingCondition
+ccjStoppingCondition = Lens.lens (stoppingCondition :: CreateCompilationJob -> StoppingCondition) (\s a -> s {stoppingCondition = a} :: CreateCompilationJob)
+{-# DEPRECATED ccjStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
 
 -- | A name for the model compilation job. The name must be unique within the AWS Region and within your AWS account.
 --
@@ -143,6 +159,27 @@ ccjTags = Lens.lens (tags :: CreateCompilationJob -> Lude.Maybe [Tag]) (\s a -> 
 ccjCompilationJobName :: Lens.Lens' CreateCompilationJob Lude.Text
 ccjCompilationJobName = Lens.lens (compilationJobName :: CreateCompilationJob -> Lude.Text) (\s a -> s {compilationJobName = a} :: CreateCompilationJob)
 {-# DEPRECATED ccjCompilationJobName "Use generic-lens or generic-optics with 'compilationJobName' instead." #-}
+
+-- | Provides information about the location of input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.
+--
+-- /Note:/ Consider using 'inputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccjInputConfig :: Lens.Lens' CreateCompilationJob InputConfig
+ccjInputConfig = Lens.lens (inputConfig :: CreateCompilationJob -> InputConfig) (\s a -> s {inputConfig = a} :: CreateCompilationJob)
+{-# DEPRECATED ccjInputConfig "Use generic-lens or generic-optics with 'inputConfig' instead." #-}
+
+-- | Provides information about the output location for the compiled model and the target device the model runs on.
+--
+-- /Note:/ Consider using 'outputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccjOutputConfig :: Lens.Lens' CreateCompilationJob OutputConfig
+ccjOutputConfig = Lens.lens (outputConfig :: CreateCompilationJob -> OutputConfig) (\s a -> s {outputConfig = a} :: CreateCompilationJob)
+{-# DEPRECATED ccjOutputConfig "Use generic-lens or generic-optics with 'outputConfig' instead." #-}
+
+-- | An array of key-value pairs that you want to use to organize and track your AWS resource costs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccjTags :: Lens.Lens' CreateCompilationJob (Lude.Maybe [Tag])
+ccjTags = Lens.lens (tags :: CreateCompilationJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCompilationJob)
+{-# DEPRECATED ccjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
 --
@@ -167,27 +204,6 @@ ccjRoleARN :: Lens.Lens' CreateCompilationJob Lude.Text
 ccjRoleARN = Lens.lens (roleARN :: CreateCompilationJob -> Lude.Text) (\s a -> s {roleARN = a} :: CreateCompilationJob)
 {-# DEPRECATED ccjRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | Provides information about the location of input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.
---
--- /Note:/ Consider using 'inputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccjInputConfig :: Lens.Lens' CreateCompilationJob InputConfig
-ccjInputConfig = Lens.lens (inputConfig :: CreateCompilationJob -> InputConfig) (\s a -> s {inputConfig = a} :: CreateCompilationJob)
-{-# DEPRECATED ccjInputConfig "Use generic-lens or generic-optics with 'inputConfig' instead." #-}
-
--- | Provides information about the output location for the compiled model and the target device the model runs on.
---
--- /Note:/ Consider using 'outputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccjOutputConfig :: Lens.Lens' CreateCompilationJob OutputConfig
-ccjOutputConfig = Lens.lens (outputConfig :: CreateCompilationJob -> OutputConfig) (\s a -> s {outputConfig = a} :: CreateCompilationJob)
-{-# DEPRECATED ccjOutputConfig "Use generic-lens or generic-optics with 'outputConfig' instead." #-}
-
--- | Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker ends the compilation job. Use this API to cap model training costs.
---
--- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccjStoppingCondition :: Lens.Lens' CreateCompilationJob StoppingCondition
-ccjStoppingCondition = Lens.lens (stoppingCondition :: CreateCompilationJob -> StoppingCondition) (\s a -> s {stoppingCondition = a} :: CreateCompilationJob)
-{-# DEPRECATED ccjStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
-
 instance Lude.AWSRequest CreateCompilationJob where
   type Rs CreateCompilationJob = CreateCompilationJobResponse
   request = Req.postJSON sageMakerService
@@ -195,8 +211,8 @@ instance Lude.AWSRequest CreateCompilationJob where
     Res.receiveJSON
       ( \s h x ->
           CreateCompilationJobResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "CompilationJobArn")
+            Lude.<$> (x Lude..:> "CompilationJobArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateCompilationJob where
@@ -214,12 +230,12 @@ instance Lude.ToJSON CreateCompilationJob where
   toJSON CreateCompilationJob' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("StoppingCondition" Lude..= stoppingCondition),
             Lude.Just ("CompilationJobName" Lude..= compilationJobName),
-            Lude.Just ("RoleArn" Lude..= roleARN),
             Lude.Just ("InputConfig" Lude..= inputConfig),
             Lude.Just ("OutputConfig" Lude..= outputConfig),
-            Lude.Just ("StoppingCondition" Lude..= stoppingCondition)
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("RoleArn" Lude..= roleARN)
           ]
       )
 
@@ -231,17 +247,15 @@ instance Lude.ToQuery CreateCompilationJob where
 
 -- | /See:/ 'mkCreateCompilationJobResponse' smart constructor.
 data CreateCompilationJobResponse = CreateCompilationJobResponse'
-  { responseStatus ::
-      Lude.Int,
-    compilationJobARN :: Lude.Text
+  { -- | If the action is successful, the service sends back an HTTP 200 response. Amazon SageMaker returns the following data in JSON format:
+    --
+    --
+    --     * @CompilationJobArn@ : The Amazon Resource Name (ARN) of the compiled job.
+    compilationJobARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCompilationJobResponse' with the minimum fields required to make a request.
@@ -254,23 +268,17 @@ data CreateCompilationJobResponse = CreateCompilationJobResponse'
 --
 -- * 'responseStatus' - The response status code.
 mkCreateCompilationJobResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'compilationJobARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCompilationJobResponse
-mkCreateCompilationJobResponse pResponseStatus_ pCompilationJobARN_ =
+mkCreateCompilationJobResponse pCompilationJobARN_ pResponseStatus_ =
   CreateCompilationJobResponse'
-    { responseStatus = pResponseStatus_,
-      compilationJobARN = pCompilationJobARN_
+    { compilationJobARN =
+        pCompilationJobARN_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccjrsResponseStatus :: Lens.Lens' CreateCompilationJobResponse Lude.Int
-ccjrsResponseStatus = Lens.lens (responseStatus :: CreateCompilationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCompilationJobResponse)
-{-# DEPRECATED ccjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | If the action is successful, the service sends back an HTTP 200 response. Amazon SageMaker returns the following data in JSON format:
 --
@@ -283,3 +291,10 @@ ccjrsResponseStatus = Lens.lens (responseStatus :: CreateCompilationJobResponse 
 ccjrsCompilationJobARN :: Lens.Lens' CreateCompilationJobResponse Lude.Text
 ccjrsCompilationJobARN = Lens.lens (compilationJobARN :: CreateCompilationJobResponse -> Lude.Text) (\s a -> s {compilationJobARN = a} :: CreateCompilationJobResponse)
 {-# DEPRECATED ccjrsCompilationJobARN "Use generic-lens or generic-optics with 'compilationJobARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccjrsResponseStatus :: Lens.Lens' CreateCompilationJobResponse Lude.Int
+ccjrsResponseStatus = Lens.lens (responseStatus :: CreateCompilationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCompilationJobResponse)
+{-# DEPRECATED ccjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

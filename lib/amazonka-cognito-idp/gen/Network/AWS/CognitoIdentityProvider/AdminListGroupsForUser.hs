@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.CognitoIdentityProvider.AdminListGroupsForUser
     mkAdminListGroupsForUser,
 
     -- ** Request lenses
+    algfuUserPoolId,
+    algfuUsername,
     algfuNextToken,
     algfuLimit,
-    algfuUsername,
-    algfuUserPoolId,
 
     -- * Destructuring the response
     AdminListGroupsForUserResponse (..),
@@ -48,34 +49,51 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAdminListGroupsForUser' smart constructor.
 data AdminListGroupsForUser = AdminListGroupsForUser'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Lude.Text,
+    -- | The username for the user.
     username :: Lude.Sensitive Lude.Text,
-    userPoolId :: Lude.Text
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The limit of the request to list groups.
+    limit :: Lude.Maybe Lude.Natural
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminListGroupsForUser' with the minimum fields required to make a request.
 --
--- * 'limit' - The limit of the request to list groups.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 -- * 'userPoolId' - The user pool ID for the user pool.
 -- * 'username' - The username for the user.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'limit' - The limit of the request to list groups.
 mkAdminListGroupsForUser ::
-  -- | 'username'
-  Lude.Sensitive Lude.Text ->
   -- | 'userPoolId'
   Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   AdminListGroupsForUser
-mkAdminListGroupsForUser pUsername_ pUserPoolId_ =
+mkAdminListGroupsForUser pUserPoolId_ pUsername_ =
   AdminListGroupsForUser'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
+    { userPoolId = pUserPoolId_,
       username = pUsername_,
-      userPoolId = pUserPoolId_
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | The user pool ID for the user pool.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+algfuUserPoolId :: Lens.Lens' AdminListGroupsForUser Lude.Text
+algfuUserPoolId = Lens.lens (userPoolId :: AdminListGroupsForUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminListGroupsForUser)
+{-# DEPRECATED algfuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+-- | The username for the user.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+algfuUsername :: Lens.Lens' AdminListGroupsForUser (Lude.Sensitive Lude.Text)
+algfuUsername = Lens.lens (username :: AdminListGroupsForUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminListGroupsForUser)
+{-# DEPRECATED algfuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
@@ -90,20 +108,6 @@ algfuNextToken = Lens.lens (nextToken :: AdminListGroupsForUser -> Lude.Maybe Lu
 algfuLimit :: Lens.Lens' AdminListGroupsForUser (Lude.Maybe Lude.Natural)
 algfuLimit = Lens.lens (limit :: AdminListGroupsForUser -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: AdminListGroupsForUser)
 {-# DEPRECATED algfuLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The username for the user.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-algfuUsername :: Lens.Lens' AdminListGroupsForUser (Lude.Sensitive Lude.Text)
-algfuUsername = Lens.lens (username :: AdminListGroupsForUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminListGroupsForUser)
-{-# DEPRECATED algfuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
-
--- | The user pool ID for the user pool.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-algfuUserPoolId :: Lens.Lens' AdminListGroupsForUser Lude.Text
-algfuUserPoolId = Lens.lens (userPoolId :: AdminListGroupsForUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminListGroupsForUser)
-{-# DEPRECATED algfuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Page.AWSPager AdminListGroupsForUser where
   page rq rs
@@ -143,10 +147,10 @@ instance Lude.ToJSON AdminListGroupsForUser where
   toJSON AdminListGroupsForUser' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
             Lude.Just ("Username" Lude..= username),
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -158,19 +162,14 @@ instance Lude.ToQuery AdminListGroupsForUser where
 
 -- | /See:/ 'mkAdminListGroupsForUserResponse' smart constructor.
 data AdminListGroupsForUserResponse = AdminListGroupsForUserResponse'
-  { groups ::
-      Lude.Maybe [GroupType],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The groups that the user belongs to.
+    groups :: Lude.Maybe [GroupType],
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminListGroupsForUserResponse' with the minimum fields required to make a request.

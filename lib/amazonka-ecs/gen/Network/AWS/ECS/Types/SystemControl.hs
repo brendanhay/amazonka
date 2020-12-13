@@ -38,22 +38,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSystemControl' smart constructor.
 data SystemControl = SystemControl'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The value for the namespaced kernel parameter specified in @namespace@ .
+    value :: Lude.Maybe Lude.Text,
+    -- | The namespaced kernel parameter for which to set a @value@ .
     namespace :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SystemControl' with the minimum fields required to make a request.
 --
--- * 'namespace' - The namespaced kernel parameter for which to set a @value@ .
 -- * 'value' - The value for the namespaced kernel parameter specified in @namespace@ .
+-- * 'namespace' - The namespaced kernel parameter for which to set a @value@ .
 mkSystemControl ::
   SystemControl
 mkSystemControl =

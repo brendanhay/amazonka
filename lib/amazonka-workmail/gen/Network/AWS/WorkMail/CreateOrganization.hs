@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.WorkMail.CreateOrganization
     coEnableInteroperability,
     coKMSKeyARN,
     coClientToken,
-    coDomains,
     coAlias,
+    coDomains,
 
     -- * Destructuring the response
     CreateOrganizationResponse (..),
@@ -47,31 +48,30 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkCreateOrganization' smart constructor.
 data CreateOrganization = CreateOrganization'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS Directory Service directory ID.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | When @true@ , allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD Connector directory ID is included in the request.
     enableInteroperability :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of a customer managed master key from AWS KMS.
     kmsKeyARN :: Lude.Maybe Lude.Text,
+    -- | The idempotency token associated with the request.
     clientToken :: Lude.Maybe Lude.Text,
-    domains :: Lude.Maybe [Domain],
-    alias :: Lude.Text
+    -- | The organization alias.
+    alias :: Lude.Text,
+    -- | The email domains to associate with the organization.
+    domains :: Lude.Maybe [Domain]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOrganization' with the minimum fields required to make a request.
 --
--- * 'alias' - The organization alias.
--- * 'clientToken' - The idempotency token associated with the request.
 -- * 'directoryId' - The AWS Directory Service directory ID.
--- * 'domains' - The email domains to associate with the organization.
 -- * 'enableInteroperability' - When @true@ , allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to @true@ if an AD Connector directory ID is included in the request.
 -- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of a customer managed master key from AWS KMS.
+-- * 'clientToken' - The idempotency token associated with the request.
+-- * 'alias' - The organization alias.
+-- * 'domains' - The email domains to associate with the organization.
 mkCreateOrganization ::
   -- | 'alias'
   Lude.Text ->
@@ -82,8 +82,8 @@ mkCreateOrganization pAlias_ =
       enableInteroperability = Lude.Nothing,
       kmsKeyARN = Lude.Nothing,
       clientToken = Lude.Nothing,
-      domains = Lude.Nothing,
-      alias = pAlias_
+      alias = pAlias_,
+      domains = Lude.Nothing
     }
 
 -- | The AWS Directory Service directory ID.
@@ -114,19 +114,19 @@ coClientToken :: Lens.Lens' CreateOrganization (Lude.Maybe Lude.Text)
 coClientToken = Lens.lens (clientToken :: CreateOrganization -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateOrganization)
 {-# DEPRECATED coClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
--- | The email domains to associate with the organization.
---
--- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coDomains :: Lens.Lens' CreateOrganization (Lude.Maybe [Domain])
-coDomains = Lens.lens (domains :: CreateOrganization -> Lude.Maybe [Domain]) (\s a -> s {domains = a} :: CreateOrganization)
-{-# DEPRECATED coDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
-
 -- | The organization alias.
 --
 -- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 coAlias :: Lens.Lens' CreateOrganization Lude.Text
 coAlias = Lens.lens (alias :: CreateOrganization -> Lude.Text) (\s a -> s {alias = a} :: CreateOrganization)
 {-# DEPRECATED coAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
+
+-- | The email domains to associate with the organization.
+--
+-- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coDomains :: Lens.Lens' CreateOrganization (Lude.Maybe [Domain])
+coDomains = Lens.lens (domains :: CreateOrganization -> Lude.Maybe [Domain]) (\s a -> s {domains = a} :: CreateOrganization)
+{-# DEPRECATED coDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
 
 instance Lude.AWSRequest CreateOrganization where
   type Rs CreateOrganization = CreateOrganizationResponse
@@ -158,8 +158,8 @@ instance Lude.ToJSON CreateOrganization where
             ("EnableInteroperability" Lude..=) Lude.<$> enableInteroperability,
             ("KmsKeyArn" Lude..=) Lude.<$> kmsKeyARN,
             ("ClientToken" Lude..=) Lude.<$> clientToken,
-            ("Domains" Lude..=) Lude.<$> domains,
-            Lude.Just ("Alias" Lude..= alias)
+            Lude.Just ("Alias" Lude..= alias),
+            ("Domains" Lude..=) Lude.<$> domains
           ]
       )
 
@@ -171,17 +171,12 @@ instance Lude.ToQuery CreateOrganization where
 
 -- | /See:/ 'mkCreateOrganizationResponse' smart constructor.
 data CreateOrganizationResponse = CreateOrganizationResponse'
-  { organizationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The organization ID.
+    organizationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOrganizationResponse' with the minimum fields required to make a request.

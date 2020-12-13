@@ -42,43 +42,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceUpdate' smart constructor.
 data ServiceUpdate = ServiceUpdate'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The Elasticache engine version to which the update applies. Either Redis or Memcached engine version
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Reflects the nature of the service update
     serviceUpdateType :: Lude.Maybe ServiceUpdateType,
+    -- | The unique ID of the service update
     serviceUpdateName :: Lude.Maybe Lude.Text,
+    -- | The Elasticache engine to which the update applies. Either Redis or Memcached
     engine :: Lude.Maybe Lude.Text,
+    -- | The date when the service update is initially available
     serviceUpdateReleaseDate :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether the service update will be automatically applied once the recommended apply-by date has expired.
     autoUpdateAfterRecommendedApplyByDate :: Lude.Maybe Lude.Bool,
+    -- | The severity of the service update
     serviceUpdateSeverity :: Lude.Maybe ServiceUpdateSeverity,
+    -- | The date after which the service update is no longer available
     serviceUpdateEndDate :: Lude.Maybe Lude.DateTime,
+    -- | Provides details of the service update
     serviceUpdateDescription :: Lude.Maybe Lude.Text,
+    -- | The recommendend date to apply the service update in order to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
     serviceUpdateRecommendedApplyByDate :: Lude.Maybe Lude.DateTime,
+    -- | The status of the service update
     serviceUpdateStatus :: Lude.Maybe ServiceUpdateStatus,
+    -- | The estimated length of time the service update will take
     estimatedUpdateTime :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceUpdate' with the minimum fields required to make a request.
 --
--- * 'autoUpdateAfterRecommendedApplyByDate' - Indicates whether the service update will be automatically applied once the recommended apply-by date has expired.
--- * 'engine' - The Elasticache engine to which the update applies. Either Redis or Memcached
 -- * 'engineVersion' - The Elasticache engine version to which the update applies. Either Redis or Memcached engine version
--- * 'estimatedUpdateTime' - The estimated length of time the service update will take
--- * 'serviceUpdateDescription' - Provides details of the service update
--- * 'serviceUpdateEndDate' - The date after which the service update is no longer available
--- * 'serviceUpdateName' - The unique ID of the service update
--- * 'serviceUpdateRecommendedApplyByDate' - The recommendend date to apply the service update in order to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
--- * 'serviceUpdateReleaseDate' - The date when the service update is initially available
--- * 'serviceUpdateSeverity' - The severity of the service update
--- * 'serviceUpdateStatus' - The status of the service update
 -- * 'serviceUpdateType' - Reflects the nature of the service update
+-- * 'serviceUpdateName' - The unique ID of the service update
+-- * 'engine' - The Elasticache engine to which the update applies. Either Redis or Memcached
+-- * 'serviceUpdateReleaseDate' - The date when the service update is initially available
+-- * 'autoUpdateAfterRecommendedApplyByDate' - Indicates whether the service update will be automatically applied once the recommended apply-by date has expired.
+-- * 'serviceUpdateSeverity' - The severity of the service update
+-- * 'serviceUpdateEndDate' - The date after which the service update is no longer available
+-- * 'serviceUpdateDescription' - Provides details of the service update
+-- * 'serviceUpdateRecommendedApplyByDate' - The recommendend date to apply the service update in order to ensure compliance. For information on compliance, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance> .
+-- * 'serviceUpdateStatus' - The status of the service update
+-- * 'estimatedUpdateTime' - The estimated length of time the service update will take
 mkServiceUpdate ::
   ServiceUpdate
 mkServiceUpdate =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,33 +47,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyHosts' smart constructor.
 data ModifyHosts = ModifyHosts'
-  { instanceFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the instance family to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support multiple instance types within its current instance family.
+    --
+    -- If you want to modify a Dedicated Host to support a specific instance type only, omit this parameter and specify __InstanceType__ instead. You cannot specify __InstanceFamily__ and __InstanceType__ in the same request.
+    instanceFamily :: Lude.Maybe Lude.Text,
+    -- | Specifies the instance type to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support only a specific instance type.
+    --
+    -- If you want to modify a Dedicated Host to support multiple instance types in its current instance family, omit this parameter and specify __InstanceFamily__ instead. You cannot specify __InstanceType__ and __InstanceFamily__ in the same request.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | Indicates whether to enable or disable host recovery for the Dedicated Host. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
     hostRecovery :: Lude.Maybe HostRecovery,
+    -- | Specify whether to enable or disable auto-placement.
     autoPlacement :: Lude.Maybe AutoPlacement,
+    -- | The IDs of the Dedicated Hosts to modify.
     hostIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyHosts' with the minimum fields required to make a request.
 --
--- * 'autoPlacement' - Specify whether to enable or disable auto-placement.
--- * 'hostIds' - The IDs of the Dedicated Hosts to modify.
--- * 'hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated Host. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- * 'instanceFamily' - Specifies the instance family to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support multiple instance types within its current instance family.
 --
 -- If you want to modify a Dedicated Host to support a specific instance type only, omit this parameter and specify __InstanceType__ instead. You cannot specify __InstanceFamily__ and __InstanceType__ in the same request.
 -- * 'instanceType' - Specifies the instance type to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support only a specific instance type.
 --
 -- If you want to modify a Dedicated Host to support multiple instance types in its current instance family, omit this parameter and specify __InstanceFamily__ instead. You cannot specify __InstanceType__ and __InstanceFamily__ in the same request.
+-- * 'hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated Host. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'autoPlacement' - Specify whether to enable or disable auto-placement.
+-- * 'hostIds' - The IDs of the Dedicated Hosts to modify.
 mkModifyHosts ::
   ModifyHosts
 mkModifyHosts =
@@ -159,25 +162,21 @@ instance Lude.ToQuery ModifyHosts where
 
 -- | /See:/ 'mkModifyHostsResponse' smart constructor.
 data ModifyHostsResponse = ModifyHostsResponse'
-  { unsuccessful ::
-      Lude.Maybe [UnsuccessfulItem],
+  { -- | The IDs of the Dedicated Hosts that could not be modified. Check whether the setting you requested can be used.
+    unsuccessful :: Lude.Maybe [UnsuccessfulItem],
+    -- | The IDs of the Dedicated Hosts that were successfully modified.
     successful :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyHostsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'successful' - The IDs of the Dedicated Hosts that were successfully modified.
 -- * 'unsuccessful' - The IDs of the Dedicated Hosts that could not be modified. Check whether the setting you requested can be used.
+-- * 'successful' - The IDs of the Dedicated Hosts that were successfully modified.
+-- * 'responseStatus' - The response status code.
 mkModifyHostsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

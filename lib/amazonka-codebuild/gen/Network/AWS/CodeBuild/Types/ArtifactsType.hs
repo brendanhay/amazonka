@@ -13,9 +13,9 @@
 module Network.AWS.CodeBuild.Types.ArtifactsType
   ( ArtifactsType
       ( ArtifactsType',
-        Codepipeline,
-        NoArtifacts,
-        S3
+        ATCodepipeline,
+        ATS3,
+        ATNoArtifacts
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ArtifactsType = ArtifactsType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Codepipeline :: ArtifactsType
-pattern Codepipeline = ArtifactsType' "CODEPIPELINE"
+pattern ATCodepipeline :: ArtifactsType
+pattern ATCodepipeline = ArtifactsType' "CODEPIPELINE"
 
-pattern NoArtifacts :: ArtifactsType
-pattern NoArtifacts = ArtifactsType' "NO_ARTIFACTS"
+pattern ATS3 :: ArtifactsType
+pattern ATS3 = ArtifactsType' "S3"
 
-pattern S3 :: ArtifactsType
-pattern S3 = ArtifactsType' "S3"
+pattern ATNoArtifacts :: ArtifactsType
+pattern ATNoArtifacts = ArtifactsType' "NO_ARTIFACTS"
 
 {-# COMPLETE
-  Codepipeline,
-  NoArtifacts,
-  S3,
+  ATCodepipeline,
+  ATS3,
+  ATNoArtifacts,
   ArtifactsType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.Budgets.UpdateSubscriber
     mkUpdateSubscriber,
 
     -- ** Request lenses
-    usAccountId,
-    usBudgetName,
     usNotification,
     usOldSubscriber,
     usNewSubscriber,
+    usAccountId,
+    usBudgetName,
 
     -- * Destructuring the response
     UpdateSubscriberResponse (..),
@@ -44,61 +45,52 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateSubscriber' smart constructor.
 data UpdateSubscriber = UpdateSubscriber'
-  { accountId :: Lude.Text,
-    budgetName :: Lude.Text,
+  { -- | The notification whose subscriber you want to update.
     notification :: Notification,
+    -- | The previous subscriber that is associated with a budget notification.
     oldSubscriber :: Subscriber,
-    newSubscriber :: Subscriber
+    -- | The updated subscriber that is associated with a budget notification.
+    newSubscriber :: Subscriber,
+    -- | The @accountId@ that is associated with the budget whose subscriber you want to update.
+    accountId :: Lude.Text,
+    -- | The name of the budget whose subscriber you want to update.
+    budgetName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubscriber' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @accountId@ that is associated with the budget whose subscriber you want to update.
--- * 'budgetName' - The name of the budget whose subscriber you want to update.
--- * 'newSubscriber' - The updated subscriber that is associated with a budget notification.
 -- * 'notification' - The notification whose subscriber you want to update.
 -- * 'oldSubscriber' - The previous subscriber that is associated with a budget notification.
+-- * 'newSubscriber' - The updated subscriber that is associated with a budget notification.
+-- * 'accountId' - The @accountId@ that is associated with the budget whose subscriber you want to update.
+-- * 'budgetName' - The name of the budget whose subscriber you want to update.
 mkUpdateSubscriber ::
-  -- | 'accountId'
-  Lude.Text ->
-  -- | 'budgetName'
-  Lude.Text ->
   -- | 'notification'
   Notification ->
   -- | 'oldSubscriber'
   Subscriber ->
   -- | 'newSubscriber'
   Subscriber ->
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'budgetName'
+  Lude.Text ->
   UpdateSubscriber
 mkUpdateSubscriber
-  pAccountId_
-  pBudgetName_
   pNotification_
   pOldSubscriber_
-  pNewSubscriber_ =
+  pNewSubscriber_
+  pAccountId_
+  pBudgetName_ =
     UpdateSubscriber'
-      { accountId = pAccountId_,
-        budgetName = pBudgetName_,
-        notification = pNotification_,
+      { notification = pNotification_,
         oldSubscriber = pOldSubscriber_,
-        newSubscriber = pNewSubscriber_
+        newSubscriber = pNewSubscriber_,
+        accountId = pAccountId_,
+        budgetName = pBudgetName_
       }
-
--- | The @accountId@ that is associated with the budget whose subscriber you want to update.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usAccountId :: Lens.Lens' UpdateSubscriber Lude.Text
-usAccountId = Lens.lens (accountId :: UpdateSubscriber -> Lude.Text) (\s a -> s {accountId = a} :: UpdateSubscriber)
-{-# DEPRECATED usAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | The name of the budget whose subscriber you want to update.
---
--- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usBudgetName :: Lens.Lens' UpdateSubscriber Lude.Text
-usBudgetName = Lens.lens (budgetName :: UpdateSubscriber -> Lude.Text) (\s a -> s {budgetName = a} :: UpdateSubscriber)
-{-# DEPRECATED usBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 -- | The notification whose subscriber you want to update.
 --
@@ -120,6 +112,20 @@ usOldSubscriber = Lens.lens (oldSubscriber :: UpdateSubscriber -> Subscriber) (\
 usNewSubscriber :: Lens.Lens' UpdateSubscriber Subscriber
 usNewSubscriber = Lens.lens (newSubscriber :: UpdateSubscriber -> Subscriber) (\s a -> s {newSubscriber = a} :: UpdateSubscriber)
 {-# DEPRECATED usNewSubscriber "Use generic-lens or generic-optics with 'newSubscriber' instead." #-}
+
+-- | The @accountId@ that is associated with the budget whose subscriber you want to update.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usAccountId :: Lens.Lens' UpdateSubscriber Lude.Text
+usAccountId = Lens.lens (accountId :: UpdateSubscriber -> Lude.Text) (\s a -> s {accountId = a} :: UpdateSubscriber)
+{-# DEPRECATED usAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The name of the budget whose subscriber you want to update.
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usBudgetName :: Lens.Lens' UpdateSubscriber Lude.Text
+usBudgetName = Lens.lens (budgetName :: UpdateSubscriber -> Lude.Text) (\s a -> s {budgetName = a} :: UpdateSubscriber)
+{-# DEPRECATED usBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 instance Lude.AWSRequest UpdateSubscriber where
   type Rs UpdateSubscriber = UpdateSubscriberResponse
@@ -145,11 +151,11 @@ instance Lude.ToJSON UpdateSubscriber where
   toJSON UpdateSubscriber' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("BudgetName" Lude..= budgetName),
-            Lude.Just ("Notification" Lude..= notification),
+          [ Lude.Just ("Notification" Lude..= notification),
             Lude.Just ("OldSubscriber" Lude..= oldSubscriber),
-            Lude.Just ("NewSubscriber" Lude..= newSubscriber)
+            Lude.Just ("NewSubscriber" Lude..= newSubscriber),
+            Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("BudgetName" Lude..= budgetName)
           ]
       )
 
@@ -163,16 +169,10 @@ instance Lude.ToQuery UpdateSubscriber where
 --
 -- /See:/ 'mkUpdateSubscriberResponse' smart constructor.
 newtype UpdateSubscriberResponse = UpdateSubscriberResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubscriberResponse' with the minimum fields required to make a request.

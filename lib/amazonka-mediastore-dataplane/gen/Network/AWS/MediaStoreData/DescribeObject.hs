@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,14 +43,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeObject' smart constructor.
-newtype DescribeObject = DescribeObject' {path :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeObject = DescribeObject'
+  { -- | The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
+    path :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeObject' with the minimum fields required to make a request.
@@ -94,32 +92,33 @@ instance Lude.ToQuery DescribeObject where
 
 -- | /See:/ 'mkDescribeObjectResponse' smart constructor.
 data DescribeObjectResponse = DescribeObjectResponse'
-  { eTag ::
-      Lude.Maybe Lude.Text,
+  { -- | The ETag that represents a unique instance of the object.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The length of the object in bytes.
     contentLength :: Lude.Maybe Lude.Natural,
+    -- | An optional @CacheControl@ header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
+    --
+    -- Headers with a custom user-defined value are also accepted.
     cacheControl :: Lude.Maybe Lude.Text,
+    -- | The date and time that the object was last modified.
     lastModified :: Lude.Maybe Lude.Timestamp,
+    -- | The content type of the object.
     contentType :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeObjectResponse' with the minimum fields required to make a request.
 --
+-- * 'eTag' - The ETag that represents a unique instance of the object.
+-- * 'contentLength' - The length of the object in bytes.
 -- * 'cacheControl' - An optional @CacheControl@ header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
 --
 -- Headers with a custom user-defined value are also accepted.
--- * 'contentLength' - The length of the object in bytes.
--- * 'contentType' - The content type of the object.
--- * 'eTag' - The ETag that represents a unique instance of the object.
 -- * 'lastModified' - The date and time that the object was last modified.
+-- * 'contentType' - The content type of the object.
 -- * 'responseStatus' - The response status code.
 mkDescribeObjectResponse ::
   -- | 'responseStatus'

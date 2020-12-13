@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputFileURIValue' smart constructor.
 newtype OutputFileURIValue = OutputFileURIValue'
-  { fileName ::
-      Lude.Text
+  { -- | The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
+    fileName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputFileURIValue' with the minimum fields required to make a request.

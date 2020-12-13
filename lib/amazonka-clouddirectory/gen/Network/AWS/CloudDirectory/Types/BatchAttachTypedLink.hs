@@ -17,10 +17,10 @@ module Network.AWS.CloudDirectory.Types.BatchAttachTypedLink
     mkBatchAttachTypedLink,
 
     -- * Lenses
-    batlSourceObjectReference,
     batlTargetObjectReference,
-    batlTypedLinkFacet,
+    batlSourceObjectReference,
     batlAttributes,
+    batlTypedLinkFacet,
   )
 where
 
@@ -34,53 +34,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchAttachTypedLink' smart constructor.
 data BatchAttachTypedLink = BatchAttachTypedLink'
-  { sourceObjectReference ::
-      ObjectReference,
+  { -- | Identifies the target object that the typed link will attach to.
     targetObjectReference :: ObjectReference,
-    typedLinkFacet :: TypedLinkSchemaAndFacetName,
-    attributes :: [AttributeNameAndValue]
+    -- | Identifies the source object that the typed link will attach to.
+    sourceObjectReference :: ObjectReference,
+    -- | A set of attributes that are associated with the typed link.
+    attributes :: [AttributeNameAndValue],
+    -- | Identifies the typed link facet that is associated with the typed link.
+    typedLinkFacet :: TypedLinkSchemaAndFacetName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachTypedLink' with the minimum fields required to make a request.
 --
--- * 'attributes' - A set of attributes that are associated with the typed link.
--- * 'sourceObjectReference' - Identifies the source object that the typed link will attach to.
 -- * 'targetObjectReference' - Identifies the target object that the typed link will attach to.
+-- * 'sourceObjectReference' - Identifies the source object that the typed link will attach to.
+-- * 'attributes' - A set of attributes that are associated with the typed link.
 -- * 'typedLinkFacet' - Identifies the typed link facet that is associated with the typed link.
 mkBatchAttachTypedLink ::
-  -- | 'sourceObjectReference'
-  ObjectReference ->
   -- | 'targetObjectReference'
+  ObjectReference ->
+  -- | 'sourceObjectReference'
   ObjectReference ->
   -- | 'typedLinkFacet'
   TypedLinkSchemaAndFacetName ->
   BatchAttachTypedLink
 mkBatchAttachTypedLink
-  pSourceObjectReference_
   pTargetObjectReference_
+  pSourceObjectReference_
   pTypedLinkFacet_ =
     BatchAttachTypedLink'
-      { sourceObjectReference =
-          pSourceObjectReference_,
-        targetObjectReference = pTargetObjectReference_,
-        typedLinkFacet = pTypedLinkFacet_,
-        attributes = Lude.mempty
+      { targetObjectReference =
+          pTargetObjectReference_,
+        sourceObjectReference = pSourceObjectReference_,
+        attributes = Lude.mempty,
+        typedLinkFacet = pTypedLinkFacet_
       }
-
--- | Identifies the source object that the typed link will attach to.
---
--- /Note:/ Consider using 'sourceObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batlSourceObjectReference :: Lens.Lens' BatchAttachTypedLink ObjectReference
-batlSourceObjectReference = Lens.lens (sourceObjectReference :: BatchAttachTypedLink -> ObjectReference) (\s a -> s {sourceObjectReference = a} :: BatchAttachTypedLink)
-{-# DEPRECATED batlSourceObjectReference "Use generic-lens or generic-optics with 'sourceObjectReference' instead." #-}
 
 -- | Identifies the target object that the typed link will attach to.
 --
@@ -89,12 +79,12 @@ batlTargetObjectReference :: Lens.Lens' BatchAttachTypedLink ObjectReference
 batlTargetObjectReference = Lens.lens (targetObjectReference :: BatchAttachTypedLink -> ObjectReference) (\s a -> s {targetObjectReference = a} :: BatchAttachTypedLink)
 {-# DEPRECATED batlTargetObjectReference "Use generic-lens or generic-optics with 'targetObjectReference' instead." #-}
 
--- | Identifies the typed link facet that is associated with the typed link.
+-- | Identifies the source object that the typed link will attach to.
 --
--- /Note:/ Consider using 'typedLinkFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batlTypedLinkFacet :: Lens.Lens' BatchAttachTypedLink TypedLinkSchemaAndFacetName
-batlTypedLinkFacet = Lens.lens (typedLinkFacet :: BatchAttachTypedLink -> TypedLinkSchemaAndFacetName) (\s a -> s {typedLinkFacet = a} :: BatchAttachTypedLink)
-{-# DEPRECATED batlTypedLinkFacet "Use generic-lens or generic-optics with 'typedLinkFacet' instead." #-}
+-- /Note:/ Consider using 'sourceObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+batlSourceObjectReference :: Lens.Lens' BatchAttachTypedLink ObjectReference
+batlSourceObjectReference = Lens.lens (sourceObjectReference :: BatchAttachTypedLink -> ObjectReference) (\s a -> s {sourceObjectReference = a} :: BatchAttachTypedLink)
+{-# DEPRECATED batlSourceObjectReference "Use generic-lens or generic-optics with 'sourceObjectReference' instead." #-}
 
 -- | A set of attributes that are associated with the typed link.
 --
@@ -103,13 +93,20 @@ batlAttributes :: Lens.Lens' BatchAttachTypedLink [AttributeNameAndValue]
 batlAttributes = Lens.lens (attributes :: BatchAttachTypedLink -> [AttributeNameAndValue]) (\s a -> s {attributes = a} :: BatchAttachTypedLink)
 {-# DEPRECATED batlAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
+-- | Identifies the typed link facet that is associated with the typed link.
+--
+-- /Note:/ Consider using 'typedLinkFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+batlTypedLinkFacet :: Lens.Lens' BatchAttachTypedLink TypedLinkSchemaAndFacetName
+batlTypedLinkFacet = Lens.lens (typedLinkFacet :: BatchAttachTypedLink -> TypedLinkSchemaAndFacetName) (\s a -> s {typedLinkFacet = a} :: BatchAttachTypedLink)
+{-# DEPRECATED batlTypedLinkFacet "Use generic-lens or generic-optics with 'typedLinkFacet' instead." #-}
+
 instance Lude.ToJSON BatchAttachTypedLink where
   toJSON BatchAttachTypedLink' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SourceObjectReference" Lude..= sourceObjectReference),
-            Lude.Just ("TargetObjectReference" Lude..= targetObjectReference),
-            Lude.Just ("TypedLinkFacet" Lude..= typedLinkFacet),
-            Lude.Just ("Attributes" Lude..= attributes)
+          [ Lude.Just ("TargetObjectReference" Lude..= targetObjectReference),
+            Lude.Just ("SourceObjectReference" Lude..= sourceObjectReference),
+            Lude.Just ("Attributes" Lude..= attributes),
+            Lude.Just ("TypedLinkFacet" Lude..= typedLinkFacet)
           ]
       )

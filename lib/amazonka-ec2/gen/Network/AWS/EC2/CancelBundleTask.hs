@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.CancelBundleTask
     mkCancelBundleTask,
 
     -- ** Request lenses
-    cbtDryRun,
     cbtBundleId,
+    cbtDryRun,
 
     -- * Destructuring the response
     CancelBundleTaskResponse (..),
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCancelBundleTask' smart constructor.
 data CancelBundleTask = CancelBundleTask'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    bundleId :: Lude.Text
+  { -- | The ID of the bundle task.
+    bundleId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelBundleTask' with the minimum fields required to make a request.
@@ -64,14 +60,7 @@ mkCancelBundleTask ::
   Lude.Text ->
   CancelBundleTask
 mkCancelBundleTask pBundleId_ =
-  CancelBundleTask' {dryRun = Lude.Nothing, bundleId = pBundleId_}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbtDryRun :: Lens.Lens' CancelBundleTask (Lude.Maybe Lude.Bool)
-cbtDryRun = Lens.lens (dryRun :: CancelBundleTask -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelBundleTask)
-{-# DEPRECATED cbtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+  CancelBundleTask' {bundleId = pBundleId_, dryRun = Lude.Nothing}
 
 -- | The ID of the bundle task.
 --
@@ -79,6 +68,13 @@ cbtDryRun = Lens.lens (dryRun :: CancelBundleTask -> Lude.Maybe Lude.Bool) (\s a
 cbtBundleId :: Lens.Lens' CancelBundleTask Lude.Text
 cbtBundleId = Lens.lens (bundleId :: CancelBundleTask -> Lude.Text) (\s a -> s {bundleId = a} :: CancelBundleTask)
 {-# DEPRECATED cbtBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbtDryRun :: Lens.Lens' CancelBundleTask (Lude.Maybe Lude.Bool)
+cbtDryRun = Lens.lens (dryRun :: CancelBundleTask -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelBundleTask)
+{-# DEPRECATED cbtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CancelBundleTask where
   type Rs CancelBundleTask = CancelBundleTaskResponse
@@ -102,25 +98,20 @@ instance Lude.ToQuery CancelBundleTask where
     Lude.mconcat
       [ "Action" Lude.=: ("CancelBundleTask" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "BundleId" Lude.=: bundleId
+        "BundleId" Lude.=: bundleId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of CancelBundleTask.
 --
 -- /See:/ 'mkCancelBundleTaskResponse' smart constructor.
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
-  { bundleTask ::
-      Lude.Maybe BundleTask,
+  { -- | Information about the bundle task.
+    bundleTask :: Lude.Maybe BundleTask,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelBundleTaskResponse' with the minimum fields required to make a request.

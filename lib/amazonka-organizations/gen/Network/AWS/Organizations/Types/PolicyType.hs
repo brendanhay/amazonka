@@ -13,10 +13,10 @@
 module Network.AWS.Organizations.Types.PolicyType
   ( PolicyType
       ( PolicyType',
-        AiservicesOptOutPolicy,
-        BackupPolicy,
         ServiceControlPolicy,
-        TagPolicy
+        TagPolicy,
+        BackupPolicy,
+        AiservicesOptOutPolicy
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype PolicyType = PolicyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AiservicesOptOutPolicy :: PolicyType
-pattern AiservicesOptOutPolicy = PolicyType' "AISERVICES_OPT_OUT_POLICY"
-
-pattern BackupPolicy :: PolicyType
-pattern BackupPolicy = PolicyType' "BACKUP_POLICY"
-
 pattern ServiceControlPolicy :: PolicyType
 pattern ServiceControlPolicy = PolicyType' "SERVICE_CONTROL_POLICY"
 
 pattern TagPolicy :: PolicyType
 pattern TagPolicy = PolicyType' "TAG_POLICY"
 
+pattern BackupPolicy :: PolicyType
+pattern BackupPolicy = PolicyType' "BACKUP_POLICY"
+
+pattern AiservicesOptOutPolicy :: PolicyType
+pattern AiservicesOptOutPolicy = PolicyType' "AISERVICES_OPT_OUT_POLICY"
+
 {-# COMPLETE
-  AiservicesOptOutPolicy,
-  BackupPolicy,
   ServiceControlPolicy,
   TagPolicy,
+  BackupPolicy,
+  AiservicesOptOutPolicy,
   PolicyType'
   #-}

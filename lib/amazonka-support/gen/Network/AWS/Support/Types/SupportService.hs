@@ -31,25 +31,21 @@ import Network.AWS.Support.Types.Category
 --
 -- /See:/ 'mkSupportService' smart constructor.
 data SupportService = SupportService'
-  { categories ::
-      Lude.Maybe [Category],
+  { -- | A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call 'CreateCase' .
+    categories :: Lude.Maybe [Category],
+    -- | The friendly name for an AWS service. The @code@ element contains the corresponding code.
     name :: Lude.Maybe Lude.Text,
+    -- | The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
     code :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SupportService' with the minimum fields required to make a request.
 --
 -- * 'categories' - A list of categories that describe the type of support issue a case describes. Categories consist of a category name and a category code. Category names and codes are passed to AWS Support when you call 'CreateCase' .
--- * 'code' - The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
 -- * 'name' - The friendly name for an AWS service. The @code@ element contains the corresponding code.
+-- * 'code' - The code for an AWS service returned by the 'DescribeServices' response. The @name@ element contains the corresponding friendly name.
 mkSupportService ::
   SupportService
 mkSupportService =

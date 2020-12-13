@@ -29,29 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaFunctionTimedOutEventDetails' smart constructor.
 data LambdaFunctionTimedOutEventDetails = LambdaFunctionTimedOutEventDetails'
-  { error ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    cause ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        )
+  { -- | The error code of the failure.
+    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A more detailed explanation of the cause of the timeout.
+    cause :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionTimedOutEventDetails' with the minimum fields required to make a request.
 --
--- * 'cause' - A more detailed explanation of the cause of the timeout.
 -- * 'error' - The error code of the failure.
+-- * 'cause' - A more detailed explanation of the cause of the timeout.
 mkLambdaFunctionTimedOutEventDetails ::
   LambdaFunctionTimedOutEventDetails
 mkLambdaFunctionTimedOutEventDetails =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Config.GetOrganizationConformancePackDetailedStatus
     mkGetOrganizationConformancePackDetailedStatus,
 
     -- ** Request lenses
+    gocpdsOrganizationConformancePackName,
     gocpdsFilters,
     gocpdsNextToken,
     gocpdsLimit,
-    gocpdsOrganizationConformancePackName,
 
     -- * Destructuring the response
     GetOrganizationConformancePackDetailedStatusResponse (..),
@@ -45,33 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetOrganizationConformancePackDetailedStatus' smart constructor.
 data GetOrganizationConformancePackDetailedStatus = GetOrganizationConformancePackDetailedStatus'
-  { filters ::
-      Lude.Maybe
-        OrganizationResourceDetailedStatusFilters,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural,
-    organizationConformancePackName ::
-      Lude.Text
+  { -- | The name of organization conformance pack for which you want status details for member accounts.
+    organizationConformancePackName :: Lude.Text,
+    -- | An @OrganizationResourceDetailedStatusFilters@ object.
+    filters :: Lude.Maybe OrganizationResourceDetailedStatusFilters,
+    -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOrganizationConformancePackDetailedStatus' with the minimum fields required to make a request.
 --
--- * 'filters' - An @OrganizationResourceDetailedStatusFilters@ object.
--- * 'limit' - The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
--- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'organizationConformancePackName' - The name of organization conformance pack for which you want status details for member accounts.
+-- * 'filters' - An @OrganizationResourceDetailedStatusFilters@ object.
+-- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
 mkGetOrganizationConformancePackDetailedStatus ::
   -- | 'organizationConformancePackName'
   Lude.Text ->
@@ -79,13 +71,19 @@ mkGetOrganizationConformancePackDetailedStatus ::
 mkGetOrganizationConformancePackDetailedStatus
   pOrganizationConformancePackName_ =
     GetOrganizationConformancePackDetailedStatus'
-      { filters =
-          Lude.Nothing,
+      { organizationConformancePackName =
+          pOrganizationConformancePackName_,
+        filters = Lude.Nothing,
         nextToken = Lude.Nothing,
-        limit = Lude.Nothing,
-        organizationConformancePackName =
-          pOrganizationConformancePackName_
+        limit = Lude.Nothing
       }
+
+-- | The name of organization conformance pack for which you want status details for member accounts.
+--
+-- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gocpdsOrganizationConformancePackName :: Lens.Lens' GetOrganizationConformancePackDetailedStatus Lude.Text
+gocpdsOrganizationConformancePackName = Lens.lens (organizationConformancePackName :: GetOrganizationConformancePackDetailedStatus -> Lude.Text) (\s a -> s {organizationConformancePackName = a} :: GetOrganizationConformancePackDetailedStatus)
+{-# DEPRECATED gocpdsOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
 
 -- | An @OrganizationResourceDetailedStatusFilters@ object.
 --
@@ -107,13 +105,6 @@ gocpdsNextToken = Lens.lens (nextToken :: GetOrganizationConformancePackDetailed
 gocpdsLimit :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Lude.Maybe Lude.Natural)
 gocpdsLimit = Lens.lens (limit :: GetOrganizationConformancePackDetailedStatus -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetOrganizationConformancePackDetailedStatus)
 {-# DEPRECATED gocpdsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The name of organization conformance pack for which you want status details for member accounts.
---
--- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gocpdsOrganizationConformancePackName :: Lens.Lens' GetOrganizationConformancePackDetailedStatus Lude.Text
-gocpdsOrganizationConformancePackName = Lens.lens (organizationConformancePackName :: GetOrganizationConformancePackDetailedStatus -> Lude.Text) (\s a -> s {organizationConformancePackName = a} :: GetOrganizationConformancePackDetailedStatus)
-{-# DEPRECATED gocpdsOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -154,13 +145,13 @@ instance Lude.ToJSON GetOrganizationConformancePackDetailedStatus where
   toJSON GetOrganizationConformancePackDetailedStatus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just
+          [ Lude.Just
               ( "OrganizationConformancePackName"
                   Lude..= organizationConformancePackName
-              )
+              ),
+            ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -172,31 +163,20 @@ instance Lude.ToQuery GetOrganizationConformancePackDetailedStatus where
 
 -- | /See:/ 'mkGetOrganizationConformancePackDetailedStatusResponse' smart constructor.
 data GetOrganizationConformancePackDetailedStatusResponse = GetOrganizationConformancePackDetailedStatusResponse'
-  { organizationConformancePackDetailedStatuses ::
-      Lude.Maybe
-        [OrganizationConformancePackDetailedStatus],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of @OrganizationConformancePackDetailedStatus@ objects.
+    organizationConformancePackDetailedStatuses :: Lude.Maybe [OrganizationConformancePackDetailedStatus],
+    -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOrganizationConformancePackDetailedStatusResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'organizationConformancePackDetailedStatuses' - A list of @OrganizationConformancePackDetailedStatus@ objects.
+-- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'responseStatus' - The response status code.
 mkGetOrganizationConformancePackDetailedStatusResponse ::
   -- | 'responseStatus'

@@ -14,8 +14,8 @@ module Network.AWS.Discovery.Types.ExportStatus
   ( ExportStatus
       ( ExportStatus',
         Failed,
-        InProgress,
-        Succeeded
+        Succeeded,
+        InProgress
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ExportStatus = ExportStatus' Lude.Text
 pattern Failed :: ExportStatus
 pattern Failed = ExportStatus' "FAILED"
 
-pattern InProgress :: ExportStatus
-pattern InProgress = ExportStatus' "IN_PROGRESS"
-
 pattern Succeeded :: ExportStatus
 pattern Succeeded = ExportStatus' "SUCCEEDED"
 
+pattern InProgress :: ExportStatus
+pattern InProgress = ExportStatus' "IN_PROGRESS"
+
 {-# COMPLETE
   Failed,
-  InProgress,
   Succeeded,
+  InProgress,
   ExportStatus'
   #-}

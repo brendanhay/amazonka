@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResolution' smart constructor.
 data Resolution = Resolution'
-  { height :: Lude.Maybe Lude.Int,
+  { -- | The screen resolution's height, expressed in pixels.
+    height :: Lude.Maybe Lude.Int,
+    -- | The screen resolution's width, expressed in pixels.
     width :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resolution' with the minimum fields required to make a request.

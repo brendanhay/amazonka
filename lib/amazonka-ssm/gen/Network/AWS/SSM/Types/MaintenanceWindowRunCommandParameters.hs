@@ -43,69 +43,52 @@ import Network.AWS.SSM.Types.NotificationConfig
 --
 -- /See:/ 'mkMaintenanceWindowRunCommandParameters' smart constructor.
 data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParameters'
-  { serviceRoleARN ::
-      Lude.Maybe
-        Lude.Text,
-    notificationConfig ::
-      Lude.Maybe
-        NotificationConfig,
-    documentHashType ::
-      Lude.Maybe
-        DocumentHashType,
-    cloudWatchOutputConfig ::
-      Lude.Maybe
-        CloudWatchOutputConfig,
-    outputS3KeyPrefix ::
-      Lude.Maybe
-        Lude.Text,
-    parameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([Lude.Text])
-        ),
-    documentHash ::
-      Lude.Maybe
-        Lude.Text,
-    documentVersion ::
-      Lude.Maybe
-        Lude.Text,
-    timeoutSeconds ::
-      Lude.Maybe
-        Lude.Natural,
-    comment ::
-      Lude.Maybe
-        Lude.Text,
-    outputS3BucketName ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | Configurations for sending notifications about command status changes on a per-instance basis.
+    notificationConfig :: Lude.Maybe NotificationConfig,
+    -- | SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
+    documentHashType :: Lude.Maybe DocumentHashType,
+    cloudWatchOutputConfig :: Lude.Maybe CloudWatchOutputConfig,
+    -- | The S3 bucket subfolder.
+    outputS3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | The parameters for the RUN_COMMAND task execution.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
+    documentHash :: Lude.Maybe Lude.Text,
+    -- | The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
+    --
+    -- --document-version "\$DEFAULT"
+    -- --document-version "\$LATEST"
+    -- --document-version "3"
+    documentVersion :: Lude.Maybe Lude.Text,
+    -- | If this time is reached and the command has not already started running, it doesn't run.
+    timeoutSeconds :: Lude.Maybe Lude.Natural,
+    -- | Information about the commands to run.
+    comment :: Lude.Maybe Lude.Text,
+    -- | The name of the S3 bucket.
+    outputS3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowRunCommandParameters' with the minimum fields required to make a request.
 --
--- * 'cloudWatchOutputConfig' - Undocumented field.
--- * 'comment' - Information about the commands to run.
--- * 'documentHash' - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
+-- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+-- * 'notificationConfig' - Configurations for sending notifications about command status changes on a per-instance basis.
 -- * 'documentHashType' - SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
+-- * 'cloudWatchOutputConfig' -
+-- * 'outputS3KeyPrefix' - The S3 bucket subfolder.
+-- * 'parameters' - The parameters for the RUN_COMMAND task execution.
+-- * 'documentHash' - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
 -- * 'documentVersion' - The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
 --
 -- --document-version "\$DEFAULT"
 -- --document-version "\$LATEST"
 -- --document-version "3"
--- * 'notificationConfig' - Configurations for sending notifications about command status changes on a per-instance basis.
--- * 'outputS3BucketName' - The name of the S3 bucket.
--- * 'outputS3KeyPrefix' - The S3 bucket subfolder.
--- * 'parameters' - The parameters for the RUN_COMMAND task execution.
--- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 -- * 'timeoutSeconds' - If this time is reached and the command has not already started running, it doesn't run.
+-- * 'comment' - Information about the commands to run.
+-- * 'outputS3BucketName' - The name of the S3 bucket.
 mkMaintenanceWindowRunCommandParameters ::
   MaintenanceWindowRunCommandParameters
 mkMaintenanceWindowRunCommandParameters =

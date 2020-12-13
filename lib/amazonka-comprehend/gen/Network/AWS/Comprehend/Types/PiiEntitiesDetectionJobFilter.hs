@@ -32,29 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPiiEntitiesDetectionJobFilter' smart constructor.
 data PiiEntitiesDetectionJobFilter = PiiEntitiesDetectionJobFilter'
-  { submitTimeAfter ::
-      Lude.Maybe Lude.Timestamp,
-    submitTimeBefore ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
+    submitTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
+    submitTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | Filters on the name of the job.
     jobName :: Lude.Maybe Lude.Text,
-    jobStatus ::
-      Lude.Maybe JobStatus
+    -- | Filters the list of jobs based on job status. Returns only jobs with the specified status.
+    jobStatus :: Lude.Maybe JobStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PiiEntitiesDetectionJobFilter' with the minimum fields required to make a request.
 --
--- * 'jobName' - Filters on the name of the job.
--- * 'jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the specified status.
 -- * 'submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
 -- * 'submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
+-- * 'jobName' - Filters on the name of the job.
+-- * 'jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the specified status.
 mkPiiEntitiesDetectionJobFilter ::
   PiiEntitiesDetectionJobFilter
 mkPiiEntitiesDetectionJobFilter =

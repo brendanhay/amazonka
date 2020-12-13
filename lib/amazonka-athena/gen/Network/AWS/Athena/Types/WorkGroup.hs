@@ -19,9 +19,9 @@ module Network.AWS.Athena.Types.WorkGroup
     -- * Lenses
     wgCreationTime,
     wgState,
+    wgName,
     wgConfiguration,
     wgDescription,
-    wgName,
   )
 where
 
@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkGroup' smart constructor.
 data WorkGroup = WorkGroup'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time the workgroup was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The state of the workgroup: ENABLED or DISABLED.
     state :: Lude.Maybe WorkGroupState,
+    -- | The workgroup name.
+    name :: Lude.Text,
+    -- | The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for query results; whether the Amazon CloudWatch Metrics are enabled for the workgroup; whether workgroup settings override client-side settings; and the data usage limits for the amount of data scanned per query or per workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
     configuration :: Lude.Maybe WorkGroupConfiguration,
-    description :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The workgroup description.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkGroup' with the minimum fields required to make a request.
 --
--- * 'configuration' - The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for query results; whether the Amazon CloudWatch Metrics are enabled for the workgroup; whether workgroup settings override client-side settings; and the data usage limits for the amount of data scanned per query or per workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
 -- * 'creationTime' - The date and time the workgroup was created.
--- * 'description' - The workgroup description.
--- * 'name' - The workgroup name.
 -- * 'state' - The state of the workgroup: ENABLED or DISABLED.
+-- * 'name' - The workgroup name.
+-- * 'configuration' - The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for query results; whether the Amazon CloudWatch Metrics are enabled for the workgroup; whether workgroup settings override client-side settings; and the data usage limits for the amount of data scanned per query or per workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+-- * 'description' - The workgroup description.
 mkWorkGroup ::
   -- | 'name'
   Lude.Text ->
@@ -65,9 +63,9 @@ mkWorkGroup pName_ =
   WorkGroup'
     { creationTime = Lude.Nothing,
       state = Lude.Nothing,
+      name = pName_,
       configuration = Lude.Nothing,
-      description = Lude.Nothing,
-      name = pName_
+      description = Lude.Nothing
     }
 
 -- | The date and time the workgroup was created.
@@ -84,6 +82,13 @@ wgState :: Lens.Lens' WorkGroup (Lude.Maybe WorkGroupState)
 wgState = Lens.lens (state :: WorkGroup -> Lude.Maybe WorkGroupState) (\s a -> s {state = a} :: WorkGroup)
 {-# DEPRECATED wgState "Use generic-lens or generic-optics with 'state' instead." #-}
 
+-- | The workgroup name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wgName :: Lens.Lens' WorkGroup Lude.Text
+wgName = Lens.lens (name :: WorkGroup -> Lude.Text) (\s a -> s {name = a} :: WorkGroup)
+{-# DEPRECATED wgName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for query results; whether the Amazon CloudWatch Metrics are enabled for the workgroup; whether workgroup settings override client-side settings; and the data usage limits for the amount of data scanned per query or per workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
 --
 -- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -98,13 +103,6 @@ wgDescription :: Lens.Lens' WorkGroup (Lude.Maybe Lude.Text)
 wgDescription = Lens.lens (description :: WorkGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: WorkGroup)
 {-# DEPRECATED wgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The workgroup name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wgName :: Lens.Lens' WorkGroup Lude.Text
-wgName = Lens.lens (name :: WorkGroup -> Lude.Text) (\s a -> s {name = a} :: WorkGroup)
-{-# DEPRECATED wgName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON WorkGroup where
   parseJSON =
     Lude.withObject
@@ -113,7 +111,7 @@ instance Lude.FromJSON WorkGroup where
           WorkGroup'
             Lude.<$> (x Lude..:? "CreationTime")
             Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..:? "Configuration")
             Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..: "Name")
       )

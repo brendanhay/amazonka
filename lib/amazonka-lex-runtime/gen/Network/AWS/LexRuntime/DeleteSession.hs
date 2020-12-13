@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.LexRuntime.DeleteSession
     mkDeleteSession,
 
     -- ** Request lenses
-    dsBotName,
     dsBotAlias,
+    dsBotName,
     dsUserId,
 
     -- * Destructuring the response
@@ -44,17 +45,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSession' smart constructor.
 data DeleteSession = DeleteSession'
-  { botName :: Lude.Text,
+  { -- | The alias in use for the bot that contains the session data.
     botAlias :: Lude.Text,
+    -- | The name of the bot that contains the session data.
+    botName :: Lude.Text,
+    -- | The identifier of the user associated with the session data.
     userId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSession' with the minimum fields required to make a request.
@@ -63,26 +61,19 @@ data DeleteSession = DeleteSession'
 -- * 'botName' - The name of the bot that contains the session data.
 -- * 'userId' - The identifier of the user associated with the session data.
 mkDeleteSession ::
-  -- | 'botName'
-  Lude.Text ->
   -- | 'botAlias'
+  Lude.Text ->
+  -- | 'botName'
   Lude.Text ->
   -- | 'userId'
   Lude.Text ->
   DeleteSession
-mkDeleteSession pBotName_ pBotAlias_ pUserId_ =
+mkDeleteSession pBotAlias_ pBotName_ pUserId_ =
   DeleteSession'
-    { botName = pBotName_,
-      botAlias = pBotAlias_,
+    { botAlias = pBotAlias_,
+      botName = pBotName_,
       userId = pUserId_
     }
-
--- | The name of the bot that contains the session data.
---
--- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsBotName :: Lens.Lens' DeleteSession Lude.Text
-dsBotName = Lens.lens (botName :: DeleteSession -> Lude.Text) (\s a -> s {botName = a} :: DeleteSession)
-{-# DEPRECATED dsBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The alias in use for the bot that contains the session data.
 --
@@ -90,6 +81,13 @@ dsBotName = Lens.lens (botName :: DeleteSession -> Lude.Text) (\s a -> s {botNam
 dsBotAlias :: Lens.Lens' DeleteSession Lude.Text
 dsBotAlias = Lens.lens (botAlias :: DeleteSession -> Lude.Text) (\s a -> s {botAlias = a} :: DeleteSession)
 {-# DEPRECATED dsBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
+
+-- | The name of the bot that contains the session data.
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsBotName :: Lens.Lens' DeleteSession Lude.Text
+dsBotName = Lens.lens (botName :: DeleteSession -> Lude.Text) (\s a -> s {botName = a} :: DeleteSession)
+{-# DEPRECATED dsBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The identifier of the user associated with the session data.
 --
@@ -138,29 +136,27 @@ instance Lude.ToQuery DeleteSession where
 
 -- | /See:/ 'mkDeleteSessionResponse' smart constructor.
 data DeleteSessionResponse = DeleteSessionResponse'
-  { botAlias ::
-      Lude.Maybe Lude.Text,
+  { -- | The alias in use for the bot associated with the session data.
+    botAlias :: Lude.Maybe Lude.Text,
+    -- | The name of the bot associated with the session data.
     botName :: Lude.Maybe Lude.Text,
+    -- | The ID of the client application user.
     userId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the session.
     sessionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSessionResponse' with the minimum fields required to make a request.
 --
 -- * 'botAlias' - The alias in use for the bot associated with the session data.
 -- * 'botName' - The name of the bot associated with the session data.
--- * 'responseStatus' - The response status code.
--- * 'sessionId' - The unique identifier for the session.
 -- * 'userId' - The ID of the client application user.
+-- * 'sessionId' - The unique identifier for the session.
+-- * 'responseStatus' - The response status code.
 mkDeleteSessionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

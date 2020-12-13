@@ -13,15 +13,15 @@
 module Network.AWS.CloudHSMv2.Types.ClusterState
   ( ClusterState
       ( ClusterState',
-        CSActive,
         CSCreateInProgress,
-        CSDegraded,
-        CSDeleteInProgress,
-        CSDeleted,
+        CSUninitialized,
         CSInitializeInProgress,
         CSInitialized,
-        CSUninitialized,
-        CSUpdateInProgress
+        CSActive,
+        CSUpdateInProgress,
+        CSDeleteInProgress,
+        CSDeleted,
+        CSDegraded
       ),
   )
 where
@@ -52,20 +52,11 @@ newtype ClusterState = ClusterState' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSActive :: ClusterState
-pattern CSActive = ClusterState' "ACTIVE"
-
 pattern CSCreateInProgress :: ClusterState
 pattern CSCreateInProgress = ClusterState' "CREATE_IN_PROGRESS"
 
-pattern CSDegraded :: ClusterState
-pattern CSDegraded = ClusterState' "DEGRADED"
-
-pattern CSDeleteInProgress :: ClusterState
-pattern CSDeleteInProgress = ClusterState' "DELETE_IN_PROGRESS"
-
-pattern CSDeleted :: ClusterState
-pattern CSDeleted = ClusterState' "DELETED"
+pattern CSUninitialized :: ClusterState
+pattern CSUninitialized = ClusterState' "UNINITIALIZED"
 
 pattern CSInitializeInProgress :: ClusterState
 pattern CSInitializeInProgress = ClusterState' "INITIALIZE_IN_PROGRESS"
@@ -73,21 +64,30 @@ pattern CSInitializeInProgress = ClusterState' "INITIALIZE_IN_PROGRESS"
 pattern CSInitialized :: ClusterState
 pattern CSInitialized = ClusterState' "INITIALIZED"
 
-pattern CSUninitialized :: ClusterState
-pattern CSUninitialized = ClusterState' "UNINITIALIZED"
+pattern CSActive :: ClusterState
+pattern CSActive = ClusterState' "ACTIVE"
 
 pattern CSUpdateInProgress :: ClusterState
 pattern CSUpdateInProgress = ClusterState' "UPDATE_IN_PROGRESS"
 
+pattern CSDeleteInProgress :: ClusterState
+pattern CSDeleteInProgress = ClusterState' "DELETE_IN_PROGRESS"
+
+pattern CSDeleted :: ClusterState
+pattern CSDeleted = ClusterState' "DELETED"
+
+pattern CSDegraded :: ClusterState
+pattern CSDegraded = ClusterState' "DEGRADED"
+
 {-# COMPLETE
-  CSActive,
   CSCreateInProgress,
-  CSDegraded,
-  CSDeleteInProgress,
-  CSDeleted,
+  CSUninitialized,
   CSInitializeInProgress,
   CSInitialized,
-  CSUninitialized,
+  CSActive,
   CSUpdateInProgress,
+  CSDeleteInProgress,
+  CSDeleted,
+  CSDegraded,
   ClusterState'
   #-}

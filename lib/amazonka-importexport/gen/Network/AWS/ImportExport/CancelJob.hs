@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,19 +46,13 @@ data CancelJob = CancelJob'
   { apiVersion :: Lude.Maybe Lude.Text,
     jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
 --
--- * 'apiVersion' - Undocumented field.
--- * 'jobId' - Undocumented field.
+-- * 'apiVersion' -
+-- * 'jobId' -
 mkCancelJob ::
   -- | 'jobId'
   Lude.Text ->
@@ -110,23 +105,17 @@ instance Lude.ToQuery CancelJob where
 --
 -- /See:/ 'mkCancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
-  { success ::
-      Lude.Maybe Lude.Bool,
+  { success :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
 --
+-- * 'success' -
 -- * 'responseStatus' - The response status code.
--- * 'success' - Undocumented field.
 mkCancelJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

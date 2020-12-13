@@ -13,9 +13,9 @@
 module Network.AWS.Shield.Types.ProtectionGroupAggregation
   ( ProtectionGroupAggregation
       ( ProtectionGroupAggregation',
-        Max,
+        Sum,
         Mean,
-        Sum
+        Max
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ProtectionGroupAggregation = ProtectionGroupAggregation' Lude.Text
       Lude.ToHeader
     )
 
-pattern Max :: ProtectionGroupAggregation
-pattern Max = ProtectionGroupAggregation' "MAX"
+pattern Sum :: ProtectionGroupAggregation
+pattern Sum = ProtectionGroupAggregation' "SUM"
 
 pattern Mean :: ProtectionGroupAggregation
 pattern Mean = ProtectionGroupAggregation' "MEAN"
 
-pattern Sum :: ProtectionGroupAggregation
-pattern Sum = ProtectionGroupAggregation' "SUM"
+pattern Max :: ProtectionGroupAggregation
+pattern Max = ProtectionGroupAggregation' "MAX"
 
 {-# COMPLETE
-  Max,
-  Mean,
   Sum,
+  Mean,
+  Max,
   ProtectionGroupAggregation'
   #-}

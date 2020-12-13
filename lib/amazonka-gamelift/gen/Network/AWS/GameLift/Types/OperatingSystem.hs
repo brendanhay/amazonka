@@ -13,9 +13,9 @@
 module Network.AWS.GameLift.Types.OperatingSystem
   ( OperatingSystem
       ( OperatingSystem',
+        Windows2012,
         AmazonLinux,
-        AmazonLinux2,
-        Windows2012
+        AmazonLinux2
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype OperatingSystem = OperatingSystem' Lude.Text
       Lude.ToHeader
     )
 
+pattern Windows2012 :: OperatingSystem
+pattern Windows2012 = OperatingSystem' "WINDOWS_2012"
+
 pattern AmazonLinux :: OperatingSystem
 pattern AmazonLinux = OperatingSystem' "AMAZON_LINUX"
 
 pattern AmazonLinux2 :: OperatingSystem
 pattern AmazonLinux2 = OperatingSystem' "AMAZON_LINUX_2"
 
-pattern Windows2012 :: OperatingSystem
-pattern Windows2012 = OperatingSystem' "WINDOWS_2012"
-
 {-# COMPLETE
+  Windows2012,
   AmazonLinux,
   AmazonLinux2,
-  Windows2012,
   OperatingSystem'
   #-}

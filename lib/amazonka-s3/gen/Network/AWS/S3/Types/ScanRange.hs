@@ -30,22 +30,18 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkScanRange' smart constructor.
 data ScanRange = ScanRange'
-  { start :: Lude.Maybe Lude.Integer,
+  { -- | Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0. If only start is supplied, it means scan from that point to the end of the file.For example; @<scanrange><start>50</start></scanrange>@ means scan from byte 50 until the end of the file.
+    start :: Lude.Maybe Lude.Integer,
+    -- | Specifies the end of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is one less than the size of the object being queried. If only the End parameter is supplied, it is interpreted to mean scan the last N bytes of the file. For example, @<scanrange><end>50</end></scanrange>@ means scan the last 50 bytes.
     end :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScanRange' with the minimum fields required to make a request.
 --
--- * 'end' - Specifies the end of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is one less than the size of the object being queried. If only the End parameter is supplied, it is interpreted to mean scan the last N bytes of the file. For example, @<scanrange><end>50</end></scanrange>@ means scan the last 50 bytes.
 -- * 'start' - Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0. If only start is supplied, it means scan from that point to the end of the file.For example; @<scanrange><start>50</start></scanrange>@ means scan from byte 50 until the end of the file.
+-- * 'end' - Specifies the end of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is one less than the size of the object being queried. If only the End parameter is supplied, it is interpreted to mean scan the last N bytes of the file. For example, @<scanrange><end>50</end></scanrange>@ means scan the last 50 bytes.
 mkScanRange ::
   ScanRange
 mkScanRange = ScanRange' {start = Lude.Nothing, end = Lude.Nothing}

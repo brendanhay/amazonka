@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,16 +46,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListExports' smart constructor.
 newtype ListExports = ListExports'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExports' with the minimum fields required to make a request.
@@ -111,24 +106,20 @@ instance Lude.ToQuery ListExports where
 
 -- | /See:/ 'mkListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The output for the 'ListExports' action.
     exports :: Lude.Maybe [Export],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExportsResponse' with the minimum fields required to make a request.
 --
--- * 'exports' - The output for the 'ListExports' action.
 -- * 'nextToken' - If the output exceeds 100 exported output values, a string that identifies the next page of exports. If there is no additional page, this value is null.
+-- * 'exports' - The output for the 'ListExports' action.
 -- * 'responseStatus' - The response status code.
 mkListExportsResponse ::
   -- | 'responseStatus'

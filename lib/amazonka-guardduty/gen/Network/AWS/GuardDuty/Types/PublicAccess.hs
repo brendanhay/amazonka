@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPublicAccess' smart constructor.
 data PublicAccess = PublicAccess'
-  { permissionConfiguration ::
-      Lude.Maybe PermissionConfiguration,
+  { -- | Contains information about how permissions are configured for the S3 bucket.
+    permissionConfiguration :: Lude.Maybe PermissionConfiguration,
+    -- | Describes the effective permission on this bucket after factoring all attached policies.
     effectivePermission :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublicAccess' with the minimum fields required to make a request.
 --
--- * 'effectivePermission' - Describes the effective permission on this bucket after factoring all attached policies.
 -- * 'permissionConfiguration' - Contains information about how permissions are configured for the S3 bucket.
+-- * 'effectivePermission' - Describes the effective permission on this bucket after factoring all attached policies.
 mkPublicAccess ::
   PublicAccess
 mkPublicAccess =

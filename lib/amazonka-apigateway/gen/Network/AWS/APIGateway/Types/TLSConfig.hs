@@ -26,16 +26,10 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkTLSConfig' smart constructor.
 newtype TLSConfig = TLSConfig'
-  { insecureSkipVerification ::
-      Lude.Maybe Lude.Bool
+  { -- | Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html supported certificate authority> . This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for @HTTP@ and @HTTP_PROXY@ integrations.
+    insecureSkipVerification :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TLSConfig' with the minimum fields required to make a request.

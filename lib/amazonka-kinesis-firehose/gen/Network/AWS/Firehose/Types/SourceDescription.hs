@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceDescription' smart constructor.
 newtype SourceDescription = SourceDescription'
-  { kinesisStreamSourceDescription ::
-      Lude.Maybe KinesisStreamSourceDescription
+  { -- | The 'KinesisStreamSourceDescription' value for the source Kinesis data stream.
+    kinesisStreamSourceDescription :: Lude.Maybe KinesisStreamSourceDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceDescription' with the minimum fields required to make a request.

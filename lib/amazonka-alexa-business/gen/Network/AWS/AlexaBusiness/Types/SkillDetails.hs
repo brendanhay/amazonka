@@ -38,41 +38,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSkillDetails' smart constructor.
 data SkillDetails = SkillDetails'
-  { skillTypes ::
-      Lude.Maybe [Lude.Text],
+  { -- | The types of skills.
+    skillTypes :: Lude.Maybe [Lude.Text],
+    -- | The description of the product.
     productDescription :: Lude.Maybe Lude.Text,
+    -- | The phrase used to trigger the skill.
     invocationPhrase :: Lude.Maybe Lude.Text,
+    -- | The details about the developer that published the skill.
     developerInfo :: Lude.Maybe DeveloperInfo,
+    -- | The URL of the end user license agreement.
     endUserLicenseAgreement :: Lude.Maybe Lude.Text,
+    -- | The generic keywords associated with the skill that can be used to find a skill.
     genericKeywords :: Lude.Maybe [Lude.Text],
+    -- | /This member has been deprecated./
+    --
+    -- The list of reviews for the skill, including Key and Value pair.
     reviews :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The date when the skill was released.
     releaseDate :: Lude.Maybe Lude.Text,
+    -- | The updates added in bullet points.
     newInThisVersionBulletPoints :: Lude.Maybe [Lude.Text],
+    -- | The details about what the skill supports organized as bullet points.
     bulletPoints :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SkillDetails' with the minimum fields required to make a request.
 --
--- * 'bulletPoints' - The details about what the skill supports organized as bullet points.
+-- * 'skillTypes' - The types of skills.
+-- * 'productDescription' - The description of the product.
+-- * 'invocationPhrase' - The phrase used to trigger the skill.
 -- * 'developerInfo' - The details about the developer that published the skill.
 -- * 'endUserLicenseAgreement' - The URL of the end user license agreement.
 -- * 'genericKeywords' - The generic keywords associated with the skill that can be used to find a skill.
--- * 'invocationPhrase' - The phrase used to trigger the skill.
--- * 'newInThisVersionBulletPoints' - The updates added in bullet points.
--- * 'productDescription' - The description of the product.
--- * 'releaseDate' - The date when the skill was released.
 -- * 'reviews' - /This member has been deprecated./
 --
 -- The list of reviews for the skill, including Key and Value pair.
--- * 'skillTypes' - The types of skills.
+-- * 'releaseDate' - The date when the skill was released.
+-- * 'newInThisVersionBulletPoints' - The updates added in bullet points.
+-- * 'bulletPoints' - The details about what the skill supports organized as bullet points.
 mkSkillDetails ::
   SkillDetails
 mkSkillDetails =

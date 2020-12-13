@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceCreationLimitPolicy' smart constructor.
 data ResourceCreationLimitPolicy = ResourceCreationLimitPolicy'
-  { newGameSessionsPerCreator ::
-      Lude.Maybe Lude.Natural,
-    policyPeriodInMinutes ::
-      Lude.Maybe Lude.Natural
+  { -- | The maximum number of game sessions that an individual can create during the policy period.
+    newGameSessionsPerCreator :: Lude.Maybe Lude.Natural,
+    -- | The time span used in evaluating the resource creation limit policy.
+    policyPeriodInMinutes :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceCreationLimitPolicy' with the minimum fields required to make a request.

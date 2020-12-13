@@ -32,28 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogPublishingOptionsStatus' smart constructor.
 data LogPublishingOptionsStatus = LogPublishingOptionsStatus'
-  { status ::
-      Lude.Maybe OptionStatus,
-    options ::
-      Lude.Maybe
-        ( Lude.HashMap
-            LogType
-            (LogPublishingOption)
-        )
+  { -- | The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
+    status :: Lude.Maybe OptionStatus,
+    -- | The log publishing options configured for the Elasticsearch domain.
+    options :: Lude.Maybe (Lude.HashMap LogType (LogPublishingOption))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogPublishingOptionsStatus' with the minimum fields required to make a request.
 --
--- * 'options' - The log publishing options configured for the Elasticsearch domain.
 -- * 'status' - The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
+-- * 'options' - The log publishing options configured for the Elasticsearch domain.
 mkLogPublishingOptionsStatus ::
   LogPublishingOptionsStatus
 mkLogPublishingOptionsStatus =

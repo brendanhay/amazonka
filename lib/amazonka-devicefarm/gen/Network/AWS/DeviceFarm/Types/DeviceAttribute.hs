@@ -14,18 +14,18 @@ module Network.AWS.DeviceFarm.Types.DeviceAttribute
   ( DeviceAttribute
       ( DeviceAttribute',
         ARN,
-        AppiumVersion,
-        Availability,
-        FleetType,
+        Platform,
         FormFactor,
+        Manufacturer,
+        RemoteAccessEnabled,
+        RemoteDebugEnabled,
+        AppiumVersion,
         InstanceARN,
         InstanceLabels,
-        Manufacturer,
-        Model,
+        FleetType,
         OSVersion,
-        Platform,
-        RemoteAccessEnabled,
-        RemoteDebugEnabled
+        Model,
+        Availability
       ),
   )
 where
@@ -59,35 +59,14 @@ newtype DeviceAttribute = DeviceAttribute' Lude.Text
 pattern ARN :: DeviceAttribute
 pattern ARN = DeviceAttribute' "ARN"
 
-pattern AppiumVersion :: DeviceAttribute
-pattern AppiumVersion = DeviceAttribute' "APPIUM_VERSION"
-
-pattern Availability :: DeviceAttribute
-pattern Availability = DeviceAttribute' "AVAILABILITY"
-
-pattern FleetType :: DeviceAttribute
-pattern FleetType = DeviceAttribute' "FLEET_TYPE"
+pattern Platform :: DeviceAttribute
+pattern Platform = DeviceAttribute' "PLATFORM"
 
 pattern FormFactor :: DeviceAttribute
 pattern FormFactor = DeviceAttribute' "FORM_FACTOR"
 
-pattern InstanceARN :: DeviceAttribute
-pattern InstanceARN = DeviceAttribute' "INSTANCE_ARN"
-
-pattern InstanceLabels :: DeviceAttribute
-pattern InstanceLabels = DeviceAttribute' "INSTANCE_LABELS"
-
 pattern Manufacturer :: DeviceAttribute
 pattern Manufacturer = DeviceAttribute' "MANUFACTURER"
-
-pattern Model :: DeviceAttribute
-pattern Model = DeviceAttribute' "MODEL"
-
-pattern OSVersion :: DeviceAttribute
-pattern OSVersion = DeviceAttribute' "OS_VERSION"
-
-pattern Platform :: DeviceAttribute
-pattern Platform = DeviceAttribute' "PLATFORM"
 
 pattern RemoteAccessEnabled :: DeviceAttribute
 pattern RemoteAccessEnabled = DeviceAttribute' "REMOTE_ACCESS_ENABLED"
@@ -95,19 +74,40 @@ pattern RemoteAccessEnabled = DeviceAttribute' "REMOTE_ACCESS_ENABLED"
 pattern RemoteDebugEnabled :: DeviceAttribute
 pattern RemoteDebugEnabled = DeviceAttribute' "REMOTE_DEBUG_ENABLED"
 
+pattern AppiumVersion :: DeviceAttribute
+pattern AppiumVersion = DeviceAttribute' "APPIUM_VERSION"
+
+pattern InstanceARN :: DeviceAttribute
+pattern InstanceARN = DeviceAttribute' "INSTANCE_ARN"
+
+pattern InstanceLabels :: DeviceAttribute
+pattern InstanceLabels = DeviceAttribute' "INSTANCE_LABELS"
+
+pattern FleetType :: DeviceAttribute
+pattern FleetType = DeviceAttribute' "FLEET_TYPE"
+
+pattern OSVersion :: DeviceAttribute
+pattern OSVersion = DeviceAttribute' "OS_VERSION"
+
+pattern Model :: DeviceAttribute
+pattern Model = DeviceAttribute' "MODEL"
+
+pattern Availability :: DeviceAttribute
+pattern Availability = DeviceAttribute' "AVAILABILITY"
+
 {-# COMPLETE
   ARN,
-  AppiumVersion,
-  Availability,
-  FleetType,
-  FormFactor,
-  InstanceARN,
-  InstanceLabels,
-  Manufacturer,
-  Model,
-  OSVersion,
   Platform,
+  FormFactor,
+  Manufacturer,
   RemoteAccessEnabled,
   RemoteDebugEnabled,
+  AppiumVersion,
+  InstanceARN,
+  InstanceLabels,
+  FleetType,
+  OSVersion,
+  Model,
+  Availability,
   DeviceAttribute'
   #-}

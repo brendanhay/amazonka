@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,18 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAcceptReservedNodeExchange' smart constructor.
 data AcceptReservedNodeExchange = AcceptReservedNodeExchange'
-  { reservedNodeId ::
-      Lude.Text,
-    targetReservedNodeOfferingId ::
-      Lude.Text
+  { -- | A string representing the node identifier of the DC1 Reserved Node to be exchanged.
+    reservedNodeId :: Lude.Text,
+    -- | The unique identifier of the DC2 Reserved Node offering to be used for the exchange. You can obtain the value for the parameter by calling 'GetReservedNodeExchangeOfferings'
+    targetReservedNodeOfferingId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptReservedNodeExchange' with the minimum fields required to make a request.
@@ -119,19 +114,12 @@ instance Lude.ToQuery AcceptReservedNodeExchange where
 
 -- | /See:/ 'mkAcceptReservedNodeExchangeResponse' smart constructor.
 data AcceptReservedNodeExchangeResponse = AcceptReservedNodeExchangeResponse'
-  { exchangedReservedNode ::
-      Lude.Maybe
-        ReservedNode,
-    responseStatus ::
-      Lude.Int
+  { -- |
+    exchangedReservedNode :: Lude.Maybe ReservedNode,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptReservedNodeExchangeResponse' with the minimum fields required to make a request.

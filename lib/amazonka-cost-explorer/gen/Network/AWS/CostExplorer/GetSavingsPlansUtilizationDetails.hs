@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +20,21 @@ module Network.AWS.CostExplorer.GetSavingsPlansUtilizationDetails
     mkGetSavingsPlansUtilizationDetails,
 
     -- ** Request lenses
+    gspudTimePeriod,
     gspudNextToken,
     gspudFilter,
     gspudMaxResults,
-    gspudTimePeriod,
 
     -- * Destructuring the response
     GetSavingsPlansUtilizationDetailsResponse (..),
     mkGetSavingsPlansUtilizationDetailsResponse,
 
     -- ** Response lenses
+    gspudrsSavingsPlansUtilizationDetails,
+    gspudrsTimePeriod,
     gspudrsNextToken,
     gspudrsTotal,
     gspudrsResponseStatus,
-    gspudrsSavingsPlansUtilizationDetails,
-    gspudrsTimePeriod,
   )
 where
 
@@ -45,26 +46,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSavingsPlansUtilizationDetails' smart constructor.
 data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    filter ::
-      Lude.Maybe Expression,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    timePeriod ::
-      DateInterval
+  { -- | The time period that you want the usage and costs for. The @Start@ date must be within 13 months. The @End@ date must be after the @Start@ date, and before the current date. Future dates can't be used as an @End@ date.
+    timePeriod :: DateInterval,
+    -- | The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You can filter data with the following dimensions:
+    --
+    --
+    --     * @LINKED_ACCOUNT@
+    --
+    --
+    --     * @SAVINGS_PLAN_ARN@
+    --
+    --
+    --     * @REGION@
+    --
+    --
+    --     * @PAYMENT_OPTION@
+    --
+    --
+    --     * @INSTANCE_TYPE_FAMILY@
+    --
+    --
+    -- @GetSavingsPlansUtilizationDetails@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension.
+    filter :: Lude.Maybe Expression,
+    -- | The number of items to be returned in a response. The default is @20@ , with a minimum value of @1@ .
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSavingsPlansUtilizationDetails' with the minimum fields required to make a request.
 --
+-- * 'timePeriod' - The time period that you want the usage and costs for. The @Start@ date must be within 13 months. The @End@ date must be after the @Start@ date, and before the current date. Future dates can't be used as an @End@ date.
+-- * 'nextToken' - The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
 -- * 'filter' - Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You can filter data with the following dimensions:
 --
 --
@@ -85,19 +100,24 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
 --
 -- @GetSavingsPlansUtilizationDetails@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension.
 -- * 'maxResults' - The number of items to be returned in a response. The default is @20@ , with a minimum value of @1@ .
--- * 'nextToken' - The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
--- * 'timePeriod' - The time period that you want the usage and costs for. The @Start@ date must be within 13 months. The @End@ date must be after the @Start@ date, and before the current date. Future dates can't be used as an @End@ date.
 mkGetSavingsPlansUtilizationDetails ::
   -- | 'timePeriod'
   DateInterval ->
   GetSavingsPlansUtilizationDetails
 mkGetSavingsPlansUtilizationDetails pTimePeriod_ =
   GetSavingsPlansUtilizationDetails'
-    { nextToken = Lude.Nothing,
+    { timePeriod = pTimePeriod_,
+      nextToken = Lude.Nothing,
       filter = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      timePeriod = pTimePeriod_
+      maxResults = Lude.Nothing
     }
+
+-- | The time period that you want the usage and costs for. The @Start@ date must be within 13 months. The @End@ date must be after the @Start@ date, and before the current date. Future dates can't be used as an @End@ date.
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspudTimePeriod :: Lens.Lens' GetSavingsPlansUtilizationDetails DateInterval
+gspudTimePeriod = Lens.lens (timePeriod :: GetSavingsPlansUtilizationDetails -> DateInterval) (\s a -> s {timePeriod = a} :: GetSavingsPlansUtilizationDetails)
+{-# DEPRECATED gspudTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
 -- | The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
 --
@@ -138,13 +158,6 @@ gspudMaxResults :: Lens.Lens' GetSavingsPlansUtilizationDetails (Lude.Maybe Lude
 gspudMaxResults = Lens.lens (maxResults :: GetSavingsPlansUtilizationDetails -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetSavingsPlansUtilizationDetails)
 {-# DEPRECATED gspudMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The time period that you want the usage and costs for. The @Start@ date must be within 13 months. The @End@ date must be after the @Start@ date, and before the current date. Future dates can't be used as an @End@ date.
---
--- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspudTimePeriod :: Lens.Lens' GetSavingsPlansUtilizationDetails DateInterval
-gspudTimePeriod = Lens.lens (timePeriod :: GetSavingsPlansUtilizationDetails -> DateInterval) (\s a -> s {timePeriod = a} :: GetSavingsPlansUtilizationDetails)
-{-# DEPRECATED gspudTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
-
 instance Lude.AWSRequest GetSavingsPlansUtilizationDetails where
   type
     Rs GetSavingsPlansUtilizationDetails =
@@ -154,11 +167,11 @@ instance Lude.AWSRequest GetSavingsPlansUtilizationDetails where
     Res.receiveJSON
       ( \s h x ->
           GetSavingsPlansUtilizationDetailsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "SavingsPlansUtilizationDetails" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..:> "TimePeriod")
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (x Lude..?> "Total")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "SavingsPlansUtilizationDetails" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "TimePeriod")
       )
 
 instance Lude.ToHeaders GetSavingsPlansUtilizationDetails where
@@ -178,10 +191,10 @@ instance Lude.ToJSON GetSavingsPlansUtilizationDetails where
   toJSON GetSavingsPlansUtilizationDetails' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("TimePeriod" Lude..= timePeriod),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("Filter" Lude..=) Lude.<$> filter,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("TimePeriod" Lude..= timePeriod)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -193,52 +206,57 @@ instance Lude.ToQuery GetSavingsPlansUtilizationDetails where
 
 -- | /See:/ 'mkGetSavingsPlansUtilizationDetailsResponse' smart constructor.
 data GetSavingsPlansUtilizationDetailsResponse = GetSavingsPlansUtilizationDetailsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    total ::
-      Lude.Maybe
-        SavingsPlansUtilizationAggregates,
-    responseStatus ::
-      Lude.Int,
-    savingsPlansUtilizationDetails ::
-      [SavingsPlansUtilizationDetail],
-    timePeriod ::
-      DateInterval
+  { -- | Retrieves a single daily or monthly Savings Plans utilization rate and details for your account.
+    savingsPlansUtilizationDetails :: [SavingsPlansUtilizationDetail],
+    timePeriod :: DateInterval,
+    -- | The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The total Savings Plans utilization, regardless of time period.
+    total :: Lude.Maybe SavingsPlansUtilizationAggregates,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSavingsPlansUtilizationDetailsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
--- * 'responseStatus' - The response status code.
 -- * 'savingsPlansUtilizationDetails' - Retrieves a single daily or monthly Savings Plans utilization rate and details for your account.
--- * 'timePeriod' - Undocumented field.
+-- * 'timePeriod' -
+-- * 'nextToken' - The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
 -- * 'total' - The total Savings Plans utilization, regardless of time period.
+-- * 'responseStatus' - The response status code.
 mkGetSavingsPlansUtilizationDetailsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'timePeriod'
   DateInterval ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSavingsPlansUtilizationDetailsResponse
 mkGetSavingsPlansUtilizationDetailsResponse
-  pResponseStatus_
-  pTimePeriod_ =
+  pTimePeriod_
+  pResponseStatus_ =
     GetSavingsPlansUtilizationDetailsResponse'
-      { nextToken =
-          Lude.Nothing,
+      { savingsPlansUtilizationDetails =
+          Lude.mempty,
+        timePeriod = pTimePeriod_,
+        nextToken = Lude.Nothing,
         total = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        savingsPlansUtilizationDetails = Lude.mempty,
-        timePeriod = pTimePeriod_
+        responseStatus = pResponseStatus_
       }
+
+-- | Retrieves a single daily or monthly Savings Plans utilization rate and details for your account.
+--
+-- /Note:/ Consider using 'savingsPlansUtilizationDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspudrsSavingsPlansUtilizationDetails :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse [SavingsPlansUtilizationDetail]
+gspudrsSavingsPlansUtilizationDetails = Lens.lens (savingsPlansUtilizationDetails :: GetSavingsPlansUtilizationDetailsResponse -> [SavingsPlansUtilizationDetail]) (\s a -> s {savingsPlansUtilizationDetails = a} :: GetSavingsPlansUtilizationDetailsResponse)
+{-# DEPRECATED gspudrsSavingsPlansUtilizationDetails "Use generic-lens or generic-optics with 'savingsPlansUtilizationDetails' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspudrsTimePeriod :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse DateInterval
+gspudrsTimePeriod = Lens.lens (timePeriod :: GetSavingsPlansUtilizationDetailsResponse -> DateInterval) (\s a -> s {timePeriod = a} :: GetSavingsPlansUtilizationDetailsResponse)
+{-# DEPRECATED gspudrsTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
 -- | The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
 --
@@ -260,17 +278,3 @@ gspudrsTotal = Lens.lens (total :: GetSavingsPlansUtilizationDetailsResponse -> 
 gspudrsResponseStatus :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse Lude.Int
 gspudrsResponseStatus = Lens.lens (responseStatus :: GetSavingsPlansUtilizationDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSavingsPlansUtilizationDetailsResponse)
 {-# DEPRECATED gspudrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Retrieves a single daily or monthly Savings Plans utilization rate and details for your account.
---
--- /Note:/ Consider using 'savingsPlansUtilizationDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspudrsSavingsPlansUtilizationDetails :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse [SavingsPlansUtilizationDetail]
-gspudrsSavingsPlansUtilizationDetails = Lens.lens (savingsPlansUtilizationDetails :: GetSavingsPlansUtilizationDetailsResponse -> [SavingsPlansUtilizationDetail]) (\s a -> s {savingsPlansUtilizationDetails = a} :: GetSavingsPlansUtilizationDetailsResponse)
-{-# DEPRECATED gspudrsSavingsPlansUtilizationDetails "Use generic-lens or generic-optics with 'savingsPlansUtilizationDetails' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspudrsTimePeriod :: Lens.Lens' GetSavingsPlansUtilizationDetailsResponse DateInterval
-gspudrsTimePeriod = Lens.lens (timePeriod :: GetSavingsPlansUtilizationDetailsResponse -> DateInterval) (\s a -> s {timePeriod = a} :: GetSavingsPlansUtilizationDetailsResponse)
-{-# DEPRECATED gspudrsTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}

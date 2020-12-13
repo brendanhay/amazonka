@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.RDS.CopyOptionGroup
     mkCopyOptionGroup,
 
     -- ** Request lenses
-    cTags,
     cSourceOptionGroupIdentifier,
-    cTargetOptionGroupIdentifier,
     cTargetOptionGroupDescription,
+    cTargetOptionGroupIdentifier,
+    cTags,
 
     -- * Destructuring the response
     CopyOptionGroupResponse (..),
@@ -44,18 +45,35 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCopyOptionGroup' smart constructor.
 data CopyOptionGroup = CopyOptionGroup'
-  { tags :: Lude.Maybe [Tag],
+  { -- | The identifier for the source option group.
+    --
+    -- Constraints:
+    --
+    --     * Must specify a valid option group.
     sourceOptionGroupIdentifier :: Lude.Text,
+    -- | The description for the copied option group.
+    targetOptionGroupDescription :: Lude.Text,
+    -- | The identifier for the copied option group.
+    --
+    -- Constraints:
+    --
+    --     * Can't be null, empty, or blank
+    --
+    --
+    --     * Must contain from 1 to 255 letters, numbers, or hyphens
+    --
+    --
+    --     * First character must be a letter
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens
+    --
+    --
+    -- Example: @my-option-group@
     targetOptionGroupIdentifier :: Lude.Text,
-    targetOptionGroupDescription :: Lude.Text
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyOptionGroup' with the minimum fields required to make a request.
@@ -67,7 +85,6 @@ data CopyOptionGroup = CopyOptionGroup'
 --     * Must specify a valid option group.
 --
 --
--- * 'tags' - Undocumented field.
 -- * 'targetOptionGroupDescription' - The description for the copied option group.
 -- * 'targetOptionGroupIdentifier' - The identifier for the copied option group.
 --
@@ -86,31 +103,26 @@ data CopyOptionGroup = CopyOptionGroup'
 --
 --
 -- Example: @my-option-group@
+-- * 'tags' -
 mkCopyOptionGroup ::
   -- | 'sourceOptionGroupIdentifier'
   Lude.Text ->
-  -- | 'targetOptionGroupIdentifier'
-  Lude.Text ->
   -- | 'targetOptionGroupDescription'
+  Lude.Text ->
+  -- | 'targetOptionGroupIdentifier'
   Lude.Text ->
   CopyOptionGroup
 mkCopyOptionGroup
   pSourceOptionGroupIdentifier_
-  pTargetOptionGroupIdentifier_
-  pTargetOptionGroupDescription_ =
+  pTargetOptionGroupDescription_
+  pTargetOptionGroupIdentifier_ =
     CopyOptionGroup'
-      { tags = Lude.Nothing,
-        sourceOptionGroupIdentifier = pSourceOptionGroupIdentifier_,
+      { sourceOptionGroupIdentifier =
+          pSourceOptionGroupIdentifier_,
+        targetOptionGroupDescription = pTargetOptionGroupDescription_,
         targetOptionGroupIdentifier = pTargetOptionGroupIdentifier_,
-        targetOptionGroupDescription = pTargetOptionGroupDescription_
+        tags = Lude.Nothing
       }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTags :: Lens.Lens' CopyOptionGroup (Lude.Maybe [Tag])
-cTags = Lens.lens (tags :: CopyOptionGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CopyOptionGroup)
-{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The identifier for the source option group.
 --
@@ -124,6 +136,13 @@ cTags = Lens.lens (tags :: CopyOptionGroup -> Lude.Maybe [Tag]) (\s a -> s {tags
 cSourceOptionGroupIdentifier :: Lens.Lens' CopyOptionGroup Lude.Text
 cSourceOptionGroupIdentifier = Lens.lens (sourceOptionGroupIdentifier :: CopyOptionGroup -> Lude.Text) (\s a -> s {sourceOptionGroupIdentifier = a} :: CopyOptionGroup)
 {-# DEPRECATED cSourceOptionGroupIdentifier "Use generic-lens or generic-optics with 'sourceOptionGroupIdentifier' instead." #-}
+
+-- | The description for the copied option group.
+--
+-- /Note:/ Consider using 'targetOptionGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTargetOptionGroupDescription :: Lens.Lens' CopyOptionGroup Lude.Text
+cTargetOptionGroupDescription = Lens.lens (targetOptionGroupDescription :: CopyOptionGroup -> Lude.Text) (\s a -> s {targetOptionGroupDescription = a} :: CopyOptionGroup)
+{-# DEPRECATED cTargetOptionGroupDescription "Use generic-lens or generic-optics with 'targetOptionGroupDescription' instead." #-}
 
 -- | The identifier for the copied option group.
 --
@@ -148,12 +167,12 @@ cTargetOptionGroupIdentifier :: Lens.Lens' CopyOptionGroup Lude.Text
 cTargetOptionGroupIdentifier = Lens.lens (targetOptionGroupIdentifier :: CopyOptionGroup -> Lude.Text) (\s a -> s {targetOptionGroupIdentifier = a} :: CopyOptionGroup)
 {-# DEPRECATED cTargetOptionGroupIdentifier "Use generic-lens or generic-optics with 'targetOptionGroupIdentifier' instead." #-}
 
--- | The description for the copied option group.
+-- | Undocumented field.
 --
--- /Note:/ Consider using 'targetOptionGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTargetOptionGroupDescription :: Lens.Lens' CopyOptionGroup Lude.Text
-cTargetOptionGroupDescription = Lens.lens (targetOptionGroupDescription :: CopyOptionGroup -> Lude.Text) (\s a -> s {targetOptionGroupDescription = a} :: CopyOptionGroup)
-{-# DEPRECATED cTargetOptionGroupDescription "Use generic-lens or generic-optics with 'targetOptionGroupDescription' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTags :: Lens.Lens' CopyOptionGroup (Lude.Maybe [Tag])
+cTags = Lens.lens (tags :: CopyOptionGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CopyOptionGroup)
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CopyOptionGroup where
   type Rs CopyOptionGroup = CopyOptionGroupResponse
@@ -177,31 +196,25 @@ instance Lude.ToQuery CopyOptionGroup where
     Lude.mconcat
       [ "Action" Lude.=: ("CopyOptionGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
         "SourceOptionGroupIdentifier" Lude.=: sourceOptionGroupIdentifier,
-        "TargetOptionGroupIdentifier" Lude.=: targetOptionGroupIdentifier,
         "TargetOptionGroupDescription"
-          Lude.=: targetOptionGroupDescription
+          Lude.=: targetOptionGroupDescription,
+        "TargetOptionGroupIdentifier" Lude.=: targetOptionGroupIdentifier,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
       ]
 
 -- | /See:/ 'mkCopyOptionGroupResponse' smart constructor.
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
-  { optionGroup ::
-      Lude.Maybe OptionGroup,
+  { optionGroup :: Lude.Maybe OptionGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyOptionGroupResponse' with the minimum fields required to make a request.
 --
--- * 'optionGroup' - Undocumented field.
+-- * 'optionGroup' -
 -- * 'responseStatus' - The response status code.
 mkCopyOptionGroupResponse ::
   -- | 'responseStatus'

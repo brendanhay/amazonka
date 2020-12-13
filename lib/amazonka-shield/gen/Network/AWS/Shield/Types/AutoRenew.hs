@@ -13,8 +13,8 @@
 module Network.AWS.Shield.Types.AutoRenew
   ( AutoRenew
       ( AutoRenew',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AutoRenew = AutoRenew' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: AutoRenew
-pattern Disabled = AutoRenew' "DISABLED"
-
 pattern Enabled :: AutoRenew
 pattern Enabled = AutoRenew' "ENABLED"
 
+pattern Disabled :: AutoRenew
+pattern Disabled = AutoRenew' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   AutoRenew'
   #-}

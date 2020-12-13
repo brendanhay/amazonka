@@ -17,8 +17,8 @@ module Network.AWS.SageMaker.Types.IntegerParameterRangeSpecification
     mkIntegerParameterRangeSpecification,
 
     -- * Lenses
-    iprsMinValue,
     iprsMaxValue,
+    iprsMinValue,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIntegerParameterRangeSpecification' smart constructor.
 data IntegerParameterRangeSpecification = IntegerParameterRangeSpecification'
-  { minValue ::
-      Lude.Text,
-    maxValue :: Lude.Text
+  { -- | The maximum integer value allowed.
+    maxValue :: Lude.Text,
+    -- | The minimum integer value allowed.
+    minValue :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IntegerParameterRangeSpecification' with the minimum fields required to make a request.
@@ -47,23 +42,16 @@ data IntegerParameterRangeSpecification = IntegerParameterRangeSpecification'
 -- * 'maxValue' - The maximum integer value allowed.
 -- * 'minValue' - The minimum integer value allowed.
 mkIntegerParameterRangeSpecification ::
-  -- | 'minValue'
-  Lude.Text ->
   -- | 'maxValue'
   Lude.Text ->
+  -- | 'minValue'
+  Lude.Text ->
   IntegerParameterRangeSpecification
-mkIntegerParameterRangeSpecification pMinValue_ pMaxValue_ =
+mkIntegerParameterRangeSpecification pMaxValue_ pMinValue_ =
   IntegerParameterRangeSpecification'
-    { minValue = pMinValue_,
-      maxValue = pMaxValue_
+    { maxValue = pMaxValue_,
+      minValue = pMinValue_
     }
-
--- | The minimum integer value allowed.
---
--- /Note:/ Consider using 'minValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iprsMinValue :: Lens.Lens' IntegerParameterRangeSpecification Lude.Text
-iprsMinValue = Lens.lens (minValue :: IntegerParameterRangeSpecification -> Lude.Text) (\s a -> s {minValue = a} :: IntegerParameterRangeSpecification)
-{-# DEPRECATED iprsMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
 
 -- | The maximum integer value allowed.
 --
@@ -72,20 +60,27 @@ iprsMaxValue :: Lens.Lens' IntegerParameterRangeSpecification Lude.Text
 iprsMaxValue = Lens.lens (maxValue :: IntegerParameterRangeSpecification -> Lude.Text) (\s a -> s {maxValue = a} :: IntegerParameterRangeSpecification)
 {-# DEPRECATED iprsMaxValue "Use generic-lens or generic-optics with 'maxValue' instead." #-}
 
+-- | The minimum integer value allowed.
+--
+-- /Note:/ Consider using 'minValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iprsMinValue :: Lens.Lens' IntegerParameterRangeSpecification Lude.Text
+iprsMinValue = Lens.lens (minValue :: IntegerParameterRangeSpecification -> Lude.Text) (\s a -> s {minValue = a} :: IntegerParameterRangeSpecification)
+{-# DEPRECATED iprsMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
+
 instance Lude.FromJSON IntegerParameterRangeSpecification where
   parseJSON =
     Lude.withObject
       "IntegerParameterRangeSpecification"
       ( \x ->
           IntegerParameterRangeSpecification'
-            Lude.<$> (x Lude..: "MinValue") Lude.<*> (x Lude..: "MaxValue")
+            Lude.<$> (x Lude..: "MaxValue") Lude.<*> (x Lude..: "MinValue")
       )
 
 instance Lude.ToJSON IntegerParameterRangeSpecification where
   toJSON IntegerParameterRangeSpecification' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("MinValue" Lude..= minValue),
-            Lude.Just ("MaxValue" Lude..= maxValue)
+          [ Lude.Just ("MaxValue" Lude..= maxValue),
+            Lude.Just ("MinValue" Lude..= minValue)
           ]
       )

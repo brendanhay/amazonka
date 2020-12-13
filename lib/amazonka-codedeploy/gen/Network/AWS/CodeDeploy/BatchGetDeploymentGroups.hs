@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeDeploy.BatchGetDeploymentGroups
     mkBatchGetDeploymentGroups,
 
     -- ** Request lenses
-    bgdgApplicationName,
     bgdgDeploymentGroupNames,
+    bgdgApplicationName,
 
     -- * Destructuring the response
     BatchGetDeploymentGroupsResponse (..),
@@ -43,39 +44,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkBatchGetDeploymentGroups' smart constructor.
 data BatchGetDeploymentGroups = BatchGetDeploymentGroups'
-  { applicationName ::
-      Lude.Text,
-    deploymentGroupNames :: [Lude.Text]
+  { -- | The names of the deployment groups.
+    deploymentGroupNames :: [Lude.Text],
+    -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
+    applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDeploymentGroups' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 -- * 'deploymentGroupNames' - The names of the deployment groups.
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 mkBatchGetDeploymentGroups ::
   -- | 'applicationName'
   Lude.Text ->
   BatchGetDeploymentGroups
 mkBatchGetDeploymentGroups pApplicationName_ =
   BatchGetDeploymentGroups'
-    { applicationName = pApplicationName_,
-      deploymentGroupNames = Lude.mempty
+    { deploymentGroupNames = Lude.mempty,
+      applicationName = pApplicationName_
     }
-
--- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdgApplicationName :: Lens.Lens' BatchGetDeploymentGroups Lude.Text
-bgdgApplicationName = Lens.lens (applicationName :: BatchGetDeploymentGroups -> Lude.Text) (\s a -> s {applicationName = a} :: BatchGetDeploymentGroups)
-{-# DEPRECATED bgdgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The names of the deployment groups.
 --
@@ -83,6 +72,13 @@ bgdgApplicationName = Lens.lens (applicationName :: BatchGetDeploymentGroups -> 
 bgdgDeploymentGroupNames :: Lens.Lens' BatchGetDeploymentGroups [Lude.Text]
 bgdgDeploymentGroupNames = Lens.lens (deploymentGroupNames :: BatchGetDeploymentGroups -> [Lude.Text]) (\s a -> s {deploymentGroupNames = a} :: BatchGetDeploymentGroups)
 {-# DEPRECATED bgdgDeploymentGroupNames "Use generic-lens or generic-optics with 'deploymentGroupNames' instead." #-}
+
+-- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdgApplicationName :: Lens.Lens' BatchGetDeploymentGroups Lude.Text
+bgdgApplicationName = Lens.lens (applicationName :: BatchGetDeploymentGroups -> Lude.Text) (\s a -> s {applicationName = a} :: BatchGetDeploymentGroups)
+{-# DEPRECATED bgdgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 instance Lude.AWSRequest BatchGetDeploymentGroups where
   type Rs BatchGetDeploymentGroups = BatchGetDeploymentGroupsResponse
@@ -113,8 +109,8 @@ instance Lude.ToJSON BatchGetDeploymentGroups where
   toJSON BatchGetDeploymentGroups' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("applicationName" Lude..= applicationName),
-            Lude.Just ("deploymentGroupNames" Lude..= deploymentGroupNames)
+          [ Lude.Just ("deploymentGroupNames" Lude..= deploymentGroupNames),
+            Lude.Just ("applicationName" Lude..= applicationName)
           ]
       )
 
@@ -128,21 +124,14 @@ instance Lude.ToQuery BatchGetDeploymentGroups where
 --
 -- /See:/ 'mkBatchGetDeploymentGroupsResponse' smart constructor.
 data BatchGetDeploymentGroupsResponse = BatchGetDeploymentGroupsResponse'
-  { deploymentGroupsInfo ::
-      Lude.Maybe
-        [DeploymentGroupInfo],
-    errorMessage ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the deployment groups.
+    deploymentGroupsInfo :: Lude.Maybe [DeploymentGroupInfo],
+    -- | Information about errors that might have occurred during the API call.
+    errorMessage :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDeploymentGroupsResponse' with the minimum fields required to make a request.

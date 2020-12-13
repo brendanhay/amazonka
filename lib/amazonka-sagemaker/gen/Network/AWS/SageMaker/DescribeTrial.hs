@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.SageMaker.DescribeTrial
     mkDescribeTrial,
 
     -- ** Request lenses
-    dtTrialName,
+    dTrialName,
 
     -- * Destructuring the response
     DescribeTrialResponse (..),
@@ -46,14 +47,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeTrial' smart constructor.
-newtype DescribeTrial = DescribeTrial' {trialName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeTrial = DescribeTrial'
+  { -- | The name of the trial to describe.
+    trialName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrial' with the minimum fields required to make a request.
@@ -69,9 +67,9 @@ mkDescribeTrial pTrialName_ =
 -- | The name of the trial to describe.
 --
 -- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtTrialName :: Lens.Lens' DescribeTrial Lude.Text
-dtTrialName = Lens.lens (trialName :: DescribeTrial -> Lude.Text) (\s a -> s {trialName = a} :: DescribeTrial)
-{-# DEPRECATED dtTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
+dTrialName :: Lens.Lens' DescribeTrial Lude.Text
+dTrialName = Lens.lens (trialName :: DescribeTrial -> Lude.Text) (\s a -> s {trialName = a} :: DescribeTrial)
+{-# DEPRECATED dTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
 instance Lude.AWSRequest DescribeTrial where
   type Rs DescribeTrial = DescribeTrialResponse
@@ -116,39 +114,42 @@ instance Lude.ToQuery DescribeTrial where
 
 -- | /See:/ 'mkDescribeTrialResponse' smart constructor.
 data DescribeTrialResponse = DescribeTrialResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the trial was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the trial.
     trialARN :: Lude.Maybe Lude.Text,
+    -- | Who created the trial.
     createdBy :: Lude.Maybe UserContext,
+    -- | When the trial was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the experiment the trial is part of.
     experimentName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the source and, optionally, the job type.
     source :: Lude.Maybe TrialSource,
+    -- | The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The name of the trial.
     trialName :: Lude.Maybe Lude.Text,
+    -- | Who last modified the trial.
     lastModifiedBy :: Lude.Maybe UserContext,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrialResponse' with the minimum fields required to make a request.
 --
--- * 'createdBy' - Who created the trial.
 -- * 'creationTime' - When the trial was created.
--- * 'displayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
--- * 'experimentName' - The name of the experiment the trial is part of.
--- * 'lastModifiedBy' - Who last modified the trial.
--- * 'lastModifiedTime' - When the trial was last modified.
--- * 'responseStatus' - The response status code.
--- * 'source' - The Amazon Resource Name (ARN) of the source and, optionally, the job type.
 -- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
+-- * 'createdBy' - Who created the trial.
+-- * 'lastModifiedTime' - When the trial was last modified.
+-- * 'experimentName' - The name of the experiment the trial is part of.
+-- * 'source' - The Amazon Resource Name (ARN) of the source and, optionally, the job type.
+-- * 'displayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
 -- * 'trialName' - The name of the trial.
+-- * 'lastModifiedBy' - Who last modified the trial.
+-- * 'responseStatus' - The response status code.
 mkDescribeTrialResponse ::
   -- | 'responseStatus'
   Lude.Int ->

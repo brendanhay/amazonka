@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.IoT.UpdateMitigationAction
 
     -- ** Request lenses
     umaActionParams,
-    umaRoleARN,
     umaActionName,
+    umaRoleARN,
 
     -- * Destructuring the response
     UpdateMitigationActionResponse (..),
@@ -42,24 +43,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateMitigationAction' smart constructor.
 data UpdateMitigationAction = UpdateMitigationAction'
-  { actionParams ::
-      Lude.Maybe MitigationActionParams,
-    roleARN :: Lude.Maybe Lude.Text,
-    actionName :: Lude.Text
+  { -- | Defines the type of action and the parameters for that action.
+    actionParams :: Lude.Maybe MitigationActionParams,
+    -- | The friendly name for the mitigation action. You can't change the name by using @UpdateMitigationAction@ . Instead, you must delete and re-create the mitigation action with the new name.
+    actionName :: Lude.Text,
+    -- | The ARN of the IAM role that is used to apply the mitigation action.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMitigationAction' with the minimum fields required to make a request.
 --
--- * 'actionName' - The friendly name for the mitigation action. You can't change the name by using @UpdateMitigationAction@ . Instead, you must delete and re-create the mitigation action with the new name.
 -- * 'actionParams' - Defines the type of action and the parameters for that action.
+-- * 'actionName' - The friendly name for the mitigation action. You can't change the name by using @UpdateMitigationAction@ . Instead, you must delete and re-create the mitigation action with the new name.
 -- * 'roleARN' - The ARN of the IAM role that is used to apply the mitigation action.
 mkUpdateMitigationAction ::
   -- | 'actionName'
@@ -68,8 +65,8 @@ mkUpdateMitigationAction ::
 mkUpdateMitigationAction pActionName_ =
   UpdateMitigationAction'
     { actionParams = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      actionName = pActionName_
+      actionName = pActionName_,
+      roleARN = Lude.Nothing
     }
 
 -- | Defines the type of action and the parameters for that action.
@@ -79,19 +76,19 @@ umaActionParams :: Lens.Lens' UpdateMitigationAction (Lude.Maybe MitigationActio
 umaActionParams = Lens.lens (actionParams :: UpdateMitigationAction -> Lude.Maybe MitigationActionParams) (\s a -> s {actionParams = a} :: UpdateMitigationAction)
 {-# DEPRECATED umaActionParams "Use generic-lens or generic-optics with 'actionParams' instead." #-}
 
--- | The ARN of the IAM role that is used to apply the mitigation action.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umaRoleARN :: Lens.Lens' UpdateMitigationAction (Lude.Maybe Lude.Text)
-umaRoleARN = Lens.lens (roleARN :: UpdateMitigationAction -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateMitigationAction)
-{-# DEPRECATED umaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
 -- | The friendly name for the mitigation action. You can't change the name by using @UpdateMitigationAction@ . Instead, you must delete and re-create the mitigation action with the new name.
 --
 -- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 umaActionName :: Lens.Lens' UpdateMitigationAction Lude.Text
 umaActionName = Lens.lens (actionName :: UpdateMitigationAction -> Lude.Text) (\s a -> s {actionName = a} :: UpdateMitigationAction)
 {-# DEPRECATED umaActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
+
+-- | The ARN of the IAM role that is used to apply the mitigation action.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umaRoleARN :: Lens.Lens' UpdateMitigationAction (Lude.Maybe Lude.Text)
+umaRoleARN = Lens.lens (roleARN :: UpdateMitigationAction -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateMitigationAction)
+{-# DEPRECATED umaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.AWSRequest UpdateMitigationAction where
   type Rs UpdateMitigationAction = UpdateMitigationActionResponse
@@ -127,25 +124,20 @@ instance Lude.ToQuery UpdateMitigationAction where
 
 -- | /See:/ 'mkUpdateMitigationActionResponse' smart constructor.
 data UpdateMitigationActionResponse = UpdateMitigationActionResponse'
-  { actionId ::
-      Lude.Maybe Lude.Text,
-    actionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for the mitigation action.
+    actionId :: Lude.Maybe Lude.Text,
+    -- | The ARN for the new mitigation action.
+    actionARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMitigationActionResponse' with the minimum fields required to make a request.
 --
--- * 'actionARN' - The ARN for the new mitigation action.
 -- * 'actionId' - A unique identifier for the mitigation action.
+-- * 'actionARN' - The ARN for the new mitigation action.
 -- * 'responseStatus' - The response status code.
 mkUpdateMitigationActionResponse ::
   -- | 'responseStatus'

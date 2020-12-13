@@ -27,14 +27,13 @@ import qualified Network.AWS.Prelude as Lude
 -- | Represents information about an artifact to be worked on, such as a test or build artifact.
 --
 -- /See:/ 'mkInputArtifact' smart constructor.
-newtype InputArtifact = InputArtifact' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype InputArtifact = InputArtifact'
+  { -- | The name of the artifact to be worked on (for example, "My App").
+    --
+    -- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputArtifact' with the minimum fields required to make a request.

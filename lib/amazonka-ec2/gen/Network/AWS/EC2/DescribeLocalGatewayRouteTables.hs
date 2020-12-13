@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLocalGatewayRouteTables' smart constructor.
 data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
-  { filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    localGatewayRouteTableIds ::
-      Lude.Maybe [Lude.Text],
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+  { -- | One or more filters.
+    --
+    --
+    --     * @local-gateway-id@ - The ID of a local gateway.
+    --
+    --
+    --     * @local-gateway-route-table-id@ - The ID of a local gateway route table.
+    --
+    --
+    --     * @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
+    --
+    --
+    --     * @state@ - The state of the local gateway route table.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The IDs of the local gateway route tables.
+    localGatewayRouteTableIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocalGatewayRouteTables' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -85,9 +91,10 @@ data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
 --     * @state@ - The state of the local gateway route table.
 --
 --
--- * 'localGatewayRouteTableIds' - The IDs of the local gateway route tables.
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
+-- * 'localGatewayRouteTableIds' - The IDs of the local gateway route tables.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeLocalGatewayRouteTables ::
   DescribeLocalGatewayRouteTables
 mkDescribeLocalGatewayRouteTables =
@@ -198,28 +205,20 @@ instance Lude.ToQuery DescribeLocalGatewayRouteTables where
 
 -- | /See:/ 'mkDescribeLocalGatewayRouteTablesResponse' smart constructor.
 data DescribeLocalGatewayRouteTablesResponse = DescribeLocalGatewayRouteTablesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayRouteTables ::
-      Lude.Maybe
-        [LocalGatewayRouteTable],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the local gateway route tables.
+    localGatewayRouteTables :: Lude.Maybe [LocalGatewayRouteTable],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocalGatewayRouteTablesResponse' with the minimum fields required to make a request.
 --
--- * 'localGatewayRouteTables' - Information about the local gateway route tables.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'localGatewayRouteTables' - Information about the local gateway route tables.
 -- * 'responseStatus' - The response status code.
 mkDescribeLocalGatewayRouteTablesResponse ::
   -- | 'responseStatus'

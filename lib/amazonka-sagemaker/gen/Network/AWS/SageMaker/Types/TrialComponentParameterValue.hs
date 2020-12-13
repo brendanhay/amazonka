@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrialComponentParameterValue' smart constructor.
 data TrialComponentParameterValue = TrialComponentParameterValue'
-  { numberValue ::
-      Lude.Maybe Lude.Double,
-    stringValue ::
-      Lude.Maybe Lude.Text
+  { -- | The numeric value of a numeric hyperparameter. If you specify a value for this parameter, you can't specify the @StringValue@ parameter.
+    numberValue :: Lude.Maybe Lude.Double,
+    -- | The string value of a categorical hyperparameter. If you specify a value for this parameter, you can't specify the @NumberValue@ parameter.
+    stringValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentParameterValue' with the minimum fields required to make a request.

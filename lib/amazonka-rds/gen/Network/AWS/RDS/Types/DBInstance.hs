@@ -103,119 +103,174 @@ import Network.AWS.RDS.Types.VPCSecurityGroupMembership
 --
 -- /See:/ 'mkDBInstance' smart constructor.
 data DBInstance = DBInstance'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | Indicates the database engine version.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | A list of DB security group elements containing @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
     dbSecurityGroups :: Lude.Maybe [DBSecurityGroupMembership],
+    -- | Indicates if the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
     deletionProtection :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the DB instance is encrypted.
     storageEncrypted :: Lude.Maybe Lude.Bool,
+    -- | If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
     dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | Specifies the accessibility options for the DB instance.
+    --
+    -- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
+    -- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
+    -- For more information, see 'CreateDBInstance' .
     publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | Indicates that minor version patches are applied automatically.
     autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) for the DB instance.
     dbInstanceARN :: Lude.Maybe Lude.Text,
+    -- | Contains the master username for the DB instance.
     masterUsername :: Lude.Maybe Lude.Text,
+    -- | Contains one or more identifiers of the read replicas associated with this DB instance.
     readReplicaDBInstanceIdentifiers :: Lude.Maybe [Lude.Text],
+    -- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+    --
+    -- IAM database authentication can be enabled for the following database engines
+    --
+    --     * For MySQL 5.6, minor version 5.6.34 or higher
+    --
+    --
+    --     * For MySQL 5.7, minor version 5.7.16 or higher
+    --
+    --
+    --     * Aurora 5.6 or higher. To enable IAM database authentication for Aurora, see DBCluster Type.
     iamDatabaseAuthenticationEnabled :: Lude.Maybe Lude.Bool,
+    -- | The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
     monitoringRoleARN :: Lude.Maybe Lude.Text,
+    -- | Specifies the Provisioned IOPS (I/O operations per second) value.
     iops :: Lude.Maybe Lude.Int,
+    -- | Provides the date and time the DB instance was created.
     instanceCreateTime :: Lude.Maybe Lude.DateTime,
     tagList :: Lude.Maybe [Tag],
+    -- | Contains the identifier of the source DB instance if this DB instance is a read replica.
     readReplicaSourceDBInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The open mode of an Oracle read replica. The default is @open-read-only@ . For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS> in the /Amazon RDS User Guide/ .
     replicaMode :: Lude.Maybe ReplicaMode,
+    -- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
     monitoringInterval :: Lude.Maybe Lude.Int,
+    -- | The name of the database engine to be used for this DB instance.
     engine :: Lude.Maybe Lude.Text,
+    -- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
     processorFeatures :: Lude.Maybe [ProcessorFeature],
+    -- | Specifies the latest time to which a database can be restored with point-in-time restore.
     latestRestorableTime :: Lude.Maybe Lude.DateTime,
+    -- | Contains the name of the compute and memory capacity class of the DB instance.
     dbInstanceClass :: Lude.Maybe Lude.Text,
+    -- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
     promotionTier :: Lude.Maybe Lude.Int,
+    -- | License model information for this DB instance.
     licenseModel :: Lude.Maybe Lude.Text,
+    -- | Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
     performanceInsightsRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | The identifier of the CA certificate for this DB instance.
     cACertificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
     dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | If present, specifies the name of the character set that this instance is associated with.
     characterSetName :: Lude.Maybe Lude.Text,
+    -- | The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
     maxAllocatedStorage :: Lude.Maybe Lude.Int,
+    -- | If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB instance.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
     preferredBackupWindow :: Lude.Maybe Lude.Text,
+    -- | The AWS Identity and Access Management (IAM) roles associated with the DB instance.
     associatedRoles :: Lude.Maybe [DBInstanceRole],
+    -- | Specifies the name of the Availability Zone the DB instance is located in.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | Provides a list of VPC security group elements that the DB instance belongs to.
     vpcSecurityGroups :: Lude.Maybe [VPCSecurityGroupMembership],
+    -- | Specifies the number of days for which automatic DB snapshots are retained.
     backupRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | The name of the NCHAR character set for the Oracle DB instance. This character set specifies the Unicode encoding for data stored in table columns of type NCHAR, NCLOB, or NVARCHAR2.
     ncharCharacterSetName :: Lude.Maybe Lude.Text,
+    -- | The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
     performanceInsightsKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.
     dbSubnetGroup :: Lude.Maybe DBSubnetGroup,
+    -- | Specifies if the DB instance is a Multi-AZ deployment.
     multiAZ :: Lude.Maybe Lude.Bool,
+    -- | Specifies the listener connection endpoint for SQL Server Always On.
     listenerEndpoint :: Lude.Maybe Endpoint,
+    -- | Provides the list of option group memberships for this DB instance.
     optionGroupMemberships :: Lude.Maybe [OptionGroupMembership],
+    -- | A list of log types that this DB instance is configured to export to CloudWatch Logs.
+    --
+    -- Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon RDS User Guide./
     enabledCloudwatchLogsExports :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.
     enhancedMonitoringResourceARN :: Lude.Maybe Lude.Text,
+    -- | If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
     secondaryAvailabilityZone :: Lude.Maybe Lude.Text,
+    -- | True if Performance Insights is enabled for the DB instance, and otherwise false.
     performanceInsightsEnabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies the allocated storage size specified in gibibytes.
     allocatedStorage :: Lude.Maybe Lude.Int,
+    -- | The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
     dbiResourceId :: Lude.Maybe Lude.Text,
+    -- | Provides the list of DB parameter groups applied to this DB instance.
     dbParameterGroups :: Lude.Maybe [DBParameterGroupStatus],
+    -- | Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+    --
+    -- __Amazon Aurora__
+    -- Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see @DBCluster@ .
     copyTagsToSnapshot :: Lude.Maybe Lude.Bool,
+    -- | The time zone of the DB instance. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
     timezone :: Lude.Maybe Lude.Text,
+    -- | The ARN from the key store with which the instance is associated for TDE encryption.
     tdeCredentialARN :: Lude.Maybe Lude.Text,
+    -- | Specifies the connection endpoint.
     endpoint :: Lude.Maybe Endpoint,
+    -- | Specifies the current state of this database.
+    --
+    -- For information about DB instance statuses, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Status.html DB Instance Status> in the /Amazon RDS User Guide./
     dbInstanceStatus :: Lude.Maybe Lude.Text,
+    -- | Specifies the port that the DB instance listens on. If the DB instance is part of a DB cluster, this can be a different port than the DB cluster port.
     dbInstancePort :: Lude.Maybe Lude.Int,
+    -- | Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
     pendingModifiedValues :: Lude.Maybe PendingModifiedValues,
+    -- | Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica. For example, when you create an Aurora read replica of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora read replica is shown. This output does not contain information about cross region Aurora read replicas.
     readReplicaDBClusterIdentifiers :: Lude.Maybe [Lude.Text],
+    -- | Specifies the storage type associated with DB instance.
     storageType :: Lude.Maybe Lude.Text,
+    -- | The status of a read replica. If the instance isn't a read replica, this is blank.
     statusInfos :: Lude.Maybe [DBInstanceStatusInfo],
+    -- | The Active Directory Domain membership records associated with the DB instance.
     domainMemberships :: Lude.Maybe [DomainMembership],
+    -- | The meaning of this parameter differs according to the database engine you use.
+    --
+    -- __MySQL, MariaDB, SQL Server, PostgreSQL__
+    -- Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+    -- Type: String
+    -- __Oracle__
+    -- Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
     dbName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBInstance' with the minimum fields required to make a request.
 --
--- * 'allocatedStorage' - Specifies the allocated storage size specified in gibibytes.
--- * 'associatedRoles' - The AWS Identity and Access Management (IAM) roles associated with the DB instance.
--- * 'autoMinorVersionUpgrade' - Indicates that minor version patches are applied automatically.
--- * 'availabilityZone' - Specifies the name of the Availability Zone the DB instance is located in.
--- * 'backupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are retained.
--- * 'cACertificateIdentifier' - The identifier of the CA certificate for this DB instance.
--- * 'characterSetName' - If present, specifies the name of the character set that this instance is associated with.
--- * 'copyTagsToSnapshot' - Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
---
--- __Amazon Aurora__
--- Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see @DBCluster@ .
--- * 'dbClusterIdentifier' - If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
--- * 'dbInstanceARN' - The Amazon Resource Name (ARN) for the DB instance.
--- * 'dbInstanceClass' - Contains the name of the compute and memory capacity class of the DB instance.
--- * 'dbInstanceIdentifier' - Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
--- * 'dbInstancePort' - Specifies the port that the DB instance listens on. If the DB instance is part of a DB cluster, this can be a different port than the DB cluster port.
--- * 'dbInstanceStatus' - Specifies the current state of this database.
---
--- For information about DB instance statuses, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Status.html DB Instance Status> in the /Amazon RDS User Guide./
--- * 'dbName' - The meaning of this parameter differs according to the database engine you use.
---
--- __MySQL, MariaDB, SQL Server, PostgreSQL__
--- Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
--- Type: String
--- __Oracle__
--- Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
--- * 'dbParameterGroups' - Provides the list of DB parameter groups applied to this DB instance.
--- * 'dbSecurityGroups' - A list of DB security group elements containing @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
--- * 'dbSubnetGroup' - Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.
--- * 'dbiResourceId' - The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
--- * 'deletionProtection' - Indicates if the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
--- * 'domainMemberships' - The Active Directory Domain membership records associated with the DB instance.
--- * 'enabledCloudwatchLogsExports' - A list of log types that this DB instance is configured to export to CloudWatch Logs.
---
--- Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon RDS User Guide./
--- * 'endpoint' - Specifies the connection endpoint.
--- * 'engine' - The name of the database engine to be used for this DB instance.
 -- * 'engineVersion' - Indicates the database engine version.
--- * 'enhancedMonitoringResourceARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.
+-- * 'dbSecurityGroups' - A list of DB security group elements containing @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
+-- * 'deletionProtection' - Indicates if the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+-- * 'storageEncrypted' - Specifies whether the DB instance is encrypted.
+-- * 'dbClusterIdentifier' - If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
+-- * 'publiclyAccessible' - Specifies the accessibility options for the DB instance.
+--
+-- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
+-- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
+-- For more information, see 'CreateDBInstance' .
+-- * 'autoMinorVersionUpgrade' - Indicates that minor version patches are applied automatically.
+-- * 'dbInstanceARN' - The Amazon Resource Name (ARN) for the DB instance.
+-- * 'masterUsername' - Contains the master username for the DB instance.
+-- * 'readReplicaDBInstanceIdentifiers' - Contains one or more identifiers of the read replicas associated with this DB instance.
 -- * 'iamDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
 --
 -- IAM database authentication can be enabled for the following database engines
@@ -229,44 +284,69 @@ data DBInstance = DBInstance'
 --     * Aurora 5.6 or higher. To enable IAM database authentication for Aurora, see DBCluster Type.
 --
 --
--- * 'instanceCreateTime' - Provides the date and time the DB instance was created.
--- * 'iops' - Specifies the Provisioned IOPS (I/O operations per second) value.
--- * 'kmsKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB instance.
--- * 'latestRestorableTime' - Specifies the latest time to which a database can be restored with point-in-time restore.
--- * 'licenseModel' - License model information for this DB instance.
--- * 'listenerEndpoint' - Specifies the listener connection endpoint for SQL Server Always On.
--- * 'masterUsername' - Contains the master username for the DB instance.
--- * 'maxAllocatedStorage' - The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
--- * 'monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 -- * 'monitoringRoleARN' - The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
--- * 'multiAZ' - Specifies if the DB instance is a Multi-AZ deployment.
--- * 'ncharCharacterSetName' - The name of the NCHAR character set for the Oracle DB instance. This character set specifies the Unicode encoding for data stored in table columns of type NCHAR, NCLOB, or NVARCHAR2.
--- * 'optionGroupMemberships' - Provides the list of option group memberships for this DB instance.
--- * 'pendingModifiedValues' - Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
--- * 'performanceInsightsEnabled' - True if Performance Insights is enabled for the DB instance, and otherwise false.
--- * 'performanceInsightsKMSKeyId' - The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
--- * 'performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
--- * 'preferredBackupWindow' - Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
--- * 'preferredMaintenanceWindow' - Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
--- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
--- * 'promotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
--- * 'publiclyAccessible' - Specifies the accessibility options for the DB instance.
---
--- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
--- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
--- For more information, see 'CreateDBInstance' .
--- * 'readReplicaDBClusterIdentifiers' - Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica. For example, when you create an Aurora read replica of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora read replica is shown. This output does not contain information about cross region Aurora read replicas.
--- * 'readReplicaDBInstanceIdentifiers' - Contains one or more identifiers of the read replicas associated with this DB instance.
+-- * 'iops' - Specifies the Provisioned IOPS (I/O operations per second) value.
+-- * 'instanceCreateTime' - Provides the date and time the DB instance was created.
+-- * 'tagList' -
 -- * 'readReplicaSourceDBInstanceIdentifier' - Contains the identifier of the source DB instance if this DB instance is a read replica.
 -- * 'replicaMode' - The open mode of an Oracle read replica. The default is @open-read-only@ . For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS> in the /Amazon RDS User Guide/ .
--- * 'secondaryAvailabilityZone' - If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
--- * 'statusInfos' - The status of a read replica. If the instance isn't a read replica, this is blank.
--- * 'storageEncrypted' - Specifies whether the DB instance is encrypted.
--- * 'storageType' - Specifies the storage type associated with DB instance.
--- * 'tagList' - Undocumented field.
--- * 'tdeCredentialARN' - The ARN from the key store with which the instance is associated for TDE encryption.
--- * 'timezone' - The time zone of the DB instance. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
+-- * 'monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
+-- * 'engine' - The name of the database engine to be used for this DB instance.
+-- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+-- * 'latestRestorableTime' - Specifies the latest time to which a database can be restored with point-in-time restore.
+-- * 'dbInstanceClass' - Contains the name of the compute and memory capacity class of the DB instance.
+-- * 'promotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
+-- * 'licenseModel' - License model information for this DB instance.
+-- * 'preferredMaintenanceWindow' - Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+-- * 'performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+-- * 'cACertificateIdentifier' - The identifier of the CA certificate for this DB instance.
+-- * 'dbInstanceIdentifier' - Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.
+-- * 'characterSetName' - If present, specifies the name of the character set that this instance is associated with.
+-- * 'maxAllocatedStorage' - The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+-- * 'kmsKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB instance.
+-- * 'preferredBackupWindow' - Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
+-- * 'associatedRoles' - The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+-- * 'availabilityZone' - Specifies the name of the Availability Zone the DB instance is located in.
 -- * 'vpcSecurityGroups' - Provides a list of VPC security group elements that the DB instance belongs to.
+-- * 'backupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are retained.
+-- * 'ncharCharacterSetName' - The name of the NCHAR character set for the Oracle DB instance. This character set specifies the Unicode encoding for data stored in table columns of type NCHAR, NCLOB, or NVARCHAR2.
+-- * 'performanceInsightsKMSKeyId' - The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+-- * 'dbSubnetGroup' - Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.
+-- * 'multiAZ' - Specifies if the DB instance is a Multi-AZ deployment.
+-- * 'listenerEndpoint' - Specifies the listener connection endpoint for SQL Server Always On.
+-- * 'optionGroupMemberships' - Provides the list of option group memberships for this DB instance.
+-- * 'enabledCloudwatchLogsExports' - A list of log types that this DB instance is configured to export to CloudWatch Logs.
+--
+-- Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon RDS User Guide./
+-- * 'enhancedMonitoringResourceARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.
+-- * 'secondaryAvailabilityZone' - If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
+-- * 'performanceInsightsEnabled' - True if Performance Insights is enabled for the DB instance, and otherwise false.
+-- * 'allocatedStorage' - Specifies the allocated storage size specified in gibibytes.
+-- * 'dbiResourceId' - The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+-- * 'dbParameterGroups' - Provides the list of DB parameter groups applied to this DB instance.
+-- * 'copyTagsToSnapshot' - Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+--
+-- __Amazon Aurora__
+-- Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see @DBCluster@ .
+-- * 'timezone' - The time zone of the DB instance. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
+-- * 'tdeCredentialARN' - The ARN from the key store with which the instance is associated for TDE encryption.
+-- * 'endpoint' - Specifies the connection endpoint.
+-- * 'dbInstanceStatus' - Specifies the current state of this database.
+--
+-- For information about DB instance statuses, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Status.html DB Instance Status> in the /Amazon RDS User Guide./
+-- * 'dbInstancePort' - Specifies the port that the DB instance listens on. If the DB instance is part of a DB cluster, this can be a different port than the DB cluster port.
+-- * 'pendingModifiedValues' - Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
+-- * 'readReplicaDBClusterIdentifiers' - Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a read replica. For example, when you create an Aurora read replica of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora read replica is shown. This output does not contain information about cross region Aurora read replicas.
+-- * 'storageType' - Specifies the storage type associated with DB instance.
+-- * 'statusInfos' - The status of a read replica. If the instance isn't a read replica, this is blank.
+-- * 'domainMemberships' - The Active Directory Domain membership records associated with the DB instance.
+-- * 'dbName' - The meaning of this parameter differs according to the database engine you use.
+--
+-- __MySQL, MariaDB, SQL Server, PostgreSQL__
+-- Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+-- Type: String
+-- __Oracle__
+-- Contains the Oracle System ID (SID) of the created DB instance. Not shown when the returned parameters do not apply to an Oracle DB instance.
 mkDBInstance ::
   DBInstance
 mkDBInstance =

@@ -32,24 +32,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJob' smart constructor.
 data Job = Job'
-  { data' :: Lude.Maybe JobData,
+  { -- | Other data about a job.
+    data' :: Lude.Maybe JobData,
+    -- | The ID of the AWS account to use when performing the job.
     accountId :: Lude.Maybe Lude.Text,
+    -- | The unique system-generated ID of the job.
     id :: Lude.Maybe Lude.Text,
+    -- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeJob' request.
     nonce :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- * 'accountId' - The ID of the AWS account to use when performing the job.
 -- * 'data'' - Other data about a job.
+-- * 'accountId' - The ID of the AWS account to use when performing the job.
 -- * 'id' - The unique system-generated ID of the job.
 -- * 'nonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeJob' request.
 mkJob ::

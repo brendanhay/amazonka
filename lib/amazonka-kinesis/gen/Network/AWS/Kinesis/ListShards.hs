@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,44 +51,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListShards' smart constructor.
 data ListShards = ListShards'
-  { shardFilter ::
-      Lude.Maybe ShardFilter,
+  { shardFilter :: Lude.Maybe ShardFilter,
+    -- | When the number of shards in the data stream is greater than the default value for the @MaxResults@ parameter, or if you explicitly specify a value for @MaxResults@ that is less than the number of shards in the data stream, the response includes a pagination token named @NextToken@ . You can specify this @NextToken@ value in a subsequent call to @ListShards@ to list the next set of shards.
+    --
+    -- Don't specify @StreamName@ or @StreamCreationTimestamp@ if you specify @NextToken@ because the latter unambiguously identifies the stream.
+    -- You can optionally specify a value for the @MaxResults@ parameter when you specify @NextToken@ . If you specify a @MaxResults@ value that is less than the number of shards that the operation returns if you don't specify @MaxResults@ , the response will contain a new @NextToken@ value. You can use the new @NextToken@ value in a subsequent call to the @ListShards@ operation.
+    -- /Important:/ Tokens expire after 300 seconds. When you obtain a value for @NextToken@ in the response to a call to @ListShards@ , you have 300 seconds to use that value. If you specify an expired token in a call to @ListShards@ , you get @ExpiredNextTokenException@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Specify this parameter to indicate that you want to list the shards starting with the shard whose ID immediately follows @ExclusiveStartShardId@ .
+    --
+    -- If you don't specify this parameter, the default behavior is for @ListShards@ to list the shards starting with the first one in the stream.
+    -- You cannot specify this parameter if you specify @NextToken@ .
     exclusiveStartShardId :: Lude.Maybe Lude.Text,
+    -- | Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the shards for.
+    --
+    -- You cannot specify this parameter if you specify the @NextToken@ parameter.
     streamCreationTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the data stream whose shards you want to list.
+    --
+    -- You cannot specify this parameter if you specify the @NextToken@ parameter.
     streamName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of shards to return in a single call to @ListShards@ . The minimum value you can specify for this parameter is 1, and the maximum is 10,000, which is also the default.
+    --
+    -- When the number of shards to be listed is greater than the value of @MaxResults@ , the response contains a @NextToken@ value that you can use in a subsequent call to @ListShards@ to list the next set of shards.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListShards' with the minimum fields required to make a request.
 --
--- * 'exclusiveStartShardId' - Specify this parameter to indicate that you want to list the shards starting with the shard whose ID immediately follows @ExclusiveStartShardId@ .
---
--- If you don't specify this parameter, the default behavior is for @ListShards@ to list the shards starting with the first one in the stream.
--- You cannot specify this parameter if you specify @NextToken@ .
--- * 'maxResults' - The maximum number of shards to return in a single call to @ListShards@ . The minimum value you can specify for this parameter is 1, and the maximum is 10,000, which is also the default.
---
--- When the number of shards to be listed is greater than the value of @MaxResults@ , the response contains a @NextToken@ value that you can use in a subsequent call to @ListShards@ to list the next set of shards.
+-- * 'shardFilter' -
 -- * 'nextToken' - When the number of shards in the data stream is greater than the default value for the @MaxResults@ parameter, or if you explicitly specify a value for @MaxResults@ that is less than the number of shards in the data stream, the response includes a pagination token named @NextToken@ . You can specify this @NextToken@ value in a subsequent call to @ListShards@ to list the next set of shards.
 --
 -- Don't specify @StreamName@ or @StreamCreationTimestamp@ if you specify @NextToken@ because the latter unambiguously identifies the stream.
 -- You can optionally specify a value for the @MaxResults@ parameter when you specify @NextToken@ . If you specify a @MaxResults@ value that is less than the number of shards that the operation returns if you don't specify @MaxResults@ , the response will contain a new @NextToken@ value. You can use the new @NextToken@ value in a subsequent call to the @ListShards@ operation.
 -- /Important:/ Tokens expire after 300 seconds. When you obtain a value for @NextToken@ in the response to a call to @ListShards@ , you have 300 seconds to use that value. If you specify an expired token in a call to @ListShards@ , you get @ExpiredNextTokenException@ .
--- * 'shardFilter' - Undocumented field.
+-- * 'exclusiveStartShardId' - Specify this parameter to indicate that you want to list the shards starting with the shard whose ID immediately follows @ExclusiveStartShardId@ .
+--
+-- If you don't specify this parameter, the default behavior is for @ListShards@ to list the shards starting with the first one in the stream.
+-- You cannot specify this parameter if you specify @NextToken@ .
 -- * 'streamCreationTimestamp' - Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the shards for.
 --
 -- You cannot specify this parameter if you specify the @NextToken@ parameter.
 -- * 'streamName' - The name of the data stream whose shards you want to list.
 --
 -- You cannot specify this parameter if you specify the @NextToken@ parameter.
+-- * 'maxResults' - The maximum number of shards to return in a single call to @ListShards@ . The minimum value you can specify for this parameter is 1, and the maximum is 10,000, which is also the default.
+--
+-- When the number of shards to be listed is greater than the value of @MaxResults@ , the response contains a @NextToken@ value that you can use in a subsequent call to @ListShards@ to list the next set of shards.
 mkListShards ::
   ListShards
 mkListShards =
@@ -209,18 +221,16 @@ instance Lude.ToQuery ListShards where
 
 -- | /See:/ 'mkListShardsResponse' smart constructor.
 data ListShardsResponse = ListShardsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | When the number of shards in the data stream is greater than the default value for the @MaxResults@ parameter, or if you explicitly specify a value for @MaxResults@ that is less than the number of shards in the data stream, the response includes a pagination token named @NextToken@ . You can specify this @NextToken@ value in a subsequent call to @ListShards@ to list the next set of shards. For more information about the use of this pagination token when calling the @ListShards@ operation, see 'ListShardsInput$NextToken' .
+    --
+    -- /Important:/ Tokens expire after 300 seconds. When you obtain a value for @NextToken@ in the response to a call to @ListShards@ , you have 300 seconds to use that value. If you specify an expired token in a call to @ListShards@ , you get @ExpiredNextTokenException@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.
     shards :: Lude.Maybe [Shard],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListShardsResponse' with the minimum fields required to make a request.
@@ -228,8 +238,8 @@ data ListShardsResponse = ListShardsResponse'
 -- * 'nextToken' - When the number of shards in the data stream is greater than the default value for the @MaxResults@ parameter, or if you explicitly specify a value for @MaxResults@ that is less than the number of shards in the data stream, the response includes a pagination token named @NextToken@ . You can specify this @NextToken@ value in a subsequent call to @ListShards@ to list the next set of shards. For more information about the use of this pagination token when calling the @ListShards@ operation, see 'ListShardsInput$NextToken' .
 --
 -- /Important:/ Tokens expire after 300 seconds. When you obtain a value for @NextToken@ in the response to a call to @ListShards@ , you have 300 seconds to use that value. If you specify an expired token in a call to @ListShards@ , you get @ExpiredNextTokenException@ .
--- * 'responseStatus' - The response status code.
 -- * 'shards' - An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.
+-- * 'responseStatus' - The response status code.
 mkListShardsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutomatedEncodingSettings' smart constructor.
 newtype AutomatedEncodingSettings = AutomatedEncodingSettings'
-  { abrSettings ::
-      Lude.Maybe AutomatedAbrSettings
+  { -- | Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
+    abrSettings :: Lude.Maybe AutomatedAbrSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomatedEncodingSettings' with the minimum fields required to make a request.

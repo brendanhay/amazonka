@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,12 +24,12 @@ module Network.AWS.IoT.UpdateSecurityProfile
     uspAdditionalMetricsToRetainV2,
     uspBehaviors,
     uspExpectedVersion,
+    uspSecurityProfileName,
     uspDeleteAlertTargets,
     uspAdditionalMetricsToRetain,
     uspSecurityProfileDescription,
     uspDeleteBehaviors,
     uspDeleteAdditionalMetricsToRetain,
-    uspSecurityProfileName,
 
     -- * Destructuring the response
     UpdateSecurityProfileResponse (..),
@@ -57,46 +58,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateSecurityProfile' smart constructor.
 data UpdateSecurityProfile = UpdateSecurityProfile'
-  { alertTargets ::
-      Lude.Maybe
-        (Lude.HashMap AlertTargetType (AlertTarget)),
-    additionalMetricsToRetainV2 ::
-      Lude.Maybe [MetricToRetain],
+  { -- | Where the alerts are sent. (Alerts are always sent to the console.)
+    alertTargets :: Lude.Maybe (Lude.HashMap AlertTargetType (AlertTarget)),
+    -- | A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
+    additionalMetricsToRetainV2 :: Lude.Maybe [MetricToRetain],
+    -- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
     behaviors :: Lude.Maybe [Behavior],
+    -- | The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a @VersionConflictException@ is thrown.
     expectedVersion :: Lude.Maybe Lude.Integer,
+    -- | The name of the security profile you want to update.
+    securityProfileName :: Lude.Text,
+    -- | If true, delete all @alertTargets@ defined for this security profile. If any @alertTargets@ are defined in the current invocation, an exception occurs.
     deleteAlertTargets :: Lude.Maybe Lude.Bool,
-    additionalMetricsToRetain ::
-      Lude.Maybe [Lude.Text],
-    securityProfileDescription ::
-      Lude.Maybe Lude.Text,
+    -- | /Please use 'UpdateSecurityProfileRequest$additionalMetricsToRetainV2' instead./
+    --
+    -- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
+    additionalMetricsToRetain :: Lude.Maybe [Lude.Text],
+    -- | A description of the security profile.
+    securityProfileDescription :: Lude.Maybe Lude.Text,
+    -- | If true, delete all @behaviors@ defined for this security profile. If any @behaviors@ are defined in the current invocation, an exception occurs.
     deleteBehaviors :: Lude.Maybe Lude.Bool,
-    deleteAdditionalMetricsToRetain ::
-      Lude.Maybe Lude.Bool,
-    securityProfileName :: Lude.Text
+    -- | If true, delete all @additionalMetricsToRetain@ defined for this security profile. If any @additionalMetricsToRetain@ are defined in the current invocation, an exception occurs.
+    deleteAdditionalMetricsToRetain :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSecurityProfile' with the minimum fields required to make a request.
 --
+-- * 'alertTargets' - Where the alerts are sent. (Alerts are always sent to the console.)
+-- * 'additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
+-- * 'behaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
+-- * 'expectedVersion' - The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a @VersionConflictException@ is thrown.
+-- * 'securityProfileName' - The name of the security profile you want to update.
+-- * 'deleteAlertTargets' - If true, delete all @alertTargets@ defined for this security profile. If any @alertTargets@ are defined in the current invocation, an exception occurs.
 -- * 'additionalMetricsToRetain' - /Please use 'UpdateSecurityProfileRequest$additionalMetricsToRetainV2' instead./
 --
 -- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
--- * 'additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
--- * 'alertTargets' - Where the alerts are sent. (Alerts are always sent to the console.)
--- * 'behaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
--- * 'deleteAdditionalMetricsToRetain' - If true, delete all @additionalMetricsToRetain@ defined for this security profile. If any @additionalMetricsToRetain@ are defined in the current invocation, an exception occurs.
--- * 'deleteAlertTargets' - If true, delete all @alertTargets@ defined for this security profile. If any @alertTargets@ are defined in the current invocation, an exception occurs.
--- * 'deleteBehaviors' - If true, delete all @behaviors@ defined for this security profile. If any @behaviors@ are defined in the current invocation, an exception occurs.
--- * 'expectedVersion' - The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different from the actual version, a @VersionConflictException@ is thrown.
 -- * 'securityProfileDescription' - A description of the security profile.
--- * 'securityProfileName' - The name of the security profile you want to update.
+-- * 'deleteBehaviors' - If true, delete all @behaviors@ defined for this security profile. If any @behaviors@ are defined in the current invocation, an exception occurs.
+-- * 'deleteAdditionalMetricsToRetain' - If true, delete all @additionalMetricsToRetain@ defined for this security profile. If any @additionalMetricsToRetain@ are defined in the current invocation, an exception occurs.
 mkUpdateSecurityProfile ::
   -- | 'securityProfileName'
   Lude.Text ->
@@ -107,12 +108,12 @@ mkUpdateSecurityProfile pSecurityProfileName_ =
       additionalMetricsToRetainV2 = Lude.Nothing,
       behaviors = Lude.Nothing,
       expectedVersion = Lude.Nothing,
+      securityProfileName = pSecurityProfileName_,
       deleteAlertTargets = Lude.Nothing,
       additionalMetricsToRetain = Lude.Nothing,
       securityProfileDescription = Lude.Nothing,
       deleteBehaviors = Lude.Nothing,
-      deleteAdditionalMetricsToRetain = Lude.Nothing,
-      securityProfileName = pSecurityProfileName_
+      deleteAdditionalMetricsToRetain = Lude.Nothing
     }
 
 -- | Where the alerts are sent. (Alerts are always sent to the console.)
@@ -142,6 +143,13 @@ uspBehaviors = Lens.lens (behaviors :: UpdateSecurityProfile -> Lude.Maybe [Beha
 uspExpectedVersion :: Lens.Lens' UpdateSecurityProfile (Lude.Maybe Lude.Integer)
 uspExpectedVersion = Lens.lens (expectedVersion :: UpdateSecurityProfile -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: UpdateSecurityProfile)
 {-# DEPRECATED uspExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
+
+-- | The name of the security profile you want to update.
+--
+-- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uspSecurityProfileName :: Lens.Lens' UpdateSecurityProfile Lude.Text
+uspSecurityProfileName = Lens.lens (securityProfileName :: UpdateSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: UpdateSecurityProfile)
+{-# DEPRECATED uspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 -- | If true, delete all @alertTargets@ defined for this security profile. If any @alertTargets@ are defined in the current invocation, an exception occurs.
 --
@@ -179,13 +187,6 @@ uspDeleteBehaviors = Lens.lens (deleteBehaviors :: UpdateSecurityProfile -> Lude
 uspDeleteAdditionalMetricsToRetain :: Lens.Lens' UpdateSecurityProfile (Lude.Maybe Lude.Bool)
 uspDeleteAdditionalMetricsToRetain = Lens.lens (deleteAdditionalMetricsToRetain :: UpdateSecurityProfile -> Lude.Maybe Lude.Bool) (\s a -> s {deleteAdditionalMetricsToRetain = a} :: UpdateSecurityProfile)
 {-# DEPRECATED uspDeleteAdditionalMetricsToRetain "Use generic-lens or generic-optics with 'deleteAdditionalMetricsToRetain' instead." #-}
-
--- | The name of the security profile you want to update.
---
--- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uspSecurityProfileName :: Lens.Lens' UpdateSecurityProfile Lude.Text
-uspSecurityProfileName = Lens.lens (securityProfileName :: UpdateSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: UpdateSecurityProfile)
-{-# DEPRECATED uspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 instance Lude.AWSRequest UpdateSecurityProfile where
   type Rs UpdateSecurityProfile = UpdateSecurityProfileResponse
@@ -240,56 +241,49 @@ instance Lude.ToQuery UpdateSecurityProfile where
 
 -- | /See:/ 'mkUpdateSecurityProfileResponse' smart constructor.
 data UpdateSecurityProfileResponse = UpdateSecurityProfileResponse'
-  { alertTargets ::
-      Lude.Maybe
-        ( Lude.HashMap
-            AlertTargetType
-            (AlertTarget)
-        ),
-    additionalMetricsToRetainV2 ::
-      Lude.Maybe [MetricToRetain],
-    behaviors ::
-      Lude.Maybe [Behavior],
-    lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
-    version ::
-      Lude.Maybe Lude.Integer,
-    securityProfileName ::
-      Lude.Maybe Lude.Text,
-    creationDate ::
-      Lude.Maybe Lude.Timestamp,
-    additionalMetricsToRetain ::
-      Lude.Maybe [Lude.Text],
-    securityProfileARN ::
-      Lude.Maybe Lude.Text,
-    securityProfileDescription ::
-      Lude.Maybe Lude.Text,
+  { -- | Where the alerts are sent. (Alerts are always sent to the console.)
+    alertTargets :: Lude.Maybe (Lude.HashMap AlertTargetType (AlertTarget)),
+    -- | A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
+    additionalMetricsToRetainV2 :: Lude.Maybe [MetricToRetain],
+    -- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
+    behaviors :: Lude.Maybe [Behavior],
+    -- | The time the security profile was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The updated version of the security profile.
+    version :: Lude.Maybe Lude.Integer,
+    -- | The name of the security profile that was updated.
+    securityProfileName :: Lude.Maybe Lude.Text,
+    -- | The time the security profile was created.
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | /Please use 'UpdateSecurityProfileResponse$additionalMetricsToRetainV2' instead./
+    --
+    -- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the security profile's @behaviors@ , but it is also retained for any metric specified here.
+    additionalMetricsToRetain :: Lude.Maybe [Lude.Text],
+    -- | The ARN of the security profile that was updated.
+    securityProfileARN :: Lude.Maybe Lude.Text,
+    -- | The description of the security profile.
+    securityProfileDescription :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSecurityProfileResponse' with the minimum fields required to make a request.
 --
+-- * 'alertTargets' - Where the alerts are sent. (Alerts are always sent to the console.)
+-- * 'additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
+-- * 'behaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
+-- * 'lastModifiedDate' - The time the security profile was last modified.
+-- * 'version' - The updated version of the security profile.
+-- * 'securityProfileName' - The name of the security profile that was updated.
+-- * 'creationDate' - The time the security profile was created.
 -- * 'additionalMetricsToRetain' - /Please use 'UpdateSecurityProfileResponse$additionalMetricsToRetainV2' instead./
 --
 -- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the security profile's @behaviors@ , but it is also retained for any metric specified here.
--- * 'additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
--- * 'alertTargets' - Where the alerts are sent. (Alerts are always sent to the console.)
--- * 'behaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
--- * 'creationDate' - The time the security profile was created.
--- * 'lastModifiedDate' - The time the security profile was last modified.
--- * 'responseStatus' - The response status code.
 -- * 'securityProfileARN' - The ARN of the security profile that was updated.
 -- * 'securityProfileDescription' - The description of the security profile.
--- * 'securityProfileName' - The name of the security profile that was updated.
--- * 'version' - The updated version of the security profile.
+-- * 'responseStatus' - The response status code.
 mkUpdateSecurityProfileResponse ::
   -- | 'responseStatus'
   Lude.Int ->

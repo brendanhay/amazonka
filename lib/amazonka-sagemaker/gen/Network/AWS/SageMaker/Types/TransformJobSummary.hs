@@ -17,13 +17,13 @@ module Network.AWS.SageMaker.Types.TransformJobSummary
     mkTransformJobSummary,
 
     -- * Lenses
+    tjsCreationTime,
+    tjsTransformJobName,
     tjsFailureReason,
     tjsLastModifiedTime,
     tjsTransformEndTime,
-    tjsTransformJobName,
-    tjsTransformJobARN,
-    tjsCreationTime,
     tjsTransformJobStatus,
+    tjsTransformJobARN,
   )
 where
 
@@ -35,57 +35,71 @@ import Network.AWS.SageMaker.Types.TransformJobStatus
 --
 -- /See:/ 'mkTransformJobSummary' smart constructor.
 data TransformJobSummary = TransformJobSummary'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    transformEndTime :: Lude.Maybe Lude.Timestamp,
-    transformJobName :: Lude.Text,
-    transformJobARN :: Lude.Text,
+  { -- | A timestamp that shows when the transform Job was created.
     creationTime :: Lude.Timestamp,
-    transformJobStatus :: TransformJobStatus
+    -- | The name of the transform job.
+    transformJobName :: Lude.Text,
+    -- | If the transform job failed, the reason it failed.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | Indicates when the transform job was last modified.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates when the transform job ends on compute instances. For successful jobs and stopped jobs, this is the exact time recorded after the results are uploaded. For failed jobs, this is when Amazon SageMaker detected that the job failed.
+    transformEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the transform job.
+    transformJobStatus :: TransformJobStatus,
+    -- | The Amazon Resource Name (ARN) of the transform job.
+    transformJobARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformJobSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - A timestamp that shows when the transform Job was created.
+-- * 'transformJobName' - The name of the transform job.
 -- * 'failureReason' - If the transform job failed, the reason it failed.
 -- * 'lastModifiedTime' - Indicates when the transform job was last modified.
 -- * 'transformEndTime' - Indicates when the transform job ends on compute instances. For successful jobs and stopped jobs, this is the exact time recorded after the results are uploaded. For failed jobs, this is when Amazon SageMaker detected that the job failed.
--- * 'transformJobARN' - The Amazon Resource Name (ARN) of the transform job.
--- * 'transformJobName' - The name of the transform job.
 -- * 'transformJobStatus' - The status of the transform job.
+-- * 'transformJobARN' - The Amazon Resource Name (ARN) of the transform job.
 mkTransformJobSummary ::
-  -- | 'transformJobName'
-  Lude.Text ->
-  -- | 'transformJobARN'
-  Lude.Text ->
   -- | 'creationTime'
   Lude.Timestamp ->
+  -- | 'transformJobName'
+  Lude.Text ->
   -- | 'transformJobStatus'
   TransformJobStatus ->
+  -- | 'transformJobARN'
+  Lude.Text ->
   TransformJobSummary
 mkTransformJobSummary
-  pTransformJobName_
-  pTransformJobARN_
   pCreationTime_
-  pTransformJobStatus_ =
+  pTransformJobName_
+  pTransformJobStatus_
+  pTransformJobARN_ =
     TransformJobSummary'
-      { failureReason = Lude.Nothing,
+      { creationTime = pCreationTime_,
+        transformJobName = pTransformJobName_,
+        failureReason = Lude.Nothing,
         lastModifiedTime = Lude.Nothing,
         transformEndTime = Lude.Nothing,
-        transformJobName = pTransformJobName_,
-        transformJobARN = pTransformJobARN_,
-        creationTime = pCreationTime_,
-        transformJobStatus = pTransformJobStatus_
+        transformJobStatus = pTransformJobStatus_,
+        transformJobARN = pTransformJobARN_
       }
+
+-- | A timestamp that shows when the transform Job was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsCreationTime :: Lens.Lens' TransformJobSummary Lude.Timestamp
+tjsCreationTime = Lens.lens (creationTime :: TransformJobSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: TransformJobSummary)
+{-# DEPRECATED tjsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | The name of the transform job.
+--
+-- /Note:/ Consider using 'transformJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsTransformJobName :: Lens.Lens' TransformJobSummary Lude.Text
+tjsTransformJobName = Lens.lens (transformJobName :: TransformJobSummary -> Lude.Text) (\s a -> s {transformJobName = a} :: TransformJobSummary)
+{-# DEPRECATED tjsTransformJobName "Use generic-lens or generic-optics with 'transformJobName' instead." #-}
 
 -- | If the transform job failed, the reason it failed.
 --
@@ -108,12 +122,12 @@ tjsTransformEndTime :: Lens.Lens' TransformJobSummary (Lude.Maybe Lude.Timestamp
 tjsTransformEndTime = Lens.lens (transformEndTime :: TransformJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {transformEndTime = a} :: TransformJobSummary)
 {-# DEPRECATED tjsTransformEndTime "Use generic-lens or generic-optics with 'transformEndTime' instead." #-}
 
--- | The name of the transform job.
+-- | The status of the transform job.
 --
--- /Note:/ Consider using 'transformJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjsTransformJobName :: Lens.Lens' TransformJobSummary Lude.Text
-tjsTransformJobName = Lens.lens (transformJobName :: TransformJobSummary -> Lude.Text) (\s a -> s {transformJobName = a} :: TransformJobSummary)
-{-# DEPRECATED tjsTransformJobName "Use generic-lens or generic-optics with 'transformJobName' instead." #-}
+-- /Note:/ Consider using 'transformJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsTransformJobStatus :: Lens.Lens' TransformJobSummary TransformJobStatus
+tjsTransformJobStatus = Lens.lens (transformJobStatus :: TransformJobSummary -> TransformJobStatus) (\s a -> s {transformJobStatus = a} :: TransformJobSummary)
+{-# DEPRECATED tjsTransformJobStatus "Use generic-lens or generic-optics with 'transformJobStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the transform job.
 --
@@ -122,31 +136,17 @@ tjsTransformJobARN :: Lens.Lens' TransformJobSummary Lude.Text
 tjsTransformJobARN = Lens.lens (transformJobARN :: TransformJobSummary -> Lude.Text) (\s a -> s {transformJobARN = a} :: TransformJobSummary)
 {-# DEPRECATED tjsTransformJobARN "Use generic-lens or generic-optics with 'transformJobARN' instead." #-}
 
--- | A timestamp that shows when the transform Job was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjsCreationTime :: Lens.Lens' TransformJobSummary Lude.Timestamp
-tjsCreationTime = Lens.lens (creationTime :: TransformJobSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: TransformJobSummary)
-{-# DEPRECATED tjsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The status of the transform job.
---
--- /Note:/ Consider using 'transformJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjsTransformJobStatus :: Lens.Lens' TransformJobSummary TransformJobStatus
-tjsTransformJobStatus = Lens.lens (transformJobStatus :: TransformJobSummary -> TransformJobStatus) (\s a -> s {transformJobStatus = a} :: TransformJobSummary)
-{-# DEPRECATED tjsTransformJobStatus "Use generic-lens or generic-optics with 'transformJobStatus' instead." #-}
-
 instance Lude.FromJSON TransformJobSummary where
   parseJSON =
     Lude.withObject
       "TransformJobSummary"
       ( \x ->
           TransformJobSummary'
-            Lude.<$> (x Lude..:? "FailureReason")
+            Lude.<$> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..: "TransformJobName")
+            Lude.<*> (x Lude..:? "FailureReason")
             Lude.<*> (x Lude..:? "LastModifiedTime")
             Lude.<*> (x Lude..:? "TransformEndTime")
-            Lude.<*> (x Lude..: "TransformJobName")
-            Lude.<*> (x Lude..: "TransformJobArn")
-            Lude.<*> (x Lude..: "CreationTime")
             Lude.<*> (x Lude..: "TransformJobStatus")
+            Lude.<*> (x Lude..: "TransformJobArn")
       )

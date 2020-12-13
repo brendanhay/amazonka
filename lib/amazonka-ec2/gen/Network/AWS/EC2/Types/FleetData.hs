@@ -58,62 +58,76 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetData' smart constructor.
 data FleetData = FleetData'
-  { clientToken :: Lude.Maybe Lude.Text,
-    targetCapacitySpecification ::
-      Lude.Maybe TargetCapacitySpecification,
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    --
+    -- Constraints: Maximum 64 ASCII characters
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
+    targetCapacitySpecification :: Lude.Maybe TargetCapacitySpecification,
+    -- | The configuration of Spot Instances in an EC2 Fleet.
     spotOptions :: Lude.Maybe SpotOptions,
-    excessCapacityTerminationPolicy ::
-      Lude.Maybe FleetExcessCapacityTerminationPolicy,
+    -- | Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+    excessCapacityTerminationPolicy :: Lude.Maybe FleetExcessCapacityTerminationPolicy,
+    -- | The allocation strategy of On-Demand Instances in an EC2 Fleet.
     onDemandOptions :: Lude.Maybe OnDemandOptions,
+    -- | The state of the EC2 Fleet.
     fleetState :: Lude.Maybe FleetStateCode,
+    -- | The launch template and overrides.
     launchTemplateConfigs :: Lude.Maybe [FleetLaunchTemplateConfig],
+    -- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
     validUntil :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether running instances should be terminated when the EC2 Fleet expires.
     terminateInstancesWithExpiration :: Lude.Maybe Lude.Bool,
+    -- | Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
     instances :: Lude.Maybe [DescribeFleetsInstances],
+    -- | The number of units fulfilled by this request compared to the set target capacity.
     fulfilledCapacity :: Lude.Maybe Lude.Double,
+    -- | The type of request. Indicates whether the EC2 Fleet only @requests@ the target capacity, or also attempts to @maintain@ it. If you request a certain target capacity, EC2 Fleet only places the required requests; it does not attempt to replenish instances if capacity is diminished, and it does not submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically replenishes any interrupted Spot Instances. Default: @maintain@ .
     type' :: Lude.Maybe FleetType,
+    -- | The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
     validFrom :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether EC2 Fleet should replace unhealthy instances.
     replaceUnhealthyInstances :: Lude.Maybe Lude.Bool,
+    -- | The number of units fulfilled by this request compared to the set target On-Demand capacity.
     fulfilledOnDemandCapacity :: Lude.Maybe Lude.Double,
+    -- | The ID of the EC2 Fleet.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
     errors :: Lude.Maybe [DescribeFleetError],
+    -- | The creation date and time of the EC2 Fleet.
     createTime :: Lude.Maybe Lude.DateTime,
+    -- | The tags for an EC2 Fleet resource.
     tags :: Lude.Maybe [Tag],
+    -- | The progress of the EC2 Fleet. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the EC2 Fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the EC2 Fleet is decreased, the status is @pending_termination@ while instances are terminating.
     activityStatus :: Lude.Maybe FleetActivityStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetData' with the minimum fields required to make a request.
 --
--- * 'activityStatus' - The progress of the EC2 Fleet. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the EC2 Fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the EC2 Fleet is decreased, the status is @pending_termination@ while instances are terminating.
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- Constraints: Maximum 64 ASCII characters
--- * 'createTime' - The creation date and time of the EC2 Fleet.
--- * 'errors' - Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
--- * 'excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
--- * 'fleetId' - The ID of the EC2 Fleet.
--- * 'fleetState' - The state of the EC2 Fleet.
--- * 'fulfilledCapacity' - The number of units fulfilled by this request compared to the set target capacity.
--- * 'fulfilledOnDemandCapacity' - The number of units fulfilled by this request compared to the set target On-Demand capacity.
--- * 'instances' - Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
--- * 'launchTemplateConfigs' - The launch template and overrides.
--- * 'onDemandOptions' - The allocation strategy of On-Demand Instances in an EC2 Fleet.
--- * 'replaceUnhealthyInstances' - Indicates whether EC2 Fleet should replace unhealthy instances.
--- * 'spotOptions' - The configuration of Spot Instances in an EC2 Fleet.
--- * 'tags' - The tags for an EC2 Fleet resource.
 -- * 'targetCapacitySpecification' - The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
+-- * 'spotOptions' - The configuration of Spot Instances in an EC2 Fleet.
+-- * 'excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+-- * 'onDemandOptions' - The allocation strategy of On-Demand Instances in an EC2 Fleet.
+-- * 'fleetState' - The state of the EC2 Fleet.
+-- * 'launchTemplateConfigs' - The launch template and overrides.
+-- * 'validUntil' - The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
 -- * 'terminateInstancesWithExpiration' - Indicates whether running instances should be terminated when the EC2 Fleet expires.
+-- * 'instances' - Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
+-- * 'fulfilledCapacity' - The number of units fulfilled by this request compared to the set target capacity.
 -- * 'type'' - The type of request. Indicates whether the EC2 Fleet only @requests@ the target capacity, or also attempts to @maintain@ it. If you request a certain target capacity, EC2 Fleet only places the required requests; it does not attempt to replenish instances if capacity is diminished, and it does not submit requests in alternative capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet places the required requests to meet this target capacity. It also automatically replenishes any interrupted Spot Instances. Default: @maintain@ .
 -- * 'validFrom' - The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
--- * 'validUntil' - The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
+-- * 'replaceUnhealthyInstances' - Indicates whether EC2 Fleet should replace unhealthy instances.
+-- * 'fulfilledOnDemandCapacity' - The number of units fulfilled by this request compared to the set target On-Demand capacity.
+-- * 'fleetId' - The ID of the EC2 Fleet.
+-- * 'errors' - Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
+-- * 'createTime' - The creation date and time of the EC2 Fleet.
+-- * 'tags' - The tags for an EC2 Fleet resource.
+-- * 'activityStatus' - The progress of the EC2 Fleet. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the EC2 Fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the EC2 Fleet is decreased, the status is @pending_termination@ while instances are terminating.
 mkFleetData ::
   FleetData
 mkFleetData =

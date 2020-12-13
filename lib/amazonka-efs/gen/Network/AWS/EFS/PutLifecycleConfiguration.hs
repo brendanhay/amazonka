@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,17 +52,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutLifecycleConfiguration' smart constructor.
 data PutLifecycleConfiguration = PutLifecycleConfiguration'
-  { fileSystemId ::
-      Lude.Text,
+  { -- | The ID of the file system for which you are creating the @LifecycleConfiguration@ object (String).
+    fileSystemId :: Lude.Text,
+    -- | An array of @LifecyclePolicy@ objects that define the file system's @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells lifecycle management when to transition files from the Standard storage class to the Infrequent Access storage class.
     lifecyclePolicies :: [LifecyclePolicy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecycleConfiguration' with the minimum fields required to make a request.

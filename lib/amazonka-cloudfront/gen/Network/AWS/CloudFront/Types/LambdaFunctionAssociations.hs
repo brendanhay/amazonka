@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.LambdaFunctionAssociations
     mkLambdaFunctionAssociations,
 
     -- * Lenses
-    lfaItems,
     lfaQuantity,
+    lfaItems,
   )
 where
 
@@ -33,40 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaFunctionAssociations' smart constructor.
 data LambdaFunctionAssociations = LambdaFunctionAssociations'
-  { items ::
-      Lude.Maybe
-        [LambdaFunctionAssociation],
-    quantity :: Lude.Int
+  { -- | The number of Lambda function associations for this cache behavior.
+    quantity :: Lude.Int,
+    -- | __Optional__ : A complex type that contains @LambdaFunctionAssociation@ items for this cache behavior. If @Quantity@ is @0@ , you can omit @Items@ .
+    items :: Lude.Maybe [LambdaFunctionAssociation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionAssociations' with the minimum fields required to make a request.
 --
--- * 'items' - __Optional__ : A complex type that contains @LambdaFunctionAssociation@ items for this cache behavior. If @Quantity@ is @0@ , you can omit @Items@ .
 -- * 'quantity' - The number of Lambda function associations for this cache behavior.
+-- * 'items' - __Optional__ : A complex type that contains @LambdaFunctionAssociation@ items for this cache behavior. If @Quantity@ is @0@ , you can omit @Items@ .
 mkLambdaFunctionAssociations ::
   -- | 'quantity'
   Lude.Int ->
   LambdaFunctionAssociations
 mkLambdaFunctionAssociations pQuantity_ =
   LambdaFunctionAssociations'
-    { items = Lude.Nothing,
-      quantity = pQuantity_
+    { quantity = pQuantity_,
+      items = Lude.Nothing
     }
-
--- | __Optional__ : A complex type that contains @LambdaFunctionAssociation@ items for this cache behavior. If @Quantity@ is @0@ , you can omit @Items@ .
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfaItems :: Lens.Lens' LambdaFunctionAssociations (Lude.Maybe [LambdaFunctionAssociation])
-lfaItems = Lens.lens (items :: LambdaFunctionAssociations -> Lude.Maybe [LambdaFunctionAssociation]) (\s a -> s {items = a} :: LambdaFunctionAssociations)
-{-# DEPRECATED lfaItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | The number of Lambda function associations for this cache behavior.
 --
@@ -75,19 +62,26 @@ lfaQuantity :: Lens.Lens' LambdaFunctionAssociations Lude.Int
 lfaQuantity = Lens.lens (quantity :: LambdaFunctionAssociations -> Lude.Int) (\s a -> s {quantity = a} :: LambdaFunctionAssociations)
 {-# DEPRECATED lfaQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | __Optional__ : A complex type that contains @LambdaFunctionAssociation@ items for this cache behavior. If @Quantity@ is @0@ , you can omit @Items@ .
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfaItems :: Lens.Lens' LambdaFunctionAssociations (Lude.Maybe [LambdaFunctionAssociation])
+lfaItems = Lens.lens (items :: LambdaFunctionAssociations -> Lude.Maybe [LambdaFunctionAssociation]) (\s a -> s {items = a} :: LambdaFunctionAssociations)
+{-# DEPRECATED lfaItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML LambdaFunctionAssociations where
   parseXML x =
     LambdaFunctionAssociations'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "LambdaFunctionAssociation")
                )
-      Lude.<*> (x Lude..@ "Quantity")
 
 instance Lude.ToXML LambdaFunctionAssociations where
   toXML LambdaFunctionAssociations' {..} =
     Lude.mconcat
-      [ "Items"
+      [ "Quantity" Lude.@= quantity,
+        "Items"
           Lude.@= Lude.toXML
-            (Lude.toXMLList "LambdaFunctionAssociation" Lude.<$> items),
-        "Quantity" Lude.@= quantity
+            (Lude.toXMLList "LambdaFunctionAssociation" Lude.<$> items)
       ]

@@ -13,9 +13,9 @@
 module Network.AWS.IAM.Types.JobStatusType
   ( JobStatusType
       ( JobStatusType',
+        InProgress,
         Completed,
-        Failed,
-        InProgress
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype JobStatusType = JobStatusType' Lude.Text
       Lude.ToHeader
     )
 
+pattern InProgress :: JobStatusType
+pattern InProgress = JobStatusType' "IN_PROGRESS"
+
 pattern Completed :: JobStatusType
 pattern Completed = JobStatusType' "COMPLETED"
 
 pattern Failed :: JobStatusType
 pattern Failed = JobStatusType' "FAILED"
 
-pattern InProgress :: JobStatusType
-pattern InProgress = JobStatusType' "IN_PROGRESS"
-
 {-# COMPLETE
+  InProgress,
   Completed,
   Failed,
-  InProgress,
   JobStatusType'
   #-}

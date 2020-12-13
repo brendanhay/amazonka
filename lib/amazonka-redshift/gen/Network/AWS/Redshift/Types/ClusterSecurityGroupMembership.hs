@@ -30,24 +30,18 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkClusterSecurityGroupMembership' smart constructor.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
-  { status ::
-      Lude.Maybe Lude.Text,
-    clusterSecurityGroupName ::
-      Lude.Maybe Lude.Text
+  { -- | The status of the cluster security group.
+    status :: Lude.Maybe Lude.Text,
+    -- | The name of the cluster security group.
+    clusterSecurityGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterSecurityGroupMembership' with the minimum fields required to make a request.
 --
--- * 'clusterSecurityGroupName' - The name of the cluster security group.
 -- * 'status' - The status of the cluster security group.
+-- * 'clusterSecurityGroupName' - The name of the cluster security group.
 mkClusterSecurityGroupMembership ::
   ClusterSecurityGroupMembership
 mkClusterSecurityGroupMembership =

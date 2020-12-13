@@ -13,13 +13,13 @@
 module Network.AWS.GuardDuty.Types.IPSetStatus
   ( IPSetStatus
       ( IPSetStatus',
+        ISSInactive,
         ISSActivating,
         ISSActive,
         ISSDeactivating,
-        ISSDeletePending,
-        ISSDeleted,
         ISSError,
-        ISSInactive
+        ISSDeletePending,
+        ISSDeleted
       ),
   )
 where
@@ -50,6 +50,9 @@ newtype IPSetStatus = IPSetStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern ISSInactive :: IPSetStatus
+pattern ISSInactive = IPSetStatus' "INACTIVE"
+
 pattern ISSActivating :: IPSetStatus
 pattern ISSActivating = IPSetStatus' "ACTIVATING"
 
@@ -59,25 +62,22 @@ pattern ISSActive = IPSetStatus' "ACTIVE"
 pattern ISSDeactivating :: IPSetStatus
 pattern ISSDeactivating = IPSetStatus' "DEACTIVATING"
 
+pattern ISSError :: IPSetStatus
+pattern ISSError = IPSetStatus' "ERROR"
+
 pattern ISSDeletePending :: IPSetStatus
 pattern ISSDeletePending = IPSetStatus' "DELETE_PENDING"
 
 pattern ISSDeleted :: IPSetStatus
 pattern ISSDeleted = IPSetStatus' "DELETED"
 
-pattern ISSError :: IPSetStatus
-pattern ISSError = IPSetStatus' "ERROR"
-
-pattern ISSInactive :: IPSetStatus
-pattern ISSInactive = IPSetStatus' "INACTIVE"
-
 {-# COMPLETE
+  ISSInactive,
   ISSActivating,
   ISSActive,
   ISSDeactivating,
+  ISSError,
   ISSDeletePending,
   ISSDeleted,
-  ISSError,
-  ISSInactive,
   IPSetStatus'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.InventoryAttributeDataType
   ( InventoryAttributeDataType
       ( InventoryAttributeDataType',
-        IADTNumber,
-        IADTString
+        String,
+        Number
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype InventoryAttributeDataType = InventoryAttributeDataType' Lude.Text
       Lude.ToHeader
     )
 
-pattern IADTNumber :: InventoryAttributeDataType
-pattern IADTNumber = InventoryAttributeDataType' "number"
+pattern String :: InventoryAttributeDataType
+pattern String = InventoryAttributeDataType' "string"
 
-pattern IADTString :: InventoryAttributeDataType
-pattern IADTString = InventoryAttributeDataType' "string"
+pattern Number :: InventoryAttributeDataType
+pattern Number = InventoryAttributeDataType' "number"
 
 {-# COMPLETE
-  IADTNumber,
-  IADTString,
+  String,
+  Number,
   InventoryAttributeDataType'
   #-}

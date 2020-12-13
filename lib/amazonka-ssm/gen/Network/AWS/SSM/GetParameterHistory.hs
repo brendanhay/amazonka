@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.SSM.GetParameterHistory
     -- ** Request lenses
     gphWithDecryption,
     gphNextToken,
-    gphMaxResults,
     gphName,
+    gphMaxResults,
 
     -- * Destructuring the response
     GetParameterHistoryResponse (..),
@@ -46,27 +47,24 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetParameterHistory' smart constructor.
 data GetParameterHistory = GetParameterHistory'
-  { withDecryption ::
-      Lude.Maybe Lude.Bool,
+  { -- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+    withDecryption :: Lude.Maybe Lude.Bool,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    name :: Lude.Text
+    -- | The name of the parameter for which you want to review history.
+    name :: Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParameterHistory' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'name' - The name of the parameter for which you want to review history.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'withDecryption' - Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'name' - The name of the parameter for which you want to review history.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkGetParameterHistory ::
   -- | 'name'
   Lude.Text ->
@@ -75,8 +73,8 @@ mkGetParameterHistory pName_ =
   GetParameterHistory'
     { withDecryption = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      maxResults = Lude.Nothing
     }
 
 -- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
@@ -93,19 +91,19 @@ gphNextToken :: Lens.Lens' GetParameterHistory (Lude.Maybe Lude.Text)
 gphNextToken = Lens.lens (nextToken :: GetParameterHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetParameterHistory)
 {-# DEPRECATED gphNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gphMaxResults :: Lens.Lens' GetParameterHistory (Lude.Maybe Lude.Natural)
-gphMaxResults = Lens.lens (maxResults :: GetParameterHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetParameterHistory)
-{-# DEPRECATED gphMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the parameter for which you want to review history.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gphName :: Lens.Lens' GetParameterHistory Lude.Text
 gphName = Lens.lens (name :: GetParameterHistory -> Lude.Text) (\s a -> s {name = a} :: GetParameterHistory)
 {-# DEPRECATED gphName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gphMaxResults :: Lens.Lens' GetParameterHistory (Lude.Maybe Lude.Natural)
+gphMaxResults = Lens.lens (maxResults :: GetParameterHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetParameterHistory)
+{-# DEPRECATED gphMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetParameterHistory where
   page rq rs
@@ -145,8 +143,8 @@ instance Lude.ToJSON GetParameterHistory where
       ( Lude.catMaybes
           [ ("WithDecryption" Lude..=) Lude.<$> withDecryption,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("Name" Lude..= name)
+            Lude.Just ("Name" Lude..= name),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -158,19 +156,14 @@ instance Lude.ToQuery GetParameterHistory where
 
 -- | /See:/ 'mkGetParameterHistoryResponse' smart constructor.
 data GetParameterHistoryResponse = GetParameterHistoryResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    parameters ::
-      Lude.Maybe [ParameterHistory],
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of parameters returned by the request.
+    parameters :: Lude.Maybe [ParameterHistory],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParameterHistoryResponse' with the minimum fields required to make a request.

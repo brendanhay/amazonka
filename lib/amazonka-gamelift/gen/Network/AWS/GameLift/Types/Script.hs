@@ -53,32 +53,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScript' smart constructor.
 data Script = Script'
-  { creationTime :: Lude.Maybe Lude.Timestamp,
+  { -- | A time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    creationTime :: Lude.Maybe Lude.Timestamp,
     storageLocation :: Lude.Maybe S3Location,
+    -- | A descriptive label that is associated with a script. Script names do not need to be unique.
     name :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a Realtime script
     scriptId :: Lude.Maybe Lude.Text,
+    -- | The version that is associated with a build or script. Version strings do not need to be unique.
     version :: Lude.Maybe Lude.Text,
+    -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
     scriptARN :: Lude.Maybe Lude.Text,
+    -- | The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
     sizeOnDisk :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Script' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - A time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'storageLocation' -
 -- * 'name' - A descriptive label that is associated with a script. Script names do not need to be unique.
--- * 'scriptARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
 -- * 'scriptId' - A unique identifier for a Realtime script
--- * 'sizeOnDisk' - The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
--- * 'storageLocation' - Undocumented field.
 -- * 'version' - The version that is associated with a build or script. Version strings do not need to be unique.
+-- * 'scriptARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
+-- * 'sizeOnDisk' - The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
 mkScript ::
   Script
 mkScript =

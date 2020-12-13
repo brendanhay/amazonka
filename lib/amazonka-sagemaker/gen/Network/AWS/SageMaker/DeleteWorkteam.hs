@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.SageMaker.DeleteWorkteam
     mkDeleteWorkteamResponse,
 
     -- ** Response lenses
-    delrsResponseStatus,
-    delrsSuccess,
+    dwfrsSuccess,
+    dwfrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteWorkteam' smart constructor.
-newtype DeleteWorkteam = DeleteWorkteam' {workteamName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteWorkteam = DeleteWorkteam'
+  { -- | The name of the work team to delete.
+    workteamName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkteam' with the minimum fields required to make a request.
@@ -72,7 +70,7 @@ instance Lude.AWSRequest DeleteWorkteam where
     Res.receiveJSON
       ( \s h x ->
           DeleteWorkteamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Success")
+            Lude.<$> (x Lude..:> "Success") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteWorkteam where
@@ -99,45 +97,40 @@ instance Lude.ToQuery DeleteWorkteam where
 
 -- | /See:/ 'mkDeleteWorkteamResponse' smart constructor.
 data DeleteWorkteamResponse = DeleteWorkteamResponse'
-  { responseStatus ::
-      Lude.Int,
-    success :: Lude.Bool
+  { -- | Returns @true@ if the work team was successfully deleted; otherwise, returns @false@ .
+    success :: Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkteamResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'success' - Returns @true@ if the work team was successfully deleted; otherwise, returns @false@ .
+-- * 'responseStatus' - The response status code.
 mkDeleteWorkteamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'success'
   Lude.Bool ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteWorkteamResponse
-mkDeleteWorkteamResponse pResponseStatus_ pSuccess_ =
+mkDeleteWorkteamResponse pSuccess_ pResponseStatus_ =
   DeleteWorkteamResponse'
-    { responseStatus = pResponseStatus_,
-      success = pSuccess_
+    { success = pSuccess_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteWorkteamResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkteamResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Returns @true@ if the work team was successfully deleted; otherwise, returns @false@ .
 --
 -- /Note:/ Consider using 'success' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsSuccess :: Lens.Lens' DeleteWorkteamResponse Lude.Bool
-delrsSuccess = Lens.lens (success :: DeleteWorkteamResponse -> Lude.Bool) (\s a -> s {success = a} :: DeleteWorkteamResponse)
-{-# DEPRECATED delrsSuccess "Use generic-lens or generic-optics with 'success' instead." #-}
+dwfrsSuccess :: Lens.Lens' DeleteWorkteamResponse Lude.Bool
+dwfrsSuccess = Lens.lens (success :: DeleteWorkteamResponse -> Lude.Bool) (\s a -> s {success = a} :: DeleteWorkteamResponse)
+{-# DEPRECATED dwfrsSuccess "Use generic-lens or generic-optics with 'success' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwfrsResponseStatus :: Lens.Lens' DeleteWorkteamResponse Lude.Int
+dwfrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkteamResponse)
+{-# DEPRECATED dwfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -34,18 +34,14 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkSnapshotCopyGrant' smart constructor.
 data SnapshotCopyGrant = SnapshotCopyGrant'
-  { kmsKeyId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier of the customer master key (CMK) in AWS KMS to which Amazon Redshift is granted permission.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The name of the snapshot copy grant.
     snapshotCopyGrantName :: Lude.Maybe Lude.Text,
+    -- | A list of tag instances.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotCopyGrant' with the minimum fields required to make a request.

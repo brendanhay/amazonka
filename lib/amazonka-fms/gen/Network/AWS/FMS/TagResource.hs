@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.FMS.TagResource
     mkTagResource,
 
     -- ** Request lenses
-    trResourceARN,
     trTagList,
+    trResourceARN,
 
     -- * Destructuring the response
     TagResourceResponse (..),
@@ -39,35 +40,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { resourceARN :: Lude.Text,
-    tagList :: [Tag]
+  { -- | The tags to add to the resource.
+    tagList :: [Tag],
+    -- | The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists.
+    resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists.
 -- * 'tagList' - The tags to add to the resource.
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists.
 mkTagResource ::
   -- | 'resourceARN'
   Lude.Text ->
   TagResource
 mkTagResource pResourceARN_ =
-  TagResource' {resourceARN = pResourceARN_, tagList = Lude.mempty}
-
--- | The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceARN :: Lens.Lens' TagResource Lude.Text
-trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
-{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+  TagResource' {tagList = Lude.mempty, resourceARN = pResourceARN_}
 
 -- | The tags to add to the resource.
 --
@@ -75,6 +65,13 @@ trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {
 trTagList :: Lens.Lens' TagResource [Tag]
 trTagList = Lens.lens (tagList :: TagResource -> [Tag]) (\s a -> s {tagList = a} :: TagResource)
 {-# DEPRECATED trTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall Manager resources that support tagging are policies, applications lists, and protocols lists.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceARN :: Lens.Lens' TagResource Lude.Text
+trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
+{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
@@ -100,8 +97,8 @@ instance Lude.ToJSON TagResource where
   toJSON TagResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
-            Lude.Just ("TagList" Lude..= tagList)
+          [ Lude.Just ("TagList" Lude..= tagList),
+            Lude.Just ("ResourceArn" Lude..= resourceARN)
           ]
       )
 
@@ -113,16 +110,10 @@ instance Lude.ToQuery TagResource where
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.

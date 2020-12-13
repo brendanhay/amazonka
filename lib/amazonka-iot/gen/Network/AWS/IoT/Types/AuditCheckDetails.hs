@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuditCheckDetails' smart constructor.
 data AuditCheckDetails = AuditCheckDetails'
-  { suppressedNonCompliantResourcesCount ::
-      Lude.Maybe Lude.Integer,
+  { -- | Describes how many of the non-compliant resources created during the evaluation of an audit check were marked as suppressed.
+    suppressedNonCompliantResourcesCount :: Lude.Maybe Lude.Integer,
+    -- | The number of resources on which the check was performed.
     totalResourcesCount :: Lude.Maybe Lude.Integer,
+    -- | True if the check is complete and found all resources compliant.
     checkCompliant :: Lude.Maybe Lude.Bool,
+    -- | The number of resources that were found noncompliant during the check.
     nonCompliantResourcesCount :: Lude.Maybe Lude.Integer,
+    -- | The code of any error encountered when this check is performed during this audit. One of "INSUFFICIENT_PERMISSIONS" or "AUDIT_CHECK_DISABLED".
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The message associated with any error encountered when this check is performed during this audit.
     message :: Lude.Maybe Lude.Text,
+    -- | The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION", "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".
     checkRunStatus :: Lude.Maybe AuditCheckRunStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditCheckDetails' with the minimum fields required to make a request.
 --
--- * 'checkCompliant' - True if the check is complete and found all resources compliant.
--- * 'checkRunStatus' - The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION", "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".
--- * 'errorCode' - The code of any error encountered when this check is performed during this audit. One of "INSUFFICIENT_PERMISSIONS" or "AUDIT_CHECK_DISABLED".
--- * 'message' - The message associated with any error encountered when this check is performed during this audit.
--- * 'nonCompliantResourcesCount' - The number of resources that were found noncompliant during the check.
 -- * 'suppressedNonCompliantResourcesCount' - Describes how many of the non-compliant resources created during the evaluation of an audit check were marked as suppressed.
 -- * 'totalResourcesCount' - The number of resources on which the check was performed.
+-- * 'checkCompliant' - True if the check is complete and found all resources compliant.
+-- * 'nonCompliantResourcesCount' - The number of resources that were found noncompliant during the check.
+-- * 'errorCode' - The code of any error encountered when this check is performed during this audit. One of "INSUFFICIENT_PERMISSIONS" or "AUDIT_CHECK_DISABLED".
+-- * 'message' - The message associated with any error encountered when this check is performed during this audit.
+-- * 'checkRunStatus' - The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION", "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".
 mkAuditCheckDetails ::
   AuditCheckDetails
 mkAuditCheckDetails =

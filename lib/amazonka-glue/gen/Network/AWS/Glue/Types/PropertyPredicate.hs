@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPropertyPredicate' smart constructor.
 data PropertyPredicate = PropertyPredicate'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the property.
+    value :: Lude.Maybe Lude.Text,
+    -- | The key of the property.
     key :: Lude.Maybe Lude.Text,
+    -- | The comparator used to compare this property to others.
     comparator :: Lude.Maybe Comparator
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PropertyPredicate' with the minimum fields required to make a request.
 --
--- * 'comparator' - The comparator used to compare this property to others.
--- * 'key' - The key of the property.
 -- * 'value' - The value of the property.
+-- * 'key' - The key of the property.
+-- * 'comparator' - The comparator used to compare this property to others.
 mkPropertyPredicate ::
   PropertyPredicate
 mkPropertyPredicate =

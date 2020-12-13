@@ -32,28 +32,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlatformFilter' smart constructor.
 data PlatformFilter = PlatformFilter'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of values applied to the filtering platform version attribute. Only one value is supported for all current operators.
+    --
+    -- The following list shows valid filter values for some filter attributes.
+    --
+    --     * @PlatformStatus@ : @Creating@ | @Failed@ | @Ready@ | @Deleting@ | @Deleted@
+    --
+    --
+    --     * @PlatformLifecycleState@ : @recommended@
+    --
+    --
+    --     * @SupportedTier@ : @WebServer/Standard@ | @Worker/SQS/HTTP@
+    --
+    --
+    --     * @SupportedAddon@ : @Log/S3@ | @Monitoring/Healthd@ | @WorkerDaemon/SQSD@
+    values :: Lude.Maybe [Lude.Text],
+    -- | The operator to apply to the @Type@ with each of the @Values@ .
+    --
+    -- Valid values: @=@ | @!=@ | @<@ | @<=@ | @>@ | @>=@ | @contains@ | @begins_with@ | @ends_with@
     operator :: Lude.Maybe Lude.Text,
+    -- | The platform version attribute to which the filter values are applied.
+    --
+    -- Valid values: @PlatformName@ | @PlatformVersion@ | @PlatformStatus@ | @PlatformBranchName@ | @PlatformLifecycleState@ | @PlatformOwner@ | @SupportedTier@ | @SupportedAddon@ | @ProgrammingLanguageName@ | @OperatingSystemName@
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformFilter' with the minimum fields required to make a request.
 --
--- * 'operator' - The operator to apply to the @Type@ with each of the @Values@ .
---
--- Valid values: @=@ | @!=@ | @<@ | @<=@ | @>@ | @>=@ | @contains@ | @begins_with@ | @ends_with@
--- * 'type'' - The platform version attribute to which the filter values are applied.
---
--- Valid values: @PlatformName@ | @PlatformVersion@ | @PlatformStatus@ | @PlatformBranchName@ | @PlatformLifecycleState@ | @PlatformOwner@ | @SupportedTier@ | @SupportedAddon@ | @ProgrammingLanguageName@ | @OperatingSystemName@
 -- * 'values' - The list of values applied to the filtering platform version attribute. Only one value is supported for all current operators.
 --
 -- The following list shows valid filter values for some filter attributes.
@@ -68,6 +75,14 @@ data PlatformFilter = PlatformFilter'
 --
 --
 --     * @SupportedAddon@ : @Log/S3@ | @Monitoring/Healthd@ | @WorkerDaemon/SQSD@
+--
+--
+-- * 'operator' - The operator to apply to the @Type@ with each of the @Values@ .
+--
+-- Valid values: @=@ | @!=@ | @<@ | @<=@ | @>@ | @>=@ | @contains@ | @begins_with@ | @ends_with@
+-- * 'type'' - The platform version attribute to which the filter values are applied.
+--
+-- Valid values: @PlatformName@ | @PlatformVersion@ | @PlatformStatus@ | @PlatformBranchName@ | @PlatformLifecycleState@ | @PlatformOwner@ | @SupportedTier@ | @SupportedAddon@ | @ProgrammingLanguageName@ | @OperatingSystemName@
 mkPlatformFilter ::
   PlatformFilter
 mkPlatformFilter =

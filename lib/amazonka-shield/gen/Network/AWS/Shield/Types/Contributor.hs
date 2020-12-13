@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContributor' smart constructor.
 data Contributor = Contributor'
-  { value :: Lude.Maybe Lude.Integer,
+  { -- | The contribution of this contributor expressed in 'Protection' units. For example @10,000@ .
+    value :: Lude.Maybe Lude.Integer,
+    -- | The name of the contributor. This is dependent on the @AttackPropertyIdentifier@ . For example, if the @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@ , the @Name@ could be @United States@ .
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Contributor' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the contributor. This is dependent on the @AttackPropertyIdentifier@ . For example, if the @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@ , the @Name@ could be @United States@ .
 -- * 'value' - The contribution of this contributor expressed in 'Protection' units. For example @10,000@ .
+-- * 'name' - The name of the contributor. This is dependent on the @AttackPropertyIdentifier@ . For example, if the @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@ , the @Name@ could be @United States@ .
 mkContributor ::
   Contributor
 mkContributor =

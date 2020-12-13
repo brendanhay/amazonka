@@ -49,74 +49,68 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRequestSpotLaunchSpecification' smart constructor.
 data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
-    securityGroups ::
-      Lude.Maybe [Lude.Text],
-    keyName ::
-      Lude.Maybe Lude.Text,
-    networkInterfaces ::
-      Lude.Maybe
-        [InstanceNetworkInterfaceSpecification],
-    ramdiskId ::
-      Lude.Maybe Lude.Text,
-    subnetId ::
-      Lude.Maybe Lude.Text,
-    kernelId ::
-      Lude.Maybe Lude.Text,
-    instanceType ::
-      Lude.Maybe InstanceType,
-    ebsOptimized ::
-      Lude.Maybe Lude.Bool,
-    userData ::
-      Lude.Maybe Lude.Text,
-    monitoring ::
-      Lude.Maybe
-        RunInstancesMonitoringEnabled,
-    iamInstanceProfile ::
-      Lude.Maybe
-        IAMInstanceProfileSpecification,
-    imageId ::
-      Lude.Maybe Lude.Text,
-    addressingType ::
-      Lude.Maybe Lude.Text,
-    blockDeviceMappings ::
-      Lude.Maybe
-        [BlockDeviceMapping],
-    placement ::
-      Lude.Maybe SpotPlacement
+  { -- | One or more security group IDs.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+    securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The name of the key pair.
+    keyName :: Lude.Maybe Lude.Text,
+    -- | One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+    networkInterfaces :: Lude.Maybe [InstanceNetworkInterfaceSpecification],
+    -- | The ID of the RAM disk.
+    ramdiskId :: Lude.Maybe Lude.Text,
+    -- | The IDs of the subnets in which to launch the instance. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the kernel.
+    kernelId :: Lude.Maybe Lude.Text,
+    -- | The instance type.
+    instanceType :: Lude.Maybe InstanceType,
+    -- | Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+    --
+    -- Default: @false@
+    ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The Base64-encoded user data for the instance. User data is limited to 16 KB.
+    userData :: Lude.Maybe Lude.Text,
+    -- | Indicates whether basic or detailed monitoring is enabled for the instance.
+    --
+    -- Default: Disabled
+    monitoring :: Lude.Maybe RunInstancesMonitoringEnabled,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: Lude.Maybe IAMInstanceProfileSpecification,
+    -- | The ID of the AMI.
+    imageId :: Lude.Maybe Lude.Text,
+    -- | Deprecated.
+    addressingType :: Lude.Maybe Lude.Text,
+    -- | One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+    blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping],
+    -- | The placement information for the instance.
+    placement :: Lude.Maybe SpotPlacement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestSpotLaunchSpecification' with the minimum fields required to make a request.
 --
--- * 'addressingType' - Deprecated.
--- * 'blockDeviceMappings' - One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+-- * 'securityGroupIds' - One or more security group IDs.
+-- * 'securityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+-- * 'keyName' - The name of the key pair.
+-- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+-- * 'ramdiskId' - The ID of the RAM disk.
+-- * 'subnetId' - The IDs of the subnets in which to launch the instance. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+-- * 'kernelId' - The ID of the kernel.
+-- * 'instanceType' - The instance type.
 -- * 'ebsOptimized' - Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 --
 -- Default: @false@
--- * 'iamInstanceProfile' - The IAM instance profile.
--- * 'imageId' - The ID of the AMI.
--- * 'instanceType' - The instance type.
--- * 'kernelId' - The ID of the kernel.
--- * 'keyName' - The name of the key pair.
+-- * 'userData' - The Base64-encoded user data for the instance. User data is limited to 16 KB.
 -- * 'monitoring' - Indicates whether basic or detailed monitoring is enabled for the instance.
 --
 -- Default: Disabled
--- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+-- * 'iamInstanceProfile' - The IAM instance profile.
+-- * 'imageId' - The ID of the AMI.
+-- * 'addressingType' - Deprecated.
+-- * 'blockDeviceMappings' - One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
 -- * 'placement' - The placement information for the instance.
--- * 'ramdiskId' - The ID of the RAM disk.
--- * 'securityGroupIds' - One or more security group IDs.
--- * 'securityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
--- * 'subnetId' - The IDs of the subnets in which to launch the instance. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
--- * 'userData' - The Base64-encoded user data for the instance. User data is limited to 16 KB.
 mkRequestSpotLaunchSpecification ::
   RequestSpotLaunchSpecification
 mkRequestSpotLaunchSpecification =

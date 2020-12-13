@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobBookmarksEncryption' smart constructor.
 data JobBookmarksEncryption = JobBookmarksEncryption'
-  { jobBookmarksEncryptionMode ::
-      Lude.Maybe JobBookmarksEncryptionMode,
+  { -- | The encryption mode to use for job bookmarks data.
+    jobBookmarksEncryptionMode :: Lude.Maybe JobBookmarksEncryptionMode,
+    -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
     kmsKeyARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobBookmarksEncryption' with the minimum fields required to make a request.

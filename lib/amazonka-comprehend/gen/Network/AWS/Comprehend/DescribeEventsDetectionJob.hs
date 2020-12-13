@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Comprehend.DescribeEventsDetectionJob
     mkDescribeEventsDetectionJob,
 
     -- ** Request lenses
-    dedjJobId,
+    dJobId,
 
     -- * Destructuring the response
     DescribeEventsDetectionJobResponse (..),
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEventsDetectionJob' smart constructor.
 newtype DescribeEventsDetectionJob = DescribeEventsDetectionJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier of the events detection job.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventsDetectionJob' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDescribeEventsDetectionJob pJobId_ =
 -- | The identifier of the events detection job.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedjJobId :: Lens.Lens' DescribeEventsDetectionJob Lude.Text
-dedjJobId = Lens.lens (jobId :: DescribeEventsDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeEventsDetectionJob)
-{-# DEPRECATED dedjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+dJobId :: Lens.Lens' DescribeEventsDetectionJob Lude.Text
+dJobId = Lens.lens (jobId :: DescribeEventsDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeEventsDetectionJob)
+{-# DEPRECATED dJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Lude.AWSRequest DescribeEventsDetectionJob where
   type
@@ -106,19 +101,12 @@ instance Lude.ToQuery DescribeEventsDetectionJob where
 
 -- | /See:/ 'mkDescribeEventsDetectionJobResponse' smart constructor.
 data DescribeEventsDetectionJobResponse = DescribeEventsDetectionJobResponse'
-  { eventsDetectionJobProperties ::
-      Lude.Maybe
-        EventsDetectionJobProperties,
-    responseStatus ::
-      Lude.Int
+  { -- | An object that contains the properties associated with an event detection job.
+    eventsDetectionJobProperties :: Lude.Maybe EventsDetectionJobProperties,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventsDetectionJobResponse' with the minimum fields required to make a request.

@@ -32,23 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCalculatedSpend' smart constructor.
 data CalculatedSpend = CalculatedSpend'
-  { forecastedSpend ::
-      Lude.Maybe Spend,
+  { -- | The amount of cost, usage, RI units, or Savings Plans units that you are forecasted to use.
+    forecastedSpend :: Lude.Maybe Spend,
+    -- | The amount of cost, usage, RI units, or Savings Plans units that you have used.
     actualSpend :: Spend
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CalculatedSpend' with the minimum fields required to make a request.
 --
--- * 'actualSpend' - The amount of cost, usage, RI units, or Savings Plans units that you have used.
 -- * 'forecastedSpend' - The amount of cost, usage, RI units, or Savings Plans units that you are forecasted to use.
+-- * 'actualSpend' - The amount of cost, usage, RI units, or Savings Plans units that you have used.
 mkCalculatedSpend ::
   -- | 'actualSpend'
   Spend ->

@@ -13,10 +13,10 @@
 module Network.AWS.AutoScaling.Types.MetricType
   ( MetricType
       ( MetricType',
-        ALBRequestCountPerTarget,
         ASGAverageCPUUtilization,
         ASGAverageNetworkIn,
-        ASGAverageNetworkOut
+        ASGAverageNetworkOut,
+        ALBRequestCountPerTarget
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype MetricType = MetricType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ALBRequestCountPerTarget :: MetricType
-pattern ALBRequestCountPerTarget = MetricType' "ALBRequestCountPerTarget"
-
 pattern ASGAverageCPUUtilization :: MetricType
 pattern ASGAverageCPUUtilization = MetricType' "ASGAverageCPUUtilization"
 
@@ -59,10 +56,13 @@ pattern ASGAverageNetworkIn = MetricType' "ASGAverageNetworkIn"
 pattern ASGAverageNetworkOut :: MetricType
 pattern ASGAverageNetworkOut = MetricType' "ASGAverageNetworkOut"
 
+pattern ALBRequestCountPerTarget :: MetricType
+pattern ALBRequestCountPerTarget = MetricType' "ALBRequestCountPerTarget"
+
 {-# COMPLETE
-  ALBRequestCountPerTarget,
   ASGAverageCPUUtilization,
   ASGAverageNetworkIn,
   ASGAverageNetworkOut,
+  ALBRequestCountPerTarget,
   MetricType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,24 +43,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters.
+    --
+    --
+    --     * @group-name@ - The name of the placement group.
+    --
+    --
+    --     * @state@ - The state of the placement group (@pending@ | @available@ | @deleting@ | @deleted@ ).
+    --
+    --
+    --     * @strategy@ - The strategy of the placement group (@cluster@ | @spread@ | @partition@ ).
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.
+    filters :: Lude.Maybe [Filter],
+    -- | The names of the placement groups.
+    --
+    -- Default: Describes all your placement groups, or only those otherwise specified.
     groupNames :: Lude.Maybe [Lude.Text],
+    -- | The IDs of the placement groups.
     groupIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePlacementGroups' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters.
 --
 --
@@ -78,10 +92,11 @@ data DescribePlacementGroups = DescribePlacementGroups'
 --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.
 --
 --
--- * 'groupIds' - The IDs of the placement groups.
 -- * 'groupNames' - The names of the placement groups.
 --
 -- Default: Describes all your placement groups, or only those otherwise specified.
+-- * 'groupIds' - The IDs of the placement groups.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDescribePlacementGroups ::
   DescribePlacementGroups
 mkDescribePlacementGroups =
@@ -171,17 +186,12 @@ instance Lude.ToQuery DescribePlacementGroups where
 
 -- | /See:/ 'mkDescribePlacementGroupsResponse' smart constructor.
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
-  { placementGroups ::
-      Lude.Maybe [PlacementGroup],
+  { -- | Information about the placement groups.
+    placementGroups :: Lude.Maybe [PlacementGroup],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePlacementGroupsResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,27 +48,52 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListNotebookExecutions' smart constructor.
 data ListNotebookExecutions = ListNotebookExecutions'
-  { status ::
-      Lude.Maybe NotebookExecutionStatus,
+  { -- | The status filter for listing notebook executions.
+    --
+    --
+    --     * @START_PENDING@ indicates that the cluster has received the execution request but execution has not begun.
+    --
+    --
+    --     * @STARTING@ indicates that the execution is starting on the cluster.
+    --
+    --
+    --     * @RUNNING@ indicates that the execution is being processed by the cluster.
+    --
+    --
+    --     * @FINISHING@ indicates that execution processing is in the final stages.
+    --
+    --
+    --     * @FINISHED@ indicates that the execution has completed without error.
+    --
+    --
+    --     * @FAILING@ indicates that the execution is failing and will not finish successfully.
+    --
+    --
+    --     * @FAILED@ indicates that the execution failed.
+    --
+    --
+    --     * @STOP_PENDING@ indicates that the cluster has received a @StopNotebookExecution@ request and the stop is pending.
+    --
+    --
+    --     * @STOPPING@ indicates that the cluster is in the process of stopping the execution as a result of a @StopNotebookExecution@ request.
+    --
+    --
+    --     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
+    status :: Lude.Maybe NotebookExecutionStatus,
+    -- | The unique ID of the editor associated with the notebook execution.
     editorId :: Lude.Maybe Lude.Text,
+    -- | The end of time range filter for listing notebook executions. The default is the current timestamp.
     to :: Lude.Maybe Lude.Timestamp,
+    -- | The beginning of time range filter for listing notebook executions. The default is the timestamp of 30 days ago.
     from :: Lude.Maybe Lude.Timestamp,
+    -- | The pagination token, returned by a previous @ListNotebookExecutions@ call, that indicates the start of the list for this @ListNotebookExecutions@ call.
     marker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNotebookExecutions' with the minimum fields required to make a request.
 --
--- * 'editorId' - The unique ID of the editor associated with the notebook execution.
--- * 'from' - The beginning of time range filter for listing notebook executions. The default is the timestamp of 30 days ago.
--- * 'marker' - The pagination token, returned by a previous @ListNotebookExecutions@ call, that indicates the start of the list for this @ListNotebookExecutions@ call.
 -- * 'status' - The status filter for listing notebook executions.
 --
 --
@@ -101,7 +127,10 @@ data ListNotebookExecutions = ListNotebookExecutions'
 --     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
 --
 --
+-- * 'editorId' - The unique ID of the editor associated with the notebook execution.
 -- * 'to' - The end of time range filter for listing notebook executions. The default is the current timestamp.
+-- * 'from' - The beginning of time range filter for listing notebook executions. The default is the timestamp of 30 days ago.
+-- * 'marker' - The pagination token, returned by a previous @ListNotebookExecutions@ call, that indicates the start of the list for this @ListNotebookExecutions@ call.
 mkListNotebookExecutions ::
   ListNotebookExecutions
 mkListNotebookExecutions =
@@ -230,26 +259,20 @@ instance Lude.ToQuery ListNotebookExecutions where
 
 -- | /See:/ 'mkListNotebookExecutionsResponse' smart constructor.
 data ListNotebookExecutionsResponse = ListNotebookExecutionsResponse'
-  { notebookExecutions ::
-      Lude.Maybe
-        [NotebookExecutionSummary],
-    marker ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of notebook executions.
+    notebookExecutions :: Lude.Maybe [NotebookExecutionSummary],
+    -- | A pagination token that a subsequent @ListNotebookExecutions@ can use to determine the next set of results to retrieve.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNotebookExecutionsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - A pagination token that a subsequent @ListNotebookExecutions@ can use to determine the next set of results to retrieve.
 -- * 'notebookExecutions' - A list of notebook executions.
+-- * 'marker' - A pagination token that a subsequent @ListNotebookExecutions@ can use to determine the next set of results to retrieve.
 -- * 'responseStatus' - The response status code.
 mkListNotebookExecutionsResponse ::
   -- | 'responseStatus'

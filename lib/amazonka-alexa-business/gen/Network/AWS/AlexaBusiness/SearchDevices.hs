@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,26 +48,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSearchDevices' smart constructor.
 data SearchDevices = SearchDevices'
-  { filters :: Lude.Maybe [Filter],
+  { -- | The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
+    filters :: Lude.Maybe [Filter],
+    -- | The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
     sortCriteria :: Lude.Maybe [Sort],
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchDevices' with the minimum fields required to make a request.
 --
 -- * 'filters' - The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
--- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 -- * 'sortCriteria' - The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 mkSearchDevices ::
   SearchDevices
 mkSearchDevices =
@@ -157,27 +156,24 @@ instance Lude.ToQuery SearchDevices where
 
 -- | /See:/ 'mkSearchDevicesResponse' smart constructor.
 data SearchDevicesResponse = SearchDevicesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token returned to indicate that there is more data available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The devices that meet the specified set of filter criteria, in sort order.
     devices :: Lude.Maybe [DeviceData],
+    -- | The total number of devices returned.
     totalCount :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchDevicesResponse' with the minimum fields required to make a request.
 --
--- * 'devices' - The devices that meet the specified set of filter criteria, in sort order.
 -- * 'nextToken' - The token returned to indicate that there is more data available.
--- * 'responseStatus' - The response status code.
+-- * 'devices' - The devices that meet the specified set of filter criteria, in sort order.
 -- * 'totalCount' - The total number of devices returned.
+-- * 'responseStatus' - The response status code.
 mkSearchDevicesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

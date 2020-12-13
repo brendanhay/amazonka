@@ -45,49 +45,60 @@ import Network.AWS.RDS.Types.UserAuthConfigInfo
 --
 -- /See:/ 'mkDBProxy' smart constructor.
 data DBProxy = DBProxy'
-  { status :: Lude.Maybe DBProxyStatus,
+  { -- | The current status of this proxy. A status of @available@ means the proxy is ready to handle requests. Other values indicate that you must wait for the proxy to be ready, or take some action to resolve an issue.
+    status :: Lude.Maybe DBProxyStatus,
+    -- | The Amazon Resource Name (ARN) for the proxy.
     dbProxyARN :: Lude.Maybe Lude.Text,
+    -- | Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
     debugLogging :: Lude.Maybe Lude.Bool,
+    -- | The EC2 subnet IDs for the proxy.
     vpcSubnetIds :: Lude.Maybe [Lude.Text],
+    -- | The engine family applies to MySQL and PostgreSQL for both RDS and Aurora.
     engineFamily :: Lude.Maybe Lude.Text,
+    -- | One or more data structures specifying the authorization mechanism to connect to the associated RDS DB instance or Aurora DB cluster.
     auth :: Lude.Maybe [UserAuthConfigInfo],
+    -- | Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
     requireTLS :: Lude.Maybe Lude.Bool,
+    -- | The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection. The proxy keeps the underlying database connection open and puts it back into the connection pool for reuse by later connection requests.
+    --
+    -- Default: 1800 (30 minutes)
+    -- Constraints: 1 to 28,800
     idleClientTimeout :: Lude.Maybe Lude.Int,
+    -- | The date and time when the proxy was last updated.
     updatedDate :: Lude.Maybe Lude.DateTime,
+    -- | The date and time when the proxy was first created.
     createdDate :: Lude.Maybe Lude.DateTime,
+    -- | Provides a list of VPC security groups that the proxy belongs to.
     vpcSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
     dbProxyName :: Lude.Maybe Lude.Text,
+    -- | The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
     endpoint :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBProxy' with the minimum fields required to make a request.
 --
--- * 'auth' - One or more data structures specifying the authorization mechanism to connect to the associated RDS DB instance or Aurora DB cluster.
--- * 'createdDate' - The date and time when the proxy was first created.
+-- * 'status' - The current status of this proxy. A status of @available@ means the proxy is ready to handle requests. Other values indicate that you must wait for the proxy to be ready, or take some action to resolve an issue.
 -- * 'dbProxyARN' - The Amazon Resource Name (ARN) for the proxy.
--- * 'dbProxyName' - The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 -- * 'debugLogging' - Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
--- * 'endpoint' - The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+-- * 'vpcSubnetIds' - The EC2 subnet IDs for the proxy.
 -- * 'engineFamily' - The engine family applies to MySQL and PostgreSQL for both RDS and Aurora.
+-- * 'auth' - One or more data structures specifying the authorization mechanism to connect to the associated RDS DB instance or Aurora DB cluster.
+-- * 'requireTLS' - Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 -- * 'idleClientTimeout' - The number of seconds a connection to the proxy can have no activity before the proxy drops the client connection. The proxy keeps the underlying database connection open and puts it back into the connection pool for reuse by later connection requests.
 --
 -- Default: 1800 (30 minutes)
 -- Constraints: 1 to 28,800
--- * 'requireTLS' - Indicates whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
--- * 'roleARN' - The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
--- * 'status' - The current status of this proxy. A status of @available@ means the proxy is ready to handle requests. Other values indicate that you must wait for the proxy to be ready, or take some action to resolve an issue.
 -- * 'updatedDate' - The date and time when the proxy was last updated.
+-- * 'createdDate' - The date and time when the proxy was first created.
 -- * 'vpcSecurityGroupIds' - Provides a list of VPC security groups that the proxy belongs to.
--- * 'vpcSubnetIds' - The EC2 subnet IDs for the proxy.
+-- * 'dbProxyName' - The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+-- * 'endpoint' - The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+-- * 'roleARN' - The Amazon Resource Name (ARN) for the IAM role that the proxy uses to access Amazon Secrets Manager.
 mkDBProxy ::
   DBProxy
 mkDBProxy =

@@ -13,10 +13,10 @@
 module Network.AWS.CloudSearchDomains.Types.QueryParser
   ( QueryParser
       ( QueryParser',
-        Dismax,
-        Lucene,
         Simple,
-        Structured
+        Structured,
+        Lucene,
+        Dismax
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype QueryParser = QueryParser' Lude.Text
       Lude.ToHeader
     )
 
-pattern Dismax :: QueryParser
-pattern Dismax = QueryParser' "dismax"
-
-pattern Lucene :: QueryParser
-pattern Lucene = QueryParser' "lucene"
-
 pattern Simple :: QueryParser
 pattern Simple = QueryParser' "simple"
 
 pattern Structured :: QueryParser
 pattern Structured = QueryParser' "structured"
 
+pattern Lucene :: QueryParser
+pattern Lucene = QueryParser' "lucene"
+
+pattern Dismax :: QueryParser
+pattern Dismax = QueryParser' "dismax"
+
 {-# COMPLETE
-  Dismax,
-  Lucene,
   Simple,
   Structured,
+  Lucene,
+  Dismax,
   QueryParser'
   #-}

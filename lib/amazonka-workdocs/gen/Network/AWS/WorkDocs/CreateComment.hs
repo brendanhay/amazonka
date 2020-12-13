@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.WorkDocs.CreateComment
     mkCreateComment,
 
     -- ** Request lenses
+    ccVersionId,
+    ccDocumentId,
     ccNotifyCollaborators,
+    ccText,
     ccAuthenticationToken,
     ccVisibility,
     ccThreadId,
     ccParentId,
-    ccDocumentId,
-    ccVersionId,
-    ccText,
 
     -- * Destructuring the response
     CreateCommentResponse (..),
@@ -46,48 +47,69 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkCreateComment' smart constructor.
 data CreateComment = CreateComment'
-  { notifyCollaborators ::
-      Lude.Maybe Lude.Bool,
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    visibility :: Lude.Maybe CommentVisibilityType,
-    threadId :: Lude.Maybe Lude.Text,
-    parentId :: Lude.Maybe Lude.Text,
-    documentId :: Lude.Text,
+  { -- | The ID of the document version.
     versionId :: Lude.Text,
-    text :: Lude.Sensitive Lude.Text
+    -- | The ID of the document.
+    documentId :: Lude.Text,
+    -- | Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
+    notifyCollaborators :: Lude.Maybe Lude.Bool,
+    -- | The text of the comment.
+    text :: Lude.Sensitive Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
+    visibility :: Lude.Maybe CommentVisibilityType,
+    -- | The ID of the root comment in the thread.
+    threadId :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent comment.
+    parentId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateComment' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'versionId' - The ID of the document version.
 -- * 'documentId' - The ID of the document.
 -- * 'notifyCollaborators' - Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
--- * 'parentId' - The ID of the parent comment.
 -- * 'text' - The text of the comment.
--- * 'threadId' - The ID of the root comment in the thread.
--- * 'versionId' - The ID of the document version.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'visibility' - The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
+-- * 'threadId' - The ID of the root comment in the thread.
+-- * 'parentId' - The ID of the parent comment.
 mkCreateComment ::
-  -- | 'documentId'
-  Lude.Text ->
   -- | 'versionId'
+  Lude.Text ->
+  -- | 'documentId'
   Lude.Text ->
   -- | 'text'
   Lude.Sensitive Lude.Text ->
   CreateComment
-mkCreateComment pDocumentId_ pVersionId_ pText_ =
+mkCreateComment pVersionId_ pDocumentId_ pText_ =
   CreateComment'
-    { notifyCollaborators = Lude.Nothing,
+    { versionId = pVersionId_,
+      documentId = pDocumentId_,
+      notifyCollaborators = Lude.Nothing,
+      text = pText_,
       authenticationToken = Lude.Nothing,
       visibility = Lude.Nothing,
       threadId = Lude.Nothing,
-      parentId = Lude.Nothing,
-      documentId = pDocumentId_,
-      versionId = pVersionId_,
-      text = pText_
+      parentId = Lude.Nothing
     }
+
+-- | The ID of the document version.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccVersionId :: Lens.Lens' CreateComment Lude.Text
+ccVersionId = Lens.lens (versionId :: CreateComment -> Lude.Text) (\s a -> s {versionId = a} :: CreateComment)
+{-# DEPRECATED ccVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDocumentId :: Lens.Lens' CreateComment Lude.Text
+ccDocumentId = Lens.lens (documentId :: CreateComment -> Lude.Text) (\s a -> s {documentId = a} :: CreateComment)
+{-# DEPRECATED ccDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
 --
@@ -95,6 +117,13 @@ mkCreateComment pDocumentId_ pVersionId_ pText_ =
 ccNotifyCollaborators :: Lens.Lens' CreateComment (Lude.Maybe Lude.Bool)
 ccNotifyCollaborators = Lens.lens (notifyCollaborators :: CreateComment -> Lude.Maybe Lude.Bool) (\s a -> s {notifyCollaborators = a} :: CreateComment)
 {-# DEPRECATED ccNotifyCollaborators "Use generic-lens or generic-optics with 'notifyCollaborators' instead." #-}
+
+-- | The text of the comment.
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccText :: Lens.Lens' CreateComment (Lude.Sensitive Lude.Text)
+ccText = Lens.lens (text :: CreateComment -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: CreateComment)
+{-# DEPRECATED ccText "Use generic-lens or generic-optics with 'text' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -124,27 +153,6 @@ ccParentId :: Lens.Lens' CreateComment (Lude.Maybe Lude.Text)
 ccParentId = Lens.lens (parentId :: CreateComment -> Lude.Maybe Lude.Text) (\s a -> s {parentId = a} :: CreateComment)
 {-# DEPRECATED ccParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
--- | The ID of the document.
---
--- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccDocumentId :: Lens.Lens' CreateComment Lude.Text
-ccDocumentId = Lens.lens (documentId :: CreateComment -> Lude.Text) (\s a -> s {documentId = a} :: CreateComment)
-{-# DEPRECATED ccDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
-
--- | The ID of the document version.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccVersionId :: Lens.Lens' CreateComment Lude.Text
-ccVersionId = Lens.lens (versionId :: CreateComment -> Lude.Text) (\s a -> s {versionId = a} :: CreateComment)
-{-# DEPRECATED ccVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The text of the comment.
---
--- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccText :: Lens.Lens' CreateComment (Lude.Sensitive Lude.Text)
-ccText = Lens.lens (text :: CreateComment -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: CreateComment)
-{-# DEPRECATED ccText "Use generic-lens or generic-optics with 'text' instead." #-}
-
 instance Lude.AWSRequest CreateComment where
   type Rs CreateComment = CreateCommentResponse
   request = Req.postJSON workDocsService
@@ -168,10 +176,10 @@ instance Lude.ToJSON CreateComment where
     Lude.object
       ( Lude.catMaybes
           [ ("NotifyCollaborators" Lude..=) Lude.<$> notifyCollaborators,
+            Lude.Just ("Text" Lude..= text),
             ("Visibility" Lude..=) Lude.<$> visibility,
             ("ThreadId" Lude..=) Lude.<$> threadId,
-            ("ParentId" Lude..=) Lude.<$> parentId,
-            Lude.Just ("Text" Lude..= text)
+            ("ParentId" Lude..=) Lude.<$> parentId
           ]
       )
 
@@ -190,8 +198,9 @@ instance Lude.ToQuery CreateComment where
 
 -- | /See:/ 'mkCreateCommentResponse' smart constructor.
 data CreateCommentResponse = CreateCommentResponse'
-  { comment ::
-      Lude.Maybe Comment,
+  { -- | The comment that has been created.
+    comment :: Lude.Maybe Comment,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

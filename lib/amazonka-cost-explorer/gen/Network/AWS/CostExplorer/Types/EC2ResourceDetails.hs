@@ -36,37 +36,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2ResourceDetails' smart constructor.
 data EC2ResourceDetails = EC2ResourceDetails'
-  { platform ::
-      Lude.Maybe Lude.Text,
+  { -- | The platform of the AWS instance. The platform is the specific combination of operating system, license model, and software on an instance.
+    platform :: Lude.Maybe Lude.Text,
+    -- | Number of VCPU cores in the AWS instance type.
     vcpu :: Lude.Maybe Lude.Text,
+    -- | Network performance capacity of the AWS instance.
     networkPerformance :: Lude.Maybe Lude.Text,
+    -- | Memory capacity of the AWS instance.
     memory :: Lude.Maybe Lude.Text,
+    -- | The type of AWS instance.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The disk storage of the AWS instance (not EBS storage).
     storage :: Lude.Maybe Lude.Text,
+    -- | The SKU of the product.
     sku :: Lude.Maybe Lude.Text,
+    -- | The AWS Region of the instance.
     region :: Lude.Maybe Lude.Text,
+    -- | Hourly public On-Demand rate for the instance type.
     hourlyOnDemandRate :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2ResourceDetails' with the minimum fields required to make a request.
 --
--- * 'hourlyOnDemandRate' - Hourly public On-Demand rate for the instance type.
--- * 'instanceType' - The type of AWS instance.
--- * 'memory' - Memory capacity of the AWS instance.
--- * 'networkPerformance' - Network performance capacity of the AWS instance.
 -- * 'platform' - The platform of the AWS instance. The platform is the specific combination of operating system, license model, and software on an instance.
--- * 'region' - The AWS Region of the instance.
--- * 'sku' - The SKU of the product.
--- * 'storage' - The disk storage of the AWS instance (not EBS storage).
 -- * 'vcpu' - Number of VCPU cores in the AWS instance type.
+-- * 'networkPerformance' - Network performance capacity of the AWS instance.
+-- * 'memory' - Memory capacity of the AWS instance.
+-- * 'instanceType' - The type of AWS instance.
+-- * 'storage' - The disk storage of the AWS instance (not EBS storage).
+-- * 'sku' - The SKU of the product.
+-- * 'region' - The AWS Region of the instance.
+-- * 'hourlyOnDemandRate' - Hourly public On-Demand rate for the instance type.
 mkEC2ResourceDetails ::
   EC2ResourceDetails
 mkEC2ResourceDetails =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     mkDeleteSpotDatafeedSubscription,
 
     -- ** Request lenses
-    dsdssDryRun,
+    dsdsfDryRun,
 
     -- * Destructuring the response
     DeleteSpotDatafeedSubscriptionResponse (..),
@@ -37,16 +38,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteSpotDatafeedSubscription' smart constructor.
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
-  { dryRun ::
-      Lude.Maybe Lude.Bool
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSpotDatafeedSubscription' with the minimum fields required to make a request.
@@ -60,9 +55,9 @@ mkDeleteSpotDatafeedSubscription =
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdssDryRun :: Lens.Lens' DeleteSpotDatafeedSubscription (Lude.Maybe Lude.Bool)
-dsdssDryRun = Lens.lens (dryRun :: DeleteSpotDatafeedSubscription -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteSpotDatafeedSubscription)
-{-# DEPRECATED dsdssDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dsdsfDryRun :: Lens.Lens' DeleteSpotDatafeedSubscription (Lude.Maybe Lude.Bool)
+dsdsfDryRun = Lens.lens (dryRun :: DeleteSpotDatafeedSubscription -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteSpotDatafeedSubscription)
+{-# DEPRECATED dsdsfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteSpotDatafeedSubscription where
   type
@@ -88,13 +83,7 @@ instance Lude.ToQuery DeleteSpotDatafeedSubscription where
 
 -- | /See:/ 'mkDeleteSpotDatafeedSubscriptionResponse' smart constructor.
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.

@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCConfig' smart constructor.
 data VPCConfig = VPCConfig'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of one or more security groups IDs in your Amazon VPC.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the Amazon VPC.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | A list of one or more subnet IDs in your Amazon VPC.
     subnets :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCConfig' with the minimum fields required to make a request.
 --
 -- * 'securityGroupIds' - A list of one or more security groups IDs in your Amazon VPC.
--- * 'subnets' - A list of one or more subnet IDs in your Amazon VPC.
 -- * 'vpcId' - The ID of the Amazon VPC.
+-- * 'subnets' - A list of one or more subnet IDs in your Amazon VPC.
 mkVPCConfig ::
   VPCConfig
 mkVPCConfig =

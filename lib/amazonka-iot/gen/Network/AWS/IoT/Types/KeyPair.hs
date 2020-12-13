@@ -29,8 +29,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyPair' smart constructor.
 data KeyPair = KeyPair'
-  { privateKey ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The private key.
+    privateKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The public key.
     publicKey :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

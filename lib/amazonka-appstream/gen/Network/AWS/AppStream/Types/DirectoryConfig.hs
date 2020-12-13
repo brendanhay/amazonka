@@ -32,12 +32,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectoryConfig' smart constructor.
 data DirectoryConfig = DirectoryConfig'
-  { createdTime ::
-      Lude.Maybe Lude.Timestamp,
-    serviceAccountCredentials ::
-      Lude.Maybe ServiceAccountCredentials,
-    organizationalUnitDistinguishedNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The time the directory configuration was created.
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The credentials for the service account used by the fleet or image builder to connect to the directory.
+    serviceAccountCredentials :: Lude.Maybe ServiceAccountCredentials,
+    -- | The distinguished names of the organizational units for computer accounts.
+    organizationalUnitDistinguishedNames :: Lude.Maybe [Lude.Text],
+    -- | The fully qualified name of the directory (for example, corp.example.com).
     directoryName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -46,9 +47,9 @@ data DirectoryConfig = DirectoryConfig'
 -- | Creates a value of 'DirectoryConfig' with the minimum fields required to make a request.
 --
 -- * 'createdTime' - The time the directory configuration was created.
--- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
--- * 'organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
 -- * 'serviceAccountCredentials' - The credentials for the service account used by the fleet or image builder to connect to the directory.
+-- * 'organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
+-- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
 mkDirectoryConfig ::
   -- | 'directoryName'
   Lude.Text ->

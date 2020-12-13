@@ -32,24 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceTypeOffering' smart constructor.
 data InstanceTypeOffering = InstanceTypeOffering'
-  { location ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the location. This depends on the location type. For example, if the location type is @region@ , the location is the Region code (for example, @us-east-2@ .)
+    location :: Lude.Maybe Lude.Text,
+    -- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
     instanceType :: Lude.Maybe InstanceType,
+    -- | The location type.
     locationType :: Lude.Maybe LocationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceTypeOffering' with the minimum fields required to make a request.
 --
--- * 'instanceType' - The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- * 'location' - The identifier for the location. This depends on the location type. For example, if the location type is @region@ , the location is the Region code (for example, @us-east-2@ .)
+-- * 'instanceType' - The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- * 'locationType' - The location type.
 mkInstanceTypeOffering ::
   InstanceTypeOffering

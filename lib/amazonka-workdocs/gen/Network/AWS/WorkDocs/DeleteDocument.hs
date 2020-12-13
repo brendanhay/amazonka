@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkDocs.DeleteDocument
     mkDeleteDocument,
 
     -- ** Request lenses
-    ddAuthenticationToken,
     ddDocumentId,
+    ddAuthenticationToken,
 
     -- * Destructuring the response
     DeleteDocumentResponse (..),
@@ -36,33 +37,27 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDeleteDocument' smart constructor.
 data DeleteDocument = DeleteDocument'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    documentId :: Lude.Text
+  { -- | The ID of the document.
+    documentId :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocument' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'documentId' - The ID of the document.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 mkDeleteDocument ::
   -- | 'documentId'
   Lude.Text ->
   DeleteDocument
 mkDeleteDocument pDocumentId_ =
   DeleteDocument'
-    { authenticationToken = Lude.Nothing,
-      documentId = pDocumentId_
+    { documentId = pDocumentId_,
+      authenticationToken = Lude.Nothing
     }
-
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddAuthenticationToken :: Lens.Lens' DeleteDocument (Lude.Maybe (Lude.Sensitive Lude.Text))
-ddAuthenticationToken = Lens.lens (authenticationToken :: DeleteDocument -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteDocument)
-{-# DEPRECATED ddAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the document.
 --
@@ -70,6 +65,13 @@ ddAuthenticationToken = Lens.lens (authenticationToken :: DeleteDocument -> Lude
 ddDocumentId :: Lens.Lens' DeleteDocument Lude.Text
 ddDocumentId = Lens.lens (documentId :: DeleteDocument -> Lude.Text) (\s a -> s {documentId = a} :: DeleteDocument)
 {-# DEPRECATED ddDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddAuthenticationToken :: Lens.Lens' DeleteDocument (Lude.Maybe (Lude.Sensitive Lude.Text))
+ddAuthenticationToken = Lens.lens (authenticationToken :: DeleteDocument -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteDocument)
+{-# DEPRECATED ddAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 instance Lude.AWSRequest DeleteDocument where
   type Rs DeleteDocument = DeleteDocumentResponse
@@ -93,13 +95,7 @@ instance Lude.ToQuery DeleteDocument where
 
 -- | /See:/ 'mkDeleteDocumentResponse' smart constructor.
 data DeleteDocumentResponse = DeleteDocumentResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentResponse' with the minimum fields required to make a request.

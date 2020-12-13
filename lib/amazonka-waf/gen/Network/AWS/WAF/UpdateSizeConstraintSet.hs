@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,8 +52,8 @@ module Network.AWS.WAF.UpdateSizeConstraintSet
 
     -- ** Request lenses
     uscsSizeConstraintSetId,
-    uscsChangeToken,
     uscsUpdates,
+    uscsChangeToken,
 
     -- * Destructuring the response
     UpdateSizeConstraintSetResponse (..),
@@ -72,24 +73,27 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkUpdateSizeConstraintSet' smart constructor.
 data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
-  { sizeConstraintSetId ::
-      Lude.Text,
-    changeToken :: Lude.Text,
-    updates ::
-      Lude.NonEmpty SizeConstraintSetUpdate
+  { -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to update. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
+    sizeConstraintSetId :: Lude.Text,
+    -- | An array of @SizeConstraintSetUpdate@ objects that you want to insert into or delete from a 'SizeConstraintSet' . For more information, see the applicable data types:
+    --
+    --
+    --     * 'SizeConstraintSetUpdate' : Contains @Action@ and @SizeConstraint@
+    --
+    --
+    --     * 'SizeConstraint' : Contains @FieldToMatch@ , @TextTransformation@ , @ComparisonOperator@ , and @Size@
+    --
+    --
+    --     * 'FieldToMatch' : Contains @Data@ and @Type@
+    updates :: Lude.NonEmpty SizeConstraintSetUpdate,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
+    changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSizeConstraintSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'sizeConstraintSetId' - The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to update. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 -- * 'updates' - An array of @SizeConstraintSetUpdate@ objects that you want to insert into or delete from a 'SizeConstraintSet' . For more information, see the applicable data types:
 --
@@ -101,23 +105,26 @@ data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
 --
 --
 --     * 'FieldToMatch' : Contains @Data@ and @Type@
+--
+--
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkUpdateSizeConstraintSet ::
   -- | 'sizeConstraintSetId'
   Lude.Text ->
-  -- | 'changeToken'
-  Lude.Text ->
   -- | 'updates'
   Lude.NonEmpty SizeConstraintSetUpdate ->
+  -- | 'changeToken'
+  Lude.Text ->
   UpdateSizeConstraintSet
 mkUpdateSizeConstraintSet
   pSizeConstraintSetId_
-  pChangeToken_
-  pUpdates_ =
+  pUpdates_
+  pChangeToken_ =
     UpdateSizeConstraintSet'
       { sizeConstraintSetId =
           pSizeConstraintSetId_,
-        changeToken = pChangeToken_,
-        updates = pUpdates_
+        updates = pUpdates_,
+        changeToken = pChangeToken_
       }
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to update. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
@@ -126,13 +133,6 @@ mkUpdateSizeConstraintSet
 uscsSizeConstraintSetId :: Lens.Lens' UpdateSizeConstraintSet Lude.Text
 uscsSizeConstraintSetId = Lens.lens (sizeConstraintSetId :: UpdateSizeConstraintSet -> Lude.Text) (\s a -> s {sizeConstraintSetId = a} :: UpdateSizeConstraintSet)
 {-# DEPRECATED uscsSizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead." #-}
-
--- | The value returned by the most recent call to 'GetChangeToken' .
---
--- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscsChangeToken :: Lens.Lens' UpdateSizeConstraintSet Lude.Text
-uscsChangeToken = Lens.lens (changeToken :: UpdateSizeConstraintSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateSizeConstraintSet)
-{-# DEPRECATED uscsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | An array of @SizeConstraintSetUpdate@ objects that you want to insert into or delete from a 'SizeConstraintSet' . For more information, see the applicable data types:
 --
@@ -151,6 +151,13 @@ uscsChangeToken = Lens.lens (changeToken :: UpdateSizeConstraintSet -> Lude.Text
 uscsUpdates :: Lens.Lens' UpdateSizeConstraintSet (Lude.NonEmpty SizeConstraintSetUpdate)
 uscsUpdates = Lens.lens (updates :: UpdateSizeConstraintSet -> Lude.NonEmpty SizeConstraintSetUpdate) (\s a -> s {updates = a} :: UpdateSizeConstraintSet)
 {-# DEPRECATED uscsUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
+
+-- | The value returned by the most recent call to 'GetChangeToken' .
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscsChangeToken :: Lens.Lens' UpdateSizeConstraintSet Lude.Text
+uscsChangeToken = Lens.lens (changeToken :: UpdateSizeConstraintSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateSizeConstraintSet)
+{-# DEPRECATED uscsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 instance Lude.AWSRequest UpdateSizeConstraintSet where
   type Rs UpdateSizeConstraintSet = UpdateSizeConstraintSetResponse
@@ -178,8 +185,8 @@ instance Lude.ToJSON UpdateSizeConstraintSet where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("SizeConstraintSetId" Lude..= sizeConstraintSetId),
-            Lude.Just ("ChangeToken" Lude..= changeToken),
-            Lude.Just ("Updates" Lude..= updates)
+            Lude.Just ("Updates" Lude..= updates),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
@@ -191,17 +198,12 @@ instance Lude.ToQuery UpdateSizeConstraintSet where
 
 -- | /See:/ 'mkUpdateSizeConstraintSetResponse' smart constructor.
 data UpdateSizeConstraintSetResponse = UpdateSizeConstraintSetResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSizeConstraintSetResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.MigrationHub.NotifyApplicationState
     mkNotifyApplicationState,
 
     -- ** Request lenses
-    nasUpdateDateTime,
-    nasDryRun,
-    nasApplicationId,
     nasStatus,
+    nasUpdateDateTime,
+    nasApplicationId,
+    nasDryRun,
 
     -- * Destructuring the response
     NotifyApplicationStateResponse (..),
@@ -41,40 +42,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkNotifyApplicationState' smart constructor.
 data NotifyApplicationState = NotifyApplicationState'
-  { updateDateTime ::
-      Lude.Maybe Lude.Timestamp,
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | Status of the application - Not Started, In-Progress, Complete.
+    status :: ApplicationStatus,
+    -- | The timestamp when the application state changed.
+    updateDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The configurationId in Application Discovery Service that uniquely identifies the grouped application.
     applicationId :: Lude.Text,
-    status :: ApplicationStatus
+    -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyApplicationState' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The configurationId in Application Discovery Service that uniquely identifies the grouped application.
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 -- * 'status' - Status of the application - Not Started, In-Progress, Complete.
 -- * 'updateDateTime' - The timestamp when the application state changed.
+-- * 'applicationId' - The configurationId in Application Discovery Service that uniquely identifies the grouped application.
+-- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 mkNotifyApplicationState ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'status'
   ApplicationStatus ->
+  -- | 'applicationId'
+  Lude.Text ->
   NotifyApplicationState
-mkNotifyApplicationState pApplicationId_ pStatus_ =
+mkNotifyApplicationState pStatus_ pApplicationId_ =
   NotifyApplicationState'
-    { updateDateTime = Lude.Nothing,
-      dryRun = Lude.Nothing,
+    { status = pStatus_,
+      updateDateTime = Lude.Nothing,
       applicationId = pApplicationId_,
-      status = pStatus_
+      dryRun = Lude.Nothing
     }
+
+-- | Status of the application - Not Started, In-Progress, Complete.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nasStatus :: Lens.Lens' NotifyApplicationState ApplicationStatus
+nasStatus = Lens.lens (status :: NotifyApplicationState -> ApplicationStatus) (\s a -> s {status = a} :: NotifyApplicationState)
+{-# DEPRECATED nasStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The timestamp when the application state changed.
 --
@@ -83,13 +88,6 @@ nasUpdateDateTime :: Lens.Lens' NotifyApplicationState (Lude.Maybe Lude.Timestam
 nasUpdateDateTime = Lens.lens (updateDateTime :: NotifyApplicationState -> Lude.Maybe Lude.Timestamp) (\s a -> s {updateDateTime = a} :: NotifyApplicationState)
 {-# DEPRECATED nasUpdateDateTime "Use generic-lens or generic-optics with 'updateDateTime' instead." #-}
 
--- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nasDryRun :: Lens.Lens' NotifyApplicationState (Lude.Maybe Lude.Bool)
-nasDryRun = Lens.lens (dryRun :: NotifyApplicationState -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: NotifyApplicationState)
-{-# DEPRECATED nasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The configurationId in Application Discovery Service that uniquely identifies the grouped application.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -97,12 +95,12 @@ nasApplicationId :: Lens.Lens' NotifyApplicationState Lude.Text
 nasApplicationId = Lens.lens (applicationId :: NotifyApplicationState -> Lude.Text) (\s a -> s {applicationId = a} :: NotifyApplicationState)
 {-# DEPRECATED nasApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | Status of the application - Not Started, In-Progress, Complete.
+-- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nasStatus :: Lens.Lens' NotifyApplicationState ApplicationStatus
-nasStatus = Lens.lens (status :: NotifyApplicationState -> ApplicationStatus) (\s a -> s {status = a} :: NotifyApplicationState)
-{-# DEPRECATED nasStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nasDryRun :: Lens.Lens' NotifyApplicationState (Lude.Maybe Lude.Bool)
+nasDryRun = Lens.lens (dryRun :: NotifyApplicationState -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: NotifyApplicationState)
+{-# DEPRECATED nasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest NotifyApplicationState where
   type Rs NotifyApplicationState = NotifyApplicationStateResponse
@@ -129,10 +127,10 @@ instance Lude.ToJSON NotifyApplicationState where
   toJSON NotifyApplicationState' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("UpdateDateTime" Lude..=) Lude.<$> updateDateTime,
-            ("DryRun" Lude..=) Lude.<$> dryRun,
+          [ Lude.Just ("Status" Lude..= status),
+            ("UpdateDateTime" Lude..=) Lude.<$> updateDateTime,
             Lude.Just ("ApplicationId" Lude..= applicationId),
-            Lude.Just ("Status" Lude..= status)
+            ("DryRun" Lude..=) Lude.<$> dryRun
           ]
       )
 
@@ -144,16 +142,10 @@ instance Lude.ToQuery NotifyApplicationState where
 
 -- | /See:/ 'mkNotifyApplicationStateResponse' smart constructor.
 newtype NotifyApplicationStateResponse = NotifyApplicationStateResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyApplicationStateResponse' with the minimum fields required to make a request.

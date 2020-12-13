@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,33 +47,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkQuerySchemaVersionMetadata' smart constructor.
 data QuerySchemaVersionMetadata = QuerySchemaVersionMetadata'
-  { schemaVersionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique version ID of the schema version.
+    schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
     schemaId :: Lude.Maybe SchemaId,
+    -- | A continuation token, if this is a continuation call.
     nextToken :: Lude.Maybe Lude.Text,
-    metadataList ::
-      Lude.Maybe [MetadataKeyValuePair],
-    schemaVersionNumber ::
-      Lude.Maybe SchemaVersionNumber,
+    -- | Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.
+    metadataList :: Lude.Maybe [MetadataKeyValuePair],
+    -- | The version number of the schema.
+    schemaVersionNumber :: Lude.Maybe SchemaVersionNumber,
+    -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QuerySchemaVersionMetadata' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
--- * 'metadataList' - Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.
--- * 'nextToken' - A continuation token, if this is a continuation call.
--- * 'schemaId' - A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
 -- * 'schemaVersionId' - The unique version ID of the schema version.
+-- * 'schemaId' - A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
+-- * 'nextToken' - A continuation token, if this is a continuation call.
+-- * 'metadataList' - Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.
 -- * 'schemaVersionNumber' - The version number of the schema.
+-- * 'maxResults' - Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
 mkQuerySchemaVersionMetadata ::
   QuerySchemaVersionMetadata
 mkQuerySchemaVersionMetadata =
@@ -174,34 +172,24 @@ instance Lude.ToQuery QuerySchemaVersionMetadata where
 
 -- | /See:/ 'mkQuerySchemaVersionMetadataResponse' smart constructor.
 data QuerySchemaVersionMetadataResponse = QuerySchemaVersionMetadataResponse'
-  { schemaVersionId ::
-      Lude.Maybe Lude.Text,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    metadataInfoMap ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (MetadataInfo)
-        ),
-    responseStatus ::
-      Lude.Int
+  { -- | The unique version ID of the schema version.
+    schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A map of a metadata key and associated values.
+    metadataInfoMap :: Lude.Maybe (Lude.HashMap Lude.Text (MetadataInfo)),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QuerySchemaVersionMetadataResponse' with the minimum fields required to make a request.
 --
--- * 'metadataInfoMap' - A map of a metadata key and associated values.
--- * 'nextToken' - A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
--- * 'responseStatus' - The response status code.
 -- * 'schemaVersionId' - The unique version ID of the schema version.
+-- * 'nextToken' - A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+-- * 'metadataInfoMap' - A map of a metadata key and associated values.
+-- * 'responseStatus' - The response status code.
 mkQuerySchemaVersionMetadataResponse ::
   -- | 'responseStatus'
   Lude.Int ->

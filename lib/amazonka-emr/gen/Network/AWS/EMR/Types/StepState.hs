@@ -13,13 +13,13 @@
 module Network.AWS.EMR.Types.StepState
   ( StepState
       ( StepState',
-        SSCancelPending,
-        SSCancelled,
-        SSCompleted,
-        SSFailed,
-        SSInterrupted,
         SSPending,
-        SSRunning
+        SSCancelPending,
+        SSRunning,
+        SSCompleted,
+        SSCancelled,
+        SSFailed,
+        SSInterrupted
       ),
   )
 where
@@ -50,14 +50,20 @@ newtype StepState = StepState' Lude.Text
       Lude.ToHeader
     )
 
+pattern SSPending :: StepState
+pattern SSPending = StepState' "PENDING"
+
 pattern SSCancelPending :: StepState
 pattern SSCancelPending = StepState' "CANCEL_PENDING"
 
-pattern SSCancelled :: StepState
-pattern SSCancelled = StepState' "CANCELLED"
+pattern SSRunning :: StepState
+pattern SSRunning = StepState' "RUNNING"
 
 pattern SSCompleted :: StepState
 pattern SSCompleted = StepState' "COMPLETED"
+
+pattern SSCancelled :: StepState
+pattern SSCancelled = StepState' "CANCELLED"
 
 pattern SSFailed :: StepState
 pattern SSFailed = StepState' "FAILED"
@@ -65,19 +71,13 @@ pattern SSFailed = StepState' "FAILED"
 pattern SSInterrupted :: StepState
 pattern SSInterrupted = StepState' "INTERRUPTED"
 
-pattern SSPending :: StepState
-pattern SSPending = StepState' "PENDING"
-
-pattern SSRunning :: StepState
-pattern SSRunning = StepState' "RUNNING"
-
 {-# COMPLETE
+  SSPending,
   SSCancelPending,
-  SSCancelled,
+  SSRunning,
   SSCompleted,
+  SSCancelled,
   SSFailed,
   SSInterrupted,
-  SSPending,
-  SSRunning,
   StepState'
   #-}

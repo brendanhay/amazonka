@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,17 +27,17 @@ module Network.AWS.Kinesis.DescribeStream
     mkDescribeStream,
 
     -- ** Request lenses
-    dExclusiveStartShardId,
-    dLimit,
-    dStreamName,
+    dsExclusiveStartShardId,
+    dsLimit,
+    dsStreamName,
 
     -- * Destructuring the response
     DescribeStreamResponse (..),
     mkDescribeStreamResponse,
 
     -- ** Response lenses
-    dsrsResponseStatus,
     dsrsStreamDescription,
+    dsrsResponseStatus,
   )
 where
 
@@ -51,18 +52,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeStream' smart constructor.
 data DescribeStream = DescribeStream'
-  { exclusiveStartShardId ::
-      Lude.Maybe Lude.Text,
+  { -- | The shard ID of the shard to start with.
+    exclusiveStartShardId :: Lude.Maybe Lude.Text,
+    -- | The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
     limit :: Lude.Maybe Lude.Natural,
+    -- | The name of the stream to describe.
     streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
@@ -84,23 +81,23 @@ mkDescribeStream pStreamName_ =
 -- | The shard ID of the shard to start with.
 --
 -- /Note:/ Consider using 'exclusiveStartShardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dExclusiveStartShardId :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Text)
-dExclusiveStartShardId = Lens.lens (exclusiveStartShardId :: DescribeStream -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartShardId = a} :: DescribeStream)
-{-# DEPRECATED dExclusiveStartShardId "Use generic-lens or generic-optics with 'exclusiveStartShardId' instead." #-}
+dsExclusiveStartShardId :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Text)
+dsExclusiveStartShardId = Lens.lens (exclusiveStartShardId :: DescribeStream -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartShardId = a} :: DescribeStream)
+{-# DEPRECATED dsExclusiveStartShardId "Use generic-lens or generic-optics with 'exclusiveStartShardId' instead." #-}
 
 -- | The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLimit :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Natural)
-dLimit = Lens.lens (limit :: DescribeStream -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeStream)
-{-# DEPRECATED dLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+dsLimit :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Natural)
+dsLimit = Lens.lens (limit :: DescribeStream -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeStream)
+{-# DEPRECATED dsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the stream to describe.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStreamName :: Lens.Lens' DescribeStream Lude.Text
-dStreamName = Lens.lens (streamName :: DescribeStream -> Lude.Text) (\s a -> s {streamName = a} :: DescribeStream)
-{-# DEPRECATED dStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+dsStreamName :: Lens.Lens' DescribeStream Lude.Text
+dsStreamName = Lens.lens (streamName :: DescribeStream -> Lude.Text) (\s a -> s {streamName = a} :: DescribeStream)
+{-# DEPRECATED dsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 instance Page.AWSPager DescribeStream where
   page rq rs
@@ -116,7 +113,7 @@ instance Page.AWSPager DescribeStream where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dExclusiveStartShardId
+          Lude.& dsExclusiveStartShardId
           Lens..~ rs
           Lens.^? dsrsStreamDescription Lude.. sdShards Lude.. Lens._last
             Lude.. sShardId
@@ -128,8 +125,8 @@ instance Lude.AWSRequest DescribeStream where
     Res.receiveJSON
       ( \s h x ->
           DescribeStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "StreamDescription")
+            Lude.<$> (x Lude..:> "StreamDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeStream where
@@ -163,41 +160,29 @@ instance Lude.ToQuery DescribeStream where
 --
 -- /See:/ 'mkDescribeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-  { responseStatus ::
-      Lude.Int,
-    streamDescription :: StreamDescription
+  { -- | The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
+    streamDescription :: StreamDescription,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'streamDescription' - The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
+-- * 'responseStatus' - The response status code.
 mkDescribeStreamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'streamDescription'
   StreamDescription ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStreamResponse
-mkDescribeStreamResponse pResponseStatus_ pStreamDescription_ =
+mkDescribeStreamResponse pStreamDescription_ pResponseStatus_ =
   DescribeStreamResponse'
-    { responseStatus = pResponseStatus_,
-      streamDescription = pStreamDescription_
+    { streamDescription = pStreamDescription_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DescribeStreamResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
 --
@@ -205,3 +190,10 @@ dsrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude
 dsrsStreamDescription :: Lens.Lens' DescribeStreamResponse StreamDescription
 dsrsStreamDescription = Lens.lens (streamDescription :: DescribeStreamResponse -> StreamDescription) (\s a -> s {streamDescription = a} :: DescribeStreamResponse)
 {-# DEPRECATED dsrsStreamDescription "Use generic-lens or generic-optics with 'streamDescription' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DescribeStreamResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

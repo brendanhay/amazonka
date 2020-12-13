@@ -17,9 +17,9 @@ module Network.AWS.IoT.Types.AbortCriteria
     mkAbortCriteria,
 
     -- * Lenses
+    acThresholdPercentage,
     acFailureType,
     acAction,
-    acThresholdPercentage,
     acMinNumberOfExecutedThings,
   )
 where
@@ -33,50 +33,58 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAbortCriteria' smart constructor.
 data AbortCriteria = AbortCriteria'
-  { failureType ::
-      JobExecutionFailureType,
-    action :: AbortAction,
+  { -- | The minimum percentage of job execution failures that must occur to initiate the job abort.
+    --
+    -- AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).
     thresholdPercentage :: Lude.Double,
+    -- | The type of job execution failures that can initiate a job abort.
+    failureType :: JobExecutionFailureType,
+    -- | The type of job action to take to initiate the job abort.
+    action :: AbortAction,
+    -- | The minimum number of things which must receive job execution notifications before the job can be aborted.
     minNumberOfExecutedThings :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortCriteria' with the minimum fields required to make a request.
 --
--- * 'action' - The type of job action to take to initiate the job abort.
--- * 'failureType' - The type of job execution failures that can initiate a job abort.
--- * 'minNumberOfExecutedThings' - The minimum number of things which must receive job execution notifications before the job can be aborted.
 -- * 'thresholdPercentage' - The minimum percentage of job execution failures that must occur to initiate the job abort.
 --
 -- AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).
+-- * 'failureType' - The type of job execution failures that can initiate a job abort.
+-- * 'action' - The type of job action to take to initiate the job abort.
+-- * 'minNumberOfExecutedThings' - The minimum number of things which must receive job execution notifications before the job can be aborted.
 mkAbortCriteria ::
+  -- | 'thresholdPercentage'
+  Lude.Double ->
   -- | 'failureType'
   JobExecutionFailureType ->
   -- | 'action'
   AbortAction ->
-  -- | 'thresholdPercentage'
-  Lude.Double ->
   -- | 'minNumberOfExecutedThings'
   Lude.Natural ->
   AbortCriteria
 mkAbortCriteria
+  pThresholdPercentage_
   pFailureType_
   pAction_
-  pThresholdPercentage_
   pMinNumberOfExecutedThings_ =
     AbortCriteria'
-      { failureType = pFailureType_,
+      { thresholdPercentage = pThresholdPercentage_,
+        failureType = pFailureType_,
         action = pAction_,
-        thresholdPercentage = pThresholdPercentage_,
         minNumberOfExecutedThings = pMinNumberOfExecutedThings_
       }
+
+-- | The minimum percentage of job execution failures that must occur to initiate the job abort.
+--
+-- AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).
+--
+-- /Note:/ Consider using 'thresholdPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acThresholdPercentage :: Lens.Lens' AbortCriteria Lude.Double
+acThresholdPercentage = Lens.lens (thresholdPercentage :: AbortCriteria -> Lude.Double) (\s a -> s {thresholdPercentage = a} :: AbortCriteria)
+{-# DEPRECATED acThresholdPercentage "Use generic-lens or generic-optics with 'thresholdPercentage' instead." #-}
 
 -- | The type of job execution failures that can initiate a job abort.
 --
@@ -92,15 +100,6 @@ acAction :: Lens.Lens' AbortCriteria AbortAction
 acAction = Lens.lens (action :: AbortCriteria -> AbortAction) (\s a -> s {action = a} :: AbortCriteria)
 {-# DEPRECATED acAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
--- | The minimum percentage of job execution failures that must occur to initiate the job abort.
---
--- AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).
---
--- /Note:/ Consider using 'thresholdPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acThresholdPercentage :: Lens.Lens' AbortCriteria Lude.Double
-acThresholdPercentage = Lens.lens (thresholdPercentage :: AbortCriteria -> Lude.Double) (\s a -> s {thresholdPercentage = a} :: AbortCriteria)
-{-# DEPRECATED acThresholdPercentage "Use generic-lens or generic-optics with 'thresholdPercentage' instead." #-}
-
 -- | The minimum number of things which must receive job execution notifications before the job can be aborted.
 --
 -- /Note:/ Consider using 'minNumberOfExecutedThings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -114,9 +113,9 @@ instance Lude.FromJSON AbortCriteria where
       "AbortCriteria"
       ( \x ->
           AbortCriteria'
-            Lude.<$> (x Lude..: "failureType")
+            Lude.<$> (x Lude..: "thresholdPercentage")
+            Lude.<*> (x Lude..: "failureType")
             Lude.<*> (x Lude..: "action")
-            Lude.<*> (x Lude..: "thresholdPercentage")
             Lude.<*> (x Lude..: "minNumberOfExecutedThings")
       )
 
@@ -124,9 +123,9 @@ instance Lude.ToJSON AbortCriteria where
   toJSON AbortCriteria' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("failureType" Lude..= failureType),
+          [ Lude.Just ("thresholdPercentage" Lude..= thresholdPercentage),
+            Lude.Just ("failureType" Lude..= failureType),
             Lude.Just ("action" Lude..= action),
-            Lude.Just ("thresholdPercentage" Lude..= thresholdPercentage),
             Lude.Just
               ("minNumberOfExecutedThings" Lude..= minNumberOfExecutedThings)
           ]

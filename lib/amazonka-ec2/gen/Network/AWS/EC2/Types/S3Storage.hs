@@ -32,32 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Storage' smart constructor.
 data S3Storage = S3Storage'
-  { prefix :: Lude.Maybe Lude.Text,
+  { -- | The beginning of the file name of the AMI.
+    prefix :: Lude.Maybe Lude.Text,
+    -- | An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.
     uploadPolicy :: Lude.Maybe Lude.Base64,
+    -- | The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
     bucket :: Lude.Maybe Lude.Text,
+    -- | The signature of the JSON document.
     uploadPolicySignature :: Lude.Maybe Lude.Text,
+    -- | The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
     awsAccessKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Storage' with the minimum fields required to make a request.
 --
--- * 'awsAccessKeyId' - The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
--- * 'bucket' - The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 -- * 'prefix' - The beginning of the file name of the AMI.
--- * 'uploadPolicy' - An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'uploadPolicy' - An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.
+-- * 'bucket' - The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 -- * 'uploadPolicySignature' - The signature of the JSON document.
+-- * 'awsAccessKeyId' - The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
 mkS3Storage ::
   S3Storage
 mkS3Storage =

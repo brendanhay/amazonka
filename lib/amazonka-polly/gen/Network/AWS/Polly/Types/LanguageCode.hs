@@ -28,10 +28,10 @@ module Network.AWS.Polly.Types.LanguageCode
         EsUs,
         FrCa,
         FrFr,
-        HiIn,
         IsIs,
         ItIt,
         JaJp,
+        HiIn,
         KoKr,
         NbNo,
         NlNl,
@@ -117,9 +117,6 @@ pattern FrCa = LanguageCode' "fr-CA"
 pattern FrFr :: LanguageCode
 pattern FrFr = LanguageCode' "fr-FR"
 
-pattern HiIn :: LanguageCode
-pattern HiIn = LanguageCode' "hi-IN"
-
 pattern IsIs :: LanguageCode
 pattern IsIs = LanguageCode' "is-IS"
 
@@ -128,6 +125,9 @@ pattern ItIt = LanguageCode' "it-IT"
 
 pattern JaJp :: LanguageCode
 pattern JaJp = LanguageCode' "ja-JP"
+
+pattern HiIn :: LanguageCode
+pattern HiIn = LanguageCode' "hi-IN"
 
 pattern KoKr :: LanguageCode
 pattern KoKr = LanguageCode' "ko-KR"
@@ -175,10 +175,10 @@ pattern TrTr = LanguageCode' "tr-TR"
   EsUs,
   FrCa,
   FrFr,
-  HiIn,
   IsIs,
   ItIt,
   JaJp,
+  HiIn,
   KoKr,
   NbNo,
   NlNl,

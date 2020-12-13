@@ -32,26 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyTypeDescription' smart constructor.
 data PolicyTypeDescription = PolicyTypeDescription'
-  { policyTypeName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the policy type.
+    policyTypeName :: Lude.Maybe Lude.Text,
+    -- | A description of the policy type.
     description :: Lude.Maybe Lude.Text,
-    policyAttributeTypeDescriptions ::
-      Lude.Maybe [PolicyAttributeTypeDescription]
+    -- | The description of the policy attributes associated with the policies defined by Elastic Load Balancing.
+    policyAttributeTypeDescriptions :: Lude.Maybe [PolicyAttributeTypeDescription]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyTypeDescription' with the minimum fields required to make a request.
 --
+-- * 'policyTypeName' - The name of the policy type.
 -- * 'description' - A description of the policy type.
 -- * 'policyAttributeTypeDescriptions' - The description of the policy attributes associated with the policies defined by Elastic Load Balancing.
--- * 'policyTypeName' - The name of the policy type.
 mkPolicyTypeDescription ::
   PolicyTypeDescription
 mkPolicyTypeDescription =

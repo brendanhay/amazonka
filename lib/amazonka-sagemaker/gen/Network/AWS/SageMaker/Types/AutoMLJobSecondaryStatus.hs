@@ -13,16 +13,16 @@
 module Network.AWS.SageMaker.Types.AutoMLJobSecondaryStatus
   ( AutoMLJobSecondaryStatus
       ( AutoMLJobSecondaryStatus',
-        AMLJSSAnalyzingData,
-        AMLJSSCandidateDefinitionsGenerated,
-        AMLJSSFailed,
-        AMLJSSFeatureEngineering,
-        AMLJSSMaxAutoMLJobRuntimeReached,
-        AMLJSSMaxCandidatesReached,
-        AMLJSSModelTuning,
         AMLJSSStarting,
+        AMLJSSAnalyzingData,
+        AMLJSSFeatureEngineering,
+        AMLJSSModelTuning,
+        AMLJSSMaxCandidatesReached,
+        AMLJSSFailed,
         AMLJSSStopped,
-        AMLJSSStopping
+        AMLJSSMaxAutoMLJobRuntimeReached,
+        AMLJSSStopping,
+        AMLJSSCandidateDefinitionsGenerated
       ),
   )
 where
@@ -53,46 +53,46 @@ newtype AutoMLJobSecondaryStatus = AutoMLJobSecondaryStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern AMLJSSStarting :: AutoMLJobSecondaryStatus
+pattern AMLJSSStarting = AutoMLJobSecondaryStatus' "Starting"
+
 pattern AMLJSSAnalyzingData :: AutoMLJobSecondaryStatus
 pattern AMLJSSAnalyzingData = AutoMLJobSecondaryStatus' "AnalyzingData"
-
-pattern AMLJSSCandidateDefinitionsGenerated :: AutoMLJobSecondaryStatus
-pattern AMLJSSCandidateDefinitionsGenerated = AutoMLJobSecondaryStatus' "CandidateDefinitionsGenerated"
-
-pattern AMLJSSFailed :: AutoMLJobSecondaryStatus
-pattern AMLJSSFailed = AutoMLJobSecondaryStatus' "Failed"
 
 pattern AMLJSSFeatureEngineering :: AutoMLJobSecondaryStatus
 pattern AMLJSSFeatureEngineering = AutoMLJobSecondaryStatus' "FeatureEngineering"
 
-pattern AMLJSSMaxAutoMLJobRuntimeReached :: AutoMLJobSecondaryStatus
-pattern AMLJSSMaxAutoMLJobRuntimeReached = AutoMLJobSecondaryStatus' "MaxAutoMLJobRuntimeReached"
+pattern AMLJSSModelTuning :: AutoMLJobSecondaryStatus
+pattern AMLJSSModelTuning = AutoMLJobSecondaryStatus' "ModelTuning"
 
 pattern AMLJSSMaxCandidatesReached :: AutoMLJobSecondaryStatus
 pattern AMLJSSMaxCandidatesReached = AutoMLJobSecondaryStatus' "MaxCandidatesReached"
 
-pattern AMLJSSModelTuning :: AutoMLJobSecondaryStatus
-pattern AMLJSSModelTuning = AutoMLJobSecondaryStatus' "ModelTuning"
-
-pattern AMLJSSStarting :: AutoMLJobSecondaryStatus
-pattern AMLJSSStarting = AutoMLJobSecondaryStatus' "Starting"
+pattern AMLJSSFailed :: AutoMLJobSecondaryStatus
+pattern AMLJSSFailed = AutoMLJobSecondaryStatus' "Failed"
 
 pattern AMLJSSStopped :: AutoMLJobSecondaryStatus
 pattern AMLJSSStopped = AutoMLJobSecondaryStatus' "Stopped"
 
+pattern AMLJSSMaxAutoMLJobRuntimeReached :: AutoMLJobSecondaryStatus
+pattern AMLJSSMaxAutoMLJobRuntimeReached = AutoMLJobSecondaryStatus' "MaxAutoMLJobRuntimeReached"
+
 pattern AMLJSSStopping :: AutoMLJobSecondaryStatus
 pattern AMLJSSStopping = AutoMLJobSecondaryStatus' "Stopping"
 
+pattern AMLJSSCandidateDefinitionsGenerated :: AutoMLJobSecondaryStatus
+pattern AMLJSSCandidateDefinitionsGenerated = AutoMLJobSecondaryStatus' "CandidateDefinitionsGenerated"
+
 {-# COMPLETE
-  AMLJSSAnalyzingData,
-  AMLJSSCandidateDefinitionsGenerated,
-  AMLJSSFailed,
-  AMLJSSFeatureEngineering,
-  AMLJSSMaxAutoMLJobRuntimeReached,
-  AMLJSSMaxCandidatesReached,
-  AMLJSSModelTuning,
   AMLJSSStarting,
+  AMLJSSAnalyzingData,
+  AMLJSSFeatureEngineering,
+  AMLJSSModelTuning,
+  AMLJSSMaxCandidatesReached,
+  AMLJSSFailed,
   AMLJSSStopped,
+  AMLJSSMaxAutoMLJobRuntimeReached,
   AMLJSSStopping,
+  AMLJSSCandidateDefinitionsGenerated,
   AutoMLJobSecondaryStatus'
   #-}

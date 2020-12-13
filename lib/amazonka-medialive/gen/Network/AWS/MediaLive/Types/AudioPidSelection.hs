@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Audio Pid Selection
 --
 -- /See:/ 'mkAudioPidSelection' smart constructor.
-newtype AudioPidSelection = AudioPidSelection' {pid :: Lude.Natural}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype AudioPidSelection = AudioPidSelection'
+  { -- | Selects a specific PID from within a source.
+    pid :: Lude.Natural
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioPidSelection' with the minimum fields required to make a request.

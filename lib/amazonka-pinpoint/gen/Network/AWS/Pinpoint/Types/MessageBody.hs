@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMessageBody' smart constructor.
 data MessageBody = MessageBody'
-  { requestId :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the request or response.
+    requestId :: Lude.Maybe Lude.Text,
+    -- | The message that's returned from the API.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageBody' with the minimum fields required to make a request.
 --
--- * 'message' - The message that's returned from the API.
 -- * 'requestId' - The unique identifier for the request or response.
+-- * 'message' - The message that's returned from the API.
 mkMessageBody ::
   MessageBody
 mkMessageBody =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDeploymentTarget' smart constructor.
 data GetDeploymentTarget = GetDeploymentTarget'
-  { targetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ID of a deployment target.
+    targetId :: Lude.Maybe Lude.Text,
+    -- | The unique ID of a deployment.
     deploymentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeploymentTarget' with the minimum fields required to make a request.
 --
--- * 'deploymentId' - The unique ID of a deployment.
 -- * 'targetId' - The unique ID of a deployment target.
+-- * 'deploymentId' - The unique ID of a deployment.
 mkGetDeploymentTarget ::
   GetDeploymentTarget
 mkGetDeploymentTarget =
@@ -118,17 +114,12 @@ instance Lude.ToQuery GetDeploymentTarget where
 
 -- | /See:/ 'mkGetDeploymentTargetResponse' smart constructor.
 data GetDeploymentTargetResponse = GetDeploymentTargetResponse'
-  { deploymentTarget ::
-      Lude.Maybe DeploymentTarget,
+  { -- | A deployment target that contains information about a deployment such as its status, lifecycle events, and when it was last updated. It also contains metadata about the deployment target. The deployment target metadata depends on the deployment target's type (@instanceTarget@ , @lambdaTarget@ , or @ecsTarget@ ).
+    deploymentTarget :: Lude.Maybe DeploymentTarget,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeploymentTargetResponse' with the minimum fields required to make a request.

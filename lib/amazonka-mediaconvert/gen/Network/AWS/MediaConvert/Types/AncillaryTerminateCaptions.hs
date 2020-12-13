@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions
   ( AncillaryTerminateCaptions
       ( AncillaryTerminateCaptions',
-        ATCDisabled,
-        ATCEndOfInput
+        ATCEndOfInput,
+        ATCDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype AncillaryTerminateCaptions = AncillaryTerminateCaptions' Lude.Text
       Lude.ToHeader
     )
 
-pattern ATCDisabled :: AncillaryTerminateCaptions
-pattern ATCDisabled = AncillaryTerminateCaptions' "DISABLED"
-
 pattern ATCEndOfInput :: AncillaryTerminateCaptions
 pattern ATCEndOfInput = AncillaryTerminateCaptions' "END_OF_INPUT"
 
+pattern ATCDisabled :: AncillaryTerminateCaptions
+pattern ATCDisabled = AncillaryTerminateCaptions' "DISABLED"
+
 {-# COMPLETE
-  ATCDisabled,
   ATCEndOfInput,
+  ATCDisabled,
   AncillaryTerminateCaptions'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,13 +27,13 @@ module Network.AWS.IoT.DescribeBillingGroup
     mkDescribeBillingGroupResponse,
 
     -- ** Response lenses
-    dbgbrsBillingGroupARN,
-    dbgbrsVersion,
-    dbgbrsBillingGroupProperties,
-    dbgbrsBillingGroupName,
-    dbgbrsBillingGroupId,
-    dbgbrsBillingGroupMetadata,
-    dbgbrsResponseStatus,
+    dbgfrsBillingGroupARN,
+    dbgfrsVersion,
+    dbgfrsBillingGroupProperties,
+    dbgfrsBillingGroupName,
+    dbgfrsBillingGroupId,
+    dbgfrsBillingGroupMetadata,
+    dbgfrsResponseStatus,
   )
 where
 
@@ -44,16 +45,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBillingGroup' smart constructor.
 newtype DescribeBillingGroup = DescribeBillingGroup'
-  { billingGroupName ::
-      Lude.Text
+  { -- | The name of the billing group.
+    billingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBillingGroup' with the minimum fields required to make a request.
@@ -101,38 +96,33 @@ instance Lude.ToQuery DescribeBillingGroup where
 
 -- | /See:/ 'mkDescribeBillingGroupResponse' smart constructor.
 data DescribeBillingGroupResponse = DescribeBillingGroupResponse'
-  { billingGroupARN ::
-      Lude.Maybe Lude.Text,
-    version ::
-      Lude.Maybe Lude.Integer,
-    billingGroupProperties ::
-      Lude.Maybe BillingGroupProperties,
-    billingGroupName ::
-      Lude.Maybe Lude.Text,
-    billingGroupId ::
-      Lude.Maybe Lude.Text,
-    billingGroupMetadata ::
-      Lude.Maybe BillingGroupMetadata,
+  { -- | The ARN of the billing group.
+    billingGroupARN :: Lude.Maybe Lude.Text,
+    -- | The version of the billing group.
+    version :: Lude.Maybe Lude.Integer,
+    -- | The properties of the billing group.
+    billingGroupProperties :: Lude.Maybe BillingGroupProperties,
+    -- | The name of the billing group.
+    billingGroupName :: Lude.Maybe Lude.Text,
+    -- | The ID of the billing group.
+    billingGroupId :: Lude.Maybe Lude.Text,
+    -- | Additional information about the billing group.
+    billingGroupMetadata :: Lude.Maybe BillingGroupMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBillingGroupResponse' with the minimum fields required to make a request.
 --
 -- * 'billingGroupARN' - The ARN of the billing group.
+-- * 'version' - The version of the billing group.
+-- * 'billingGroupProperties' - The properties of the billing group.
+-- * 'billingGroupName' - The name of the billing group.
 -- * 'billingGroupId' - The ID of the billing group.
 -- * 'billingGroupMetadata' - Additional information about the billing group.
--- * 'billingGroupName' - The name of the billing group.
--- * 'billingGroupProperties' - The properties of the billing group.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The version of the billing group.
 mkDescribeBillingGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -151,48 +141,48 @@ mkDescribeBillingGroupResponse pResponseStatus_ =
 -- | The ARN of the billing group.
 --
 -- /Note:/ Consider using 'billingGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgbrsBillingGroupARN :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe Lude.Text)
-dbgbrsBillingGroupARN = Lens.lens (billingGroupARN :: DescribeBillingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupARN = a} :: DescribeBillingGroupResponse)
-{-# DEPRECATED dbgbrsBillingGroupARN "Use generic-lens or generic-optics with 'billingGroupARN' instead." #-}
+dbgfrsBillingGroupARN :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe Lude.Text)
+dbgfrsBillingGroupARN = Lens.lens (billingGroupARN :: DescribeBillingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupARN = a} :: DescribeBillingGroupResponse)
+{-# DEPRECATED dbgfrsBillingGroupARN "Use generic-lens or generic-optics with 'billingGroupARN' instead." #-}
 
 -- | The version of the billing group.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgbrsVersion :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe Lude.Integer)
-dbgbrsVersion = Lens.lens (version :: DescribeBillingGroupResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: DescribeBillingGroupResponse)
-{-# DEPRECATED dbgbrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+dbgfrsVersion :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe Lude.Integer)
+dbgfrsVersion = Lens.lens (version :: DescribeBillingGroupResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: DescribeBillingGroupResponse)
+{-# DEPRECATED dbgfrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The properties of the billing group.
 --
 -- /Note:/ Consider using 'billingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgbrsBillingGroupProperties :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe BillingGroupProperties)
-dbgbrsBillingGroupProperties = Lens.lens (billingGroupProperties :: DescribeBillingGroupResponse -> Lude.Maybe BillingGroupProperties) (\s a -> s {billingGroupProperties = a} :: DescribeBillingGroupResponse)
-{-# DEPRECATED dbgbrsBillingGroupProperties "Use generic-lens or generic-optics with 'billingGroupProperties' instead." #-}
+dbgfrsBillingGroupProperties :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe BillingGroupProperties)
+dbgfrsBillingGroupProperties = Lens.lens (billingGroupProperties :: DescribeBillingGroupResponse -> Lude.Maybe BillingGroupProperties) (\s a -> s {billingGroupProperties = a} :: DescribeBillingGroupResponse)
+{-# DEPRECATED dbgfrsBillingGroupProperties "Use generic-lens or generic-optics with 'billingGroupProperties' instead." #-}
 
 -- | The name of the billing group.
 --
 -- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgbrsBillingGroupName :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe Lude.Text)
-dbgbrsBillingGroupName = Lens.lens (billingGroupName :: DescribeBillingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: DescribeBillingGroupResponse)
-{-# DEPRECATED dbgbrsBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
+dbgfrsBillingGroupName :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe Lude.Text)
+dbgfrsBillingGroupName = Lens.lens (billingGroupName :: DescribeBillingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: DescribeBillingGroupResponse)
+{-# DEPRECATED dbgfrsBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
 -- | The ID of the billing group.
 --
 -- /Note:/ Consider using 'billingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgbrsBillingGroupId :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe Lude.Text)
-dbgbrsBillingGroupId = Lens.lens (billingGroupId :: DescribeBillingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupId = a} :: DescribeBillingGroupResponse)
-{-# DEPRECATED dbgbrsBillingGroupId "Use generic-lens or generic-optics with 'billingGroupId' instead." #-}
+dbgfrsBillingGroupId :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe Lude.Text)
+dbgfrsBillingGroupId = Lens.lens (billingGroupId :: DescribeBillingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupId = a} :: DescribeBillingGroupResponse)
+{-# DEPRECATED dbgfrsBillingGroupId "Use generic-lens or generic-optics with 'billingGroupId' instead." #-}
 
 -- | Additional information about the billing group.
 --
 -- /Note:/ Consider using 'billingGroupMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgbrsBillingGroupMetadata :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe BillingGroupMetadata)
-dbgbrsBillingGroupMetadata = Lens.lens (billingGroupMetadata :: DescribeBillingGroupResponse -> Lude.Maybe BillingGroupMetadata) (\s a -> s {billingGroupMetadata = a} :: DescribeBillingGroupResponse)
-{-# DEPRECATED dbgbrsBillingGroupMetadata "Use generic-lens or generic-optics with 'billingGroupMetadata' instead." #-}
+dbgfrsBillingGroupMetadata :: Lens.Lens' DescribeBillingGroupResponse (Lude.Maybe BillingGroupMetadata)
+dbgfrsBillingGroupMetadata = Lens.lens (billingGroupMetadata :: DescribeBillingGroupResponse -> Lude.Maybe BillingGroupMetadata) (\s a -> s {billingGroupMetadata = a} :: DescribeBillingGroupResponse)
+{-# DEPRECATED dbgfrsBillingGroupMetadata "Use generic-lens or generic-optics with 'billingGroupMetadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgbrsResponseStatus :: Lens.Lens' DescribeBillingGroupResponse Lude.Int
-dbgbrsResponseStatus = Lens.lens (responseStatus :: DescribeBillingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBillingGroupResponse)
-{-# DEPRECATED dbgbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbgfrsResponseStatus :: Lens.Lens' DescribeBillingGroupResponse Lude.Int
+dbgfrsResponseStatus = Lens.lens (responseStatus :: DescribeBillingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBillingGroupResponse)
+{-# DEPRECATED dbgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

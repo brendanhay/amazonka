@@ -35,31 +35,30 @@ import Network.AWS.Rekognition.Types.FaceDetail
 --
 -- /See:/ 'mkCelebrityDetail' smart constructor.
 data CelebrityDetail = CelebrityDetail'
-  { boundingBox ::
-      Lude.Maybe BoundingBox,
+  { -- | Bounding box around the body of a celebrity.
+    boundingBox :: Lude.Maybe BoundingBox,
+    -- | An array of URLs pointing to additional celebrity information.
     urls :: Lude.Maybe [Lude.Text],
+    -- | The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
     confidence :: Lude.Maybe Lude.Double,
+    -- | The name of the celebrity.
     name :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the celebrity.
     id :: Lude.Maybe Lude.Text,
+    -- | Face details for the recognized celebrity.
     face :: Lude.Maybe FaceDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CelebrityDetail' with the minimum fields required to make a request.
 --
 -- * 'boundingBox' - Bounding box around the body of a celebrity.
--- * 'confidence' - The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
--- * 'face' - Face details for the recognized celebrity.
--- * 'id' - The unique identifier for the celebrity.
--- * 'name' - The name of the celebrity.
 -- * 'urls' - An array of URLs pointing to additional celebrity information.
+-- * 'confidence' - The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
+-- * 'name' - The name of the celebrity.
+-- * 'id' - The unique identifier for the celebrity.
+-- * 'face' - Face details for the recognized celebrity.
 mkCelebrityDetail ::
   CelebrityDetail
 mkCelebrityDetail =

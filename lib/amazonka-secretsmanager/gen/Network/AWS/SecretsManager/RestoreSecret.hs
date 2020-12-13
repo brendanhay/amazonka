@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,7 +30,7 @@ module Network.AWS.SecretsManager.RestoreSecret
     mkRestoreSecret,
 
     -- ** Request lenses
-    rSecretId,
+    rsSecretId,
 
     -- * Destructuring the response
     RestoreSecretResponse (..),
@@ -49,14 +50,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkRestoreSecret' smart constructor.
-newtype RestoreSecret = RestoreSecret' {secretId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype RestoreSecret = RestoreSecret'
+  { -- | Specifies the secret that you want to restore from a previously scheduled deletion. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    secretId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreSecret' with the minimum fields required to make a request.
@@ -71,9 +69,9 @@ mkRestoreSecret pSecretId_ = RestoreSecret' {secretId = pSecretId_}
 -- | Specifies the secret that you want to restore from a previously scheduled deletion. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 --
 -- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rSecretId :: Lens.Lens' RestoreSecret Lude.Text
-rSecretId = Lens.lens (secretId :: RestoreSecret -> Lude.Text) (\s a -> s {secretId = a} :: RestoreSecret)
-{-# DEPRECATED rSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
+rsSecretId :: Lens.Lens' RestoreSecret Lude.Text
+rsSecretId = Lens.lens (secretId :: RestoreSecret -> Lude.Text) (\s a -> s {secretId = a} :: RestoreSecret)
+{-# DEPRECATED rsSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 instance Lude.AWSRequest RestoreSecret where
   type Rs RestoreSecret = RestoreSecretResponse
@@ -111,18 +109,14 @@ instance Lude.ToQuery RestoreSecret where
 
 -- | /See:/ 'mkRestoreSecretResponse' smart constructor.
 data RestoreSecretResponse = RestoreSecretResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the secret that was restored.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret that was restored.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreSecretResponse' with the minimum fields required to make a request.

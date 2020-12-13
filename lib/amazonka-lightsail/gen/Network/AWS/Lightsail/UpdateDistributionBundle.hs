@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,17 +45,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateDistributionBundle' smart constructor.
 data UpdateDistributionBundle = UpdateDistributionBundle'
-  { bundleId ::
-      Lude.Maybe Lude.Text,
+  { -- | The bundle ID of the new bundle to apply to your distribution.
+    --
+    -- Use the @GetDistributionBundles@ action to get a list of distribution bundle IDs that you can specify.
+    bundleId :: Lude.Maybe Lude.Text,
+    -- | The name of the distribution for which to update the bundle.
+    --
+    -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
     distributionName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDistributionBundle' with the minimum fields required to make a request.
@@ -129,23 +129,16 @@ instance Lude.ToQuery UpdateDistributionBundle where
 
 -- | /See:/ 'mkUpdateDistributionBundleResponse' smart constructor.
 data UpdateDistributionBundleResponse = UpdateDistributionBundleResponse'
-  { operation ::
-      Lude.Maybe Operation,
-    responseStatus ::
-      Lude.Int
+  { operation :: Lude.Maybe Operation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDistributionBundleResponse' with the minimum fields required to make a request.
 --
--- * 'operation' - Undocumented field.
+-- * 'operation' -
 -- * 'responseStatus' - The response status code.
 mkUpdateDistributionBundleResponse ::
   -- | 'responseStatus'

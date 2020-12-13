@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,21 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDescribeProductView' smart constructor.
 data DescribeProductView = DescribeProductView'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The product view identifier.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProductView' with the minimum fields required to make a request.
@@ -143,19 +148,14 @@ instance Lude.ToQuery DescribeProductView where
 
 -- | /See:/ 'mkDescribeProductViewResponse' smart constructor.
 data DescribeProductViewResponse = DescribeProductViewResponse'
-  { productViewSummary ::
-      Lude.Maybe ProductViewSummary,
-    provisioningArtifacts ::
-      Lude.Maybe [ProvisioningArtifact],
+  { -- | Summary information about the product.
+    productViewSummary :: Lude.Maybe ProductViewSummary,
+    -- | Information about the provisioning artifacts for the product.
+    provisioningArtifacts :: Lude.Maybe [ProvisioningArtifact],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProductViewResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.IoTJobsData.DescribeJobExecution
 
     -- ** Request lenses
     djeIncludeJobDocument,
-    djeExecutionNumber,
     djeJobId,
+    djeExecutionNumber,
     djeThingName,
 
     -- * Destructuring the response
@@ -42,26 +43,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeJobExecution' smart constructor.
 data DescribeJobExecution = DescribeJobExecution'
-  { includeJobDocument ::
-      Lude.Maybe Lude.Bool,
-    executionNumber :: Lude.Maybe Lude.Integer,
+  { -- | Optional. When set to true, the response contains the job document. The default is false.
+    includeJobDocument :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier assigned to this job when it was created.
     jobId :: Lude.Text,
+    -- | Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.
+    executionNumber :: Lude.Maybe Lude.Integer,
+    -- | The thing name associated with the device the job execution is running on.
     thingName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobExecution' with the minimum fields required to make a request.
 --
--- * 'executionNumber' - Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.
 -- * 'includeJobDocument' - Optional. When set to true, the response contains the job document. The default is false.
 -- * 'jobId' - The unique identifier assigned to this job when it was created.
+-- * 'executionNumber' - Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.
 -- * 'thingName' - The thing name associated with the device the job execution is running on.
 mkDescribeJobExecution ::
   -- | 'jobId'
@@ -72,8 +70,8 @@ mkDescribeJobExecution ::
 mkDescribeJobExecution pJobId_ pThingName_ =
   DescribeJobExecution'
     { includeJobDocument = Lude.Nothing,
-      executionNumber = Lude.Nothing,
       jobId = pJobId_,
+      executionNumber = Lude.Nothing,
       thingName = pThingName_
     }
 
@@ -84,19 +82,19 @@ djeIncludeJobDocument :: Lens.Lens' DescribeJobExecution (Lude.Maybe Lude.Bool)
 djeIncludeJobDocument = Lens.lens (includeJobDocument :: DescribeJobExecution -> Lude.Maybe Lude.Bool) (\s a -> s {includeJobDocument = a} :: DescribeJobExecution)
 {-# DEPRECATED djeIncludeJobDocument "Use generic-lens or generic-optics with 'includeJobDocument' instead." #-}
 
--- | Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.
---
--- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djeExecutionNumber :: Lens.Lens' DescribeJobExecution (Lude.Maybe Lude.Integer)
-djeExecutionNumber = Lens.lens (executionNumber :: DescribeJobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {executionNumber = a} :: DescribeJobExecution)
-{-# DEPRECATED djeExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
-
 -- | The unique identifier assigned to this job when it was created.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 djeJobId :: Lens.Lens' DescribeJobExecution Lude.Text
 djeJobId = Lens.lens (jobId :: DescribeJobExecution -> Lude.Text) (\s a -> s {jobId = a} :: DescribeJobExecution)
 {-# DEPRECATED djeJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
+-- | Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.
+--
+-- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djeExecutionNumber :: Lens.Lens' DescribeJobExecution (Lude.Maybe Lude.Integer)
+djeExecutionNumber = Lens.lens (executionNumber :: DescribeJobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {executionNumber = a} :: DescribeJobExecution)
+{-# DEPRECATED djeExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
 
 -- | The thing name associated with the device the job execution is running on.
 --
@@ -132,17 +130,12 @@ instance Lude.ToQuery DescribeJobExecution where
 
 -- | /See:/ 'mkDescribeJobExecutionResponse' smart constructor.
 data DescribeJobExecutionResponse = DescribeJobExecutionResponse'
-  { execution ::
-      Lude.Maybe JobExecution,
+  { -- | Contains data about a job execution.
+    execution :: Lude.Maybe JobExecution,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobExecutionResponse' with the minimum fields required to make a request.

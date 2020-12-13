@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.ServiceCatalog.UpdateConstraint
     -- ** Request lenses
     ucAcceptLanguage,
     ucParameters,
-    ucDescription,
     ucId,
+    ucDescription,
 
     -- * Destructuring the response
     UpdateConstraintResponse (..),
@@ -44,19 +45,64 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkUpdateConstraint' smart constructor.
 data UpdateConstraint = UpdateConstraint'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
+    --
+    --
+    --     * LAUNCH
+    --
+    --     * You are required to specify either the @RoleArn@ or the @LocalRoleName@ but can't use both.
+    -- Specify the @RoleArn@ property as follows:
+    -- @{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}@
+    -- Specify the @LocalRoleName@ property as follows:
+    -- @{"LocalRoleName": "SCBasicLaunchRole"}@
+    -- If you specify the @LocalRoleName@ property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
+    -- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+    -- You also cannot have more than one @LAUNCH@ constraint on a product and portfolio.
+    --
+    --
+    --     * NOTIFICATION
+    --
+    --     * Specify the @NotificationArns@ property as follows:
+    -- @{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}@
+    --
+    --
+    --     * RESOURCE_UPDATE
+    --
+    --     * Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+    -- @{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}@
+    -- The @TagUpdatesOnProvisionedProduct@ property accepts a string value of @ALLOWED@ or @NOT_ALLOWED@ .
+    --
+    --
+    --     * STACKSET
+    --
+    --     * Specify the @Parameters@ property as follows:
+    -- @{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}@
+    -- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+    -- You also cannot have more than one @STACKSET@ constraint on a product and portfolio.
+    -- Products with a @STACKSET@ constraint will launch an AWS CloudFormation stack set.
+    --
+    --
+    --     * TEMPLATE
+    --
+    --     * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
     parameters :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    id :: Lude.Text
+    -- | The identifier of the constraint.
+    id :: Lude.Text,
+    -- | The updated description of the constraint.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConstraint' with the minimum fields required to make a request.
@@ -73,8 +119,6 @@ data UpdateConstraint = UpdateConstraint'
 --     * @zh@ - Chinese
 --
 --
--- * 'description' - The updated description of the constraint.
--- * 'id' - The identifier of the constraint.
 -- * 'parameters' - The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
 --
 --
@@ -115,6 +159,10 @@ data UpdateConstraint = UpdateConstraint'
 --     * TEMPLATE
 --
 --     * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
+--
+--
+-- * 'id' - The identifier of the constraint.
+-- * 'description' - The updated description of the constraint.
 mkUpdateConstraint ::
   -- | 'id'
   Lude.Text ->
@@ -123,8 +171,8 @@ mkUpdateConstraint pId_ =
   UpdateConstraint'
     { acceptLanguage = Lude.Nothing,
       parameters = Lude.Nothing,
-      description = Lude.Nothing,
-      id = pId_
+      id = pId_,
+      description = Lude.Nothing
     }
 
 -- | The language code.
@@ -193,19 +241,19 @@ ucParameters :: Lens.Lens' UpdateConstraint (Lude.Maybe Lude.Text)
 ucParameters = Lens.lens (parameters :: UpdateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {parameters = a} :: UpdateConstraint)
 {-# DEPRECATED ucParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The updated description of the constraint.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucDescription :: Lens.Lens' UpdateConstraint (Lude.Maybe Lude.Text)
-ucDescription = Lens.lens (description :: UpdateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateConstraint)
-{-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 -- | The identifier of the constraint.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucId :: Lens.Lens' UpdateConstraint Lude.Text
 ucId = Lens.lens (id :: UpdateConstraint -> Lude.Text) (\s a -> s {id = a} :: UpdateConstraint)
 {-# DEPRECATED ucId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The updated description of the constraint.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucDescription :: Lens.Lens' UpdateConstraint (Lude.Maybe Lude.Text)
+ucDescription = Lens.lens (description :: UpdateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateConstraint)
+{-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateConstraint where
   type Rs UpdateConstraint = UpdateConstraintResponse
@@ -239,8 +287,8 @@ instance Lude.ToJSON UpdateConstraint where
       ( Lude.catMaybes
           [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
             ("Parameters" Lude..=) Lude.<$> parameters,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("Id" Lude..= id)
+            Lude.Just ("Id" Lude..= id),
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -252,29 +300,24 @@ instance Lude.ToQuery UpdateConstraint where
 
 -- | /See:/ 'mkUpdateConstraintResponse' smart constructor.
 data UpdateConstraintResponse = UpdateConstraintResponse'
-  { status ::
-      Lude.Maybe RequestStatus,
-    constraintDetail ::
-      Lude.Maybe ConstraintDetail,
-    constraintParameters ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the current request.
+    status :: Lude.Maybe RequestStatus,
+    -- | Information about the constraint.
+    constraintDetail :: Lude.Maybe ConstraintDetail,
+    -- | The constraint parameters.
+    constraintParameters :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConstraintResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the current request.
 -- * 'constraintDetail' - Information about the constraint.
 -- * 'constraintParameters' - The constraint parameters.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the current request.
 mkUpdateConstraintResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,6 +31,8 @@ module Network.AWS.Support.CreateCase
     mkCreateCase,
 
     -- ** Request lenses
+    ccSubject,
+    ccCommunicationBody,
     ccSeverityCode,
     ccIssueType,
     ccCcEmailAddresses,
@@ -37,8 +40,6 @@ module Network.AWS.Support.CreateCase
     ccCategoryCode,
     ccServiceCode,
     ccAttachmentSetId,
-    ccSubject,
-    ccCommunicationBody,
 
     -- * Destructuring the response
     CreateCaseResponse (..),
@@ -58,38 +59,43 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'mkCreateCase' smart constructor.
 data CreateCase = CreateCase'
-  { severityCode :: Lude.Maybe Lude.Text,
-    issueType :: Lude.Maybe Lude.Text,
-    ccEmailAddresses :: Lude.Maybe [Lude.Text],
-    language :: Lude.Maybe Lude.Text,
-    categoryCode :: Lude.Maybe Lude.Text,
-    serviceCode :: Lude.Maybe Lude.Text,
-    attachmentSetId :: Lude.Maybe Lude.Text,
+  { -- | The title of the AWS Support case. The title appears in the __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
     subject :: Lude.Text,
-    communicationBody :: Lude.Text
+    -- | The communication body text that describes the issue. This text appears in the __Description__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
+    communicationBody :: Lude.Text,
+    -- | A value that indicates the urgency of the case. This value determines the response time according to your service level agreement with AWS Support. You can use the 'DescribeSeverityLevels' operation to get the possible values for @severityCode@ .
+    --
+    -- For more information, see 'SeverityLevel' and <https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity> in the /AWS Support User Guide/ .
+    severityCode :: Lude.Maybe Lude.Text,
+    -- | The type of issue for the case. You can specify @customer-service@ or @technical@ . If you don't specify a value, the default is @technical@ .
+    issueType :: Lude.Maybe Lude.Text,
+    -- | A list of email addresses that AWS Support copies on case correspondence. AWS Support identifies the account that creates the case when you specify your AWS credentials in an HTTP POST method or use the <http://aws.amazon.com/tools/ AWS SDKs> .
+    ccEmailAddresses :: Lude.Maybe [Lude.Text],
+    -- | The language in which AWS Support handles the case. You must specify the ISO 639-1 code for the @language@ parameter if you want support in that language. Currently, English ("en") and Japanese ("ja") are supported.
+    language :: Lude.Maybe Lude.Text,
+    -- | The category of problem for the AWS Support case. You also use the 'DescribeServices' operation to get the category code for a service. Each AWS service defines its own set of category codes.
+    categoryCode :: Lude.Maybe Lude.Text,
+    -- | The code for the AWS service. You can use the 'DescribeServices' operation to get the possible @serviceCode@ values.
+    serviceCode :: Lude.Maybe Lude.Text,
+    -- | The ID of a set of one or more attachments for the case. Create the set by using the 'AddAttachmentsToSet' operation.
+    attachmentSetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCase' with the minimum fields required to make a request.
 --
--- * 'attachmentSetId' - The ID of a set of one or more attachments for the case. Create the set by using the 'AddAttachmentsToSet' operation.
--- * 'categoryCode' - The category of problem for the AWS Support case. You also use the 'DescribeServices' operation to get the category code for a service. Each AWS service defines its own set of category codes.
--- * 'ccEmailAddresses' - A list of email addresses that AWS Support copies on case correspondence. AWS Support identifies the account that creates the case when you specify your AWS credentials in an HTTP POST method or use the <http://aws.amazon.com/tools/ AWS SDKs> .
+-- * 'subject' - The title of the AWS Support case. The title appears in the __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
 -- * 'communicationBody' - The communication body text that describes the issue. This text appears in the __Description__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
--- * 'issueType' - The type of issue for the case. You can specify @customer-service@ or @technical@ . If you don't specify a value, the default is @technical@ .
--- * 'language' - The language in which AWS Support handles the case. You must specify the ISO 639-1 code for the @language@ parameter if you want support in that language. Currently, English ("en") and Japanese ("ja") are supported.
--- * 'serviceCode' - The code for the AWS service. You can use the 'DescribeServices' operation to get the possible @serviceCode@ values.
 -- * 'severityCode' - A value that indicates the urgency of the case. This value determines the response time according to your service level agreement with AWS Support. You can use the 'DescribeSeverityLevels' operation to get the possible values for @severityCode@ .
 --
 -- For more information, see 'SeverityLevel' and <https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity> in the /AWS Support User Guide/ .
--- * 'subject' - The title of the AWS Support case. The title appears in the __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
+-- * 'issueType' - The type of issue for the case. You can specify @customer-service@ or @technical@ . If you don't specify a value, the default is @technical@ .
+-- * 'ccEmailAddresses' - A list of email addresses that AWS Support copies on case correspondence. AWS Support identifies the account that creates the case when you specify your AWS credentials in an HTTP POST method or use the <http://aws.amazon.com/tools/ AWS SDKs> .
+-- * 'language' - The language in which AWS Support handles the case. You must specify the ISO 639-1 code for the @language@ parameter if you want support in that language. Currently, English ("en") and Japanese ("ja") are supported.
+-- * 'categoryCode' - The category of problem for the AWS Support case. You also use the 'DescribeServices' operation to get the category code for a service. Each AWS service defines its own set of category codes.
+-- * 'serviceCode' - The code for the AWS service. You can use the 'DescribeServices' operation to get the possible @serviceCode@ values.
+-- * 'attachmentSetId' - The ID of a set of one or more attachments for the case. Create the set by using the 'AddAttachmentsToSet' operation.
 mkCreateCase ::
   -- | 'subject'
   Lude.Text ->
@@ -98,16 +104,30 @@ mkCreateCase ::
   CreateCase
 mkCreateCase pSubject_ pCommunicationBody_ =
   CreateCase'
-    { severityCode = Lude.Nothing,
+    { subject = pSubject_,
+      communicationBody = pCommunicationBody_,
+      severityCode = Lude.Nothing,
       issueType = Lude.Nothing,
       ccEmailAddresses = Lude.Nothing,
       language = Lude.Nothing,
       categoryCode = Lude.Nothing,
       serviceCode = Lude.Nothing,
-      attachmentSetId = Lude.Nothing,
-      subject = pSubject_,
-      communicationBody = pCommunicationBody_
+      attachmentSetId = Lude.Nothing
     }
+
+-- | The title of the AWS Support case. The title appears in the __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
+--
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccSubject :: Lens.Lens' CreateCase Lude.Text
+ccSubject = Lens.lens (subject :: CreateCase -> Lude.Text) (\s a -> s {subject = a} :: CreateCase)
+{-# DEPRECATED ccSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
+
+-- | The communication body text that describes the issue. This text appears in the __Description__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
+--
+-- /Note:/ Consider using 'communicationBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCommunicationBody :: Lens.Lens' CreateCase Lude.Text
+ccCommunicationBody = Lens.lens (communicationBody :: CreateCase -> Lude.Text) (\s a -> s {communicationBody = a} :: CreateCase)
+{-# DEPRECATED ccCommunicationBody "Use generic-lens or generic-optics with 'communicationBody' instead." #-}
 
 -- | A value that indicates the urgency of the case. This value determines the response time according to your service level agreement with AWS Support. You can use the 'DescribeSeverityLevels' operation to get the possible values for @severityCode@ .
 --
@@ -160,20 +180,6 @@ ccAttachmentSetId :: Lens.Lens' CreateCase (Lude.Maybe Lude.Text)
 ccAttachmentSetId = Lens.lens (attachmentSetId :: CreateCase -> Lude.Maybe Lude.Text) (\s a -> s {attachmentSetId = a} :: CreateCase)
 {-# DEPRECATED ccAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
 
--- | The title of the AWS Support case. The title appears in the __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
---
--- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccSubject :: Lens.Lens' CreateCase Lude.Text
-ccSubject = Lens.lens (subject :: CreateCase -> Lude.Text) (\s a -> s {subject = a} :: CreateCase)
-{-# DEPRECATED ccSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
-
--- | The communication body text that describes the issue. This text appears in the __Description__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
---
--- /Note:/ Consider using 'communicationBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCommunicationBody :: Lens.Lens' CreateCase Lude.Text
-ccCommunicationBody = Lens.lens (communicationBody :: CreateCase -> Lude.Text) (\s a -> s {communicationBody = a} :: CreateCase)
-{-# DEPRECATED ccCommunicationBody "Use generic-lens or generic-optics with 'communicationBody' instead." #-}
-
 instance Lude.AWSRequest CreateCase where
   type Rs CreateCase = CreateCaseResponse
   request = Req.postJSON supportService
@@ -199,15 +205,15 @@ instance Lude.ToJSON CreateCase where
   toJSON CreateCase' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("severityCode" Lude..=) Lude.<$> severityCode,
+          [ Lude.Just ("subject" Lude..= subject),
+            Lude.Just ("communicationBody" Lude..= communicationBody),
+            ("severityCode" Lude..=) Lude.<$> severityCode,
             ("issueType" Lude..=) Lude.<$> issueType,
             ("ccEmailAddresses" Lude..=) Lude.<$> ccEmailAddresses,
             ("language" Lude..=) Lude.<$> language,
             ("categoryCode" Lude..=) Lude.<$> categoryCode,
             ("serviceCode" Lude..=) Lude.<$> serviceCode,
-            ("attachmentSetId" Lude..=) Lude.<$> attachmentSetId,
-            Lude.Just ("subject" Lude..= subject),
-            Lude.Just ("communicationBody" Lude..= communicationBody)
+            ("attachmentSetId" Lude..=) Lude.<$> attachmentSetId
           ]
       )
 
@@ -221,17 +227,12 @@ instance Lude.ToQuery CreateCase where
 --
 -- /See:/ 'mkCreateCaseResponse' smart constructor.
 data CreateCaseResponse = CreateCaseResponse'
-  { caseId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string in the following format: case-/12345678910-2013-c4c1d2bf33c5cf47/
+    caseId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCaseResponse' with the minimum fields required to make a request.

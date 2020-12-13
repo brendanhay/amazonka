@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,17 @@ module Network.AWS.SWF.DescribeWorkflowType
     mkDescribeWorkflowType,
 
     -- ** Request lenses
-    dwtDomain,
-    dwtWorkflowType,
+    dDomain,
+    dWorkflowType,
 
     -- * Destructuring the response
     DescribeWorkflowTypeResponse (..),
     mkDescribeWorkflowTypeResponse,
 
     -- ** Response lenses
-    dwtrsResponseStatus,
     dwtrsTypeInfo,
     dwtrsConfiguration,
+    dwtrsResponseStatus,
   )
 where
 
@@ -62,17 +63,12 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkDescribeWorkflowType' smart constructor.
 data DescribeWorkflowType = DescribeWorkflowType'
-  { domain ::
-      Lude.Text,
+  { -- | The name of the domain in which this workflow type is registered.
+    domain :: Lude.Text,
+    -- | The workflow type to describe.
     workflowType :: WorkflowType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkflowType' with the minimum fields required to make a request.
@@ -94,16 +90,16 @@ mkDescribeWorkflowType pDomain_ pWorkflowType_ =
 -- | The name of the domain in which this workflow type is registered.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwtDomain :: Lens.Lens' DescribeWorkflowType Lude.Text
-dwtDomain = Lens.lens (domain :: DescribeWorkflowType -> Lude.Text) (\s a -> s {domain = a} :: DescribeWorkflowType)
-{-# DEPRECATED dwtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+dDomain :: Lens.Lens' DescribeWorkflowType Lude.Text
+dDomain = Lens.lens (domain :: DescribeWorkflowType -> Lude.Text) (\s a -> s {domain = a} :: DescribeWorkflowType)
+{-# DEPRECATED dDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The workflow type to describe.
 --
 -- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwtWorkflowType :: Lens.Lens' DescribeWorkflowType WorkflowType
-dwtWorkflowType = Lens.lens (workflowType :: DescribeWorkflowType -> WorkflowType) (\s a -> s {workflowType = a} :: DescribeWorkflowType)
-{-# DEPRECATED dwtWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
+dWorkflowType :: Lens.Lens' DescribeWorkflowType WorkflowType
+dWorkflowType = Lens.lens (workflowType :: DescribeWorkflowType -> WorkflowType) (\s a -> s {workflowType = a} :: DescribeWorkflowType)
+{-# DEPRECATED dWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
 instance Lude.AWSRequest DescribeWorkflowType where
   type Rs DescribeWorkflowType = DescribeWorkflowTypeResponse
@@ -112,9 +108,9 @@ instance Lude.AWSRequest DescribeWorkflowType where
     Res.receiveJSON
       ( \s h x ->
           DescribeWorkflowTypeResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "typeInfo")
+            Lude.<$> (x Lude..:> "typeInfo")
             Lude.<*> (x Lude..:> "configuration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeWorkflowType where
@@ -147,25 +143,25 @@ instance Lude.ToQuery DescribeWorkflowType where
 --
 -- /See:/ 'mkDescribeWorkflowTypeResponse' smart constructor.
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | General information about the workflow type.
+    --
+    -- The status of the workflow type (returned in the WorkflowTypeInfo structure) can be one of the following.
+    --
+    --     * @REGISTERED@ – The type is registered and available. Workers supporting this type should be running.
+    --
+    --
+    --     * @DEPRECATED@ – The type was deprecated using 'DeprecateWorkflowType' , but is still in use. You should keep workers supporting this type running. You cannot create new workflow executions of this type.
     typeInfo :: WorkflowTypeInfo,
-    configuration ::
-      WorkflowTypeConfiguration
+    -- | Configuration settings of the workflow type registered through 'RegisterWorkflowType'
+    configuration :: WorkflowTypeConfiguration,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkflowTypeResponse' with the minimum fields required to make a request.
 --
--- * 'configuration' - Configuration settings of the workflow type registered through 'RegisterWorkflowType'
--- * 'responseStatus' - The response status code.
 -- * 'typeInfo' - General information about the workflow type.
 --
 -- The status of the workflow type (returned in the WorkflowTypeInfo structure) can be one of the following.
@@ -174,30 +170,27 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
 --
 --
 --     * @DEPRECATED@ – The type was deprecated using 'DeprecateWorkflowType' , but is still in use. You should keep workers supporting this type running. You cannot create new workflow executions of this type.
+--
+--
+-- * 'configuration' - Configuration settings of the workflow type registered through 'RegisterWorkflowType'
+-- * 'responseStatus' - The response status code.
 mkDescribeWorkflowTypeResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'typeInfo'
   WorkflowTypeInfo ->
   -- | 'configuration'
   WorkflowTypeConfiguration ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeWorkflowTypeResponse
 mkDescribeWorkflowTypeResponse
-  pResponseStatus_
   pTypeInfo_
-  pConfiguration_ =
+  pConfiguration_
+  pResponseStatus_ =
     DescribeWorkflowTypeResponse'
-      { responseStatus = pResponseStatus_,
-        typeInfo = pTypeInfo_,
-        configuration = pConfiguration_
+      { typeInfo = pTypeInfo_,
+        configuration = pConfiguration_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwtrsResponseStatus :: Lens.Lens' DescribeWorkflowTypeResponse Lude.Int
-dwtrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkflowTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkflowTypeResponse)
-{-# DEPRECATED dwtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | General information about the workflow type.
 --
@@ -221,3 +214,10 @@ dwtrsTypeInfo = Lens.lens (typeInfo :: DescribeWorkflowTypeResponse -> WorkflowT
 dwtrsConfiguration :: Lens.Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 dwtrsConfiguration = Lens.lens (configuration :: DescribeWorkflowTypeResponse -> WorkflowTypeConfiguration) (\s a -> s {configuration = a} :: DescribeWorkflowTypeResponse)
 {-# DEPRECATED dwtrsConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwtrsResponseStatus :: Lens.Lens' DescribeWorkflowTypeResponse Lude.Int
+dwtrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkflowTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkflowTypeResponse)
+{-# DEPRECATED dwtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

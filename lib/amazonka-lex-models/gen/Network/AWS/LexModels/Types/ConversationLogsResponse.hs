@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConversationLogsResponse' smart constructor.
 data ConversationLogsResponse = ConversationLogsResponse'
-  { iamRoleARN ::
-      Lude.Maybe Lude.Text,
-    logSettings ::
-      Lude.Maybe [LogSettingsResponse]
+  { -- | The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket.
+    iamRoleARN :: Lude.Maybe Lude.Text,
+    -- | The settings for your conversation logs. You can log text, audio, or both.
+    logSettings :: Lude.Maybe [LogSettingsResponse]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConversationLogsResponse' with the minimum fields required to make a request.

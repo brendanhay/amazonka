@@ -17,8 +17,8 @@ module Network.AWS.GameLift.Types.GameProperty
     mkGameProperty,
 
     -- * Lenses
-    gpKey,
     gpValue,
+    gpKey,
   )
 where
 
@@ -29,37 +29,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameProperty' smart constructor.
 data GameProperty = GameProperty'
-  { key :: Lude.Text,
-    value :: Lude.Text
+  { -- | The game property value.
+    value :: Lude.Text,
+    -- | The game property identifier.
+    key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameProperty' with the minimum fields required to make a request.
 --
--- * 'key' - The game property identifier.
 -- * 'value' - The game property value.
+-- * 'key' - The game property identifier.
 mkGameProperty ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   GameProperty
-mkGameProperty pKey_ pValue_ =
-  GameProperty' {key = pKey_, value = pValue_}
-
--- | The game property identifier.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpKey :: Lens.Lens' GameProperty Lude.Text
-gpKey = Lens.lens (key :: GameProperty -> Lude.Text) (\s a -> s {key = a} :: GameProperty)
-{-# DEPRECATED gpKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkGameProperty pValue_ pKey_ =
+  GameProperty' {value = pValue_, key = pKey_}
 
 -- | The game property value.
 --
@@ -68,18 +57,25 @@ gpValue :: Lens.Lens' GameProperty Lude.Text
 gpValue = Lens.lens (value :: GameProperty -> Lude.Text) (\s a -> s {value = a} :: GameProperty)
 {-# DEPRECATED gpValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The game property identifier.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpKey :: Lens.Lens' GameProperty Lude.Text
+gpKey = Lens.lens (key :: GameProperty -> Lude.Text) (\s a -> s {key = a} :: GameProperty)
+{-# DEPRECATED gpKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromJSON GameProperty where
   parseJSON =
     Lude.withObject
       "GameProperty"
       ( \x ->
           GameProperty'
-            Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Value")
+            Lude.<$> (x Lude..: "Value") Lude.<*> (x Lude..: "Key")
       )
 
 instance Lude.ToJSON GameProperty where
   toJSON GameProperty' {..} =
     Lude.object
       ( Lude.catMaybes
-          [Lude.Just ("Key" Lude..= key), Lude.Just ("Value" Lude..= value)]
+          [Lude.Just ("Value" Lude..= value), Lude.Just ("Key" Lude..= key)]
       )

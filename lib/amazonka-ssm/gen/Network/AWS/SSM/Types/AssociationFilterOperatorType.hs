@@ -14,8 +14,8 @@ module Network.AWS.SSM.Types.AssociationFilterOperatorType
   ( AssociationFilterOperatorType
       ( AssociationFilterOperatorType',
         AFOTEqual,
-        AFOTGreaterThan,
-        AFOTLessThan
+        AFOTLessThan,
+        AFOTGreaterThan
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype AssociationFilterOperatorType = AssociationFilterOperatorType' Lude.Text
 pattern AFOTEqual :: AssociationFilterOperatorType
 pattern AFOTEqual = AssociationFilterOperatorType' "EQUAL"
 
-pattern AFOTGreaterThan :: AssociationFilterOperatorType
-pattern AFOTGreaterThan = AssociationFilterOperatorType' "GREATER_THAN"
-
 pattern AFOTLessThan :: AssociationFilterOperatorType
 pattern AFOTLessThan = AssociationFilterOperatorType' "LESS_THAN"
 
+pattern AFOTGreaterThan :: AssociationFilterOperatorType
+pattern AFOTGreaterThan = AssociationFilterOperatorType' "GREATER_THAN"
+
 {-# COMPLETE
   AFOTEqual,
-  AFOTGreaterThan,
   AFOTLessThan,
+  AFOTGreaterThan,
   AssociationFilterOperatorType'
   #-}

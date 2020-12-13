@@ -13,15 +13,15 @@
 module Network.AWS.CodeCommit.Types.PullRequestEventType
   ( PullRequestEventType
       ( PullRequestEventType',
+        PullRequestCreated,
+        PullRequestStatusChanged,
+        PullRequestSourceReferenceUpdated,
+        PullRequestMergeStateChanged,
         PullRequestApprovalRuleCreated,
+        PullRequestApprovalRuleUpdated,
         PullRequestApprovalRuleDeleted,
         PullRequestApprovalRuleOverridden,
-        PullRequestApprovalRuleUpdated,
-        PullRequestApprovalStateChanged,
-        PullRequestCreated,
-        PullRequestMergeStateChanged,
-        PullRequestSourceReferenceUpdated,
-        PullRequestStatusChanged
+        PullRequestApprovalStateChanged
       ),
   )
 where
@@ -52,8 +52,23 @@ newtype PullRequestEventType = PullRequestEventType' Lude.Text
       Lude.ToHeader
     )
 
+pattern PullRequestCreated :: PullRequestEventType
+pattern PullRequestCreated = PullRequestEventType' "PULL_REQUEST_CREATED"
+
+pattern PullRequestStatusChanged :: PullRequestEventType
+pattern PullRequestStatusChanged = PullRequestEventType' "PULL_REQUEST_STATUS_CHANGED"
+
+pattern PullRequestSourceReferenceUpdated :: PullRequestEventType
+pattern PullRequestSourceReferenceUpdated = PullRequestEventType' "PULL_REQUEST_SOURCE_REFERENCE_UPDATED"
+
+pattern PullRequestMergeStateChanged :: PullRequestEventType
+pattern PullRequestMergeStateChanged = PullRequestEventType' "PULL_REQUEST_MERGE_STATE_CHANGED"
+
 pattern PullRequestApprovalRuleCreated :: PullRequestEventType
 pattern PullRequestApprovalRuleCreated = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_CREATED"
+
+pattern PullRequestApprovalRuleUpdated :: PullRequestEventType
+pattern PullRequestApprovalRuleUpdated = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_UPDATED"
 
 pattern PullRequestApprovalRuleDeleted :: PullRequestEventType
 pattern PullRequestApprovalRuleDeleted = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_DELETED"
@@ -61,33 +76,18 @@ pattern PullRequestApprovalRuleDeleted = PullRequestEventType' "PULL_REQUEST_APP
 pattern PullRequestApprovalRuleOverridden :: PullRequestEventType
 pattern PullRequestApprovalRuleOverridden = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN"
 
-pattern PullRequestApprovalRuleUpdated :: PullRequestEventType
-pattern PullRequestApprovalRuleUpdated = PullRequestEventType' "PULL_REQUEST_APPROVAL_RULE_UPDATED"
-
 pattern PullRequestApprovalStateChanged :: PullRequestEventType
 pattern PullRequestApprovalStateChanged = PullRequestEventType' "PULL_REQUEST_APPROVAL_STATE_CHANGED"
 
-pattern PullRequestCreated :: PullRequestEventType
-pattern PullRequestCreated = PullRequestEventType' "PULL_REQUEST_CREATED"
-
-pattern PullRequestMergeStateChanged :: PullRequestEventType
-pattern PullRequestMergeStateChanged = PullRequestEventType' "PULL_REQUEST_MERGE_STATE_CHANGED"
-
-pattern PullRequestSourceReferenceUpdated :: PullRequestEventType
-pattern PullRequestSourceReferenceUpdated = PullRequestEventType' "PULL_REQUEST_SOURCE_REFERENCE_UPDATED"
-
-pattern PullRequestStatusChanged :: PullRequestEventType
-pattern PullRequestStatusChanged = PullRequestEventType' "PULL_REQUEST_STATUS_CHANGED"
-
 {-# COMPLETE
+  PullRequestCreated,
+  PullRequestStatusChanged,
+  PullRequestSourceReferenceUpdated,
+  PullRequestMergeStateChanged,
   PullRequestApprovalRuleCreated,
+  PullRequestApprovalRuleUpdated,
   PullRequestApprovalRuleDeleted,
   PullRequestApprovalRuleOverridden,
-  PullRequestApprovalRuleUpdated,
   PullRequestApprovalStateChanged,
-  PullRequestCreated,
-  PullRequestMergeStateChanged,
-  PullRequestSourceReferenceUpdated,
-  PullRequestStatusChanged,
   PullRequestEventType'
   #-}

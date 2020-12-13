@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceExportDetails' smart constructor.
 data InstanceExportDetails = InstanceExportDetails'
-  { targetEnvironment ::
-      Lude.Maybe ExportEnvironment,
+  { -- | The target virtualization environment.
+    targetEnvironment :: Lude.Maybe ExportEnvironment,
+    -- | The ID of the resource being exported.
     instanceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceExportDetails' with the minimum fields required to make a request.
 --
--- * 'instanceId' - The ID of the resource being exported.
 -- * 'targetEnvironment' - The target virtualization environment.
+-- * 'instanceId' - The ID of the resource being exported.
 mkInstanceExportDetails ::
   InstanceExportDetails
 mkInstanceExportDetails =

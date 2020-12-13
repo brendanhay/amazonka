@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DynamoDB.ExecuteTransaction
     mkExecuteTransaction,
 
     -- ** Request lenses
-    etClientRequestToken,
     etTransactStatements,
+    etClientRequestToken,
 
     -- * Destructuring the response
     ExecuteTransactionResponse (..),
@@ -40,40 +41,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkExecuteTransaction' smart constructor.
 data ExecuteTransaction = ExecuteTransaction'
-  { clientRequestToken ::
-      Lude.Maybe Lude.Text,
-    transactStatements ::
-      Lude.NonEmpty ParameterizedStatement
+  { -- | The list of PartiQL statements representing the transaction to run.
+    transactStatements :: Lude.NonEmpty ParameterizedStatement,
+    -- | Set this value to get remaining results, if @NextToken@ was returned in the statement response.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteTransaction' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - Set this value to get remaining results, if @NextToken@ was returned in the statement response.
 -- * 'transactStatements' - The list of PartiQL statements representing the transaction to run.
+-- * 'clientRequestToken' - Set this value to get remaining results, if @NextToken@ was returned in the statement response.
 mkExecuteTransaction ::
   -- | 'transactStatements'
   Lude.NonEmpty ParameterizedStatement ->
   ExecuteTransaction
 mkExecuteTransaction pTransactStatements_ =
   ExecuteTransaction'
-    { clientRequestToken = Lude.Nothing,
-      transactStatements = pTransactStatements_
+    { transactStatements = pTransactStatements_,
+      clientRequestToken = Lude.Nothing
     }
-
--- | Set this value to get remaining results, if @NextToken@ was returned in the statement response.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etClientRequestToken :: Lens.Lens' ExecuteTransaction (Lude.Maybe Lude.Text)
-etClientRequestToken = Lens.lens (clientRequestToken :: ExecuteTransaction -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: ExecuteTransaction)
-{-# DEPRECATED etClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The list of PartiQL statements representing the transaction to run.
 --
@@ -81,6 +69,13 @@ etClientRequestToken = Lens.lens (clientRequestToken :: ExecuteTransaction -> Lu
 etTransactStatements :: Lens.Lens' ExecuteTransaction (Lude.NonEmpty ParameterizedStatement)
 etTransactStatements = Lens.lens (transactStatements :: ExecuteTransaction -> Lude.NonEmpty ParameterizedStatement) (\s a -> s {transactStatements = a} :: ExecuteTransaction)
 {-# DEPRECATED etTransactStatements "Use generic-lens or generic-optics with 'transactStatements' instead." #-}
+
+-- | Set this value to get remaining results, if @NextToken@ was returned in the statement response.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etClientRequestToken :: Lens.Lens' ExecuteTransaction (Lude.Maybe Lude.Text)
+etClientRequestToken = Lens.lens (clientRequestToken :: ExecuteTransaction -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: ExecuteTransaction)
+{-# DEPRECATED etClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest ExecuteTransaction where
   type Rs ExecuteTransaction = ExecuteTransactionResponse
@@ -107,8 +102,8 @@ instance Lude.ToJSON ExecuteTransaction where
   toJSON ExecuteTransaction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("TransactStatements" Lude..= transactStatements)
+          [ Lude.Just ("TransactStatements" Lude..= transactStatements),
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -120,24 +115,18 @@ instance Lude.ToQuery ExecuteTransaction where
 
 -- | /See:/ 'mkExecuteTransactionResponse' smart constructor.
 data ExecuteTransactionResponse = ExecuteTransactionResponse'
-  { responses ::
-      Lude.Maybe
-        (Lude.NonEmpty ItemResponse),
+  { -- | The response to a PartiQL transaction.
+    responses :: Lude.Maybe (Lude.NonEmpty ItemResponse),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteTransactionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'responses' - The response to a PartiQL transaction.
+-- * 'responseStatus' - The response status code.
 mkExecuteTransactionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

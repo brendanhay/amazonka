@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHoursOfOperationSummary' smart constructor.
 data HoursOfOperationSummary = HoursOfOperationSummary'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the hours of operation.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the hours of operation.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the hours of operation.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HoursOfOperationSummary' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the hours of operation.
--- * 'id' - The identifier of the hours of operation.
 -- * 'name' - The name of the hours of operation.
+-- * 'id' - The identifier of the hours of operation.
 mkHoursOfOperationSummary ::
   HoursOfOperationSummary
 mkHoursOfOperationSummary =

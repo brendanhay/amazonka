@@ -32,25 +32,21 @@ import Network.AWS.SSM.Types.NonCompliantSummary
 --
 -- /See:/ 'mkComplianceSummaryItem' smart constructor.
 data ComplianceSummaryItem = ComplianceSummaryItem'
-  { nonCompliantSummary ::
-      Lude.Maybe NonCompliantSummary,
+  { -- | A list of NON_COMPLIANT items for the specified compliance type.
+    nonCompliantSummary :: Lude.Maybe NonCompliantSummary,
+    -- | A list of COMPLIANT items for the specified compliance type.
     compliantSummary :: Lude.Maybe CompliantSummary,
+    -- | The type of compliance item. For example, the compliance type can be Association, Patch, or Custom:string.
     complianceType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceSummaryItem' with the minimum fields required to make a request.
 --
--- * 'complianceType' - The type of compliance item. For example, the compliance type can be Association, Patch, or Custom:string.
--- * 'compliantSummary' - A list of COMPLIANT items for the specified compliance type.
 -- * 'nonCompliantSummary' - A list of NON_COMPLIANT items for the specified compliance type.
+-- * 'compliantSummary' - A list of COMPLIANT items for the specified compliance type.
+-- * 'complianceType' - The type of compliance item. For example, the compliance type can be Association, Patch, or Custom:string.
 mkComplianceSummaryItem ::
   ComplianceSummaryItem
 mkComplianceSummaryItem =

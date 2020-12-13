@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStacks' smart constructor.
 newtype DescribeStacks = DescribeStacks'
-  { stackIds ::
-      Lude.Maybe [Lude.Text]
+  { -- | An array of stack IDs that specify the stacks to be described. If you omit this parameter, @DescribeStacks@ returns a description of every stack.
+    stackIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStacks' with the minimum fields required to make a request.
@@ -104,23 +99,18 @@ instance Lude.ToQuery DescribeStacks where
 --
 -- /See:/ 'mkDescribeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-  { stacks ::
-      Lude.Maybe [Stack],
+  { -- | An array of @Stack@ objects that describe the stacks.
+    stacks :: Lude.Maybe [Stack],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStacksResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stacks' - An array of @Stack@ objects that describe the stacks.
+-- * 'responseStatus' - The response status code.
 mkDescribeStacksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

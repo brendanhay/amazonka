@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,8 +56,8 @@ module Network.AWS.GameLift.UpdateRuntimeConfiguration
     mkUpdateRuntimeConfiguration,
 
     -- ** Request lenses
-    urcFleetId,
     urcRuntimeConfiguration,
+    urcFleetId,
 
     -- * Destructuring the response
     UpdateRuntimeConfigurationResponse (..),
@@ -78,42 +79,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateRuntimeConfiguration' smart constructor.
 data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
-  { fleetId ::
-      Lude.Text,
-    runtimeConfiguration ::
-      RuntimeConfiguration
+  { -- | Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The runtime configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration.
+    runtimeConfiguration :: RuntimeConfiguration,
+    -- | A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN value.
+    fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRuntimeConfiguration' with the minimum fields required to make a request.
 --
--- * 'fleetId' - A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN value.
 -- * 'runtimeConfiguration' - Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The runtime configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration.
+-- * 'fleetId' - A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN value.
 mkUpdateRuntimeConfiguration ::
-  -- | 'fleetId'
-  Lude.Text ->
   -- | 'runtimeConfiguration'
   RuntimeConfiguration ->
+  -- | 'fleetId'
+  Lude.Text ->
   UpdateRuntimeConfiguration
-mkUpdateRuntimeConfiguration pFleetId_ pRuntimeConfiguration_ =
+mkUpdateRuntimeConfiguration pRuntimeConfiguration_ pFleetId_ =
   UpdateRuntimeConfiguration'
-    { fleetId = pFleetId_,
-      runtimeConfiguration = pRuntimeConfiguration_
+    { runtimeConfiguration =
+        pRuntimeConfiguration_,
+      fleetId = pFleetId_
     }
-
--- | A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN value.
---
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urcFleetId :: Lens.Lens' UpdateRuntimeConfiguration Lude.Text
-urcFleetId = Lens.lens (fleetId :: UpdateRuntimeConfiguration -> Lude.Text) (\s a -> s {fleetId = a} :: UpdateRuntimeConfiguration)
-{-# DEPRECATED urcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime Servers script. The runtime configuration lists the types of server processes to run on an instance and includes the following configuration settings: the server executable or launch script file, launch parameters, and the number of processes to run concurrently on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration.
 --
@@ -121,6 +110,13 @@ urcFleetId = Lens.lens (fleetId :: UpdateRuntimeConfiguration -> Lude.Text) (\s 
 urcRuntimeConfiguration :: Lens.Lens' UpdateRuntimeConfiguration RuntimeConfiguration
 urcRuntimeConfiguration = Lens.lens (runtimeConfiguration :: UpdateRuntimeConfiguration -> RuntimeConfiguration) (\s a -> s {runtimeConfiguration = a} :: UpdateRuntimeConfiguration)
 {-# DEPRECATED urcRuntimeConfiguration "Use generic-lens or generic-optics with 'runtimeConfiguration' instead." #-}
+
+-- | A unique identifier for a fleet to update runtime configuration for. You can use either the fleet ID or ARN value.
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urcFleetId :: Lens.Lens' UpdateRuntimeConfiguration Lude.Text
+urcFleetId = Lens.lens (fleetId :: UpdateRuntimeConfiguration -> Lude.Text) (\s a -> s {fleetId = a} :: UpdateRuntimeConfiguration)
+{-# DEPRECATED urcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 instance Lude.AWSRequest UpdateRuntimeConfiguration where
   type
@@ -150,8 +146,8 @@ instance Lude.ToJSON UpdateRuntimeConfiguration where
   toJSON UpdateRuntimeConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("FleetId" Lude..= fleetId),
-            Lude.Just ("RuntimeConfiguration" Lude..= runtimeConfiguration)
+          [ Lude.Just ("RuntimeConfiguration" Lude..= runtimeConfiguration),
+            Lude.Just ("FleetId" Lude..= fleetId)
           ]
       )
 
@@ -165,25 +161,18 @@ instance Lude.ToQuery UpdateRuntimeConfiguration where
 --
 -- /See:/ 'mkUpdateRuntimeConfigurationResponse' smart constructor.
 data UpdateRuntimeConfigurationResponse = UpdateRuntimeConfigurationResponse'
-  { runtimeConfiguration ::
-      Lude.Maybe
-        RuntimeConfiguration,
-    responseStatus ::
-      Lude.Int
+  { -- | The runtime configuration currently in force. If the update was successful, this object matches the one in the request.
+    runtimeConfiguration :: Lude.Maybe RuntimeConfiguration,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRuntimeConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'runtimeConfiguration' - The runtime configuration currently in force. If the update was successful, this object matches the one in the request.
+-- * 'responseStatus' - The response status code.
 mkUpdateRuntimeConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

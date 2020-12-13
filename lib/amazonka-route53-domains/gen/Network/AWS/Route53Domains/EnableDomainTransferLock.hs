@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     mkEnableDomainTransferLockResponse,
 
     -- ** Response lenses
-    edtlrsResponseStatus,
     edtlrsOperationId,
+    edtlrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkEnableDomainTransferLock' smart constructor.
 newtype EnableDomainTransferLock = EnableDomainTransferLock'
-  { domainName ::
-      Lude.Text
+  { -- | The name of the domain that you want to set the transfer lock for.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableDomainTransferLock' with the minimum fields required to make a request.
@@ -77,7 +72,7 @@ instance Lude.AWSRequest EnableDomainTransferLock where
     Res.receiveJSON
       ( \s h x ->
           EnableDomainTransferLockResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "OperationId")
+            Lude.<$> (x Lude..:> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders EnableDomainTransferLock where
@@ -108,17 +103,12 @@ instance Lude.ToQuery EnableDomainTransferLock where
 --
 -- /See:/ 'mkEnableDomainTransferLockResponse' smart constructor.
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
-  { responseStatus ::
-      Lude.Int,
-    operationId :: Lude.Text
+  { -- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
+    operationId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableDomainTransferLockResponse' with the minimum fields required to make a request.
@@ -126,24 +116,16 @@ data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
 -- * 'operationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 -- * 'responseStatus' - The response status code.
 mkEnableDomainTransferLockResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'operationId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableDomainTransferLockResponse
-mkEnableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
+mkEnableDomainTransferLockResponse pOperationId_ pResponseStatus_ =
   EnableDomainTransferLockResponse'
-    { responseStatus =
-        pResponseStatus_,
-      operationId = pOperationId_
+    { operationId = pOperationId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edtlrsResponseStatus :: Lens.Lens' EnableDomainTransferLockResponse Lude.Int
-edtlrsResponseStatus = Lens.lens (responseStatus :: EnableDomainTransferLockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableDomainTransferLockResponse)
-{-# DEPRECATED edtlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 --
@@ -151,3 +133,10 @@ edtlrsResponseStatus = Lens.lens (responseStatus :: EnableDomainTransferLockResp
 edtlrsOperationId :: Lens.Lens' EnableDomainTransferLockResponse Lude.Text
 edtlrsOperationId = Lens.lens (operationId :: EnableDomainTransferLockResponse -> Lude.Text) (\s a -> s {operationId = a} :: EnableDomainTransferLockResponse)
 {-# DEPRECATED edtlrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edtlrsResponseStatus :: Lens.Lens' EnableDomainTransferLockResponse Lude.Int
+edtlrsResponseStatus = Lens.lens (responseStatus :: EnableDomainTransferLockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableDomainTransferLockResponse)
+{-# DEPRECATED edtlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

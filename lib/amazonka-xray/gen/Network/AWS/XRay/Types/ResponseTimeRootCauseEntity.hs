@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResponseTimeRootCauseEntity' smart constructor.
 data ResponseTimeRootCauseEntity = ResponseTimeRootCauseEntity'
-  { remote ::
-      Lude.Maybe Lude.Bool,
+  { -- | A flag that denotes a remote subsegment.
+    remote :: Lude.Maybe Lude.Bool,
+    -- | The type and messages of the exceptions.
     coverage :: Lude.Maybe Lude.Double,
+    -- | The name of the entity.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResponseTimeRootCauseEntity' with the minimum fields required to make a request.
 --
+-- * 'remote' - A flag that denotes a remote subsegment.
 -- * 'coverage' - The type and messages of the exceptions.
 -- * 'name' - The name of the entity.
--- * 'remote' - A flag that denotes a remote subsegment.
 mkResponseTimeRootCauseEntity ::
   ResponseTimeRootCauseEntity
 mkResponseTimeRootCauseEntity =

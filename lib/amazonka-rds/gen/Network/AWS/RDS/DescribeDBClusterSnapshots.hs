@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -54,24 +55,71 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDBClusterSnapshots' smart constructor.
 data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
-  { dbClusterIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter can't be used in conjunction with the @DBClusterSnapshotIdentifier@ parameter. This parameter isn't case-sensitive.
+    --
+    -- Constraints:
+    --
+    --     * If supplied, must match the identifier of an existing DBCluster.
+    dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
+    --
+    -- You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the @ModifyDBClusterSnapshotAttribute@ API action.
     includeShared :: Lude.Maybe Lude.Bool,
-    dbClusterSnapshotIdentifier ::
-      Lude.Maybe Lude.Text,
+    -- | A specific DB cluster snapshot identifier to describe. This parameter can't be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.
+    --
+    -- Constraints:
+    --
+    --     * If supplied, must match the identifier of an existing DBClusterSnapshot.
+    --
+    --
+    --     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
+    dbClusterSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | A filter that specifies one or more DB cluster snapshots to describe.
+    --
+    -- Supported filters:
+    --
+    --     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs).
+    --
+    --
+    --     * @db-cluster-snapshot-id@ - Accepts DB cluster snapshot identifiers.
+    --
+    --
+    --     * @snapshot-type@ - Accepts types of DB cluster snapshots.
+    --
+    --
+    --     * @engine@ - Accepts names of database engines.
     filters :: Lude.Maybe [Filter],
+    -- | The type of DB cluster snapshots to be returned. You can specify one of the following values:
+    --
+    --
+    --     * @automated@ - Return all DB cluster snapshots that have been automatically taken by Amazon RDS for my AWS account.
+    --
+    --
+    --     * @manual@ - Return all DB cluster snapshots that have been taken by my AWS account.
+    --
+    --
+    --     * @shared@ - Return all manual DB cluster snapshots that have been shared to my AWS account.
+    --
+    --
+    --     * @public@ - Return all DB cluster snapshots that have been marked as public.
+    --
+    --
+    -- If you don't specify a @SnapshotType@ value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by enabling the @IncludeShared@ parameter. You can include public DB cluster snapshots with these results by enabling the @IncludePublic@ parameter.
+    -- The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
     snapshotType :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
+    --
+    -- You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
     includePublic :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterSnapshots' with the minimum fields required to make a request.
@@ -83,6 +131,9 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 --     * If supplied, must match the identifier of an existing DBCluster.
 --
 --
+-- * 'includeShared' - A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
+--
+-- You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the @ModifyDBClusterSnapshotAttribute@ API action.
 -- * 'dbClusterSnapshotIdentifier' - A specific DB cluster snapshot identifier to describe. This parameter can't be used in conjunction with the @DBClusterIdentifier@ parameter. This value is stored as a lowercase string.
 --
 -- Constraints:
@@ -109,17 +160,6 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 --     * @engine@ - Accepts names of database engines.
 --
 --
--- * 'includePublic' - A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
---
--- You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
--- * 'includeShared' - A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
---
--- You can give an AWS account permission to restore a manual DB cluster snapshot from another AWS account by the @ModifyDBClusterSnapshotAttribute@ API action.
--- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
 -- * 'snapshotType' - The type of DB cluster snapshots to be returned. You can specify one of the following values:
 --
 --
@@ -137,6 +177,14 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 --
 -- If you don't specify a @SnapshotType@ value, then both automated and manual DB cluster snapshots are returned. You can include shared DB cluster snapshots with these results by enabling the @IncludeShared@ parameter. You can include public DB cluster snapshots with these results by enabling the @IncludePublic@ parameter.
 -- The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
+-- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'includePublic' - A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
+--
+-- You can share a manual DB cluster snapshot as public by using the 'ModifyDBClusterSnapshotAttribute' API action.
 mkDescribeDBClusterSnapshots ::
   DescribeDBClusterSnapshots
 mkDescribeDBClusterSnapshots =
@@ -313,27 +361,20 @@ instance Lude.ToQuery DescribeDBClusterSnapshots where
 --
 -- /See:/ 'mkDescribeDBClusterSnapshotsResponse' smart constructor.
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    dbClusterSnapshots ::
-      Lude.Maybe
-        [DBClusterSnapshot],
-    responseStatus ::
-      Lude.Int
+  { -- | An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | Provides a list of DB cluster snapshots for the user.
+    dbClusterSnapshots :: Lude.Maybe [DBClusterSnapshot],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterSnapshotsResponse' with the minimum fields required to make a request.
 --
--- * 'dbClusterSnapshots' - Provides a list of DB cluster snapshots for the user.
 -- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'dbClusterSnapshots' - Provides a list of DB cluster snapshots for the user.
 -- * 'responseStatus' - The response status code.
 mkDescribeDBClusterSnapshotsResponse ::
   -- | 'responseStatus'

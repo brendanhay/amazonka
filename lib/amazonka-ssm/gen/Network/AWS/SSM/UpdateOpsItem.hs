@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,6 +22,7 @@ module Network.AWS.SSM.UpdateOpsItem
     mkUpdateOpsItem,
 
     -- ** Request lenses
+    uoiOpsItemId,
     uoiStatus,
     uoiOperationalDataToDelete,
     uoiPriority,
@@ -31,7 +33,6 @@ module Network.AWS.SSM.UpdateOpsItem
     uoiOperationalData,
     uoiDescription,
     uoiNotifications,
-    uoiOpsItemId,
 
     -- * Destructuring the response
     UpdateOpsItemResponse (..),
@@ -50,54 +51,63 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkUpdateOpsItem' smart constructor.
 data UpdateOpsItem = UpdateOpsItem'
-  { status ::
-      Lude.Maybe OpsItemStatus,
+  { -- | The ID of the OpsItem.
+    opsItemId :: Lude.Text,
+    -- | The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details> in the /AWS Systems Manager User Guide/ .
+    status :: Lude.Maybe OpsItemStatus,
+    -- | Keys that you want to remove from the OperationalData map.
     operationalDataToDelete :: Lude.Maybe [Lude.Text],
+    -- | The importance of this OpsItem in relation to other OpsItems in the system.
     priority :: Lude.Maybe Lude.Natural,
+    -- | Specify a new category for an OpsItem.
     category :: Lude.Maybe Lude.Text,
+    -- | Specify a new severity for an OpsItem.
     severity :: Lude.Maybe Lude.Text,
+    -- | One or more OpsItems that share something in common with the current OpsItems. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
     relatedOpsItems :: Lude.Maybe [RelatedOpsItem],
+    -- | A short heading that describes the nature of the OpsItem and the impacted resource.
     title :: Lude.Maybe Lude.Text,
-    operationalData ::
-      Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue)),
+    -- | Add new keys or edit existing key-value pairs of the OperationalData map in the OpsItem object.
+    --
+    -- Operational data is custom data that provides useful reference details about the OpsItem. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data. You enter operational data as key-value pairs. The key has a maximum length of 128 characters. The value has a maximum size of 20 KB.
+    -- /Important:/ Operational data keys /can't/ begin with the following: amazon, aws, amzn, ssm, /amazon, /aws, /amzn, /ssm.
+    -- You can choose to make the data searchable by other users in the account or you can restrict search access. Searchable data means that all users with access to the OpsItem Overview page (as provided by the 'DescribeOpsItems' API action) can view and search on the specified data. Operational data that is not searchable is only viewable by users who have access to the OpsItem (as provided by the 'GetOpsItem' API action).
+    -- Use the @/aws/resources@ key in OperationalData to specify a related resource in the request. Use the @/aws/automations@ key in OperationalData to associate an Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually> in the /AWS Systems Manager User Guide/ .
+    operationalData :: Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue)),
+    -- | Update the information about the OpsItem. Provide enough information so that users reading this OpsItem for the first time understand the issue.
     description :: Lude.Maybe Lude.Text,
-    notifications :: Lude.Maybe [OpsItemNotification],
-    opsItemId :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
+    notifications :: Lude.Maybe [OpsItemNotification]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOpsItem' with the minimum fields required to make a request.
 --
+-- * 'opsItemId' - The ID of the OpsItem.
+-- * 'status' - The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details> in the /AWS Systems Manager User Guide/ .
+-- * 'operationalDataToDelete' - Keys that you want to remove from the OperationalData map.
+-- * 'priority' - The importance of this OpsItem in relation to other OpsItems in the system.
 -- * 'category' - Specify a new category for an OpsItem.
--- * 'description' - Update the information about the OpsItem. Provide enough information so that users reading this OpsItem for the first time understand the issue.
--- * 'notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
+-- * 'severity' - Specify a new severity for an OpsItem.
+-- * 'relatedOpsItems' - One or more OpsItems that share something in common with the current OpsItems. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
+-- * 'title' - A short heading that describes the nature of the OpsItem and the impacted resource.
 -- * 'operationalData' - Add new keys or edit existing key-value pairs of the OperationalData map in the OpsItem object.
 --
 -- Operational data is custom data that provides useful reference details about the OpsItem. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data. You enter operational data as key-value pairs. The key has a maximum length of 128 characters. The value has a maximum size of 20 KB.
 -- /Important:/ Operational data keys /can't/ begin with the following: amazon, aws, amzn, ssm, /amazon, /aws, /amzn, /ssm.
 -- You can choose to make the data searchable by other users in the account or you can restrict search access. Searchable data means that all users with access to the OpsItem Overview page (as provided by the 'DescribeOpsItems' API action) can view and search on the specified data. Operational data that is not searchable is only viewable by users who have access to the OpsItem (as provided by the 'GetOpsItem' API action).
 -- Use the @/aws/resources@ key in OperationalData to specify a related resource in the request. Use the @/aws/automations@ key in OperationalData to associate an Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually> in the /AWS Systems Manager User Guide/ .
--- * 'operationalDataToDelete' - Keys that you want to remove from the OperationalData map.
--- * 'opsItemId' - The ID of the OpsItem.
--- * 'priority' - The importance of this OpsItem in relation to other OpsItems in the system.
--- * 'relatedOpsItems' - One or more OpsItems that share something in common with the current OpsItems. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
--- * 'severity' - Specify a new severity for an OpsItem.
--- * 'status' - The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details> in the /AWS Systems Manager User Guide/ .
--- * 'title' - A short heading that describes the nature of the OpsItem and the impacted resource.
+-- * 'description' - Update the information about the OpsItem. Provide enough information so that users reading this OpsItem for the first time understand the issue.
+-- * 'notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
 mkUpdateOpsItem ::
   -- | 'opsItemId'
   Lude.Text ->
   UpdateOpsItem
 mkUpdateOpsItem pOpsItemId_ =
   UpdateOpsItem'
-    { status = Lude.Nothing,
+    { opsItemId = pOpsItemId_,
+      status = Lude.Nothing,
       operationalDataToDelete = Lude.Nothing,
       priority = Lude.Nothing,
       category = Lude.Nothing,
@@ -106,9 +116,15 @@ mkUpdateOpsItem pOpsItemId_ =
       title = Lude.Nothing,
       operationalData = Lude.Nothing,
       description = Lude.Nothing,
-      notifications = Lude.Nothing,
-      opsItemId = pOpsItemId_
+      notifications = Lude.Nothing
     }
+
+-- | The ID of the OpsItem.
+--
+-- /Note:/ Consider using 'opsItemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uoiOpsItemId :: Lens.Lens' UpdateOpsItem Lude.Text
+uoiOpsItemId = Lens.lens (opsItemId :: UpdateOpsItem -> Lude.Text) (\s a -> s {opsItemId = a} :: UpdateOpsItem)
+{-# DEPRECATED uoiOpsItemId "Use generic-lens or generic-optics with 'opsItemId' instead." #-}
 
 -- | The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details> in the /AWS Systems Manager User Guide/ .
 --
@@ -185,13 +201,6 @@ uoiNotifications :: Lens.Lens' UpdateOpsItem (Lude.Maybe [OpsItemNotification])
 uoiNotifications = Lens.lens (notifications :: UpdateOpsItem -> Lude.Maybe [OpsItemNotification]) (\s a -> s {notifications = a} :: UpdateOpsItem)
 {-# DEPRECATED uoiNotifications "Use generic-lens or generic-optics with 'notifications' instead." #-}
 
--- | The ID of the OpsItem.
---
--- /Note:/ Consider using 'opsItemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uoiOpsItemId :: Lens.Lens' UpdateOpsItem Lude.Text
-uoiOpsItemId = Lens.lens (opsItemId :: UpdateOpsItem -> Lude.Text) (\s a -> s {opsItemId = a} :: UpdateOpsItem)
-{-# DEPRECATED uoiOpsItemId "Use generic-lens or generic-optics with 'opsItemId' instead." #-}
-
 instance Lude.AWSRequest UpdateOpsItem where
   type Rs UpdateOpsItem = UpdateOpsItemResponse
   request = Req.postJSON ssmService
@@ -216,7 +225,8 @@ instance Lude.ToJSON UpdateOpsItem where
   toJSON UpdateOpsItem' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Status" Lude..=) Lude.<$> status,
+          [ Lude.Just ("OpsItemId" Lude..= opsItemId),
+            ("Status" Lude..=) Lude.<$> status,
             ("OperationalDataToDelete" Lude..=)
               Lude.<$> operationalDataToDelete,
             ("Priority" Lude..=) Lude.<$> priority,
@@ -226,8 +236,7 @@ instance Lude.ToJSON UpdateOpsItem where
             ("Title" Lude..=) Lude.<$> title,
             ("OperationalData" Lude..=) Lude.<$> operationalData,
             ("Description" Lude..=) Lude.<$> description,
-            ("Notifications" Lude..=) Lude.<$> notifications,
-            Lude.Just ("OpsItemId" Lude..= opsItemId)
+            ("Notifications" Lude..=) Lude.<$> notifications
           ]
       )
 
@@ -239,16 +248,10 @@ instance Lude.ToQuery UpdateOpsItem where
 
 -- | /See:/ 'mkUpdateOpsItemResponse' smart constructor.
 newtype UpdateOpsItemResponse = UpdateOpsItemResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOpsItemResponse' with the minimum fields required to make a request.

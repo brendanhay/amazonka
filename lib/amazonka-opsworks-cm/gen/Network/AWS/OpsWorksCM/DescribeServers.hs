@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.OpsWorksCM.DescribeServers
     mkDescribeServers,
 
     -- ** Request lenses
-    dssServerName,
-    dssNextToken,
-    dssMaxResults,
+    dsServerName,
+    dsNextToken,
+    dsMaxResults,
 
     -- * Destructuring the response
     DescribeServersResponse (..),
@@ -48,25 +49,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeServers' smart constructor.
 data DescribeServers = DescribeServers'
-  { serverName ::
-      Lude.Maybe Lude.Text,
+  { -- | Describes the server with the specified ServerName.
+    serverName :: Lude.Maybe Lude.Text,
+    -- | This is not currently implemented for @DescribeServers@ requests.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | This is not currently implemented for @DescribeServers@ requests.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServers' with the minimum fields required to make a request.
 --
--- * 'maxResults' - This is not currently implemented for @DescribeServers@ requests.
--- * 'nextToken' - This is not currently implemented for @DescribeServers@ requests.
 -- * 'serverName' - Describes the server with the specified ServerName.
+-- * 'nextToken' - This is not currently implemented for @DescribeServers@ requests.
+-- * 'maxResults' - This is not currently implemented for @DescribeServers@ requests.
 mkDescribeServers ::
   DescribeServers
 mkDescribeServers =
@@ -79,23 +76,23 @@ mkDescribeServers =
 -- | Describes the server with the specified ServerName.
 --
 -- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssServerName :: Lens.Lens' DescribeServers (Lude.Maybe Lude.Text)
-dssServerName = Lens.lens (serverName :: DescribeServers -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: DescribeServers)
-{-# DEPRECATED dssServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+dsServerName :: Lens.Lens' DescribeServers (Lude.Maybe Lude.Text)
+dsServerName = Lens.lens (serverName :: DescribeServers -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: DescribeServers)
+{-# DEPRECATED dsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | This is not currently implemented for @DescribeServers@ requests.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssNextToken :: Lens.Lens' DescribeServers (Lude.Maybe Lude.Text)
-dssNextToken = Lens.lens (nextToken :: DescribeServers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeServers)
-{-# DEPRECATED dssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsNextToken :: Lens.Lens' DescribeServers (Lude.Maybe Lude.Text)
+dsNextToken = Lens.lens (nextToken :: DescribeServers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeServers)
+{-# DEPRECATED dsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | This is not currently implemented for @DescribeServers@ requests.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssMaxResults :: Lens.Lens' DescribeServers (Lude.Maybe Lude.Natural)
-dssMaxResults = Lens.lens (maxResults :: DescribeServers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeServers)
-{-# DEPRECATED dssMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dsMaxResults :: Lens.Lens' DescribeServers (Lude.Maybe Lude.Natural)
+dsMaxResults = Lens.lens (maxResults :: DescribeServers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeServers)
+{-# DEPRECATED dsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeServers where
   page rq rs
@@ -104,7 +101,7 @@ instance Page.AWSPager DescribeServers where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dssNextToken Lens..~ rs Lens.^. dssrsNextToken
+          Lude.& dsNextToken Lens..~ rs Lens.^. dssrsNextToken
 
 instance Lude.AWSRequest DescribeServers where
   type Rs DescribeServers = DescribeServersResponse
@@ -147,9 +144,14 @@ instance Lude.ToQuery DescribeServers where
 
 -- | /See:/ 'mkDescribeServersResponse' smart constructor.
 data DescribeServersResponse = DescribeServersResponse'
-  { servers ::
-      Lude.Maybe [Server],
+  { -- | Contains the response to a @DescribeServers@ request.
+    --
+    -- /For Chef Automate servers:/ If @DescribeServersResponse$Servers$EngineAttributes@ includes CHEF_MAJOR_UPGRADE_AVAILABLE, you can upgrade the Chef Automate server to Chef Automate 2. To be eligible for upgrade, a server running Chef Automate 1 must have had at least one successful maintenance run after November 1, 2019.
+    -- /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@ contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140. The CA certificate is also used to sign node certificates.
+    servers :: Lude.Maybe [Server],
+    -- | This is not currently implemented for @DescribeServers@ requests.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -157,12 +159,12 @@ data DescribeServersResponse = DescribeServersResponse'
 
 -- | Creates a value of 'DescribeServersResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - This is not currently implemented for @DescribeServers@ requests.
--- * 'responseStatus' - The response status code.
 -- * 'servers' - Contains the response to a @DescribeServers@ request.
 --
 -- /For Chef Automate servers:/ If @DescribeServersResponse$Servers$EngineAttributes@ includes CHEF_MAJOR_UPGRADE_AVAILABLE, you can upgrade the Chef Automate server to Chef Automate 2. To be eligible for upgrade, a server running Chef Automate 1 must have had at least one successful maintenance run after November 1, 2019.
 -- /For Puppet Server:/ @DescribeServersResponse$Servers$EngineAttributes@ contains PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140. The CA certificate is also used to sign node certificates.
+-- * 'nextToken' - This is not currently implemented for @DescribeServers@ requests.
+-- * 'responseStatus' - The response status code.
 mkDescribeServersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteFlowLogs
     mkDeleteFlowLogs,
 
     -- ** Request lenses
-    dflDryRun,
     dflFlowLogIds,
+    dflDryRun,
 
     -- * Destructuring the response
     DeleteFlowLogsResponse (..),
@@ -40,36 +41,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteFlowLogs' smart constructor.
 data DeleteFlowLogs = DeleteFlowLogs'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    flowLogIds :: [Lude.Text]
+  { -- | One or more flow log IDs.
+    --
+    -- Constraint: Maximum of 1000 flow log IDs.
+    flowLogIds :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFlowLogs' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'flowLogIds' - One or more flow log IDs.
 --
 -- Constraint: Maximum of 1000 flow log IDs.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteFlowLogs ::
   DeleteFlowLogs
 mkDeleteFlowLogs =
-  DeleteFlowLogs' {dryRun = Lude.Nothing, flowLogIds = Lude.mempty}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflDryRun :: Lens.Lens' DeleteFlowLogs (Lude.Maybe Lude.Bool)
-dflDryRun = Lens.lens (dryRun :: DeleteFlowLogs -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteFlowLogs)
-{-# DEPRECATED dflDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+  DeleteFlowLogs' {flowLogIds = Lude.mempty, dryRun = Lude.Nothing}
 
 -- | One or more flow log IDs.
 --
@@ -79,6 +70,13 @@ dflDryRun = Lens.lens (dryRun :: DeleteFlowLogs -> Lude.Maybe Lude.Bool) (\s a -
 dflFlowLogIds :: Lens.Lens' DeleteFlowLogs [Lude.Text]
 dflFlowLogIds = Lens.lens (flowLogIds :: DeleteFlowLogs -> [Lude.Text]) (\s a -> s {flowLogIds = a} :: DeleteFlowLogs)
 {-# DEPRECATED dflFlowLogIds "Use generic-lens or generic-optics with 'flowLogIds' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dflDryRun :: Lens.Lens' DeleteFlowLogs (Lude.Maybe Lude.Bool)
+dflDryRun = Lens.lens (dryRun :: DeleteFlowLogs -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteFlowLogs)
+{-# DEPRECATED dflDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteFlowLogs where
   type Rs DeleteFlowLogs = DeleteFlowLogsResponse
@@ -104,29 +102,24 @@ instance Lude.ToQuery DeleteFlowLogs where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteFlowLogs" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "FlowLogId" flowLogIds
+        Lude.toQueryList "FlowLogId" flowLogIds,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteFlowLogsResponse' smart constructor.
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
-  { unsuccessful ::
-      Lude.Maybe [UnsuccessfulItem],
+  { -- | Information about the flow logs that could not be deleted successfully.
+    unsuccessful :: Lude.Maybe [UnsuccessfulItem],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFlowLogsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unsuccessful' - Information about the flow logs that could not be deleted successfully.
+-- * 'responseStatus' - The response status code.
 mkDeleteFlowLogsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

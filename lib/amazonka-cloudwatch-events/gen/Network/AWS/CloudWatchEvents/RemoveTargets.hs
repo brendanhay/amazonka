@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.CloudWatchEvents.RemoveTargets
 
     -- ** Request lenses
     rtForce,
-    rtEventBusName,
-    rtRule,
     rtIds,
+    rtRule,
+    rtEventBusName,
 
     -- * Destructuring the response
     RemoveTargetsResponse (..),
@@ -46,38 +47,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveTargets' smart constructor.
 data RemoveTargets = RemoveTargets'
-  { force :: Lude.Maybe Lude.Bool,
-    eventBusName :: Lude.Maybe Lude.Text,
+  { -- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
+    force :: Lude.Maybe Lude.Bool,
+    -- | The IDs of the targets to remove from the rule.
+    ids :: Lude.NonEmpty Lude.Text,
+    -- | The name of the rule.
     rule :: Lude.Text,
-    ids :: Lude.NonEmpty Lude.Text
+    -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+    eventBusName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTargets' with the minimum fields required to make a request.
 --
--- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 -- * 'force' - If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
 -- * 'ids' - The IDs of the targets to remove from the rule.
 -- * 'rule' - The name of the rule.
+-- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 mkRemoveTargets ::
-  -- | 'rule'
-  Lude.Text ->
   -- | 'ids'
   Lude.NonEmpty Lude.Text ->
+  -- | 'rule'
+  Lude.Text ->
   RemoveTargets
-mkRemoveTargets pRule_ pIds_ =
+mkRemoveTargets pIds_ pRule_ =
   RemoveTargets'
     { force = Lude.Nothing,
-      eventBusName = Lude.Nothing,
+      ids = pIds_,
       rule = pRule_,
-      ids = pIds_
+      eventBusName = Lude.Nothing
     }
 
 -- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
@@ -87,12 +86,12 @@ rtForce :: Lens.Lens' RemoveTargets (Lude.Maybe Lude.Bool)
 rtForce = Lens.lens (force :: RemoveTargets -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: RemoveTargets)
 {-# DEPRECATED rtForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
--- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+-- | The IDs of the targets to remove from the rule.
 --
--- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtEventBusName :: Lens.Lens' RemoveTargets (Lude.Maybe Lude.Text)
-rtEventBusName = Lens.lens (eventBusName :: RemoveTargets -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: RemoveTargets)
-{-# DEPRECATED rtEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
+-- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtIds :: Lens.Lens' RemoveTargets (Lude.NonEmpty Lude.Text)
+rtIds = Lens.lens (ids :: RemoveTargets -> Lude.NonEmpty Lude.Text) (\s a -> s {ids = a} :: RemoveTargets)
+{-# DEPRECATED rtIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
 -- | The name of the rule.
 --
@@ -101,12 +100,12 @@ rtRule :: Lens.Lens' RemoveTargets Lude.Text
 rtRule = Lens.lens (rule :: RemoveTargets -> Lude.Text) (\s a -> s {rule = a} :: RemoveTargets)
 {-# DEPRECATED rtRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
--- | The IDs of the targets to remove from the rule.
+-- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 --
--- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtIds :: Lens.Lens' RemoveTargets (Lude.NonEmpty Lude.Text)
-rtIds = Lens.lens (ids :: RemoveTargets -> Lude.NonEmpty Lude.Text) (\s a -> s {ids = a} :: RemoveTargets)
-{-# DEPRECATED rtIds "Use generic-lens or generic-optics with 'ids' instead." #-}
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtEventBusName :: Lens.Lens' RemoveTargets (Lude.Maybe Lude.Text)
+rtEventBusName = Lens.lens (eventBusName :: RemoveTargets -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: RemoveTargets)
+{-# DEPRECATED rtEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 instance Lude.AWSRequest RemoveTargets where
   type Rs RemoveTargets = RemoveTargetsResponse
@@ -136,9 +135,9 @@ instance Lude.ToJSON RemoveTargets where
     Lude.object
       ( Lude.catMaybes
           [ ("Force" Lude..=) Lude.<$> force,
-            ("EventBusName" Lude..=) Lude.<$> eventBusName,
+            Lude.Just ("Ids" Lude..= ids),
             Lude.Just ("Rule" Lude..= rule),
-            Lude.Just ("Ids" Lude..= ids)
+            ("EventBusName" Lude..=) Lude.<$> eventBusName
           ]
       )
 
@@ -150,25 +149,20 @@ instance Lude.ToQuery RemoveTargets where
 
 -- | /See:/ 'mkRemoveTargetsResponse' smart constructor.
 data RemoveTargetsResponse = RemoveTargetsResponse'
-  { failedEntryCount ::
-      Lude.Maybe Lude.Int,
-    failedEntries ::
-      Lude.Maybe [RemoveTargetsResultEntry],
+  { -- | The number of failed entries.
+    failedEntryCount :: Lude.Maybe Lude.Int,
+    -- | The failed target entries.
+    failedEntries :: Lude.Maybe [RemoveTargetsResultEntry],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTargetsResponse' with the minimum fields required to make a request.
 --
--- * 'failedEntries' - The failed target entries.
 -- * 'failedEntryCount' - The number of failed entries.
+-- * 'failedEntries' - The failed target entries.
 -- * 'responseStatus' - The response status code.
 mkRemoveTargetsResponse ::
   -- | 'responseStatus'

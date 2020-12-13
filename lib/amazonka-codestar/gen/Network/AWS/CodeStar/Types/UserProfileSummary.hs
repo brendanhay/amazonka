@@ -31,10 +31,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserProfileSummary' smart constructor.
 data UserProfileSummary = UserProfileSummary'
-  { sshPublicKey ::
-      Lude.Maybe Lude.Text,
+  { -- | The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
+    sshPublicKey :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the user in IAM.
     userARN :: Lude.Maybe Lude.Text,
+    -- | The email address associated with the user.
     emailAddress :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The display name of a user in AWS CodeStar. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
     displayName :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -42,10 +45,10 @@ data UserProfileSummary = UserProfileSummary'
 
 -- | Creates a value of 'UserProfileSummary' with the minimum fields required to make a request.
 --
--- * 'displayName' - The display name of a user in AWS CodeStar. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
--- * 'emailAddress' - The email address associated with the user.
 -- * 'sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
 -- * 'userARN' - The Amazon Resource Name (ARN) of the user in IAM.
+-- * 'emailAddress' - The email address associated with the user.
+-- * 'displayName' - The display name of a user in AWS CodeStar. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
 mkUserProfileSummary ::
   UserProfileSummary
 mkUserProfileSummary =

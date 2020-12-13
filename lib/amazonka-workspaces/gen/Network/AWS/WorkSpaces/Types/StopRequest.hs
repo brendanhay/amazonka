@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStopRequest' smart constructor.
 newtype StopRequest = StopRequest'
-  { workspaceId ::
-      Lude.Maybe Lude.Text
+  { -- | The identifier of the WorkSpace.
+    workspaceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopRequest' with the minimum fields required to make a request.

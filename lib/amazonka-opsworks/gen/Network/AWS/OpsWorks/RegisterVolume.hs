@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.OpsWorks.RegisterVolume
     mkRegisterVolume,
 
     -- ** Request lenses
-    rvEC2VolumeId,
     rvStackId,
+    rvEC2VolumeId,
 
     -- * Destructuring the response
     RegisterVolumeResponse (..),
@@ -42,36 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterVolume' smart constructor.
 data RegisterVolume = RegisterVolume'
-  { ec2VolumeId ::
-      Lude.Maybe Lude.Text,
-    stackId :: Lude.Text
+  { -- | The stack ID.
+    stackId :: Lude.Text,
+    -- | The Amazon EBS volume ID.
+    ec2VolumeId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterVolume' with the minimum fields required to make a request.
 --
--- * 'ec2VolumeId' - The Amazon EBS volume ID.
 -- * 'stackId' - The stack ID.
+-- * 'ec2VolumeId' - The Amazon EBS volume ID.
 mkRegisterVolume ::
   -- | 'stackId'
   Lude.Text ->
   RegisterVolume
 mkRegisterVolume pStackId_ =
-  RegisterVolume' {ec2VolumeId = Lude.Nothing, stackId = pStackId_}
-
--- | The Amazon EBS volume ID.
---
--- /Note:/ Consider using 'ec2VolumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rvEC2VolumeId :: Lens.Lens' RegisterVolume (Lude.Maybe Lude.Text)
-rvEC2VolumeId = Lens.lens (ec2VolumeId :: RegisterVolume -> Lude.Maybe Lude.Text) (\s a -> s {ec2VolumeId = a} :: RegisterVolume)
-{-# DEPRECATED rvEC2VolumeId "Use generic-lens or generic-optics with 'ec2VolumeId' instead." #-}
+  RegisterVolume' {stackId = pStackId_, ec2VolumeId = Lude.Nothing}
 
 -- | The stack ID.
 --
@@ -79,6 +68,13 @@ rvEC2VolumeId = Lens.lens (ec2VolumeId :: RegisterVolume -> Lude.Maybe Lude.Text
 rvStackId :: Lens.Lens' RegisterVolume Lude.Text
 rvStackId = Lens.lens (stackId :: RegisterVolume -> Lude.Text) (\s a -> s {stackId = a} :: RegisterVolume)
 {-# DEPRECATED rvStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+
+-- | The Amazon EBS volume ID.
+--
+-- /Note:/ Consider using 'ec2VolumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvEC2VolumeId :: Lens.Lens' RegisterVolume (Lude.Maybe Lude.Text)
+rvEC2VolumeId = Lens.lens (ec2VolumeId :: RegisterVolume -> Lude.Maybe Lude.Text) (\s a -> s {ec2VolumeId = a} :: RegisterVolume)
+{-# DEPRECATED rvEC2VolumeId "Use generic-lens or generic-optics with 'ec2VolumeId' instead." #-}
 
 instance Lude.AWSRequest RegisterVolume where
   type Rs RegisterVolume = RegisterVolumeResponse
@@ -105,8 +101,8 @@ instance Lude.ToJSON RegisterVolume where
   toJSON RegisterVolume' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Ec2VolumeId" Lude..=) Lude.<$> ec2VolumeId,
-            Lude.Just ("StackId" Lude..= stackId)
+          [ Lude.Just ("StackId" Lude..= stackId),
+            ("Ec2VolumeId" Lude..=) Lude.<$> ec2VolumeId
           ]
       )
 
@@ -120,23 +116,18 @@ instance Lude.ToQuery RegisterVolume where
 --
 -- /See:/ 'mkRegisterVolumeResponse' smart constructor.
 data RegisterVolumeResponse = RegisterVolumeResponse'
-  { volumeId ::
-      Lude.Maybe Lude.Text,
+  { -- | The volume ID.
+    volumeId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterVolumeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'volumeId' - The volume ID.
+-- * 'responseStatus' - The response status code.
 mkRegisterVolumeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

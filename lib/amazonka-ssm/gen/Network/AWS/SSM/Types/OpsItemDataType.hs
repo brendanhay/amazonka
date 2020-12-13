@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.OpsItemDataType
   ( OpsItemDataType
       ( OpsItemDataType',
-        SearchableString,
-        String
+        OIDTSearchableString,
+        OIDTString
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype OpsItemDataType = OpsItemDataType' Lude.Text
       Lude.ToHeader
     )
 
-pattern SearchableString :: OpsItemDataType
-pattern SearchableString = OpsItemDataType' "SearchableString"
+pattern OIDTSearchableString :: OpsItemDataType
+pattern OIDTSearchableString = OpsItemDataType' "SearchableString"
 
-pattern String :: OpsItemDataType
-pattern String = OpsItemDataType' "String"
+pattern OIDTString :: OpsItemDataType
+pattern OIDTString = OpsItemDataType' "String"
 
 {-# COMPLETE
-  SearchableString,
-  String,
+  OIDTSearchableString,
+  OIDTString,
   OpsItemDataType'
   #-}

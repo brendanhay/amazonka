@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,19 +47,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListEventSourceMappings' smart constructor.
 data ListEventSourceMappings = ListEventSourceMappings'
-  { eventSourceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the event source.
+    --
+    --
+    --     * __Amazon Kinesis__ - The ARN of the data stream or a stream consumer.
+    --
+    --
+    --     * __Amazon DynamoDB Streams__ - The ARN of the stream.
+    --
+    --
+    --     * __Amazon Simple Queue Service__ - The ARN of the queue.
+    --
+    --
+    --     * __Amazon Managed Streaming for Apache Kafka__ - The ARN of the cluster.
+    eventSourceARN :: Lude.Maybe Lude.Text,
+    -- | A pagination token returned by a previous call.
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of event source mappings to return.
     maxItems :: Lude.Maybe Lude.Natural,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @MyFunction@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+    --
+    --
+    --     * __Version or Alias ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
     functionName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventSourceMappings' with the minimum fields required to make a request.
@@ -78,6 +104,8 @@ data ListEventSourceMappings = ListEventSourceMappings'
 --     * __Amazon Managed Streaming for Apache Kafka__ - The ARN of the cluster.
 --
 --
+-- * 'marker' - A pagination token returned by a previous call.
+-- * 'maxItems' - The maximum number of event source mappings to return.
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -95,8 +123,6 @@ data ListEventSourceMappings = ListEventSourceMappings'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
--- * 'marker' - A pagination token returned by a previous call.
--- * 'maxItems' - The maximum number of event source mappings to return.
 mkListEventSourceMappings ::
   ListEventSourceMappings
 mkListEventSourceMappings =
@@ -203,20 +229,14 @@ instance Lude.ToQuery ListEventSourceMappings where
 
 -- | /See:/ 'mkListEventSourceMappingsResponse' smart constructor.
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
-  { eventSourceMappings ::
-      Lude.Maybe
-        [EventSourceMappingConfiguration],
-    nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of event source mappings.
+    eventSourceMappings :: Lude.Maybe [EventSourceMappingConfiguration],
+    -- | A pagination token that's returned when the response doesn't contain all event source mappings.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventSourceMappingsResponse' with the minimum fields required to make a request.

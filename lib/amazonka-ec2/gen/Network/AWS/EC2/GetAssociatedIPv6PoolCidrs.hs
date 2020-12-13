@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.EC2.GetAssociatedIPv6PoolCidrs
     mkGetAssociatedIPv6PoolCidrs,
 
     -- ** Request lenses
+    gaipcPoolId,
     gaipcNextToken,
     gaipcDryRun,
     gaipcMaxResults,
-    gaipcPoolId,
 
     -- * Destructuring the response
     GetAssociatedIPv6PoolCidrsResponse (..),
@@ -46,38 +47,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAssociatedIPv6PoolCidrs' smart constructor.
 data GetAssociatedIPv6PoolCidrs = GetAssociatedIPv6PoolCidrs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the IPv6 address pool.
+    poolId :: Lude.Text,
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults :: Lude.Maybe Lude.Natural,
-    poolId :: Lude.Text
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssociatedIPv6PoolCidrs' with the minimum fields required to make a request.
 --
+-- * 'poolId' - The ID of the IPv6 address pool.
+-- * 'nextToken' - The token for the next page of results.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
--- * 'nextToken' - The token for the next page of results.
--- * 'poolId' - The ID of the IPv6 address pool.
 mkGetAssociatedIPv6PoolCidrs ::
   -- | 'poolId'
   Lude.Text ->
   GetAssociatedIPv6PoolCidrs
 mkGetAssociatedIPv6PoolCidrs pPoolId_ =
   GetAssociatedIPv6PoolCidrs'
-    { nextToken = Lude.Nothing,
+    { poolId = pPoolId_,
+      nextToken = Lude.Nothing,
       dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      poolId = pPoolId_
+      maxResults = Lude.Nothing
     }
+
+-- | The ID of the IPv6 address pool.
+--
+-- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaipcPoolId :: Lens.Lens' GetAssociatedIPv6PoolCidrs Lude.Text
+gaipcPoolId = Lens.lens (poolId :: GetAssociatedIPv6PoolCidrs -> Lude.Text) (\s a -> s {poolId = a} :: GetAssociatedIPv6PoolCidrs)
+{-# DEPRECATED gaipcPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
 -- | The token for the next page of results.
 --
@@ -99,13 +104,6 @@ gaipcDryRun = Lens.lens (dryRun :: GetAssociatedIPv6PoolCidrs -> Lude.Maybe Lude
 gaipcMaxResults :: Lens.Lens' GetAssociatedIPv6PoolCidrs (Lude.Maybe Lude.Natural)
 gaipcMaxResults = Lens.lens (maxResults :: GetAssociatedIPv6PoolCidrs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetAssociatedIPv6PoolCidrs)
 {-# DEPRECATED gaipcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the IPv6 address pool.
---
--- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaipcPoolId :: Lens.Lens' GetAssociatedIPv6PoolCidrs Lude.Text
-gaipcPoolId = Lens.lens (poolId :: GetAssociatedIPv6PoolCidrs -> Lude.Text) (\s a -> s {poolId = a} :: GetAssociatedIPv6PoolCidrs)
-{-# DEPRECATED gaipcPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
 instance Page.AWSPager GetAssociatedIPv6PoolCidrs where
   page rq rs
@@ -144,29 +142,22 @@ instance Lude.ToQuery GetAssociatedIPv6PoolCidrs where
       [ "Action"
           Lude.=: ("GetAssociatedIpv6PoolCidrs" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "PoolId" Lude.=: poolId,
         "NextToken" Lude.=: nextToken,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "PoolId" Lude.=: poolId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkGetAssociatedIPv6PoolCidrsResponse' smart constructor.
 data GetAssociatedIPv6PoolCidrsResponse = GetAssociatedIPv6PoolCidrsResponse'
-  { ipv6CidrAssociations ::
-      Lude.Maybe
-        [IPv6CidrAssociation],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the IPv6 CIDR block associations.
+    ipv6CidrAssociations :: Lude.Maybe [IPv6CidrAssociation],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssociatedIPv6PoolCidrsResponse' with the minimum fields required to make a request.

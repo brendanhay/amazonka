@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | A destination for events that failed processing.
 --
 -- /See:/ 'mkOnFailure' smart constructor.
-newtype OnFailure = OnFailure' {destination :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype OnFailure = OnFailure'
+  { -- | The Amazon Resource Name (ARN) of the destination resource.
+    destination :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OnFailure' with the minimum fields required to make a request.

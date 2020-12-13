@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimeBasedAutoScalingConfiguration' smart constructor.
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
-    autoScalingSchedule ::
-      Lude.Maybe
-        WeeklyAutoScalingSchedule
+  { -- | The instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | A @WeeklyAutoScalingSchedule@ object with the instance schedule.
+    autoScalingSchedule :: Lude.Maybe WeeklyAutoScalingSchedule
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeBasedAutoScalingConfiguration' with the minimum fields required to make a request.
 --
--- * 'autoScalingSchedule' - A @WeeklyAutoScalingSchedule@ object with the instance schedule.
 -- * 'instanceId' - The instance ID.
+-- * 'autoScalingSchedule' - A @WeeklyAutoScalingSchedule@ object with the instance schedule.
 mkTimeBasedAutoScalingConfiguration ::
   TimeBasedAutoScalingConfiguration
 mkTimeBasedAutoScalingConfiguration =

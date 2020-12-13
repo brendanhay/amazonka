@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSResourceUtilization' smart constructor.
 data EBSResourceUtilization = EBSResourceUtilization'
-  { ebsWriteBytesPerSecond ::
-      Lude.Maybe Lude.Text,
+  { -- | The maximum size of write operations per second.
+    ebsWriteBytesPerSecond :: Lude.Maybe Lude.Text,
+    -- | The maximum number of write operations per second.
     ebsWriteOpsPerSecond :: Lude.Maybe Lude.Text,
+    -- | The maximum number of read operations per second.
     ebsReadOpsPerSecond :: Lude.Maybe Lude.Text,
+    -- | The maximum size of read operations per second
     ebsReadBytesPerSecond :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSResourceUtilization' with the minimum fields required to make a request.
 --
--- * 'ebsReadBytesPerSecond' - The maximum size of read operations per second
--- * 'ebsReadOpsPerSecond' - The maximum number of read operations per second.
 -- * 'ebsWriteBytesPerSecond' - The maximum size of write operations per second.
 -- * 'ebsWriteOpsPerSecond' - The maximum number of write operations per second.
+-- * 'ebsReadOpsPerSecond' - The maximum number of read operations per second.
+-- * 'ebsReadBytesPerSecond' - The maximum size of read operations per second
 mkEBSResourceUtilization ::
   EBSResourceUtilization
 mkEBSResourceUtilization =

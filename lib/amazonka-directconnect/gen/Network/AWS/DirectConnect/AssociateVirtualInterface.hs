@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.DirectConnect.AssociateVirtualInterface
     mkAssociateVirtualInterface,
 
     -- ** Request lenses
-    aviVirtualInterfaceId,
     aviConnectionId,
+    aviVirtualInterfaceId,
 
     -- * Destructuring the response
     VirtualInterface (..),
@@ -65,17 +66,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateVirtualInterface' smart constructor.
 data AssociateVirtualInterface = AssociateVirtualInterface'
-  { virtualInterfaceId ::
-      Lude.Text,
-    connectionId :: Lude.Text
+  { -- | The ID of the LAG or connection.
+    connectionId :: Lude.Text,
+    -- | The ID of the virtual interface.
+    virtualInterfaceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateVirtualInterface' with the minimum fields required to make a request.
@@ -83,24 +79,16 @@ data AssociateVirtualInterface = AssociateVirtualInterface'
 -- * 'connectionId' - The ID of the LAG or connection.
 -- * 'virtualInterfaceId' - The ID of the virtual interface.
 mkAssociateVirtualInterface ::
-  -- | 'virtualInterfaceId'
-  Lude.Text ->
   -- | 'connectionId'
   Lude.Text ->
+  -- | 'virtualInterfaceId'
+  Lude.Text ->
   AssociateVirtualInterface
-mkAssociateVirtualInterface pVirtualInterfaceId_ pConnectionId_ =
+mkAssociateVirtualInterface pConnectionId_ pVirtualInterfaceId_ =
   AssociateVirtualInterface'
-    { virtualInterfaceId =
-        pVirtualInterfaceId_,
-      connectionId = pConnectionId_
+    { connectionId = pConnectionId_,
+      virtualInterfaceId = pVirtualInterfaceId_
     }
-
--- | The ID of the virtual interface.
---
--- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aviVirtualInterfaceId :: Lens.Lens' AssociateVirtualInterface Lude.Text
-aviVirtualInterfaceId = Lens.lens (virtualInterfaceId :: AssociateVirtualInterface -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: AssociateVirtualInterface)
-{-# DEPRECATED aviVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
 -- | The ID of the LAG or connection.
 --
@@ -108,6 +96,13 @@ aviVirtualInterfaceId = Lens.lens (virtualInterfaceId :: AssociateVirtualInterfa
 aviConnectionId :: Lens.Lens' AssociateVirtualInterface Lude.Text
 aviConnectionId = Lens.lens (connectionId :: AssociateVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: AssociateVirtualInterface)
 {-# DEPRECATED aviConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
+
+-- | The ID of the virtual interface.
+--
+-- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aviVirtualInterfaceId :: Lens.Lens' AssociateVirtualInterface Lude.Text
+aviVirtualInterfaceId = Lens.lens (virtualInterfaceId :: AssociateVirtualInterface -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: AssociateVirtualInterface)
+{-# DEPRECATED aviVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
 instance Lude.AWSRequest AssociateVirtualInterface where
   type Rs AssociateVirtualInterface = VirtualInterface
@@ -129,8 +124,8 @@ instance Lude.ToJSON AssociateVirtualInterface where
   toJSON AssociateVirtualInterface' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("virtualInterfaceId" Lude..= virtualInterfaceId),
-            Lude.Just ("connectionId" Lude..= connectionId)
+          [ Lude.Just ("connectionId" Lude..= connectionId),
+            Lude.Just ("virtualInterfaceId" Lude..= virtualInterfaceId)
           ]
       )
 

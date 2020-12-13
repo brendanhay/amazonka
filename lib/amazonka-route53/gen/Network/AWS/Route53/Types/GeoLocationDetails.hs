@@ -34,31 +34,30 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'mkGeoLocationDetails' smart constructor.
 data GeoLocationDetails = GeoLocationDetails'
-  { subdivisionName ::
-      Lude.Maybe Lude.Text,
+  { -- | The full name of the subdivision. Route 53 currently supports only states in the United States.
+    subdivisionName :: Lude.Maybe Lude.Text,
+    -- | The code for the subdivision. Route 53 currently supports only states in the United States.
     subdivisionCode :: Lude.Maybe Lude.Text,
+    -- | The name of the country.
     countryName :: Lude.Maybe Lude.Text,
+    -- | The two-letter code for the country.
     countryCode :: Lude.Maybe Lude.Text,
+    -- | The two-letter code for the continent.
     continentCode :: Lude.Maybe Lude.Text,
+    -- | The full name of the continent.
     continentName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GeoLocationDetails' with the minimum fields required to make a request.
 --
+-- * 'subdivisionName' - The full name of the subdivision. Route 53 currently supports only states in the United States.
+-- * 'subdivisionCode' - The code for the subdivision. Route 53 currently supports only states in the United States.
+-- * 'countryName' - The name of the country.
+-- * 'countryCode' - The two-letter code for the country.
 -- * 'continentCode' - The two-letter code for the continent.
 -- * 'continentName' - The full name of the continent.
--- * 'countryCode' - The two-letter code for the country.
--- * 'countryName' - The name of the country.
--- * 'subdivisionCode' - The code for the subdivision. Route 53 currently supports only states in the United States.
--- * 'subdivisionName' - The full name of the subdivision. Route 53 currently supports only states in the United States.
 mkGeoLocationDetails ::
   GeoLocationDetails
 mkGeoLocationDetails =

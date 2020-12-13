@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     mkUpdateGatewayInformation,
 
     -- ** Request lenses
+    ugiGatewayARN,
     ugiGatewayName,
     ugiGatewayTimezone,
     ugiCloudWatchLogGroupARN,
-    ugiGatewayARN,
 
     -- * Destructuring the response
     UpdateGatewayInformationResponse (..),
@@ -43,41 +44,44 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkUpdateGatewayInformation' smart constructor.
 data UpdateGatewayInformation = UpdateGatewayInformation'
-  { gatewayName ::
-      Lude.Maybe Lude.Text,
+  { gatewayARN :: Lude.Text,
+    gatewayName :: Lude.Maybe Lude.Text,
+    -- | A value that indicates the time zone of the gateway.
     gatewayTimezone :: Lude.Maybe Lude.Text,
-    cloudWatchLogGroupARN ::
-      Lude.Maybe Lude.Text,
-    gatewayARN :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that you want to use to monitor and log events in the gateway.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
+    cloudWatchLogGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewayInformation' with the minimum fields required to make a request.
 --
+-- * 'gatewayARN' -
+-- * 'gatewayName' -
+-- * 'gatewayTimezone' - A value that indicates the time zone of the gateway.
 -- * 'cloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that you want to use to monitor and log events in the gateway.
 --
 -- For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html What is Amazon CloudWatch Logs?>
--- * 'gatewayARN' - Undocumented field.
--- * 'gatewayName' - Undocumented field.
--- * 'gatewayTimezone' - A value that indicates the time zone of the gateway.
 mkUpdateGatewayInformation ::
   -- | 'gatewayARN'
   Lude.Text ->
   UpdateGatewayInformation
 mkUpdateGatewayInformation pGatewayARN_ =
   UpdateGatewayInformation'
-    { gatewayName = Lude.Nothing,
+    { gatewayARN = pGatewayARN_,
+      gatewayName = Lude.Nothing,
       gatewayTimezone = Lude.Nothing,
-      cloudWatchLogGroupARN = Lude.Nothing,
-      gatewayARN = pGatewayARN_
+      cloudWatchLogGroupARN = Lude.Nothing
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugiGatewayARN :: Lens.Lens' UpdateGatewayInformation Lude.Text
+ugiGatewayARN = Lens.lens (gatewayARN :: UpdateGatewayInformation -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGatewayInformation)
+{-# DEPRECATED ugiGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | Undocumented field.
 --
@@ -101,13 +105,6 @@ ugiGatewayTimezone = Lens.lens (gatewayTimezone :: UpdateGatewayInformation -> L
 ugiCloudWatchLogGroupARN :: Lens.Lens' UpdateGatewayInformation (Lude.Maybe Lude.Text)
 ugiCloudWatchLogGroupARN = Lens.lens (cloudWatchLogGroupARN :: UpdateGatewayInformation -> Lude.Maybe Lude.Text) (\s a -> s {cloudWatchLogGroupARN = a} :: UpdateGatewayInformation)
 {-# DEPRECATED ugiCloudWatchLogGroupARN "Use generic-lens or generic-optics with 'cloudWatchLogGroupARN' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugiGatewayARN :: Lens.Lens' UpdateGatewayInformation Lude.Text
-ugiGatewayARN = Lens.lens (gatewayARN :: UpdateGatewayInformation -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGatewayInformation)
-{-# DEPRECATED ugiGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 instance Lude.AWSRequest UpdateGatewayInformation where
   type Rs UpdateGatewayInformation = UpdateGatewayInformationResponse
@@ -138,10 +135,10 @@ instance Lude.ToJSON UpdateGatewayInformation where
   toJSON UpdateGatewayInformation' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("GatewayName" Lude..=) Lude.<$> gatewayName,
+          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            ("GatewayName" Lude..=) Lude.<$> gatewayName,
             ("GatewayTimezone" Lude..=) Lude.<$> gatewayTimezone,
-            ("CloudWatchLogGroupARN" Lude..=) Lude.<$> cloudWatchLogGroupARN,
-            Lude.Just ("GatewayARN" Lude..= gatewayARN)
+            ("CloudWatchLogGroupARN" Lude..=) Lude.<$> cloudWatchLogGroupARN
           ]
       )
 
@@ -155,25 +152,18 @@ instance Lude.ToQuery UpdateGatewayInformation where
 --
 -- /See:/ 'mkUpdateGatewayInformationResponse' smart constructor.
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
-    gatewayName ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The name you configured for your gateway.
+    gatewayName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewayInformationResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 -- * 'gatewayName' - The name you configured for your gateway.
 -- * 'responseStatus' - The response status code.
 mkUpdateGatewayInformationResponse ::

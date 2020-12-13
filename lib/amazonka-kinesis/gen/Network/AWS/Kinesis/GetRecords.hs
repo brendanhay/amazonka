@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,19 +28,19 @@ module Network.AWS.Kinesis.GetRecords
     mkGetRecords,
 
     -- ** Request lenses
-    grLimit,
     grShardIterator,
+    grLimit,
 
     -- * Destructuring the response
     GetRecordsResponse (..),
     mkGetRecordsResponse,
 
     -- ** Response lenses
+    grrsRecords,
     grrsNextShardIterator,
     grrsMillisBehindLatest,
     grrsChildShards,
     grrsResponseStatus,
-    grrsRecords,
   )
 where
 
@@ -53,38 +54,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetRecords' smart constructor.
 data GetRecords = GetRecords'
-  { limit :: Lude.Maybe Lude.Natural,
-    shardIterator :: Lude.Text
+  { -- | The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
+    shardIterator :: Lude.Text,
+    -- | The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRecords' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
 -- * 'shardIterator' - The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
+-- * 'limit' - The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
 mkGetRecords ::
   -- | 'shardIterator'
   Lude.Text ->
   GetRecords
 mkGetRecords pShardIterator_ =
   GetRecords'
-    { limit = Lude.Nothing,
-      shardIterator = pShardIterator_
+    { shardIterator = pShardIterator_,
+      limit = Lude.Nothing
     }
-
--- | The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grLimit :: Lens.Lens' GetRecords (Lude.Maybe Lude.Natural)
-grLimit = Lens.lens (limit :: GetRecords -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetRecords)
-{-# DEPRECATED grLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
 --
@@ -93,6 +83,13 @@ grShardIterator :: Lens.Lens' GetRecords Lude.Text
 grShardIterator = Lens.lens (shardIterator :: GetRecords -> Lude.Text) (\s a -> s {shardIterator = a} :: GetRecords)
 {-# DEPRECATED grShardIterator "Use generic-lens or generic-optics with 'shardIterator' instead." #-}
 
+-- | The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grLimit :: Lens.Lens' GetRecords (Lude.Maybe Lude.Natural)
+grLimit = Lens.lens (limit :: GetRecords -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetRecords)
+{-# DEPRECATED grLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
 instance Lude.AWSRequest GetRecords where
   type Rs GetRecords = GetRecordsResponse
   request = Req.postJSON kinesisService
@@ -100,11 +97,11 @@ instance Lude.AWSRequest GetRecords where
     Res.receiveJSON
       ( \s h x ->
           GetRecordsResponse'
-            Lude.<$> (x Lude..?> "NextShardIterator")
+            Lude.<$> (x Lude..?> "Records" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextShardIterator")
             Lude.<*> (x Lude..?> "MillisBehindLatest")
             Lude.<*> (x Lude..?> "ChildShards" Lude..!@ Lude.mempty)
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "Records" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders GetRecords where
@@ -122,8 +119,8 @@ instance Lude.ToJSON GetRecords where
   toJSON GetRecords' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("ShardIterator" Lude..= shardIterator)
+          [ Lude.Just ("ShardIterator" Lude..= shardIterator),
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -137,28 +134,25 @@ instance Lude.ToQuery GetRecords where
 --
 -- /See:/ 'mkGetRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-  { nextShardIterator ::
-      Lude.Maybe Lude.Text,
+  { -- | The data records retrieved from the shard.
+    records :: [Record],
+    -- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
+    nextShardIterator :: Lude.Maybe Lude.Text,
+    -- | The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
     millisBehindLatest :: Lude.Maybe Lude.Natural,
     childShards :: Lude.Maybe [ChildShard],
-    responseStatus :: Lude.Int,
-    records :: [Record]
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRecordsResponse' with the minimum fields required to make a request.
 --
--- * 'childShards' - Undocumented field.
--- * 'millisBehindLatest' - The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
--- * 'nextShardIterator' - The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
 -- * 'records' - The data records retrieved from the shard.
+-- * 'nextShardIterator' - The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
+-- * 'millisBehindLatest' - The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
+-- * 'childShards' -
 -- * 'responseStatus' - The response status code.
 mkGetRecordsResponse ::
   -- | 'responseStatus'
@@ -166,12 +160,19 @@ mkGetRecordsResponse ::
   GetRecordsResponse
 mkGetRecordsResponse pResponseStatus_ =
   GetRecordsResponse'
-    { nextShardIterator = Lude.Nothing,
+    { records = Lude.mempty,
+      nextShardIterator = Lude.Nothing,
       millisBehindLatest = Lude.Nothing,
       childShards = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      records = Lude.mempty
+      responseStatus = pResponseStatus_
     }
+
+-- | The data records retrieved from the shard.
+--
+-- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsRecords :: Lens.Lens' GetRecordsResponse [Record]
+grrsRecords = Lens.lens (records :: GetRecordsResponse -> [Record]) (\s a -> s {records = a} :: GetRecordsResponse)
+{-# DEPRECATED grrsRecords "Use generic-lens or generic-optics with 'records' instead." #-}
 
 -- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
 --
@@ -200,10 +201,3 @@ grrsChildShards = Lens.lens (childShards :: GetRecordsResponse -> Lude.Maybe [Ch
 grrsResponseStatus :: Lens.Lens' GetRecordsResponse Lude.Int
 grrsResponseStatus = Lens.lens (responseStatus :: GetRecordsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRecordsResponse)
 {-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The data records retrieved from the shard.
---
--- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsRecords :: Lens.Lens' GetRecordsResponse [Record]
-grrsRecords = Lens.lens (records :: GetRecordsResponse -> [Record]) (\s a -> s {records = a} :: GetRecordsResponse)
-{-# DEPRECATED grrsRecords "Use generic-lens or generic-optics with 'records' instead." #-}

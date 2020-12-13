@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,17 +23,17 @@ module Network.AWS.Inspector.PreviewAgents
 
     -- ** Request lenses
     paNextToken,
-    paMaxResults,
     paPreviewAgentsARN,
+    paMaxResults,
 
     -- * Destructuring the response
     PreviewAgentsResponse (..),
     mkPreviewAgentsResponse,
 
     -- ** Response lenses
+    parsAgentPreviews,
     parsNextToken,
     parsResponseStatus,
-    parsAgentPreviews,
   )
 where
 
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPreviewAgents' smart constructor.
 data PreviewAgents = PreviewAgents'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    previewAgentsARN :: Lude.Text
+  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __PreviewAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ARN of the assessment target whose agents you want to preview.
+    previewAgentsARN :: Lude.Text,
+    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PreviewAgents' with the minimum fields required to make a request.
 --
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 -- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __PreviewAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 -- * 'previewAgentsARN' - The ARN of the assessment target whose agents you want to preview.
+-- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 mkPreviewAgents ::
   -- | 'previewAgentsARN'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkPreviewAgents ::
 mkPreviewAgents pPreviewAgentsARN_ =
   PreviewAgents'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      previewAgentsARN = pPreviewAgentsARN_
+      previewAgentsARN = pPreviewAgentsARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __PreviewAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
@@ -82,19 +79,19 @@ paNextToken :: Lens.Lens' PreviewAgents (Lude.Maybe Lude.Text)
 paNextToken = Lens.lens (nextToken :: PreviewAgents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: PreviewAgents)
 {-# DEPRECATED paNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paMaxResults :: Lens.Lens' PreviewAgents (Lude.Maybe Lude.Int)
-paMaxResults = Lens.lens (maxResults :: PreviewAgents -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: PreviewAgents)
-{-# DEPRECATED paMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ARN of the assessment target whose agents you want to preview.
 --
 -- /Note:/ Consider using 'previewAgentsARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 paPreviewAgentsARN :: Lens.Lens' PreviewAgents Lude.Text
 paPreviewAgentsARN = Lens.lens (previewAgentsARN :: PreviewAgents -> Lude.Text) (\s a -> s {previewAgentsARN = a} :: PreviewAgents)
 {-# DEPRECATED paPreviewAgentsARN "Use generic-lens or generic-optics with 'previewAgentsARN' instead." #-}
+
+-- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paMaxResults :: Lens.Lens' PreviewAgents (Lude.Maybe Lude.Int)
+paMaxResults = Lens.lens (maxResults :: PreviewAgents -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: PreviewAgents)
+{-# DEPRECATED paMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager PreviewAgents where
   page rq rs
@@ -112,9 +109,9 @@ instance Lude.AWSRequest PreviewAgents where
     Res.receiveJSON
       ( \s h x ->
           PreviewAgentsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<$> (x Lude..?> "agentPreviews" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "agentPreviews" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders PreviewAgents where
@@ -133,8 +130,8 @@ instance Lude.ToJSON PreviewAgents where
     Lude.object
       ( Lude.catMaybes
           [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("previewAgentsArn" Lude..= previewAgentsARN)
+            Lude.Just ("previewAgentsArn" Lude..= previewAgentsARN),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -146,18 +143,14 @@ instance Lude.ToQuery PreviewAgents where
 
 -- | /See:/ 'mkPreviewAgentsResponse' smart constructor.
 data PreviewAgentsResponse = PreviewAgentsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    agentPreviews :: [AgentPreview]
+  { -- | The resulting list of agents.
+    agentPreviews :: [AgentPreview],
+    -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PreviewAgentsResponse' with the minimum fields required to make a request.
@@ -171,10 +164,17 @@ mkPreviewAgentsResponse ::
   PreviewAgentsResponse
 mkPreviewAgentsResponse pResponseStatus_ =
   PreviewAgentsResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      agentPreviews = Lude.mempty
+    { agentPreviews = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | The resulting list of agents.
+--
+-- /Note:/ Consider using 'agentPreviews' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parsAgentPreviews :: Lens.Lens' PreviewAgentsResponse [AgentPreview]
+parsAgentPreviews = Lens.lens (agentPreviews :: PreviewAgentsResponse -> [AgentPreview]) (\s a -> s {agentPreviews = a} :: PreviewAgentsResponse)
+{-# DEPRECATED parsAgentPreviews "Use generic-lens or generic-optics with 'agentPreviews' instead." #-}
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
@@ -189,10 +189,3 @@ parsNextToken = Lens.lens (nextToken :: PreviewAgentsResponse -> Lude.Maybe Lude
 parsResponseStatus :: Lens.Lens' PreviewAgentsResponse Lude.Int
 parsResponseStatus = Lens.lens (responseStatus :: PreviewAgentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PreviewAgentsResponse)
 {-# DEPRECATED parsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The resulting list of agents.
---
--- /Note:/ Consider using 'agentPreviews' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parsAgentPreviews :: Lens.Lens' PreviewAgentsResponse [AgentPreview]
-parsAgentPreviews = Lens.lens (agentPreviews :: PreviewAgentsResponse -> [AgentPreview]) (\s a -> s {agentPreviews = a} :: PreviewAgentsResponse)
-{-# DEPRECATED parsAgentPreviews "Use generic-lens or generic-optics with 'agentPreviews' instead." #-}

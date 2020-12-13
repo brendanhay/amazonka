@@ -34,33 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOidcConfigForResponse' smart constructor.
 data OidcConfigForResponse = OidcConfigForResponse'
-  { clientId ::
-      Lude.Maybe Lude.Text,
+  { -- | The OIDC IdP client ID used to configure your private workforce.
+    clientId :: Lude.Maybe Lude.Text,
+    -- | The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
     jwksURI :: Lude.Maybe Lude.Text,
+    -- | The OIDC IdP user information endpoint used to configure your private workforce.
     userInfoEndpoint :: Lude.Maybe Lude.Text,
+    -- | The OIDC IdP authorization endpoint used to configure your private workforce.
     authorizationEndpoint :: Lude.Maybe Lude.Text,
+    -- | The OIDC IdP token endpoint used to configure your private workforce.
     tokenEndpoint :: Lude.Maybe Lude.Text,
+    -- | The OIDC IdP issuer used to configure your private workforce.
     issuer :: Lude.Maybe Lude.Text,
+    -- | The OIDC IdP logout endpoint used to configure your private workforce.
     logoutEndpoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OidcConfigForResponse' with the minimum fields required to make a request.
 --
--- * 'authorizationEndpoint' - The OIDC IdP authorization endpoint used to configure your private workforce.
 -- * 'clientId' - The OIDC IdP client ID used to configure your private workforce.
--- * 'issuer' - The OIDC IdP issuer used to configure your private workforce.
 -- * 'jwksURI' - The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
--- * 'logoutEndpoint' - The OIDC IdP logout endpoint used to configure your private workforce.
--- * 'tokenEndpoint' - The OIDC IdP token endpoint used to configure your private workforce.
 -- * 'userInfoEndpoint' - The OIDC IdP user information endpoint used to configure your private workforce.
+-- * 'authorizationEndpoint' - The OIDC IdP authorization endpoint used to configure your private workforce.
+-- * 'tokenEndpoint' - The OIDC IdP token endpoint used to configure your private workforce.
+-- * 'issuer' - The OIDC IdP issuer used to configure your private workforce.
+-- * 'logoutEndpoint' - The OIDC IdP logout endpoint used to configure your private workforce.
 mkOidcConfigForResponse ::
   OidcConfigForResponse
 mkOidcConfigForResponse =

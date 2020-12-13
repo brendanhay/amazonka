@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBrokerEngineTypes' smart constructor.
 data DescribeBrokerEngineTypes = DescribeBrokerEngineTypes'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filter response by engine type.
     engineType :: Lude.Maybe Lude.Text,
+    -- | The maximum number of engine types that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBrokerEngineTypes' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 -- * 'engineType' - Filter response by engine type.
 -- * 'maxResults' - The maximum number of engine types that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 mkDescribeBrokerEngineTypes ::
   DescribeBrokerEngineTypes
 mkDescribeBrokerEngineTypes =
@@ -129,30 +126,23 @@ instance Lude.ToQuery DescribeBrokerEngineTypes where
 
 -- | /See:/ 'mkDescribeBrokerEngineTypesResponse' smart constructor.
 data DescribeBrokerEngineTypesResponse = DescribeBrokerEngineTypesResponse'
-  { brokerEngineTypes ::
-      Lude.Maybe
-        [BrokerEngineType],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    responseStatus ::
-      Lude.Int
+  { -- | List of available engine types and versions.
+    brokerEngineTypes :: Lude.Maybe [BrokerEngineType],
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Required. The maximum number of engine types that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBrokerEngineTypesResponse' with the minimum fields required to make a request.
 --
 -- * 'brokerEngineTypes' - List of available engine types and versions.
--- * 'maxResults' - Required. The maximum number of engine types that can be returned per page (20 by default). This value must be an integer from 5 to 100.
 -- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- * 'maxResults' - Required. The maximum number of engine types that can be returned per page (20 by default). This value must be an integer from 5 to 100.
 -- * 'responseStatus' - The response status code.
 mkDescribeBrokerEngineTypesResponse ::
   -- | 'responseStatus'

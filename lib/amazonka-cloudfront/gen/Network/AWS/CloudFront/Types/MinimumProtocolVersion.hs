@@ -13,12 +13,12 @@
 module Network.AWS.CloudFront.Types.MinimumProtocolVersion
   ( MinimumProtocolVersion
       ( MinimumProtocolVersion',
-        MPVSSLV3,
-        MPVTLSV1,
-        MPVTLSV12016,
-        MPVTLSV1_12016,
-        MPVTLSV1_22018,
-        MPVTLSV1_22019
+        SSLV3,
+        TLSV1,
+        TLSV12016,
+        TLSV1_12016,
+        TLSV1_22018,
+        TLSV1_22019
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype MinimumProtocolVersion = MinimumProtocolVersion' Lude.Text
       Lude.ToHeader
     )
 
-pattern MPVSSLV3 :: MinimumProtocolVersion
-pattern MPVSSLV3 = MinimumProtocolVersion' "SSLv3"
+pattern SSLV3 :: MinimumProtocolVersion
+pattern SSLV3 = MinimumProtocolVersion' "SSLv3"
 
-pattern MPVTLSV1 :: MinimumProtocolVersion
-pattern MPVTLSV1 = MinimumProtocolVersion' "TLSv1"
+pattern TLSV1 :: MinimumProtocolVersion
+pattern TLSV1 = MinimumProtocolVersion' "TLSv1"
 
-pattern MPVTLSV12016 :: MinimumProtocolVersion
-pattern MPVTLSV12016 = MinimumProtocolVersion' "TLSv1_2016"
+pattern TLSV12016 :: MinimumProtocolVersion
+pattern TLSV12016 = MinimumProtocolVersion' "TLSv1_2016"
 
-pattern MPVTLSV1_12016 :: MinimumProtocolVersion
-pattern MPVTLSV1_12016 = MinimumProtocolVersion' "TLSv1.1_2016"
+pattern TLSV1_12016 :: MinimumProtocolVersion
+pattern TLSV1_12016 = MinimumProtocolVersion' "TLSv1.1_2016"
 
-pattern MPVTLSV1_22018 :: MinimumProtocolVersion
-pattern MPVTLSV1_22018 = MinimumProtocolVersion' "TLSv1.2_2018"
+pattern TLSV1_22018 :: MinimumProtocolVersion
+pattern TLSV1_22018 = MinimumProtocolVersion' "TLSv1.2_2018"
 
-pattern MPVTLSV1_22019 :: MinimumProtocolVersion
-pattern MPVTLSV1_22019 = MinimumProtocolVersion' "TLSv1.2_2019"
+pattern TLSV1_22019 :: MinimumProtocolVersion
+pattern TLSV1_22019 = MinimumProtocolVersion' "TLSv1.2_2019"
 
 {-# COMPLETE
-  MPVSSLV3,
-  MPVTLSV1,
-  MPVTLSV12016,
-  MPVTLSV1_12016,
-  MPVTLSV1_22018,
-  MPVTLSV1_22019,
+  SSLV3,
+  TLSV1,
+  TLSV12016,
+  TLSV1_12016,
+  TLSV1_22018,
+  TLSV1_22019,
   MinimumProtocolVersion'
   #-}

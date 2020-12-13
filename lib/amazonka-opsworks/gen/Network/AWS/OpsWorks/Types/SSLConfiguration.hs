@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSSLConfiguration' smart constructor.
 data SSLConfiguration = SSLConfiguration'
-  { privateKey ::
-      Lude.Maybe Lude.Text,
+  { -- | The private key; the contents of the certificate's domain.kex file.
+    privateKey :: Lude.Maybe Lude.Text,
+    -- | The contents of the certificate's domain.crt file.
     certificate :: Lude.Maybe Lude.Text,
+    -- | Optional. Can be used to specify an intermediate certificate authority key or client authentication.
     chain :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSLConfiguration' with the minimum fields required to make a request.
 --
+-- * 'privateKey' - The private key; the contents of the certificate's domain.kex file.
 -- * 'certificate' - The contents of the certificate's domain.crt file.
 -- * 'chain' - Optional. Can be used to specify an intermediate certificate authority key or client authentication.
--- * 'privateKey' - The private key; the contents of the certificate's domain.kex file.
 mkSSLConfiguration ::
   SSLConfiguration
 mkSSLConfiguration =

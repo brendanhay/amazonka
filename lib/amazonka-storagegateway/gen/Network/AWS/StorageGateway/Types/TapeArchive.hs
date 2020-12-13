@@ -40,53 +40,66 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTapeArchive' smart constructor.
 data TapeArchive = TapeArchive'
-  { tapeBarcode ::
-      Lude.Maybe Lude.Text,
+  { -- | The barcode that identifies the archived virtual tape.
+    tapeBarcode :: Lude.Maybe Lude.Text,
+    -- | The current state of the archived virtual tape.
     tapeStatus :: Lude.Maybe Lude.Text,
     kmsKey :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of an archived virtual tape.
     tapeARN :: Lude.Maybe Lude.Text,
+    -- | The size, in bytes, of the archived virtual tape.
     tapeSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The time that the archiving of the virtual tape was completed.
+    --
+    -- The default timestamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
     completionTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the pool that was used to archive the tape. The tapes in this pool are archived in the S3 storage class that is associated with the pool.
+    --
+    -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Lude.Maybe Lude.Text,
+    -- | The size, in bytes, of data stored on the virtual tape.
     tapeUsedInBytes :: Lude.Maybe Lude.Integer,
+    -- | The date the virtual tape was created.
     tapeCreatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The time that the tape entered the custom tape pool.
+    --
+    -- The default timestamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
     poolEntryDate :: Lude.Maybe Lude.Timestamp,
+    -- | Set to @true@ if the archived tape is stored as write-once-read-many (WORM).
     worm :: Lude.Maybe Lude.Bool,
+    -- | If the archived tape is subject to tape retention lock, the date that the archived tape started being retained.
     retentionStartDate :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the tape gateway that the virtual tape is being retrieved to.
+    --
+    -- The virtual tape is retrieved from the virtual tape shelf (VTS).
     retrievedTo :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TapeArchive' with the minimum fields required to make a request.
 --
+-- * 'tapeBarcode' - The barcode that identifies the archived virtual tape.
+-- * 'tapeStatus' - The current state of the archived virtual tape.
+-- * 'kmsKey' -
+-- * 'tapeARN' - The Amazon Resource Name (ARN) of an archived virtual tape.
+-- * 'tapeSizeInBytes' - The size, in bytes, of the archived virtual tape.
 -- * 'completionTime' - The time that the archiving of the virtual tape was completed.
---
--- The default timestamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
--- * 'kmsKey' - Undocumented field.
--- * 'poolEntryDate' - The time that the tape entered the custom tape pool.
 --
 -- The default timestamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
 -- * 'poolId' - The ID of the pool that was used to archive the tape. The tapes in this pool are archived in the S3 storage class that is associated with the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+-- * 'tapeUsedInBytes' - The size, in bytes, of data stored on the virtual tape.
+-- * 'tapeCreatedDate' - The date the virtual tape was created.
+-- * 'poolEntryDate' - The time that the tape entered the custom tape pool.
+--
+-- The default timestamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+-- * 'worm' - Set to @true@ if the archived tape is stored as write-once-read-many (WORM).
 -- * 'retentionStartDate' - If the archived tape is subject to tape retention lock, the date that the archived tape started being retained.
 -- * 'retrievedTo' - The Amazon Resource Name (ARN) of the tape gateway that the virtual tape is being retrieved to.
 --
 -- The virtual tape is retrieved from the virtual tape shelf (VTS).
--- * 'tapeARN' - The Amazon Resource Name (ARN) of an archived virtual tape.
--- * 'tapeBarcode' - The barcode that identifies the archived virtual tape.
--- * 'tapeCreatedDate' - The date the virtual tape was created.
--- * 'tapeSizeInBytes' - The size, in bytes, of the archived virtual tape.
--- * 'tapeStatus' - The current state of the archived virtual tape.
--- * 'tapeUsedInBytes' - The size, in bytes, of data stored on the virtual tape.
--- * 'worm' - Set to @true@ if the archived tape is stored as write-once-read-many (WORM).
 mkTapeArchive ::
   TapeArchive
 mkTapeArchive =

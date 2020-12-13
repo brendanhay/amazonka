@@ -42,43 +42,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentResourceDescription' smart constructor.
 data EnvironmentResourceDescription = EnvironmentResourceDescription'
-  { queues ::
-      Lude.Maybe [Queue],
-    triggers ::
-      Lude.Maybe [Trigger],
-    launchTemplates ::
-      Lude.Maybe [LaunchTemplate],
-    loadBalancers ::
-      Lude.Maybe [LoadBalancer],
-    environmentName ::
-      Lude.Maybe Lude.Text,
-    instances ::
-      Lude.Maybe [Instance],
-    launchConfigurations ::
-      Lude.Maybe
-        [LaunchConfiguration],
-    autoScalingGroups ::
-      Lude.Maybe [AutoScalingGroup]
+  { -- | The queues used by this environment.
+    queues :: Lude.Maybe [Queue],
+    -- | The @AutoScaling@ triggers in use by this environment.
+    triggers :: Lude.Maybe [Trigger],
+    -- | The Amazon EC2 launch templates in use by this environment.
+    launchTemplates :: Lude.Maybe [LaunchTemplate],
+    -- | The LoadBalancers in use by this environment.
+    loadBalancers :: Lude.Maybe [LoadBalancer],
+    -- | The name of the environment.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The Amazon EC2 instances used by this environment.
+    instances :: Lude.Maybe [Instance],
+    -- | The Auto Scaling launch configurations in use by this environment.
+    launchConfigurations :: Lude.Maybe [LaunchConfiguration],
+    -- | The @AutoScalingGroups@ used by this environment.
+    autoScalingGroups :: Lude.Maybe [AutoScalingGroup]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentResourceDescription' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroups' - The @AutoScalingGroups@ used by this environment.
+-- * 'queues' - The queues used by this environment.
+-- * 'triggers' - The @AutoScaling@ triggers in use by this environment.
+-- * 'launchTemplates' - The Amazon EC2 launch templates in use by this environment.
+-- * 'loadBalancers' - The LoadBalancers in use by this environment.
 -- * 'environmentName' - The name of the environment.
 -- * 'instances' - The Amazon EC2 instances used by this environment.
 -- * 'launchConfigurations' - The Auto Scaling launch configurations in use by this environment.
--- * 'launchTemplates' - The Amazon EC2 launch templates in use by this environment.
--- * 'loadBalancers' - The LoadBalancers in use by this environment.
--- * 'queues' - The queues used by this environment.
--- * 'triggers' - The @AutoScaling@ triggers in use by this environment.
+-- * 'autoScalingGroups' - The @AutoScalingGroups@ used by this environment.
 mkEnvironmentResourceDescription ::
   EnvironmentResourceDescription
 mkEnvironmentResourceDescription =

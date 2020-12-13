@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction
     mkBatchPutScheduledUpdateGroupAction,
 
     -- ** Request lenses
-    bpsugaAutoScalingGroupName,
     bpsugaScheduledUpdateGroupActions,
+    bpsugaAutoScalingGroupName,
 
     -- * Destructuring the response
     BatchPutScheduledUpdateGroupActionResponse (..),
@@ -40,41 +41,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchPutScheduledUpdateGroupAction' smart constructor.
 data BatchPutScheduledUpdateGroupAction = BatchPutScheduledUpdateGroupAction'
-  { autoScalingGroupName ::
-      Lude.Text,
-    scheduledUpdateGroupActions ::
-      [ScheduledUpdateGroupActionRequest]
+  { -- | One or more scheduled actions. The maximum number allowed is 50.
+    scheduledUpdateGroupActions :: [ScheduledUpdateGroupActionRequest],
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPutScheduledUpdateGroupAction' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'scheduledUpdateGroupActions' - One or more scheduled actions. The maximum number allowed is 50.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkBatchPutScheduledUpdateGroupAction ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
   BatchPutScheduledUpdateGroupAction
 mkBatchPutScheduledUpdateGroupAction pAutoScalingGroupName_ =
   BatchPutScheduledUpdateGroupAction'
-    { autoScalingGroupName =
-        pAutoScalingGroupName_,
-      scheduledUpdateGroupActions = Lude.mempty
+    { scheduledUpdateGroupActions =
+        Lude.mempty,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
-
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpsugaAutoScalingGroupName :: Lens.Lens' BatchPutScheduledUpdateGroupAction Lude.Text
-bpsugaAutoScalingGroupName = Lens.lens (autoScalingGroupName :: BatchPutScheduledUpdateGroupAction -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: BatchPutScheduledUpdateGroupAction)
-{-# DEPRECATED bpsugaAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | One or more scheduled actions. The maximum number allowed is 50.
 --
@@ -82,6 +70,13 @@ bpsugaAutoScalingGroupName = Lens.lens (autoScalingGroupName :: BatchPutSchedule
 bpsugaScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupAction [ScheduledUpdateGroupActionRequest]
 bpsugaScheduledUpdateGroupActions = Lens.lens (scheduledUpdateGroupActions :: BatchPutScheduledUpdateGroupAction -> [ScheduledUpdateGroupActionRequest]) (\s a -> s {scheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupAction)
 {-# DEPRECATED bpsugaScheduledUpdateGroupActions "Use generic-lens or generic-optics with 'scheduledUpdateGroupActions' instead." #-}
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpsugaAutoScalingGroupName :: Lens.Lens' BatchPutScheduledUpdateGroupAction Lude.Text
+bpsugaAutoScalingGroupName = Lens.lens (autoScalingGroupName :: BatchPutScheduledUpdateGroupAction -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: BatchPutScheduledUpdateGroupAction)
+{-# DEPRECATED bpsugaAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 instance Lude.AWSRequest BatchPutScheduledUpdateGroupAction where
   type
@@ -112,26 +107,19 @@ instance Lude.ToQuery BatchPutScheduledUpdateGroupAction where
       [ "Action"
           Lude.=: ("BatchPutScheduledUpdateGroupAction" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "ScheduledUpdateGroupActions"
-          Lude.=: Lude.toQueryList "member" scheduledUpdateGroupActions
+          Lude.=: Lude.toQueryList "member" scheduledUpdateGroupActions,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'mkBatchPutScheduledUpdateGroupActionResponse' smart constructor.
 data BatchPutScheduledUpdateGroupActionResponse = BatchPutScheduledUpdateGroupActionResponse'
-  { failedScheduledUpdateGroupActions ::
-      Lude.Maybe
-        [FailedScheduledUpdateGroupActionRequest],
-    responseStatus ::
-      Lude.Int
+  { -- | The names of the scheduled actions that could not be created or updated, including an error message.
+    failedScheduledUpdateGroupActions :: Lude.Maybe [FailedScheduledUpdateGroupActionRequest],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPutScheduledUpdateGroupActionResponse' with the minimum fields required to make a request.

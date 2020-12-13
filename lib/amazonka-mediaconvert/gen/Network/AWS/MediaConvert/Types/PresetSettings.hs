@@ -35,27 +35,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPresetSettings' smart constructor.
 data PresetSettings = PresetSettings'
-  { captionDescriptions ::
-      Lude.Maybe [CaptionDescriptionPreset],
+  { -- | Caption settings for this preset. There can be multiple caption settings in a single output.
+    captionDescriptions :: Lude.Maybe [CaptionDescriptionPreset],
+    -- | (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
     videoDescription :: Lude.Maybe VideoDescription,
+    -- | Container specific settings.
     containerSettings :: Lude.Maybe ContainerSettings,
+    -- | (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
     audioDescriptions :: Lude.Maybe [AudioDescription]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PresetSettings' with the minimum fields required to make a request.
 --
--- * 'audioDescriptions' - (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
 -- * 'captionDescriptions' - Caption settings for this preset. There can be multiple caption settings in a single output.
--- * 'containerSettings' - Container specific settings.
 -- * 'videoDescription' - (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
+-- * 'containerSettings' - Container specific settings.
+-- * 'audioDescriptions' - (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
 mkPresetSettings ::
   PresetSettings
 mkPresetSettings =

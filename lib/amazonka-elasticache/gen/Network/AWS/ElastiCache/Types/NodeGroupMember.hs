@@ -34,29 +34,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeGroupMember' smart constructor.
 data NodeGroupMember = NodeGroupMember'
-  { cacheClusterId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the cluster to which the node belongs.
+    cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | The ID of the node within its cluster. A node ID is a numeric identifier (0001, 0002, etc.).
     cacheNodeId :: Lude.Maybe Lude.Text,
+    -- | The name of the Availability Zone in which the node is located.
     preferredAvailabilityZone :: Lude.Maybe Lude.Text,
+    -- | The role that is currently assigned to the node - @primary@ or @replica@ . This member is only applicable for Redis (cluster mode disabled) replication groups.
     currentRole :: Lude.Maybe Lude.Text,
+    -- | The outpost ARN of the node group member.
     preferredOutpostARN :: Lude.Maybe Lude.Text,
+    -- | The information required for client programs to connect to a node for read operations. The read endpoint is only applicable on Redis (cluster mode disabled) clusters.
     readEndpoint :: Lude.Maybe Endpoint
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeGroupMember' with the minimum fields required to make a request.
 --
 -- * 'cacheClusterId' - The ID of the cluster to which the node belongs.
 -- * 'cacheNodeId' - The ID of the node within its cluster. A node ID is a numeric identifier (0001, 0002, etc.).
--- * 'currentRole' - The role that is currently assigned to the node - @primary@ or @replica@ . This member is only applicable for Redis (cluster mode disabled) replication groups.
 -- * 'preferredAvailabilityZone' - The name of the Availability Zone in which the node is located.
+-- * 'currentRole' - The role that is currently assigned to the node - @primary@ or @replica@ . This member is only applicable for Redis (cluster mode disabled) replication groups.
 -- * 'preferredOutpostARN' - The outpost ARN of the node group member.
 -- * 'readEndpoint' - The information required for client programs to connect to a node for read operations. The read endpoint is only applicable on Redis (cluster mode disabled) clusters.
 mkNodeGroupMember ::

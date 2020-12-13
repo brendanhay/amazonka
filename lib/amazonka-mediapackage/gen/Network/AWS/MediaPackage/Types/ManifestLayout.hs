@@ -13,8 +13,8 @@
 module Network.AWS.MediaPackage.Types.ManifestLayout
   ( ManifestLayout
       ( ManifestLayout',
-        Compact,
-        Full
+        Full,
+        Compact
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ManifestLayout = ManifestLayout' Lude.Text
       Lude.ToHeader
     )
 
-pattern Compact :: ManifestLayout
-pattern Compact = ManifestLayout' "COMPACT"
-
 pattern Full :: ManifestLayout
 pattern Full = ManifestLayout' "FULL"
 
+pattern Compact :: ManifestLayout
+pattern Compact = ManifestLayout' "COMPACT"
+
 {-# COMPLETE
-  Compact,
   Full,
+  Compact,
   ManifestLayout'
   #-}

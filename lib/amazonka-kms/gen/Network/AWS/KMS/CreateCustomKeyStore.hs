@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.KMS.CreateCustomKeyStore
 
     -- ** Request lenses
     ccksCustomKeyStoreName,
-    ccksCloudHSMClusterId,
-    ccksTrustAnchorCertificate,
     ccksKeyStorePassword,
+    ccksTrustAnchorCertificate,
+    ccksCloudHSMClusterId,
 
     -- * Destructuring the response
     CreateCustomKeyStoreResponse (..),
@@ -47,44 +48,50 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCustomKeyStore' smart constructor.
 data CreateCustomKeyStore = CreateCustomKeyStore'
-  { customKeyStoreName ::
-      Lude.Text,
-    cloudHSMClusterId :: Lude.Text,
+  { -- | Specifies a friendly name for the custom key store. The name must be unique in your AWS account.
+    customKeyStoreName :: Lude.Text,
+    -- | Enter the password of the <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser @kmsuser@ crypto user (CU) account> in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as this user to manage key material on your behalf.
+    --
+    -- The password must be a string of 7 to 32 characters. Its value is case sensitive.
+    -- This parameter tells AWS KMS the @kmsuser@ account password; it does not change the password in the AWS CloudHSM cluster.
+    keyStorePassword :: Lude.Sensitive Lude.Text,
+    -- | Enter the content of the trust anchor certificate for the cluster. This is the content of the @customerCA.crt@ file that you created when you <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster> .
     trustAnchorCertificate :: Lude.Text,
-    keyStorePassword :: Lude.Sensitive Lude.Text
+    -- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
+    cloudHSMClusterId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomKeyStore' with the minimum fields required to make a request.
 --
--- * 'cloudHSMClusterId' - Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
 -- * 'customKeyStoreName' - Specifies a friendly name for the custom key store. The name must be unique in your AWS account.
 -- * 'keyStorePassword' - Enter the password of the <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser @kmsuser@ crypto user (CU) account> in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as this user to manage key material on your behalf.
 --
 -- The password must be a string of 7 to 32 characters. Its value is case sensitive.
 -- This parameter tells AWS KMS the @kmsuser@ account password; it does not change the password in the AWS CloudHSM cluster.
 -- * 'trustAnchorCertificate' - Enter the content of the trust anchor certificate for the cluster. This is the content of the @customerCA.crt@ file that you created when you <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster> .
+-- * 'cloudHSMClusterId' - Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
 mkCreateCustomKeyStore ::
   -- | 'customKeyStoreName'
   Lude.Text ->
-  -- | 'cloudHSMClusterId'
-  Lude.Text ->
-  -- | 'trustAnchorCertificate'
-  Lude.Text ->
   -- | 'keyStorePassword'
   Lude.Sensitive Lude.Text ->
+  -- | 'trustAnchorCertificate'
+  Lude.Text ->
+  -- | 'cloudHSMClusterId'
+  Lude.Text ->
   CreateCustomKeyStore
 mkCreateCustomKeyStore
   pCustomKeyStoreName_
-  pCloudHSMClusterId_
+  pKeyStorePassword_
   pTrustAnchorCertificate_
-  pKeyStorePassword_ =
+  pCloudHSMClusterId_ =
     CreateCustomKeyStore'
       { customKeyStoreName = pCustomKeyStoreName_,
-        cloudHSMClusterId = pCloudHSMClusterId_,
+        keyStorePassword = pKeyStorePassword_,
         trustAnchorCertificate = pTrustAnchorCertificate_,
-        keyStorePassword = pKeyStorePassword_
+        cloudHSMClusterId = pCloudHSMClusterId_
       }
 
 -- | Specifies a friendly name for the custom key store. The name must be unique in your AWS account.
@@ -93,20 +100,6 @@ mkCreateCustomKeyStore
 ccksCustomKeyStoreName :: Lens.Lens' CreateCustomKeyStore Lude.Text
 ccksCustomKeyStoreName = Lens.lens (customKeyStoreName :: CreateCustomKeyStore -> Lude.Text) (\s a -> s {customKeyStoreName = a} :: CreateCustomKeyStore)
 {-# DEPRECATED ccksCustomKeyStoreName "Use generic-lens or generic-optics with 'customKeyStoreName' instead." #-}
-
--- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
---
--- /Note:/ Consider using 'cloudHSMClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccksCloudHSMClusterId :: Lens.Lens' CreateCustomKeyStore Lude.Text
-ccksCloudHSMClusterId = Lens.lens (cloudHSMClusterId :: CreateCustomKeyStore -> Lude.Text) (\s a -> s {cloudHSMClusterId = a} :: CreateCustomKeyStore)
-{-# DEPRECATED ccksCloudHSMClusterId "Use generic-lens or generic-optics with 'cloudHSMClusterId' instead." #-}
-
--- | Enter the content of the trust anchor certificate for the cluster. This is the content of the @customerCA.crt@ file that you created when you <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster> .
---
--- /Note:/ Consider using 'trustAnchorCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccksTrustAnchorCertificate :: Lens.Lens' CreateCustomKeyStore Lude.Text
-ccksTrustAnchorCertificate = Lens.lens (trustAnchorCertificate :: CreateCustomKeyStore -> Lude.Text) (\s a -> s {trustAnchorCertificate = a} :: CreateCustomKeyStore)
-{-# DEPRECATED ccksTrustAnchorCertificate "Use generic-lens or generic-optics with 'trustAnchorCertificate' instead." #-}
 
 -- | Enter the password of the <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser @kmsuser@ crypto user (CU) account> in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as this user to manage key material on your behalf.
 --
@@ -117,6 +110,20 @@ ccksTrustAnchorCertificate = Lens.lens (trustAnchorCertificate :: CreateCustomKe
 ccksKeyStorePassword :: Lens.Lens' CreateCustomKeyStore (Lude.Sensitive Lude.Text)
 ccksKeyStorePassword = Lens.lens (keyStorePassword :: CreateCustomKeyStore -> Lude.Sensitive Lude.Text) (\s a -> s {keyStorePassword = a} :: CreateCustomKeyStore)
 {-# DEPRECATED ccksKeyStorePassword "Use generic-lens or generic-optics with 'keyStorePassword' instead." #-}
+
+-- | Enter the content of the trust anchor certificate for the cluster. This is the content of the @customerCA.crt@ file that you created when you <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster> .
+--
+-- /Note:/ Consider using 'trustAnchorCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccksTrustAnchorCertificate :: Lens.Lens' CreateCustomKeyStore Lude.Text
+ccksTrustAnchorCertificate = Lens.lens (trustAnchorCertificate :: CreateCustomKeyStore -> Lude.Text) (\s a -> s {trustAnchorCertificate = a} :: CreateCustomKeyStore)
+{-# DEPRECATED ccksTrustAnchorCertificate "Use generic-lens or generic-optics with 'trustAnchorCertificate' instead." #-}
+
+-- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID, use the <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters> operation.
+--
+-- /Note:/ Consider using 'cloudHSMClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccksCloudHSMClusterId :: Lens.Lens' CreateCustomKeyStore Lude.Text
+ccksCloudHSMClusterId = Lens.lens (cloudHSMClusterId :: CreateCustomKeyStore -> Lude.Text) (\s a -> s {cloudHSMClusterId = a} :: CreateCustomKeyStore)
+{-# DEPRECATED ccksCloudHSMClusterId "Use generic-lens or generic-optics with 'cloudHSMClusterId' instead." #-}
 
 instance Lude.AWSRequest CreateCustomKeyStore where
   type Rs CreateCustomKeyStore = CreateCustomKeyStoreResponse
@@ -145,10 +152,10 @@ instance Lude.ToJSON CreateCustomKeyStore where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("CustomKeyStoreName" Lude..= customKeyStoreName),
-            Lude.Just ("CloudHsmClusterId" Lude..= cloudHSMClusterId),
+            Lude.Just ("KeyStorePassword" Lude..= keyStorePassword),
             Lude.Just
               ("TrustAnchorCertificate" Lude..= trustAnchorCertificate),
-            Lude.Just ("KeyStorePassword" Lude..= keyStorePassword)
+            Lude.Just ("CloudHsmClusterId" Lude..= cloudHSMClusterId)
           ]
       )
 
@@ -160,17 +167,12 @@ instance Lude.ToQuery CreateCustomKeyStore where
 
 -- | /See:/ 'mkCreateCustomKeyStoreResponse' smart constructor.
 data CreateCustomKeyStoreResponse = CreateCustomKeyStoreResponse'
-  { customKeyStoreId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for the new custom key store.
+    customKeyStoreId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomKeyStoreResponse' with the minimum fields required to make a request.

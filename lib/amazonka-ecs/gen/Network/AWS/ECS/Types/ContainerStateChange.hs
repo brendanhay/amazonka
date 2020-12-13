@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerStateChange' smart constructor.
 data ContainerStateChange = ContainerStateChange'
-  { networkBindings ::
-      Lude.Maybe [NetworkBinding],
+  { -- | Any network bindings associated with the container.
+    networkBindings :: Lude.Maybe [NetworkBinding],
+    -- | The status of the container.
     status :: Lude.Maybe Lude.Text,
+    -- | The name of the container.
     containerName :: Lude.Maybe Lude.Text,
+    -- | The reason for the state change.
     reason :: Lude.Maybe Lude.Text,
+    -- | The container image SHA 256 digest.
     imageDigest :: Lude.Maybe Lude.Text,
+    -- | The exit code for the container, if the state change is a result of the container exiting.
     exitCode :: Lude.Maybe Lude.Int,
+    -- | The ID of the Docker container.
     runtimeId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerStateChange' with the minimum fields required to make a request.
 --
--- * 'containerName' - The name of the container.
--- * 'exitCode' - The exit code for the container, if the state change is a result of the container exiting.
--- * 'imageDigest' - The container image SHA 256 digest.
 -- * 'networkBindings' - Any network bindings associated with the container.
--- * 'reason' - The reason for the state change.
--- * 'runtimeId' - The ID of the Docker container.
 -- * 'status' - The status of the container.
+-- * 'containerName' - The name of the container.
+-- * 'reason' - The reason for the state change.
+-- * 'imageDigest' - The container image SHA 256 digest.
+-- * 'exitCode' - The exit code for the container, if the state change is a result of the container exiting.
+-- * 'runtimeId' - The ID of the Docker container.
 mkContainerStateChange ::
   ContainerStateChange
 mkContainerStateChange =

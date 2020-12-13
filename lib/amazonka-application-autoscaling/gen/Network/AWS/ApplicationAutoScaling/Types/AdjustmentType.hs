@@ -14,8 +14,8 @@ module Network.AWS.ApplicationAutoScaling.Types.AdjustmentType
   ( AdjustmentType
       ( AdjustmentType',
         ChangeInCapacity,
-        ExactCapacity,
-        PercentChangeInCapacity
+        PercentChangeInCapacity,
+        ExactCapacity
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype AdjustmentType = AdjustmentType' Lude.Text
 pattern ChangeInCapacity :: AdjustmentType
 pattern ChangeInCapacity = AdjustmentType' "ChangeInCapacity"
 
-pattern ExactCapacity :: AdjustmentType
-pattern ExactCapacity = AdjustmentType' "ExactCapacity"
-
 pattern PercentChangeInCapacity :: AdjustmentType
 pattern PercentChangeInCapacity = AdjustmentType' "PercentChangeInCapacity"
 
+pattern ExactCapacity :: AdjustmentType
+pattern ExactCapacity = AdjustmentType' "ExactCapacity"
+
 {-# COMPLETE
   ChangeInCapacity,
-  ExactCapacity,
   PercentChangeInCapacity,
+  ExactCapacity,
   AdjustmentType'
   #-}

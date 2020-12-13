@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -69,24 +70,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectProtectiveEquipment' smart constructor.
 data DetectProtectiveEquipment = DetectProtectiveEquipment'
-  { summarizationAttributes ::
-      Lude.Maybe
-        ProtectiveEquipmentSummarizationAttributes,
+  { -- | An array of PPE types that you want to summarize.
+    summarizationAttributes :: Lude.Maybe ProtectiveEquipmentSummarizationAttributes,
+    -- | The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket.
     image :: Image
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectProtectiveEquipment' with the minimum fields required to make a request.
 --
--- * 'image' - The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket.
 -- * 'summarizationAttributes' - An array of PPE types that you want to summarize.
+-- * 'image' - The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket.
 mkDetectProtectiveEquipment ::
   -- | 'image'
   Image ->
@@ -158,32 +153,24 @@ instance Lude.ToQuery DetectProtectiveEquipment where
 
 -- | /See:/ 'mkDetectProtectiveEquipmentResponse' smart constructor.
 data DetectProtectiveEquipmentResponse = DetectProtectiveEquipmentResponse'
-  { summary ::
-      Lude.Maybe
-        ProtectiveEquipmentSummary,
-    protectiveEquipmentModelVersion ::
-      Lude.Maybe Lude.Text,
-    persons ::
-      Lude.Maybe
-        [ProtectiveEquipmentPerson],
-    responseStatus ::
-      Lude.Int
+  { -- | Summary information for the types of PPE specified in the @SummarizationAttributes@ input parameter.
+    summary :: Lude.Maybe ProtectiveEquipmentSummary,
+    -- | The version number of the PPE detection model used to detect PPE in the image.
+    protectiveEquipmentModelVersion :: Lude.Maybe Lude.Text,
+    -- | An array of persons detected in the image (including persons not wearing PPE).
+    persons :: Lude.Maybe [ProtectiveEquipmentPerson],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectProtectiveEquipmentResponse' with the minimum fields required to make a request.
 --
--- * 'persons' - An array of persons detected in the image (including persons not wearing PPE).
--- * 'protectiveEquipmentModelVersion' - The version number of the PPE detection model used to detect PPE in the image.
--- * 'responseStatus' - The response status code.
 -- * 'summary' - Summary information for the types of PPE specified in the @SummarizationAttributes@ input parameter.
+-- * 'protectiveEquipmentModelVersion' - The version number of the PPE detection model used to detect PPE in the image.
+-- * 'persons' - An array of persons detected in the image (including persons not wearing PPE).
+-- * 'responseStatus' - The response status code.
 mkDetectProtectiveEquipmentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

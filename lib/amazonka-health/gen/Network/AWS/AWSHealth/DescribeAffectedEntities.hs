@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,8 +26,8 @@ module Network.AWS.AWSHealth.DescribeAffectedEntities
     -- ** Request lenses
     daeLocale,
     daeNextToken,
-    daeMaxResults,
     daeFilter,
+    daeMaxResults,
 
     -- * Destructuring the response
     DescribeAffectedEntitiesResponse (..),
@@ -48,27 +49,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAffectedEntities' smart constructor.
 data DescribeAffectedEntities = DescribeAffectedEntities'
-  { locale ::
-      Lude.Maybe Lude.Text,
+  { -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+    locale :: Lude.Maybe Lude.Text,
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    filter :: EntityFilter
+    -- | Values to narrow the results returned. At least one event ARN is required.
+    filter :: EntityFilter,
+    -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAffectedEntities' with the minimum fields required to make a request.
 --
--- * 'filter' - Values to narrow the results returned. At least one event ARN is required.
 -- * 'locale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
--- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 -- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- * 'filter' - Values to narrow the results returned. At least one event ARN is required.
+-- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 mkDescribeAffectedEntities ::
   -- | 'filter'
   EntityFilter ->
@@ -77,8 +75,8 @@ mkDescribeAffectedEntities pFilter_ =
   DescribeAffectedEntities'
     { locale = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      filter = pFilter_
+      filter = pFilter_,
+      maxResults = Lude.Nothing
     }
 
 -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
@@ -95,19 +93,19 @@ daeNextToken :: Lens.Lens' DescribeAffectedEntities (Lude.Maybe Lude.Text)
 daeNextToken = Lens.lens (nextToken :: DescribeAffectedEntities -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAffectedEntities)
 {-# DEPRECATED daeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daeMaxResults :: Lens.Lens' DescribeAffectedEntities (Lude.Maybe Lude.Natural)
-daeMaxResults = Lens.lens (maxResults :: DescribeAffectedEntities -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAffectedEntities)
-{-# DEPRECATED daeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | Values to narrow the results returned. At least one event ARN is required.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 daeFilter :: Lens.Lens' DescribeAffectedEntities EntityFilter
 daeFilter = Lens.lens (filter :: DescribeAffectedEntities -> EntityFilter) (\s a -> s {filter = a} :: DescribeAffectedEntities)
 {-# DEPRECATED daeFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+
+-- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daeMaxResults :: Lens.Lens' DescribeAffectedEntities (Lude.Maybe Lude.Natural)
+daeMaxResults = Lens.lens (maxResults :: DescribeAffectedEntities -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAffectedEntities)
+{-# DEPRECATED daeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeAffectedEntities where
   page rq rs
@@ -147,8 +145,8 @@ instance Lude.ToJSON DescribeAffectedEntities where
       ( Lude.catMaybes
           [ ("locale" Lude..=) Lude.<$> locale,
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("filter" Lude..= filter)
+            Lude.Just ("filter" Lude..= filter),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -160,21 +158,14 @@ instance Lude.ToQuery DescribeAffectedEntities where
 
 -- | /See:/ 'mkDescribeAffectedEntitiesResponse' smart constructor.
 data DescribeAffectedEntitiesResponse = DescribeAffectedEntitiesResponse'
-  { entities ::
-      Lude.Maybe
-        [AffectedEntity],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The entities that match the filter criteria.
+    entities :: Lude.Maybe [AffectedEntity],
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAffectedEntitiesResponse' with the minimum fields required to make a request.

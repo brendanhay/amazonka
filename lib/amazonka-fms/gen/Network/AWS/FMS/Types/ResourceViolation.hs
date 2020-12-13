@@ -41,39 +41,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceViolation' smart constructor.
 data ResourceViolation = ResourceViolation'
-  { networkFirewallMissingExpectedRTViolation ::
-      Lude.Maybe NetworkFirewallMissingExpectedRTViolation,
-    networkFirewallMissingFirewallViolation ::
-      Lude.Maybe NetworkFirewallMissingFirewallViolation,
-    networkFirewallMissingSubnetViolation ::
-      Lude.Maybe NetworkFirewallMissingSubnetViolation,
-    awsEC2InstanceViolation ::
-      Lude.Maybe AWSEC2InstanceViolation,
-    awsVPCSecurityGroupViolation ::
-      Lude.Maybe AWSVPCSecurityGroupViolation,
-    networkFirewallPolicyModifiedViolation ::
-      Lude.Maybe NetworkFirewallPolicyModifiedViolation,
-    awsEC2NetworkInterfaceViolation ::
-      Lude.Maybe AWSEC2NetworkInterfaceViolation
+  { -- | Violation detail for an Network Firewall policy that indicates that a subnet is not associated with the expected Firewall Manager managed route table.
+    networkFirewallMissingExpectedRTViolation :: Lude.Maybe NetworkFirewallMissingExpectedRTViolation,
+    -- | Violation detail for an Network Firewall policy that indicates that a subnet has no Firewall Manager managed firewall in its VPC.
+    networkFirewallMissingFirewallViolation :: Lude.Maybe NetworkFirewallMissingFirewallViolation,
+    -- | Violation detail for an Network Firewall policy that indicates that an Availability Zone is missing the expected Firewall Manager managed subnet.
+    networkFirewallMissingSubnetViolation :: Lude.Maybe NetworkFirewallMissingSubnetViolation,
+    -- | Violation details for an EC2 instance.
+    awsEC2InstanceViolation :: Lude.Maybe AWSEC2InstanceViolation,
+    -- | Violation details for security groups.
+    awsVPCSecurityGroupViolation :: Lude.Maybe AWSVPCSecurityGroupViolation,
+    -- | Violation detail for an Network Firewall policy that indicates that a firewall policy in an individual account has been modified in a way that makes it noncompliant. For example, the individual account owner might have deleted a rule group, changed the priority of a stateless rule group, or changed a policy default action.
+    networkFirewallPolicyModifiedViolation :: Lude.Maybe NetworkFirewallPolicyModifiedViolation,
+    -- | Violation details for network interface.
+    awsEC2NetworkInterfaceViolation :: Lude.Maybe AWSEC2NetworkInterfaceViolation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceViolation' with the minimum fields required to make a request.
 --
--- * 'awsEC2InstanceViolation' - Violation details for an EC2 instance.
--- * 'awsEC2NetworkInterfaceViolation' - Violation details for network interface.
--- * 'awsVPCSecurityGroupViolation' - Violation details for security groups.
 -- * 'networkFirewallMissingExpectedRTViolation' - Violation detail for an Network Firewall policy that indicates that a subnet is not associated with the expected Firewall Manager managed route table.
 -- * 'networkFirewallMissingFirewallViolation' - Violation detail for an Network Firewall policy that indicates that a subnet has no Firewall Manager managed firewall in its VPC.
 -- * 'networkFirewallMissingSubnetViolation' - Violation detail for an Network Firewall policy that indicates that an Availability Zone is missing the expected Firewall Manager managed subnet.
+-- * 'awsEC2InstanceViolation' - Violation details for an EC2 instance.
+-- * 'awsVPCSecurityGroupViolation' - Violation details for security groups.
 -- * 'networkFirewallPolicyModifiedViolation' - Violation detail for an Network Firewall policy that indicates that a firewall policy in an individual account has been modified in a way that makes it noncompliant. For example, the individual account owner might have deleted a rule group, changed the priority of a stateless rule group, or changed a policy default action.
+-- * 'awsEC2NetworkInterfaceViolation' - Violation details for network interface.
 mkResourceViolation ::
   ResourceViolation
 mkResourceViolation =

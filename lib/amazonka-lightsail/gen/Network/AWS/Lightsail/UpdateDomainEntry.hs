@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Lightsail.UpdateDomainEntry
     mkUpdateDomainEntry,
 
     -- ** Request lenses
-    udeDomainName,
     udeDomainEntry,
+    udeDomainName,
 
     -- * Destructuring the response
     UpdateDomainEntryResponse (..),
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateDomainEntry' smart constructor.
 data UpdateDomainEntry = UpdateDomainEntry'
-  { domainName ::
-      Lude.Text,
-    domainEntry :: DomainEntry
+  { -- | An array of key-value pairs containing information about the domain entry.
+    domainEntry :: DomainEntry,
+    -- | The name of the domain recordset to update.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainEntry' with the minimum fields required to make a request.
@@ -60,23 +56,16 @@ data UpdateDomainEntry = UpdateDomainEntry'
 -- * 'domainEntry' - An array of key-value pairs containing information about the domain entry.
 -- * 'domainName' - The name of the domain recordset to update.
 mkUpdateDomainEntry ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'domainEntry'
   DomainEntry ->
+  -- | 'domainName'
+  Lude.Text ->
   UpdateDomainEntry
-mkUpdateDomainEntry pDomainName_ pDomainEntry_ =
+mkUpdateDomainEntry pDomainEntry_ pDomainName_ =
   UpdateDomainEntry'
-    { domainName = pDomainName_,
-      domainEntry = pDomainEntry_
+    { domainEntry = pDomainEntry_,
+      domainName = pDomainName_
     }
-
--- | The name of the domain recordset to update.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udeDomainName :: Lens.Lens' UpdateDomainEntry Lude.Text
-udeDomainName = Lens.lens (domainName :: UpdateDomainEntry -> Lude.Text) (\s a -> s {domainName = a} :: UpdateDomainEntry)
-{-# DEPRECATED udeDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | An array of key-value pairs containing information about the domain entry.
 --
@@ -84,6 +73,13 @@ udeDomainName = Lens.lens (domainName :: UpdateDomainEntry -> Lude.Text) (\s a -
 udeDomainEntry :: Lens.Lens' UpdateDomainEntry DomainEntry
 udeDomainEntry = Lens.lens (domainEntry :: UpdateDomainEntry -> DomainEntry) (\s a -> s {domainEntry = a} :: UpdateDomainEntry)
 {-# DEPRECATED udeDomainEntry "Use generic-lens or generic-optics with 'domainEntry' instead." #-}
+
+-- | The name of the domain recordset to update.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udeDomainName :: Lens.Lens' UpdateDomainEntry Lude.Text
+udeDomainName = Lens.lens (domainName :: UpdateDomainEntry -> Lude.Text) (\s a -> s {domainName = a} :: UpdateDomainEntry)
+{-# DEPRECATED udeDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest UpdateDomainEntry where
   type Rs UpdateDomainEntry = UpdateDomainEntryResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON UpdateDomainEntry where
   toJSON UpdateDomainEntry' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("domainName" Lude..= domainName),
-            Lude.Just ("domainEntry" Lude..= domainEntry)
+          [ Lude.Just ("domainEntry" Lude..= domainEntry),
+            Lude.Just ("domainName" Lude..= domainName)
           ]
       )
 
@@ -124,17 +120,12 @@ instance Lude.ToQuery UpdateDomainEntry where
 
 -- | /See:/ 'mkUpdateDomainEntryResponse' smart constructor.
 data UpdateDomainEntryResponse = UpdateDomainEntryResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainEntryResponse' with the minimum fields required to make a request.

@@ -13,10 +13,10 @@
 module Network.AWS.Redshift.Types.NodeConfigurationOptionsFilterName
   ( NodeConfigurationOptionsFilterName
       ( NodeConfigurationOptionsFilterName',
-        EstimatedDiskUtilizationPercent,
-        Mode,
         NodeType,
-        NumberOfNodes
+        NumberOfNodes,
+        EstimatedDiskUtilizationPercent,
+        Mode
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype NodeConfigurationOptionsFilterName = NodeConfigurationOptionsFilterName'
       Lude.ToHeader
     )
 
-pattern EstimatedDiskUtilizationPercent :: NodeConfigurationOptionsFilterName
-pattern EstimatedDiskUtilizationPercent = NodeConfigurationOptionsFilterName' "EstimatedDiskUtilizationPercent"
-
-pattern Mode :: NodeConfigurationOptionsFilterName
-pattern Mode = NodeConfigurationOptionsFilterName' "Mode"
-
 pattern NodeType :: NodeConfigurationOptionsFilterName
 pattern NodeType = NodeConfigurationOptionsFilterName' "NodeType"
 
 pattern NumberOfNodes :: NodeConfigurationOptionsFilterName
 pattern NumberOfNodes = NodeConfigurationOptionsFilterName' "NumberOfNodes"
 
+pattern EstimatedDiskUtilizationPercent :: NodeConfigurationOptionsFilterName
+pattern EstimatedDiskUtilizationPercent = NodeConfigurationOptionsFilterName' "EstimatedDiskUtilizationPercent"
+
+pattern Mode :: NodeConfigurationOptionsFilterName
+pattern Mode = NodeConfigurationOptionsFilterName' "Mode"
+
 {-# COMPLETE
-  EstimatedDiskUtilizationPercent,
-  Mode,
   NodeType,
   NumberOfNodes,
+  EstimatedDiskUtilizationPercent,
+  Mode,
   NodeConfigurationOptionsFilterName'
   #-}

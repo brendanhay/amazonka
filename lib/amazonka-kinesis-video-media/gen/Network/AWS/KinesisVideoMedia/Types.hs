@@ -21,8 +21,8 @@ module Network.AWS.KinesisVideoMedia.Types
     mkStartSelector,
     ssContinuationToken,
     ssAfterFragmentNumber,
-    ssStartTimestamp,
     ssStartSelectorType,
+    ssStartTimestamp,
   )
 where
 

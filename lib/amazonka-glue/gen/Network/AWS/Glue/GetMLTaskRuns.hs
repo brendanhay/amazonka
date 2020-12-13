@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,28 +47,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMLTaskRuns' smart constructor.
 data GetMLTaskRuns = GetMLTaskRuns'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token for pagination of the results. The default is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the task run.
     sort :: Lude.Maybe TaskRunSortCriteria,
+    -- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the task run.
     filter :: Lude.Maybe TaskRunFilterCriteria,
+    -- | The maximum number of results to return.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The unique identifier of the machine learning transform.
     transformId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMLTaskRuns' with the minimum fields required to make a request.
 --
--- * 'filter' - The filter criteria, in the @TaskRunFilterCriteria@ structure, for the task run.
--- * 'maxResults' - The maximum number of results to return.
 -- * 'nextToken' - A token for pagination of the results. The default is empty.
 -- * 'sort' - The sorting criteria, in the @TaskRunSortCriteria@ structure, for the task run.
+-- * 'filter' - The filter criteria, in the @TaskRunFilterCriteria@ structure, for the task run.
+-- * 'maxResults' - The maximum number of results to return.
 -- * 'transformId' - The unique identifier of the machine learning transform.
 mkGetMLTaskRuns ::
   -- | 'transformId'
@@ -160,25 +159,21 @@ instance Lude.ToQuery GetMLTaskRuns where
 
 -- | /See:/ 'mkGetMLTaskRunsResponse' smart constructor.
 data GetMLTaskRunsResponse = GetMLTaskRunsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A pagination token, if more results are available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of task runs that are associated with the transform.
     taskRuns :: Lude.Maybe [TaskRun],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMLTaskRunsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A pagination token, if more results are available.
--- * 'responseStatus' - The response status code.
 -- * 'taskRuns' - A list of task runs that are associated with the transform.
+-- * 'responseStatus' - The response status code.
 mkGetMLTaskRunsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

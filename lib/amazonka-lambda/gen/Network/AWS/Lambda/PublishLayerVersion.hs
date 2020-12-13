@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.Lambda.PublishLayerVersion
     mkPublishLayerVersion,
 
     -- ** Request lenses
+    plvLayerName,
+    plvContent,
     plvLicenseInfo,
     plvDescription,
     plvCompatibleRuntimes,
-    plvLayerName,
-    plvContent,
 
     -- * Destructuring the response
     PublishLayerVersionResponse (..),
@@ -52,22 +53,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPublishLayerVersion' smart constructor.
 data PublishLayerVersion = PublishLayerVersion'
-  { licenseInfo ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    compatibleRuntimes :: Lude.Maybe [Runtime],
+  { -- | The name or Amazon Resource Name (ARN) of the layer.
     layerName :: Lude.Text,
-    content :: LayerVersionContentInput
+    -- | The function layer archive.
+    content :: LayerVersionContentInput,
+    -- | The layer's software license. It can be any of the following:
+    --
+    --
+    --     * An <https://spdx.org/licenses/ SPDX license identifier> . For example, @MIT@ .
+    --
+    --
+    --     * The URL of a license hosted on the internet. For example, @https://opensource.org/licenses/MIT@ .
+    --
+    --
+    --     * The full text of the license.
+    licenseInfo :: Lude.Maybe Lude.Text,
+    -- | The description of the version.
+    description :: Lude.Maybe Lude.Text,
+    -- | A list of compatible <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes> . Used for filtering with 'ListLayers' and 'ListLayerVersions' .
+    compatibleRuntimes :: Lude.Maybe [Runtime]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublishLayerVersion' with the minimum fields required to make a request.
 --
--- * 'compatibleRuntimes' - A list of compatible <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes> . Used for filtering with 'ListLayers' and 'ListLayerVersions' .
--- * 'content' - The function layer archive.
--- * 'description' - The description of the version.
 -- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
+-- * 'content' - The function layer archive.
 -- * 'licenseInfo' - The layer's software license. It can be any of the following:
 --
 --
@@ -78,6 +90,10 @@ data PublishLayerVersion = PublishLayerVersion'
 --
 --
 --     * The full text of the license.
+--
+--
+-- * 'description' - The description of the version.
+-- * 'compatibleRuntimes' - A list of compatible <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html function runtimes> . Used for filtering with 'ListLayers' and 'ListLayerVersions' .
 mkPublishLayerVersion ::
   -- | 'layerName'
   Lude.Text ->
@@ -86,12 +102,26 @@ mkPublishLayerVersion ::
   PublishLayerVersion
 mkPublishLayerVersion pLayerName_ pContent_ =
   PublishLayerVersion'
-    { licenseInfo = Lude.Nothing,
+    { layerName = pLayerName_,
+      content = pContent_,
+      licenseInfo = Lude.Nothing,
       description = Lude.Nothing,
-      compatibleRuntimes = Lude.Nothing,
-      layerName = pLayerName_,
-      content = pContent_
+      compatibleRuntimes = Lude.Nothing
     }
+
+-- | The name or Amazon Resource Name (ARN) of the layer.
+--
+-- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvLayerName :: Lens.Lens' PublishLayerVersion Lude.Text
+plvLayerName = Lens.lens (layerName :: PublishLayerVersion -> Lude.Text) (\s a -> s {layerName = a} :: PublishLayerVersion)
+{-# DEPRECATED plvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
+
+-- | The function layer archive.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plvContent :: Lens.Lens' PublishLayerVersion LayerVersionContentInput
+plvContent = Lens.lens (content :: PublishLayerVersion -> LayerVersionContentInput) (\s a -> s {content = a} :: PublishLayerVersion)
+{-# DEPRECATED plvContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The layer's software license. It can be any of the following:
 --
@@ -125,20 +155,6 @@ plvCompatibleRuntimes :: Lens.Lens' PublishLayerVersion (Lude.Maybe [Runtime])
 plvCompatibleRuntimes = Lens.lens (compatibleRuntimes :: PublishLayerVersion -> Lude.Maybe [Runtime]) (\s a -> s {compatibleRuntimes = a} :: PublishLayerVersion)
 {-# DEPRECATED plvCompatibleRuntimes "Use generic-lens or generic-optics with 'compatibleRuntimes' instead." #-}
 
--- | The name or Amazon Resource Name (ARN) of the layer.
---
--- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvLayerName :: Lens.Lens' PublishLayerVersion Lude.Text
-plvLayerName = Lens.lens (layerName :: PublishLayerVersion -> Lude.Text) (\s a -> s {layerName = a} :: PublishLayerVersion)
-{-# DEPRECATED plvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
-
--- | The function layer archive.
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plvContent :: Lens.Lens' PublishLayerVersion LayerVersionContentInput
-plvContent = Lens.lens (content :: PublishLayerVersion -> LayerVersionContentInput) (\s a -> s {content = a} :: PublishLayerVersion)
-{-# DEPRECATED plvContent "Use generic-lens or generic-optics with 'content' instead." #-}
-
 instance Lude.AWSRequest PublishLayerVersion where
   type Rs PublishLayerVersion = PublishLayerVersionResponse
   request = Req.postJSON lambdaService
@@ -164,10 +180,10 @@ instance Lude.ToJSON PublishLayerVersion where
   toJSON PublishLayerVersion' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("LicenseInfo" Lude..=) Lude.<$> licenseInfo,
+          [ Lude.Just ("Content" Lude..= content),
+            ("LicenseInfo" Lude..=) Lude.<$> licenseInfo,
             ("Description" Lude..=) Lude.<$> description,
-            ("CompatibleRuntimes" Lude..=) Lude.<$> compatibleRuntimes,
-            Lude.Just ("Content" Lude..= content)
+            ("CompatibleRuntimes" Lude..=) Lude.<$> compatibleRuntimes
           ]
       )
 
@@ -181,40 +197,39 @@ instance Lude.ToQuery PublishLayerVersion where
 
 -- | /See:/ 'mkPublishLayerVersionResponse' smart constructor.
 data PublishLayerVersionResponse = PublishLayerVersionResponse'
-  { layerVersionARN ::
-      Lude.Maybe Lude.Text,
-    content ::
-      Lude.Maybe
-        LayerVersionContentOutput,
+  { -- | The ARN of the layer version.
+    layerVersionARN :: Lude.Maybe Lude.Text,
+    -- | Details about the layer version.
+    content :: Lude.Maybe LayerVersionContentOutput,
+    -- | The date that the layer version was created, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
     createdDate :: Lude.Maybe Lude.Text,
+    -- | The version number.
     version :: Lude.Maybe Lude.Integer,
+    -- | The layer's software license.
     licenseInfo :: Lude.Maybe Lude.Text,
+    -- | The ARN of the layer.
     layerARN :: Lude.Maybe Lude.Text,
+    -- | The description of the version.
     description :: Lude.Maybe Lude.Text,
-    compatibleRuntimes ::
-      Lude.Maybe [Runtime],
+    -- | The layer's compatible runtimes.
+    compatibleRuntimes :: Lude.Maybe [Runtime],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublishLayerVersionResponse' with the minimum fields required to make a request.
 --
--- * 'compatibleRuntimes' - The layer's compatible runtimes.
+-- * 'layerVersionARN' - The ARN of the layer version.
 -- * 'content' - Details about the layer version.
 -- * 'createdDate' - The date that the layer version was created, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
--- * 'description' - The description of the version.
--- * 'layerARN' - The ARN of the layer.
--- * 'layerVersionARN' - The ARN of the layer version.
--- * 'licenseInfo' - The layer's software license.
--- * 'responseStatus' - The response status code.
 -- * 'version' - The version number.
+-- * 'licenseInfo' - The layer's software license.
+-- * 'layerARN' - The ARN of the layer.
+-- * 'description' - The description of the version.
+-- * 'compatibleRuntimes' - The layer's compatible runtimes.
+-- * 'responseStatus' - The response status code.
 mkPublishLayerVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

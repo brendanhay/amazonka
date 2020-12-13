@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H264SlowPal
   ( H264SlowPal
       ( H264SlowPal',
-        HSPSDisabled,
-        HSPSEnabled
+        HSPfDisabled,
+        HSPfEnabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H264SlowPal = H264SlowPal' Lude.Text
       Lude.ToHeader
     )
 
-pattern HSPSDisabled :: H264SlowPal
-pattern HSPSDisabled = H264SlowPal' "DISABLED"
+pattern HSPfDisabled :: H264SlowPal
+pattern HSPfDisabled = H264SlowPal' "DISABLED"
 
-pattern HSPSEnabled :: H264SlowPal
-pattern HSPSEnabled = H264SlowPal' "ENABLED"
+pattern HSPfEnabled :: H264SlowPal
+pattern HSPfEnabled = H264SlowPal' "ENABLED"
 
 {-# COMPLETE
-  HSPSDisabled,
-  HSPSEnabled,
+  HSPfDisabled,
+  HSPfEnabled,
   H264SlowPal'
   #-}

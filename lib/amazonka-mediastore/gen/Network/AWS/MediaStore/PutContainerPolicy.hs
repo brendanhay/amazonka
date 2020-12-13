@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,7 +30,7 @@ module Network.AWS.MediaStore.PutContainerPolicy
     mkPutContainerPolicyResponse,
 
     -- ** Response lenses
-    pcprsResponseStatus,
+    prsResponseStatus,
   )
 where
 
@@ -41,17 +42,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutContainerPolicy' smart constructor.
 data PutContainerPolicy = PutContainerPolicy'
-  { containerName ::
-      Lude.Text,
+  { -- | The name of the container.
+    containerName :: Lude.Text,
+    -- | The contents of the policy, which includes the following:
+    --
+    --
+    --     * One @Version@ tag
+    --
+    --
+    --     * One @Statement@ tag that contains the standard tags for the policy.
     policy :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutContainerPolicy' with the minimum fields required to make a request.
@@ -135,16 +137,10 @@ instance Lude.ToQuery PutContainerPolicy where
 
 -- | /See:/ 'mkPutContainerPolicyResponse' smart constructor.
 newtype PutContainerPolicyResponse = PutContainerPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutContainerPolicyResponse' with the minimum fields required to make a request.
@@ -160,6 +156,6 @@ mkPutContainerPolicyResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcprsResponseStatus :: Lens.Lens' PutContainerPolicyResponse Lude.Int
-pcprsResponseStatus = Lens.lens (responseStatus :: PutContainerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutContainerPolicyResponse)
-{-# DEPRECATED pcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prsResponseStatus :: Lens.Lens' PutContainerPolicyResponse Lude.Int
+prsResponseStatus = Lens.lens (responseStatus :: PutContainerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutContainerPolicyResponse)
+{-# DEPRECATED prsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

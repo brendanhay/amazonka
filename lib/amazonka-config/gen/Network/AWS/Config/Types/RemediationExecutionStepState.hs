@@ -13,9 +13,9 @@
 module Network.AWS.Config.Types.RemediationExecutionStepState
   ( RemediationExecutionStepState
       ( RemediationExecutionStepState',
-        Failed,
+        Succeeded,
         Pending,
-        Succeeded
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RemediationExecutionStepState = RemediationExecutionStepState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: RemediationExecutionStepState
-pattern Failed = RemediationExecutionStepState' "FAILED"
+pattern Succeeded :: RemediationExecutionStepState
+pattern Succeeded = RemediationExecutionStepState' "SUCCEEDED"
 
 pattern Pending :: RemediationExecutionStepState
 pattern Pending = RemediationExecutionStepState' "PENDING"
 
-pattern Succeeded :: RemediationExecutionStepState
-pattern Succeeded = RemediationExecutionStepState' "SUCCEEDED"
+pattern Failed :: RemediationExecutionStepState
+pattern Failed = RemediationExecutionStepState' "FAILED"
 
 {-# COMPLETE
-  Failed,
-  Pending,
   Succeeded,
+  Pending,
+  Failed,
   RemediationExecutionStepState'
   #-}

@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTestGridProject' smart constructor.
 data TestGridProject = TestGridProject'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN for the project.
+    arn :: Lude.Maybe Lude.Text,
+    -- | When the project was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | A human-readable name for the project.
     name :: Lude.Maybe Lude.Text,
+    -- | A human-readable description for the project.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestGridProject' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN for the project.
 -- * 'created' - When the project was created.
--- * 'description' - A human-readable description for the project.
 -- * 'name' - A human-readable name for the project.
+-- * 'description' - A human-readable description for the project.
 mkTestGridProject ::
   TestGridProject
 mkTestGridProject =

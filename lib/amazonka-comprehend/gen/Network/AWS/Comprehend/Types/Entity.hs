@@ -35,27 +35,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntity' smart constructor.
 data Entity = Entity'
-  { beginOffset :: Lude.Maybe Lude.Int,
+  { -- | A character offset in the input text that shows where the entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A /code point/ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
+    beginOffset :: Lude.Maybe Lude.Int,
+    -- | The text of the entity.
     text :: Lude.Maybe Lude.Text,
+    -- | The level of confidence that Amazon Comprehend has in the accuracy of the detection.
     score :: Lude.Maybe Lude.Double,
+    -- | A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A /code point/ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
     endOffset :: Lude.Maybe Lude.Int,
+    -- | The entity's type.
     type' :: Lude.Maybe EntityType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Entity' with the minimum fields required to make a request.
 --
 -- * 'beginOffset' - A character offset in the input text that shows where the entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A /code point/ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
--- * 'endOffset' - A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A /code point/ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
--- * 'score' - The level of confidence that Amazon Comprehend has in the accuracy of the detection.
 -- * 'text' - The text of the entity.
+-- * 'score' - The level of confidence that Amazon Comprehend has in the accuracy of the detection.
+-- * 'endOffset' - A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A /code point/ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
 -- * 'type'' - The entity's type.
 mkEntity ::
   Entity

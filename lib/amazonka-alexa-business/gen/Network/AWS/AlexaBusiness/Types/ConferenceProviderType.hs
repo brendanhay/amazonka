@@ -13,16 +13,16 @@
 module Network.AWS.AlexaBusiness.Types.ConferenceProviderType
   ( ConferenceProviderType
       ( ConferenceProviderType',
-        Bluejeans,
         Chime,
-        Custom,
+        Bluejeans,
         Fuze,
         GoogleHangouts,
         Polycom,
         Ringcentral,
         SkypeForBusiness,
         Webex,
-        Zoom
+        Zoom,
+        Custom
       ),
   )
 where
@@ -53,14 +53,11 @@ newtype ConferenceProviderType = ConferenceProviderType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Bluejeans :: ConferenceProviderType
-pattern Bluejeans = ConferenceProviderType' "BLUEJEANS"
-
 pattern Chime :: ConferenceProviderType
 pattern Chime = ConferenceProviderType' "CHIME"
 
-pattern Custom :: ConferenceProviderType
-pattern Custom = ConferenceProviderType' "CUSTOM"
+pattern Bluejeans :: ConferenceProviderType
+pattern Bluejeans = ConferenceProviderType' "BLUEJEANS"
 
 pattern Fuze :: ConferenceProviderType
 pattern Fuze = ConferenceProviderType' "FUZE"
@@ -83,10 +80,12 @@ pattern Webex = ConferenceProviderType' "WEBEX"
 pattern Zoom :: ConferenceProviderType
 pattern Zoom = ConferenceProviderType' "ZOOM"
 
+pattern Custom :: ConferenceProviderType
+pattern Custom = ConferenceProviderType' "CUSTOM"
+
 {-# COMPLETE
-  Bluejeans,
   Chime,
-  Custom,
+  Bluejeans,
   Fuze,
   GoogleHangouts,
   Polycom,
@@ -94,5 +93,6 @@ pattern Zoom = ConferenceProviderType' "ZOOM"
   SkypeForBusiness,
   Webex,
   Zoom,
+  Custom,
   ConferenceProviderType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,23 +48,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFunctionEventInvokeConfigs' smart constructor.
 data ListFunctionEventInvokeConfigs = ListFunctionEventInvokeConfigs'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    maxItems ::
-      Lude.Maybe Lude.Natural,
+  { -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of configurations to return.
+    maxItems :: Lude.Maybe Lude.Natural,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
     functionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctionEventInvokeConfigs' with the minimum fields required to make a request.
 --
+-- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+-- * 'maxItems' - The maximum number of configurations to return.
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -78,8 +89,6 @@ data ListFunctionEventInvokeConfigs = ListFunctionEventInvokeConfigs'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
--- * 'maxItems' - The maximum number of configurations to return.
 mkListFunctionEventInvokeConfigs ::
   -- | 'functionName'
   Lude.Text ->
@@ -167,22 +176,14 @@ instance Lude.ToQuery ListFunctionEventInvokeConfigs where
 
 -- | /See:/ 'mkListFunctionEventInvokeConfigsResponse' smart constructor.
 data ListFunctionEventInvokeConfigsResponse = ListFunctionEventInvokeConfigsResponse'
-  { functionEventInvokeConfigs ::
-      Lude.Maybe
-        [FunctionEventInvokeConfig],
-    nextMarker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of configurations.
+    functionEventInvokeConfigs :: Lude.Maybe [FunctionEventInvokeConfig],
+    -- | The pagination token that's included if more results are available.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctionEventInvokeConfigsResponse' with the minimum fields required to make a request.

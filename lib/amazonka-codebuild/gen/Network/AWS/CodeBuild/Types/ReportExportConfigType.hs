@@ -13,8 +13,8 @@
 module Network.AWS.CodeBuild.Types.ReportExportConfigType
   ( ReportExportConfigType
       ( ReportExportConfigType',
-        RECTNoExport,
-        RECTS3
+        RECTS3,
+        RECTNoExport
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReportExportConfigType = ReportExportConfigType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RECTNoExport :: ReportExportConfigType
-pattern RECTNoExport = ReportExportConfigType' "NO_EXPORT"
-
 pattern RECTS3 :: ReportExportConfigType
 pattern RECTS3 = ReportExportConfigType' "S3"
 
+pattern RECTNoExport :: ReportExportConfigType
+pattern RECTNoExport = ReportExportConfigType' "NO_EXPORT"
+
 {-# COMPLETE
-  RECTNoExport,
   RECTS3,
+  RECTNoExport,
   ReportExportConfigType'
   #-}

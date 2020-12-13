@@ -13,8 +13,8 @@
 module Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat
   ( AuditReportResponseFormat
       ( AuditReportResponseFormat',
-        CSV,
-        JSON
+        JSON,
+        CSV
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AuditReportResponseFormat = AuditReportResponseFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSV :: AuditReportResponseFormat
-pattern CSV = AuditReportResponseFormat' "CSV"
-
 pattern JSON :: AuditReportResponseFormat
 pattern JSON = AuditReportResponseFormat' "JSON"
 
+pattern CSV :: AuditReportResponseFormat
+pattern CSV = AuditReportResponseFormat' "CSV"
+
 {-# COMPLETE
-  CSV,
   JSON,
+  CSV,
   AuditReportResponseFormat'
   #-}

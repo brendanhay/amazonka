@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,27 +52,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeVoices' smart constructor.
 data DescribeVoices = DescribeVoices'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
+  { -- | The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | Specifies the engine (@standard@ or @neural@ ) used by Amazon Polly when processing input text for speech synthesis.
     engine :: Lude.Maybe Engine,
+    -- | An opaque pagination token returned from the previous @DescribeVoices@ operation. If present, this indicates where to continue the listing.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify @yes@ but not if you specify @no@ .
     includeAdditionalLanguageCodes :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVoices' with the minimum fields required to make a request.
 --
--- * 'engine' - Specifies the engine (@standard@ or @neural@ ) used by Amazon Polly when processing input text for speech synthesis.
--- * 'includeAdditionalLanguageCodes' - Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify @yes@ but not if you specify @no@ .
 -- * 'languageCode' - The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.
+-- * 'engine' - Specifies the engine (@standard@ or @neural@ ) used by Amazon Polly when processing input text for speech synthesis.
 -- * 'nextToken' - An opaque pagination token returned from the previous @DescribeVoices@ operation. If present, this indicates where to continue the listing.
+-- * 'includeAdditionalLanguageCodes' - Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify @yes@ but not if you specify @no@ .
 mkDescribeVoices ::
   DescribeVoices
 mkDescribeVoices =
@@ -149,25 +147,21 @@ instance Lude.ToQuery DescribeVoices where
 
 -- | /See:/ 'mkDescribeVoicesResponse' smart constructor.
 data DescribeVoicesResponse = DescribeVoicesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token to use in the next request to continue the listing of voices. @NextToken@ is returned only if the response is truncated.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of voices with their properties.
     voices :: Lude.Maybe [Voice],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVoicesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The pagination token to use in the next request to continue the listing of voices. @NextToken@ is returned only if the response is truncated.
--- * 'responseStatus' - The response status code.
 -- * 'voices' - A list of voices with their properties.
+-- * 'responseStatus' - The response status code.
 mkDescribeVoicesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

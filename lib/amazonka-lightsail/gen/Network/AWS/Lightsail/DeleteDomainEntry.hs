@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Lightsail.DeleteDomainEntry
     mkDeleteDomainEntry,
 
     -- ** Request lenses
-    ddeDomainName,
     ddeDomainEntry,
+    ddeDomainName,
 
     -- * Destructuring the response
     DeleteDomainEntryResponse (..),
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDomainEntry' smart constructor.
 data DeleteDomainEntry = DeleteDomainEntry'
-  { domainName ::
-      Lude.Text,
-    domainEntry :: DomainEntry
+  { -- | An array of key-value pairs containing information about your domain entries.
+    domainEntry :: DomainEntry,
+    -- | The name of the domain entry to delete.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainEntry' with the minimum fields required to make a request.
@@ -60,23 +56,16 @@ data DeleteDomainEntry = DeleteDomainEntry'
 -- * 'domainEntry' - An array of key-value pairs containing information about your domain entries.
 -- * 'domainName' - The name of the domain entry to delete.
 mkDeleteDomainEntry ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'domainEntry'
   DomainEntry ->
+  -- | 'domainName'
+  Lude.Text ->
   DeleteDomainEntry
-mkDeleteDomainEntry pDomainName_ pDomainEntry_ =
+mkDeleteDomainEntry pDomainEntry_ pDomainName_ =
   DeleteDomainEntry'
-    { domainName = pDomainName_,
-      domainEntry = pDomainEntry_
+    { domainEntry = pDomainEntry_,
+      domainName = pDomainName_
     }
-
--- | The name of the domain entry to delete.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddeDomainName :: Lens.Lens' DeleteDomainEntry Lude.Text
-ddeDomainName = Lens.lens (domainName :: DeleteDomainEntry -> Lude.Text) (\s a -> s {domainName = a} :: DeleteDomainEntry)
-{-# DEPRECATED ddeDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | An array of key-value pairs containing information about your domain entries.
 --
@@ -84,6 +73,13 @@ ddeDomainName = Lens.lens (domainName :: DeleteDomainEntry -> Lude.Text) (\s a -
 ddeDomainEntry :: Lens.Lens' DeleteDomainEntry DomainEntry
 ddeDomainEntry = Lens.lens (domainEntry :: DeleteDomainEntry -> DomainEntry) (\s a -> s {domainEntry = a} :: DeleteDomainEntry)
 {-# DEPRECATED ddeDomainEntry "Use generic-lens or generic-optics with 'domainEntry' instead." #-}
+
+-- | The name of the domain entry to delete.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddeDomainName :: Lens.Lens' DeleteDomainEntry Lude.Text
+ddeDomainName = Lens.lens (domainName :: DeleteDomainEntry -> Lude.Text) (\s a -> s {domainName = a} :: DeleteDomainEntry)
+{-# DEPRECATED ddeDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest DeleteDomainEntry where
   type Rs DeleteDomainEntry = DeleteDomainEntryResponse
@@ -110,8 +106,8 @@ instance Lude.ToJSON DeleteDomainEntry where
   toJSON DeleteDomainEntry' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("domainName" Lude..= domainName),
-            Lude.Just ("domainEntry" Lude..= domainEntry)
+          [ Lude.Just ("domainEntry" Lude..= domainEntry),
+            Lude.Just ("domainName" Lude..= domainName)
           ]
       )
 
@@ -123,17 +119,12 @@ instance Lude.ToQuery DeleteDomainEntry where
 
 -- | /See:/ 'mkDeleteDomainEntryResponse' smart constructor.
 data DeleteDomainEntryResponse = DeleteDomainEntryResponse'
-  { operation ::
-      Lude.Maybe Operation,
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operation :: Lude.Maybe Operation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainEntryResponse' with the minimum fields required to make a request.

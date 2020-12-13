@@ -33,26 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicies' smart constructor.
 data Policies = Policies'
-  { otherPolicies :: Lude.Maybe [Lude.Text],
-    lBCookieStickinessPolicies ::
-      Lude.Maybe [LBCookieStickinessPolicy],
-    appCookieStickinessPolicies ::
-      Lude.Maybe [AppCookieStickinessPolicy]
+  { -- | The policies other than the stickiness policies.
+    otherPolicies :: Lude.Maybe [Lude.Text],
+    -- | The stickiness policies created using 'CreateLBCookieStickinessPolicy' .
+    lBCookieStickinessPolicies :: Lude.Maybe [LBCookieStickinessPolicy],
+    -- | The stickiness policies created using 'CreateAppCookieStickinessPolicy' .
+    appCookieStickinessPolicies :: Lude.Maybe [AppCookieStickinessPolicy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Policies' with the minimum fields required to make a request.
 --
--- * 'appCookieStickinessPolicies' - The stickiness policies created using 'CreateAppCookieStickinessPolicy' .
--- * 'lBCookieStickinessPolicies' - The stickiness policies created using 'CreateLBCookieStickinessPolicy' .
 -- * 'otherPolicies' - The policies other than the stickiness policies.
+-- * 'lBCookieStickinessPolicies' - The stickiness policies created using 'CreateLBCookieStickinessPolicy' .
+-- * 'appCookieStickinessPolicies' - The stickiness policies created using 'CreateAppCookieStickinessPolicy' .
 mkPolicies ::
   Policies
 mkPolicies =

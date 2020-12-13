@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,7 +23,7 @@ module Network.AWS.CloudWatchEvents.DeactivateEventSource
     mkDeactivateEventSource,
 
     -- ** Request lenses
-    deaName,
+    desfName,
 
     -- * Destructuring the response
     DeactivateEventSourceResponse (..),
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeactivateEventSource' smart constructor.
 newtype DeactivateEventSource = DeactivateEventSource'
-  { name ::
-      Lude.Text
+  { -- | The name of the partner event source to deactivate.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeactivateEventSource' with the minimum fields required to make a request.
@@ -63,9 +58,9 @@ mkDeactivateEventSource pName_ =
 -- | The name of the partner event source to deactivate.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deaName :: Lens.Lens' DeactivateEventSource Lude.Text
-deaName = Lens.lens (name :: DeactivateEventSource -> Lude.Text) (\s a -> s {name = a} :: DeactivateEventSource)
-{-# DEPRECATED deaName "Use generic-lens or generic-optics with 'name' instead." #-}
+desfName :: Lens.Lens' DeactivateEventSource Lude.Text
+desfName = Lens.lens (name :: DeactivateEventSource -> Lude.Text) (\s a -> s {name = a} :: DeactivateEventSource)
+{-# DEPRECATED desfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeactivateEventSource where
   type Rs DeactivateEventSource = DeactivateEventSourceResponse
@@ -95,13 +90,7 @@ instance Lude.ToQuery DeactivateEventSource where
 
 -- | /See:/ 'mkDeactivateEventSourceResponse' smart constructor.
 data DeactivateEventSourceResponse = DeactivateEventSourceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeactivateEventSourceResponse' with the minimum fields required to make a request.

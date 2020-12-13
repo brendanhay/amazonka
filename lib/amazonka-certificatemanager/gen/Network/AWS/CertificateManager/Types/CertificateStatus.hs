@@ -13,13 +13,13 @@
 module Network.AWS.CertificateManager.Types.CertificateStatus
   ( CertificateStatus
       ( CertificateStatus',
-        CSExpired,
-        CSFailed,
-        CSInactive,
-        CSIssued,
         CSPendingValidation,
+        CSIssued,
+        CSInactive,
+        CSExpired,
+        CSValidationTimedOut,
         CSRevoked,
-        CSValidationTimedOut
+        CSFailed
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype CertificateStatus = CertificateStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSExpired :: CertificateStatus
-pattern CSExpired = CertificateStatus' "EXPIRED"
-
-pattern CSFailed :: CertificateStatus
-pattern CSFailed = CertificateStatus' "FAILED"
-
-pattern CSInactive :: CertificateStatus
-pattern CSInactive = CertificateStatus' "INACTIVE"
+pattern CSPendingValidation :: CertificateStatus
+pattern CSPendingValidation = CertificateStatus' "PENDING_VALIDATION"
 
 pattern CSIssued :: CertificateStatus
 pattern CSIssued = CertificateStatus' "ISSUED"
 
-pattern CSPendingValidation :: CertificateStatus
-pattern CSPendingValidation = CertificateStatus' "PENDING_VALIDATION"
+pattern CSInactive :: CertificateStatus
+pattern CSInactive = CertificateStatus' "INACTIVE"
 
-pattern CSRevoked :: CertificateStatus
-pattern CSRevoked = CertificateStatus' "REVOKED"
+pattern CSExpired :: CertificateStatus
+pattern CSExpired = CertificateStatus' "EXPIRED"
 
 pattern CSValidationTimedOut :: CertificateStatus
 pattern CSValidationTimedOut = CertificateStatus' "VALIDATION_TIMED_OUT"
 
+pattern CSRevoked :: CertificateStatus
+pattern CSRevoked = CertificateStatus' "REVOKED"
+
+pattern CSFailed :: CertificateStatus
+pattern CSFailed = CertificateStatus' "FAILED"
+
 {-# COMPLETE
-  CSExpired,
-  CSFailed,
-  CSInactive,
-  CSIssued,
   CSPendingValidation,
-  CSRevoked,
+  CSIssued,
+  CSInactive,
+  CSExpired,
   CSValidationTimedOut,
+  CSRevoked,
+  CSFailed,
   CertificateStatus'
   #-}

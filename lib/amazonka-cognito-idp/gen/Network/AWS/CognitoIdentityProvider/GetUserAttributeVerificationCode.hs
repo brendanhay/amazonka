@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,33 +44,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetUserAttributeVerificationCode' smart constructor.
 data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
-  { clientMetadata ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    accessToken ::
-      Lude.Sensitive Lude.Text,
-    attributeName ::
-      Lude.Text
+  { -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+    --
+    -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the GetUserAttributeVerificationCode API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your GetUserAttributeVerificationCode request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+    clientMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The access token returned by the server response to get the user attribute verification code.
+    accessToken :: Lude.Sensitive Lude.Text,
+    -- | The attribute name returned by the server response to get the user attribute verification code.
+    attributeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserAttributeVerificationCode' with the minimum fields required to make a request.
 --
--- * 'accessToken' - The access token returned by the server response to get the user attribute verification code.
--- * 'attributeName' - The attribute name returned by the server response to get the user attribute verification code.
 -- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
 -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the GetUserAttributeVerificationCode API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your GetUserAttributeVerificationCode request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
 -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+-- * 'accessToken' - The access token returned by the server response to get the user attribute verification code.
+-- * 'attributeName' - The attribute name returned by the server response to get the user attribute verification code.
 mkGetUserAttributeVerificationCode ::
   -- | 'accessToken'
   Lude.Sensitive Lude.Text ->
@@ -153,19 +148,12 @@ instance Lude.ToQuery GetUserAttributeVerificationCode where
 --
 -- /See:/ 'mkGetUserAttributeVerificationCodeResponse' smart constructor.
 data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCodeResponse'
-  { codeDeliveryDetails ::
-      Lude.Maybe
-        CodeDeliveryDetailsType,
-    responseStatus ::
-      Lude.Int
+  { -- | The code delivery details returned by the server in response to the request to get the user attribute verification code.
+    codeDeliveryDetails :: Lude.Maybe CodeDeliveryDetailsType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserAttributeVerificationCodeResponse' with the minimum fields required to make a request.

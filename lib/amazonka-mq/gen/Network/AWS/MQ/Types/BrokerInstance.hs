@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBrokerInstance' smart constructor.
 data BrokerInstance = BrokerInstance'
-  { ipAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
+    ipAddress :: Lude.Maybe Lude.Text,
+    -- | The URL of the broker's Web Console.
     consoleURL :: Lude.Maybe Lude.Text,
+    -- | The broker's wire-level protocol endpoints.
     endpoints :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BrokerInstance' with the minimum fields required to make a request.
 --
+-- * 'ipAddress' - The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
 -- * 'consoleURL' - The URL of the broker's Web Console.
 -- * 'endpoints' - The broker's wire-level protocol endpoints.
--- * 'ipAddress' - The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers
 mkBrokerInstance ::
   BrokerInstance
 mkBrokerInstance =

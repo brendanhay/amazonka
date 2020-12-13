@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTokenValidityUnitsType' smart constructor.
 data TokenValidityUnitsType = TokenValidityUnitsType'
-  { accessToken ::
-      Lude.Maybe TimeUnitsType,
+  { -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.
+    accessToken :: Lude.Maybe TimeUnitsType,
+    -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.
     refreshToken :: Lude.Maybe TimeUnitsType,
+    -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.
     idToken :: Lude.Maybe TimeUnitsType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TokenValidityUnitsType' with the minimum fields required to make a request.
 --
 -- * 'accessToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.
--- * 'idToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.
 -- * 'refreshToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.
+-- * 'idToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.
 mkTokenValidityUnitsType ::
   TokenValidityUnitsType
 mkTokenValidityUnitsType =

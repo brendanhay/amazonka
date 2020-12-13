@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.InputDeviceIPScheme
   ( InputDeviceIPScheme
       ( InputDeviceIPScheme',
-        DHCP,
-        Static
+        Static,
+        DHCP
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype InputDeviceIPScheme = InputDeviceIPScheme' Lude.Text
       Lude.ToHeader
     )
 
-pattern DHCP :: InputDeviceIPScheme
-pattern DHCP = InputDeviceIPScheme' "DHCP"
-
 pattern Static :: InputDeviceIPScheme
 pattern Static = InputDeviceIPScheme' "STATIC"
 
+pattern DHCP :: InputDeviceIPScheme
+pattern DHCP = InputDeviceIPScheme' "DHCP"
+
 {-# COMPLETE
-  DHCP,
   Static,
+  DHCP,
   InputDeviceIPScheme'
   #-}

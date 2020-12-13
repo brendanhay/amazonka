@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.GetModelTemplate
     mkGetModelTemplate,
 
     -- ** Request lenses
-    gmtRestAPIId,
     gmtModelName,
+    gmtRestAPIId,
 
     -- * Destructuring the response
     GetModelTemplateResponse (..),
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetModelTemplate' smart constructor.
 data GetModelTemplate = GetModelTemplate'
-  { restAPIId :: Lude.Text,
-    modelName :: Lude.Text
+  { -- | [Required] The name of the model for which to generate a template.
+    modelName :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModelTemplate' with the minimum fields required to make a request.
@@ -59,23 +56,16 @@ data GetModelTemplate = GetModelTemplate'
 -- * 'modelName' - [Required] The name of the model for which to generate a template.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkGetModelTemplate ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'modelName'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   GetModelTemplate
-mkGetModelTemplate pRestAPIId_ pModelName_ =
+mkGetModelTemplate pModelName_ pRestAPIId_ =
   GetModelTemplate'
-    { restAPIId = pRestAPIId_,
-      modelName = pModelName_
+    { modelName = pModelName_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmtRestAPIId :: Lens.Lens' GetModelTemplate Lude.Text
-gmtRestAPIId = Lens.lens (restAPIId :: GetModelTemplate -> Lude.Text) (\s a -> s {restAPIId = a} :: GetModelTemplate)
-{-# DEPRECATED gmtRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the model for which to generate a template.
 --
@@ -83,6 +73,13 @@ gmtRestAPIId = Lens.lens (restAPIId :: GetModelTemplate -> Lude.Text) (\s a -> s
 gmtModelName :: Lens.Lens' GetModelTemplate Lude.Text
 gmtModelName = Lens.lens (modelName :: GetModelTemplate -> Lude.Text) (\s a -> s {modelName = a} :: GetModelTemplate)
 {-# DEPRECATED gmtModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmtRestAPIId :: Lens.Lens' GetModelTemplate Lude.Text
+gmtRestAPIId = Lens.lens (restAPIId :: GetModelTemplate -> Lude.Text) (\s a -> s {restAPIId = a} :: GetModelTemplate)
+{-# DEPRECATED gmtRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest GetModelTemplate where
   type Rs GetModelTemplate = GetModelTemplateResponse
@@ -120,23 +117,18 @@ instance Lude.ToQuery GetModelTemplate where
 --
 -- /See:/ 'mkGetModelTemplateResponse' smart constructor.
 data GetModelTemplateResponse = GetModelTemplateResponse'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The Apache <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)> template content used for the template resource.
+    value :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModelTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'value' - The Apache <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)> template content used for the template resource.
+-- * 'responseStatus' - The response status code.
 mkGetModelTemplateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

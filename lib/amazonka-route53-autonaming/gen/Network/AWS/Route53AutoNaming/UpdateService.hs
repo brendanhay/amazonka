@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,8 +37,8 @@ module Network.AWS.Route53AutoNaming.UpdateService
     mkUpdateService,
 
     -- ** Request lenses
-    usId,
     usService,
+    usId,
 
     -- * Destructuring the response
     UpdateServiceResponse (..),
@@ -57,37 +58,26 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkUpdateService' smart constructor.
 data UpdateService = UpdateService'
-  { id :: Lude.Text,
-    service :: ServiceChange
+  { -- | A complex type that contains the new settings for the service.
+    service :: ServiceChange,
+    -- | The ID of the service that you want to update.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateService' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the service that you want to update.
 -- * 'service' - A complex type that contains the new settings for the service.
+-- * 'id' - The ID of the service that you want to update.
 mkUpdateService ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'service'
   ServiceChange ->
+  -- | 'id'
+  Lude.Text ->
   UpdateService
-mkUpdateService pId_ pService_ =
-  UpdateService' {id = pId_, service = pService_}
-
--- | The ID of the service that you want to update.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usId :: Lens.Lens' UpdateService Lude.Text
-usId = Lens.lens (id :: UpdateService -> Lude.Text) (\s a -> s {id = a} :: UpdateService)
-{-# DEPRECATED usId "Use generic-lens or generic-optics with 'id' instead." #-}
+mkUpdateService pService_ pId_ =
+  UpdateService' {service = pService_, id = pId_}
 
 -- | A complex type that contains the new settings for the service.
 --
@@ -95,6 +85,13 @@ usId = Lens.lens (id :: UpdateService -> Lude.Text) (\s a -> s {id = a} :: Updat
 usService :: Lens.Lens' UpdateService ServiceChange
 usService = Lens.lens (service :: UpdateService -> ServiceChange) (\s a -> s {service = a} :: UpdateService)
 {-# DEPRECATED usService "Use generic-lens or generic-optics with 'service' instead." #-}
+
+-- | The ID of the service that you want to update.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usId :: Lens.Lens' UpdateService Lude.Text
+usId = Lens.lens (id :: UpdateService -> Lude.Text) (\s a -> s {id = a} :: UpdateService)
+{-# DEPRECATED usId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest UpdateService where
   type Rs UpdateService = UpdateServiceResponse
@@ -121,8 +118,8 @@ instance Lude.ToJSON UpdateService where
   toJSON UpdateService' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Id" Lude..= id),
-            Lude.Just ("Service" Lude..= service)
+          [ Lude.Just ("Service" Lude..= service),
+            Lude.Just ("Id" Lude..= id)
           ]
       )
 
@@ -134,17 +131,12 @@ instance Lude.ToQuery UpdateService where
 
 -- | /See:/ 'mkUpdateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
-  { operationId ::
-      Lude.Maybe Lude.Text,
+  { -- | A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
+    operationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServiceResponse' with the minimum fields required to make a request.

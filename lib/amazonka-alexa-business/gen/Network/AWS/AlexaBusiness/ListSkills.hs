@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSkills' smart constructor.
 data ListSkills = ListSkills'
-  { skillGroupARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the skill group for which to list enabled skills.
+    skillGroupARN :: Lude.Maybe Lude.Text,
+    -- | Whether the skill is publicly available or is a private skill.
     skillType :: Lude.Maybe SkillTypeFilter,
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Whether the skill is enabled under the user's account.
     enablementType :: Lude.Maybe EnablementTypeFilter,
+    -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSkills' with the minimum fields required to make a request.
 --
--- * 'enablementType' - Whether the skill is enabled under the user's account.
--- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 -- * 'skillGroupARN' - The ARN of the skill group for which to list enabled skills.
 -- * 'skillType' - Whether the skill is publicly available or is a private skill.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- * 'enablementType' - Whether the skill is enabled under the user's account.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 mkListSkills ::
   ListSkills
 mkListSkills =
@@ -168,25 +167,21 @@ instance Lude.ToQuery ListSkills where
 
 -- | /See:/ 'mkListSkillsResponse' smart constructor.
 data ListSkillsResponse = ListSkillsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token returned to indicate that there is more data available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of enabled skills requested. Required.
     skillSummaries :: Lude.Maybe [SkillSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSkillsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token returned to indicate that there is more data available.
--- * 'responseStatus' - The response status code.
 -- * 'skillSummaries' - The list of enabled skills requested. Required.
+-- * 'responseStatus' - The response status code.
 mkListSkillsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

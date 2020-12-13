@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAddressBook' smart constructor.
 newtype GetAddressBook = GetAddressBook'
-  { addressBookARN ::
-      Lude.Text
+  { -- | The ARN of the address book for which to request details.
+    addressBookARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAddressBook' with the minimum fields required to make a request.
@@ -104,17 +99,12 @@ instance Lude.ToQuery GetAddressBook where
 
 -- | /See:/ 'mkGetAddressBookResponse' smart constructor.
 data GetAddressBookResponse = GetAddressBookResponse'
-  { addressBook ::
-      Lude.Maybe AddressBook,
+  { -- | The details of the requested address book.
+    addressBook :: Lude.Maybe AddressBook,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAddressBookResponse' with the minimum fields required to make a request.

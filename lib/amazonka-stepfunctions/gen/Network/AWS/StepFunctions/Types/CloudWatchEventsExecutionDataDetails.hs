@@ -28,17 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudWatchEventsExecutionDataDetails' smart constructor.
 newtype CloudWatchEventsExecutionDataDetails = CloudWatchEventsExecutionDataDetails'
-  { included ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | Indicates whether input or output was included in the response. Always @true@ for API calls.
+    included :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchEventsExecutionDataDetails' with the minimum fields required to make a request.

@@ -13,12 +13,12 @@
 module Network.AWS.DirectoryService.Types.IPRouteStatusMsg
   ( IPRouteStatusMsg
       ( IPRouteStatusMsg',
-        AddFailed,
-        Added,
         Adding,
-        RemoveFailed,
+        Added,
+        Removing,
         Removed,
-        Removing
+        AddFailed,
+        RemoveFailed
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype IPRouteStatusMsg = IPRouteStatusMsg' Lude.Text
       Lude.ToHeader
     )
 
-pattern AddFailed :: IPRouteStatusMsg
-pattern AddFailed = IPRouteStatusMsg' "AddFailed"
+pattern Adding :: IPRouteStatusMsg
+pattern Adding = IPRouteStatusMsg' "Adding"
 
 pattern Added :: IPRouteStatusMsg
 pattern Added = IPRouteStatusMsg' "Added"
 
-pattern Adding :: IPRouteStatusMsg
-pattern Adding = IPRouteStatusMsg' "Adding"
-
-pattern RemoveFailed :: IPRouteStatusMsg
-pattern RemoveFailed = IPRouteStatusMsg' "RemoveFailed"
+pattern Removing :: IPRouteStatusMsg
+pattern Removing = IPRouteStatusMsg' "Removing"
 
 pattern Removed :: IPRouteStatusMsg
 pattern Removed = IPRouteStatusMsg' "Removed"
 
-pattern Removing :: IPRouteStatusMsg
-pattern Removing = IPRouteStatusMsg' "Removing"
+pattern AddFailed :: IPRouteStatusMsg
+pattern AddFailed = IPRouteStatusMsg' "AddFailed"
+
+pattern RemoveFailed :: IPRouteStatusMsg
+pattern RemoveFailed = IPRouteStatusMsg' "RemoveFailed"
 
 {-# COMPLETE
-  AddFailed,
-  Added,
   Adding,
-  RemoveFailed,
-  Removed,
+  Added,
   Removing,
+  Removed,
+  AddFailed,
+  RemoveFailed,
   IPRouteStatusMsg'
   #-}

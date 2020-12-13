@@ -13,9 +13,9 @@
 module Network.AWS.SageMaker.Types.VariantPropertyType
   ( VariantPropertyType
       ( VariantPropertyType',
-        DataCaptureConfig,
         DesiredInstanceCount,
-        DesiredWeight
+        DesiredWeight,
+        DataCaptureConfig
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype VariantPropertyType = VariantPropertyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DataCaptureConfig :: VariantPropertyType
-pattern DataCaptureConfig = VariantPropertyType' "DataCaptureConfig"
-
 pattern DesiredInstanceCount :: VariantPropertyType
 pattern DesiredInstanceCount = VariantPropertyType' "DesiredInstanceCount"
 
 pattern DesiredWeight :: VariantPropertyType
 pattern DesiredWeight = VariantPropertyType' "DesiredWeight"
 
+pattern DataCaptureConfig :: VariantPropertyType
+pattern DataCaptureConfig = VariantPropertyType' "DataCaptureConfig"
+
 {-# COMPLETE
-  DataCaptureConfig,
   DesiredInstanceCount,
   DesiredWeight,
+  DataCaptureConfig,
   VariantPropertyType'
   #-}

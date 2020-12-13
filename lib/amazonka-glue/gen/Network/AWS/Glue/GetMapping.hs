@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.Glue.GetMapping
     mkGetMappingResponse,
 
     -- ** Response lenses
-    gmrsResponseStatus,
     gmrsMapping,
+    gmrsResponseStatus,
   )
 where
 
@@ -41,23 +42,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMapping' smart constructor.
 data GetMapping = GetMapping'
-  { sinks :: Lude.Maybe [CatalogEntry],
+  { -- | A list of target tables.
+    sinks :: Lude.Maybe [CatalogEntry],
+    -- | Parameters for the mapping.
     location :: Lude.Maybe Location,
+    -- | Specifies the source table.
     source :: CatalogEntry
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMapping' with the minimum fields required to make a request.
 --
--- * 'location' - Parameters for the mapping.
 -- * 'sinks' - A list of target tables.
+-- * 'location' - Parameters for the mapping.
 -- * 'source' - Specifies the source table.
 mkGetMapping ::
   -- | 'source'
@@ -98,8 +96,8 @@ instance Lude.AWSRequest GetMapping where
     Res.receiveJSON
       ( \s h x ->
           GetMappingResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "Mapping" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "Mapping" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetMapping where
@@ -130,17 +128,12 @@ instance Lude.ToQuery GetMapping where
 
 -- | /See:/ 'mkGetMappingResponse' smart constructor.
 data GetMappingResponse = GetMappingResponse'
-  { responseStatus ::
-      Lude.Int,
-    mapping :: [MappingEntry]
+  { -- | A list of mappings to the specified targets.
+    mapping :: [MappingEntry],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMappingResponse' with the minimum fields required to make a request.
@@ -153,16 +146,9 @@ mkGetMappingResponse ::
   GetMappingResponse
 mkGetMappingResponse pResponseStatus_ =
   GetMappingResponse'
-    { responseStatus = pResponseStatus_,
-      mapping = Lude.mempty
+    { mapping = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmrsResponseStatus :: Lens.Lens' GetMappingResponse Lude.Int
-gmrsResponseStatus = Lens.lens (responseStatus :: GetMappingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMappingResponse)
-{-# DEPRECATED gmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of mappings to the specified targets.
 --
@@ -170,3 +156,10 @@ gmrsResponseStatus = Lens.lens (responseStatus :: GetMappingResponse -> Lude.Int
 gmrsMapping :: Lens.Lens' GetMappingResponse [MappingEntry]
 gmrsMapping = Lens.lens (mapping :: GetMappingResponse -> [MappingEntry]) (\s a -> s {mapping = a} :: GetMappingResponse)
 {-# DEPRECATED gmrsMapping "Use generic-lens or generic-optics with 'mapping' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmrsResponseStatus :: Lens.Lens' GetMappingResponse Lude.Int
+gmrsResponseStatus = Lens.lens (responseStatus :: GetMappingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMappingResponse)
+{-# DEPRECATED gmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

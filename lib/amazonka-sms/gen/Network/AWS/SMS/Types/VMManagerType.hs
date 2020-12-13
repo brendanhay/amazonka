@@ -13,9 +13,9 @@
 module Network.AWS.SMS.Types.VMManagerType
   ( VMManagerType
       ( VMManagerType',
-        HypervManager,
+        Vsphere,
         Scvmm,
-        Vsphere
+        HypervManager
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype VMManagerType = VMManagerType' Lude.Text
       Lude.ToHeader
     )
 
-pattern HypervManager :: VMManagerType
-pattern HypervManager = VMManagerType' "HYPERV-MANAGER"
+pattern Vsphere :: VMManagerType
+pattern Vsphere = VMManagerType' "VSPHERE"
 
 pattern Scvmm :: VMManagerType
 pattern Scvmm = VMManagerType' "SCVMM"
 
-pattern Vsphere :: VMManagerType
-pattern Vsphere = VMManagerType' "VSPHERE"
+pattern HypervManager :: VMManagerType
+pattern HypervManager = VMManagerType' "HYPERV-MANAGER"
 
 {-# COMPLETE
-  HypervManager,
-  Scvmm,
   Vsphere,
+  Scvmm,
+  HypervManager,
   VMManagerType'
   #-}

@@ -30,26 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchDetectDominantLanguageItemResult' smart constructor.
 data BatchDetectDominantLanguageItemResult = BatchDetectDominantLanguageItemResult'
-  { languages ::
-      Lude.Maybe
-        [DominantLanguage],
-    index ::
-      Lude.Maybe
-        Lude.Int
+  { -- | One or more 'DominantLanguage' objects describing the dominant languages in the document.
+    languages :: Lude.Maybe [DominantLanguage],
+    -- | The zero-based index of the document in the input list.
+    index :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetectDominantLanguageItemResult' with the minimum fields required to make a request.
 --
--- * 'index' - The zero-based index of the document in the input list.
 -- * 'languages' - One or more 'DominantLanguage' objects describing the dominant languages in the document.
+-- * 'index' - The zero-based index of the document in the input list.
 mkBatchDetectDominantLanguageItemResult ::
   BatchDetectDominantLanguageItemResult
 mkBatchDetectDominantLanguageItemResult =

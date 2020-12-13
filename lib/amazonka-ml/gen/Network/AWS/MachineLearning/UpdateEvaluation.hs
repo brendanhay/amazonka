@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateEvaluation' smart constructor.
 data UpdateEvaluation = UpdateEvaluation'
-  { evaluationId ::
-      Lude.Text,
+  { -- | The ID assigned to the @Evaluation@ during creation.
+    evaluationId :: Lude.Text,
+    -- | A new user-supplied name or description of the @Evaluation@ that will replace the current content.
     evaluationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEvaluation' with the minimum fields required to make a request.
@@ -127,17 +123,12 @@ instance Lude.ToQuery UpdateEvaluation where
 --
 -- /See:/ 'mkUpdateEvaluationResponse' smart constructor.
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
-  { evaluationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID assigned to the @Evaluation@ during creation. This value should be identical to the value of the @Evaluation@ in the request.
+    evaluationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEvaluationResponse' with the minimum fields required to make a request.

@@ -37,39 +37,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRepositoryMetadata' smart constructor.
 data RepositoryMetadata = RepositoryMetadata'
-  { repositoryDescription ::
-      Lude.Maybe Lude.Text,
+  { -- | A comment or description about the repository.
+    repositoryDescription :: Lude.Maybe Lude.Text,
+    -- | The date and time the repository was last modified, in timestamp format.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the repository.
     arn :: Lude.Maybe Lude.Text,
+    -- | The URL to use for cloning the repository over HTTPS.
     cloneURLHTTP :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account associated with the repository.
     accountId :: Lude.Maybe Lude.Text,
+    -- | The repository's default branch name.
     defaultBranch :: Lude.Maybe Lude.Text,
+    -- | The ID of the repository.
     repositoryId :: Lude.Maybe Lude.Text,
+    -- | The repository's name.
     repositoryName :: Lude.Maybe Lude.Text,
+    -- | The date and time the repository was created, in timestamp format.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The URL to use for cloning the repository over SSH.
     cloneURLSSH :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RepositoryMetadata' with the minimum fields required to make a request.
 --
--- * 'accountId' - The ID of the AWS account associated with the repository.
+-- * 'repositoryDescription' - A comment or description about the repository.
+-- * 'lastModifiedDate' - The date and time the repository was last modified, in timestamp format.
 -- * 'arn' - The Amazon Resource Name (ARN) of the repository.
 -- * 'cloneURLHTTP' - The URL to use for cloning the repository over HTTPS.
--- * 'cloneURLSSH' - The URL to use for cloning the repository over SSH.
--- * 'creationDate' - The date and time the repository was created, in timestamp format.
+-- * 'accountId' - The ID of the AWS account associated with the repository.
 -- * 'defaultBranch' - The repository's default branch name.
--- * 'lastModifiedDate' - The date and time the repository was last modified, in timestamp format.
--- * 'repositoryDescription' - A comment or description about the repository.
 -- * 'repositoryId' - The ID of the repository.
 -- * 'repositoryName' - The repository's name.
+-- * 'creationDate' - The date and time the repository was created, in timestamp format.
+-- * 'cloneURLSSH' - The URL to use for cloning the repository over SSH.
 mkRepositoryMetadata ::
   RepositoryMetadata
 mkRepositoryMetadata =

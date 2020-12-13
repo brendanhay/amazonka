@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Details about the fields such as name of the field.
 --
 -- /See:/ 'mkFieldInfo' smart constructor.
-newtype FieldInfo = FieldInfo' {name :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype FieldInfo = FieldInfo'
+  { -- | Name of the field.
+    name :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FieldInfo' with the minimum fields required to make a request.

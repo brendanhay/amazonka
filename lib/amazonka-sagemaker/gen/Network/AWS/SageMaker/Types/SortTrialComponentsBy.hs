@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.SortTrialComponentsBy
   ( SortTrialComponentsBy
       ( SortTrialComponentsBy',
-        STCBCreationTime,
-        STCBName
+        STCBName,
+        STCBCreationTime
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SortTrialComponentsBy = SortTrialComponentsBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern STCBCreationTime :: SortTrialComponentsBy
-pattern STCBCreationTime = SortTrialComponentsBy' "CreationTime"
-
 pattern STCBName :: SortTrialComponentsBy
 pattern STCBName = SortTrialComponentsBy' "Name"
 
+pattern STCBCreationTime :: SortTrialComponentsBy
+pattern STCBCreationTime = SortTrialComponentsBy' "CreationTime"
+
 {-# COMPLETE
-  STCBCreationTime,
   STCBName,
+  STCBCreationTime,
   SortTrialComponentsBy'
   #-}

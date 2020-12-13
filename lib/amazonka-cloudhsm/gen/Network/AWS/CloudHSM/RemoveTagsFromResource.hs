@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.CloudHSM.RemoveTagsFromResource
     mkRemoveTagsFromResourceResponse,
 
     -- ** Response lenses
-    rtfrrsResponseStatus,
     rtfrrsStatus,
+    rtfrrsResponseStatus,
   )
 where
 
@@ -44,17 +45,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { resourceARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
+    resourceARN :: Lude.Text,
+    -- | The tag key or keys to remove.
+    --
+    -- Specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use 'AddTagsToResource' .
     tagKeyList :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
@@ -96,7 +94,7 @@ instance Lude.AWSRequest RemoveTagsFromResource where
     Res.receiveJSON
       ( \s h x ->
           RemoveTagsFromResourceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Status")
+            Lude.<$> (x Lude..:> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders RemoveTagsFromResource where
@@ -129,42 +127,29 @@ instance Lude.ToQuery RemoveTagsFromResource where
 
 -- | /See:/ 'mkRemoveTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-  { responseStatus ::
-      Lude.Int,
-    status :: Lude.Text
+  { -- | The status of the operation.
+    status :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the operation.
+-- * 'responseStatus' - The response status code.
 mkRemoveTagsFromResourceResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'status'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   RemoveTagsFromResourceResponse
-mkRemoveTagsFromResourceResponse pResponseStatus_ pStatus_ =
+mkRemoveTagsFromResourceResponse pStatus_ pResponseStatus_ =
   RemoveTagsFromResourceResponse'
-    { responseStatus =
-        pResponseStatus_,
-      status = pStatus_
+    { status = pStatus_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfrrsResponseStatus :: Lens.Lens' RemoveTagsFromResourceResponse Lude.Int
-rtfrrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsFromResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsFromResourceResponse)
-{-# DEPRECATED rtfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the operation.
 --
@@ -172,3 +157,10 @@ rtfrrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsFromResourceRespon
 rtfrrsStatus :: Lens.Lens' RemoveTagsFromResourceResponse Lude.Text
 rtfrrsStatus = Lens.lens (status :: RemoveTagsFromResourceResponse -> Lude.Text) (\s a -> s {status = a} :: RemoveTagsFromResourceResponse)
 {-# DEPRECATED rtfrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfrrsResponseStatus :: Lens.Lens' RemoveTagsFromResourceResponse Lude.Int
+rtfrrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsFromResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsFromResourceResponse)
+{-# DEPRECATED rtfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

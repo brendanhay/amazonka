@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemoveTargetsResultEntry' smart constructor.
 data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
-  { targetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the target.
+    targetId :: Lude.Maybe Lude.Text,
+    -- | The error code that indicates why the target removal failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message that explains why the target removal failed.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTargetsResultEntry' with the minimum fields required to make a request.
 --
+-- * 'targetId' - The ID of the target.
 -- * 'errorCode' - The error code that indicates why the target removal failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
 -- * 'errorMessage' - The error message that explains why the target removal failed.
--- * 'targetId' - The ID of the target.
 mkRemoveTargetsResultEntry ::
   RemoveTargetsResultEntry
 mkRemoveTargetsResultEntry =

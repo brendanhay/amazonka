@@ -17,8 +17,8 @@ module Network.AWS.EC2.Types.CidrAuthorizationContext
     mkCidrAuthorizationContext,
 
     -- * Lenses
-    cacMessage,
     cacSignature,
+    cacMessage,
   )
 where
 
@@ -29,41 +29,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCidrAuthorizationContext' smart constructor.
 data CidrAuthorizationContext = CidrAuthorizationContext'
-  { message ::
-      Lude.Text,
-    signature :: Lude.Text
+  { -- | The signed authorization message for the prefix and account.
+    signature :: Lude.Text,
+    -- | The plain-text authorization message for the prefix and account.
+    message :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CidrAuthorizationContext' with the minimum fields required to make a request.
 --
--- * 'message' - The plain-text authorization message for the prefix and account.
 -- * 'signature' - The signed authorization message for the prefix and account.
+-- * 'message' - The plain-text authorization message for the prefix and account.
 mkCidrAuthorizationContext ::
-  -- | 'message'
-  Lude.Text ->
   -- | 'signature'
   Lude.Text ->
+  -- | 'message'
+  Lude.Text ->
   CidrAuthorizationContext
-mkCidrAuthorizationContext pMessage_ pSignature_ =
+mkCidrAuthorizationContext pSignature_ pMessage_ =
   CidrAuthorizationContext'
-    { message = pMessage_,
-      signature = pSignature_
+    { signature = pSignature_,
+      message = pMessage_
     }
-
--- | The plain-text authorization message for the prefix and account.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacMessage :: Lens.Lens' CidrAuthorizationContext Lude.Text
-cacMessage = Lens.lens (message :: CidrAuthorizationContext -> Lude.Text) (\s a -> s {message = a} :: CidrAuthorizationContext)
-{-# DEPRECATED cacMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The signed authorization message for the prefix and account.
 --
@@ -72,7 +60,14 @@ cacSignature :: Lens.Lens' CidrAuthorizationContext Lude.Text
 cacSignature = Lens.lens (signature :: CidrAuthorizationContext -> Lude.Text) (\s a -> s {signature = a} :: CidrAuthorizationContext)
 {-# DEPRECATED cacSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
+-- | The plain-text authorization message for the prefix and account.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacMessage :: Lens.Lens' CidrAuthorizationContext Lude.Text
+cacMessage = Lens.lens (message :: CidrAuthorizationContext -> Lude.Text) (\s a -> s {message = a} :: CidrAuthorizationContext)
+{-# DEPRECATED cacMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
 instance Lude.ToQuery CidrAuthorizationContext where
   toQuery CidrAuthorizationContext' {..} =
     Lude.mconcat
-      ["Message" Lude.=: message, "Signature" Lude.=: signature]
+      ["Signature" Lude.=: signature, "Message" Lude.=: message]

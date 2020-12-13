@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.MediaLive.DescribeChannel
     mkDescribeChannel,
 
     -- ** Request lenses
-    desChannelId,
+    dcChannelId,
 
     -- * Destructuring the response
     DescribeChannelResponse (..),
@@ -55,14 +56,11 @@ import qualified Network.AWS.Response as Res
 -- | Placeholder documentation for DescribeChannelRequest
 --
 -- /See:/ 'mkDescribeChannel' smart constructor.
-newtype DescribeChannel = DescribeChannel' {channelId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeChannel = DescribeChannel'
+  { -- | channel ID
+    channelId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeChannel' with the minimum fields required to make a request.
@@ -78,9 +76,9 @@ mkDescribeChannel pChannelId_ =
 -- | channel ID
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desChannelId :: Lens.Lens' DescribeChannel Lude.Text
-desChannelId = Lens.lens (channelId :: DescribeChannel -> Lude.Text) (\s a -> s {channelId = a} :: DescribeChannel)
-{-# DEPRECATED desChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
+dcChannelId :: Lens.Lens' DescribeChannel Lude.Text
+dcChannelId = Lens.lens (channelId :: DescribeChannel -> Lude.Text) (\s a -> s {channelId = a} :: DescribeChannel)
+{-# DEPRECATED dcChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
 instance Lude.AWSRequest DescribeChannel where
   type Rs DescribeChannel = DescribeChannelResponse
@@ -128,66 +126,67 @@ instance Lude.ToQuery DescribeChannel where
 --
 -- /See:/ 'mkDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { state ::
-      Lude.Maybe ChannelState,
+  { state :: Lude.Maybe ChannelState,
+    -- | The log level being written to CloudWatch Logs.
     logLevel :: Lude.Maybe LogLevel,
+    -- | The unique arn of the channel.
     arn :: Lude.Maybe Lude.Text,
-    pipelinesRunningCount ::
-      Lude.Maybe Lude.Int,
-    pipelineDetails ::
-      Lude.Maybe [PipelineDetail],
-    inputSpecification ::
-      Lude.Maybe InputSpecification,
-    inputAttachments ::
-      Lude.Maybe [InputAttachment],
-    destinations ::
-      Lude.Maybe [OutputDestination],
+    -- | The number of currently healthy pipelines.
+    pipelinesRunningCount :: Lude.Maybe Lude.Int,
+    -- | Runtime details for the pipelines of a running channel.
+    pipelineDetails :: Lude.Maybe [PipelineDetail],
+    -- | Specification of network and file inputs for this channel
+    inputSpecification :: Lude.Maybe InputSpecification,
+    -- | List of input attachments for channel.
+    inputAttachments :: Lude.Maybe [InputAttachment],
+    -- | A list of destinations of the channel. For UDP outputs, there is one
+    --
+    -- destination per output. For other types (HLS, for example), there is
+    -- one destination per packager.
+    destinations :: Lude.Maybe [OutputDestination],
+    -- | The name of the channel. (user-mutable)
     name :: Lude.Maybe Lude.Text,
-    cdiInputSpecification ::
-      Lude.Maybe CdiInputSpecification,
+    -- | Specification of CDI inputs for this channel
+    cdiInputSpecification :: Lude.Maybe CdiInputSpecification,
+    -- | The unique id of the channel.
     id :: Lude.Maybe Lude.Text,
+    -- | The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
     channelClass :: Lude.Maybe ChannelClass,
-    egressEndpoints ::
-      Lude.Maybe [ChannelEgressEndpoint],
-    tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    encoderSettings ::
-      Lude.Maybe EncoderSettings,
+    -- | The endpoints where outgoing connections initiate from
+    egressEndpoints :: Lude.Maybe [ChannelEgressEndpoint],
+    -- | A collection of key-value pairs.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    encoderSettings :: Lude.Maybe EncoderSettings,
+    -- | The Amazon Resource Name (ARN) of the role assumed when running the Channel.
     roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeChannelResponse' with the minimum fields required to make a request.
 --
+-- * 'state' -
+-- * 'logLevel' - The log level being written to CloudWatch Logs.
 -- * 'arn' - The unique arn of the channel.
--- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
--- * 'channelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+-- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
+-- * 'pipelineDetails' - Runtime details for the pipelines of a running channel.
+-- * 'inputSpecification' - Specification of network and file inputs for this channel
+-- * 'inputAttachments' - List of input attachments for channel.
 -- * 'destinations' - A list of destinations of the channel. For UDP outputs, there is one
 --
 -- destination per output. For other types (HLS, for example), there is
 -- one destination per packager.
--- * 'egressEndpoints' - The endpoints where outgoing connections initiate from
--- * 'encoderSettings' - Undocumented field.
--- * 'id' - The unique id of the channel.
--- * 'inputAttachments' - List of input attachments for channel.
--- * 'inputSpecification' - Specification of network and file inputs for this channel
--- * 'logLevel' - The log level being written to CloudWatch Logs.
 -- * 'name' - The name of the channel. (user-mutable)
--- * 'pipelineDetails' - Runtime details for the pipelines of a running channel.
--- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
--- * 'responseStatus' - The response status code.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role assumed when running the Channel.
--- * 'state' - Undocumented field.
+-- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
+-- * 'id' - The unique id of the channel.
+-- * 'channelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+-- * 'egressEndpoints' - The endpoints where outgoing connections initiate from
 -- * 'tags' - A collection of key-value pairs.
+-- * 'encoderSettings' -
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+-- * 'responseStatus' - The response status code.
 mkDescribeChannelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -32,33 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTypedAttributeValue' smart constructor.
 data TypedAttributeValue = TypedAttributeValue'
-  { binaryValue ::
-      Lude.Maybe Lude.Base64,
+  { -- | A binary data value.
+    binaryValue :: Lude.Maybe Lude.Base64,
+    -- | A date and time value.
     datetimeValue :: Lude.Maybe Lude.Timestamp,
+    -- | A number data value.
     numberValue :: Lude.Maybe Lude.Text,
+    -- | A string data value.
     stringValue :: Lude.Maybe Lude.Text,
+    -- | A Boolean data value.
     booleanValue :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypedAttributeValue' with the minimum fields required to make a request.
 --
--- * 'binaryValue' - A binary data value.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'booleanValue' - A Boolean data value.
+-- * 'binaryValue' - A binary data value.
 -- * 'datetimeValue' - A date and time value.
 -- * 'numberValue' - A number data value.
 -- * 'stringValue' - A string data value.
+-- * 'booleanValue' - A Boolean data value.
 mkTypedAttributeValue ::
   TypedAttributeValue
 mkTypedAttributeValue =

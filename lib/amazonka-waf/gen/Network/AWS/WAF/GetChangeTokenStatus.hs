@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,16 +49,10 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkGetChangeTokenStatus' smart constructor.
 newtype GetChangeTokenStatus = GetChangeTokenStatus'
-  { changeToken ::
-      Lude.Text
+  { -- | The change token for which you want to get the status. This change token was previously returned in the @GetChangeToken@ response.
+    changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChangeTokenStatus' with the minimum fields required to make a request.
@@ -112,17 +107,12 @@ instance Lude.ToQuery GetChangeTokenStatus where
 
 -- | /See:/ 'mkGetChangeTokenStatusResponse' smart constructor.
 data GetChangeTokenStatusResponse = GetChangeTokenStatusResponse'
-  { changeTokenStatus ::
-      Lude.Maybe ChangeTokenStatus,
+  { -- | The status of the change token.
+    changeTokenStatus :: Lude.Maybe ChangeTokenStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChangeTokenStatusResponse' with the minimum fields required to make a request.

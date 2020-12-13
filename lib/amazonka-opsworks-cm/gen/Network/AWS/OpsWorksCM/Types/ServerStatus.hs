@@ -17,15 +17,15 @@ module Network.AWS.OpsWorksCM.Types.ServerStatus
         ConnectionLost,
         Creating,
         Deleting,
+        Modifying,
         Failed,
         Healthy,
-        Modifying,
-        Restoring,
         Running,
+        Restoring,
         Setup,
-        Terminated,
         UnderMaintenance,
-        Unhealthy
+        Unhealthy,
+        Terminated
       ),
   )
 where
@@ -68,26 +68,23 @@ pattern Creating = ServerStatus' "CREATING"
 pattern Deleting :: ServerStatus
 pattern Deleting = ServerStatus' "DELETING"
 
+pattern Modifying :: ServerStatus
+pattern Modifying = ServerStatus' "MODIFYING"
+
 pattern Failed :: ServerStatus
 pattern Failed = ServerStatus' "FAILED"
 
 pattern Healthy :: ServerStatus
 pattern Healthy = ServerStatus' "HEALTHY"
 
-pattern Modifying :: ServerStatus
-pattern Modifying = ServerStatus' "MODIFYING"
+pattern Running :: ServerStatus
+pattern Running = ServerStatus' "RUNNING"
 
 pattern Restoring :: ServerStatus
 pattern Restoring = ServerStatus' "RESTORING"
 
-pattern Running :: ServerStatus
-pattern Running = ServerStatus' "RUNNING"
-
 pattern Setup :: ServerStatus
 pattern Setup = ServerStatus' "SETUP"
-
-pattern Terminated :: ServerStatus
-pattern Terminated = ServerStatus' "TERMINATED"
 
 pattern UnderMaintenance :: ServerStatus
 pattern UnderMaintenance = ServerStatus' "UNDER_MAINTENANCE"
@@ -95,19 +92,22 @@ pattern UnderMaintenance = ServerStatus' "UNDER_MAINTENANCE"
 pattern Unhealthy :: ServerStatus
 pattern Unhealthy = ServerStatus' "UNHEALTHY"
 
+pattern Terminated :: ServerStatus
+pattern Terminated = ServerStatus' "TERMINATED"
+
 {-# COMPLETE
   BackingUp,
   ConnectionLost,
   Creating,
   Deleting,
+  Modifying,
   Failed,
   Healthy,
-  Modifying,
-  Restoring,
   Running,
+  Restoring,
   Setup,
-  Terminated,
   UnderMaintenance,
   Unhealthy,
+  Terminated,
   ServerStatus'
   #-}

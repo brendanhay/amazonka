@@ -31,24 +31,18 @@ import Network.AWS.SageMaker.Types.OidcMemberDefinition
 --
 -- /See:/ 'mkMemberDefinition' smart constructor.
 data MemberDefinition = MemberDefinition'
-  { oidcMemberDefinition ::
-      Lude.Maybe OidcMemberDefinition,
-    cognitoMemberDefinition ::
-      Lude.Maybe CognitoMemberDefinition
+  { -- | A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. When you add a user group to the list of @Groups@ , you can add that user group to one or more private work teams. If you add a user group to a private work team, all workers in that user group are added to the work team.
+    oidcMemberDefinition :: Lude.Maybe OidcMemberDefinition,
+    -- | The Amazon Cognito user group that is part of the work team.
+    cognitoMemberDefinition :: Lude.Maybe CognitoMemberDefinition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MemberDefinition' with the minimum fields required to make a request.
 --
--- * 'cognitoMemberDefinition' - The Amazon Cognito user group that is part of the work team.
 -- * 'oidcMemberDefinition' - A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. When you add a user group to the list of @Groups@ , you can add that user group to one or more private work teams. If you add a user group to a private work team, all workers in that user group are added to the work team.
+-- * 'cognitoMemberDefinition' - The Amazon Cognito user group that is part of the work team.
 mkMemberDefinition ::
   MemberDefinition
 mkMemberDefinition =

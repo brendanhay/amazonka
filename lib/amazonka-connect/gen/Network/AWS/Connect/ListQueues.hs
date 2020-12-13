@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.Connect.ListQueues
     mkListQueues,
 
     -- ** Request lenses
+    lqInstanceId,
     lqNextToken,
     lqQueueTypes,
     lqMaxResults,
-    lqInstanceId,
 
     -- * Destructuring the response
     ListQueuesResponse (..),
@@ -48,37 +49,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListQueues' smart constructor.
 data ListQueues = ListQueues'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The type of queue.
     queueTypes :: Lude.Maybe [QueueType],
-    maxResults :: Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+    -- | The maximimum number of results to return per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueues' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'maxResults' - The maximimum number of results to return per page.
 -- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 -- * 'queueTypes' - The type of queue.
+-- * 'maxResults' - The maximimum number of results to return per page.
 mkListQueues ::
   -- | 'instanceId'
   Lude.Text ->
   ListQueues
 mkListQueues pInstanceId_ =
   ListQueues'
-    { nextToken = Lude.Nothing,
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
       queueTypes = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqInstanceId :: Lens.Lens' ListQueues Lude.Text
+lqInstanceId = Lens.lens (instanceId :: ListQueues -> Lude.Text) (\s a -> s {instanceId = a} :: ListQueues)
+{-# DEPRECATED lqInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 --
@@ -100,13 +106,6 @@ lqQueueTypes = Lens.lens (queueTypes :: ListQueues -> Lude.Maybe [QueueType]) (\
 lqMaxResults :: Lens.Lens' ListQueues (Lude.Maybe Lude.Natural)
 lqMaxResults = Lens.lens (maxResults :: ListQueues -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListQueues)
 {-# DEPRECATED lqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lqInstanceId :: Lens.Lens' ListQueues Lude.Text
-lqInstanceId = Lens.lens (instanceId :: ListQueues -> Lude.Text) (\s a -> s {instanceId = a} :: ListQueues)
-{-# DEPRECATED lqInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager ListQueues where
   page rq rs
@@ -153,18 +152,14 @@ instance Lude.ToQuery ListQueues where
 
 -- | /See:/ 'mkListQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the queues.
     queueSummaryList :: Lude.Maybe [QueueSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueuesResponse' with the minimum fields required to make a request.

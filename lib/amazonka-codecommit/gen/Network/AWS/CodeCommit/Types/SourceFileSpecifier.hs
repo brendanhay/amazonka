@@ -17,8 +17,8 @@ module Network.AWS.CodeCommit.Types.SourceFileSpecifier
     mkSourceFileSpecifier,
 
     -- * Lenses
-    sfsIsMove,
     sfsFilePath,
+    sfsIsMove,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceFileSpecifier' smart constructor.
 data SourceFileSpecifier = SourceFileSpecifier'
-  { isMove ::
-      Lude.Maybe Lude.Bool,
-    filePath :: Lude.Text
+  { -- | The full path to the file, including the name of the file.
+    filePath :: Lude.Text,
+    -- | Whether to remove the source file from the parent commit.
+    isMove :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceFileSpecifier' with the minimum fields required to make a request.
@@ -52,16 +47,9 @@ mkSourceFileSpecifier ::
   SourceFileSpecifier
 mkSourceFileSpecifier pFilePath_ =
   SourceFileSpecifier'
-    { isMove = Lude.Nothing,
-      filePath = pFilePath_
+    { filePath = pFilePath_,
+      isMove = Lude.Nothing
     }
-
--- | Whether to remove the source file from the parent commit.
---
--- /Note:/ Consider using 'isMove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfsIsMove :: Lens.Lens' SourceFileSpecifier (Lude.Maybe Lude.Bool)
-sfsIsMove = Lens.lens (isMove :: SourceFileSpecifier -> Lude.Maybe Lude.Bool) (\s a -> s {isMove = a} :: SourceFileSpecifier)
-{-# DEPRECATED sfsIsMove "Use generic-lens or generic-optics with 'isMove' instead." #-}
 
 -- | The full path to the file, including the name of the file.
 --
@@ -70,11 +58,18 @@ sfsFilePath :: Lens.Lens' SourceFileSpecifier Lude.Text
 sfsFilePath = Lens.lens (filePath :: SourceFileSpecifier -> Lude.Text) (\s a -> s {filePath = a} :: SourceFileSpecifier)
 {-# DEPRECATED sfsFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
+-- | Whether to remove the source file from the parent commit.
+--
+-- /Note:/ Consider using 'isMove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfsIsMove :: Lens.Lens' SourceFileSpecifier (Lude.Maybe Lude.Bool)
+sfsIsMove = Lens.lens (isMove :: SourceFileSpecifier -> Lude.Maybe Lude.Bool) (\s a -> s {isMove = a} :: SourceFileSpecifier)
+{-# DEPRECATED sfsIsMove "Use generic-lens or generic-optics with 'isMove' instead." #-}
+
 instance Lude.ToJSON SourceFileSpecifier where
   toJSON SourceFileSpecifier' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("isMove" Lude..=) Lude.<$> isMove,
-            Lude.Just ("filePath" Lude..= filePath)
+          [ Lude.Just ("filePath" Lude..= filePath),
+            ("isMove" Lude..=) Lude.<$> isMove
           ]
       )

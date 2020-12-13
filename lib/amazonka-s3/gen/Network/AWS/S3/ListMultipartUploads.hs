@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,11 +47,11 @@ module Network.AWS.S3.ListMultipartUploads
     lmuKeyMarker,
     lmuPrefix,
     lmuEncodingType,
+    lmuBucket,
     lmuUploadIdMarker,
     lmuMaxUploads,
     lmuDelimiter,
     lmuExpectedBucketOwner,
-    lmuBucket,
 
     -- * Destructuring the response
     ListMultipartUploadsResponse (..),
@@ -82,43 +83,51 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkListMultipartUploads' smart constructor.
 data ListMultipartUploads = ListMultipartUploads'
-  { keyMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
+    --
+    -- If @upload-id-marker@ is not specified, only the keys lexicographically greater than the specified @key-marker@ will be included in the list.
+    -- If @upload-id-marker@ is specified, any multipart uploads for a key equal to the @key-marker@ might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified @upload-id-marker@ .
+    keyMarker :: Lude.Maybe Lude.Text,
+    -- | Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)
     prefix :: Lude.Maybe Lude.Text,
     encodingType :: Lude.Maybe EncodingType,
+    -- | The name of the bucket to which the multipart upload was initiated.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+    bucket :: BucketName,
+    -- | Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified @upload-id-marker@ .
     uploadIdMarker :: Lude.Maybe Lude.Text,
+    -- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
     maxUploads :: Lude.Maybe Lude.Int,
+    -- | Character you use to group keys.
+    --
+    -- All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, @CommonPrefixes@ . If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under @CommonPrefixes@ result element are not returned elsewhere in the response.
     delimiter :: Lude.Maybe Delimiter,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    bucket :: BucketName
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMultipartUploads' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'delimiter' - Character you use to group keys.
---
--- All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, @CommonPrefixes@ . If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under @CommonPrefixes@ result element are not returned elsewhere in the response.
--- * 'encodingType' - Undocumented field.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 -- * 'keyMarker' - Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
 --
 -- If @upload-id-marker@ is not specified, only the keys lexicographically greater than the specified @key-marker@ will be included in the list.
 -- If @upload-id-marker@ is specified, any multipart uploads for a key equal to the @key-marker@ might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified @upload-id-marker@ .
--- * 'maxUploads' - Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
 -- * 'prefix' - Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)
+-- * 'encodingType' -
+-- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 -- * 'uploadIdMarker' - Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified @upload-id-marker@ .
+-- * 'maxUploads' - Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
+-- * 'delimiter' - Character you use to group keys.
+--
+-- All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, @CommonPrefixes@ . If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under @CommonPrefixes@ result element are not returned elsewhere in the response.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkListMultipartUploads ::
   -- | 'bucket'
   BucketName ->
@@ -128,11 +137,11 @@ mkListMultipartUploads pBucket_ =
     { keyMarker = Lude.Nothing,
       prefix = Lude.Nothing,
       encodingType = Lude.Nothing,
+      bucket = pBucket_,
       uploadIdMarker = Lude.Nothing,
       maxUploads = Lude.Nothing,
       delimiter = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.
@@ -158,6 +167,16 @@ lmuPrefix = Lens.lens (prefix :: ListMultipartUploads -> Lude.Maybe Lude.Text) (
 lmuEncodingType :: Lens.Lens' ListMultipartUploads (Lude.Maybe EncodingType)
 lmuEncodingType = Lens.lens (encodingType :: ListMultipartUploads -> Lude.Maybe EncodingType) (\s a -> s {encodingType = a} :: ListMultipartUploads)
 {-# DEPRECATED lmuEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
+
+-- | The name of the bucket to which the multipart upload was initiated.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuBucket :: Lens.Lens' ListMultipartUploads BucketName
+lmuBucket = Lens.lens (bucket :: ListMultipartUploads -> BucketName) (\s a -> s {bucket = a} :: ListMultipartUploads)
+{-# DEPRECATED lmuBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified @upload-id-marker@ .
 --
@@ -188,16 +207,6 @@ lmuDelimiter = Lens.lens (delimiter :: ListMultipartUploads -> Lude.Maybe Delimi
 lmuExpectedBucketOwner :: Lens.Lens' ListMultipartUploads (Lude.Maybe Lude.Text)
 lmuExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListMultipartUploads -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListMultipartUploads)
 {-# DEPRECATED lmuExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The name of the bucket to which the multipart upload was initiated.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuBucket :: Lens.Lens' ListMultipartUploads BucketName
-lmuBucket = Lens.lens (bucket :: ListMultipartUploads -> BucketName) (\s a -> s {bucket = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 instance Page.AWSPager ListMultipartUploads where
   page rq rs
@@ -256,55 +265,57 @@ instance Lude.ToQuery ListMultipartUploads where
 
 -- | /See:/ 'mkListMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-  { keyMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | The key at or after which the listing began.
+    keyMarker :: Lude.Maybe Lude.Text,
+    -- | When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
     prefix :: Lude.Maybe Lude.Text,
-    commonPrefixes ::
-      Lude.Maybe [CommonPrefix],
-    encodingType ::
-      Lude.Maybe EncodingType,
+    -- | If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a @CommonPrefixes@ element. The distinct key prefixes are returned in the @Prefix@ child element.
+    commonPrefixes :: Lude.Maybe [CommonPrefix],
+    -- | Encoding type used by Amazon S3 to encode object keys in the response.
+    --
+    -- If you specify @encoding-type@ request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:
+    -- @Delimiter@ , @KeyMarker@ , @Prefix@ , @NextKeyMarker@ , @Key@ .
+    encodingType :: Lude.Maybe EncodingType,
+    -- | The name of the bucket to which the multipart upload was initiated.
     bucket :: Lude.Maybe BucketName,
-    uploadIdMarker ::
-      Lude.Maybe Lude.Text,
+    -- | Upload ID after which listing began.
+    uploadIdMarker :: Lude.Maybe Lude.Text,
+    -- | Maximum number of multipart uploads that could have been included in the response.
     maxUploads :: Lude.Maybe Lude.Int,
-    nextKeyMarker ::
-      Lude.Maybe Lude.Text,
-    uploads ::
-      Lude.Maybe [MultipartUpload],
-    isTruncated ::
-      Lude.Maybe Lude.Bool,
-    nextUploadIdMarker ::
-      Lude.Maybe Lude.Text,
+    -- | When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
+    nextKeyMarker :: Lude.Maybe Lude.Text,
+    -- | Container for elements related to a particular multipart upload. A response can contain zero or more @Upload@ elements.
+    uploads :: Lude.Maybe [MultipartUpload],
+    -- | Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
+    isTruncated :: Lude.Maybe Lude.Bool,
+    -- | When a list is truncated, this element specifies the value that should be used for the @upload-id-marker@ request parameter in a subsequent request.
+    nextUploadIdMarker :: Lude.Maybe Lude.Text,
+    -- | Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.
     delimiter :: Lude.Maybe Delimiter,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMultipartUploadsResponse' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
+-- * 'keyMarker' - The key at or after which the listing began.
+-- * 'prefix' - When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
 -- * 'commonPrefixes' - If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a @CommonPrefixes@ element. The distinct key prefixes are returned in the @Prefix@ child element.
--- * 'delimiter' - Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.
 -- * 'encodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
 -- If you specify @encoding-type@ request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:
 -- @Delimiter@ , @KeyMarker@ , @Prefix@ , @NextKeyMarker@ , @Key@ .
--- * 'isTruncated' - Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
--- * 'keyMarker' - The key at or after which the listing began.
+-- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
+-- * 'uploadIdMarker' - Upload ID after which listing began.
 -- * 'maxUploads' - Maximum number of multipart uploads that could have been included in the response.
 -- * 'nextKeyMarker' - When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
--- * 'nextUploadIdMarker' - When a list is truncated, this element specifies the value that should be used for the @upload-id-marker@ request parameter in a subsequent request.
--- * 'prefix' - When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
--- * 'responseStatus' - The response status code.
--- * 'uploadIdMarker' - Upload ID after which listing began.
 -- * 'uploads' - Container for elements related to a particular multipart upload. A response can contain zero or more @Upload@ elements.
+-- * 'isTruncated' - Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
+-- * 'nextUploadIdMarker' - When a list is truncated, this element specifies the value that should be used for the @upload-id-marker@ request parameter in a subsequent request.
+-- * 'delimiter' - Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.
+-- * 'responseStatus' - The response status code.
 mkListMultipartUploadsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkConfiguration' smart constructor.
 newtype NetworkConfiguration = NetworkConfiguration'
-  { awsvpcConfiguration ::
-      Lude.Maybe AWSVPCConfiguration
+  { -- | The VPC subnets and security groups associated with a task.
+    awsvpcConfiguration :: Lude.Maybe AWSVPCConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkConfiguration' with the minimum fields required to make a request.

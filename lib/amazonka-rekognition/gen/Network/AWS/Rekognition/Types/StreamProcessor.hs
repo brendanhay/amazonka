@@ -30,23 +30,18 @@ import Network.AWS.Rekognition.Types.StreamProcessorStatus
 --
 -- /See:/ 'mkStreamProcessor' smart constructor.
 data StreamProcessor = StreamProcessor'
-  { status ::
-      Lude.Maybe StreamProcessorStatus,
+  { -- | Current status of the Amazon Rekognition stream processor.
+    status :: Lude.Maybe StreamProcessorStatus,
+    -- | Name of the Amazon Rekognition stream processor.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamProcessor' with the minimum fields required to make a request.
 --
--- * 'name' - Name of the Amazon Rekognition stream processor.
 -- * 'status' - Current status of the Amazon Rekognition stream processor.
+-- * 'name' - Name of the Amazon Rekognition stream processor.
 mkStreamProcessor ::
   StreamProcessor
 mkStreamProcessor =

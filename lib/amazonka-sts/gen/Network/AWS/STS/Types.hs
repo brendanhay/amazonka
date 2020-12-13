@@ -16,14 +16,14 @@ module Network.AWS.STS.Types
     -- * AssumedRoleUser
     AssumedRoleUser (..),
     mkAssumedRoleUser,
-    aruAssumedRoleId,
     aruARN,
+    aruAssumedRoleId,
 
     -- * FederatedUser
     FederatedUser (..),
     mkFederatedUser,
-    fuFederatedUserId,
     fuARN,
+    fuFederatedUserId,
 
     -- * PolicyDescriptorType
     PolicyDescriptorType (..),
@@ -33,8 +33,8 @@ module Network.AWS.STS.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
   )
 where
 

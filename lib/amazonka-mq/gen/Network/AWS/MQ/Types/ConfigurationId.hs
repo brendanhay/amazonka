@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurationId' smart constructor.
 data ConfigurationId = ConfigurationId'
-  { id :: Lude.Maybe Lude.Text,
+  { -- | Required. The unique ID that Amazon MQ generates for the configuration.
+    id :: Lude.Maybe Lude.Text,
+    -- | The revision number of the configuration.
     revision :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationId' with the minimum fields required to make a request.

@@ -13,33 +13,33 @@
 module Network.AWS.EMR.Types.Unit
   ( Unit
       ( Unit',
-        Bits,
-        BitsPerSecond,
-        Bytes,
-        BytesPerSecond,
-        Count,
-        CountPerSecond,
-        GigaBits,
-        GigaBitsPerSecond,
-        GigaBytes,
-        GigaBytesPerSecond,
-        KiloBits,
-        KiloBitsPerSecond,
-        KiloBytes,
-        KiloBytesPerSecond,
-        MegaBits,
-        MegaBitsPerSecond,
-        MegaBytes,
-        MegaBytesPerSecond,
+        None,
+        Seconds,
         MicroSeconds,
         MilliSeconds,
-        None,
-        Percent,
-        Seconds,
-        TeraBits,
-        TeraBitsPerSecond,
+        Bytes,
+        KiloBytes,
+        MegaBytes,
+        GigaBytes,
         TeraBytes,
-        TeraBytesPerSecond
+        Bits,
+        KiloBits,
+        MegaBits,
+        GigaBits,
+        TeraBits,
+        Percent,
+        Count,
+        BytesPerSecond,
+        KiloBytesPerSecond,
+        MegaBytesPerSecond,
+        GigaBytesPerSecond,
+        TeraBytesPerSecond,
+        BitsPerSecond,
+        KiloBitsPerSecond,
+        MegaBitsPerSecond,
+        GigaBitsPerSecond,
+        TeraBitsPerSecond,
+        CountPerSecond
       ),
   )
 where
@@ -70,59 +70,11 @@ newtype Unit = Unit' Lude.Text
       Lude.ToHeader
     )
 
-pattern Bits :: Unit
-pattern Bits = Unit' "BITS"
+pattern None :: Unit
+pattern None = Unit' "NONE"
 
-pattern BitsPerSecond :: Unit
-pattern BitsPerSecond = Unit' "BITS_PER_SECOND"
-
-pattern Bytes :: Unit
-pattern Bytes = Unit' "BYTES"
-
-pattern BytesPerSecond :: Unit
-pattern BytesPerSecond = Unit' "BYTES_PER_SECOND"
-
-pattern Count :: Unit
-pattern Count = Unit' "COUNT"
-
-pattern CountPerSecond :: Unit
-pattern CountPerSecond = Unit' "COUNT_PER_SECOND"
-
-pattern GigaBits :: Unit
-pattern GigaBits = Unit' "GIGA_BITS"
-
-pattern GigaBitsPerSecond :: Unit
-pattern GigaBitsPerSecond = Unit' "GIGA_BITS_PER_SECOND"
-
-pattern GigaBytes :: Unit
-pattern GigaBytes = Unit' "GIGA_BYTES"
-
-pattern GigaBytesPerSecond :: Unit
-pattern GigaBytesPerSecond = Unit' "GIGA_BYTES_PER_SECOND"
-
-pattern KiloBits :: Unit
-pattern KiloBits = Unit' "KILO_BITS"
-
-pattern KiloBitsPerSecond :: Unit
-pattern KiloBitsPerSecond = Unit' "KILO_BITS_PER_SECOND"
-
-pattern KiloBytes :: Unit
-pattern KiloBytes = Unit' "KILO_BYTES"
-
-pattern KiloBytesPerSecond :: Unit
-pattern KiloBytesPerSecond = Unit' "KILO_BYTES_PER_SECOND"
-
-pattern MegaBits :: Unit
-pattern MegaBits = Unit' "MEGA_BITS"
-
-pattern MegaBitsPerSecond :: Unit
-pattern MegaBitsPerSecond = Unit' "MEGA_BITS_PER_SECOND"
-
-pattern MegaBytes :: Unit
-pattern MegaBytes = Unit' "MEGA_BYTES"
-
-pattern MegaBytesPerSecond :: Unit
-pattern MegaBytesPerSecond = Unit' "MEGA_BYTES_PER_SECOND"
+pattern Seconds :: Unit
+pattern Seconds = Unit' "SECONDS"
 
 pattern MicroSeconds :: Unit
 pattern MicroSeconds = Unit' "MICRO_SECONDS"
@@ -130,54 +82,102 @@ pattern MicroSeconds = Unit' "MICRO_SECONDS"
 pattern MilliSeconds :: Unit
 pattern MilliSeconds = Unit' "MILLI_SECONDS"
 
-pattern None :: Unit
-pattern None = Unit' "NONE"
+pattern Bytes :: Unit
+pattern Bytes = Unit' "BYTES"
 
-pattern Percent :: Unit
-pattern Percent = Unit' "PERCENT"
+pattern KiloBytes :: Unit
+pattern KiloBytes = Unit' "KILO_BYTES"
 
-pattern Seconds :: Unit
-pattern Seconds = Unit' "SECONDS"
+pattern MegaBytes :: Unit
+pattern MegaBytes = Unit' "MEGA_BYTES"
 
-pattern TeraBits :: Unit
-pattern TeraBits = Unit' "TERA_BITS"
-
-pattern TeraBitsPerSecond :: Unit
-pattern TeraBitsPerSecond = Unit' "TERA_BITS_PER_SECOND"
+pattern GigaBytes :: Unit
+pattern GigaBytes = Unit' "GIGA_BYTES"
 
 pattern TeraBytes :: Unit
 pattern TeraBytes = Unit' "TERA_BYTES"
 
+pattern Bits :: Unit
+pattern Bits = Unit' "BITS"
+
+pattern KiloBits :: Unit
+pattern KiloBits = Unit' "KILO_BITS"
+
+pattern MegaBits :: Unit
+pattern MegaBits = Unit' "MEGA_BITS"
+
+pattern GigaBits :: Unit
+pattern GigaBits = Unit' "GIGA_BITS"
+
+pattern TeraBits :: Unit
+pattern TeraBits = Unit' "TERA_BITS"
+
+pattern Percent :: Unit
+pattern Percent = Unit' "PERCENT"
+
+pattern Count :: Unit
+pattern Count = Unit' "COUNT"
+
+pattern BytesPerSecond :: Unit
+pattern BytesPerSecond = Unit' "BYTES_PER_SECOND"
+
+pattern KiloBytesPerSecond :: Unit
+pattern KiloBytesPerSecond = Unit' "KILO_BYTES_PER_SECOND"
+
+pattern MegaBytesPerSecond :: Unit
+pattern MegaBytesPerSecond = Unit' "MEGA_BYTES_PER_SECOND"
+
+pattern GigaBytesPerSecond :: Unit
+pattern GigaBytesPerSecond = Unit' "GIGA_BYTES_PER_SECOND"
+
 pattern TeraBytesPerSecond :: Unit
 pattern TeraBytesPerSecond = Unit' "TERA_BYTES_PER_SECOND"
 
+pattern BitsPerSecond :: Unit
+pattern BitsPerSecond = Unit' "BITS_PER_SECOND"
+
+pattern KiloBitsPerSecond :: Unit
+pattern KiloBitsPerSecond = Unit' "KILO_BITS_PER_SECOND"
+
+pattern MegaBitsPerSecond :: Unit
+pattern MegaBitsPerSecond = Unit' "MEGA_BITS_PER_SECOND"
+
+pattern GigaBitsPerSecond :: Unit
+pattern GigaBitsPerSecond = Unit' "GIGA_BITS_PER_SECOND"
+
+pattern TeraBitsPerSecond :: Unit
+pattern TeraBitsPerSecond = Unit' "TERA_BITS_PER_SECOND"
+
+pattern CountPerSecond :: Unit
+pattern CountPerSecond = Unit' "COUNT_PER_SECOND"
+
 {-# COMPLETE
-  Bits,
-  BitsPerSecond,
-  Bytes,
-  BytesPerSecond,
-  Count,
-  CountPerSecond,
-  GigaBits,
-  GigaBitsPerSecond,
-  GigaBytes,
-  GigaBytesPerSecond,
-  KiloBits,
-  KiloBitsPerSecond,
-  KiloBytes,
-  KiloBytesPerSecond,
-  MegaBits,
-  MegaBitsPerSecond,
-  MegaBytes,
-  MegaBytesPerSecond,
+  None,
+  Seconds,
   MicroSeconds,
   MilliSeconds,
-  None,
-  Percent,
-  Seconds,
-  TeraBits,
-  TeraBitsPerSecond,
+  Bytes,
+  KiloBytes,
+  MegaBytes,
+  GigaBytes,
   TeraBytes,
+  Bits,
+  KiloBits,
+  MegaBits,
+  GigaBits,
+  TeraBits,
+  Percent,
+  Count,
+  BytesPerSecond,
+  KiloBytesPerSecond,
+  MegaBytesPerSecond,
+  GigaBytesPerSecond,
   TeraBytesPerSecond,
+  BitsPerSecond,
+  KiloBitsPerSecond,
+  MegaBitsPerSecond,
+  GigaBitsPerSecond,
+  TeraBitsPerSecond,
+  CountPerSecond,
   Unit'
   #-}

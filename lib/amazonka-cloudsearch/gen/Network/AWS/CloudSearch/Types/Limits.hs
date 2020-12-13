@@ -30,19 +30,13 @@ data Limits = Limits'
   { maximumReplicationCount :: Lude.Natural,
     maximumPartitionCount :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Limits' with the minimum fields required to make a request.
 --
--- * 'maximumPartitionCount' - Undocumented field.
--- * 'maximumReplicationCount' - Undocumented field.
+-- * 'maximumReplicationCount' -
+-- * 'maximumPartitionCount' -
 mkLimits ::
   -- | 'maximumReplicationCount'
   Lude.Natural ->

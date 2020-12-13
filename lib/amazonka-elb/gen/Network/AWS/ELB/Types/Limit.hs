@@ -30,16 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLimit' smart constructor.
 data Limit = Limit'
-  { max :: Lude.Maybe Lude.Text,
+  { -- | The maximum value of the limit.
+    max :: Lude.Maybe Lude.Text,
+    -- | The name of the limit. The possible values are:
+    --
+    --
+    --     * classic-listeners
+    --
+    --
+    --     * classic-load-balancers
+    --
+    --
+    --     * classic-registered-instances
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Limit' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.IoT.DescribeJobExecution
     mkDescribeJobExecution,
 
     -- ** Request lenses
-    dExecutionNumber,
-    dJobId,
-    dThingName,
+    djefJobId,
+    djefExecutionNumber,
+    djefThingName,
 
     -- * Destructuring the response
     DescribeJobExecutionResponse (..),
@@ -41,24 +42,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeJobExecution' smart constructor.
 data DescribeJobExecution = DescribeJobExecution'
-  { executionNumber ::
-      Lude.Maybe Lude.Integer,
+  { -- | The unique identifier you assigned to this job when it was created.
     jobId :: Lude.Text,
+    -- | A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
+    executionNumber :: Lude.Maybe Lude.Integer,
+    -- | The name of the thing on which the job execution is running.
     thingName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobExecution' with the minimum fields required to make a request.
 --
--- * 'executionNumber' - A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
 -- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'executionNumber' - A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
 -- * 'thingName' - The name of the thing on which the job execution is running.
 mkDescribeJobExecution ::
   -- | 'jobId'
@@ -68,31 +65,31 @@ mkDescribeJobExecution ::
   DescribeJobExecution
 mkDescribeJobExecution pJobId_ pThingName_ =
   DescribeJobExecution'
-    { executionNumber = Lude.Nothing,
-      jobId = pJobId_,
+    { jobId = pJobId_,
+      executionNumber = Lude.Nothing,
       thingName = pThingName_
     }
-
--- | A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
---
--- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dExecutionNumber :: Lens.Lens' DescribeJobExecution (Lude.Maybe Lude.Integer)
-dExecutionNumber = Lens.lens (executionNumber :: DescribeJobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {executionNumber = a} :: DescribeJobExecution)
-{-# DEPRECATED dExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
 
 -- | The unique identifier you assigned to this job when it was created.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dJobId :: Lens.Lens' DescribeJobExecution Lude.Text
-dJobId = Lens.lens (jobId :: DescribeJobExecution -> Lude.Text) (\s a -> s {jobId = a} :: DescribeJobExecution)
-{-# DEPRECATED dJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+djefJobId :: Lens.Lens' DescribeJobExecution Lude.Text
+djefJobId = Lens.lens (jobId :: DescribeJobExecution -> Lude.Text) (\s a -> s {jobId = a} :: DescribeJobExecution)
+{-# DEPRECATED djefJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
+-- | A string (consisting of the digits "0" through "9" which is used to specify a particular job execution on a particular device.
+--
+-- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djefExecutionNumber :: Lens.Lens' DescribeJobExecution (Lude.Maybe Lude.Integer)
+djefExecutionNumber = Lens.lens (executionNumber :: DescribeJobExecution -> Lude.Maybe Lude.Integer) (\s a -> s {executionNumber = a} :: DescribeJobExecution)
+{-# DEPRECATED djefExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
 
 -- | The name of the thing on which the job execution is running.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dThingName :: Lens.Lens' DescribeJobExecution Lude.Text
-dThingName = Lens.lens (thingName :: DescribeJobExecution -> Lude.Text) (\s a -> s {thingName = a} :: DescribeJobExecution)
-{-# DEPRECATED dThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+djefThingName :: Lens.Lens' DescribeJobExecution Lude.Text
+djefThingName = Lens.lens (thingName :: DescribeJobExecution -> Lude.Text) (\s a -> s {thingName = a} :: DescribeJobExecution)
+{-# DEPRECATED djefThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 instance Lude.AWSRequest DescribeJobExecution where
   type Rs DescribeJobExecution = DescribeJobExecutionResponse
@@ -118,17 +115,12 @@ instance Lude.ToQuery DescribeJobExecution where
 
 -- | /See:/ 'mkDescribeJobExecutionResponse' smart constructor.
 data DescribeJobExecutionResponse = DescribeJobExecutionResponse'
-  { execution ::
-      Lude.Maybe JobExecution,
+  { -- | Information about the job execution.
+    execution :: Lude.Maybe JobExecution,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobExecutionResponse' with the minimum fields required to make a request.

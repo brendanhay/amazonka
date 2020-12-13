@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflowRunStatistics' smart constructor.
 data WorkflowRunStatistics = WorkflowRunStatistics'
-  { runningActions ::
-      Lude.Maybe Lude.Int,
+  { -- | Total number Actions in running state.
+    runningActions :: Lude.Maybe Lude.Int,
+    -- | Total number of Actions that have stopped.
     stoppedActions :: Lude.Maybe Lude.Int,
+    -- | Total number of Actions in the workflow run.
     totalActions :: Lude.Maybe Lude.Int,
+    -- | Total number of Actions that have failed.
     failedActions :: Lude.Maybe Lude.Int,
+    -- | Total number of Actions that timed out.
     timeoutActions :: Lude.Maybe Lude.Int,
+    -- | Total number of Actions that have succeeded.
     succeededActions :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowRunStatistics' with the minimum fields required to make a request.
 --
--- * 'failedActions' - Total number of Actions that have failed.
 -- * 'runningActions' - Total number Actions in running state.
 -- * 'stoppedActions' - Total number of Actions that have stopped.
--- * 'succeededActions' - Total number of Actions that have succeeded.
--- * 'timeoutActions' - Total number of Actions that timed out.
 -- * 'totalActions' - Total number of Actions in the workflow run.
+-- * 'failedActions' - Total number of Actions that have failed.
+-- * 'timeoutActions' - Total number of Actions that timed out.
+-- * 'succeededActions' - Total number of Actions that have succeeded.
 mkWorkflowRunStatistics ::
   WorkflowRunStatistics
 mkWorkflowRunStatistics =

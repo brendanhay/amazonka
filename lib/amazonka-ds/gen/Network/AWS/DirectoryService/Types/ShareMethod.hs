@@ -13,8 +13,8 @@
 module Network.AWS.DirectoryService.Types.ShareMethod
   ( ShareMethod
       ( ShareMethod',
-        Handshake,
-        Organizations
+        Organizations,
+        Handshake
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ShareMethod = ShareMethod' Lude.Text
       Lude.ToHeader
     )
 
-pattern Handshake :: ShareMethod
-pattern Handshake = ShareMethod' "HANDSHAKE"
-
 pattern Organizations :: ShareMethod
 pattern Organizations = ShareMethod' "ORGANIZATIONS"
 
+pattern Handshake :: ShareMethod
+pattern Handshake = ShareMethod' "HANDSHAKE"
+
 {-# COMPLETE
-  Handshake,
   Organizations,
+  Handshake,
   ShareMethod'
   #-}

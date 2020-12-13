@@ -287,8 +287,8 @@ module Network.AWS.EMR
     -- ** AutoScalingPolicy
     AutoScalingPolicy (..),
     mkAutoScalingPolicy,
-    aspConstraints,
     aspRules,
+    aspConstraints,
 
     -- ** AutoScalingPolicyDescription
     AutoScalingPolicyDescription (..),
@@ -312,14 +312,14 @@ module Network.AWS.EMR
     -- ** BlockPublicAccessConfiguration
     BlockPublicAccessConfiguration (..),
     mkBlockPublicAccessConfiguration,
-    bpacPermittedPublicSecurityGroupRuleRanges,
     bpacBlockPublicSecurityGroupRules,
+    bpacPermittedPublicSecurityGroupRuleRanges,
 
     -- ** BlockPublicAccessConfigurationMetadata
     BlockPublicAccessConfigurationMetadata (..),
     mkBlockPublicAccessConfigurationMetadata,
-    bpacmCreationDateTime,
     bpacmCreatedByARN,
+    bpacmCreationDateTime,
 
     -- ** BootstrapActionConfig
     BootstrapActionConfig (..),
@@ -337,49 +337,49 @@ module Network.AWS.EMR
     -- ** CloudWatchAlarmDefinition
     CloudWatchAlarmDefinition (..),
     mkCloudWatchAlarmDefinition,
+    cwadPeriod,
     cwadEvaluationPeriods,
+    cwadMetricName,
     cwadNamespace,
+    cwadComparisonOperator,
+    cwadThreshold,
     cwadDimensions,
     cwadUnit,
     cwadStatistic,
-    cwadComparisonOperator,
-    cwadMetricName,
-    cwadPeriod,
-    cwadThreshold,
 
     -- ** Cluster
     Cluster (..),
     mkCluster,
-    cluLogEncryptionKMSKeyId,
-    cluClusterARN,
-    cluRequestedAMIVersion,
-    cluEBSRootVolumeSize,
-    cluEC2InstanceAttributes,
-    cluOutpostARN,
-    cluNormalizedInstanceHours,
-    cluConfigurations,
-    cluCustomAMIId,
-    cluAutoScalingRole,
-    cluSecurityConfiguration,
-    cluScaleDownBehavior,
-    cluInstanceCollectionType,
-    cluReleaseLabel,
-    cluRepoUpgradeOnBoot,
-    cluLogURI,
-    cluKerberosAttributes,
-    cluPlacementGroups,
-    cluRunningAMIVersion,
-    cluMasterPublicDNSName,
-    cluTerminationProtected,
-    cluVisibleToAllUsers,
-    cluAutoTerminate,
-    cluStepConcurrencyLevel,
-    cluApplications,
-    cluTags,
-    cluServiceRole,
-    cluId,
-    cluName,
-    cluStatus,
+    cfStatus,
+    cfLogEncryptionKMSKeyId,
+    cfClusterARN,
+    cfRequestedAMIVersion,
+    cfEBSRootVolumeSize,
+    cfEC2InstanceAttributes,
+    cfOutpostARN,
+    cfNormalizedInstanceHours,
+    cfConfigurations,
+    cfCustomAMIId,
+    cfAutoScalingRole,
+    cfSecurityConfiguration,
+    cfScaleDownBehavior,
+    cfInstanceCollectionType,
+    cfReleaseLabel,
+    cfName,
+    cfRepoUpgradeOnBoot,
+    cfLogURI,
+    cfKerberosAttributes,
+    cfId,
+    cfPlacementGroups,
+    cfRunningAMIVersion,
+    cfMasterPublicDNSName,
+    cfTerminationProtected,
+    cfVisibleToAllUsers,
+    cfAutoTerminate,
+    cfStepConcurrencyLevel,
+    cfApplications,
+    cfTags,
+    cfServiceRole,
 
     -- ** ClusterStateChangeReason
     ClusterStateChangeReason (..),
@@ -397,12 +397,12 @@ module Network.AWS.EMR
     -- ** ClusterSummary
     ClusterSummary (..),
     mkClusterSummary,
-    cStatus,
-    cClusterARN,
-    cOutpostARN,
-    cNormalizedInstanceHours,
-    cName,
-    cId,
+    csStatus,
+    csClusterARN,
+    csOutpostARN,
+    csNormalizedInstanceHours,
+    csName,
+    csId,
 
     -- ** ClusterTimeline
     ClusterTimeline (..),
@@ -414,9 +414,9 @@ module Network.AWS.EMR
     -- ** Command
     Command (..),
     mkCommand,
-    comArgs,
-    comScriptPath,
-    comName,
+    cArgs,
+    cScriptPath,
+    cName,
 
     -- ** ComputeLimits
     ComputeLimits (..),
@@ -424,8 +424,8 @@ module Network.AWS.EMR
     clMaximumOnDemandCapacityUnits,
     clMaximumCoreCapacityUnits,
     clUnitType,
-    clMinimumCapacityUnits,
     clMaximumCapacityUnits,
+    clMinimumCapacityUnits,
 
     -- ** Configuration
     Configuration (..),
@@ -477,8 +477,8 @@ module Network.AWS.EMR
     ExecutionEngineConfig (..),
     mkExecutionEngineConfig,
     eecMasterInstanceSecurityGroupId,
-    eecType,
     eecId,
+    eecType,
 
     -- ** FailureDetails
     FailureDetails (..),
@@ -491,9 +491,9 @@ module Network.AWS.EMR
     HadoopJARStepConfig (..),
     mkHadoopJARStepConfig,
     hjscArgs,
+    hjscJAR,
     hjscMainClass,
     hjscProperties,
-    hjscJAR,
 
     -- ** HadoopStepConfig
     HadoopStepConfig (..),
@@ -538,17 +538,17 @@ module Network.AWS.EMR
     mkInstanceFleetConfig,
     ifcInstanceTypeConfigs,
     ifcTargetOnDemandCapacity,
+    ifcInstanceFleetType,
     ifcName,
     ifcTargetSpotCapacity,
     ifcLaunchSpecifications,
-    ifcInstanceFleetType,
 
     -- ** InstanceFleetModifyConfig
     InstanceFleetModifyConfig (..),
     mkInstanceFleetModifyConfig,
     ifmcTargetOnDemandCapacity,
-    ifmcTargetSpotCapacity,
     ifmcInstanceFleetId,
+    ifmcTargetSpotCapacity,
 
     -- ** InstanceFleetProvisioningSpecifications
     InstanceFleetProvisioningSpecifications (..),
@@ -602,13 +602,13 @@ module Network.AWS.EMR
     mkInstanceGroupConfig,
     igcEBSConfiguration,
     igcBidPrice,
+    igcInstanceCount,
+    igcInstanceRole,
     igcConfigurations,
+    igcInstanceType,
     igcMarket,
     igcName,
     igcAutoScalingPolicy,
-    igcInstanceRole,
-    igcInstanceType,
-    igcInstanceCount,
 
     -- ** InstanceGroupModifyConfig
     InstanceGroupModifyConfig (..),
@@ -673,8 +673,8 @@ module Network.AWS.EMR
     itcBidPrice,
     itcWeightedCapacity,
     itcConfigurations,
-    itcBidPriceAsPercentageOfOnDemandPrice,
     itcInstanceType,
+    itcBidPriceAsPercentageOfOnDemandPrice,
 
     -- ** InstanceTypeSpecification
     InstanceTypeSpecification (..),
@@ -769,8 +769,8 @@ module Network.AWS.EMR
     -- ** PlacementGroupConfig
     PlacementGroupConfig (..),
     mkPlacementGroupConfig,
-    pgcPlacementStrategy,
     pgcInstanceRole,
+    pgcPlacementStrategy,
 
     -- ** PlacementType
     PlacementType (..),
@@ -781,8 +781,8 @@ module Network.AWS.EMR
     -- ** PortRange
     PortRange (..),
     mkPortRange,
-    prMaxRange,
     prMinRange,
+    prMaxRange,
 
     -- ** ScalingAction
     ScalingAction (..),
@@ -793,16 +793,16 @@ module Network.AWS.EMR
     -- ** ScalingConstraints
     ScalingConstraints (..),
     mkScalingConstraints,
-    scMinCapacity,
     scMaxCapacity,
+    scMinCapacity,
 
     -- ** ScalingRule
     ScalingRule (..),
     mkScalingRule,
-    srDescription,
-    srName,
     srAction,
+    srName,
     srTrigger,
+    srDescription,
 
     -- ** ScalingTrigger
     ScalingTrigger (..),
@@ -852,32 +852,32 @@ module Network.AWS.EMR
     SimpleScalingPolicyConfiguration (..),
     mkSimpleScalingPolicyConfiguration,
     sspcAdjustmentType,
-    sspcCoolDown,
     sspcScalingAdjustment,
+    sspcCoolDown,
 
     -- ** SpotProvisioningSpecification
     SpotProvisioningSpecification (..),
     mkSpotProvisioningSpecification,
     spsBlockDurationMinutes,
-    spsAllocationStrategy,
-    spsTimeoutDurationMinutes,
     spsTimeoutAction,
+    spsTimeoutDurationMinutes,
+    spsAllocationStrategy,
 
     -- ** Step
     Step (..),
     mkStep,
-    sStatus,
-    sActionOnFailure,
-    sConfig,
-    sName,
-    sId,
+    sgStatus,
+    sgActionOnFailure,
+    sgConfig,
+    sgName,
+    sgId,
 
     -- ** StepConfig
     StepConfig (..),
     mkStepConfig,
     scActionOnFailure,
-    scName,
     scHadoopJARStep,
+    scName,
 
     -- ** StepStateChangeReason
     StepStateChangeReason (..),
@@ -896,11 +896,11 @@ module Network.AWS.EMR
     -- ** StepSummary
     StepSummary (..),
     mkStepSummary,
-    steStatus,
-    steActionOnFailure,
-    steConfig,
-    steName,
-    steId,
+    sStatus,
+    sActionOnFailure,
+    sConfig,
+    sName,
+    sId,
 
     -- ** StepTimeline
     StepTimeline (..),
@@ -912,21 +912,21 @@ module Network.AWS.EMR
     -- ** Studio
     Studio (..),
     mkStudio,
-    stuCreationTime,
-    stuEngineSecurityGroupId,
-    stuSubnetIds,
-    stuStudioId,
-    stuVPCId,
-    stuURL,
-    stuAuthMode,
-    stuDefaultS3Location,
-    stuWorkspaceSecurityGroupId,
-    stuName,
-    stuStudioARN,
-    stuUserRole,
-    stuDescription,
-    stuTags,
-    stuServiceRole,
+    sfCreationTime,
+    sfEngineSecurityGroupId,
+    sfSubnetIds,
+    sfStudioId,
+    sfVPCId,
+    sfURL,
+    sfAuthMode,
+    sfDefaultS3Location,
+    sfWorkspaceSecurityGroupId,
+    sfName,
+    sfStudioARN,
+    sfUserRole,
+    sfDescription,
+    sfTags,
+    sfServiceRole,
 
     -- ** StudioSummary
     StudioSummary (..),
@@ -954,8 +954,8 @@ module Network.AWS.EMR
     VolumeSpecification (..),
     mkVolumeSpecification,
     vsIOPS,
-    vsVolumeType,
     vsSizeInGB,
+    vsVolumeType,
 
     -- * Serialization types
     Lude.Base64 (..),

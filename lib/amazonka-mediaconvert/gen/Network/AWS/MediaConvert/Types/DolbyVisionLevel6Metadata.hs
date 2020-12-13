@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDolbyVisionLevel6Metadata' smart constructor.
 data DolbyVisionLevel6Metadata = DolbyVisionLevel6Metadata'
-  { maxFall ::
-      Lude.Maybe Lude.Natural,
+  { -- | Maximum Frame-Average Light Level. Static HDR metadata that corresponds to the highest frame-average brightness in the entire stream. Measured in nits.
+    maxFall :: Lude.Maybe Lude.Natural,
+    -- | Maximum Content Light Level. Static HDR metadata that corresponds to the brightest pixel in the entire stream. Measured in nits.
     maxCll :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DolbyVisionLevel6Metadata' with the minimum fields required to make a request.
 --
--- * 'maxCll' - Maximum Content Light Level. Static HDR metadata that corresponds to the brightest pixel in the entire stream. Measured in nits.
 -- * 'maxFall' - Maximum Frame-Average Light Level. Static HDR metadata that corresponds to the highest frame-average brightness in the entire stream. Measured in nits.
+-- * 'maxCll' - Maximum Content Light Level. Static HDR metadata that corresponds to the brightest pixel in the entire stream. Measured in nits.
 mkDolbyVisionLevel6Metadata ::
   DolbyVisionLevel6Metadata
 mkDolbyVisionLevel6Metadata =

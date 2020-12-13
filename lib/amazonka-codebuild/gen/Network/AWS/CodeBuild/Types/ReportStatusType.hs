@@ -13,11 +13,11 @@
 module Network.AWS.CodeBuild.Types.ReportStatusType
   ( ReportStatusType
       ( ReportStatusType',
-        RSTDeleting,
-        RSTFailed,
         RSTGenerating,
+        RSTSucceeded,
+        RSTFailed,
         RSTIncomplete,
-        RSTSucceeded
+        RSTDeleting
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ReportStatusType = ReportStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSTDeleting :: ReportStatusType
-pattern RSTDeleting = ReportStatusType' "DELETING"
-
-pattern RSTFailed :: ReportStatusType
-pattern RSTFailed = ReportStatusType' "FAILED"
-
 pattern RSTGenerating :: ReportStatusType
 pattern RSTGenerating = ReportStatusType' "GENERATING"
-
-pattern RSTIncomplete :: ReportStatusType
-pattern RSTIncomplete = ReportStatusType' "INCOMPLETE"
 
 pattern RSTSucceeded :: ReportStatusType
 pattern RSTSucceeded = ReportStatusType' "SUCCEEDED"
 
+pattern RSTFailed :: ReportStatusType
+pattern RSTFailed = ReportStatusType' "FAILED"
+
+pattern RSTIncomplete :: ReportStatusType
+pattern RSTIncomplete = ReportStatusType' "INCOMPLETE"
+
+pattern RSTDeleting :: ReportStatusType
+pattern RSTDeleting = ReportStatusType' "DELETING"
+
 {-# COMPLETE
-  RSTDeleting,
-  RSTFailed,
   RSTGenerating,
-  RSTIncomplete,
   RSTSucceeded,
+  RSTFailed,
+  RSTIncomplete,
+  RSTDeleting,
   ReportStatusType'
   #-}

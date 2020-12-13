@@ -53,55 +53,71 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlacierJobDescription' smart constructor.
 data GlacierJobDescription = GlacierJobDescription'
-  { sHA256TreeHash ::
-      Lude.Maybe Lude.Text,
+  { -- | For an archive retrieval job, this value is the checksum of the archive. Otherwise, this value is null.
+    --
+    -- The SHA256 tree hash value for the requested range of an archive. If the __InitiateJob__ request for an archive specified a tree-hash aligned range, then this field returns a value.
+    -- If the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.
+    -- This field is null for the following:
+    --
+    --     * Archive retrieval jobs that specify a range that is not tree-hash aligned
+    --
+    --
+    --
+    --     * Archival jobs that specify a range that is equal to the whole archive, when the job status is @InProgress@
+    --
+    --
+    --
+    --     * Inventory jobs
+    --
+    --
+    --     * Select jobs
+    sHA256TreeHash :: Lude.Maybe Lude.Text,
+    -- | The archive ID requested for a select job or archive retrieval. Otherwise, this field is null.
     archiveId :: Lude.Maybe Lude.Text,
+    -- | Contains the parameters used for a select.
     selectParameters :: Lude.Maybe SelectParameters,
+    -- | An opaque string that identifies an Amazon S3 Glacier job.
     jobId :: Lude.Maybe Lude.Text,
+    -- | Contains the job output location.
     jobOutputPath :: Lude.Maybe Lude.Text,
+    -- | The retrieved byte range for archive retrieval jobs in the form /StartByteValue/ -/EndByteValue/ . If no range was specified in the archive retrieval, then the whole archive is retrieved. In this case, /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the archive minus 1. For inventory retrieval or select jobs, this field is null.
     retrievalByteRange :: Lude.Maybe Lude.Text,
-    inventoryRetrievalParameters ::
-      Lude.Maybe InventoryRetrievalJobDescription,
+    -- | Parameters used for range inventory retrieval.
+    inventoryRetrievalParameters :: Lude.Maybe InventoryRetrievalJobDescription,
+    -- | The job type. This value is either @ArchiveRetrieval@ , @InventoryRetrieval@ , or @Select@ .
     action :: Lude.Maybe ActionCode,
+    -- | The job description provided when initiating the job.
     jobDescription :: Lude.Maybe Lude.Text,
+    -- | An Amazon SNS topic that receives notification.
     snsTopic :: Lude.Maybe Lude.Text,
+    -- | A friendly message that describes the job status.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the vault from which an archive retrieval was requested.
     vaultARN :: Lude.Maybe Lude.Text,
+    -- | Contains the location where the data from the select job is stored.
     outputLocation :: Lude.Maybe OutputLocation,
+    -- | The tier to use for a select or an archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
     tier :: Lude.Maybe Lude.Text,
+    -- | The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval or select jobs, this field is null.
     archiveSHA256TreeHash :: Lude.Maybe Lude.Text,
+    -- | The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example @"2012-03-20T17:03:43.221Z"@ .
     creationDate :: Lude.Maybe Lude.Text,
+    -- | The job status. When a job is completed, you get the job's output using Get Job Output (GET output).
     completed :: Lude.Maybe Lude.Bool,
+    -- | The UTC time that the job request completed. While the job is in progress, the value is null.
     completionDate :: Lude.Maybe Lude.Text,
+    -- | For an inventory retrieval job, this value is the size in bytes of the inventory requested for download. For an archive retrieval or select job, this value is null.
     inventorySizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | For an archive retrieval job, this value is the size in bytes of the archive being requested for download. For an inventory retrieval or select job, this value is null.
     archiveSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The status code can be @InProgress@ , @Succeeded@ , or @Failed@ , and indicates the status of the job.
     statusCode :: Lude.Maybe StatusCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlacierJobDescription' with the minimum fields required to make a request.
 --
--- * 'action' - The job type. This value is either @ArchiveRetrieval@ , @InventoryRetrieval@ , or @Select@ .
--- * 'archiveId' - The archive ID requested for a select job or archive retrieval. Otherwise, this field is null.
--- * 'archiveSHA256TreeHash' - The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval or select jobs, this field is null.
--- * 'archiveSizeInBytes' - For an archive retrieval job, this value is the size in bytes of the archive being requested for download. For an inventory retrieval or select job, this value is null.
--- * 'completed' - The job status. When a job is completed, you get the job's output using Get Job Output (GET output).
--- * 'completionDate' - The UTC time that the job request completed. While the job is in progress, the value is null.
--- * 'creationDate' - The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example @"2012-03-20T17:03:43.221Z"@ .
--- * 'inventoryRetrievalParameters' - Parameters used for range inventory retrieval.
--- * 'inventorySizeInBytes' - For an inventory retrieval job, this value is the size in bytes of the inventory requested for download. For an archive retrieval or select job, this value is null.
--- * 'jobDescription' - The job description provided when initiating the job.
--- * 'jobId' - An opaque string that identifies an Amazon S3 Glacier job.
--- * 'jobOutputPath' - Contains the job output location.
--- * 'outputLocation' - Contains the location where the data from the select job is stored.
--- * 'retrievalByteRange' - The retrieved byte range for archive retrieval jobs in the form /StartByteValue/ -/EndByteValue/ . If no range was specified in the archive retrieval, then the whole archive is retrieved. In this case, /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the archive minus 1. For inventory retrieval or select jobs, this field is null.
 -- * 'sHA256TreeHash' - For an archive retrieval job, this value is the checksum of the archive. Otherwise, this value is null.
 --
 -- The SHA256 tree hash value for the requested range of an archive. If the __InitiateJob__ request for an archive specified a tree-hash aligned range, then this field returns a value.
@@ -122,12 +138,26 @@ data GlacierJobDescription = GlacierJobDescription'
 --     * Select jobs
 --
 --
+-- * 'archiveId' - The archive ID requested for a select job or archive retrieval. Otherwise, this field is null.
 -- * 'selectParameters' - Contains the parameters used for a select.
+-- * 'jobId' - An opaque string that identifies an Amazon S3 Glacier job.
+-- * 'jobOutputPath' - Contains the job output location.
+-- * 'retrievalByteRange' - The retrieved byte range for archive retrieval jobs in the form /StartByteValue/ -/EndByteValue/ . If no range was specified in the archive retrieval, then the whole archive is retrieved. In this case, /StartByteValue/ equals 0 and /EndByteValue/ equals the size of the archive minus 1. For inventory retrieval or select jobs, this field is null.
+-- * 'inventoryRetrievalParameters' - Parameters used for range inventory retrieval.
+-- * 'action' - The job type. This value is either @ArchiveRetrieval@ , @InventoryRetrieval@ , or @Select@ .
+-- * 'jobDescription' - The job description provided when initiating the job.
 -- * 'snsTopic' - An Amazon SNS topic that receives notification.
--- * 'statusCode' - The status code can be @InProgress@ , @Succeeded@ , or @Failed@ , and indicates the status of the job.
 -- * 'statusMessage' - A friendly message that describes the job status.
--- * 'tier' - The tier to use for a select or an archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
 -- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault from which an archive retrieval was requested.
+-- * 'outputLocation' - Contains the location where the data from the select job is stored.
+-- * 'tier' - The tier to use for a select or an archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
+-- * 'archiveSHA256TreeHash' - The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval or select jobs, this field is null.
+-- * 'creationDate' - The UTC date when the job was created. This value is a string representation of ISO 8601 date format, for example @"2012-03-20T17:03:43.221Z"@ .
+-- * 'completed' - The job status. When a job is completed, you get the job's output using Get Job Output (GET output).
+-- * 'completionDate' - The UTC time that the job request completed. While the job is in progress, the value is null.
+-- * 'inventorySizeInBytes' - For an inventory retrieval job, this value is the size in bytes of the inventory requested for download. For an archive retrieval or select job, this value is null.
+-- * 'archiveSizeInBytes' - For an archive retrieval job, this value is the size in bytes of the archive being requested for download. For an inventory retrieval or select job, this value is null.
+-- * 'statusCode' - The status code can be @InProgress@ , @Succeeded@ , or @Failed@ , and indicates the status of the job.
 mkGlacierJobDescription ::
   GlacierJobDescription
 mkGlacierJobDescription =

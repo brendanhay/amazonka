@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.EFS.DescribeFileSystemPolicy
     mkDescribeFileSystemPolicy,
 
     -- ** Request lenses
-    desFileSystemId,
+    dfspFileSystemId,
 
     -- * Destructuring the response
     FileSystemPolicyDescription (..),
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeFileSystemPolicy' smart constructor.
 newtype DescribeFileSystemPolicy = DescribeFileSystemPolicy'
-  { fileSystemId ::
-      Lude.Text
+  { -- | Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
+    fileSystemId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFileSystemPolicy' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkDescribeFileSystemPolicy pFileSystemId_ =
 -- | Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desFileSystemId :: Lens.Lens' DescribeFileSystemPolicy Lude.Text
-desFileSystemId = Lens.lens (fileSystemId :: DescribeFileSystemPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeFileSystemPolicy)
-{-# DEPRECATED desFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
+dfspFileSystemId :: Lens.Lens' DescribeFileSystemPolicy Lude.Text
+dfspFileSystemId = Lens.lens (fileSystemId :: DescribeFileSystemPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeFileSystemPolicy)
+{-# DEPRECATED dfspFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 instance Lude.AWSRequest DescribeFileSystemPolicy where
   type Rs DescribeFileSystemPolicy = FileSystemPolicyDescription

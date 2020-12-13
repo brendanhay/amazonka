@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.SES.CloneReceiptRuleSet
     mkCloneReceiptRuleSet,
 
     -- ** Request lenses
-    cRuleSetName,
-    cOriginalRuleSetName,
+    crrsOriginalRuleSetName,
+    crrsRuleSetName,
 
     -- * Destructuring the response
     CloneReceiptRuleSetResponse (..),
@@ -44,17 +45,21 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkCloneReceiptRuleSet' smart constructor.
 data CloneReceiptRuleSet = CloneReceiptRuleSet'
-  { ruleSetName ::
-      Lude.Text,
-    originalRuleSetName :: Lude.Text
+  { -- | The name of the rule set to clone.
+    originalRuleSetName :: Lude.Text,
+    -- | The name of the rule set to create. The name must:
+    --
+    --
+    --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+    --
+    --
+    --     * Start and end with a letter or number.
+    --
+    --
+    --     * Contain less than 64 characters.
+    ruleSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloneReceiptRuleSet' with the minimum fields required to make a request.
@@ -71,16 +76,23 @@ data CloneReceiptRuleSet = CloneReceiptRuleSet'
 --
 --     * Contain less than 64 characters.
 mkCloneReceiptRuleSet ::
-  -- | 'ruleSetName'
-  Lude.Text ->
   -- | 'originalRuleSetName'
   Lude.Text ->
+  -- | 'ruleSetName'
+  Lude.Text ->
   CloneReceiptRuleSet
-mkCloneReceiptRuleSet pRuleSetName_ pOriginalRuleSetName_ =
+mkCloneReceiptRuleSet pOriginalRuleSetName_ pRuleSetName_ =
   CloneReceiptRuleSet'
-    { ruleSetName = pRuleSetName_,
-      originalRuleSetName = pOriginalRuleSetName_
+    { originalRuleSetName = pOriginalRuleSetName_,
+      ruleSetName = pRuleSetName_
     }
+
+-- | The name of the rule set to clone.
+--
+-- /Note:/ Consider using 'originalRuleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsOriginalRuleSetName :: Lens.Lens' CloneReceiptRuleSet Lude.Text
+crrsOriginalRuleSetName = Lens.lens (originalRuleSetName :: CloneReceiptRuleSet -> Lude.Text) (\s a -> s {originalRuleSetName = a} :: CloneReceiptRuleSet)
+{-# DEPRECATED crrsOriginalRuleSetName "Use generic-lens or generic-optics with 'originalRuleSetName' instead." #-}
 
 -- | The name of the rule set to create. The name must:
 --
@@ -96,16 +108,9 @@ mkCloneReceiptRuleSet pRuleSetName_ pOriginalRuleSetName_ =
 --
 --
 -- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cRuleSetName :: Lens.Lens' CloneReceiptRuleSet Lude.Text
-cRuleSetName = Lens.lens (ruleSetName :: CloneReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: CloneReceiptRuleSet)
-{-# DEPRECATED cRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
-
--- | The name of the rule set to clone.
---
--- /Note:/ Consider using 'originalRuleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cOriginalRuleSetName :: Lens.Lens' CloneReceiptRuleSet Lude.Text
-cOriginalRuleSetName = Lens.lens (originalRuleSetName :: CloneReceiptRuleSet -> Lude.Text) (\s a -> s {originalRuleSetName = a} :: CloneReceiptRuleSet)
-{-# DEPRECATED cOriginalRuleSetName "Use generic-lens or generic-optics with 'originalRuleSetName' instead." #-}
+crrsRuleSetName :: Lens.Lens' CloneReceiptRuleSet Lude.Text
+crrsRuleSetName = Lens.lens (ruleSetName :: CloneReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: CloneReceiptRuleSet)
+{-# DEPRECATED crrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 instance Lude.AWSRequest CloneReceiptRuleSet where
   type Rs CloneReceiptRuleSet = CloneReceiptRuleSetResponse
@@ -129,24 +134,18 @@ instance Lude.ToQuery CloneReceiptRuleSet where
     Lude.mconcat
       [ "Action" Lude.=: ("CloneReceiptRuleSet" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "RuleSetName" Lude.=: ruleSetName,
-        "OriginalRuleSetName" Lude.=: originalRuleSetName
+        "OriginalRuleSetName" Lude.=: originalRuleSetName,
+        "RuleSetName" Lude.=: ruleSetName
       ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkCloneReceiptRuleSetResponse' smart constructor.
 newtype CloneReceiptRuleSetResponse = CloneReceiptRuleSetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloneReceiptRuleSetResponse' with the minimum fields required to make a request.

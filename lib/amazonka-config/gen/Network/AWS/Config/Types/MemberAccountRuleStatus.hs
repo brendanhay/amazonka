@@ -13,15 +13,15 @@
 module Network.AWS.Config.Types.MemberAccountRuleStatus
   ( MemberAccountRuleStatus
       ( MemberAccountRuleStatus',
-        MARSCreateFailed,
-        MARSCreateInProgress,
         MARSCreateSuccessful,
+        MARSCreateInProgress,
+        MARSCreateFailed,
+        MARSDeleteSuccessful,
         MARSDeleteFailed,
         MARSDeleteInProgress,
-        MARSDeleteSuccessful,
-        MARSUpdateFailed,
+        MARSUpdateSuccessful,
         MARSUpdateInProgress,
-        MARSUpdateSuccessful
+        MARSUpdateFailed
       ),
   )
 where
@@ -52,14 +52,17 @@ newtype MemberAccountRuleStatus = MemberAccountRuleStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern MARSCreateFailed :: MemberAccountRuleStatus
-pattern MARSCreateFailed = MemberAccountRuleStatus' "CREATE_FAILED"
+pattern MARSCreateSuccessful :: MemberAccountRuleStatus
+pattern MARSCreateSuccessful = MemberAccountRuleStatus' "CREATE_SUCCESSFUL"
 
 pattern MARSCreateInProgress :: MemberAccountRuleStatus
 pattern MARSCreateInProgress = MemberAccountRuleStatus' "CREATE_IN_PROGRESS"
 
-pattern MARSCreateSuccessful :: MemberAccountRuleStatus
-pattern MARSCreateSuccessful = MemberAccountRuleStatus' "CREATE_SUCCESSFUL"
+pattern MARSCreateFailed :: MemberAccountRuleStatus
+pattern MARSCreateFailed = MemberAccountRuleStatus' "CREATE_FAILED"
+
+pattern MARSDeleteSuccessful :: MemberAccountRuleStatus
+pattern MARSDeleteSuccessful = MemberAccountRuleStatus' "DELETE_SUCCESSFUL"
 
 pattern MARSDeleteFailed :: MemberAccountRuleStatus
 pattern MARSDeleteFailed = MemberAccountRuleStatus' "DELETE_FAILED"
@@ -67,27 +70,24 @@ pattern MARSDeleteFailed = MemberAccountRuleStatus' "DELETE_FAILED"
 pattern MARSDeleteInProgress :: MemberAccountRuleStatus
 pattern MARSDeleteInProgress = MemberAccountRuleStatus' "DELETE_IN_PROGRESS"
 
-pattern MARSDeleteSuccessful :: MemberAccountRuleStatus
-pattern MARSDeleteSuccessful = MemberAccountRuleStatus' "DELETE_SUCCESSFUL"
-
-pattern MARSUpdateFailed :: MemberAccountRuleStatus
-pattern MARSUpdateFailed = MemberAccountRuleStatus' "UPDATE_FAILED"
+pattern MARSUpdateSuccessful :: MemberAccountRuleStatus
+pattern MARSUpdateSuccessful = MemberAccountRuleStatus' "UPDATE_SUCCESSFUL"
 
 pattern MARSUpdateInProgress :: MemberAccountRuleStatus
 pattern MARSUpdateInProgress = MemberAccountRuleStatus' "UPDATE_IN_PROGRESS"
 
-pattern MARSUpdateSuccessful :: MemberAccountRuleStatus
-pattern MARSUpdateSuccessful = MemberAccountRuleStatus' "UPDATE_SUCCESSFUL"
+pattern MARSUpdateFailed :: MemberAccountRuleStatus
+pattern MARSUpdateFailed = MemberAccountRuleStatus' "UPDATE_FAILED"
 
 {-# COMPLETE
-  MARSCreateFailed,
-  MARSCreateInProgress,
   MARSCreateSuccessful,
+  MARSCreateInProgress,
+  MARSCreateFailed,
+  MARSDeleteSuccessful,
   MARSDeleteFailed,
   MARSDeleteInProgress,
-  MARSDeleteSuccessful,
-  MARSUpdateFailed,
-  MARSUpdateInProgress,
   MARSUpdateSuccessful,
+  MARSUpdateInProgress,
+  MARSUpdateFailed,
   MemberAccountRuleStatus'
   #-}

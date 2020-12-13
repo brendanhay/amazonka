@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,16 +48,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDomainConfiguration' smart constructor.
 newtype DescribeDomainConfiguration = DescribeDomainConfiguration'
-  { domainConfigurationName ::
-      Lude.Text
+  { -- | The name of the domain configuration.
+    domainConfigurationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainConfiguration' with the minimum fields required to make a request.
@@ -113,57 +108,42 @@ instance Lude.ToQuery DescribeDomainConfiguration where
 
 -- | /See:/ 'mkDescribeDomainConfigurationResponse' smart constructor.
 data DescribeDomainConfigurationResponse = DescribeDomainConfigurationResponse'
-  { domainConfigurationName ::
-      Lude.Maybe
-        Lude.Text,
-    serverCertificates ::
-      Lude.Maybe
-        [ServerCertificateSummary],
-    authorizerConfig ::
-      Lude.Maybe
-        AuthorizerConfig,
-    lastStatusChangeDate ::
-      Lude.Maybe
-        Lude.Timestamp,
-    domainConfigurationStatus ::
-      Lude.Maybe
-        DomainConfigurationStatus,
-    domainName ::
-      Lude.Maybe
-        Lude.Text,
-    domainConfigurationARN ::
-      Lude.Maybe
-        Lude.Text,
-    serviceType ::
-      Lude.Maybe
-        ServiceType,
-    domainType ::
-      Lude.Maybe
-        DomainType,
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the domain configuration.
+    domainConfigurationName :: Lude.Maybe Lude.Text,
+    -- | A list containing summary information about the server certificate included in the domain configuration.
+    serverCertificates :: Lude.Maybe [ServerCertificateSummary],
+    -- | An object that specifies the authorization service for a domain.
+    authorizerConfig :: Lude.Maybe AuthorizerConfig,
+    -- | The date and time the domain configuration's status was last changed.
+    lastStatusChangeDate :: Lude.Maybe Lude.Timestamp,
+    -- | A Boolean value that specifies the current state of the domain configuration.
+    domainConfigurationStatus :: Lude.Maybe DomainConfigurationStatus,
+    -- | The name of the domain.
+    domainName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the domain configuration.
+    domainConfigurationARN :: Lude.Maybe Lude.Text,
+    -- | The type of service delivered by the endpoint.
+    serviceType :: Lude.Maybe ServiceType,
+    -- | The type of the domain.
+    domainType :: Lude.Maybe DomainType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'authorizerConfig' - An object that specifies the authorization service for a domain.
--- * 'domainConfigurationARN' - The ARN of the domain configuration.
 -- * 'domainConfigurationName' - The name of the domain configuration.
+-- * 'serverCertificates' - A list containing summary information about the server certificate included in the domain configuration.
+-- * 'authorizerConfig' - An object that specifies the authorization service for a domain.
+-- * 'lastStatusChangeDate' - The date and time the domain configuration's status was last changed.
 -- * 'domainConfigurationStatus' - A Boolean value that specifies the current state of the domain configuration.
 -- * 'domainName' - The name of the domain.
--- * 'domainType' - The type of the domain.
--- * 'lastStatusChangeDate' - The date and time the domain configuration's status was last changed.
--- * 'responseStatus' - The response status code.
--- * 'serverCertificates' - A list containing summary information about the server certificate included in the domain configuration.
+-- * 'domainConfigurationARN' - The ARN of the domain configuration.
 -- * 'serviceType' - The type of service delivered by the endpoint.
+-- * 'domainType' - The type of the domain.
+-- * 'responseStatus' - The response status code.
 mkDescribeDomainConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.LexModels.GetBotChannelAssociation
     mkGetBotChannelAssociation,
 
     -- ** Request lenses
-    gName,
-    gBotName,
     gBotAlias,
+    gBotName,
+    gName,
 
     -- * Destructuring the response
     GetBotChannelAssociationResponse (..),
@@ -51,18 +52,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetBotChannelAssociation' smart constructor.
 data GetBotChannelAssociation = GetBotChannelAssociation'
-  { name ::
-      Lude.Text,
+  { -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+    botAlias :: Lude.Text,
+    -- | The name of the Amazon Lex bot.
     botName :: Lude.Text,
-    botAlias :: Lude.Text
+    -- | The name of the association between the bot and the channel. The name is case sensitive.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotChannelAssociation' with the minimum fields required to make a request.
@@ -71,26 +68,26 @@ data GetBotChannelAssociation = GetBotChannelAssociation'
 -- * 'botName' - The name of the Amazon Lex bot.
 -- * 'name' - The name of the association between the bot and the channel. The name is case sensitive.
 mkGetBotChannelAssociation ::
-  -- | 'name'
+  -- | 'botAlias'
   Lude.Text ->
   -- | 'botName'
   Lude.Text ->
-  -- | 'botAlias'
+  -- | 'name'
   Lude.Text ->
   GetBotChannelAssociation
-mkGetBotChannelAssociation pName_ pBotName_ pBotAlias_ =
+mkGetBotChannelAssociation pBotAlias_ pBotName_ pName_ =
   GetBotChannelAssociation'
-    { name = pName_,
+    { botAlias = pBotAlias_,
       botName = pBotName_,
-      botAlias = pBotAlias_
+      name = pName_
     }
 
--- | The name of the association between the bot and the channel. The name is case sensitive.
+-- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gName :: Lens.Lens' GetBotChannelAssociation Lude.Text
-gName = Lens.lens (name :: GetBotChannelAssociation -> Lude.Text) (\s a -> s {name = a} :: GetBotChannelAssociation)
-{-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gBotAlias :: Lens.Lens' GetBotChannelAssociation Lude.Text
+gBotAlias = Lens.lens (botAlias :: GetBotChannelAssociation -> Lude.Text) (\s a -> s {botAlias = a} :: GetBotChannelAssociation)
+{-# DEPRECATED gBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
 
 -- | The name of the Amazon Lex bot.
 --
@@ -99,12 +96,12 @@ gBotName :: Lens.Lens' GetBotChannelAssociation Lude.Text
 gBotName = Lens.lens (botName :: GetBotChannelAssociation -> Lude.Text) (\s a -> s {botName = a} :: GetBotChannelAssociation)
 {-# DEPRECATED gBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
--- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+-- | The name of the association between the bot and the channel. The name is case sensitive.
 --
--- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gBotAlias :: Lens.Lens' GetBotChannelAssociation Lude.Text
-gBotAlias = Lens.lens (botAlias :: GetBotChannelAssociation -> Lude.Text) (\s a -> s {botAlias = a} :: GetBotChannelAssociation)
-{-# DEPRECATED gBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gName :: Lens.Lens' GetBotChannelAssociation Lude.Text
+gName = Lens.lens (name :: GetBotChannelAssociation -> Lude.Text) (\s a -> s {name = a} :: GetBotChannelAssociation)
+{-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest GetBotChannelAssociation where
   type Rs GetBotChannelAssociation = GetBotChannelAssociationResponse
@@ -150,50 +147,42 @@ instance Lude.ToQuery GetBotChannelAssociation where
 
 -- | /See:/ 'mkGetBotChannelAssociationResponse' smart constructor.
 data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
-    status ::
-      Lude.Maybe ChannelStatus,
-    botAlias ::
-      Lude.Maybe Lude.Text,
-    botName ::
-      Lude.Maybe Lude.Text,
-    botConfiguration ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    createdDate ::
-      Lude.Maybe Lude.Timestamp,
-    name ::
-      Lude.Maybe Lude.Text,
-    type' ::
-      Lude.Maybe ChannelType,
-    description ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The status of the bot channel.
+    --
+    --
+    --     * @CREATED@ - The channel has been created and is ready for use.
+    --
+    --
+    --     * @IN_PROGRESS@ - Channel creation is in progress.
+    --
+    --
+    --     * @FAILED@ - There was an error creating the channel. For information about the reason for the failure, see the @failureReason@ field.
+    status :: Lude.Maybe ChannelStatus,
+    -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+    botAlias :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon Lex bot.
+    botName :: Lude.Maybe Lude.Text,
+    -- | Provides information that the messaging platform needs to communicate with the Amazon Lex bot.
+    botConfiguration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The date that the association between the bot and the channel was created.
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the association between the bot and the channel.
+    name :: Lude.Maybe Lude.Text,
+    -- | The type of the messaging platform.
+    type' :: Lude.Maybe ChannelType,
+    -- | A description of the association between the bot and the channel.
+    description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotChannelAssociationResponse' with the minimum fields required to make a request.
 --
--- * 'botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
--- * 'botConfiguration' - Provides information that the messaging platform needs to communicate with the Amazon Lex bot.
--- * 'botName' - The name of the Amazon Lex bot.
--- * 'createdDate' - The date that the association between the bot and the channel was created.
--- * 'description' - A description of the association between the bot and the channel.
 -- * 'failureReason' - If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
--- * 'name' - The name of the association between the bot and the channel.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the bot channel.
 --
 --
@@ -206,7 +195,14 @@ data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
 --     * @FAILED@ - There was an error creating the channel. For information about the reason for the failure, see the @failureReason@ field.
 --
 --
+-- * 'botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+-- * 'botName' - The name of the Amazon Lex bot.
+-- * 'botConfiguration' - Provides information that the messaging platform needs to communicate with the Amazon Lex bot.
+-- * 'createdDate' - The date that the association between the bot and the channel was created.
+-- * 'name' - The name of the association between the bot and the channel.
 -- * 'type'' - The type of the messaging platform.
+-- * 'description' - A description of the association between the bot and the channel.
+-- * 'responseStatus' - The response status code.
 mkGetBotChannelAssociationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEdge' smart constructor.
 data Edge = Edge'
-  { sourceId :: Lude.Maybe Lude.Text,
+  { -- | The unique of the node within the workflow where the edge starts.
+    sourceId :: Lude.Maybe Lude.Text,
+    -- | The unique of the node within the workflow where the edge ends.
     destinationId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Edge' with the minimum fields required to make a request.
 --
--- * 'destinationId' - The unique of the node within the workflow where the edge ends.
 -- * 'sourceId' - The unique of the node within the workflow where the edge starts.
+-- * 'destinationId' - The unique of the node within the workflow where the edge ends.
 mkEdge ::
   Edge
 mkEdge =

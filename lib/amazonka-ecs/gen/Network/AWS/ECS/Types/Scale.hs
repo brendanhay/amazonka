@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScale' smart constructor.
 data Scale = Scale'
-  { value :: Lude.Maybe Lude.Double,
+  { -- | The value, specified as a percent total of a service's @desiredCount@ , to scale the task set. Accepted values are numbers between 0 and 100.
+    value :: Lude.Maybe Lude.Double,
+    -- | The unit of measure for the scale value.
     unit :: Lude.Maybe ScaleUnit
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scale' with the minimum fields required to make a request.
 --
--- * 'unit' - The unit of measure for the scale value.
 -- * 'value' - The value, specified as a percent total of a service's @desiredCount@ , to scale the task set. Accepted values are numbers between 0 and 100.
+-- * 'unit' - The unit of measure for the scale value.
 mkScale ::
   Scale
 mkScale = Scale' {value = Lude.Nothing, unit = Lude.Nothing}

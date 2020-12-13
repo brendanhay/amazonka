@@ -17,8 +17,8 @@ module Network.AWS.Glue.Types.CodeGenEdge
     mkCodeGenEdge,
 
     -- * Lenses
-    cgeTargetParameter,
     cgeSource,
+    cgeTargetParameter,
     cgeTarget,
   )
 where
@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeGenEdge' smart constructor.
 data CodeGenEdge = CodeGenEdge'
-  { targetParameter ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the node at which the edge starts.
     source :: Lude.Text,
+    -- | The target of the edge.
+    targetParameter :: Lude.Maybe Lude.Text,
+    -- | The ID of the node at which the edge ends.
     target :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeGenEdge' with the minimum fields required to make a request.
 --
 -- * 'source' - The ID of the node at which the edge starts.
--- * 'target' - The ID of the node at which the edge ends.
 -- * 'targetParameter' - The target of the edge.
+-- * 'target' - The ID of the node at which the edge ends.
 mkCodeGenEdge ::
   -- | 'source'
   Lude.Text ->
@@ -57,17 +53,10 @@ mkCodeGenEdge ::
   CodeGenEdge
 mkCodeGenEdge pSource_ pTarget_ =
   CodeGenEdge'
-    { targetParameter = Lude.Nothing,
-      source = pSource_,
+    { source = pSource_,
+      targetParameter = Lude.Nothing,
       target = pTarget_
     }
-
--- | The target of the edge.
---
--- /Note:/ Consider using 'targetParameter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgeTargetParameter :: Lens.Lens' CodeGenEdge (Lude.Maybe Lude.Text)
-cgeTargetParameter = Lens.lens (targetParameter :: CodeGenEdge -> Lude.Maybe Lude.Text) (\s a -> s {targetParameter = a} :: CodeGenEdge)
-{-# DEPRECATED cgeTargetParameter "Use generic-lens or generic-optics with 'targetParameter' instead." #-}
 
 -- | The ID of the node at which the edge starts.
 --
@@ -75,6 +64,13 @@ cgeTargetParameter = Lens.lens (targetParameter :: CodeGenEdge -> Lude.Maybe Lud
 cgeSource :: Lens.Lens' CodeGenEdge Lude.Text
 cgeSource = Lens.lens (source :: CodeGenEdge -> Lude.Text) (\s a -> s {source = a} :: CodeGenEdge)
 {-# DEPRECATED cgeSource "Use generic-lens or generic-optics with 'source' instead." #-}
+
+-- | The target of the edge.
+--
+-- /Note:/ Consider using 'targetParameter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgeTargetParameter :: Lens.Lens' CodeGenEdge (Lude.Maybe Lude.Text)
+cgeTargetParameter = Lens.lens (targetParameter :: CodeGenEdge -> Lude.Maybe Lude.Text) (\s a -> s {targetParameter = a} :: CodeGenEdge)
+{-# DEPRECATED cgeTargetParameter "Use generic-lens or generic-optics with 'targetParameter' instead." #-}
 
 -- | The ID of the node at which the edge ends.
 --
@@ -89,8 +85,8 @@ instance Lude.FromJSON CodeGenEdge where
       "CodeGenEdge"
       ( \x ->
           CodeGenEdge'
-            Lude.<$> (x Lude..:? "TargetParameter")
-            Lude.<*> (x Lude..: "Source")
+            Lude.<$> (x Lude..: "Source")
+            Lude.<*> (x Lude..:? "TargetParameter")
             Lude.<*> (x Lude..: "Target")
       )
 
@@ -98,8 +94,8 @@ instance Lude.ToJSON CodeGenEdge where
   toJSON CodeGenEdge' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TargetParameter" Lude..=) Lude.<$> targetParameter,
-            Lude.Just ("Source" Lude..= source),
+          [ Lude.Just ("Source" Lude..= source),
+            ("TargetParameter" Lude..=) Lude.<$> targetParameter,
             Lude.Just ("Target" Lude..= target)
           ]
       )

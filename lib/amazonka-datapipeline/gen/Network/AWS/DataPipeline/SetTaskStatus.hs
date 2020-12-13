@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.DataPipeline.SetTaskStatus
     mkSetTaskStatus,
 
     -- ** Request lenses
+    stsTaskId,
     stsErrorStackTrace,
     stsErrorId,
     stsErrorMessage,
-    stsTaskId,
     stsTaskStatus,
 
     -- * Destructuring the response
@@ -44,28 +45,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetTaskStatus' smart constructor.
 data SetTaskStatus = SetTaskStatus'
-  { errorStackTrace ::
-      Lude.Maybe Lude.Text,
-    errorId :: Lude.Maybe Lude.Text,
-    errorMessage :: Lude.Maybe Lude.Text,
+  { -- | The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
     taskId :: Lude.Text,
+    -- | If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
+    errorStackTrace :: Lude.Maybe Lude.Text,
+    -- | If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.
+    errorId :: Lude.Maybe Lude.Text,
+    -- | If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
+    errorMessage :: Lude.Maybe Lude.Text,
+    -- | If @FINISHED@ , the task successfully completed. If @FAILED@ , the task ended unsuccessfully. Preconditions use false.
     taskStatus :: TaskStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTaskStatus' with the minimum fields required to make a request.
 --
+-- * 'taskId' - The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
+-- * 'errorStackTrace' - If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
 -- * 'errorId' - If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.
 -- * 'errorMessage' - If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
--- * 'errorStackTrace' - If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
--- * 'taskId' - The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
 -- * 'taskStatus' - If @FINISHED@ , the task successfully completed. If @FAILED@ , the task ended unsuccessfully. Preconditions use false.
 mkSetTaskStatus ::
   -- | 'taskId'
@@ -75,12 +74,19 @@ mkSetTaskStatus ::
   SetTaskStatus
 mkSetTaskStatus pTaskId_ pTaskStatus_ =
   SetTaskStatus'
-    { errorStackTrace = Lude.Nothing,
+    { taskId = pTaskId_,
+      errorStackTrace = Lude.Nothing,
       errorId = Lude.Nothing,
       errorMessage = Lude.Nothing,
-      taskId = pTaskId_,
       taskStatus = pTaskStatus_
     }
+
+-- | The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsTaskId :: Lens.Lens' SetTaskStatus Lude.Text
+stsTaskId = Lens.lens (taskId :: SetTaskStatus -> Lude.Text) (\s a -> s {taskId = a} :: SetTaskStatus)
+{-# DEPRECATED stsTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
 --
@@ -102,13 +108,6 @@ stsErrorId = Lens.lens (errorId :: SetTaskStatus -> Lude.Maybe Lude.Text) (\s a 
 stsErrorMessage :: Lens.Lens' SetTaskStatus (Lude.Maybe Lude.Text)
 stsErrorMessage = Lens.lens (errorMessage :: SetTaskStatus -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: SetTaskStatus)
 {-# DEPRECATED stsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
-
--- | The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
---
--- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsTaskId :: Lens.Lens' SetTaskStatus Lude.Text
-stsTaskId = Lens.lens (taskId :: SetTaskStatus -> Lude.Text) (\s a -> s {taskId = a} :: SetTaskStatus)
-{-# DEPRECATED stsTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | If @FINISHED@ , the task successfully completed. If @FAILED@ , the task ended unsuccessfully. Preconditions use false.
 --
@@ -141,10 +140,10 @@ instance Lude.ToJSON SetTaskStatus where
   toJSON SetTaskStatus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("errorStackTrace" Lude..=) Lude.<$> errorStackTrace,
+          [ Lude.Just ("taskId" Lude..= taskId),
+            ("errorStackTrace" Lude..=) Lude.<$> errorStackTrace,
             ("errorId" Lude..=) Lude.<$> errorId,
             ("errorMessage" Lude..=) Lude.<$> errorMessage,
-            Lude.Just ("taskId" Lude..= taskId),
             Lude.Just ("taskStatus" Lude..= taskStatus)
           ]
       )
@@ -159,16 +158,10 @@ instance Lude.ToQuery SetTaskStatus where
 --
 -- /See:/ 'mkSetTaskStatusResponse' smart constructor.
 newtype SetTaskStatusResponse = SetTaskStatusResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTaskStatusResponse' with the minimum fields required to make a request.

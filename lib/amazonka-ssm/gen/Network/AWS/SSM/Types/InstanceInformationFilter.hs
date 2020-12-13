@@ -32,17 +32,12 @@ import Network.AWS.SSM.Types.InstanceInformationFilterKey
 --
 -- /See:/ 'mkInstanceInformationFilter' smart constructor.
 data InstanceInformationFilter = InstanceInformationFilter'
-  { key ::
-      InstanceInformationFilterKey,
+  { -- | The name of the filter.
+    key :: InstanceInformationFilterKey,
+    -- | The filter values.
     valueSet :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceInformationFilter' with the minimum fields required to make a request.

@@ -33,42 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSignalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWorkflowExecutionInitiatedEventAttributes'
-  { control ::
-      Lude.Maybe
-        Lude.Text,
-    input ::
-      Lude.Maybe
-        Lude.Text,
-    runId ::
-      Lude.Maybe
-        Lude.Text,
-    workflowId ::
-      Lude.Text,
-    signalName ::
-      Lude.Text,
-    decisionTaskCompletedEventId ::
-      Lude.Integer
+  { -- | Data attached to the event that can be used by the decider in subsequent decision tasks.
+    control :: Lude.Maybe Lude.Text,
+    -- | The input provided to the signal.
+    input :: Lude.Maybe Lude.Text,
+    -- | The @runId@ of the external workflow execution to send the signal to.
+    runId :: Lude.Maybe Lude.Text,
+    -- | The @workflowId@ of the external workflow execution.
+    workflowId :: Lude.Text,
+    -- | The name of the signal.
+    signalName :: Lude.Text,
+    -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    decisionTaskCompletedEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SignalExternalWorkflowExecutionInitiatedEventAttributes' with the minimum fields required to make a request.
 --
 -- * 'control' - Data attached to the event that can be used by the decider in subsequent decision tasks.
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 -- * 'input' - The input provided to the signal.
 -- * 'runId' - The @runId@ of the external workflow execution to send the signal to.
--- * 'signalName' - The name of the signal.
 -- * 'workflowId' - The @workflowId@ of the external workflow execution.
+-- * 'signalName' - The name of the signal.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @SignalExternalWorkflowExecution@ decision for this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 mkSignalExternalWorkflowExecutionInitiatedEventAttributes ::
   -- | 'workflowId'
   Lude.Text ->

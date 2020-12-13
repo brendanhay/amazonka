@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.Snowball.UpdateCluster
     ucAddressId,
     ucShippingOption,
     ucResources,
+    ucClusterId,
     ucDescription,
     ucRoleARN,
-    ucClusterId,
 
     -- * Destructuring the response
     UpdateClusterResponse (..),
@@ -45,35 +46,36 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkUpdateCluster' smart constructor.
 data UpdateCluster = UpdateCluster'
-  { notification ::
-      Lude.Maybe Notification,
+  { -- | The new or updated 'Notification' object.
+    notification :: Lude.Maybe Notification,
+    -- | The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
     forwardingAddressId :: Lude.Maybe Lude.Text,
+    -- | The ID of the updated 'Address' object.
     addressId :: Lude.Maybe Lude.Text,
+    -- | The updated shipping option value of this cluster's 'ShippingDetails' object.
     shippingOption :: Lude.Maybe ShippingOption,
+    -- | The updated arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
     resources :: Lude.Maybe JobResource,
+    -- | The cluster ID of the cluster that you want to update, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
+    clusterId :: Lude.Text,
+    -- | The updated description of this cluster.
     description :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Maybe Lude.Text,
-    clusterId :: Lude.Text
+    -- | The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCluster' with the minimum fields required to make a request.
 --
+-- * 'notification' - The new or updated 'Notification' object.
+-- * 'forwardingAddressId' - The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
 -- * 'addressId' - The ID of the updated 'Address' object.
+-- * 'shippingOption' - The updated shipping option value of this cluster's 'ShippingDetails' object.
+-- * 'resources' - The updated arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
 -- * 'clusterId' - The cluster ID of the cluster that you want to update, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 -- * 'description' - The updated description of this cluster.
--- * 'forwardingAddressId' - The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
--- * 'notification' - The new or updated 'Notification' object.
--- * 'resources' - The updated arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
 -- * 'roleARN' - The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
--- * 'shippingOption' - The updated shipping option value of this cluster's 'ShippingDetails' object.
 mkUpdateCluster ::
   -- | 'clusterId'
   Lude.Text ->
@@ -85,9 +87,9 @@ mkUpdateCluster pClusterId_ =
       addressId = Lude.Nothing,
       shippingOption = Lude.Nothing,
       resources = Lude.Nothing,
+      clusterId = pClusterId_,
       description = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      clusterId = pClusterId_
+      roleARN = Lude.Nothing
     }
 
 -- | The new or updated 'Notification' object.
@@ -125,6 +127,13 @@ ucResources :: Lens.Lens' UpdateCluster (Lude.Maybe JobResource)
 ucResources = Lens.lens (resources :: UpdateCluster -> Lude.Maybe JobResource) (\s a -> s {resources = a} :: UpdateCluster)
 {-# DEPRECATED ucResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
+-- | The cluster ID of the cluster that you want to update, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucClusterId :: Lens.Lens' UpdateCluster Lude.Text
+ucClusterId = Lens.lens (clusterId :: UpdateCluster -> Lude.Text) (\s a -> s {clusterId = a} :: UpdateCluster)
+{-# DEPRECATED ucClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+
 -- | The updated description of this cluster.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -138,13 +147,6 @@ ucDescription = Lens.lens (description :: UpdateCluster -> Lude.Maybe Lude.Text)
 ucRoleARN :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
 ucRoleARN = Lens.lens (roleARN :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateCluster)
 {-# DEPRECATED ucRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The cluster ID of the cluster that you want to update, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
---
--- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucClusterId :: Lens.Lens' UpdateCluster Lude.Text
-ucClusterId = Lens.lens (clusterId :: UpdateCluster -> Lude.Text) (\s a -> s {clusterId = a} :: UpdateCluster)
-{-# DEPRECATED ucClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 instance Lude.AWSRequest UpdateCluster where
   type Rs UpdateCluster = UpdateClusterResponse
@@ -177,9 +179,9 @@ instance Lude.ToJSON UpdateCluster where
             ("AddressId" Lude..=) Lude.<$> addressId,
             ("ShippingOption" Lude..=) Lude.<$> shippingOption,
             ("Resources" Lude..=) Lude.<$> resources,
+            Lude.Just ("ClusterId" Lude..= clusterId),
             ("Description" Lude..=) Lude.<$> description,
-            ("RoleARN" Lude..=) Lude.<$> roleARN,
-            Lude.Just ("ClusterId" Lude..= clusterId)
+            ("RoleARN" Lude..=) Lude.<$> roleARN
           ]
       )
 
@@ -191,16 +193,10 @@ instance Lude.ToQuery UpdateCluster where
 
 -- | /See:/ 'mkUpdateClusterResponse' smart constructor.
 newtype UpdateClusterResponse = UpdateClusterResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateClusterResponse' with the minimum fields required to make a request.

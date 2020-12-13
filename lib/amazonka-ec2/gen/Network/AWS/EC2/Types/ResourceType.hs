@@ -15,11 +15,11 @@ module Network.AWS.EC2.Types.ResourceType
       ( ResourceType',
         RTClientVPNEndpoint,
         RTCustomerGateway,
-        RTDHCPOptions,
         RTDedicatedHost,
+        RTDHCPOptions,
         RTEgressOnlyInternetGateway,
-        RTElasticGpu,
         RTElasticIP,
+        RTElasticGpu,
         RTExportImageTask,
         RTExportInstanceTask,
         RTFleet,
@@ -51,12 +51,12 @@ module Network.AWS.EC2.Types.ResourceType
         RTTransitGatewayAttachment,
         RTTransitGatewayMulticastDomain,
         RTTransitGatewayRouteTable,
+        RTVolume,
         RTVPC,
-        RTVPCFlowLog,
         RTVPCPeeringConnection,
         RTVPNConnection,
         RTVPNGateway,
-        RTVolume
+        RTVPCFlowLog
       ),
   )
 where
@@ -93,20 +93,20 @@ pattern RTClientVPNEndpoint = ResourceType' "client-vpn-endpoint"
 pattern RTCustomerGateway :: ResourceType
 pattern RTCustomerGateway = ResourceType' "customer-gateway"
 
-pattern RTDHCPOptions :: ResourceType
-pattern RTDHCPOptions = ResourceType' "dhcp-options"
-
 pattern RTDedicatedHost :: ResourceType
 pattern RTDedicatedHost = ResourceType' "dedicated-host"
+
+pattern RTDHCPOptions :: ResourceType
+pattern RTDHCPOptions = ResourceType' "dhcp-options"
 
 pattern RTEgressOnlyInternetGateway :: ResourceType
 pattern RTEgressOnlyInternetGateway = ResourceType' "egress-only-internet-gateway"
 
-pattern RTElasticGpu :: ResourceType
-pattern RTElasticGpu = ResourceType' "elastic-gpu"
-
 pattern RTElasticIP :: ResourceType
 pattern RTElasticIP = ResourceType' "elastic-ip"
+
+pattern RTElasticGpu :: ResourceType
+pattern RTElasticGpu = ResourceType' "elastic-gpu"
 
 pattern RTExportImageTask :: ResourceType
 pattern RTExportImageTask = ResourceType' "export-image-task"
@@ -201,11 +201,11 @@ pattern RTTransitGatewayMulticastDomain = ResourceType' "transit-gateway-multica
 pattern RTTransitGatewayRouteTable :: ResourceType
 pattern RTTransitGatewayRouteTable = ResourceType' "transit-gateway-route-table"
 
+pattern RTVolume :: ResourceType
+pattern RTVolume = ResourceType' "volume"
+
 pattern RTVPC :: ResourceType
 pattern RTVPC = ResourceType' "vpc"
-
-pattern RTVPCFlowLog :: ResourceType
-pattern RTVPCFlowLog = ResourceType' "vpc-flow-log"
 
 pattern RTVPCPeeringConnection :: ResourceType
 pattern RTVPCPeeringConnection = ResourceType' "vpc-peering-connection"
@@ -216,17 +216,17 @@ pattern RTVPNConnection = ResourceType' "vpn-connection"
 pattern RTVPNGateway :: ResourceType
 pattern RTVPNGateway = ResourceType' "vpn-gateway"
 
-pattern RTVolume :: ResourceType
-pattern RTVolume = ResourceType' "volume"
+pattern RTVPCFlowLog :: ResourceType
+pattern RTVPCFlowLog = ResourceType' "vpc-flow-log"
 
 {-# COMPLETE
   RTClientVPNEndpoint,
   RTCustomerGateway,
-  RTDHCPOptions,
   RTDedicatedHost,
+  RTDHCPOptions,
   RTEgressOnlyInternetGateway,
-  RTElasticGpu,
   RTElasticIP,
+  RTElasticGpu,
   RTExportImageTask,
   RTExportInstanceTask,
   RTFleet,
@@ -258,11 +258,11 @@ pattern RTVolume = ResourceType' "volume"
   RTTransitGatewayAttachment,
   RTTransitGatewayMulticastDomain,
   RTTransitGatewayRouteTable,
+  RTVolume,
   RTVPC,
-  RTVPCFlowLog,
   RTVPCPeeringConnection,
   RTVPNConnection,
   RTVPNGateway,
-  RTVolume,
+  RTVPCFlowLog,
   ResourceType'
   #-}

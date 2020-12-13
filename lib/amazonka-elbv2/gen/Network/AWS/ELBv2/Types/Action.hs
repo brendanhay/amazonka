@@ -21,10 +21,10 @@ module Network.AWS.ELBv2.Types.Action
     aTargetGroupARN,
     aForwardConfig,
     aRedirectConfig,
+    aType,
     aAuthenticateCognitoConfig,
     aOrder,
     aAuthenticateOidcConfig,
-    aType,
   )
 where
 
@@ -43,36 +43,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAction' smart constructor.
 data Action = Action'
-  { fixedResponseConfig ::
-      Lude.Maybe FixedResponseActionConfig,
+  { -- | [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when @Type@ is @fixed-response@ .
+    fixedResponseConfig :: Lude.Maybe FixedResponseActionConfig,
+    -- | The Amazon Resource Name (ARN) of the target group. Specify only when @Type@ is @forward@ and you want to route to a single target group. To route to one or more target groups, use @ForwardConfig@ instead.
     targetGroupARN :: Lude.Maybe Lude.Text,
+    -- | Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when @Type@ is @forward@ . If you specify both @ForwardConfig@ and @TargetGroupArn@ , you can specify only one target group using @ForwardConfig@ and it must be the same target group specified in @TargetGroupArn@ .
     forwardConfig :: Lude.Maybe ForwardActionConfig,
+    -- | [Application Load Balancer] Information for creating a redirect action. Specify only when @Type@ is @redirect@ .
     redirectConfig :: Lude.Maybe RedirectActionConfig,
-    authenticateCognitoConfig ::
-      Lude.Maybe AuthenticateCognitoActionConfig,
+    -- | The type of action.
+    type' :: ActionTypeEnum,
+    -- | [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when @Type@ is @authenticate-cognito@ .
+    authenticateCognitoConfig :: Lude.Maybe AuthenticateCognitoActionConfig,
+    -- | The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
     order :: Lude.Maybe Lude.Natural,
-    authenticateOidcConfig :: Lude.Maybe AuthenticateOidcActionConfig,
-    type' :: ActionTypeEnum
+    -- | [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when @Type@ is @authenticate-oidc@ .
+    authenticateOidcConfig :: Lude.Maybe AuthenticateOidcActionConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Action' with the minimum fields required to make a request.
 --
--- * 'authenticateCognitoConfig' - [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when @Type@ is @authenticate-cognito@ .
--- * 'authenticateOidcConfig' - [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when @Type@ is @authenticate-oidc@ .
 -- * 'fixedResponseConfig' - [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when @Type@ is @fixed-response@ .
--- * 'forwardConfig' - Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when @Type@ is @forward@ . If you specify both @ForwardConfig@ and @TargetGroupArn@ , you can specify only one target group using @ForwardConfig@ and it must be the same target group specified in @TargetGroupArn@ .
--- * 'order' - The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
--- * 'redirectConfig' - [Application Load Balancer] Information for creating a redirect action. Specify only when @Type@ is @redirect@ .
 -- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group. Specify only when @Type@ is @forward@ and you want to route to a single target group. To route to one or more target groups, use @ForwardConfig@ instead.
+-- * 'forwardConfig' - Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when @Type@ is @forward@ . If you specify both @ForwardConfig@ and @TargetGroupArn@ , you can specify only one target group using @ForwardConfig@ and it must be the same target group specified in @TargetGroupArn@ .
+-- * 'redirectConfig' - [Application Load Balancer] Information for creating a redirect action. Specify only when @Type@ is @redirect@ .
 -- * 'type'' - The type of action.
+-- * 'authenticateCognitoConfig' - [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when @Type@ is @authenticate-cognito@ .
+-- * 'order' - The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+-- * 'authenticateOidcConfig' - [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when @Type@ is @authenticate-oidc@ .
 mkAction ::
   -- | 'type''
   ActionTypeEnum ->
@@ -83,10 +83,10 @@ mkAction pType_ =
       targetGroupARN = Lude.Nothing,
       forwardConfig = Lude.Nothing,
       redirectConfig = Lude.Nothing,
+      type' = pType_,
       authenticateCognitoConfig = Lude.Nothing,
       order = Lude.Nothing,
-      authenticateOidcConfig = Lude.Nothing,
-      type' = pType_
+      authenticateOidcConfig = Lude.Nothing
     }
 
 -- | [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when @Type@ is @fixed-response@ .
@@ -117,6 +117,13 @@ aRedirectConfig :: Lens.Lens' Action (Lude.Maybe RedirectActionConfig)
 aRedirectConfig = Lens.lens (redirectConfig :: Action -> Lude.Maybe RedirectActionConfig) (\s a -> s {redirectConfig = a} :: Action)
 {-# DEPRECATED aRedirectConfig "Use generic-lens or generic-optics with 'redirectConfig' instead." #-}
 
+-- | The type of action.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aType :: Lens.Lens' Action ActionTypeEnum
+aType = Lens.lens (type' :: Action -> ActionTypeEnum) (\s a -> s {type' = a} :: Action)
+{-# DEPRECATED aType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 -- | [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when @Type@ is @authenticate-cognito@ .
 --
 -- /Note:/ Consider using 'authenticateCognitoConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -138,13 +145,6 @@ aAuthenticateOidcConfig :: Lens.Lens' Action (Lude.Maybe AuthenticateOidcActionC
 aAuthenticateOidcConfig = Lens.lens (authenticateOidcConfig :: Action -> Lude.Maybe AuthenticateOidcActionConfig) (\s a -> s {authenticateOidcConfig = a} :: Action)
 {-# DEPRECATED aAuthenticateOidcConfig "Use generic-lens or generic-optics with 'authenticateOidcConfig' instead." #-}
 
--- | The type of action.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aType :: Lens.Lens' Action ActionTypeEnum
-aType = Lens.lens (type' :: Action -> ActionTypeEnum) (\s a -> s {type' = a} :: Action)
-{-# DEPRECATED aType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
 instance Lude.FromXML Action where
   parseXML x =
     Action'
@@ -152,10 +152,10 @@ instance Lude.FromXML Action where
       Lude.<*> (x Lude..@? "TargetGroupArn")
       Lude.<*> (x Lude..@? "ForwardConfig")
       Lude.<*> (x Lude..@? "RedirectConfig")
+      Lude.<*> (x Lude..@ "Type")
       Lude.<*> (x Lude..@? "AuthenticateCognitoConfig")
       Lude.<*> (x Lude..@? "Order")
       Lude.<*> (x Lude..@? "AuthenticateOidcConfig")
-      Lude.<*> (x Lude..@ "Type")
 
 instance Lude.ToQuery Action where
   toQuery Action' {..} =
@@ -164,8 +164,8 @@ instance Lude.ToQuery Action where
         "TargetGroupArn" Lude.=: targetGroupARN,
         "ForwardConfig" Lude.=: forwardConfig,
         "RedirectConfig" Lude.=: redirectConfig,
+        "Type" Lude.=: type',
         "AuthenticateCognitoConfig" Lude.=: authenticateCognitoConfig,
         "Order" Lude.=: order,
-        "AuthenticateOidcConfig" Lude.=: authenticateOidcConfig,
-        "Type" Lude.=: type'
+        "AuthenticateOidcConfig" Lude.=: authenticateOidcConfig
       ]

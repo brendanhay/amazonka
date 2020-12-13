@@ -31,17 +31,12 @@ import Network.AWS.Redshift.Types.SupportedPlatform
 --
 -- /See:/ 'mkAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the availability zone.
+    name :: Lude.Maybe Lude.Text,
+    -- |
     supportedPlatforms :: Lude.Maybe [SupportedPlatform]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.

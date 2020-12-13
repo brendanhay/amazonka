@@ -17,8 +17,8 @@ module Network.AWS.Glue.Types.SchemaColumn
     mkSchemaColumn,
 
     -- * Lenses
-    sName,
-    sDataType,
+    scName,
+    scDataType,
   )
 where
 
@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaColumn' smart constructor.
 data SchemaColumn = SchemaColumn'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | The name of the column.
+    name :: Lude.Maybe Lude.Text,
+    -- | The type of data in the column.
     dataType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaColumn' with the minimum fields required to make a request.
 --
--- * 'dataType' - The type of data in the column.
 -- * 'name' - The name of the column.
+-- * 'dataType' - The type of data in the column.
 mkSchemaColumn ::
   SchemaColumn
 mkSchemaColumn =
@@ -53,16 +49,16 @@ mkSchemaColumn =
 -- | The name of the column.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' SchemaColumn (Lude.Maybe Lude.Text)
-sName = Lens.lens (name :: SchemaColumn -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SchemaColumn)
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+scName :: Lens.Lens' SchemaColumn (Lude.Maybe Lude.Text)
+scName = Lens.lens (name :: SchemaColumn -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SchemaColumn)
+{-# DEPRECATED scName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of data in the column.
 --
 -- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDataType :: Lens.Lens' SchemaColumn (Lude.Maybe Lude.Text)
-sDataType = Lens.lens (dataType :: SchemaColumn -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: SchemaColumn)
-{-# DEPRECATED sDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
+scDataType :: Lens.Lens' SchemaColumn (Lude.Maybe Lude.Text)
+scDataType = Lens.lens (dataType :: SchemaColumn -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: SchemaColumn)
+{-# DEPRECATED scDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 instance Lude.FromJSON SchemaColumn where
   parseJSON =

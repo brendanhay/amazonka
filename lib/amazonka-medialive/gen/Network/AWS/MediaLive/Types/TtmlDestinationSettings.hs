@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTtmlDestinationSettings' smart constructor.
 newtype TtmlDestinationSettings = TtmlDestinationSettings'
-  { styleControl ::
-      Lude.Maybe TtmlDestinationStyleControl
+  { -- | When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
+    styleControl :: Lude.Maybe TtmlDestinationStyleControl
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TtmlDestinationSettings' with the minimum fields required to make a request.

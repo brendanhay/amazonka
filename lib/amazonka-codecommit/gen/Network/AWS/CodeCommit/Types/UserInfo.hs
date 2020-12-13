@@ -30,23 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserInfo' smart constructor.
 data UserInfo = UserInfo'
-  { email :: Lude.Maybe Lude.Text,
+  { -- | The email address associated with the user who made the commit, if any.
+    email :: Lude.Maybe Lude.Text,
+    -- | The date when the specified commit was commited, in timestamp format with GMT offset.
     date :: Lude.Maybe Lude.Text,
+    -- | The name of the user who made the specified commit.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserInfo' with the minimum fields required to make a request.
 --
--- * 'date' - The date when the specified commit was commited, in timestamp format with GMT offset.
 -- * 'email' - The email address associated with the user who made the commit, if any.
+-- * 'date' - The date when the specified commit was commited, in timestamp format with GMT offset.
 -- * 'name' - The name of the user who made the specified commit.
 mkUserInfo ::
   UserInfo

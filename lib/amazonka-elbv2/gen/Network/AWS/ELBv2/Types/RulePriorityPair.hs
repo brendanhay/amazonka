@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRulePriorityPair' smart constructor.
 data RulePriorityPair = RulePriorityPair'
-  { priority ::
-      Lude.Maybe Lude.Natural,
+  { -- | The rule priority.
+    priority :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) of the rule.
     ruleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RulePriorityPair' with the minimum fields required to make a request.

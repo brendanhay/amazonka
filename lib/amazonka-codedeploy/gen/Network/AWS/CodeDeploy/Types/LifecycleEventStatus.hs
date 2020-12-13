@@ -13,11 +13,11 @@
 module Network.AWS.CodeDeploy.Types.LifecycleEventStatus
   ( LifecycleEventStatus
       ( LifecycleEventStatus',
-        LESFailed,
-        LESInProgress,
         LESPending,
-        LESSkipped,
+        LESInProgress,
         LESSucceeded,
+        LESFailed,
+        LESSkipped,
         LESUnknown
       ),
   )
@@ -49,30 +49,30 @@ newtype LifecycleEventStatus = LifecycleEventStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern LESFailed :: LifecycleEventStatus
-pattern LESFailed = LifecycleEventStatus' "Failed"
+pattern LESPending :: LifecycleEventStatus
+pattern LESPending = LifecycleEventStatus' "Pending"
 
 pattern LESInProgress :: LifecycleEventStatus
 pattern LESInProgress = LifecycleEventStatus' "InProgress"
 
-pattern LESPending :: LifecycleEventStatus
-pattern LESPending = LifecycleEventStatus' "Pending"
+pattern LESSucceeded :: LifecycleEventStatus
+pattern LESSucceeded = LifecycleEventStatus' "Succeeded"
+
+pattern LESFailed :: LifecycleEventStatus
+pattern LESFailed = LifecycleEventStatus' "Failed"
 
 pattern LESSkipped :: LifecycleEventStatus
 pattern LESSkipped = LifecycleEventStatus' "Skipped"
-
-pattern LESSucceeded :: LifecycleEventStatus
-pattern LESSucceeded = LifecycleEventStatus' "Succeeded"
 
 pattern LESUnknown :: LifecycleEventStatus
 pattern LESUnknown = LifecycleEventStatus' "Unknown"
 
 {-# COMPLETE
-  LESFailed,
-  LESInProgress,
   LESPending,
-  LESSkipped,
+  LESInProgress,
   LESSucceeded,
+  LESFailed,
+  LESSkipped,
   LESUnknown,
   LifecycleEventStatus'
   #-}

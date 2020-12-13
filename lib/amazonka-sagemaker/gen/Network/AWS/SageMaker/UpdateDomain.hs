@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
-  { defaultUserSettings ::
-      Lude.Maybe UserSettings,
+  { -- | A collection of settings.
+    defaultUserSettings :: Lude.Maybe UserSettings,
+    -- | The ID of the domain to be updated.
     domainId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomain' with the minimum fields required to make a request.
@@ -119,17 +115,12 @@ instance Lude.ToQuery UpdateDomain where
 
 -- | /See:/ 'mkUpdateDomainResponse' smart constructor.
 data UpdateDomainResponse = UpdateDomainResponse'
-  { domainARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the domain.
+    domainARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainResponse' with the minimum fields required to make a request.

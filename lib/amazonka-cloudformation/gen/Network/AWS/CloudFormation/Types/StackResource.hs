@@ -17,17 +17,17 @@ module Network.AWS.CloudFormation.Types.StackResource
     mkStackResource,
 
     -- * Lenses
+    srLogicalResourceId,
     srPhysicalResourceId,
+    srResourceType,
     srResourceStatusReason,
+    srResourceStatus,
     srDriftInformation,
     srModuleInfo,
     srStackId,
     srDescription,
-    srStackName,
-    srLogicalResourceId,
-    srResourceType,
     srTimestamp,
-    srResourceStatus,
+    srStackName,
   )
 where
 
@@ -41,69 +41,80 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackResource' smart constructor.
 data StackResource = StackResource'
-  { physicalResourceId ::
-      Lude.Maybe Lude.Text,
-    resourceStatusReason :: Lude.Maybe Lude.Text,
-    driftInformation :: Lude.Maybe StackResourceDriftInformation,
-    moduleInfo :: Lude.Maybe ModuleInfo,
-    stackId :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    stackName :: Lude.Maybe Lude.Text,
+  { -- | The logical name of the resource specified in the template.
     logicalResourceId :: Lude.Text,
+    -- | The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.
+    physicalResourceId :: Lude.Maybe Lude.Text,
+    -- | Type of resource. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the AWS CloudFormation User Guide.)
     resourceType :: Lude.Text,
+    -- | Success/failure message associated with the resource.
+    resourceStatusReason :: Lude.Maybe Lude.Text,
+    -- | Current status of the resource.
+    resourceStatus :: ResourceStatus,
+    -- | Information about whether the resource's actual configuration differs, or has /drifted/ , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
+    driftInformation :: Lude.Maybe StackResourceDriftInformation,
+    -- | Contains information about the module from which the resource was created, if the resource was created from a module included in the stack template.
+    moduleInfo :: Lude.Maybe ModuleInfo,
+    -- | Unique identifier of the stack.
+    stackId :: Lude.Maybe Lude.Text,
+    -- | User defined description associated with the resource.
+    description :: Lude.Maybe Lude.Text,
+    -- | Time the status was updated.
     timestamp :: Lude.DateTime,
-    resourceStatus :: ResourceStatus
+    -- | The name associated with the stack.
+    stackName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackResource' with the minimum fields required to make a request.
 --
--- * 'description' - User defined description associated with the resource.
--- * 'driftInformation' - Information about whether the resource's actual configuration differs, or has /drifted/ , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
 -- * 'logicalResourceId' - The logical name of the resource specified in the template.
--- * 'moduleInfo' - Contains information about the module from which the resource was created, if the resource was created from a module included in the stack template.
 -- * 'physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.
--- * 'resourceStatus' - Current status of the resource.
--- * 'resourceStatusReason' - Success/failure message associated with the resource.
 -- * 'resourceType' - Type of resource. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the AWS CloudFormation User Guide.)
+-- * 'resourceStatusReason' - Success/failure message associated with the resource.
+-- * 'resourceStatus' - Current status of the resource.
+-- * 'driftInformation' - Information about whether the resource's actual configuration differs, or has /drifted/ , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
+-- * 'moduleInfo' - Contains information about the module from which the resource was created, if the resource was created from a module included in the stack template.
 -- * 'stackId' - Unique identifier of the stack.
--- * 'stackName' - The name associated with the stack.
+-- * 'description' - User defined description associated with the resource.
 -- * 'timestamp' - Time the status was updated.
+-- * 'stackName' - The name associated with the stack.
 mkStackResource ::
   -- | 'logicalResourceId'
   Lude.Text ->
   -- | 'resourceType'
   Lude.Text ->
-  -- | 'timestamp'
-  Lude.DateTime ->
   -- | 'resourceStatus'
   ResourceStatus ->
+  -- | 'timestamp'
+  Lude.DateTime ->
   StackResource
 mkStackResource
   pLogicalResourceId_
   pResourceType_
-  pTimestamp_
-  pResourceStatus_ =
+  pResourceStatus_
+  pTimestamp_ =
     StackResource'
-      { physicalResourceId = Lude.Nothing,
+      { logicalResourceId = pLogicalResourceId_,
+        physicalResourceId = Lude.Nothing,
+        resourceType = pResourceType_,
         resourceStatusReason = Lude.Nothing,
+        resourceStatus = pResourceStatus_,
         driftInformation = Lude.Nothing,
         moduleInfo = Lude.Nothing,
         stackId = Lude.Nothing,
         description = Lude.Nothing,
-        stackName = Lude.Nothing,
-        logicalResourceId = pLogicalResourceId_,
-        resourceType = pResourceType_,
         timestamp = pTimestamp_,
-        resourceStatus = pResourceStatus_
+        stackName = Lude.Nothing
       }
+
+-- | The logical name of the resource specified in the template.
+--
+-- /Note:/ Consider using 'logicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srLogicalResourceId :: Lens.Lens' StackResource Lude.Text
+srLogicalResourceId = Lens.lens (logicalResourceId :: StackResource -> Lude.Text) (\s a -> s {logicalResourceId = a} :: StackResource)
+{-# DEPRECATED srLogicalResourceId "Use generic-lens or generic-optics with 'logicalResourceId' instead." #-}
 
 -- | The name or unique identifier that corresponds to a physical instance ID of a resource supported by AWS CloudFormation.
 --
@@ -112,12 +123,26 @@ srPhysicalResourceId :: Lens.Lens' StackResource (Lude.Maybe Lude.Text)
 srPhysicalResourceId = Lens.lens (physicalResourceId :: StackResource -> Lude.Maybe Lude.Text) (\s a -> s {physicalResourceId = a} :: StackResource)
 {-# DEPRECATED srPhysicalResourceId "Use generic-lens or generic-optics with 'physicalResourceId' instead." #-}
 
+-- | Type of resource. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the AWS CloudFormation User Guide.)
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srResourceType :: Lens.Lens' StackResource Lude.Text
+srResourceType = Lens.lens (resourceType :: StackResource -> Lude.Text) (\s a -> s {resourceType = a} :: StackResource)
+{-# DEPRECATED srResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
 -- | Success/failure message associated with the resource.
 --
 -- /Note:/ Consider using 'resourceStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 srResourceStatusReason :: Lens.Lens' StackResource (Lude.Maybe Lude.Text)
 srResourceStatusReason = Lens.lens (resourceStatusReason :: StackResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceStatusReason = a} :: StackResource)
 {-# DEPRECATED srResourceStatusReason "Use generic-lens or generic-optics with 'resourceStatusReason' instead." #-}
+
+-- | Current status of the resource.
+--
+-- /Note:/ Consider using 'resourceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srResourceStatus :: Lens.Lens' StackResource ResourceStatus
+srResourceStatus = Lens.lens (resourceStatus :: StackResource -> ResourceStatus) (\s a -> s {resourceStatus = a} :: StackResource)
+{-# DEPRECATED srResourceStatus "Use generic-lens or generic-optics with 'resourceStatus' instead." #-}
 
 -- | Information about whether the resource's actual configuration differs, or has /drifted/ , from its expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
 --
@@ -147,27 +172,6 @@ srDescription :: Lens.Lens' StackResource (Lude.Maybe Lude.Text)
 srDescription = Lens.lens (description :: StackResource -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StackResource)
 {-# DEPRECATED srDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The name associated with the stack.
---
--- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srStackName :: Lens.Lens' StackResource (Lude.Maybe Lude.Text)
-srStackName = Lens.lens (stackName :: StackResource -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: StackResource)
-{-# DEPRECATED srStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
-
--- | The logical name of the resource specified in the template.
---
--- /Note:/ Consider using 'logicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srLogicalResourceId :: Lens.Lens' StackResource Lude.Text
-srLogicalResourceId = Lens.lens (logicalResourceId :: StackResource -> Lude.Text) (\s a -> s {logicalResourceId = a} :: StackResource)
-{-# DEPRECATED srLogicalResourceId "Use generic-lens or generic-optics with 'logicalResourceId' instead." #-}
-
--- | Type of resource. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the AWS CloudFormation User Guide.)
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srResourceType :: Lens.Lens' StackResource Lude.Text
-srResourceType = Lens.lens (resourceType :: StackResource -> Lude.Text) (\s a -> s {resourceType = a} :: StackResource)
-{-# DEPRECATED srResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
 -- | Time the status was updated.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -175,24 +179,24 @@ srTimestamp :: Lens.Lens' StackResource Lude.DateTime
 srTimestamp = Lens.lens (timestamp :: StackResource -> Lude.DateTime) (\s a -> s {timestamp = a} :: StackResource)
 {-# DEPRECATED srTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
--- | Current status of the resource.
+-- | The name associated with the stack.
 --
--- /Note:/ Consider using 'resourceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srResourceStatus :: Lens.Lens' StackResource ResourceStatus
-srResourceStatus = Lens.lens (resourceStatus :: StackResource -> ResourceStatus) (\s a -> s {resourceStatus = a} :: StackResource)
-{-# DEPRECATED srResourceStatus "Use generic-lens or generic-optics with 'resourceStatus' instead." #-}
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srStackName :: Lens.Lens' StackResource (Lude.Maybe Lude.Text)
+srStackName = Lens.lens (stackName :: StackResource -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: StackResource)
+{-# DEPRECATED srStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 instance Lude.FromXML StackResource where
   parseXML x =
     StackResource'
-      Lude.<$> (x Lude..@? "PhysicalResourceId")
+      Lude.<$> (x Lude..@ "LogicalResourceId")
+      Lude.<*> (x Lude..@? "PhysicalResourceId")
+      Lude.<*> (x Lude..@ "ResourceType")
       Lude.<*> (x Lude..@? "ResourceStatusReason")
+      Lude.<*> (x Lude..@ "ResourceStatus")
       Lude.<*> (x Lude..@? "DriftInformation")
       Lude.<*> (x Lude..@? "ModuleInfo")
       Lude.<*> (x Lude..@? "StackId")
       Lude.<*> (x Lude..@? "Description")
-      Lude.<*> (x Lude..@? "StackName")
-      Lude.<*> (x Lude..@ "LogicalResourceId")
-      Lude.<*> (x Lude..@ "ResourceType")
       Lude.<*> (x Lude..@ "Timestamp")
-      Lude.<*> (x Lude..@ "ResourceStatus")
+      Lude.<*> (x Lude..@? "StackName")

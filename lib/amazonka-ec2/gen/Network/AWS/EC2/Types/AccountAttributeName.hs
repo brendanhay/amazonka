@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.AccountAttributeName
   ( AccountAttributeName
       ( AccountAttributeName',
-        DefaultVPC,
-        SupportedPlatforms
+        SupportedPlatforms,
+        DefaultVPC
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AccountAttributeName = AccountAttributeName' Lude.Text
       Lude.ToHeader
     )
 
-pattern DefaultVPC :: AccountAttributeName
-pattern DefaultVPC = AccountAttributeName' "default-vpc"
-
 pattern SupportedPlatforms :: AccountAttributeName
 pattern SupportedPlatforms = AccountAttributeName' "supported-platforms"
 
+pattern DefaultVPC :: AccountAttributeName
+pattern DefaultVPC = AccountAttributeName' "default-vpc"
+
 {-# COMPLETE
-  DefaultVPC,
   SupportedPlatforms,
+  DefaultVPC,
   AccountAttributeName'
   #-}

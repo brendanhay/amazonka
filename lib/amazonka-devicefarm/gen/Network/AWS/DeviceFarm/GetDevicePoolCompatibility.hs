@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,29 +47,80 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetDevicePoolCompatibility' smart constructor.
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
-  { test ::
-      Lude.Maybe ScheduleRunTest,
+  { -- | Information about the uploaded test to be run against the device pool.
+    test :: Lude.Maybe ScheduleRunTest,
+    -- | The ARN of the app that is associated with the specified device pool.
     appARN :: Lude.Maybe Lude.Text,
-    configuration ::
-      Lude.Maybe ScheduleRunConfiguration,
+    -- | An object that contains information about the settings for a run.
+    configuration :: Lude.Maybe ScheduleRunConfiguration,
+    -- | The test type for the specified device pool.
+    --
+    -- Allowed values include the following:
+    --
+    --     * BUILTIN_FUZZ.
+    --
+    --
+    --     * BUILTIN_EXPLORER. For Android, an app explorer that traverses an Android app, interacting with it and capturing screenshots at the same time.
+    --
+    --
+    --     * APPIUM_JAVA_JUNIT.
+    --
+    --
+    --     * APPIUM_JAVA_TESTNG.
+    --
+    --
+    --     * APPIUM_PYTHON.
+    --
+    --
+    --     * APPIUM_NODE.
+    --
+    --
+    --     * APPIUM_RUBY.
+    --
+    --
+    --     * APPIUM_WEB_JAVA_JUNIT.
+    --
+    --
+    --     * APPIUM_WEB_JAVA_TESTNG.
+    --
+    --
+    --     * APPIUM_WEB_PYTHON.
+    --
+    --
+    --     * APPIUM_WEB_NODE.
+    --
+    --
+    --     * APPIUM_WEB_RUBY.
+    --
+    --
+    --     * CALABASH.
+    --
+    --
+    --     * INSTRUMENTATION.
+    --
+    --
+    --     * UIAUTOMATION.
+    --
+    --
+    --     * UIAUTOMATOR.
+    --
+    --
+    --     * XCTEST.
+    --
+    --
+    --     * XCTEST_UI.
     testType :: Lude.Maybe TestType,
+    -- | The device pool's ARN.
     devicePoolARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDevicePoolCompatibility' with the minimum fields required to make a request.
 --
+-- * 'test' - Information about the uploaded test to be run against the device pool.
 -- * 'appARN' - The ARN of the app that is associated with the specified device pool.
 -- * 'configuration' - An object that contains information about the settings for a run.
--- * 'devicePoolARN' - The device pool's ARN.
--- * 'test' - Information about the uploaded test to be run against the device pool.
 -- * 'testType' - The test type for the specified device pool.
 --
 -- Allowed values include the following:
@@ -125,6 +177,9 @@ data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
 --
 --
 --     * XCTEST_UI.
+--
+--
+-- * 'devicePoolARN' - The device pool's ARN.
 mkGetDevicePoolCompatibility ::
   -- | 'devicePoolARN'
   Lude.Text ->
@@ -279,28 +334,20 @@ instance Lude.ToQuery GetDevicePoolCompatibility where
 --
 -- /See:/ 'mkGetDevicePoolCompatibilityResponse' smart constructor.
 data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
-  { incompatibleDevices ::
-      Lude.Maybe
-        [DevicePoolCompatibilityResult],
-    compatibleDevices ::
-      Lude.Maybe
-        [DevicePoolCompatibilityResult],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about incompatible devices.
+    incompatibleDevices :: Lude.Maybe [DevicePoolCompatibilityResult],
+    -- | Information about compatible devices.
+    compatibleDevices :: Lude.Maybe [DevicePoolCompatibilityResult],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDevicePoolCompatibilityResponse' with the minimum fields required to make a request.
 --
--- * 'compatibleDevices' - Information about compatible devices.
 -- * 'incompatibleDevices' - Information about incompatible devices.
+-- * 'compatibleDevices' - Information about compatible devices.
 -- * 'responseStatus' - The response status code.
 mkGetDevicePoolCompatibilityResponse ::
   -- | 'responseStatus'

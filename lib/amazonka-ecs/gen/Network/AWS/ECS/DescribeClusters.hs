@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,22 +42,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { include ::
-      Lude.Maybe [ClusterField],
+  { -- | Whether to include additional information about your clusters in the response. If this field is omitted, the attachments, statistics, and tags are not included.
+    --
+    -- If @ATTACHMENTS@ is specified, the attachments for the container instances or tasks within the cluster are included.
+    -- If @SETTINGS@ is specified, the settings for the cluster are included.
+    -- If @STATISTICS@ is specified, the following additional information, separated by launch type, is included:
+    --
+    --     * runningEC2TasksCount
+    --
+    --
+    --     * runningFargateTasksCount
+    --
+    --
+    --     * pendingEC2TasksCount
+    --
+    --
+    --     * pendingFargateTasksCount
+    --
+    --
+    --     * activeEC2ServiceCount
+    --
+    --
+    --     * activeFargateServiceCount
+    --
+    --
+    --     * drainingEC2ServiceCount
+    --
+    --
+    --     * drainingFargateServiceCount
+    --
+    --
+    -- If @TAGS@ is specified, the metadata tags associated with the cluster are included.
+    include :: Lude.Maybe [ClusterField],
+    -- | A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
     clusters :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
 --
--- * 'clusters' - A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
 -- * 'include' - Whether to include additional information about your clusters in the response. If this field is omitted, the attachments, statistics, and tags are not included.
 --
 -- If @ATTACHMENTS@ is specified, the attachments for the container instances or tasks within the cluster are included.
@@ -88,6 +113,7 @@ data DescribeClusters = DescribeClusters'
 --
 --
 -- If @TAGS@ is specified, the metadata tags associated with the cluster are included.
+-- * 'clusters' - A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
 mkDescribeClusters ::
   DescribeClusters
 mkDescribeClusters =
@@ -182,24 +208,20 @@ instance Lude.ToQuery DescribeClusters where
 
 -- | /See:/ 'mkDescribeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-  { failures ::
-      Lude.Maybe [Failure],
+  { -- | Any failures associated with the call.
+    failures :: Lude.Maybe [Failure],
+    -- | The list of clusters.
     clusters :: Lude.Maybe [Cluster],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
 --
--- * 'clusters' - The list of clusters.
 -- * 'failures' - Any failures associated with the call.
+-- * 'clusters' - The list of clusters.
 -- * 'responseStatus' - The response status code.
 mkDescribeClustersResponse ::
   -- | 'responseStatus'

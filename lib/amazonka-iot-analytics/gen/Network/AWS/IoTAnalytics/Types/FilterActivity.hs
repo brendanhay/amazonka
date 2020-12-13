@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFilterActivity' smart constructor.
 data FilterActivity = FilterActivity'
-  { next :: Lude.Maybe Lude.Text,
+  { -- | The next activity in the pipeline.
+    next :: Lude.Maybe Lude.Text,
+    -- | The name of the filter activity.
     name :: Lude.Text,
+    -- | An expression that looks like a SQL WHERE clause that must return a Boolean value. Messages that satisfy the condition are passed to the next activity.
     filter :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FilterActivity' with the minimum fields required to make a request.
 --
--- * 'filter' - An expression that looks like a SQL WHERE clause that must return a Boolean value. Messages that satisfy the condition are passed to the next activity.
--- * 'name' - The name of the filter activity.
 -- * 'next' - The next activity in the pipeline.
+-- * 'name' - The name of the filter activity.
+-- * 'filter' - An expression that looks like a SQL WHERE clause that must return a Boolean value. Messages that satisfy the condition are passed to the next activity.
 mkFilterActivity ::
   -- | 'name'
   Lude.Text ->

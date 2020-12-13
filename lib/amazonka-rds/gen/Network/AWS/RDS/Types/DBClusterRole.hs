@@ -30,23 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBClusterRole' smart constructor.
 data DBClusterRole = DBClusterRole'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:
+    --
+    --
+    --     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.
+    --
+    --
+    --     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.
+    --
+    --
+    --     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
+    status :: Lude.Maybe Lude.Text,
+    -- | The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see 'DBEngineVersion' .
     featureName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterRole' with the minimum fields required to make a request.
 --
--- * 'featureName' - The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see 'DBEngineVersion' .
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 -- * 'status' - Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:
 --
 --
@@ -57,6 +61,10 @@ data DBClusterRole = DBClusterRole'
 --
 --
 --     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
+--
+--
+-- * 'featureName' - The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see 'DBEngineVersion' .
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 mkDBClusterRole ::
   DBClusterRole
 mkDBClusterRole =

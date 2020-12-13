@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGPSCoordinates' smart constructor.
 data GPSCoordinates = GPSCoordinates'
-  { latitude :: Lude.Double,
+  { -- | The latitude coordinate of the location.
+    latitude :: Lude.Double,
+    -- | The longitude coordinate of the location.
     longitude :: Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GPSCoordinates' with the minimum fields required to make a request.

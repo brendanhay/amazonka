@@ -13,9 +13,9 @@
 module Network.AWS.CloudFormation.Types.Capability
   ( Capability
       ( Capability',
-        CapabilityAutoExpand,
         CapabilityIAM,
-        CapabilityNamedIAM
+        CapabilityNamedIAM,
+        CapabilityAutoExpand
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype Capability = Capability' Lude.Text
       Lude.ToHeader
     )
 
-pattern CapabilityAutoExpand :: Capability
-pattern CapabilityAutoExpand = Capability' "CAPABILITY_AUTO_EXPAND"
-
 pattern CapabilityIAM :: Capability
 pattern CapabilityIAM = Capability' "CAPABILITY_IAM"
 
 pattern CapabilityNamedIAM :: Capability
 pattern CapabilityNamedIAM = Capability' "CAPABILITY_NAMED_IAM"
 
+pattern CapabilityAutoExpand :: Capability
+pattern CapabilityAutoExpand = Capability' "CAPABILITY_AUTO_EXPAND"
+
 {-# COMPLETE
-  CapabilityAutoExpand,
   CapabilityIAM,
   CapabilityNamedIAM,
+  CapabilityAutoExpand,
   Capability'
   #-}

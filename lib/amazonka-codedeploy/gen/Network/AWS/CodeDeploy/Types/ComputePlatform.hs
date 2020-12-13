@@ -13,9 +13,9 @@
 module Network.AWS.CodeDeploy.Types.ComputePlatform
   ( ComputePlatform
       ( ComputePlatform',
-        Ecs,
+        Server,
         Lambda,
-        Server
+        Ecs
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ComputePlatform = ComputePlatform' Lude.Text
       Lude.ToHeader
     )
 
-pattern Ecs :: ComputePlatform
-pattern Ecs = ComputePlatform' "ECS"
+pattern Server :: ComputePlatform
+pattern Server = ComputePlatform' "Server"
 
 pattern Lambda :: ComputePlatform
 pattern Lambda = ComputePlatform' "Lambda"
 
-pattern Server :: ComputePlatform
-pattern Server = ComputePlatform' "Server"
+pattern Ecs :: ComputePlatform
+pattern Ecs = ComputePlatform' "ECS"
 
 {-# COMPLETE
-  Ecs,
-  Lambda,
   Server,
+  Lambda,
+  Ecs,
   ComputePlatform'
   #-}

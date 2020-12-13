@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSegmentReference' smart constructor.
 data SegmentReference = SegmentReference'
-  { version ::
-      Lude.Maybe Lude.Int,
+  { -- | The version number of the segment.
+    version :: Lude.Maybe Lude.Int,
+    -- | The unique identifier for the segment.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentReference' with the minimum fields required to make a request.
 --
--- * 'id' - The unique identifier for the segment.
 -- * 'version' - The version number of the segment.
+-- * 'id' - The unique identifier for the segment.
 mkSegmentReference ::
   -- | 'id'
   Lude.Text ->

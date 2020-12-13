@@ -14,12 +14,12 @@ module Network.AWS.Organizations.Types.CreateAccountFailureReason
   ( CreateAccountFailureReason
       ( CreateAccountFailureReason',
         AccountLimitExceeded,
-        ConcurrentAccountModification,
         EmailAlreadyExists,
-        GovcloudAccountAlreadyExists,
-        InternalFailure,
         InvalidAddress,
         InvalidEmail,
+        ConcurrentAccountModification,
+        InternalFailure,
+        GovcloudAccountAlreadyExists,
         MissingBusinessValidation,
         MissingPaymentInstrument
       ),
@@ -55,23 +55,23 @@ newtype CreateAccountFailureReason = CreateAccountFailureReason' Lude.Text
 pattern AccountLimitExceeded :: CreateAccountFailureReason
 pattern AccountLimitExceeded = CreateAccountFailureReason' "ACCOUNT_LIMIT_EXCEEDED"
 
-pattern ConcurrentAccountModification :: CreateAccountFailureReason
-pattern ConcurrentAccountModification = CreateAccountFailureReason' "CONCURRENT_ACCOUNT_MODIFICATION"
-
 pattern EmailAlreadyExists :: CreateAccountFailureReason
 pattern EmailAlreadyExists = CreateAccountFailureReason' "EMAIL_ALREADY_EXISTS"
-
-pattern GovcloudAccountAlreadyExists :: CreateAccountFailureReason
-pattern GovcloudAccountAlreadyExists = CreateAccountFailureReason' "GOVCLOUD_ACCOUNT_ALREADY_EXISTS"
-
-pattern InternalFailure :: CreateAccountFailureReason
-pattern InternalFailure = CreateAccountFailureReason' "INTERNAL_FAILURE"
 
 pattern InvalidAddress :: CreateAccountFailureReason
 pattern InvalidAddress = CreateAccountFailureReason' "INVALID_ADDRESS"
 
 pattern InvalidEmail :: CreateAccountFailureReason
 pattern InvalidEmail = CreateAccountFailureReason' "INVALID_EMAIL"
+
+pattern ConcurrentAccountModification :: CreateAccountFailureReason
+pattern ConcurrentAccountModification = CreateAccountFailureReason' "CONCURRENT_ACCOUNT_MODIFICATION"
+
+pattern InternalFailure :: CreateAccountFailureReason
+pattern InternalFailure = CreateAccountFailureReason' "INTERNAL_FAILURE"
+
+pattern GovcloudAccountAlreadyExists :: CreateAccountFailureReason
+pattern GovcloudAccountAlreadyExists = CreateAccountFailureReason' "GOVCLOUD_ACCOUNT_ALREADY_EXISTS"
 
 pattern MissingBusinessValidation :: CreateAccountFailureReason
 pattern MissingBusinessValidation = CreateAccountFailureReason' "MISSING_BUSINESS_VALIDATION"
@@ -81,12 +81,12 @@ pattern MissingPaymentInstrument = CreateAccountFailureReason' "MISSING_PAYMENT_
 
 {-# COMPLETE
   AccountLimitExceeded,
-  ConcurrentAccountModification,
   EmailAlreadyExists,
-  GovcloudAccountAlreadyExists,
-  InternalFailure,
   InvalidAddress,
   InvalidEmail,
+  ConcurrentAccountModification,
+  InternalFailure,
+  GovcloudAccountAlreadyExists,
   MissingBusinessValidation,
   MissingPaymentInstrument,
   CreateAccountFailureReason'

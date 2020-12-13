@@ -13,13 +13,13 @@
 module Network.AWS.GuardDuty.Types.ThreatIntelSetStatus
   ( ThreatIntelSetStatus
       ( ThreatIntelSetStatus',
+        Inactive,
         Activating,
         Active,
         Deactivating,
-        DeletePending,
-        Deleted,
         Error,
-        Inactive
+        DeletePending,
+        Deleted
       ),
   )
 where
@@ -50,6 +50,9 @@ newtype ThreatIntelSetStatus = ThreatIntelSetStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Inactive :: ThreatIntelSetStatus
+pattern Inactive = ThreatIntelSetStatus' "INACTIVE"
+
 pattern Activating :: ThreatIntelSetStatus
 pattern Activating = ThreatIntelSetStatus' "ACTIVATING"
 
@@ -59,25 +62,22 @@ pattern Active = ThreatIntelSetStatus' "ACTIVE"
 pattern Deactivating :: ThreatIntelSetStatus
 pattern Deactivating = ThreatIntelSetStatus' "DEACTIVATING"
 
+pattern Error :: ThreatIntelSetStatus
+pattern Error = ThreatIntelSetStatus' "ERROR"
+
 pattern DeletePending :: ThreatIntelSetStatus
 pattern DeletePending = ThreatIntelSetStatus' "DELETE_PENDING"
 
 pattern Deleted :: ThreatIntelSetStatus
 pattern Deleted = ThreatIntelSetStatus' "DELETED"
 
-pattern Error :: ThreatIntelSetStatus
-pattern Error = ThreatIntelSetStatus' "ERROR"
-
-pattern Inactive :: ThreatIntelSetStatus
-pattern Inactive = ThreatIntelSetStatus' "INACTIVE"
-
 {-# COMPLETE
+  Inactive,
   Activating,
   Active,
   Deactivating,
+  Error,
   DeletePending,
   Deleted,
-  Error,
-  Inactive,
   ThreatIntelSetStatus'
   #-}

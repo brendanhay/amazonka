@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSlotTypeMetadata' smart constructor.
 data SlotTypeMetadata = SlotTypeMetadata'
-  { createdDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date that the slot type was created.
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the slot type.
     name :: Lude.Maybe Lude.Text,
+    -- | The version of the slot type.
     version :: Lude.Maybe Lude.Text,
+    -- | The date that the slot type was updated. When you create a resource, the creation date and last updated date are the same.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the slot type.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SlotTypeMetadata' with the minimum fields required to make a request.
 --
 -- * 'createdDate' - The date that the slot type was created.
--- * 'description' - A description of the slot type.
--- * 'lastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last updated date are the same.
 -- * 'name' - The name of the slot type.
 -- * 'version' - The version of the slot type.
+-- * 'lastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last updated date are the same.
+-- * 'description' - A description of the slot type.
 mkSlotTypeMetadata ::
   SlotTypeMetadata
 mkSlotTypeMetadata =

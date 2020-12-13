@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrefixList' smart constructor.
 data PrefixList = PrefixList'
-  { cidrs :: Lude.Maybe [Lude.Text],
+  { -- | The IP address range of the AWS service.
+    cidrs :: Lude.Maybe [Lude.Text],
+    -- | The ID of the prefix.
     prefixListId :: Lude.Maybe Lude.Text,
+    -- | The name of the prefix.
     prefixListName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrefixList' with the minimum fields required to make a request.

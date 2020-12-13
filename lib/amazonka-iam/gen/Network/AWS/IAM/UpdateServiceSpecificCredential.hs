@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.IAM.UpdateServiceSpecificCredential
     mkUpdateServiceSpecificCredential,
 
     -- ** Request lenses
+    usscStatus,
     usscUserName,
     usscServiceSpecificCredentialId,
-    usscStatus,
 
     -- * Destructuring the response
     UpdateServiceSpecificCredentialResponse (..),
@@ -37,44 +38,50 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateServiceSpecificCredential' smart constructor.
 data UpdateServiceSpecificCredential = UpdateServiceSpecificCredential'
-  { userName ::
-      Lude.Maybe Lude.Text,
-    serviceSpecificCredentialId ::
-      Lude.Text,
-    status :: StatusType
+  { -- | The status to be assigned to the service-specific credential.
+    status :: StatusType,
+    -- | The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the service-specific credential.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+    serviceSpecificCredentialId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServiceSpecificCredential' with the minimum fields required to make a request.
 --
--- * 'serviceSpecificCredentialId' - The unique identifier of the service-specific credential.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 -- * 'status' - The status to be assigned to the service-specific credential.
 -- * 'userName' - The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'serviceSpecificCredentialId' - The unique identifier of the service-specific credential.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 mkUpdateServiceSpecificCredential ::
-  -- | 'serviceSpecificCredentialId'
-  Lude.Text ->
   -- | 'status'
   StatusType ->
+  -- | 'serviceSpecificCredentialId'
+  Lude.Text ->
   UpdateServiceSpecificCredential
 mkUpdateServiceSpecificCredential
-  pServiceSpecificCredentialId_
-  pStatus_ =
+  pStatus_
+  pServiceSpecificCredentialId_ =
     UpdateServiceSpecificCredential'
-      { userName = Lude.Nothing,
-        serviceSpecificCredentialId = pServiceSpecificCredentialId_,
-        status = pStatus_
+      { status = pStatus_,
+        userName = Lude.Nothing,
+        serviceSpecificCredentialId = pServiceSpecificCredentialId_
       }
+
+-- | The status to be assigned to the service-specific credential.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usscStatus :: Lens.Lens' UpdateServiceSpecificCredential StatusType
+usscStatus = Lens.lens (status :: UpdateServiceSpecificCredential -> StatusType) (\s a -> s {status = a} :: UpdateServiceSpecificCredential)
+{-# DEPRECATED usscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation.
 --
@@ -93,13 +100,6 @@ usscUserName = Lens.lens (userName :: UpdateServiceSpecificCredential -> Lude.Ma
 usscServiceSpecificCredentialId :: Lens.Lens' UpdateServiceSpecificCredential Lude.Text
 usscServiceSpecificCredentialId = Lens.lens (serviceSpecificCredentialId :: UpdateServiceSpecificCredential -> Lude.Text) (\s a -> s {serviceSpecificCredentialId = a} :: UpdateServiceSpecificCredential)
 {-# DEPRECATED usscServiceSpecificCredentialId "Use generic-lens or generic-optics with 'serviceSpecificCredentialId' instead." #-}
-
--- | The status to be assigned to the service-specific credential.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usscStatus :: Lens.Lens' UpdateServiceSpecificCredential StatusType
-usscStatus = Lens.lens (status :: UpdateServiceSpecificCredential -> StatusType) (\s a -> s {status = a} :: UpdateServiceSpecificCredential)
-{-# DEPRECATED usscStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 instance Lude.AWSRequest UpdateServiceSpecificCredential where
   type
@@ -120,20 +120,14 @@ instance Lude.ToQuery UpdateServiceSpecificCredential where
       [ "Action"
           Lude.=: ("UpdateServiceSpecificCredential" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "Status" Lude.=: status,
         "UserName" Lude.=: userName,
-        "ServiceSpecificCredentialId" Lude.=: serviceSpecificCredentialId,
-        "Status" Lude.=: status
+        "ServiceSpecificCredentialId" Lude.=: serviceSpecificCredentialId
       ]
 
 -- | /See:/ 'mkUpdateServiceSpecificCredentialResponse' smart constructor.
 data UpdateServiceSpecificCredentialResponse = UpdateServiceSpecificCredentialResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServiceSpecificCredentialResponse' with the minimum fields required to make a request.

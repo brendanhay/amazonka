@@ -17,9 +17,9 @@ module Network.AWS.SageMaker.Types.EndpointConfigSummary
     mkEndpointConfigSummary,
 
     -- * Lenses
-    ecsEndpointConfigName,
     ecsEndpointConfigARN,
     ecsCreationTime,
+    ecsEndpointConfigName,
   )
 where
 
@@ -30,49 +30,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointConfigSummary' smart constructor.
 data EndpointConfigSummary = EndpointConfigSummary'
-  { endpointConfigName ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the endpoint configuration.
     endpointConfigARN :: Lude.Text,
-    creationTime :: Lude.Timestamp
+    -- | A timestamp that shows when the endpoint configuration was created.
+    creationTime :: Lude.Timestamp,
+    -- | The name of the endpoint configuration.
+    endpointConfigName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointConfigSummary' with the minimum fields required to make a request.
 --
--- * 'creationTime' - A timestamp that shows when the endpoint configuration was created.
 -- * 'endpointConfigARN' - The Amazon Resource Name (ARN) of the endpoint configuration.
+-- * 'creationTime' - A timestamp that shows when the endpoint configuration was created.
 -- * 'endpointConfigName' - The name of the endpoint configuration.
 mkEndpointConfigSummary ::
-  -- | 'endpointConfigName'
-  Lude.Text ->
   -- | 'endpointConfigARN'
   Lude.Text ->
   -- | 'creationTime'
   Lude.Timestamp ->
+  -- | 'endpointConfigName'
+  Lude.Text ->
   EndpointConfigSummary
 mkEndpointConfigSummary
-  pEndpointConfigName_
   pEndpointConfigARN_
-  pCreationTime_ =
+  pCreationTime_
+  pEndpointConfigName_ =
     EndpointConfigSummary'
-      { endpointConfigName = pEndpointConfigName_,
-        endpointConfigARN = pEndpointConfigARN_,
-        creationTime = pCreationTime_
+      { endpointConfigARN = pEndpointConfigARN_,
+        creationTime = pCreationTime_,
+        endpointConfigName = pEndpointConfigName_
       }
-
--- | The name of the endpoint configuration.
---
--- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecsEndpointConfigName :: Lens.Lens' EndpointConfigSummary Lude.Text
-ecsEndpointConfigName = Lens.lens (endpointConfigName :: EndpointConfigSummary -> Lude.Text) (\s a -> s {endpointConfigName = a} :: EndpointConfigSummary)
-{-# DEPRECATED ecsEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the endpoint configuration.
 --
@@ -88,13 +77,20 @@ ecsCreationTime :: Lens.Lens' EndpointConfigSummary Lude.Timestamp
 ecsCreationTime = Lens.lens (creationTime :: EndpointConfigSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: EndpointConfigSummary)
 {-# DEPRECATED ecsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
+-- | The name of the endpoint configuration.
+--
+-- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecsEndpointConfigName :: Lens.Lens' EndpointConfigSummary Lude.Text
+ecsEndpointConfigName = Lens.lens (endpointConfigName :: EndpointConfigSummary -> Lude.Text) (\s a -> s {endpointConfigName = a} :: EndpointConfigSummary)
+{-# DEPRECATED ecsEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
+
 instance Lude.FromJSON EndpointConfigSummary where
   parseJSON =
     Lude.withObject
       "EndpointConfigSummary"
       ( \x ->
           EndpointConfigSummary'
-            Lude.<$> (x Lude..: "EndpointConfigName")
-            Lude.<*> (x Lude..: "EndpointConfigArn")
+            Lude.<$> (x Lude..: "EndpointConfigArn")
             Lude.<*> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..: "EndpointConfigName")
       )

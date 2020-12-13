@@ -13,9 +13,9 @@
 module Network.AWS.LexModels.Types.ChannelStatus
   ( ChannelStatus
       ( ChannelStatus',
-        Created,
-        Failed,
-        InProgress
+        CSInProgress,
+        CSCreated,
+        CSFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ChannelStatus = ChannelStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Created :: ChannelStatus
-pattern Created = ChannelStatus' "CREATED"
+pattern CSInProgress :: ChannelStatus
+pattern CSInProgress = ChannelStatus' "IN_PROGRESS"
 
-pattern Failed :: ChannelStatus
-pattern Failed = ChannelStatus' "FAILED"
+pattern CSCreated :: ChannelStatus
+pattern CSCreated = ChannelStatus' "CREATED"
 
-pattern InProgress :: ChannelStatus
-pattern InProgress = ChannelStatus' "IN_PROGRESS"
+pattern CSFailed :: ChannelStatus
+pattern CSFailed = ChannelStatus' "FAILED"
 
 {-# COMPLETE
-  Created,
-  Failed,
-  InProgress,
+  CSInProgress,
+  CSCreated,
+  CSFailed,
   ChannelStatus'
   #-}

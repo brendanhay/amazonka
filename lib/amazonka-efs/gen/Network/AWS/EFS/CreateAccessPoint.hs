@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.EFS.CreateAccessPoint
     -- ** Request lenses
     capPosixUser,
     capRootDirectory,
-    capTags,
     capClientToken,
     capFileSystemId,
+    capTags,
 
     -- * Destructuring the response
     AccessPointDescription (..),
@@ -53,28 +54,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAccessPoint' smart constructor.
 data CreateAccessPoint = CreateAccessPoint'
-  { posixUser ::
-      Lude.Maybe PosixUser,
+  { -- | The operating system user and group applied to all file system requests made using the access point.
+    posixUser :: Lude.Maybe PosixUser,
+    -- | Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the @RootDirectory@ > @Path@ specified does not exist, EFS creates it and applies the @CreationInfo@ settings when a client connects to an access point. When specifying a @RootDirectory@ , you need to provide the @Path@ , and the @CreationInfo@ is optional.
     rootDirectory :: Lude.Maybe RootDirectory,
-    tags :: Lude.Maybe [Tag],
+    -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
     clientToken :: Lude.Text,
-    fileSystemId :: Lude.Text
+    -- | The ID of the EFS file system that the access point provides access to.
+    fileSystemId :: Lude.Text,
+    -- | Creates tags associated with the access point. Each tag is a key-value pair.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAccessPoint' with the minimum fields required to make a request.
 --
--- * 'clientToken' - A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
--- * 'fileSystemId' - The ID of the EFS file system that the access point provides access to.
 -- * 'posixUser' - The operating system user and group applied to all file system requests made using the access point.
 -- * 'rootDirectory' - Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the @RootDirectory@ > @Path@ specified does not exist, EFS creates it and applies the @CreationInfo@ settings when a client connects to an access point. When specifying a @RootDirectory@ , you need to provide the @Path@ , and the @CreationInfo@ is optional.
+-- * 'clientToken' - A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
+-- * 'fileSystemId' - The ID of the EFS file system that the access point provides access to.
 -- * 'tags' - Creates tags associated with the access point. Each tag is a key-value pair.
 mkCreateAccessPoint ::
   -- | 'clientToken'
@@ -86,9 +85,9 @@ mkCreateAccessPoint pClientToken_ pFileSystemId_ =
   CreateAccessPoint'
     { posixUser = Lude.Nothing,
       rootDirectory = Lude.Nothing,
-      tags = Lude.Nothing,
       clientToken = pClientToken_,
-      fileSystemId = pFileSystemId_
+      fileSystemId = pFileSystemId_,
+      tags = Lude.Nothing
     }
 
 -- | The operating system user and group applied to all file system requests made using the access point.
@@ -105,13 +104,6 @@ capRootDirectory :: Lens.Lens' CreateAccessPoint (Lude.Maybe RootDirectory)
 capRootDirectory = Lens.lens (rootDirectory :: CreateAccessPoint -> Lude.Maybe RootDirectory) (\s a -> s {rootDirectory = a} :: CreateAccessPoint)
 {-# DEPRECATED capRootDirectory "Use generic-lens or generic-optics with 'rootDirectory' instead." #-}
 
--- | Creates tags associated with the access point. Each tag is a key-value pair.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-capTags :: Lens.Lens' CreateAccessPoint (Lude.Maybe [Tag])
-capTags = Lens.lens (tags :: CreateAccessPoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAccessPoint)
-{-# DEPRECATED capTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -125,6 +117,13 @@ capClientToken = Lens.lens (clientToken :: CreateAccessPoint -> Lude.Text) (\s a
 capFileSystemId :: Lens.Lens' CreateAccessPoint Lude.Text
 capFileSystemId = Lens.lens (fileSystemId :: CreateAccessPoint -> Lude.Text) (\s a -> s {fileSystemId = a} :: CreateAccessPoint)
 {-# DEPRECATED capFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
+
+-- | Creates tags associated with the access point. Each tag is a key-value pair.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+capTags :: Lens.Lens' CreateAccessPoint (Lude.Maybe [Tag])
+capTags = Lens.lens (tags :: CreateAccessPoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAccessPoint)
+{-# DEPRECATED capTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateAccessPoint where
   type Rs CreateAccessPoint = AccessPointDescription
@@ -140,9 +139,9 @@ instance Lude.ToJSON CreateAccessPoint where
       ( Lude.catMaybes
           [ ("PosixUser" Lude..=) Lude.<$> posixUser,
             ("RootDirectory" Lude..=) Lude.<$> rootDirectory,
-            ("Tags" Lude..=) Lude.<$> tags,
             Lude.Just ("ClientToken" Lude..= clientToken),
-            Lude.Just ("FileSystemId" Lude..= fileSystemId)
+            Lude.Just ("FileSystemId" Lude..= fileSystemId),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 

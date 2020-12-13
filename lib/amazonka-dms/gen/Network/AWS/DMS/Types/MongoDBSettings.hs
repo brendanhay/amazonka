@@ -42,18 +42,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMongoDBSettings' smart constructor.
 data MongoDBSettings = MongoDBSettings'
-  { serverName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the server on the MongoDB source endpoint.
+    serverName :: Lude.Maybe Lude.Text,
+    -- | The authentication mechanism you use to access the MongoDB source endpoint.
+    --
+    -- For the default value, in MongoDB version 2.x, @"default"@ is @"mongodb_cr"@ . For MongoDB version 3.x or later, @"default"@ is @"scram_sha_1"@ . This setting isn't used when @AuthType@ is set to @"no"@ .
     authMechanism :: Lude.Maybe AuthMechanismValue,
+    -- | The user name you use to access the MongoDB source endpoint.
     username :: Lude.Maybe Lude.Text,
+    -- | The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The password for the user account you use to access the MongoDB source endpoint.
     password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Specifies either document or table mode.
+    --
+    -- Default value is @"none"@ . Specify @"none"@ to use document mode. Specify @"one"@ to use table mode.
     nestingLevel :: Lude.Maybe NestingLevelValue,
+    -- | The database name on the MongoDB source endpoint.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | Indicates the number of documents to preview to determine the document organization. Use this setting when @NestingLevel@ is set to @"one"@ .
+    --
+    -- Must be a positive value greater than @0@ . Default value is @1000@ .
     docsToInvestigate :: Lude.Maybe Lude.Text,
+    -- | The MongoDB database name. This setting isn't used when @AuthType@ is set to @"no"@ .
+    --
+    -- The default is @"admin"@ .
     authSource :: Lude.Maybe Lude.Text,
+    -- | Specifies the document ID. Use this setting when @NestingLevel@ is set to @"none"@ .
+    --
+    -- Default value is @"false"@ .
     extractDocId :: Lude.Maybe Lude.Text,
+    -- | The authentication type you use to access the MongoDB source endpoint.
+    --
+    -- When when set to @"no"@ , user name and password parameters are not used and can be empty.
     authType :: Lude.Maybe AuthTypeValue,
+    -- | The port value for the MongoDB source endpoint.
     port :: Lude.Maybe Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -61,30 +84,30 @@ data MongoDBSettings = MongoDBSettings'
 
 -- | Creates a value of 'MongoDBSettings' with the minimum fields required to make a request.
 --
+-- * 'serverName' - The name of the server on the MongoDB source endpoint.
 -- * 'authMechanism' - The authentication mechanism you use to access the MongoDB source endpoint.
 --
 -- For the default value, in MongoDB version 2.x, @"default"@ is @"mongodb_cr"@ . For MongoDB version 3.x or later, @"default"@ is @"scram_sha_1"@ . This setting isn't used when @AuthType@ is set to @"no"@ .
--- * 'authSource' - The MongoDB database name. This setting isn't used when @AuthType@ is set to @"no"@ .
+-- * 'username' - The user name you use to access the MongoDB source endpoint.
+-- * 'kmsKeyId' - The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+-- * 'password' - The password for the user account you use to access the MongoDB source endpoint.
+-- * 'nestingLevel' - Specifies either document or table mode.
 --
--- The default is @"admin"@ .
--- * 'authType' - The authentication type you use to access the MongoDB source endpoint.
---
--- When when set to @"no"@ , user name and password parameters are not used and can be empty.
+-- Default value is @"none"@ . Specify @"none"@ to use document mode. Specify @"one"@ to use table mode.
 -- * 'databaseName' - The database name on the MongoDB source endpoint.
 -- * 'docsToInvestigate' - Indicates the number of documents to preview to determine the document organization. Use this setting when @NestingLevel@ is set to @"one"@ .
 --
 -- Must be a positive value greater than @0@ . Default value is @1000@ .
+-- * 'authSource' - The MongoDB database name. This setting isn't used when @AuthType@ is set to @"no"@ .
+--
+-- The default is @"admin"@ .
 -- * 'extractDocId' - Specifies the document ID. Use this setting when @NestingLevel@ is set to @"none"@ .
 --
 -- Default value is @"false"@ .
--- * 'kmsKeyId' - The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
--- * 'nestingLevel' - Specifies either document or table mode.
+-- * 'authType' - The authentication type you use to access the MongoDB source endpoint.
 --
--- Default value is @"none"@ . Specify @"none"@ to use document mode. Specify @"one"@ to use table mode.
--- * 'password' - The password for the user account you use to access the MongoDB source endpoint.
+-- When when set to @"no"@ , user name and password parameters are not used and can be empty.
 -- * 'port' - The port value for the MongoDB source endpoint.
--- * 'serverName' - The name of the server on the MongoDB source endpoint.
--- * 'username' - The user name you use to access the MongoDB source endpoint.
 mkMongoDBSettings ::
   MongoDBSettings
 mkMongoDBSettings =

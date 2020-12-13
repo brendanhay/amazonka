@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.DeinterlacerMode
   ( DeinterlacerMode
       ( DeinterlacerMode',
-        DMAdaptive,
         DMDeinterlace,
-        DMInverseTelecine
+        DMInverseTelecine,
+        DMAdaptive
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype DeinterlacerMode = DeinterlacerMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern DMAdaptive :: DeinterlacerMode
-pattern DMAdaptive = DeinterlacerMode' "ADAPTIVE"
-
 pattern DMDeinterlace :: DeinterlacerMode
 pattern DMDeinterlace = DeinterlacerMode' "DEINTERLACE"
 
 pattern DMInverseTelecine :: DeinterlacerMode
 pattern DMInverseTelecine = DeinterlacerMode' "INVERSE_TELECINE"
 
+pattern DMAdaptive :: DeinterlacerMode
+pattern DMAdaptive = DeinterlacerMode' "ADAPTIVE"
+
 {-# COMPLETE
-  DMAdaptive,
   DMDeinterlace,
   DMInverseTelecine,
+  DMAdaptive,
   DeinterlacerMode'
   #-}

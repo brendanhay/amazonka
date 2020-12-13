@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.Scope
   ( Scope
       ( Scope',
-        SAvailabilityZone,
-        SRegion
+        AvailabilityZone,
+        Region
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Scope = Scope' Lude.Text
       Lude.ToHeader
     )
 
-pattern SAvailabilityZone :: Scope
-pattern SAvailabilityZone = Scope' "Availability Zone"
+pattern AvailabilityZone :: Scope
+pattern AvailabilityZone = Scope' "Availability Zone"
 
-pattern SRegion :: Scope
-pattern SRegion = Scope' "Region"
+pattern Region :: Scope
+pattern Region = Scope' "Region"
 
 {-# COMPLETE
-  SAvailabilityZone,
-  SRegion,
+  AvailabilityZone,
+  Region,
   Scope'
   #-}

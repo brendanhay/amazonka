@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.S3.ListBucketInventoryConfigurations
 
     -- ** Request lenses
     lbicContinuationToken,
-    lbicExpectedBucketOwner,
     lbicBucket,
+    lbicExpectedBucketOwner,
 
     -- * Destructuring the response
     ListBucketInventoryConfigurationsResponse (..),
@@ -57,25 +58,20 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkListBucketInventoryConfigurations' smart constructor.
 data ListBucketInventoryConfigurations = ListBucketInventoryConfigurations'
-  { continuationToken ::
-      Lude.Maybe Lude.Text,
-    expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | The name of the bucket containing the inventory configurations to retrieve.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketInventoryConfigurations' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the bucket containing the inventory configurations to retrieve.
 -- * 'continuationToken' - The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+-- * 'bucket' - The name of the bucket containing the inventory configurations to retrieve.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkListBucketInventoryConfigurations ::
   -- | 'bucket'
@@ -85,8 +81,8 @@ mkListBucketInventoryConfigurations pBucket_ =
   ListBucketInventoryConfigurations'
     { continuationToken =
         Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+      bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
@@ -96,19 +92,19 @@ lbicContinuationToken :: Lens.Lens' ListBucketInventoryConfigurations (Lude.Mayb
 lbicContinuationToken = Lens.lens (continuationToken :: ListBucketInventoryConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {continuationToken = a} :: ListBucketInventoryConfigurations)
 {-# DEPRECATED lbicContinuationToken "Use generic-lens or generic-optics with 'continuationToken' instead." #-}
 
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbicExpectedBucketOwner :: Lens.Lens' ListBucketInventoryConfigurations (Lude.Maybe Lude.Text)
-lbicExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListBucketInventoryConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListBucketInventoryConfigurations)
-{-# DEPRECATED lbicExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
 -- | The name of the bucket containing the inventory configurations to retrieve.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lbicBucket :: Lens.Lens' ListBucketInventoryConfigurations BucketName
 lbicBucket = Lens.lens (bucket :: ListBucketInventoryConfigurations -> BucketName) (\s a -> s {bucket = a} :: ListBucketInventoryConfigurations)
 {-# DEPRECATED lbicBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbicExpectedBucketOwner :: Lens.Lens' ListBucketInventoryConfigurations (Lude.Maybe Lude.Text)
+lbicExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListBucketInventoryConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListBucketInventoryConfigurations)
+{-# DEPRECATED lbicExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest ListBucketInventoryConfigurations where
   type
@@ -142,35 +138,26 @@ instance Lude.ToQuery ListBucketInventoryConfigurations where
 
 -- | /See:/ 'mkListBucketInventoryConfigurationsResponse' smart constructor.
 data ListBucketInventoryConfigurationsResponse = ListBucketInventoryConfigurationsResponse'
-  { continuationToken ::
-      Lude.Maybe
-        Lude.Text,
-    inventoryConfigurationList ::
-      Lude.Maybe
-        [InventoryConfiguration],
-    nextContinuationToken ::
-      Lude.Maybe
-        Lude.Text,
-    isTruncated ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | If sent in the request, the marker that is used as a starting point for this inventory configuration list response.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | The list of inventory configurations for a bucket.
+    inventoryConfigurationList :: Lude.Maybe [InventoryConfiguration],
+    -- | The marker used to continue this inventory configuration listing. Use the @NextContinuationToken@ from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.
+    nextContinuationToken :: Lude.Maybe Lude.Text,
+    -- | Tells whether the returned list of inventory configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken is provided for a subsequent request.
+    isTruncated :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketInventoryConfigurationsResponse' with the minimum fields required to make a request.
 --
 -- * 'continuationToken' - If sent in the request, the marker that is used as a starting point for this inventory configuration list response.
 -- * 'inventoryConfigurationList' - The list of inventory configurations for a bucket.
--- * 'isTruncated' - Tells whether the returned list of inventory configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken is provided for a subsequent request.
 -- * 'nextContinuationToken' - The marker used to continue this inventory configuration listing. Use the @NextContinuationToken@ from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.
+-- * 'isTruncated' - Tells whether the returned list of inventory configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken is provided for a subsequent request.
 -- * 'responseStatus' - The response status code.
 mkListBucketInventoryConfigurationsResponse ::
   -- | 'responseStatus'

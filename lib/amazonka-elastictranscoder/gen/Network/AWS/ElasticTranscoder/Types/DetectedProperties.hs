@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDetectedProperties' smart constructor.
 data DetectedProperties = DetectedProperties'
-  { height ::
-      Lude.Maybe Lude.Int,
+  { -- | The detected height of the input file, in pixels.
+    height :: Lude.Maybe Lude.Int,
+    -- | The detected frame rate of the input file, in frames per second.
     frameRate :: Lude.Maybe Lude.Text,
+    -- | The detected file size of the input file, in bytes.
     fileSize :: Lude.Maybe Lude.Integer,
+    -- | The detected width of the input file, in pixels.
     width :: Lude.Maybe Lude.Int,
+    -- | The detected duration of the input file, in milliseconds.
     durationMillis :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectedProperties' with the minimum fields required to make a request.
 --
--- * 'durationMillis' - The detected duration of the input file, in milliseconds.
--- * 'fileSize' - The detected file size of the input file, in bytes.
--- * 'frameRate' - The detected frame rate of the input file, in frames per second.
 -- * 'height' - The detected height of the input file, in pixels.
+-- * 'frameRate' - The detected frame rate of the input file, in frames per second.
+-- * 'fileSize' - The detected file size of the input file, in bytes.
 -- * 'width' - The detected width of the input file, in pixels.
+-- * 'durationMillis' - The detected duration of the input file, in milliseconds.
 mkDetectedProperties ::
   DetectedProperties
 mkDetectedProperties =

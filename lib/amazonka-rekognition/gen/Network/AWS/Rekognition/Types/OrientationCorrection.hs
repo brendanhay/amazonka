@@ -14,9 +14,9 @@ module Network.AWS.Rekognition.Types.OrientationCorrection
   ( OrientationCorrection
       ( OrientationCorrection',
         Rotate0,
+        Rotate90,
         Rotate180,
-        Rotate270,
-        Rotate90
+        Rotate270
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype OrientationCorrection = OrientationCorrection' Lude.Text
 pattern Rotate0 :: OrientationCorrection
 pattern Rotate0 = OrientationCorrection' "ROTATE_0"
 
+pattern Rotate90 :: OrientationCorrection
+pattern Rotate90 = OrientationCorrection' "ROTATE_90"
+
 pattern Rotate180 :: OrientationCorrection
 pattern Rotate180 = OrientationCorrection' "ROTATE_180"
 
 pattern Rotate270 :: OrientationCorrection
 pattern Rotate270 = OrientationCorrection' "ROTATE_270"
 
-pattern Rotate90 :: OrientationCorrection
-pattern Rotate90 = OrientationCorrection' "ROTATE_90"
-
 {-# COMPLETE
   Rotate0,
+  Rotate90,
   Rotate180,
   Rotate270,
-  Rotate90,
   OrientationCorrection'
   #-}

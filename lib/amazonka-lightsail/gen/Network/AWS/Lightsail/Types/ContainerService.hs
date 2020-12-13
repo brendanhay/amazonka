@@ -50,67 +50,82 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerService' smart constructor.
 data ContainerService = ContainerService'
-  { state ::
-      Lude.Maybe ContainerServiceState,
+  { -- | The current state of the container service.
+    --
+    -- The state can be:
+    --
+    --     * @Pending@ - The container service is being created.
+    --
+    --
+    --     * @Ready@ - The container service is created but does not have a container deployment.
+    --
+    --
+    --     * @Disabled@ - The container service is disabled.
+    --
+    --
+    --     * @Updating@ - The container service capacity or other setting is being updated.
+    --
+    --
+    --     * @Deploying@ - The container service is launching a container deployment.
+    --
+    --
+    --     * @Running@ - The container service is created and it has a container deployment.
+    state :: Lude.Maybe ContainerServiceState,
+    -- | The ID of the power of the container service.
     powerId :: Lude.Maybe Lude.Text,
+    -- | The Lightsail resource type of the container service (i.e., @ContainerService@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the container service.
     arn :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the container service was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | An object that describes the location of the container service, such as the AWS Region and Availability Zone.
     location :: Lude.Maybe ResourceLocation,
+    -- | The scale specification of the container service.
+    --
+    -- The scale specifies the allocated compute nodes of the container service.
     scale :: Lude.Maybe Lude.Natural,
+    -- | The publicly accessible URL of the container service.
+    --
+    -- If no public endpoint is specified in the @currentDeployment@ , this URL returns a 404 response.
     url :: Lude.Maybe Lude.Text,
+    -- | An object that describes the next deployment of the container service.
+    --
+    -- This value is @null@ when there is no deployment in a @pending@ state.
     nextDeployment :: Lude.Maybe ContainerServiceDeployment,
+    -- | The principal ARN of the container service.
+    --
+    -- The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service. This allows you to give your service permission to access resources in your standard AWS account.
     principalARN :: Lude.Maybe Lude.Text,
+    -- | The power specification of the container service.
+    --
+    -- The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
     power :: Lude.Maybe ContainerServicePowerName,
+    -- | The private domain name of the container service.
+    --
+    -- The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
     privateDomainName :: Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating whether the container service is disabled.
     isDisabled :: Lude.Maybe Lude.Bool,
-    publicDomainNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The public domain name of the container service, such as @example.com@ and @www.example.com@ .
+    --
+    -- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
+    -- If you don't specify public domain names, then you can use the default domain of the container service.
+    -- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
+    -- See @CreateContainerService@ or @UpdateContainerService@ for information about how to specify public domain names for your Lightsail container service.
+    publicDomainNames :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The name of the container service.
     containerServiceName :: Lude.Maybe Lude.Text,
-    currentDeployment ::
-      Lude.Maybe ContainerServiceDeployment,
+    -- | An object that describes the current container deployment of the container service.
+    currentDeployment :: Lude.Maybe ContainerServiceDeployment,
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerService' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the container service.
--- * 'containerServiceName' - The name of the container service.
--- * 'createdAt' - The timestamp when the container service was created.
--- * 'currentDeployment' - An object that describes the current container deployment of the container service.
--- * 'isDisabled' - A Boolean value indicating whether the container service is disabled.
--- * 'location' - An object that describes the location of the container service, such as the AWS Region and Availability Zone.
--- * 'nextDeployment' - An object that describes the next deployment of the container service.
---
--- This value is @null@ when there is no deployment in a @pending@ state.
--- * 'power' - The power specification of the container service.
---
--- The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
--- * 'powerId' - The ID of the power of the container service.
--- * 'principalARN' - The principal ARN of the container service.
---
--- The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service. This allows you to give your service permission to access resources in your standard AWS account.
--- * 'privateDomainName' - The private domain name of the container service.
---
--- The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
--- * 'publicDomainNames' - The public domain name of the container service, such as @example.com@ and @www.example.com@ .
---
--- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
--- If you don't specify public domain names, then you can use the default domain of the container service.
--- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
--- See @CreateContainerService@ or @UpdateContainerService@ for information about how to specify public domain names for your Lightsail container service.
--- * 'resourceType' - The Lightsail resource type of the container service (i.e., @ContainerService@ ).
--- * 'scale' - The scale specification of the container service.
---
--- The scale specifies the allocated compute nodes of the container service.
 -- * 'state' - The current state of the container service.
 --
 -- The state can be:
@@ -133,10 +148,39 @@ data ContainerService = ContainerService'
 --     * @Running@ - The container service is created and it has a container deployment.
 --
 --
--- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+-- * 'powerId' - The ID of the power of the container service.
+-- * 'resourceType' - The Lightsail resource type of the container service (i.e., @ContainerService@ ).
+-- * 'arn' - The Amazon Resource Name (ARN) of the container service.
+-- * 'createdAt' - The timestamp when the container service was created.
+-- * 'location' - An object that describes the location of the container service, such as the AWS Region and Availability Zone.
+-- * 'scale' - The scale specification of the container service.
+--
+-- The scale specifies the allocated compute nodes of the container service.
 -- * 'url' - The publicly accessible URL of the container service.
 --
 -- If no public endpoint is specified in the @currentDeployment@ , this URL returns a 404 response.
+-- * 'nextDeployment' - An object that describes the next deployment of the container service.
+--
+-- This value is @null@ when there is no deployment in a @pending@ state.
+-- * 'principalARN' - The principal ARN of the container service.
+--
+-- The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service. This allows you to give your service permission to access resources in your standard AWS account.
+-- * 'power' - The power specification of the container service.
+--
+-- The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
+-- * 'privateDomainName' - The private domain name of the container service.
+--
+-- The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+-- * 'isDisabled' - A Boolean value indicating whether the container service is disabled.
+-- * 'publicDomainNames' - The public domain name of the container service, such as @example.com@ and @www.example.com@ .
+--
+-- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
+-- If you don't specify public domain names, then you can use the default domain of the container service.
+-- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
+-- See @CreateContainerService@ or @UpdateContainerService@ for information about how to specify public domain names for your Lightsail container service.
+-- * 'containerServiceName' - The name of the container service.
+-- * 'currentDeployment' - An object that describes the current container deployment of the container service.
+-- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkContainerService ::
   ContainerService
 mkContainerService =

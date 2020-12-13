@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceStatusInfo' smart constructor.
 data DeviceStatusInfo = DeviceStatusInfo'
-  { connectionStatusUpdatedTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time (in epoch) when the device connection status changed.
+    connectionStatusUpdatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | One or more device status detail descriptions.
     deviceStatusDetails :: Lude.Maybe [DeviceStatusDetail],
+    -- | The latest available information about the connection status of a device.
     connectionStatus :: Lude.Maybe ConnectionStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceStatusInfo' with the minimum fields required to make a request.
 --
--- * 'connectionStatus' - The latest available information about the connection status of a device.
 -- * 'connectionStatusUpdatedTime' - The time (in epoch) when the device connection status changed.
 -- * 'deviceStatusDetails' - One or more device status detail descriptions.
+-- * 'connectionStatus' - The latest available information about the connection status of a device.
 mkDeviceStatusInfo ::
   DeviceStatusInfo
 mkDeviceStatusInfo =

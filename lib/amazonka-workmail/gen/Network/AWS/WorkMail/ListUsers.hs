@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,23 +46,20 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The identifier for the organization under which the users exist.
     organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUsers' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
+-- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'organizationId' - The identifier for the organization under which the users exist.
 mkListUsers ::
   -- | 'organizationId'
@@ -145,25 +143,21 @@ instance Lude.ToQuery ListUsers where
 
 -- | /See:/ 'mkListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { users ::
-      Lude.Maybe [User],
+  { -- | The overview of users for an organization.
+    users :: Lude.Maybe [User],
+    -- | The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
 --
+-- * 'users' - The overview of users for an organization.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'users' - The overview of users for an organization.
 mkListUsersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

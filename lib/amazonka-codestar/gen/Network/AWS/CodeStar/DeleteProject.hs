@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CodeStar.DeleteProject
 
     -- ** Request lenses
     dpDeleteStack,
-    dpClientRequestToken,
     dpId,
+    dpClientRequestToken,
 
     -- * Destructuring the response
     DeleteProjectResponse (..),
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteProject' smart constructor.
 data DeleteProject = DeleteProject'
-  { deleteStack ::
-      Lude.Maybe Lude.Bool,
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    id :: Lude.Text
+  { -- | Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
+    deleteStack :: Lude.Maybe Lude.Bool,
+    -- | The ID of the project to be deleted in AWS CodeStar.
+    id :: Lude.Text,
+    -- | A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProject' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request.
 -- * 'deleteStack' - Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
 -- * 'id' - The ID of the project to be deleted in AWS CodeStar.
+-- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request.
 mkDeleteProject ::
   -- | 'id'
   Lude.Text ->
@@ -68,8 +65,8 @@ mkDeleteProject ::
 mkDeleteProject pId_ =
   DeleteProject'
     { deleteStack = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
-      id = pId_
+      id = pId_,
+      clientRequestToken = Lude.Nothing
     }
 
 -- | Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
@@ -79,19 +76,19 @@ dpDeleteStack :: Lens.Lens' DeleteProject (Lude.Maybe Lude.Bool)
 dpDeleteStack = Lens.lens (deleteStack :: DeleteProject -> Lude.Maybe Lude.Bool) (\s a -> s {deleteStack = a} :: DeleteProject)
 {-# DEPRECATED dpDeleteStack "Use generic-lens or generic-optics with 'deleteStack' instead." #-}
 
--- | A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpClientRequestToken :: Lens.Lens' DeleteProject (Lude.Maybe Lude.Text)
-dpClientRequestToken = Lens.lens (clientRequestToken :: DeleteProject -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: DeleteProject)
-{-# DEPRECATED dpClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
 -- | The ID of the project to be deleted in AWS CodeStar.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dpId :: Lens.Lens' DeleteProject Lude.Text
 dpId = Lens.lens (id :: DeleteProject -> Lude.Text) (\s a -> s {id = a} :: DeleteProject)
 {-# DEPRECATED dpId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpClientRequestToken :: Lens.Lens' DeleteProject (Lude.Maybe Lude.Text)
+dpClientRequestToken = Lens.lens (clientRequestToken :: DeleteProject -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: DeleteProject)
+{-# DEPRECATED dpClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest DeleteProject where
   type Rs DeleteProject = DeleteProjectResponse
@@ -121,8 +118,8 @@ instance Lude.ToJSON DeleteProject where
     Lude.object
       ( Lude.catMaybes
           [ ("deleteStack" Lude..=) Lude.<$> deleteStack,
-            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("id" Lude..= id)
+            Lude.Just ("id" Lude..= id),
+            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -134,25 +131,21 @@ instance Lude.ToQuery DeleteProject where
 
 -- | /See:/ 'mkDeleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
-  { projectARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the deleted project.
+    projectARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the primary stack in AWS CloudFormation that will be deleted as part of deleting the project and its resources.
     stackId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProjectResponse' with the minimum fields required to make a request.
 --
 -- * 'projectARN' - The Amazon Resource Name (ARN) of the deleted project.
--- * 'responseStatus' - The response status code.
 -- * 'stackId' - The ID of the primary stack in AWS CloudFormation that will be deleted as part of deleting the project and its resources.
+-- * 'responseStatus' - The response status code.
 mkDeleteProjectResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -33,27 +33,26 @@ import Network.AWS.Rekognition.Types.BoundingBox
 --
 -- /See:/ 'mkFace' smart constructor.
 data Face = Face'
-  { faceId :: Lude.Maybe Lude.Text,
+  { -- | Unique identifier that Amazon Rekognition assigns to the face.
+    faceId :: Lude.Maybe Lude.Text,
+    -- | Bounding box of the face.
     boundingBox :: Lude.Maybe BoundingBox,
+    -- | Identifier that you assign to all the faces in the input image.
     externalImageId :: Lude.Maybe Lude.Text,
+    -- | Confidence level that the bounding box contains a face (and not a different object such as a tree).
     confidence :: Lude.Maybe Lude.Double,
+    -- | Unique identifier that Amazon Rekognition assigns to the input image.
     imageId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Face' with the minimum fields required to make a request.
 --
--- * 'boundingBox' - Bounding box of the face.
--- * 'confidence' - Confidence level that the bounding box contains a face (and not a different object such as a tree).
--- * 'externalImageId' - Identifier that you assign to all the faces in the input image.
 -- * 'faceId' - Unique identifier that Amazon Rekognition assigns to the face.
+-- * 'boundingBox' - Bounding box of the face.
+-- * 'externalImageId' - Identifier that you assign to all the faces in the input image.
+-- * 'confidence' - Confidence level that the bounding box contains a face (and not a different object such as a tree).
 -- * 'imageId' - Unique identifier that Amazon Rekognition assigns to the input image.
 mkFace ::
   Face

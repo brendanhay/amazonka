@@ -13,9 +13,9 @@
 module Network.AWS.Budgets.Types.ComparisonOperator
   ( ComparisonOperator
       ( ComparisonOperator',
-        EqualTo,
         GreaterThan,
-        LessThan
+        LessThan,
+        EqualTo
       ),
   )
 where
@@ -49,18 +49,18 @@ newtype ComparisonOperator = ComparisonOperator' Lude.Text
       Lude.ToHeader
     )
 
-pattern EqualTo :: ComparisonOperator
-pattern EqualTo = ComparisonOperator' "EQUAL_TO"
-
 pattern GreaterThan :: ComparisonOperator
 pattern GreaterThan = ComparisonOperator' "GREATER_THAN"
 
 pattern LessThan :: ComparisonOperator
 pattern LessThan = ComparisonOperator' "LESS_THAN"
 
+pattern EqualTo :: ComparisonOperator
+pattern EqualTo = ComparisonOperator' "EQUAL_TO"
+
 {-# COMPLETE
-  EqualTo,
   GreaterThan,
   LessThan,
+  EqualTo,
   ComparisonOperator'
   #-}

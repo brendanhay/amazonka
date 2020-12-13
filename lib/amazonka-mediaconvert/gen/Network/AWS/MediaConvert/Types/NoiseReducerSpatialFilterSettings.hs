@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNoiseReducerSpatialFilterSettings' smart constructor.
 data NoiseReducerSpatialFilterSettings = NoiseReducerSpatialFilterSettings'
-  { strength ::
-      Lude.Maybe Lude.Natural,
-    postFilterSharpenStrength ::
-      Lude.Maybe Lude.Natural,
-    speed ::
-      Lude.Maybe Lude.Int
+  { -- | Relative strength of noise reducing filter. Higher values produce stronger filtering.
+    strength :: Lude.Maybe Lude.Natural,
+    -- | Specify strength of post noise reduction sharpening filter, with 0 disabling the filter and 3 enabling it at maximum strength.
+    postFilterSharpenStrength :: Lude.Maybe Lude.Natural,
+    -- | The speed of the filter, from -2 (lower speed) to 3 (higher speed), with 0 being the nominal value.
+    speed :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NoiseReducerSpatialFilterSettings' with the minimum fields required to make a request.
 --
+-- * 'strength' - Relative strength of noise reducing filter. Higher values produce stronger filtering.
 -- * 'postFilterSharpenStrength' - Specify strength of post noise reduction sharpening filter, with 0 disabling the filter and 3 enabling it at maximum strength.
 -- * 'speed' - The speed of the filter, from -2 (lower speed) to 3 (higher speed), with 0 being the nominal value.
--- * 'strength' - Relative strength of noise reducing filter. Higher values produce stronger filtering.
 mkNoiseReducerSpatialFilterSettings ::
   NoiseReducerSpatialFilterSettings
 mkNoiseReducerSpatialFilterSettings =

@@ -42,25 +42,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainConfigurationSummary' smart constructor.
 data DomainConfigurationSummary = DomainConfigurationSummary'
-  { domainConfigurationName ::
-      Lude.Maybe Lude.Text,
-    domainConfigurationARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the domain configuration. This value must be unique to a region.
+    domainConfigurationName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the domain configuration.
+    domainConfigurationARN :: Lude.Maybe Lude.Text,
+    -- | The type of service delivered by the endpoint.
     serviceType :: Lude.Maybe ServiceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainConfigurationSummary' with the minimum fields required to make a request.
 --
--- * 'domainConfigurationARN' - The ARN of the domain configuration.
 -- * 'domainConfigurationName' - The name of the domain configuration. This value must be unique to a region.
+-- * 'domainConfigurationARN' - The ARN of the domain configuration.
 -- * 'serviceType' - The type of service delivered by the endpoint.
 mkDomainConfigurationSummary ::
   DomainConfigurationSummary

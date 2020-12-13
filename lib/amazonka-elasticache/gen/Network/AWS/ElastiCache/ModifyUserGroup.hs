@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.ElastiCache.ModifyUserGroup
 
     -- ** Request lenses
     mugUserIdsToAdd,
-    mugUserIdsToRemove,
     mugUserGroupId,
+    mugUserIdsToRemove,
 
     -- * Destructuring the response
     UserGroup (..),
@@ -46,24 +47,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyUserGroup' smart constructor.
 data ModifyUserGroup = ModifyUserGroup'
-  { userIdsToAdd ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    userIdsToRemove :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    userGroupId :: Lude.Text
+  { -- | The list of user IDs to add to the user group.
+    userIdsToAdd :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The ID of the user group.
+    userGroupId :: Lude.Text,
+    -- | The list of user IDs to remove from the user group.
+    userIdsToRemove :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyUserGroup' with the minimum fields required to make a request.
 --
--- * 'userGroupId' - The ID of the user group.
 -- * 'userIdsToAdd' - The list of user IDs to add to the user group.
+-- * 'userGroupId' - The ID of the user group.
 -- * 'userIdsToRemove' - The list of user IDs to remove from the user group.
 mkModifyUserGroup ::
   -- | 'userGroupId'
@@ -72,8 +69,8 @@ mkModifyUserGroup ::
 mkModifyUserGroup pUserGroupId_ =
   ModifyUserGroup'
     { userIdsToAdd = Lude.Nothing,
-      userIdsToRemove = Lude.Nothing,
-      userGroupId = pUserGroupId_
+      userGroupId = pUserGroupId_,
+      userIdsToRemove = Lude.Nothing
     }
 
 -- | The list of user IDs to add to the user group.
@@ -83,19 +80,19 @@ mugUserIdsToAdd :: Lens.Lens' ModifyUserGroup (Lude.Maybe (Lude.NonEmpty Lude.Te
 mugUserIdsToAdd = Lens.lens (userIdsToAdd :: ModifyUserGroup -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {userIdsToAdd = a} :: ModifyUserGroup)
 {-# DEPRECATED mugUserIdsToAdd "Use generic-lens or generic-optics with 'userIdsToAdd' instead." #-}
 
--- | The list of user IDs to remove from the user group.
---
--- /Note:/ Consider using 'userIdsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mugUserIdsToRemove :: Lens.Lens' ModifyUserGroup (Lude.Maybe (Lude.NonEmpty Lude.Text))
-mugUserIdsToRemove = Lens.lens (userIdsToRemove :: ModifyUserGroup -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {userIdsToRemove = a} :: ModifyUserGroup)
-{-# DEPRECATED mugUserIdsToRemove "Use generic-lens or generic-optics with 'userIdsToRemove' instead." #-}
-
 -- | The ID of the user group.
 --
 -- /Note:/ Consider using 'userGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mugUserGroupId :: Lens.Lens' ModifyUserGroup Lude.Text
 mugUserGroupId = Lens.lens (userGroupId :: ModifyUserGroup -> Lude.Text) (\s a -> s {userGroupId = a} :: ModifyUserGroup)
 {-# DEPRECATED mugUserGroupId "Use generic-lens or generic-optics with 'userGroupId' instead." #-}
+
+-- | The list of user IDs to remove from the user group.
+--
+-- /Note:/ Consider using 'userIdsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mugUserIdsToRemove :: Lens.Lens' ModifyUserGroup (Lude.Maybe (Lude.NonEmpty Lude.Text))
+mugUserIdsToRemove = Lens.lens (userIdsToRemove :: ModifyUserGroup -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {userIdsToRemove = a} :: ModifyUserGroup)
+{-# DEPRECATED mugUserIdsToRemove "Use generic-lens or generic-optics with 'userIdsToRemove' instead." #-}
 
 instance Lude.AWSRequest ModifyUserGroup where
   type Rs ModifyUserGroup = UserGroup
@@ -118,7 +115,7 @@ instance Lude.ToQuery ModifyUserGroup where
         "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
         "UserIdsToAdd"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> userIdsToAdd),
+        "UserGroupId" Lude.=: userGroupId,
         "UserIdsToRemove"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> userIdsToRemove),
-        "UserGroupId" Lude.=: userGroupId
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> userIdsToRemove)
       ]

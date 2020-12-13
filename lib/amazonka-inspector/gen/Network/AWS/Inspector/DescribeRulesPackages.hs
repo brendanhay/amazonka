@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,9 +28,9 @@ module Network.AWS.Inspector.DescribeRulesPackages
     mkDescribeRulesPackagesResponse,
 
     -- ** Response lenses
-    drprsResponseStatus,
     drprsRulesPackages,
     drprsFailedItems,
+    drprsResponseStatus,
   )
 where
 
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeRulesPackages' smart constructor.
 data DescribeRulesPackages = DescribeRulesPackages'
-  { locale ::
-      Lude.Maybe Locale,
+  { -- | The locale that you want to translate a rules package description into.
+    locale :: Lude.Maybe Locale,
+    -- | The ARN that specifies the rules package that you want to describe.
     rulesPackageARNs :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRulesPackages' with the minimum fields required to make a request.
@@ -89,9 +85,9 @@ instance Lude.AWSRequest DescribeRulesPackages where
     Res.receiveJSON
       ( \s h x ->
           DescribeRulesPackagesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "rulesPackages" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "rulesPackages" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeRulesPackages where
@@ -122,45 +118,31 @@ instance Lude.ToQuery DescribeRulesPackages where
 
 -- | /See:/ 'mkDescribeRulesPackagesResponse' smart constructor.
 data DescribeRulesPackagesResponse = DescribeRulesPackagesResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | Information about the rules package.
     rulesPackages :: [RulesPackage],
-    failedItems ::
-      Lude.HashMap
-        Lude.Text
-        (FailedItemDetails)
+    -- | Rules package details that cannot be described. An error code is provided for each failed item.
+    failedItems :: Lude.HashMap Lude.Text (FailedItemDetails),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRulesPackagesResponse' with the minimum fields required to make a request.
 --
+-- * 'rulesPackages' - Information about the rules package.
 -- * 'failedItems' - Rules package details that cannot be described. An error code is provided for each failed item.
 -- * 'responseStatus' - The response status code.
--- * 'rulesPackages' - Information about the rules package.
 mkDescribeRulesPackagesResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   DescribeRulesPackagesResponse
 mkDescribeRulesPackagesResponse pResponseStatus_ =
   DescribeRulesPackagesResponse'
-    { responseStatus = pResponseStatus_,
-      rulesPackages = Lude.mempty,
-      failedItems = Lude.mempty
+    { rulesPackages = Lude.mempty,
+      failedItems = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsResponseStatus :: Lens.Lens' DescribeRulesPackagesResponse Lude.Int
-drprsResponseStatus = Lens.lens (responseStatus :: DescribeRulesPackagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRulesPackagesResponse)
-{-# DEPRECATED drprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the rules package.
 --
@@ -175,3 +157,10 @@ drprsRulesPackages = Lens.lens (rulesPackages :: DescribeRulesPackagesResponse -
 drprsFailedItems :: Lens.Lens' DescribeRulesPackagesResponse (Lude.HashMap Lude.Text (FailedItemDetails))
 drprsFailedItems = Lens.lens (failedItems :: DescribeRulesPackagesResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeRulesPackagesResponse)
 {-# DEPRECATED drprsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drprsResponseStatus :: Lens.Lens' DescribeRulesPackagesResponse Lude.Int
+drprsResponseStatus = Lens.lens (responseStatus :: DescribeRulesPackagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRulesPackagesResponse)
+{-# DEPRECATED drprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,10 +45,10 @@ module Network.AWS.S3.PutBucketCORS
     mkPutBucketCORS,
 
     -- ** Request lenses
-    pbcContentMD5,
-    pbcExpectedBucketOwner,
     pbcBucket,
+    pbcContentMD5,
     pbcCORSConfiguration,
+    pbcExpectedBucketOwner,
 
     -- * Destructuring the response
     PutBucketCORSResponse (..),
@@ -63,19 +64,18 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketCORS' smart constructor.
 data PutBucketCORS = PutBucketCORS'
-  { contentMD5 ::
-      Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | Specifies the bucket impacted by the @cors@ configuration.
     bucket :: BucketName,
-    corsConfiguration :: CORSConfiguration
+    -- | The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing> in the /Amazon Simple Storage Service Developer Guide/ .
+    corsConfiguration :: CORSConfiguration,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketCORS' with the minimum fields required to make a request.
@@ -94,11 +94,18 @@ mkPutBucketCORS ::
   PutBucketCORS
 mkPutBucketCORS pBucket_ pCORSConfiguration_ =
   PutBucketCORS'
-    { contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_,
-      corsConfiguration = pCORSConfiguration_
+    { bucket = pBucket_,
+      contentMD5 = Lude.Nothing,
+      corsConfiguration = pCORSConfiguration_,
+      expectedBucketOwner = Lude.Nothing
     }
+
+-- | Specifies the bucket impacted by the @cors@ configuration.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbcBucket :: Lens.Lens' PutBucketCORS BucketName
+pbcBucket = Lens.lens (bucket :: PutBucketCORS -> BucketName) (\s a -> s {bucket = a} :: PutBucketCORS)
+{-# DEPRECATED pbcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
 --
@@ -109,26 +116,19 @@ pbcContentMD5 :: Lens.Lens' PutBucketCORS (Lude.Maybe Lude.Text)
 pbcContentMD5 = Lens.lens (contentMD5 :: PutBucketCORS -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutBucketCORS)
 {-# DEPRECATED pbcContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
 
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbcExpectedBucketOwner :: Lens.Lens' PutBucketCORS (Lude.Maybe Lude.Text)
-pbcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketCORS -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketCORS)
-{-# DEPRECATED pbcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | Specifies the bucket impacted by the @cors@ configuration.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbcBucket :: Lens.Lens' PutBucketCORS BucketName
-pbcBucket = Lens.lens (bucket :: PutBucketCORS -> BucketName) (\s a -> s {bucket = a} :: PutBucketCORS)
-{-# DEPRECATED pbcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
 -- | Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'corsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pbcCORSConfiguration :: Lens.Lens' PutBucketCORS CORSConfiguration
 pbcCORSConfiguration = Lens.lens (corsConfiguration :: PutBucketCORS -> CORSConfiguration) (\s a -> s {corsConfiguration = a} :: PutBucketCORS)
 {-# DEPRECATED pbcCORSConfiguration "Use generic-lens or generic-optics with 'corsConfiguration' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbcExpectedBucketOwner :: Lens.Lens' PutBucketCORS (Lude.Maybe Lude.Text)
+pbcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketCORS -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketCORS)
+{-# DEPRECATED pbcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest PutBucketCORS where
   type Rs PutBucketCORS = PutBucketCORSResponse
@@ -156,13 +156,7 @@ instance Lude.ToQuery PutBucketCORS where
 
 -- | /See:/ 'mkPutBucketCORSResponse' smart constructor.
 data PutBucketCORSResponse = PutBucketCORSResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketCORSResponse' with the minimum fields required to make a request.

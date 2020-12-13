@@ -18,8 +18,8 @@ module Network.AWS.Greengrass.Types.Resource
 
     -- * Lenses
     rResourceDataContainer,
-    rId,
     rName,
+    rId,
   )
 where
 
@@ -31,38 +31,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResource' smart constructor.
 data Resource = Resource'
-  { resourceDataContainer ::
-      ResourceDataContainer,
-    id :: Lude.Text,
-    name :: Lude.Text
+  { -- | A container of data for all resource types.
+    resourceDataContainer :: ResourceDataContainer,
+    -- | The descriptive resource name, which is displayed on the AWS IoT Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+    name :: Lude.Text,
+    -- | The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
--- * 'id' - The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
--- * 'name' - The descriptive resource name, which is displayed on the AWS IoT Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
 -- * 'resourceDataContainer' - A container of data for all resource types.
+-- * 'name' - The descriptive resource name, which is displayed on the AWS IoT Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+-- * 'id' - The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
 mkResource ::
   -- | 'resourceDataContainer'
   ResourceDataContainer ->
-  -- | 'id'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   Resource
-mkResource pResourceDataContainer_ pId_ pName_ =
+mkResource pResourceDataContainer_ pName_ pId_ =
   Resource'
     { resourceDataContainer = pResourceDataContainer_,
-      id = pId_,
-      name = pName_
+      name = pName_,
+      id = pId_
     }
 
 -- | A container of data for all resource types.
@@ -72,19 +68,19 @@ rResourceDataContainer :: Lens.Lens' Resource ResourceDataContainer
 rResourceDataContainer = Lens.lens (resourceDataContainer :: Resource -> ResourceDataContainer) (\s a -> s {resourceDataContainer = a} :: Resource)
 {-# DEPRECATED rResourceDataContainer "Use generic-lens or generic-optics with 'resourceDataContainer' instead." #-}
 
--- | The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rId :: Lens.Lens' Resource Lude.Text
-rId = Lens.lens (id :: Resource -> Lude.Text) (\s a -> s {id = a} :: Resource)
-{-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
-
 -- | The descriptive resource name, which is displayed on the AWS IoT Greengrass console. Max length 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rName :: Lens.Lens' Resource Lude.Text
 rName = Lens.lens (name :: Resource -> Lude.Text) (\s a -> s {name = a} :: Resource)
 {-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rId :: Lens.Lens' Resource Lude.Text
+rId = Lens.lens (id :: Resource -> Lude.Text) (\s a -> s {id = a} :: Resource)
+{-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.FromJSON Resource where
   parseJSON =
@@ -93,8 +89,8 @@ instance Lude.FromJSON Resource where
       ( \x ->
           Resource'
             Lude.<$> (x Lude..: "ResourceDataContainer")
-            Lude.<*> (x Lude..: "Id")
             Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..: "Id")
       )
 
 instance Lude.ToJSON Resource where
@@ -102,7 +98,7 @@ instance Lude.ToJSON Resource where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("ResourceDataContainer" Lude..= resourceDataContainer),
-            Lude.Just ("Id" Lude..= id),
-            Lude.Just ("Name" Lude..= name)
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Id" Lude..= id)
           ]
       )

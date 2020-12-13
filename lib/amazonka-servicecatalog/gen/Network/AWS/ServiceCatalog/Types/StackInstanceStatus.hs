@@ -14,8 +14,8 @@ module Network.AWS.ServiceCatalog.Types.StackInstanceStatus
   ( StackInstanceStatus
       ( StackInstanceStatus',
         Current,
-        Inoperable,
-        Outdated
+        Outdated,
+        Inoperable
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype StackInstanceStatus = StackInstanceStatus' Lude.Text
 pattern Current :: StackInstanceStatus
 pattern Current = StackInstanceStatus' "CURRENT"
 
-pattern Inoperable :: StackInstanceStatus
-pattern Inoperable = StackInstanceStatus' "INOPERABLE"
-
 pattern Outdated :: StackInstanceStatus
 pattern Outdated = StackInstanceStatus' "OUTDATED"
 
+pattern Inoperable :: StackInstanceStatus
+pattern Inoperable = StackInstanceStatus' "INOPERABLE"
+
 {-# COMPLETE
   Current,
-  Inoperable,
   Outdated,
+  Inoperable,
   StackInstanceStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.Batch.DeregisterJobDefinition
     mkDeregisterJobDefinitionResponse,
 
     -- ** Response lenses
-    derrsResponseStatus,
+    djdfrsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeregisterJobDefinition' smart constructor.
 newtype DeregisterJobDefinition = DeregisterJobDefinition'
-  { jobDefinition ::
-      Lude.Text
+  { -- | The name and revision (@name:revision@ ) or full Amazon Resource Name (ARN) of the job definition to deregister.
+    jobDefinition :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterJobDefinition' with the minimum fields required to make a request.
@@ -101,16 +96,10 @@ instance Lude.ToQuery DeregisterJobDefinition where
 
 -- | /See:/ 'mkDeregisterJobDefinitionResponse' smart constructor.
 newtype DeregisterJobDefinitionResponse = DeregisterJobDefinitionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterJobDefinitionResponse' with the minimum fields required to make a request.
@@ -129,6 +118,6 @@ mkDeregisterJobDefinitionResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derrsResponseStatus :: Lens.Lens' DeregisterJobDefinitionResponse Lude.Int
-derrsResponseStatus = Lens.lens (responseStatus :: DeregisterJobDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterJobDefinitionResponse)
-{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+djdfrsResponseStatus :: Lens.Lens' DeregisterJobDefinitionResponse Lude.Int
+djdfrsResponseStatus = Lens.lens (responseStatus :: DeregisterJobDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterJobDefinitionResponse)
+{-# DEPRECATED djdfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

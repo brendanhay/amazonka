@@ -13,9 +13,9 @@
 module Network.AWS.SES.Types.CustomMailFromStatus
   ( CustomMailFromStatus
       ( CustomMailFromStatus',
-        CMFSFailed,
         CMFSPending,
         CMFSSuccess,
+        CMFSFailed,
         CMFSTemporaryFailure
       ),
   )
@@ -47,22 +47,22 @@ newtype CustomMailFromStatus = CustomMailFromStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CMFSFailed :: CustomMailFromStatus
-pattern CMFSFailed = CustomMailFromStatus' "Failed"
-
 pattern CMFSPending :: CustomMailFromStatus
 pattern CMFSPending = CustomMailFromStatus' "Pending"
 
 pattern CMFSSuccess :: CustomMailFromStatus
 pattern CMFSSuccess = CustomMailFromStatus' "Success"
 
+pattern CMFSFailed :: CustomMailFromStatus
+pattern CMFSFailed = CustomMailFromStatus' "Failed"
+
 pattern CMFSTemporaryFailure :: CustomMailFromStatus
 pattern CMFSTemporaryFailure = CustomMailFromStatus' "TemporaryFailure"
 
 {-# COMPLETE
-  CMFSFailed,
   CMFSPending,
   CMFSSuccess,
+  CMFSFailed,
   CMFSTemporaryFailure,
   CustomMailFromStatus'
   #-}

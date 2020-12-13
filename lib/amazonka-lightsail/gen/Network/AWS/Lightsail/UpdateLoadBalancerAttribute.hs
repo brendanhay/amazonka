@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Lightsail.UpdateLoadBalancerAttribute
     mkUpdateLoadBalancerAttribute,
 
     -- ** Request lenses
+    ulbaAttributeValue,
     ulbaLoadBalancerName,
     ulbaAttributeName,
-    ulbaAttributeValue,
 
     -- * Destructuring the response
     UpdateLoadBalancerAttributeResponse (..),
@@ -43,44 +44,45 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateLoadBalancerAttribute' smart constructor.
 data UpdateLoadBalancerAttribute = UpdateLoadBalancerAttribute'
-  { loadBalancerName ::
-      Lude.Text,
-    attributeName ::
-      LoadBalancerAttributeName,
-    attributeValue :: Lude.Text
+  { -- | The value that you want to specify for the attribute name.
+    attributeValue :: Lude.Text,
+    -- | The name of the load balancer that you want to modify (e.g., @my-load-balancer@ .
+    loadBalancerName :: Lude.Text,
+    -- | The name of the attribute you want to update. Valid values are below.
+    attributeName :: LoadBalancerAttributeName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateLoadBalancerAttribute' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of the attribute you want to update. Valid values are below.
 -- * 'attributeValue' - The value that you want to specify for the attribute name.
 -- * 'loadBalancerName' - The name of the load balancer that you want to modify (e.g., @my-load-balancer@ .
+-- * 'attributeName' - The name of the attribute you want to update. Valid values are below.
 mkUpdateLoadBalancerAttribute ::
+  -- | 'attributeValue'
+  Lude.Text ->
   -- | 'loadBalancerName'
   Lude.Text ->
   -- | 'attributeName'
   LoadBalancerAttributeName ->
-  -- | 'attributeValue'
-  Lude.Text ->
   UpdateLoadBalancerAttribute
 mkUpdateLoadBalancerAttribute
+  pAttributeValue_
   pLoadBalancerName_
-  pAttributeName_
-  pAttributeValue_ =
+  pAttributeName_ =
     UpdateLoadBalancerAttribute'
-      { loadBalancerName =
-          pLoadBalancerName_,
-        attributeName = pAttributeName_,
-        attributeValue = pAttributeValue_
+      { attributeValue = pAttributeValue_,
+        loadBalancerName = pLoadBalancerName_,
+        attributeName = pAttributeName_
       }
+
+-- | The value that you want to specify for the attribute name.
+--
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulbaAttributeValue :: Lens.Lens' UpdateLoadBalancerAttribute Lude.Text
+ulbaAttributeValue = Lens.lens (attributeValue :: UpdateLoadBalancerAttribute -> Lude.Text) (\s a -> s {attributeValue = a} :: UpdateLoadBalancerAttribute)
+{-# DEPRECATED ulbaAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
 -- | The name of the load balancer that you want to modify (e.g., @my-load-balancer@ .
 --
@@ -95,13 +97,6 @@ ulbaLoadBalancerName = Lens.lens (loadBalancerName :: UpdateLoadBalancerAttribut
 ulbaAttributeName :: Lens.Lens' UpdateLoadBalancerAttribute LoadBalancerAttributeName
 ulbaAttributeName = Lens.lens (attributeName :: UpdateLoadBalancerAttribute -> LoadBalancerAttributeName) (\s a -> s {attributeName = a} :: UpdateLoadBalancerAttribute)
 {-# DEPRECATED ulbaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
-
--- | The value that you want to specify for the attribute name.
---
--- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulbaAttributeValue :: Lens.Lens' UpdateLoadBalancerAttribute Lude.Text
-ulbaAttributeValue = Lens.lens (attributeValue :: UpdateLoadBalancerAttribute -> Lude.Text) (\s a -> s {attributeValue = a} :: UpdateLoadBalancerAttribute)
-{-# DEPRECATED ulbaAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
 instance Lude.AWSRequest UpdateLoadBalancerAttribute where
   type
@@ -133,9 +128,9 @@ instance Lude.ToJSON UpdateLoadBalancerAttribute where
   toJSON UpdateLoadBalancerAttribute' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
-            Lude.Just ("attributeName" Lude..= attributeName),
-            Lude.Just ("attributeValue" Lude..= attributeValue)
+          [ Lude.Just ("attributeValue" Lude..= attributeValue),
+            Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
+            Lude.Just ("attributeName" Lude..= attributeName)
           ]
       )
 
@@ -147,19 +142,12 @@ instance Lude.ToQuery UpdateLoadBalancerAttribute where
 
 -- | /See:/ 'mkUpdateLoadBalancerAttributeResponse' smart constructor.
 data UpdateLoadBalancerAttributeResponse = UpdateLoadBalancerAttributeResponse'
-  { operations ::
-      Lude.Maybe
-        [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateLoadBalancerAttributeResponse' with the minimum fields required to make a request.

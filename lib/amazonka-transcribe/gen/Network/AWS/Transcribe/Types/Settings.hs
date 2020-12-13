@@ -36,39 +36,46 @@ import Network.AWS.Transcribe.Types.VocabularyFilterMethod
 --
 -- /See:/ 'mkSettings' smart constructor.
 data Settings = Settings'
-  { vocabularyName :: Lude.Maybe Lude.Text,
+  { -- | The name of a vocabulary to use when processing the transcription job.
+    vocabularyName :: Lude.Maybe Lude.Text,
+    -- | The number of alternative transcriptions that the service should return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
     maxAlternatives :: Lude.Maybe Lude.Natural,
+    -- | Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.
+    --
+    -- Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.
+    -- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
     channelIdentification :: Lude.Maybe Lude.Bool,
+    -- | Determines whether the transcription contains alternative transcriptions. If you set the @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
     showAlternatives :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers are identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
     maxSpeakerLabels :: Lude.Maybe Lude.Natural,
+    -- | The name of the vocabulary filter to use when transcribing the audio. The filter that you specify must have the same language code as the transcription job.
     vocabularyFilterName :: Lude.Maybe Lude.Text,
+    -- | Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels @MaxSpeakerLabels@ field.
+    --
+    -- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
     showSpeakerLabels :: Lude.Maybe Lude.Bool,
+    -- | Set to @mask@ to remove filtered text from the transcript and replace it with three asterisks ("***") as placeholder text. Set to @remove@ to remove filtered text from the transcript without using placeholder text.
     vocabularyFilterMethod :: Lude.Maybe VocabularyFilterMethod
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Settings' with the minimum fields required to make a request.
 --
+-- * 'vocabularyName' - The name of a vocabulary to use when processing the transcription job.
+-- * 'maxAlternatives' - The number of alternative transcriptions that the service should return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
 -- * 'channelIdentification' - Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.
 --
 -- Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.
 -- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
--- * 'maxAlternatives' - The number of alternative transcriptions that the service should return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
--- * 'maxSpeakerLabels' - The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers are identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
 -- * 'showAlternatives' - Determines whether the transcription contains alternative transcriptions. If you set the @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
+-- * 'maxSpeakerLabels' - The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers are identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
+-- * 'vocabularyFilterName' - The name of the vocabulary filter to use when transcribing the audio. The filter that you specify must have the same language code as the transcription job.
 -- * 'showSpeakerLabels' - Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels @MaxSpeakerLabels@ field.
 --
 -- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
 -- * 'vocabularyFilterMethod' - Set to @mask@ to remove filtered text from the transcript and replace it with three asterisks ("***") as placeholder text. Set to @remove@ to remove filtered text from the transcript without using placeholder text.
--- * 'vocabularyFilterName' - The name of the vocabulary filter to use when transcribing the audio. The filter that you specify must have the same language code as the transcription job.
--- * 'vocabularyName' - The name of a vocabulary to use when processing the transcription job.
 mkSettings ::
   Settings
 mkSettings =

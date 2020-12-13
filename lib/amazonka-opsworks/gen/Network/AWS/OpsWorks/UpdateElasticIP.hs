@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.OpsWorks.UpdateElasticIP
     mkUpdateElasticIP,
 
     -- ** Request lenses
-    ueiName,
     ueiElasticIP,
+    ueiName,
 
     -- * Destructuring the response
     UpdateElasticIPResponse (..),
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateElasticIP' smart constructor.
 data UpdateElasticIP = UpdateElasticIP'
-  { name ::
-      Lude.Maybe Lude.Text,
-    elasticIP :: Lude.Text
+  { -- | The IP address for which you want to update the name.
+    elasticIP :: Lude.Text,
+    -- | The new name.
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateElasticIP' with the minimum fields required to make a request.
@@ -60,14 +56,7 @@ mkUpdateElasticIP ::
   Lude.Text ->
   UpdateElasticIP
 mkUpdateElasticIP pElasticIP_ =
-  UpdateElasticIP' {name = Lude.Nothing, elasticIP = pElasticIP_}
-
--- | The new name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueiName :: Lens.Lens' UpdateElasticIP (Lude.Maybe Lude.Text)
-ueiName = Lens.lens (name :: UpdateElasticIP -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateElasticIP)
-{-# DEPRECATED ueiName "Use generic-lens or generic-optics with 'name' instead." #-}
+  UpdateElasticIP' {elasticIP = pElasticIP_, name = Lude.Nothing}
 
 -- | The IP address for which you want to update the name.
 --
@@ -75,6 +64,13 @@ ueiName = Lens.lens (name :: UpdateElasticIP -> Lude.Maybe Lude.Text) (\s a -> s
 ueiElasticIP :: Lens.Lens' UpdateElasticIP Lude.Text
 ueiElasticIP = Lens.lens (elasticIP :: UpdateElasticIP -> Lude.Text) (\s a -> s {elasticIP = a} :: UpdateElasticIP)
 {-# DEPRECATED ueiElasticIP "Use generic-lens or generic-optics with 'elasticIP' instead." #-}
+
+-- | The new name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueiName :: Lens.Lens' UpdateElasticIP (Lude.Maybe Lude.Text)
+ueiName = Lens.lens (name :: UpdateElasticIP -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateElasticIP)
+{-# DEPRECATED ueiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest UpdateElasticIP where
   type Rs UpdateElasticIP = UpdateElasticIPResponse
@@ -96,8 +92,8 @@ instance Lude.ToJSON UpdateElasticIP where
   toJSON UpdateElasticIP' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Name" Lude..=) Lude.<$> name,
-            Lude.Just ("ElasticIp" Lude..= elasticIP)
+          [ Lude.Just ("ElasticIp" Lude..= elasticIP),
+            ("Name" Lude..=) Lude.<$> name
           ]
       )
 
@@ -109,13 +105,7 @@ instance Lude.ToQuery UpdateElasticIP where
 
 -- | /See:/ 'mkUpdateElasticIPResponse' smart constructor.
 data UpdateElasticIPResponse = UpdateElasticIPResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateElasticIPResponse' with the minimum fields required to make a request.

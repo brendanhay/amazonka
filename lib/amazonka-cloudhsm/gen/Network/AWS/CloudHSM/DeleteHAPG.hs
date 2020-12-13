@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,15 +23,15 @@ module Network.AWS.CloudHSM.DeleteHAPG
     mkDeleteHAPG,
 
     -- ** Request lenses
-    dhHAPGARN,
+    dhapgHAPGARN,
 
     -- * Destructuring the response
     DeleteHAPGResponse (..),
     mkDeleteHAPGResponse,
 
     -- ** Response lenses
-    dhrsResponseStatus,
     dhrsStatus,
+    dhrsResponseStatus,
   )
 where
 
@@ -43,14 +44,11 @@ import qualified Network.AWS.Response as Res
 -- | Contains the inputs for the 'DeleteHapg' action.
 --
 -- /See:/ 'mkDeleteHAPG' smart constructor.
-newtype DeleteHAPG = DeleteHAPG' {hapgARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteHAPG = DeleteHAPG'
+  { -- | The ARN of the high-availability partition group to delete.
+    hapgARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHAPG' with the minimum fields required to make a request.
@@ -65,9 +63,9 @@ mkDeleteHAPG pHAPGARN_ = DeleteHAPG' {hapgARN = pHAPGARN_}
 -- | The ARN of the high-availability partition group to delete.
 --
 -- /Note:/ Consider using 'hapgARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhHAPGARN :: Lens.Lens' DeleteHAPG Lude.Text
-dhHAPGARN = Lens.lens (hapgARN :: DeleteHAPG -> Lude.Text) (\s a -> s {hapgARN = a} :: DeleteHAPG)
-{-# DEPRECATED dhHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
+dhapgHAPGARN :: Lens.Lens' DeleteHAPG Lude.Text
+dhapgHAPGARN = Lens.lens (hapgARN :: DeleteHAPG -> Lude.Text) (\s a -> s {hapgARN = a} :: DeleteHAPG)
+{-# DEPRECATED dhapgHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
 
 instance Lude.AWSRequest DeleteHAPG where
   type Rs DeleteHAPG = DeleteHAPGResponse
@@ -76,7 +74,7 @@ instance Lude.AWSRequest DeleteHAPG where
     Res.receiveJSON
       ( \s h x ->
           DeleteHAPGResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Status")
+            Lude.<$> (x Lude..:> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteHAPG where
@@ -105,41 +103,29 @@ instance Lude.ToQuery DeleteHAPG where
 --
 -- /See:/ 'mkDeleteHAPGResponse' smart constructor.
 data DeleteHAPGResponse = DeleteHAPGResponse'
-  { responseStatus ::
-      Lude.Int,
-    status :: Lude.Text
+  { -- | The status of the action.
+    status :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHAPGResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the action.
+-- * 'responseStatus' - The response status code.
 mkDeleteHAPGResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'status'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteHAPGResponse
-mkDeleteHAPGResponse pResponseStatus_ pStatus_ =
+mkDeleteHAPGResponse pStatus_ pResponseStatus_ =
   DeleteHAPGResponse'
-    { responseStatus = pResponseStatus_,
-      status = pStatus_
+    { status = pStatus_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhrsResponseStatus :: Lens.Lens' DeleteHAPGResponse Lude.Int
-dhrsResponseStatus = Lens.lens (responseStatus :: DeleteHAPGResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHAPGResponse)
-{-# DEPRECATED dhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the action.
 --
@@ -147,3 +133,10 @@ dhrsResponseStatus = Lens.lens (responseStatus :: DeleteHAPGResponse -> Lude.Int
 dhrsStatus :: Lens.Lens' DeleteHAPGResponse Lude.Text
 dhrsStatus = Lens.lens (status :: DeleteHAPGResponse -> Lude.Text) (\s a -> s {status = a} :: DeleteHAPGResponse)
 {-# DEPRECATED dhrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhrsResponseStatus :: Lens.Lens' DeleteHAPGResponse Lude.Int
+dhrsResponseStatus = Lens.lens (responseStatus :: DeleteHAPGResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHAPGResponse)
+{-# DEPRECATED dhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

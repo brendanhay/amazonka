@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.UpdateADMChannel
     mkUpdateADMChannelResponse,
 
     -- ** Response lenses
-    uadmcrsResponseStatus,
     uadmcrsADMChannelResponse,
+    uadmcrsResponseStatus,
   )
 where
 
@@ -40,23 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateADMChannel' smart constructor.
 data UpdateADMChannel = UpdateADMChannel'
-  { applicationId ::
-      Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
     aDMChannelRequest :: ADMChannelRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateADMChannel' with the minimum fields required to make a request.
 --
--- * 'aDMChannelRequest' - Undocumented field.
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'aDMChannelRequest' -
 mkUpdateADMChannel ::
   -- | 'applicationId'
   Lude.Text ->
@@ -90,7 +85,7 @@ instance Lude.AWSRequest UpdateADMChannel where
     Res.receiveJSON
       ( \s h x ->
           UpdateADMChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateADMChannel where
@@ -119,41 +114,29 @@ instance Lude.ToQuery UpdateADMChannel where
 
 -- | /See:/ 'mkUpdateADMChannelResponse' smart constructor.
 data UpdateADMChannelResponse = UpdateADMChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    aDMChannelResponse :: ADMChannelResponse
+  { aDMChannelResponse :: ADMChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateADMChannelResponse' with the minimum fields required to make a request.
 --
--- * 'aDMChannelResponse' - Undocumented field.
+-- * 'aDMChannelResponse' -
 -- * 'responseStatus' - The response status code.
 mkUpdateADMChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'aDMChannelResponse'
   ADMChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateADMChannelResponse
-mkUpdateADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
+mkUpdateADMChannelResponse pADMChannelResponse_ pResponseStatus_ =
   UpdateADMChannelResponse'
-    { responseStatus = pResponseStatus_,
-      aDMChannelResponse = pADMChannelResponse_
+    { aDMChannelResponse =
+        pADMChannelResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uadmcrsResponseStatus :: Lens.Lens' UpdateADMChannelResponse Lude.Int
-uadmcrsResponseStatus = Lens.lens (responseStatus :: UpdateADMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateADMChannelResponse)
-{-# DEPRECATED uadmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -161,3 +144,10 @@ uadmcrsResponseStatus = Lens.lens (responseStatus :: UpdateADMChannelResponse ->
 uadmcrsADMChannelResponse :: Lens.Lens' UpdateADMChannelResponse ADMChannelResponse
 uadmcrsADMChannelResponse = Lens.lens (aDMChannelResponse :: UpdateADMChannelResponse -> ADMChannelResponse) (\s a -> s {aDMChannelResponse = a} :: UpdateADMChannelResponse)
 {-# DEPRECATED uadmcrsADMChannelResponse "Use generic-lens or generic-optics with 'aDMChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uadmcrsResponseStatus :: Lens.Lens' UpdateADMChannelResponse Lude.Int
+uadmcrsResponseStatus = Lens.lens (responseStatus :: UpdateADMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateADMChannelResponse)
+{-# DEPRECATED uadmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

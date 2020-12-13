@@ -17,9 +17,9 @@ module Network.AWS.Lambda.Types.VPCConfigResponse
     mkVPCConfigResponse,
 
     -- * Lenses
-    vcSecurityGroupIds,
-    vcSubnetIds,
-    vcVPCId,
+    vpccSecurityGroupIds,
+    vpccSubnetIds,
+    vpccVPCId,
   )
 where
 
@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCConfigResponse' smart constructor.
 data VPCConfigResponse = VPCConfigResponse'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of VPC security groups IDs.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | A list of VPC subnet IDs.
     subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the VPC.
     vpcId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCConfigResponse' with the minimum fields required to make a request.
@@ -61,23 +57,23 @@ mkVPCConfigResponse =
 -- | A list of VPC security groups IDs.
 --
 -- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcSecurityGroupIds :: Lens.Lens' VPCConfigResponse (Lude.Maybe [Lude.Text])
-vcSecurityGroupIds = Lens.lens (securityGroupIds :: VPCConfigResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: VPCConfigResponse)
-{-# DEPRECATED vcSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
+vpccSecurityGroupIds :: Lens.Lens' VPCConfigResponse (Lude.Maybe [Lude.Text])
+vpccSecurityGroupIds = Lens.lens (securityGroupIds :: VPCConfigResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: VPCConfigResponse)
+{-# DEPRECATED vpccSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
 -- | A list of VPC subnet IDs.
 --
 -- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcSubnetIds :: Lens.Lens' VPCConfigResponse (Lude.Maybe [Lude.Text])
-vcSubnetIds = Lens.lens (subnetIds :: VPCConfigResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: VPCConfigResponse)
-{-# DEPRECATED vcSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+vpccSubnetIds :: Lens.Lens' VPCConfigResponse (Lude.Maybe [Lude.Text])
+vpccSubnetIds = Lens.lens (subnetIds :: VPCConfigResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: VPCConfigResponse)
+{-# DEPRECATED vpccSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The ID of the VPC.
 --
 -- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcVPCId :: Lens.Lens' VPCConfigResponse (Lude.Maybe Lude.Text)
-vcVPCId = Lens.lens (vpcId :: VPCConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: VPCConfigResponse)
-{-# DEPRECATED vcVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+vpccVPCId :: Lens.Lens' VPCConfigResponse (Lude.Maybe Lude.Text)
+vpccVPCId = Lens.lens (vpcId :: VPCConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: VPCConfigResponse)
+{-# DEPRECATED vpccVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 instance Lude.FromJSON VPCConfigResponse where
   parseJSON =

@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.TrainingJobEarlyStoppingType
   ( TrainingJobEarlyStoppingType
       ( TrainingJobEarlyStoppingType',
-        TJESTAuto,
-        TJESTOff
+        TJESTOff,
+        TJESTAuto
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TrainingJobEarlyStoppingType = TrainingJobEarlyStoppingType' Lude.Text
       Lude.ToHeader
     )
 
-pattern TJESTAuto :: TrainingJobEarlyStoppingType
-pattern TJESTAuto = TrainingJobEarlyStoppingType' "Auto"
-
 pattern TJESTOff :: TrainingJobEarlyStoppingType
 pattern TJESTOff = TrainingJobEarlyStoppingType' "Off"
 
+pattern TJESTAuto :: TrainingJobEarlyStoppingType
+pattern TJESTAuto = TrainingJobEarlyStoppingType' "Auto"
+
 {-# COMPLETE
-  TJESTAuto,
   TJESTOff,
+  TJESTAuto,
   TrainingJobEarlyStoppingType'
   #-}

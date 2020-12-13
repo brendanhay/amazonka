@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.Route53.GetTrafficPolicyInstanceCount
     mkGetTrafficPolicyInstanceCountResponse,
 
     -- ** Response lenses
-    gtpicrsResponseStatus,
     gtpicrsTrafficPolicyInstanceCount,
+    gtpicrsResponseStatus,
   )
 where
 
@@ -38,13 +39,7 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkGetTrafficPolicyInstanceCount' smart constructor.
 data GetTrafficPolicyInstanceCount = GetTrafficPolicyInstanceCount'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrafficPolicyInstanceCount' with the minimum fields required to make a request.
@@ -61,8 +56,8 @@ instance Lude.AWSRequest GetTrafficPolicyInstanceCount where
     Res.receiveXML
       ( \s h x ->
           GetTrafficPolicyInstanceCountResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "TrafficPolicyInstanceCount")
+            Lude.<$> (x Lude..@ "TrafficPolicyInstanceCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetTrafficPolicyInstanceCount where
@@ -78,46 +73,32 @@ instance Lude.ToQuery GetTrafficPolicyInstanceCount where
 --
 -- /See:/ 'mkGetTrafficPolicyInstanceCountResponse' smart constructor.
 data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountResponse'
-  { responseStatus ::
-      Lude.Int,
-    trafficPolicyInstanceCount ::
-      Lude.Int
+  { -- | The number of traffic policy instances that are associated with the current AWS account.
+    trafficPolicyInstanceCount :: Lude.Int,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrafficPolicyInstanceCountResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trafficPolicyInstanceCount' - The number of traffic policy instances that are associated with the current AWS account.
+-- * 'responseStatus' - The response status code.
 mkGetTrafficPolicyInstanceCountResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'trafficPolicyInstanceCount'
+  Lude.Int ->
+  -- | 'responseStatus'
   Lude.Int ->
   GetTrafficPolicyInstanceCountResponse
 mkGetTrafficPolicyInstanceCountResponse
-  pResponseStatus_
-  pTrafficPolicyInstanceCount_ =
+  pTrafficPolicyInstanceCount_
+  pResponseStatus_ =
     GetTrafficPolicyInstanceCountResponse'
-      { responseStatus =
-          pResponseStatus_,
-        trafficPolicyInstanceCount =
-          pTrafficPolicyInstanceCount_
+      { trafficPolicyInstanceCount =
+          pTrafficPolicyInstanceCount_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtpicrsResponseStatus :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Lude.Int
-gtpicrsResponseStatus = Lens.lens (responseStatus :: GetTrafficPolicyInstanceCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTrafficPolicyInstanceCountResponse)
-{-# DEPRECATED gtpicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The number of traffic policy instances that are associated with the current AWS account.
 --
@@ -125,3 +106,10 @@ gtpicrsResponseStatus = Lens.lens (responseStatus :: GetTrafficPolicyInstanceCou
 gtpicrsTrafficPolicyInstanceCount :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Lude.Int
 gtpicrsTrafficPolicyInstanceCount = Lens.lens (trafficPolicyInstanceCount :: GetTrafficPolicyInstanceCountResponse -> Lude.Int) (\s a -> s {trafficPolicyInstanceCount = a} :: GetTrafficPolicyInstanceCountResponse)
 {-# DEPRECATED gtpicrsTrafficPolicyInstanceCount "Use generic-lens or generic-optics with 'trafficPolicyInstanceCount' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpicrsResponseStatus :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Lude.Int
+gtpicrsResponseStatus = Lens.lens (responseStatus :: GetTrafficPolicyInstanceCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTrafficPolicyInstanceCountResponse)
+{-# DEPRECATED gtpicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

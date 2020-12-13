@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.GetSmsChannel
     mkGetSmsChannelResponse,
 
     -- ** Response lenses
-    gscrsResponseStatus,
     gscrsSMSChannelResponse,
+    gscrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSmsChannel' smart constructor.
-newtype GetSmsChannel = GetSmsChannel' {applicationId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetSmsChannel = GetSmsChannel'
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSmsChannel' with the minimum fields required to make a request.
@@ -72,7 +70,7 @@ instance Lude.AWSRequest GetSmsChannel where
     Res.receiveJSON
       ( \s h x ->
           GetSmsChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetSmsChannel where
@@ -94,41 +92,28 @@ instance Lude.ToQuery GetSmsChannel where
 
 -- | /See:/ 'mkGetSmsChannelResponse' smart constructor.
 data GetSmsChannelResponse = GetSmsChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    sMSChannelResponse :: SMSChannelResponse
+  { sMSChannelResponse :: SMSChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSmsChannelResponse' with the minimum fields required to make a request.
 --
+-- * 'sMSChannelResponse' -
 -- * 'responseStatus' - The response status code.
--- * 'sMSChannelResponse' - Undocumented field.
 mkGetSmsChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'sMSChannelResponse'
   SMSChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSmsChannelResponse
-mkGetSmsChannelResponse pResponseStatus_ pSMSChannelResponse_ =
+mkGetSmsChannelResponse pSMSChannelResponse_ pResponseStatus_ =
   GetSmsChannelResponse'
-    { responseStatus = pResponseStatus_,
-      sMSChannelResponse = pSMSChannelResponse_
+    { sMSChannelResponse = pSMSChannelResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gscrsResponseStatus :: Lens.Lens' GetSmsChannelResponse Lude.Int
-gscrsResponseStatus = Lens.lens (responseStatus :: GetSmsChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSmsChannelResponse)
-{-# DEPRECATED gscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -136,3 +121,10 @@ gscrsResponseStatus = Lens.lens (responseStatus :: GetSmsChannelResponse -> Lude
 gscrsSMSChannelResponse :: Lens.Lens' GetSmsChannelResponse SMSChannelResponse
 gscrsSMSChannelResponse = Lens.lens (sMSChannelResponse :: GetSmsChannelResponse -> SMSChannelResponse) (\s a -> s {sMSChannelResponse = a} :: GetSmsChannelResponse)
 {-# DEPRECATED gscrsSMSChannelResponse "Use generic-lens or generic-optics with 'sMSChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscrsResponseStatus :: Lens.Lens' GetSmsChannelResponse Lude.Int
+gscrsResponseStatus = Lens.lens (responseStatus :: GetSmsChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSmsChannelResponse)
+{-# DEPRECATED gscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

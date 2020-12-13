@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.SSM.DescribeInstancePatches
     mkDescribeInstancePatches,
 
     -- ** Request lenses
+    dipInstanceId,
     dipFilters,
     dipNextToken,
     dipMaxResults,
-    dipInstanceId,
 
     -- * Destructuring the response
     DescribeInstancePatchesResponse (..),
@@ -46,38 +47,42 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeInstancePatches' smart constructor.
 data DescribeInstancePatches = DescribeInstancePatches'
-  { filters ::
-      Lude.Maybe [PatchOrchestratorFilter],
+  { -- | The ID of the instance whose patch state information should be retrieved.
+    instanceId :: Lude.Text,
+    -- | An array of structures. Each entry in the array is a structure containing a Key, Value combination. Valid values for Key are @Classification@ | @KBId@ | @Severity@ | @State@ .
+    filters :: Lude.Maybe [PatchOrchestratorFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+    -- | The maximum number of patches to return (per page).
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancePatches' with the minimum fields required to make a request.
 --
--- * 'filters' - An array of structures. Each entry in the array is a structure containing a Key, Value combination. Valid values for Key are @Classification@ | @KBId@ | @Severity@ | @State@ .
 -- * 'instanceId' - The ID of the instance whose patch state information should be retrieved.
--- * 'maxResults' - The maximum number of patches to return (per page).
+-- * 'filters' - An array of structures. Each entry in the array is a structure containing a Key, Value combination. Valid values for Key are @Classification@ | @KBId@ | @Severity@ | @State@ .
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of patches to return (per page).
 mkDescribeInstancePatches ::
   -- | 'instanceId'
   Lude.Text ->
   DescribeInstancePatches
 mkDescribeInstancePatches pInstanceId_ =
   DescribeInstancePatches'
-    { filters = Lude.Nothing,
+    { instanceId = pInstanceId_,
+      filters = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+      maxResults = Lude.Nothing
     }
+
+-- | The ID of the instance whose patch state information should be retrieved.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipInstanceId :: Lens.Lens' DescribeInstancePatches Lude.Text
+dipInstanceId = Lens.lens (instanceId :: DescribeInstancePatches -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstancePatches)
+{-# DEPRECATED dipInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | An array of structures. Each entry in the array is a structure containing a Key, Value combination. Valid values for Key are @Classification@ | @KBId@ | @Severity@ | @State@ .
 --
@@ -99,13 +104,6 @@ dipNextToken = Lens.lens (nextToken :: DescribeInstancePatches -> Lude.Maybe Lud
 dipMaxResults :: Lens.Lens' DescribeInstancePatches (Lude.Maybe Lude.Natural)
 dipMaxResults = Lens.lens (maxResults :: DescribeInstancePatches -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInstancePatches)
 {-# DEPRECATED dipMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the instance whose patch state information should be retrieved.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipInstanceId :: Lens.Lens' DescribeInstancePatches Lude.Text
-dipInstanceId = Lens.lens (instanceId :: DescribeInstancePatches -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstancePatches)
-{-# DEPRECATED dipInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager DescribeInstancePatches where
   page rq rs
@@ -143,10 +141,10 @@ instance Lude.ToJSON DescribeInstancePatches where
   toJSON DescribeInstancePatches' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            ("Filters" Lude..=) Lude.<$> filters,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("InstanceId" Lude..= instanceId)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -158,25 +156,26 @@ instance Lude.ToQuery DescribeInstancePatches where
 
 -- | /See:/ 'mkDescribeInstancePatchesResponse' smart constructor.
 data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
-  { patches ::
-      Lude.Maybe
-        [PatchComplianceData],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Each entry in the array is a structure containing:
+    --
+    -- Title (string)
+    -- KBId (string)
+    -- Classification (string)
+    -- Severity (string)
+    -- State (string, such as "INSTALLED" or "FAILED")
+    -- InstalledTime (DateTime)
+    -- InstalledBy (string)
+    patches :: Lude.Maybe [PatchComplianceData],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancePatchesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 -- * 'patches' - Each entry in the array is a structure containing:
 --
 -- Title (string)
@@ -186,6 +185,7 @@ data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
 -- State (string, such as "INSTALLED" or "FAILED")
 -- InstalledTime (DateTime)
 -- InstalledBy (string)
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 -- * 'responseStatus' - The response status code.
 mkDescribeInstancePatchesResponse ::
   -- | 'responseStatus'

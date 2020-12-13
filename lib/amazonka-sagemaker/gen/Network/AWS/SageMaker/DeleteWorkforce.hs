@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,7 +30,7 @@ module Network.AWS.SageMaker.DeleteWorkforce
     mkDeleteWorkforceResponse,
 
     -- ** Response lenses
-    deleteworkforceersResponseStatus,
+    dwhrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteWorkforce' smart constructor.
 newtype DeleteWorkforce = DeleteWorkforce'
-  { workforceName ::
-      Lude.Text
+  { -- | The name of the workforce.
+    workforceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkforce' with the minimum fields required to make a request.
@@ -105,16 +100,10 @@ instance Lude.ToQuery DeleteWorkforce where
 
 -- | /See:/ 'mkDeleteWorkforceResponse' smart constructor.
 newtype DeleteWorkforceResponse = DeleteWorkforceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkforceResponse' with the minimum fields required to make a request.
@@ -130,6 +119,6 @@ mkDeleteWorkforceResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deleteworkforceersResponseStatus :: Lens.Lens' DeleteWorkforceResponse Lude.Int
-deleteworkforceersResponseStatus = Lens.lens (responseStatus :: DeleteWorkforceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkforceResponse)
-{-# DEPRECATED deleteworkforceersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwhrsResponseStatus :: Lens.Lens' DeleteWorkforceResponse Lude.Int
+dwhrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkforceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkforceResponse)
+{-# DEPRECATED dwhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

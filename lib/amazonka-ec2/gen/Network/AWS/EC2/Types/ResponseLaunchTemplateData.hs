@@ -72,105 +72,93 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResponseLaunchTemplateData' smart constructor.
 data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
-    securityGroups ::
-      Lude.Maybe [Lude.Text],
-    elasticInferenceAccelerators ::
-      Lude.Maybe
-        [LaunchTemplateElasticInferenceAcceleratorResponse],
-    instanceMarketOptions ::
-      Lude.Maybe
-        LaunchTemplateInstanceMarketOptions,
-    licenseSpecifications ::
-      Lude.Maybe
-        [LaunchTemplateLicenseConfiguration],
-    disableAPITermination ::
-      Lude.Maybe Lude.Bool,
+  { -- | The security group IDs.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The security group names.
+    securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The elastic inference accelerator for the instance.
+    elasticInferenceAccelerators :: Lude.Maybe [LaunchTemplateElasticInferenceAcceleratorResponse],
+    -- | The market (purchasing) option for the instances.
+    instanceMarketOptions :: Lude.Maybe LaunchTemplateInstanceMarketOptions,
+    -- | The license configurations.
+    licenseSpecifications :: Lude.Maybe [LaunchTemplateLicenseConfiguration],
+    -- | If set to @true@ , indicates that the instance cannot be terminated using the Amazon EC2 console, command line tool, or API.
+    disableAPITermination :: Lude.Maybe Lude.Bool,
+    -- | The name of the key pair.
     keyName :: Lude.Maybe Lude.Text,
-    networkInterfaces ::
-      Lude.Maybe
-        [LaunchTemplateInstanceNetworkInterfaceSpecification],
-    enclaveOptions ::
-      Lude.Maybe
-        LaunchTemplateEnclaveOptions,
-    cpuOptions ::
-      Lude.Maybe LaunchTemplateCPUOptions,
+    -- | The network interfaces.
+    networkInterfaces :: Lude.Maybe [LaunchTemplateInstanceNetworkInterfaceSpecification],
+    -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
+    enclaveOptions :: Lude.Maybe LaunchTemplateEnclaveOptions,
+    -- | The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
+    cpuOptions :: Lude.Maybe LaunchTemplateCPUOptions,
+    -- | The ID of the RAM disk, if applicable.
     ramDiskId :: Lude.Maybe Lude.Text,
+    -- | The ID of the kernel, if applicable.
     kernelId :: Lude.Maybe Lude.Text,
-    elasticGpuSpecifications ::
-      Lude.Maybe
-        [ElasticGpuSpecificationResponse],
-    instanceType ::
-      Lude.Maybe InstanceType,
-    capacityReservationSpecification ::
-      Lude.Maybe
-        LaunchTemplateCapacityReservationSpecificationResponse,
+    -- | The elastic GPU specification.
+    elasticGpuSpecifications :: Lude.Maybe [ElasticGpuSpecificationResponse],
+    -- | The instance type.
+    instanceType :: Lude.Maybe InstanceType,
+    -- | Information about the Capacity Reservation targeting option.
+    capacityReservationSpecification :: Lude.Maybe LaunchTemplateCapacityReservationSpecificationResponse,
+    -- | Indicates whether the instance is optimized for Amazon EBS I/O.
     ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The user data for the instance.
     userData :: Lude.Maybe Lude.Text,
-    monitoring ::
-      Lude.Maybe LaunchTemplatesMonitoring,
-    tagSpecifications ::
-      Lude.Maybe
-        [LaunchTemplateTagSpecification],
-    hibernationOptions ::
-      Lude.Maybe
-        LaunchTemplateHibernationOptions,
-    iamInstanceProfile ::
-      Lude.Maybe
-        LaunchTemplateIAMInstanceProfileSpecification,
+    -- | The monitoring for the instance.
+    monitoring :: Lude.Maybe LaunchTemplatesMonitoring,
+    -- | The tags.
+    tagSpecifications :: Lude.Maybe [LaunchTemplateTagSpecification],
+    -- | Indicates whether an instance is configured for hibernation. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+    hibernationOptions :: Lude.Maybe LaunchTemplateHibernationOptions,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: Lude.Maybe LaunchTemplateIAMInstanceProfileSpecification,
+    -- | The ID of the AMI that was used to launch the instance.
     imageId :: Lude.Maybe Lude.Text,
-    instanceInitiatedShutdownBehavior ::
-      Lude.Maybe ShutdownBehavior,
-    metadataOptions ::
-      Lude.Maybe
-        LaunchTemplateInstanceMetadataOptions,
-    creditSpecification ::
-      Lude.Maybe CreditSpecification,
-    blockDeviceMappings ::
-      Lude.Maybe
-        [LaunchTemplateBlockDeviceMapping],
-    placement ::
-      Lude.Maybe LaunchTemplatePlacement
+    -- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+    instanceInitiatedShutdownBehavior :: Lude.Maybe ShutdownBehavior,
+    -- | The metadata options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data> in the /Amazon Elastic Compute Cloud User Guide/ .
+    metadataOptions :: Lude.Maybe LaunchTemplateInstanceMetadataOptions,
+    -- | The credit option for CPU usage of the instance.
+    creditSpecification :: Lude.Maybe CreditSpecification,
+    -- | The block device mappings.
+    blockDeviceMappings :: Lude.Maybe [LaunchTemplateBlockDeviceMapping],
+    -- | The placement of the instance.
+    placement :: Lude.Maybe LaunchTemplatePlacement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResponseLaunchTemplateData' with the minimum fields required to make a request.
 --
--- * 'blockDeviceMappings' - The block device mappings.
--- * 'capacityReservationSpecification' - Information about the Capacity Reservation targeting option.
--- * 'cpuOptions' - The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'creditSpecification' - The credit option for CPU usage of the instance.
--- * 'disableAPITermination' - If set to @true@ , indicates that the instance cannot be terminated using the Amazon EC2 console, command line tool, or API.
--- * 'ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O.
--- * 'elasticGpuSpecifications' - The elastic GPU specification.
+-- * 'securityGroupIds' - The security group IDs.
+-- * 'securityGroups' - The security group names.
 -- * 'elasticInferenceAccelerators' - The elastic inference accelerator for the instance.
+-- * 'instanceMarketOptions' - The market (purchasing) option for the instances.
+-- * 'licenseSpecifications' - The license configurations.
+-- * 'disableAPITermination' - If set to @true@ , indicates that the instance cannot be terminated using the Amazon EC2 console, command line tool, or API.
+-- * 'keyName' - The name of the key pair.
+-- * 'networkInterfaces' - The network interfaces.
 -- * 'enclaveOptions' - Indicates whether the instance is enabled for AWS Nitro Enclaves.
+-- * 'cpuOptions' - The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'ramDiskId' - The ID of the RAM disk, if applicable.
+-- * 'kernelId' - The ID of the kernel, if applicable.
+-- * 'elasticGpuSpecifications' - The elastic GPU specification.
+-- * 'instanceType' - The instance type.
+-- * 'capacityReservationSpecification' - Information about the Capacity Reservation targeting option.
+-- * 'ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O.
+-- * 'userData' - The user data for the instance.
+-- * 'monitoring' - The monitoring for the instance.
+-- * 'tagSpecifications' - The tags.
 -- * 'hibernationOptions' - Indicates whether an instance is configured for hibernation. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- * 'iamInstanceProfile' - The IAM instance profile.
 -- * 'imageId' - The ID of the AMI that was used to launch the instance.
 -- * 'instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
--- * 'instanceMarketOptions' - The market (purchasing) option for the instances.
--- * 'instanceType' - The instance type.
--- * 'kernelId' - The ID of the kernel, if applicable.
--- * 'keyName' - The name of the key pair.
--- * 'licenseSpecifications' - The license configurations.
 -- * 'metadataOptions' - The metadata options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'monitoring' - The monitoring for the instance.
--- * 'networkInterfaces' - The network interfaces.
+-- * 'creditSpecification' - The credit option for CPU usage of the instance.
+-- * 'blockDeviceMappings' - The block device mappings.
 -- * 'placement' - The placement of the instance.
--- * 'ramDiskId' - The ID of the RAM disk, if applicable.
--- * 'securityGroupIds' - The security group IDs.
--- * 'securityGroups' - The security group names.
--- * 'tagSpecifications' - The tags.
--- * 'userData' - The user data for the instance.
 mkResponseLaunchTemplateData ::
   ResponseLaunchTemplateData
 mkResponseLaunchTemplateData =

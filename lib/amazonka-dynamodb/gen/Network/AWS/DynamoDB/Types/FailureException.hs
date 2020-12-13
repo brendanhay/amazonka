@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailureException' smart constructor.
 data FailureException = FailureException'
-  { exceptionName ::
-      Lude.Maybe Lude.Text,
+  { -- | Exception name.
+    exceptionName :: Lude.Maybe Lude.Text,
+    -- | Description of the failure.
     exceptionDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailureException' with the minimum fields required to make a request.
 --
--- * 'exceptionDescription' - Description of the failure.
 -- * 'exceptionName' - Exception name.
+-- * 'exceptionDescription' - Description of the failure.
 mkFailureException ::
   FailureException
 mkFailureException =

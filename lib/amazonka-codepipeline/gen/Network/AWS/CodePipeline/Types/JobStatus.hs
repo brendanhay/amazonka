@@ -14,12 +14,12 @@ module Network.AWS.CodePipeline.Types.JobStatus
   ( JobStatus
       ( JobStatus',
         JSCreated,
-        JSDispatched,
-        JSFailed,
-        JSInProgress,
         JSQueued,
+        JSDispatched,
+        JSInProgress,
+        JSTimedOut,
         JSSucceeded,
-        JSTimedOut
+        JSFailed
       ),
   )
 where
@@ -53,31 +53,31 @@ newtype JobStatus = JobStatus' Lude.Text
 pattern JSCreated :: JobStatus
 pattern JSCreated = JobStatus' "Created"
 
+pattern JSQueued :: JobStatus
+pattern JSQueued = JobStatus' "Queued"
+
 pattern JSDispatched :: JobStatus
 pattern JSDispatched = JobStatus' "Dispatched"
-
-pattern JSFailed :: JobStatus
-pattern JSFailed = JobStatus' "Failed"
 
 pattern JSInProgress :: JobStatus
 pattern JSInProgress = JobStatus' "InProgress"
 
-pattern JSQueued :: JobStatus
-pattern JSQueued = JobStatus' "Queued"
+pattern JSTimedOut :: JobStatus
+pattern JSTimedOut = JobStatus' "TimedOut"
 
 pattern JSSucceeded :: JobStatus
 pattern JSSucceeded = JobStatus' "Succeeded"
 
-pattern JSTimedOut :: JobStatus
-pattern JSTimedOut = JobStatus' "TimedOut"
+pattern JSFailed :: JobStatus
+pattern JSFailed = JobStatus' "Failed"
 
 {-# COMPLETE
   JSCreated,
-  JSDispatched,
-  JSFailed,
-  JSInProgress,
   JSQueued,
-  JSSucceeded,
+  JSDispatched,
+  JSInProgress,
   JSTimedOut,
+  JSSucceeded,
+  JSFailed,
   JobStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkCancelMaintenanceWindowExecution' smart constructor.
 newtype CancelMaintenanceWindowExecution = CancelMaintenanceWindowExecution'
-  { windowExecutionId ::
-      Lude.Text
+  { -- | The ID of the maintenance window execution to stop.
+    windowExecutionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelMaintenanceWindowExecution' with the minimum fields required to make a request.
@@ -110,25 +105,18 @@ instance Lude.ToQuery CancelMaintenanceWindowExecution where
 
 -- | /See:/ 'mkCancelMaintenanceWindowExecutionResponse' smart constructor.
 data CancelMaintenanceWindowExecutionResponse = CancelMaintenanceWindowExecutionResponse'
-  { windowExecutionId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the maintenance window execution that has been stopped.
+    windowExecutionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelMaintenanceWindowExecutionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'windowExecutionId' - The ID of the maintenance window execution that has been stopped.
+-- * 'responseStatus' - The response status code.
 mkCancelMaintenanceWindowExecutionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

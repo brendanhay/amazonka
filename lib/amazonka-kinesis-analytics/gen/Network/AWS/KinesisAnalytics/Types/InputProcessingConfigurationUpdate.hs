@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputProcessingConfigurationUpdate' smart constructor.
 newtype InputProcessingConfigurationUpdate = InputProcessingConfigurationUpdate'
-  { inputLambdaProcessorUpdate ::
-      InputLambdaProcessorUpdate
+  { -- | Provides update information for an <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> .
+    inputLambdaProcessorUpdate :: InputLambdaProcessorUpdate
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputProcessingConfigurationUpdate' with the minimum fields required to make a request.

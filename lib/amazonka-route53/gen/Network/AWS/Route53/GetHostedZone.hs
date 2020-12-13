@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,9 +28,9 @@ module Network.AWS.Route53.GetHostedZone
 
     -- ** Response lenses
     ghzrsVPCs,
+    ghzrsHostedZone,
     ghzrsDelegationSet,
     ghzrsResponseStatus,
-    ghzrsHostedZone,
   )
 where
 
@@ -42,14 +43,11 @@ import Network.AWS.Route53.Types
 -- | A request to get information about a specified hosted zone.
 --
 -- /See:/ 'mkGetHostedZone' smart constructor.
-newtype GetHostedZone = GetHostedZone' {id :: ResourceId}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetHostedZone = GetHostedZone'
+  { -- | The ID of the hosted zone that you want to get information about.
+    id :: ResourceId
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostedZone' with the minimum fields required to make a request.
@@ -78,9 +76,9 @@ instance Lude.AWSRequest GetHostedZone where
             Lude.<$> ( x Lude..@? "VPCs" Lude..!@ Lude.mempty
                          Lude.>>= Lude.may (Lude.parseXMLNonEmpty "VPC")
                      )
+            Lude.<*> (x Lude..@ "HostedZone")
             Lude.<*> (x Lude..@? "DelegationSet")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "HostedZone")
       )
 
 instance Lude.ToHeaders GetHostedZone where
@@ -97,39 +95,36 @@ instance Lude.ToQuery GetHostedZone where
 --
 -- /See:/ 'mkGetHostedZoneResponse' smart constructor.
 data GetHostedZoneResponse = GetHostedZoneResponse'
-  { vpcs ::
-      Lude.Maybe (Lude.NonEmpty VPC),
+  { -- | A complex type that contains information about the VPCs that are associated with the specified hosted zone.
+    vpcs :: Lude.Maybe (Lude.NonEmpty VPC),
+    -- | A complex type that contains general information about the specified hosted zone.
+    hostedZone :: HostedZone,
+    -- | A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
     delegationSet :: Lude.Maybe DelegationSet,
-    responseStatus :: Lude.Int,
-    hostedZone :: HostedZone
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostedZoneResponse' with the minimum fields required to make a request.
 --
--- * 'delegationSet' - A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
--- * 'hostedZone' - A complex type that contains general information about the specified hosted zone.
--- * 'responseStatus' - The response status code.
 -- * 'vpcs' - A complex type that contains information about the VPCs that are associated with the specified hosted zone.
+-- * 'hostedZone' - A complex type that contains general information about the specified hosted zone.
+-- * 'delegationSet' - A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
+-- * 'responseStatus' - The response status code.
 mkGetHostedZoneResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'hostedZone'
   HostedZone ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetHostedZoneResponse
-mkGetHostedZoneResponse pResponseStatus_ pHostedZone_ =
+mkGetHostedZoneResponse pHostedZone_ pResponseStatus_ =
   GetHostedZoneResponse'
     { vpcs = Lude.Nothing,
+      hostedZone = pHostedZone_,
       delegationSet = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      hostedZone = pHostedZone_
+      responseStatus = pResponseStatus_
     }
 
 -- | A complex type that contains information about the VPCs that are associated with the specified hosted zone.
@@ -138,6 +133,13 @@ mkGetHostedZoneResponse pResponseStatus_ pHostedZone_ =
 ghzrsVPCs :: Lens.Lens' GetHostedZoneResponse (Lude.Maybe (Lude.NonEmpty VPC))
 ghzrsVPCs = Lens.lens (vpcs :: GetHostedZoneResponse -> Lude.Maybe (Lude.NonEmpty VPC)) (\s a -> s {vpcs = a} :: GetHostedZoneResponse)
 {-# DEPRECATED ghzrsVPCs "Use generic-lens or generic-optics with 'vpcs' instead." #-}
+
+-- | A complex type that contains general information about the specified hosted zone.
+--
+-- /Note:/ Consider using 'hostedZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghzrsHostedZone :: Lens.Lens' GetHostedZoneResponse HostedZone
+ghzrsHostedZone = Lens.lens (hostedZone :: GetHostedZoneResponse -> HostedZone) (\s a -> s {hostedZone = a} :: GetHostedZoneResponse)
+{-# DEPRECATED ghzrsHostedZone "Use generic-lens or generic-optics with 'hostedZone' instead." #-}
 
 -- | A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
 --
@@ -152,10 +154,3 @@ ghzrsDelegationSet = Lens.lens (delegationSet :: GetHostedZoneResponse -> Lude.M
 ghzrsResponseStatus :: Lens.Lens' GetHostedZoneResponse Lude.Int
 ghzrsResponseStatus = Lens.lens (responseStatus :: GetHostedZoneResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHostedZoneResponse)
 {-# DEPRECATED ghzrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | A complex type that contains general information about the specified hosted zone.
---
--- /Note:/ Consider using 'hostedZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzrsHostedZone :: Lens.Lens' GetHostedZoneResponse HostedZone
-ghzrsHostedZone = Lens.lens (hostedZone :: GetHostedZoneResponse -> HostedZone) (\s a -> s {hostedZone = a} :: GetHostedZoneResponse)
-{-# DEPRECATED ghzrsHostedZone "Use generic-lens or generic-optics with 'hostedZone' instead." #-}

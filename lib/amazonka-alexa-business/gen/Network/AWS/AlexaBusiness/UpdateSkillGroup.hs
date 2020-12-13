@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,24 +41,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateSkillGroup' smart constructor.
 data UpdateSkillGroup = UpdateSkillGroup'
-  { skillGroupARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the skill group to update.
+    skillGroupARN :: Lude.Maybe Lude.Text,
+    -- | The updated description for the skill group.
     description :: Lude.Maybe Lude.Text,
+    -- | The updated name for the skill group.
     skillGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSkillGroup' with the minimum fields required to make a request.
 --
--- * 'description' - The updated description for the skill group.
 -- * 'skillGroupARN' - The ARN of the skill group to update.
+-- * 'description' - The updated description for the skill group.
 -- * 'skillGroupName' - The updated name for the skill group.
 mkUpdateSkillGroup ::
   UpdateSkillGroup
@@ -127,16 +124,10 @@ instance Lude.ToQuery UpdateSkillGroup where
 
 -- | /See:/ 'mkUpdateSkillGroupResponse' smart constructor.
 newtype UpdateSkillGroupResponse = UpdateSkillGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSkillGroupResponse' with the minimum fields required to make a request.

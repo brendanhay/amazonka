@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.TrafficMirrorSessionField
   ( TrafficMirrorSessionField
       ( TrafficMirrorSessionField',
-        TMSFDescription,
         TMSFPacketLength,
+        TMSFDescription,
         TMSFVirtualNetworkId
       ),
   )
@@ -46,18 +46,18 @@ newtype TrafficMirrorSessionField = TrafficMirrorSessionField' Lude.Text
       Lude.ToHeader
     )
 
-pattern TMSFDescription :: TrafficMirrorSessionField
-pattern TMSFDescription = TrafficMirrorSessionField' "description"
-
 pattern TMSFPacketLength :: TrafficMirrorSessionField
 pattern TMSFPacketLength = TrafficMirrorSessionField' "packet-length"
+
+pattern TMSFDescription :: TrafficMirrorSessionField
+pattern TMSFDescription = TrafficMirrorSessionField' "description"
 
 pattern TMSFVirtualNetworkId :: TrafficMirrorSessionField
 pattern TMSFVirtualNetworkId = TrafficMirrorSessionField' "virtual-network-id"
 
 {-# COMPLETE
-  TMSFDescription,
   TMSFPacketLength,
+  TMSFDescription,
   TMSFVirtualNetworkId,
   TrafficMirrorSessionField'
   #-}

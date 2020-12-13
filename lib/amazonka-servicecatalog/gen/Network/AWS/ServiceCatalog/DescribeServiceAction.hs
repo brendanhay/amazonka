@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.ServiceCatalog.DescribeServiceAction
     mkDescribeServiceAction,
 
     -- ** Request lenses
-    dsaAcceptLanguage,
-    dsaId,
+    dsafAcceptLanguage,
+    dsafId,
 
     -- * Destructuring the response
     DescribeServiceActionResponse (..),
     mkDescribeServiceActionResponse,
 
     -- ** Response lenses
-    dsarsServiceActionDetail,
-    dsarsResponseStatus,
+    dsafrsServiceActionDetail,
+    dsafrsResponseStatus,
   )
 where
 
@@ -40,17 +41,21 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDescribeServiceAction' smart constructor.
 data DescribeServiceAction = DescribeServiceAction'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The self-service action identifier.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceAction' with the minimum fields required to make a request.
@@ -89,16 +94,16 @@ mkDescribeServiceAction pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaAcceptLanguage :: Lens.Lens' DescribeServiceAction (Lude.Maybe Lude.Text)
-dsaAcceptLanguage = Lens.lens (acceptLanguage :: DescribeServiceAction -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeServiceAction)
-{-# DEPRECATED dsaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dsafAcceptLanguage :: Lens.Lens' DescribeServiceAction (Lude.Maybe Lude.Text)
+dsafAcceptLanguage = Lens.lens (acceptLanguage :: DescribeServiceAction -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeServiceAction)
+{-# DEPRECATED dsafAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The self-service action identifier.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaId :: Lens.Lens' DescribeServiceAction Lude.Text
-dsaId = Lens.lens (id :: DescribeServiceAction -> Lude.Text) (\s a -> s {id = a} :: DescribeServiceAction)
-{-# DEPRECATED dsaId "Use generic-lens or generic-optics with 'id' instead." #-}
+dsafId :: Lens.Lens' DescribeServiceAction Lude.Text
+dsafId = Lens.lens (id :: DescribeServiceAction -> Lude.Text) (\s a -> s {id = a} :: DescribeServiceAction)
+{-# DEPRECATED dsafId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DescribeServiceAction where
   type Rs DescribeServiceAction = DescribeServiceActionResponse
@@ -141,23 +146,18 @@ instance Lude.ToQuery DescribeServiceAction where
 
 -- | /See:/ 'mkDescribeServiceActionResponse' smart constructor.
 data DescribeServiceActionResponse = DescribeServiceActionResponse'
-  { serviceActionDetail ::
-      Lude.Maybe ServiceActionDetail,
+  { -- | Detailed information about the self-service action.
+    serviceActionDetail :: Lude.Maybe ServiceActionDetail,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceActionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'serviceActionDetail' - Detailed information about the self-service action.
+-- * 'responseStatus' - The response status code.
 mkDescribeServiceActionResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -172,13 +172,13 @@ mkDescribeServiceActionResponse pResponseStatus_ =
 -- | Detailed information about the self-service action.
 --
 -- /Note:/ Consider using 'serviceActionDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsarsServiceActionDetail :: Lens.Lens' DescribeServiceActionResponse (Lude.Maybe ServiceActionDetail)
-dsarsServiceActionDetail = Lens.lens (serviceActionDetail :: DescribeServiceActionResponse -> Lude.Maybe ServiceActionDetail) (\s a -> s {serviceActionDetail = a} :: DescribeServiceActionResponse)
-{-# DEPRECATED dsarsServiceActionDetail "Use generic-lens or generic-optics with 'serviceActionDetail' instead." #-}
+dsafrsServiceActionDetail :: Lens.Lens' DescribeServiceActionResponse (Lude.Maybe ServiceActionDetail)
+dsafrsServiceActionDetail = Lens.lens (serviceActionDetail :: DescribeServiceActionResponse -> Lude.Maybe ServiceActionDetail) (\s a -> s {serviceActionDetail = a} :: DescribeServiceActionResponse)
+{-# DEPRECATED dsafrsServiceActionDetail "Use generic-lens or generic-optics with 'serviceActionDetail' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsarsResponseStatus :: Lens.Lens' DescribeServiceActionResponse Lude.Int
-dsarsResponseStatus = Lens.lens (responseStatus :: DescribeServiceActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeServiceActionResponse)
-{-# DEPRECATED dsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsafrsResponseStatus :: Lens.Lens' DescribeServiceActionResponse Lude.Int
+dsafrsResponseStatus = Lens.lens (responseStatus :: DescribeServiceActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeServiceActionResponse)
+{-# DEPRECATED dsafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -41,52 +41,58 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNumberValidateResponse' smart constructor.
 data NumberValidateResponse = NumberValidateResponse'
-  { carrier ::
-      Lude.Maybe Lude.Text,
+  { -- | The carrier or service provider that the phone number is currently registered with. In some countries and regions, this value may be the carrier or service provider that the phone number was originally registered with.
+    carrier :: Lude.Maybe Lude.Text,
+    -- | The name of the county where the phone number was originally registered.
     county :: Lude.Maybe Lude.Text,
+    -- | The name of the country or region where the phone number was originally registered.
     country :: Lude.Maybe Lude.Text,
+    -- | The numeric code for the country or region where the phone number was originally registered.
     countryCodeNumeric :: Lude.Maybe Lude.Text,
+    -- | The postal or ZIP code for the location where the phone number was originally registered.
     zipCode :: Lude.Maybe Lude.Text,
+    -- | The phone number that was sent in the request body.
     originalPhoneNumber :: Lude.Maybe Lude.Text,
+    -- | The phone type, represented by an integer. Valid values are: 0 (mobile), 1 (landline), 2 (VoIP), 3 (invalid), 4 (other), and 5 (prepaid).
     phoneTypeCode :: Lude.Maybe Lude.Int,
+    -- | The description of the phone type. Valid values are: MOBILE, LANDLINE, VOIP,
+    --
+    --                   INVALID, PREPAID, and OTHER.
     phoneType :: Lude.Maybe Lude.Text,
+    -- | The name of the city where the phone number was originally registered.
     city :: Lude.Maybe Lude.Text,
+    -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
     countryCodeIso2 :: Lude.Maybe Lude.Text,
+    -- | The time zone for the location where the phone number was originally registered.
     timezone :: Lude.Maybe Lude.Text,
-    originalCountryCodeIso2 ::
-      Lude.Maybe Lude.Text,
-    cleansedPhoneNumberNational ::
-      Lude.Maybe Lude.Text,
-    cleansedPhoneNumberE164 ::
-      Lude.Maybe Lude.Text
+    -- | The two-character code, in ISO 3166-1 alpha-2 format, that was sent in the request body.
+    originalCountryCodeIso2 :: Lude.Maybe Lude.Text,
+    -- | The cleansed phone number, in the format for the location where the phone number was originally registered.
+    cleansedPhoneNumberNational :: Lude.Maybe Lude.Text,
+    -- | The cleansed phone number, in E.164 format, for the location where the phone number was originally registered.
+    cleansedPhoneNumberE164 :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NumberValidateResponse' with the minimum fields required to make a request.
 --
 -- * 'carrier' - The carrier or service provider that the phone number is currently registered with. In some countries and regions, this value may be the carrier or service provider that the phone number was originally registered with.
--- * 'city' - The name of the city where the phone number was originally registered.
--- * 'cleansedPhoneNumberE164' - The cleansed phone number, in E.164 format, for the location where the phone number was originally registered.
--- * 'cleansedPhoneNumberNational' - The cleansed phone number, in the format for the location where the phone number was originally registered.
--- * 'country' - The name of the country or region where the phone number was originally registered.
--- * 'countryCodeIso2' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
--- * 'countryCodeNumeric' - The numeric code for the country or region where the phone number was originally registered.
 -- * 'county' - The name of the county where the phone number was originally registered.
--- * 'originalCountryCodeIso2' - The two-character code, in ISO 3166-1 alpha-2 format, that was sent in the request body.
+-- * 'country' - The name of the country or region where the phone number was originally registered.
+-- * 'countryCodeNumeric' - The numeric code for the country or region where the phone number was originally registered.
+-- * 'zipCode' - The postal or ZIP code for the location where the phone number was originally registered.
 -- * 'originalPhoneNumber' - The phone number that was sent in the request body.
+-- * 'phoneTypeCode' - The phone type, represented by an integer. Valid values are: 0 (mobile), 1 (landline), 2 (VoIP), 3 (invalid), 4 (other), and 5 (prepaid).
 -- * 'phoneType' - The description of the phone type. Valid values are: MOBILE, LANDLINE, VOIP,
 --
 --                   INVALID, PREPAID, and OTHER.
--- * 'phoneTypeCode' - The phone type, represented by an integer. Valid values are: 0 (mobile), 1 (landline), 2 (VoIP), 3 (invalid), 4 (other), and 5 (prepaid).
+-- * 'city' - The name of the city where the phone number was originally registered.
+-- * 'countryCodeIso2' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
 -- * 'timezone' - The time zone for the location where the phone number was originally registered.
--- * 'zipCode' - The postal or ZIP code for the location where the phone number was originally registered.
+-- * 'originalCountryCodeIso2' - The two-character code, in ISO 3166-1 alpha-2 format, that was sent in the request body.
+-- * 'cleansedPhoneNumberNational' - The cleansed phone number, in the format for the location where the phone number was originally registered.
+-- * 'cleansedPhoneNumberE164' - The cleansed phone number, in E.164 format, for the location where the phone number was originally registered.
 mkNumberValidateResponse ::
   NumberValidateResponse
 mkNumberValidateResponse =

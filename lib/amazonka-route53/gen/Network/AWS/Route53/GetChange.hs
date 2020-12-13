@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,8 +33,8 @@ module Network.AWS.Route53.GetChange
     mkGetChangeResponse,
 
     -- ** Response lenses
-    gcrsResponseStatus,
     gcrsChangeInfo,
+    gcrsResponseStatus,
   )
 where
 
@@ -46,14 +47,11 @@ import Network.AWS.Route53.Types
 -- | The input for a GetChange request.
 --
 -- /See:/ 'mkGetChange' smart constructor.
-newtype GetChange = GetChange' {id :: ResourceId}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetChange = GetChange'
+  { -- | The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the @Id@ element when you submitted the request.
+    id :: ResourceId
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChange' with the minimum fields required to make a request.
@@ -79,7 +77,7 @@ instance Lude.AWSRequest GetChange where
     Res.receiveXML
       ( \s h x ->
           GetChangeResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "ChangeInfo")
+            Lude.<$> (x Lude..@ "ChangeInfo") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetChange where
@@ -96,17 +94,12 @@ instance Lude.ToQuery GetChange where
 --
 -- /See:/ 'mkGetChangeResponse' smart constructor.
 data GetChangeResponse = GetChangeResponse'
-  { responseStatus ::
-      Lude.Int,
-    changeInfo :: ChangeInfo
+  { -- | A complex type that contains information about the specified change batch.
+    changeInfo :: ChangeInfo,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChangeResponse' with the minimum fields required to make a request.
@@ -114,23 +107,16 @@ data GetChangeResponse = GetChangeResponse'
 -- * 'changeInfo' - A complex type that contains information about the specified change batch.
 -- * 'responseStatus' - The response status code.
 mkGetChangeResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetChangeResponse
-mkGetChangeResponse pResponseStatus_ pChangeInfo_ =
+mkGetChangeResponse pChangeInfo_ pResponseStatus_ =
   GetChangeResponse'
-    { responseStatus = pResponseStatus_,
-      changeInfo = pChangeInfo_
+    { changeInfo = pChangeInfo_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrsResponseStatus :: Lens.Lens' GetChangeResponse Lude.Int
-gcrsResponseStatus = Lens.lens (responseStatus :: GetChangeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetChangeResponse)
-{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains information about the specified change batch.
 --
@@ -138,3 +124,10 @@ gcrsResponseStatus = Lens.lens (responseStatus :: GetChangeResponse -> Lude.Int)
 gcrsChangeInfo :: Lens.Lens' GetChangeResponse ChangeInfo
 gcrsChangeInfo = Lens.lens (changeInfo :: GetChangeResponse -> ChangeInfo) (\s a -> s {changeInfo = a} :: GetChangeResponse)
 {-# DEPRECATED gcrsChangeInfo "Use generic-lens or generic-optics with 'changeInfo' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsResponseStatus :: Lens.Lens' GetChangeResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetChangeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetChangeResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

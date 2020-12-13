@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.AvcIntraClass
   ( AvcIntraClass
       ( AvcIntraClass',
+        Class50,
         Class100,
-        Class200,
-        Class50
+        Class200
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype AvcIntraClass = AvcIntraClass' Lude.Text
       Lude.ToHeader
     )
 
+pattern Class50 :: AvcIntraClass
+pattern Class50 = AvcIntraClass' "CLASS_50"
+
 pattern Class100 :: AvcIntraClass
 pattern Class100 = AvcIntraClass' "CLASS_100"
 
 pattern Class200 :: AvcIntraClass
 pattern Class200 = AvcIntraClass' "CLASS_200"
 
-pattern Class50 :: AvcIntraClass
-pattern Class50 = AvcIntraClass' "CLASS_50"
-
 {-# COMPLETE
+  Class50,
   Class100,
   Class200,
-  Class50,
   AvcIntraClass'
   #-}

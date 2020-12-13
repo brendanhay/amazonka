@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
-  { resourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | The resource type of a resource, such as @AWS::EC2::Instance@ .
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | The ARN of a resource.
     resourceARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceIdentifier' with the minimum fields required to make a request.
 --
--- * 'resourceARN' - The ARN of a resource.
 -- * 'resourceType' - The resource type of a resource, such as @AWS::EC2::Instance@ .
+-- * 'resourceARN' - The ARN of a resource.
 mkResourceIdentifier ::
   ResourceIdentifier
 mkResourceIdentifier =

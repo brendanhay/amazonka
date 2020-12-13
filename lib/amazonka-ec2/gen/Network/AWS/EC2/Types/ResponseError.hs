@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResponseError' smart constructor.
 data ResponseError = ResponseError'
-  { code ::
-      Lude.Maybe LaunchTemplateErrorCode,
+  { -- | The error code.
+    code :: Lude.Maybe LaunchTemplateErrorCode,
+    -- | The error message, if applicable.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResponseError' with the minimum fields required to make a request.

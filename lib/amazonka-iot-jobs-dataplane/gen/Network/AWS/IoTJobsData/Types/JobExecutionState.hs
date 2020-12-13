@@ -31,19 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobExecutionState' smart constructor.
 data JobExecutionState = JobExecutionState'
-  { status ::
-      Lude.Maybe JobExecutionStatus,
-    statusDetails ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
+    status :: Lude.Maybe JobExecutionStatus,
+    -- | A collection of name/value pairs that describe the status of the job execution.
+    statusDetails :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The version of the job execution. Job execution versions are incremented each time they are updated by a device.
     versionNumber :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecutionState' with the minimum fields required to make a request.

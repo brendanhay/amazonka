@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,14 +39,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkDescribeAttack' smart constructor.
-newtype DescribeAttack = DescribeAttack' {attackId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeAttack = DescribeAttack'
+  { -- | The unique identifier (ID) for the attack that to be described.
+    attackId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAttack' with the minimum fields required to make a request.
@@ -99,17 +97,12 @@ instance Lude.ToQuery DescribeAttack where
 
 -- | /See:/ 'mkDescribeAttackResponse' smart constructor.
 data DescribeAttackResponse = DescribeAttackResponse'
-  { attack ::
-      Lude.Maybe AttackDetail,
+  { -- | The attack that is described.
+    attack :: Lude.Maybe AttackDetail,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAttackResponse' with the minimum fields required to make a request.

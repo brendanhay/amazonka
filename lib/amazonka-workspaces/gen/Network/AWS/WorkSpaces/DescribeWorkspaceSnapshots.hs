@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeWorkspaceSnapshots' smart constructor.
 newtype DescribeWorkspaceSnapshots = DescribeWorkspaceSnapshots'
-  { workspaceId ::
-      Lude.Text
+  { -- | The identifier of the WorkSpace.
+    workspaceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceSnapshots' with the minimum fields required to make a request.
@@ -109,27 +104,21 @@ instance Lude.ToQuery DescribeWorkspaceSnapshots where
 
 -- | /See:/ 'mkDescribeWorkspaceSnapshotsResponse' smart constructor.
 data DescribeWorkspaceSnapshotsResponse = DescribeWorkspaceSnapshotsResponse'
-  { restoreSnapshots ::
-      Lude.Maybe [Snapshot],
-    rebuildSnapshots ::
-      Lude.Maybe [Snapshot],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the snapshots that can be used to restore a WorkSpace. These snapshots include both the root volume and the user volume.
+    restoreSnapshots :: Lude.Maybe [Snapshot],
+    -- | Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include the user volume.
+    rebuildSnapshots :: Lude.Maybe [Snapshot],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceSnapshotsResponse' with the minimum fields required to make a request.
 --
+-- * 'restoreSnapshots' - Information about the snapshots that can be used to restore a WorkSpace. These snapshots include both the root volume and the user volume.
 -- * 'rebuildSnapshots' - Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include the user volume.
 -- * 'responseStatus' - The response status code.
--- * 'restoreSnapshots' - Information about the snapshots that can be used to restore a WorkSpace. These snapshots include both the root volume and the user volume.
 mkDescribeWorkspaceSnapshotsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

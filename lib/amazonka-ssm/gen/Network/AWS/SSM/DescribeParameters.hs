@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.SSM.DescribeParameters
     mkDescribeParametersResponse,
 
     -- ** Response lenses
-    dprsNextToken,
-    dprsParameters,
-    dprsResponseStatus,
+    dpsrsNextToken,
+    dpsrsParameters,
+    dpsrsResponseStatus,
   )
 where
 
@@ -46,27 +47,24 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeParameters' smart constructor.
 data DescribeParameters = DescribeParameters'
-  { parameterFilters ::
-      Lude.Maybe [ParameterStringFilter],
+  { -- | Filters to limit the request results.
+    parameterFilters :: Lude.Maybe [ParameterStringFilter],
+    -- | This data type is deprecated. Instead, use @ParameterFilters@ .
     filters :: Lude.Maybe [ParametersFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeParameters' with the minimum fields required to make a request.
 --
--- * 'filters' - This data type is deprecated. Instead, use @ParameterFilters@ .
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'parameterFilters' - Filters to limit the request results.
+-- * 'filters' - This data type is deprecated. Instead, use @ParameterFilters@ .
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeParameters ::
   DescribeParameters
 mkDescribeParameters =
@@ -107,12 +105,12 @@ dpMaxResults = Lens.lens (maxResults :: DescribeParameters -> Lude.Maybe Lude.Na
 
 instance Page.AWSPager DescribeParameters where
   page rq rs
-    | Page.stop (rs Lens.^. dprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dprsParameters) = Lude.Nothing
+    | Page.stop (rs Lens.^. dpsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dpsrsParameters) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dpNextToken Lens..~ rs Lens.^. dprsNextToken
+          Lude.& dpNextToken Lens..~ rs Lens.^. dpsrsNextToken
 
 instance Lude.AWSRequest DescribeParameters where
   type Rs DescribeParameters = DescribeParametersResponse
@@ -156,19 +154,14 @@ instance Lude.ToQuery DescribeParameters where
 
 -- | /See:/ 'mkDescribeParametersResponse' smart constructor.
 data DescribeParametersResponse = DescribeParametersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    parameters ::
-      Lude.Maybe [ParameterMetadata],
+  { -- | The token to use when requesting the next set of items.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Parameters returned by the request.
+    parameters :: Lude.Maybe [ParameterMetadata],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeParametersResponse' with the minimum fields required to make a request.
@@ -190,20 +183,20 @@ mkDescribeParametersResponse pResponseStatus_ =
 -- | The token to use when requesting the next set of items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsNextToken :: Lens.Lens' DescribeParametersResponse (Lude.Maybe Lude.Text)
-dprsNextToken = Lens.lens (nextToken :: DescribeParametersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeParametersResponse)
-{-# DEPRECATED dprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dpsrsNextToken :: Lens.Lens' DescribeParametersResponse (Lude.Maybe Lude.Text)
+dpsrsNextToken = Lens.lens (nextToken :: DescribeParametersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeParametersResponse)
+{-# DEPRECATED dpsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Parameters returned by the request.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsParameters :: Lens.Lens' DescribeParametersResponse (Lude.Maybe [ParameterMetadata])
-dprsParameters = Lens.lens (parameters :: DescribeParametersResponse -> Lude.Maybe [ParameterMetadata]) (\s a -> s {parameters = a} :: DescribeParametersResponse)
-{-# DEPRECATED dprsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+dpsrsParameters :: Lens.Lens' DescribeParametersResponse (Lude.Maybe [ParameterMetadata])
+dpsrsParameters = Lens.lens (parameters :: DescribeParametersResponse -> Lude.Maybe [ParameterMetadata]) (\s a -> s {parameters = a} :: DescribeParametersResponse)
+{-# DEPRECATED dpsrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DescribeParametersResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DescribeParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeParametersResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpsrsResponseStatus :: Lens.Lens' DescribeParametersResponse Lude.Int
+dpsrsResponseStatus = Lens.lens (responseStatus :: DescribeParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeParametersResponse)
+{-# DEPRECATED dpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,9 +13,9 @@
 module Network.AWS.WAFRegional.Types.WafRuleType
   ( WafRuleType
       ( WafRuleType',
-        Group,
+        Regular,
         RateBased,
-        Regular
+        Group
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype WafRuleType = WafRuleType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Group :: WafRuleType
-pattern Group = WafRuleType' "GROUP"
+pattern Regular :: WafRuleType
+pattern Regular = WafRuleType' "REGULAR"
 
 pattern RateBased :: WafRuleType
 pattern RateBased = WafRuleType' "RATE_BASED"
 
-pattern Regular :: WafRuleType
-pattern Regular = WafRuleType' "REGULAR"
+pattern Group :: WafRuleType
+pattern Group = WafRuleType' "GROUP"
 
 {-# COMPLETE
-  Group,
-  RateBased,
   Regular,
+  RateBased,
+  Group,
   WafRuleType'
   #-}

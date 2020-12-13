@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportTaskStatus' smart constructor.
 data ExportTaskStatus = ExportTaskStatus'
-  { code ::
-      Lude.Maybe ExportTaskStatusCode,
+  { -- | The status code of the export task.
+    code :: Lude.Maybe ExportTaskStatusCode,
+    -- | The status message related to the status code.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTaskStatus' with the minimum fields required to make a request.

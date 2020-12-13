@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode
   ( H265SampleAdaptiveOffsetFilterMode
       ( H265SampleAdaptiveOffsetFilterMode',
-        HSAOFMAdaptive,
         HSAOFMDefault,
+        HSAOFMAdaptive,
         HSAOFMOff
       ),
   )
@@ -47,18 +47,18 @@ newtype H265SampleAdaptiveOffsetFilterMode = H265SampleAdaptiveOffsetFilterMode'
       Lude.ToHeader
     )
 
-pattern HSAOFMAdaptive :: H265SampleAdaptiveOffsetFilterMode
-pattern HSAOFMAdaptive = H265SampleAdaptiveOffsetFilterMode' "ADAPTIVE"
-
 pattern HSAOFMDefault :: H265SampleAdaptiveOffsetFilterMode
 pattern HSAOFMDefault = H265SampleAdaptiveOffsetFilterMode' "DEFAULT"
+
+pattern HSAOFMAdaptive :: H265SampleAdaptiveOffsetFilterMode
+pattern HSAOFMAdaptive = H265SampleAdaptiveOffsetFilterMode' "ADAPTIVE"
 
 pattern HSAOFMOff :: H265SampleAdaptiveOffsetFilterMode
 pattern HSAOFMOff = H265SampleAdaptiveOffsetFilterMode' "OFF"
 
 {-# COMPLETE
-  HSAOFMAdaptive,
   HSAOFMDefault,
+  HSAOFMAdaptive,
   HSAOFMOff,
   H265SampleAdaptiveOffsetFilterMode'
   #-}

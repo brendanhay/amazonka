@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProcessor' smart constructor.
 data Processor = Processor'
-  { parameters ::
-      Lude.Maybe [ProcessorParameter],
+  { -- | The processor parameters.
+    parameters :: Lude.Maybe [ProcessorParameter],
+    -- | The type of processor.
     type' :: ProcessorType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Processor' with the minimum fields required to make a request.

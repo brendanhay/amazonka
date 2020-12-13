@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,17 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachSecurityProfile' smart constructor.
 data AttachSecurityProfile = AttachSecurityProfile'
-  { securityProfileName ::
-      Lude.Text,
+  { -- | The security profile that is attached.
+    securityProfileName :: Lude.Text,
+    -- | The ARN of the target (thing group) to which the security profile is attached.
     securityProfileTargetARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachSecurityProfile' with the minimum fields required to make a request.
@@ -113,16 +109,10 @@ instance Lude.ToQuery AttachSecurityProfile where
 
 -- | /See:/ 'mkAttachSecurityProfileResponse' smart constructor.
 newtype AttachSecurityProfileResponse = AttachSecurityProfileResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachSecurityProfileResponse' with the minimum fields required to make a request.

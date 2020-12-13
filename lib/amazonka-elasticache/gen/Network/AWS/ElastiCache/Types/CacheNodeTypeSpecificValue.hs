@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheNodeTypeSpecificValue' smart constructor.
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
-  { cacheNodeType ::
-      Lude.Maybe Lude.Text,
+  { -- | The cache node type for which this value applies.
+    cacheNodeType :: Lude.Maybe Lude.Text,
+    -- | The value for the cache node type.
     value :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheNodeTypeSpecificValue' with the minimum fields required to make a request.

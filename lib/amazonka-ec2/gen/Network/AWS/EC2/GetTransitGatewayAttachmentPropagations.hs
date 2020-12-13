@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.EC2.GetTransitGatewayAttachmentPropagations
     -- ** Request lenses
     gtgapFilters,
     gtgapNextToken,
+    gtgapTransitGatewayAttachmentId,
     gtgapDryRun,
     gtgapMaxResults,
-    gtgapTransitGatewayAttachmentId,
 
     -- * Destructuring the response
     GetTransitGatewayAttachmentPropagationsResponse (..),
@@ -47,42 +48,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTransitGatewayAttachmentPropagations' smart constructor.
 data GetTransitGatewayAttachmentPropagations = GetTransitGatewayAttachmentPropagations'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    transitGatewayAttachmentId ::
-      Lude.Text
+  { -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @transit-gateway-route-table-id@ - The ID of the transit gateway route table.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTransitGatewayAttachmentPropagations' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
 --     * @transit-gateway-route-table-id@ - The ID of the transit gateway route table.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
 -- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkGetTransitGatewayAttachmentPropagations ::
   -- | 'transitGatewayAttachmentId'
   Lude.Text ->
@@ -92,10 +86,10 @@ mkGetTransitGatewayAttachmentPropagations
     GetTransitGatewayAttachmentPropagations'
       { filters = Lude.Nothing,
         nextToken = Lude.Nothing,
-        dryRun = Lude.Nothing,
-        maxResults = Lude.Nothing,
         transitGatewayAttachmentId =
-          pTransitGatewayAttachmentId_
+          pTransitGatewayAttachmentId_,
+        dryRun = Lude.Nothing,
+        maxResults = Lude.Nothing
       }
 
 -- | One or more filters. The possible values are:
@@ -117,6 +111,13 @@ gtgapNextToken :: Lens.Lens' GetTransitGatewayAttachmentPropagations (Lude.Maybe
 gtgapNextToken = Lens.lens (nextToken :: GetTransitGatewayAttachmentPropagations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTransitGatewayAttachmentPropagations)
 {-# DEPRECATED gtgapNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
+-- | The ID of the attachment.
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgapTransitGatewayAttachmentId :: Lens.Lens' GetTransitGatewayAttachmentPropagations Lude.Text
+gtgapTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: GetTransitGatewayAttachmentPropagations -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: GetTransitGatewayAttachmentPropagations)
+{-# DEPRECATED gtgapTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
+
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -130,13 +131,6 @@ gtgapDryRun = Lens.lens (dryRun :: GetTransitGatewayAttachmentPropagations -> Lu
 gtgapMaxResults :: Lens.Lens' GetTransitGatewayAttachmentPropagations (Lude.Maybe Lude.Natural)
 gtgapMaxResults = Lens.lens (maxResults :: GetTransitGatewayAttachmentPropagations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTransitGatewayAttachmentPropagations)
 {-# DEPRECATED gtgapMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the attachment.
---
--- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgapTransitGatewayAttachmentId :: Lens.Lens' GetTransitGatewayAttachmentPropagations Lude.Text
-gtgapTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: GetTransitGatewayAttachmentPropagations -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: GetTransitGatewayAttachmentPropagations)
-{-# DEPRECATED gtgapTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
 instance Page.AWSPager GetTransitGatewayAttachmentPropagations where
   page rq rs
@@ -180,39 +174,28 @@ instance Lude.ToQuery GetTransitGatewayAttachmentPropagations where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
         "NextToken" Lude.=: nextToken,
+        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkGetTransitGatewayAttachmentPropagationsResponse' smart constructor.
 data GetTransitGatewayAttachmentPropagationsResponse = GetTransitGatewayAttachmentPropagationsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    transitGatewayAttachmentPropagations ::
-      Lude.Maybe
-        [TransitGatewayAttachmentPropagation],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the propagation route tables.
+    transitGatewayAttachmentPropagations :: Lude.Maybe [TransitGatewayAttachmentPropagation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTransitGatewayAttachmentPropagationsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'transitGatewayAttachmentPropagations' - Information about the propagation route tables.
+-- * 'responseStatus' - The response status code.
 mkGetTransitGatewayAttachmentPropagationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

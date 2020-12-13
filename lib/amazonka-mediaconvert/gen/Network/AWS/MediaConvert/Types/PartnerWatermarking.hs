@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPartnerWatermarking' smart constructor.
 newtype PartnerWatermarking = PartnerWatermarking'
-  { nexguardFileMarkerSettings ::
-      Lude.Maybe NexGuardFileMarkerSettings
+  { -- | For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
+    nexguardFileMarkerSettings :: Lude.Maybe NexGuardFileMarkerSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartnerWatermarking' with the minimum fields required to make a request.

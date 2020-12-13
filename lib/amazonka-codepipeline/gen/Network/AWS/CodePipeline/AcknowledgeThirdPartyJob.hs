@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
 
     -- ** Request lenses
     atpjJobId,
-    atpjNonce,
     atpjClientToken,
+    atpjNonce,
 
     -- * Destructuring the response
     AcknowledgeThirdPartyJobResponse (..),
@@ -43,38 +44,34 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAcknowledgeThirdPartyJob' smart constructor.
 data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
-  { jobId ::
-      Lude.Text,
-    nonce :: Lude.Text,
-    clientToken :: Lude.Text
+  { -- | The unique system-generated ID of the job.
+    jobId :: Lude.Text,
+    -- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
+    clientToken :: Lude.Text,
+    -- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a 'GetThirdPartyJobDetails' request.
+    nonce :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcknowledgeThirdPartyJob' with the minimum fields required to make a request.
 --
--- * 'clientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 -- * 'jobId' - The unique system-generated ID of the job.
+-- * 'clientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 -- * 'nonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a 'GetThirdPartyJobDetails' request.
 mkAcknowledgeThirdPartyJob ::
   -- | 'jobId'
   Lude.Text ->
-  -- | 'nonce'
-  Lude.Text ->
   -- | 'clientToken'
   Lude.Text ->
+  -- | 'nonce'
+  Lude.Text ->
   AcknowledgeThirdPartyJob
-mkAcknowledgeThirdPartyJob pJobId_ pNonce_ pClientToken_ =
+mkAcknowledgeThirdPartyJob pJobId_ pClientToken_ pNonce_ =
   AcknowledgeThirdPartyJob'
     { jobId = pJobId_,
-      nonce = pNonce_,
-      clientToken = pClientToken_
+      clientToken = pClientToken_,
+      nonce = pNonce_
     }
 
 -- | The unique system-generated ID of the job.
@@ -84,19 +81,19 @@ atpjJobId :: Lens.Lens' AcknowledgeThirdPartyJob Lude.Text
 atpjJobId = Lens.lens (jobId :: AcknowledgeThirdPartyJob -> Lude.Text) (\s a -> s {jobId = a} :: AcknowledgeThirdPartyJob)
 {-# DEPRECATED atpjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a 'GetThirdPartyJobDetails' request.
---
--- /Note:/ Consider using 'nonce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atpjNonce :: Lens.Lens' AcknowledgeThirdPartyJob Lude.Text
-atpjNonce = Lens.lens (nonce :: AcknowledgeThirdPartyJob -> Lude.Text) (\s a -> s {nonce = a} :: AcknowledgeThirdPartyJob)
-{-# DEPRECATED atpjNonce "Use generic-lens or generic-optics with 'nonce' instead." #-}
-
 -- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atpjClientToken :: Lens.Lens' AcknowledgeThirdPartyJob Lude.Text
 atpjClientToken = Lens.lens (clientToken :: AcknowledgeThirdPartyJob -> Lude.Text) (\s a -> s {clientToken = a} :: AcknowledgeThirdPartyJob)
 {-# DEPRECATED atpjClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a 'GetThirdPartyJobDetails' request.
+--
+-- /Note:/ Consider using 'nonce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atpjNonce :: Lens.Lens' AcknowledgeThirdPartyJob Lude.Text
+atpjNonce = Lens.lens (nonce :: AcknowledgeThirdPartyJob -> Lude.Text) (\s a -> s {nonce = a} :: AcknowledgeThirdPartyJob)
+{-# DEPRECATED atpjNonce "Use generic-lens or generic-optics with 'nonce' instead." #-}
 
 instance Lude.AWSRequest AcknowledgeThirdPartyJob where
   type Rs AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJobResponse
@@ -126,8 +123,8 @@ instance Lude.ToJSON AcknowledgeThirdPartyJob where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("jobId" Lude..= jobId),
-            Lude.Just ("nonce" Lude..= nonce),
-            Lude.Just ("clientToken" Lude..= clientToken)
+            Lude.Just ("clientToken" Lude..= clientToken),
+            Lude.Just ("nonce" Lude..= nonce)
           ]
       )
 
@@ -141,24 +138,18 @@ instance Lude.ToQuery AcknowledgeThirdPartyJob where
 --
 -- /See:/ 'mkAcknowledgeThirdPartyJobResponse' smart constructor.
 data AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
-  { status ::
-      Lude.Maybe JobStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The status information for the third party job, if any.
+    status :: Lude.Maybe JobStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcknowledgeThirdPartyJobResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status information for the third party job, if any.
+-- * 'responseStatus' - The response status code.
 mkAcknowledgeThirdPartyJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

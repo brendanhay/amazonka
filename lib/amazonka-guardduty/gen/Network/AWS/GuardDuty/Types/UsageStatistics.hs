@@ -34,27 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsageStatistics' smart constructor.
 data UsageStatistics = UsageStatistics'
-  { topResources ::
-      Lude.Maybe [UsageResourceResult],
+  { -- | Lists the top 50 resources that have generated the most GuardDuty usage, in order from most to least expensive.
+    topResources :: Lude.Maybe [UsageResourceResult],
+    -- | The usage statistic sum organized by resource.
     sumByResource :: Lude.Maybe [UsageResourceResult],
+    -- | The usage statistic sum organized by on data source.
     sumByDataSource :: Lude.Maybe [UsageDataSourceResult],
+    -- | The usage statistic sum organized by account ID.
     sumByAccount :: Lude.Maybe [UsageAccountResult]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageStatistics' with the minimum fields required to make a request.
 --
--- * 'sumByAccount' - The usage statistic sum organized by account ID.
--- * 'sumByDataSource' - The usage statistic sum organized by on data source.
--- * 'sumByResource' - The usage statistic sum organized by resource.
 -- * 'topResources' - Lists the top 50 resources that have generated the most GuardDuty usage, in order from most to least expensive.
+-- * 'sumByResource' - The usage statistic sum organized by resource.
+-- * 'sumByDataSource' - The usage statistic sum organized by on data source.
+-- * 'sumByAccount' - The usage statistic sum organized by account ID.
 mkUsageStatistics ::
   UsageStatistics
 mkUsageStatistics =

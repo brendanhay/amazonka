@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateStreamingDistributionWithTags' smart constructor.
 newtype CreateStreamingDistributionWithTags = CreateStreamingDistributionWithTags'
-  { streamingDistributionConfigWithTags ::
-      StreamingDistributionConfigWithTags
+  { -- | The streaming distribution's configuration information.
+    streamingDistributionConfigWithTags :: StreamingDistributionConfigWithTags
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamingDistributionWithTags' with the minimum fields required to make a request.
@@ -110,33 +105,24 @@ instance Lude.ToQuery CreateStreamingDistributionWithTags where
 --
 -- /See:/ 'mkCreateStreamingDistributionWithTagsResponse' smart constructor.
 data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWithTagsResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    location ::
-      Lude.Maybe
-        Lude.Text,
-    streamingDistribution ::
-      Lude.Maybe
-        StreamingDistribution,
-    responseStatus ::
-      Lude.Int
+  { -- | The current version of the distribution created.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The fully qualified URI of the new streaming distribution resource just created.
+    location :: Lude.Maybe Lude.Text,
+    -- | The streaming distribution's information.
+    streamingDistribution :: Lude.Maybe StreamingDistribution,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamingDistributionWithTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'eTag' - The current version of the distribution created.
 -- * 'location' - The fully qualified URI of the new streaming distribution resource just created.
--- * 'responseStatus' - The response status code.
 -- * 'streamingDistribution' - The streaming distribution's information.
+-- * 'responseStatus' - The response status code.
 mkCreateStreamingDistributionWithTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -33,28 +33,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsWebdavSettings' smart constructor.
 data HlsWebdavSettings = HlsWebdavSettings'
-  { hTTPTransferMode ::
-      Lude.Maybe HlsWebdavHTTPTransferMode,
+  { -- | Specify whether or not to use chunked transfer encoding to WebDAV.
+    hTTPTransferMode :: Lude.Maybe HlsWebdavHTTPTransferMode,
+    -- | Number of retry attempts that will be made before the Live Event is put into an error state.
     numRetries :: Lude.Maybe Lude.Natural,
+    -- | Number of seconds to wait before retrying connection to the CDN if the connection is lost.
     connectionRetryInterval :: Lude.Maybe Lude.Natural,
+    -- | Size in seconds of file cache for streaming outputs.
     filecacheDuration :: Lude.Maybe Lude.Natural,
+    -- | If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
     restartDelay :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsWebdavSettings' with the minimum fields required to make a request.
 --
--- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the connection is lost.
--- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
 -- * 'hTTPTransferMode' - Specify whether or not to use chunked transfer encoding to WebDAV.
 -- * 'numRetries' - Number of retry attempts that will be made before the Live Event is put into an error state.
+-- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+-- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
 -- * 'restartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
 mkHlsWebdavSettings ::
   HlsWebdavSettings

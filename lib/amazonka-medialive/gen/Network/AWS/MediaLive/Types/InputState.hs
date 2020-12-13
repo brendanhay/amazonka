@@ -13,11 +13,11 @@
 module Network.AWS.MediaLive.Types.InputState
   ( InputState
       ( InputState',
-        Attached,
         Creating,
-        Deleted,
+        Detached,
+        Attached,
         Deleting,
-        Detached
+        Deleted
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype InputState = InputState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Attached :: InputState
-pattern Attached = InputState' "ATTACHED"
-
 pattern Creating :: InputState
 pattern Creating = InputState' "CREATING"
-
-pattern Deleted :: InputState
-pattern Deleted = InputState' "DELETED"
-
-pattern Deleting :: InputState
-pattern Deleting = InputState' "DELETING"
 
 pattern Detached :: InputState
 pattern Detached = InputState' "DETACHED"
 
+pattern Attached :: InputState
+pattern Attached = InputState' "ATTACHED"
+
+pattern Deleting :: InputState
+pattern Deleting = InputState' "DELETING"
+
+pattern Deleted :: InputState
+pattern Deleted = InputState' "DELETED"
+
 {-# COMPLETE
-  Attached,
   Creating,
-  Deleted,
-  Deleting,
   Detached,
+  Attached,
+  Deleting,
+  Deleted,
   InputState'
   #-}

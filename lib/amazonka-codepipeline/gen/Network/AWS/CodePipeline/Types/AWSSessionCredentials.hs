@@ -17,9 +17,9 @@ module Network.AWS.CodePipeline.Types.AWSSessionCredentials
     mkAWSSessionCredentials,
 
     -- * Lenses
-    ascAccessKeyId,
     ascSecretAccessKey,
     ascSessionToken,
+    ascAccessKeyId,
   )
 where
 
@@ -30,49 +30,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSSessionCredentials' smart constructor.
 data AWSSessionCredentials = AWSSessionCredentials'
-  { accessKeyId ::
-      Lude.Text,
+  { -- | The secret access key for the session.
     secretAccessKey :: Lude.Text,
-    sessionToken :: Lude.Text
+    -- | The token for the session.
+    sessionToken :: Lude.Text,
+    -- | The access key for the session.
+    accessKeyId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSSessionCredentials' with the minimum fields required to make a request.
 --
--- * 'accessKeyId' - The access key for the session.
 -- * 'secretAccessKey' - The secret access key for the session.
 -- * 'sessionToken' - The token for the session.
+-- * 'accessKeyId' - The access key for the session.
 mkAWSSessionCredentials ::
-  -- | 'accessKeyId'
-  Lude.Text ->
   -- | 'secretAccessKey'
   Lude.Text ->
   -- | 'sessionToken'
   Lude.Text ->
+  -- | 'accessKeyId'
+  Lude.Text ->
   AWSSessionCredentials
 mkAWSSessionCredentials
-  pAccessKeyId_
   pSecretAccessKey_
-  pSessionToken_ =
+  pSessionToken_
+  pAccessKeyId_ =
     AWSSessionCredentials'
-      { accessKeyId = pAccessKeyId_,
-        secretAccessKey = pSecretAccessKey_,
-        sessionToken = pSessionToken_
+      { secretAccessKey = pSecretAccessKey_,
+        sessionToken = pSessionToken_,
+        accessKeyId = pAccessKeyId_
       }
-
--- | The access key for the session.
---
--- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ascAccessKeyId :: Lens.Lens' AWSSessionCredentials Lude.Text
-ascAccessKeyId = Lens.lens (accessKeyId :: AWSSessionCredentials -> Lude.Text) (\s a -> s {accessKeyId = a} :: AWSSessionCredentials)
-{-# DEPRECATED ascAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
 -- | The secret access key for the session.
 --
@@ -88,13 +77,20 @@ ascSessionToken :: Lens.Lens' AWSSessionCredentials Lude.Text
 ascSessionToken = Lens.lens (sessionToken :: AWSSessionCredentials -> Lude.Text) (\s a -> s {sessionToken = a} :: AWSSessionCredentials)
 {-# DEPRECATED ascSessionToken "Use generic-lens or generic-optics with 'sessionToken' instead." #-}
 
+-- | The access key for the session.
+--
+-- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ascAccessKeyId :: Lens.Lens' AWSSessionCredentials Lude.Text
+ascAccessKeyId = Lens.lens (accessKeyId :: AWSSessionCredentials -> Lude.Text) (\s a -> s {accessKeyId = a} :: AWSSessionCredentials)
+{-# DEPRECATED ascAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
+
 instance Lude.FromJSON AWSSessionCredentials where
   parseJSON =
     Lude.withObject
       "AWSSessionCredentials"
       ( \x ->
           AWSSessionCredentials'
-            Lude.<$> (x Lude..: "accessKeyId")
-            Lude.<*> (x Lude..: "secretAccessKey")
+            Lude.<$> (x Lude..: "secretAccessKey")
             Lude.<*> (x Lude..: "sessionToken")
+            Lude.<*> (x Lude..: "accessKeyId")
       )

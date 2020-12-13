@@ -17,8 +17,8 @@ module Network.AWS.SES.Types.ReceiptIPFilter
     mkReceiptIPFilter,
 
     -- * Lenses
-    rifPolicy,
     rifCidr,
+    rifPolicy,
   )
 where
 
@@ -32,17 +32,12 @@ import Network.AWS.SES.Types.ReceiptFilterPolicy
 --
 -- /See:/ 'mkReceiptIPFilter' smart constructor.
 data ReceiptIPFilter = ReceiptIPFilter'
-  { policy ::
-      ReceiptFilterPolicy,
-    cidr :: Lude.Text
+  { -- | A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <https://tools.ietf.org/html/rfc2317 RFC 2317> .
+    cidr :: Lude.Text,
+    -- | Indicates whether to block or allow incoming mail from the specified IP addresses.
+    policy :: ReceiptFilterPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReceiptIPFilter' with the minimum fields required to make a request.
@@ -50,20 +45,13 @@ data ReceiptIPFilter = ReceiptIPFilter'
 -- * 'cidr' - A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <https://tools.ietf.org/html/rfc2317 RFC 2317> .
 -- * 'policy' - Indicates whether to block or allow incoming mail from the specified IP addresses.
 mkReceiptIPFilter ::
-  -- | 'policy'
-  ReceiptFilterPolicy ->
   -- | 'cidr'
   Lude.Text ->
+  -- | 'policy'
+  ReceiptFilterPolicy ->
   ReceiptIPFilter
-mkReceiptIPFilter pPolicy_ pCidr_ =
-  ReceiptIPFilter' {policy = pPolicy_, cidr = pCidr_}
-
--- | Indicates whether to block or allow incoming mail from the specified IP addresses.
---
--- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rifPolicy :: Lens.Lens' ReceiptIPFilter ReceiptFilterPolicy
-rifPolicy = Lens.lens (policy :: ReceiptIPFilter -> ReceiptFilterPolicy) (\s a -> s {policy = a} :: ReceiptIPFilter)
-{-# DEPRECATED rifPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+mkReceiptIPFilter pCidr_ pPolicy_ =
+  ReceiptIPFilter' {cidr = pCidr_, policy = pPolicy_}
 
 -- | A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <https://tools.ietf.org/html/rfc2317 RFC 2317> .
 --
@@ -72,11 +60,18 @@ rifCidr :: Lens.Lens' ReceiptIPFilter Lude.Text
 rifCidr = Lens.lens (cidr :: ReceiptIPFilter -> Lude.Text) (\s a -> s {cidr = a} :: ReceiptIPFilter)
 {-# DEPRECATED rifCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
+-- | Indicates whether to block or allow incoming mail from the specified IP addresses.
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rifPolicy :: Lens.Lens' ReceiptIPFilter ReceiptFilterPolicy
+rifPolicy = Lens.lens (policy :: ReceiptIPFilter -> ReceiptFilterPolicy) (\s a -> s {policy = a} :: ReceiptIPFilter)
+{-# DEPRECATED rifPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+
 instance Lude.FromXML ReceiptIPFilter where
   parseXML x =
     ReceiptIPFilter'
-      Lude.<$> (x Lude..@ "Policy") Lude.<*> (x Lude..@ "Cidr")
+      Lude.<$> (x Lude..@ "Cidr") Lude.<*> (x Lude..@ "Policy")
 
 instance Lude.ToQuery ReceiptIPFilter where
   toQuery ReceiptIPFilter' {..} =
-    Lude.mconcat ["Policy" Lude.=: policy, "Cidr" Lude.=: cidr]
+    Lude.mconcat ["Cidr" Lude.=: cidr, "Policy" Lude.=: policy]

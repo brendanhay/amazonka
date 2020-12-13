@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,8 +39,8 @@ module Network.AWS.SageMaker.ListTransformJobs
 
     -- ** Response lenses
     ltjsrsNextToken,
-    ltjsrsResponseStatus,
     ltjsrsTransformJobSummaries,
+    ltjsrsResponseStatus,
   )
 where
 
@@ -52,39 +53,42 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListTransformJobs' smart constructor.
 data ListTransformJobs = ListTransformJobs'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | A string in the transform job name. This filter returns only transform jobs whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only transform jobs modified before the specified time.
     lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only transform jobs created after the specified time.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the result of the previous @ListTransformJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of transform jobs, use the token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for results. The default is @Descending@ .
     sortOrder :: Lude.Maybe SortOrder,
+    -- | A filter that returns only transform jobs modified after the specified time.
     lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only transform jobs created before the specified time.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that retrieves only transform jobs with a specific status.
     statusEquals :: Lude.Maybe TransformJobStatus,
+    -- | The maximum number of transform jobs to return in the response. The default value is @10@ .
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The field to sort results by. The default is @CreationTime@ .
     sortBy :: Lude.Maybe SortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTransformJobs' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - A filter that returns only transform jobs created after the specified time.
--- * 'creationTimeBefore' - A filter that returns only transform jobs created before the specified time.
--- * 'lastModifiedTimeAfter' - A filter that returns only transform jobs modified after the specified time.
--- * 'lastModifiedTimeBefore' - A filter that returns only transform jobs modified before the specified time.
--- * 'maxResults' - The maximum number of transform jobs to return in the response. The default value is @10@ .
 -- * 'nameContains' - A string in the transform job name. This filter returns only transform jobs whose name contains the specified string.
+-- * 'lastModifiedTimeBefore' - A filter that returns only transform jobs modified before the specified time.
+-- * 'creationTimeAfter' - A filter that returns only transform jobs created after the specified time.
 -- * 'nextToken' - If the result of the previous @ListTransformJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of transform jobs, use the token in the next request.
--- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
 -- * 'sortOrder' - The sort order for results. The default is @Descending@ .
+-- * 'lastModifiedTimeAfter' - A filter that returns only transform jobs modified after the specified time.
+-- * 'creationTimeBefore' - A filter that returns only transform jobs created before the specified time.
 -- * 'statusEquals' - A filter that retrieves only transform jobs with a specific status.
+-- * 'maxResults' - The maximum number of transform jobs to return in the response. The default value is @10@ .
+-- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
 mkListTransformJobs ::
   ListTransformJobs
 mkListTransformJobs =
@@ -188,8 +192,8 @@ instance Lude.AWSRequest ListTransformJobs where
       ( \s h x ->
           ListTransformJobsResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "TransformJobSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListTransformJobs where
@@ -228,26 +232,21 @@ instance Lude.ToQuery ListTransformJobs where
 
 -- | /See:/ 'mkListTransformJobsResponse' smart constructor.
 data ListTransformJobsResponse = ListTransformJobsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    transformJobSummaries ::
-      [TransformJobSummary]
+  { -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @TransformJobSummary@ objects.
+    transformJobSummaries :: [TransformJobSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTransformJobsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.
--- * 'responseStatus' - The response status code.
 -- * 'transformJobSummaries' - An array of @TransformJobSummary@ objects.
+-- * 'responseStatus' - The response status code.
 mkListTransformJobsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -255,8 +254,8 @@ mkListTransformJobsResponse ::
 mkListTransformJobsResponse pResponseStatus_ =
   ListTransformJobsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      transformJobSummaries = Lude.mempty
+      transformJobSummaries = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.
@@ -266,16 +265,16 @@ ltjsrsNextToken :: Lens.Lens' ListTransformJobsResponse (Lude.Maybe Lude.Text)
 ltjsrsNextToken = Lens.lens (nextToken :: ListTransformJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTransformJobsResponse)
 {-# DEPRECATED ltjsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjsrsResponseStatus :: Lens.Lens' ListTransformJobsResponse Lude.Int
-ltjsrsResponseStatus = Lens.lens (responseStatus :: ListTransformJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTransformJobsResponse)
-{-# DEPRECATED ltjsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | An array of @TransformJobSummary@ objects.
 --
 -- /Note:/ Consider using 'transformJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltjsrsTransformJobSummaries :: Lens.Lens' ListTransformJobsResponse [TransformJobSummary]
 ltjsrsTransformJobSummaries = Lens.lens (transformJobSummaries :: ListTransformJobsResponse -> [TransformJobSummary]) (\s a -> s {transformJobSummaries = a} :: ListTransformJobsResponse)
 {-# DEPRECATED ltjsrsTransformJobSummaries "Use generic-lens or generic-optics with 'transformJobSummaries' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsrsResponseStatus :: Lens.Lens' ListTransformJobsResponse Lude.Int
+ltjsrsResponseStatus = Lens.lens (responseStatus :: ListTransformJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTransformJobsResponse)
+{-# DEPRECATED ltjsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

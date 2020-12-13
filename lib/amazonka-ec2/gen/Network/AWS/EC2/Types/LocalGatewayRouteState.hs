@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.LocalGatewayRouteState
   ( LocalGatewayRouteState
       ( LocalGatewayRouteState',
+        LGRSPending,
         LGRSActive,
         LGRSBlackhole,
-        LGRSDeleted,
         LGRSDeleting,
-        LGRSPending
+        LGRSDeleted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype LocalGatewayRouteState = LocalGatewayRouteState' Lude.Text
       Lude.ToHeader
     )
 
+pattern LGRSPending :: LocalGatewayRouteState
+pattern LGRSPending = LocalGatewayRouteState' "pending"
+
 pattern LGRSActive :: LocalGatewayRouteState
 pattern LGRSActive = LocalGatewayRouteState' "active"
 
 pattern LGRSBlackhole :: LocalGatewayRouteState
 pattern LGRSBlackhole = LocalGatewayRouteState' "blackhole"
 
-pattern LGRSDeleted :: LocalGatewayRouteState
-pattern LGRSDeleted = LocalGatewayRouteState' "deleted"
-
 pattern LGRSDeleting :: LocalGatewayRouteState
 pattern LGRSDeleting = LocalGatewayRouteState' "deleting"
 
-pattern LGRSPending :: LocalGatewayRouteState
-pattern LGRSPending = LocalGatewayRouteState' "pending"
+pattern LGRSDeleted :: LocalGatewayRouteState
+pattern LGRSDeleted = LocalGatewayRouteState' "deleted"
 
 {-# COMPLETE
+  LGRSPending,
   LGRSActive,
   LGRSBlackhole,
-  LGRSDeleted,
   LGRSDeleting,
-  LGRSPending,
+  LGRSDeleted,
   LocalGatewayRouteState'
   #-}

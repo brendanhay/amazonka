@@ -31,18 +31,12 @@ import Network.AWS.Rekognition.Types.RegionOfInterest
 --
 -- /See:/ 'mkStartTextDetectionFilters' smart constructor.
 data StartTextDetectionFilters = StartTextDetectionFilters'
-  { regionsOfInterest ::
-      Lude.Maybe [RegionOfInterest],
-    wordFilter ::
-      Lude.Maybe DetectionFilter
+  { -- | Filter focusing on a certain area of the frame. Uses a @BoundingBox@ object to set the region of the screen.
+    regionsOfInterest :: Lude.Maybe [RegionOfInterest],
+    -- | Filters focusing on qualities of the text, such as confidence or size.
+    wordFilter :: Lude.Maybe DetectionFilter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTextDetectionFilters' with the minimum fields required to make a request.

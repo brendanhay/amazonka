@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrialMinutes' smart constructor.
 data TrialMinutes = TrialMinutes'
-  { remaining ::
-      Lude.Maybe Lude.Double,
+  { -- | The number of free trial minutes remaining in the account.
+    remaining :: Lude.Maybe Lude.Double,
+    -- | The total number of free trial minutes that the account started with.
     total :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialMinutes' with the minimum fields required to make a request.

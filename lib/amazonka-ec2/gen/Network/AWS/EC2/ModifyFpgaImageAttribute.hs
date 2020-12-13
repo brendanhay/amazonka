@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,6 +22,7 @@ module Network.AWS.EC2.ModifyFpgaImageAttribute
     -- ** Request lenses
     mfiaAttribute,
     mfiaUserIds,
+    mfiaFpgaImageId,
     mfiaUserGroups,
     mfiaLoadPermission,
     mfiaName,
@@ -28,7 +30,6 @@ module Network.AWS.EC2.ModifyFpgaImageAttribute
     mfiaProductCodes,
     mfiaDescription,
     mfiaDryRun,
-    mfiaFpgaImageId,
 
     -- * Destructuring the response
     ModifyFpgaImageAttributeResponse (..),
@@ -48,40 +49,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyFpgaImageAttribute' smart constructor.
 data ModifyFpgaImageAttribute = ModifyFpgaImageAttribute'
-  { attribute ::
-      Lude.Maybe FpgaImageAttributeName,
+  { -- | The name of the attribute.
+    attribute :: Lude.Maybe FpgaImageAttributeName,
+    -- | The AWS account IDs. This parameter is valid only when modifying the @loadPermission@ attribute.
     userIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the AFI.
+    fpgaImageId :: Lude.Text,
+    -- | The user groups. This parameter is valid only when modifying the @loadPermission@ attribute.
     userGroups :: Lude.Maybe [Lude.Text],
-    loadPermission ::
-      Lude.Maybe LoadPermissionModifications,
+    -- | The load permission for the AFI.
+    loadPermission :: Lude.Maybe LoadPermissionModifications,
+    -- | A name for the AFI.
     name :: Lude.Maybe Lude.Text,
+    -- | The operation type.
     operationType :: Lude.Maybe OperationType,
+    -- | The product codes. After you add a product code to an AFI, it can't be removed. This parameter is valid only when modifying the @productCodes@ attribute.
     productCodes :: Lude.Maybe [Lude.Text],
+    -- | A description for the AFI.
     description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    fpgaImageId :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyFpgaImageAttribute' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The name of the attribute.
--- * 'description' - A description for the AFI.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'userIds' - The AWS account IDs. This parameter is valid only when modifying the @loadPermission@ attribute.
 -- * 'fpgaImageId' - The ID of the AFI.
+-- * 'userGroups' - The user groups. This parameter is valid only when modifying the @loadPermission@ attribute.
 -- * 'loadPermission' - The load permission for the AFI.
 -- * 'name' - A name for the AFI.
 -- * 'operationType' - The operation type.
 -- * 'productCodes' - The product codes. After you add a product code to an AFI, it can't be removed. This parameter is valid only when modifying the @productCodes@ attribute.
--- * 'userGroups' - The user groups. This parameter is valid only when modifying the @loadPermission@ attribute.
--- * 'userIds' - The AWS account IDs. This parameter is valid only when modifying the @loadPermission@ attribute.
+-- * 'description' - A description for the AFI.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyFpgaImageAttribute ::
   -- | 'fpgaImageId'
   Lude.Text ->
@@ -90,14 +93,14 @@ mkModifyFpgaImageAttribute pFpgaImageId_ =
   ModifyFpgaImageAttribute'
     { attribute = Lude.Nothing,
       userIds = Lude.Nothing,
+      fpgaImageId = pFpgaImageId_,
       userGroups = Lude.Nothing,
       loadPermission = Lude.Nothing,
       name = Lude.Nothing,
       operationType = Lude.Nothing,
       productCodes = Lude.Nothing,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      fpgaImageId = pFpgaImageId_
+      dryRun = Lude.Nothing
     }
 
 -- | The name of the attribute.
@@ -113,6 +116,13 @@ mfiaAttribute = Lens.lens (attribute :: ModifyFpgaImageAttribute -> Lude.Maybe F
 mfiaUserIds :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe [Lude.Text])
 mfiaUserIds = Lens.lens (userIds :: ModifyFpgaImageAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {userIds = a} :: ModifyFpgaImageAttribute)
 {-# DEPRECATED mfiaUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
+
+-- | The ID of the AFI.
+--
+-- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaFpgaImageId :: Lens.Lens' ModifyFpgaImageAttribute Lude.Text
+mfiaFpgaImageId = Lens.lens (fpgaImageId :: ModifyFpgaImageAttribute -> Lude.Text) (\s a -> s {fpgaImageId = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
 -- | The user groups. This parameter is valid only when modifying the @loadPermission@ attribute.
 --
@@ -163,13 +173,6 @@ mfiaDryRun :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe Lude.Bool)
 mfiaDryRun = Lens.lens (dryRun :: ModifyFpgaImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyFpgaImageAttribute)
 {-# DEPRECATED mfiaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The ID of the AFI.
---
--- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfiaFpgaImageId :: Lens.Lens' ModifyFpgaImageAttribute Lude.Text
-mfiaFpgaImageId = Lens.lens (fpgaImageId :: ModifyFpgaImageAttribute -> Lude.Text) (\s a -> s {fpgaImageId = a} :: ModifyFpgaImageAttribute)
-{-# DEPRECATED mfiaFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
-
 instance Lude.AWSRequest ModifyFpgaImageAttribute where
   type Rs ModifyFpgaImageAttribute = ModifyFpgaImageAttributeResponse
   request = Req.postQuery ec2Service
@@ -194,6 +197,7 @@ instance Lude.ToQuery ModifyFpgaImageAttribute where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "Attribute" Lude.=: attribute,
         Lude.toQuery (Lude.toQueryList "UserId" Lude.<$> userIds),
+        "FpgaImageId" Lude.=: fpgaImageId,
         Lude.toQuery (Lude.toQueryList "UserGroup" Lude.<$> userGroups),
         "LoadPermission" Lude.=: loadPermission,
         "Name" Lude.=: name,
@@ -201,25 +205,17 @@ instance Lude.ToQuery ModifyFpgaImageAttribute where
         Lude.toQuery
           (Lude.toQueryList "ProductCode" Lude.<$> productCodes),
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "FpgaImageId" Lude.=: fpgaImageId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyFpgaImageAttributeResponse' smart constructor.
 data ModifyFpgaImageAttributeResponse = ModifyFpgaImageAttributeResponse'
-  { fpgaImageAttribute ::
-      Lude.Maybe
-        FpgaImageAttribute,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the attribute.
+    fpgaImageAttribute :: Lude.Maybe FpgaImageAttribute,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyFpgaImageAttributeResponse' with the minimum fields required to make a request.

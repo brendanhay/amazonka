@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,29 +50,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveSchemaVersionMetadata' smart constructor.
 data RemoveSchemaVersionMetadata = RemoveSchemaVersionMetadata'
-  { schemaVersionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique version ID of the schema version.
+    schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
     schemaId :: Lude.Maybe SchemaId,
-    schemaVersionNumber ::
-      Lude.Maybe SchemaVersionNumber,
-    metadataKeyValue ::
-      MetadataKeyValuePair
+    -- | The version number of the schema.
+    schemaVersionNumber :: Lude.Maybe SchemaVersionNumber,
+    -- | The value of the metadata key.
+    metadataKeyValue :: MetadataKeyValuePair
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveSchemaVersionMetadata' with the minimum fields required to make a request.
 --
--- * 'metadataKeyValue' - The value of the metadata key.
--- * 'schemaId' - A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
 -- * 'schemaVersionId' - The unique version ID of the schema version.
+-- * 'schemaId' - A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
 -- * 'schemaVersionNumber' - The version number of the schema.
+-- * 'metadataKeyValue' - The value of the metadata key.
 mkRemoveSchemaVersionMetadata ::
   -- | 'metadataKeyValue'
   MetadataKeyValuePair ->
@@ -162,53 +158,39 @@ instance Lude.ToQuery RemoveSchemaVersionMetadata where
 
 -- | /See:/ 'mkRemoveSchemaVersionMetadataResponse' smart constructor.
 data RemoveSchemaVersionMetadataResponse = RemoveSchemaVersionMetadataResponse'
-  { registryName ::
-      Lude.Maybe
-        Lude.Text,
-    schemaName ::
-      Lude.Maybe
-        Lude.Text,
-    schemaVersionId ::
-      Lude.Maybe
-        Lude.Text,
-    versionNumber ::
-      Lude.Maybe
-        Lude.Natural,
-    schemaARN ::
-      Lude.Maybe
-        Lude.Text,
-    metadataKey ::
-      Lude.Maybe
-        Lude.Text,
-    metadataValue ::
-      Lude.Maybe
-        Lude.Text,
-    latestVersion ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the registry.
+    registryName :: Lude.Maybe Lude.Text,
+    -- | The name of the schema.
+    schemaName :: Lude.Maybe Lude.Text,
+    -- | The version ID for the schema version.
+    schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | The version number of the schema.
+    versionNumber :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) of the schema.
+    schemaARN :: Lude.Maybe Lude.Text,
+    -- | The metadata key.
+    metadataKey :: Lude.Maybe Lude.Text,
+    -- | The value of the metadata key.
+    metadataValue :: Lude.Maybe Lude.Text,
+    -- | The latest version of the schema.
+    latestVersion :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveSchemaVersionMetadataResponse' with the minimum fields required to make a request.
 --
--- * 'latestVersion' - The latest version of the schema.
--- * 'metadataKey' - The metadata key.
--- * 'metadataValue' - The value of the metadata key.
 -- * 'registryName' - The name of the registry.
--- * 'responseStatus' - The response status code.
--- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
 -- * 'schemaName' - The name of the schema.
 -- * 'schemaVersionId' - The version ID for the schema version.
 -- * 'versionNumber' - The version number of the schema.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
+-- * 'metadataKey' - The metadata key.
+-- * 'metadataValue' - The value of the metadata key.
+-- * 'latestVersion' - The latest version of the schema.
+-- * 'responseStatus' - The response status code.
 mkRemoveSchemaVersionMetadataResponse ::
   -- | 'responseStatus'
   Lude.Int ->

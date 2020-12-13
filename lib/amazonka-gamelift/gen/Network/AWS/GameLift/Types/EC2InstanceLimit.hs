@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2InstanceLimit' smart constructor.
 data EC2InstanceLimit = EC2InstanceLimit'
-  { ec2InstanceType ::
-      Lude.Maybe EC2InstanceType,
+  { -- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+    ec2InstanceType :: Lude.Maybe EC2InstanceType,
+    -- | Number of instances of the specified type that are currently in use by this AWS account.
     currentInstances :: Lude.Maybe Lude.Natural,
+    -- | Number of instances allowed.
     instanceLimit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2InstanceLimit' with the minimum fields required to make a request.
 --
--- * 'currentInstances' - Number of instances of the specified type that are currently in use by this AWS account.
 -- * 'ec2InstanceType' - Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+-- * 'currentInstances' - Number of instances of the specified type that are currently in use by this AWS account.
 -- * 'instanceLimit' - Number of instances allowed.
 mkEC2InstanceLimit ::
   EC2InstanceLimit

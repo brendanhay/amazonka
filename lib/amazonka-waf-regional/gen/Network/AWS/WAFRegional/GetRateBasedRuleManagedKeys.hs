@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
     mkGetRateBasedRuleManagedKeys,
 
     -- ** Request lenses
-    grbrmkNextMarker,
     grbrmkRuleId,
+    grbrmkNextMarker,
 
     -- * Destructuring the response
     GetRateBasedRuleManagedKeysResponse (..),
@@ -41,39 +42,27 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkGetRateBasedRuleManagedKeys' smart constructor.
 data GetRateBasedRuleManagedKeys = GetRateBasedRuleManagedKeys'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
-    ruleId :: Lude.Text
+  { -- | The @RuleId@ of the 'RateBasedRule' for which you want to get a list of @ManagedKeys@ . @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
+    ruleId :: Lude.Text,
+    -- | A null value and not currently used. Do not include this in your request.
+    nextMarker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRateBasedRuleManagedKeys' with the minimum fields required to make a request.
 --
--- * 'nextMarker' - A null value and not currently used. Do not include this in your request.
 -- * 'ruleId' - The @RuleId@ of the 'RateBasedRule' for which you want to get a list of @ManagedKeys@ . @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
+-- * 'nextMarker' - A null value and not currently used. Do not include this in your request.
 mkGetRateBasedRuleManagedKeys ::
   -- | 'ruleId'
   Lude.Text ->
   GetRateBasedRuleManagedKeys
 mkGetRateBasedRuleManagedKeys pRuleId_ =
   GetRateBasedRuleManagedKeys'
-    { nextMarker = Lude.Nothing,
-      ruleId = pRuleId_
+    { ruleId = pRuleId_,
+      nextMarker = Lude.Nothing
     }
-
--- | A null value and not currently used. Do not include this in your request.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grbrmkNextMarker :: Lens.Lens' GetRateBasedRuleManagedKeys (Lude.Maybe Lude.Text)
-grbrmkNextMarker = Lens.lens (nextMarker :: GetRateBasedRuleManagedKeys -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: GetRateBasedRuleManagedKeys)
-{-# DEPRECATED grbrmkNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The @RuleId@ of the 'RateBasedRule' for which you want to get a list of @ManagedKeys@ . @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
 --
@@ -81,6 +70,13 @@ grbrmkNextMarker = Lens.lens (nextMarker :: GetRateBasedRuleManagedKeys -> Lude.
 grbrmkRuleId :: Lens.Lens' GetRateBasedRuleManagedKeys Lude.Text
 grbrmkRuleId = Lens.lens (ruleId :: GetRateBasedRuleManagedKeys -> Lude.Text) (\s a -> s {ruleId = a} :: GetRateBasedRuleManagedKeys)
 {-# DEPRECATED grbrmkRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
+
+-- | A null value and not currently used. Do not include this in your request.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grbrmkNextMarker :: Lens.Lens' GetRateBasedRuleManagedKeys (Lude.Maybe Lude.Text)
+grbrmkNextMarker = Lens.lens (nextMarker :: GetRateBasedRuleManagedKeys -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: GetRateBasedRuleManagedKeys)
+{-# DEPRECATED grbrmkNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 instance Lude.AWSRequest GetRateBasedRuleManagedKeys where
   type
@@ -113,8 +109,8 @@ instance Lude.ToJSON GetRateBasedRuleManagedKeys where
   toJSON GetRateBasedRuleManagedKeys' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
-            Lude.Just ("RuleId" Lude..= ruleId)
+          [ Lude.Just ("RuleId" Lude..= ruleId),
+            ("NextMarker" Lude..=) Lude.<$> nextMarker
           ]
       )
 
@@ -126,28 +122,20 @@ instance Lude.ToQuery GetRateBasedRuleManagedKeys where
 
 -- | /See:/ 'mkGetRateBasedRuleManagedKeysResponse' smart constructor.
 data GetRateBasedRuleManagedKeysResponse = GetRateBasedRuleManagedKeysResponse'
-  { nextMarker ::
-      Lude.Maybe
-        Lude.Text,
-    managedKeys ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | A null value and not currently used.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | An array of IP addresses that currently are blocked by the specified 'RateBasedRule' .
+    managedKeys :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRateBasedRuleManagedKeysResponse' with the minimum fields required to make a request.
 --
--- * 'managedKeys' - An array of IP addresses that currently are blocked by the specified 'RateBasedRule' .
 -- * 'nextMarker' - A null value and not currently used.
+-- * 'managedKeys' - An array of IP addresses that currently are blocked by the specified 'RateBasedRule' .
 -- * 'responseStatus' - The response status code.
 mkGetRateBasedRuleManagedKeysResponse ::
   -- | 'responseStatus'

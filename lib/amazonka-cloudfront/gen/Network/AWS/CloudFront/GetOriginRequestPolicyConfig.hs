@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetOriginRequestPolicyConfig' smart constructor.
 newtype GetOriginRequestPolicyConfig = GetOriginRequestPolicyConfig'
-  { id ::
-      Lude.Text
+  { -- | The unique identifier for the origin request policy. If the origin request policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the origin request policy is not attached to a cache behavior, you can get the identifier using @ListOriginRequestPolicies@ .
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOriginRequestPolicyConfig' with the minimum fields required to make a request.
@@ -98,22 +93,14 @@ instance Lude.ToQuery GetOriginRequestPolicyConfig where
 
 -- | /See:/ 'mkGetOriginRequestPolicyConfigResponse' smart constructor.
 data GetOriginRequestPolicyConfigResponse = GetOriginRequestPolicyConfigResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    originRequestPolicyConfig ::
-      Lude.Maybe
-        OriginRequestPolicyConfig,
-    responseStatus ::
-      Lude.Int
+  { -- | The current version of the origin request policy.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The origin request policy configuration.
+    originRequestPolicyConfig :: Lude.Maybe OriginRequestPolicyConfig,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOriginRequestPolicyConfigResponse' with the minimum fields required to make a request.

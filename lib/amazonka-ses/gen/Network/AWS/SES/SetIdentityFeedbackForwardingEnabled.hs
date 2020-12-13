@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,24 +45,18 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkSetIdentityFeedbackForwardingEnabled' smart constructor.
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
-  { identity ::
-      Lude.Text,
-    forwardingEnabled ::
-      Lude.Bool
+  { -- | The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
+    identity :: Lude.Text,
+    -- | Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
+    forwardingEnabled :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetIdentityFeedbackForwardingEnabled' with the minimum fields required to make a request.
 --
--- * 'forwardingEnabled' - Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
 -- * 'identity' - The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
+-- * 'forwardingEnabled' - Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
 mkSetIdentityFeedbackForwardingEnabled ::
   -- | 'identity'
   Lude.Text ->
@@ -123,20 +118,11 @@ instance Lude.ToQuery SetIdentityFeedbackForwardingEnabled where
 --
 -- /See:/ 'mkSetIdentityFeedbackForwardingEnabledResponse' smart constructor.
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetIdentityFeedbackForwardingEnabledResponse' with the minimum fields required to make a request.
 --

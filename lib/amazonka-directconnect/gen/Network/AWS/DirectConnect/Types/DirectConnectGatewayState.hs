@@ -13,10 +13,10 @@
 module Network.AWS.DirectConnect.Types.DirectConnectGatewayState
   ( DirectConnectGatewayState
       ( DirectConnectGatewayState',
+        DCGSPending,
         DCGSAvailable,
-        DCGSDeleted,
         DCGSDeleting,
-        DCGSPending
+        DCGSDeleted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype DirectConnectGatewayState = DirectConnectGatewayState' Lude.Text
       Lude.ToHeader
     )
 
+pattern DCGSPending :: DirectConnectGatewayState
+pattern DCGSPending = DirectConnectGatewayState' "pending"
+
 pattern DCGSAvailable :: DirectConnectGatewayState
 pattern DCGSAvailable = DirectConnectGatewayState' "available"
-
-pattern DCGSDeleted :: DirectConnectGatewayState
-pattern DCGSDeleted = DirectConnectGatewayState' "deleted"
 
 pattern DCGSDeleting :: DirectConnectGatewayState
 pattern DCGSDeleting = DirectConnectGatewayState' "deleting"
 
-pattern DCGSPending :: DirectConnectGatewayState
-pattern DCGSPending = DirectConnectGatewayState' "pending"
+pattern DCGSDeleted :: DirectConnectGatewayState
+pattern DCGSDeleted = DirectConnectGatewayState' "deleted"
 
 {-# COMPLETE
-  DCGSAvailable,
-  DCGSDeleted,
-  DCGSDeleting,
   DCGSPending,
+  DCGSAvailable,
+  DCGSDeleting,
+  DCGSDeleted,
   DirectConnectGatewayState'
   #-}

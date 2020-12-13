@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.MonitoringS3Output
 --
 -- /See:/ 'mkMonitoringOutput' smart constructor.
 newtype MonitoringOutput = MonitoringOutput'
-  { s3Output ::
-      MonitoringS3Output
+  { -- | The Amazon S3 storage location where the results of a monitoring job are saved.
+    s3Output :: MonitoringS3Output
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringOutput' with the minimum fields required to make a request.

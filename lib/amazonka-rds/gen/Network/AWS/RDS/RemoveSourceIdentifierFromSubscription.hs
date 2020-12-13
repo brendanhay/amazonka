@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,24 +43,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRemoveSourceIdentifierFromSubscription' smart constructor.
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'
-  { subscriptionName ::
-      Lude.Text,
-    sourceIdentifier ::
-      Lude.Text
+  { -- | The name of the RDS event notification subscription you want to remove a source identifier from.
+    subscriptionName :: Lude.Text,
+    -- | The source identifier to be removed from the subscription, such as the __DB instance identifier__ for a DB instance or the name of a security group.
+    sourceIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveSourceIdentifierFromSubscription' with the minimum fields required to make a request.
 --
--- * 'sourceIdentifier' - The source identifier to be removed from the subscription, such as the __DB instance identifier__ for a DB instance or the name of a security group.
 -- * 'subscriptionName' - The name of the RDS event notification subscription you want to remove a source identifier from.
+-- * 'sourceIdentifier' - The source identifier to be removed from the subscription, such as the __DB instance identifier__ for a DB instance or the name of a security group.
 mkRemoveSourceIdentifierFromSubscription ::
   -- | 'subscriptionName'
   Lude.Text ->
@@ -121,27 +116,16 @@ instance Lude.ToQuery RemoveSourceIdentifierFromSubscription where
 
 -- | /See:/ 'mkRemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
-  { eventSubscription ::
-      Lude.Maybe
-        EventSubscription,
-    responseStatus ::
-      Lude.Int
+  { eventSubscription :: Lude.Maybe EventSubscription,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveSourceIdentifierFromSubscriptionResponse' with the minimum fields required to make a request.
 --
--- * 'eventSubscription' - Undocumented field.
+-- * 'eventSubscription' -
 -- * 'responseStatus' - The response status code.
 mkRemoveSourceIdentifierFromSubscriptionResponse ::
   -- | 'responseStatus'

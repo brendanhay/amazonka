@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,23 +37,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateLambdaFunction' smart constructor.
 data DisassociateLambdaFunction = DisassociateLambdaFunction'
-  { instanceId ::
-      Lude.Text,
+  { -- | The identifier of the Amazon Connect instance..
+    instanceId :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Lambda function being disassociated.
     functionARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateLambdaFunction' with the minimum fields required to make a request.
 --
--- * 'functionARN' - The Amazon Resource Name (ARN) of the Lambda function being disassociated.
 -- * 'instanceId' - The identifier of the Amazon Connect instance..
+-- * 'functionARN' - The Amazon Resource Name (ARN) of the Lambda function being disassociated.
 mkDisassociateLambdaFunction ::
   -- | 'instanceId'
   Lude.Text ->
@@ -106,13 +102,7 @@ instance Lude.ToQuery DisassociateLambdaFunction where
 
 -- | /See:/ 'mkDisassociateLambdaFunctionResponse' smart constructor.
 data DisassociateLambdaFunctionResponse = DisassociateLambdaFunctionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateLambdaFunctionResponse' with the minimum fields required to make a request.

@@ -28,16 +28,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputDestinationRequest' smart constructor.
 newtype InputDestinationRequest = InputDestinationRequest'
-  { streamName ::
-      Lude.Maybe Lude.Text
+  { -- | A unique name for the location the RTMP stream is being pushed
+    --
+    -- to.
+    streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDestinationRequest' with the minimum fields required to make a request.

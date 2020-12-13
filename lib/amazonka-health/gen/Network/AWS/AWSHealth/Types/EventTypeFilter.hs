@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventTypeFilter' smart constructor.
 data EventTypeFilter = EventTypeFilter'
-  { eventTypeCategories ::
-      Lude.Maybe (Lude.NonEmpty EventTypeCategory),
+  { -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
+    eventTypeCategories :: Lude.Maybe (Lude.NonEmpty EventTypeCategory),
+    -- | A list of event type codes.
     eventTypeCodes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The AWS services associated with the event. For example, @EC2@ , @RDS@ .
     services :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventTypeFilter' with the minimum fields required to make a request.

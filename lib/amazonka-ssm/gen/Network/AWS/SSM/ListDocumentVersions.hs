@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.SSM.ListDocumentVersions
 
     -- ** Request lenses
     ldvNextToken,
-    ldvMaxResults,
     ldvName,
+    ldvMaxResults,
 
     -- * Destructuring the response
     ListDocumentVersionsResponse (..),
@@ -45,25 +46,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListDocumentVersions' smart constructor.
 data ListDocumentVersions = ListDocumentVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    name :: Lude.Text
+  { -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the document. You can specify an Amazon Resource Name (ARN).
+    name :: Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocumentVersions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'name' - The name of the document. You can specify an Amazon Resource Name (ARN).
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'name' - The name of the document. You can specify an Amazon Resource Name (ARN).
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkListDocumentVersions ::
   -- | 'name'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListDocumentVersions ::
 mkListDocumentVersions pName_ =
   ListDocumentVersions'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
@@ -82,19 +79,19 @@ ldvNextToken :: Lens.Lens' ListDocumentVersions (Lude.Maybe Lude.Text)
 ldvNextToken = Lens.lens (nextToken :: ListDocumentVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDocumentVersions)
 {-# DEPRECATED ldvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldvMaxResults :: Lens.Lens' ListDocumentVersions (Lude.Maybe Lude.Natural)
-ldvMaxResults = Lens.lens (maxResults :: ListDocumentVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDocumentVersions)
-{-# DEPRECATED ldvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the document. You can specify an Amazon Resource Name (ARN).
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldvName :: Lens.Lens' ListDocumentVersions Lude.Text
 ldvName = Lens.lens (name :: ListDocumentVersions -> Lude.Text) (\s a -> s {name = a} :: ListDocumentVersions)
 {-# DEPRECATED ldvName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldvMaxResults :: Lens.Lens' ListDocumentVersions (Lude.Maybe Lude.Natural)
+ldvMaxResults = Lens.lens (maxResults :: ListDocumentVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDocumentVersions)
+{-# DEPRECATED ldvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListDocumentVersions where
   page rq rs
@@ -133,8 +130,8 @@ instance Lude.ToJSON ListDocumentVersions where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("Name" Lude..= name)
+            Lude.Just ("Name" Lude..= name),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -146,21 +143,14 @@ instance Lude.ToQuery ListDocumentVersions where
 
 -- | /See:/ 'mkListDocumentVersionsResponse' smart constructor.
 data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
-  { documentVersions ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            DocumentVersionInfo
-        ),
+  { -- | The document versions.
+    documentVersions :: Lude.Maybe (Lude.NonEmpty DocumentVersionInfo),
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocumentVersionsResponse' with the minimum fields required to make a request.

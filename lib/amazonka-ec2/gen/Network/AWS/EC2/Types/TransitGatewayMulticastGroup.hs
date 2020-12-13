@@ -39,47 +39,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayMulticastGroup' smart constructor.
 data TransitGatewayMulticastGroup = TransitGatewayMulticastGroup'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
-    resourceType ::
-      Lude.Maybe
-        TransitGatewayAttachmentResourceType,
-    sourceType ::
-      Lude.Maybe MembershipType,
-    memberType ::
-      Lude.Maybe MembershipType,
-    networkInterfaceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the resource.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of resource, for example a VPC attachment.
+    resourceType :: Lude.Maybe TransitGatewayAttachmentResourceType,
+    -- | The source type.
+    sourceType :: Lude.Maybe MembershipType,
+    -- | The member type (for example, @static@ ).
+    memberType :: Lude.Maybe MembershipType,
+    -- | The ID of the transit gateway attachment.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet.
     subnetId :: Lude.Maybe Lude.Text,
-    groupMember ::
-      Lude.Maybe Lude.Bool,
-    groupSource ::
-      Lude.Maybe Lude.Bool,
-    groupIPAddress ::
-      Lude.Maybe Lude.Text,
-    transitGatewayAttachmentId ::
-      Lude.Maybe Lude.Text
+    -- | Indicates that the resource is a transit gateway multicast group member.
+    groupMember :: Lude.Maybe Lude.Bool,
+    -- | Indicates that the resource is a transit gateway multicast group member.
+    groupSource :: Lude.Maybe Lude.Bool,
+    -- | The IP address assigned to the transit gateway multicast group.
+    groupIPAddress :: Lude.Maybe Lude.Text,
+    -- | The ID of the transit gateway attachment.
+    transitGatewayAttachmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayMulticastGroup' with the minimum fields required to make a request.
 --
--- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
--- * 'groupMember' - Indicates that the resource is a transit gateway multicast group member.
--- * 'groupSource' - Indicates that the resource is a transit gateway multicast group member.
--- * 'memberType' - The member type (for example, @static@ ).
--- * 'networkInterfaceId' - The ID of the transit gateway attachment.
 -- * 'resourceId' - The ID of the resource.
 -- * 'resourceType' - The type of resource, for example a VPC attachment.
 -- * 'sourceType' - The source type.
+-- * 'memberType' - The member type (for example, @static@ ).
+-- * 'networkInterfaceId' - The ID of the transit gateway attachment.
 -- * 'subnetId' - The ID of the subnet.
+-- * 'groupMember' - Indicates that the resource is a transit gateway multicast group member.
+-- * 'groupSource' - Indicates that the resource is a transit gateway multicast group member.
+-- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
 -- * 'transitGatewayAttachmentId' - The ID of the transit gateway attachment.
 mkTransitGatewayMulticastGroup ::
   TransitGatewayMulticastGroup

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,18 +44,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkEstimateTemplateCost' smart constructor.
 data EstimateTemplateCost = EstimateTemplateCost'
-  { parameters ::
-      Lude.Maybe [Parameter],
+  { -- | A list of @Parameter@ structures that specify input parameters.
+    parameters :: Lude.Maybe [Parameter],
+    -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.)
+    --
+    -- Conditional: You must pass @TemplateBody@ or @TemplateURL@ . If both are passed, only @TemplateBody@ is used.
     templateBody :: Lude.Maybe Lude.Text,
+    -- | Location of file containing the template body. The URL must point to a template that is located in an Amazon S3 bucket. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+    --
+    -- Conditional: You must pass @TemplateURL@ or @TemplateBody@ . If both are passed, only @TemplateBody@ is used.
     templateURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EstimateTemplateCost' with the minimum fields required to make a request.
@@ -132,23 +133,18 @@ instance Lude.ToQuery EstimateTemplateCost where
 --
 -- /See:/ 'mkEstimateTemplateCostResponse' smart constructor.
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
-  { url ::
-      Lude.Maybe Lude.Text,
+  { -- | An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
+    url :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EstimateTemplateCostResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'url' - An AWS Simple Monthly Calculator URL with a query string that describes the resources required to run the template.
+-- * 'responseStatus' - The response status code.
 mkEstimateTemplateCostResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.IoT.ListTargetsForPolicy
     mkListTargetsForPolicy,
 
     -- ** Request lenses
+    ltfpPolicyName,
     ltfpMarker,
     ltfpPageSize,
-    ltfpPolicyName,
 
     -- * Destructuring the response
     ListTargetsForPolicyResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTargetsForPolicy' smart constructor.
 data ListTargetsForPolicy = ListTargetsForPolicy'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Natural,
-    policyName :: Lude.Text
+  { -- | The policy name.
+    policyName :: Lude.Text,
+    -- | A marker used to get the next set of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return at one time.
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsForPolicy' with the minimum fields required to make a request.
 --
+-- * 'policyName' - The policy name.
 -- * 'marker' - A marker used to get the next set of results.
 -- * 'pageSize' - The maximum number of results to return at one time.
--- * 'policyName' - The policy name.
 mkListTargetsForPolicy ::
   -- | 'policyName'
   Lude.Text ->
   ListTargetsForPolicy
 mkListTargetsForPolicy pPolicyName_ =
   ListTargetsForPolicy'
-    { marker = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      policyName = pPolicyName_
+    { policyName = pPolicyName_,
+      marker = Lude.Nothing,
+      pageSize = Lude.Nothing
     }
+
+-- | The policy name.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfpPolicyName :: Lens.Lens' ListTargetsForPolicy Lude.Text
+ltfpPolicyName = Lens.lens (policyName :: ListTargetsForPolicy -> Lude.Text) (\s a -> s {policyName = a} :: ListTargetsForPolicy)
+{-# DEPRECATED ltfpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | A marker used to get the next set of results.
 --
@@ -88,13 +92,6 @@ ltfpMarker = Lens.lens (marker :: ListTargetsForPolicy -> Lude.Maybe Lude.Text) 
 ltfpPageSize :: Lens.Lens' ListTargetsForPolicy (Lude.Maybe Lude.Natural)
 ltfpPageSize = Lens.lens (pageSize :: ListTargetsForPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListTargetsForPolicy)
 {-# DEPRECATED ltfpPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
--- | The policy name.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfpPolicyName :: Lens.Lens' ListTargetsForPolicy Lude.Text
-ltfpPolicyName = Lens.lens (policyName :: ListTargetsForPolicy -> Lude.Text) (\s a -> s {policyName = a} :: ListTargetsForPolicy)
-{-# DEPRECATED ltfpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 instance Page.AWSPager ListTargetsForPolicy where
   page rq rs
@@ -134,26 +131,21 @@ instance Lude.ToQuery ListTargetsForPolicy where
 
 -- | /See:/ 'mkListTargetsForPolicyResponse' smart constructor.
 data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
-  { targets ::
-      Lude.Maybe [Lude.Text],
-    nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | The policy targets.
+    targets :: Lude.Maybe [Lude.Text],
+    -- | A marker used to get the next set of results.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsForPolicyResponse' with the minimum fields required to make a request.
 --
+-- * 'targets' - The policy targets.
 -- * 'nextMarker' - A marker used to get the next set of results.
 -- * 'responseStatus' - The response status code.
--- * 'targets' - The policy targets.
 mkListTargetsForPolicyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

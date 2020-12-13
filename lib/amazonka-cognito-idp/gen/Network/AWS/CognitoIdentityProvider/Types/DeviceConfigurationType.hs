@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceConfigurationType' smart constructor.
 data DeviceConfigurationType = DeviceConfigurationType'
-  { challengeRequiredOnNewDevice ::
-      Lude.Maybe Lude.Bool,
-    deviceOnlyRememberedOnUserPrompt ::
-      Lude.Maybe Lude.Bool
+  { -- | Indicates whether a challenge is required on a new device. Only applicable to a new device.
+    challengeRequiredOnNewDevice :: Lude.Maybe Lude.Bool,
+    -- | If true, a device is only remembered on user prompt.
+    deviceOnlyRememberedOnUserPrompt :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceConfigurationType' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.SSM.DescribeAssociationExecutionTargets
     mkDescribeAssociationExecutionTargets,
 
     -- ** Request lenses
+    daetAssociationId,
+    daetExecutionId,
     daetFilters,
     daetNextToken,
     daetMaxResults,
-    daetAssociationId,
-    daetExecutionId,
 
     -- * Destructuring the response
     DescribeAssociationExecutionTargetsResponse (..),
@@ -47,29 +48,22 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeAssociationExecutionTargets' smart constructor.
 data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
-  { filters ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            AssociationExecutionTargetsFilter
-        ),
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    associationId ::
-      Lude.Text,
-    executionId ::
-      Lude.Text
+  { -- | The association ID that includes the execution for which you want to view details.
+    associationId :: Lude.Text,
+    -- | The execution ID for which you want to view details.
+    executionId :: Lude.Text,
+    -- | Filters for the request. You can specify the following filters and values.
+    --
+    -- Status (EQUAL)
+    -- ResourceId (EQUAL)
+    -- ResourceType (EQUAL)
+    filters :: Lude.Maybe (Lude.NonEmpty AssociationExecutionTargetsFilter),
+    -- | A token to start the list. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAssociationExecutionTargets' with the minimum fields required to make a request.
@@ -81,8 +75,8 @@ data DescribeAssociationExecutionTargets = DescribeAssociationExecutionTargets'
 -- Status (EQUAL)
 -- ResourceId (EQUAL)
 -- ResourceType (EQUAL)
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeAssociationExecutionTargets ::
   -- | 'associationId'
   Lude.Text ->
@@ -91,12 +85,27 @@ mkDescribeAssociationExecutionTargets ::
   DescribeAssociationExecutionTargets
 mkDescribeAssociationExecutionTargets pAssociationId_ pExecutionId_ =
   DescribeAssociationExecutionTargets'
-    { filters = Lude.Nothing,
+    { associationId =
+        pAssociationId_,
+      executionId = pExecutionId_,
+      filters = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      associationId = pAssociationId_,
-      executionId = pExecutionId_
+      maxResults = Lude.Nothing
     }
+
+-- | The association ID that includes the execution for which you want to view details.
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daetAssociationId :: Lens.Lens' DescribeAssociationExecutionTargets Lude.Text
+daetAssociationId = Lens.lens (associationId :: DescribeAssociationExecutionTargets -> Lude.Text) (\s a -> s {associationId = a} :: DescribeAssociationExecutionTargets)
+{-# DEPRECATED daetAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+
+-- | The execution ID for which you want to view details.
+--
+-- /Note:/ Consider using 'executionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daetExecutionId :: Lens.Lens' DescribeAssociationExecutionTargets Lude.Text
+daetExecutionId = Lens.lens (executionId :: DescribeAssociationExecutionTargets -> Lude.Text) (\s a -> s {executionId = a} :: DescribeAssociationExecutionTargets)
+{-# DEPRECATED daetExecutionId "Use generic-lens or generic-optics with 'executionId' instead." #-}
 
 -- | Filters for the request. You can specify the following filters and values.
 --
@@ -122,20 +131,6 @@ daetNextToken = Lens.lens (nextToken :: DescribeAssociationExecutionTargets -> L
 daetMaxResults :: Lens.Lens' DescribeAssociationExecutionTargets (Lude.Maybe Lude.Natural)
 daetMaxResults = Lens.lens (maxResults :: DescribeAssociationExecutionTargets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAssociationExecutionTargets)
 {-# DEPRECATED daetMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The association ID that includes the execution for which you want to view details.
---
--- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetAssociationId :: Lens.Lens' DescribeAssociationExecutionTargets Lude.Text
-daetAssociationId = Lens.lens (associationId :: DescribeAssociationExecutionTargets -> Lude.Text) (\s a -> s {associationId = a} :: DescribeAssociationExecutionTargets)
-{-# DEPRECATED daetAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
-
--- | The execution ID for which you want to view details.
---
--- /Note:/ Consider using 'executionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daetExecutionId :: Lens.Lens' DescribeAssociationExecutionTargets Lude.Text
-daetExecutionId = Lens.lens (executionId :: DescribeAssociationExecutionTargets -> Lude.Text) (\s a -> s {executionId = a} :: DescribeAssociationExecutionTargets)
-{-# DEPRECATED daetExecutionId "Use generic-lens or generic-optics with 'executionId' instead." #-}
 
 instance Page.AWSPager DescribeAssociationExecutionTargets where
   page rq rs
@@ -178,11 +173,11 @@ instance Lude.ToJSON DescribeAssociationExecutionTargets where
   toJSON DescribeAssociationExecutionTargets' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
+          [ Lude.Just ("AssociationId" Lude..= associationId),
+            Lude.Just ("ExecutionId" Lude..= executionId),
+            ("Filters" Lude..=) Lude.<$> filters,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("AssociationId" Lude..= associationId),
-            Lude.Just ("ExecutionId" Lude..= executionId)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -194,28 +189,20 @@ instance Lude.ToQuery DescribeAssociationExecutionTargets where
 
 -- | /See:/ 'mkDescribeAssociationExecutionTargetsResponse' smart constructor.
 data DescribeAssociationExecutionTargetsResponse = DescribeAssociationExecutionTargetsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    associationExecutionTargets ::
-      Lude.Maybe
-        [AssociationExecutionTarget],
-    responseStatus ::
-      Lude.Int
+  { -- | The token for the next set of items to return. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the execution.
+    associationExecutionTargets :: Lude.Maybe [AssociationExecutionTarget],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAssociationExecutionTargetsResponse' with the minimum fields required to make a request.
 --
--- * 'associationExecutionTargets' - Information about the execution.
 -- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
+-- * 'associationExecutionTargets' - Information about the execution.
 -- * 'responseStatus' - The response status code.
 mkDescribeAssociationExecutionTargetsResponse ::
   -- | 'responseStatus'

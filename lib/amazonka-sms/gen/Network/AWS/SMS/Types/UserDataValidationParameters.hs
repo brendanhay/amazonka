@@ -31,17 +31,12 @@ import Network.AWS.SMS.Types.Source
 --
 -- /See:/ 'mkUserDataValidationParameters' smart constructor.
 data UserDataValidationParameters = UserDataValidationParameters'
-  { scriptType ::
-      Lude.Maybe ScriptType,
+  { -- | The type of validation script.
+    scriptType :: Lude.Maybe ScriptType,
+    -- | The location of the validation script.
     source :: Lude.Maybe Source
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserDataValidationParameters' with the minimum fields required to make a request.

@@ -13,7 +13,7 @@
 module Network.AWS.S3.Types.RequestCharged
   ( RequestCharged
       ( RequestCharged',
-        RCRequester
+        Requester
       ),
   )
 where
@@ -46,10 +46,10 @@ newtype RequestCharged = RequestCharged' Lude.Text
       Lude.ToHeader
     )
 
-pattern RCRequester :: RequestCharged
-pattern RCRequester = RequestCharged' "requester"
+pattern Requester :: RequestCharged
+pattern Requester = RequestCharged' "requester"
 
 {-# COMPLETE
-  RCRequester,
+  Requester,
   RequestCharged'
   #-}

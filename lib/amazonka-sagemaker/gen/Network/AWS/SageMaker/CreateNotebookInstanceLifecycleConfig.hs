@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,21 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateNotebookInstanceLifecycleConfig' smart constructor.
 data CreateNotebookInstanceLifecycleConfig = CreateNotebookInstanceLifecycleConfig'
-  { onCreate ::
-      Lude.Maybe
-        [NotebookInstanceLifecycleHook],
-    onStart ::
-      Lude.Maybe
-        [NotebookInstanceLifecycleHook],
-    notebookInstanceLifecycleConfigName ::
-      Lude.Text
+  { -- | A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
+    onCreate :: Lude.Maybe [NotebookInstanceLifecycleHook],
+    -- | A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.
+    onStart :: Lude.Maybe [NotebookInstanceLifecycleHook],
+    -- | The name of the lifecycle configuration.
+    notebookInstanceLifecycleConfigName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNotebookInstanceLifecycleConfig' with the minimum fields required to make a request.
 --
--- * 'notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
 -- * 'onCreate' - A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
 -- * 'onStart' - A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.
+-- * 'notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
 mkCreateNotebookInstanceLifecycleConfig ::
   -- | 'notebookInstanceLifecycleConfigName'
   Lude.Text ->
@@ -151,23 +144,13 @@ instance Lude.ToQuery CreateNotebookInstanceLifecycleConfig where
 
 -- | /See:/ 'mkCreateNotebookInstanceLifecycleConfigResponse' smart constructor.
 data CreateNotebookInstanceLifecycleConfigResponse = CreateNotebookInstanceLifecycleConfigResponse'
-  { notebookInstanceLifecycleConfigARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Amazon Resource Name (ARN) of the lifecycle configuration.
+    notebookInstanceLifecycleConfigARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNotebookInstanceLifecycleConfigResponse' with the minimum fields required to make a request.
 --

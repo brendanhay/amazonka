@@ -17,11 +17,11 @@ module Network.AWS.SWF.Types.ChildWorkflowExecutionCompletedEventAttributes
     mkChildWorkflowExecutionCompletedEventAttributes,
 
     -- * Lenses
-    cweceaResult,
-    cweceaWorkflowExecution,
     cweceaWorkflowType,
-    cweceaInitiatedEventId,
+    cweceaResult,
     cweceaStartedEventId,
+    cweceaInitiatedEventId,
+    cweceaWorkflowExecution,
   )
 where
 
@@ -34,74 +34,50 @@ import Network.AWS.SWF.Types.WorkflowType
 --
 -- /See:/ 'mkChildWorkflowExecutionCompletedEventAttributes' smart constructor.
 data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionCompletedEventAttributes'
-  { result ::
-      Lude.Maybe
-        Lude.Text,
-    workflowExecution ::
-      WorkflowExecution,
-    workflowType ::
-      WorkflowType,
-    initiatedEventId ::
-      Lude.Integer,
-    startedEventId ::
-      Lude.Integer
+  { -- | The type of the child workflow execution.
+    workflowType :: WorkflowType,
+    -- | The result of the child workflow execution.
+    result :: Lude.Maybe Lude.Text,
+    -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    startedEventId :: Lude.Integer,
+    -- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    initiatedEventId :: Lude.Integer,
+    -- | The child workflow execution that was completed.
+    workflowExecution :: WorkflowExecution
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChildWorkflowExecutionCompletedEventAttributes' with the minimum fields required to make a request.
 --
--- * 'initiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'workflowType' - The type of the child workflow execution.
 -- * 'result' - The result of the child workflow execution.
 -- * 'startedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'initiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 -- * 'workflowExecution' - The child workflow execution that was completed.
--- * 'workflowType' - The type of the child workflow execution.
 mkChildWorkflowExecutionCompletedEventAttributes ::
-  -- | 'workflowExecution'
-  WorkflowExecution ->
   -- | 'workflowType'
   WorkflowType ->
-  -- | 'initiatedEventId'
-  Lude.Integer ->
   -- | 'startedEventId'
   Lude.Integer ->
+  -- | 'initiatedEventId'
+  Lude.Integer ->
+  -- | 'workflowExecution'
+  WorkflowExecution ->
   ChildWorkflowExecutionCompletedEventAttributes
 mkChildWorkflowExecutionCompletedEventAttributes
-  pWorkflowExecution_
   pWorkflowType_
+  pStartedEventId_
   pInitiatedEventId_
-  pStartedEventId_ =
+  pWorkflowExecution_ =
     ChildWorkflowExecutionCompletedEventAttributes'
-      { result =
-          Lude.Nothing,
-        workflowExecution = pWorkflowExecution_,
-        workflowType = pWorkflowType_,
+      { workflowType =
+          pWorkflowType_,
+        result = Lude.Nothing,
+        startedEventId = pStartedEventId_,
         initiatedEventId = pInitiatedEventId_,
-        startedEventId = pStartedEventId_
+        workflowExecution = pWorkflowExecution_
       }
-
--- | The result of the child workflow execution.
---
--- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweceaResult :: Lens.Lens' ChildWorkflowExecutionCompletedEventAttributes (Lude.Maybe Lude.Text)
-cweceaResult = Lens.lens (result :: ChildWorkflowExecutionCompletedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {result = a} :: ChildWorkflowExecutionCompletedEventAttributes)
-{-# DEPRECATED cweceaResult "Use generic-lens or generic-optics with 'result' instead." #-}
-
--- | The child workflow execution that was completed.
---
--- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweceaWorkflowExecution :: Lens.Lens' ChildWorkflowExecutionCompletedEventAttributes WorkflowExecution
-cweceaWorkflowExecution = Lens.lens (workflowExecution :: ChildWorkflowExecutionCompletedEventAttributes -> WorkflowExecution) (\s a -> s {workflowExecution = a} :: ChildWorkflowExecutionCompletedEventAttributes)
-{-# DEPRECATED cweceaWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
 
 -- | The type of the child workflow execution.
 --
@@ -110,12 +86,12 @@ cweceaWorkflowType :: Lens.Lens' ChildWorkflowExecutionCompletedEventAttributes 
 cweceaWorkflowType = Lens.lens (workflowType :: ChildWorkflowExecutionCompletedEventAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: ChildWorkflowExecutionCompletedEventAttributes)
 {-# DEPRECATED cweceaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
--- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | The result of the child workflow execution.
 --
--- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweceaInitiatedEventId :: Lens.Lens' ChildWorkflowExecutionCompletedEventAttributes Lude.Integer
-cweceaInitiatedEventId = Lens.lens (initiatedEventId :: ChildWorkflowExecutionCompletedEventAttributes -> Lude.Integer) (\s a -> s {initiatedEventId = a} :: ChildWorkflowExecutionCompletedEventAttributes)
-{-# DEPRECATED cweceaInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cweceaResult :: Lens.Lens' ChildWorkflowExecutionCompletedEventAttributes (Lude.Maybe Lude.Text)
+cweceaResult = Lens.lens (result :: ChildWorkflowExecutionCompletedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {result = a} :: ChildWorkflowExecutionCompletedEventAttributes)
+{-# DEPRECATED cweceaResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
@@ -123,6 +99,20 @@ cweceaInitiatedEventId = Lens.lens (initiatedEventId :: ChildWorkflowExecutionCo
 cweceaStartedEventId :: Lens.Lens' ChildWorkflowExecutionCompletedEventAttributes Lude.Integer
 cweceaStartedEventId = Lens.lens (startedEventId :: ChildWorkflowExecutionCompletedEventAttributes -> Lude.Integer) (\s a -> s {startedEventId = a} :: ChildWorkflowExecutionCompletedEventAttributes)
 {-# DEPRECATED cweceaStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
+
+-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+--
+-- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cweceaInitiatedEventId :: Lens.Lens' ChildWorkflowExecutionCompletedEventAttributes Lude.Integer
+cweceaInitiatedEventId = Lens.lens (initiatedEventId :: ChildWorkflowExecutionCompletedEventAttributes -> Lude.Integer) (\s a -> s {initiatedEventId = a} :: ChildWorkflowExecutionCompletedEventAttributes)
+{-# DEPRECATED cweceaInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
+
+-- | The child workflow execution that was completed.
+--
+-- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cweceaWorkflowExecution :: Lens.Lens' ChildWorkflowExecutionCompletedEventAttributes WorkflowExecution
+cweceaWorkflowExecution = Lens.lens (workflowExecution :: ChildWorkflowExecutionCompletedEventAttributes -> WorkflowExecution) (\s a -> s {workflowExecution = a} :: ChildWorkflowExecutionCompletedEventAttributes)
+{-# DEPRECATED cweceaWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
 
 instance
   Lude.FromJSON
@@ -133,9 +123,9 @@ instance
       "ChildWorkflowExecutionCompletedEventAttributes"
       ( \x ->
           ChildWorkflowExecutionCompletedEventAttributes'
-            Lude.<$> (x Lude..:? "result")
-            Lude.<*> (x Lude..: "workflowExecution")
-            Lude.<*> (x Lude..: "workflowType")
-            Lude.<*> (x Lude..: "initiatedEventId")
+            Lude.<$> (x Lude..: "workflowType")
+            Lude.<*> (x Lude..:? "result")
             Lude.<*> (x Lude..: "startedEventId")
+            Lude.<*> (x Lude..: "initiatedEventId")
+            Lude.<*> (x Lude..: "workflowExecution")
       )

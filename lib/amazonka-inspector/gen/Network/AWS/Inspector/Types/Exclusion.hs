@@ -17,12 +17,12 @@ module Network.AWS.Inspector.Types.Exclusion
     mkExclusion,
 
     -- * Lenses
-    eAttributes,
     eArn,
+    eScopes,
+    eAttributes,
     eTitle,
     eDescription,
     eRecommendation,
-    eScopes,
   )
 where
 
@@ -35,58 +35,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExclusion' smart constructor.
 data Exclusion = Exclusion'
-  { attributes :: Lude.Maybe [Attribute],
+  { -- | The ARN that specifies the exclusion.
     arn :: Lude.Text,
+    -- | The AWS resources for which the exclusion pertains.
+    scopes :: Lude.NonEmpty Scope,
+    -- | The system-defined attributes for the exclusion.
+    attributes :: Lude.Maybe [Attribute],
+    -- | The name of the exclusion.
     title :: Lude.Text,
+    -- | The description of the exclusion.
     description :: Lude.Text,
-    recommendation :: Lude.Text,
-    scopes :: Lude.NonEmpty Scope
+    -- | The recommendation for the exclusion.
+    recommendation :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Exclusion' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN that specifies the exclusion.
+-- * 'scopes' - The AWS resources for which the exclusion pertains.
 -- * 'attributes' - The system-defined attributes for the exclusion.
+-- * 'title' - The name of the exclusion.
 -- * 'description' - The description of the exclusion.
 -- * 'recommendation' - The recommendation for the exclusion.
--- * 'scopes' - The AWS resources for which the exclusion pertains.
--- * 'title' - The name of the exclusion.
 mkExclusion ::
   -- | 'arn'
   Lude.Text ->
+  -- | 'scopes'
+  Lude.NonEmpty Scope ->
   -- | 'title'
   Lude.Text ->
   -- | 'description'
   Lude.Text ->
   -- | 'recommendation'
   Lude.Text ->
-  -- | 'scopes'
-  Lude.NonEmpty Scope ->
   Exclusion
-mkExclusion pArn_ pTitle_ pDescription_ pRecommendation_ pScopes_ =
+mkExclusion pArn_ pScopes_ pTitle_ pDescription_ pRecommendation_ =
   Exclusion'
-    { attributes = Lude.Nothing,
-      arn = pArn_,
+    { arn = pArn_,
+      scopes = pScopes_,
+      attributes = Lude.Nothing,
       title = pTitle_,
       description = pDescription_,
-      recommendation = pRecommendation_,
-      scopes = pScopes_
+      recommendation = pRecommendation_
     }
-
--- | The system-defined attributes for the exclusion.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eAttributes :: Lens.Lens' Exclusion (Lude.Maybe [Attribute])
-eAttributes = Lens.lens (attributes :: Exclusion -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: Exclusion)
-{-# DEPRECATED eAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The ARN that specifies the exclusion.
 --
@@ -94,6 +87,20 @@ eAttributes = Lens.lens (attributes :: Exclusion -> Lude.Maybe [Attribute]) (\s 
 eArn :: Lens.Lens' Exclusion Lude.Text
 eArn = Lens.lens (arn :: Exclusion -> Lude.Text) (\s a -> s {arn = a} :: Exclusion)
 {-# DEPRECATED eArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The AWS resources for which the exclusion pertains.
+--
+-- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eScopes :: Lens.Lens' Exclusion (Lude.NonEmpty Scope)
+eScopes = Lens.lens (scopes :: Exclusion -> Lude.NonEmpty Scope) (\s a -> s {scopes = a} :: Exclusion)
+{-# DEPRECATED eScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
+
+-- | The system-defined attributes for the exclusion.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eAttributes :: Lens.Lens' Exclusion (Lude.Maybe [Attribute])
+eAttributes = Lens.lens (attributes :: Exclusion -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: Exclusion)
+{-# DEPRECATED eAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The name of the exclusion.
 --
@@ -116,23 +123,16 @@ eRecommendation :: Lens.Lens' Exclusion Lude.Text
 eRecommendation = Lens.lens (recommendation :: Exclusion -> Lude.Text) (\s a -> s {recommendation = a} :: Exclusion)
 {-# DEPRECATED eRecommendation "Use generic-lens or generic-optics with 'recommendation' instead." #-}
 
--- | The AWS resources for which the exclusion pertains.
---
--- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eScopes :: Lens.Lens' Exclusion (Lude.NonEmpty Scope)
-eScopes = Lens.lens (scopes :: Exclusion -> Lude.NonEmpty Scope) (\s a -> s {scopes = a} :: Exclusion)
-{-# DEPRECATED eScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
-
 instance Lude.FromJSON Exclusion where
   parseJSON =
     Lude.withObject
       "Exclusion"
       ( \x ->
           Exclusion'
-            Lude.<$> (x Lude..:? "attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "arn")
+            Lude.<$> (x Lude..: "arn")
+            Lude.<*> (x Lude..: "scopes")
+            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..: "title")
             Lude.<*> (x Lude..: "description")
             Lude.<*> (x Lude..: "recommendation")
-            Lude.<*> (x Lude..: "scopes")
       )

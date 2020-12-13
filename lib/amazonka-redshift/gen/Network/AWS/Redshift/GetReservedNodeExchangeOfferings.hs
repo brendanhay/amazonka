@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Redshift.GetReservedNodeExchangeOfferings
     mkGetReservedNodeExchangeOfferings,
 
     -- ** Request lenses
+    grneoReservedNodeId,
     grneoMarker,
     grneoMaxRecords,
-    grneoReservedNodeId,
 
     -- * Destructuring the response
     GetReservedNodeExchangeOfferingsResponse (..),
@@ -47,37 +48,39 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetReservedNodeExchangeOfferings' smart constructor.
 data GetReservedNodeExchangeOfferings = GetReservedNodeExchangeOfferings'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int,
-    reservedNodeId ::
-      Lude.Text
+  { -- | A string representing the node identifier for the DC1 Reserved Node to be exchanged.
+    reservedNodeId :: Lude.Text,
+    -- | A value that indicates the starting point for the next set of ReservedNodeOfferings.
+    marker :: Lude.Maybe Lude.Text,
+    -- | An integer setting the maximum number of ReservedNodeOfferings to retrieve.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReservedNodeExchangeOfferings' with the minimum fields required to make a request.
 --
+-- * 'reservedNodeId' - A string representing the node identifier for the DC1 Reserved Node to be exchanged.
 -- * 'marker' - A value that indicates the starting point for the next set of ReservedNodeOfferings.
 -- * 'maxRecords' - An integer setting the maximum number of ReservedNodeOfferings to retrieve.
--- * 'reservedNodeId' - A string representing the node identifier for the DC1 Reserved Node to be exchanged.
 mkGetReservedNodeExchangeOfferings ::
   -- | 'reservedNodeId'
   Lude.Text ->
   GetReservedNodeExchangeOfferings
 mkGetReservedNodeExchangeOfferings pReservedNodeId_ =
   GetReservedNodeExchangeOfferings'
-    { marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      reservedNodeId = pReservedNodeId_
+    { reservedNodeId =
+        pReservedNodeId_,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
+
+-- | A string representing the node identifier for the DC1 Reserved Node to be exchanged.
+--
+-- /Note:/ Consider using 'reservedNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grneoReservedNodeId :: Lens.Lens' GetReservedNodeExchangeOfferings Lude.Text
+grneoReservedNodeId = Lens.lens (reservedNodeId :: GetReservedNodeExchangeOfferings -> Lude.Text) (\s a -> s {reservedNodeId = a} :: GetReservedNodeExchangeOfferings)
+{-# DEPRECATED grneoReservedNodeId "Use generic-lens or generic-optics with 'reservedNodeId' instead." #-}
 
 -- | A value that indicates the starting point for the next set of ReservedNodeOfferings.
 --
@@ -92,13 +95,6 @@ grneoMarker = Lens.lens (marker :: GetReservedNodeExchangeOfferings -> Lude.Mayb
 grneoMaxRecords :: Lens.Lens' GetReservedNodeExchangeOfferings (Lude.Maybe Lude.Int)
 grneoMaxRecords = Lens.lens (maxRecords :: GetReservedNodeExchangeOfferings -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: GetReservedNodeExchangeOfferings)
 {-# DEPRECATED grneoMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
-
--- | A string representing the node identifier for the DC1 Reserved Node to be exchanged.
---
--- /Note:/ Consider using 'reservedNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grneoReservedNodeId :: Lens.Lens' GetReservedNodeExchangeOfferings Lude.Text
-grneoReservedNodeId = Lens.lens (reservedNodeId :: GetReservedNodeExchangeOfferings -> Lude.Text) (\s a -> s {reservedNodeId = a} :: GetReservedNodeExchangeOfferings)
-{-# DEPRECATED grneoReservedNodeId "Use generic-lens or generic-optics with 'reservedNodeId' instead." #-}
 
 instance Page.AWSPager GetReservedNodeExchangeOfferings where
   page rq rs
@@ -139,35 +135,27 @@ instance Lude.ToQuery GetReservedNodeExchangeOfferings where
       [ "Action"
           Lude.=: ("GetReservedNodeExchangeOfferings" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ReservedNodeId" Lude.=: reservedNodeId,
         "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "ReservedNodeId" Lude.=: reservedNodeId
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | /See:/ 'mkGetReservedNodeExchangeOfferingsResponse' smart constructor.
 data GetReservedNodeExchangeOfferingsResponse = GetReservedNodeExchangeOfferingsResponse'
-  { reservedNodeOfferings ::
-      Lude.Maybe
-        [ReservedNodeOffering],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns an array of 'ReservedNodeOffering' objects.
+    reservedNodeOfferings :: Lude.Maybe [ReservedNodeOffering],
+    -- | An optional parameter that specifies the starting point for returning a set of response records. When the results of a @GetReservedNodeExchangeOfferings@ request exceed the value specified in MaxRecords, Amazon Redshift returns a value in the marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the marker parameter and retrying the request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReservedNodeExchangeOfferingsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - An optional parameter that specifies the starting point for returning a set of response records. When the results of a @GetReservedNodeExchangeOfferings@ request exceed the value specified in MaxRecords, Amazon Redshift returns a value in the marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the marker parameter and retrying the request.
 -- * 'reservedNodeOfferings' - Returns an array of 'ReservedNodeOffering' objects.
+-- * 'marker' - An optional parameter that specifies the starting point for returning a set of response records. When the results of a @GetReservedNodeExchangeOfferings@ request exceed the value specified in MaxRecords, Amazon Redshift returns a value in the marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the marker parameter and retrying the request.
 -- * 'responseStatus' - The response status code.
 mkGetReservedNodeExchangeOfferingsResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,26 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterInstanceEventNotificationAttributes' smart constructor.
 data RegisterInstanceEventNotificationAttributes = RegisterInstanceEventNotificationAttributes'
-  { instanceTagAttribute ::
-      Lude.Maybe
-        RegisterInstanceTagAttributeRequest,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | Information about the tag keys to register.
+    instanceTagAttribute :: Lude.Maybe RegisterInstanceTagAttributeRequest,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterInstanceEventNotificationAttributes' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceTagAttribute' - Information about the tag keys to register.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkRegisterInstanceEventNotificationAttributes ::
   RegisterInstanceEventNotificationAttributes
 mkRegisterInstanceEventNotificationAttributes =
@@ -119,23 +112,13 @@ instance Lude.ToQuery RegisterInstanceEventNotificationAttributes where
 
 -- | /See:/ 'mkRegisterInstanceEventNotificationAttributesResponse' smart constructor.
 data RegisterInstanceEventNotificationAttributesResponse = RegisterInstanceEventNotificationAttributesResponse'
-  { instanceTagAttribute ::
-      Lude.Maybe
-        InstanceTagNotificationAttribute,
-    responseStatus ::
-      Lude.Int
+  { -- | The resulting set of tag keys.
+    instanceTagAttribute :: Lude.Maybe InstanceTagNotificationAttribute,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterInstanceEventNotificationAttributesResponse' with the minimum fields required to make a request.
 --

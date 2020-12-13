@@ -31,30 +31,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPullRequestSourceReferenceUpdatedEventMetadata' smart constructor.
 data PullRequestSourceReferenceUpdatedEventMetadata = PullRequestSourceReferenceUpdatedEventMetadata'
-  { afterCommitId ::
-      Lude.Maybe
-        Lude.Text,
-    beforeCommitId ::
-      Lude.Maybe
-        Lude.Text,
-    mergeBase ::
-      Lude.Maybe
-        Lude.Text,
-    repositoryName ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.
+    afterCommitId :: Lude.Maybe Lude.Text,
+    -- | The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.
+    beforeCommitId :: Lude.Maybe Lude.Text,
+    -- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
+    mergeBase :: Lude.Maybe Lude.Text,
+    -- | The name of the repository where the pull request was updated.
+    repositoryName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PullRequestSourceReferenceUpdatedEventMetadata' with the minimum fields required to make a request.
 --

@@ -17,9 +17,9 @@ module Network.AWS.CloudDirectory.Types.TypedLinkFacet
     mkTypedLinkFacet,
 
     -- * Lenses
-    tlfName,
-    tlfAttributes,
     tlfIdentityAttributeOrder,
+    tlfAttributes,
+    tlfName,
   )
 where
 
@@ -31,23 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTypedLinkFacet' smart constructor.
 data TypedLinkFacet = TypedLinkFacet'
-  { name :: Lude.Text,
+  { -- | The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See 'ListOutgoingTypedLinks' and 'ListIncomingTypedLinks' for details.
+    identityAttributeOrder :: [Lude.Text],
+    -- | A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.
     attributes :: [TypedLinkAttributeDefinition],
-    identityAttributeOrder :: [Lude.Text]
+    -- | The unique name of the typed link facet.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypedLinkFacet' with the minimum fields required to make a request.
 --
--- * 'attributes' - A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.
 -- * 'identityAttributeOrder' - The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See 'ListOutgoingTypedLinks' and 'ListIncomingTypedLinks' for details.
+-- * 'attributes' - A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.
 -- * 'name' - The unique name of the typed link facet.
 mkTypedLinkFacet ::
   -- | 'name'
@@ -55,24 +52,10 @@ mkTypedLinkFacet ::
   TypedLinkFacet
 mkTypedLinkFacet pName_ =
   TypedLinkFacet'
-    { name = pName_,
+    { identityAttributeOrder = Lude.mempty,
       attributes = Lude.mempty,
-      identityAttributeOrder = Lude.mempty
+      name = pName_
     }
-
--- | The unique name of the typed link facet.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlfName :: Lens.Lens' TypedLinkFacet Lude.Text
-tlfName = Lens.lens (name :: TypedLinkFacet -> Lude.Text) (\s a -> s {name = a} :: TypedLinkFacet)
-{-# DEPRECATED tlfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlfAttributes :: Lens.Lens' TypedLinkFacet [TypedLinkAttributeDefinition]
-tlfAttributes = Lens.lens (attributes :: TypedLinkFacet -> [TypedLinkAttributeDefinition]) (\s a -> s {attributes = a} :: TypedLinkFacet)
-{-# DEPRECATED tlfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See 'ListOutgoingTypedLinks' and 'ListIncomingTypedLinks' for details.
 --
@@ -81,13 +64,27 @@ tlfIdentityAttributeOrder :: Lens.Lens' TypedLinkFacet [Lude.Text]
 tlfIdentityAttributeOrder = Lens.lens (identityAttributeOrder :: TypedLinkFacet -> [Lude.Text]) (\s a -> s {identityAttributeOrder = a} :: TypedLinkFacet)
 {-# DEPRECATED tlfIdentityAttributeOrder "Use generic-lens or generic-optics with 'identityAttributeOrder' instead." #-}
 
+-- | A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlfAttributes :: Lens.Lens' TypedLinkFacet [TypedLinkAttributeDefinition]
+tlfAttributes = Lens.lens (attributes :: TypedLinkFacet -> [TypedLinkAttributeDefinition]) (\s a -> s {attributes = a} :: TypedLinkFacet)
+{-# DEPRECATED tlfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The unique name of the typed link facet.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlfName :: Lens.Lens' TypedLinkFacet Lude.Text
+tlfName = Lens.lens (name :: TypedLinkFacet -> Lude.Text) (\s a -> s {name = a} :: TypedLinkFacet)
+{-# DEPRECATED tlfName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.ToJSON TypedLinkFacet where
   toJSON TypedLinkFacet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
+          [ Lude.Just
+              ("IdentityAttributeOrder" Lude..= identityAttributeOrder),
             Lude.Just ("Attributes" Lude..= attributes),
-            Lude.Just
-              ("IdentityAttributeOrder" Lude..= identityAttributeOrder)
+            Lude.Just ("Name" Lude..= name)
           ]
       )

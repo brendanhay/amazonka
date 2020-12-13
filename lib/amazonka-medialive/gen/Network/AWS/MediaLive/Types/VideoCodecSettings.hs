@@ -35,27 +35,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVideoCodecSettings' smart constructor.
 data VideoCodecSettings = VideoCodecSettings'
-  { frameCaptureSettings ::
-      Lude.Maybe FrameCaptureSettings,
+  { frameCaptureSettings :: Lude.Maybe FrameCaptureSettings,
     h265Settings :: Lude.Maybe H265Settings,
     h264Settings :: Lude.Maybe H264Settings,
     mpeg2Settings :: Lude.Maybe Mpeg2Settings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoCodecSettings' with the minimum fields required to make a request.
 --
--- * 'frameCaptureSettings' - Undocumented field.
--- * 'h264Settings' - Undocumented field.
--- * 'h265Settings' - Undocumented field.
--- * 'mpeg2Settings' - Undocumented field.
+-- * 'frameCaptureSettings' -
+-- * 'h265Settings' -
+-- * 'h264Settings' -
+-- * 'mpeg2Settings' -
 mkVideoCodecSettings ::
   VideoCodecSettings
 mkVideoCodecSettings =

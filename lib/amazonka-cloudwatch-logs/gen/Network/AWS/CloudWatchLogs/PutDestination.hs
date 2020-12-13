@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.CloudWatchLogs.PutDestination
     mkPutDestination,
 
     -- ** Request lenses
-    pdDestinationName,
     pdTargetARN,
+    pdDestinationName,
     pdRoleARN,
 
     -- * Destructuring the response
@@ -45,45 +46,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutDestination' smart constructor.
 data PutDestination = PutDestination'
-  { destinationName :: Lude.Text,
+  { -- | The ARN of an Amazon Kinesis stream to which to deliver matching log events.
     targetARN :: Lude.Text,
+    -- | A name for the destination.
+    destinationName :: Lude.Text,
+    -- | The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis @PutRecord@ operation on the destination stream.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDestination' with the minimum fields required to make a request.
 --
+-- * 'targetARN' - The ARN of an Amazon Kinesis stream to which to deliver matching log events.
 -- * 'destinationName' - A name for the destination.
 -- * 'roleARN' - The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis @PutRecord@ operation on the destination stream.
--- * 'targetARN' - The ARN of an Amazon Kinesis stream to which to deliver matching log events.
 mkPutDestination ::
-  -- | 'destinationName'
-  Lude.Text ->
   -- | 'targetARN'
+  Lude.Text ->
+  -- | 'destinationName'
   Lude.Text ->
   -- | 'roleARN'
   Lude.Text ->
   PutDestination
-mkPutDestination pDestinationName_ pTargetARN_ pRoleARN_ =
+mkPutDestination pTargetARN_ pDestinationName_ pRoleARN_ =
   PutDestination'
-    { destinationName = pDestinationName_,
-      targetARN = pTargetARN_,
+    { targetARN = pTargetARN_,
+      destinationName = pDestinationName_,
       roleARN = pRoleARN_
     }
-
--- | A name for the destination.
---
--- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDestinationName :: Lens.Lens' PutDestination Lude.Text
-pdDestinationName = Lens.lens (destinationName :: PutDestination -> Lude.Text) (\s a -> s {destinationName = a} :: PutDestination)
-{-# DEPRECATED pdDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
 -- | The ARN of an Amazon Kinesis stream to which to deliver matching log events.
 --
@@ -91,6 +82,13 @@ pdDestinationName = Lens.lens (destinationName :: PutDestination -> Lude.Text) (
 pdTargetARN :: Lens.Lens' PutDestination Lude.Text
 pdTargetARN = Lens.lens (targetARN :: PutDestination -> Lude.Text) (\s a -> s {targetARN = a} :: PutDestination)
 {-# DEPRECATED pdTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
+
+-- | A name for the destination.
+--
+-- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDestinationName :: Lens.Lens' PutDestination Lude.Text
+pdDestinationName = Lens.lens (destinationName :: PutDestination -> Lude.Text) (\s a -> s {destinationName = a} :: PutDestination)
+{-# DEPRECATED pdDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
 -- | The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis @PutRecord@ operation on the destination stream.
 --
@@ -124,8 +122,8 @@ instance Lude.ToJSON PutDestination where
   toJSON PutDestination' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("destinationName" Lude..= destinationName),
-            Lude.Just ("targetArn" Lude..= targetARN),
+          [ Lude.Just ("targetArn" Lude..= targetARN),
+            Lude.Just ("destinationName" Lude..= destinationName),
             Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )
@@ -138,17 +136,12 @@ instance Lude.ToQuery PutDestination where
 
 -- | /See:/ 'mkPutDestinationResponse' smart constructor.
 data PutDestinationResponse = PutDestinationResponse'
-  { destination ::
-      Lude.Maybe Destination,
+  { -- | The destination.
+    destination :: Lude.Maybe Destination,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDestinationResponse' with the minimum fields required to make a request.

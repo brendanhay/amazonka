@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,23 +46,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAdminDisableProviderForUser' smart constructor.
 data AdminDisableProviderForUser = AdminDisableProviderForUser'
-  { userPoolId ::
-      Lude.Text,
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Lude.Text,
+    -- | The user to be disabled.
     user :: ProviderUserIdentifierType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminDisableProviderForUser' with the minimum fields required to make a request.
 --
--- * 'user' - The user to be disabled.
 -- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'user' - The user to be disabled.
 mkAdminDisableProviderForUser ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -130,16 +126,10 @@ instance Lude.ToQuery AdminDisableProviderForUser where
 
 -- | /See:/ 'mkAdminDisableProviderForUserResponse' smart constructor.
 newtype AdminDisableProviderForUserResponse = AdminDisableProviderForUserResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminDisableProviderForUserResponse' with the minimum fields required to make a request.

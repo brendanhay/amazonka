@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.FeedbackValueType
   ( FeedbackValueType
       ( FeedbackValueType',
-        Invalid,
-        Valid
+        Valid,
+        Invalid
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FeedbackValueType = FeedbackValueType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Invalid :: FeedbackValueType
-pattern Invalid = FeedbackValueType' "Invalid"
-
 pattern Valid :: FeedbackValueType
 pattern Valid = FeedbackValueType' "Valid"
 
+pattern Invalid :: FeedbackValueType
+pattern Invalid = FeedbackValueType' "Invalid"
+
 {-# COMPLETE
-  Invalid,
   Valid,
+  Invalid,
   FeedbackValueType'
   #-}

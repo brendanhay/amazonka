@@ -13,8 +13,8 @@
 module Network.AWS.Inspector.Types.InspectorEvent
   ( InspectorEvent
       ( InspectorEvent',
-        AssessmentRunCompleted,
         AssessmentRunStarted,
+        AssessmentRunCompleted,
         AssessmentRunStateChanged,
         FindingReported,
         Other
@@ -48,11 +48,11 @@ newtype InspectorEvent = InspectorEvent' Lude.Text
       Lude.ToHeader
     )
 
-pattern AssessmentRunCompleted :: InspectorEvent
-pattern AssessmentRunCompleted = InspectorEvent' "ASSESSMENT_RUN_COMPLETED"
-
 pattern AssessmentRunStarted :: InspectorEvent
 pattern AssessmentRunStarted = InspectorEvent' "ASSESSMENT_RUN_STARTED"
+
+pattern AssessmentRunCompleted :: InspectorEvent
+pattern AssessmentRunCompleted = InspectorEvent' "ASSESSMENT_RUN_COMPLETED"
 
 pattern AssessmentRunStateChanged :: InspectorEvent
 pattern AssessmentRunStateChanged = InspectorEvent' "ASSESSMENT_RUN_STATE_CHANGED"
@@ -64,8 +64,8 @@ pattern Other :: InspectorEvent
 pattern Other = InspectorEvent' "OTHER"
 
 {-# COMPLETE
-  AssessmentRunCompleted,
   AssessmentRunStarted,
+  AssessmentRunCompleted,
   AssessmentRunStateChanged,
   FindingReported,
   Other,

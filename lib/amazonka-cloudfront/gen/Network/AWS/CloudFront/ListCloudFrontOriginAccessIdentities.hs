@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     mkListCloudFrontOriginAccessIdentitiesResponse,
 
     -- ** Response lenses
-    lcfoairsResponseStatus,
     lcfoairsCloudFrontOriginAccessIdentityList,
+    lcfoairsResponseStatus,
   )
 where
 
@@ -45,20 +46,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListCloudFrontOriginAccessIdentities' smart constructor.
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    maxItems ::
-      Lude.Maybe
-        Lude.Text
+  { -- | Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last identity on that page).
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of origin access identities you want in the response body.
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCloudFrontOriginAccessIdentities' with the minimum fields required to make a request.
@@ -120,7 +113,7 @@ instance Lude.AWSRequest ListCloudFrontOriginAccessIdentities where
     Res.receiveXML
       ( \s h x ->
           ListCloudFrontOriginAccessIdentitiesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.parseXML x)
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListCloudFrontOriginAccessIdentities where
@@ -138,18 +131,12 @@ instance Lude.ToQuery ListCloudFrontOriginAccessIdentities where
 --
 -- /See:/ 'mkListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
-  { responseStatus ::
-      Lude.Int,
-    cloudFrontOriginAccessIdentityList ::
-      CloudFrontOriginAccessIdentityList
+  { -- | The @CloudFrontOriginAccessIdentityList@ type.
+    cloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCloudFrontOriginAccessIdentitiesResponse' with the minimum fields required to make a request.
@@ -157,27 +144,19 @@ data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessId
 -- * 'cloudFrontOriginAccessIdentityList' - The @CloudFrontOriginAccessIdentityList@ type.
 -- * 'responseStatus' - The response status code.
 mkListCloudFrontOriginAccessIdentitiesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'cloudFrontOriginAccessIdentityList'
   CloudFrontOriginAccessIdentityList ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCloudFrontOriginAccessIdentitiesResponse
 mkListCloudFrontOriginAccessIdentitiesResponse
-  pResponseStatus_
-  pCloudFrontOriginAccessIdentityList_ =
+  pCloudFrontOriginAccessIdentityList_
+  pResponseStatus_ =
     ListCloudFrontOriginAccessIdentitiesResponse'
-      { responseStatus =
-          pResponseStatus_,
-        cloudFrontOriginAccessIdentityList =
-          pCloudFrontOriginAccessIdentityList_
+      { cloudFrontOriginAccessIdentityList =
+          pCloudFrontOriginAccessIdentityList_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfoairsResponseStatus :: Lens.Lens' ListCloudFrontOriginAccessIdentitiesResponse Lude.Int
-lcfoairsResponseStatus = Lens.lens (responseStatus :: ListCloudFrontOriginAccessIdentitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCloudFrontOriginAccessIdentitiesResponse)
-{-# DEPRECATED lcfoairsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The @CloudFrontOriginAccessIdentityList@ type.
 --
@@ -185,3 +164,10 @@ lcfoairsResponseStatus = Lens.lens (responseStatus :: ListCloudFrontOriginAccess
 lcfoairsCloudFrontOriginAccessIdentityList :: Lens.Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
 lcfoairsCloudFrontOriginAccessIdentityList = Lens.lens (cloudFrontOriginAccessIdentityList :: ListCloudFrontOriginAccessIdentitiesResponse -> CloudFrontOriginAccessIdentityList) (\s a -> s {cloudFrontOriginAccessIdentityList = a} :: ListCloudFrontOriginAccessIdentitiesResponse)
 {-# DEPRECATED lcfoairsCloudFrontOriginAccessIdentityList "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentityList' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfoairsResponseStatus :: Lens.Lens' ListCloudFrontOriginAccessIdentitiesResponse Lude.Int
+lcfoairsResponseStatus = Lens.lens (responseStatus :: ListCloudFrontOriginAccessIdentitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCloudFrontOriginAccessIdentitiesResponse)
+{-# DEPRECATED lcfoairsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

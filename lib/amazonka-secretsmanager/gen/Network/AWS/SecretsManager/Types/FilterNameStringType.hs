@@ -13,11 +13,11 @@
 module Network.AWS.SecretsManager.Types.FilterNameStringType
   ( FilterNameStringType
       ( FilterNameStringType',
-        All,
         Description,
         Name,
         TagKey,
-        TagValue
+        TagValue,
+        All
       ),
   )
 where
@@ -48,9 +48,6 @@ newtype FilterNameStringType = FilterNameStringType' Lude.Text
       Lude.ToHeader
     )
 
-pattern All :: FilterNameStringType
-pattern All = FilterNameStringType' "all"
-
 pattern Description :: FilterNameStringType
 pattern Description = FilterNameStringType' "description"
 
@@ -63,11 +60,14 @@ pattern TagKey = FilterNameStringType' "tag-key"
 pattern TagValue :: FilterNameStringType
 pattern TagValue = FilterNameStringType' "tag-value"
 
+pattern All :: FilterNameStringType
+pattern All = FilterNameStringType' "all"
+
 {-# COMPLETE
-  All,
   Description,
   Name,
   TagKey,
   TagValue,
+  All,
   FilterNameStringType'
   #-}

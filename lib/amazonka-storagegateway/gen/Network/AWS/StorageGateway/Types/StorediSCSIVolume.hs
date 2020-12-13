@@ -43,53 +43,64 @@ import Network.AWS.StorageGateway.Types.VolumeiSCSIAttributes
 --
 -- /See:/ 'mkStorediSCSIVolume' smart constructor.
 data StorediSCSIVolume = StorediSCSIVolume'
-  { volumeiSCSIAttributes ::
-      Lude.Maybe VolumeiSCSIAttributes,
+  { -- | An 'VolumeiSCSIAttributes' object that represents a collection of iSCSI attributes for one stored volume.
+    volumeiSCSIAttributes :: Lude.Maybe VolumeiSCSIAttributes,
+    -- | One of the VolumeStatus values that indicates the state of the storage volume.
     volumeStatus :: Lude.Maybe Lude.Text,
+    -- | If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included.
     sourceSnapshotId :: Lude.Maybe Lude.Text,
+    -- | Indicates if when the stored volume was created, existing data on the underlying local disk was preserved.
+    --
+    -- Valid Values: @true@ | @false@
     preservedExistingData :: Lude.Maybe Lude.Bool,
     kmsKey :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway> .
     volumeAttachmentStatus :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the storage volume.
     volumeARN :: Lude.Maybe Lude.Text,
+    -- | Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping.
     volumeProgress :: Lude.Maybe Lude.Double,
+    -- | The size of the volume in bytes.
     volumeSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. @VolumeUsedInBytes@ is different from the compressed size of the volume, which is the value that is used to calculate your bill.
     volumeUsedInBytes :: Lude.Maybe Lude.Integer,
+    -- | The date the volume was created. Volumes created prior to March 28, 2017 don’t have this timestamp.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The unique identifier of the volume, e.g., vol-AE4B946D.
     volumeId :: Lude.Maybe Lude.Text,
+    -- | The ID of the local disk that was specified in the 'CreateStorediSCSIVolume' operation.
     volumeDiskId :: Lude.Maybe Lude.Text,
+    -- | One of the VolumeType enumeration values describing the type of the volume.
     volumeType :: Lude.Maybe Lude.Text,
+    -- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
+    --
+    -- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
     targetName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorediSCSIVolume' with the minimum fields required to make a request.
 --
--- * 'createdDate' - The date the volume was created. Volumes created prior to March 28, 2017 don’t have this timestamp.
--- * 'kmsKey' - Undocumented field.
+-- * 'volumeiSCSIAttributes' - An 'VolumeiSCSIAttributes' object that represents a collection of iSCSI attributes for one stored volume.
+-- * 'volumeStatus' - One of the VolumeStatus values that indicates the state of the storage volume.
+-- * 'sourceSnapshotId' - If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included.
 -- * 'preservedExistingData' - Indicates if when the stored volume was created, existing data on the underlying local disk was preserved.
 --
 -- Valid Values: @true@ | @false@
--- * 'sourceSnapshotId' - If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included.
+-- * 'kmsKey' -
+-- * 'volumeAttachmentStatus' - A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway> .
+-- * 'volumeARN' - The Amazon Resource Name (ARN) of the storage volume.
+-- * 'volumeProgress' - Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping.
+-- * 'volumeSizeInBytes' - The size of the volume in bytes.
+-- * 'volumeUsedInBytes' - The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. @VolumeUsedInBytes@ is different from the compressed size of the volume, which is the value that is used to calculate your bill.
+-- * 'createdDate' - The date the volume was created. Volumes created prior to March 28, 2017 don’t have this timestamp.
+-- * 'volumeId' - The unique identifier of the volume, e.g., vol-AE4B946D.
+-- * 'volumeDiskId' - The ID of the local disk that was specified in the 'CreateStorediSCSIVolume' operation.
+-- * 'volumeType' - One of the VolumeType enumeration values describing the type of the volume.
 -- * 'targetName' - The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway.
 --
 -- If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the storage volume.
--- * 'volumeAttachmentStatus' - A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#attach-detach-volume Moving your volumes to a different gateway> .
--- * 'volumeDiskId' - The ID of the local disk that was specified in the 'CreateStorediSCSIVolume' operation.
--- * 'volumeId' - The unique identifier of the volume, e.g., vol-AE4B946D.
--- * 'volumeProgress' - Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping.
--- * 'volumeSizeInBytes' - The size of the volume in bytes.
--- * 'volumeStatus' - One of the VolumeStatus values that indicates the state of the storage volume.
--- * 'volumeType' - One of the VolumeType enumeration values describing the type of the volume.
--- * 'volumeUsedInBytes' - The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. @VolumeUsedInBytes@ is different from the compressed size of the volume, which is the value that is used to calculate your bill.
--- * 'volumeiSCSIAttributes' - An 'VolumeiSCSIAttributes' object that represents a collection of iSCSI attributes for one stored volume.
 mkStorediSCSIVolume ::
   StorediSCSIVolume
 mkStorediSCSIVolume =

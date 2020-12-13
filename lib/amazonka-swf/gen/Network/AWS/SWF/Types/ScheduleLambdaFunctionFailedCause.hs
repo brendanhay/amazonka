@@ -14,9 +14,9 @@ module Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedCause
   ( ScheduleLambdaFunctionFailedCause
       ( ScheduleLambdaFunctionFailedCause',
         IdAlreadyInUse,
+        OpenLambdaFunctionsLimitExceeded,
         LambdaFunctionCreationRateExceeded,
-        LambdaServiceNotAvailableInRegion,
-        OpenLambdaFunctionsLimitExceeded
+        LambdaServiceNotAvailableInRegion
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype ScheduleLambdaFunctionFailedCause = ScheduleLambdaFunctionFailedCause' L
 pattern IdAlreadyInUse :: ScheduleLambdaFunctionFailedCause
 pattern IdAlreadyInUse = ScheduleLambdaFunctionFailedCause' "ID_ALREADY_IN_USE"
 
+pattern OpenLambdaFunctionsLimitExceeded :: ScheduleLambdaFunctionFailedCause
+pattern OpenLambdaFunctionsLimitExceeded = ScheduleLambdaFunctionFailedCause' "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
+
 pattern LambdaFunctionCreationRateExceeded :: ScheduleLambdaFunctionFailedCause
 pattern LambdaFunctionCreationRateExceeded = ScheduleLambdaFunctionFailedCause' "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
 
 pattern LambdaServiceNotAvailableInRegion :: ScheduleLambdaFunctionFailedCause
 pattern LambdaServiceNotAvailableInRegion = ScheduleLambdaFunctionFailedCause' "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION"
 
-pattern OpenLambdaFunctionsLimitExceeded :: ScheduleLambdaFunctionFailedCause
-pattern OpenLambdaFunctionsLimitExceeded = ScheduleLambdaFunctionFailedCause' "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
-
 {-# COMPLETE
   IdAlreadyInUse,
+  OpenLambdaFunctionsLimitExceeded,
   LambdaFunctionCreationRateExceeded,
   LambdaServiceNotAvailableInRegion,
-  OpenLambdaFunctionsLimitExceeded,
   ScheduleLambdaFunctionFailedCause'
   #-}

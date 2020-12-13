@@ -37,31 +37,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConferenceProvider' smart constructor.
 data ConferenceProvider = ConferenceProvider'
-  { meetingSetting ::
-      Lude.Maybe MeetingSetting,
+  { -- | The meeting settings for the conference provider.
+    meetingSetting :: Lude.Maybe MeetingSetting,
+    -- | The ARN of the newly created conference provider.
     arn :: Lude.Maybe Lude.Text,
+    -- | The information for PSTN conferencing.
     pSTNDialIn :: Lude.Maybe PSTNDialIn,
+    -- | The name of the conference provider.
     name :: Lude.Maybe Lude.Text,
+    -- | The type of conference providers.
     type' :: Lude.Maybe ConferenceProviderType,
+    -- | The IP endpoint and protocol for calling.
     ipDialIn :: Lude.Maybe IPDialIn
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConferenceProvider' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the newly created conference provider.
--- * 'ipDialIn' - The IP endpoint and protocol for calling.
 -- * 'meetingSetting' - The meeting settings for the conference provider.
--- * 'name' - The name of the conference provider.
+-- * 'arn' - The ARN of the newly created conference provider.
 -- * 'pSTNDialIn' - The information for PSTN conferencing.
+-- * 'name' - The name of the conference provider.
 -- * 'type'' - The type of conference providers.
+-- * 'ipDialIn' - The IP endpoint and protocol for calling.
 mkConferenceProvider ::
   ConferenceProvider
 mkConferenceProvider =

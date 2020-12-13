@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,23 +49,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListCollections' smart constructor.
 data ListCollections = ListCollections'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Pagination token from the previous response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of collection IDs to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCollections' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of collection IDs to return.
 -- * 'nextToken' - Pagination token from the previous response.
+-- * 'maxResults' - Maximum number of collection IDs to return.
 mkListCollections ::
   ListCollections
 mkListCollections =
@@ -138,26 +134,23 @@ instance Lude.ToQuery ListCollections where
 
 -- | /See:/ 'mkListCollectionsResponse' smart constructor.
 data ListCollectionsResponse = ListCollectionsResponse'
-  { collectionIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | An array of collection IDs.
+    collectionIds :: Lude.Maybe [Lude.Text],
+    -- | If the result is truncated, the response provides a @NextToken@ that you can use in the subsequent request to fetch the next set of collection IDs.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Version numbers of the face detection models associated with the collections in the array @CollectionIds@ . For example, the value of @FaceModelVersions[2]@ is the version number for the face detection model used by the collection in @CollectionId[2]@ .
     faceModelVersions :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCollectionsResponse' with the minimum fields required to make a request.
 --
 -- * 'collectionIds' - An array of collection IDs.
--- * 'faceModelVersions' - Version numbers of the face detection models associated with the collections in the array @CollectionIds@ . For example, the value of @FaceModelVersions[2]@ is the version number for the face detection model used by the collection in @CollectionId[2]@ .
 -- * 'nextToken' - If the result is truncated, the response provides a @NextToken@ that you can use in the subsequent request to fetch the next set of collection IDs.
+-- * 'faceModelVersions' - Version numbers of the face detection models associated with the collections in the array @CollectionIds@ . For example, the value of @FaceModelVersions[2]@ is the version number for the face detection model used by the collection in @CollectionId[2]@ .
 -- * 'responseStatus' - The response status code.
 mkListCollectionsResponse ::
   -- | 'responseStatus'

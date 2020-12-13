@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.SummaryStatus
   ( SummaryStatus
       ( SummaryStatus',
+        SSOK,
         SSImpaired,
-        SSInitializing,
         SSInsufficientData,
         SSNotApplicable,
-        SSOK
+        SSInitializing
       ),
   )
 where
@@ -48,11 +48,11 @@ newtype SummaryStatus = SummaryStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern SSOK :: SummaryStatus
+pattern SSOK = SummaryStatus' "ok"
+
 pattern SSImpaired :: SummaryStatus
 pattern SSImpaired = SummaryStatus' "impaired"
-
-pattern SSInitializing :: SummaryStatus
-pattern SSInitializing = SummaryStatus' "initializing"
 
 pattern SSInsufficientData :: SummaryStatus
 pattern SSInsufficientData = SummaryStatus' "insufficient-data"
@@ -60,14 +60,14 @@ pattern SSInsufficientData = SummaryStatus' "insufficient-data"
 pattern SSNotApplicable :: SummaryStatus
 pattern SSNotApplicable = SummaryStatus' "not-applicable"
 
-pattern SSOK :: SummaryStatus
-pattern SSOK = SummaryStatus' "ok"
+pattern SSInitializing :: SummaryStatus
+pattern SSInitializing = SummaryStatus' "initializing"
 
 {-# COMPLETE
+  SSOK,
   SSImpaired,
-  SSInitializing,
   SSInsufficientData,
   SSNotApplicable,
-  SSOK,
+  SSInitializing,
   SummaryStatus'
   #-}

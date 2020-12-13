@@ -17,7 +17,7 @@ module Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsRequestListValue
     mkPhase1IntegrityAlgorithmsRequestListValue,
 
     -- * Lenses
-    piarlviValue,
+    piarlvfValue,
   )
 where
 
@@ -28,17 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhase1IntegrityAlgorithmsRequestListValue' smart constructor.
 newtype Phase1IntegrityAlgorithmsRequestListValue = Phase1IntegrityAlgorithmsRequestListValue'
-  { value ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The value for the integrity algorithm.
+    value :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase1IntegrityAlgorithmsRequestListValue' with the minimum fields required to make a request.
@@ -52,9 +45,9 @@ mkPhase1IntegrityAlgorithmsRequestListValue =
 -- | The value for the integrity algorithm.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piarlviValue :: Lens.Lens' Phase1IntegrityAlgorithmsRequestListValue (Lude.Maybe Lude.Text)
-piarlviValue = Lens.lens (value :: Phase1IntegrityAlgorithmsRequestListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase1IntegrityAlgorithmsRequestListValue)
-{-# DEPRECATED piarlviValue "Use generic-lens or generic-optics with 'value' instead." #-}
+piarlvfValue :: Lens.Lens' Phase1IntegrityAlgorithmsRequestListValue (Lude.Maybe Lude.Text)
+piarlvfValue = Lens.lens (value :: Phase1IntegrityAlgorithmsRequestListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase1IntegrityAlgorithmsRequestListValue)
+{-# DEPRECATED piarlvfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 instance Lude.ToQuery Phase1IntegrityAlgorithmsRequestListValue where
   toQuery Phase1IntegrityAlgorithmsRequestListValue' {..} =

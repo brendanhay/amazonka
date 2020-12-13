@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPortProbeAction' smart constructor.
 data PortProbeAction = PortProbeAction'
-  { portProbeDetails ::
-      Lude.Maybe [PortProbeDetail],
+  { -- | A list of objects related to port probe details.
+    portProbeDetails :: Lude.Maybe [PortProbeDetail],
+    -- | Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.
     blocked :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PortProbeAction' with the minimum fields required to make a request.
 --
--- * 'blocked' - Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.
 -- * 'portProbeDetails' - A list of objects related to port probe details.
+-- * 'blocked' - Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.
 mkPortProbeAction ::
   PortProbeAction
 mkPortProbeAction =

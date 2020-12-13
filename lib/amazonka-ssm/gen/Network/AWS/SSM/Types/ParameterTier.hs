@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.ParameterTier
   ( ParameterTier
       ( ParameterTier',
+        Standard,
         Advanced,
-        IntelligentTiering,
-        Standard
+        IntelligentTiering
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ParameterTier = ParameterTier' Lude.Text
       Lude.ToHeader
     )
 
+pattern Standard :: ParameterTier
+pattern Standard = ParameterTier' "Standard"
+
 pattern Advanced :: ParameterTier
 pattern Advanced = ParameterTier' "Advanced"
 
 pattern IntelligentTiering :: ParameterTier
 pattern IntelligentTiering = ParameterTier' "Intelligent-Tiering"
 
-pattern Standard :: ParameterTier
-pattern Standard = ParameterTier' "Standard"
-
 {-# COMPLETE
+  Standard,
   Advanced,
   IntelligentTiering,
-  Standard,
   ParameterTier'
   #-}

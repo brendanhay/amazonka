@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudFront.UntagResource
     mkUntagResource,
 
     -- ** Request lenses
-    urResource,
     urTagKeys,
+    urResource,
 
     -- * Destructuring the response
     UntagResourceResponse (..),
@@ -38,37 +39,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { resource :: Lude.Text,
-    tagKeys :: TagKeys
+  { -- | A complex type that contains zero or more @Tag@ key elements.
+    tagKeys :: TagKeys,
+    -- | An ARN of a CloudFront resource.
+    resource :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
--- * 'resource' - An ARN of a CloudFront resource.
 -- * 'tagKeys' - A complex type that contains zero or more @Tag@ key elements.
+-- * 'resource' - An ARN of a CloudFront resource.
 mkUntagResource ::
-  -- | 'resource'
-  Lude.Text ->
   -- | 'tagKeys'
   TagKeys ->
+  -- | 'resource'
+  Lude.Text ->
   UntagResource
-mkUntagResource pResource_ pTagKeys_ =
-  UntagResource' {resource = pResource_, tagKeys = pTagKeys_}
-
--- | An ARN of a CloudFront resource.
---
--- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResource :: Lens.Lens' UntagResource Lude.Text
-urResource = Lens.lens (resource :: UntagResource -> Lude.Text) (\s a -> s {resource = a} :: UntagResource)
-{-# DEPRECATED urResource "Use generic-lens or generic-optics with 'resource' instead." #-}
+mkUntagResource pTagKeys_ pResource_ =
+  UntagResource' {tagKeys = pTagKeys_, resource = pResource_}
 
 -- | A complex type that contains zero or more @Tag@ key elements.
 --
@@ -76,6 +66,13 @@ urResource = Lens.lens (resource :: UntagResource -> Lude.Text) (\s a -> s {reso
 urTagKeys :: Lens.Lens' UntagResource TagKeys
 urTagKeys = Lens.lens (tagKeys :: UntagResource -> TagKeys) (\s a -> s {tagKeys = a} :: UntagResource)
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | An ARN of a CloudFront resource.
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResource :: Lens.Lens' UntagResource Lude.Text
+urResource = Lens.lens (resource :: UntagResource -> Lude.Text) (\s a -> s {resource = a} :: UntagResource)
+{-# DEPRECATED urResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
 instance Lude.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
@@ -100,13 +97,7 @@ instance Lude.ToQuery UntagResource where
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.

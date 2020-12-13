@@ -13,8 +13,8 @@
 module Network.AWS.Batch.Types.JQState
   ( JQState
       ( JQState',
-        JQSDisabled,
-        JQSEnabled
+        JQSEnabled,
+        JQSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype JQState = JQState' Lude.Text
       Lude.ToHeader
     )
 
-pattern JQSDisabled :: JQState
-pattern JQSDisabled = JQState' "DISABLED"
-
 pattern JQSEnabled :: JQState
 pattern JQSEnabled = JQState' "ENABLED"
 
+pattern JQSDisabled :: JQState
+pattern JQSDisabled = JQState' "DISABLED"
+
 {-# COMPLETE
-  JQSDisabled,
   JQSEnabled,
+  JQSDisabled,
   JQState'
   #-}

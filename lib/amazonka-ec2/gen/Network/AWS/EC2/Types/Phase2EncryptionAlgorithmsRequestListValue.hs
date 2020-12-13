@@ -17,7 +17,7 @@ module Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsRequestListValue
     mkPhase2EncryptionAlgorithmsRequestListValue,
 
     -- * Lenses
-    pearlveValue,
+    pearlvfValue,
   )
 where
 
@@ -28,17 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhase2EncryptionAlgorithmsRequestListValue' smart constructor.
 newtype Phase2EncryptionAlgorithmsRequestListValue = Phase2EncryptionAlgorithmsRequestListValue'
-  { value ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The encryption algorithm.
+    value :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase2EncryptionAlgorithmsRequestListValue' with the minimum fields required to make a request.
@@ -52,9 +45,9 @@ mkPhase2EncryptionAlgorithmsRequestListValue =
 -- | The encryption algorithm.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pearlveValue :: Lens.Lens' Phase2EncryptionAlgorithmsRequestListValue (Lude.Maybe Lude.Text)
-pearlveValue = Lens.lens (value :: Phase2EncryptionAlgorithmsRequestListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase2EncryptionAlgorithmsRequestListValue)
-{-# DEPRECATED pearlveValue "Use generic-lens or generic-optics with 'value' instead." #-}
+pearlvfValue :: Lens.Lens' Phase2EncryptionAlgorithmsRequestListValue (Lude.Maybe Lude.Text)
+pearlvfValue = Lens.lens (value :: Phase2EncryptionAlgorithmsRequestListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase2EncryptionAlgorithmsRequestListValue)
+{-# DEPRECATED pearlvfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 instance Lude.ToQuery Phase2EncryptionAlgorithmsRequestListValue where
   toQuery Phase2EncryptionAlgorithmsRequestListValue' {..} =

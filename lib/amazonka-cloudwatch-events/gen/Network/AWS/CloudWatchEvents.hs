@@ -181,8 +181,8 @@ module Network.AWS.CloudWatchEvents
     AWSVPCConfiguration (..),
     mkAWSVPCConfiguration,
     avcSecurityGroups,
-    avcAssignPublicIP,
     avcSubnets,
+    avcAssignPublicIP,
 
     -- ** Archive
     Archive (..),
@@ -204,10 +204,10 @@ module Network.AWS.CloudWatchEvents
     -- ** BatchParameters
     BatchParameters (..),
     mkBatchParameters,
-    bpRetryStrategy,
-    bpArrayProperties,
-    bpJobDefinition,
     bpJobName,
+    bpRetryStrategy,
+    bpJobDefinition,
+    bpArrayProperties,
 
     -- ** BatchRetryStrategy
     BatchRetryStrategy (..),
@@ -217,9 +217,9 @@ module Network.AWS.CloudWatchEvents
     -- ** Condition
     Condition (..),
     mkCondition,
-    cType,
-    cKey,
     cValue,
+    cKey,
+    cType,
 
     -- ** DeadLetterConfig
     DeadLetterConfig (..),
@@ -231,10 +231,10 @@ module Network.AWS.CloudWatchEvents
     mkEcsParameters,
     epGroup,
     epPlatformVersion,
+    epTaskDefinitionARN,
     epLaunchType,
     epTaskCount,
     epNetworkConfiguration,
-    epTaskDefinitionARN,
 
     -- ** EventBus
     EventBus (..),
@@ -334,11 +334,11 @@ module Network.AWS.CloudWatchEvents
     RedshiftDataParameters (..),
     mkRedshiftDataParameters,
     rdpDBUser,
+    rdpDatabase,
     rdpSecretManagerARN,
     rdpStatementName,
-    rdpWithEvent,
-    rdpDatabase,
     rdpSql,
+    rdpWithEvent,
 
     -- ** RemoveTargetsResultEntry
     RemoveTargetsResultEntry (..),
@@ -350,21 +350,21 @@ module Network.AWS.CloudWatchEvents
     -- ** Replay
     Replay (..),
     mkReplay,
-    repEventSourceARN,
-    repState,
-    repEventEndTime,
-    repReplayStartTime,
-    repReplayEndTime,
-    repEventLastReplayedTime,
-    repEventStartTime,
-    repReplayName,
-    repStateReason,
+    rfEventSourceARN,
+    rfState,
+    rfEventEndTime,
+    rfReplayStartTime,
+    rfReplayEndTime,
+    rfEventLastReplayedTime,
+    rfEventStartTime,
+    rfReplayName,
+    rfStateReason,
 
     -- ** ReplayDestination
     ReplayDestination (..),
     mkReplayDestination,
-    rdFilterARNs,
     rdARN,
+    rdFilterARNs,
 
     -- ** RetryPolicy
     RetryPolicy (..),
@@ -393,8 +393,8 @@ module Network.AWS.CloudWatchEvents
     -- ** RunCommandTarget
     RunCommandTarget (..),
     mkRunCommandTarget,
-    rctKey,
     rctValues,
+    rctKey,
 
     -- ** SqsParameters
     SqsParameters (..),
@@ -404,8 +404,8 @@ module Network.AWS.CloudWatchEvents
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** Target
     Target (..),
@@ -413,6 +413,7 @@ module Network.AWS.CloudWatchEvents
     tRunCommandParameters,
     tHTTPParameters,
     tKinesisParameters,
+    tARN,
     tInputTransformer,
     tDeadLetterConfig,
     tSqsParameters,
@@ -420,11 +421,10 @@ module Network.AWS.CloudWatchEvents
     tBatchParameters,
     tRedshiftDataParameters,
     tEcsParameters,
+    tId,
     tRetryPolicy,
     tInputPath,
     tRoleARN,
-    tId,
-    tARN,
 
     -- * Serialization types
     Lude.Base64 (..),

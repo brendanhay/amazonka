@@ -13,13 +13,13 @@
 module Network.AWS.IoT.Types.ComparisonOperator
   ( ComparisonOperator
       ( ComparisonOperator',
+        LessThan,
+        LessThanEquals,
         GreaterThan,
         GreaterThanEquals,
         InCidrSet,
-        InPortSet,
-        LessThan,
-        LessThanEquals,
         NotInCidrSet,
+        InPortSet,
         NotInPortSet
       ),
   )
@@ -51,6 +51,12 @@ newtype ComparisonOperator = ComparisonOperator' Lude.Text
       Lude.ToHeader
     )
 
+pattern LessThan :: ComparisonOperator
+pattern LessThan = ComparisonOperator' "less-than"
+
+pattern LessThanEquals :: ComparisonOperator
+pattern LessThanEquals = ComparisonOperator' "less-than-equals"
+
 pattern GreaterThan :: ComparisonOperator
 pattern GreaterThan = ComparisonOperator' "greater-than"
 
@@ -60,29 +66,23 @@ pattern GreaterThanEquals = ComparisonOperator' "greater-than-equals"
 pattern InCidrSet :: ComparisonOperator
 pattern InCidrSet = ComparisonOperator' "in-cidr-set"
 
-pattern InPortSet :: ComparisonOperator
-pattern InPortSet = ComparisonOperator' "in-port-set"
-
-pattern LessThan :: ComparisonOperator
-pattern LessThan = ComparisonOperator' "less-than"
-
-pattern LessThanEquals :: ComparisonOperator
-pattern LessThanEquals = ComparisonOperator' "less-than-equals"
-
 pattern NotInCidrSet :: ComparisonOperator
 pattern NotInCidrSet = ComparisonOperator' "not-in-cidr-set"
+
+pattern InPortSet :: ComparisonOperator
+pattern InPortSet = ComparisonOperator' "in-port-set"
 
 pattern NotInPortSet :: ComparisonOperator
 pattern NotInPortSet = ComparisonOperator' "not-in-port-set"
 
 {-# COMPLETE
+  LessThan,
+  LessThanEquals,
   GreaterThan,
   GreaterThanEquals,
   InCidrSet,
-  InPortSet,
-  LessThan,
-  LessThanEquals,
   NotInCidrSet,
+  InPortSet,
   NotInPortSet,
   ComparisonOperator'
   #-}

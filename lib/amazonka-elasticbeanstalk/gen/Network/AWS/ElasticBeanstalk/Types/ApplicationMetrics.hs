@@ -33,27 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationMetrics' smart constructor.
 data ApplicationMetrics = ApplicationMetrics'
-  { requestCount ::
-      Lude.Maybe Lude.Int,
+  { -- | Average number of requests handled by the web server per second over the last 10 seconds.
+    requestCount :: Lude.Maybe Lude.Int,
+    -- | Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
     latency :: Lude.Maybe Latency,
+    -- | Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
     statusCodes :: Lude.Maybe StatusCodes,
+    -- | The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
     duration :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationMetrics' with the minimum fields required to make a request.
 --
--- * 'duration' - The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
--- * 'latency' - Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
 -- * 'requestCount' - Average number of requests handled by the web server per second over the last 10 seconds.
+-- * 'latency' - Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
 -- * 'statusCodes' - Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
+-- * 'duration' - The amount of time that the metrics cover (usually 10 seconds). For example, you might have 5 requests (@request_count@ ) within the most recent time slice of 10 seconds (@duration@ ).
 mkApplicationMetrics ::
   ApplicationMetrics
 mkApplicationMetrics =

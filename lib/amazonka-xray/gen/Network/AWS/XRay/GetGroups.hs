@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,14 +43,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetGroups' smart constructor.
-newtype GetGroups = GetGroups' {nextToken :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetGroups = GetGroups'
+  { -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroups' with the minimum fields required to make a request.
@@ -103,18 +101,14 @@ instance Lude.ToQuery GetGroups where
 
 -- | /See:/ 'mkGetGroupsResponse' smart constructor.
 data GetGroupsResponse = GetGroupsResponse'
-  { groups ::
-      Lude.Maybe [GroupSummary],
+  { -- | The collection of all active groups.
+    groups :: Lude.Maybe [GroupSummary],
+    -- | Pagination token.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupsResponse' with the minimum fields required to make a request.

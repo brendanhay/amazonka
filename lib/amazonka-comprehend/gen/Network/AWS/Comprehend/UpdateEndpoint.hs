@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Comprehend.UpdateEndpoint
     mkUpdateEndpoint,
 
     -- ** Request lenses
-    ueEndpointARN,
     ueDesiredInferenceUnits,
+    ueEndpointARN,
 
     -- * Destructuring the response
     UpdateEndpointResponse (..),
@@ -39,16 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateEndpoint' smart constructor.
 data UpdateEndpoint = UpdateEndpoint'
-  { endpointARN :: Lude.Text,
-    desiredInferenceUnits :: Lude.Natural
+  { -- | The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
+    desiredInferenceUnits :: Lude.Natural,
+    -- | The Amazon Resource Number (ARN) of the endpoint being updated.
+    endpointARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpoint' with the minimum fields required to make a request.
@@ -56,23 +53,16 @@ data UpdateEndpoint = UpdateEndpoint'
 -- * 'desiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
 -- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint being updated.
 mkUpdateEndpoint ::
-  -- | 'endpointARN'
-  Lude.Text ->
   -- | 'desiredInferenceUnits'
   Lude.Natural ->
+  -- | 'endpointARN'
+  Lude.Text ->
   UpdateEndpoint
-mkUpdateEndpoint pEndpointARN_ pDesiredInferenceUnits_ =
+mkUpdateEndpoint pDesiredInferenceUnits_ pEndpointARN_ =
   UpdateEndpoint'
-    { endpointARN = pEndpointARN_,
-      desiredInferenceUnits = pDesiredInferenceUnits_
+    { desiredInferenceUnits = pDesiredInferenceUnits_,
+      endpointARN = pEndpointARN_
     }
-
--- | The Amazon Resource Number (ARN) of the endpoint being updated.
---
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueEndpointARN :: Lens.Lens' UpdateEndpoint Lude.Text
-ueEndpointARN = Lens.lens (endpointARN :: UpdateEndpoint -> Lude.Text) (\s a -> s {endpointARN = a} :: UpdateEndpoint)
-{-# DEPRECATED ueEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 -- | The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
 --
@@ -80,6 +70,13 @@ ueEndpointARN = Lens.lens (endpointARN :: UpdateEndpoint -> Lude.Text) (\s a -> 
 ueDesiredInferenceUnits :: Lens.Lens' UpdateEndpoint Lude.Natural
 ueDesiredInferenceUnits = Lens.lens (desiredInferenceUnits :: UpdateEndpoint -> Lude.Natural) (\s a -> s {desiredInferenceUnits = a} :: UpdateEndpoint)
 {-# DEPRECATED ueDesiredInferenceUnits "Use generic-lens or generic-optics with 'desiredInferenceUnits' instead." #-}
+
+-- | The Amazon Resource Number (ARN) of the endpoint being updated.
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueEndpointARN :: Lens.Lens' UpdateEndpoint Lude.Text
+ueEndpointARN = Lens.lens (endpointARN :: UpdateEndpoint -> Lude.Text) (\s a -> s {endpointARN = a} :: UpdateEndpoint)
+{-# DEPRECATED ueEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 instance Lude.AWSRequest UpdateEndpoint where
   type Rs UpdateEndpoint = UpdateEndpointResponse
@@ -105,8 +102,8 @@ instance Lude.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("EndpointArn" Lude..= endpointARN),
-            Lude.Just ("DesiredInferenceUnits" Lude..= desiredInferenceUnits)
+          [ Lude.Just ("DesiredInferenceUnits" Lude..= desiredInferenceUnits),
+            Lude.Just ("EndpointArn" Lude..= endpointARN)
           ]
       )
 
@@ -118,16 +115,10 @@ instance Lude.ToQuery UpdateEndpoint where
 
 -- | /See:/ 'mkUpdateEndpointResponse' smart constructor.
 newtype UpdateEndpointResponse = UpdateEndpointResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpointResponse' with the minimum fields required to make a request.

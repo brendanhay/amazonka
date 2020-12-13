@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.CloudWatch.DeleteInsightRules
     mkDeleteInsightRulesResponse,
 
     -- ** Response lenses
-    dirsrsFailures,
-    dirsrsResponseStatus,
+    dirrsFailures,
+    dirrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteInsightRules' smart constructor.
 newtype DeleteInsightRules = DeleteInsightRules'
-  { ruleNames ::
-      [Lude.Text]
+  { -- | An array of the rule names to delete. If you need to find out the names of your rules, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html DescribeInsightRules> .
+    ruleNames :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInsightRules' with the minimum fields required to make a request.
@@ -97,17 +92,12 @@ instance Lude.ToQuery DeleteInsightRules where
 
 -- | /See:/ 'mkDeleteInsightRulesResponse' smart constructor.
 data DeleteInsightRulesResponse = DeleteInsightRulesResponse'
-  { failures ::
-      Lude.Maybe [PartialFailure],
+  { -- | An array listing the rules that could not be deleted. You cannot delete built-in rules.
+    failures :: Lude.Maybe [PartialFailure],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInsightRulesResponse' with the minimum fields required to make a request.
@@ -127,13 +117,13 @@ mkDeleteInsightRulesResponse pResponseStatus_ =
 -- | An array listing the rules that could not be deleted. You cannot delete built-in rules.
 --
 -- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsrsFailures :: Lens.Lens' DeleteInsightRulesResponse (Lude.Maybe [PartialFailure])
-dirsrsFailures = Lens.lens (failures :: DeleteInsightRulesResponse -> Lude.Maybe [PartialFailure]) (\s a -> s {failures = a} :: DeleteInsightRulesResponse)
-{-# DEPRECATED dirsrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
+dirrsFailures :: Lens.Lens' DeleteInsightRulesResponse (Lude.Maybe [PartialFailure])
+dirrsFailures = Lens.lens (failures :: DeleteInsightRulesResponse -> Lude.Maybe [PartialFailure]) (\s a -> s {failures = a} :: DeleteInsightRulesResponse)
+{-# DEPRECATED dirrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsrsResponseStatus :: Lens.Lens' DeleteInsightRulesResponse Lude.Int
-dirsrsResponseStatus = Lens.lens (responseStatus :: DeleteInsightRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInsightRulesResponse)
-{-# DEPRECATED dirsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dirrsResponseStatus :: Lens.Lens' DeleteInsightRulesResponse Lude.Int
+dirrsResponseStatus = Lens.lens (responseStatus :: DeleteInsightRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInsightRulesResponse)
+{-# DEPRECATED dirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

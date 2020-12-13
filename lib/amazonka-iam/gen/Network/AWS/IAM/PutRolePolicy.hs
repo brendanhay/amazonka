@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.IAM.PutRolePolicy
     mkPutRolePolicy,
 
     -- ** Request lenses
-    prpRoleName,
-    prpPolicyName,
     prpPolicyDocument,
+    prpPolicyName,
+    prpRoleName,
 
     -- * Destructuring the response
     PutRolePolicyResponse (..),
@@ -41,17 +42,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutRolePolicy' smart constructor.
 data PutRolePolicy = PutRolePolicy'
-  { roleName :: Lude.Text,
+  { -- | The policy document.
+    --
+    -- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
+    --
+    --     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
+    --
+    --
+    --     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
+    --
+    --
+    --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
+    policyDocument :: Lude.Text,
+    -- | The name of the policy document.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
     policyName :: Lude.Text,
-    policyDocument :: Lude.Text
+    -- | The name of the role to associate the policy with.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    roleName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRolePolicy' with the minimum fields required to make a request.
@@ -77,37 +90,19 @@ data PutRolePolicy = PutRolePolicy'
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkPutRolePolicy ::
-  -- | 'roleName'
+  -- | 'policyDocument'
   Lude.Text ->
   -- | 'policyName'
   Lude.Text ->
-  -- | 'policyDocument'
+  -- | 'roleName'
   Lude.Text ->
   PutRolePolicy
-mkPutRolePolicy pRoleName_ pPolicyName_ pPolicyDocument_ =
+mkPutRolePolicy pPolicyDocument_ pPolicyName_ pRoleName_ =
   PutRolePolicy'
-    { roleName = pRoleName_,
+    { policyDocument = pPolicyDocument_,
       policyName = pPolicyName_,
-      policyDocument = pPolicyDocument_
+      roleName = pRoleName_
     }
-
--- | The name of the role to associate the policy with.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpRoleName :: Lens.Lens' PutRolePolicy Lude.Text
-prpRoleName = Lens.lens (roleName :: PutRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: PutRolePolicy)
-{-# DEPRECATED prpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
-
--- | The name of the policy document.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpPolicyName :: Lens.Lens' PutRolePolicy Lude.Text
-prpPolicyName = Lens.lens (policyName :: PutRolePolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutRolePolicy)
-{-# DEPRECATED prpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy document.
 --
@@ -129,6 +124,24 @@ prpPolicyDocument :: Lens.Lens' PutRolePolicy Lude.Text
 prpPolicyDocument = Lens.lens (policyDocument :: PutRolePolicy -> Lude.Text) (\s a -> s {policyDocument = a} :: PutRolePolicy)
 {-# DEPRECATED prpPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
+-- | The name of the policy document.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpPolicyName :: Lens.Lens' PutRolePolicy Lude.Text
+prpPolicyName = Lens.lens (policyName :: PutRolePolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutRolePolicy)
+{-# DEPRECATED prpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | The name of the role to associate the policy with.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpRoleName :: Lens.Lens' PutRolePolicy Lude.Text
+prpRoleName = Lens.lens (roleName :: PutRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: PutRolePolicy)
+{-# DEPRECATED prpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
 instance Lude.AWSRequest PutRolePolicy where
   type Rs PutRolePolicy = PutRolePolicyResponse
   request = Req.postQuery iamService
@@ -145,20 +158,14 @@ instance Lude.ToQuery PutRolePolicy where
     Lude.mconcat
       [ "Action" Lude.=: ("PutRolePolicy" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName,
+        "PolicyDocument" Lude.=: policyDocument,
         "PolicyName" Lude.=: policyName,
-        "PolicyDocument" Lude.=: policyDocument
+        "RoleName" Lude.=: roleName
       ]
 
 -- | /See:/ 'mkPutRolePolicyResponse' smart constructor.
 data PutRolePolicyResponse = PutRolePolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRolePolicyResponse' with the minimum fields required to make a request.

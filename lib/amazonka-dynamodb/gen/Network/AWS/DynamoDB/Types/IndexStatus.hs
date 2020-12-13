@@ -13,10 +13,10 @@
 module Network.AWS.DynamoDB.Types.IndexStatus
   ( IndexStatus
       ( IndexStatus',
-        ISActive,
         ISCreating,
+        ISUpdating,
         ISDeleting,
-        ISUpdating
+        ISActive
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype IndexStatus = IndexStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISActive :: IndexStatus
-pattern ISActive = IndexStatus' "ACTIVE"
-
 pattern ISCreating :: IndexStatus
 pattern ISCreating = IndexStatus' "CREATING"
-
-pattern ISDeleting :: IndexStatus
-pattern ISDeleting = IndexStatus' "DELETING"
 
 pattern ISUpdating :: IndexStatus
 pattern ISUpdating = IndexStatus' "UPDATING"
 
+pattern ISDeleting :: IndexStatus
+pattern ISDeleting = IndexStatus' "DELETING"
+
+pattern ISActive :: IndexStatus
+pattern ISActive = IndexStatus' "ACTIVE"
+
 {-# COMPLETE
-  ISActive,
   ISCreating,
-  ISDeleting,
   ISUpdating,
+  ISDeleting,
+  ISActive,
   IndexStatus'
   #-}

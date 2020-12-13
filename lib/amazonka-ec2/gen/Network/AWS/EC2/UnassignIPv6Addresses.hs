@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.UnassignIPv6Addresses
     mkUnassignIPv6Addresses,
 
     -- ** Request lenses
-    uiaIPv6Addresses,
     uiaNetworkInterfaceId,
+    uiaIPv6Addresses,
 
     -- * Destructuring the response
     UnassignIPv6AddressesResponse (..),
@@ -41,39 +42,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUnassignIPv6Addresses' smart constructor.
 data UnassignIPv6Addresses = UnassignIPv6Addresses'
-  { ipv6Addresses ::
-      [Lude.Text],
-    networkInterfaceId :: Lude.Text
+  { -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Text,
+    -- | The IPv6 addresses to unassign from the network interface.
+    ipv6Addresses :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnassignIPv6Addresses' with the minimum fields required to make a request.
 --
--- * 'ipv6Addresses' - The IPv6 addresses to unassign from the network interface.
 -- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'ipv6Addresses' - The IPv6 addresses to unassign from the network interface.
 mkUnassignIPv6Addresses ::
   -- | 'networkInterfaceId'
   Lude.Text ->
   UnassignIPv6Addresses
 mkUnassignIPv6Addresses pNetworkInterfaceId_ =
   UnassignIPv6Addresses'
-    { ipv6Addresses = Lude.mempty,
-      networkInterfaceId = pNetworkInterfaceId_
+    { networkInterfaceId = pNetworkInterfaceId_,
+      ipv6Addresses = Lude.mempty
     }
-
--- | The IPv6 addresses to unassign from the network interface.
---
--- /Note:/ Consider using 'ipv6Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiaIPv6Addresses :: Lens.Lens' UnassignIPv6Addresses [Lude.Text]
-uiaIPv6Addresses = Lens.lens (ipv6Addresses :: UnassignIPv6Addresses -> [Lude.Text]) (\s a -> s {ipv6Addresses = a} :: UnassignIPv6Addresses)
-{-# DEPRECATED uiaIPv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
 
 -- | The ID of the network interface.
 --
@@ -81,6 +70,13 @@ uiaIPv6Addresses = Lens.lens (ipv6Addresses :: UnassignIPv6Addresses -> [Lude.Te
 uiaNetworkInterfaceId :: Lens.Lens' UnassignIPv6Addresses Lude.Text
 uiaNetworkInterfaceId = Lens.lens (networkInterfaceId :: UnassignIPv6Addresses -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: UnassignIPv6Addresses)
 {-# DEPRECATED uiaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | The IPv6 addresses to unassign from the network interface.
+--
+-- /Note:/ Consider using 'ipv6Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiaIPv6Addresses :: Lens.Lens' UnassignIPv6Addresses [Lude.Text]
+uiaIPv6Addresses = Lens.lens (ipv6Addresses :: UnassignIPv6Addresses -> [Lude.Text]) (\s a -> s {ipv6Addresses = a} :: UnassignIPv6Addresses)
+{-# DEPRECATED uiaIPv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
 
 instance Lude.AWSRequest UnassignIPv6Addresses where
   type Rs UnassignIPv6Addresses = UnassignIPv6AddressesResponse
@@ -107,32 +103,27 @@ instance Lude.ToQuery UnassignIPv6Addresses where
     Lude.mconcat
       [ "Action" Lude.=: ("UnassignIpv6Addresses" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQueryList "Ipv6Addresses" ipv6Addresses,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId
+        "NetworkInterfaceId" Lude.=: networkInterfaceId,
+        Lude.toQueryList "Ipv6Addresses" ipv6Addresses
       ]
 
 -- | /See:/ 'mkUnassignIPv6AddressesResponse' smart constructor.
 data UnassignIPv6AddressesResponse = UnassignIPv6AddressesResponse'
-  { networkInterfaceId ::
-      Lude.Maybe Lude.Text,
-    unassignedIPv6Addresses ::
-      Lude.Maybe [Lude.Text],
+  { -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The IPv6 addresses that have been unassigned from the network interface.
+    unassignedIPv6Addresses :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnassignIPv6AddressesResponse' with the minimum fields required to make a request.
 --
 -- * 'networkInterfaceId' - The ID of the network interface.
--- * 'responseStatus' - The response status code.
 -- * 'unassignedIPv6Addresses' - The IPv6 addresses that have been unassigned from the network interface.
+-- * 'responseStatus' - The response status code.
 mkUnassignIPv6AddressesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

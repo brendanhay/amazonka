@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.S3.ListBucketMetricsConfigurations
 
     -- ** Request lenses
     lbmcContinuationToken,
-    lbmcExpectedBucketOwner,
     lbmcBucket,
+    lbmcExpectedBucketOwner,
 
     -- * Destructuring the response
     ListBucketMetricsConfigurationsResponse (..),
@@ -57,25 +58,20 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkListBucketMetricsConfigurations' smart constructor.
 data ListBucketMetricsConfigurations = ListBucketMetricsConfigurations'
-  { continuationToken ::
-      Lude.Maybe Lude.Text,
-    expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | The name of the bucket containing the metrics configurations to retrieve.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketMetricsConfigurations' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the bucket containing the metrics configurations to retrieve.
 -- * 'continuationToken' - The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+-- * 'bucket' - The name of the bucket containing the metrics configurations to retrieve.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkListBucketMetricsConfigurations ::
   -- | 'bucket'
@@ -85,8 +81,8 @@ mkListBucketMetricsConfigurations pBucket_ =
   ListBucketMetricsConfigurations'
     { continuationToken =
         Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+      bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
@@ -96,19 +92,19 @@ lbmcContinuationToken :: Lens.Lens' ListBucketMetricsConfigurations (Lude.Maybe 
 lbmcContinuationToken = Lens.lens (continuationToken :: ListBucketMetricsConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {continuationToken = a} :: ListBucketMetricsConfigurations)
 {-# DEPRECATED lbmcContinuationToken "Use generic-lens or generic-optics with 'continuationToken' instead." #-}
 
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbmcExpectedBucketOwner :: Lens.Lens' ListBucketMetricsConfigurations (Lude.Maybe Lude.Text)
-lbmcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListBucketMetricsConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListBucketMetricsConfigurations)
-{-# DEPRECATED lbmcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
 -- | The name of the bucket containing the metrics configurations to retrieve.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lbmcBucket :: Lens.Lens' ListBucketMetricsConfigurations BucketName
 lbmcBucket = Lens.lens (bucket :: ListBucketMetricsConfigurations -> BucketName) (\s a -> s {bucket = a} :: ListBucketMetricsConfigurations)
 {-# DEPRECATED lbmcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbmcExpectedBucketOwner :: Lens.Lens' ListBucketMetricsConfigurations (Lude.Maybe Lude.Text)
+lbmcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListBucketMetricsConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListBucketMetricsConfigurations)
+{-# DEPRECATED lbmcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest ListBucketMetricsConfigurations where
   type
@@ -142,36 +138,26 @@ instance Lude.ToQuery ListBucketMetricsConfigurations where
 
 -- | /See:/ 'mkListBucketMetricsConfigurationsResponse' smart constructor.
 data ListBucketMetricsConfigurationsResponse = ListBucketMetricsConfigurationsResponse'
-  { continuationToken ::
-      Lude.Maybe
-        Lude.Text,
-    metricsConfigurationList ::
-      Lude.Maybe
-        [MetricsConfiguration],
-    nextContinuationToken ::
-      Lude.Maybe
-        Lude.Text,
-    isTruncated ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | The list of metrics configurations for a bucket.
+    metricsConfigurationList :: Lude.Maybe [MetricsConfiguration],
+    -- | The marker used to continue a metrics configuration listing that has been truncated. Use the @NextContinuationToken@ from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+    nextContinuationToken :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
+    isTruncated :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketMetricsConfigurationsResponse' with the minimum fields required to make a request.
 --
 -- * 'continuationToken' - The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.
--- * 'isTruncated' - Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
 -- * 'metricsConfigurationList' - The list of metrics configurations for a bucket.
 -- * 'nextContinuationToken' - The marker used to continue a metrics configuration listing that has been truncated. Use the @NextContinuationToken@ from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+-- * 'isTruncated' - Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
 -- * 'responseStatus' - The response status code.
 mkListBucketMetricsConfigurationsResponse ::
   -- | 'responseStatus'

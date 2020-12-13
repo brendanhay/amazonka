@@ -13,17 +13,17 @@
 module Network.AWS.S3.Types.InventoryOptionalField
   ( InventoryOptionalField
       ( InventoryOptionalField',
-        FieldETag,
-        FieldEncryptionStatus,
-        FieldIntelligentTieringAccessTier,
-        FieldIsMultipartUploaded,
-        FieldLastModifiedDate,
-        FieldObjectLockLegalHoldStatus,
-        FieldObjectLockMode,
-        FieldObjectLockRetainUntilDate,
-        FieldReplicationStatus,
         FieldSize,
-        FieldStorageClass
+        FieldLastModifiedDate,
+        FieldStorageClass,
+        FieldETag,
+        FieldIsMultipartUploaded,
+        FieldReplicationStatus,
+        FieldEncryptionStatus,
+        FieldObjectLockRetainUntilDate,
+        FieldObjectLockMode,
+        FieldObjectLockLegalHoldStatus,
+        FieldIntelligentTieringAccessTier
       ),
   )
 where
@@ -55,50 +55,50 @@ newtype InventoryOptionalField = InventoryOptionalField' Lude.Text
       Lude.ToHeader
     )
 
-pattern FieldETag :: InventoryOptionalField
-pattern FieldETag = InventoryOptionalField' "ETag"
-
-pattern FieldEncryptionStatus :: InventoryOptionalField
-pattern FieldEncryptionStatus = InventoryOptionalField' "EncryptionStatus"
-
-pattern FieldIntelligentTieringAccessTier :: InventoryOptionalField
-pattern FieldIntelligentTieringAccessTier = InventoryOptionalField' "IntelligentTieringAccessTier"
-
-pattern FieldIsMultipartUploaded :: InventoryOptionalField
-pattern FieldIsMultipartUploaded = InventoryOptionalField' "IsMultipartUploaded"
+pattern FieldSize :: InventoryOptionalField
+pattern FieldSize = InventoryOptionalField' "Size"
 
 pattern FieldLastModifiedDate :: InventoryOptionalField
 pattern FieldLastModifiedDate = InventoryOptionalField' "LastModifiedDate"
 
-pattern FieldObjectLockLegalHoldStatus :: InventoryOptionalField
-pattern FieldObjectLockLegalHoldStatus = InventoryOptionalField' "ObjectLockLegalHoldStatus"
+pattern FieldStorageClass :: InventoryOptionalField
+pattern FieldStorageClass = InventoryOptionalField' "StorageClass"
 
-pattern FieldObjectLockMode :: InventoryOptionalField
-pattern FieldObjectLockMode = InventoryOptionalField' "ObjectLockMode"
+pattern FieldETag :: InventoryOptionalField
+pattern FieldETag = InventoryOptionalField' "ETag"
 
-pattern FieldObjectLockRetainUntilDate :: InventoryOptionalField
-pattern FieldObjectLockRetainUntilDate = InventoryOptionalField' "ObjectLockRetainUntilDate"
+pattern FieldIsMultipartUploaded :: InventoryOptionalField
+pattern FieldIsMultipartUploaded = InventoryOptionalField' "IsMultipartUploaded"
 
 pattern FieldReplicationStatus :: InventoryOptionalField
 pattern FieldReplicationStatus = InventoryOptionalField' "ReplicationStatus"
 
-pattern FieldSize :: InventoryOptionalField
-pattern FieldSize = InventoryOptionalField' "Size"
+pattern FieldEncryptionStatus :: InventoryOptionalField
+pattern FieldEncryptionStatus = InventoryOptionalField' "EncryptionStatus"
 
-pattern FieldStorageClass :: InventoryOptionalField
-pattern FieldStorageClass = InventoryOptionalField' "StorageClass"
+pattern FieldObjectLockRetainUntilDate :: InventoryOptionalField
+pattern FieldObjectLockRetainUntilDate = InventoryOptionalField' "ObjectLockRetainUntilDate"
+
+pattern FieldObjectLockMode :: InventoryOptionalField
+pattern FieldObjectLockMode = InventoryOptionalField' "ObjectLockMode"
+
+pattern FieldObjectLockLegalHoldStatus :: InventoryOptionalField
+pattern FieldObjectLockLegalHoldStatus = InventoryOptionalField' "ObjectLockLegalHoldStatus"
+
+pattern FieldIntelligentTieringAccessTier :: InventoryOptionalField
+pattern FieldIntelligentTieringAccessTier = InventoryOptionalField' "IntelligentTieringAccessTier"
 
 {-# COMPLETE
-  FieldETag,
-  FieldEncryptionStatus,
-  FieldIntelligentTieringAccessTier,
-  FieldIsMultipartUploaded,
-  FieldLastModifiedDate,
-  FieldObjectLockLegalHoldStatus,
-  FieldObjectLockMode,
-  FieldObjectLockRetainUntilDate,
-  FieldReplicationStatus,
   FieldSize,
+  FieldLastModifiedDate,
   FieldStorageClass,
+  FieldETag,
+  FieldIsMultipartUploaded,
+  FieldReplicationStatus,
+  FieldEncryptionStatus,
+  FieldObjectLockRetainUntilDate,
+  FieldObjectLockMode,
+  FieldObjectLockLegalHoldStatus,
+  FieldIntelligentTieringAccessTier,
   InventoryOptionalField'
   #-}

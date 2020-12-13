@@ -43,24 +43,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBSecurityGroupMembership' smart constructor.
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
-  { status ::
-      Lude.Maybe Lude.Text,
-    dbSecurityGroupName ::
-      Lude.Maybe Lude.Text
+  { -- | The status of the DB security group.
+    status :: Lude.Maybe Lude.Text,
+    -- | The name of the DB security group.
+    dbSecurityGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBSecurityGroupMembership' with the minimum fields required to make a request.
 --
--- * 'dbSecurityGroupName' - The name of the DB security group.
 -- * 'status' - The status of the DB security group.
+-- * 'dbSecurityGroupName' - The name of the DB security group.
 mkDBSecurityGroupMembership ::
   DBSecurityGroupMembership
 mkDBSecurityGroupMembership =

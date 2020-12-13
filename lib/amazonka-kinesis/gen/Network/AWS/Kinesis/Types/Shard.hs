@@ -18,10 +18,10 @@ module Network.AWS.Kinesis.Types.Shard
 
     -- * Lenses
     sAdjacentParentShardId,
-    sParentShardId,
-    sShardId,
     sHashKeyRange,
+    sParentShardId,
     sSequenceNumberRange,
+    sShardId,
   )
 where
 
@@ -34,19 +34,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkShard' smart constructor.
 data Shard = Shard'
-  { adjacentParentShardId :: Lude.Maybe Lude.Text,
-    parentShardId :: Lude.Maybe Lude.Text,
-    shardId :: Lude.Text,
+  { -- | The shard ID of the shard adjacent to the shard's parent.
+    adjacentParentShardId :: Lude.Maybe Lude.Text,
+    -- | The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
     hashKeyRange :: HashKeyRange,
-    sequenceNumberRange :: SequenceNumberRange
+    -- | The shard ID of the shard's parent.
+    parentShardId :: Lude.Maybe Lude.Text,
+    -- | The range of possible sequence numbers for the shard.
+    sequenceNumberRange :: SequenceNumberRange,
+    -- | The unique identifier of the shard within the stream.
+    shardId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Shard' with the minimum fields required to make a request.
@@ -57,20 +56,20 @@ data Shard = Shard'
 -- * 'sequenceNumberRange' - The range of possible sequence numbers for the shard.
 -- * 'shardId' - The unique identifier of the shard within the stream.
 mkShard ::
-  -- | 'shardId'
-  Lude.Text ->
   -- | 'hashKeyRange'
   HashKeyRange ->
   -- | 'sequenceNumberRange'
   SequenceNumberRange ->
+  -- | 'shardId'
+  Lude.Text ->
   Shard
-mkShard pShardId_ pHashKeyRange_ pSequenceNumberRange_ =
+mkShard pHashKeyRange_ pSequenceNumberRange_ pShardId_ =
   Shard'
     { adjacentParentShardId = Lude.Nothing,
-      parentShardId = Lude.Nothing,
-      shardId = pShardId_,
       hashKeyRange = pHashKeyRange_,
-      sequenceNumberRange = pSequenceNumberRange_
+      parentShardId = Lude.Nothing,
+      sequenceNumberRange = pSequenceNumberRange_,
+      shardId = pShardId_
     }
 
 -- | The shard ID of the shard adjacent to the shard's parent.
@@ -80,26 +79,19 @@ sAdjacentParentShardId :: Lens.Lens' Shard (Lude.Maybe Lude.Text)
 sAdjacentParentShardId = Lens.lens (adjacentParentShardId :: Shard -> Lude.Maybe Lude.Text) (\s a -> s {adjacentParentShardId = a} :: Shard)
 {-# DEPRECATED sAdjacentParentShardId "Use generic-lens or generic-optics with 'adjacentParentShardId' instead." #-}
 
--- | The shard ID of the shard's parent.
---
--- /Note:/ Consider using 'parentShardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sParentShardId :: Lens.Lens' Shard (Lude.Maybe Lude.Text)
-sParentShardId = Lens.lens (parentShardId :: Shard -> Lude.Maybe Lude.Text) (\s a -> s {parentShardId = a} :: Shard)
-{-# DEPRECATED sParentShardId "Use generic-lens or generic-optics with 'parentShardId' instead." #-}
-
--- | The unique identifier of the shard within the stream.
---
--- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sShardId :: Lens.Lens' Shard Lude.Text
-sShardId = Lens.lens (shardId :: Shard -> Lude.Text) (\s a -> s {shardId = a} :: Shard)
-{-# DEPRECATED sShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
-
 -- | The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
 --
 -- /Note:/ Consider using 'hashKeyRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sHashKeyRange :: Lens.Lens' Shard HashKeyRange
 sHashKeyRange = Lens.lens (hashKeyRange :: Shard -> HashKeyRange) (\s a -> s {hashKeyRange = a} :: Shard)
 {-# DEPRECATED sHashKeyRange "Use generic-lens or generic-optics with 'hashKeyRange' instead." #-}
+
+-- | The shard ID of the shard's parent.
+--
+-- /Note:/ Consider using 'parentShardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sParentShardId :: Lens.Lens' Shard (Lude.Maybe Lude.Text)
+sParentShardId = Lens.lens (parentShardId :: Shard -> Lude.Maybe Lude.Text) (\s a -> s {parentShardId = a} :: Shard)
+{-# DEPRECATED sParentShardId "Use generic-lens or generic-optics with 'parentShardId' instead." #-}
 
 -- | The range of possible sequence numbers for the shard.
 --
@@ -108,6 +100,13 @@ sSequenceNumberRange :: Lens.Lens' Shard SequenceNumberRange
 sSequenceNumberRange = Lens.lens (sequenceNumberRange :: Shard -> SequenceNumberRange) (\s a -> s {sequenceNumberRange = a} :: Shard)
 {-# DEPRECATED sSequenceNumberRange "Use generic-lens or generic-optics with 'sequenceNumberRange' instead." #-}
 
+-- | The unique identifier of the shard within the stream.
+--
+-- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sShardId :: Lens.Lens' Shard Lude.Text
+sShardId = Lens.lens (shardId :: Shard -> Lude.Text) (\s a -> s {shardId = a} :: Shard)
+{-# DEPRECATED sShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
+
 instance Lude.FromJSON Shard where
   parseJSON =
     Lude.withObject
@@ -115,8 +114,8 @@ instance Lude.FromJSON Shard where
       ( \x ->
           Shard'
             Lude.<$> (x Lude..:? "AdjacentParentShardId")
-            Lude.<*> (x Lude..:? "ParentShardId")
-            Lude.<*> (x Lude..: "ShardId")
             Lude.<*> (x Lude..: "HashKeyRange")
+            Lude.<*> (x Lude..:? "ParentShardId")
             Lude.<*> (x Lude..: "SequenceNumberRange")
+            Lude.<*> (x Lude..: "ShardId")
       )

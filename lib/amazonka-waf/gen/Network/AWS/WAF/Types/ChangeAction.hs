@@ -13,8 +13,8 @@
 module Network.AWS.WAF.Types.ChangeAction
   ( ChangeAction
       ( ChangeAction',
-        Delete,
-        Insert
+        Insert,
+        Delete
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ChangeAction = ChangeAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern Delete :: ChangeAction
-pattern Delete = ChangeAction' "DELETE"
-
 pattern Insert :: ChangeAction
 pattern Insert = ChangeAction' "INSERT"
 
+pattern Delete :: ChangeAction
+pattern Delete = ChangeAction' "DELETE"
+
 {-# COMPLETE
-  Delete,
   Insert,
+  Delete,
   ChangeAction'
   #-}

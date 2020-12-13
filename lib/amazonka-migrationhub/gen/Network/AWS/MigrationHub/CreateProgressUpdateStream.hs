@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MigrationHub.CreateProgressUpdateStream
     mkCreateProgressUpdateStream,
 
     -- ** Request lenses
-    cpusDryRun,
     cpusProgressUpdateStreamName,
+    cpusDryRun,
 
     -- * Destructuring the response
     CreateProgressUpdateStreamResponse (..),
@@ -39,39 +40,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateProgressUpdateStream' smart constructor.
 data CreateProgressUpdateStream = CreateProgressUpdateStream'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    progressUpdateStreamName :: Lude.Text
+  { -- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
+    progressUpdateStreamName :: Lude.Text,
+    -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProgressUpdateStream' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 -- * 'progressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in this field./
+-- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 mkCreateProgressUpdateStream ::
   -- | 'progressUpdateStreamName'
   Lude.Text ->
   CreateProgressUpdateStream
 mkCreateProgressUpdateStream pProgressUpdateStreamName_ =
   CreateProgressUpdateStream'
-    { dryRun = Lude.Nothing,
-      progressUpdateStreamName = pProgressUpdateStreamName_
+    { progressUpdateStreamName =
+        pProgressUpdateStreamName_,
+      dryRun = Lude.Nothing
     }
-
--- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpusDryRun :: Lens.Lens' CreateProgressUpdateStream (Lude.Maybe Lude.Bool)
-cpusDryRun = Lens.lens (dryRun :: CreateProgressUpdateStream -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateProgressUpdateStream)
-{-# DEPRECATED cpusDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
 --
@@ -79,6 +69,13 @@ cpusDryRun = Lens.lens (dryRun :: CreateProgressUpdateStream -> Lude.Maybe Lude.
 cpusProgressUpdateStreamName :: Lens.Lens' CreateProgressUpdateStream Lude.Text
 cpusProgressUpdateStreamName = Lens.lens (progressUpdateStreamName :: CreateProgressUpdateStream -> Lude.Text) (\s a -> s {progressUpdateStreamName = a} :: CreateProgressUpdateStream)
 {-# DEPRECATED cpusProgressUpdateStreamName "Use generic-lens or generic-optics with 'progressUpdateStreamName' instead." #-}
+
+-- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpusDryRun :: Lens.Lens' CreateProgressUpdateStream (Lude.Maybe Lude.Bool)
+cpusDryRun = Lens.lens (dryRun :: CreateProgressUpdateStream -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateProgressUpdateStream)
+{-# DEPRECATED cpusDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateProgressUpdateStream where
   type
@@ -107,9 +104,9 @@ instance Lude.ToJSON CreateProgressUpdateStream where
   toJSON CreateProgressUpdateStream' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DryRun" Lude..=) Lude.<$> dryRun,
-            Lude.Just
-              ("ProgressUpdateStreamName" Lude..= progressUpdateStreamName)
+          [ Lude.Just
+              ("ProgressUpdateStreamName" Lude..= progressUpdateStreamName),
+            ("DryRun" Lude..=) Lude.<$> dryRun
           ]
       )
 
@@ -121,16 +118,10 @@ instance Lude.ToQuery CreateProgressUpdateStream where
 
 -- | /See:/ 'mkCreateProgressUpdateStreamResponse' smart constructor.
 newtype CreateProgressUpdateStreamResponse = CreateProgressUpdateStreamResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProgressUpdateStreamResponse' with the minimum fields required to make a request.

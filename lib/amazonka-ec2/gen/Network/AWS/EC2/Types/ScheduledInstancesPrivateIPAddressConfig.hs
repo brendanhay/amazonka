@@ -29,20 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledInstancesPrivateIPAddressConfig' smart constructor.
 data ScheduledInstancesPrivateIPAddressConfig = ScheduledInstancesPrivateIPAddressConfig'
-  { primary ::
-      Lude.Maybe
-        Lude.Bool,
-    privateIPAddress ::
-      Lude.Maybe
-        Lude.Text
+  { -- | Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address.
+    primary :: Lude.Maybe Lude.Bool,
+    -- | The IPv4 address.
+    privateIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstancesPrivateIPAddressConfig' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.DocumentFormat
   ( DocumentFormat
       ( DocumentFormat',
+        Yaml,
         JSON,
-        Text,
-        Yaml
+        Text
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DocumentFormat = DocumentFormat' Lude.Text
       Lude.ToHeader
     )
 
+pattern Yaml :: DocumentFormat
+pattern Yaml = DocumentFormat' "YAML"
+
 pattern JSON :: DocumentFormat
 pattern JSON = DocumentFormat' "JSON"
 
 pattern Text :: DocumentFormat
 pattern Text = DocumentFormat' "TEXT"
 
-pattern Yaml :: DocumentFormat
-pattern Yaml = DocumentFormat' "YAML"
-
 {-# COMPLETE
+  Yaml,
   JSON,
   Text,
-  Yaml,
   DocumentFormat'
   #-}

@@ -13,14 +13,14 @@
 module Network.AWS.SSM.Types.InstanceInformationFilterKey
   ( InstanceInformationFilterKey
       ( InstanceInformationFilterKey',
-        ActivationIds,
-        AgentVersion,
-        AssociationStatus,
-        IAMRole,
         InstanceIds,
+        AgentVersion,
         PingStatus,
         PlatformTypes,
-        ResourceType
+        ActivationIds,
+        IAMRole,
+        ResourceType,
+        AssociationStatus
       ),
   )
 where
@@ -51,20 +51,11 @@ newtype InstanceInformationFilterKey = InstanceInformationFilterKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern ActivationIds :: InstanceInformationFilterKey
-pattern ActivationIds = InstanceInformationFilterKey' "ActivationIds"
+pattern InstanceIds :: InstanceInformationFilterKey
+pattern InstanceIds = InstanceInformationFilterKey' "InstanceIds"
 
 pattern AgentVersion :: InstanceInformationFilterKey
 pattern AgentVersion = InstanceInformationFilterKey' "AgentVersion"
-
-pattern AssociationStatus :: InstanceInformationFilterKey
-pattern AssociationStatus = InstanceInformationFilterKey' "AssociationStatus"
-
-pattern IAMRole :: InstanceInformationFilterKey
-pattern IAMRole = InstanceInformationFilterKey' "IamRole"
-
-pattern InstanceIds :: InstanceInformationFilterKey
-pattern InstanceIds = InstanceInformationFilterKey' "InstanceIds"
 
 pattern PingStatus :: InstanceInformationFilterKey
 pattern PingStatus = InstanceInformationFilterKey' "PingStatus"
@@ -72,17 +63,26 @@ pattern PingStatus = InstanceInformationFilterKey' "PingStatus"
 pattern PlatformTypes :: InstanceInformationFilterKey
 pattern PlatformTypes = InstanceInformationFilterKey' "PlatformTypes"
 
+pattern ActivationIds :: InstanceInformationFilterKey
+pattern ActivationIds = InstanceInformationFilterKey' "ActivationIds"
+
+pattern IAMRole :: InstanceInformationFilterKey
+pattern IAMRole = InstanceInformationFilterKey' "IamRole"
+
 pattern ResourceType :: InstanceInformationFilterKey
 pattern ResourceType = InstanceInformationFilterKey' "ResourceType"
 
+pattern AssociationStatus :: InstanceInformationFilterKey
+pattern AssociationStatus = InstanceInformationFilterKey' "AssociationStatus"
+
 {-# COMPLETE
-  ActivationIds,
-  AgentVersion,
-  AssociationStatus,
-  IAMRole,
   InstanceIds,
+  AgentVersion,
   PingStatus,
   PlatformTypes,
+  ActivationIds,
+  IAMRole,
   ResourceType,
+  AssociationStatus,
   InstanceInformationFilterKey'
   #-}

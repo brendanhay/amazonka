@@ -13,12 +13,12 @@
 module Network.AWS.CloudFormation.Types.ResourceAttribute
   ( ResourceAttribute
       ( ResourceAttribute',
-        CreationPolicy,
-        DeletionPolicy,
-        Metadata,
         Properties,
-        Tags,
-        UpdatePolicy
+        Metadata,
+        CreationPolicy,
+        UpdatePolicy,
+        DeletionPolicy,
+        Tags
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype ResourceAttribute = ResourceAttribute' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreationPolicy :: ResourceAttribute
-pattern CreationPolicy = ResourceAttribute' "CreationPolicy"
-
-pattern DeletionPolicy :: ResourceAttribute
-pattern DeletionPolicy = ResourceAttribute' "DeletionPolicy"
+pattern Properties :: ResourceAttribute
+pattern Properties = ResourceAttribute' "Properties"
 
 pattern Metadata :: ResourceAttribute
 pattern Metadata = ResourceAttribute' "Metadata"
 
-pattern Properties :: ResourceAttribute
-pattern Properties = ResourceAttribute' "Properties"
-
-pattern Tags :: ResourceAttribute
-pattern Tags = ResourceAttribute' "Tags"
+pattern CreationPolicy :: ResourceAttribute
+pattern CreationPolicy = ResourceAttribute' "CreationPolicy"
 
 pattern UpdatePolicy :: ResourceAttribute
 pattern UpdatePolicy = ResourceAttribute' "UpdatePolicy"
 
+pattern DeletionPolicy :: ResourceAttribute
+pattern DeletionPolicy = ResourceAttribute' "DeletionPolicy"
+
+pattern Tags :: ResourceAttribute
+pattern Tags = ResourceAttribute' "Tags"
+
 {-# COMPLETE
-  CreationPolicy,
-  DeletionPolicy,
-  Metadata,
   Properties,
-  Tags,
+  Metadata,
+  CreationPolicy,
   UpdatePolicy,
+  DeletionPolicy,
+  Tags,
   ResourceAttribute'
   #-}

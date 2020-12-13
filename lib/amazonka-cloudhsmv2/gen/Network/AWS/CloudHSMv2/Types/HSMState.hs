@@ -13,8 +13,8 @@
 module Network.AWS.CloudHSMv2.Types.HSMState
   ( HSMState
       ( HSMState',
-        HSActive,
         HSCreateInProgress,
+        HSActive,
         HSDegraded,
         HSDeleteInProgress,
         HSDeleted
@@ -48,11 +48,11 @@ newtype HSMState = HSMState' Lude.Text
       Lude.ToHeader
     )
 
-pattern HSActive :: HSMState
-pattern HSActive = HSMState' "ACTIVE"
-
 pattern HSCreateInProgress :: HSMState
 pattern HSCreateInProgress = HSMState' "CREATE_IN_PROGRESS"
+
+pattern HSActive :: HSMState
+pattern HSActive = HSMState' "ACTIVE"
 
 pattern HSDegraded :: HSMState
 pattern HSDegraded = HSMState' "DEGRADED"
@@ -64,8 +64,8 @@ pattern HSDeleted :: HSMState
 pattern HSDeleted = HSMState' "DELETED"
 
 {-# COMPLETE
-  HSActive,
   HSCreateInProgress,
+  HSActive,
   HSDegraded,
   HSDeleteInProgress,
   HSDeleted,

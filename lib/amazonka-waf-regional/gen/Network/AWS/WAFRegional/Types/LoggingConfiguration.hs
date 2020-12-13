@@ -31,25 +31,21 @@ import Network.AWS.WAFRegional.Types.FieldToMatch
 --
 -- /See:/ 'mkLoggingConfiguration' smart constructor.
 data LoggingConfiguration = LoggingConfiguration'
-  { redactedFields ::
-      Lude.Maybe [FieldToMatch],
+  { -- | The parts of the request that you want redacted from the logs. For example, if you redact the cookie field, the cookie field in the firehose will be @xxx@ .
+    redactedFields :: Lude.Maybe [FieldToMatch],
+    -- | The Amazon Resource Name (ARN) of the web ACL that you want to associate with @LogDestinationConfigs@ .
     resourceARN :: Lude.Text,
+    -- | An array of Amazon Kinesis Data Firehose ARNs.
     logDestinationConfigs :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoggingConfiguration' with the minimum fields required to make a request.
 --
--- * 'logDestinationConfigs' - An array of Amazon Kinesis Data Firehose ARNs.
 -- * 'redactedFields' - The parts of the request that you want redacted from the logs. For example, if you redact the cookie field, the cookie field in the firehose will be @xxx@ .
 -- * 'resourceARN' - The Amazon Resource Name (ARN) of the web ACL that you want to associate with @LogDestinationConfigs@ .
+-- * 'logDestinationConfigs' - An array of Amazon Kinesis Data Firehose ARNs.
 mkLoggingConfiguration ::
   -- | 'resourceARN'
   Lude.Text ->

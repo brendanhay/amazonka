@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricToRetain' smart constructor.
 data MetricToRetain = MetricToRetain'
-  { metricDimension ::
-      Lude.Maybe MetricDimension,
+  { -- | The dimension of a metric.
+    metricDimension :: Lude.Maybe MetricDimension,
+    -- | What is measured by the behavior.
     metric :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricToRetain' with the minimum fields required to make a request.
 --
--- * 'metric' - What is measured by the behavior.
 -- * 'metricDimension' - The dimension of a metric.
+-- * 'metric' - What is measured by the behavior.
 mkMetricToRetain ::
   -- | 'metric'
   Lude.Text ->

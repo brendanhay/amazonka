@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkerBlock' smart constructor.
 data WorkerBlock = WorkerBlock'
-  { reason :: Lude.Maybe Lude.Text,
+  { -- | A message explaining the reason the Worker was blocked.
+    reason :: Lude.Maybe Lude.Text,
+    -- | The ID of the Worker who accepted the HIT.
     workerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkerBlock' with the minimum fields required to make a request.

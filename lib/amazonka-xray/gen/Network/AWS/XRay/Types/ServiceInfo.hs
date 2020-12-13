@@ -43,43 +43,60 @@ import Network.AWS.XRay.Types.ServiceStatistics
 --
 -- /See:/ 'mkServiceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { state :: Lude.Maybe Lude.Text,
+  { -- | The service's state.
+    state :: Lude.Maybe Lude.Text,
+    -- | The start time of the first segment that the service generated.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates that the service was the first service to process a request.
     root :: Lude.Maybe Lude.Bool,
+    -- | A histogram that maps the spread of service response times.
     responseTimeHistogram :: Lude.Maybe [HistogramEntry],
+    -- | A histogram that maps the spread of service durations.
     durationHistogram :: Lude.Maybe [HistogramEntry],
+    -- | Identifier for the service. Unique within the service map.
     referenceId :: Lude.Maybe Lude.Int,
+    -- | Identifier of the AWS account in which the service runs.
     accountId :: Lude.Maybe Lude.Text,
+    -- | A list of names for the service, including the canonical name.
     names :: Lude.Maybe [Lude.Text],
+    -- | The canonical name of the service.
     name :: Lude.Maybe Lude.Text,
+    -- | The end time of the last segment that the service generated.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The type of service.
+    --
+    --
+    --     * AWS Resource - The type of an AWS resource. For example, @AWS::EC2::Instance@ for an application running on Amazon EC2 or @AWS::DynamoDB::Table@ for an Amazon DynamoDB table that the application used.
+    --
+    --
+    --     * AWS Service - The type of an AWS service. For example, @AWS::DynamoDB@ for downstream calls to Amazon DynamoDB that didn't target a specific table.
+    --
+    --
+    --     * @client@ - Represents the clients that sent requests to a root service.
+    --
+    --
+    --     * @remote@ - A downstream service of indeterminate type.
     type' :: Lude.Maybe Lude.Text,
+    -- | Connections to downstream services.
     edges :: Lude.Maybe [Edge],
+    -- | Aggregated statistics for the service.
     summaryStatistics :: Lude.Maybe ServiceStatistics
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceInfo' with the minimum fields required to make a request.
 --
--- * 'accountId' - Identifier of the AWS account in which the service runs.
--- * 'durationHistogram' - A histogram that maps the spread of service durations.
--- * 'edges' - Connections to downstream services.
--- * 'endTime' - The end time of the last segment that the service generated.
--- * 'name' - The canonical name of the service.
--- * 'names' - A list of names for the service, including the canonical name.
--- * 'referenceId' - Identifier for the service. Unique within the service map.
--- * 'responseTimeHistogram' - A histogram that maps the spread of service response times.
--- * 'root' - Indicates that the service was the first service to process a request.
--- * 'startTime' - The start time of the first segment that the service generated.
 -- * 'state' - The service's state.
--- * 'summaryStatistics' - Aggregated statistics for the service.
+-- * 'startTime' - The start time of the first segment that the service generated.
+-- * 'root' - Indicates that the service was the first service to process a request.
+-- * 'responseTimeHistogram' - A histogram that maps the spread of service response times.
+-- * 'durationHistogram' - A histogram that maps the spread of service durations.
+-- * 'referenceId' - Identifier for the service. Unique within the service map.
+-- * 'accountId' - Identifier of the AWS account in which the service runs.
+-- * 'names' - A list of names for the service, including the canonical name.
+-- * 'name' - The canonical name of the service.
+-- * 'endTime' - The end time of the last segment that the service generated.
 -- * 'type'' - The type of service.
 --
 --
@@ -93,6 +110,10 @@ data ServiceInfo = ServiceInfo'
 --
 --
 --     * @remote@ - A downstream service of indeterminate type.
+--
+--
+-- * 'edges' - Connections to downstream services.
+-- * 'summaryStatistics' - Aggregated statistics for the service.
 mkServiceInfo ::
   ServiceInfo
 mkServiceInfo =

@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.FlowLogsResourceType
   ( FlowLogsResourceType
       ( FlowLogsResourceType',
-        FLRTNetworkInterface,
+        FLRTVPC,
         FLRTSubnet,
-        FLRTVPC
+        FLRTNetworkInterface
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype FlowLogsResourceType = FlowLogsResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern FLRTNetworkInterface :: FlowLogsResourceType
-pattern FLRTNetworkInterface = FlowLogsResourceType' "NetworkInterface"
+pattern FLRTVPC :: FlowLogsResourceType
+pattern FLRTVPC = FlowLogsResourceType' "VPC"
 
 pattern FLRTSubnet :: FlowLogsResourceType
 pattern FLRTSubnet = FlowLogsResourceType' "Subnet"
 
-pattern FLRTVPC :: FlowLogsResourceType
-pattern FLRTVPC = FlowLogsResourceType' "VPC"
+pattern FLRTNetworkInterface :: FlowLogsResourceType
+pattern FLRTNetworkInterface = FlowLogsResourceType' "NetworkInterface"
 
 {-# COMPLETE
-  FLRTNetworkInterface,
-  FLRTSubnet,
   FLRTVPC,
+  FLRTSubnet,
+  FLRTNetworkInterface,
   FlowLogsResourceType'
   #-}

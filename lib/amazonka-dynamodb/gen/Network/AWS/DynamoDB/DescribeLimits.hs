@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -75,13 +76,7 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeLimits' smart constructor.
 data DescribeLimits = DescribeLimits'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLimits' with the minimum fields required to make a request.
@@ -127,32 +122,27 @@ instance Lude.ToQuery DescribeLimits where
 --
 -- /See:/ 'mkDescribeLimitsResponse' smart constructor.
 data DescribeLimitsResponse = DescribeLimitsResponse'
-  { tableMaxWriteCapacityUnits ::
-      Lude.Maybe Lude.Natural,
-    tableMaxReadCapacityUnits ::
-      Lude.Maybe Lude.Natural,
-    accountMaxWriteCapacityUnits ::
-      Lude.Maybe Lude.Natural,
-    accountMaxReadCapacityUnits ::
-      Lude.Maybe Lude.Natural,
+  { -- | The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).
+    tableMaxWriteCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).
+    tableMaxReadCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.
+    accountMaxWriteCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.
+    accountMaxReadCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLimitsResponse' with the minimum fields required to make a request.
 --
--- * 'accountMaxReadCapacityUnits' - The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.
--- * 'accountMaxWriteCapacityUnits' - The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.
--- * 'responseStatus' - The response status code.
--- * 'tableMaxReadCapacityUnits' - The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).
 -- * 'tableMaxWriteCapacityUnits' - The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).
+-- * 'tableMaxReadCapacityUnits' - The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).
+-- * 'accountMaxWriteCapacityUnits' - The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.
+-- * 'accountMaxReadCapacityUnits' - The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.
+-- * 'responseStatus' - The response status code.
 mkDescribeLimitsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

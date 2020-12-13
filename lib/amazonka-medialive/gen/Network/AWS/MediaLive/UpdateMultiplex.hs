@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.MediaLive.UpdateMultiplex
     mkUpdateMultiplex,
 
     -- ** Request lenses
+    umMultiplexId,
     umName,
     umMultiplexSettings,
-    umMultiplexId,
 
     -- * Destructuring the response
     UpdateMultiplexResponse (..),
@@ -43,35 +44,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateMultiplex' smart constructor.
 data UpdateMultiplex = UpdateMultiplex'
-  { name ::
-      Lude.Maybe Lude.Text,
-    multiplexSettings :: Lude.Maybe MultiplexSettings,
-    multiplexId :: Lude.Text
+  { -- | ID of the multiplex to update.
+    multiplexId :: Lude.Text,
+    -- | Name of the multiplex.
+    name :: Lude.Maybe Lude.Text,
+    -- | The new settings for a multiplex.
+    multiplexSettings :: Lude.Maybe MultiplexSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMultiplex' with the minimum fields required to make a request.
 --
 -- * 'multiplexId' - ID of the multiplex to update.
--- * 'multiplexSettings' - The new settings for a multiplex.
 -- * 'name' - Name of the multiplex.
+-- * 'multiplexSettings' - The new settings for a multiplex.
 mkUpdateMultiplex ::
   -- | 'multiplexId'
   Lude.Text ->
   UpdateMultiplex
 mkUpdateMultiplex pMultiplexId_ =
   UpdateMultiplex'
-    { name = Lude.Nothing,
-      multiplexSettings = Lude.Nothing,
-      multiplexId = pMultiplexId_
+    { multiplexId = pMultiplexId_,
+      name = Lude.Nothing,
+      multiplexSettings = Lude.Nothing
     }
+
+-- | ID of the multiplex to update.
+--
+-- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umMultiplexId :: Lens.Lens' UpdateMultiplex Lude.Text
+umMultiplexId = Lens.lens (multiplexId :: UpdateMultiplex -> Lude.Text) (\s a -> s {multiplexId = a} :: UpdateMultiplex)
+{-# DEPRECATED umMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
 -- | Name of the multiplex.
 --
@@ -86,13 +90,6 @@ umName = Lens.lens (name :: UpdateMultiplex -> Lude.Maybe Lude.Text) (\s a -> s 
 umMultiplexSettings :: Lens.Lens' UpdateMultiplex (Lude.Maybe MultiplexSettings)
 umMultiplexSettings = Lens.lens (multiplexSettings :: UpdateMultiplex -> Lude.Maybe MultiplexSettings) (\s a -> s {multiplexSettings = a} :: UpdateMultiplex)
 {-# DEPRECATED umMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
-
--- | ID of the multiplex to update.
---
--- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umMultiplexId :: Lens.Lens' UpdateMultiplex Lude.Text
-umMultiplexId = Lens.lens (multiplexId :: UpdateMultiplex -> Lude.Text) (\s a -> s {multiplexId = a} :: UpdateMultiplex)
-{-# DEPRECATED umMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
 instance Lude.AWSRequest UpdateMultiplex where
   type Rs UpdateMultiplex = UpdateMultiplexResponse
@@ -133,17 +130,12 @@ instance Lude.ToQuery UpdateMultiplex where
 --
 -- /See:/ 'mkUpdateMultiplexResponse' smart constructor.
 data UpdateMultiplexResponse = UpdateMultiplexResponse'
-  { multiplex ::
-      Lude.Maybe Multiplex,
+  { -- | The updated multiplex.
+    multiplex :: Lude.Maybe Multiplex,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMultiplexResponse' with the minimum fields required to make a request.

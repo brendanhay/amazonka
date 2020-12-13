@@ -33,28 +33,24 @@ import Network.AWS.S3.Types.AnalyticsS3ExportFileFormat
 --
 -- /See:/ 'mkAnalyticsS3BucketDestination' smart constructor.
 data AnalyticsS3BucketDestination = AnalyticsS3BucketDestination'
-  { bucketAccountId ::
-      Lude.Maybe Lude.Text,
+  { -- | The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+    bucketAccountId :: Lude.Maybe Lude.Text,
+    -- | The prefix to use when exporting data. The prefix is prepended to all results.
     prefix :: Lude.Maybe Lude.Text,
-    format ::
-      AnalyticsS3ExportFileFormat,
+    -- | Specifies the file format used when exporting data to Amazon S3.
+    format :: AnalyticsS3ExportFileFormat,
+    -- | The Amazon Resource Name (ARN) of the bucket to which data is exported.
     bucket :: BucketName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnalyticsS3BucketDestination' with the minimum fields required to make a request.
 --
--- * 'bucket' - The Amazon Resource Name (ARN) of the bucket to which data is exported.
 -- * 'bucketAccountId' - The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
--- * 'format' - Specifies the file format used when exporting data to Amazon S3.
 -- * 'prefix' - The prefix to use when exporting data. The prefix is prepended to all results.
+-- * 'format' - Specifies the file format used when exporting data to Amazon S3.
+-- * 'bucket' - The Amazon Resource Name (ARN) of the bucket to which data is exported.
 mkAnalyticsS3BucketDestination ::
   -- | 'format'
   AnalyticsS3ExportFileFormat ->

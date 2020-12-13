@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,10 +38,10 @@ module Network.AWS.GameLift.UpdateAlias
     mkUpdateAlias,
 
     -- ** Request lenses
+    uaAliasId,
     uaRoutingStrategy,
     uaName,
     uaDescription,
-    uaAliasId,
 
     -- * Destructuring the response
     UpdateAliasResponse (..),
@@ -62,38 +63,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { routingStrategy ::
-      Lude.Maybe RoutingStrategy,
+  { -- | A unique identifier for the alias that you want to update. You can use either the alias ID or ARN value.
+    aliasId :: Lude.Text,
+    -- | The routing configuration, including routing type and fleet target, for the alias.
+    routingStrategy :: Lude.Maybe RoutingStrategy,
+    -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
     name :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    aliasId :: Lude.Text
+    -- | A human-readable description of the alias.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAlias' with the minimum fields required to make a request.
 --
 -- * 'aliasId' - A unique identifier for the alias that you want to update. You can use either the alias ID or ARN value.
--- * 'description' - A human-readable description of the alias.
--- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
 -- * 'routingStrategy' - The routing configuration, including routing type and fleet target, for the alias.
+-- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
+-- * 'description' - A human-readable description of the alias.
 mkUpdateAlias ::
   -- | 'aliasId'
   Lude.Text ->
   UpdateAlias
 mkUpdateAlias pAliasId_ =
   UpdateAlias'
-    { routingStrategy = Lude.Nothing,
+    { aliasId = pAliasId_,
+      routingStrategy = Lude.Nothing,
       name = Lude.Nothing,
-      description = Lude.Nothing,
-      aliasId = pAliasId_
+      description = Lude.Nothing
     }
+
+-- | A unique identifier for the alias that you want to update. You can use either the alias ID or ARN value.
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAliasId :: Lens.Lens' UpdateAlias Lude.Text
+uaAliasId = Lens.lens (aliasId :: UpdateAlias -> Lude.Text) (\s a -> s {aliasId = a} :: UpdateAlias)
+{-# DEPRECATED uaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 -- | The routing configuration, including routing type and fleet target, for the alias.
 --
@@ -115,13 +120,6 @@ uaName = Lens.lens (name :: UpdateAlias -> Lude.Maybe Lude.Text) (\s a -> s {nam
 uaDescription :: Lens.Lens' UpdateAlias (Lude.Maybe Lude.Text)
 uaDescription = Lens.lens (description :: UpdateAlias -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAlias)
 {-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | A unique identifier for the alias that you want to update. You can use either the alias ID or ARN value.
---
--- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaAliasId :: Lens.Lens' UpdateAlias Lude.Text
-uaAliasId = Lens.lens (aliasId :: UpdateAlias -> Lude.Text) (\s a -> s {aliasId = a} :: UpdateAlias)
-{-# DEPRECATED uaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 instance Lude.AWSRequest UpdateAlias where
   type Rs UpdateAlias = UpdateAliasResponse
@@ -148,10 +146,10 @@ instance Lude.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RoutingStrategy" Lude..=) Lude.<$> routingStrategy,
+          [ Lude.Just ("AliasId" Lude..= aliasId),
+            ("RoutingStrategy" Lude..=) Lude.<$> routingStrategy,
             ("Name" Lude..=) Lude.<$> name,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("AliasId" Lude..= aliasId)
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -165,17 +163,12 @@ instance Lude.ToQuery UpdateAlias where
 --
 -- /See:/ 'mkUpdateAliasResponse' smart constructor.
 data UpdateAliasResponse = UpdateAliasResponse'
-  { alias ::
-      Lude.Maybe Alias,
+  { -- | The updated alias resource.
+    alias :: Lude.Maybe Alias,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAliasResponse' with the minimum fields required to make a request.

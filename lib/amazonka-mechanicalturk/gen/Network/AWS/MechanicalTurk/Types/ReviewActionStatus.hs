@@ -13,10 +13,10 @@
 module Network.AWS.MechanicalTurk.Types.ReviewActionStatus
   ( ReviewActionStatus
       ( ReviewActionStatus',
-        Cancelled,
-        Failed,
         Intended,
-        Succeeded
+        Succeeded,
+        Failed,
+        Cancelled
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ReviewActionStatus = ReviewActionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cancelled :: ReviewActionStatus
-pattern Cancelled = ReviewActionStatus' "Cancelled"
-
-pattern Failed :: ReviewActionStatus
-pattern Failed = ReviewActionStatus' "Failed"
-
 pattern Intended :: ReviewActionStatus
 pattern Intended = ReviewActionStatus' "Intended"
 
 pattern Succeeded :: ReviewActionStatus
 pattern Succeeded = ReviewActionStatus' "Succeeded"
 
+pattern Failed :: ReviewActionStatus
+pattern Failed = ReviewActionStatus' "Failed"
+
+pattern Cancelled :: ReviewActionStatus
+pattern Cancelled = ReviewActionStatus' "Cancelled"
+
 {-# COMPLETE
-  Cancelled,
-  Failed,
   Intended,
   Succeeded,
+  Failed,
+  Cancelled,
   ReviewActionStatus'
   #-}

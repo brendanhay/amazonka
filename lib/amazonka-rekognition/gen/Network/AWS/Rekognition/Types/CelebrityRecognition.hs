@@ -30,17 +30,12 @@ import Network.AWS.Rekognition.Types.CelebrityDetail
 --
 -- /See:/ 'mkCelebrityRecognition' smart constructor.
 data CelebrityRecognition = CelebrityRecognition'
-  { celebrity ::
-      Lude.Maybe CelebrityDetail,
+  { -- | Information about a recognized celebrity.
+    celebrity :: Lude.Maybe CelebrityDetail,
+    -- | The time, in milliseconds from the start of the video, that the celebrity was recognized.
     timestamp :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CelebrityRecognition' with the minimum fields required to make a request.

@@ -32,30 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransferringInputDeviceSummary' smart constructor.
 data TransferringInputDeviceSummary = TransferringInputDeviceSummary'
-  { transferType ::
-      Lude.Maybe
-        InputDeviceTransferType,
+  { -- | The type (direction) of the input device transfer.
+    transferType :: Lude.Maybe InputDeviceTransferType,
+    -- | The unique ID of the input device.
     id :: Lude.Maybe Lude.Text,
-    targetCustomerId ::
-      Lude.Maybe Lude.Text,
-    message ::
-      Lude.Maybe Lude.Text
+    -- | The AWS account ID for the recipient of the input device transfer.
+    targetCustomerId :: Lude.Maybe Lude.Text,
+    -- | The optional message that the sender has attached to the transfer.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransferringInputDeviceSummary' with the minimum fields required to make a request.
 --
--- * 'id' - The unique ID of the input device.
--- * 'message' - The optional message that the sender has attached to the transfer.
--- * 'targetCustomerId' - The AWS account ID for the recipient of the input device transfer.
 -- * 'transferType' - The type (direction) of the input device transfer.
+-- * 'id' - The unique ID of the input device.
+-- * 'targetCustomerId' - The AWS account ID for the recipient of the input device transfer.
+-- * 'message' - The optional message that the sender has attached to the transfer.
 mkTransferringInputDeviceSummary ::
   TransferringInputDeviceSummary
 mkTransferringInputDeviceSummary =

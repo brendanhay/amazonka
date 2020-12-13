@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttributeBooleanValue' smart constructor.
 newtype AttributeBooleanValue = AttributeBooleanValue'
-  { value ::
-      Lude.Maybe Lude.Bool
+  { -- | The attribute value. The valid values are @true@ or @false@ .
+    value :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeBooleanValue' with the minimum fields required to make a request.

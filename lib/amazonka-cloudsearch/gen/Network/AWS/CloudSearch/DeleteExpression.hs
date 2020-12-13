@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.CloudSearch.DeleteExpression
     mkDeleteExpression,
 
     -- ** Request lenses
-    delDomainName,
-    delExpressionName,
+    deExpressionName,
+    deDomainName,
 
     -- * Destructuring the response
     DeleteExpressionResponse (..),
     mkDeleteExpressionResponse,
 
     -- ** Response lenses
-    delrsResponseStatus,
-    delrsExpression,
+    defrsExpression,
+    defrsResponseStatus,
   )
 where
 
@@ -42,47 +43,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteExpression' smart constructor.
 data DeleteExpression = DeleteExpression'
-  { domainName :: Lude.Text,
-    expressionName :: Lude.Text
+  { -- | The name of the @'Expression' @ to delete.
+    expressionName :: Lude.Text,
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteExpression' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
 -- * 'expressionName' - The name of the @'Expression' @ to delete.
+-- * 'domainName' -
 mkDeleteExpression ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'expressionName'
   Lude.Text ->
+  -- | 'domainName'
+  Lude.Text ->
   DeleteExpression
-mkDeleteExpression pDomainName_ pExpressionName_ =
+mkDeleteExpression pExpressionName_ pDomainName_ =
   DeleteExpression'
-    { domainName = pDomainName_,
-      expressionName = pExpressionName_
+    { expressionName = pExpressionName_,
+      domainName = pDomainName_
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delDomainName :: Lens.Lens' DeleteExpression Lude.Text
-delDomainName = Lens.lens (domainName :: DeleteExpression -> Lude.Text) (\s a -> s {domainName = a} :: DeleteExpression)
-{-# DEPRECATED delDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The name of the @'Expression' @ to delete.
 --
 -- /Note:/ Consider using 'expressionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delExpressionName :: Lens.Lens' DeleteExpression Lude.Text
-delExpressionName = Lens.lens (expressionName :: DeleteExpression -> Lude.Text) (\s a -> s {expressionName = a} :: DeleteExpression)
-{-# DEPRECATED delExpressionName "Use generic-lens or generic-optics with 'expressionName' instead." #-}
+deExpressionName :: Lens.Lens' DeleteExpression Lude.Text
+deExpressionName = Lens.lens (expressionName :: DeleteExpression -> Lude.Text) (\s a -> s {expressionName = a} :: DeleteExpression)
+{-# DEPRECATED deExpressionName "Use generic-lens or generic-optics with 'expressionName' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deDomainName :: Lens.Lens' DeleteExpression Lude.Text
+deDomainName = Lens.lens (domainName :: DeleteExpression -> Lude.Text) (\s a -> s {domainName = a} :: DeleteExpression)
+{-# DEPRECATED deDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest DeleteExpression where
   type Rs DeleteExpression = DeleteExpressionResponse
@@ -92,7 +88,7 @@ instance Lude.AWSRequest DeleteExpression where
       "DeleteExpressionResult"
       ( \s h x ->
           DeleteExpressionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "Expression")
+            Lude.<$> (x Lude..@ "Expression") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteExpression where
@@ -106,25 +102,20 @@ instance Lude.ToQuery DeleteExpression where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteExpression" :: Lude.ByteString),
         "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName,
-        "ExpressionName" Lude.=: expressionName
+        "ExpressionName" Lude.=: expressionName,
+        "DomainName" Lude.=: domainName
       ]
 
 -- | The result of a @'DeleteExpression' @ request. Specifies the expression being deleted.
 --
 -- /See:/ 'mkDeleteExpressionResponse' smart constructor.
 data DeleteExpressionResponse = DeleteExpressionResponse'
-  { responseStatus ::
-      Lude.Int,
-    expression :: ExpressionStatus
+  { -- | The status of the expression being deleted.
+    expression :: ExpressionStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteExpressionResponse' with the minimum fields required to make a request.
@@ -132,27 +123,27 @@ data DeleteExpressionResponse = DeleteExpressionResponse'
 -- * 'expression' - The status of the expression being deleted.
 -- * 'responseStatus' - The response status code.
 mkDeleteExpressionResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'expression'
   ExpressionStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteExpressionResponse
-mkDeleteExpressionResponse pResponseStatus_ pExpression_ =
+mkDeleteExpressionResponse pExpression_ pResponseStatus_ =
   DeleteExpressionResponse'
-    { responseStatus = pResponseStatus_,
-      expression = pExpression_
+    { expression = pExpression_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteExpressionResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteExpressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteExpressionResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the expression being deleted.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsExpression :: Lens.Lens' DeleteExpressionResponse ExpressionStatus
-delrsExpression = Lens.lens (expression :: DeleteExpressionResponse -> ExpressionStatus) (\s a -> s {expression = a} :: DeleteExpressionResponse)
-{-# DEPRECATED delrsExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+defrsExpression :: Lens.Lens' DeleteExpressionResponse ExpressionStatus
+defrsExpression = Lens.lens (expression :: DeleteExpressionResponse -> ExpressionStatus) (\s a -> s {expression = a} :: DeleteExpressionResponse)
+{-# DEPRECATED defrsExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+defrsResponseStatus :: Lens.Lens' DeleteExpressionResponse Lude.Int
+defrsResponseStatus = Lens.lens (responseStatus :: DeleteExpressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteExpressionResponse)
+{-# DEPRECATED defrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

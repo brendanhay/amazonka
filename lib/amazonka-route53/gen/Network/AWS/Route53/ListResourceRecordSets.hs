@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,11 +58,11 @@ module Network.AWS.Route53.ListResourceRecordSets
     mkListResourceRecordSets,
 
     -- ** Request lenses
+    lrrsHostedZoneId,
     lrrsStartRecordName,
     lrrsStartRecordType,
     lrrsStartRecordIdentifier,
     lrrsMaxItems,
-    lrrsHostedZoneId,
 
     -- * Destructuring the response
     ListResourceRecordSetsResponse (..),
@@ -70,11 +71,11 @@ module Network.AWS.Route53.ListResourceRecordSets
     -- ** Response lenses
     lrrsrsNextRecordType,
     lrrsrsNextRecordName,
+    lrrsrsResourceRecordSets,
+    lrrsrsMaxItems,
+    lrrsrsIsTruncated,
     lrrsrsNextRecordIdentifier,
     lrrsrsResponseStatus,
-    lrrsrsResourceRecordSets,
-    lrrsrsIsTruncated,
-    lrrsrsMaxItems,
   )
 where
 
@@ -89,27 +90,50 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkListResourceRecordSets' smart constructor.
 data ListResourceRecordSets = ListResourceRecordSets'
-  { startRecordName ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the hosted zone that contains the resource record sets that you want to list.
+    hostedZoneId :: ResourceId,
+    -- | The first name in the lexicographic ordering of resource record sets that you want to list. If the specified record name doesn't exist, the results begin with the first resource record set that has a name greater than the value of @name@ .
+    startRecordName :: Lude.Maybe Lude.Text,
+    -- | The type of resource record set to begin the record listing from.
+    --
+    -- Valid values for basic resource record sets: @A@ | @AAAA@ | @CAA@ | @CNAME@ | @MX@ | @NAPTR@ | @NS@ | @PTR@ | @SOA@ | @SPF@ | @SRV@ | @TXT@
+    -- Values for weighted, latency, geolocation, and failover resource record sets: @A@ | @AAAA@ | @CAA@ | @CNAME@ | @MX@ | @NAPTR@ | @PTR@ | @SPF@ | @SRV@ | @TXT@
+    -- Values for alias resource record sets:
+    --
+    --     * __API Gateway custom regional API or edge-optimized API__ : A
+    --
+    --
+    --     * __CloudFront distribution__ : A or AAAA
+    --
+    --
+    --     * __Elastic Beanstalk environment that has a regionalized subdomain__ : A
+    --
+    --
+    --     * __Elastic Load Balancing load balancer__ : A | AAAA
+    --
+    --
+    --     * __S3 bucket__ : A
+    --
+    --
+    --     * __VPC interface VPC endpoint__ : A
+    --
+    --
+    --     * __Another resource record set in this hosted zone:__ The type of the resource record set that the alias references.
+    --
+    --
+    -- Constraint: Specifying @type@ without specifying @name@ returns an @InvalidInput@ error.
     startRecordType :: Lude.Maybe RecordType,
+    -- | /Resource record sets that have a routing policy other than simple:/ If results were truncated for a given DNS name and type, specify the value of @NextRecordIdentifier@ from the previous response to get the next resource record set that has the current DNS name and type.
     startRecordIdentifier :: Lude.Maybe Lude.Text,
-    maxItems :: Lude.Maybe Lude.Text,
-    hostedZoneId :: ResourceId
+    -- | (Optional) The maximum number of resource records sets to include in the response body for this request. If the response includes more than @maxitems@ resource record sets, the value of the @IsTruncated@ element in the response is @true@ , and the values of the @NextRecordName@ and @NextRecordType@ elements in the response identify the first resource record set in the next group of @maxitems@ resource record sets.
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceRecordSets' with the minimum fields required to make a request.
 --
 -- * 'hostedZoneId' - The ID of the hosted zone that contains the resource record sets that you want to list.
--- * 'maxItems' - (Optional) The maximum number of resource records sets to include in the response body for this request. If the response includes more than @maxitems@ resource record sets, the value of the @IsTruncated@ element in the response is @true@ , and the values of the @NextRecordName@ and @NextRecordType@ elements in the response identify the first resource record set in the next group of @maxitems@ resource record sets.
--- * 'startRecordIdentifier' - /Resource record sets that have a routing policy other than simple:/ If results were truncated for a given DNS name and type, specify the value of @NextRecordIdentifier@ from the previous response to get the next resource record set that has the current DNS name and type.
 -- * 'startRecordName' - The first name in the lexicographic ordering of resource record sets that you want to list. If the specified record name doesn't exist, the results begin with the first resource record set that has a name greater than the value of @name@ .
 -- * 'startRecordType' - The type of resource record set to begin the record listing from.
 --
@@ -139,18 +163,27 @@ data ListResourceRecordSets = ListResourceRecordSets'
 --
 --
 -- Constraint: Specifying @type@ without specifying @name@ returns an @InvalidInput@ error.
+-- * 'startRecordIdentifier' - /Resource record sets that have a routing policy other than simple:/ If results were truncated for a given DNS name and type, specify the value of @NextRecordIdentifier@ from the previous response to get the next resource record set that has the current DNS name and type.
+-- * 'maxItems' - (Optional) The maximum number of resource records sets to include in the response body for this request. If the response includes more than @maxitems@ resource record sets, the value of the @IsTruncated@ element in the response is @true@ , and the values of the @NextRecordName@ and @NextRecordType@ elements in the response identify the first resource record set in the next group of @maxitems@ resource record sets.
 mkListResourceRecordSets ::
   -- | 'hostedZoneId'
   ResourceId ->
   ListResourceRecordSets
 mkListResourceRecordSets pHostedZoneId_ =
   ListResourceRecordSets'
-    { startRecordName = Lude.Nothing,
+    { hostedZoneId = pHostedZoneId_,
+      startRecordName = Lude.Nothing,
       startRecordType = Lude.Nothing,
       startRecordIdentifier = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      hostedZoneId = pHostedZoneId_
+      maxItems = Lude.Nothing
     }
+
+-- | The ID of the hosted zone that contains the resource record sets that you want to list.
+--
+-- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsHostedZoneId :: Lens.Lens' ListResourceRecordSets ResourceId
+lrrsHostedZoneId = Lens.lens (hostedZoneId :: ListResourceRecordSets -> ResourceId) (\s a -> s {hostedZoneId = a} :: ListResourceRecordSets)
+{-# DEPRECATED lrrsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | The first name in the lexicographic ordering of resource record sets that you want to list. If the specified record name doesn't exist, the results begin with the first resource record set that has a name greater than the value of @name@ .
 --
@@ -207,13 +240,6 @@ lrrsMaxItems :: Lens.Lens' ListResourceRecordSets (Lude.Maybe Lude.Text)
 lrrsMaxItems = Lens.lens (maxItems :: ListResourceRecordSets -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListResourceRecordSets)
 {-# DEPRECATED lrrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The ID of the hosted zone that contains the resource record sets that you want to list.
---
--- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsHostedZoneId :: Lens.Lens' ListResourceRecordSets ResourceId
-lrrsHostedZoneId = Lens.lens (hostedZoneId :: ListResourceRecordSets -> ResourceId) (\s a -> s {hostedZoneId = a} :: ListResourceRecordSets)
-{-# DEPRECATED lrrsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
-
 instance Page.AWSPager ListResourceRecordSets where
   page rq rs
     | Page.stop (rs Lens.^. lrrsrsIsTruncated) = Lude.Nothing
@@ -240,13 +266,13 @@ instance Lude.AWSRequest ListResourceRecordSets where
           ListResourceRecordSetsResponse'
             Lude.<$> (x Lude..@? "NextRecordType")
             Lude.<*> (x Lude..@? "NextRecordName")
-            Lude.<*> (x Lude..@? "NextRecordIdentifier")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "ResourceRecordSets" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "ResourceRecordSet"
                      )
-            Lude.<*> (x Lude..@ "IsTruncated")
             Lude.<*> (x Lude..@ "MaxItems")
+            Lude.<*> (x Lude..@ "IsTruncated")
+            Lude.<*> (x Lude..@? "NextRecordIdentifier")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListResourceRecordSets where
@@ -270,62 +296,65 @@ instance Lude.ToQuery ListResourceRecordSets where
 --
 -- /See:/ 'mkListResourceRecordSetsResponse' smart constructor.
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
-  { nextRecordType ::
-      Lude.Maybe RecordType,
-    nextRecordName ::
-      Lude.Maybe Lude.Text,
-    nextRecordIdentifier ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    resourceRecordSets ::
-      [ResourceRecordSet],
+  { -- | If the results were truncated, the type of the next record in the list.
+    --
+    -- This element is present only if @IsTruncated@ is true.
+    nextRecordType :: Lude.Maybe RecordType,
+    -- | If the results were truncated, the name of the next record in the list.
+    --
+    -- This element is present only if @IsTruncated@ is true.
+    nextRecordName :: Lude.Maybe Lude.Text,
+    -- | Information about multiple resource record sets.
+    resourceRecordSets :: [ResourceRecordSet],
+    -- | The maximum number of records you requested.
+    maxItems :: Lude.Text,
+    -- | A flag that indicates whether more resource record sets remain to be listed. If your results were truncated, you can make a follow-up pagination request by using the @NextRecordName@ element.
     isTruncated :: Lude.Bool,
-    maxItems :: Lude.Text
+    -- | /Resource record sets that have a routing policy other than simple:/ If results were truncated for a given DNS name and type, the value of @SetIdentifier@ for the next resource record set that has the current DNS name and type.
+    --
+    -- For information about routing policies, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy> in the /Amazon Route 53 Developer Guide/ .
+    nextRecordIdentifier :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceRecordSetsResponse' with the minimum fields required to make a request.
 --
--- * 'isTruncated' - A flag that indicates whether more resource record sets remain to be listed. If your results were truncated, you can make a follow-up pagination request by using the @NextRecordName@ element.
--- * 'maxItems' - The maximum number of records you requested.
--- * 'nextRecordIdentifier' - /Resource record sets that have a routing policy other than simple:/ If results were truncated for a given DNS name and type, the value of @SetIdentifier@ for the next resource record set that has the current DNS name and type.
---
--- For information about routing policies, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy> in the /Amazon Route 53 Developer Guide/ .
--- * 'nextRecordName' - If the results were truncated, the name of the next record in the list.
---
--- This element is present only if @IsTruncated@ is true.
 -- * 'nextRecordType' - If the results were truncated, the type of the next record in the list.
 --
 -- This element is present only if @IsTruncated@ is true.
+-- * 'nextRecordName' - If the results were truncated, the name of the next record in the list.
+--
+-- This element is present only if @IsTruncated@ is true.
 -- * 'resourceRecordSets' - Information about multiple resource record sets.
+-- * 'maxItems' - The maximum number of records you requested.
+-- * 'isTruncated' - A flag that indicates whether more resource record sets remain to be listed. If your results were truncated, you can make a follow-up pagination request by using the @NextRecordName@ element.
+-- * 'nextRecordIdentifier' - /Resource record sets that have a routing policy other than simple:/ If results were truncated for a given DNS name and type, the value of @SetIdentifier@ for the next resource record set that has the current DNS name and type.
+--
+-- For information about routing policies, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy> in the /Amazon Route 53 Developer Guide/ .
 -- * 'responseStatus' - The response status code.
 mkListResourceRecordSetsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'isTruncated'
-  Lude.Bool ->
   -- | 'maxItems'
   Lude.Text ->
+  -- | 'isTruncated'
+  Lude.Bool ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListResourceRecordSetsResponse
 mkListResourceRecordSetsResponse
-  pResponseStatus_
+  pMaxItems_
   pIsTruncated_
-  pMaxItems_ =
+  pResponseStatus_ =
     ListResourceRecordSetsResponse'
       { nextRecordType = Lude.Nothing,
         nextRecordName = Lude.Nothing,
-        nextRecordIdentifier = Lude.Nothing,
-        responseStatus = pResponseStatus_,
         resourceRecordSets = Lude.mempty,
+        maxItems = pMaxItems_,
         isTruncated = pIsTruncated_,
-        maxItems = pMaxItems_
+        nextRecordIdentifier = Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | If the results were truncated, the type of the next record in the list.
@@ -346,6 +375,27 @@ lrrsrsNextRecordName :: Lens.Lens' ListResourceRecordSetsResponse (Lude.Maybe Lu
 lrrsrsNextRecordName = Lens.lens (nextRecordName :: ListResourceRecordSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextRecordName = a} :: ListResourceRecordSetsResponse)
 {-# DEPRECATED lrrsrsNextRecordName "Use generic-lens or generic-optics with 'nextRecordName' instead." #-}
 
+-- | Information about multiple resource record sets.
+--
+-- /Note:/ Consider using 'resourceRecordSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsrsResourceRecordSets :: Lens.Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
+lrrsrsResourceRecordSets = Lens.lens (resourceRecordSets :: ListResourceRecordSetsResponse -> [ResourceRecordSet]) (\s a -> s {resourceRecordSets = a} :: ListResourceRecordSetsResponse)
+{-# DEPRECATED lrrsrsResourceRecordSets "Use generic-lens or generic-optics with 'resourceRecordSets' instead." #-}
+
+-- | The maximum number of records you requested.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsrsMaxItems :: Lens.Lens' ListResourceRecordSetsResponse Lude.Text
+lrrsrsMaxItems = Lens.lens (maxItems :: ListResourceRecordSetsResponse -> Lude.Text) (\s a -> s {maxItems = a} :: ListResourceRecordSetsResponse)
+{-# DEPRECATED lrrsrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+
+-- | A flag that indicates whether more resource record sets remain to be listed. If your results were truncated, you can make a follow-up pagination request by using the @NextRecordName@ element.
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsrsIsTruncated :: Lens.Lens' ListResourceRecordSetsResponse Lude.Bool
+lrrsrsIsTruncated = Lens.lens (isTruncated :: ListResourceRecordSetsResponse -> Lude.Bool) (\s a -> s {isTruncated = a} :: ListResourceRecordSetsResponse)
+{-# DEPRECATED lrrsrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+
 -- | /Resource record sets that have a routing policy other than simple:/ If results were truncated for a given DNS name and type, the value of @SetIdentifier@ for the next resource record set that has the current DNS name and type.
 --
 -- For information about routing policies, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy> in the /Amazon Route 53 Developer Guide/ .
@@ -361,24 +411,3 @@ lrrsrsNextRecordIdentifier = Lens.lens (nextRecordIdentifier :: ListResourceReco
 lrrsrsResponseStatus :: Lens.Lens' ListResourceRecordSetsResponse Lude.Int
 lrrsrsResponseStatus = Lens.lens (responseStatus :: ListResourceRecordSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResourceRecordSetsResponse)
 {-# DEPRECATED lrrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Information about multiple resource record sets.
---
--- /Note:/ Consider using 'resourceRecordSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsrsResourceRecordSets :: Lens.Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
-lrrsrsResourceRecordSets = Lens.lens (resourceRecordSets :: ListResourceRecordSetsResponse -> [ResourceRecordSet]) (\s a -> s {resourceRecordSets = a} :: ListResourceRecordSetsResponse)
-{-# DEPRECATED lrrsrsResourceRecordSets "Use generic-lens or generic-optics with 'resourceRecordSets' instead." #-}
-
--- | A flag that indicates whether more resource record sets remain to be listed. If your results were truncated, you can make a follow-up pagination request by using the @NextRecordName@ element.
---
--- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsrsIsTruncated :: Lens.Lens' ListResourceRecordSetsResponse Lude.Bool
-lrrsrsIsTruncated = Lens.lens (isTruncated :: ListResourceRecordSetsResponse -> Lude.Bool) (\s a -> s {isTruncated = a} :: ListResourceRecordSetsResponse)
-{-# DEPRECATED lrrsrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
-
--- | The maximum number of records you requested.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsrsMaxItems :: Lens.Lens' ListResourceRecordSetsResponse Lude.Text
-lrrsrsMaxItems = Lens.lens (maxItems :: ListResourceRecordSetsResponse -> Lude.Text) (\s a -> s {maxItems = a} :: ListResourceRecordSetsResponse)
-{-# DEPRECATED lrrsrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}

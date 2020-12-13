@@ -13,11 +13,11 @@
 module Network.AWS.Route53Domains.Types.OperationStatus
   ( OperationStatus
       ( OperationStatus',
-        Error,
-        Failed,
-        InProgress,
         Submitted,
-        Successful
+        InProgress,
+        Error,
+        Successful,
+        Failed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype OperationStatus = OperationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Error :: OperationStatus
-pattern Error = OperationStatus' "ERROR"
-
-pattern Failed :: OperationStatus
-pattern Failed = OperationStatus' "FAILED"
+pattern Submitted :: OperationStatus
+pattern Submitted = OperationStatus' "SUBMITTED"
 
 pattern InProgress :: OperationStatus
 pattern InProgress = OperationStatus' "IN_PROGRESS"
 
-pattern Submitted :: OperationStatus
-pattern Submitted = OperationStatus' "SUBMITTED"
+pattern Error :: OperationStatus
+pattern Error = OperationStatus' "ERROR"
 
 pattern Successful :: OperationStatus
 pattern Successful = OperationStatus' "SUCCESSFUL"
 
+pattern Failed :: OperationStatus
+pattern Failed = OperationStatus' "FAILED"
+
 {-# COMPLETE
-  Error,
-  Failed,
-  InProgress,
   Submitted,
+  InProgress,
+  Error,
   Successful,
+  Failed,
   OperationStatus'
   #-}

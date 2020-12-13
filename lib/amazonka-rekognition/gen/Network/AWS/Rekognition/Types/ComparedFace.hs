@@ -36,29 +36,27 @@ import Network.AWS.Rekognition.Types.Pose
 --
 -- /See:/ 'mkComparedFace' smart constructor.
 data ComparedFace = ComparedFace'
-  { boundingBox ::
-      Lude.Maybe BoundingBox,
+  { -- | Bounding box of the face.
+    boundingBox :: Lude.Maybe BoundingBox,
+    -- | Indicates the pose of the face as determined by its pitch, roll, and yaw.
     pose :: Lude.Maybe Pose,
+    -- | Level of confidence that what the bounding box contains is a face.
     confidence :: Lude.Maybe Lude.Double,
+    -- | Identifies face image brightness and sharpness.
     quality :: Lude.Maybe ImageQuality,
+    -- | An array of facial landmarks.
     landmarks :: Lude.Maybe [Landmark]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComparedFace' with the minimum fields required to make a request.
 --
 -- * 'boundingBox' - Bounding box of the face.
--- * 'confidence' - Level of confidence that what the bounding box contains is a face.
--- * 'landmarks' - An array of facial landmarks.
 -- * 'pose' - Indicates the pose of the face as determined by its pitch, roll, and yaw.
+-- * 'confidence' - Level of confidence that what the bounding box contains is a face.
 -- * 'quality' - Identifies face image brightness and sharpness.
+-- * 'landmarks' - An array of facial landmarks.
 mkComparedFace ::
   ComparedFace
 mkComparedFace =

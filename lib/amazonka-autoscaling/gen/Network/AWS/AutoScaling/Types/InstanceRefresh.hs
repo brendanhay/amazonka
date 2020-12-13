@@ -36,33 +36,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceRefresh' smart constructor.
 data InstanceRefresh = InstanceRefresh'
-  { status ::
-      Lude.Maybe InstanceRefreshStatus,
+  { -- | The current status for the instance refresh operation:
+    --
+    --
+    --     * @Pending@ - The request was created, but the operation has not started.
+    --
+    --
+    --     * @InProgress@ - The operation is in progress.
+    --
+    --
+    --     * @Successful@ - The operation completed successfully.
+    --
+    --
+    --     * @Failed@ - The operation failed to complete. You can troubleshoot using the status reason and the scaling activities.
+    --
+    --
+    --     * @Cancelling@ - An ongoing operation is being cancelled. Cancellation does not roll back any replacements that have already been completed, but it prevents new replacements from being started.
+    --
+    --
+    --     * @Cancelled@ - The operation is cancelled.
+    status :: Lude.Maybe InstanceRefreshStatus,
+    -- | The date and time at which the instance refresh began.
     startTime :: Lude.Maybe Lude.DateTime,
+    -- | The number of instances remaining to update before the instance refresh is complete.
     instancesToUpdate :: Lude.Maybe Lude.Natural,
+    -- | The percentage of the instance refresh that is complete. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and added to the percentage complete.
     percentageComplete :: Lude.Maybe Lude.Natural,
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Maybe Lude.Text,
+    -- | The date and time at which the instance refresh ended.
     endTime :: Lude.Maybe Lude.DateTime,
+    -- | Provides more details about the current status of the instance refresh.
     statusReason :: Lude.Maybe Lude.Text,
+    -- | The instance refresh ID.
     instanceRefreshId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceRefresh' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'endTime' - The date and time at which the instance refresh ended.
--- * 'instanceRefreshId' - The instance refresh ID.
--- * 'instancesToUpdate' - The number of instances remaining to update before the instance refresh is complete.
--- * 'percentageComplete' - The percentage of the instance refresh that is complete. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and added to the percentage complete.
--- * 'startTime' - The date and time at which the instance refresh began.
 -- * 'status' - The current status for the instance refresh operation:
 --
 --
@@ -84,7 +97,13 @@ data InstanceRefresh = InstanceRefresh'
 --     * @Cancelled@ - The operation is cancelled.
 --
 --
+-- * 'startTime' - The date and time at which the instance refresh began.
+-- * 'instancesToUpdate' - The number of instances remaining to update before the instance refresh is complete.
+-- * 'percentageComplete' - The percentage of the instance refresh that is complete. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and added to the percentage complete.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'endTime' - The date and time at which the instance refresh ended.
 -- * 'statusReason' - Provides more details about the current status of the instance refresh.
+-- * 'instanceRefreshId' - The instance refresh ID.
 mkInstanceRefresh ::
   InstanceRefresh
 mkInstanceRefresh =

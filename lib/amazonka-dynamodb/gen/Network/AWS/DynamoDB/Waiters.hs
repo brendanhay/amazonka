@@ -47,7 +47,7 @@ mkTableExists =
         [ Wait.matchAll
             "ACTIVE"
             Wait.AcceptSuccess
-            ( drsTable Lude.. Lens._Just Lude.. tdTableStatus Lude.. Lens._Just
+            ( dtrsTable Lude.. Lens._Just Lude.. tdTableStatus Lude.. Lens._Just
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchError "ResourceNotFoundException" Wait.AcceptRetry

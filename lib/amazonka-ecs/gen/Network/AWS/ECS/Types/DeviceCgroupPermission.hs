@@ -13,9 +13,9 @@
 module Network.AWS.ECS.Types.DeviceCgroupPermission
   ( DeviceCgroupPermission
       ( DeviceCgroupPermission',
-        Mknod,
         Read,
-        Write
+        Write,
+        Mknod
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DeviceCgroupPermission = DeviceCgroupPermission' Lude.Text
       Lude.ToHeader
     )
 
-pattern Mknod :: DeviceCgroupPermission
-pattern Mknod = DeviceCgroupPermission' "mknod"
-
 pattern Read :: DeviceCgroupPermission
 pattern Read = DeviceCgroupPermission' "read"
 
 pattern Write :: DeviceCgroupPermission
 pattern Write = DeviceCgroupPermission' "write"
 
+pattern Mknod :: DeviceCgroupPermission
+pattern Mknod = DeviceCgroupPermission' "mknod"
+
 {-# COMPLETE
-  Mknod,
   Read,
   Write,
+  Mknod,
   DeviceCgroupPermission'
   #-}

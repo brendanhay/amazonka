@@ -13,9 +13,9 @@
 module Network.AWS.SageMaker.Types.S3DataType
   ( S3DataType
       ( S3DataType',
-        AugmentedManifestFile,
         ManifestFile,
-        S3Prefix
+        S3Prefix,
+        AugmentedManifestFile
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype S3DataType = S3DataType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AugmentedManifestFile :: S3DataType
-pattern AugmentedManifestFile = S3DataType' "AugmentedManifestFile"
-
 pattern ManifestFile :: S3DataType
 pattern ManifestFile = S3DataType' "ManifestFile"
 
 pattern S3Prefix :: S3DataType
 pattern S3Prefix = S3DataType' "S3Prefix"
 
+pattern AugmentedManifestFile :: S3DataType
+pattern AugmentedManifestFile = S3DataType' "AugmentedManifestFile"
+
 {-# COMPLETE
-  AugmentedManifestFile,
   ManifestFile,
   S3Prefix,
+  AugmentedManifestFile,
   S3DataType'
   #-}

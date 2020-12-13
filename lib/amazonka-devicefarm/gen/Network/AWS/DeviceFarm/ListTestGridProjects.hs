@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTestGridProjects' smart constructor.
 data ListTestGridProjects = ListTestGridProjects'
-  { maxResult ::
-      Lude.Maybe Lude.Natural,
+  { -- | Return no more than this number of results.
+    maxResult :: Lude.Maybe Lude.Natural,
+    -- | From a response, used to continue a paginated listing.
     nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridProjects' with the minimum fields required to make a request.
@@ -120,25 +116,21 @@ instance Lude.ToQuery ListTestGridProjects where
 
 -- | /See:/ 'mkListTestGridProjectsResponse' smart constructor.
 data ListTestGridProjectsResponse = ListTestGridProjectsResponse'
-  { testGridProjects ::
-      Lude.Maybe [TestGridProject],
+  { -- | The list of TestGridProjects, based on a 'ListTestGridProjectsRequest' .
+    testGridProjects :: Lude.Maybe [TestGridProject],
+    -- | Used for pagination. Pass into 'ListTestGridProjects' to get more results in a paginated request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridProjectsResponse' with the minimum fields required to make a request.
 --
+-- * 'testGridProjects' - The list of TestGridProjects, based on a 'ListTestGridProjectsRequest' .
 -- * 'nextToken' - Used for pagination. Pass into 'ListTestGridProjects' to get more results in a paginated request.
 -- * 'responseStatus' - The response status code.
--- * 'testGridProjects' - The list of TestGridProjects, based on a 'ListTestGridProjectsRequest' .
 mkListTestGridProjectsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

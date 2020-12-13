@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkMail.UpdatePrimaryEmailAddress
     mkUpdatePrimaryEmailAddress,
 
     -- ** Request lenses
-    upeaOrganizationId,
-    upeaEntityId,
     upeaEmail,
+    upeaEntityId,
+    upeaOrganizationId,
 
     -- * Destructuring the response
     UpdatePrimaryEmailAddressResponse (..),
@@ -40,18 +41,14 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkUpdatePrimaryEmailAddress' smart constructor.
 data UpdatePrimaryEmailAddress = UpdatePrimaryEmailAddress'
-  { organizationId ::
-      Lude.Text,
+  { -- | The value of the email to be updated as primary.
+    email :: Lude.Text,
+    -- | The user, group, or resource to update.
     entityId :: Lude.Text,
-    email :: Lude.Text
+    -- | The organization that contains the user, group, or resource to update.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePrimaryEmailAddress' with the minimum fields required to make a request.
@@ -60,26 +57,26 @@ data UpdatePrimaryEmailAddress = UpdatePrimaryEmailAddress'
 -- * 'entityId' - The user, group, or resource to update.
 -- * 'organizationId' - The organization that contains the user, group, or resource to update.
 mkUpdatePrimaryEmailAddress ::
-  -- | 'organizationId'
+  -- | 'email'
   Lude.Text ->
   -- | 'entityId'
   Lude.Text ->
-  -- | 'email'
+  -- | 'organizationId'
   Lude.Text ->
   UpdatePrimaryEmailAddress
-mkUpdatePrimaryEmailAddress pOrganizationId_ pEntityId_ pEmail_ =
+mkUpdatePrimaryEmailAddress pEmail_ pEntityId_ pOrganizationId_ =
   UpdatePrimaryEmailAddress'
-    { organizationId = pOrganizationId_,
+    { email = pEmail_,
       entityId = pEntityId_,
-      email = pEmail_
+      organizationId = pOrganizationId_
     }
 
--- | The organization that contains the user, group, or resource to update.
+-- | The value of the email to be updated as primary.
 --
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upeaOrganizationId :: Lens.Lens' UpdatePrimaryEmailAddress Lude.Text
-upeaOrganizationId = Lens.lens (organizationId :: UpdatePrimaryEmailAddress -> Lude.Text) (\s a -> s {organizationId = a} :: UpdatePrimaryEmailAddress)
-{-# DEPRECATED upeaOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upeaEmail :: Lens.Lens' UpdatePrimaryEmailAddress Lude.Text
+upeaEmail = Lens.lens (email :: UpdatePrimaryEmailAddress -> Lude.Text) (\s a -> s {email = a} :: UpdatePrimaryEmailAddress)
+{-# DEPRECATED upeaEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The user, group, or resource to update.
 --
@@ -88,12 +85,12 @@ upeaEntityId :: Lens.Lens' UpdatePrimaryEmailAddress Lude.Text
 upeaEntityId = Lens.lens (entityId :: UpdatePrimaryEmailAddress -> Lude.Text) (\s a -> s {entityId = a} :: UpdatePrimaryEmailAddress)
 {-# DEPRECATED upeaEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
--- | The value of the email to be updated as primary.
+-- | The organization that contains the user, group, or resource to update.
 --
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upeaEmail :: Lens.Lens' UpdatePrimaryEmailAddress Lude.Text
-upeaEmail = Lens.lens (email :: UpdatePrimaryEmailAddress -> Lude.Text) (\s a -> s {email = a} :: UpdatePrimaryEmailAddress)
-{-# DEPRECATED upeaEmail "Use generic-lens or generic-optics with 'email' instead." #-}
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upeaOrganizationId :: Lens.Lens' UpdatePrimaryEmailAddress Lude.Text
+upeaOrganizationId = Lens.lens (organizationId :: UpdatePrimaryEmailAddress -> Lude.Text) (\s a -> s {organizationId = a} :: UpdatePrimaryEmailAddress)
+{-# DEPRECATED upeaOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest UpdatePrimaryEmailAddress where
   type
@@ -122,9 +119,9 @@ instance Lude.ToJSON UpdatePrimaryEmailAddress where
   toJSON UpdatePrimaryEmailAddress' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+          [ Lude.Just ("Email" Lude..= email),
             Lude.Just ("EntityId" Lude..= entityId),
-            Lude.Just ("Email" Lude..= email)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -136,16 +133,10 @@ instance Lude.ToQuery UpdatePrimaryEmailAddress where
 
 -- | /See:/ 'mkUpdatePrimaryEmailAddressResponse' smart constructor.
 newtype UpdatePrimaryEmailAddressResponse = UpdatePrimaryEmailAddressResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePrimaryEmailAddressResponse' with the minimum fields required to make a request.

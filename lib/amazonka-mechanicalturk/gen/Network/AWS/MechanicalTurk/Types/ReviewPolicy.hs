@@ -17,8 +17,8 @@ module Network.AWS.MechanicalTurk.Types.ReviewPolicy
     mkReviewPolicy,
 
     -- * Lenses
-    rpParameters,
     rpPolicyName,
+    rpParameters,
   )
 where
 
@@ -30,39 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReviewPolicy' smart constructor.
 data ReviewPolicy = ReviewPolicy'
-  { parameters ::
-      Lude.Maybe [PolicyParameter],
-    policyName :: Lude.Text
+  { -- | Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
+    policyName :: Lude.Text,
+    -- | Name of the parameter from the Review policy.
+    parameters :: Lude.Maybe [PolicyParameter]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReviewPolicy' with the minimum fields required to make a request.
 --
--- * 'parameters' - Name of the parameter from the Review policy.
 -- * 'policyName' - Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
+-- * 'parameters' - Name of the parameter from the Review policy.
 mkReviewPolicy ::
   -- | 'policyName'
   Lude.Text ->
   ReviewPolicy
 mkReviewPolicy pPolicyName_ =
   ReviewPolicy'
-    { parameters = Lude.Nothing,
-      policyName = pPolicyName_
+    { policyName = pPolicyName_,
+      parameters = Lude.Nothing
     }
-
--- | Name of the parameter from the Review policy.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpParameters :: Lens.Lens' ReviewPolicy (Lude.Maybe [PolicyParameter])
-rpParameters = Lens.lens (parameters :: ReviewPolicy -> Lude.Maybe [PolicyParameter]) (\s a -> s {parameters = a} :: ReviewPolicy)
-{-# DEPRECATED rpParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
 --
@@ -71,21 +59,28 @@ rpPolicyName :: Lens.Lens' ReviewPolicy Lude.Text
 rpPolicyName = Lens.lens (policyName :: ReviewPolicy -> Lude.Text) (\s a -> s {policyName = a} :: ReviewPolicy)
 {-# DEPRECATED rpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
+-- | Name of the parameter from the Review policy.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpParameters :: Lens.Lens' ReviewPolicy (Lude.Maybe [PolicyParameter])
+rpParameters = Lens.lens (parameters :: ReviewPolicy -> Lude.Maybe [PolicyParameter]) (\s a -> s {parameters = a} :: ReviewPolicy)
+{-# DEPRECATED rpParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
 instance Lude.FromJSON ReviewPolicy where
   parseJSON =
     Lude.withObject
       "ReviewPolicy"
       ( \x ->
           ReviewPolicy'
-            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "PolicyName")
+            Lude.<$> (x Lude..: "PolicyName")
+            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
       )
 
 instance Lude.ToJSON ReviewPolicy where
   toJSON ReviewPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Parameters" Lude..=) Lude.<$> parameters,
-            Lude.Just ("PolicyName" Lude..= policyName)
+          [ Lude.Just ("PolicyName" Lude..= policyName),
+            ("Parameters" Lude..=) Lude.<$> parameters
           ]
       )

@@ -78,33 +78,135 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-  { status ::
-      Lude.Maybe ScalingStatusType,
+  { -- | Current status of the scaling policy. The scaling policy can be in force only when in an @ACTIVE@ status. Scaling policies can be suspended for individual fleets (see 'StopFleetActions' ; if suspended for a fleet, the policy status does not change. View a fleet's stopped actions by calling 'DescribeFleetCapacity' .
+    --
+    --
+    --     * __ACTIVE__ -- The scaling policy can be used for auto-scaling a fleet.
+    --
+    --
+    --     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.
+    --
+    --
+    --     * __UPDATING__ -- A change is being made to the scaling policy.
+    --
+    --
+    --     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.
+    --
+    --
+    --     * __DELETING__ -- The scaling policy is being deleted.
+    --
+    --
+    --     * __DELETED__ -- The scaling policy has been deleted.
+    --
+    --
+    --     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
+    status :: Lude.Maybe ScalingStatusType,
+    -- | The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):
+    --
+    --
+    --     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
+    --
+    --
+    --     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.
+    --
+    --
+    --     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
     scalingAdjustmentType :: Lude.Maybe ScalingAdjustmentType,
+    -- | Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
     evaluationPeriods :: Lude.Maybe Lude.Natural,
+    -- | The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
     policyType :: Lude.Maybe PolicyType,
+    -- | Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch> .
+    --
+    --
+    --     * __ActivatingGameSessions__ -- Game sessions in the process of being created.
+    --
+    --
+    --     * __ActiveGameSessions__ -- Game sessions that are currently running.
+    --
+    --
+    --     * __ActiveInstances__ -- Fleet instances that are currently running at least one game session.
+    --
+    --
+    --     * __AvailableGameSessions__ -- Additional game sessions that fleet could host simultaneously, given current capacity.
+    --
+    --
+    --     * __AvailablePlayerSessions__ -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.
+    --
+    --
+    --     * __CurrentPlayerSessions__ -- Player slots in active game sessions that are being used by a player or are reserved for a player.
+    --
+    --
+    --     * __IdleInstances__ -- Active instances that are currently hosting zero game sessions.
+    --
+    --
+    --     * __PercentAvailableGameSessions__ -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.
+    --
+    --
+    --     * __PercentIdleInstances__ -- Percentage of the total number of active instances that are hosting zero game sessions.
+    --
+    --
+    --     * __QueueDepth__ -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
+    --
+    --
+    --     * __WaitTime__ -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
     metricName :: Lude.Maybe MetricName,
+    -- | Comparison operator to use when measuring a metric against the threshold value.
     comparisonOperator :: Lude.Maybe ComparisonOperatorType,
+    -- | A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
     name :: Lude.Maybe Lude.Text,
+    -- | Metric value used to trigger a scaling event.
     threshold :: Lude.Maybe Lude.Double,
+    -- | Amount of adjustment to make, based on the scaling adjustment type.
     scalingAdjustment :: Lude.Maybe Lude.Int,
+    -- | A unique identifier for a fleet that is associated with this scaling policy.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | The settings for a target-based scaling policy.
     targetConfiguration :: Lude.Maybe TargetConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
 --
--- * 'comparisonOperator' - Comparison operator to use when measuring a metric against the threshold value.
+-- * 'status' - Current status of the scaling policy. The scaling policy can be in force only when in an @ACTIVE@ status. Scaling policies can be suspended for individual fleets (see 'StopFleetActions' ; if suspended for a fleet, the policy status does not change. View a fleet's stopped actions by calling 'DescribeFleetCapacity' .
+--
+--
+--     * __ACTIVE__ -- The scaling policy can be used for auto-scaling a fleet.
+--
+--
+--     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.
+--
+--
+--     * __UPDATING__ -- A change is being made to the scaling policy.
+--
+--
+--     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.
+--
+--
+--     * __DELETING__ -- The scaling policy is being deleted.
+--
+--
+--     * __DELETED__ -- The scaling policy has been deleted.
+--
+--
+--     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
+--
+--
+-- * 'scalingAdjustmentType' - The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):
+--
+--
+--     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
+--
+--
+--     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.
+--
+--
+--     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
+--
+--
 -- * 'evaluationPeriods' - Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
--- * 'fleetId' - A unique identifier for a fleet that is associated with this scaling policy.
+-- * 'policyType' - The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
 -- * 'metricName' - Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch> .
 --
 --
@@ -141,47 +243,12 @@ data ScalingPolicy = ScalingPolicy'
 --     * __WaitTime__ -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
 --
 --
+-- * 'comparisonOperator' - Comparison operator to use when measuring a metric against the threshold value.
 -- * 'name' - A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
--- * 'policyType' - The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
--- * 'scalingAdjustment' - Amount of adjustment to make, based on the scaling adjustment type.
--- * 'scalingAdjustmentType' - The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):
---
---
---     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
---
---
---     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.
---
---
---     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
---
---
--- * 'status' - Current status of the scaling policy. The scaling policy can be in force only when in an @ACTIVE@ status. Scaling policies can be suspended for individual fleets (see 'StopFleetActions' ; if suspended for a fleet, the policy status does not change. View a fleet's stopped actions by calling 'DescribeFleetCapacity' .
---
---
---     * __ACTIVE__ -- The scaling policy can be used for auto-scaling a fleet.
---
---
---     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.
---
---
---     * __UPDATING__ -- A change is being made to the scaling policy.
---
---
---     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.
---
---
---     * __DELETING__ -- The scaling policy is being deleted.
---
---
---     * __DELETED__ -- The scaling policy has been deleted.
---
---
---     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
---
---
--- * 'targetConfiguration' - The settings for a target-based scaling policy.
 -- * 'threshold' - Metric value used to trigger a scaling event.
+-- * 'scalingAdjustment' - Amount of adjustment to make, based on the scaling adjustment type.
+-- * 'fleetId' - A unique identifier for a fleet that is associated with this scaling policy.
+-- * 'targetConfiguration' - The settings for a target-based scaling policy.
 mkScalingPolicy ::
   ScalingPolicy
 mkScalingPolicy =

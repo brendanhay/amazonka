@@ -13,9 +13,9 @@
 module Network.AWS.SageMaker.Types.CodeRepositorySortBy
   ( CodeRepositorySortBy
       ( CodeRepositorySortBy',
+        CRSBName,
         CRSBCreationTime,
-        CRSBLastModifiedTime,
-        CRSBName
+        CRSBLastModifiedTime
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CodeRepositorySortBy = CodeRepositorySortBy' Lude.Text
       Lude.ToHeader
     )
 
+pattern CRSBName :: CodeRepositorySortBy
+pattern CRSBName = CodeRepositorySortBy' "Name"
+
 pattern CRSBCreationTime :: CodeRepositorySortBy
 pattern CRSBCreationTime = CodeRepositorySortBy' "CreationTime"
 
 pattern CRSBLastModifiedTime :: CodeRepositorySortBy
 pattern CRSBLastModifiedTime = CodeRepositorySortBy' "LastModifiedTime"
 
-pattern CRSBName :: CodeRepositorySortBy
-pattern CRSBName = CodeRepositorySortBy' "Name"
-
 {-# COMPLETE
+  CRSBName,
   CRSBCreationTime,
   CRSBLastModifiedTime,
-  CRSBName,
   CodeRepositorySortBy'
   #-}

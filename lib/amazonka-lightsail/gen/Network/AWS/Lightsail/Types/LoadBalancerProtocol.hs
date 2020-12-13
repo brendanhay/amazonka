@@ -13,8 +13,8 @@
 module Network.AWS.Lightsail.Types.LoadBalancerProtocol
   ( LoadBalancerProtocol
       ( LoadBalancerProtocol',
-        HTTP,
-        HTTPHTTPS
+        HTTPHTTPS,
+        HTTP
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype LoadBalancerProtocol = LoadBalancerProtocol' Lude.Text
       Lude.ToHeader
     )
 
-pattern HTTP :: LoadBalancerProtocol
-pattern HTTP = LoadBalancerProtocol' "HTTP"
-
 pattern HTTPHTTPS :: LoadBalancerProtocol
 pattern HTTPHTTPS = LoadBalancerProtocol' "HTTP_HTTPS"
 
+pattern HTTP :: LoadBalancerProtocol
+pattern HTTP = LoadBalancerProtocol' "HTTP"
+
 {-# COMPLETE
-  HTTP,
   HTTPHTTPS,
+  HTTP,
   LoadBalancerProtocol'
   #-}

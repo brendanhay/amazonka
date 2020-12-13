@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.EnaSupport
   ( EnaSupport
       ( EnaSupport',
-        ESRequired,
+        ESUnsupported,
         ESSupported,
-        ESUnsupported
+        ESRequired
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EnaSupport = EnaSupport' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESRequired :: EnaSupport
-pattern ESRequired = EnaSupport' "required"
+pattern ESUnsupported :: EnaSupport
+pattern ESUnsupported = EnaSupport' "unsupported"
 
 pattern ESSupported :: EnaSupport
 pattern ESSupported = EnaSupport' "supported"
 
-pattern ESUnsupported :: EnaSupport
-pattern ESUnsupported = EnaSupport' "unsupported"
+pattern ESRequired :: EnaSupport
+pattern ESRequired = EnaSupport' "required"
 
 {-# COMPLETE
-  ESRequired,
-  ESSupported,
   ESUnsupported,
+  ESSupported,
+  ESRequired,
   EnaSupport'
   #-}

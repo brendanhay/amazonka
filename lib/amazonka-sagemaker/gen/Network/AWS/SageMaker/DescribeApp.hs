@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.SageMaker.DescribeApp
     mkDescribeApp,
 
     -- ** Request lenses
-    daDomainId,
     daUserProfileName,
-    daAppType,
     daAppName,
+    daDomainId,
+    daAppType,
 
     -- * Destructuring the response
     DescribeAppResponse (..),
@@ -52,50 +53,41 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeApp' smart constructor.
 data DescribeApp = DescribeApp'
-  { domainId :: Lude.Text,
+  { -- | The user profile name.
     userProfileName :: Lude.Text,
-    appType :: AppType,
-    appName :: Lude.Text
+    -- | The name of the app.
+    appName :: Lude.Text,
+    -- | The domain ID.
+    domainId :: Lude.Text,
+    -- | The type of app.
+    appType :: AppType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApp' with the minimum fields required to make a request.
 --
--- * 'appName' - The name of the app.
--- * 'appType' - The type of app.
--- * 'domainId' - The domain ID.
 -- * 'userProfileName' - The user profile name.
+-- * 'appName' - The name of the app.
+-- * 'domainId' - The domain ID.
+-- * 'appType' - The type of app.
 mkDescribeApp ::
-  -- | 'domainId'
-  Lude.Text ->
   -- | 'userProfileName'
+  Lude.Text ->
+  -- | 'appName'
+  Lude.Text ->
+  -- | 'domainId'
   Lude.Text ->
   -- | 'appType'
   AppType ->
-  -- | 'appName'
-  Lude.Text ->
   DescribeApp
-mkDescribeApp pDomainId_ pUserProfileName_ pAppType_ pAppName_ =
+mkDescribeApp pUserProfileName_ pAppName_ pDomainId_ pAppType_ =
   DescribeApp'
-    { domainId = pDomainId_,
-      userProfileName = pUserProfileName_,
-      appType = pAppType_,
-      appName = pAppName_
+    { userProfileName = pUserProfileName_,
+      appName = pAppName_,
+      domainId = pDomainId_,
+      appType = pAppType_
     }
-
--- | The domain ID.
---
--- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daDomainId :: Lens.Lens' DescribeApp Lude.Text
-daDomainId = Lens.lens (domainId :: DescribeApp -> Lude.Text) (\s a -> s {domainId = a} :: DescribeApp)
-{-# DEPRECATED daDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The user profile name.
 --
@@ -104,19 +96,26 @@ daUserProfileName :: Lens.Lens' DescribeApp Lude.Text
 daUserProfileName = Lens.lens (userProfileName :: DescribeApp -> Lude.Text) (\s a -> s {userProfileName = a} :: DescribeApp)
 {-# DEPRECATED daUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
--- | The type of app.
---
--- /Note:/ Consider using 'appType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAppType :: Lens.Lens' DescribeApp AppType
-daAppType = Lens.lens (appType :: DescribeApp -> AppType) (\s a -> s {appType = a} :: DescribeApp)
-{-# DEPRECATED daAppType "Use generic-lens or generic-optics with 'appType' instead." #-}
-
 -- | The name of the app.
 --
 -- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 daAppName :: Lens.Lens' DescribeApp Lude.Text
 daAppName = Lens.lens (appName :: DescribeApp -> Lude.Text) (\s a -> s {appName = a} :: DescribeApp)
 {-# DEPRECATED daAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
+
+-- | The domain ID.
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daDomainId :: Lens.Lens' DescribeApp Lude.Text
+daDomainId = Lens.lens (domainId :: DescribeApp -> Lude.Text) (\s a -> s {domainId = a} :: DescribeApp)
+{-# DEPRECATED daDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
+
+-- | The type of app.
+--
+-- /Note:/ Consider using 'appType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAppType :: Lens.Lens' DescribeApp AppType
+daAppType = Lens.lens (appType :: DescribeApp -> AppType) (\s a -> s {appType = a} :: DescribeApp)
+{-# DEPRECATED daAppType "Use generic-lens or generic-optics with 'appType' instead." #-}
 
 instance Lude.AWSRequest DescribeApp where
   type Rs DescribeApp = DescribeAppResponse
@@ -154,10 +153,10 @@ instance Lude.ToJSON DescribeApp where
   toJSON DescribeApp' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("DomainId" Lude..= domainId),
-            Lude.Just ("UserProfileName" Lude..= userProfileName),
-            Lude.Just ("AppType" Lude..= appType),
-            Lude.Just ("AppName" Lude..= appName)
+          [ Lude.Just ("UserProfileName" Lude..= userProfileName),
+            Lude.Just ("AppName" Lude..= appName),
+            Lude.Just ("DomainId" Lude..= domainId),
+            Lude.Just ("AppType" Lude..= appType)
           ]
       )
 
@@ -169,45 +168,48 @@ instance Lude.ToQuery DescribeApp where
 
 -- | /See:/ 'mkDescribeAppResponse' smart constructor.
 data DescribeAppResponse = DescribeAppResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status.
     status :: Lude.Maybe AppStatus,
+    -- | The failure reason.
     failureReason :: Lude.Maybe Lude.Text,
+    -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
     resourceSpec :: Lude.Maybe ResourceSpec,
+    -- | The user profile name.
     userProfileName :: Lude.Maybe Lude.Text,
-    lastUserActivityTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    lastHealthCheckTimestamp ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The timestamp of the last user's activity.
+    lastUserActivityTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The timestamp of the last health check.
+    lastHealthCheckTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the app.
     appName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the app.
     appARN :: Lude.Maybe Lude.Text,
+    -- | The domain ID.
     domainId :: Lude.Maybe Lude.Text,
+    -- | The type of app.
     appType :: Lude.Maybe AppType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAppResponse' with the minimum fields required to make a request.
 --
--- * 'appARN' - The Amazon Resource Name (ARN) of the app.
--- * 'appName' - The name of the app.
--- * 'appType' - The type of app.
 -- * 'creationTime' - The creation time.
--- * 'domainId' - The domain ID.
--- * 'failureReason' - The failure reason.
--- * 'lastHealthCheckTimestamp' - The timestamp of the last health check.
--- * 'lastUserActivityTimestamp' - The timestamp of the last user's activity.
--- * 'resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status.
+-- * 'failureReason' - The failure reason.
+-- * 'resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 -- * 'userProfileName' - The user profile name.
+-- * 'lastUserActivityTimestamp' - The timestamp of the last user's activity.
+-- * 'lastHealthCheckTimestamp' - The timestamp of the last health check.
+-- * 'appName' - The name of the app.
+-- * 'appARN' - The Amazon Resource Name (ARN) of the app.
+-- * 'domainId' - The domain ID.
+-- * 'appType' - The type of app.
+-- * 'responseStatus' - The response status code.
 mkDescribeAppResponse ::
   -- | 'responseStatus'
   Lude.Int ->

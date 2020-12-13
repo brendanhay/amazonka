@@ -28,14 +28,11 @@ import Network.AWS.SMS.Types.S3Location
 -- | A script that runs on first launch of an Amazon EC2 instance. Used for configuring the server during launch.
 --
 -- /See:/ 'mkUserData' smart constructor.
-newtype UserData = UserData' {s3Location :: Lude.Maybe S3Location}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype UserData = UserData'
+  { -- | Amazon S3 location of the user-data script.
+    s3Location :: Lude.Maybe S3Location
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserData' with the minimum fields required to make a request.

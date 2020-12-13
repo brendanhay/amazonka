@@ -40,42 +40,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobParameters' smart constructor.
 data JobParameters = JobParameters'
-  { archiveId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the archive that you want to retrieve. This field is required only if @Type@ is set to @select@ or @archive-retrieval@ code>. An error occurs if you specify this request parameter for an inventory retrieval job request.
+    archiveId :: Lude.Maybe Lude.Text,
+    -- | Contains the parameters that define a job.
     selectParameters :: Lude.Maybe SelectParameters,
+    -- | When initiating a job to retrieve a vault inventory, you can optionally add this parameter to your request to specify the output format. If you are initiating an inventory job and do not specify a Format field, JSON is the default format. Valid values are "CSV" and "JSON".
     format :: Lude.Maybe Lude.Text,
+    -- | The byte range to retrieve for an archive retrieval. in the form "/StartByteValue/ -/EndByteValue/ " If not specified, the whole archive is retrieved. If specified, the byte range must be megabyte (1024*1024) aligned which means that /StartByteValue/ must be divisible by 1 MB and /EndByteValue/ plus 1 must be divisible by 1 MB or be the end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange is not megabyte aligned, this operation returns a 400 response.
+    --
+    -- An error occurs if you specify this field for an inventory retrieval job request.
     retrievalByteRange :: Lude.Maybe Lude.Text,
-    inventoryRetrievalParameters ::
-      Lude.Maybe InventoryRetrievalJobInput,
+    -- | Input parameters used for range inventory retrieval.
+    inventoryRetrievalParameters :: Lude.Maybe InventoryRetrievalJobInput,
+    -- | The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification when the job is completed and the output is ready for you to download. The specified topic publishes the notification to its subscribers. The SNS topic must exist.
     snsTopic :: Lude.Maybe Lude.Text,
+    -- | Contains information about the location where the select job results are stored.
     outputLocation :: Lude.Maybe OutputLocation,
+    -- | The tier to use for a select or an archive retrieval job. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
     tier :: Lude.Maybe Lude.Text,
+    -- | The job type. You can initiate a job to perform a select query on an archive, retrieve an archive, or get an inventory of a vault. Valid values are "select", "archive-retrieval" and "inventory-retrieval".
     type' :: Lude.Maybe Lude.Text,
+    -- | The optional description for the job. The description must be less than or equal to 1,024 bytes. The allowable characters are 7-bit ASCII without control codes-specifically, ASCII values 32-126 decimal or 0x20-0x7E hexadecimal.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobParameters' with the minimum fields required to make a request.
 --
 -- * 'archiveId' - The ID of the archive that you want to retrieve. This field is required only if @Type@ is set to @select@ or @archive-retrieval@ code>. An error occurs if you specify this request parameter for an inventory retrieval job request.
--- * 'description' - The optional description for the job. The description must be less than or equal to 1,024 bytes. The allowable characters are 7-bit ASCII without control codes-specifically, ASCII values 32-126 decimal or 0x20-0x7E hexadecimal.
+-- * 'selectParameters' - Contains the parameters that define a job.
 -- * 'format' - When initiating a job to retrieve a vault inventory, you can optionally add this parameter to your request to specify the output format. If you are initiating an inventory job and do not specify a Format field, JSON is the default format. Valid values are "CSV" and "JSON".
--- * 'inventoryRetrievalParameters' - Input parameters used for range inventory retrieval.
--- * 'outputLocation' - Contains information about the location where the select job results are stored.
 -- * 'retrievalByteRange' - The byte range to retrieve for an archive retrieval. in the form "/StartByteValue/ -/EndByteValue/ " If not specified, the whole archive is retrieved. If specified, the byte range must be megabyte (1024*1024) aligned which means that /StartByteValue/ must be divisible by 1 MB and /EndByteValue/ plus 1 must be divisible by 1 MB or be the end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange is not megabyte aligned, this operation returns a 400 response.
 --
 -- An error occurs if you specify this field for an inventory retrieval job request.
--- * 'selectParameters' - Contains the parameters that define a job.
+-- * 'inventoryRetrievalParameters' - Input parameters used for range inventory retrieval.
 -- * 'snsTopic' - The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification when the job is completed and the output is ready for you to download. The specified topic publishes the notification to its subscribers. The SNS topic must exist.
+-- * 'outputLocation' - Contains information about the location where the select job results are stored.
 -- * 'tier' - The tier to use for a select or an archive retrieval job. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
 -- * 'type'' - The job type. You can initiate a job to perform a select query on an archive, retrieve an archive, or get an inventory of a vault. Valid values are "select", "archive-retrieval" and "inventory-retrieval".
+-- * 'description' - The optional description for the job. The description must be less than or equal to 1,024 bytes. The allowable characters are 7-bit ASCII without control codes-specifically, ASCII values 32-126 decimal or 0x20-0x7E hexadecimal.
 mkJobParameters ::
   JobParameters
 mkJobParameters =

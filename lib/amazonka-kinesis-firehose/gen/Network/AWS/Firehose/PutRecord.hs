@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,9 +36,9 @@ module Network.AWS.Firehose.PutRecord
     mkPutRecordResponse,
 
     -- ** Response lenses
+    prrsRecordId,
     prrsEncrypted,
     prrsResponseStatus,
-    prrsRecordId,
   )
 where
 
@@ -49,16 +50,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutRecord' smart constructor.
 data PutRecord = PutRecord'
-  { deliveryStreamName :: Lude.Text,
+  { -- | The name of the delivery stream.
+    deliveryStreamName :: Lude.Text,
+    -- | The record.
     record :: Record
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRecord' with the minimum fields required to make a request.
@@ -98,9 +95,9 @@ instance Lude.AWSRequest PutRecord where
     Res.receiveJSON
       ( \s h x ->
           PutRecordResponse'
-            Lude.<$> (x Lude..?> "Encrypted")
+            Lude.<$> (x Lude..:> "RecordId")
+            Lude.<*> (x Lude..?> "Encrypted")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "RecordId")
       )
 
 instance Lude.ToHeaders PutRecord where
@@ -131,37 +128,40 @@ instance Lude.ToQuery PutRecord where
 
 -- | /See:/ 'mkPutRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
-  { encrypted ::
-      Lude.Maybe Lude.Bool,
-    responseStatus :: Lude.Int,
-    recordId :: Lude.Text
+  { -- | The ID of the record.
+    recordId :: Lude.Text,
+    -- | Indicates whether server-side encryption (SSE) was enabled during this operation.
+    encrypted :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRecordResponse' with the minimum fields required to make a request.
 --
--- * 'encrypted' - Indicates whether server-side encryption (SSE) was enabled during this operation.
 -- * 'recordId' - The ID of the record.
+-- * 'encrypted' - Indicates whether server-side encryption (SSE) was enabled during this operation.
 -- * 'responseStatus' - The response status code.
 mkPutRecordResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'recordId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   PutRecordResponse
-mkPutRecordResponse pResponseStatus_ pRecordId_ =
+mkPutRecordResponse pRecordId_ pResponseStatus_ =
   PutRecordResponse'
-    { encrypted = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      recordId = pRecordId_
+    { recordId = pRecordId_,
+      encrypted = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | The ID of the record.
+--
+-- /Note:/ Consider using 'recordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrsRecordId :: Lens.Lens' PutRecordResponse Lude.Text
+prrsRecordId = Lens.lens (recordId :: PutRecordResponse -> Lude.Text) (\s a -> s {recordId = a} :: PutRecordResponse)
+{-# DEPRECATED prrsRecordId "Use generic-lens or generic-optics with 'recordId' instead." #-}
 
 -- | Indicates whether server-side encryption (SSE) was enabled during this operation.
 --
@@ -176,10 +176,3 @@ prrsEncrypted = Lens.lens (encrypted :: PutRecordResponse -> Lude.Maybe Lude.Boo
 prrsResponseStatus :: Lens.Lens' PutRecordResponse Lude.Int
 prrsResponseStatus = Lens.lens (responseStatus :: PutRecordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRecordResponse)
 {-# DEPRECATED prrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The ID of the record.
---
--- /Note:/ Consider using 'recordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prrsRecordId :: Lens.Lens' PutRecordResponse Lude.Text
-prrsRecordId = Lens.lens (recordId :: PutRecordResponse -> Lude.Text) (\s a -> s {recordId = a} :: PutRecordResponse)
-{-# DEPRECATED prrsRecordId "Use generic-lens or generic-optics with 'recordId' instead." #-}

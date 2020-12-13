@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStatisticalThreshold' smart constructor.
 newtype StatisticalThreshold = StatisticalThreshold'
-  { statistic ::
-      Lude.Maybe Lude.Text
+  { -- | The percentile which resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (@durationSeconds@ ) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (@comparisonOperator@ ) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
+    statistic :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatisticalThreshold' with the minimum fields required to make a request.

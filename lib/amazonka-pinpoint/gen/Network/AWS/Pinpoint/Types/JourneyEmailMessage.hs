@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJourneyEmailMessage' smart constructor.
 newtype JourneyEmailMessage = JourneyEmailMessage'
-  { fromAddress ::
-      Lude.Maybe Lude.Text
+  { -- | The verified email address to send the email message from. The default address is the FromAddress specified for the email channel for the application.
+    fromAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyEmailMessage' with the minimum fields required to make a request.

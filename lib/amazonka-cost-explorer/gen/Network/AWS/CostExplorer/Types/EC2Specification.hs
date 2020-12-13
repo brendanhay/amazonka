@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2Specification' smart constructor.
 newtype EC2Specification = EC2Specification'
-  { offeringClass ::
-      Lude.Maybe OfferingClass
+  { -- | Whether you want a recommendation for standard or convertible reservations.
+    offeringClass :: Lude.Maybe OfferingClass
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2Specification' with the minimum fields required to make a request.

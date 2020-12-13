@@ -13,13 +13,13 @@
 module Network.AWS.CloudFront.Types.Method
   ( Method
       ( Method',
-        Delete,
         Get,
         Head,
-        Options,
-        Patch,
         Post,
-        Put
+        Put,
+        Patch,
+        Options,
+        Delete
       ),
   )
 where
@@ -50,20 +50,11 @@ newtype Method = Method' Lude.Text
       Lude.ToHeader
     )
 
-pattern Delete :: Method
-pattern Delete = Method' "DELETE"
-
 pattern Get :: Method
 pattern Get = Method' "GET"
 
 pattern Head :: Method
 pattern Head = Method' "HEAD"
-
-pattern Options :: Method
-pattern Options = Method' "OPTIONS"
-
-pattern Patch :: Method
-pattern Patch = Method' "PATCH"
 
 pattern Post :: Method
 pattern Post = Method' "POST"
@@ -71,13 +62,22 @@ pattern Post = Method' "POST"
 pattern Put :: Method
 pattern Put = Method' "PUT"
 
+pattern Patch :: Method
+pattern Patch = Method' "PATCH"
+
+pattern Options :: Method
+pattern Options = Method' "OPTIONS"
+
+pattern Delete :: Method
+pattern Delete = Method' "DELETE"
+
 {-# COMPLETE
-  Delete,
   Get,
   Head,
-  Options,
-  Patch,
   Post,
   Put,
+  Patch,
+  Options,
+  Delete,
   Method'
   #-}

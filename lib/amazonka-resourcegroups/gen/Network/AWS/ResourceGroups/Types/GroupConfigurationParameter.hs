@@ -29,20 +29,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroupConfigurationParameter' smart constructor.
 data GroupConfigurationParameter = GroupConfigurationParameter'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The values of for this parameter.
+    --
+    -- You can specify the following string value:
+    --
+    --     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
+    values :: Lude.Maybe [Lude.Text],
+    -- | The name of the group configuration parameter.
+    --
+    -- You can specify the following string values:
+    --
+    --     * For configuration item type @AWS::ResourceGroups::Generic@ :
+    --
+    --     * @allowed-resource-types@
+    -- Specifies the types of resources that you can add to this group by using the 'GroupResources' operation.
+    --
+    --
+    --
+    --
+    --     * For configuration item type @AWS::EC2::CapacityReservationPool@ :
+    --
+    --     * None - This configuration item type doesn't support any parameters.
+    --
+    --
+    -- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupConfigurationParameter' with the minimum fields required to make a request.
+--
+-- * 'values' - The values of for this parameter.
+--
+-- You can specify the following string value:
+--
+--     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
+--
 --
 -- * 'name' - The name of the group configuration parameter.
 --
@@ -62,13 +85,6 @@ data GroupConfigurationParameter = GroupConfigurationParameter'
 --
 --
 -- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
---
---
--- * 'values' - The values of for this parameter.
---
--- You can specify the following string value:
---
---     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
 mkGroupConfigurationParameter ::
   -- | 'name'
   Lude.Text ->

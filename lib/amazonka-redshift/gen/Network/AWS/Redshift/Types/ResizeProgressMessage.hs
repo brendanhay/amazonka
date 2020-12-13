@@ -44,68 +44,84 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkResizeProgressMessage' smart constructor.
 data ResizeProgressMessage = ResizeProgressMessage'
-  { importTablesNotStarted ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of tables that have not been yet imported.
+    --
+    -- Valid Values: List of table names
+    importTablesNotStarted :: Lude.Maybe [Lude.Text],
+    -- | The status of the resize operation.
+    --
+    -- Valid Values: @NONE@ | @IN_PROGRESS@ | @FAILED@ | @SUCCEEDED@ | @CANCELLING@
     status :: Lude.Maybe Lude.Text,
-    estimatedTimeToCompletionInSeconds ::
-      Lude.Maybe Lude.Integer,
-    avgResizeRateInMegaBytesPerSecond ::
-      Lude.Maybe Lude.Double,
+    -- | The estimated time remaining, in seconds, until the resize operation is complete. This value is calculated based on the average resize rate and the estimated amount of data remaining to be processed. Once the resize operation is complete, this value will be 0.
+    estimatedTimeToCompletionInSeconds :: Lude.Maybe Lude.Integer,
+    -- | The average rate of the resize operation over the last few minutes, measured in megabytes per second. After the resize operation completes, this value shows the average rate of the entire resize operation.
+    avgResizeRateInMegaBytesPerSecond :: Lude.Maybe Lude.Double,
+    -- | The number of nodes that the cluster will have after the resize operation is complete.
     targetNumberOfNodes :: Lude.Maybe Lude.Int,
+    -- | The type of encryption for the cluster after the resize is complete.
+    --
+    -- Possible values are @KMS@ and @None@ .
     targetEncryptionType :: Lude.Maybe Lude.Text,
+    -- | The node type that the cluster will have after the resize operation is complete.
     targetNodeType :: Lude.Maybe Lude.Text,
-    importTablesInProgress ::
-      Lude.Maybe [Lude.Text],
+    -- | The names of tables that are being currently imported.
+    --
+    -- Valid Values: List of table names.
+    importTablesInProgress :: Lude.Maybe [Lude.Text],
+    -- | An enum with possible values of @ClassicResize@ and @ElasticResize@ . These values describe the type of resize operation being performed.
     resizeType :: Lude.Maybe Lude.Text,
+    -- | The names of tables that have been completely imported .
+    --
+    -- Valid Values: List of table names.
     importTablesCompleted :: Lude.Maybe [Lude.Text],
+    -- | While the resize operation is in progress, this value shows the current amount of data, in megabytes, that has been processed so far. When the resize operation is complete, this value shows the total amount of data, in megabytes, on the cluster, which may be more or less than TotalResizeDataInMegaBytes (the estimated total amount of data before resize).
     progressInMegaBytes :: Lude.Maybe Lude.Integer,
-    dataTransferProgressPercent ::
-      Lude.Maybe Lude.Double,
-    totalResizeDataInMegaBytes ::
-      Lude.Maybe Lude.Integer,
+    -- | The percent of data transferred from source cluster to target cluster.
+    dataTransferProgressPercent :: Lude.Maybe Lude.Double,
+    -- | The estimated total amount of data, in megabytes, on the cluster before the resize operation began.
+    totalResizeDataInMegaBytes :: Lude.Maybe Lude.Integer,
+    -- | The cluster type after the resize operation is complete.
+    --
+    -- Valid Values: @multi-node@ | @single-node@
     targetClusterType :: Lude.Maybe Lude.Text,
+    -- | An optional string to provide additional details about the resize action.
     message :: Lude.Maybe Lude.Text,
+    -- | The amount of seconds that have elapsed since the resize operation began. After the resize operation completes, this value shows the total actual time, in seconds, for the resize operation.
     elapsedTimeInSeconds :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResizeProgressMessage' with the minimum fields required to make a request.
 --
--- * 'avgResizeRateInMegaBytesPerSecond' - The average rate of the resize operation over the last few minutes, measured in megabytes per second. After the resize operation completes, this value shows the average rate of the entire resize operation.
--- * 'dataTransferProgressPercent' - The percent of data transferred from source cluster to target cluster.
--- * 'elapsedTimeInSeconds' - The amount of seconds that have elapsed since the resize operation began. After the resize operation completes, this value shows the total actual time, in seconds, for the resize operation.
--- * 'estimatedTimeToCompletionInSeconds' - The estimated time remaining, in seconds, until the resize operation is complete. This value is calculated based on the average resize rate and the estimated amount of data remaining to be processed. Once the resize operation is complete, this value will be 0.
--- * 'importTablesCompleted' - The names of tables that have been completely imported .
---
--- Valid Values: List of table names.
--- * 'importTablesInProgress' - The names of tables that are being currently imported.
---
--- Valid Values: List of table names.
 -- * 'importTablesNotStarted' - The names of tables that have not been yet imported.
 --
 -- Valid Values: List of table names
--- * 'message' - An optional string to provide additional details about the resize action.
--- * 'progressInMegaBytes' - While the resize operation is in progress, this value shows the current amount of data, in megabytes, that has been processed so far. When the resize operation is complete, this value shows the total amount of data, in megabytes, on the cluster, which may be more or less than TotalResizeDataInMegaBytes (the estimated total amount of data before resize).
--- * 'resizeType' - An enum with possible values of @ClassicResize@ and @ElasticResize@ . These values describe the type of resize operation being performed.
 -- * 'status' - The status of the resize operation.
 --
 -- Valid Values: @NONE@ | @IN_PROGRESS@ | @FAILED@ | @SUCCEEDED@ | @CANCELLING@
--- * 'targetClusterType' - The cluster type after the resize operation is complete.
---
--- Valid Values: @multi-node@ | @single-node@
+-- * 'estimatedTimeToCompletionInSeconds' - The estimated time remaining, in seconds, until the resize operation is complete. This value is calculated based on the average resize rate and the estimated amount of data remaining to be processed. Once the resize operation is complete, this value will be 0.
+-- * 'avgResizeRateInMegaBytesPerSecond' - The average rate of the resize operation over the last few minutes, measured in megabytes per second. After the resize operation completes, this value shows the average rate of the entire resize operation.
+-- * 'targetNumberOfNodes' - The number of nodes that the cluster will have after the resize operation is complete.
 -- * 'targetEncryptionType' - The type of encryption for the cluster after the resize is complete.
 --
 -- Possible values are @KMS@ and @None@ .
 -- * 'targetNodeType' - The node type that the cluster will have after the resize operation is complete.
--- * 'targetNumberOfNodes' - The number of nodes that the cluster will have after the resize operation is complete.
+-- * 'importTablesInProgress' - The names of tables that are being currently imported.
+--
+-- Valid Values: List of table names.
+-- * 'resizeType' - An enum with possible values of @ClassicResize@ and @ElasticResize@ . These values describe the type of resize operation being performed.
+-- * 'importTablesCompleted' - The names of tables that have been completely imported .
+--
+-- Valid Values: List of table names.
+-- * 'progressInMegaBytes' - While the resize operation is in progress, this value shows the current amount of data, in megabytes, that has been processed so far. When the resize operation is complete, this value shows the total amount of data, in megabytes, on the cluster, which may be more or less than TotalResizeDataInMegaBytes (the estimated total amount of data before resize).
+-- * 'dataTransferProgressPercent' - The percent of data transferred from source cluster to target cluster.
 -- * 'totalResizeDataInMegaBytes' - The estimated total amount of data, in megabytes, on the cluster before the resize operation began.
+-- * 'targetClusterType' - The cluster type after the resize operation is complete.
+--
+-- Valid Values: @multi-node@ | @single-node@
+-- * 'message' - An optional string to provide additional details about the resize action.
+-- * 'elapsedTimeInSeconds' - The amount of seconds that have elapsed since the resize operation began. After the resize operation completes, this value shows the total actual time, in seconds, for the resize operation.
 mkResizeProgressMessage ::
   ResizeProgressMessage
 mkResizeProgressMessage =

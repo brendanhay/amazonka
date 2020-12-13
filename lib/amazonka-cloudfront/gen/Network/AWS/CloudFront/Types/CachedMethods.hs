@@ -39,22 +39,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCachedMethods' smart constructor.
 data CachedMethods = CachedMethods'
-  { quantity :: Lude.Int,
+  { -- | The number of HTTP methods for which you want CloudFront to cache responses. Valid values are @2@ (for caching responses to @GET@ and @HEAD@ requests) and @3@ (for caching responses to @GET@ , @HEAD@ , and @OPTIONS@ requests).
+    quantity :: Lude.Int,
+    -- | A complex type that contains the HTTP methods that you want CloudFront to cache responses to.
     items :: [Method]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachedMethods' with the minimum fields required to make a request.
 --
--- * 'items' - A complex type that contains the HTTP methods that you want CloudFront to cache responses to.
 -- * 'quantity' - The number of HTTP methods for which you want CloudFront to cache responses. Valid values are @2@ (for caching responses to @GET@ and @HEAD@ requests) and @3@ (for caching responses to @GET@ , @HEAD@ , and @OPTIONS@ requests).
+-- * 'items' - A complex type that contains the HTTP methods that you want CloudFront to cache responses to.
 mkCachedMethods ::
   -- | 'quantity'
   Lude.Int ->

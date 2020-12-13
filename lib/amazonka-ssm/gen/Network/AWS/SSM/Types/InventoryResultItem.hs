@@ -17,11 +17,11 @@ module Network.AWS.SSM.Types.InventoryResultItem
     mkInventoryResultItem,
 
     -- * Lenses
-    iriContentHash,
-    iriCaptureTime,
     iriTypeName,
+    iriContentHash,
     iriSchemaVersion,
     iriContent,
+    iriCaptureTime,
   )
 where
 
@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInventoryResultItem' smart constructor.
 data InventoryResultItem = InventoryResultItem'
-  { contentHash ::
-      Lude.Maybe Lude.Text,
-    captureTime :: Lude.Maybe Lude.Text,
+  { -- | The name of the inventory result item type.
     typeName :: Lude.Text,
+    -- | MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
+    contentHash :: Lude.Maybe Lude.Text,
+    -- | The schema version for the inventory result item/
     schemaVersion :: Lude.Text,
-    content :: [Lude.HashMap Lude.Text (Lude.Text)]
+    -- | Contains all the inventory data of the item type. Results include attribute names and values.
+    content :: [Lude.HashMap Lude.Text (Lude.Text)],
+    -- | The time inventory item data was captured.
+    captureTime :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryResultItem' with the minimum fields required to make a request.
 --
--- * 'captureTime' - The time inventory item data was captured.
--- * 'content' - Contains all the inventory data of the item type. Results include attribute names and values.
+-- * 'typeName' - The name of the inventory result item type.
 -- * 'contentHash' - MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
 -- * 'schemaVersion' - The schema version for the inventory result item/
--- * 'typeName' - The name of the inventory result item type.
+-- * 'content' - Contains all the inventory data of the item type. Results include attribute names and values.
+-- * 'captureTime' - The time inventory item data was captured.
 mkInventoryResultItem ::
   -- | 'typeName'
   Lude.Text ->
@@ -63,26 +61,12 @@ mkInventoryResultItem ::
   InventoryResultItem
 mkInventoryResultItem pTypeName_ pSchemaVersion_ =
   InventoryResultItem'
-    { contentHash = Lude.Nothing,
-      captureTime = Lude.Nothing,
-      typeName = pTypeName_,
+    { typeName = pTypeName_,
+      contentHash = Lude.Nothing,
       schemaVersion = pSchemaVersion_,
-      content = Lude.mempty
+      content = Lude.mempty,
+      captureTime = Lude.Nothing
     }
-
--- | MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
---
--- /Note:/ Consider using 'contentHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iriContentHash :: Lens.Lens' InventoryResultItem (Lude.Maybe Lude.Text)
-iriContentHash = Lens.lens (contentHash :: InventoryResultItem -> Lude.Maybe Lude.Text) (\s a -> s {contentHash = a} :: InventoryResultItem)
-{-# DEPRECATED iriContentHash "Use generic-lens or generic-optics with 'contentHash' instead." #-}
-
--- | The time inventory item data was captured.
---
--- /Note:/ Consider using 'captureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iriCaptureTime :: Lens.Lens' InventoryResultItem (Lude.Maybe Lude.Text)
-iriCaptureTime = Lens.lens (captureTime :: InventoryResultItem -> Lude.Maybe Lude.Text) (\s a -> s {captureTime = a} :: InventoryResultItem)
-{-# DEPRECATED iriCaptureTime "Use generic-lens or generic-optics with 'captureTime' instead." #-}
 
 -- | The name of the inventory result item type.
 --
@@ -90,6 +74,13 @@ iriCaptureTime = Lens.lens (captureTime :: InventoryResultItem -> Lude.Maybe Lud
 iriTypeName :: Lens.Lens' InventoryResultItem Lude.Text
 iriTypeName = Lens.lens (typeName :: InventoryResultItem -> Lude.Text) (\s a -> s {typeName = a} :: InventoryResultItem)
 {-# DEPRECATED iriTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+-- | MD5 hash of the inventory item type contents. The content hash is used to determine whether to update inventory information. The PutInventory API does not update the inventory item type contents if the MD5 hash has not changed since last update.
+--
+-- /Note:/ Consider using 'contentHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriContentHash :: Lens.Lens' InventoryResultItem (Lude.Maybe Lude.Text)
+iriContentHash = Lens.lens (contentHash :: InventoryResultItem -> Lude.Maybe Lude.Text) (\s a -> s {contentHash = a} :: InventoryResultItem)
+{-# DEPRECATED iriContentHash "Use generic-lens or generic-optics with 'contentHash' instead." #-}
 
 -- | The schema version for the inventory result item/
 --
@@ -105,15 +96,22 @@ iriContent :: Lens.Lens' InventoryResultItem [Lude.HashMap Lude.Text (Lude.Text)
 iriContent = Lens.lens (content :: InventoryResultItem -> [Lude.HashMap Lude.Text (Lude.Text)]) (\s a -> s {content = a} :: InventoryResultItem)
 {-# DEPRECATED iriContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
+-- | The time inventory item data was captured.
+--
+-- /Note:/ Consider using 'captureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iriCaptureTime :: Lens.Lens' InventoryResultItem (Lude.Maybe Lude.Text)
+iriCaptureTime = Lens.lens (captureTime :: InventoryResultItem -> Lude.Maybe Lude.Text) (\s a -> s {captureTime = a} :: InventoryResultItem)
+{-# DEPRECATED iriCaptureTime "Use generic-lens or generic-optics with 'captureTime' instead." #-}
+
 instance Lude.FromJSON InventoryResultItem where
   parseJSON =
     Lude.withObject
       "InventoryResultItem"
       ( \x ->
           InventoryResultItem'
-            Lude.<$> (x Lude..:? "ContentHash")
-            Lude.<*> (x Lude..:? "CaptureTime")
-            Lude.<*> (x Lude..: "TypeName")
+            Lude.<$> (x Lude..: "TypeName")
+            Lude.<*> (x Lude..:? "ContentHash")
             Lude.<*> (x Lude..: "SchemaVersion")
             Lude.<*> (x Lude..:? "Content" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CaptureTime")
       )

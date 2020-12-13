@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.RDS.DescribeDBInstanceAutomatedBackups
     mkDescribeDBInstanceAutomatedBackups,
 
     -- ** Request lenses
-    ddbiabFilters,
-    ddbiabDBInstanceIdentifier,
-    ddbiabMarker,
-    ddbiabMaxRecords,
-    ddbiabDBiResourceId,
+    ddiabFilters,
+    ddiabDBInstanceIdentifier,
+    ddiabMarker,
+    ddiabMaxRecords,
+    ddiabDBiResourceId,
 
     -- * Destructuring the response
     DescribeDBInstanceAutomatedBackupsResponse (..),
@@ -51,30 +52,45 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDBInstanceAutomatedBackups' smart constructor.
 data DescribeDBInstanceAutomatedBackups = DescribeDBInstanceAutomatedBackups'
-  { filters ::
-      Lude.Maybe [Filter],
-    dbInstanceIdentifier ::
-      Lude.Maybe Lude.Text,
-    marker ::
-      Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int,
-    dbiResourceId ::
-      Lude.Maybe Lude.Text
+  { -- | A filter that specifies which resources to return based on status.
+    --
+    -- Supported filters are the following:
+    --
+    --     * @status@
+    --
+    --     * @active@ - automated backups for current instances
+    --
+    --
+    --     * @retained@ - automated backups for deleted instances
+    --
+    --
+    --     * @creating@ - automated backups that are waiting for the first automated snapshot to be available
+    --
+    --
+    --
+    --
+    --     * @db-instance-id@ - Accepts DB instance identifiers and Amazon Resource Names (ARNs) for DB instances. The results list includes only information about the DB instance automated backupss identified by these ARNs.
+    --
+    --
+    --     * @dbi-resource-id@ - Accepts DB instance resource identifiers and DB Amazon Resource Names (ARNs) for DB instances. The results list includes only information about the DB instance resources identified by these ARNs.
+    --
+    --
+    -- Returns all resources by default. The status for each resource is specified in the response.
+    filters :: Lude.Maybe [Filter],
+    -- | (Optional) The user-supplied instance identifier. If this parameter is specified, it must match the identifier of an existing DB instance. It returns information from the specific DB instance' automated backup. This parameter isn't case-sensitive.
+    dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+    maxRecords :: Lude.Maybe Lude.Int,
+    -- | The resource ID of the DB instance that is the source of the automated backup. This parameter isn't case-sensitive.
+    dbiResourceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBInstanceAutomatedBackups' with the minimum fields required to make a request.
 --
--- * 'dbInstanceIdentifier' - (Optional) The user-supplied instance identifier. If this parameter is specified, it must match the identifier of an existing DB instance. It returns information from the specific DB instance' automated backup. This parameter isn't case-sensitive.
--- * 'dbiResourceId' - The resource ID of the DB instance that is the source of the automated backup. This parameter isn't case-sensitive.
 -- * 'filters' - A filter that specifies which resources to return based on status.
 --
 -- Supported filters are the following:
@@ -99,8 +115,10 @@ data DescribeDBInstanceAutomatedBackups = DescribeDBInstanceAutomatedBackups'
 --
 --
 -- Returns all resources by default. The status for each resource is specified in the response.
+-- * 'dbInstanceIdentifier' - (Optional) The user-supplied instance identifier. If this parameter is specified, it must match the identifier of an existing DB instance. It returns information from the specific DB instance' automated backup. This parameter isn't case-sensitive.
 -- * 'marker' - The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+-- * 'dbiResourceId' - The resource ID of the DB instance that is the source of the automated backup. This parameter isn't case-sensitive.
 mkDescribeDBInstanceAutomatedBackups ::
   DescribeDBInstanceAutomatedBackups
 mkDescribeDBInstanceAutomatedBackups =
@@ -138,37 +156,37 @@ mkDescribeDBInstanceAutomatedBackups =
 -- Returns all resources by default. The status for each resource is specified in the response.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiabFilters :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe [Filter])
-ddbiabFilters = Lens.lens (filters :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBInstanceAutomatedBackups)
-{-# DEPRECATED ddbiabFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+ddiabFilters :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe [Filter])
+ddiabFilters = Lens.lens (filters :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBInstanceAutomatedBackups)
+{-# DEPRECATED ddiabFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | (Optional) The user-supplied instance identifier. If this parameter is specified, it must match the identifier of an existing DB instance. It returns information from the specific DB instance' automated backup. This parameter isn't case-sensitive.
 --
 -- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiabDBInstanceIdentifier :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe Lude.Text)
-ddbiabDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DescribeDBInstanceAutomatedBackups)
-{-# DEPRECATED ddbiabDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+ddiabDBInstanceIdentifier :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe Lude.Text)
+ddiabDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DescribeDBInstanceAutomatedBackups)
+{-# DEPRECATED ddiabDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
 -- | The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiabMarker :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe Lude.Text)
-ddbiabMarker = Lens.lens (marker :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBInstanceAutomatedBackups)
-{-# DEPRECATED ddbiabMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddiabMarker :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe Lude.Text)
+ddiabMarker = Lens.lens (marker :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBInstanceAutomatedBackups)
+{-# DEPRECATED ddiabMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiabMaxRecords :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe Lude.Int)
-ddbiabMaxRecords = Lens.lens (maxRecords :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBInstanceAutomatedBackups)
-{-# DEPRECATED ddbiabMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+ddiabMaxRecords :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe Lude.Int)
+ddiabMaxRecords = Lens.lens (maxRecords :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBInstanceAutomatedBackups)
+{-# DEPRECATED ddiabMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The resource ID of the DB instance that is the source of the automated backup. This parameter isn't case-sensitive.
 --
 -- /Note:/ Consider using 'dbiResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiabDBiResourceId :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe Lude.Text)
-ddbiabDBiResourceId = Lens.lens (dbiResourceId :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe Lude.Text) (\s a -> s {dbiResourceId = a} :: DescribeDBInstanceAutomatedBackups)
-{-# DEPRECATED ddbiabDBiResourceId "Use generic-lens or generic-optics with 'dbiResourceId' instead." #-}
+ddiabDBiResourceId :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Lude.Maybe Lude.Text)
+ddiabDBiResourceId = Lens.lens (dbiResourceId :: DescribeDBInstanceAutomatedBackups -> Lude.Maybe Lude.Text) (\s a -> s {dbiResourceId = a} :: DescribeDBInstanceAutomatedBackups)
+{-# DEPRECATED ddiabDBiResourceId "Use generic-lens or generic-optics with 'dbiResourceId' instead." #-}
 
 instance Page.AWSPager DescribeDBInstanceAutomatedBackups where
   page rq rs
@@ -178,7 +196,7 @@ instance Page.AWSPager DescribeDBInstanceAutomatedBackups where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& ddbiabMarker Lens..~ rs Lens.^. ddiabrsMarker
+          Lude.& ddiabMarker Lens..~ rs Lens.^. ddiabrsMarker
 
 instance Lude.AWSRequest DescribeDBInstanceAutomatedBackups where
   type
@@ -221,22 +239,14 @@ instance Lude.ToQuery DescribeDBInstanceAutomatedBackups where
 --
 -- /See:/ 'mkDescribeDBInstanceAutomatedBackupsResponse' smart constructor.
 data DescribeDBInstanceAutomatedBackupsResponse = DescribeDBInstanceAutomatedBackupsResponse'
-  { dbInstanceAutomatedBackups ::
-      Lude.Maybe
-        [DBInstanceAutomatedBackup],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of @DBInstanceAutomatedBackup@ instances.
+    dbInstanceAutomatedBackups :: Lude.Maybe [DBInstanceAutomatedBackup],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBInstanceAutomatedBackupsResponse' with the minimum fields required to make a request.

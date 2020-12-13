@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.DataPipeline.ActivatePipeline
     mkActivatePipeline,
 
     -- ** Request lenses
+    apPipelineId,
     apStartTimestamp,
     apParameterValues,
-    apPipelineId,
 
     -- * Destructuring the response
     ActivatePipelineResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkActivatePipeline' smart constructor.
 data ActivatePipeline = ActivatePipeline'
-  { startTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    parameterValues :: Lude.Maybe [ParameterValue],
-    pipelineId :: Lude.Text
+  { -- | The ID of the pipeline.
+    pipelineId :: Lude.Text,
+    -- | The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
+    startTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | A list of parameter values to pass to the pipeline at activation.
+    parameterValues :: Lude.Maybe [ParameterValue]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivatePipeline' with the minimum fields required to make a request.
 --
--- * 'parameterValues' - A list of parameter values to pass to the pipeline at activation.
 -- * 'pipelineId' - The ID of the pipeline.
 -- * 'startTimestamp' - The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
+-- * 'parameterValues' - A list of parameter values to pass to the pipeline at activation.
 mkActivatePipeline ::
   -- | 'pipelineId'
   Lude.Text ->
   ActivatePipeline
 mkActivatePipeline pPipelineId_ =
   ActivatePipeline'
-    { startTimestamp = Lude.Nothing,
-      parameterValues = Lude.Nothing,
-      pipelineId = pPipelineId_
+    { pipelineId = pPipelineId_,
+      startTimestamp = Lude.Nothing,
+      parameterValues = Lude.Nothing
     }
+
+-- | The ID of the pipeline.
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apPipelineId :: Lens.Lens' ActivatePipeline Lude.Text
+apPipelineId = Lens.lens (pipelineId :: ActivatePipeline -> Lude.Text) (\s a -> s {pipelineId = a} :: ActivatePipeline)
+{-# DEPRECATED apPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The date and time to resume the pipeline. By default, the pipeline resumes from the last completed execution.
 --
@@ -88,13 +92,6 @@ apStartTimestamp = Lens.lens (startTimestamp :: ActivatePipeline -> Lude.Maybe L
 apParameterValues :: Lens.Lens' ActivatePipeline (Lude.Maybe [ParameterValue])
 apParameterValues = Lens.lens (parameterValues :: ActivatePipeline -> Lude.Maybe [ParameterValue]) (\s a -> s {parameterValues = a} :: ActivatePipeline)
 {-# DEPRECATED apParameterValues "Use generic-lens or generic-optics with 'parameterValues' instead." #-}
-
--- | The ID of the pipeline.
---
--- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apPipelineId :: Lens.Lens' ActivatePipeline Lude.Text
-apPipelineId = Lens.lens (pipelineId :: ActivatePipeline -> Lude.Text) (\s a -> s {pipelineId = a} :: ActivatePipeline)
-{-# DEPRECATED apPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 instance Lude.AWSRequest ActivatePipeline where
   type Rs ActivatePipeline = ActivatePipelineResponse
@@ -120,9 +117,9 @@ instance Lude.ToJSON ActivatePipeline where
   toJSON ActivatePipeline' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("startTimestamp" Lude..=) Lude.<$> startTimestamp,
-            ("parameterValues" Lude..=) Lude.<$> parameterValues,
-            Lude.Just ("pipelineId" Lude..= pipelineId)
+          [ Lude.Just ("pipelineId" Lude..= pipelineId),
+            ("startTimestamp" Lude..=) Lude.<$> startTimestamp,
+            ("parameterValues" Lude..=) Lude.<$> parameterValues
           ]
       )
 
@@ -136,16 +133,10 @@ instance Lude.ToQuery ActivatePipeline where
 --
 -- /See:/ 'mkActivatePipelineResponse' smart constructor.
 newtype ActivatePipelineResponse = ActivatePipelineResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivatePipelineResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,16 +46,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetIdentityPoolRoles' smart constructor.
 newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
-  { identityPoolId ::
-      Lude.Text
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPoolRoles' with the minimum fields required to make a request.
@@ -117,37 +112,24 @@ instance Lude.ToQuery GetIdentityPoolRoles where
 --
 -- /See:/ 'mkGetIdentityPoolRolesResponse' smart constructor.
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
-  { roles ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    identityPoolId ::
-      Lude.Maybe Lude.Text,
-    roleMappings ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (RoleMapping)
-        ),
+  { -- | The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
+    roles :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Lude.Maybe Lude.Text,
+    -- | How users for a specific identity provider are to mapped to roles. This is a String-to-'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+    roleMappings :: Lude.Maybe (Lude.HashMap Lude.Text (RoleMapping)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPoolRolesResponse' with the minimum fields required to make a request.
 --
--- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
--- * 'responseStatus' - The response status code.
--- * 'roleMappings' - How users for a specific identity provider are to mapped to roles. This is a String-to-'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
 -- * 'roles' - The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
+-- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+-- * 'roleMappings' - How users for a specific identity provider are to mapped to roles. This is a String-to-'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+-- * 'responseStatus' - The response status code.
 mkGetIdentityPoolRolesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

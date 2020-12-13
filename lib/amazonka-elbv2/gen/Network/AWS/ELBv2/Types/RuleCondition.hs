@@ -43,23 +43,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRuleCondition' smart constructor.
 data RuleCondition = RuleCondition'
-  { field :: Lude.Maybe Lude.Text,
+  { -- | The field in the HTTP request. The following are the possible values:
+    --
+    --
+    --     * @http-header@
+    --
+    --
+    --     * @http-request-method@
+    --
+    --
+    --     * @host-header@
+    --
+    --
+    --     * @path-pattern@
+    --
+    --
+    --     * @query-string@
+    --
+    --
+    --     * @source-ip@
+    field :: Lude.Maybe Lude.Text,
+    -- | Information for an HTTP header condition. Specify only when @Field@ is @http-header@ .
     hTTPHeaderConfig :: Lude.Maybe HTTPHeaderConditionConfig,
+    -- | Information for a host header condition. Specify only when @Field@ is @host-header@ .
     hostHeaderConfig :: Lude.Maybe HostHeaderConditionConfig,
+    -- | The condition value. Specify only when @Field@ is @host-header@ or @path-pattern@ . Alternatively, to specify multiple host names or multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@ .
+    --
+    -- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@ , you can specify a single host name (for example, my.example.com) in @Values@ . A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
+    --
+    --     * A-Z, a-z, 0-9
+    --
+    --
+    --     * - .
+    --
+    --
+    --     * * (matches 0 or more characters)
+    --
+    --
+    --     * ? (matches exactly 1 character)
+    --
+    --
+    -- If @Field@ is @path-pattern@ and you are not using @PathPatternConfig@ , you can specify a single path pattern (for example, /img/*) in @Values@ . A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
+    --
+    --     * A-Z, a-z, 0-9
+    --
+    --
+    --     * _ - . $ / ~ " ' @ : +
+    --
+    --
+    --     * & (using &amp;)
+    --
+    --
+    --     * * (matches 0 or more characters)
+    --
+    --
+    --     * ? (matches exactly 1 character)
     values :: Lude.Maybe [Lude.Text],
+    -- | Information for a source IP condition. Specify only when @Field@ is @source-ip@ .
     sourceIPConfig :: Lude.Maybe SourceIPConditionConfig,
-    hTTPRequestMethodConfig ::
-      Lude.Maybe HTTPRequestMethodConditionConfig,
+    -- | Information for an HTTP method condition. Specify only when @Field@ is @http-request-method@ .
+    hTTPRequestMethodConfig :: Lude.Maybe HTTPRequestMethodConditionConfig,
+    -- | Information for a path pattern condition. Specify only when @Field@ is @path-pattern@ .
     pathPatternConfig :: Lude.Maybe PathPatternConditionConfig,
+    -- | Information for a query string condition. Specify only when @Field@ is @query-string@ .
     queryStringConfig :: Lude.Maybe QueryStringConditionConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuleCondition' with the minimum fields required to make a request.
@@ -86,11 +135,7 @@ data RuleCondition = RuleCondition'
 --
 --
 -- * 'hTTPHeaderConfig' - Information for an HTTP header condition. Specify only when @Field@ is @http-header@ .
--- * 'hTTPRequestMethodConfig' - Information for an HTTP method condition. Specify only when @Field@ is @http-request-method@ .
 -- * 'hostHeaderConfig' - Information for a host header condition. Specify only when @Field@ is @host-header@ .
--- * 'pathPatternConfig' - Information for a path pattern condition. Specify only when @Field@ is @path-pattern@ .
--- * 'queryStringConfig' - Information for a query string condition. Specify only when @Field@ is @query-string@ .
--- * 'sourceIPConfig' - Information for a source IP condition. Specify only when @Field@ is @source-ip@ .
 -- * 'values' - The condition value. Specify only when @Field@ is @host-header@ or @path-pattern@ . Alternatively, to specify multiple host names or multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@ .
 --
 -- If @Field@ is @host-header@ and you are not using @HostHeaderConfig@ , you can specify a single host name (for example, my.example.com) in @Values@ . A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
@@ -122,6 +167,12 @@ data RuleCondition = RuleCondition'
 --
 --
 --     * ? (matches exactly 1 character)
+--
+--
+-- * 'sourceIPConfig' - Information for a source IP condition. Specify only when @Field@ is @source-ip@ .
+-- * 'hTTPRequestMethodConfig' - Information for an HTTP method condition. Specify only when @Field@ is @http-request-method@ .
+-- * 'pathPatternConfig' - Information for a path pattern condition. Specify only when @Field@ is @path-pattern@ .
+-- * 'queryStringConfig' - Information for a query string condition. Specify only when @Field@ is @query-string@ .
 mkRuleCondition ::
   RuleCondition
 mkRuleCondition =

@@ -33,23 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlueGreenDeploymentConfiguration' smart constructor.
 data BlueGreenDeploymentConfiguration = BlueGreenDeploymentConfiguration'
-  { deploymentReadyOption ::
-      Lude.Maybe
-        DeploymentReadyOption,
-    greenFleetProvisioningOption ::
-      Lude.Maybe
-        GreenFleetProvisioningOption,
-    terminateBlueInstancesOnDeploymentSuccess ::
-      Lude.Maybe
-        BlueInstanceTerminationOption
+  { -- | Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
+    deploymentReadyOption :: Lude.Maybe DeploymentReadyOption,
+    -- | Information about how instances are provisioned for a replacement environment in a blue/green deployment.
+    greenFleetProvisioningOption :: Lude.Maybe GreenFleetProvisioningOption,
+    -- | Information about whether to terminate instances in the original fleet during a blue/green deployment.
+    terminateBlueInstancesOnDeploymentSuccess :: Lude.Maybe BlueInstanceTerminationOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlueGreenDeploymentConfiguration' with the minimum fields required to make a request.

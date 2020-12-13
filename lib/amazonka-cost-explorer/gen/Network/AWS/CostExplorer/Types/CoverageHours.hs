@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCoverageHours' smart constructor.
 data CoverageHours = CoverageHours'
-  { coverageHoursPercentage ::
-      Lude.Maybe Lude.Text,
+  { -- | The percentage of instance hours that a reservation covered.
+    coverageHoursPercentage :: Lude.Maybe Lude.Text,
+    -- | The number of instance running hours that On-Demand Instances covered.
     onDemandHours :: Lude.Maybe Lude.Text,
+    -- | The total instance usage, in hours.
     totalRunningHours :: Lude.Maybe Lude.Text,
+    -- | The number of instance running hours that reservations covered.
     reservedHours :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoverageHours' with the minimum fields required to make a request.
 --
 -- * 'coverageHoursPercentage' - The percentage of instance hours that a reservation covered.
 -- * 'onDemandHours' - The number of instance running hours that On-Demand Instances covered.
--- * 'reservedHours' - The number of instance running hours that reservations covered.
 -- * 'totalRunningHours' - The total instance usage, in hours.
+-- * 'reservedHours' - The number of instance running hours that reservations covered.
 mkCoverageHours ::
   CoverageHours
 mkCoverageHours =

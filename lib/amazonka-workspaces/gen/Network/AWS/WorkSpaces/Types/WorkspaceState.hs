@@ -13,23 +13,23 @@
 module Network.AWS.WorkSpaces.Types.WorkspaceState
   ( WorkspaceState
       ( WorkspaceState',
-        WSAdminMaintenance,
-        WSAvailable,
-        WSError,
-        WSImpaired,
-        WSMaintenance,
         WSPending,
+        WSAvailable,
+        WSImpaired,
+        WSUnhealthy,
         WSRebooting,
+        WSStarting,
         WSRebuilding,
         WSRestoring,
-        WSStarting,
-        WSStopped,
-        WSStopping,
-        WSSuspended,
-        WSTerminated,
+        WSMaintenance,
+        WSAdminMaintenance,
         WSTerminating,
-        WSUnhealthy,
-        WSUpdating
+        WSTerminated,
+        WSSuspended,
+        WSUpdating,
+        WSStopping,
+        WSStopped,
+        WSError
       ),
   )
 where
@@ -60,26 +60,23 @@ newtype WorkspaceState = WorkspaceState' Lude.Text
       Lude.ToHeader
     )
 
-pattern WSAdminMaintenance :: WorkspaceState
-pattern WSAdminMaintenance = WorkspaceState' "ADMIN_MAINTENANCE"
+pattern WSPending :: WorkspaceState
+pattern WSPending = WorkspaceState' "PENDING"
 
 pattern WSAvailable :: WorkspaceState
 pattern WSAvailable = WorkspaceState' "AVAILABLE"
 
-pattern WSError :: WorkspaceState
-pattern WSError = WorkspaceState' "ERROR"
-
 pattern WSImpaired :: WorkspaceState
 pattern WSImpaired = WorkspaceState' "IMPAIRED"
 
-pattern WSMaintenance :: WorkspaceState
-pattern WSMaintenance = WorkspaceState' "MAINTENANCE"
-
-pattern WSPending :: WorkspaceState
-pattern WSPending = WorkspaceState' "PENDING"
+pattern WSUnhealthy :: WorkspaceState
+pattern WSUnhealthy = WorkspaceState' "UNHEALTHY"
 
 pattern WSRebooting :: WorkspaceState
 pattern WSRebooting = WorkspaceState' "REBOOTING"
+
+pattern WSStarting :: WorkspaceState
+pattern WSStarting = WorkspaceState' "STARTING"
 
 pattern WSRebuilding :: WorkspaceState
 pattern WSRebuilding = WorkspaceState' "REBUILDING"
@@ -87,47 +84,50 @@ pattern WSRebuilding = WorkspaceState' "REBUILDING"
 pattern WSRestoring :: WorkspaceState
 pattern WSRestoring = WorkspaceState' "RESTORING"
 
-pattern WSStarting :: WorkspaceState
-pattern WSStarting = WorkspaceState' "STARTING"
+pattern WSMaintenance :: WorkspaceState
+pattern WSMaintenance = WorkspaceState' "MAINTENANCE"
 
-pattern WSStopped :: WorkspaceState
-pattern WSStopped = WorkspaceState' "STOPPED"
-
-pattern WSStopping :: WorkspaceState
-pattern WSStopping = WorkspaceState' "STOPPING"
-
-pattern WSSuspended :: WorkspaceState
-pattern WSSuspended = WorkspaceState' "SUSPENDED"
-
-pattern WSTerminated :: WorkspaceState
-pattern WSTerminated = WorkspaceState' "TERMINATED"
+pattern WSAdminMaintenance :: WorkspaceState
+pattern WSAdminMaintenance = WorkspaceState' "ADMIN_MAINTENANCE"
 
 pattern WSTerminating :: WorkspaceState
 pattern WSTerminating = WorkspaceState' "TERMINATING"
 
-pattern WSUnhealthy :: WorkspaceState
-pattern WSUnhealthy = WorkspaceState' "UNHEALTHY"
+pattern WSTerminated :: WorkspaceState
+pattern WSTerminated = WorkspaceState' "TERMINATED"
+
+pattern WSSuspended :: WorkspaceState
+pattern WSSuspended = WorkspaceState' "SUSPENDED"
 
 pattern WSUpdating :: WorkspaceState
 pattern WSUpdating = WorkspaceState' "UPDATING"
 
+pattern WSStopping :: WorkspaceState
+pattern WSStopping = WorkspaceState' "STOPPING"
+
+pattern WSStopped :: WorkspaceState
+pattern WSStopped = WorkspaceState' "STOPPED"
+
+pattern WSError :: WorkspaceState
+pattern WSError = WorkspaceState' "ERROR"
+
 {-# COMPLETE
-  WSAdminMaintenance,
-  WSAvailable,
-  WSError,
-  WSImpaired,
-  WSMaintenance,
   WSPending,
+  WSAvailable,
+  WSImpaired,
+  WSUnhealthy,
   WSRebooting,
+  WSStarting,
   WSRebuilding,
   WSRestoring,
-  WSStarting,
-  WSStopped,
-  WSStopping,
-  WSSuspended,
-  WSTerminated,
+  WSMaintenance,
+  WSAdminMaintenance,
   WSTerminating,
-  WSUnhealthy,
+  WSTerminated,
+  WSSuspended,
   WSUpdating,
+  WSStopping,
+  WSStopped,
+  WSError,
   WorkspaceState'
   #-}

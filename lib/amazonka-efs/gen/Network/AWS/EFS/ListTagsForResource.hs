@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EFS.ListTagsForResource
     mkListTagsForResource,
 
     -- ** Request lenses
+    ltfrResourceId,
     ltfrNextToken,
     ltfrMaxResults,
-    ltfrResourceId,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
@@ -44,35 +45,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    resourceId :: Lude.Text
+  { -- | Specifies the EFS resource you want to retrieve tags for. You can retrieve tags for EFS file systems and access points using this API endpoint.
+    resourceId :: Lude.Text,
+    -- | You can use @NextToken@ in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | (Optional) Specifies the maximum number of tag objects to return in the response. The default value is 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- * 'maxResults' - (Optional) Specifies the maximum number of tag objects to return in the response. The default value is 100.
--- * 'nextToken' - You can use @NextToken@ in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.
 -- * 'resourceId' - Specifies the EFS resource you want to retrieve tags for. You can retrieve tags for EFS file systems and access points using this API endpoint.
+-- * 'nextToken' - You can use @NextToken@ in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.
+-- * 'maxResults' - (Optional) Specifies the maximum number of tag objects to return in the response. The default value is 100.
 mkListTagsForResource ::
   -- | 'resourceId'
   Lude.Text ->
   ListTagsForResource
 mkListTagsForResource pResourceId_ =
   ListTagsForResource'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | Specifies the EFS resource you want to retrieve tags for. You can retrieve tags for EFS file systems and access points using this API endpoint.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceId :: Lens.Lens' ListTagsForResource Lude.Text
+ltfrResourceId = Lens.lens (resourceId :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | You can use @NextToken@ in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.
 --
@@ -87,13 +91,6 @@ ltfrNextToken = Lens.lens (nextToken :: ListTagsForResource -> Lude.Maybe Lude.T
 ltfrMaxResults :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
 ltfrMaxResults = Lens.lens (maxResults :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | Specifies the EFS resource you want to retrieve tags for. You can retrieve tags for EFS file systems and access points using this API endpoint.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrResourceId :: Lens.Lens' ListTagsForResource Lude.Text
-ltfrResourceId = Lens.lens (resourceId :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
@@ -121,25 +118,21 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | @NextToken@ is present if the response payload is paginated. You can use @NextToken@ in a subsequent request to fetch the next page of access point descriptions.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of the tags for the specified EFS resource.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - @NextToken@ is present if the response payload is paginated. You can use @NextToken@ in a subsequent request to fetch the next page of access point descriptions.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - An array of the tags for the specified EFS resource.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

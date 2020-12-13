@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,18 @@ import Network.AWS.WAF.Types
 --
 -- /See:/ 'mkListXSSMatchSets' smart constructor.
 data ListXSSMatchSets = ListXSSMatchSets'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListXSSMatchSets' with the minimum fields required to make a request.
 --
--- * 'limit' - Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 -- * 'nextMarker' - If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
+-- * 'limit' - Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 mkListXSSMatchSets ::
   ListXSSMatchSets
 mkListXSSMatchSets =
@@ -136,25 +132,21 @@ instance Lude.ToQuery ListXSSMatchSets where
 --
 -- /See:/ 'mkListXSSMatchSetsResponse' smart constructor.
 data ListXSSMatchSetsResponse = ListXSSMatchSetsResponse'
-  { xssMatchSets ::
-      Lude.Maybe [XSSMatchSetSummary],
+  { -- | An array of 'XssMatchSetSummary' objects.
+    xssMatchSets :: Lude.Maybe [XSSMatchSetSummary],
+    -- | If you have more 'XssMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListXSSMatchSetsResponse' with the minimum fields required to make a request.
 --
+-- * 'xssMatchSets' - An array of 'XssMatchSetSummary' objects.
 -- * 'nextMarker' - If you have more 'XssMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 -- * 'responseStatus' - The response status code.
--- * 'xssMatchSets' - An array of 'XssMatchSetSummary' objects.
 mkListXSSMatchSetsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

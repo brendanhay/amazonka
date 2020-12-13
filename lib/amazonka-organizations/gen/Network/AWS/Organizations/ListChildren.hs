@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.Organizations.ListChildren
 
     -- ** Request lenses
     lcNextToken,
+    lcChildType,
     lcMaxResults,
     lcParentId,
-    lcChildType,
 
     -- * Destructuring the response
     ListChildrenResponse (..),
@@ -48,26 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListChildren' smart constructor.
 data ListChildren = ListChildren'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters the output to include only the specified child type.
+    childType :: ChildType,
+    -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
     maxResults :: Lude.Maybe Lude.Natural,
-    parentId :: Lude.Text,
-    childType :: ChildType
+    -- | The unique identifier (ID) for the parent root or OU whose children you want to list.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
+    --
+    --     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
+    --
+    --
+    --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+    parentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChildren' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 -- * 'childType' - Filters the output to include only the specified child type.
 -- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 -- * 'parentId' - The unique identifier (ID) for the parent root or OU whose children you want to list.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
@@ -77,17 +82,17 @@ data ListChildren = ListChildren'
 --
 --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
 mkListChildren ::
-  -- | 'parentId'
-  Lude.Text ->
   -- | 'childType'
   ChildType ->
+  -- | 'parentId'
+  Lude.Text ->
   ListChildren
-mkListChildren pParentId_ pChildType_ =
+mkListChildren pChildType_ pParentId_ =
   ListChildren'
     { nextToken = Lude.Nothing,
+      childType = pChildType_,
       maxResults = Lude.Nothing,
-      parentId = pParentId_,
-      childType = pChildType_
+      parentId = pParentId_
     }
 
 -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
@@ -96,6 +101,13 @@ mkListChildren pParentId_ pChildType_ =
 lcNextToken :: Lens.Lens' ListChildren (Lude.Maybe Lude.Text)
 lcNextToken = Lens.lens (nextToken :: ListChildren -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListChildren)
 {-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Filters the output to include only the specified child type.
+--
+-- /Note:/ Consider using 'childType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcChildType :: Lens.Lens' ListChildren ChildType
+lcChildType = Lens.lens (childType :: ListChildren -> ChildType) (\s a -> s {childType = a} :: ListChildren)
+{-# DEPRECATED lcChildType "Use generic-lens or generic-optics with 'childType' instead." #-}
 
 -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 --
@@ -119,13 +131,6 @@ lcMaxResults = Lens.lens (maxResults :: ListChildren -> Lude.Maybe Lude.Natural)
 lcParentId :: Lens.Lens' ListChildren Lude.Text
 lcParentId = Lens.lens (parentId :: ListChildren -> Lude.Text) (\s a -> s {parentId = a} :: ListChildren)
 {-# DEPRECATED lcParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
-
--- | Filters the output to include only the specified child type.
---
--- /Note:/ Consider using 'childType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcChildType :: Lens.Lens' ListChildren ChildType
-lcChildType = Lens.lens (childType :: ListChildren -> ChildType) (\s a -> s {childType = a} :: ListChildren)
-{-# DEPRECATED lcChildType "Use generic-lens or generic-optics with 'childType' instead." #-}
 
 instance Page.AWSPager ListChildren where
   page rq rs
@@ -164,9 +169,9 @@ instance Lude.ToJSON ListChildren where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("ChildType" Lude..= childType),
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ParentId" Lude..= parentId),
-            Lude.Just ("ChildType" Lude..= childType)
+            Lude.Just ("ParentId" Lude..= parentId)
           ]
       )
 
@@ -178,18 +183,14 @@ instance Lude.ToQuery ListChildren where
 
 -- | /See:/ 'mkListChildrenResponse' smart constructor.
 data ListChildrenResponse = ListChildrenResponse'
-  { children ::
-      Lude.Maybe [Child],
+  { -- | The list of children of the specified parent container.
+    children :: Lude.Maybe [Child],
+    -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChildrenResponse' with the minimum fields required to make a request.

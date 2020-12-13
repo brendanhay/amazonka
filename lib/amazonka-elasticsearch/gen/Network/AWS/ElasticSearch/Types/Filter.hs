@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { values ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | Contains one or more values for the filter.
+    values :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Specifies the name of the filter.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
--- * 'name' - Specifies the name of the filter.
 -- * 'values' - Contains one or more values for the filter.
+-- * 'name' - Specifies the name of the filter.
 mkFilter ::
   Filter
 mkFilter = Filter' {values = Lude.Nothing, name = Lude.Nothing}

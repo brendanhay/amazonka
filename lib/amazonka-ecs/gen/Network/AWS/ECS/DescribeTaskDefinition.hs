@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,9 +28,9 @@ module Network.AWS.ECS.DescribeTaskDefinition
     mkDescribeTaskDefinitionResponse,
 
     -- ** Response lenses
-    desrsTaskDefinition,
-    desrsTags,
-    desrsResponseStatus,
+    dtdfrsTaskDefinition,
+    dtdfrsTags,
+    dtdfrsResponseStatus,
   )
 where
 
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTaskDefinition' smart constructor.
 data DescribeTaskDefinition = DescribeTaskDefinition'
-  { include ::
-      Lude.Maybe [TaskDefinitionField],
+  { -- | Specifies whether to see the resource tags for the task definition. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+    include :: Lude.Maybe [TaskDefinitionField],
+    -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@ (@family:revision@ ) for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
     taskDefinition :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTaskDefinition' with the minimum fields required to make a request.
@@ -124,23 +120,41 @@ instance Lude.ToQuery DescribeTaskDefinition where
 
 -- | /See:/ 'mkDescribeTaskDefinitionResponse' smart constructor.
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
-  { taskDefinition ::
-      Lude.Maybe TaskDefinition,
+  { -- | The full task definition description.
+    taskDefinition :: Lude.Maybe TaskDefinition,
+    -- | The metadata that is applied to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+    --
+    -- The following basic restrictions apply to tags:
+    --
+    --     * Maximum number of tags per resource - 50
+    --
+    --
+    --     * For each resource, each tag key must be unique, and each tag key can have only one value.
+    --
+    --
+    --     * Maximum key length - 128 Unicode characters in UTF-8
+    --
+    --
+    --     * Maximum value length - 256 Unicode characters in UTF-8
+    --
+    --
+    --     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+    --
+    --
+    --     * Tag keys and values are case-sensitive.
+    --
+    --
+    --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTaskDefinitionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
+-- * 'taskDefinition' - The full task definition description.
 -- * 'tags' - The metadata that is applied to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
 -- The following basic restrictions apply to tags:
@@ -166,7 +180,7 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
 --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 --
 --
--- * 'taskDefinition' - The full task definition description.
+-- * 'responseStatus' - The response status code.
 mkDescribeTaskDefinitionResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -181,9 +195,9 @@ mkDescribeTaskDefinitionResponse pResponseStatus_ =
 -- | The full task definition description.
 --
 -- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsTaskDefinition :: Lens.Lens' DescribeTaskDefinitionResponse (Lude.Maybe TaskDefinition)
-desrsTaskDefinition = Lens.lens (taskDefinition :: DescribeTaskDefinitionResponse -> Lude.Maybe TaskDefinition) (\s a -> s {taskDefinition = a} :: DescribeTaskDefinitionResponse)
-{-# DEPRECATED desrsTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
+dtdfrsTaskDefinition :: Lens.Lens' DescribeTaskDefinitionResponse (Lude.Maybe TaskDefinition)
+dtdfrsTaskDefinition = Lens.lens (taskDefinition :: DescribeTaskDefinitionResponse -> Lude.Maybe TaskDefinition) (\s a -> s {taskDefinition = a} :: DescribeTaskDefinitionResponse)
+{-# DEPRECATED dtdfrsTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
 
 -- | The metadata that is applied to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
@@ -212,13 +226,13 @@ desrsTaskDefinition = Lens.lens (taskDefinition :: DescribeTaskDefinitionRespons
 --
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsTags :: Lens.Lens' DescribeTaskDefinitionResponse (Lude.Maybe [Tag])
-desrsTags = Lens.lens (tags :: DescribeTaskDefinitionResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribeTaskDefinitionResponse)
-{-# DEPRECATED desrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dtdfrsTags :: Lens.Lens' DescribeTaskDefinitionResponse (Lude.Maybe [Tag])
+dtdfrsTags = Lens.lens (tags :: DescribeTaskDefinitionResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribeTaskDefinitionResponse)
+{-# DEPRECATED dtdfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeTaskDefinitionResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeTaskDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTaskDefinitionResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtdfrsResponseStatus :: Lens.Lens' DescribeTaskDefinitionResponse Lude.Int
+dtdfrsResponseStatus = Lens.lens (responseStatus :: DescribeTaskDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTaskDefinitionResponse)
+{-# DEPRECATED dtdfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

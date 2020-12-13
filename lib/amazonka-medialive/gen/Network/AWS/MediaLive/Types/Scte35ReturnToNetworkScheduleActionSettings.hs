@@ -28,20 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScte35ReturnToNetworkScheduleActionSettings' smart constructor.
 newtype Scte35ReturnToNetworkScheduleActionSettings = Scte35ReturnToNetworkScheduleActionSettings'
-  { spliceEventId ::
-      Lude.Natural
+  { -- | The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
+    spliceEventId :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35ReturnToNetworkScheduleActionSettings' with the minimum fields required to make a request.
 --

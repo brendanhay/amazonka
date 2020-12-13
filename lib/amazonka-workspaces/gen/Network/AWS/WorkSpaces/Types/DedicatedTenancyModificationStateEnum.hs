@@ -13,9 +13,9 @@
 module Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
   ( DedicatedTenancyModificationStateEnum
       ( DedicatedTenancyModificationStateEnum',
+        Pending,
         Completed,
-        Failed,
-        Pending
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DedicatedTenancyModificationStateEnum = DedicatedTenancyModificationStat
       Lude.ToHeader
     )
 
+pattern Pending :: DedicatedTenancyModificationStateEnum
+pattern Pending = DedicatedTenancyModificationStateEnum' "PENDING"
+
 pattern Completed :: DedicatedTenancyModificationStateEnum
 pattern Completed = DedicatedTenancyModificationStateEnum' "COMPLETED"
 
 pattern Failed :: DedicatedTenancyModificationStateEnum
 pattern Failed = DedicatedTenancyModificationStateEnum' "FAILED"
 
-pattern Pending :: DedicatedTenancyModificationStateEnum
-pattern Pending = DedicatedTenancyModificationStateEnum' "PENDING"
-
 {-# COMPLETE
+  Pending,
   Completed,
   Failed,
-  Pending,
   DedicatedTenancyModificationStateEnum'
   #-}

@@ -18,6 +18,7 @@ module Network.AWS.MediaLive.Types.MsSmoothGroupSettings
 
     -- * Lenses
     msgsFragmentLength,
+    msgsDestination,
     msgsStreamManifestBehavior,
     msgsSendDelayMs,
     msgsEventStopBehavior,
@@ -35,7 +36,6 @@ module Network.AWS.MediaLive.Types.MsSmoothGroupSettings
     msgsAudioOnlyTimecodeControl,
     msgsSegmentationMode,
     msgsEventId,
-    msgsDestination,
   )
 where
 
@@ -56,57 +56,88 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMsSmoothGroupSettings' smart constructor.
 data MsSmoothGroupSettings = MsSmoothGroupSettings'
-  { fragmentLength ::
-      Lude.Maybe Lude.Natural,
-    streamManifestBehavior ::
-      Lude.Maybe SmoothGroupStreamManifestBehavior,
+  { -- | Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
+    fragmentLength :: Lude.Maybe Lude.Natural,
+    -- | Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
+    destination :: OutputLocationRef,
+    -- | When set to send, send stream manifest so publishing point doesn't start until all streams start.
+    streamManifestBehavior :: Lude.Maybe SmoothGroupStreamManifestBehavior,
+    -- | Number of milliseconds to delay the output from the second pipeline.
     sendDelayMs :: Lude.Maybe Lude.Natural,
-    eventStopBehavior ::
-      Lude.Maybe SmoothGroupEventStopBehavior,
-    timestampOffsetMode ::
-      Lude.Maybe SmoothGroupTimestampOffsetMode,
+    -- | When set to sendEos, send EOS signal to IIS server when stopping the event
+    eventStopBehavior :: Lude.Maybe SmoothGroupEventStopBehavior,
+    -- | Type of timestamp date offset to use.
+    --
+    -- - useEventStartDate: Use the date the event was started as the offset
+    -- - useConfiguredOffset: Use an explicitly configured date as the offset
+    timestampOffsetMode :: Lude.Maybe SmoothGroupTimestampOffsetMode,
+    -- | Number of retry attempts.
     numRetries :: Lude.Maybe Lude.Natural,
+    -- | The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
     acquisitionPointId :: Lude.Maybe Lude.Text,
-    inputLossAction ::
-      Lude.Maybe InputLossActionForMsSmoothOut,
+    -- | Parameter that control output group behavior on input loss.
+    inputLossAction :: Lude.Maybe InputLossActionForMsSmoothOut,
+    -- | Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
     timestampOffset :: Lude.Maybe Lude.Text,
-    certificateMode ::
-      Lude.Maybe SmoothGroupCertificateMode,
-    sparseTrackType ::
-      Lude.Maybe SmoothGroupSparseTrackType,
-    connectionRetryInterval ::
-      Lude.Maybe Lude.Natural,
+    -- | If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
+    certificateMode :: Lude.Maybe SmoothGroupCertificateMode,
+    -- | Identifies the type of data to place in the sparse track:
+    --
+    -- - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
+    -- - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
+    -- - NONE: Don't generate a sparse track for any outputs in this output group.
+    sparseTrackType :: Lude.Maybe SmoothGroupSparseTrackType,
+    -- | Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
+    connectionRetryInterval :: Lude.Maybe Lude.Natural,
+    -- | Size in seconds of file cache for streaming outputs.
     filecacheDuration :: Lude.Maybe Lude.Natural,
+    -- | Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
     restartDelay :: Lude.Maybe Lude.Natural,
-    eventIdMode ::
-      Lude.Maybe SmoothGroupEventIdMode,
-    audioOnlyTimecodeControl ::
-      Lude.Maybe SmoothGroupAudioOnlyTimecodeControl,
-    segmentationMode ::
-      Lude.Maybe SmoothGroupSegmentationMode,
-    eventId :: Lude.Maybe Lude.Text,
-    destination :: OutputLocationRef
+    -- | Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
+    --
+    --
+    -- Options:
+    -- - "useConfigured" - use the value provided in eventId
+    -- - "useTimestamp" - generate and send an event ID based on the current timestamp
+    -- - "noEventId" - do not send an event ID to the IIS server.
+    eventIdMode :: Lude.Maybe SmoothGroupEventIdMode,
+    -- | If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
+    audioOnlyTimecodeControl :: Lude.Maybe SmoothGroupAudioOnlyTimecodeControl,
+    -- | useInputSegmentation has been deprecated. The configured segment size is always used.
+    segmentationMode :: Lude.Maybe SmoothGroupSegmentationMode,
+    -- | MS Smooth event ID to be sent to the IIS server.
+    --
+    --
+    -- Should only be specified if eventIdMode is set to useConfigured.
+    eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MsSmoothGroupSettings' with the minimum fields required to make a request.
 --
--- * 'acquisitionPointId' - The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
--- * 'audioOnlyTimecodeControl' - If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
--- * 'certificateMode' - If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
--- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
+-- * 'fragmentLength' - Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
 -- * 'destination' - Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
--- * 'eventId' - MS Smooth event ID to be sent to the IIS server.
+-- * 'streamManifestBehavior' - When set to send, send stream manifest so publishing point doesn't start until all streams start.
+-- * 'sendDelayMs' - Number of milliseconds to delay the output from the second pipeline.
+-- * 'eventStopBehavior' - When set to sendEos, send EOS signal to IIS server when stopping the event
+-- * 'timestampOffsetMode' - Type of timestamp date offset to use.
 --
+-- - useEventStartDate: Use the date the event was started as the offset
+-- - useConfiguredOffset: Use an explicitly configured date as the offset
+-- * 'numRetries' - Number of retry attempts.
+-- * 'acquisitionPointId' - The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
+-- * 'inputLossAction' - Parameter that control output group behavior on input loss.
+-- * 'timestampOffset' - Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
+-- * 'certificateMode' - If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
+-- * 'sparseTrackType' - Identifies the type of data to place in the sparse track:
 --
--- Should only be specified if eventIdMode is set to useConfigured.
+-- - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
+-- - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
+-- - NONE: Don't generate a sparse track for any outputs in this output group.
+-- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
+-- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
+-- * 'restartDelay' - Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
 -- * 'eventIdMode' - Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
 --
 --
@@ -114,25 +145,12 @@ data MsSmoothGroupSettings = MsSmoothGroupSettings'
 -- - "useConfigured" - use the value provided in eventId
 -- - "useTimestamp" - generate and send an event ID based on the current timestamp
 -- - "noEventId" - do not send an event ID to the IIS server.
--- * 'eventStopBehavior' - When set to sendEos, send EOS signal to IIS server when stopping the event
--- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
--- * 'fragmentLength' - Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
--- * 'inputLossAction' - Parameter that control output group behavior on input loss.
--- * 'numRetries' - Number of retry attempts.
--- * 'restartDelay' - Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
+-- * 'audioOnlyTimecodeControl' - If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
 -- * 'segmentationMode' - useInputSegmentation has been deprecated. The configured segment size is always used.
--- * 'sendDelayMs' - Number of milliseconds to delay the output from the second pipeline.
--- * 'sparseTrackType' - Identifies the type of data to place in the sparse track:
+-- * 'eventId' - MS Smooth event ID to be sent to the IIS server.
 --
--- - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
--- - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
--- - NONE: Don't generate a sparse track for any outputs in this output group.
--- * 'streamManifestBehavior' - When set to send, send stream manifest so publishing point doesn't start until all streams start.
--- * 'timestampOffset' - Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
--- * 'timestampOffsetMode' - Type of timestamp date offset to use.
 --
--- - useEventStartDate: Use the date the event was started as the offset
--- - useConfiguredOffset: Use an explicitly configured date as the offset
+-- Should only be specified if eventIdMode is set to useConfigured.
 mkMsSmoothGroupSettings ::
   -- | 'destination'
   OutputLocationRef ->
@@ -140,6 +158,7 @@ mkMsSmoothGroupSettings ::
 mkMsSmoothGroupSettings pDestination_ =
   MsSmoothGroupSettings'
     { fragmentLength = Lude.Nothing,
+      destination = pDestination_,
       streamManifestBehavior = Lude.Nothing,
       sendDelayMs = Lude.Nothing,
       eventStopBehavior = Lude.Nothing,
@@ -156,8 +175,7 @@ mkMsSmoothGroupSettings pDestination_ =
       eventIdMode = Lude.Nothing,
       audioOnlyTimecodeControl = Lude.Nothing,
       segmentationMode = Lude.Nothing,
-      eventId = Lude.Nothing,
-      destination = pDestination_
+      eventId = Lude.Nothing
     }
 
 -- | Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
@@ -166,6 +184,13 @@ mkMsSmoothGroupSettings pDestination_ =
 msgsFragmentLength :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Natural)
 msgsFragmentLength = Lens.lens (fragmentLength :: MsSmoothGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {fragmentLength = a} :: MsSmoothGroupSettings)
 {-# DEPRECATED msgsFragmentLength "Use generic-lens or generic-optics with 'fragmentLength' instead." #-}
+
+-- | Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsDestination :: Lens.Lens' MsSmoothGroupSettings OutputLocationRef
+msgsDestination = Lens.lens (destination :: MsSmoothGroupSettings -> OutputLocationRef) (\s a -> s {destination = a} :: MsSmoothGroupSettings)
+{-# DEPRECATED msgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | When set to send, send stream manifest so publishing point doesn't start until all streams start.
 --
@@ -302,13 +327,6 @@ msgsEventId :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Text)
 msgsEventId = Lens.lens (eventId :: MsSmoothGroupSettings -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: MsSmoothGroupSettings)
 {-# DEPRECATED msgsEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
--- | Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsDestination :: Lens.Lens' MsSmoothGroupSettings OutputLocationRef
-msgsDestination = Lens.lens (destination :: MsSmoothGroupSettings -> OutputLocationRef) (\s a -> s {destination = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
 instance Lude.FromJSON MsSmoothGroupSettings where
   parseJSON =
     Lude.withObject
@@ -316,6 +334,7 @@ instance Lude.FromJSON MsSmoothGroupSettings where
       ( \x ->
           MsSmoothGroupSettings'
             Lude.<$> (x Lude..:? "fragmentLength")
+            Lude.<*> (x Lude..: "destination")
             Lude.<*> (x Lude..:? "streamManifestBehavior")
             Lude.<*> (x Lude..:? "sendDelayMs")
             Lude.<*> (x Lude..:? "eventStopBehavior")
@@ -333,7 +352,6 @@ instance Lude.FromJSON MsSmoothGroupSettings where
             Lude.<*> (x Lude..:? "audioOnlyTimecodeControl")
             Lude.<*> (x Lude..:? "segmentationMode")
             Lude.<*> (x Lude..:? "eventId")
-            Lude.<*> (x Lude..: "destination")
       )
 
 instance Lude.ToJSON MsSmoothGroupSettings where
@@ -341,6 +359,7 @@ instance Lude.ToJSON MsSmoothGroupSettings where
     Lude.object
       ( Lude.catMaybes
           [ ("fragmentLength" Lude..=) Lude.<$> fragmentLength,
+            Lude.Just ("destination" Lude..= destination),
             ("streamManifestBehavior" Lude..=) Lude.<$> streamManifestBehavior,
             ("sendDelayMs" Lude..=) Lude.<$> sendDelayMs,
             ("eventStopBehavior" Lude..=) Lude.<$> eventStopBehavior,
@@ -359,7 +378,6 @@ instance Lude.ToJSON MsSmoothGroupSettings where
             ("audioOnlyTimecodeControl" Lude..=)
               Lude.<$> audioOnlyTimecodeControl,
             ("segmentationMode" Lude..=) Lude.<$> segmentationMode,
-            ("eventId" Lude..=) Lude.<$> eventId,
-            Lude.Just ("destination" Lude..= destination)
+            ("eventId" Lude..=) Lude.<$> eventId
           ]
       )

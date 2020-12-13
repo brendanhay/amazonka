@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,45 +53,67 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { jobType :: Lude.Maybe JobType,
+  { -- | Defines the type of job that you're creating.
+    jobType :: Lude.Maybe JobType,
+    -- | The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@ s are created using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> AWS Key Management Service (KMS) API action.
     kmsKeyARN :: Lude.Maybe Lude.Text,
+    -- | Defines the Amazon Simple Notification Service (Amazon SNS) notification settings for this job.
     notification :: Lude.Maybe Notification,
+    -- | The forwarding address ID for a job. This field is not supported in most regions.
     forwardingAddressId :: Lude.Maybe Lude.Text,
+    -- | The ID for the address that you want the Snow device shipped to.
     addressId :: Lude.Maybe Lude.Text,
+    -- | The type of AWS Snow Family device to use for this job.
+    --
+    -- The type of AWS Snow device to use for this job. Currently, the only supported device type for cluster jobs is @EDGE@ .
+    -- For more information, see <https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html Snowball Edge Device Options> in the Snowball Edge Developer Guide.
     snowballType :: Lude.Maybe SnowballType,
+    -- | The shipping speed for this job. This speed doesn't dictate how soon you'll get the Snow device, rather it represents how quickly the Snow device moves to its destination while in transit. Regional shipping speeds are as follows:
+    --
+    --
+    --     * In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.
+    --
+    --
+    --     * In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.
+    --
+    --
+    --     * In India, Snow devices are delivered in one to seven days.
+    --
+    --
+    --     * In the US, you have access to one-day shipping and two-day shipping.
     shippingOption :: Lude.Maybe ShippingOption,
+    -- | Defines the Amazon S3 buckets associated with this job.
+    --
+    -- With @IMPORT@ jobs, you specify the bucket or buckets that your transferred data will be imported into.
+    -- With @EXPORT@ jobs, you specify the bucket or buckets that your transferred data will be exported from. Optionally, you can also specify a @KeyRange@ value. If you choose to export a range, you define the length of the range by providing either an inclusive @BeginMarker@ value, an inclusive @EndMarker@ value, or both. Ranges are UTF-8 binary sorted.
     resources :: Lude.Maybe JobResource,
+    -- | The ID of a cluster. If you're creating a job for a node in a cluster, you need to provide only this @clusterId@ value. The other job attributes are inherited from the cluster.
     clusterId :: Lude.Maybe Lude.Text,
+    -- | Defines the device configuration for an AWS Snowcone job.
     deviceConfiguration :: Lude.Maybe DeviceConfiguration,
+    -- | Defines an optional description of this specific job, for example @Important Photos 2016-08-11@ .
     description :: Lude.Maybe Lude.Text,
+    -- | The tax documents required in your AWS Region.
     taxDocuments :: Lude.Maybe TaxDocuments,
+    -- | The @RoleARN@ that you want to associate with this job. @RoleArn@ s are created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
     roleARN :: Lude.Maybe Lude.Text,
+    -- | If your job is being created in one of the US regions, you have the option of specifying what size Snow device you'd like for this job. In all other regions, Snowballs come with 80 TB in storage capacity.
     snowballCapacityPreference :: Lude.Maybe SnowballCapacity
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
--- * 'addressId' - The ID for the address that you want the Snow device shipped to.
--- * 'clusterId' - The ID of a cluster. If you're creating a job for a node in a cluster, you need to provide only this @clusterId@ value. The other job attributes are inherited from the cluster.
--- * 'description' - Defines an optional description of this specific job, for example @Important Photos 2016-08-11@ .
--- * 'deviceConfiguration' - Defines the device configuration for an AWS Snowcone job.
--- * 'forwardingAddressId' - The forwarding address ID for a job. This field is not supported in most regions.
 -- * 'jobType' - Defines the type of job that you're creating.
 -- * 'kmsKeyARN' - The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@ s are created using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> AWS Key Management Service (KMS) API action.
 -- * 'notification' - Defines the Amazon Simple Notification Service (Amazon SNS) notification settings for this job.
--- * 'resources' - Defines the Amazon S3 buckets associated with this job.
+-- * 'forwardingAddressId' - The forwarding address ID for a job. This field is not supported in most regions.
+-- * 'addressId' - The ID for the address that you want the Snow device shipped to.
+-- * 'snowballType' - The type of AWS Snow Family device to use for this job.
 --
--- With @IMPORT@ jobs, you specify the bucket or buckets that your transferred data will be imported into.
--- With @EXPORT@ jobs, you specify the bucket or buckets that your transferred data will be exported from. Optionally, you can also specify a @KeyRange@ value. If you choose to export a range, you define the length of the range by providing either an inclusive @BeginMarker@ value, an inclusive @EndMarker@ value, or both. Ranges are UTF-8 binary sorted.
--- * 'roleARN' - The @RoleARN@ that you want to associate with this job. @RoleArn@ s are created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
+-- The type of AWS Snow device to use for this job. Currently, the only supported device type for cluster jobs is @EDGE@ .
+-- For more information, see <https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html Snowball Edge Device Options> in the Snowball Edge Developer Guide.
 -- * 'shippingOption' - The shipping speed for this job. This speed doesn't dictate how soon you'll get the Snow device, rather it represents how quickly the Snow device moves to its destination while in transit. Regional shipping speeds are as follows:
 --
 --
@@ -106,12 +129,16 @@ data CreateJob = CreateJob'
 --     * In the US, you have access to one-day shipping and two-day shipping.
 --
 --
--- * 'snowballCapacityPreference' - If your job is being created in one of the US regions, you have the option of specifying what size Snow device you'd like for this job. In all other regions, Snowballs come with 80 TB in storage capacity.
--- * 'snowballType' - The type of AWS Snow Family device to use for this job.
+-- * 'resources' - Defines the Amazon S3 buckets associated with this job.
 --
--- The type of AWS Snow device to use for this job. Currently, the only supported device type for cluster jobs is @EDGE@ .
--- For more information, see <https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html Snowball Edge Device Options> in the Snowball Edge Developer Guide.
+-- With @IMPORT@ jobs, you specify the bucket or buckets that your transferred data will be imported into.
+-- With @EXPORT@ jobs, you specify the bucket or buckets that your transferred data will be exported from. Optionally, you can also specify a @KeyRange@ value. If you choose to export a range, you define the length of the range by providing either an inclusive @BeginMarker@ value, an inclusive @EndMarker@ value, or both. Ranges are UTF-8 binary sorted.
+-- * 'clusterId' - The ID of a cluster. If you're creating a job for a node in a cluster, you need to provide only this @clusterId@ value. The other job attributes are inherited from the cluster.
+-- * 'deviceConfiguration' - Defines the device configuration for an AWS Snowcone job.
+-- * 'description' - Defines an optional description of this specific job, for example @Important Photos 2016-08-11@ .
 -- * 'taxDocuments' - The tax documents required in your AWS Region.
+-- * 'roleARN' - The @RoleARN@ that you want to associate with this job. @RoleArn@ s are created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
+-- * 'snowballCapacityPreference' - If your job is being created in one of the US regions, you have the option of specifying what size Snow device you'd like for this job. In all other regions, Snowballs come with 80 TB in storage capacity.
 mkCreateJob ::
   CreateJob
 mkCreateJob =
@@ -301,17 +328,12 @@ instance Lude.ToQuery CreateJob where
 
 -- | /See:/ 'mkCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.

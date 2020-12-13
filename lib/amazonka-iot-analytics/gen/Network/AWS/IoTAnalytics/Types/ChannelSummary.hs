@@ -35,34 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChannelSummary' smart constructor.
 data ChannelSummary = ChannelSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the channel was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the channel.
     status :: Lude.Maybe ChannelStatus,
+    -- | The last time when a new message arrived in the channel.
+    --
+    -- AWS IoT Analytics updates this value at most once per minute for one channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
+    -- This feature only applies to messages that arrived in the data store after October 23, 2020.
     lastMessageArrivalTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the channel.
     channelName :: Lude.Maybe Lude.Text,
+    -- | Where channel data is stored.
     channelStorage :: Lude.Maybe ChannelStorageSummary,
+    -- | The last time the channel was updated.
     lastUpdateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelSummary' with the minimum fields required to make a request.
 --
--- * 'channelName' - The name of the channel.
--- * 'channelStorage' - Where channel data is stored.
 -- * 'creationTime' - When the channel was created.
+-- * 'status' - The status of the channel.
 -- * 'lastMessageArrivalTime' - The last time when a new message arrived in the channel.
 --
 -- AWS IoT Analytics updates this value at most once per minute for one channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
 -- This feature only applies to messages that arrived in the data store after October 23, 2020.
+-- * 'channelName' - The name of the channel.
+-- * 'channelStorage' - Where channel data is stored.
 -- * 'lastUpdateTime' - The last time the channel was updated.
--- * 'status' - The status of the channel.
 mkChannelSummary ::
   ChannelSummary
 mkChannelSummary =

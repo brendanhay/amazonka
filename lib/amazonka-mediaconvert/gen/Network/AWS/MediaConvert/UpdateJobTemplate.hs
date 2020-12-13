@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.MediaConvert.UpdateJobTemplate
     ujtCategory,
     ujtHopDestinations,
     ujtQueue,
-    ujtDescription,
     ujtName,
+    ujtDescription,
 
     -- * Destructuring the response
     UpdateJobTemplateResponse (..),
@@ -47,37 +48,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateJobTemplate' smart constructor.
 data UpdateJobTemplate = UpdateJobTemplate'
-  { accelerationSettings ::
-      Lude.Maybe AccelerationSettings,
+  { -- | Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
+    accelerationSettings :: Lude.Maybe AccelerationSettings,
+    -- | Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
     priority :: Lude.Maybe Lude.Int,
+    -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
     statusUpdateInterval :: Lude.Maybe StatusUpdateInterval,
+    -- | JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
     settings :: Lude.Maybe JobTemplateSettings,
+    -- | The new category for the job template, if you are changing it.
     category :: Lude.Maybe Lude.Text,
+    -- | Optional list of hop destinations.
     hopDestinations :: Lude.Maybe [HopDestination],
+    -- | The new queue for the job template, if you are changing it.
     queue :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The name of the job template you are modifying
+    name :: Lude.Text,
+    -- | The new description for the job template, if you are changing it.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobTemplate' with the minimum fields required to make a request.
 --
 -- * 'accelerationSettings' - Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
--- * 'category' - The new category for the job template, if you are changing it.
--- * 'description' - The new description for the job template, if you are changing it.
--- * 'hopDestinations' - Optional list of hop destinations.
--- * 'name' - The name of the job template you are modifying
 -- * 'priority' - Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
--- * 'queue' - The new queue for the job template, if you are changing it.
--- * 'settings' - JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
 -- * 'statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+-- * 'settings' - JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
+-- * 'category' - The new category for the job template, if you are changing it.
+-- * 'hopDestinations' - Optional list of hop destinations.
+-- * 'queue' - The new queue for the job template, if you are changing it.
+-- * 'name' - The name of the job template you are modifying
+-- * 'description' - The new description for the job template, if you are changing it.
 mkUpdateJobTemplate ::
   -- | 'name'
   Lude.Text ->
@@ -91,8 +94,8 @@ mkUpdateJobTemplate pName_ =
       category = Lude.Nothing,
       hopDestinations = Lude.Nothing,
       queue = Lude.Nothing,
-      description = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      description = Lude.Nothing
     }
 
 -- | Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
@@ -144,19 +147,19 @@ ujtQueue :: Lens.Lens' UpdateJobTemplate (Lude.Maybe Lude.Text)
 ujtQueue = Lens.lens (queue :: UpdateJobTemplate -> Lude.Maybe Lude.Text) (\s a -> s {queue = a} :: UpdateJobTemplate)
 {-# DEPRECATED ujtQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
 
--- | The new description for the job template, if you are changing it.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujtDescription :: Lens.Lens' UpdateJobTemplate (Lude.Maybe Lude.Text)
-ujtDescription = Lens.lens (description :: UpdateJobTemplate -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateJobTemplate)
-{-# DEPRECATED ujtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 -- | The name of the job template you are modifying
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ujtName :: Lens.Lens' UpdateJobTemplate Lude.Text
 ujtName = Lens.lens (name :: UpdateJobTemplate -> Lude.Text) (\s a -> s {name = a} :: UpdateJobTemplate)
 {-# DEPRECATED ujtName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The new description for the job template, if you are changing it.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujtDescription :: Lens.Lens' UpdateJobTemplate (Lude.Maybe Lude.Text)
+ujtDescription = Lens.lens (description :: UpdateJobTemplate -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateJobTemplate)
+{-# DEPRECATED ujtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateJobTemplate where
   type Rs UpdateJobTemplate = UpdateJobTemplateResponse
@@ -201,17 +204,12 @@ instance Lude.ToQuery UpdateJobTemplate where
 
 -- | /See:/ 'mkUpdateJobTemplateResponse' smart constructor.
 data UpdateJobTemplateResponse = UpdateJobTemplateResponse'
-  { jobTemplate ::
-      Lude.Maybe JobTemplate,
+  { -- | A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+    jobTemplate :: Lude.Maybe JobTemplate,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobTemplateResponse' with the minimum fields required to make a request.

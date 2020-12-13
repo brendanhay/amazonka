@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.Comprehend.DetectSentiment
     mkDetectSentiment,
 
     -- ** Request lenses
-    dsText,
-    dsLanguageCode,
+    dLanguageCode,
+    dText,
 
     -- * Destructuring the response
     DetectSentimentResponse (..),
     mkDetectSentimentResponse,
 
     -- ** Response lenses
-    detrsSentiment,
-    detrsSentimentScore,
-    detrsResponseStatus,
+    dsfrsSentiment,
+    dsfrsSentimentScore,
+    dsfrsResponseStatus,
   )
 where
 
@@ -41,9 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectSentiment' smart constructor.
 data DetectSentiment = DetectSentiment'
-  { text ::
-      Lude.Sensitive Lude.Text,
-    languageCode :: LanguageCode
+  { -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+    languageCode :: LanguageCode,
+    -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+    text :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -53,27 +55,27 @@ data DetectSentiment = DetectSentiment'
 -- * 'languageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
 -- * 'text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
 mkDetectSentiment ::
-  -- | 'text'
-  Lude.Sensitive Lude.Text ->
   -- | 'languageCode'
   LanguageCode ->
+  -- | 'text'
+  Lude.Sensitive Lude.Text ->
   DetectSentiment
-mkDetectSentiment pText_ pLanguageCode_ =
-  DetectSentiment' {text = pText_, languageCode = pLanguageCode_}
-
--- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
---
--- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsText :: Lens.Lens' DetectSentiment (Lude.Sensitive Lude.Text)
-dsText = Lens.lens (text :: DetectSentiment -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: DetectSentiment)
-{-# DEPRECATED dsText "Use generic-lens or generic-optics with 'text' instead." #-}
+mkDetectSentiment pLanguageCode_ pText_ =
+  DetectSentiment' {languageCode = pLanguageCode_, text = pText_}
 
 -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
 --
 -- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsLanguageCode :: Lens.Lens' DetectSentiment LanguageCode
-dsLanguageCode = Lens.lens (languageCode :: DetectSentiment -> LanguageCode) (\s a -> s {languageCode = a} :: DetectSentiment)
-{-# DEPRECATED dsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+dLanguageCode :: Lens.Lens' DetectSentiment LanguageCode
+dLanguageCode = Lens.lens (languageCode :: DetectSentiment -> LanguageCode) (\s a -> s {languageCode = a} :: DetectSentiment)
+{-# DEPRECATED dLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dText :: Lens.Lens' DetectSentiment (Lude.Sensitive Lude.Text)
+dText = Lens.lens (text :: DetectSentiment -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: DetectSentiment)
+{-# DEPRECATED dText "Use generic-lens or generic-optics with 'text' instead." #-}
 
 instance Lude.AWSRequest DetectSentiment where
   type Rs DetectSentiment = DetectSentimentResponse
@@ -102,8 +104,8 @@ instance Lude.ToJSON DetectSentiment where
   toJSON DetectSentiment' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Text" Lude..= text),
-            Lude.Just ("LanguageCode" Lude..= languageCode)
+          [ Lude.Just ("LanguageCode" Lude..= languageCode),
+            Lude.Just ("Text" Lude..= text)
           ]
       )
 
@@ -115,25 +117,21 @@ instance Lude.ToQuery DetectSentiment where
 
 -- | /See:/ 'mkDetectSentimentResponse' smart constructor.
 data DetectSentimentResponse = DetectSentimentResponse'
-  { sentiment ::
-      Lude.Maybe SentimentType,
+  { -- | The inferred sentiment that Amazon Comprehend has the highest level of confidence in.
+    sentiment :: Lude.Maybe SentimentType,
+    -- | An object that lists the sentiments, and their corresponding confidence levels.
     sentimentScore :: Lude.Maybe SentimentScore,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectSentimentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sentiment' - The inferred sentiment that Amazon Comprehend has the highest level of confidence in.
 -- * 'sentimentScore' - An object that lists the sentiments, and their corresponding confidence levels.
+-- * 'responseStatus' - The response status code.
 mkDetectSentimentResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -148,20 +146,20 @@ mkDetectSentimentResponse pResponseStatus_ =
 -- | The inferred sentiment that Amazon Comprehend has the highest level of confidence in.
 --
 -- /Note:/ Consider using 'sentiment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsSentiment :: Lens.Lens' DetectSentimentResponse (Lude.Maybe SentimentType)
-detrsSentiment = Lens.lens (sentiment :: DetectSentimentResponse -> Lude.Maybe SentimentType) (\s a -> s {sentiment = a} :: DetectSentimentResponse)
-{-# DEPRECATED detrsSentiment "Use generic-lens or generic-optics with 'sentiment' instead." #-}
+dsfrsSentiment :: Lens.Lens' DetectSentimentResponse (Lude.Maybe SentimentType)
+dsfrsSentiment = Lens.lens (sentiment :: DetectSentimentResponse -> Lude.Maybe SentimentType) (\s a -> s {sentiment = a} :: DetectSentimentResponse)
+{-# DEPRECATED dsfrsSentiment "Use generic-lens or generic-optics with 'sentiment' instead." #-}
 
 -- | An object that lists the sentiments, and their corresponding confidence levels.
 --
 -- /Note:/ Consider using 'sentimentScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsSentimentScore :: Lens.Lens' DetectSentimentResponse (Lude.Maybe SentimentScore)
-detrsSentimentScore = Lens.lens (sentimentScore :: DetectSentimentResponse -> Lude.Maybe SentimentScore) (\s a -> s {sentimentScore = a} :: DetectSentimentResponse)
-{-# DEPRECATED detrsSentimentScore "Use generic-lens or generic-optics with 'sentimentScore' instead." #-}
+dsfrsSentimentScore :: Lens.Lens' DetectSentimentResponse (Lude.Maybe SentimentScore)
+dsfrsSentimentScore = Lens.lens (sentimentScore :: DetectSentimentResponse -> Lude.Maybe SentimentScore) (\s a -> s {sentimentScore = a} :: DetectSentimentResponse)
+{-# DEPRECATED dsfrsSentimentScore "Use generic-lens or generic-optics with 'sentimentScore' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsResponseStatus :: Lens.Lens' DetectSentimentResponse Lude.Int
-detrsResponseStatus = Lens.lens (responseStatus :: DetectSentimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectSentimentResponse)
-{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsfrsResponseStatus :: Lens.Lens' DetectSentimentResponse Lude.Int
+dsfrsResponseStatus = Lens.lens (responseStatus :: DetectSentimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectSentimentResponse)
+{-# DEPRECATED dsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

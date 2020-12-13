@@ -13,9 +13,9 @@
 module Network.AWS.CodeDeploy.Types.ListStateFilterAction
   ( ListStateFilterAction
       ( ListStateFilterAction',
+        Include,
         Exclude,
-        Ignore,
-        Include
+        Ignore
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ListStateFilterAction = ListStateFilterAction' Lude.Text
       Lude.ToHeader
     )
 
+pattern Include :: ListStateFilterAction
+pattern Include = ListStateFilterAction' "include"
+
 pattern Exclude :: ListStateFilterAction
 pattern Exclude = ListStateFilterAction' "exclude"
 
 pattern Ignore :: ListStateFilterAction
 pattern Ignore = ListStateFilterAction' "ignore"
 
-pattern Include :: ListStateFilterAction
-pattern Include = ListStateFilterAction' "include"
-
 {-# COMPLETE
+  Include,
   Exclude,
   Ignore,
-  Include,
   ListStateFilterAction'
   #-}

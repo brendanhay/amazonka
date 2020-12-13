@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,24 +42,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetEffectivePolicies' smart constructor.
 data GetEffectivePolicies = GetEffectivePolicies'
-  { principal ::
-      Lude.Maybe Lude.Text,
+  { -- | The principal. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
+    principal :: Lude.Maybe Lude.Text,
+    -- | The Cognito identity pool ID.
     cognitoIdentityPoolId :: Lude.Maybe Lude.Text,
+    -- | The thing name.
     thingName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEffectivePolicies' with the minimum fields required to make a request.
 --
--- * 'cognitoIdentityPoolId' - The Cognito identity pool ID.
 -- * 'principal' - The principal. Valid principals are CertificateArn (arn:aws:iot:/region/ :/accountId/ :cert//certificateId/ ), thingGroupArn (arn:aws:iot:/region/ :/accountId/ :thinggroup//groupName/ ) and CognitoId (/region/ :/id/ ).
+-- * 'cognitoIdentityPoolId' - The Cognito identity pool ID.
 -- * 'thingName' - The thing name.
 mkGetEffectivePolicies ::
   GetEffectivePolicies
@@ -122,17 +119,12 @@ instance Lude.ToQuery GetEffectivePolicies where
 
 -- | /See:/ 'mkGetEffectivePoliciesResponse' smart constructor.
 data GetEffectivePoliciesResponse = GetEffectivePoliciesResponse'
-  { effectivePolicies ::
-      Lude.Maybe [EffectivePolicy],
+  { -- | The effective policies.
+    effectivePolicies :: Lude.Maybe [EffectivePolicy],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEffectivePoliciesResponse' with the minimum fields required to make a request.

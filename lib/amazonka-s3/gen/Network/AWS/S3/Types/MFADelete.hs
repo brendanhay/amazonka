@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.MFADelete
   ( MFADelete
       ( MFADelete',
-        MDDisabled,
-        MDEnabled
+        MDEnabled,
+        MDDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MFADelete = MFADelete' Lude.Text
       Lude.ToHeader
     )
 
-pattern MDDisabled :: MFADelete
-pattern MDDisabled = MFADelete' "Disabled"
-
 pattern MDEnabled :: MFADelete
 pattern MDEnabled = MFADelete' "Enabled"
 
+pattern MDDisabled :: MFADelete
+pattern MDDisabled = MFADelete' "Disabled"
+
 {-# COMPLETE
-  MDDisabled,
   MDEnabled,
+  MDDisabled,
   MFADelete'
   #-}

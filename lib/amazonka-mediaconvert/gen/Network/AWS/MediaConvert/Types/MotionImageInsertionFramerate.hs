@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMotionImageInsertionFramerate' smart constructor.
 data MotionImageInsertionFramerate = MotionImageInsertionFramerate'
-  { framerateDenominator ::
-      Lude.Maybe Lude.Natural,
-    framerateNumerator ::
-      Lude.Maybe Lude.Natural
+  { -- | The bottom of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 1.
+    framerateDenominator :: Lude.Maybe Lude.Natural,
+    -- | The top of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 24.
+    framerateNumerator :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MotionImageInsertionFramerate' with the minimum fields required to make a request.

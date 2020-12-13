@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.TimecodeSource
   ( TimecodeSource
       ( TimecodeSource',
         TSEmbedded,
-        TSSpecifiedstart,
-        TSZerobased
+        TSZerobased,
+        TSSpecifiedstart
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype TimecodeSource = TimecodeSource' Lude.Text
 pattern TSEmbedded :: TimecodeSource
 pattern TSEmbedded = TimecodeSource' "EMBEDDED"
 
-pattern TSSpecifiedstart :: TimecodeSource
-pattern TSSpecifiedstart = TimecodeSource' "SPECIFIEDSTART"
-
 pattern TSZerobased :: TimecodeSource
 pattern TSZerobased = TimecodeSource' "ZEROBASED"
 
+pattern TSSpecifiedstart :: TimecodeSource
+pattern TSSpecifiedstart = TimecodeSource' "SPECIFIEDSTART"
+
 {-# COMPLETE
   TSEmbedded,
-  TSSpecifiedstart,
   TSZerobased,
+  TSSpecifiedstart,
   TimecodeSource'
   #-}

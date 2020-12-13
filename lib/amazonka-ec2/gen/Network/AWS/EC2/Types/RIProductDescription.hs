@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.RIProductDescription
   ( RIProductDescription
       ( RIProductDescription',
-        RIDLinuxUnix,
-        RIDLinuxUnixAmazonVPC,
-        RIDWindows,
-        RIDWindowsAmazonVPC
+        LinuxUnix,
+        LinuxUnixAmazonVPC,
+        Windows,
+        WindowsAmazonVPC
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype RIProductDescription = RIProductDescription' Lude.Text
       Lude.ToHeader
     )
 
-pattern RIDLinuxUnix :: RIProductDescription
-pattern RIDLinuxUnix = RIProductDescription' "Linux/UNIX"
+pattern LinuxUnix :: RIProductDescription
+pattern LinuxUnix = RIProductDescription' "Linux/UNIX"
 
-pattern RIDLinuxUnixAmazonVPC :: RIProductDescription
-pattern RIDLinuxUnixAmazonVPC = RIProductDescription' "Linux/UNIX (Amazon VPC)"
+pattern LinuxUnixAmazonVPC :: RIProductDescription
+pattern LinuxUnixAmazonVPC = RIProductDescription' "Linux/UNIX (Amazon VPC)"
 
-pattern RIDWindows :: RIProductDescription
-pattern RIDWindows = RIProductDescription' "Windows"
+pattern Windows :: RIProductDescription
+pattern Windows = RIProductDescription' "Windows"
 
-pattern RIDWindowsAmazonVPC :: RIProductDescription
-pattern RIDWindowsAmazonVPC = RIProductDescription' "Windows (Amazon VPC)"
+pattern WindowsAmazonVPC :: RIProductDescription
+pattern WindowsAmazonVPC = RIProductDescription' "Windows (Amazon VPC)"
 
 {-# COMPLETE
-  RIDLinuxUnix,
-  RIDLinuxUnixAmazonVPC,
-  RIDWindows,
-  RIDWindowsAmazonVPC,
+  LinuxUnix,
+  LinuxUnixAmazonVPC,
+  Windows,
+  WindowsAmazonVPC,
   RIProductDescription'
   #-}

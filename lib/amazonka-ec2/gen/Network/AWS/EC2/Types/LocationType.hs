@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.LocationType
   ( LocationType
       ( LocationType',
-        AvailabilityZone,
-        AvailabilityZoneId,
-        Region
+        LTRegion,
+        LTAvailabilityZone,
+        LTAvailabilityZoneId
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype LocationType = LocationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AvailabilityZone :: LocationType
-pattern AvailabilityZone = LocationType' "availability-zone"
+pattern LTRegion :: LocationType
+pattern LTRegion = LocationType' "region"
 
-pattern AvailabilityZoneId :: LocationType
-pattern AvailabilityZoneId = LocationType' "availability-zone-id"
+pattern LTAvailabilityZone :: LocationType
+pattern LTAvailabilityZone = LocationType' "availability-zone"
 
-pattern Region :: LocationType
-pattern Region = LocationType' "region"
+pattern LTAvailabilityZoneId :: LocationType
+pattern LTAvailabilityZoneId = LocationType' "availability-zone-id"
 
 {-# COMPLETE
-  AvailabilityZone,
-  AvailabilityZoneId,
-  Region,
+  LTRegion,
+  LTAvailabilityZone,
+  LTAvailabilityZoneId,
   LocationType'
   #-}

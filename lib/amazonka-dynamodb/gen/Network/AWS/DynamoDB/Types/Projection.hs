@@ -30,24 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProjection' smart constructor.
 data Projection = Projection'
-  { projectionType ::
-      Lude.Maybe ProjectionType,
+  { -- | The set of attributes that are projected into the index:
+    --
+    --
+    --     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.
+    --
+    --
+    --     * @INCLUDE@ - In addition to the attributes described in @KEYS_ONLY@ , the secondary index will include other non-key attributes that you specify.
+    --
+    --
+    --     * @ALL@ - All of the table attributes are projected into the index.
+    projectionType :: Lude.Maybe ProjectionType,
+    -- | Represents the non-key attribute names which will be projected into the index.
+    --
+    -- For local secondary indexes, the total count of @NonKeyAttributes@ summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
     nonKeyAttributes :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Projection' with the minimum fields required to make a request.
 --
--- * 'nonKeyAttributes' - Represents the non-key attribute names which will be projected into the index.
---
--- For local secondary indexes, the total count of @NonKeyAttributes@ summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 -- * 'projectionType' - The set of attributes that are projected into the index:
 --
 --
@@ -58,6 +61,11 @@ data Projection = Projection'
 --
 --
 --     * @ALL@ - All of the table attributes are projected into the index.
+--
+--
+-- * 'nonKeyAttributes' - Represents the non-key attribute names which will be projected into the index.
+--
+-- For local secondary indexes, the total count of @NonKeyAttributes@ summed across all of the local secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 mkProjection ::
   Projection
 mkProjection =

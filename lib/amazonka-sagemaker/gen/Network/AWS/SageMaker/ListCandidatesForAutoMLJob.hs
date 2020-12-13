@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.SageMaker.ListCandidatesForAutoMLJob
 
     -- ** Request lenses
     lcfamljCandidateNameEquals,
+    lcfamljAutoMLJobName,
     lcfamljNextToken,
     lcfamljSortOrder,
     lcfamljStatusEquals,
     lcfamljMaxResults,
     lcfamljSortBy,
-    lcfamljAutoMLJobName,
 
     -- * Destructuring the response
     ListCandidatesForAutoMLJobResponse (..),
@@ -35,8 +36,8 @@ module Network.AWS.SageMaker.ListCandidatesForAutoMLJob
 
     -- ** Response lenses
     lcfamljrsNextToken,
-    lcfamljrsResponseStatus,
     lcfamljrsCandidates,
+    lcfamljrsResponseStatus,
   )
 where
 
@@ -49,35 +50,33 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListCandidatesForAutoMLJob' smart constructor.
 data ListCandidatesForAutoMLJob = ListCandidatesForAutoMLJob'
-  { candidateNameEquals ::
-      Lude.Maybe Lude.Text,
+  { -- | List the Candidates for the job and filter by candidate name.
+    candidateNameEquals :: Lude.Maybe Lude.Text,
+    -- | List the Candidates created for the job by providing the job's name.
+    autoMLJobName :: Lude.Text,
+    -- | If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
-    sortOrder ::
-      Lude.Maybe AutoMLSortOrder,
-    statusEquals ::
-      Lude.Maybe CandidateStatus,
+    -- | The sort order for the results. The default is Ascending.
+    sortOrder :: Lude.Maybe AutoMLSortOrder,
+    -- | List the Candidates for the job and filter by status.
+    statusEquals :: Lude.Maybe CandidateStatus,
+    -- | List the job's Candidates up to a specified limit.
     maxResults :: Lude.Maybe Lude.Natural,
-    sortBy :: Lude.Maybe CandidateSortBy,
-    autoMLJobName :: Lude.Text
+    -- | The parameter by which to sort the results. The default is Descending.
+    sortBy :: Lude.Maybe CandidateSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCandidatesForAutoMLJob' with the minimum fields required to make a request.
 --
--- * 'autoMLJobName' - List the Candidates created for the job by providing the job's name.
 -- * 'candidateNameEquals' - List the Candidates for the job and filter by candidate name.
--- * 'maxResults' - List the job's Candidates up to a specified limit.
+-- * 'autoMLJobName' - List the Candidates created for the job by providing the job's name.
 -- * 'nextToken' - If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
--- * 'sortBy' - The parameter by which to sort the results. The default is Descending.
 -- * 'sortOrder' - The sort order for the results. The default is Ascending.
 -- * 'statusEquals' - List the Candidates for the job and filter by status.
+-- * 'maxResults' - List the job's Candidates up to a specified limit.
+-- * 'sortBy' - The parameter by which to sort the results. The default is Descending.
 mkListCandidatesForAutoMLJob ::
   -- | 'autoMLJobName'
   Lude.Text ->
@@ -85,12 +84,12 @@ mkListCandidatesForAutoMLJob ::
 mkListCandidatesForAutoMLJob pAutoMLJobName_ =
   ListCandidatesForAutoMLJob'
     { candidateNameEquals = Lude.Nothing,
+      autoMLJobName = pAutoMLJobName_,
       nextToken = Lude.Nothing,
       sortOrder = Lude.Nothing,
       statusEquals = Lude.Nothing,
       maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing,
-      autoMLJobName = pAutoMLJobName_
+      sortBy = Lude.Nothing
     }
 
 -- | List the Candidates for the job and filter by candidate name.
@@ -99,6 +98,13 @@ mkListCandidatesForAutoMLJob pAutoMLJobName_ =
 lcfamljCandidateNameEquals :: Lens.Lens' ListCandidatesForAutoMLJob (Lude.Maybe Lude.Text)
 lcfamljCandidateNameEquals = Lens.lens (candidateNameEquals :: ListCandidatesForAutoMLJob -> Lude.Maybe Lude.Text) (\s a -> s {candidateNameEquals = a} :: ListCandidatesForAutoMLJob)
 {-# DEPRECATED lcfamljCandidateNameEquals "Use generic-lens or generic-optics with 'candidateNameEquals' instead." #-}
+
+-- | List the Candidates created for the job by providing the job's name.
+--
+-- /Note:/ Consider using 'autoMLJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfamljAutoMLJobName :: Lens.Lens' ListCandidatesForAutoMLJob Lude.Text
+lcfamljAutoMLJobName = Lens.lens (autoMLJobName :: ListCandidatesForAutoMLJob -> Lude.Text) (\s a -> s {autoMLJobName = a} :: ListCandidatesForAutoMLJob)
+{-# DEPRECATED lcfamljAutoMLJobName "Use generic-lens or generic-optics with 'autoMLJobName' instead." #-}
 
 -- | If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
 --
@@ -135,13 +141,6 @@ lcfamljSortBy :: Lens.Lens' ListCandidatesForAutoMLJob (Lude.Maybe CandidateSort
 lcfamljSortBy = Lens.lens (sortBy :: ListCandidatesForAutoMLJob -> Lude.Maybe CandidateSortBy) (\s a -> s {sortBy = a} :: ListCandidatesForAutoMLJob)
 {-# DEPRECATED lcfamljSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
--- | List the Candidates created for the job by providing the job's name.
---
--- /Note:/ Consider using 'autoMLJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfamljAutoMLJobName :: Lens.Lens' ListCandidatesForAutoMLJob Lude.Text
-lcfamljAutoMLJobName = Lens.lens (autoMLJobName :: ListCandidatesForAutoMLJob -> Lude.Text) (\s a -> s {autoMLJobName = a} :: ListCandidatesForAutoMLJob)
-{-# DEPRECATED lcfamljAutoMLJobName "Use generic-lens or generic-optics with 'autoMLJobName' instead." #-}
-
 instance Page.AWSPager ListCandidatesForAutoMLJob where
   page rq rs
     | Page.stop (rs Lens.^. lcfamljrsNextToken) = Lude.Nothing
@@ -161,8 +160,8 @@ instance Lude.AWSRequest ListCandidatesForAutoMLJob where
       ( \s h x ->
           ListCandidatesForAutoMLJobResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "Candidates" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListCandidatesForAutoMLJob where
@@ -181,12 +180,12 @@ instance Lude.ToJSON ListCandidatesForAutoMLJob where
     Lude.object
       ( Lude.catMaybes
           [ ("CandidateNameEquals" Lude..=) Lude.<$> candidateNameEquals,
+            Lude.Just ("AutoMLJobName" Lude..= autoMLJobName),
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("SortOrder" Lude..=) Lude.<$> sortOrder,
             ("StatusEquals" Lude..=) Lude.<$> statusEquals,
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy,
-            Lude.Just ("AutoMLJobName" Lude..= autoMLJobName)
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
@@ -198,26 +197,20 @@ instance Lude.ToQuery ListCandidatesForAutoMLJob where
 
 -- | /See:/ 'mkListCandidatesForAutoMLJobResponse' smart constructor.
 data ListCandidatesForAutoMLJobResponse = ListCandidatesForAutoMLJobResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    candidates ::
-      [AutoMLCandidate]
+  { -- | If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Summaries about the Candidates.
+    candidates :: [AutoMLCandidate],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCandidatesForAutoMLJobResponse' with the minimum fields required to make a request.
 --
--- * 'candidates' - Summaries about the Candidates.
 -- * 'nextToken' - If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
+-- * 'candidates' - Summaries about the Candidates.
 -- * 'responseStatus' - The response status code.
 mkListCandidatesForAutoMLJobResponse ::
   -- | 'responseStatus'
@@ -226,8 +219,8 @@ mkListCandidatesForAutoMLJobResponse ::
 mkListCandidatesForAutoMLJobResponse pResponseStatus_ =
   ListCandidatesForAutoMLJobResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      candidates = Lude.mempty
+      candidates = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.
@@ -237,16 +230,16 @@ lcfamljrsNextToken :: Lens.Lens' ListCandidatesForAutoMLJobResponse (Lude.Maybe 
 lcfamljrsNextToken = Lens.lens (nextToken :: ListCandidatesForAutoMLJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCandidatesForAutoMLJobResponse)
 {-# DEPRECATED lcfamljrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfamljrsResponseStatus :: Lens.Lens' ListCandidatesForAutoMLJobResponse Lude.Int
-lcfamljrsResponseStatus = Lens.lens (responseStatus :: ListCandidatesForAutoMLJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCandidatesForAutoMLJobResponse)
-{-# DEPRECATED lcfamljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | Summaries about the Candidates.
 --
 -- /Note:/ Consider using 'candidates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lcfamljrsCandidates :: Lens.Lens' ListCandidatesForAutoMLJobResponse [AutoMLCandidate]
 lcfamljrsCandidates = Lens.lens (candidates :: ListCandidatesForAutoMLJobResponse -> [AutoMLCandidate]) (\s a -> s {candidates = a} :: ListCandidatesForAutoMLJobResponse)
 {-# DEPRECATED lcfamljrsCandidates "Use generic-lens or generic-optics with 'candidates' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfamljrsResponseStatus :: Lens.Lens' ListCandidatesForAutoMLJobResponse Lude.Int
+lcfamljrsResponseStatus = Lens.lens (responseStatus :: ListCandidatesForAutoMLJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCandidatesForAutoMLJobResponse)
+{-# DEPRECATED lcfamljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

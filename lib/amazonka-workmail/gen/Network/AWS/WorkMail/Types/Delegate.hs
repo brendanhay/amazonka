@@ -29,14 +29,13 @@ import Network.AWS.WorkMail.Types.MemberType
 -- | The name of the attribute, which is one of the values defined in the UserAttribute enumeration.
 --
 -- /See:/ 'mkDelegate' smart constructor.
-data Delegate = Delegate' {id :: Lude.Text, type' :: MemberType}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Delegate = Delegate'
+  { -- | The identifier for the user or group associated as the resource's delegate.
+    id :: Lude.Text,
+    -- | The type of the delegate: user or group.
+    type' :: MemberType
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Delegate' with the minimum fields required to make a request.

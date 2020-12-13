@@ -35,34 +35,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalGatewayRouteTable' smart constructor.
 data LocalGatewayRouteTable = LocalGatewayRouteTable'
-  { state ::
-      Lude.Maybe Lude.Text,
-    localGatewayRouteTableARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The state of the local gateway route table.
+    state :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the local gateway route table.
+    localGatewayRouteTableARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway.
     localGatewayId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Outpost.
     outpostARN :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID that owns the local gateway route table.
     ownerId :: Lude.Maybe Lude.Text,
-    localGatewayRouteTableId ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway route table.
+    localGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the local gateway route table.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalGatewayRouteTable' with the minimum fields required to make a request.
 --
--- * 'localGatewayId' - The ID of the local gateway.
+-- * 'state' - The state of the local gateway route table.
 -- * 'localGatewayRouteTableARN' - The Amazon Resource Name (ARN) of the local gateway route table.
--- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
+-- * 'localGatewayId' - The ID of the local gateway.
 -- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
 -- * 'ownerId' - The AWS account ID that owns the local gateway route table.
--- * 'state' - The state of the local gateway route table.
+-- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
 -- * 'tags' - The tags assigned to the local gateway route table.
 mkLocalGatewayRouteTable ::
   LocalGatewayRouteTable

@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.ReservationState
   ( ReservationState
       ( ReservationState',
-        RSActive,
-        RSPaymentFailed,
         RSPaymentPending,
+        RSPaymentFailed,
+        RSActive,
         RSRetired
       ),
   )
@@ -47,22 +47,22 @@ newtype ReservationState = ReservationState' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSActive :: ReservationState
-pattern RSActive = ReservationState' "active"
+pattern RSPaymentPending :: ReservationState
+pattern RSPaymentPending = ReservationState' "payment-pending"
 
 pattern RSPaymentFailed :: ReservationState
 pattern RSPaymentFailed = ReservationState' "payment-failed"
 
-pattern RSPaymentPending :: ReservationState
-pattern RSPaymentPending = ReservationState' "payment-pending"
+pattern RSActive :: ReservationState
+pattern RSActive = ReservationState' "active"
 
 pattern RSRetired :: ReservationState
 pattern RSRetired = ReservationState' "retired"
 
 {-# COMPLETE
-  RSActive,
-  RSPaymentFailed,
   RSPaymentPending,
+  RSPaymentFailed,
+  RSActive,
   RSRetired,
   ReservationState'
   #-}

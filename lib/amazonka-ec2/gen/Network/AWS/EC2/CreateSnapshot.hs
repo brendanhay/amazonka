@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,30 +27,30 @@ module Network.AWS.EC2.CreateSnapshot
     mkCreateSnapshot,
 
     -- ** Request lenses
-    ccTagSpecifications,
-    ccDescription,
-    ccDryRun,
-    ccVolumeId,
+    cshTagSpecifications,
+    cshVolumeId,
+    cshDescription,
+    cshDryRun,
 
     -- * Destructuring the response
     Snapshot (..),
     mkSnapshot,
 
     -- ** Response lenses
-    sStateMessage,
-    sOwnerAlias,
-    sDataEncryptionKeyId,
-    sKMSKeyId,
-    sTags,
-    sSnapshotId,
-    sOwnerId,
-    sVolumeId,
-    sVolumeSize,
-    sDescription,
-    sStartTime,
-    sProgress,
-    sState,
-    sEncrypted,
+    sfStateMessage,
+    sfState,
+    sfOwnerAlias,
+    sfProgress,
+    sfStartTime,
+    sfVolumeSize,
+    sfDataEncryptionKeyId,
+    sfEncrypted,
+    sfOwnerId,
+    sfKMSKeyId,
+    sfVolumeId,
+    sfDescription,
+    sfTags,
+    sfSnapshotId,
   )
 where
 
@@ -61,27 +62,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { tagSpecifications ::
-      Lude.Maybe [TagSpecification],
+  { -- | The tags to apply to the snapshot during creation.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The ID of the EBS volume.
+    volumeId :: Lude.Text,
+    -- | A description for the snapshot.
     description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    volumeId :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the snapshot.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'tagSpecifications' - The tags to apply to the snapshot during creation.
 -- * 'volumeId' - The ID of the EBS volume.
+-- * 'description' - A description for the snapshot.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateSnapshot ::
   -- | 'volumeId'
   Lude.Text ->
@@ -89,38 +87,38 @@ mkCreateSnapshot ::
 mkCreateSnapshot pVolumeId_ =
   CreateSnapshot'
     { tagSpecifications = Lude.Nothing,
+      volumeId = pVolumeId_,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      volumeId = pVolumeId_
+      dryRun = Lude.Nothing
     }
 
 -- | The tags to apply to the snapshot during creation.
 --
 -- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccTagSpecifications :: Lens.Lens' CreateSnapshot (Lude.Maybe [TagSpecification])
-ccTagSpecifications = Lens.lens (tagSpecifications :: CreateSnapshot -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateSnapshot)
-{-# DEPRECATED ccTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
-
--- | A description for the snapshot.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccDescription :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Text)
-ccDescription = Lens.lens (description :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSnapshot)
-{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccDryRun :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Bool)
-ccDryRun = Lens.lens (dryRun :: CreateSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSnapshot)
-{-# DEPRECATED ccDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+cshTagSpecifications :: Lens.Lens' CreateSnapshot (Lude.Maybe [TagSpecification])
+cshTagSpecifications = Lens.lens (tagSpecifications :: CreateSnapshot -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateSnapshot)
+{-# DEPRECATED cshTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The ID of the EBS volume.
 --
 -- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccVolumeId :: Lens.Lens' CreateSnapshot Lude.Text
-ccVolumeId = Lens.lens (volumeId :: CreateSnapshot -> Lude.Text) (\s a -> s {volumeId = a} :: CreateSnapshot)
-{-# DEPRECATED ccVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+cshVolumeId :: Lens.Lens' CreateSnapshot Lude.Text
+cshVolumeId = Lens.lens (volumeId :: CreateSnapshot -> Lude.Text) (\s a -> s {volumeId = a} :: CreateSnapshot)
+{-# DEPRECATED cshVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+
+-- | A description for the snapshot.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cshDescription :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Text)
+cshDescription = Lens.lens (description :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSnapshot)
+{-# DEPRECATED cshDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cshDryRun :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Bool)
+cshDryRun = Lens.lens (dryRun :: CreateSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSnapshot)
+{-# DEPRECATED cshDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateSnapshot where
   type Rs CreateSnapshot = Snapshot
@@ -140,7 +138,7 @@ instance Lude.ToQuery CreateSnapshot where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "VolumeId" Lude.=: volumeId,
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "VolumeId" Lude.=: volumeId
+        "DryRun" Lude.=: dryRun
       ]

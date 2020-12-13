@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.CloudWatch.PutInsightRule
     mkPutInsightRule,
 
     -- ** Request lenses
-    pirTags,
-    pirRuleState,
     pirRuleName,
     pirRuleDefinition,
+    pirTags,
+    pirRuleState,
 
     -- * Destructuring the response
     PutInsightRuleResponse (..),
@@ -43,30 +44,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutInsightRule' smart constructor.
 data PutInsightRule = PutInsightRule'
-  { tags :: Lude.Maybe [Tag],
-    ruleState :: Lude.Maybe Lude.Text,
+  { -- | A unique name for the rule.
     ruleName :: Lude.Text,
-    ruleDefinition :: Lude.Text
+    -- | The definition of the rule, as a JSON object. For details on the valid syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax> .
+    ruleDefinition :: Lude.Text,
+    -- | A list of key-value pairs to associate with the Contributor Insights rule. You can associate as many as 50 tags with a rule.
+    --
+    -- Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values.
+    -- To be able to associate tags with a rule, you must have the @cloudwatch:TagResource@ permission in addition to the @cloudwatch:PutInsightRule@ permission.
+    -- If you are using this operation to update an existing Contributor Insights rule, any tags you specify in this parameter are ignored. To change the tags of an existing rule, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource> .
+    tags :: Lude.Maybe [Tag],
+    -- | The state of the rule. Valid values are ENABLED and DISABLED.
+    ruleState :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInsightRule' with the minimum fields required to make a request.
 --
--- * 'ruleDefinition' - The definition of the rule, as a JSON object. For details on the valid syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax> .
 -- * 'ruleName' - A unique name for the rule.
--- * 'ruleState' - The state of the rule. Valid values are ENABLED and DISABLED.
+-- * 'ruleDefinition' - The definition of the rule, as a JSON object. For details on the valid syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax> .
 -- * 'tags' - A list of key-value pairs to associate with the Contributor Insights rule. You can associate as many as 50 tags with a rule.
 --
 -- Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only the resources that have certain tag values.
 -- To be able to associate tags with a rule, you must have the @cloudwatch:TagResource@ permission in addition to the @cloudwatch:PutInsightRule@ permission.
 -- If you are using this operation to update an existing Contributor Insights rule, any tags you specify in this parameter are ignored. To change the tags of an existing rule, use <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource> .
+-- * 'ruleState' - The state of the rule. Valid values are ENABLED and DISABLED.
 mkPutInsightRule ::
   -- | 'ruleName'
   Lude.Text ->
@@ -75,11 +78,25 @@ mkPutInsightRule ::
   PutInsightRule
 mkPutInsightRule pRuleName_ pRuleDefinition_ =
   PutInsightRule'
-    { tags = Lude.Nothing,
-      ruleState = Lude.Nothing,
-      ruleName = pRuleName_,
-      ruleDefinition = pRuleDefinition_
+    { ruleName = pRuleName_,
+      ruleDefinition = pRuleDefinition_,
+      tags = Lude.Nothing,
+      ruleState = Lude.Nothing
     }
+
+-- | A unique name for the rule.
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirRuleName :: Lens.Lens' PutInsightRule Lude.Text
+pirRuleName = Lens.lens (ruleName :: PutInsightRule -> Lude.Text) (\s a -> s {ruleName = a} :: PutInsightRule)
+{-# DEPRECATED pirRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
+
+-- | The definition of the rule, as a JSON object. For details on the valid syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax> .
+--
+-- /Note:/ Consider using 'ruleDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirRuleDefinition :: Lens.Lens' PutInsightRule Lude.Text
+pirRuleDefinition = Lens.lens (ruleDefinition :: PutInsightRule -> Lude.Text) (\s a -> s {ruleDefinition = a} :: PutInsightRule)
+{-# DEPRECATED pirRuleDefinition "Use generic-lens or generic-optics with 'ruleDefinition' instead." #-}
 
 -- | A list of key-value pairs to associate with the Contributor Insights rule. You can associate as many as 50 tags with a rule.
 --
@@ -98,20 +115,6 @@ pirTags = Lens.lens (tags :: PutInsightRule -> Lude.Maybe [Tag]) (\s a -> s {tag
 pirRuleState :: Lens.Lens' PutInsightRule (Lude.Maybe Lude.Text)
 pirRuleState = Lens.lens (ruleState :: PutInsightRule -> Lude.Maybe Lude.Text) (\s a -> s {ruleState = a} :: PutInsightRule)
 {-# DEPRECATED pirRuleState "Use generic-lens or generic-optics with 'ruleState' instead." #-}
-
--- | A unique name for the rule.
---
--- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pirRuleName :: Lens.Lens' PutInsightRule Lude.Text
-pirRuleName = Lens.lens (ruleName :: PutInsightRule -> Lude.Text) (\s a -> s {ruleName = a} :: PutInsightRule)
-{-# DEPRECATED pirRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
-
--- | The definition of the rule, as a JSON object. For details on the valid syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax> .
---
--- /Note:/ Consider using 'ruleDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pirRuleDefinition :: Lens.Lens' PutInsightRule Lude.Text
-pirRuleDefinition = Lens.lens (ruleDefinition :: PutInsightRule -> Lude.Text) (\s a -> s {ruleDefinition = a} :: PutInsightRule)
-{-# DEPRECATED pirRuleDefinition "Use generic-lens or generic-optics with 'ruleDefinition' instead." #-}
 
 instance Lude.AWSRequest PutInsightRule where
   type Rs PutInsightRule = PutInsightRuleResponse
@@ -134,25 +137,19 @@ instance Lude.ToQuery PutInsightRule where
     Lude.mconcat
       [ "Action" Lude.=: ("PutInsightRule" :: Lude.ByteString),
         "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "RuleName" Lude.=: ruleName,
+        "RuleDefinition" Lude.=: ruleDefinition,
         "Tags"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "RuleState" Lude.=: ruleState,
-        "RuleName" Lude.=: ruleName,
-        "RuleDefinition" Lude.=: ruleDefinition
+        "RuleState" Lude.=: ruleState
       ]
 
 -- | /See:/ 'mkPutInsightRuleResponse' smart constructor.
 newtype PutInsightRuleResponse = PutInsightRuleResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInsightRuleResponse' with the minimum fields required to make a request.

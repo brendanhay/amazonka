@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListTagOptions' smart constructor.
 data ListTagOptions = ListTagOptions'
-  { filters ::
-      Lude.Maybe ListTagOptionsFilters,
+  { -- | The search filters. If no search filters are specified, the output includes all TagOptions.
+    filters :: Lude.Maybe ListTagOptionsFilters,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagOptions' with the minimum fields required to make a request.
 --
 -- * 'filters' - The search filters. If no search filters are specified, the output includes all TagOptions.
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 mkListTagOptions ::
   ListTagOptions
 mkListTagOptions =
@@ -144,26 +141,21 @@ instance Lude.ToQuery ListTagOptions where
 
 -- | /See:/ 'mkListTagOptionsResponse' smart constructor.
 data ListTagOptionsResponse = ListTagOptionsResponse'
-  { pageToken ::
-      Lude.Maybe Lude.Text,
-    tagOptionDetails ::
-      Lude.Maybe [TagOptionDetail],
+  { -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Lude.Maybe Lude.Text,
+    -- | Information about the TagOptions.
+    tagOptionDetails :: Lude.Maybe [TagOptionDetail],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagOptionsResponse' with the minimum fields required to make a request.
 --
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'responseStatus' - The response status code.
 -- * 'tagOptionDetails' - Information about the TagOptions.
+-- * 'responseStatus' - The response status code.
 mkListTagOptionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

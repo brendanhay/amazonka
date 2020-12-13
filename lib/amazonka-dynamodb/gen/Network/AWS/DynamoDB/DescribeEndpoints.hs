@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.DynamoDB.DescribeEndpoints
     mkDescribeEndpointsResponse,
 
     -- ** Response lenses
-    dersResponseStatus,
     dersEndpoints,
+    dersResponseStatus,
   )
 where
 
@@ -36,13 +37,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpoints' with the minimum fields required to make a request.
@@ -57,8 +52,8 @@ instance Lude.AWSRequest DescribeEndpoints where
     Res.receiveJSON
       ( \s h x ->
           DescribeEndpointsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "Endpoints" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "Endpoints" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeEndpoints where
@@ -83,17 +78,12 @@ instance Lude.ToQuery DescribeEndpoints where
 
 -- | /See:/ 'mkDescribeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
-  { responseStatus ::
-      Lude.Int,
-    endpoints :: [Endpoint]
+  { -- | List of endpoints.
+    endpoints :: [Endpoint],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointsResponse' with the minimum fields required to make a request.
@@ -106,16 +96,9 @@ mkDescribeEndpointsResponse ::
   DescribeEndpointsResponse
 mkDescribeEndpointsResponse pResponseStatus_ =
   DescribeEndpointsResponse'
-    { responseStatus = pResponseStatus_,
-      endpoints = Lude.mempty
+    { endpoints = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersResponseStatus :: Lens.Lens' DescribeEndpointsResponse Lude.Int
-dersResponseStatus = Lens.lens (responseStatus :: DescribeEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEndpointsResponse)
-{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | List of endpoints.
 --
@@ -123,3 +106,10 @@ dersResponseStatus = Lens.lens (responseStatus :: DescribeEndpointsResponse -> L
 dersEndpoints :: Lens.Lens' DescribeEndpointsResponse [Endpoint]
 dersEndpoints = Lens.lens (endpoints :: DescribeEndpointsResponse -> [Endpoint]) (\s a -> s {endpoints = a} :: DescribeEndpointsResponse)
 {-# DEPRECATED dersEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersResponseStatus :: Lens.Lens' DescribeEndpointsResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DescribeEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEndpointsResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

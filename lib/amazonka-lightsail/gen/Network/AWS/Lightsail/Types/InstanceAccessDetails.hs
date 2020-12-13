@@ -40,39 +40,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceAccessDetails' smart constructor.
 data InstanceAccessDetails = InstanceAccessDetails'
-  { hostKeys ::
-      Lude.Maybe [HostKeyAttributes],
+  { -- | Describes the public SSH host keys or the RDP certificate.
+    hostKeys :: Lude.Maybe [HostKeyAttributes],
+    -- | For SSH access, the public key to use when accessing your instance For OpenSSH clients (e.g., command line SSH), you should save this value to @tempkey-cert.pub@ .
     certKey :: Lude.Maybe Lude.Text,
+    -- | The public IP address of the Amazon Lightsail instance.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | For SSH access, the temporary private key. For OpenSSH clients (e.g., command line SSH), you should save this value to @tempkey@ ).
     privateKey :: Lude.Maybe Lude.Text,
+    -- | For SSH access, the date on which the temporary keys expire.
     expiresAt :: Lude.Maybe Lude.Timestamp,
+    -- | The user name to use when logging in to the Amazon Lightsail instance.
     username :: Lude.Maybe Lude.Text,
+    -- | The protocol for these Amazon Lightsail instance access details.
     protocol :: Lude.Maybe InstanceAccessProtocol,
+    -- | For a Windows Server-based instance, an object with the data you can use to retrieve your password. This is only needed if @password@ is empty and the instance is not new (and therefore the password is not ready yet). When you create an instance, it can take up to 15 minutes for the instance to be ready.
     passwordData :: Lude.Maybe PasswordData,
+    -- | For RDP access, the password for your Amazon Lightsail instance. Password will be an empty string if the password for your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
     password :: Lude.Maybe Lude.Text,
+    -- | The name of this Amazon Lightsail instance.
     instanceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceAccessDetails' with the minimum fields required to make a request.
 --
--- * 'certKey' - For SSH access, the public key to use when accessing your instance For OpenSSH clients (e.g., command line SSH), you should save this value to @tempkey-cert.pub@ .
--- * 'expiresAt' - For SSH access, the date on which the temporary keys expire.
 -- * 'hostKeys' - Describes the public SSH host keys or the RDP certificate.
--- * 'instanceName' - The name of this Amazon Lightsail instance.
+-- * 'certKey' - For SSH access, the public key to use when accessing your instance For OpenSSH clients (e.g., command line SSH), you should save this value to @tempkey-cert.pub@ .
 -- * 'ipAddress' - The public IP address of the Amazon Lightsail instance.
--- * 'password' - For RDP access, the password for your Amazon Lightsail instance. Password will be an empty string if the password for your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
--- * 'passwordData' - For a Windows Server-based instance, an object with the data you can use to retrieve your password. This is only needed if @password@ is empty and the instance is not new (and therefore the password is not ready yet). When you create an instance, it can take up to 15 minutes for the instance to be ready.
 -- * 'privateKey' - For SSH access, the temporary private key. For OpenSSH clients (e.g., command line SSH), you should save this value to @tempkey@ ).
--- * 'protocol' - The protocol for these Amazon Lightsail instance access details.
+-- * 'expiresAt' - For SSH access, the date on which the temporary keys expire.
 -- * 'username' - The user name to use when logging in to the Amazon Lightsail instance.
+-- * 'protocol' - The protocol for these Amazon Lightsail instance access details.
+-- * 'passwordData' - For a Windows Server-based instance, an object with the data you can use to retrieve your password. This is only needed if @password@ is empty and the instance is not new (and therefore the password is not ready yet). When you create an instance, it can take up to 15 minutes for the instance to be ready.
+-- * 'password' - For RDP access, the password for your Amazon Lightsail instance. Password will be an empty string if the password for your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
+-- * 'instanceName' - The name of this Amazon Lightsail instance.
 mkInstanceAccessDetails ::
   InstanceAccessDetails
 mkInstanceAccessDetails =

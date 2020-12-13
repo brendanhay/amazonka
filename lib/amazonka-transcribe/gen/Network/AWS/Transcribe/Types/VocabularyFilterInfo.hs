@@ -31,18 +31,14 @@ import Network.AWS.Transcribe.Types.LanguageCode
 --
 -- /See:/ 'mkVocabularyFilterInfo' smart constructor.
 data VocabularyFilterInfo = VocabularyFilterInfo'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
+  { -- | The language code of the words in the vocabulary filter.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The date and time that the vocabulary was last updated.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the vocabulary filter. The name must be unique in the account that holds the filter.
     vocabularyFilterName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VocabularyFilterInfo' with the minimum fields required to make a request.

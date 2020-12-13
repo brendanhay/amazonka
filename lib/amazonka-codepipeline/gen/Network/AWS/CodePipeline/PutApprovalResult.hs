@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +20,19 @@ module Network.AWS.CodePipeline.PutApprovalResult
     mkPutApprovalResult,
 
     -- ** Request lenses
-    parPipelineName,
-    parStageName,
-    parActionName,
-    parResult,
-    parToken,
+    pPipelineName,
+    pToken,
+    pResult,
+    pActionName,
+    pStageName,
 
     -- * Destructuring the response
     PutApprovalResultResponse (..),
     mkPutApprovalResultResponse,
 
     -- ** Response lenses
-    parrsApprovedAt,
-    parrsResponseStatus,
+    prsApprovedAt,
+    prsResponseStatus,
   )
 where
 
@@ -45,89 +46,87 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPutApprovalResult' smart constructor.
 data PutApprovalResult = PutApprovalResult'
-  { pipelineName ::
-      Lude.Text,
-    stageName :: Lude.Text,
-    actionName :: Lude.Text,
+  { -- | The name of the pipeline that contains the action.
+    pipelineName :: Lude.Text,
+    -- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the 'GetPipelineState' action. It is used to validate that the approval request corresponding to this token is still valid.
+    token :: Lude.Text,
+    -- | Represents information about the result of the approval request.
     result :: ApprovalResult,
-    token :: Lude.Text
+    -- | The name of the action for which approval is requested.
+    actionName :: Lude.Text,
+    -- | The name of the stage that contains the action.
+    stageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutApprovalResult' with the minimum fields required to make a request.
 --
--- * 'actionName' - The name of the action for which approval is requested.
 -- * 'pipelineName' - The name of the pipeline that contains the action.
--- * 'result' - Represents information about the result of the approval request.
--- * 'stageName' - The name of the stage that contains the action.
 -- * 'token' - The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the 'GetPipelineState' action. It is used to validate that the approval request corresponding to this token is still valid.
+-- * 'result' - Represents information about the result of the approval request.
+-- * 'actionName' - The name of the action for which approval is requested.
+-- * 'stageName' - The name of the stage that contains the action.
 mkPutApprovalResult ::
   -- | 'pipelineName'
   Lude.Text ->
-  -- | 'stageName'
-  Lude.Text ->
-  -- | 'actionName'
+  -- | 'token'
   Lude.Text ->
   -- | 'result'
   ApprovalResult ->
-  -- | 'token'
+  -- | 'actionName'
+  Lude.Text ->
+  -- | 'stageName'
   Lude.Text ->
   PutApprovalResult
 mkPutApprovalResult
   pPipelineName_
-  pStageName_
-  pActionName_
+  pToken_
   pResult_
-  pToken_ =
+  pActionName_
+  pStageName_ =
     PutApprovalResult'
       { pipelineName = pPipelineName_,
-        stageName = pStageName_,
-        actionName = pActionName_,
+        token = pToken_,
         result = pResult_,
-        token = pToken_
+        actionName = pActionName_,
+        stageName = pStageName_
       }
 
 -- | The name of the pipeline that contains the action.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parPipelineName :: Lens.Lens' PutApprovalResult Lude.Text
-parPipelineName = Lens.lens (pipelineName :: PutApprovalResult -> Lude.Text) (\s a -> s {pipelineName = a} :: PutApprovalResult)
-{-# DEPRECATED parPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
-
--- | The name of the stage that contains the action.
---
--- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parStageName :: Lens.Lens' PutApprovalResult Lude.Text
-parStageName = Lens.lens (stageName :: PutApprovalResult -> Lude.Text) (\s a -> s {stageName = a} :: PutApprovalResult)
-{-# DEPRECATED parStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
-
--- | The name of the action for which approval is requested.
---
--- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parActionName :: Lens.Lens' PutApprovalResult Lude.Text
-parActionName = Lens.lens (actionName :: PutApprovalResult -> Lude.Text) (\s a -> s {actionName = a} :: PutApprovalResult)
-{-# DEPRECATED parActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
-
--- | Represents information about the result of the approval request.
---
--- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parResult :: Lens.Lens' PutApprovalResult ApprovalResult
-parResult = Lens.lens (result :: PutApprovalResult -> ApprovalResult) (\s a -> s {result = a} :: PutApprovalResult)
-{-# DEPRECATED parResult "Use generic-lens or generic-optics with 'result' instead." #-}
+pPipelineName :: Lens.Lens' PutApprovalResult Lude.Text
+pPipelineName = Lens.lens (pipelineName :: PutApprovalResult -> Lude.Text) (\s a -> s {pipelineName = a} :: PutApprovalResult)
+{-# DEPRECATED pPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the 'GetPipelineState' action. It is used to validate that the approval request corresponding to this token is still valid.
 --
 -- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parToken :: Lens.Lens' PutApprovalResult Lude.Text
-parToken = Lens.lens (token :: PutApprovalResult -> Lude.Text) (\s a -> s {token = a} :: PutApprovalResult)
-{-# DEPRECATED parToken "Use generic-lens or generic-optics with 'token' instead." #-}
+pToken :: Lens.Lens' PutApprovalResult Lude.Text
+pToken = Lens.lens (token :: PutApprovalResult -> Lude.Text) (\s a -> s {token = a} :: PutApprovalResult)
+{-# DEPRECATED pToken "Use generic-lens or generic-optics with 'token' instead." #-}
+
+-- | Represents information about the result of the approval request.
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pResult :: Lens.Lens' PutApprovalResult ApprovalResult
+pResult = Lens.lens (result :: PutApprovalResult -> ApprovalResult) (\s a -> s {result = a} :: PutApprovalResult)
+{-# DEPRECATED pResult "Use generic-lens or generic-optics with 'result' instead." #-}
+
+-- | The name of the action for which approval is requested.
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pActionName :: Lens.Lens' PutApprovalResult Lude.Text
+pActionName = Lens.lens (actionName :: PutApprovalResult -> Lude.Text) (\s a -> s {actionName = a} :: PutApprovalResult)
+{-# DEPRECATED pActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
+
+-- | The name of the stage that contains the action.
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pStageName :: Lens.Lens' PutApprovalResult Lude.Text
+pStageName = Lens.lens (stageName :: PutApprovalResult -> Lude.Text) (\s a -> s {stageName = a} :: PutApprovalResult)
+{-# DEPRECATED pStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 instance Lude.AWSRequest PutApprovalResult where
   type Rs PutApprovalResult = PutApprovalResultResponse
@@ -155,10 +154,10 @@ instance Lude.ToJSON PutApprovalResult where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("pipelineName" Lude..= pipelineName),
-            Lude.Just ("stageName" Lude..= stageName),
-            Lude.Just ("actionName" Lude..= actionName),
+            Lude.Just ("token" Lude..= token),
             Lude.Just ("result" Lude..= result),
-            Lude.Just ("token" Lude..= token)
+            Lude.Just ("actionName" Lude..= actionName),
+            Lude.Just ("stageName" Lude..= stageName)
           ]
       )
 
@@ -172,17 +171,12 @@ instance Lude.ToQuery PutApprovalResult where
 --
 -- /See:/ 'mkPutApprovalResultResponse' smart constructor.
 data PutApprovalResultResponse = PutApprovalResultResponse'
-  { approvedAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The timestamp showing when the approval or rejection was submitted.
+    approvedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutApprovalResultResponse' with the minimum fields required to make a request.
@@ -202,13 +196,13 @@ mkPutApprovalResultResponse pResponseStatus_ =
 -- | The timestamp showing when the approval or rejection was submitted.
 --
 -- /Note:/ Consider using 'approvedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parrsApprovedAt :: Lens.Lens' PutApprovalResultResponse (Lude.Maybe Lude.Timestamp)
-parrsApprovedAt = Lens.lens (approvedAt :: PutApprovalResultResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {approvedAt = a} :: PutApprovalResultResponse)
-{-# DEPRECATED parrsApprovedAt "Use generic-lens or generic-optics with 'approvedAt' instead." #-}
+prsApprovedAt :: Lens.Lens' PutApprovalResultResponse (Lude.Maybe Lude.Timestamp)
+prsApprovedAt = Lens.lens (approvedAt :: PutApprovalResultResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {approvedAt = a} :: PutApprovalResultResponse)
+{-# DEPRECATED prsApprovedAt "Use generic-lens or generic-optics with 'approvedAt' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-parrsResponseStatus :: Lens.Lens' PutApprovalResultResponse Lude.Int
-parrsResponseStatus = Lens.lens (responseStatus :: PutApprovalResultResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutApprovalResultResponse)
-{-# DEPRECATED parrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prsResponseStatus :: Lens.Lens' PutApprovalResultResponse Lude.Int
+prsResponseStatus = Lens.lens (responseStatus :: PutApprovalResultResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutApprovalResultResponse)
+{-# DEPRECATED prsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

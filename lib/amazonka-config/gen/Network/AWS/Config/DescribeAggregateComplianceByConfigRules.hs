@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,33 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAggregateComplianceByConfigRules' smart constructor.
 data DescribeAggregateComplianceByConfigRules = DescribeAggregateComplianceByConfigRules'
-  { filters ::
-      Lude.Maybe
-        ConfigRuleComplianceFilters,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural,
-    configurationAggregatorName ::
-      Lude.Text
+  { -- | Filters the results by ConfigRuleComplianceFilters object.
+    filters :: Lude.Maybe ConfigRuleComplianceFilters,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAggregateComplianceByConfigRules' with the minimum fields required to make a request.
 --
--- * 'configurationAggregatorName' - The name of the configuration aggregator.
 -- * 'filters' - Filters the results by ConfigRuleComplianceFilters object.
--- * 'limit' - The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
 mkDescribeAggregateComplianceByConfigRules ::
   -- | 'configurationAggregatorName'
   Lude.Text ->
@@ -176,31 +168,20 @@ instance Lude.ToQuery DescribeAggregateComplianceByConfigRules where
 
 -- | /See:/ 'mkDescribeAggregateComplianceByConfigRulesResponse' smart constructor.
 data DescribeAggregateComplianceByConfigRulesResponse = DescribeAggregateComplianceByConfigRulesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    aggregateComplianceByConfigRules ::
-      Lude.Maybe
-        [AggregateComplianceByConfigRule],
-    responseStatus ::
-      Lude.Int
+  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Returns a list of AggregateComplianceByConfigRule object.
+    aggregateComplianceByConfigRules :: Lude.Maybe [AggregateComplianceByConfigRule],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAggregateComplianceByConfigRulesResponse' with the minimum fields required to make a request.
 --
--- * 'aggregateComplianceByConfigRules' - Returns a list of AggregateComplianceByConfigRule object.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'aggregateComplianceByConfigRules' - Returns a list of AggregateComplianceByConfigRule object.
 -- * 'responseStatus' - The response status code.
 mkDescribeAggregateComplianceByConfigRulesResponse ::
   -- | 'responseStatus'

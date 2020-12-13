@@ -29,16 +29,10 @@ import Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits
 --
 -- /See:/ 'mkProtectionGroupPatternTypeLimits' smart constructor.
 newtype ProtectionGroupPatternTypeLimits = ProtectionGroupPatternTypeLimits'
-  { arbitraryPatternLimits ::
-      ProtectionGroupArbitraryPatternLimits
+  { -- | Limits settings on protection groups with arbitrary pattern type.
+    arbitraryPatternLimits :: ProtectionGroupArbitraryPatternLimits
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectionGroupPatternTypeLimits' with the minimum fields required to make a request.

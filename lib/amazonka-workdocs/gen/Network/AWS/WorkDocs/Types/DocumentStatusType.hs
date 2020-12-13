@@ -13,8 +13,8 @@
 module Network.AWS.WorkDocs.Types.DocumentStatusType
   ( DocumentStatusType
       ( DocumentStatusType',
-        DSTActive,
-        DSTInitialized
+        DSTInitialized,
+        DSTActive
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DocumentStatusType = DocumentStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSTActive :: DocumentStatusType
-pattern DSTActive = DocumentStatusType' "ACTIVE"
-
 pattern DSTInitialized :: DocumentStatusType
 pattern DSTInitialized = DocumentStatusType' "INITIALIZED"
 
+pattern DSTActive :: DocumentStatusType
+pattern DSTActive = DocumentStatusType' "ACTIVE"
+
 {-# COMPLETE
-  DSTActive,
   DSTInitialized,
+  DSTActive,
   DocumentStatusType'
   #-}

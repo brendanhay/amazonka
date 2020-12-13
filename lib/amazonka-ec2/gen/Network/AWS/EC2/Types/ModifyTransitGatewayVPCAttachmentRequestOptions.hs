@@ -33,33 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkModifyTransitGatewayVPCAttachmentRequestOptions' smart constructor.
 data ModifyTransitGatewayVPCAttachmentRequestOptions = ModifyTransitGatewayVPCAttachmentRequestOptions'
-  { ipv6Support ::
-      Lude.Maybe
-        IPv6SupportValue,
-    applianceModeSupport ::
-      Lude.Maybe
-        ApplianceModeSupportValue,
-    dnsSupport ::
-      Lude.Maybe
-        DNSSupportValue
+  { -- | Enable or disable IPv6 support. The default is @enable@ .
+    ipv6Support :: Lude.Maybe IPv6SupportValue,
+    -- | Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is @disable@ .
+    applianceModeSupport :: Lude.Maybe ApplianceModeSupportValue,
+    -- | Enable or disable DNS support. The default is @enable@ .
+    dnsSupport :: Lude.Maybe DNSSupportValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTransitGatewayVPCAttachmentRequestOptions' with the minimum fields required to make a request.
 --
+-- * 'ipv6Support' - Enable or disable IPv6 support. The default is @enable@ .
 -- * 'applianceModeSupport' - Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is @disable@ .
 -- * 'dnsSupport' - Enable or disable DNS support. The default is @enable@ .
--- * 'ipv6Support' - Enable or disable IPv6 support. The default is @enable@ .
 mkModifyTransitGatewayVPCAttachmentRequestOptions ::
   ModifyTransitGatewayVPCAttachmentRequestOptions
 mkModifyTransitGatewayVPCAttachmentRequestOptions =

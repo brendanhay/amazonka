@@ -13,10 +13,10 @@
 module Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm
   ( DeinterlaceAlgorithm
       ( DeinterlaceAlgorithm',
-        DABlend,
-        DABlendTicker,
         DAInterpolate,
-        DAInterpolateTicker
+        DAInterpolateTicker,
+        DABlend,
+        DABlendTicker
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype DeinterlaceAlgorithm = DeinterlaceAlgorithm' Lude.Text
       Lude.ToHeader
     )
 
-pattern DABlend :: DeinterlaceAlgorithm
-pattern DABlend = DeinterlaceAlgorithm' "BLEND"
-
-pattern DABlendTicker :: DeinterlaceAlgorithm
-pattern DABlendTicker = DeinterlaceAlgorithm' "BLEND_TICKER"
-
 pattern DAInterpolate :: DeinterlaceAlgorithm
 pattern DAInterpolate = DeinterlaceAlgorithm' "INTERPOLATE"
 
 pattern DAInterpolateTicker :: DeinterlaceAlgorithm
 pattern DAInterpolateTicker = DeinterlaceAlgorithm' "INTERPOLATE_TICKER"
 
+pattern DABlend :: DeinterlaceAlgorithm
+pattern DABlend = DeinterlaceAlgorithm' "BLEND"
+
+pattern DABlendTicker :: DeinterlaceAlgorithm
+pattern DABlendTicker = DeinterlaceAlgorithm' "BLEND_TICKER"
+
 {-# COMPLETE
-  DABlend,
-  DABlendTicker,
   DAInterpolate,
   DAInterpolateTicker,
+  DABlend,
+  DABlendTicker,
   DeinterlaceAlgorithm'
   #-}

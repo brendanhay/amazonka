@@ -13,8 +13,8 @@
 module Network.AWS.CloudFormation.Types.DeprecatedStatus
   ( DeprecatedStatus
       ( DeprecatedStatus',
-        Deprecated,
-        Live
+        Live,
+        Deprecated
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DeprecatedStatus = DeprecatedStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deprecated :: DeprecatedStatus
-pattern Deprecated = DeprecatedStatus' "DEPRECATED"
-
 pattern Live :: DeprecatedStatus
 pattern Live = DeprecatedStatus' "LIVE"
 
+pattern Deprecated :: DeprecatedStatus
+pattern Deprecated = DeprecatedStatus' "DEPRECATED"
+
 {-# COMPLETE
-  Deprecated,
   Live,
+  Deprecated,
   DeprecatedStatus'
   #-}

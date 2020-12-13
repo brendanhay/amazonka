@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.DocumentHashType
   ( DocumentHashType
       ( DocumentHashType',
-        HashSHA1,
-        HashSHA256
+        HashSHA256,
+        HashSHA1
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DocumentHashType = DocumentHashType' Lude.Text
       Lude.ToHeader
     )
 
-pattern HashSHA1 :: DocumentHashType
-pattern HashSHA1 = DocumentHashType' "Sha1"
-
 pattern HashSHA256 :: DocumentHashType
 pattern HashSHA256 = DocumentHashType' "Sha256"
 
+pattern HashSHA1 :: DocumentHashType
+pattern HashSHA1 = DocumentHashType' "Sha1"
+
 {-# COMPLETE
-  HashSHA1,
   HashSHA256,
+  HashSHA1,
   DocumentHashType'
   #-}

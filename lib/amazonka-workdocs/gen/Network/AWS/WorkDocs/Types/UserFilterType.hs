@@ -13,8 +13,8 @@
 module Network.AWS.WorkDocs.Types.UserFilterType
   ( UserFilterType
       ( UserFilterType',
-        ActivePending,
-        All
+        UFTAll,
+        UFTActivePending
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype UserFilterType = UserFilterType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ActivePending :: UserFilterType
-pattern ActivePending = UserFilterType' "ACTIVE_PENDING"
+pattern UFTAll :: UserFilterType
+pattern UFTAll = UserFilterType' "ALL"
 
-pattern All :: UserFilterType
-pattern All = UserFilterType' "ALL"
+pattern UFTActivePending :: UserFilterType
+pattern UFTActivePending = UserFilterType' "ACTIVE_PENDING"
 
 {-# COMPLETE
-  ActivePending,
-  All,
+  UFTAll,
+  UFTActivePending,
   UserFilterType'
   #-}

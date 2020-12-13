@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.EC2.ResetImageAttribute
     mkResetImageAttribute,
 
     -- ** Request lenses
-    resDryRun,
-    resAttribute,
-    resImageId,
+    riaAttribute,
+    riaImageId,
+    riaDryRun,
 
     -- * Destructuring the response
     ResetImageAttributeResponse (..),
@@ -39,25 +40,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkResetImageAttribute' smart constructor.
 data ResetImageAttribute = ResetImageAttribute'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The attribute to reset (currently you can only reset the launch permission attribute).
     attribute :: ResetImageAttributeName,
-    imageId :: Lude.Text
+    -- | The ID of the AMI.
+    imageId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetImageAttribute' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The attribute to reset (currently you can only reset the launch permission attribute).
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'imageId' - The ID of the AMI.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkResetImageAttribute ::
   -- | 'attribute'
   ResetImageAttributeName ->
@@ -66,31 +63,31 @@ mkResetImageAttribute ::
   ResetImageAttribute
 mkResetImageAttribute pAttribute_ pImageId_ =
   ResetImageAttribute'
-    { dryRun = Lude.Nothing,
-      attribute = pAttribute_,
-      imageId = pImageId_
+    { attribute = pAttribute_,
+      imageId = pImageId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resDryRun :: Lens.Lens' ResetImageAttribute (Lude.Maybe Lude.Bool)
-resDryRun = Lens.lens (dryRun :: ResetImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetImageAttribute)
-{-# DEPRECATED resDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The attribute to reset (currently you can only reset the launch permission attribute).
 --
 -- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resAttribute :: Lens.Lens' ResetImageAttribute ResetImageAttributeName
-resAttribute = Lens.lens (attribute :: ResetImageAttribute -> ResetImageAttributeName) (\s a -> s {attribute = a} :: ResetImageAttribute)
-{-# DEPRECATED resAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
+riaAttribute :: Lens.Lens' ResetImageAttribute ResetImageAttributeName
+riaAttribute = Lens.lens (attribute :: ResetImageAttribute -> ResetImageAttributeName) (\s a -> s {attribute = a} :: ResetImageAttribute)
+{-# DEPRECATED riaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The ID of the AMI.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resImageId :: Lens.Lens' ResetImageAttribute Lude.Text
-resImageId = Lens.lens (imageId :: ResetImageAttribute -> Lude.Text) (\s a -> s {imageId = a} :: ResetImageAttribute)
-{-# DEPRECATED resImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+riaImageId :: Lens.Lens' ResetImageAttribute Lude.Text
+riaImageId = Lens.lens (imageId :: ResetImageAttribute -> Lude.Text) (\s a -> s {imageId = a} :: ResetImageAttribute)
+{-# DEPRECATED riaImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riaDryRun :: Lens.Lens' ResetImageAttribute (Lude.Maybe Lude.Bool)
+riaDryRun = Lens.lens (dryRun :: ResetImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetImageAttribute)
+{-# DEPRECATED riaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ResetImageAttribute where
   type Rs ResetImageAttribute = ResetImageAttributeResponse
@@ -108,20 +105,14 @@ instance Lude.ToQuery ResetImageAttribute where
     Lude.mconcat
       [ "Action" Lude.=: ("ResetImageAttribute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "Attribute" Lude.=: attribute,
-        "ImageId" Lude.=: imageId
+        "ImageId" Lude.=: imageId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkResetImageAttributeResponse' smart constructor.
 data ResetImageAttributeResponse = ResetImageAttributeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetImageAttributeResponse' with the minimum fields required to make a request.

@@ -35,33 +35,24 @@ import Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsParameters
 --
 -- /See:/ 'mkMaintenanceWindowTaskInvocationParameters' smart constructor.
 data MaintenanceWindowTaskInvocationParameters = MaintenanceWindowTaskInvocationParameters'
-  { automation ::
-      Lude.Maybe
-        MaintenanceWindowAutomationParameters,
-    stepFunctions ::
-      Lude.Maybe
-        MaintenanceWindowStepFunctionsParameters,
-    runCommand ::
-      Lude.Maybe
-        MaintenanceWindowRunCommandParameters,
-    lambda ::
-      Lude.Maybe
-        MaintenanceWindowLambdaParameters
+  { -- | The parameters for an AUTOMATION task type.
+    automation :: Lude.Maybe MaintenanceWindowAutomationParameters,
+    -- | The parameters for a STEP_FUNCTIONS task type.
+    stepFunctions :: Lude.Maybe MaintenanceWindowStepFunctionsParameters,
+    -- | The parameters for a RUN_COMMAND task type.
+    runCommand :: Lude.Maybe MaintenanceWindowRunCommandParameters,
+    -- | The parameters for a LAMBDA task type.
+    lambda :: Lude.Maybe MaintenanceWindowLambdaParameters
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowTaskInvocationParameters' with the minimum fields required to make a request.
 --
 -- * 'automation' - The parameters for an AUTOMATION task type.
--- * 'lambda' - The parameters for a LAMBDA task type.
--- * 'runCommand' - The parameters for a RUN_COMMAND task type.
 -- * 'stepFunctions' - The parameters for a STEP_FUNCTIONS task type.
+-- * 'runCommand' - The parameters for a RUN_COMMAND task type.
+-- * 'lambda' - The parameters for a LAMBDA task type.
 mkMaintenanceWindowTaskInvocationParameters ::
   MaintenanceWindowTaskInvocationParameters
 mkMaintenanceWindowTaskInvocationParameters =

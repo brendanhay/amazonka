@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.Route53AutoNaming.CreateHTTPNamespace
 
     -- ** Request lenses
     chttpnCreatorRequestId,
+    chttpnName,
     chttpnDescription,
     chttpnTags,
-    chttpnName,
 
     -- * Destructuring the response
     CreateHTTPNamespaceResponse (..),
@@ -44,26 +45,23 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkCreateHTTPNamespace' smart constructor.
 data CreateHTTPNamespace = CreateHTTPNamespace'
-  { creatorRequestId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique string that identifies the request and that allows failed @CreateHttpNamespace@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
+    creatorRequestId :: Lude.Maybe Lude.Text,
+    -- | The name that you want to assign to this namespace.
+    name :: Lude.Text,
+    -- | A description for the namespace.
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    name :: Lude.Text
+    -- | The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHTTPNamespace' with the minimum fields required to make a request.
 --
 -- * 'creatorRequestId' - A unique string that identifies the request and that allows failed @CreateHttpNamespace@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
--- * 'description' - A description for the namespace.
 -- * 'name' - The name that you want to assign to this namespace.
+-- * 'description' - A description for the namespace.
 -- * 'tags' - The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 mkCreateHTTPNamespace ::
   -- | 'name'
@@ -72,9 +70,9 @@ mkCreateHTTPNamespace ::
 mkCreateHTTPNamespace pName_ =
   CreateHTTPNamespace'
     { creatorRequestId = Lude.Nothing,
+      name = pName_,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      tags = Lude.Nothing
     }
 
 -- | A unique string that identifies the request and that allows failed @CreateHttpNamespace@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
@@ -83,6 +81,13 @@ mkCreateHTTPNamespace pName_ =
 chttpnCreatorRequestId :: Lens.Lens' CreateHTTPNamespace (Lude.Maybe Lude.Text)
 chttpnCreatorRequestId = Lens.lens (creatorRequestId :: CreateHTTPNamespace -> Lude.Maybe Lude.Text) (\s a -> s {creatorRequestId = a} :: CreateHTTPNamespace)
 {-# DEPRECATED chttpnCreatorRequestId "Use generic-lens or generic-optics with 'creatorRequestId' instead." #-}
+
+-- | The name that you want to assign to this namespace.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chttpnName :: Lens.Lens' CreateHTTPNamespace Lude.Text
+chttpnName = Lens.lens (name :: CreateHTTPNamespace -> Lude.Text) (\s a -> s {name = a} :: CreateHTTPNamespace)
+{-# DEPRECATED chttpnName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A description for the namespace.
 --
@@ -97,13 +102,6 @@ chttpnDescription = Lens.lens (description :: CreateHTTPNamespace -> Lude.Maybe 
 chttpnTags :: Lens.Lens' CreateHTTPNamespace (Lude.Maybe [Tag])
 chttpnTags = Lens.lens (tags :: CreateHTTPNamespace -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateHTTPNamespace)
 {-# DEPRECATED chttpnTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name that you want to assign to this namespace.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chttpnName :: Lens.Lens' CreateHTTPNamespace Lude.Text
-chttpnName = Lens.lens (name :: CreateHTTPNamespace -> Lude.Text) (\s a -> s {name = a} :: CreateHTTPNamespace)
-{-# DEPRECATED chttpnName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateHTTPNamespace where
   type Rs CreateHTTPNamespace = CreateHTTPNamespaceResponse
@@ -133,9 +131,9 @@ instance Lude.ToJSON CreateHTTPNamespace where
     Lude.object
       ( Lude.catMaybes
           [ ("CreatorRequestId" Lude..=) Lude.<$> creatorRequestId,
+            Lude.Just ("Name" Lude..= name),
             ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -147,17 +145,12 @@ instance Lude.ToQuery CreateHTTPNamespace where
 
 -- | /See:/ 'mkCreateHTTPNamespaceResponse' smart constructor.
 data CreateHTTPNamespaceResponse = CreateHTTPNamespaceResponse'
-  { operationId ::
-      Lude.Maybe Lude.Text,
+  { -- | A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
+    operationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHTTPNamespaceResponse' with the minimum fields required to make a request.

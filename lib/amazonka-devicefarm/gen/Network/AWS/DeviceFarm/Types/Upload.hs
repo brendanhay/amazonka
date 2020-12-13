@@ -40,43 +40,148 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpload' smart constructor.
 data Upload = Upload'
-  { status :: Lude.Maybe UploadStatus,
+  { -- | The upload's status.
+    --
+    -- Must be one of the following values:
+    --
+    --     * FAILED
+    --
+    --
+    --     * INITIALIZED
+    --
+    --
+    --     * PROCESSING
+    --
+    --
+    --     * SUCCEEDED
+    status :: Lude.Maybe UploadStatus,
+    -- | The upload's ARN.
     arn :: Lude.Maybe Lude.Text,
+    -- | When the upload was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The upload's category. Allowed values include:
+    --
+    --
+    --     * CURATED: An upload managed by AWS Device Farm.
+    --
+    --
+    --     * PRIVATE: An upload managed by the AWS Device Farm customer.
     category :: Lude.Maybe UploadCategory,
+    -- | The presigned Amazon S3 URL that was used to store a file using a PUT request.
     url :: Lude.Maybe Lude.Text,
+    -- | The upload's file name.
     name :: Lude.Maybe Lude.Text,
+    -- | The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
     metadata :: Lude.Maybe Lude.Text,
+    -- | The upload's type.
+    --
+    -- Must be one of the following values:
+    --
+    --     * ANDROID_APP
+    --
+    --
+    --     * IOS_APP
+    --
+    --
+    --     * WEB_APP
+    --
+    --
+    --     * EXTERNAL_DATA
+    --
+    --
+    --     * APPIUM_JAVA_JUNIT_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_JAVA_TESTNG_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_PYTHON_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_NODE_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_RUBY_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_WEB_PYTHON_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_WEB_NODE_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_WEB_RUBY_TEST_PACKAGE
+    --
+    --
+    --     * CALABASH_TEST_PACKAGE
+    --
+    --
+    --     * INSTRUMENTATION_TEST_PACKAGE
+    --
+    --
+    --     * UIAUTOMATION_TEST_PACKAGE
+    --
+    --
+    --     * UIAUTOMATOR_TEST_PACKAGE
+    --
+    --
+    --     * XCTEST_TEST_PACKAGE
+    --
+    --
+    --     * XCTEST_UI_TEST_PACKAGE
+    --
+    --
+    --     * APPIUM_JAVA_JUNIT_TEST_SPEC
+    --
+    --
+    --     * APPIUM_JAVA_TESTNG_TEST_SPEC
+    --
+    --
+    --     * APPIUM_PYTHON_TEST_SPEC
+    --
+    --
+    --     * APPIUM_NODE_TEST_SPEC
+    --
+    --
+    --     * APPIUM_RUBY_TEST_SPEC
+    --
+    --
+    --     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+    --
+    --
+    --     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+    --
+    --
+    --     * APPIUM_WEB_PYTHON_TEST_SPEC
+    --
+    --
+    --     * APPIUM_WEB_NODE_TEST_SPEC
+    --
+    --
+    --     * APPIUM_WEB_RUBY_TEST_SPEC
+    --
+    --
+    --     * INSTRUMENTATION_TEST_SPEC
+    --
+    --
+    --     * XCTEST_UI_TEST_SPEC
     type' :: Lude.Maybe UploadType,
+    -- | A message about the upload's result.
     message :: Lude.Maybe Lude.Text,
+    -- | The upload's content type (for example, @application/octet-stream@ ).
     contentType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Upload' with the minimum fields required to make a request.
 --
--- * 'arn' - The upload's ARN.
--- * 'category' - The upload's category. Allowed values include:
---
---
---     * CURATED: An upload managed by AWS Device Farm.
---
---
---     * PRIVATE: An upload managed by the AWS Device Farm customer.
---
---
--- * 'contentType' - The upload's content type (for example, @application/octet-stream@ ).
--- * 'created' - When the upload was created.
--- * 'message' - A message about the upload's result.
--- * 'metadata' - The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
--- * 'name' - The upload's file name.
 -- * 'status' - The upload's status.
 --
 -- Must be one of the following values:
@@ -93,6 +198,20 @@ data Upload = Upload'
 --     * SUCCEEDED
 --
 --
+-- * 'arn' - The upload's ARN.
+-- * 'created' - When the upload was created.
+-- * 'category' - The upload's category. Allowed values include:
+--
+--
+--     * CURATED: An upload managed by AWS Device Farm.
+--
+--
+--     * PRIVATE: An upload managed by the AWS Device Farm customer.
+--
+--
+-- * 'url' - The presigned Amazon S3 URL that was used to store a file using a PUT request.
+-- * 'name' - The upload's file name.
+-- * 'metadata' - The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
 -- * 'type'' - The upload's type.
 --
 -- Must be one of the following values:
@@ -193,7 +312,8 @@ data Upload = Upload'
 --     * XCTEST_UI_TEST_SPEC
 --
 --
--- * 'url' - The presigned Amazon S3 URL that was used to store a file using a PUT request.
+-- * 'message' - A message about the upload's result.
+-- * 'contentType' - The upload's content type (for example, @application/octet-stream@ ).
 mkUpload ::
   Upload
 mkUpload =

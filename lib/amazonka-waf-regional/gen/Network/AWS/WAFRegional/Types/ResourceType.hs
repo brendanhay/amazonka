@@ -13,8 +13,8 @@
 module Network.AWS.WAFRegional.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        APIGateway,
-        ApplicationLoadBalancer
+        ApplicationLoadBalancer,
+        APIGateway
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ResourceType = ResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern APIGateway :: ResourceType
-pattern APIGateway = ResourceType' "API_GATEWAY"
-
 pattern ApplicationLoadBalancer :: ResourceType
 pattern ApplicationLoadBalancer = ResourceType' "APPLICATION_LOAD_BALANCER"
 
+pattern APIGateway :: ResourceType
+pattern APIGateway = ResourceType' "API_GATEWAY"
+
 {-# COMPLETE
-  APIGateway,
   ApplicationLoadBalancer,
+  APIGateway,
   ResourceType'
   #-}

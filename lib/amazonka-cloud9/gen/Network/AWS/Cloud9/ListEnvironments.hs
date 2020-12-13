@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListEnvironments' smart constructor.
 data ListEnvironments = ListEnvironments'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of environments to get identifiers for.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEnvironments' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of environments to get identifiers for.
 -- * 'nextToken' - During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'maxResults' - The maximum number of environments to get identifiers for.
 mkListEnvironments ::
   ListEnvironments
 mkListEnvironments =
@@ -134,18 +130,14 @@ instance Lude.ToQuery ListEnvironments where
 
 -- | /See:/ 'mkListEnvironmentsResponse' smart constructor.
 data ListEnvironmentsResponse = ListEnvironmentsResponse'
-  { environmentIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of environment identifiers.
+    environmentIds :: Lude.Maybe [Lude.Text],
+    -- | If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEnvironmentsResponse' with the minimum fields required to make a request.

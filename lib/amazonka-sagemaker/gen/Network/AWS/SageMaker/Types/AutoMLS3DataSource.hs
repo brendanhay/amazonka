@@ -30,17 +30,12 @@ import Network.AWS.SageMaker.Types.AutoMLS3DataType
 --
 -- /See:/ 'mkAutoMLS3DataSource' smart constructor.
 data AutoMLS3DataSource = AutoMLS3DataSource'
-  { s3DataType ::
-      AutoMLS3DataType,
+  { -- | The data type.
+    s3DataType :: AutoMLS3DataType,
+    -- | The URL to the Amazon S3 data source.
     s3URI :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLS3DataSource' with the minimum fields required to make a request.

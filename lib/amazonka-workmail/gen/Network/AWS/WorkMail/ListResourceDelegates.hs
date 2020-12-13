@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.WorkMail.ListResourceDelegates
     mkListResourceDelegates,
 
     -- ** Request lenses
+    lrdResourceId,
     lrdNextToken,
     lrdMaxResults,
     lrdOrganizationId,
-    lrdResourceId,
 
     -- * Destructuring the response
     ListResourceDelegatesResponse (..),
@@ -46,40 +47,44 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkListResourceDelegates' smart constructor.
 data ListResourceDelegates = ListResourceDelegates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the resource whose delegates are listed.
+    resourceId :: Lude.Text,
+    -- | The token used to paginate through the delegates associated with a resource.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of maximum results in a page.
     maxResults :: Lude.Maybe Lude.Natural,
-    organizationId :: Lude.Text,
-    resourceId :: Lude.Text
+    -- | The identifier for the organization that contains the resource for which delegates are listed.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceDelegates' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The number of maximum results in a page.
--- * 'nextToken' - The token used to paginate through the delegates associated with a resource.
--- * 'organizationId' - The identifier for the organization that contains the resource for which delegates are listed.
 -- * 'resourceId' - The identifier for the resource whose delegates are listed.
+-- * 'nextToken' - The token used to paginate through the delegates associated with a resource.
+-- * 'maxResults' - The number of maximum results in a page.
+-- * 'organizationId' - The identifier for the organization that contains the resource for which delegates are listed.
 mkListResourceDelegates ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   ListResourceDelegates
-mkListResourceDelegates pOrganizationId_ pResourceId_ =
+mkListResourceDelegates pResourceId_ pOrganizationId_ =
   ListResourceDelegates'
-    { nextToken = Lude.Nothing,
+    { resourceId = pResourceId_,
+      nextToken = Lude.Nothing,
       maxResults = Lude.Nothing,
-      organizationId = pOrganizationId_,
-      resourceId = pResourceId_
+      organizationId = pOrganizationId_
     }
+
+-- | The identifier for the resource whose delegates are listed.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrdResourceId :: Lens.Lens' ListResourceDelegates Lude.Text
+lrdResourceId = Lens.lens (resourceId :: ListResourceDelegates -> Lude.Text) (\s a -> s {resourceId = a} :: ListResourceDelegates)
+{-# DEPRECATED lrdResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The token used to paginate through the delegates associated with a resource.
 --
@@ -101,13 +106,6 @@ lrdMaxResults = Lens.lens (maxResults :: ListResourceDelegates -> Lude.Maybe Lud
 lrdOrganizationId :: Lens.Lens' ListResourceDelegates Lude.Text
 lrdOrganizationId = Lens.lens (organizationId :: ListResourceDelegates -> Lude.Text) (\s a -> s {organizationId = a} :: ListResourceDelegates)
 {-# DEPRECATED lrdOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
--- | The identifier for the resource whose delegates are listed.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrdResourceId :: Lens.Lens' ListResourceDelegates Lude.Text
-lrdResourceId = Lens.lens (resourceId :: ListResourceDelegates -> Lude.Text) (\s a -> s {resourceId = a} :: ListResourceDelegates)
-{-# DEPRECATED lrdResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 instance Page.AWSPager ListResourceDelegates where
   page rq rs
@@ -145,10 +143,10 @@ instance Lude.ToJSON ListResourceDelegates where
   toJSON ListResourceDelegates' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("ResourceId" Lude..= resourceId)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -160,19 +158,14 @@ instance Lude.ToQuery ListResourceDelegates where
 
 -- | /See:/ 'mkListResourceDelegatesResponse' smart constructor.
 data ListResourceDelegatesResponse = ListResourceDelegatesResponse'
-  { delegates ::
-      Lude.Maybe [Delegate],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | One page of the resource's delegates.
+    delegates :: Lude.Maybe [Delegate],
+    -- | The token used to paginate through the delegates associated with a resource. While results are still available, it has an associated value. When the last page is reached, the token is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceDelegatesResponse' with the minimum fields required to make a request.

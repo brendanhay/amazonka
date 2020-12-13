@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodePropertyOverride' smart constructor.
 data NodePropertyOverride = NodePropertyOverride'
-  { containerOverrides ::
-      Lude.Maybe ContainerOverrides,
+  { -- | The overrides that should be sent to a node range.
+    containerOverrides :: Lude.Maybe ContainerOverrides,
+    -- | The range of nodes, using node index values, with which to override. A range of @0:3@ indicates nodes with index values of @0@ through @3@ . If the starting range value is omitted (@:n@ ), then @0@ is used to start the range. If the ending range value is omitted (@n:@ ), then the highest possible node index is used to end the range.
     targetNodes :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodePropertyOverride' with the minimum fields required to make a request.

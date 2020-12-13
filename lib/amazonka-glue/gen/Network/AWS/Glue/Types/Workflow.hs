@@ -37,35 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflow' smart constructor.
 data Workflow = Workflow'
-  { graph :: Lude.Maybe WorkflowGraph,
+  { -- | The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
+    graph :: Lude.Maybe WorkflowGraph,
+    -- | The date and time when the workflow was last modified.
     lastModifiedOn :: Lude.Maybe Lude.Timestamp,
+    -- | You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
     maxConcurrentRuns :: Lude.Maybe Lude.Int,
-    defaultRunProperties ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A collection of properties to be used as part of each execution of the workflow.
+    defaultRunProperties :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the workflow representing the flow.
     name :: Lude.Maybe Lude.Text,
+    -- | The information about the last execution of the workflow.
     lastRun :: Lude.Maybe WorkflowRun,
+    -- | A description of the workflow.
     description :: Lude.Maybe Lude.Text,
+    -- | The date and time when the workflow was created.
     createdOn :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Workflow' with the minimum fields required to make a request.
 --
--- * 'createdOn' - The date and time when the workflow was created.
--- * 'defaultRunProperties' - A collection of properties to be used as part of each execution of the workflow.
--- * 'description' - A description of the workflow.
 -- * 'graph' - The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
 -- * 'lastModifiedOn' - The date and time when the workflow was last modified.
--- * 'lastRun' - The information about the last execution of the workflow.
 -- * 'maxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+-- * 'defaultRunProperties' - A collection of properties to be used as part of each execution of the workflow.
 -- * 'name' - The name of the workflow representing the flow.
+-- * 'lastRun' - The information about the last execution of the workflow.
+-- * 'description' - A description of the workflow.
+-- * 'createdOn' - The date and time when the workflow was created.
 mkWorkflow ::
   Workflow
 mkWorkflow =

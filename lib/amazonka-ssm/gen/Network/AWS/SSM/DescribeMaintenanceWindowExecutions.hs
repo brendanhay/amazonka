@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,25 +47,20 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeMaintenanceWindowExecutions' smart constructor.
 data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
-  { filters ::
-      Lude.Maybe
-        [MaintenanceWindowFilter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    windowId ::
-      Lude.Text
+  { -- | Each entry in the array is a structure containing:
+    --
+    -- Key (string, between 1 and 128 characters)
+    -- Values (array of strings, each string is between 1 and 256 characters)
+    -- The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
+    filters :: Lude.Maybe [MaintenanceWindowFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The ID of the maintenance window whose executions should be retrieved.
+    windowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowExecutions' with the minimum fields required to make a request.
@@ -74,8 +70,8 @@ data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
 -- Key (string, between 1 and 128 characters)
 -- Values (array of strings, each string is between 1 and 256 characters)
 -- The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'windowId' - The ID of the maintenance window whose executions should be retrieved.
 mkDescribeMaintenanceWindowExecutions ::
   -- | 'windowId'
@@ -176,29 +172,21 @@ instance Lude.ToQuery DescribeMaintenanceWindowExecutions where
 
 -- | /See:/ 'mkDescribeMaintenanceWindowExecutionsResponse' smart constructor.
 data DescribeMaintenanceWindowExecutionsResponse = DescribeMaintenanceWindowExecutionsResponse'
-  { windowExecutions ::
-      Lude.Maybe
-        [MaintenanceWindowExecution],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the maintenance window executions.
+    windowExecutions :: Lude.Maybe [MaintenanceWindowExecution],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowExecutionsResponse' with the minimum fields required to make a request.
 --
+-- * 'windowExecutions' - Information about the maintenance window executions.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 -- * 'responseStatus' - The response status code.
--- * 'windowExecutions' - Information about the maintenance window executions.
 mkDescribeMaintenanceWindowExecutionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

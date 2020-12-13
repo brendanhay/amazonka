@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.WorkSpaces.ImportWorkspaceImage
     mkImportWorkspaceImage,
 
     -- ** Request lenses
-    iwiApplications,
-    iwiTags,
     iwiEC2ImageId,
     iwiIngestionProcess,
     iwiImageName,
+    iwiApplications,
+    iwiTags,
     iwiImageDescription,
 
     -- * Destructuring the response
@@ -44,32 +45,30 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkImportWorkspaceImage' smart constructor.
 data ImportWorkspaceImage = ImportWorkspaceImage'
-  { applications ::
-      Lude.Maybe (Lude.NonEmpty Application),
-    tags :: Lude.Maybe [Tag],
+  { -- | The identifier of the EC2 image.
     ec2ImageId :: Lude.Text,
-    ingestionProcess ::
-      WorkspaceImageIngestionProcess,
+    -- | The ingestion process to be used when importing the image. For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify @BYOL_REGULAR@ .
+    ingestionProcess :: WorkspaceImageIngestionProcess,
+    -- | The name of the WorkSpace image.
     imageName :: Lude.Text,
+    -- | If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 BYOL images. For more information about subscribing to Office for BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses> .
+    applications :: Lude.Maybe (Lude.NonEmpty Application),
+    -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+    tags :: Lude.Maybe [Tag],
+    -- | The description of the WorkSpace image.
     imageDescription :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportWorkspaceImage' with the minimum fields required to make a request.
 --
--- * 'applications' - If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 BYOL images. For more information about subscribing to Office for BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses> .
 -- * 'ec2ImageId' - The identifier of the EC2 image.
--- * 'imageDescription' - The description of the WorkSpace image.
--- * 'imageName' - The name of the WorkSpace image.
 -- * 'ingestionProcess' - The ingestion process to be used when importing the image. For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify @BYOL_REGULAR@ .
+-- * 'imageName' - The name of the WorkSpace image.
+-- * 'applications' - If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 BYOL images. For more information about subscribing to Office for BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses> .
 -- * 'tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+-- * 'imageDescription' - The description of the WorkSpace image.
 mkImportWorkspaceImage ::
   -- | 'ec2ImageId'
   Lude.Text ->
@@ -86,27 +85,13 @@ mkImportWorkspaceImage
   pImageName_
   pImageDescription_ =
     ImportWorkspaceImage'
-      { applications = Lude.Nothing,
-        tags = Lude.Nothing,
-        ec2ImageId = pEC2ImageId_,
+      { ec2ImageId = pEC2ImageId_,
         ingestionProcess = pIngestionProcess_,
         imageName = pImageName_,
+        applications = Lude.Nothing,
+        tags = Lude.Nothing,
         imageDescription = pImageDescription_
       }
-
--- | If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 BYOL images. For more information about subscribing to Office for BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses> .
---
--- /Note:/ Consider using 'applications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iwiApplications :: Lens.Lens' ImportWorkspaceImage (Lude.Maybe (Lude.NonEmpty Application))
-iwiApplications = Lens.lens (applications :: ImportWorkspaceImage -> Lude.Maybe (Lude.NonEmpty Application)) (\s a -> s {applications = a} :: ImportWorkspaceImage)
-{-# DEPRECATED iwiApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
-
--- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iwiTags :: Lens.Lens' ImportWorkspaceImage (Lude.Maybe [Tag])
-iwiTags = Lens.lens (tags :: ImportWorkspaceImage -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ImportWorkspaceImage)
-{-# DEPRECATED iwiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The identifier of the EC2 image.
 --
@@ -128,6 +113,20 @@ iwiIngestionProcess = Lens.lens (ingestionProcess :: ImportWorkspaceImage -> Wor
 iwiImageName :: Lens.Lens' ImportWorkspaceImage Lude.Text
 iwiImageName = Lens.lens (imageName :: ImportWorkspaceImage -> Lude.Text) (\s a -> s {imageName = a} :: ImportWorkspaceImage)
 {-# DEPRECATED iwiImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
+
+-- | If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 BYOL images. For more information about subscribing to Office for BYOL images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Licenses> .
+--
+-- /Note:/ Consider using 'applications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwiApplications :: Lens.Lens' ImportWorkspaceImage (Lude.Maybe (Lude.NonEmpty Application))
+iwiApplications = Lens.lens (applications :: ImportWorkspaceImage -> Lude.Maybe (Lude.NonEmpty Application)) (\s a -> s {applications = a} :: ImportWorkspaceImage)
+{-# DEPRECATED iwiApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
+
+-- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwiTags :: Lens.Lens' ImportWorkspaceImage (Lude.Maybe [Tag])
+iwiTags = Lens.lens (tags :: ImportWorkspaceImage -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ImportWorkspaceImage)
+{-# DEPRECATED iwiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The description of the WorkSpace image.
 --
@@ -161,11 +160,11 @@ instance Lude.ToJSON ImportWorkspaceImage where
   toJSON ImportWorkspaceImage' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Applications" Lude..=) Lude.<$> applications,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Ec2ImageId" Lude..= ec2ImageId),
+          [ Lude.Just ("Ec2ImageId" Lude..= ec2ImageId),
             Lude.Just ("IngestionProcess" Lude..= ingestionProcess),
             Lude.Just ("ImageName" Lude..= imageName),
+            ("Applications" Lude..=) Lude.<$> applications,
+            ("Tags" Lude..=) Lude.<$> tags,
             Lude.Just ("ImageDescription" Lude..= imageDescription)
           ]
       )
@@ -178,17 +177,12 @@ instance Lude.ToQuery ImportWorkspaceImage where
 
 -- | /See:/ 'mkImportWorkspaceImageResponse' smart constructor.
 data ImportWorkspaceImageResponse = ImportWorkspaceImageResponse'
-  { imageId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the WorkSpace image.
+    imageId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportWorkspaceImageResponse' with the minimum fields required to make a request.

@@ -35,33 +35,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { evaluationResultIdentifier ::
-      Lude.Maybe EvaluationResultIdentifier,
+  { -- | Uniquely identifies the evaluation result.
+    evaluationResultIdentifier :: Lude.Maybe EvaluationResultIdentifier,
+    -- | Supplementary information about how the evaluation determined the compliance.
     annotation :: Lude.Maybe Lude.Text,
+    -- | The time when the AWS Config rule evaluated the AWS resource.
     configRuleInvokedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time when AWS Config recorded the evaluation result.
     resultRecordedTime :: Lude.Maybe Lude.Timestamp,
+    -- | An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation.
     resultToken :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the AWS resource complies with the AWS Config rule that evaluated it.
+    --
+    -- For the @EvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for the @EvaluationResult@ data type.
     complianceType :: Lude.Maybe ComplianceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
 --
+-- * 'evaluationResultIdentifier' - Uniquely identifies the evaluation result.
 -- * 'annotation' - Supplementary information about how the evaluation determined the compliance.
+-- * 'configRuleInvokedTime' - The time when the AWS Config rule evaluated the AWS resource.
+-- * 'resultRecordedTime' - The time when AWS Config recorded the evaluation result.
+-- * 'resultToken' - An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation.
 -- * 'complianceType' - Indicates whether the AWS resource complies with the AWS Config rule that evaluated it.
 --
 -- For the @EvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for the @EvaluationResult@ data type.
--- * 'configRuleInvokedTime' - The time when the AWS Config rule evaluated the AWS resource.
--- * 'evaluationResultIdentifier' - Uniquely identifies the evaluation result.
--- * 'resultRecordedTime' - The time when AWS Config recorded the evaluation result.
--- * 'resultToken' - An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation.
 mkEvaluationResult ::
   EvaluationResult
 mkEvaluationResult =

@@ -34,30 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkItem' smart constructor.
 data Item = Item'
-  { eTag :: Lude.Maybe Lude.Text,
+  { -- | The ETag that represents a unique instance of the item.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The length of the item in bytes.
     contentLength :: Lude.Maybe Lude.Natural,
+    -- | The name of the item.
     name :: Lude.Maybe Lude.Text,
+    -- | The item type (folder or object).
     type' :: Lude.Maybe ItemType,
+    -- | The date and time that the item was last modified.
     lastModified :: Lude.Maybe Lude.Timestamp,
+    -- | The content type of the item.
     contentType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Item' with the minimum fields required to make a request.
 --
--- * 'contentLength' - The length of the item in bytes.
--- * 'contentType' - The content type of the item.
 -- * 'eTag' - The ETag that represents a unique instance of the item.
--- * 'lastModified' - The date and time that the item was last modified.
+-- * 'contentLength' - The length of the item in bytes.
 -- * 'name' - The name of the item.
 -- * 'type'' - The item type (folder or object).
+-- * 'lastModified' - The date and time that the item was last modified.
+-- * 'contentType' - The content type of the item.
 mkItem ::
   Item
 mkItem =

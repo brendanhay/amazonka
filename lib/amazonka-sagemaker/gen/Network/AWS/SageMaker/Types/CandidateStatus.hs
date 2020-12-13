@@ -14,8 +14,8 @@ module Network.AWS.SageMaker.Types.CandidateStatus
   ( CandidateStatus
       ( CandidateStatus',
         CSCompleted,
-        CSFailed,
         CSInProgress,
+        CSFailed,
         CSStopped,
         CSStopping
       ),
@@ -51,11 +51,11 @@ newtype CandidateStatus = CandidateStatus' Lude.Text
 pattern CSCompleted :: CandidateStatus
 pattern CSCompleted = CandidateStatus' "Completed"
 
-pattern CSFailed :: CandidateStatus
-pattern CSFailed = CandidateStatus' "Failed"
-
 pattern CSInProgress :: CandidateStatus
 pattern CSInProgress = CandidateStatus' "InProgress"
+
+pattern CSFailed :: CandidateStatus
+pattern CSFailed = CandidateStatus' "Failed"
 
 pattern CSStopped :: CandidateStatus
 pattern CSStopped = CandidateStatus' "Stopped"
@@ -65,8 +65,8 @@ pattern CSStopping = CandidateStatus' "Stopping"
 
 {-# COMPLETE
   CSCompleted,
-  CSFailed,
   CSInProgress,
+  CSFailed,
   CSStopped,
   CSStopping,
   CandidateStatus'

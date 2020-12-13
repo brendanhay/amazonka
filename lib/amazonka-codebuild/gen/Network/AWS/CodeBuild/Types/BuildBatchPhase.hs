@@ -36,28 +36,96 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuildBatchPhase' smart constructor.
 data BuildBatchPhase = BuildBatchPhase'
-  { contexts ::
-      Lude.Maybe [PhaseContext],
+  { -- | Additional information about the batch build phase. Especially to help troubleshoot a failed btach build.
+    contexts :: Lude.Maybe [PhaseContext],
+    -- | When the batch build phase started, expressed in Unix time format.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The current status of the batch build phase. Valid values include:
+    --
+    --
+    --     * FAILED
+    --
+    --     * The build phase failed.
+    --
+    --
+    --     * FAULT
+    --
+    --     * The build phase faulted.
+    --
+    --
+    --     * IN_PROGRESS
+    --
+    --     * The build phase is still in progress.
+    --
+    --
+    --     * QUEUED
+    --
+    --     * The build has been submitted and is queued behind other submitted builds.
+    --
+    --
+    --     * STOPPED
+    --
+    --     * The build phase stopped.
+    --
+    --
+    --     * SUCCEEDED
+    --
+    --     * The build phase succeeded.
+    --
+    --
+    --     * TIMED_OUT
+    --
+    --     * The build phase timed out.
     phaseStatus :: Lude.Maybe StatusType,
+    -- | The name of the batch build phase. Valid values include:
+    --
+    --
+    --     * COMBINE_ARTIFACTS
+    --
+    --     * Build output artifacts are being combined and uploaded to the output location.
+    --
+    --
+    --     * DOWNLOAD_BATCHSPEC
+    --
+    --     * The batch build specification is being downloaded.
+    --
+    --
+    --     * FAILED
+    --
+    --     * One or more of the builds failed.
+    --
+    --
+    --     * IN_PROGRESS
+    --
+    --     * The batch build is in progress.
+    --
+    --
+    --     * STOPPED
+    --
+    --     * The batch build was stopped.
+    --
+    --
+    --     * SUBMITTED
+    --
+    --     * The btach build has been submitted.
+    --
+    --
+    --     * SUCCEEDED
+    --
+    --     * The batch build succeeded.
     phaseType :: Lude.Maybe BuildBatchPhaseType,
+    -- | When the batch build phase ended, expressed in Unix time format.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | How long, in seconds, between the starting and ending times of the batch build's phase.
     durationInSeconds :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildBatchPhase' with the minimum fields required to make a request.
 --
 -- * 'contexts' - Additional information about the batch build phase. Especially to help troubleshoot a failed btach build.
--- * 'durationInSeconds' - How long, in seconds, between the starting and ending times of the batch build's phase.
--- * 'endTime' - When the batch build phase ended, expressed in Unix time format.
+-- * 'startTime' - When the batch build phase started, expressed in Unix time format.
 -- * 'phaseStatus' - The current status of the batch build phase. Valid values include:
 --
 --
@@ -134,7 +202,8 @@ data BuildBatchPhase = BuildBatchPhase'
 --     * The batch build succeeded.
 --
 --
--- * 'startTime' - When the batch build phase started, expressed in Unix time format.
+-- * 'endTime' - When the batch build phase ended, expressed in Unix time format.
+-- * 'durationInSeconds' - How long, in seconds, between the starting and ending times of the batch build's phase.
 mkBuildBatchPhase ::
   BuildBatchPhase
 mkBuildBatchPhase =

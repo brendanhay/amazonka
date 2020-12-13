@@ -36,12 +36,12 @@ module Network.AWS.CloudHSMv2.Types
     bNeverExpires,
     bSourceRegion,
     bTagList,
+    bBackupId,
     bSourceBackup,
     bClusterId,
     bCreateTimestamp,
     bCopyTimestamp,
     bBackupState,
-    bBackupId,
 
     -- * BackupRetentionPolicy
     BackupRetentionPolicy (..),
@@ -91,17 +91,17 @@ module Network.AWS.CloudHSMv2.Types
     hsmStateMessage,
     hsmState,
     hsmEniId,
+    hsmHSMId,
     hsmSubnetId,
     hsmAvailabilityZone,
     hsmClusterId,
     hsmEniIP,
-    hsmHSMId,
 
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
   )
 where
 

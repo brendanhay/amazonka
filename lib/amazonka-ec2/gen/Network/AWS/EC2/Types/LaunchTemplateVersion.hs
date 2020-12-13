@@ -36,36 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateVersion' smart constructor.
 data LaunchTemplateVersion = LaunchTemplateVersion'
-  { launchTemplateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the launch template.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | The ID of the launch template.
     launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | The principal that created the version.
     createdBy :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the version is the default version.
     defaultVersion :: Lude.Maybe Lude.Bool,
+    -- | The version number.
     versionNumber :: Lude.Maybe Lude.Integer,
+    -- | The description for the version.
     versionDescription :: Lude.Maybe Lude.Text,
-    launchTemplateData ::
-      Lude.Maybe ResponseLaunchTemplateData,
+    -- | Information about the launch template.
+    launchTemplateData :: Lude.Maybe ResponseLaunchTemplateData,
+    -- | The time the version was created.
     createTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateVersion' with the minimum fields required to make a request.
 --
--- * 'createTime' - The time the version was created.
+-- * 'launchTemplateName' - The name of the launch template.
+-- * 'launchTemplateId' - The ID of the launch template.
 -- * 'createdBy' - The principal that created the version.
 -- * 'defaultVersion' - Indicates whether the version is the default version.
--- * 'launchTemplateData' - Information about the launch template.
--- * 'launchTemplateId' - The ID of the launch template.
--- * 'launchTemplateName' - The name of the launch template.
--- * 'versionDescription' - The description for the version.
 -- * 'versionNumber' - The version number.
+-- * 'versionDescription' - The description for the version.
+-- * 'launchTemplateData' - Information about the launch template.
+-- * 'createTime' - The time the version was created.
 mkLaunchTemplateVersion ::
   LaunchTemplateVersion
 mkLaunchTemplateVersion =

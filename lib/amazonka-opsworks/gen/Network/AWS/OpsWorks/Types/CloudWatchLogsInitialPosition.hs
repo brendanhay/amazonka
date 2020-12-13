@@ -13,8 +13,8 @@
 module Network.AWS.OpsWorks.Types.CloudWatchLogsInitialPosition
   ( CloudWatchLogsInitialPosition
       ( CloudWatchLogsInitialPosition',
-        EndOfFile,
-        StartOfFile
+        StartOfFile,
+        EndOfFile
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype CloudWatchLogsInitialPosition = CloudWatchLogsInitialPosition' Lude.Text
       Lude.ToHeader
     )
 
-pattern EndOfFile :: CloudWatchLogsInitialPosition
-pattern EndOfFile = CloudWatchLogsInitialPosition' "end_of_file"
-
 pattern StartOfFile :: CloudWatchLogsInitialPosition
 pattern StartOfFile = CloudWatchLogsInitialPosition' "start_of_file"
 
+pattern EndOfFile :: CloudWatchLogsInitialPosition
+pattern EndOfFile = CloudWatchLogsInitialPosition' "end_of_file"
+
 {-# COMPLETE
-  EndOfFile,
   StartOfFile,
+  EndOfFile,
   CloudWatchLogsInitialPosition'
   #-}

@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAdminAccount' smart constructor.
 data AdminAccount = AdminAccount'
-  { adminAccountId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS account ID for the account.
+    adminAccountId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the account is enabled as the delegated administrator.
     adminStatus :: Lude.Maybe AdminStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminAccount' with the minimum fields required to make a request.

@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGluePolicy' smart constructor.
 data GluePolicy = GluePolicy'
-  { policyInJSON :: Lude.Maybe Lude.Text,
+  { -- | Contains the requested policy document, in JSON format.
+    policyInJSON :: Lude.Maybe Lude.Text,
+    -- | The date and time at which the policy was last updated.
     updateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Contains the hash value associated with this policy.
     policyHash :: Lude.Maybe Lude.Text,
+    -- | The date and time at which the policy was created.
     createTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GluePolicy' with the minimum fields required to make a request.
 --
--- * 'createTime' - The date and time at which the policy was created.
--- * 'policyHash' - Contains the hash value associated with this policy.
 -- * 'policyInJSON' - Contains the requested policy document, in JSON format.
 -- * 'updateTime' - The date and time at which the policy was last updated.
+-- * 'policyHash' - Contains the hash value associated with this policy.
+-- * 'createTime' - The date and time at which the policy was created.
 mkGluePolicy ::
   GluePolicy
 mkGluePolicy =

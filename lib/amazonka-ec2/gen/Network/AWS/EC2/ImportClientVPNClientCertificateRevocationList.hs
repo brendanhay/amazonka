@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.ImportClientVPNClientCertificateRevocationList
     mkImportClientVPNClientCertificateRevocationList,
 
     -- ** Request lenses
-    icvccrlDryRun,
-    icvccrlClientVPNEndpointId,
     icvccrlCertificateRevocationList,
+    icvccrlClientVPNEndpointId,
+    icvccrlDryRun,
 
     -- * Destructuring the response
     ImportClientVPNClientCertificateRevocationListResponse (..),
@@ -43,25 +44,15 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkImportClientVPNClientCertificateRevocationList' smart constructor.
 data ImportClientVPNClientCertificateRevocationList = ImportClientVPNClientCertificateRevocationList'
-  { dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    clientVPNEndpointId ::
-      Lude.Text,
-    certificateRevocationList ::
-      Lude.Text
+  { -- | The client certificate revocation list file. For more information, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate Generate a Client Certificate Revocation List> in the /AWS Client VPN Administrator Guide/ .
+    certificateRevocationList :: Lude.Text,
+    -- | The ID of the Client VPN endpoint to which the client certificate revocation list applies.
+    clientVPNEndpointId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportClientVPNClientCertificateRevocationList' with the minimum fields required to make a request.
 --
@@ -69,28 +60,27 @@ data ImportClientVPNClientCertificateRevocationList = ImportClientVPNClientCerti
 -- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint to which the client certificate revocation list applies.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkImportClientVPNClientCertificateRevocationList ::
-  -- | 'clientVPNEndpointId'
-  Lude.Text ->
   -- | 'certificateRevocationList'
+  Lude.Text ->
+  -- | 'clientVPNEndpointId'
   Lude.Text ->
   ImportClientVPNClientCertificateRevocationList
 mkImportClientVPNClientCertificateRevocationList
-  pClientVPNEndpointId_
-  pCertificateRevocationList_ =
+  pCertificateRevocationList_
+  pClientVPNEndpointId_ =
     ImportClientVPNClientCertificateRevocationList'
-      { dryRun =
-          Lude.Nothing,
+      { certificateRevocationList =
+          pCertificateRevocationList_,
         clientVPNEndpointId = pClientVPNEndpointId_,
-        certificateRevocationList =
-          pCertificateRevocationList_
+        dryRun = Lude.Nothing
       }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | The client certificate revocation list file. For more information, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate Generate a Client Certificate Revocation List> in the /AWS Client VPN Administrator Guide/ .
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icvccrlDryRun :: Lens.Lens' ImportClientVPNClientCertificateRevocationList (Lude.Maybe Lude.Bool)
-icvccrlDryRun = Lens.lens (dryRun :: ImportClientVPNClientCertificateRevocationList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ImportClientVPNClientCertificateRevocationList)
-{-# DEPRECATED icvccrlDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'certificateRevocationList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icvccrlCertificateRevocationList :: Lens.Lens' ImportClientVPNClientCertificateRevocationList Lude.Text
+icvccrlCertificateRevocationList = Lens.lens (certificateRevocationList :: ImportClientVPNClientCertificateRevocationList -> Lude.Text) (\s a -> s {certificateRevocationList = a} :: ImportClientVPNClientCertificateRevocationList)
+{-# DEPRECATED icvccrlCertificateRevocationList "Use generic-lens or generic-optics with 'certificateRevocationList' instead." #-}
 
 -- | The ID of the Client VPN endpoint to which the client certificate revocation list applies.
 --
@@ -99,12 +89,12 @@ icvccrlClientVPNEndpointId :: Lens.Lens' ImportClientVPNClientCertificateRevocat
 icvccrlClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: ImportClientVPNClientCertificateRevocationList -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: ImportClientVPNClientCertificateRevocationList)
 {-# DEPRECATED icvccrlClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
--- | The client certificate revocation list file. For more information, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate Generate a Client Certificate Revocation List> in the /AWS Client VPN Administrator Guide/ .
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'certificateRevocationList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icvccrlCertificateRevocationList :: Lens.Lens' ImportClientVPNClientCertificateRevocationList Lude.Text
-icvccrlCertificateRevocationList = Lens.lens (certificateRevocationList :: ImportClientVPNClientCertificateRevocationList -> Lude.Text) (\s a -> s {certificateRevocationList = a} :: ImportClientVPNClientCertificateRevocationList)
-{-# DEPRECATED icvccrlCertificateRevocationList "Use generic-lens or generic-optics with 'certificateRevocationList' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icvccrlDryRun :: Lens.Lens' ImportClientVPNClientCertificateRevocationList (Lude.Maybe Lude.Bool)
+icvccrlDryRun = Lens.lens (dryRun :: ImportClientVPNClientCertificateRevocationList -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ImportClientVPNClientCertificateRevocationList)
+{-# DEPRECATED icvccrlDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -141,35 +131,25 @@ instance
                       Lude.ByteString
                   ),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
+        "CertificateRevocationList" Lude.=: certificateRevocationList,
         "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
-        "CertificateRevocationList" Lude.=: certificateRevocationList
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkImportClientVPNClientCertificateRevocationListResponse' smart constructor.
 data ImportClientVPNClientCertificateRevocationListResponse = ImportClientVPNClientCertificateRevocationListResponse'
-  { return ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportClientVPNClientCertificateRevocationListResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkImportClientVPNClientCertificateRevocationListResponse ::
   -- | 'responseStatus'
   Lude.Int ->

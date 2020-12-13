@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.GuardDuty.ArchiveFindings
     mkArchiveFindings,
 
     -- ** Request lenses
-    afDetectorId,
     afFindingIds,
+    afDetectorId,
 
     -- * Destructuring the response
     ArchiveFindingsResponse (..),
@@ -39,38 +40,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkArchiveFindings' smart constructor.
 data ArchiveFindings = ArchiveFindings'
-  { detectorId :: Lude.Text,
-    findingIds :: [Lude.Text]
+  { -- | The IDs of the findings that you want to archive.
+    findingIds :: [Lude.Text],
+    -- | The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchiveFindings' with the minimum fields required to make a request.
 --
--- * 'detectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
 -- * 'findingIds' - The IDs of the findings that you want to archive.
+-- * 'detectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
 mkArchiveFindings ::
   -- | 'detectorId'
   Lude.Text ->
   ArchiveFindings
 mkArchiveFindings pDetectorId_ =
   ArchiveFindings'
-    { detectorId = pDetectorId_,
-      findingIds = Lude.mempty
+    { findingIds = Lude.mempty,
+      detectorId = pDetectorId_
     }
-
--- | The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afDetectorId :: Lens.Lens' ArchiveFindings Lude.Text
-afDetectorId = Lens.lens (detectorId :: ArchiveFindings -> Lude.Text) (\s a -> s {detectorId = a} :: ArchiveFindings)
-{-# DEPRECATED afDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The IDs of the findings that you want to archive.
 --
@@ -78,6 +68,13 @@ afDetectorId = Lens.lens (detectorId :: ArchiveFindings -> Lude.Text) (\s a -> s
 afFindingIds :: Lens.Lens' ArchiveFindings [Lude.Text]
 afFindingIds = Lens.lens (findingIds :: ArchiveFindings -> [Lude.Text]) (\s a -> s {findingIds = a} :: ArchiveFindings)
 {-# DEPRECATED afFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
+
+-- | The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afDetectorId :: Lens.Lens' ArchiveFindings Lude.Text
+afDetectorId = Lens.lens (detectorId :: ArchiveFindings -> Lude.Text) (\s a -> s {detectorId = a} :: ArchiveFindings)
+{-# DEPRECATED afDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 instance Lude.AWSRequest ArchiveFindings where
   type Rs ArchiveFindings = ArchiveFindingsResponse
@@ -112,16 +109,10 @@ instance Lude.ToQuery ArchiveFindings where
 
 -- | /See:/ 'mkArchiveFindingsResponse' smart constructor.
 newtype ArchiveFindingsResponse = ArchiveFindingsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchiveFindingsResponse' with the minimum fields required to make a request.

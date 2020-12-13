@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The Liquid template for the worker user interface.
 --
 -- /See:/ 'mkUiTemplate' smart constructor.
-newtype UiTemplate = UiTemplate' {content :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype UiTemplate = UiTemplate'
+  { -- | The content of the Liquid template for the worker user interface.
+    content :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UiTemplate' with the minimum fields required to make a request.

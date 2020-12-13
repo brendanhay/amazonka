@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputGroupDetail' smart constructor.
 newtype OutputGroupDetail = OutputGroupDetail'
-  { outputDetails ::
-      Lude.Maybe [OutputDetail]
+  { -- | Details about the output
+    outputDetails :: Lude.Maybe [OutputDetail]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputGroupDetail' with the minimum fields required to make a request.

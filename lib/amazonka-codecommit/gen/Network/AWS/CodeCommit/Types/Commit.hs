@@ -35,34 +35,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCommit' smart constructor.
 data Commit = Commit'
-  { commitId :: Lude.Maybe Lude.Text,
+  { -- | The full SHA ID of the specified commit.
+    commitId :: Lude.Maybe Lude.Text,
+    -- | Information about the person who committed the specified commit, also known as the committer. Information includes the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured in Git.
+    --
+    -- For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
     committer :: Lude.Maybe UserInfo,
+    -- | Tree information for the specified commit.
     treeId :: Lude.Maybe Lude.Text,
+    -- | Any other data associated with the specified commit.
     additionalData :: Lude.Maybe Lude.Text,
+    -- | A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.
     parents :: Lude.Maybe [Lude.Text],
+    -- | Information about the author of the specified commit. Information includes the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured in Git.
     author :: Lude.Maybe UserInfo,
+    -- | The commit message associated with the specified commit.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Commit' with the minimum fields required to make a request.
 --
--- * 'additionalData' - Any other data associated with the specified commit.
--- * 'author' - Information about the author of the specified commit. Information includes the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured in Git.
 -- * 'commitId' - The full SHA ID of the specified commit.
 -- * 'committer' - Information about the person who committed the specified commit, also known as the committer. Information includes the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured in Git.
 --
 -- For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
--- * 'message' - The commit message associated with the specified commit.
--- * 'parents' - A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.
 -- * 'treeId' - Tree information for the specified commit.
+-- * 'additionalData' - Any other data associated with the specified commit.
+-- * 'parents' - A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.
+-- * 'author' - Information about the author of the specified commit. Information includes the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured in Git.
+-- * 'message' - The commit message associated with the specified commit.
 mkCommit ::
   Commit
 mkCommit =

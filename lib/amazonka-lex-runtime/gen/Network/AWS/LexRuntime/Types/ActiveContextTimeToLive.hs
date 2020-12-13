@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActiveContextTimeToLive' smart constructor.
 data ActiveContextTimeToLive = ActiveContextTimeToLive'
-  { turnsToLive ::
-      Lude.Maybe Lude.Natural,
-    timeToLiveInSeconds ::
-      Lude.Maybe Lude.Natural
+  { -- | The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
+    turnsToLive :: Lude.Maybe Lude.Natural,
+    -- | The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
+    timeToLiveInSeconds :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActiveContextTimeToLive' with the minimum fields required to make a request.
 --
--- * 'timeToLiveInSeconds' - The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
 -- * 'turnsToLive' - The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
+-- * 'timeToLiveInSeconds' - The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
 mkActiveContextTimeToLive ::
   ActiveContextTimeToLive
 mkActiveContextTimeToLive =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,17 +22,17 @@ module Network.AWS.StepFunctions.StartExecution
     -- ** Request lenses
     seInput,
     seName,
-    seTraceHeader,
     seStateMachineARN,
+    seTraceHeader,
 
     -- * Destructuring the response
     StartExecutionResponse (..),
     mkStartExecutionResponse,
 
     -- ** Response lenses
-    srsResponseStatus,
-    srsExecutionARN,
-    srsStartDate,
+    sersStartDate,
+    sersExecutionARN,
+    sersResponseStatus,
   )
 where
 
@@ -43,11 +44,36 @@ import Network.AWS.StepFunctions.Types
 
 -- | /See:/ 'mkStartExecution' smart constructor.
 data StartExecution = StartExecution'
-  { input ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The string that contains the JSON input data for the execution, for example:
+    --
+    -- @"input": "{\"first_name\" : \"test\"}"@
+    -- Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The name of the execution. This name must be unique for your AWS account, region, and state machine for 90 days. For more information, see <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ .
+    --
+    -- A name must /not/ contain:
+    --
+    --     * white space
+    --
+    --
+    --     * brackets @< > { } [ ]@
+    --
+    --
+    --     * wildcard characters @? *@
+    --
+    --
+    --     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+    --
+    --
+    --     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+    --
+    --
+    -- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
     name :: Lude.Maybe Lude.Text,
-    traceHeader :: Lude.Maybe Lude.Text,
-    stateMachineARN :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the state machine to execute.
+    stateMachineARN :: Lude.Text,
+    -- | Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.
+    traceHeader :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -88,8 +114,8 @@ mkStartExecution pStateMachineARN_ =
   StartExecution'
     { input = Lude.Nothing,
       name = Lude.Nothing,
-      traceHeader = Lude.Nothing,
-      stateMachineARN = pStateMachineARN_
+      stateMachineARN = pStateMachineARN_,
+      traceHeader = Lude.Nothing
     }
 
 -- | The string that contains the JSON input data for the execution, for example:
@@ -128,19 +154,19 @@ seName :: Lens.Lens' StartExecution (Lude.Maybe Lude.Text)
 seName = Lens.lens (name :: StartExecution -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StartExecution)
 {-# DEPRECATED seName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.
---
--- /Note:/ Consider using 'traceHeader' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seTraceHeader :: Lens.Lens' StartExecution (Lude.Maybe Lude.Text)
-seTraceHeader = Lens.lens (traceHeader :: StartExecution -> Lude.Maybe Lude.Text) (\s a -> s {traceHeader = a} :: StartExecution)
-{-# DEPRECATED seTraceHeader "Use generic-lens or generic-optics with 'traceHeader' instead." #-}
-
 -- | The Amazon Resource Name (ARN) of the state machine to execute.
 --
 -- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 seStateMachineARN :: Lens.Lens' StartExecution Lude.Text
 seStateMachineARN = Lens.lens (stateMachineARN :: StartExecution -> Lude.Text) (\s a -> s {stateMachineARN = a} :: StartExecution)
 {-# DEPRECATED seStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
+
+-- | Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.
+--
+-- /Note:/ Consider using 'traceHeader' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seTraceHeader :: Lens.Lens' StartExecution (Lude.Maybe Lude.Text)
+seTraceHeader = Lens.lens (traceHeader :: StartExecution -> Lude.Maybe Lude.Text) (\s a -> s {traceHeader = a} :: StartExecution)
+{-# DEPRECATED seTraceHeader "Use generic-lens or generic-optics with 'traceHeader' instead." #-}
 
 instance Lude.AWSRequest StartExecution where
   type Rs StartExecution = StartExecutionResponse
@@ -149,9 +175,9 @@ instance Lude.AWSRequest StartExecution where
     Res.receiveJSON
       ( \s h x ->
           StartExecutionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..:> "startDate")
             Lude.<*> (x Lude..:> "executionArn")
-            Lude.<*> (x Lude..:> "startDate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders StartExecution where
@@ -171,8 +197,8 @@ instance Lude.ToJSON StartExecution where
       ( Lude.catMaybes
           [ ("input" Lude..=) Lude.<$> input,
             ("name" Lude..=) Lude.<$> name,
-            ("traceHeader" Lude..=) Lude.<$> traceHeader,
-            Lude.Just ("stateMachineArn" Lude..= stateMachineARN)
+            Lude.Just ("stateMachineArn" Lude..= stateMachineARN),
+            ("traceHeader" Lude..=) Lude.<$> traceHeader
           ]
       )
 
@@ -184,60 +210,56 @@ instance Lude.ToQuery StartExecution where
 
 -- | /See:/ 'mkStartExecutionResponse' smart constructor.
 data StartExecutionResponse = StartExecutionResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | The date the execution is started.
+    startDate :: Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) that identifies the execution.
     executionARN :: Lude.Text,
-    startDate :: Lude.Timestamp
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartExecutionResponse' with the minimum fields required to make a request.
 --
+-- * 'startDate' - The date the execution is started.
 -- * 'executionARN' - The Amazon Resource Name (ARN) that identifies the execution.
 -- * 'responseStatus' - The response status code.
--- * 'startDate' - The date the execution is started.
 mkStartExecutionResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'executionARN'
-  Lude.Text ->
   -- | 'startDate'
   Lude.Timestamp ->
+  -- | 'executionARN'
+  Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   StartExecutionResponse
 mkStartExecutionResponse
-  pResponseStatus_
+  pStartDate_
   pExecutionARN_
-  pStartDate_ =
+  pResponseStatus_ =
     StartExecutionResponse'
-      { responseStatus = pResponseStatus_,
+      { startDate = pStartDate_,
         executionARN = pExecutionARN_,
-        startDate = pStartDate_
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StartExecutionResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StartExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartExecutionResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The Amazon Resource Name (ARN) that identifies the execution.
---
--- /Note:/ Consider using 'executionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsExecutionARN :: Lens.Lens' StartExecutionResponse Lude.Text
-srsExecutionARN = Lens.lens (executionARN :: StartExecutionResponse -> Lude.Text) (\s a -> s {executionARN = a} :: StartExecutionResponse)
-{-# DEPRECATED srsExecutionARN "Use generic-lens or generic-optics with 'executionARN' instead." #-}
 
 -- | The date the execution is started.
 --
 -- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsStartDate :: Lens.Lens' StartExecutionResponse Lude.Timestamp
-srsStartDate = Lens.lens (startDate :: StartExecutionResponse -> Lude.Timestamp) (\s a -> s {startDate = a} :: StartExecutionResponse)
-{-# DEPRECATED srsStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
+sersStartDate :: Lens.Lens' StartExecutionResponse Lude.Timestamp
+sersStartDate = Lens.lens (startDate :: StartExecutionResponse -> Lude.Timestamp) (\s a -> s {startDate = a} :: StartExecutionResponse)
+{-# DEPRECATED sersStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
+
+-- | The Amazon Resource Name (ARN) that identifies the execution.
+--
+-- /Note:/ Consider using 'executionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sersExecutionARN :: Lens.Lens' StartExecutionResponse Lude.Text
+sersExecutionARN = Lens.lens (executionARN :: StartExecutionResponse -> Lude.Text) (\s a -> s {executionARN = a} :: StartExecutionResponse)
+{-# DEPRECATED sersExecutionARN "Use generic-lens or generic-optics with 'executionARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sersResponseStatus :: Lens.Lens' StartExecutionResponse Lude.Int
+sersResponseStatus = Lens.lens (responseStatus :: StartExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartExecutionResponse)
+{-# DEPRECATED sersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

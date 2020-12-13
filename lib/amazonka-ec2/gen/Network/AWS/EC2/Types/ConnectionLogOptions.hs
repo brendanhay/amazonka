@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnectionLogOptions' smart constructor.
 data ConnectionLogOptions = ConnectionLogOptions'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether connection logging is enabled.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The name of the CloudWatch Logs log stream to which the connection data is published.
     cloudwatchLogStream :: Lude.Maybe Lude.Text,
+    -- | The name of the CloudWatch Logs log group. Required if connection logging is enabled.
     cloudwatchLogGroup :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionLogOptions' with the minimum fields required to make a request.
 --
--- * 'cloudwatchLogGroup' - The name of the CloudWatch Logs log group. Required if connection logging is enabled.
--- * 'cloudwatchLogStream' - The name of the CloudWatch Logs log stream to which the connection data is published.
 -- * 'enabled' - Indicates whether connection logging is enabled.
+-- * 'cloudwatchLogStream' - The name of the CloudWatch Logs log stream to which the connection data is published.
+-- * 'cloudwatchLogGroup' - The name of the CloudWatch Logs log group. Required if connection logging is enabled.
 mkConnectionLogOptions ::
   ConnectionLogOptions
 mkConnectionLogOptions =

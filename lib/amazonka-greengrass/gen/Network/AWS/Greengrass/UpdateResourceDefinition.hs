@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Greengrass.UpdateResourceDefinition
     mkUpdateResourceDefinition,
 
     -- ** Request lenses
-    urdName,
     urdResourceDefinitionId,
+    urdName,
 
     -- * Destructuring the response
     UpdateResourceDefinitionResponse (..),
@@ -39,39 +40,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateResourceDefinition' smart constructor.
 data UpdateResourceDefinition = UpdateResourceDefinition'
-  { name ::
-      Lude.Maybe Lude.Text,
-    resourceDefinitionId :: Lude.Text
+  { -- | The ID of the resource definition.
+    resourceDefinitionId :: Lude.Text,
+    -- | The name of the definition.
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceDefinition' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the definition.
 -- * 'resourceDefinitionId' - The ID of the resource definition.
+-- * 'name' - The name of the definition.
 mkUpdateResourceDefinition ::
   -- | 'resourceDefinitionId'
   Lude.Text ->
   UpdateResourceDefinition
 mkUpdateResourceDefinition pResourceDefinitionId_ =
   UpdateResourceDefinition'
-    { name = Lude.Nothing,
-      resourceDefinitionId = pResourceDefinitionId_
+    { resourceDefinitionId =
+        pResourceDefinitionId_,
+      name = Lude.Nothing
     }
-
--- | The name of the definition.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdName :: Lens.Lens' UpdateResourceDefinition (Lude.Maybe Lude.Text)
-urdName = Lens.lens (name :: UpdateResourceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateResourceDefinition)
-{-# DEPRECATED urdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the resource definition.
 --
@@ -79,6 +69,13 @@ urdName = Lens.lens (name :: UpdateResourceDefinition -> Lude.Maybe Lude.Text) (
 urdResourceDefinitionId :: Lens.Lens' UpdateResourceDefinition Lude.Text
 urdResourceDefinitionId = Lens.lens (resourceDefinitionId :: UpdateResourceDefinition -> Lude.Text) (\s a -> s {resourceDefinitionId = a} :: UpdateResourceDefinition)
 {-# DEPRECATED urdResourceDefinitionId "Use generic-lens or generic-optics with 'resourceDefinitionId' instead." #-}
+
+-- | The name of the definition.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdName :: Lens.Lens' UpdateResourceDefinition (Lude.Maybe Lude.Text)
+urdName = Lens.lens (name :: UpdateResourceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateResourceDefinition)
+{-# DEPRECATED urdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest UpdateResourceDefinition where
   type Rs UpdateResourceDefinition = UpdateResourceDefinitionResponse
@@ -115,16 +112,10 @@ instance Lude.ToQuery UpdateResourceDefinition where
 
 -- | /See:/ 'mkUpdateResourceDefinitionResponse' smart constructor.
 newtype UpdateResourceDefinitionResponse = UpdateResourceDefinitionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceDefinitionResponse' with the minimum fields required to make a request.

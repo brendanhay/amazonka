@@ -13,8 +13,8 @@
 module Network.AWS.Snowball.Types.JobType
   ( JobType
       ( JobType',
-        Export,
         Import,
+        Export,
         LocalUse
       ),
   )
@@ -46,18 +46,18 @@ newtype JobType = JobType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Export :: JobType
-pattern Export = JobType' "EXPORT"
-
 pattern Import :: JobType
 pattern Import = JobType' "IMPORT"
+
+pattern Export :: JobType
+pattern Export = JobType' "EXPORT"
 
 pattern LocalUse :: JobType
 pattern LocalUse = JobType' "LOCAL_USE"
 
 {-# COMPLETE
-  Export,
   Import,
+  Export,
   LocalUse,
   JobType'
   #-}

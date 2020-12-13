@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,25 +41,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateAddress' smart constructor.
 data DisassociateAddress = DisassociateAddress'
-  { associationId ::
-      Lude.Maybe Lude.Text,
+  { -- | [EC2-VPC] The association ID. Required for EC2-VPC.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
     publicIP :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateAddress' with the minimum fields required to make a request.
 --
 -- * 'associationId' - [EC2-VPC] The association ID. Required for EC2-VPC.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'publicIP' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDisassociateAddress ::
   DisassociateAddress
 mkDisassociateAddress =
@@ -112,13 +109,7 @@ instance Lude.ToQuery DisassociateAddress where
 
 -- | /See:/ 'mkDisassociateAddressResponse' smart constructor.
 data DisassociateAddressResponse = DisassociateAddressResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateAddressResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.Route53.GetHostedZoneCount
     mkGetHostedZoneCountResponse,
 
     -- ** Response lenses
-    ghzcrsResponseStatus,
     ghzcrsHostedZoneCount,
+    ghzcrsResponseStatus,
   )
 where
 
@@ -38,13 +39,7 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkGetHostedZoneCount' smart constructor.
 data GetHostedZoneCount = GetHostedZoneCount'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostedZoneCount' with the minimum fields required to make a request.
@@ -59,8 +54,8 @@ instance Lude.AWSRequest GetHostedZoneCount where
     Res.receiveXML
       ( \s h x ->
           GetHostedZoneCountResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "HostedZoneCount")
+            Lude.<$> (x Lude..@ "HostedZoneCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetHostedZoneCount where
@@ -76,17 +71,12 @@ instance Lude.ToQuery GetHostedZoneCount where
 --
 -- /See:/ 'mkGetHostedZoneCountResponse' smart constructor.
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
-  { responseStatus ::
-      Lude.Int,
-    hostedZoneCount :: Lude.Integer
+  { -- | The total number of public and private hosted zones that are associated with the current AWS account.
+    hostedZoneCount :: Lude.Integer,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHostedZoneCountResponse' with the minimum fields required to make a request.
@@ -94,23 +84,16 @@ data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
 -- * 'hostedZoneCount' - The total number of public and private hosted zones that are associated with the current AWS account.
 -- * 'responseStatus' - The response status code.
 mkGetHostedZoneCountResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'hostedZoneCount'
   Lude.Integer ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetHostedZoneCountResponse
-mkGetHostedZoneCountResponse pResponseStatus_ pHostedZoneCount_ =
+mkGetHostedZoneCountResponse pHostedZoneCount_ pResponseStatus_ =
   GetHostedZoneCountResponse'
-    { responseStatus = pResponseStatus_,
-      hostedZoneCount = pHostedZoneCount_
+    { hostedZoneCount = pHostedZoneCount_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzcrsResponseStatus :: Lens.Lens' GetHostedZoneCountResponse Lude.Int
-ghzcrsResponseStatus = Lens.lens (responseStatus :: GetHostedZoneCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHostedZoneCountResponse)
-{-# DEPRECATED ghzcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The total number of public and private hosted zones that are associated with the current AWS account.
 --
@@ -118,3 +101,10 @@ ghzcrsResponseStatus = Lens.lens (responseStatus :: GetHostedZoneCountResponse -
 ghzcrsHostedZoneCount :: Lens.Lens' GetHostedZoneCountResponse Lude.Integer
 ghzcrsHostedZoneCount = Lens.lens (hostedZoneCount :: GetHostedZoneCountResponse -> Lude.Integer) (\s a -> s {hostedZoneCount = a} :: GetHostedZoneCountResponse)
 {-# DEPRECATED ghzcrsHostedZoneCount "Use generic-lens or generic-optics with 'hostedZoneCount' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghzcrsResponseStatus :: Lens.Lens' GetHostedZoneCountResponse Lude.Int
+ghzcrsResponseStatus = Lens.lens (responseStatus :: GetHostedZoneCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHostedZoneCountResponse)
+{-# DEPRECATED ghzcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

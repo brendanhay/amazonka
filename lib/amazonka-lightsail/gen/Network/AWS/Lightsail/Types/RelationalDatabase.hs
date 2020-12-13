@@ -60,77 +60,97 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelationalDatabase' smart constructor.
 data RelationalDatabase = RelationalDatabase'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The database engine version (for example, @5.7.23@ ).
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The bundle ID for the database. A bundle describes the performance specifications for your database.
     relationalDatabaseBundleId :: Lude.Maybe Lude.Text,
-    masterEndpoint ::
-      Lude.Maybe RelationalDatabaseEndpoint,
+    -- | The master endpoint for the database.
+    masterEndpoint :: Lude.Maybe RelationalDatabaseEndpoint,
+    -- | Describes the current state of the database.
     state :: Lude.Maybe Lude.Text,
+    -- | The Lightsail resource type for the database (for example, @RelationalDatabase@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | A Boolean value indicating whether the database is publicly accessible.
     publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | The master user name of the database.
     masterUsername :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the database.
     arn :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the database was created. Formatted in Unix time.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The Region name and Availability Zone where the database is located.
     location :: Lude.Maybe ResourceLocation,
+    -- | The database software (for example, @MySQL@ ).
     engine :: Lude.Maybe Lude.Text,
+    -- | The latest point in time to which the database can be restored. Formatted in Unix time.
     latestRestorableTime :: Lude.Maybe Lude.Timestamp,
+    -- | The weekly time range during which system maintenance can occur on the database.
+    --
+    -- In the format @ddd:hh24:mi-ddd:hh24:mi@ . For example, @Tue:17:00-Tue:17:30@ .
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The blueprint ID for the database. A blueprint describes the major engine version of a database.
     relationalDatabaseBlueprintId :: Lude.Maybe Lude.Text,
+    -- | The certificate associated with the database.
     caCertificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | The unique name of the database resource in Lightsail.
     name :: Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating whether automated backup retention is enabled for the database.
     backupRetentionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The daily time range during which automated backups are created for the database (for example, @16:00-16:30@ ).
     preferredBackupWindow :: Lude.Maybe Lude.Text,
-    pendingMaintenanceActions ::
-      Lude.Maybe [PendingMaintenanceAction],
+    -- | Describes the pending maintenance actions for the database.
+    pendingMaintenanceActions :: Lude.Maybe [PendingMaintenanceAction],
+    -- | The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
+    -- | Describes the secondary Availability Zone of a high availability database.
+    --
+    -- The secondary database is used for failover support of a high availability database.
     secondaryAvailabilityZone :: Lude.Maybe Lude.Text,
-    pendingModifiedValues ::
-      Lude.Maybe PendingModifiedRelationalDatabaseValues,
+    -- | Describes pending database value modifications.
+    pendingModifiedValues :: Lude.Maybe PendingModifiedRelationalDatabaseValues,
+    -- | The name of the master database created when the Lightsail database resource is created.
     masterDatabaseName :: Lude.Maybe Lude.Text,
+    -- | Describes the hardware of the database.
     hardware :: Lude.Maybe RelationalDatabaseHardware,
+    -- | The status of parameter updates for the database.
     parameterApplyStatus :: Lude.Maybe Lude.Text,
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabase' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the database.
--- * 'backupRetentionEnabled' - A Boolean value indicating whether automated backup retention is enabled for the database.
--- * 'caCertificateIdentifier' - The certificate associated with the database.
--- * 'createdAt' - The timestamp when the database was created. Formatted in Unix time.
--- * 'engine' - The database software (for example, @MySQL@ ).
 -- * 'engineVersion' - The database engine version (for example, @5.7.23@ ).
--- * 'hardware' - Describes the hardware of the database.
--- * 'latestRestorableTime' - The latest point in time to which the database can be restored. Formatted in Unix time.
--- * 'location' - The Region name and Availability Zone where the database is located.
--- * 'masterDatabaseName' - The name of the master database created when the Lightsail database resource is created.
+-- * 'relationalDatabaseBundleId' - The bundle ID for the database. A bundle describes the performance specifications for your database.
 -- * 'masterEndpoint' - The master endpoint for the database.
+-- * 'state' - Describes the current state of the database.
+-- * 'resourceType' - The Lightsail resource type for the database (for example, @RelationalDatabase@ ).
+-- * 'publiclyAccessible' - A Boolean value indicating whether the database is publicly accessible.
 -- * 'masterUsername' - The master user name of the database.
--- * 'name' - The unique name of the database resource in Lightsail.
--- * 'parameterApplyStatus' - The status of parameter updates for the database.
--- * 'pendingMaintenanceActions' - Describes the pending maintenance actions for the database.
--- * 'pendingModifiedValues' - Describes pending database value modifications.
--- * 'preferredBackupWindow' - The daily time range during which automated backups are created for the database (for example, @16:00-16:30@ ).
+-- * 'arn' - The Amazon Resource Name (ARN) of the database.
+-- * 'createdAt' - The timestamp when the database was created. Formatted in Unix time.
+-- * 'location' - The Region name and Availability Zone where the database is located.
+-- * 'engine' - The database software (for example, @MySQL@ ).
+-- * 'latestRestorableTime' - The latest point in time to which the database can be restored. Formatted in Unix time.
 -- * 'preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur on the database.
 --
 -- In the format @ddd:hh24:mi-ddd:hh24:mi@ . For example, @Tue:17:00-Tue:17:30@ .
--- * 'publiclyAccessible' - A Boolean value indicating whether the database is publicly accessible.
 -- * 'relationalDatabaseBlueprintId' - The blueprint ID for the database. A blueprint describes the major engine version of a database.
--- * 'relationalDatabaseBundleId' - The bundle ID for the database. A bundle describes the performance specifications for your database.
--- * 'resourceType' - The Lightsail resource type for the database (for example, @RelationalDatabase@ ).
+-- * 'caCertificateIdentifier' - The certificate associated with the database.
+-- * 'name' - The unique name of the database resource in Lightsail.
+-- * 'backupRetentionEnabled' - A Boolean value indicating whether automated backup retention is enabled for the database.
+-- * 'preferredBackupWindow' - The daily time range during which automated backups are created for the database (for example, @16:00-16:30@ ).
+-- * 'pendingMaintenanceActions' - Describes the pending maintenance actions for the database.
+-- * 'supportCode' - The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 -- * 'secondaryAvailabilityZone' - Describes the secondary Availability Zone of a high availability database.
 --
 -- The secondary database is used for failover support of a high availability database.
--- * 'state' - Describes the current state of the database.
--- * 'supportCode' - The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+-- * 'pendingModifiedValues' - Describes pending database value modifications.
+-- * 'masterDatabaseName' - The name of the master database created when the Lightsail database resource is created.
+-- * 'hardware' - Describes the hardware of the database.
+-- * 'parameterApplyStatus' - The status of parameter updates for the database.
 -- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkRelationalDatabase ::
   RelationalDatabase

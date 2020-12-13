@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDestination' smart constructor.
 data Destination = Destination'
-  { bCCAddresses ::
-      Lude.Maybe [Lude.Text],
+  { -- | The recipients to place on the BCC: line of the message.
+    bCCAddresses :: Lude.Maybe [Lude.Text],
+    -- | The recipients to place on the CC: line of the message.
     cCAddresses :: Lude.Maybe [Lude.Text],
+    -- | The recipients to place on the To: line of the message.
     toAddresses :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.

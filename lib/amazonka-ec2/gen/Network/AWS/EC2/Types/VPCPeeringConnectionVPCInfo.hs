@@ -37,36 +37,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCPeeringConnectionVPCInfo' smart constructor.
 data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
-  { cidrBlockSet ::
-      Lude.Maybe [CidrBlock],
+  { -- | Information about the IPv4 CIDR blocks for the VPC.
+    cidrBlockSet :: Lude.Maybe [CidrBlock],
+    -- | The ID of the VPC.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID of the VPC owner.
     ownerId :: Lude.Maybe Lude.Text,
-    peeringOptions ::
-      Lude.Maybe
-        VPCPeeringConnectionOptionsDescription,
+    -- | Information about the VPC peering connection options for the accepter or requester VPC.
+    peeringOptions :: Lude.Maybe VPCPeeringConnectionOptionsDescription,
+    -- | The IPv4 CIDR block for the VPC.
     cidrBlock :: Lude.Maybe Lude.Text,
+    -- | The Region in which the VPC is located.
     region :: Lude.Maybe Lude.Text,
-    ipv6CidrBlockSet ::
-      Lude.Maybe [IPv6CidrBlock]
+    -- | The IPv6 CIDR block for the VPC.
+    ipv6CidrBlockSet :: Lude.Maybe [IPv6CidrBlock]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCPeeringConnectionVPCInfo' with the minimum fields required to make a request.
 --
--- * 'cidrBlock' - The IPv4 CIDR block for the VPC.
 -- * 'cidrBlockSet' - Information about the IPv4 CIDR blocks for the VPC.
--- * 'ipv6CidrBlockSet' - The IPv6 CIDR block for the VPC.
+-- * 'vpcId' - The ID of the VPC.
 -- * 'ownerId' - The AWS account ID of the VPC owner.
 -- * 'peeringOptions' - Information about the VPC peering connection options for the accepter or requester VPC.
+-- * 'cidrBlock' - The IPv4 CIDR block for the VPC.
 -- * 'region' - The Region in which the VPC is located.
--- * 'vpcId' - The ID of the VPC.
+-- * 'ipv6CidrBlockSet' - The IPv6 CIDR block for the VPC.
 mkVPCPeeringConnectionVPCInfo ::
   VPCPeeringConnectionVPCInfo
 mkVPCPeeringConnectionVPCInfo =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Inspector.GetExclusionsPreview
     -- ** Request lenses
     gepLocale,
     gepNextToken,
-    gepMaxResults,
     gepAssessmentTemplateARN,
+    gepMaxResults,
     gepPreviewToken,
 
     -- * Destructuring the response
@@ -31,9 +32,9 @@ module Network.AWS.Inspector.GetExclusionsPreview
 
     -- ** Response lenses
     geprsExclusionPreviews,
+    geprsPreviewStatus,
     geprsNextToken,
     geprsResponseStatus,
-    geprsPreviewStatus,
   )
 where
 
@@ -45,28 +46,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetExclusionsPreview' smart constructor.
 data GetExclusionsPreview = GetExclusionsPreview'
-  { locale ::
-      Lude.Maybe Locale,
+  { -- | The locale into which you want to translate the exclusion's title, description, and recommendation.
+    locale :: Lude.Maybe Locale,
+    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the GetExclusionsPreviewRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
+    -- | The ARN that specifies the assessment template for which the exclusions preview was requested.
     assessmentTemplateARN :: Lude.Text,
+    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
+    maxResults :: Lude.Maybe Lude.Int,
+    -- | The unique identifier associated of the exclusions preview.
     previewToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExclusionsPreview' with the minimum fields required to make a request.
 --
--- * 'assessmentTemplateARN' - The ARN that specifies the assessment template for which the exclusions preview was requested.
 -- * 'locale' - The locale into which you want to translate the exclusion's title, description, and recommendation.
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
 -- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the GetExclusionsPreviewRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
+-- * 'assessmentTemplateARN' - The ARN that specifies the assessment template for which the exclusions preview was requested.
+-- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
 -- * 'previewToken' - The unique identifier associated of the exclusions preview.
 mkGetExclusionsPreview ::
   -- | 'assessmentTemplateARN'
@@ -78,8 +77,8 @@ mkGetExclusionsPreview pAssessmentTemplateARN_ pPreviewToken_ =
   GetExclusionsPreview'
     { locale = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
       assessmentTemplateARN = pAssessmentTemplateARN_,
+      maxResults = Lude.Nothing,
       previewToken = pPreviewToken_
     }
 
@@ -97,19 +96,19 @@ gepNextToken :: Lens.Lens' GetExclusionsPreview (Lude.Maybe Lude.Text)
 gepNextToken = Lens.lens (nextToken :: GetExclusionsPreview -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetExclusionsPreview)
 {-# DEPRECATED gepNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gepMaxResults :: Lens.Lens' GetExclusionsPreview (Lude.Maybe Lude.Int)
-gepMaxResults = Lens.lens (maxResults :: GetExclusionsPreview -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetExclusionsPreview)
-{-# DEPRECATED gepMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ARN that specifies the assessment template for which the exclusions preview was requested.
 --
 -- /Note:/ Consider using 'assessmentTemplateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gepAssessmentTemplateARN :: Lens.Lens' GetExclusionsPreview Lude.Text
 gepAssessmentTemplateARN = Lens.lens (assessmentTemplateARN :: GetExclusionsPreview -> Lude.Text) (\s a -> s {assessmentTemplateARN = a} :: GetExclusionsPreview)
 {-# DEPRECATED gepAssessmentTemplateARN "Use generic-lens or generic-optics with 'assessmentTemplateARN' instead." #-}
+
+-- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gepMaxResults :: Lens.Lens' GetExclusionsPreview (Lude.Maybe Lude.Int)
+gepMaxResults = Lens.lens (maxResults :: GetExclusionsPreview -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetExclusionsPreview)
+{-# DEPRECATED gepMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The unique identifier associated of the exclusions preview.
 --
@@ -126,9 +125,9 @@ instance Lude.AWSRequest GetExclusionsPreview where
       ( \s h x ->
           GetExclusionsPreviewResponse'
             Lude.<$> (x Lude..?> "exclusionPreviews" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..:> "previewStatus")
             Lude.<*> (x Lude..?> "nextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "previewStatus")
       )
 
 instance Lude.ToHeaders GetExclusionsPreview where
@@ -148,8 +147,8 @@ instance Lude.ToJSON GetExclusionsPreview where
       ( Lude.catMaybes
           [ ("locale" Lude..=) Lude.<$> locale,
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just ("assessmentTemplateArn" Lude..= assessmentTemplateARN),
+            ("maxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just ("previewToken" Lude..= previewToken)
           ]
       )
@@ -162,39 +161,36 @@ instance Lude.ToQuery GetExclusionsPreview where
 
 -- | /See:/ 'mkGetExclusionsPreviewResponse' smart constructor.
 data GetExclusionsPreviewResponse = GetExclusionsPreviewResponse'
-  { exclusionPreviews ::
-      Lude.Maybe [ExclusionPreview],
+  { -- | Information about the exclusions included in the preview.
+    exclusionPreviews :: Lude.Maybe [ExclusionPreview],
+    -- | Specifies the status of the request to generate an exclusions preview.
+    previewStatus :: PreviewStatus,
+    -- | When a response is generated, if there is more data to be listed, this parameters is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
     nextToken :: Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    previewStatus :: PreviewStatus
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExclusionsPreviewResponse' with the minimum fields required to make a request.
 --
 -- * 'exclusionPreviews' - Information about the exclusions included in the preview.
--- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameters is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 -- * 'previewStatus' - Specifies the status of the request to generate an exclusions preview.
+-- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameters is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 -- * 'responseStatus' - The response status code.
 mkGetExclusionsPreviewResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'previewStatus'
   PreviewStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetExclusionsPreviewResponse
-mkGetExclusionsPreviewResponse pResponseStatus_ pPreviewStatus_ =
+mkGetExclusionsPreviewResponse pPreviewStatus_ pResponseStatus_ =
   GetExclusionsPreviewResponse'
     { exclusionPreviews = Lude.Nothing,
+      previewStatus = pPreviewStatus_,
       nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      previewStatus = pPreviewStatus_
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the exclusions included in the preview.
@@ -203,6 +199,13 @@ mkGetExclusionsPreviewResponse pResponseStatus_ pPreviewStatus_ =
 geprsExclusionPreviews :: Lens.Lens' GetExclusionsPreviewResponse (Lude.Maybe [ExclusionPreview])
 geprsExclusionPreviews = Lens.lens (exclusionPreviews :: GetExclusionsPreviewResponse -> Lude.Maybe [ExclusionPreview]) (\s a -> s {exclusionPreviews = a} :: GetExclusionsPreviewResponse)
 {-# DEPRECATED geprsExclusionPreviews "Use generic-lens or generic-optics with 'exclusionPreviews' instead." #-}
+
+-- | Specifies the status of the request to generate an exclusions preview.
+--
+-- /Note:/ Consider using 'previewStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geprsPreviewStatus :: Lens.Lens' GetExclusionsPreviewResponse PreviewStatus
+geprsPreviewStatus = Lens.lens (previewStatus :: GetExclusionsPreviewResponse -> PreviewStatus) (\s a -> s {previewStatus = a} :: GetExclusionsPreviewResponse)
+{-# DEPRECATED geprsPreviewStatus "Use generic-lens or generic-optics with 'previewStatus' instead." #-}
 
 -- | When a response is generated, if there is more data to be listed, this parameters is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
@@ -217,10 +220,3 @@ geprsNextToken = Lens.lens (nextToken :: GetExclusionsPreviewResponse -> Lude.Ma
 geprsResponseStatus :: Lens.Lens' GetExclusionsPreviewResponse Lude.Int
 geprsResponseStatus = Lens.lens (responseStatus :: GetExclusionsPreviewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetExclusionsPreviewResponse)
 {-# DEPRECATED geprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Specifies the status of the request to generate an exclusions preview.
---
--- /Note:/ Consider using 'previewStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-geprsPreviewStatus :: Lens.Lens' GetExclusionsPreviewResponse PreviewStatus
-geprsPreviewStatus = Lens.lens (previewStatus :: GetExclusionsPreviewResponse -> PreviewStatus) (\s a -> s {previewStatus = a} :: GetExclusionsPreviewResponse)
-{-# DEPRECATED geprsPreviewStatus "Use generic-lens or generic-optics with 'previewStatus' instead." #-}

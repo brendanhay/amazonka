@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Route53Domains.RenewDomain
     mkRenewDomain,
 
     -- ** Request lenses
-    rdDurationInYears,
     rdDomainName,
+    rdDurationInYears,
     rdCurrentExpiryYear,
 
     -- * Destructuring the response
@@ -30,8 +31,8 @@ module Network.AWS.Route53Domains.RenewDomain
     mkRenewDomainResponse,
 
     -- ** Response lenses
-    rrsResponseStatus,
     rrsOperationId,
+    rrsResponseStatus,
   )
 where
 
@@ -45,27 +46,25 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkRenewDomain' smart constructor.
 data RenewDomain = RenewDomain'
-  { durationInYears ::
-      Lude.Maybe Lude.Natural,
+  { -- | The name of the domain that you want to renew.
     domainName :: Lude.Text,
+    -- | The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
+    --
+    -- Default: 1
+    durationInYears :: Lude.Maybe Lude.Natural,
+    -- | The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.
     currentExpiryYear :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenewDomain' with the minimum fields required to make a request.
 --
--- * 'currentExpiryYear' - The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.
 -- * 'domainName' - The name of the domain that you want to renew.
 -- * 'durationInYears' - The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
 -- Default: 1
+-- * 'currentExpiryYear' - The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.
 mkRenewDomain ::
   -- | 'domainName'
   Lude.Text ->
@@ -74,10 +73,17 @@ mkRenewDomain ::
   RenewDomain
 mkRenewDomain pDomainName_ pCurrentExpiryYear_ =
   RenewDomain'
-    { durationInYears = Lude.Nothing,
-      domainName = pDomainName_,
+    { domainName = pDomainName_,
+      durationInYears = Lude.Nothing,
       currentExpiryYear = pCurrentExpiryYear_
     }
+
+-- | The name of the domain that you want to renew.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdDomainName :: Lens.Lens' RenewDomain Lude.Text
+rdDomainName = Lens.lens (domainName :: RenewDomain -> Lude.Text) (\s a -> s {domainName = a} :: RenewDomain)
+{-# DEPRECATED rdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
@@ -87,13 +93,6 @@ mkRenewDomain pDomainName_ pCurrentExpiryYear_ =
 rdDurationInYears :: Lens.Lens' RenewDomain (Lude.Maybe Lude.Natural)
 rdDurationInYears = Lens.lens (durationInYears :: RenewDomain -> Lude.Maybe Lude.Natural) (\s a -> s {durationInYears = a} :: RenewDomain)
 {-# DEPRECATED rdDurationInYears "Use generic-lens or generic-optics with 'durationInYears' instead." #-}
-
--- | The name of the domain that you want to renew.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdDomainName :: Lens.Lens' RenewDomain Lude.Text
-rdDomainName = Lens.lens (domainName :: RenewDomain -> Lude.Text) (\s a -> s {domainName = a} :: RenewDomain)
-{-# DEPRECATED rdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.
 --
@@ -109,7 +108,7 @@ instance Lude.AWSRequest RenewDomain where
     Res.receiveJSON
       ( \s h x ->
           RenewDomainResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "OperationId")
+            Lude.<$> (x Lude..:> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders RenewDomain where
@@ -127,8 +126,8 @@ instance Lude.ToJSON RenewDomain where
   toJSON RenewDomain' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DurationInYears" Lude..=) Lude.<$> durationInYears,
-            Lude.Just ("DomainName" Lude..= domainName),
+          [ Lude.Just ("DomainName" Lude..= domainName),
+            ("DurationInYears" Lude..=) Lude.<$> durationInYears,
             Lude.Just ("CurrentExpiryYear" Lude..= currentExpiryYear)
           ]
       )
@@ -141,17 +140,12 @@ instance Lude.ToQuery RenewDomain where
 
 -- | /See:/ 'mkRenewDomainResponse' smart constructor.
 data RenewDomainResponse = RenewDomainResponse'
-  { responseStatus ::
-      Lude.Int,
-    operationId :: Lude.Text
+  { -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
+    operationId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenewDomainResponse' with the minimum fields required to make a request.
@@ -159,23 +153,16 @@ data RenewDomainResponse = RenewDomainResponse'
 -- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 -- * 'responseStatus' - The response status code.
 mkRenewDomainResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'operationId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   RenewDomainResponse
-mkRenewDomainResponse pResponseStatus_ pOperationId_ =
+mkRenewDomainResponse pOperationId_ pResponseStatus_ =
   RenewDomainResponse'
-    { responseStatus = pResponseStatus_,
-      operationId = pOperationId_
+    { operationId = pOperationId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsResponseStatus :: Lens.Lens' RenewDomainResponse Lude.Int
-rrsResponseStatus = Lens.lens (responseStatus :: RenewDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RenewDomainResponse)
-{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 --
@@ -183,3 +170,10 @@ rrsResponseStatus = Lens.lens (responseStatus :: RenewDomainResponse -> Lude.Int
 rrsOperationId :: Lens.Lens' RenewDomainResponse Lude.Text
 rrsOperationId = Lens.lens (operationId :: RenewDomainResponse -> Lude.Text) (\s a -> s {operationId = a} :: RenewDomainResponse)
 {-# DEPRECATED rrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsResponseStatus :: Lens.Lens' RenewDomainResponse Lude.Int
+rrsResponseStatus = Lens.lens (responseStatus :: RenewDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RenewDomainResponse)
+{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

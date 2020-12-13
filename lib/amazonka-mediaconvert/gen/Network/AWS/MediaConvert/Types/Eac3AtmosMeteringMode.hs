@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosMeteringMode
   ( Eac3AtmosMeteringMode
       ( Eac3AtmosMeteringMode',
+        EAMMLeqA,
         EAMMItuBs17701,
         EAMMItuBs17702,
         EAMMItuBs17703,
-        EAMMItuBs17704,
-        EAMMLeqA
+        EAMMItuBs17704
       ),
   )
 where
@@ -49,6 +49,9 @@ newtype Eac3AtmosMeteringMode = Eac3AtmosMeteringMode' Lude.Text
       Lude.ToHeader
     )
 
+pattern EAMMLeqA :: Eac3AtmosMeteringMode
+pattern EAMMLeqA = Eac3AtmosMeteringMode' "LEQ_A"
+
 pattern EAMMItuBs17701 :: Eac3AtmosMeteringMode
 pattern EAMMItuBs17701 = Eac3AtmosMeteringMode' "ITU_BS_1770_1"
 
@@ -61,14 +64,11 @@ pattern EAMMItuBs17703 = Eac3AtmosMeteringMode' "ITU_BS_1770_3"
 pattern EAMMItuBs17704 :: Eac3AtmosMeteringMode
 pattern EAMMItuBs17704 = Eac3AtmosMeteringMode' "ITU_BS_1770_4"
 
-pattern EAMMLeqA :: Eac3AtmosMeteringMode
-pattern EAMMLeqA = Eac3AtmosMeteringMode' "LEQ_A"
-
 {-# COMPLETE
+  EAMMLeqA,
   EAMMItuBs17701,
   EAMMItuBs17702,
   EAMMItuBs17703,
   EAMMItuBs17704,
-  EAMMLeqA,
   Eac3AtmosMeteringMode'
   #-}

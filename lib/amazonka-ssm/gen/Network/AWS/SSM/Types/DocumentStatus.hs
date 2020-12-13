@@ -13,11 +13,11 @@
 module Network.AWS.SSM.Types.DocumentStatus
   ( DocumentStatus
       ( DocumentStatus',
-        DSActive,
         DSCreating,
+        DSActive,
+        DSUpdating,
         DSDeleting,
-        DSFailed,
-        DSUpdating
+        DSFailed
       ),
   )
 where
@@ -49,11 +49,14 @@ newtype DocumentStatus = DocumentStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern DSCreating :: DocumentStatus
+pattern DSCreating = DocumentStatus' "Creating"
+
 pattern DSActive :: DocumentStatus
 pattern DSActive = DocumentStatus' "Active"
 
-pattern DSCreating :: DocumentStatus
-pattern DSCreating = DocumentStatus' "Creating"
+pattern DSUpdating :: DocumentStatus
+pattern DSUpdating = DocumentStatus' "Updating"
 
 pattern DSDeleting :: DocumentStatus
 pattern DSDeleting = DocumentStatus' "Deleting"
@@ -61,14 +64,11 @@ pattern DSDeleting = DocumentStatus' "Deleting"
 pattern DSFailed :: DocumentStatus
 pattern DSFailed = DocumentStatus' "Failed"
 
-pattern DSUpdating :: DocumentStatus
-pattern DSUpdating = DocumentStatus' "Updating"
-
 {-# COMPLETE
-  DSActive,
   DSCreating,
+  DSActive,
+  DSUpdating,
   DSDeleting,
   DSFailed,
-  DSUpdating,
   DocumentStatus'
   #-}

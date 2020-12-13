@@ -32,28 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGateway' smart constructor.
 data Gateway = Gateway'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the gateway.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the gateway.
     name :: Lude.Maybe Lude.Text,
+    -- | The ARN of the gateway group that the gateway is associated to.
     gatewayGroupARN :: Lude.Maybe Lude.Text,
+    -- | The software version of the gateway. The gateway automatically updates its software version during normal operation.
     softwareVersion :: Lude.Maybe Lude.Text,
+    -- | The description of the gateway.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Gateway' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the gateway.
--- * 'description' - The description of the gateway.
--- * 'gatewayGroupARN' - The ARN of the gateway group that the gateway is associated to.
 -- * 'name' - The name of the gateway.
+-- * 'gatewayGroupARN' - The ARN of the gateway group that the gateway is associated to.
 -- * 'softwareVersion' - The software version of the gateway. The gateway automatically updates its software version during normal operation.
+-- * 'description' - The description of the gateway.
 mkGateway ::
   Gateway
 mkGateway =

@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.InputTimecodeSource
   ( InputTimecodeSource
       ( InputTimecodeSource',
-        ITSEmbedded,
-        ITSSpecifiedstart,
-        ITSZerobased
+        Embedded,
+        Zerobased,
+        Specifiedstart
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype InputTimecodeSource = InputTimecodeSource' Lude.Text
       Lude.ToHeader
     )
 
-pattern ITSEmbedded :: InputTimecodeSource
-pattern ITSEmbedded = InputTimecodeSource' "EMBEDDED"
+pattern Embedded :: InputTimecodeSource
+pattern Embedded = InputTimecodeSource' "EMBEDDED"
 
-pattern ITSSpecifiedstart :: InputTimecodeSource
-pattern ITSSpecifiedstart = InputTimecodeSource' "SPECIFIEDSTART"
+pattern Zerobased :: InputTimecodeSource
+pattern Zerobased = InputTimecodeSource' "ZEROBASED"
 
-pattern ITSZerobased :: InputTimecodeSource
-pattern ITSZerobased = InputTimecodeSource' "ZEROBASED"
+pattern Specifiedstart :: InputTimecodeSource
+pattern Specifiedstart = InputTimecodeSource' "SPECIFIEDSTART"
 
 {-# COMPLETE
-  ITSEmbedded,
-  ITSSpecifiedstart,
-  ITSZerobased,
+  Embedded,
+  Zerobased,
+  Specifiedstart,
   InputTimecodeSource'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,14 +40,11 @@ import qualified Network.AWS.Response as Res
 -- | Placeholder documentation for DeleteScheduleRequest
 --
 -- /See:/ 'mkDeleteSchedule' smart constructor.
-newtype DeleteSchedule = DeleteSchedule' {channelId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteSchedule = DeleteSchedule'
+  { -- | Id of the channel whose schedule is being deleted.
+    channelId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSchedule' with the minimum fields required to make a request.
@@ -96,16 +94,10 @@ instance Lude.ToQuery DeleteSchedule where
 --
 -- /See:/ 'mkDeleteScheduleResponse' smart constructor.
 newtype DeleteScheduleResponse = DeleteScheduleResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduleResponse' with the minimum fields required to make a request.

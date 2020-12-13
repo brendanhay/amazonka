@@ -36,34 +36,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeCoverageReportSummary' smart constructor.
 data CodeCoverageReportSummary = CodeCoverageReportSummary'
-  { branchesMissed ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of conditional branches that are not covered by your tests.
+    branchesMissed :: Lude.Maybe Lude.Natural,
+    -- | The number of lines that are not covered by your tests.
     linesMissed :: Lude.Maybe Lude.Natural,
-    branchesCovered ::
-      Lude.Maybe Lude.Natural,
+    -- | The number of conditional branches that are covered by your tests.
+    branchesCovered :: Lude.Maybe Lude.Natural,
+    -- | The number of lines that are covered by your tests.
     linesCovered :: Lude.Maybe Lude.Natural,
-    branchCoveragePercentage ::
-      Lude.Maybe Lude.Double,
-    lineCoveragePercentage ::
-      Lude.Maybe Lude.Double
+    -- | The percentage of branches that are covered by your tests.
+    branchCoveragePercentage :: Lude.Maybe Lude.Double,
+    -- | The percentage of lines that are covered by your tests.
+    lineCoveragePercentage :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeCoverageReportSummary' with the minimum fields required to make a request.
 --
--- * 'branchCoveragePercentage' - The percentage of branches that are covered by your tests.
--- * 'branchesCovered' - The number of conditional branches that are covered by your tests.
 -- * 'branchesMissed' - The number of conditional branches that are not covered by your tests.
--- * 'lineCoveragePercentage' - The percentage of lines that are covered by your tests.
--- * 'linesCovered' - The number of lines that are covered by your tests.
 -- * 'linesMissed' - The number of lines that are not covered by your tests.
+-- * 'branchesCovered' - The number of conditional branches that are covered by your tests.
+-- * 'linesCovered' - The number of lines that are covered by your tests.
+-- * 'branchCoveragePercentage' - The percentage of branches that are covered by your tests.
+-- * 'lineCoveragePercentage' - The percentage of lines that are covered by your tests.
 mkCodeCoverageReportSummary ::
   CodeCoverageReportSummary
 mkCodeCoverageReportSummary =

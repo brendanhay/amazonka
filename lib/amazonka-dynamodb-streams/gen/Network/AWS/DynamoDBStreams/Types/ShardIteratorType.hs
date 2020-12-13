@@ -13,10 +13,10 @@
 module Network.AWS.DynamoDBStreams.Types.ShardIteratorType
   ( ShardIteratorType
       ( ShardIteratorType',
-        AfterSequenceNumber,
-        AtSequenceNumber,
+        TrimHorizon,
         Latest,
-        TrimHorizon
+        AtSequenceNumber,
+        AfterSequenceNumber
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ShardIteratorType = ShardIteratorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AfterSequenceNumber :: ShardIteratorType
-pattern AfterSequenceNumber = ShardIteratorType' "AFTER_SEQUENCE_NUMBER"
-
-pattern AtSequenceNumber :: ShardIteratorType
-pattern AtSequenceNumber = ShardIteratorType' "AT_SEQUENCE_NUMBER"
+pattern TrimHorizon :: ShardIteratorType
+pattern TrimHorizon = ShardIteratorType' "TRIM_HORIZON"
 
 pattern Latest :: ShardIteratorType
 pattern Latest = ShardIteratorType' "LATEST"
 
-pattern TrimHorizon :: ShardIteratorType
-pattern TrimHorizon = ShardIteratorType' "TRIM_HORIZON"
+pattern AtSequenceNumber :: ShardIteratorType
+pattern AtSequenceNumber = ShardIteratorType' "AT_SEQUENCE_NUMBER"
+
+pattern AfterSequenceNumber :: ShardIteratorType
+pattern AfterSequenceNumber = ShardIteratorType' "AFTER_SEQUENCE_NUMBER"
 
 {-# COMPLETE
-  AfterSequenceNumber,
-  AtSequenceNumber,
-  Latest,
   TrimHorizon,
+  Latest,
+  AtSequenceNumber,
+  AfterSequenceNumber,
   ShardIteratorType'
   #-}

@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationSource' smart constructor.
 data ApplicationSource = ApplicationSource'
-  { tagFilters ::
-      Lude.Maybe [TagFilter],
+  { -- | A set of tags (up to 50).
+    tagFilters :: Lude.Maybe [TagFilter],
+    -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
     cloudFormationStackARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationSource' with the minimum fields required to make a request.
 --
--- * 'cloudFormationStackARN' - The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
 -- * 'tagFilters' - A set of tags (up to 50).
+-- * 'cloudFormationStackARN' - The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
 mkApplicationSource ::
   ApplicationSource
 mkApplicationSource =

@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpgradeTarget' smart constructor.
 data UpgradeTarget = UpgradeTarget'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version number of the upgrade target database engine.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether a database engine is upgraded to a major version.
     isMajorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The name of the upgrade target database engine.
     engine :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether the target version is applied to any source DB instances that have @AutoMinorVersionUpgrade@ set to true.
     autoUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The version of the database engine that a DB instance can be upgraded to.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeTarget' with the minimum fields required to make a request.
 --
--- * 'autoUpgrade' - A value that indicates whether the target version is applied to any source DB instances that have @AutoMinorVersionUpgrade@ set to true.
--- * 'description' - The version of the database engine that a DB instance can be upgraded to.
--- * 'engine' - The name of the upgrade target database engine.
 -- * 'engineVersion' - The version number of the upgrade target database engine.
 -- * 'isMajorVersionUpgrade' - A value that indicates whether a database engine is upgraded to a major version.
+-- * 'engine' - The name of the upgrade target database engine.
+-- * 'autoUpgrade' - A value that indicates whether the target version is applied to any source DB instances that have @AutoMinorVersionUpgrade@ set to true.
+-- * 'description' - The version of the database engine that a DB instance can be upgraded to.
 mkUpgradeTarget ::
   UpgradeTarget
 mkUpgradeTarget =

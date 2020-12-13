@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,32 +49,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSearchTables' smart constructor.
 data SearchTables = SearchTables'
-  { resourceShareType ::
-      Lude.Maybe ResourceShareType,
+  { -- | Allows you to specify that you want to search the tables shared with your account. The allowable values are @FOREIGN@ or @ALL@ .
+    --
+    --
+    --     * If set to @FOREIGN@ , will search the tables shared with your account.
+    --
+    --
+    --     * If set to @ALL@ , will search the tables shared with your account, as well as the tables in yor local account.
+    resourceShareType :: Lude.Maybe ResourceShareType,
+    -- | A string used for a text search.
+    --
+    -- Specifying a value in quotes filters based on an exact match to the value.
     searchText :: Lude.Maybe Lude.Text,
+    -- | A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.
+    --
+    -- The @Comparator@ member of the @PropertyPredicate@ struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when @Key=Name@ , a fuzzy match algorithm is used. The @Key@ field (for example, the value of the @Name@ field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the @Value@ member of @PropertyPredicate@ . For example, if @Key=Name@ and @Value=link@ , tables named @customer-link@ and @xx-link-yy@ are returned, but @xxlinkyy@ is not returned.
     filters :: Lude.Maybe [PropertyPredicate],
+    -- | A unique identifier, consisting of @/account_id/ @ .
     catalogId :: Lude.Maybe Lude.Text,
+    -- | A list of criteria for sorting the results by a field name, in an ascending or descending order.
     sortCriteria :: Lude.Maybe [SortCriterion],
+    -- | A continuation token, included if this is a continuation call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of tables to return in a single response.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchTables' with the minimum fields required to make a request.
 --
--- * 'catalogId' - A unique identifier, consisting of @/account_id/ @ .
--- * 'filters' - A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.
---
--- The @Comparator@ member of the @PropertyPredicate@ struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when @Key=Name@ , a fuzzy match algorithm is used. The @Key@ field (for example, the value of the @Name@ field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the @Value@ member of @PropertyPredicate@ . For example, if @Key=Name@ and @Value=link@ , tables named @customer-link@ and @xx-link-yy@ are returned, but @xxlinkyy@ is not returned.
--- * 'maxResults' - The maximum number of tables to return in a single response.
--- * 'nextToken' - A continuation token, included if this is a continuation call.
 -- * 'resourceShareType' - Allows you to specify that you want to search the tables shared with your account. The allowable values are @FOREIGN@ or @ALL@ .
 --
 --
@@ -86,7 +91,13 @@ data SearchTables = SearchTables'
 -- * 'searchText' - A string used for a text search.
 --
 -- Specifying a value in quotes filters based on an exact match to the value.
+-- * 'filters' - A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.
+--
+-- The @Comparator@ member of the @PropertyPredicate@ struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when @Key=Name@ , a fuzzy match algorithm is used. The @Key@ field (for example, the value of the @Name@ field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the @Value@ member of @PropertyPredicate@ . For example, if @Key=Name@ and @Value=link@ , tables named @customer-link@ and @xx-link-yy@ are returned, but @xxlinkyy@ is not returned.
+-- * 'catalogId' - A unique identifier, consisting of @/account_id/ @ .
 -- * 'sortCriteria' - A list of criteria for sorting the results by a field name, in an ascending or descending order.
+-- * 'nextToken' - A continuation token, included if this is a continuation call.
+-- * 'maxResults' - The maximum number of tables to return in a single response.
 mkSearchTables ::
   SearchTables
 mkSearchTables =
@@ -206,25 +217,21 @@ instance Lude.ToQuery SearchTables where
 
 -- | /See:/ 'mkSearchTablesResponse' smart constructor.
 data SearchTablesResponse = SearchTablesResponse'
-  { tableList ::
-      Lude.Maybe [Table],
+  { -- | A list of the requested @Table@ objects. The @SearchTables@ response returns only the tables that you have access to.
+    tableList :: Lude.Maybe [Table],
+    -- | A continuation token, present if the current list segment is not the last.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchTablesResponse' with the minimum fields required to make a request.
 --
+-- * 'tableList' - A list of the requested @Table@ objects. The @SearchTables@ response returns only the tables that you have access to.
 -- * 'nextToken' - A continuation token, present if the current list segment is not the last.
 -- * 'responseStatus' - The response status code.
--- * 'tableList' - A list of the requested @Table@ objects. The @SearchTables@ response returns only the tables that you have access to.
 mkSearchTablesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

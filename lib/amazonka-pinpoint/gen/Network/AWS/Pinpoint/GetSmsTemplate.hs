@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.Pinpoint.GetSmsTemplate
     mkGetSmsTemplate,
 
     -- ** Request lenses
-    gstVersion,
     gstTemplateName,
+    gstVersion,
 
     -- * Destructuring the response
     GetSmsTemplateResponse (..),
     mkGetSmsTemplateResponse,
 
     -- ** Response lenses
-    gstrsResponseStatus,
     gstrsSMSTemplateResponse,
+    gstrsResponseStatus,
   )
 where
 
@@ -40,17 +41,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSmsTemplate' smart constructor.
 data GetSmsTemplate = GetSmsTemplate'
-  { version ::
-      Lude.Maybe Lude.Text,
-    templateName :: Lude.Text
+  { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+    templateName :: Lude.Text,
+    -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
+    --
+    -- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+    -- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
+    --
+    --     * For a get operation, retrieves information about the active version of the template.
+    --
+    --
+    --     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+    --
+    --
+    --     * For a delete operation, deletes the template, including all versions of the template.
+    version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSmsTemplate' with the minimum fields required to make a request.
@@ -74,9 +81,16 @@ mkGetSmsTemplate ::
   GetSmsTemplate
 mkGetSmsTemplate pTemplateName_ =
   GetSmsTemplate'
-    { version = Lude.Nothing,
-      templateName = pTemplateName_
+    { templateName = pTemplateName_,
+      version = Lude.Nothing
     }
+
+-- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstTemplateName :: Lens.Lens' GetSmsTemplate Lude.Text
+gstTemplateName = Lens.lens (templateName :: GetSmsTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetSmsTemplate)
+{-# DEPRECATED gstTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
 --
@@ -98,13 +112,6 @@ gstVersion :: Lens.Lens' GetSmsTemplate (Lude.Maybe Lude.Text)
 gstVersion = Lens.lens (version :: GetSmsTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetSmsTemplate)
 {-# DEPRECATED gstVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstTemplateName :: Lens.Lens' GetSmsTemplate Lude.Text
-gstTemplateName = Lens.lens (templateName :: GetSmsTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetSmsTemplate)
-{-# DEPRECATED gstTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
 instance Lude.AWSRequest GetSmsTemplate where
   type Rs GetSmsTemplate = GetSmsTemplateResponse
   request = Req.get pinpointService
@@ -112,7 +119,7 @@ instance Lude.AWSRequest GetSmsTemplate where
     Res.receiveJSON
       ( \s h x ->
           GetSmsTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetSmsTemplate where
@@ -134,41 +141,29 @@ instance Lude.ToQuery GetSmsTemplate where
 
 -- | /See:/ 'mkGetSmsTemplateResponse' smart constructor.
 data GetSmsTemplateResponse = GetSmsTemplateResponse'
-  { responseStatus ::
-      Lude.Int,
-    sMSTemplateResponse :: SMSTemplateResponse
+  { sMSTemplateResponse :: SMSTemplateResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSmsTemplateResponse' with the minimum fields required to make a request.
 --
+-- * 'sMSTemplateResponse' -
 -- * 'responseStatus' - The response status code.
--- * 'sMSTemplateResponse' - Undocumented field.
 mkGetSmsTemplateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'sMSTemplateResponse'
   SMSTemplateResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSmsTemplateResponse
-mkGetSmsTemplateResponse pResponseStatus_ pSMSTemplateResponse_ =
+mkGetSmsTemplateResponse pSMSTemplateResponse_ pResponseStatus_ =
   GetSmsTemplateResponse'
-    { responseStatus = pResponseStatus_,
-      sMSTemplateResponse = pSMSTemplateResponse_
+    { sMSTemplateResponse =
+        pSMSTemplateResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstrsResponseStatus :: Lens.Lens' GetSmsTemplateResponse Lude.Int
-gstrsResponseStatus = Lens.lens (responseStatus :: GetSmsTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSmsTemplateResponse)
-{-# DEPRECATED gstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -176,3 +171,10 @@ gstrsResponseStatus = Lens.lens (responseStatus :: GetSmsTemplateResponse -> Lud
 gstrsSMSTemplateResponse :: Lens.Lens' GetSmsTemplateResponse SMSTemplateResponse
 gstrsSMSTemplateResponse = Lens.lens (sMSTemplateResponse :: GetSmsTemplateResponse -> SMSTemplateResponse) (\s a -> s {sMSTemplateResponse = a} :: GetSmsTemplateResponse)
 {-# DEPRECATED gstrsSMSTemplateResponse "Use generic-lens or generic-optics with 'sMSTemplateResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsResponseStatus :: Lens.Lens' GetSmsTemplateResponse Lude.Int
+gstrsResponseStatus = Lens.lens (responseStatus :: GetSmsTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSmsTemplateResponse)
+{-# DEPRECATED gstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

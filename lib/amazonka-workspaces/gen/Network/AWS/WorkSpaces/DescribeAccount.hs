@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,13 +38,7 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeAccount' smart constructor.
 data DescribeAccount = DescribeAccount'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccount' with the minimum fields required to make a request.
@@ -85,28 +80,24 @@ instance Lude.ToQuery DescribeAccount where
 
 -- | /See:/ 'mkDescribeAccountResponse' smart constructor.
 data DescribeAccountResponse = DescribeAccountResponse'
-  { dedicatedTenancySupport ::
-      Lude.Maybe
-        DedicatedTenancySupportResultEnum,
-    dedicatedTenancyManagementCidrRange ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of BYOL (whether BYOL is enabled or disabled).
+    dedicatedTenancySupport :: Lude.Maybe DedicatedTenancySupportResultEnum,
+    -- | The IP address range, specified as an IPv4 CIDR block, used for the management network interface.
+    --
+    -- The management network interface is connected to a secure Amazon WorkSpaces management network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
+    dedicatedTenancyManagementCidrRange :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountResponse' with the minimum fields required to make a request.
 --
+-- * 'dedicatedTenancySupport' - The status of BYOL (whether BYOL is enabled or disabled).
 -- * 'dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, used for the management network interface.
 --
 -- The management network interface is connected to a secure Amazon WorkSpaces management network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces clients, and to allow Amazon WorkSpaces to manage the WorkSpace.
--- * 'dedicatedTenancySupport' - The status of BYOL (whether BYOL is enabled or disabled).
 -- * 'responseStatus' - The response status code.
 mkDescribeAccountResponse ::
   -- | 'responseStatus'

@@ -27,13 +27,7 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPassThroughSettings' smart constructor.
 data PassThroughSettings = PassThroughSettings'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PassThroughSettings' with the minimum fields required to make a request.

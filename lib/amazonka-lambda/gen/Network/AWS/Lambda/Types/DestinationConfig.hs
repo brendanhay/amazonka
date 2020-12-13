@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDestinationConfig' smart constructor.
 data DestinationConfig = DestinationConfig'
-  { onSuccess ::
-      Lude.Maybe OnSuccess,
+  { -- | The destination configuration for successful invocations.
+    onSuccess :: Lude.Maybe OnSuccess,
+    -- | The destination configuration for failed invocations.
     onFailure :: Lude.Maybe OnFailure
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DestinationConfig' with the minimum fields required to make a request.
 --
--- * 'onFailure' - The destination configuration for failed invocations.
 -- * 'onSuccess' - The destination configuration for successful invocations.
+-- * 'onFailure' - The destination configuration for failed invocations.
 mkDestinationConfig ::
   DestinationConfig
 mkDestinationConfig =

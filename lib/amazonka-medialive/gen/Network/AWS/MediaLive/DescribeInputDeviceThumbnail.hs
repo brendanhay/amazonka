@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MediaLive.DescribeInputDeviceThumbnail
     mkDescribeInputDeviceThumbnail,
 
     -- ** Request lenses
-    didtInputDeviceId,
     didtAccept,
+    didtInputDeviceId,
 
     -- * Destructuring the response
     DescribeInputDeviceThumbnailResponse (..),
@@ -29,10 +30,10 @@ module Network.AWS.MediaLive.DescribeInputDeviceThumbnail
     -- ** Response lenses
     didtrsETag,
     didtrsContentLength,
+    didtrsBody,
     didtrsLastModified,
     didtrsContentType,
     didtrsResponseStatus,
-    didtrsBody,
   )
 where
 
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeInputDeviceThumbnail' smart constructor.
 data DescribeInputDeviceThumbnail = DescribeInputDeviceThumbnail'
-  { inputDeviceId ::
-      Lude.Text,
-    accept :: AcceptHeader
+  { -- | The HTTP Accept header. Indicates the requested type for the thumbnail.
+    accept :: AcceptHeader,
+    -- | The unique ID of this input device. For example, hd-123456789abcdef.
+    inputDeviceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInputDeviceThumbnail' with the minimum fields required to make a request.
@@ -64,23 +60,16 @@ data DescribeInputDeviceThumbnail = DescribeInputDeviceThumbnail'
 -- * 'accept' - The HTTP Accept header. Indicates the requested type for the thumbnail.
 -- * 'inputDeviceId' - The unique ID of this input device. For example, hd-123456789abcdef.
 mkDescribeInputDeviceThumbnail ::
-  -- | 'inputDeviceId'
-  Lude.Text ->
   -- | 'accept'
   AcceptHeader ->
+  -- | 'inputDeviceId'
+  Lude.Text ->
   DescribeInputDeviceThumbnail
-mkDescribeInputDeviceThumbnail pInputDeviceId_ pAccept_ =
+mkDescribeInputDeviceThumbnail pAccept_ pInputDeviceId_ =
   DescribeInputDeviceThumbnail'
-    { inputDeviceId = pInputDeviceId_,
-      accept = pAccept_
+    { accept = pAccept_,
+      inputDeviceId = pInputDeviceId_
     }
-
--- | The unique ID of this input device. For example, hd-123456789abcdef.
---
--- /Note:/ Consider using 'inputDeviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-didtInputDeviceId :: Lens.Lens' DescribeInputDeviceThumbnail Lude.Text
-didtInputDeviceId = Lens.lens (inputDeviceId :: DescribeInputDeviceThumbnail -> Lude.Text) (\s a -> s {inputDeviceId = a} :: DescribeInputDeviceThumbnail)
-{-# DEPRECATED didtInputDeviceId "Use generic-lens or generic-optics with 'inputDeviceId' instead." #-}
 
 -- | The HTTP Accept header. Indicates the requested type for the thumbnail.
 --
@@ -88,6 +77,13 @@ didtInputDeviceId = Lens.lens (inputDeviceId :: DescribeInputDeviceThumbnail -> 
 didtAccept :: Lens.Lens' DescribeInputDeviceThumbnail AcceptHeader
 didtAccept = Lens.lens (accept :: DescribeInputDeviceThumbnail -> AcceptHeader) (\s a -> s {accept = a} :: DescribeInputDeviceThumbnail)
 {-# DEPRECATED didtAccept "Use generic-lens or generic-optics with 'accept' instead." #-}
+
+-- | The unique ID of this input device. For example, hd-123456789abcdef.
+--
+-- /Note:/ Consider using 'inputDeviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didtInputDeviceId :: Lens.Lens' DescribeInputDeviceThumbnail Lude.Text
+didtInputDeviceId = Lens.lens (inputDeviceId :: DescribeInputDeviceThumbnail -> Lude.Text) (\s a -> s {inputDeviceId = a} :: DescribeInputDeviceThumbnail)
+{-# DEPRECATED didtInputDeviceId "Use generic-lens or generic-optics with 'inputDeviceId' instead." #-}
 
 instance Lude.AWSRequest DescribeInputDeviceThumbnail where
   type
@@ -100,10 +96,10 @@ instance Lude.AWSRequest DescribeInputDeviceThumbnail where
           DescribeInputDeviceThumbnailResponse'
             Lude.<$> (h Lude..#? "ETag")
             Lude.<*> (h Lude..#? "Content-Length")
+            Lude.<*> (Lude.pure x)
             Lude.<*> (h Lude..#? "Last-Modified")
             Lude.<*> (h Lude..#? "Content-Type")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (Lude.pure x)
       )
 
 instance Lude.ToHeaders DescribeInputDeviceThumbnail where
@@ -126,47 +122,43 @@ instance Lude.ToQuery DescribeInputDeviceThumbnail where
 --
 -- /See:/ 'mkDescribeInputDeviceThumbnailResponse' smart constructor.
 data DescribeInputDeviceThumbnailResponse = DescribeInputDeviceThumbnailResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    contentLength ::
-      Lude.Maybe
-        Lude.Integer,
-    lastModified ::
-      Lude.Maybe
-        Lude.Timestamp,
-    contentType ::
-      Lude.Maybe
-        ContentType,
-    responseStatus ::
-      Lude.Int,
-    body ::
-      Lude.RsBody
+  { -- | The unique, cacheable version of this thumbnail.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The length of the content.
+    contentLength :: Lude.Maybe Lude.Integer,
+    -- | The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
+    body :: Lude.RsBody,
+    -- | The date and time the thumbnail was last updated at the device.
+    lastModified :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies the media type of the thumbnail.
+    contentType :: Lude.Maybe ContentType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'DescribeInputDeviceThumbnailResponse' with the minimum fields required to make a request.
 --
--- * 'body' - The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
--- * 'contentLength' - The length of the content.
--- * 'contentType' - Specifies the media type of the thumbnail.
 -- * 'eTag' - The unique, cacheable version of this thumbnail.
+-- * 'contentLength' - The length of the content.
+-- * 'body' - The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
 -- * 'lastModified' - The date and time the thumbnail was last updated at the device.
+-- * 'contentType' - Specifies the media type of the thumbnail.
 -- * 'responseStatus' - The response status code.
 mkDescribeInputDeviceThumbnailResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'body'
   Lude.RsBody ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInputDeviceThumbnailResponse
-mkDescribeInputDeviceThumbnailResponse pResponseStatus_ pBody_ =
+mkDescribeInputDeviceThumbnailResponse pBody_ pResponseStatus_ =
   DescribeInputDeviceThumbnailResponse'
     { eTag = Lude.Nothing,
       contentLength = Lude.Nothing,
+      body = pBody_,
       lastModified = Lude.Nothing,
       contentType = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      body = pBody_
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique, cacheable version of this thumbnail.
@@ -182,6 +174,13 @@ didtrsETag = Lens.lens (eTag :: DescribeInputDeviceThumbnailResponse -> Lude.May
 didtrsContentLength :: Lens.Lens' DescribeInputDeviceThumbnailResponse (Lude.Maybe Lude.Integer)
 didtrsContentLength = Lens.lens (contentLength :: DescribeInputDeviceThumbnailResponse -> Lude.Maybe Lude.Integer) (\s a -> s {contentLength = a} :: DescribeInputDeviceThumbnailResponse)
 {-# DEPRECATED didtrsContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
+
+-- | The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didtrsBody :: Lens.Lens' DescribeInputDeviceThumbnailResponse Lude.RsBody
+didtrsBody = Lens.lens (body :: DescribeInputDeviceThumbnailResponse -> Lude.RsBody) (\s a -> s {body = a} :: DescribeInputDeviceThumbnailResponse)
+{-# DEPRECATED didtrsBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The date and time the thumbnail was last updated at the device.
 --
@@ -203,10 +202,3 @@ didtrsContentType = Lens.lens (contentType :: DescribeInputDeviceThumbnailRespon
 didtrsResponseStatus :: Lens.Lens' DescribeInputDeviceThumbnailResponse Lude.Int
 didtrsResponseStatus = Lens.lens (responseStatus :: DescribeInputDeviceThumbnailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInputDeviceThumbnailResponse)
 {-# DEPRECATED didtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-didtrsBody :: Lens.Lens' DescribeInputDeviceThumbnailResponse Lude.RsBody
-didtrsBody = Lens.lens (body :: DescribeInputDeviceThumbnailResponse -> Lude.RsBody) (\s a -> s {body = a} :: DescribeInputDeviceThumbnailResponse)
-{-# DEPRECATED didtrsBody "Use generic-lens or generic-optics with 'body' instead." #-}

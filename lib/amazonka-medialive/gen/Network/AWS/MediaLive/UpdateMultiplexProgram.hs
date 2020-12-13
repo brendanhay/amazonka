@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.MediaLive.UpdateMultiplexProgram
     mkUpdateMultiplexProgram,
 
     -- ** Request lenses
-    umpMultiplexProgramSettings,
     umpMultiplexId,
     umpProgramName,
+    umpMultiplexProgramSettings,
 
     -- * Destructuring the response
     UpdateMultiplexProgramResponse (..),
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateMultiplexProgram' smart constructor.
 data UpdateMultiplexProgram = UpdateMultiplexProgram'
-  { multiplexProgramSettings ::
-      Lude.Maybe MultiplexProgramSettings,
+  { -- | The ID of the multiplex of the program to update.
     multiplexId :: Lude.Text,
-    programName :: Lude.Text
+    -- | The name of the program to update.
+    programName :: Lude.Text,
+    -- | The new settings for a multiplex program.
+    multiplexProgramSettings :: Lude.Maybe MultiplexProgramSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMultiplexProgram' with the minimum fields required to make a request.
 --
 -- * 'multiplexId' - The ID of the multiplex of the program to update.
--- * 'multiplexProgramSettings' - The new settings for a multiplex program.
 -- * 'programName' - The name of the program to update.
+-- * 'multiplexProgramSettings' - The new settings for a multiplex program.
 mkUpdateMultiplexProgram ::
   -- | 'multiplexId'
   Lude.Text ->
@@ -70,17 +67,10 @@ mkUpdateMultiplexProgram ::
   UpdateMultiplexProgram
 mkUpdateMultiplexProgram pMultiplexId_ pProgramName_ =
   UpdateMultiplexProgram'
-    { multiplexProgramSettings = Lude.Nothing,
-      multiplexId = pMultiplexId_,
-      programName = pProgramName_
+    { multiplexId = pMultiplexId_,
+      programName = pProgramName_,
+      multiplexProgramSettings = Lude.Nothing
     }
-
--- | The new settings for a multiplex program.
---
--- /Note:/ Consider using 'multiplexProgramSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpMultiplexProgramSettings :: Lens.Lens' UpdateMultiplexProgram (Lude.Maybe MultiplexProgramSettings)
-umpMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: UpdateMultiplexProgram -> Lude.Maybe MultiplexProgramSettings) (\s a -> s {multiplexProgramSettings = a} :: UpdateMultiplexProgram)
-{-# DEPRECATED umpMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
 
 -- | The ID of the multiplex of the program to update.
 --
@@ -95,6 +85,13 @@ umpMultiplexId = Lens.lens (multiplexId :: UpdateMultiplexProgram -> Lude.Text) 
 umpProgramName :: Lens.Lens' UpdateMultiplexProgram Lude.Text
 umpProgramName = Lens.lens (programName :: UpdateMultiplexProgram -> Lude.Text) (\s a -> s {programName = a} :: UpdateMultiplexProgram)
 {-# DEPRECATED umpProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
+
+-- | The new settings for a multiplex program.
+--
+-- /Note:/ Consider using 'multiplexProgramSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umpMultiplexProgramSettings :: Lens.Lens' UpdateMultiplexProgram (Lude.Maybe MultiplexProgramSettings)
+umpMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: UpdateMultiplexProgram -> Lude.Maybe MultiplexProgramSettings) (\s a -> s {multiplexProgramSettings = a} :: UpdateMultiplexProgram)
+{-# DEPRECATED umpMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
 
 instance Lude.AWSRequest UpdateMultiplexProgram where
   type Rs UpdateMultiplexProgram = UpdateMultiplexProgramResponse
@@ -141,17 +138,12 @@ instance Lude.ToQuery UpdateMultiplexProgram where
 --
 -- /See:/ 'mkUpdateMultiplexProgramResponse' smart constructor.
 data UpdateMultiplexProgramResponse = UpdateMultiplexProgramResponse'
-  { multiplexProgram ::
-      Lude.Maybe MultiplexProgram,
+  { -- | The updated multiplex program.
+    multiplexProgram :: Lude.Maybe MultiplexProgram,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMultiplexProgramResponse' with the minimum fields required to make a request.

@@ -31,17 +31,14 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkClusterNode' smart constructor.
 data ClusterNode = ClusterNode'
-  { nodeRole :: Lude.Maybe Lude.Text,
+  { -- | Whether the node is a leader node or a compute node.
+    nodeRole :: Lude.Maybe Lude.Text,
+    -- | The private IP address of a node within a cluster.
     privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The public IP address of a node within a cluster.
     publicIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterNode' with the minimum fields required to make a request.

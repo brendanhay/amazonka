@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResetDistributionCache' smart constructor.
 newtype ResetDistributionCache = ResetDistributionCache'
-  { distributionName ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the distribution for which to reset cache.
+    --
+    -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+    distributionName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDistributionCache' with the minimum fields required to make a request.
@@ -113,29 +110,24 @@ instance Lude.ToQuery ResetDistributionCache where
 
 -- | /See:/ 'mkResetDistributionCacheResponse' smart constructor.
 data ResetDistributionCacheResponse = ResetDistributionCacheResponse'
-  { status ::
-      Lude.Maybe Lude.Text,
-    operation ::
-      Lude.Maybe Operation,
-    createTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The status of the reset cache request.
+    status :: Lude.Maybe Lude.Text,
+    -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operation :: Lude.Maybe Operation,
+    -- | The timestamp of the reset cache request (e.g., @1479734909.17@ ) in Unix time format.
+    createTime :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDistributionCacheResponse' with the minimum fields required to make a request.
 --
--- * 'createTime' - The timestamp of the reset cache request (e.g., @1479734909.17@ ) in Unix time format.
--- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the reset cache request.
+-- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'createTime' - The timestamp of the reset cache request (e.g., @1479734909.17@ ) in Unix time format.
+-- * 'responseStatus' - The response status code.
 mkResetDistributionCacheResponse ::
   -- | 'responseStatus'
   Lude.Int ->

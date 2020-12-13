@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHierarchyPath' smart constructor.
 data HierarchyPath = HierarchyPath'
-  { levelFive ::
-      Lude.Maybe HierarchyGroupSummary,
+  { -- | Information about level five.
+    levelFive :: Lude.Maybe HierarchyGroupSummary,
+    -- | Information about level three.
     levelThree :: Lude.Maybe HierarchyGroupSummary,
+    -- | Information about level four.
     levelFour :: Lude.Maybe HierarchyGroupSummary,
+    -- | Information about level two.
     levelTwo :: Lude.Maybe HierarchyGroupSummary,
+    -- | Information about level one.
     levelOne :: Lude.Maybe HierarchyGroupSummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HierarchyPath' with the minimum fields required to make a request.
 --
 -- * 'levelFive' - Information about level five.
--- * 'levelFour' - Information about level four.
--- * 'levelOne' - Information about level one.
 -- * 'levelThree' - Information about level three.
+-- * 'levelFour' - Information about level four.
 -- * 'levelTwo' - Information about level two.
+-- * 'levelOne' - Information about level one.
 mkHierarchyPath ::
   HierarchyPath
 mkHierarchyPath =

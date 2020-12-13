@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -56,31 +57,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateRealtimeLogConfig' smart constructor.
 data UpdateRealtimeLogConfig = UpdateRealtimeLogConfig'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) for this real-time log configuration.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
     samplingRate :: Lude.Maybe Lude.Integer,
+    -- | The name for this real-time log configuration.
     name :: Lude.Maybe Lude.Text,
+    -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
     endPoints :: Lude.Maybe [EndPoint],
+    -- | A list of fields to include in each real-time log record.
+    --
+    -- For more information about fields, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields> in the /Amazon CloudFront Developer Guide/ .
     fields :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRealtimeLogConfig' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) for this real-time log configuration.
+-- * 'samplingRate' - The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
+-- * 'name' - The name for this real-time log configuration.
 -- * 'endPoints' - Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
 -- * 'fields' - A list of fields to include in each real-time log record.
 --
 -- For more information about fields, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields> in the /Amazon CloudFront Developer Guide/ .
--- * 'name' - The name for this real-time log configuration.
--- * 'samplingRate' - The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
 mkUpdateRealtimeLogConfig ::
   UpdateRealtimeLogConfig
 mkUpdateRealtimeLogConfig =
@@ -168,18 +169,12 @@ instance Lude.ToXML UpdateRealtimeLogConfig where
 
 -- | /See:/ 'mkUpdateRealtimeLogConfigResponse' smart constructor.
 data UpdateRealtimeLogConfigResponse = UpdateRealtimeLogConfigResponse'
-  { realtimeLogConfig ::
-      Lude.Maybe
-        RealtimeLogConfig,
+  { -- | A real-time log configuration.
+    realtimeLogConfig :: Lude.Maybe RealtimeLogConfig,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRealtimeLogConfigResponse' with the minimum fields required to make a request.

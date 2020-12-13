@@ -28,19 +28,15 @@ import Network.AWS.SMS.Types.S3Location
 -- | Contains the location of a validation script.
 --
 -- /See:/ 'mkSource' smart constructor.
-newtype Source = Source' {s3Location :: Lude.Maybe S3Location}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Source = Source'
+  { s3Location :: Lude.Maybe S3Location
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Source' with the minimum fields required to make a request.
 --
--- * 's3Location' - Undocumented field.
+-- * 's3Location' -
 mkSource ::
   Source
 mkSource = Source' {s3Location = Lude.Nothing}

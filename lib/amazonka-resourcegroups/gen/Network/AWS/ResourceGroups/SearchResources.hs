@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.ResourceGroups.SearchResources
     mkSearchResources,
 
     -- ** Request lenses
+    srResourceQuery,
     srNextToken,
     srMaxResults,
-    srResourceQuery,
 
     -- * Destructuring the response
     SearchResourcesResponse (..),
@@ -46,35 +47,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSearchResources' smart constructor.
 data SearchResources = SearchResources'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    resourceQuery :: ResourceQuery
+  { -- | The search query, using the same formats that are supported for resource group definition. For more information, see 'CreateGroup' .
+    resourceQuery :: ResourceQuery,
+    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchResources' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
 -- * 'resourceQuery' - The search query, using the same formats that are supported for resource group definition. For more information, see 'CreateGroup' .
+-- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
+-- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 mkSearchResources ::
   -- | 'resourceQuery'
   ResourceQuery ->
   SearchResources
 mkSearchResources pResourceQuery_ =
   SearchResources'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      resourceQuery = pResourceQuery_
+    { resourceQuery = pResourceQuery_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The search query, using the same formats that are supported for resource group definition. For more information, see 'CreateGroup' .
+--
+-- /Note:/ Consider using 'resourceQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srResourceQuery :: Lens.Lens' SearchResources ResourceQuery
+srResourceQuery = Lens.lens (resourceQuery :: SearchResources -> ResourceQuery) (\s a -> s {resourceQuery = a} :: SearchResources)
+{-# DEPRECATED srResourceQuery "Use generic-lens or generic-optics with 'resourceQuery' instead." #-}
 
 -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
 --
@@ -89,13 +93,6 @@ srNextToken = Lens.lens (nextToken :: SearchResources -> Lude.Maybe Lude.Text) (
 srMaxResults :: Lens.Lens' SearchResources (Lude.Maybe Lude.Natural)
 srMaxResults = Lens.lens (maxResults :: SearchResources -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchResources)
 {-# DEPRECATED srMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The search query, using the same formats that are supported for resource group definition. For more information, see 'CreateGroup' .
---
--- /Note:/ Consider using 'resourceQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srResourceQuery :: Lens.Lens' SearchResources ResourceQuery
-srResourceQuery = Lens.lens (resourceQuery :: SearchResources -> ResourceQuery) (\s a -> s {resourceQuery = a} :: SearchResources)
-{-# DEPRECATED srResourceQuery "Use generic-lens or generic-optics with 'resourceQuery' instead." #-}
 
 instance Page.AWSPager SearchResources where
   page rq rs
@@ -126,9 +123,9 @@ instance Lude.ToJSON SearchResources where
   toJSON SearchResources' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ResourceQuery" Lude..= resourceQuery)
+          [ Lude.Just ("ResourceQuery" Lude..= resourceQuery),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -140,26 +137,22 @@ instance Lude.ToQuery SearchResources where
 
 -- | /See:/ 'mkSearchResourcesResponse' smart constructor.
 data SearchResourcesResponse = SearchResourcesResponse'
-  { queryErrors ::
-      Lude.Maybe [QueryError],
+  { -- | A list of @QueryError@ objects. Each error is an object that contains @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@ are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
+    queryErrors :: Lude.Maybe [QueryError],
+    -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
     nextToken :: Lude.Maybe Lude.Text,
-    resourceIdentifiers ::
-      Lude.Maybe [ResourceIdentifier],
+    -- | The ARNs and resource types of resources that are members of the group that you specified.
+    resourceIdentifiers :: Lude.Maybe [ResourceIdentifier],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchResourcesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 -- * 'queryErrors' - A list of @QueryError@ objects. Each error is an object that contains @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@ are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
+-- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 -- * 'resourceIdentifiers' - The ARNs and resource types of resources that are members of the group that you specified.
 -- * 'responseStatus' - The response status code.
 mkSearchResourcesResponse ::

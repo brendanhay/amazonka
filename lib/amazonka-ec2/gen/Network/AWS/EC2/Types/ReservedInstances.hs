@@ -55,55 +55,66 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedInstances' smart constructor.
 data ReservedInstances = ReservedInstances'
-  { state ::
-      Lude.Maybe ReservedInstanceState,
+  { -- | The state of the Reserved Instance purchase.
+    state :: Lude.Maybe ReservedInstanceState,
+    -- | The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is @USD@ .
     currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | The number of reservations purchased.
     instanceCount :: Lude.Maybe Lude.Int,
+    -- | The Reserved Instance product platform description.
     productDescription :: Lude.Maybe RIProductDescription,
+    -- | The date and time the Reserved Instance started.
     start :: Lude.Maybe Lude.DateTime,
+    -- | The instance type on which the Reserved Instance can be used.
     instanceType :: Lude.Maybe InstanceType,
+    -- | The time when the Reserved Instance expires.
     end :: Lude.Maybe Lude.DateTime,
+    -- | The Availability Zone in which the Reserved Instance can be used.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The scope of the Reserved Instance.
     scope :: Lude.Maybe Scope,
+    -- | The recurring charge tag assigned to the resource.
     recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The Reserved Instance offering type.
     offeringType :: Lude.Maybe OfferingTypeValues,
+    -- | The usage price of the Reserved Instance, per hour.
     usagePrice :: Lude.Maybe Lude.Double,
+    -- | The purchase price of the Reserved Instance.
     fixedPrice :: Lude.Maybe Lude.Double,
+    -- | The ID of the Reserved Instance.
     reservedInstancesId :: Lude.Maybe Lude.Text,
+    -- | The tenancy of the instance.
     instanceTenancy :: Lude.Maybe Tenancy,
+    -- | The offering class of the Reserved Instance.
     offeringClass :: Lude.Maybe OfferingClassType,
+    -- | The duration of the Reserved Instance, in seconds.
     duration :: Lude.Maybe Lude.Integer,
+    -- | Any tags assigned to the resource.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstances' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
--- * 'currencyCode' - The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is @USD@ .
--- * 'duration' - The duration of the Reserved Instance, in seconds.
--- * 'end' - The time when the Reserved Instance expires.
--- * 'fixedPrice' - The purchase price of the Reserved Instance.
--- * 'instanceCount' - The number of reservations purchased.
--- * 'instanceTenancy' - The tenancy of the instance.
--- * 'instanceType' - The instance type on which the Reserved Instance can be used.
--- * 'offeringClass' - The offering class of the Reserved Instance.
--- * 'offeringType' - The Reserved Instance offering type.
--- * 'productDescription' - The Reserved Instance product platform description.
--- * 'recurringCharges' - The recurring charge tag assigned to the resource.
--- * 'reservedInstancesId' - The ID of the Reserved Instance.
--- * 'scope' - The scope of the Reserved Instance.
--- * 'start' - The date and time the Reserved Instance started.
 -- * 'state' - The state of the Reserved Instance purchase.
--- * 'tags' - Any tags assigned to the resource.
+-- * 'currencyCode' - The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is @USD@ .
+-- * 'instanceCount' - The number of reservations purchased.
+-- * 'productDescription' - The Reserved Instance product platform description.
+-- * 'start' - The date and time the Reserved Instance started.
+-- * 'instanceType' - The instance type on which the Reserved Instance can be used.
+-- * 'end' - The time when the Reserved Instance expires.
+-- * 'availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
+-- * 'scope' - The scope of the Reserved Instance.
+-- * 'recurringCharges' - The recurring charge tag assigned to the resource.
+-- * 'offeringType' - The Reserved Instance offering type.
 -- * 'usagePrice' - The usage price of the Reserved Instance, per hour.
+-- * 'fixedPrice' - The purchase price of the Reserved Instance.
+-- * 'reservedInstancesId' - The ID of the Reserved Instance.
+-- * 'instanceTenancy' - The tenancy of the instance.
+-- * 'offeringClass' - The offering class of the Reserved Instance.
+-- * 'duration' - The duration of the Reserved Instance, in seconds.
+-- * 'tags' - Any tags assigned to the resource.
 mkReservedInstances ::
   ReservedInstances
 mkReservedInstances =

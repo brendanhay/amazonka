@@ -46,26 +46,26 @@ module Network.AWS.Kinesis.Types
     -- * ChildShard
     ChildShard (..),
     mkChildShard,
-    csShardId,
-    csParentShards,
     csHashKeyRange,
+    csParentShards,
+    csShardId,
 
     -- * Consumer
     Consumer (..),
     mkConsumer,
-    cConsumerName,
-    cConsumerARN,
     cConsumerStatus,
+    cConsumerARN,
+    cConsumerName,
     cConsumerCreationTimestamp,
 
     -- * ConsumerDescription
     ConsumerDescription (..),
     mkConsumerDescription,
-    cdConsumerName,
-    cdConsumerARN,
     cdConsumerStatus,
-    cdConsumerCreationTimestamp,
+    cdConsumerARN,
     cdStreamARN,
+    cdConsumerName,
+    cdConsumerCreationTimestamp,
 
     -- * EnhancedMetrics
     EnhancedMetrics (..),
@@ -82,15 +82,15 @@ module Network.AWS.Kinesis.Types
     -- * HashKeyRange
     HashKeyRange (..),
     mkHashKeyRange,
-    hkrStartingHashKey,
     hkrEndingHashKey,
+    hkrStartingHashKey,
 
     -- * PutRecordsRequestEntry
     PutRecordsRequestEntry (..),
     mkPutRecordsRequestEntry,
-    prreExplicitHashKey,
-    prreData,
     prrePartitionKey,
+    prreData,
+    prreExplicitHashKey,
 
     -- * PutRecordsResultEntry
     PutRecordsResultEntry (..),
@@ -103,76 +103,76 @@ module Network.AWS.Kinesis.Types
     -- * Record
     Record (..),
     mkRecord,
-    rEncryptionType,
-    rApproximateArrivalTimestamp,
     rSequenceNumber,
-    rData,
+    rEncryptionType,
     rPartitionKey,
+    rData,
+    rApproximateArrivalTimestamp,
 
     -- * SequenceNumberRange
     SequenceNumberRange (..),
     mkSequenceNumberRange,
-    snrEndingSequenceNumber,
     snrStartingSequenceNumber,
+    snrEndingSequenceNumber,
 
     -- * Shard
     Shard (..),
     mkShard,
     sAdjacentParentShardId,
-    sParentShardId,
-    sShardId,
     sHashKeyRange,
+    sParentShardId,
     sSequenceNumberRange,
+    sShardId,
 
     -- * ShardFilter
     ShardFilter (..),
     mkShardFilter,
+    sfType,
     sfTimestamp,
     sfShardId,
-    sfType,
 
     -- * StartingPosition
     StartingPosition (..),
     mkStartingPosition,
     spSequenceNumber,
-    spTimestamp,
     spType,
+    spTimestamp,
 
     -- * StreamDescription
     StreamDescription (..),
     mkStreamDescription,
     sdEncryptionType,
+    sdEnhancedMonitoring,
     sdKeyId,
-    sdStreamName,
-    sdStreamARN,
     sdStreamStatus,
-    sdShards,
     sdHasMoreShards,
+    sdStreamARN,
+    sdShards,
     sdRetentionPeriodHours,
     sdStreamCreationTimestamp,
-    sdEnhancedMonitoring,
+    sdStreamName,
 
     -- * StreamDescriptionSummary
     StreamDescriptionSummary (..),
     mkStreamDescriptionSummary,
     sdsEncryptionType,
+    sdsEnhancedMonitoring,
     sdsKeyId,
     sdsConsumerCount,
-    sdsStreamName,
-    sdsStreamARN,
     sdsStreamStatus,
+    sdsStreamARN,
     sdsRetentionPeriodHours,
     sdsStreamCreationTimestamp,
-    sdsEnhancedMonitoring,
+    sdsStreamName,
     sdsOpenShardCount,
 
     -- * SubscribeToShardEvent
     SubscribeToShardEvent (..),
     mkSubscribeToShardEvent,
-    stseChildShards,
     stseRecords,
-    stseContinuationSequenceNumber,
     stseMillisBehindLatest,
+    stseContinuationSequenceNumber,
+    stseChildShards,
 
     -- * SubscribeToShardEventStream
     SubscribeToShardEventStream (..),
@@ -183,10 +183,10 @@ module Network.AWS.Kinesis.Types
     stsesKMSNotFoundException,
     stsesKMSDisabledException,
     stsesInternalFailureException,
+    stsesSubscribeToShardEvent,
     stsesResourceNotFoundException,
     stsesKMSAccessDeniedException,
     stsesResourceInUseException,
-    stsesSubscribeToShardEvent,
 
     -- * Tag
     Tag (..),
@@ -252,10 +252,6 @@ kinesisService =
           (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
         Lude.Just "throttled_exception"
-      | Lens.has
-          (Lude.hasCode "LimitExceededException" Lude.. Lude.hasStatus 400)
-          e =
-        Lude.Just "request_limit_exceeded"
       | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
       | Lens.has
           (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
@@ -281,6 +277,10 @@ kinesisService =
       | Lens.has (Lude.hasStatus 500) e =
         Lude.Just "general_server_error"
       | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lens.has
+          (Lude.hasCode "LimitExceededException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "request_limit_exceeded"
       | Lude.otherwise = Lude.Nothing
 
 -- | The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .

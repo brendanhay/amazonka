@@ -33,30 +33,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheBehaviorPerPath' smart constructor.
 data CacheBehaviorPerPath = CacheBehaviorPerPath'
-  { path ::
-      Lude.Maybe Lude.Text,
+  { -- | The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (@path/to/assets/*@ ), and file types (@*.html, *jpg, *js@ ). Directories and file paths are case-sensitive.
+    --
+    -- Examples:
+    --
+    --     * Specify the following to cache all files in the document root of an Apache web server running on a Lightsail instance.
+    -- @var/www/html/@
+    --
+    --
+    --     * Specify the following file to cache only the index page in the document root of an Apache web server.
+    -- @var/www/html/index.html@
+    --
+    --
+    --     * Specify the following to cache only the .html files in the document root of an Apache web server.
+    -- @var/www/html/*.html@
+    --
+    --
+    --     * Specify the following to cache only the .jpg, .png, and .gif files in the images sub-directory of the document root of an Apache web server.
+    -- @var/www/html/images/*.jpg@
+    -- @var/www/html/images/*.png@
+    -- @var/www/html/images/*.gif@
+    -- Specify the following to cache all files in the images sub-directory of the document root of an Apache web server.
+    -- @var/www/html/images/@
+    path :: Lude.Maybe Lude.Text,
+    -- | The cache behavior for the specified path.
+    --
+    -- You can specify one of the following per-path cache behaviors:
+    --
+    --     * __@cache@ __ - This behavior caches the specified path.
+    --
+    --
+    --     * __@dont-cache@ __ - This behavior doesn't cache the specified path.
     behavior :: Lude.Maybe BehaviorEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheBehaviorPerPath' with the minimum fields required to make a request.
---
--- * 'behavior' - The cache behavior for the specified path.
---
--- You can specify one of the following per-path cache behaviors:
---
---     * __@cache@ __ - This behavior caches the specified path.
---
---
---     * __@dont-cache@ __ - This behavior doesn't cache the specified path.
---
 --
 -- * 'path' - The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (@path/to/assets/*@ ), and file types (@*.html, *jpg, *js@ ). Directories and file paths are case-sensitive.
 --
@@ -80,6 +93,16 @@ data CacheBehaviorPerPath = CacheBehaviorPerPath'
 -- @var/www/html/images/*.gif@
 -- Specify the following to cache all files in the images sub-directory of the document root of an Apache web server.
 -- @var/www/html/images/@
+--
+--
+-- * 'behavior' - The cache behavior for the specified path.
+--
+-- You can specify one of the following per-path cache behaviors:
+--
+--     * __@cache@ __ - This behavior caches the specified path.
+--
+--
+--     * __@dont-cache@ __ - This behavior doesn't cache the specified path.
 mkCacheBehaviorPerPath ::
   CacheBehaviorPerPath
 mkCacheBehaviorPerPath =
